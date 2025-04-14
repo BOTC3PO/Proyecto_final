@@ -315,5 +315,9 @@ pyrightconfig.json
 
 
 start-dev.ps1
+# Ignorar archivos CSS específicos
 app/static/css/input.css
 app/static/css/output.css
+
+# Ignorar todos los archivos .css dentro de cualquier subcarpeta
+**/*.css
