@@ -17,11 +17,17 @@ const gameState = {
     currentExpression: [],
     operatorsAllowed: [],
     minCorrectForDifficulty: 5,
+    isDesafio: false,
+    isAdvancedMode: false,
     minCorrectForInversedMode: 3,
     isDiceModeActive: false,
     minCorrectForDiceMode: 10,
-    minCorrectForFractions: 15
-
+    minCorrectForFractions: 15,
+    isFractions: false,
+    totalCorrectAnswers: 0,
+    Dificulty: "facil",
+    minRespuestas:10,
+    levelScale:1.5,
 };
 
 
@@ -77,7 +83,34 @@ function startGame() {
        gameState.useFractionsDecimals = false;
        gameState.gameStarted = true;
        gameState.Dificulty = "facil";
-       
+
+       gameState.operatorsAllowed = [];
+       const operatorsConfig = {
+        sum: sumOp.checked,
+        subtract: subOp.checked,
+        multiply: multOp.checked,
+        divide: divOp.checked,
+        power: powOp.checked,
+        root: rootOp.checked
+    };
+
+    gameState.operatorsAllowed = [];
+    if (operatorsConfig.sum) gameState.operatorsAllowed.push('+');
+    if (operatorsConfig.subtract) gameState.operatorsAllowed.push('-');
+    if (operatorsConfig.multiply) gameState.operatorsAllowed.push('*');
+    if (operatorsConfig.divide) gameState.operatorsAllowed.push('/');
+    if (operatorsConfig.power) gameState.operatorsAllowed.push('^');
+    if (operatorsConfig.root) gameState.operatorsAllowed.push('√');
+    
+    if (gameState.operatorsAllowed.length === 0) {
+        console.error("Debes seleccionar al menos un operador");
+        resetGame();
+        return;
+    }
+
+    generateQuestion();
+
+
 }
 
 //iniciar reloj :)
@@ -132,13 +165,13 @@ function updateDisplay() {
     console.log(`Combo: ${gameState.combo}x`);
     elements.comboDisplay.innerHTML = gameState.combo; 
     console.log(`Correctas: ${gameState.correctAnswers}`);
-    elements.correctDisplay.innerHTML=gameState.correctAnswers;
+    elements.correctDisplay.innerHTML= gameState.totalCorrectAnswers;
     // Actualizar barra de progreso
     const nextLevel = getNextLevelThreshold();
     if (nextLevel) {
-        const progress = (gameState.correctAnswers / nextLevel) * 100;
+        const progress = (gameState.correctAnswers / getNextLevelThreshold()) * 100;
         console.log(`Progreso: ${Math.min(progress, 100)}%`);
-        elements.progressFill.innerHTML = `${Math.min(progress, 100)}%`
+        elements.progressFill.innerHTML = `${Math.min(progress, 100).toFixed(2)}%`;
     }
 }
 
@@ -167,16 +200,45 @@ function setGameMode() {
 }
 
 
+
+
+
+
 function checkLevelUp() {
-    const nextLevel = getNextLevelThreshold();
-    if (gameState.correctAnswers >= nextLevel) {
+    const threshold = getNextLevelThreshold();
+    if (gameState.correctAnswers >= threshold) {
         gameState.level += 1;
-        console.log(`¡Nivel aumentado! Ahora estás en el nivel ${gameState.level}`);
-        // Podés reiniciar combo o ajustar dificultad aquí si querés
+        gameState.correctAnswers = 0; // reinicio aquí
+        console.log(`¡Nivel ${gameState.level} alcanzado!`);
         updateDisplay();
     }
 }
 
+// Manejar respuesta correcta
+function onCorrectAnswer() {
+    // Incrementar combo y puntuación
+    gameState.combo++;
+    gameState.correctAnswers++;
+    gameState.totalCorrectAnswers ++;
+    
+    // Calcular puntuación basada en nivel y combo
+    let points = 10 * gameState.level; // Puntos base
+    points *= gameState.combo; // Multiplicador de combo
+    
+    // Bonus para modos especiales
+    if (gameState.isInversedMode) points *= 1.5;
+    if (gameState.isDiceMode) points *= 2;
+    if (gameState.useFractionsDecimals) points += 100; // Bonus para fracciones/decimales
+    
+    gameState.score += Math.floor(points);
+    
+    // Feedback
+    console.log(`¡Correcto! +${Math.floor(points)} puntos`);
+    
+    // Actualizar nivel si es necesario
+    checkLevelUp();
+    return Math.floor(points);
+}
 
 function resetGame() {
     gameState.gameStarted = false;
