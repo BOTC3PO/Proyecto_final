@@ -7,38 +7,43 @@
     <title>Homepage</title>
 </head>
 <body >
-    <nav class="px-8 bg-blue-600 shadow shadow-gray-300 md:px-auto">
-        <div class="container flex flex-wrap items-center justify-between mx-auto md:h-16 h-28 md:px-4 md:flex-nowrap">
-            <!-- Logo -->
-            <div class="text-indigo-500 md:order-1">
-                <!-- Heroicon - Chip Outline -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
-                </svg>
-            </div>
-            <div class="order-3 w-full text-white md:w-auto md:order-2">
-                <ul class="flex justify-between font-semibold">
-                    <!-- Active Link = text-indigo-500
-                    Inactive Link = hover:text-indigo-500 -->
-                    <li class="text-white md:px-4 md:py-2"><a href="#">Inicio</a></li>
-                    <li class="md:px-4 md:py-2 hover:text-white"><a href="#">Metodologia</a></li>
-                    <li class="md:px-4 md:py-2 hover:text-white"><a href="#">Juegos Educativos</a></li>
-                    <li class="md:px-4 md:py-2 hover:text-white"><a href="#">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="order-2 md:order-3">
-                <button class="flex items-center gap-2 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-gray-50 rounded-xl">
-                    <!-- Heroicons - Login Solid -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Iniciar Sesión</span>
-                </button>
-            </div>
-        </div>
-    </nav>
+    {% extends "navbar.html" %}
+
+    {% block content %}
+<div>
+<h2 class="text-6xl font-bold text-blue-600 text-center mt-8 mb-3">Revoluciona el Aprendizaje</h2>
+<h3 class="text text-center mb-5">Aprende a tu ritmo con módulos interactivos y juegos educativos personalizados.</h3>
+</div>
+<div class="flex  justify-evenly w-full h-12" >
+    <button class="bg-blue-500">
+        <p class="text-white">Empieza como Estudiante</p>
+    </button>
+    <button class="bg-gray-400">
+        <p>Explora como Profesor</p>
+    </button>
+</div>
+
+<div class="bg-gray-50">
+    <div>
+        <p>Aprendizaje Personalizado</p>
+        <p>Los módulos se adaptan a tu nivel y progreso.</p>
+    </div>
+    <div>
+        <p>Juegos Educativos</p>
+        <p>Aprende jugando y diviértete mientras refuerzas tus conocimientos.</p>
+    </div>
+    <div>
+        <p>Herramientas para Profesores</p>
+        <p>Crea contenido y monitorea el desempeño de tus alumnos.</p>
+    </div>
+    <div>
+        <p>Acceso Seguro</p>
+        <p>Protegemos tus datos y garantizamos privacidad en todo momento.</p>
+    </div>
+</div>
+{% endblock %}
 
 
-    
+
 </body>
 </html>

@@ -312,3 +312,8 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,node
+
+
+start-dev.ps1
+app/static/css/input.css
+app/static/css/output.css
