@@ -28,6 +28,7 @@ const gameState = {
     Dificulty: "facil",
     minRespuestas:10,
     levelScale:1.5,
+    maxterms:5
 };
 
 
@@ -248,3 +249,35 @@ function resetGame() {
 }
 
 
+// Generar una nueva pregunta
+function generateQuestion() {
+    // Configurar rangos numéricos según nivel
+    let min = 1;  // Valor por defecto o desde configuración
+    let max = 10; // Valor por defecto o desde configuración
+
+        // Decidir cuántos términos incluir (entre 2 y 5)
+    // Posibilidad de aumentar términos con el nivel
+    const maxTerms  = Math.min(2 + Math.floor(gameState.level / 2), gameState.maxterms);
+    const numTerms = Math.floor(Math.random() * (maxTerms - 1)) + 2;
+
+
+    // Ajustar rango según nivel
+    if (gameState.level >= 2) {
+        max = Math.max(max, 10);
+    }
+    if (gameState.level >= 3) {
+        max = Math.max(max, 100);
+    }
+    if (gameState.isAdvancedMode) {
+        max = Math.max(max, 1000);
+    }
+    
+    // Si estamos en modo dados
+    if (gameState.isDiceMode) {
+        generateDiceModeQuestion(min, max);
+        return;
+    }
+
+    
+
+}
