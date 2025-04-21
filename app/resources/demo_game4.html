@@ -121,6 +121,28 @@
     .incorrect {
       @apply text-red-500;
     }
+
+    @keyframes fuegoTexto {
+    0% { transform: scale(1); color: #ff5722; text-shadow: 0 0 5px orange; }
+    50% { transform: scale(1.1); color: #ff9800; text-shadow: 0 0 20px red; }
+    100% { transform: scale(1); color: #ff5722; text-shadow: 0 0 5px orange; }
+  }
+
+  .desafio-texto {
+    animation: fuegoTexto 1s ease-in-out;
+  }
+
+  @keyframes shakeContenedor {
+    0% { transform: translate(0); }
+    25% { transform: translate(-4px, 4px); }
+    50% { transform: translate(4px, -4px); }
+    75% { transform: translate(-4px, -4px); }
+    100% { transform: translate(0); }
+  }
+
+  .temblor {
+    animation: shakeContenedor 0.5s ease-in-out;
+  }
   </style>
   <title>Juego Matemático</title>
 </head>
@@ -142,7 +164,7 @@
             <input type="number" id="maxNumber" value="20" class="p-2 rounded border border-gray-300 w-full">
           </div>
 
-          
+
 
           <div class="bg-gray-50 rounded-lg shadow-sm p-4 mb-5 border-l-4 border-blue-400 ">
             <label for="clase" class="block font-semibold text-gray-700 mb-2">clase</label>
@@ -150,64 +172,99 @@
               class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all">
               <option value="000" selected>ninguno</option>
               <option value="001">aprender a sumar</option>
+              <option value="002">sumando decenas</option>
+              <option value="003">sumando centenas</option>
+              <option value="004">sumando unidades de mil</option>
+              <option value="005">sumando mas alla del mil</option>
+              <option value="006">aprender a restar</option>
+              <option value="007">restarndo decenas</option>
+              <option value="008">restarndo centenas</option>
+              <option value="009">restarndo unidades de mil</option>
+              <option value="010">restarndo mas alla del mil</option>
+              <option value="011">aprender a multiplicar</option>
+              <option value="012">multiplicando decenas</option>
+              <option value="013">multiplicando centenas</option>
+              <option value="014">multiplicando unidades de mil</option>
+              <option value="015">multiplicando mas alla del mil</option>
+              <option value="016">aprender a dividir</option>
+              <option value="017">dividiendo decenas</option>
+              <option value="018">dividiendo centenas</option>
+              <option value="019">dividiendo unidades de mil</option>
+              <option value="020">dividiendo mas alla del mil</option>
+              <option value="021">concepto de potencia</option>
+              <option value="022">potencias comunes</option>
+              <option value="023">potencias de 10</option>
+              <option value="024">potencias de 2</option>
+              <option value="025">patrones de potencias</option>
+              <option value="026">consepto de raiz</option>
+              <option value="027">raiz cuadrada</option>
+              <option value="028">raiz cubica</option>
+              <option value="029">raiz inperfecta</option>
+              <option value="333" hidden>¿El Desafio?</option>
+              <option value="666" hidden>¿Desafiando a diofanto?</option>
+              <option value="999" hidden>¿El final?</option>
+              <option value="1001" hidden>El desafio definitivo</option>
             </select>
             <p class="text-sm text-gray-600 mt-2 italic hidden">
               descripcion del modo
             </p>
           </div>
 
-          <div class="bg-gray-50 rounded-lg shadow-sm p-4 mb-5 border-l-4 border-orange-400">
+          <div id="contenedor" class="bg-gray-50 rounded-lg shadow-sm p-4 mb-5 border-l-4 border-orange-400 relative transition-all">
             <label for="Dificultad" class="block font-semibold text-gray-700 mb-2">Dificultad</label>
             <select name="Dificultad" id="Dificultad"
               class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-400 focus:border-green-400 outline-none transition-all">
-              <option value="facil" class="bg-green-50">facil</option>
-              <option value="medio" class="bg-yellow-50">medio</option>
-              <option value="dificil" class="bg-red-50">dificil</option>
-              <option value="desafio" class="bg-blue-50">desafio</option>
+              <option value="Fácil">Fácil</option>
+              <option value="Normal">Normal</option>
+              <option value="Difícil">Difícil</option>
+              <option value="Desafío">Desafío</option>
             </select>
-            <p class="text-sm text-gray-600 mt-2 italic">
-              descripcion del modo
+          
+            <p id="descripcion" class="text-sm text-gray-600 mt-2 italic transition-all ">
+              Selecciona una dificultad.
             </p>
+          
           </div>
 
           <div class="col-span-2 grid grid-cols-1 md:grid-cols-2">
             <h4 class="font-semibold mb-2 col-span-1 md:col-span-2">Operadores permitidos:</h4>
             <div>
-            <div class="flex items-center gap-2 mb-1">
-              <input type="checkbox" id="sumOp" checked>
-              <label for="sumOp">Suma (+)</label>
+              <div class="flex items-center gap-2 mb-1">
+                <input type="checkbox" id="sumOp" checked>
+                <label for="sumOp">Suma (+)</label>
+              </div>
+              <div class="flex items-center gap-2 mb-1">
+                <input type="checkbox" id="subOp" checked>
+                <label for="subOp">Resta (-)</label>
+              </div>
+              <div class="flex items-center gap-2 mb-1">
+                <input type="checkbox" id="multOp" checked>
+                <label for="multOp">Multiplicación (×)</label>
+              </div>
             </div>
-            <div class="flex items-center gap-2 mb-1">
-              <input type="checkbox" id="subOp" checked>
-              <label for="subOp">Resta (-)</label>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <input type="checkbox" id="divOp" checked>
+                <label for="divOp">División (÷)</label>
+              </div>
+              <div class="flex items-center gap-2 mb-1">
+                <input type="checkbox" id="powOp">
+                <label for="powOp">Potencia (^)</label>
+              </div>
+              <div class="flex items-center gap-2 mb-1">
+                <input type="checkbox" id="rootOp">
+                <label for="rootOp">Raíz (√)</label>
+              </div>
             </div>
-            <div class="flex items-center gap-2 mb-1">
-              <input type="checkbox" id="multOp" checked>
-              <label for="multOp">Multiplicación (×)</label>
-            </div>
-          </div>
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <input type="checkbox" id="divOp" checked>
-              <label for="divOp">División (÷)</label>
-            </div>
-            <div class="flex items-center gap-2 mb-1">
-              <input type="checkbox" id="powOp">
-              <label for="powOp">Potencia (^)</label>
-            </div>
-            <div class="flex items-center gap-2 mb-1">
-              <input type="checkbox" id="rootOp">
-              <label for="rootOp">Raíz (√)</label>
-            </div>
-          </div>
           </div>
         </div>
         <button id="startGameBtn"
           class="mt-4 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded w-full transition-colors duration-300">Iniciar
           Juego</button>
 
-          <button id="save"
-          class="mt-4 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded w-full transition-colors duration-300 hidden">Guardar Configuracion</button>
+        <button id="save"
+          class="mt-4 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded w-full transition-colors duration-300 hidden">Guardar
+          Configuracion</button>
       </div>
 
 
@@ -234,8 +291,8 @@
 
       <div
         class="question-panel p-4 rounded-lg bg-yellow-50 text-lg min-h-24 flex flex-col justify-center items-center">
-        <div id="modeIndicator"
-          class="bg-yellow-300 text-gray-800 py-1 px-3 rounded font-bold  mb-2 hidden">Modo Normal</div>
+        <div id="modeIndicator" class="bg-yellow-300 text-gray-800 py-1 px-3 rounded font-bold  mb-2 hidden">Modo Normal
+        </div>
         <div id="questionText">Presiona "Iniciar Juego" para comenzar</div>
         <div id="expressionDisplay"
           class="min-h-10 bg-white p-3 rounded border border-gray-300 mt-3 text-center text-lg w-full hidden"></div>
@@ -272,7 +329,7 @@
 
       <!-- Sistema de animación de dados que alterna entre D6 y D10 según el nivel (versión corregida) -->
       <div id="diceModal"
-        class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 opacity-100 pointer-events-none transition-opacity duration-300">
         <div
           class="bg-white rounded-2xl p-8 text-center shadow-2xl max-w-[90%] w-[350px] transform scale-90 transition-transform duration-300">
           <h2 class="text-xl font-bold mb-4">¡Lanzando los dados!</h2>
