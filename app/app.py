@@ -10,7 +10,7 @@ def hello():
 
 @app.route('/demo')
 def demo():
-    return render_template('demo_game4.html')
+    return render_template('demo.html')
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True, host='0.0.0.0')
 
