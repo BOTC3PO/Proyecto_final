@@ -9,6 +9,7 @@ const gameState = {
     currentQuestion: null,
     currentAnswer: null,
     isInversedMode: false,
+    allowBlanks: false,
     isAdvancedMode: false,
     isDiceMode: false,
     useFractionsDecimals: false,
@@ -20,7 +21,6 @@ const gameState = {
     isDesafio: false,
     isAdvancedMode: false,
     minCorrectForInversedMode: 3,
-    isDiceModeActive: false,
     minCorrectForDiceMode: 10,
     minCorrectForFractions: 15,
     isFractions: false,
@@ -34,6 +34,12 @@ const gameState = {
     HPerror: 0,
     endTime: 30000,
     tiempofactor: 1,
+        // Propiedades adicionales para el generador:
+    // Estos arrays se llenarán dinámicamente según la dificultad/nivel.
+    operadoresGenerados: [], // Array de operadores para la pregunta actual
+    numerosGenerados: [], // Matriz de números para la pregunta actual
+    exponentesGenerados: [], // Array de exponentes para la pregunta actual
+    parentesisGenerados: [], // Array de probabilidades de paréntesis
 };
 
 //probabilidad de generar un termino dentro de un parentesis
@@ -306,7 +312,7 @@ function checkLevelUp() {
     }
 }
 
-
+/*
 function generador() {
     switch (gameState.Dificulty) {
         case "facil":
@@ -366,16 +372,423 @@ function generador() {
                     break;
                 default:
                     break;
-            }*/
+            }
             break;
         default:
             break;
     }
 }
+*/
+
+/*generador*/
+
+function generador() {
+    gameState.isInversedMode = false;
+    gameState.isAdvancedMode = false;
+    gameState.allowBlanks = false;
+    gameState.isFractions = false;
+
+    gameState.maxterms = Math.min(gameState.maxlevel, Math.max(2, Math.floor(gameState.level / 2) + 1));
+    gameState.HPerror = 5 + ((33.33 - 5) / (gameState.maxlevel - 1)) * (gameState.level - 1);
+    gameState.HPerror = Math.min(33.33, Math.max(5, gameState.HPerror));
+
+    /* 
+    if (gameState.totalCorrectAnswers >= gameState.minCorrectForFractions) {
+        gameState.useFractionsDecimals = true;
+    }
+    if (gameState.totalCorrectAnswers >= gameState.minCorrectForInversedMode) {
+        // Probability for inverse mode. Increases with level or combo.
+        if (Math.random() < (0.15 + (gameState.level * 0.01))) { // Example: 15% base + 1% per level
+            gameState.isInversedMode = true;
+        }
+    }
+    if (gameState.totalCorrectAnswers >= gameState.minCorrectForDiceMode) {
+        // Probability for dice mode. Can be tied to a specific level or occurrence.
+        if (Math.random() < 0.1) { // Example: 10% chance
+            gameState.isDiceMode = true;
+            // When dice mode activates, it takes precedence for `maxterms`
+            // and possibly other parameters based on the dice roll.
+            mostrarDadosEntreNiveles();
+            // The actual question generation will wait for the dice roll to complete
+            return; // Exit here and let `mostrarDadosEntreNiveles` call `generateQuestion`
+        }
+    }
+
+    */
+ switch (gameState.Dificulty) {
+        case "facil":
+            gameState.maxterms = Math.min(3, gameState.level + 1);
+            gameState.minNumber = 1;
+            gameState.maxNumber = 10 * gameState.level; 
+            gameState.isAdvancedMode = false; 
+            gameState.isFractions = false; 
+            gameState.allowBlanks = false; 
+            break;
+
+        case "normal":
+            gameState.maxterms = Math.min(4, Math.floor(gameState.level / 2) + 2); 
+            gameState.minNumber = 5;
+            gameState.maxNumber = 20 * gameState.level;
+            if (gameState.level >= 3 && Math.random() < 0.1) {
+                gameState.isAdvancedMode = true;
+            }
+            gameState.isFractions = false; 
+            gameState.allowBlanks = false; 
+            break;
+
+        case "dificil":
+            gameState.maxterms = Math.min(5, gameState.level + 1); 
+            gameState.minNumber = 10;
+            gameState.maxNumber = 50 * gameState.level;
+            gameState.isAdvancedMode = true; 
+            if (Math.random() < 0.25) {
+                gameState.isInversedMode = true;
+            }
+            if (gameState.level >= 5 && Math.random() < 0.15) { 
+                gameState.isFractions = true;
+            }
+            gameState.allowBlanks = false; 
+            break;
+
+        case "desafio":
+            gameState.isDesafio = true;
+            if (gameState.combo > 0) {
+                gameState.levelScale += gameState.combo * 0.02; 
+            } else {
+                gameState.levelScale = Math.max(1.1, gameState.levelScale - 0.05); 
+            }
+            gameState.isDiceMode = true; 
+            mostrarDadosEntreNiveles(); 
+            return; 
+
+        default:
+            // Default to normal if no difficulty is set
+            console.warn("Dificultad no reconocida, estableciendo a 'normal'.");
+            gameState.Dificulty = "normal";
+            generador(); 
+            return;
+    }
+
+
+}
+
+
+/*ia generated*/
+function generador() {
+    // Reset transient states for the new question/level
+    gameState.isInversedMode = false;
+    gameState.isAdvancedMode = false;
+    gameState.allowBlanks = false; // Se resetea en cada chequeo
+    gameState.isFractions = false; // Se resetea si no está globalmente activado
+    // gameState.isFractions = false; // This might be persistent once unlocked or tied to level
+
+    // Adjust `maxterms` and `HPerror` dynamically based on difficulty and level
+    // These values can be further refined based on playtesting
+    gameState.maxterms = Math.min(gameState.maxlevel, Math.max(2, Math.floor(gameState.level / 2) + 1));
+    gameState.HPerror = 5 + ((33.33 - 5) / (gameState.maxlevel - 1)) * (gameState.level - 1);
+    gameState.HPerror = Math.min(33.33, Math.max(5, gameState.HPerror)); // Cap HP error
+
+    // Determine if certain game modes should activate based on total correct answers
+    // These thresholds can be adjusted
+    if (gameState.totalCorrectAnswers >= gameState.minCorrectForFractions) {
+        gameState.useFractionsDecimals = true;
+    }
+    if (gameState.totalCorrectAnswers >= gameState.minCorrectForInversedMode) {
+        // Probability for inverse mode. Increases with level or combo.
+        if (Math.random() < (0.15 + (gameState.level * 0.01))) { // Example: 15% base + 1% per level
+            gameState.isInversedMode = true;
+        }
+    }
+    if (gameState.totalCorrectAnswers >= gameState.minCorrectForDiceMode) {
+        // Probability for dice mode. Can be tied to a specific level or occurrence.
+        if (Math.random() < 0.1) { // Example: 10% chance
+            gameState.isDiceMode = true;
+            // When dice mode activates, it takes precedence for `maxterms`
+            // and possibly other parameters based on the dice roll.
+            mostrarDadosEntreNiveles();
+            // The actual question generation will wait for the dice roll to complete
+            return; // Exit here and let `mostrarDadosEntreNiveles` call `generateQuestion`
+        }
+    }
+
+
+    // Specific logic for different difficulty settings
+    switch (gameState.Dificulty) {
+        case "facil":
+            // Easy mode: simpler operations, fewer terms, basic numbers
+            gameState.maxterms = Math.min(3, gameState.level + 1); // Max 3 terms initially, grows with level
+            gameState.minNumber = 1;
+            gameState.maxNumber = 10 * gameState.level; // Numbers grow with level
+            gameState.isAdvancedMode = false; // No advanced mode in easy
+            gameState.isFractions = false; // No fractions in easy
+            gameState.allowBlanks = false; // No blanks in easy
+            break;
+
+        case "normal":
+            // Normal mode: more terms, wider number range, occasional advanced features
+            gameState.maxterms = Math.min(4, Math.floor(gameState.level / 2) + 2); // Max 4 terms, grows faster
+            gameState.minNumber = 5;
+            gameState.maxNumber = 20 * gameState.level;
+            // Small chance for advanced mode after some levels
+            if (gameState.level >= 3 && Math.random() < 0.1) {
+                gameState.isAdvancedMode = true;
+            }
+            gameState.isFractions = false; // Still no fractions in normal, unless unlocked globally
+            gameState.allowBlanks = false; // No blanks in normal
+            break;
+
+        case "dificil":
+            // Difficult mode: focuses on scaling complexity
+            gameState.maxterms = Math.min(5, gameState.level + 1); // Up to 5 terms, scales aggressively
+            gameState.minNumber = 10;
+            gameState.maxNumber = 50 * gameState.level;
+            gameState.isAdvancedMode = true; // Advanced mode more likely
+            // Higher chance for inverse mode as well
+            if (Math.random() < 0.25) {
+                gameState.isInversedMode = true;
+            }
+            if (gameState.level >= 5 && Math.random() < 0.15) { // Small chance for fractions at higher levels
+                gameState.isFractions = true;
+            }
+            gameState.allowBlanks = false; // No blanks by default
+            break;
+
+        case "desafio":
+            // Challenge mode: highly unpredictable and dynamic
+            gameState.isDesafio = true; // Mark as challenge mode for specific behaviors
+
+            // Combo affects level scale, making it harder or easier
+            if (gameState.combo > 0) {
+                gameState.levelScale += gameState.combo * 0.02; // Combo makes it scale faster
+            } else {
+                gameState.levelScale = Math.max(1.1, gameState.levelScale - 0.05); // No combo makes it slightly easier
+            }
+
+            // Dice roll determines `maxterms` and activates modifiers.
+            // `mostrarDadosEntreNiveles` is called here.
+            // The `generateQuestion` function should then be called after the dice roll animation.
+            gameState.isDiceMode = true; // Ensure dice mode is active for this.
+            mostrarDadosEntreNiveles(); // This function will set gameState.maxterms and other modes
+            return; // Exit here; the next question will be generated after the dice roll resolves.
+
+        default:
+            // Default to normal if no difficulty is set
+            console.warn("Dificultad no reconocida, estableciendo a 'normal'.");
+            gameState.Dificulty = "normal";
+            generador(); // Re-call with default
+            return;
+    }
+
+    // After setting game parameters, generate the actual question.
+    // This is a placeholder for your actual question generation logic.
+    generateQuestion();
+}
+
+
+function generateQuestion() {
+    let questionExpression = "";
+    let finalAnswer;
+    let numbersForEvaluation = []; // Para construir la expresión real para evaluar
+    let expressionPartsForDisplay = []; // Para construir la expresión para mostrar, con X o ?
+
+    // Paso 1: Construir la expresión matemática (y sus componentes para posterior manipulación)
+    // Esta parte es crucial y requiere un algoritmo robusto para expresiones complejas.
+    // Para simplificar, asumiremos una estructura que nos permite extraer los operandos fácilmente.
+
+    // Ejemplo simplificado de construcción de una expresión lineal:
+    // Asumimos que `gameState.numerosGenerados` contiene arrays como `[[8], [3]]`
+    // y `gameState.operadoresGenerados` como `['/']`
+    // y `gameState.parentesisGenerados` como `[false, true]`
+    // que llevarían a una expresión como "80 / (3 + x)"
+
+    let originalOperandos = []; // Para almacenar los valores originales de los números.
+    let fullExpressionString = ""; // La expresión completa antes de cualquier modificación visual.
+
+    // Construcción de la expresión y extracción de operandos
+    let currentTermIndex = 0;
+    for (let i = 0; i < gameState.numerosGenerados.length; i++) {
+        let currentNumbersInPart = gameState.numerosGenerados[i];
+        let termString = "";
+
+        if (gameState.parentesisGenerados[i]) { // Si hay paréntesis en este término
+            termString += "(";
+            for (let j = 0; j < currentNumbersInPart.length; j++) {
+                termString += currentNumbersInPart[j];
+                originalOperandos.push(currentNumbersInPart[j]); // Guardar el número original
+                if (j < currentNumbersInPart.length - 1) {
+                    termString += ` ${gameState.operatorsAllowed[0] || '+'} `; // Usar un operador simple para el ejemplo
+                }
+            }
+            termString += ")";
+        } else { // Sin paréntesis
+            termString += currentNumbersInPart[0];
+            originalOperandos.push(currentNumbersInPart[0]); // Guardar el número original
+        }
+
+        // Añadir exponente si aplica (simplificado)
+        if (gameState.exponentesGenerados[i] > 1) {
+            termString = `${termString}^{${gameState.exponentesGenerados[i]}}`;
+        }
+
+        expressionPartsForDisplay.push(termString);
+
+        if (i < gameState.operadoresGenerados.length) {
+            expressionPartsForDisplay.push(gameState.operadoresGenerados[i]);
+        }
+    }
+
+    fullExpressionString = expressionPartsForDisplay.join(' ');
+
+    // Paso 2: Calcular el resultado de la expresión original
+    try {
+        // La función `evaluateExpression` debe ser robusta para manejar paréntesis y exponentes
+        finalAnswer = evaluateExpression(fullExpressionString);
+
+        // **Prevenir división por cero o resultados no finitos (ej. Infinity, NaN)**
+        // y también división con resultado 0, como pediste.
+        if (fullExpressionString.includes('/') && (finalAnswer === 0 || !isFinite(finalAnswer))) {
+             console.warn("División por cero o resultado no válido (0/Infinity/NaN). Regenerando pregunta.");
+             generador();
+             return;
+        }
+
+    } catch (error) {
+        console.error("Error al evaluar la expresión:", error);
+        generador(); // Regenerar en caso de error de evaluación
+        return;
+    }
+
+    // Paso 3: Aplicar lógica de `isInversedMode` o `allowBlanks` o Normal
+    let questionDisplayString = "";
+    let actualAnswerForPlayer; // La respuesta que el jugador debe ingresar
+
+    if (gameState.isInversedMode) {
+        // Modo "Despeje de Incógnitas": Se oculta un operando por 'x' y se muestra el resultado
+        // Se elige un operando al azar para ocultar.
+        const randomIndexToHide = Math.floor(Math.random() * originalOperandos.length);
+        const hiddenValue = originalOperandos[randomIndexToHide];
+
+        // Sustituir el valor oculto por 'x' en la expresión para mostrar
+        // Esto es **COMPLEJO** para expresiones anidadas con `replace` simple.
+        // Lo ideal sería reconstruir la expresión visualmente.
+        let tempDisplayParts = [...expressionPartsForDisplay]; // Clonar para modificar visualmente
+
+        // Identificar dónde está el número a ocultar en `expressionPartsForDisplay`
+        // y reemplazarlo por 'x'. Esto es una simplificación.
+        // Un enfoque más robusto implicaría un recorrido del árbol de la expresión.
+        let foundAndReplaced = false;
+        for (let i = 0; i < tempDisplayParts.length; i++) {
+            // Buscamos si la parte es un número (o una sub-expresión que contenga el número)
+            // y si corresponde al índice que queremos ocultar.
+            // Para este ejemplo, solo buscaremos la primera ocurrencia del número oculto.
+            if (tempDisplayParts[i].includes(hiddenValue.toString()) && originalOperandos[randomIndexToHide] === hiddenValue && !foundAndReplaced) {
+                // Aquí deberías ser más inteligente para reemplazar dentro de paréntesis si es necesario.
+                // Por ahora, solo reemplazaremos el número directamente si es una parte simple.
+                if (tempDisplayParts[i].toString() === hiddenValue.toString()) {
+                    tempDisplayParts[i] = "x";
+                    foundAndReplaced = true;
+                } else if (tempDisplayParts[i].includes(`(${hiddenValue})`)) { // Para casos con paréntesis simples
+                    tempDisplayParts[i] = tempDisplayParts[i].replace(new RegExp(`\\b${hiddenValue}\\b`), "x");
+                    foundAndReplaced = true;
+                }
+            }
+        }
+        // Si no se encontró o reemplazó bien, se puede simplificar al final o generar sin `x`.
+        if (!foundAndReplaced) { // Si la sustitución fue demasiado compleja, revertir a modo normal.
+             console.warn("No se pudo ocultar 'x' de forma robusta. Volviendo a modo normal.");
+             gameState.isInversedMode = false; // Desactivar este modo para la pregunta actual
+             // La lógica siguiente de `else if (gameState.allowBlanks)` o `else` se aplicará.
+             questionDisplayString = `${fullExpressionString} = ?`;
+             actualAnswerForPlayer = finalAnswer;
+        } else {
+             questionDisplayString = `${tempDisplayParts.join(' ')} = ${finalAnswer}`;
+             actualAnswerForPlayer = hiddenValue; // El jugador debe encontrar el valor oculto
+        }
+
+
+    } else if (gameState.allowBlanks) {
+        // Modo "Espacios en Blanco" general: Se oculta un operando por '_' y se pide el resultado
+        const randomIndexToHide = Math.floor(Math.random() * originalOperandos.length);
+        const hiddenValue = originalOperandos[randomIndexToHide];
+
+        let tempDisplayParts = [...expressionPartsForDisplay];
+        let foundAndReplaced = false;
+        for (let i = 0; i < tempDisplayParts.length; i++) {
+            if (tempDisplayParts[i].includes(hiddenValue.toString()) && originalOperandos[randomIndexToHide] === hiddenValue && !foundAndReplaced) {
+                 if (tempDisplayParts[i].toString() === hiddenValue.toString()) {
+                    tempDisplayParts[i] = "\\_";
+                    foundAndReplaced = true;
+                } else if (tempDisplayParts[i].includes(`(${hiddenValue})`)) {
+                    tempDisplayParts[i] = tempDisplayParts[i].replace(new RegExp(`\\b${hiddenValue}\\b`), "\\_");
+                    foundAndReplaced = true;
+                }
+            }
+        }
+        if (!foundAndReplaced) {
+            console.warn("No se pudo ocultar '_' de forma robusta. Volviendo a modo normal.");
+            gameState.allowBlanks = false;
+            questionDisplayString = `${fullExpressionString} = ?`;
+            actualAnswerForPlayer = finalAnswer;
+        } else {
+            questionDisplayString = `${tempDisplayParts.join(' ')} = ?`;
+            actualAnswerForPlayer = finalAnswer; // En este modo, el jugador busca el resultado de la expresión con el blanco
+        }
+
+
+    } else {
+        // Modo Normal: Calcular el resultado de la expresión
+        questionDisplayString = `${fullExpressionString} = ?`;
+        actualAnswerForPlayer = finalAnswer;
+    }
+
+    // Paso 4: Actualizar DOM y MathJax
+    elements.questionText.innerHTML = `\\(${questionDisplayString}\\)`;
+    gameState.currentQuestion = questionDisplayString; // Guarda la pregunta visual
+    gameState.currentAnswer = actualAnswerForPlayer; // Guarda la respuesta esperada
+
+    elements.answerInput.value = '';
+    elements.feedbackText.textContent = '';
+    elements.answerField.focus();
+
+    if (window.MathJax) {
+        MathJax.typeset();
+    }
+
+    console.log("Pregunta generada (LaTeX):", `\\(${questionDisplayString}\\)`);
+    console.log("Respuesta esperada (para el jugador):", gameState.currentAnswer);
+}
 
 
 
 
+
+// --- Funciones Auxiliares (PLACEHOLDERS, requieren implementación robusta) ---
+
+// `evaluateExpression(expr)`: DEBE ser una función segura y precisa.
+// NO USAR `eval()` en producción. Considera librerías como Math.js.
+// Ejemplo MUY SIMPLIFICADO de evaluación (no apto para producción compleja):
+function evaluateExpression(expr) {
+    // Esto es un placeholder. Para expresiones complejas con paréntesis y orden de operaciones,
+    // necesitarías un parser y evaluador real (ej. algoritmo Shunting-yard y RPN).
+    // Para potencias (a^b) necesitas convertir a Math.pow(a,b) o a**b si el entorno lo soporta.
+    // Para raíces (√a) necesitas convertir a Math.sqrt(a).
+    // Asegúrate de que los operadores y paréntesis se manejen correctamente.
+
+    // Ejemplo para `80 / (3 + x)`:
+    // Si la expresión original es "80 / (3 + 5)", `evaluateExpression("80 / (3 + 5)")` debería dar 10.
+    let cleanedExpr = expr.replace(/\^\{(\d+)\}/g, '**$1'); // LaTeX power to JS power
+    cleanedExpr = cleanedExpr.replace(/√(\d+)/g, 'Math.sqrt($1)'); // Basic LaTeX root to JS sqrt
+
+    try {
+        // MUCHO CUIDADO con eval. Solo para prototipos muy controlados.
+        const result = eval(cleanedExpr);
+        return result;
+    } catch (e) {
+        console.error("Error durante la evaluación de la expresión:", e);
+        throw new Error("Expresión inválida para evaluación.");
+    }
+}
+/*fin ia generated*/
 
 function mostrarDadosEntreNiveles() {
     const modal = document.getElementById("diceModal");
