@@ -1,0 +1,1 @@
+export default function Contact(){return <h1 className="text-xl">Contacto</h1>;}

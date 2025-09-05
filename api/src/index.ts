@@ -1,0 +1,15 @@
+import express from "express";
+import helmet from "helmet";
+import cors from "cors";
+import morgan from "morgan";
+import { ENV } from "./lib/env";
+import { health } from "./routes/health";
+import { pages } from "./routes/pages";
+const app = express();
+app.use(helmet({ contentSecurityPolicy: false }));
+app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
+app.use(morgan("tiny"));
+app.use(health);
+app.use(pages);
+app.use((_req, res) => res.status(404).json({ error: "not found" }));
+app.listen(ENV.PORT, () => { console.log(API on http://localhost:); });

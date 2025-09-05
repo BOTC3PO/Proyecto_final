@@ -1,0 +1,1 @@
+export default function NotFound(){return <h1 className="text-xl text-red-600">404</h1>;}
