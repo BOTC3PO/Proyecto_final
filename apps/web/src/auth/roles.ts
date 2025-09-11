@@ -1,0 +1,1 @@
+export type Role = | 'ADMIN' | 'USER' | 'PARENT' | 'TEACHER' | 'ENTERPRISE' | 'GUEST' 
