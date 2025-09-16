@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../auth/AuthContex';
+import { useAuth } from '../auth/use-auth';
 import { NAV_BY_ROLE } from './navConfig';
+import type { Role } from '../auth/roles';
 
 export default function Navbar() {
   const { user, logout, loginAs } = useAuth();
@@ -32,7 +33,7 @@ export default function Navbar() {
           {/* Botones de demo para cambiar rol rápido (sacalos en producción) */}
           <select
             className="px-2 py-1 text-sm border rounded"
-            onChange={(e) => loginAs(e.target.value as any)}
+            onChange={(e) => loginAs(e.target.value as Role)}
             defaultValue=""
           >
             <option value="" disabled>Cambiar rol (demo)</option>
