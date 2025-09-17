@@ -4,6 +4,7 @@ import RootLayout from "./layouts/RootLayout";
 
 // Páginas existentes
 //import Landing from "./pages/Landing";
+import HomePage from "./pages/Home";
 import About from "./pages/About";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
@@ -43,6 +44,7 @@ export const router = createBrowserRouter([
       { path: "precios", element: <Precios /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
+    { path: "inicio", element: <HomePage /> },
       
       // Rutas adicionales que tenías en GuestLayout
       { path: "about", element: <About /> },
@@ -168,6 +170,7 @@ export const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+
 
       // 404
       { path: "404", element: <NotFound /> },
