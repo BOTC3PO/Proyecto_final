@@ -4,8 +4,15 @@ import { NAV_BY_ROLE } from './navConfig';
 import type { Role } from '../auth/roles';
 import { useEffect, useState } from 'react';
 
+import testmode from "../sys/testmode";
+
 // Páginas que usan el navbar público
-const PUBLIC_PAGES = ['/inicio', '/metodologia', '/juegos-educativos', '/contacto','/login','/register'];
+
+const test = testmode()
+
+const PUBLIC_PAGES = [ ...(test ? [ '/inicio'] : ['/'] ) , '/metodologia', '/juegos-educativos', '/contacto','/login','/register'];
+
+
 
 export default function Navbar() {
   const { user, logout, loginAs } = useAuth();

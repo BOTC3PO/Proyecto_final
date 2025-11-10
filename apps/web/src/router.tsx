@@ -11,7 +11,11 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Login  from "./pages/Login";
 import Register from "./pages/Register";
+import MenuAlumno from "./pages/menu-alumno";
 
+import test from "./sys/testmode";
+
+const testmode = test();
 
 // Componentes de páginas simples
 import {
@@ -34,23 +38,33 @@ import {
   EntRep,
 } from "./components/PageComponents";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
       // Rutas públicas (GUEST)
-      { index: true, element: <Home /> },
+      //home solo funciona para probar los roles 
+      
+      ...(testmode ? [
+        { index: true, element: <Home /> },
+        { path: "inicio", element: <HomePage /> }
+      ] : [
+        { index: true, element: <HomePage /> }
+      ]),
+
       { path: "explorar", element: <Explorar /> },
       { path: "precios", element: <Precios /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
-      { path: "inicio", element: <HomePage /> },
+      
       
       // Rutas adicionales que tenías en GuestLayout
       { path: "about", element: <About /> },
       { path: "pricing", element: <Pricing /> },
       { path: "contact", element: <Contact /> },
+
 
       // Admin
       {
@@ -92,6 +106,15 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER']}>
             <Clases />
+          </ProtectedRoute>
+        ),
+      },   
+      //delete GUEST
+      {
+        path: "menualumno",
+        element: (
+          <ProtectedRoute allow={['USER', 'PARENT',"GUEST" ]}> 
+            <MenuAlumno />
           </ProtectedRoute>
         ),
       },
