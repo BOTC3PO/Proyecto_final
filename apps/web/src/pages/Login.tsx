@@ -1,0 +1,129 @@
+import { useState, type ChangeEvent, type FormEvent } from "react";
+
+type LoginForm = {
+  user: string;
+  password: string;
+  remember: boolean;
+};
+
+export default function Login() {
+  const [form, setForm] = useState<LoginForm>({
+    user: "",
+    password: "",
+    remember: false,
+  });
+
+  const [errors, setErrors] = useState<Partial<LoginForm>>({});
+
+  // 👇 Tipar correctamente los eventos
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, type, value, checked } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const validate = () => {
+    const err: Partial<LoginForm> = {};
+    if (!form.user.trim()) err.user = "Ingresá tu correo o usuario.";
+    if (!form.password.trim()) err.password = "Ingresá tu contraseña.";
+    setErrors(err);
+    return Object.keys(err).length === 0;
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!validate()) return;
+    console.log("Login enviado:", form);
+  };
+
+  return (
+    <main className="flex-1 bg-gray-100">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="py-16 flex items-center justify-center">
+          <section className="w-full max-w-xl rounded-xl bg-white shadow-lg">
+            <div className="p-8 sm:p-10">
+              <h1 className="text-center text-2xl font-semibold text-gray-900">
+                Iniciar Sesión
+              </h1>
+
+              <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+                {/* Usuario */}
+                <div className="space-y-1.5">
+                  <label htmlFor="user" className="block text-sm font-medium text-gray-700">
+                    Correo Electrónico o Usuario público
+                  </label>
+                  <input
+                    id="user"
+                    name="user"
+                    type="text"
+                    autoComplete="username"
+                    value={form.user}
+                    onChange={handleChange}
+                    className={`block w-full rounded-md border px-3 py-2 shadow-sm ${
+                      errors.user ? "border-red-500" : "border-gray-300"
+                    } focus:border-blue-500 focus:ring-blue-500`}
+                  />
+                  {errors.user && <p className="text-xs text-red-600">{errors.user}</p>}
+                </div>
+
+                {/* Contraseña */}
+                <div className="space-y-1.5">
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                    Contraseña
+                  </label>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    value={form.password}
+                    onChange={handleChange}
+                    className={`block w-full rounded-md border px-3 py-2 shadow-sm ${
+                      errors.password ? "border-red-500" : "border-gray-300"
+                    } focus:border-blue-500 focus:ring-blue-500`}
+                  />
+                  {errors.password && <p className="text-xs text-red-600">{errors.password}</p>}
+                </div>
+
+                {/* Remember */}
+                <div className="flex items-center justify-between">
+                  <label className="inline-flex items-center gap-2 select-none">
+                    <input
+                      id="remember"
+                      name="remember"
+                      type="checkbox"
+                      checked={form.remember}
+                      onChange={handleChange}
+                      className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="text-sm text-gray-700">Recuérdame</span>
+                  </label>
+                  <a href="#" className="text-sm text-blue-600 hover:text-blue-700">
+                    ¿Olvidaste tu contraseña?
+                  </a>
+                </div>
+
+                {/* Botón */}
+                <button
+                  type="submit"
+                  className="w-full rounded-md bg-blue-600 px-4 py-2.5 text-white text-sm font-semibold shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                  Iniciar Sesión
+                </button>
+
+                <p className="text-center text-sm text-gray-600">
+                  ¿No tienes una cuenta?{" "}
+                  <a href="#" className="font-medium text-blue-600 hover:text-blue-700">
+                    Regístrate
+                  </a>
+                </p>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  );
+}

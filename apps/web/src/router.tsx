@@ -9,14 +9,14 @@ import About from "./pages/About";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Login  from "./pages/Login";
+import Register from "./pages/Register";
 
 // Componentes de páginas simples
 import {
   Home,
   Explorar,
   Precios,
-  Login,
-  Register,
   Admin,
   AdminUsuarios,
   AdminCursos,
@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
       { path: "precios", element: <Precios /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
-    { path: "inicio", element: <HomePage /> },
+      { path: "inicio", element: <HomePage /> },
       
       // Rutas adicionales que tenías en GuestLayout
       { path: "about", element: <About /> },

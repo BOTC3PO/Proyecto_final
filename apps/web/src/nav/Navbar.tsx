@@ -5,7 +5,7 @@ import type { Role } from '../auth/roles';
 import { useEffect, useState } from 'react';
 
 // Páginas que usan el navbar público
-const PUBLIC_PAGES = ['/inicio', '/metodologia', '/juegos-educativos', '/contacto'];
+const PUBLIC_PAGES = ['/inicio', '/metodologia', '/juegos-educativos', '/contacto','/Login','/register'];
 
 export default function Navbar() {
   const { user, logout, loginAs } = useAuth();
