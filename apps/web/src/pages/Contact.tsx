@@ -16,8 +16,7 @@ export default function Contact(){return(
 
             <div>
               <label className="block text-sm font-medium text-gray-700" htmlFor="msg">Mensaje</label>
-              <textarea id="msg" name="msg" rows="5"
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+              <textarea id="msg" name="msg" rows={5} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
             </div>
 
             <button type="submit"
