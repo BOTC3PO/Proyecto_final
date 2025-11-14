@@ -12,6 +12,8 @@ import NotFound from "./pages/NotFound";
 import Login  from "./pages/Login";
 import Register from "./pages/Register";
 import MenuAlumno from "./pages/menu-alumno";
+import Clases from "./pages/aula";
+
 
 import test from "./sys/testmode";
 
@@ -26,7 +28,6 @@ import {
   AdminUsuarios,
   AdminCursos,
   AdminReportes,
-  Clases,
   Tareas,
   Progreso,
   Hijos,
@@ -104,7 +105,7 @@ export const router = createBrowserRouter([
       {
         path: "clases",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER']}>
+          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER',"GUEST"]}>
             <Clases />
           </ProtectedRoute>
         ),
