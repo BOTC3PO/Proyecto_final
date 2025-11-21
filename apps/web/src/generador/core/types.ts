@@ -9,6 +9,7 @@ export interface GeneradorOpciones {
   rangoMax?: number;
   unidades?: "cm" | "m" | "km";
   permitirNegativos?: boolean;
+   cantidadTerminos?: number;
   [key: string]: any; // extra
 }
 
