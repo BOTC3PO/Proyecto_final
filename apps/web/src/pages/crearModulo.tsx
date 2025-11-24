@@ -44,6 +44,44 @@ export default function CrearModulo() {
     "Otro",
   ];
 
+const fisica = [
+"Movimiento rectilíneo uniforme (MRU)",
+"Relación distancia-tiempo-velocidad",
+"Conversión de unidades (longitud, tiempo, velocidad)",
+"Aceleración y MRUV",
+"Caída libre",
+"Movimiento vertical y horizontal",
+"Suma de fuerzas – fuerza resultante",
+"Peso (P = mg)",
+"Fricción (coeficiente μ)",
+"Plano inclinado básico",
+"Ley de Hooke",
+"Trabajo mecánico",
+"Energía cinética",
+"Energía potencial gravitatoria",
+"Conservación de energía básica",
+"Potencia mecánica",
+"Calor (Q = mcΔT)",
+"Dilatación térmica",
+"Cambios de estado – calor latente",
+"Conversión °C ↔ °F",
+"Ley de Ohm (V = IR)",
+"Potencia eléctrica (P = VI)",
+"Resistencia equivalente en serie",
+"Resistencia equivalente en paralelo",
+"Consumo eléctrico (kWh)",
+"Frecuencia y período",
+"Velocidad de propagación de ondas (v = λf)",
+"Longitud de onda",
+"Óptica geométrica básica",
+"Ecuación de lentes",
+"Índice de refracción",
+"Densidad (ρ = m/V)",
+"Presión (P = F/A)",
+"Presión hidrostática (P = ρgh)",
+"Caudal (Q = V/t)",
+]
+
   const nivelesDificultad = ["Básico", "Intermedio", "Avanzado"];
 
   return (

@@ -1,5 +1,4 @@
 // BaseGenerator.ts
-// BaseGenerator.ts
 import type {
   Materia,
   GeneradorParametros,
