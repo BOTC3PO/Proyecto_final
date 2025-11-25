@@ -22,11 +22,15 @@ export interface NumericExercise extends BaseExercise {
 
 // Ejercicio tipo quiz (sin matemáticas)
 export interface QuizExercise extends BaseExercise {
+  idTema: number;
+  tituloTema: string;
+  dificultad: Dificultad;
   tipo: "quiz";
   enunciado: string;
   opciones: string[];          // máx 10
   indiceCorrecto: number;      // índice en opciones
   explicacion?: string;
+
 }
 
 export type Exercise = NumericExercise | QuizExercise;
