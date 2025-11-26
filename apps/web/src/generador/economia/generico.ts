@@ -1,0 +1,142 @@
+// src/generators/economia/generico.ts
+
+// Importás la dificultad “global” que ya tenés en types.ts
+import type { Dificultad as DificultadGlobal } from "../core/types";
+
+// Re-export para usarla en los generadores de economía
+export type Dificultad = DificultadGlobal;
+
+// Base común para todos los ejercicios de economía/contabilidad
+export interface BaseExercise {
+  idTema: number;       // 1, 2, 3... según tu tabla de temas
+  tituloTema: string;
+  dificultad: Dificultad;
+}
+
+// Ejercicio tipo quiz (multiple choice)
+export interface QuizExercise extends BaseExercise {
+  tipo: "quiz";
+  enunciado: string;
+  opciones: string[];
+  indiceCorrecto: number;     // índice de la opción correcta
+  explicacion?: string;
+}
+
+// Más adelante podés agregar NumericExercise, TablaExercise, etc.
+export type Exercise = QuizExercise;
+
+// Firma estándar de un generador de ejercicios
+export type GeneratorFn = (dificultad?: Dificultad) => Exercise;
+
+/**
+ * Devuelve un elemento aleatorio de un array.
+ */
+export function pickOne<T>(items: T[]): T {
+  return items[Math.floor(Math.random() * items.length)];
+}
+
+/**
+ * Mezcla opciones y actualiza el índice correcto.
+ */
+function shuffleWithCorrectIndex(
+  opciones: string[],
+  indiceCorrecto: number
+): { opciones: string[]; indiceCorrecto: number } {
+  const items = opciones.map((text, index) => ({ text, index }));
+
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+
+  const nuevasOpciones = items.map((i) => i.text);
+  const nuevoIndiceCorrecto = items.findIndex(
+    (i) => i.index === indiceCorrecto
+  );
+
+  return { opciones: nuevasOpciones, indiceCorrecto: nuevoIndiceCorrecto };
+}
+
+/**
+ * Crea un QuizExercise completo a partir de datos base.
+ */
+export function crearQuizExercise(params: {
+  idTema: number;
+  tituloTema: string;
+  dificultad: Dificultad;
+  enunciado: string;
+  opciones: string[];
+  indiceCorrecto: number;
+  explicacion?: string;
+}): QuizExercise {
+  const { opciones, indiceCorrecto } = shuffleWithCorrectIndex(
+    params.opciones,
+    params.indiceCorrecto
+  );
+
+  return {
+    idTema: params.idTema,
+    tituloTema: params.tituloTema,
+    dificultad: params.dificultad,
+    tipo: "quiz",
+    enunciado: params.enunciado,
+    opciones,
+    indiceCorrecto,
+    explicacion: params.explicacion,
+  };
+}
+
+/**
+ * Crea un GeneratorFn de tipo quiz a partir de plantillas.
+ *
+ * Cada plantilla recibe la dificultad y devuelve:
+ *   - enunciado
+ *   - opciones
+ *   - indiceCorrecto
+ *   - explicacion (opcional)
+ */
+export function makeQuizGenerator(
+  idTema: number,
+  tituloTema: string,
+  plantillas: Array<
+    (dificultad: Dificultad) => {
+      enunciado: string;
+      opciones: string[];
+      indiceCorrecto: number;
+      explicacion?: string;
+    }
+  >
+): GeneratorFn {
+  return (dificultad?: Dificultad) => {
+    const dif = (dificultad ?? ("intermedio" as Dificultad)) as Dificultad;
+
+    // ahora plantillas es un array de funciones, esto compila bien
+    const idx = Math.floor(Math.random() * plantillas.length);
+    const template = plantillas[idx];
+    const base = template(dif);
+
+    return crearQuizExercise({
+      idTema,
+      tituloTema,
+      dificultad: dif,
+      ...base,
+    });
+  };
+}
+/**
+ * Generador placeholder para temas que todavía no implementaste.
+ */
+export function createPlaceholderQuiz(
+  idTema: number,
+  tituloTema: string
+): GeneratorFn {
+  return (dificultad: Dificultad = "intermedio" as Dificultad) => ({
+    idTema,
+    tituloTema,
+    dificultad,
+    tipo: "quiz",
+    enunciado: `Ejercicio tipo quiz aún no implementado para el tema: ${tituloTema}`,
+    opciones: [],
+    indiceCorrecto: 0,
+  });
+}
