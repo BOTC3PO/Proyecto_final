@@ -1,7 +1,7 @@
 // src/generators/math/tema07_decimales.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

@@ -1,7 +1,7 @@
 // src/generators/math/tema01_operaciones_basicas.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   rangoPorDificultad,
   randomInt,

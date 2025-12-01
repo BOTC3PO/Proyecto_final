@@ -1,7 +1,7 @@
 // src/generators/math/tema04_divisibilidad_mcd_mcm.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   rangoPorDificultad,
   randomInt,

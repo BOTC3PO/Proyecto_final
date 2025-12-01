@@ -1,7 +1,7 @@
 // src/generators/math/tema06_fracciones.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   rangoPorDificultad,

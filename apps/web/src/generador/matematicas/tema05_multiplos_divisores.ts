@@ -1,7 +1,7 @@
 // src/generators/math/tema05_multiplos_divisores.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   rangoPorDificultad,
   randomInt,

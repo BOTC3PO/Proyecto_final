@@ -1,7 +1,7 @@
 // src/generators/math/tema03_numeros_primos.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   esPrimo,
   generarPrimoEnRango,

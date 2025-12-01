@@ -1,7 +1,7 @@
 // src/generators/math/tema02_operaciones_combinadas.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   rangoPorDificultad,
   randomInt,
