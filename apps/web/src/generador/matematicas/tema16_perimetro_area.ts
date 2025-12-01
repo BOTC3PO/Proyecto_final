@@ -1,7 +1,7 @@
 // src/generators/math/tema16_perimetro_area.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

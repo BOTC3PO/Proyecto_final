@@ -1,7 +1,7 @@
 // src/generators/math/tema31_inecuaciones_simples.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

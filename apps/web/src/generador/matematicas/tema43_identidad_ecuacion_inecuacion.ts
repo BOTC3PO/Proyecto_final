@@ -1,7 +1,7 @@
 // src/generators/math/tema43_identidad_ecuacion_inecuacion.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   pickRandom,
 } from "./generic";

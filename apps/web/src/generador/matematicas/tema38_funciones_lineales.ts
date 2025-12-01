@@ -1,7 +1,7 @@
 // src/generators/math/tema38_funciones_lineales.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

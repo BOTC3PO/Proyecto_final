@@ -1,7 +1,7 @@
 // src/generators/math/tema46_valor_absoluto_distancia.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
 } from "./generic";

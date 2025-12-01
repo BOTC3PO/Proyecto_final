@@ -1,7 +1,7 @@
 // src/generators/math/tema39_problemas_funcion_afin.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

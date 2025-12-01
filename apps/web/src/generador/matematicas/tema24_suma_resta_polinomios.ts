@@ -1,7 +1,7 @@
 // src/generators/math/tema24_suma_resta_polinomios.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

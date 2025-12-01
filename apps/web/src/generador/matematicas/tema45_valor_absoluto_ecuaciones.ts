@@ -1,7 +1,7 @@
 // src/generators/math/tema45_valor_absoluto_ecuaciones.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
 } from "./generic";

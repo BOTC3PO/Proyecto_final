@@ -1,7 +1,7 @@
 // src/generators/math/tema11_regla_tres_simple.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

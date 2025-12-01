@@ -1,7 +1,7 @@
 // src/generators/math/tema23_evaluacion_expresiones.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

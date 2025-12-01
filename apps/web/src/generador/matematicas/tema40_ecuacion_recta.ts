@@ -1,7 +1,7 @@
 // src/generators/math/tema40_ecuacion_recta.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

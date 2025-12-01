@@ -1,7 +1,7 @@
 // src/generators/math/tema44_intervalos_soluciones.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

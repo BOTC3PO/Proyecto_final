@@ -1,7 +1,7 @@
 // src/generators/math/tema33_ecuaciones_cuadraticas.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

@@ -1,7 +1,7 @@
 // src/generators/math/tema25_multiplicacion_monomios_polinomios.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

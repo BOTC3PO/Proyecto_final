@@ -1,7 +1,7 @@
 // src/generators/math/tema13_estadistica_basica.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

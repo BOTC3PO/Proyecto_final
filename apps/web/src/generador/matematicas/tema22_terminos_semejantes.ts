@@ -1,7 +1,7 @@
 // src/generators/math/tema22_terminos_semejantes.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

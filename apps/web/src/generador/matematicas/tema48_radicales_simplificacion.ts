@@ -1,8 +1,8 @@
 // src/generators/math/tema48_radicales_simplificacion.ts
 // Tema lógico 52 – Radicales y simplificación básica
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

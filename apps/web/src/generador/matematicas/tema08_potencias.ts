@@ -1,7 +1,7 @@
 // src/generators/math/tema08_potencias.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

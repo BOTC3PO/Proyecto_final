@@ -1,7 +1,7 @@
 // src/generators/math/tema21_lenguaje_algebraico.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   pickRandom,
   randomInt,

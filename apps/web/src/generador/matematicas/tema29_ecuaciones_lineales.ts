@@ -1,7 +1,7 @@
 // src/generators/math/tema29_ecuaciones_lineales.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
 } from "./generic";

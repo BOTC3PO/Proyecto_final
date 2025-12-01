@@ -1,7 +1,7 @@
 // src/generators/math/tema42_division_polinomios.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
 } from "./generic";

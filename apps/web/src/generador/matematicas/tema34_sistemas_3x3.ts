@@ -1,7 +1,7 @@
 // src/generators/math/tema34_sistemas_3x3.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
 } from "./generic";

@@ -1,7 +1,7 @@
 // src/generators/math/tema19_sucesiones_numericas.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

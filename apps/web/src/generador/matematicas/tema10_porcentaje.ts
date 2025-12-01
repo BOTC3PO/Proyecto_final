@@ -1,7 +1,7 @@
 // src/generators/math/tema10_porcentaje.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

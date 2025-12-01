@@ -1,7 +1,7 @@
 // src/generators/math/tema30_ecuaciones_parametros.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

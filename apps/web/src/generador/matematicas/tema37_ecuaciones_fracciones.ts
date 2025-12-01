@@ -1,7 +1,7 @@
 // src/generators/math/tema37_ecuaciones_fracciones.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

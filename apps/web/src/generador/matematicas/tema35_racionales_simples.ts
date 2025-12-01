@@ -1,7 +1,7 @@
 // src/generators/math/tema35_racionales_simples.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

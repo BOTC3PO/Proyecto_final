@@ -1,8 +1,8 @@
 // src/generators/math/tema51_interes_simple_compuesto.ts
 // Tema lógico 55 – Interés simple y compuesto
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

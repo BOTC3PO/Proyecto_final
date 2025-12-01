@@ -1,7 +1,7 @@
 // src/generators/math/tema41_multiplicacion_polinomios_avanzada.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
 } from "./generic";

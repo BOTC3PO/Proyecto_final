@@ -1,7 +1,7 @@
 // src/generators/math/tema20_series_simples.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

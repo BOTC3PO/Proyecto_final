@@ -1,7 +1,7 @@
 // src/generators/math/tema36_simplificacion_algebraica.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

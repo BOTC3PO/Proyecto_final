@@ -1,8 +1,8 @@
 // src/generators/math/tema50_notacion_cientifica.ts
 // Tema lógico 54 – Notación científica
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
 } from "./generic";

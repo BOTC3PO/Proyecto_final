@@ -1,7 +1,7 @@
 // src/generators/math/tema12_proporcionalidad.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   pickRandom,
   randomInt,

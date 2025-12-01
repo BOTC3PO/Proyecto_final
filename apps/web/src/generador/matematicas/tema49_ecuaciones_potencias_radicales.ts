@@ -1,8 +1,8 @@
 // src/generators/math/tema49_ecuaciones_potencias_radicales.ts
 // Tema lógico 53 – Ecuaciones con potencias y radicales simples
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

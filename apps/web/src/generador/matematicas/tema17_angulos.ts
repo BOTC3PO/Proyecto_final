@@ -1,7 +1,7 @@
 // src/generators/math/tema17_angulos.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

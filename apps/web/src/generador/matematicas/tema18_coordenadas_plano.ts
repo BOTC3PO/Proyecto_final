@@ -1,7 +1,7 @@
 // src/generators/math/tema18_coordenadas_plano.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,

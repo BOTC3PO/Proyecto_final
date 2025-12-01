@@ -1,8 +1,8 @@
 // src/generators/math/tema47_potencias_exponentes.ts
 // Tema lógico 51 – Potencias y propiedades de exponentes
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   crearQuizBase,
   randomInt,
   pickRandom,
