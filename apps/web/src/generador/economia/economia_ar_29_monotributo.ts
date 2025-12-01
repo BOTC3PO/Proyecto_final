@@ -1,7 +1,7 @@
 // src/generators/economia/economia_ar_29_monotributo.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
 } from "./generico";
 

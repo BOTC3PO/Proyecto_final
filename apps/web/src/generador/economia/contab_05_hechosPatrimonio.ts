@@ -1,7 +1,7 @@
 // src/generators/economia/contab_05_hechosPatrimonio.ts
 
-import { Dificultad, GeneratorFn } from "../core/types";
-import { makeQuizGenerator, pickOne } from "./generico";
+import { type Dificultad } from "../core/types";
+import { makeQuizGenerator, pickOne,type GeneratorFn } from "./generico";
 
 type Afecta = "Afecta el patrimonio" | "No afecta el patrimonio";
 

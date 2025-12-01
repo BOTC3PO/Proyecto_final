@@ -1,6 +1,6 @@
 // src/generators/economia/economia_37_capitalTrabajo.ts
 
-import { Dificultad, GeneratorFn, makeQuizGenerator } from "./generico";
+import { type Dificultad, type GeneratorFn, makeQuizGenerator } from "./generico";
 
 function randInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;

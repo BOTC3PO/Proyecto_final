@@ -1,7 +1,7 @@
 // src/generators/economia/economia_ar_28_formalInformal.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
   pickOne,
 } from "./generico";

@@ -1,8 +1,8 @@
 // src/generators/economia/economia_ar_25_iva.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
   pickOne,
 } from "./generico";

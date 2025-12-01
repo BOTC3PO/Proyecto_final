@@ -1,8 +1,8 @@
 // src/generators/economia/finanzas_12_ahorroVsConsumoResponsable.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
   pickOne,
 } from "./generico";

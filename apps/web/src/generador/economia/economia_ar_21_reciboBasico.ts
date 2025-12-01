@@ -1,8 +1,8 @@
 // src/generators/economia/economia_ar_21_reciboBasico.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
   pickOne,
 } from "./generico";

@@ -1,8 +1,8 @@
 // src/generators/economia/finanzas_09_presupuestoFamiliar.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
   pickOne,
 } from "./generico";

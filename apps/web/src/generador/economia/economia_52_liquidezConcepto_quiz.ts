@@ -1,8 +1,8 @@
 // src/generators/economia/economia_52_liquidezConcepto_quiz.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
   pickOne,
 } from "./generico";

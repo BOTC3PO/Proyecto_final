@@ -1,8 +1,8 @@
 // src/generators/economia/economia_33_resultadoBruto.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
 } from "./generico";
 

@@ -1,8 +1,8 @@
 // src/generators/economia/finanzas_16_interesCompuesto.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
 } from "./generico";
 

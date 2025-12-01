@@ -1,8 +1,8 @@
 // src/generators/economia/economia_32_gananciaPerdida.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
 } from "./generico";
 

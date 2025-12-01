@@ -1,8 +1,8 @@
 // src/generators/economia/finanzas_19_publicidadEnganosa.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
   pickOne,
 } from "./generico";

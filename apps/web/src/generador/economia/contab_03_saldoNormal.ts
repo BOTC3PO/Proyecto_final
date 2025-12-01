@@ -1,7 +1,6 @@
 // src/generators/economia/contab_03_saldoNormal.ts
-
-import { Dificultad, GeneratorFn } from "../core/types";
-import { makeQuizGenerator } from "./generico";
+import type { Dificultad } from "../core/types";
+import { makeQuizGenerator,type GeneratorFn } from "./generico";
 
 function randInRange(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;

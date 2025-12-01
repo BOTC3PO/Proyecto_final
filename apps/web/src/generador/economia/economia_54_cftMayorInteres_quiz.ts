@@ -1,8 +1,8 @@
 // src/generators/economia/economia_54_cftMayorInteres_quiz.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
 } from "./generico";
 

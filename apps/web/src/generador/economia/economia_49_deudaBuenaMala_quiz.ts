@@ -1,8 +1,8 @@
 // src/generators/economia/economia_49_deudaBuenaMala_quiz.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
   pickOne,
 } from "./generico";

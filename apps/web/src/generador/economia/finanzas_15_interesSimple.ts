@@ -2,7 +2,7 @@
 
 import {
   type Dificultad,
-  GeneratorFn,
+  type GeneratorFn,
   makeQuizGenerator,
 } from "./generico";
 

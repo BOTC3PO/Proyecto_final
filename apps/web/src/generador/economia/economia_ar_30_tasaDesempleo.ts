@@ -1,9 +1,11 @@
 // src/generators/economia/economia_ar_30_tasaDesempleo.ts
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
 } from "./generico";
+//mover randInit a generico economia
+import { randInt } from "../quimica/generico";
 
 function randPea(): number {
   return Math.floor(Math.random() * (500000 - 100000 + 1)) + 100000;
@@ -20,7 +22,7 @@ export const genARTasaDesempleo: GeneratorFn = makeQuizGenerator(
 
       const correcta = tasa;
       const variantes: number[] = [correcta];
-      const cant = dificultad === "alta" ? 5 : dificultad === "baja" ? 3 : 4;
+      const cant = dificultad === "avanzado" ? 5 : dificultad === "basico" ? 3 : 4;
 
       while (variantes.length < cant) {
         const desv = Math.round(correcta * (1 + randInt(-40, 40)/100));

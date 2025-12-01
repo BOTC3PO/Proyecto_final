@@ -1,8 +1,8 @@
 // src/generators/economia/contab_06_bienesDerechosObligaciones.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
   pickOne,
 } from "./generico";

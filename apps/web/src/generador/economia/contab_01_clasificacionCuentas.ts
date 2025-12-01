@@ -1,7 +1,7 @@
 // src/generators/economia/contab_01_clasificacionCuentas.ts
 
-import { Dificultad, GeneratorFn } from "../core/types";
-import { makeQuizGenerator, pickOne } from "./generico";
+import { type Dificultad } from "../core/types";
+import { makeQuizGenerator, pickOne , type GeneratorFn} from "./generico";
 
 type Clasificacion = "Activo" | "Pasivo" | "Patrimonio Neto" | "R+" | "R-";
 

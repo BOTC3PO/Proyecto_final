@@ -1,8 +1,8 @@
 // src/generators/economia/economia_31_politicaFiscalMonetaria.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
   pickOne,
 } from "./generico";

@@ -1,8 +1,8 @@
 // src/generators/economia/economia_47_gananciaVsEquilibrio.ts
 
 import {
-  Dificultad,
-  GeneratorFn,
+  type Dificultad,
+  type GeneratorFn,
   makeQuizGenerator,
 } from "./generico";
 
