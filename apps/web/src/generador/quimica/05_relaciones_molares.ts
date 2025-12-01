@@ -1,7 +1,7 @@
 // src/generators/quimica/05_relaciones_molares.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   choice,
   randFloat,
 } from "./generico";

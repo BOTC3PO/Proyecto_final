@@ -1,5 +1,6 @@
 // src/generators/quimica/88_desplazamiento_simple_doble.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/88_desplazamiento_simple_doble.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaDesplazamiento {
   enunciado: string;

@@ -1,7 +1,7 @@
 // src/generators/quimica/47_potenciales_estandar.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

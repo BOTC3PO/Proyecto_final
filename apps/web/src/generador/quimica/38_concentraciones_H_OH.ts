@@ -1,7 +1,7 @@
 // src/generators/quimica/38_concentraciones_H_OH.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

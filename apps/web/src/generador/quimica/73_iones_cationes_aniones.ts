@@ -1,5 +1,6 @@
 // src/generators/quimica/73_iones_cationes_aniones.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/73_iones_cationes_aniones.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaIon {
   enunciado: string;

@@ -1,7 +1,7 @@
 // src/generators/quimica/25_ley_combinada_gases.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

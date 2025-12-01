@@ -1,5 +1,6 @@
 // src/generators/quimica/83_mezcla_homogenea_heterogenea.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/83_mezcla_homogenea_heterogenea.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaTipoMezcla {
   enunciado: string;

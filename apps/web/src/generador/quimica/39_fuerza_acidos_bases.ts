@@ -1,7 +1,7 @@
 // src/generators/quimica/39_fuerza_acidos_bases.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randInt,
   randFloat,
 } from "./generico";

@@ -1,7 +1,7 @@
 // src/generators/quimica/56_semivida.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

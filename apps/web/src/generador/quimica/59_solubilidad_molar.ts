@@ -1,7 +1,7 @@
 // src/generators/quimica/59_solubilidad_molar.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

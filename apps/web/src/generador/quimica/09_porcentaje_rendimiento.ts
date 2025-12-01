@@ -1,7 +1,7 @@
 // src/generators/quimica/09_porcentaje_rendimiento.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

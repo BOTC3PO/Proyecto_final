@@ -1,5 +1,6 @@
 // src/generators/quimica/70_radio_atomico_comparacion.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/70_radio_atomico_comparacion.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface ParRadioAtomico {
   elemento1: string;

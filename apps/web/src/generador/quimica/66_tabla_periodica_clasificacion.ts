@@ -1,7 +1,8 @@
 // src/generators/quimica/66_tabla_periodica_clasificacion.ts
-import {
+// src/generators/quimica/66_tabla_periodica_clasificacion.ts
+import type {
   GeneratorFn,
-  QuizExercise,
+  QuizExercise
 } from "./generico";
 
 type TipoElemento = "metal" | "no metal" | "metaloide";

@@ -1,7 +1,7 @@
 // src/generators/quimica/28_mezcla_gases.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

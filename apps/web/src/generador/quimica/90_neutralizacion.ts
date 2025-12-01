@@ -1,5 +1,6 @@
 // src/generators/quimica/90_neutralizacion.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/90_neutralizacion.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaNeutralizacion {
   enunciado: string;

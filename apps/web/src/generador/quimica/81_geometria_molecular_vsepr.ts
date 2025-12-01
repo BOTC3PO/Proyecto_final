@@ -1,5 +1,6 @@
 // src/generators/quimica/81_geometria_molecular_vsepr.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/81_geometria_molecular_vsepr.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaVSEPR {
   enunciado: string;

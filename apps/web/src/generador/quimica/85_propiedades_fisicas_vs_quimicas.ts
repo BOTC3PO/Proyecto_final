@@ -1,5 +1,6 @@
 // src/generators/quimica/85_propiedades_fisicas_vs_quimicas.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/85_propiedades_fisicas_vs_quimicas.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaPropiedad {
   enunciado: string;

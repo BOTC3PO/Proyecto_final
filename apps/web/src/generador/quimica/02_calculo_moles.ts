@@ -1,7 +1,7 @@
 // src/generators/quimica/02_calculo_moles.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
   choice,
 } from "./generico";

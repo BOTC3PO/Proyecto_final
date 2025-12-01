@@ -1,7 +1,7 @@
 // src/generators/quimica/10_pureza_reactivos.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

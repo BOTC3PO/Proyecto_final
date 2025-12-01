@@ -1,7 +1,7 @@
 // src/generators/quimica/12_ley_proporciones_definidas.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

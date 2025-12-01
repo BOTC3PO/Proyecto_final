@@ -1,5 +1,6 @@
 // src/generators/quimica/92_pictogramas_ghs.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/92_pictogramas_ghs.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaGHS {
   enunciado: string;

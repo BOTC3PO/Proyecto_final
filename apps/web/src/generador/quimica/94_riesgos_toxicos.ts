@@ -1,5 +1,6 @@
 // src/generators/quimica/94_riesgos_toxicos.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/94_riesgos_toxicos.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaToxicos {
   enunciado: string;

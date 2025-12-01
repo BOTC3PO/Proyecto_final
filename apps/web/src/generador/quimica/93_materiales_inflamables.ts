@@ -1,5 +1,6 @@
 // src/generators/quimica/93_materiales_inflamables.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/93_materiales_inflamables.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaInflamables {
   enunciado: string;

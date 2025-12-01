@@ -1,7 +1,7 @@
 // src/generators/quimica/19_fraccion_molar.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

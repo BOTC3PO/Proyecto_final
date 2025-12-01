@@ -1,7 +1,7 @@
 // src/generators/quimica/08_rendimiento_teorico.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

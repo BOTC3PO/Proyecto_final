@@ -1,5 +1,5 @@
 // src/generators/quimica/65_factor_vant_hoff.ts
-import {
+import type {
   GeneratorFn,
   NumericExercise,
 } from "./generico";

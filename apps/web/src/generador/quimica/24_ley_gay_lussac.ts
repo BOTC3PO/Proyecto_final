@@ -1,7 +1,7 @@
 // src/generators/quimica/24_ley_gay_lussac.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

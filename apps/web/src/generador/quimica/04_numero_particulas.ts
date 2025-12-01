@@ -1,7 +1,7 @@
 // src/generators/quimica/04_numero_particulas.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
   choice,
 } from "./generico";

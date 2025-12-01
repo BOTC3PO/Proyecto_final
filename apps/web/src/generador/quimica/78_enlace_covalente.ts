@@ -1,5 +1,6 @@
 // src/generators/quimica/78_enlace_covalente.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/78_enlace_covalente.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaCovalente {
   enunciado: string;

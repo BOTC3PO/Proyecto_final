@@ -1,7 +1,7 @@
 // src/generators/quimica/67_tabla_periodica_numero_atomico.ts
 import {
-  GeneratorFn,
-  QuizExercise,
+  type GeneratorFn,
+  type QuizExercise,
 } from "./generico";
 
 interface ElementoZA {

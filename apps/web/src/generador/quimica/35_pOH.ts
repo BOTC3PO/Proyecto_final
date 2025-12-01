@@ -1,7 +1,7 @@
 // src/generators/quimica/35_pOH.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randInt,
   randFloat,
 } from "./generico";

@@ -1,7 +1,7 @@
 // src/generators/quimica/06_reactivo_limitante.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

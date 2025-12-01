@@ -1,7 +1,7 @@
 // src/generators/quimica/31_ley_hess.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

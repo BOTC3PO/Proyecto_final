@@ -1,7 +1,7 @@
 // src/generators/quimica/63_elevacion_punto_ebullicion.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

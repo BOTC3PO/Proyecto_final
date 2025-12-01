@@ -1,7 +1,7 @@
 // src/generators/quimica/07_reactivo_en_exceso.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

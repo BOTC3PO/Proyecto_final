@@ -1,7 +1,7 @@
 // src/generators/quimica/50_deltaG.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
   randInt,
 } from "./generico";

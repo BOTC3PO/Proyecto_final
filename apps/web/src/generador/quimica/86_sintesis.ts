@@ -1,5 +1,6 @@
 // src/generators/quimica/86_sintesis.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/86_sintesis.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaSintesis {
   enunciado: string;

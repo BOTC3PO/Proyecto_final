@@ -1,5 +1,6 @@
 // src/generators/quimica/76_orbitales_spdf.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/76_orbitales_spdf.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaOrbitales {
   enunciado: string;

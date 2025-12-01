@@ -1,7 +1,7 @@
 // src/generators/quimica/46_concentraciones_equilibrio.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

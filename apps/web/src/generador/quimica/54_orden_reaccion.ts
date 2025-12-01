@@ -1,7 +1,7 @@
 // src/generators/quimica/54_orden_reaccion.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randInt,
 } from "./generico";
 

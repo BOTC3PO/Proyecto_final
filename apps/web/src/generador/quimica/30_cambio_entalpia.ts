@@ -1,7 +1,7 @@
 // src/generators/quimica/30_cambio_entalpia.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

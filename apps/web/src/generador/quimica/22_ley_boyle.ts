@@ -1,7 +1,7 @@
 // src/generators/quimica/22_ley_boyle.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

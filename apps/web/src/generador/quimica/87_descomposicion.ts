@@ -1,5 +1,6 @@
 // src/generators/quimica/87_descomposicion.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/87_descomposicion.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaDescomposicion {
   enunciado: string;

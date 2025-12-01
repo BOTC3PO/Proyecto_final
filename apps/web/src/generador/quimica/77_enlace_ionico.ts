@@ -1,5 +1,6 @@
 // src/generators/quimica/77_enlace_ionico.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/77_enlace_ionico.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaIonico {
   enunciado: string;

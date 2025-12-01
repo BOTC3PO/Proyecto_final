@@ -1,7 +1,7 @@
 // src/generators/quimica/64_presion_osmotica.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

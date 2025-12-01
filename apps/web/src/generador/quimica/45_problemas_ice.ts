@@ -1,7 +1,7 @@
 // src/generators/quimica/45_problemas_ice.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

@@ -1,7 +1,7 @@
 // src/generators/quimica/11_ley_proporciones_multiples.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randInt,
   randFloat,
 } from "./generico";

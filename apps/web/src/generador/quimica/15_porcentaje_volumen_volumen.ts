@@ -1,7 +1,7 @@
 // src/generators/quimica/15_porcentaje_volumen_volumen.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

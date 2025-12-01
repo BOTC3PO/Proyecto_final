@@ -1,7 +1,7 @@
 // src/generators/quimica/41_titulaciones_simples.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

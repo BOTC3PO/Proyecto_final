@@ -1,5 +1,6 @@
 // src/generators/quimica/82_sustancia_pura_vs_mezcla.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/82_sustancia_pura_vs_mezcla.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaSustanciaMezcla {
   enunciado: string;

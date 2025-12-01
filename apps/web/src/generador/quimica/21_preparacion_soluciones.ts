@@ -1,7 +1,7 @@
 // src/generators/quimica/21_preparacion_soluciones.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

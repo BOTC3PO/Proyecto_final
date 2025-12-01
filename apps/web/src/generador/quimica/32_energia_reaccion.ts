@@ -1,7 +1,7 @@
 // src/generators/quimica/32_energia_reaccion.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

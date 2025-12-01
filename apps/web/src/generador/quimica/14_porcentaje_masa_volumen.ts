@@ -1,7 +1,7 @@
 // src/generators/quimica/14_porcentaje_masa_volumen.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

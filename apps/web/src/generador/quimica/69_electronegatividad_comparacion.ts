@@ -1,7 +1,8 @@
 // src/generators/quimica/69_electronegatividad_comparacion.ts
-import {
+// src/generators/quimica/69_electronegatividad_comparacion.ts
+import type {
   GeneratorFn,
-  QuizExercise,
+  QuizExercise
 } from "./generico";
 
 interface ParElectronegatividad {

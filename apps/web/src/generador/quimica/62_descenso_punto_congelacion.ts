@@ -1,7 +1,7 @@
 // src/generators/quimica/62_descenso_punto_congelacion.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

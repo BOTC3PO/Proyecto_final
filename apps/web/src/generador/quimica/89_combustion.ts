@@ -1,5 +1,6 @@
 // src/generators/quimica/89_combustion.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/89_combustion.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaCombustion {
   enunciado: string;

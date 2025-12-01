@@ -1,5 +1,6 @@
 // src/generators/quimica/72_particulas_subatomicas.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/72_particulas_subatomicas.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaSubatomica {
   enunciado: string;

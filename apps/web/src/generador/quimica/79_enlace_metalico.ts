@@ -1,5 +1,6 @@
 // src/generators/quimica/79_enlace_metalico.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/79_enlace_metalico.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaMetalico {
   enunciado: string;

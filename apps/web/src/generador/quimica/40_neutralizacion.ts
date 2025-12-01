@@ -1,7 +1,7 @@
 // src/generators/quimica/40_neutralizacion.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

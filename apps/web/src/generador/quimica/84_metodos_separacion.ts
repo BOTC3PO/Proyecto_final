@@ -1,5 +1,6 @@
 // src/generators/quimica/84_metodos_separacion.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/84_metodos_separacion.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaSeparacion {
   enunciado: string;

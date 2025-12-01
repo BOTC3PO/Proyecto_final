@@ -1,7 +1,7 @@
 // src/generators/quimica/27_presiones_parciales.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

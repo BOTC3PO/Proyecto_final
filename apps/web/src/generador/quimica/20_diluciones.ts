@@ -1,7 +1,7 @@
 // src/generators/quimica/20_diluciones.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

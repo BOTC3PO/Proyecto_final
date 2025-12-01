@@ -1,7 +1,8 @@
 // src/generators/quimica/68_tendencias_periodicas_conceptual.ts
-import {
+// src/generators/quimica/68_tendencias_periodicas_conceptual.ts
+import type {
   GeneratorFn,
-  QuizExercise,
+  QuizExercise
 } from "./generico";
 
 interface PreguntaTendencia {

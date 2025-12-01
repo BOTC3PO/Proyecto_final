@@ -1,5 +1,6 @@
 // src/generators/quimica/75_niveles_y_subniveles.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/75_niveles_y_subniveles.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaNiveles {
   enunciado: string;

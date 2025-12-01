@@ -1,7 +1,7 @@
 // src/generators/quimica/26_gas_ideal.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

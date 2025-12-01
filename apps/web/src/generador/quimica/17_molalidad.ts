@@ -1,7 +1,7 @@
 // src/generators/quimica/17_molalidad.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

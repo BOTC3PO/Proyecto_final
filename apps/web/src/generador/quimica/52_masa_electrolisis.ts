@@ -1,7 +1,7 @@
 // src/generators/quimica/52_masa_electrolisis.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

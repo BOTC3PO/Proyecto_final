@@ -1,7 +1,7 @@
 // src/generators/quimica/49_anodo_catodo.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

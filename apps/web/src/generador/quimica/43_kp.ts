@@ -1,7 +1,7 @@
 // src/generators/quimica/43_kp.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

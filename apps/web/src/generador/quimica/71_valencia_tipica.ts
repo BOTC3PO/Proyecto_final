@@ -1,5 +1,6 @@
 // src/generators/quimica/71_valencia_tipica.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/71_valencia_tipica.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface ElementoValencia {
   nombre: string;

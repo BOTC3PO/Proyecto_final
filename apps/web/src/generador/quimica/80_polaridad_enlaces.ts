@@ -1,5 +1,6 @@
 // src/generators/quimica/80_polaridad_enlaces.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/80_polaridad_enlaces.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaPolaridad {
   enunciado: string;

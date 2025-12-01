@@ -1,7 +1,7 @@
 // src/generators/quimica/44_q_direccion.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

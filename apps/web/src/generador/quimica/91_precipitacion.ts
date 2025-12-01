@@ -1,5 +1,6 @@
 // src/generators/quimica/91_reaccion_precipitacion.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/91_reaccion_precipitacion.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaPrecipitacion {
   enunciado: string;

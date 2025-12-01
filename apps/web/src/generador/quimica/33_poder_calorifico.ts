@@ -1,7 +1,7 @@
 // src/generators/quimica/33_poder_calorifico.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

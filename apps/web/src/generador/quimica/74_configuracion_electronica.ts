@@ -1,5 +1,6 @@
 // src/generators/quimica/74_configuracion_electronica.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/74_configuracion_electronica.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface ElementoConfig {
   nombre: string;

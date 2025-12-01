@@ -1,5 +1,6 @@
 // src/generators/quimica/95_equipos_proteccion.ts
-import { GeneratorFn, QuizExercise } from "./generico";
+// src/generators/quimica/95_equipos_proteccion.ts
+import type { GeneratorFn, QuizExercise } from "./generico";
 
 interface PreguntaEPP {
   enunciado: string;

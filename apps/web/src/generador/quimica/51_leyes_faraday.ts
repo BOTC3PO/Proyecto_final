@@ -1,7 +1,7 @@
 // src/generators/quimica/51_leyes_faraday.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

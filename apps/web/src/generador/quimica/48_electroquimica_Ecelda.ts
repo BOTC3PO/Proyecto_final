@@ -1,7 +1,7 @@
 // src/generators/quimica/48_Ecelda.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

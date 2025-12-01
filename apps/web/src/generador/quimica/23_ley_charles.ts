@@ -1,7 +1,7 @@
 // src/generators/quimica/23_ley_charles.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

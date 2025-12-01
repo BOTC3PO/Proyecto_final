@@ -1,7 +1,7 @@
 // src/generators/quimica/03_calculo_masa.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
   choice,
 } from "./generico";

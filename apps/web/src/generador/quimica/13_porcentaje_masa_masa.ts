@@ -1,7 +1,7 @@
 // src/generators/quimica/13_porcentaje_masa_masa.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

@@ -1,7 +1,7 @@
 // src/generators/quimica/57_graficos_cinetica.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 

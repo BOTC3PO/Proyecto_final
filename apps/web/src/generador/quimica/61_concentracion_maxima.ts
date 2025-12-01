@@ -1,7 +1,7 @@
 // src/generators/quimica/61_concentracion_maxima.ts
 import {
-  GeneratorFn,
-  NumericExercise,
+  type GeneratorFn,
+  type NumericExercise,
   randFloat,
 } from "./generico";
 
