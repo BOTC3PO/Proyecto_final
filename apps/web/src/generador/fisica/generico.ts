@@ -1,6 +1,8 @@
-// genericoFisica.ts
+// src/ejercicios/fisica/generico.ts
+
 import { BaseGenerator } from "../core/basegenerador";
-import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+// Si en algún momento usás GeneradorParametros, Ejercicio o Calculator, los volvés a importar.
+// import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 /**
  * Utilidades comunes para generadores de física
