@@ -1,0 +1,119 @@
+{
+  "schema": "book.pages@1.0",
+  "metadata": {
+    "id": "book-unique-id",
+    "title": "Título del libro",
+    "subtitle": "",
+    "language": "es",
+    "authors": [
+      { "name": "Autor Principal", "role": "author" }
+    ],
+    "contributors": [
+      { "name": "Traductor", "role": "translator" },
+      { "name": "Ilustrador", "role": "illustrator" }
+    ],
+    "publisher": "",
+    "publishedDate": null,
+    "source": {
+      "name": "The Project Gutenberg",
+      "workId": "ebook-xxxxx",
+      "releaseDate": "YYYY-MM-DD",
+      "url": "",
+      "credits": ""
+    },
+    "rights": {
+      "license": "Public Domain",
+      "notes": ""
+    },
+    "tags": ["clasicos", "ficcion"],
+    "cover": {
+      "assetId": "cover-1",
+      "alt": "Portada"
+    },
+    "revision": {
+      "version": "1.0.0",
+      "updatedAt": "YYYY-MM-DD",
+      "editorNotes": ""
+    }
+  },
+
+  "structure": {
+    "pageNumbering": { "startAt": 1 },
+    "index": [
+      {
+        "id": "toc-01",
+        "title": "Capítulo 1",
+        "pageStart": 1,
+        "anchor": "p1:a1"
+      }
+    ]
+  },
+
+  "assets": [
+    {
+      "id": "cover-1",
+      "type": "image",
+      "src": "assets/cover.jpg",
+      "mime": "image/jpeg",
+      "credit": ""
+    }
+  ],
+
+  "pages": [
+    {
+      "id": "p001",
+      "number": 1,
+      "title": "Página 1",
+      "anchors": [
+        { "id": "a1", "label": "Inicio" }
+      ],
+      "content": [
+        {
+          "type": "paragraph",
+          "id": "p001_par_001",
+          "text": "Texto de la página con una llamada a nota.[[note:n001]]"
+        }
+      ],
+      "notesLinked": ["n001"],
+      "meta": {
+        "chapterId": "ch01",
+        "estimatedReadingSeconds": 45
+      }
+    }
+  ],
+
+  "notes": [
+    {
+      "id": "n001",
+      "kind": "author",
+      "title": "Aclaración del autor",
+      "body": "Esta es una nota del autor que amplía contexto.",
+      "links": [
+        {
+          "type": "pageAnchor",
+          "pageId": "p001",
+          "anchorId": "a1"
+        }
+      ],
+      "tags": ["contexto"]
+    }
+  ],
+
+  "glossary": [
+    {
+      "term": "Término",
+      "definition": "Definición breve",
+      "links": [{ "type": "note", "noteId": "n001" }]
+    }
+  ],
+
+  "references": [
+    {
+      "id": "ref-01",
+      "type": "url",
+      "title": "Referencia externa",
+      "value": "",
+      "accessedAt": null
+    }
+  ]
+}
