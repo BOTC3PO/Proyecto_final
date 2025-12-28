@@ -13,6 +13,7 @@ import Login  from "./pages/Login";
 import Register from "./pages/Register";
 import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
+import BookEditorPage from "./bookEditor/BookEditorPage";
 
 
 import test from "./sys/testmode";
@@ -65,6 +66,7 @@ export const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "pricing", element: <Pricing /> },
       { path: "contact", element: <Contact /> },
+      {path:"editor",element:<BookEditorPage/>},
 
 
       // Admin
