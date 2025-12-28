@@ -1,31 +1,34 @@
 {
   "schema": "book.pages@1.0",
   "metadata": {
-    "id": "book-unique-id",
-    "title": "Título del libro",
+    "id": "book-0000001",   
+    "title": "Facundo",
     "subtitle": "",
     "language": "es",
+    "difficulty":4,
+    "paper_color":"#E0C9A6",
+    "text_color":"#FFFFFF",
     "authors": [
-      { "name": "Autor Principal", "role": "author" }
+      { "name": "Domingo Faustino Sarmiento", "role": "author" }
     ],
     "contributors": [
       { "name": "Traductor", "role": "translator" },
       { "name": "Ilustrador", "role": "illustrator" }
     ],
     "publisher": "",
-    "publishedDate": null,
+    "publishedDate": 1845,
     "source": {
       "name": "The Project Gutenberg",
-      "workId": "ebook-xxxxx",
-      "releaseDate": "YYYY-MM-DD",
-      "url": "",
-      "credits": ""
+      "workId": "ebook-33267",
+      "releaseDate": "2010-06-26",
+      "url": "https://www.gutenberg.org/ebooks/33267",
+      "credits": "Produced by Adrian Mastronardi, Chuck Greif and the Online Distributed Proofreading Team at http://www.pgdp.net (This file was produced from images generously made available by The Internet Archive/Canadian Libraries)"
     },
     "rights": {
       "license": "Public Domain",
       "notes": ""
     },
-    "tags": ["clasicos", "ficcion"],
+    "tags": ["clasicos", "Geografía"," historia", "sociología"],
     "cover": {
       "assetId": "cover-1",
       "alt": "Portada"
@@ -40,12 +43,131 @@
   "structure": {
     "pageNumbering": { "startAt": 1 },
     "index": [
+
+      {
+        "id": "toc-00",
+        "title": "Noticia preliminar, por Ricardo Rojas",
+        "pageStart": 9,
+        "anchor": "p1:a1"
+      },
       {
         "id": "toc-01",
-        "title": "Capítulo 1",
-        "pageStart": 1,
+        "title": "PARTE PRIMERA",
+        "pageStart": 25,
+        "anchor": "p1:a1"
+      }, {
+        "id": "toc-02",
+        "title": "Capítulo 1- Aspecto físico de la República Argentina y caracteres, hábitos e ideas que engendra",
+        "pageStart": 25,
+        "anchor": "p1:a1"
+      },
+       {
+        "id": "toc-03",
+        "title": "Capítulo II.—Originalidad y caracteres argentinos.—El rastreador.—El baqueano.—El gaucho malo.—El cantor",
+        "pageStart": 47,
+        "anchor": "p1:a1"
+      },
+       {
+        "id": "toc-04",
+        "title": "Capítulo III.—Asociación.—La pulpería",
+        "pageStart": 66,
+        "anchor": "p1:a1"
+      },
+       {
+        "id": "toc-05",
+        "title": "Capítulo IV.—Revolución de 1810",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },
+      {
+        "id": "toc-06",
+        "title": "PARTE SEGUNDA",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-07",
+        "title": "Capítulo I.—Infancia y juventud de Juan Facundo Quiroga",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-08",
+        "title": "Capítulo II.—La Rioja.—El comandante de campaña",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-09",
+        "title": "Capítulo III.—Sociabilidad.—Córdoba.—Buenos Aires (1825)",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-10",
+        "title": "Capítulo IV.—Ensayos.—Acciones del Tala y del Rincón",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-11",
+        "title": "Capítulo VI.—Guerra social.—Oncativo",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-12",
+        "title": "Capítulo VII.—Guerra social.—Chacón",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-13",
+        "title": "Capítulo VIII.—Guerra social.—Ciudadela",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-14",
+        "title": "Capítulo IX.—Barranca-Yaco",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-15",
+        "title": "PARTE TERCERA",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-16",
+        "title": "Capítulo I.—Gobierno unitario",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-17",
+        "title": "Capítulo II.—Presente y porvenir",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-18",
+        "title": "Capítulo III.—Asociación.—La pulpería",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-19",
+        "title": "APÉNDICE",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-20",
+        "title": "Introducción al Apéndice",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-21",
+        "title": "Parte Primera.—Documentos de Quiroga",
+        "pageStart": 75,
+        "anchor": "p1:a1"
+      },{
+        "id": "toc-22",
+        "title": "Parte Segunda.—Documentos del autor sobre el «Facundo»",
+        "pageStart": 75,
         "anchor": "p1:a1"
       }
+
+
+
     ]
   },
 
