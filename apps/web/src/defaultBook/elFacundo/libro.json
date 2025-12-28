@@ -188,7 +188,46 @@
         {
           "type": "paragraph",
           "id": "p001_par_001",
-          "text": "Texto de la página con una llamada a nota.[[note:n001]]"
+          "text": ""
+        }
+      ],
+      "notesLinked": ["n001"],
+      "meta": {
+        "chapterId": "ch01",
+        "estimatedReadingSeconds": 45
+      }
+    },    {
+      "id": "p002",
+      "number": 2,
+      "title": "Página 2",
+      "anchors": [
+        { "id": "a1", "label": "" }
+      ],
+      "content": [
+        {
+          "type": "paragraph",
+          "id": "p001_par_001",
+          "text": "Imagen de Domingo F. Sarmiento Cuando escribió el Facundo.\n Domingo F. Sarmiento\n Cuando escribió el Facundo."
+        }
+      ],
+      "notesLinked": ["n001"],
+      "meta": {
+        "chapterId": "ch01",
+        "estimatedReadingSeconds": 45
+      }
+    },
+    {
+      "id": "p003",
+      "number": 3,
+      "title": "Página 3",
+      "anchors": [
+        { "id": "a1", "label": "" }
+      ],
+      "content": [
+        {
+          "type": "paragraph",
+          "id": "p001_par_001",
+          "text": "BIBLIOTECA ARGENTINA\npublicación mensual de los mejores libros nacionales\nDirector: RICARDO ROJAS"
         }
       ],
       "notesLinked": ["n001"],
@@ -197,6 +236,8 @@
         "estimatedReadingSeconds": 45
       }
     }
+
+
   ],
 
   "notes": [
