@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
+
 // import { useParams } from "react-router-dom";
 
 
@@ -37,6 +38,7 @@ type Page = {
   title?: string;
   anchors?: Array<{ id: string; label?: string }>;
   content: Array<Block>;
+  notesLinked?: string[]; // <- agregar esto
   meta?: { chapterId?: string; estimatedReadingSeconds?: number };
 };
 
@@ -84,15 +86,13 @@ function clamp(n: number, a: number, b: number) {
 }
 
 // ===== Mock book inicial  =====
-const MOCK_BOOK: Book = {
+const EMPTY_BOOK: Book = {
   schema: "book.pages@1.1",
   metadata: {
-    id: "book-0000001",
-    title: "Facundo",
+    id: "book-draft",
+    title: "Nuevo libro",
     language: "es",
-    difficulty: 4,
-    paper_color: "#E0C9A6",
-    text_color: "#2B2B2B",
+    difficulty: 3,
     theme: {
       paperColor: "#E0C9A6",
       textColor: "#2B2B2B",
@@ -101,7 +101,11 @@ const MOCK_BOOK: Book = {
       lineHeight: 1.6,
     },
   },
-  structure: { pageNumbering: { startAt: 1 }, index: [] },
+  structure: {
+    pageNumbering: { startAt: 1 },
+    index: [],
+  },
+  assets: [],
   pages: [
     {
       id: "p001",
@@ -109,52 +113,34 @@ const MOCK_BOOK: Book = {
       title: "Página 1",
       anchors: [{ id: "a1", label: "Inicio" }],
       content: [
-        { type: "heading", id: "p001_h1_001", level: 1, text: "FACUNDO", blockStyle: { align: "center", spacingAfterPx: 10 }, textStyle: { bold: true, fontSizePx: 32 } },
+        {
+          type: "heading",
+          id: "p001_h1_001",
+          level: 1,
+          text: "Título",
+          blockStyle: { align: "center", spacingBeforePx: 24, spacingAfterPx: 12 },
+          textStyle: { fontSizePx: 34, bold: true, color: "#1A1A1A", fontFamily: "serif" },
+        },
         {
           type: "paragraph",
           id: "p001_par_001",
-          blockStyle: { align: "justify", indentFirstLinePx: 28, spacingAfterPx: 10 },
-          runs: [
-            { text: "Ejemplo de párrafo con " },
-            { text: "negrita", style: { bold: true } },
-            { text: ", " },
-            { text: "cursiva", style: { italic: true } },
-            { text: ", " },
-            { text: "color", style: { color: "#7A1E1E" } },
-            { text: " y " },
-            { text: "tamaño", style: { fontSizePx: 20 } },
-            { text: "." },
-          ],
-        },
-        { type: "divider", id: "p001_div_001" },
-      ],
-      meta: { chapterId: "ch01", estimatedReadingSeconds: 45 },
-    },
-    {
-      id: "p002",
-      number: 2,
-      title: "Página 2",
-      anchors: [{ id: "a1", label: "Inicio" }],
-      content: [
-        {
-          type: "paragraph",
-          id: "p002_par_001",
-          blockStyle: { align: "center" },
-          runs: [
-            { text: "Imagen de Domingo F. Sarmiento\n", style: { bold: true } },
-            { text: "Cuando escribió el Facundo.\n", style: { italic: true } },
-            { text: "Domingo F. Sarmiento", style: { fontSizePx: 14 } },
-          ],
+          blockStyle: { align: "justify", indentFirstLinePx: 28, spacingAfterPx: 12 },
+          runs: [{ text: "Escribí acá…", style: { fontSizePx: 18 } }],
         },
       ],
+      
+      notesLinked: [],
+      meta: { chapterId: "draft", estimatedReadingSeconds: 30 },
     },
   ],
+  notes: [],
 };
+
 
 // ===== Componente principal =====
 export default function BookEditorPage() {
   // const { bookId } = useParams(); 
-  const [book, setBook] = useState<Book>(MOCK_BOOK);
+  const [book, setBook] = useState<Book>(EMPTY_BOOK);
 
   // UI state
   const [selectedPageId, setSelectedPageId] = useState<string>(book.pages[0]?.id ?? "");
@@ -222,7 +208,7 @@ export default function BookEditorPage() {
 
     return issues;
   }, [book]);
-
+/*
   useEffect(() => {
     // Si cambia el libro y la página seleccionada desaparece
     if (selectedPageId && !book.pages.some((p) => p.id === selectedPageId)) {
@@ -230,6 +216,32 @@ export default function BookEditorPage() {
       setSelectedBlockId(null);
     }
   }, [book.pages, selectedPageId]);
+*/
+
+useEffect(() => {
+  try {
+    const raw = localStorage.getItem("bookEditor:draft");
+    if (raw) {
+      const parsed = JSON.parse(raw) as Book;
+      setBook(parsed);
+      setSelectedPageId(parsed.pages?.[0]?.id ?? "");
+      setSelectedBlockId(null);
+      setIsDirty(false);
+    }
+  } catch (e) {
+    console.error("No se pudo cargar el borrador:", e);
+  }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
+useEffect(() => {
+  try {
+    localStorage.setItem("bookEditor:draft", JSON.stringify(book));
+  } catch (e) {
+    console.error("No se pudo guardar el borrador:", e);
+  }
+}, [book]);
+
 
   // ===== Acciones UI (lógica básica placeholder) =====
   function openJsonModal() {
@@ -554,12 +566,13 @@ export default function BookEditorPage() {
             </InspectorCard>
 
             <InspectorCard title="Acciones (UI)">
-              <button className="w-full rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" onClick={() => alert("Luego: Guardar / Publicar / Exportar")}>
-                Guardar (pendiente)
+              <button className="w-full rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" onClick={() => downloadJson(book)}>
+                Descargar
               </button>
               <button className="mt-2 w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => setPreviewMode((m) => (m === "edit" ? "preview" : "edit"))}>
                 Alternar vista
               </button>
+              
             </InspectorCard>
           </div>
         </aside>
@@ -584,6 +597,7 @@ export default function BookEditorPage() {
               <button className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" onClick={applyJsonDraft}>
                 Aplicar JSON
               </button>
+              
             </div>
           </div>
         </Modal>
@@ -634,6 +648,15 @@ export default function BookEditorPage() {
       )}
     </div>
   );
+
+
+
+
+
+
+
+
+
 }
 
 // ===== Subcomponentes =====
@@ -791,9 +814,20 @@ function Modal({ title, children, onClose }: { title: string; children: React.Re
           <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={onClose}>
             Cerrar
           </button>
+          
         </div>
         <div className="p-4">{children}</div>
       </div>
     </div>
   );
+}
+
+function downloadJson(book: Book) {
+  const blob = new Blob([JSON.stringify(book, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${book.metadata.id || "book"}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
 }
