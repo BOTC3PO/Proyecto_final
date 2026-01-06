@@ -63,7 +63,6 @@ const EMPTY_BOOK: Book = {
           runs: [{ text: "Escribí acá…", style: { fontSizePx: 18 } }],
         },
       ],
-      
       notesLinked: [],
       meta: { chapterId: "draft", estimatedReadingSeconds: 30 },
     },
@@ -107,6 +106,17 @@ export default function BookEditorPage() {
   // Validation drawer
   const [issuesOpen, setIssuesOpen] = useState(false);
 
+  useEffect(() => {
+    let nextBook: Book = EMPTY_BOOK;
+
+    try {
+      const raw = localStorage.getItem("bookEditor:draft");
+      if (raw) {
+        nextBook = JSON.parse(raw) as Book;
+      }
+    } catch (e) {
+      console.error("No se pudo cargar el borrador:", e);
+      nextBook = EMPTY_BOOK;
   const book = state.book;
 
   const handleImport = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -158,6 +168,11 @@ export default function BookEditorPage() {
     runValidation(book);
   }, [book, runValidation]);
 
+    runValidation(book);
+  }, [book, runValidation]);
+
+  const selectedPageId = state.selectedPageId ?? "";
+  const selectedBlockId = state.selectedBlockId;
 
   // ===== Acciones UI (lógica básica placeholder) =====
   function openJsonModal() {
@@ -206,6 +221,8 @@ export default function BookEditorPage() {
     }
   }
 
+  const validationIssues = state.issues;
+
   // ===== Render helpers =====
   const paperColor = book?.metadata.theme?.paperColor ?? book?.metadata.paper_color ?? "#F5F1E6";
   const textColor = book?.metadata.theme?.textColor ?? book?.metadata.text_color ?? "#1B1B1B";
@@ -223,7 +240,7 @@ export default function BookEditorPage() {
       <header className="sticky top-0 z-40 border-b bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 sm:px-6">
           <div className="flex min-w-0 flex-1 items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-slate-900 text-white grid place-items-center font-semibold">B</div>
+            <div className="grid h-9 w-9 place-items-center rounded-xl bg-slate-900 font-semibold text-white">B</div>
             <div className="min-w-0">
               <div className="truncate text-sm font-semibold">{book.metadata.title}</div>
               <div className="truncate text-xs text-slate-500">
@@ -397,7 +414,7 @@ export default function BookEditorPage() {
                 }}
               >
                 {previewMode === "preview" ? (
-                  <PreviewPage page={selectedPage} onSelectBlock={() => {}} />
+                  <PreviewPage page={selectedPage} />
                 ) : (
                   <EditPage
                     page={selectedPage}
@@ -455,7 +472,7 @@ export default function BookEditorPage() {
                   <KV label="Tipo" value={selectedBlock.type} />
                   <KV label="ID" value={(selectedBlock as any).id} />
                   {"text" in selectedBlock && typeof (selectedBlock as any).text === "string" ? (
-                    <div className="mt-2 text-xs text-slate-500 line-clamp-4">{(selectedBlock as any).text}</div>
+                    <div className="mt-2 line-clamp-4 text-xs text-slate-500">{(selectedBlock as any).text}</div>
                   ) : null}
                   {"runs" in selectedBlock && Array.isArray((selectedBlock as any).runs) ? (
                     <div className="mt-2 text-xs text-slate-500">Runs: {(selectedBlock as any).runs.length}</div>
@@ -467,6 +484,27 @@ export default function BookEditorPage() {
             </InspectorCard>
 
             <InspectorCard title="Acciones (UI)">
+              <div className="space-y-2">
+                <button
+                  className="w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  Importar JSON
+                </button>
+                <button
+                  className="w-full rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white"
+                  onClick={() => exportBookToDownload(book, `${book.metadata.id || "book"}.json`)}
+                >
+                  Exportar
+                </button>
+                <button
+                  className="w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
+                  onClick={() => setPreviewMode((m) => (m === "edit" ? "preview" : "edit"))}
+                >
+                  Alternar vista
+                </button>
+              </div>
+              <input ref={fileInputRef} type="file" accept="application/json" className="hidden" onChange={handleImportFile} />
               <input
                 ref={fileInputRef}
                 type="file"
@@ -514,7 +552,6 @@ export default function BookEditorPage() {
               <button className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" onClick={applyJsonDraft}>
                 Aplicar JSON
               </button>
-              
             </div>
           </div>
         </Modal>
@@ -525,7 +562,7 @@ export default function BookEditorPage() {
         <Modal title="Validación (preliminar)" onClose={() => setIssuesOpen(false)}>
           <div className="space-y-3">
             <div className="text-xs text-slate-600">
-              Esta validación es mínima (UI). Luego implementamos el validador real: IDs únicos, anchors existentes, TOC ↔ páginas, notes ↔ referencias, assets ↔ uso, etc.
+              Esta validación usa el servicio compartido. Luego implementamos el validador real: IDs únicos, anchors existentes, TOC ↔ páginas, notes ↔ referencias, assets ↔ uso, etc.
             </div>
 
             <div className="max-h-[55vh] overflow-auto rounded-xl border">
@@ -565,15 +602,6 @@ export default function BookEditorPage() {
       )}
     </div>
   );
-
-
-
-
-
-
-
-
-
 }
 
 // ===== Subcomponentes =====
@@ -615,7 +643,7 @@ function EditPage(props: {
   );
 }
 
-function PreviewPage(props: { page: Page; onSelectBlock: (id: string) => void }) {
+function PreviewPage(props: { page: Page }) {
   const { page } = props;
   return (
     <div className="space-y-3">
@@ -731,7 +759,6 @@ function Modal({ title, children, onClose }: { title: string; children: React.Re
           <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={onClose}>
             Cerrar
           </button>
-          
         </div>
         <div className="p-4">{children}</div>
       </div>

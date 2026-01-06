@@ -1,4 +1,4 @@
-import { useMemo, useReducer } from "react";
+import { useCallback, useMemo, useReducer } from "react";
 import type { Book } from "../../domain/book/book.types";
 import { editorReducer } from "./bookEditor.reducer";
 import { validateBook } from "../services/validate";
@@ -22,9 +22,12 @@ export function useBookEditor() {
     return selectedPage.content.find((b: any) => b.id === state.selectedBlockId) ?? null;
   }, [selectedPage, state.selectedBlockId]);
 
-  function runValidation(book: Book) {
-    dispatch({ type: "SET_ISSUES", issues: validateBook(book) });
-  }
+  const runValidation = useCallback(
+    (book: Book) => {
+      dispatch({ type: "SET_ISSUES", issues: validateBook(book) });
+    },
+    [dispatch]
+  );
 
   return { state, dispatch, selectedPage, selectedBlock, runValidation };
 }
