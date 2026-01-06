@@ -172,7 +172,7 @@ export default function BookEditorPage() {
     }
   }
 
-  const validationIssues = state.issues;
+  //const validationIssues = state.issues;
 
   // ===== Render helpers =====
   const paperColor = book?.metadata.theme?.paperColor ?? book?.metadata.paper_color ?? "#F5F1E6";
