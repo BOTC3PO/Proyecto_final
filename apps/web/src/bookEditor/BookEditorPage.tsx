@@ -71,11 +71,23 @@ const EMPTY_BOOK: Book = {
   notes: [],
 };
 
+function prepareBookForEditor(input: Book): Book {
+  const migrated = migrateToV11ForEditor(input);
+  const { book } = ensureUniqueIds(migrated);
+  return book;
+}
+
 
 // ===== Componente principal =====
 export default function BookEditorPage() {
   // const { bookId } = useParams(); 
   const { state, dispatch, selectedPage, selectedBlock, runValidation } = useBookEditor();
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  // UI state
+  const selectedPageId = state.selectedPageId;
+  const selectedBlockId = state.selectedBlockId;
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // UI state
@@ -97,12 +109,28 @@ export default function BookEditorPage() {
 
   const book = state.book;
 
+  const handleImport = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      const imported = await importBookFromFile(file);
+      dispatch({ type: "LOAD_BOOK", book: imported });
+    } catch (error) {
+      console.error("No se pudo importar el archivo:", error);
+      alert("No se pudo importar el archivo.");
+    } finally {
+      event.target.value = "";
+    }
+  }, [dispatch]);
+  useEffect(() => {
   useEffect(() => {
     let loadedBook = EMPTY_BOOK;
     try {
       const raw = localStorage.getItem("bookEditor:draft");
       if (raw) {
         const parsed = JSON.parse(raw) as Book;
+        dispatch({ type: "LOAD_BOOK", book: prepareBookForEditor(parsed) });
+        return;
         const migrated = migrateToV11ForEditor(parsed);
         const uniq = ensureUniqueIds(migrated);
         loadedBook = uniq.book;
@@ -111,6 +139,9 @@ export default function BookEditorPage() {
       console.error("No se pudo cargar el borrador:", e);
     }
     dispatch({ type: "LOAD_BOOK", book: loadedBook });
+  }, [dispatch]);
+
+    dispatch({ type: "LOAD_BOOK", book: prepareBookForEditor(EMPTY_BOOK) });
   }, [dispatch]);
 
   useEffect(() => {
@@ -137,6 +168,8 @@ export default function BookEditorPage() {
 
   function applyJsonDraft() {
     try {
+      const parsed = prepareBookForEditor(JSON.parse(jsonDraft));
+      dispatch({ type: "LOAD_BOOK", book: parsed });
       const parsed = JSON.parse(jsonDraft) as Book;
       const migrated = migrateToV11ForEditor(parsed);
       const uniq = ensureUniqueIds(migrated);
@@ -181,7 +214,7 @@ export default function BookEditorPage() {
   const lineHeight = book?.metadata.theme?.lineHeight ?? 1.6;
 
   if (!book) {
-    return <div className="min-h-screen bg-slate-50 text-slate-900">Cargando editor…</div>;
+    return <div className="min-h-screen bg-slate-50 text-slate-900 p-6">Cargando editor…</div>;
   }
 
   return (
@@ -219,6 +252,13 @@ export default function BookEditorPage() {
               Vista previa
             </button>
 
+            <button
+              className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
+              onClick={() => {
+                runValidation(book);
+                setIssuesOpen(true);
+              }}
+            >
             <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => setIssuesOpen(true)}>
               Validación ({state.issues.length})
             </button>
@@ -652,7 +692,7 @@ function BlockRender({ block, preview }: { block: Block; preview?: boolean }) {
           fontWeight: s.bold ? 700 : undefined,
           fontStyle: s.italic ? "italic" : undefined,
           textDecoration: s.underline ? "underline" : undefined,
-          verticalAlign: (s as any).superscript ? "super" : (s as any).subscript ? "sub" : undefined,
+          verticalAlign: s.superscript ? "super" : s.subscript ? "sub" : undefined,
         };
         return (
           <span key={i} style={spanStyle}>
