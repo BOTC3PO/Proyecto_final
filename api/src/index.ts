@@ -12,4 +12,6 @@ app.use(morgan("tiny"));
 app.use(health);
 app.use(pages);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
-app.listen(ENV.PORT, () => { console.log(API on http://localhost:); });
+app.listen(ENV.PORT, () => {
+  console.log(`API on http://localhost:${ENV.PORT}`);
+});

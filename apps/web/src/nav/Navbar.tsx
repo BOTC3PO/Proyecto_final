@@ -10,7 +10,7 @@ import testmode from "../sys/testmode";
 
 const test = testmode()
 
-const PUBLIC_PAGES = [ ...(test ? [ '/inicio'] : ['/'] ) , '/metodologia', '/juegos-educativos', '/contacto','/login','/register'];
+const PUBLIC_PAGES = [ ...(test ? [ '/inicio'] : ['/'] ) , '/metodologia', '/juegos-educativos', '/contact','/login','/register'];
 
 
 
@@ -111,7 +111,7 @@ export default function Navbar() {
                 </li>
                 <li className="md:px-4 md:py-2">
                   <NavLink 
-                    to="/contacto" 
+                    to="/contact" 
                     className={({ isActive }) => 
                       isActive ? 'text-indigo-300' : 'text-white hover:text-indigo-300 transition-colors'
                     }
@@ -178,7 +178,7 @@ export default function Navbar() {
                 Juegos Educativos
               </NavLink>
               <NavLink 
-                to="/contacto" 
+                to="/contact" 
                 className={({ isActive }) => 
                   `block py-2 px-4 rounded transition-colors ${
                     isActive 
