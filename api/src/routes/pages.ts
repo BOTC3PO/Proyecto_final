@@ -3,7 +3,9 @@ import { TuesdayProjectSchema } from "../schema/page";
 import { getDb } from "../lib/db";
 import express from "express";
 export const pages = Router();
-function bodyLimitMB(maxMb: number) { return [express.json({ limit: ${maxMb}mb })]; }
+function bodyLimitMB(maxMb: number) {
+  return [express.json({ limit: `${maxMb}mb` })];
+}
 pages.post("/api/pages", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
   try {
     const parsed = TuesdayProjectSchema.parse(req.body);
@@ -18,7 +20,13 @@ pages.post("/api/pages", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), 
 pages.get("/api/pages/:id", async (req, res) => {
   const db = await getDb();
   const { ObjectId } = await import("mongodb");
-  const page = await db.collection("pages").findOne({ _id: new ObjectId(req.params.id) });
+  let objectId: InstanceType<typeof ObjectId>;
+  try {
+    objectId = new ObjectId(req.params.id);
+  } catch {
+    return res.status(400).json({ error: "invalid id" });
+  }
+  const page = await db.collection("pages").findOne({ _id: objectId });
   if (!page) return res.status(404).json({ error: "not found" });
   res.json(page);
 });

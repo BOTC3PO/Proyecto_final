@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useCallback, useRef } from "react";
-import type { Book, Page, Block } from "../domain/book/book.types";
+import React, { useEffect, useRef, useState } from "react";
+import type { Block, Book, Page } from "../domain/book/book.types";
+import { useBookEditor } from "./state/useBookEditor";
+import { ensureUniqueIds } from "./services/ids";
 import { exportBookToDownload, importBookFromFile } from "./services/importExport";
 import { migrateToV11ForEditor } from "./services/migrate";
-import { ensureUniqueIds } from "./services/ids";
-import { useBookEditor } from "./state/useBookEditor";
 
 // import { useParams } from "react-router-dom";
 
@@ -88,6 +88,9 @@ export default function BookEditorPage() {
   const selectedPageId = state.selectedPageId;
   const selectedBlockId = state.selectedBlockId;
 
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // UI state
   // Mobile tabs
   const [mobileTab, setMobileTab] = useState<"pages" | "content" | "inspector">("content");
 
@@ -120,16 +123,23 @@ export default function BookEditorPage() {
     }
   }, [dispatch]);
   useEffect(() => {
+  useEffect(() => {
+    let loadedBook = EMPTY_BOOK;
     try {
       const raw = localStorage.getItem("bookEditor:draft");
       if (raw) {
         const parsed = JSON.parse(raw) as Book;
         dispatch({ type: "LOAD_BOOK", book: prepareBookForEditor(parsed) });
         return;
+        const migrated = migrateToV11ForEditor(parsed);
+        const uniq = ensureUniqueIds(migrated);
+        loadedBook = uniq.book;
       }
     } catch (e) {
       console.error("No se pudo cargar el borrador:", e);
     }
+    dispatch({ type: "LOAD_BOOK", book: loadedBook });
+  }, [dispatch]);
 
     dispatch({ type: "LOAD_BOOK", book: prepareBookForEditor(EMPTY_BOOK) });
   }, [dispatch]);
@@ -160,6 +170,10 @@ export default function BookEditorPage() {
     try {
       const parsed = prepareBookForEditor(JSON.parse(jsonDraft));
       dispatch({ type: "LOAD_BOOK", book: parsed });
+      const parsed = JSON.parse(jsonDraft) as Book;
+      const migrated = migrateToV11ForEditor(parsed);
+      const uniq = ensureUniqueIds(migrated);
+      dispatch({ type: "LOAD_BOOK", book: uniq.book });
       dispatch({ type: "MARK_DIRTY", dirty: true });
       setJsonModalOpen(false);
     } catch (e: any) {
@@ -174,6 +188,22 @@ export default function BookEditorPage() {
   function addBlock(type: Block["type"]) {
     if (!selectedPage) return;
     dispatch({ type: "ADD_BLOCK", blockType: type });
+  }
+
+  async function handleImportFile(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    try {
+      const imported = await importBookFromFile(file);
+      dispatch({ type: "LOAD_BOOK", book: imported });
+      dispatch({ type: "MARK_DIRTY", dirty: true });
+      setMobileTab("content");
+    } catch (e: any) {
+      alert("No se pudo importar el archivo: " + (e?.message ?? "error"));
+    } finally {
+      event.target.value = "";
+    }
   }
 
   // ===== Render helpers =====
@@ -229,6 +259,7 @@ export default function BookEditorPage() {
                 setIssuesOpen(true);
               }}
             >
+            <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => setIssuesOpen(true)}>
               Validación ({state.issues.length})
             </button>
 
@@ -290,7 +321,7 @@ export default function BookEditorPage() {
             <div className="max-h-[70vh] overflow-auto pr-1">
               <ul className="space-y-1">
                 {book.pages.map((p) => {
-                  const active = p.id === selectedPageId;
+                  const active = p.id === state.selectedPageId;
                   return (
                     <li key={p.id}>
                       <button
@@ -370,7 +401,7 @@ export default function BookEditorPage() {
                 ) : (
                   <EditPage
                     page={selectedPage}
-                    selectedBlockId={selectedBlockId}
+                    selectedBlockId={state.selectedBlockId}
                     onSelectBlock={(id) => dispatch({ type: "SELECT_BLOCK", blockId: id })}
                   />
                 )}
@@ -436,6 +467,13 @@ export default function BookEditorPage() {
             </InspectorCard>
 
             <InspectorCard title="Acciones (UI)">
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="application/json"
+                className="hidden"
+                onChange={handleImportFile}
+              />
               <button
                 className="w-full rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white"
                 onClick={() => exportBookToDownload(book, `${book.metadata.id || "book"}.json`)}
@@ -446,15 +484,8 @@ export default function BookEditorPage() {
                 className="mt-2 w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
                 onClick={() => fileInputRef.current?.click()}
               >
-                Importar
+                Importar JSON
               </button>
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="application/json"
-                className="hidden"
-                onChange={handleImport}
-              />
               <button className="mt-2 w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => setPreviewMode((m) => (m === "edit" ? "preview" : "edit"))}>
                 Alternar vista
               </button>

@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Login  from "./pages/Login";
 import Register from "./pages/Register";
+import Metodologia from "./pages/metodologia";
 import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
@@ -66,6 +67,7 @@ export const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "pricing", element: <Pricing /> },
       { path: "contact", element: <Contact /> },
+      { path: "metodologia", element: <Metodologia /> },
       {path:"editor",element:<BookEditorPage/>},
 
 
