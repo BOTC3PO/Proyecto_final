@@ -1,76 +1,9 @@
-import React, { useEffect, useMemo, useState, useCallback } from "react";
-
-// import { useParams } from "react-router-dom";
-
-
-
-// ===== Tipos base =====
-type Book = {
-  schema: string;
-  metadata: {
-    id: string;
-    title: string;
-    subtitle?: string;
-    language?: string;
-    difficulty?: number;
-    paper_color?: string;
-    text_color?: string;
-    theme?: {
-      paperColor?: string;
-      textColor?: string;
-      fontFamily?: string;
-      baseFontSizePx?: number;
-      lineHeight?: number;
-    };
-  };
-  structure?: {
-    pageNumbering?: { startAt?: number };
-    index?: Array<{ id: string; title: string; pageStart: number; anchor: string }>;
-  };
-  assets?: Array<any>;
-  pages: Array<Page>;
-  notes?: Array<any>;
-};
-
-type Page = {
-  id: string;
-  number: number;
-  title?: string;
-  anchors?: Array<{ id: string; label?: string }>;
-  content: Array<Block>;
-  notesLinked?: string[]; // <- agregar esto
-  meta?: { chapterId?: string; estimatedReadingSeconds?: number };
-};
-
-type Block =
-  | { type: "heading"; id: string; level: 1 | 2 | 3 | 4 | 5 | 6; text: string; blockStyle?: BlockStyle; textStyle?: TextStyle }
-  | { type: "paragraph"; id: string; text?: string; runs?: TextRun[]; blockStyle?: BlockStyle }
-  | { type: "image"; id: string; assetId: string; caption?: string; blockStyle?: BlockStyle }
-  | { type: "divider"; id: string }
-  | { type: "pageBreak"; id: string };
-
-type BlockStyle = {
-  align?: "left" | "center" | "right" | "justify";
-  spacingBeforePx?: number;
-  spacingAfterPx?: number;
-  indentFirstLinePx?: number;
-};
-
-type TextStyle = {
-  fontFamily?: string;
-  fontSizePx?: number;
-  color?: string;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
-};
-
-type TextRun = {
-  text: string;
-  style?: TextStyle & { superscript?: boolean; subscript?: boolean };
-};
-
-type ValidationIssue = { level: "error" | "warn"; message: string; path?: string };
+import React, { useEffect, useRef, useState } from "react";
+import type { Block, Book, Page } from "../domain/book/book.types";
+import { useBookEditor } from "./state/useBookEditor";
+import { ensureUniqueIds } from "./services/ids";
+import { migrateToV11ForEditor } from "./services/migrate";
+import { exportBookToDownload, importBookFromFile } from "./services/importExport";
 
 // ===== Helpers UI-only =====
 function classNames(...xs: Array<string | false | null | undefined>) {
@@ -128,7 +61,6 @@ const EMPTY_BOOK: Book = {
           runs: [{ text: "Escribí acá…", style: { fontSizePx: 18 } }],
         },
       ],
-      
       notesLinked: [],
       meta: { chapterId: "draft", estimatedReadingSeconds: 30 },
     },
@@ -136,15 +68,12 @@ const EMPTY_BOOK: Book = {
   notes: [],
 };
 
-
 // ===== Componente principal =====
 export default function BookEditorPage() {
-  // const { bookId } = useParams(); 
-  const [book, setBook] = useState<Book>(EMPTY_BOOK);
+  const { state, dispatch, selectedPage, selectedBlock, runValidation } = useBookEditor();
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  // UI state
-  const [selectedPageId, setSelectedPageId] = useState<string>(book.pages[0]?.id ?? "");
-  const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null);
+  const book = state.book;
 
   // Mobile tabs
   const [mobileTab, setMobileTab] = useState<"pages" | "content" | "inspector">("content");
@@ -155,9 +84,6 @@ export default function BookEditorPage() {
   // Preview toggle
   const [previewMode, setPreviewMode] = useState<"edit" | "preview">("edit");
 
-  // Basic “dirty” state placeholder
-  const [isDirty, setIsDirty] = useState(false);
-
   // JSON modal
   const [jsonModalOpen, setJsonModalOpen] = useState(false);
   const [jsonDraft, setJsonDraft] = useState("");
@@ -165,155 +91,97 @@ export default function BookEditorPage() {
   // Validation drawer
   const [issuesOpen, setIssuesOpen] = useState(false);
 
-  const selectedPage = useMemo(() => book.pages.find((p) => p.id === selectedPageId) ?? null, [book.pages, selectedPageId]);
-
-  const selectedBlock = useMemo(() => {
-    if (!selectedPage || !selectedBlockId) return null;
-    return selectedPage.content.find((b) => (b as any).id === selectedBlockId) ?? null;
-  }, [selectedPage, selectedBlockId]);
-
-  // Demo validation (UI-only): detect repeated content block ids across pages + index anchors suspicious
-  const validationIssues = useMemo<ValidationIssue[]>(() => {
-    const issues: ValidationIssue[] = [];
-
-    // repeated block ids
-    const seen = new Map<string, string>(); // blockId -> pageId
-    for (const p of book.pages) {
-      for (const b of p.content) {
-        const id = (b as any).id;
-        if (!id) continue;
-        if (seen.has(id)) {
-          issues.push({
-            level: "error",
-            message: `ID de bloque repetido: "${id}" (en ${seen.get(id)} y ${p.id}).`,
-            path: `pages[${p.id}].content`,
-          });
-        } else {
-          seen.set(id, p.id);
-        }
-      }
-    }
-
-    // anchors in structure.index that look not aligned to page ids
-    const toc = book.structure?.index ?? [];
-    for (const item of toc) {
-      if (item.anchor && item.anchor.startsWith("p1:")) {
-        issues.push({
-          level: "warn",
-          message: `TOC anchor "${item.anchor}" parece genérico. Recomendado: "<pageId>:<anchorId>" (ej. "p025:a1").`,
-          path: `structure.index[${item.id}]`,
-        });
-      }
-    }
-
-    return issues;
-  }, [book]);
-/*
   useEffect(() => {
-    // Si cambia el libro y la página seleccionada desaparece
-    if (selectedPageId && !book.pages.some((p) => p.id === selectedPageId)) {
-      setSelectedPageId(book.pages[0]?.id ?? "");
-      setSelectedBlockId(null);
+    let nextBook: Book = EMPTY_BOOK;
+
+    try {
+      const raw = localStorage.getItem("bookEditor:draft");
+      if (raw) {
+        nextBook = JSON.parse(raw) as Book;
+      }
+    } catch (e) {
+      console.error("No se pudo cargar el borrador:", e);
+      nextBook = EMPTY_BOOK;
     }
-  }, [book.pages, selectedPageId]);
-*/
 
-useEffect(() => {
-  try {
-    const raw = localStorage.getItem("bookEditor:draft");
-    if (raw) {
-      const parsed = JSON.parse(raw) as Book;
-      setBook(parsed);
-      setSelectedPageId(parsed.pages?.[0]?.id ?? "");
-      setSelectedBlockId(null);
-      setIsDirty(false);
+    nextBook = migrateToV11ForEditor(nextBook);
+    const uniq = ensureUniqueIds(nextBook);
+    nextBook = uniq.book;
+
+    dispatch({ type: "LOAD_BOOK", book: nextBook });
+    dispatch({ type: "MARK_DIRTY", dirty: false });
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!book) return;
+
+    try {
+      localStorage.setItem("bookEditor:draft", JSON.stringify(book));
+    } catch (e) {
+      console.error("No se pudo guardar el borrador:", e);
     }
-  } catch (e) {
-    console.error("No se pudo cargar el borrador:", e);
-  }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
 
-useEffect(() => {
-  try {
-    localStorage.setItem("bookEditor:draft", JSON.stringify(book));
-  } catch (e) {
-    console.error("No se pudo guardar el borrador:", e);
-  }
-}, [book]);
+    runValidation(book);
+  }, [book, runValidation]);
 
+  const selectedPageId = state.selectedPageId ?? "";
+  const selectedBlockId = state.selectedBlockId;
 
   // ===== Acciones UI (lógica básica placeholder) =====
   function openJsonModal() {
+    if (!book) return;
     setJsonDraft(prettyJson(book));
     setJsonModalOpen(true);
   }
 
   function applyJsonDraft() {
     try {
-      const parsed = JSON.parse(jsonDraft);
-      setBook(parsed);
-      setIsDirty(true);
+      const parsed = JSON.parse(jsonDraft) as Book;
+      let nextBook = migrateToV11ForEditor(parsed);
+      const uniq = ensureUniqueIds(nextBook);
+      nextBook = uniq.book;
+
+      dispatch({ type: "LOAD_BOOK", book: nextBook });
+      dispatch({ type: "MARK_DIRTY", dirty: true });
       setJsonModalOpen(false);
-      setSelectedBlockId(null);
-      setSelectedPageId(parsed.pages?.[0]?.id ?? "");
     } catch (e: any) {
       alert("JSON inválido: " + (e?.message ?? "error"));
     }
   }
 
   function addPage() {
-    // Lógica mínima por ahora: crear página vacía al final.
-    const nextNumber = (book.pages.at(-1)?.number ?? 0) + 1;
-    const nextId = `p${String(nextNumber).padStart(3, "0")}`;
-
-    const newPage: Page = {
-      id: nextId,
-      number: nextNumber,
-      title: `Página ${nextNumber}`,
-      anchors: [{ id: "a1", label: "Inicio" }],
-      content: [
-        {
-          type: "paragraph",
-          id: `${nextId}_par_001`,
-          blockStyle: { align: "left" },
-          runs: [{ text: "" }],
-        },
-      ],
-      meta: { chapterId: "ch01", estimatedReadingSeconds: 30 },
-    };
-
-    setBook((prev) => ({ ...prev, pages: [...prev.pages, newPage] }));
-    setSelectedPageId(nextId);
-    setSelectedBlockId(`${nextId}_par_001`);
-    setIsDirty(true);
+    dispatch({ type: "ADD_PAGE" });
   }
 
   function addBlock(type: Block["type"]) {
-    if (!selectedPage) return;
-    const pageId = selectedPage.id;
-    const idx = selectedPage.content.length + 1;
-
-    let newBlock: Block;
-    if (type === "heading") {
-      newBlock = { type: "heading", id: `${pageId}_h1_${String(idx).padStart(3, "0")}`, level: 1, text: "Nuevo título", blockStyle: { align: "left" }, textStyle: { bold: true, fontSizePx: 26 } };
-    } else if (type === "paragraph") {
-      newBlock = { type: "paragraph", id: `${pageId}_par_${String(idx).padStart(3, "0")}`, blockStyle: { align: "justify", indentFirstLinePx: 24, spacingAfterPx: 10 }, runs: [{ text: "Nuevo párrafo..." }] };
-    } else if (type === "image") {
-      newBlock = { type: "image", id: `${pageId}_img_${String(idx).padStart(3, "0")}`, assetId: "asset-pendiente", caption: "Epígrafe...", blockStyle: { align: "center" } };
-    } else if (type === "divider") {
-      newBlock = { type: "divider", id: `${pageId}_div_${String(idx).padStart(3, "0")}` };
-    } else {
-      newBlock = { type: "pageBreak", id: `${pageId}_pb_${String(idx).padStart(3, "0")}` };
-    }
-
-    setBook((prev) => ({
-      ...prev,
-      pages: prev.pages.map((p) => (p.id === pageId ? { ...p, content: [...p.content, newBlock] } : p)),
-    }));
-    setSelectedBlockId((newBlock as any).id);
-    setIsDirty(true);
+    dispatch({ type: "ADD_BLOCK", blockType: type });
   }
+
+  async function handleImportFile(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    try {
+      const imported = await importBookFromFile(file);
+      dispatch({ type: "LOAD_BOOK", book: imported });
+      dispatch({ type: "MARK_DIRTY", dirty: false });
+    } catch (e) {
+      console.error("No se pudo importar el archivo:", e);
+      alert("No se pudo importar el archivo.");
+    } finally {
+      event.target.value = "";
+    }
+  }
+
+  if (!book) {
+    return (
+      <div className="grid min-h-screen place-items-center bg-slate-50 text-slate-600">
+        Cargando editor...
+      </div>
+    );
+  }
+
+  const validationIssues = state.issues;
 
   // ===== Render helpers =====
   const paperColor = book.metadata.theme?.paperColor ?? book.metadata.paper_color ?? "#F5F1E6";
@@ -328,11 +196,11 @@ useEffect(() => {
       <header className="sticky top-0 z-40 border-b bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 sm:px-6">
           <div className="flex min-w-0 flex-1 items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-slate-900 text-white grid place-items-center font-semibold">B</div>
+            <div className="grid h-9 w-9 place-items-center rounded-xl bg-slate-900 font-semibold text-white">B</div>
             <div className="min-w-0">
               <div className="truncate text-sm font-semibold">{book.metadata.title}</div>
               <div className="truncate text-xs text-slate-500">
-                {book.metadata.id} · {book.schema} {isDirty ? "· sin guardar" : "· guardado"}
+                {book.metadata.id} · {book.schema} {state.dirty ? "· sin guardar" : "· guardado"}
               </div>
             </div>
           </div>
@@ -428,8 +296,7 @@ useEffect(() => {
                           active ? "border-slate-900 bg-slate-50" : "border-transparent hover:border-slate-200 hover:bg-slate-50"
                         )}
                         onClick={() => {
-                          setSelectedPageId(p.id);
-                          setSelectedBlockId(null);
+                          dispatch({ type: "SELECT_PAGE", pageId: p.id });
                           setMobileTab("content");
                         }}
                       >
@@ -496,12 +363,12 @@ useEffect(() => {
                 }}
               >
                 {previewMode === "preview" ? (
-                  <PreviewPage page={selectedPage} onSelectBlock={() => {}} />
+                  <PreviewPage page={selectedPage} />
                 ) : (
                   <EditPage
                     page={selectedPage}
                     selectedBlockId={selectedBlockId}
-                    onSelectBlock={(id) => setSelectedBlockId(id)}
+                    onSelectBlock={(id) => dispatch({ type: "SELECT_BLOCK", blockId: id })}
                   />
                 )}
               </div>
@@ -554,7 +421,7 @@ useEffect(() => {
                   <KV label="Tipo" value={selectedBlock.type} />
                   <KV label="ID" value={(selectedBlock as any).id} />
                   {"text" in selectedBlock && typeof (selectedBlock as any).text === "string" ? (
-                    <div className="mt-2 text-xs text-slate-500 line-clamp-4">{(selectedBlock as any).text}</div>
+                    <div className="mt-2 line-clamp-4 text-xs text-slate-500">{(selectedBlock as any).text}</div>
                   ) : null}
                   {"runs" in selectedBlock && Array.isArray((selectedBlock as any).runs) ? (
                     <div className="mt-2 text-xs text-slate-500">Runs: {(selectedBlock as any).runs.length}</div>
@@ -566,13 +433,27 @@ useEffect(() => {
             </InspectorCard>
 
             <InspectorCard title="Acciones (UI)">
-              <button className="w-full rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" onClick={() => downloadJson(book)}>
-                Descargar
-              </button>
-              <button className="mt-2 w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => setPreviewMode((m) => (m === "edit" ? "preview" : "edit"))}>
-                Alternar vista
-              </button>
-              
+              <div className="space-y-2">
+                <button
+                  className="w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  Importar JSON
+                </button>
+                <button
+                  className="w-full rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white"
+                  onClick={() => exportBookToDownload(book, `${book.metadata.id || "book"}.json`)}
+                >
+                  Exportar
+                </button>
+                <button
+                  className="w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
+                  onClick={() => setPreviewMode((m) => (m === "edit" ? "preview" : "edit"))}
+                >
+                  Alternar vista
+                </button>
+              </div>
+              <input ref={fileInputRef} type="file" accept="application/json" className="hidden" onChange={handleImportFile} />
             </InspectorCard>
           </div>
         </aside>
@@ -597,7 +478,6 @@ useEffect(() => {
               <button className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" onClick={applyJsonDraft}>
                 Aplicar JSON
               </button>
-              
             </div>
           </div>
         </Modal>
@@ -608,7 +488,7 @@ useEffect(() => {
         <Modal title="Validación (preliminar)" onClose={() => setIssuesOpen(false)}>
           <div className="space-y-3">
             <div className="text-xs text-slate-600">
-              Esta validación es mínima (UI). Luego implementamos el validador real: IDs únicos, anchors existentes, TOC ↔ páginas, notes ↔ referencias, assets ↔ uso, etc.
+              Esta validación usa el servicio compartido. Luego implementamos el validador real: IDs únicos, anchors existentes, TOC ↔ páginas, notes ↔ referencias, assets ↔ uso, etc.
             </div>
 
             <div className="max-h-[55vh] overflow-auto rounded-xl border">
@@ -648,15 +528,6 @@ useEffect(() => {
       )}
     </div>
   );
-
-
-
-
-
-
-
-
-
 }
 
 // ===== Subcomponentes =====
@@ -698,7 +569,7 @@ function EditPage(props: {
   );
 }
 
-function PreviewPage(props: { page: Page; onSelectBlock: (id: string) => void }) {
+function PreviewPage(props: { page: Page }) {
   const { page } = props;
   return (
     <div className="space-y-3">
@@ -814,20 +685,9 @@ function Modal({ title, children, onClose }: { title: string; children: React.Re
           <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={onClose}>
             Cerrar
           </button>
-          
         </div>
         <div className="p-4">{children}</div>
       </div>
     </div>
   );
-}
-
-function downloadJson(book: Book) {
-  const blob = new Blob([JSON.stringify(book, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `${book.metadata.id || "book"}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
 }
