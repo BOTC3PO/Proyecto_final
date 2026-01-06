@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import type { Block, Book, Page } from "../domain/book/book.types";
 import { useBookEditor } from "./state/useBookEditor";
 import { ensureUniqueIds } from "./services/ids";
-import { migrateToV11ForEditor } from "./services/migrate";
 import { exportBookToDownload, importBookFromFile } from "./services/importExport";
+import { migrateToV11ForEditor } from "./services/migrate";
+
+// import { useParams } from "react-router-dom";
 
 // ===== Helpers UI-only =====
 function classNames(...xs: Array<string | false | null | undefined>) {
@@ -68,13 +70,26 @@ const EMPTY_BOOK: Book = {
   notes: [],
 };
 
+function prepareBookForEditor(input: Book): Book {
+  const migrated = migrateToV11ForEditor(input);
+  const { book } = ensureUniqueIds(migrated);
+  return book;
+}
+
+
 // ===== Componente principal =====
 export default function BookEditorPage() {
+  // const { bookId } = useParams(); 
   const { state, dispatch, selectedPage, selectedBlock, runValidation } = useBookEditor();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  const book = state.book;
+  // UI state
+  const selectedPageId = state.selectedPageId;
+  const selectedBlockId = state.selectedBlockId;
 
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // UI state
   // Mobile tabs
   const [mobileTab, setMobileTab] = useState<"pages" | "content" | "inspector">("content");
 
@@ -102,24 +117,56 @@ export default function BookEditorPage() {
     } catch (e) {
       console.error("No se pudo cargar el borrador:", e);
       nextBook = EMPTY_BOOK;
+  const book = state.book;
+
+  const handleImport = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      const imported = await importBookFromFile(file);
+      dispatch({ type: "LOAD_BOOK", book: imported });
+    } catch (error) {
+      console.error("No se pudo importar el archivo:", error);
+      alert("No se pudo importar el archivo.");
+    } finally {
+      event.target.value = "";
     }
+  }, [dispatch]);
+  useEffect(() => {
+  useEffect(() => {
+    let loadedBook = EMPTY_BOOK;
+    try {
+      const raw = localStorage.getItem("bookEditor:draft");
+      if (raw) {
+        const parsed = JSON.parse(raw) as Book;
+        dispatch({ type: "LOAD_BOOK", book: prepareBookForEditor(parsed) });
+        return;
+        const migrated = migrateToV11ForEditor(parsed);
+        const uniq = ensureUniqueIds(migrated);
+        loadedBook = uniq.book;
+      }
+    } catch (e) {
+      console.error("No se pudo cargar el borrador:", e);
+    }
+    dispatch({ type: "LOAD_BOOK", book: loadedBook });
+  }, [dispatch]);
 
-    nextBook = migrateToV11ForEditor(nextBook);
-    const uniq = ensureUniqueIds(nextBook);
-    nextBook = uniq.book;
-
-    dispatch({ type: "LOAD_BOOK", book: nextBook });
-    dispatch({ type: "MARK_DIRTY", dirty: false });
+    dispatch({ type: "LOAD_BOOK", book: prepareBookForEditor(EMPTY_BOOK) });
   }, [dispatch]);
 
   useEffect(() => {
     if (!book) return;
-
     try {
       localStorage.setItem("bookEditor:draft", JSON.stringify(book));
     } catch (e) {
       console.error("No se pudo guardar el borrador:", e);
     }
+  }, [book]);
+
+  useEffect(() => {
+    if (!book) return;
+    runValidation(book);
+  }, [book, runValidation]);
 
     runValidation(book);
   }, [book, runValidation]);
@@ -136,12 +183,12 @@ export default function BookEditorPage() {
 
   function applyJsonDraft() {
     try {
+      const parsed = prepareBookForEditor(JSON.parse(jsonDraft));
+      dispatch({ type: "LOAD_BOOK", book: parsed });
       const parsed = JSON.parse(jsonDraft) as Book;
-      let nextBook = migrateToV11ForEditor(parsed);
-      const uniq = ensureUniqueIds(nextBook);
-      nextBook = uniq.book;
-
-      dispatch({ type: "LOAD_BOOK", book: nextBook });
+      const migrated = migrateToV11ForEditor(parsed);
+      const uniq = ensureUniqueIds(migrated);
+      dispatch({ type: "LOAD_BOOK", book: uniq.book });
       dispatch({ type: "MARK_DIRTY", dirty: true });
       setJsonModalOpen(false);
     } catch (e: any) {
@@ -154,6 +201,7 @@ export default function BookEditorPage() {
   }
 
   function addBlock(type: Block["type"]) {
+    if (!selectedPage) return;
     dispatch({ type: "ADD_BLOCK", blockType: type });
   }
 
@@ -164,31 +212,27 @@ export default function BookEditorPage() {
     try {
       const imported = await importBookFromFile(file);
       dispatch({ type: "LOAD_BOOK", book: imported });
-      dispatch({ type: "MARK_DIRTY", dirty: false });
-    } catch (e) {
-      console.error("No se pudo importar el archivo:", e);
-      alert("No se pudo importar el archivo.");
+      dispatch({ type: "MARK_DIRTY", dirty: true });
+      setMobileTab("content");
+    } catch (e: any) {
+      alert("No se pudo importar el archivo: " + (e?.message ?? "error"));
     } finally {
       event.target.value = "";
     }
   }
 
-  if (!book) {
-    return (
-      <div className="grid min-h-screen place-items-center bg-slate-50 text-slate-600">
-        Cargando editor...
-      </div>
-    );
-  }
-
   const validationIssues = state.issues;
 
   // ===== Render helpers =====
-  const paperColor = book.metadata.theme?.paperColor ?? book.metadata.paper_color ?? "#F5F1E6";
-  const textColor = book.metadata.theme?.textColor ?? book.metadata.text_color ?? "#1B1B1B";
-  const baseFontSize = book.metadata.theme?.baseFontSizePx ?? 18;
-  const fontFamily = book.metadata.theme?.fontFamily ?? "serif";
-  const lineHeight = book.metadata.theme?.lineHeight ?? 1.6;
+  const paperColor = book?.metadata.theme?.paperColor ?? book?.metadata.paper_color ?? "#F5F1E6";
+  const textColor = book?.metadata.theme?.textColor ?? book?.metadata.text_color ?? "#1B1B1B";
+  const baseFontSize = book?.metadata.theme?.baseFontSizePx ?? 18;
+  const fontFamily = book?.metadata.theme?.fontFamily ?? "serif";
+  const lineHeight = book?.metadata.theme?.lineHeight ?? 1.6;
+
+  if (!book) {
+    return <div className="min-h-screen bg-slate-50 text-slate-900 p-6">Cargando editor…</div>;
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -225,8 +269,15 @@ export default function BookEditorPage() {
               Vista previa
             </button>
 
+            <button
+              className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
+              onClick={() => {
+                runValidation(book);
+                setIssuesOpen(true);
+              }}
+            >
             <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => setIssuesOpen(true)}>
-              Validación ({validationIssues.length})
+              Validación ({state.issues.length})
             </button>
 
             <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={openJsonModal}>
@@ -287,7 +338,7 @@ export default function BookEditorPage() {
             <div className="max-h-[70vh] overflow-auto pr-1">
               <ul className="space-y-1">
                 {book.pages.map((p) => {
-                  const active = p.id === selectedPageId;
+                  const active = p.id === state.selectedPageId;
                   return (
                     <li key={p.id}>
                       <button
@@ -367,7 +418,7 @@ export default function BookEditorPage() {
                 ) : (
                   <EditPage
                     page={selectedPage}
-                    selectedBlockId={selectedBlockId}
+                    selectedBlockId={state.selectedBlockId}
                     onSelectBlock={(id) => dispatch({ type: "SELECT_BLOCK", blockId: id })}
                   />
                 )}
@@ -454,6 +505,29 @@ export default function BookEditorPage() {
                 </button>
               </div>
               <input ref={fileInputRef} type="file" accept="application/json" className="hidden" onChange={handleImportFile} />
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="application/json"
+                className="hidden"
+                onChange={handleImportFile}
+              />
+              <button
+                className="w-full rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white"
+                onClick={() => exportBookToDownload(book, `${book.metadata.id || "book"}.json`)}
+              >
+                Descargar
+              </button>
+              <button
+                className="mt-2 w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
+                onClick={() => fileInputRef.current?.click()}
+              >
+                Importar JSON
+              </button>
+              <button className="mt-2 w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => setPreviewMode((m) => (m === "edit" ? "preview" : "edit"))}>
+                Alternar vista
+              </button>
+              
             </InspectorCard>
           </div>
         </aside>
@@ -492,11 +566,11 @@ export default function BookEditorPage() {
             </div>
 
             <div className="max-h-[55vh] overflow-auto rounded-xl border">
-              {validationIssues.length === 0 ? (
+              {state.issues.length === 0 ? (
                 <div className="p-4 text-sm text-slate-600">Sin issues detectados.</div>
               ) : (
                 <ul className="divide-y">
-                  {validationIssues.map((it, i) => (
+                  {state.issues.map((it, i) => (
                     <li key={i} className="p-3">
                       <div className="flex items-start gap-2">
                         <span
@@ -646,7 +720,7 @@ function BlockRender({ block, preview }: { block: Block; preview?: boolean }) {
           fontWeight: s.bold ? 700 : undefined,
           fontStyle: s.italic ? "italic" : undefined,
           textDecoration: s.underline ? "underline" : undefined,
-          verticalAlign: (s as any).superscript ? "super" : (s as any).subscript ? "sub" : undefined,
+          verticalAlign: s.superscript ? "super" : s.subscript ? "sub" : undefined,
         };
         return (
           <span key={i} style={spanStyle}>

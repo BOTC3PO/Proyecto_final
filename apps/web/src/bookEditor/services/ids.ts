@@ -22,6 +22,7 @@ export function makeBlockId(pageId: string, type: Block["type"], ordinal: number
 export function ensureUniqueIds(book: Book): { book: Book; changed: boolean; report: string[] } {
   let changed = false;
   const report: string[] = [];
+  const globalBlockIds = new Set<string>();
 
   // 1) páginas: asegurar id coherente con number si querés; o solo asegurar unicidad
   const pageIdSeen = new Set<string>();
@@ -59,10 +60,4 @@ export function ensureUniqueIds(book: Book): { book: Book; changed: boolean; rep
   });
 
   return { book: { ...book, pages }, changed, report };
-
-  function globalBlockIdsInit() {
-    return new Set<string>();
-  }
-  // eslint-disable-next-line prefer-const
-  let globalBlockIds = globalBlockIdsInit();
 }
