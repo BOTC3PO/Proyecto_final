@@ -1,76 +1,11 @@
-import React, { useEffect, useMemo, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
+import type { Book, Page, Block } from "../domain/book/book.types";
+import { exportBookToDownload, importBookFromFile } from "./services/importExport";
+import { migrateToV11ForEditor } from "./services/migrate";
+import { ensureUniqueIds } from "./services/ids";
+import { useBookEditor } from "./state/useBookEditor";
 
 // import { useParams } from "react-router-dom";
-
-
-
-// ===== Tipos base =====
-type Book = {
-  schema: string;
-  metadata: {
-    id: string;
-    title: string;
-    subtitle?: string;
-    language?: string;
-    difficulty?: number;
-    paper_color?: string;
-    text_color?: string;
-    theme?: {
-      paperColor?: string;
-      textColor?: string;
-      fontFamily?: string;
-      baseFontSizePx?: number;
-      lineHeight?: number;
-    };
-  };
-  structure?: {
-    pageNumbering?: { startAt?: number };
-    index?: Array<{ id: string; title: string; pageStart: number; anchor: string }>;
-  };
-  assets?: Array<any>;
-  pages: Array<Page>;
-  notes?: Array<any>;
-};
-
-type Page = {
-  id: string;
-  number: number;
-  title?: string;
-  anchors?: Array<{ id: string; label?: string }>;
-  content: Array<Block>;
-  notesLinked?: string[]; // <- agregar esto
-  meta?: { chapterId?: string; estimatedReadingSeconds?: number };
-};
-
-type Block =
-  | { type: "heading"; id: string; level: 1 | 2 | 3 | 4 | 5 | 6; text: string; blockStyle?: BlockStyle; textStyle?: TextStyle }
-  | { type: "paragraph"; id: string; text?: string; runs?: TextRun[]; blockStyle?: BlockStyle }
-  | { type: "image"; id: string; assetId: string; caption?: string; blockStyle?: BlockStyle }
-  | { type: "divider"; id: string }
-  | { type: "pageBreak"; id: string };
-
-type BlockStyle = {
-  align?: "left" | "center" | "right" | "justify";
-  spacingBeforePx?: number;
-  spacingAfterPx?: number;
-  indentFirstLinePx?: number;
-};
-
-type TextStyle = {
-  fontFamily?: string;
-  fontSizePx?: number;
-  color?: string;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
-};
-
-type TextRun = {
-  text: string;
-  style?: TextStyle & { superscript?: boolean; subscript?: boolean };
-};
-
-type ValidationIssue = { level: "error" | "warn"; message: string; path?: string };
 
 // ===== Helpers UI-only =====
 function classNames(...xs: Array<string | false | null | undefined>) {
@@ -136,15 +71,22 @@ const EMPTY_BOOK: Book = {
   notes: [],
 };
 
+function prepareBookForEditor(input: Book): Book {
+  const migrated = migrateToV11ForEditor(input);
+  const { book } = ensureUniqueIds(migrated);
+  return book;
+}
+
 
 // ===== Componente principal =====
 export default function BookEditorPage() {
   // const { bookId } = useParams(); 
-  const [book, setBook] = useState<Book>(EMPTY_BOOK);
+  const { state, dispatch, selectedPage, selectedBlock, runValidation } = useBookEditor();
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   // UI state
-  const [selectedPageId, setSelectedPageId] = useState<string>(book.pages[0]?.id ?? "");
-  const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null);
+  const selectedPageId = state.selectedPageId;
+  const selectedBlockId = state.selectedBlockId;
 
   // Mobile tabs
   const [mobileTab, setMobileTab] = useState<"pages" | "content" | "inspector">("content");
@@ -155,9 +97,6 @@ export default function BookEditorPage() {
   // Preview toggle
   const [previewMode, setPreviewMode] = useState<"edit" | "preview">("edit");
 
-  // Basic “dirty” state placeholder
-  const [isDirty, setIsDirty] = useState(false);
-
   // JSON modal
   const [jsonModalOpen, setJsonModalOpen] = useState(false);
   const [jsonDraft, setJsonDraft] = useState("");
@@ -165,162 +104,88 @@ export default function BookEditorPage() {
   // Validation drawer
   const [issuesOpen, setIssuesOpen] = useState(false);
 
-  const selectedPage = useMemo(() => book.pages.find((p) => p.id === selectedPageId) ?? null, [book.pages, selectedPageId]);
+  const book = state.book;
 
-  const selectedBlock = useMemo(() => {
-    if (!selectedPage || !selectedBlockId) return null;
-    return selectedPage.content.find((b) => (b as any).id === selectedBlockId) ?? null;
-  }, [selectedPage, selectedBlockId]);
-
-  // Demo validation (UI-only): detect repeated content block ids across pages + index anchors suspicious
-  const validationIssues = useMemo<ValidationIssue[]>(() => {
-    const issues: ValidationIssue[] = [];
-
-    // repeated block ids
-    const seen = new Map<string, string>(); // blockId -> pageId
-    for (const p of book.pages) {
-      for (const b of p.content) {
-        const id = (b as any).id;
-        if (!id) continue;
-        if (seen.has(id)) {
-          issues.push({
-            level: "error",
-            message: `ID de bloque repetido: "${id}" (en ${seen.get(id)} y ${p.id}).`,
-            path: `pages[${p.id}].content`,
-          });
-        } else {
-          seen.set(id, p.id);
-        }
-      }
+  const handleImport = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      const imported = await importBookFromFile(file);
+      dispatch({ type: "LOAD_BOOK", book: imported });
+    } catch (error) {
+      console.error("No se pudo importar el archivo:", error);
+      alert("No se pudo importar el archivo.");
+    } finally {
+      event.target.value = "";
     }
-
-    // anchors in structure.index that look not aligned to page ids
-    const toc = book.structure?.index ?? [];
-    for (const item of toc) {
-      if (item.anchor && item.anchor.startsWith("p1:")) {
-        issues.push({
-          level: "warn",
-          message: `TOC anchor "${item.anchor}" parece genérico. Recomendado: "<pageId>:<anchorId>" (ej. "p025:a1").`,
-          path: `structure.index[${item.id}]`,
-        });
-      }
-    }
-
-    return issues;
-  }, [book]);
-/*
+  }, [dispatch]);
   useEffect(() => {
-    // Si cambia el libro y la página seleccionada desaparece
-    if (selectedPageId && !book.pages.some((p) => p.id === selectedPageId)) {
-      setSelectedPageId(book.pages[0]?.id ?? "");
-      setSelectedBlockId(null);
+    try {
+      const raw = localStorage.getItem("bookEditor:draft");
+      if (raw) {
+        const parsed = JSON.parse(raw) as Book;
+        dispatch({ type: "LOAD_BOOK", book: prepareBookForEditor(parsed) });
+        return;
+      }
+    } catch (e) {
+      console.error("No se pudo cargar el borrador:", e);
     }
-  }, [book.pages, selectedPageId]);
-*/
 
-useEffect(() => {
-  try {
-    const raw = localStorage.getItem("bookEditor:draft");
-    if (raw) {
-      const parsed = JSON.parse(raw) as Book;
-      setBook(parsed);
-      setSelectedPageId(parsed.pages?.[0]?.id ?? "");
-      setSelectedBlockId(null);
-      setIsDirty(false);
+    dispatch({ type: "LOAD_BOOK", book: prepareBookForEditor(EMPTY_BOOK) });
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!book) return;
+    try {
+      localStorage.setItem("bookEditor:draft", JSON.stringify(book));
+    } catch (e) {
+      console.error("No se pudo guardar el borrador:", e);
     }
-  } catch (e) {
-    console.error("No se pudo cargar el borrador:", e);
-  }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
+  }, [book]);
 
-useEffect(() => {
-  try {
-    localStorage.setItem("bookEditor:draft", JSON.stringify(book));
-  } catch (e) {
-    console.error("No se pudo guardar el borrador:", e);
-  }
-}, [book]);
+  useEffect(() => {
+    if (!book) return;
+    runValidation(book);
+  }, [book, runValidation]);
 
 
   // ===== Acciones UI (lógica básica placeholder) =====
   function openJsonModal() {
+    if (!book) return;
     setJsonDraft(prettyJson(book));
     setJsonModalOpen(true);
   }
 
   function applyJsonDraft() {
     try {
-      const parsed = JSON.parse(jsonDraft);
-      setBook(parsed);
-      setIsDirty(true);
+      const parsed = prepareBookForEditor(JSON.parse(jsonDraft));
+      dispatch({ type: "LOAD_BOOK", book: parsed });
+      dispatch({ type: "MARK_DIRTY", dirty: true });
       setJsonModalOpen(false);
-      setSelectedBlockId(null);
-      setSelectedPageId(parsed.pages?.[0]?.id ?? "");
     } catch (e: any) {
       alert("JSON inválido: " + (e?.message ?? "error"));
     }
   }
 
   function addPage() {
-    // Lógica mínima por ahora: crear página vacía al final.
-    const nextNumber = (book.pages.at(-1)?.number ?? 0) + 1;
-    const nextId = `p${String(nextNumber).padStart(3, "0")}`;
-
-    const newPage: Page = {
-      id: nextId,
-      number: nextNumber,
-      title: `Página ${nextNumber}`,
-      anchors: [{ id: "a1", label: "Inicio" }],
-      content: [
-        {
-          type: "paragraph",
-          id: `${nextId}_par_001`,
-          blockStyle: { align: "left" },
-          runs: [{ text: "" }],
-        },
-      ],
-      meta: { chapterId: "ch01", estimatedReadingSeconds: 30 },
-    };
-
-    setBook((prev) => ({ ...prev, pages: [...prev.pages, newPage] }));
-    setSelectedPageId(nextId);
-    setSelectedBlockId(`${nextId}_par_001`);
-    setIsDirty(true);
+    dispatch({ type: "ADD_PAGE" });
   }
 
   function addBlock(type: Block["type"]) {
     if (!selectedPage) return;
-    const pageId = selectedPage.id;
-    const idx = selectedPage.content.length + 1;
-
-    let newBlock: Block;
-    if (type === "heading") {
-      newBlock = { type: "heading", id: `${pageId}_h1_${String(idx).padStart(3, "0")}`, level: 1, text: "Nuevo título", blockStyle: { align: "left" }, textStyle: { bold: true, fontSizePx: 26 } };
-    } else if (type === "paragraph") {
-      newBlock = { type: "paragraph", id: `${pageId}_par_${String(idx).padStart(3, "0")}`, blockStyle: { align: "justify", indentFirstLinePx: 24, spacingAfterPx: 10 }, runs: [{ text: "Nuevo párrafo..." }] };
-    } else if (type === "image") {
-      newBlock = { type: "image", id: `${pageId}_img_${String(idx).padStart(3, "0")}`, assetId: "asset-pendiente", caption: "Epígrafe...", blockStyle: { align: "center" } };
-    } else if (type === "divider") {
-      newBlock = { type: "divider", id: `${pageId}_div_${String(idx).padStart(3, "0")}` };
-    } else {
-      newBlock = { type: "pageBreak", id: `${pageId}_pb_${String(idx).padStart(3, "0")}` };
-    }
-
-    setBook((prev) => ({
-      ...prev,
-      pages: prev.pages.map((p) => (p.id === pageId ? { ...p, content: [...p.content, newBlock] } : p)),
-    }));
-    setSelectedBlockId((newBlock as any).id);
-    setIsDirty(true);
+    dispatch({ type: "ADD_BLOCK", blockType: type });
   }
 
   // ===== Render helpers =====
-  const paperColor = book.metadata.theme?.paperColor ?? book.metadata.paper_color ?? "#F5F1E6";
-  const textColor = book.metadata.theme?.textColor ?? book.metadata.text_color ?? "#1B1B1B";
-  const baseFontSize = book.metadata.theme?.baseFontSizePx ?? 18;
-  const fontFamily = book.metadata.theme?.fontFamily ?? "serif";
-  const lineHeight = book.metadata.theme?.lineHeight ?? 1.6;
+  const paperColor = book?.metadata.theme?.paperColor ?? book?.metadata.paper_color ?? "#F5F1E6";
+  const textColor = book?.metadata.theme?.textColor ?? book?.metadata.text_color ?? "#1B1B1B";
+  const baseFontSize = book?.metadata.theme?.baseFontSizePx ?? 18;
+  const fontFamily = book?.metadata.theme?.fontFamily ?? "serif";
+  const lineHeight = book?.metadata.theme?.lineHeight ?? 1.6;
+
+  if (!book) {
+    return <div className="min-h-screen bg-slate-50 text-slate-900 p-6">Cargando editor…</div>;
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -332,7 +197,7 @@ useEffect(() => {
             <div className="min-w-0">
               <div className="truncate text-sm font-semibold">{book.metadata.title}</div>
               <div className="truncate text-xs text-slate-500">
-                {book.metadata.id} · {book.schema} {isDirty ? "· sin guardar" : "· guardado"}
+                {book.metadata.id} · {book.schema} {state.dirty ? "· sin guardar" : "· guardado"}
               </div>
             </div>
           </div>
@@ -357,8 +222,14 @@ useEffect(() => {
               Vista previa
             </button>
 
-            <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => setIssuesOpen(true)}>
-              Validación ({validationIssues.length})
+            <button
+              className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
+              onClick={() => {
+                runValidation(book);
+                setIssuesOpen(true);
+              }}
+            >
+              Validación ({state.issues.length})
             </button>
 
             <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={openJsonModal}>
@@ -428,8 +299,7 @@ useEffect(() => {
                           active ? "border-slate-900 bg-slate-50" : "border-transparent hover:border-slate-200 hover:bg-slate-50"
                         )}
                         onClick={() => {
-                          setSelectedPageId(p.id);
-                          setSelectedBlockId(null);
+                          dispatch({ type: "SELECT_PAGE", pageId: p.id });
                           setMobileTab("content");
                         }}
                       >
@@ -501,7 +371,7 @@ useEffect(() => {
                   <EditPage
                     page={selectedPage}
                     selectedBlockId={selectedBlockId}
-                    onSelectBlock={(id) => setSelectedBlockId(id)}
+                    onSelectBlock={(id) => dispatch({ type: "SELECT_BLOCK", blockId: id })}
                   />
                 )}
               </div>
@@ -566,9 +436,25 @@ useEffect(() => {
             </InspectorCard>
 
             <InspectorCard title="Acciones (UI)">
-              <button className="w-full rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" onClick={() => downloadJson(book)}>
+              <button
+                className="w-full rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white"
+                onClick={() => exportBookToDownload(book, `${book.metadata.id || "book"}.json`)}
+              >
                 Descargar
               </button>
+              <button
+                className="mt-2 w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
+                onClick={() => fileInputRef.current?.click()}
+              >
+                Importar
+              </button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="application/json"
+                className="hidden"
+                onChange={handleImport}
+              />
               <button className="mt-2 w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => setPreviewMode((m) => (m === "edit" ? "preview" : "edit"))}>
                 Alternar vista
               </button>
@@ -612,11 +498,11 @@ useEffect(() => {
             </div>
 
             <div className="max-h-[55vh] overflow-auto rounded-xl border">
-              {validationIssues.length === 0 ? (
+              {state.issues.length === 0 ? (
                 <div className="p-4 text-sm text-slate-600">Sin issues detectados.</div>
               ) : (
                 <ul className="divide-y">
-                  {validationIssues.map((it, i) => (
+                  {state.issues.map((it, i) => (
                     <li key={i} className="p-3">
                       <div className="flex items-start gap-2">
                         <span
@@ -775,7 +661,7 @@ function BlockRender({ block, preview }: { block: Block; preview?: boolean }) {
           fontWeight: s.bold ? 700 : undefined,
           fontStyle: s.italic ? "italic" : undefined,
           textDecoration: s.underline ? "underline" : undefined,
-          verticalAlign: (s as any).superscript ? "super" : (s as any).subscript ? "sub" : undefined,
+          verticalAlign: s.superscript ? "super" : s.subscript ? "sub" : undefined,
         };
         return (
           <span key={i} style={spanStyle}>
@@ -820,14 +706,4 @@ function Modal({ title, children, onClose }: { title: string; children: React.Re
       </div>
     </div>
   );
-}
-
-function downloadJson(book: Book) {
-  const blob = new Blob([JSON.stringify(book, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `${book.metadata.id || "book"}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
 }
