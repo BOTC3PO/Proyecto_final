@@ -13,6 +13,10 @@ import { GENERATORS_BY_TEMA } from "../generador/matematicas";
 import { GENERADORES_QUIMICA } from "../generador/quimica/indexQuimica";
 import { GENERADORES_ECONOMIA_POR_CLAVE } from "../generador/economia/indexEconomia";
 import { GENERADORES_FISICA } from "../generador/fisica/indexFisica";
+import {
+  DIFICULTADES_POR_MATERIA,
+  type MateriaUI,
+} from "../generador/core/dificultades";
 
 const redondear = (valor: number, decimales = 4) =>
   Number(valor.toFixed(decimales));
@@ -223,15 +227,6 @@ const crearCalculadoraFisica = (): Calculator => ({
     }
   },
 });
-
-type MateriaUI = "matematica" | "quimica" | "economia" | "fisica";
-
-const DIFICULTADES_POR_MATERIA: Record<MateriaUI, string[]> = {
-  matematica: ["facil", "media", "dificil"],
-  quimica: ["facil", "media", "dificil"],
-  economia: ["basico", "intermedio", "avanzado"],
-  fisica: ["basico", "intermedio", "avanzado"],
-};
 
 export default function GeneradoresTest() {
   const [materia, setMateria] = useState<MateriaUI>("matematica");
