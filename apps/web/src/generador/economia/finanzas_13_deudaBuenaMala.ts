@@ -9,7 +9,7 @@ import {
 
 type TipoDeuda = "Deuda buena" | "Deuda mala";
 
-const DEUDAS: {
+const DEUDAS_BASICO: {
   descripcion: string;
   tipo: TipoDeuda;
 }[] = [
@@ -45,12 +45,79 @@ const DEUDAS: {
   },
 ];
 
+const DEUDAS_INTERMEDIO = [
+  ...DEUDAS_BASICO,
+  {
+    descripcion:
+      "Pedir un crédito para reparar una herramienta de trabajo clave.",
+    tipo: "Deuda buena",
+  },
+  {
+    descripcion:
+      "Usar la tarjeta para comprar regalos caros sin evaluar el presupuesto.",
+    tipo: "Deuda mala",
+  },
+];
+
+const DEUDAS_AVANZADO = [
+  ...DEUDAS_INTERMEDIO,
+  {
+    descripcion:
+      "Financiar un curso de capacitación que aumenta ingresos futuros.",
+    tipo: "Deuda buena",
+  },
+  {
+    descripcion:
+      "Refinanciar un saldo con tasas altas para gastos no esenciales.",
+    tipo: "Deuda mala",
+  },
+];
+
+const DEUDAS_LEGENDARIO = [
+  ...DEUDAS_AVANZADO,
+  {
+    descripcion:
+      "Solicitar un préstamo para comprar una computadora necesaria para trabajar.",
+    tipo: "Deuda buena",
+  },
+  {
+    descripcion:
+      "Sacar un crédito para vacaciones que no se pueden pagar al contado.",
+    tipo: "Deuda mala",
+  },
+];
+
+const DEUDAS_DIVINO = [
+  ...DEUDAS_LEGENDARIO,
+  {
+    descripcion:
+      "Endeudarse para invertir en un negocio con plan de ingresos realista.",
+    tipo: "Deuda buena",
+  },
+  {
+    descripcion:
+      "Pedir préstamos para cubrir apuestas o juegos de azar.",
+    tipo: "Deuda mala",
+  },
+];
+
+const DEUDAS_POR_DIFICULTAD: Record<
+  Dificultad,
+  { descripcion: string; tipo: TipoDeuda }[]
+> = {
+  basico: DEUDAS_BASICO,
+  intermedio: DEUDAS_INTERMEDIO,
+  avanzado: DEUDAS_AVANZADO,
+  Legendario: DEUDAS_LEGENDARIO,
+  Divino: DEUDAS_DIVINO,
+};
+
 export const genFinanzasDeudaBuenaMala: GeneratorFn = makeQuizGenerator(
   13,
   "Deuda buena vs deuda mala",
   [
-    (_dificultad: Dificultad) => {
-      const deuda = pickOne(DEUDAS);
+    (dificultad: Dificultad) => {
+      const deuda = pickOne(DEUDAS_POR_DIFICULTAD[dificultad]);
       const opciones: TipoDeuda[] = ["Deuda buena", "Deuda mala"];
       const indiceCorrecto = opciones.indexOf(deuda.tipo);
 

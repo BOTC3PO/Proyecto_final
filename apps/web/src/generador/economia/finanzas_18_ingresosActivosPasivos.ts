@@ -9,7 +9,7 @@ import {
 
 type TipoIngreso = "Ingreso activo" | "Ingreso pasivo";
 
-const INGRESOS: {
+const INGRESOS_BASICO: {
   descripcion: string;
   tipo: TipoIngreso;
 }[] = [
@@ -43,13 +43,80 @@ const INGRESOS: {
   },
 ];
 
+const INGRESOS_INTERMEDIO = [
+  ...INGRESOS_BASICO,
+  {
+    descripcion:
+      "Pago por clases particulares dictadas los fines de semana.",
+    tipo: "Ingreso activo",
+  },
+  {
+    descripcion:
+      "Cobro mensual por alquilar una habitación de la casa.",
+    tipo: "Ingreso pasivo",
+  },
+];
+
+const INGRESOS_AVANZADO = [
+  ...INGRESOS_INTERMEDIO,
+  {
+    descripcion:
+      "Comisiones por ventas realizadas en un trabajo dependiente.",
+    tipo: "Ingreso activo",
+  },
+  {
+    descripcion:
+      "Ingresos por dividendos de acciones sin trabajo adicional.",
+    tipo: "Ingreso pasivo",
+  },
+];
+
+const INGRESOS_LEGENDARIO = [
+  ...INGRESOS_AVANZADO,
+  {
+    descripcion:
+      "Ingreso por trabajos temporarios en temporada alta.",
+    tipo: "Ingreso activo",
+  },
+  {
+    descripcion:
+      "Ingresos mensuales por regalías de música en plataformas digitales.",
+    tipo: "Ingreso pasivo",
+  },
+];
+
+const INGRESOS_DIVINO = [
+  ...INGRESOS_LEGENDARIO,
+  {
+    descripcion:
+      "Pago por asesorías profesionales con clientes de forma presencial.",
+    tipo: "Ingreso activo",
+  },
+  {
+    descripcion:
+      "Intereses generados por un fondo de inversión sin gestión diaria.",
+    tipo: "Ingreso pasivo",
+  },
+];
+
+const INGRESOS_POR_DIFICULTAD: Record<
+  Dificultad,
+  { descripcion: string; tipo: TipoIngreso }[]
+> = {
+  basico: INGRESOS_BASICO,
+  intermedio: INGRESOS_INTERMEDIO,
+  avanzado: INGRESOS_AVANZADO,
+  Legendario: INGRESOS_LEGENDARIO,
+  Divino: INGRESOS_DIVINO,
+};
+
 export const genFinanzasIngresosActivosPasivos: GeneratorFn =
   makeQuizGenerator(
     18,
     "Ingresos activos vs ingresos pasivos en el hogar",
     [
-      (_dificultad: Dificultad) => {
-        const ingreso = pickOne(INGRESOS);
+      (dificultad: Dificultad) => {
+        const ingreso = pickOne(INGRESOS_POR_DIFICULTAD[dificultad]);
         const opciones: TipoIngreso[] = [
           "Ingreso activo",
           "Ingreso pasivo",

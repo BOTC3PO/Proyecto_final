@@ -12,7 +12,7 @@ type TipoGasto =
   | "Gasto variable esencial"
   | "Gasto no esencial";
 
-const GASTOS: {
+const GASTOS_BASICO: {
   descripcion: string;
   tipo: TipoGasto;
 }[] = [
@@ -50,12 +50,71 @@ const GASTOS: {
   },
 ];
 
+const GASTOS_INTERMEDIO = [
+  ...GASTOS_BASICO,
+  {
+    descripcion: "Pago mensual del abono de transporte público.",
+    tipo: "Gasto variable esencial",
+  },
+  {
+    descripcion: "Cuota mensual del gimnasio.",
+    tipo: "Gasto no esencial",
+  },
+];
+
+const GASTOS_AVANZADO = [
+  ...GASTOS_INTERMEDIO,
+  {
+    descripcion: "Compra de medicamentos de uso permanente.",
+    tipo: "Gasto variable esencial",
+  },
+  {
+    descripcion: "Pago anual prorrateado de un seguro del hogar.",
+    tipo: "Gasto fijo esencial",
+  },
+];
+
+const GASTOS_LEGENDARIO = [
+  ...GASTOS_AVANZADO,
+  {
+    descripcion: "Mantenimiento mensual del ascensor del edificio.",
+    tipo: "Gasto fijo esencial",
+  },
+  {
+    descripcion: "Compra de decoración para renovar el living.",
+    tipo: "Gasto no esencial",
+  },
+];
+
+const GASTOS_DIVINO = [
+  ...GASTOS_LEGENDARIO,
+  {
+    descripcion: "Reparación imprevista del calefón en invierno.",
+    tipo: "Gasto variable esencial",
+  },
+  {
+    descripcion: "Pago mensual de una suscripción premium de videojuegos.",
+    tipo: "Gasto no esencial",
+  },
+];
+
+const GASTOS_POR_DIFICULTAD: Record<
+  Dificultad,
+  { descripcion: string; tipo: TipoGasto }[]
+> = {
+  basico: GASTOS_BASICO,
+  intermedio: GASTOS_INTERMEDIO,
+  avanzado: GASTOS_AVANZADO,
+  Legendario: GASTOS_LEGENDARIO,
+  Divino: GASTOS_DIVINO,
+};
+
 export const genFinanzasGastosFijosEsenciales: GeneratorFn = makeQuizGenerator(
   10,
   "Gastos fijos esenciales del hogar",
   [
-    (_dificultad: Dificultad) => {
-      const gasto = pickOne(GASTOS);
+    (dificultad: Dificultad) => {
+      const gasto = pickOne(GASTOS_POR_DIFICULTAD[dificultad]);
       const opciones: TipoGasto[] = [
         "Gasto fijo esencial",
         "Gasto variable esencial",

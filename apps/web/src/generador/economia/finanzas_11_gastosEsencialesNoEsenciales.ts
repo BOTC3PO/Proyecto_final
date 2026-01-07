@@ -9,7 +9,7 @@ import {
 
 type TipoGasto = "Gasto esencial" | "Gasto no esencial";
 
-const GASTOS: {
+const GASTOS_BASICO: {
   descripcion: string;
   tipo: TipoGasto;
 }[] = [
@@ -51,13 +51,72 @@ const GASTOS: {
   },
 ];
 
+const GASTOS_INTERMEDIO = [
+  ...GASTOS_BASICO,
+  {
+    descripcion: "Pago mensual de un plan de internet para estudiar/trabajar.",
+    tipo: "Gasto esencial",
+  },
+  {
+    descripcion: "Compra de entradas para un recital.",
+    tipo: "Gasto no esencial",
+  },
+];
+
+const GASTOS_AVANZADO = [
+  ...GASTOS_INTERMEDIO,
+  {
+    descripcion: "Reparación de un electrodoméstico esencial en el hogar.",
+    tipo: "Gasto esencial",
+  },
+  {
+    descripcion: "Vacaciones en un destino turístico de lujo.",
+    tipo: "Gasto no esencial",
+  },
+];
+
+const GASTOS_LEGENDARIO = [
+  ...GASTOS_AVANZADO,
+  {
+    descripcion: "Compra de útiles escolares para el inicio de clases.",
+    tipo: "Gasto esencial",
+  },
+  {
+    descripcion: "Suscripción mensual a varias plataformas de streaming.",
+    tipo: "Gasto no esencial",
+  },
+];
+
+const GASTOS_DIVINO = [
+  ...GASTOS_LEGENDARIO,
+  {
+    descripcion: "Pago de un tratamiento médico indicado por un profesional.",
+    tipo: "Gasto esencial",
+  },
+  {
+    descripcion: "Cambio de auto por un modelo más nuevo sin necesidad.",
+    tipo: "Gasto no esencial",
+  },
+];
+
+const GASTOS_POR_DIFICULTAD: Record<
+  Dificultad,
+  { descripcion: string; tipo: TipoGasto }[]
+> = {
+  basico: GASTOS_BASICO,
+  intermedio: GASTOS_INTERMEDIO,
+  avanzado: GASTOS_AVANZADO,
+  Legendario: GASTOS_LEGENDARIO,
+  Divino: GASTOS_DIVINO,
+};
+
 export const genFinanzasGastosEsencialesNoEsenciales: GeneratorFn =
   makeQuizGenerator(
     11,
     "Gastos esenciales vs no esenciales",
     [
-      (_dificultad: Dificultad) => {
-        const gasto = pickOne(GASTOS);
+      (dificultad: Dificultad) => {
+        const gasto = pickOne(GASTOS_POR_DIFICULTAD[dificultad]);
         const opciones: TipoGasto[] = ["Gasto esencial", "Gasto no esencial"];
         const indiceCorrecto = opciones.indexOf(gasto.tipo);
 

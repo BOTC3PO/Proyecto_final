@@ -9,7 +9,7 @@ import {
 
 type Concepto = "Interés" | "Costo financiero total (CFT)";
 
-const CASOS: {
+const CASOS_BASICO: {
   descripcion: string;
   respuesta: Concepto;
 }[] = [
@@ -40,12 +40,79 @@ const CASOS: {
   },
 ];
 
+const CASOS_INTERMEDIO = [
+  ...CASOS_BASICO,
+  {
+    descripcion:
+      "En un crédito, el indicador que suma intereses, gastos administrativos y seguros obligatorios.",
+    respuesta: "Costo financiero total (CFT)",
+  },
+  {
+    descripcion:
+      "Es la tasa que se usa en la fórmula para calcular cuánto se paga por el préstamo.",
+    respuesta: "Interés",
+  },
+];
+
+const CASOS_AVANZADO = [
+  ...CASOS_INTERMEDIO,
+  {
+    descripcion:
+      "Dato que permite comparar préstamos con diferentes comisiones y cargos.",
+    respuesta: "Costo financiero total (CFT)",
+  },
+  {
+    descripcion:
+      "Porcentaje anual que representa el costo básico de usar dinero prestado.",
+    respuesta: "Interés",
+  },
+];
+
+const CASOS_LEGENDARIO = [
+  ...CASOS_AVANZADO,
+  {
+    descripcion:
+      "Concepto que incluye tasa nominal, gastos y seguros en una sola medida.",
+    respuesta: "Costo financiero total (CFT)",
+  },
+  {
+    descripcion:
+      "Se calcula aplicando la tasa sobre el capital para obtener el costo del crédito.",
+    respuesta: "Interés",
+  },
+];
+
+const CASOS_DIVINO = [
+  ...CASOS_LEGENDARIO,
+  {
+    descripcion:
+      "Es el indicador clave para comparar ofertas cuando hay cargos ocultos.",
+    respuesta: "Costo financiero total (CFT)",
+  },
+  {
+    descripcion:
+      "Parte del costo de un préstamo que no incluye comisiones ni seguros.",
+    respuesta: "Interés",
+  },
+];
+
+const CASOS_POR_DIFICULTAD: Record<
+  Dificultad,
+  { descripcion: string; respuesta: Concepto }[]
+> = {
+  basico: CASOS_BASICO,
+  intermedio: CASOS_INTERMEDIO,
+  avanzado: CASOS_AVANZADO,
+  Legendario: CASOS_LEGENDARIO,
+  Divino: CASOS_DIVINO,
+};
+
 export const genFinanzasCftVsInteres: GeneratorFn = makeQuizGenerator(
   14,
   "Costo financiero total (CFT) vs interés",
   [
-    (_dificultad: Dificultad) => {
-      const caso = pickOne(CASOS);
+    (dificultad: Dificultad) => {
+      const caso = pickOne(CASOS_POR_DIFICULTAD[dificultad]);
       const opciones: Concepto[] = ["Interés", "Costo financiero total (CFT)"];
       const indiceCorrecto = opciones.indexOf(caso.respuesta);
 

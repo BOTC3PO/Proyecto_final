@@ -14,10 +14,59 @@ export const genFinanzasInteresCompuesto: GeneratorFn = makeQuizGenerator(
   16,
   "Interés compuesto (capital × (1 + i)^t)",
   [
-    (_dificultad: Dificultad) => {
-      const capital = randInt(10, 50) * 10000; // 100.000 a 500.000
-      const tasa = randInt(5, 20);             // 5% a 20% anual
-      const tiempo = randInt(1, 4);            // 1 a 4 años
+    (dificultad: Dificultad) => {
+      const rangosPorDificultad = {
+        basico: {
+          capitalMin: 5,
+          capitalMax: 15,
+          tasaMin: 4,
+          tasaMax: 10,
+          tiempoMin: 1,
+          tiempoMax: 2,
+          desvio: 35,
+        },
+        intermedio: {
+          capitalMin: 10,
+          capitalMax: 30,
+          tasaMin: 6,
+          tasaMax: 15,
+          tiempoMin: 1,
+          tiempoMax: 3,
+          desvio: 25,
+        },
+        avanzado: {
+          capitalMin: 15,
+          capitalMax: 40,
+          tasaMin: 8,
+          tasaMax: 18,
+          tiempoMin: 2,
+          tiempoMax: 4,
+          desvio: 20,
+        },
+        Legendario: {
+          capitalMin: 20,
+          capitalMax: 60,
+          tasaMin: 10,
+          tasaMax: 22,
+          tiempoMin: 2,
+          tiempoMax: 5,
+          desvio: 15,
+        },
+        Divino: {
+          capitalMin: 30,
+          capitalMax: 80,
+          tasaMin: 12,
+          tasaMax: 25,
+          tiempoMin: 3,
+          tiempoMax: 6,
+          desvio: 12,
+        },
+      };
+
+      const rango = rangosPorDificultad[dificultad];
+      const capital = randInt(rango.capitalMin, rango.capitalMax) * 10000;
+      const tasa = randInt(rango.tasaMin, rango.tasaMax);
+      const tiempo = randInt(rango.tiempoMin, rango.tiempoMax);
 
       // M = C (1 + i)^t
       const montoReal = Math.round(
@@ -29,7 +78,7 @@ export const genFinanzasInteresCompuesto: GeneratorFn = makeQuizGenerator(
       opcionesNumericas.add(montoReal);
 
       while (opcionesNumericas.size < 4) {
-        const desvioPorc = randInt(-25, 25); // ±25%
+        const desvioPorc = randInt(-rango.desvio, rango.desvio);
         const candidato = Math.round(
           montoReal * (1 + desvioPorc / 100)
         );

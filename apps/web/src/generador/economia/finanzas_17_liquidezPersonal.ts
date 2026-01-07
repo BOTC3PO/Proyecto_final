@@ -9,7 +9,7 @@ import {
 
 type TipoLiquidez = "Dinero disponible" | "Dinero inmovilizado";
 
-const ITEMS: {
+const ITEMS_BASICO: {
   descripcion: string;
   tipo: TipoLiquidez;
 }[] = [
@@ -43,12 +43,73 @@ const ITEMS: {
   },
 ];
 
+const ITEMS_INTERMEDIO = [
+  ...ITEMS_BASICO,
+  {
+    descripcion:
+      "Saldo disponible en una cuenta sueldo para usar con tarjeta.",
+    tipo: "Dinero disponible",
+  },
+  {
+    descripcion: "Inversión en bonos que no se piensa vender a corto plazo.",
+    tipo: "Dinero inmovilizado",
+  },
+];
+
+const ITEMS_AVANZADO = [
+  ...ITEMS_INTERMEDIO,
+  {
+    descripcion: "Dinero en una caja de ahorro con extracción inmediata.",
+    tipo: "Dinero disponible",
+  },
+  {
+    descripcion: "Compra de un vehículo con intención de mantenerlo varios años.",
+    tipo: "Dinero inmovilizado",
+  },
+];
+
+const ITEMS_LEGENDARIO = [
+  ...ITEMS_AVANZADO,
+  {
+    descripcion: "Saldo en una billetera virtual listo para transferir.",
+    tipo: "Dinero disponible",
+  },
+  {
+    descripcion: "Inversión en un emprendimiento familiar sin rescate inmediato.",
+    tipo: "Dinero inmovilizado",
+  },
+];
+
+const ITEMS_DIVINO = [
+  ...ITEMS_LEGENDARIO,
+  {
+    descripcion:
+      "Dinero apartado en una cuenta de ahorro con disponibilidad diaria.",
+    tipo: "Dinero disponible",
+  },
+  {
+    descripcion: "Compra de maquinaria para un negocio propio.",
+    tipo: "Dinero inmovilizado",
+  },
+];
+
+const ITEMS_POR_DIFICULTAD: Record<
+  Dificultad,
+  { descripcion: string; tipo: TipoLiquidez }[]
+> = {
+  basico: ITEMS_BASICO,
+  intermedio: ITEMS_INTERMEDIO,
+  avanzado: ITEMS_AVANZADO,
+  Legendario: ITEMS_LEGENDARIO,
+  Divino: ITEMS_DIVINO,
+};
+
 export const genFinanzasLiquidezPersonal: GeneratorFn = makeQuizGenerator(
   17,
   "Liquidez personal del hogar (dinero disponible vs inmovilizado)",
   [
-    (_dificultad: Dificultad) => {
-      const item = pickOne(ITEMS);
+    (dificultad: Dificultad) => {
+      const item = pickOne(ITEMS_POR_DIFICULTAD[dificultad]);
       const opciones: TipoLiquidez[] = [
         "Dinero disponible",
         "Dinero inmovilizado",
