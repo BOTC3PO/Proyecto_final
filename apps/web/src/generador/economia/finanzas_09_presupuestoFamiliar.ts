@@ -9,7 +9,7 @@ import {
 
 type CategoriaPresupuesto = "Ingreso" | "Gasto" | "Ahorro";
 
-const ITEMS: {
+const ITEMS_BASICO: {
   descripcion: string;
   categoriaCorrecta: CategoriaPresupuesto;
 }[] = [
@@ -45,12 +45,75 @@ const ITEMS: {
   },
 ];
 
+const ITEMS_INTERMEDIO = [
+  ...ITEMS_BASICO,
+  {
+    descripcion: "Ingreso por venta ocasional de un mueble usado.",
+    categoriaCorrecta: "Ingreso",
+  },
+  {
+    descripcion: "Pago del seguro del hogar.",
+    categoriaCorrecta: "Gasto",
+  },
+];
+
+const ITEMS_AVANZADO = [
+  ...ITEMS_INTERMEDIO,
+  {
+    descripcion:
+      "Parte del ingreso que se aparta para invertir en un plazo fijo.",
+    categoriaCorrecta: "Ahorro",
+  },
+  {
+    descripcion: "Pago de una cuota escolar mensual.",
+    categoriaCorrecta: "Gasto",
+  },
+];
+
+const ITEMS_LEGENDARIO = [
+  ...ITEMS_AVANZADO,
+  {
+    descripcion:
+      "Ingreso extra por trabajos freelance realizados en el mes.",
+    categoriaCorrecta: "Ingreso",
+  },
+  {
+    descripcion:
+      "Dinero reservado para reemplazar un electrodoméstico en el futuro.",
+    categoriaCorrecta: "Ahorro",
+  },
+];
+
+const ITEMS_DIVINO = [
+  ...ITEMS_LEGENDARIO,
+  {
+    descripcion:
+      "Pago de intereses de una tarjeta de crédito por compras previas.",
+    categoriaCorrecta: "Gasto",
+  },
+  {
+    descripcion: "Bonificación anual que se recibe por desempeño laboral.",
+    categoriaCorrecta: "Ingreso",
+  },
+];
+
+const ITEMS_POR_DIFICULTAD: Record<
+  Dificultad,
+  { descripcion: string; categoriaCorrecta: CategoriaPresupuesto }[]
+> = {
+  basico: ITEMS_BASICO,
+  intermedio: ITEMS_INTERMEDIO,
+  avanzado: ITEMS_AVANZADO,
+  Legendario: ITEMS_LEGENDARIO,
+  Divino: ITEMS_DIVINO,
+};
+
 export const genFinanzasPresupuestoFamiliar: GeneratorFn = makeQuizGenerator(
   9,
   "Presupuesto familiar (ingresos, gastos, ahorro)",
   [
-    (_dificultad: Dificultad) => {
-      const item = pickOne(ITEMS);
+    (dificultad: Dificultad) => {
+      const item = pickOne(ITEMS_POR_DIFICULTAD[dificultad]);
       const opciones: CategoriaPresupuesto[] = [
         "Ingreso",
         "Gasto",
