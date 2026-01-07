@@ -15,6 +15,7 @@ import Metodologia from "./pages/metodologia";
 import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
+import GeneradoresTest from "./pages/GeneradoresTest";
 
 
 import test from "./sys/testmode";
@@ -69,6 +70,7 @@ export const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "metodologia", element: <Metodologia /> },
       {path:"editor",element:<BookEditorPage/>},
+      ...(testmode ? [{ path: "generadores", element: <GeneradoresTest /> }] : []),
 
 
       // Admin
