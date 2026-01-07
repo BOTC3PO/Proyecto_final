@@ -105,6 +105,6 @@ export const genFinanzasInteresSimple: GeneratorFn = makeQuizGenerator(
         explicacion:
           "En el interés simple se usa la fórmula I = C × i × t, donde C es el capital inicial, i la tasa en forma decimal y t el tiempo en años. El interés se calcula siempre sobre el mismo capital inicial.",
       };
-    }) as any,
+    },
   ]
 );
