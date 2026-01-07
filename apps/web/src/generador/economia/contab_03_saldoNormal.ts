@@ -11,12 +11,31 @@ export const genContabSaldoNormal: GeneratorFn = makeQuizGenerator(
   "Saldo normal de cuentas y cuentas en T",
   [
     (dificultad: Dificultad) => {
+      const cuentasPorNaturaleza = {
+        deudora: ["Caja", "Banco c/c", "Clientes", "Mercaderías"],
+        acreedora: ["Proveedores", "Deudas Bancarias", "Capital"],
+      };
       const esDeudoraPorNaturaleza = Math.random() < 0.5; // para variar el enunciado
-      const nombreCuenta = esDeudoraPorNaturaleza ? "Caja" : "Proveedores";
+      const nombreCuenta = esDeudoraPorNaturaleza
+        ? cuentasPorNaturaleza.deudora[
+            Math.floor(Math.random() * cuentasPorNaturaleza.deudora.length)
+          ]
+        : cuentasPorNaturaleza.acreedora[
+            Math.floor(Math.random() * cuentasPorNaturaleza.acreedora.length)
+          ];
+
+      const rangosPorDificultad: Record<Dificultad, [number, number]> = {
+        basico: [5, 10],
+        intermedio: [8, 16],
+        avanzado: [12, 25],
+        Legendario: [15, 30],
+        Divino: [18, 35],
+      };
+      const [min, max] = rangosPorDificultad[dificultad] ?? [5, 20];
 
       // Débitos y Créditos aleatorios
-      const debitos = randInRange(5, 20) * 1000; // 5.000 a 20.000
-      const creditos = randInRange(2, 15) * 1000;
+      const debitos = randInRange(min, max) * 1000;
+      const creditos = randInRange(min - 3, max - 5) * 1000;
 
       const saldo = Math.abs(debitos - creditos);
       const esSaldoDeudor = debitos > creditos;
@@ -33,7 +52,9 @@ export const genContabSaldoNormal: GeneratorFn = makeQuizGenerator(
       const indiceCorrecto = opciones.indexOf(respuestaCorrecta);
 
       const masDetalle =
-        dificultad === ("alta" as Dificultad)
+        dificultad === "avanzado" ||
+        dificultad === "Legendario" ||
+        dificultad === "Divino"
           ? " El saldo se calcula sumando todos los débitos, restando todos los créditos y verificando el lado con mayor importe en la cuenta T."
           : "";
 

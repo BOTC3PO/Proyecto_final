@@ -47,8 +47,14 @@ export const genContabUbicacionEstados: GeneratorFn = makeQuizGenerator(
 
       let opciones: string[] = [correcta];
 
-      const cantOpciones =
-        dificultad === ("alta" as Dificultad) ? 5 : dificultad === ("baja" as Dificultad) ? 3 : 4;
+      const opcionesPorDificultad: Record<Dificultad, number> = {
+        basico: 3,
+        intermedio: 4,
+        avanzado: 5,
+        Legendario: 5,
+        Divino: 5,
+      };
+      const cantOpciones = opcionesPorDificultad[dificultad] ?? 4;
 
       const distractores = OPCIONES_ESTADO.filter((o) => o !== correcta);
       while (opciones.length < cantOpciones && distractores.length > 0) {
@@ -63,7 +69,12 @@ export const genContabUbicacionEstados: GeneratorFn = makeQuizGenerator(
         opciones,
         indiceCorrecto,
         explicacion:
-          "En el Balance se separan las cuentas según su exigibilidad o realización (Corriente/No Corriente) y en el Estado de Resultados se presentan ingresos y costos/gastos del período.",
+          "En el Balance se separan las cuentas según su exigibilidad o realización (Corriente/No Corriente) y en el Estado de Resultados se presentan ingresos y costos/gastos del período." +
+          (dificultad === "avanzado" ||
+          dificultad === "Legendario" ||
+          dificultad === "Divino"
+            ? " En niveles altos, considerá si la cuenta es de activo/pasivo o si corresponde al estado de resultados."
+            : ""),
       };
     },
   ]
