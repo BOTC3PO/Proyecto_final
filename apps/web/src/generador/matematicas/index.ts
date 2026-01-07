@@ -1,4 +1,5 @@
 // src/generators/math/index.ts
+import { wrapConModo } from "./generic";
 import type { GeneratorFn } from "./generic";
 
 // =======================
@@ -89,7 +90,7 @@ import generarInteresSimpleCompuesto from "./tema51_interes_simple_compuesto";
 // MAPA GLOBAL: idTema → GeneratorFn
 // =======================================================
 
-export const GENERATORS_BY_TEMA: Record<number, GeneratorFn> = {
+const GENERATORS_BY_TEMA_BASE: Record<number, GeneratorFn> = {
   // ---- 1–10 ----
   1: generarOperacionesBasicas,
   2: generarOperacionesCombinadas,
@@ -157,6 +158,13 @@ export const GENERATORS_BY_TEMA: Record<number, GeneratorFn> = {
   50: generarNotacionCientifica,
   51: generarInteresSimpleCompuesto,
 };
+
+export const GENERATORS_BY_TEMA: Record<number, GeneratorFn> = Object.fromEntries(
+  Object.entries(GENERATORS_BY_TEMA_BASE).map(([id, generador]) => [
+    Number(id),
+    wrapConModo(generador),
+  ])
+) as Record<number, GeneratorFn>;
 
 // Helper opcional para obtener un generador de forma segura
 export function getGeneratorPorTema(idTema: number): GeneratorFn | undefined {

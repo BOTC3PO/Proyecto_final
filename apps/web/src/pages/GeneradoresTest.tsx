@@ -234,6 +234,9 @@ export default function GeneradoresTest() {
   const [dificultad, setDificultad] = useState(
     DIFICULTADES_POR_MATERIA.matematica[1]
   );
+  const [modoRespuesta, setModoRespuesta] = useState<"quiz" | "completar">(
+    "quiz"
+  );
   const [resultado, setResultado] = useState<unknown>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -283,7 +286,9 @@ export default function GeneradoresTest() {
         case "matematica": {
           const generador = GENERATORS_BY_TEMA[Number(generadorSeleccionado)];
           if (!generador) throw new Error("Generador de matemáticas no disponible.");
-          setResultado(generador(dificultad as DificultadMath));
+          setResultado(
+            generador(dificultad as DificultadMath, { modo: modoRespuesta })
+          );
           break;
         }
         case "quimica": {
@@ -352,7 +357,7 @@ export default function GeneradoresTest() {
         </header>
 
         <section className="bg-white rounded-xl shadow p-6 space-y-6">
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-4">
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Materia
@@ -404,6 +409,24 @@ export default function GeneradoresTest() {
                 ))}
               </select>
             </div>
+
+            {materia === "matematica" && (
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Modo de respuesta
+                </label>
+                <select
+                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
+                  value={modoRespuesta}
+                  onChange={(event) =>
+                    setModoRespuesta(event.target.value as "quiz" | "completar")
+                  }
+                >
+                  <option value="quiz">Multiple choice</option>
+                  <option value="completar">Completar</option>
+                </select>
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

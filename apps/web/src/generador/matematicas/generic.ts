@@ -4,6 +4,12 @@
 // y cambiá por imports desde ahí.
 export type Dificultad = "facil" | "media" | "dificil";
 
+export type ModoRespuesta = "quiz" | "completar";
+
+export interface GeneradorConfig {
+  modo?: ModoRespuesta;
+}
+
 export interface BaseExercise {
   id: string;
   idTema: number;
@@ -20,10 +26,20 @@ export interface QuizExercise extends BaseExercise {
   explicacion?: string;
 }
 
-export type Exercise = QuizExercise;
+export interface CompletarExercise extends BaseExercise {
+  tipo: "completar";
+  enunciado: string;
+  respuestaCorrecta: string;
+  explicacion?: string;
+}
+
+export type Exercise = QuizExercise | CompletarExercise;
 
 // Firma genérica de un generador
-export type GeneratorFn = (dificultad?: Dificultad) => Exercise;
+export type GeneratorFn = (
+  dificultad?: Dificultad,
+  config?: GeneradorConfig
+) => Exercise;
 
 // -------- Helpers genéricos --------
 
@@ -97,6 +113,41 @@ export function crearQuizBase(params: {
     opciones: opcionesMezcladas,
     indiceCorrecto: indiceCorrectoMezclado,
     explicacion: params.explicacion,
+  };
+}
+
+export function convertirQuizACompletar(
+  ejercicio: Exercise,
+  enunciadoCompletar?: string
+): Exercise {
+  if (ejercicio.tipo !== "quiz") {
+    return ejercicio;
+  }
+
+  const respuestaCorrecta = ejercicio.opciones[ejercicio.indiceCorrecto];
+  const enunciado =
+    enunciadoCompletar ??
+    `${ejercicio.enunciado}\n\nCompleta con el resultado: ____`;
+
+  return {
+    id: ejercicio.id,
+    idTema: ejercicio.idTema,
+    tituloTema: ejercicio.tituloTema,
+    dificultad: ejercicio.dificultad,
+    tipo: "completar",
+    enunciado,
+    respuestaCorrecta,
+    explicacion: ejercicio.explicacion,
+  };
+}
+
+export function wrapConModo(generator: GeneratorFn): GeneratorFn {
+  return (dificultad?: Dificultad, config?: GeneradorConfig) => {
+    const ejercicio = generator(dificultad, config);
+    if (config?.modo === "completar") {
+      return convertirQuizACompletar(ejercicio);
+    }
+    return ejercicio;
   };
 }
 
