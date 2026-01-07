@@ -8,21 +8,73 @@ import {
 
 type Jur = "Nacional" | "Provincial" | "Municipal";
 
-const IMP: { desc: string; tipo: Jur; detalle: string }[] = [
-  { desc: "IVA", tipo: "Nacional", detalle: "Impuesto nacional." },
-  { desc: "Impuesto a las Ganancias", tipo: "Nacional", detalle: "Impuesto nacional sobre renta." },
-  { desc: "Ingresos Brutos", tipo: "Provincial", detalle: "Recaudación provincial." },
-  { desc: "Impuesto Inmobiliario", tipo: "Provincial", detalle: "Depende de la provincia." },
-  { desc: "Tasa de Seguridad e Higiene", tipo: "Municipal", detalle: "Tasa municipal." },
-  { desc: "Alumbrado, Barrido y Limpieza (ABL)", tipo: "Municipal", detalle: "Tasa/local municipal." },
-];
+type Caso = { desc: string; tipo: Jur; detalle: string };
+
+const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
+  basico: [
+    { desc: "IVA", tipo: "Nacional", detalle: "Impuesto nacional." },
+    {
+      desc: "Impuesto Inmobiliario",
+      tipo: "Provincial",
+      detalle: "Depende de la provincia.",
+    },
+  ],
+  intermedio: [
+    {
+      desc: "Impuesto a las Ganancias",
+      tipo: "Nacional",
+      detalle: "Impuesto nacional sobre la renta.",
+    },
+    {
+      desc: "Ingresos Brutos",
+      tipo: "Provincial",
+      detalle: "Recaudación provincial.",
+    },
+  ],
+  avanzado: [
+    {
+      desc: "Tasa de Seguridad e Higiene",
+      tipo: "Municipal",
+      detalle: "Tasa municipal.",
+    },
+    {
+      desc: "ABL (Alumbrado, Barrido y Limpieza)",
+      tipo: "Municipal",
+      detalle: "Tasa local municipal.",
+    },
+  ],
+  Legendario: [
+    {
+      desc: "Impuesto al Cheque",
+      tipo: "Nacional",
+      detalle: "Grava movimientos bancarios a nivel nacional.",
+    },
+    {
+      desc: "Patente automotor",
+      tipo: "Provincial",
+      detalle: "Tributo provincial asociado al vehículo.",
+    },
+  ],
+  Divino: [
+    {
+      desc: "Tasa de habilitación comercial",
+      tipo: "Municipal",
+      detalle: "Es un tributo municipal por habilitar un comercio.",
+    },
+    {
+      desc: "Derechos de exportación",
+      tipo: "Nacional",
+      detalle: "Tributo nacional sobre exportaciones.",
+    },
+  ],
+};
 
 export const genARJurisdiccionImpuestos: GeneratorFn = makeQuizGenerator(
   27,
   "Jurisdicción del impuesto (Nación/Provincia/Municipio)",
   [
-    (_: Dificultad) => {
-      const imp = pickOne(IMP);
+    (dificultad: Dificultad) => {
+      const imp = pickOne(CASOS_POR_DIFICULTAD[dificultad]);
       const opciones: Jur[] = ["Nacional", "Provincial", "Municipal"];
       const indiceCorrecto = opciones.indexOf(imp.tipo);
 

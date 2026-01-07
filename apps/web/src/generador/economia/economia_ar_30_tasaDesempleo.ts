@@ -4,39 +4,48 @@ import {
   type GeneratorFn,
   makeQuizGenerator,
 } from "./generico";
-//mover randInit a generico economia
-import { randInt } from "../quimica/generico";
 
-function randPea(): number {
-  return Math.floor(Math.random() * (500000 - 100000 + 1)) + 100000;
+function randInt(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+const PARAMS: Record<
+  Dificultad,
+  { peaMin: number; peaMax: number; tasaMax: number; desvio: number; opciones: number }
+> = {
+  basico: { peaMin: 100000, peaMax: 300000, tasaMax: 12, desvio: 25, opciones: 4 },
+  intermedio: { peaMin: 200000, peaMax: 500000, tasaMax: 15, desvio: 30, opciones: 4 },
+  avanzado: { peaMin: 300000, peaMax: 700000, tasaMax: 18, desvio: 35, opciones: 4 },
+  Legendario: { peaMin: 400000, peaMax: 900000, tasaMax: 20, desvio: 40, opciones: 5 },
+  Divino: { peaMin: 600000, peaMax: 1200000, tasaMax: 22, desvio: 45, opciones: 5 },
+};
 
 export const genARTasaDesempleo: GeneratorFn = makeQuizGenerator(
   30,
   "Tasa de desempleo escolar",
   [
     (dificultad: Dificultad) => {
-      const PEA = randPea();
-      const desempleados = Math.floor(PEA * (Math.random() * 0.2));
+      const { peaMin, peaMax, tasaMax, desvio, opciones } = PARAMS[dificultad];
+      const PEA = randInt(peaMin, peaMax);
+      const tasaReal = randInt(5, tasaMax);
+      const desempleados = Math.round((PEA * tasaReal) / 100);
       const tasa = Math.round((desempleados / PEA) * 100);
 
-      const correcta = tasa;
-      const variantes: number[] = [correcta];
-      const cant = dificultad === "avanzado" ? 5 : dificultad === "basico" ? 3 : 4;
+      const variantes: number[] = [tasa];
 
-      while (variantes.length < cant) {
-        const desv = Math.round(correcta * (1 + randInt(-40, 40)/100));
-        if (desv > 0) variantes.push(desv);
+      while (variantes.length < opciones) {
+        const candidato = Math.round(tasa * (1 + randInt(-desvio, desvio) / 100));
+        if (candidato > 0 && !variantes.includes(candidato)) variantes.push(candidato);
       }
 
-      const opciones = variantes.map(v => v + "%");
-      const indiceCorrecto = opciones.indexOf(correcta + "%");
+      const opcionesTexto = variantes.map((v) => v + "%");
+      const indiceCorrecto = opcionesTexto.indexOf(tasa + "%");
 
       return {
         enunciado:
           `La Población Económicamente Activa (PEA) es ${PEA.toLocaleString("es-AR")} personas y ` +
           `los desempleados son ${desempleados.toLocaleString("es-AR")}. ¿Cuál es la tasa de desempleo escolar aproximada?`,
-        opciones,
+        opciones: opcionesTexto,
         indiceCorrecto,
         explicacion: "Tasa = Desempleados / PEA × 100",
       };

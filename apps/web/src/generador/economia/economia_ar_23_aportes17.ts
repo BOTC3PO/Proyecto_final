@@ -10,33 +10,44 @@ function randInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const PARAMS: Record<
+  Dificultad,
+  { min: number; max: number; desvio: number; opciones: number }
+> = {
+  basico: { min: 60, max: 120, desvio: 20, opciones: 4 },
+  intermedio: { min: 80, max: 180, desvio: 25, opciones: 4 },
+  avanzado: { min: 120, max: 260, desvio: 30, opciones: 4 },
+  Legendario: { min: 200, max: 380, desvio: 35, opciones: 5 },
+  Divino: { min: 300, max: 500, desvio: 40, opciones: 5 },
+};
+
 export const genARAportes17: GeneratorFn = makeQuizGenerator(
   23,
   "Total típico de aportes obligatorios (17% sobre remunerativo)",
   [
-    (_dificultad: Dificultad) => {
-      const bruto = randInt(80, 200) * 1000; // 80.000 a 200.000
+    (dificultad: Dificultad) => {
+      const { min, max, desvio, opciones } = PARAMS[dificultad];
+      const bruto = randInt(min, max) * 1000;
       const tasaAportes = 0.17;
       const totalAportes = Math.round(bruto * tasaAportes);
 
       const opcionCorrecta = totalAportes;
-
       const opcionesNumericas = new Set<number>();
       opcionesNumericas.add(opcionCorrecta);
 
-      while (opcionesNumericas.size < 4) {
-        const desvio = randInt(-30, 30); // ±30 %
+      while (opcionesNumericas.size < opciones) {
+        const variacion = randInt(-desvio, desvio);
         const candidato = Math.round(
-          opcionCorrecta * (1 + desvio / 100)
+          opcionCorrecta * (1 + variacion / 100)
         );
         if (candidato > 0) opcionesNumericas.add(candidato);
       }
 
-      const opciones = Array.from(opcionesNumericas).map(
+      const opcionesTexto = Array.from(opcionesNumericas).map(
         (v) => "$ " + v.toLocaleString("es-AR")
       );
 
-      const indiceCorrecto = opciones.indexOf(
+      const indiceCorrecto = opcionesTexto.indexOf(
         "$ " + opcionCorrecta.toLocaleString("es-AR")
       );
 
@@ -47,7 +58,7 @@ export const genARAportes17: GeneratorFn = makeQuizGenerator(
           )}.\n` +
           `Suponiendo los aportes obligatorios típicos (11% jubilación, 3% obra social, 3% PAMI), ` +
           `¿cuál es el total aproximado de aportes del trabajador (17% del bruto)?`,
-        opciones,
+        opciones: opcionesTexto,
         indiceCorrecto,
         explicacion:
           "En el modelo escolar se suma 11% + 3% + 3% = 17% sobre el sueldo bruto remunerativo. El total de aportes se calcula como Bruto × 0,17.",
