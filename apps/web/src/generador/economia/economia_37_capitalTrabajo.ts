@@ -1,6 +1,12 @@
 // src/generators/economia/economia_37_capitalTrabajo.ts
 
-import { type Dificultad, type GeneratorFn, makeQuizGenerator } from "./generico";
+import {
+  type Dificultad,
+  type GeneratorFn,
+  ajustarRango,
+  dificultadFactor,
+  makeQuizGenerator,
+} from "./generico";
 
 function randInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -10,9 +16,11 @@ export const genCapitalTrabajo: GeneratorFn = makeQuizGenerator(
   37,
   "Capital de trabajo: Activo Corriente – Pasivo Corriente",
   [
-    (_dificultad: Dificultad) => {
-      const activoCorriente = randInt(100, 300) * 1000;
-      const pasivoCorriente = randInt(50, 250) * 1000;
+    (dificultad: Dificultad) => {
+      const [activoMin, activoMax] = ajustarRango(100, 300, dificultad);
+      const [pasivoMin, pasivoMax] = ajustarRango(50, 250, dificultad);
+      const activoCorriente = randInt(activoMin, activoMax) * 1000;
+      const pasivoCorriente = randInt(pasivoMin, pasivoMax) * 1000;
       const capitalTrabajo = activoCorriente - pasivoCorriente;
 
       const opcionCorrecta =
@@ -22,7 +30,8 @@ export const genCapitalTrabajo: GeneratorFn = makeQuizGenerator(
       opcionesSet.add(opcionCorrecta);
 
       while (opcionesSet.size < 4) {
-        const desvio = randInt(-40, 40);
+        const desvioMax = Math.round(40 * dificultadFactor(dificultad));
+        const desvio = randInt(-desvioMax, desvioMax);
         const candidato = Math.round(
           capitalTrabajo * (1 + desvio / 100)
         );

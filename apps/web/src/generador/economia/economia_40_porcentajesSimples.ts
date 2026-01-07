@@ -1,6 +1,12 @@
 // src/generators/economia/economia_40_porcentajesSimples.ts
 
-import { type Dificultad, type GeneratorFn, makeQuizGenerator } from "./generico";
+import {
+  type Dificultad,
+  type GeneratorFn,
+  ajustarRango,
+  dificultadFactor,
+  makeQuizGenerator,
+} from "./generico";
 
 function randInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -12,13 +18,15 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
   40,
   "Cálculos con %: descuentos, aumentos, impuestos simples del hogar",
   [
-    (_dificultad: Dificultad) => {
+    (dificultad: Dificultad) => {
       const tipos: TipoCaso[] = ["descuento", "aumento", "impuesto"];
       const tipo = tipos[randInt(0, tipos.length - 1)];
 
       if (tipo === "descuento") {
-        const precio = randInt(10, 80) * 1000;
-        const porcentaje = randInt(5, 40); // 5%–40%
+        const [precioMin, precioMax] = ajustarRango(10, 80, dificultad);
+        const [porcentajeMin, porcentajeMax] = ajustarRango(5, 40, dificultad, 1);
+        const precio = randInt(precioMin, precioMax) * 1000;
+        const porcentaje = randInt(porcentajeMin, porcentajeMax);
 
         const rebaja = Math.round(precio * (porcentaje / 100));
         const precioFinal = precio - rebaja;
@@ -30,7 +38,8 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
         opcionesSet.add(opcionCorrecta);
 
         while (opcionesSet.size < 4) {
-          const desvio = randInt(-25, 25);
+          const desvioMax = Math.round(25 * dificultadFactor(dificultad));
+          const desvio = randInt(-desvioMax, desvioMax);
           const candidato = Math.round(
             precioFinal * (1 + desvio / 100)
           );
@@ -58,8 +67,10 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
       }
 
       if (tipo === "aumento") {
-        const precio = randInt(10, 80) * 1000;
-        const porcentaje = randInt(5, 40);
+        const [precioMin, precioMax] = ajustarRango(10, 80, dificultad);
+        const [porcentajeMin, porcentajeMax] = ajustarRango(5, 40, dificultad, 1);
+        const precio = randInt(precioMin, precioMax) * 1000;
+        const porcentaje = randInt(porcentajeMin, porcentajeMax);
 
         const aumento = Math.round(precio * (porcentaje / 100));
         const precioFinal = precio + aumento;
@@ -71,7 +82,8 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
         opcionesSet.add(opcionCorrecta);
 
         while (opcionesSet.size < 4) {
-          const desvio = randInt(-25, 25);
+          const desvioMax = Math.round(25 * dificultadFactor(dificultad));
+          const desvio = randInt(-desvioMax, desvioMax);
           const candidato = Math.round(
             precioFinal * (1 + desvio / 100)
           );
@@ -99,8 +111,10 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
       }
 
       // impuesto simple
-      const base = randInt(10, 80) * 1000;
-      const porcentaje = randInt(5, 30);
+      const [baseMin, baseMax] = ajustarRango(10, 80, dificultad);
+      const [porcentajeMin, porcentajeMax] = ajustarRango(5, 30, dificultad, 1);
+      const base = randInt(baseMin, baseMax) * 1000;
+      const porcentaje = randInt(porcentajeMin, porcentajeMax);
 
       const impuesto = Math.round(base * (porcentaje / 100));
       const total = base + impuesto;
@@ -112,7 +126,8 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
       opcionesSet.add(opcionCorrecta);
 
       while (opcionesSet.size < 4) {
-        const desvio = randInt(-25, 25);
+        const desvioMax = Math.round(25 * dificultadFactor(dificultad));
+        const desvio = randInt(-desvioMax, desvioMax);
         const candidato = Math.round(
           total * (1 + desvio / 100)
         );

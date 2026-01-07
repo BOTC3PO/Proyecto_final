@@ -3,6 +3,9 @@
 import {
   type Dificultad,
   type GeneratorFn,
+  ajustarRango,
+  dificultadFactor,
+  esDificultadMinima,
   makeQuizGenerator,
 } from "./generico";
 
@@ -14,24 +17,38 @@ export const genMargenBruto: GeneratorFn = makeQuizGenerator(
   35,
   "Margen bruto: Ganancia Bruta / Ventas",
   [
-    (_dificultad: Dificultad) => {
-      const ventas = randInt(100, 300) * 1000;
-      const costoVentas = randInt(50, 250) * 1000;
+    (dificultad: Dificultad) => {
+      const [ventasMin, ventasMax] = ajustarRango(100, 300, dificultad);
+      const [costoMin, costoMax] = ajustarRango(50, 250, dificultad);
+      const ventas = randInt(ventasMin, ventasMax) * 1000;
+      const costoVentas = randInt(costoMin, costoMax) * 1000;
 
       const gananciaBruta = ventas - costoVentas;
       const margen = (gananciaBruta / ventas) * 100;
-      const margenRedondeado = Math.round(margen);
+      const usarDecimales = esDificultadMinima(dificultad, "avanzado");
+      const margenRedondeado = usarDecimales
+        ? Math.round(margen * 10) / 10
+        : Math.round(margen);
 
-      const opcionCorrecta = margenRedondeado + " %";
+      const formatear = (valor: number) =>
+        valor.toLocaleString("es-AR", {
+          minimumFractionDigits: usarDecimales ? 1 : 0,
+          maximumFractionDigits: usarDecimales ? 1 : 0,
+        });
+
+      const opcionCorrecta = formatear(margenRedondeado) + " %";
 
       const opcionesSet = new Set<string>();
       opcionesSet.add(opcionCorrecta);
 
       while (opcionesSet.size < 4) {
-        const desvio = randInt(-15, 15);
+        const desvioMax = Math.round(15 * dificultadFactor(dificultad));
+        const desvio = usarDecimales
+          ? randInt(-desvioMax * 2, desvioMax * 2) / 2
+          : randInt(-desvioMax, desvioMax);
         const candidato = margenRedondeado + desvio;
         if (candidato > 0 && candidato < 100) {
-          opcionesSet.add(candidato + " %");
+          opcionesSet.add(formatear(candidato) + " %");
         }
       }
 

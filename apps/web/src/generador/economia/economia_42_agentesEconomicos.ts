@@ -3,6 +3,7 @@
 import {
   type Dificultad,
   type GeneratorFn,
+  esDificultadMinima,
   makeQuizGenerator,
   pickOne,
 } from "./generico";
@@ -17,6 +18,7 @@ const CASOS: {
   descripcion: string;
   agente: Agente;
   explicacion: string;
+  dificultadMinima: Dificultad;
 }[] = [
   {
     descripcion:
@@ -24,6 +26,7 @@ const CASOS: {
     agente: "Hogares/Familias",
     explicacion:
       "En el esquema escolar, los hogares ofrecen trabajo y demandan bienes y servicios.",
+    dificultadMinima: "basico",
   },
   {
     descripcion:
@@ -31,6 +34,7 @@ const CASOS: {
     agente: "Empresas",
     explicacion:
       "Las empresas demandan factores de producción y ofrecen bienes/servicios.",
+    dificultadMinima: "basico",
   },
   {
     descripcion:
@@ -38,6 +42,7 @@ const CASOS: {
     agente: "Estado",
     explicacion:
       "El Estado interviene con impuestos, gasto y regulaciones.",
+    dificultadMinima: "intermedio",
   },
   {
     descripcion:
@@ -45,6 +50,31 @@ const CASOS: {
     agente: "Sector externo",
     explicacion:
       "El sector externo participa con comercio exterior y flujo de capitales.",
+    dificultadMinima: "intermedio",
+  },
+  {
+    descripcion:
+      "Recauda impuestos para financiar obras públicas y programas sociales.",
+    agente: "Estado",
+    explicacion:
+      "La recaudación y el gasto público son funciones del Estado en la economía.",
+    dificultadMinima: "avanzado",
+  },
+  {
+    descripcion:
+      "Importa insumos y exporta productos terminados, conectando el mercado local con el global.",
+    agente: "Sector externo",
+    explicacion:
+      "El comercio internacional de insumos y productos pertenece al sector externo.",
+    dificultadMinima: "Legendario",
+  },
+  {
+    descripcion:
+      "Contrata trabajadores, invierte en maquinaria y busca beneficios a través de sus ventas.",
+    agente: "Empresas",
+    explicacion:
+      "Las empresas combinan factores de producción para generar bienes y servicios.",
+    dificultadMinima: "Divino",
   },
 ];
 
@@ -52,8 +82,11 @@ export const genAgentesEconomicos: GeneratorFn = makeQuizGenerator(
   42,
   "Agentes económicos y sus roles",
   [
-    (_dificultad: Dificultad) => {
-      const caso = pickOne(CASOS);
+    (dificultad: Dificultad) => {
+      const casosDisponibles = CASOS.filter((caso) =>
+        esDificultadMinima(dificultad, caso.dificultadMinima)
+      );
+      const caso = pickOne(casosDisponibles);
       const opciones: Agente[] = [
         "Hogares/Familias",
         "Empresas",

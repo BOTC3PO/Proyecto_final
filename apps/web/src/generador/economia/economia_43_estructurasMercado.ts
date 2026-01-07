@@ -3,6 +3,7 @@
 import {
   type Dificultad,
   type GeneratorFn,
+  esDificultadMinima,
   makeQuizGenerator,
   pickOne,
 } from "./generico";
@@ -17,6 +18,7 @@ const CASOS: {
   descripcion: string;
   tipo: Mercado;
   explicacion: string;
+  dificultadMinima: Dificultad;
 }[] = [
   {
     descripcion:
@@ -24,6 +26,7 @@ const CASOS: {
     tipo: "Competencia perfecta",
     explicacion:
       "Muchos oferentes y demandantes, producto homogéneo y precio determinado por el mercado.",
+    dificultadMinima: "basico",
   },
   {
     descripcion:
@@ -31,6 +34,7 @@ const CASOS: {
     tipo: "Oligopolio",
     explicacion:
       "Pocos oferentes con poder de mercado, pueden influir en precios y cantidades.",
+    dificultadMinima: "basico",
   },
   {
     descripcion:
@@ -38,6 +42,7 @@ const CASOS: {
     tipo: "Monopolio",
     explicacion:
       "Un solo oferente con alto poder de mercado.",
+    dificultadMinima: "intermedio",
   },
   {
     descripcion:
@@ -45,6 +50,31 @@ const CASOS: {
     tipo: "Competencia monopolística",
     explicacion:
       "Hay muchos vendedores, pero cada uno ofrece un producto con cierta diferenciación (marca, calidad, servicio).",
+    dificultadMinima: "intermedio",
+  },
+  {
+    descripcion:
+      "Un único proveedor con concesión exclusiva ofrece energía en una región, sin posibilidad de entrada de competidores.",
+    tipo: "Monopolio",
+    explicacion:
+      "La exclusividad legal limita la competencia y concentra la oferta en un solo agente.",
+    dificultadMinima: "avanzado",
+  },
+  {
+    descripcion:
+      "Varias empresas dominan la oferta de automóviles, con barreras de entrada y competencia en precios y tecnología.",
+    tipo: "Oligopolio",
+    explicacion:
+      "Pocos grandes oferentes con barreras de entrada, interdependencia y competencia estratégica.",
+    dificultadMinima: "Legendario",
+  },
+  {
+    descripcion:
+      "Muchas marcas venden cafés especiales con diferenciación de calidad, experiencia y marketing.",
+    tipo: "Competencia monopolística",
+    explicacion:
+      "Existe diferenciación de producto con numerosos oferentes y cierta libertad de entrada.",
+    dificultadMinima: "Divino",
   },
 ];
 
@@ -52,8 +82,11 @@ export const genEstructurasMercado: GeneratorFn = makeQuizGenerator(
   43,
   "Estructuras de mercado",
   [
-    (_dificultad: Dificultad) => {
-      const caso = pickOne(CASOS);
+    (dificultad: Dificultad) => {
+      const casosDisponibles = CASOS.filter((caso) =>
+        esDificultadMinima(dificultad, caso.dificultadMinima)
+      );
+      const caso = pickOne(casosDisponibles);
       const opciones: Mercado[] = [
         "Competencia perfecta",
         "Competencia monopolística",

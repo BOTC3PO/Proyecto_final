@@ -3,6 +3,7 @@
 import {
   type Dificultad,
   type GeneratorFn,
+  esDificultadMinima,
   makeQuizGenerator,
   pickOne,
 } from "./generico";
@@ -13,18 +14,37 @@ const CASOS = [
   {
     desc: "Descuento del 11% de jubilación sobre el sueldo del empleado.",
     tipo: "Aporte del trabajador" as Tipo,
+    dificultadMinima: "basico" as Dificultad,
   },
   {
     desc: "Descuento del 3% de Obra Social sobre el salario del empleado.",
     tipo: "Aporte del trabajador" as Tipo,
+    dificultadMinima: "basico" as Dificultad,
   },
   {
     desc: "Monto que paga la empresa a la seguridad social sobre la nómina salarial.",
     tipo: "Contribución del empleador" as Tipo,
+    dificultadMinima: "intermedio" as Dificultad,
   },
   {
     desc: "Pago que hace la empresa a la ART por la cobertura de riesgos del trabajo.",
     tipo: "Contribución del empleador" as Tipo,
+    dificultadMinima: "intermedio" as Dificultad,
+  },
+  {
+    desc: "Retención del trabajador para financiar el sistema previsional.",
+    tipo: "Aporte del trabajador" as Tipo,
+    dificultadMinima: "avanzado" as Dificultad,
+  },
+  {
+    desc: "Aporte adicional que realiza el empleador para el seguro de vida colectivo.",
+    tipo: "Contribución del empleador" as Tipo,
+    dificultadMinima: "Legendario" as Dificultad,
+  },
+  {
+    desc: "Descuento en el recibo del empleado destinado a la obra social.",
+    tipo: "Aporte del trabajador" as Tipo,
+    dificultadMinima: "Divino" as Dificultad,
   },
 ];
 
@@ -32,8 +52,11 @@ export const genQuizAportesContribuciones: GeneratorFn = makeQuizGenerator(
   48,
   "Aportes vs contribuciones (quiz)",
   [
-    (_dificultad: Dificultad) => {
-      const caso = pickOne(CASOS);
+    (dificultad: Dificultad) => {
+      const casosDisponibles = CASOS.filter((caso) =>
+        esDificultadMinima(dificultad, caso.dificultadMinima)
+      );
+      const caso = pickOne(casosDisponibles);
       const opciones: Tipo[] = [
         "Aporte del trabajador",
         "Contribución del empleador",

@@ -4,6 +4,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   makeQuizGenerator,
+  esDificultadMinima,
   pickOne,
 } from "./generico";
 
@@ -17,6 +18,7 @@ const CASOS: {
   descripcion: string;
   respuesta: TipoPolitica;
   explicacion: string;
+  dificultadMinima: Dificultad;
 }[] = [
   {
     descripcion:
@@ -24,6 +26,7 @@ const CASOS: {
     respuesta: "Política fiscal expansiva",
     explicacion:
       "Usa el presupuesto del Estado (gasto público) para aumentar la demanda agregada.",
+    dificultadMinima: "basico",
   },
   {
     descripcion:
@@ -31,6 +34,7 @@ const CASOS: {
     respuesta: "Política fiscal expansiva",
     explicacion:
       "Reduce la carga impositiva para estimular el consumo y la inversión.",
+    dificultadMinima: "basico",
   },
   {
     descripcion:
@@ -38,6 +42,7 @@ const CASOS: {
     respuesta: "Política fiscal contractiva",
     explicacion:
       "Busca frenar la demanda y ordenar las cuentas públicas reduciendo gastos o aumentando impuestos.",
+    dificultadMinima: "intermedio",
   },
   {
     descripcion:
@@ -45,6 +50,7 @@ const CASOS: {
     respuesta: "Política monetaria expansiva",
     explicacion:
       "Hace más barato el crédito para estimular el consumo y la inversión.",
+    dificultadMinima: "intermedio",
   },
   {
     descripcion:
@@ -52,6 +58,39 @@ const CASOS: {
     respuesta: "Política monetaria contractiva",
     explicacion:
       "Hace más caro el crédito para reducir la cantidad de dinero circulando.",
+    dificultadMinima: "avanzado",
+  },
+  {
+    descripcion:
+      "El gobierno congela el gasto y aumenta impuestos para reducir la demanda agregada en un contexto inflacionario.",
+    respuesta: "Política fiscal contractiva",
+    explicacion:
+      "Al subir impuestos y frenar el gasto público, se reduce el impulso fiscal y la demanda.",
+    dificultadMinima: "avanzado",
+  },
+  {
+    descripcion:
+      "El Banco Central vende títulos y sube encajes bancarios para absorber liquidez del sistema.",
+    respuesta: "Política monetaria contractiva",
+    explicacion:
+      "Al absorber liquidez, disminuye la cantidad de dinero disponible y se enfría la economía.",
+    dificultadMinima: "Legendario",
+  },
+  {
+    descripcion:
+      "El gobierno aumenta el gasto en infraestructura con financiamiento deficitario para reactivar el empleo.",
+    respuesta: "Política fiscal expansiva",
+    explicacion:
+      "El estímulo fiscal vía mayor gasto busca impulsar la demanda y el empleo.",
+    dificultadMinima: "Legendario",
+  },
+  {
+    descripcion:
+      "El Banco Central reduce la tasa de referencia y compra bonos para expandir la base monetaria.",
+    respuesta: "Política monetaria expansiva",
+    explicacion:
+      "Baja tasas y compra activos para inyectar dinero y estimular crédito y gasto.",
+    dificultadMinima: "Divino",
   },
 ];
 
@@ -59,8 +98,11 @@ export const genPoliticaFiscalMonetaria: GeneratorFn = makeQuizGenerator(
   31,
   "Política fiscal vs monetaria (expansiva/contractiva)",
   [
-    (_dificultad: Dificultad) => {
-      const caso = pickOne(CASOS);
+    (dificultad: Dificultad) => {
+      const casosDisponibles = CASOS.filter((caso) =>
+        esDificultadMinima(dificultad, caso.dificultadMinima)
+      );
+      const caso = pickOne(casosDisponibles);
       const opciones: TipoPolitica[] = [
         "Política fiscal expansiva",
         "Política fiscal contractiva",

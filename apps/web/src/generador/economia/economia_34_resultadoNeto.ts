@@ -3,6 +3,8 @@
 import {
   type Dificultad,
   type GeneratorFn,
+  ajustarRango,
+  dificultadFactor,
   makeQuizGenerator,
 } from "./generico";
 
@@ -14,9 +16,11 @@ export const genResultadoNeto: GeneratorFn = makeQuizGenerator(
   34,
   "Resultado Neto: Resultado Bruto – Gastos",
   [
-    (_dificultad: Dificultad) => {
-      const resultadoBruto = randInt(80, 250) * 1000;
-      const gastos = randInt(20, 150) * 1000;
+    (dificultad: Dificultad) => {
+      const [brutoMin, brutoMax] = ajustarRango(80, 250, dificultad);
+      const [gastosMin, gastosMax] = ajustarRango(20, 150, dificultad);
+      const resultadoBruto = randInt(brutoMin, brutoMax) * 1000;
+      const gastos = randInt(gastosMin, gastosMax) * 1000;
       const resultadoNeto = resultadoBruto - gastos;
       const esGanancia = resultadoNeto >= 0;
 
@@ -28,7 +32,8 @@ export const genResultadoNeto: GeneratorFn = makeQuizGenerator(
       opcionesSet.add(opcionCorrecta);
 
       while (opcionesSet.size < 4) {
-        const desvio = randInt(-40, 40);
+        const desvioMax = Math.round(40 * dificultadFactor(dificultad));
+        const desvio = randInt(-desvioMax, desvioMax);
         const candidato = Math.round(
           resultadoNeto * (1 + desvio / 100)
         );
