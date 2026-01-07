@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 19;
@@ -39,14 +40,15 @@ function generarSucesionGeometrica(
 }
 
 export const generarSucesionesNumericas: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoSucesion =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? "aritmetica"
       : pickRandom(["aritmetica", "geometrica"]);
 
-  const longitud = dificultad === "dificil" ? 5 : 4;
+  const longitud = dificultadCore === "basico" ? 4 : 5;
 
   let sucesion: number[];
   let siguiente: number;
@@ -62,9 +64,11 @@ export const generarSucesionesNumericas: GeneratorFn = (
   } else {
     const inicio = randomInt(1, 5);
     const razon =
-      dificultad === "facil"
+      dificultadCore === "basico"
         ? pickRandom([2, 3])
-        : pickRandom([2, 3, 4]);
+        : dificultadCore === "intermedio"
+        ? pickRandom([2, 3, 4])
+        : pickRandom([2, 3, 4, 5]);
     sucesion = generarSucesionGeometrica(longitud + 1, inicio, razon);
     siguiente = sucesion[sucesion.length - 1];
     sucesion = sucesion.slice(0, longitud);

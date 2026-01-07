@@ -6,6 +6,7 @@ import {
   randomInt,
   pickRandom,
   mcd,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 14;
@@ -23,8 +24,9 @@ function fraccionString(num: number, den: number): string {
 }
 
 export const generarProbabilidadSimple: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoExperimento = pickRandom(["dado", "moneda", "bolsa"]);
 
   let numFav: number;
@@ -72,10 +74,15 @@ export const generarProbabilidadSimple: GeneratorFn = (
     // Todos estos casos tienen probabilidad 1/2, así que no cambiamos numFav
   } else {
     // bolsa con bolas de colores
-    const numRojas = randomInt(1, dificultad === "facil" ? 3 : 5);
-    const numAzules = randomInt(1, dificultad === "facil" ? 3 : 5);
+    const maxColor = dificultadCore === "basico" ? 3 : 5;
+    const numRojas = randomInt(1, maxColor);
+    const numAzules = randomInt(1, maxColor);
     const numVerdes =
-      dificultad === "dificil" ? randomInt(1, 4) : randomInt(0, 2);
+      dificultadCore === "basico"
+        ? randomInt(0, 2)
+        : dificultadCore === "intermedio"
+        ? randomInt(0, 3)
+        : randomInt(1, 4);
 
     numTotal = numRojas + numAzules + numVerdes;
 

@@ -26,7 +26,7 @@ const CASOS_BASE: Caso[] = [
 ];
 
 export const generarIdentidadEcuacionInecuacion: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const caso = pickRandom(CASOS_BASE);
 

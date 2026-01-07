@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 18;
@@ -13,10 +14,11 @@ const TITULO = "Coordenadas en el plano cartesiano";
 type TipoEjercicio = "cuadrante" | "eje";
 
 export const generarCoordenadasPlano: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoEjercicio =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? "cuadrante"
       : pickRandom(["cuadrante", "eje"]);
 

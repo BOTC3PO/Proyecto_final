@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 23;
@@ -29,10 +30,11 @@ function evaluarXY(expr: string, x: number, y: number): number {
 }
 
 export const generarEvaluacionExpresiones: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoExpresion =
-    dificultad === "facil" ? "soloX" : pickRandom(["soloX", "xY"]);
+    dificultadCore === "basico" ? "soloX" : pickRandom(["soloX", "xY"]);
 
   let exprTexto: string;
   let x: number;

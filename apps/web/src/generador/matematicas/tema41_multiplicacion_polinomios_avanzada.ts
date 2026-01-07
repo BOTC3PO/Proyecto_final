@@ -4,6 +4,7 @@ import {
   type GeneratorFn,
   crearQuizBase,
   randomInt,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 41;
@@ -43,13 +44,14 @@ function poliToString(p: Polinomio): string {
 }
 
 export const generarMultiplicacionPolinomiosAvanzada: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
   // (ax + b)(cx^2 + dx + e)
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const rango =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 4
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 6
       : 8;
 

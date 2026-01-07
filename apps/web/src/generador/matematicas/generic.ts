@@ -1,8 +1,9 @@
 // src/generators/math/generic.ts
 
-// ⬇️ Si ya tenés estos tipos en core/types.ts, BORRÁ estas definiciones
-// y cambiá por imports desde ahí.
-export type Dificultad = "facil" | "media" | "dificil";
+import type { Dificultad as DificultadCore } from "../core/types";
+
+export type DificultadBasica = "facil" | "media" | "dificil";
+export type Dificultad = DificultadCore | DificultadBasica;
 
 export type ModoRespuesta = "quiz" | "completar";
 
@@ -70,6 +71,38 @@ export function shuffleArray<T>(arr: T[]): T[] {
   return copy;
 }
 
+export function normalizarDificultadCore(
+  dificultad: Dificultad
+): DificultadCore {
+  switch (dificultad) {
+    case "facil":
+      return "basico";
+    case "media":
+      return "intermedio";
+    case "dificil":
+      return "avanzado";
+    default:
+      return dificultad;
+  }
+}
+
+export function normalizarDificultadBasica(
+  dificultad: Dificultad
+): DificultadBasica {
+  switch (dificultad) {
+    case "basico":
+      return "facil";
+    case "intermedio":
+      return "media";
+    case "avanzado":
+    case "Legendario":
+    case "Divino":
+      return "dificil";
+    default:
+      return dificultad;
+  }
+}
+
 export function rangoPorDificultad(
   dificultad: Dificultad,
   overrides?: {
@@ -78,13 +111,37 @@ export function rangoPorDificultad(
     dificil?: [number, number];
   }
 ): [number, number] {
-  const defaults: Record<Dificultad, [number, number]> = {
+  const defaults: Record<DificultadBasica, [number, number]> = {
     facil: [1, 20],
     media: [1, 100],
     dificil: [1, 999],
   };
-  const base = { ...defaults, ...overrides } as Record<Dificultad, [number, number]>;
-  return base[dificultad];
+  const base = {
+    ...defaults,
+    ...overrides,
+  } as Record<DificultadBasica, [number, number]>;
+  return base[normalizarDificultadBasica(dificultad)];
+}
+
+export function rangoPorDificultadCore(
+  dificultad: Dificultad,
+  overrides: {
+    basico: [number, number];
+    intermedio: [number, number];
+    avanzado: [number, number];
+    Legendario?: [number, number];
+    Divino?: [number, number];
+  }
+): [number, number] {
+  const normalizada = normalizarDificultadCore(dificultad);
+  const base: Record<DificultadCore, [number, number]> = {
+    basico: overrides.basico,
+    intermedio: overrides.intermedio,
+    avanzado: overrides.avanzado,
+    Legendario: overrides.Legendario ?? overrides.avanzado,
+    Divino: overrides.Divino ?? overrides.avanzado,
+  };
+  return base[normalizada];
 }
 
 // Para crear un Quiz rápido

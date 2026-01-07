@@ -10,7 +10,7 @@ const ID_TEMA = 46;
 const TITULO = "Valor absoluto como distancia en la recta numérica";
 
 export const generarValorAbsolutoDistancia: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   // Distancia entre dos puntos a y b en R es |a - b|
   const a = randomInt(-10, 10);

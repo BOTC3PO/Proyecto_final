@@ -6,6 +6,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 48;
@@ -19,7 +20,8 @@ interface CasoRadical {
 
 function generarCasoRadical(dificultad: Dificultad): CasoRadical {
   // √(k² * n) = k√n
-  const k = randomInt(2, dificultad === "facil" ? 5 : 9);
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const k = randomInt(2, dificultadCore === "basico" ? 5 : 9);
   const nOpciones = [2, 3, 5, 6, 7];
   const n = pickRandom(nOpciones);
 
@@ -33,7 +35,7 @@ function generarCasoRadical(dificultad: Dificultad): CasoRadical {
 }
 
 export const generarRadicalesSimplificacion: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
   const caso = generarCasoRadical(dificultad);
   const correcta = caso.resultado;

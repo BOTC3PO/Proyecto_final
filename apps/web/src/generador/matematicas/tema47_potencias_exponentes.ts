@@ -6,6 +6,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 47;
@@ -14,15 +15,16 @@ const TITULO = "Potencias y propiedades de los exponentes";
 type TipoPotencia = "producto" | "potenciaDePotencia" | "cociente";
 
 export const generarPotenciasExponentes: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoPotencia = pickRandom(["producto", "potenciaDePotencia", "cociente"]);
   const base = randomInt(2, 9);
 
   const rangoExp =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 2
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 3
       : 4;
 

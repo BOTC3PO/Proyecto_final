@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 27;
@@ -19,7 +20,13 @@ function signoConNumero(n: number): string {
 }
 
 function factorComunEjercicio(dificultad: Dificultad) {
-  const rangoCoef = dificultad === "facil" ? 6 : dificultad === "media" ? 10 : 15;
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const rangoCoef =
+    dificultadCore === "basico"
+      ? 6
+      : dificultadCore === "intermedio"
+      ? 10
+      : 15;
   const k = randomInt(2, rangoCoef);          // factor común numérico
   const a = randomInt(1, 9);
   const b = randomInt(1, 9);
@@ -52,7 +59,13 @@ function factorComunEjercicio(dificultad: Dificultad) {
 
 // Generamos x^2 + bx + c con factorización (x + r1)(x + r2)
 function trinomioSimpleEjercicio(dificultad: Dificultad) {
-  const rangoR = dificultad === "facil" ? 5 : dificultad === "media" ? 7 : 9;
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const rangoR =
+    dificultadCore === "basico"
+      ? 5
+      : dificultadCore === "intermedio"
+      ? 7
+      : 9;
 
   const r1 = randomInt(-rangoR, rangoR) || 1;
   const r2 = randomInt(-rangoR, rangoR) || -1;
@@ -88,12 +101,12 @@ function trinomioSimpleEjercicio(dificultad: Dificultad) {
 // --------- GENERADOR PRINCIPAL ---------
 
 export const generarFactorizacionBasica: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
-  const tipo: TipoFactorizacion =
-    dificultad === "facil"
-      ? pickRandom(["factorComun", "trinomioSimple"])
-      : pickRandom(["factorComun", "trinomioSimple"]);
+  const tipo: TipoFactorizacion = pickRandom([
+    "factorComun",
+    "trinomioSimple",
+  ]);
 
   if (tipo === "factorComun") {
     return factorComunEjercicio(dificultad);

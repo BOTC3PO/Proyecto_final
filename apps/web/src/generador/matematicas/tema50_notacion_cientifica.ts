@@ -5,6 +5,7 @@ import {
   type GeneratorFn,
   crearQuizBase,
   randomInt,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 50;
@@ -35,12 +36,13 @@ function aNotacionCientifica(n: number): { a: number; k: number; str: string } {
 }
 
 export const generarNotacionCientifica: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const maxExp =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 3
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 6
       : 9;
 

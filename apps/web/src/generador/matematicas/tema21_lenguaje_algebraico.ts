@@ -57,7 +57,7 @@ function generarFrase(): FraseExpresion {
 }
 
 export const generarLenguajeAlgebraico: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const plantilla = generarFrase();
 

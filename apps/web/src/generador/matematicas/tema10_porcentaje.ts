@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 10;
@@ -13,13 +14,16 @@ const TITULO = "Porcentajes";
 type TipoProblema = "parteDeTodo" | "aumento" | "descuento";
 
 function generarPorcentaje(dificultad: Dificultad): number {
-  if (dificultad === "facil") return [5, 10, 20, 25, 50][randomInt(0, 4)];
-  if (dificultad === "media") return randomInt(5, 40);
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  if (dificultadCore === "basico") {
+    return [5, 10, 20, 25, 50][randomInt(0, 4)];
+  }
+  if (dificultadCore === "intermedio") return randomInt(5, 40);
   return randomInt(5, 70);
 }
 
 export const generarPorcentajes: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const tipo: TipoProblema = pickRandom([
     "parteDeTodo",
@@ -28,11 +32,13 @@ export const generarPorcentajes: GeneratorFn = (
   ]);
 
   const porcentaje = generarPorcentaje(dificultad);
-  const base = dificultad === "facil"
-    ? randomInt(40, 200)
-    : dificultad === "media"
-    ? randomInt(100, 500)
-    : randomInt(200, 1000);
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const base =
+    dificultadCore === "basico"
+      ? randomInt(40, 200)
+      : dificultadCore === "intermedio"
+      ? randomInt(100, 500)
+      : randomInt(200, 1000);
 
   let enunciado: string;
   let resultado: number;

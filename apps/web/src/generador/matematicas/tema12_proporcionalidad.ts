@@ -55,7 +55,7 @@ function generarEscenario(): Escenario {
 }
 
 export const generarProporcionalidad: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const escenario = generarEscenario();
 

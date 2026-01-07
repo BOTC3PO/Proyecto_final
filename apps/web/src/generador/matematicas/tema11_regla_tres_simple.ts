@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 11;
@@ -22,6 +23,7 @@ interface ReglaTresDatos {
 }
 
 function generarDatosReglaTres(dificultad: Dificultad): ReglaTresDatos {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipos: TipoRegla[] = ["directa", "inversa"];
   const tipo = pickRandom(tipos);
 
@@ -32,11 +34,12 @@ function generarDatosReglaTres(dificultad: Dificultad): ReglaTresDatos {
   ]);
 
   // Factor de proporcionalidad entero para que el resultado sea exacto
-  const k = dificultad === "facil"
-    ? randomInt(2, 5)
-    : dificultad === "media"
-    ? randomInt(2, 8)
-    : randomInt(2, 12);
+  const k =
+    dificultadCore === "basico"
+      ? randomInt(2, 5)
+      : dificultadCore === "intermedio"
+      ? randomInt(2, 8)
+      : randomInt(2, 12);
 
   const x1 = randomInt(2, 10);
   const x2 = randomInt(2, 12);
@@ -87,7 +90,7 @@ function construirEnunciado(datos: ReglaTresDatos): string {
 }
 
 export const generarReglaTresSimple: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const datos = generarDatosReglaTres(dificultad);
   const resultado = datos.y2;

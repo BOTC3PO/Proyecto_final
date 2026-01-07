@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 39;
@@ -13,13 +14,17 @@ const TITULO = "Problemas de función afín (modelo y = mx + b)";
 type Contexto = "taxis" | "telefonia" | "suscripcion";
 
 export const generarProblemasFuncionAfin: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const contexto: Contexto = pickRandom(["taxis", "telefonia", "suscripcion"]);
 
-  const m = randomInt(2, 10);      // costo por unidad
-  const b = randomInt(50, 200);    // costo fijo
-  const x = randomInt(1, 10);
+  const rangoM = dificultadCore === "basico" ? [2, 6] : [2, 10];
+  const rangoB = dificultadCore === "basico" ? [40, 120] : [50, 200];
+  const rangoX = dificultadCore === "basico" ? [1, 6] : [1, 10];
+  const m = randomInt(rangoM[0], rangoM[1]);      // costo por unidad
+  const b = randomInt(rangoB[0], rangoB[1]);    // costo fijo
+  const x = randomInt(rangoX[0], rangoX[1]);
   const y = m * x + b;
 
   let enunciado: string;

@@ -4,18 +4,20 @@ import {
   type GeneratorFn,
   crearQuizBase,
   randomInt,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 32;
 const TITULO = "Sistemas de ecuaciones 2×2";
 
 export const generarSistemas2x2: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const rangoSol =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 5
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 8
       : 12;
 

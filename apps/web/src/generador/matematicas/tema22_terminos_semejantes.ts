@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 22;
@@ -24,16 +25,17 @@ function terminoToString(t: Termino): string {
 }
 
 function generarEjercicio(dificultad: Dificultad) {
-  const variablesPosibles = dificultad === "facil"
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const variablesPosibles = dificultadCore === "basico"
     ? ["x", "y"]
     : ["x", "y", "x^2", "y^2"];
 
   const variableElegida = pickRandom(variablesPosibles);
 
   const cantidadTerminos =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? randomInt(3, 4)
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? randomInt(3, 5)
       : randomInt(4, 6);
 
@@ -67,7 +69,7 @@ function generarEjercicio(dificultad: Dificultad) {
 }
 
 export const generarTerminosSemejantes: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const { expresion, resultado } = generarEjercicio(dificultad);
   const correcta = terminoToString(resultado);

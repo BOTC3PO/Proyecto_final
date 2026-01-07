@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 20;
@@ -23,13 +24,14 @@ function generarSerieAritmetica(
 }
 
 export const generarSeriesSimples: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   // De momento usamos solo series aritméticas con pocos términos
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const cantidad =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? randomInt(3, 5)
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? randomInt(4, 6)
       : randomInt(5, 7);
 

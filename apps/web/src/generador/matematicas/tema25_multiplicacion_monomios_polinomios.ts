@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 25;
@@ -33,27 +34,27 @@ function multiplicarMonomios(m1: Monomio, m2: Monomio): Monomio {
 }
 
 function generarMonomio(dificultad: Dificultad): Monomio {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const rango =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 5
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 8
       : 10;
 
   const coef = randomInt(-rango, rango) || 1;
   const exponente =
-    dificultad === "facil"
-      ? randomInt(0, 2)
-      : randomInt(0, 3);
+    dificultadCore === "basico" ? randomInt(0, 2) : randomInt(0, 3);
 
   return { coef, exponente };
 }
 
 export const generarMultiplicacionMonomiosPolinomios: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoProblema =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? "monomios"
       : pickRandom(["monomios", "monomioPorBinomio"]);
 

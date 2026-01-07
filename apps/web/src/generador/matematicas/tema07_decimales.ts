@@ -5,15 +5,21 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 7;
 const TITULO = "Decimales";
 
 function generarDecimal(dificultad: Dificultad): number {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const max =
-    dificultad === "facil" ? 100 : dificultad === "media" ? 500 : 1000;
-  const decimales = dificultad === "dificil" ? 3 : 2;
+    dificultadCore === "basico"
+      ? 100
+      : dificultadCore === "intermedio"
+      ? 500
+      : 1000;
+  const decimales = dificultadCore === "basico" ? 2 : 3;
   const factor = 10 ** decimales;
   return randomInt(1, max * factor) / factor;
 }
@@ -29,7 +35,7 @@ function decimalToFraction(n: number): { num: number; den: number } {
 }
 
 export const generarDecimales: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   // Modos: convertir a fracción, comparar, redondear
   const modos = ["frac", "comparar", "redondear"] as const;
@@ -98,8 +104,13 @@ export const generarDecimales: GeneratorFn = (
 
   // redondear
   const n = generarDecimal(dificultad);
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const lugares =
-    dificultad === "facil" ? 1 : dificultad === "media" ? 2 : 3;
+    dificultadCore === "basico"
+      ? 1
+      : dificultadCore === "intermedio"
+      ? 2
+      : 3;
   const factor = 10 ** lugares;
   const redondeado = Math.round(n * factor) / factor;
 

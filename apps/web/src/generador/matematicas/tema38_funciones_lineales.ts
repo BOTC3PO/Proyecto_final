@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 38;
@@ -13,8 +14,9 @@ const TITULO = "Funciones lineales: pendiente y ordenada al origen";
 type TipoPregunta = "pendiente" | "ordenada" | "evaluar";
 
 export const generarFuncionesLineales: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const m = randomInt(-5, 5) || 1;
   const b = randomInt(-10, 10);
 
@@ -78,7 +80,7 @@ export const generarFuncionesLineales: GeneratorFn = (
 
   // evaluar f(x0)
   const x0 =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? randomInt(-3, 3)
       : randomInt(-6, 6);
 

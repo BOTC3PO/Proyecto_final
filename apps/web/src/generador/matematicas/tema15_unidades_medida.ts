@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 15;
@@ -44,14 +45,15 @@ const CONVERSIONES: Conversion[] = [
 ];
 
 export const generarUnidadesMedida: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const conv = pickRandom(CONVERSIONES);
 
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const base =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? randomInt(1, 50)
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? randomInt(10, 200)
       : randomInt(50, 1000);
 

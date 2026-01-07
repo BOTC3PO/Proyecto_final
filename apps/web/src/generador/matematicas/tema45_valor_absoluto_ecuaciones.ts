@@ -10,7 +10,7 @@ const ID_TEMA = 45;
 const TITULO = "Ecuaciones con valor absoluto |x - a| = b";
 
 export const generarValorAbsolutoEcuaciones: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const a = randomInt(-10, 10);
   const b = randomInt(1, 10); // b > 0 para dos soluciones

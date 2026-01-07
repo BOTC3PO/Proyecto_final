@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 24;
@@ -51,10 +52,11 @@ function restarPolinomios(p1: Polinomio, p2: Polinomio): Polinomio {
 }
 
 function generarPolinomio(dificultad: Dificultad): Polinomio {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const rango =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 5
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 8
       : 10;
 
@@ -66,7 +68,7 @@ function generarPolinomio(dificultad: Dificultad): Polinomio {
 }
 
 export const generarSumaRestaPolinomios: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const p1 = generarPolinomio(dificultad);
   const p2 = generarPolinomio(dificultad);

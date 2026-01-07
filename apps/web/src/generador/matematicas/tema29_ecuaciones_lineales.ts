@@ -4,24 +4,26 @@ import {
   type GeneratorFn,
   crearQuizBase,
   randomInt,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 29;
 const TITULO = "Ecuaciones lineales simples (ax + b = c)";
 
 export const generarEcuacionesLinealesSimples: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const rangoA =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 5
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 10
       : 15;
   const rangoX =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 10
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 20
       : 30;
 

@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 37;
@@ -13,13 +14,15 @@ const TITULO = "Ecuaciones con fracciones algebraicas simples";
 type TipoEcuacion = "fraccionIgualNumero" | "fraccionIgualFraccion";
 
 export const generarEcuacionesFraccionesAlgebraicas: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
-  const tipo: TipoEcuacion = dificultad === "facil"
-    ? "fraccionIgualNumero"
-    : pickRandom(["fraccionIgualNumero", "fraccionIgualFraccion"]);
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const tipo: TipoEcuacion =
+    dificultadCore === "basico"
+      ? "fraccionIgualNumero"
+      : pickRandom(["fraccionIgualNumero", "fraccionIgualFraccion"]);
 
-  const rango = dificultad === "dificil" ? 10 : 6;
+  const rango = dificultadCore === "avanzado" ? 10 : 6;
   const xSol = randomInt(-rango, rango);
 
   let enunciado: string;

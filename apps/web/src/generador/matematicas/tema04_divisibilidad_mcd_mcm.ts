@@ -3,7 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
-  rangoPorDificultad,
+  rangoPorDificultadCore,
   randomInt,
   mcd,
   mcm,
@@ -15,10 +15,10 @@ const TITULO = "Divisibilidad, MCD y MCM";
 type TipoProblema = "MCD" | "MCM";
 
 function generarPar(dificultad: Dificultad): [number, number] {
-  const [min, max] = rangoPorDificultad(dificultad, {
-    facil: [6, 40],
-    media: [10, 80],
-    dificil: [20, 120],
+  const [min, max] = rangoPorDificultadCore(dificultad, {
+    basico: [6, 40],
+    intermedio: [10, 80],
+    avanzado: [20, 120],
   });
 
   let a = randomInt(min, max);
@@ -28,7 +28,7 @@ function generarPar(dificultad: Dificultad): [number, number] {
 }
 
 export const generarDivisibilidadMcdMcm: GeneratorFn = (
-  dificultad = "media"
+  dificultad = "intermedio"
 ) => {
   const tipo: TipoProblema = Math.random() < 0.5 ? "MCD" : "MCM";
   const [a, b] = generarPar(dificultad);
