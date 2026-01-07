@@ -3,6 +3,8 @@
 import {
   type Dificultad,
   type GeneratorFn,
+  ajustarRango,
+  dificultadFactor,
   makeQuizGenerator,
 } from "./generico";
 
@@ -16,12 +18,12 @@ export const genGananciaVsEquilibrio: GeneratorFn = makeQuizGenerator(
   47,
   "Ganancia o pérdida según Q vs Q* (punto de equilibrio)",
   [
-    (_dificultad: Dificultad) => {
-      // Definimos un punto de equilibrio Q*
-      const qEquilibrio = randInt(100, 1000);
+    (dificultad: Dificultad) => {
+      const [qMin, qMax] = ajustarRango(100, 1000, dificultad);
+      const qEquilibrio = randInt(qMin, qMax);
 
-      // Elegimos un Q alrededor de Q* (puede ser menor, igual o mayor)
-      const offset = randInt(-300, 300);
+      const offsetMax = Math.round(300 * dificultadFactor(dificultad));
+      const offset = randInt(-offsetMax, offsetMax);
       const qReal = Math.max(0, qEquilibrio + offset);
 
       let situacion: Situacion;

@@ -1,6 +1,13 @@
 // src/generators/economia/economia_39_productividad.ts
 
-import { type Dificultad, type GeneratorFn, makeQuizGenerator } from "./generico";
+import {
+  type Dificultad,
+  type GeneratorFn,
+  ajustarRango,
+  dificultadFactor,
+  esDificultadMinima,
+  makeQuizGenerator,
+} from "./generico";
 
 function randInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -10,31 +17,38 @@ export const genProductividadEscolar: GeneratorFn = makeQuizGenerator(
   39,
   "Productividad escolar: Producción / Insumos",
   [
-    (_dificultad: Dificultad) => {
-      // ejemplos tipo: cantidad producida / horas de trabajo
-      const produccion = randInt(200, 2000); // unidades
-      const insumo = randInt(4, 40); // horas, personas, etc.
+    (dificultad: Dificultad) => {
+      const [produccionMin, produccionMax] = ajustarRango(200, 2000, dificultad);
+      const [insumoMin, insumoMax] = ajustarRango(4, 40, dificultad, 2);
+      const produccion = randInt(produccionMin, produccionMax);
+      const insumo = randInt(insumoMin, insumoMax);
 
       const productividad = produccion / insumo;
-      const productividadRedondeada = Math.round(productividad * 10) / 10; // un decimal
+      const decimales = esDificultadMinima(dificultad, "Legendario") ? 2 : 1;
+      const factorRedondeo = 10 ** decimales;
+      const productividadRedondeada =
+        Math.round(productividad * factorRedondeo) / factorRedondeo;
 
       const opcionCorrecta =
         productividadRedondeada.toLocaleString("es-AR", {
-          minimumFractionDigits: 1,
-          maximumFractionDigits: 1,
+          minimumFractionDigits: decimales,
+          maximumFractionDigits: decimales,
         }) + " unidades por insumo";
 
       const opcionesSet = new Set<string>();
       opcionesSet.add(opcionCorrecta);
 
       while (opcionesSet.size < 4) {
-        const desvio = (randInt(-30, 30) / 100) * productividad;
-        const candidato = Math.round((productividad + desvio) * 10) / 10;
+        const desvioMax = Math.round(30 * dificultadFactor(dificultad));
+        const desvio = (randInt(-desvioMax, desvioMax) / 100) * productividad;
+        const candidato =
+          Math.round((productividad + desvio) * factorRedondeo) /
+          factorRedondeo;
         if (candidato > 0) {
           opcionesSet.add(
             candidato.toLocaleString("es-AR", {
-              minimumFractionDigits: 1,
-              maximumFractionDigits: 1,
+              minimumFractionDigits: decimales,
+              maximumFractionDigits: decimales,
             }) + " unidades por insumo"
           );
         }

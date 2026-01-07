@@ -1,6 +1,12 @@
 // src/generators/economia/economia_38_puntoEquilibrio.ts
 
-import { type Dificultad, type GeneratorFn, makeQuizGenerator } from "./generico";
+import {
+  type Dificultad,
+  type GeneratorFn,
+  ajustarRango,
+  dificultadFactor,
+  makeQuizGenerator,
+} from "./generico";
 
 function randInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -10,10 +16,16 @@ export const genPuntoEquilibrio: GeneratorFn = makeQuizGenerator(
   38,
   "Punto de equilibrio simple: CF / (P – CVu)",
   [
-    (_dificultad: Dificultad) => {
-      const costoFijo = randInt(200, 800) * 1000; // CF total
-      const precioUnitario = randInt(2000, 8000); // P
-      const costoVariableUnitario = randInt(500, precioUnitario - 500); // CVu < P
+    (dificultad: Dificultad) => {
+      const [costoFijoMin, costoFijoMax] = ajustarRango(200, 800, dificultad);
+      const [precioMin, precioMax] = ajustarRango(2000, 8000, dificultad);
+      const costoFijo = randInt(costoFijoMin, costoFijoMax) * 1000;
+      const precioUnitario = randInt(precioMin, precioMax);
+      const factor = dificultadFactor(dificultad);
+      const margenMin = Math.max(300, Math.round(500 * factor));
+      const costoVariableMin = Math.max(100, Math.round(300 * factor));
+      const costoVariableMax = Math.max(costoVariableMin + 1, precioUnitario - margenMin);
+      const costoVariableUnitario = randInt(costoVariableMin, costoVariableMax);
 
       const margenUnitario = precioUnitario - costoVariableUnitario; // P – CVu
       const qEquilibrio = Math.round(costoFijo / margenUnitario);
@@ -24,7 +36,8 @@ export const genPuntoEquilibrio: GeneratorFn = makeQuizGenerator(
       opcionesSet.add(opcionCorrecta);
 
       while (opcionesSet.size < 4) {
-        const desvio = randInt(-40, 40);
+        const desvioMax = Math.round(40 * dificultadFactor(dificultad));
+        const desvio = randInt(-desvioMax, desvioMax);
         const candidato = Math.max(1, Math.round(qEquilibrio * (1 + desvio / 100)));
         opcionesSet.add(candidato + " unidades");
       }

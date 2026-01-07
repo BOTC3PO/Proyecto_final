@@ -28,6 +28,58 @@ export type Exercise = QuizExercise;
 // Firma estándar de un generador de ejercicios
 export type GeneratorFn = (dificultad?: Dificultad) => Exercise;
 
+export const DIFICULTAD_ORDEN: Dificultad[] = [
+  "basico",
+  "intermedio",
+  "avanzado",
+  "Legendario",
+  "Divino",
+];
+
+export const DIFICULTAD_RANK: Record<Dificultad, number> = {
+  basico: 0,
+  intermedio: 1,
+  avanzado: 2,
+  Legendario: 3,
+  Divino: 4,
+};
+
+export function dificultadFactor(dificultad: Dificultad): number {
+  switch (dificultad) {
+    case "basico":
+      return 0.8;
+    case "intermedio":
+      return 1;
+    case "avanzado":
+      return 1.2;
+    case "Legendario":
+      return 1.4;
+    case "Divino":
+      return 1.6;
+    default:
+      return 1;
+  }
+}
+
+export function ajustarRango(
+  min: number,
+  max: number,
+  dificultad: Dificultad,
+  minFloor = 1
+): [number, number] {
+  const factor = dificultadFactor(dificultad);
+  const minEscalado = Math.max(minFloor, Math.round(min * factor));
+  const maxEscalado = Math.max(minEscalado, Math.round(max * factor));
+  return [minEscalado, maxEscalado];
+}
+
+export function esDificultadMinima(
+  dificultadActual: Dificultad,
+  minima: Dificultad
+): boolean {
+  return DIFICULTAD_RANK[dificultadActual] >= DIFICULTAD_RANK[minima];
+}
+
 /**
  * Devuelve un elemento aleatorio de un array.
  */
