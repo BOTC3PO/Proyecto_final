@@ -13,7 +13,7 @@ const TITULO = "Intervalos y conjuntos de solución";
 type Tipo = "xMayor" | "xMenor" | "entre";
 
 export const generarIntervalosSoluciones: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const tipo: Tipo = pickRandom(["xMayor", "xMenor", "entre"]);
 

@@ -4,7 +4,7 @@ import {
   type GeneratorFn,
   crearQuizBase,
   randomInt,
-  pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 9;
@@ -14,15 +14,16 @@ type TipoRaiz = "cuadrada" | "cubica";
 
 function generarRaizPerfecta(dificultad: Dificultad, tipo: TipoRaiz) {
   let n: number;
+  const dificultadCore = normalizarDificultadCore(dificultad);
   if (tipo === "cuadrada") {
-    if (dificultad === "facil") n = randomInt(2, 12);
-    else if (dificultad === "media") n = randomInt(2, 20);
+    if (dificultadCore === "basico") n = randomInt(2, 12);
+    else if (dificultadCore === "intermedio") n = randomInt(2, 20);
     else n = randomInt(2, 30);
     const valor = n * n;
     return { valor, raiz: n };
   } else {
-    if (dificultad === "facil") n = randomInt(2, 6);
-    else if (dificultad === "media") n = randomInt(2, 8);
+    if (dificultadCore === "basico") n = randomInt(2, 6);
+    else if (dificultadCore === "intermedio") n = randomInt(2, 8);
     else n = randomInt(2, 10);
     const valor = n * n * n;
     return { valor, raiz: n };
@@ -30,12 +31,13 @@ function generarRaizPerfecta(dificultad: Dificultad, tipo: TipoRaiz) {
 }
 
 export const generarRaices: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoRaiz =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? "cuadrada"
-      : Math.random() < 0.7
+      : Math.random() < (dificultadCore === "intermedio" ? 0.7 : 0.5)
       ? "cuadrada"
       : "cubica";
 

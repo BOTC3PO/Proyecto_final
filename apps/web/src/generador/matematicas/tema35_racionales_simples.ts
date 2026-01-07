@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 35;
@@ -13,14 +14,16 @@ const TITULO = "Expresiones racionales simples";
 type TipoRacional = "sumaMismoDen" | "producto";
 
 export const generarRacionalesSimples: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoRacional = pickRandom(["sumaMismoDen", "producto"]);
 
-  const a = randomInt(-5, 5) || 1;
-  const b = randomInt(-5, 5) || 2;
-  const c = randomInt(-5, 5) || 1;
-  const d = randomInt(-5, 5) || 2;
+  const rangoCoef = dificultadCore === "basico" ? 4 : 5;
+  const a = randomInt(-rangoCoef, rangoCoef) || 1;
+  const b = randomInt(-rangoCoef, rangoCoef) || 2;
+  const c = randomInt(-rangoCoef, rangoCoef) || 1;
+  const d = randomInt(-rangoCoef, rangoCoef) || 2;
 
   if (tipo === "sumaMismoDen") {
     const den = pickRandom(["x", "x+1", "x-1"]);

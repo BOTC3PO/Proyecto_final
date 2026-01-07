@@ -12,10 +12,10 @@ export const DIFICULTADES_CORE: readonly DificultadCore[] = [
 
 export const DIFICULTADES_POR_MATERIA: Record<
   MateriaUI,
-  readonly string[]
+  readonly DificultadCore[]
 > = {
-  matematica: ["facil", "media", "dificil"],
-  quimica: ["facil", "media", "dificil"],
+  matematica: DIFICULTADES_CORE,
+  quimica: DIFICULTADES_CORE,
   economia: DIFICULTADES_CORE,
   fisica: DIFICULTADES_CORE,
 };

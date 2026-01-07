@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 36;
@@ -51,8 +52,10 @@ function generarCaso(dificultad: Dificultad): ExpresionCaso {
 }
 
 export const generarSimplificacionAlgebraica: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const rangoDelta = dificultadCore === "basico" ? 2 : 3;
   const caso = generarCaso(dificultad);
   const correcta = caso.resultado;
 
@@ -60,7 +63,7 @@ export const generarSimplificacionAlgebraica: GeneratorFn = (
   const distractores = new Set<string>();
 
   while (distractores.size < 3) {
-    const delta = randomInt(-3, 3);
+    const delta = randomInt(-rangoDelta, rangoDelta);
     const deltaConst = randomInt(-5, 5);
     const match = correcta.match(/(-?\d+)x \+ (-?\d+)/);
     if (!match) break;

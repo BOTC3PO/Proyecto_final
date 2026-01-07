@@ -6,6 +6,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 49;
@@ -14,10 +15,11 @@ const TITULO = "Ecuaciones con potencias y radicales simples";
 type TipoEcuacion = "x2_igual_a" | "sqrt_x_mas_a" | "a_pow_x";
 
 export const generarEcuacionesPotenciasRadicales: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tiposPosibles: TipoEcuacion[] =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? ["x2_igual_a", "sqrt_x_mas_a"]
       : ["x2_igual_a", "sqrt_x_mas_a", "a_pow_x"];
 
@@ -29,7 +31,7 @@ export const generarEcuacionesPotenciasRadicales: GeneratorFn = (
 
   if (tipo === "x2_igual_a") {
     // x^2 = a
-    const x0 = randomInt(1, dificultad === "facil" ? 10 : 20);
+    const x0 = randomInt(1, dificultadCore === "basico" ? 10 : 20);
     const a = x0 * x0;
 
     enunciado = `Resuelve la ecuación:\n\nx² = ${a}`;
@@ -57,7 +59,7 @@ export const generarEcuacionesPotenciasRadicales: GeneratorFn = (
   if (tipo === "sqrt_x_mas_a") {
     // √(x + a) = b => x + a = b² => x = b² - a
     const a = randomInt(-5, 10);
-    const b = randomInt(1, dificultad === "facil" ? 5 : 8);
+    const b = randomInt(1, dificultadCore === "basico" ? 5 : 8);
 
     const xSol = b * b - a;
 

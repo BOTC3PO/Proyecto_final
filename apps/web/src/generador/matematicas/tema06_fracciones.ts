@@ -4,7 +4,7 @@ import {
   type GeneratorFn,
   crearQuizBase,
   randomInt,
-  rangoPorDificultad,
+  normalizarDificultadCore,
   mcd,
   pickRandom,
 } from "./generic";
@@ -28,14 +28,16 @@ function fraccionToString(fr: Fraccion): string {
 
 function generarFraccionAleatoria(dificultad: Dificultad): Fraccion {
   let rango: [number, number];
-  switch (dificultad) {
-    case "facil":
+  switch (normalizarDificultadCore(dificultad)) {
+    case "basico":
       rango = [2, 10];
       break;
-    case "media":
+    case "intermedio":
       rango = [2, 20];
       break;
-    case "dificil":
+    case "avanzado":
+    case "Legendario":
+    case "Divino":
     default:
       rango = [2, 40];
       break;
@@ -162,13 +164,17 @@ function generarEjercicioComparar(dificultad: Dificultad) {
 }
 
 function generarEjercicioSumaResta(dificultad: Dificultad) {
-  const mismoDen = dificultad === "facil" || Math.random() < 0.5;
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const mismoDen = dificultadCore === "basico" || Math.random() < 0.5;
 
   let f1: Fraccion;
   let f2: Fraccion;
 
   if (mismoDen) {
-    const den = randomInt(2, dificultad === "facil" ? 10 : 20);
+    const den = randomInt(
+      2,
+      dificultadCore === "basico" ? 10 : dificultadCore === "intermedio" ? 20 : 30
+    );
     f1 = { num: randomInt(1, den - 1), den };
     f2 = { num: randomInt(1, den - 1), den };
   } else {
@@ -218,7 +224,7 @@ function generarEjercicioSumaResta(dificultad: Dificultad) {
 // ---- Generador principal ----
 
 export const generarFracciones: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const modos = [
     generarEjercicioSimplificar,

@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 8;
@@ -14,17 +15,18 @@ function generarBaseYExponente(dificultad: Dificultad): {
   base: number;
   exp: number;
 } {
-  if (dificultad === "facil") {
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  if (dificultadCore === "basico") {
     return { base: randomInt(2, 9), exp: randomInt(2, 4) };
   }
-  if (dificultad === "media") {
+  if (dificultadCore === "intermedio") {
     return { base: randomInt(2, 12), exp: randomInt(2, 5) };
   }
   return { base: randomInt(2, 15), exp: randomInt(2, 6) };
 }
 
 export const generarPotencias: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const modos = ["calculo", "formaExtendida"] as const;
   const modo = pickRandom(modos);
@@ -75,12 +77,12 @@ export const generarPotencias: GeneratorFn = (
 
   return crearQuizBase({
     idTema: ID_TEMA,
-      tituloTema: TITULO,
-      dificultad,
-      enunciado: `¿Cuál es la forma desarrollada de la potencia ${base}^${exp}?`,
-      opciones,
-      indiceCorrecto: 0,
-      explicacion: `Una potencia ${base}^${exp} es una multiplicación de ${exp} factores iguales a ${base}.`,
+    tituloTema: TITULO,
+    dificultad,
+    enunciado: `¿Cuál es la forma desarrollada de la potencia ${base}^${exp}?`,
+    opciones,
+    indiceCorrecto: 0,
+    explicacion: `Una potencia ${base}^${exp} es una multiplicación de ${exp} factores iguales a ${base}.`,
   });
 };
 

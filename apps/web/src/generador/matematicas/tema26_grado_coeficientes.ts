@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 26;
@@ -18,10 +19,11 @@ interface PoliInfo {
 }
 
 function generarPolinomioInfo(dificultad: Dificultad): PoliInfo {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const maxGrado =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 2
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 3
       : 4;
 
@@ -72,7 +74,7 @@ function generarPolinomioInfo(dificultad: Dificultad): PoliInfo {
 type TipoPregunta = "grado" | "coefLider" | "cantTerminos";
 
 export const generarGradoCoeficientes: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const info = generarPolinomioInfo(dificultad);
   const tipo: TipoPregunta = pickRandom([

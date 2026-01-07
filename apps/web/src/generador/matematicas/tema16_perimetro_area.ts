@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 16;
@@ -26,8 +27,9 @@ function generarDatosFigura(dificultad: Dificultad): DatosFigura {
   const tipo: TipoProblema = pickRandom(["perimetro", "area"]);
 
   // Rango de lados
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const max =
-    dificultad === "facil" ? 15 : dificultad === "media" ? 30 : 50;
+    dificultadCore === "basico" ? 15 : dificultadCore === "intermedio" ? 30 : 50;
   const min = 2;
 
   if (figura === "cuadrado") {
@@ -92,7 +94,7 @@ function generarDatosFigura(dificultad: Dificultad): DatosFigura {
 }
 
 export const generarPerimetroArea: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const datos = generarDatosFigura(dificultad);
   const correcta = datos.resultado;

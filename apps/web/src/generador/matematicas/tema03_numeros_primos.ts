@@ -5,7 +5,7 @@ import {
   crearQuizBase,
   esPrimo,
   generarPrimoEnRango,
-  rangoPorDificultad,
+  rangoPorDificultadCore,
   randomInt,
 } from "./generic";
 
@@ -13,12 +13,12 @@ const ID_TEMA = 3;
 const TITULO = "Números primos";
 
 export const generarNumerosPrimos: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
-  const [min, max] = rangoPorDificultad(dificultad, {
-    facil: [2, 50],
-    media: [2, 100],
-    dificil: [2, 300],
+  const [min, max] = rangoPorDificultadCore(dificultad, {
+    basico: [2, 50],
+    intermedio: [2, 100],
+    avanzado: [2, 300],
   });
 
   const primoCorrecto = generarPrimoEnRango(min, max);

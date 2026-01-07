@@ -5,24 +5,26 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 33;
 const TITULO = "Ecuaciones cuadráticas con soluciones enteras";
 
 export const generarEcuacionesCuadraticas: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const rangoRaiz =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 5
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 8
       : 10;
 
   const r1 = randomInt(-rangoRaiz, rangoRaiz);
   const r2 =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? r1 // tipo (x - r)^2
       : randomInt(-rangoRaiz, rangoRaiz);
 

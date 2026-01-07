@@ -21,6 +21,23 @@ import {
 const redondear = (valor: number, decimales = 4) =>
   Number(valor.toFixed(decimales));
 
+const mapDificultadCoreABasica = (
+  dificultad: DificultadCore
+): DificultadQuimica => {
+  switch (dificultad) {
+    case "basico":
+      return "facil";
+    case "intermedio":
+      return "media";
+    case "avanzado":
+    case "Legendario":
+    case "Divino":
+      return "dificil";
+    default:
+      return "media";
+  }
+};
+
 const crearCalculadoraFisica = (): Calculator => ({
   calcular: (req: CalculoRequest): CalculoResponse => {
     const pasos: string[] = [];
@@ -273,7 +290,7 @@ export default function GeneradoresTest() {
 
   useEffect(() => {
     setGeneradorSeleccionado(opcionesGenerador[0]?.value ?? "");
-    setDificultad(DIFICULTADES_POR_MATERIA[materia][1] ?? "");
+    setDificultad(DIFICULTADES_POR_MATERIA[materia][1] ?? "intermedio");
   }, [materia, opcionesGenerador]);
 
   const calculadoraFisica = useMemo(() => crearCalculadoraFisica(), []);
@@ -294,7 +311,7 @@ export default function GeneradoresTest() {
         case "quimica": {
           const generador = GENERADORES_QUIMICA[Number(generadorSeleccionado)];
           if (!generador) throw new Error("Generador de química no disponible.");
-          setResultado(generador(dificultad as DificultadQuimica));
+          setResultado(generador(mapDificultadCoreABasica(dificultad)));
           break;
         }
         case "economia": {
@@ -400,7 +417,9 @@ export default function GeneradoresTest() {
               <select
                 className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
                 value={dificultad}
-                onChange={(event) => setDificultad(event.target.value)}
+                onChange={(event) =>
+                  setDificultad(event.target.value as DificultadCore)
+                }
               >
                 {DIFICULTADES_POR_MATERIA[materia].map((nivel) => (
                   <option key={nivel} value={nivel}>

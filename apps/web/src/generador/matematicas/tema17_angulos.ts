@@ -36,7 +36,7 @@ function generarMedidaYTipo(): { grados: number; tipo: TipoAngulo } {
 }
 
 export const generarAngulos: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const { grados, tipo } = generarMedidaYTipo();
 

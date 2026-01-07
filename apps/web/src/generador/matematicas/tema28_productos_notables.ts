@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 28;
@@ -17,11 +18,13 @@ function signoConNumero(n: number): string {
 }
 
 export const generarProductosNotables: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoProducto = pickRandom(["cuadradoBinomio", "diferenciaCuadrados"]);
-  const a = randomInt(1, dificultad === "facil" ? 5 : 9);
-  const b = randomInt(1, dificultad === "facil" ? 5 : 9);
+  const maxTermino = dificultadCore === "basico" ? 5 : 9;
+  const a = randomInt(1, maxTermino);
+  const b = randomInt(1, maxTermino);
 
   if (tipo === "cuadradoBinomio") {
     const signo = Math.random() < 0.5 ? "+" : "-";

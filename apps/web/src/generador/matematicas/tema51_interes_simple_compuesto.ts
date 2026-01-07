@@ -6,6 +6,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 51;
@@ -14,17 +15,21 @@ const TITULO = "Interés simple y compuesto";
 type TipoInteres = "simple" | "compuesto";
 
 export const generarInteresSimpleCompuesto: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoInteres =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? "simple"
       : pickRandom(["simple", "compuesto"]);
 
-  const capital = randomInt(1000, 10000); // pesos
-  const tasa = randomInt(1, 10);          // % anual
+  const capital =
+    dificultadCore === "basico"
+      ? randomInt(1000, 5000)
+      : randomInt(1000, 10000); // pesos
+  const tasa = dificultadCore === "basico" ? randomInt(1, 8) : randomInt(1, 10);          // % anual
   const anios =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? randomInt(1, 3)
       : randomInt(1, 5);
 

@@ -1,5 +1,5 @@
 // src/generators/math/index.ts
-import { wrapConModo } from "./generic";
+import { normalizarDificultadBasica, wrapConModo } from "./generic";
 import type { GeneratorFn } from "./generic";
 
 // =======================
@@ -90,6 +90,20 @@ import generarInteresSimpleCompuesto from "./tema51_interes_simple_compuesto";
 // MAPA GLOBAL: idTema → GeneratorFn
 // =======================================================
 
+const TEMAS_CON_DIFICULTAD_CORE = new Set([
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+  22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+  41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
+]);
+
+const wrapConDificultadBasica =
+  (generator: GeneratorFn): GeneratorFn =>
+  (dificultad, config) =>
+    generator(
+      dificultad ? normalizarDificultadBasica(dificultad) : dificultad,
+      config
+    );
+
 const GENERATORS_BY_TEMA_BASE: Record<number, GeneratorFn> = {
   // ---- 1–10 ----
   1: generarOperacionesBasicas,
@@ -160,10 +174,13 @@ const GENERATORS_BY_TEMA_BASE: Record<number, GeneratorFn> = {
 };
 
 export const GENERATORS_BY_TEMA: Record<number, GeneratorFn> = Object.fromEntries(
-  Object.entries(GENERATORS_BY_TEMA_BASE).map(([id, generador]) => [
-    Number(id),
-    wrapConModo(generador),
-  ])
+  Object.entries(GENERATORS_BY_TEMA_BASE).map(([id, generador]) => {
+    const idTema = Number(id);
+    const generadorAdaptado = TEMAS_CON_DIFICULTAD_CORE.has(idTema)
+      ? generador
+      : wrapConDificultadBasica(generador);
+    return [idTema, wrapConModo(generadorAdaptado)];
+  })
 ) as Record<number, GeneratorFn>;
 
 // Helper opcional para obtener un generador de forma segura

@@ -3,10 +3,12 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
-  rangoPorDificultad,
+  normalizarDificultadCore,
+  rangoPorDificultadCore,
   randomInt,
   pickRandom,
 } from "./generic";
+import type { Dificultad as DificultadCore } from "../core/types";
 
 const ID_TEMA = 1;
 const TITULO = "Operaciones básicas";
@@ -19,19 +21,22 @@ function generarOperacion(dificultad: Dificultad): {
   op: OperacionBasica;
   resultado: number;
 } {
-  const [min, max] = rangoPorDificultad(dificultad, {
-    facil: [1, 20],
-    media: [1, 50],
-    dificil: [1, 100],
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const [min, max] = rangoPorDificultadCore(dificultad, {
+    basico: [1, 20],
+    intermedio: [1, 50],
+    avanzado: [1, 100],
   });
 
-  const opsSegunDif: Record<Dificultad, OperacionBasica[]> = {
-    facil: ["+", "-"],
-    media: ["+", "-", "×"],
-    dificil: ["+", "-", "×", "÷"],
+  const opsSegunDif: Record<DificultadCore, OperacionBasica[]> = {
+    basico: ["+", "-"],
+    intermedio: ["+", "-", "×"],
+    avanzado: ["+", "-", "×", "÷"],
+    Legendario: ["+", "-", "×", "÷"],
+    Divino: ["+", "-", "×", "÷"],
   };
 
-  const op = pickRandom(opsSegunDif[dificultad]);
+  const op = pickRandom(opsSegunDif[dificultadCore]);
   let a = randomInt(min, max);
   let b = randomInt(min, max);
 
@@ -50,7 +55,7 @@ function generarOperacion(dificultad: Dificultad): {
       break;
     case "-":
       // para nivel fácil evitamos negativos
-      if (dificultad === "facil" && a < b) [a, b] = [b, a];
+      if (dificultadCore === "basico" && a < b) [a, b] = [b, a];
       resultado = a - b;
       break;
     case "×":
@@ -62,7 +67,7 @@ function generarOperacion(dificultad: Dificultad): {
 }
 
 export const generarOperacionesBasicas: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const { a, b, op, resultado } = generarOperacion(dificultad);
 

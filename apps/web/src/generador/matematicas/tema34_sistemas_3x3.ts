@@ -4,18 +4,20 @@ import {
   type GeneratorFn,
   crearQuizBase,
   randomInt,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 34;
 const TITULO = "Sistemas de ecuaciones 3×3 (solución entera)";
 
 export const generarSistemas3x3: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const rangoSol =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 3
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 5
       : 7;
 

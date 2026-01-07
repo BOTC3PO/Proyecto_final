@@ -4,6 +4,7 @@ import {
   type GeneratorFn,
   crearQuizBase,
   randomInt,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 42;
@@ -52,10 +53,11 @@ function poli3ToString(p: Poli3): string {
 }
 
 export const generarDivisionPolinomios: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   // Generamos P(x) a partir de un cociente Q(x) y divisor (x - a)
-  const rangoA = dificultad === "dificil" ? 6 : 4;
+  const rangoA = dificultadCore === "avanzado" ? 6 : 4;
 
   const a = randomInt(-rangoA, rangoA) || 1; // divisor: (x - a)
 

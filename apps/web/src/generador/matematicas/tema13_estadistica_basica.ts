@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 13;
@@ -13,15 +14,16 @@ const TITULO = "Estadística básica (promedio, moda, mediana)";
 type TipoMedida = "promedio" | "moda" | "mediana";
 
 function generarListaNumeros(dificultad: Dificultad): number[] {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const largo =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? randomInt(4, 6)
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? randomInt(5, 8)
       : randomInt(7, 10);
 
   const max =
-    dificultad === "facil" ? 20 : dificultad === "media" ? 50 : 100;
+    dificultadCore === "basico" ? 20 : dificultadCore === "intermedio" ? 50 : 100;
 
   const arr: number[] = [];
   for (let i = 0; i < largo; i++) {
@@ -62,7 +64,7 @@ function calcularModa(datos: number[]): number {
 }
 
 export const generarEstadisticaBasica: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
   const datos = generarListaNumeros(dificultad);
   const tipo: TipoMedida = pickRandom(["promedio", "moda", "mediana"]);

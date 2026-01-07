@@ -3,7 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
-  rangoPorDificultad,
+  rangoPorDificultadCore,
   randomInt,
   pickRandom,
 } from "./generic";
@@ -31,10 +31,10 @@ function generarExpresion(dificultad: Dificultad): {
   texto: string;
   resultado: number;
 } {
-  const [min, max] = rangoPorDificultad(dificultad, {
-    facil: [1, 20],
-    media: [1, 50],
-    dificil: [1, 100],
+  const [min, max] = rangoPorDificultadCore(dificultad, {
+    basico: [1, 20],
+    intermedio: [1, 50],
+    avanzado: [1, 100],
   });
 
   const plantillas = [
@@ -90,7 +90,7 @@ function generarExpresion(dificultad: Dificultad): {
 }
 
 export const generarOperacionesCombinadas: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
   const { texto, resultado } = generarExpresion(dificultad);
 

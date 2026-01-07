@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 30;
@@ -13,14 +14,15 @@ const TITULO = "Ecuaciones lineales con paréntesis / parámetros";
 type TipoEcuacion = "a_x_mas_b" | "x_mas_b_sobre_k";
 
 export const generarEcuacionesConParametros: GeneratorFn = (
-  dificultad: Dificultad = "facil"
+  dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoEcuacion = pickRandom(["a_x_mas_b", "x_mas_b_sobre_k"]);
 
   const rango =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? 5
-      : dificultad === "media"
+      : dificultadCore === "intermedio"
       ? 10
       : 15;
 

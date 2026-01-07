@@ -5,6 +5,7 @@ import {
   crearQuizBase,
   randomInt,
   pickRandom,
+  normalizarDificultadCore,
 } from "./generic";
 
 const ID_TEMA = 40;
@@ -21,10 +22,11 @@ function rectaToString(m: number, b: number): string {
 }
 
 export const generarEcuacionRecta: GeneratorFn = (
-  dificultad: Dificultad = "media"
+  dificultad: Dificultad = "intermedio"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
   const tipo: TipoEjercicio =
-    dificultad === "facil"
+    dificultadCore === "basico"
       ? "mMasPunto"
       : pickRandom(["dosPuntos", "mMasPunto"]);
 
