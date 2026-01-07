@@ -41,8 +41,14 @@ export const genContabClasificacionCuentas: GeneratorFn = makeQuizGenerator(
       let opciones: string[] = [correct];
 
       // Ajusta cantidad de opciones según dificultad
-      const cantOpciones =
-        dificultad === ("alta" as Dificultad) ? 5 : dificultad === ("baja" as Dificultad) ? 3 : 4;
+      const opcionesPorDificultad: Record<Dificultad, number> = {
+        basico: 3,
+        intermedio: 4,
+        avanzado: 5,
+        Legendario: 5,
+        Divino: 5,
+      };
+      const cantOpciones = opcionesPorDificultad[dificultad] ?? 4;
 
       const distractores = OPCIONES_BASE.filter((c) => c !== correct);
       while (opciones.length < cantOpciones && distractores.length > 0) {
@@ -57,7 +63,10 @@ export const genContabClasificacionCuentas: GeneratorFn = makeQuizGenerator(
         opciones,
         indiceCorrecto,
         explicacion:
-          "Se clasifican las cuentas según si representan bienes/derechos (Activo), deudas (Pasivo), aportes y resultados acumulados (Patrimonio Neto) o resultados del ejercicio (R+ ingresos, R- costos/gastos).",
+          "Se clasifican las cuentas según si representan bienes/derechos (Activo), deudas (Pasivo), aportes y resultados acumulados (Patrimonio Neto) o resultados del ejercicio (R+ ingresos, R- costos/gastos)." +
+          (dificultad === "avanzado" || dificultad === "Legendario" || dificultad === "Divino"
+            ? " En niveles altos, revisá si la cuenta refleja una fuente de financiamiento (Pasivo/PN) o un resultado del período (R+/R-)."
+            : ""),
       };
     },
   ]

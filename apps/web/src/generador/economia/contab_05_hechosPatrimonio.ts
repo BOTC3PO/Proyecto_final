@@ -46,14 +46,46 @@ const HECHOS: {
     detalle:
       "Solo se cambia la ubicación física de un mismo activo sin modificar su valor contable.",
   },
+  {
+    descripcion: "Se registra un gasto por servicio de luz del mes.",
+    respuesta: "Afecta el patrimonio",
+    detalle:
+      "Disminuye el Activo (Caja/Banco) y aumenta un gasto, reduciendo el patrimonio neto.",
+  },
+  {
+    descripcion: "Se recibe un préstamo bancario en la cuenta corriente.",
+    respuesta: "Afecta el patrimonio",
+    detalle:
+      "Aumenta el Activo (Banco) y aumenta el Pasivo (Préstamo), cambia la estructura del patrimonio.",
+  },
 ];
 
 export const genContabHechosPatrimonio: GeneratorFn = makeQuizGenerator(
   5,
   "Hechos que afectan o no afectan al patrimonio",
   [
-    (_dificultad: Dificultad) => {
-      const hecho = pickOne(HECHOS);
+    (dificultad: Dificultad) => {
+      const hechosPorDificultad: Record<Dificultad, string[]> = {
+        basico: [
+          "Se paga en efectivo una deuda con un proveedor.",
+          "Se compra mercadería al contado.",
+          "El dueño mira el estado contable sin hacer operaciones.",
+        ],
+        intermedio: [
+          "Se paga en efectivo una deuda con un proveedor.",
+          "Se compra mercadería al contado.",
+          "Se rompe una silla del local sin reposición.",
+          "Se emite una factura de venta a crédito a un cliente.",
+          "Se pasa la mercadería del depósito al salón de ventas.",
+        ],
+        avanzado: HECHOS.map((hecho) => hecho.descripcion),
+        Legendario: HECHOS.map((hecho) => hecho.descripcion),
+        Divino: HECHOS.map((hecho) => hecho.descripcion),
+      };
+      const pool = HECHOS.filter((hecho) =>
+        (hechosPorDificultad[dificultad] ?? []).includes(hecho.descripcion)
+      );
+      const hecho = pickOne(pool.length > 0 ? pool : HECHOS);
       const opciones: Afecta[] = [
         "Afecta el patrimonio",
         "No afecta el patrimonio",
@@ -64,7 +96,13 @@ export const genContabHechosPatrimonio: GeneratorFn = makeQuizGenerator(
         enunciado: `Indique si el siguiente hecho económico afecta o no afecta al patrimonio:\n\n${hecho.descripcion}`,
         opciones,
         indiceCorrecto,
-        explicacion: hecho.detalle,
+        explicacion:
+          hecho.detalle +
+          (dificultad === "avanzado" ||
+          dificultad === "Legendario" ||
+          dificultad === "Divino"
+            ? " Recordá identificar si el hecho modifica el patrimonio neto o solo la composición."
+            : ""),
       };
     },
   ]
