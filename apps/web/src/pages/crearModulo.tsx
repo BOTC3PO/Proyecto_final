@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MVP_GENERATOR_CATEGORIES } from "../mvp/mvpData";
 
 export default function CrearModulo() {
   const [visibilidad, setVisibilidad] = useState<"publico" | "privado">("publico");
@@ -300,6 +301,27 @@ const fisica = [
 
             <div className="border rounded-lg p-4 bg-gray-50 space-y-3">
               <h3 className="text-sm font-semibold">Generador de problemas / actividades</h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Categoría MVP</label>
+                  <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2">
+                    {MVP_GENERATOR_CATEGORIES.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Nivel sugerido</label>
+                  <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2">
+                    <option>Básico</option>
+                    <option>Intermedio</option>
+                    <option>Avanzado</option>
+                  </select>
+                </div>
+              </div>
 
               <textarea
                 placeholder="Descripción breve del generador o configuración base..."

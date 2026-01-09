@@ -1,4 +1,5 @@
 import React from "react";
+import { MVP_MODULES } from "../mvp/mvpData";
 
 interface Student {
   name: string;
@@ -75,6 +76,28 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass,
             <InfoCard icon="🏆" label="Módulos completos" value={`${completedModules} Módulos`} />
           </div>
           <ProgressBar percent={progressPercent} />
+          <section className="bg-white rounded-xl shadow p-5">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold">Módulos recomendados</h3>
+              <button className="text-sm text-blue-600 hover:underline">Ver biblioteca</button>
+            </div>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              {MVP_MODULES.map((module) => (
+                <article key={module.id} className="rounded-lg border border-gray-200 p-4">
+                  <p className="text-xs uppercase text-gray-500">{module.category}</p>
+                  <h4 className="mt-2 font-semibold">{module.title}</h4>
+                  <p className="mt-2 text-sm text-gray-600">{module.description}</p>
+                  <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
+                    <span>{module.level}</span>
+                    <span>{module.durationMinutes} min</span>
+                  </div>
+                  <button className="mt-4 w-full rounded-md bg-blue-600 px-3 py-2 text-sm text-white">
+                    Continuar
+                  </button>
+                </article>
+              ))}
+            </div>
+          </section>
         </Container>
       </main>
     </div>
