@@ -19,6 +19,27 @@ type QuizBlock = {
 
 export default function CrearModulo() {
   const [visibilidad, setVisibilidad] = useState<"publico" | "privado">("publico");
+  const [theoryItems, setTheoryItems] = useState<TheoryItem[]>([]);
+  const [newTheoryTitle, setNewTheoryTitle] = useState("");
+  const [newTheoryType, setNewTheoryType] = useState("Video");
+  const [newTheoryDetail, setNewTheoryDetail] = useState("");
+  const [quizBlocks, setQuizBlocks] = useState<QuizBlock[]>([
+    {
+      id: "quiz-basico",
+      title: "Cuestionario principal",
+      type: "evaluacion",
+      visibility: "escuela",
+    },
+    {
+      id: "quiz-practica",
+      title: "Cuestionario de práctica",
+      type: "practica",
+      visibility: "publico",
+    },
+  ]);
+  const [newQuizTitle, setNewQuizTitle] = useState("");
+  const [newQuizType, setNewQuizType] = useState<QuizBlock["type"]>("evaluacion");
+  const [newQuizVisibility, setNewQuizVisibility] = useState<QuizVisibility>("publico");
 
   // En un futuro acá podes traer estas listas desde la API
   const materias = [
@@ -63,28 +84,59 @@ export default function CrearModulo() {
 
   const nivelesDificultad = ["Básico", "Intermedio", "Avanzado"];
 
-  const [theoryItems] = useState<TheoryItem[]>([]);
-
-  const quizBlocks: QuizBlock[] = [
-    {
-      id: "quiz-basico",
-      title: "Cuestionario principal",
-      type: "evaluacion",
-      visibility: "escuela",
-    },
-    {
-      id: "quiz-practica",
-      title: "Cuestionario de práctica",
-      type: "practica",
-      visibility: "publico",
-    },
-  ];
-
   const scoringSystems = [
     "Sistema A: 1-10 con aprobación 6",
     "Sistema B: 0-100 con aprobación 60",
     "Sistema C: aprobado / desaprobado",
   ];
+
+  const handleAddTheory = () => {
+    if (!newTheoryTitle.trim()) return;
+    const nextItem: TheoryItem = {
+      id: `theory-${Date.now()}`,
+      title: newTheoryTitle.trim(),
+      type: newTheoryType,
+      detail: newTheoryDetail.trim() || "Sin detalle adicional.",
+    };
+    setTheoryItems((prev) => [...prev, nextItem]);
+    setNewTheoryTitle("");
+    setNewTheoryDetail("");
+    setNewTheoryType("Video");
+  };
+
+  const handleRemoveTheory = (id: string) => {
+    setTheoryItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const handleUpdateTheory = (id: string, field: keyof TheoryItem, value: string) => {
+    setTheoryItems((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, [field]: value } : item)),
+    );
+  };
+
+  const handleAddQuiz = () => {
+    if (!newQuizTitle.trim()) return;
+    const nextQuiz: QuizBlock = {
+      id: `quiz-${Date.now()}`,
+      title: newQuizTitle.trim(),
+      type: newQuizType,
+      visibility: newQuizVisibility,
+    };
+    setQuizBlocks((prev) => [...prev, nextQuiz]);
+    setNewQuizTitle("");
+    setNewQuizType("evaluacion");
+    setNewQuizVisibility("publico");
+  };
+
+  const handleRemoveQuiz = (id: string) => {
+    setQuizBlocks((prev) => prev.filter((quiz) => quiz.id !== id));
+  };
+
+  const handleUpdateQuiz = (id: string, field: keyof QuizBlock, value: QuizBlock[keyof QuizBlock]) => {
+    setQuizBlocks((prev) =>
+      prev.map((quiz) => (quiz.id === id ? { ...quiz, [field]: value } : quiz)),
+    );
+  };
 
   return (
     <main className="flex-1">
@@ -227,20 +279,75 @@ export default function CrearModulo() {
                         <p className="text-sm font-semibold">{item.title}</p>
                         <p className="text-xs text-gray-500">Tipo: {item.type}</p>
                       </div>
-                      <button type="button" className="text-xs text-blue-600 hover:underline">
-                        Editar bloque
+                      <button
+                        type="button"
+                        className="text-xs text-red-500 hover:underline"
+                        onClick={() => handleRemoveTheory(item.id)}
+                      >
+                        Quitar bloque
                       </button>
                     </div>
-                    <p className="text-xs text-gray-600">{item.detail}</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                      <input
+                        className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                        value={item.title}
+                        onChange={(event) => handleUpdateTheory(item.id, "title", event.target.value)}
+                        placeholder="Título del bloque"
+                      />
+                      <select
+                        className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                        value={item.type}
+                        onChange={(event) => handleUpdateTheory(item.id, "type", event.target.value)}
+                      >
+                        <option>Video</option>
+                        <option>Texto</option>
+                        <option>Enlace</option>
+                        <option>TuesdayJS</option>
+                      </select>
+                      <input
+                        className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                        value={item.detail}
+                        onChange={(event) => handleUpdateTheory(item.id, "detail", event.target.value)}
+                        placeholder="Detalle rápido"
+                      />
+                    </div>
                   </div>
                 ))
               )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <button type="button" className="rounded-md border px-4 py-2 text-sm">
+            <div className="border rounded-lg p-4 space-y-3">
+              <h3 className="text-sm font-semibold">Agregar nueva parte de teoría</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <input
+                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                  value={newTheoryTitle}
+                  onChange={(event) => setNewTheoryTitle(event.target.value)}
+                  placeholder="Título (ej: Video introductorio)"
+                />
+                <select
+                  className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                  value={newTheoryType}
+                  onChange={(event) => setNewTheoryType(event.target.value)}
+                >
+                  <option>Video</option>
+                  <option>Texto</option>
+                  <option>Enlace</option>
+                  <option>TuesdayJS</option>
+                </select>
+                <input
+                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                  value={newTheoryDetail}
+                  onChange={(event) => setNewTheoryDetail(event.target.value)}
+                  placeholder="Detalle / nota"
+                />
+              </div>
+              <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddTheory}>
                 + Agregar parte de teoría
               </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <button type="button" className="rounded-md border px-4 py-2 text-sm">
                 + Agregar recurso interactivo
               </button>
@@ -279,7 +386,8 @@ export default function CrearModulo() {
           <section className="space-y-4">
             <h2 className="text-lg font-semibold">Cuestionarios apilados</h2>
             <p className="text-sm text-gray-600">
-              Puedes agregar varios cuestionarios si el módulo cubre múltiples temas o etapas.
+              Los cuestionarios son páginas igual que los videos o textos, pero con opciones extra (tipo, visibilidad,
+              consignas). La generación aleatoria solo se habilita para Matemáticas, Física, Química y Economía.
             </p>
 
             <div className="grid gap-3">
@@ -294,10 +402,11 @@ export default function CrearModulo() {
                       </p>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      <button type="button" className="text-xs text-blue-600 hover:underline">
-                        Editar configuración
-                      </button>
-                      <button type="button" className="text-xs text-red-500 hover:underline">
+                      <button
+                        type="button"
+                        className="text-xs text-red-500 hover:underline"
+                        onClick={() => handleRemoveQuiz(quiz.id)}
+                      >
                         Quitar
                       </button>
                     </div>
@@ -308,7 +417,10 @@ export default function CrearModulo() {
                       <label className="block text-xs font-medium text-gray-700">Visibilidad del cuestionario</label>
                       <select
                         className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                        defaultValue={quiz.visibility}
+                        value={quiz.visibility}
+                        onChange={(event) =>
+                          handleUpdateQuiz(quiz.id, "visibility", event.target.value as QuizVisibility)
+                        }
                       >
                         <option value="publico">Público</option>
                         <option value="escuela">Solo una escuela</option>
@@ -330,37 +442,80 @@ export default function CrearModulo() {
                         <option>Generar automáticamente (materias seleccionadas)</option>
                         <option>Escribir consignas manualmente</option>
                       </select>
+                      <p className="mt-1 text-[11px] text-gray-500">
+                        Disponible para materias con generadores: Matemáticas, Física, Química y Economía.
+                      </p>
                     </div>
                     <div>
                       <label className="block text-xs font-medium text-gray-700">Tipo de cuestionario</label>
                       <select
                         className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                        defaultValue={quiz.type}
+                        value={quiz.type}
+                        onChange={(event) =>
+                          handleUpdateQuiz(quiz.id, "type", event.target.value as QuizBlock["type"])
+                        }
                       >
                         <option value="practica">Práctica</option>
                         <option value="evaluacion">Evaluación</option>
                       </select>
                     </div>
                   </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-700">Título del cuestionario</label>
+                    <input
+                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      value={quiz.title}
+                      onChange={(event) => handleUpdateQuiz(quiz.id, "title", event.target.value)}
+                      placeholder="Título del cuestionario"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <button type="button" className="rounded-md border px-4 py-2 text-sm">
-                + Agregar cuestionario
-              </button>
+              <div className="w-full border rounded-lg p-4 space-y-3">
+                <h3 className="text-sm font-semibold">Agregar cuestionario</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <input
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    value={newQuizTitle}
+                    onChange={(event) => setNewQuizTitle(event.target.value)}
+                    placeholder="Título del cuestionario"
+                  />
+                  <select
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                    value={newQuizType}
+                    onChange={(event) => setNewQuizType(event.target.value as QuizBlock["type"])}
+                  >
+                    <option value="evaluacion">Evaluación</option>
+                    <option value="practica">Práctica</option>
+                  </select>
+                  <select
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                    value={newQuizVisibility}
+                    onChange={(event) => setNewQuizVisibility(event.target.value as QuizVisibility)}
+                  >
+                    <option value="publico">Público</option>
+                    <option value="escuela">Solo una escuela</option>
+                  </select>
+                </div>
+                <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddQuiz}>
+                  + Agregar cuestionario
+                </button>
+              </div>
               <button type="button" className="rounded-md border px-4 py-2 text-sm">
                 Importar cuestionario existente
               </button>
             </div>
           </section>
 
-          {/* 4. Importación y exportación de consignas */}
+          {/* 4. Consignas y banco de preguntas */}
           <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Consignas (importar / exportar)</h2>
+            <h2 className="text-lg font-semibold">Consignas y banco de preguntas</h2>
             <p className="text-sm text-gray-600">
-              Importa preguntas con sus respuestas desde JSON o descarga un archivo base con los parámetros vacíos.
+              Las consignas y el banco de preguntas son la misma función: cada pregunta es una página con
+              enunciado, respuestas y solución. Puedes cargar JSON o editar manualmente.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -384,14 +539,6 @@ export default function CrearModulo() {
                 </button>
               </div>
             </div>
-          </section>
-
-          {/* 5. Banco de preguntas y previsualización */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Banco de preguntas</h2>
-            <p className="text-sm text-gray-600">
-              Cada pregunta es una página. Se pueden agregar preguntas de opción múltiple o respuesta abierta.
-            </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="border rounded-lg p-4 space-y-3">
@@ -637,7 +784,8 @@ export default function CrearModulo() {
           <section className="space-y-4">
             <h2 className="text-lg font-semibold">Sistema de nivel y recompensas</h2>
             <p className="text-sm text-gray-600">
-              Define las recompensas máximas de nivel y experiencia que se otorgarán al completar el módulo.
+              Solo aplica a módulos con generación aleatoria en materias con generadores. Al completar el módulo se
+              otorga experiencia, sube el nivel y aumenta la dificultad con lógica tipo RPG o competencia por puntos.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
