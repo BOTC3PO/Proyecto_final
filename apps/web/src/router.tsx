@@ -16,6 +16,7 @@ import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
 import GeneradoresTest from "./pages/GeneradoresTest";
+import CrearModulo from "./pages/crearModulo";
 
 
 import test from "./sys/testmode";
@@ -172,6 +173,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['TEACHER']}>
             <ProfAsist />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/crear-modulo",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <CrearModulo />
           </ProtectedRoute>
         ),
       },
