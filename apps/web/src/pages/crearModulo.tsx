@@ -63,32 +63,7 @@ export default function CrearModulo() {
 
   const nivelesDificultad = ["Básico", "Intermedio", "Avanzado"];
 
-  const theoryItems: TheoryItem[] = [
-    {
-      id: "intro-video",
-      title: "Parte 1: Video introductorio",
-      type: "Video",
-      detail: "URL / archivo MP4 con duración estimada.",
-    },
-    {
-      id: "texto-resumen",
-      title: "Parte 2: Texto con ejemplos",
-      type: "Texto enriquecido",
-      detail: "Editor con fórmulas, imágenes y resaltados.",
-    },
-    {
-      id: "enlace-externo",
-      title: "Parte 3: Enlace externo",
-      type: "Link",
-      detail: "Biblioteca, simulador, o recurso interactivo.",
-    },
-    {
-      id: "tuesdayjs",
-      title: "Parte 4: Novela visual (TuesdayJS)",
-      type: "JSON",
-      detail: "Importa el JSON de TuesdayJS para experiencias narrativas.",
-    },
-  ];
+  const [theoryItems] = useState<TheoryItem[]>([]);
 
   const quizBlocks: QuizBlock[] = [
     {
@@ -235,23 +210,31 @@ export default function CrearModulo() {
             <h2 className="text-lg font-semibold">Estructura del módulo</h2>
             <p className="text-sm text-gray-600">
               Define las partes de teoría (cada bloque es una página) y recursos de apoyo que integran el módulo.
+              Puedes agregarlas de forma dinámica según la necesidad del contenido.
             </p>
 
             <div className="grid gap-3">
-              {theoryItems.map((item) => (
-                <div key={item.id} className="border rounded-lg p-4 flex flex-col gap-2 bg-gray-50">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-semibold">{item.title}</p>
-                      <p className="text-xs text-gray-500">Tipo: {item.type}</p>
-                    </div>
-                    <button type="button" className="text-xs text-blue-600 hover:underline">
-                      Editar bloque
-                    </button>
-                  </div>
-                  <p className="text-xs text-gray-600">{item.detail}</p>
+              {theoryItems.length === 0 ? (
+                <div className="border rounded-lg p-4 text-sm text-gray-600 bg-gray-50">
+                  Todavía no hay partes de teoría agregadas. Usa los botones de abajo para sumar videos, texto,
+                  enlaces o experiencias de TuesdayJS.
                 </div>
-              ))}
+              ) : (
+                theoryItems.map((item) => (
+                  <div key={item.id} className="border rounded-lg p-4 flex flex-col gap-2 bg-gray-50">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm font-semibold">{item.title}</p>
+                        <p className="text-xs text-gray-500">Tipo: {item.type}</p>
+                      </div>
+                      <button type="button" className="text-xs text-blue-600 hover:underline">
+                        Editar bloque
+                      </button>
+                    </div>
+                    <p className="text-xs text-gray-600">{item.detail}</p>
+                  </div>
+                ))
+              )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
