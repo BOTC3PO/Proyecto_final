@@ -150,7 +150,7 @@ export const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-
+ 
       // Profesor
       {
         path: "profesor/cursos",
@@ -179,7 +179,7 @@ export const router = createBrowserRouter([
       {
         path: "profesor/crear-modulo",
         element: (
-          <ProtectedRoute allow={['TEACHER']}>
+          <ProtectedRoute allow={['TEACHER','GUEST']}>
             <CrearModulo />
           </ProtectedRoute>
         ),
