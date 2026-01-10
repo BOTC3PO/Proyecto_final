@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MVP_GENERATOR_CATEGORIES } from "../mvp/mvpData";
+import { MVP_GENERATOR_CATEGORIES, MVP_MODULES } from "../mvp/mvpData";
 
 type QuizVisibility = "publico" | "escuela";
 
@@ -40,6 +40,9 @@ export default function CrearModulo() {
   const [newQuizTitle, setNewQuizTitle] = useState("");
   const [newQuizType, setNewQuizType] = useState<QuizBlock["type"]>("evaluacion");
   const [newQuizVisibility, setNewQuizVisibility] = useState<QuizVisibility>("publico");
+  const [requiredDependencies, setRequiredDependencies] = useState<string[]>([]);
+  const [customDependency, setCustomDependency] = useState("");
+  const [customDependencies, setCustomDependencies] = useState<string[]>([]);
 
   // En un futuro acá podes traer estas listas desde la API
   const materias = [
@@ -136,6 +139,23 @@ export default function CrearModulo() {
     setQuizBlocks((prev) =>
       prev.map((quiz) => (quiz.id === id ? { ...quiz, [field]: value } : quiz)),
     );
+  };
+
+  const handleToggleDependency = (moduleId: string) => {
+    setRequiredDependencies((prev) =>
+      prev.includes(moduleId) ? prev.filter((id) => id !== moduleId) : [...prev, moduleId],
+    );
+  };
+
+  const handleAddCustomDependency = () => {
+    const trimmed = customDependency.trim();
+    if (!trimmed || customDependencies.includes(trimmed)) return;
+    setCustomDependencies((prev) => [...prev, trimmed]);
+    setCustomDependency("");
+  };
+
+  const handleRemoveCustomDependency = (dependency: string) => {
+    setCustomDependencies((prev) => prev.filter((item) => item !== dependency));
   };
 
   return (
@@ -257,7 +277,83 @@ export default function CrearModulo() {
             </div>
           </section>
 
-          {/* 2. Estructura del módulo */}
+          {/* 2. Dependencias y desbloqueo */}
+          <section className="space-y-4">
+            <h2 className="text-lg font-semibold">Dependencias y desbloqueo</h2>
+            <p className="text-sm text-gray-600">
+              Define los módulos previos que los alumnos deben completar antes de acceder a este contenido. Esto
+              permite que el profesor determine, por ejemplo, que primero deben saber contar antes de sumar.
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div className="border rounded-lg p-4 space-y-3">
+                <h3 className="text-sm font-semibold">Módulos obligatorios</h3>
+                <p className="text-xs text-gray-500">
+                  Selecciona los módulos que se deben aprobar para desbloquear este nuevo módulo.
+                </p>
+                <div className="space-y-2">
+                  {MVP_MODULES.map((module) => (
+                    <label key={module.id} className="flex items-start gap-2 text-sm">
+                      <input
+                        type="checkbox"
+                        className="mt-1 h-4 w-4"
+                        checked={requiredDependencies.includes(module.id)}
+                        onChange={() => handleToggleDependency(module.id)}
+                      />
+                      <span>
+                        <span className="font-medium">{module.title}</span>
+                        <span className="block text-xs text-gray-500">
+                          {module.category} · {module.level}
+                        </span>
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div className="border rounded-lg p-4 space-y-3">
+                <h3 className="text-sm font-semibold">Requisitos personalizados</h3>
+                <p className="text-xs text-gray-500">
+                  Agrega condiciones adicionales (por ejemplo, “Saber contar hasta 100”).
+                </p>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <input
+                    className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    value={customDependency}
+                    onChange={(event) => setCustomDependency(event.target.value)}
+                    placeholder="Ej: Saber contar hasta 100"
+                  />
+                  <button
+                    type="button"
+                    className="rounded-md border px-4 py-2 text-sm"
+                    onClick={handleAddCustomDependency}
+                  >
+                    Agregar
+                  </button>
+                </div>
+                {customDependencies.length > 0 ? (
+                  <ul className="space-y-2">
+                    {customDependencies.map((dependency) => (
+                      <li key={dependency} className="flex items-center justify-between text-sm">
+                        <span>{dependency}</span>
+                        <button
+                          type="button"
+                          className="text-xs text-red-500 hover:underline"
+                          onClick={() => handleRemoveCustomDependency(dependency)}
+                        >
+                          Quitar
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-xs text-gray-500">Todavía no agregaste requisitos personalizados.</p>
+                )}
+              </div>
+            </div>
+          </section>
+
+          {/* 3. Estructura del módulo */}
           <section className="space-y-4">
             <h2 className="text-lg font-semibold">Estructura del módulo</h2>
             <p className="text-sm text-gray-600">
@@ -382,7 +478,7 @@ export default function CrearModulo() {
             </div>
           </section>
 
-          {/* 3. Cuestionarios apilados */}
+          {/* 4. Cuestionarios apilados */}
           <section className="space-y-4">
             <h2 className="text-lg font-semibold">Cuestionarios apilados</h2>
             <p className="text-sm text-gray-600">
@@ -510,7 +606,7 @@ export default function CrearModulo() {
             </div>
           </section>
 
-          {/* 4. Consignas y banco de preguntas */}
+          {/* 5. Consignas y banco de preguntas */}
           <section className="space-y-4">
             <h2 className="text-lg font-semibold">Consignas y banco de preguntas</h2>
             <p className="text-sm text-gray-600">
