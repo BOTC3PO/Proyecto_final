@@ -32,7 +32,7 @@ db.createCollection("usuarios", {
           enum: ["ADMIN", "USER", "PARENT", "TEACHER", "ENTERPRISE", "GUEST"],
           description: "Rol principal"
         },
-        schoolId: {
+        escuelaId: {
           bsonType: ["objectId", "null"],
           description: "Referencia a escuela (opcional)"
         },
@@ -103,18 +103,40 @@ db.createCollection("escuelas", {
 });
 
 // ============================================================================
+// MEMBRESIAS_ESCUELA COLLECTION
+// ============================================================================
+db.createCollection("membresias_escuela", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["usuarioId", "escuelaId", "rol", "estado", "fechaAlta"],
+      properties: {
+        usuarioId: { bsonType: "objectId" },
+        escuelaId: { bsonType: "objectId" },
+        rol: { bsonType: "string", enum: ["ADMIN", "TEACHER", "STUDENT", "PARENT"] },
+        estado: { bsonType: "string", enum: ["activa", "suspendida", "revocada"] },
+        fechaAlta: { bsonType: "date" },
+        fechaBaja: { bsonType: ["date", "null"] },
+        createdAt: { bsonType: "date" },
+        updatedAt: { bsonType: "date" }
+      }
+    }
+  }
+});
+
+// ============================================================================
 // CLASES COLLECTION
 // ============================================================================
 db.createCollection("clases", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["name", "grade", "schoolId", "createdAt"],
+      required: ["name", "grade", "escuelaId", "createdAt"],
       properties: {
         name: { bsonType: "string" },
         grade: { bsonType: "string" },
         code: { bsonType: ["string", "null"] },
-        schoolId: { bsonType: "objectId" },
+        escuelaId: { bsonType: "objectId" },
         teacherIds: {
           bsonType: "array",
           items: { bsonType: "objectId" }
@@ -351,6 +373,44 @@ db.createCollection("transferencias", {
 });
 
 // ============================================================================
+// BILLETERAS COLLECTION
+// ============================================================================
+db.createCollection("billeteras", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["usuarioId", "saldo", "moneda", "updatedAt"],
+      properties: {
+        usuarioId: { bsonType: "objectId" },
+        saldo: { bsonType: "double", minimum: 0 },
+        moneda: { bsonType: "string" },
+        updatedAt: { bsonType: "date" }
+      }
+    }
+  }
+});
+
+// ============================================================================
+// MOVIMIENTOS_BILLETERA COLLECTION
+// ============================================================================
+db.createCollection("movimientos_billetera", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["billeteraId", "tipo", "monto", "motivo", "origen", "fecha"],
+      properties: {
+        billeteraId: { bsonType: "objectId" },
+        tipo: { bsonType: "string", enum: ["credito", "debito"] },
+        monto: { bsonType: "double", minimum: 0 },
+        motivo: { bsonType: "string" },
+        origen: { bsonType: "string" },
+        fecha: { bsonType: "date" }
+      }
+    }
+  }
+});
+
+// ============================================================================
 // CREATE INDEXES FOR PERFORMANCE
 // ============================================================================
 
@@ -358,15 +418,20 @@ db.createCollection("transferencias", {
 db.usuarios.createIndex({ username: 1 }, { unique: true });
 db.usuarios.createIndex({ email: 1 }, { unique: true });
 db.usuarios.createIndex({ role: 1 });
-db.usuarios.createIndex({ schoolId: 1 });
+db.usuarios.createIndex({ escuelaId: 1 });
 db.usuarios.createIndex({ "teacherProfile.managedClassIds": 1 });
 
 // Escuelas indexes
 db.escuelas.createIndex({ code: 1 }, { unique: true });
 db.escuelas.createIndex({ name: 1 });
 
+// Membresias escuela indexes
+db.membresias_escuela.createIndex({ usuarioId: 1, escuelaId: 1 }, { unique: true });
+db.membresias_escuela.createIndex({ escuelaId: 1 });
+db.membresias_escuela.createIndex({ rol: 1 });
+
 // Clases indexes
-db.clases.createIndex({ schoolId: 1 });
+db.clases.createIndex({ escuelaId: 1 });
 db.clases.createIndex({ code: 1 });
 db.clases.createIndex({ teacherIds: 1 });
 db.clases.createIndex({ studentIds: 1 });
@@ -391,6 +456,13 @@ db.mensajes.createIndex({ studentId: 1 });
 db.transferencias.createIndex({ status: 1 });
 db.transferencias.createIndex({ fromSchoolId: 1 });
 db.transferencias.createIndex({ toSchoolId: 1 });
+
+// Billeteras indexes
+db.billeteras.createIndex({ usuarioId: 1 }, { unique: true });
+
+// Movimientos billetera indexes
+db.movimientos_billetera.createIndex({ billeteraId: 1 });
+db.movimientos_billetera.createIndex({ fecha: -1 });
 
 // ============================================================================
 // INSERT SAMPLE DATA
@@ -421,7 +493,7 @@ db.usuarios.insertMany([
     email: "admin@escuela.com",
     fullName: "Ana López",
     role: "ADMIN",
-    schoolId: escuelaId,
+    escuelaId: escuelaId,
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
     isDeleted: false,
     createdAt: new Date(),
@@ -432,7 +504,7 @@ db.usuarios.insertMany([
     email: "jperez@escuela.com",
     fullName: "Juan Pérez",
     role: "TEACHER",
-    schoolId: escuelaId,
+    escuelaId: escuelaId,
     teacherProfile: { managedClassIds: [claseId] },
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
     isDeleted: false,
@@ -444,7 +516,7 @@ db.usuarios.insertMany([
     email: "ana@familia.com",
     fullName: "Ana García",
     role: "USER",
-    schoolId: escuelaId,
+    escuelaId: escuelaId,
     birthdate: new Date("2013-04-16"),
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
     isDeleted: false,
@@ -456,10 +528,45 @@ db.usuarios.insertMany([
     email: "maria@familia.com",
     fullName: "María Pérez",
     role: "PARENT",
-    schoolId: escuelaId,
+    escuelaId: escuelaId,
     parentProfile: { childrenIds: [studentId] },
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
     isDeleted: false,
+    createdAt: new Date(),
+  }
+]);
+
+db.membresias_escuela.insertMany([
+  {
+    usuarioId: adminId,
+    escuelaId: escuelaId,
+    rol: "ADMIN",
+    estado: "activa",
+    fechaAlta: new Date(),
+    createdAt: new Date(),
+  },
+  {
+    usuarioId: teacherId,
+    escuelaId: escuelaId,
+    rol: "TEACHER",
+    estado: "activa",
+    fechaAlta: new Date(),
+    createdAt: new Date(),
+  },
+  {
+    usuarioId: studentId,
+    escuelaId: escuelaId,
+    rol: "STUDENT",
+    estado: "activa",
+    fechaAlta: new Date(),
+    createdAt: new Date(),
+  },
+  {
+    usuarioId: parentId,
+    escuelaId: escuelaId,
+    rol: "PARENT",
+    estado: "activa",
+    fechaAlta: new Date(),
     createdAt: new Date(),
   }
 ]);
@@ -501,7 +608,7 @@ db.clases.insertOne({
   name: "5º A",
   grade: "5º Primaria",
   code: "MAT5A-2024",
-  schoolId: escuelaId,
+  escuelaId: escuelaId,
   teacherIds: [teacherId],
   adminIds: [teacherId],
   studentIds: [studentId],
@@ -545,6 +652,24 @@ db.transferencias.insertOne({
   createdAt: new Date(),
 });
 
+const billeteraId = new ObjectId();
+db.billeteras.insertOne({
+  _id: billeteraId,
+  usuarioId: studentId,
+  saldo: 1500,
+  moneda: "ARS",
+  updatedAt: new Date(),
+});
+
+db.movimientos_billetera.insertOne({
+  billeteraId,
+  tipo: "credito",
+  monto: 1500,
+  motivo: "Inicio de cuenta",
+  origen: "registro",
+  fecha: new Date(),
+});
+
 db.cursos.insertOne({
   name: "Curso de Matemáticas",
   description: "Curso completo de matemáticas para primaria.",
@@ -566,6 +691,6 @@ db.cursos.insertOne({
 });
 
 print("Database setup completed successfully!");
-print("Collections created: usuarios, escuelas, clases, modulos, cursos, mensajes, transferencias");
+print("Collections created: usuarios, escuelas, membresias_escuela, clases, modulos, cursos, mensajes, transferencias, billeteras, movimientos_billetera");
 print("Indexes created for optimal performance");
 print("Sample data inserted");
