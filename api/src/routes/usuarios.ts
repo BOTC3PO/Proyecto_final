@@ -66,7 +66,8 @@ usuarios.get("/api/usuarios/:id", async (req, res) => {
   if (!objectId) return res.status(400).json({ error: "invalid id" });
   const item = await db.collection("usuarios").findOne({ _id: objectId, isDeleted: { $ne: true } });
   if (!item) return res.status(404).json({ error: "not found" });
-  const escuelaId = toObjectId(req.query.escuelaId as string | undefined);
+  const escuelaIdParam = req.query.escuelaId;
+  const escuelaId = typeof escuelaIdParam === "string" ? toObjectId(escuelaIdParam) : null;
   if (escuelaId) {
     const membresia = await db.collection("membresias_escuela").findOne({
       usuarioId: objectId,
