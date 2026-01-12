@@ -5,12 +5,16 @@ import morgan from "morgan";
 import { ENV } from "./lib/env";
 import { health } from "./routes/health";
 import { pages } from "./routes/pages";
+import { usuarios } from "./routes/usuarios";
+import { escuelas } from "./routes/escuelas";
 const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
 app.use(morgan("tiny"));
 app.use(health);
 app.use(pages);
+app.use(usuarios);
+app.use(escuelas);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.listen(ENV.PORT, () => {
   console.log(`API on http://localhost:${ENV.PORT}`);
