@@ -64,10 +64,28 @@ usuarios.get("/api/usuarios/:id", async (req, res) => {
   const db = await getDb();
   const objectId = toObjectId(req.params.id);
   if (!objectId) return res.status(400).json({ error: "invalid id" });
+  const requesterIdParam = req.header("x-usuario-id");
+  const requesterId = typeof requesterIdParam === "string" ? toObjectId(requesterIdParam) : null;
+  if (!requesterId) return res.status(403).json({ error: "forbidden" });
   const item = await db.collection("usuarios").findOne({ _id: objectId, isDeleted: { $ne: true } });
   if (!item) return res.status(404).json({ error: "not found" });
+  const targetMemberships = await db
+    .collection("membresias_escuela")
+    .find({ usuarioId: objectId, estado: { $ne: "revocada" } })
+    .project({ escuelaId: 1 })
+    .toArray();
+  const targetEscuelaIds = targetMemberships.map((membership) => membership.escuelaId).filter(Boolean);
+  if (!targetEscuelaIds.length) return res.status(403).json({ error: "forbidden" });
+  const targetEscuelaIdSet = new Set(targetEscuelaIds.map((escuelaId) => escuelaId.toString()));
   const escuelaIdParam = req.query.escuelaId;
   const escuelaId = typeof escuelaIdParam === "string" ? toObjectId(escuelaIdParam) : null;
+  if (escuelaId && !targetEscuelaIdSet.has(escuelaId.toString())) return res.status(403).json({ error: "forbidden" });
+  const requesterMembership = await db.collection("membresias_escuela").findOne({
+    usuarioId: requesterId,
+    escuelaId: escuelaId ? escuelaId : { $in: targetEscuelaIds },
+    estado: { $ne: "revocada" }
+  });
+  if (!requesterMembership) return res.status(403).json({ error: "forbidden" });
   if (escuelaId) {
     const membresia = await db.collection("membresias_escuela").findOne({
       usuarioId: objectId,
