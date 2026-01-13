@@ -12,6 +12,7 @@ export const ENV = {
   CORS_ORIGIN: (process.env.CORS_ORIGIN ?? "http://localhost:5173").split(","),
   MAX_PAGE_MB: Number(process.env.MAX_PAGE_MB ?? 30),
   MONGO_TLS: parseBool(process.env.MONGO_TLS, false),
+  MONGO_REQUIRE_TLS: parseBool(process.env.MONGO_REQUIRE_TLS, true),
   MONGO_CA_FILE: process.env.MONGO_CA_FILE ?? "",
   MONGO_CERT_FILE: process.env.MONGO_CERT_FILE ?? "",
   MONGO_APP_NAME: process.env.MONGO_APP_NAME ?? "educational-platform-api",
