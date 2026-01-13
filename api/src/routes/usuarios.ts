@@ -73,7 +73,7 @@ usuarios.get("/api/usuarios/:id", async (req, res) => {
     .collection("usuarios")
     .findOne({ _id: requesterId, isDeleted: { $ne: true } }, { projection: { teacherProfile: 1 } });
   const managedClassIds = requester?.teacherProfile?.managedClassIds ?? [];
-  const adminClassCriteria = [{ adminIds: requesterId }];
+const adminClassCriteria: Array<Record<string, unknown>> = [{ adminIds: requesterId }];
   if (managedClassIds.length) adminClassCriteria.push({ _id: { $in: managedClassIds } });
   const classAccess = await db.collection("clases").findOne(
     {
