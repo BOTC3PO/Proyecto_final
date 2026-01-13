@@ -1,5 +1,7 @@
 // RegistrationForm.tsx
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { apiFetch } from "../services/api";
 
 /* ===========================
    DateInput (sin lucide-react)
@@ -269,6 +271,7 @@ function DateInput({
    =========================== */
 
 export default function RegistrationForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     username: "",
@@ -281,23 +284,57 @@ export default function RegistrationForm() {
     privacyConsent: false,
     termsAccepted: false
   });
+  const [status, setStatus] = useState<{ loading: boolean; error: string | null }>({
+    loading: false,
+    error: null
+  });
 
   const handleDateChange = (display: string, iso?: string) => {
     setFormData((s) => ({ ...s, birthdate: display, birthdateISO: iso ?? "" }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // ejemplo de validación mínima
     if (!formData.termsAccepted) {
-      alert("Debes aceptar los Términos y Condiciones.");
+      setStatus({ loading: false, error: "Debes aceptar los Términos y Condiciones." });
       return;
     }
     if (formData.password && formData.password !== formData.confirmPassword) {
-      alert("Las contraseñas no coinciden.");
+      setStatus({ loading: false, error: "Las contraseñas no coinciden." });
       return;
     }
-    console.log("Form data:", formData);
+    if (!formData.fullName || !formData.username || !formData.email || !formData.password) {
+      setStatus({ loading: false, error: "Completa los campos obligatorios antes de continuar." });
+      return;
+    }
+    setStatus({ loading: true, error: null });
+    try {
+      const birthdate = formData.birthdateISO
+        ? new Date(`${formData.birthdateISO}T00:00:00.000Z`).toISOString()
+        : undefined;
+      await apiFetch<{ id: string }>("/api/auth/register", {
+        method: "POST",
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          fullName: formData.fullName,
+          password: formData.password,
+          birthdate,
+          consents: {
+            privacyConsent: formData.privacyConsent,
+            termsAccepted: formData.termsAccepted,
+            consentedAt: new Date().toISOString()
+          }
+        })
+      });
+      navigate("/login");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "No pudimos completar el registro.";
+      setStatus({ loading: false, error: message });
+      return;
+    }
+    setStatus({ loading: false, error: null });
   };
 
   return (
@@ -416,12 +453,19 @@ export default function RegistrationForm() {
               </label>
             </div>
 
+            {status.error && (
+              <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700" role="alert">
+                {status.error}
+              </div>
+            )}
+
             <button
               type="submit"
               className="w-full bg-blue-600 text-white py-4 rounded-lg text-lg font-semibold
-                         hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+                         hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
+              disabled={status.loading}
             >
-              Registrarse
+              {status.loading ? "Registrando..." : "Registrarse"}
             </button>
           </div>
         </form>
