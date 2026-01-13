@@ -90,6 +90,12 @@ usuarios.get("/api/usuarios/:id", async (req, res) => {
     res.json(item);
     return;
   }
+  const hasPublicTeacherModules =
+    item.teacherProfile?.modules?.some((module: { isPublic?: boolean }) => module.isPublic === true) ?? false;
+  if (!item.escuelaId && hasPublicTeacherModules) {
+    res.json(item);
+    return;
+  }
   const targetMemberships = await db
     .collection("membresias_escuela")
     .find({ usuarioId: objectId, estado: { $ne: "revocada" } })
