@@ -17,6 +17,8 @@ import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
 import GeneradoresTest from "./pages/GeneradoresTest";
 import CrearModulo from "./pages/crearModulo";
+import EditarModulo from "./pages/editarModulo";
+import JugarModulo from "./pages/jugarModulo";
 
 
 import test from "./sys/testmode";
@@ -181,6 +183,22 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['TEACHER','GUEST']}>
             <CrearModulo />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/editar-modulo/:id",
+        element: (
+          <ProtectedRoute allow={['TEACHER','GUEST']}>
+            <EditarModulo />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "modulos/:id/jugar",
+        element: (
+          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'GUEST']}>
+            <JugarModulo />
           </ProtectedRoute>
         ),
       },
