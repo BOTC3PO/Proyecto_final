@@ -1,4 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/use-auth";
+import { apiFetch } from "../services/api";
 
 type LoginForm = {
   user: string;
@@ -7,6 +10,8 @@ type LoginForm = {
 };
 
 export default function Login() {
+  const navigate = useNavigate();
+  const { login } = useAuth();
   const [form, setForm] = useState<LoginForm>({
     user: "",
     password: "",
@@ -14,6 +19,10 @@ export default function Login() {
   });
 
   const [errors, setErrors] = useState<Partial<LoginForm>>({});
+  const [status, setStatus] = useState<{ loading: boolean; error: string | null }>({
+    loading: false,
+    error: null,
+  });
 
   // 👇 Tipar correctamente los eventos
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -32,10 +41,33 @@ export default function Login() {
     return Object.keys(err).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
-    console.log("Login enviado:", form);
+    setStatus({ loading: true, error: null });
+    try {
+      const payload = await apiFetch<{
+        id: string;
+        username: string;
+        email: string;
+        fullName?: string;
+        role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "ENTERPRISE" | "GUEST";
+      }>("/api/auth/login", {
+        method: "POST",
+        body: JSON.stringify({ identifier: form.user, password: form.password }),
+      });
+      login({
+        id: payload.id,
+        name: payload.fullName?.trim() || payload.username,
+        role: payload.role,
+      });
+      navigate("/");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "No pudimos iniciar sesión.";
+      setStatus({ loading: false, error: message });
+      return;
+    }
+    setStatus({ loading: false, error: null });
   };
 
   return (
@@ -106,11 +138,18 @@ export default function Login() {
                 </div>
 
                 {/* Botón */}
+                {status.error && (
+                  <div className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
+                    {status.error}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full rounded-md bg-blue-600 px-4 py-2.5 text-white text-sm font-semibold shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="w-full rounded-md bg-blue-600 px-4 py-2.5 text-white text-sm font-semibold shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
+                  disabled={status.loading}
                 >
-                  Iniciar Sesión
+                  {status.loading ? "Ingresando..." : "Iniciar Sesión"}
                 </button>
 
                 <p className="text-center text-sm text-gray-600">
