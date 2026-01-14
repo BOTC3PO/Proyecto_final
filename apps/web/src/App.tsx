@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './auth/auth-provider';
 import Navbar from './nav/Navbar';
 import { ProtectedRoute } from './routing/ProtectedRoute';
+import Login from './pages/Login';
+import Register from './pages/Register';
 /*
 function App() {
   const [count, setCount] = useState(0)
@@ -39,8 +41,6 @@ function App() {
 const Home = () => <div className="p-6">Inicio (público)</div>;
 const Explorar = () => <div className="p-6">Explorar (público)</div>;
 const Precios = () => <div className="p-6">Precios (público)</div>;
-const Login = () => <div className="p-6">Login</div>;
-const Register = () => <div className="p-6">Registro</div>;
 
 const Admin = () => <div className="p-6">Admin</div>;
 const AdminUsuarios = () => <div className="p-6">Admin  Usuarios</div>;
