@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { apiPost } from "../lib/api";
+import type { ModuleResource } from "../domain/module/module.types";
 import { MVP_GENERATOR_CATEGORIES, MVP_MODULES } from "../mvp/mvpData";
 
 type QuizVisibility = "publico" | "escuela";
@@ -18,6 +20,14 @@ type QuizBlock = {
 };
 
 export default function CrearModulo() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [subject, setSubject] = useState("Matemáticas");
+  const [category, setCategory] = useState("");
+  const [level, setLevel] = useState("Básico");
+  const [durationMinutes, setDurationMinutes] = useState(30);
+  const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const [saveMessage, setSaveMessage] = useState("");
   const [visibilidad, setVisibilidad] = useState<"publico" | "privado">("publico");
   const [theoryItems, setTheoryItems] = useState<TheoryItem[]>([]);
   const [newTheoryTitle, setNewTheoryTitle] = useState("");
@@ -43,6 +53,9 @@ export default function CrearModulo() {
   const [requiredDependencies, setRequiredDependencies] = useState<string[]>([]);
   const [customDependency, setCustomDependency] = useState("");
   const [customDependencies, setCustomDependencies] = useState<string[]>([]);
+  const [bookResources, setBookResources] = useState<ModuleResource[]>([]);
+  const [bookResourceId, setBookResourceId] = useState("");
+  const [bookResourceTitle, setBookResourceTitle] = useState("");
 
   // En un futuro acá podes traer estas listas desde la API
   const materias = [
@@ -92,6 +105,46 @@ export default function CrearModulo() {
     "Sistema B: 0-100 con aprobación 60",
     "Sistema C: aprobado / desaprobado",
   ];
+
+  const makeModuleId = (value: string) => {
+    const base = value
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/\p{Diacritic}/gu, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)+/g, "");
+    return `${base || "modulo"}-${Date.now()}`;
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSaveStatus("saving");
+    setSaveMessage("");
+    try {
+      const dependencies = [...requiredDependencies, ...customDependencies].filter(Boolean);
+      const payload = {
+        id: makeModuleId(title),
+        title,
+        description,
+        subject,
+        category,
+        level,
+        durationMinutes,
+        visibility: visibilidad,
+        dependencies,
+        generatorRef: null,
+        resources: bookResources,
+        createdBy: "demo-docente",
+        updatedAt: new Date().toISOString()
+      };
+      await apiPost("/api/modulos", payload);
+      setSaveStatus("saved");
+      setSaveMessage("Módulo guardado correctamente.");
+    } catch (error) {
+      setSaveStatus("error");
+      setSaveMessage("No se pudo guardar el módulo. Revisá los campos requeridos.");
+    }
+  };
 
   const handleAddTheory = () => {
     if (!newTheoryTitle.trim()) return;
@@ -158,6 +211,25 @@ export default function CrearModulo() {
     setCustomDependencies((prev) => prev.filter((item) => item !== dependency));
   };
 
+  const handleAddBookResource = () => {
+    const trimmed = bookResourceId.trim();
+    if (!trimmed) return;
+    const next: ModuleResource = {
+      type: "book",
+      id: trimmed,
+      title: bookResourceTitle.trim() || undefined
+    };
+    setBookResources((prev) => [...prev, next]);
+    setBookResourceId("");
+    setBookResourceTitle("");
+  };
+
+  const handleRemoveBookResource = (id: string) => {
+    setBookResources((prev) =>
+      prev.filter((resource) => resource.type !== "book" || resource.id !== id)
+    );
+  };
+
   return (
     <main className="flex-1">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -169,7 +241,7 @@ export default function CrearModulo() {
           </p>
         </header>
 
-        <form className="mt-6 space-y-8 bg-white rounded-xl shadow p-6">
+        <form className="mt-6 space-y-8 bg-white rounded-xl shadow p-6" onSubmit={handleSubmit}>
           {/* 1. Información general */}
           <section className="space-y-4">
             <h2 className="text-lg font-semibold">Información general</h2>
@@ -182,6 +254,8 @@ export default function CrearModulo() {
                 required
                 className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Ej: Introducción a las fracciones"
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
               />
             </div>
 
@@ -194,6 +268,8 @@ export default function CrearModulo() {
                 rows={4}
                 className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Describe el contenido, objetivos y actividades del módulo..."
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
               />
             </div>
 
@@ -205,7 +281,8 @@ export default function CrearModulo() {
                 <select
                   required
                   className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
-                  defaultValue="Matemáticas"
+                  value={subject}
+                  onChange={(event) => setSubject(event.target.value)}
                 >
                   {materias.map((m) => (
                     <option key={m} value={m}>
@@ -223,7 +300,8 @@ export default function CrearModulo() {
                 <select
                   required
                   className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
-                  defaultValue=""
+                  value={category}
+                  onChange={(event) => setCategory(event.target.value)}
                 >
                   <option value="" disabled>
                     Selecciona una categoría
@@ -245,7 +323,8 @@ export default function CrearModulo() {
                 <select
                   required
                   className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
-                  defaultValue="Básico"
+                  value={level}
+                  onChange={(event) => setLevel(event.target.value)}
                 >
                   {nivelesDificultad.map((n) => (
                     <option key={n} value={n}>
@@ -264,6 +343,8 @@ export default function CrearModulo() {
                   min={1}
                   className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="Ej: 30"
+                  value={durationMinutes}
+                  onChange={(event) => setDurationMinutes(Number(event.target.value))}
                 />
               </div>
 
@@ -447,6 +528,62 @@ export default function CrearModulo() {
               <button type="button" className="rounded-md border px-4 py-2 text-sm">
                 + Agregar recurso interactivo
               </button>
+            </div>
+
+            <div className="border rounded-lg p-4 space-y-3">
+              <h3 className="text-sm font-semibold">Libros del editor</h3>
+              <p className="text-xs text-gray-600">
+                Guarda un libro en el editor y pega su ID aquí para asociarlo al módulo.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <a
+                  className="rounded-md border px-4 py-2 text-sm text-blue-600 hover:bg-blue-50"
+                  href="/editor"
+                >
+                  Añadir libro desde editor
+                </a>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <input
+                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                  value={bookResourceId}
+                  onChange={(event) => setBookResourceId(event.target.value)}
+                  placeholder="ID del libro (ej: book-matematica-01)"
+                />
+                <input
+                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                  value={bookResourceTitle}
+                  onChange={(event) => setBookResourceTitle(event.target.value)}
+                  placeholder="Título opcional"
+                />
+                <button
+                  type="button"
+                  className="rounded-md border px-4 py-2 text-sm"
+                  onClick={handleAddBookResource}
+                >
+                  Agregar libro
+                </button>
+              </div>
+              {bookResources.length > 0 ? (
+                <ul className="space-y-2 text-sm">
+                  {bookResources.map((resource) =>
+                    resource.type === "book" ? (
+                      <li key={resource.id} className="flex items-center justify-between">
+                        <span>{resource.title ?? resource.id}</span>
+                        <button
+                          type="button"
+                          className="text-xs text-red-500 hover:underline"
+                          onClick={() => handleRemoveBookResource(resource.id)}
+                        >
+                          Quitar
+                        </button>
+                      </li>
+                    ) : null
+                  )}
+                </ul>
+              ) : (
+                <p className="text-xs text-gray-500">Todavía no agregaste libros al módulo.</p>
+              )}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -1091,12 +1228,22 @@ export default function CrearModulo() {
               </button>
               <button
                 type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-6 py-2 text-sm font-medium"
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-6 py-2 text-sm font-medium disabled:opacity-70"
+                disabled={saveStatus === "saving"}
               >
-                Crear módulo
+                {saveStatus === "saving" ? "Guardando..." : "Crear módulo"}
               </button>
             </div>
           </section>
+          {saveStatus !== "idle" && (
+            <p
+              className={`text-sm ${
+                saveStatus === "saved" ? "text-emerald-600" : saveStatus === "error" ? "text-red-600" : "text-gray-600"
+              }`}
+            >
+              {saveMessage}
+            </p>
+          )}
         </form>
       </div>
     </main>

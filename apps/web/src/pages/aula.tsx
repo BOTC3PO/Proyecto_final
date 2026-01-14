@@ -1,9 +1,35 @@
+import { useEffect, useState } from "react";
 import {
   MVP_LEADERBOARD,
   MVP_MODULES,
   MVP_PUBLICATIONS,
   MVP_UPCOMING_ACTIVITIES,
 } from "../mvp/mvpData";
+import { apiGet } from "../lib/api";
+import type { Module } from "../domain/module/module.types";
+
+type ProgressItem = {
+  moduloId: string;
+  status: "iniciado" | "en_progreso" | "completado";
+};
+
+type ProgressUnlock = {
+  moduloId: string;
+  isLocked: boolean;
+  missingDependencies: string[];
+};
+
+type ProgressResponse = {
+  items: ProgressItem[];
+  unlocks: ProgressUnlock[];
+};
+
+type ClassModuleProgress = {
+  id: string;
+  title: string;
+  progressPercent: number;
+  isLocked: boolean;
+};
 
 const teacherTools = [
   "Informes y Estadísticas",
@@ -18,6 +44,52 @@ const teacherTools = [
 ];
 
 export default function aula() {
+  const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>(() =>
+    MVP_MODULES.map((module) => ({
+      id: module.id,
+      title: module.title,
+      progressPercent: module.progressPercent ?? 0,
+      isLocked: module.progressPercent === 0,
+    }))
+  );
+
+  useEffect(() => {
+    let active = true;
+    const usuarioId = "demo-alumno";
+    Promise.all([apiGet<{ items: Module[] }>("/api/modulos"), apiGet<ProgressResponse>(`/api/progreso?usuarioId=${usuarioId}`)])
+      .then(([modulesResponse, progressResponse]) => {
+        if (!active) return;
+        const completedSet = new Set(
+          progressResponse.items.filter((item) => item.status === "completado").map((item) => item.moduloId)
+        );
+        const inProgressSet = new Set(
+          progressResponse.items.filter((item) => item.status === "en_progreso").map((item) => item.moduloId)
+        );
+        const lockMap = new Map(progressResponse.unlocks.map((unlock) => [unlock.moduloId, unlock.isLocked]));
+        const mapped = modulesResponse.items.map((module) => ({
+          id: module.id,
+          title: module.title,
+          isLocked: lockMap.get(module.id) ?? false,
+          progressPercent: completedSet.has(module.id) ? 100 : inProgressSet.has(module.id) ? 50 : 0,
+        }));
+        setClassProgress(mapped);
+      })
+      .catch(() => {
+        if (!active) return;
+        setClassProgress(
+          MVP_MODULES.map((module) => ({
+            id: module.id,
+            title: module.title,
+            progressPercent: module.progressPercent ?? 0,
+            isLocked: Boolean(module.progressPercent === 0),
+          }))
+        );
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <main className="flex-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -88,22 +160,42 @@ export default function aula() {
             <div className="bg-white rounded-xl shadow p-4">
               <h3 className="text-lg font-semibold">Progreso de la clase</h3>
               <div className="mt-3 space-y-3 text-sm">
-                {MVP_MODULES.map((module) => (
+                {classProgress.map((module) => (
                   <div key={module.id}>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between items-center">
                       <span>{module.title}</span>
-                      <span>{module.progressPercent ? `${module.progressPercent}%` : "Bloqueado"}</span>
+                      <span
+                        className={`text-xs px-2 py-0.5 rounded-full ${
+                          module.isLocked
+                            ? "bg-gray-100 text-gray-500"
+                            : module.progressPercent >= 100
+                            ? "bg-green-100 text-green-700"
+                            : module.progressPercent > 0
+                            ? "bg-blue-100 text-blue-700"
+                            : "bg-gray-100 text-gray-500"
+                        }`}
+                      >
+                        {module.isLocked
+                          ? "Bloqueado"
+                          : module.progressPercent >= 100
+                          ? "Completado"
+                          : module.progressPercent > 0
+                          ? "En progreso"
+                          : "Sin iniciar"}
+                      </span>
                     </div>
                     <div className="h-2 bg-gray-200 rounded">
                       <div
                         className={`h-2 rounded ${
-                          module.progressPercent && module.progressPercent > 60
+                          module.isLocked
+                            ? "bg-gray-400"
+                            : module.progressPercent >= 100
                             ? "bg-green-500"
-                            : module.progressPercent && module.progressPercent > 0
+                            : module.progressPercent > 0
                             ? "bg-blue-500"
                             : "bg-gray-400"
                         }`}
-                        style={{ width: `${module.progressPercent ?? 0}%` }}
+                        style={{ width: `${module.progressPercent}%` }}
                       />
                     </div>
                   </div>

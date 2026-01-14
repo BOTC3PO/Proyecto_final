@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
 import { MVP_MODULES } from "../mvp/mvpData";
+import { apiGet } from "../lib/api";
+import type { Module } from "../domain/module/module.types";
 
 const quickLinks = {
   academico: ["Módulo de Aprendizaje", "Aulas Virtuales", "Material Didáctico", "Evaluaciones"],
@@ -6,6 +9,47 @@ const quickLinks = {
 };
 
 export default function menuProfesor() {
+  const [modules, setModules] = useState(
+    MVP_MODULES.map((module) => ({
+      ...module,
+      visibility: "publico",
+      dependencies: []
+    }))
+  );
+
+  useEffect(() => {
+    let active = true;
+    const ownerId = "demo-docente";
+    apiGet<{ items: Module[] }>(`/api/modulos?owner=${ownerId}`)
+      .then((data) => {
+        if (!active) return;
+        const mapped = data.items.map((module) => ({
+          id: module.id,
+          title: module.title,
+          description: module.description,
+          level: module.level,
+          durationMinutes: module.durationMinutes,
+          category: module.category,
+          visibility: module.visibility ?? "privado",
+          dependencies: module.dependencies ?? []
+        }));
+        setModules(mapped);
+      })
+      .catch(() => {
+        if (!active) return;
+        setModules(
+          MVP_MODULES.map((module) => ({
+            ...module,
+            visibility: "publico",
+            dependencies: []
+          }))
+        );
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <main className="flex-1">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
@@ -57,18 +101,29 @@ export default function menuProfesor() {
             <button className="text-sm text-blue-600 hover:underline">Crear módulo</button>
           </div>
           <div className="mt-4 grid gap-4 md:grid-cols-3">
-            {MVP_MODULES.map((module) => (
+            {modules.map((module) => (
               <article key={module.id} className="rounded-lg border border-gray-200 p-4">
                 <p className="text-xs uppercase text-gray-500">{module.category}</p>
                 <h4 className="mt-2 font-semibold">{module.title}</h4>
                 <p className="mt-2 text-sm text-gray-600">{module.description}</p>
+                <div className="mt-2 flex flex-wrap gap-2 text-xs">
+                  <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
+                    {module.visibility === "publico" ? "Publicado" : "Privado"}
+                  </span>
+                  <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
+                    Dependencias: {module.dependencies.length}
+                  </span>
+                </div>
                 <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
                   <span>{module.level}</span>
                   <span>{module.durationMinutes} min</span>
                 </div>
-                <button className="mt-4 w-full rounded-md border border-gray-300 px-3 py-2 text-sm">
-                  Ver detalle
-                </button>
+                <a
+                  className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
+                  href={`/profesor/editar-modulo/${module.id}`}
+                >
+                  Editar módulo
+                </a>
               </article>
             ))}
           </div>
