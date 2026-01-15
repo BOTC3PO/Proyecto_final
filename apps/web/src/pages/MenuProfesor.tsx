@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
@@ -68,6 +68,51 @@ export default function menuProfesor() {
       dependencies: []
     }))
   );
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("todas");
+  const [selectedVisibility, setSelectedVisibility] = useState("todas");
+
+  const categoryOptions = useMemo(() => {
+    const categories = modules
+      .map((module) => module.category)
+      .filter((category): category is string => Boolean(category));
+    return Array.from(new Set(categories)).sort((a, b) => a.localeCompare(b));
+  }, [modules]);
+
+  const filteredModules = useMemo(() => {
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+
+    return modules.filter((module) => {
+      const matchesSearch =
+        normalizedSearch.length === 0 ||
+        module.title.toLowerCase().includes(normalizedSearch) ||
+        module.description.toLowerCase().includes(normalizedSearch);
+      const matchesCategory =
+        selectedCategory === "todas" || module.category === selectedCategory;
+      const matchesVisibility =
+        selectedVisibility === "todas" || module.visibility === selectedVisibility;
+
+      return matchesSearch && matchesCategory && matchesVisibility;
+    });
+  }, [modules, searchTerm, selectedCategory, selectedVisibility]);
+
+  const activeFilters = [
+    searchTerm.trim()
+      ? { label: `Búsqueda: "${searchTerm.trim()}"`, key: "search" }
+      : null,
+    selectedCategory !== "todas"
+      ? { label: `Categoría: ${selectedCategory}`, key: "category" }
+      : null,
+    selectedVisibility !== "todas"
+      ? {
+          label:
+            selectedVisibility === "publico"
+              ? "Visibilidad: Publicado"
+              : "Visibilidad: Privado",
+          key: "visibility"
+        }
+      : null
+  ].filter(Boolean) as Array<{ label: string; key: string }>;
 
   useEffect(() => {
     let active = true;
@@ -212,8 +257,60 @@ export default function menuProfesor() {
               <button className="text-sm text-blue-600 hover:underline">Crear módulo</button>
             </div>
           </div>
+          <div className="mt-4 grid gap-3 lg:grid-cols-[2fr_1fr_1fr]">
+            <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+              Buscar módulo
+              <input
+                className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                placeholder="Busca por título o descripción"
+                type="search"
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+              />
+            </label>
+            <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+              Categoría
+              <select
+                className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                value={selectedCategory}
+                onChange={(event) => setSelectedCategory(event.target.value)}
+              >
+                <option value="todas">Todas</option>
+                {categoryOptions.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+              Visibilidad
+              <select
+                className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                value={selectedVisibility}
+                onChange={(event) => setSelectedVisibility(event.target.value)}
+              >
+                <option value="todas">Todas</option>
+                <option value="publico">Publicado</option>
+                <option value="privado">Privado</option>
+              </select>
+            </label>
+          </div>
+          {activeFilters.length > 0 && (
+            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+              <span className="text-gray-500">Filtros activos:</span>
+              {activeFilters.map((filter) => (
+                <span
+                  key={filter.key}
+                  className="rounded-full bg-blue-50 px-3 py-1 font-semibold text-blue-700"
+                >
+                  {filter.label}
+                </span>
+              ))}
+            </div>
+          )}
           <div className="mt-4 grid gap-4 md:grid-cols-3">
-            {modules.map((module) => (
+            {filteredModules.map((module) => (
               <article key={module.id} className="rounded-lg border border-gray-200 p-4">
                 <p className="text-xs uppercase text-gray-500">{module.category}</p>
                 <h4 className="mt-2 font-semibold">{module.title}</h4>
@@ -239,6 +336,11 @@ export default function menuProfesor() {
               </article>
             ))}
           </div>
+          {filteredModules.length === 0 && (
+            <p className="mt-4 text-sm text-gray-500">
+              No hay módulos que coincidan con los filtros seleccionados.
+            </p>
+          )}
         </div>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
