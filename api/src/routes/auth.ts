@@ -77,8 +77,9 @@ auth.post("/api/auth/login", async (req, res) => {
   try {
     const parsed = LoginSchema.parse(req.body);
     const db = await getDb();
+    const identifier = parsed.identifier ?? parsed.email ?? parsed.username ?? "";
     const user = await db.collection("usuarios").findOne({
-      $or: [{ email: parsed.identifier }, { username: parsed.identifier }],
+      $or: [{ email: identifier }, { username: identifier }],
       isDeleted: { $ne: true }
     });
     if (!user || typeof user.passwordHash !== "string") {

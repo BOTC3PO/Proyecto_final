@@ -18,9 +18,22 @@ export const RegisterSchema = z.object({
     .optional()
 });
 
-export const LoginSchema = z.object({
-  identifier: z.string().min(3),
-  password: z.string().min(6).max(256)
+export const LoginSchema = z
+  .object({
+    identifier: z.string().min(3).optional(),
+    email: z.string().email().optional(),
+    username: z.string().min(3).optional(),
+    password: z.string().min(6).max(256)
+  })
+  .refine((data) => Boolean(data.identifier || data.email || data.username), {
+    message: "identifier is required"
+  });
+
+export const BootstrapAdminSchema = z.object({
+  username: z.string().min(3).max(64),
+  email: z.string().email(),
+  fullName: z.string().min(3).max(120),
+  password: z.string().min(8).max(256)
 });
 
 export const BootstrapAdminSchema = z.object({
