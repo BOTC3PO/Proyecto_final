@@ -1,10 +1,47 @@
 import { Router } from "express";
 import { getDb } from "../lib/db";
+import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { hashPassword, verifyPassword } from "../lib/passwords";
-import { LoginSchema, RegisterSchema } from "../schema/auth";
+import { BootstrapAdminRequestSchema, LoginSchema, RegisterSchema } from "../schema/auth";
 
 export const auth = Router();
+
+auth.post("/api/auth/bootstrap-admin", async (req, res) => {
+  try {
+    if (!ENV.BOOTSTRAP_ADMIN_KEY) {
+      res.status(503).json({ error: "Bootstrap admin disabled" });
+      return;
+    }
+    const providedKey = req.header("x-bootstrap-key");
+    if (!providedKey || providedKey !== ENV.BOOTSTRAP_ADMIN_KEY) {
+      res.status(401).json({ error: "Invalid bootstrap key" });
+      return;
+    }
+    const parsed = BootstrapAdminRequestSchema.parse(req.body);
+    const db = await getDb();
+    const existingAdmin = await db.collection("usuarios").findOne({ role: "ADMIN" });
+    if (existingAdmin) {
+      res.status(409).json({ error: "Admin already exists" });
+      return;
+    }
+    const now = new Date();
+    const doc = {
+      username: parsed.username,
+      email: parsed.email,
+      fullName: parsed.fullName,
+      role: "ADMIN",
+      passwordHash: hashPassword(parsed.password),
+      isDeleted: false,
+      createdAt: now,
+      updatedAt: now
+    };
+    const result = await db.collection("usuarios").insertOne(doc);
+    res.status(201).json({ id: result.insertedId });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
 
 auth.post("/api/auth/register", async (req, res) => {
   try {
@@ -40,8 +77,9 @@ auth.post("/api/auth/login", async (req, res) => {
   try {
     const parsed = LoginSchema.parse(req.body);
     const db = await getDb();
+    const identifier = parsed.identifier ?? parsed.email ?? parsed.username ?? "";
     const user = await db.collection("usuarios").findOne({
-      $or: [{ email: parsed.identifier }, { username: parsed.identifier }],
+      $or: [{ email: identifier }, { username: identifier }],
       isDeleted: { $ne: true }
     });
     if (!user || typeof user.passwordHash !== "string") {
