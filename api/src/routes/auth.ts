@@ -18,7 +18,7 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
       res.status(401).json({ error: "Invalid bootstrap key" });
       return;
     }
-    const parsed = BootstrapAdminRequestSchema.parse(req.body);
+    const parsed = BootstrapAdminRequestSchema.parse(req.body ?? {});
     const db = await getDb();
     const existingAdmin = await db.collection("usuarios").findOne({ role: "ADMIN" });
     if (existingAdmin) {
@@ -45,7 +45,7 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
 
 auth.post("/api/auth/register", async (req, res) => {
   try {
-    const parsed = RegisterSchema.parse(req.body);
+    const parsed = RegisterSchema.parse(req.body ?? {});
     const db = await getDb();
     const now = new Date();
     const doc = {
@@ -75,7 +75,7 @@ auth.post("/api/auth/register", async (req, res) => {
 
 auth.post("/api/auth/login", async (req, res) => {
   try {
-    const parsed = LoginSchema.parse(req.body);
+    const parsed = LoginSchema.parse(req.body ?? {});
     const db = await getDb();
     const identifier = parsed.identifier ?? parsed.email ?? parsed.username ?? "";
     const user = await db.collection("usuarios").findOne({
