@@ -106,9 +106,17 @@ export default function menuProfesor() {
         </div>
 
         <div className="bg-white rounded-xl shadow p-5">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <h3 className="text-lg font-semibold">Módulos activos</h3>
-            <button className="text-sm text-blue-600 hover:underline">Crear módulo</button>
+            <div className="flex items-center gap-3">
+              <a
+                className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
+                href="/profesor/cursos/nuevo"
+              >
+                + Crear clase/sección
+              </a>
+              <button className="text-sm text-blue-600 hover:underline">Crear módulo</button>
+            </div>
           </div>
           <div className="mt-4 grid gap-4 md:grid-cols-3">
             {modules.map((module) => (

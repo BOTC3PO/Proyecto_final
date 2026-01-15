@@ -27,6 +27,7 @@ import ProfesorEvaluaciones from "./pages/ProfesorEvaluaciones";
 import ProfesorMateriales from "./pages/ProfesorMateriales";
 import ProfesorMensajes from "./pages/ProfesorMensajes";
 import ProfesorModulos from "./pages/ProfesorModulos";
+import ProfesorCursoNuevo from "./pages/ProfesorCursoNuevo";
 
 
 import test from "./sys/testmode";
@@ -167,6 +168,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['TEACHER']}>
             <ProfCursos />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/cursos/nuevo",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorCursoNuevo />
           </ProtectedRoute>
         ),
       },
