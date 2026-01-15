@@ -14,7 +14,6 @@ import { seed } from "./routes/seed";
 import { auth } from "./routes/auth";
 import { reportes } from "./routes/reportes";
 import { estadisticas } from "./routes/estadisticas";
-import { reportes } from "./routes/reportes";
 import { encuestas } from "./routes/encuestas";
 const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));

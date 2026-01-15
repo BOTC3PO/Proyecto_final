@@ -1,5 +1,6 @@
 import express, { Router } from "express";
 import { getDb } from "../lib/db";
+import { ENV } from "../lib/env";
 import { ProgressSchema } from "../schema/progreso";
 
 export const progreso = Router();
@@ -8,7 +9,7 @@ const ProgressUpdateSchema = ProgressSchema.partial().omit({ usuarioId: true, mo
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 
-progreso.post("/api/progreso", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
+progreso.post("/api/progreso", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const payload = {
       ...req.body,
@@ -53,7 +54,7 @@ progreso.get("/api/progreso", async (req, res) => {
   res.json({ items, unlocks });
 });
 
-progreso.patch("/api/progreso/:moduloId", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
+progreso.patch("/api/progreso/:moduloId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   const usuarioId = req.header("x-usuario-id");
   if (typeof usuarioId !== "string" || !usuarioId.trim()) {
     return res.status(400).json({ error: "x-usuario-id header is required" });

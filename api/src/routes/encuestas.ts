@@ -1,5 +1,6 @@
 import express, { Router } from "express";
 import { getDb } from "../lib/db";
+import { ENV } from "../lib/env";
 import { SurveySchema } from "../schema/encuesta";
 
 export const encuestas = Router();
@@ -35,7 +36,7 @@ encuestas.get("/api/encuestas/:id", async (req, res) => {
   res.json(item);
 });
 
-encuestas.post("/api/encuestas", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
+encuestas.post("/api/encuestas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const now = new Date().toISOString();
     const payload = {
@@ -53,7 +54,7 @@ encuestas.post("/api/encuestas", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?
   }
 });
 
-encuestas.put("/api/encuestas/:id", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
+encuestas.put("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = SurveyUpdateSchema.parse(req.body);
     const db = await getDb();
@@ -66,7 +67,7 @@ encuestas.put("/api/encuestas/:id", ...bodyLimitMB(Number(process.env.MAX_PAGE_M
   }
 });
 
-encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
+encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = SurveyUpdateSchema.parse(req.body);
     const db = await getDb();

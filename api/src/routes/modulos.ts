@@ -1,5 +1,6 @@
 import express, { Router } from "express";
 import { getDb } from "../lib/db";
+import { ENV } from "../lib/env";
 import { ModuleSchema } from "../schema/modulo";
 
 export const modulos = Router();
@@ -35,7 +36,7 @@ modulos.get("/api/modulos/:id", async (req, res) => {
   res.json(item);
 });
 
-modulos.post("/api/modulos", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
+modulos.post("/api/modulos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const payload = { ...req.body, updatedAt: req.body?.updatedAt ?? new Date().toISOString() };
     const parsed = ModuleSchema.parse(payload);
@@ -47,7 +48,7 @@ modulos.post("/api/modulos", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30
   }
 });
 
-modulos.put("/api/modulos/:id", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
+modulos.put("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
     const db = await getDb();
@@ -60,7 +61,7 @@ modulos.put("/api/modulos/:id", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ??
   }
 });
 
-modulos.patch("/api/modulos/:id", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
+modulos.patch("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
     const db = await getDb();
