@@ -9,8 +9,8 @@ export type User = {
 
 export type AuthContextValue = {
   user: User | null;
-  loginAs: (role: Role) => void;
-  login: (user: User) => void;
+  loginAs: (role: Role, options?: { remember?: boolean }) => void;
+  login: (user: User, options?: { remember?: boolean }) => void;
   logout: () => void;
 };
 

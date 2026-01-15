@@ -3,18 +3,51 @@ import type { ReactNode } from 'react';
 import type { Role } from './roles';
 import { AuthContext, type User } from './AuthContex';
 
+const STORAGE_KEY = 'auth.user';
+
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    if (typeof window === 'undefined') return null;
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) return null;
+      return JSON.parse(stored) as User;
+    } catch {
+      localStorage.removeItem(STORAGE_KEY);
+      return null;
+    }
+  });
+  const [shouldPersist, setShouldPersist] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    try {
+      return Boolean(localStorage.getItem(STORAGE_KEY));
+    } catch {
+      return false;
+    }
+  });
 
-  const login = (nextUser: User) => {
+  const persistUser = (nextUser: User | null, remember: boolean) => {
     setUser(nextUser);
+    setShouldPersist(remember);
+    if (typeof window === 'undefined') return;
+    if (nextUser && remember) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(nextUser));
+    } else {
+      localStorage.removeItem(STORAGE_KEY);
+    }
   };
 
-  const loginAs = (role: Role) => {
-    setUser({ id: '1', name: 'Demo', role });
+  const login = (nextUser: User, options?: { remember?: boolean }) => {
+    const remember = options?.remember ?? shouldPersist;
+    persistUser(nextUser, remember);
   };
 
-  const logout = () => setUser(null);
+  const loginAs = (role: Role, options?: { remember?: boolean }) => {
+    const remember = options?.remember ?? shouldPersist;
+    persistUser({ id: '1', name: 'Demo', role }, remember);
+  };
+
+  const logout = () => persistUser(null, false);
 
   const value = useMemo(() => ({ user, login, loginAs, logout }), [user]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
