@@ -19,6 +19,14 @@ import GeneradoresTest from "./pages/GeneradoresTest";
 import CrearModulo from "./pages/crearModulo";
 import EditarModulo from "./pages/editarModulo";
 import JugarModulo from "./pages/jugarModulo";
+import ProfesorAulas from "./pages/ProfesorAulas";
+import ProfesorCalendario from "./pages/ProfesorCalendario";
+import ProfesorConfiguracion from "./pages/ProfesorConfiguracion";
+import ProfesorEstadisticas from "./pages/ProfesorEstadisticas";
+import ProfesorEvaluaciones from "./pages/ProfesorEvaluaciones";
+import ProfesorMateriales from "./pages/ProfesorMateriales";
+import ProfesorMensajes from "./pages/ProfesorMensajes";
+import ProfesorModulos from "./pages/ProfesorModulos";
 
 
 import test from "./sys/testmode";
@@ -175,6 +183,70 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['TEACHER']}>
             <ProfAsist />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/modulos",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorModulos />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/aulas",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorAulas />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/materiales",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorMateriales />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/evaluaciones",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorEvaluaciones />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/calendario",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorCalendario />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/estadisticas",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorEstadisticas />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/mensajes",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorMensajes />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/configuracion",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorConfiguracion />
           </ProtectedRoute>
         ),
       },
