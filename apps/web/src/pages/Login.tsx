@@ -56,11 +56,14 @@ export default function Login() {
         method: "POST",
         body: JSON.stringify({ identifier: form.user, password: form.password }),
       });
-      login({
-        id: payload.id,
-        name: payload.fullName?.trim() || payload.username,
-        role: payload.role,
-      });
+      login(
+        {
+          id: payload.id,
+          name: payload.fullName?.trim() || payload.username,
+          role: payload.role,
+        },
+        { remember: form.remember },
+      );
       navigate("/");
     } catch (error) {
       const message = error instanceof Error ? error.message : "No pudimos iniciar sesión.";
