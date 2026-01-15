@@ -3,7 +3,7 @@ import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { hashPassword, verifyPassword } from "../lib/passwords";
-import { BootstrapAdminSchema, LoginSchema, RegisterSchema } from "../schema/auth";
+import { BootstrapAdminRequestSchema, LoginSchema, RegisterSchema } from "../schema/auth";
 
 export const auth = Router();
 
@@ -18,7 +18,7 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
       res.status(401).json({ error: "Invalid bootstrap key" });
       return;
     }
-    const parsed = BootstrapAdminSchema.parse(req.body);
+    const parsed = BootstrapAdminRequestSchema.parse(req.body);
     const db = await getDb();
     const existingAdmin = await db.collection("usuarios").findOne({ role: "ADMIN" });
     if (existingAdmin) {

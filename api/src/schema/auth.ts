@@ -29,14 +29,7 @@ export const LoginSchema = z
     message: "identifier is required"
   });
 
-export const BootstrapAdminSchema = z.object({
-  username: z.string().min(3).max(64),
-  email: z.string().email(),
-  fullName: z.string().min(3).max(120),
-  password: z.string().min(8).max(256)
-});
-
-export const BootstrapAdminSchema = z.object({
+export const BootstrapAdminRequestSchema = z.object({
   username: z.string().min(3).max(64),
   email: z.string().email(),
   fullName: z.string().min(3).max(120),
@@ -45,4 +38,4 @@ export const BootstrapAdminSchema = z.object({
 
 export type RegisterInput = z.infer<typeof RegisterSchema>;
 export type LoginInput = z.infer<typeof LoginSchema>;
-export type BootstrapAdminInput = z.infer<typeof BootstrapAdminSchema>;
+export type BootstrapAdminInput = z.infer<typeof BootstrapAdminRequestSchema>;
