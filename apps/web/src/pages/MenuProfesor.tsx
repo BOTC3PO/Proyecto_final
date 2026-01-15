@@ -4,8 +4,18 @@ import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 
 const quickLinks = {
-  academico: ["Módulo de Aprendizaje", "Aulas Virtuales", "Material Didáctico", "Evaluaciones"],
-  gestion: ["Calendario", "Estadísticas", "Mensajes", "Configuración"],
+  academico: [
+    { label: "Módulo de Aprendizaje", href: "/profesor/modulos" },
+    { label: "Aulas Virtuales", href: "/profesor/aulas" },
+    { label: "Material Didáctico", href: "/profesor/materiales" },
+    { label: "Evaluaciones", href: "/profesor/evaluaciones" },
+  ],
+  gestion: [
+    { label: "Calendario", href: "/profesor/calendario" },
+    { label: "Estadísticas", href: "/profesor/estadisticas" },
+    { label: "Mensajes", href: "/profesor/mensajes" },
+    { label: "Configuración", href: "/profesor/configuracion" },
+  ],
 };
 
 export default function menuProfesor() {
@@ -137,8 +147,12 @@ export default function menuProfesor() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x">
                 {links.map((link) => (
-                  <a key={link} className="h-20 grid place-content-center hover:bg-gray-50" href="#">
-                    {link}
+                  <a
+                    key={link.label}
+                    className="h-20 grid place-content-center hover:bg-gray-50"
+                    href={link.href}
+                  >
+                    {link.label}
                   </a>
                 ))}
               </div>
