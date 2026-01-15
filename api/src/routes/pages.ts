@@ -1,12 +1,13 @@
 import { Router } from "express";
 import { TuesdayProjectSchema } from "../schema/page";
 import { getDb } from "../lib/db";
+import { ENV } from "../lib/env";
 import express from "express";
 export const pages = Router();
 function bodyLimitMB(maxMb: number) {
   return [express.json({ limit: `${maxMb}mb` })];
 }
-pages.post("/api/pages", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
+pages.post("/api/pages", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = TuesdayProjectSchema.parse(req.body);
     const db = await getDb();

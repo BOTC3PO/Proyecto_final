@@ -306,8 +306,6 @@ const buildFilePayload = (data: ReporteResponse, formato: ReporteFormato) => {
   };
 };
 
-export const reportes = Router();
-
 const handleReporte = (rol: "profesor" | "admin") => (req: any, res: any) => {
   const filtros = parseFilters(req.query);
   const formato = parseFormato(req.query.formato);
