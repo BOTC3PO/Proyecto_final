@@ -26,8 +26,10 @@ export const NAV_BY_ROLE: NavMap = {
   TEACHER: [
     { label: 'Inicio', to: '/' },
     { label: 'Mis Cursos', to: '/profesor/cursos' },
+    { label: 'Módulos', to: '/profesor/modulos' },
     { label: 'Calificaciones', to: '/profesor/calificaciones' },
     { label: 'Asistencia', to: '/profesor/asistencia' },
+    { label: 'Mensajes', to: '/profesor/mensajes' },
   ],
   ENTERPRISE: [
     { label: 'Dashboard', to: '/enterprise' },
