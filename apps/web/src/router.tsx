@@ -20,7 +20,7 @@ import CrearModulo from "./pages/crearModulo";
 import EditarModulo from "./pages/editarModulo";
 import JugarModulo from "./pages/jugarModulo";
 import ProfesorAulas from "./pages/ProfesorAulas";
-import ProfesorCalendario from "./pages/ProfesorCalendario";
+import Calendario from "./pages/Calendario";
 import ProfesorConfiguracion from "./pages/ProfesorConfiguracion";
 import ProfesorEstadisticas from "./pages/ProfesorEstadisticas";
 import ProfesorEvaluaciones from "./pages/ProfesorEvaluaciones";
@@ -231,7 +231,7 @@ export const router = createBrowserRouter([
         path: "profesor/calendario",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorCalendario />
+            <Calendario />
           </ProtectedRoute>
         ),
       },
