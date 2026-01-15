@@ -9,6 +9,10 @@ export const auth = Router();
 
 auth.post("/api/auth/bootstrap-admin", async (req, res) => {
   try {
+    if (!req.body || Object.keys(req.body).length === 0) {
+      res.status(400).json({ error: "Missing request body" });
+      return;
+    }
     if (!ENV.BOOTSTRAP_ADMIN_KEY) {
       res.status(503).json({ error: "Bootstrap admin disabled" });
       return;
