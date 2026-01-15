@@ -18,6 +18,30 @@ const quickLinks = {
   ],
 };
 
+const kpiCards = [
+  {
+    label: "Tareas por corregir",
+    value: 18,
+    helper: "Últimas 48 horas",
+    href: "/profesor/calificaciones",
+    icon: "📝"
+  },
+  {
+    label: "Entregas atrasadas",
+    value: 6,
+    helper: "Pendientes de revisión",
+    href: "/profesor/entregas",
+    icon: "⏰"
+  },
+  {
+    label: "Mensajes sin leer",
+    value: 4,
+    helper: "Nuevos esta semana",
+    href: "/profesor/mensajes",
+    icon: "💬"
+  }
+];
+
 export default function menuProfesor() {
   const [modules, setModules] = useState(
     MVP_MODULES.map((module) => ({
@@ -103,6 +127,28 @@ export default function menuProfesor() {
               <div className="h-3 w-1/3 bg-gray-400 rounded"></div>
             </div>
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {kpiCards.map((card) => (
+            <a
+              key={card.label}
+              className="group rounded-xl border border-transparent bg-white p-5 shadow transition hover:border-blue-200 hover:shadow-md"
+              href={card.href}
+            >
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-sm text-gray-500">{card.label}</p>
+                  <p className="mt-2 text-3xl font-semibold text-gray-900">{card.value}</p>
+                  <p className="mt-2 text-xs text-gray-400">{card.helper}</p>
+                </div>
+                <span className="text-3xl">{card.icon}</span>
+              </div>
+              <span className="mt-4 inline-flex text-xs font-semibold uppercase tracking-wide text-blue-600 group-hover:underline">
+                Ver detalle
+              </span>
+            </a>
+          ))}
         </div>
 
         <div className="bg-white rounded-xl shadow p-5">
