@@ -27,8 +27,11 @@ import ProfesorEvaluaciones from "./pages/ProfesorEvaluaciones";
 import ProfesorMateriales from "./pages/ProfesorMateriales";
 import ProfesorMensajes from "./pages/ProfesorMensajes";
 import ProfesorModulos from "./pages/ProfesorModulos";
+import ProfesorEncuestas from "./pages/ProfesorEncuestas";
 import ProfesorCursoNuevo from "./pages/ProfesorCursoNuevo";
 import HijosProgreso from "./pages/HijosProgreso";
+import ProfesorReportes from "./pages/ProfesorReportes";
+import AdminReportes from "./pages/AdminReportes";
 
 
 import test from "./sys/testmode";
@@ -43,7 +46,6 @@ import {
   Admin,
   AdminUsuarios,
   AdminCursos,
-  AdminReportes,
   Tareas,
   Progreso,
   ProfCursos,
@@ -204,6 +206,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "profesor/encuestas",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorEncuestas />
+          </ProtectedRoute>
+        ),
+      },
+      {
         path: "profesor/aulas",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
@@ -240,6 +250,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['TEACHER']}>
             <ProfesorEstadisticas />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/reportes",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorReportes />
           </ProtectedRoute>
         ),
       },
