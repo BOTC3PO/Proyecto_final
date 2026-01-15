@@ -476,7 +476,7 @@ const parentId = new ObjectId();
 const moduloId = new ObjectId();
 const claseId = new ObjectId();
 const defaultPasswordHash =
-  "pbkdf2$100000$06a567ecaa84537122fd4f19536909fa$d29076dfa83750fa626a1fd49a90e76a49f3f2683743e8d5864e53105a85d37ab4fc9db9a4bc6c1c6004afd08d19c337f0f091cac2dc2598b1bcc5ee5b95654f";
+  "pbkdf2$100000$ae30ab2431a9014a369007c291d0d5d9$1e72e69ff068d5b1108bdc60b4764690e454086422f77e9d658dd99e55f2deba9b8ca4564e1bb11a32277227005dd07a4510dfaa95188d8ea46999f50044bfe3";
 
 db.escuelas.insertOne({
   _id: escuelaId,
