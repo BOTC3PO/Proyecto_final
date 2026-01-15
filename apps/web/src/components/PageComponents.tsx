@@ -12,7 +12,6 @@ export const AdminReportes = () => <div className="p-6">Admin Reportes</div>;
 export const Clases = () => <div className="p-6">Clases</div>;
 export const Tareas = () => <div className="p-6">Tareas</div>;
 export const Progreso = () => <div className="p-6">Progreso</div>;
-export const Hijos = () => <div className="p-6">Panel Hijo/a (solo Padres)</div>;
 
 export const ProfCursos = () => <div className="p-6">Mis Cursos (Profesor)</div>;
 export const ProfCalif = () => <div className="p-6">Calificaciones (Profesor)</div>;

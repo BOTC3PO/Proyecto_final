@@ -12,7 +12,7 @@ const userBase: NavItem[] = [
 ];
 
 // Padres = similar a Usuario + 1 página extra
-const parentExtra: NavItem = { label: 'Panel Hijo/a', to: '/hijos' };
+const parentExtra: NavItem = { label: 'Hijos', to: '/hijos' };
 
 export const NAV_BY_ROLE: NavMap = {
   ADMIN: [

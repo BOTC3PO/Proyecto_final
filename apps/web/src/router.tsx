@@ -28,6 +28,7 @@ import ProfesorMateriales from "./pages/ProfesorMateriales";
 import ProfesorMensajes from "./pages/ProfesorMensajes";
 import ProfesorModulos from "./pages/ProfesorModulos";
 import ProfesorCursoNuevo from "./pages/ProfesorCursoNuevo";
+import HijosProgreso from "./pages/HijosProgreso";
 
 
 import test from "./sys/testmode";
@@ -45,7 +46,6 @@ import {
   AdminReportes,
   Tareas,
   Progreso,
-  Hijos,
   ProfCursos,
   ProfCalif,
   ProfAsist,
@@ -157,7 +157,7 @@ export const router = createBrowserRouter([
         path: "hijos",
         element: (
           <ProtectedRoute allow={['PARENT']}>
-            <Hijos />
+            <HijosProgreso />
           </ProtectedRoute>
         ),
       },
