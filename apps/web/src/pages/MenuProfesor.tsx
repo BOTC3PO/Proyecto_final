@@ -42,6 +42,24 @@ const kpiCards = [
   }
 ];
 
+const weeklyPlan = [
+  {
+    title: "Matemáticas 1°A",
+    detail: "Lunes · 10:30 - 11:15 · Aula 2",
+    status: "Clase"
+  },
+  {
+    title: "Tutoría personalizada 3°C",
+    detail: "Miércoles · 09:00 - 09:40 · Sala virtual",
+    status: "Tutoría"
+  },
+  {
+    title: "Laboratorio ciencias 2°B",
+    detail: "Viernes · 08:15 - 09:30 · Laboratorio",
+    status: "Práctica"
+  }
+];
+
 export default function menuProfesor() {
   const [modules, setModules] = useState(
     MVP_MODULES.map((module) => ({
@@ -150,6 +168,36 @@ export default function menuProfesor() {
             </a>
           ))}
         </div>
+
+        <section className="bg-white rounded-xl shadow p-5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 className="text-lg font-semibold">Planificación semanal</h3>
+              <p className="text-sm text-gray-500">
+                Próximas clases y actividades prioritarias.
+              </p>
+            </div>
+            <a
+              className="inline-flex items-center gap-2 rounded-md border border-blue-200 px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50"
+              href="/profesor/calendario"
+            >
+              Ver calendario
+            </a>
+          </div>
+          <ul className="mt-4 divide-y divide-gray-100">
+            {weeklyPlan.map((item) => (
+              <li key={item.title} className="flex flex-wrap items-center justify-between gap-3 py-3">
+                <div>
+                  <p className="font-semibold text-gray-900">{item.title}</p>
+                  <p className="text-sm text-gray-500">{item.detail}</p>
+                </div>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                  {item.status}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <div className="bg-white rounded-xl shadow p-5">
           <div className="flex flex-wrap items-center justify-between gap-3">
