@@ -14,16 +14,31 @@ export const hashPassword = (password: string) => {
 };
 
 export const verifyPassword = (password: string, storedHash: string) => {
-  const [prefix, iterationsRaw, salt, hash] = storedHash.split("$");
-  if (!prefix || !iterationsRaw || !salt || !hash) return false;
-  if (prefix !== HASH_PREFIX) return false;
+  const normalized = storedHash.startsWith("$") ? storedHash.slice(1) : storedHash;
+  const [prefix, iterationsRaw, saltRaw, hashRaw] = normalized.split("$");
+  if (!prefix || !iterationsRaw || !saltRaw || !hashRaw) return false;
   const iterations = Number(iterationsRaw);
   if (!Number.isFinite(iterations) || iterations <= 0) return false;
-  const derived = crypto
-    .pbkdf2Sync(password, salt, iterations, HASH_KEY_LENGTH, HASH_DIGEST)
-    .toString("hex");
-  const derivedBuffer = Buffer.from(derived, "hex");
-  const storedBuffer = Buffer.from(hash, "hex");
+  let salt: Buffer;
+  let storedBuffer: Buffer;
+  if (prefix === HASH_PREFIX) {
+    if (!/^[a-fA-F0-9]+$/.test(saltRaw) || !/^[a-fA-F0-9]+$/.test(hashRaw)) return false;
+    if (saltRaw.length % 2 !== 0 || hashRaw.length % 2 !== 0) return false;
+    salt = Buffer.from(saltRaw, "hex");
+    storedBuffer = Buffer.from(hashRaw, "hex");
+  } else if (prefix === "pbkdf2-sha256") {
+    salt = Buffer.from(saltRaw, "base64");
+    storedBuffer = Buffer.from(hashRaw, "base64");
+  } else {
+    return false;
+  }
+  const derivedBuffer = crypto.pbkdf2Sync(
+    password,
+    salt,
+    iterations,
+    HASH_KEY_LENGTH,
+    HASH_DIGEST
+  );
   if (derivedBuffer.length !== storedBuffer.length) return false;
   return crypto.timingSafeEqual(derivedBuffer, storedBuffer);
 };

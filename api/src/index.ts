@@ -16,6 +16,7 @@ const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
 app.use(morgan("tiny"));
+app.use(express.json());
 app.use(health);
 app.use(pages);
 app.use(auth);
