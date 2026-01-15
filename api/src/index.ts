@@ -14,6 +14,7 @@ import { seed } from "./routes/seed";
 import { auth } from "./routes/auth";
 import { estadisticas } from "./routes/estadisticas";
 import { reportes } from "./routes/reportes";
+import { encuestas } from "./routes/encuestas";
 const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
@@ -30,6 +31,7 @@ app.use(libros);
 app.use(estadisticas);
 app.use(seed);
 app.use(reportes);
+app.use(encuestas);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.listen(ENV.PORT, () => {
   console.log(`API on http://localhost:${ENV.PORT}`);
