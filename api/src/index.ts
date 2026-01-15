@@ -12,6 +12,7 @@ import { progreso } from "./routes/progreso";
 import { libros } from "./routes/libros";
 import { seed } from "./routes/seed";
 import { auth } from "./routes/auth";
+import { estadisticas } from "./routes/estadisticas";
 const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
@@ -25,6 +26,7 @@ app.use(escuelas);
 app.use(modulos);
 app.use(progreso);
 app.use(libros);
+app.use(estadisticas);
 app.use(seed);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.listen(ENV.PORT, () => {
