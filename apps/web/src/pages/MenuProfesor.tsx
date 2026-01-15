@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
@@ -158,9 +159,9 @@ export default function menuProfesor() {
           </div>
           <div className="flex items-center gap-5">
             <button title="Notificaciones">🔔</button>
-            <a className="flex items-center gap-2 hover:underline" href="#">
+            <Link className="flex items-center gap-2 hover:underline" to="#">
               👤 Perfil
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -194,10 +195,10 @@ export default function menuProfesor() {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {kpiCards.map((card) => (
-            <a
+            <Link
               key={card.label}
               className="group rounded-xl border border-transparent bg-white p-5 shadow transition hover:border-blue-200 hover:shadow-md"
-              href={card.href}
+              to={card.href}
             >
               <div className="flex items-start justify-between">
                 <div>
@@ -210,7 +211,7 @@ export default function menuProfesor() {
               <span className="mt-4 inline-flex text-xs font-semibold uppercase tracking-wide text-blue-600 group-hover:underline">
                 Ver detalle
               </span>
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -222,12 +223,12 @@ export default function menuProfesor() {
                 Próximas clases y actividades prioritarias.
               </p>
             </div>
-            <a
+            <Link
               className="inline-flex items-center gap-2 rounded-md border border-blue-200 px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50"
-              href="/profesor/calendario"
+              to="/profesor/calendario"
             >
               Ver calendario
-            </a>
+            </Link>
           </div>
           <ul className="mt-4 divide-y divide-gray-100">
             {weeklyPlan.map((item) => (
@@ -248,12 +249,12 @@ export default function menuProfesor() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h3 className="text-lg font-semibold">Módulos activos</h3>
             <div className="flex items-center gap-3">
-              <a
+              <Link
                 className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
-                href="/profesor/cursos/nuevo"
+                to="/profesor/cursos/nuevo"
               >
                 + Crear clase/sección
-              </a>
+              </Link>
               <button className="text-sm text-blue-600 hover:underline">Crear módulo</button>
             </div>
           </div>
@@ -327,12 +328,12 @@ export default function menuProfesor() {
                   <span>{module.level}</span>
                   <span>{module.durationMinutes} min</span>
                 </div>
-                <a
+                <Link
                   className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  href={`/profesor/editar-modulo/${module.id}`}
+                  to={`/profesor/editar-modulo/${module.id}`}
                 >
                   Editar módulo
-                </a>
+                </Link>
               </article>
             ))}
           </div>
@@ -351,13 +352,13 @@ export default function menuProfesor() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x">
                 {links.map((link) => (
-                  <a
+                  <Link
                     key={link.label}
                     className="h-20 grid place-content-center hover:bg-gray-50"
-                    href={link.href}
+                    to={link.href}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

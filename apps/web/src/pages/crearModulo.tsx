@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { apiPost } from "../lib/api";
 import type { ModuleResource } from "../domain/module/module.types";
 import { MVP_GENERATOR_CATEGORIES, MVP_MODULES } from "../mvp/mvpData";
@@ -536,12 +537,12 @@ export default function CrearModulo() {
                 Guarda un libro en el editor y pega su ID aquí para asociarlo al módulo.
               </p>
               <div className="flex flex-wrap gap-2">
-                <a
+                <Link
                   className="rounded-md border px-4 py-2 text-sm text-blue-600 hover:bg-blue-50"
-                  href="/editor"
+                  to="/editor"
                 >
                   Añadir libro desde editor
-                </a>
+                </Link>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <input

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ProfesorCursoNuevo() {
   return (
     <main className="flex-1">
@@ -38,9 +40,12 @@ export default function ProfesorCursoNuevo() {
               >
                 Guardar clase
               </button>
-              <a className="inline-flex items-center justify-center text-sm text-gray-600 hover:underline" href="/profesor/cursos">
+              <Link
+                className="inline-flex items-center justify-center text-sm text-gray-600 hover:underline"
+                to="/profesor/cursos"
+              >
                 Cancelar
-              </a>
+              </Link>
             </div>
           </form>
         </div>
