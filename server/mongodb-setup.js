@@ -475,6 +475,8 @@ const studentId = new ObjectId();
 const parentId = new ObjectId();
 const moduloId = new ObjectId();
 const claseId = new ObjectId();
+const defaultPasswordHash =
+  "pbkdf2$100000$d90b9b52947b2b89b5cc80a5c765f5d4$521a06708b0923eed9cda54242f1e589e2020390c59bb9429f3cf21ec85466b0b5bdeeb4ce73d96c2f99df1829667d06ea27a7a0115db0d9f32bf7c0a3615c18";
 
 db.escuelas.insertOne({
   _id: escuelaId,
@@ -493,6 +495,7 @@ db.usuarios.insertMany([
     email: "admin@escuela.com",
     fullName: "Ana López",
     role: "ADMIN",
+    passwordHash: defaultPasswordHash,
     escuelaId: escuelaId,
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
     isDeleted: false,
@@ -504,6 +507,7 @@ db.usuarios.insertMany([
     email: "jperez@escuela.com",
     fullName: "Juan Pérez",
     role: "TEACHER",
+    passwordHash: defaultPasswordHash,
     escuelaId: escuelaId,
     teacherProfile: { managedClassIds: [claseId] },
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
@@ -516,6 +520,7 @@ db.usuarios.insertMany([
     email: "ana@familia.com",
     fullName: "Ana García",
     role: "USER",
+    passwordHash: defaultPasswordHash,
     escuelaId: escuelaId,
     birthdate: new Date("2013-04-16"),
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
@@ -528,6 +533,7 @@ db.usuarios.insertMany([
     email: "maria@familia.com",
     fullName: "María Pérez",
     role: "PARENT",
+    passwordHash: defaultPasswordHash,
     escuelaId: escuelaId,
     parentProfile: { childrenIds: [studentId] },
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
