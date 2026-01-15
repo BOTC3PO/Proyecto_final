@@ -29,6 +29,8 @@ import ProfesorMensajes from "./pages/ProfesorMensajes";
 import ProfesorModulos from "./pages/ProfesorModulos";
 import ProfesorCursoNuevo from "./pages/ProfesorCursoNuevo";
 import HijosProgreso from "./pages/HijosProgreso";
+import ProfesorReportes from "./pages/ProfesorReportes";
+import AdminReportes from "./pages/AdminReportes";
 
 
 import test from "./sys/testmode";
@@ -43,7 +45,6 @@ import {
   Admin,
   AdminUsuarios,
   AdminCursos,
-  AdminReportes,
   Tareas,
   Progreso,
   ProfCursos,
@@ -240,6 +241,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['TEACHER']}>
             <ProfesorEstadisticas />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/reportes",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorReportes />
           </ProtectedRoute>
         ),
       },
