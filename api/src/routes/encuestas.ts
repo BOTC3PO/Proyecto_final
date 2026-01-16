@@ -1,11 +1,11 @@
 import express, { Router } from "express";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
-import { SurveySchema } from "../schema/encuesta";
+import { SurveyBaseSchema, SurveySchema } from "../schema/encuesta";
 
 export const encuestas = Router();
 
-const SurveyUpdateSchema = SurveySchema.partial().omit({ id: true, createdAt: true, createdBy: true });
+const SurveyUpdateSchema = SurveyBaseSchema.partial().omit({ id: true, createdAt: true, createdBy: true });
 
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
