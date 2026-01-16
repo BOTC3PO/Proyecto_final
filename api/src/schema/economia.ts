@@ -17,6 +17,11 @@ export const EconomiaConfigSchema = z.object({
     tasa: z.number().nonnegative(),
     activa: z.boolean()
   }),
+  hiperinflacion: z.object({
+    tasa: z.number().nonnegative(),
+    activa: z.boolean(),
+    aceleracion: z.number().min(1)
+  }),
   deflacion: z.object({
     tasa: z.number().nonnegative(),
     activa: z.boolean()

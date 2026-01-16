@@ -30,6 +30,60 @@ const buildPrecioPromedio = (values: number[]) => {
   return valid.reduce((acc, value) => acc + value, 0) / valid.length;
 };
 
+const MACRO_MODULOS = {
+  inflacion: "economia_inflacion",
+  deflacion: "economia_deflacion",
+  hiperinflacion: "economia_hiperinflacion"
+} as const;
+
+type MacroModo = "normal" | "inflacion" | "deflacion" | "hiperinflacion";
+
+const roundMoney = (value: number) => Number(value.toFixed(2));
+
+const getMacroAjuste = async (db: Awaited<ReturnType<typeof getDb>>) => {
+  const config = await getEconomiaConfig(db);
+  const macroIds = Object.values(MACRO_MODULOS);
+  const modulos = await db
+    .collection("economia_modulos")
+    .find({ moduloId: { $in: macroIds } })
+    .toArray();
+  const activos = new Set(modulos.filter((modulo) => modulo.activo).map((modulo) => modulo.moduloId));
+  const hiperinflacionActiva =
+    config.hiperinflacion.activa && activos.has(MACRO_MODULOS.hiperinflacion);
+  const inflacionActiva = config.inflacion.activa && activos.has(MACRO_MODULOS.inflacion);
+  const deflacionActiva = config.deflacion.activa && activos.has(MACRO_MODULOS.deflacion);
+  let modo: MacroModo = "normal";
+  let precioFactor = 1;
+  let recompensaFactor = 1;
+  let tasaAplicada = 0;
+  let aceleracionAplicada = 1;
+  if (hiperinflacionActiva) {
+    modo = "hiperinflacion";
+    tasaAplicada = config.hiperinflacion.tasa;
+    aceleracionAplicada = config.hiperinflacion.aceleracion;
+    const ajuste = tasaAplicada * aceleracionAplicada;
+    precioFactor = 1 + ajuste;
+    recompensaFactor = Math.max(0, 1 - ajuste);
+  } else if (inflacionActiva) {
+    modo = "inflacion";
+    tasaAplicada = config.inflacion.tasa;
+    precioFactor = 1 + tasaAplicada;
+    recompensaFactor = Math.max(0, 1 - tasaAplicada);
+  } else if (deflacionActiva) {
+    modo = "deflacion";
+    tasaAplicada = config.deflacion.tasa;
+    precioFactor = Math.max(0, 1 - tasaAplicada);
+    recompensaFactor = 1 + tasaAplicada;
+  }
+  return {
+    modo,
+    precioFactor,
+    recompensaFactor,
+    tasaAplicada,
+    aceleracionAplicada
+  };
+};
+
 const defaultConfig = () => ({
   id: "general" as const,
   moneda: {
@@ -44,6 +98,11 @@ const defaultConfig = () => ({
   inflacion: {
     tasa: 0,
     activa: false
+  },
+  hiperinflacion: {
+    tasa: 0,
+    activa: false,
+    aceleracion: 2
   },
   deflacion: {
     tasa: 0,
@@ -88,6 +147,7 @@ economia.patch("/api/economia/config", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (r
       moneda: parsed.moneda ?? current.moneda,
       tasas: { ...current.tasas, ...parsed.tasas },
       inflacion: { ...current.inflacion, ...parsed.inflacion },
+      hiperinflacion: { ...current.hiperinflacion, ...parsed.hiperinflacion },
       deflacion: { ...current.deflacion, ...parsed.deflacion },
       rankingFactors: parsed.rankingFactors ?? current.rankingFactors,
       updatedAt: new Date().toISOString()
@@ -109,12 +169,26 @@ economia.get("/api/economia/recompensas", async (req, res) => {
     typeof tipo === "string" && ["modulo", "tarea", "bonus"].includes(tipo)
       ? { tipo }
       : {};
+  const ajuste = await getMacroAjuste(db);
   const items = await db
     .collection("economia_recompensas")
     .find(filtro)
     .sort({ updatedAt: -1 })
     .toArray();
-  res.json({ items });
+  const adjustedItems = items.map((item) => ({
+    ...item,
+    montoAjustado: roundMoney(item.monto * ajuste.recompensaFactor)
+  }));
+  res.json({
+    items: adjustedItems,
+    ajuste: {
+      modo: ajuste.modo,
+      recompensaFactor: ajuste.recompensaFactor,
+      precioFactor: ajuste.precioFactor,
+      tasaAplicada: ajuste.tasaAplicada,
+      aceleracionAplicada: ajuste.aceleracionAplicada
+    }
+  });
 });
 
 economia.post("/api/economia/recompensas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
@@ -291,8 +365,25 @@ economia.get("/api/economia/examenes", async (req, res) => {
   const estado = req.query.estado;
   const filtro = typeof estado === "string" && estado.trim() ? { estado } : {};
   const db = await getDb();
+  const ajuste = await getMacroAjuste(db);
   const items = await db.collection("economia_examenes").find(filtro).sort({ updatedAt: -1 }).toArray();
-  res.json({ items });
+  const adjustedItems = items.map((item) => ({
+    ...item,
+    precioPromedioAjustado:
+      item.precioPromedio !== undefined
+        ? roundMoney(item.precioPromedio * ajuste.precioFactor)
+        : undefined
+  }));
+  res.json({
+    items: adjustedItems,
+    ajuste: {
+      modo: ajuste.modo,
+      recompensaFactor: ajuste.recompensaFactor,
+      precioFactor: ajuste.precioFactor,
+      tasaAplicada: ajuste.tasaAplicada,
+      aceleracionAplicada: ajuste.aceleracionAplicada
+    }
+  });
 });
 
 economia.post("/api/economia/examenes", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {

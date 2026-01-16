@@ -471,7 +471,16 @@ db.createCollection("economia_config", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["id", "moneda", "tasas", "inflacion", "deflacion", "rankingFactors", "updatedAt"],
+      required: [
+        "id",
+        "moneda",
+        "tasas",
+        "inflacion",
+        "hiperinflacion",
+        "deflacion",
+        "rankingFactors",
+        "updatedAt"
+      ],
       properties: {
         id: { bsonType: "string" },
         moneda: {
@@ -497,6 +506,15 @@ db.createCollection("economia_config", {
           properties: {
             tasa: { bsonType: "double", minimum: 0 },
             activa: { bsonType: "bool" }
+          }
+        },
+        hiperinflacion: {
+          bsonType: "object",
+          required: ["tasa", "activa", "aceleracion"],
+          properties: {
+            tasa: { bsonType: "double", minimum: 0 },
+            activa: { bsonType: "bool" },
+            aceleracion: { bsonType: "double", minimum: 1 }
           }
         },
         deflacion: {
