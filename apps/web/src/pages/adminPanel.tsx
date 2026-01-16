@@ -37,6 +37,18 @@ interface TransferRequest {
   status: "pending" | "approved" | "rejected";
 }
 
+interface SavingsMissionAdmin {
+  id: string;
+  title: string;
+  description: string;
+  targetAmount: number;
+  durationDays: number;
+  rewardCoins: number;
+  badgeLabel: string;
+  scope: "school" | "class";
+  active: boolean;
+}
+
 // ====== MOCK DATA (reemplaza luego por datos reales) ======
 const mockCurrentUser: User = {
   id: "u1",
@@ -112,15 +124,62 @@ const mockTransfers: TransferRequest[] = [
   },
 ];
 
+const mockSavingsMissions: SavingsMissionAdmin[] = [
+  {
+    id: "mission-1",
+    title: "Fondo para la excursión",
+    description: "Ahorrar para cubrir transporte y materiales de la salida educativa.",
+    targetAmount: 80,
+    durationDays: 7,
+    rewardCoins: 15,
+    badgeLabel: "Explorador del ahorro",
+    scope: "school",
+    active: true
+  },
+  {
+    id: "mission-2",
+    title: "Reto de meriendas saludables",
+    description: "Guardar monedas durante dos semanas para planificar meriendas.",
+    targetAmount: 120,
+    durationDays: 14,
+    rewardCoins: 25,
+    badgeLabel: "Guardian del bolsillo",
+    scope: "class",
+    active: true
+  },
+  {
+    id: "mission-3",
+    title: "Meta solidaria",
+    description: "Separar monedas para una acción solidaria del curso.",
+    targetAmount: 60,
+    durationDays: 5,
+    rewardCoins: 12,
+    badgeLabel: "Corazón generoso",
+    scope: "class",
+    active: false
+  }
+];
+
 // ====== COMPONENTE PRINCIPAL ======
 const AdminPanelMain: React.FC = () => {
   const [currentUser] = useState<User>(mockCurrentUser);
-  const [activeTab, setActiveTab] = useState<"resumen" | "clases" | "mensajes" | "transferencias">("resumen");
+  const [activeTab, setActiveTab] = useState<"resumen" | "clases" | "misiones" | "mensajes" | "transferencias">("resumen");
   const [selectedClassId, setSelectedClassId] = useState<string | null>(null);
   const [inviteEmail, setInviteEmail] = useState("");
   const [inviteRole, setInviteRole] = useState<"student" | "teacher">("student");
   const [newClassName, setNewClassName] = useState("");
   const [newClassGrade, setNewClassGrade] = useState("");
+  const [savingsMissions, setSavingsMissions] = useState<SavingsMissionAdmin[]>(mockSavingsMissions);
+  const [newMission, setNewMission] = useState<Omit<SavingsMissionAdmin, "id">>({
+    title: "",
+    description: "",
+    targetAmount: 50,
+    durationDays: 7,
+    rewardCoins: 10,
+    badgeLabel: "",
+    scope: "class",
+    active: true
+  });
 
   const isSchoolAdmin = currentUser.role === "schoolAdmin";
 
@@ -163,6 +222,48 @@ const AdminPanelMain: React.FC = () => {
   const handleTransferAction = (id: string, action: "approve" | "reject") => {
     // Aquí irían las llamadas al backend para aprobar/rechazar
     console.log("Acción sobre transferencia:", { id, action });
+  };
+
+  const handleToggleMission = (id: string) => {
+    setSavingsMissions((prev) =>
+      prev.map((mission) =>
+        mission.id === id ? { ...mission, active: !mission.active } : mission
+      )
+    );
+  };
+
+  const handleMissionFieldChange = (
+    id: string,
+    field: keyof SavingsMissionAdmin,
+    value: string | number | boolean
+  ) => {
+    setSavingsMissions((prev) =>
+      prev.map((mission) =>
+        mission.id === id ? { ...mission, [field]: value } : mission
+      )
+    );
+  };
+
+  const handleCreateMission = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!newMission.title.trim() || !newMission.badgeLabel.trim()) return;
+    const created: SavingsMissionAdmin = {
+      id: `mission-${Date.now()}`,
+      ...newMission,
+      title: newMission.title.trim(),
+      description: newMission.description.trim()
+    };
+    setSavingsMissions((prev) => [created, ...prev]);
+    setNewMission({
+      title: "",
+      description: "",
+      targetAmount: 50,
+      durationDays: 7,
+      rewardCoins: 10,
+      badgeLabel: "",
+      scope: "class",
+      active: true
+    });
   };
 
   return (
@@ -242,6 +343,7 @@ const AdminPanelMain: React.FC = () => {
               {[
                 { id: "resumen", label: "Resumen" },
                 { id: "clases", label: "Clases e invitaciones" },
+                { id: "misiones", label: "Misiones de ahorro" },
                 { id: "mensajes", label: "Mensajes con familias" },
                 { id: "transferencias", label: "Transferencias" },
               ].map((tab) => (
@@ -534,6 +636,278 @@ const AdminPanelMain: React.FC = () => {
                       usuarios.
                     </p>
                   )}
+                </div>
+              </div>
+            )}
+
+            {/* TAB: MISIONES DE AHORRO */}
+            {activeTab === "misiones" && (
+              <div className="space-y-6">
+                <div className="rounded-xl border border-amber-100 bg-amber-50 p-4 text-sm text-amber-900">
+                  <p className="font-semibold">Control de misiones de ahorro</p>
+                  <p className="mt-1 text-xs text-amber-800">
+                    Definí metas, tiempos y recompensas en badges. Estas misiones se
+                    publican en el tablero del alumno cuando están activas.
+                  </p>
+                </div>
+
+                <div className="grid gap-4 lg:grid-cols-3">
+                  <div className="lg:col-span-2 space-y-4">
+                    {savingsMissions.map((mission) => (
+                      <div
+                        key={mission.id}
+                        className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm"
+                      >
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                          <div>
+                            <p className="text-sm font-semibold text-gray-900">
+                              {mission.title}
+                            </p>
+                            <p className="text-xs text-gray-500">
+                              {mission.description || "Sin descripción aún."}
+                            </p>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => handleToggleMission(mission.id)}
+                            className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${
+                              mission.active
+                                ? "bg-emerald-100 text-emerald-700"
+                                : "bg-gray-100 text-gray-500"
+                            }`}
+                          >
+                            {mission.active ? "Activa" : "Pausada"}
+                          </button>
+                        </div>
+
+                        <div className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-3 text-sm">
+                          <label className="text-xs text-gray-600">
+                            Meta de ahorro (🪙)
+                            <input
+                              type="number"
+                              min={10}
+                              className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                              value={mission.targetAmount}
+                              onChange={(event) =>
+                                handleMissionFieldChange(
+                                  mission.id,
+                                  "targetAmount",
+                                  Number(event.target.value)
+                                )
+                              }
+                            />
+                          </label>
+                          <label className="text-xs text-gray-600">
+                            Tiempo (días)
+                            <input
+                              type="number"
+                              min={1}
+                              className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                              value={mission.durationDays}
+                              onChange={(event) =>
+                                handleMissionFieldChange(
+                                  mission.id,
+                                  "durationDays",
+                                  Number(event.target.value)
+                                )
+                              }
+                            />
+                          </label>
+                          <label className="text-xs text-gray-600">
+                            Recompensa (🪙)
+                            <input
+                              type="number"
+                              min={0}
+                              className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                              value={mission.rewardCoins}
+                              onChange={(event) =>
+                                handleMissionFieldChange(
+                                  mission.id,
+                                  "rewardCoins",
+                                  Number(event.target.value)
+                                )
+                              }
+                            />
+                          </label>
+                          <label className="text-xs text-gray-600">
+                            Badge asociado
+                            <input
+                              type="text"
+                              className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                              value={mission.badgeLabel}
+                              onChange={(event) =>
+                                handleMissionFieldChange(
+                                  mission.id,
+                                  "badgeLabel",
+                                  event.target.value
+                                )
+                              }
+                            />
+                          </label>
+                          <label className="text-xs text-gray-600">
+                            Alcance
+                            <select
+                              className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                              value={mission.scope}
+                              onChange={(event) =>
+                                handleMissionFieldChange(
+                                  mission.id,
+                                  "scope",
+                                  event.target.value as SavingsMissionAdmin["scope"]
+                                )
+                              }
+                            >
+                              <option value="school">Toda la escuela</option>
+                              <option value="class">Solo la clase</option>
+                            </select>
+                          </label>
+                          <label className="text-xs text-gray-600">
+                            Descripción breve
+                            <input
+                              type="text"
+                              className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                              value={mission.description}
+                              onChange={(event) =>
+                                handleMissionFieldChange(
+                                  mission.id,
+                                  "description",
+                                  event.target.value
+                                )
+                              }
+                            />
+                          </label>
+                        </div>
+
+                        <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-500">
+                          <span className="rounded-full bg-gray-100 px-2 py-1">
+                            {mission.scope === "school"
+                              ? "Aplica a toda la escuela"
+                              : `Aplica a: ${selectedClass?.name ?? "clase seleccionada"}`}
+                          </span>
+                          <span className="rounded-full bg-blue-50 px-2 py-1 text-blue-700">
+                            Badge: {mission.badgeLabel || "Sin badge definido"}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <form
+                    onSubmit={handleCreateMission}
+                    className="rounded-xl border border-dashed border-gray-200 bg-gray-50 p-4 space-y-3"
+                  >
+                    <div>
+                      <h3 className="text-sm font-semibold text-gray-800">Crear nueva misión</h3>
+                      <p className="text-xs text-gray-500">
+                        Agregá misiones con metas y tiempos para gamificar el ahorro.
+                      </p>
+                    </div>
+                    <label className="text-xs text-gray-600">
+                      Título
+                      <input
+                        type="text"
+                        className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                        value={newMission.title}
+                        onChange={(event) =>
+                          setNewMission((prev) => ({ ...prev, title: event.target.value }))
+                        }
+                        placeholder="Ej: Planifica tu compra"
+                      />
+                    </label>
+                    <label className="text-xs text-gray-600">
+                      Descripción
+                      <input
+                        type="text"
+                        className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                        value={newMission.description}
+                        onChange={(event) =>
+                          setNewMission((prev) => ({ ...prev, description: event.target.value }))
+                        }
+                        placeholder="¿Qué aprenden al ahorrar?"
+                      />
+                    </label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <label className="text-xs text-gray-600">
+                        Meta (🪙)
+                        <input
+                          type="number"
+                          min={10}
+                          className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                          value={newMission.targetAmount}
+                          onChange={(event) =>
+                            setNewMission((prev) => ({
+                              ...prev,
+                              targetAmount: Number(event.target.value)
+                            }))
+                          }
+                        />
+                      </label>
+                      <label className="text-xs text-gray-600">
+                        Tiempo (días)
+                        <input
+                          type="number"
+                          min={1}
+                          className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                          value={newMission.durationDays}
+                          onChange={(event) =>
+                            setNewMission((prev) => ({
+                              ...prev,
+                              durationDays: Number(event.target.value)
+                            }))
+                          }
+                        />
+                      </label>
+                      <label className="text-xs text-gray-600">
+                        Recompensa (🪙)
+                        <input
+                          type="number"
+                          min={0}
+                          className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                          value={newMission.rewardCoins}
+                          onChange={(event) =>
+                            setNewMission((prev) => ({
+                              ...prev,
+                              rewardCoins: Number(event.target.value)
+                            }))
+                          }
+                        />
+                      </label>
+                      <label className="text-xs text-gray-600">
+                        Badge
+                        <input
+                          type="text"
+                          className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                          value={newMission.badgeLabel}
+                          onChange={(event) =>
+                            setNewMission((prev) => ({ ...prev, badgeLabel: event.target.value }))
+                          }
+                          placeholder="Ej: Ahorrista top"
+                        />
+                      </label>
+                    </div>
+                    <label className="text-xs text-gray-600">
+                      Alcance
+                      <select
+                        className="mt-1 w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                        value={newMission.scope}
+                        onChange={(event) =>
+                          setNewMission((prev) => ({
+                            ...prev,
+                            scope: event.target.value as SavingsMissionAdmin["scope"]
+                          }))
+                        }
+                      >
+                        <option value="school">Toda la escuela</option>
+                        <option value="class">Solo la clase</option>
+                      </select>
+                    </label>
+                    <button
+                      type="submit"
+                      className="w-full rounded-md bg-blue-600 px-3 py-2 text-xs font-semibold text-white hover:bg-blue-700"
+                    >
+                      Crear misión
+                    </button>
+                  </form>
                 </div>
               </div>
             )}

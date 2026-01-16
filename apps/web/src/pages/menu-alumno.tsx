@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Bell, Clock3, GraduationCap, Trophy, UserCircle2 } from "lucide-react";
+import { Award, Bell, Clock3, GraduationCap, Trophy, UserCircle2 } from "lucide-react";
 import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
@@ -44,6 +44,23 @@ type RewardItem = {
   reward: number;
 };
 
+type SavingsMission = {
+  id: string;
+  title: string;
+  description: string;
+  targetAmount: number;
+  durationDays: number;
+  rewardCoins: number;
+  badgeId: string;
+  badgeLabel: string;
+};
+
+type Badge = {
+  id: string;
+  label: string;
+  description: string;
+};
+
 type StoreItem = {
   id: string;
   name: string;
@@ -72,6 +89,12 @@ type CoinFeedback = {
   tone: "gain" | "spend";
 };
 
+type MissionProgress = {
+  saved: number;
+  startedAt: string | null;
+  completed: boolean;
+};
+
 type EconomyState = {
   coins: number;
   foreignCoins: number;
@@ -80,6 +103,8 @@ type EconomyState = {
   completedModuleIds: string[];
   completedTaskIds: string[];
   transfers: Transfer[];
+  missionProgress: Record<string, MissionProgress>;
+  earnedBadgeIds: string[];
 };
 
 const MODULE_REWARDS: RewardItem[] = [
@@ -101,6 +126,45 @@ const STORE_ITEMS: StoreItem[] = [
   { id: "vibrante", name: "Tema vibrante", description: "Accentos coloridos para destacar logros.", price: 65 }
 ];
 
+const SAVINGS_MISSIONS: SavingsMission[] = [
+  {
+    id: "mission-1",
+    title: "Fondo para la excursión",
+    description: "Guardá monedas para cubrir materiales y transporte.",
+    targetAmount: 80,
+    durationDays: 7,
+    rewardCoins: 15,
+    badgeId: "badge-explorador",
+    badgeLabel: "Explorador del ahorro"
+  },
+  {
+    id: "mission-2",
+    title: "Reto de meriendas saludables",
+    description: "Ahorrá para planificar snacks sin gastar de más.",
+    targetAmount: 120,
+    durationDays: 14,
+    rewardCoins: 25,
+    badgeId: "badge-guardian",
+    badgeLabel: "Guardián del bolsillo"
+  },
+  {
+    id: "mission-3",
+    title: "Meta solidaria",
+    description: "Separá monedas para una causa solidaria del curso.",
+    targetAmount: 60,
+    durationDays: 5,
+    rewardCoins: 12,
+    badgeId: "badge-corazon",
+    badgeLabel: "Corazón generoso"
+  }
+];
+
+const BADGES: Badge[] = SAVINGS_MISSIONS.map((mission) => ({
+  id: mission.badgeId,
+  label: mission.badgeLabel,
+  description: `Se obtiene al completar la misión "${mission.title}".`
+}));
+
 const ECONOMY_STORAGE_KEY = "economia-alumno";
 const FOREIGN_EXCHANGE_RATE = 100;
 
@@ -111,7 +175,9 @@ const defaultEconomyState: EconomyState = {
   activeTheme: "clasico",
   completedModuleIds: [],
   completedTaskIds: [],
-  transfers: []
+  transfers: [],
+  missionProgress: {},
+  earnedBadgeIds: []
 };
 
 const Container: React.FC<React.PropsWithChildren<{ className?: string }>> = ({ children, className = "" }) => (
@@ -190,6 +256,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   const [fciDays, setFciDays] = useState(10);
   const [educationMessages, setEducationMessages] = useState<EducationMessage[]>([]);
   const [coinFeedback, setCoinFeedback] = useState<CoinFeedback | null>(null);
+  const [missionContribution, setMissionContribution] = useState<Record<string, number>>({});
 
   useEffect(() => {
     let active = true;
@@ -381,6 +448,99 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     return activeTheme ? activeTheme.name : "Tema personalizado";
   }, [economy.activeTheme]);
 
+  const totalMissionSavings = useMemo(
+    () =>
+      Object.values(economy.missionProgress).reduce((acc, item) => acc + (item?.saved ?? 0), 0),
+    [economy.missionProgress]
+  );
+
+  const getMissionProgress = (missionId: string): MissionProgress => {
+    return economy.missionProgress[missionId] ?? { saved: 0, startedAt: null, completed: false };
+  };
+
+  const handleStartMission = (missionId: string) => {
+    setEconomy((prev) => ({
+      ...prev,
+      missionProgress: {
+        ...prev.missionProgress,
+        [missionId]: {
+          saved: prev.missionProgress[missionId]?.saved ?? 0,
+          startedAt: new Date().toISOString(),
+          completed: false
+        }
+      }
+    }));
+  };
+
+  const handleRestartMission = (missionId: string) => {
+    setEconomy((prev) => ({
+      ...prev,
+      missionProgress: {
+        ...prev.missionProgress,
+        [missionId]: { saved: 0, startedAt: new Date().toISOString(), completed: false }
+      }
+    }));
+  };
+
+  const handleContributeMission = (mission: SavingsMission) => {
+    const amount = missionContribution[mission.id] ?? 0;
+    if (amount <= 0) return;
+    const progress = getMissionProgress(mission.id);
+    if (!progress.startedAt || progress.completed) return;
+    setEconomy((prev) => {
+      if (amount > prev.coins) return prev;
+      pushEducationMessage({
+        title: "Ahorro registrado",
+        body: "Separar monedas a tiempo ayuda a cumplir objetivos sin gastos impulsivos.",
+        tone: "info"
+      });
+      return {
+        ...prev,
+        coins: prev.coins - amount,
+        missionProgress: {
+          ...prev.missionProgress,
+          [mission.id]: {
+            ...progress,
+            saved: progress.saved + amount
+          }
+        }
+      };
+    });
+    setMissionContribution((prev) => ({ ...prev, [mission.id]: 0 }));
+  };
+
+  const handleClaimMission = (mission: SavingsMission) => {
+    const progress = getMissionProgress(mission.id);
+    if (progress.completed || progress.saved < mission.targetAmount) return;
+    setEconomy((prev) => {
+      const earnedBadges = prev.earnedBadgeIds.includes(mission.badgeId)
+        ? prev.earnedBadgeIds
+        : [...prev.earnedBadgeIds, mission.badgeId];
+      pushEducationMessage({
+        title: "¡Misión completada!",
+        body: "Al cumplir una meta con tiempo, ganás un badge y monedas extra.",
+        tone: "success"
+      });
+      setCoinFeedback({
+        delta: mission.rewardCoins,
+        label: `Ganaste ${mission.rewardCoins} 🪙 por completar la misión.`,
+        tone: "gain"
+      });
+      return {
+        ...prev,
+        coins: prev.coins + mission.rewardCoins,
+        earnedBadgeIds: earnedBadges,
+        missionProgress: {
+          ...prev.missionProgress,
+          [mission.id]: {
+            ...progress,
+            completed: true
+          }
+        }
+      };
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       <main className="flex-1">
@@ -512,6 +672,184 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
                 ))}
               </div>
             )}
+          </section>
+          <section className="grid gap-5 lg:grid-cols-3">
+            <div className="lg:col-span-2 bg-white rounded-2xl shadow p-6 space-y-4">
+              <div className="flex flex-col gap-1">
+                <h3 className="text-lg font-semibold text-gray-800">Misiones de ahorro</h3>
+                <p className="text-sm text-gray-500">
+                  Cada misión tiene una meta y un tiempo límite. Ahorrá monedas y ganá badges.
+                </p>
+              </div>
+              <div className="grid gap-4">
+                {SAVINGS_MISSIONS.map((mission) => {
+                  const progress = getMissionProgress(mission.id);
+                  const startedAt = progress.startedAt ? new Date(progress.startedAt) : null;
+                  const deadline = startedAt
+                    ? new Date(startedAt.getTime() + mission.durationDays * 24 * 60 * 60 * 1000)
+                    : null;
+                  const now = new Date();
+                  const remainingMs = deadline ? deadline.getTime() - now.getTime() : null;
+                  const daysLeft =
+                    remainingMs !== null ? Math.max(0, Math.ceil(remainingMs / (24 * 60 * 60 * 1000))) : mission.durationDays;
+                  const isExpired = remainingMs !== null && remainingMs <= 0 && progress.saved < mission.targetAmount;
+                  const progressPercent = Math.min(100, Math.round((progress.saved / mission.targetAmount) * 100));
+
+                  return (
+                    <div key={mission.id} className="rounded-xl border border-gray-200 p-4">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <p className="text-sm font-semibold text-gray-800">{mission.title}</p>
+                          <p className="text-xs text-gray-500">{mission.description}</p>
+                          <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-gray-500">
+                            <span className="rounded-full bg-gray-100 px-2 py-1">
+                              Meta: {mission.targetAmount} 🪙
+                            </span>
+                            <span className="rounded-full bg-gray-100 px-2 py-1">
+                              Tiempo: {mission.durationDays} días
+                            </span>
+                            <span className="rounded-full bg-blue-50 px-2 py-1 text-blue-700">
+                              Badge: {mission.badgeLabel}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="text-right text-xs text-gray-500">
+                          {progress.completed ? (
+                            <span className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-emerald-700">
+                              Completada
+                            </span>
+                          ) : isExpired ? (
+                            <span className="inline-flex items-center rounded-full bg-rose-100 px-3 py-1 text-rose-600">
+                              Tiempo vencido
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-amber-700">
+                              {startedAt ? `${daysLeft} día(s) restantes` : "Sin iniciar"}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="mt-4">
+                        <div className="flex items-center justify-between text-xs text-gray-500">
+                          <span>Ahorro: {progress.saved} 🪙</span>
+                          <span>{progressPercent}%</span>
+                        </div>
+                        <div className="mt-2 h-2 w-full rounded-full bg-gray-100">
+                          <div
+                            className={`h-2 rounded-full ${
+                              progress.completed ? "bg-emerald-400" : "bg-blue-500"
+                            }`}
+                            style={{ width: `${progressPercent}%` }}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div className="flex flex-wrap items-center gap-2">
+                          {!progress.startedAt && (
+                            <button
+                              type="button"
+                              onClick={() => handleStartMission(mission.id)}
+                              className="rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700"
+                            >
+                              Iniciar misión
+                            </button>
+                          )}
+                          {isExpired && (
+                            <button
+                              type="button"
+                              onClick={() => handleRestartMission(mission.id)}
+                              className="rounded-lg bg-gray-100 px-3 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-200"
+                            >
+                              Reiniciar
+                            </button>
+                          )}
+                          {!progress.completed && progress.saved >= mission.targetAmount && (
+                            <button
+                              type="button"
+                              onClick={() => handleClaimMission(mission)}
+                              className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700"
+                            >
+                              Cobrar recompensa
+                            </button>
+                          )}
+                        </div>
+
+                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                          <input
+                            type="number"
+                            min={1}
+                            value={missionContribution[mission.id] ?? 0}
+                            onChange={(event) =>
+                              setMissionContribution((prev) => ({
+                                ...prev,
+                                [mission.id]: Number(event.target.value)
+                              }))
+                            }
+                            className="w-24 rounded-md border border-gray-200 px-2 py-1 text-xs"
+                            disabled={!progress.startedAt || progress.completed || isExpired}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => handleContributeMission(mission)}
+                            className="rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+                            disabled={!progress.startedAt || progress.completed || isExpired}
+                          >
+                            Aportar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl shadow p-6 space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800">Recompensas y badges</h3>
+                <p className="text-sm text-gray-500">
+                  Completá misiones para desbloquear badges y monedas extra.
+                </p>
+              </div>
+              <div className="rounded-xl bg-gray-50 p-4">
+                <p className="text-xs uppercase tracking-wide text-gray-400">Ahorro acumulado</p>
+                <p className="text-2xl font-semibold text-gray-800">{totalMissionSavings} 🪙</p>
+                <p className="text-xs text-gray-500 mt-1">
+                  Monedas separadas en misiones activas.
+                </p>
+              </div>
+              <div className="grid gap-3">
+                {BADGES.map((badge) => {
+                  const isEarned = economy.earnedBadgeIds.includes(badge.id);
+                  return (
+                    <div
+                      key={badge.id}
+                      className={`flex items-center gap-3 rounded-xl border p-3 ${
+                        isEarned ? "border-emerald-200 bg-emerald-50" : "border-gray-200"
+                      }`}
+                    >
+                      <div
+                        className={`h-10 w-10 rounded-full flex items-center justify-center ${
+                          isEarned ? "bg-emerald-200 text-emerald-700" : "bg-gray-100 text-gray-400"
+                        }`}
+                      >
+                        <Award className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-gray-800">{badge.label}</p>
+                        <p className="text-xs text-gray-500">{badge.description}</p>
+                      </div>
+                      {isEarned && (
+                        <span className="ml-auto text-xs font-semibold text-emerald-600">
+                          Obtenido
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </section>
           <section className="grid gap-5 lg:grid-cols-2">
             <div className="bg-white rounded-2xl shadow p-6 space-y-4">
