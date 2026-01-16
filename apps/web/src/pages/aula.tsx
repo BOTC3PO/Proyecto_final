@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import {
   MVP_LEADERBOARD,
   MVP_MODULES,
@@ -8,6 +9,8 @@ import {
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
+import type { Classroom } from "../domain/classroom/classroom.types";
+import { fetchClassroomDetail } from "../services/aulas";
 
 type ProgressItem = {
   moduloId: string;
@@ -32,6 +35,11 @@ type ClassModuleProgress = {
   isLocked: boolean;
 };
 
+type ClassroomDetail = Classroom & {
+  teacherName?: string;
+  classCode?: string;
+};
+
 const teacherTools = [
   "Informes y Estadísticas",
   "Rendimiento por módulo",
@@ -46,6 +54,9 @@ const teacherTools = [
 
 export default function aula() {
   const { user } = useAuth();
+  const { id: routeId } = useParams();
+  const location = useLocation();
+  const [classroom, setClassroom] = useState<ClassroomDetail | null>(null);
   const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>(() =>
     MVP_MODULES.map((module) => ({
       id: module.id,
@@ -54,6 +65,28 @@ export default function aula() {
       isLocked: module.progressPercent === 0,
     }))
   );
+
+  const classroomId = useMemo(() => {
+    const params = new URLSearchParams(location.search);
+    return routeId ?? params.get("id") ?? params.get("aulaId") ?? params.get("classroomId");
+  }, [location.search, routeId]);
+
+  useEffect(() => {
+    if (!classroomId) return;
+    let active = true;
+    fetchClassroomDetail(classroomId)
+      .then((data) => {
+        if (!active) return;
+        setClassroom(data);
+      })
+      .catch(() => {
+        if (!active) return;
+        setClassroom(null);
+      });
+    return () => {
+      active = false;
+    };
+  }, [classroomId]);
 
   useEffect(() => {
     let active = true;
@@ -92,26 +125,46 @@ export default function aula() {
     };
   }, []);
 
+  const isTeacherOfClass = useMemo(() => {
+    if (!user || !classroom || user.role !== "TEACHER") return false;
+    if (classroom.createdBy === user.id) return true;
+    if (classroom.teacherIds?.includes(user.id)) return true;
+    return false;
+  }, [classroom, user]);
+
   const roleLabel = useMemo(() => {
     if (!user) return "Invitado";
-    if (user.role === "TEACHER") return "Docente";
+    if (user.role === "TEACHER") return isTeacherOfClass ? "Docente" : "Docente invitado";
     if (user.role === "USER") return "Estudiante";
     if (user.role === "PARENT") return "Familia";
     return "Invitado";
-  }, [user]);
+  }, [isTeacherOfClass, user]);
 
   const accessLabel = useMemo(() => {
-    if (user?.role === "USER") return "estudiante";
-    if (user?.role === "PARENT") return "familiar";
-    return "visitante";
-  }, [user]);
+    const accessTypeLabel = classroom?.accessType === "privada" ? "privada" : "pública";
+    if (user?.role === "USER") return `estudiante · ${accessTypeLabel}`;
+    if (user?.role === "PARENT") return `familiar · ${accessTypeLabel}`;
+    return `visitante · ${accessTypeLabel}`;
+  }, [classroom?.accessType, user]);
+
+  const teacherName = useMemo(() => {
+    if (classroom?.teacherName) return classroom.teacherName;
+    if (isTeacherOfClass) return user?.name ?? "Docente asignado";
+    return "Docente asignado";
+  }, [classroom?.teacherName, isTeacherOfClass, user?.name]);
+
+  const classCode = useMemo(() => {
+    if (classroom?.classCode) return classroom.classCode;
+    if (classroom?.id) return classroom.id;
+    return "Sin código";
+  }, [classroom?.classCode, classroom?.id]);
 
   return (
     <main className="flex-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="bg-blue-600 text-white rounded-xl h-28 relative">
           <div className="absolute left-5 bottom-3 text-sm">
-            {roleLabel} • Prof. Juan Pérez | Código de clase: MAT3A-2024
+            {roleLabel} • {teacherName} | Código de clase: {classCode}
           </div>
           {user?.role === "TEACHER" ? (
             <button className="absolute right-5 bottom-3 bg-white text-blue-700 px-4 py-1.5 rounded-md shadow">
