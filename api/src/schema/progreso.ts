@@ -4,6 +4,7 @@ export const ProgressStatusSchema = z.enum(["iniciado", "en_progreso", "completa
 
 export const ProgressSchema = z.object({
   usuarioId: z.string().min(1),
+  aulaId: z.string().min(1).optional(),
   moduloId: z.string().min(1),
   status: ProgressStatusSchema,
   score: z.number().min(0).optional(),

@@ -12,6 +12,7 @@ export type ModuleGeneratorRef = {
 
 export type Module = {
   id: string;
+  aulaId?: string;
   title: string;
   description: string;
   subject: string;

@@ -17,8 +17,13 @@ progreso.post("/api/progreso", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res)
     };
     const parsed = ProgressSchema.parse(payload);
     const db = await getDb();
+    const filter = {
+      usuarioId: parsed.usuarioId,
+      moduloId: parsed.moduloId,
+      ...(parsed.aulaId ? { aulaId: parsed.aulaId } : {})
+    };
     const result = await db.collection("progreso_modulos").updateOne(
-      { usuarioId: parsed.usuarioId, moduloId: parsed.moduloId },
+      filter,
       { $set: parsed },
       { upsert: true }
     );
@@ -33,11 +38,13 @@ progreso.get("/api/progreso", async (req, res) => {
   if (typeof usuarioId !== "string" || !usuarioId.trim()) {
     return res.status(400).json({ error: "usuarioId is required" });
   }
+  const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
   const db = await getDb();
-  const items = await db.collection("progreso_modulos").find({ usuarioId }).toArray();
+  const progressFilter = { usuarioId, ...(aulaId ? { aulaId } : {}) };
+  const items = await db.collection("progreso_modulos").find(progressFilter).toArray();
   const modules = await db
     .collection("modulos")
-    .find({}, { projection: { id: 1, dependencies: 1, title: 1 } })
+    .find(aulaId ? { aulaId } : {}, { projection: { id: 1, dependencies: 1, title: 1 } })
     .toArray();
   const completedIds = new Set(
     items.filter((item) => item.status === "completado").map((item) => item.moduloId)
@@ -59,12 +66,18 @@ progreso.patch("/api/progreso/:moduloId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async
   if (typeof usuarioId !== "string" || !usuarioId.trim()) {
     return res.status(400).json({ error: "x-usuario-id header is required" });
   }
+  const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
   try {
     const parsed = ProgressUpdateSchema.parse(req.body);
     const db = await getDb();
     const update = { ...parsed, updatedAt: new Date().toISOString() };
+    const filter = {
+      usuarioId,
+      moduloId: req.params.moduloId,
+      ...(aulaId ? { aulaId } : {})
+    };
     const result = await db.collection("progreso_modulos").updateOne(
-      { usuarioId, moduloId: req.params.moduloId },
+      filter,
       { $set: update }
     );
     if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
