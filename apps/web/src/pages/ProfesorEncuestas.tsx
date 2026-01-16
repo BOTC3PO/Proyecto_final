@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
-import type { Survey, SurveyType } from "../services/encuestas";
-import { createSurvey, deleteSurvey, fetchSurveys } from "../services/encuestas";
+import type { Survey, SurveyStatus, SurveyType } from "../services/encuestas";
+import { createSurvey, deleteSurvey, fetchSurveys, updateSurvey } from "../services/encuestas";
+import { fetchClassrooms } from "../services/aulas";
+import type { Classroom } from "../domain/classroom/classroom.types";
 
 const toLocalInputValue = (date: Date) => date.toISOString().slice(0, 16);
 
@@ -10,6 +12,8 @@ export default function ProfesorEncuestas() {
   const [items, setItems] = useState<Survey[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [classrooms, setClassrooms] = useState<Classroom[]>([]);
+  const [classroomId, setClassroomId] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [type, setType] = useState<SurveyType>("normal");
@@ -17,11 +21,13 @@ export default function ProfesorEncuestas() {
   const [endAt, setEndAt] = useState(toLocalInputValue(new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)));
   const [showResultsBeforeClose, setShowResultsBeforeClose] = useState(false);
   const [showResultsRealtime, setShowResultsRealtime] = useState(false);
+  const [status, setStatus] = useState<SurveyStatus>("activa");
   const [maxOptions, setMaxOptions] = useState<number | "">("");
   const [options, setOptions] = useState<string[]>(DEFAULT_OPTIONS);
 
   const canSubmit = useMemo(() => {
     return (
+      classroomId.trim().length > 0 &&
       title.trim().length > 0 &&
       description.trim().length > 0 &&
       options.filter((option) => option.trim().length > 0).length >= 2 &&
@@ -30,11 +36,11 @@ export default function ProfesorEncuestas() {
     );
   }, [title, description, options, startAt, endAt]);
 
-  const refresh = async () => {
+  const refresh = async (targetClassroomId: string) => {
     try {
       setIsLoading(true);
       setError(null);
-      const response = await fetchSurveys();
+      const response = await fetchSurveys(targetClassroomId);
       setItems(response.items);
     } catch (err) {
       setError(err instanceof Error ? err.message : "No se pudieron cargar las encuestas.");
@@ -44,8 +50,30 @@ export default function ProfesorEncuestas() {
   };
 
   useEffect(() => {
-    refresh();
+    const load = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetchClassrooms();
+        setClassrooms(response.items);
+        if (response.items.length > 0) {
+          setClassroomId((prev) => prev || response.items[0].id);
+        } else {
+          setItems([]);
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "No se pudieron cargar las aulas.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    load();
   }, []);
+
+  useEffect(() => {
+    if (classroomId) {
+      refresh(classroomId);
+    }
+  }, [classroomId]);
 
   const handleOptionChange = (index: number, value: string) => {
     setOptions((prev) => prev.map((option, idx) => (idx === index ? value : option)));
@@ -69,10 +97,13 @@ export default function ProfesorEncuestas() {
     try {
       setError(null);
       const now = new Date().toISOString();
+      const selectedClassroom = classrooms.find((item) => item.id === classroomId);
       const payload: Survey = {
         id: crypto.randomUUID(),
         title: title.trim(),
         description: description.trim(),
+        classroomId,
+        classroomName: selectedClassroom?.name,
         type,
         options: options
           .map((option, index) => ({ id: `opt-${index + 1}`, label: option.trim() }))
@@ -82,7 +113,7 @@ export default function ProfesorEncuestas() {
         endAt: new Date(endAt).toISOString(),
         showResultsBeforeClose,
         showResultsRealtime,
-        status: "borrador",
+        status,
         responsesCount: 0,
         createdBy: "profesor-demo",
         createdAt: now,
@@ -97,9 +128,10 @@ export default function ProfesorEncuestas() {
       setEndAt(toLocalInputValue(new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)));
       setShowResultsBeforeClose(false);
       setShowResultsRealtime(false);
+      setStatus("activa");
       setMaxOptions("");
       setOptions(DEFAULT_OPTIONS);
-      await refresh();
+      await refresh(classroomId);
     } catch (err) {
       setError(err instanceof Error ? err.message : "No se pudo crear la encuesta.");
     }
@@ -110,9 +142,19 @@ export default function ProfesorEncuestas() {
     try {
       setError(null);
       await deleteSurvey(id);
-      await refresh();
+      await refresh(classroomId);
     } catch (err) {
       setError(err instanceof Error ? err.message : "No se pudo eliminar la encuesta.");
+    }
+  };
+
+  const handleClose = async (id: string) => {
+    try {
+      setError(null);
+      await updateSurvey(id, { status: "cerrada" });
+      await refresh(classroomId);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "No se pudo cerrar la encuesta.");
     }
   };
 
@@ -128,6 +170,27 @@ export default function ProfesorEncuestas() {
       <section className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
         <h2 className="text-lg font-semibold text-gray-900">Crear encuesta</h2>
         <form className="mt-4 grid gap-4" onSubmit={handleSubmit}>
+          <div className="grid gap-2">
+            <label className="text-sm font-medium text-gray-700" htmlFor="survey-classroom">
+              Aula
+            </label>
+            <select
+              id="survey-classroom"
+              className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none"
+              value={classroomId}
+              onChange={(event) => setClassroomId(event.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Selecciona un aula
+              </option>
+              {classrooms.map((classroom) => (
+                <option key={classroom.id} value={classroom.id}>
+                  {classroom.name}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className="grid gap-2">
             <label className="text-sm font-medium text-gray-700" htmlFor="survey-title">
               Título
@@ -170,6 +233,20 @@ export default function ProfesorEncuestas() {
                 <option value="normal">Encuesta normal</option>
                 <option value="puntuacion">Encuesta por puntuación</option>
                 <option value="segunda_vuelta">Segunda vuelta instantánea</option>
+              </select>
+            </div>
+            <div className="grid gap-2">
+              <label className="text-sm font-medium text-gray-700" htmlFor="survey-status">
+                Estado inicial
+              </label>
+              <select
+                id="survey-status"
+                className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none"
+                value={status}
+                onChange={(event) => setStatus(event.target.value as SurveyStatus)}
+              >
+                <option value="activa">Activa</option>
+                <option value="borrador">Borrador</option>
               </select>
             </div>
             <div className="grid gap-2">
@@ -289,7 +366,7 @@ export default function ProfesorEncuestas() {
           <button
             type="button"
             className="rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            onClick={refresh}
+            onClick={() => refresh(classroomId)}
           >
             Actualizar
           </button>
@@ -309,16 +386,28 @@ export default function ProfesorEncuestas() {
                   <h3 className="text-sm font-semibold text-gray-900">{survey.title}</h3>
                   <p className="text-sm text-gray-600">{survey.description}</p>
                   <p className="text-xs text-gray-500">
-                    Tipo: {survey.type.replace("_", " ")} · Opciones: {survey.options.length}
+                    Aula: {survey.classroomName ?? survey.classroomId} · Tipo: {survey.type.replace("_", " ")} ·
+                    Opciones: {survey.options.length} · Estado: {survey.status}
                   </p>
                 </div>
-                <button
-                  type="button"
-                  className="rounded-md border border-red-200 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
-                  onClick={() => handleDelete(survey.id)}
-                >
-                  Eliminar
-                </button>
+                <div className="flex flex-col gap-2 sm:flex-row">
+                  {survey.status !== "cerrada" && (
+                    <button
+                      type="button"
+                      className="rounded-md border border-indigo-200 px-3 py-2 text-sm text-indigo-600 hover:bg-indigo-50"
+                      onClick={() => handleClose(survey.id)}
+                    >
+                      Cerrar
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    className="rounded-md border border-red-200 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
+                    onClick={() => handleDelete(survey.id)}
+                  >
+                    Eliminar
+                  </button>
+                </div>
               </article>
             ))}
           </div>

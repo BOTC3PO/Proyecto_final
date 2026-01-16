@@ -32,6 +32,7 @@ import ProfesorCursoNuevo from "./pages/ProfesorCursoNuevo";
 import HijosProgreso from "./pages/HijosProgreso";
 import ProfesorReportes from "./pages/ProfesorReportes";
 import AdminReportes from "./pages/AdminReportes";
+import AlumnoEncuestas from "./pages/AlumnoEncuestas";
 
 
 import test from "./sys/testmode";
@@ -144,6 +145,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['USER', 'PARENT']}>
             <Tareas />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "encuestas",
+        element: (
+          <ProtectedRoute allow={['USER', 'PARENT']}>
+            <AlumnoEncuestas />
           </ProtectedRoute>
         ),
       },

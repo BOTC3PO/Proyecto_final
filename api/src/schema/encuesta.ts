@@ -14,6 +14,8 @@ export const SurveySchema = z
     id: z.string().min(1),
     title: z.string().min(1),
     description: z.string().min(1),
+    classroomId: z.string().min(1),
+    classroomName: z.string().min(1).optional(),
     type: SurveyTypeSchema,
     options: z.array(SurveyOptionSchema).min(2),
     maxOptions: z.number().int().min(2).optional(),
