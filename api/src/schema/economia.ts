@@ -74,9 +74,40 @@ export const EventoEconomicoSchema = z.object({
   updatedAt: z.string().datetime()
 });
 
+export const ExamenEconomiaSchema = z.object({
+  id: z.string().min(1),
+  nombre: z.string().min(1),
+  fechaExamen: z.string().datetime(),
+  estado: z.enum(["anunciado", "cerrado"]),
+  subastaActiva: z.boolean(),
+  maxCompra: z.number().int().positive(),
+  impuestoTasa: z.number().min(0).max(1),
+  updatedAt: z.string().datetime()
+});
+
+export const PujaExamenSchema = z.object({
+  id: z.string().min(1),
+  examenId: z.string().min(1),
+  usuarioId: z.string().min(1),
+  puntos: z.number().positive(),
+  montoPorPunto: z.number().positive(),
+  estado: z.enum(["pendiente", "aceptada", "rechazada"]),
+  createdAt: z.string().datetime(),
+  resolvedAt: z.string().datetime().optional()
+});
+
+export const PuntosExamenSchema = z.object({
+  usuarioId: z.string().min(1),
+  puntos: z.number().min(0),
+  updatedAt: z.string().datetime()
+});
+
 export type EconomiaConfig = z.infer<typeof EconomiaConfigSchema>;
 export type Saldo = z.infer<typeof SaldoSchema>;
 export type Recompensa = z.infer<typeof RecompensaSchema>;
 export type Transaccion = z.infer<typeof TransaccionSchema>;
 export type ModuloEconomia = z.infer<typeof ModuloEconomiaSchema>;
 export type EventoEconomico = z.infer<typeof EventoEconomicoSchema>;
+export type ExamenEconomia = z.infer<typeof ExamenEconomiaSchema>;
+export type PujaExamen = z.infer<typeof PujaExamenSchema>;
+export type PuntosExamen = z.infer<typeof PuntosExamenSchema>;
