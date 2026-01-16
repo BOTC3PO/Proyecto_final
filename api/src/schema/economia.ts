@@ -21,6 +21,7 @@ export const EconomiaConfigSchema = z.object({
     tasa: z.number().nonnegative(),
     activa: z.boolean()
   }),
+  rankingFactors: z.array(z.number().nonnegative()).length(10),
   updatedAt: z.string().datetime()
 });
 
@@ -82,6 +83,7 @@ export const ExamenEconomiaSchema = z.object({
   subastaActiva: z.boolean(),
   maxCompra: z.number().int().positive(),
   impuestoTasa: z.number().min(0).max(1),
+  precioPromedio: z.number().nonnegative().optional(),
   updatedAt: z.string().datetime()
 });
 

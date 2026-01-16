@@ -24,6 +24,12 @@ const clampLimit = (value: string | undefined) => {
   return Math.min(parsed, 100);
 };
 
+const buildPrecioPromedio = (values: number[]) => {
+  const valid = values.filter((value) => value > 0);
+  if (!valid.length) return 100;
+  return valid.reduce((acc, value) => acc + value, 0) / valid.length;
+};
+
 const defaultConfig = () => ({
   id: "general" as const,
   moneda: {
@@ -43,8 +49,14 @@ const defaultConfig = () => ({
     tasa: 0,
     activa: false
   },
+  rankingFactors: [1, 0.9, 0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55, 0.5],
   updatedAt: new Date().toISOString()
 });
+
+const getEconomiaConfig = async (db: Awaited<ReturnType<typeof getDb>>) => {
+  const stored = await db.collection("economia_config").findOne({ id: "general" });
+  return stored ? { ...defaultConfig(), ...stored } : defaultConfig();
+};
 
 const ConfigUpdateSchema = EconomiaConfigSchema.omit({ id: true, updatedAt: true }).partial();
 const RecompensaUpdateSchema = RecompensaSchema.omit({ id: true, updatedAt: true }).partial();
@@ -61,16 +73,15 @@ const PujaExamenCreateSchema = PujaExamenSchema.omit({
 
 economia.get("/api/economia/config", async (_req, res) => {
   const db = await getDb();
-  const config = await db.collection("economia_config").findOne({ id: "general" });
-  res.json(config ?? defaultConfig());
+  const config = await getEconomiaConfig(db);
+  res.json(config);
 });
 
 economia.patch("/api/economia/config", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ConfigUpdateSchema.parse(req.body ?? {});
     const db = await getDb();
-    const current = (await db.collection("economia_config").findOne({ id: "general" })) ??
-      defaultConfig();
+    const current = await getEconomiaConfig(db);
     const merged = {
       ...current,
       ...parsed,
@@ -78,6 +89,7 @@ economia.patch("/api/economia/config", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (r
       tasas: { ...current.tasas, ...parsed.tasas },
       inflacion: { ...current.inflacion, ...parsed.inflacion },
       deflacion: { ...current.deflacion, ...parsed.deflacion },
+      rankingFactors: parsed.rankingFactors ?? current.rankingFactors,
       updatedAt: new Date().toISOString()
     };
     const validated = EconomiaConfigSchema.parse(merged);
@@ -164,8 +176,7 @@ economia.get("/api/economia/saldos", async (req, res) => {
   const db = await getDb();
   const saldo = await db.collection("economia_saldos").findOne({ usuarioId });
   if (saldo) return res.json(saldo);
-  const config = (await db.collection("economia_config").findOne({ id: "general" })) ??
-    defaultConfig();
+  const config = await getEconomiaConfig(db);
   res.json({
     usuarioId,
     saldo: 0,
@@ -212,8 +223,7 @@ economia.post(
   async (req, res) => {
     try {
       const db = await getDb();
-      const config = (await db.collection("economia_config").findOne({ id: "general" })) ??
-        defaultConfig();
+      const config = await getEconomiaConfig(db);
       const payload = {
         ...req.body,
         id: req.body?.id ?? new ObjectId().toString(),
@@ -405,13 +415,15 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
     if (examen.estado === "cerrado") {
       return res.status(200).json({ ok: true, message: "examen ya cerrado" });
     }
-    const config = (await db.collection("economia_config").findOne({ id: "general" })) ??
-      defaultConfig();
+    const config = await getEconomiaConfig(db);
     const now = new Date().toISOString();
     const pujas = await db
       .collection("economia_examen_pujas")
       .find({ examenId: req.params.id, estado: "pendiente" })
       .toArray();
+    const rankingPuntos = new Map<string, number>();
+    let precioTotal = 0;
+    let precioCount = 0;
     for (const puja of pujas) {
       const saldoDoc = await db.collection("economia_saldos").findOne({ usuarioId: puja.usuarioId });
       const saldoActual = saldoDoc?.saldo ?? 0;
@@ -459,14 +471,72 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
         { $inc: { puntos: puntosNetos }, $set: { updatedAt: now } },
         { upsert: true }
       );
+      rankingPuntos.set(puja.usuarioId, (rankingPuntos.get(puja.usuarioId) ?? 0) + puntosNetos);
+      precioTotal += puja.montoPorPunto;
+      precioCount += 1;
       await db.collection("economia_examen_pujas").updateOne(
         { id: puja.id },
         { $set: { estado: "aceptada", resolvedAt: now } }
       );
     }
+    const precioPromedioActual = precioCount ? precioTotal / precioCount : 0;
+    const preciosPrevios = await db
+      .collection("economia_examenes")
+      .find({ estado: "cerrado", id: { $ne: req.params.id } })
+      .sort({ updatedAt: -1 })
+      .limit(4)
+      .toArray();
+    const precioPromedioRanking = buildPrecioPromedio([
+      precioPromedioActual,
+      ...preciosPrevios.map((item) => Number(item.precioPromedio ?? 0))
+    ]);
+    const ranking = Array.from(rankingPuntos.entries())
+      .map(([usuarioId, puntos]) => ({ usuarioId, puntos }))
+      .sort((a, b) => b.puntos - a.puntos)
+      .slice(0, 10);
+    for (const [index, ganador] of ranking.entries()) {
+      const factor = config.rankingFactors?.[index] ?? 0;
+      if (factor <= 0 || ganador.puntos <= 0 || precioPromedioRanking <= 0) continue;
+      const premio = ganador.puntos * precioPromedioRanking * factor;
+      if (premio <= 0) continue;
+      const transaccion = TransaccionSchema.parse({
+        id: new ObjectId().toString(),
+        usuarioId: ganador.usuarioId,
+        tipo: "credito",
+        monto: premio,
+        moneda: config.moneda.codigo,
+        motivo: `premio_ranking_examen:${examen.id}:${index + 1}`,
+        referenciaId: examen.id,
+        createdAt: now
+      });
+      await db.collection("economia_transacciones").insertOne(transaccion);
+      const saldoDoc = await db
+        .collection("economia_saldos")
+        .findOne({ usuarioId: ganador.usuarioId });
+      const saldoActual = saldoDoc?.saldo ?? 0;
+      await db.collection("economia_saldos").updateOne(
+        { usuarioId: ganador.usuarioId },
+        {
+          $set: {
+            usuarioId: ganador.usuarioId,
+            saldo: saldoActual + premio,
+            moneda: transaccion.moneda,
+            updatedAt: now
+          }
+        },
+        { upsert: true }
+      );
+    }
     await db.collection("economia_examenes").updateOne(
       { id: req.params.id },
-      { $set: { estado: "cerrado", subastaActiva: false, updatedAt: now } }
+      {
+        $set: {
+          estado: "cerrado",
+          subastaActiva: false,
+          precioPromedio: precioPromedioActual,
+          updatedAt: now
+        }
+      }
     );
     res.json({ ok: true });
   } catch (e: any) {
