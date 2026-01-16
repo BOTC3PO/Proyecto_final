@@ -1,16 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import {
-  MVP_LEADERBOARD,
-  MVP_MODULES,
-  MVP_PUBLICATIONS,
-  MVP_UPCOMING_ACTIVITIES,
-} from "../mvp/mvpData";
+import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail } from "../services/aulas";
+import { fetchPublications, type Publication } from "../services/publicaciones";
+import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
+import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 
 type ProgressItem = {
   moduloId: string;
@@ -57,6 +55,11 @@ export default function aula() {
   const { id: routeId } = useParams();
   const location = useLocation();
   const [classroom, setClassroom] = useState<ClassroomDetail | null>(null);
+  const [publications, setPublications] = useState<Publication[]>([]);
+  const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
+  const [upcomingActivities, setUpcomingActivities] = useState<UpcomingActivity[]>([]);
+  const [feedLoading, setFeedLoading] = useState(true);
+  const [feedError, setFeedError] = useState<string | null>(null);
   const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>(() =>
     MVP_MODULES.map((module) => ({
       id: module.id,
@@ -82,6 +85,34 @@ export default function aula() {
       .catch(() => {
         if (!active) return;
         setClassroom(null);
+      });
+    return () => {
+      active = false;
+    };
+  }, [classroomId]);
+
+  useEffect(() => {
+    let active = true;
+    setFeedLoading(true);
+    setFeedError(null);
+    Promise.all([
+      fetchPublications(classroomId ?? undefined),
+      fetchLeaderboard(classroomId ?? undefined),
+      fetchUpcomingActivities(classroomId ?? undefined),
+    ])
+      .then(([publicationsResponse, leaderboardResponse, activitiesResponse]) => {
+        if (!active) return;
+        setPublications(publicationsResponse);
+        setLeaderboard(leaderboardResponse);
+        setUpcomingActivities(activitiesResponse);
+      })
+      .catch((error) => {
+        if (!active) return;
+        setFeedError(error instanceof Error ? error.message : "No pudimos cargar la información del aula.");
+      })
+      .finally(() => {
+        if (!active) return;
+        setFeedLoading(false);
       });
     return () => {
       active = false;
@@ -195,27 +226,34 @@ export default function aula() {
             </div>
 
             <div className="space-y-4">
-              {MVP_PUBLICATIONS.map((publication) => (
-                <article key={publication.id} className="bg-white rounded-xl shadow p-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-blue-600 text-white grid place-content-center">
-                      {publication.authorInitials}
+              {feedLoading && <div className="text-sm text-gray-500">Cargando publicaciones...</div>}
+              {feedError && !feedLoading && <div className="text-sm text-red-600">{feedError}</div>}
+              {!feedLoading && !feedError && publications.length === 0 && (
+                <div className="text-sm text-gray-500">Aún no hay publicaciones.</div>
+              )}
+              {!feedLoading &&
+                !feedError &&
+                publications.map((publication) => (
+                  <article key={publication.id} className="bg-white rounded-xl shadow p-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-blue-600 text-white grid place-content-center">
+                        {publication.authorInitials}
+                      </div>
+                      <div className="font-semibold">{publication.title}</div>
                     </div>
-                    <div className="font-semibold">{publication.title}</div>
-                  </div>
-                  <p className="mt-3 text-sm text-gray-800">{publication.body}</p>
-                  {publication.links && (
-                    <div className="flex gap-6 mt-3">
-                      {publication.links.map((link) => (
-                        <a key={link.label} className="text-blue-600 hover:underline" href={link.href}>
-                          {link.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                  <p className="text-xs text-gray-500 mt-2">{publication.publishedAtLabel}</p>
-                </article>
-              ))}
+                    <p className="mt-3 text-sm text-gray-800">{publication.body}</p>
+                    {publication.links && (
+                      <div className="flex gap-6 mt-3">
+                        {publication.links.map((link) => (
+                          <a key={link.label} className="text-blue-600 hover:underline" href={link.href}>
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                    <p className="text-xs text-gray-500 mt-2">{publication.publishedAtLabel}</p>
+                  </article>
+                ))}
             </div>
           </div>
 
@@ -223,14 +261,21 @@ export default function aula() {
             <div className="bg-white rounded-xl shadow p-4">
               <h3 className="text-lg font-semibold">🏆 Top Estudiantes</h3>
               <ul className="mt-3 space-y-2 text-sm">
-                {MVP_LEADERBOARD.map((entry, index) => (
-                  <li key={entry.id} className="flex justify-between">
-                    <span>
-                      {index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"} {entry.name}
-                    </span>
-                    <span>{entry.points} pts</span>
-                  </li>
-                ))}
+                {feedLoading && <li className="text-gray-500">Cargando ranking...</li>}
+                {feedError && !feedLoading && <li className="text-red-600">{feedError}</li>}
+                {!feedLoading && !feedError && leaderboard.length === 0 && (
+                  <li className="text-gray-500">Sin ranking disponible.</li>
+                )}
+                {!feedLoading &&
+                  !feedError &&
+                  leaderboard.map((entry, index) => (
+                    <li key={entry.id} className="flex justify-between">
+                      <span>
+                        {index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"} {entry.name}
+                      </span>
+                      <span>{entry.points} pts</span>
+                    </li>
+                  ))}
               </ul>
             </div>
 
@@ -283,11 +328,18 @@ export default function aula() {
             <div className="bg-white rounded-xl shadow p-4">
               <h3 className="text-lg font-semibold">Próximas actividades</h3>
               <ul className="mt-3 text-sm space-y-2">
-                {MVP_UPCOMING_ACTIVITIES.map((activity) => (
-                  <li key={activity.id}>
-                    {activity.label} — <span className="text-gray-600">{activity.when}</span>
-                  </li>
-                ))}
+                {feedLoading && <li className="text-gray-500">Cargando actividades...</li>}
+                {feedError && !feedLoading && <li className="text-red-600">{feedError}</li>}
+                {!feedLoading && !feedError && upcomingActivities.length === 0 && (
+                  <li className="text-gray-500">No hay actividades próximas.</li>
+                )}
+                {!feedLoading &&
+                  !feedError &&
+                  upcomingActivities.map((activity) => (
+                    <li key={activity.id}>
+                      {activity.label} — <span className="text-gray-600">{activity.when}</span>
+                    </li>
+                  ))}
               </ul>
             </div>
 
