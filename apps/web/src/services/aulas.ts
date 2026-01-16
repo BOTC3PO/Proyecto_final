@@ -11,3 +11,19 @@ export async function createClassroom(payload: Classroom): Promise<{ id: string;
     body: JSON.stringify(payload)
   });
 }
+
+export async function updateClassroom(
+  classroomId: string,
+  payload: Partial<Omit<Classroom, "id" | "createdAt" | "createdBy">>
+): Promise<{ ok: boolean }> {
+  return apiFetch<{ ok: boolean }>(`/api/aulas/${classroomId}`, {
+    method: "PUT",
+    body: JSON.stringify(payload)
+  });
+}
+
+export async function deleteClassroom(classroomId: string): Promise<void> {
+  await apiFetch<void>(`/api/aulas/${classroomId}`, {
+    method: "DELETE"
+  });
+}

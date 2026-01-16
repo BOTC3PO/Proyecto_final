@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   MVP_LEADERBOARD,
   MVP_MODULES,
@@ -7,6 +7,7 @@ import {
 } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
+import { useAuth } from "../auth/use-auth";
 
 type ProgressItem = {
   moduloId: string;
@@ -44,6 +45,7 @@ const teacherTools = [
 ];
 
 export default function aula() {
+  const { user } = useAuth();
   const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>(() =>
     MVP_MODULES.map((module) => ({
       id: module.id,
@@ -90,14 +92,36 @@ export default function aula() {
     };
   }, []);
 
+  const roleLabel = useMemo(() => {
+    if (!user) return "Invitado";
+    if (user.role === "TEACHER") return "Docente";
+    if (user.role === "USER") return "Estudiante";
+    if (user.role === "PARENT") return "Familia";
+    return "Invitado";
+  }, [user]);
+
+  const accessLabel = useMemo(() => {
+    if (user?.role === "USER") return "estudiante";
+    if (user?.role === "PARENT") return "familiar";
+    return "visitante";
+  }, [user]);
+
   return (
     <main className="flex-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="bg-blue-600 text-white rounded-xl h-28 relative">
-          <div className="absolute left-5 bottom-3 text-sm">Prof. Juan Pérez | Código de clase: MAT3A-2024</div>
-          <button className="absolute right-5 bottom-3 bg-white text-blue-700 px-4 py-1.5 rounded-md shadow">
-            Gestionar
-          </button>
+          <div className="absolute left-5 bottom-3 text-sm">
+            {roleLabel} • Prof. Juan Pérez | Código de clase: MAT3A-2024
+          </div>
+          {user?.role === "TEACHER" ? (
+            <button className="absolute right-5 bottom-3 bg-white text-blue-700 px-4 py-1.5 rounded-md shadow">
+              Gestionar
+            </button>
+          ) : (
+            <div className="absolute right-5 bottom-3 rounded-md bg-blue-500/60 px-3 py-1.5 text-xs">
+              Acceso {accessLabel}
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
@@ -214,18 +238,20 @@ export default function aula() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl shadow p-4">
-              <h3 className="text-lg font-semibold">Herramientas del profesor</h3>
-              <ul className="mt-3 space-y-2 text-sm">
-                {teacherTools.map((tool) => (
-                  <li key={tool}>
-                    <a className="hover:underline" href="#">
-                      {tool}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {user?.role === "TEACHER" && (
+              <div className="bg-white rounded-xl shadow p-4">
+                <h3 className="text-lg font-semibold">Herramientas del profesor</h3>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {teacherTools.map((tool) => (
+                    <li key={tool}>
+                      <a className="hover:underline" href="#">
+                        {tool}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </aside>
         </div>
       </div>
