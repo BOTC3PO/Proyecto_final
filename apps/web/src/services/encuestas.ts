@@ -35,11 +35,35 @@ export type SurveyListResponse = {
   offset: number;
 };
 
+export type SurveyResultsOption = {
+  id: string;
+  label: string;
+  count: number;
+  percentage: number;
+  scoreTotal?: number;
+  averageScore?: number;
+};
+
+export type SurveyResultsRound = {
+  round: number;
+  totalVotes: number;
+  counts: Array<{ id: string; label: string; count: number; percentage: number }>;
+  eliminated?: { id: string; label: string };
+  winner?: { id: string; label: string; count: number; percentage: number };
+};
+
 export type SurveyResults = {
   surveyId: string;
   totalVotes: number;
-  options: Array<{ id: string; label: string; count: number; percentage: number }>;
+  options: SurveyResultsOption[];
+  rounds?: SurveyResultsRound[];
+  winner?: { id: string; label: string; count: number; percentage: number };
 };
+
+export type SurveyVotePayload =
+  | { aulaId: string; optionId: string }
+  | { aulaId: string; scores: Array<{ optionId: string; score: number }> }
+  | { aulaId: string; ranking: string[] };
 
 export async function fetchSurveys(aulaId: string): Promise<SurveyListResponse> {
   return apiFetch<SurveyListResponse>(`/api/encuestas?aulaId=${encodeURIComponent(aulaId)}`);
@@ -63,7 +87,7 @@ export async function deleteSurvey(id: string): Promise<void> {
   await apiFetch<void>(`/api/encuestas/${id}`, { method: "DELETE" });
 }
 
-export async function voteSurvey(id: string, payload: { aulaId: string; optionId: string }, usuarioId: string) {
+export async function voteSurvey(id: string, payload: SurveyVotePayload, usuarioId: string) {
   return apiFetch<{ ok: boolean }>(`/api/encuestas/${id}/votos`, {
     method: "POST",
     headers: {
