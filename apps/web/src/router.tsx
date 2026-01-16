@@ -33,6 +33,7 @@ import HijosProgreso from "./pages/HijosProgreso";
 import ProfesorReportes from "./pages/ProfesorReportes";
 import AdminReportes from "./pages/AdminReportes";
 import AlumnoEncuestas from "./pages/AlumnoEncuestas";
+import LaboratorioWeb3 from "./pages/LaboratorioWeb3";
 
 
 import test from "./sys/testmode";
@@ -84,6 +85,7 @@ export const router = createBrowserRouter([
       { path: "pricing", element: <Pricing /> },
       { path: "contact", element: <Contact /> },
       { path: "metodologia", element: <Metodologia /> },
+      { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
       {path:"editor",element:<BookEditorPage/>},
       ...(testmode ? [{ path: "generadores", element: <GeneradoresTest /> }] : []),
 
