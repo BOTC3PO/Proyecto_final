@@ -55,7 +55,7 @@ const buildProfesorStats = async (filters: StatsFilters) => {
   const entregasMatch = buildMatch(filters, "createdAt");
   const participacionMatch = buildMatch(filters, "createdAt");
 
-  const [progresoResumen] = await db
+  const progresoResumen = await db
     .collection("progreso_modulos")
     .aggregate([
       { $match: progresoMatch },
