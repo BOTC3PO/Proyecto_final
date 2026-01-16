@@ -5,6 +5,10 @@ export async function fetchClassrooms(): Promise<ClassroomListResponse> {
   return apiFetch<ClassroomListResponse>("/api/aulas");
 }
 
+export async function fetchClassroomDetail(classroomId: string): Promise<Classroom> {
+  return apiFetch<Classroom>(`/api/aulas/${classroomId}`);
+}
+
 export async function createClassroom(payload: Classroom): Promise<{ id: string; classroomId: string }> {
   return apiFetch<{ id: string; classroomId: string }>("/api/aulas", {
     method: "POST",
