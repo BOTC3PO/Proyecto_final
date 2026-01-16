@@ -19,9 +19,11 @@ modulos.get("/api/modulos", async (req, res) => {
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
+  const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
+  const filter = aulaId ? { aulaId } : {};
   const cursor = db
     .collection("modulos")
-    .find({})
+    .find(filter)
     .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
     .limit(limit)
     .sort({ updatedAt: -1 });

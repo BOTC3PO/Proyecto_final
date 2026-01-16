@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
@@ -60,14 +59,9 @@ export default function aula() {
   const [upcomingActivities, setUpcomingActivities] = useState<UpcomingActivity[]>([]);
   const [feedLoading, setFeedLoading] = useState(true);
   const [feedError, setFeedError] = useState<string | null>(null);
-  const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>(() =>
-    MVP_MODULES.map((module) => ({
-      id: module.id,
-      title: module.title,
-      progressPercent: module.progressPercent ?? 0,
-      isLocked: module.progressPercent === 0,
-    }))
-  );
+  const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>([]);
+  const [progressLoading, setProgressLoading] = useState(true);
+  const [progressError, setProgressError] = useState<string | null>(null);
 
   const classroomId = useMemo(() => {
     const params = new URLSearchParams(location.search);
@@ -121,8 +115,13 @@ export default function aula() {
 
   useEffect(() => {
     let active = true;
-    const usuarioId = "demo-alumno";
-    Promise.all([apiGet<{ items: Module[] }>("/api/modulos"), apiGet<ProgressResponse>(`/api/progreso?usuarioId=${usuarioId}`)])
+    const usuarioId = user?.id ?? "demo-alumno";
+    setProgressLoading(true);
+    setProgressError(null);
+    const params = new URLSearchParams({ usuarioId });
+    if (classroomId) params.set("aulaId", classroomId);
+    const modulesUrl = classroomId ? `/api/modulos?aulaId=${encodeURIComponent(classroomId)}` : "/api/modulos";
+    Promise.all([apiGet<{ items: Module[] }>(modulesUrl), apiGet<ProgressResponse>(`/api/progreso?${params.toString()}`)])
       .then(([modulesResponse, progressResponse]) => {
         if (!active) return;
         const completedSet = new Set(
@@ -140,21 +139,19 @@ export default function aula() {
         }));
         setClassProgress(mapped);
       })
-      .catch(() => {
+      .catch((error) => {
         if (!active) return;
-        setClassProgress(
-          MVP_MODULES.map((module) => ({
-            id: module.id,
-            title: module.title,
-            progressPercent: module.progressPercent ?? 0,
-            isLocked: Boolean(module.progressPercent === 0),
-          }))
-        );
+        setProgressError(error instanceof Error ? error.message : "No pudimos cargar el progreso del aula.");
+        setClassProgress([]);
+      })
+      .finally(() => {
+        if (!active) return;
+        setProgressLoading(false);
       });
     return () => {
       active = false;
     };
-  }, []);
+  }, [classroomId, user?.id]);
 
   const isTeacherOfClass = useMemo(() => {
     if (!user || !classroom || user.role !== "TEACHER") return false;
@@ -282,46 +279,53 @@ export default function aula() {
             <div className="bg-white rounded-xl shadow p-4">
               <h3 className="text-lg font-semibold">Progreso de la clase</h3>
               <div className="mt-3 space-y-3 text-sm">
-                {classProgress.map((module) => (
-                  <div key={module.id}>
-                    <div className="flex justify-between items-center">
-                      <span>{module.title}</span>
-                      <span
-                        className={`text-xs px-2 py-0.5 rounded-full ${
-                          module.isLocked
-                            ? "bg-gray-100 text-gray-500"
+                {progressLoading && <p className="text-gray-500">Cargando progreso...</p>}
+                {progressError && !progressLoading && <p className="text-red-600">{progressError}</p>}
+                {!progressLoading && !progressError && classProgress.length === 0 && (
+                  <p className="text-gray-500">No hay módulos disponibles para esta aula.</p>
+                )}
+                {!progressLoading &&
+                  !progressError &&
+                  classProgress.map((module) => (
+                    <div key={module.id}>
+                      <div className="flex justify-between items-center">
+                        <span>{module.title}</span>
+                        <span
+                          className={`text-xs px-2 py-0.5 rounded-full ${
+                            module.isLocked
+                              ? "bg-gray-100 text-gray-500"
+                              : module.progressPercent >= 100
+                              ? "bg-green-100 text-green-700"
+                              : module.progressPercent > 0
+                              ? "bg-blue-100 text-blue-700"
+                              : "bg-gray-100 text-gray-500"
+                          }`}
+                        >
+                          {module.isLocked
+                            ? "Bloqueado"
                             : module.progressPercent >= 100
-                            ? "bg-green-100 text-green-700"
+                            ? "Completado"
                             : module.progressPercent > 0
-                            ? "bg-blue-100 text-blue-700"
-                            : "bg-gray-100 text-gray-500"
-                        }`}
-                      >
-                        {module.isLocked
-                          ? "Bloqueado"
-                          : module.progressPercent >= 100
-                          ? "Completado"
-                          : module.progressPercent > 0
-                          ? "En progreso"
-                          : "Sin iniciar"}
-                      </span>
+                            ? "En progreso"
+                            : "Sin iniciar"}
+                        </span>
+                      </div>
+                      <div className="h-2 bg-gray-200 rounded">
+                        <div
+                          className={`h-2 rounded ${
+                            module.isLocked
+                              ? "bg-gray-400"
+                              : module.progressPercent >= 100
+                              ? "bg-green-500"
+                              : module.progressPercent > 0
+                              ? "bg-blue-500"
+                              : "bg-gray-400"
+                          }`}
+                          style={{ width: `${module.progressPercent}%` }}
+                        />
+                      </div>
                     </div>
-                    <div className="h-2 bg-gray-200 rounded">
-                      <div
-                        className={`h-2 rounded ${
-                          module.isLocked
-                            ? "bg-gray-400"
-                            : module.progressPercent >= 100
-                            ? "bg-green-500"
-                            : module.progressPercent > 0
-                            ? "bg-blue-500"
-                            : "bg-gray-400"
-                        }`}
-                        style={{ width: `${module.progressPercent}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
 
