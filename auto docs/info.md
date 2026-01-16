@@ -1,0 +1,1 @@
+En esta carpeta va a esta un texto autogenerado con el funcionamiento de cada funcion del programa
