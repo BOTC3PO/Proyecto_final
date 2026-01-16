@@ -465,6 +465,144 @@ db.movimientos_billetera.createIndex({ billeteraId: 1 });
 db.movimientos_billetera.createIndex({ fecha: -1 });
 
 // ============================================================================
+// ECONOMIA COLLECTIONS
+// ============================================================================
+db.createCollection("economia_config", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id", "moneda", "tasas", "inflacion", "deflacion", "updatedAt"],
+      properties: {
+        id: { bsonType: "string" },
+        moneda: {
+          bsonType: "object",
+          required: ["codigo", "nombre", "simbolo"],
+          properties: {
+            codigo: { bsonType: "string" },
+            nombre: { bsonType: "string" },
+            simbolo: { bsonType: "string" }
+          }
+        },
+        tasas: {
+          bsonType: "object",
+          required: ["pf", "fci"],
+          properties: {
+            pf: { bsonType: "double", minimum: 0 },
+            fci: { bsonType: "double", minimum: 0 }
+          }
+        },
+        inflacion: {
+          bsonType: "object",
+          required: ["tasa", "activa"],
+          properties: {
+            tasa: { bsonType: "double", minimum: 0 },
+            activa: { bsonType: "bool" }
+          }
+        },
+        deflacion: {
+          bsonType: "object",
+          required: ["tasa", "activa"],
+          properties: {
+            tasa: { bsonType: "double", minimum: 0 },
+            activa: { bsonType: "bool" }
+          }
+        },
+        updatedAt: { bsonType: "date" }
+      }
+    }
+  }
+});
+
+db.createCollection("economia_saldos", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["usuarioId", "saldo", "moneda", "updatedAt"],
+      properties: {
+        usuarioId: { bsonType: "string" },
+        saldo: { bsonType: "double", minimum: 0 },
+        moneda: { bsonType: "string" },
+        updatedAt: { bsonType: "date" }
+      }
+    }
+  }
+});
+
+db.createCollection("economia_recompensas", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id", "tipo", "referenciaId", "nombre", "monto", "moneda", "activo", "updatedAt"],
+      properties: {
+        id: { bsonType: "string" },
+        tipo: { bsonType: "string", enum: ["modulo", "tarea", "bonus"] },
+        referenciaId: { bsonType: "string" },
+        nombre: { bsonType: "string" },
+        descripcion: { bsonType: ["string", "null"] },
+        monto: { bsonType: "double", minimum: 0 },
+        moneda: { bsonType: "string" },
+        activo: { bsonType: "bool" },
+        updatedAt: { bsonType: "date" }
+      }
+    }
+  }
+});
+
+db.createCollection("economia_transacciones", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id", "usuarioId", "tipo", "monto", "moneda", "motivo", "createdAt"],
+      properties: {
+        id: { bsonType: "string" },
+        usuarioId: { bsonType: "string" },
+        tipo: { bsonType: "string", enum: ["credito", "debito"] },
+        monto: { bsonType: "double", minimum: 0 },
+        moneda: { bsonType: "string" },
+        motivo: { bsonType: "string" },
+        referenciaId: { bsonType: ["string", "null"] },
+        createdAt: { bsonType: "date" }
+      }
+    }
+  }
+});
+
+db.createCollection("economia_modulos", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["moduloId", "activo", "updatedAt"],
+      properties: {
+        moduloId: { bsonType: "string" },
+        activo: { bsonType: "bool" },
+        updatedAt: { bsonType: "date" }
+      }
+    }
+  }
+});
+
+db.createCollection("economia_eventos", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id", "nombre", "tipo", "activo", "updatedAt"],
+      properties: {
+        id: { bsonType: "string" },
+        nombre: { bsonType: "string" },
+        tipo: {
+          bsonType: "string",
+          enum: ["inflacion", "deflacion", "bonus", "penalizacion", "otro"]
+        },
+        descripcion: { bsonType: ["string", "null"] },
+        tasa: { bsonType: ["double", "null"], minimum: 0 },
+        activo: { bsonType: "bool" },
+        updatedAt: { bsonType: "date" }
+      }
+    }
+  }
+});
+
+// ============================================================================
 // INSERT SAMPLE DATA
 // ============================================================================
 
