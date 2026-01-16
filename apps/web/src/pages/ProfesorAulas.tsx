@@ -3,7 +3,75 @@ import type { Classroom } from "../domain/classroom/classroom.types";
 import { useAuth } from "../auth/use-auth";
 import { createClassroom, deleteClassroom, fetchClassrooms, updateClassroom } from "../services/aulas";
 
+type StudentProgress = {
+  id: string;
+  name: string;
+  completion: number;
+  score: number;
+  status: "al_dia" | "en_riesgo" | "destacado";
+};
+
+type ProgressSnapshot = {
+  totalStudents: number;
+  activeStudents: number;
+  avgCompletion: number;
+  avgScore: number;
+  atRiskCount: number;
+  students: StudentProgress[];
+  lastUpdate: string;
+};
+
 const formatAccess = (accessType: Classroom["accessType"]) => (accessType === "publica" ? "Pública" : "Privada");
+const formatPercent = (value: number) => `${Math.round(value)}%`;
+
+const STUDENT_NAMES = [
+  "Camila",
+  "Diego",
+  "Valentina",
+  "Mateo",
+  "Sofía",
+  "Benjamín",
+  "Martina",
+  "Lucas",
+  "Isabella",
+  "Joaquín"
+];
+
+const hashString = (value: string) =>
+  value.split("").reduce((acc, char) => acc + char.charCodeAt(0) * 17, 0);
+
+const buildProgressSnapshot = (classroom: Classroom): ProgressSnapshot => {
+  const seed = hashString(classroom.id);
+  const totalStudents = 16 + (seed % 12);
+  const activeStudents = totalStudents - (seed % 4);
+  const avgCompletion = 62 + (seed % 26);
+  const avgScore = 70 + (seed % 21);
+  const atRiskCount = Math.max(1, Math.round(totalStudents * 0.12));
+  const students = Array.from({ length: 4 }).map((_, index) => {
+    const name = STUDENT_NAMES[(seed + index) % STUDENT_NAMES.length];
+    const completion = 58 + ((seed + index * 7) % 42);
+    const score = 65 + ((seed + index * 9) % 30);
+    const status = completion > 88 ? "destacado" : completion < 70 ? "en_riesgo" : "al_dia";
+    return {
+      id: `${classroom.id}-student-${index}`,
+      name,
+      completion,
+      score,
+      status
+    };
+  });
+
+  return {
+    totalStudents,
+    activeStudents,
+    avgCompletion,
+    avgScore,
+    atRiskCount,
+    students,
+    lastUpdate: new Date(classroom.updatedAt).toLocaleString()
+  };
+};
+
 const emptyForm = {
   name: "",
   description: "",
@@ -22,6 +90,11 @@ export default function ProfesorAulas() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [reportSelections, setReportSelections] = useState<Record<string, { format: "pdf" | "xlsx"; studentId: string }>>(
+    {}
+  );
+  const [deletePromptId, setDeletePromptId] = useState<string | null>(null);
+  const [downloadOnDelete, setDownloadOnDelete] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     let active = true;
@@ -44,6 +117,14 @@ export default function ProfesorAulas() {
     };
   }, []);
 
+  const progressByClassroom = useMemo(() => {
+    const snapshot: Record<string, ProgressSnapshot> = {};
+    classrooms.forEach((classroom) => {
+      snapshot[classroom.id] = buildProgressSnapshot(classroom);
+    });
+    return snapshot;
+  }, [classrooms]);
+
   const visibleClassrooms = useMemo(() => {
     if (!user) return [];
     if (user.role === "TEACHER") {
@@ -54,6 +135,19 @@ export default function ProfesorAulas() {
     }
     return classrooms;
   }, [classrooms, user]);
+
+  useEffect(() => {
+    setReportSelections((prev) => {
+      const next = { ...prev };
+      visibleClassrooms.forEach((classroom) => {
+        if (!next[classroom.id]) {
+          const roster = progressByClassroom[classroom.id]?.students ?? [];
+          next[classroom.id] = { format: "pdf", studentId: roster[0]?.id ?? "" };
+        }
+      });
+      return next;
+    });
+  }, [visibleClassrooms, progressByClassroom]);
 
   const handleFieldChange = (field: keyof typeof emptyForm, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -140,11 +234,30 @@ export default function ProfesorAulas() {
     setSubmitError(null);
     setIsSubmitting(true);
     try {
+      if (downloadOnDelete[classroomId]) {
+        const classroom = classrooms.find((item) => item.id === classroomId);
+        const progress = progressByClassroom[classroomId];
+        if (classroom && progress) {
+          const exportPayload = {
+            classroom,
+            progreso: progress,
+            exportadoEn: new Date().toISOString()
+          };
+          const blob = new Blob([JSON.stringify(exportPayload, null, 2)], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = `aula-${classroom.name.replace(/\s+/g, "-").toLowerCase()}-respaldo.json`;
+          link.click();
+          URL.revokeObjectURL(url);
+        }
+      }
       await deleteClassroom(classroomId);
       setClassrooms((prev) => prev.filter((classroom) => classroom.id !== classroomId));
       if (editingId === classroomId) {
         resetForm();
       }
+      setDeletePromptId(null);
     } catch (err: unknown) {
       if (err instanceof Error) {
         setSubmitError(err.message);
@@ -154,6 +267,81 @@ export default function ProfesorAulas() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleArchiveToggle = async (classroom: Classroom) => {
+    setSubmitError(null);
+    setIsSubmitting(true);
+    const nextStatus = classroom.status === "activa" ? "archivada" : "activa";
+    try {
+      await updateClassroom(classroom.id, { status: nextStatus });
+      setClassrooms((prev) =>
+        prev.map((item) =>
+          item.id === classroom.id
+            ? {
+                ...item,
+                status: nextStatus,
+                updatedAt: new Date().toISOString()
+              }
+            : item
+        )
+      );
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setSubmitError(err.message);
+      } else {
+        setSubmitError("No se pudo actualizar el estado del aula.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleReuseContent = (classroom: Classroom) => {
+    setEditingId(null);
+    setForm({
+      name: `${classroom.name} (copia)`,
+      description: classroom.description,
+      accessType: classroom.accessType,
+      status: "activa",
+      institutionId: classroom.institutionId ?? "",
+      category: classroom.category ?? ""
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const updateReportSelection = (classroomId: string, updates: Partial<{ format: "pdf" | "xlsx"; studentId: string }>) => {
+    setReportSelections((prev) => ({
+      ...prev,
+      [classroomId]: { format: "pdf", studentId: "", ...prev[classroomId], ...updates }
+    }));
+  };
+
+  const handleReportDownload = (classroom: Classroom, scope: "grupal" | "individual") => {
+    const progress = progressByClassroom[classroom.id];
+    if (!progress) return;
+    const selection = reportSelections[classroom.id] ?? { format: "pdf", studentId: progress.students[0]?.id ?? "" };
+    const targetStudent =
+      scope === "individual" ? progress.students.find((student) => student.id === selection.studentId) : undefined;
+    const payload = {
+      aula: classroom.name,
+      scope,
+      formato: selection.format,
+      generadoEn: new Date().toISOString(),
+      resumen: {
+        estudiantes: progress.totalStudents,
+        progresoPromedio: `${formatPercent(progress.avgCompletion)}`,
+        scorePromedio: progress.avgScore
+      },
+      estudiante: targetStudent
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `reporte-${scope}-${classroom.name.replace(/\s+/g, "-").toLowerCase()}.${selection.format}`;
+    link.click();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -308,6 +496,98 @@ export default function ProfesorAulas() {
                   <span>Creada por {classroom.createdBy}</span>
                   <span>{new Date(classroom.updatedAt).toLocaleDateString()}</span>
                 </div>
+                <div className="mt-4 rounded-lg border border-slate-100 bg-slate-50 p-4 text-xs text-slate-700">
+                  <h3 className="text-sm font-semibold text-slate-800">Progreso de estudiantes</h3>
+                  <p className="mt-1 text-slate-500">
+                    Última actualización: {progressByClassroom[classroom.id]?.lastUpdate ?? "--"}
+                  </p>
+                  <div className="mt-3 grid grid-cols-2 gap-3 text-[11px] text-slate-600">
+                    <div className="rounded-md bg-white px-3 py-2 shadow-sm">
+                      <p className="font-semibold text-slate-800">{progressByClassroom[classroom.id]?.totalStudents ?? 0}</p>
+                      <p>Estudiantes registrados</p>
+                    </div>
+                    <div className="rounded-md bg-white px-3 py-2 shadow-sm">
+                      <p className="font-semibold text-slate-800">{progressByClassroom[classroom.id]?.activeStudents ?? 0}</p>
+                      <p>Activos esta semana</p>
+                    </div>
+                    <div className="rounded-md bg-white px-3 py-2 shadow-sm">
+                      <p className="font-semibold text-slate-800">
+                        {formatPercent(progressByClassroom[classroom.id]?.avgCompletion ?? 0)}
+                      </p>
+                      <p>Progreso promedio</p>
+                    </div>
+                    <div className="rounded-md bg-white px-3 py-2 shadow-sm">
+                      <p className="font-semibold text-slate-800">{progressByClassroom[classroom.id]?.avgScore ?? 0}</p>
+                      <p>Score promedio</p>
+                    </div>
+                  </div>
+                  <ul className="mt-3 space-y-2">
+                    {(progressByClassroom[classroom.id]?.students ?? []).map((student) => (
+                      <li key={student.id} className="flex items-center justify-between rounded-md bg-white px-3 py-2">
+                        <div>
+                          <p className="font-semibold text-slate-800">{student.name}</p>
+                          <p className="text-[11px] text-slate-500">
+                            Progreso {formatPercent(student.completion)} · Score {student.score}
+                          </p>
+                        </div>
+                        <span
+                          className={`rounded-full px-2 py-1 text-[10px] font-semibold ${
+                            student.status === "destacado"
+                              ? "bg-emerald-100 text-emerald-700"
+                              : student.status === "en_riesgo"
+                              ? "bg-amber-100 text-amber-700"
+                              : "bg-blue-100 text-blue-700"
+                          }`}
+                        >
+                          {student.status === "destacado" ? "Destacado" : student.status === "en_riesgo" ? "En riesgo" : "Al día"}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-4 rounded-lg border border-slate-100 bg-white p-4 text-xs text-slate-700">
+                  <h3 className="text-sm font-semibold text-slate-800">Reportes grupales e individuales</h3>
+                  <p className="mt-1 text-slate-500">Configura el formato y descarga reportes según tu necesidad.</p>
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <label className="text-[11px] text-slate-500">Formato</label>
+                    <select
+                      value={reportSelections[classroom.id]?.format ?? "pdf"}
+                      onChange={(event) => updateReportSelection(classroom.id, { format: event.target.value as "pdf" | "xlsx" })}
+                      className="rounded-md border border-slate-200 px-2 py-1 text-[11px]"
+                    >
+                      <option value="pdf">PDF</option>
+                      <option value="xlsx">Excel</option>
+                    </select>
+                    <label className="ml-2 text-[11px] text-slate-500">Estudiante</label>
+                    <select
+                      value={reportSelections[classroom.id]?.studentId ?? ""}
+                      onChange={(event) => updateReportSelection(classroom.id, { studentId: event.target.value })}
+                      className="rounded-md border border-slate-200 px-2 py-1 text-[11px]"
+                    >
+                      {(progressByClassroom[classroom.id]?.students ?? []).map((student) => (
+                        <option key={student.id} value={student.id}>
+                          {student.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      className="rounded-md border border-blue-200 px-3 py-1 text-[11px] font-semibold text-blue-700 hover:bg-blue-50"
+                      onClick={() => handleReportDownload(classroom, "grupal")}
+                    >
+                      Descargar grupal
+                    </button>
+                    <button
+                      type="button"
+                      className="rounded-md border border-emerald-200 px-3 py-1 text-[11px] font-semibold text-emerald-700 hover:bg-emerald-50"
+                      onClick={() => handleReportDownload(classroom, "individual")}
+                    >
+                      Descargar individual
+                    </button>
+                  </div>
+                </div>
                 {user?.role === "TEACHER" && classroom.createdBy === user.id && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     <button
@@ -319,12 +599,60 @@ export default function ProfesorAulas() {
                     </button>
                     <button
                       type="button"
+                      className="rounded-md border border-amber-200 px-3 py-1 text-xs text-amber-700 hover:bg-amber-50"
+                      onClick={() => handleArchiveToggle(classroom)}
+                      disabled={isSubmitting}
+                    >
+                      {classroom.status === "archivada" ? "Reactivar" : "Archivar"}
+                    </button>
+                    <button
+                      type="button"
+                      className="rounded-md border border-slate-200 px-3 py-1 text-xs text-slate-700 hover:bg-slate-50"
+                      onClick={() => handleReuseContent(classroom)}
+                    >
+                      Reutilizar contenido
+                    </button>
+                    <button
+                      type="button"
                       className="rounded-md border border-red-200 px-3 py-1 text-xs text-red-600 hover:bg-red-50"
-                      onClick={() => handleDelete(classroom.id)}
+                      onClick={() => setDeletePromptId(classroom.id)}
                       disabled={isSubmitting}
                     >
                       Eliminar
                     </button>
+                  </div>
+                )}
+                {user?.role === "TEACHER" && classroom.createdBy === user.id && deletePromptId === classroom.id && (
+                  <div className="mt-3 rounded-lg border border-red-100 bg-red-50 p-3 text-xs text-red-700">
+                    <p className="font-semibold">¿Eliminar esta aula?</p>
+                    <p className="mt-1 text-red-600">Podés descargar un respaldo antes de confirmar.</p>
+                    <label className="mt-2 flex items-center gap-2 text-[11px] text-red-700">
+                      <input
+                        type="checkbox"
+                        checked={downloadOnDelete[classroom.id] ?? false}
+                        onChange={(event) =>
+                          setDownloadOnDelete((prev) => ({ ...prev, [classroom.id]: event.target.checked }))
+                        }
+                      />
+                      Descargar datos del aula
+                    </label>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        className="rounded-md bg-red-600 px-3 py-1 text-[11px] text-white hover:bg-red-700"
+                        onClick={() => handleDelete(classroom.id)}
+                        disabled={isSubmitting}
+                      >
+                        Confirmar eliminación
+                      </button>
+                      <button
+                        type="button"
+                        className="rounded-md border border-red-200 px-3 py-1 text-[11px] text-red-700 hover:bg-red-100"
+                        onClick={() => setDeletePromptId(null)}
+                      >
+                        Cancelar
+                      </button>
+                    </div>
                   </div>
                 )}
               </article>
