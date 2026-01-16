@@ -38,7 +38,21 @@ const logReportePadre = async (params: {
   });
 };
 
-const validarAccesoPadre = async (parentId: ReturnType<typeof toObjectId>, childId: ReturnType<typeof toObjectId>) => {
+type AccesoPadreOk = {
+  ok: true;
+  acceso: "menor" | "aprobado";
+};
+
+type AccesoPadreError = {
+  ok: false;
+  status: number;
+  error: string;
+};
+
+const validarAccesoPadre = async (
+  parentId: ReturnType<typeof toObjectId>,
+  childId: ReturnType<typeof toObjectId>
+): Promise<AccesoPadreOk | AccesoPadreError> => {
   if (!parentId || !childId) {
     return { ok: false, status: 400, error: "parentId and childId are required" as const };
   }

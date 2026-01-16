@@ -11,6 +11,26 @@ type StatsFilters = {
   cohorte?: string;
 };
 
+type ProgresoResumenItem = {
+  _id?: string | null;
+  completadas?: number | null;
+  pendientes?: number | null;
+  tiempoPromedioMin?: number | null;
+  scorePromedio?: number | null;
+  scoreMax?: number | null;
+  scoreMin?: number | null;
+};
+
+type NotaTemaItem = {
+  _id?: string | null;
+  promedio?: number | null;
+};
+
+type ActividadSemanalItem = {
+  _id?: string | null;
+  interacciones?: number | null;
+};
+
 const buildDateMatch = (filters: StatsFilters, field: string) => {
   const range: { $gte?: Date; $lte?: Date } = {};
   if (filters.fechaInicio) range.$gte = new Date(filters.fechaInicio);
@@ -56,11 +76,11 @@ const buildProfesorStats = async (filters: StatsFilters) => {
       },
       { $sort: { completadas: -1 } }
     ])
-    .toArray();
+    .toArray() as ProgresoResumenItem[];
 
-  const totalCompletadas = progresoResumen.reduce((acc, item) => acc + (item.completadas ?? 0), 0);
+  const totalCompletadas = progresoResumen.reduce<number>((acc, item) => acc + (item.completadas ?? 0), 0);
   const tiempoPromedioMin = Math.round(
-    progresoResumen.reduce((acc, item) => acc + (item.tiempoPromedioMin ?? 0), 0) /
+    progresoResumen.reduce<number>((acc, item) => acc + (item.tiempoPromedioMin ?? 0), 0) /
       Math.max(progresoResumen.length, 1)
   );
 
@@ -80,7 +100,7 @@ const buildProfesorStats = async (filters: StatsFilters) => {
       { $group: { _id: "$tema", promedio: { $avg: "$score" } } },
       { $sort: { promedio: -1 } }
     ])
-    .toArray();
+    .toArray() as NotaTemaItem[];
 
   const accesos = await db.collection("accesos").countDocuments(participacionMatch);
   const foros = await db.collection("foros_respuestas").countDocuments(participacionMatch);
@@ -104,7 +124,7 @@ const buildProfesorStats = async (filters: StatsFilters) => {
       { $sort: { _id: 1 } },
       { $limit: 8 }
     ])
-    .toArray();
+    .toArray() as ActividadSemanalItem[];
 
   return {
     general: {
