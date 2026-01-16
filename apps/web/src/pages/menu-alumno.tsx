@@ -59,6 +59,19 @@ type Transfer = {
   date: string;
 };
 
+type EducationMessage = {
+  id: string;
+  title: string;
+  body: string;
+  tone: "info" | "success" | "warning";
+};
+
+type CoinFeedback = {
+  delta: number;
+  label: string;
+  tone: "gain" | "spend";
+};
+
 type EconomyState = {
   coins: number;
   foreignCoins: number;
@@ -175,6 +188,8 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   const [fciAmount, setFciAmount] = useState(8000);
   const [fciRate, setFciRate] = useState(4);
   const [fciDays, setFciDays] = useState(10);
+  const [educationMessages, setEducationMessages] = useState<EducationMessage[]>([]);
+  const [coinFeedback, setCoinFeedback] = useState<CoinFeedback | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -216,10 +231,23 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     localStorage.setItem(ECONOMY_STORAGE_KEY, JSON.stringify(economy));
   }, [economy]);
 
+  useEffect(() => {
+    if (!coinFeedback) return;
+    const timeout = window.setTimeout(() => {
+      setCoinFeedback(null);
+    }, 4000);
+    return () => window.clearTimeout(timeout);
+  }, [coinFeedback]);
+
   const progressLabel = useMemo(() => `${completedModules} módulos completados`, [completedModules]);
 
   const completedModuleSet = useMemo(() => new Set(economy.completedModuleIds), [economy.completedModuleIds]);
   const completedTaskSet = useMemo(() => new Set(economy.completedTaskIds), [economy.completedTaskIds]);
+  const economyStatus = useMemo(() => {
+    if (economy.coins >= 200) return { label: "Súper sólida", description: "Tenés un ahorro alto para gastar sin apuro." };
+    if (economy.coins >= 100) return { label: "Estable", description: "Podés gastar un poco y seguir ahorrando." };
+    return { label: "En recuperación", description: "Conviene ganar monedas antes de comprar." };
+  }, [economy.coins]);
   const fixedTermInterest = useMemo(() => {
     const amount = Math.max(0, fixedTermAmount);
     const rate = Math.max(0, fixedTermRate);
@@ -235,11 +263,25 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   }, [fciAmount, fciRate, fciDays]);
   const fciTotal = useMemo(() => fciAmount + fciInterest, [fciAmount, fciInterest]);
 
+  const pushEducationMessage = (message: Omit<EducationMessage, "id">) => {
+    setEducationMessages((prev) => [{ ...message, id: crypto.randomUUID() }, ...prev].slice(0, 4));
+  };
+
   const handleCompleteReward = (item: RewardItem, type: "module" | "task") => {
     setEconomy((prev) => {
       const completedIds = type === "module" ? prev.completedModuleIds : prev.completedTaskIds;
       if (completedIds.includes(item.id)) return prev;
       const nextIds = [...completedIds, item.id];
+      setCoinFeedback({
+        delta: item.reward,
+        label: `Ganaste ${item.reward} 🪙 por ${type === "module" ? "el módulo" : "la tarea"}.`,
+        tone: "gain"
+      });
+      pushEducationMessage({
+        title: "Recompensa ganada",
+        body: "Cuando completás actividades, tu saldo sube. Ahorrar te ayuda a comprar temas más caros.",
+        tone: "success"
+      });
       return {
         ...prev,
         coins: prev.coins + item.reward,
@@ -252,9 +294,24 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   const handlePurchaseTheme = (item: StoreItem) => {
     setEconomy((prev) => {
       if (prev.ownedThemes.includes(item.id)) {
+        pushEducationMessage({
+          title: "Tema activado",
+          body: "Cambiar el tema no cuesta monedas si ya lo tenés comprado.",
+          tone: "info"
+        });
         return { ...prev, activeTheme: item.id };
       }
       if (prev.coins < item.price) return prev;
+      setCoinFeedback({
+        delta: -item.price,
+        label: `Gastaste ${item.price} 🪙 en ${item.name}.`,
+        tone: "spend"
+      });
+      pushEducationMessage({
+        title: "Compra realizada",
+        body: "Al gastar monedas tu saldo baja. Revisá siempre si te conviene ahorrar o comprar ahora.",
+        tone: "warning"
+      });
       return {
         ...prev,
         coins: prev.coins - item.price,
@@ -269,6 +326,16 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     setEconomy((prev) => {
       if (exchangeAmount > prev.coins) return prev;
       const foreignValue = Number((exchangeAmount / FOREIGN_EXCHANGE_RATE).toFixed(2));
+      setCoinFeedback({
+        delta: -exchangeAmount,
+        label: `Convertiste ${exchangeAmount} 🪙 a ${foreignValue} FX.`,
+        tone: "spend"
+      });
+      pushEducationMessage({
+        title: "Cambio de moneda",
+        body: `Aprendés que las monedas tienen valor de cambio: ${FOREIGN_EXCHANGE_RATE} 🪙 = 1 FX.`,
+        tone: "info"
+      });
       return {
         ...prev,
         coins: prev.coins - exchangeAmount,
@@ -289,6 +356,16 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
         note: transferNote.trim(),
         date: new Date().toLocaleString("es-AR")
       };
+      setCoinFeedback({
+        delta: -transferAmount,
+        label: `Enviaste ${transferAmount} 🪙 a ${transfer.to}.`,
+        tone: "spend"
+      });
+      pushEducationMessage({
+        title: "Compartir monedas",
+        body: "Enviar monedas es como pagar por un servicio. Siempre revisá tu saldo antes de compartir.",
+        tone: "info"
+      });
       return {
         ...prev,
         coins: prev.coins - transferAmount,
@@ -324,18 +401,53 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           </div>
           <section className="grid gap-5 lg:grid-cols-3">
             <div className="lg:col-span-2 bg-white rounded-2xl shadow p-6">
-              <h3 className="text-lg font-semibold text-gray-800">Saldo claro y amigable</h3>
-              <p className="text-sm text-gray-500">Tu economía escolar se resume acá.</p>
+              <h3 className="text-lg font-semibold text-gray-800">Tablero Económico</h3>
+              <p className="text-sm text-gray-500">Estado, tasas y ayudas simples para entender tu saldo.</p>
               <div className="mt-5 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-xl border border-gray-200 p-4">
                   <p className="text-sm text-gray-500">Monedas disponibles</p>
-                  <p className="text-3xl font-semibold text-blue-600">{economy.coins} 🪙</p>
+                  <p
+                    className={`text-3xl font-semibold text-blue-600 ${
+                      coinFeedback?.tone === "gain" ? "animate-pulse" : ""
+                    }`}
+                  >
+                    {economy.coins} 🪙
+                  </p>
                   <p className="text-xs text-gray-400 mt-1">Usalas para temas o intercambios.</p>
+                  {coinFeedback ? (
+                    <div
+                      className={`mt-2 inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold ${
+                        coinFeedback.tone === "gain"
+                          ? "bg-emerald-100 text-emerald-700"
+                          : "bg-rose-100 text-rose-600"
+                      }`}
+                    >
+                      {coinFeedback.delta > 0 ? "+" : ""}
+                      {coinFeedback.delta} 🪙 · {coinFeedback.label}
+                    </div>
+                  ) : null}
                 </div>
                 <div className="rounded-xl border border-gray-200 p-4">
                   <p className="text-sm text-gray-500">Moneda extranjera simulada</p>
                   <p className="text-3xl font-semibold text-emerald-600">{economy.foreignCoins} FX</p>
                   <p className="text-xs text-gray-400 mt-1">Comprada a razón de {FOREIGN_EXCHANGE_RATE} monedas.</p>
+                </div>
+              </div>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                <div className="rounded-xl bg-gray-50 p-4">
+                  <p className="text-xs uppercase tracking-wide text-gray-400">Estado</p>
+                  <p className="text-lg font-semibold text-gray-800">{economyStatus.label}</p>
+                  <p className="text-xs text-gray-500 mt-1">{economyStatus.description}</p>
+                </div>
+                <div className="rounded-xl bg-gray-50 p-4">
+                  <p className="text-xs uppercase tracking-wide text-gray-400">Tasa plazo fijo</p>
+                  <p className="text-lg font-semibold text-gray-800">{fixedTermRate}% anual</p>
+                  <p className="text-xs text-gray-500 mt-1">Cuanto más alta la tasa, más interés ganás.</p>
+                </div>
+                <div className="rounded-xl bg-gray-50 p-4">
+                  <p className="text-xs uppercase tracking-wide text-gray-400">Tasa FCI</p>
+                  <p className="text-lg font-semibold text-gray-800">{fciRate}% mensual</p>
+                  <p className="text-xs text-gray-500 mt-1">Tasa variable: puede subir o bajar.</p>
                 </div>
               </div>
               <div className="mt-4 rounded-xl bg-gray-50 p-4">
@@ -371,6 +483,35 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
                 Comprar FX
               </button>
             </div>
+          </section>
+          <section className="bg-white rounded-2xl shadow p-6 space-y-4">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800">Mensajes educativos</h3>
+              <p className="text-sm text-gray-500">
+                Tips rápidos para entender por qué suben o bajan tus monedas.
+              </p>
+            </div>
+            {educationMessages.length === 0 ? (
+              <p className="text-sm text-gray-400">Realizá una acción y aparecerán mensajes para ayudarte.</p>
+            ) : (
+              <div className="grid gap-3 md:grid-cols-2">
+                {educationMessages.map((message) => (
+                  <div
+                    key={message.id}
+                    className={`rounded-xl border p-4 ${
+                      message.tone === "success"
+                        ? "border-emerald-100 bg-emerald-50"
+                        : message.tone === "warning"
+                          ? "border-amber-100 bg-amber-50"
+                          : "border-sky-100 bg-sky-50"
+                    }`}
+                  >
+                    <p className="text-sm font-semibold text-gray-800">{message.title}</p>
+                    <p className="text-xs text-gray-500 mt-1">{message.body}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
           <section className="grid gap-5 lg:grid-cols-2">
             <div className="bg-white rounded-2xl shadow p-6 space-y-4">
