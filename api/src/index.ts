@@ -18,6 +18,7 @@ import { encuestas } from "./routes/encuestas";
 import { aulas } from "./routes/aulas";
 import { economia } from "./routes/economia";
 import { aulaFeed } from "./routes/aula-feed";
+import { publicaciones } from "./routes/publicaciones";
 const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
@@ -38,6 +39,7 @@ app.use(encuestas);
 app.use(aulas);
 app.use(economia);
 app.use(aulaFeed);
+app.use(publicaciones);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.listen(ENV.PORT, () => {
   console.log(`API on http://localhost:${ENV.PORT}`);

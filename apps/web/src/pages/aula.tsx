@@ -5,7 +5,7 @@ import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail } from "../services/aulas";
-import { fetchPublications, type Publication } from "../services/publicaciones";
+import { createPublication, fetchPublications, type Publication } from "../services/publicaciones";
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
 import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 
@@ -59,6 +59,10 @@ export default function aula() {
   const [upcomingActivities, setUpcomingActivities] = useState<UpcomingActivity[]>([]);
   const [feedLoading, setFeedLoading] = useState(true);
   const [feedError, setFeedError] = useState<string | null>(null);
+  const [newPublication, setNewPublication] = useState("");
+  const [publicationFiles, setPublicationFiles] = useState<File[]>([]);
+  const [publicationStatus, setPublicationStatus] = useState<"idle" | "submitting" | "error">("idle");
+  const [publicationMessage, setPublicationMessage] = useState<string | null>(null);
   const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>([]);
   const [progressLoading, setProgressLoading] = useState(true);
   const [progressError, setProgressError] = useState<string | null>(null);
@@ -85,33 +89,88 @@ export default function aula() {
     };
   }, [classroomId]);
 
-  useEffect(() => {
-    let active = true;
+  const loadFeed = async (active: { current: boolean }) => {
     setFeedLoading(true);
     setFeedError(null);
-    Promise.all([
-      fetchPublications(classroomId ?? undefined),
-      fetchLeaderboard(classroomId ?? undefined),
-      fetchUpcomingActivities(classroomId ?? undefined),
-    ])
-      .then(([publicationsResponse, leaderboardResponse, activitiesResponse]) => {
-        if (!active) return;
-        setPublications(publicationsResponse);
-        setLeaderboard(leaderboardResponse);
-        setUpcomingActivities(activitiesResponse);
-      })
-      .catch((error) => {
-        if (!active) return;
-        setFeedError(error instanceof Error ? error.message : "No pudimos cargar la información del aula.");
-      })
-      .finally(() => {
-        if (!active) return;
-        setFeedLoading(false);
-      });
+    try {
+      const [publicationsResponse, leaderboardResponse, activitiesResponse] = await Promise.all([
+        fetchPublications(classroomId ?? undefined),
+        fetchLeaderboard(classroomId ?? undefined),
+        fetchUpcomingActivities(classroomId ?? undefined),
+      ]);
+      if (!active.current) return;
+      setPublications(publicationsResponse);
+      setLeaderboard(leaderboardResponse);
+      setUpcomingActivities(activitiesResponse);
+    } catch (error) {
+      if (!active.current) return;
+      setFeedError(error instanceof Error ? error.message : "No pudimos cargar la información del aula.");
+    } finally {
+      if (!active.current) return;
+      setFeedLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const activeRef = { current: true };
+    loadFeed(activeRef);
     return () => {
-      active = false;
+      activeRef.current = false;
     };
   }, [classroomId]);
+
+  const handleFilesChange = (files: FileList | null) => {
+    if (!files) {
+      setPublicationFiles([]);
+      return;
+    }
+    setPublicationFiles(Array.from(files));
+  };
+
+  const handleSubmitPublication = async () => {
+    if (!classroomId) {
+      setPublicationStatus("error");
+      setPublicationMessage("No pudimos identificar el aula.");
+      return;
+    }
+    if (!newPublication.trim()) {
+      setPublicationStatus("error");
+      setPublicationMessage("Escribe una novedad antes de publicar.");
+      return;
+    }
+    setPublicationStatus("submitting");
+    setPublicationMessage(null);
+    try {
+      const initials = user?.name
+        ? user.name
+            .split(" ")
+            .filter(Boolean)
+            .map((part) => part[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase()
+        : "AA";
+      await createPublication(classroomId, {
+        contenido: newPublication.trim(),
+        authorInitials: initials,
+        title: "Nueva publicación",
+        archivos: publicationFiles.map((file) => ({
+          name: file.name,
+          size: file.size,
+          type: file.type,
+        })),
+      });
+      setNewPublication("");
+      setPublicationFiles([]);
+      setPublicationStatus("idle");
+      setPublicationMessage("Publicación creada.");
+      const activeRef = { current: true };
+      await loadFeed(activeRef);
+    } catch (error) {
+      setPublicationStatus("error");
+      setPublicationMessage(error instanceof Error ? error.message : "No pudimos publicar la novedad.");
+    }
+  };
 
   useEffect(() => {
     let active = true;
@@ -213,13 +272,40 @@ export default function aula() {
                 <input
                   className="flex-1 rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="Escribe una novedad..."
+                  value={newPublication}
+                  onChange={(event) => setNewPublication(event.target.value)}
                 />
-                <button className="ml-3 bg-blue-600 text-white px-4 py-2 rounded-md">Publicar</button>
+                <button
+                  className="ml-3 bg-blue-600 text-white px-4 py-2 rounded-md disabled:opacity-60"
+                  onClick={handleSubmitPublication}
+                  disabled={publicationStatus === "submitting"}
+                >
+                  {publicationStatus === "submitting" ? "Publicando..." : "Publicar"}
+                </button>
               </div>
-              <div className="flex items-center gap-3 mt-3 text-gray-600">
-                <button className="p-2 hover:bg-gray-100 rounded">📎</button>
-                <button className="p-2 hover:bg-gray-100 rounded">🖼️</button>
+              <div className="flex flex-wrap items-center gap-3 mt-3 text-gray-600">
+                <label className="p-2 hover:bg-gray-100 rounded cursor-pointer" htmlFor="aula-archivos">
+                  📎
+                </label>
+                <label className="p-2 hover:bg-gray-100 rounded cursor-pointer" htmlFor="aula-archivos">
+                  🖼️
+                </label>
+                <input
+                  id="aula-archivos"
+                  type="file"
+                  multiple
+                  className="hidden"
+                  onChange={(event) => handleFilesChange(event.target.files)}
+                />
+                {publicationFiles.length > 0 && (
+                  <span className="text-xs text-gray-500">{publicationFiles.length} archivo(s) adjunto(s)</span>
+                )}
               </div>
+              {publicationMessage && (
+                <p className={`mt-3 text-xs ${publicationStatus === "error" ? "text-red-600" : "text-green-600"}`}>
+                  {publicationMessage}
+                </p>
+              )}
             </div>
 
             <div className="space-y-4">
