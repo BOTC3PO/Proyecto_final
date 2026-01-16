@@ -13,6 +13,11 @@ export const EconomiaConfigSchema = z.object({
     pf: z.number().nonnegative(),
     fci: z.number().nonnegative()
   }),
+  limites: z.object({
+    emisionDiaria: z.number().nonnegative(),
+    recompensaMaxima: z.number().nonnegative(),
+    recompensaDiaria: z.number().nonnegative()
+  }),
   inflacion: z.object({
     tasa: z.number().nonnegative(),
     activa: z.boolean()
@@ -56,6 +61,7 @@ export const TransaccionTipoSchema = z.enum(["credito", "debito"]);
 export const TransaccionSchema = z.object({
   id: z.string().min(1),
   usuarioId: z.string().min(1),
+  aulaId: z.string().min(1).optional(),
   tipo: TransaccionTipoSchema,
   monto: z.number().positive(),
   moneda: z.string().min(1),
@@ -82,6 +88,7 @@ export const EventoEconomicoSchema = z.object({
 
 export const ExamenEconomiaSchema = z.object({
   id: z.string().min(1),
+  aulaId: z.string().min(1).optional(),
   nombre: z.string().min(1),
   fechaExamen: z.string().datetime(),
   estado: z.enum(["anunciado", "cerrado"]),
@@ -96,11 +103,20 @@ export const PujaExamenSchema = z.object({
   id: z.string().min(1),
   examenId: z.string().min(1),
   usuarioId: z.string().min(1),
+  aulaId: z.string().min(1).optional(),
   puntos: z.number().positive(),
   montoPorPunto: z.number().positive(),
   estado: z.enum(["pendiente", "aceptada", "rechazada"]),
   createdAt: z.string().datetime(),
   resolvedAt: z.string().datetime().optional()
+});
+
+export const EconomiaRiesgoCursoSchema = z.object({
+  aulaId: z.string().min(1),
+  riesgoBase: z.number().min(0).max(1),
+  riesgoMercado: z.number().min(0).max(1),
+  riesgoCredito: z.number().min(0).max(1),
+  updatedAt: z.string().datetime()
 });
 
 export const PuntosExamenSchema = z.object({
@@ -118,3 +134,4 @@ export type EventoEconomico = z.infer<typeof EventoEconomicoSchema>;
 export type ExamenEconomia = z.infer<typeof ExamenEconomiaSchema>;
 export type PujaExamen = z.infer<typeof PujaExamenSchema>;
 export type PuntosExamen = z.infer<typeof PuntosExamenSchema>;
+export type EconomiaRiesgoCurso = z.infer<typeof EconomiaRiesgoCursoSchema>;

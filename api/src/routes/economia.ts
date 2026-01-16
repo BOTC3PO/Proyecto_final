@@ -4,6 +4,7 @@ import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import {
   EconomiaConfigSchema,
+  EconomiaRiesgoCursoSchema,
   ExamenEconomiaSchema,
   EventoEconomicoSchema,
   ModuloEconomiaSchema,
@@ -39,6 +40,31 @@ const MACRO_MODULOS = {
 type MacroModo = "normal" | "inflacion" | "deflacion" | "hiperinflacion";
 
 const roundMoney = (value: number) => Number(value.toFixed(2));
+
+const buildIsoRange = (desde?: string, hasta?: string) => {
+  const now = new Date();
+  const defaultDesde = new Date(now);
+  defaultDesde.setDate(defaultDesde.getDate() - 30);
+  const parsedDesde = desde ? new Date(desde) : defaultDesde;
+  const parsedHasta = hasta ? new Date(hasta) : now;
+  const safeDesde = Number.isNaN(parsedDesde.getTime()) ? defaultDesde : parsedDesde;
+  const safeHasta = Number.isNaN(parsedHasta.getTime()) ? now : parsedHasta;
+  return {
+    desde: safeDesde.toISOString(),
+    hasta: safeHasta.toISOString()
+  };
+};
+
+const buildDayRange = (date = new Date()) => {
+  const start = new Date(date);
+  start.setHours(0, 0, 0, 0);
+  const end = new Date(date);
+  end.setHours(23, 59, 59, 999);
+  return {
+    desde: start.toISOString(),
+    hasta: end.toISOString()
+  };
+};
 
 const getMacroAjuste = async (db: Awaited<ReturnType<typeof getDb>>) => {
   const config = await getEconomiaConfig(db);
@@ -95,6 +121,11 @@ const defaultConfig = () => ({
     pf: 1,
     fci: 1
   },
+  limites: {
+    emisionDiaria: 5000,
+    recompensaMaxima: 200,
+    recompensaDiaria: 500
+  },
   inflacion: {
     tasa: 0,
     activa: false
@@ -129,6 +160,7 @@ const PujaExamenCreateSchema = PujaExamenSchema.omit({
   resolvedAt: true,
   estado: true
 });
+const EconomiaRiesgoCursoUpdateSchema = EconomiaRiesgoCursoSchema.omit({ updatedAt: true }).partial();
 
 economia.get("/api/economia/config", async (_req, res) => {
   const db = await getDb();
@@ -146,6 +178,7 @@ economia.patch("/api/economia/config", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (r
       ...parsed,
       moneda: parsed.moneda ?? current.moneda,
       tasas: { ...current.tasas, ...parsed.tasas },
+      limites: { ...current.limites, ...parsed.limites },
       inflacion: { ...current.inflacion, ...parsed.inflacion },
       hiperinflacion: { ...current.hiperinflacion, ...parsed.hiperinflacion },
       deflacion: { ...current.deflacion, ...parsed.deflacion },
@@ -298,6 +331,7 @@ economia.post(
     try {
       const db = await getDb();
       const config = await getEconomiaConfig(db);
+      const limites = config.limites ?? defaultConfig().limites;
       const payload = {
         ...req.body,
         id: req.body?.id ?? new ObjectId().toString(),
@@ -305,6 +339,49 @@ economia.post(
         createdAt: new Date().toISOString()
       };
       const parsed = TransaccionSchema.parse(payload);
+      if (parsed.tipo === "credito") {
+        if (limites.recompensaMaxima > 0 && parsed.monto > limites.recompensaMaxima) {
+          return res.status(400).json({ error: "limite de recompensa excedido" });
+        }
+        const rangoDia = buildDayRange();
+        const aulaFiltro = parsed.aulaId ? { aulaId: parsed.aulaId } : {};
+        const baseMatch = {
+          tipo: "credito",
+          createdAt: { $gte: rangoDia.desde, $lte: rangoDia.hasta },
+          ...aulaFiltro
+        };
+        if (limites.emisionDiaria > 0) {
+          const totalEmision = await db
+            .collection("economia_transacciones")
+            .aggregate([
+              { $match: baseMatch },
+              { $group: { _id: null, total: { $sum: "$monto" } } }
+            ])
+            .toArray();
+          const emisionActual = totalEmision[0]?.total ?? 0;
+          if (emisionActual + parsed.monto > limites.emisionDiaria) {
+            return res.status(400).json({ error: "limite de emision diaria excedido" });
+          }
+        }
+        if (limites.recompensaDiaria > 0) {
+          const totalUsuario = await db
+            .collection("economia_transacciones")
+            .aggregate([
+              {
+                $match: {
+                  ...baseMatch,
+                  usuarioId: parsed.usuarioId
+                }
+              },
+              { $group: { _id: null, total: { $sum: "$monto" } } }
+            ])
+            .toArray();
+          const recompensaActual = totalUsuario[0]?.total ?? 0;
+          if (recompensaActual + parsed.monto > limites.recompensaDiaria) {
+            return res.status(400).json({ error: "limite de recompensa diaria excedido" });
+          }
+        }
+      }
       const saldoDoc = await db.collection("economia_saldos").findOne({
         usuarioId: parsed.usuarioId
       });
@@ -391,6 +468,7 @@ economia.post("/api/economia/examenes", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (
     const payload = {
       ...req.body,
       id: req.body?.id ?? new ObjectId().toString(),
+      aulaId: req.body?.aulaId,
       estado: "anunciado",
       subastaActiva: true,
       maxCompra: req.body?.maxCompra ?? 2,
@@ -472,6 +550,7 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
     const payload = {
       ...parsed,
       id: new ObjectId().toString(),
+      aulaId: parsed.aulaId ?? examen.aulaId,
       estado: "pendiente",
       createdAt: new Date().toISOString()
     };
@@ -530,6 +609,7 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
       const transaccion = TransaccionSchema.parse({
         id: new ObjectId().toString(),
         usuarioId: puja.usuarioId,
+        aulaId: examen.aulaId,
         tipo: "debito",
         monto: costoTotal,
         moneda: config.moneda.codigo,
@@ -593,6 +673,7 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
       const transaccion = TransaccionSchema.parse({
         id: new ObjectId().toString(),
         usuarioId: ganador.usuarioId,
+        aulaId: examen.aulaId,
         tipo: "credito",
         monto: premio,
         moneda: config.moneda.codigo,
@@ -676,4 +757,105 @@ economia.delete("/api/economia/eventos/:id", async (req, res) => {
   const result = await db.collection("economia_eventos").deleteOne({ id: req.params.id });
   if (!result.deletedCount) return res.status(404).json({ error: "not found" });
   res.status(204).send();
+});
+
+economia.get("/api/economia/riesgo", async (req, res) => {
+  const aulaId = req.query.aulaId;
+  if (typeof aulaId !== "string" || !aulaId.trim()) {
+    return res.status(400).json({ error: "aulaId is required" });
+  }
+  const db = await getDb();
+  const item = await db.collection("economia_riesgo_cursos").findOne({ aulaId });
+  if (item) return res.json(item);
+  res.json({
+    aulaId,
+    riesgoBase: 0.2,
+    riesgoMercado: 0.3,
+    riesgoCredito: 0.25,
+    updatedAt: new Date().toISOString()
+  });
+});
+
+economia.put("/api/economia/riesgo/:aulaId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+  try {
+    const update = {
+      ...req.body,
+      aulaId: req.params.aulaId,
+      updatedAt: new Date().toISOString()
+    };
+    const validated = EconomiaRiesgoCursoSchema.parse(update);
+    const db = await getDb();
+    await db
+      .collection("economia_riesgo_cursos")
+      .updateOne({ aulaId: req.params.aulaId }, { $set: validated }, { upsert: true });
+    res.json({ ok: true });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
+
+economia.patch(
+  "/api/economia/riesgo/:aulaId",
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    try {
+      const parsed = EconomiaRiesgoCursoUpdateSchema.parse(req.body ?? {});
+      const update = {
+        ...parsed,
+        updatedAt: new Date().toISOString()
+      };
+      const db = await getDb();
+      const result = await db
+        .collection("economia_riesgo_cursos")
+        .updateOne({ aulaId: req.params.aulaId }, { $set: update }, { upsert: true });
+      res.status(result.upsertedCount ? 201 : 200).json({ ok: true });
+    } catch (e: any) {
+      res.status(400).json({ error: e?.message ?? "invalid payload" });
+    }
+  }
+);
+
+economia.get("/api/economia/metricas", async (req, res) => {
+  const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
+  const { desde, hasta } = buildIsoRange(
+    typeof req.query.desde === "string" ? req.query.desde : undefined,
+    typeof req.query.hasta === "string" ? req.query.hasta : undefined
+  );
+  const db = await getDb();
+  const ajuste = await getMacroAjuste(db);
+  const rango = { createdAt: { $gte: desde, $lte: hasta } };
+  const filtroAula = aulaId ? { aulaId } : {};
+  const volumenSubastasResult = await db
+    .collection("economia_examen_pujas")
+    .aggregate([
+      { $match: { ...rango, ...filtroAula } },
+      { $group: { _id: null, total: { $sum: { $multiply: ["$puntos", "$montoPorPunto"] } } } }
+    ])
+    .toArray();
+  const dineroQuemadoResult = await db
+    .collection("economia_transacciones")
+    .aggregate([
+      {
+        $match: {
+          ...rango,
+          ...filtroAula,
+          tipo: "debito",
+          motivo: { $regex: /(subasta_examen|penalizacion|quemado|burn)/ }
+        }
+      },
+      { $group: { _id: null, total: { $sum: "$monto" } } }
+    ])
+    .toArray();
+  res.json({
+    periodo: { desde, hasta },
+    aulaId: aulaId ?? "general",
+    inflacion: {
+      modo: ajuste.modo,
+      tasaAplicada: ajuste.tasaAplicada,
+      precioFactor: ajuste.precioFactor,
+      recompensaFactor: ajuste.recompensaFactor
+    },
+    volumenSubastas: roundMoney(volumenSubastasResult[0]?.total ?? 0),
+    dineroQuemado: roundMoney(dineroQuemadoResult[0]?.total ?? 0)
+  });
 });
