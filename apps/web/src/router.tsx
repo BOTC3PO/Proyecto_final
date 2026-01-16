@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Login  from "./pages/Login";
 import Register from "./pages/Register";
+import Explorar from "./pages/Explorar";
 import Metodologia from "./pages/metodologia";
 import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
@@ -37,29 +38,22 @@ import LaboratorioWeb3 from "./pages/LaboratorioWeb3";
 import ProfesorCalendario from "./pages/ProfesorCalendario";
 import HijosAgregar from "./pages/HijosAgregar";
 import AdminPanel from "./pages/adminPanel";
+import Admin from "./pages/Admin";
+import AdminUsuarios from "./pages/AdminUsuarios";
+import AdminCursos from "./pages/AdminCursos";
+import Tareas from "./pages/Tareas";
+import Progreso from "./pages/Progreso";
+import ProfesorCursos from "./pages/ProfesorCursos";
+import ProfesorCalificaciones from "./pages/ProfesorCalificaciones";
+import ProfesorAsistencia from "./pages/ProfesorAsistencia";
+import EnterpriseDashboard from "./pages/EnterpriseDashboard";
+import EnterpriseContratos from "./pages/EnterpriseContratos";
+import EnterpriseReportes from "./pages/EnterpriseReportes";
 
 
 import test from "./sys/testmode";
 
 const testmode = test();
-
-// Componentes de páginas simples
-import {
-  Home,
-  Explorar,
-  Precios,
-  Admin,
-  AdminUsuarios,
-  AdminCursos,
-  Tareas,
-  Progreso,
-  ProfCursos,
-  ProfCalif,
-  ProfAsist,
-  EntDash,
-  EntContr,
-  EntRep,
-} from "./components/PageComponents";
 
 
 export const router = createBrowserRouter([
@@ -71,14 +65,14 @@ export const router = createBrowserRouter([
       //home solo funciona para probar los roles 
       
       ...(testmode ? [
-        { index: true, element: <Home /> },
+        { index: true, element: <HomePage /> },
         { path: "inicio", element: <HomePage /> }
       ] : [
         { index: true, element: <HomePage /> }
       ]),
 
       { path: "explorar", element: <Explorar /> },
-      { path: "precios", element: <Precios /> },
+      { path: "precios", element: <Pricing /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       
@@ -200,7 +194,7 @@ export const router = createBrowserRouter([
         path: "profesor/cursos",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfCursos />
+            <ProfesorCursos />
           </ProtectedRoute>
         ),
       },
@@ -216,7 +210,7 @@ export const router = createBrowserRouter([
         path: "profesor/calificaciones",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfCalif />
+            <ProfesorCalificaciones />
           </ProtectedRoute>
         ),
       },
@@ -224,7 +218,7 @@ export const router = createBrowserRouter([
         path: "profesor/asistencia",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfAsist />
+            <ProfesorAsistencia />
           </ProtectedRoute>
         ),
       },
@@ -346,7 +340,7 @@ export const router = createBrowserRouter([
         path: "enterprise",
         element: (
           <ProtectedRoute allow={['ENTERPRISE']}>
-            <EntDash />
+            <EnterpriseDashboard />
           </ProtectedRoute>
         ),
       },
@@ -354,7 +348,7 @@ export const router = createBrowserRouter([
         path: "enterprise/contratos",
         element: (
           <ProtectedRoute allow={['ENTERPRISE']}>
-            <EntContr />
+            <EnterpriseContratos />
           </ProtectedRoute>
         ),
       },
@@ -362,7 +356,7 @@ export const router = createBrowserRouter([
         path: "enterprise/reportes",
         element: (
           <ProtectedRoute allow={['ENTERPRISE']}>
-            <EntRep />
+            <EnterpriseReportes />
           </ProtectedRoute>
         ),
       },
