@@ -89,6 +89,25 @@ type CoinFeedback = {
   tone: "gain" | "spend";
 };
 
+type SimulationScenario = {
+  id: string;
+  title: string;
+  question: string;
+  impact: {
+    coinDelta: number;
+    foreignCoinDelta: number;
+    fixedTermRateDelta: number;
+    fciRateDelta: number;
+  };
+  learning: string;
+};
+
+type SimulationRegistryEntry = {
+  id: string;
+  name: string;
+  completedAt: string;
+};
+
 type MissionProgress = {
   saved: number;
   startedAt: string | null;
@@ -105,6 +124,10 @@ type EconomyState = {
   transfers: Transfer[];
   missionProgress: Record<string, MissionProgress>;
   earnedBadgeIds: string[];
+  completedSimulationIds: string[];
+  simulationRegistry: SimulationRegistryEntry[];
+  inflationEnabled: boolean;
+  hyperinflationEnabled: boolean;
 };
 
 const MODULE_REWARDS: RewardItem[] = [
@@ -165,6 +188,45 @@ const BADGES: Badge[] = SAVINGS_MISSIONS.map((mission) => ({
   description: `Se obtiene al completar la misión "${mission.title}".`
 }));
 
+const ECONOMIC_SIMULATIONS: SimulationScenario[] = [
+  {
+    id: "sim-demanda",
+    title: "Demanda inesperada",
+    question: "¿Qué pasaría si sube la demanda por un producto escolar clave?",
+    impact: {
+      coinDelta: -15,
+      foreignCoinDelta: 0,
+      fixedTermRateDelta: 3,
+      fciRateDelta: 1
+    },
+    learning: "Cuando la demanda sube, los precios suben y conviene revisar el ahorro."
+  },
+  {
+    id: "sim-dolar",
+    title: "Movimiento del tipo de cambio",
+    question: "¿Qué pasaría si el tipo de cambio se encarece en una semana?",
+    impact: {
+      coinDelta: -10,
+      foreignCoinDelta: 0.2,
+      fixedTermRateDelta: 0,
+      fciRateDelta: -1
+    },
+    learning: "Un cambio fuerte en FX afecta decisiones de compra y ahorro."
+  },
+  {
+    id: "sim-confianza",
+    title: "Confianza en la economía",
+    question: "¿Qué pasaría si la confianza mejora y baja la urgencia de gastar?",
+    impact: {
+      coinDelta: 12,
+      foreignCoinDelta: 0,
+      fixedTermRateDelta: -2,
+      fciRateDelta: 1
+    },
+    learning: "Más confianza suele impulsar el ahorro y mejorar el saldo disponible."
+  }
+];
+
 const ECONOMY_STORAGE_KEY = "economia-alumno";
 const FOREIGN_EXCHANGE_RATE = 100;
 
@@ -177,7 +239,11 @@ const defaultEconomyState: EconomyState = {
   completedTaskIds: [],
   transfers: [],
   missionProgress: {},
-  earnedBadgeIds: []
+  earnedBadgeIds: [],
+  completedSimulationIds: [],
+  simulationRegistry: [],
+  inflationEnabled: false,
+  hyperinflationEnabled: false
 };
 
 const Container: React.FC<React.PropsWithChildren<{ className?: string }>> = ({ children, className = "" }) => (
@@ -240,6 +306,8 @@ const ProgressBar: React.FC<{ percent: number; label?: string }> = ({
 const formatMoney = (value: number) =>
   value.toLocaleString("es-AR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+const formatDelta = (value: number, suffix: string) => `${value > 0 ? "+" : ""}${value} ${suffix}`;
+
 export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass }) => {
   const [completedModules, setCompletedModules] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
@@ -257,6 +325,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   const [educationMessages, setEducationMessages] = useState<EducationMessage[]>([]);
   const [coinFeedback, setCoinFeedback] = useState<CoinFeedback | null>(null);
   const [missionContribution, setMissionContribution] = useState<Record<string, number>>({});
+  const [openSimulationId, setOpenSimulationId] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -329,6 +398,13 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     return amount * (rate / 100) * (days / 30);
   }, [fciAmount, fciRate, fciDays]);
   const fciTotal = useMemo(() => fciAmount + fciInterest, [fciAmount, fciInterest]);
+  const simulationProgressPercent = useMemo(() => {
+    return Math.round((economy.completedSimulationIds.length / (ECONOMIC_SIMULATIONS.length || 1)) * 100);
+  }, [economy.completedSimulationIds.length]);
+  const hasCompletedAllSimulations = useMemo(
+    () => ECONOMIC_SIMULATIONS.every((simulation) => economy.completedSimulationIds.includes(simulation.id)),
+    [economy.completedSimulationIds]
+  );
 
   const pushEducationMessage = (message: Omit<EducationMessage, "id">) => {
     setEducationMessages((prev) => [{ ...message, id: crypto.randomUUID() }, ...prev].slice(0, 4));
@@ -541,6 +617,79 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     });
   };
 
+  const handleToggleSimulation = (simulationId: string) => {
+    setOpenSimulationId((prev) => (prev === simulationId ? null : simulationId));
+  };
+
+  const handleCompleteSimulation = (simulation: SimulationScenario) => {
+    setEconomy((prev) => {
+      if (prev.completedSimulationIds.includes(simulation.id)) return prev;
+      const nextCompleted = [...prev.completedSimulationIds, simulation.id];
+      const now = new Date().toLocaleString("es-AR");
+      const allCompleted = ECONOMIC_SIMULATIONS.every((item) => nextCompleted.includes(item.id));
+      const alreadyRegistered = prev.simulationRegistry.some((entry) => entry.name === student.name);
+      const nextRegistry =
+        allCompleted && !alreadyRegistered
+          ? [{ id: crypto.randomUUID(), name: student.name, completedAt: now }, ...prev.simulationRegistry]
+          : prev.simulationRegistry;
+      pushEducationMessage({
+        title: "Simulación completada",
+        body: simulation.learning,
+        tone: "info"
+      });
+      return {
+        ...prev,
+        completedSimulationIds: nextCompleted,
+        simulationRegistry: nextRegistry
+      };
+    });
+  };
+
+  const handleToggleInflation = () => {
+    setEconomy((prev) => {
+      const allCompleted = ECONOMIC_SIMULATIONS.every((item) => prev.completedSimulationIds.includes(item.id));
+      if (!allCompleted) return prev;
+      const nextInflation = !prev.inflationEnabled;
+      if (nextInflation) {
+        pushEducationMessage({
+          title: "Inflación activada",
+          body: "Recordá explicar el impacto antes de aplicar cambios reales.",
+          tone: "warning"
+        });
+      } else {
+        pushEducationMessage({
+          title: "Inflación pausada",
+          body: "Podés reactivar la inflación cuando el curso termine la simulación.",
+          tone: "info"
+        });
+      }
+      return {
+        ...prev,
+        inflationEnabled: nextInflation,
+        hyperinflationEnabled: nextInflation ? prev.hyperinflationEnabled : false
+      };
+    });
+  };
+
+  const handleToggleHyperinflation = () => {
+    setEconomy((prev) => {
+      const allCompleted = ECONOMIC_SIMULATIONS.every((item) => prev.completedSimulationIds.includes(item.id));
+      if (!allCompleted || !prev.inflationEnabled) return prev;
+      const nextHyper = !prev.hyperinflationEnabled;
+      pushEducationMessage({
+        title: nextHyper ? "Hiperinflación activada" : "Hiperinflación pausada",
+        body: nextHyper
+          ? "Solo activala si el grupo comprendió los efectos en precios y ahorro."
+          : "La hiperinflación se puede reactivar una vez que el curso esté preparado.",
+        tone: nextHyper ? "warning" : "info"
+      });
+      return {
+        ...prev,
+        hyperinflationEnabled: nextHyper
+      };
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       <main className="flex-1">
@@ -642,6 +791,162 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
               >
                 Comprar FX
               </button>
+            </div>
+          </section>
+          <section className="grid gap-5 lg:grid-cols-3">
+            <div className="lg:col-span-2 bg-white rounded-2xl shadow p-6 space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800">Simulador de eventos económicos</h3>
+                <p className="text-sm text-gray-500">
+                  Mini simulaciones “¿qué pasaría si...?” para practicar antes de activar eventos reales.
+                </p>
+              </div>
+              <div className="grid gap-4">
+                {ECONOMIC_SIMULATIONS.map((simulation) => {
+                  const isCompleted = economy.completedSimulationIds.includes(simulation.id);
+                  const isOpen = openSimulationId === simulation.id;
+                  return (
+                    <div key={simulation.id} className="rounded-xl border border-gray-200 p-4">
+                      <div className="flex flex-wrap items-start justify-between gap-3">
+                        <div>
+                          <p className="text-sm font-semibold text-gray-800">{simulation.title}</p>
+                          <p className="text-xs text-gray-500">{simulation.question}</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          {isCompleted && (
+                            <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+                              Completada
+                            </span>
+                          )}
+                          <button
+                            type="button"
+                            onClick={() => handleToggleSimulation(simulation.id)}
+                            className="rounded-lg bg-gray-100 px-3 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-200"
+                          >
+                            {isOpen ? "Ocultar resultado" : "Ver resultado"}
+                          </button>
+                        </div>
+                      </div>
+                      {isOpen && (
+                        <div className="mt-3 rounded-xl bg-gray-50 p-4 text-xs text-gray-600">
+                          <p className="font-semibold text-gray-700">Impacto estimado</p>
+                          <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                            <div className="rounded-lg bg-white p-3">
+                              <p className="text-[11px] uppercase tracking-wide text-gray-400">Saldo</p>
+                              <p className="text-sm font-semibold text-gray-800">
+                                {formatDelta(simulation.impact.coinDelta, "🪙")}
+                              </p>
+                            </div>
+                            <div className="rounded-lg bg-white p-3">
+                              <p className="text-[11px] uppercase tracking-wide text-gray-400">FX</p>
+                              <p className="text-sm font-semibold text-gray-800">
+                                {formatDelta(simulation.impact.foreignCoinDelta, "FX")}
+                              </p>
+                            </div>
+                            <div className="rounded-lg bg-white p-3">
+                              <p className="text-[11px] uppercase tracking-wide text-gray-400">Tasa plazo fijo</p>
+                              <p className="text-sm font-semibold text-gray-800">
+                                {formatDelta(simulation.impact.fixedTermRateDelta, "% anual")}
+                              </p>
+                            </div>
+                            <div className="rounded-lg bg-white p-3">
+                              <p className="text-[11px] uppercase tracking-wide text-gray-400">Tasa FCI</p>
+                              <p className="text-sm font-semibold text-gray-800">
+                                {formatDelta(simulation.impact.fciRateDelta, "% mensual")}
+                              </p>
+                            </div>
+                          </div>
+                          <p className="mt-3 text-xs text-gray-500">{simulation.learning}</p>
+                        </div>
+                      )}
+                      <div className="mt-4 flex flex-wrap items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => handleCompleteSimulation(simulation)}
+                          className="rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+                          disabled={isCompleted}
+                        >
+                          {isCompleted ? "Simulación completada" : "Marcar como completada"}
+                        </button>
+                        <span className="text-xs text-gray-400">
+                          {isCompleted ? "Listo para la próxima." : "Completala para desbloquear eventos."}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl shadow p-6 space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800">Registro de simulaciones</h3>
+                <p className="text-sm text-gray-500">
+                  Alumnos que completaron la práctica previa.
+                </p>
+              </div>
+              <div className="rounded-xl bg-gray-50 p-4">
+                <p className="text-xs uppercase tracking-wide text-gray-400">Progreso del curso</p>
+                <p className="text-2xl font-semibold text-gray-800">
+                  {economy.completedSimulationIds.length} / {ECONOMIC_SIMULATIONS.length}
+                </p>
+                <div className="mt-2 h-2 w-full rounded-full bg-gray-200">
+                  <div className="h-2 rounded-full bg-blue-500" style={{ width: `${simulationProgressPercent}%` }} />
+                </div>
+              </div>
+              <div className="space-y-2">
+                {economy.simulationRegistry.length === 0 ? (
+                  <p className="text-xs text-gray-400">Todavía no hay registros completados.</p>
+                ) : (
+                  economy.simulationRegistry.map((entry) => (
+                    <div key={entry.id} className="rounded-lg border border-gray-200 p-3 text-xs text-gray-600">
+                      <p className="text-sm font-semibold text-gray-800">{entry.name}</p>
+                      <p className="text-[11px] text-gray-400">Completó: {entry.completedAt}</p>
+                    </div>
+                  ))
+                )}
+              </div>
+              <div className="rounded-xl border border-gray-200 p-4 space-y-3">
+                <div>
+                  <p className="text-sm font-semibold text-gray-800">Activación de eventos reales</p>
+                  <p className="text-xs text-gray-500">
+                    Requiere completar todas las mini simulaciones.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleToggleInflation}
+                  className={`w-full rounded-lg px-3 py-2 text-xs font-semibold ${
+                    hasCompletedAllSimulations
+                      ? "bg-amber-500 text-white hover:bg-amber-600"
+                      : "bg-gray-100 text-gray-400"
+                  }`}
+                  disabled={!hasCompletedAllSimulations}
+                >
+                  {economy.inflationEnabled ? "Inflación activa" : "Activar inflación"}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleToggleHyperinflation}
+                  className={`w-full rounded-lg px-3 py-2 text-xs font-semibold ${
+                    hasCompletedAllSimulations && economy.inflationEnabled
+                      ? "bg-rose-500 text-white hover:bg-rose-600"
+                      : "bg-gray-100 text-gray-400"
+                  }`}
+                  disabled={!hasCompletedAllSimulations || !economy.inflationEnabled}
+                >
+                  {economy.hyperinflationEnabled ? "Hiperinflación activa" : "Activar hiperinflación"}
+                </button>
+                {!hasCompletedAllSimulations && (
+                  <p className="text-[11px] text-gray-400">
+                    Faltan {ECONOMIC_SIMULATIONS.length - economy.completedSimulationIds.length} simulaciones para habilitar.
+                  </p>
+                )}
+                {hasCompletedAllSimulations && !economy.inflationEnabled && (
+                  <p className="text-[11px] text-gray-400">
+                    Activá inflación primero para habilitar hiperinflación.
+                  </p>
+                )}
+              </div>
             </div>
           </section>
           <section className="bg-white rounded-2xl shadow p-6 space-y-4">
