@@ -475,6 +475,7 @@ db.createCollection("economia_config", {
         "id",
         "moneda",
         "tasas",
+        "limites",
         "inflacion",
         "hiperinflacion",
         "deflacion",
@@ -498,6 +499,15 @@ db.createCollection("economia_config", {
           properties: {
             pf: { bsonType: "double", minimum: 0 },
             fci: { bsonType: "double", minimum: 0 }
+          }
+        },
+        limites: {
+          bsonType: "object",
+          required: ["emisionDiaria", "recompensaMaxima", "recompensaDiaria"],
+          properties: {
+            emisionDiaria: { bsonType: "double", minimum: 0 },
+            recompensaMaxima: { bsonType: "double", minimum: 0 },
+            recompensaDiaria: { bsonType: "double", minimum: 0 }
           }
         },
         inflacion: {
@@ -583,6 +593,7 @@ db.createCollection("economia_transacciones", {
       properties: {
         id: { bsonType: "string" },
         usuarioId: { bsonType: "string" },
+        aulaId: { bsonType: ["string", "null"] },
         tipo: { bsonType: "string", enum: ["credito", "debito"] },
         monto: { bsonType: "double", minimum: 0 },
         moneda: { bsonType: "string" },
@@ -623,6 +634,22 @@ db.createCollection("economia_eventos", {
         descripcion: { bsonType: ["string", "null"] },
         tasa: { bsonType: ["double", "null"], minimum: 0 },
         activo: { bsonType: "bool" },
+        updatedAt: { bsonType: "date" }
+      }
+    }
+  }
+});
+
+db.createCollection("economia_riesgo_cursos", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["aulaId", "riesgoBase", "riesgoMercado", "riesgoCredito", "updatedAt"],
+      properties: {
+        aulaId: { bsonType: "string" },
+        riesgoBase: { bsonType: "double", minimum: 0, maximum: 1 },
+        riesgoMercado: { bsonType: "double", minimum: 0, maximum: 1 },
+        riesgoCredito: { bsonType: "double", minimum: 0, maximum: 1 },
         updatedAt: { bsonType: "date" }
       }
     }
