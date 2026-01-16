@@ -158,6 +158,9 @@ const ProgressBar: React.FC<{ percent: number; label?: string }> = ({
   );
 };
 
+const formatMoney = (value: number) =>
+  value.toLocaleString("es-AR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
 export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass }) => {
   const [completedModules, setCompletedModules] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
@@ -166,6 +169,12 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   const [transferAmount, setTransferAmount] = useState(10);
   const [transferNote, setTransferNote] = useState("");
   const [exchangeAmount, setExchangeAmount] = useState(100);
+  const [fixedTermAmount, setFixedTermAmount] = useState(15000);
+  const [fixedTermRate, setFixedTermRate] = useState(75);
+  const [fixedTermDays, setFixedTermDays] = useState(30);
+  const [fciAmount, setFciAmount] = useState(8000);
+  const [fciRate, setFciRate] = useState(4);
+  const [fciDays, setFciDays] = useState(10);
 
   useEffect(() => {
     let active = true;
@@ -211,6 +220,20 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
 
   const completedModuleSet = useMemo(() => new Set(economy.completedModuleIds), [economy.completedModuleIds]);
   const completedTaskSet = useMemo(() => new Set(economy.completedTaskIds), [economy.completedTaskIds]);
+  const fixedTermInterest = useMemo(() => {
+    const amount = Math.max(0, fixedTermAmount);
+    const rate = Math.max(0, fixedTermRate);
+    const days = Math.max(1, fixedTermDays);
+    return (amount * (rate / 100) * (days / 365));
+  }, [fixedTermAmount, fixedTermRate, fixedTermDays]);
+  const fixedTermTotal = useMemo(() => fixedTermAmount + fixedTermInterest, [fixedTermAmount, fixedTermInterest]);
+  const fciInterest = useMemo(() => {
+    const amount = Math.max(0, fciAmount);
+    const rate = Math.max(0, fciRate);
+    const days = Math.max(1, fciDays);
+    return amount * (rate / 100) * (days / 30);
+  }, [fciAmount, fciRate, fciDays]);
+  const fciTotal = useMemo(() => fciAmount + fciInterest, [fciAmount, fciInterest]);
 
   const handleCompleteReward = (item: RewardItem, type: "module" | "task") => {
     setEconomy((prev) => {
@@ -347,6 +370,112 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
               >
                 Comprar FX
               </button>
+            </div>
+          </section>
+          <section className="grid gap-5 lg:grid-cols-2">
+            <div className="bg-white rounded-2xl shadow p-6 space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800">Plazo fijo educativo</h3>
+                <p className="text-sm text-gray-500">
+                  Un plazo fijo guarda tu dinero por un tiempo. Durante esos días no se puede usar, y al final te paga intereses
+                  fijos.
+                </p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-3">
+                <label className="text-sm text-gray-600" htmlFor="fixed-term-amount">
+                  Monto
+                  <input
+                    id="fixed-term-amount"
+                    type="number"
+                    min={0}
+                    value={fixedTermAmount}
+                    onChange={(event) => setFixedTermAmount(Number(event.target.value))}
+                    className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                  />
+                </label>
+                <label className="text-sm text-gray-600" htmlFor="fixed-term-rate">
+                  Tasa anual (%)
+                  <input
+                    id="fixed-term-rate"
+                    type="number"
+                    min={0}
+                    step={0.1}
+                    value={fixedTermRate}
+                    onChange={(event) => setFixedTermRate(Number(event.target.value))}
+                    className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                  />
+                </label>
+                <label className="text-sm text-gray-600" htmlFor="fixed-term-days">
+                  Días bloqueado
+                  <input
+                    id="fixed-term-days"
+                    type="number"
+                    min={1}
+                    value={fixedTermDays}
+                    onChange={(event) => setFixedTermDays(Number(event.target.value))}
+                    className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                  />
+                </label>
+              </div>
+              <div className="rounded-xl bg-gray-50 p-4">
+                <p className="text-sm text-gray-600">Interés estimado</p>
+                <p className="text-2xl font-semibold text-blue-600">{formatMoney(fixedTermInterest)} 🪙</p>
+                <p className="text-xs text-gray-400 mt-1">
+                  Total al finalizar: {formatMoney(fixedTermTotal)} 🪙. Tu dinero queda bloqueado hasta completar {fixedTermDays} días.
+                </p>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl shadow p-6 space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800">FCI de desbloqueo rápido</h3>
+                <p className="text-sm text-gray-500">
+                  Un fondo común de inversión (FCI) permite entrar y salir rápido. El rendimiento es variable, pero el rescate suele
+                  ser en 24/48 hs.
+                </p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-3">
+                <label className="text-sm text-gray-600" htmlFor="fci-amount">
+                  Monto
+                  <input
+                    id="fci-amount"
+                    type="number"
+                    min={0}
+                    value={fciAmount}
+                    onChange={(event) => setFciAmount(Number(event.target.value))}
+                    className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                  />
+                </label>
+                <label className="text-sm text-gray-600" htmlFor="fci-rate">
+                  Tasa mensual (%)
+                  <input
+                    id="fci-rate"
+                    type="number"
+                    min={0}
+                    step={0.1}
+                    value={fciRate}
+                    onChange={(event) => setFciRate(Number(event.target.value))}
+                    className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                  />
+                </label>
+                <label className="text-sm text-gray-600" htmlFor="fci-days">
+                  Días invertidos
+                  <input
+                    id="fci-days"
+                    type="number"
+                    min={1}
+                    value={fciDays}
+                    onChange={(event) => setFciDays(Number(event.target.value))}
+                    className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                  />
+                </label>
+              </div>
+              <div className="rounded-xl bg-gray-50 p-4">
+                <p className="text-sm text-gray-600">Ganancia estimada</p>
+                <p className="text-2xl font-semibold text-emerald-600">{formatMoney(fciInterest)} 🪙</p>
+                <p className="text-xs text-gray-400 mt-1">
+                  Total si mantenés {fciDays} días: {formatMoney(fciTotal)} 🪙. Podés pedir el rescate y el dinero vuelve rápido.
+                </p>
+              </div>
             </div>
           </section>
           <section className="bg-white rounded-2xl shadow p-6 space-y-4">
