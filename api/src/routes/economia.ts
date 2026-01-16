@@ -4,8 +4,11 @@ import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import {
   EconomiaConfigSchema,
+  ExamenEconomiaSchema,
   EventoEconomicoSchema,
   ModuloEconomiaSchema,
+  PujaExamenSchema,
+  PuntosExamenSchema,
   RecompensaSchema,
   SaldoSchema,
   TransaccionSchema
@@ -48,6 +51,13 @@ const RecompensaUpdateSchema = RecompensaSchema.omit({ id: true, updatedAt: true
 const SaldoUpdateSchema = SaldoSchema.omit({ usuarioId: true, updatedAt: true }).partial();
 const ModuloEconomiaUpdateSchema = ModuloEconomiaSchema.omit({ moduloId: true, updatedAt: true }).partial();
 const EventoEconomicoUpdateSchema = EventoEconomicoSchema.omit({ id: true, updatedAt: true }).partial();
+const ExamenEconomiaUpdateSchema = ExamenEconomiaSchema.omit({ id: true, updatedAt: true }).partial();
+const PujaExamenCreateSchema = PujaExamenSchema.omit({
+  id: true,
+  createdAt: true,
+  resolvedAt: true,
+  estado: true
+});
 
 economia.get("/api/economia/config", async (_req, res) => {
   const db = await getDb();
@@ -261,6 +271,203 @@ economia.put("/api/economia/modulos/:moduloId", ...bodyLimitMB(ENV.MAX_PAGE_MB),
     await db
       .collection("economia_modulos")
       .updateOne({ moduloId: req.params.moduloId }, { $set: validated }, { upsert: true });
+    res.json({ ok: true });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
+
+economia.get("/api/economia/examenes", async (req, res) => {
+  const estado = req.query.estado;
+  const filtro = typeof estado === "string" && estado.trim() ? { estado } : {};
+  const db = await getDb();
+  const items = await db.collection("economia_examenes").find(filtro).sort({ updatedAt: -1 }).toArray();
+  res.json({ items });
+});
+
+economia.post("/api/economia/examenes", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+  try {
+    const payload = {
+      ...req.body,
+      id: req.body?.id ?? new ObjectId().toString(),
+      estado: "anunciado",
+      subastaActiva: true,
+      maxCompra: req.body?.maxCompra ?? 2,
+      impuestoTasa: req.body?.impuestoTasa ?? 0.1,
+      updatedAt: new Date().toISOString()
+    };
+    const parsed = ExamenEconomiaSchema.parse(payload);
+    const db = await getDb();
+    await db.collection("economia_examenes").insertOne(parsed);
+    res.status(201).json({ id: parsed.id });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
+
+economia.patch("/api/economia/examenes/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+  try {
+    const parsed = ExamenEconomiaUpdateSchema.parse(req.body ?? {});
+    const db = await getDb();
+    const result = await db.collection("economia_examenes").updateOne(
+      { id: req.params.id },
+      { $set: { ...parsed, updatedAt: new Date().toISOString() } }
+    );
+    if (!result.matchedCount) return res.status(404).json({ error: "not found" });
+    res.json({ ok: true });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
+
+economia.get("/api/economia/examenes/:id/pujas", async (req, res) => {
+  const usuarioId = req.query.usuarioId;
+  const filtro: Record<string, string> = { examenId: req.params.id };
+  if (typeof usuarioId === "string" && usuarioId.trim()) filtro.usuarioId = usuarioId;
+  const db = await getDb();
+  const items = await db
+    .collection("economia_examen_pujas")
+    .find(filtro)
+    .sort({ createdAt: -1 })
+    .toArray();
+  res.json({ items });
+});
+
+economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+  try {
+    const parsed = PujaExamenCreateSchema.parse({ ...req.body, examenId: req.params.id });
+    const db = await getDb();
+    const examen = await db.collection("economia_examenes").findOne({ id: req.params.id });
+    if (!examen) return res.status(404).json({ error: "examen not found" });
+    if (!examen.subastaActiva || examen.estado !== "anunciado") {
+      return res.status(400).json({ error: "subasta inactiva" });
+    }
+    if (new Date(examen.fechaExamen) <= new Date()) {
+      return res.status(400).json({ error: "examen vencido" });
+    }
+    const existing = await db
+      .collection("economia_examen_pujas")
+      .aggregate([
+        {
+          $match: {
+            examenId: req.params.id,
+            usuarioId: parsed.usuarioId,
+            estado: { $in: ["pendiente", "aceptada"] }
+          }
+        },
+        { $group: { _id: null, total: { $sum: "$puntos" } } }
+      ])
+      .toArray();
+    const totalActual = existing[0]?.total ?? 0;
+    if (totalActual + parsed.puntos > examen.maxCompra) {
+      return res.status(400).json({ error: "limite de compra excedido" });
+    }
+    const saldoDoc = await db.collection("economia_saldos").findOne({ usuarioId: parsed.usuarioId });
+    const saldoActual = saldoDoc?.saldo ?? 0;
+    const costoTotal = parsed.puntos * parsed.montoPorPunto;
+    if (saldoActual < costoTotal) {
+      return res.status(400).json({ error: "saldo insuficiente" });
+    }
+    const payload = {
+      ...parsed,
+      id: new ObjectId().toString(),
+      estado: "pendiente",
+      createdAt: new Date().toISOString()
+    };
+    const validated = PujaExamenSchema.parse(payload);
+    await db.collection("economia_examen_pujas").insertOne(validated);
+    res.status(201).json({ id: validated.id });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
+
+economia.get("/api/economia/examenes/puntos", async (req, res) => {
+  const usuarioId = req.query.usuarioId;
+  if (typeof usuarioId !== "string" || !usuarioId.trim()) {
+    return res.status(400).json({ error: "usuarioId is required" });
+  }
+  const db = await getDb();
+  const puntos = await db.collection("economia_examen_puntos").findOne({ usuarioId });
+  if (puntos) return res.json(puntos);
+  res.json({
+    usuarioId,
+    puntos: 0,
+    updatedAt: new Date().toISOString()
+  });
+});
+
+economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
+  try {
+    const db = await getDb();
+    const examen = await db.collection("economia_examenes").findOne({ id: req.params.id });
+    if (!examen) return res.status(404).json({ error: "examen not found" });
+    if (examen.estado === "cerrado") {
+      return res.status(200).json({ ok: true, message: "examen ya cerrado" });
+    }
+    const config = (await db.collection("economia_config").findOne({ id: "general" })) ??
+      defaultConfig();
+    const now = new Date().toISOString();
+    const pujas = await db
+      .collection("economia_examen_pujas")
+      .find({ examenId: req.params.id, estado: "pendiente" })
+      .toArray();
+    for (const puja of pujas) {
+      const saldoDoc = await db.collection("economia_saldos").findOne({ usuarioId: puja.usuarioId });
+      const saldoActual = saldoDoc?.saldo ?? 0;
+      const costoTotal = puja.puntos * puja.montoPorPunto;
+      if (saldoActual < costoTotal) {
+        await db.collection("economia_examen_pujas").updateOne(
+          { id: puja.id },
+          { $set: { estado: "rechazada", resolvedAt: now } }
+        );
+        continue;
+      }
+      const nuevoSaldo = saldoActual - costoTotal;
+      const transaccion = TransaccionSchema.parse({
+        id: new ObjectId().toString(),
+        usuarioId: puja.usuarioId,
+        tipo: "debito",
+        monto: costoTotal,
+        moneda: config.moneda.codigo,
+        motivo: `subasta_examen:${examen.id}`,
+        referenciaId: examen.id,
+        createdAt: now
+      });
+      await db.collection("economia_transacciones").insertOne(transaccion);
+      await db.collection("economia_saldos").updateOne(
+        { usuarioId: puja.usuarioId },
+        {
+          $set: {
+            usuarioId: puja.usuarioId,
+            saldo: nuevoSaldo,
+            moneda: transaccion.moneda,
+            updatedAt: now
+          }
+        },
+        { upsert: true }
+      );
+      const puntosNetos = Math.max(0, puja.puntos * (1 - examen.impuestoTasa));
+      const puntosUpdate = {
+        usuarioId: puja.usuarioId,
+        puntos: puntosNetos,
+        updatedAt: now
+      };
+      PuntosExamenSchema.parse(puntosUpdate);
+      await db.collection("economia_examen_puntos").updateOne(
+        { usuarioId: puja.usuarioId },
+        { $inc: { puntos: puntosNetos }, $set: { updatedAt: now } },
+        { upsert: true }
+      );
+      await db.collection("economia_examen_pujas").updateOne(
+        { id: puja.id },
+        { $set: { estado: "aceptada", resolvedAt: now } }
+      );
+    }
+    await db.collection("economia_examenes").updateOne(
+      { id: req.params.id },
+      { $set: { estado: "cerrado", subastaActiva: false, updatedAt: now } }
+    );
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
