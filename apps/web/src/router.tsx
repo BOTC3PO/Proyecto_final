@@ -3,7 +3,7 @@ import { ProtectedRoute } from "./routing/ProtectedRoute";
 import RootLayout from "./layouts/RootLayout";
 
 // Páginas existentes
-//import Landing from "./pages/Landing";
+import Landing from "./pages/Landing";
 import HomePage from "./pages/Home";
 import About from "./pages/About";
 import Pricing from "./pages/Pricing";
@@ -34,6 +34,9 @@ import ProfesorReportes from "./pages/ProfesorReportes";
 import AdminReportes from "./pages/AdminReportes";
 import AlumnoEncuestas from "./pages/AlumnoEncuestas";
 import LaboratorioWeb3 from "./pages/LaboratorioWeb3";
+import ProfesorCalendario from "./pages/ProfesorCalendario";
+import HijosAgregar from "./pages/HijosAgregar";
+import AdminPanel from "./pages/adminPanel";
 
 
 import test from "./sys/testmode";
@@ -82,6 +85,7 @@ export const router = createBrowserRouter([
       
       // Rutas adicionales que tenías en GuestLayout
       { path: "about", element: <About /> },
+      { path: "landing", element: <Landing /> },
       { path: "pricing", element: <Pricing /> },
       { path: "contact", element: <Contact /> },
       { path: "metodologia", element: <Metodologia /> },
@@ -120,6 +124,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['ADMIN']}>
             <AdminReportes />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "admin/panel",
+        element: (
+          <ProtectedRoute allow={['ADMIN']}>
+            <AdminPanel />
           </ProtectedRoute>
         ),
       },
@@ -171,6 +183,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['PARENT']}>
             <HijosProgreso />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "hijos/agregar",
+        element: (
+          <ProtectedRoute allow={['PARENT']}>
+            <HijosAgregar />
           </ProtectedRoute>
         ),
       },
@@ -253,6 +273,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['TEACHER']}>
             <Calendario />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/calendario/detalle",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorCalendario />
           </ProtectedRoute>
         ),
       },
