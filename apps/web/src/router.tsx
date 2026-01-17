@@ -73,6 +73,7 @@ export const router = createBrowserRouter([
 
       { path: "explorar", element: <Explorar /> },
       { path: "precios", element: <Pricing /> },
+      { path: "pricing", element: <Navigate to="/precios" replace /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       
@@ -80,7 +81,6 @@ export const router = createBrowserRouter([
       // Rutas adicionales que tenías en GuestLayout
       { path: "about", element: <About /> },
       { path: "landing", element: <Landing /> },
-      { path: "pricing", element: <Pricing /> },
       { path: "contact", element: <Contact /> },
       { path: "metodologia", element: <Metodologia /> },
       { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
