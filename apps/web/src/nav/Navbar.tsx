@@ -4,13 +4,9 @@ import { NAV_BY_ROLE } from './navConfig';
 import type { Role } from '../auth/roles';
 import { useEffect, useState } from 'react';
 
-import testmode from "../sys/testmode";
-
 // Páginas que usan el navbar público
-
-const test = testmode();
-const homePath = test ? '/inicio' : '/';
-const PUBLIC_PAGES = [homePath, '/metodologia', '/explorar', '/contact', '/login', '/register'];
+const PUBLIC_PAGES = ['/', '/metodologia', '/explorar', '/contact', '/login', '/register'];
+const publicHomePath = '/';
 
 
 
@@ -81,7 +77,7 @@ export default function Navbar() {
               <ul className="justify-between hidden font-semibold md:flex">
                 <li className="md:px-4 md:py-2">
                   <NavLink 
-                    to={homePath}
+                    to={publicHomePath}
                     className={({ isActive }) => 
                       isActive ? 'text-indigo-300' : 'text-white hover:text-indigo-300 transition-colors'
                     }
@@ -142,7 +138,7 @@ export default function Navbar() {
           <div className="bg-blue-700 border-t border-blue-500 md:hidden">
             <div className="px-4 py-2 space-y-2">
               <NavLink 
-                to={homePath} 
+                to={publicHomePath} 
                 className={({ isActive }) => 
                   `block py-2 px-4 rounded transition-colors ${
                     isActive 

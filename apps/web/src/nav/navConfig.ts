@@ -1,11 +1,13 @@
 import type { Role } from '../auth/roles';
+import testmode from '../sys/testmode';
 
 type NavItem = { label: string; to: string; exact?: boolean };
 type NavMap = Record<Role, NavItem[]>;
+export const ROLE_HOME_PATH = testmode() ? '/inicio' : '/';
 
 // Base de “Usuario/Alumno”
 const userBase: NavItem[] = [
-  { label: 'Inicio', to: '/' },
+  { label: 'Inicio', to: ROLE_HOME_PATH },
   { label: 'Clases', to: '/clases' },
   { label: 'Tareas', to: '/tareas' },
   { label: 'Encuestas', to: '/encuestas' },
@@ -25,7 +27,7 @@ export const NAV_BY_ROLE: NavMap = {
   USER: userBase,
   PARENT: [...userBase, parentExtra],
   TEACHER: [
-    { label: 'Inicio', to: '/' },
+    { label: 'Inicio', to: ROLE_HOME_PATH },
     { label: 'Mis Cursos', to: '/profesor/cursos' },
     { label: 'Módulos', to: '/profesor/modulos' },
     { label: 'Encuestas', to: '/profesor/encuestas' },
@@ -39,7 +41,7 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Reportes', to: '/enterprise/reportes' },
   ],
   GUEST: [
-    { label: 'Inicio', to: '/' },
+    { label: 'Inicio', to: ROLE_HOME_PATH },
     { label: 'Explorar', to: '/explorar' },
     { label: 'Precios', to: '/precios' },
     { label: 'Iniciar sesión', to: '/login' },
