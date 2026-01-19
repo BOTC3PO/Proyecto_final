@@ -250,6 +250,12 @@ export default function menuProfesor() {
             <h3 className="text-lg font-semibold">Módulos activos</h3>
             <div className="flex items-center gap-3">
               <Link
+                className="inline-flex items-center gap-2 rounded-md border border-blue-200 px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50"
+                to="/profesor/aulas#crear"
+              >
+                + Crear aula
+              </Link>
+              <Link
                 className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
                 to="/profesor/cursos/nuevo"
               >

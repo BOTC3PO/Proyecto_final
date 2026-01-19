@@ -49,6 +49,8 @@ import ProfesorAsistencia from "./pages/ProfesorAsistencia";
 import EnterpriseDashboard from "./pages/EnterpriseDashboard";
 import EnterpriseContratos from "./pages/EnterpriseContratos";
 import EnterpriseReportes from "./pages/EnterpriseReportes";
+import MenuProfesor from "./pages/MenuProfesor";
+import ProfesorAulaConfiguracion from "./pages/ProfesorAulaConfiguracion";
 
 
 import test from "./sys/testmode";
@@ -149,6 +151,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "alumno",
+        element: (
+          <ProtectedRoute allow={['USER', 'PARENT']}>
+            <MenuAlumno />
+          </ProtectedRoute>
+        ),
+      },
+      {
         path: "tareas",
         element: (
           <ProtectedRoute allow={['USER', 'PARENT']}>
@@ -190,6 +200,14 @@ export const router = createBrowserRouter([
       },
  
       // Profesor
+      {
+        path: "profesor",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <MenuProfesor />
+          </ProtectedRoute>
+        ),
+      },
       {
         path: "profesor/cursos",
         element: (
@@ -243,6 +261,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['TEACHER']}>
             <ProfesorAulas />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/aulas/:id/configuracion",
+        element: (
+          <ProtectedRoute allow={['TEACHER']}>
+            <ProfesorAulaConfiguracion />
           </ProtectedRoute>
         ),
       },

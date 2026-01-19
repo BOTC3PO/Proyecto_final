@@ -7,6 +7,7 @@ export const ROLE_HOME_PATH = testmode() ? '/inicio' : '/';
 
 // Base de “Usuario/Alumno”
 const userBase: NavItem[] = [
+  { label: 'Panel', to: '/alumno', exact: true },
   { label: 'Inicio', to: ROLE_HOME_PATH },
   { label: 'Clases', to: '/clases' },
   { label: 'Tareas', to: '/tareas' },
@@ -27,6 +28,7 @@ export const NAV_BY_ROLE: NavMap = {
   USER: userBase,
   PARENT: [...userBase, parentExtra],
   TEACHER: [
+    { label: 'Panel', to: '/profesor', exact: true },
     { label: 'Inicio', to: ROLE_HOME_PATH },
     { label: 'Mis Cursos', to: '/profesor/cursos' },
     { label: 'Módulos', to: '/profesor/modulos' },
@@ -36,8 +38,8 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Mensajes', to: '/profesor/mensajes' },
   ],
   ENTERPRISE: [
-    { label: 'Dashboard', to: '/enterprise' },
-    { label: 'Contratos', to: '/enterprise/contratos' },
+    { label: 'Panel escuela', to: '/enterprise' },
+    { label: 'Convenios', to: '/enterprise/contratos' },
     { label: 'Reportes', to: '/enterprise/reportes' },
   ],
   GUEST: [

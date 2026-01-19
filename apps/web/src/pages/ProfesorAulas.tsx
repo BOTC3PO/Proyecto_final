@@ -367,7 +367,7 @@ export default function ProfesorAulas() {
       </div>
 
       {user?.role === "TEACHER" && (
-        <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+        <section id="crear" className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold">
             {editingId ? "Editar aula" : "Crear nueva aula"}
           </h2>
