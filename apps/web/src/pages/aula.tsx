@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
@@ -254,9 +254,18 @@ export default function aula() {
             {roleLabel} • {teacherName} | Código de clase: {classCode}
           </div>
           {user?.role === "TEACHER" ? (
-            <button className="absolute right-5 bottom-3 bg-white text-blue-700 px-4 py-1.5 rounded-md shadow">
-              Gestionar
-            </button>
+            classroomId ? (
+              <Link
+                className="absolute right-5 bottom-3 bg-white text-blue-700 px-4 py-1.5 rounded-md shadow"
+                to={`/profesor/aulas/${classroomId}/configuracion`}
+              >
+                Gestionar aula
+              </Link>
+            ) : (
+              <span className="absolute right-5 bottom-3 rounded-md bg-blue-500/60 px-3 py-1.5 text-xs">
+                Acceso {accessLabel}
+              </span>
+            )
           ) : (
             <div className="absolute right-5 bottom-3 rounded-md bg-blue-500/60 px-3 py-1.5 text-xs">
               Acceso {accessLabel}

@@ -20,17 +20,17 @@ export default function EnterpriseContratos() {
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
       <header className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">Contratos</h1>
+        <h1 className="text-3xl font-bold text-slate-900">Convenios escolares</h1>
         <p className="text-base text-slate-600">
-          Consulta el estado de los acuerdos comerciales y sus fechas de renovación.
+          Consulta el estado de los convenios institucionales y sus fechas de renovación.
         </p>
       </header>
 
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-lg font-semibold text-slate-900">Acuerdos vigentes</h2>
+          <h2 className="text-lg font-semibold text-slate-900">Convenios vigentes</h2>
           <button className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white">
-            Nuevo contrato
+            Nuevo convenio
           </button>
         </div>
         <div className="mt-4 space-y-3">

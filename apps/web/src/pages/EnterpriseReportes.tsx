@@ -1,15 +1,15 @@
 const reportes = [
   {
-    titulo: "Desempeño por equipo",
-    descripcion: "Comparativa de avance y resultados por área.",
+    titulo: "Desempeño por grado",
+    descripcion: "Comparativa de avance y resultados por nivel.",
   },
   {
     titulo: "Adopción de cursos",
-    descripcion: "Participación y finalización por módulo corporativo.",
+    descripcion: "Participación y finalización por módulo institucional.",
   },
   {
     titulo: "Indicadores de satisfacción",
-    descripcion: "Encuestas y feedback de los usuarios finales.",
+    descripcion: "Encuestas y feedback de estudiantes y familias.",
   },
 ];
 
@@ -19,7 +19,7 @@ export default function EnterpriseReportes() {
       <header className="space-y-2">
         <h1 className="text-3xl font-bold text-slate-900">Reportes</h1>
         <p className="text-base text-slate-600">
-          Descarga información clave y comparte insights con los equipos directivos.
+          Descarga información clave y comparte insights con los equipos directivos de la escuela.
         </p>
       </header>
 

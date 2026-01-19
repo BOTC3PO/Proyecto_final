@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const cursos = [
   {
     nombre: "Matemática interactiva",
@@ -19,11 +21,19 @@ const cursos = [
 export default function ProfesorCursos() {
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">Mis cursos</h1>
-        <p className="text-base text-slate-600">
-          Administra los cursos que impartes, revisa la participación y crea nuevas rutas.
-        </p>
+      <header className="flex flex-wrap items-start justify-between gap-3">
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold text-slate-900">Mis cursos</h1>
+          <p className="text-base text-slate-600">
+            Administra los cursos que impartes, revisa la participación y crea nuevas rutas.
+          </p>
+        </div>
+        <Link
+          className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
+          to="/profesor/cursos/nuevo"
+        >
+          + Crear clase
+        </Link>
       </header>
 
       <section className="grid gap-4 md:grid-cols-3">
