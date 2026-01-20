@@ -44,6 +44,16 @@ escuelas.get("/api/escuelas", async (req, res) => {
   res.json({ items, limit, offset });
 });
 
+escuelas.get("/api/escuelas/code/:code", async (req, res) => {
+  const db = await getDb();
+  const escuela = await db.collection("escuelas").findOne(
+    { code: req.params.code, isDeleted: { $ne: true } },
+    { projection: { name: 1 } }
+  );
+  if (!escuela) return res.status(404).json({ error: "not found" });
+  res.json({ id: escuela._id, name: escuela.name });
+});
+
 escuelas.get("/api/escuelas/:id", async (req, res) => {
   const db = await getDb();
   const objectId = toObjectId(req.params.id);
