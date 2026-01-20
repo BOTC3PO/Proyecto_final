@@ -7,7 +7,11 @@ export type VisualSpec =
   | FuncionesGraficoSpec
   | GeometriaSpec
   | TrigonometriaSpec
-  | AlgebraCalculoSpec;
+  | AlgebraCalculoSpec
+  | FuncionesGraficasSpec
+  | GeometriaPlanaEspacialSpec
+  | TrigonometriaAvanzadaSpec
+  | AlgebraCalculoVisualSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -188,6 +192,200 @@ export interface AlgebraCalculoSpec {
     label: string;
     steps?: string[];
     formula?: string;
+    notes?: string;
+  }>;
+}
+
+export interface FuncionesGraficasSpec {
+  kind: "funciones-graficas";
+  title?: string;
+  description?: string;
+  /**
+   * Ejes mínimos esperados para renderizar: etiqueta y rango en x/y.
+   */
+  axes: {
+    x: {
+      label?: string;
+      min: number;
+      max: number;
+    };
+    y: {
+      label?: string;
+      min: number;
+      max: number;
+    };
+  };
+  /**
+   * Funciones lineales, cuadráticas o paramétricas con expresión y dominio.
+   */
+  functions: Array<{
+    id: string;
+    type: "lineal" | "cuadratica" | "parametrica";
+    expression: string;
+    domain: {
+      start: number;
+      end: number;
+      step?: number;
+    };
+    /**
+     * Solo para paramétricas: ecuaciones x(t), y(t) y parámetro.
+     */
+    parametric?: {
+      x: string;
+      y: string;
+      parameter: string;
+      range: {
+        start: number;
+        end: number;
+        step?: number;
+      };
+    };
+    /**
+     * Puntos clave (intersecciones, vértice, cortes con ejes).
+     */
+    keyPoints?: Array<{
+      x: number;
+      y: number;
+      label?: string;
+    }>;
+    color?: string;
+    notes?: string;
+  }>;
+}
+
+export interface GeometriaPlanaEspacialSpec {
+  kind: "geometria-plana-espacial";
+  title?: string;
+  description?: string;
+  /**
+   * Figuras con tipo, dimensiones y propiedades clave.
+   */
+  figures: Array<{
+    id: string;
+    name: string;
+    dimension: "plana" | "espacial";
+    type:
+      | "triangulo"
+      | "cuadrilatero"
+      | "circulo"
+      | "poligono"
+      | "prisma"
+      | "piramide"
+      | "esfera"
+      | "cilindro"
+      | "cono"
+      | "otro";
+    /**
+     * Parámetros mínimos: lados, radios, alturas, aristas, etc.
+     */
+    parameters: Array<{
+      label: string;
+      value: number | string;
+      unit?: string;
+    }>;
+    /**
+     * Puntos clave y ángulos destacados para la construcción.
+     */
+    keyPoints?: Array<{
+      id: string;
+      label?: string;
+      coordinates: [number, number] | [number, number, number];
+    }>;
+    angles?: Array<{
+      id: string;
+      vertex: string;
+      valueDeg: number;
+      label?: string;
+    }>;
+    properties?: Array<{
+      label: string;
+      value: string;
+    }>;
+    formula?: string;
+    notes?: string;
+  }>;
+}
+
+export interface TrigonometriaAvanzadaSpec {
+  kind: "trigonometria-avanzada";
+  title?: string;
+  description?: string;
+  /**
+   * Datos mínimos del círculo unitario (radio y puntos clave).
+   */
+  unitCircle: {
+    radius: number;
+    points: Array<{
+      angleDeg: number;
+      x: number;
+      y: number;
+      label?: string;
+    }>;
+  };
+  /**
+   * Funciones seno, coseno y tangente con puntos notables.
+   */
+  functions: Array<{
+    id: string;
+    type: "seno" | "coseno" | "tangente";
+    expression?: string;
+    amplitude?: number;
+    period?: number;
+    phaseShift?: number;
+    keyPoints: Array<{
+      x: number;
+      y: number;
+      label?: string;
+    }>;
+    notes?: string;
+  }>;
+  angles?: Array<{
+    id: string;
+    label: string;
+    valueDeg: number;
+    valueRad?: string;
+    ratio?: string;
+  }>;
+}
+
+export interface AlgebraCalculoVisualSpec {
+  kind: "algebra-calculo-visual";
+  title?: string;
+  description?: string;
+  /**
+   * Sistemas de ecuaciones con ecuaciones mínimas y solución.
+   */
+  systems: Array<{
+    id: string;
+    equations: string[];
+    solution?: Record<string, number | string>;
+    steps?: string[];
+  }>;
+  /**
+   * Derivadas con función base, derivada y puntos críticos.
+   */
+  derivatives: Array<{
+    id: string;
+    function: string;
+    derivative?: string;
+    criticalPoints?: Array<{
+      x: number;
+      y: number;
+      label?: string;
+    }>;
+    notes?: string;
+  }>;
+  /**
+   * Integrales con función, límites y área esperada.
+   */
+  integrals: Array<{
+    id: string;
+    function: string;
+    bounds: {
+      lower: number;
+      upper: number;
+    };
+    area?: number;
     notes?: string;
   }>;
 }
