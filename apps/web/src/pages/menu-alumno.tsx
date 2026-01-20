@@ -260,8 +260,8 @@ const ProfileCard: React.FC<{ student: Student }> = ({ student }) => (
       <p className="text-gray-600">{student.role}</p>
     </div>
     <div className="flex items-center gap-5 text-gray-800">
-      <button className="p-2" title="Notificaciones">
-        <Bell className="h-6 w-6" />
+      <button className="p-2" title="Notificaciones" aria-label="Notificaciones">
+        <Bell className="h-6 w-6" aria-hidden="true" />
       </button>
       <a className="flex items-center gap-2 hover:underline" href="#">
         <UserCircle2 className="h-6 w-6" />

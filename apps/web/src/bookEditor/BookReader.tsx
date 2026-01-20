@@ -23,15 +23,23 @@ const renderBlock = (block: Block) => {
       return <hr className="border-gray-200" />;
     case "pageBreak":
       return <div className="h-px bg-gray-200 my-4" />;
-    case "image":
+    case "image": {
+      const imageLabel = block.caption
+        ? `Imagen: ${block.caption}`
+        : `Imagen con recurso ${block.assetId}`;
       return (
         <figure className="space-y-2">
-          <div className="rounded-md border border-dashed border-gray-300 bg-gray-50 p-6 text-center text-xs text-gray-500">
+          <div
+            className="rounded-md border border-dashed border-gray-300 bg-gray-50 p-6 text-center text-xs text-gray-500"
+            role="img"
+            aria-label={imageLabel}
+          >
             Imagen: {block.assetId}
           </div>
           {block.caption ? <figcaption className="text-xs text-gray-500">{block.caption}</figcaption> : null}
         </figure>
       );
+    }
     default:
       return null;
   }
