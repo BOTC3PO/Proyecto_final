@@ -18,6 +18,7 @@ import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
 import GeneradoresTest from "./pages/GeneradoresTest";
 import ConceptMapDemo from "./pages/ConceptMapDemo";
+import ChartsDemo from "./pages/ChartsDemo";
 import CrearModulo from "./pages/crearModulo";
 import EditarModulo from "./pages/editarModulo";
 import JugarModulo from "./pages/jugarModulo";
@@ -92,6 +93,7 @@ export const router = createBrowserRouter([
         ? [
             { path: "generadores", element: <GeneradoresTest /> },
             { path: "concept-map", element: <ConceptMapDemo /> },
+            { path: "charts", element: <ChartsDemo /> },
           ]
         : []),
 

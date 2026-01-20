@@ -6,6 +6,7 @@ import type {
   TimelineSpec,
   VisualSpec,
 } from "../types";
+import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import TimelineVisualizer from "./TimelineVisualizer";
 
@@ -22,22 +23,7 @@ function ConceptMapRenderer({ spec }: { spec: ConceptMapSpec }) {
 }
 
 function ChartRenderer({ spec }: { spec: ChartSpec }) {
-  return (
-    <section className="space-y-4">
-      {spec.title && <h3 className="text-lg font-semibold">{spec.title}</h3>}
-      <div className="rounded-lg border border-slate-200 p-4">
-        <p className="text-sm text-slate-600">Tipo de gráfico: {spec.chartType}</p>
-        <div className="mt-3 space-y-2">
-          {spec.series.map((serie) => (
-            <div key={serie.id} className="rounded-md bg-slate-50 p-2">
-              <p className="text-sm font-semibold text-slate-700">{serie.label}</p>
-              <p className="text-xs text-slate-500">{serie.data.length} puntos</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <ChartsVisualizer spec={spec} />;
 }
 
 function FlowRenderer({ spec }: { spec: FlowSpec }) {
