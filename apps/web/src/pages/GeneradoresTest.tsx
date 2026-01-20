@@ -13,6 +13,8 @@ import { GENERATORS_BY_TEMA } from "../generador/matematicas";
 import { GENERADORES_QUIMICA } from "../generador/quimica/indexQuimica";
 import { GENERADORES_ECONOMIA_POR_CLAVE } from "../generador/economia/indexEconomia";
 import { GENERADORES_FISICA } from "../generador/fisica/indexFisica";
+import VisualizerRenderer from "../visualizadores/graficos/VisualizerRenderer";
+import type { VisualSpec } from "../visualizadores/types";
 import {
   DIFICULTADES_POR_MATERIA,
   type MateriaUI,
@@ -357,6 +359,7 @@ export default function GeneradoresTest() {
         explicacionPasoAPaso?: string[];
         explicacion?: string;
         tituloTema?: string;
+        visual?: VisualSpec;
       }
     | undefined;
 
@@ -515,6 +518,14 @@ export default function GeneradoresTest() {
                     <p className="mt-1 text-sm text-gray-700">
                       {resumen.explicacion}
                     </p>
+                  </div>
+                )}
+                {resumen.visual && (
+                  <div>
+                    <p className="text-sm text-gray-500">Visualización</p>
+                    <div className="mt-2 rounded-lg border border-slate-200 bg-white p-4">
+                      <VisualizerRenderer spec={resumen.visual} />
+                    </div>
                   </div>
                 )}
               </>
