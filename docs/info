@@ -1,3 +1,4 @@
 en esta carpeta estara la documentacion del proyecto
 
 - bootstrap-admin.md: guia para configurar y ejecutar el bootstrap del administrador inicial
+- roles.md: descripcion de roles globales, roles por escuela y registro de admins/docentes
