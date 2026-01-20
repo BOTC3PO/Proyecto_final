@@ -297,6 +297,188 @@ export default function GeneradoresTest() {
 
   const calculadoraFisica = useMemo(() => crearCalculadoraFisica(), []);
 
+  const ejemplosVisuales = useMemo(
+    () => [
+      {
+        id: "timeline",
+        title: "Línea de tiempo",
+        description: "Secuencia de hitos clave con rangos y marcadores.",
+        spec: {
+          kind: "timeline",
+          title: "Proyecto de ciencias",
+          range: { start: "Mar 2024", end: "Ago 2024" },
+          markers: [
+            { id: "m1", label: "Kick-off", date: "Mar 2024" },
+            { id: "m2", label: "Entrega final", date: "Ago 2024" },
+          ],
+          events: [
+            {
+              id: "e1",
+              title: "Investigación inicial",
+              date: "Mar 2024",
+              description: "Recolección de datos y fuentes.",
+              tags: ["Lecturas", "Definición"],
+            },
+            {
+              id: "e2",
+              title: "Experimentos",
+              date: "May 2024",
+              description: "Pruebas controladas y análisis.",
+              tags: ["Laboratorio", "Hipótesis"],
+            },
+            {
+              id: "e3",
+              title: "Presentación",
+              date: "Ago 2024",
+              description: "Síntesis de resultados y conclusiones.",
+              tags: ["Entrega", "Demo"],
+            },
+          ],
+        } satisfies VisualSpec,
+      },
+      {
+        id: "concept-map",
+        title: "Mapa conceptual",
+        description: "Relaciones entre conceptos clave de un tema.",
+        spec: {
+          kind: "concept-map",
+          title: "Ecosistema urbano",
+          nodes: [
+            { id: "n1", label: "Energía", group: "Recursos" },
+            { id: "n2", label: "Transporte", group: "Infraestructura" },
+            { id: "n3", label: "Emisiones", group: "Impacto" },
+            { id: "n4", label: "Salud pública", group: "Impacto" },
+          ],
+          links: [
+            {
+              id: "l1",
+              sourceId: "n1",
+              targetId: "n2",
+              relation: "impulsa",
+            },
+            {
+              id: "l2",
+              sourceId: "n2",
+              targetId: "n3",
+              relation: "genera",
+            },
+            {
+              id: "l3",
+              sourceId: "n3",
+              targetId: "n4",
+              relation: "afecta",
+            },
+          ],
+        } satisfies VisualSpec,
+      },
+      {
+        id: "chart",
+        title: "Gráfico comparativo",
+        description: "Series con métricas trimestrales.",
+        spec: {
+          kind: "chart",
+          chartType: "bar",
+          title: "Participación en talleres",
+          xAxis: { label: "Trimestre" },
+          yAxis: { label: "Participantes", unit: "alumnos" },
+          series: [
+            {
+              id: "s1",
+              label: "Robótica",
+              color: "#2563eb",
+              data: [
+                { x: "T1", y: 42 },
+                { x: "T2", y: 55 },
+                { x: "T3", y: 63 },
+                { x: "T4", y: 58 },
+              ],
+            },
+            {
+              id: "s2",
+              label: "Arte",
+              color: "#f97316",
+              data: [
+                { x: "T1", y: 35 },
+                { x: "T2", y: 48 },
+                { x: "T3", y: 51 },
+                { x: "T4", y: 60 },
+              ],
+            },
+          ],
+        } satisfies VisualSpec,
+      },
+      {
+        id: "flow",
+        title: "Diagrama de flujo",
+        description: "Pasos de una actividad guiada.",
+        spec: {
+          kind: "flow",
+          title: "Proceso de investigación",
+          steps: [
+            { id: "s1", label: "Pregunta inicial", type: "start" },
+            { id: "s2", label: "Recolección de datos", type: "process" },
+            { id: "s3", label: "¿Hay evidencia?", type: "decision" },
+            { id: "s4", label: "Conclusiones", type: "end" },
+          ],
+          connections: [
+            { id: "c1", fromId: "s1", toId: "s2" },
+            { id: "c2", fromId: "s2", toId: "s3" },
+            { id: "c3", fromId: "s3", toId: "s4", label: "Sí" },
+          ],
+        } satisfies VisualSpec,
+      },
+      {
+        id: "map",
+        title: "Mapa interactivo",
+        description: "Marcadores con rutas y categorías.",
+        spec: {
+          kind: "map",
+          title: "Salida educativa",
+          viewport: {
+            center: [-34.6037, -58.3816],
+            zoom: 1.4,
+          },
+          markers: [
+            {
+              id: "m1",
+              label: "Museo",
+              coordinates: [-34.6037, -58.3816],
+              description: "Punto de encuentro principal.",
+              category: "Cultura",
+            },
+            {
+              id: "m2",
+              label: "Parque",
+              coordinates: [-34.5778, -58.4083],
+              description: "Actividad al aire libre.",
+              category: "Naturaleza",
+            },
+            {
+              id: "m3",
+              label: "Laboratorio",
+              coordinates: [-34.6154, -58.4333],
+              description: "Visita técnica.",
+              category: "Ciencia",
+            },
+          ],
+          routes: [
+            {
+              id: "r1",
+              label: "Recorrido recomendado",
+              color: "#10b981",
+              path: [
+                [-34.6037, -58.3816],
+                [-34.5778, -58.4083],
+                [-34.6154, -58.4333],
+              ],
+            },
+          ],
+        } satisfies VisualSpec,
+      },
+    ],
+    []
+  );
+
   const generarEjercicio = () => {
     setError(null);
 
@@ -375,6 +557,46 @@ export default function GeneradoresTest() {
             salida en formato estructurado.
           </p>
         </header>
+
+        <section className="bg-white rounded-xl shadow p-6 space-y-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-gray-900">
+                Ejemplos de visualizadores
+              </h2>
+              <p className="text-sm text-gray-600">
+                Datos simulados para validar la UI de cada visualizador.
+              </p>
+            </div>
+            <span className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              Vista de prueba
+            </span>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {ejemplosVisuales.map((ejemplo) => (
+              <div
+                key={ejemplo.id}
+                className="rounded-xl border border-slate-200 bg-slate-50 p-4"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <h3 className="text-base font-semibold text-gray-900">
+                      {ejemplo.title}
+                    </h3>
+                    <p className="text-sm text-gray-600">{ejemplo.description}</p>
+                  </div>
+                  <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500 shadow-sm">
+                    {ejemplo.spec.kind}
+                  </span>
+                </div>
+                <div className="mt-4 rounded-lg border border-slate-200 bg-white p-4">
+                  <VisualizerRenderer spec={ejemplo.spec} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <section className="bg-white rounded-xl shadow p-6 space-y-6">
           <div className="grid gap-4 md:grid-cols-4">
