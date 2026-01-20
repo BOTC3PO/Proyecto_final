@@ -1,11 +1,21 @@
 import type {
+  AlgebraCalculoVisualSpec,
   ChartSpec,
   ConceptMapSpec,
   FlowSpec,
+  FuncionesGraficasSpec,
+  GeometriaPlanaEspacialSpec,
   MapSpec,
   TimelineSpec,
+  TrigonometriaAvanzadaSpec,
   VisualSpec,
 } from "../types";
+import {
+  AlgebraCalculoVisualVisualizer,
+  FuncionesGraficasVisualizer,
+  GeometriaPlanaEspacialVisualizer,
+  TrigonometriaAvanzadaVisualizer,
+} from "../matematicas";
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
@@ -36,6 +46,34 @@ function MapRenderer({ spec }: { spec: MapSpec }) {
   return <InteractiveMapVisualizer spec={spec} />;
 }
 
+function FuncionesGraficasRenderer({ spec }: { spec: FuncionesGraficasSpec }) {
+  return <FuncionesGraficasVisualizer spec={spec} />;
+}
+
+function GeometriaPlanaEspacialRenderer({
+  spec,
+}: {
+  spec: GeometriaPlanaEspacialSpec;
+}) {
+  return <GeometriaPlanaEspacialVisualizer spec={spec} />;
+}
+
+function TrigonometriaAvanzadaRenderer({
+  spec,
+}: {
+  spec: TrigonometriaAvanzadaSpec;
+}) {
+  return <TrigonometriaAvanzadaVisualizer spec={spec} />;
+}
+
+function AlgebraCalculoVisualRenderer({
+  spec,
+}: {
+  spec: AlgebraCalculoVisualSpec;
+}) {
+  return <AlgebraCalculoVisualVisualizer spec={spec} />;
+}
+
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   switch (spec.kind) {
     case "timeline":
@@ -48,6 +86,14 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
       return <FlowRenderer spec={spec} />;
     case "map":
       return <MapRenderer spec={spec} />;
+    case "funciones-graficas":
+      return <FuncionesGraficasRenderer spec={spec} />;
+    case "geometria-plana-espacial":
+      return <GeometriaPlanaEspacialRenderer spec={spec} />;
+    case "trigonometria-avanzada":
+      return <TrigonometriaAvanzadaRenderer spec={spec} />;
+    case "algebra-calculo-visual":
+      return <AlgebraCalculoVisualRenderer spec={spec} />;
     default:
       return (
         <div className="rounded-lg border border-dashed border-slate-200 p-4 text-sm text-slate-500">

@@ -475,6 +475,183 @@ export default function GeneradoresTest() {
           ],
         } satisfies VisualSpec,
       },
+      {
+        id: "funciones-graficas",
+        title: "Funciones (gráficas)",
+        description: "Funciones lineales y cuadráticas con puntos clave.",
+        spec: {
+          kind: "funciones-graficas",
+          title: "Funciones en el plano cartesiano",
+          description: "Comparación de una función lineal y una cuadrática.",
+          axes: {
+            x: { label: "x", min: -5, max: 5 },
+            y: { label: "y", min: -4, max: 8 },
+          },
+          functions: [
+            {
+              id: "f1",
+              type: "lineal",
+              expression: "y = 2x + 1",
+              domain: { start: -4, end: 4, step: 1 },
+              keyPoints: [
+                { x: -2, y: -3, label: "Intercepto" },
+                { x: 0, y: 1, label: "Ordenada" },
+              ],
+              color: "#2563eb",
+              notes: "Pendiente positiva.",
+            },
+            {
+              id: "f2",
+              type: "cuadratica",
+              expression: "y = x² - 2x",
+              domain: { start: -2, end: 4, step: 0.5 },
+              keyPoints: [
+                { x: 1, y: -1, label: "Vértice" },
+                { x: 0, y: 0, label: "Corte" },
+              ],
+              color: "#f97316",
+              notes: "Concavidad hacia arriba.",
+            },
+          ],
+        } satisfies VisualSpec,
+      },
+      {
+        id: "geometria-plana-espacial",
+        title: "Geometría plana y espacial",
+        description: "Figuras con parámetros y propiedades clave.",
+        spec: {
+          kind: "geometria-plana-espacial",
+          title: "Figuras destacadas",
+          description: "Triángulo y prisma con datos esenciales.",
+          figures: [
+            {
+              id: "g1",
+              name: "Triángulo isósceles",
+              dimension: "plana",
+              type: "triangulo",
+              parameters: [
+                { label: "Base", value: 8, unit: "cm" },
+                { label: "Lado", value: 6, unit: "cm" },
+                { label: "Altura", value: 5, unit: "cm" },
+              ],
+              angles: [
+                { id: "a1", vertex: "A", valueDeg: 50, label: "Ángulo A" },
+                { id: "a2", vertex: "B", valueDeg: 80, label: "Ángulo B" },
+              ],
+              properties: [{ label: "Área", value: "20 cm²" }],
+              formula: "Área = (b · h) / 2",
+              notes: "Lados iguales en los vértices A y C.",
+            },
+            {
+              id: "g2",
+              name: "Prisma rectangular",
+              dimension: "espacial",
+              type: "prisma",
+              parameters: [
+                { label: "Largo", value: 4, unit: "cm" },
+                { label: "Ancho", value: 3, unit: "cm" },
+                { label: "Alto", value: 6, unit: "cm" },
+              ],
+              properties: [
+                { label: "Volumen", value: "72 cm³" },
+                { label: "Área total", value: "108 cm²" },
+              ],
+              formula: "V = l · w · h",
+              notes: "Base rectangular con 6 caras.",
+            },
+          ],
+        } satisfies VisualSpec,
+      },
+      {
+        id: "trigonometria-avanzada",
+        title: "Trigonometría avanzada",
+        description: "Círculo unitario y funciones trigonométricas.",
+        spec: {
+          kind: "trigonometria-avanzada",
+          title: "Círculo unitario",
+          description: "Puntos notables y funciones seno/coseno.",
+          unitCircle: {
+            radius: 1,
+            points: [
+              { angleDeg: 0, x: 1, y: 0, label: "0°" },
+              { angleDeg: 90, x: 0, y: 1, label: "90°" },
+              { angleDeg: 180, x: -1, y: 0, label: "180°" },
+              { angleDeg: 270, x: 0, y: -1, label: "270°" },
+            ],
+          },
+          functions: [
+            {
+              id: "t1",
+              type: "seno",
+              expression: "y = sen(x)",
+              amplitude: 1,
+              period: 360,
+              phaseShift: 0,
+              keyPoints: [
+                { x: 0, y: 0, label: "Origen" },
+                { x: 90, y: 1, label: "Máximo" },
+              ],
+              notes: "Oscilación básica.",
+            },
+            {
+              id: "t2",
+              type: "coseno",
+              expression: "y = cos(x)",
+              amplitude: 1,
+              period: 360,
+              phaseShift: 0,
+              keyPoints: [
+                { x: 0, y: 1, label: "Máximo" },
+                { x: 180, y: -1, label: "Mínimo" },
+              ],
+              notes: "Desfase de 90° respecto al seno.",
+            },
+          ],
+          angles: [
+            { id: "ang1", label: "π/6", valueDeg: 30, valueRad: "π/6", ratio: "1/2" },
+            { id: "ang2", label: "π/4", valueDeg: 45, valueRad: "π/4", ratio: "√2/2" },
+          ],
+        } satisfies VisualSpec,
+      },
+      {
+        id: "algebra-calculo-visual",
+        title: "Álgebra y cálculo visual",
+        description: "Sistemas, derivadas e integrales con pasos clave.",
+        spec: {
+          kind: "algebra-calculo-visual",
+          title: "Resumen de álgebra y cálculo",
+          description: "Muestra procesos y resultados visuales.",
+          systems: [
+            {
+              id: "sistema-1",
+              equations: ["2x + y = 7", "x - y = 1"],
+              solution: { x: 2, y: 3 },
+              steps: ["Despejar y en la segunda ecuación.", "Sustituir en la primera."],
+            },
+          ],
+          derivatives: [
+            {
+              id: "der-1",
+              function: "x³ - 3x² + 2",
+              derivative: "3x² - 6x",
+              criticalPoints: [
+                { x: 0, y: 2, label: "Máximo local" },
+                { x: 2, y: -2, label: "Mínimo local" },
+              ],
+              notes: "Puntos críticos evaluados en f(x).",
+            },
+          ],
+          integrals: [
+            {
+              id: "int-1",
+              function: "x²",
+              bounds: { lower: 0, upper: 2 },
+              area: 8 / 3,
+              notes: "Área bajo la curva en [0,2].",
+            },
+          ],
+        } satisfies VisualSpec,
+      },
     ],
     []
   );

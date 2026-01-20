@@ -1,5 +1,9 @@
 export { default as AlgebraCalculoVisualizer } from "./AlgebraCalculoVisualizer";
+export { default as AlgebraCalculoVisualVisualizer } from "./AlgebraCalculoVisualVisualizer";
 export { default as FuncionesGraficoVisualizer } from "./FuncionesGraficoVisualizer";
+export { default as FuncionesGraficasVisualizer } from "./FuncionesGraficasVisualizer";
+export { default as GeometriaPlanaEspacialVisualizer } from "./GeometriaPlanaEspacialVisualizer";
 export { default as GeometriaVisualizer } from "./GeometriaVisualizer";
+export { default as TrigonometriaAvanzadaVisualizer } from "./TrigonometriaAvanzadaVisualizer";
 export { default as TrigonometriaVisualizer } from "./TrigonometriaVisualizer";
 export { default as VisualizerRenderer } from "./VisualizerRenderer";
