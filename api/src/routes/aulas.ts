@@ -6,6 +6,7 @@ import { ClassroomSchema } from "../schema/aula";
 export const aulas = Router();
 
 const ClassroomUpdateSchema = ClassroomSchema.partial().omit({ id: true, createdAt: true, createdBy: true });
+const FREE_CLASSROOM_LIMIT = 10;
 
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
@@ -47,6 +48,19 @@ aulas.post("/api/aulas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
     };
     const parsed = ClassroomSchema.parse(payload);
     const db = await getDb();
+    const activeClassroomFilter = {
+      createdBy: parsed.createdBy,
+      isDeleted: { $ne: true },
+      archived: { $ne: true },
+      status: { $ne: "archivada" }
+    };
+    const activeClassroomCount = await db.collection("aulas").countDocuments(activeClassroomFilter);
+    if (activeClassroomCount >= FREE_CLASSROOM_LIMIT) {
+      return res.status(403).json({
+        error: "limite de clases activas excedido",
+        detail: `El limite gratuito es ${FREE_CLASSROOM_LIMIT} clases activas por profesor.`
+      });
+    }
     const result = await db.collection("aulas").insertOne(parsed);
     res.status(201).json({ id: result.insertedId, classroomId: parsed.id });
   } catch (e: any) {
