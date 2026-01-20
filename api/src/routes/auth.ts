@@ -106,14 +106,15 @@ auth.post("/api/auth/register", async (req, res) => {
       updatedAt: now
     };
     const result = await db.collection("usuarios").insertOne(doc);
-    if (role === "TEACHER" && escuelaId) {
+    if (escuelaId && (role === "TEACHER" || role === "ENTERPRISE")) {
       await db.collection("membresias_escuela").insertOne({
         usuarioId: result.insertedId,
         escuelaId,
-        rol: "TEACHER",
+        rol: role === "ENTERPRISE" ? "ADMIN" : "TEACHER",
         estado: "activa",
         fechaAlta: now,
-        createdAt: now
+        createdAt: now,
+        updatedAt: now
       });
     }
     res.status(201).json({ id: result.insertedId });
