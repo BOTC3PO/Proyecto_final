@@ -1,4 +1,5 @@
 // types.ts
+import type { VisualSpec } from "../../visualizadores/types";
 export type Materia = "matematica" | "fisica" | "economia" | "contabilidad";
 
 export type Dificultad = "basico" | "intermedio" | "avanzado"|"Legendario"|"Divino";
@@ -35,11 +36,7 @@ export interface Ejercicio {
     curriculum?: string;
     tags?: string[];
   };
-  visual?: {
-    tipoGrafico?: "barras" | "lineas" | "circular";
-    // acá podrías poner más cosas según tus visualizers
-    [key: string]: any;
-  };
+  visual?: VisualSpec;
 }
 
 // Lo mínimo para el motor de cálculo
