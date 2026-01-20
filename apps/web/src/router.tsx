@@ -17,6 +17,7 @@ import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
 import GeneradoresTest from "./pages/GeneradoresTest";
+import ConceptMapDemo from "./pages/ConceptMapDemo";
 import CrearModulo from "./pages/crearModulo";
 import EditarModulo from "./pages/editarModulo";
 import JugarModulo from "./pages/jugarModulo";
@@ -87,7 +88,12 @@ export const router = createBrowserRouter([
       { path: "metodologia", element: <Metodologia /> },
       { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
       {path:"editor",element:<BookEditorPage/>},
-      ...(testmode ? [{ path: "generadores", element: <GeneradoresTest /> }] : []),
+      ...(testmode
+        ? [
+            { path: "generadores", element: <GeneradoresTest /> },
+            { path: "concept-map", element: <ConceptMapDemo /> },
+          ]
+        : []),
 
 
       // Admin
