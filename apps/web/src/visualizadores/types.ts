@@ -3,7 +3,11 @@ export type VisualSpec =
   | ConceptMapSpec
   | ChartSpec
   | FlowSpec
-  | MapSpec;
+  | MapSpec
+  | FuncionesGraficoSpec
+  | GeometriaSpec
+  | TrigonometriaSpec
+  | AlgebraCalculoSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -121,4 +125,69 @@ export interface MapRoute {
   label?: string;
   path: Array<[number, number]>;
   color?: string;
+}
+
+export interface FuncionesGraficoSpec {
+  kind: "funciones-grafico";
+  title?: string;
+  description?: string;
+  functions: Array<{
+    id: string;
+    expression: string;
+    color?: string;
+    domain?: string;
+    notes?: string;
+  }>;
+  variables?: Array<{
+    symbol: string;
+    description?: string;
+    value?: string | number;
+  }>;
+}
+
+export interface GeometriaSpec {
+  kind: "geometria";
+  title?: string;
+  description?: string;
+  figures: Array<{
+    id: string;
+    name: string;
+    type: "triangulo" | "circulo" | "poligono" | "otro";
+    properties?: Array<{
+      label: string;
+      value: string;
+    }>;
+    formula?: string;
+    notes?: string;
+  }>;
+}
+
+export interface TrigonometriaSpec {
+  kind: "trigonometria";
+  title?: string;
+  description?: string;
+  identities: Array<{
+    id: string;
+    expression: string;
+    notes?: string;
+  }>;
+  angles?: Array<{
+    id: string;
+    label: string;
+    value: string;
+    ratio?: string;
+  }>;
+}
+
+export interface AlgebraCalculoSpec {
+  kind: "algebra-calculo";
+  title?: string;
+  description?: string;
+  topics: Array<{
+    id: string;
+    label: string;
+    steps?: string[];
+    formula?: string;
+    notes?: string;
+  }>;
 }
