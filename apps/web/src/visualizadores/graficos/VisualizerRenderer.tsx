@@ -9,6 +9,7 @@ import type {
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
+import InteractiveMapVisualizer from "./InteractiveMapVisualizer";
 import TimelineVisualizer from "./TimelineVisualizer";
 
 type VisualizerRendererProps = {
@@ -32,25 +33,7 @@ function FlowRenderer({ spec }: { spec: FlowSpec }) {
 }
 
 function MapRenderer({ spec }: { spec: MapSpec }) {
-  return (
-    <section className="space-y-4">
-      {spec.title && <h3 className="text-lg font-semibold">{spec.title}</h3>}
-      <div className="rounded-lg border border-slate-200 p-3">
-        <p className="text-sm font-semibold text-slate-700">Marcadores</p>
-        <ul className="mt-2 space-y-2 text-sm text-slate-600">
-          {spec.markers.map((marker) => (
-            <li key={marker.id}>
-              <span className="font-medium text-slate-800">{marker.label}</span>
-              <span className="text-slate-500">
-                {" "}
-                ({marker.coordinates[0]}, {marker.coordinates[1]})
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
+  return <InteractiveMapVisualizer spec={spec} />;
 }
 
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
