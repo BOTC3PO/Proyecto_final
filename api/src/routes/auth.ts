@@ -1,9 +1,10 @@
 import { Router } from "express";
+import { requireAdmin } from "../lib/admin-auth";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { hashPassword, verifyPassword } from "../lib/passwords";
-import { BootstrapAdminRequestSchema, LoginSchema, RegisterSchema } from "../schema/auth";
+import { BootstrapAdminRequestSchema, CreateAdminSchema, LoginSchema, RegisterSchema } from "../schema/auth";
 
 export const auth = Router();
 
@@ -39,6 +40,29 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
       isDeleted: false,
       createdAt: now,
       updatedAt: now
+    };
+    const result = await db.collection("usuarios").insertOne(doc);
+    res.status(201).json({ id: result.insertedId });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
+
+auth.post("/api/admins", requireAdmin, async (req, res) => {
+  try {
+    const parsed = CreateAdminSchema.parse(req.body ?? {});
+    const db = await getDb();
+    const now = new Date();
+    const doc = {
+      username: parsed.username,
+      email: parsed.email,
+      fullName: parsed.fullName,
+      role: "ADMIN",
+      passwordHash: hashPassword(parsed.password),
+      isDeleted: false,
+      createdAt: now,
+      updatedAt: now,
+      createdBy: res.locals.adminUser?._id ?? null
     };
     const result = await db.collection("usuarios").insertOne(doc);
     res.status(201).json({ id: result.insertedId });
