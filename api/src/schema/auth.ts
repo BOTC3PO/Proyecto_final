@@ -7,7 +7,10 @@ export const RegisterSchema = z.object({
   email: z.string().email(),
   fullName: z.string().min(3).max(120),
   password: z.string().min(6).max(256),
+  role: z.enum(["USER", "TEACHER"]).optional(),
+  teacherType: z.string().min(1).optional(),
   escuelaId: objectIdString.nullish(),
+  schoolCode: z.string().min(2).max(32).optional(),
   birthdate: z.string().datetime().nullish(),
   consents: z
     .object({
@@ -16,7 +19,11 @@ export const RegisterSchema = z.object({
       consentedAt: z.string().datetime().optional()
     })
     .optional()
-});
+})
+  .refine((data) => !(data.escuelaId && data.schoolCode), {
+    message: "Provide either escuelaId or schoolCode, not both",
+    path: ["schoolCode"]
+  });
 
 export const LoginSchema = z
   .object({

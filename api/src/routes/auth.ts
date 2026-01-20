@@ -52,14 +52,25 @@ auth.post("/api/auth/register", async (req, res) => {
     const parsed = RegisterSchema.parse(req.body ?? {});
     const db = await getDb();
     const now = new Date();
+    const role = parsed.role ?? "USER";
+    let escuelaId = parsed.escuelaId ? toObjectId(parsed.escuelaId) : null;
+    if (parsed.schoolCode) {
+      const escuela = await db.collection("escuelas").findOne({ code: parsed.schoolCode });
+      if (!escuela?._id) {
+        res.status(400).json({ error: "Invalid school code" });
+        return;
+      }
+      escuelaId = escuela._id;
+    }
     const doc = {
       username: parsed.username,
       email: parsed.email,
       fullName: parsed.fullName,
-      role: "USER",
-      escuelaId: parsed.escuelaId ? toObjectId(parsed.escuelaId) : null,
+      role,
+      escuelaId,
       birthdate: parsed.birthdate ? new Date(parsed.birthdate) : null,
       passwordHash: hashPassword(parsed.password),
+      teacherProfile: role === "TEACHER" ? { type: parsed.teacherType } : undefined,
       consents: parsed.consents
         ? {
             ...parsed.consents,
@@ -71,6 +82,16 @@ auth.post("/api/auth/register", async (req, res) => {
       updatedAt: now
     };
     const result = await db.collection("usuarios").insertOne(doc);
+    if (role === "TEACHER" && escuelaId) {
+      await db.collection("membresias_escuela").insertOne({
+        usuarioId: result.insertedId,
+        escuelaId,
+        rol: "TEACHER",
+        estado: "activa",
+        fechaAlta: now,
+        createdAt: now
+      });
+    }
     res.status(201).json({ id: result.insertedId });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
