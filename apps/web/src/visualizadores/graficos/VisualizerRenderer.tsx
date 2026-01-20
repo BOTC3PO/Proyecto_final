@@ -6,6 +6,7 @@ import type {
   TimelineSpec,
   VisualSpec,
 } from "../types";
+import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import TimelineVisualizer from "./TimelineVisualizer";
 
 type VisualizerRendererProps = {
@@ -17,35 +18,7 @@ function TimelineRenderer({ spec }: { spec: TimelineSpec }) {
 }
 
 function ConceptMapRenderer({ spec }: { spec: ConceptMapSpec }) {
-  return (
-    <section className="space-y-4">
-      {spec.title && <h3 className="text-lg font-semibold">{spec.title}</h3>}
-      <div className="grid gap-3 sm:grid-cols-2">
-        <div className="rounded-lg border border-slate-200 p-3">
-          <p className="text-sm font-semibold text-slate-700">Nodos</p>
-          <ul className="mt-2 space-y-2 text-sm text-slate-600">
-            {spec.nodes.map((node) => (
-              <li key={node.id}>
-                <span className="font-medium text-slate-800">{node.label}</span>
-                {node.description && <span className="text-slate-500"> · {node.description}</span>}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-lg border border-slate-200 p-3">
-          <p className="text-sm font-semibold text-slate-700">Relaciones</p>
-          <ul className="mt-2 space-y-2 text-sm text-slate-600">
-            {spec.links.map((link) => (
-              <li key={link.id}>
-                {link.sourceId} → {link.targetId}
-                <span className="text-slate-500"> ({link.relation})</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
+  return <ConceptMapVisualizer spec={spec} />;
 }
 
 function ChartRenderer({ spec }: { spec: ChartSpec }) {
