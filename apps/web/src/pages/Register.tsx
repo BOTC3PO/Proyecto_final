@@ -272,13 +272,22 @@ function DateInput({
 
 export default function RegistrationForm() {
   const navigate = useNavigate();
+  const teacherTypes = [
+    { value: "primary", label: "Profesor/a de Primaria" },
+    { value: "secondary", label: "Profesor/a de Secundaria" },
+    { value: "higher", label: "Profesor/a Universitario/a" },
+    { value: "special", label: "Profesor/a de Educación Especial" },
+    { value: "other", label: "Otro" }
+  ];
   const [formData, setFormData] = useState({
     fullName: "",
     username: "",
     email: "",
     birthdate: "",      // dd/mm/aaaa (para UI)
     birthdateISO: "",   // yyyy-mm-dd (para backend)
-    school: "",
+    role: "",
+    teacherType: "",
+    schoolCode: "",
     password: "",
     confirmPassword: "",
     privacyConsent: false,
@@ -293,11 +302,27 @@ export default function RegistrationForm() {
     setFormData((s) => ({ ...s, birthdate: display, birthdateISO: iso ?? "" }));
   };
 
+  const handleRoleChange = (value: string) => {
+    setFormData((s) => ({
+      ...s,
+      role: value,
+      teacherType: value === "teacher" ? s.teacherType : ""
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // ejemplo de validación mínima
     if (!formData.termsAccepted) {
       setStatus({ loading: false, error: "Debes aceptar los Términos y Condiciones." });
+      return;
+    }
+    if (!formData.role) {
+      setStatus({ loading: false, error: "Selecciona un rol para continuar." });
+      return;
+    }
+    if (formData.role === "teacher" && !formData.teacherType) {
+      setStatus({ loading: false, error: "Selecciona el tipo de profesor." });
       return;
     }
     if (formData.password && formData.password !== formData.confirmPassword) {
@@ -321,6 +346,9 @@ export default function RegistrationForm() {
           fullName: formData.fullName,
           password: formData.password,
           birthdate,
+          role: formData.role,
+          teacherType: formData.role === "teacher" ? formData.teacherType : undefined,
+          schoolCode: formData.schoolCode || undefined,
           consents: {
             privacyConsent: formData.privacyConsent,
             termsAccepted: formData.termsAccepted,
@@ -393,11 +421,44 @@ export default function RegistrationForm() {
             <input type="hidden" name="birthday_iso" value={formData.birthdateISO} />
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">Centro Educativo (Opcional)</label>
+              <label className="block text-gray-800 text-lg mb-2 font-normal">Rol</label>
+              <select
+                value={formData.role}
+                onChange={(e) => handleRoleChange(e.target.value)}
+                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg bg-white
+                           focus:outline-none focus:border-blue-500 transition-colors"
+              >
+                <option value="">Selecciona un rol</option>
+                <option value="student">Usuario</option>
+                <option value="teacher">Profesor</option>
+              </select>
+            </div>
+
+            {formData.role === "teacher" && (
+              <div>
+                <label className="block text-gray-800 text-lg mb-2 font-normal">Tipo de Profesor</label>
+                <select
+                  value={formData.teacherType}
+                  onChange={(e) => setFormData({ ...formData, teacherType: e.target.value })}
+                  className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg bg-white
+                             focus:outline-none focus:border-blue-500 transition-colors"
+                >
+                  <option value="">Selecciona el tipo</option>
+                  {teacherTypes.map((type) => (
+                    <option key={type.value} value={type.value}>
+                      {type.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            <div>
+              <label className="block text-gray-800 text-lg mb-2 font-normal">Código de Escuela (Opcional)</label>
               <input
                 type="text"
-                value={formData.school}
-                onChange={(e) => setFormData({ ...formData, school: e.target.value })}
+                value={formData.schoolCode}
+                onChange={(e) => setFormData({ ...formData, schoolCode: e.target.value })}
                 className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg 
                            focus:outline-none focus:border-blue-500 transition-colors"
               />
