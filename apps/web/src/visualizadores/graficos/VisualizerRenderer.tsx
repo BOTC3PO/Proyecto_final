@@ -8,6 +8,7 @@ import type {
 } from "../types";
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
+import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
 import TimelineVisualizer from "./TimelineVisualizer";
 
 type VisualizerRendererProps = {
@@ -27,35 +28,7 @@ function ChartRenderer({ spec }: { spec: ChartSpec }) {
 }
 
 function FlowRenderer({ spec }: { spec: FlowSpec }) {
-  return (
-    <section className="space-y-4">
-      {spec.title && <h3 className="text-lg font-semibold">{spec.title}</h3>}
-      <div className="grid gap-3 md:grid-cols-2">
-        <div className="rounded-lg border border-slate-200 p-3">
-          <p className="text-sm font-semibold text-slate-700">Pasos</p>
-          <ul className="mt-2 space-y-2 text-sm text-slate-600">
-            {spec.steps.map((step) => (
-              <li key={step.id}>
-                <span className="font-medium text-slate-800">{step.label}</span>
-                {step.description && <span className="text-slate-500"> · {step.description}</span>}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-lg border border-slate-200 p-3">
-          <p className="text-sm font-semibold text-slate-700">Conexiones</p>
-          <ul className="mt-2 space-y-2 text-sm text-slate-600">
-            {spec.connections.map((connection) => (
-              <li key={connection.id}>
-                {connection.fromId} → {connection.toId}
-                {connection.label && <span className="text-slate-500"> · {connection.label}</span>}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
+  return <FlowDiagramVisualizer spec={spec} />;
 }
 
 function MapRenderer({ spec }: { spec: MapSpec }) {
