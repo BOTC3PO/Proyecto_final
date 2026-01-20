@@ -158,7 +158,9 @@ export default function menuProfesor() {
             <p className="text-gray-600">Profesor</p>
           </div>
           <div className="flex items-center gap-5">
-            <button title="Notificaciones">🔔</button>
+            <button title="Notificaciones" aria-label="Notificaciones">
+              🔔
+            </button>
             <Link className="flex items-center gap-2 hover:underline" to="#">
               👤 Perfil
             </Link>
