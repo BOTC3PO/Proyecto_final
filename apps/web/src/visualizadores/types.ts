@@ -12,6 +12,7 @@ export interface TimelineSpec {
     start?: string;
     end?: string;
   };
+  markers?: TimelineMarker[];
   events: TimelineEvent[];
 }
 
@@ -21,6 +22,13 @@ export interface TimelineEvent {
   date: string;
   description?: string;
   tags?: string[];
+}
+
+export interface TimelineMarker {
+  id: string;
+  label: string;
+  date: string;
+  description?: string;
 }
 
 export interface ConceptMapSpec {

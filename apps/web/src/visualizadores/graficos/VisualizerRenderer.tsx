@@ -6,40 +6,14 @@ import type {
   TimelineSpec,
   VisualSpec,
 } from "../types";
+import TimelineVisualizer from "./TimelineVisualizer";
 
 type VisualizerRendererProps = {
   spec: VisualSpec;
 };
 
 function TimelineRenderer({ spec }: { spec: TimelineSpec }) {
-  return (
-    <section className="space-y-4">
-      {spec.title && <h3 className="text-lg font-semibold">{spec.title}</h3>}
-      <ul className="space-y-3">
-        {spec.events.map((event) => (
-          <li key={event.id} className="rounded-lg border border-slate-200 p-3">
-            <div className="flex flex-wrap items-baseline gap-2">
-              <span className="font-semibold text-slate-900">{event.title}</span>
-              <span className="text-sm text-slate-500">{event.date}</span>
-            </div>
-            {event.description && <p className="text-sm text-slate-600">{event.description}</p>}
-            {event.tags?.length ? (
-              <div className="mt-2 flex flex-wrap gap-2">
-                {event.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-600"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            ) : null}
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
+  return <TimelineVisualizer spec={spec} />;
 }
 
 function ConceptMapRenderer({ spec }: { spec: ConceptMapSpec }) {
