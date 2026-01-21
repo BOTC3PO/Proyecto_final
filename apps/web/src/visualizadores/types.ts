@@ -79,6 +79,7 @@ export interface ChartSpec {
   xAxis?: AxisSpec;
   yAxis?: AxisSpec;
   series: ChartSeries[];
+  markers?: ChartMarker[];
 }
 
 export interface AxisSpec {
@@ -139,6 +140,13 @@ export interface ChartSeries {
     x: string | number;
     y: number;
   }>;
+  color?: string;
+}
+
+export interface ChartMarker {
+  x: string | number;
+  label: string;
+  note?: string;
   color?: string;
 }
 

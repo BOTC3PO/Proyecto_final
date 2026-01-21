@@ -173,6 +173,42 @@ function LineChart({ spec }: { spec: ChartSpec }) {
         y2={height - padding.bottom}
         stroke="#CBD5F5"
       />
+      {spec.markers?.map((marker, markerIndex) => {
+        const markerIndexInCategory = categories.indexOf(String(marker.x));
+        if (!isNumeric && markerIndexInCategory < 0) {
+          return null;
+        }
+        const x = resolveX(marker.x, isNumeric ? markerIndex : markerIndexInCategory);
+        const markerColor = marker.color ?? "#94A3B8";
+        return (
+          <g key={`${marker.label}-${String(marker.x)}`}>
+            <line
+              x1={x}
+              y1={padding.top}
+              x2={x}
+              y2={height - padding.bottom}
+              stroke={markerColor}
+              strokeDasharray="4 4"
+            />
+            <text
+              x={x + 6}
+              y={padding.top + 12}
+              className="fill-slate-500 text-[10px]"
+            >
+              {marker.label}
+            </text>
+            {marker.note && (
+              <text
+                x={x + 6}
+                y={padding.top + 26}
+                className="fill-slate-400 text-[9px]"
+              >
+                {marker.note}
+              </text>
+            )}
+          </g>
+        );
+      })}
       {Array.from({ length: 5 }).map((_, index) => {
         const value = (maxValue / 4) * index;
         const y = padding.top + chartHeight - (value / maxValue) * chartHeight;
