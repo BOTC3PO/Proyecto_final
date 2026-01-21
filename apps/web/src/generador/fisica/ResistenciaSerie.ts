@@ -23,6 +23,20 @@ export class ResistenciaSerieGenerator extends FisicaBaseGenerator {
     });
 
     const resistenciaTotal = resultado.resultado;
+    const nodes = Array.from({ length: resistencias.length + 1 }, (_, index) => ({
+      id: `n${index + 1}`,
+      label: index === 0 ? "A" : index === resistencias.length ? "B" : undefined,
+      position: { x: 0.15 + (0.7 * index) / resistencias.length, y: 0.5 },
+    }));
+    const components = resistencias.map((value, index) => ({
+      id: `r${index + 1}`,
+      type: "resistor" as const,
+      label: `R${index + 1}`,
+      fromNodeId: nodes[index].id,
+      toNodeId: nodes[index + 1].id,
+      value,
+      unit: "Ω",
+    }));
     const opciones = this.mezclar([
       resistenciaTotal.toString(),
       ...this.generarOpcionesIncorrectas(resistenciaTotal, 3, 0.3).map(String),
@@ -45,6 +59,25 @@ export class ResistenciaSerieGenerator extends FisicaBaseGenerator {
       explicacionPasoAPaso: resultado.pasos,
       metadatos: {
         tags: ["electricidad", "resistencias", "serie"],
+      },
+      visual: {
+        kind: "circuit",
+        title: "Resistencias en serie",
+        description: "Resistencias conectadas una tras otra.",
+        nodes,
+        components,
+        connections: [
+          { id: "wire-return", fromNodeId: nodes.at(-1)!.id, toNodeId: nodes[0].id, style: "solid" },
+        ],
+        measurements: [
+          {
+            id: "req",
+            type: "resistencia",
+            value: resistenciaTotal,
+            unit: "Ω",
+            label: "R equivalente",
+          },
+        ],
       },
     };
   }

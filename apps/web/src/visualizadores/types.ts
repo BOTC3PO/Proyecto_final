@@ -14,7 +14,9 @@ export type VisualSpec =
   | AlgebraCalculoVisualSpec
   | PhysicsMotionChartSpec
   | PhysicsForcesVectorSpec
-  | EnergyChartSpec;
+  | EnergyChartSpec
+  | CircuitSpec
+  | FieldLinesSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -524,4 +526,87 @@ export interface PhysicsForcesVectorSpec {
     showComponents?: boolean;
     showAxes?: boolean;
   };
+}
+
+export interface CircuitSpec {
+  kind: "circuit";
+  title?: string;
+  description?: string;
+  nodes: CircuitNode[];
+  components: CircuitComponent[];
+  connections?: CircuitConnection[];
+  measurements?: CircuitMeasurement[];
+  layout?: {
+    width?: number;
+    height?: number;
+  };
+}
+
+export interface CircuitNode {
+  id: string;
+  label?: string;
+  position?: {
+    x: number;
+    y: number;
+  };
+}
+
+export interface CircuitComponent {
+  id: string;
+  type: "resistor" | "battery" | "wire" | "switch";
+  label?: string;
+  fromNodeId: string;
+  toNodeId: string;
+  value?: number;
+  unit?: string;
+}
+
+export interface CircuitConnection {
+  id: string;
+  fromNodeId: string;
+  toNodeId: string;
+  label?: string;
+  style?: "solid" | "dashed";
+}
+
+export interface CircuitMeasurement {
+  id: string;
+  type: "voltaje" | "corriente" | "resistencia" | "potencia";
+  value: number;
+  unit: string;
+  label?: string;
+  relatedComponentId?: string;
+}
+
+export interface FieldLinesSpec {
+  kind: "field-lines";
+  title?: string;
+  description?: string;
+  sources: FieldSource[];
+  lines: FieldLine[];
+  layout?: {
+    width?: number;
+    height?: number;
+  };
+}
+
+export interface FieldSource {
+  id: string;
+  type: "carga" | "iman";
+  magnitude?: number;
+  polarity?: "positiva" | "negativa" | "norte" | "sur";
+  label?: string;
+  position: {
+    x: number;
+    y: number;
+  };
+}
+
+export interface FieldLine {
+  id: string;
+  points: Array<{
+    x: number;
+    y: number;
+  }>;
+  strength?: number;
 }

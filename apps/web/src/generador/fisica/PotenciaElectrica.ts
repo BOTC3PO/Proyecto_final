@@ -51,6 +51,58 @@ export class PotenciaElectricaGenerator extends FisicaBaseGenerator {
       metadatos: {
         tags: ["electricidad", "potencia", "consumo"],
       },
+      visual: {
+        kind: "circuit",
+        title: "Consumo eléctrico",
+        description: "Batería alimentando una carga resistiva.",
+        nodes: [
+          { id: "n1", label: "A", position: { x: 0.2, y: 0.5 } },
+          { id: "n2", label: "B", position: { x: 0.5, y: 0.5 } },
+          { id: "n3", label: "C", position: { x: 0.8, y: 0.5 } },
+        ],
+        components: [
+          {
+            id: "battery",
+            type: "battery",
+            label: "Batería",
+            fromNodeId: "n1",
+            toNodeId: "n2",
+          },
+          {
+            id: "load",
+            type: "resistor",
+            label: "Carga",
+            fromNodeId: "n2",
+            toNodeId: "n3",
+          },
+        ],
+        connections: [
+          { id: "wire-return", fromNodeId: "n3", toNodeId: "n1", style: "solid" },
+        ],
+        measurements: [
+          {
+            id: "voltaje",
+            type: "voltaje",
+            value: voltaje,
+            unit: "V",
+            label: "Voltaje",
+          },
+          {
+            id: "corriente",
+            type: "corriente",
+            value: corriente,
+            unit: "A",
+            label: "Corriente",
+          },
+          {
+            id: "potencia",
+            type: "potencia",
+            value: potencia,
+            unit: "W",
+            label: "Potencia",
+          },
+        ],
+      },
     };
   }
 }

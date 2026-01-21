@@ -74,6 +74,61 @@ export class LeyOhmGenerator extends FisicaBaseGenerator {
       metadatos: {
         tags: ["electricidad", "ley-ohm", "circuitos"],
       },
+      visual: {
+        kind: "circuit",
+        title: "Circuito con resistencia",
+        description: "Esquema básico con batería y resistencia.",
+        nodes: [
+          { id: "n1", label: "A", position: { x: 0.2, y: 0.5 } },
+          { id: "n2", label: "B", position: { x: 0.5, y: 0.5 } },
+          { id: "n3", label: "C", position: { x: 0.8, y: 0.5 } },
+        ],
+        components: [
+          {
+            id: "battery",
+            type: "battery",
+            label: "Batería",
+            fromNodeId: "n1",
+            toNodeId: "n2",
+          },
+          {
+            id: "resistor",
+            type: "resistor",
+            label: "R",
+            fromNodeId: "n2",
+            toNodeId: "n3",
+            value: resistencia,
+            unit: "Ω",
+          },
+        ],
+        connections: [
+          { id: "wire-return", fromNodeId: "n3", toNodeId: "n1", style: "solid" },
+        ],
+        measurements: [
+          {
+            id: "voltaje",
+            type: "voltaje",
+            value: voltaje,
+            unit: "V",
+            label: "Voltaje",
+          },
+          {
+            id: "corriente",
+            type: "corriente",
+            value: corriente,
+            unit: "A",
+            label: "Corriente",
+          },
+          {
+            id: "resistencia",
+            type: "resistencia",
+            value: resistencia,
+            unit: "Ω",
+            label: "Resistencia",
+            relatedComponentId: "resistor",
+          },
+        ],
+      },
     };
   }
 }
