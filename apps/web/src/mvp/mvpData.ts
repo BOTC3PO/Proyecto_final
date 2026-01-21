@@ -57,6 +57,15 @@ export const MVP_MODULES: ModuleSummary[] = [
     progressPercent: 0,
     category: "Aritmética",
   },
+  {
+    id: "mod-004",
+    title: "Mapas físicos y políticos",
+    description: "Identificación de ríos, cordilleras y fronteras.",
+    level: "Básico",
+    durationMinutes: 20,
+    progressPercent: 0,
+    category: "Geografía del Mundo",
+  },
 ];
 
 export const MVP_PUBLICATIONS: Publication[] = [
