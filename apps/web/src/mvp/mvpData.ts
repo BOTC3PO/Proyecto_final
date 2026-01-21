@@ -57,6 +57,16 @@ export const MVP_MODULES: ModuleSummary[] = [
     progressPercent: 0,
     category: "Aritmética",
   },
+  {
+    id: "mod-004",
+    title: "Cartografía básica",
+    description:
+      "Lectura de coordenadas, escalas y comparación de proyecciones cartográficas.",
+    level: "Básico",
+    durationMinutes: 30,
+    progressPercent: 10,
+    category: "Geografía",
+  },
 ];
 
 export const MVP_PUBLICATIONS: Publication[] = [

@@ -666,6 +666,7 @@ const teacherId = new ObjectId();
 const studentId = new ObjectId();
 const parentId = new ObjectId();
 const moduloId = new ObjectId();
+const moduloCartografiaId = new ObjectId();
 const claseId = new ObjectId();
 const defaultPasswordHash =
   "pbkdf2$100000$ae30ab2431a9014a369007c291d0d5d9$1e72e69ff068d5b1108bdc60b4764690e454086422f77e9d658dd99e55f2deba9b8ca4564e1bb11a32277227005dd07a4510dfaa95188d8ea46999f50044bfe3";
@@ -801,6 +802,68 @@ db.modulos.insertOne({
   createdAt: new Date(),
 });
 
+db.modulos.insertOne({
+  _id: moduloCartografiaId,
+  createdBy: teacherId,
+  title: "Cartografía básica y lectura de mapas",
+  description: "Explora coordenadas, escalas y proyecciones en mapas básicos.",
+  subject: "Geografía",
+  category: "Cartografía básica",
+  difficultyLevel: "Básico",
+  durationMinutes: 30,
+  visibility: "publico",
+  theoryItems: [
+    {
+      id: "theory-geo-1",
+      title: "Latitud y longitud",
+      type: "Lectura",
+      detail:
+        "Aprende a ubicar puntos con coordenadas geográficas (latitud norte/sur y longitud este/oeste)."
+    },
+    {
+      id: "theory-geo-2",
+      title: "Escalas cartográficas",
+      type: "Infografía",
+      detail:
+        "Comprende la relación entre distancia en el mapa y distancia real usando escalas numéricas y gráficas."
+    },
+    {
+      id: "theory-geo-3",
+      title: "Proyecciones: Mercator vs. Peters",
+      type: "Comparativa",
+      detail:
+        "Contrasta la distorsión de formas y áreas en la proyección de Mercator frente a la de Peters."
+    }
+  ],
+  quizzes: [
+    {
+      id: "quiz-cartografia",
+      title: "Ubicación por coordenadas y cálculo de escalas",
+      type: "evaluacion",
+      visibility: "escuela",
+      questions: [
+        {
+          id: "q1",
+          prompt: "Ubica en el mapa el punto (34° S, 58° O). ¿A qué región pertenece?",
+          options: ["Patagonia", "Cuyo", "Región Pampeana", "NOA"],
+          answer: "Región Pampeana"
+        },
+        {
+          id: "q2",
+          prompt:
+            "Si la escala es 1:250.000, ¿cuántos kilómetros reales representan 4 cm en el mapa?",
+          options: ["1 km", "10 km", "100 km", "1000 km"],
+          answer: "10 km"
+        }
+      ]
+    }
+  ],
+  scoringSystem: "Sistema A: 1-10 con aprobación 6",
+  progress: [],
+  isDeleted: false,
+  createdAt: new Date(),
+});
+
 db.clases.insertOne({
   _id: claseId,
   name: "5º A",
@@ -810,7 +873,10 @@ db.clases.insertOne({
   teacherIds: [teacherId],
   adminIds: [teacherId],
   studentIds: [studentId],
-  modules: [{ moduleId: moduloId, assignedAt: new Date(), required: true }],
+  modules: [
+    { moduleId: moduloId, assignedAt: new Date(), required: true },
+    { moduleId: moduloCartografiaId, assignedAt: new Date(), required: false }
+  ],
   publications: [
     {
       authorId: teacherId,
