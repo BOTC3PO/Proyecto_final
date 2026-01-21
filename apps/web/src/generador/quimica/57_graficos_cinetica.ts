@@ -33,6 +33,16 @@ export const generarGraficosCinetica: GeneratorFn = (
   const lnAt = Math.log(AtR);
   const lnA0R = parseFloat(lnA0.toFixed(3));
   const lnAtR = parseFloat(lnAt.toFixed(3));
+  const tChange = Math.max(5, Math.round(tR * 0.6));
+  const times = Array.from({ length: 7 }, (_, index) => Math.round((tR * 1.2 * index) / 6));
+  const kFast = kR * 1.5;
+  const valueAtChange = A0R * Math.exp(-kR * tChange);
+  const concentrationSeries = times.map((time) => {
+    const value = time <= tChange
+      ? A0R * Math.exp(-kR * time)
+      : valueAtChange * Math.exp(-kFast * (time - tChange));
+    return { x: time, y: parseFloat(value.toFixed(3)) };
+  });
 
   const enunciado =
     "La descomposición de una sustancia A sigue una cinética de primer orden:\n" +
@@ -41,7 +51,10 @@ export const generarGraficosCinetica: GeneratorFn = (
     `la constante de velocidad es k = ${kR} s⁻¹\n` +
     `y transcurre un tiempo t = ${tR} s.\n\n` +
     "a) Calcula la concentración [A]ₜ tras ese tiempo.\n" +
-    "b) Calcula ln[A]₀ y ln[A]ₜ (valores que se usarían para un gráfico ln[A] vs t).";
+    "b) Calcula ln[A]₀ y ln[A]ₜ (valores que se usarían para un gráfico ln[A] vs t).\n\n" +
+    "Interpretación de curvas: la concentración disminuye exponencialmente; la pendiente es " +
+    "más pronunciada cuando k es mayor. La línea discontinua indica un aumento de temperatura " +
+    "que acelera la caída; el marcador t señala el instante de medición.";
 
   return {
     idTema: 57,
@@ -56,6 +69,24 @@ export const generarGraficosCinetica: GeneratorFn = (
       At: AtR,
       lnA0: lnA0R,
       lnAt: lnAtR,
+    },
+    visualSpec: {
+      kind: "chart",
+      chartType: "line",
+      title: "Concentración de A vs tiempo",
+      xAxis: { label: "Tiempo", unit: "s" },
+      yAxis: { label: "Concentración", unit: "mol/L" },
+      series: [
+        {
+          id: "A",
+          label: "[A]",
+          data: concentrationSeries,
+        },
+      ],
+      markers: [
+        { x: tChange, label: "Cambio T", note: "k aumenta" },
+        { x: tR, label: "t medido", note: "dato pedido" },
+      ],
     },
     unidades: {
       A0: "mol/L",

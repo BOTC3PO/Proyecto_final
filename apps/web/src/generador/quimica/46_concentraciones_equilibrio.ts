@@ -38,6 +38,20 @@ export const generarConcentracionesEquilibrio: GeneratorFn = (
   const KcR = parseFloat(Kc.toFixed(2));
   const AeqR = parseFloat(Aeq.toFixed(3));
   const BeqR = parseFloat(Beq.toFixed(3));
+  const tChange = 5;
+  const times = [0, 2, 4, 6, 8, 10];
+  const Aeq2 = parseFloat((AeqR * 1.2).toFixed(3));
+  const Beq2 = parseFloat((BeqR * 0.75).toFixed(3));
+
+  const buildSeries = (initial: number, eq1: number, eq2: number) => {
+    const valueAtChange = eq1 + (initial - eq1) * Math.exp(-0.5 * tChange);
+    return times.map((t) => {
+      const value = t <= tChange
+        ? eq1 + (initial - eq1) * Math.exp(-0.5 * t)
+        : eq2 + (valueAtChange - eq2) * Math.exp(-0.4 * (t - tChange));
+      return { x: t, y: parseFloat(value.toFixed(3)) };
+    });
+  };
 
   return {
     idTema: 46,
@@ -49,10 +63,27 @@ export const generarConcentracionesEquilibrio: GeneratorFn = (
       "A(aq) ⇌ 2 B(aq)\n\n" +
       `En un recipiente se introduce solo A, con concentración inicial [A]₀ = ${A0R} mol/L y [B]₀ = 0.\n` +
       `La constante de equilibrio es Kc = ${KcR}.\n\n` +
-      "Calcula las concentraciones de A y B a equilibrio.",
+      "Calcula las concentraciones de A y B a equilibrio.\n\n" +
+      "Interpretación de curvas: las concentraciones cambian hasta estabilizarse en el equilibrio. " +
+      "La línea discontinua indica un aumento de presión (menos volumen), que favorece el lado con " +
+      "menos moles gaseosos (A), por lo que [A] sube y [B] baja.",
     datos: {
       A0: A0R,
       Kc: KcR,
+    },
+    visualSpec: {
+      kind: "chart",
+      chartType: "line",
+      title: "Equilibrio A ⇌ 2B con cambio de presión",
+      xAxis: { label: "Tiempo", unit: "min" },
+      yAxis: { label: "Concentración", unit: "mol/L" },
+      series: [
+        { id: "A", label: "[A]", data: buildSeries(A0R, AeqR, Aeq2) },
+        { id: "B", label: "[B]", data: buildSeries(0, BeqR, Beq2) },
+      ],
+      markers: [
+        { x: tChange, label: "Cambio P", note: "P ↑" },
+      ],
     },
     unidades: {
       A0: "mol/L",
