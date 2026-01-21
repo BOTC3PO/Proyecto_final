@@ -5,6 +5,7 @@ import {
   randInt,
   randFloat,
 } from "./generico";
+import { buildTitrationVisualSpec } from "./titrationSpec";
 
 export const generarPH: GeneratorFn = (
   dificultad = "media"
@@ -31,6 +32,12 @@ export const generarPH: GeneratorFn = (
     datos: { H },
     unidades: { H: "mol/L", resultado: "unidad de pH" },
     resultado: parseFloat(pH.toFixed(2)),
+    visualSpec: buildTitrationVisualSpec({
+      title: "Curva de titulación pH–volumen",
+      description: "Ejemplo de titulación ácido fuerte vs base fuerte.",
+      equivalenceVolume: 25,
+      currentPH: parseFloat(pH.toFixed(2)),
+    }),
     toleranciaRelativa: 0.02,
     pasos: [
       "Recuerda la definición: pH = -log₁₀[H⁺].",

@@ -4,6 +4,7 @@ import {
   type NumericExercise,
   randFloat,
 } from "./generico";
+import { buildTitrationVisualSpec } from "./titrationSpec";
 
 export const generarTitulacionesSimples: GeneratorFn = (
   dificultad = "media"
@@ -56,6 +57,12 @@ export const generarTitulacionesSimples: GeneratorFn = (
       resultado: "mol/L",
     },
     resultado: C_acidoR,
+    visualSpec: buildTitrationVisualSpec({
+      title: "Curva de titulación ácido-base",
+      description: "Ubicación del punto equivalente según el volumen añadido.",
+      equivalenceVolume: V_base_mLR,
+      currentPH: 7,
+    }),
     toleranciaRelativa: 0.02,
     pasos: [
       "Convierte los volúmenes de ácido y base a litros.",

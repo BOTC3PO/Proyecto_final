@@ -6,6 +6,7 @@ import type {
   ChemPeriodicTableSpec,
   ChemReactionSpec,
   ChemStructureSpec,
+  ChemTitrationSpec,
   ChemVSEPRSpec,
   EnergyChartSpec,
   FieldLinesSpec,
@@ -40,6 +41,7 @@ import ChemReactionVisualizer from "../quimica/ChemReactionVisualizer";
 import ChemStructureVisualizer from "../quimica/ChemStructureVisualizer";
 import ChemPeriodicTableVisualizer from "../quimica/ChemPeriodicTableVisualizer";
 import ChemVSEPRVisualizer from "../quimica/ChemVSEPRVisualizer";
+import ChemTitrationVisualizer from "../quimica/ChemTitrationVisualizer";
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
@@ -154,6 +156,10 @@ function ChemReactionRenderer({ spec }: { spec: ChemReactionSpec }) {
   return <ChemReactionVisualizer spec={spec} />;
 }
 
+function ChemTitrationRenderer({ spec }: { spec: ChemTitrationSpec }) {
+  return <ChemTitrationVisualizer spec={spec} />;
+}
+
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   switch (spec.kind) {
     case "timeline":
@@ -198,6 +204,8 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
       return <ChemPeriodicTableRenderer spec={spec} />;
     case "chem-vsepr":
       return <ChemVSEPRRenderer spec={spec} />;
+    case "chem-titration":
+      return <ChemTitrationRenderer spec={spec} />;
     default:
       return (
         <div className="rounded-lg border border-dashed border-slate-200 p-4 text-sm text-slate-500">

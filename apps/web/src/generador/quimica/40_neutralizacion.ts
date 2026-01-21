@@ -4,6 +4,7 @@ import {
   type NumericExercise,
   randFloat,
 } from "./generico";
+import { buildTitrationVisualSpec } from "./titrationSpec";
 
 export const generarNeutralizacion: GeneratorFn = (
   dificultad = "media"
@@ -57,6 +58,12 @@ export const generarNeutralizacion: GeneratorFn = (
       resultado: "mL",
     },
     resultado: V_base_mLR,
+    visualSpec: buildTitrationVisualSpec({
+      title: "Curva de neutralización",
+      description: "Punto equivalente para la neutralización ácido-base.",
+      equivalenceVolume: V_base_mLR,
+      currentPH: 7,
+    }),
     toleranciaRelativa: 0.02,
     pasos: [
       "Convierte el volumen de ácido a litros: V(L) = V(mL) / 1000.",
