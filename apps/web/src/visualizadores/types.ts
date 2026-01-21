@@ -14,6 +14,7 @@ export type VisualSpec =
   | AlgebraCalculoVisualSpec
   | PhysicsMotionChartSpec
   | PhysicsForcesVectorSpec
+  | PhysicsSimulationSpec
   | EnergyChartSpec
   | CircuitSpec
   | FieldLinesSpec
@@ -691,4 +692,56 @@ export interface OpticsRaySpec {
     color?: string;
     dashed?: boolean;
   }>;
+}
+
+export type SimulationParameterInput = "number" | "boolean" | "select";
+
+export interface SimulationParameterSpec {
+  id: string;
+  label: string;
+  input: SimulationParameterInput;
+  unit?: string;
+  min?: number;
+  max?: number;
+  step?: number;
+  value: number | string | boolean;
+  options?: Array<{
+    label: string;
+    value: string;
+  }>;
+  description?: string;
+}
+
+export interface SimulationOutputSpec {
+  id: string;
+  label: string;
+  unit?: string;
+  value: number | string;
+  description?: string;
+}
+
+export interface SimulationModelSpec {
+  id: string;
+  label: string;
+  equation?: string;
+  assumptions?: string[];
+}
+
+export interface SimulationSeriesSpec {
+  id: string;
+  label: string;
+  unit?: string;
+  data: Array<{ t: number; value: number }>;
+  color?: string;
+}
+
+export interface PhysicsSimulationSpec {
+  kind: "physics-simulation";
+  title?: string;
+  description?: string;
+  model: SimulationModelSpec;
+  parameters: SimulationParameterSpec[];
+  outputs: SimulationOutputSpec[];
+  series?: SimulationSeriesSpec[];
+  notes?: string[];
 }

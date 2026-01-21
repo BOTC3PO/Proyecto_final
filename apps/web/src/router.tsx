@@ -19,6 +19,7 @@ import BookEditorPage from "./bookEditor/BookEditorPage";
 import GeneradoresTest from "./pages/GeneradoresTest";
 import ConceptMapDemo from "./pages/ConceptMapDemo";
 import ChartsDemo from "./pages/ChartsDemo";
+import SimulacionesFisica from "./pages/SimulacionesFisica";
 import CrearModulo from "./pages/crearModulo";
 import EditarModulo from "./pages/editarModulo";
 import JugarModulo from "./pages/jugarModulo";
@@ -94,6 +95,7 @@ export const router = createBrowserRouter([
             { path: "generadores", element: <GeneradoresTest /> },
             { path: "concept-map", element: <ConceptMapDemo /> },
             { path: "charts", element: <ChartsDemo /> },
+            { path: "simulaciones", element: <SimulacionesFisica /> },
           ]
         : []),
 
