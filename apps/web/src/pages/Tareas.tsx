@@ -14,6 +14,31 @@ const tareas = [
     curso: "Ciencias en acción",
     vence: "Viernes",
   },
+  {
+    titulo: "Construir línea de tiempo del siglo XX",
+    curso: "Historia contemporánea",
+    vence: "Lunes",
+  },
+  {
+    titulo: "Comparar mapas históricos 1914 vs 1919",
+    curso: "Historia moderna",
+    vence: "Martes",
+  },
+  {
+    titulo: "Interpretar gráfico de población histórica",
+    curso: "Historia y sociedad",
+    vence: "Miércoles",
+  },
+  {
+    titulo: "Mapa conceptual de la Revolución Francesa",
+    curso: "Historia universal",
+    vence: "Jueves",
+  },
+  {
+    titulo: "Explorar tour virtual de sitio histórico",
+    curso: "Patrimonio cultural",
+    vence: "Sábado",
+  },
 ];
 
 export default function Tareas() {
