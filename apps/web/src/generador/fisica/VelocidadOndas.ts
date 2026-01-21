@@ -51,6 +51,43 @@ export class VelocidadOndasGenerator extends FisicaBaseGenerator {
       metadatos: {
         tags: ["ondas", "velocidad", "propagacion"],
       },
+      visual: {
+        kind: "wave-interference",
+        title: "Velocidad de propagación",
+        description: "Comparación de dos ondas con distinta fase.",
+        axes: {
+          x: { label: "Tiempo", unit: "s", min: 0, max: 1 },
+          y: { label: "Amplitud" },
+        },
+        samples: 200,
+        waves: [
+          {
+            id: "onda-principal",
+            label: "Onda principal",
+            amplitude: 1,
+            frequency,
+            phase: 0,
+            color: "#2563EB",
+          },
+          {
+            id: "onda-secundaria",
+            label: "Onda secundaria",
+            amplitude: 0.8,
+            frequency: frequency * 0.9,
+            phase: Math.PI / 4,
+            color: "#14B8A6",
+          },
+        ],
+        superposition: {
+          enabled: true,
+          label: "Superposición",
+          color: "#0F172A",
+        },
+        animation: {
+          enabled: params.nivel !== "basico",
+          speed: 1.2,
+        },
+      },
     };
   }
 }

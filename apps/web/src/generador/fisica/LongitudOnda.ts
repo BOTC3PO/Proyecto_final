@@ -51,6 +51,43 @@ export class LongitudOndaGenerator extends FisicaBaseGenerator {
       metadatos: {
         tags: ["ondas", "longitud", "frecuencia"],
       },
+      visual: {
+        kind: "wave-interference",
+        title: "Longitud de onda",
+        description: "La distancia entre crestas se relaciona con la frecuencia.",
+        axes: {
+          x: { label: "Tiempo", unit: "s", min: 0, max: 1 },
+          y: { label: "Amplitud" },
+        },
+        samples: 180,
+        waves: [
+          {
+            id: "onda",
+            label: "Onda base",
+            amplitude: 1,
+            frequency,
+            phase: 0,
+            color: "#2563EB",
+          },
+          {
+            id: "onda-fase",
+            label: "Onda desfasada",
+            amplitude: 0.6,
+            frequency,
+            phase: Math.PI / 2,
+            color: "#F97316",
+          },
+        ],
+        superposition: {
+          enabled: true,
+          label: "Interferencia",
+          color: "#0F172A",
+        },
+        animation: {
+          enabled: params.nivel === "avanzado",
+          speed: 0.8,
+        },
+      },
     };
   }
 }

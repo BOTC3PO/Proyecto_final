@@ -68,6 +68,65 @@ export class OpticaGeometricaGenerator extends FisicaBaseGenerator {
       metadatos: {
         tags: ["optica", "reflexion", "espejo-plano"],
       },
+      visual: {
+        kind: "optics-rays",
+        title: "Reflexión en espejo plano",
+        description: "El ángulo de incidencia es igual al de reflexión.",
+        layout: {
+          xRange: { min: -10, max: 10 },
+          yRange: { min: -6, max: 6 },
+        },
+        element: {
+          type: "espejo-plano",
+          positionX: 0,
+          height: 12,
+          label: "Espejo",
+        },
+        object: {
+          position: { x: -6, y: 0 },
+          height: 3.5,
+          label: "Fuente",
+        },
+        image: {
+          position: { x: 6, y: 0 },
+          height: 3.5,
+          label: "Imagen virtual",
+          virtual: true,
+        },
+        rays: [
+          {
+            id: "rayo-incidente",
+            label: "Incidente",
+            kind: "incidente",
+            color: "#2563EB",
+            points: [
+              { x: -6, y: 3.5 },
+              { x: 0, y: 1.5 },
+            ],
+          },
+          {
+            id: "rayo-reflejado",
+            label: "Reflejado",
+            kind: "reflejado",
+            color: "#F97316",
+            points: [
+              { x: 0, y: 1.5 },
+              { x: 6, y: 3.5 },
+            ],
+          },
+          {
+            id: "rayo-prolongacion",
+            label: "Prolongación",
+            kind: "reflejado",
+            color: "#64748B",
+            dashed: true,
+            points: [
+              { x: 0, y: 1.5 },
+              { x: -6, y: 3.5 },
+            ],
+          },
+        ],
+      },
     };
   }
 }
