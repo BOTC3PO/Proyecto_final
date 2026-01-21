@@ -38,6 +38,22 @@ export class CalorGenerator extends FisicaBaseGenerator {
       calor.toString(),
       ...this.generarOpcionesIncorrectas(calor, 3, 0.35).map(String),
     ]);
+    const pointCount = 5;
+    const duration = 4;
+    const step = duration / (pointCount - 1);
+    const energySeries = Array.from({ length: pointCount }, (_, index) => {
+      const t = Number((index * step).toFixed(2));
+      const q = Number(((calor * index) / (pointCount - 1)).toFixed(2));
+      return { x: t, y: q };
+    });
+    const temperatureStart = 293;
+    const temperatureEnd = temperatureStart + deltaT;
+    const tsData = Array.from({ length: pointCount }, (_, index) => {
+      const ratio = index / (pointCount - 1);
+      const temperature = Number((temperatureStart + ratio * (temperatureEnd - temperatureStart)).toFixed(2));
+      const entropy = Number((masa * calorEspecifico * Math.log(temperature / temperatureStart)).toFixed(2));
+      return { x: entropy, y: temperature };
+    });
 
     return {
       id: this.generateId("calor"),
@@ -54,6 +70,37 @@ export class CalorGenerator extends FisicaBaseGenerator {
       explicacionPasoAPaso: resultado.pasos,
       metadatos: {
         tags: ["termodinamica", "calor", "temperatura"],
+      },
+      visual: {
+        kind: "energy-chart",
+        title: "Calor transferido",
+        description:
+          "El calor aumenta con el tiempo y se puede visualizar en un diagrama T-S.",
+        axes: {
+          x: { label: "Tiempo", unit: "s", variable: "tiempo" },
+          y: { label: "Energía", unit: "J" },
+        },
+        series: [
+          {
+            id: "et-series",
+            label: "Energía total (Etotal)",
+            energyType: "Etotal",
+            data: energySeries,
+            color: "#22C55E",
+          },
+        ],
+        conservation: {
+          note: "El sistema recibe energía en forma de calor.",
+        },
+        thermodynamic: {
+          ts: {
+            title: "Diagrama T-S (calentamiento)",
+            xAxis: { label: "Entropía", unit: "J/K" },
+            yAxis: { label: "Temperatura", unit: "K" },
+            data: tsData,
+            color: "#6366F1",
+          },
+        },
       },
     };
   }

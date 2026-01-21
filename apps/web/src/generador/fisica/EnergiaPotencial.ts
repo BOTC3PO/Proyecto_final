@@ -35,6 +35,14 @@ export class EnergiaPotencialGenerator extends FisicaBaseGenerator {
       energia.toString(),
       ...this.generarOpcionesIncorrectas(energia, 3, 0.35).map(String),
     ]);
+    const pointCount = 5;
+    const step = altura / (pointCount - 1);
+    const positionSeries = Array.from({ length: pointCount }, (_, index) => {
+      const h = Number((index * step).toFixed(2));
+      const ep = Number((masa * g * h).toFixed(2));
+      return { x: h, y: ep };
+    });
+    const zeroSeries = positionSeries.map((point) => ({ x: point.x, y: 0 }));
 
     return {
       id: this.generateId("ep"),
@@ -51,6 +59,42 @@ export class EnergiaPotencialGenerator extends FisicaBaseGenerator {
       explicacionPasoAPaso: resultado.pasos,
       metadatos: {
         tags: ["energia", "potencial", "gravedad"],
+      },
+      visual: {
+        kind: "energy-chart",
+        title: "Energía potencial gravitatoria",
+        description:
+          "La energía potencial aumenta con la altura para una masa constante.",
+        axes: {
+          x: { label: "Altura", unit: "m", variable: "posicion" },
+          y: { label: "Energía", unit: "J" },
+        },
+        series: [
+          {
+            id: "ep-series",
+            label: "Energía potencial (Ep)",
+            energyType: "Ep",
+            data: positionSeries,
+            color: "#38BDF8",
+          },
+          {
+            id: "ec-series",
+            label: "Energía cinética (Ec)",
+            energyType: "Ec",
+            data: zeroSeries,
+            color: "#F97316",
+          },
+          {
+            id: "et-series",
+            label: "Energía total (Etotal)",
+            energyType: "Etotal",
+            data: positionSeries,
+            color: "#22C55E",
+          },
+        ],
+        conservation: {
+          note: "Se está realizando trabajo externo al elevar el objeto.",
+        },
       },
     };
   }

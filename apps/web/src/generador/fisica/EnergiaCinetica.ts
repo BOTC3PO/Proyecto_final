@@ -34,6 +34,14 @@ export class EnergiaCineticaGenerator extends FisicaBaseGenerator {
       energia.toString(),
       ...this.generarOpcionesIncorrectas(energia, 3, 0.35).map(String),
     ]);
+    const pointCount = 5;
+    const duration = 4;
+    const step = duration / (pointCount - 1);
+    const timeSeries = Array.from({ length: pointCount }, (_, index) => {
+      const t = Number((index * step).toFixed(2));
+      return { x: t, y: Number(energia.toFixed(2)) };
+    });
+    const zeroSeries = timeSeries.map((point) => ({ x: point.x, y: 0 }));
 
     return {
       id: this.generateId("ec"),
@@ -50,6 +58,39 @@ export class EnergiaCineticaGenerator extends FisicaBaseGenerator {
       explicacionPasoAPaso: resultado.pasos,
       metadatos: {
         tags: ["energia", "cinetica", "movimiento"],
+      },
+      visual: {
+        kind: "energy-chart",
+        title: "Energía cinética constante",
+        description:
+          "Se compara Ec con la energía total para un movimiento sin cambios de velocidad.",
+        axes: {
+          x: { label: "Tiempo", unit: "s", variable: "tiempo" },
+          y: { label: "Energía", unit: "J" },
+        },
+        series: [
+          {
+            id: "ec-series",
+            label: "Energía cinética (Ec)",
+            energyType: "Ec",
+            data: timeSeries,
+            color: "#F97316",
+          },
+          {
+            id: "ep-series",
+            label: "Energía potencial (Ep)",
+            energyType: "Ep",
+            data: zeroSeries,
+            color: "#38BDF8",
+          },
+          {
+            id: "et-series",
+            label: "Energía total (Etotal)",
+            energyType: "Etotal",
+            data: timeSeries,
+            color: "#22C55E",
+          },
+        ],
       },
     };
   }
