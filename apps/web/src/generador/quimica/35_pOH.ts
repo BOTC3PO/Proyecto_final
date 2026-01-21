@@ -5,6 +5,7 @@ import {
   randInt,
   randFloat,
 } from "./generico";
+import { buildTitrationVisualSpec } from "./titrationSpec";
 
 export const generarPOH: GeneratorFn = (
   dificultad = "media"
@@ -18,6 +19,7 @@ export const generarPOH: GeneratorFn = (
   const OH = base * Math.pow(10, exp);      // [OH-] en mol/L
 
   const pOH = -Math.log10(OH);
+  const pH = 14 - pOH;
 
   return {
     idTema: 35,
@@ -31,6 +33,12 @@ export const generarPOH: GeneratorFn = (
     datos: { OH },
     unidades: { OH: "mol/L", resultado: "unidad de pOH" },
     resultado: parseFloat(pOH.toFixed(2)),
+    visualSpec: buildTitrationVisualSpec({
+      title: "Curva de titulación pH–volumen",
+      description: "Relación entre el pOH calculado y el cambio de color del indicador.",
+      equivalenceVolume: 25,
+      currentPH: parseFloat(pH.toFixed(2)),
+    }),
     toleranciaRelativa: 0.02,
     pasos: [
       "Recuerda la definición: pOH = -log₁₀[OH⁻].",

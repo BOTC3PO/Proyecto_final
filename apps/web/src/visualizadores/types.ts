@@ -23,7 +23,8 @@ export type VisualSpec =
   | ChemReactionSpec
   | ChemStructureSpec
   | ChemPeriodicTableSpec
-  | ChemVSEPRSpec;
+  | ChemVSEPRSpec
+  | ChemTitrationSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -894,6 +895,47 @@ export interface ChemVSEPRSpec {
   geometries: ChemVSEPRGeometrySpec[];
   molecules: ChemVSEPRMoleculeSpec[];
   defaultMoleculeId?: string;
+}
+
+export interface ChemTitrationCurvePoint {
+  volume: number;
+  pH: number;
+}
+
+export interface ChemTitrationMilestone {
+  id: string;
+  label: string;
+  volume: number;
+  pH: number;
+  type?: "start" | "equivalence" | "end" | "buffer";
+}
+
+export interface ChemTitrationIndicatorRange {
+  min: number;
+  max: number;
+  color: string;
+  label: string;
+}
+
+export interface ChemTitrationSpec {
+  kind: "chem-titration";
+  title?: string;
+  description?: string;
+  axes?: {
+    x?: AxisSpec & { min?: number; max?: number };
+    y?: AxisSpec & { min?: number; max?: number };
+  };
+  curve: {
+    points: ChemTitrationCurvePoint[];
+    color?: string;
+  };
+  milestones?: ChemTitrationMilestone[];
+  indicator?: {
+    title?: string;
+    ranges: ChemTitrationIndicatorRange[];
+    currentPH?: number;
+  };
+  notes?: string[];
 }
 
 export type SimulationParameterInput = "number" | "boolean" | "select";
