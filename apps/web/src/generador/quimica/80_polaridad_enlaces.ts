@@ -1,6 +1,7 @@
 // src/generators/quimica/80_polaridad_enlaces.ts
 // src/generators/quimica/80_polaridad_enlaces.ts
 import type { GeneratorFn, QuizExercise } from "./generico";
+import { VSEPR_VISUAL_SPEC } from "./vseprVisualSpec";
 
 interface PreguntaPolaridad {
   enunciado: string;
@@ -54,5 +55,6 @@ export const generarPolaridadEnlaces: GeneratorFn = (
     opciones: q.opciones,
     indiceCorrecto: q.indiceCorrecto,
     explicacion: q.explicacion,
+    visualSpec: VSEPR_VISUAL_SPEC,
   };
 };

@@ -21,7 +21,8 @@ export type VisualSpec =
   | WaveInterferenceSpec
   | OpticsRaySpec
   | ChemStructureSpec
-  | ChemPeriodicTableSpec;
+  | ChemPeriodicTableSpec
+  | ChemVSEPRSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -817,6 +818,54 @@ export interface ChemStructureSpec {
   electronDistribution?: ChemElectronDistributionSpec;
   orbitals?: ChemOrbitalsSpec;
   molecularModels?: ChemMolecularModel[];
+}
+
+export type ChemVSEPRGeometry = "lineal" | "angular" | "trigonal" | "tetraedrica";
+
+export interface ChemVSEPRGeometrySpec {
+  id: ChemVSEPRGeometry;
+  label: string;
+  expectedAngles: number[];
+  description?: string;
+}
+
+export interface ChemVSEPRAtom2D {
+  id: string;
+  element: string;
+  position: {
+    x: number;
+    y: number;
+  };
+  role?: "central" | "ligand";
+  color?: string;
+}
+
+export interface ChemVSEPRAngleSpec {
+  id: string;
+  label: string;
+  atomIds: [string, string, string];
+  expectedAngle: number;
+  description?: string;
+}
+
+export interface ChemVSEPRMoleculeSpec {
+  id: string;
+  name: string;
+  formula?: string;
+  geometry: ChemVSEPRGeometry;
+  atoms: ChemVSEPRAtom2D[];
+  bonds: ChemBondSpec[];
+  angles: ChemVSEPRAngleSpec[];
+  notes?: string;
+}
+
+export interface ChemVSEPRSpec {
+  kind: "chem-vsepr";
+  title?: string;
+  description?: string;
+  geometries: ChemVSEPRGeometrySpec[];
+  molecules: ChemVSEPRMoleculeSpec[];
+  defaultMoleculeId?: string;
 }
 
 export type SimulationParameterInput = "number" | "boolean" | "select";
