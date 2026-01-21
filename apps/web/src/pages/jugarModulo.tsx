@@ -62,9 +62,13 @@ const renderExercise = (quiz: GeneratedQuiz) => {
 
   const renderVisual = (visualSpec?: VisualSpec) => {
     if (!visualSpec) return null;
+    const title =
+      "title" in visualSpec && visualSpec.title
+        ? visualSpec.title
+        : "Visualización";
     return (
       <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
-        <h3 className="text-sm font-semibold text-slate-700">Visualización</h3>
+        <h3 className="text-sm font-semibold text-slate-700">{title}</h3>
         <div className="mt-3">
           <VisualizerRenderer spec={visualSpec} />
         </div>

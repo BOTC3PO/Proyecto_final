@@ -1,6 +1,7 @@
 // src/generators/quimica/77_enlace_ionico.ts
 // src/generators/quimica/77_enlace_ionico.ts
 import type { GeneratorFn, QuizExercise } from "./generico";
+import { VSEPR_VISUAL_SPEC } from "./vseprVisualSpec";
 
 interface PreguntaIonico {
   enunciado: string;
@@ -58,5 +59,6 @@ export const generarEnlaceIonico: GeneratorFn = (
     opciones: q.opciones,
     indiceCorrecto: q.indiceCorrecto,
     explicacion: q.explicacion,
+    visualSpec: VSEPR_VISUAL_SPEC,
   };
 };

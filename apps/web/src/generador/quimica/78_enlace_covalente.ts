@@ -1,6 +1,7 @@
 // src/generators/quimica/78_enlace_covalente.ts
 // src/generators/quimica/78_enlace_covalente.ts
 import type { GeneratorFn, QuizExercise } from "./generico";
+import { VSEPR_VISUAL_SPEC } from "./vseprVisualSpec";
 
 interface PreguntaCovalente {
   enunciado: string;
@@ -53,5 +54,6 @@ export const generarEnlaceCovalente: GeneratorFn = (
     opciones: q.opciones,
     indiceCorrecto: q.indiceCorrecto,
     explicacion: q.explicacion,
+    visualSpec: VSEPR_VISUAL_SPEC,
   };
 };
