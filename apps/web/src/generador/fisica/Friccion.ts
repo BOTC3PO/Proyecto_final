@@ -31,6 +31,7 @@ export class FriccionGenerator extends FisicaBaseGenerator {
     });
 
     const fuerzaFriccion = resultado.resultado;
+    const normal = Number((masa * g).toFixed(2));
     const opciones = this.mezclar([
       fuerzaFriccion.toString(),
       ...this.generarOpcionesIncorrectas(fuerzaFriccion, 3, 0.35).map(String),
@@ -51,6 +52,44 @@ export class FriccionGenerator extends FisicaBaseGenerator {
       explicacionPasoAPaso: resultado.pasos,
       metadatos: {
         tags: ["dinamica", "friccion", "coeficiente"],
+      },
+      visual: {
+        kind: "physics-forces-vectors",
+        title: "Fuerzas con fricción",
+        description: "Diagrama de fuerzas sobre una superficie horizontal.",
+        unit: "N",
+        body: {
+          label: "Bloque",
+          shape: "rect",
+          color: "#E2E8F0",
+        },
+        vectors: [
+          {
+            id: "peso",
+            label: "Peso",
+            magnitude: normal,
+            angleDeg: -90,
+            color: "#2563EB",
+          },
+          {
+            id: "normal",
+            label: "Normal",
+            magnitude: normal,
+            angleDeg: 90,
+            color: "#10B981",
+          },
+          {
+            id: "friccion",
+            label: "Fricción",
+            magnitude: fuerzaFriccion,
+            angleDeg: 180,
+            color: "#F97316",
+          },
+        ],
+        options: {
+          showAxes: true,
+          showComponents: false,
+        },
       },
     };
   }
