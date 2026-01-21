@@ -76,6 +76,33 @@ export const MVP_MODULES: ModuleSummary[] = [
     progressPercent: 0,
     category: "Cartografía básica",
   },
+  {
+    id: "mod-006",
+    title: "Mapa climático",
+    description: "Lectura de mapas climáticos y climogramas.",
+    level: "Básico",
+    durationMinutes: 30,
+    progressPercent: 0,
+    category: "Clima y ambiente",
+  },
+  {
+    id: "mod-007",
+    title: "Mapa de población",
+    description: "Coropletas, densidad y flujos migratorios.",
+    level: "Intermedio",
+    durationMinutes: 35,
+    progressPercent: 0,
+    category: "Población y migraciones",
+  },
+  {
+    id: "mod-008",
+    title: "Mapa económico",
+    description: "Mapas de actividades económicas y PIB.",
+    level: "Intermedio",
+    durationMinutes: 35,
+    progressPercent: 0,
+    category: "Economía y desarrollo",
+  },
 ];
 
 export const MVP_PUBLICATIONS: Publication[] = [

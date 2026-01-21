@@ -239,7 +239,19 @@ db.createCollection("modulos", {
               id: { bsonType: "string" },
               title: { bsonType: "string" },
               type: { bsonType: "string", enum: ["practica", "evaluacion"] },
-              visibility: { bsonType: "string", enum: ["publico", "escuela"] }
+              visibility: { bsonType: "string", enum: ["publico", "escuela"] },
+              questions: {
+                bsonType: "array",
+                items: {
+                  bsonType: "object",
+                  required: ["id", "prompt"],
+                  properties: {
+                    id: { bsonType: "string" },
+                    prompt: { bsonType: "string" },
+                    focus: { bsonType: ["string", "null"] }
+                  }
+                }
+              }
             }
           }
         },
@@ -668,6 +680,9 @@ const parentId = new ObjectId();
 const moduloId = new ObjectId();
 const moduloGeografiaId = new ObjectId();
 const moduloCartografiaId = new ObjectId();
+const moduloMapaClimaticoId = new ObjectId();
+const moduloMapaPoblacionId = new ObjectId();
+const moduloMapaEconomicoId = new ObjectId();
 const claseId = new ObjectId();
 const defaultPasswordHash =
   "pbkdf2$100000$ae30ab2431a9014a369007c291d0d5d9$1e72e69ff068d5b1108bdc60b4764690e454086422f77e9d658dd99e55f2deba9b8ca4564e1bb11a32277227005dd07a4510dfaa95188d8ea46999f50044bfe3";
@@ -887,6 +902,191 @@ db.modulos.insertOne({
       title: "Ubicación por coordenadas y cálculo de escalas",
       type: "evaluacion",
       visibility: "escuela"
+    }
+  ],
+  scoringSystem: "Sistema A: 1-10 con aprobación 6",
+  progress: [],
+  isDeleted: false,
+  createdAt: new Date(),
+});
+
+db.modulos.insertOne({
+  _id: moduloMapaClimaticoId,
+  createdBy: teacherId,
+  title: "Mapa climático",
+  description: "Interpretación de mapas climáticos y climogramas para analizar patrones del clima.",
+  subject: "Geografía",
+  category: "Clima y ambiente",
+  difficultyLevel: "Básico",
+  durationMinutes: 30,
+  visibility: "publico",
+  theoryItems: [
+    {
+      id: "zonas-climaticas",
+      title: "Zonas climáticas del mundo",
+      type: "Guía",
+      detail:
+        "Identificación de climas cálidos, templados y fríos en mapas temáticos. Recursos: https://climate.nasa.gov/ (mapas globales)."
+    },
+    {
+      id: "climograma-ejemplo",
+      title: "Climograma de ejemplo",
+      type: "Actividad",
+      detail:
+        "Lectura de un climograma con temperatura y precipitación mensual. Recursos: https://es.wikipedia.org/wiki/Climograma (ejemplo explicado)."
+    },
+    {
+      id: "interpretacion-precipitaciones",
+      title: "Interpretación de precipitaciones y temperaturas",
+      type: "Lectura",
+      detail:
+        "Comparar estaciones húmedas y secas a partir de gráficos climáticos."
+    }
+  ],
+  quizzes: [
+    {
+      id: "quiz-climatico",
+      title: "Interpretación de mapa climático y climograma",
+      type: "evaluacion",
+      visibility: "escuela",
+      questions: [
+        {
+          id: "q-clima-1",
+          prompt:
+            "Observa el mapa climático: ¿qué tipo de clima predomina en la franja ecuatorial?",
+          focus: "Mapa climático"
+        },
+        {
+          id: "q-clima-2",
+          prompt:
+            "En el climograma, ¿en qué meses se registra la mayor precipitación?",
+          focus: "Climograma"
+        }
+      ]
+    }
+  ],
+  scoringSystem: "Sistema A: 1-10 con aprobación 6",
+  progress: [],
+  isDeleted: false,
+  createdAt: new Date(),
+});
+
+db.modulos.insertOne({
+  _id: moduloMapaPoblacionId,
+  createdBy: teacherId,
+  title: "Mapa de población",
+  description:
+    "Análisis de mapas de densidad poblacional, coropletas y flujos migratorios.",
+  subject: "Geografía",
+  category: "Población y migraciones",
+  difficultyLevel: "Intermedio",
+  durationMinutes: 35,
+  visibility: "publico",
+  theoryItems: [
+    {
+      id: "coropletas-poblacion",
+      title: "Coropletas de densidad poblacional",
+      type: "Guía",
+      detail:
+        "Cómo leer escalas de color para densidad y distribución. Recursos: https://es.wikipedia.org/wiki/Mapa_coropl%C3%A9tico."
+    },
+    {
+      id: "flujos-migratorios",
+      title: "Flujos migratorios",
+      type: "Lectura",
+      detail:
+        "Interpretación de flechas y magnitudes de migración. Recursos: https://www.un.org/es/global-issues/migration."
+    },
+    {
+      id: "pirámides-poblacion",
+      title: "Pirámides de población",
+      type: "Actividad",
+      detail:
+        "Lectura de gráficos de estructura por edades y comparación regional."
+    }
+  ],
+  quizzes: [
+    {
+      id: "quiz-poblacion",
+      title: "Interpretación de coropletas y flujos migratorios",
+      type: "evaluacion",
+      visibility: "escuela",
+      questions: [
+        {
+          id: "q-pob-1",
+          prompt:
+            "En la coropleta, ¿qué región presenta la mayor densidad poblacional?",
+          focus: "Coropleta"
+        },
+        {
+          id: "q-pob-2",
+          prompt:
+            "Según el mapa de flujos, ¿cuál es el principal destino migratorio?",
+          focus: "Flujos migratorios"
+        }
+      ]
+    }
+  ],
+  scoringSystem: "Sistema A: 1-10 con aprobación 6",
+  progress: [],
+  isDeleted: false,
+  createdAt: new Date(),
+});
+
+db.modulos.insertOne({
+  _id: moduloMapaEconomicoId,
+  createdBy: teacherId,
+  title: "Mapa económico",
+  description:
+    "Lectura de mapas de actividades económicas, PIB y redes de comercio.",
+  subject: "Geografía",
+  category: "Economía y desarrollo",
+  difficultyLevel: "Intermedio",
+  durationMinutes: 35,
+  visibility: "publico",
+  theoryItems: [
+    {
+      id: "mapa-pib",
+      title: "Mapa de PIB per cápita",
+      type: "Guía",
+      detail:
+        "Comparación de niveles de desarrollo por regiones. Recursos: https://data.worldbank.org/ (indicadores económicos)."
+    },
+    {
+      id: "mapa-actividades",
+      title: "Actividades económicas principales",
+      type: "Lectura",
+      detail:
+        "Interpretación de mapas de agricultura, industria y servicios."
+    },
+    {
+      id: "redes-comercio",
+      title: "Redes y rutas de comercio",
+      type: "Actividad",
+      detail:
+        "Análisis de mapas de intercambio y rutas marítimas. Recursos: https://unctad.org/topic/transport-and-trade-logistics."
+    }
+  ],
+  quizzes: [
+    {
+      id: "quiz-economico",
+      title: "Interpretación de mapas económicos y gráficos",
+      type: "evaluacion",
+      visibility: "escuela",
+      questions: [
+        {
+          id: "q-eco-1",
+          prompt:
+            "En el mapa económico, ¿qué región concentra la mayor actividad industrial?",
+          focus: "Mapa económico"
+        },
+        {
+          id: "q-eco-2",
+          prompt:
+            "Según el gráfico de PIB per cápita, ¿qué tendencia se observa entre región A y B?",
+          focus: "Gráfico comparativo"
+        }
+      ]
     }
   ],
   scoringSystem: "Sistema A: 1-10 con aprobación 6",
