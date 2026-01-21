@@ -66,6 +66,16 @@ export const MVP_MODULES: ModuleSummary[] = [
     progressPercent: 0,
     category: "Geografía del Mundo",
   },
+  {
+    id: "mod-005",
+    title: "Cartografía básica",
+    description:
+      "Latitud/longitud, escalas y comparación de proyecciones cartográficas.",
+    level: "Básico",
+    durationMinutes: 35,
+    progressPercent: 0,
+    category: "Cartografía básica",
+  },
 ];
 
 export const MVP_PUBLICATIONS: Publication[] = [
