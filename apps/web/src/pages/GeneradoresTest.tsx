@@ -503,6 +503,65 @@ export default function GeneradoresTest() {
           ],
         } satisfies VisualSpec,
       },
+      {
+        id: "chem-structure",
+        title: "Estructura química",
+        description: "Distribución electrónica, orbitales y geometría 3D.",
+        spec: {
+          kind: "chem-structure",
+          title: "Ejemplo químico",
+          description: "Resumen rápido de estructura atómica y molecular.",
+          electronDistribution: {
+            atom: "Ne",
+            model: "nube-electronica",
+            notation: "1s² 2s² 2p⁶",
+            shells: [
+              { shell: "K", electrons: 2 },
+              { shell: "L", electrons: 8 },
+            ],
+            notes: "Gas noble con capa externa completa.",
+          },
+          orbitals: {
+            atom: "Ne",
+            notation: "1s² 2s² 2p⁶",
+            subshells: [
+              {
+                id: "ne-1s",
+                type: "s",
+                energyLevel: 1,
+                electrons: 2,
+                maxElectrons: 2,
+              },
+              {
+                id: "ne-2p",
+                type: "p",
+                energyLevel: 2,
+                electrons: 6,
+                maxElectrons: 6,
+              },
+            ],
+          },
+          molecularModels: [
+            {
+              id: "nh3",
+              name: "Amoníaco",
+              formula: "NH₃",
+              geometry: "piramidal-trigonal",
+              atoms: [
+                { id: "n", element: "N", position: { x: 0, y: 0.1, z: 0 } },
+                { id: "h1", element: "H", position: { x: 0.9, y: -0.4, z: 0 } },
+                { id: "h2", element: "H", position: { x: -0.9, y: -0.4, z: 0 } },
+                { id: "h3", element: "H", position: { x: 0, y: -0.4, z: 0.9 } },
+              ],
+              bonds: [
+                { id: "nh3-1", fromId: "n", toId: "h1", order: 1 },
+                { id: "nh3-2", fromId: "n", toId: "h2", order: 1 },
+                { id: "nh3-3", fromId: "n", toId: "h3", order: 1 },
+              ],
+            },
+          ],
+        } satisfies VisualSpec,
+      },
     ],
     []
   );

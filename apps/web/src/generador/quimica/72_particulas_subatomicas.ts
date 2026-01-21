@@ -45,5 +45,19 @@ export const generarParticulasSubatomicas: GeneratorFn = (
     opciones: q.opciones,
     indiceCorrecto: q.indiceCorrecto,
     explicacion: q.explicacion,
+    visualSpec: {
+      kind: "chem-structure",
+      title: "Modelo de Bohr: Helio",
+      description: "Distribución electrónica simplificada en capas.",
+      electronDistribution: {
+        atom: "He",
+        model: "bohr",
+        notation: "1s²",
+        shells: [
+          { shell: "K", electrons: 2, label: "Capa K (n=1)" },
+        ],
+        notes: "Los electrones ocupan niveles discretos alrededor del núcleo.",
+      },
+    },
   };
 };

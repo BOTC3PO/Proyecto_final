@@ -3,6 +3,7 @@ import type {
   ChartSpec,
   ConceptMapSpec,
   CircuitSpec,
+  ChemStructureSpec,
   EnergyChartSpec,
   FieldLinesSpec,
   FlowSpec,
@@ -32,6 +33,7 @@ import FieldLinesVisualizer from "../fisica/FieldLinesVisualizer";
 import WaveInterferenceVisualizer from "../fisica/WaveInterferenceVisualizer";
 import OpticsRayVisualizer from "../fisica/OpticsRayVisualizer";
 import FreeFallSimulationVisualizer from "../fisica/FreeFallSimulationVisualizer";
+import ChemStructureVisualizer from "../quimica/ChemStructureVisualizer";
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
@@ -130,6 +132,10 @@ function PhysicsSimulationRenderer({ spec }: { spec: PhysicsSimulationSpec }) {
   return <FreeFallSimulationVisualizer spec={spec} />;
 }
 
+function ChemStructureRenderer({ spec }: { spec: ChemStructureSpec }) {
+  return <ChemStructureVisualizer spec={spec} />;
+}
+
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   switch (spec.kind) {
     case "timeline":
@@ -166,6 +172,8 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
       return <OpticsRayRenderer spec={spec} />;
     case "physics-simulation":
       return <PhysicsSimulationRenderer spec={spec} />;
+    case "chem-structure":
+      return <ChemStructureRenderer spec={spec} />;
     default:
       return (
         <div className="rounded-lg border border-dashed border-slate-200 p-4 text-sm text-slate-500">

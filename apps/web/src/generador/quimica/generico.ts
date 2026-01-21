@@ -1,11 +1,14 @@
 // src/generators/quimica/generico.ts
 
+import type { VisualSpec } from "../../visualizadores/types";
+
 export type Dificultad = "facil" | "media" | "dificil";
 
 export interface BaseExercise {
   idTema: number;            // 1 a 95
   tituloTema: string;
   dificultad: Dificultad;
+  visualSpec?: VisualSpec;
 }
 
 // Ejercicio numérico (con cuentas)
@@ -30,7 +33,6 @@ export interface QuizExercise extends BaseExercise {
   opciones: string[];          // máx 10
   indiceCorrecto: number;      // índice en opciones
   explicacion?: string;
-
 }
 
 export type Exercise = NumericExercise | QuizExercise;

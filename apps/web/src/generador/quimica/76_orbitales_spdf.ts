@@ -48,5 +48,40 @@ export const generarOrbitalesSPDF: GeneratorFn = (
     opciones: q.opciones,
     indiceCorrecto: q.indiceCorrecto,
     explicacion: q.explicacion,
+    visualSpec: {
+      kind: "chem-structure",
+      title: "Subniveles y orbitales",
+      description: "Ejemplo de ocupación electrónica en orbitales s, p y d.",
+      orbitals: {
+        atom: "Fe",
+        notation: "[Ar] 4s² 3d⁶",
+        subshells: [
+          {
+            id: "fe-3d",
+            type: "d",
+            energyLevel: 3,
+            electrons: 6,
+            maxElectrons: 10,
+            occupancy: [
+              { orbital: "3d₁", electrons: 1 },
+              { orbital: "3d₂", electrons: 1 },
+              { orbital: "3d₃", electrons: 1 },
+              { orbital: "3d₄", electrons: 1 },
+              { orbital: "3d₅", electrons: 1 },
+              { orbital: "3d₆", electrons: 1 },
+            ],
+            notes: "Regla de Hund: electrones desapareados antes de aparearse.",
+          },
+          {
+            id: "fe-4s",
+            type: "s",
+            energyLevel: 4,
+            electrons: 2,
+            maxElectrons: 2,
+            occupancy: [{ orbital: "4s", electrons: 2 }],
+          },
+        ],
+      },
+    },
   };
 };
