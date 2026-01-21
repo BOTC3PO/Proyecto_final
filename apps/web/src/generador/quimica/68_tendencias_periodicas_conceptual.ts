@@ -4,12 +4,16 @@ import type {
   GeneratorFn,
   QuizExercise
 } from "./generico";
+import { PERIODIC_TABLE_ELEMENTS } from "./periodicTableData";
 
 interface PreguntaTendencia {
   enunciado: string;
   opciones: string[];
   indiceCorrecto: number;
   explicacion: string;
+  highlightKey: "atomicRadius" | "electronegativity" | "ionizationEnergy";
+  highlightLabel: string;
+  highlightUnit?: string;
 }
 
 const PREGUNTAS_TENDENCIAS: PreguntaTendencia[] = [
@@ -25,6 +29,9 @@ const PREGUNTAS_TENDENCIAS: PreguntaTendencia[] = [
     indiceCorrecto: 1,
     explicacion:
       "En un mismo período aumenta la carga nuclear efectiva y el radio atómico tiende a disminuir de izquierda a derecha.",
+    highlightKey: "atomicRadius",
+    highlightLabel: "Radio atómico",
+    highlightUnit: "pm",
   },
   {
     enunciado:
@@ -38,6 +45,8 @@ const PREGUNTAS_TENDENCIAS: PreguntaTendencia[] = [
     indiceCorrecto: 1,
     explicacion:
       "Al bajar en un grupo aumenta el número de capas electrónicas y la atracción por los electrones de enlace disminuye, reduciendo la electronegatividad.",
+    highlightKey: "electronegativity",
+    highlightLabel: "Electronegatividad",
   },
   {
     enunciado:
@@ -51,6 +60,9 @@ const PREGUNTAS_TENDENCIAS: PreguntaTendencia[] = [
     indiceCorrecto: 1,
     explicacion:
       "En general, la energía de ionización aumenta de izquierda a derecha debido al aumento de la carga nuclear efectiva.",
+    highlightKey: "ionizationEnergy",
+    highlightLabel: "Energía de ionización",
+    highlightUnit: "kJ/mol",
   },
 ];
 
@@ -68,6 +80,21 @@ export const generarTendenciasPeriodicas: GeneratorFn = (
     enunciado: q.enunciado,
     opciones: q.opciones,
     indiceCorrecto: q.indiceCorrecto,
+    visualSpec: {
+      kind: "chem-periodic-table",
+      title: "Tendencias periódicas",
+      description: "Explora cómo cambia la propiedad en la tabla.",
+      highlightProperty: {
+        key: q.highlightKey,
+        label: q.highlightLabel,
+        unit: q.highlightUnit,
+      },
+      scale: {
+        type: "sequential",
+        colors: ["#bfdbfe", "#1d4ed8"],
+      },
+      elements: PERIODIC_TABLE_ELEMENTS,
+    },
     explicacion: q.explicacion,
   };
 };

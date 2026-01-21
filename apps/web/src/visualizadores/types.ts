@@ -20,7 +20,8 @@ export type VisualSpec =
   | FieldLinesSpec
   | WaveInterferenceSpec
   | OpticsRaySpec
-  | ChemStructureSpec;
+  | ChemStructureSpec
+  | ChemPeriodicTableSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -693,6 +694,45 @@ export interface OpticsRaySpec {
     color?: string;
     dashed?: boolean;
   }>;
+}
+
+export type ChemPeriodicTablePropertyKey =
+  | "classification"
+  | "electronegativity"
+  | "atomicRadius"
+  | "ionizationEnergy";
+
+export interface ChemPeriodicTableElement {
+  atomicNumber: number;
+  symbol: string;
+  name: string;
+  period: number;
+  group: number;
+  category?: string;
+  properties?: {
+    electronegativity?: number;
+    atomicRadius?: number;
+    ionizationEnergy?: number;
+  };
+}
+
+export interface ChemPeriodicTableSpec {
+  kind: "chem-periodic-table";
+  title?: string;
+  description?: string;
+  highlightProperty?: {
+    key: ChemPeriodicTablePropertyKey;
+    label: string;
+    unit?: string;
+  };
+  scale?: {
+    type?: "sequential" | "categorical";
+    colors?: string[];
+    min?: number;
+    max?: number;
+  };
+  elements: ChemPeriodicTableElement[];
+  focusElements?: string[];
 }
 
 export type ChemOrbitalType = "s" | "p" | "d" | "f";
