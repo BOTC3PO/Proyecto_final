@@ -12,7 +12,8 @@ export type VisualSpec =
   | GeometriaPlanaEspacialSpec
   | TrigonometriaAvanzadaSpec
   | AlgebraCalculoVisualSpec
-  | PhysicsMotionChartSpec;
+  | PhysicsMotionChartSpec
+  | PhysicsForcesVectorSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -445,5 +446,35 @@ export interface PhysicsMotionChartSpec {
       unit?: string;
       label?: string;
     };
+  };
+}
+
+export interface PhysicsForcesVectorSpec {
+  kind: "physics-forces-vectors";
+  title?: string;
+  description?: string;
+  unit?: string;
+  body?: {
+    label?: string;
+    shape?: "rect" | "circle";
+    width?: number;
+    height?: number;
+    color?: string;
+  };
+  vectors: Array<{
+    id: string;
+    label?: string;
+    magnitude: number;
+    angleDeg: number;
+    color?: string;
+    showComponents?: boolean;
+    componentLabels?: {
+      x?: string;
+      y?: string;
+    };
+  }>;
+  options?: {
+    showComponents?: boolean;
+    showAxes?: boolean;
   };
 }

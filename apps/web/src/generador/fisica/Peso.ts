@@ -48,6 +48,29 @@ export class PesoGenerator extends FisicaBaseGenerator {
       metadatos: {
         tags: ["dinamica", "peso", "gravedad"],
       },
+      visual: {
+        kind: "physics-forces-vectors",
+        title: "Peso del objeto",
+        description: "Fuerza peso representada hacia abajo.",
+        unit: "N",
+        body: {
+          label: "Objeto",
+          shape: "circle",
+          color: "#E2E8F0",
+        },
+        vectors: [
+          {
+            id: "peso",
+            label: "Peso",
+            magnitude: peso,
+            angleDeg: -90,
+            color: "#2563EB",
+          },
+        ],
+        options: {
+          showAxes: true,
+        },
+      },
     };
   }
 }

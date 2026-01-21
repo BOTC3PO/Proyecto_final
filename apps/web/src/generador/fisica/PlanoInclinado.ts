@@ -31,6 +31,7 @@ export class PlanoInclinadoGenerator extends FisicaBaseGenerator {
     });
 
     const fuerzaParalela = resultado.resultado;
+    const peso = Number((masa * g).toFixed(2));
     const opciones = this.mezclar([
       fuerzaParalela.toString(),
       ...this.generarOpcionesIncorrectas(fuerzaParalela, 3, 0.3).map(String),
@@ -51,6 +52,38 @@ export class PlanoInclinadoGenerator extends FisicaBaseGenerator {
       explicacionPasoAPaso: resultado.pasos,
       metadatos: {
         tags: ["dinamica", "plano-inclinado", "componentes"],
+      },
+      visual: {
+        kind: "physics-forces-vectors",
+        title: "Fuerzas en el plano inclinado",
+        description:
+          "Peso y componente paralela al plano representados a escala.",
+        unit: "N",
+        body: {
+          label: "Bloque",
+          shape: "rect",
+          color: "#E2E8F0",
+        },
+        vectors: [
+          {
+            id: "peso",
+            label: "Peso",
+            magnitude: peso,
+            angleDeg: -90,
+            color: "#2563EB",
+          },
+          {
+            id: "paralela",
+            label: "Componente paralela",
+            magnitude: fuerzaParalela,
+            angleDeg: 180 + angulo,
+            color: "#F97316",
+          },
+        ],
+        options: {
+          showAxes: true,
+          showComponents: false,
+        },
       },
     };
   }

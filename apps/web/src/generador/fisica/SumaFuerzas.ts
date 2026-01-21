@@ -35,6 +35,14 @@ export class SumaFuerzasGenerator extends FisicaBaseGenerator {
         .map((v) => (Math.random() > 0.5 ? v : -v))
         .map(String),
     ]);
+    const vectorColors = ["#2563EB", "#F97316", "#10B981", "#A855F7"];
+    const vectors = fuerzas.map((fuerza, index) => ({
+      id: `f-${index + 1}`,
+      label: `F${index + 1}`,
+      magnitude: Math.abs(fuerza),
+      angleDeg: fuerza >= 0 ? 0 : 180,
+      color: vectorColors[index % vectorColors.length],
+    }));
 
     return {
       id: this.generateId("fuerzas"),
@@ -53,6 +61,22 @@ export class SumaFuerzasGenerator extends FisicaBaseGenerator {
       explicacionPasoAPaso: resultado.pasos,
       metadatos: {
         tags: ["dinamica", "fuerzas", "fuerza-resultante"],
+      },
+      visual: {
+        kind: "physics-forces-vectors",
+        title: "Fuerzas aplicadas",
+        description:
+          "Representación a escala de las fuerzas horizontales que actúan sobre el objeto.",
+        unit: "N",
+        body: {
+          label: "Objeto",
+          shape: "rect",
+          color: "#E2E8F0",
+        },
+        vectors,
+        options: {
+          showAxes: true,
+        },
       },
     };
   }
