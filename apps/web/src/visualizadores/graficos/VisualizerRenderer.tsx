@@ -3,6 +3,7 @@ import type {
   ChartSpec,
   ConceptMapSpec,
   CircuitSpec,
+  ChemPeriodicTableSpec,
   ChemStructureSpec,
   EnergyChartSpec,
   FieldLinesSpec,
@@ -34,6 +35,7 @@ import WaveInterferenceVisualizer from "../fisica/WaveInterferenceVisualizer";
 import OpticsRayVisualizer from "../fisica/OpticsRayVisualizer";
 import FreeFallSimulationVisualizer from "../fisica/FreeFallSimulationVisualizer";
 import ChemStructureVisualizer from "../quimica/ChemStructureVisualizer";
+import ChemPeriodicTableVisualizer from "../quimica/ChemPeriodicTableVisualizer";
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
@@ -136,6 +138,10 @@ function ChemStructureRenderer({ spec }: { spec: ChemStructureSpec }) {
   return <ChemStructureVisualizer spec={spec} />;
 }
 
+function ChemPeriodicTableRenderer({ spec }: { spec: ChemPeriodicTableSpec }) {
+  return <ChemPeriodicTableVisualizer spec={spec} />;
+}
+
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   switch (spec.kind) {
     case "timeline":
@@ -174,6 +180,8 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
       return <PhysicsSimulationRenderer spec={spec} />;
     case "chem-structure":
       return <ChemStructureRenderer spec={spec} />;
+    case "chem-periodic-table":
+      return <ChemPeriodicTableRenderer spec={spec} />;
     default:
       return (
         <div className="rounded-lg border border-dashed border-slate-200 p-4 text-sm text-slate-500">

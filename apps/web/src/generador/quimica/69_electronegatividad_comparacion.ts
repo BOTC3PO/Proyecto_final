@@ -4,6 +4,7 @@ import type {
   GeneratorFn,
   QuizExercise
 } from "./generico";
+import { PERIODIC_TABLE_ELEMENTS } from "./periodicTableData";
 
 interface ParElectronegatividad {
   elemento1: string;
@@ -42,6 +43,21 @@ export const generarElectronegatividadComparacion: GeneratorFn = (
     enunciado,
     opciones,
     indiceCorrecto,
+    visualSpec: {
+      kind: "chem-periodic-table",
+      title: "Electronegatividad",
+      description: "Comparación de electronegatividad entre elementos.",
+      highlightProperty: {
+        key: "electronegativity",
+        label: "Electronegatividad",
+      },
+      scale: {
+        type: "sequential",
+        colors: ["#dbeafe", "#2563eb"],
+      },
+      elements: PERIODIC_TABLE_ELEMENTS,
+      focusElements: [par.elemento1, par.elemento2],
+    },
     explicacion:
       "La electronegatividad aumenta generalmente hacia la derecha en un período y hacia arriba en un grupo. " +
       "Los no metales, especialmente halógenos y elementos como O y N, suelen ser más electronegativos que los metales.",

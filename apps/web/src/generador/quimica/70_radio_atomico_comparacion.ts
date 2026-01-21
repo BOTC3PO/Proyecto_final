@@ -1,6 +1,7 @@
 // src/generators/quimica/70_radio_atomico_comparacion.ts
 // src/generators/quimica/70_radio_atomico_comparacion.ts
 import type { GeneratorFn, QuizExercise } from "./generico";
+import { PERIODIC_TABLE_ELEMENTS } from "./periodicTableData";
 
 interface ParRadioAtomico {
   elemento1: string;
@@ -40,6 +41,22 @@ export const generarRadioAtomicoComparacion: GeneratorFn = (
     enunciado,
     opciones,
     indiceCorrecto,
+    visualSpec: {
+      kind: "chem-periodic-table",
+      title: "Radio atómico",
+      description: "Comparación del tamaño atómico en la tabla.",
+      highlightProperty: {
+        key: "atomicRadius",
+        label: "Radio atómico",
+        unit: "pm",
+      },
+      scale: {
+        type: "sequential",
+        colors: ["#fee2e2", "#ef4444"],
+      },
+      elements: PERIODIC_TABLE_ELEMENTS,
+      focusElements: [par.elemento1, par.elemento2],
+    },
     explicacion:
       "El radio atómico aumenta al descender en un grupo y disminuye al avanzar de izquierda a derecha en un período.",
   };
