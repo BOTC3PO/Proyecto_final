@@ -9,11 +9,13 @@ import type {
   FuncionesGraficasSpec,
   GeometriaPlanaEspacialSpec,
   MapSpec,
+  OpticsRaySpec,
   PhysicsForcesVectorSpec,
   PhysicsMotionChartSpec,
   TimelineSpec,
   TrigonometriaAvanzadaSpec,
   VisualSpec,
+  WaveInterferenceSpec,
 } from "../types";
 import {
   AlgebraCalculoVisualVisualizer,
@@ -26,6 +28,8 @@ import PhysicsMotionChartVisualizer from "../fisica/PhysicsMotionChartVisualizer
 import EnergyChartVisualizer from "../fisica/EnergyChartVisualizer";
 import CircuitVisualizer from "../fisica/CircuitVisualizer";
 import FieldLinesVisualizer from "../fisica/FieldLinesVisualizer";
+import WaveInterferenceVisualizer from "../fisica/WaveInterferenceVisualizer";
+import OpticsRayVisualizer from "../fisica/OpticsRayVisualizer";
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
@@ -112,6 +116,14 @@ function FieldLinesRenderer({ spec }: { spec: FieldLinesSpec }) {
   return <FieldLinesVisualizer spec={spec} />;
 }
 
+function WaveInterferenceRenderer({ spec }: { spec: WaveInterferenceSpec }) {
+  return <WaveInterferenceVisualizer spec={spec} />;
+}
+
+function OpticsRayRenderer({ spec }: { spec: OpticsRaySpec }) {
+  return <OpticsRayVisualizer spec={spec} />;
+}
+
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   switch (spec.kind) {
     case "timeline":
@@ -142,6 +154,10 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
       return <CircuitRenderer spec={spec} />;
     case "field-lines":
       return <FieldLinesRenderer spec={spec} />;
+    case "wave-interference":
+      return <WaveInterferenceRenderer spec={spec} />;
+    case "optics-rays":
+      return <OpticsRayRenderer spec={spec} />;
     default:
       return (
         <div className="rounded-lg border border-dashed border-slate-200 p-4 text-sm text-slate-500">

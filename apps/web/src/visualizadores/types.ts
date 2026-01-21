@@ -16,7 +16,9 @@ export type VisualSpec =
   | PhysicsForcesVectorSpec
   | EnergyChartSpec
   | CircuitSpec
-  | FieldLinesSpec;
+  | FieldLinesSpec
+  | WaveInterferenceSpec
+  | OpticsRaySpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -609,4 +611,84 @@ export interface FieldLine {
     y: number;
   }>;
   strength?: number;
+}
+
+export interface WaveComponentSpec {
+  id: string;
+  label?: string;
+  amplitude: number;
+  frequency: number;
+  phase?: number;
+  color?: string;
+}
+
+export interface WaveInterferenceSpec {
+  kind: "wave-interference";
+  title?: string;
+  description?: string;
+  axes?: {
+    x?: AxisSpec & { min?: number; max?: number };
+    y?: AxisSpec & { min?: number; max?: number };
+  };
+  samples?: number;
+  waves: WaveComponentSpec[];
+  superposition?: {
+    enabled?: boolean;
+    label?: string;
+    color?: string;
+  };
+  animation?: {
+    enabled?: boolean;
+    speed?: number;
+  };
+}
+
+export interface OpticsRaySpec {
+  kind: "optics-rays";
+  title?: string;
+  description?: string;
+  layout?: {
+    xRange?: { min: number; max: number };
+    yRange?: { min: number; max: number };
+  };
+  element: {
+    type:
+      | "lente-convergente"
+      | "lente-divergente"
+      | "espejo-plano"
+      | "espejo-concavo"
+      | "espejo-convexo";
+    positionX?: number;
+    height?: number;
+    label?: string;
+  };
+  object: {
+    position: { x: number; y: number };
+    height: number;
+    label?: string;
+  };
+  image?: {
+    position: { x: number; y: number };
+    height: number;
+    label?: string;
+    virtual?: boolean;
+  };
+  focalPoints?: {
+    left?: { x: number; label?: string };
+    right?: { x: number; label?: string };
+  };
+  rays: Array<{
+    id: string;
+    label?: string;
+    kind:
+      | "paralelo"
+      | "focal"
+      | "centro"
+      | "incidente"
+      | "refractado"
+      | "reflejado";
+    points: Array<{ x: number; y: number }>;
+    color?: string;
+    dashed?: boolean;
+  }>;
 }

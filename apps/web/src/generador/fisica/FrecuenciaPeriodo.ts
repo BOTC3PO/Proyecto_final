@@ -68,6 +68,43 @@ export class FrecuenciaPeriodoGenerator extends FisicaBaseGenerator {
       metadatos: {
         tags: ["ondas", "frecuencia", "periodo"],
       },
+      visual: {
+        kind: "wave-interference",
+        title: "Onda sinusoidal",
+        description: "Relación entre frecuencia, período y fase.",
+        axes: {
+          x: { label: "Tiempo", unit: "s", min: 0, max: 1 },
+          y: { label: "Amplitud" },
+        },
+        samples: 200,
+        waves: [
+          {
+            id: "onda-base",
+            label: "Onda 1",
+            amplitude: 1,
+            frequency,
+            phase: 0,
+            color: "#2563EB",
+          },
+          {
+            id: "onda-desfase",
+            label: "Onda 2",
+            amplitude: 0.7,
+            frequency,
+            phase: Math.PI / 3,
+            color: "#F97316",
+          },
+        ],
+        superposition: {
+          enabled: true,
+          label: "Interferencia",
+          color: "#0F172A",
+        },
+        animation: {
+          enabled: params.nivel !== "basico",
+          speed: 1,
+        },
+      },
     };
   }
 }
