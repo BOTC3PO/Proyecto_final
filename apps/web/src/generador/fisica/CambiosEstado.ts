@@ -35,8 +35,22 @@ export class CambiosEstadoGenerator extends FisicaBaseGenerator {
       calor.toString(),
       ...this.generarOpcionesIncorrectas(calor, 3, 0.35).map(String),
     ]);
+    const pointCount = 5;
+    const duration = 4;
+    const step = duration / (pointCount - 1);
+    const energySeries = Array.from({ length: pointCount }, (_, index) => {
+      const t = Number((index * step).toFixed(2));
+      const q = Number(((calor * index) / (pointCount - 1)).toFixed(2));
+      return { x: t, y: q };
+    });
 
     const proceso = sustancia === "agua" ? "evaporar" : "fundir";
+    const temperature = sustancia === "agua" ? 373 : 273;
+    const entropyTotal = Number((calor / temperature).toFixed(4));
+    const tsData = Array.from({ length: pointCount }, (_, index) => {
+      const entropy = Number(((entropyTotal * index) / (pointCount - 1)).toFixed(4));
+      return { x: entropy, y: temperature };
+    });
 
     return {
       id: this.generateId("cambio_estado"),
@@ -53,6 +67,37 @@ export class CambiosEstadoGenerator extends FisicaBaseGenerator {
       explicacionPasoAPaso: resultado.pasos,
       metadatos: {
         tags: ["termodinamica", "cambio-estado", "calor-latente"],
+      },
+      visual: {
+        kind: "energy-chart",
+        title: "Calor latente en cambio de fase",
+        description:
+          "Durante el cambio de estado, la temperatura se mantiene constante mientras aumenta la energía.",
+        axes: {
+          x: { label: "Tiempo", unit: "s", variable: "tiempo" },
+          y: { label: "Energía", unit: "kJ" },
+        },
+        series: [
+          {
+            id: "et-series",
+            label: "Energía total (Etotal)",
+            energyType: "Etotal",
+            data: energySeries,
+            color: "#22C55E",
+          },
+        ],
+        conservation: {
+          note: "El calor aportado incrementa la energía interna.",
+        },
+        thermodynamic: {
+          ts: {
+            title: "Diagrama T-S (fase constante)",
+            xAxis: { label: "Entropía", unit: "kJ/K" },
+            yAxis: { label: "Temperatura", unit: "K" },
+            data: tsData,
+            color: "#6366F1",
+          },
+        },
       },
     };
   }

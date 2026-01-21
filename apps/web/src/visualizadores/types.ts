@@ -13,7 +13,8 @@ export type VisualSpec =
   | TrigonometriaAvanzadaSpec
   | AlgebraCalculoVisualSpec
   | PhysicsMotionChartSpec
-  | PhysicsForcesVectorSpec;
+  | PhysicsForcesVectorSpec
+  | EnergyChartSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -74,6 +75,52 @@ export interface ChartSpec {
 export interface AxisSpec {
   label?: string;
   unit?: string;
+}
+
+export interface EnergyChartAxisSpec extends AxisSpec {
+  variable: "tiempo" | "posicion";
+}
+
+export interface EnergyChartSeries {
+  id: string;
+  label: string;
+  energyType: "Ep" | "Ec" | "Etotal";
+  data: Array<{
+    x: number;
+    y: number;
+  }>;
+  color?: string;
+}
+
+export interface EnergyAuxChartSpec {
+  title?: string;
+  xAxis: AxisSpec;
+  yAxis: AxisSpec;
+  data: Array<{
+    x: number;
+    y: number;
+  }>;
+  color?: string;
+}
+
+export interface EnergyChartSpec {
+  kind: "energy-chart";
+  title?: string;
+  description?: string;
+  axes: {
+    x: EnergyChartAxisSpec;
+    y: AxisSpec;
+  };
+  series: EnergyChartSeries[];
+  totalSeriesId?: string;
+  conservation?: {
+    tolerance?: number;
+    note?: string;
+  };
+  thermodynamic?: {
+    pv?: EnergyAuxChartSpec;
+    ts?: EnergyAuxChartSpec;
+  };
 }
 
 export interface ChartSeries {

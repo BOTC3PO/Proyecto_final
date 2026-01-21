@@ -2,6 +2,7 @@ import type {
   AlgebraCalculoVisualSpec,
   ChartSpec,
   ConceptMapSpec,
+  EnergyChartSpec,
   FlowSpec,
   FuncionesGraficasSpec,
   GeometriaPlanaEspacialSpec,
@@ -20,6 +21,7 @@ import {
 } from "../matematicas";
 import PhysicsForcesVectorVisualizer from "../fisica/PhysicsForcesVectorVisualizer";
 import PhysicsMotionChartVisualizer from "../fisica/PhysicsMotionChartVisualizer";
+import EnergyChartVisualizer from "../fisica/EnergyChartVisualizer";
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
@@ -94,6 +96,10 @@ function PhysicsForcesVectorRenderer({
   return <PhysicsForcesVectorVisualizer spec={spec} />;
 }
 
+function EnergyChartRenderer({ spec }: { spec: EnergyChartSpec }) {
+  return <EnergyChartVisualizer spec={spec} />;
+}
+
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   switch (spec.kind) {
     case "timeline":
@@ -118,6 +124,8 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
       return <PhysicsMotionChartRenderer spec={spec} />;
     case "physics-forces-vectors":
       return <PhysicsForcesVectorRenderer spec={spec} />;
+    case "energy-chart":
+      return <EnergyChartRenderer spec={spec} />;
     default:
       return (
         <div className="rounded-lg border border-dashed border-slate-200 p-4 text-sm text-slate-500">
