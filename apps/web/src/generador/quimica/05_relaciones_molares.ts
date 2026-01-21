@@ -80,6 +80,23 @@ export const generarRelacionesMolares: GeneratorFn = (
       resultado: "mol",
     },
     resultado: parseFloat(nProducto.toFixed(3)),
+    visualSpec: {
+      kind: "chart",
+      chartType: "bar",
+      title: "Relación molar reactivo-producto",
+      xAxis: { label: "Sustancia" },
+      yAxis: { label: "Moles" },
+      series: [
+        {
+          id: "relacion-molar",
+          label: "Moles",
+          data: [
+            { x: rxn.nombreReactivo, y: parseFloat(nReactivo.toFixed(2)) },
+            { x: rxn.nombreProducto, y: parseFloat(nProducto.toFixed(2)) },
+          ],
+        },
+      ],
+    },
     toleranciaRelativa: 0.02,
     pasos: [
       "Identifica los coeficientes estequiométricos de la ecuación balanceada.",

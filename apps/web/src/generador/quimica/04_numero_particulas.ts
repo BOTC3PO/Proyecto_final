@@ -28,6 +28,7 @@ export const generarNumeroParticulas: GeneratorFn = (
 
   const moles = masa / M;
   const particulas = moles * NA;
+  const particulasEscaladas = particulas / 1e23;
 
   return {
     idTema: 4,
@@ -41,6 +42,23 @@ export const generarNumeroParticulas: GeneratorFn = (
     datos: { masa, masaMolar: M },
     unidades: { masa: "g", masaMolar: "g/mol", resultado: "partículas" },
     resultado: parseFloat(particulas.toExponential(3)), // número en notación científica
+    visualSpec: {
+      kind: "chart",
+      chartType: "bar",
+      title: "Moles y partículas estimadas",
+      xAxis: { label: "Magnitud" },
+      yAxis: { label: "Valor (escala)" },
+      series: [
+        {
+          id: "moles-particulas",
+          label: sustancia,
+          data: [
+            { x: "Moles (mol)", y: parseFloat(moles.toFixed(3)) },
+            { x: "Partículas (×10^23)", y: parseFloat(particulasEscaladas.toFixed(3)) },
+          ],
+        },
+      ],
+    },
     pasos: [
       "Calcula los moles: n = m / M.",
       "Aplica: N = n · Nₐ.",

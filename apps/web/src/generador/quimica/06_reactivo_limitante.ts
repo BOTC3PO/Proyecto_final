@@ -49,6 +49,8 @@ export const generarReactivoLimitante: GeneratorFn = (
   const masaN2r = parseFloat(masaN2.toFixed(1));
   const masaH2r = parseFloat(masaH2.toFixed(1));
   const molesNH3r = parseFloat(molesNH3.toFixed(3));
+  const molesN2r = parseFloat((masaN2 / M_N2).toFixed(3));
+  const molesH2r = parseFloat((masaH2 / M_H2).toFixed(3));
 
   return {
     idTema: 6,
@@ -77,6 +79,23 @@ export const generarReactivoLimitante: GeneratorFn = (
     resultado: {
       reactivoLimitante,
       molesProducto: molesNH3r,
+    },
+    visualSpec: {
+      kind: "chart",
+      chartType: "bar",
+      title: "Relación molar inicial",
+      xAxis: { label: "Reactivo" },
+      yAxis: { label: "Moles" },
+      series: [
+        {
+          id: "moles-reactivos",
+          label: "Moles iniciales",
+          data: [
+            { x: "N₂", y: molesN2r },
+            { x: "H₂", y: molesH2r },
+          ],
+        },
+      ],
     },
     toleranciaRelativa: 0.03,
     pasos: [

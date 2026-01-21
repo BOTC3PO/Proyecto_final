@@ -46,6 +46,23 @@ export const generarRendimientoTeorico: GeneratorFn = (
       resultado: "g",
     },
     resultado: masaH2Oteor,
+    visualSpec: {
+      kind: "chart",
+      chartType: "bar",
+      title: "Masa teórica de producto",
+      xAxis: { label: "Sustancia" },
+      yAxis: { label: "Masa (g)" },
+      series: [
+        {
+          id: "masas",
+          label: "Masa",
+          data: [
+            { x: "H₂ (reactivo)", y: masaH2r },
+            { x: "H₂O (teórico)", y: masaH2Oteor },
+          ],
+        },
+      ],
+    },
     toleranciaRelativa: 0.02,
     pasos: [
       "Convierte la masa de H₂ a moles: n(H₂) = m(H₂) / M(H₂).",

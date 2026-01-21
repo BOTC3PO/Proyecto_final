@@ -4,6 +4,7 @@ import type {
   ConceptMapSpec,
   CircuitSpec,
   ChemPeriodicTableSpec,
+  ChemReactionSpec,
   ChemStructureSpec,
   ChemVSEPRSpec,
   EnergyChartSpec,
@@ -35,6 +36,7 @@ import FieldLinesVisualizer from "../fisica/FieldLinesVisualizer";
 import WaveInterferenceVisualizer from "../fisica/WaveInterferenceVisualizer";
 import OpticsRayVisualizer from "../fisica/OpticsRayVisualizer";
 import FreeFallSimulationVisualizer from "../fisica/FreeFallSimulationVisualizer";
+import ChemReactionVisualizer from "../quimica/ChemReactionVisualizer";
 import ChemStructureVisualizer from "../quimica/ChemStructureVisualizer";
 import ChemPeriodicTableVisualizer from "../quimica/ChemPeriodicTableVisualizer";
 import ChemVSEPRVisualizer from "../quimica/ChemVSEPRVisualizer";
@@ -148,6 +150,10 @@ function ChemVSEPRRenderer({ spec }: { spec: ChemVSEPRSpec }) {
   return <ChemVSEPRVisualizer spec={spec} />;
 }
 
+function ChemReactionRenderer({ spec }: { spec: ChemReactionSpec }) {
+  return <ChemReactionVisualizer spec={spec} />;
+}
+
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   switch (spec.kind) {
     case "timeline":
@@ -186,6 +192,8 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
       return <PhysicsSimulationRenderer spec={spec} />;
     case "chem-structure":
       return <ChemStructureRenderer spec={spec} />;
+    case "chem-reaction":
+      return <ChemReactionRenderer spec={spec} />;
     case "chem-periodic-table":
       return <ChemPeriodicTableRenderer spec={spec} />;
     case "chem-vsepr":

@@ -57,6 +57,23 @@ export const generarPorcentajeRendimiento: GeneratorFn = (
       resultado: "%",
     },
     resultado: porcentajeR,
+    visualSpec: {
+      kind: "chart",
+      chartType: "bar",
+      title: "Rendimiento real vs teórico",
+      xAxis: { label: "Masa (g)" },
+      yAxis: { label: "Valor" },
+      series: [
+        {
+          id: "rendimiento",
+          label: "Agua obtenida",
+          data: [
+            { x: "Teórica", y: masaTeorR },
+            { x: "Real", y: masaRealR },
+          ],
+        },
+      ],
+    },
     toleranciaRelativa: 0.02,
     pasos: [
       "Calcula el rendimiento teórico de agua (ya dado en el enunciado).",

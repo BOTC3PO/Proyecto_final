@@ -32,6 +32,7 @@ export const generarPurezaReactivos: GeneratorFn = (
   // Para el resultado, recomputamos la pureza con esos valores redondeados
   const nCaCO3_calc = masaCO2R / M_CO2;
   const masaCaCO3_calc = nCaCO3_calc * M_CaCO3;
+  const masaCaCO3CalcR = parseFloat(masaCaCO3_calc.toFixed(2));
   const purezaCalc = (masaCaCO3_calc / masaMuestraR) * 100;
   const purezaR = parseFloat(purezaCalc.toFixed(1));
 
@@ -59,6 +60,23 @@ export const generarPurezaReactivos: GeneratorFn = (
       resultado: "%",
     },
     resultado: purezaR,
+    visualSpec: {
+      kind: "chart",
+      chartType: "bar",
+      title: "Masa pura estimada",
+      xAxis: { label: "Muestra" },
+      yAxis: { label: "Masa (g)" },
+      series: [
+        {
+          id: "pureza",
+          label: "Masa",
+          data: [
+            { x: "Muestra total", y: masaMuestraR },
+            { x: "CaCO₃ puro", y: masaCaCO3CalcR },
+          ],
+        },
+      ],
+    },
     toleranciaRelativa: 0.03,
     pasos: [
       "Convierte la masa de CO₂ a moles: n(CO₂) = m(CO₂) / M(CO₂).",

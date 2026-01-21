@@ -20,6 +20,7 @@ export type VisualSpec =
   | FieldLinesSpec
   | WaveInterferenceSpec
   | OpticsRaySpec
+  | ChemReactionSpec
   | ChemStructureSpec
   | ChemPeriodicTableSpec
   | ChemVSEPRSpec;
@@ -695,6 +696,33 @@ export interface OpticsRaySpec {
     color?: string;
     dashed?: boolean;
   }>;
+}
+
+export interface ChemReactionParticipant {
+  id: string;
+  formula: string;
+  label?: string;
+  coefficient?: number;
+  moles?: number;
+  state?: "s" | "l" | "g" | "aq";
+  notes?: string;
+}
+
+export interface ChemReactionStep {
+  id: string;
+  title?: string;
+  description?: string;
+  reactants: ChemReactionParticipant[];
+  products: ChemReactionParticipant[];
+}
+
+export interface ChemReactionSpec {
+  kind: "chem-reaction";
+  title?: string;
+  description?: string;
+  reactants: ChemReactionParticipant[];
+  products: ChemReactionParticipant[];
+  steps?: ChemReactionStep[];
 }
 
 export type ChemPeriodicTablePropertyKey =

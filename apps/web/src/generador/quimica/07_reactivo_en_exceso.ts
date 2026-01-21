@@ -58,6 +58,10 @@ export const generarReactivoEnExceso: GeneratorFn = (
   const masaH2r = parseFloat(masaH2.toFixed(1));
   const molesSobR = parseFloat(molesSobrantes.toFixed(3));
   const masaSobR = parseFloat(masaSobrante.toFixed(2));
+  const molesN2r = parseFloat((masaN2 / M_N2).toFixed(3));
+  const molesH2r = parseFloat((masaH2 / M_H2).toFixed(3));
+  const sobranteN2 = reactivoEnExceso === "N2" ? molesSobR : 0;
+  const sobranteH2 = reactivoEnExceso === "H2" ? molesSobR : 0;
 
   return {
     idTema: 7,
@@ -88,6 +92,31 @@ export const generarReactivoEnExceso: GeneratorFn = (
       reactivoEnExceso,
       molesSobrantes: molesSobR,
       masaSobrante: masaSobR,
+    },
+    visualSpec: {
+      kind: "chart",
+      chartType: "bar",
+      title: "Reactivo en exceso (moles)",
+      xAxis: { label: "Reactivo" },
+      yAxis: { label: "Moles" },
+      series: [
+        {
+          id: "moles-iniciales",
+          label: "Iniciales",
+          data: [
+            { x: "N₂", y: molesN2r },
+            { x: "H₂", y: molesH2r },
+          ],
+        },
+        {
+          id: "moles-sobrantes",
+          label: "Sobrantes",
+          data: [
+            { x: "N₂", y: sobranteN2 },
+            { x: "H₂", y: sobranteH2 },
+          ],
+        },
+      ],
     },
     toleranciaRelativa: 0.03,
     pasos: [
