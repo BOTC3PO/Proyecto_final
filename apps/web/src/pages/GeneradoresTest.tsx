@@ -428,6 +428,69 @@ export default function GeneradoresTest() {
         } satisfies VisualSpec,
       },
       {
+        id: "physics-motion-chart",
+        title: "Movimiento en 2 gráficas",
+        description: "x-t y v-t coordinadas para MRUV.",
+        spec: {
+          kind: "physics-motion-chart",
+          title: "Movimiento con aceleración",
+          description: "Pendiente y área destacadas en el mismo intervalo.",
+          motion: {
+            type: "MRUV",
+            time: 8,
+            initialPosition: 0,
+            initialVelocity: 4,
+            acceleration: 1.5,
+            displacement: 80,
+          },
+          axes: {
+            time: { label: "Tiempo", unit: "s" },
+            position: { label: "Posición", unit: "m" },
+            velocity: { label: "Velocidad", unit: "m/s" },
+          },
+          series: {
+            position: {
+              id: "sample-pos",
+              label: "x(t)",
+              color: "#2563EB",
+              data: [
+                { t: 0, value: 0 },
+                { t: 2, value: 11 },
+                { t: 4, value: 28 },
+                { t: 6, value: 51 },
+                { t: 8, value: 80 },
+              ],
+            },
+            velocity: {
+              id: "sample-vel",
+              label: "v(t)",
+              color: "#F97316",
+              data: [
+                { t: 0, value: 4 },
+                { t: 2, value: 7 },
+                { t: 4, value: 10 },
+                { t: 6, value: 13 },
+                { t: 8, value: 16 },
+              ],
+            },
+          },
+          annotations: {
+            slope: {
+              time: 8,
+              value: 16,
+              unit: "m/s",
+              label: "Pendiente (v)",
+            },
+            area: {
+              time: 8,
+              value: 80,
+              unit: "m",
+              label: "Área (desplazamiento)",
+            },
+          },
+        } satisfies VisualSpec,
+      },
+      {
         id: "map",
         title: "Mapa interactivo",
         description: "Marcadores con rutas y categorías.",

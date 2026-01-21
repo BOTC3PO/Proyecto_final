@@ -66,6 +66,21 @@ export class RelacionDistanciaTiempoGenerator extends FisicaBaseGenerator {
       valorCorrecto.toString(),
       ...this.generarOpcionesIncorrectas(valorCorrecto, 3, 0.3).map(String),
     ]);
+    const velocidadVisual =
+      modo === "velocidad" ? Number(valorCorrecto) : velocidad;
+    const tiempoVisual = modo === "tiempo" ? Number(valorCorrecto) : tiempo;
+    const distanciaVisual =
+      modo === "distancia" ? Number(valorCorrecto) : distancia;
+    const pointCount = 6;
+    const step = tiempoVisual / (pointCount - 1);
+    const positionSeries = Array.from({ length: pointCount }, (_, index) => {
+      const t = Number((index * step).toFixed(2));
+      return { t, value: Number((velocidadVisual * t).toFixed(2)) };
+    });
+    const velocitySeries = positionSeries.map(({ t }) => ({
+      t,
+      value: velocidadVisual,
+    }));
 
     return {
       id: this.generateId("relacion_dt"),
@@ -81,6 +96,52 @@ export class RelacionDistanciaTiempoGenerator extends FisicaBaseGenerator {
       explicacionPasoAPaso: resultado.pasos,
       metadatos: {
         tags: ["cinematica", "MRU", "distancia-tiempo-velocidad"],
+      },
+      visual: {
+        kind: "physics-motion-chart",
+        title: "Relación distancia-tiempo",
+        description: "Movimiento rectilíneo uniforme en dos gráficas coordinadas.",
+        motion: {
+          type: "MRU",
+          time: tiempoVisual,
+          initialPosition: 0,
+          initialVelocity: velocidadVisual,
+          acceleration: 0,
+          displacement: distanciaVisual,
+        },
+        axes: {
+          time: { label: "Tiempo", unit: "s" },
+          position: { label: "Posición", unit: "m" },
+          velocity: { label: "Velocidad", unit: "m/s" },
+        },
+        series: {
+          position: {
+            id: "mru-relacion-posicion",
+            label: "x(t)",
+            data: positionSeries,
+            color: "#2563EB",
+          },
+          velocity: {
+            id: "mru-relacion-velocidad",
+            label: "v(t)",
+            data: velocitySeries,
+            color: "#F97316",
+          },
+        },
+        annotations: {
+          slope: {
+            time: tiempoVisual,
+            value: velocidadVisual,
+            unit: "m/s",
+            label: "Pendiente (v)",
+          },
+          area: {
+            time: tiempoVisual,
+            value: distanciaVisual,
+            unit: "m",
+            label: "Área (desplazamiento)",
+          },
+        },
       },
     };
   }

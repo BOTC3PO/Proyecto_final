@@ -6,6 +6,7 @@ import type {
   FuncionesGraficasSpec,
   GeometriaPlanaEspacialSpec,
   MapSpec,
+  PhysicsMotionChartSpec,
   TimelineSpec,
   TrigonometriaAvanzadaSpec,
   VisualSpec,
@@ -16,6 +17,7 @@ import {
   GeometriaPlanaEspacialVisualizer,
   TrigonometriaAvanzadaVisualizer,
 } from "../matematicas";
+import PhysicsMotionChartVisualizer from "../fisica/PhysicsMotionChartVisualizer";
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
@@ -74,6 +76,14 @@ function AlgebraCalculoVisualRenderer({
   return <AlgebraCalculoVisualVisualizer spec={spec} />;
 }
 
+function PhysicsMotionChartRenderer({
+  spec,
+}: {
+  spec: PhysicsMotionChartSpec;
+}) {
+  return <PhysicsMotionChartVisualizer spec={spec} />;
+}
+
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   switch (spec.kind) {
     case "timeline":
@@ -94,6 +104,8 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
       return <TrigonometriaAvanzadaRenderer spec={spec} />;
     case "algebra-calculo-visual":
       return <AlgebraCalculoVisualRenderer spec={spec} />;
+    case "physics-motion-chart":
+      return <PhysicsMotionChartRenderer spec={spec} />;
     default:
       return (
         <div className="rounded-lg border border-dashed border-slate-200 p-4 text-sm text-slate-500">
