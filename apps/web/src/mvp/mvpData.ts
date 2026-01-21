@@ -103,6 +103,56 @@ export const MVP_MODULES: ModuleSummary[] = [
     progressPercent: 0,
     category: "Economía y desarrollo",
   },
+  {
+    id: "mod-009",
+    title: "Líneas de tiempo históricas",
+    description:
+      "Construcción de cronologías con hitos y periodizaciones clave.",
+    level: "Básico",
+    durationMinutes: 25,
+    progressPercent: 0,
+    category: "Historia y cronologías",
+  },
+  {
+    id: "mod-010",
+    title: "Mapas históricos",
+    description:
+      "Cambios territoriales, rutas y fronteras en distintas épocas.",
+    level: "Intermedio",
+    durationMinutes: 30,
+    progressPercent: 0,
+    category: "Historia y cartografía histórica",
+  },
+  {
+    id: "mod-011",
+    title: "Gráficos y datos históricos",
+    description:
+      "Lectura de gráficos sobre población, economía y eventos históricos.",
+    level: "Intermedio",
+    durationMinutes: 35,
+    progressPercent: 0,
+    category: "Historia y análisis de datos",
+  },
+  {
+    id: "mod-012",
+    title: "Organigramas y mapas conceptuales",
+    description:
+      "Estructuras de poder, instituciones y relaciones entre actores.",
+    level: "Avanzado",
+    durationMinutes: 40,
+    progressPercent: 0,
+    category: "Historia y organización social",
+  },
+  {
+    id: "mod-013",
+    title: "Recursos multimedia e interactivos",
+    description:
+      "Exploración de fuentes audiovisuales, museos virtuales y visitas guiadas.",
+    level: "Básico",
+    durationMinutes: 20,
+    progressPercent: 0,
+    category: "Historia y recursos digitales",
+  },
 ];
 
 export const MVP_PUBLICATIONS: Publication[] = [
