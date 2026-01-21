@@ -681,6 +681,7 @@ const moduloId = new ObjectId();
 const moduloGeografiaId = new ObjectId();
 const moduloCartografiaId = new ObjectId();
 const moduloGeografiaFisicaId = new ObjectId();
+const moduloAtlasDigitalId = new ObjectId();
 const moduloMapaClimaticoId = new ObjectId();
 const moduloMapaPoblacionId = new ObjectId();
 const moduloMapaEconomicoId = new ObjectId();
@@ -903,6 +904,74 @@ db.modulos.insertOne({
       title: "Ubicación por coordenadas y cálculo de escalas",
       type: "evaluacion",
       visibility: "escuela"
+    }
+  ],
+  scoringSystem: "Sistema A: 1-10 con aprobación 6",
+  progress: [],
+  isDeleted: false,
+  createdAt: new Date(),
+});
+
+db.modulos.insertOne({
+  _id: moduloAtlasDigitalId,
+  createdBy: teacherId,
+  title: "Atlas digitales y mapas interactivos",
+  description:
+    "Uso de atlas digitales, capas temáticas y comparación de imágenes satelitales para interpretar cambios en el territorio.",
+  subject: "Geografía",
+  category: "Tecnologías geoespaciales",
+  difficultyLevel: "Intermedio",
+  durationMinutes: 40,
+  visibility: "publico",
+  theoryItems: [
+    {
+      id: "atlas-digitales",
+      title: "Atlas digitales y capas temáticas",
+      type: "Guía",
+      detail:
+        "Explorar atlas digitales con capas activables (relieve, densidad, vegetación). Herramienta: https://livingatlas.arcgis.com/."
+    },
+    {
+      id: "juegos-ubicacion",
+      title: "Juegos de ubicación y orientación",
+      type: "Actividad",
+      detail:
+        "Practicar localización con mapas interactivos. Recurso: https://www.geoguessr.com/."
+    },
+    {
+      id: "timelapse-satelital",
+      title: "Timelapse de cambios territoriales",
+      type: "Video",
+      detail:
+        "Comparar imágenes satelitales en el tiempo. Recurso: https://earthengine.google.com/timelapse/."
+    }
+  ],
+  quizzes: [
+    {
+      id: "quiz-atlas-interactivo",
+      title: "Identificación de capas y análisis satelital",
+      type: "evaluacion",
+      visibility: "escuela",
+      questions: [
+        {
+          id: "q-atlas-1",
+          prompt:
+            "Activa la capa de relieve: ¿qué cordillera se destaca en la zona señalada?",
+          focus: "Capas de relieve"
+        },
+        {
+          id: "q-atlas-2",
+          prompt:
+            "Comparando dos fechas del timelapse, ¿qué cambio principal observas en el área urbana?",
+          focus: "Comparación satelital"
+        },
+        {
+          id: "q-atlas-3",
+          prompt:
+            "Con la capa de uso del suelo, identifica la actividad predominante en el cuadrante norte.",
+          focus: "Análisis de capas"
+        }
+      ]
     }
   ],
   scoringSystem: "Sistema A: 1-10 con aprobación 6",
