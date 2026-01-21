@@ -667,6 +667,7 @@ const studentId = new ObjectId();
 const parentId = new ObjectId();
 const moduloId = new ObjectId();
 const moduloGeografiaId = new ObjectId();
+const moduloCartografiaId = new ObjectId();
 const claseId = new ObjectId();
 const defaultPasswordHash =
   "pbkdf2$100000$ae30ab2431a9014a369007c291d0d5d9$1e72e69ff068d5b1108bdc60b4764690e454086422f77e9d658dd99e55f2deba9b8ca4564e1bb11a32277227005dd07a4510dfaa95188d8ea46999f50044bfe3";
@@ -836,6 +837,54 @@ db.modulos.insertOne({
     {
       id: "quiz-mapamundi",
       title: "Mapa mudo: ríos y cordilleras",
+      type: "evaluacion",
+      visibility: "escuela"
+    }
+  ],
+  scoringSystem: "Sistema A: 1-10 con aprobación 6",
+  progress: [],
+  isDeleted: false,
+  createdAt: new Date(),
+});
+
+db.modulos.insertOne({
+  _id: moduloCartografiaId,
+  createdBy: teacherId,
+  title: "Cartografía básica: coordenadas, escalas y proyecciones",
+  description:
+    "Módulo introductorio para interpretar coordenadas, calcular escalas y comparar proyecciones cartográficas.",
+  subject: "Geografía",
+  category: "Cartografía básica",
+  difficultyLevel: "Básico",
+  durationMinutes: 35,
+  visibility: "publico",
+  theoryItems: [
+    {
+      id: "latitud-longitud",
+      title: "Latitud y longitud",
+      type: "Lectura",
+      detail:
+        "Cómo ubicar lugares usando paralelos y meridianos, con ejemplos prácticos de coordenadas."
+    },
+    {
+      id: "escalas-cartograficas",
+      title: "Escalas: numérica y gráfica",
+      type: "Guía",
+      detail:
+        "Conversión de distancias reales a escala y uso de la regla para medir mapas."
+    },
+    {
+      id: "proyecciones-mercator-peters",
+      title: "Comparativa de proyecciones (Mercator vs. Peters)",
+      type: "Comparativa",
+      detail:
+        "Diferencias entre proyecciones conformes y equivalentes, con foco en distorsiones de área."
+    }
+  ],
+  quizzes: [
+    {
+      id: "quiz-coordenadas-escalas",
+      title: "Ubicación por coordenadas y cálculo de escalas",
       type: "evaluacion",
       visibility: "escuela"
     }
