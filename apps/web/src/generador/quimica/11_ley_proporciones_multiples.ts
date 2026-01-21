@@ -52,6 +52,23 @@ export const generarLeyProporcionesMultiples: GeneratorFn = (
       resultado: "adimensional",
     },
     resultado,
+    visualSpec: {
+      kind: "chart",
+      chartType: "bar",
+      title: "Masas de Y en compuestos",
+      xAxis: { label: "Compuesto" },
+      yAxis: { label: "Masa de Y (g)" },
+      series: [
+        {
+          id: "masas-y",
+          label: "Masa de Y",
+          data: [
+            { x: "A", y: masaY1 },
+            { x: "B", y: masaY2r },
+          ],
+        },
+      ],
+    },
     toleranciaRelativa: 0.05, // 5%
     pasos: [
       "Escribe la razón entre las masas de Y: razón = m(Y en B) / m(Y en A).",

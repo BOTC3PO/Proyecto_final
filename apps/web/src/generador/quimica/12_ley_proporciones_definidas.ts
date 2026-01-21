@@ -27,6 +27,7 @@ export const generarLeyProporcionesDefinidas: GeneratorFn = (
   const masaX2 = masaMuestra2 * fraccionX;
   const masaMuestra2r = parseFloat(masaMuestra2.toFixed(2));
   const masaX2r = parseFloat(masaX2.toFixed(2));
+  const porcentajeMuestra1 = parseFloat(((masaX1r / masaMuestra1) * 100).toFixed(1));
 
   // Lo que pedimos: porcentaje en masa de X (a partir de la muestra 2, por ejemplo)
   const porcentajeCalculado = (masaX2r / masaMuestra2r) * 100;
@@ -57,6 +58,23 @@ export const generarLeyProporcionesDefinidas: GeneratorFn = (
       resultado: "%",
     },
     resultado,
+    visualSpec: {
+      kind: "chart",
+      chartType: "bar",
+      title: "Porcentaje en masa de X",
+      xAxis: { label: "Muestra" },
+      yAxis: { label: "% en masa de X" },
+      series: [
+        {
+          id: "porcentaje-x",
+          label: "% X",
+          data: [
+            { x: "Muestra 1", y: porcentajeMuestra1 },
+            { x: "Muestra 2", y: resultado },
+          ],
+        },
+      ],
+    },
     toleranciaRelativa: 0.02,
     pasos: [
       "Calcula el porcentaje en masa de X en la segunda muestra: %X = (m(X) / m(muestra)) · 100.",

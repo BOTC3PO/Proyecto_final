@@ -40,6 +40,23 @@ export const generarCalculoMoles: GeneratorFn = (
     datos: { masa, masaMolar: M },
     unidades: { masa: "g", masaMolar: "g/mol", resultado: "mol" },
     resultado: parseFloat(moles.toFixed(3)),
+    visualSpec: {
+      kind: "chart",
+      chartType: "bar",
+      title: "Relación masa-moles",
+      xAxis: { label: "Magnitud" },
+      yAxis: { label: "Valor" },
+      series: [
+        {
+          id: "masa-moles",
+          label: sustancia,
+          data: [
+            { x: "Masa (g)", y: parseFloat(masa.toFixed(2)) },
+            { x: "Moles (mol)", y: parseFloat(moles.toFixed(3)) },
+          ],
+        },
+      ],
+    },
     toleranciaRelativa: 0.02, // ±2%
     pasos: [
       "Usa la relación: n = m / M.",

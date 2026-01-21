@@ -59,6 +59,7 @@ const renderExercise = (quiz: GeneratedQuiz) => {
   }
 
   const exercise = quiz.exercise;
+  const visualSpec = "visualSpec" in exercise ? exercise.visualSpec : undefined;
 
   const renderVisual = (visualSpec?: VisualSpec) => {
     if (!visualSpec) return null;
@@ -83,7 +84,7 @@ const renderExercise = (quiz: GeneratedQuiz) => {
         <p className="text-xs text-gray-500">
           Resultado esperado: <span className="font-medium">{String(exercise.resultado)}</span>
         </p>
-        {"visualSpec" in exercise ? renderVisual(exercise.visualSpec) : null}
+        {renderVisual(visualSpec)}
       </div>
     );
   }
@@ -95,7 +96,7 @@ const renderExercise = (quiz: GeneratedQuiz) => {
         <p className="text-xs text-gray-500">
           Respuesta: <span className="font-medium">{exercise.respuestaCorrecta}</span>
         </p>
-        {"visualSpec" in exercise ? renderVisual(exercise.visualSpec) : null}
+        {renderVisual(visualSpec)}
       </div>
     );
   }
@@ -108,7 +109,7 @@ const renderExercise = (quiz: GeneratedQuiz) => {
           <li key={option}>{option}</li>
         ))}
       </ul>
-      {"visualSpec" in exercise ? renderVisual(exercise.visualSpec) : null}
+      {renderVisual(visualSpec)}
     </div>
   );
 };
