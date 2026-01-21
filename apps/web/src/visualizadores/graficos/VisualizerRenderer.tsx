@@ -2,7 +2,9 @@ import type {
   AlgebraCalculoVisualSpec,
   ChartSpec,
   ConceptMapSpec,
+  CircuitSpec,
   EnergyChartSpec,
+  FieldLinesSpec,
   FlowSpec,
   FuncionesGraficasSpec,
   GeometriaPlanaEspacialSpec,
@@ -22,6 +24,8 @@ import {
 import PhysicsForcesVectorVisualizer from "../fisica/PhysicsForcesVectorVisualizer";
 import PhysicsMotionChartVisualizer from "../fisica/PhysicsMotionChartVisualizer";
 import EnergyChartVisualizer from "../fisica/EnergyChartVisualizer";
+import CircuitVisualizer from "../fisica/CircuitVisualizer";
+import FieldLinesVisualizer from "../fisica/FieldLinesVisualizer";
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
@@ -100,6 +104,14 @@ function EnergyChartRenderer({ spec }: { spec: EnergyChartSpec }) {
   return <EnergyChartVisualizer spec={spec} />;
 }
 
+function CircuitRenderer({ spec }: { spec: CircuitSpec }) {
+  return <CircuitVisualizer spec={spec} />;
+}
+
+function FieldLinesRenderer({ spec }: { spec: FieldLinesSpec }) {
+  return <FieldLinesVisualizer spec={spec} />;
+}
+
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   switch (spec.kind) {
     case "timeline":
@@ -126,6 +138,10 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
       return <PhysicsForcesVectorRenderer spec={spec} />;
     case "energy-chart":
       return <EnergyChartRenderer spec={spec} />;
+    case "circuit":
+      return <CircuitRenderer spec={spec} />;
+    case "field-lines":
+      return <FieldLinesRenderer spec={spec} />;
     default:
       return (
         <div className="rounded-lg border border-dashed border-slate-200 p-4 text-sm text-slate-500">
