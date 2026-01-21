@@ -1,6 +1,6 @@
 // src/generators/math/index.ts
 import { normalizarDificultadBasica, wrapConModo } from "./generic";
-import type { GeneratorFn } from "./generic";
+import type { Dificultad, GeneratorFn } from "./generic";
 
 // =======================
 // IMPORTS TEMAS 1–10
@@ -78,13 +78,14 @@ import generarValorAbsolutoEcuaciones from "./tema45_valor_absoluto_ecuaciones";
 import generarValorAbsolutoDistancia from "./tema46_valor_absoluto_distancia";
 
 // =======================
-// IMPORTS TEMAS 47–51 (Lógicos 51–55)
+// IMPORTS TEMAS 47–52 (Lógicos 51–55)
 // =======================
 import generarPotenciasExponentes from "./tema47_potencias_exponentes";
 import generarRadicalesSimplificacion from "./tema48_radicales_simplificacion";
 import generarEcuacionesPotenciasRadicales from "./tema49_ecuaciones_potencias_radicales";
 import generarNotacionCientifica from "./tema50_notacion_cientifica";
 import generarInteresSimpleCompuesto from "./tema51_interes_simple_compuesto";
+import generarRepresentacionDatos from "./tema52_representacion_datos";
 
 // =======================================================
 // MAPA GLOBAL: idTema → GeneratorFn
@@ -94,6 +95,7 @@ const TEMAS_CON_DIFICULTAD_CORE = new Set([
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
   22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
   41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
+  52,
 ]);
 
 const wrapConDificultadBasica =
@@ -171,6 +173,7 @@ const GENERATORS_BY_TEMA_BASE: Record<number, GeneratorFn> = {
   49: generarEcuacionesPotenciasRadicales,
   50: generarNotacionCientifica,
   51: generarInteresSimpleCompuesto,
+  52: generarRepresentacionDatos,
 };
 
 export const GENERATORS_BY_TEMA: Record<number, GeneratorFn> = Object.fromEntries(
@@ -182,6 +185,16 @@ export const GENERATORS_BY_TEMA: Record<number, GeneratorFn> = Object.fromEntrie
     return [idTema, wrapConModo(generadorAdaptado)];
   })
 ) as Record<number, GeneratorFn>;
+
+export const TEMAS_MATEMATICAS_INFO: Record<
+  number,
+  { titulo: string; dificultad: Dificultad }
+> = {
+  52: {
+    titulo: "Representación de datos (tablas y gráficos)",
+    dificultad: "basico",
+  },
+};
 
 // Helper opcional para obtener un generador de forma segura
 export function getGeneratorPorTema(idTema: number): GeneratorFn | undefined {
