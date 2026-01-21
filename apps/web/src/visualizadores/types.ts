@@ -19,7 +19,8 @@ export type VisualSpec =
   | CircuitSpec
   | FieldLinesSpec
   | WaveInterferenceSpec
-  | OpticsRaySpec;
+  | OpticsRaySpec
+  | ChemStructureSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -692,6 +693,90 @@ export interface OpticsRaySpec {
     color?: string;
     dashed?: boolean;
   }>;
+}
+
+export type ChemOrbitalType = "s" | "p" | "d" | "f";
+
+export interface ChemElectronShell {
+  shell: string;
+  electrons: number;
+  label?: string;
+}
+
+export interface ChemElectronDistributionSpec {
+  atom: string;
+  model: "bohr" | "nube-electronica" | "cuantico";
+  shells: ChemElectronShell[];
+  notation?: string;
+  notes?: string;
+}
+
+export interface ChemOrbitalOccupancy {
+  orbital: string;
+  electrons: number;
+}
+
+export interface ChemSubshellSpec {
+  id: string;
+  type: ChemOrbitalType;
+  energyLevel: number;
+  electrons: number;
+  maxElectrons?: number;
+  occupancy?: ChemOrbitalOccupancy[];
+  notes?: string;
+}
+
+export interface ChemOrbitalsSpec {
+  atom: string;
+  notation?: string;
+  subshells: ChemSubshellSpec[];
+}
+
+export interface ChemAtom3D {
+  id: string;
+  element: string;
+  position: {
+    x: number;
+    y: number;
+    z: number;
+  };
+  charge?: number;
+  color?: string;
+  radius?: number;
+}
+
+export interface ChemBondSpec {
+  id: string;
+  fromId: string;
+  toId: string;
+  order?: 1 | 2 | 3;
+  style?: "simple" | "doble" | "triple";
+}
+
+export interface ChemMolecularModel {
+  id: string;
+  name: string;
+  formula?: string;
+  geometry?:
+    | "lineal"
+    | "angular"
+    | "trigonal-planar"
+    | "tetraedrica"
+    | "piramidal-trigonal"
+    | "trigonal-bipiramidal"
+    | "octaedrica";
+  atoms: ChemAtom3D[];
+  bonds?: ChemBondSpec[];
+  notes?: string;
+}
+
+export interface ChemStructureSpec {
+  kind: "chem-structure";
+  title?: string;
+  description?: string;
+  electronDistribution?: ChemElectronDistributionSpec;
+  orbitals?: ChemOrbitalsSpec;
+  molecularModels?: ChemMolecularModel[];
 }
 
 export type SimulationParameterInput = "number" | "boolean" | "select";

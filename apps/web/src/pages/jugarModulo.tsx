@@ -13,6 +13,8 @@ import type { Exercise as QuimicaExercise } from "../generador/quimica/generico"
 import { GENERADORES_ECONOMIA_POR_CLAVE } from "../generador/economia/indexEconomia";
 import type { Exercise as EconomiaExercise } from "../generador/economia/generico";
 import { GENERADORES_FISICA_POR_ID } from "../generador/fisica/indexFisica";
+import VisualizerRenderer from "../visualizadores/graficos/VisualizerRenderer";
+import type { VisualSpec } from "../visualizadores/types";
 
 type GeneratedQuiz =
   | { kind: "math"; exercise: MathExercise }
@@ -58,6 +60,18 @@ const renderExercise = (quiz: GeneratedQuiz) => {
 
   const exercise = quiz.exercise;
 
+  const renderVisual = (visualSpec?: VisualSpec) => {
+    if (!visualSpec) return null;
+    return (
+      <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
+        <h3 className="text-sm font-semibold text-slate-700">Visualización</h3>
+        <div className="mt-3">
+          <VisualizerRenderer spec={visualSpec} />
+        </div>
+      </div>
+    );
+  };
+
   if (exercise.tipo === "numeric") {
     return (
       <div className="space-y-2">
@@ -65,6 +79,7 @@ const renderExercise = (quiz: GeneratedQuiz) => {
         <p className="text-xs text-gray-500">
           Resultado esperado: <span className="font-medium">{String(exercise.resultado)}</span>
         </p>
+        {"visualSpec" in exercise ? renderVisual(exercise.visualSpec) : null}
       </div>
     );
   }
@@ -76,6 +91,7 @@ const renderExercise = (quiz: GeneratedQuiz) => {
         <p className="text-xs text-gray-500">
           Respuesta: <span className="font-medium">{exercise.respuestaCorrecta}</span>
         </p>
+        {"visualSpec" in exercise ? renderVisual(exercise.visualSpec) : null}
       </div>
     );
   }
@@ -88,6 +104,7 @@ const renderExercise = (quiz: GeneratedQuiz) => {
           <li key={option}>{option}</li>
         ))}
       </ul>
+      {"visualSpec" in exercise ? renderVisual(exercise.visualSpec) : null}
     </div>
   );
 };
