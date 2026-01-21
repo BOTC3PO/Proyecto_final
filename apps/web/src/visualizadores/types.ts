@@ -11,7 +11,8 @@ export type VisualSpec =
   | FuncionesGraficasSpec
   | GeometriaPlanaEspacialSpec
   | TrigonometriaAvanzadaSpec
-  | AlgebraCalculoVisualSpec;
+  | AlgebraCalculoVisualSpec
+  | PhysicsMotionChartSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -388,4 +389,61 @@ export interface AlgebraCalculoVisualSpec {
     area?: number;
     notes?: string;
   }>;
+}
+
+export interface PhysicsMotionChartSpec {
+  kind: "physics-motion-chart";
+  title?: string;
+  description?: string;
+  motion: {
+    type: "MRU" | "MRUV";
+    time: number;
+    initialPosition?: number;
+    initialVelocity?: number;
+    acceleration?: number;
+    displacement?: number;
+    notes?: string[];
+  };
+  axes: {
+    time: {
+      label?: string;
+      unit?: string;
+    };
+    position: {
+      label?: string;
+      unit?: string;
+    };
+    velocity: {
+      label?: string;
+      unit?: string;
+    };
+  };
+  series: {
+    position: {
+      id: string;
+      label: string;
+      data: Array<{ t: number; value: number }>;
+      color?: string;
+    };
+    velocity: {
+      id: string;
+      label: string;
+      data: Array<{ t: number; value: number }>;
+      color?: string;
+    };
+  };
+  annotations?: {
+    slope?: {
+      time: number;
+      value: number;
+      unit?: string;
+      label?: string;
+    };
+    area?: {
+      time: number;
+      value: number;
+      unit?: string;
+      label?: string;
+    };
+  };
 }

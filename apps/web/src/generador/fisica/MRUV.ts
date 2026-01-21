@@ -38,6 +38,18 @@ export class MRUVGenerator extends FisicaBaseGenerator {
       vf.toString(),
       ...this.generarOpcionesIncorrectas(vf, 3, 0.35).map(String),
     ]);
+    const pointCount = 6;
+    const step = tiempo / (pointCount - 1);
+    const positionSeries = Array.from({ length: pointCount }, (_, index) => {
+      const t = Number((index * step).toFixed(2));
+      const posicion = v0 * t + 0.5 * aceleracion * t * t;
+      return { t, value: Number(posicion.toFixed(2)) };
+    });
+    const velocitySeries = Array.from({ length: pointCount }, (_, index) => {
+      const t = Number((index * step).toFixed(2));
+      return { t, value: Number((v0 + aceleracion * t).toFixed(2)) };
+    });
+    const desplazamiento = Number((v0 * tiempo + 0.5 * aceleracion * tiempo * tiempo).toFixed(2));
 
     return {
       id: this.generateId("MRUV"),
@@ -54,6 +66,52 @@ export class MRUVGenerator extends FisicaBaseGenerator {
       explicacionPasoAPaso: resultado.pasos,
       metadatos: {
         tags: ["cinematica", "MRUV", "aceleracion"],
+      },
+      visual: {
+        kind: "physics-motion-chart",
+        title: "Movimiento rectilíneo uniformemente variado",
+        description: "Curvas posición-tiempo y velocidad-tiempo con aceleración constante.",
+        motion: {
+          type: "MRUV",
+          time: tiempo,
+          initialPosition: 0,
+          initialVelocity: v0,
+          acceleration: aceleracion,
+          displacement: desplazamiento,
+        },
+        axes: {
+          time: { label: "Tiempo", unit: "s" },
+          position: { label: "Posición", unit: "m" },
+          velocity: { label: "Velocidad", unit: "m/s" },
+        },
+        series: {
+          position: {
+            id: "mruv-posicion",
+            label: "x(t)",
+            data: positionSeries,
+            color: "#2563EB",
+          },
+          velocity: {
+            id: "mruv-velocidad",
+            label: "v(t)",
+            data: velocitySeries,
+            color: "#F97316",
+          },
+        },
+        annotations: {
+          slope: {
+            time: tiempo,
+            value: vf,
+            unit: "m/s",
+            label: "Pendiente (v)",
+          },
+          area: {
+            time: tiempo,
+            value: desplazamiento,
+            unit: "m",
+            label: "Área (desplazamiento)",
+          },
+        },
       },
     };
   }
