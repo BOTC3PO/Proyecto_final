@@ -666,6 +666,7 @@ const teacherId = new ObjectId();
 const studentId = new ObjectId();
 const parentId = new ObjectId();
 const moduloId = new ObjectId();
+const moduloGeografiaId = new ObjectId();
 const claseId = new ObjectId();
 const defaultPasswordHash =
   "pbkdf2$100000$ae30ab2431a9014a369007c291d0d5d9$1e72e69ff068d5b1108bdc60b4764690e454086422f77e9d658dd99e55f2deba9b8ca4564e1bb11a32277227005dd07a4510dfaa95188d8ea46999f50044bfe3";
@@ -791,6 +792,50 @@ db.modulos.insertOne({
     {
       id: "quiz-basico",
       title: "Cuestionario principal",
+      type: "evaluacion",
+      visibility: "escuela"
+    }
+  ],
+  scoringSystem: "Sistema A: 1-10 con aprobación 6",
+  progress: [],
+  isDeleted: false,
+  createdAt: new Date(),
+});
+
+db.modulos.insertOne({
+  _id: moduloGeografiaId,
+  createdBy: teacherId,
+  title: "Mapas físicos y políticos del mundo",
+  description: "Exploración de mapas físicos, políticos y lectura de fronteras.",
+  subject: "Geografía",
+  category: "Geografía del Mundo",
+  difficultyLevel: "Básico",
+  durationMinutes: 30,
+  visibility: "publico",
+  theoryItems: [
+    {
+      id: "mapas-fisicos",
+      title: "Mapas físicos: relieve y agua",
+      type: "Guía",
+      detail: "Identificación de ríos, cordilleras y llanuras en el mapa."
+    },
+    {
+      id: "mapas-politicos",
+      title: "Mapas políticos: países y capitales",
+      type: "Actividad",
+      detail: "Ubicar países, capitales y fronteras en mapas mudos."
+    },
+    {
+      id: "fronteras-regiones",
+      title: "Fronteras y regiones",
+      type: "Lectura",
+      detail: "Comprender límites naturales y políticos en distintas regiones."
+    }
+  ],
+  quizzes: [
+    {
+      id: "quiz-mapamundi",
+      title: "Mapa mudo: ríos y cordilleras",
       type: "evaluacion",
       visibility: "escuela"
     }
