@@ -680,6 +680,7 @@ const parentId = new ObjectId();
 const moduloId = new ObjectId();
 const moduloGeografiaId = new ObjectId();
 const moduloCartografiaId = new ObjectId();
+const moduloGeografiaFisicaId = new ObjectId();
 const moduloMapaClimaticoId = new ObjectId();
 const moduloMapaPoblacionId = new ObjectId();
 const moduloMapaEconomicoId = new ObjectId();
@@ -902,6 +903,82 @@ db.modulos.insertOne({
       title: "Ubicación por coordenadas y cálculo de escalas",
       type: "evaluacion",
       visibility: "escuela"
+    }
+  ],
+  scoringSystem: "Sistema A: 1-10 con aprobación 6",
+  progress: [],
+  isDeleted: false,
+  createdAt: new Date(),
+});
+
+db.modulos.insertOne({
+  _id: moduloGeografiaFisicaId,
+  createdBy: teacherId,
+  title: "Geografía física: relieve, agua y tectónica",
+  description:
+    "Módulo para interpretar el relieve terrestre, perfiles topográficos y procesos geológicos.",
+  subject: "Geografía",
+  category: "Geografía física",
+  difficultyLevel: "Intermedio",
+  durationMinutes: 40,
+  visibility: "publico",
+  theoryItems: [
+    {
+      id: "relieve-formas",
+      title: "Relieve: montañas, llanuras y mesetas",
+      type: "Guía",
+      detail:
+        "Identificación de formas del relieve y su relación con la altitud y pendiente."
+    },
+    {
+      id: "curvas-nivel",
+      title: "Curvas de nivel y lectura de mapas",
+      type: "Lectura",
+      detail:
+        "Cómo interpretar la separación de curvas para reconocer pendientes y valles."
+    },
+    {
+      id: "perfiles-topograficos",
+      title: "Perfiles topográficos",
+      type: "Actividad",
+      detail:
+        "Construcción y lectura de perfiles altimétricos a partir de mapas."
+    },
+    {
+      id: "ciclo-agua",
+      title: "Ciclo del agua y modelado del paisaje",
+      type: "Lectura",
+      detail:
+        "Procesos de evaporación, condensación, precipitación y escorrentía."
+    },
+    {
+      id: "tectonica-placas",
+      title: "Tectónica de placas",
+      type: "Guía",
+      detail:
+        "Límites de placas, formación de montañas, volcanismo y sismos."
+    }
+  ],
+  quizzes: [
+    {
+      id: "quiz-perfiles-procesos",
+      title: "Interpretación de perfiles altimétricos y procesos geológicos",
+      type: "evaluacion",
+      visibility: "escuela",
+      questions: [
+        {
+          id: "q-perfil-1",
+          prompt:
+            "En el perfil altimétrico, ¿qué tramo indica una pendiente más pronunciada?",
+          focus: "Perfil topográfico"
+        },
+        {
+          id: "q-geologia-1",
+          prompt:
+            "¿Qué proceso geológico explica la presencia de una cordillera joven?",
+          focus: "Tectónica de placas"
+        }
+      ]
     }
   ],
   scoringSystem: "Sistema A: 1-10 con aprobación 6",
