@@ -10,6 +10,7 @@ import type {
   GeometriaPlanaEspacialSpec,
   MapSpec,
   OpticsRaySpec,
+  PhysicsSimulationSpec,
   PhysicsForcesVectorSpec,
   PhysicsMotionChartSpec,
   TimelineSpec,
@@ -30,6 +31,7 @@ import CircuitVisualizer from "../fisica/CircuitVisualizer";
 import FieldLinesVisualizer from "../fisica/FieldLinesVisualizer";
 import WaveInterferenceVisualizer from "../fisica/WaveInterferenceVisualizer";
 import OpticsRayVisualizer from "../fisica/OpticsRayVisualizer";
+import FreeFallSimulationVisualizer from "../fisica/FreeFallSimulationVisualizer";
 import ChartsVisualizer from "./ChartsVisualizer";
 import ConceptMapVisualizer from "./ConceptMapVisualizer";
 import FlowDiagramVisualizer from "./FlowDiagramVisualizer";
@@ -124,6 +126,10 @@ function OpticsRayRenderer({ spec }: { spec: OpticsRaySpec }) {
   return <OpticsRayVisualizer spec={spec} />;
 }
 
+function PhysicsSimulationRenderer({ spec }: { spec: PhysicsSimulationSpec }) {
+  return <FreeFallSimulationVisualizer spec={spec} />;
+}
+
 export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   switch (spec.kind) {
     case "timeline":
@@ -158,6 +164,8 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
       return <WaveInterferenceRenderer spec={spec} />;
     case "optics-rays":
       return <OpticsRayRenderer spec={spec} />;
+    case "physics-simulation":
+      return <PhysicsSimulationRenderer spec={spec} />;
     default:
       return (
         <div className="rounded-lg border border-dashed border-slate-200 p-4 text-sm text-slate-500">
