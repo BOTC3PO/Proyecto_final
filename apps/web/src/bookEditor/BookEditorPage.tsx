@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import type { Block, Book, Page } from "../domain/book/book.types";
 import { useBookEditor } from "./state/useBookEditor";
 import { ensureUniqueIds } from "./services/ids";
 import { exportBookToDownload, importBookFromFile } from "./services/importExport";
 import { migrateToV11ForEditor } from "./services/migrate";
-
-// import { useParams } from "react-router-dom";
+import { fetchBook, saveBook } from "./services/booksApi";
 
 // ===== Helpers UI-only =====
 function classNames(...xs: Array<string | false | null | undefined>) {
@@ -78,7 +78,8 @@ function prepareBookForEditor(input: Book): Book {
 
 // ===== Componente principal =====
 export default function BookEditorPage() {
-  // const { bookId } = useParams();
+  const { id: routeId } = useParams();
+  const location = useLocation();
   const { state, dispatch, selectedPage, selectedBlock, runValidation } = useBookEditor();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -99,21 +100,61 @@ export default function BookEditorPage() {
   // Validation drawer
   const [issuesOpen, setIssuesOpen] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [draftSavedAt, setDraftSavedAt] = useState<string | null>(null);
+
   const book = state.book;
+  const queryId = new URLSearchParams(location.search).get("id");
+  const bookId = routeId ?? queryId ?? null;
 
   useEffect(() => {
-    let loadedBook = prepareBookForEditor(EMPTY_BOOK);
-    try {
-      const raw = localStorage.getItem("bookEditor:draft");
-      if (raw) {
-        const parsed = JSON.parse(raw) as Book;
-        loadedBook = prepareBookForEditor(parsed);
+    let ignore = false;
+
+    async function loadInitialBook() {
+      setIsLoading(true);
+      setLoadError(null);
+
+      let loadedBook: Book | null = null;
+
+      if (bookId) {
+        try {
+          const remote = await fetchBook(bookId);
+          if (ignore) return;
+          loadedBook = prepareBookForEditor(remote);
+        } catch (e) {
+          if (ignore) return;
+          console.error("No se pudo cargar el libro remoto:", e);
+          setLoadError("No se pudo cargar el libro remoto. Se usará el borrador local.");
+        }
       }
-    } catch (e) {
-      console.error("No se pudo cargar el borrador:", e);
+
+      if (!loadedBook) {
+        let fallback = EMPTY_BOOK;
+        try {
+          const raw = localStorage.getItem("bookEditor:draft");
+          if (raw) {
+            const parsed = JSON.parse(raw) as Book;
+            fallback = parsed;
+          }
+        } catch (e) {
+          console.error("No se pudo cargar el borrador:", e);
+        }
+        loadedBook = prepareBookForEditor(fallback);
+      }
+
+      dispatch({ type: "LOAD_BOOK", book: loadedBook });
+      setIsLoading(false);
     }
-    dispatch({ type: "LOAD_BOOK", book: loadedBook });
-  }, [dispatch]);
+
+    loadInitialBook();
+
+    return () => {
+      ignore = true;
+    };
+  }, [bookId, dispatch]);
 
   useEffect(() => {
     if (!book) return;
@@ -128,6 +169,12 @@ export default function BookEditorPage() {
     if (!book) return;
     runValidation(book);
   }, [book, runValidation]);
+
+  useEffect(() => {
+    if (state.dirty && saveStatus === "saved") {
+      setSaveStatus("idle");
+    }
+  }, [saveStatus, state.dirty]);
 
   // ===== Acciones UI (lógica básica placeholder) =====
   function openJsonModal() {
@@ -172,6 +219,34 @@ export default function BookEditorPage() {
     }
   }
 
+  async function handleSaveRemote() {
+    if (!book) return;
+    setSaveStatus("saving");
+    setSaveError(null);
+
+    try {
+      await saveBook(book);
+      dispatch({ type: "MARK_DIRTY", dirty: false });
+      setSaveStatus("saved");
+    } catch (e: any) {
+      console.error("No se pudo guardar:", e);
+      setSaveStatus("error");
+      setSaveError("No se pudo guardar en el servidor.");
+    }
+  }
+
+  function handleSaveDraft() {
+    if (!book) return;
+    try {
+      localStorage.setItem("bookEditor:draft", JSON.stringify(book));
+      setDraftSavedAt(new Date().toISOString());
+    } catch (e) {
+      console.error("No se pudo guardar el borrador:", e);
+      setSaveStatus("error");
+      setSaveError("No se pudo guardar el borrador local.");
+    }
+  }
+
   //const validationIssues = state.issues;
 
   // ===== Render helpers =====
@@ -182,7 +257,31 @@ export default function BookEditorPage() {
   const lineHeight = book?.metadata.theme?.lineHeight ?? 1.6;
 
   if (!book) {
-    return <div className="min-h-screen bg-slate-50 text-slate-900 p-6">Cargando editor…</div>;
+    return (
+      <div className="min-h-screen bg-slate-50 text-slate-900">
+        <header className="sticky top-0 z-40 border-b bg-white/90 backdrop-blur">
+          <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 sm:px-6">
+            <div className="flex min-w-0 flex-1 items-center gap-3">
+              <div className="grid h-9 w-9 place-items-center rounded-xl bg-slate-900 font-semibold text-white">B</div>
+              <div className="min-w-0">
+                <div className="truncate text-sm font-semibold">Editor de libros</div>
+                <div className="truncate text-xs text-slate-500">Preparando editor…</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 text-xs text-slate-500">
+              {isLoading ? (
+                <div className="flex items-center gap-2">
+                  <span className="h-3 w-3 animate-spin rounded-full border border-slate-300 border-t-transparent" />
+                  Cargando…
+                </div>
+              ) : null}
+              {loadError ? <span className="text-red-600">{loadError}</span> : null}
+            </div>
+          </div>
+        </header>
+        <div className="p-6">Cargando editor…</div>
+      </div>
+    );
   }
 
   return (
@@ -197,10 +296,37 @@ export default function BookEditorPage() {
               <div className="truncate text-xs text-slate-500">
                 {book.metadata.id} · {book.schema} {state.dirty ? "· sin guardar" : "· guardado"}
               </div>
+              <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                {isLoading ? (
+                  <span className="inline-flex items-center gap-2 text-slate-500">
+                    <span className="h-3 w-3 animate-spin rounded-full border border-slate-300 border-t-transparent" />
+                    Cargando…
+                  </span>
+                ) : null}
+                {saveStatus === "saving" ? <span className="text-slate-500">Guardando…</span> : null}
+                {saveStatus === "saved" ? <span className="text-emerald-600">Guardado</span> : null}
+                {saveStatus === "error" ? <span className="text-red-600">{saveError ?? "Error al guardar"}</span> : null}
+                {draftSavedAt ? <span className="text-slate-400">Borrador local actualizado</span> : null}
+                {loadError ? <span className="text-red-600">{loadError}</span> : null}
+              </div>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
+            <button
+              className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-60"
+              onClick={handleSaveRemote}
+              disabled={saveStatus === "saving" || isLoading}
+            >
+              Guardar
+            </button>
+            <button
+              className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-60"
+              onClick={handleSaveDraft}
+              disabled={isLoading}
+            >
+              Guardar borrador local
+            </button>
             <button
               className={classNames(
                 "rounded-lg px-3 py-2 text-sm font-medium",
