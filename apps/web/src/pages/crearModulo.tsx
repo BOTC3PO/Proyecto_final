@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiPost } from "../lib/api";
-import type { ModuleResource } from "../domain/module/module.types";
+import { getSubjectCapabilities, type ModuleResource } from "../domain/module/module.types";
 import { MVP_GENERATOR_CATEGORIES, MVP_MODULES } from "../mvp/mvpData";
 
 type QuizVisibility = "publico" | "escuela";
@@ -57,6 +57,18 @@ export default function CrearModulo() {
   const [bookResources, setBookResources] = useState<ModuleResource[]>([]);
   const [bookResourceId, setBookResourceId] = useState("");
   const [bookResourceTitle, setBookResourceTitle] = useState("");
+  const subjectCapabilities = useMemo(() => getSubjectCapabilities(subject), [subject]);
+  const enabledTheoryTypes = useMemo(
+    () => subjectCapabilities.theoryTypes.filter((option) => !option.disabled),
+    [subjectCapabilities.theoryTypes],
+  );
+
+  useEffect(() => {
+    if (subjectCapabilities.theoryTypes.some((option) => option.value === newTheoryType && !option.disabled)) {
+      return;
+    }
+    setNewTheoryType(enabledTheoryTypes[0]?.value ?? "Video");
+  }, [enabledTheoryTypes, newTheoryType, subjectCapabilities.theoryTypes]);
 
   // En un futuro acá podes traer estas listas desde la API
   const materias = [
@@ -477,16 +489,35 @@ export default function CrearModulo() {
                         onChange={(event) => handleUpdateTheory(item.id, "title", event.target.value)}
                         placeholder="Título del bloque"
                       />
-                      <select
-                        className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                        value={item.type}
-                        onChange={(event) => handleUpdateTheory(item.id, "type", event.target.value)}
-                      >
-                        <option>Video</option>
-                        <option>Texto</option>
-                        <option>Enlace</option>
-                        <option>TuesdayJS</option>
-                      </select>
+                      <div className="space-y-1">
+                        <select
+                          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                          value={item.type}
+                          onChange={(event) => handleUpdateTheory(item.id, "type", event.target.value)}
+                        >
+                          {subjectCapabilities.theoryTypes.map((option) => (
+                            <option
+                              key={`${item.id}-${option.value}`}
+                              value={option.value}
+                              disabled={option.disabled}
+                            >
+                              {option.label}
+                              {option.disabledReason ? ` (${option.disabledReason})` : ""}
+                            </option>
+                          ))}
+                        </select>
+                        {subjectCapabilities.theoryTypes.some(
+                          (option) => option.value === item.type && option.disabled && option.disabledReason
+                        ) && (
+                          <p className="text-[11px] text-amber-600">
+                            {
+                              subjectCapabilities.theoryTypes.find(
+                                (option) => option.value === item.type && option.disabled && option.disabledReason
+                              )?.disabledReason
+                            }
+                          </p>
+                        )}
+                      </div>
                       <input
                         className="rounded-md border border-gray-300 px-3 py-2 text-sm"
                         value={item.detail}
@@ -508,16 +539,20 @@ export default function CrearModulo() {
                   onChange={(event) => setNewTheoryTitle(event.target.value)}
                   placeholder="Título (ej: Video introductorio)"
                 />
-                <select
-                  className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                  value={newTheoryType}
-                  onChange={(event) => setNewTheoryType(event.target.value)}
-                >
-                  <option>Video</option>
-                  <option>Texto</option>
-                  <option>Enlace</option>
-                  <option>TuesdayJS</option>
-                </select>
+                <div className="space-y-1">
+                  <select
+                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                    value={newTheoryType}
+                    onChange={(event) => setNewTheoryType(event.target.value)}
+                  >
+                    {subjectCapabilities.theoryTypes.map((option) => (
+                      <option key={option.value} value={option.value} disabled={option.disabled}>
+                        {option.label}
+                        {option.disabledReason ? ` (${option.disabledReason})` : ""}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                 <input
                   className="rounded-md border border-gray-300 px-3 py-2 text-sm"
                   value={newTheoryDetail}
@@ -525,6 +560,9 @@ export default function CrearModulo() {
                   placeholder="Detalle / nota"
                 />
               </div>
+              {!subjectCapabilities.supportsTuesdayJs && subjectCapabilities.tuesdayJsDisabledReason && (
+                <p className="text-[11px] text-gray-500">{subjectCapabilities.tuesdayJsDisabledReason}</p>
+              )}
               <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddTheory}>
                 + Agregar parte de teoría
               </button>
@@ -593,17 +631,19 @@ export default function CrearModulo() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <div className="border rounded-lg p-4 space-y-2">
-                <h3 className="text-sm font-semibold">TuesdayJS / Novela visual</h3>
-                <p className="text-xs text-gray-600">
-                  Importa el JSON de TuesdayJS para insertarlo como página del módulo.
-                </p>
-                <textarea
-                  rows={4}
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 font-mono text-xs"
-                  placeholder="Pega el JSON exportado..."
-                />
-              </div>
+              {subjectCapabilities.supportsTuesdayJs && (
+                <div className="border rounded-lg p-4 space-y-2">
+                  <h3 className="text-sm font-semibold">TuesdayJS / Novela visual</h3>
+                  <p className="text-xs text-gray-600">
+                    Importa el JSON de TuesdayJS para insertarlo como página del módulo.
+                  </p>
+                  <textarea
+                    rows={4}
+                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 font-mono text-xs"
+                    placeholder="Pega el JSON exportado..."
+                  />
+                </div>
+              )}
               <div className="border rounded-lg p-4 space-y-2">
                 <h3 className="text-sm font-semibold">Enlaces, videos y texto</h3>
                 <div className="space-y-2">
@@ -678,11 +718,17 @@ export default function CrearModulo() {
                     <div>
                       <label className="block text-xs font-medium text-gray-700">Modo de creación</label>
                       <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white">
-                        <option>Generar automáticamente (materias seleccionadas)</option>
+                        <option
+                          disabled={!subjectCapabilities.supportsAutoQuizzes}
+                        >
+                          Generar automáticamente (materias seleccionadas)
+                        </option>
                         <option>Escribir consignas manualmente</option>
                       </select>
                       <p className="mt-1 text-[11px] text-gray-500">
-                        Disponible para materias con generadores: Matemáticas, Física, Química y Economía.
+                        {subjectCapabilities.supportsAutoQuizzes
+                          ? "Disponible para materias con generadores: Matemáticas, Física, Química y Economía."
+                          : subjectCapabilities.autoQuizDisabledReason}
                       </p>
                     </div>
                     <div>
@@ -868,55 +914,57 @@ export default function CrearModulo() {
           </section>
 
           {/* 6. Generación automática y semillas */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Generación automática y semillas</h2>
-            <p className="text-sm text-gray-600">
-              Usa la semilla definida en <span className="font-mono">generador/basic/seed.ts</span> o ingresa una
-              personalizada para reproducir exámenes.
-            </p>
+          {subjectCapabilities.supportsGenerators && (
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold">Generación automática y semillas</h2>
+              <p className="text-sm text-gray-600">
+                Usa la semilla definida en <span className="font-mono">generador/basic/seed.ts</span> o ingresa una
+                personalizada para reproducir exámenes.
+              </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Semilla y cantidad</h3>
-                <input
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  placeholder="Semilla (opcional)"
-                />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="border rounded-lg p-4 space-y-3">
+                  <h3 className="text-sm font-semibold">Semilla y cantidad</h3>
                   <input
-                    type="number"
-                    min={1}
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Preguntas a responder"
+                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    placeholder="Semilla (opcional)"
                   />
-                  <input
-                    type="number"
-                    min={1}
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Preguntas generadas"
-                  />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <input
+                      type="number"
+                      min={1}
+                      className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      placeholder="Preguntas a responder"
+                    />
+                    <input
+                      type="number"
+                      min={1}
+                      className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      placeholder="Preguntas generadas"
+                    />
+                  </div>
+                  <p className="text-xs text-gray-500">
+                    Ejemplo: el alumno responde 100 preguntas y se generan 200 para lograr aleatoriedad.
+                  </p>
                 </div>
-                <p className="text-xs text-gray-500">
-                  Ejemplo: el alumno responde 100 preguntas y se generan 200 para lograr aleatoriedad.
-                </p>
-              </div>
 
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Generar ahora y guardar</h3>
-                <textarea
-                  rows={4}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  placeholder="Notas para gerencia / revisión del examen generado..."
-                />
-                <button type="button" className="rounded-md border px-3 py-2 text-sm">
-                  Generar preguntas y guardar resultados
-                </button>
-                <p className="text-xs text-gray-500">
-                  Recomendación: generar varias veces para aumentar la aleatoriedad.
-                </p>
+                <div className="border rounded-lg p-4 space-y-3">
+                  <h3 className="text-sm font-semibold">Generar ahora y guardar</h3>
+                  <textarea
+                    rows={4}
+                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    placeholder="Notas para gerencia / revisión del examen generado..."
+                  />
+                  <button type="button" className="rounded-md border px-3 py-2 text-sm">
+                    Generar preguntas y guardar resultados
+                  </button>
+                  <p className="text-xs text-gray-500">
+                    Recomendación: generar varias veces para aumentar la aleatoriedad.
+                  </p>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* 7. Sistema de puntuación y aprobación */}
           <section className="space-y-4">
@@ -974,50 +1022,52 @@ export default function CrearModulo() {
           </section>
 
           {/* 8. Contenidos especiales */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Contenidos especiales</h2>
-            <p className="text-sm text-gray-600">
-              Agrega libros, PDFs o módulos especiales para materias específicas (lengua, geografía, biología).
-            </p>
+          {subjectCapabilities.supportsSpecialResources && (
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold">Contenidos especiales</h2>
+              <p className="text-sm text-gray-600">
+                Agrega libros, PDFs o módulos especiales para materias específicas (lengua, geografía, biología).
+              </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="border rounded-lg p-4 space-y-2">
-                <h3 className="text-sm font-semibold">Libros y documentos</h3>
-                <div className="flex flex-wrap gap-2">
-                  <button type="button" className="rounded-md border px-3 py-2 text-sm">
-                    Añadir libro desde editor
-                  </button>
-                  <button type="button" className="rounded-md border px-3 py-2 text-sm">
-                    Subir PDF / DOC
-                  </button>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="border rounded-lg p-4 space-y-2">
+                  <h3 className="text-sm font-semibold">Libros y documentos</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <button type="button" className="rounded-md border px-3 py-2 text-sm">
+                      Añadir libro desde editor
+                    </button>
+                    <button type="button" className="rounded-md border px-3 py-2 text-sm">
+                      Subir PDF / DOC
+                    </button>
+                  </div>
+                  <p className="text-xs text-gray-500">
+                    Puedes incluir un cuestionario como módulo especial para lengua.
+                  </p>
                 </div>
-                <p className="text-xs text-gray-500">
-                  Puedes incluir un cuestionario como módulo especial para lengua.
-                </p>
-              </div>
 
-              <div className="border rounded-lg p-4 space-y-2">
-                <h3 className="text-sm font-semibold">Funciones específicas por materia</h3>
-                <div className="space-y-2 text-xs text-gray-600">
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" className="h-4 w-4" />
-                    Activar mapa interactivo (selección de ubicación)
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" className="h-4 w-4" />
-                    Subir imagen de esqueleto/hueso para marcar partes
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" className="h-4 w-4" />
-                    Reservar espacio para futuras funciones del módulo
-                  </label>
+                <div className="border rounded-lg p-4 space-y-2">
+                  <h3 className="text-sm font-semibold">Funciones específicas por materia</h3>
+                  <div className="space-y-2 text-xs text-gray-600">
+                    <label className="flex items-center gap-2">
+                      <input type="checkbox" className="h-4 w-4" />
+                      Activar mapa interactivo (selección de ubicación)
+                    </label>
+                    <label className="flex items-center gap-2">
+                      <input type="checkbox" className="h-4 w-4" />
+                      Subir imagen de esqueleto/hueso para marcar partes
+                    </label>
+                    <label className="flex items-center gap-2">
+                      <input type="checkbox" className="h-4 w-4" />
+                      Reservar espacio para futuras funciones del módulo
+                    </label>
+                  </div>
+                  <p className="text-[11px] text-gray-500">
+                    Estas funciones pueden habilitarse ahora y completarse en una iteración posterior.
+                  </p>
                 </div>
-                <p className="text-[11px] text-gray-500">
-                  Estas funciones pueden habilitarse ahora y completarse en una iteración posterior.
-                </p>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* 9. Sistema de nivel y recompensas */}
           <section className="space-y-4">
@@ -1072,59 +1122,61 @@ export default function CrearModulo() {
           </section>
 
           {/* 10. Generador MVP */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Generador MVP (opcional)</h2>
-            <p className="text-sm text-gray-600">
-              Generador rápido para crear actividades basadas en categorías MVP.
-            </p>
+          {subjectCapabilities.supportsGenerators && (
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold">Generador MVP (opcional)</h2>
+              <p className="text-sm text-gray-600">
+                Generador rápido para crear actividades basadas en categorías MVP.
+              </p>
 
-            <div className="border rounded-lg p-4 bg-gray-50 space-y-3">
-              <h3 className="text-sm font-semibold">Generador de problemas / actividades</h3>
+              <div className="border rounded-lg p-4 bg-gray-50 space-y-3">
+                <h3 className="text-sm font-semibold">Generador de problemas / actividades</h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Categoría MVP</label>
-                  <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2">
-                    {MVP_GENERATOR_CATEGORIES.map((category) => (
-                      <option key={category} value={category}>
-                        {category}
-                      </option>
-                    ))}
-                  </select>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Categoría MVP</label>
+                    <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2">
+                      {MVP_GENERATOR_CATEGORIES.map((category) => (
+                        <option key={category} value={category}>
+                          {category}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Nivel sugerido</label>
+                    <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2">
+                      <option>Básico</option>
+                      <option>Intermedio</option>
+                      <option>Avanzado</option>
+                    </select>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Nivel sugerido</label>
-                  <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2">
-                    <option>Básico</option>
-                    <option>Intermedio</option>
-                    <option>Avanzado</option>
-                  </select>
-                </div>
-              </div>
 
-              <textarea
-                placeholder="Descripción breve del generador o configuración base..."
-                rows={3}
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-              />
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
-                <input
-                  placeholder="Número de muestra / versión"
-                  className="rounded-md border border-gray-300 px-3 py-2"
+                <textarea
+                  placeholder="Descripción breve del generador o configuración base..."
+                  rows={3}
+                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
                 />
-                <button type="button" className="rounded-md border border-gray-300 px-3 py-2 text-sm text-left">
-                  Configurar generador
-                </button>
-                <button
-                  type="button"
-                  className="bg-green-500 hover:bg-green-600 text-white rounded-md px-3 py-2 text-sm"
-                >
-                  Crear preguntas desde generador
-                </button>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                  <input
+                    placeholder="Número de muestra / versión"
+                    className="rounded-md border border-gray-300 px-3 py-2"
+                  />
+                  <button type="button" className="rounded-md border border-gray-300 px-3 py-2 text-sm text-left">
+                    Configurar generador
+                  </button>
+                  <button
+                    type="button"
+                    className="bg-green-500 hover:bg-green-600 text-white rounded-md px-3 py-2 text-sm"
+                  >
+                    Crear preguntas desde generador
+                  </button>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* 11. Visibilidad y permisos */}
           <section className="space-y-4">
