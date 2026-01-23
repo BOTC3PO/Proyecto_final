@@ -255,7 +255,9 @@ export default function menuProfesor() {
               >
                 + Crear clase/sección
               </Link>
-              <button className="text-sm text-blue-600 hover:underline">Crear módulo</button>
+              <Link className="text-sm text-blue-600 hover:underline" to="/profesor/crear-modulo">
+                Crear módulo
+              </Link>
             </div>
           </div>
           <div className="mt-4 grid gap-3 lg:grid-cols-[2fr_1fr_1fr]">

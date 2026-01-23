@@ -387,8 +387,9 @@ const AdminPanelMain: React.FC = () => {
                       una transferencia.
                     </li>
                     <li>
-                      Padres/tutores pueden enviar mensajes a admins, y los admins pueden
-                      responder si el tutor está registrado en el sistema.
+                      Padres/tutores son usuarios mayores de 18 años invitados por un
+                      colegio o por sus hijos para ver clasificaciones; por seguridad,
+                      solo pueden contactar admins si están registrados en el sistema.
                     </li>
                   </ul>
                 </div>
