@@ -4,6 +4,7 @@ import { Award, Bell, Clock3, GraduationCap, Trophy, UserCircle2 } from "lucide-
 import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
+import { getSubjectColor } from "../domain/module/subjectColors";
 
 interface Student {
   name: string;
@@ -43,6 +44,7 @@ type RewardItem = {
   id: string;
   title: string;
   reward: number;
+  subject?: string;
 };
 
 type SavingsMission = {
@@ -132,9 +134,9 @@ type EconomyState = {
 };
 
 const MODULE_REWARDS: RewardItem[] = [
-  { id: "mod-1", title: "Módulo 1: Introducción", reward: 20 },
-  { id: "mod-2", title: "Módulo 2: Práctica guiada", reward: 30 },
-  { id: "mod-3", title: "Módulo 3: Evaluación", reward: 40 }
+  { id: "mod-1", title: "Módulo 1: Introducción", reward: 20, subject: "Educación financiera" },
+  { id: "mod-2", title: "Módulo 2: Práctica guiada", reward: 30, subject: "Educación financiera" },
+  { id: "mod-3", title: "Módulo 3: Evaluación", reward: 40, subject: "Educación financiera" }
 ];
 
 const TASK_REWARDS: RewardItem[] = [
@@ -1297,9 +1299,22 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
                 <h4 className="text-sm font-semibold text-gray-700">Módulos</h4>
                 {MODULE_REWARDS.map((module) => {
                   const isCompleted = completedModuleSet.has(module.id);
+                  const subjectColor = getSubjectColor(module.subject);
                   return (
-                    <div key={module.id} className="flex items-center justify-between rounded-xl border border-gray-200 p-3">
+                    <div
+                      key={module.id}
+                      className="flex items-center justify-between rounded-xl border p-3"
+                      style={{
+                        borderColor: subjectColor.border,
+                        backgroundColor: subjectColor.background
+                      }}
+                    >
                       <div>
+                        {module.subject && (
+                          <p className="text-[11px] font-semibold uppercase" style={{ color: subjectColor.text }}>
+                            {module.subject}
+                          </p>
+                        )}
                         <p className="text-sm font-medium text-gray-800">{module.title}</p>
                         <p className="text-xs text-gray-400">Recompensa: {module.reward} 🪙</p>
                       </div>
