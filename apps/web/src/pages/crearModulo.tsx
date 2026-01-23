@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiPost } from "../lib/api";
 import { getSubjectCapabilities, type ModuleResource } from "../domain/module/module.types";
@@ -18,6 +18,141 @@ type QuizBlock = {
   title: string;
   type: "practica" | "evaluacion";
   visibility: QuizVisibility;
+};
+
+type ValidationResult = {
+  isValid: boolean;
+  errors: string[];
+};
+
+const isNonEmptyString = (value: unknown): value is string =>
+  typeof value === "string" && value.trim().length > 0;
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === "object" && value !== null;
+
+const tuesdayJsonExample = `{
+  "metadata": {
+    "title": "Introducción al conflicto",
+    "version": "1.0"
+  },
+  "scenes": [
+    {
+      "id": "escena-1",
+      "title": "La decisión",
+      "nodes": [
+        {
+          "id": "nodo-1",
+          "text": "El personaje principal recibe una noticia inesperada."
+        }
+      ]
+    }
+  ]
+}`;
+
+const exercisesJsonExample = `{
+  "preguntas": [
+    {
+      "enunciado": "¿Cuál es la fórmula de la velocidad media?",
+      "respuestas": [
+        "v = d / t",
+        "v = t / d",
+        "v = d * t"
+      ],
+      "solucion": "v = d / t",
+      "explicacion": "Se calcula como distancia dividida por tiempo."
+    }
+  ]
+}`;
+
+const validateTuesdayJson = (value: unknown): ValidationResult => {
+  const errors: string[] = [];
+  if (!isRecord(value)) {
+    return { isValid: false, errors: ["El JSON debe ser un objeto con metadata y scenes."] };
+  }
+
+  const metadata = value.metadata;
+  if (!isRecord(metadata) || !isNonEmptyString(metadata.title)) {
+    errors.push("metadata.title debe ser un texto no vacío.");
+  }
+
+  const scenes = value.scenes;
+  if (!Array.isArray(scenes) || scenes.length === 0) {
+    errors.push("scenes debe ser un array con al menos una escena.");
+  } else {
+    scenes.forEach((scene, index) => {
+      if (!isRecord(scene) || !isNonEmptyString(scene.id)) {
+        errors.push(`scenes[${index}].id debe ser un texto no vacío.`);
+      }
+      const nodes = isRecord(scene) ? scene.nodes : undefined;
+      if (!Array.isArray(nodes) || nodes.length === 0) {
+        errors.push(`scenes[${index}].nodes debe ser un array con al menos un nodo.`);
+        return;
+      }
+      nodes.forEach((node, nodeIndex) => {
+        if (!isRecord(node) || !isNonEmptyString(node.id)) {
+          errors.push(`scenes[${index}].nodes[${nodeIndex}].id debe ser un texto no vacío.`);
+        }
+        if (!isRecord(node) || !isNonEmptyString(node.text)) {
+          errors.push(`scenes[${index}].nodes[${nodeIndex}].text debe ser un texto no vacío.`);
+        }
+      });
+    });
+  }
+
+  return { isValid: errors.length === 0, errors };
+};
+
+const validateExercisesJson = (value: unknown): ValidationResult => {
+  const errors: string[] = [];
+  const preguntas = Array.isArray(value)
+    ? value
+    : isRecord(value) && Array.isArray(value.preguntas)
+      ? value.preguntas
+      : null;
+
+  if (!preguntas) {
+    return {
+      isValid: false,
+      errors: ["El JSON debe ser un array de preguntas o un objeto con la clave preguntas."],
+    };
+  }
+
+  if (preguntas.length === 0) {
+    errors.push("Debe incluir al menos una pregunta.");
+  }
+
+  preguntas.forEach((pregunta, index) => {
+    if (!isRecord(pregunta)) {
+      errors.push(`preguntas[${index}] debe ser un objeto con enunciado, respuestas y solucion.`);
+      return;
+    }
+    if (!isNonEmptyString(pregunta.enunciado)) {
+      errors.push(`preguntas[${index}].enunciado debe ser un texto no vacío.`);
+    }
+    if (!Array.isArray(pregunta.respuestas) || pregunta.respuestas.length < 2) {
+      errors.push(`preguntas[${index}].respuestas debe ser un array con al menos 2 opciones.`);
+    } else {
+      pregunta.respuestas.forEach((respuesta, respuestaIndex) => {
+        const isStringOption = isNonEmptyString(respuesta);
+        const isObjectOption = isRecord(respuesta) && isNonEmptyString(respuesta.texto);
+        if (!isStringOption && !isObjectOption) {
+          errors.push(
+            `preguntas[${index}].respuestas[${respuestaIndex}] debe ser un texto o un objeto con texto.`,
+          );
+        }
+      });
+    }
+    const solucion = pregunta.solucion;
+    if (
+      !(typeof solucion === "string" && solucion.trim()) &&
+      !(typeof solucion === "number" && Number.isFinite(solucion))
+    ) {
+      errors.push(`preguntas[${index}].solucion debe ser un texto o número válido.`);
+    }
+  });
+
+  return { isValid: errors.length === 0, errors };
 };
 
 export default function CrearModulo() {
@@ -57,6 +192,19 @@ export default function CrearModulo() {
   const [bookResources, setBookResources] = useState<ModuleResource[]>([]);
   const [bookResourceId, setBookResourceId] = useState("");
   const [bookResourceTitle, setBookResourceTitle] = useState("");
+  const [tuesdayJsonInput, setTuesdayJsonInput] = useState("");
+  const [tuesdayJsonStatus, setTuesdayJsonStatus] = useState<{
+    status: "idle" | "valid" | "error";
+    message: string;
+    errors?: string[];
+  }>({ status: "idle", message: "" });
+  const [exerciseImportStatus, setExerciseImportStatus] = useState<{
+    status: "idle" | "valid" | "error";
+    message: string;
+    errors?: string[];
+  }>({ status: "idle", message: "" });
+  const [exerciseFileName, setExerciseFileName] = useState("");
+  const exerciseFileInputRef = useRef<HTMLInputElement | null>(null);
   const subjectCapabilities = useMemo(() => getSubjectCapabilities(subject), [subject]);
   const enabledTheoryTypes = useMemo(
     () => subjectCapabilities.theoryTypes.filter((option) => !option.disabled),
@@ -246,6 +394,80 @@ export default function CrearModulo() {
     setBookResources((prev) =>
       prev.filter((resource) => resource.type !== "book" || resource.id !== id)
     );
+  };
+
+  const handleValidateTuesdayJson = () => {
+    if (!tuesdayJsonInput.trim()) {
+      setTuesdayJsonStatus({
+        status: "error",
+        message: "Pegá el JSON exportado para poder validar.",
+        errors: ["El campo está vacío o solo contiene espacios."],
+      });
+      return;
+    }
+
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(tuesdayJsonInput);
+    } catch (error) {
+      setTuesdayJsonStatus({
+        status: "error",
+        message: "El JSON no se pudo leer. Revisá la sintaxis.",
+        errors: [error instanceof Error ? error.message : "JSON inválido."],
+      });
+      return;
+    }
+
+    const validation = validateTuesdayJson(parsed);
+    if (validation.isValid) {
+      setTuesdayJsonStatus({
+        status: "valid",
+        message: "JSON de TuesdayJS válido. Se puede agregar como teoría.",
+      });
+    } else {
+      setTuesdayJsonStatus({
+        status: "error",
+        message: "El JSON no coincide con el esquema esperado.",
+        errors: validation.errors,
+      });
+    }
+  };
+
+  const handleExerciseFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setExerciseImportStatus({ status: "idle", message: "" });
+    setExerciseFileName("");
+    try {
+      const raw = await file.text();
+      const parsed = JSON.parse(raw) as unknown;
+      const validation = validateExercisesJson(parsed);
+      if (!validation.isValid) {
+        setExerciseImportStatus({
+          status: "error",
+          message: "El archivo no coincide con el esquema de planilla.",
+          errors: validation.errors,
+        });
+        if (exerciseFileInputRef.current) {
+          exerciseFileInputRef.current.value = "";
+        }
+        return;
+      }
+      setExerciseFileName(file.name);
+      setExerciseImportStatus({
+        status: "valid",
+        message: "Planilla válida. Lista para importar preguntas.",
+      });
+    } catch (error) {
+      setExerciseImportStatus({
+        status: "error",
+        message: "No se pudo leer el archivo JSON.",
+        errors: [error instanceof Error ? error.message : "JSON inválido."],
+      });
+      if (exerciseFileInputRef.current) {
+        exerciseFileInputRef.current.value = "";
+      }
+    }
   };
 
   return (
@@ -641,7 +863,40 @@ export default function CrearModulo() {
                     rows={4}
                     className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 font-mono text-xs"
                     placeholder="Pega el JSON exportado..."
+                    value={tuesdayJsonInput}
+                    onChange={(event) => {
+                      setTuesdayJsonInput(event.target.value);
+                      setTuesdayJsonStatus({ status: "idle", message: "" });
+                    }}
                   />
+                  <div className="flex flex-wrap items-center gap-2 text-xs">
+                    <button
+                      type="button"
+                      className="rounded-md border px-3 py-1 text-xs"
+                      onClick={handleValidateTuesdayJson}
+                    >
+                      Validar JSON
+                    </button>
+                    {tuesdayJsonStatus.status === "valid" && (
+                      <span className="text-emerald-600">{tuesdayJsonStatus.message}</span>
+                    )}
+                  </div>
+                  {tuesdayJsonStatus.status === "error" && (
+                    <div className="rounded-md border border-red-200 bg-red-50 p-3 text-xs text-red-700 space-y-2">
+                      <p className="font-semibold">{tuesdayJsonStatus.message}</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        {tuesdayJsonStatus.errors?.map((error) => (
+                          <li key={error}>{error}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  <details className="rounded-md border border-slate-200 bg-slate-50 p-3 text-[11px] text-slate-600">
+                    <summary className="cursor-pointer font-medium">
+                      Ver ejemplo de estructura válida de TuesdayJS
+                    </summary>
+                    <pre className="mt-2 whitespace-pre-wrap font-mono">{tuesdayJsonExample}</pre>
+                  </details>
                 </div>
               )}
               <div className="border rounded-lg p-4 space-y-2">
@@ -810,8 +1065,29 @@ export default function CrearModulo() {
                   type="file"
                   accept=".json"
                   className="block w-full text-sm text-gray-700 file:mr-4 file:rounded-md file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
+                  ref={exerciseFileInputRef}
+                  onChange={handleExerciseFileChange}
                 />
                 <p className="text-xs text-gray-500">Incluye en cada pregunta: enunciado, respuestas y solución.</p>
+                {exerciseImportStatus.status === "valid" && (
+                  <p className="text-xs text-emerald-600">
+                    {exerciseImportStatus.message} {exerciseFileName ? `(${exerciseFileName})` : ""}
+                  </p>
+                )}
+                {exerciseImportStatus.status === "error" && (
+                  <div className="rounded-md border border-red-200 bg-red-50 p-3 text-xs text-red-700 space-y-2">
+                    <p className="font-semibold">{exerciseImportStatus.message}</p>
+                    <ul className="list-disc pl-4 space-y-1">
+                      {exerciseImportStatus.errors?.map((error) => (
+                        <li key={error}>{error}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                <details className="rounded-md border border-slate-200 bg-slate-50 p-3 text-[11px] text-slate-600">
+                  <summary className="cursor-pointer font-medium">Ver ejemplo de planilla válida</summary>
+                  <pre className="mt-2 whitespace-pre-wrap font-mono">{exercisesJsonExample}</pre>
+                </details>
               </div>
 
               <div className="border rounded-lg p-4 space-y-2">
