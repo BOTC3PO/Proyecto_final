@@ -40,6 +40,8 @@ export const ModuleSchema = z.object({
     .optional(),
   resources: z.array(ModuleResourceSchema).optional(),
   createdBy: z.string().min(1),
+  createdByRole: z.enum(["admin", "docente"]).optional(),
+  authorName: z.string().min(1).optional(),
   updatedAt: z.string().datetime()
 });
 
