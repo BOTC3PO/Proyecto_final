@@ -8,6 +8,21 @@ export type ModuleResource =
   | { type: "bookJson"; title: string; content?: string; url?: string; fileName?: string }
   | { type: "link"; title: string; url: string };
 
+export type ModuleQuizVisibility = "publico" | "escuela";
+
+export type ModuleQuiz = {
+  id: string;
+  title: string;
+  type: "practica" | "evaluacion";
+  visibility: ModuleQuizVisibility;
+};
+
+export type ModuleLevel = {
+  level: string;
+  quizzes?: ModuleQuiz[];
+  resources?: ModuleResource[];
+};
+
 export type ModuleGeneratorRef = {
   id: string;
   config?: Record<string, unknown>;
@@ -156,6 +171,7 @@ export type Module = {
   dependencies: string[];
   generatorRef?: ModuleGeneratorRef | null;
   resources?: ModuleResource[];
+  levels?: ModuleLevel[];
   createdBy: string;
   createdByRole?: "admin" | "docente";
   authorName?: string;

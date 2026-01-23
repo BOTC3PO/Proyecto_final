@@ -124,6 +124,7 @@ export default function JugarModulo() {
   const [unlockedCount, setUnlockedCount] = useState<number | null>(null);
   const progressStartedRef = useRef(false);
   const [bookStates, setBookStates] = useState<Record<string, BookResourceState>>({});
+  const [selectedLevel, setSelectedLevel] = useState("");
 
   useEffect(() => {
     if (!id) return;
@@ -146,6 +147,13 @@ export default function JugarModulo() {
   }, [id]);
 
   useEffect(() => {
+    if (!module) return;
+    const availableLevels = module.levels?.map((level) => level.level) ?? [];
+    const fallbackLevel = module.level ?? availableLevels[0] ?? "";
+    setSelectedLevel((prev) => (prev && availableLevels.includes(prev) ? prev : fallbackLevel));
+  }, [module]);
+
+  useEffect(() => {
     if (!module || progressStartedRef.current) return;
     progressStartedRef.current = true;
     const payload = {
@@ -159,9 +167,16 @@ export default function JugarModulo() {
     });
   }, [module]);
 
+  const activeLevelData = useMemo(
+    () => module?.levels?.find((level) => level.level === selectedLevel) ?? module?.levels?.[0],
+    [module, selectedLevel],
+  );
+  const levelResources = activeLevelData?.resources ?? module?.resources ?? [];
+  const levelQuizzes = activeLevelData?.quizzes ?? [];
+
   useEffect(() => {
-    if (!module?.resources) return;
-    const bookResources = module.resources.filter((resource) => resource.type === "book");
+    if (!levelResources.length) return;
+    const bookResources = levelResources.filter((resource) => resource.type === "book");
     if (bookResources.length === 0) return;
     setBookStates((prev) => {
       const next = { ...prev };
@@ -190,7 +205,7 @@ export default function JugarModulo() {
           }));
         });
     });
-  }, [module]);
+  }, [levelResources]);
 
   const generatedQuiz = useMemo<GeneratedQuiz | null>(() => {
     if (!module?.generatorRef) return null;
@@ -291,7 +306,24 @@ export default function JugarModulo() {
           <h1 className="text-3xl font-semibold">{module.title}</h1>
           <p className="text-gray-600">{module.description}</p>
           <div className="flex flex-wrap gap-3 text-xs text-gray-500">
-            <span>Nivel: {module.level}</span>
+            <span className="flex items-center gap-2">
+              Nivel:
+              {module.levels && module.levels.length > 0 ? (
+                <select
+                  className="rounded-md border border-gray-300 bg-white px-2 py-1 text-xs"
+                  value={selectedLevel}
+                  onChange={(event) => setSelectedLevel(event.target.value)}
+                >
+                  {module.levels.map((level) => (
+                    <option key={level.level} value={level.level}>
+                      {level.level}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <span className="font-medium">{module.level}</span>
+              )}
+            </span>
             <span>Duración: {module.durationMinutes} min</span>
             <span>Visibilidad: {module.visibility}</span>
           </div>
@@ -306,11 +338,28 @@ export default function JugarModulo() {
 
         <section className="bg-white rounded-xl shadow p-6 space-y-3">
           <h2 className="text-lg font-semibold">Quizzes</h2>
-          {generatedQuiz ? (
-            renderExercise(generatedQuiz)
+          {levelQuizzes.length > 0 ? (
+            <ul className="space-y-2 text-sm text-gray-700">
+              {levelQuizzes.map((quiz) => (
+                <li key={quiz.id} className="rounded-md border border-gray-200 p-3">
+                  <p className="font-medium">{quiz.title}</p>
+                  <p className="text-xs text-gray-500">
+                    Tipo: {quiz.type === "evaluacion" ? "Evaluación" : "Práctica"} · Visibilidad:{" "}
+                    {quiz.visibility === "publico" ? "Público" : "Escuela específica"}
+                  </p>
+                </li>
+              ))}
+            </ul>
           ) : (
-            <p className="text-sm text-gray-500">No hay generador configurado para este módulo.</p>
+            <p className="text-sm text-gray-500">No hay cuestionarios definidos para este nivel.</p>
           )}
+          <div className="pt-4">
+            {generatedQuiz ? (
+              renderExercise(generatedQuiz)
+            ) : (
+              <p className="text-sm text-gray-500">No hay generador configurado para este módulo.</p>
+            )}
+          </div>
           <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
             <button
               type="button"
@@ -370,9 +419,9 @@ export default function JugarModulo() {
 
         <section className="bg-white rounded-xl shadow p-6 space-y-3">
           <h2 className="text-lg font-semibold">Recursos</h2>
-          {module.resources && module.resources.length > 0 ? (
+          {levelResources.length > 0 ? (
             <ul className="space-y-2 text-sm text-gray-700">
-              {module.resources.map((resource, index) => (
+              {levelResources.map((resource, index) => (
                 <li key={`${resource.type}-${index}`}>
                   {resource.type === "book" && (
                     <div className="space-y-2">
