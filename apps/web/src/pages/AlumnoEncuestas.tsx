@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Survey, SurveyResults } from "../services/encuestas";
-import { fetchSurveyResults, fetchSurveys, voteSurvey } from "../services/encuestas";
+import { fetchSurveyResults, fetchSurveys, fetchSurveyScoreValues, voteSurvey } from "../services/encuestas";
 import { fetchClassrooms } from "../services/aulas";
 import type { Classroom } from "../domain/classroom/classroom.types";
 
@@ -10,8 +10,6 @@ type RankingSelectionMap = Record<string, Record<string, number>>;
 type ResultsMap = Record<string, SurveyResults>;
 
 const usuarioId = "demo-alumno";
-const SCORE_VALUES = [1, 2, 3, 4, 5];
-
 export default function AlumnoEncuestas() {
   const [classrooms, setClassrooms] = useState<Classroom[]>([]);
   const [classroomId, setClassroomId] = useState("");
@@ -23,6 +21,7 @@ export default function AlumnoEncuestas() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
+  const [scoreValues, setScoreValues] = useState<number[]>([]);
 
   const refresh = async (targetClassroomId: string) => {
     try {
@@ -41,6 +40,8 @@ export default function AlumnoEncuestas() {
     const load = async () => {
       try {
         setIsLoading(true);
+        const scores = await fetchSurveyScoreValues();
+        setScoreValues(scores.values);
         const response = await fetchClassrooms();
         setClassrooms(response.items);
         if (response.items.length > 0) {
@@ -249,7 +250,7 @@ export default function AlumnoEncuestas() {
                                 }}
                               >
                                 <option value={0}>Sin puntuar</option>
-                                {SCORE_VALUES.map((value) => (
+                                {scoreValues.map((value) => (
                                   <option key={`${survey.id}-${option.id}-${value}`} value={value}>
                                     {value}
                                   </option>

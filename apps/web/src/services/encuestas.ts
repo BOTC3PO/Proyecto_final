@@ -35,6 +35,14 @@ export type SurveyListResponse = {
   offset: number;
 };
 
+export type SurveyDefaults = {
+  defaultOptions: string[];
+};
+
+export type SurveyScoreValues = {
+  values: number[];
+};
+
 export type SurveyResultsOption = {
   id: string;
   label: string;
@@ -67,6 +75,14 @@ export type SurveyVotePayload =
 
 export async function fetchSurveys(aulaId: string): Promise<SurveyListResponse> {
   return apiFetch<SurveyListResponse>(`/api/encuestas?aulaId=${encodeURIComponent(aulaId)}`);
+}
+
+export async function fetchSurveyDefaults(): Promise<SurveyDefaults> {
+  return apiFetch<SurveyDefaults>("/api/encuestas/defaults");
+}
+
+export async function fetchSurveyScoreValues(): Promise<SurveyScoreValues> {
+  return apiFetch<SurveyScoreValues>("/api/encuestas/puntuaciones");
 }
 
 export async function createSurvey(payload: Survey): Promise<{ id: string; surveyId: string }> {

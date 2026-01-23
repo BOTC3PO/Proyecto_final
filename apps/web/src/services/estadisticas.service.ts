@@ -44,6 +44,17 @@ export type ProfesorEstadisticasResponse = {
   };
 };
 
+export type ProfesorEstadisticasOption = {
+  value: string;
+  label: string;
+};
+
+export type ProfesorEstadisticasOptions = {
+  modulos: ProfesorEstadisticasOption[];
+  categorias: ProfesorEstadisticasOption[];
+  cohortes: ProfesorEstadisticasOption[];
+};
+
 const buildQuery = (filters?: ProfesorEstadisticasFilters) => {
   const params = new URLSearchParams();
   if (!filters) return "";
@@ -72,4 +83,8 @@ export async function exportProfesorEstadisticas(
     throw new Error("No se pudo exportar el reporte.");
   }
   return response.blob();
+}
+
+export async function getProfesorEstadisticasOptions() {
+  return apiFetch<ProfesorEstadisticasOptions>("/api/estadisticas/profesor/opciones");
 }

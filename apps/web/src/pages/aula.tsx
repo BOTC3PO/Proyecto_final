@@ -8,6 +8,7 @@ import { fetchClassroomDetail } from "../services/aulas";
 import { createPublication, fetchPublications, type Publication } from "../services/publicaciones";
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
 import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
+import { fetchTeacherTools, type TeacherTool } from "../services/aula";
 
 type ProgressItem = {
   moduloId: string;
@@ -37,18 +38,6 @@ type ClassroomDetail = Classroom & {
   classCode?: string;
 };
 
-const teacherTools = [
-  { label: "Informes y Estadísticas", to: "/profesor/reportes" },
-  { label: "Rendimiento por módulo", to: "/profesor/modulos" },
-  { label: "Progreso individual", to: "/profesor/estadisticas" },
-  { label: "Informe mensual", to: "/profesor/reportes" },
-  { label: "Alertas de rendimiento", to: "/profesor/mensajes" },
-  { label: "Gestionar módulos", to: "/profesor/modulos" },
-  { label: "Configurar juegos", to: "/profesor/crear-modulo" },
-  { label: "Ver estadísticas", to: "/profesor/estadisticas" },
-  { label: "Ajustes TTS", to: "/profesor/configuracion" },
-];
-
 export default function aula() {
   const { user } = useAuth();
   const { id: routeId } = useParams();
@@ -66,6 +55,8 @@ export default function aula() {
   const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>([]);
   const [progressLoading, setProgressLoading] = useState(true);
   const [progressError, setProgressError] = useState<string | null>(null);
+  const [teacherTools, setTeacherTools] = useState<TeacherTool[]>([]);
+  const [toolsError, setToolsError] = useState<string | null>(null);
 
   const classroomId = useMemo(() => {
     const params = new URLSearchParams(location.search);
@@ -88,6 +79,23 @@ export default function aula() {
       active = false;
     };
   }, [classroomId]);
+
+  useEffect(() => {
+    let active = true;
+    fetchTeacherTools()
+      .then((data) => {
+        if (!active) return;
+        setTeacherTools(data);
+        setToolsError(null);
+      })
+      .catch((err: Error) => {
+        if (!active) return;
+        setToolsError(err.message);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const loadFeed = async (active: { current: boolean }) => {
     setFeedLoading(true);
@@ -446,13 +454,18 @@ export default function aula() {
               <div className="bg-white rounded-xl shadow p-4">
                 <h3 className="text-lg font-semibold">Herramientas del profesor</h3>
                 <ul className="mt-3 space-y-2 text-sm">
-                  {teacherTools.map((tool) => (
-                    <li key={tool.label}>
-                      <Link className="hover:underline" to={tool.to}>
-                        {tool.label}
-                      </Link>
-                    </li>
-                  ))}
+                  {toolsError && <li className="text-red-600">{toolsError}</li>}
+                  {!toolsError &&
+                    teacherTools.map((tool) => (
+                      <li key={tool.id}>
+                        <Link className="hover:underline" to={tool.to}>
+                          {tool.label}
+                        </Link>
+                      </li>
+                    ))}
+                  {!toolsError && teacherTools.length === 0 && (
+                    <li className="text-gray-500">No hay herramientas disponibles.</li>
+                  )}
                 </ul>
               </div>
             )}

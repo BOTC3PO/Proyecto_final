@@ -1,76 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { useAuth } from "../auth/use-auth";
-import { createClassroom, deleteClassroom, fetchClassrooms, updateClassroom } from "../services/aulas";
-
-type StudentProgress = {
-  id: string;
-  name: string;
-  completion: number;
-  score: number;
-  status: "al_dia" | "en_riesgo" | "destacado";
-};
-
-type ProgressSnapshot = {
-  totalStudents: number;
-  activeStudents: number;
-  avgCompletion: number;
-  avgScore: number;
-  atRiskCount: number;
-  students: StudentProgress[];
-  lastUpdate: string;
-};
+import {
+  createClassroom,
+  deleteClassroom,
+  fetchClassrooms,
+  fetchClassroomProgressSnapshots,
+  updateClassroom,
+  type ClassroomProgressSnapshot
+} from "../services/aulas";
 
 const formatAccess = (accessType: Classroom["accessType"]) => (accessType === "publica" ? "Pública" : "Privada");
 const formatPercent = (value: number) => `${Math.round(value)}%`;
-
-const STUDENT_NAMES = [
-  "Camila",
-  "Diego",
-  "Valentina",
-  "Mateo",
-  "Sofía",
-  "Benjamín",
-  "Martina",
-  "Lucas",
-  "Isabella",
-  "Joaquín"
-];
-
-const hashString = (value: string) =>
-  value.split("").reduce((acc, char) => acc + char.charCodeAt(0) * 17, 0);
-
-const buildProgressSnapshot = (classroom: Classroom): ProgressSnapshot => {
-  const seed = hashString(classroom.id);
-  const totalStudents = 16 + (seed % 12);
-  const activeStudents = totalStudents - (seed % 4);
-  const avgCompletion = 62 + (seed % 26);
-  const avgScore = 70 + (seed % 21);
-  const atRiskCount = Math.max(1, Math.round(totalStudents * 0.12));
-  const students = Array.from({ length: 4 }).map((_, index) => {
-    const name = STUDENT_NAMES[(seed + index) % STUDENT_NAMES.length];
-    const completion = 58 + ((seed + index * 7) % 42);
-    const score = 65 + ((seed + index * 9) % 30);
-    const status = completion > 88 ? "destacado" : completion < 70 ? "en_riesgo" : "al_dia";
-    return {
-      id: `${classroom.id}-student-${index}`,
-      name,
-      completion,
-      score,
-      status
-    };
-  });
-
-  return {
-    totalStudents,
-    activeStudents,
-    avgCompletion,
-    avgScore,
-    atRiskCount,
-    students,
-    lastUpdate: new Date(classroom.updatedAt).toLocaleString()
-  };
-};
 
 const emptyForm = {
   name: "",
@@ -86,6 +27,8 @@ export default function ProfesorAulas() {
   const [classrooms, setClassrooms] = useState<Classroom[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [progressByClassroom, setProgressByClassroom] = useState<Record<string, ClassroomProgressSnapshot>>({});
+  const [progressError, setProgressError] = useState<string | null>(null);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -117,12 +60,29 @@ export default function ProfesorAulas() {
     };
   }, []);
 
-  const progressByClassroom = useMemo(() => {
-    const snapshot: Record<string, ProgressSnapshot> = {};
-    classrooms.forEach((classroom) => {
-      snapshot[classroom.id] = buildProgressSnapshot(classroom);
-    });
-    return snapshot;
+  useEffect(() => {
+    if (classrooms.length === 0) {
+      setProgressByClassroom({});
+      return;
+    }
+    let active = true;
+    fetchClassroomProgressSnapshots(classrooms.map((classroom) => classroom.id))
+      .then((snapshots) => {
+        if (!active) return;
+        const mapped: Record<string, ClassroomProgressSnapshot> = {};
+        snapshots.forEach((snapshot) => {
+          mapped[snapshot.classroomId] = snapshot;
+        });
+        setProgressByClassroom(mapped);
+        setProgressError(null);
+      })
+      .catch((err: Error) => {
+        if (!active) return;
+        setProgressError(err.message);
+      });
+    return () => {
+      active = false;
+    };
   }, [classrooms]);
 
   const visibleClassrooms = useMemo(() => {
@@ -498,6 +458,9 @@ export default function ProfesorAulas() {
                 </div>
                 <div className="mt-4 rounded-lg border border-slate-100 bg-slate-50 p-4 text-xs text-slate-700">
                   <h3 className="text-sm font-semibold text-slate-800">Progreso de estudiantes</h3>
+                  {progressError && (
+                    <p className="mt-1 text-xs text-red-600">Error al cargar progreso: {progressError}</p>
+                  )}
                   <p className="mt-1 text-slate-500">
                     Última actualización: {progressByClassroom[classroom.id]?.lastUpdate ?? "--"}
                   </p>

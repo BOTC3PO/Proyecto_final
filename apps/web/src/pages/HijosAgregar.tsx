@@ -1,5 +1,6 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import DateInput from "../components/DateInput";
+import { fetchRegistroOpciones } from "../services/registro";
 
 type HijoForm = {
   nombre: string;
@@ -14,12 +15,10 @@ type HijoForm = {
 
 type FieldErrors = Partial<Record<keyof HijoForm, string>>;
 
-const GRADOS = [
-  "1° Primaria","2° Primaria","3° Primaria","4° Primaria","5° Primaria","6° Primaria",
-  "1° Secundaria","2° Secundaria","3° Secundaria","4° Secundaria","5° Secundaria"
-];
-
 export default function HijosAgregar() {
+  const [grados, setGrados] = useState<string[]>([]);
+  const [loadingGrados, setLoadingGrados] = useState(true);
+  const [gradosError, setGradosError] = useState<string | null>(null);
   const [form, setForm] = useState<HijoForm>({
     nombre: "",
     usuario: "",
@@ -32,6 +31,27 @@ export default function HijosAgregar() {
   });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+    fetchRegistroOpciones()
+      .then((data) => {
+        if (!active) return;
+        setGrados(data.grados);
+        setGradosError(null);
+      })
+      .catch((err: Error) => {
+        if (!active) return;
+        setGradosError(err.message);
+      })
+      .finally(() => {
+        if (!active) return;
+        setLoadingGrados(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, type } = e.target as HTMLInputElement;
@@ -137,11 +157,18 @@ export default function HijosAgregar() {
                     }`}
                   >
                     <option value="">Seleccioná…</option>
-                    {GRADOS.map((g) => (
-                      <option key={g} value={g}>{g}</option>
-                    ))}
+                    {loadingGrados && <option value="">Cargando grados...</option>}
+                    {!loadingGrados && gradosError && <option value="">Sin grados disponibles</option>}
+                    {!loadingGrados &&
+                      !gradosError &&
+                      grados.map((g) => (
+                        <option key={g} value={g}>
+                          {g}
+                        </option>
+                      ))}
                   </select>
                   {errors.grado && <p className="text-xs text-red-600 mt-1">{errors.grado}</p>}
+                  {gradosError && <p className="text-xs text-red-600 mt-1">{gradosError}</p>}
                 </div>
 
                 {/* Escuela */}

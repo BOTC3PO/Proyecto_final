@@ -3,63 +3,7 @@ import { Link } from "react-router-dom";
 import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
-
-const quickLinks = {
-  academico: [
-    { label: "Módulo de Aprendizaje", href: "/profesor/modulos" },
-    { label: "Aulas Virtuales", href: "/profesor/aulas" },
-    { label: "Material Didáctico", href: "/profesor/materiales" },
-    { label: "Evaluaciones", href: "/profesor/evaluaciones" },
-  ],
-  gestion: [
-    { label: "Calendario", href: "/profesor/calendario" },
-    { label: "Estadísticas", href: "/profesor/estadisticas" },
-    { label: "Mensajes", href: "/profesor/mensajes" },
-    { label: "Configuración", href: "/profesor/configuracion" },
-  ],
-};
-
-const kpiCards = [
-  {
-    label: "Tareas por corregir",
-    value: 18,
-    helper: "Últimas 48 horas",
-    href: "/profesor/calificaciones",
-    icon: "📝"
-  },
-  {
-    label: "Entregas atrasadas",
-    value: 6,
-    helper: "Pendientes de revisión",
-    href: "/profesor/entregas",
-    icon: "⏰"
-  },
-  {
-    label: "Mensajes sin leer",
-    value: 4,
-    helper: "Nuevos esta semana",
-    href: "/profesor/mensajes",
-    icon: "💬"
-  }
-];
-
-const weeklyPlan = [
-  {
-    title: "Matemáticas 1°A",
-    detail: "Lunes · 10:30 - 11:15 · Aula 2",
-    status: "Clase"
-  },
-  {
-    title: "Tutoría personalizada 3°C",
-    detail: "Miércoles · 09:00 - 09:40 · Sala virtual",
-    status: "Tutoría"
-  },
-  {
-    title: "Laboratorio ciencias 2°B",
-    detail: "Viernes · 08:15 - 09:30 · Laboratorio",
-    status: "Práctica"
-  }
-];
+import { fetchProfesorMenuDashboard, type ProfesorMenuDashboard } from "../services/profesor";
 
 export default function menuProfesor() {
   const [modules, setModules] = useState(
@@ -72,6 +16,9 @@ export default function menuProfesor() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("todas");
   const [selectedVisibility, setSelectedVisibility] = useState("todas");
+  const [dashboard, setDashboard] = useState<ProfesorMenuDashboard | null>(null);
+  const [dashboardLoading, setDashboardLoading] = useState(true);
+  const [dashboardError, setDashboardError] = useState<string | null>(null);
 
   const categoryOptions = useMemo(() => {
     const categories = modules
@@ -148,14 +95,37 @@ export default function menuProfesor() {
     };
   }, []);
 
+  useEffect(() => {
+    let active = true;
+    fetchProfesorMenuDashboard()
+      .then((data) => {
+        if (!active) return;
+        setDashboard(data);
+        setDashboardError(null);
+      })
+      .catch((err: Error) => {
+        if (!active) return;
+        setDashboardError(err.message);
+      })
+      .finally(() => {
+        if (!active) return;
+        setDashboardLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <main className="flex-1">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
         <div className="bg-white rounded-xl shadow flex items-center gap-4 p-5">
-          <div className="w-12 h-12 rounded-full bg-blue-600 text-white grid place-content-center font-semibold">JP</div>
+          <div className="w-12 h-12 rounded-full bg-blue-600 text-white grid place-content-center font-semibold">
+            {dashboard?.profile.initials ?? "--"}
+          </div>
           <div className="flex-1">
-            <h2 className="font-semibold">Juan Pérez</h2>
-            <p className="text-gray-600">Profesor</p>
+            <h2 className="font-semibold">{dashboard?.profile.name ?? "Cargando..."}</h2>
+            <p className="text-gray-600">{dashboard?.profile.role ?? ""}</p>
           </div>
           <div className="flex items-center gap-5">
             <button title="Notificaciones" aria-label="Notificaciones">
@@ -166,13 +136,20 @@ export default function menuProfesor() {
             </Link>
           </div>
         </div>
+        {dashboardError && (
+          <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+            Error al cargar el resumen: {dashboardError}
+          </div>
+        )}
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="bg-white rounded-xl shadow p-5 flex items-center gap-4">
             <div className="text-3xl">🕒</div>
             <div>
               <p className="text-gray-500">Próxima Clase</p>
-              <p className="text-xl font-semibold">Matemáticas 1°A - 10:30</p>
+              <p className="text-xl font-semibold">
+                {dashboardLoading ? "Cargando..." : dashboard?.nextClass.detail ?? "--"}
+              </p>
             </div>
           </div>
 
@@ -180,7 +157,9 @@ export default function menuProfesor() {
             <div className="text-3xl">👪</div>
             <div>
               <p className="text-gray-500">Estudiantes Activos</p>
-              <p className="text-2xl font-bold">87 estudiantes</p>
+              <p className="text-2xl font-bold">
+                {dashboardLoading ? "--" : `${dashboard?.activeStudents ?? 0} estudiantes`}
+              </p>
             </div>
           </div>
 
@@ -190,15 +169,20 @@ export default function menuProfesor() {
               <p className="text-gray-600">Progreso general de la próxima clase</p>
             </div>
             <div className="mt-3 h-3 w-full bg-gray-200 rounded">
-              <div className="h-3 w-1/3 bg-gray-400 rounded"></div>
+              <div
+                className="h-3 bg-gray-400 rounded"
+                style={{ width: `${dashboard?.progressNextClass ?? 0}%` }}
+              ></div>
             </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {kpiCards.map((card) => (
+          {dashboardLoading && <p className="text-sm text-gray-500">Cargando métricas...</p>}
+          {!dashboardLoading &&
+            dashboard?.kpiCards.map((card) => (
             <Link
-              key={card.label}
+              key={card.id}
               className="group rounded-xl border border-transparent bg-white p-5 shadow transition hover:border-blue-200 hover:shadow-md"
               to={card.href}
             >
@@ -215,6 +199,9 @@ export default function menuProfesor() {
               </span>
             </Link>
           ))}
+          {!dashboardLoading && dashboard?.kpiCards.length === 0 && (
+            <p className="text-sm text-gray-500">No hay métricas disponibles.</p>
+          )}
         </div>
 
         <section className="bg-white rounded-xl shadow p-5">
@@ -233,17 +220,22 @@ export default function menuProfesor() {
             </Link>
           </div>
           <ul className="mt-4 divide-y divide-gray-100">
-            {weeklyPlan.map((item) => (
-              <li key={item.title} className="flex flex-wrap items-center justify-between gap-3 py-3">
-                <div>
-                  <p className="font-semibold text-gray-900">{item.title}</p>
-                  <p className="text-sm text-gray-500">{item.detail}</p>
-                </div>
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                  {item.status}
-                </span>
-              </li>
-            ))}
+            {dashboardLoading && <li className="py-3 text-sm text-gray-500">Cargando planificación...</li>}
+            {!dashboardLoading &&
+              dashboard?.weeklyPlan.map((item) => (
+                <li key={item.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
+                  <div>
+                    <p className="font-semibold text-gray-900">{item.title}</p>
+                    <p className="text-sm text-gray-500">{item.detail}</p>
+                  </div>
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                    {item.status}
+                  </span>
+                </li>
+              ))}
+            {!dashboardLoading && dashboard?.weeklyPlan.length === 0 && (
+              <li className="py-3 text-sm text-gray-500">No hay actividades programadas.</li>
+            )}
           </ul>
         </section>
 
@@ -353,24 +345,30 @@ export default function menuProfesor() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          {Object.entries(quickLinks).map(([section, links]) => (
-            <div key={section} className="bg-white rounded-xl shadow">
-              <div className="bg-sky-600 text-white font-semibold rounded-t-xl px-4 py-2">
-                {section === "academico" ? "Académico" : "Gestión"}
+          {dashboardLoading && <p className="text-sm text-gray-500">Cargando accesos rápidos...</p>}
+          {!dashboardLoading &&
+            dashboard &&
+            Object.entries(dashboard.quickLinks).map(([section, links]) => (
+              <div key={section} className="bg-white rounded-xl shadow">
+                <div className="bg-sky-600 text-white font-semibold rounded-t-xl px-4 py-2">
+                  {section === "academico" ? "Académico" : "Gestión"}
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x">
+                  {links.map((link) => (
+                    <Link
+                      key={link.id}
+                      className="h-20 grid place-content-center hover:bg-gray-50"
+                      to={link.href}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x">
-                {links.map((link) => (
-                  <Link
-                    key={link.label}
-                    className="h-20 grid place-content-center hover:bg-gray-50"
-                    to={link.href}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
+            ))}
+          {!dashboardLoading && dashboard && dashboard.quickLinks.academico.length === 0 && (
+            <p className="text-sm text-gray-500">No hay accesos rápidos configurados.</p>
+          )}
         </div>
       </div>
     </main>

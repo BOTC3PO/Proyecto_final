@@ -1,12 +1,16 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Survey, SurveyStatus, SurveyType } from "../services/encuestas";
-import { createSurvey, deleteSurvey, fetchSurveys, updateSurvey } from "../services/encuestas";
+import {
+  createSurvey,
+  deleteSurvey,
+  fetchSurveyDefaults,
+  fetchSurveys,
+  updateSurvey
+} from "../services/encuestas";
 import { fetchClassrooms } from "../services/aulas";
 import type { Classroom } from "../domain/classroom/classroom.types";
 
 const toLocalInputValue = (date: Date) => date.toISOString().slice(0, 16);
-
-const DEFAULT_OPTIONS = ["Opción 1", "Opción 2"];
 
 export default function ProfesorEncuestas() {
   const [items, setItems] = useState<Survey[]>([]);
@@ -23,7 +27,7 @@ export default function ProfesorEncuestas() {
   const [showResultsRealtime, setShowResultsRealtime] = useState(false);
   const [status, setStatus] = useState<SurveyStatus>("activa");
   const [maxOptions, setMaxOptions] = useState<number | "">("");
-  const [options, setOptions] = useState<string[]>(DEFAULT_OPTIONS);
+  const [options, setOptions] = useState<string[]>([]);
 
   const canSubmit = useMemo(() => {
     return (
@@ -53,6 +57,8 @@ export default function ProfesorEncuestas() {
     const load = async () => {
       try {
         setIsLoading(true);
+        const defaults = await fetchSurveyDefaults();
+        setOptions(defaults.defaultOptions);
         const response = await fetchClassrooms();
         setClassrooms(response.items);
         if (response.items.length > 0) {
@@ -130,7 +136,8 @@ export default function ProfesorEncuestas() {
       setShowResultsRealtime(false);
       setStatus("activa");
       setMaxOptions("");
-      setOptions(DEFAULT_OPTIONS);
+      const defaults = await fetchSurveyDefaults();
+      setOptions(defaults.defaultOptions);
       await refresh(classroomId);
     } catch (err) {
       setError(err instanceof Error ? err.message : "No se pudo crear la encuesta.");

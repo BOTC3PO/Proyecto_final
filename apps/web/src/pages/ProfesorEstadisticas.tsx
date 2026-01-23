@@ -3,7 +3,9 @@ import { FileDown, Filter } from "lucide-react";
 import {
   exportProfesorEstadisticas,
   getProfesorEstadisticas,
+  getProfesorEstadisticasOptions,
   type ProfesorEstadisticasFilters,
+  type ProfesorEstadisticasOptions,
   type ProfesorEstadisticasResponse
 } from "../services/estadisticas.service";
 
@@ -39,6 +41,12 @@ export default function ProfesorEstadisticas() {
   const [estadisticas, setEstadisticas] = useState<ProfesorEstadisticasResponse>(estadisticasBase);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [options, setOptions] = useState<ProfesorEstadisticasOptions>({
+    modulos: [],
+    categorias: [],
+    cohortes: []
+  });
+  const [optionsError, setOptionsError] = useState<string | null>(null);
 
   const filtrosActivos = useMemo(() => {
     return Object.values(filtros).some((value) => value && value.trim() !== "");
@@ -67,6 +75,23 @@ export default function ProfesorEstadisticas() {
     };
   }, [filtros]);
 
+  useEffect(() => {
+    let mounted = true;
+    getProfesorEstadisticasOptions()
+      .then((data) => {
+        if (!mounted) return;
+        setOptions(data);
+        setOptionsError(null);
+      })
+      .catch((err) => {
+        if (!mounted) return;
+        setOptionsError(err instanceof Error ? err.message : "No se pudieron cargar los filtros.");
+      });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   const handleExport = async (format: "pdf" | "excel") => {
     try {
       const blob = await exportProfesorEstadisticas(filtros, format);
@@ -83,56 +108,10 @@ export default function ProfesorEstadisticas() {
     }
   };
 
-  const modulos = [
-    { value: "modulo-1", label: "Módulo 1: Introducción" },
-    { value: "modulo-2", label: "Módulo 2: Aplicaciones" },
-    { value: "modulo-3", label: "Módulo 3: Proyecto" }
-  ];
-
-  const categorias = [
-    { value: "evaluaciones", label: "Evaluaciones" },
-    { value: "proyectos", label: "Proyectos" },
-    { value: "participacion", label: "Participación" }
-  ];
-
-  const cohortes = [
-    { value: "2024-1", label: "Cohorte 2024-1" },
-    { value: "2024-2", label: "Cohorte 2024-2" },
-    { value: "2025-1", label: "Cohorte 2025-1" }
-  ];
-
-  const progresoChart = estadisticas.general.progresoPorModulo.length
-    ? estadisticas.general.progresoPorModulo
-    : [
-        { moduloId: "Módulo 1", completadas: 18, pendientes: 4 },
-        { moduloId: "Módulo 2", completadas: 12, pendientes: 8 },
-        { moduloId: "Módulo 3", completadas: 10, pendientes: 10 }
-      ];
-
-  const notasActividad = estadisticas.rendimiento.notasPorActividad.length
-    ? estadisticas.rendimiento.notasPorActividad
-    : [
-        { actividad: "Quiz 1", promedio: 82, max: 98, min: 60 },
-        { actividad: "Proyecto", promedio: 88, max: 100, min: 72 },
-        { actividad: "Quiz 2", promedio: 79, max: 95, min: 55 }
-      ];
-
-  const notasTema = estadisticas.rendimiento.notasPorTema.length
-    ? estadisticas.rendimiento.notasPorTema
-    : [
-        { tema: "Fundamentos", promedio: 84 },
-        { tema: "Análisis", promedio: 80 },
-        { tema: "Implementación", promedio: 87 }
-      ];
-
-  const actividadSemanal = estadisticas.participacion.actividadSemanal.length
-    ? estadisticas.participacion.actividadSemanal
-    : [
-        { semana: "Sem 1", interacciones: 120 },
-        { semana: "Sem 2", interacciones: 160 },
-        { semana: "Sem 3", interacciones: 140 },
-        { semana: "Sem 4", interacciones: 190 }
-      ];
+  const progresoChart = estadisticas.general.progresoPorModulo;
+  const notasActividad = estadisticas.rendimiento.notasPorActividad;
+  const notasTema = estadisticas.rendimiento.notasPorTema;
+  const actividadSemanal = estadisticas.participacion.actividadSemanal;
 
   const maxInteracciones = Math.max(...actividadSemanal.map((item) => item.interacciones), 1);
 
@@ -195,7 +174,7 @@ export default function ProfesorEstadisticas() {
               onChange={(event) => setFiltros((prev) => ({ ...prev, moduloId: event.target.value }))}
             >
               <option value="">Todos</option>
-              {modulos.map((modulo) => (
+              {options.modulos.map((modulo) => (
                 <option key={modulo.value} value={modulo.value}>
                   {modulo.label}
                 </option>
@@ -210,7 +189,7 @@ export default function ProfesorEstadisticas() {
               onChange={(event) => setFiltros((prev) => ({ ...prev, categoria: event.target.value }))}
             >
               <option value="">Todas</option>
-              {categorias.map((categoria) => (
+              {options.categorias.map((categoria) => (
                 <option key={categoria.value} value={categoria.value}>
                   {categoria.label}
                 </option>
@@ -225,7 +204,7 @@ export default function ProfesorEstadisticas() {
               onChange={(event) => setFiltros((prev) => ({ ...prev, cohorte: event.target.value }))}
             >
               <option value="">Todas</option>
-              {cohortes.map((cohorte) => (
+              {options.cohortes.map((cohorte) => (
                 <option key={cohorte.value} value={cohorte.value}>
                   {cohorte.label}
                 </option>
@@ -238,6 +217,7 @@ export default function ProfesorEstadisticas() {
           {isLoading ? <span className="animate-pulse">Actualizando métricas...</span> : null}
         </div>
         {error ? <p className="mt-3 text-sm text-red-600">{error}</p> : null}
+        {optionsError ? <p className="mt-3 text-sm text-red-600">{optionsError}</p> : null}
       </section>
 
       <section className="grid gap-4 lg:grid-cols-3">
@@ -267,6 +247,9 @@ export default function ProfesorEstadisticas() {
             <span className="text-xs text-gray-500">Completadas vs pendientes</span>
           </div>
           <div className="mt-4 space-y-4">
+            {progresoChart.length === 0 && (
+              <p className="text-sm text-gray-500">Sin datos de progreso para el rango seleccionado.</p>
+            )}
             {progresoChart.map((item) => {
               const total = item.completadas + item.pendientes || 1;
               const completedPct = Math.round((item.completadas / total) * 100);
@@ -294,6 +277,13 @@ export default function ProfesorEstadisticas() {
                 </tr>
               </thead>
               <tbody>
+                {progresoChart.length === 0 && (
+                  <tr className="border-t border-gray-100">
+                    <td className="py-3 text-center text-sm text-gray-500" colSpan={3}>
+                      Sin datos disponibles.
+                    </td>
+                  </tr>
+                )}
                 {progresoChart.map((item) => (
                   <tr key={`table-${item.moduloId}`} className="border-t border-gray-100">
                     <td className="py-2 font-medium text-gray-700">{item.moduloId}</td>
@@ -312,6 +302,9 @@ export default function ProfesorEstadisticas() {
             <span className="text-xs text-gray-500">Promedios por actividad</span>
           </div>
           <div className="mt-4 space-y-3">
+            {notasActividad.length === 0 && (
+              <p className="text-sm text-gray-500">Sin registros de rendimiento.</p>
+            )}
             {notasActividad.map((actividad) => {
               const pct = Math.min(Math.round(actividad.promedio), 100);
               return (
@@ -340,6 +333,13 @@ export default function ProfesorEstadisticas() {
                 </tr>
               </thead>
               <tbody>
+                {notasTema.length === 0 && (
+                  <tr className="border-t border-gray-100">
+                    <td className="py-3 text-center text-sm text-gray-500" colSpan={2}>
+                      Sin datos de temas.
+                    </td>
+                  </tr>
+                )}
                 {notasTema.map((tema) => (
                   <tr key={tema.tema} className="border-t border-gray-100">
                     <td className="py-2 font-medium text-gray-700">{tema.tema}</td>
@@ -374,6 +374,9 @@ export default function ProfesorEstadisticas() {
         <div className="mt-6">
           <h3 className="text-sm font-semibold text-gray-700">Interacciones semanales</h3>
           <div className="mt-3 grid gap-3 md:grid-cols-4">
+            {actividadSemanal.length === 0 && (
+              <p className="text-sm text-gray-500">Sin datos de interacción semanal.</p>
+            )}
             {actividadSemanal.map((item) => {
               const height = Math.round((item.interacciones / maxInteracciones) * 100);
               return (

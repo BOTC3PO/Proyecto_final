@@ -1,13 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { apiGet } from "../lib/api";
 import { createClassroom } from "../services/aulas";
-
-type StaffMember = {
-  id: string;
-  name: string;
-  role: "ADMIN" | "TEACHER";
-  schoolId: string;
-};
+import {
+  fetchEnterpriseDashboard,
+  fetchEnterpriseStaff,
+  type EnterpriseDashboardData,
+  type EnterpriseStaffMember
+} from "../services/enterprise";
 
 type CreateClassForm = {
   name: string;
@@ -17,15 +15,13 @@ type CreateClassForm = {
   adminId: string;
 };
 
-const indicadores = [
-  { label: "Usuarios activos", value: "1,240" },
-  { label: "Aulas activas", value: "48" },
-  { label: "Satisfacción familias", value: "92%" },
-];
-
 export default function EnterpriseDashboard() {
   const schoolId = "escuela-demo";
-  const [staff, setStaff] = useState<StaffMember[]>([]);
+  const [staff, setStaff] = useState<EnterpriseStaffMember[]>([]);
+  const [dashboard, setDashboard] = useState<EnterpriseDashboardData | null>(null);
+  const [loadingDashboard, setLoadingDashboard] = useState(true);
+  const [dashboardError, setDashboardError] = useState<string | null>(null);
+  const [staffError, setStaffError] = useState<string | null>(null);
   const [form, setForm] = useState<CreateClassForm>({
     name: "",
     description: "",
@@ -38,20 +34,36 @@ export default function EnterpriseDashboard() {
 
   useEffect(() => {
     let active = true;
-    apiGet<{ items: StaffMember[] }>(`/api/escuelas/${schoolId}/miembros`)
+    fetchEnterpriseStaff(schoolId)
       .then((data) => {
         if (!active) return;
-        setStaff(data.items);
+        setStaff(data);
+        setStaffError(null);
       })
-      .catch(() => {
+      .catch((err: Error) => {
         if (!active) return;
-        setStaff([
-          { id: "admin-1", name: "Lucía Torres", role: "ADMIN", schoolId },
-          { id: "admin-2", name: "Rafael Núñez", role: "ADMIN", schoolId },
-          { id: "teacher-1", name: "Mariana Rojas", role: "TEACHER", schoolId },
-          { id: "teacher-2", name: "Diego Salas", role: "TEACHER", schoolId },
-          { id: "teacher-3", name: "Andrea López", role: "TEACHER", schoolId: "escuela-otra" },
-        ]);
+        setStaffError(err.message);
+      });
+    return () => {
+      active = false;
+    };
+  }, [schoolId]);
+
+  useEffect(() => {
+    let active = true;
+    fetchEnterpriseDashboard(schoolId)
+      .then((data) => {
+        if (!active) return;
+        setDashboard(data);
+        setDashboardError(null);
+      })
+      .catch((err: Error) => {
+        if (!active) return;
+        setDashboardError(err.message);
+      })
+      .finally(() => {
+        if (!active) return;
+        setLoadingDashboard(false);
       });
     return () => {
       active = false;
@@ -113,15 +125,22 @@ export default function EnterpriseDashboard() {
       </header>
 
       <section className="grid gap-4 md:grid-cols-3">
-        {indicadores.map((item) => (
-          <article
-            key={item.label}
-            className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-          >
-            <p className="text-sm text-slate-500">{item.label}</p>
-            <p className="mt-2 text-2xl font-semibold text-slate-900">{item.value}</p>
-          </article>
-        ))}
+        {loadingDashboard && <p className="text-sm text-slate-500">Cargando indicadores...</p>}
+        {dashboardError && <p className="text-sm text-red-500">Error: {dashboardError}</p>}
+        {!loadingDashboard &&
+          !dashboardError &&
+          dashboard?.indicadores.map((item) => (
+            <article
+              key={item.id}
+              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+            >
+              <p className="text-sm text-slate-500">{item.label}</p>
+              <p className="mt-2 text-2xl font-semibold text-slate-900">{item.value}</p>
+            </article>
+          ))}
+        {!loadingDashboard && !dashboardError && dashboard?.indicadores.length === 0 && (
+          <p className="text-sm text-slate-500">No hay indicadores disponibles.</p>
+        )}
       </section>
 
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -179,6 +198,7 @@ export default function EnterpriseDashboard() {
                 </option>
               ))}
             </select>
+            {staffError && <span className="text-xs text-red-600">{staffError}</span>}
           </label>
           <label className="grid gap-2 text-sm font-semibold text-slate-700">
             Administrador asignado
@@ -194,6 +214,7 @@ export default function EnterpriseDashboard() {
                 </option>
               ))}
             </select>
+            {staffError && <span className="text-xs text-red-600">{staffError}</span>}
           </label>
           <div className="flex flex-wrap items-center gap-3 md:col-span-2">
             <button
@@ -211,9 +232,14 @@ export default function EnterpriseDashboard() {
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="text-lg font-semibold text-slate-900">Próximas acciones</h2>
         <ul className="mt-3 space-y-2 text-sm text-slate-600">
-          <li>• Revisar indicadores de participación por grado.</li>
-          <li>• Ajustar la asignación docente para el próximo trimestre.</li>
-          <li>• Coordinar reuniones con tutores y familias.</li>
+          {loadingDashboard && <li>Cargando acciones...</li>}
+          {!loadingDashboard &&
+            dashboard?.acciones.map((accion) => (
+              <li key={accion}>• {accion}</li>
+            ))}
+          {!loadingDashboard && dashboard?.acciones.length === 0 && (
+            <li>No hay acciones planificadas.</li>
+          )}
         </ul>
       </section>
     </main>

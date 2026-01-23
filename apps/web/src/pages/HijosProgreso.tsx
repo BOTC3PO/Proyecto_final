@@ -1,59 +1,42 @@
-import { useMemo, useState, type ChangeEvent } from "react";
-
-type Child = {
-  id: string;
-  nombre: string;
-  usuario: string;
-  grado: string;
-  avatar?: string; // URL opcional
-  progresoGeneral: number; // 0..100
-  modulos: Array<{
-    id: string;
-    titulo: string;
-    area: "Matemática" | "Lengua" | "Ciencias" | "Historia" | "Geografía" | "Arte" | "Otro";
-    progreso: number; // 0..100
-    estado: "En curso" | "Completado" | "Bloqueado";
-    ultimaActividad: string; // fecha corta
-  }>;
-};
-
-const MOCK: Child[] = [
-  {
-    id: "c1",
-    nombre: "Ana García",
-    usuario: "@anita",
-    grado: "3° Primaria",
-    progresoGeneral: 76,
-    modulos: [
-      { id: "m1", titulo: "Sumas Básicas", area: "Matemática", progreso: 100, estado: "Completado", ultimaActividad: "12/11/2025" },
-      { id: "m2", titulo: "Sumas Avanzadas", area: "Matemática", progreso: 55, estado: "En curso", ultimaActividad: "14/11/2025" },
-      { id: "m3", titulo: "Lectura Comprensiva I", area: "Lengua", progreso: 30, estado: "En curso", ultimaActividad: "10/11/2025" },
-    ],
-  },
-  {
-    id: "c2",
-    nombre: "Carlos Ruiz",
-    usuario: "@carlitos",
-    grado: "1° Secundaria",
-    progresoGeneral: 42,
-    modulos: [
-      { id: "m4", titulo: "Multiplicación", area: "Matemática", progreso: 40, estado: "En curso", ultimaActividad: "09/11/2025" },
-      { id: "m5", titulo: "Ciencias Naturales", area: "Ciencias", progreso: 25, estado: "En curso", ultimaActividad: "08/11/2025" },
-    ],
-  },
-];
+import { useEffect, useMemo, useState, type ChangeEvent } from "react";
+import { fetchProgresoHijos, type ChildProgress } from "../services/progreso";
 
 export default function HijosProgreso() {
   const [busqueda, setBusqueda] = useState("");
   const [area, setArea] = useState<"Todas" | "Matemática" | "Lengua" | "Ciencias" | "Historia" | "Geografía" | "Arte" | "Otro">("Todas");
-  const [seleccionado, setSeleccionado] = useState<string | null>(MOCK[0]?.id ?? null);
+  const [seleccionado, setSeleccionado] = useState<string | null>(null);
+  const [hijosData, setHijosData] = useState<ChildProgress[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    fetchProgresoHijos()
+      .then((data) => {
+        if (!active) return;
+        setHijosData(data);
+        setSeleccionado(data[0]?.id ?? null);
+        setError(null);
+      })
+      .catch((err: Error) => {
+        if (!active) return;
+        setError(err.message);
+      })
+      .finally(() => {
+        if (!active) return;
+        setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const hijos = useMemo(() => {
-    const byName = (c: Child) =>
+    const byName = (c: ChildProgress) =>
       c.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
       c.usuario.toLowerCase().includes(busqueda.toLowerCase());
-    return MOCK.filter(byName);
-  }, [busqueda]);
+    return hijosData.filter(byName);
+  }, [busqueda, hijosData]);
 
   const current = useMemo(
     () => hijos.find((h) => h.id === seleccionado) ?? hijos[0] ?? null,
@@ -99,44 +82,60 @@ export default function HijosProgreso() {
 
           {/* Lista de hijos */}
           <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {hijos.map((h) => {
-              const initials = h.nombre.split(" ").map(p => p[0]).slice(0,2).join("").toUpperCase();
-              return (
-                <button
-                  key={h.id}
-                  onClick={() => setSeleccionado(h.id)}
-                  className={`text-left bg-gray-50 hover:bg-gray-100 rounded-xl p-4 border ${
-                    seleccionado === h.id ? "border-blue-500" : "border-transparent"
-                  } transition`}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-blue-600 text-white grid place-content-center font-bold">
-                      {initials}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                        <h3 className="font-semibold">{h.nombre}</h3>
-                        <span className="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">{h.grado}</span>
-                        <span className="text-xs text-gray-600">{h.usuario}</span>
+            {loading && <p className="text-sm text-gray-600">Cargando hijos...</p>}
+            {error && <p className="text-sm text-red-500">Error: {error}</p>}
+            {!loading &&
+              !error &&
+              hijos.map((h) => {
+                const initials = h.nombre
+                  .split(" ")
+                  .map((p) => p[0])
+                  .slice(0, 2)
+                  .join("")
+                  .toUpperCase();
+                return (
+                  <button
+                    key={h.id}
+                    onClick={() => setSeleccionado(h.id)}
+                    className={`text-left bg-gray-50 hover:bg-gray-100 rounded-xl p-4 border ${
+                      seleccionado === h.id ? "border-blue-500" : "border-transparent"
+                    } transition`}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-blue-600 text-white grid place-content-center font-bold">
+                        {initials}
                       </div>
-                      <div className="mt-2 h-2 rounded bg-gray-200">
-                        <div
-                          style={{ width: `${h.progresoGeneral}%` }}
-                          className="h-2 rounded bg-green-500"
-                          aria-label={`Progreso general ${h.progresoGeneral}%`}
-                        />
+                      <div className="flex-1">
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                          <h3 className="font-semibold">{h.nombre}</h3>
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">
+                            {h.grado}
+                          </span>
+                          <span className="text-xs text-gray-600">{h.usuario}</span>
+                        </div>
+                        <div className="mt-2 h-2 rounded bg-gray-200">
+                          <div
+                            style={{ width: `${h.progresoGeneral}%` }}
+                            className="h-2 rounded bg-green-500"
+                            aria-label={`Progreso general ${h.progresoGeneral}%`}
+                          />
+                        </div>
+                        <p className="mt-1 text-xs text-gray-600">
+                          Progreso general: {h.progresoGeneral}%
+                        </p>
                       </div>
-                      <p className="mt-1 text-xs text-gray-600">Progreso general: {h.progresoGeneral}%</p>
                     </div>
-                  </div>
-                </button>
-              );
-            })}
+                  </button>
+                );
+              })}
+            {!loading && !error && hijos.length === 0 && (
+              <p className="text-sm text-gray-600">No hay hijos registrados.</p>
+            )}
           </div>
         </div>
 
         {/* Detalle del hijo seleccionado */}
-        {current && (
+        {!loading && !error && current && (
           <section className="mt-6 bg-white rounded-xl shadow p-4 sm:p-6">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-blue-600 text-white grid place-content-center font-bold">

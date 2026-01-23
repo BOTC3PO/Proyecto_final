@@ -1,22 +1,32 @@
-const usuarios = [
-  {
-    nombre: "María López",
-    rol: "Docente",
-    estado: "Activo",
-  },
-  {
-    nombre: "Juan Pérez",
-    rol: "Alumno",
-    estado: "Pendiente",
-  },
-  {
-    nombre: "Lucía Gómez",
-    rol: "Padre",
-    estado: "Activo",
-  },
-];
+import { useEffect, useState } from "react";
+import { fetchAdminUsuarios, type AdminUsuario } from "../services/admin";
 
 export default function AdminUsuarios() {
+  const [usuarios, setUsuarios] = useState<AdminUsuario[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    fetchAdminUsuarios()
+      .then((data) => {
+        if (!active) return;
+        setUsuarios(data);
+        setError(null);
+      })
+      .catch((err: Error) => {
+        if (!active) return;
+        setError(err.message);
+      })
+      .finally(() => {
+        if (!active) return;
+        setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
       <header className="space-y-2">
@@ -35,20 +45,27 @@ export default function AdminUsuarios() {
         </div>
 
         <div className="mt-4 space-y-3">
-          {usuarios.map((usuario) => (
-            <div
-              key={usuario.nombre}
-              className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-100 px-4 py-3"
-            >
-              <div>
-                <p className="text-sm font-semibold text-slate-900">{usuario.nombre}</p>
-                <p className="text-xs text-slate-500">Rol: {usuario.rol}</p>
+          {loading && <p className="text-sm text-slate-500">Cargando usuarios...</p>}
+          {error && <p className="text-sm text-red-500">Error: {error}</p>}
+          {!loading &&
+            !error &&
+            usuarios.map((usuario) => (
+              <div
+                key={usuario.id}
+                className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-100 px-4 py-3"
+              >
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">{usuario.nombre}</p>
+                  <p className="text-xs text-slate-500">Rol: {usuario.rol}</p>
+                </div>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                  {usuario.estado}
+                </span>
               </div>
-              <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                {usuario.estado}
-              </span>
-            </div>
-          ))}
+            ))}
+          {!loading && !error && usuarios.length === 0 && (
+            <p className="text-sm text-slate-500">No hay usuarios recientes.</p>
+          )}
         </div>
       </section>
     </main>

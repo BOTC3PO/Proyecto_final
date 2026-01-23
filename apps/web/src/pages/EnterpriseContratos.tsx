@@ -1,22 +1,33 @@
-const contratos = [
-  {
-    nombre: "Acuerdo anual 2024",
-    estado: "Activo",
-    renovacion: "15 Nov 2024",
-  },
-  {
-    nombre: "Plan de expansión regional",
-    estado: "En negociación",
-    renovacion: "—",
-  },
-  {
-    nombre: "Soporte premium",
-    estado: "Activo",
-    renovacion: "02 Ene 2025",
-  },
-];
+import { useEffect, useState } from "react";
+import { fetchEnterpriseContratos, type EnterpriseContrato } from "../services/enterprise";
 
 export default function EnterpriseContratos() {
+  const schoolId = "escuela-demo";
+  const [contratos, setContratos] = useState<EnterpriseContrato[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    fetchEnterpriseContratos(schoolId)
+      .then((data) => {
+        if (!active) return;
+        setContratos(data);
+        setError(null);
+      })
+      .catch((err: Error) => {
+        if (!active) return;
+        setError(err.message);
+      })
+      .finally(() => {
+        if (!active) return;
+        setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [schoolId]);
+
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
       <header className="space-y-2">
@@ -34,20 +45,27 @@ export default function EnterpriseContratos() {
           </button>
         </div>
         <div className="mt-4 space-y-3">
-          {contratos.map((contrato) => (
-            <div
-              key={contrato.nombre}
-              className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-100 px-4 py-3"
-            >
-              <div>
-                <p className="text-sm font-semibold text-slate-900">{contrato.nombre}</p>
-                <p className="text-xs text-slate-500">Renovación: {contrato.renovacion}</p>
+          {loading && <p className="text-sm text-slate-500">Cargando convenios...</p>}
+          {error && <p className="text-sm text-red-500">Error: {error}</p>}
+          {!loading &&
+            !error &&
+            contratos.map((contrato) => (
+              <div
+                key={contrato.id}
+                className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-100 px-4 py-3"
+              >
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">{contrato.nombre}</p>
+                  <p className="text-xs text-slate-500">Renovación: {contrato.renovacion}</p>
+                </div>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                  {contrato.estado}
+                </span>
               </div>
-              <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                {contrato.estado}
-              </span>
-            </div>
-          ))}
+            ))}
+          {!loading && !error && contratos.length === 0 && (
+            <p className="text-sm text-slate-500">No hay convenios vigentes.</p>
+          )}
         </div>
       </section>
     </main>
