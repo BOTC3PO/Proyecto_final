@@ -11,6 +11,36 @@
 
 El editor trabaja con un objeto `Book` que sigue los esquemas `book.pages@1.0` y `book.pages@1.1`. La versión 1.1 agrega el bloque `theme` dentro de `metadata`.
 
+## Contrato API (editor ↔️ backend)
+
+El backend guarda un registro con metadatos derivados del propio `Book`. El payload que envía el editor debe seguir este formato:
+
+```json
+{
+  "book": {
+    "schema": "book.pages@1.1",
+    "metadata": {
+      "id": "book-draft",
+      "title": "Nuevo libro"
+    }
+  },
+  "createdAt": "2024-07-18T19:22:12.000Z",
+  "updatedAt": "2024-07-18T19:22:12.000Z"
+}
+```
+
+El servidor deriva `id` y `title` desde `book.metadata` y los persiste junto con `book`. La respuesta del `GET /api/libros/:id` devuelve el mismo registro:
+
+```json
+{
+  "id": "book-draft",
+  "title": "Nuevo libro",
+  "book": { "...": "Book completo" },
+  "createdAt": "2024-07-18T19:22:12.000Z",
+  "updatedAt": "2024-07-18T19:22:12.000Z"
+}
+```
+
 ### Book
 
 - `schema`: versión del esquema (`book.pages@1.0` o `book.pages@1.1`).
