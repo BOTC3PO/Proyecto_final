@@ -154,5 +154,7 @@ export type Module = {
   generatorRef?: ModuleGeneratorRef | null;
   resources?: ModuleResource[];
   createdBy: string;
+  createdByRole?: "admin" | "docente";
+  authorName?: string;
   updatedAt: string;
 };

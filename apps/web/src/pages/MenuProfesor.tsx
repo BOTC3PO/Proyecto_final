@@ -10,7 +10,10 @@ export default function menuProfesor() {
     MVP_MODULES.map((module) => ({
       ...module,
       visibility: "publico",
-      dependencies: []
+      dependencies: [],
+      createdBy: "demo-docente",
+      createdByRole: "docente",
+      authorName: "Demo Docente"
     }))
   );
   const [searchTerm, setSearchTerm] = useState("");
@@ -31,10 +34,12 @@ export default function menuProfesor() {
     const normalizedSearch = searchTerm.trim().toLowerCase();
 
     return modules.filter((module) => {
+      const authorLabel = (module.authorName ?? module.createdBy ?? "").toLowerCase();
       const matchesSearch =
         normalizedSearch.length === 0 ||
         module.title.toLowerCase().includes(normalizedSearch) ||
-        module.description.toLowerCase().includes(normalizedSearch);
+        module.description.toLowerCase().includes(normalizedSearch) ||
+        authorLabel.includes(normalizedSearch);
       const matchesCategory =
         selectedCategory === "todas" || module.category === selectedCategory;
       const matchesVisibility =
@@ -76,7 +81,10 @@ export default function menuProfesor() {
           durationMinutes: module.durationMinutes,
           category: module.category,
           visibility: module.visibility ?? "privado",
-          dependencies: module.dependencies ?? []
+          dependencies: module.dependencies ?? [],
+          createdBy: module.createdBy,
+          createdByRole: module.createdByRole,
+          authorName: module.authorName ?? module.createdBy
         }));
         setModules(mapped);
       })
@@ -86,7 +94,10 @@ export default function menuProfesor() {
           MVP_MODULES.map((module) => ({
             ...module,
             visibility: "publico",
-            dependencies: []
+            dependencies: [],
+            createdBy: "demo-docente",
+            createdByRole: "docente",
+            authorName: "Demo Docente"
           }))
         );
       });
@@ -325,11 +336,19 @@ export default function menuProfesor() {
                   <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
                     Dependencias: {module.dependencies.length}
                   </span>
+                  {module.createdByRole === "admin" && (
+                    <span className="rounded-full bg-amber-100 px-2 py-1 text-amber-700">
+                      Creado por admin
+                    </span>
+                  )}
                 </div>
-                <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
+                <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500">
                   <span>{module.level}</span>
                   <span>{module.durationMinutes} min</span>
                 </div>
+                <p className="mt-2 text-xs text-gray-500">
+                  Autor: {module.authorName ?? module.createdBy ?? "--"}
+                </p>
                 <Link
                   className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
                   to={`/profesor/editar-modulo/${module.id}`}
