@@ -31,6 +31,27 @@ const isNonEmptyString = (value: unknown): value is string =>
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null;
 
+const isValidUrl = (value: string) => {
+  if (!value.trim()) return false;
+  try {
+    const parsedUrl = new URL(value);
+    return ["http:", "https:"].includes(parsedUrl.protocol);
+  } catch (error) {
+    return false;
+  }
+};
+
+const getTheoryDetailError = (type: string, detail: string) => {
+  if (type !== "Video") return null;
+  if (!detail.trim()) {
+    return "Agrega el enlace del video (incluye http:// o https://).";
+  }
+  if (!isValidUrl(detail.trim())) {
+    return "El enlace del video debe ser una URL válida.";
+  }
+  return null;
+};
+
 const tuesdayJsonExample = `{
   "metadata": {
     "title": "Introducción al conflicto",
@@ -210,6 +231,7 @@ export default function CrearModulo() {
     () => subjectCapabilities.theoryTypes.filter((option) => !option.disabled),
     [subjectCapabilities.theoryTypes],
   );
+  const newTheoryDetailError = getTheoryDetailError(newTheoryType, newTheoryDetail);
 
   useEffect(() => {
     if (subjectCapabilities.theoryTypes.some((option) => option.value === newTheoryType && !option.disabled)) {
@@ -314,6 +336,7 @@ export default function CrearModulo() {
 
   const handleAddTheory = () => {
     if (!newTheoryTitle.trim()) return;
+    if (newTheoryType === "Video" && !isValidUrl(newTheoryDetail.trim())) return;
     const nextItem: TheoryItem = {
       id: `theory-${Date.now()}`,
       title: newTheoryTitle.trim(),
@@ -689,66 +712,70 @@ export default function CrearModulo() {
                   enlaces o experiencias de TuesdayJS.
                 </div>
               ) : (
-                theoryItems.map((item) => (
-                  <div key={item.id} className="border rounded-lg p-4 flex flex-col gap-2 bg-gray-50">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-sm font-semibold">{item.title}</p>
-                        <p className="text-xs text-gray-500">Tipo: {item.type}</p>
-                      </div>
-                      <button
-                        type="button"
-                        className="text-xs text-red-500 hover:underline"
-                        onClick={() => handleRemoveTheory(item.id)}
-                      >
-                        Quitar bloque
-                      </button>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                      <input
-                        className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                        value={item.title}
-                        onChange={(event) => handleUpdateTheory(item.id, "title", event.target.value)}
-                        placeholder="Título del bloque"
-                      />
-                      <div className="space-y-1">
-                        <select
-                          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                          value={item.type}
-                          onChange={(event) => handleUpdateTheory(item.id, "type", event.target.value)}
+                theoryItems.map((item) => {
+                  const detailError = getTheoryDetailError(item.type, item.detail);
+                  return (
+                    <div key={item.id} className="border rounded-lg p-4 flex flex-col gap-2 bg-gray-50">
+                      {detailError && <p className="text-xs text-red-600">{detailError}</p>}
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm font-semibold">{item.title}</p>
+                          <p className="text-xs text-gray-500">Tipo: {item.type}</p>
+                        </div>
+                        <button
+                          type="button"
+                          className="text-xs text-red-500 hover:underline"
+                          onClick={() => handleRemoveTheory(item.id)}
                         >
-                          {subjectCapabilities.theoryTypes.map((option) => (
-                            <option
-                              key={`${item.id}-${option.value}`}
-                              value={option.value}
-                              disabled={option.disabled}
-                            >
-                              {option.label}
-                              {option.disabledReason ? ` (${option.disabledReason})` : ""}
-                            </option>
-                          ))}
-                        </select>
-                        {subjectCapabilities.theoryTypes.some(
-                          (option) => option.value === item.type && option.disabled && option.disabledReason
-                        ) && (
-                          <p className="text-[11px] text-amber-600">
-                            {
-                              subjectCapabilities.theoryTypes.find(
-                                (option) => option.value === item.type && option.disabled && option.disabledReason
-                              )?.disabledReason
-                            }
-                          </p>
-                        )}
+                          Quitar bloque
+                        </button>
                       </div>
-                      <input
-                        className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                        value={item.detail}
-                        onChange={(event) => handleUpdateTheory(item.id, "detail", event.target.value)}
-                        placeholder="Detalle rápido"
-                      />
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <input
+                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                          value={item.title}
+                          onChange={(event) => handleUpdateTheory(item.id, "title", event.target.value)}
+                          placeholder="Título del bloque"
+                        />
+                        <div className="space-y-1">
+                          <select
+                            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                            value={item.type}
+                            onChange={(event) => handleUpdateTheory(item.id, "type", event.target.value)}
+                          >
+                            {subjectCapabilities.theoryTypes.map((option) => (
+                              <option
+                                key={`${item.id}-${option.value}`}
+                                value={option.value}
+                                disabled={option.disabled}
+                              >
+                                {option.label}
+                                {option.disabledReason ? ` (${option.disabledReason})` : ""}
+                              </option>
+                            ))}
+                          </select>
+                          {subjectCapabilities.theoryTypes.some(
+                            (option) => option.value === item.type && option.disabled && option.disabledReason
+                          ) && (
+                            <p className="text-[11px] text-amber-600">
+                              {
+                                subjectCapabilities.theoryTypes.find(
+                                  (option) => option.value === item.type && option.disabled && option.disabledReason
+                                )?.disabledReason
+                              }
+                            </p>
+                          )}
+                        </div>
+                        <input
+                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                          value={item.detail}
+                          onChange={(event) => handleUpdateTheory(item.id, "detail", event.target.value)}
+                          placeholder="Detalle rápido"
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))
+                  );
+                })
               )}
             </div>
 
@@ -782,6 +809,9 @@ export default function CrearModulo() {
                   placeholder="Detalle / nota"
                 />
               </div>
+              {newTheoryDetailError && (
+                <p className="text-xs text-red-600">{newTheoryDetailError}</p>
+              )}
               {!subjectCapabilities.supportsTuesdayJs && subjectCapabilities.tuesdayJsDisabledReason && (
                 <p className="text-[11px] text-gray-500">{subjectCapabilities.tuesdayJsDisabledReason}</p>
               )}
