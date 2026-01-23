@@ -245,6 +245,8 @@ const validateExercisesJson = (value: unknown): ValidationResult => {
   return { isValid: errors.length === 0, errors };
 };
 
+const MODULE_SIZE_THRESHOLD = 2000;
+
 export default function CrearModulo() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -302,6 +304,36 @@ export default function CrearModulo() {
     [subjectCapabilities.theoryTypes],
   );
   const newTheoryDetailError = getTheoryDetailError(newTheoryType, newTheoryDetail);
+  const moduleSizeScore = useMemo(() => {
+    const quizCount = levelsConfig.reduce((total, entry) => total + entry.quizBlocks.length, 0);
+    const resourceCount = levelsConfig.reduce(
+      (total, entry) => total + entry.bookResources.length + entry.fileResources.length,
+      0,
+    );
+    const theoryTextLength = theoryItems.reduce(
+      (total, item) => total + item.title.length + item.detail.length,
+      0,
+    );
+    const dependencyCount = requiredDependencies.length + customDependencies.length;
+    return (
+      title.length +
+      description.length +
+      tuesdayJsonInput.length +
+      theoryTextLength +
+      quizCount * 120 +
+      resourceCount * 60 +
+      dependencyCount * 40
+    );
+  }, [
+    title,
+    description,
+    tuesdayJsonInput,
+    theoryItems,
+    levelsConfig,
+    requiredDependencies,
+    customDependencies,
+  ]);
+  const showLargeModuleHint = moduleSizeScore >= MODULE_SIZE_THRESHOLD;
   const currentLevelConfig = useMemo<LevelConfig>(
     () =>
       levelsConfig.find((entry) => entry.level === activeLevel) ??
@@ -764,6 +796,18 @@ export default function CrearModulo() {
                 onChange={(event) => setDescription(event.target.value)}
               />
             </div>
+            {showLargeModuleHint && (
+              <div className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
+                <p className="font-medium">Este módulo ya es extenso.</p>
+                <p className="mt-1">
+                  Para gestionar cuestionarios largos o con muchas variantes, te sugerimos usar el editor dedicado.{" "}
+                  <Link className="font-semibold text-amber-900 underline" to="/profesor/editor-cuestionarios">
+                    Abrir editor de cuestionarios
+                  </Link>
+                  .
+                </p>
+              </div>
+            )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
