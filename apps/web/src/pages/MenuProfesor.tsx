@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
+import { getSubjectColor } from "../domain/module/subjectColors";
 import { fetchProfesorMenuDashboard, type ProfesorMenuDashboard } from "../services/profesor";
 import ConceptMapVisualizer from "../visualizadores/graficos/ConceptMapVisualizer";
 import type { ConceptMapSpec, ConceptLink } from "../visualizadores/types";
@@ -462,39 +463,51 @@ export default function menuProfesor() {
             </div>
           )}
           <div className="mt-4 grid gap-4 md:grid-cols-3">
-            {filteredModules.map((module) => (
-              <article key={module.id} className="rounded-lg border border-gray-200 p-4">
-                <p className="text-xs uppercase text-gray-500">{module.category}</p>
-                <h4 className="mt-2 font-semibold">{module.title}</h4>
-                <p className="mt-2 text-sm text-gray-600">{module.description}</p>
-                <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                  <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
-                    {module.visibility === "publico" ? "Publicado" : "Privado"}
-                  </span>
-                  <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
-                    Dependencias: {module.dependencies.length}
-                  </span>
-                  {module.createdByRole === "admin" && (
-                    <span className="rounded-full bg-amber-100 px-2 py-1 text-amber-700">
-                      Creado por admin
-                    </span>
-                  )}
-                </div>
-                <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500">
-                  <span>{module.level}</span>
-                  <span>{module.durationMinutes} min</span>
-                </div>
-                <p className="mt-2 text-xs text-gray-500">
-                  Autor: {module.authorName ?? module.createdBy ?? "--"}
-                </p>
-                <Link
-                  className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  to={`/profesor/editar-modulo/${module.id}`}
+            {filteredModules.map((module) => {
+              const subjectLabel = module.subject ?? module.category;
+              const subjectColor = getSubjectColor(subjectLabel);
+
+              return (
+                <article
+                  key={module.id}
+                  className="rounded-lg border p-4"
+                  style={{
+                    borderColor: subjectColor.border,
+                    backgroundColor: subjectColor.background
+                  }}
                 >
-                  Editar módulo
-                </Link>
-              </article>
-            ))}
+                  <p className="text-xs uppercase text-gray-500">{module.category}</p>
+                  <h4 className="mt-2 font-semibold">{module.title}</h4>
+                  <p className="mt-2 text-sm text-gray-600">{module.description}</p>
+                  <div className="mt-2 flex flex-wrap gap-2 text-xs">
+                    <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
+                      {module.visibility === "publico" ? "Publicado" : "Privado"}
+                    </span>
+                    <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
+                      Dependencias: {module.dependencies.length}
+                    </span>
+                    {module.createdByRole === "admin" && (
+                      <span className="rounded-full bg-amber-100 px-2 py-1 text-amber-700">
+                        Creado por admin
+                      </span>
+                    )}
+                  </div>
+                  <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500">
+                    <span>{module.level}</span>
+                    <span>{module.durationMinutes} min</span>
+                  </div>
+                  <p className="mt-2 text-xs text-gray-500">
+                    Autor: {module.authorName ?? module.createdBy ?? "--"}
+                  </p>
+                  <Link
+                    className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    to={`/profesor/editar-modulo/${module.id}`}
+                  >
+                    Editar módulo
+                  </Link>
+                </article>
+              );
+            })}
           </div>
           {filteredModules.length === 0 && (
             <p className="mt-4 text-sm text-gray-500">
