@@ -89,7 +89,8 @@ export const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "metodologia", element: <Metodologia /> },
       { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
-      {path:"editor",element:<BookEditorPage/>},
+      { path: "editor", element: <BookEditorPage /> },
+      { path: "editor/:id", element: <BookEditorPage /> },
       ...(testmode
         ? [
             { path: "generadores", element: <GeneradoresTest /> },
