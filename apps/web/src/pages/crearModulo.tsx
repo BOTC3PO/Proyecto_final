@@ -1,10 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiPost } from "../lib/api";
-import { getSubjectCapabilities, type ModuleResource } from "../domain/module/module.types";
+import {
+  getSubjectCapabilities,
+  type ModuleQuiz,
+  type ModuleQuizVisibility,
+  type ModuleResource,
+} from "../domain/module/module.types";
 import { MVP_GENERATOR_CATEGORIES, MVP_MODULES } from "../mvp/mvpData";
-
-type QuizVisibility = "publico" | "escuela";
 
 type TheoryItem = {
   id: string;
@@ -13,11 +16,11 @@ type TheoryItem = {
   detail: string;
 };
 
-type QuizBlock = {
-  id: string;
-  title: string;
-  type: "practica" | "evaluacion";
-  visibility: QuizVisibility;
+type LevelConfig = {
+  level: string;
+  quizBlocks: ModuleQuiz[];
+  bookResources: ModuleResource[];
+  fileResources: ModuleResource[];
 };
 
 type ValidationResult = {
@@ -135,6 +138,23 @@ const exercisesJsonExample = `{
   ]
 }`;
 
+const buildDefaultQuizBlocks = (levelKey: string): ModuleQuiz[] => [
+  {
+    id: `quiz-${levelKey}-main`,
+    title: `Cuestionario principal (${levelKey})`,
+    type: "evaluacion",
+    visibility: "escuela"
+  },
+  {
+    id: `quiz-${levelKey}-practice`,
+    title: `Cuestionario de práctica (${levelKey})`,
+    type: "practica",
+    visibility: "publico"
+  }
+];
+
+const NIVELES_DIFICULTAD = ["Básico", "Intermedio", "Avanzado"];
+
 const validateTuesdayJson = (value: unknown): ValidationResult => {
   const errors: string[] = [];
   if (!isRecord(value)) {
@@ -239,30 +259,23 @@ export default function CrearModulo() {
   const [newTheoryTitle, setNewTheoryTitle] = useState("");
   const [newTheoryType, setNewTheoryType] = useState("Video");
   const [newTheoryDetail, setNewTheoryDetail] = useState("");
-  const [quizBlocks, setQuizBlocks] = useState<QuizBlock[]>([
-    {
-      id: "quiz-basico",
-      title: "Cuestionario principal",
-      type: "evaluacion",
-      visibility: "escuela",
-    },
-    {
-      id: "quiz-practica",
-      title: "Cuestionario de práctica",
-      type: "practica",
-      visibility: "publico",
-    },
-  ]);
+  const [levelsConfig, setLevelsConfig] = useState<LevelConfig[]>(() =>
+    NIVELES_DIFICULTAD.map((difficulty) => ({
+      level: difficulty,
+      quizBlocks: buildDefaultQuizBlocks(difficulty),
+      bookResources: [],
+      fileResources: []
+    })),
+  );
+  const [activeLevel, setActiveLevel] = useState(NIVELES_DIFICULTAD[0]);
   const [newQuizTitle, setNewQuizTitle] = useState("");
-  const [newQuizType, setNewQuizType] = useState<QuizBlock["type"]>("evaluacion");
-  const [newQuizVisibility, setNewQuizVisibility] = useState<QuizVisibility>("publico");
+  const [newQuizType, setNewQuizType] = useState<ModuleQuiz["type"]>("evaluacion");
+  const [newQuizVisibility, setNewQuizVisibility] = useState<ModuleQuizVisibility>("publico");
   const [requiredDependencies, setRequiredDependencies] = useState<string[]>([]);
   const [customDependency, setCustomDependency] = useState("");
   const [customDependencies, setCustomDependencies] = useState<string[]>([]);
-  const [bookResources, setBookResources] = useState<ModuleResource[]>([]);
   const [bookResourceId, setBookResourceId] = useState("");
   const [bookResourceTitle, setBookResourceTitle] = useState("");
-  const [fileResources, setFileResources] = useState<ModuleResource[]>([]);
   const [resourceType, setResourceType] = useState<"doc" | "txt" | "bookJson">("doc");
   const [resourceTitle, setResourceTitle] = useState("");
   const [resourceUrl, setResourceUrl] = useState("");
@@ -289,6 +302,17 @@ export default function CrearModulo() {
     [subjectCapabilities.theoryTypes],
   );
   const newTheoryDetailError = getTheoryDetailError(newTheoryType, newTheoryDetail);
+  const currentLevelConfig = useMemo<LevelConfig>(
+    () =>
+      levelsConfig.find((entry) => entry.level === activeLevel) ??
+      levelsConfig[0] ?? {
+        level: activeLevel,
+        quizBlocks: [],
+        bookResources: [],
+        fileResources: []
+      },
+    [activeLevel, levelsConfig],
+  );
 
   useEffect(() => {
     if (subjectCapabilities.theoryTypes.some((option) => option.value === newTheoryType && !option.disabled)) {
@@ -343,8 +367,6 @@ export default function CrearModulo() {
     "Otro",
   ];
 
-  const nivelesDificultad = ["Básico", "Intermedio", "Avanzado"];
-
   const scoringSystems = [
     "Sistema A: 1-10 con aprobación 6",
     "Sistema B: 0-100 con aprobación 60",
@@ -361,12 +383,24 @@ export default function CrearModulo() {
     return `${base || "modulo"}-${Date.now()}`;
   };
 
+  const updateLevelConfig = (levelKey: string, updater: (current: LevelConfig) => LevelConfig) => {
+    setLevelsConfig((prev) =>
+      prev.map((levelEntry) => (levelEntry.level === levelKey ? updater(levelEntry) : levelEntry)),
+    );
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSaveStatus("saving");
     setSaveMessage("");
     try {
       const dependencies = [...requiredDependencies, ...customDependencies].filter(Boolean);
+      const levelsPayload = levelsConfig.map(({ level: levelName, quizBlocks, bookResources, fileResources }) => ({
+        level: levelName,
+        quizzes: quizBlocks,
+        resources: [...bookResources, ...fileResources]
+      }));
+      const fallbackLevel = levelsPayload.find((entry) => entry.level === level) ?? levelsPayload[0];
       const payload = {
         id: makeModuleId(title),
         title,
@@ -378,7 +412,8 @@ export default function CrearModulo() {
         visibility: visibilidad,
         dependencies,
         generatorRef: null,
-        resources: [...bookResources, ...fileResources],
+        resources: fallbackLevel?.resources ?? [],
+        levels: levelsPayload,
         createdBy: "demo-docente",
         updatedAt: new Date().toISOString()
       };
@@ -418,26 +453,33 @@ export default function CrearModulo() {
 
   const handleAddQuiz = () => {
     if (!newQuizTitle.trim()) return;
-    const nextQuiz: QuizBlock = {
+    const nextQuiz: ModuleQuiz = {
       id: `quiz-${Date.now()}`,
       title: newQuizTitle.trim(),
       type: newQuizType,
       visibility: newQuizVisibility,
     };
-    setQuizBlocks((prev) => [...prev, nextQuiz]);
+    updateLevelConfig(activeLevel, (current) => ({
+      ...current,
+      quizBlocks: [...current.quizBlocks, nextQuiz]
+    }));
     setNewQuizTitle("");
     setNewQuizType("evaluacion");
     setNewQuizVisibility("publico");
   };
 
   const handleRemoveQuiz = (id: string) => {
-    setQuizBlocks((prev) => prev.filter((quiz) => quiz.id !== id));
+    updateLevelConfig(activeLevel, (current) => ({
+      ...current,
+      quizBlocks: current.quizBlocks.filter((quiz) => quiz.id !== id)
+    }));
   };
 
-  const handleUpdateQuiz = (id: string, field: keyof QuizBlock, value: QuizBlock[keyof QuizBlock]) => {
-    setQuizBlocks((prev) =>
-      prev.map((quiz) => (quiz.id === id ? { ...quiz, [field]: value } : quiz)),
-    );
+  const handleUpdateQuiz = (id: string, field: keyof ModuleQuiz, value: ModuleQuiz[keyof ModuleQuiz]) => {
+    updateLevelConfig(activeLevel, (current) => ({
+      ...current,
+      quizBlocks: current.quizBlocks.map((quiz) => (quiz.id === id ? { ...quiz, [field]: value } : quiz))
+    }));
   };
 
   const handleToggleDependency = (moduleId: string) => {
@@ -465,15 +507,19 @@ export default function CrearModulo() {
       id: trimmed,
       title: bookResourceTitle.trim() || undefined
     };
-    setBookResources((prev) => [...prev, next]);
+    updateLevelConfig(activeLevel, (current) => ({
+      ...current,
+      bookResources: [...current.bookResources, next]
+    }));
     setBookResourceId("");
     setBookResourceTitle("");
   };
 
   const handleRemoveBookResource = (id: string) => {
-    setBookResources((prev) =>
-      prev.filter((resource) => resource.type !== "book" || resource.id !== id)
-    );
+    updateLevelConfig(activeLevel, (current) => ({
+      ...current,
+      bookResources: current.bookResources.filter((resource) => resource.type !== "book" || resource.id !== id)
+    }));
   };
 
   const resetResourceForm = () => {
@@ -511,22 +557,31 @@ export default function CrearModulo() {
         return;
       }
       if (resourceType === "doc") {
-        setFileResources((prev) => [
-          ...prev,
-          { type: "doc", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) },
-        ]);
+        updateLevelConfig(activeLevel, (current) => ({
+          ...current,
+          fileResources: [
+            ...current.fileResources,
+            { type: "doc", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) }
+          ]
+        }));
       }
       if (resourceType === "txt") {
-        setFileResources((prev) => [
-          ...prev,
-          { type: "txt", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) },
-        ]);
+        updateLevelConfig(activeLevel, (current) => ({
+          ...current,
+          fileResources: [
+            ...current.fileResources,
+            { type: "txt", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) }
+          ]
+        }));
       }
       if (resourceType === "bookJson") {
-        setFileResources((prev) => [
-          ...prev,
-          { type: "bookJson", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) },
-        ]);
+        updateLevelConfig(activeLevel, (current) => ({
+          ...current,
+          fileResources: [
+            ...current.fileResources,
+            { type: "bookJson", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) }
+          ]
+        }));
       }
       resetResourceForm();
       return;
@@ -546,17 +601,23 @@ export default function CrearModulo() {
     try {
       if (resourceType === "doc") {
         const dataUrl = await readFileAsDataUrl(resourceFile);
-        setFileResources((prev) => [
-          ...prev,
-          { type: "doc", title, url: dataUrl, fileName: resourceFile.name },
-        ]);
+        updateLevelConfig(activeLevel, (current) => ({
+          ...current,
+          fileResources: [
+            ...current.fileResources,
+            { type: "doc", title, url: dataUrl, fileName: resourceFile.name }
+          ]
+        }));
       }
       if (resourceType === "txt") {
         const content = await readFileAsText(resourceFile);
-        setFileResources((prev) => [
-          ...prev,
-          { type: "txt", title, content, fileName: resourceFile.name },
-        ]);
+        updateLevelConfig(activeLevel, (current) => ({
+          ...current,
+          fileResources: [
+            ...current.fileResources,
+            { type: "txt", title, content, fileName: resourceFile.name }
+          ]
+        }));
       }
       if (resourceType === "bookJson") {
         const content = await readFileAsText(resourceFile);
@@ -566,10 +627,13 @@ export default function CrearModulo() {
           setResourceError("El JSON del libro no es válido.");
           return;
         }
-        setFileResources((prev) => [
-          ...prev,
-          { type: "bookJson", title, content, fileName: resourceFile.name },
-        ]);
+        updateLevelConfig(activeLevel, (current) => ({
+          ...current,
+          fileResources: [
+            ...current.fileResources,
+            { type: "bookJson", title, content, fileName: resourceFile.name }
+          ]
+        }));
       }
       resetResourceForm();
     } catch (error) {
@@ -578,7 +642,10 @@ export default function CrearModulo() {
   };
 
   const handleRemoveFileResource = (index: number) => {
-    setFileResources((prev) => prev.filter((_, currentIndex) => currentIndex !== index));
+    updateLevelConfig(activeLevel, (current) => ({
+      ...current,
+      fileResources: current.fileResources.filter((_, currentIndex) => currentIndex !== index)
+    }));
   };
 
   const handleValidateTuesdayJson = () => {
@@ -749,9 +816,12 @@ export default function CrearModulo() {
                   required
                   className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
                   value={level}
-                  onChange={(event) => setLevel(event.target.value)}
+                  onChange={(event) => {
+                    setLevel(event.target.value);
+                    setActiveLevel(event.target.value);
+                  }}
                 >
-                  {nivelesDificultad.map((n) => (
+                  {NIVELES_DIFICULTAD.map((n) => (
                     <option key={n} value={n}>
                       {n}
                     </option>
@@ -866,6 +936,23 @@ export default function CrearModulo() {
               Define las partes de teoría (cada bloque es una página) y recursos de apoyo que integran el módulo.
               Puedes agregarlas de forma dinámica según la necesidad del contenido.
             </p>
+            <div className="max-w-xs">
+              <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
+              <select
+                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                value={activeLevel}
+                onChange={(event) => setActiveLevel(event.target.value)}
+              >
+                {NIVELES_DIFICULTAD.map((nivel) => (
+                  <option key={nivel} value={nivel}>
+                    {nivel}
+                  </option>
+                ))}
+              </select>
+              <p className="mt-1 text-[11px] text-gray-500">
+                Los recursos y libros se guardan según el nivel seleccionado.
+              </p>
+            </div>
 
             <div className="grid gap-3">
               {theoryItems.length === 0 ? (
@@ -1022,9 +1109,9 @@ export default function CrearModulo() {
                   Agregar libro
                 </button>
               </div>
-              {bookResources.length > 0 ? (
+              {currentLevelConfig.bookResources.length ? (
                 <ul className="space-y-2 text-sm">
-                  {bookResources.map((resource) =>
+                  {currentLevelConfig.bookResources.map((resource) =>
                     resource.type === "book" ? (
                       <li key={resource.id} className="flex items-center justify-between">
                         <span>{resource.title ?? resource.id}</span>
@@ -1152,9 +1239,9 @@ export default function CrearModulo() {
                 Agregar recurso
               </button>
 
-              {fileResources.length > 0 ? (
+              {currentLevelConfig.fileResources.length ? (
                 <ul className="space-y-2 text-sm">
-                  {fileResources.map((resource, index) => (
+                  {currentLevelConfig.fileResources.map((resource, index) => (
                     <li key={`${resource.type}-${index}`} className="flex items-center justify-between">
                       <span>
                         {resource.title} ·{" "}
@@ -1250,9 +1337,26 @@ export default function CrearModulo() {
               Los cuestionarios son páginas igual que los videos o textos, pero con opciones extra (tipo, visibilidad,
               consignas). La generación aleatoria solo se habilita para Matemáticas, Física, Química y Economía.
             </p>
+            <div className="max-w-xs">
+              <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
+              <select
+                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                value={activeLevel}
+                onChange={(event) => setActiveLevel(event.target.value)}
+              >
+                {NIVELES_DIFICULTAD.map((nivel) => (
+                  <option key={nivel} value={nivel}>
+                    {nivel}
+                  </option>
+                ))}
+              </select>
+              <p className="mt-1 text-[11px] text-gray-500">
+                Los cuestionarios se guardan por nivel.
+              </p>
+            </div>
 
             <div className="grid gap-3">
-              {quizBlocks.map((quiz) => (
+              {currentLevelConfig.quizBlocks.map((quiz) => (
                 <div key={quiz.id} className="border rounded-lg p-4 space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <div>
@@ -1280,7 +1384,7 @@ export default function CrearModulo() {
                         className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
                         value={quiz.visibility}
                         onChange={(event) =>
-                          handleUpdateQuiz(quiz.id, "visibility", event.target.value as QuizVisibility)
+                          handleUpdateQuiz(quiz.id, "visibility", event.target.value as ModuleQuizVisibility)
                         }
                       >
                         <option value="publico">Público</option>
@@ -1319,7 +1423,7 @@ export default function CrearModulo() {
                         className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
                         value={quiz.type}
                         onChange={(event) =>
-                          handleUpdateQuiz(quiz.id, "type", event.target.value as QuizBlock["type"])
+                          handleUpdateQuiz(quiz.id, "type", event.target.value as ModuleQuiz["type"])
                         }
                       >
                         <option value="practica">Práctica</option>
@@ -1353,7 +1457,7 @@ export default function CrearModulo() {
                   <select
                     className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
                     value={newQuizType}
-                    onChange={(event) => setNewQuizType(event.target.value as QuizBlock["type"])}
+                    onChange={(event) => setNewQuizType(event.target.value as ModuleQuiz["type"])}
                   >
                     <option value="evaluacion">Evaluación</option>
                     <option value="practica">Práctica</option>
@@ -1361,7 +1465,7 @@ export default function CrearModulo() {
                   <select
                     className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
                     value={newQuizVisibility}
-                    onChange={(event) => setNewQuizVisibility(event.target.value as QuizVisibility)}
+                    onChange={(event) => setNewQuizVisibility(event.target.value as ModuleQuizVisibility)}
                   >
                     <option value="publico">Público</option>
                     <option value="escuela">Solo una escuela</option>
