@@ -9,15 +9,19 @@ type BookRecord = {
   updatedAt?: string;
 };
 
+type BookPayload = {
+  book: Book;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
 export async function fetchBook(id: string): Promise<Book> {
   const record = await apiGet<BookRecord>(`/api/libros/${encodeURIComponent(id)}`);
   return record.book;
 }
 
 export async function saveBook(book: Book): Promise<{ id: string }> {
-  const payload: BookRecord = {
-    id: book.metadata.id ?? "book-draft",
-    title: book.metadata.title ?? "Sin título",
+  const payload: BookPayload = {
     book,
     updatedAt: new Date().toISOString(),
   };

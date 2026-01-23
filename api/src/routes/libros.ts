@@ -8,8 +8,20 @@ const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 
 libros.post("/api/libros", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
   try {
+    const book = req.body?.book;
+    if (!book || typeof book !== "object") {
+      return res.status(400).json({ error: "book payload is required" });
+    }
+    const metadata = (book as { metadata?: { id?: string; title?: string } }).metadata;
+    const id = metadata?.id;
+    const title = metadata?.title;
+    if (!id || !title) {
+      return res.status(400).json({ error: "book.metadata.id and book.metadata.title are required" });
+    }
     const payload = {
-      ...req.body,
+      id,
+      title,
+      book,
       createdAt: req.body?.createdAt ?? new Date().toISOString(),
       updatedAt: req.body?.updatedAt ?? new Date().toISOString()
     };
