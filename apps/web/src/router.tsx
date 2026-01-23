@@ -22,6 +22,7 @@ import ConceptMapDemo from "./pages/ConceptMapDemo";
 import ChartsDemo from "./pages/ChartsDemo";
 import SimulacionesFisica from "./pages/SimulacionesFisica";
 import CrearModulo from "./pages/crearModulo";
+import EditorCuestionarios from "./pages/EditorCuestionarios";
 import EditarModulo from "./pages/editarModulo";
 import JugarModulo from "./pages/jugarModulo";
 import ProfesorAulas from "./pages/ProfesorAulas";
@@ -358,6 +359,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['TEACHER','GUEST']}>
             <CrearModulo />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profesor/editor-cuestionarios",
+        element: (
+          <ProtectedRoute allow={['TEACHER', 'GUEST']}>
+            <EditorCuestionarios />
           </ProtectedRoute>
         ),
       },
