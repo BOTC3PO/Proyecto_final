@@ -249,6 +249,18 @@ export default function JugarModulo() {
     return { kind: "unsupported", message: "No se pudo resolver el generador configurado." };
   }, [module]);
 
+  const buildTextDownloadUrl = (content: string, mimeType: string) =>
+    `data:${mimeType};charset=utf-8,${encodeURIComponent(content)}`;
+
+  const formatJsonContent = (content?: string) => {
+    if (!content) return null;
+    try {
+      return JSON.stringify(JSON.parse(content), null, 2);
+    } catch (error) {
+      return content;
+    }
+  };
+
   if (status === "loading") {
     return (
       <main className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -387,6 +399,78 @@ export default function JugarModulo() {
                     <a className="text-blue-600 hover:underline" href={resource.url} target="_blank" rel="noreferrer">
                       {resource.title}
                     </a>
+                  )}
+                  {resource.type === "doc" && (
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm font-medium">{resource.title}</span>
+                      <a
+                        className="text-blue-600 hover:underline text-sm"
+                        href={resource.url}
+                        download={resource.fileName ?? resource.title}
+                      >
+                        Descargar documento
+                      </a>
+                    </div>
+                  )}
+                  {resource.type === "txt" && (
+                    <div className="space-y-2">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-sm font-medium">{resource.title}</span>
+                        {resource.url ? (
+                          <a
+                            className="text-blue-600 hover:underline text-sm"
+                            href={resource.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Abrir archivo
+                          </a>
+                        ) : resource.content ? (
+                          <a
+                            className="text-blue-600 hover:underline text-sm"
+                            href={buildTextDownloadUrl(resource.content, "text/plain")}
+                            download={resource.fileName ?? `${resource.title}.txt`}
+                          >
+                            Descargar TXT
+                          </a>
+                        ) : null}
+                      </div>
+                      {resource.content && (
+                        <pre className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs whitespace-pre-wrap">
+                          {resource.content}
+                        </pre>
+                      )}
+                    </div>
+                  )}
+                  {resource.type === "bookJson" && (
+                    <div className="space-y-2">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-sm font-medium">{resource.title}</span>
+                        {resource.url ? (
+                          <a
+                            className="text-blue-600 hover:underline text-sm"
+                            href={resource.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Abrir JSON
+                          </a>
+                        ) : resource.content ? (
+                          <a
+                            className="text-blue-600 hover:underline text-sm"
+                            href={buildTextDownloadUrl(resource.content, "application/json")}
+                            download={resource.fileName ?? `${resource.title}.json`}
+                          >
+                            Descargar JSON
+                          </a>
+                        ) : null}
+                      </div>
+                      {resource.content && (
+                        <pre className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs whitespace-pre-wrap">
+                          {formatJsonContent(resource.content)}
+                        </pre>
+                      )}
+                    </div>
                   )}
                 </li>
               ))}

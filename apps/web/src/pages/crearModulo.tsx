@@ -41,6 +41,55 @@ const isValidUrl = (value: string) => {
   }
 };
 
+const ALLOWED_RESOURCE_EXTENSIONS: Record<"doc" | "txt" | "bookJson", string[]> = {
+  doc: [".doc", ".docx"],
+  txt: [".txt"],
+  bookJson: [".json"],
+};
+
+const getFileExtension = (value: string) => {
+  let path = value;
+  try {
+    path = new URL(value).pathname;
+  } catch (error) {
+    path = value;
+  }
+  const match = path.toLowerCase().match(/\.[a-z0-9]+$/i);
+  return match?.[0] ?? "";
+};
+
+const isExtensionAllowed = (resourceType: "doc" | "txt" | "bookJson", value: string) =>
+  ALLOWED_RESOURCE_EXTENSIONS[resourceType].includes(getFileExtension(value));
+
+const getAllowedExtensionsLabel = (resourceType: "doc" | "txt" | "bookJson") =>
+  ALLOWED_RESOURCE_EXTENSIONS[resourceType].join(", ");
+
+const getUrlFileName = (value: string) => {
+  try {
+    const url = new URL(value);
+    const lastSegment = url.pathname.split("/").filter(Boolean).pop();
+    return lastSegment ? decodeURIComponent(lastSegment) : "archivo";
+  } catch (error) {
+    return "archivo";
+  }
+};
+
+const readFileAsText = (file: File) =>
+  new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result ?? ""));
+    reader.onerror = () => reject(new Error("No se pudo leer el archivo."));
+    reader.readAsText(file);
+  });
+
+const readFileAsDataUrl = (file: File) =>
+  new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result ?? ""));
+    reader.onerror = () => reject(new Error("No se pudo leer el archivo."));
+    reader.readAsDataURL(file);
+  });
+
 const getTheoryDetailError = (type: string, detail: string) => {
   if (type !== "Video") return null;
   if (!detail.trim()) {
@@ -213,6 +262,14 @@ export default function CrearModulo() {
   const [bookResources, setBookResources] = useState<ModuleResource[]>([]);
   const [bookResourceId, setBookResourceId] = useState("");
   const [bookResourceTitle, setBookResourceTitle] = useState("");
+  const [fileResources, setFileResources] = useState<ModuleResource[]>([]);
+  const [resourceType, setResourceType] = useState<"doc" | "txt" | "bookJson">("doc");
+  const [resourceTitle, setResourceTitle] = useState("");
+  const [resourceUrl, setResourceUrl] = useState("");
+  const [resourceFile, setResourceFile] = useState<File | null>(null);
+  const [resourceInputMode, setResourceInputMode] = useState<"upload" | "link">("upload");
+  const [resourceError, setResourceError] = useState("");
+  const resourceFileInputRef = useRef<HTMLInputElement | null>(null);
   const [tuesdayJsonInput, setTuesdayJsonInput] = useState("");
   const [tuesdayJsonStatus, setTuesdayJsonStatus] = useState<{
     status: "idle" | "valid" | "error";
@@ -321,7 +378,7 @@ export default function CrearModulo() {
         visibility: visibilidad,
         dependencies,
         generatorRef: null,
-        resources: bookResources,
+        resources: [...bookResources, ...fileResources],
         createdBy: "demo-docente",
         updatedAt: new Date().toISOString()
       };
@@ -417,6 +474,111 @@ export default function CrearModulo() {
     setBookResources((prev) =>
       prev.filter((resource) => resource.type !== "book" || resource.id !== id)
     );
+  };
+
+  const resetResourceForm = () => {
+    setResourceTitle("");
+    setResourceUrl("");
+    setResourceFile(null);
+    setResourceError("");
+    if (resourceFileInputRef.current) {
+      resourceFileInputRef.current.value = "";
+    }
+  };
+
+  const handleAddFileResource = async () => {
+    setResourceError("");
+    const trimmedTitle = resourceTitle.trim();
+    const titleFallback =
+      resourceInputMode === "link"
+        ? getUrlFileName(resourceUrl)
+        : resourceFile?.name ?? "Archivo";
+    const title = trimmedTitle || titleFallback;
+
+    if (resourceInputMode === "link") {
+      if (!resourceUrl.trim()) {
+        setResourceError("Agrega una URL para continuar.");
+        return;
+      }
+      if (!isValidUrl(resourceUrl)) {
+        setResourceError("La URL debe ser válida (http:// o https://).");
+        return;
+      }
+      if (!isExtensionAllowed(resourceType, resourceUrl)) {
+        setResourceError(
+          `El enlace debe finalizar en ${getAllowedExtensionsLabel(resourceType)}.`,
+        );
+        return;
+      }
+      if (resourceType === "doc") {
+        setFileResources((prev) => [
+          ...prev,
+          { type: "doc", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) },
+        ]);
+      }
+      if (resourceType === "txt") {
+        setFileResources((prev) => [
+          ...prev,
+          { type: "txt", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) },
+        ]);
+      }
+      if (resourceType === "bookJson") {
+        setFileResources((prev) => [
+          ...prev,
+          { type: "bookJson", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) },
+        ]);
+      }
+      resetResourceForm();
+      return;
+    }
+
+    if (!resourceFile) {
+      setResourceError("Selecciona un archivo para continuar.");
+      return;
+    }
+    if (!isExtensionAllowed(resourceType, resourceFile.name)) {
+      setResourceError(
+        `El archivo debe ser ${getAllowedExtensionsLabel(resourceType)}.`,
+      );
+      return;
+    }
+
+    try {
+      if (resourceType === "doc") {
+        const dataUrl = await readFileAsDataUrl(resourceFile);
+        setFileResources((prev) => [
+          ...prev,
+          { type: "doc", title, url: dataUrl, fileName: resourceFile.name },
+        ]);
+      }
+      if (resourceType === "txt") {
+        const content = await readFileAsText(resourceFile);
+        setFileResources((prev) => [
+          ...prev,
+          { type: "txt", title, content, fileName: resourceFile.name },
+        ]);
+      }
+      if (resourceType === "bookJson") {
+        const content = await readFileAsText(resourceFile);
+        try {
+          JSON.parse(content);
+        } catch (error) {
+          setResourceError("El JSON del libro no es válido.");
+          return;
+        }
+        setFileResources((prev) => [
+          ...prev,
+          { type: "bookJson", title, content, fileName: resourceFile.name },
+        ]);
+      }
+      resetResourceForm();
+    } catch (error) {
+      setResourceError(error instanceof Error ? error.message : "No se pudo leer el archivo.");
+    }
+  };
+
+  const handleRemoveFileResource = (index: number) => {
+    setFileResources((prev) => prev.filter((_, currentIndex) => currentIndex !== index));
   };
 
   const handleValidateTuesdayJson = () => {
@@ -879,6 +1041,141 @@ export default function CrearModulo() {
                 </ul>
               ) : (
                 <p className="text-xs text-gray-500">Todavía no agregaste libros al módulo.</p>
+              )}
+            </div>
+
+            <div className="border rounded-lg p-4 space-y-3">
+              <h3 className="text-sm font-semibold">Archivos de apoyo (DOC, TXT, Book JSON)</h3>
+              <p className="text-xs text-gray-600">
+                Solo se permiten archivos .doc/.docx, .txt y .json para libros.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-medium text-gray-700">Tipo de recurso</label>
+                  <select
+                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                    value={resourceType}
+                    onChange={(event) => {
+                      setResourceType(event.target.value as "doc" | "txt" | "bookJson");
+                      setResourceError("");
+                      setResourceFile(null);
+                      if (resourceFileInputRef.current) {
+                        resourceFileInputRef.current.value = "";
+                      }
+                    }}
+                  >
+                    <option value="doc">Documento (.doc/.docx)</option>
+                    <option value="txt">Texto (.txt)</option>
+                    <option value="bookJson">Libro JSON (.json)</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-gray-700">Título</label>
+                  <input
+                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    value={resourceTitle}
+                    onChange={(event) => setResourceTitle(event.target.value)}
+                    placeholder="Ej: Apunte de lectura"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2 text-xs">
+                <button
+                  type="button"
+                  className={`rounded-md border px-3 py-1 ${
+                    resourceInputMode === "upload" ? "bg-slate-100 text-slate-700" : "text-slate-500"
+                  }`}
+                  onClick={() => {
+                    setResourceInputMode("upload");
+                    setResourceError("");
+                    setResourceUrl("");
+                  }}
+                >
+                  Subir archivo
+                </button>
+                <button
+                  type="button"
+                  className={`rounded-md border px-3 py-1 ${
+                    resourceInputMode === "link" ? "bg-slate-100 text-slate-700" : "text-slate-500"
+                  }`}
+                  onClick={() => {
+                    setResourceInputMode("link");
+                    setResourceError("");
+                    setResourceFile(null);
+                    if (resourceFileInputRef.current) {
+                      resourceFileInputRef.current.value = "";
+                    }
+                  }}
+                >
+                  Pegar enlace
+                </button>
+              </div>
+
+              {resourceInputMode === "upload" ? (
+                <div className="space-y-1">
+                  <input
+                    ref={resourceFileInputRef}
+                    type="file"
+                    accept={ALLOWED_RESOURCE_EXTENSIONS[resourceType].join(",")}
+                    className="w-full text-sm"
+                    onChange={(event) => {
+                      const file = event.target.files?.[0] ?? null;
+                      setResourceFile(file);
+                      setResourceError("");
+                    }}
+                  />
+                  <p className="text-[11px] text-gray-500">
+                    Formatos permitidos: {getAllowedExtensionsLabel(resourceType)}.
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-1">
+                  <input
+                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    value={resourceUrl}
+                    onChange={(event) => {
+                      setResourceUrl(event.target.value);
+                      setResourceError("");
+                    }}
+                    placeholder={`URL del archivo (${getAllowedExtensionsLabel(resourceType)})`}
+                  />
+                  <p className="text-[11px] text-gray-500">
+                    Solo se aceptan enlaces directos con extensión {getAllowedExtensionsLabel(resourceType)}.
+                  </p>
+                </div>
+              )}
+
+              {resourceError && <p className="text-xs text-red-600">{resourceError}</p>}
+
+              <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddFileResource}>
+                Agregar recurso
+              </button>
+
+              {fileResources.length > 0 ? (
+                <ul className="space-y-2 text-sm">
+                  {fileResources.map((resource, index) => (
+                    <li key={`${resource.type}-${index}`} className="flex items-center justify-between">
+                      <span>
+                        {resource.title} ·{" "}
+                        {resource.type === "doc"
+                          ? "DOC"
+                          : resource.type === "txt"
+                            ? "TXT"
+                            : "Book JSON"}
+                      </span>
+                      <button
+                        type="button"
+                        className="text-xs text-red-500 hover:underline"
+                        onClick={() => handleRemoveFileResource(index)}
+                      >
+                        Quitar
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-xs text-gray-500">Todavía no agregaste archivos de apoyo.</p>
               )}
             </div>
 

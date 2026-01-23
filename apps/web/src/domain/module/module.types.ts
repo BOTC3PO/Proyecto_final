@@ -2,7 +2,10 @@ export type ModuleVisibility = "publico" | "privado" | "escuela";
 
 export type ModuleResource =
   | { type: "book"; id: string; title?: string }
+  | { type: "doc"; title: string; url: string; fileName?: string }
   | { type: "pdf"; title: string; url: string }
+  | { type: "txt"; title: string; content?: string; url?: string; fileName?: string }
+  | { type: "bookJson"; title: string; content?: string; url?: string; fileName?: string }
   | { type: "link"; title: string; url: string };
 
 export type ModuleGeneratorRef = {
