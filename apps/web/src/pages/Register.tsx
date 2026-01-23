@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiFetch } from "../services/api";
+import { fetchRegistroOpciones } from "../services/registro";
 
 /* ===========================
    DateInput (sin lucide-react)
@@ -18,12 +19,8 @@ type DateInputProps = {
   minDate?: Date;
   maxDate?: Date;
   startOnMonday?: boolean;
+  months?: string[];
 };
-
-const months = [
-  "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-  "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
-];
 
 function pad(n: number) { return String(n).padStart(2,"0"); }
 function toISO(d: Date) { return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
@@ -45,7 +42,8 @@ function DateInput({
   toYear = new Date().getFullYear(),
   minDate,
   maxDate = new Date(), // no fechas futuras por defecto
-  startOnMonday = true
+  startOnMonday = true,
+  months = []
 }: DateInputProps) {
   const controlledDate = parseDisplay(value) || null;
 
@@ -169,7 +167,11 @@ function DateInput({
                 className="px-3 py-1.5 text-sm font-semibold text-gray-800 bg-white border-2 border-gray-200 
                            rounded-lg hover:border-blue-400 focus:outline-none focus:border-blue-500"
               >
-                {months.map((m, i) => <option key={m} value={i}>{m}</option>)}
+                {months.map((m, i) => (
+                  <option key={m} value={i}>
+                    {m}
+                  </option>
+                ))}
               </select>
 
               <select
@@ -272,13 +274,9 @@ function DateInput({
 
 export default function RegistrationForm() {
   const navigate = useNavigate();
-  const teacherTypes = [
-    { value: "primary", label: "Profesor/a de Primaria" },
-    { value: "secondary", label: "Profesor/a de Secundaria" },
-    { value: "higher", label: "Profesor/a Universitario/a" },
-    { value: "special", label: "Profesor/a de Educación Especial" },
-    { value: "other", label: "Otro" }
-  ];
+  const [teacherTypes, setTeacherTypes] = useState<Array<{ value: string; label: string }>>([]);
+  const [monthOptions, setMonthOptions] = useState<string[]>([]);
+  const [optionsError, setOptionsError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     fullName: "",
     username: "",
@@ -297,6 +295,29 @@ export default function RegistrationForm() {
     loading: false,
     error: null
   });
+
+  useEffect(() => {
+    let active = true;
+    fetchRegistroOpciones()
+      .then((data) => {
+        if (!active) return;
+        setTeacherTypes(
+          data.tiposProfesor.map((tipo) => ({
+            value: tipo,
+            label: tipo
+          }))
+        );
+        setMonthOptions(data.meses);
+        setOptionsError(null);
+      })
+      .catch((err: Error) => {
+        if (!active) return;
+        setOptionsError(err.message);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const handleDateChange = (display: string, iso?: string) => {
     setFormData((s) => ({ ...s, birthdate: display, birthdateISO: iso ?? "" }));
@@ -416,7 +437,11 @@ export default function RegistrationForm() {
               maxDate={new Date()} // no permitir futuras
               startOnMonday
               required
+              months={monthOptions}
             />
+            {optionsError && (
+              <p className="text-sm text-red-600">No se pudieron cargar las opciones: {optionsError}</p>
+            )}
             {/* Campo oculto ISO para enviar al backend si querés */}
             <input type="hidden" name="birthday_iso" value={formData.birthdateISO} />
 

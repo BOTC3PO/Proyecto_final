@@ -1,6 +1,25 @@
 import { apiFetch } from "./api";
 import type { Classroom, ClassroomListResponse } from "../domain/classroom/classroom.types";
 
+export type ClassroomStudentProgress = {
+  id: string;
+  name: string;
+  completion: number;
+  score: number;
+  status: "al_dia" | "en_riesgo" | "destacado";
+};
+
+export type ClassroomProgressSnapshot = {
+  classroomId: string;
+  totalStudents: number;
+  activeStudents: number;
+  avgCompletion: number;
+  avgScore: number;
+  atRiskCount: number;
+  students: ClassroomStudentProgress[];
+  lastUpdate: string;
+};
+
 export async function fetchClassrooms(): Promise<ClassroomListResponse> {
   return apiFetch<ClassroomListResponse>("/api/aulas");
 }
@@ -30,4 +49,12 @@ export async function deleteClassroom(classroomId: string): Promise<void> {
   await apiFetch<void>(`/api/aulas/${classroomId}`, {
     method: "DELETE"
   });
+}
+
+export async function fetchClassroomProgressSnapshots(
+  classroomIds: string[]
+): Promise<ClassroomProgressSnapshot[]> {
+  const params = new URLSearchParams();
+  if (classroomIds.length) params.set("classroomIds", classroomIds.join(","));
+  return apiFetch<ClassroomProgressSnapshot[]>(`/api/aulas/progreso?${params.toString()}`);
 }
