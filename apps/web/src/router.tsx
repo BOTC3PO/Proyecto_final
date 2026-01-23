@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Login  from "./pages/Login";
 import Register from "./pages/Register";
+import RecuperarContrasena from "./pages/RecuperarContrasena";
 import Explorar from "./pages/Explorar";
 import Metodologia from "./pages/metodologia";
 import MenuAlumno from "./pages/menu-alumno";
@@ -54,6 +55,8 @@ import EnterpriseContratos from "./pages/EnterpriseContratos";
 import EnterpriseReportes from "./pages/EnterpriseReportes";
 import MenuProfesor from "./pages/MenuProfesor";
 import ProfesorAulaConfiguracion from "./pages/ProfesorAulaConfiguracion";
+import Terminos from "./pages/Terminos";
+import Privacidad from "./pages/Privacidad";
 
 
 import test from "./sys/testmode";
@@ -81,12 +84,15 @@ export const router = createBrowserRouter([
       { path: "pricing", element: <Navigate to="/precios" replace /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
+      { path: "recuperar", element: <RecuperarContrasena /> },
       
       
       // Rutas adicionales que tenías en GuestLayout
       { path: "about", element: <About /> },
       { path: "landing", element: <Landing /> },
       { path: "contact", element: <Contact /> },
+      { path: "terminos", element: <Terminos /> },
+      { path: "privacidad", element: <Privacidad /> },
       { path: "metodologia", element: <Metodologia /> },
       { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
       { path: "editor", element: <BookEditorPage /> },

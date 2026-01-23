@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Award, Bell, Clock3, GraduationCap, Trophy, UserCircle2 } from "lucide-react";
 import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
@@ -263,10 +264,10 @@ const ProfileCard: React.FC<{ student: Student }> = ({ student }) => (
       <button className="p-2" title="Notificaciones" aria-label="Notificaciones">
         <Bell className="h-6 w-6" aria-hidden="true" />
       </button>
-      <a className="flex items-center gap-2 hover:underline" href="#">
+      <Link className="flex items-center gap-2 hover:underline" to="/progreso">
         <UserCircle2 className="h-6 w-6" />
         Perfil
-      </a>
+      </Link>
     </div>
   </div>
 );

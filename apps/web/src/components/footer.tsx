@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-blue-600 text-white">
@@ -5,9 +7,9 @@ export default function Footer() {
         <div className="py-6 text-center text-sm space-y-3">
           <p>© 2024 Proyecto Challenger. Todos los derechos reservados.</p>
           <div className="flex justify-center gap-6">
-            <a className="hover:underline" href="#">Términos</a>
-            <a className="hover:underline" href="#">Privacidad</a>
-            <a className="hover:underline" href="#">Contacto</a>
+            <Link className="hover:underline" to="/terminos">Términos</Link>
+            <Link className="hover:underline" to="/privacidad">Privacidad</Link>
+            <Link className="hover:underline" to="/contact">Contacto</Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiFetch } from "../services/api";
 
@@ -135,9 +135,9 @@ export default function Login() {
                     />
                     <span className="text-sm text-gray-700">Recuérdame</span>
                   </label>
-                  <a href="#" className="text-sm text-blue-600 hover:text-blue-700">
+                  <Link to="/recuperar" className="text-sm text-blue-600 hover:text-blue-700">
                     ¿Olvidaste tu contraseña?
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Botón */}
@@ -157,9 +157,9 @@ export default function Login() {
 
                 <p className="text-center text-sm text-gray-600">
                   ¿No tienes una cuenta?{" "}
-                  <a href="#" className="font-medium text-blue-600 hover:text-blue-700">
+                  <Link to="/register" className="font-medium text-blue-600 hover:text-blue-700">
                     Regístrate
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>

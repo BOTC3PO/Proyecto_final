@@ -38,15 +38,15 @@ type ClassroomDetail = Classroom & {
 };
 
 const teacherTools = [
-  "Informes y Estadísticas",
-  "Rendimiento por módulo",
-  "Progreso individual",
-  "Informe mensual",
-  "Alertas de rendimiento",
-  "Gestionar módulos",
-  "Configurar juegos",
-  "Ver estadísticas",
-  "Ajustes TTS",
+  { label: "Informes y Estadísticas", to: "/profesor/reportes" },
+  { label: "Rendimiento por módulo", to: "/profesor/modulos" },
+  { label: "Progreso individual", to: "/profesor/estadisticas" },
+  { label: "Informe mensual", to: "/profesor/reportes" },
+  { label: "Alertas de rendimiento", to: "/profesor/mensajes" },
+  { label: "Gestionar módulos", to: "/profesor/modulos" },
+  { label: "Configurar juegos", to: "/profesor/crear-modulo" },
+  { label: "Ver estadísticas", to: "/profesor/estadisticas" },
+  { label: "Ajustes TTS", to: "/profesor/configuracion" },
 ];
 
 export default function aula() {
@@ -447,10 +447,10 @@ export default function aula() {
                 <h3 className="text-lg font-semibold">Herramientas del profesor</h3>
                 <ul className="mt-3 space-y-2 text-sm">
                   {teacherTools.map((tool) => (
-                    <li key={tool}>
-                      <a className="hover:underline" href="#">
-                        {tool}
-                      </a>
+                    <li key={tool.label}>
+                      <Link className="hover:underline" to={tool.to}>
+                        {tool.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>

@@ -161,7 +161,7 @@ export default function menuProfesor() {
             <button title="Notificaciones" aria-label="Notificaciones">
               🔔
             </button>
-            <Link className="flex items-center gap-2 hover:underline" to="#">
+            <Link className="flex items-center gap-2 hover:underline" to="/profesor/configuracion">
               👤 Perfil
             </Link>
           </div>
