@@ -4,21 +4,47 @@ import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { fetchProfesorMenuDashboard, type ProfesorMenuDashboard } from "../services/profesor";
+import ConceptMapVisualizer from "../visualizadores/graficos/ConceptMapVisualizer";
+import type { ConceptMapSpec, ConceptLink } from "../visualizadores/types";
+
+const buildFallbackModules = () =>
+  MVP_MODULES.map((module, index) => ({
+    ...module,
+    subject: module.category,
+    visibility: "publico",
+    dependencies: index === 0 ? [] : [MVP_MODULES[index - 1].id],
+    createdBy: "demo-docente",
+    createdByRole: "docente",
+    authorName: "Demo Docente"
+  }));
+
+const collectDependencyChain = (startId: string, adjacency: Map<string, string[]>) => {
+  const visited = new Set<string>();
+  const stack = [startId];
+
+  while (stack.length > 0) {
+    const current = stack.pop();
+    if (!current || visited.has(current)) continue;
+    visited.add(current);
+    const neighbors = adjacency.get(current) ?? [];
+    neighbors.forEach((neighbor) => {
+      if (!visited.has(neighbor)) {
+        stack.push(neighbor);
+      }
+    });
+  }
+
+  return visited;
+};
 
 export default function menuProfesor() {
-  const [modules, setModules] = useState(
-    MVP_MODULES.map((module) => ({
-      ...module,
-      visibility: "publico",
-      dependencies: [],
-      createdBy: "demo-docente",
-      createdByRole: "docente",
-      authorName: "Demo Docente"
-    }))
-  );
+  const [modules, setModules] = useState(buildFallbackModules);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("todas");
   const [selectedVisibility, setSelectedVisibility] = useState("todas");
+  const [selectedSubject, setSelectedSubject] = useState("todas");
+  const [selectedGraphModuleId, setSelectedGraphModuleId] = useState("");
+  const [showFullPath, setShowFullPath] = useState(false);
   const [dashboard, setDashboard] = useState<ProfesorMenuDashboard | null>(null);
   const [dashboardLoading, setDashboardLoading] = useState(true);
   const [dashboardError, setDashboardError] = useState<string | null>(null);
@@ -79,6 +105,7 @@ export default function menuProfesor() {
           description: module.description,
           level: module.level,
           durationMinutes: module.durationMinutes,
+          subject: module.subject,
           category: module.category,
           visibility: module.visibility ?? "privado",
           dependencies: module.dependencies ?? [],
@@ -90,16 +117,7 @@ export default function menuProfesor() {
       })
       .catch(() => {
         if (!active) return;
-        setModules(
-          MVP_MODULES.map((module) => ({
-            ...module,
-            visibility: "publico",
-            dependencies: [],
-            createdBy: "demo-docente",
-            createdByRole: "docente",
-            authorName: "Demo Docente"
-          }))
-        );
+        setModules(buildFallbackModules());
       });
     return () => {
       active = false;
@@ -126,6 +144,126 @@ export default function menuProfesor() {
       active = false;
     };
   }, []);
+
+  const subjectOptions = useMemo(() => {
+    const subjects = modules
+      .map((module) => module.subject || module.category)
+      .filter((subject): subject is string => Boolean(subject));
+    return Array.from(new Set(subjects)).sort((a, b) => a.localeCompare(b));
+  }, [modules]);
+
+  const graphModules = useMemo(() => {
+    if (selectedSubject === "todas") {
+      return modules;
+    }
+    return modules.filter(
+      (module) => (module.subject || module.category) === selectedSubject
+    );
+  }, [modules, selectedSubject]);
+
+  const moduleById = useMemo(
+    () => new Map(graphModules.map((module) => [module.id, module])),
+    [graphModules]
+  );
+
+  const dependencyLinks = useMemo(() => {
+    const links: ConceptLink[] = [];
+    graphModules.forEach((module) => {
+      module.dependencies.forEach((dependencyId) => {
+        if (!moduleById.has(dependencyId)) return;
+        links.push({
+          id: `${dependencyId}-${module.id}`,
+          sourceId: dependencyId,
+          targetId: module.id,
+          relation: "depende de"
+        });
+      });
+    });
+    return links;
+  }, [graphModules, moduleById]);
+
+  const dependencyAdjacency = useMemo(() => {
+    const adjacency = new Map<string, string[]>();
+    graphModules.forEach((module) => {
+      adjacency.set(module.id, module.dependencies.filter((dep) => moduleById.has(dep)));
+    });
+    return adjacency;
+  }, [graphModules, moduleById]);
+
+  const reverseAdjacency = useMemo(() => {
+    const adjacency = new Map<string, string[]>();
+    graphModules.forEach((module) => {
+      module.dependencies.forEach((dependencyId) => {
+        if (!moduleById.has(dependencyId)) return;
+        const existing = adjacency.get(dependencyId) ?? [];
+        existing.push(module.id);
+        adjacency.set(dependencyId, existing);
+      });
+    });
+    return adjacency;
+  }, [graphModules, moduleById]);
+
+  const fullPathIds = useMemo(() => {
+    if (!showFullPath || !selectedGraphModuleId || !moduleById.has(selectedGraphModuleId)) {
+      return null;
+    }
+    const ancestors = collectDependencyChain(selectedGraphModuleId, dependencyAdjacency);
+    const descendants = collectDependencyChain(selectedGraphModuleId, reverseAdjacency);
+    return new Set([...ancestors, ...descendants]);
+  }, [dependencyAdjacency, moduleById, reverseAdjacency, selectedGraphModuleId, showFullPath]);
+
+  const graphSpec = useMemo<ConceptMapSpec>(() => {
+    const nodes = graphModules
+      .filter((module) => (fullPathIds ? fullPathIds.has(module.id) : true))
+      .map((module) => ({
+        id: module.id,
+        label: module.title,
+        description: module.subject || module.category
+      }));
+
+    const links = dependencyLinks.filter((link) =>
+      fullPathIds ? fullPathIds.has(link.sourceId) && fullPathIds.has(link.targetId) : true
+    );
+
+    return {
+      kind: "concept-map",
+      nodes,
+      links
+    };
+  }, [dependencyLinks, fullPathIds, graphModules]);
+
+  const graphSelection = useMemo(() => {
+    if (!selectedGraphModuleId) {
+      return null;
+    }
+    return moduleById.get(selectedGraphModuleId) ?? null;
+  }, [moduleById, selectedGraphModuleId]);
+
+  const previewDependencies = useMemo(() => {
+    if (!graphSelection) {
+      return { previous: [], next: [] } as { previous: Module[]; next: Module[] };
+    }
+
+    const previous = (dependencyAdjacency.get(graphSelection.id) ?? [])
+      .map((id) => moduleById.get(id))
+      .filter((module): module is Module => Boolean(module));
+    const next = (reverseAdjacency.get(graphSelection.id) ?? [])
+      .map((id) => moduleById.get(id))
+      .filter((module): module is Module => Boolean(module));
+
+    return { previous, next };
+  }, [dependencyAdjacency, graphSelection, moduleById, reverseAdjacency]);
+
+  useEffect(() => {
+    if (graphModules.length === 0) {
+      setSelectedGraphModuleId("");
+      return;
+    }
+
+    if (!selectedGraphModuleId || !moduleById.has(selectedGraphModuleId)) {
+      setSelectedGraphModuleId(graphModules[0].id);
+    }
+  }, [graphModules, moduleById, selectedGraphModuleId]);
 
   return (
     <main className="flex-1">
@@ -364,6 +502,109 @@ export default function menuProfesor() {
             </p>
           )}
         </div>
+
+        <section className="bg-white rounded-xl shadow p-5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 className="text-lg font-semibold">Mapa de dependencias</h3>
+              <p className="text-sm text-gray-500">
+                Revisa cómo se encadenan los módulos y filtra por materia o ruta completa.
+              </p>
+            </div>
+            {graphSelection && (
+              <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
+                Seleccionado: {graphSelection.title}
+              </span>
+            )}
+          </div>
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+              Materia
+              <select
+                className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                value={selectedSubject}
+                onChange={(event) => setSelectedSubject(event.target.value)}
+              >
+                <option value="todas">Todas</option>
+                {subjectOptions.map((subject) => (
+                  <option key={subject} value={subject}>
+                    {subject}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+              Módulo base
+              <select
+                className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                value={selectedGraphModuleId}
+                onChange={(event) => setSelectedGraphModuleId(event.target.value)}
+              >
+                {graphModules.map((module) => (
+                  <option key={module.id} value={module.id}>
+                    {module.title}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="flex items-center gap-3 rounded-md border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-700">
+              <input
+                checked={showFullPath}
+                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-200"
+                type="checkbox"
+                onChange={(event) => setShowFullPath(event.target.checked)}
+              />
+              Mostrar ruta completa
+            </label>
+          </div>
+          <div className="mt-4 grid gap-4 lg:grid-cols-[2fr_1fr]">
+            {graphSpec.nodes.length > 0 ? (
+              <ConceptMapVisualizer spec={graphSpec} />
+            ) : (
+              <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
+                Selecciona una materia con módulos disponibles para ver el mapa.
+              </div>
+            )}
+            <div className="space-y-4">
+              <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xs font-semibold uppercase text-slate-500">
+                  Vista previa compacta
+                </p>
+                <p className="mt-2 text-sm text-slate-600">
+                  Nodos anteriores y posteriores al módulo seleccionado.
+                </p>
+              </div>
+              <div className="rounded-lg border border-slate-200 p-4">
+                <p className="text-xs font-semibold uppercase text-slate-500">Anteriores</p>
+                <ul className="mt-3 space-y-2">
+                  {previewDependencies.previous.length === 0 && (
+                    <li className="text-sm text-slate-400">Sin dependencias previas.</li>
+                  )}
+                  {previewDependencies.previous.map((module) => (
+                    <li key={module.id} className="rounded-md bg-slate-50 px-3 py-2 text-sm">
+                      <p className="font-semibold text-slate-700">{module.title}</p>
+                      <p className="text-xs text-slate-500">{module.subject}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-lg border border-slate-200 p-4">
+                <p className="text-xs font-semibold uppercase text-slate-500">Posteriores</p>
+                <ul className="mt-3 space-y-2">
+                  {previewDependencies.next.length === 0 && (
+                    <li className="text-sm text-slate-400">Sin módulos dependientes.</li>
+                  )}
+                  {previewDependencies.next.map((module) => (
+                    <li key={module.id} className="rounded-md bg-slate-50 px-3 py-2 text-sm">
+                      <p className="font-semibold text-slate-700">{module.title}</p>
+                      <p className="text-xs text-slate-500">{module.subject}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {dashboardLoading && <p className="text-sm text-gray-500">Cargando accesos rápidos...</p>}
