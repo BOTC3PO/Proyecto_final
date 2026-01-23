@@ -696,6 +696,28 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
       <main className="flex-1">
         <Container className="py-6 space-y-5">
           <ProfileCard student={student} />
+          <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <Link className="rounded-2xl bg-white p-4 shadow transition hover:shadow-md" to="/clases">
+              <p className="text-xs uppercase tracking-wide text-gray-400">Aprendizaje</p>
+              <p className="mt-2 text-lg font-semibold text-gray-800">Mis clases</p>
+              <p className="mt-1 text-sm text-gray-500">Accedé al aula y contenidos.</p>
+            </Link>
+            <Link className="rounded-2xl bg-white p-4 shadow transition hover:shadow-md" to="/tareas">
+              <p className="text-xs uppercase tracking-wide text-gray-400">Actividad</p>
+              <p className="mt-2 text-lg font-semibold text-gray-800">Tareas</p>
+              <p className="mt-1 text-sm text-gray-500">Revisá pendientes y entregas.</p>
+            </Link>
+            <Link className="rounded-2xl bg-white p-4 shadow transition hover:shadow-md" to="/encuestas">
+              <p className="text-xs uppercase tracking-wide text-gray-400">Feedback</p>
+              <p className="mt-2 text-lg font-semibold text-gray-800">Encuestas</p>
+              <p className="mt-1 text-sm text-gray-500">Respondé evaluaciones rápidas.</p>
+            </Link>
+            <Link className="rounded-2xl bg-white p-4 shadow transition hover:shadow-md" to="/progreso">
+              <p className="text-xs uppercase tracking-wide text-gray-400">Seguimiento</p>
+              <p className="mt-2 text-lg font-semibold text-gray-800">Progreso</p>
+              <p className="mt-1 text-sm text-gray-500">Mirá tu avance general.</p>
+            </Link>
+          </section>
           <div className="space-y-5">
             <InfoCard
               icon={<Clock3 className="h-6 w-6" />}
