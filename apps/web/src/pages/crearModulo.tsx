@@ -135,6 +135,13 @@ const buildDefaultQuizBlocks = (levelKey: string): ModuleQuiz[] => [
 ];
 
 const NIVELES_DIFICULTAD = ["Básico", "Intermedio", "Avanzado"];
+const SCORING_SYSTEM_NOTES: Record<string, string> = {
+  "scale-1-10": "Referencia rápida: 1 = desempeño mínimo, 10 = desempeño sobresaliente.",
+  "scale-0-100": "Referencia rápida: 0–100 puntos (100 = desempeño sobresaliente).",
+  "pass-fail": "Referencia rápida: aprobado si cumple el mínimo, desaprobado si no lo alcanza.",
+  "scale-a-f": "Referencia rápida: A = 90–100, B = 80–89, C = 70–79, D = 60–69, E/F = < 60.",
+  "scale-s-f": "Referencia rápida: S = 95–100, A = 85–94, B = 75–84, C = 65–74, D = 55–64, E/F = < 55.",
+};
 
 const validateExercisesJson = (value: unknown): ValidationResult => {
   const errors: string[] = [];
@@ -198,6 +205,7 @@ export default function CrearModulo() {
   const [level, setLevel] = useState("Básico");
   const [durationMinutes, setDurationMinutes] = useState(30);
   const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const [scoringSystemId, setScoringSystemId] = useState("scale-1-10");
   const [saveMessage, setSaveMessage] = useState("");
   const [visibilidad, setVisibilidad] = useState<"publico" | "privado">("publico");
   const [theoryItems, setTheoryItems] = useState<TheoryItem[]>([]);
@@ -439,6 +447,8 @@ export default function CrearModulo() {
       ],
     },
   ];
+
+  const scoringSystemNote = useMemo(() => SCORING_SYSTEM_NOTES[scoringSystemId] ?? "", [scoringSystemId]);
 
   const makeModuleId = (value: string) => {
     const base = value
@@ -1776,11 +1786,18 @@ export default function CrearModulo() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700">Sistema de calificación</label>
-                <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white">
+                <select
+                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white"
+                  value={scoringSystemId}
+                  onChange={(event) => setScoringSystemId(event.target.value)}
+                >
                   {scoringSystems.map((system) => (
-                    <option key={system.id}>{system.label}</option>
+                    <option key={system.id} value={system.id}>
+                      {system.label}
+                    </option>
                   ))}
                 </select>
+                {scoringSystemNote && <p className="mt-2 text-xs text-gray-500">{scoringSystemNote}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700">Cantidad de preguntas por punto</label>
