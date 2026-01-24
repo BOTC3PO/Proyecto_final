@@ -1,5 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  Award,
+  BookOpen,
+  CheckCircle,
+  FileQuestion,
+  FileText,
+  Globe,
+  Link2,
+  Settings,
+  Sparkles,
+} from "lucide-react";
 import { ApiError, apiGet, apiPost } from "../lib/api";
 import MapEditor from "../components/MapEditor";
 import ReadingWorkshop from "../components/ReadingWorkshop";
@@ -924,14 +935,39 @@ export default function CrearModulo() {
   };
 
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <header className="mb-6">
-          <h1 className="text-center text-3xl font-semibold">Crear Módulo</h1>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Configura módulos públicos o privados con teoría en partes, cuestionarios configurables y
-            consigna/importaciones para docentes.
-          </p>
+          <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white">
+                  <Sparkles className="h-5 w-5" />
+                </span>
+                <div>
+                  <h1 className="text-2xl font-semibold text-slate-900">Crear Módulo</h1>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Un asistente guiado para construir módulos con teoría, cuestionarios y recursos.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col items-end gap-2 text-xs text-slate-600">
+                <span className="font-semibold text-slate-700">Avance del módulo</span>
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-32 rounded-full bg-slate-200">
+                    <div
+                      className="h-2 rounded-full bg-blue-600 transition-all"
+                      style={{ width: `${progressPercentage}%` }}
+                    />
+                  </div>
+                  <span className="font-semibold text-slate-700">{progressPercentage}%</span>
+                </div>
+                <span>
+                  {completedSections} de {totalSections} secciones listas
+                </span>
+              </div>
+            </div>
+          </div>
         </header>
 
         <form className="mt-6 bg-white rounded-xl shadow p-6" onSubmit={handleSubmit}>
