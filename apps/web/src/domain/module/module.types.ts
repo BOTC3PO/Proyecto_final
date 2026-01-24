@@ -13,8 +13,10 @@ export type ModuleQuizVisibility = "publico" | "escuela";
 export type ModuleQuiz = {
   id: string;
   title: string;
-  type: "practica" | "evaluacion";
+  type: "practica" | "evaluacion" | "competencia";
   visibility: ModuleQuizVisibility;
+  competitionRules?: string;
+  competitionRulesVisibility?: ModuleQuizVisibility;
 };
 
 export type ModuleLevel = {

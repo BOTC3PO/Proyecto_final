@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { apiGet, apiPost } from "../lib/api";
-import type { Module } from "../domain/module/module.types";
+import type { Module, ModuleQuiz } from "../domain/module/module.types";
 import type { Book } from "../domain/book/book.types";
 import BookReader from "../bookEditor/BookReader";
 import { GENERADORES_BASIC } from "../generador/basic";
@@ -36,6 +36,12 @@ const buildGeneratorInfo = (id: string) => {
   }
   const [materia, ...rest] = raw.split(":");
   return { materia: materia.trim(), key: rest.join(":").trim() };
+};
+
+const QUIZ_TYPE_LABELS: Record<ModuleQuiz["type"], string> = {
+  practica: "Práctica",
+  evaluacion: "Evaluación",
+  competencia: "Competencia",
 };
 
 const renderExercise = (quiz: GeneratedQuiz) => {
@@ -344,7 +350,7 @@ export default function JugarModulo() {
                 <li key={quiz.id} className="rounded-md border border-gray-200 p-3">
                   <p className="font-medium">{quiz.title}</p>
                   <p className="text-xs text-gray-500">
-                    Tipo: {quiz.type === "evaluacion" ? "Evaluación" : "Práctica"} · Visibilidad:{" "}
+                    Tipo: {QUIZ_TYPE_LABELS[quiz.type]} · Visibilidad:{" "}
                     {quiz.visibility === "publico" ? "Público" : "Escuela específica"}
                   </p>
                 </li>
