@@ -599,30 +599,6 @@ export default function CrearModulo() {
     setVisitedSections((prev) => ({ ...prev, [sectionId]: true }));
   };
 
-  const sectionMeta = {
-    info: { label: "Información general", icon: FileText },
-    dependencies: { label: "Dependencias y desbloqueo", icon: Link2 },
-    theory: { label: "Teoría", icon: BookOpen },
-    stackedQuizzes: { label: "Cuestionarios apilados", icon: FileQuestion },
-    quizGenerator: { label: "Cuestionarios y generación", icon: Settings },
-    scoring: { label: "Sistema de puntuación y aprobación", icon: Award },
-    specialResources: { label: "Contenidos especiales", icon: Sparkles },
-    rewards: { label: "Sistema de nivel y recompensas", icon: Award },
-    visibility: { label: "Visibilidad y permisos", icon: Globe },
-    actions: { label: "Acciones finales", icon: CheckCircle },
-  };
-
-  const InfoIcon = sectionMeta.info.icon;
-  const DependenciesIcon = sectionMeta.dependencies.icon;
-  const TheoryIcon = sectionMeta.theory.icon;
-  const StackedQuizzesIcon = sectionMeta.stackedQuizzes.icon;
-  const QuizGeneratorIcon = sectionMeta.quizGenerator.icon;
-  const ScoringIcon = sectionMeta.scoring.icon;
-  const SpecialResourcesIcon = sectionMeta.specialResources.icon;
-  const RewardsIcon = sectionMeta.rewards.icon;
-  const VisibilityIcon = sectionMeta.visibility.icon;
-  const ActionsIcon = sectionMeta.actions.icon;
-
   const makeModuleId = (value: string) => {
     const base = value
       .toLowerCase()
@@ -994,25 +970,19 @@ export default function CrearModulo() {
           </div>
         </header>
 
-        <form className="mt-6 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-6 bg-white rounded-xl shadow p-6" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-6">
             <div className="space-y-8">
               {/* 1. Información general */}
-              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <section className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <button
                     type="button"
-                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    className="flex items-center gap-2 text-lg font-semibold"
                     onClick={() => handleToggleSection("info")}
                     aria-expanded={openSection === "info"}
                   >
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                      <InfoIcon className="h-5 w-5" />
-                    </span>
-                    <span>Información general</span>
-                    <span className="rounded-full bg-blue-50 px-2 py-1 text-[11px] font-semibold text-blue-600">
-                      Requerido
-                    </span>
+                    Información general
                     <span className="text-xs font-medium text-gray-500">
                       {openSection === "info" ? "Ocultar" : "Editar"}
                     </span>
@@ -1169,25 +1139,20 @@ export default function CrearModulo() {
               </section>
 
               {/* 2. Dependencias y desbloqueo */}
-              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <section className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <button
                     type="button"
-                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    className="flex items-center gap-2 text-lg font-semibold"
                     onClick={() => handleToggleSection("dependencies")}
                     aria-expanded={openSection === "dependencies"}
                   >
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
-                      <DependenciesIcon className="h-5 w-5" />
-                    </span>
-                    <span>Dependencias y desbloqueo</span>
-                    <span className="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-semibold text-slate-600">
-                      Opcional
-                    </span>
+                    Dependencias y desbloqueo
                     <span className="text-xs font-medium text-gray-500">
                       {openSection === "dependencies" ? "Ocultar" : "Editar"}
                     </span>
                   </button>
+                  <span className="text-xs font-semibold text-gray-500">Opcional</span>
                 </div>
                 {openSection === "dependencies" && (
                   <div className="space-y-4">
@@ -1267,21 +1232,15 @@ export default function CrearModulo() {
               </section>
 
               {/* 3. Teoría */}
-              <section className="space-y-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <section className="space-y-6">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <button
                     type="button"
-                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    className="flex items-center gap-2 text-lg font-semibold"
                     onClick={() => handleToggleSection("theory")}
                     aria-expanded={openSection === "theory"}
                   >
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-                      <TheoryIcon className="h-5 w-5" />
-                    </span>
-                    <span>Teoría</span>
-                    <span className="rounded-full bg-indigo-50 px-2 py-1 text-[11px] font-semibold text-indigo-600">
-                      Paso 2
-                    </span>
+                    Teoría
                     <span className="text-xs font-medium text-gray-500">
                       {openSection === "theory" ? "Ocultar" : "Editar"}
                     </span>
@@ -1693,21 +1652,15 @@ export default function CrearModulo() {
               </section>
 
               {/* 4. Cuestionarios apilados */}
-              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <section className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <button
                     type="button"
-                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    className="flex items-center gap-2 text-lg font-semibold"
                     onClick={() => handleToggleSection("stackedQuizzes")}
                     aria-expanded={openSection === "stackedQuizzes"}
                   >
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                      <StackedQuizzesIcon className="h-5 w-5" />
-                    </span>
-                    <span>Cuestionarios apilados</span>
-                    <span className="rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-600">
-                      Paso 3
-                    </span>
+                    Cuestionarios apilados
                     <span className="text-xs font-medium text-gray-500">
                       {openSection === "stackedQuizzes" ? "Ocultar" : "Editar"}
                     </span>
@@ -1972,25 +1925,20 @@ export default function CrearModulo() {
               </section>
 
               {/* 5. Cuestionarios y generación */}
-              <section className="space-y-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <section className="space-y-6">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <button
                     type="button"
-                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    className="flex items-center gap-2 text-lg font-semibold"
                     onClick={() => handleToggleSection("quizGenerator")}
                     aria-expanded={openSection === "quizGenerator"}
                   >
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
-                      <QuizGeneratorIcon className="h-5 w-5" />
-                    </span>
-                    <span>Cuestionarios y generación</span>
-                    <span className="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-semibold text-slate-600">
-                      Opcional
-                    </span>
+                    Cuestionarios y generación
                     <span className="text-xs font-medium text-gray-500">
                       {openSection === "quizGenerator" ? "Ocultar" : "Editar"}
                     </span>
                   </button>
+                  <span className="text-xs font-semibold text-gray-500">Opcional</span>
                 </div>
                 {openSection === "quizGenerator" && (
                   <div className="space-y-6">
@@ -2276,25 +2224,20 @@ export default function CrearModulo() {
               </section>
 
               {/* 6. Sistema de puntuación y aprobación */}
-              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <section className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <button
                     type="button"
-                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    className="flex items-center gap-2 text-lg font-semibold"
                     onClick={() => handleToggleSection("scoring")}
                     aria-expanded={openSection === "scoring"}
                   >
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
-                      <ScoringIcon className="h-5 w-5" />
-                    </span>
-                    <span>Sistema de puntuación y aprobación</span>
-                    <span className="rounded-full bg-amber-50 px-2 py-1 text-[11px] font-semibold text-amber-600">
-                      Opcional
-                    </span>
+                    Sistema de puntuación y aprobación
                     <span className="text-xs font-medium text-gray-500">
                       {openSection === "scoring" ? "Ocultar" : "Editar"}
                     </span>
                   </button>
+                  <span className="text-xs font-semibold text-gray-500">Opcional</span>
                 </div>
                 {openSection === "scoring" && (
                   <div className="space-y-4">
@@ -2361,25 +2304,20 @@ export default function CrearModulo() {
 
               {/* 7. Contenidos especiales */}
               {subjectCapabilities.supportsSpecialResources && (
-                <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <section className="space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <button
                       type="button"
-                      className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                      className="flex items-center gap-2 text-lg font-semibold"
                       onClick={() => handleToggleSection("specialResources")}
                       aria-expanded={openSection === "specialResources"}
                     >
-                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
-                        <SpecialResourcesIcon className="h-5 w-5" />
-                      </span>
-                      <span>Contenidos especiales</span>
-                      <span className="rounded-full bg-purple-50 px-2 py-1 text-[11px] font-semibold text-purple-600">
-                        Opcional
-                      </span>
+                      Contenidos especiales
                       <span className="text-xs font-medium text-gray-500">
                         {openSection === "specialResources" ? "Ocultar" : "Editar"}
                       </span>
                     </button>
+                    <span className="text-xs font-semibold text-gray-500">Opcional</span>
                   </div>
                   {openSection === "specialResources" && (
                     <div className="space-y-4">
@@ -2419,25 +2357,20 @@ export default function CrearModulo() {
 
               {/* 8. Sistema de nivel y recompensas */}
               {subjectCapabilities.supportsGenerators && (
-                <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <section className="space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <button
                       type="button"
-                      className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                      className="flex items-center gap-2 text-lg font-semibold"
                       onClick={() => handleToggleSection("rewards")}
                       aria-expanded={openSection === "rewards"}
                     >
-                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
-                        <RewardsIcon className="h-5 w-5" />
-                      </span>
-                      <span>Sistema de nivel y recompensas</span>
-                      <span className="rounded-full bg-amber-50 px-2 py-1 text-[11px] font-semibold text-amber-600">
-                        Opcional
-                      </span>
+                      Sistema de nivel y recompensas
                       <span className="text-xs font-medium text-gray-500">
                         {openSection === "rewards" ? "Ocultar" : "Editar"}
                       </span>
                     </button>
+                    <span className="text-xs font-semibold text-gray-500">Opcional</span>
                   </div>
                   {openSection === "rewards" && (
                     <div className="space-y-4">
@@ -2497,25 +2430,20 @@ export default function CrearModulo() {
               )}
 
               {/* 9. Visibilidad y permisos */}
-              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <section className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <button
                     type="button"
-                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    className="flex items-center gap-2 text-lg font-semibold"
                     onClick={() => handleToggleSection("visibility")}
                     aria-expanded={openSection === "visibility"}
                   >
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                      <VisibilityIcon className="h-5 w-5" />
-                    </span>
-                    <span>Visibilidad y permisos</span>
-                    <span className="rounded-full bg-blue-50 px-2 py-1 text-[11px] font-semibold text-blue-600">
-                      Requerido
-                    </span>
+                    Visibilidad y permisos
                     <span className="text-xs font-medium text-gray-500">
                       {openSection === "visibility" ? "Ocultar" : "Editar"}
                     </span>
                   </button>
+                  <span className="text-xs font-semibold text-gray-500">Obligatorio</span>
                 </div>
                 {openSection === "visibility" && (
                   <div className="space-y-4">
@@ -2611,25 +2539,20 @@ export default function CrearModulo() {
               </section>
 
               {/* 10. Acciones finales */}
-              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <section className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <button
                     type="button"
-                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    className="flex items-center gap-2 text-lg font-semibold"
                     onClick={() => handleToggleSection("actions")}
                     aria-expanded={openSection === "actions"}
                   >
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                      <ActionsIcon className="h-5 w-5" />
-                    </span>
-                    <span>Acciones finales</span>
-                    <span className="rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-600">
-                      Paso final
-                    </span>
+                    Acciones finales
                     <span className="text-xs font-medium text-gray-500">
                       {openSection === "actions" ? "Ocultar" : "Editar"}
                     </span>
                   </button>
+                  <span className="text-xs font-semibold text-gray-500">Paso final</span>
                 </div>
                 {openSection === "actions" && (
                   <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
