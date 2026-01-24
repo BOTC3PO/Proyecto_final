@@ -138,6 +138,11 @@ const buildDefaultQuizBlocks = (levelKey: string): ModuleQuiz[] => [
 ];
 
 const NIVELES_DIFICULTAD = ["Básico", "Intermedio", "Avanzado"];
+const QUIZ_TYPE_LABELS: Record<ModuleQuiz["type"], string> = {
+  practica: "Práctica",
+  evaluacion: "Evaluación",
+  competencia: "Competencia",
+};
 const SCORING_SYSTEM_NOTES: Record<string, string> = {
   "scale-1-10": "Referencia rápida: 1 = desempeño mínimo, 10 = desempeño sobresaliente.",
   "scale-0-100": "Referencia rápida: 0–100 puntos (100 = desempeño sobresaliente).",
@@ -227,6 +232,9 @@ export default function CrearModulo() {
   const [newQuizTitle, setNewQuizTitle] = useState("");
   const [newQuizType, setNewQuizType] = useState<ModuleQuiz["type"]>("evaluacion");
   const [newQuizVisibility, setNewQuizVisibility] = useState<ModuleQuizVisibility>("publico");
+  const [newQuizCompetitionRules, setNewQuizCompetitionRules] = useState("");
+  const [newQuizCompetitionRulesVisibility, setNewQuizCompetitionRulesVisibility] =
+    useState<ModuleQuizVisibility>("publico");
   const [requiredDependencies, setRequiredDependencies] = useState<string[]>([]);
   const [customDependency, setCustomDependency] = useState("");
   const [customDependencies, setCustomDependencies] = useState<string[]>([]);
@@ -554,6 +562,12 @@ export default function CrearModulo() {
       title: newQuizTitle.trim(),
       type: newQuizType,
       visibility: newQuizVisibility,
+      ...(newQuizType === "competencia"
+        ? {
+            competitionRules: newQuizCompetitionRules.trim(),
+            competitionRulesVisibility: newQuizCompetitionRulesVisibility,
+          }
+        : {}),
     };
     updateLevelConfig(activeLevel, (current) => ({
       ...current,
@@ -562,6 +576,8 @@ export default function CrearModulo() {
     setNewQuizTitle("");
     setNewQuizType("evaluacion");
     setNewQuizVisibility("publico");
+    setNewQuizCompetitionRules("");
+    setNewQuizCompetitionRulesVisibility("publico");
   };
 
   const handleRemoveQuiz = (id: string) => {
@@ -1434,8 +1450,15 @@ export default function CrearModulo() {
                     <div>
                       <p className="text-sm font-semibold">{quiz.title}</p>
                       <p className="text-xs text-gray-500">
-                        Tipo: {quiz.type === "evaluacion" ? "Evaluación" : "Práctica"} · Visibilidad: {" "}
+                        Tipo: {QUIZ_TYPE_LABELS[quiz.type]} · Visibilidad:{" "}
                         {quiz.visibility === "publico" ? "Público" : "Escuela específica"}
+                        {quiz.type === "competencia" && (
+                          <>
+                            {" "}· Reglas: {quiz.competitionRules?.trim() ? "Definidas" : "Sin definir"} ·
+                            {" "}Visibilidad reglas:{" "}
+                            {quiz.competitionRulesVisibility === "escuela" ? "Escuela específica" : "Público"}
+                          </>
+                        )}
                       </p>
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -1492,15 +1515,56 @@ export default function CrearModulo() {
                       <select
                         className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
                         value={quiz.type}
-                        onChange={(event) =>
-                          handleUpdateQuiz(quiz.id, "type", event.target.value as ModuleQuiz["type"])
-                        }
+                        onChange={(event) => {
+                          const nextType = event.target.value as ModuleQuiz["type"];
+                          handleUpdateQuiz(quiz.id, "type", nextType);
+                          if (nextType === "competencia" && !quiz.competitionRulesVisibility) {
+                            handleUpdateQuiz(quiz.id, "competitionRulesVisibility", "publico");
+                          }
+                        }}
                       >
                         <option value="practica">Práctica</option>
                         <option value="evaluacion">Evaluación</option>
+                        <option value="competencia">Competencia</option>
                       </select>
                     </div>
                   </div>
+                  {quiz.type === "competencia" && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-medium text-gray-700">Reglas de competencia</label>
+                        <textarea
+                          rows={3}
+                          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                          value={quiz.competitionRules ?? ""}
+                          onChange={(event) =>
+                            handleUpdateQuiz(quiz.id, "competitionRules", event.target.value)
+                          }
+                          placeholder="Describe criterios, puntajes o dinámicas para la competencia."
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-medium text-gray-700">Visibilidad de reglas</label>
+                        <select
+                          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                          value={quiz.competitionRulesVisibility ?? "publico"}
+                          onChange={(event) =>
+                            handleUpdateQuiz(
+                              quiz.id,
+                              "competitionRulesVisibility",
+                              event.target.value as ModuleQuizVisibility,
+                            )
+                          }
+                        >
+                          <option value="publico">Público</option>
+                          <option value="escuela">Solo una escuela</option>
+                        </select>
+                        <p className="mt-1 text-[11px] text-gray-500">
+                          Define quién puede leer las reglas del desafío.
+                        </p>
+                      </div>
+                    </div>
+                  )}
                   <div>
                     <label className="block text-xs font-medium text-gray-700">Título del cuestionario</label>
                     <input
@@ -1527,10 +1591,18 @@ export default function CrearModulo() {
                   <select
                     className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
                     value={newQuizType}
-                    onChange={(event) => setNewQuizType(event.target.value as ModuleQuiz["type"])}
+                    onChange={(event) => {
+                      const nextType = event.target.value as ModuleQuiz["type"];
+                      setNewQuizType(nextType);
+                      if (nextType !== "competencia") {
+                        setNewQuizCompetitionRules("");
+                        setNewQuizCompetitionRulesVisibility("publico");
+                      }
+                    }}
                   >
                     <option value="evaluacion">Evaluación</option>
                     <option value="practica">Práctica</option>
+                    <option value="competencia">Competencia</option>
                   </select>
                   <select
                     className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
@@ -1541,6 +1613,36 @@ export default function CrearModulo() {
                     <option value="escuela">Solo una escuela</option>
                   </select>
                 </div>
+                {newQuizType === "competencia" && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-gray-700">Reglas de competencia</label>
+                      <textarea
+                        rows={3}
+                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                        value={newQuizCompetitionRules}
+                        onChange={(event) => setNewQuizCompetitionRules(event.target.value)}
+                        placeholder="Describe criterios, puntajes o dinámicas para la competencia."
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-gray-700">Visibilidad de reglas</label>
+                      <select
+                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                        value={newQuizCompetitionRulesVisibility}
+                        onChange={(event) =>
+                          setNewQuizCompetitionRulesVisibility(event.target.value as ModuleQuizVisibility)
+                        }
+                      >
+                        <option value="publico">Público</option>
+                        <option value="escuela">Solo una escuela</option>
+                      </select>
+                      <p className="mt-1 text-[11px] text-gray-500">
+                        Define quién puede leer las reglas del desafío.
+                      </p>
+                    </div>
+                  </div>
+                )}
                 <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddQuiz}>
                   + Agregar cuestionario
                 </button>
