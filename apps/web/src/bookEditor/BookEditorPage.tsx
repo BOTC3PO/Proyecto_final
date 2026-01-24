@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import type { Block, Book, Page } from "../domain/book/book.types";
 import { useBookEditor } from "./state/useBookEditor";
 import { ensureUniqueIds } from "./services/ids";
@@ -80,6 +80,7 @@ function prepareBookForEditor(input: Book): Book {
 export default function BookEditorPage() {
   const { id: routeId } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const { state, dispatch, selectedPage, selectedBlock, runValidation } = useBookEditor();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -121,6 +122,30 @@ export default function BookEditorPage() {
   const book = state.book;
   const queryId = new URLSearchParams(location.search).get("id");
   const bookId = routeId ?? queryId ?? null;
+
+  const handleBack = () => {
+    const fallbackUrl = new URL("/profesor/modulos", window.location.origin);
+    if (bookId) {
+      fallbackUrl.searchParams.set("id", bookId);
+    }
+
+    const stateValue = location.state as { from?: string } | null;
+    if (stateValue?.from) {
+      const targetUrl = new URL(stateValue.from, window.location.origin);
+      if (bookId && !targetUrl.searchParams.has("id")) {
+        targetUrl.searchParams.set("id", bookId);
+      }
+      navigate(`${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`);
+      return;
+    }
+
+    if (window.history.length > 1) {
+      navigate(-1);
+      return;
+    }
+
+    navigate(`${fallbackUrl.pathname}${fallbackUrl.search}`);
+  };
 
   useEffect(() => {
     let ignore = false;
@@ -331,6 +356,13 @@ export default function BookEditorPage() {
       <div className="min-h-screen bg-slate-50 text-slate-900">
         <header className="sticky top-0 z-40 border-b bg-white/90 backdrop-blur">
           <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 sm:px-6">
+            <button
+              className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+              onClick={handleBack}
+              type="button"
+            >
+              Volver
+            </button>
             <div className="flex min-w-0 flex-1 items-center gap-3">
               <div className="grid h-9 w-9 place-items-center rounded-xl bg-slate-900 font-semibold text-white">B</div>
               <div className="min-w-0">
@@ -359,6 +391,13 @@ export default function BookEditorPage() {
       {/* Top bar */}
       <header className="sticky top-0 z-40 border-b bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 sm:px-6">
+          <button
+            className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+            onClick={handleBack}
+            type="button"
+          >
+            Volver
+          </button>
           <div className="flex min-w-0 flex-1 items-center gap-3">
             <div className="grid h-9 w-9 place-items-center rounded-xl bg-slate-900 font-semibold text-white">B</div>
             <div className="min-w-0">
