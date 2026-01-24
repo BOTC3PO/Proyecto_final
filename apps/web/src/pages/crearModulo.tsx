@@ -104,25 +104,6 @@ const getTheoryDetailError = (type: string, detail: string) => {
   return null;
 };
 
-const tuesdayJsonExample = `{
-  "metadata": {
-    "title": "Introducción al conflicto",
-    "version": "1.0"
-  },
-  "scenes": [
-    {
-      "id": "escena-1",
-      "title": "La decisión",
-      "nodes": [
-        {
-          "id": "nodo-1",
-          "text": "El personaje principal recibe una noticia inesperada."
-        }
-      ]
-    }
-  ]
-}`;
-
 const exercisesJsonExample = `{
   "preguntas": [
     {
@@ -154,44 +135,6 @@ const buildDefaultQuizBlocks = (levelKey: string): ModuleQuiz[] => [
 ];
 
 const NIVELES_DIFICULTAD = ["Básico", "Intermedio", "Avanzado"];
-
-const validateTuesdayJson = (value: unknown): ValidationResult => {
-  const errors: string[] = [];
-  if (!isRecord(value)) {
-    return { isValid: false, errors: ["El JSON debe ser un objeto con metadata y scenes."] };
-  }
-
-  const metadata = value.metadata;
-  if (!isRecord(metadata) || !isNonEmptyString(metadata.title)) {
-    errors.push("metadata.title debe ser un texto no vacío.");
-  }
-
-  const scenes = value.scenes;
-  if (!Array.isArray(scenes) || scenes.length === 0) {
-    errors.push("scenes debe ser un array con al menos una escena.");
-  } else {
-    scenes.forEach((scene, index) => {
-      if (!isRecord(scene) || !isNonEmptyString(scene.id)) {
-        errors.push(`scenes[${index}].id debe ser un texto no vacío.`);
-      }
-      const nodes = isRecord(scene) ? scene.nodes : undefined;
-      if (!Array.isArray(nodes) || nodes.length === 0) {
-        errors.push(`scenes[${index}].nodes debe ser un array con al menos un nodo.`);
-        return;
-      }
-      nodes.forEach((node, nodeIndex) => {
-        if (!isRecord(node) || !isNonEmptyString(node.id)) {
-          errors.push(`scenes[${index}].nodes[${nodeIndex}].id debe ser un texto no vacío.`);
-        }
-        if (!isRecord(node) || !isNonEmptyString(node.text)) {
-          errors.push(`scenes[${index}].nodes[${nodeIndex}].text debe ser un texto no vacío.`);
-        }
-      });
-    });
-  }
-
-  return { isValid: errors.length === 0, errors };
-};
 
 const validateExercisesJson = (value: unknown): ValidationResult => {
   const errors: string[] = [];
@@ -289,12 +232,6 @@ export default function CrearModulo() {
   const [resourceInputMode, setResourceInputMode] = useState<"upload" | "link">("upload");
   const [resourceError, setResourceError] = useState("");
   const resourceFileInputRef = useRef<HTMLInputElement | null>(null);
-  const [tuesdayJsonInput, setTuesdayJsonInput] = useState("");
-  const [tuesdayJsonStatus, setTuesdayJsonStatus] = useState<{
-    status: "idle" | "valid" | "error";
-    message: string;
-    errors?: string[];
-  }>({ status: "idle", message: "" });
   const [exerciseImportStatus, setExerciseImportStatus] = useState<{
     status: "idle" | "valid" | "error";
     message: string;
@@ -303,9 +240,13 @@ export default function CrearModulo() {
   const [exerciseFileName, setExerciseFileName] = useState("");
   const exerciseFileInputRef = useRef<HTMLInputElement | null>(null);
   const subjectCapabilities = useMemo(() => getSubjectCapabilities(subject), [subject]);
-  const enabledTheoryTypes = useMemo(
-    () => subjectCapabilities.theoryTypes.filter((option) => !option.disabled),
+  const theoryTypeOptions = useMemo(
+    () => subjectCapabilities.theoryTypes.filter((option) => option.value !== "TuesdayJS"),
     [subjectCapabilities.theoryTypes],
+  );
+  const enabledTheoryTypes = useMemo(
+    () => theoryTypeOptions.filter((option) => !option.disabled),
+    [theoryTypeOptions],
   );
   const autoQuizHelperText = subjectCapabilities.supportsAutoQuizzes
     ? "Disponible para materias con generadores. Configurá semillas y reglas en “Cuestionarios y generación”."
@@ -331,7 +272,6 @@ export default function CrearModulo() {
     return (
       title.length +
       description.length +
-      tuesdayJsonInput.length +
       theoryTextLength +
       quizCount * 120 +
       resourceCount * 60 +
@@ -340,7 +280,6 @@ export default function CrearModulo() {
   }, [
     title,
     description,
-    tuesdayJsonInput,
     theoryItems,
     levelsConfig,
     requiredDependencies,
@@ -360,11 +299,11 @@ export default function CrearModulo() {
   );
 
   useEffect(() => {
-    if (subjectCapabilities.theoryTypes.some((option) => option.value === newTheoryType && !option.disabled)) {
+    if (theoryTypeOptions.some((option) => option.value === newTheoryType && !option.disabled)) {
       return;
     }
     setNewTheoryType(enabledTheoryTypes[0]?.value ?? "Video");
-  }, [enabledTheoryTypes, newTheoryType, subjectCapabilities.theoryTypes]);
+  }, [enabledTheoryTypes, newTheoryType, theoryTypeOptions]);
 
   // En un futuro acá podes traer estas listas desde la API
   const materias = [
@@ -708,43 +647,6 @@ export default function CrearModulo() {
     }));
   };
 
-  const handleValidateTuesdayJson = () => {
-    if (!tuesdayJsonInput.trim()) {
-      setTuesdayJsonStatus({
-        status: "error",
-        message: "Pegá el JSON exportado para poder validar.",
-        errors: ["El campo está vacío o solo contiene espacios."],
-      });
-      return;
-    }
-
-    let parsed: unknown;
-    try {
-      parsed = JSON.parse(tuesdayJsonInput);
-    } catch (error) {
-      setTuesdayJsonStatus({
-        status: "error",
-        message: "El JSON no se pudo leer. Revisá la sintaxis.",
-        errors: [error instanceof Error ? error.message : "JSON inválido."],
-      });
-      return;
-    }
-
-    const validation = validateTuesdayJson(parsed);
-    if (validation.isValid) {
-      setTuesdayJsonStatus({
-        status: "valid",
-        message: "JSON de TuesdayJS válido. Se puede agregar como teoría.",
-      });
-    } else {
-      setTuesdayJsonStatus({
-        status: "error",
-        message: "El JSON no coincide con el esquema esperado.",
-        errors: validation.errors,
-      });
-    }
-  };
-
   const handleExerciseFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -1029,8 +931,8 @@ export default function CrearModulo() {
             <div className="grid gap-3">
               {theoryItems.length === 0 ? (
                 <div className="border rounded-lg p-4 text-sm text-gray-600 bg-gray-50">
-                  Todavía no hay partes de teoría agregadas. Usa los botones de abajo para sumar videos, texto,
-                  enlaces o experiencias de TuesdayJS.
+                  Todavía no hay partes de teoría agregadas. Usa los botones de abajo para sumar videos, texto o
+                  enlaces.
                 </div>
               ) : (
                 theoryItems.map((item) => {
@@ -1064,7 +966,7 @@ export default function CrearModulo() {
                             value={item.type}
                             onChange={(event) => handleUpdateTheory(item.id, "type", event.target.value)}
                           >
-                            {subjectCapabilities.theoryTypes.map((option) => (
+                            {theoryTypeOptions.map((option) => (
                               <option
                                 key={`${item.id}-${option.value}`}
                                 value={option.value}
@@ -1075,12 +977,12 @@ export default function CrearModulo() {
                               </option>
                             ))}
                           </select>
-                          {subjectCapabilities.theoryTypes.some(
+                          {theoryTypeOptions.some(
                             (option) => option.value === item.type && option.disabled && option.disabledReason
                           ) && (
                             <p className="text-[11px] text-amber-600">
                               {
-                                subjectCapabilities.theoryTypes.find(
+                                theoryTypeOptions.find(
                                   (option) => option.value === item.type && option.disabled && option.disabledReason
                                 )?.disabledReason
                               }
@@ -1115,7 +1017,7 @@ export default function CrearModulo() {
                     value={newTheoryType}
                     onChange={(event) => setNewTheoryType(event.target.value)}
                   >
-                    {subjectCapabilities.theoryTypes.map((option) => (
+                    {theoryTypeOptions.map((option) => (
                       <option key={option.value} value={option.value} disabled={option.disabled}>
                         {option.label}
                         {option.disabledReason ? ` (${option.disabledReason})` : ""}
@@ -1132,9 +1034,6 @@ export default function CrearModulo() {
               </div>
               {newTheoryDetailError && (
                 <p className="text-xs text-red-600">{newTheoryDetailError}</p>
-              )}
-              {!subjectCapabilities.supportsTuesdayJs && subjectCapabilities.tuesdayJsDisabledReason && (
-                <p className="text-[11px] text-gray-500">{subjectCapabilities.tuesdayJsDisabledReason}</p>
               )}
               <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddTheory}>
                 + Agregar parte de teoría
@@ -1348,52 +1247,6 @@ export default function CrearModulo() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              {subjectCapabilities.supportsTuesdayJs && (
-                <div className="border rounded-lg p-4 space-y-2">
-                  <h3 className="text-sm font-semibold">TuesdayJS / Novela visual</h3>
-                  <p className="text-xs text-gray-600">
-                    Importa el JSON de TuesdayJS para insertarlo como página del módulo.
-                  </p>
-                  <textarea
-                    rows={4}
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 font-mono text-xs"
-                    placeholder="Pega el JSON exportado..."
-                    value={tuesdayJsonInput}
-                    onChange={(event) => {
-                      setTuesdayJsonInput(event.target.value);
-                      setTuesdayJsonStatus({ status: "idle", message: "" });
-                    }}
-                  />
-                  <div className="flex flex-wrap items-center gap-2 text-xs">
-                    <button
-                      type="button"
-                      className="rounded-md border px-3 py-1 text-xs"
-                      onClick={handleValidateTuesdayJson}
-                    >
-                      Validar JSON
-                    </button>
-                    {tuesdayJsonStatus.status === "valid" && (
-                      <span className="text-emerald-600">{tuesdayJsonStatus.message}</span>
-                    )}
-                  </div>
-                  {tuesdayJsonStatus.status === "error" && (
-                    <div className="rounded-md border border-red-200 bg-red-50 p-3 text-xs text-red-700 space-y-2">
-                      <p className="font-semibold">{tuesdayJsonStatus.message}</p>
-                      <ul className="list-disc pl-4 space-y-1">
-                        {tuesdayJsonStatus.errors?.map((error) => (
-                          <li key={error}>{error}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  <details className="rounded-md border border-slate-200 bg-slate-50 p-3 text-[11px] text-slate-600">
-                    <summary className="cursor-pointer font-medium">
-                      Ver ejemplo de estructura válida de TuesdayJS
-                    </summary>
-                    <pre className="mt-2 whitespace-pre-wrap font-mono">{tuesdayJsonExample}</pre>
-                  </details>
-                </div>
-              )}
               <div className="border rounded-lg p-4 space-y-2">
                 <h3 className="text-sm font-semibold">Enlaces, videos y texto</h3>
                 <div className="space-y-2">
