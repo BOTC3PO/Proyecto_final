@@ -1015,151 +1015,165 @@ export default function CrearModulo() {
             </div>
           </section>
 
-          {/* 3. Estructura del módulo */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Estructura del módulo</h2>
+          {/* 3. Teoría */}
+          <section className="space-y-6">
+            <h2 className="text-lg font-semibold">Teoría</h2>
             <p className="text-sm text-gray-600">
-              Define las partes de teoría (cada bloque es una página) y recursos de apoyo que integran el módulo.
-              Puedes agregarlas de forma dinámica según la necesidad del contenido.
+              Sigue este flujo para construir la teoría del módulo: primero definí la estructura, luego agregá libros
+              y archivos de apoyo, y cerrá con textos o enlaces.
             </p>
-            <div className="max-w-xs">
-              <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
-              <select
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                value={activeLevel}
-                onChange={(event) => setActiveLevel(event.target.value)}
-              >
-                {NIVELES_DIFICULTAD.map((nivel) => (
-                  <option key={nivel} value={nivel}>
-                    {nivel}
-                  </option>
-                ))}
-              </select>
-              <p className="mt-1 text-[11px] text-gray-500">
-                Los recursos y libros se guardan según el nivel seleccionado.
-              </p>
-            </div>
 
-            <div className="grid gap-3">
-              {theoryItems.length === 0 ? (
-                <div className="border rounded-lg p-4 text-sm text-gray-600 bg-gray-50">
-                  Todavía no hay partes de teoría agregadas. Usa los botones de abajo para sumar videos, texto o
-                  enlaces.
-                </div>
-              ) : (
-                theoryItems.map((item) => {
-                  const detailError = getTheoryDetailError(item.type, item.detail);
-                  return (
-                    <div key={item.id} className="border rounded-lg p-4 flex flex-col gap-2 bg-gray-50">
-                      {detailError && <p className="text-xs text-red-600">{detailError}</p>}
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-sm font-semibold">{item.title}</p>
-                          <p className="text-xs text-gray-500">Tipo: {item.type}</p>
-                        </div>
-                        <button
-                          type="button"
-                          className="text-xs text-red-500 hover:underline"
-                          onClick={() => handleRemoveTheory(item.id)}
-                        >
-                          Quitar bloque
-                        </button>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                        <input
-                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                          value={item.title}
-                          onChange={(event) => handleUpdateTheory(item.id, "title", event.target.value)}
-                          placeholder="Título del bloque"
-                        />
-                        <div className="space-y-1">
-                          <select
-                            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                            value={item.type}
-                            onChange={(event) => handleUpdateTheory(item.id, "type", event.target.value)}
-                          >
-                            {theoryTypeOptions.map((option) => (
-                              <option
-                                key={`${item.id}-${option.value}`}
-                                value={option.value}
-                                disabled={option.disabled}
-                              >
-                                {option.label}
-                                {option.disabledReason ? ` (${option.disabledReason})` : ""}
-                              </option>
-                            ))}
-                          </select>
-                          {theoryTypeOptions.some(
-                            (option) => option.value === item.type && option.disabled && option.disabledReason
-                          ) && (
-                            <p className="text-[11px] text-amber-600">
-                              {
-                                theoryTypeOptions.find(
-                                  (option) => option.value === item.type && option.disabled && option.disabledReason
-                                )?.disabledReason
-                              }
-                            </p>
-                          )}
-                        </div>
-                        <input
-                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                          value={item.detail}
-                          onChange={(event) => handleUpdateTheory(item.id, "detail", event.target.value)}
-                          placeholder="Detalle rápido"
-                        />
-                      </div>
-                    </div>
-                  );
-                })
-              )}
-            </div>
-
-            <div className="border rounded-lg p-4 space-y-3">
-              <h3 className="text-sm font-semibold">Agregar nueva parte de teoría</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <input
-                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  value={newTheoryTitle}
-                  onChange={(event) => setNewTheoryTitle(event.target.value)}
-                  placeholder="Título (ej: Video introductorio)"
-                />
-                <div className="space-y-1">
-                  <select
-                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                    value={newTheoryType}
-                    onChange={(event) => setNewTheoryType(event.target.value)}
-                  >
-                    {theoryTypeOptions.map((option) => (
-                      <option key={option.value} value={option.value} disabled={option.disabled}>
-                        {option.label}
-                        {option.disabledReason ? ` (${option.disabledReason})` : ""}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <input
-                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  value={newTheoryDetail}
-                  onChange={(event) => setNewTheoryDetail(event.target.value)}
-                  placeholder="Detalle / nota"
-                />
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100 text-[10px] text-gray-600">
+                  1
+                </span>
+                Estructura del módulo
               </div>
-              {newTheoryDetailError && (
-                <p className="text-xs text-red-600">{newTheoryDetailError}</p>
-              )}
-              <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddTheory}>
-                + Agregar parte de teoría
-              </button>
-            </div>
+              <div className="max-w-xs">
+                <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
+                <select
+                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                  value={activeLevel}
+                  onChange={(event) => setActiveLevel(event.target.value)}
+                >
+                  {NIVELES_DIFICULTAD.map((nivel) => (
+                    <option key={nivel} value={nivel}>
+                      {nivel}
+                    </option>
+                  ))}
+                </select>
+                <p className="mt-1 text-[11px] text-gray-500">
+                  Los recursos y libros se guardan según el nivel seleccionado.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <button type="button" className="rounded-md border px-4 py-2 text-sm">
-                + Agregar recurso interactivo
-              </button>
+              <div className="grid gap-3">
+                {theoryItems.length === 0 ? (
+                  <div className="border rounded-lg p-4 text-sm text-gray-600 bg-gray-50">
+                    Todavía no hay partes de teoría agregadas. Usa los botones de abajo para sumar videos, texto o
+                    enlaces.
+                  </div>
+                ) : (
+                  theoryItems.map((item) => {
+                    const detailError = getTheoryDetailError(item.type, item.detail);
+                    return (
+                      <div key={item.id} className="border rounded-lg p-4 flex flex-col gap-2 bg-gray-50">
+                        {detailError && <p className="text-xs text-red-600">{detailError}</p>}
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm font-semibold">{item.title}</p>
+                            <p className="text-xs text-gray-500">Tipo: {item.type}</p>
+                          </div>
+                          <button
+                            type="button"
+                            className="text-xs text-red-500 hover:underline"
+                            onClick={() => handleRemoveTheory(item.id)}
+                          >
+                            Quitar bloque
+                          </button>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                          <input
+                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                            value={item.title}
+                            onChange={(event) => handleUpdateTheory(item.id, "title", event.target.value)}
+                            placeholder="Título del bloque"
+                          />
+                          <div className="space-y-1">
+                            <select
+                              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                              value={item.type}
+                              onChange={(event) => handleUpdateTheory(item.id, "type", event.target.value)}
+                            >
+                              {theoryTypeOptions.map((option) => (
+                                <option
+                                  key={`${item.id}-${option.value}`}
+                                  value={option.value}
+                                  disabled={option.disabled}
+                                >
+                                  {option.label}
+                                  {option.disabledReason ? ` (${option.disabledReason})` : ""}
+                                </option>
+                              ))}
+                            </select>
+                            {theoryTypeOptions.some(
+                              (option) => option.value === item.type && option.disabled && option.disabledReason
+                            ) && (
+                              <p className="text-[11px] text-amber-600">
+                                {
+                                  theoryTypeOptions.find(
+                                    (option) => option.value === item.type && option.disabled && option.disabledReason
+                                  )?.disabledReason
+                                }
+                              </p>
+                            )}
+                          </div>
+                          <input
+                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                            value={item.detail}
+                            onChange={(event) => handleUpdateTheory(item.id, "detail", event.target.value)}
+                            placeholder="Detalle rápido"
+                          />
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
+              </div>
+
+              <div className="border rounded-lg p-4 space-y-3">
+                <h3 className="text-sm font-semibold">Agregar nueva parte de teoría</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <input
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    value={newTheoryTitle}
+                    onChange={(event) => setNewTheoryTitle(event.target.value)}
+                    placeholder="Título (ej: Video introductorio)"
+                  />
+                  <div className="space-y-1">
+                    <select
+                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                      value={newTheoryType}
+                      onChange={(event) => setNewTheoryType(event.target.value)}
+                    >
+                      {theoryTypeOptions.map((option) => (
+                        <option key={option.value} value={option.value} disabled={option.disabled}>
+                          {option.label}
+                          {option.disabledReason ? ` (${option.disabledReason})` : ""}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <input
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    value={newTheoryDetail}
+                    onChange={(event) => setNewTheoryDetail(event.target.value)}
+                    placeholder="Detalle / nota"
+                  />
+                </div>
+                {newTheoryDetailError && (
+                  <p className="text-xs text-red-600">{newTheoryDetailError}</p>
+                )}
+                <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddTheory}>
+                  + Agregar parte de teoría
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button type="button" className="rounded-md border px-4 py-2 text-sm">
+                  + Agregar recurso interactivo
+                </button>
+              </div>
             </div>
 
             <div className="border rounded-lg p-4 space-y-3">
-              <h3 className="text-sm font-semibold">Libros del editor</h3>
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100 text-[10px] text-gray-600">
+                  2
+                </span>
+                Libros del editor
+              </div>
               <p className="text-xs text-gray-600">
                 Guarda un libro en el editor y pega su ID aquí para asociarlo al módulo.
               </p>
@@ -1224,6 +1238,12 @@ export default function CrearModulo() {
             </div>
 
             <div className="border rounded-lg p-4 space-y-3">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100 text-[10px] text-gray-600">
+                  3
+                </span>
+                Archivos de apoyo
+              </div>
               <h3 className="text-sm font-semibold">Archivos de apoyo (DOC, TXT, Book JSON)</h3>
               <p className="text-xs text-gray-600">
                 Solo se permiten archivos .doc/.docx, .txt y .json para libros.
@@ -1360,7 +1380,13 @@ export default function CrearModulo() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="border rounded-lg p-4 space-y-2">
-                <h3 className="text-sm font-semibold">Enlaces, videos y texto</h3>
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100 text-[10px] text-gray-600">
+                    4
+                  </span>
+                  Textos
+                </div>
+                <h3 className="text-sm font-semibold">Textos y enlaces finales</h3>
                 <div className="space-y-2">
                   <input
                     className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
