@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { apiPost } from "../lib/api";
+import { ApiError, apiGet, apiPost } from "../lib/api";
 import {
   getSubjectCapabilities,
   type ModuleQuiz,
@@ -278,6 +278,10 @@ export default function CrearModulo() {
   const [customDependencies, setCustomDependencies] = useState<string[]>([]);
   const [bookResourceId, setBookResourceId] = useState("");
   const [bookResourceTitle, setBookResourceTitle] = useState("");
+  const [bookResourceStatus, setBookResourceStatus] = useState<{
+    status: "idle" | "checking" | "error";
+    message: string;
+  }>({ status: "idle", message: "" });
   const [resourceType, setResourceType] = useState<"doc" | "txt" | "bookJson">("doc");
   const [resourceTitle, setResourceTitle] = useState("");
   const [resourceUrl, setResourceUrl] = useState("");
@@ -540,9 +544,23 @@ export default function CrearModulo() {
     setCustomDependencies((prev) => prev.filter((item) => item !== dependency));
   };
 
-  const handleAddBookResource = () => {
+  const handleAddBookResource = async () => {
     const trimmed = bookResourceId.trim();
-    if (!trimmed) return;
+    if (!trimmed) {
+      setBookResourceStatus({ status: "error", message: "Ingresa un ID de libro válido." });
+      return;
+    }
+    setBookResourceStatus({ status: "checking", message: "Validando libro en biblioteca..." });
+    try {
+      await apiGet(`/api/libros/${encodeURIComponent(trimmed)}`);
+    } catch (error) {
+      const message =
+        error instanceof ApiError && error.status === 404
+          ? "No se encontró ningún libro con ese ID."
+          : "No se pudo verificar el libro. Intenta nuevamente.";
+      setBookResourceStatus({ status: "error", message });
+      return;
+    }
     const next: ModuleResource = {
       type: "book",
       id: trimmed,
@@ -554,6 +572,7 @@ export default function CrearModulo() {
     }));
     setBookResourceId("");
     setBookResourceTitle("");
+    setBookResourceStatus({ status: "idle", message: "" });
   };
 
   const handleRemoveBookResource = (id: string) => {
@@ -1145,7 +1164,12 @@ export default function CrearModulo() {
                 <input
                   className="rounded-md border border-gray-300 px-3 py-2 text-sm"
                   value={bookResourceId}
-                  onChange={(event) => setBookResourceId(event.target.value)}
+                  onChange={(event) => {
+                    setBookResourceId(event.target.value);
+                    if (bookResourceStatus.status !== "idle") {
+                      setBookResourceStatus({ status: "idle", message: "" });
+                    }
+                  }}
                   placeholder="ID del libro (ej: book-matematica-01)"
                 />
                 <input
@@ -1158,10 +1182,14 @@ export default function CrearModulo() {
                   type="button"
                   className="rounded-md border px-4 py-2 text-sm"
                   onClick={handleAddBookResource}
+                  disabled={bookResourceStatus.status === "checking"}
                 >
-                  Agregar libro
+                  {bookResourceStatus.status === "checking" ? "Validando..." : "Agregar libro"}
                 </button>
               </div>
+              {bookResourceStatus.status === "error" && (
+                <p className="text-xs text-red-600">{bookResourceStatus.message}</p>
+              )}
               {currentLevelConfig.bookResources.length ? (
                 <ul className="space-y-2 text-sm">
                   {currentLevelConfig.bookResources.map((resource) =>
