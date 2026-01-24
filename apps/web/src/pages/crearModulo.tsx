@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ApiError, apiGet, apiPost } from "../lib/api";
+import MapEditor from "../components/MapEditor";
+import ReadingWorkshop from "../components/ReadingWorkshop";
+import SkeletonMarker from "../components/SkeletonMarker";
 import {
   getSubjectCapabilities,
   type ModuleQuiz,
@@ -305,6 +308,22 @@ export default function CrearModulo() {
       },
     [activeLevel, levelsConfig],
   );
+  const specialResourcesEditor = useMemo(() => {
+    switch (subject) {
+      case "Geografía":
+        return <MapEditor subjectLabel={subject} />;
+      case "Biología":
+        return <SkeletonMarker subjectLabel={subject} />;
+      case "Lengua y Literatura":
+        return <ReadingWorkshop />;
+      default:
+        return (
+          <div className="rounded-lg border border-dashed border-gray-200 bg-gray-50 p-4 text-xs text-gray-600">
+            Selecciona una materia con herramientas especiales para habilitar sus editores dedicados.
+          </div>
+        );
+    }
+  }, [subject]);
 
   useEffect(() => {
     if (theoryTypeOptions.some((option) => option.value === newTheoryType && !option.disabled)) {
@@ -1864,22 +1883,9 @@ export default function CrearModulo() {
 
                 <div className="border rounded-lg p-4 space-y-2">
                   <h3 className="text-sm font-semibold">Funciones específicas por materia</h3>
-                  <div className="space-y-2 text-xs text-gray-600">
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="h-4 w-4" />
-                      Activar mapa interactivo (selección de ubicación)
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="h-4 w-4" />
-                      Subir imagen de esqueleto/hueso para marcar partes
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="h-4 w-4" />
-                      Reservar espacio para futuras funciones del módulo
-                    </label>
-                  </div>
+                  {specialResourcesEditor}
                   <p className="text-[11px] text-gray-500">
-                    Estas funciones pueden habilitarse ahora y completarse en una iteración posterior.
+                    Estas funciones se adaptan automáticamente a la materia seleccionada.
                   </p>
                 </div>
               </div>
