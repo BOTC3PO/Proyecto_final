@@ -352,9 +352,92 @@ export default function CrearModulo() {
   ];
 
   const scoringSystems = [
-    "Sistema A: 1-10 con aprobación 6",
-    "Sistema B: 0-100 con aprobación 60",
-    "Sistema C: aprobado / desaprobado",
+    {
+      id: "scale-1-10",
+      label: "Sistema A: escala 1-10",
+      internalScale: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    },
+    {
+      id: "scale-0-100",
+      label: "Sistema B: escala 0-100",
+      internalScale: Array.from({ length: 101 }, (_, index) => String(index)),
+    },
+    {
+      id: "pass-fail",
+      label: "Sistema C: aprobado / desaprobado",
+      internalScale: ["Aprobado", "Desaprobado"],
+      equivalencesToSystemA: ["Aprobado → 10", "Desaprobado → 1"],
+    },
+    {
+      id: "scale-a-f",
+      label: "Sistema D: escala A–F",
+      internalScale: ["A", "B", "C", "D", "E", "F"],
+    },
+    {
+      id: "scale-s-f",
+      label: "Sistema E: escala S–F",
+      internalScale: ["S", "A", "B", "C", "D", "E", "F"],
+    },
+    {
+      id: "scale-s-a-b-c-d",
+      label: "Sistema F: escala S-A-B-C-D",
+      internalScale: ["S", "A", "B", "C", "D"],
+      equivalencesToSystemA: ["S → 10", "A → 9", "B → 8", "C → 7", "D → 6"],
+    },
+    {
+      id: "scale-gpa",
+      label: "Sistema G: escala GPA 0.0-4.0",
+      internalScale: Array.from({ length: 41 }, (_, index) => (index / 10).toFixed(1)),
+      equivalencesToSystemA: [
+        "4.0-3.7 → 10",
+        "3.6-3.3 → 9",
+        "3.2-2.7 → 8",
+        "2.6-2.0 → 7",
+        "1.9-0.0 → 6",
+      ],
+    },
+    {
+      id: "scale-canadian",
+      label: "Sistema H: modelo canadiense",
+      internalScale: ["A+", "A", "B", "C+", "C", "D", "F"],
+      equivalencesToSystemA: ["A+ → 10", "A → 9", "B → 8", "C+ → 7", "C → 6", "D → 5", "F → 1"],
+    },
+    {
+      id: "scale-es",
+      label: "Sistema I: escala cualitativa",
+      internalScale: [
+        "Sobresaliente",
+        "Excelente",
+        "Muy Bueno",
+        "Bueno",
+        "Suficiente",
+        "Insuficiente",
+        "Reprobado",
+      ],
+      equivalencesToSystemA: [
+        "Sobresaliente → 10",
+        "Excelente → 9",
+        "Muy Bueno → 8",
+        "Bueno → 7",
+        "Suficiente → 6",
+        "Insuficiente → 3",
+        "Reprobado → 1",
+      ],
+    },
+    {
+      id: "scale-rarity",
+      label: "Sistema J: escala de rareza",
+      internalScale: ["Común", "Poco común", "Raro", "Muy raro", "Épico", "Legendario", "Mítico"],
+      equivalencesToSystemA: [
+        "Mítico → 10",
+        "Legendario → 9",
+        "Épico → 8",
+        "Muy raro → 7",
+        "Raro → 6",
+        "Poco común → 4",
+        "Común → 2",
+      ],
+    },
   ];
 
   const makeModuleId = (value: string) => {
@@ -1695,7 +1778,7 @@ export default function CrearModulo() {
                 <label className="block text-sm font-medium text-gray-700">Sistema de calificación</label>
                 <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white">
                   {scoringSystems.map((system) => (
-                    <option key={system}>{system}</option>
+                    <option key={system.id}>{system.label}</option>
                   ))}
                 </select>
               </div>
