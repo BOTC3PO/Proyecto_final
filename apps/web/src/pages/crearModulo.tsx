@@ -303,6 +303,15 @@ export default function CrearModulo() {
     () => subjectCapabilities.theoryTypes.filter((option) => !option.disabled),
     [subjectCapabilities.theoryTypes],
   );
+  const autoQuizHelperText = subjectCapabilities.supportsAutoQuizzes
+    ? "Disponible para materias con generadores. Configurá semillas y reglas en “Cuestionarios y generación”."
+    : subjectCapabilities.autoQuizDisabledReason ??
+      "Disponible solo para materias con generadores automáticos.";
+  const generatorAvailabilityMessage = subjectCapabilities.supportsGenerators
+    ? "Disponible: podés definir semillas, generar bancos y usar el generador MVP."
+    : subjectCapabilities.generatorDisabledReason ??
+      "Disponible solo para materias con generadores automáticos.";
+  const generatorInputsDisabled = !subjectCapabilities.supportsGenerators;
   const newTheoryDetailError = getTheoryDetailError(newTheoryType, newTheoryDetail);
   const moduleSizeScore = useMemo(() => {
     const quizCount = levelsConfig.reduce((total, entry) => total + entry.quizBlocks.length, 0);
@@ -1379,7 +1388,7 @@ export default function CrearModulo() {
             <h2 className="text-lg font-semibold">Cuestionarios apilados</h2>
             <p className="text-sm text-gray-600">
               Los cuestionarios son páginas igual que los videos o textos, pero con opciones extra (tipo, visibilidad,
-              consignas). La generación aleatoria solo se habilita para Matemáticas, Física, Química y Economía.
+              consignas). Las consignas, importaciones y generadores se configuran en “Cuestionarios y generación”.
             </p>
             <div className="max-w-xs">
               <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
@@ -1456,9 +1465,7 @@ export default function CrearModulo() {
                         <option>Escribir consignas manualmente</option>
                       </select>
                       <p className="mt-1 text-[11px] text-gray-500">
-                        {subjectCapabilities.supportsAutoQuizzes
-                          ? "Disponible para materias con generadores: Matemáticas, Física, Química y Economía."
-                          : subjectCapabilities.autoQuizDisabledReason}
+                        {autoQuizHelperText}
                       </p>
                     </div>
                     <div>
@@ -1525,13 +1532,24 @@ export default function CrearModulo() {
             </div>
           </section>
 
-          {/* 5. Consignas y banco de preguntas */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Consignas y banco de preguntas</h2>
+          {/* 5. Cuestionarios y generación */}
+          <section className="space-y-6">
+            <h2 className="text-lg font-semibold">Cuestionarios y generación</h2>
             <p className="text-sm text-gray-600">
-              Las consignas y el banco de preguntas son la misma función: cada pregunta es una página con
-              enunciado, respuestas y solución. Puedes cargar JSON o editar manualmente.
+              Define cómo construir las preguntas del módulo. Podés escribir consignas manuales, importar un JSON con
+              un banco de preguntas, y si la materia lo permite, complementar con semillas y generadores automáticos.
             </p>
+            <div className="rounded-md border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+              <p className="font-medium text-slate-700">Lógica recomendada</p>
+              <ul className="mt-2 list-disc space-y-1 pl-4 text-xs">
+                <li>Usá consignas manuales o importación JSON para definir el contenido base.</li>
+                <li>
+                  Si la materia tiene generadores, podés crear variantes automáticas con semillas y guardarlas como
+                  banco adicional.
+                </li>
+                <li>Si no hay generadores disponibles, todo el flujo se mantiene manual o por importación.</li>
+              </ul>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="border rounded-lg p-4 space-y-2">
@@ -1662,62 +1680,129 @@ export default function CrearModulo() {
                 + Agregar pregunta respuesta abierta
               </button>
             </div>
-          </section>
 
-          {/* 6. Generación automática y semillas */}
-          {subjectCapabilities.supportsGenerators && (
-            <section className="space-y-4">
-              <h2 className="text-lg font-semibold">Generación automática y semillas</h2>
-              <p className="text-sm text-gray-600">
-                Usa la semilla definida en <span className="font-mono">generador/basic/seed.ts</span> o ingresa una
-                personalizada para reproducir exámenes.
-              </p>
+            <div className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
+              <p className="font-semibold text-slate-700">Disponibilidad de generación automática</p>
+              <p>{generatorAvailabilityMessage}</p>
+            </div>
+
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${generatorInputsDisabled ? "opacity-60" : ""}`}>
+              <div className="border rounded-lg p-4 space-y-3">
+                <h3 className="text-sm font-semibold">Semilla y cantidad</h3>
+                <p className="text-xs text-gray-600">
+                  Usa la semilla definida en <span className="font-mono">generador/basic/seed.ts</span> o ingresa una
+                  personalizada para reproducir exámenes.
+                </p>
+                <input
+                  disabled={generatorInputsDisabled}
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                  placeholder="Semilla (opcional)"
+                />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <input
+                    disabled={generatorInputsDisabled}
+                    type="number"
+                    min={1}
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    placeholder="Preguntas a responder"
+                  />
+                  <input
+                    disabled={generatorInputsDisabled}
+                    type="number"
+                    min={1}
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    placeholder="Preguntas generadas"
+                  />
+                </div>
+                <p className="text-xs text-gray-500">
+                  Ejemplo: el alumno responde 100 preguntas y se generan 200 para lograr aleatoriedad.
+                </p>
+              </div>
+
+              <div className="border rounded-lg p-4 space-y-3">
+                <h3 className="text-sm font-semibold">Generar ahora y guardar</h3>
+                <textarea
+                  disabled={generatorInputsDisabled}
+                  rows={4}
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                  placeholder="Notas para gerencia / revisión del examen generado..."
+                />
+                <button
+                  disabled={generatorInputsDisabled}
+                  type="button"
+                  className="rounded-md border px-3 py-2 text-sm disabled:opacity-60"
+                >
+                  Generar preguntas y guardar resultados
+                </button>
+                <p className="text-xs text-gray-500">
+                  Recomendación: generar varias veces para aumentar la aleatoriedad.
+                </p>
+              </div>
+            </div>
+
+            <div className={`border rounded-lg p-4 bg-gray-50 space-y-3 ${generatorInputsDisabled ? "opacity-60" : ""}`}>
+              <h3 className="text-sm font-semibold">Generador MVP (opcional)</h3>
+              <p className="text-xs text-gray-600">Generador rápido para crear actividades basadas en categorías MVP.</p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="border rounded-lg p-4 space-y-3">
-                  <h3 className="text-sm font-semibold">Semilla y cantidad</h3>
-                  <input
-                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Semilla (opcional)"
-                  />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <input
-                      type="number"
-                      min={1}
-                      className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      placeholder="Preguntas a responder"
-                    />
-                    <input
-                      type="number"
-                      min={1}
-                      className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      placeholder="Preguntas generadas"
-                    />
-                  </div>
-                  <p className="text-xs text-gray-500">
-                    Ejemplo: el alumno responde 100 preguntas y se generan 200 para lograr aleatoriedad.
-                  </p>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Categoría MVP</label>
+                  <select
+                    disabled={generatorInputsDisabled}
+                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+                  >
+                    {MVP_GENERATOR_CATEGORIES.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
                 </div>
-
-                <div className="border rounded-lg p-4 space-y-3">
-                  <h3 className="text-sm font-semibold">Generar ahora y guardar</h3>
-                  <textarea
-                    rows={4}
-                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Notas para gerencia / revisión del examen generado..."
-                  />
-                  <button type="button" className="rounded-md border px-3 py-2 text-sm">
-                    Generar preguntas y guardar resultados
-                  </button>
-                  <p className="text-xs text-gray-500">
-                    Recomendación: generar varias veces para aumentar la aleatoriedad.
-                  </p>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Nivel sugerido</label>
+                  <select
+                    disabled={generatorInputsDisabled}
+                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+                  >
+                    <option>Básico</option>
+                    <option>Intermedio</option>
+                    <option>Avanzado</option>
+                  </select>
                 </div>
               </div>
-            </section>
-          )}
 
-          {/* 7. Sistema de puntuación y aprobación */}
+              <textarea
+                disabled={generatorInputsDisabled}
+                placeholder="Descripción breve del generador o configuración base..."
+                rows={3}
+                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+              />
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                <input
+                  disabled={generatorInputsDisabled}
+                  placeholder="Número de muestra / versión"
+                  className="rounded-md border border-gray-300 px-3 py-2"
+                />
+                <button
+                  disabled={generatorInputsDisabled}
+                  type="button"
+                  className="rounded-md border border-gray-300 px-3 py-2 text-sm text-left disabled:opacity-60"
+                >
+                  Configurar generador
+                </button>
+                <button
+                  disabled={generatorInputsDisabled}
+                  type="button"
+                  className="bg-green-500 hover:bg-green-600 text-white rounded-md px-3 py-2 text-sm disabled:opacity-60"
+                >
+                  Crear preguntas desde generador
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* 6. Sistema de puntuación y aprobación */}
           <section className="space-y-4">
             <h2 className="text-lg font-semibold">Sistema de puntuación y aprobación</h2>
             <p className="text-sm text-gray-600">
@@ -1772,7 +1857,7 @@ export default function CrearModulo() {
             </div>
           </section>
 
-          {/* 8. Contenidos especiales */}
+          {/* 7. Contenidos especiales */}
           {subjectCapabilities.supportsSpecialResources && (
             <section className="space-y-4">
               <h2 className="text-lg font-semibold">Contenidos especiales</h2>
@@ -1820,7 +1905,7 @@ export default function CrearModulo() {
             </section>
           )}
 
-          {/* 9. Sistema de nivel y recompensas */}
+          {/* 8. Sistema de nivel y recompensas */}
           <section className="space-y-4">
             <h2 className="text-lg font-semibold">Sistema de nivel y recompensas</h2>
             <p className="text-sm text-gray-600">
@@ -1872,64 +1957,7 @@ export default function CrearModulo() {
             </div>
           </section>
 
-          {/* 10. Generador MVP */}
-          {subjectCapabilities.supportsGenerators && (
-            <section className="space-y-4">
-              <h2 className="text-lg font-semibold">Generador MVP (opcional)</h2>
-              <p className="text-sm text-gray-600">
-                Generador rápido para crear actividades basadas en categorías MVP.
-              </p>
-
-              <div className="border rounded-lg p-4 bg-gray-50 space-y-3">
-                <h3 className="text-sm font-semibold">Generador de problemas / actividades</h3>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Categoría MVP</label>
-                    <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2">
-                      {MVP_GENERATOR_CATEGORIES.map((category) => (
-                        <option key={category} value={category}>
-                          {category}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Nivel sugerido</label>
-                    <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2">
-                      <option>Básico</option>
-                      <option>Intermedio</option>
-                      <option>Avanzado</option>
-                    </select>
-                  </div>
-                </div>
-
-                <textarea
-                  placeholder="Descripción breve del generador o configuración base..."
-                  rows={3}
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                />
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
-                  <input
-                    placeholder="Número de muestra / versión"
-                    className="rounded-md border border-gray-300 px-3 py-2"
-                  />
-                  <button type="button" className="rounded-md border border-gray-300 px-3 py-2 text-sm text-left">
-                    Configurar generador
-                  </button>
-                  <button
-                    type="button"
-                    className="bg-green-500 hover:bg-green-600 text-white rounded-md px-3 py-2 text-sm"
-                  >
-                    Crear preguntas desde generador
-                  </button>
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* 11. Visibilidad y permisos */}
+          {/* 9. Visibilidad y permisos */}
           <section className="space-y-4">
             <h2 className="text-lg font-semibold">Visibilidad y permisos</h2>
 
@@ -2021,7 +2049,7 @@ export default function CrearModulo() {
             </p>
           </section>
 
-          {/* 12. Acciones finales */}
+          {/* 10. Acciones finales */}
           <section className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Nota: podrías mostrar este botón solo en modo edición */}
             <button
