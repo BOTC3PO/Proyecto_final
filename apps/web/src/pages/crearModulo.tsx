@@ -1,5 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  Award,
+  BookOpen,
+  CheckCircle,
+  FileQuestion,
+  FileText,
+  Globe,
+  Link2,
+  Settings,
+  Sparkles,
+} from "lucide-react";
 import { ApiError, apiGet, apiPost } from "../lib/api";
 import MapEditor from "../components/MapEditor";
 import ReadingWorkshop from "../components/ReadingWorkshop";
@@ -258,6 +269,10 @@ export default function CrearModulo() {
   }>({ status: "idle", message: "" });
   const [exerciseFileName, setExerciseFileName] = useState("");
   const exerciseFileInputRef = useRef<HTMLInputElement | null>(null);
+  const [openSection, setOpenSection] = useState("info");
+  const [visitedSections, setVisitedSections] = useState<Record<string, boolean>>({
+    info: true,
+  });
   const subjectCapabilities = useMemo(() => getSubjectCapabilities(subject), [subject]);
   const theoryTypeOptions = useMemo(
     () => subjectCapabilities.theoryTypes.filter((option) => option.value !== "TuesdayJS"),
@@ -476,6 +491,137 @@ export default function CrearModulo() {
   ];
 
   const scoringSystemNote = useMemo(() => SCORING_SYSTEM_NOTES[scoringSystemId] ?? "", [scoringSystemId]);
+
+  const sectionVisibility = useMemo(
+    () => ({
+      info: true,
+      dependencies: true,
+      theory: true,
+      stackedQuizzes: true,
+      quizGenerator: true,
+      scoring: true,
+      specialResources: subjectCapabilities.supportsSpecialResources,
+      rewards: subjectCapabilities.supportsGenerators,
+      visibility: true,
+      actions: true,
+    }),
+    [subjectCapabilities.supportsGenerators, subjectCapabilities.supportsSpecialResources],
+  );
+
+  const generalMissing = useMemo(() => {
+    const missing: string[] = [];
+    if (!title.trim()) missing.push("Completa el título del módulo.");
+    if (!description.trim()) missing.push("Completa la descripción del módulo.");
+    if (!category.trim()) missing.push("Selecciona una categoría.");
+    if (!Number.isFinite(durationMinutes) || durationMinutes <= 0) {
+      missing.push("Define una duración estimada válida.");
+    }
+    return missing;
+  }, [title, description, category, durationMinutes]);
+
+  const theoryMissing = useMemo(() => {
+    const missing: string[] = [];
+    if (theoryItems.length === 0) {
+      missing.push("Agrega al menos un bloque de teoría.");
+    }
+    const theoryErrors = theoryItems
+      .map((item) => getTheoryDetailError(item.type, item.detail))
+      .filter((error): error is string => Boolean(error));
+    if (theoryErrors.length) {
+      missing.push("Corrige los enlaces de video en teoría.");
+    }
+    return missing;
+  }, [theoryItems]);
+
+  const quizMissing = useMemo(() => {
+    const missing: string[] = [];
+    if (currentLevelConfig.quizBlocks.length === 0) {
+      missing.push("Agrega al menos un cuestionario para el nivel activo.");
+    }
+    const emptyTitles = currentLevelConfig.quizBlocks.filter((quiz) => !quiz.title.trim());
+    if (emptyTitles.length) {
+      missing.push("Asigna un título a todos los cuestionarios.");
+    }
+    const competitionWithoutRules = currentLevelConfig.quizBlocks.some(
+      (quiz) => quiz.type === "competencia" && !quiz.competitionRules?.trim(),
+    );
+    if (competitionWithoutRules) {
+      missing.push("Completa las reglas de los cuestionarios tipo competencia.");
+    }
+    return missing;
+  }, [currentLevelConfig.quizBlocks]);
+
+  const getSectionMissing = (sectionId: string) => {
+    switch (sectionId) {
+      case "info":
+        return generalMissing;
+      case "theory":
+        return theoryMissing;
+      case "stackedQuizzes":
+        return quizMissing;
+      default:
+        return [];
+    }
+  };
+
+  const sectionStatus = useMemo(() => {
+    const sections = [
+      { id: "info", label: "Información general" },
+      { id: "dependencies", label: "Dependencias y desbloqueo" },
+      { id: "theory", label: "Teoría" },
+      { id: "stackedQuizzes", label: "Cuestionarios apilados" },
+      { id: "quizGenerator", label: "Cuestionarios y generación" },
+      { id: "scoring", label: "Sistema de puntuación" },
+      { id: "specialResources", label: "Contenidos especiales" },
+      { id: "rewards", label: "Sistema de nivel y recompensas" },
+      { id: "visibility", label: "Visibilidad y permisos" },
+      { id: "actions", label: "Acciones finales" },
+    ]
+      .filter((section) => sectionVisibility[section.id as keyof typeof sectionVisibility])
+      .map((section, index) => {
+        const missing = getSectionMissing(section.id);
+        return {
+          ...section,
+          order: index + 1,
+          missing,
+          isComplete: missing.length === 0,
+        };
+      });
+    return sections;
+  }, [generalMissing, quizMissing, sectionVisibility, theoryMissing]);
+
+  const totalSections = sectionStatus.length;
+  const completedSections = sectionStatus.filter((section) => section.isComplete).length;
+  const progressPercentage = totalSections === 0 ? 0 : Math.round((completedSections / totalSections) * 100);
+
+  const handleToggleSection = (sectionId: string) => {
+    setOpenSection((prev) => (prev === sectionId ? "" : sectionId));
+    setVisitedSections((prev) => ({ ...prev, [sectionId]: true }));
+  };
+
+  const sectionMeta = {
+    info: { label: "Información general", icon: FileText },
+    dependencies: { label: "Dependencias y desbloqueo", icon: Link2 },
+    theory: { label: "Teoría", icon: BookOpen },
+    stackedQuizzes: { label: "Cuestionarios apilados", icon: FileQuestion },
+    quizGenerator: { label: "Cuestionarios y generación", icon: Settings },
+    scoring: { label: "Sistema de puntuación y aprobación", icon: Award },
+    specialResources: { label: "Contenidos especiales", icon: Sparkles },
+    rewards: { label: "Sistema de nivel y recompensas", icon: Award },
+    visibility: { label: "Visibilidad y permisos", icon: Globe },
+    actions: { label: "Acciones finales", icon: CheckCircle },
+  };
+
+  const InfoIcon = sectionMeta.info.icon;
+  const DependenciesIcon = sectionMeta.dependencies.icon;
+  const TheoryIcon = sectionMeta.theory.icon;
+  const StackedQuizzesIcon = sectionMeta.stackedQuizzes.icon;
+  const QuizGeneratorIcon = sectionMeta.quizGenerator.icon;
+  const ScoringIcon = sectionMeta.scoring.icon;
+  const SpecialResourcesIcon = sectionMeta.specialResources.icon;
+  const RewardsIcon = sectionMeta.rewards.icon;
+  const VisibilityIcon = sectionMeta.visibility.icon;
+  const ActionsIcon = sectionMeta.actions.icon;
 
   const makeModuleId = (value: string) => {
     const base = value
@@ -813,20 +959,85 @@ export default function CrearModulo() {
   };
 
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <header className="mb-6">
-          <h1 className="text-center text-3xl font-semibold">Crear Módulo</h1>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Configura módulos públicos o privados con teoría en partes, cuestionarios configurables y
-            consigna/importaciones para docentes.
-          </p>
+          <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white">
+                  <Sparkles className="h-5 w-5" />
+                </span>
+                <div>
+                  <h1 className="text-2xl font-semibold text-slate-900">Crear Módulo</h1>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Un asistente guiado para construir módulos con teoría, cuestionarios y recursos.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col items-end gap-2 text-xs text-slate-600">
+                <span className="font-semibold text-slate-700">Avance del módulo</span>
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-32 rounded-full bg-slate-200">
+                    <div
+                      className="h-2 rounded-full bg-blue-600 transition-all"
+                      style={{ width: `${progressPercentage}%` }}
+                    />
+                  </div>
+                  <span className="font-semibold text-slate-700">{progressPercentage}%</span>
+                </div>
+                <span>
+                  {completedSections} de {totalSections} secciones listas
+                </span>
+              </div>
+            </div>
+          </div>
         </header>
 
-        <form className="mt-6 space-y-8 bg-white rounded-xl shadow p-6" onSubmit={handleSubmit}>
-          {/* 1. Información general */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Información general</h2>
+        <form className="mt-6 space-y-6" onSubmit={handleSubmit}>
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-6">
+            <div className="space-y-8">
+              {/* 1. Información general */}
+              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    onClick={() => handleToggleSection("info")}
+                    aria-expanded={openSection === "info"}
+                  >
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                      <InfoIcon className="h-5 w-5" />
+                    </span>
+                    <span>Información general</span>
+                    <span className="rounded-full bg-blue-50 px-2 py-1 text-[11px] font-semibold text-blue-600">
+                      Requerido
+                    </span>
+                    <span className="text-xs font-medium text-gray-500">
+                      {openSection === "info" ? "Ocultar" : "Editar"}
+                    </span>
+                  </button>
+                  <span
+                    className={`text-xs font-semibold ${
+                      generalMissing.length === 0 ? "text-emerald-600" : "text-amber-600"
+                    }`}
+                  >
+                    {generalMissing.length === 0 ? "Completo" : "Faltan datos"}
+                  </span>
+                </div>
+                {visitedSections.info && generalMissing.length > 0 && (
+                  <div className="rounded-md border border-amber-200 bg-amber-50 p-3 text-xs text-amber-700">
+                    <p className="font-semibold">Qué falta en esta sección</p>
+                    <ul className="mt-2 list-disc space-y-1 pl-4">
+                      {generalMissing.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {openSection === "info" && (
+                  <div className="space-y-4">
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -909,7 +1120,7 @@ export default function CrearModulo() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700">
                   Nivel de dificultad <span className="text-red-500">*</span>
@@ -952,16 +1163,38 @@ export default function CrearModulo() {
                   placeholder="Ej: 5° grado primaria"
                 />
               </div>
-            </div>
-          </section>
+                    </div>
+                  </div>
+                )}
+              </section>
 
-          {/* 2. Dependencias y desbloqueo */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Dependencias y desbloqueo</h2>
-            <p className="text-sm text-gray-600">
-              Define los módulos previos que los alumnos deben completar antes de acceder a este contenido. Esto
-              permite que el profesor determine, por ejemplo, que primero deben saber contar antes de sumar.
-            </p>
+              {/* 2. Dependencias y desbloqueo */}
+              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    onClick={() => handleToggleSection("dependencies")}
+                    aria-expanded={openSection === "dependencies"}
+                  >
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
+                      <DependenciesIcon className="h-5 w-5" />
+                    </span>
+                    <span>Dependencias y desbloqueo</span>
+                    <span className="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-semibold text-slate-600">
+                      Opcional
+                    </span>
+                    <span className="text-xs font-medium text-gray-500">
+                      {openSection === "dependencies" ? "Ocultar" : "Editar"}
+                    </span>
+                  </button>
+                </div>
+                {openSection === "dependencies" && (
+                  <div className="space-y-4">
+                    <p className="text-sm text-gray-600">
+                      Define los módulos previos que los alumnos deben completar antes de acceder a este contenido. Esto
+                      permite que el profesor determine, por ejemplo, que primero deben saber contar antes de sumar.
+                    </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="border rounded-lg p-4 space-y-3">
@@ -1028,16 +1261,55 @@ export default function CrearModulo() {
                   <p className="text-xs text-gray-500">Todavía no agregaste requisitos personalizados.</p>
                 )}
               </div>
-            </div>
-          </section>
+                    </div>
+                  </div>
+                )}
+              </section>
 
-          {/* 3. Teoría */}
-          <section className="space-y-6">
-            <h2 className="text-lg font-semibold">Teoría</h2>
-            <p className="text-sm text-gray-600">
-              Sigue este flujo para construir la teoría del módulo: primero definí la estructura, luego agregá libros
-              y archivos de apoyo, y cerrá con textos o enlaces.
-            </p>
+              {/* 3. Teoría */}
+              <section className="space-y-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    onClick={() => handleToggleSection("theory")}
+                    aria-expanded={openSection === "theory"}
+                  >
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+                      <TheoryIcon className="h-5 w-5" />
+                    </span>
+                    <span>Teoría</span>
+                    <span className="rounded-full bg-indigo-50 px-2 py-1 text-[11px] font-semibold text-indigo-600">
+                      Paso 2
+                    </span>
+                    <span className="text-xs font-medium text-gray-500">
+                      {openSection === "theory" ? "Ocultar" : "Editar"}
+                    </span>
+                  </button>
+                  <span
+                    className={`text-xs font-semibold ${
+                      theoryMissing.length === 0 ? "text-emerald-600" : "text-amber-600"
+                    }`}
+                  >
+                    {theoryMissing.length === 0 ? "Completo" : "Faltan datos"}
+                  </span>
+                </div>
+                {visitedSections.theory && theoryMissing.length > 0 && (
+                  <div className="rounded-md border border-amber-200 bg-amber-50 p-3 text-xs text-amber-700">
+                    <p className="font-semibold">Qué falta en esta sección</p>
+                    <ul className="mt-2 list-disc space-y-1 pl-4">
+                      {theoryMissing.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {openSection === "theory" && (
+                  <div className="space-y-6">
+                    <p className="text-sm text-gray-600">
+                      Sigue este flujo para construir la teoría del módulo: primero definí la estructura, luego agregá
+                      libros y archivos de apoyo, y cerrá con textos o enlaces.
+                    </p>
 
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
@@ -1415,16 +1687,56 @@ export default function CrearModulo() {
                   />
                 </div>
               </div>
-            </div>
-          </section>
+                    </div>
+                  </div>
+                )}
+              </section>
 
-          {/* 4. Cuestionarios apilados */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Cuestionarios apilados</h2>
-            <p className="text-sm text-gray-600">
-              Los cuestionarios son páginas igual que los videos o textos, pero con opciones extra (tipo, visibilidad,
-              consignas). Las consignas, importaciones y generadores se configuran en “Cuestionarios y generación”.
-            </p>
+              {/* 4. Cuestionarios apilados */}
+              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    onClick={() => handleToggleSection("stackedQuizzes")}
+                    aria-expanded={openSection === "stackedQuizzes"}
+                  >
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                      <StackedQuizzesIcon className="h-5 w-5" />
+                    </span>
+                    <span>Cuestionarios apilados</span>
+                    <span className="rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-600">
+                      Paso 3
+                    </span>
+                    <span className="text-xs font-medium text-gray-500">
+                      {openSection === "stackedQuizzes" ? "Ocultar" : "Editar"}
+                    </span>
+                  </button>
+                  <span
+                    className={`text-xs font-semibold ${
+                      quizMissing.length === 0 ? "text-emerald-600" : "text-amber-600"
+                    }`}
+                  >
+                    {quizMissing.length === 0 ? "Completo" : "Faltan datos"}
+                  </span>
+                </div>
+                {visitedSections.stackedQuizzes && quizMissing.length > 0 && (
+                  <div className="rounded-md border border-amber-200 bg-amber-50 p-3 text-xs text-amber-700">
+                    <p className="font-semibold">Qué falta en esta sección</p>
+                    <ul className="mt-2 list-disc space-y-1 pl-4">
+                      {quizMissing.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {openSection === "stackedQuizzes" && (
+                  <div className="space-y-4">
+                    <p className="text-sm text-gray-600">
+                      Los cuestionarios son páginas igual que los videos o textos, pero con opciones extra (tipo,
+                      visibilidad, consignas). Las consignas, importaciones y generadores se configuran en
+                      “Cuestionarios y generación”.
+                    </p>
             <div className="max-w-xs">
               <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
               <select
@@ -1486,29 +1798,33 @@ export default function CrearModulo() {
                         <option value="escuela">Solo una escuela</option>
                       </select>
                     </div>
-                    <div>
-                      <label className="block text-xs font-medium text-gray-700">Escuela asignada</label>
-                      <input
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                        placeholder="Buscar institución"
-                      />
-                    </div>
+                    {quiz.visibility === "escuela" && (
+                      <div>
+                        <label className="block text-xs font-medium text-gray-700">Escuela asignada</label>
+                        <input
+                          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                          placeholder="Buscar institución"
+                        />
+                      </div>
+                    )}
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-medium text-gray-700">Modo de creación</label>
-                      <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white">
-                        <option
-                          disabled={!subjectCapabilities.supportsAutoQuizzes}
-                        >
-                          Generar automáticamente (materias seleccionadas)
-                        </option>
-                        <option>Escribir consignas manualmente</option>
-                      </select>
-                      <p className="mt-1 text-[11px] text-gray-500">
-                        {autoQuizHelperText}
-                      </p>
+                      {subjectCapabilities.supportsAutoQuizzes ? (
+                        <>
+                          <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white">
+                            <option>Generar automáticamente</option>
+                            <option>Escribir consignas manualmente</option>
+                          </select>
+                          <p className="mt-1 text-[11px] text-gray-500">{autoQuizHelperText}</p>
+                        </>
+                      ) : (
+                        <p className="mt-2 rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-[11px] text-slate-600">
+                          {autoQuizHelperText}
+                        </p>
+                      )}
                     </div>
                     <div>
                       <label className="block text-xs font-medium text-gray-700">Tipo de cuestionario</label>
@@ -1650,16 +1966,39 @@ export default function CrearModulo() {
               <button type="button" className="rounded-md border px-4 py-2 text-sm">
                 Importar cuestionario existente
               </button>
-            </div>
-          </section>
+                    </div>
+                  </div>
+                )}
+              </section>
 
-          {/* 5. Cuestionarios y generación */}
-          <section className="space-y-6">
-            <h2 className="text-lg font-semibold">Cuestionarios y generación</h2>
-            <p className="text-sm text-gray-600">
-              Define cómo construir las preguntas del módulo. Podés escribir consignas manuales, importar un JSON con
-              un banco de preguntas, y si la materia lo permite, complementar con semillas y generadores automáticos.
-            </p>
+              {/* 5. Cuestionarios y generación */}
+              <section className="space-y-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    onClick={() => handleToggleSection("quizGenerator")}
+                    aria-expanded={openSection === "quizGenerator"}
+                  >
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
+                      <QuizGeneratorIcon className="h-5 w-5" />
+                    </span>
+                    <span>Cuestionarios y generación</span>
+                    <span className="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-semibold text-slate-600">
+                      Opcional
+                    </span>
+                    <span className="text-xs font-medium text-gray-500">
+                      {openSection === "quizGenerator" ? "Ocultar" : "Editar"}
+                    </span>
+                  </button>
+                </div>
+                {openSection === "quizGenerator" && (
+                  <div className="space-y-6">
+                    <p className="text-sm text-gray-600">
+                      Define cómo construir las preguntas del módulo. Podés escribir consignas manuales, importar un
+                      JSON con un banco de preguntas, y si la materia lo permite, complementar con semillas y
+                      generadores automáticos.
+                    </p>
             <div className="rounded-md border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
               <p className="font-medium text-slate-700">Lógica recomendada</p>
               <ul className="mt-2 list-disc space-y-1 pl-4 text-xs">
@@ -1807,128 +2146,161 @@ export default function CrearModulo() {
               <p>{generatorAvailabilityMessage}</p>
             </div>
 
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${generatorInputsDisabled ? "opacity-60" : ""}`}>
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Semilla y cantidad</h3>
-                <p className="text-xs text-gray-600">
-                  Usa la semilla definida en <span className="font-mono">generador/basic/seed.ts</span> o ingresa una
-                  personalizada para reproducir exámenes.
-                </p>
-                <input
-                  disabled={generatorInputsDisabled}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  placeholder="Semilla (opcional)"
-                />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <input
-                    disabled={generatorInputsDisabled}
-                    type="number"
-                    min={1}
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Preguntas a responder"
-                  />
-                  <input
-                    disabled={generatorInputsDisabled}
-                    type="number"
-                    min={1}
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Preguntas generadas"
-                  />
+            {subjectCapabilities.supportsGenerators ? (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="border rounded-lg p-4 space-y-3">
+                    <h3 className="text-sm font-semibold">Semilla y cantidad</h3>
+                    <p className="text-xs text-gray-600">
+                      Usa la semilla definida en <span className="font-mono">generador/basic/seed.ts</span> o ingresa
+                      una personalizada para reproducir exámenes.
+                    </p>
+                    <input
+                      disabled={generatorInputsDisabled}
+                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      placeholder="Semilla (opcional)"
+                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <input
+                        disabled={generatorInputsDisabled}
+                        type="number"
+                        min={1}
+                        className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                        placeholder="Preguntas a responder"
+                      />
+                      <input
+                        disabled={generatorInputsDisabled}
+                        type="number"
+                        min={1}
+                        className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                        placeholder="Preguntas generadas"
+                      />
+                    </div>
+                    <p className="text-xs text-gray-500">
+                      Ejemplo: el alumno responde 100 preguntas y se generan 200 para lograr aleatoriedad.
+                    </p>
+                  </div>
+
+                  <div className="border rounded-lg p-4 space-y-3">
+                    <h3 className="text-sm font-semibold">Generar ahora y guardar</h3>
+                    <textarea
+                      disabled={generatorInputsDisabled}
+                      rows={4}
+                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      placeholder="Notas para gerencia / revisión del examen generado..."
+                    />
+                    <button
+                      disabled={generatorInputsDisabled}
+                      type="button"
+                      className="rounded-md border px-3 py-2 text-sm disabled:opacity-60"
+                    >
+                      Generar preguntas y guardar resultados
+                    </button>
+                    <p className="text-xs text-gray-500">
+                      Recomendación: generar varias veces para aumentar la aleatoriedad.
+                    </p>
+                  </div>
                 </div>
-                <p className="text-xs text-gray-500">
-                  Ejemplo: el alumno responde 100 preguntas y se generan 200 para lograr aleatoriedad.
-                </p>
-              </div>
 
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Generar ahora y guardar</h3>
-                <textarea
-                  disabled={generatorInputsDisabled}
-                  rows={4}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  placeholder="Notas para gerencia / revisión del examen generado..."
-                />
-                <button
-                  disabled={generatorInputsDisabled}
-                  type="button"
-                  className="rounded-md border px-3 py-2 text-sm disabled:opacity-60"
-                >
-                  Generar preguntas y guardar resultados
-                </button>
-                <p className="text-xs text-gray-500">
-                  Recomendación: generar varias veces para aumentar la aleatoriedad.
-                </p>
-              </div>
-            </div>
+                <div className="border rounded-lg p-4 bg-gray-50 space-y-3">
+                  <h3 className="text-sm font-semibold">Generador MVP (opcional)</h3>
+                  <p className="text-xs text-gray-600">
+                    Generador rápido para crear actividades basadas en categorías MVP.
+                  </p>
 
-            <div className={`border rounded-lg p-4 bg-gray-50 space-y-3 ${generatorInputsDisabled ? "opacity-60" : ""}`}>
-              <h3 className="text-sm font-semibold">Generador MVP (opcional)</h3>
-              <p className="text-xs text-gray-600">Generador rápido para crear actividades basadas en categorías MVP.</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Categoría MVP</label>
+                      <select
+                        disabled={generatorInputsDisabled}
+                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+                      >
+                        {MVP_GENERATOR_CATEGORIES.map((category) => (
+                          <option key={category} value={category}>
+                            {category}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Nivel sugerido</label>
+                      <select
+                        disabled={generatorInputsDisabled}
+                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+                      >
+                        <option>Básico</option>
+                        <option>Intermedio</option>
+                        <option>Avanzado</option>
+                      </select>
+                    </div>
+                  </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Categoría MVP</label>
-                  <select
+                  <textarea
                     disabled={generatorInputsDisabled}
+                    placeholder="Descripción breve del generador o configuración base..."
+                    rows={3}
                     className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                  >
-                    {MVP_GENERATOR_CATEGORIES.map((category) => (
-                      <option key={category} value={category}>
-                        {category}
-                      </option>
-                    ))}
-                  </select>
+                  />
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                    <input
+                      disabled={generatorInputsDisabled}
+                      placeholder="Número de muestra / versión"
+                      className="rounded-md border border-gray-300 px-3 py-2"
+                    />
+                    <button
+                      disabled={generatorInputsDisabled}
+                      type="button"
+                      className="rounded-md border border-gray-300 px-3 py-2 text-sm text-left disabled:opacity-60"
+                    >
+                      Configurar generador
+                    </button>
+                    <button
+                      disabled={generatorInputsDisabled}
+                      type="button"
+                      className="bg-green-500 hover:bg-green-600 text-white rounded-md px-3 py-2 text-sm disabled:opacity-60"
+                    >
+                      Crear preguntas desde generador
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Nivel sugerido</label>
-                  <select
-                    disabled={generatorInputsDisabled}
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+              </>
+            ) : (
+              <div className="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-700">
+                La materia seleccionada no permite generación automática. Podés continuar con consignas manuales o
+                importaciones.
+              </div>
+            )}
+                  </div>
+                )}
+              </section>
+
+              {/* 6. Sistema de puntuación y aprobación */}
+              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    onClick={() => handleToggleSection("scoring")}
+                    aria-expanded={openSection === "scoring"}
                   >
-                    <option>Básico</option>
-                    <option>Intermedio</option>
-                    <option>Avanzado</option>
-                  </select>
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
+                      <ScoringIcon className="h-5 w-5" />
+                    </span>
+                    <span>Sistema de puntuación y aprobación</span>
+                    <span className="rounded-full bg-amber-50 px-2 py-1 text-[11px] font-semibold text-amber-600">
+                      Opcional
+                    </span>
+                    <span className="text-xs font-medium text-gray-500">
+                      {openSection === "scoring" ? "Ocultar" : "Editar"}
+                    </span>
+                  </button>
                 </div>
-              </div>
-
-              <textarea
-                disabled={generatorInputsDisabled}
-                placeholder="Descripción breve del generador o configuración base..."
-                rows={3}
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-              />
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
-                <input
-                  disabled={generatorInputsDisabled}
-                  placeholder="Número de muestra / versión"
-                  className="rounded-md border border-gray-300 px-3 py-2"
-                />
-                <button
-                  disabled={generatorInputsDisabled}
-                  type="button"
-                  className="rounded-md border border-gray-300 px-3 py-2 text-sm text-left disabled:opacity-60"
-                >
-                  Configurar generador
-                </button>
-                <button
-                  disabled={generatorInputsDisabled}
-                  type="button"
-                  className="bg-green-500 hover:bg-green-600 text-white rounded-md px-3 py-2 text-sm disabled:opacity-60"
-                >
-                  Crear preguntas desde generador
-                </button>
-              </div>
-            </div>
-          </section>
-
-          {/* 6. Sistema de puntuación y aprobación */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Sistema de puntuación y aprobación</h2>
-            <p className="text-sm text-gray-600">
-              Configura el sistema de calificación, la escala y la cantidad de preguntas por punto.
-            </p>
+                {openSection === "scoring" && (
+                  <div className="space-y-4">
+                    <p className="text-sm text-gray-600">
+                      Configura el sistema de calificación, la escala y la cantidad de preguntas por punto.
+                    </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -1982,99 +2354,171 @@ export default function CrearModulo() {
                   placeholder="Ej: 70% o más"
                 />
               </div>
-            </div>
-          </section>
+                  </div>
+                    </div>
+                )}
+              </section>
 
-          {/* 7. Contenidos especiales */}
-          {subjectCapabilities.supportsSpecialResources && (
-            <section className="space-y-4">
-              <h2 className="text-lg font-semibold">Contenidos especiales</h2>
-              <p className="text-sm text-gray-600">
-                Agrega libros, PDFs o módulos especiales para materias específicas (lengua, geografía, biología).
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="border rounded-lg p-4 space-y-2">
-                  <h3 className="text-sm font-semibold">Libros y documentos</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <button type="button" className="rounded-md border px-3 py-2 text-sm">
-                      Añadir libro desde editor
-                    </button>
-                    <button type="button" className="rounded-md border px-3 py-2 text-sm">
-                      Subir PDF / DOC
+              {/* 7. Contenidos especiales */}
+              {subjectCapabilities.supportsSpecialResources && (
+                <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                      onClick={() => handleToggleSection("specialResources")}
+                      aria-expanded={openSection === "specialResources"}
+                    >
+                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
+                        <SpecialResourcesIcon className="h-5 w-5" />
+                      </span>
+                      <span>Contenidos especiales</span>
+                      <span className="rounded-full bg-purple-50 px-2 py-1 text-[11px] font-semibold text-purple-600">
+                        Opcional
+                      </span>
+                      <span className="text-xs font-medium text-gray-500">
+                        {openSection === "specialResources" ? "Ocultar" : "Editar"}
+                      </span>
                     </button>
                   </div>
-                  <p className="text-xs text-gray-500">
-                    Puedes incluir un cuestionario como módulo especial para lengua.
-                  </p>
+                  {openSection === "specialResources" && (
+                    <div className="space-y-4">
+                      <p className="text-sm text-gray-600">
+                        Agrega libros, PDFs o módulos especiales para materias específicas (lengua, geografía,
+                        biología).
+                      </p>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="border rounded-lg p-4 space-y-2">
+                          <h3 className="text-sm font-semibold">Libros y documentos</h3>
+                          <div className="flex flex-wrap gap-2">
+                            <button type="button" className="rounded-md border px-3 py-2 text-sm">
+                              Añadir libro desde editor
+                            </button>
+                            <button type="button" className="rounded-md border px-3 py-2 text-sm">
+                              Subir PDF / DOC
+                            </button>
+                          </div>
+                          <p className="text-xs text-gray-500">
+                            Puedes incluir un cuestionario como módulo especial para lengua.
+                          </p>
+                        </div>
+
+                        <div className="border rounded-lg p-4 space-y-2">
+                          <h3 className="text-sm font-semibold">Funciones específicas por materia</h3>
+                          {specialResourcesEditor}
+                          <p className="text-[11px] text-gray-500">
+                            Estas funciones se adaptan automáticamente a la materia seleccionada.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </section>
+              )}
+
+              {/* 8. Sistema de nivel y recompensas */}
+              {subjectCapabilities.supportsGenerators && (
+                <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                      onClick={() => handleToggleSection("rewards")}
+                      aria-expanded={openSection === "rewards"}
+                    >
+                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
+                        <RewardsIcon className="h-5 w-5" />
+                      </span>
+                      <span>Sistema de nivel y recompensas</span>
+                      <span className="rounded-full bg-amber-50 px-2 py-1 text-[11px] font-semibold text-amber-600">
+                        Opcional
+                      </span>
+                      <span className="text-xs font-medium text-gray-500">
+                        {openSection === "rewards" ? "Ocultar" : "Editar"}
+                      </span>
+                    </button>
+                  </div>
+                  {openSection === "rewards" && (
+                    <div className="space-y-4">
+                      <p className="text-sm text-gray-600">
+                        Solo aplica a módulos con generación aleatoria en materias con generadores. Al completar el
+                        módulo se otorga experiencia, sube el nivel y aumenta la dificultad con lógica tipo RPG o
+                        competencia por puntos.
+                      </p>
+
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">Nivel máximo otorgado</label>
+                          <input
+                            type="number"
+                            min={1}
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="Ej: 5"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">Experiencia máxima</label>
+                          <input
+                            type="number"
+                            min={0}
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="Ej: 150"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Cantidad máx. de preguntas por ronda
+                          </label>
+                          <input
+                            type="number"
+                            min={1}
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="Ej: 10"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">Multiplicador de experiencia</label>
+                          <input
+                            type="number"
+                            step="0.1"
+                            min={0}
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="Ej: 1.5"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </section>
+              )}
+
+              {/* 9. Visibilidad y permisos */}
+              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    onClick={() => handleToggleSection("visibility")}
+                    aria-expanded={openSection === "visibility"}
+                  >
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                      <VisibilityIcon className="h-5 w-5" />
+                    </span>
+                    <span>Visibilidad y permisos</span>
+                    <span className="rounded-full bg-blue-50 px-2 py-1 text-[11px] font-semibold text-blue-600">
+                      Requerido
+                    </span>
+                    <span className="text-xs font-medium text-gray-500">
+                      {openSection === "visibility" ? "Ocultar" : "Editar"}
+                    </span>
+                  </button>
                 </div>
-
-                <div className="border rounded-lg p-4 space-y-2">
-                  <h3 className="text-sm font-semibold">Funciones específicas por materia</h3>
-                  {specialResourcesEditor}
-                  <p className="text-[11px] text-gray-500">
-                    Estas funciones se adaptan automáticamente a la materia seleccionada.
-                  </p>
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* 8. Sistema de nivel y recompensas */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Sistema de nivel y recompensas</h2>
-            <p className="text-sm text-gray-600">
-              Solo aplica a módulos con generación aleatoria en materias con generadores. Al completar el módulo se
-              otorga experiencia, sube el nivel y aumenta la dificultad con lógica tipo RPG o competencia por puntos.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Nivel máximo otorgado</label>
-                <input
-                  type="number"
-                  min={1}
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Ej: 5"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Experiencia máxima</label>
-                <input
-                  type="number"
-                  min={0}
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Ej: 150"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Cantidad máx. de preguntas por ronda</label>
-                <input
-                  type="number"
-                  min={1}
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Ej: 10"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Multiplicador de experiencia</label>
-                <input
-                  type="number"
-                  step="0.1"
-                  min={0}
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Ej: 1.5"
-                />
-              </div>
-            </div>
-          </section>
-
-          {/* 9. Visibilidad y permisos */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold">Visibilidad y permisos</h2>
+                {openSection === "visibility" && (
+                  <div className="space-y-4">
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3">
@@ -2158,44 +2602,126 @@ export default function CrearModulo() {
               )}
             </div>
 
-            <p className="text-xs text-gray-500">
-              El sistema también registrará el progreso de los usuarios (nivel alcanzado, experiencia acumulada,
-              estado completo/incompleto y favoritos) fuera de este formulario.
-            </p>
-          </section>
+                    <p className="text-xs text-gray-500">
+                      El sistema también registrará el progreso de los usuarios (nivel alcanzado, experiencia acumulada,
+                      estado completo/incompleto y favoritos) fuera de este formulario.
+                    </p>
+                  </div>
+                )}
+              </section>
 
-          {/* 10. Acciones finales */}
-          <section className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Nota: podrías mostrar este botón solo en modo edición */}
-            <button
-              type="button"
-              className="text-sm text-red-600 hover:text-red-700 border border-red-200 hover:border-red-400 rounded-md px-4 py-2"
-            >
-              Marcar módulo como eliminado
-            </button>
+              {/* 10. Acciones finales */}
+              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    className="flex items-center gap-3 text-lg font-semibold text-slate-900"
+                    onClick={() => handleToggleSection("actions")}
+                    aria-expanded={openSection === "actions"}
+                  >
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                      <ActionsIcon className="h-5 w-5" />
+                    </span>
+                    <span>Acciones finales</span>
+                    <span className="rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-600">
+                      Paso final
+                    </span>
+                    <span className="text-xs font-medium text-gray-500">
+                      {openSection === "actions" ? "Ocultar" : "Editar"}
+                    </span>
+                  </button>
+                </div>
+                {openSection === "actions" && (
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    {/* Nota: podrías mostrar este botón solo en modo edición */}
+                    <button
+                      type="button"
+                      className="text-sm text-red-600 hover:text-red-700 border border-red-200 hover:border-red-400 rounded-md px-4 py-2"
+                    >
+                      Marcar módulo como eliminado
+                    </button>
 
-            <div className="flex flex-wrap justify-center gap-3">
-              <button type="button" className="rounded-md border px-4 py-2 text-sm">
-                Guardar como borrador
-              </button>
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-6 py-2 text-sm font-medium disabled:opacity-70"
-                disabled={saveStatus === "saving"}
-              >
-                {saveStatus === "saving" ? "Guardando..." : "Crear módulo"}
-              </button>
+                    <div className="flex flex-wrap justify-center gap-3">
+                      <button type="button" className="rounded-md border px-4 py-2 text-sm">
+                        Guardar como borrador
+                      </button>
+                      <button
+                        type="submit"
+                        className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-6 py-2 text-sm font-medium disabled:opacity-70"
+                        disabled={saveStatus === "saving"}
+                      >
+                        {saveStatus === "saving" ? "Guardando..." : "Crear módulo"}
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </section>
+              {saveStatus !== "idle" && (
+                <p
+                  className={`text-sm ${
+                    saveStatus === "saved"
+                      ? "text-emerald-600"
+                      : saveStatus === "error"
+                        ? "text-red-600"
+                        : "text-gray-600"
+                  }`}
+                >
+                  {saveMessage}
+                </p>
+              )}
             </div>
-          </section>
-          {saveStatus !== "idle" && (
-            <p
-              className={`text-sm ${
-                saveStatus === "saved" ? "text-emerald-600" : saveStatus === "error" ? "text-red-600" : "text-gray-600"
-              }`}
-            >
-              {saveMessage}
-            </p>
-          )}
+
+            <aside className="space-y-4 lg:sticky lg:top-6 self-start">
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-slate-700">Resumen de avance</h3>
+                  <span className="text-xs font-semibold text-slate-600">{progressPercentage}%</span>
+                </div>
+                <div className="h-2 w-full rounded-full bg-slate-200">
+                  <div
+                    className="h-2 rounded-full bg-blue-500 transition-all"
+                    style={{ width: `${progressPercentage}%` }}
+                  />
+                </div>
+                <p className="text-xs text-slate-600">
+                  {completedSections} de {totalSections} secciones completas.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-slate-200 bg-white p-4 space-y-3">
+                <h3 className="text-sm font-semibold text-slate-700">Estado por sección</h3>
+                <ul className="space-y-3 text-xs text-slate-600">
+                  {sectionStatus.map((section) => (
+                    <li key={section.id} className="space-y-2">
+                      <button
+                        type="button"
+                        className="flex w-full items-start justify-between gap-2 text-left"
+                        onClick={() => handleToggleSection(section.id)}
+                      >
+                        <span className="font-medium text-slate-700">
+                          {section.order}. {section.label}
+                        </span>
+                        <span
+                          className={`rounded-full px-2 py-1 text-[10px] font-semibold ${
+                            section.isComplete ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"
+                          }`}
+                        >
+                          {section.isComplete ? "Listo" : "Pendiente"}
+                        </span>
+                      </button>
+                      {section.missing.length > 0 && (
+                        <ul className="list-disc space-y-1 pl-4 text-[11px] text-amber-700">
+                          {section.missing.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
+          </div>
         </form>
       </div>
     </main>
