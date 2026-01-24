@@ -107,7 +107,7 @@ const readFileAsDataUrl = (file: File) =>
     reader.readAsDataURL(file);
   });
 
-const getTheoryDetailError = (type: string, detail: string) => {
+const getTheoryDetailError = (type: string, detail: string): string | null => {
   if (type !== "Video") return null;
   if (!detail.trim()) {
     return "Agrega el enlace del video (incluye http:// o https://).";
