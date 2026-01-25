@@ -12,16 +12,11 @@ export default function ReadingWorkshop() {
         <li>2. Define consignas de lectura y preguntas abiertas.</li>
         <li>3. Suma criterios de evaluación y rúbricas de escritura.</li>
       </ul>
-      <div className="flex flex-wrap gap-2">
-        <button type="button" className="rounded-md border border-purple-200 bg-white px-3 py-2 text-xs">
-          Subir fragmento
-        </button>
-        <button type="button" className="rounded-md border border-purple-200 bg-white px-3 py-2 text-xs">
-          Crear consignas
-        </button>
-      </div>
       <p className="text-[11px] text-purple-700">
         Placeholder: el editor completo llegará con anotaciones colaborativas.
+      </p>
+      <p className="text-[11px] text-purple-700">
+        Hasta entonces, esta sección funciona como recordatorio de los pasos a preparar.
       </p>
     </div>
   );
