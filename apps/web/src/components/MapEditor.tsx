@@ -16,16 +16,11 @@ export default function MapEditor({ subjectLabel = "Geografía" }: MapEditorProp
         <li>2. Marca ubicaciones clave con etiquetas y pistas.</li>
         <li>3. Define las consignas y el feedback asociado a cada punto.</li>
       </ul>
-      <div className="flex flex-wrap gap-2">
-        <button type="button" className="rounded-md border border-blue-200 bg-white px-3 py-2 text-xs">
-          Cargar mapa base
-        </button>
-        <button type="button" className="rounded-md border border-blue-200 bg-white px-3 py-2 text-xs">
-          Usar plantilla
-        </button>
-      </div>
       <p className="text-[11px] text-blue-700">
         Placeholder: integraremos el editor visual en la próxima iteración.
+      </p>
+      <p className="text-[11px] text-blue-700">
+        Mientras tanto, esta sección se mostrará solo como referencia informativa.
       </p>
     </div>
   );
