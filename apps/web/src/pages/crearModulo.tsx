@@ -1,17 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Award,
-  BookOpen,
-  CheckCircle,
-  FileQuestion,
-  FileText,
-  Globe,
-  Link2,
-  Settings,
-  Sparkles,
-} from "lucide-react";
-import { ApiError, apiGet, apiPost } from "../lib/api";
+import { Sparkles } from "lucide-react";
+import { apiPost } from "../lib/api";
 import MapEditor from "../components/MapEditor";
 import ReadingWorkshop from "../components/ReadingWorkshop";
 import SkeletonMarker from "../components/SkeletonMarker";
@@ -22,16 +12,12 @@ import {
   type ModuleResource,
   type ModuleDependency,
   type ModuleDependencyType,
+  type ModuleTheoryBlock,
 } from "../domain/module/module.types";
 import { MVP_GENERATOR_CATEGORIES, MVP_MODULES } from "../mvp/mvpData";
 import { fetchCategoriasConfig, fetchMateriasConfig } from "../services/modulos";
 
-type TheoryItem = {
-  id: string;
-  title: string;
-  type: string;
-  detail: string;
-};
+type TheoryItem = ModuleTheoryBlock;
 
 type LevelConfig = {
   level: string;
@@ -61,54 +47,6 @@ const isValidUrl = (value: string) => {
   }
 };
 
-const ALLOWED_RESOURCE_EXTENSIONS: Record<"doc" | "txt" | "bookJson", string[]> = {
-  doc: [".doc", ".docx"],
-  txt: [".txt"],
-  bookJson: [".json"],
-};
-
-const getFileExtension = (value: string) => {
-  let path = value;
-  try {
-    path = new URL(value).pathname;
-  } catch (error) {
-    path = value;
-  }
-  const match = path.toLowerCase().match(/\.[a-z0-9]+$/i);
-  return match?.[0] ?? "";
-};
-
-const isExtensionAllowed = (resourceType: "doc" | "txt" | "bookJson", value: string) =>
-  ALLOWED_RESOURCE_EXTENSIONS[resourceType].includes(getFileExtension(value));
-
-const getAllowedExtensionsLabel = (resourceType: "doc" | "txt" | "bookJson") =>
-  ALLOWED_RESOURCE_EXTENSIONS[resourceType].join(", ");
-
-const getUrlFileName = (value: string) => {
-  try {
-    const url = new URL(value);
-    const lastSegment = url.pathname.split("/").filter(Boolean).pop();
-    return lastSegment ? decodeURIComponent(lastSegment) : "archivo";
-  } catch (error) {
-    return "archivo";
-  }
-};
-
-const readFileAsText = (file: File) =>
-  new Promise<string>((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(String(reader.result ?? ""));
-    reader.onerror = () => reject(new Error("No se pudo leer el archivo."));
-    reader.readAsText(file);
-  });
-
-const readFileAsDataUrl = (file: File) =>
-  new Promise<string>((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(String(reader.result ?? ""));
-    reader.onerror = () => reject(new Error("No se pudo leer el archivo."));
-    reader.readAsDataURL(file);
-  });
 
 const getTheoryDetailError = (type: string, detail: string): string | null => {
   if (type !== "Video") return null;
@@ -311,19 +249,6 @@ export default function CrearModulo() {
   const [customDependencyType, setCustomDependencyType] =
     useState<ModuleDependencyType>("required");
   const [customDependencies, setCustomDependencies] = useState<ModuleDependency[]>([]);
-  const [bookResourceId, setBookResourceId] = useState("");
-  const [bookResourceTitle, setBookResourceTitle] = useState("");
-  const [bookResourceStatus, setBookResourceStatus] = useState<{
-    status: "idle" | "checking" | "error";
-    message: string;
-  }>({ status: "idle", message: "" });
-  const [resourceType, setResourceType] = useState<"doc" | "txt" | "bookJson">("doc");
-  const [resourceTitle, setResourceTitle] = useState("");
-  const [resourceUrl, setResourceUrl] = useState("");
-  const [resourceFile, setResourceFile] = useState<File | null>(null);
-  const [resourceInputMode, setResourceInputMode] = useState<"upload" | "link">("upload");
-  const [resourceError, setResourceError] = useState("");
-  const resourceFileInputRef = useRef<HTMLInputElement | null>(null);
   const [exerciseImportStatus, setExerciseImportStatus] = useState<{
     status: "idle" | "valid" | "error";
     message: string;
@@ -800,6 +725,7 @@ export default function CrearModulo() {
         durationMinutes,
         visibility: visibilidad,
         dependencies,
+        theoryBlocks: theoryItems,
         generatorRef: null,
         resources: fallbackLevel?.resources ?? [],
         levels: levelsPayload,
@@ -910,170 +836,6 @@ export default function CrearModulo() {
     setCustomDependencies((prev) =>
       prev.filter((item) => item.id !== dependency),
     );
-  };
-
-  const handleAddBookResource = async () => {
-    const trimmed = bookResourceId.trim();
-    if (!trimmed) {
-      setBookResourceStatus({ status: "error", message: "Ingresa un ID de libro válido." });
-      return;
-    }
-    setBookResourceStatus({ status: "checking", message: "Validando libro en biblioteca..." });
-    try {
-      await apiGet(`/api/libros/${encodeURIComponent(trimmed)}`);
-    } catch (error) {
-      const message =
-        error instanceof ApiError && error.status === 404
-          ? "No se encontró ningún libro con ese ID."
-          : "No se pudo verificar el libro. Intenta nuevamente.";
-      setBookResourceStatus({ status: "error", message });
-      return;
-    }
-    const next: ModuleResource = {
-      type: "book",
-      id: trimmed,
-      title: bookResourceTitle.trim() || undefined
-    };
-    updateLevelConfig(activeLevel, (current) => ({
-      ...current,
-      bookResources: [...current.bookResources, next]
-    }));
-    setBookResourceId("");
-    setBookResourceTitle("");
-    setBookResourceStatus({ status: "idle", message: "" });
-  };
-
-  const handleRemoveBookResource = (id: string) => {
-    updateLevelConfig(activeLevel, (current) => ({
-      ...current,
-      bookResources: current.bookResources.filter((resource) => resource.type !== "book" || resource.id !== id)
-    }));
-  };
-
-  const resetResourceForm = () => {
-    setResourceTitle("");
-    setResourceUrl("");
-    setResourceFile(null);
-    setResourceError("");
-    if (resourceFileInputRef.current) {
-      resourceFileInputRef.current.value = "";
-    }
-  };
-
-  const handleAddFileResource = async () => {
-    setResourceError("");
-    const trimmedTitle = resourceTitle.trim();
-    const titleFallback =
-      resourceInputMode === "link"
-        ? getUrlFileName(resourceUrl)
-        : resourceFile?.name ?? "Archivo";
-    const title = trimmedTitle || titleFallback;
-
-    if (resourceInputMode === "link") {
-      if (!resourceUrl.trim()) {
-        setResourceError("Agrega una URL para continuar.");
-        return;
-      }
-      if (!isValidUrl(resourceUrl)) {
-        setResourceError("La URL debe ser válida (http:// o https://).");
-        return;
-      }
-      if (!isExtensionAllowed(resourceType, resourceUrl)) {
-        setResourceError(
-          `El enlace debe finalizar en ${getAllowedExtensionsLabel(resourceType)}.`,
-        );
-        return;
-      }
-      if (resourceType === "doc") {
-        updateLevelConfig(activeLevel, (current) => ({
-          ...current,
-          fileResources: [
-            ...current.fileResources,
-            { type: "doc", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) }
-          ]
-        }));
-      }
-      if (resourceType === "txt") {
-        updateLevelConfig(activeLevel, (current) => ({
-          ...current,
-          fileResources: [
-            ...current.fileResources,
-            { type: "txt", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) }
-          ]
-        }));
-      }
-      if (resourceType === "bookJson") {
-        updateLevelConfig(activeLevel, (current) => ({
-          ...current,
-          fileResources: [
-            ...current.fileResources,
-            { type: "bookJson", title, url: resourceUrl.trim(), fileName: getUrlFileName(resourceUrl) }
-          ]
-        }));
-      }
-      resetResourceForm();
-      return;
-    }
-
-    if (!resourceFile) {
-      setResourceError("Selecciona un archivo para continuar.");
-      return;
-    }
-    if (!isExtensionAllowed(resourceType, resourceFile.name)) {
-      setResourceError(
-        `El archivo debe ser ${getAllowedExtensionsLabel(resourceType)}.`,
-      );
-      return;
-    }
-
-    try {
-      if (resourceType === "doc") {
-        const dataUrl = await readFileAsDataUrl(resourceFile);
-        updateLevelConfig(activeLevel, (current) => ({
-          ...current,
-          fileResources: [
-            ...current.fileResources,
-            { type: "doc", title, url: dataUrl, fileName: resourceFile.name }
-          ]
-        }));
-      }
-      if (resourceType === "txt") {
-        const content = await readFileAsText(resourceFile);
-        updateLevelConfig(activeLevel, (current) => ({
-          ...current,
-          fileResources: [
-            ...current.fileResources,
-            { type: "txt", title, content, fileName: resourceFile.name }
-          ]
-        }));
-      }
-      if (resourceType === "bookJson") {
-        const content = await readFileAsText(resourceFile);
-        try {
-          JSON.parse(content);
-        } catch (error) {
-          setResourceError("El JSON del libro no es válido.");
-          return;
-        }
-        updateLevelConfig(activeLevel, (current) => ({
-          ...current,
-          fileResources: [
-            ...current.fileResources,
-            { type: "bookJson", title, content, fileName: resourceFile.name }
-          ]
-        }));
-      }
-      resetResourceForm();
-    } catch (error) {
-      setResourceError(error instanceof Error ? error.message : "No se pudo leer el archivo.");
-    }
-  };
-
-  const handleRemoveFileResource = (index: number) => {
-    updateLevelConfig(activeLevel, (current) => ({
-      ...current,
-      fileResources: current.fileResources.filter((_, currentIndex) => currentIndex !== index)
-    }));
   };
 
   const handleExerciseFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -1547,386 +1309,119 @@ export default function CrearModulo() {
                 {openSection === "theory" && (
                   <div className="space-y-6">
                     <p className="text-sm text-gray-600">
-                      Sigue este flujo para construir la teoría del módulo: primero definí la estructura, luego agregá
-                      libros y archivos de apoyo, y cerrá con textos o enlaces.
+                      Agregá cada parte de la teoría como un bloque con tipo configurable (video, texto, enlace, etc.).
                     </p>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
-                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100 text-[10px] text-gray-600">
-                  1
-                </span>
-                Estructura del módulo
-              </div>
-              <div className="max-w-xs">
-                <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
-                <select
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                  value={activeLevel}
-                  onChange={(event) => setActiveLevel(event.target.value)}
-                >
-                  {levels.map((nivel) => (
-                    <option key={nivel} value={nivel}>
-                      {nivel}
-                    </option>
-                  ))}
-                </select>
-                <p className="mt-1 text-[11px] text-gray-500">
-                  Los recursos y libros se guardan según el nivel seleccionado.
-                </p>
-              </div>
-
-              <div className="grid gap-3">
-                {theoryItems.length === 0 ? (
-                  <div className="border rounded-lg p-4 text-sm text-gray-600 bg-gray-50">
-                    Todavía no hay partes de teoría agregadas. Usa los botones de abajo para sumar videos, texto o
-                    enlaces.
-                  </div>
-                ) : (
-                  theoryItems.map((item) => {
-                    const detailError = getTheoryDetailError(item.type, item.detail);
-                    return (
-                      <div key={item.id} className="border rounded-lg p-4 flex flex-col gap-2 bg-gray-50">
-                        {detailError && <p className="text-xs text-red-600">{detailError}</p>}
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <p className="text-sm font-semibold">{item.title}</p>
-                            <p className="text-xs text-gray-500">Tipo: {item.type}</p>
-                          </div>
-                          <button
-                            type="button"
-                            className="text-xs text-red-500 hover:underline"
-                            onClick={() => handleRemoveTheory(item.id)}
-                          >
-                            Quitar bloque
-                          </button>
+                    <div className="grid gap-3">
+                      {theoryItems.length === 0 ? (
+                        <div className="border rounded-lg p-4 text-sm text-gray-600 bg-gray-50">
+                          Todavía no hay partes de teoría agregadas. Usa el formulario de abajo para sumar videos,
+                          texto o enlaces.
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                          <input
-                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                            value={item.title}
-                            onChange={(event) => handleUpdateTheory(item.id, "title", event.target.value)}
-                            placeholder="Título del bloque"
-                          />
-                          <div className="space-y-1">
-                            <select
-                              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                              value={item.type}
-                              onChange={(event) => handleUpdateTheory(item.id, "type", event.target.value)}
-                            >
-                              {theoryTypeOptions.map((option) => (
-                                <option
-                                  key={`${item.id}-${option.value}`}
-                                  value={option.value}
-                                  disabled={option.disabled}
+                      ) : (
+                        theoryItems.map((item) => {
+                          const detailError = getTheoryDetailError(item.type, item.detail);
+                          return (
+                            <div key={item.id} className="border rounded-lg p-4 flex flex-col gap-2 bg-gray-50">
+                              {detailError && <p className="text-xs text-red-600">{detailError}</p>}
+                              <div className="flex items-center justify-between">
+                                <div>
+                                  <p className="text-sm font-semibold">{item.title}</p>
+                                  <p className="text-xs text-gray-500">Tipo: {item.type}</p>
+                                </div>
+                                <button
+                                  type="button"
+                                  className="text-xs text-red-500 hover:underline"
+                                  onClick={() => handleRemoveTheory(item.id)}
                                 >
-                                  {option.label}
-                                  {option.disabledReason ? ` (${option.disabledReason})` : ""}
-                                </option>
-                              ))}
-                            </select>
-                            {theoryTypeOptions.some(
-                              (option) => option.value === item.type && option.disabled && option.disabledReason
-                            ) && (
-                              <p className="text-[11px] text-amber-600">
-                                {
-                                  theoryTypeOptions.find(
+                                  Quitar bloque
+                                </button>
+                              </div>
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                <input
+                                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                  value={item.title}
+                                  onChange={(event) => handleUpdateTheory(item.id, "title", event.target.value)}
+                                  placeholder="Título del bloque"
+                                />
+                                <div className="space-y-1">
+                                  <select
+                                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                                    value={item.type}
+                                    onChange={(event) => handleUpdateTheory(item.id, "type", event.target.value)}
+                                  >
+                                    {theoryTypeOptions.map((option) => (
+                                      <option
+                                        key={`${item.id}-${option.value}`}
+                                        value={option.value}
+                                        disabled={option.disabled}
+                                      >
+                                        {option.label}
+                                        {option.disabledReason ? ` (${option.disabledReason})` : ""}
+                                      </option>
+                                    ))}
+                                  </select>
+                                  {theoryTypeOptions.some(
                                     (option) => option.value === item.type && option.disabled && option.disabledReason
-                                  )?.disabledReason
-                                }
-                              </p>
-                            )}
-                          </div>
-                          <input
-                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                            value={item.detail}
-                            onChange={(event) => handleUpdateTheory(item.id, "detail", event.target.value)}
-                            placeholder="Detalle rápido"
-                          />
+                                  ) && (
+                                    <p className="text-[11px] text-amber-600">
+                                      {
+                                        theoryTypeOptions.find(
+                                          (option) => option.value === item.type && option.disabled && option.disabledReason
+                                        )?.disabledReason
+                                      }
+                                    </p>
+                                  )}
+                                </div>
+                                <input
+                                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                  value={item.detail}
+                                  onChange={(event) => handleUpdateTheory(item.id, "detail", event.target.value)}
+                                  placeholder="Detalle rápido"
+                                />
+                              </div>
+                            </div>
+                          );
+                        })
+                      )}
+                    </div>
+
+                    <div className="border rounded-lg p-4 space-y-3">
+                      <h3 className="text-sm font-semibold">Agregar nueva parte de teoría</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <input
+                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                          value={newTheoryTitle}
+                          onChange={(event) => setNewTheoryTitle(event.target.value)}
+                          placeholder="Título (ej: Video introductorio)"
+                        />
+                        <div className="space-y-1">
+                          <select
+                            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                            value={newTheoryType}
+                            onChange={(event) => setNewTheoryType(event.target.value)}
+                          >
+                            {theoryTypeOptions.map((option) => (
+                              <option key={option.value} value={option.value} disabled={option.disabled}>
+                                {option.label}
+                                {option.disabledReason ? ` (${option.disabledReason})` : ""}
+                              </option>
+                            ))}
+                          </select>
                         </div>
+                        <input
+                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                          value={newTheoryDetail}
+                          onChange={(event) => setNewTheoryDetail(event.target.value)}
+                          placeholder="Detalle / nota"
+                        />
                       </div>
-                    );
-                  })
-                )}
-              </div>
-
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Agregar nueva parte de teoría</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    value={newTheoryTitle}
-                    onChange={(event) => setNewTheoryTitle(event.target.value)}
-                    placeholder="Título (ej: Video introductorio)"
-                  />
-                  <div className="space-y-1">
-                    <select
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                      value={newTheoryType}
-                      onChange={(event) => setNewTheoryType(event.target.value)}
-                    >
-                      {theoryTypeOptions.map((option) => (
-                        <option key={option.value} value={option.value} disabled={option.disabled}>
-                          {option.label}
-                          {option.disabledReason ? ` (${option.disabledReason})` : ""}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    value={newTheoryDetail}
-                    onChange={(event) => setNewTheoryDetail(event.target.value)}
-                    placeholder="Detalle / nota"
-                  />
-                </div>
-                {newTheoryDetailError && (
-                  <p className="text-xs text-red-600">{newTheoryDetailError}</p>
-                )}
-                <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddTheory}>
-                  + Agregar parte de teoría
-                </button>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <button type="button" className="rounded-md border px-4 py-2 text-sm">
-                  + Agregar recurso interactivo
-                </button>
-              </div>
-            </div>
-
-            <div className="border rounded-lg p-4 space-y-3">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
-                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100 text-[10px] text-gray-600">
-                  2
-                </span>
-                Libros del editor
-              </div>
-              <p className="text-xs text-gray-600">
-                Guarda un libro en el editor y pega su ID aquí para asociarlo al módulo.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <Link
-                  className="rounded-md border px-4 py-2 text-sm text-blue-600 hover:bg-blue-50"
-                  to="/editor"
-                >
-                  Añadir libro desde editor
-                </Link>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <input
-                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  value={bookResourceId}
-                  onChange={(event) => {
-                    setBookResourceId(event.target.value);
-                    if (bookResourceStatus.status !== "idle") {
-                      setBookResourceStatus({ status: "idle", message: "" });
-                    }
-                  }}
-                  placeholder="ID del libro (ej: book-matematica-01)"
-                />
-                <input
-                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  value={bookResourceTitle}
-                  onChange={(event) => setBookResourceTitle(event.target.value)}
-                  placeholder="Título opcional"
-                />
-                <button
-                  type="button"
-                  className="rounded-md border px-4 py-2 text-sm"
-                  onClick={handleAddBookResource}
-                  disabled={bookResourceStatus.status === "checking"}
-                >
-                  {bookResourceStatus.status === "checking" ? "Validando..." : "Agregar libro"}
-                </button>
-              </div>
-              {bookResourceStatus.status === "error" && (
-                <p className="text-xs text-red-600">{bookResourceStatus.message}</p>
-              )}
-              {currentLevelConfig.bookResources.length ? (
-                <ul className="space-y-2 text-sm">
-                  {currentLevelConfig.bookResources.map((resource) =>
-                    resource.type === "book" ? (
-                      <li key={resource.id} className="flex items-center justify-between">
-                        <span>{resource.title ?? resource.id}</span>
-                        <button
-                          type="button"
-                          className="text-xs text-red-500 hover:underline"
-                          onClick={() => handleRemoveBookResource(resource.id)}
-                        >
-                          Quitar
-                        </button>
-                      </li>
-                    ) : null
-                  )}
-                </ul>
-              ) : (
-                <p className="text-xs text-gray-500">Todavía no agregaste libros al módulo.</p>
-              )}
-            </div>
-
-            <div className="border rounded-lg p-4 space-y-3">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
-                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100 text-[10px] text-gray-600">
-                  3
-                </span>
-                Archivos de apoyo
-              </div>
-              <h3 className="text-sm font-semibold">Archivos de apoyo (DOC, TXT, Book JSON)</h3>
-              <p className="text-xs text-gray-600">
-                Solo se permiten archivos .doc/.docx, .txt y .json para libros.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-medium text-gray-700">Tipo de recurso</label>
-                  <select
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                    value={resourceType}
-                    onChange={(event) => {
-                      setResourceType(event.target.value as "doc" | "txt" | "bookJson");
-                      setResourceError("");
-                      setResourceFile(null);
-                      if (resourceFileInputRef.current) {
-                        resourceFileInputRef.current.value = "";
-                      }
-                    }}
-                  >
-                    <option value="doc">Documento (.doc/.docx)</option>
-                    <option value="txt">Texto (.txt)</option>
-                    <option value="bookJson">Libro JSON (.json)</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-gray-700">Título</label>
-                  <input
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    value={resourceTitle}
-                    onChange={(event) => setResourceTitle(event.target.value)}
-                    placeholder="Ej: Apunte de lectura"
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2 text-xs">
-                <button
-                  type="button"
-                  className={`rounded-md border px-3 py-1 ${
-                    resourceInputMode === "upload" ? "bg-slate-100 text-slate-700" : "text-slate-500"
-                  }`}
-                  onClick={() => {
-                    setResourceInputMode("upload");
-                    setResourceError("");
-                    setResourceUrl("");
-                  }}
-                >
-                  Subir archivo
-                </button>
-                <button
-                  type="button"
-                  className={`rounded-md border px-3 py-1 ${
-                    resourceInputMode === "link" ? "bg-slate-100 text-slate-700" : "text-slate-500"
-                  }`}
-                  onClick={() => {
-                    setResourceInputMode("link");
-                    setResourceError("");
-                    setResourceFile(null);
-                    if (resourceFileInputRef.current) {
-                      resourceFileInputRef.current.value = "";
-                    }
-                  }}
-                >
-                  Pegar enlace
-                </button>
-              </div>
-
-              {resourceInputMode === "upload" ? (
-                <div className="space-y-1">
-                  <input
-                    ref={resourceFileInputRef}
-                    type="file"
-                    accept={ALLOWED_RESOURCE_EXTENSIONS[resourceType].join(",")}
-                    className="w-full text-sm"
-                    onChange={(event) => {
-                      const file = event.target.files?.[0] ?? null;
-                      setResourceFile(file);
-                      setResourceError("");
-                    }}
-                  />
-                  <p className="text-[11px] text-gray-500">
-                    Formatos permitidos: {getAllowedExtensionsLabel(resourceType)}.
-                  </p>
-                </div>
-              ) : (
-                <div className="space-y-1">
-                  <input
-                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    value={resourceUrl}
-                    onChange={(event) => {
-                      setResourceUrl(event.target.value);
-                      setResourceError("");
-                    }}
-                    placeholder={`URL del archivo (${getAllowedExtensionsLabel(resourceType)})`}
-                  />
-                  <p className="text-[11px] text-gray-500">
-                    Solo se aceptan enlaces directos con extensión {getAllowedExtensionsLabel(resourceType)}.
-                  </p>
-                </div>
-              )}
-
-              {resourceError && <p className="text-xs text-red-600">{resourceError}</p>}
-
-              <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddFileResource}>
-                Agregar recurso
-              </button>
-
-              {currentLevelConfig.fileResources.length ? (
-                <ul className="space-y-2 text-sm">
-                  {currentLevelConfig.fileResources.map((resource, index) => (
-                    <li key={`${resource.type}-${index}`} className="flex items-center justify-between">
-                      <span>
-                        {resource.title} ·{" "}
-                        {resource.type === "doc"
-                          ? "DOC"
-                          : resource.type === "txt"
-                            ? "TXT"
-                            : "Book JSON"}
-                      </span>
-                      <button
-                        type="button"
-                        className="text-xs text-red-500 hover:underline"
-                        onClick={() => handleRemoveFileResource(index)}
-                      >
-                        Quitar
+                      {newTheoryDetailError && (
+                        <p className="text-xs text-red-600">{newTheoryDetailError}</p>
+                      )}
+                      <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddTheory}>
+                        + Agregar parte de teoría
                       </button>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-xs text-gray-500">Todavía no agregaste archivos de apoyo.</p>
-              )}
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <div className="border rounded-lg p-4 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
-                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-100 text-[10px] text-gray-600">
-                    4
-                  </span>
-                  Textos
-                </div>
-                <h3 className="text-sm font-semibold">Textos y enlaces finales</h3>
-                <div className="space-y-2">
-                  <input
-                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="URL del video / enlace"
-                  />
-                  <textarea
-                    rows={3}
-                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Texto o guion de la teoría"
-                  />
-                </div>
-              </div>
                     </div>
                   </div>
                 )}

@@ -8,6 +8,13 @@ export type ModuleResource =
   | { type: "bookJson"; title: string; content?: string; url?: string; fileName?: string }
   | { type: "link"; title: string; url: string };
 
+export type ModuleTheoryBlock = {
+  id: string;
+  title: string;
+  type: string;
+  detail: string;
+};
+
 export type ModuleQuizVisibility = "publico" | "escuela";
 
 export type ModuleQuiz = {
@@ -179,6 +186,7 @@ export type Module = {
   visibility: ModuleVisibility;
   dependencies: ModuleDependency[];
   generatorRef?: ModuleGeneratorRef | null;
+  theoryBlocks?: ModuleTheoryBlock[];
   resources?: ModuleResource[];
   levels?: ModuleLevel[];
   levelOrder?: string[];
