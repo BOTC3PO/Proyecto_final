@@ -22,6 +22,8 @@ export type ModuleQuiz = {
   title: string;
   type: "practica" | "evaluacion" | "competencia";
   visibility: ModuleQuizVisibility;
+  schoolId?: string;
+  schoolName?: string;
   competitionRules?: string;
   competitionRulesVisibility?: ModuleQuizVisibility;
   questions?: ModuleQuizQuestion[];
