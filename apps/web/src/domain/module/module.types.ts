@@ -24,6 +24,7 @@ export type ModuleQuiz = {
   visibility: ModuleQuizVisibility;
   competitionRules?: string;
   competitionRulesVisibility?: ModuleQuizVisibility;
+  questions?: ModuleQuizQuestion[];
 };
 
 export type ModuleDependencyType = "required" | "unlocks";
@@ -37,6 +38,16 @@ export type ModuleLevel = {
   level: string;
   quizzes?: ModuleQuiz[];
   resources?: ModuleResource[];
+  questions?: ModuleQuizQuestion[];
+};
+
+export type ModuleQuizQuestion = {
+  id: string;
+  prompt: string;
+  answers?: string[];
+  solution?: string | number;
+  explanation?: string;
+  focus?: string | null;
 };
 
 export type ModuleGeneratorRef = {
