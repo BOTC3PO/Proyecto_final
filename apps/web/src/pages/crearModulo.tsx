@@ -167,6 +167,10 @@ export default function CrearModulo() {
     () => levelsConfig.some((entry) => entry.quizReferences.length > 0),
     [levelsConfig],
   );
+  const isModelModule = useMemo(
+    () => theoryItems.length > 0 && hasQuizReferences,
+    [hasQuizReferences, theoryItems.length],
+  );
   const newTheoryDetailError = getTheoryDetailError(newTheoryType, newTheoryDetail);
   const moduleSizeScore = useMemo(() => {
     const quizCount = levelsConfig.reduce(
@@ -365,11 +369,11 @@ export default function CrearModulo() {
       quizGenerator: true,
       scoring: true,
       specialResources: subjectCapabilities.supportsSpecialResources,
-      rewards: subjectCapabilities.supportsGenerators,
+      rewards: subjectCapabilities.supportsGenerators && isModelModule,
       visibility: true,
       actions: true,
     }),
-    [subjectCapabilities.supportsGenerators, subjectCapabilities.supportsSpecialResources],
+    [isModelModule, subjectCapabilities.supportsGenerators, subjectCapabilities.supportsSpecialResources],
   );
 
   const generalMissing = useMemo(() => {
@@ -1579,7 +1583,7 @@ export default function CrearModulo() {
               )}
 
               {/* 8. Sistema de nivel y recompensas */}
-              {subjectCapabilities.supportsGenerators && (
+              {subjectCapabilities.supportsGenerators && isModelModule && (
                 <section className="space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <button
