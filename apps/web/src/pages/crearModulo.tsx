@@ -22,6 +22,7 @@ import {
   type ModuleResource,
 } from "../domain/module/module.types";
 import { MVP_GENERATOR_CATEGORIES, MVP_MODULES } from "../mvp/mvpData";
+import { fetchCategoriasConfig, fetchMateriasConfig } from "../services/modulos";
 
 type TheoryItem = {
   id: string;
@@ -214,6 +215,51 @@ const validateExercisesJson = (value: unknown): ValidationResult => {
   return { isValid: errors.length === 0, errors };
 };
 
+const DEFAULT_MATERIAS = [
+  "Matemáticas",
+  "Lengua y Literatura",
+  "Ciencias Naturales",
+  "Ciencias Sociales",
+  "Historia",
+  "Geografía",
+  "Física",
+  "Química",
+  "Biología",
+  "Inglés",
+  "Informática / TIC",
+  "Educación Física",
+  "Arte / Plástica",
+  "Música",
+  "Formación Ética y Ciudadana",
+  "Economía",
+  "Otro",
+];
+
+const DEFAULT_CATEGORIAS = [
+  "Aritmética básica",
+  "Álgebra",
+  "Geometría",
+  "Lectura comprensiva",
+  "Comprensión de textos",
+  "Ciencias naturales generales",
+  "Laboratorio",
+  "Historia Argentina",
+  "Historia Mundial",
+  "Historia · Gráficos y datos históricos",
+  "Historia · Líneas de tiempo",
+  "Historia · Mapas históricos",
+  "Historia · Organigramas y mapas conceptuales",
+  "Historia · Recursos multimedia e interactivos",
+  "Geografía de Argentina",
+  "Geografía del Mundo",
+  "Gramática",
+  "Ortografía",
+  "Lógica",
+  "Programación",
+  "Resolución de problemas",
+  "Otro",
+];
+
 const MODULE_SIZE_THRESHOLD = 2000;
 
 export default function CrearModulo() {
@@ -226,6 +272,10 @@ export default function CrearModulo() {
   const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [scoringSystemId, setScoringSystemId] = useState("scale-1-10");
   const [saveMessage, setSaveMessage] = useState("");
+  const [materias, setMaterias] = useState<string[]>(DEFAULT_MATERIAS);
+  const [categorias, setCategorias] = useState<string[]>(DEFAULT_CATEGORIAS);
+  const [configMessage, setConfigMessage] = useState("");
+  const [isConfigLoading, setIsConfigLoading] = useState(true);
   const [visibilidad, setVisibilidad] = useState<"publico" | "privado">("publico");
   const [theoryItems, setTheoryItems] = useState<TheoryItem[]>([]);
   const [newTheoryTitle, setNewTheoryTitle] = useState("");
@@ -346,7 +396,7 @@ export default function CrearModulo() {
           </div>
         );
     }
-  }, [subject]);
+  }, []);
 
   useEffect(() => {
     if (theoryTypeOptions.some((option) => option.value === newTheoryType && !option.disabled)) {
@@ -355,51 +405,36 @@ export default function CrearModulo() {
     setNewTheoryType(enabledTheoryTypes[0]?.value ?? "Video");
   }, [enabledTheoryTypes, newTheoryType, theoryTypeOptions]);
 
-  // En un futuro acá podes traer estas listas desde la API
-  const materias = [
-    "Matemáticas",
-    "Lengua y Literatura",
-    "Ciencias Naturales",
-    "Ciencias Sociales",
-    "Historia",
-    "Geografía",
-    "Física",
-    "Química",
-    "Biología",
-    "Inglés",
-    "Informática / TIC",
-    "Educación Física",
-    "Arte / Plástica",
-    "Música",
-    "Formación Ética y Ciudadana",
-    "Economía",
-    "Otro",
-  ];
-
-  const categoriasEjemplo = [
-    "Aritmética básica",
-    "Álgebra",
-    "Geometría",
-    "Lectura comprensiva",
-    "Comprensión de textos",
-    "Ciencias naturales generales",
-    "Laboratorio",
-    "Historia Argentina",
-    "Historia Mundial",
-    "Historia · Gráficos y datos históricos",
-    "Historia · Líneas de tiempo",
-    "Historia · Mapas históricos",
-    "Historia · Organigramas y mapas conceptuales",
-    "Historia · Recursos multimedia e interactivos",
-    "Geografía de Argentina",
-    "Geografía del Mundo",
-    "Gramática",
-    "Ortografía",
-    "Lógica",
-    "Programación",
-    "Resolución de problemas",
-    "Otro",
-  ];
+  useEffect(() => {
+    let isMounted = true;
+    const fetchConfigLists = async () => {
+      try {
+        setIsConfigLoading(true);
+        const [materiasResponse, categoriasResponse] = await Promise.all([
+          fetchMateriasConfig(),
+          fetchCategoriasConfig(),
+        ]);
+        if (!isMounted) return;
+        const materiasItems = materiasResponse.items?.length ? materiasResponse.items : DEFAULT_MATERIAS;
+        const categoriasItems = categoriasResponse.items?.length ? categoriasResponse.items : DEFAULT_CATEGORIAS;
+        setMaterias(materiasItems);
+        setCategorias(categoriasItems);
+        setConfigMessage("");
+        if (!materiasItems.includes(subject)) {
+          setSubject(materiasItems[0] ?? "Matemáticas");
+        }
+      } catch (error) {
+        if (!isMounted) return;
+        setConfigMessage("No pudimos cargar la configuración. Usamos los valores por defecto.");
+      } finally {
+        if (isMounted) setIsConfigLoading(false);
+      }
+    };
+    fetchConfigLists();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const scoringSystems = [
     {
@@ -1065,30 +1100,41 @@ export default function CrearModulo() {
                     </option>
                   ))}
                 </select>
-                <p className="mt-1 text-xs text-gray-500">Acepta cualquier materia que se dicte en la escuela.</p>
+                <p className="mt-1 text-xs text-gray-500">
+                  {isConfigLoading
+                    ? "Cargando materias desde configuración..."
+                    : "Acepta cualquier materia que se dicte en la escuela."}
+                </p>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700">
                   Categoría / Tema <span className="text-red-500">*</span>
                 </label>
-                <select
+                <input
                   required
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                   value={category}
                   onChange={(event) => setCategory(event.target.value)}
-                >
-                  <option value="" disabled>
-                    Selecciona una categoría
-                  </option>
-                  {categoriasEjemplo.map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
+                  placeholder="Ej: Álgebra, Historia Mundial, Programación"
+                  list="categorias-config"
+                />
+                <datalist id="categorias-config">
+                  {categorias.map((c) => (
+                    <option key={c} value={c} />
                   ))}
-                </select>
+                </datalist>
+                <p className="mt-1 text-xs text-gray-500">
+                  Podés escribir libremente o elegir una sugerencia cargada desde administración.
+                </p>
               </div>
             </div>
+
+            {configMessage && (
+              <div className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
+                {configMessage}
+              </div>
+            )}
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
