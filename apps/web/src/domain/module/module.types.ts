@@ -44,6 +44,27 @@ export type ModuleGeneratorRef = {
   config?: Record<string, unknown>;
 };
 
+export type ModuleScoringConfig = {
+  systemId: string;
+  questionsPerPoint?: number | null;
+  minPassingScore?: string;
+  maxScoreForSix?: number | null;
+  promotionRule?: string;
+};
+
+export type ModuleRewardsConfig = {
+  maxLevel?: number | null;
+  maxExperience?: number | null;
+  maxQuestionsPerRound?: number | null;
+  experienceMultiplier?: number | null;
+};
+
+export type ModuleVisibilityConfig = {
+  institution?: string;
+  invitedTeachers?: string;
+  studentRestriction?: string;
+};
+
 export type TheoryTypeOption = {
   value: string;
   label: string;
@@ -183,8 +204,12 @@ export type Module = {
   category: string;
   level: string;
   durationMinutes: number;
+  recommendedCourse?: string;
   visibility: ModuleVisibility;
+  visibilityConfig?: ModuleVisibilityConfig | null;
   dependencies: ModuleDependency[];
+  scoringConfig?: ModuleScoringConfig;
+  rewardsConfig?: ModuleRewardsConfig;
   generatorRef?: ModuleGeneratorRef | null;
   theoryBlocks?: ModuleTheoryBlock[];
   resources?: ModuleResource[];

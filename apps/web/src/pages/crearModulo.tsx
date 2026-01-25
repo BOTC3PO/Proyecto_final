@@ -118,18 +118,32 @@ export default function CrearModulo() {
   const [category, setCategory] = useState("");
   const [level, setLevel] = useState(DEFAULT_LEVELS[0]);
   const [durationMinutes, setDurationMinutes] = useState(30);
+  const [recommendedCourse, setRecommendedCourse] = useState("");
   const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [scoringSystemId, setScoringSystemId] = useState("scale-1-10");
+  const [questionsPerPoint, setQuestionsPerPoint] = useState("");
+  const [minPassingScore, setMinPassingScore] = useState("");
+  const [maxScoreForSix, setMaxScoreForSix] = useState("");
+  const [promotionRule, setPromotionRule] = useState("");
   const [saveMessage, setSaveMessage] = useState("");
   const [materias, setMaterias] = useState<string[]>(DEFAULT_MATERIAS);
   const [categorias, setCategorias] = useState<string[]>(DEFAULT_CATEGORIAS);
   const [configMessage, setConfigMessage] = useState("");
   const [isConfigLoading, setIsConfigLoading] = useState(true);
   const [visibilidad, setVisibilidad] = useState<"publico" | "privado">("publico");
+  const [privateInstitution, setPrivateInstitution] = useState("");
+  const [privateInvitedTeachers, setPrivateInvitedTeachers] = useState("");
+  const [privateStudentRestriction, setPrivateStudentRestriction] = useState(
+    "Solo alumnos de mi institución",
+  );
   const [theoryItems, setTheoryItems] = useState<TheoryItem[]>([]);
   const [newTheoryTitle, setNewTheoryTitle] = useState("");
   const [newTheoryType, setNewTheoryType] = useState("Video");
   const [newTheoryDetail, setNewTheoryDetail] = useState("");
+  const [rewardMaxLevel, setRewardMaxLevel] = useState("");
+  const [rewardMaxExperience, setRewardMaxExperience] = useState("");
+  const [rewardMaxQuestionsPerRound, setRewardMaxQuestionsPerRound] = useState("");
+  const [rewardExperienceMultiplier, setRewardExperienceMultiplier] = useState("");
   const [levels, setLevels] = useState<string[]>(DEFAULT_LEVELS);
   const [levelDrafts, setLevelDrafts] = useState<string[]>(DEFAULT_LEVELS);
   const [newLevelName, setNewLevelName] = useState("");
@@ -467,6 +481,13 @@ export default function CrearModulo() {
     return `${base || "modulo"}-${Date.now()}`;
   };
 
+  const parseOptionalNumber = (value: string) => {
+    const trimmed = value.trim();
+    if (!trimmed) return null;
+    const parsed = Number(trimmed);
+    return Number.isFinite(parsed) ? parsed : null;
+  };
+
   const updateLevelConfig = (levelKey: string, updater: (current: LevelConfig) => LevelConfig) => {
     setLevelsConfig((prev) =>
       prev.map((levelEntry) => (levelEntry.level === levelKey ? updater(levelEntry) : levelEntry)),
@@ -616,6 +637,7 @@ export default function CrearModulo() {
         category,
         level,
         durationMinutes,
+        recommendedCourse: recommendedCourse.trim() || undefined,
         visibility: visibilidad,
         dependencies,
         theoryBlocks: theoryItems,
@@ -623,6 +645,32 @@ export default function CrearModulo() {
         resources: fallbackLevel?.resources ?? [],
         levels: levelsPayload,
         levelOrder: levels,
+        scoringConfig: hasQuizReferences
+          ? {
+              systemId: scoringSystemId,
+              questionsPerPoint: parseOptionalNumber(questionsPerPoint),
+              minPassingScore: minPassingScore.trim() || undefined,
+              maxScoreForSix: parseOptionalNumber(maxScoreForSix),
+              promotionRule: promotionRule.trim() || undefined,
+            }
+          : undefined,
+        rewardsConfig:
+          subjectCapabilities.supportsGenerators && isModelModule
+            ? {
+                maxLevel: parseOptionalNumber(rewardMaxLevel),
+                maxExperience: parseOptionalNumber(rewardMaxExperience),
+                maxQuestionsPerRound: parseOptionalNumber(rewardMaxQuestionsPerRound),
+                experienceMultiplier: parseOptionalNumber(rewardExperienceMultiplier),
+              }
+            : undefined,
+        visibilityConfig:
+          visibilidad === "privado"
+            ? {
+                institution: privateInstitution.trim() || undefined,
+                invitedTeachers: privateInvitedTeachers.trim() || undefined,
+                studentRestriction: privateStudentRestriction.trim() || undefined,
+              }
+            : null,
         createdBy: "demo-docente",
         updatedAt: new Date().toISOString()
       };
@@ -1003,6 +1051,8 @@ export default function CrearModulo() {
                             <input
                               className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                               placeholder="Ej: 5° grado primaria"
+                              value={recommendedCourse}
+                              onChange={(event) => setRecommendedCourse(event.target.value)}
                             />
                             <p className="mt-1 text-xs text-gray-500">
                               Usá este campo si necesitás orientar a docentes o estudiantes nuevos.
@@ -1556,6 +1606,8 @@ export default function CrearModulo() {
                             min={1}
                             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
                             placeholder="Ej: 3 preguntas = 1 punto"
+                            value={questionsPerPoint}
+                            onChange={(event) => setQuestionsPerPoint(event.target.value)}
                           />
                         </div>
                       </div>
@@ -1566,6 +1618,8 @@ export default function CrearModulo() {
                           <input
                             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
                             placeholder="Ej: 6 / 60 / Aprobado"
+                            value={minPassingScore}
+                            onChange={(event) => setMinPassingScore(event.target.value)}
                           />
                         </div>
                         <div>
@@ -1576,6 +1630,8 @@ export default function CrearModulo() {
                             max={80}
                             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
                             placeholder="Máximo 80%"
+                            value={maxScoreForSix}
+                            onChange={(event) => setMaxScoreForSix(event.target.value)}
                           />
                         </div>
                         <div>
@@ -1583,6 +1639,8 @@ export default function CrearModulo() {
                           <input
                             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
                             placeholder="Ej: 70% o más"
+                            value={promotionRule}
+                            onChange={(event) => setPromotionRule(event.target.value)}
                           />
                         </div>
                       </div>
@@ -1678,6 +1736,8 @@ export default function CrearModulo() {
                             min={1}
                             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                             placeholder="Ej: 5"
+                            value={rewardMaxLevel}
+                            onChange={(event) => setRewardMaxLevel(event.target.value)}
                           />
                         </div>
 
@@ -1688,6 +1748,8 @@ export default function CrearModulo() {
                             min={0}
                             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                             placeholder="Ej: 150"
+                            value={rewardMaxExperience}
+                            onChange={(event) => setRewardMaxExperience(event.target.value)}
                           />
                         </div>
 
@@ -1700,6 +1762,8 @@ export default function CrearModulo() {
                             min={1}
                             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                             placeholder="Ej: 10"
+                            value={rewardMaxQuestionsPerRound}
+                            onChange={(event) => setRewardMaxQuestionsPerRound(event.target.value)}
                           />
                         </div>
 
@@ -1711,6 +1775,8 @@ export default function CrearModulo() {
                             min={0}
                             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                             placeholder="Ej: 1.5"
+                            value={rewardExperienceMultiplier}
+                            onChange={(event) => setRewardExperienceMultiplier(event.target.value)}
                           />
                         </div>
                       </div>
@@ -1783,6 +1849,8 @@ export default function CrearModulo() {
                     <input
                       className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
                       placeholder="Seleccionar institución / escuela"
+                      value={privateInstitution}
+                      onChange={(event) => setPrivateInstitution(event.target.value)}
                     />
                   </div>
 
@@ -1793,6 +1861,8 @@ export default function CrearModulo() {
                     <input
                       className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
                       placeholder="Buscar por nombre, correo o alias"
+                      value={privateInvitedTeachers}
+                      onChange={(event) => setPrivateInvitedTeachers(event.target.value)}
                     />
                     <p className="mt-1 text-[11px] text-gray-500">
                       Estos usuarios podrán usar el módulo en sus aulas virtuales.
@@ -1801,7 +1871,11 @@ export default function CrearModulo() {
 
                   <div>
                     <label className="block text-xs font-medium text-gray-700">Restricción de alumnos</label>
-                    <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white">
+                    <select
+                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                      value={privateStudentRestriction}
+                      onChange={(event) => setPrivateStudentRestriction(event.target.value)}
+                    >
                       <option>Solo alumnos de mi institución</option>
                       <option>Solo alumnos de mis cursos</option>
                       <option>Alumnos invitados explícitamente</option>

@@ -61,6 +61,27 @@ export const ModuleLevelSchema = z.object({
   resources: z.array(ModuleResourceSchema).optional()
 });
 
+export const ModuleScoringConfigSchema = z.object({
+  systemId: z.string().min(1),
+  questionsPerPoint: z.number().finite().nullable().optional(),
+  minPassingScore: z.string().min(1).optional(),
+  maxScoreForSix: z.number().finite().nullable().optional(),
+  promotionRule: z.string().min(1).optional()
+});
+
+export const ModuleRewardsConfigSchema = z.object({
+  maxLevel: z.number().finite().nullable().optional(),
+  maxExperience: z.number().finite().nullable().optional(),
+  maxQuestionsPerRound: z.number().finite().nullable().optional(),
+  experienceMultiplier: z.number().finite().nullable().optional()
+});
+
+export const ModuleVisibilityConfigSchema = z.object({
+  institution: z.string().min(1).optional(),
+  invitedTeachers: z.string().min(1).optional(),
+  studentRestriction: z.string().min(1).optional()
+});
+
 export const ModuleSchema = z.object({
   id: z.string().min(1),
   aulaId: z.string().min(1).optional(),
@@ -70,8 +91,12 @@ export const ModuleSchema = z.object({
   category: z.string().min(1),
   level: z.string().min(1),
   durationMinutes: z.number().int().positive(),
+  recommendedCourse: z.string().min(1).optional(),
   visibility: ModuleVisibilitySchema,
+  visibilityConfig: ModuleVisibilityConfigSchema.nullable().optional(),
   dependencies: z.array(ModuleDependencySchema),
+  scoringConfig: ModuleScoringConfigSchema.optional(),
+  rewardsConfig: ModuleRewardsConfigSchema.optional(),
   generatorRef: z
     .object({
       id: z.string().min(1),
