@@ -761,7 +761,7 @@ export default function CrearModulo() {
                 invitedTeachers: privateInvitedTeachers.trim() || undefined,
                 studentRestriction: privateStudentRestriction.trim() || undefined,
               }
-            : null,
+            : undefined,
         createdBy: "demo-docente",
         updatedAt: new Date().toISOString()
       };
