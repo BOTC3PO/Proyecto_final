@@ -49,9 +49,21 @@ progreso.get("/api/progreso", async (req, res) => {
   const completedIds = new Set(
     items.filter((item) => item.status === "completado").map((item) => item.moduloId)
   );
+  const getRequiredDependencyIds = (dependencies: unknown) => {
+    if (!Array.isArray(dependencies)) return [];
+    return dependencies
+      .map((dep) => {
+        if (typeof dep === "string") return dep;
+        if (!dep || typeof dep !== "object") return null;
+        const record = dep as { id?: unknown; type?: unknown };
+        if (record.type !== "required" || typeof record.id !== "string") return null;
+        return record.id;
+      })
+      .filter((dep): dep is string => Boolean(dep));
+  };
   const unlocks = modules.map((module) => {
-    const deps = Array.isArray(module.dependencies) ? module.dependencies : [];
-    const missingDependencies = deps.filter((dep: string) => !completedIds.has(dep));
+    const deps = getRequiredDependencyIds(module.dependencies);
+    const missingDependencies = deps.filter((dep) => !completedIds.has(dep));
     return {
       moduloId: module.id,
       isLocked: missingDependencies.length > 0,

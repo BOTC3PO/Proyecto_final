@@ -20,6 +20,8 @@ import {
   type ModuleQuiz,
   type ModuleQuizVisibility,
   type ModuleResource,
+  type ModuleDependency,
+  type ModuleDependencyType,
 } from "../domain/module/module.types";
 import { MVP_GENERATOR_CATEGORIES, MVP_MODULES } from "../mvp/mvpData";
 import { fetchCategoriasConfig, fetchMateriasConfig } from "../services/modulos";
@@ -154,6 +156,10 @@ const QUIZ_TYPE_LABELS: Record<ModuleQuiz["type"], string> = {
   practica: "Práctica",
   evaluacion: "Evaluación",
   competencia: "Competencia",
+};
+const DEPENDENCY_TYPE_LABELS: Record<ModuleDependencyType, string> = {
+  required: "Requerido",
+  unlocks: "Desbloquea",
 };
 const SCORING_SYSTEM_NOTES: Record<string, string> = {
   "scale-1-10": "Referencia rápida: 1 = desempeño mínimo, 10 = desempeño sobresaliente.",
@@ -300,9 +306,11 @@ export default function CrearModulo() {
   const [newQuizCompetitionRules, setNewQuizCompetitionRules] = useState("");
   const [newQuizCompetitionRulesVisibility, setNewQuizCompetitionRulesVisibility] =
     useState<ModuleQuizVisibility>("publico");
-  const [requiredDependencies, setRequiredDependencies] = useState<string[]>([]);
+  const [moduleDependencies, setModuleDependencies] = useState<ModuleDependency[]>([]);
   const [customDependency, setCustomDependency] = useState("");
-  const [customDependencies, setCustomDependencies] = useState<string[]>([]);
+  const [customDependencyType, setCustomDependencyType] =
+    useState<ModuleDependencyType>("required");
+  const [customDependencies, setCustomDependencies] = useState<ModuleDependency[]>([]);
   const [bookResourceId, setBookResourceId] = useState("");
   const [bookResourceTitle, setBookResourceTitle] = useState("");
   const [bookResourceStatus, setBookResourceStatus] = useState<{
@@ -356,7 +364,7 @@ export default function CrearModulo() {
       (total, item) => total + item.title.length + item.detail.length,
       0,
     );
-    const dependencyCount = requiredDependencies.length + customDependencies.length;
+    const dependencyCount = moduleDependencies.length + customDependencies.length;
     return (
       title.length +
       description.length +
@@ -370,7 +378,7 @@ export default function CrearModulo() {
     description,
     theoryItems,
     levelsConfig,
-    requiredDependencies,
+    moduleDependencies,
     customDependencies,
   ]);
   const showLargeModuleHint = moduleSizeScore >= MODULE_SIZE_THRESHOLD;
@@ -773,7 +781,9 @@ export default function CrearModulo() {
     setSaveStatus("saving");
     setSaveMessage("");
     try {
-      const dependencies = [...requiredDependencies, ...customDependencies].filter(Boolean);
+      const dependencies = [...moduleDependencies, ...customDependencies].filter(
+        (dependency) => dependency.id.trim().length > 0,
+      );
       const levelsPayload = levelsConfig.map(({ level: levelName, quizBlocks, bookResources, fileResources }) => ({
         level: levelName,
         quizzes: quizBlocks,
@@ -871,20 +881,35 @@ export default function CrearModulo() {
   };
 
   const handleToggleDependency = (moduleId: string) => {
-    setRequiredDependencies((prev) =>
-      prev.includes(moduleId) ? prev.filter((id) => id !== moduleId) : [...prev, moduleId],
+    setModuleDependencies((prev) => {
+      const existing = prev.find((dependency) => dependency.id === moduleId);
+      if (existing) {
+        return prev.filter((dependency) => dependency.id !== moduleId);
+      }
+      return [...prev, { id: moduleId, type: "required" }];
+    });
+  };
+
+  const handleDependencyTypeChange = (moduleId: string, type: ModuleDependencyType) => {
+    setModuleDependencies((prev) =>
+      prev.map((dependency) =>
+        dependency.id === moduleId ? { ...dependency, type } : dependency,
+      ),
     );
   };
 
   const handleAddCustomDependency = () => {
     const trimmed = customDependency.trim();
-    if (!trimmed || customDependencies.includes(trimmed)) return;
-    setCustomDependencies((prev) => [...prev, trimmed]);
+    if (!trimmed || customDependencies.some((dependency) => dependency.id === trimmed)) return;
+    setCustomDependencies((prev) => [...prev, { id: trimmed, type: customDependencyType }]);
     setCustomDependency("");
+    setCustomDependencyType("required");
   };
 
   const handleRemoveCustomDependency = (dependency: string) => {
-    setCustomDependencies((prev) => prev.filter((item) => item !== dependency));
+    setCustomDependencies((prev) =>
+      prev.filter((item) => item.id !== dependency),
+    );
   };
 
   const handleAddBookResource = async () => {
@@ -1368,75 +1393,120 @@ export default function CrearModulo() {
                 {openSection === "dependencies" && (
                   <div className="space-y-4">
                     <p className="text-sm text-gray-600">
-                      Define los módulos previos que los alumnos deben completar antes de acceder a este contenido. Esto
-                      permite que el profesor determine, por ejemplo, que primero deben saber contar antes de sumar.
+                      Define relaciones entre módulos indicando si son requisitos previos o si este módulo desbloquea
+                      otros contenidos. Esto permite que el profesor trace rutas de aprendizaje claras.
                     </p>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Módulos obligatorios</h3>
-                <p className="text-xs text-gray-500">
-                  Selecciona los módulos que se deben aprobar para desbloquear este nuevo módulo.
-                </p>
-                <div className="space-y-2">
-                  {MVP_MODULES.map((module) => (
-                    <label key={module.id} className="flex items-start gap-2 text-sm">
-                      <input
-                        type="checkbox"
-                        className="mt-1 h-4 w-4"
-                        checked={requiredDependencies.includes(module.id)}
-                        onChange={() => handleToggleDependency(module.id)}
-                      />
-                      <span>
-                        <span className="font-medium">{module.title}</span>
-                        <span className="block text-xs text-gray-500">
-                          {module.category} · {module.level}
-                        </span>
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                      <div className="border rounded-lg p-4 space-y-3">
+                        <h3 className="text-sm font-semibold">Módulos relacionados</h3>
+                        <p className="text-xs text-gray-500">
+                          Selecciona los módulos y define si son requisitos previos o si este módulo los desbloquea.
+                        </p>
+                        <div className="space-y-2">
+                          {MVP_MODULES.map((module) => {
+                            const selectedDependency = moduleDependencies.find(
+                              (dependency) => dependency.id === module.id,
+                            );
+                            return (
+                              <label key={module.id} className="flex items-start gap-3 text-sm">
+                                <input
+                                  type="checkbox"
+                                  className="mt-1 h-4 w-4"
+                                  checked={Boolean(selectedDependency)}
+                                  onChange={() => handleToggleDependency(module.id)}
+                                />
+                                <span className="flex-1">
+                                  <span className="font-medium">{module.title}</span>
+                                  <span className="block text-xs text-gray-500">
+                                    {module.category} · {module.level}
+                                  </span>
+                                </span>
+                                <select
+                                  className="rounded-md border border-gray-300 px-2 py-1 text-xs"
+                                  value={selectedDependency?.type ?? "required"}
+                                  onChange={(event) =>
+                                    handleDependencyTypeChange(
+                                      module.id,
+                                      event.target.value as ModuleDependencyType,
+                                    )
+                                  }
+                                  disabled={!selectedDependency}
+                                >
+                                  {Object.entries(DEPENDENCY_TYPE_LABELS).map(([value, label]) => (
+                                    <option key={value} value={value}>
+                                      {label}
+                                    </option>
+                                  ))}
+                                </select>
+                              </label>
+                            );
+                          })}
+                        </div>
+                      </div>
 
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Requisitos personalizados</h3>
-                <p className="text-xs text-gray-500">
-                  Agrega condiciones adicionales (por ejemplo, “Saber contar hasta 100”).
-                </p>
-                <div className="flex flex-col sm:flex-row gap-2">
-                  <input
-                    className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    value={customDependency}
-                    onChange={(event) => setCustomDependency(event.target.value)}
-                    placeholder="Ej: Saber contar hasta 100"
-                  />
-                  <button
-                    type="button"
-                    className="rounded-md border px-4 py-2 text-sm"
-                    onClick={handleAddCustomDependency}
-                  >
-                    Agregar
-                  </button>
-                </div>
-                {customDependencies.length > 0 ? (
-                  <ul className="space-y-2">
-                    {customDependencies.map((dependency) => (
-                      <li key={dependency} className="flex items-center justify-between text-sm">
-                        <span>{dependency}</span>
-                        <button
-                          type="button"
-                          className="text-xs text-red-500 hover:underline"
-                          onClick={() => handleRemoveCustomDependency(dependency)}
-                        >
-                          Quitar
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-xs text-gray-500">Todavía no agregaste requisitos personalizados.</p>
-                )}
-              </div>
+                      <div className="border rounded-lg p-4 space-y-3">
+                        <h3 className="text-sm font-semibold">Requisitos personalizados</h3>
+                        <p className="text-xs text-gray-500">
+                          Agrega condiciones adicionales (por ejemplo, “Saber contar hasta 100”).
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <input
+                            className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
+                            value={customDependency}
+                            onChange={(event) => setCustomDependency(event.target.value)}
+                            placeholder="Ej: Saber contar hasta 100"
+                          />
+                          <select
+                            className="rounded-md border border-gray-300 px-2 py-2 text-xs"
+                            value={customDependencyType}
+                            onChange={(event) =>
+                              setCustomDependencyType(event.target.value as ModuleDependencyType)
+                            }
+                          >
+                            {Object.entries(DEPENDENCY_TYPE_LABELS).map(([value, label]) => (
+                              <option key={value} value={value}>
+                                {label}
+                              </option>
+                            ))}
+                          </select>
+                          <button
+                            type="button"
+                            className="rounded-md border px-4 py-2 text-sm"
+                            onClick={handleAddCustomDependency}
+                          >
+                            Agregar
+                          </button>
+                        </div>
+                        {customDependencies.length > 0 ? (
+                          <ul className="space-y-2">
+                            {customDependencies.map((dependency) => (
+                              <li
+                                key={dependency.id}
+                                className="flex items-center justify-between text-sm"
+                              >
+                                <span>
+                                  {dependency.id}
+                                  <span className="ml-2 text-xs text-gray-500">
+                                    ({DEPENDENCY_TYPE_LABELS[dependency.type]})
+                                  </span>
+                                </span>
+                                <button
+                                  type="button"
+                                  className="text-xs text-red-500 hover:underline"
+                                  onClick={() => handleRemoveCustomDependency(dependency.id)}
+                                >
+                                  Quitar
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="text-xs text-gray-500">
+                            Todavía no agregaste requisitos personalizados.
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 )}

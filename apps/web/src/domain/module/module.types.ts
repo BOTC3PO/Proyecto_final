@@ -19,6 +19,13 @@ export type ModuleQuiz = {
   competitionRulesVisibility?: ModuleQuizVisibility;
 };
 
+export type ModuleDependencyType = "required" | "unlocks";
+
+export type ModuleDependency = {
+  id: string;
+  type: ModuleDependencyType;
+};
+
 export type ModuleLevel = {
   level: string;
   quizzes?: ModuleQuiz[];
@@ -170,7 +177,7 @@ export type Module = {
   level: string;
   durationMinutes: number;
   visibility: ModuleVisibility;
-  dependencies: string[];
+  dependencies: ModuleDependency[];
   generatorRef?: ModuleGeneratorRef | null;
   resources?: ModuleResource[];
   levels?: ModuleLevel[];
