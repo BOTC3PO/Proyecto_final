@@ -217,6 +217,14 @@ db.createCollection("modulos", {
           bsonType: "string",
           enum: ["publico", "privado"]
         },
+        visibilityConfig: {
+          bsonType: ["object", "null"],
+          properties: {
+            institution: { bsonType: ["string", "null"] },
+            invitedTeachers: { bsonType: ["string", "null"] },
+            studentRestriction: { bsonType: ["string", "null"] }
+          }
+        },
         theoryItems: {
           bsonType: "array",
           items: {
