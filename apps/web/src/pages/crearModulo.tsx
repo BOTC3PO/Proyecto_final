@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
 import { apiPost } from "../lib/api";
@@ -7,35 +7,27 @@ import ReadingWorkshop from "../components/ReadingWorkshop";
 import SkeletonMarker from "../components/SkeletonMarker";
 import {
   getSubjectCapabilities,
-  type ModuleQuiz,
-  type ModuleQuizVisibility,
   type ModuleResource,
   type ModuleDependency,
   type ModuleDependencyType,
   type ModuleTheoryBlock,
 } from "../domain/module/module.types";
-import { MVP_GENERATOR_CATEGORIES, MVP_MODULES } from "../mvp/mvpData";
+import { MVP_MODULES } from "../mvp/mvpData";
 import { fetchCategoriasConfig, fetchMateriasConfig } from "../services/modulos";
 
 type TheoryItem = ModuleTheoryBlock;
 
+type QuizReference = {
+  id: string;
+  title?: string;
+};
+
 type LevelConfig = {
   level: string;
-  quizBlocks: ModuleQuiz[];
+  quizReferences: QuizReference[];
   bookResources: ModuleResource[];
   fileResources: ModuleResource[];
 };
-
-type ValidationResult = {
-  isValid: boolean;
-  errors: string[];
-};
-
-const isNonEmptyString = (value: unknown): value is string =>
-  typeof value === "string" && value.trim().length > 0;
-
-const isRecord = (value: unknown): value is Record<string, unknown> =>
-  typeof value === "object" && value !== null;
 
 const isValidUrl = (value: string) => {
   if (!value.trim()) return false;
@@ -59,42 +51,7 @@ const getTheoryDetailError = (type: string, detail: string): string | null => {
   return null;
 };
 
-const exercisesJsonExample = `{
-  "preguntas": [
-    {
-      "enunciado": "¿Cuál es la fórmula de la velocidad media?",
-      "respuestas": [
-        "v = d / t",
-        "v = t / d",
-        "v = d * t"
-      ],
-      "solucion": "v = d / t",
-      "explicacion": "Se calcula como distancia dividida por tiempo."
-    }
-  ]
-}`;
-
-const buildDefaultQuizBlocks = (levelKey: string): ModuleQuiz[] => [
-  {
-    id: `quiz-${levelKey}-main`,
-    title: `Cuestionario principal (${levelKey})`,
-    type: "evaluacion",
-    visibility: "escuela"
-  },
-  {
-    id: `quiz-${levelKey}-practice`,
-    title: `Cuestionario de práctica (${levelKey})`,
-    type: "practica",
-    visibility: "publico"
-  }
-];
-
 const DEFAULT_LEVELS = ["Básico", "Intermedio", "Avanzado"];
-const QUIZ_TYPE_LABELS: Record<ModuleQuiz["type"], string> = {
-  practica: "Práctica",
-  evaluacion: "Evaluación",
-  competencia: "Competencia",
-};
 const DEPENDENCY_TYPE_LABELS: Record<ModuleDependencyType, string> = {
   required: "Requerido",
   unlocks: "Desbloquea",
@@ -105,58 +62,6 @@ const SCORING_SYSTEM_NOTES: Record<string, string> = {
   "pass-fail": "Referencia rápida: aprobado si cumple el mínimo, desaprobado si no lo alcanza.",
   "scale-a-f": "Referencia rápida: A = 90–100, B = 80–89, C = 70–79, D = 60–69, E/F = < 60.",
   "scale-s-f": "Referencia rápida: S = 95–100, A = 85–94, B = 75–84, C = 65–74, D = 55–64, E/F = < 55.",
-};
-
-const validateExercisesJson = (value: unknown): ValidationResult => {
-  const errors: string[] = [];
-  const preguntas = Array.isArray(value)
-    ? value
-    : isRecord(value) && Array.isArray(value.preguntas)
-      ? value.preguntas
-      : null;
-
-  if (!preguntas) {
-    return {
-      isValid: false,
-      errors: ["El JSON debe ser un array de preguntas o un objeto con la clave preguntas."],
-    };
-  }
-
-  if (preguntas.length === 0) {
-    errors.push("Debe incluir al menos una pregunta.");
-  }
-
-  preguntas.forEach((pregunta, index) => {
-    if (!isRecord(pregunta)) {
-      errors.push(`preguntas[${index}] debe ser un objeto con enunciado, respuestas y solucion.`);
-      return;
-    }
-    if (!isNonEmptyString(pregunta.enunciado)) {
-      errors.push(`preguntas[${index}].enunciado debe ser un texto no vacío.`);
-    }
-    if (!Array.isArray(pregunta.respuestas) || pregunta.respuestas.length < 2) {
-      errors.push(`preguntas[${index}].respuestas debe ser un array con al menos 2 opciones.`);
-    } else {
-      pregunta.respuestas.forEach((respuesta, respuestaIndex) => {
-        const isStringOption = isNonEmptyString(respuesta);
-        const isObjectOption = isRecord(respuesta) && isNonEmptyString(respuesta.texto);
-        if (!isStringOption && !isObjectOption) {
-          errors.push(
-            `preguntas[${index}].respuestas[${respuestaIndex}] debe ser un texto o un objeto con texto.`,
-          );
-        }
-      });
-    }
-    const solucion = pregunta.solucion;
-    if (
-      !(typeof solucion === "string" && solucion.trim()) &&
-      !(typeof solucion === "number" && Number.isFinite(solucion))
-    ) {
-      errors.push(`preguntas[${index}].solucion debe ser un texto o número válido.`);
-    }
-  });
-
-  return { isValid: errors.length === 0, errors };
 };
 
 const DEFAULT_MATERIAS = [
@@ -232,30 +137,19 @@ export default function CrearModulo() {
   const [levelsConfig, setLevelsConfig] = useState<LevelConfig[]>(() =>
     DEFAULT_LEVELS.map((difficulty) => ({
       level: difficulty,
-      quizBlocks: buildDefaultQuizBlocks(difficulty),
+      quizReferences: [],
       bookResources: [],
       fileResources: []
     })),
   );
   const [activeLevel, setActiveLevel] = useState(DEFAULT_LEVELS[0]);
-  const [newQuizTitle, setNewQuizTitle] = useState("");
-  const [newQuizType, setNewQuizType] = useState<ModuleQuiz["type"]>("evaluacion");
-  const [newQuizVisibility, setNewQuizVisibility] = useState<ModuleQuizVisibility>("publico");
-  const [newQuizCompetitionRules, setNewQuizCompetitionRules] = useState("");
-  const [newQuizCompetitionRulesVisibility, setNewQuizCompetitionRulesVisibility] =
-    useState<ModuleQuizVisibility>("publico");
+  const [newQuizReferenceId, setNewQuizReferenceId] = useState("");
+  const [newQuizReferenceTitle, setNewQuizReferenceTitle] = useState("");
   const [moduleDependencies, setModuleDependencies] = useState<ModuleDependency[]>([]);
   const [customDependency, setCustomDependency] = useState("");
   const [customDependencyType, setCustomDependencyType] =
     useState<ModuleDependencyType>("required");
   const [customDependencies, setCustomDependencies] = useState<ModuleDependency[]>([]);
-  const [exerciseImportStatus, setExerciseImportStatus] = useState<{
-    status: "idle" | "valid" | "error";
-    message: string;
-    errors?: string[];
-  }>({ status: "idle", message: "" });
-  const [exerciseFileName, setExerciseFileName] = useState("");
-  const exerciseFileInputRef = useRef<HTMLInputElement | null>(null);
   const [openSection, setOpenSection] = useState("info");
   const [visitedSections, setVisitedSections] = useState<Record<string, boolean>>({
     info: true,
@@ -269,18 +163,12 @@ export default function CrearModulo() {
     () => theoryTypeOptions.filter((option) => !option.disabled),
     [theoryTypeOptions],
   );
-  const autoQuizHelperText = subjectCapabilities.supportsAutoQuizzes
-    ? "Disponible para materias con generadores. Configurá semillas y reglas en “Cuestionarios y generación”."
-    : subjectCapabilities.autoQuizDisabledReason ??
-      "Disponible solo para materias con generadores automáticos.";
-  const generatorAvailabilityMessage = subjectCapabilities.supportsGenerators
-    ? "Disponible: podés definir semillas, generar bancos y usar el generador MVP."
-    : subjectCapabilities.generatorDisabledReason ??
-      "Disponible solo para materias con generadores automáticos.";
-  const generatorInputsDisabled = !subjectCapabilities.supportsGenerators;
   const newTheoryDetailError = getTheoryDetailError(newTheoryType, newTheoryDetail);
   const moduleSizeScore = useMemo(() => {
-    const quizCount = levelsConfig.reduce((total, entry) => total + entry.quizBlocks.length, 0);
+    const quizCount = levelsConfig.reduce(
+      (total, entry) => total + entry.quizReferences.length,
+      0,
+    );
     const resourceCount = levelsConfig.reduce(
       (total, entry) => total + entry.bookResources.length + entry.fileResources.length,
       0,
@@ -312,7 +200,7 @@ export default function CrearModulo() {
       levelsConfig.find((entry) => entry.level === activeLevel) ??
       levelsConfig[0] ?? {
         level: activeLevel,
-        quizBlocks: [],
+        quizReferences: [],
         bookResources: [],
         fileResources: []
       },
@@ -507,21 +395,11 @@ export default function CrearModulo() {
 
   const quizMissing = useMemo(() => {
     const missing: string[] = [];
-    if (currentLevelConfig.quizBlocks.length === 0) {
+    if (currentLevelConfig.quizReferences.length === 0) {
       missing.push("Agrega al menos un cuestionario para el nivel activo.");
     }
-    const emptyTitles = currentLevelConfig.quizBlocks.filter((quiz) => !quiz.title.trim());
-    if (emptyTitles.length) {
-      missing.push("Asigna un título a todos los cuestionarios.");
-    }
-    const competitionWithoutRules = currentLevelConfig.quizBlocks.some(
-      (quiz) => quiz.type === "competencia" && !quiz.competitionRules?.trim(),
-    );
-    if (competitionWithoutRules) {
-      missing.push("Completa las reglas de los cuestionarios tipo competencia.");
-    }
     return missing;
-  }, [currentLevelConfig.quizBlocks]);
+  }, [currentLevelConfig.quizReferences]);
 
   const getSectionMissing = (sectionId: string) => {
     switch (sectionId) {
@@ -611,7 +489,7 @@ export default function CrearModulo() {
       ...prev,
       {
         level: trimmed,
-        quizBlocks: buildDefaultQuizBlocks(trimmed),
+        quizReferences: [],
         bookResources: [],
         fileResources: []
       },
@@ -709,11 +587,18 @@ export default function CrearModulo() {
       const dependencies = [...moduleDependencies, ...customDependencies].filter(
         (dependency) => dependency.id.trim().length > 0,
       );
-      const levelsPayload = levelsConfig.map(({ level: levelName, quizBlocks, bookResources, fileResources }) => ({
-        level: levelName,
-        quizzes: quizBlocks,
-        resources: [...bookResources, ...fileResources]
-      }));
+      const levelsPayload = levelsConfig.map(
+        ({ level: levelName, quizReferences, bookResources, fileResources }) => ({
+          level: levelName,
+          quizzes: quizReferences.map((quiz) => ({
+            id: quiz.id,
+            title: quiz.title ?? quiz.id,
+            type: "evaluacion",
+            visibility: "publico",
+          })),
+          resources: [...bookResources, ...fileResources]
+        }),
+      );
       const fallbackLevel = levelsPayload.find((entry) => entry.level === level) ?? levelsPayload[0];
       const payload = {
         id: makeModuleId(title),
@@ -767,42 +652,30 @@ export default function CrearModulo() {
     );
   };
 
-  const handleAddQuiz = () => {
-    if (!newQuizTitle.trim()) return;
-    const nextQuiz: ModuleQuiz = {
-      id: `quiz-${Date.now()}`,
-      title: newQuizTitle.trim(),
-      type: newQuizType,
-      visibility: newQuizVisibility,
-      ...(newQuizType === "competencia"
-        ? {
-            competitionRules: newQuizCompetitionRules.trim(),
-            competitionRulesVisibility: newQuizCompetitionRulesVisibility,
-          }
-        : {}),
-    };
-    updateLevelConfig(activeLevel, (current) => ({
-      ...current,
-      quizBlocks: [...current.quizBlocks, nextQuiz]
-    }));
-    setNewQuizTitle("");
-    setNewQuizType("evaluacion");
-    setNewQuizVisibility("publico");
-    setNewQuizCompetitionRules("");
-    setNewQuizCompetitionRulesVisibility("publico");
+  const handleAddQuizReference = () => {
+    const trimmedId = newQuizReferenceId.trim();
+    if (!trimmedId) return;
+    updateLevelConfig(activeLevel, (current) => {
+      if (current.quizReferences.some((quiz) => quiz.id === trimmedId)) {
+        return current;
+      }
+      const nextReference: QuizReference = {
+        id: trimmedId,
+        title: newQuizReferenceTitle.trim() || undefined,
+      };
+      return {
+        ...current,
+        quizReferences: [...current.quizReferences, nextReference],
+      };
+    });
+    setNewQuizReferenceId("");
+    setNewQuizReferenceTitle("");
   };
 
-  const handleRemoveQuiz = (id: string) => {
+  const handleRemoveQuizReference = (id: string) => {
     updateLevelConfig(activeLevel, (current) => ({
       ...current,
-      quizBlocks: current.quizBlocks.filter((quiz) => quiz.id !== id)
-    }));
-  };
-
-  const handleUpdateQuiz = (id: string, field: keyof ModuleQuiz, value: ModuleQuiz[keyof ModuleQuiz]) => {
-    updateLevelConfig(activeLevel, (current) => ({
-      ...current,
-      quizBlocks: current.quizBlocks.map((quiz) => (quiz.id === id ? { ...quiz, [field]: value } : quiz))
+      quizReferences: current.quizReferences.filter((quiz) => quiz.id !== id),
     }));
   };
 
@@ -836,43 +709,6 @@ export default function CrearModulo() {
     setCustomDependencies((prev) =>
       prev.filter((item) => item.id !== dependency),
     );
-  };
-
-  const handleExerciseFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    setExerciseImportStatus({ status: "idle", message: "" });
-    setExerciseFileName("");
-    try {
-      const raw = await file.text();
-      const parsed = JSON.parse(raw) as unknown;
-      const validation = validateExercisesJson(parsed);
-      if (!validation.isValid) {
-        setExerciseImportStatus({
-          status: "error",
-          message: "El archivo no coincide con el esquema de planilla.",
-          errors: validation.errors,
-        });
-        if (exerciseFileInputRef.current) {
-          exerciseFileInputRef.current.value = "";
-        }
-        return;
-      }
-      setExerciseFileName(file.name);
-      setExerciseImportStatus({
-        status: "valid",
-        message: "Planilla válida. Lista para importar preguntas.",
-      });
-    } catch (error) {
-      setExerciseImportStatus({
-        status: "error",
-        message: "No se pudo leer el archivo JSON.",
-        errors: [error instanceof Error ? error.message : "JSON inválido."],
-      });
-      if (exerciseFileInputRef.current) {
-        exerciseFileInputRef.current.value = "";
-      }
-    }
   };
 
   return (
@@ -1462,239 +1298,93 @@ export default function CrearModulo() {
                 {openSection === "stackedQuizzes" && (
                   <div className="space-y-4">
                     <p className="text-sm text-gray-600">
-                      Los cuestionarios son páginas igual que los videos o textos, pero con opciones extra (tipo,
-                      visibilidad, consignas). Las consignas, importaciones y generadores se configuran en
-                      “Cuestionarios y generación”.
+                      Seleccioná los cuestionarios que ya creaste en el editor dedicado. Aquí solo vinculás sus IDs
+                      al módulo y validás que cada nivel tenga al menos uno.
                     </p>
-            <div className="max-w-xs">
-              <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
-              <select
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                value={activeLevel}
-                onChange={(event) => setActiveLevel(event.target.value)}
-              >
-                {levels.map((nivel) => (
-                  <option key={nivel} value={nivel}>
-                    {nivel}
-                  </option>
-                ))}
-              </select>
-              <p className="mt-1 text-[11px] text-gray-500">
-                Los cuestionarios se guardan por nivel.
-              </p>
-            </div>
-
-            <div className="grid gap-3">
-              {currentLevelConfig.quizBlocks.map((quiz) => (
-                <div key={quiz.id} className="border rounded-lg p-4 space-y-3">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                    <div>
-                      <p className="text-sm font-semibold">{quiz.title}</p>
-                      <p className="text-xs text-gray-500">
-                        Tipo: {QUIZ_TYPE_LABELS[quiz.type]} · Visibilidad:{" "}
-                        {quiz.visibility === "publico" ? "Público" : "Escuela específica"}
-                        {quiz.type === "competencia" && (
-                          <>
-                            {" "}· Reglas: {quiz.competitionRules?.trim() ? "Definidas" : "Sin definir"} ·
-                            {" "}Visibilidad reglas:{" "}
-                            {quiz.competitionRulesVisibility === "escuela" ? "Escuela específica" : "Público"}
-                          </>
-                        )}
-                      </p>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      <button
-                        type="button"
-                        className="text-xs text-red-500 hover:underline"
-                        onClick={() => handleRemoveQuiz(quiz.id)}
-                      >
-                        Quitar
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-medium text-gray-700">Visibilidad del cuestionario</label>
-                      <select
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                        value={quiz.visibility}
-                        onChange={(event) =>
-                          handleUpdateQuiz(quiz.id, "visibility", event.target.value as ModuleQuizVisibility)
-                        }
-                      >
-                        <option value="publico">Público</option>
-                        <option value="escuela">Solo una escuela</option>
-                      </select>
-                    </div>
-                    {quiz.visibility === "escuela" && (
-                      <div>
-                        <label className="block text-xs font-medium text-gray-700">Escuela asignada</label>
-                        <input
-                          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                          placeholder="Buscar institución"
-                        />
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 space-y-4">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                          <p className="text-sm font-semibold text-slate-800">Resumen de cuestionarios</p>
+                          <p className="text-xs text-slate-500">
+                            Total vinculados: {levelsConfig.reduce((total, entry) => total + entry.quizReferences.length, 0)}
+                          </p>
+                        </div>
+                        <Link
+                          className="rounded-md border border-blue-200 bg-white px-3 py-2 text-xs font-semibold text-blue-700 hover:bg-blue-50"
+                          to="/profesor/editor-cuestionarios"
+                        >
+                          Abrir editor de cuestionarios
+                        </Link>
                       </div>
-                    )}
-                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-medium text-gray-700">Modo de creación</label>
-                      {subjectCapabilities.supportsAutoQuizzes ? (
-                        <>
-                          <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white">
-                            <option>Generar automáticamente</option>
-                            <option>Escribir consignas manualmente</option>
-                          </select>
-                          <p className="mt-1 text-[11px] text-gray-500">{autoQuizHelperText}</p>
-                        </>
-                      ) : (
-                        <p className="mt-2 rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-[11px] text-slate-600">
-                          {autoQuizHelperText}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium text-gray-700">Tipo de cuestionario</label>
-                      <select
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                        value={quiz.type}
-                        onChange={(event) => {
-                          const nextType = event.target.value as ModuleQuiz["type"];
-                          handleUpdateQuiz(quiz.id, "type", nextType);
-                          if (nextType === "competencia" && !quiz.competitionRulesVisibility) {
-                            handleUpdateQuiz(quiz.id, "competitionRulesVisibility", "publico");
-                          }
-                        }}
-                      >
-                        <option value="practica">Práctica</option>
-                        <option value="evaluacion">Evaluación</option>
-                        <option value="competencia">Competencia</option>
-                      </select>
-                    </div>
-                  </div>
-                  {quiz.type === "competencia" && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-medium text-gray-700">Reglas de competencia</label>
-                        <textarea
-                          rows={3}
-                          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                          value={quiz.competitionRules ?? ""}
-                          onChange={(event) =>
-                            handleUpdateQuiz(quiz.id, "competitionRules", event.target.value)
-                          }
-                          placeholder="Describe criterios, puntajes o dinámicas para la competencia."
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-medium text-gray-700">Visibilidad de reglas</label>
+                      <div className="max-w-xs">
+                        <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
                         <select
                           className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                          value={quiz.competitionRulesVisibility ?? "publico"}
-                          onChange={(event) =>
-                            handleUpdateQuiz(
-                              quiz.id,
-                              "competitionRulesVisibility",
-                              event.target.value as ModuleQuizVisibility,
-                            )
-                          }
+                          value={activeLevel}
+                          onChange={(event) => setActiveLevel(event.target.value)}
                         >
-                          <option value="publico">Público</option>
-                          <option value="escuela">Solo una escuela</option>
+                          {levels.map((nivel) => (
+                            <option key={nivel} value={nivel}>
+                              {nivel}
+                            </option>
+                          ))}
                         </select>
                         <p className="mt-1 text-[11px] text-gray-500">
-                          Define quién puede leer las reglas del desafío.
+                          Los cuestionarios se asocian por nivel para adaptar la progresión.
                         </p>
                       </div>
-                    </div>
-                  )}
-                  <div>
-                    <label className="block text-xs font-medium text-gray-700">Título del cuestionario</label>
-                    <input
-                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      value={quiz.title}
-                      onChange={(event) => handleUpdateQuiz(quiz.id, "title", event.target.value)}
-                      placeholder="Título del cuestionario"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
 
-            <div className="flex flex-wrap gap-3">
-              <div className="w-full border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Agregar cuestionario</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    value={newQuizTitle}
-                    onChange={(event) => setNewQuizTitle(event.target.value)}
-                    placeholder="Título del cuestionario"
-                  />
-                  <select
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                    value={newQuizType}
-                    onChange={(event) => {
-                      const nextType = event.target.value as ModuleQuiz["type"];
-                      setNewQuizType(nextType);
-                      if (nextType !== "competencia") {
-                        setNewQuizCompetitionRules("");
-                        setNewQuizCompetitionRulesVisibility("publico");
-                      }
-                    }}
-                  >
-                    <option value="evaluacion">Evaluación</option>
-                    <option value="practica">Práctica</option>
-                    <option value="competencia">Competencia</option>
-                  </select>
-                  <select
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                    value={newQuizVisibility}
-                    onChange={(event) => setNewQuizVisibility(event.target.value as ModuleQuizVisibility)}
-                  >
-                    <option value="publico">Público</option>
-                    <option value="escuela">Solo una escuela</option>
-                  </select>
-                </div>
-                {newQuizType === "competencia" && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs font-medium text-gray-700">Reglas de competencia</label>
-                      <textarea
-                        rows={3}
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                        value={newQuizCompetitionRules}
-                        onChange={(event) => setNewQuizCompetitionRules(event.target.value)}
-                        placeholder="Describe criterios, puntajes o dinámicas para la competencia."
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium text-gray-700">Visibilidad de reglas</label>
-                      <select
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                        value={newQuizCompetitionRulesVisibility}
-                        onChange={(event) =>
-                          setNewQuizCompetitionRulesVisibility(event.target.value as ModuleQuizVisibility)
-                        }
-                      >
-                        <option value="publico">Público</option>
-                        <option value="escuela">Solo una escuela</option>
-                      </select>
-                      <p className="mt-1 text-[11px] text-gray-500">
-                        Define quién puede leer las reglas del desafío.
-                      </p>
-                    </div>
-                  </div>
-                )}
-                <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddQuiz}>
-                  + Agregar cuestionario
-                </button>
-              </div>
-              <button type="button" className="rounded-md border px-4 py-2 text-sm">
-                Importar cuestionario existente
-              </button>
+                      {currentLevelConfig.quizReferences.length === 0 ? (
+                        <div className="rounded-lg border border-dashed border-slate-200 bg-white px-4 py-3 text-xs text-slate-500">
+                          Todavía no vinculaste cuestionarios en este nivel.
+                        </div>
+                      ) : (
+                        <ul className="space-y-2">
+                          {currentLevelConfig.quizReferences.map((quiz) => (
+                            <li
+                              key={quiz.id}
+                              className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600"
+                            >
+                              <div>
+                                <p className="font-semibold text-slate-800">
+                                  {quiz.title || "Cuestionario sin título"}
+                                </p>
+                                <p className="text-[11px] text-slate-500">ID: {quiz.id}</p>
+                              </div>
+                              <button
+                                type="button"
+                                className="text-xs text-red-500 hover:underline"
+                                onClick={() => handleRemoveQuizReference(quiz.id)}
+                              >
+                                Quitar
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] gap-2">
+                        <input
+                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                          value={newQuizReferenceId}
+                          onChange={(event) => setNewQuizReferenceId(event.target.value)}
+                          placeholder="ID del cuestionario (copiado del editor)"
+                        />
+                        <input
+                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                          value={newQuizReferenceTitle}
+                          onChange={(event) => setNewQuizReferenceTitle(event.target.value)}
+                          placeholder="Título de referencia (opcional)"
+                        />
+                        <button
+                          type="button"
+                          className="rounded-md border px-4 py-2 text-sm"
+                          onClick={handleAddQuizReference}
+                        >
+                          Vincular
+                        </button>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -1717,284 +1407,23 @@ export default function CrearModulo() {
                   <span className="text-xs font-semibold text-gray-500">Opcional</span>
                 </div>
                 {openSection === "quizGenerator" && (
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     <p className="text-sm text-gray-600">
-                      Define cómo construir las preguntas del módulo. Podés escribir consignas manuales, importar un
-                      JSON con un banco de preguntas, y si la materia lo permite, complementar con semillas y
-                      generadores automáticos.
+                      La edición detallada de consignas, importaciones JSON y generadores se realiza en el editor de
+                      cuestionarios. Aquí solo verificás que los IDs estén vinculados al módulo.
                     </p>
-            <div className="rounded-md border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-              <p className="font-medium text-slate-700">Lógica recomendada</p>
-              <ul className="mt-2 list-disc space-y-1 pl-4 text-xs">
-                <li>Usá consignas manuales o importación JSON para definir el contenido base.</li>
-                <li>
-                  Si la materia tiene generadores, podés crear variantes automáticas con semillas y guardarlas como
-                  banco adicional.
-                </li>
-                <li>Si no hay generadores disponibles, todo el flujo se mantiene manual o por importación.</li>
-              </ul>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="border rounded-lg p-4 space-y-2">
-                <h3 className="text-sm font-semibold">Importar JSON</h3>
-                <input
-                  type="file"
-                  accept=".json"
-                  className="block w-full text-sm text-gray-700 file:mr-4 file:rounded-md file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
-                  ref={exerciseFileInputRef}
-                  onChange={handleExerciseFileChange}
-                />
-                <p className="text-xs text-gray-500">Incluye en cada pregunta: enunciado, respuestas y solución.</p>
-                {exerciseImportStatus.status === "valid" && (
-                  <p className="text-xs text-emerald-600">
-                    {exerciseImportStatus.message} {exerciseFileName ? `(${exerciseFileName})` : ""}
-                  </p>
-                )}
-                {exerciseImportStatus.status === "error" && (
-                  <div className="rounded-md border border-red-200 bg-red-50 p-3 text-xs text-red-700 space-y-2">
-                    <p className="font-semibold">{exerciseImportStatus.message}</p>
-                    <ul className="list-disc pl-4 space-y-1">
-                      {exerciseImportStatus.errors?.map((error) => (
-                        <li key={error}>{error}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                <details className="rounded-md border border-slate-200 bg-slate-50 p-3 text-[11px] text-slate-600">
-                  <summary className="cursor-pointer font-medium">Ver ejemplo de planilla válida</summary>
-                  <pre className="mt-2 whitespace-pre-wrap font-mono">{exercisesJsonExample}</pre>
-                </details>
-              </div>
-
-              <div className="border rounded-lg p-4 space-y-2">
-                <h3 className="text-sm font-semibold">Descargar JSON base</h3>
-                <p className="text-xs text-gray-600">
-                  Genera un archivo base con estructura vacía para completar offline.
-                </p>
-                <button type="button" className="rounded-md border px-3 py-2 text-sm">
-                  Descargar plantilla JSON
-                </button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Nueva pregunta (opción múltiple)</h3>
-                <input
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  placeholder="Enunciado"
-                />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Respuesta A"
-                  />
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Respuesta B"
-                  />
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Respuesta C"
-                  />
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Respuesta D"
-                  />
-                </div>
-                <select className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white">
-                  <option>Respuesta correcta</option>
-                  <option>A</option>
-                  <option>B</option>
-                  <option>C</option>
-                  <option>D</option>
-                </select>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <textarea
-                    rows={2}
-                    className="rounded-md border border-gray-300 px-3 py-2 text-xs"
-                    placeholder="Explicación (por qué es correcta)"
-                  />
-                  <textarea
-                    rows={2}
-                    className="rounded-md border border-gray-300 px-3 py-2 text-xs"
-                    placeholder="Ayuda / pista (sin revelar la respuesta)"
-                  />
-                </div>
-              </div>
-
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Previsualización del alumno</h3>
-                <div className="rounded-md border border-gray-200 p-3 bg-gray-50 space-y-2">
-                  <p className="text-sm font-medium">¿Cuál es la fórmula de la velocidad media?</p>
-                  <ul className="text-sm space-y-1">
-                    <li>A) v = d / t</li>
-                    <li>B) v = t / d</li>
-                    <li>C) v = d * t</li>
-                    <li>D) v = t - d</li>
-                  </ul>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-[11px] rounded-full bg-green-100 px-2 py-1 text-green-700">
-                      Resultado esperado
-                    </span>
-                    <span className="text-[11px] rounded-full bg-yellow-100 px-2 py-1 text-yellow-700">
-                      Ayuda disponible
-                    </span>
-                  </div>
-                  <div className="text-xs text-gray-600">
-                    <p>
-                      <span className="font-semibold">Explicación:</span> La velocidad media se calcula como
-                      distancia sobre tiempo.
-                    </p>
-                    <p>
-                      <span className="font-semibold">Ayuda:</span> Recordá que las magnitudes deben estar en el
-                      mismo sistema de unidades.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              <button type="button" className="rounded-md border px-4 py-2 text-sm">
-                + Agregar pregunta opción múltiple
-              </button>
-              <button type="button" className="rounded-md border px-4 py-2 text-sm">
-                + Agregar pregunta respuesta abierta
-              </button>
-            </div>
-
-            <div className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
-              <p className="font-semibold text-slate-700">Disponibilidad de generación automática</p>
-              <p>{generatorAvailabilityMessage}</p>
-            </div>
-
-            {subjectCapabilities.supportsGenerators ? (
-              <>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="border rounded-lg p-4 space-y-3">
-                    <h3 className="text-sm font-semibold">Semilla y cantidad</h3>
-                    <p className="text-xs text-gray-600">
-                      Usa la semilla definida en <span className="font-mono">generador/basic/seed.ts</span> o ingresa
-                      una personalizada para reproducir exámenes.
-                    </p>
-                    <input
-                      disabled={generatorInputsDisabled}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      placeholder="Semilla (opcional)"
-                    />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      <input
-                        disabled={generatorInputsDisabled}
-                        type="number"
-                        min={1}
-                        className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                        placeholder="Preguntas a responder"
-                      />
-                      <input
-                        disabled={generatorInputsDisabled}
-                        type="number"
-                        min={1}
-                        className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                        placeholder="Preguntas generadas"
-                      />
-                    </div>
-                    <p className="text-xs text-gray-500">
-                      Ejemplo: el alumno responde 100 preguntas y se generan 200 para lograr aleatoriedad.
-                    </p>
-                  </div>
-
-                  <div className="border rounded-lg p-4 space-y-3">
-                    <h3 className="text-sm font-semibold">Generar ahora y guardar</h3>
-                    <textarea
-                      disabled={generatorInputsDisabled}
-                      rows={4}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      placeholder="Notas para gerencia / revisión del examen generado..."
-                    />
-                    <button
-                      disabled={generatorInputsDisabled}
-                      type="button"
-                      className="rounded-md border px-3 py-2 text-sm disabled:opacity-60"
-                    >
-                      Generar preguntas y guardar resultados
-                    </button>
-                    <p className="text-xs text-gray-500">
-                      Recomendación: generar varias veces para aumentar la aleatoriedad.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="border rounded-lg p-4 bg-gray-50 space-y-3">
-                  <h3 className="text-sm font-semibold">Generador MVP (opcional)</h3>
-                  <p className="text-xs text-gray-600">
-                    Generador rápido para crear actividades basadas en categorías MVP.
-                  </p>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">Categoría MVP</label>
-                      <select
-                        disabled={generatorInputsDisabled}
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 space-y-3">
+                      <p className="text-xs text-slate-600">
+                        Desde el editor podés importar bancos, usar generadores automáticos y preparar versiones
+                        para cada nivel.
+                      </p>
+                      <Link
+                        className="inline-flex items-center gap-2 rounded-md border border-blue-200 bg-white px-3 py-2 text-xs font-semibold text-blue-700 hover:bg-blue-50"
+                        to="/profesor/editor-cuestionarios"
                       >
-                        {MVP_GENERATOR_CATEGORIES.map((category) => (
-                          <option key={category} value={category}>
-                            {category}
-                          </option>
-                        ))}
-                      </select>
+                        Ir al editor de cuestionarios
+                      </Link>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">Nivel sugerido</label>
-                      <select
-                        disabled={generatorInputsDisabled}
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                      >
-                        <option>Básico</option>
-                        <option>Intermedio</option>
-                        <option>Avanzado</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <textarea
-                    disabled={generatorInputsDisabled}
-                    placeholder="Descripción breve del generador o configuración base..."
-                    rows={3}
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                  />
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
-                    <input
-                      disabled={generatorInputsDisabled}
-                      placeholder="Número de muestra / versión"
-                      className="rounded-md border border-gray-300 px-3 py-2"
-                    />
-                    <button
-                      disabled={generatorInputsDisabled}
-                      type="button"
-                      className="rounded-md border border-gray-300 px-3 py-2 text-sm text-left disabled:opacity-60"
-                    >
-                      Configurar generador
-                    </button>
-                    <button
-                      disabled={generatorInputsDisabled}
-                      type="button"
-                      className="bg-green-500 hover:bg-green-600 text-white rounded-md px-3 py-2 text-sm disabled:opacity-60"
-                    >
-                      Crear preguntas desde generador
-                    </button>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <div className="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-700">
-                La materia seleccionada no permite generación automática. Podés continuar con consignas manuales o
-                importaciones.
-              </div>
-            )}
                   </div>
                 )}
               </section>
