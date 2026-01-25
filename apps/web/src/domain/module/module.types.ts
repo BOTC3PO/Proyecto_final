@@ -174,6 +174,7 @@ export type Module = {
   generatorRef?: ModuleGeneratorRef | null;
   resources?: ModuleResource[];
   levels?: ModuleLevel[];
+  levelOrder?: string[];
   createdBy: string;
   createdByRole?: "admin" | "docente";
   authorName?: string;

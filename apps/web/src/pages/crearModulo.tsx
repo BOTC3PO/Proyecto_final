@@ -149,7 +149,7 @@ const buildDefaultQuizBlocks = (levelKey: string): ModuleQuiz[] => [
   }
 ];
 
-const NIVELES_DIFICULTAD = ["Básico", "Intermedio", "Avanzado"];
+const DEFAULT_LEVELS = ["Básico", "Intermedio", "Avanzado"];
 const QUIZ_TYPE_LABELS: Record<ModuleQuiz["type"], string> = {
   practica: "Práctica",
   evaluacion: "Evaluación",
@@ -267,7 +267,7 @@ export default function CrearModulo() {
   const [description, setDescription] = useState("");
   const [subject, setSubject] = useState("Matemáticas");
   const [category, setCategory] = useState("");
-  const [level, setLevel] = useState("Básico");
+  const [level, setLevel] = useState(DEFAULT_LEVELS[0]);
   const [durationMinutes, setDurationMinutes] = useState(30);
   const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [scoringSystemId, setScoringSystemId] = useState("scale-1-10");
@@ -281,15 +281,19 @@ export default function CrearModulo() {
   const [newTheoryTitle, setNewTheoryTitle] = useState("");
   const [newTheoryType, setNewTheoryType] = useState("Video");
   const [newTheoryDetail, setNewTheoryDetail] = useState("");
+  const [levels, setLevels] = useState<string[]>(DEFAULT_LEVELS);
+  const [levelDrafts, setLevelDrafts] = useState<string[]>(DEFAULT_LEVELS);
+  const [newLevelName, setNewLevelName] = useState("");
+  const [levelsError, setLevelsError] = useState("");
   const [levelsConfig, setLevelsConfig] = useState<LevelConfig[]>(() =>
-    NIVELES_DIFICULTAD.map((difficulty) => ({
+    DEFAULT_LEVELS.map((difficulty) => ({
       level: difficulty,
       quizBlocks: buildDefaultQuizBlocks(difficulty),
       bookResources: [],
       fileResources: []
     })),
   );
-  const [activeLevel, setActiveLevel] = useState(NIVELES_DIFICULTAD[0]);
+  const [activeLevel, setActiveLevel] = useState(DEFAULT_LEVELS[0]);
   const [newQuizTitle, setNewQuizTitle] = useState("");
   const [newQuizType, setNewQuizType] = useState<ModuleQuiz["type"]>("evaluacion");
   const [newQuizVisibility, setNewQuizVisibility] = useState<ModuleQuizVisibility>("publico");
@@ -650,6 +654,120 @@ export default function CrearModulo() {
     );
   };
 
+  const normalizeLevelName = (value: string) => value.trim();
+
+  const isDuplicateLevel = (candidate: string, items: string[], ignoreIndex?: number) =>
+    items.some(
+      (item, index) =>
+        index !== ignoreIndex && item.toLowerCase() === candidate.trim().toLowerCase(),
+    );
+
+  const handleAddLevel = () => {
+    const trimmed = normalizeLevelName(newLevelName);
+    if (!trimmed) {
+      setLevelsError("Ingresá un nombre para el nivel.");
+      return;
+    }
+    if (isDuplicateLevel(trimmed, levels)) {
+      setLevelsError("Ya existe un nivel con ese nombre.");
+      return;
+    }
+    setLevels((prev) => [...prev, trimmed]);
+    setLevelDrafts((prev) => [...prev, trimmed]);
+    setLevelsConfig((prev) => [
+      ...prev,
+      {
+        level: trimmed,
+        quizBlocks: buildDefaultQuizBlocks(trimmed),
+        bookResources: [],
+        fileResources: []
+      },
+    ]);
+    setNewLevelName("");
+    setLevelsError("");
+  };
+
+  const handleLevelDraftChange = (index: number, nextValue: string) => {
+    setLevelsError("");
+    setLevelDrafts((prev) => {
+      const next = [...prev];
+      next[index] = nextValue;
+      return next;
+    });
+  };
+
+  const handleCommitLevelRename = (index: number) => {
+    const trimmed = normalizeLevelName(levelDrafts[index]);
+    const previousName = levels[index];
+    if (!trimmed) {
+      setLevelsError("El nombre del nivel no puede quedar vacío.");
+      setLevelDrafts((prev) => {
+        const next = [...prev];
+        next[index] = previousName;
+        return next;
+      });
+      return;
+    }
+    if (isDuplicateLevel(trimmed, levels, index)) {
+      setLevelsError("Ya existe un nivel con ese nombre.");
+      setLevelDrafts((prev) => {
+        const next = [...prev];
+        next[index] = previousName;
+        return next;
+      });
+      return;
+    }
+    if (previousName === trimmed) {
+      return;
+    }
+    setLevels((prev) => {
+      const next = [...prev];
+      next[index] = trimmed;
+      return next;
+    });
+    setLevelDrafts((prev) => {
+      const next = [...prev];
+      next[index] = trimmed;
+      return next;
+    });
+    setLevelsConfig((current) =>
+      current.map((entry) =>
+        entry.level === previousName ? { ...entry, level: trimmed } : entry,
+      ),
+    );
+    if (level === previousName) {
+      setLevel(trimmed);
+    }
+    if (activeLevel === previousName) {
+      setActiveLevel(trimmed);
+    }
+    setLevelsError("");
+  };
+
+  const handleRemoveLevel = (levelName: string) => {
+    setLevels((prev) => {
+      if (prev.length <= 1) {
+        setLevelsError("Debes mantener al menos un nivel.");
+        return prev;
+      }
+      const nextLevels = prev.filter((name) => name !== levelName);
+      if (nextLevels.length === prev.length) {
+        return prev;
+      }
+      const fallbackLevel = nextLevels[0];
+      if (level === levelName) {
+        setLevel(fallbackLevel);
+      }
+      if (activeLevel === levelName) {
+        setActiveLevel(fallbackLevel);
+      }
+      setLevelsError("");
+      return nextLevels;
+    });
+    setLevelDrafts((prev) => prev.filter((name) => name !== levelName));
+    setLevelsConfig((prev) => prev.filter((entry) => entry.level !== levelName));
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSaveStatus("saving");
@@ -675,6 +793,7 @@ export default function CrearModulo() {
         generatorRef: null,
         resources: fallbackLevel?.resources ?? [],
         levels: levelsPayload,
+        levelOrder: levels,
         createdBy: "demo-docente",
         updatedAt: new Date().toISOString()
       };
@@ -1136,6 +1255,52 @@ export default function CrearModulo() {
               </div>
             )}
 
+            <div className="space-y-3 rounded-lg border border-gray-200 bg-gray-50 p-4">
+              <div>
+                <p className="text-sm font-semibold text-gray-800">Niveles del módulo</p>
+                <p className="text-xs text-gray-500">
+                  Agregá, renombrá o eliminá niveles para adaptar la progresión del contenido.
+                </p>
+              </div>
+              <div className="space-y-2">
+                {levels.map((nivel, index) => (
+                  <div key={`${nivel}-${index}`} className="flex flex-wrap items-center gap-2">
+                    <input
+                      className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      value={levelDrafts[index] ?? nivel}
+                      onChange={(event) => handleLevelDraftChange(index, event.target.value)}
+                      onBlur={() => handleCommitLevelRename(index)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter") {
+                          (event.target as HTMLInputElement).blur();
+                        }
+                      }}
+                    />
+                    <button
+                      type="button"
+                      className="rounded-md border border-red-200 px-3 py-2 text-xs text-red-600 disabled:opacity-50"
+                      onClick={() => handleRemoveLevel(nivel)}
+                      disabled={levels.length === 1}
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <input
+                  className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
+                  value={newLevelName}
+                  onChange={(event) => setNewLevelName(event.target.value)}
+                  placeholder="Nuevo nivel"
+                />
+                <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddLevel}>
+                  Agregar nivel
+                </button>
+              </div>
+              {levelsError && <p className="text-xs text-red-600">{levelsError}</p>}
+            </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700">
@@ -1150,7 +1315,7 @@ export default function CrearModulo() {
                     setActiveLevel(event.target.value);
                   }}
                 >
-                  {NIVELES_DIFICULTAD.map((n) => (
+                  {levels.map((n) => (
                     <option key={n} value={n}>
                       {n}
                     </option>
@@ -1330,7 +1495,7 @@ export default function CrearModulo() {
                   value={activeLevel}
                   onChange={(event) => setActiveLevel(event.target.value)}
                 >
-                  {NIVELES_DIFICULTAD.map((nivel) => (
+                  {levels.map((nivel) => (
                     <option key={nivel} value={nivel}>
                       {nivel}
                     </option>
@@ -1743,7 +1908,7 @@ export default function CrearModulo() {
                 value={activeLevel}
                 onChange={(event) => setActiveLevel(event.target.value)}
               >
-                {NIVELES_DIFICULTAD.map((nivel) => (
+                {levels.map((nivel) => (
                   <option key={nivel} value={nivel}>
                     {nivel}
                   </option>
