@@ -11,6 +11,7 @@ import {
   type ModuleDependency,
   type ModuleDependencyType,
   type ModuleTheoryBlock,
+  type ModuleQuizQuestion,
 } from "../domain/module/module.types";
 import { MVP_MODULES } from "../mvp/mvpData";
 import { fetchCategoriasConfig, fetchMateriasConfig } from "../services/modulos";
@@ -27,6 +28,7 @@ type LevelConfig = {
   quizReferences: QuizReference[];
   bookResources: ModuleResource[];
   fileResources: ModuleResource[];
+  questions: ModuleQuizQuestion[];
 };
 
 const isValidUrl = (value: string) => {
@@ -37,6 +39,79 @@ const isValidUrl = (value: string) => {
   } catch (error) {
     return false;
   }
+};
+
+const isNonEmptyString = (value: unknown): value is string =>
+  typeof value === "string" && value.trim().length > 0;
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === "object" && value !== null;
+
+const exercisesJsonTemplate = `{
+  "preguntas": [
+    {
+      "enunciado": "¿Cuál es la fórmula de la velocidad media?",
+      "respuestas": [
+        "v = d / t",
+        "v = t / d",
+        "v = d * t"
+      ],
+      "solucion": "v = d / t",
+      "explicacion": "Se calcula como distancia dividida por tiempo."
+    }
+  ]
+}`;
+
+const validateExercisesJson = (value: unknown) => {
+  const errors: string[] = [];
+  const preguntas = Array.isArray(value)
+    ? value
+    : isRecord(value) && Array.isArray(value.preguntas)
+      ? value.preguntas
+      : null;
+
+  if (!preguntas) {
+    return {
+      isValid: false,
+      errors: ["El JSON debe ser un array de preguntas o un objeto con la clave preguntas."],
+    };
+  }
+
+  if (preguntas.length === 0) {
+    errors.push("Debe incluir al menos una pregunta.");
+  }
+
+  preguntas.forEach((pregunta, index) => {
+    if (!isRecord(pregunta)) {
+      errors.push(`preguntas[${index}] debe ser un objeto con enunciado, respuestas y solucion.`);
+      return;
+    }
+    if (!isNonEmptyString(pregunta.enunciado)) {
+      errors.push(`preguntas[${index}].enunciado debe ser un texto no vacío.`);
+    }
+    if (!Array.isArray(pregunta.respuestas) || pregunta.respuestas.length < 2) {
+      errors.push(`preguntas[${index}].respuestas debe ser un array con al menos 2 opciones.`);
+    } else {
+      pregunta.respuestas.forEach((respuesta, respuestaIndex) => {
+        const isStringOption = isNonEmptyString(respuesta);
+        const isObjectOption = isRecord(respuesta) && isNonEmptyString(respuesta.texto);
+        if (!isStringOption && !isObjectOption) {
+          errors.push(
+            `preguntas[${index}].respuestas[${respuestaIndex}] debe ser un texto o un objeto con texto.`,
+          );
+        }
+      });
+    }
+    const solucion = pregunta.solucion;
+    if (
+      !(typeof solucion === "string" && solucion.trim()) &&
+      !(typeof solucion === "number" && Number.isFinite(solucion))
+    ) {
+      errors.push(`preguntas[${index}].solucion debe ser un texto o número válido.`);
+    }
+  });
+
+  return { isValid: errors.length === 0, errors, preguntas };
 };
 
 
@@ -153,12 +228,19 @@ export default function CrearModulo() {
       level: difficulty,
       quizReferences: [],
       bookResources: [],
-      fileResources: []
+      fileResources: [],
+      questions: [],
     })),
   );
   const [activeLevel, setActiveLevel] = useState(DEFAULT_LEVELS[0]);
   const [newQuizReferenceId, setNewQuizReferenceId] = useState("");
   const [newQuizReferenceTitle, setNewQuizReferenceTitle] = useState("");
+  const [questionImportStatus, setQuestionImportStatus] = useState<{
+    status: "idle" | "valid" | "error";
+    message: string;
+    errors?: string[];
+  }>({ status: "idle", message: "" });
+  const [questionImportFileName, setQuestionImportFileName] = useState("");
   const [moduleDependencies, setModuleDependencies] = useState<ModuleDependency[]>([]);
   const [customDependency, setCustomDependency] = useState("");
   const [customDependencyType, setCustomDependencyType] =
@@ -224,7 +306,8 @@ export default function CrearModulo() {
         level: activeLevel,
         quizReferences: [],
         bookResources: [],
-        fileResources: []
+        fileResources: [],
+        questions: [],
       },
     [activeLevel, levelsConfig],
   );
@@ -520,7 +603,8 @@ export default function CrearModulo() {
         level: trimmed,
         quizReferences: [],
         bookResources: [],
-        fileResources: []
+        fileResources: [],
+        questions: [],
       },
     ]);
     setNewLevelName("");
@@ -617,7 +701,7 @@ export default function CrearModulo() {
         (dependency) => dependency.id.trim().length > 0,
       );
       const levelsPayload = levelsConfig.map(
-        ({ level: levelName, quizReferences, bookResources, fileResources }) => ({
+        ({ level: levelName, quizReferences, bookResources, fileResources, questions }) => ({
           level: levelName,
           quizzes: quizReferences.map((quiz) => ({
             id: quiz.id,
@@ -625,7 +709,8 @@ export default function CrearModulo() {
             type: "evaluacion",
             visibility: "publico",
           })),
-          resources: [...bookResources, ...fileResources]
+          resources: [...bookResources, ...fileResources],
+          questions,
         }),
       );
       const fallbackLevel = levelsPayload.find((entry) => entry.level === level) ?? levelsPayload[0];
@@ -732,6 +817,102 @@ export default function CrearModulo() {
     updateLevelConfig(activeLevel, (current) => ({
       ...current,
       quizReferences: current.quizReferences.filter((quiz) => quiz.id !== id),
+    }));
+  };
+
+  const handleQuestionFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setQuestionImportStatus({ status: "idle", message: "" });
+    setQuestionImportFileName("");
+    try {
+      const raw = await file.text();
+      const parsed = JSON.parse(raw) as unknown;
+      const validation = validateExercisesJson(parsed);
+      if (!validation.isValid || !validation.preguntas) {
+        setQuestionImportStatus({
+          status: "error",
+          message: "El archivo no coincide con el esquema de planilla.",
+          errors: validation.errors,
+        });
+        event.target.value = "";
+        return;
+      }
+      const importedQuestions = validation.preguntas
+        .map((pregunta, index) => {
+          if (!isRecord(pregunta)) return null;
+          const respuestas = Array.isArray(pregunta.respuestas)
+            ? pregunta.respuestas
+                .map((respuesta) => {
+                  if (isNonEmptyString(respuesta)) return respuesta.trim();
+                  if (isRecord(respuesta) && isNonEmptyString(respuesta.texto)) {
+                    return respuesta.texto.trim();
+                  }
+                  return null;
+                })
+                .filter((respuesta): respuesta is string => Boolean(respuesta))
+            : [];
+          const prompt = isNonEmptyString(pregunta.enunciado) ? pregunta.enunciado.trim() : "";
+          if (!prompt) return null;
+          return {
+            id: makeModuleId(`pregunta-${index + 1}`),
+            prompt,
+            answers: respuestas,
+            solution:
+              typeof pregunta.solucion === "string"
+                ? pregunta.solucion.trim()
+                : pregunta.solucion,
+            explanation: isNonEmptyString(pregunta.explicacion)
+              ? pregunta.explicacion.trim()
+              : undefined,
+          } satisfies ModuleQuizQuestion;
+        })
+        .filter((item): item is ModuleQuizQuestion => Boolean(item));
+      updateLevelConfig(activeLevel, (current) => ({
+        ...current,
+        questions: [...current.questions, ...importedQuestions],
+      }));
+      setQuestionImportFileName(file.name);
+      setQuestionImportStatus({
+        status: "valid",
+        message: `Importadas ${importedQuestions.length} preguntas.`,
+      });
+    } catch (error) {
+      setQuestionImportStatus({
+        status: "error",
+        message: "No se pudo leer el archivo JSON.",
+        errors: [error instanceof Error ? error.message : "JSON inválido."],
+      });
+      event.target.value = "";
+    }
+  };
+
+  const handleDownloadQuestionTemplate = () => {
+    const blob = new Blob([exercisesJsonTemplate], { type: "application/json;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "plantilla-preguntas.json";
+    anchor.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleRemoveQuestion = (questionId: string) => {
+    updateLevelConfig(activeLevel, (current) => ({
+      ...current,
+      questions: current.questions.filter((question) => question.id !== questionId),
+    }));
+  };
+
+  const handleUpdateQuestion = (
+    questionId: string,
+    updater: (question: ModuleQuizQuestion) => ModuleQuizQuestion,
+  ) => {
+    updateLevelConfig(activeLevel, (current) => ({
+      ...current,
+      questions: current.questions.map((question) =>
+        question.id === questionId ? updater(question) : question,
+      ),
     }));
   };
 
@@ -1532,6 +1713,154 @@ export default function CrearModulo() {
                       La edición detallada de consignas, importaciones JSON y generadores se realiza en el editor de
                       cuestionarios. Aquí solo verificás que los IDs estén vinculados al módulo.
                     </p>
+                    <div className="rounded-lg border border-slate-200 bg-white p-4 space-y-4">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                          <h3 className="text-sm font-semibold">Banco de preguntas del módulo</h3>
+                          <p className="text-xs text-gray-500">
+                            Importá una plantilla JSON y ajustá las consignas antes de guardar.
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-slate-500">
+                          <span className="font-semibold text-slate-600">Nivel activo:</span>
+                          <span>{activeLevel}</span>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="border rounded-lg p-4 space-y-2">
+                          <h4 className="text-sm font-semibold">Importar JSON</h4>
+                          <input
+                            type="file"
+                            accept=".json"
+                            className="block w-full text-sm text-gray-700 file:mr-4 file:rounded-md file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
+                            onChange={handleQuestionFileChange}
+                          />
+                          <p className="text-xs text-gray-500">
+                            Cada pregunta debe incluir: enunciado, respuestas y solución.
+                          </p>
+                          {questionImportStatus.status === "valid" && (
+                            <p className="text-xs text-emerald-600">
+                              {questionImportStatus.message}{" "}
+                              {questionImportFileName ? `(${questionImportFileName})` : ""}
+                            </p>
+                          )}
+                          {questionImportStatus.status === "error" && (
+                            <div className="rounded-md border border-red-200 bg-red-50 p-3 text-xs text-red-700 space-y-2">
+                              <p className="font-semibold">{questionImportStatus.message}</p>
+                              <ul className="list-disc pl-4 space-y-1">
+                                {questionImportStatus.errors?.map((error) => (
+                                  <li key={error}>{error}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          <details className="rounded-md border border-slate-200 bg-slate-50 p-3 text-[11px] text-slate-600">
+                            <summary className="cursor-pointer font-medium">Ver ejemplo de planilla válida</summary>
+                            <pre className="mt-2 whitespace-pre-wrap font-mono">{exercisesJsonTemplate}</pre>
+                          </details>
+                        </div>
+
+                        <div className="border rounded-lg p-4 space-y-2">
+                          <h4 className="text-sm font-semibold">Descargar JSON base</h4>
+                          <p className="text-xs text-gray-600">
+                            Genera un archivo base con estructura vacía para completar offline.
+                          </p>
+                          <button
+                            type="button"
+                            className="rounded-md border px-3 py-2 text-sm"
+                            onClick={handleDownloadQuestionTemplate}
+                          >
+                            Descargar plantilla JSON
+                          </button>
+                        </div>
+                      </div>
+
+                      {currentLevelConfig.questions.length === 0 ? (
+                        <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 px-4 py-3 text-xs text-slate-500">
+                          Todavía no importaste preguntas para este nivel.
+                        </div>
+                      ) : (
+                        <div className="space-y-3">
+                          {currentLevelConfig.questions.map((question, index) => (
+                            <div key={question.id} className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                              <div className="flex items-center justify-between gap-2">
+                                <p className="text-sm font-semibold text-slate-700">
+                                  Pregunta {index + 1}
+                                </p>
+                                <button
+                                  type="button"
+                                  className="text-xs text-red-500 hover:underline"
+                                  onClick={() => handleRemoveQuestion(question.id)}
+                                >
+                                  Eliminar
+                                </button>
+                              </div>
+                              <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div className="md:col-span-2">
+                                  <label className="text-xs font-medium text-slate-600">Enunciado</label>
+                                  <textarea
+                                    rows={2}
+                                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                    value={question.prompt}
+                                    onChange={(event) =>
+                                      handleUpdateQuestion(question.id, (current) => ({
+                                        ...current,
+                                        prompt: event.target.value,
+                                      }))
+                                    }
+                                  />
+                                </div>
+                                <div className="md:col-span-2">
+                                  <label className="text-xs font-medium text-slate-600">Respuestas</label>
+                                  <textarea
+                                    rows={3}
+                                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                    value={question.answers?.join("\n") ?? ""}
+                                    onChange={(event) =>
+                                      handleUpdateQuestion(question.id, (current) => ({
+                                        ...current,
+                                        answers: event.target.value
+                                          .split("\n")
+                                          .map((answer) => answer.trim())
+                                          .filter(Boolean),
+                                      }))
+                                    }
+                                    placeholder="Una respuesta por línea"
+                                  />
+                                </div>
+                                <div>
+                                  <label className="text-xs font-medium text-slate-600">Solución</label>
+                                  <input
+                                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                    value={question.solution ?? ""}
+                                    onChange={(event) =>
+                                      handleUpdateQuestion(question.id, (current) => ({
+                                        ...current,
+                                        solution: event.target.value,
+                                      }))
+                                    }
+                                  />
+                                </div>
+                                <div>
+                                  <label className="text-xs font-medium text-slate-600">Explicación</label>
+                                  <input
+                                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                    value={question.explanation ?? ""}
+                                    onChange={(event) =>
+                                      handleUpdateQuestion(question.id, (current) => ({
+                                        ...current,
+                                        explanation: event.target.value,
+                                      }))
+                                    }
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                     {!hasQuizReferences && (
                       <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-700">
                         Aún no hay cuestionarios creados para este módulo. Vinculá al menos uno para habilitar el
