@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { MVP_MODULES } from "../mvp/mvpData";
 import { apiGet } from "../lib/api";
-import type { Module } from "../domain/module/module.types";
+import type { Module, ModuleDependency } from "../domain/module/module.types";
 import { getSubjectColor } from "../domain/module/subjectColors";
 import { fetchProfesorMenuDashboard, type ProfesorMenuDashboard } from "../services/profesor";
 import ConceptMapVisualizer from "../visualizadores/graficos/ConceptMapVisualizer";
@@ -13,11 +13,30 @@ const buildFallbackModules = () =>
     ...module,
     subject: module.category,
     visibility: "publico",
-    dependencies: index === 0 ? [] : [MVP_MODULES[index - 1].id],
+    dependencies:
+      index === 0
+        ? []
+        : [{ id: MVP_MODULES[index - 1].id, type: "required" as ModuleDependency["type"] }],
     createdBy: "demo-docente",
     createdByRole: "docente",
     authorName: "Demo Docente"
   }));
+
+const getRequiredDependencyIds = (dependencies: Array<ModuleDependency | string>) =>
+  dependencies
+    .map((dependency) => {
+      if (typeof dependency === "string") return dependency;
+      return dependency.type === "required" ? dependency.id : null;
+    })
+    .filter((dependency): dependency is string => Boolean(dependency));
+
+const getUnlocksDependencyIds = (dependencies: Array<ModuleDependency | string>) =>
+  dependencies
+    .map((dependency) => {
+      if (typeof dependency === "string") return null;
+      return dependency.type === "unlocks" ? dependency.id : null;
+    })
+    .filter((dependency): dependency is string => Boolean(dependency));
 
 const collectDependencyChain = (startId: string, adjacency: Map<string, string[]>) => {
   const visited = new Set<string>();
@@ -170,13 +189,22 @@ export default function menuProfesor() {
   const dependencyLinks = useMemo(() => {
     const links: ConceptLink[] = [];
     graphModules.forEach((module) => {
-      module.dependencies.forEach((dependencyId) => {
+      getRequiredDependencyIds(module.dependencies).forEach((dependencyId) => {
         if (!moduleById.has(dependencyId)) return;
         links.push({
-          id: `${dependencyId}-${module.id}`,
+          id: `${dependencyId}-${module.id}-required`,
           sourceId: dependencyId,
           targetId: module.id,
-          relation: "depende de"
+          relation: "requiere"
+        });
+      });
+      getUnlocksDependencyIds(module.dependencies).forEach((dependencyId) => {
+        if (!moduleById.has(dependencyId)) return;
+        links.push({
+          id: `${module.id}-${dependencyId}-unlocks`,
+          sourceId: module.id,
+          targetId: dependencyId,
+          relation: "desbloquea"
         });
       });
     });
@@ -186,7 +214,10 @@ export default function menuProfesor() {
   const dependencyAdjacency = useMemo(() => {
     const adjacency = new Map<string, string[]>();
     graphModules.forEach((module) => {
-      adjacency.set(module.id, module.dependencies.filter((dep) => moduleById.has(dep)));
+      adjacency.set(
+        module.id,
+        getRequiredDependencyIds(module.dependencies).filter((dep) => moduleById.has(dep))
+      );
     });
     return adjacency;
   }, [graphModules, moduleById]);
@@ -194,11 +225,24 @@ export default function menuProfesor() {
   const reverseAdjacency = useMemo(() => {
     const adjacency = new Map<string, string[]>();
     graphModules.forEach((module) => {
-      module.dependencies.forEach((dependencyId) => {
+      getRequiredDependencyIds(module.dependencies).forEach((dependencyId) => {
         if (!moduleById.has(dependencyId)) return;
         const existing = adjacency.get(dependencyId) ?? [];
         existing.push(module.id);
         adjacency.set(dependencyId, existing);
+      });
+    });
+    return adjacency;
+  }, [graphModules, moduleById]);
+
+  const unlocksAdjacency = useMemo(() => {
+    const adjacency = new Map<string, string[]>();
+    graphModules.forEach((module) => {
+      getUnlocksDependencyIds(module.dependencies).forEach((dependencyId) => {
+        if (!moduleById.has(dependencyId)) return;
+        const existing = adjacency.get(module.id) ?? [];
+        existing.push(dependencyId);
+        adjacency.set(module.id, existing);
       });
     });
     return adjacency;
@@ -248,12 +292,16 @@ export default function menuProfesor() {
     const previous = (dependencyAdjacency.get(graphSelection.id) ?? [])
       .map((id) => moduleById.get(id))
       .filter((module): module is Module => Boolean(module));
-    const next = (reverseAdjacency.get(graphSelection.id) ?? [])
+    const nextIds = new Set<string>([
+      ...(reverseAdjacency.get(graphSelection.id) ?? []),
+      ...(unlocksAdjacency.get(graphSelection.id) ?? [])
+    ]);
+    const next = Array.from(nextIds)
       .map((id) => moduleById.get(id))
       .filter((module): module is Module => Boolean(module));
 
     return { previous, next };
-  }, [dependencyAdjacency, graphSelection, moduleById, reverseAdjacency]);
+  }, [dependencyAdjacency, graphSelection, moduleById, reverseAdjacency, unlocksAdjacency]);
 
   useEffect(() => {
     if (graphModules.length === 0) {

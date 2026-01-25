@@ -50,6 +50,11 @@ export const ModuleQuizSchema = z.object({
   competitionRulesVisibility: ModuleQuizVisibilitySchema.optional()
 });
 
+export const ModuleDependencySchema = z.object({
+  id: z.string().min(1),
+  type: z.enum(["required", "unlocks"])
+});
+
 export const ModuleLevelSchema = z.object({
   level: z.string().min(1),
   quizzes: z.array(ModuleQuizSchema).optional(),
@@ -66,7 +71,7 @@ export const ModuleSchema = z.object({
   level: z.string().min(1),
   durationMinutes: z.number().int().positive(),
   visibility: ModuleVisibilitySchema,
-  dependencies: z.array(z.string().min(1)),
+  dependencies: z.array(ModuleDependencySchema),
   generatorRef: z
     .object({
       id: z.string().min(1),
