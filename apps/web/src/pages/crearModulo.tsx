@@ -792,190 +792,239 @@ export default function CrearModulo() {
                 )}
 
                 {openSection === "info" && (
-                  <div className="space-y-4">
+                  <div className="space-y-6">
+                    <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-4">
+                      <div>
+                        <h3 className="text-sm font-semibold text-slate-800">Datos esenciales</h3>
+                        <p className="text-xs text-slate-500">
+                          Lo mínimo para que el módulo sea identificable y fácil de encontrar.
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Título del módulo <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          required
+                          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
+                          placeholder="Ej: Introducción a las fracciones"
+                          value={title}
+                          onChange={(event) => setTitle(event.target.value)}
+                        />
+                        <p className="mt-1 text-xs text-gray-500">
+                          Usá un nombre corto y descriptivo; aparecerá en la biblioteca de módulos.
+                        </p>
+                      </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Título del módulo <span className="text-red-500">*</span>
-              </label>
-              <input
-                required
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                placeholder="Ej: Introducción a las fracciones"
-                value={title}
-                onChange={(event) => setTitle(event.target.value)}
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Descripción <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                required
-                rows={4}
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                placeholder="Describe el contenido, objetivos y actividades del módulo..."
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-              />
-            </div>
-            {showLargeModuleHint && (
-              <div className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
-                <p className="font-medium">Este módulo ya es extenso.</p>
-                <p className="mt-1">
-                  Para gestionar cuestionarios largos o con muchas variantes, te sugerimos usar el editor dedicado.{" "}
-                  <Link className="font-semibold text-amber-900 underline" to="/profesor/editor-cuestionarios">
-                    Abrir editor de cuestionarios
-                  </Link>
-                  .
-                </p>
-              </div>
-            )}
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Materia principal <span className="text-red-500">*</span>
-                </label>
-                <select
-                  required
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
-                  value={subject}
-                  onChange={(event) => setSubject(event.target.value)}
-                >
-                  {materias.map((m) => (
-                    <option key={m} value={m}>
-                      {m}
-                    </option>
-                  ))}
-                </select>
-                <p className="mt-1 text-xs text-gray-500">
-                  {isConfigLoading
-                    ? "Cargando materias desde configuración..."
-                    : "Acepta cualquier materia que se dicte en la escuela."}
-                </p>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Categoría / Tema <span className="text-red-500">*</span>
-                </label>
-                <input
-                  required
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                  value={category}
-                  onChange={(event) => setCategory(event.target.value)}
-                  placeholder="Ej: Álgebra, Historia Mundial, Programación"
-                  list="categorias-config"
-                />
-                <datalist id="categorias-config">
-                  {categorias.map((c) => (
-                    <option key={c} value={c} />
-                  ))}
-                </datalist>
-                <p className="mt-1 text-xs text-gray-500">
-                  Podés escribir libremente o elegir una sugerencia cargada desde administración.
-                </p>
-              </div>
-            </div>
-
-            {configMessage && (
-              <div className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
-                {configMessage}
-              </div>
-            )}
-
-            <div className="space-y-3 rounded-lg border border-gray-200 bg-gray-50 p-4">
-              <div>
-                <p className="text-sm font-semibold text-gray-800">Niveles del módulo</p>
-                <p className="text-xs text-gray-500">
-                  Agregá, renombrá o eliminá niveles para adaptar la progresión del contenido.
-                </p>
-              </div>
-              <div className="space-y-2">
-                {levels.map((nivel, index) => (
-                  <div key={`${nivel}-${index}`} className="flex flex-wrap items-center gap-2">
-                    <input
-                      className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      value={levelDrafts[index] ?? nivel}
-                      onChange={(event) => handleLevelDraftChange(index, event.target.value)}
-                      onBlur={() => handleCommitLevelRename(index)}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter") {
-                          (event.target as HTMLInputElement).blur();
-                        }
-                      }}
-                    />
-                    <button
-                      type="button"
-                      className="rounded-md border border-red-200 px-3 py-2 text-xs text-red-600 disabled:opacity-50"
-                      onClick={() => handleRemoveLevel(nivel)}
-                      disabled={levels.length === 1}
-                    >
-                      Eliminar
-                    </button>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <input
-                  className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  value={newLevelName}
-                  onChange={(event) => setNewLevelName(event.target.value)}
-                  placeholder="Nuevo nivel"
-                />
-                <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddLevel}>
-                  Agregar nivel
-                </button>
-              </div>
-              {levelsError && <p className="text-xs text-red-600">{levelsError}</p>}
-            </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Nivel de dificultad <span className="text-red-500">*</span>
-                </label>
-                <select
-                  required
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
-                  value={level}
-                  onChange={(event) => {
-                    setLevel(event.target.value);
-                    setActiveLevel(event.target.value);
-                  }}
-                >
-                  {levels.map((n) => (
-                    <option key={n} value={n}>
-                      {n}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Duración estimada (minutos) <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="number"
-                  min={1}
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Ej: 30"
-                  value={durationMinutes}
-                  onChange={(event) => setDurationMinutes(Number(event.target.value))}
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Edad/Curso recomendado</label>
-                <input
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Ej: 5° grado primaria"
-                />
-              </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Descripción <span className="text-red-500">*</span>
+                        </label>
+                        <textarea
+                          required
+                          rows={4}
+                          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
+                          placeholder="Describe el contenido, objetivos y actividades del módulo..."
+                          value={description}
+                          onChange={(event) => setDescription(event.target.value)}
+                        />
+                        <p className="mt-1 text-xs text-gray-500">
+                          Incluí objetivos y cómo se evaluará para orientar a otros docentes.
+                        </p>
+                      </div>
                     </div>
+
+                    <div className="rounded-xl border border-slate-200 bg-white p-4 space-y-4">
+                      <div>
+                        <h3 className="text-sm font-semibold text-slate-800">Clasificación y enfoque</h3>
+                        <p className="text-xs text-slate-500">
+                          Ayuda a etiquetar el módulo dentro de la institución.
+                        </p>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Materia principal <span className="text-red-500">*</span>
+                          </label>
+                          <select
+                            required
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
+                            value={subject}
+                            onChange={(event) => setSubject(event.target.value)}
+                          >
+                            {materias.map((m) => (
+                              <option key={m} value={m}>
+                                {m}
+                              </option>
+                            ))}
+                          </select>
+                          <p className="mt-1 text-xs text-gray-500">
+                            {isConfigLoading
+                              ? "Cargando materias desde configuración..."
+                              : "Acepta cualquier materia que se dicte en la escuela."}
+                          </p>
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Categoría / Tema <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            required
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
+                            value={category}
+                            onChange={(event) => setCategory(event.target.value)}
+                            placeholder="Ej: Álgebra, Historia Mundial, Programación"
+                            list="categorias-config"
+                          />
+                          <datalist id="categorias-config">
+                            {categorias.map((c) => (
+                              <option key={c} value={c} />
+                            ))}
+                          </datalist>
+                          <p className="mt-1 text-xs text-gray-500">
+                            Podés escribir libremente o elegir una sugerencia cargada desde administración.
+                          </p>
+                        </div>
+                      </div>
+                      {configMessage && (
+                        <div className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
+                          {configMessage}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="rounded-xl border border-slate-200 bg-white p-4 space-y-4">
+                      <div>
+                        <h3 className="text-sm font-semibold text-slate-800">Planificación del módulo</h3>
+                        <p className="text-xs text-slate-500">
+                          Definí duración y nivel de entrada para los estudiantes.
+                        </p>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Nivel de dificultad <span className="text-red-500">*</span>
+                          </label>
+                          <select
+                            required
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
+                            value={level}
+                            onChange={(event) => {
+                              setLevel(event.target.value);
+                              setActiveLevel(event.target.value);
+                            }}
+                          >
+                            {levels.map((n) => (
+                              <option key={n} value={n}>
+                                {n}
+                              </option>
+                            ))}
+                          </select>
+                          <p className="mt-1 text-xs text-gray-500">
+                            Elegí el nivel que mejor represente el punto de partida.
+                          </p>
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Duración estimada (minutos) <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            type="number"
+                            min={1}
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="Ej: 30"
+                            value={durationMinutes}
+                            onChange={(event) => setDurationMinutes(Number(event.target.value))}
+                          />
+                          <p className="mt-1 text-xs text-gray-500">
+                            Esto ayuda a planificar la clase o la secuencia.
+                          </p>
+                        </div>
+                      </div>
+                      <details className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                        <summary className="cursor-pointer text-sm font-semibold text-slate-700">
+                          Ajustes secundarios (niveles y curso recomendado)
+                        </summary>
+                        <div className="mt-4 space-y-4">
+                          <div className="space-y-3">
+                            <div>
+                              <p className="text-sm font-semibold text-gray-800">Niveles del módulo</p>
+                              <p className="text-xs text-gray-500">
+                                Agregá, renombrá o eliminá niveles para adaptar la progresión del contenido.
+                              </p>
+                            </div>
+                            <div className="space-y-2">
+                              {levels.map((nivel, index) => (
+                                <div key={`${nivel}-${index}`} className="flex flex-wrap items-center gap-2">
+                                  <input
+                                    className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                    value={levelDrafts[index] ?? nivel}
+                                    onChange={(event) => handleLevelDraftChange(index, event.target.value)}
+                                    onBlur={() => handleCommitLevelRename(index)}
+                                    onKeyDown={(event) => {
+                                      if (event.key === "Enter") {
+                                        (event.target as HTMLInputElement).blur();
+                                      }
+                                    }}
+                                  />
+                                  <button
+                                    type="button"
+                                    className="rounded-md border border-red-200 px-3 py-2 text-xs text-red-600 disabled:opacity-50"
+                                    onClick={() => handleRemoveLevel(nivel)}
+                                    disabled={levels.length === 1}
+                                  >
+                                    Eliminar
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
+                            <div className="flex flex-col sm:flex-row gap-2">
+                              <input
+                                className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                value={newLevelName}
+                                onChange={(event) => setNewLevelName(event.target.value)}
+                                placeholder="Nuevo nivel"
+                              />
+                              <button
+                                type="button"
+                                className="rounded-md border px-4 py-2 text-sm"
+                                onClick={handleAddLevel}
+                              >
+                                Agregar nivel
+                              </button>
+                            </div>
+                            {levelsError && <p className="text-xs text-red-600">{levelsError}</p>}
+                          </div>
+
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700">Edad/Curso recomendado</label>
+                            <input
+                              className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
+                              placeholder="Ej: 5° grado primaria"
+                            />
+                            <p className="mt-1 text-xs text-gray-500">
+                              Usá este campo si necesitás orientar a docentes o estudiantes nuevos.
+                            </p>
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+
+                    {showLargeModuleHint && (
+                      <div className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
+                        <p className="font-medium">Este módulo ya es extenso.</p>
+                        <p className="mt-1">
+                          Para gestionar cuestionarios largos o con muchas variantes, te sugerimos usar el editor
+                          dedicado.{" "}
+                          <Link className="font-semibold text-amber-900 underline" to="/profesor/editor-cuestionarios">
+                            Abrir editor de cuestionarios
+                          </Link>
+                          .
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
               </section>
@@ -1309,91 +1358,104 @@ export default function CrearModulo() {
                       Seleccioná los cuestionarios que ya creaste en el editor dedicado. Aquí solo vinculás sus IDs
                       al módulo y validás que cada nivel tenga al menos uno.
                     </p>
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 space-y-4">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                          <p className="text-sm font-semibold text-slate-800">Resumen de cuestionarios</p>
-                          <p className="text-xs text-slate-500">
-                            Total vinculados: {levelsConfig.reduce((total, entry) => total + entry.quizReferences.length, 0)}
-                          </p>
-                        </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                      <div className="rounded-lg border border-slate-200 bg-white p-4">
+                        <p className="text-xs text-slate-500">Cuestionarios vinculados</p>
+                        <p className="mt-1 text-2xl font-semibold text-slate-800">
+                          {levelsConfig.reduce((total, entry) => total + entry.quizReferences.length, 0)}
+                        </p>
+                      </div>
+                      <div className="rounded-lg border border-slate-200 bg-white p-4">
+                        <p className="text-xs text-slate-500">Niveles con contenido</p>
+                        <p className="mt-1 text-2xl font-semibold text-slate-800">
+                          {levelsConfig.filter((entry) => entry.quizReferences.length > 0).length} / {levels.length}
+                        </p>
+                      </div>
+                      <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
+                        <p className="text-xs text-blue-700">Editor dedicado</p>
                         <Link
-                          className="rounded-md border border-blue-200 bg-white px-3 py-2 text-xs font-semibold text-blue-700 hover:bg-blue-50"
+                          className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-blue-700 underline"
                           to="/profesor/editor-cuestionarios"
                         >
                           Abrir editor de cuestionarios
                         </Link>
                       </div>
-
-                      <div className="max-w-xs">
-                        <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
-                        <select
-                          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                          value={activeLevel}
-                          onChange={(event) => setActiveLevel(event.target.value)}
-                        >
-                          {levels.map((nivel) => (
-                            <option key={nivel} value={nivel}>
-                              {nivel}
-                            </option>
-                          ))}
-                        </select>
-                        <p className="mt-1 text-[11px] text-gray-500">
-                          Los cuestionarios se asocian por nivel para adaptar la progresión.
-                        </p>
-                      </div>
-
-                      {currentLevelConfig.quizReferences.length === 0 ? (
-                        <div className="rounded-lg border border-dashed border-slate-200 bg-white px-4 py-3 text-xs text-slate-500">
-                          Todavía no vinculaste cuestionarios en este nivel.
-                        </div>
-                      ) : (
-                        <ul className="space-y-2">
-                          {currentLevelConfig.quizReferences.map((quiz) => (
-                            <li
-                              key={quiz.id}
-                              className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600"
-                            >
-                              <div>
-                                <p className="font-semibold text-slate-800">
-                                  {quiz.title || "Cuestionario sin título"}
-                                </p>
-                                <p className="text-[11px] text-slate-500">ID: {quiz.id}</p>
-                              </div>
-                              <button
-                                type="button"
-                                className="text-xs text-red-500 hover:underline"
-                                onClick={() => handleRemoveQuizReference(quiz.id)}
-                              >
-                                Quitar
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-
-                      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] gap-2">
-                        <input
-                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                          value={newQuizReferenceId}
-                          onChange={(event) => setNewQuizReferenceId(event.target.value)}
-                          placeholder="ID del cuestionario (copiado del editor)"
-                        />
-                        <input
-                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                          value={newQuizReferenceTitle}
-                          onChange={(event) => setNewQuizReferenceTitle(event.target.value)}
-                          placeholder="Título de referencia (opcional)"
-                        />
-                        <button
-                          type="button"
-                          className="rounded-md border px-4 py-2 text-sm"
-                          onClick={handleAddQuizReference}
-                        >
-                          Vincular
-                        </button>
-                      </div>
                     </div>
+                    <details className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                      <summary className="cursor-pointer text-sm font-semibold text-slate-700">
+                        Vincular IDs de cuestionarios por nivel
+                      </summary>
+                      <div className="mt-4 space-y-4">
+                        <div className="max-w-xs">
+                          <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
+                          <select
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                            value={activeLevel}
+                            onChange={(event) => setActiveLevel(event.target.value)}
+                          >
+                            {levels.map((nivel) => (
+                              <option key={nivel} value={nivel}>
+                                {nivel}
+                              </option>
+                            ))}
+                          </select>
+                          <p className="mt-1 text-[11px] text-gray-500">
+                            Los cuestionarios se asocian por nivel para adaptar la progresión.
+                          </p>
+                        </div>
+
+                        {currentLevelConfig.quizReferences.length === 0 ? (
+                          <div className="rounded-lg border border-dashed border-slate-200 bg-white px-4 py-3 text-xs text-slate-500">
+                            Todavía no vinculaste cuestionarios en este nivel.
+                          </div>
+                        ) : (
+                          <ul className="space-y-2">
+                            {currentLevelConfig.quizReferences.map((quiz) => (
+                              <li
+                                key={quiz.id}
+                                className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600"
+                              >
+                                <div>
+                                  <p className="font-semibold text-slate-800">
+                                    {quiz.title || "Cuestionario sin título"}
+                                  </p>
+                                  <p className="text-[11px] text-slate-500">ID: {quiz.id}</p>
+                                </div>
+                                <button
+                                  type="button"
+                                  className="text-xs text-red-500 hover:underline"
+                                  onClick={() => handleRemoveQuizReference(quiz.id)}
+                                >
+                                  Quitar
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] gap-2">
+                          <input
+                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                            value={newQuizReferenceId}
+                            onChange={(event) => setNewQuizReferenceId(event.target.value)}
+                            placeholder="ID del cuestionario (copiado del editor)"
+                          />
+                          <input
+                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                            value={newQuizReferenceTitle}
+                            onChange={(event) => setNewQuizReferenceTitle(event.target.value)}
+                            placeholder="Título de referencia (opcional)"
+                          />
+                          <button
+                            type="button"
+                            className="rounded-md border px-4 py-2 text-sm"
+                            onClick={handleAddQuizReference}
+                          >
+                            Vincular
+                          </button>
+                        </div>
+                      </div>
+                    </details>
                   </div>
                 )}
               </section>
@@ -1556,16 +1618,17 @@ export default function CrearModulo() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="border rounded-lg p-4 space-y-2">
                           <h3 className="text-sm font-semibold">Libros y documentos</h3>
-                          <div className="flex flex-wrap gap-2">
-                            <button type="button" className="rounded-md border px-3 py-2 text-sm">
-                              Añadir libro desde editor
-                            </button>
-                            <button type="button" className="rounded-md border px-3 py-2 text-sm">
-                              Subir PDF / DOC
-                            </button>
-                          </div>
                           <p className="text-xs text-gray-500">
-                            Puedes incluir un cuestionario como módulo especial para lengua.
+                            Gestioná los libros desde el editor dedicado y luego vinculalos desde esta sección.
+                          </p>
+                          <Link
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 underline"
+                            to="/editor"
+                          >
+                            Abrir editor de libros
+                          </Link>
+                          <p className="text-[11px] text-gray-500">
+                            Tip: usá títulos consistentes para encontrarlos rápido en tus módulos.
                           </p>
                         </div>
 
@@ -1765,18 +1828,7 @@ export default function CrearModulo() {
                     </div>
                   </div>
                   <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    {/* Nota: podrías mostrar este botón solo en modo edición */}
-                    <button
-                      type="button"
-                      className="text-sm text-red-600 hover:text-red-700 border border-red-200 hover:border-red-400 rounded-md px-4 py-2"
-                    >
-                      Marcar módulo como eliminado
-                    </button>
-
                     <div className="flex flex-wrap justify-center gap-3">
-                      <button type="button" className="rounded-md border px-4 py-2 text-sm">
-                        Guardar como borrador
-                      </button>
                       <button
                         type="submit"
                         className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-6 py-2 text-sm font-medium disabled:opacity-70"
