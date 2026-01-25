@@ -21,6 +21,8 @@ type TheoryItem = ModuleTheoryBlock;
 type QuizReference = {
   id: string;
   title?: string;
+  schoolId?: string;
+  schoolName?: string;
 };
 
 type LevelConfig = {
@@ -235,6 +237,8 @@ export default function CrearModulo() {
   const [activeLevel, setActiveLevel] = useState(DEFAULT_LEVELS[0]);
   const [newQuizReferenceId, setNewQuizReferenceId] = useState("");
   const [newQuizReferenceTitle, setNewQuizReferenceTitle] = useState("");
+  const [newQuizReferenceSchoolId, setNewQuizReferenceSchoolId] = useState("");
+  const [newQuizReferenceSchoolName, setNewQuizReferenceSchoolName] = useState("");
   const [questionImportStatus, setQuestionImportStatus] = useState<{
     status: "idle" | "valid" | "error";
     message: string;
@@ -708,6 +712,8 @@ export default function CrearModulo() {
             title: quiz.title ?? quiz.id,
             type: "evaluacion",
             visibility: "publico",
+            schoolId: quiz.schoolId,
+            schoolName: quiz.schoolName,
           })),
           resources: [...bookResources, ...fileResources],
           questions,
@@ -800,9 +806,13 @@ export default function CrearModulo() {
       if (current.quizReferences.some((quiz) => quiz.id === trimmedId)) {
         return current;
       }
+      const trimmedSchoolId = newQuizReferenceSchoolId.trim();
+      const trimmedSchoolName = newQuizReferenceSchoolName.trim();
       const nextReference: QuizReference = {
         id: trimmedId,
         title: newQuizReferenceTitle.trim() || undefined,
+        schoolId: trimmedSchoolId || undefined,
+        schoolName: trimmedSchoolName || undefined,
       };
       return {
         ...current,
@@ -811,6 +821,8 @@ export default function CrearModulo() {
     });
     setNewQuizReferenceId("");
     setNewQuizReferenceTitle("");
+    setNewQuizReferenceSchoolId("");
+    setNewQuizReferenceSchoolName("");
   };
 
   const handleRemoveQuizReference = (id: string) => {
@@ -1651,6 +1663,12 @@ export default function CrearModulo() {
                                     {quiz.title || "Cuestionario sin título"}
                                   </p>
                                   <p className="text-[11px] text-slate-500">ID: {quiz.id}</p>
+                                  {(quiz.schoolId || quiz.schoolName) && (
+                                    <p className="text-[11px] text-slate-500">
+                                      Escuela:{" "}
+                                      {[quiz.schoolName, quiz.schoolId].filter(Boolean).join(" · ")}
+                                    </p>
+                                  )}
                                 </div>
                                 <button
                                   type="button"
@@ -1664,7 +1682,7 @@ export default function CrearModulo() {
                           </ul>
                         )}
 
-                        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] gap-2">
+                        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] gap-2">
                           <input
                             className="rounded-md border border-gray-300 px-3 py-2 text-sm"
                             value={newQuizReferenceId}
@@ -1676,6 +1694,18 @@ export default function CrearModulo() {
                             value={newQuizReferenceTitle}
                             onChange={(event) => setNewQuizReferenceTitle(event.target.value)}
                             placeholder="Título de referencia (opcional)"
+                          />
+                          <input
+                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                            value={newQuizReferenceSchoolId}
+                            onChange={(event) => setNewQuizReferenceSchoolId(event.target.value)}
+                            placeholder="ID de la escuela (opcional)"
+                          />
+                          <input
+                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                            value={newQuizReferenceSchoolName}
+                            onChange={(event) => setNewQuizReferenceSchoolName(event.target.value)}
+                            placeholder="Nombre de la escuela (opcional)"
                           />
                           <button
                             type="button"
