@@ -1656,23 +1656,15 @@ export default function CrearModulo() {
                 </section>
               )}
 
-              {/* 9. Visibilidad y permisos */}
-              <section className="space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <button
-                    type="button"
-                    className="flex items-center gap-2 text-lg font-semibold"
-                    onClick={() => handleToggleSection("visibility")}
-                    aria-expanded={openSection === "visibility"}
-                  >
-                    Visibilidad y permisos
-                    <span className="text-xs font-medium text-gray-500">
-                      {openSection === "visibility" ? "Ocultar" : "Editar"}
-                    </span>
-                  </button>
-                  <span className="text-xs font-semibold text-gray-500">Obligatorio</span>
-                </div>
-                {openSection === "visibility" && (
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 space-y-6">
+                {/* 9. Visibilidad y permisos */}
+                <section className="space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 text-lg font-semibold">
+                      Visibilidad y permisos
+                      <span className="text-xs font-medium text-slate-500">Paso obligatorio</span>
+                    </div>
+                  </div>
                   <div className="space-y-4">
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1762,26 +1754,16 @@ export default function CrearModulo() {
                       estado completo/incompleto y favoritos) fuera de este formulario.
                     </p>
                   </div>
-                )}
-              </section>
+                </section>
 
-              {/* 10. Acciones finales */}
-              <section className="space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <button
-                    type="button"
-                    className="flex items-center gap-2 text-lg font-semibold"
-                    onClick={() => handleToggleSection("actions")}
-                    aria-expanded={openSection === "actions"}
-                  >
-                    Acciones finales
-                    <span className="text-xs font-medium text-gray-500">
-                      {openSection === "actions" ? "Ocultar" : "Editar"}
-                    </span>
-                  </button>
-                  <span className="text-xs font-semibold text-gray-500">Paso final</span>
-                </div>
-                {openSection === "actions" && (
+                {/* 10. Acciones finales */}
+                <section className="space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 text-lg font-semibold">
+                      Acciones finales
+                      <span className="text-xs font-medium text-slate-500">Paso final</span>
+                    </div>
+                  </div>
                   <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                     {/* Nota: podrías mostrar este botón solo en modo edición */}
                     <button
@@ -1804,8 +1786,8 @@ export default function CrearModulo() {
                       </button>
                     </div>
                   </div>
-                )}
-              </section>
+                </section>
+              </div>
               {saveStatus !== "idle" && (
                 <p
                   className={`text-sm ${
