@@ -163,6 +163,10 @@ export default function CrearModulo() {
     () => theoryTypeOptions.filter((option) => !option.disabled),
     [theoryTypeOptions],
   );
+  const hasQuizReferences = useMemo(
+    () => levelsConfig.some((entry) => entry.quizReferences.length > 0),
+    [levelsConfig],
+  );
   const newTheoryDetailError = getTheoryDetailError(newTheoryType, newTheoryDetail);
   const moduleSizeScore = useMemo(() => {
     const quizCount = levelsConfig.reduce(
@@ -1412,6 +1416,12 @@ export default function CrearModulo() {
                       La edición detallada de consignas, importaciones JSON y generadores se realiza en el editor de
                       cuestionarios. Aquí solo verificás que los IDs estén vinculados al módulo.
                     </p>
+                    {!hasQuizReferences && (
+                      <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-700">
+                        Aún no hay cuestionarios creados para este módulo. Vinculá al menos uno para habilitar el
+                        sistema de puntuación y aprobación.
+                      </div>
+                    )}
                     <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 space-y-3">
                       <p className="text-xs text-slate-600">
                         Desde el editor podés importar bancos, usar generadores automáticos y preparar versiones
@@ -1429,83 +1439,91 @@ export default function CrearModulo() {
               </section>
 
               {/* 6. Sistema de puntuación y aprobación */}
-              <section className="space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <button
-                    type="button"
-                    className="flex items-center gap-2 text-lg font-semibold"
-                    onClick={() => handleToggleSection("scoring")}
-                    aria-expanded={openSection === "scoring"}
-                  >
-                    Sistema de puntuación y aprobación
-                    <span className="text-xs font-medium text-gray-500">
-                      {openSection === "scoring" ? "Ocultar" : "Editar"}
-                    </span>
-                  </button>
-                  <span className="text-xs font-semibold text-gray-500">Opcional</span>
-                </div>
-                {openSection === "scoring" && (
-                  <div className="space-y-4">
-                    <p className="text-sm text-gray-600">
-                      Configura el sistema de calificación, la escala y la cantidad de preguntas por punto.
-                    </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Sistema de calificación</label>
-                <select
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white"
-                  value={scoringSystemId}
-                  onChange={(event) => setScoringSystemId(event.target.value)}
-                >
-                  {scoringSystems.map((system) => (
-                    <option key={system.id} value={system.id}>
-                      {system.label}
-                    </option>
-                  ))}
-                </select>
-                {scoringSystemNote && <p className="mt-2 text-xs text-gray-500">{scoringSystemNote}</p>}
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Cantidad de preguntas por punto</label>
-                <input
-                  type="number"
-                  min={1}
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                  placeholder="Ej: 3 preguntas = 1 punto"
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Aprobación mínima</label>
-                <input
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                  placeholder="Ej: 6 / 60 / Aprobado"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Máximo para nota 6</label>
-                <input
-                  type="number"
-                  min={1}
-                  max={80}
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                  placeholder="Máximo 80%"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Regla de promoción</label>
-                <input
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                  placeholder="Ej: 70% o más"
-                />
-              </div>
+              {hasQuizReferences && (
+                <section className="space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      className="flex items-center gap-2 text-lg font-semibold"
+                      onClick={() => handleToggleSection("scoring")}
+                      aria-expanded={openSection === "scoring"}
+                    >
+                      Sistema de puntuación y aprobación
+                      <span className="text-xs font-medium text-gray-500">
+                        {openSection === "scoring" ? "Ocultar" : "Editar"}
+                      </span>
+                    </button>
+                    <span className="text-xs font-semibold text-gray-500">Opcional</span>
                   </div>
+                  {openSection === "scoring" && (
+                    <div className="space-y-4">
+                      <p className="text-sm text-gray-600">
+                        Configura el sistema de calificación, la escala y la cantidad de preguntas por punto.
+                      </p>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Sistema de calificación
+                          </label>
+                          <select
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white"
+                            value={scoringSystemId}
+                            onChange={(event) => setScoringSystemId(event.target.value)}
+                          >
+                            {scoringSystems.map((system) => (
+                              <option key={system.id} value={system.id}>
+                                {system.label}
+                              </option>
+                            ))}
+                          </select>
+                          {scoringSystemNote && (
+                            <p className="mt-2 text-xs text-gray-500">{scoringSystemNote}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Cantidad de preguntas por punto
+                          </label>
+                          <input
+                            type="number"
+                            min={1}
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+                            placeholder="Ej: 3 preguntas = 1 punto"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">Aprobación mínima</label>
+                          <input
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+                            placeholder="Ej: 6 / 60 / Aprobado"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">Máximo para nota 6</label>
+                          <input
+                            type="number"
+                            min={1}
+                            max={80}
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+                            placeholder="Máximo 80%"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">Regla de promoción</label>
+                          <input
+                            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
+                            placeholder="Ej: 70% o más"
+                          />
+                        </div>
+                      </div>
                     </div>
-                )}
-              </section>
+                  )}
+                </section>
+              )}
 
               {/* 7. Contenidos especiales */}
               {subjectCapabilities.supportsSpecialResources && (
