@@ -49,6 +49,17 @@ const isNonEmptyString = (value: unknown): value is string =>
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null;
 
+const parseQuestionSolution = (value: unknown): string | number | null => {
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    return trimmed ? trimmed : null;
+  }
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return value;
+  }
+  return null;
+};
+
 const exercisesJsonTemplate = `{
   "preguntas": [
     {
@@ -865,15 +876,13 @@ export default function CrearModulo() {
                 .filter((respuesta): respuesta is string => Boolean(respuesta))
             : [];
           const prompt = isNonEmptyString(pregunta.enunciado) ? pregunta.enunciado.trim() : "";
-          if (!prompt) return null;
+          const solution = parseQuestionSolution(pregunta.solucion);
+          if (!prompt || solution === null) return null;
           return {
             id: makeModuleId(`pregunta-${index + 1}`),
             prompt,
             answers: respuestas,
-            solution:
-              typeof pregunta.solucion === "string"
-                ? pregunta.solucion.trim()
-                : pregunta.solucion,
+            solution,
             explanation: isNonEmptyString(pregunta.explicacion)
               ? pregunta.explicacion.trim()
               : undefined,
