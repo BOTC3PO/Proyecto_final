@@ -211,6 +211,7 @@ export const getSubjectCapabilities = (subject: string): ModuleSubjectCapabiliti
 export type Module = {
   id: string;
   aulaId?: string;
+  schoolId?: string;
   title: string;
   description: string;
   subject: string;
