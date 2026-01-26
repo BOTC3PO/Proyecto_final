@@ -50,9 +50,10 @@ const renderExercise = (quiz: GeneratedQuiz) => {
   }
 
   if (quiz.kind === "basic") {
+    const quizTitle = quiz.exercise.metadata.titulo ?? quiz.exercise.metadata.id ?? "Sin título";
     return (
       <div className="space-y-3">
-        <p className="text-sm text-gray-600">{quiz.exercise.metadata.title}</p>
+        <p className="text-sm text-gray-600">{quizTitle}</p>
         <ol className="space-y-2 list-decimal list-inside">
           {quiz.exercise.questions.map((question) => (
             <li key={question.id} className="text-sm text-gray-700">
@@ -427,108 +428,111 @@ export default function JugarModulo() {
           <h2 className="text-lg font-semibold">Recursos</h2>
           {levelResources.length > 0 ? (
             <ul className="space-y-2 text-sm text-gray-700">
-              {levelResources.map((resource, index) => (
-                <li key={`${resource.type}-${index}`}>
-                  {resource.type === "book" && (
-                    <div className="space-y-2">
-                      <span className="block text-sm font-medium">
-                        Libro asociado: {resource.title ?? resource.id}
-                      </span>
-                      {bookStates[resource.id]?.status === "loading" ? (
-                        <p className="text-xs text-gray-500">Cargando libro...</p>
-                      ) : bookStates[resource.id]?.status === "error" ? (
-                        <p className="text-xs text-red-600">{bookStates[resource.id].message}</p>
-                      ) : bookStates[resource.id]?.status === "ready" ? (
-                        <BookReader book={bookStates[resource.id].record.book} />
-                      ) : (
-                        <p className="text-xs text-gray-500">Libro no disponible.</p>
-                      )}
-                    </div>
-                  )}
-                  {resource.type === "pdf" && (
-                    <a className="text-blue-600 hover:underline" href={resource.url} target="_blank" rel="noreferrer">
-                      {resource.title}
-                    </a>
-                  )}
-                  {resource.type === "link" && (
-                    <a className="text-blue-600 hover:underline" href={resource.url} target="_blank" rel="noreferrer">
-                      {resource.title}
-                    </a>
-                  )}
-                  {resource.type === "doc" && (
-                    <div className="flex flex-col gap-1">
-                      <span className="text-sm font-medium">{resource.title}</span>
-                      <a
-                        className="text-blue-600 hover:underline text-sm"
-                        href={resource.url}
-                        download={resource.fileName ?? resource.title}
-                      >
-                        Descargar documento
+              {levelResources.map((resource, index) => {
+                const bookState = bookStates[resource.id];
+                return (
+                  <li key={`${resource.type}-${index}`}>
+                    {resource.type === "book" && (
+                      <div className="space-y-2">
+                        <span className="block text-sm font-medium">
+                          Libro asociado: {resource.title ?? resource.id}
+                        </span>
+                        {bookState?.status === "loading" ? (
+                          <p className="text-xs text-gray-500">Cargando libro...</p>
+                        ) : bookState?.status === "error" ? (
+                          <p className="text-xs text-red-600">{bookState.message}</p>
+                        ) : bookState?.status === "ready" ? (
+                          <BookReader book={bookState.record.book} />
+                        ) : (
+                          <p className="text-xs text-gray-500">Libro no disponible.</p>
+                        )}
+                      </div>
+                    )}
+                    {resource.type === "pdf" && (
+                      <a className="text-blue-600 hover:underline" href={resource.url} target="_blank" rel="noreferrer">
+                        {resource.title}
                       </a>
-                    </div>
-                  )}
-                  {resource.type === "txt" && (
-                    <div className="space-y-2">
-                      <div className="flex flex-wrap items-center gap-2">
+                    )}
+                    {resource.type === "link" && (
+                      <a className="text-blue-600 hover:underline" href={resource.url} target="_blank" rel="noreferrer">
+                        {resource.title}
+                      </a>
+                    )}
+                    {resource.type === "doc" && (
+                      <div className="flex flex-col gap-1">
                         <span className="text-sm font-medium">{resource.title}</span>
-                        {resource.url ? (
-                          <a
-                            className="text-blue-600 hover:underline text-sm"
-                            href={resource.url}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Abrir archivo
-                          </a>
-                        ) : resource.content ? (
-                          <a
-                            className="text-blue-600 hover:underline text-sm"
-                            href={buildTextDownloadUrl(resource.content, "text/plain")}
-                            download={resource.fileName ?? `${resource.title}.txt`}
-                          >
-                            Descargar TXT
-                          </a>
-                        ) : null}
+                        <a
+                          className="text-blue-600 hover:underline text-sm"
+                          href={resource.url}
+                          download={resource.fileName ?? resource.title}
+                        >
+                          Descargar documento
+                        </a>
                       </div>
-                      {resource.content && (
-                        <pre className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs whitespace-pre-wrap">
-                          {resource.content}
-                        </pre>
-                      )}
-                    </div>
-                  )}
-                  {resource.type === "bookJson" && (
-                    <div className="space-y-2">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-sm font-medium">{resource.title}</span>
-                        {resource.url ? (
-                          <a
-                            className="text-blue-600 hover:underline text-sm"
-                            href={resource.url}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Abrir JSON
-                          </a>
-                        ) : resource.content ? (
-                          <a
-                            className="text-blue-600 hover:underline text-sm"
-                            href={buildTextDownloadUrl(resource.content, "application/json")}
-                            download={resource.fileName ?? `${resource.title}.json`}
-                          >
-                            Descargar JSON
-                          </a>
-                        ) : null}
+                    )}
+                    {resource.type === "txt" && (
+                      <div className="space-y-2">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-sm font-medium">{resource.title}</span>
+                          {resource.url ? (
+                            <a
+                              className="text-blue-600 hover:underline text-sm"
+                              href={resource.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Abrir archivo
+                            </a>
+                          ) : resource.content ? (
+                            <a
+                              className="text-blue-600 hover:underline text-sm"
+                              href={buildTextDownloadUrl(resource.content, "text/plain")}
+                              download={resource.fileName ?? `${resource.title}.txt`}
+                            >
+                              Descargar TXT
+                            </a>
+                          ) : null}
+                        </div>
+                        {resource.content && (
+                          <pre className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs whitespace-pre-wrap">
+                            {resource.content}
+                          </pre>
+                        )}
                       </div>
-                      {resource.content && (
-                        <pre className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs whitespace-pre-wrap">
-                          {formatJsonContent(resource.content)}
-                        </pre>
-                      )}
-                    </div>
-                  )}
-                </li>
-              ))}
+                    )}
+                    {resource.type === "bookJson" && (
+                      <div className="space-y-2">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-sm font-medium">{resource.title}</span>
+                          {resource.url ? (
+                            <a
+                              className="text-blue-600 hover:underline text-sm"
+                              href={resource.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Abrir JSON
+                            </a>
+                          ) : resource.content ? (
+                            <a
+                              className="text-blue-600 hover:underline text-sm"
+                              href={buildTextDownloadUrl(resource.content, "application/json")}
+                              download={resource.fileName ?? `${resource.title}.json`}
+                            >
+                              Descargar JSON
+                            </a>
+                          ) : null}
+                        </div>
+                        {resource.content && (
+                          <pre className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs whitespace-pre-wrap">
+                            {formatJsonContent(resource.content)}
+                          </pre>
+                        )}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           ) : (
             <p className="text-sm text-gray-500">No hay recursos adicionales para este módulo.</p>
