@@ -139,7 +139,7 @@ const getTheoryDetailError = (type: string, detail: string): string | null => {
   return null;
 };
 
-const DEFAULT_LEVELS = ["Básico", "Intermedio", "Avanzado"];
+const DEFAULT_LEVELS = ["Nivel 1"];
 const DEPENDENCY_TYPE_LABELS: Record<ModuleDependencyType, string> = {
   required: "Requerido",
   unlocks: "Desbloquea",
