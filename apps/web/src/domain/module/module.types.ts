@@ -101,6 +101,8 @@ const buildTheoryTypes = (supportsTuesdayJs: boolean, disabledReason: string): T
   { value: "Video", label: "Video" },
   { value: "Texto", label: "Texto" },
   { value: "Enlace", label: "Enlace" },
+  { value: "Libro", label: "Libro" },
+  { value: "Documento", label: "Documento" },
   {
     value: "TuesdayJS",
     label: "TuesdayJS",

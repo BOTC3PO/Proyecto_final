@@ -130,12 +130,20 @@ const validateExercisesJson = (value: unknown) => {
 
 
 const getTheoryDetailError = (type: string, detail: string): string | null => {
-  if (type !== "Video") return null;
-  if (!detail.trim()) {
-    return "Agrega el enlace del video (incluye http:// o https://).";
+  if (type === "Video") {
+    if (!detail.trim()) {
+      return "Agrega el enlace del video (incluye http:// o https://).";
+    }
+    if (!isValidUrl(detail.trim())) {
+      return "El enlace del video debe ser una URL válida.";
+    }
+    return null;
   }
-  if (!isValidUrl(detail.trim())) {
-    return "El enlace del video debe ser una URL válida.";
+  if (type === "Libro") {
+    return detail.trim() ? null : "Seleccioná un libro o describí el recurso.";
+  }
+  if (type === "Documento") {
+    return detail.trim() ? null : "Seleccioná un documento adjunto o agregá una nota.";
   }
   return null;
 };
@@ -203,6 +211,19 @@ const CURRENT_TEACHER_ID = "demo-docente";
 const CURRENT_SCHOOL_ID = "escuela-demo";
 const MAX_FILE_SIZE_MB = 15;
 const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+
+const getResourceTitle = (resource: ModuleResource) => {
+  if (resource.type === "book") {
+    return resource.title?.trim() || "Libro sin título";
+  }
+  if (resource.type === "bookJson") {
+    return resource.title?.trim() || resource.fileName?.trim() || "Libro sin título";
+  }
+  if (resource.type === "doc" || resource.type === "pdf") {
+    return resource.title?.trim() || resource.fileName?.trim() || "Documento sin título";
+  }
+  return resource.title?.trim() || "Recurso sin título";
+};
 
 const getResourceKey = (resource: ModuleResource) => {
   switch (resource.type) {
@@ -367,6 +388,37 @@ export default function CrearModulo() {
       },
     [activeLevel, levelsConfig],
   );
+  const bookTheoryOptions = useMemo(
+    () =>
+      currentLevelConfig.bookResources.map((resource) => ({
+        key: getResourceKey(resource),
+        value: getResourceTitle(resource),
+        label: getResourceTitle(resource),
+      })),
+    [currentLevelConfig.bookResources],
+  );
+  const documentTheoryOptions = useMemo(
+    () =>
+      currentLevelConfig.fileResources.map((resource) => ({
+        key: getResourceKey(resource),
+        value: getResourceTitle(resource),
+        label: getResourceTitle(resource),
+      })),
+    [currentLevelConfig.fileResources],
+  );
+  const isNewTheoryResourceType = newTheoryType === "Libro" || newTheoryType === "Documento";
+  const newTheoryBaseOptions = newTheoryType === "Libro" ? bookTheoryOptions : documentTheoryOptions;
+  const newTheoryOptions =
+    newTheoryDetail && !newTheoryBaseOptions.some((option) => option.value === newTheoryDetail)
+      ? [
+          {
+            key: "custom-theory",
+            value: newTheoryDetail,
+            label: `${newTheoryDetail} (no disponible)`,
+          },
+          ...newTheoryBaseOptions,
+        ]
+      : newTheoryBaseOptions;
   const specialResourcesEditor = useMemo(() => {
     switch (subject) {
       case "Geografía":
@@ -622,7 +674,7 @@ export default function CrearModulo() {
       .map((item) => getTheoryDetailError(item.type, item.detail))
       .filter((error): error is string => Boolean(error));
     if (theoryErrors.length) {
-      missing.push("Corrige los enlaces de video en teoría.");
+      missing.push("Corrige los detalles de teoría pendientes.");
     }
     return missing;
   }, [theoryItems]);
@@ -901,7 +953,7 @@ export default function CrearModulo() {
 
   const handleAddTheory = () => {
     if (!newTheoryTitle.trim()) return;
-    if (newTheoryType === "Video" && !isValidUrl(newTheoryDetail.trim())) return;
+    if (getTheoryDetailError(newTheoryType, newTheoryDetail)) return;
     const nextItem: TheoryItem = {
       id: `theory-${Date.now()}`,
       title: newTheoryTitle.trim(),
@@ -1713,18 +1765,32 @@ export default function CrearModulo() {
                 {openSection === "theory" && (
                   <div className="space-y-6">
                     <p className="text-sm text-gray-600">
-                      Agregá cada parte de la teoría como un bloque con tipo configurable (video, texto, enlace, etc.).
+                      Agregá cada parte de la teoría como un bloque con tipo configurable (video, texto, enlace,
+                      libro o documento) para ahorrar espacio cuando trabajes con adjuntos.
                     </p>
 
                     <div className="grid gap-3">
                       {theoryItems.length === 0 ? (
                         <div className="border rounded-lg p-4 text-sm text-gray-600 bg-gray-50">
                           Todavía no hay partes de teoría agregadas. Usa el formulario de abajo para sumar videos,
-                          texto o enlaces.
+                          texto, enlaces, libros o documentos.
                         </div>
                       ) : (
                         theoryItems.map((item) => {
                           const detailError = getTheoryDetailError(item.type, item.detail);
+                          const isResourceType = item.type === "Libro" || item.type === "Documento";
+                          const baseOptions = item.type === "Libro" ? bookTheoryOptions : documentTheoryOptions;
+                          const options =
+                            item.detail && !baseOptions.some((option) => option.value === item.detail)
+                              ? [
+                                  {
+                                    key: `custom-${item.id}`,
+                                    value: item.detail,
+                                    label: `${item.detail} (no disponible)`,
+                                  },
+                                  ...baseOptions,
+                                ]
+                              : baseOptions;
                           return (
                             <div key={item.id} className="border rounded-lg p-4 flex flex-col gap-2 bg-gray-50">
                               {detailError && <p className="text-xs text-red-600">{detailError}</p>}
@@ -1777,12 +1843,39 @@ export default function CrearModulo() {
                                     </p>
                                   )}
                                 </div>
-                                <input
-                                  className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                                  value={item.detail}
-                                  onChange={(event) => handleUpdateTheory(item.id, "detail", event.target.value)}
-                                  placeholder="Detalle rápido"
-                                />
+                                {isResourceType ? (
+                                  <div className="space-y-1">
+                                    <select
+                                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                                      value={item.detail}
+                                      onChange={(event) => handleUpdateTheory(item.id, "detail", event.target.value)}
+                                      disabled={options.length === 0}
+                                    >
+                                      <option value="">
+                                        {options.length === 0
+                                          ? "No hay recursos disponibles"
+                                          : "Seleccioná un recurso"}
+                                      </option>
+                                      {options.map((option) => (
+                                        <option key={option.key ?? `${item.id}-${option.value}`} value={option.value}>
+                                          {option.label}
+                                        </option>
+                                      ))}
+                                    </select>
+                                    {options.length === 0 && (
+                                      <p className="text-[11px] text-amber-600">
+                                        Agregá libros o documentos en Adjuntos y libros de apoyo.
+                                      </p>
+                                    )}
+                                  </div>
+                                ) : (
+                                  <input
+                                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                    value={item.detail}
+                                    onChange={(event) => handleUpdateTheory(item.id, "detail", event.target.value)}
+                                    placeholder="Detalle rápido"
+                                  />
+                                )}
                               </div>
                             </div>
                           );
@@ -1813,12 +1906,39 @@ export default function CrearModulo() {
                             ))}
                           </select>
                         </div>
-                        <input
-                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                          value={newTheoryDetail}
-                          onChange={(event) => setNewTheoryDetail(event.target.value)}
-                          placeholder="Detalle / nota"
-                        />
+                        {isNewTheoryResourceType ? (
+                          <div className="space-y-1">
+                            <select
+                              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                              value={newTheoryDetail}
+                              onChange={(event) => setNewTheoryDetail(event.target.value)}
+                              disabled={newTheoryOptions.length === 0}
+                            >
+                              <option value="">
+                                {newTheoryOptions.length === 0
+                                  ? "No hay recursos disponibles"
+                                  : "Seleccioná un recurso"}
+                              </option>
+                              {newTheoryOptions.map((option) => (
+                                <option key={option.key ?? option.value} value={option.value}>
+                                  {option.label}
+                                </option>
+                              ))}
+                            </select>
+                            {newTheoryOptions.length === 0 && (
+                              <p className="text-[11px] text-amber-600">
+                                Sumá libros o documentos en Adjuntos y libros de apoyo para vincularlos acá.
+                              </p>
+                            )}
+                          </div>
+                        ) : (
+                          <input
+                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                            value={newTheoryDetail}
+                            onChange={(event) => setNewTheoryDetail(event.target.value)}
+                            placeholder="Detalle / nota"
+                          />
+                        )}
                       </div>
                       {newTheoryDetailError && (
                         <p className="text-xs text-red-600">{newTheoryDetailError}</p>
