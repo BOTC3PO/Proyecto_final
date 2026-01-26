@@ -5,6 +5,7 @@ import { apiGet, apiPost } from "../lib/api";
 import MapEditor from "../components/MapEditor";
 import ReadingWorkshop from "../components/ReadingWorkshop";
 import SkeletonMarker from "../components/SkeletonMarker";
+import type { BookListItem, BookListResponse } from "../bookEditor/services/booksApi";
 import {
   getSubjectCapabilities,
   type Module,
@@ -200,6 +201,24 @@ const DEFAULT_CATEGORIAS = [
 const MODULE_SIZE_THRESHOLD = 2000;
 const CURRENT_TEACHER_ID = "demo-docente";
 const CURRENT_SCHOOL_ID = "escuela-demo";
+const MAX_FILE_SIZE_MB = 15;
+const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+
+const getResourceKey = (resource: ModuleResource) => {
+  switch (resource.type) {
+    case "book":
+      return `book:${resource.id}`;
+    case "bookJson":
+      return `bookJson:${resource.fileName ?? resource.title}`;
+    case "doc":
+    case "pdf":
+      return `${resource.type}:${resource.url}`;
+    default:
+      return `${resource.type}:${resource.title}`;
+  }
+};
+
+const getFileLabel = (value: number) => `${(value / 1024 / 1024).toFixed(1)} MB`;
 
 const isModuleVisibleToTeacher = (module: Module, teacherId: string, schoolId: string) => {
   if (module.createdBy === teacherId) return true;
@@ -237,6 +256,13 @@ export default function CrearModulo() {
   const [newTheoryTitle, setNewTheoryTitle] = useState("");
   const [newTheoryType, setNewTheoryType] = useState("Video");
   const [newTheoryDetail, setNewTheoryDetail] = useState("");
+  const [fileResourceError, setFileResourceError] = useState("");
+  const [bookJsonError, setBookJsonError] = useState("");
+  const [bookJsonFileName, setBookJsonFileName] = useState("");
+  const [bookSearchTerm, setBookSearchTerm] = useState("");
+  const [bookSearchResults, setBookSearchResults] = useState<BookListItem[]>([]);
+  const [bookSearchStatus, setBookSearchStatus] = useState<"idle" | "loading" | "error">("idle");
+  const [bookSearchError, setBookSearchError] = useState<string | null>(null);
   const [rewardMaxLevel, setRewardMaxLevel] = useState("");
   const [rewardMaxExperience, setRewardMaxExperience] = useState("");
   const [rewardMaxQuestionsPerRound, setRewardMaxQuestionsPerRound] = useState("");
@@ -437,6 +463,38 @@ export default function CrearModulo() {
       window.clearTimeout(timeout);
     };
   }, [dependencySearchTerm]);
+
+  useEffect(() => {
+    let active = true;
+    const controller = new AbortController();
+    const trimmed = bookSearchTerm.trim();
+    const timeout = window.setTimeout(() => {
+      const params = new URLSearchParams();
+      if (trimmed) params.set("q", trimmed);
+      params.set("pageSize", "20");
+      setBookSearchStatus("loading");
+      setBookSearchError(null);
+      apiGet<BookListResponse>(`/api/libros?${params.toString()}`, { signal: controller.signal })
+        .then((data) => {
+          if (!active) return;
+          setBookSearchResults(data.items ?? []);
+          setBookSearchStatus("idle");
+        })
+        .catch((error: unknown) => {
+          if (!active) return;
+          if (error instanceof DOMException && error.name === "AbortError") return;
+          setBookSearchResults([]);
+          setBookSearchStatus("error");
+          setBookSearchError("No se pudieron cargar los libros. Intentá nuevamente.");
+        });
+    }, 300);
+
+    return () => {
+      active = false;
+      controller.abort();
+      window.clearTimeout(timeout);
+    };
+  }, [bookSearchTerm]);
 
   const scoringSystems = [
     {
@@ -864,6 +922,123 @@ export default function CrearModulo() {
     setTheoryItems((prev) =>
       prev.map((item) => (item.id === id ? { ...item, [field]: value } : item)),
     );
+  };
+
+  const handleAddFileResources = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
+    const errors: string[] = [];
+    const newResources: ModuleResource[] = [];
+    Array.from(files).forEach((file) => {
+      const lowerName = file.name.toLowerCase();
+      const isPdf = lowerName.endsWith(".pdf");
+      const isDoc = lowerName.endsWith(".doc");
+      if (!isPdf && !isDoc) {
+        errors.push(`${file.name}: solo se aceptan archivos .doc o .pdf.`);
+        return;
+      }
+      if (file.size > MAX_FILE_SIZE_BYTES) {
+        errors.push(
+          `${file.name}: supera el límite de ${MAX_FILE_SIZE_MB} MB (${getFileLabel(file.size)}).`,
+        );
+        return;
+      }
+      const url = URL.createObjectURL(file);
+      const baseTitle = file.name.replace(/\.[^.]+$/, "");
+      if (isPdf) {
+        newResources.push({ type: "pdf", title: baseTitle || file.name, url });
+      } else {
+        newResources.push({
+          type: "doc",
+          title: baseTitle || file.name,
+          url,
+          fileName: file.name,
+        });
+      }
+    });
+
+    if (newResources.length > 0) {
+      updateLevelConfig(activeLevel, (current) => ({
+        ...current,
+        fileResources: [...current.fileResources, ...newResources],
+      }));
+    }
+    setFileResourceError(errors.join(" "));
+    event.target.value = "";
+  };
+
+  const handleAddBookResource = (book: BookListItem) => {
+    updateLevelConfig(activeLevel, (current) => {
+      if (current.bookResources.some((resource) => resource.type === "book" && resource.id === book.id)) {
+        return current;
+      }
+      return {
+        ...current,
+        bookResources: [...current.bookResources, { type: "book", id: book.id, title: book.title }],
+      };
+    });
+  };
+
+  const handleBookJsonChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setBookJsonError("");
+    setBookJsonFileName("");
+    const lowerName = file.name.toLowerCase();
+    if (!lowerName.endsWith(".json")) {
+      setBookJsonError("El archivo debe ser un JSON exportado desde el editor de libros.");
+      event.target.value = "";
+      return;
+    }
+    if (file.size > MAX_FILE_SIZE_BYTES) {
+      setBookJsonError(
+        `El JSON supera el límite de ${MAX_FILE_SIZE_MB} MB (${getFileLabel(file.size)}).`,
+      );
+      event.target.value = "";
+      return;
+    }
+    try {
+      const raw = await file.text();
+      const parsed = JSON.parse(raw) as unknown;
+      const title =
+        isRecord(parsed) && isRecord(parsed.metadata) && isNonEmptyString(parsed.metadata.title)
+          ? parsed.metadata.title
+          : file.name.replace(/\.[^.]+$/, "");
+      const resource: ModuleResource = {
+        type: "bookJson",
+        title: title || file.name,
+        content: raw,
+        fileName: file.name,
+      };
+      updateLevelConfig(activeLevel, (current) => ({
+        ...current,
+        bookResources: [...current.bookResources, resource],
+      }));
+      setBookJsonFileName(file.name);
+    } catch (error) {
+      setBookJsonError("No se pudo leer el JSON del libro.");
+    } finally {
+      event.target.value = "";
+    }
+  };
+
+  const handleRemoveResource = (resource: ModuleResource) => {
+    if (resource.type === "doc" || resource.type === "pdf") {
+      URL.revokeObjectURL(resource.url);
+      updateLevelConfig(activeLevel, (current) => ({
+        ...current,
+        fileResources: current.fileResources.filter(
+          (item) => getResourceKey(item) !== getResourceKey(resource),
+        ),
+      }));
+      return;
+    }
+    updateLevelConfig(activeLevel, (current) => ({
+      ...current,
+      bookResources: current.bookResources.filter(
+        (item) => getResourceKey(item) !== getResourceKey(resource),
+      ),
+    }));
   };
 
   const handleAddQuizReference = () => {
@@ -1651,6 +1826,177 @@ export default function CrearModulo() {
                       <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddTheory}>
                         + Agregar parte de teoría
                       </button>
+                    </div>
+
+                    <div className="border rounded-lg p-4 space-y-4">
+                      <div>
+                        <h3 className="text-sm font-semibold">Adjuntos y libros de apoyo</h3>
+                        <p className="text-xs text-gray-500">
+                          Asociá recursos al nivel <span className="font-semibold">{activeLevel}</span>. Límite por
+                          archivo: {MAX_FILE_SIZE_MB} MB. Solo se permiten documentos .doc o .pdf y JSON exportados
+                          desde el editor de libros.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-3 rounded-lg border border-slate-200 bg-slate-50 p-4">
+                          <div>
+                            <p className="text-sm font-semibold">Adjuntar documentos (.doc / .pdf)</p>
+                            <p className="text-xs text-gray-500">
+                              Los documentos se guardan como recursos de descarga en el módulo.
+                            </p>
+                          </div>
+                          <input
+                            type="file"
+                            accept=".doc,.pdf"
+                            multiple
+                            onChange={handleAddFileResources}
+                            className="block w-full text-sm text-slate-600 file:mr-4 file:rounded-md file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:text-blue-700"
+                          />
+                          {fileResourceError && (
+                            <p className="text-xs text-red-600">{fileResourceError}</p>
+                          )}
+                          <div className="space-y-2">
+                            <p className="text-xs font-semibold text-slate-600">
+                              Archivos adjuntos ({currentLevelConfig.fileResources.length})
+                            </p>
+                            {currentLevelConfig.fileResources.length === 0 ? (
+                              <p className="text-xs text-gray-500">No hay documentos adjuntos en este nivel.</p>
+                            ) : (
+                              <ul className="space-y-2">
+                                {currentLevelConfig.fileResources.map((resource) => (
+                                  <li
+                                    key={getResourceKey(resource)}
+                                    className="flex items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-2 text-xs"
+                                  >
+                                    <div>
+                                      <p className="font-semibold text-slate-700">{resource.title}</p>
+                                      <p className="text-[11px] text-slate-500 uppercase">
+                                        {resource.type === "doc" ? "Documento" : "PDF"}
+                                      </p>
+                                    </div>
+                                    <button
+                                      type="button"
+                                      className="text-xs text-red-500 hover:underline"
+                                      onClick={() => handleRemoveResource(resource)}
+                                    >
+                                      Quitar
+                                    </button>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="space-y-4 rounded-lg border border-slate-200 bg-white p-4">
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between gap-2">
+                              <p className="text-sm font-semibold">Vincular libros existentes</p>
+                              <Link className="text-xs text-blue-700 underline" to="/editor">
+                                Abrir editor de libros
+                              </Link>
+                            </div>
+                            <p className="text-xs text-gray-500">
+                              Buscá libros propios o compartidos en la escuela para agregarlos como recursos del
+                              módulo.
+                            </p>
+                            <input
+                              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                              placeholder="Buscar por título..."
+                              value={bookSearchTerm}
+                              onChange={(event) => setBookSearchTerm(event.target.value)}
+                            />
+                            {bookSearchStatus === "loading" && (
+                              <p className="text-xs text-gray-500">Buscando libros...</p>
+                            )}
+                            {bookSearchError && <p className="text-xs text-red-600">{bookSearchError}</p>}
+                            {bookSearchResults.length > 0 ? (
+                              <ul className="max-h-40 space-y-2 overflow-auto rounded-md border border-slate-200 bg-slate-50 p-2">
+                                {bookSearchResults.map((book) => {
+                                  const alreadyLinked = currentLevelConfig.bookResources.some(
+                                    (resource) => resource.type === "book" && resource.id === book.id,
+                                  );
+                                  return (
+                                    <li
+                                      key={book.id}
+                                      className="flex items-center justify-between rounded-md bg-white px-3 py-2 text-xs"
+                                    >
+                                      <div>
+                                        <p className="font-semibold text-slate-700">{book.title}</p>
+                                        <p className="text-[11px] text-slate-500">ID: {book.id}</p>
+                                      </div>
+                                      <button
+                                        type="button"
+                                        className="text-xs font-semibold text-blue-700 hover:underline disabled:text-slate-400"
+                                        onClick={() => handleAddBookResource(book)}
+                                        disabled={alreadyLinked}
+                                      >
+                                        {alreadyLinked ? "Vinculado" : "Vincular"}
+                                      </button>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            ) : (
+                              <p className="text-xs text-gray-500">
+                                {bookSearchTerm.trim()
+                                  ? "No encontramos libros con ese criterio."
+                                  : "Ingresá un término para buscar libros."}
+                              </p>
+                            )}
+                          </div>
+
+                          <div className="space-y-2">
+                            <p className="text-sm font-semibold">Agregar libros JSON del editor</p>
+                            <p className="text-xs text-gray-500">
+                              Importá el JSON exportado desde el editor para adjuntarlo como recurso tipo bookJson.
+                            </p>
+                            <input
+                              type="file"
+                              accept="application/json,.json"
+                              onChange={handleBookJsonChange}
+                              className="block w-full text-sm text-slate-600 file:mr-4 file:rounded-md file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:text-blue-700"
+                            />
+                            {bookJsonFileName && (
+                              <p className="text-xs text-emerald-600">Añadido: {bookJsonFileName}</p>
+                            )}
+                            {bookJsonError && <p className="text-xs text-red-600">{bookJsonError}</p>}
+                          </div>
+
+                          <div className="space-y-2">
+                            <p className="text-xs font-semibold text-slate-600">
+                              Libros vinculados ({currentLevelConfig.bookResources.length})
+                            </p>
+                            {currentLevelConfig.bookResources.length === 0 ? (
+                              <p className="text-xs text-gray-500">No hay libros vinculados en este nivel.</p>
+                            ) : (
+                              <ul className="space-y-2">
+                                {currentLevelConfig.bookResources.map((resource) => (
+                                  <li
+                                    key={getResourceKey(resource)}
+                                    className="flex items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-2 text-xs"
+                                  >
+                                    <div>
+                                      <p className="font-semibold text-slate-700">{resource.title}</p>
+                                      <p className="text-[11px] text-slate-500">
+                                        {resource.type === "book" ? `Libro ID: ${resource.id}` : "Book JSON"}
+                                      </p>
+                                    </div>
+                                    <button
+                                      type="button"
+                                      className="text-xs text-red-500 hover:underline"
+                                      onClick={() => handleRemoveResource(resource)}
+                                    >
+                                      Quitar
+                                    </button>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
