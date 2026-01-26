@@ -477,8 +477,7 @@ export default function CrearModulo() {
       info: true,
       dependencies: true,
       theory: true,
-      stackedQuizzes: true,
-      quizGenerator: true,
+      quizzes: true,
       scoring: true,
       specialResources: subjectCapabilities.supportsSpecialResources,
       rewards: subjectCapabilities.supportsGenerators && isModelModule,
@@ -527,7 +526,7 @@ export default function CrearModulo() {
         return generalMissing;
       case "theory":
         return theoryMissing;
-      case "stackedQuizzes":
+      case "quizzes":
         return quizMissing;
       default:
         return [];
@@ -539,8 +538,7 @@ export default function CrearModulo() {
       { id: "info", label: "Información general" },
       { id: "dependencies", label: "Dependencias y desbloqueo" },
       { id: "theory", label: "Teoría" },
-      { id: "stackedQuizzes", label: "Cuestionarios apilados" },
-      { id: "quizGenerator", label: "Cuestionarios y generación" },
+      { id: "quizzes", label: "Cuestionarios" },
       { id: "scoring", label: "Sistema de puntuación" },
       { id: "specialResources", label: "Contenidos especiales" },
       { id: "rewards", label: "Sistema de nivel y recompensas" },
@@ -1572,18 +1570,18 @@ export default function CrearModulo() {
                 )}
               </section>
 
-              {/* 4. Cuestionarios apilados */}
+              {/* 4. Cuestionarios */}
               <section className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <button
                     type="button"
                     className="flex items-center gap-2 text-lg font-semibold"
-                    onClick={() => handleToggleSection("stackedQuizzes")}
-                    aria-expanded={openSection === "stackedQuizzes"}
+                    onClick={() => handleToggleSection("quizzes")}
+                    aria-expanded={openSection === "quizzes"}
                   >
-                    Cuestionarios apilados
+                    Cuestionarios
                     <span className="text-xs font-medium text-gray-500">
-                      {openSection === "stackedQuizzes" ? "Ocultar" : "Editar"}
+                      {openSection === "quizzes" ? "Ocultar" : "Editar"}
                     </span>
                   </button>
                   <span
@@ -1594,7 +1592,7 @@ export default function CrearModulo() {
                     {quizMissing.length === 0 ? "Completo" : "Faltan datos"}
                   </span>
                 </div>
-                {visitedSections.stackedQuizzes && quizMissing.length > 0 && (
+                {visitedSections.quizzes && quizMissing.length > 0 && (
                   <div className="rounded-md border border-amber-200 bg-amber-50 p-3 text-xs text-amber-700">
                     <p className="font-semibold">Qué falta en esta sección</p>
                     <ul className="mt-2 list-disc space-y-1 pl-4">
@@ -1604,11 +1602,11 @@ export default function CrearModulo() {
                     </ul>
                   </div>
                 )}
-                {openSection === "stackedQuizzes" && (
-                  <div className="space-y-4">
+                {openSection === "quizzes" && (
+                  <div className="space-y-6">
                     <p className="text-sm text-gray-600">
-                      Seleccioná los cuestionarios que ya creaste en el editor dedicado. Aquí solo vinculás sus IDs
-                      al módulo y validás que cada nivel tenga al menos uno.
+                      Gestioná los cuestionarios del módulo en un solo lugar: vinculá IDs creados en el editor,
+                      importá bancos JSON y ajustá las consignas básicas por nivel.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                       <div className="rounded-lg border border-slate-200 bg-white p-4">
@@ -1633,11 +1631,20 @@ export default function CrearModulo() {
                         </Link>
                       </div>
                     </div>
-                    <details className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                      <summary className="cursor-pointer text-sm font-semibold text-slate-700">
-                        Vincular IDs de cuestionarios por nivel
-                      </summary>
-                      <div className="mt-4 space-y-4">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 space-y-6">
+                      <div className="space-y-4">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <div>
+                            <h3 className="text-sm font-semibold">Vincular cuestionarios por nivel</h3>
+                            <p className="text-xs text-gray-500">
+                              Copiá el ID desde el editor dedicado y asociá cada cuestionario al nivel correspondiente.
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-slate-500">
+                            <span className="font-semibold text-slate-600">Nivel activo:</span>
+                            <span>{activeLevel}</span>
+                          </div>
+                        </div>
                         <div className="max-w-xs">
                           <label className="block text-xs font-medium text-gray-700">Nivel a configurar</label>
                           <select
@@ -1725,191 +1732,162 @@ export default function CrearModulo() {
                           </button>
                         </div>
                       </div>
-                    </details>
-                  </div>
-                )}
-              </section>
 
-              {/* 5. Cuestionarios y generación */}
-              <section className="space-y-6">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <button
-                    type="button"
-                    className="flex items-center gap-2 text-lg font-semibold"
-                    onClick={() => handleToggleSection("quizGenerator")}
-                    aria-expanded={openSection === "quizGenerator"}
-                  >
-                    Cuestionarios y generación
-                    <span className="text-xs font-medium text-gray-500">
-                      {openSection === "quizGenerator" ? "Ocultar" : "Editar"}
-                    </span>
-                  </button>
-                  <span className="text-xs font-semibold text-gray-500">Opcional</span>
-                </div>
-                {openSection === "quizGenerator" && (
-                  <div className="space-y-4">
-                    <p className="text-sm text-gray-600">
-                      La edición detallada de consignas, importaciones JSON y generadores se realiza en el editor de
-                      cuestionarios. Aquí solo verificás que los IDs estén vinculados al módulo.
-                    </p>
-                    <div className="rounded-lg border border-slate-200 bg-white p-4 space-y-4">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="border-t border-slate-200 pt-6 space-y-4">
                         <div>
                           <h3 className="text-sm font-semibold">Banco de preguntas del módulo</h3>
                           <p className="text-xs text-gray-500">
                             Importá una plantilla JSON y ajustá las consignas antes de guardar.
                           </p>
                         </div>
-                        <div className="flex items-center gap-2 text-xs text-slate-500">
-                          <span className="font-semibold text-slate-600">Nivel activo:</span>
-                          <span>{activeLevel}</span>
-                        </div>
-                      </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="border rounded-lg p-4 space-y-2">
-                          <h4 className="text-sm font-semibold">Importar JSON</h4>
-                          <input
-                            type="file"
-                            accept=".json"
-                            className="block w-full text-sm text-gray-700 file:mr-4 file:rounded-md file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
-                            onChange={handleQuestionFileChange}
-                          />
-                          <p className="text-xs text-gray-500">
-                            Cada pregunta debe incluir: enunciado, respuestas y solución.
-                          </p>
-                          {questionImportStatus.status === "valid" && (
-                            <p className="text-xs text-emerald-600">
-                              {questionImportStatus.message}{" "}
-                              {questionImportFileName ? `(${questionImportFileName})` : ""}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="border rounded-lg p-4 space-y-2">
+                            <h4 className="text-sm font-semibold">Importar JSON</h4>
+                            <input
+                              type="file"
+                              accept=".json"
+                              className="block w-full text-sm text-gray-700 file:mr-4 file:rounded-md file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
+                              onChange={handleQuestionFileChange}
+                            />
+                            <p className="text-xs text-gray-500">
+                              Cada pregunta debe incluir: enunciado, respuestas y solución.
                             </p>
-                          )}
-                          {questionImportStatus.status === "error" && (
-                            <div className="rounded-md border border-red-200 bg-red-50 p-3 text-xs text-red-700 space-y-2">
-                              <p className="font-semibold">{questionImportStatus.message}</p>
-                              <ul className="list-disc pl-4 space-y-1">
-                                {questionImportStatus.errors?.map((error) => (
-                                  <li key={error}>{error}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                          <details className="rounded-md border border-slate-200 bg-slate-50 p-3 text-[11px] text-slate-600">
-                            <summary className="cursor-pointer font-medium">Ver ejemplo de planilla válida</summary>
-                            <pre className="mt-2 whitespace-pre-wrap font-mono">{exercisesJsonTemplate}</pre>
-                          </details>
+                            {questionImportStatus.status === "valid" && (
+                              <p className="text-xs text-emerald-600">
+                                {questionImportStatus.message}{" "}
+                                {questionImportFileName ? `(${questionImportFileName})` : ""}
+                              </p>
+                            )}
+                            {questionImportStatus.status === "error" && (
+                              <div className="rounded-md border border-red-200 bg-red-50 p-3 text-xs text-red-700 space-y-2">
+                                <p className="font-semibold">{questionImportStatus.message}</p>
+                                <ul className="list-disc pl-4 space-y-1">
+                                  {questionImportStatus.errors?.map((error) => (
+                                    <li key={error}>{error}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                            <details className="rounded-md border border-slate-200 bg-slate-50 p-3 text-[11px] text-slate-600">
+                              <summary className="cursor-pointer font-medium">
+                                Ver ejemplo de planilla válida
+                              </summary>
+                              <pre className="mt-2 whitespace-pre-wrap font-mono">{exercisesJsonTemplate}</pre>
+                            </details>
+                          </div>
+
+                          <div className="border rounded-lg p-4 space-y-2">
+                            <h4 className="text-sm font-semibold">Descargar JSON base</h4>
+                            <p className="text-xs text-gray-600">
+                              Genera un archivo base con estructura vacía para completar offline.
+                            </p>
+                            <button
+                              type="button"
+                              className="rounded-md border px-3 py-2 text-sm"
+                              onClick={handleDownloadQuestionTemplate}
+                            >
+                              Descargar plantilla JSON
+                            </button>
+                          </div>
                         </div>
 
-                        <div className="border rounded-lg p-4 space-y-2">
-                          <h4 className="text-sm font-semibold">Descargar JSON base</h4>
-                          <p className="text-xs text-gray-600">
-                            Genera un archivo base con estructura vacía para completar offline.
-                          </p>
-                          <button
-                            type="button"
-                            className="rounded-md border px-3 py-2 text-sm"
-                            onClick={handleDownloadQuestionTemplate}
-                          >
-                            Descargar plantilla JSON
-                          </button>
-                        </div>
+                        {currentLevelConfig.questions.length === 0 ? (
+                          <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 px-4 py-3 text-xs text-slate-500">
+                            Todavía no importaste preguntas para este nivel.
+                          </div>
+                        ) : (
+                          <div className="space-y-3">
+                            {currentLevelConfig.questions.map((question, index) => (
+                              <div key={question.id} className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                                <div className="flex items-center justify-between gap-2">
+                                  <p className="text-sm font-semibold text-slate-700">
+                                    Pregunta {index + 1}
+                                  </p>
+                                  <button
+                                    type="button"
+                                    className="text-xs text-red-500 hover:underline"
+                                    onClick={() => handleRemoveQuestion(question.id)}
+                                  >
+                                    Eliminar
+                                  </button>
+                                </div>
+                                <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+                                  <div className="md:col-span-2">
+                                    <label className="text-xs font-medium text-slate-600">Enunciado</label>
+                                    <textarea
+                                      rows={2}
+                                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                      value={question.prompt}
+                                      onChange={(event) =>
+                                        handleUpdateQuestion(question.id, (current) => ({
+                                          ...current,
+                                          prompt: event.target.value,
+                                        }))
+                                      }
+                                    />
+                                  </div>
+                                  <div className="md:col-span-2">
+                                    <label className="text-xs font-medium text-slate-600">Respuestas</label>
+                                    <textarea
+                                      rows={3}
+                                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                      value={question.answers?.join("\n") ?? ""}
+                                      onChange={(event) =>
+                                        handleUpdateQuestion(question.id, (current) => ({
+                                          ...current,
+                                          answers: event.target.value
+                                            .split("\n")
+                                            .map((answer) => answer.trim())
+                                            .filter(Boolean),
+                                        }))
+                                      }
+                                      placeholder="Una respuesta por línea"
+                                    />
+                                  </div>
+                                  <div>
+                                    <label className="text-xs font-medium text-slate-600">Solución</label>
+                                    <input
+                                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                      value={question.solution ?? ""}
+                                      onChange={(event) =>
+                                        handleUpdateQuestion(question.id, (current) => ({
+                                          ...current,
+                                          solution: event.target.value,
+                                        }))
+                                      }
+                                    />
+                                  </div>
+                                  <div>
+                                    <label className="text-xs font-medium text-slate-600">Explicación</label>
+                                    <input
+                                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                                      value={question.explanation ?? ""}
+                                      onChange={(event) =>
+                                        handleUpdateQuestion(question.id, (current) => ({
+                                          ...current,
+                                          explanation: event.target.value,
+                                        }))
+                                      }
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
-
-                      {currentLevelConfig.questions.length === 0 ? (
-                        <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 px-4 py-3 text-xs text-slate-500">
-                          Todavía no importaste preguntas para este nivel.
-                        </div>
-                      ) : (
-                        <div className="space-y-3">
-                          {currentLevelConfig.questions.map((question, index) => (
-                            <div key={question.id} className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                              <div className="flex items-center justify-between gap-2">
-                                <p className="text-sm font-semibold text-slate-700">
-                                  Pregunta {index + 1}
-                                </p>
-                                <button
-                                  type="button"
-                                  className="text-xs text-red-500 hover:underline"
-                                  onClick={() => handleRemoveQuestion(question.id)}
-                                >
-                                  Eliminar
-                                </button>
-                              </div>
-                              <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <div className="md:col-span-2">
-                                  <label className="text-xs font-medium text-slate-600">Enunciado</label>
-                                  <textarea
-                                    rows={2}
-                                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                                    value={question.prompt}
-                                    onChange={(event) =>
-                                      handleUpdateQuestion(question.id, (current) => ({
-                                        ...current,
-                                        prompt: event.target.value,
-                                      }))
-                                    }
-                                  />
-                                </div>
-                                <div className="md:col-span-2">
-                                  <label className="text-xs font-medium text-slate-600">Respuestas</label>
-                                  <textarea
-                                    rows={3}
-                                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                                    value={question.answers?.join("\n") ?? ""}
-                                    onChange={(event) =>
-                                      handleUpdateQuestion(question.id, (current) => ({
-                                        ...current,
-                                        answers: event.target.value
-                                          .split("\n")
-                                          .map((answer) => answer.trim())
-                                          .filter(Boolean),
-                                      }))
-                                    }
-                                    placeholder="Una respuesta por línea"
-                                  />
-                                </div>
-                                <div>
-                                  <label className="text-xs font-medium text-slate-600">Solución</label>
-                                  <input
-                                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                                    value={question.solution ?? ""}
-                                    onChange={(event) =>
-                                      handleUpdateQuestion(question.id, (current) => ({
-                                        ...current,
-                                        solution: event.target.value,
-                                      }))
-                                    }
-                                  />
-                                </div>
-                                <div>
-                                  <label className="text-xs font-medium text-slate-600">Explicación</label>
-                                  <input
-                                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                                    value={question.explanation ?? ""}
-                                    onChange={(event) =>
-                                      handleUpdateQuestion(question.id, (current) => ({
-                                        ...current,
-                                        explanation: event.target.value,
-                                      }))
-                                    }
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
                     </div>
                     {!hasQuizReferences && (
                       <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-700">
-                        Aún no hay cuestionarios creados para este módulo. Vinculá al menos uno para habilitar el
+                        Aún no hay cuestionarios vinculados para este módulo. Vinculá al menos uno para habilitar el
                         sistema de puntuación y aprobación.
                       </div>
                     )}
                     <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 space-y-3">
                       <p className="text-xs text-slate-600">
-                        Desde el editor podés importar bancos, usar generadores automáticos y preparar versiones
-                        para cada nivel.
+                        Desde el editor dedicado podés preparar bancos avanzados, generadores automáticos y versiones
+                        alternativas para cada nivel.
                       </p>
                       <Link
                         className="inline-flex items-center gap-2 rounded-md border border-blue-200 bg-white px-3 py-2 text-xs font-semibold text-blue-700 hover:bg-blue-50"
