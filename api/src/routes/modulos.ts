@@ -15,6 +15,67 @@ const clampLimit = (value: string | undefined) => {
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 
+const escapeRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const parseVisibilityList = (value: unknown) => {
+  if (typeof value !== "string") return [];
+  return value
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+};
+
+modulos.get("/api/modulos/buscar", async (req, res) => {
+  const db = await getDb();
+  const limit = clampLimit(req.query.limit as string | undefined);
+  const offset = Number(req.query.offset ?? 0);
+  const query = typeof req.query.query === "string" ? req.query.query.trim() : "";
+  const category = typeof req.query.category === "string" ? req.query.category.trim() : "";
+  const createdBy = typeof req.query.createdBy === "string" ? req.query.createdBy.trim() : "";
+  const schoolId = typeof req.query.schoolId === "string" ? req.query.schoolId.trim() : "";
+  const visibilityList = parseVisibilityList(req.query.visibility);
+
+  const accessFilters: Record<string, unknown>[] = [];
+  if (createdBy) {
+    accessFilters.push({ createdBy });
+  }
+  if (visibilityList.includes("publico")) {
+    accessFilters.push({ visibility: "publico" });
+  }
+  if (visibilityList.includes("escuela")) {
+    accessFilters.push(
+      schoolId ? { visibility: "escuela", schoolId } : { visibility: "escuela" },
+    );
+  }
+  if (visibilityList.includes("privado") && createdBy) {
+    accessFilters.push({ visibility: "privado", createdBy });
+  }
+
+  const andFilters: Record<string, unknown>[] = [];
+  if (accessFilters.length > 0) {
+    andFilters.push({ $or: accessFilters });
+  }
+  if (query) {
+    const regex = new RegExp(escapeRegex(query), "i");
+    andFilters.push({ $or: [{ title: regex }, { category: regex }] });
+  }
+  if (category) {
+    andFilters.push({ category });
+  }
+
+  const filter =
+    andFilters.length === 0 ? {} : andFilters.length === 1 ? andFilters[0] : { $and: andFilters };
+
+  const cursor = db
+    .collection("modulos")
+    .find(filter)
+    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
+    .limit(limit)
+    .sort({ updatedAt: -1 });
+  const items = await cursor.toArray();
+  res.json({ items, limit, offset });
+});
+
 modulos.get("/api/modulos", async (req, res) => {
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);

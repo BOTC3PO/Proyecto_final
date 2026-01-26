@@ -1,19 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
-import { apiPost } from "../lib/api";
+import { apiGet, apiPost } from "../lib/api";
 import MapEditor from "../components/MapEditor";
 import ReadingWorkshop from "../components/ReadingWorkshop";
 import SkeletonMarker from "../components/SkeletonMarker";
 import {
   getSubjectCapabilities,
+  type Module,
   type ModuleResource,
   type ModuleDependency,
   type ModuleDependencyType,
   type ModuleTheoryBlock,
   type ModuleQuizQuestion,
 } from "../domain/module/module.types";
-import { MVP_MODULES } from "../mvp/mvpData";
 import { fetchCategoriasConfig, fetchMateriasConfig } from "../services/modulos";
 
 type TheoryItem = ModuleTheoryBlock;
@@ -198,6 +198,15 @@ const DEFAULT_CATEGORIAS = [
 ];
 
 const MODULE_SIZE_THRESHOLD = 2000;
+const CURRENT_TEACHER_ID = "demo-docente";
+const CURRENT_SCHOOL_ID = "escuela-demo";
+
+const isModuleVisibleToTeacher = (module: Module, teacherId: string, schoolId: string) => {
+  if (module.createdBy === teacherId) return true;
+  if (module.visibility === "publico") return true;
+  if (module.visibility === "escuela" && module.schoolId === schoolId) return true;
+  return false;
+};
 
 export default function CrearModulo() {
   const [title, setTitle] = useState("");
@@ -257,6 +266,12 @@ export default function CrearModulo() {
   }>({ status: "idle", message: "" });
   const [questionImportFileName, setQuestionImportFileName] = useState("");
   const [moduleDependencies, setModuleDependencies] = useState<ModuleDependency[]>([]);
+  const [dependencySearchTerm, setDependencySearchTerm] = useState("");
+  const [dependencySearchResults, setDependencySearchResults] = useState<Module[]>([]);
+  const [dependencySearchStatus, setDependencySearchStatus] = useState<
+    "idle" | "loading" | "error"
+  >("idle");
+  const [dependencySearchError, setDependencySearchError] = useState<string | null>(null);
   const [customDependency, setCustomDependency] = useState("");
   const [customDependencyType, setCustomDependencyType] =
     useState<ModuleDependencyType>("required");
@@ -380,6 +395,48 @@ export default function CrearModulo() {
       isMounted = false;
     };
   }, []);
+
+  useEffect(() => {
+    let active = true;
+    const controller = new AbortController();
+    const trimmed = dependencySearchTerm.trim();
+    const timeout = window.setTimeout(() => {
+      const params = new URLSearchParams();
+      if (trimmed) params.set("query", trimmed);
+      params.set("createdBy", CURRENT_TEACHER_ID);
+      params.set("schoolId", CURRENT_SCHOOL_ID);
+      params.set("visibility", "publico,escuela");
+      params.set("limit", "50");
+      setDependencySearchStatus("loading");
+      setDependencySearchError(null);
+      apiGet<{ items: Module[] }>(`/api/modulos/buscar?${params.toString()}`, {
+        signal: controller.signal,
+      })
+        .then((data) => {
+          if (!active) return;
+          const filtered = data.items.filter((module) =>
+            isModuleVisibleToTeacher(module, CURRENT_TEACHER_ID, CURRENT_SCHOOL_ID),
+          );
+          setDependencySearchResults(filtered);
+          setDependencySearchStatus("idle");
+        })
+        .catch((error: unknown) => {
+          if (!active) return;
+          if (error instanceof DOMException && error.name === "AbortError") return;
+          setDependencySearchResults([]);
+          setDependencySearchStatus("error");
+          setDependencySearchError(
+            "No se pudieron cargar los módulos. Intentá nuevamente.",
+          );
+        });
+    }, 300);
+
+    return () => {
+      active = false;
+      controller.abort();
+      window.clearTimeout(timeout);
+    };
+  }, [dependencySearchTerm]);
 
   const scoringSystems = [
     {
@@ -771,7 +828,8 @@ export default function CrearModulo() {
                 studentRestriction: privateStudentRestriction.trim() || undefined,
               }
             : undefined,
-        createdBy: "demo-docente",
+        schoolId: CURRENT_SCHOOL_ID,
+        createdBy: CURRENT_TEACHER_ID,
         updatedAt: new Date().toISOString()
       };
       await apiPost("/api/modulos", payload);
@@ -1308,45 +1366,73 @@ export default function CrearModulo() {
                         <p className="text-xs text-gray-500">
                           Selecciona los módulos y define si son requisitos previos o si este módulo los desbloquea.
                         </p>
-                        <div className="space-y-2">
-                          {MVP_MODULES.map((module) => {
-                            const selectedDependency = moduleDependencies.find(
-                              (dependency) => dependency.id === module.id,
-                            );
-                            return (
-                              <label key={module.id} className="flex items-start gap-3 text-sm">
-                                <input
-                                  type="checkbox"
-                                  className="mt-1 h-4 w-4"
-                                  checked={Boolean(selectedDependency)}
-                                  onChange={() => handleToggleDependency(module.id)}
-                                />
-                                <span className="flex-1">
-                                  <span className="font-medium">{module.title}</span>
-                                  <span className="block text-xs text-gray-500">
-                                    {module.category} · {module.level}
+                        <div className="space-y-3">
+                          <div className="space-y-1">
+                            <label className="text-xs font-semibold text-gray-600">
+                              Buscar módulos disponibles
+                            </label>
+                            <input
+                              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                              placeholder="Buscar por título o categoría"
+                              value={dependencySearchTerm}
+                              onChange={(event) => setDependencySearchTerm(event.target.value)}
+                            />
+                            <p className="text-[11px] text-gray-500">
+                              Se listan módulos propios, de la escuela y públicos.
+                            </p>
+                          </div>
+                          {dependencySearchStatus === "loading" && (
+                            <p className="text-xs text-gray-500">Buscando módulos...</p>
+                          )}
+                          {dependencySearchStatus === "error" && dependencySearchError && (
+                            <p className="text-xs text-red-600">{dependencySearchError}</p>
+                          )}
+                          {dependencySearchStatus !== "loading" &&
+                            dependencySearchResults.length === 0 && (
+                              <p className="text-xs text-gray-500">
+                                No hay módulos que coincidan con tu búsqueda.
+                              </p>
+                            )}
+                          <div className="space-y-2">
+                            {dependencySearchResults.map((module) => {
+                              const selectedDependency = moduleDependencies.find(
+                                (dependency) => dependency.id === module.id,
+                              );
+                              return (
+                                <label key={module.id} className="flex items-start gap-3 text-sm">
+                                  <input
+                                    type="checkbox"
+                                    className="mt-1 h-4 w-4"
+                                    checked={Boolean(selectedDependency)}
+                                    onChange={() => handleToggleDependency(module.id)}
+                                  />
+                                  <span className="flex-1">
+                                    <span className="font-medium">{module.title}</span>
+                                    <span className="block text-xs text-gray-500">
+                                      {module.category} · {module.level}
+                                    </span>
                                   </span>
-                                </span>
-                                <select
-                                  className="rounded-md border border-gray-300 px-2 py-1 text-xs"
-                                  value={selectedDependency?.type ?? "required"}
-                                  onChange={(event) =>
-                                    handleDependencyTypeChange(
-                                      module.id,
-                                      event.target.value as ModuleDependencyType,
-                                    )
-                                  }
-                                  disabled={!selectedDependency}
-                                >
-                                  {Object.entries(DEPENDENCY_TYPE_LABELS).map(([value, label]) => (
-                                    <option key={value} value={value}>
-                                      {label}
-                                    </option>
-                                  ))}
-                                </select>
-                              </label>
-                            );
-                          })}
+                                  <select
+                                    className="rounded-md border border-gray-300 px-2 py-1 text-xs"
+                                    value={selectedDependency?.type ?? "required"}
+                                    onChange={(event) =>
+                                      handleDependencyTypeChange(
+                                        module.id,
+                                        event.target.value as ModuleDependencyType,
+                                      )
+                                    }
+                                    disabled={!selectedDependency}
+                                  >
+                                    {Object.entries(DEPENDENCY_TYPE_LABELS).map(([value, label]) => (
+                                      <option key={value} value={value}>
+                                        {label}
+                                      </option>
+                                    ))}
+                                  </select>
+                                </label>
+                              );
+                            })}
+                          </div>
                         </div>
                       </div>
 

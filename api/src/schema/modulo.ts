@@ -87,6 +87,7 @@ export const ModuleVisibilityConfigSchema = z.object({
 export const ModuleSchema = z.object({
   id: z.string().min(1),
   aulaId: z.string().min(1).optional(),
+  schoolId: z.string().min(1).optional(),
   title: z.string().min(1),
   description: z.string().min(1),
   subject: z.string().min(1),
