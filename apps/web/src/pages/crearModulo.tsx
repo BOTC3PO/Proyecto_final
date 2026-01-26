@@ -1883,72 +1883,7 @@ export default function CrearModulo() {
                       )}
                     </div>
 
-                    <div className="border rounded-lg p-4 space-y-3">
-                      <h3 className="text-sm font-semibold">Agregar nueva parte de teoría</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                        <input
-                          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                          value={newTheoryTitle}
-                          onChange={(event) => setNewTheoryTitle(event.target.value)}
-                          placeholder="Título (ej: Video introductorio)"
-                        />
-                        <div className="space-y-1">
-                          <select
-                            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                            value={newTheoryType}
-                            onChange={(event) => setNewTheoryType(event.target.value)}
-                          >
-                            {theoryTypeOptions.map((option) => (
-                              <option key={option.value} value={option.value} disabled={option.disabled}>
-                                {option.label}
-                                {option.disabledReason ? ` (${option.disabledReason})` : ""}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-                        {isNewTheoryResourceType ? (
-                          <div className="space-y-1">
-                            <select
-                              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
-                              value={newTheoryDetail}
-                              onChange={(event) => setNewTheoryDetail(event.target.value)}
-                              disabled={newTheoryOptions.length === 0}
-                            >
-                              <option value="">
-                                {newTheoryOptions.length === 0
-                                  ? "No hay recursos disponibles"
-                                  : "Seleccioná un recurso"}
-                              </option>
-                              {newTheoryOptions.map((option) => (
-                                <option key={option.key ?? option.value} value={option.value}>
-                                  {option.label}
-                                </option>
-                              ))}
-                            </select>
-                            {newTheoryOptions.length === 0 && (
-                              <p className="text-[11px] text-amber-600">
-                                Sumá libros o documentos en Adjuntos y libros de apoyo para vincularlos acá.
-                              </p>
-                            )}
-                          </div>
-                        ) : (
-                          <input
-                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                            value={newTheoryDetail}
-                            onChange={(event) => setNewTheoryDetail(event.target.value)}
-                            placeholder="Detalle / nota"
-                          />
-                        )}
-                      </div>
-                      {newTheoryDetailError && (
-                        <p className="text-xs text-red-600">{newTheoryDetailError}</p>
-                      )}
-                      <button type="button" className="rounded-md border px-4 py-2 text-sm" onClick={handleAddTheory}>
-                        + Agregar parte de teoría
-                      </button>
-                    </div>
-
-                    <div className="border rounded-lg p-4 space-y-4">
+                    <div className="border rounded-lg p-4 space-y-6">
                       <div>
                         <h3 className="text-sm font-semibold">Adjuntos y libros de apoyo</h3>
                         <p className="text-xs text-gray-500">
@@ -1956,6 +1891,75 @@ export default function CrearModulo() {
                           archivo: {MAX_FILE_SIZE_MB} MB. Solo se permiten documentos .doc o .pdf y JSON exportados
                           desde el editor de libros.
                         </p>
+                      </div>
+
+                      <div className="space-y-3 rounded-lg border border-slate-200 bg-white p-4">
+                        <h4 className="text-sm font-semibold">Agregar nueva parte de teoría</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                          <input
+                            className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                            value={newTheoryTitle}
+                            onChange={(event) => setNewTheoryTitle(event.target.value)}
+                            placeholder="Título (ej: Video introductorio)"
+                          />
+                          <div className="space-y-1">
+                            <select
+                              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                              value={newTheoryType}
+                              onChange={(event) => setNewTheoryType(event.target.value)}
+                            >
+                              {theoryTypeOptions.map((option) => (
+                                <option key={option.value} value={option.value} disabled={option.disabled}>
+                                  {option.label}
+                                  {option.disabledReason ? ` (${option.disabledReason})` : ""}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                          {isNewTheoryResourceType ? (
+                            <div className="space-y-1">
+                              <select
+                                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                                value={newTheoryDetail}
+                                onChange={(event) => setNewTheoryDetail(event.target.value)}
+                                disabled={newTheoryOptions.length === 0}
+                              >
+                                <option value="">
+                                  {newTheoryOptions.length === 0
+                                    ? "No hay recursos disponibles"
+                                    : "Seleccioná un recurso"}
+                                </option>
+                                {newTheoryOptions.map((option) => (
+                                  <option key={option.key ?? option.value} value={option.value}>
+                                    {option.label}
+                                  </option>
+                                ))}
+                              </select>
+                              {newTheoryOptions.length === 0 && (
+                                <p className="text-[11px] text-amber-600">
+                                  Sumá libros o documentos en Adjuntos y libros de apoyo para vincularlos acá.
+                                </p>
+                              )}
+                            </div>
+                          ) : (
+                            <input
+                              className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                              value={newTheoryDetail}
+                              onChange={(event) => setNewTheoryDetail(event.target.value)}
+                              placeholder="Detalle / nota"
+                            />
+                          )}
+                        </div>
+                        {newTheoryDetailError && (
+                          <p className="text-xs text-red-600">{newTheoryDetailError}</p>
+                        )}
+                        <button
+                          type="button"
+                          className="rounded-md border px-4 py-2 text-sm"
+                          onClick={handleAddTheory}
+                        >
+                          + Agregar parte de teoría
+                        </button>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
