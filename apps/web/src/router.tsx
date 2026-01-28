@@ -58,6 +58,7 @@ import MenuProfesor from "./pages/MenuProfesor";
 import ProfesorAulaConfiguracion from "./pages/ProfesorAulaConfiguracion";
 import Terminos from "./pages/Terminos";
 import Privacidad from "./pages/Privacidad";
+import DiccionarioTest from "./pages/DiccionarioTest";
 
 
 import test from "./sys/testmode";
@@ -94,6 +95,7 @@ export const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "terminos", element: <Terminos /> },
       { path: "privacidad", element: <Privacidad /> },
+      { path: "diccionarios-test", element: <DiccionarioTest /> },
       { path: "metodologia", element: <Metodologia /> },
       { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
       { path: "editor", element: <BookEditorPage /> },

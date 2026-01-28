@@ -4,9 +4,9 @@ import path from "path";
 
 export const diccionarios = Router();
 
-const DICCIONARIOS_ROOT = path.resolve(process.cwd(), "src", "diccionarios_gz");
+const DICCIONARIOS_ROOT = path.resolve(process.cwd(), "src", "diccionarios");
 const TOOLING_FOLDER = "herramientas";
-const EXTENSION = ".jsonl.gz";
+const EXTENSION = ".jsonl.zst";
 
 async function getAvailableLanguages() {
   const entries = await fsPromises.readdir(DICCIONARIOS_ROOT, { withFileTypes: true });
@@ -61,7 +61,7 @@ diccionarios.get("/api/diccionarios/:lang/:path(*)", async (req, res) => {
       return res.status(404).json({ error: "archivo no encontrado" });
     }
 
-    res.setHeader("Content-Type", "application/gzip");
+    res.setHeader("Content-Type", "application/zstd");
     res.setHeader("Content-Length", stats.size.toString());
 
     const stream = createReadStream(resolvedPath);
