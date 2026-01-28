@@ -173,45 +173,48 @@ diccionarios.get("/api/diccionarios/:lang/lookup", async (req, res) => {
   }
 });
 
-diccionarios.get("/api/diccionarios/:lang/:path(.*)", async (req, res) => {
-  try {
-    const langs = await getAvailableLanguages();
-    const lang = req.params.lang;
+diccionarios.get<{ lang: string; path: string }>(
+  "/api/diccionarios/:lang/:path(.*)",
+  async (req, res) => {
+    try {
+      const langs = await getAvailableLanguages();
+      const lang = req.params.lang;
 
-    if (!langs.includes(lang)) {
-      return res.status(404).json({ error: "idioma no disponible" });
-    }
-
-    const requestedPath = req.params.path;
-    if (!requestedPath || !requestedPath.endsWith(EXTENSION)) {
-      return res.status(400).json({ error: "archivo no permitido" });
-    }
-
-    const resolvedPath = resolveDictionaryPath(lang, requestedPath);
-    if (!resolvedPath) {
-      return res.status(400).json({ error: "ruta invalida" });
-    }
-
-    const stats = await fsPromises.stat(resolvedPath).catch(() => null);
-    if (!stats || !stats.isFile()) {
-      return res.status(404).json({ error: "archivo no encontrado" });
-    }
-
-    res.setHeader("Content-Type", "application/zstd");
-    res.setHeader("Content-Length", stats.size.toString());
-
-    const stream = createReadStream(resolvedPath);
-    stream.on("error", (error) => {
-      console.error("Error leyendo diccionario:", error);
-      if (!res.headersSent) {
-        res.status(500).json({ error: "no se pudo leer el archivo" });
-      } else {
-        res.destroy(error);
+      if (!langs.includes(lang)) {
+        return res.status(404).json({ error: "idioma no disponible" });
       }
-    });
-    stream.pipe(res);
-  } catch (error) {
-    console.error("No se pudo servir diccionario:", error);
-    return res.status(500).json({ error: "no se pudo servir el diccionario" });
+
+      const requestedPath = req.params.path;
+      if (!requestedPath || !requestedPath.endsWith(EXTENSION)) {
+        return res.status(400).json({ error: "archivo no permitido" });
+      }
+
+      const resolvedPath = resolveDictionaryPath(lang, requestedPath);
+      if (!resolvedPath) {
+        return res.status(400).json({ error: "ruta invalida" });
+      }
+
+      const stats = await fsPromises.stat(resolvedPath).catch(() => null);
+      if (!stats || !stats.isFile()) {
+        return res.status(404).json({ error: "archivo no encontrado" });
+      }
+
+      res.setHeader("Content-Type", "application/zstd");
+      res.setHeader("Content-Length", stats.size.toString());
+
+      const stream = createReadStream(resolvedPath);
+      stream.on("error", (error) => {
+        console.error("Error leyendo diccionario:", error);
+        if (!res.headersSent) {
+          res.status(500).json({ error: "no se pudo leer el archivo" });
+        } else {
+          res.destroy(error);
+        }
+      });
+      stream.pipe(res);
+    } catch (error) {
+      console.error("No se pudo servir diccionario:", error);
+      return res.status(500).json({ error: "no se pudo servir el diccionario" });
+    }
   }
-});
+);
