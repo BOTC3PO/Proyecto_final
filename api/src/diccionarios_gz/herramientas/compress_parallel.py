@@ -1,15 +1,19 @@
+import argparse
 import gzip
-import shutil
 import os
 import re
-from pathlib import Path
+import shutil
 from concurrent.futures import ProcessPoolExecutor, as_completed
-import argparse
+from pathlib import Path
 
 LANGS = {"ar", "en", "es", "fr", "hi", "ja", "pt", "ru", "zh"}
 
-SRC_ROOT = Path(r"C:\Users\javie\tesis final\Nueva carpeta\diccionario\diccionarios")
-DST_ROOT = Path(r"C:\Users\javie\tesis final\Nueva carpeta\diccionario\diccionarios_gz")
+REPO_ROOT = Path(__file__).resolve().parents[4]
+DEFAULT_SRC_ROOT = REPO_ROOT / "diccionarios"
+DEFAULT_DST_ROOT = REPO_ROOT / "api" / "src" / "diccionarios_gz"
+
+SRC_ROOT = DEFAULT_SRC_ROOT
+DST_ROOT = DEFAULT_DST_ROOT
 
 # Cache por proceso (se inicializa en cada worker)
 _created_dirs = set()
@@ -44,11 +48,22 @@ def compress_one(jsonl_path_str: str) -> str:
 
     return "OK"
 
+def _resolve_root(value: str | None, default: Path) -> Path:
+    if value:
+        return Path(value).expanduser()
+    return default
+
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--src-root", default=os.getenv("SRC_ROOT"))
+    ap.add_argument("--dst-root", default=os.getenv("DST_ROOT"))
     ap.add_argument("--workers", type=int, default=min(os.cpu_count() or 4, 12))
     ap.add_argument("--level", type=int, default=6)
     args = ap.parse_args()
+
+    global SRC_ROOT, DST_ROOT
+    SRC_ROOT = _resolve_root(args.src_root, DEFAULT_SRC_ROOT)
+    DST_ROOT = _resolve_root(args.dst_root, DEFAULT_DST_ROOT)
 
     if not SRC_ROOT.exists():
         raise FileNotFoundError(f"No existe SRC_ROOT: {SRC_ROOT}")
