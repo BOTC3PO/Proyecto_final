@@ -103,7 +103,7 @@ export const ModuleSchema = z.object({
   generatorRef: z
     .object({
       id: z.string().min(1),
-      config: z.record(z.unknown()).optional()
+      config: z.record(z.string(), z.unknown()).optional()
     })
     .nullable()
     .optional(),

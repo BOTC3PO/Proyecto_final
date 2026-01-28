@@ -173,7 +173,7 @@ diccionarios.get("/api/diccionarios/:lang/lookup", async (req, res) => {
   }
 });
 
-diccionarios.get("/api/diccionarios/:lang/:path(*)", async (req, res) => {
+diccionarios.get("/api/diccionarios/:lang/:path(.*)", async (req, res) => {
   try {
     const langs = await getAvailableLanguages();
     const lang = req.params.lang;
