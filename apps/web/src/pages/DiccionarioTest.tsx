@@ -4,12 +4,19 @@ type DiccionariosResponse = {
   langs: string[];
 };
 
+type DiccionarioEntry = {
+  w?: string;
+  d?: string;
+  t?: string;
+  r?: string;
+};
+
 type FetchResult = {
   status: number;
   contentType: string | null;
   contentLength: number | null;
-  receivedBytes: number | null;
-  downloadUrl: string | null;
+  entry: DiccionarioEntry | null;
+  data: unknown | null;
   error: string | null;
 };
 
@@ -17,14 +24,7 @@ const buildUrl = (baseUrl: string, path: string) =>
   `${baseUrl.replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
 
 const DEFAULT_LANGUAGE = "es";
-const DEFAULT_PATH = "_1.jsonl.zst";
 const DEFAULT_WORD = "";
-
-const quickFiles = [
-  { label: "_1.jsonl.zst", value: "_1.jsonl.zst" },
-  { label: "_misc.jsonl.zst", value: "_misc.jsonl.zst" },
-  { label: "aa.jsonl.zst", value: "aa.jsonl.zst" },
-];
 
 const formatBytes = (bytes: number | null) => {
   if (bytes === null) return "—";
@@ -37,27 +37,18 @@ export default function DiccionarioTest() {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5050";
   const [langs, setLangs] = useState<string[]>([]);
   const [selectedLang, setSelectedLang] = useState(DEFAULT_LANGUAGE);
-  const [pathValue, setPathValue] = useState(DEFAULT_PATH);
   const [wordValue, setWordValue] = useState(DEFAULT_WORD);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [result, setResult] = useState<FetchResult>({
     status: 0,
     contentType: null,
     contentLength: null,
-    receivedBytes: null,
-    downloadUrl: null,
+    entry: null,
+    data: null,
     error: null,
   });
 
   const apiUrl = useMemo(() => buildUrl(apiBaseUrl, "/api/diccionarios"), [apiBaseUrl]);
-  const resolvedPath = useMemo(() => {
-    const trimmed = wordValue.trim().toLowerCase();
-    if (!trimmed) return pathValue;
-    const normalized = trimmed.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    const match = normalized.match(/[a-z]{2}/);
-    if (!match) return DEFAULT_PATH;
-    return `${match[0]}.jsonl.zst`;
-  }, [pathValue, wordValue]);
 
   useEffect(() => {
     let cancelled = false;
@@ -93,20 +84,31 @@ export default function DiccionarioTest() {
   }, [apiUrl, selectedLang]);
 
   const handleFetch = async () => {
-    if (!selectedLang || !resolvedPath) return;
+    const trimmedWord = wordValue.trim();
+    if (!selectedLang || !trimmedWord) {
+      setResult((prev) => ({
+        ...prev,
+        error: "Ingresa una palabra para consultar en el diccionario.",
+      }));
+      setStatus("error");
+      return;
+    }
     setStatus("loading");
     setResult({
       status: 0,
       contentType: null,
       contentLength: null,
-      receivedBytes: null,
-      downloadUrl: null,
+      entry: null,
+      data: null,
       error: null,
     });
 
     try {
-      const fileUrl = buildUrl(apiBaseUrl, `/api/diccionarios/${selectedLang}/${resolvedPath}`);
-      const response = await fetch(fileUrl);
+      const lookupUrl = new URL(
+        buildUrl(apiBaseUrl, `/api/diccionarios/${selectedLang}/lookup`),
+      );
+      lookupUrl.searchParams.set("w", trimmedWord);
+      const response = await fetch(lookupUrl.toString());
       const contentType = response.headers.get("content-type");
       const contentLengthHeader = response.headers.get("content-length");
       const contentLength = contentLengthHeader ? Number(contentLengthHeader) : null;
@@ -117,22 +119,27 @@ export default function DiccionarioTest() {
           status: response.status,
           contentType,
           contentLength,
-          receivedBytes: null,
-          downloadUrl: null,
-          error: text || "Error al consultar el archivo",
+          entry: null,
+          data: null,
+          error: text || "Error al consultar la palabra",
         });
         setStatus("error");
         return;
       }
 
-      const blob = await response.blob();
-      const downloadUrl = URL.createObjectURL(blob);
+      const data = (await response.json()) as Record<string, unknown> | DiccionarioEntry;
+      const entryCandidate =
+        data && typeof data === "object" && "entry" in data ? data.entry : data;
+      const entry =
+        entryCandidate && typeof entryCandidate === "object"
+          ? (entryCandidate as DiccionarioEntry)
+          : null;
       setResult({
         status: response.status,
         contentType,
         contentLength,
-        receivedBytes: blob.size,
-        downloadUrl,
+        entry,
+        data,
         error: null,
       });
       setStatus("success");
@@ -141,8 +148,8 @@ export default function DiccionarioTest() {
         status: 0,
         contentType: null,
         contentLength: null,
-        receivedBytes: null,
-        downloadUrl: null,
+        entry: null,
+        data: null,
         error: error instanceof Error ? error.message : "Error desconocido",
       });
       setStatus("error");
@@ -155,12 +162,12 @@ export default function DiccionarioTest() {
         <h1 className="text-2xl font-semibold text-slate-900">Test del diccionario</h1>
         <p className="text-sm text-slate-600">
           Esta página permite validar que el API de diccionarios responda para los 4 idiomas
-          principales y sus archivos <span className="font-medium">.jsonl.zst</span>.
+          principales y su consulta de palabras.
         </p>
       </header>
 
       <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-base font-semibold text-slate-800">Selecciona idioma y archivo</h2>
+        <h2 className="text-base font-semibold text-slate-800">Selecciona idioma y palabra</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           <div className="flex flex-col gap-2">
             <label className="text-sm font-medium text-slate-700" htmlFor="lang-select">
@@ -183,44 +190,11 @@ export default function DiccionarioTest() {
               Idiomas detectados: {langs.length > 0 ? langs.join(", ") : "ninguno"}
             </p>
           </div>
-
-          <div className="flex flex-col gap-2 md:col-span-2">
-            <label className="text-sm font-medium text-slate-700" htmlFor="path-input">
-              Archivo dentro del idioma
-            </label>
-            <input
-              id="path-input"
-              type="text"
-              className="rounded-md border border-slate-300 px-3 py-2 text-sm shadow-sm focus:border-slate-500 focus:outline-none"
-              value={pathValue}
-              onChange={(event) => setPathValue(event.target.value)}
-              placeholder="aa.jsonl.zst"
-            />
-            <div className="flex flex-wrap gap-2">
-              {quickFiles.map((file) => (
-                <button
-                  key={file.value}
-                  type="button"
-                  className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
-                  onClick={() => setPathValue(file.value)}
-                >
-                  {file.label}
-                </button>
-              ))}
-            </div>
-            <p className="text-xs text-slate-500">
-              Si ingresas una palabra abajo, se tomará automáticamente el archivo según las primeras
-              2 letras.
-            </p>
-            <p className="text-xs text-slate-500">
-              Recuerda: <span className="font-medium">_misc.jsonl.zst</span> no existe en inglés.
-            </p>
-          </div>
         </div>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           <div className="flex flex-col gap-2 md:col-span-2">
             <label className="text-sm font-medium text-slate-700" htmlFor="word-input">
-              Palabra a buscar (se usará su prefijo)
+              Palabra a buscar
             </label>
             <input
               id="word-input"
@@ -231,7 +205,7 @@ export default function DiccionarioTest() {
               placeholder="Ej: diccionario"
             />
             <p className="text-xs text-slate-500">
-              Archivo resuelto: <span className="font-medium">{resolvedPath}</span>
+              La consulta se realiza con el endpoint <span className="font-medium">/lookup</span>.
             </p>
           </div>
         </div>
@@ -274,24 +248,21 @@ export default function DiccionarioTest() {
             <span className="font-medium">Content-Length:</span>
             <span>{formatBytes(result.contentLength)}</span>
           </div>
-          <div className="flex flex-wrap gap-2">
-            <span className="font-medium">Bytes recibidos:</span>
-            <span>{formatBytes(result.receivedBytes)}</span>
-          </div>
           {result.error && (
             <div className="rounded-md border border-red-200 bg-red-50 p-3 text-xs text-red-700">
               {result.error}
             </div>
           )}
-          {result.downloadUrl && (
-            <a
-              className="inline-flex w-fit items-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300"
-              href={result.downloadUrl}
-              download={resolvedPath}
-            >
-              Descargar archivo
-            </a>
-          )}
+          <div className="rounded-md border border-slate-200 bg-white p-3 text-xs text-slate-700">
+            <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+              Resultado JSON
+            </p>
+            <pre className="max-h-72 overflow-auto whitespace-pre-wrap">
+              {result.entry || result.data
+                ? JSON.stringify(result.entry ?? result.data, null, 2)
+                : "Sin datos aún."}
+            </pre>
+          </div>
         </div>
       </section>
     </div>
