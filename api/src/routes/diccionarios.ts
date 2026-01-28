@@ -173,8 +173,8 @@ diccionarios.get("/api/diccionarios/:lang/lookup", async (req, res) => {
   }
 });
 
-diccionarios.get<{ lang: string; path: string }>(
-  "/api/diccionarios/:lang/:path(.*)",
+diccionarios.get<{ lang: string }>(
+  "/api/diccionarios/:lang/*",
   async (req, res) => {
     try {
       const langs = await getAvailableLanguages();
@@ -184,7 +184,7 @@ diccionarios.get<{ lang: string; path: string }>(
         return res.status(404).json({ error: "idioma no disponible" });
       }
 
-      const requestedPath = req.params.path;
+      const requestedPath = (req.params as { 0?: string }).0;
       if (!requestedPath || !requestedPath.endsWith(EXTENSION)) {
         return res.status(400).json({ error: "archivo no permitido" });
       }
