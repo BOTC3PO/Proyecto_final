@@ -10,17 +10,21 @@ const DICCIONARIOS_ROOT = path.resolve(process.cwd(), "src", "diccionarios");
 const TOOLING_FOLDER = "herramientas";
 const EXTENSION = ".jsonl.zst";
 const DEFAULT_LOOKUP_PATH = "_1.jsonl.zst";
-const WORD_FILE_MATCH = /[a-z]{2}/;
 
 const normalizeLookupWord = (value: string) =>
-  value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z]/g, "");
 
 const resolveDictionaryFileForWord = (normalizedWord: string) => {
-  const match = normalizedWord.match(WORD_FILE_MATCH);
-  if (!match) {
+  const lookupPrefix = normalizedWord.slice(0, 2);
+  if (lookupPrefix.length < 2) {
     return DEFAULT_LOOKUP_PATH;
   }
-  return `${match[0]}${EXTENSION}`;
+  return `${lookupPrefix}${EXTENSION}`;
 };
 
 // Estrategia: usar @mongodb-js/zstd para descomprimir en streaming, evitando
