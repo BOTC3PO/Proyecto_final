@@ -21,6 +21,7 @@ import { aulaFeed } from "./routes/aula-feed";
 import { publicaciones } from "./routes/publicaciones";
 import { moderacion } from "./routes/moderacion";
 import { configuracion } from "./routes/configuracion";
+import { diccionarios } from "./routes/diccionarios";
 const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
@@ -44,6 +45,7 @@ app.use(aulaFeed);
 app.use(publicaciones);
 app.use(moderacion);
 app.use(configuracion);
+app.use(diccionarios);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.listen(ENV.PORT, () => {
   console.log(`API on http://localhost:${ENV.PORT}`);
