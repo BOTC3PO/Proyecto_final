@@ -6,7 +6,7 @@ import type { Transform } from "stream";
 
 export const diccionarios = Router();
 
-const DICCIONARIOS_ROOT = path.resolve(process.cwd(), "src", "diccionarios");
+const DICCIONARIOS_ROOT = path.resolve(__dirname, "..", "diccionarios");
 const TOOLING_FOLDER = "herramientas";
 const EXTENSION = ".jsonl.zst";
 const DEFAULT_LOOKUP_PATH = "_1.jsonl.zst";
