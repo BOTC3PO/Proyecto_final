@@ -2,7 +2,9 @@ import { Router } from "express";
 import { promises as fsPromises, createReadStream } from "fs";
 import path from "path";
 import readline from "readline";
-import type { Transform } from "stream";
+import zlib from "node:zlib";
+import type { Transform } from "node:stream";
+
 
 export const diccionarios = Router();
 
@@ -29,20 +31,10 @@ const resolveDictionaryFileForWord = (normalizedWord: string) => {
 
 // Estrategia: usar @mongodb-js/zstd para descomprimir en streaming, evitando
 // mantener duplicados sin comprimir solo para búsquedas puntuales.
-const getZstdDecompressStream = () => {
-  const zstd = require("@mongodb-js/zstd") as {
-    createZstdDecompressStream?: () => Transform;
-    ZstdDecompressStream?: new () => Transform;
-  };
-
-  if (typeof zstd.createZstdDecompressStream === "function") {
-    return zstd.createZstdDecompressStream();
-  }
-  if (typeof zstd.ZstdDecompressStream === "function") {
-    return new zstd.ZstdDecompressStream();
-  }
-  throw new Error("No se pudo inicializar el stream de zstd");
-};
+const getZstdDecompressStream = (): Transform => {
+  // Node v22.15.0 ya trae zstd nativo
+  return zlib.createZstdDecompress();
+};;
 
 async function getAvailableLanguages() {
   const entries = await fsPromises.readdir(DICCIONARIOS_ROOT, { withFileTypes: true });
