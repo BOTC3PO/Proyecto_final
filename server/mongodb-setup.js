@@ -468,6 +468,48 @@ db.createCollection("movimientos_billetera", {
 });
 
 // ============================================================================
+// QUIZ_ATTEMPTS COLLECTION
+// ============================================================================
+if (!db.getCollectionNames().includes("quiz_attempts")) {
+  db.createCollection("quiz_attempts", {
+    validator: {
+      $jsonSchema: {
+        bsonType: "object",
+        required: [
+          "moduleId",
+          "quizId",
+          "quizVersion",
+          "userId",
+          "seed",
+          "answers",
+          "score",
+          "maxScore",
+          "status",
+          "createdAt",
+          "updatedAt"
+        ],
+        properties: {
+          moduleId: { bsonType: ["string", "objectId"] },
+          quizId: { bsonType: ["string", "objectId"] },
+          quizVersion: { bsonType: "int" },
+          userId: { bsonType: ["string", "objectId"] },
+          seed: { bsonType: ["int", "string", "null"] },
+          answers: { bsonType: ["object", "array"] },
+          score: { bsonType: ["double", "int", "decimal"] },
+          maxScore: { bsonType: ["double", "int", "decimal"] },
+          status: {
+            bsonType: "string",
+            enum: ["in_progress", "submitted", "graded", "abandoned"]
+          },
+          createdAt: { bsonType: "date" },
+          updatedAt: { bsonType: "date" }
+        }
+      }
+    }
+  });
+}
+
+// ============================================================================
 // CREATE INDEXES FOR PERFORMANCE
 // ============================================================================
 
@@ -520,6 +562,14 @@ db.billeteras.createIndex({ usuarioId: 1 }, { unique: true });
 // Movimientos billetera indexes
 db.movimientos_billetera.createIndex({ billeteraId: 1 });
 db.movimientos_billetera.createIndex({ fecha: -1 });
+
+// Quiz attempts indexes
+db.quiz_attempts.createIndex({ moduleId: 1, quizId: 1, userId: 1, status: 1 });
+db.quiz_attempts.createIndex(
+  { moduleId: 1, quizId: 1, userId: 1, status: 1 },
+  { unique: true, partialFilterExpression: { status: "in_progress" } }
+);
+db.quiz_attempts.createIndex({ moduleId: 1, quizId: 1, userId: 1, createdAt: -1 });
 
 // ============================================================================
 // ECONOMIA COLLECTIONS
