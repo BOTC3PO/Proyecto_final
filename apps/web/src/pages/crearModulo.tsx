@@ -50,28 +50,18 @@ const isNonEmptyString = (value: unknown): value is string =>
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null;
 
-const parseQuestionSolution = (value: unknown): string | number | null => {
-  if (typeof value === "string") {
-    const trimmed = value.trim();
-    return trimmed ? trimmed : null;
-  }
-  if (typeof value === "number" && Number.isFinite(value)) {
-    return value;
-  }
-  return null;
-};
-
 const exercisesJsonTemplate = `{
   "preguntas": [
     {
       "enunciado": "¿Cuál es la fórmula de la velocidad media?",
-      "respuestas": [
+      "questionType": "mc",
+      "options": [
         "v = d / t",
         "v = t / d",
         "v = d * t"
       ],
-      "solucion": "v = d / t",
-      "explicacion": "Se calcula como distancia dividida por tiempo."
+      "answerKey": "v = d / t",
+      "explanation": "Se calcula como distancia dividida por tiempo."
     }
   ]
 }`;
@@ -103,31 +93,80 @@ const validateExercisesJson = (value: unknown) => {
     if (!isNonEmptyString(pregunta.enunciado)) {
       errors.push(`preguntas[${index}].enunciado debe ser un texto no vacío.`);
     }
-    if (!Array.isArray(pregunta.respuestas) || pregunta.respuestas.length < 2) {
-      errors.push(`preguntas[${index}].respuestas debe ser un array con al menos 2 opciones.`);
-    } else {
-      pregunta.respuestas.forEach((respuesta, respuestaIndex) => {
-        const isStringOption = isNonEmptyString(respuesta);
-        const isObjectOption = isRecord(respuesta) && isNonEmptyString(respuesta.texto);
-        if (!isStringOption && !isObjectOption) {
-          errors.push(
-            `preguntas[${index}].respuestas[${respuestaIndex}] debe ser un texto o un objeto con texto.`,
-          );
-        }
-      });
+    const questionType = isNonEmptyString(pregunta.questionType) ? pregunta.questionType.trim() : "";
+    const rawOptions = Array.isArray(pregunta.options)
+      ? pregunta.options
+      : Array.isArray(pregunta.opciones)
+        ? pregunta.opciones
+        : Array.isArray(pregunta.respuestas)
+          ? pregunta.respuestas
+          : null;
+    const requiresOptions = questionType !== "input";
+    if (requiresOptions) {
+      if (!rawOptions || rawOptions.length < 2) {
+        errors.push(`preguntas[${index}].options debe ser un array con al menos 2 opciones.`);
+      } else {
+        rawOptions.forEach((respuesta, respuestaIndex) => {
+          const isStringOption = isNonEmptyString(respuesta);
+          const isObjectOption = isRecord(respuesta) && isNonEmptyString(respuesta.texto);
+          if (!isStringOption && !isObjectOption) {
+            errors.push(
+              `preguntas[${index}].options[${respuestaIndex}] debe ser un texto o un objeto con texto.`,
+            );
+          }
+        });
+      }
     }
-    const solucion = pregunta.solucion;
+    const answerKey = pregunta.answerKey ?? pregunta.solucion;
     if (
-      !(typeof solucion === "string" && solucion.trim()) &&
-      !(typeof solucion === "number" && Number.isFinite(solucion))
+      !(typeof answerKey === "string" && answerKey.trim()) &&
+      !(typeof answerKey === "number" && Number.isFinite(answerKey)) &&
+      !(Array.isArray(answerKey) && answerKey.every((value) => isNonEmptyString(value)))
     ) {
-      errors.push(`preguntas[${index}].solucion debe ser un texto o número válido.`);
+      errors.push(`preguntas[${index}].answerKey debe ser un texto o un array válido.`);
     }
   });
 
   return { isValid: errors.length === 0, errors, preguntas };
 };
 
+
+const parseAnswerKey = (value: unknown): string | string[] | null => {
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    return trimmed ? trimmed : null;
+  }
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return String(value);
+  }
+  if (Array.isArray(value)) {
+    const parsed = value.map((item) => (typeof item === "string" ? item.trim() : "")).filter(Boolean);
+    return parsed.length > 0 ? parsed : null;
+  }
+  return null;
+};
+
+const parseQuestionType = (value: unknown): ModuleQuizQuestion["questionType"] => {
+  if (!isNonEmptyString(value)) return undefined;
+  const trimmed = value.trim();
+  if (trimmed === "mc" || trimmed === "vf" || trimmed === "input") {
+    return trimmed;
+  }
+  return undefined;
+};
+
+const parseOptions = (value: unknown): string[] => {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((option) => {
+      if (isNonEmptyString(option)) return option.trim();
+      if (isRecord(option) && isNonEmptyString(option.texto)) {
+        return option.texto.trim();
+      }
+      return null;
+    })
+    .filter((option): option is string => Boolean(option));
+};
 
 const getTheoryDetailError = (type: string, detail: string): string | null => {
   if (type === "Video") {
@@ -882,6 +921,9 @@ export default function CrearModulo() {
             id: quiz.id,
             title: quiz.title ?? quiz.id,
             type: "evaluacion",
+            status: "draft",
+            version: 1,
+            mode: "manual",
             visibility: "publico",
             schoolId: quiz.schoolId,
             schoolName: quiz.schoolName,
@@ -1142,27 +1184,23 @@ export default function CrearModulo() {
       const importedQuestions = validation.preguntas
         .map((pregunta, index) => {
           if (!isRecord(pregunta)) return null;
-          const respuestas = Array.isArray(pregunta.respuestas)
-            ? pregunta.respuestas
-                .map((respuesta) => {
-                  if (isNonEmptyString(respuesta)) return respuesta.trim();
-                  if (isRecord(respuesta) && isNonEmptyString(respuesta.texto)) {
-                    return respuesta.texto.trim();
-                  }
-                  return null;
-                })
-                .filter((respuesta): respuesta is string => Boolean(respuesta))
-            : [];
+          const options = parseOptions(
+            pregunta.options ?? pregunta.opciones ?? pregunta.respuestas,
+          );
           const prompt = isNonEmptyString(pregunta.enunciado) ? pregunta.enunciado.trim() : "";
-          const solution = parseQuestionSolution(pregunta.solucion);
-          if (!prompt || solution === null) return null;
+          const answerKey = parseAnswerKey(pregunta.answerKey ?? pregunta.solucion);
+          if (!prompt || answerKey === null) return null;
+          const questionType =
+            parseQuestionType(pregunta.questionType) ??
+            (options.length > 0 ? "mc" : "input");
           return {
             id: makeModuleId(`pregunta-${index + 1}`),
             prompt,
-            answers: respuestas,
-            solution,
-            explanation: isNonEmptyString(pregunta.explicacion)
-              ? pregunta.explicacion.trim()
+            questionType,
+            options: options.length > 0 ? options : undefined,
+            answerKey,
+            explanation: isNonEmptyString(pregunta.explanation ?? pregunta.explicacion)
+              ? String(pregunta.explanation ?? pregunta.explicacion).trim()
               : undefined,
           } satisfies ModuleQuizQuestion;
         })
@@ -2241,7 +2279,7 @@ export default function CrearModulo() {
                               onChange={handleQuestionFileChange}
                             />
                             <p className="text-xs text-gray-500">
-                              Cada pregunta debe incluir: enunciado, respuestas y solución.
+                              Cada pregunta debe incluir: enunciado, opciones (si aplica) y respuesta correcta.
                             </p>
                             {questionImportStatus.status === "valid" && (
                               <p className="text-xs text-emerald-600">
@@ -2303,6 +2341,23 @@ export default function CrearModulo() {
                                   </button>
                                 </div>
                                 <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+                                  <div>
+                                    <label className="text-xs font-medium text-slate-600">Tipo de pregunta</label>
+                                    <select
+                                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white"
+                                      value={question.questionType ?? "mc"}
+                                      onChange={(event) =>
+                                        handleUpdateQuestion(question.id, (current) => ({
+                                          ...current,
+                                          questionType: event.target.value as ModuleQuizQuestion["questionType"],
+                                        }))
+                                      }
+                                    >
+                                      <option value="mc">Opción múltiple</option>
+                                      <option value="vf">Verdadero / Falso</option>
+                                      <option value="input">Respuesta abierta</option>
+                                    </select>
+                                  </div>
                                   <div className="md:col-span-2">
                                     <label className="text-xs font-medium text-slate-600">Enunciado</label>
                                     <textarea
@@ -2318,33 +2373,44 @@ export default function CrearModulo() {
                                     />
                                   </div>
                                   <div className="md:col-span-2">
-                                    <label className="text-xs font-medium text-slate-600">Respuestas</label>
+                                    <label className="text-xs font-medium text-slate-600">Opciones</label>
                                     <textarea
                                       rows={3}
                                       className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                                      value={question.answers?.join("\n") ?? ""}
+                                      value={question.options?.join("\n") ?? ""}
                                       onChange={(event) =>
                                         handleUpdateQuestion(question.id, (current) => ({
                                           ...current,
-                                          answers: event.target.value
+                                          options: event.target.value
                                             .split("\n")
                                             .map((answer) => answer.trim())
                                             .filter(Boolean),
                                         }))
                                       }
-                                      placeholder="Una respuesta por línea"
+                                      placeholder="Una opción por línea"
                                     />
                                   </div>
                                   <div>
-                                    <label className="text-xs font-medium text-slate-600">Solución</label>
+                                    <label className="text-xs font-medium text-slate-600">Respuesta correcta</label>
                                     <input
                                       className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                                      value={question.solution ?? ""}
+                                      value={
+                                        Array.isArray(question.answerKey)
+                                          ? question.answerKey.join("\n")
+                                          : question.answerKey ?? ""
+                                      }
                                       onChange={(event) =>
-                                        handleUpdateQuestion(question.id, (current) => ({
-                                          ...current,
-                                          solution: event.target.value,
-                                        }))
+                                        handleUpdateQuestion(question.id, (current) => {
+                                          const parsed = event.target.value
+                                            .split("\n")
+                                            .map((answer) => answer.trim())
+                                            .filter(Boolean);
+                                          return {
+                                            ...current,
+                                            answerKey:
+                                              parsed.length > 1 ? parsed : parsed[0] ?? undefined,
+                                          };
+                                        })
                                       }
                                     />
                                   </div>
