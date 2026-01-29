@@ -252,16 +252,18 @@ db.runCommand({
               title: { bsonType: "string" },
               type: { bsonType: "string", enum: ["practica", "evaluacion"] },
               visibility: { bsonType: "string", enum: ["publico", "escuela"] },
+              status: { bsonType: "string", enum: ["draft", "published", "archived"] },
+              version: { bsonType: "int", minimum: 1 },
               mode: {
                 bsonType: "string",
                 enum: ["manual", "generated"],
                 description: "Opcional; la app asume 'manual' cuando hay preguntas"
               },
-              generatorId: { bsonType: "string" },
-              params: { bsonType: "object" },
-              count: { bsonType: "int" },
-              seedPolicy: { bsonType: "string", enum: ["perAttempt", "fixed"] },
-              fixedSeed: { bsonType: ["int", "string"] },
+              generatorId: { bsonType: ["string", "null"] },
+              params: { bsonType: ["object", "null"] },
+              count: { bsonType: ["int", "null"] },
+              seedPolicy: { bsonType: ["string", "null"], enum: ["perAttempt", "fixed", null] },
+              fixedSeed: { bsonType: ["int", "string", "null"] },
               questions: {
                 bsonType: "array",
                 items: {
@@ -274,9 +276,19 @@ db.runCommand({
                     questionType: { bsonType: "string", enum: ["mc", "vf", "input"] },
                     options: {
                       bsonType: "array",
-                      items: { bsonType: "string" }
+                      items: {
+                        bsonType: "object",
+                        required: ["id", "text"],
+                        properties: {
+                          id: { bsonType: "string" },
+                          text: { bsonType: "string" }
+                        }
+                      }
                     },
-                    answerKey: { bsonType: "string" },
+                    answerKey: {
+                      bsonType: ["object", "string", "array"],
+                      items: { bsonType: ["string", "object", "int", "double", "bool"] }
+                    },
                     explanation: { bsonType: "string" }
                   }
                 }
