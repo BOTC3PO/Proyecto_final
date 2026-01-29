@@ -16,17 +16,28 @@ export type ModuleTheoryBlock = {
 };
 
 export type ModuleQuizVisibility = "publico" | "escuela";
+export type ModuleQuizStatus = "draft" | "published" | "archived";
+export type ModuleQuizMode = "manual" | "generated";
+export type ModuleQuizSeedPolicy = "perAttempt" | "fixed";
 
 export type ModuleQuiz = {
   id: string;
   title: string;
   type: "practica" | "evaluacion" | "competencia";
+  status: ModuleQuizStatus;
+  version: number;
+  mode?: ModuleQuizMode;
   visibility: ModuleQuizVisibility;
   schoolId?: string;
   schoolName?: string;
   competitionRules?: string;
   competitionRulesVisibility?: ModuleQuizVisibility;
   questions?: ModuleQuizQuestion[];
+  generatorId?: string;
+  params?: Record<string, unknown>;
+  count?: number;
+  seedPolicy?: ModuleQuizSeedPolicy;
+  fixedSeed?: string | number;
 };
 
 export type ModuleDependencyType = "required" | "unlocks";
@@ -46,8 +57,9 @@ export type ModuleLevel = {
 export type ModuleQuizQuestion = {
   id: string;
   prompt: string;
-  answers?: string[];
-  solution?: string | number;
+  questionType?: "mc" | "vf" | "input";
+  options?: string[];
+  answerKey?: string | string[];
   explanation?: string;
   focus?: string | null;
 };

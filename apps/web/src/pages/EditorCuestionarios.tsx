@@ -37,13 +37,14 @@ const exercisesJsonExample = `{
   "preguntas": [
     {
       "enunciado": "¿Cuál es la fórmula de la velocidad media?",
-      "respuestas": [
+      "questionType": "mc",
+      "options": [
         "v = d / t",
         "v = t / d",
         "v = d * t"
       ],
-      "solucion": "v = d / t",
-      "explicacion": "Se calcula como distancia dividida por tiempo."
+      "answerKey": "v = d / t",
+      "explanation": "Se calcula como distancia dividida por tiempo."
     }
   ]
 }`;
@@ -75,25 +76,37 @@ const validateExercisesJson = (value: unknown) => {
     if (!isNonEmptyString(pregunta.enunciado)) {
       errors.push(`preguntas[${index}].enunciado debe ser un texto no vacío.`);
     }
-    if (!Array.isArray(pregunta.respuestas) || pregunta.respuestas.length < 2) {
-      errors.push(`preguntas[${index}].respuestas debe ser un array con al menos 2 opciones.`);
-    } else {
-      pregunta.respuestas.forEach((respuesta, respuestaIndex) => {
-        const isStringOption = isNonEmptyString(respuesta);
-        const isObjectOption = isRecord(respuesta) && isNonEmptyString(respuesta.texto);
-        if (!isStringOption && !isObjectOption) {
-          errors.push(
-            `preguntas[${index}].respuestas[${respuestaIndex}] debe ser un texto o un objeto con texto.`,
-          );
-        }
-      });
+    const questionType = isNonEmptyString(pregunta.questionType) ? pregunta.questionType.trim() : "";
+    const rawOptions = Array.isArray(pregunta.options)
+      ? pregunta.options
+      : Array.isArray(pregunta.opciones)
+        ? pregunta.opciones
+        : Array.isArray(pregunta.respuestas)
+          ? pregunta.respuestas
+          : null;
+    const requiresOptions = questionType !== "input";
+    if (requiresOptions) {
+      if (!rawOptions || rawOptions.length < 2) {
+        errors.push(`preguntas[${index}].options debe ser un array con al menos 2 opciones.`);
+      } else {
+        rawOptions.forEach((respuesta, respuestaIndex) => {
+          const isStringOption = isNonEmptyString(respuesta);
+          const isObjectOption = isRecord(respuesta) && isNonEmptyString(respuesta.texto);
+          if (!isStringOption && !isObjectOption) {
+            errors.push(
+              `preguntas[${index}].options[${respuestaIndex}] debe ser un texto o un objeto con texto.`,
+            );
+          }
+        });
+      }
     }
-    const solucion = pregunta.solucion;
+    const answerKey = pregunta.answerKey ?? pregunta.solucion;
     if (
-      !(typeof solucion === "string" && solucion.trim()) &&
-      !(typeof solucion === "number" && Number.isFinite(solucion))
+      !(typeof answerKey === "string" && answerKey.trim()) &&
+      !(typeof answerKey === "number" && Number.isFinite(answerKey)) &&
+      !(Array.isArray(answerKey) && answerKey.every((value) => isNonEmptyString(value)))
     ) {
-      errors.push(`preguntas[${index}].solucion debe ser un texto o número válido.`);
+      errors.push(`preguntas[${index}].answerKey debe ser un texto o un array válido.`);
     }
   });
 
@@ -343,7 +356,9 @@ export default function EditorCuestionarios() {
                   ref={exerciseFileInputRef}
                   onChange={handleExerciseFileChange}
                 />
-                <p className="text-xs text-gray-500">Incluye en cada pregunta: enunciado, respuestas y solución.</p>
+                <p className="text-xs text-gray-500">
+                  Incluye en cada pregunta: enunciado, opciones (si aplica) y respuesta correcta.
+                </p>
                 {exerciseImportStatus.status === "valid" && (
                   <p className="text-xs text-emerald-600">
                     {exerciseImportStatus.message} {exerciseFileName ? `(${exerciseFileName})` : ""}
