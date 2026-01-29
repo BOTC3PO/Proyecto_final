@@ -205,8 +205,10 @@ db.runCommand({
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["title", "description", "subject", "visibility", "createdBy", "createdAt"],
+      required: ["id", "title", "description", "subject", "visibility", "createdBy", "createdAt"],
       properties: {
+        id: { bsonType: "string" },
+        aulaId: { bsonType: ["string", "null"] },
         createdBy: { bsonType: "objectId" },
         title: { bsonType: "string" },
         description: { bsonType: "string" },
@@ -549,8 +551,12 @@ db.clases.createIndex({ studentIds: 1 });
 
 // Modulos indexes
 db.modulos.createIndex({ createdBy: 1 });
+db.modulos.createIndex({ createdBy: 1, updatedAt: -1 });
 db.modulos.createIndex({ subject: 1, category: 1 });
 db.modulos.createIndex({ visibility: 1 });
+db.modulos.createIndex({ visibility: 1, "visibilityConfig.institution": 1 });
+db.modulos.createIndex({ aulaId: 1 });
+db.modulos.createIndex({ id: 1 }, { unique: true });
 db.modulos.createIndex({ title: "text", description: "text" });
 
 // Cursos indexes
