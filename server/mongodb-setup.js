@@ -197,7 +197,11 @@ db.createCollection("clases", {
 // ============================================================================
 // MODULOS COLLECTION
 // ============================================================================
-db.createCollection("modulos", {
+if (!db.getCollectionNames().includes("modulos")) {
+  db.createCollection("modulos");
+}
+db.runCommand({
+  collMod: "modulos",
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -292,7 +296,7 @@ db.createCollection("modulos", {
                   required: ["mode"]
                 }
               }
-            }
+            ]
           }
         },
         scoringSystem: { bsonType: ["string", "null"] },
@@ -327,7 +331,8 @@ db.createCollection("modulos", {
         updatedAt: { bsonType: "date" }
       }
     }
-  }
+  },
+  validationLevel: "moderate"
 });
 
 // ============================================================================
