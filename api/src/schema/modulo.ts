@@ -45,11 +45,61 @@ export const ModuleQuizSchema = z.object({
   id: z.string().min(1),
   title: z.string().min(1),
   type: z.enum(["practica", "evaluacion", "competencia"]),
+  mode: z.enum(["manual", "generated"]).optional(),
   visibility: ModuleQuizVisibilitySchema,
   schoolId: z.string().min(1).optional(),
   schoolName: z.string().min(1).optional(),
   competitionRules: z.string().min(1).optional(),
-  competitionRulesVisibility: ModuleQuizVisibilitySchema.optional()
+  competitionRulesVisibility: ModuleQuizVisibilitySchema.optional(),
+  questions: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        prompt: z.string().min(1),
+        focus: z.string().min(1).optional(),
+        questionType: z.string().min(1).optional(),
+        options: z.array(z.string().min(1)).optional(),
+        answerKey: z.union([z.string().min(1), z.array(z.string().min(1))]).optional(),
+        explanation: z.string().min(1).optional()
+      })
+    )
+    .optional(),
+  generatorId: z.string().min(1).optional(),
+  params: z.record(z.string(), z.unknown()).optional(),
+  count: z.number().int().positive().optional(),
+  seedPolicy: z.string().min(1).optional(),
+  fixedSeed: z.union([z.string().min(1), z.number().int()]).optional()
+}).superRefine((value, ctx) => {
+  if (value.mode === "generated") {
+    if (!value.generatorId) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "generatorId is required when mode is generated",
+        path: ["generatorId"]
+      });
+    }
+    if (!value.params) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "params is required when mode is generated",
+        path: ["params"]
+      });
+    }
+    if (value.count === undefined) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "count is required when mode is generated",
+        path: ["count"]
+      });
+    }
+    if (!value.seedPolicy) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "seedPolicy is required when mode is generated",
+        path: ["seedPolicy"]
+      });
+    }
+  }
 });
 
 export const ModuleDependencySchema = z.object({
