@@ -248,6 +248,16 @@ db.createCollection("modulos", {
               title: { bsonType: "string" },
               type: { bsonType: "string", enum: ["practica", "evaluacion"] },
               visibility: { bsonType: "string", enum: ["publico", "escuela"] },
+              mode: {
+                bsonType: "string",
+                enum: ["manual", "generated"],
+                description: "Opcional; la app asume 'manual' cuando hay preguntas"
+              },
+              generatorId: { bsonType: "string" },
+              params: { bsonType: "object" },
+              count: { bsonType: "int" },
+              seedPolicy: { bsonType: "string", enum: ["perAttempt", "fixed"] },
+              fixedSeed: { bsonType: ["int", "string"] },
               questions: {
                 bsonType: "array",
                 items: {
@@ -256,8 +266,30 @@ db.createCollection("modulos", {
                   properties: {
                     id: { bsonType: "string" },
                     prompt: { bsonType: "string" },
-                    focus: { bsonType: ["string", "null"] }
+                    focus: { bsonType: ["string", "null"] },
+                    questionType: { bsonType: "string", enum: ["mc", "vf", "input"] },
+                    options: {
+                      bsonType: "array",
+                      items: { bsonType: "string" }
+                    },
+                    answerKey: { bsonType: "string" },
+                    explanation: { bsonType: "string" }
                   }
+                }
+              }
+            },
+            oneOf: [
+              {
+                properties: {
+                  mode: { enum: ["generated"] }
+                },
+                required: ["mode", "generatorId", "params", "count", "seedPolicy"],
+                not: { required: ["questions"] }
+              },
+              {
+                not: {
+                  properties: { mode: { enum: ["generated"] } },
+                  required: ["mode"]
                 }
               }
             }
