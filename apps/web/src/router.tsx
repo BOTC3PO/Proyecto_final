@@ -366,7 +366,7 @@ export const router = createBrowserRouter([
       {
         path: "profesor/crear-modulo",
         element: (
-          <ProtectedRoute allow={['TEACHER','GUEST']}>
+          <ProtectedRoute allow={['TEACHER']}>
             <Navigate to="/modulos/crear" replace />
           </ProtectedRoute>
         ),
@@ -374,7 +374,7 @@ export const router = createBrowserRouter([
       {
         path: "profesor/editor-cuestionarios",
         element: (
-          <ProtectedRoute allow={['TEACHER', 'GUEST']}>
+          <ProtectedRoute allow={['TEACHER']}>
             <EditorCuestionarios />
           </ProtectedRoute>
         ),
@@ -382,7 +382,7 @@ export const router = createBrowserRouter([
       {
         path: "profesor/editar-modulo/:id",
         element: (
-          <ProtectedRoute allow={['TEACHER','GUEST']}>
+          <ProtectedRoute allow={['TEACHER']}>
             <ModuloEditRedirect />
           </ProtectedRoute>
         ),
@@ -398,7 +398,7 @@ export const router = createBrowserRouter([
       {
         path: "modulos/crear",
         element: (
-          <ProtectedRoute allow={['TEACHER','GUEST']}>
+          <ProtectedRoute allow={['TEACHER']}>
             <CrearModulo />
           </ProtectedRoute>
         ),
@@ -406,7 +406,7 @@ export const router = createBrowserRouter([
       {
         path: "modulos/:id/editar",
         element: (
-          <ProtectedRoute allow={['TEACHER','GUEST']}>
+          <ProtectedRoute allow={['TEACHER']}>
             <EditarModulo />
           </ProtectedRoute>
         ),
