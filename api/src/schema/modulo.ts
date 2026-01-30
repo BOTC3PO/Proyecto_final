@@ -72,6 +72,13 @@ export const ModuleQuizSchema = z.object({
   fixedSeed: z.union([z.string().min(1), z.number().int()]).optional()
 }).superRefine((value, ctx) => {
   if (value.mode === "generated") {
+    if (value.questions !== undefined) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "questions is not allowed when mode is generated",
+        path: ["questions"]
+      });
+    }
     if (!value.generatorId) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
@@ -107,6 +114,22 @@ export const ModuleQuizSchema = z.object({
         path: ["seedPolicy"]
       });
     }
+  }
+
+  if (
+    !value.mode &&
+    (value.generatorId ||
+      value.generatorVersion ||
+      value.params ||
+      value.count !== undefined ||
+      value.seedPolicy ||
+      value.fixedSeed !== undefined)
+  ) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: "mode is required when generator settings are provided",
+      path: ["mode"]
+    });
   }
 });
 
