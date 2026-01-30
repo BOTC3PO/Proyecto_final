@@ -2,6 +2,7 @@
 import { BaseGenerator } from "../core/basegenerador";
 import type { PRNG } from "../core/prng";
 import type { Calculator, Ejercicio, GeneradorParametros, GeneratorDescriptor } from "../core/types";
+import { parseFisicaParametros } from "./schemas";
 
 // Cinemática
 import { MRUGenerator } from "./MRU";
@@ -120,7 +121,7 @@ export const createGeneradoresFisicaDescriptorPorId = (
       {
         id: g.id,
         version: g.version,
-        generate: (params, calc) => g.generate(params, calc),
+        generate: (params, calc) => g.generate(parseFisicaParametros(params), calc),
       },
     ])
   );

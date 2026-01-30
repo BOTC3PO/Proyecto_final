@@ -13,6 +13,11 @@ import type {
 } from "./types";
 
 import { createPrng, type PRNG } from "../core/prng";
+import {
+  parseBasicCorrectionOptions,
+  parseBasicGenerateOptions,
+  parseBasicRecreateOptions,
+} from "./schemas";
 
 export class QuizGenerator {
   private template: QuizTemplate;
@@ -30,19 +35,12 @@ export class QuizGenerator {
     seed: string;
     shuffleOptions?: boolean;
   }): QuizInstance {
+    const validated = parseBasicGenerateOptions(options);
     const displayCount =
-      options?.displayCount ?? this.template.settings.displayCountDefault;
-
-    const selection =
-      options?.selection ?? this.template.settings.selectionDefault;
-
-    if (!options?.seed) {
-      throw new Error("Se requiere un seed provisto por el backend.");
-    }
-
-    const seed = options.seed;
-
-    const shuffleOptions = options?.shuffleOptions ?? true;
+      validated.displayCount ?? this.template.settings.displayCountDefault;
+    const selection = validated.selection ?? this.template.settings.selectionDefault;
+    const seed = validated.seed;
+    const shuffleOptions = validated.shuffleOptions ?? true;
 
     const rng = createPrng(seed);
     const selectedQuestions = this.selectQuestions(selection, displayCount, rng);
@@ -62,21 +60,23 @@ export class QuizGenerator {
   }
 
   recreate(seed: string, shuffleOptions: boolean = true): QuizInstance {
-    return this.generate({ seed, shuffleOptions });
+    const validated = parseBasicRecreateOptions({ seed, shuffleOptions });
+    return this.generate({ seed: validated.seed, shuffleOptions: validated.shuffleOptions });
   }
 
   validateAnswers(
     seed: string,
     answers: Record<string, any>
   ): Record<string, { correct: boolean; explanation?: string }> {
-    const instance = this.recreate(seed, true);
+    const validated = parseBasicCorrectionOptions({ seed, answers });
+    const instance = this.recreate(validated.seed, true);
     const results: Record<string, { correct: boolean; explanation?: string }> = {};
 
     instance.questions.forEach((genQ) => {
       const originalQ = this.template.pool.find((q) => q.id === genQ.id);
       if (!originalQ) return;
 
-      const userAnswer = answers[genQ.id];
+      const userAnswer = validated.answers[genQ.id];
 
       if (originalQ.type === "mc") {
         const mcQ = originalQ as MCQuestion;

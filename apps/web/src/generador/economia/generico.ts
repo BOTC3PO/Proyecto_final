@@ -3,6 +3,7 @@
 // Importás la dificultad “global” que ya tenés en types.ts
 import type { Dificultad as DificultadGlobal } from "../core/types";
 import type { PRNG } from "../core/prng";
+import { parseEconomiaParams } from "./schemas";
 
 // Re-export para usarla en los generadores de economía
 export type Dificultad = DificultadGlobal;
@@ -184,6 +185,7 @@ export function makeQuizGenerator(
   >
 ): GeneratorFn {
   return (dificultad?: Dificultad, prng?: PRNG) => {
+    parseEconomiaParams(dificultad);
     if (!prng) {
       throw new Error("Se requiere un PRNG inicializado para generar ejercicios.");
     }

@@ -2,6 +2,7 @@
 
 import type { Dificultad as DificultadCore } from "../core/types";
 import type { PRNG } from "../core/prng";
+import { parseMatematicasParams } from "./schemas";
 
 export type DificultadBasica = "facil" | "media" | "dificil";
 export type Dificultad = DificultadCore | DificultadBasica;
@@ -224,6 +225,7 @@ export function convertirQuizACompletar(
 
 export function wrapConModo(generator: GeneratorFn): GeneratorFn {
   return (dificultad?: Dificultad, config?: GeneradorConfig, prng?: PRNG) => {
+    parseMatematicasParams(dificultad, config);
     if (!prng) {
       throw new Error("Se requiere un PRNG inicializado para generar ejercicios.");
     }

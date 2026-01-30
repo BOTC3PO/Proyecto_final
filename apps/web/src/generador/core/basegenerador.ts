@@ -6,6 +6,7 @@ import type {
   Calculator,
 } from "./types";
 import type { PRNG } from "./prng";
+import { parseGeneradorParametros } from "./schemas";
 
 export abstract class BaseGenerator {
   protected prng: PRNG;
@@ -46,7 +47,21 @@ export abstract class BaseGenerator {
   ): Ejercicio;
 
   generate(params: GeneradorParametros, calc: Calculator): Ejercicio {
-    const ejercicio = this.generarEjercicio(params, calc);
+    const validatedParams = parseGeneradorParametros(params);
+
+    if (validatedParams.materia !== this.materia) {
+      throw new Error(
+        `Materia inválida para ${this.id}: se esperaba ${this.materia}, se recibió ${validatedParams.materia}.`
+      );
+    }
+
+    if (!this.categorias.includes(validatedParams.categoria)) {
+      throw new Error(
+        `Categoría inválida para ${this.id}: ${validatedParams.categoria} no está entre ${this.categorias.join(\", \")}.`
+      );
+    }
+
+    const ejercicio = this.generarEjercicio(validatedParams, calc);
     return {
       ...ejercicio,
       generatorId: this.id,
