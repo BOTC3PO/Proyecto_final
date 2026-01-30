@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
 import type { Module, ModuleQuiz } from "../domain/module/module.types";
 import type { Book } from "../domain/book/book.types";
@@ -123,6 +124,7 @@ const renderExercise = (quiz: GeneratedQuiz) => {
 
 export default function JugarModulo() {
   const { id } = useParams();
+  const { user } = useAuth();
   const [module, setModule] = useState<Module | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [errorMessage, setErrorMessage] = useState("");
@@ -161,10 +163,10 @@ export default function JugarModulo() {
   }, [module]);
 
   useEffect(() => {
-    if (!module || progressStartedRef.current) return;
+    if (!module || progressStartedRef.current || !user?.id) return;
     progressStartedRef.current = true;
     const payload = {
-      usuarioId: "demo-alumno",
+      usuarioId: user.id,
       moduloId: module.id,
       status: "en_progreso",
       updatedAt: new Date().toISOString()
@@ -172,7 +174,7 @@ export default function JugarModulo() {
     apiPost("/api/progreso", payload).catch(() => {
       progressStartedRef.current = false;
     });
-  }, [module]);
+  }, [module, user?.id]);
 
   const activeLevelData = useMemo(
     () => module?.levels?.find((level) => level.level === selectedLevel) ?? module?.levels?.[0],
@@ -372,11 +374,16 @@ export default function JugarModulo() {
               type="button"
               className="rounded-md bg-green-600 px-4 py-2 text-sm text-white disabled:cursor-not-allowed disabled:bg-gray-300"
               onClick={async () => {
+                if (!user?.id) {
+                  setProgressStatus("error");
+                  setProgressMessage("Necesitás iniciar sesión para guardar el progreso.");
+                  return;
+                }
                 setProgressStatus("saving");
                 setProgressMessage("");
                 try {
                   await apiPost("/api/progreso", {
-                    usuarioId: "demo-alumno",
+                    usuarioId: user.id,
                     moduloId: module.id,
                     status: "completado",
                     score: 100,
@@ -385,7 +392,7 @@ export default function JugarModulo() {
                     updatedAt: new Date().toISOString()
                   });
                   const progress = await apiGet<{ unlocks: Array<{ isLocked: boolean }> }>(
-                    "/api/progreso?usuarioId=demo-alumno"
+                    `/api/progreso?usuarioId=${user.id}`
                   );
                   const newlyUnlocked = progress.unlocks.filter((unlock) => !unlock.isLocked).length;
                   setUnlockedCount(newlyUnlocked);

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
+import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
 import MapEditor from "../components/MapEditor";
 import ReadingWorkshop from "../components/ReadingWorkshop";
@@ -49,6 +50,17 @@ const isNonEmptyString = (value: unknown): value is string =>
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null;
+
+const parseSchoolId = (value: unknown): string | null => {
+  if (typeof value === "string") {
+    return value.trim() ? value.trim() : null;
+  }
+  if (value && typeof value === "object" && "toString" in value) {
+    const parsed = String(value);
+    return parsed.trim() ? parsed : null;
+  }
+  return null;
+};
 
 const exercisesJsonTemplate = `{
   "preguntas": [
@@ -246,8 +258,6 @@ const DEFAULT_CATEGORIAS = [
 ];
 
 const MODULE_SIZE_THRESHOLD = 2000;
-const CURRENT_TEACHER_ID = "demo-docente";
-const CURRENT_SCHOOL_ID = "escuela-demo";
 const MAX_FILE_SIZE_MB = 15;
 const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
 
@@ -280,14 +290,19 @@ const getResourceKey = (resource: ModuleResource) => {
 
 const getFileLabel = (value: number) => `${(value / 1024 / 1024).toFixed(1)} MB`;
 
-const isModuleVisibleToTeacher = (module: Module, teacherId: string, schoolId: string) => {
-  if (module.createdBy === teacherId) return true;
+const isModuleVisibleToTeacher = (module: Module, teacherId: string | null, schoolId: string | null) => {
+  if (teacherId && module.createdBy === teacherId) return true;
   if (module.visibility === "publico") return true;
-  if (module.visibility === "escuela" && module.schoolId === schoolId) return true;
+  if (schoolId && module.visibility === "escuela" && module.schoolId === schoolId) return true;
   return false;
 };
 
 export default function CrearModulo() {
+  const { user } = useAuth();
+  const teacherId = user?.id ?? null;
+  const [schoolId, setSchoolId] = useState<string | null>(null);
+  const [profileStatus, setProfileStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [profileError, setProfileError] = useState<string | null>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [subject, setSubject] = useState("Matemáticas");
@@ -362,6 +377,40 @@ export default function CrearModulo() {
   const [visitedSections, setVisitedSections] = useState<Record<string, boolean>>({
     info: true,
   });
+
+  useEffect(() => {
+    let active = true;
+    if (!teacherId) {
+      setSchoolId(null);
+      setProfileStatus("error");
+      setProfileError("No se encontró un docente autenticado.");
+      return () => {
+        active = false;
+      };
+    }
+    setProfileStatus("loading");
+    setProfileError(null);
+    apiGet<{ escuelaId?: unknown }>(`/api/usuarios/${teacherId}`, {
+      headers: { "x-usuario-id": teacherId }
+    })
+      .then((data) => {
+        if (!active) return;
+        setSchoolId(parseSchoolId(data.escuelaId));
+        setProfileStatus("ready");
+      })
+      .catch((error) => {
+        if (!active) return;
+        setSchoolId(null);
+        setProfileStatus("error");
+        setProfileError(
+          error instanceof Error ? error.message : "No se pudo cargar el perfil docente."
+        );
+      });
+    return () => {
+      active = false;
+    };
+  }, [teacherId]);
+
   const subjectCapabilities = useMemo(() => getSubjectCapabilities(subject), [subject]);
   const theoryTypeOptions = useMemo(
     () => subjectCapabilities.theoryTypes.filter((option) => option.value !== "TuesdayJS"),
@@ -512,12 +561,24 @@ export default function CrearModulo() {
     let active = true;
     const controller = new AbortController();
     const trimmed = dependencySearchTerm.trim();
+    if (!teacherId) {
+      setDependencySearchResults([]);
+      setDependencySearchStatus("error");
+      setDependencySearchError("Necesitás iniciar sesión para buscar módulos.");
+      return () => {
+        active = false;
+        controller.abort();
+      };
+    }
     const timeout = window.setTimeout(() => {
       const params = new URLSearchParams();
       if (trimmed) params.set("query", trimmed);
-      params.set("createdBy", CURRENT_TEACHER_ID);
-      params.set("schoolId", CURRENT_SCHOOL_ID);
-      params.set("visibility", "publico,escuela");
+      params.set("createdBy", teacherId);
+      if (schoolId) params.set("schoolId", schoolId);
+      const visibilityValues = ["publico"];
+      if (schoolId) visibilityValues.push("escuela");
+      if (teacherId) visibilityValues.push("privado");
+      params.set("visibility", visibilityValues.join(","));
       params.set("limit", "50");
       setDependencySearchStatus("loading");
       setDependencySearchError(null);
@@ -527,7 +588,7 @@ export default function CrearModulo() {
         .then((data) => {
           if (!active) return;
           const filtered = data.items.filter((module) =>
-            isModuleVisibleToTeacher(module, CURRENT_TEACHER_ID, CURRENT_SCHOOL_ID),
+            isModuleVisibleToTeacher(module, teacherId, schoolId),
           );
           setDependencySearchResults(filtered);
           setDependencySearchStatus("idle");
@@ -548,7 +609,7 @@ export default function CrearModulo() {
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [dependencySearchTerm]);
+  }, [dependencySearchTerm, schoolId, teacherId]);
 
   useEffect(() => {
     let active = true;
@@ -911,6 +972,11 @@ export default function CrearModulo() {
     setSaveStatus("saving");
     setSaveMessage("");
     try {
+      if (!teacherId) {
+        setSaveStatus("error");
+        setSaveMessage("Necesitás iniciar sesión para guardar el módulo.");
+        return;
+      }
       const dependencies = moduleDependencies.filter(
         (dependency) => dependency.id.trim().length > 0,
       );
@@ -975,8 +1041,8 @@ export default function CrearModulo() {
                 studentRestriction: privateStudentRestriction.trim() || undefined,
               }
             : undefined,
-        schoolId: CURRENT_SCHOOL_ID,
-        createdBy: CURRENT_TEACHER_ID,
+        schoolId: schoolId ?? undefined,
+        createdBy: teacherId,
         updatedAt: new Date().toISOString()
       };
       await apiPost("/api/modulos", payload);
@@ -1444,6 +1510,11 @@ export default function CrearModulo() {
                       {configMessage && (
                         <div className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
                           {configMessage}
+                        </div>
+                      )}
+                      {profileStatus === "error" && profileError && (
+                        <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                          {profileError}
                         </div>
                       )}
                     </div>

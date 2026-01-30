@@ -1,26 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { MVP_MODULES } from "../mvp/mvpData";
+import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Module, ModuleDependency } from "../domain/module/module.types";
 import { getSubjectColor } from "../domain/module/subjectColors";
 import { fetchProfesorMenuDashboard, type ProfesorMenuDashboard } from "../services/profesor";
 import ConceptMapVisualizer from "../visualizadores/graficos/ConceptMapVisualizer";
 import type { ConceptMapSpec, ConceptLink } from "../visualizadores/types";
-
-const buildFallbackModules = () =>
-  MVP_MODULES.map((module, index) => ({
-    ...module,
-    subject: module.category,
-    visibility: "publico",
-    dependencies:
-      index === 0
-        ? []
-        : [{ id: MVP_MODULES[index - 1].id, type: "required" as ModuleDependency["type"] }],
-    createdBy: "demo-docente",
-    createdByRole: "docente",
-    authorName: "Demo Docente"
-  }));
 
 const getRequiredDependencyIds = (dependencies: Array<ModuleDependency | string>) =>
   dependencies
@@ -58,7 +44,10 @@ const collectDependencyChain = (startId: string, adjacency: Map<string, string[]
 };
 
 export default function menuProfesor() {
-  const [modules, setModules] = useState(buildFallbackModules);
+  const { user } = useAuth();
+  const [modules, setModules] = useState<Module[]>([]);
+  const [modulesStatus, setModulesStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [modulesError, setModulesError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("todas");
   const [selectedVisibility, setSelectedVisibility] = useState("todas");
@@ -115,34 +104,51 @@ export default function menuProfesor() {
 
   useEffect(() => {
     let active = true;
-    const ownerId = "demo-docente";
-    apiGet<{ items: Module[] }>(`/api/modulos?owner=${ownerId}`)
+    if (!user?.id) {
+      setModules([]);
+      setModulesStatus("error");
+      setModulesError("No se encontró un docente autenticado.");
+      return () => {
+        active = false;
+      };
+    }
+    setModulesStatus("loading");
+    setModulesError(null);
+    apiGet<{ items: Module[] }>("/api/modulos")
       .then((data) => {
         if (!active) return;
-        const mapped = data.items.map((module) => ({
+        const mapped = data.items
+          .filter((module) => module.createdBy === user.id)
+          .map((module) => ({
           id: module.id,
           title: module.title,
           description: module.description,
           level: module.level,
           durationMinutes: module.durationMinutes,
-          subject: module.subject,
+          subject: module.subject ?? module.category,
           category: module.category,
           visibility: module.visibility ?? "privado",
           dependencies: module.dependencies ?? [],
           createdBy: module.createdBy,
           createdByRole: module.createdByRole,
-          authorName: module.authorName ?? module.createdBy
+          authorName: module.authorName ?? module.createdBy,
+          updatedAt: module.updatedAt ?? new Date().toISOString()
         }));
         setModules(mapped);
+        setModulesStatus("ready");
       })
-      .catch(() => {
+      .catch((error) => {
         if (!active) return;
-        setModules(buildFallbackModules());
+        setModules([]);
+        setModulesStatus("error");
+        setModulesError(
+          error instanceof Error ? error.message : "No se pudieron cargar los módulos."
+        );
       });
     return () => {
       active = false;
     };
-  }, []);
+  }, [user?.id]);
 
   useEffect(() => {
     let active = true;
@@ -510,54 +516,62 @@ export default function menuProfesor() {
               ))}
             </div>
           )}
-          <div className="mt-4 grid gap-4 md:grid-cols-3">
-            {filteredModules.map((module) => {
-              const subjectLabel = module.subject ?? module.category;
-              const subjectColor = getSubjectColor(subjectLabel);
+          {modulesStatus === "loading" && (
+            <p className="mt-4 text-sm text-gray-500">Cargando módulos...</p>
+          )}
+          {modulesStatus === "error" && modulesError && (
+            <p className="mt-4 text-sm text-red-600">{modulesError}</p>
+          )}
+          {modulesStatus === "ready" && (
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              {filteredModules.map((module) => {
+                const subjectLabel = module.subject ?? module.category;
+                const subjectColor = getSubjectColor(subjectLabel);
 
-              return (
-                <article
-                  key={module.id}
-                  className="rounded-lg border p-4"
-                  style={{
-                    borderColor: subjectColor.border,
-                    backgroundColor: subjectColor.background
-                  }}
-                >
-                  <p className="text-xs uppercase text-gray-500">{module.category}</p>
-                  <h4 className="mt-2 font-semibold">{module.title}</h4>
-                  <p className="mt-2 text-sm text-gray-600">{module.description}</p>
-                  <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                    <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
-                      {module.visibility === "publico" ? "Publicado" : "Privado"}
-                    </span>
-                    <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
-                      Dependencias: {module.dependencies.length}
-                    </span>
-                    {module.createdByRole === "admin" && (
-                      <span className="rounded-full bg-amber-100 px-2 py-1 text-amber-700">
-                        Creado por admin
-                      </span>
-                    )}
-                  </div>
-                  <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500">
-                    <span>{module.level}</span>
-                    <span>{module.durationMinutes} min</span>
-                  </div>
-                  <p className="mt-2 text-xs text-gray-500">
-                    Autor: {module.authorName ?? module.createdBy ?? "--"}
-                  </p>
-                  <Link
-                    className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    to={`/profesor/editar-modulo/${module.id}`}
+                return (
+                  <article
+                    key={module.id}
+                    className="rounded-lg border p-4"
+                    style={{
+                      borderColor: subjectColor.border,
+                      backgroundColor: subjectColor.background
+                    }}
                   >
-                    Editar módulo
-                  </Link>
-                </article>
-              );
-            })}
-          </div>
-          {filteredModules.length === 0 && (
+                    <p className="text-xs uppercase text-gray-500">{module.category}</p>
+                    <h4 className="mt-2 font-semibold">{module.title}</h4>
+                    <p className="mt-2 text-sm text-gray-600">{module.description}</p>
+                    <div className="mt-2 flex flex-wrap gap-2 text-xs">
+                      <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
+                        {module.visibility === "publico" ? "Publicado" : "Privado"}
+                      </span>
+                      <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
+                        Dependencias: {module.dependencies.length}
+                      </span>
+                      {module.createdByRole === "admin" && (
+                        <span className="rounded-full bg-amber-100 px-2 py-1 text-amber-700">
+                          Creado por admin
+                        </span>
+                      )}
+                    </div>
+                    <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500">
+                      <span>{module.level}</span>
+                      <span>{module.durationMinutes} min</span>
+                    </div>
+                    <p className="mt-2 text-xs text-gray-500">
+                      Autor: {module.authorName ?? module.createdBy ?? "--"}
+                    </p>
+                    <Link
+                      className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      to={`/profesor/editar-modulo/${module.id}`}
+                    >
+                      Editar módulo
+                    </Link>
+                  </article>
+                );
+              })}
+            </div>
+          )}
+          {modulesStatus === "ready" && filteredModules.length === 0 && (
             <p className="mt-4 text-sm text-gray-500">
               No hay módulos que coincidan con los filtros seleccionados.
             </p>
