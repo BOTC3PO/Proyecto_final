@@ -209,7 +209,7 @@ db.runCommand({
       properties: {
         id: { bsonType: "string" },
         aulaId: { bsonType: ["string", "null"] },
-        createdBy: { bsonType: "objectId" },
+        createdBy: { bsonType: "string" },
         title: { bsonType: "string" },
         description: { bsonType: "string" },
         subject: { bsonType: "string" },
@@ -905,7 +905,7 @@ db.membresias_escuela.insertMany([
 db.modulos.insertOne({
   _id: moduloId,
   id: moduloId.toString(),
-  createdBy: teacherId,
+  createdBy: teacherId.toString(),
   title: "Introducción a las fracciones",
   description: "Módulo con teoría y prácticas básicas sobre fracciones.",
   subject: "Matemáticas",
@@ -938,7 +938,7 @@ db.modulos.insertOne({
 db.modulos.insertOne({
   _id: moduloGeografiaId,
   id: moduloGeografiaId.toString(),
-  createdBy: teacherId,
+  createdBy: teacherId.toString(),
   title: "Mapas físicos y políticos del mundo",
   description: "Exploración de mapas físicos, políticos y lectura de fronteras.",
   subject: "Geografía",
@@ -983,7 +983,7 @@ db.modulos.insertOne({
 db.modulos.insertOne({
   _id: moduloCartografiaId,
   id: moduloCartografiaId.toString(),
-  createdBy: teacherId,
+  createdBy: teacherId.toString(),
   title: "Cartografía básica: coordenadas, escalas y proyecciones",
   description:
     "Módulo introductorio para interpretar coordenadas, calcular escalas y comparar proyecciones cartográficas.",
@@ -1032,7 +1032,7 @@ db.modulos.insertOne({
 db.modulos.insertOne({
   _id: moduloAtlasDigitalId,
   id: moduloAtlasDigitalId.toString(),
-  createdBy: teacherId,
+  createdBy: teacherId.toString(),
   title: "Atlas digitales y mapas interactivos",
   description:
     "Uso de atlas digitales, capas temáticas y comparación de imágenes satelitales para interpretar cambios en el territorio.",
@@ -1101,7 +1101,7 @@ db.modulos.insertOne({
 db.modulos.insertOne({
   _id: moduloGeografiaFisicaId,
   id: moduloGeografiaFisicaId.toString(),
-  createdBy: teacherId,
+  createdBy: teacherId.toString(),
   title: "Geografía física: relieve, agua y tectónica",
   description:
     "Módulo para interpretar el relieve terrestre, perfiles topográficos y procesos geológicos.",
@@ -1178,7 +1178,7 @@ db.modulos.insertOne({
 db.modulos.insertOne({
   _id: moduloMapaClimaticoId,
   id: moduloMapaClimaticoId.toString(),
-  createdBy: teacherId,
+  createdBy: teacherId.toString(),
   title: "Mapa climático",
   description: "Interpretación de mapas climáticos y climogramas para analizar patrones del clima.",
   subject: "Geografía",
@@ -1240,7 +1240,7 @@ db.modulos.insertOne({
 db.modulos.insertOne({
   _id: moduloMapaPoblacionId,
   id: moduloMapaPoblacionId.toString(),
-  createdBy: teacherId,
+  createdBy: teacherId.toString(),
   title: "Mapa de población",
   description:
     "Análisis de mapas de densidad poblacional, coropletas y flujos migratorios.",
@@ -1303,7 +1303,7 @@ db.modulos.insertOne({
 db.modulos.insertOne({
   _id: moduloMapaEconomicoId,
   id: moduloMapaEconomicoId.toString(),
-  createdBy: teacherId,
+  createdBy: teacherId.toString(),
   title: "Mapa económico",
   description:
     "Lectura de mapas de actividades económicas, PIB y redes de comercio.",
