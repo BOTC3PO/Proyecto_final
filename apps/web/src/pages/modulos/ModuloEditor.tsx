@@ -7,6 +7,7 @@ import type { Module, ModuleDependency, ModuleQuiz } from "../../domain/module/m
 import TheoryItemCard, { type TheoryItem, type TheoryItemType } from "../../components/modulos/TheoryItemCard";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
+import QuizImportJson from "../../components/modulos/QuizImportJson";
 
 type SaveStatus = "idle" | "loading" | "saving" | "saved" | "error";
 
@@ -177,6 +178,10 @@ export default function ModuloEditor() {
 
   const removeQuiz = (quizId: string) => {
     setQuizzes((prev) => prev.filter((quiz) => quiz.id !== quizId));
+  };
+
+  const handleImportQuizzes = (importedQuizzes: ModuleQuiz[]) => {
+    setQuizzes((prev) => [...prev, ...importedQuizzes.map(ensureQuizDefaults)]);
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -486,6 +491,10 @@ export default function ModuloEditor() {
                 >
                   + Generado
                 </button>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <QuizImportJson onImportQuizzes={handleImportQuizzes} />
               </div>
 
               {quizzes.length === 0 ? (
