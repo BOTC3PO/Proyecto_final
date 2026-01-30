@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiGet } from "../lib/api";
 
 export type RegistroOpciones = {
   grados: string[];
@@ -7,5 +7,5 @@ export type RegistroOpciones = {
 };
 
 export async function fetchRegistroOpciones(): Promise<RegistroOpciones> {
-  return apiFetch<RegistroOpciones>("/api/registro/opciones");
+  return apiGet<RegistroOpciones>("/api/registro/opciones");
 }

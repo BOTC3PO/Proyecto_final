@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiGet } from "../lib/api";
 
 export type AdminUsuario = {
   id: string;
@@ -72,13 +72,13 @@ export type AdminPanelData = {
 };
 
 export async function fetchAdminUsuarios(): Promise<AdminUsuario[]> {
-  return apiFetch<AdminUsuario[]>("/api/admin/usuarios");
+  return apiGet<AdminUsuario[]>("/api/admin/usuarios");
 }
 
 export async function fetchAdminCursos(): Promise<AdminCurso[]> {
-  return apiFetch<AdminCurso[]>("/api/admin/cursos");
+  return apiGet<AdminCurso[]>("/api/admin/cursos");
 }
 
 export async function fetchAdminPanelData(): Promise<AdminPanelData> {
-  return apiFetch<AdminPanelData>("/api/admin/panel");
+  return apiGet<AdminPanelData>("/api/admin/panel");
 }

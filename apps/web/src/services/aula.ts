@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiGet } from "../lib/api";
 
 export type TeacherTool = {
   id: string;
@@ -7,5 +7,5 @@ export type TeacherTool = {
 };
 
 export async function fetchTeacherTools(): Promise<TeacherTool[]> {
-  return apiFetch<TeacherTool[]>("/api/aulas/tools");
+  return apiGet<TeacherTool[]>("/api/aulas/tools");
 }

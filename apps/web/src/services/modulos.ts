@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiGet } from "../lib/api";
 
 export type ModuloCreatorOptions = {
   materias: string[];
@@ -14,7 +14,7 @@ export type ModuloCreatorOptions = {
 };
 
 export async function fetchModuleCreatorOptions(): Promise<ModuloCreatorOptions> {
-  return apiFetch<ModuloCreatorOptions>("/api/modulos/opciones");
+  return apiGet<ModuloCreatorOptions>("/api/modulos/opciones");
 }
 
 export type ModuleConfigListResponse = {
@@ -23,9 +23,9 @@ export type ModuleConfigListResponse = {
 };
 
 export async function fetchMateriasConfig(): Promise<ModuleConfigListResponse> {
-  return apiFetch<ModuleConfigListResponse>("/api/config/materias");
+  return apiGet<ModuleConfigListResponse>("/api/config/materias");
 }
 
 export async function fetchCategoriasConfig(): Promise<ModuleConfigListResponse> {
-  return apiFetch<ModuleConfigListResponse>("/api/config/categorias");
+  return apiGet<ModuleConfigListResponse>("/api/config/categorias");
 }

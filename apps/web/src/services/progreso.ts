@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiGet } from "../lib/api";
 
 export type AvanceModulo = {
   id: string;
@@ -36,9 +36,9 @@ export type ChildProgress = {
 };
 
 export async function fetchProgresoEstudiante(): Promise<ProgresoEstudianteResponse> {
-  return apiFetch<ProgresoEstudianteResponse>("/api/progreso/estudiante");
+  return apiGet<ProgresoEstudianteResponse>("/api/progreso/estudiante");
 }
 
 export async function fetchProgresoHijos(): Promise<ChildProgress[]> {
-  return apiFetch<ChildProgress[]>("/api/progreso/hijos");
+  return apiGet<ChildProgress[]>("/api/progreso/hijos");
 }
