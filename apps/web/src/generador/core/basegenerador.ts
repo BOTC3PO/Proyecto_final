@@ -3,8 +3,10 @@ import type {
   Materia,
   GeneradorParametros,
   Ejercicio,
+  GeneratedExercise,
   Calculator,
 } from "./types";
+import type { GeneratedQuestionDTO, QuestionCorrection } from "./generated-question";
 import type { PRNG } from "./prng";
 import { parseGeneradorParametros } from "./schemas";
 
@@ -57,7 +59,7 @@ export abstract class BaseGenerator {
 
     if (!this.categorias.includes(validatedParams.categoria)) {
       throw new Error(
-        `Categoría inválida para ${this.id}: ${validatedParams.categoria} no está entre ${this.categorias.join(\", \")}.`
+        `Categoría inválida para ${this.id}: ${validatedParams.categoria} no está entre ${this.categorias.join(", ")}.`
       );
     }
 
@@ -67,6 +69,80 @@ export abstract class BaseGenerator {
       generatorId: this.id,
       generatorVersion: this.version,
     };
+  }
+
+  generateRenderable(params: GeneradorParametros, calc: Calculator): GeneratedExercise {
+    const ejercicio = this.generate(params, calc);
+    const { question, correction } = this.toGeneratedPayload(ejercicio);
+    return { question, correction };
+  }
+
+  protected toGeneratedPayload(ejercicio: Ejercicio): {
+    question: GeneratedQuestionDTO;
+    correction: QuestionCorrection;
+  } {
+    const questionType = this.mapTipoRespuesta(ejercicio.tipoRespuesta);
+    const optionItems = ejercicio.opciones?.map((text, index) => ({
+      id: `opt_${index}`,
+      text,
+    }));
+    const answerKey = this.mapAnswerKey(ejercicio, optionItems);
+
+    const question: GeneratedQuestionDTO = {
+      id: ejercicio.id,
+      prompt: ejercicio.enunciado,
+      questionType,
+      options: optionItems,
+      metadata: {
+        generatorId: ejercicio.generatorId,
+        generatorVersion: ejercicio.generatorVersion,
+        materia: ejercicio.materia,
+        categoria: ejercicio.categoria,
+        dificultad: ejercicio.nivel,
+        tags: ejercicio.metadatos?.tags,
+      },
+      data: ejercicio.datos,
+      visual: ejercicio.visual,
+    };
+
+    return {
+      question,
+      correction: {
+        id: ejercicio.id,
+        answerKey,
+        explanation: ejercicio.explicacionPasoAPaso?.join("\n"),
+      },
+    };
+  }
+
+  protected mapTipoRespuesta(tipoRespuesta: Ejercicio["tipoRespuesta"]):
+    | "mc"
+    | "input"
+    | "interactive" {
+    switch (tipoRespuesta) {
+      case "multiple":
+        return "mc";
+      case "interactiva":
+        return "interactive";
+      case "abierta":
+      default:
+        return "input";
+    }
+  }
+
+  protected mapAnswerKey(
+    ejercicio: Ejercicio,
+    optionItems?: Array<{ id: string; text: string }>
+  ): QuestionCorrection["answerKey"] {
+    if (ejercicio.tipoRespuesta === "multiple") {
+      const index = optionItems?.findIndex(
+        (option) => option.text === ejercicio.respuestaCorrecta
+      );
+      if (index !== undefined && index >= 0) {
+        return optionItems?.[index]?.id ?? String(ejercicio.respuestaCorrecta);
+      }
+    }
+    return ejercicio.respuestaCorrecta as QuestionCorrection["answerKey"];
   }
 
   // ─────────────────────────────
