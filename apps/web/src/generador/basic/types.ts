@@ -74,6 +74,8 @@ export interface QuizInstance {
     displayCount: number;
     feedbackPolicy: string;
   };
+  generatorId?: string;
+  generatorVersion?: number;
 }
 
 export type GeneratedQuestion = GeneratedMC | GeneratedTF | GeneratedMatch;

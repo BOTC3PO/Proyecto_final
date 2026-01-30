@@ -53,7 +53,7 @@ export default function SimulacionesFisica() {
       categoria: "caida_libre",
       nivel: "intermedio",
     };
-    return generador.generarEjercicio(parametros, calculadoraFisica);
+    return generador.generate(parametros, calculadoraFisica);
   }, [calculadoraFisica, prng]);
 
   const gBase = ejercicioBase.datos.g as number;

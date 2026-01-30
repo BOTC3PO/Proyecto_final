@@ -1,6 +1,7 @@
 // src/generators/math/index.ts
 import { normalizarDificultadBasica, wrapConModo } from "./generic";
-import type { Dificultad, GeneratorFn } from "./generic";
+import type { Dificultad, Exercise, GeneratorFn } from "./generic";
+import type { GeneratorDescriptor } from "../core/types";
 
 // =======================
 // IMPORTS TEMAS 1–10
@@ -192,6 +193,30 @@ export const GENERATORS_BY_TEMA: Record<number, GeneratorFn> = Object.fromEntrie
     return [idTema, wrapConModo(generadorAdaptado)];
   })
 ) as Record<number, GeneratorFn>;
+
+const MATEMATICAS_GENERATOR_VERSION = 1;
+
+export const GENERADORES_MATEMATICAS_POR_TEMA: Record<
+  number,
+  GeneratorDescriptor<Exercise, Parameters<GeneratorFn>>
+> = Object.fromEntries(
+  Object.entries(GENERATORS_BY_TEMA).map(([id, generador]) => {
+    const idTema = Number(id);
+    const generatorId = `matematicas:${idTema}`;
+    return [
+      idTema,
+      {
+        id: generatorId,
+        version: MATEMATICAS_GENERATOR_VERSION,
+        generate: (...args) => ({
+          ...generador(...args),
+          generatorId,
+          generatorVersion: MATEMATICAS_GENERATOR_VERSION,
+        }),
+      },
+    ];
+  })
+) as Record<number, GeneratorDescriptor<Exercise, Parameters<GeneratorFn>>>;
 
 export const TEMAS_MATEMATICAS_INFO: Record<
   number,

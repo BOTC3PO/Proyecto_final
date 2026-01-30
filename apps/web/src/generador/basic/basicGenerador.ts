@@ -16,9 +16,12 @@ import { createPrng, type PRNG } from "../core/prng";
 
 export class QuizGenerator {
   private template: QuizTemplate;
+  readonly id: string;
+  readonly version = 1;
 
   constructor(template: QuizTemplate) {
     this.template = template;
+    this.id = template.metadata.id;
   }
 
   generate(options?: {

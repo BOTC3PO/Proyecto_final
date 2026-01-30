@@ -12,6 +12,8 @@ export interface BaseExercise {
   idTema: number;       // 1, 2, 3... según tu tabla de temas
   tituloTema: string;
   dificultad: Dificultad;
+  generatorId?: string;
+  generatorVersion?: number;
 }
 
 // Ejercicio tipo quiz (multiple choice)

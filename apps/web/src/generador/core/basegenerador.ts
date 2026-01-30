@@ -10,6 +10,7 @@ import type { PRNG } from "./prng";
 export abstract class BaseGenerator {
   protected prng: PRNG;
   private idCounter = 0;
+  readonly version = 1;
 
   constructor(prng: PRNG) {
     this.prng = prng;
@@ -43,6 +44,15 @@ export abstract class BaseGenerator {
     params: GeneradorParametros,
     calc: Calculator
   ): Ejercicio;
+
+  generate(params: GeneradorParametros, calc: Calculator): Ejercicio {
+    const ejercicio = this.generarEjercicio(params, calc);
+    return {
+      ...ejercicio,
+      generatorId: this.id,
+      generatorVersion: this.version,
+    };
+  }
 
   // ─────────────────────────────
   // Helpers comunes para todos los generadores

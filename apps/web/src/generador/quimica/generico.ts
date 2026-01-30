@@ -9,6 +9,8 @@ export interface BaseExercise {
   idTema: number;            // 1 a 95
   tituloTema: string;
   dificultad: Dificultad;
+  generatorId?: string;
+  generatorVersion?: number;
   visualSpec?: VisualSpec;
 }
 

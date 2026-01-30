@@ -20,14 +20,21 @@ const mulberry32 = (seed: number) => {
 
 type QuizEditorGeneratedProps = {
   generatorId: string;
+  generatorVersion: number;
   params: Record<string, unknown>;
   count: number;
-  onChange: (next: { generatorId?: string; params?: Record<string, unknown>; count?: number }) => void;
+  onChange: (next: {
+    generatorId?: string;
+    generatorVersion?: number;
+    params?: Record<string, unknown>;
+    count?: number;
+  }) => void;
   showPreview?: boolean;
 };
 
 export default function QuizEditorGenerated({
   generatorId,
+  generatorVersion,
   params,
   count,
   onChange,
@@ -42,13 +49,15 @@ export default function QuizEditorGenerated({
 
   const previewItems = useMemo(() => {
     if (!showPreview || !generatorId || !count || count <= 0) return [];
-    const seed = hashString(`preview:${generatorId}:${JSON.stringify(params ?? {})}`);
+    const seed = hashString(
+      `preview:${generatorId}:${generatorVersion}:${JSON.stringify(params ?? {})}`
+    );
     const random = mulberry32(seed);
     return Array.from({ length: count }, (_, index) => {
       const token = Math.floor(random() * 900 + 100);
       return `Pregunta ${index + 1} · semilla ${token}`;
     });
-  }, [count, generatorId, params, showPreview]);
+  }, [count, generatorId, generatorVersion, params, showPreview]);
 
   const handleParamsChange = (value: string) => {
     setParamsText(value);
@@ -63,7 +72,7 @@ export default function QuizEditorGenerated({
 
   return (
     <div className="space-y-4">
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-3">
         <label className="text-xs font-medium text-gray-600">
           ID del generador
           <input
@@ -71,6 +80,17 @@ export default function QuizEditorGenerated({
             value={generatorId}
             onChange={(event) => onChange({ generatorId: event.target.value })}
             placeholder="generador-matematica-basico"
+          />
+        </label>
+
+        <label className="text-xs font-medium text-gray-600">
+          Versión del generador
+          <input
+            className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
+            type="number"
+            min={1}
+            value={Number.isNaN(generatorVersion) ? "" : generatorVersion}
+            onChange={(event) => onChange({ generatorVersion: Number(event.target.value) || 1 })}
           />
         </label>
 

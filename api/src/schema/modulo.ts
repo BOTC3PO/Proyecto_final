@@ -65,6 +65,7 @@ export const ModuleQuizSchema = z.object({
     )
     .optional(),
   generatorId: z.string().min(1).optional(),
+  generatorVersion: z.number().int().positive().optional(),
   params: z.record(z.string(), z.unknown()).optional(),
   count: z.number().int().positive().optional(),
   seedPolicy: z.string().min(1).optional(),
@@ -76,6 +77,13 @@ export const ModuleQuizSchema = z.object({
         code: z.ZodIssueCode.custom,
         message: "generatorId is required when mode is generated",
         path: ["generatorId"]
+      });
+    }
+    if (!value.generatorVersion) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "generatorVersion is required when mode is generated",
+        path: ["generatorVersion"]
       });
     }
     if (!value.params) {
@@ -160,6 +168,7 @@ export const ModuleSchema = z.object({
   generatorRef: z
     .object({
       id: z.string().min(1),
+      version: z.number().int().positive().optional(),
       config: z.record(z.string(), z.unknown()).optional()
     })
     .nullable()
