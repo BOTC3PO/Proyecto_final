@@ -18,7 +18,6 @@ export default function Navbar() {
   
   const role = user?.role ?? 'GUEST';
   const items = NAV_BY_ROLE[role];
-  const showRoleSwitcher = testmode() || import.meta.env.DEV;
   
   // Determinar si mostrar navbar público
   const isPublicPage = PUBLIC_PAGES.includes(location.pathname);
@@ -245,7 +244,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           {/* Botones de demo para cambiar rol rápido (sacalos en producción) */}
-          {showRoleSwitcher ? (
+          {testmode() ? (
             <select
               className="px-2 py-1 text-sm border rounded"
               onChange={(e) => loginAs(e.target.value as Role)}
