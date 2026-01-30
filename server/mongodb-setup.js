@@ -155,7 +155,7 @@ db.createCollection("clases", {
             bsonType: "object",
             required: ["moduleId"],
             properties: {
-              moduleId: { bsonType: "objectId" },
+              moduleId: { bsonType: "string" },
               assignedAt: { bsonType: "date" },
               required: { bsonType: "bool" }
             }
@@ -1372,7 +1372,7 @@ db.clases.insertOne({
   teacherIds: [teacherId],
   adminIds: [teacherId],
   studentIds: [studentId],
-  modules: [{ moduleId: moduloId, assignedAt: new Date(), required: true }],
+  modules: [{ moduleId: moduloId.toString(), assignedAt: new Date(), required: true }],
   publications: [
     {
       authorId: teacherId,
