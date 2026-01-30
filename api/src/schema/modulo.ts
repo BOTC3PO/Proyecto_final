@@ -102,6 +102,13 @@ export const ModuleQuizSchema = z.object({
   }
 });
 
+export const ModuleTheoryItemSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  type: z.string().min(1),
+  detail: z.string().min(1)
+});
+
 export const ModuleDependencySchema = z.object({
   id: z.string().min(1),
   type: z.enum(["required", "unlocks"])
@@ -157,6 +164,8 @@ export const ModuleSchema = z.object({
     })
     .nullable()
     .optional(),
+  theoryItems: z.array(ModuleTheoryItemSchema).optional(),
+  quizzes: z.array(ModuleQuizSchema).optional(),
   resources: z.array(ModuleResourceSchema).optional(),
   levels: z.array(ModuleLevelSchema).optional(),
   levelOrder: z.array(z.string().min(1)).optional(),
