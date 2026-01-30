@@ -346,9 +346,9 @@ export default function menuProfesor() {
             <button title="Notificaciones" aria-label="Notificaciones">
               🔔
             </button>
-            <Link className="flex items-center gap-2 hover:underline" to="/profesor/configuracion">
+            <span className="flex items-center gap-2 text-gray-400">
               👤 Perfil
-            </Link>
+            </span>
           </div>
         </div>
         {dashboardError && (
@@ -427,12 +427,9 @@ export default function menuProfesor() {
                 Próximas clases y actividades prioritarias.
               </p>
             </div>
-            <Link
-              className="inline-flex items-center gap-2 rounded-md border border-blue-200 px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50"
-              to="/profesor/calendario"
-            >
-              Ver calendario
-            </Link>
+            <span className="inline-flex items-center gap-2 rounded-md border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-400">
+              Calendario (próximamente)
+            </span>
           </div>
           <ul className="mt-4 divide-y divide-gray-100">
             {dashboardLoading && <li className="py-3 text-sm text-gray-500">Cargando planificación...</li>}

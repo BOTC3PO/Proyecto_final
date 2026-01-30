@@ -34,8 +34,6 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Aulas', to: '/profesor/aulas' },
     { label: 'Módulos', to: '/modulos' },
     { label: 'Evaluaciones', to: '/profesor/evaluaciones' },
-    { label: 'Calendario', to: '/profesor/calendario' },
-    { label: 'Reportes', to: '/profesor/reportes' },
   ],
   ENTERPRISE: [
     { label: 'Panel escuela', to: '/enterprise' },
