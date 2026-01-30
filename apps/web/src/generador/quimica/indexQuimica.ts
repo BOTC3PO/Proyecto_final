@@ -1,5 +1,6 @@
 // src/generators/quimica/indexQuimica.ts
-import { type GeneratorFn, setPrng } from "./generico";
+import { type Exercise, type GeneratorFn, setPrng } from "./generico";
+import type { GeneratorDescriptor } from "../core/types";
 
 /* ────────────────────────────────────────────────
    BLOQUE 1 — ESTEQUIOMETRÍA (1–12)
@@ -309,3 +310,27 @@ export const GENERADORES_QUIMICA: Record<number, GeneratorFn> = Object.fromEntri
     wrapWithPrng(generator),
   ])
 ) as Record<number, GeneratorFn>;
+
+const QUIMICA_GENERATOR_VERSION = 1;
+
+export const GENERADORES_QUIMICA_DESCRIPTORES: Record<
+  number,
+  GeneratorDescriptor<Exercise, Parameters<GeneratorFn>>
+> = Object.fromEntries(
+  Object.entries(GENERADORES_QUIMICA).map(([id, generator]) => {
+    const idTema = Number(id);
+    const generatorId = `quimica:${idTema}`;
+    return [
+      idTema,
+      {
+        id: generatorId,
+        version: QUIMICA_GENERATOR_VERSION,
+        generate: (...args) => ({
+          ...generator(...args),
+          generatorId,
+          generatorVersion: QUIMICA_GENERATOR_VERSION,
+        }),
+      },
+    ];
+  })
+) as Record<number, GeneratorDescriptor<Exercise, Parameters<GeneratorFn>>>;

@@ -1,6 +1,7 @@
 // src/ejercicios/fisica/indexFisica.ts
 import { BaseGenerator } from "../core/basegenerador";
 import type { PRNG } from "../core/prng";
+import type { Calculator, Ejercicio, GeneradorParametros, GeneratorDescriptor } from "../core/types";
 
 // Cinemática
 import { MRUGenerator } from "./MRU";
@@ -109,3 +110,17 @@ export const createGeneradoresFisicaPorId = (
   prng: PRNG
 ): Record<string, BaseGenerator> =>
   Object.fromEntries(createGeneradoresFisica(prng).map((g) => [g.id, g]));
+
+export const createGeneradoresFisicaDescriptorPorId = (
+  prng: PRNG
+): Record<string, GeneratorDescriptor<Ejercicio, [GeneradorParametros, Calculator]>> =>
+  Object.fromEntries(
+    createGeneradoresFisica(prng).map((g) => [
+      g.id,
+      {
+        id: g.id,
+        version: g.version,
+        generate: (params, calc) => g.generate(params, calc),
+      },
+    ])
+  );

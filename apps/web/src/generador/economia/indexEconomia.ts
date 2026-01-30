@@ -1,4 +1,5 @@
-import type { GeneratorFn } from "./generico";
+import type { Exercise, GeneratorFn } from "./generico";
+import type { GeneratorDescriptor } from "../core/types";
 
 import { genContabClasificacionCuentas } from "./contab_01_clasificacionCuentas";
 import { genContabNaturalezaCuentas } from "./contab_02_naturalezaCuentas";
@@ -170,6 +171,29 @@ export const GENERADORES_ECONOMIA_POR_CLAVE: Record<string, GeneratorFn> = {
     ])
   ),
 };
+
+const ECONOMIA_GENERATOR_VERSION = 1;
+
+export const GENERADORES_ECONOMIA_DESCRIPTORES: Record<
+  string,
+  GeneratorDescriptor<Exercise, Parameters<GeneratorFn>>
+> = Object.fromEntries(
+  Object.entries(GENERADORES_ECONOMIA_POR_CLAVE).map(([clave, generator]) => {
+    const generatorId = `economia:${clave}`;
+    return [
+      clave,
+      {
+        id: generatorId,
+        version: ECONOMIA_GENERATOR_VERSION,
+        generate: (...args) => ({
+          ...generator(...args),
+          generatorId,
+          generatorVersion: ECONOMIA_GENERATOR_VERSION,
+        }),
+      },
+    ];
+  })
+) as Record<string, GeneratorDescriptor<Exercise, Parameters<GeneratorFn>>>;
 
 export function getGeneradorEconomia(
   categoria: EconomiaCategoria,

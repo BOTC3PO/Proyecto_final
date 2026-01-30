@@ -262,6 +262,7 @@ db.runCommand({
                 description: "Opcional; la app asume 'manual' cuando hay preguntas"
               },
               generatorId: { bsonType: ["string", "null"] },
+              generatorVersion: { bsonType: ["int", "null"], minimum: 1 },
               params: { bsonType: ["object", "null"] },
               count: { bsonType: ["int", "null"] },
               seedPolicy: { bsonType: ["string", "null"], enum: ["perAttempt", "fixed", null] },
@@ -301,7 +302,7 @@ db.runCommand({
                 properties: {
                   mode: { enum: ["generated"] }
                 },
-                required: ["mode", "generatorId", "params", "count", "seedPolicy"],
+                required: ["mode", "generatorId", "generatorVersion", "params", "count", "seedPolicy"],
                 not: { required: ["questions"] }
               },
               {

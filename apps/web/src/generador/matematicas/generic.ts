@@ -17,6 +17,8 @@ export interface BaseExercise {
   idTema: number;
   tituloTema: string;
   dificultad: Dificultad;
+  generatorId?: string;
+  generatorVersion?: number;
   tipo: "quiz"; // de momento solo quiz, luego podés ampliar
 }
 

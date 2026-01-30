@@ -34,6 +34,7 @@ export type ModuleQuiz = {
   competitionRulesVisibility?: ModuleQuizVisibility;
   questions?: ModuleQuizQuestion[];
   generatorId?: string;
+  generatorVersion?: number;
   params?: Record<string, unknown>;
   count?: number;
   seedPolicy?: ModuleQuizSeedPolicy;
@@ -66,6 +67,7 @@ export type ModuleQuizQuestion = {
 
 export type ModuleGeneratorRef = {
   id: string;
+  version?: number;
   config?: Record<string, unknown>;
 };
 

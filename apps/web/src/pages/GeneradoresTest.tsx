@@ -6,10 +6,10 @@ import type {
 import type { Dificultad as DificultadMath } from "../generador/matematicas/generic";
 import type { Dificultad as DificultadQuimica } from "../generador/quimica/generico";
 import type { Dificultad as DificultadEconomia } from "../generador/economia/generico";
-import { GENERATORS_BY_TEMA } from "../generador/matematicas";
-import { GENERADORES_QUIMICA } from "../generador/quimica/indexQuimica";
-import { GENERADORES_ECONOMIA_POR_CLAVE } from "../generador/economia/indexEconomia";
-import { createGeneradoresFisica } from "../generador/fisica/indexFisica";
+import { GENERADORES_MATEMATICAS_POR_TEMA, GENERATORS_BY_TEMA } from "../generador/matematicas";
+import { GENERADORES_QUIMICA_DESCRIPTORES, GENERADORES_QUIMICA } from "../generador/quimica/indexQuimica";
+import { GENERADORES_ECONOMIA_DESCRIPTORES, GENERADORES_ECONOMIA_POR_CLAVE } from "../generador/economia/indexEconomia";
+import { createGeneradoresFisicaDescriptorPorId, createGeneradoresFisica } from "../generador/fisica/indexFisica";
 import { crearCalculadoraFisica } from "../generador/fisica/calculadora";
 import { createPrng } from "../generador/core/prng";
 import VisualizerRenderer from "../visualizadores/graficos/VisualizerRenderer";
@@ -52,6 +52,10 @@ export default function GeneradoresTest() {
   const listingPrng = useMemo(() => createPrng(seed || "listado-generadores"), [seed]);
   const prng = useMemo(() => (seed ? createPrng(seed) : null), [seed]);
   const generadoresFisica = useMemo(() => createGeneradoresFisica(listingPrng), [listingPrng]);
+  const generadoresFisicaPorId = useMemo(
+    () => createGeneradoresFisicaDescriptorPorId(listingPrng),
+    [listingPrng]
+  );
 
   const opcionesGenerador = useMemo(() => {
     switch (materia) {
@@ -77,12 +81,14 @@ export default function GeneradoresTest() {
           .map((clave) => ({ value: clave, label: clave }));
       case "fisica":
       default:
-        return generadoresFisica.map((generador) => ({
-          value: generador.id,
-          label: generador.id,
-        }));
+        return Object.keys(generadoresFisicaPorId)
+          .sort()
+          .map((id) => ({
+            value: id,
+            label: id,
+          }));
     }
-  }, [materia, generadoresFisica]);
+  }, [materia, generadoresFisicaPorId]);
 
   useEffect(() => {
     setGeneradorSeleccionado(opcionesGenerador[0]?.value ?? "");
@@ -675,39 +681,47 @@ export default function GeneradoresTest() {
 
       switch (materia) {
         case "matematica": {
-          const generador = GENERATORS_BY_TEMA[Number(generadorSeleccionado)];
-          if (!generador) throw new Error("Generador de matemáticas no disponible.");
+          const descriptor =
+            GENERADORES_MATEMATICAS_POR_TEMA[Number(generadorSeleccionado)];
+          if (!descriptor) throw new Error("Generador de matemáticas no disponible.");
           setResultado(
-            generador(dificultad as DificultadMath, { modo: modoRespuesta }, prng)
+            descriptor.generate(
+              dificultad as DificultadMath,
+              { modo: modoRespuesta },
+              prng
+            )
           );
           break;
         }
         case "quimica": {
-          const generador = GENERADORES_QUIMICA[Number(generadorSeleccionado)];
-          if (!generador) throw new Error("Generador de química no disponible.");
-          setResultado(generador(mapDificultadCoreABasica(dificultad), prng));
+          const descriptor =
+            GENERADORES_QUIMICA_DESCRIPTORES[Number(generadorSeleccionado)];
+          if (!descriptor) throw new Error("Generador de química no disponible.");
+          setResultado(
+            descriptor.generate(mapDificultadCoreABasica(dificultad), prng)
+          );
           break;
         }
         case "economia": {
-          const generador =
-            GENERADORES_ECONOMIA_POR_CLAVE[generadorSeleccionado];
-          if (!generador) throw new Error("Generador de economía no disponible.");
-          setResultado(generador(dificultad as DificultadEconomia, prng));
+          const descriptor =
+            GENERADORES_ECONOMIA_DESCRIPTORES[generadorSeleccionado];
+          if (!descriptor) throw new Error("Generador de economía no disponible.");
+          setResultado(descriptor.generate(dificultad as DificultadEconomia, prng));
           break;
         }
         case "fisica": {
-          const generador = generadoresFisica.find(
-            (item) => item.id === generadorSeleccionado
-          );
-          if (!generador) throw new Error("Generador de física no disponible.");
+          const descriptor = generadoresFisicaPorId[generadorSeleccionado];
+          if (!descriptor) throw new Error("Generador de física no disponible.");
 
           const params: GeneradorParametros = {
             materia: "fisica",
-            categoria: generador.categorias[0] ?? "general",
+            categoria: generadoresFisica.find(
+              (item) => item.id === generadorSeleccionado
+            )?.categorias[0] ?? "general",
             nivel: dificultad as DificultadCore,
           };
 
-          setResultado(generador.generarEjercicio(params, calculadoraFisica));
+          setResultado(descriptor.generate(params, calculadoraFisica));
           break;
         }
         default:

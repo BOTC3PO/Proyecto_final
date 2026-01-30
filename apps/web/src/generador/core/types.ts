@@ -26,6 +26,8 @@ export interface Ejercicio {
   materia: Materia;
   categoria: string;
   nivel: Dificultad;
+  generatorId?: string;
+  generatorVersion?: number;
   enunciado: string;
   tipoRespuesta: "multiple" | "abierta" | "interactiva";
   datos: any;
@@ -37,6 +39,20 @@ export interface Ejercicio {
     tags?: string[];
   };
   visual?: VisualSpec;
+}
+
+export type GeneratorMetadata = {
+  generatorId: string;
+  generatorVersion: number;
+};
+
+export interface GeneratorDescriptor<
+  Output,
+  Args extends unknown[] = unknown[]
+> {
+  id: string;
+  version: number;
+  generate: (...args: Args) => Output;
 }
 
 // Lo mínimo para el motor de cálculo

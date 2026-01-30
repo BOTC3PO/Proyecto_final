@@ -34,13 +34,20 @@ const makeModuleId = (value: string) => {
 
 const buildQuizId = () => `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
-const ensureQuizDefaults = (quiz: ModuleQuiz): ModuleQuiz => ({
-  status: quiz.status ?? "draft",
-  version: quiz.version ?? 1,
-  visibility: quiz.visibility ?? "publico",
-  type: quiz.type ?? "evaluacion",
-  ...quiz,
-});
+const ensureQuizDefaults = (quiz: ModuleQuiz): ModuleQuiz => {
+  const base = {
+    status: quiz.status ?? "draft",
+    version: quiz.version ?? 1,
+    visibility: quiz.visibility ?? "publico",
+    type: quiz.type ?? "evaluacion",
+    ...quiz,
+  };
+  return {
+    ...base,
+    generatorVersion:
+      base.mode === "generated" ? (base.generatorVersion ?? 1) : base.generatorVersion,
+  };
+};
 
 export default function ModuloEditor() {
   const { id } = useParams();
@@ -149,6 +156,7 @@ export default function ModuloEditor() {
       mode,
       questions: mode === "manual" ? [] : undefined,
       generatorId: mode === "generated" ? "" : undefined,
+      generatorVersion: mode === "generated" ? 1 : undefined,
       params: mode === "generated" ? {} : undefined,
       count: mode === "generated" ? 10 : undefined,
       seedPolicy: mode === "generated" ? "fixed" : undefined,
@@ -198,6 +206,7 @@ export default function ModuloEditor() {
           title: quiz.title.trim() || `Cuestionario ${quiz.id.slice(-4)}`,
           questions: quiz.mode === "manual" ? quiz.questions ?? [] : undefined,
           generatorId: quiz.mode === "generated" ? quiz.generatorId : undefined,
+          generatorVersion: quiz.mode === "generated" ? quiz.generatorVersion : undefined,
           params: quiz.mode === "generated" ? quiz.params : undefined,
           count: quiz.mode === "generated" ? quiz.count : undefined,
           seedPolicy: quiz.mode === "generated" ? quiz.seedPolicy ?? "fixed" : undefined,
@@ -486,6 +495,7 @@ export default function ModuloEditor() {
                       {quiz.mode === "generated" ? (
                         <QuizEditorGenerated
                           generatorId={quiz.generatorId ?? ""}
+                          generatorVersion={quiz.generatorVersion ?? 1}
                           params={(quiz.params as Record<string, unknown>) ?? {}}
                           count={quiz.count ?? 0}
                           onChange={(next) => updateQuiz(quiz.id, { ...next })}
