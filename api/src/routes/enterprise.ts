@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
@@ -163,13 +164,14 @@ enterprise.post("/api/enterprise/aulas", requireUser, ...bodyLimitMB(ENV.MAX_PAG
       res.status(400).json({ error: "invalid adminId" });
       return;
     }
-    const teacherObjectIds = uniqueTeacherIds.map((id) => toObjectId(id));
-    if (teacherObjectIds.some((value) => !value)) {
+    const isObjectId = (value: ReturnType<typeof toObjectId>): value is ObjectId => value !== null;
+    const teacherObjectIds = uniqueTeacherIds.map((id) => toObjectId(id)).filter(isObjectId);
+    if (teacherObjectIds.length !== uniqueTeacherIds.length) {
       res.status(400).json({ error: "invalid teacherId" });
       return;
     }
     const db = await getDb();
-    const lookupIds = [adminObjectId, ...(teacherObjectIds.filter(Boolean) as ReturnType<typeof toObjectId>[])];
+    const lookupIds = [adminObjectId, ...teacherObjectIds];
     const users = await db
       .collection("usuarios")
       .find({ _id: { $in: lookupIds }, isDeleted: { $ne: true } })
