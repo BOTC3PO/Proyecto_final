@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Award, Bell, Clock3, GraduationCap, Trophy, UserCircle2 } from "lucide-react";
-import { MVP_MODULES } from "../mvp/mvpData";
+import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { getSubjectColor } from "../domain/module/subjectColors";
@@ -312,8 +312,12 @@ const formatMoney = (value: number) =>
 const formatDelta = (value: number, suffix: string) => `${value > 0 ? "+" : ""}${value} ${suffix}`;
 
 export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass }) => {
+  const { user } = useAuth();
   const [completedModules, setCompletedModules] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
+  const [modulesCount, setModulesCount] = useState(0);
+  const [progressStatus, setProgressStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [progressError, setProgressError] = useState<string | null>(null);
   const [economy, setEconomy] = useState<EconomyState>(defaultEconomyState);
   const [transferTo, setTransferTo] = useState("");
   const [transferAmount, setTransferAmount] = useState(10);
@@ -332,28 +336,48 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
 
   useEffect(() => {
     let active = true;
-    const usuarioId = "demo-alumno";
-    Promise.all([apiGet<{ items: Module[] }>("/api/modulos"), apiGet<ProgressResponse>(`/api/progreso?usuarioId=${usuarioId}`)])
+    if (!user?.id) {
+      setCompletedModules(0);
+      setProgressPercent(0);
+      setModulesCount(0);
+      setProgressStatus("error");
+      setProgressError("No se encontró un alumno autenticado.");
+      return () => {
+        active = false;
+      };
+    }
+    setProgressStatus("loading");
+    setProgressError(null);
+    Promise.all([
+      apiGet<{ items: Module[] }>("/api/modulos"),
+      apiGet<ProgressResponse>(`/api/progreso?usuarioId=${user.id}`)
+    ])
       .then(([modulesResponse, progressResponse]) => {
         if (!active) return;
         const completedSet = new Set(
           progressResponse.items.filter((item) => item.status === "completado").map((item) => item.moduloId)
         );
-        const total = modulesResponse.items.length || 1;
+        const total = modulesResponse.items.length;
         const completedCount = modulesResponse.items.filter((module) => completedSet.has(module.id)).length;
         setCompletedModules(completedCount);
-        setProgressPercent(Math.round((completedCount / total) * 100));
+        setModulesCount(total);
+        setProgressPercent(total === 0 ? 0 : Math.round((completedCount / total) * 100));
+        setProgressStatus("ready");
       })
-      .catch(() => {
+      .catch((error) => {
         if (!active) return;
-        const completedCount = MVP_MODULES.filter((module) => module.progressPercent && module.progressPercent >= 100).length;
-        setCompletedModules(completedCount);
-        setProgressPercent(Math.round((completedCount / (MVP_MODULES.length || 1)) * 100));
+        setCompletedModules(0);
+        setModulesCount(0);
+        setProgressPercent(0);
+        setProgressStatus("error");
+        setProgressError(
+          error instanceof Error ? error.message : "No se pudo cargar el progreso."
+        );
       });
     return () => {
       active = false;
     };
-  }, []);
+  }, [user?.id]);
 
   useEffect(() => {
     const stored = localStorage.getItem(ECONOMY_STORAGE_KEY);
@@ -721,6 +745,15 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             </Link>
           </section>
           <div className="space-y-5">
+            {progressStatus === "loading" && (
+              <p className="text-sm text-gray-500">Cargando progreso...</p>
+            )}
+            {progressStatus === "error" && progressError && (
+              <p className="text-sm text-red-600">{progressError}</p>
+            )}
+            {progressStatus === "ready" && modulesCount === 0 && (
+              <p className="text-sm text-gray-500">Todavía no tenés módulos asignados.</p>
+            )}
             <InfoCard
               icon={<Clock3 className="h-6 w-6" />}
               label="Próxima Clase"
