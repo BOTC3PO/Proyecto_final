@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { requireUser } from "../lib/user-auth";
 
@@ -34,6 +35,37 @@ type ModuloDocente = {
   updatedAt?: string;
 };
 
+type CursoDocente = {
+  _id?: ObjectId | string;
+  id?: string;
+  name?: string;
+  enrollments?: { userId?: string }[];
+  isDeleted?: boolean;
+  status?: string;
+};
+
+type AsistenciaDocente = {
+  _id?: ObjectId | string;
+  id?: string;
+  curso?: string;
+  nombreCurso?: string;
+  presente?: number;
+  presentes?: number;
+  total?: number;
+  totalEstudiantes?: number;
+};
+
+type CalificacionDocente = {
+  _id?: ObjectId | string;
+  id?: string;
+  grupo?: string;
+  curso?: string;
+  pendientes?: number;
+  pending?: number;
+  ultimaEntrega?: string;
+  lastSubmissionAt?: string;
+};
+
 export const profesor = Router();
 
 profesor.use(requireUser);
@@ -42,6 +74,23 @@ const getTeacherId = (user?: AuthUser) => {
   if (!user?._id) return null;
   if (typeof user._id === "string") return user._id;
   return user._id.toString?.() ?? null;
+};
+
+const buildTeacherFilter = (teacherId: string, fields: string[]) => {
+  const values: Array<string | ObjectId> = [teacherId];
+  if (ObjectId.isValid(teacherId)) {
+    values.push(new ObjectId(teacherId));
+  }
+  return {
+    $or: fields.map((field) => ({ [field]: { $in: values } }))
+  };
+};
+
+const getDocumentId = (doc?: { _id?: ObjectId | string; id?: string }) => {
+  if (doc?.id) return doc.id;
+  if (!doc?._id) return "";
+  if (typeof doc._id === "string") return doc._id;
+  return doc._id.toString();
 };
 
 const getDisplayName = (user?: AuthUser) =>
@@ -191,4 +240,79 @@ profesor.get("/api/profesor/menu", async (req, res) => {
       ]
     }
   });
+});
+
+profesor.get("/api/profesor/asistencia", async (req, res) => {
+  const user = (req as { user?: AuthUser }).user;
+  const teacherId = getTeacherId(user);
+  if (!teacherId) {
+    res.status(403).json({ error: "forbidden" });
+    return;
+  }
+
+  const db = await getDb();
+  const asistencias = (await db
+    .collection("asistencias")
+    .find(buildTeacherFilter(teacherId, ["teacherId", "createdBy"]))
+    .toArray()) as AsistenciaDocente[];
+
+  // Nota: si la colección aún no tiene datos reales, devolvemos [] para evitar errores en UI.
+  const resumen = asistencias.map((item, index) => ({
+    id: getDocumentId(item) || `asistencia-${index}`,
+    curso: item.curso ?? item.nombreCurso ?? "Curso sin nombre",
+    presente: item.presente ?? item.presentes ?? 0,
+    total: item.total ?? item.totalEstudiantes ?? 0
+  }));
+
+  res.status(200).json(resumen);
+});
+
+profesor.get("/api/profesor/cursos", async (req, res) => {
+  const user = (req as { user?: AuthUser }).user;
+  const teacherId = getTeacherId(user);
+  if (!teacherId) {
+    res.status(403).json({ error: "forbidden" });
+    return;
+  }
+
+  const db = await getDb();
+  const cursos = (await db
+    .collection("cursos")
+    .find(buildTeacherFilter(teacherId, ["teacherId", "createdBy"]))
+    .toArray()) as CursoDocente[];
+
+  // Nota: si la colección aún no tiene datos reales, devolvemos [] para evitar errores en UI.
+  const resumen = cursos.map((curso, index) => ({
+    id: getDocumentId(curso) || `curso-${index}`,
+    nombre: curso.name ?? "Curso sin nombre",
+    alumnos: curso.enrollments?.length ?? 0,
+    estado: curso.isDeleted ? "Inactivo" : curso.status ?? "Activo"
+  }));
+
+  res.status(200).json(resumen);
+});
+
+profesor.get("/api/profesor/calificaciones", async (req, res) => {
+  const user = (req as { user?: AuthUser }).user;
+  const teacherId = getTeacherId(user);
+  if (!teacherId) {
+    res.status(403).json({ error: "forbidden" });
+    return;
+  }
+
+  const db = await getDb();
+  const calificaciones = (await db
+    .collection("calificaciones")
+    .find(buildTeacherFilter(teacherId, ["teacherId", "createdBy"]))
+    .toArray()) as CalificacionDocente[];
+
+  // Nota: si la colección aún no tiene datos reales, devolvemos [] para evitar errores en UI.
+  const resumen = calificaciones.map((item, index) => ({
+    id: getDocumentId(item) || `calificacion-${index}`,
+    grupo: item.grupo ?? item.curso ?? "Grupo sin nombre",
+    pendientes: item.pendientes ?? item.pending ?? 0,
+    ultimaEntrega: item.ultimaEntrega ?? item.lastSubmissionAt ?? "Sin datos"
+  }));
+
+  res.status(200).json(resumen);
 });
