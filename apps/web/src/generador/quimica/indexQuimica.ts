@@ -1,5 +1,6 @@
 // src/generators/quimica/indexQuimica.ts
 import { type Exercise, type GeneratorFn, setPrng } from "./generico";
+import { parseQuimicaParams } from "./schemas";
 import type { GeneratorDescriptor } from "../core/types";
 
 /* ────────────────────────────────────────────────
@@ -168,6 +169,7 @@ import { generarEquiposProteccionQuimica } from "./95_equipos_proteccion";
 const wrapWithPrng =
   (generator: GeneratorFn): GeneratorFn =>
   (dificultad, prng) => {
+    parseQuimicaParams(dificultad);
     if (!prng) {
       throw new Error("Se requiere un PRNG inicializado para generar ejercicios.");
     }
