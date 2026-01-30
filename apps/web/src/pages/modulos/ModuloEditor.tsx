@@ -23,6 +23,7 @@ type ModuleFormState = {
 const THEORY_TYPE_OPTIONS: TheoryItemType[] = ["book", "link", "note", "article"];
 
 const buildQuizId = () => `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+const isTemporaryQuizId = (quizId?: string) => Boolean(quizId && quizId.startsWith("quiz-"));
 
 const ensureQuizDefaults = (quiz: ModuleQuiz): ModuleQuiz => {
   const base = {
@@ -191,17 +192,26 @@ export default function ModuloEditor() {
           type: item.type,
           detail: item.detail,
         })),
-        quizzes: quizzes.map((quiz) => ({
-          ...quiz,
-          title: quiz.title.trim() || `Cuestionario ${quiz.id.slice(-4)}`,
-          questions: quiz.mode === "manual" ? quiz.questions ?? [] : undefined,
-          generatorId: quiz.mode === "generated" ? quiz.generatorId : undefined,
-          generatorVersion: quiz.mode === "generated" ? quiz.generatorVersion : undefined,
-          params: quiz.mode === "generated" ? quiz.params : undefined,
-          count: quiz.mode === "generated" ? quiz.count : undefined,
-          seedPolicy: quiz.mode === "generated" ? quiz.seedPolicy ?? "fixed" : undefined,
-          fixedSeed: quiz.mode === "generated" ? quiz.fixedSeed ?? "teacher-preview" : undefined,
-        })),
+        quizzes: quizzes.map((quiz) => {
+          const { id: quizId, ...rest } = quiz;
+          const payloadQuiz = {
+            ...rest,
+            title: quiz.title.trim() || `Cuestionario ${quiz.id.slice(-4)}`,
+            questions: quiz.mode === "manual" ? quiz.questions ?? [] : undefined,
+            generatorId: quiz.mode === "generated" ? quiz.generatorId : undefined,
+            generatorVersion: quiz.mode === "generated" ? quiz.generatorVersion : undefined,
+            params: quiz.mode === "generated" ? quiz.params : undefined,
+            count: quiz.mode === "generated" ? quiz.count : undefined,
+            seedPolicy: quiz.mode === "generated" ? quiz.seedPolicy ?? "fixed" : undefined,
+            fixedSeed: quiz.mode === "generated" ? quiz.fixedSeed ?? "teacher-preview" : undefined,
+          };
+
+          if (!isTemporaryQuizId(quizId)) {
+            return { ...payloadQuiz, id: quizId };
+          }
+
+          return payloadQuiz;
+        }),
         updatedAt: new Date().toISOString(),
       };
 
