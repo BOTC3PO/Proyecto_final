@@ -25,6 +25,13 @@ const clampLimit = (value: string | undefined) => {
   return Math.min(parsed, 100);
 };
 
+const normalizeUsuarioId = (value: unknown) => (typeof value === "string" ? value.trim() : "");
+
+const buildUsuarioObjectId = (usuarioId: string) => {
+  if (!ObjectId.isValid(usuarioId)) return null;
+  return new ObjectId(usuarioId);
+};
+
 const buildPrecioPromedio = (values: number[]) => {
   const valid = values.filter((value) => value > 0);
   if (!valid.length) return 100;
@@ -276,13 +283,17 @@ economia.delete("/api/economia/recompensas/:id", async (req, res) => {
 });
 
 economia.get("/api/economia/saldos", async (req, res) => {
-  const usuarioId = req.query.usuarioId;
-  if (typeof usuarioId !== "string" || !usuarioId.trim()) {
+  const usuarioId = normalizeUsuarioId(req.query.usuarioId);
+  if (!usuarioId) {
     return res.status(400).json({ error: "usuarioId is required" });
   }
+  const usuarioObjectId = buildUsuarioObjectId(usuarioId);
+  if (!usuarioObjectId) {
+    return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+  }
   const db = await getDb();
-  const saldo = await db.collection("economia_saldos").findOne({ usuarioId });
-  if (saldo) return res.json(saldo);
+  const saldo = await db.collection("economia_saldos").findOne({ usuarioId: usuarioObjectId });
+  if (saldo) return res.json({ ...saldo, usuarioId });
   const config = await getEconomiaConfig(db);
   res.json({
     usuarioId,
@@ -294,12 +305,20 @@ economia.get("/api/economia/saldos", async (req, res) => {
 
 economia.patch("/api/economia/saldos/:usuarioId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    const usuarioId = normalizeUsuarioId(req.params.usuarioId);
+    if (!usuarioId) {
+      return res.status(400).json({ error: "usuarioId is required" });
+    }
+    const usuarioObjectId = buildUsuarioObjectId(usuarioId);
+    if (!usuarioObjectId) {
+      return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+    }
     const parsed = SaldoUpdateSchema.parse(req.body ?? {});
     const db = await getDb();
-    const update = { ...parsed, updatedAt: new Date().toISOString() };
+    const update = { ...parsed, usuarioId: usuarioObjectId, updatedAt: new Date().toISOString() };
     const result = await db
       .collection("economia_saldos")
-      .updateOne({ usuarioId: req.params.usuarioId }, { $set: update }, { upsert: true });
+      .updateOne({ usuarioId: usuarioObjectId }, { $set: update }, { upsert: true });
     res.status(result.upsertedCount ? 201 : 200).json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -339,6 +358,10 @@ economia.post(
         createdAt: new Date().toISOString()
       };
       const parsed = TransaccionSchema.parse(payload);
+      const usuarioObjectId = buildUsuarioObjectId(parsed.usuarioId);
+      if (!usuarioObjectId) {
+        return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+      }
       if (parsed.tipo === "credito") {
         if (limites.recompensaMaxima > 0 && parsed.monto > limites.recompensaMaxima) {
           return res.status(400).json({ error: "limite de recompensa excedido" });
@@ -383,7 +406,7 @@ economia.post(
         }
       }
       const saldoDoc = await db.collection("economia_saldos").findOne({
-        usuarioId: parsed.usuarioId
+        usuarioId: usuarioObjectId
       });
       const saldoActual = saldoDoc?.saldo ?? 0;
       const nuevoSaldo =
@@ -393,10 +416,10 @@ economia.post(
       }
       await db.collection("economia_transacciones").insertOne(parsed);
       await db.collection("economia_saldos").updateOne(
-        { usuarioId: parsed.usuarioId },
+        { usuarioId: usuarioObjectId },
         {
           $set: {
-            usuarioId: parsed.usuarioId,
+            usuarioId: usuarioObjectId,
             saldo: nuevoSaldo,
             moneda: parsed.moneda,
             updatedAt: new Date().toISOString()
@@ -541,7 +564,13 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
     if (totalActual + parsed.puntos > examen.maxCompra) {
       return res.status(400).json({ error: "limite de compra excedido" });
     }
-    const saldoDoc = await db.collection("economia_saldos").findOne({ usuarioId: parsed.usuarioId });
+    const usuarioObjectId = buildUsuarioObjectId(parsed.usuarioId);
+    if (!usuarioObjectId) {
+      return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+    }
+    const saldoDoc = await db.collection("economia_saldos").findOne({
+      usuarioId: usuarioObjectId
+    });
     const saldoActual = saldoDoc?.saldo ?? 0;
     const costoTotal = parsed.puntos * parsed.montoPorPunto;
     if (saldoActual < costoTotal) {
@@ -595,7 +624,13 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
     let precioTotal = 0;
     let precioCount = 0;
     for (const puja of pujas) {
-      const saldoDoc = await db.collection("economia_saldos").findOne({ usuarioId: puja.usuarioId });
+      const usuarioObjectId = buildUsuarioObjectId(puja.usuarioId);
+      if (!usuarioObjectId) {
+        return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+      }
+      const saldoDoc = await db.collection("economia_saldos").findOne({
+        usuarioId: usuarioObjectId
+      });
       const saldoActual = saldoDoc?.saldo ?? 0;
       const costoTotal = puja.puntos * puja.montoPorPunto;
       if (saldoActual < costoTotal) {
@@ -619,10 +654,10 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
       });
       await db.collection("economia_transacciones").insertOne(transaccion);
       await db.collection("economia_saldos").updateOne(
-        { usuarioId: puja.usuarioId },
+        { usuarioId: usuarioObjectId },
         {
           $set: {
-            usuarioId: puja.usuarioId,
+            usuarioId: usuarioObjectId,
             saldo: nuevoSaldo,
             moneda: transaccion.moneda,
             updatedAt: now
@@ -682,15 +717,19 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
         createdAt: now
       });
       await db.collection("economia_transacciones").insertOne(transaccion);
+      const usuarioObjectId = buildUsuarioObjectId(ganador.usuarioId);
+      if (!usuarioObjectId) {
+        return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+      }
       const saldoDoc = await db
         .collection("economia_saldos")
-        .findOne({ usuarioId: ganador.usuarioId });
+        .findOne({ usuarioId: usuarioObjectId });
       const saldoActual = saldoDoc?.saldo ?? 0;
       await db.collection("economia_saldos").updateOne(
-        { usuarioId: ganador.usuarioId },
+        { usuarioId: usuarioObjectId },
         {
           $set: {
-            usuarioId: ganador.usuarioId,
+            usuarioId: usuarioObjectId,
             saldo: saldoActual + premio,
             moneda: transaccion.moneda,
             updatedAt: now
