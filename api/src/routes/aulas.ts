@@ -3,11 +3,10 @@ import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
-import { ClassroomCreateSchema, ClassroomPatchSchema } from "../schema/aula";
+import { ClassroomCreateSchema, ClassroomPatchSchema, ClassroomUpdateSchema } from "../schema/aula";
 
 export const aulas = Router();
 
-const ClassroomUpdateSchema = ClassroomCreateSchema.omit({ id: true, createdAt: true, createdBy: true });
 const FREE_CLASSROOM_LIMIT = 10;
 
 const clampLimit = (value: string | undefined) => {
