@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
@@ -9,8 +9,11 @@ import {
   filterProfesorQuickLinks,
   type ProfesorMenuDashboard
 } from "../services/profesor";
-import ConceptMapVisualizer from "../visualizadores/graficos/ConceptMapVisualizer";
 import type { ConceptMapSpec, ConceptLink } from "../visualizadores/types";
+
+const ConceptMapVisualizer = lazy(
+  () => import("../visualizadores/graficos/ConceptMapVisualizer")
+);
 
 const getRequiredDependencyIds = (dependencies: Array<ModuleDependency | string>) =>
   dependencies
@@ -640,7 +643,15 @@ export default function menuProfesor() {
           </div>
           <div className="mt-4 grid gap-4 lg:grid-cols-[2fr_1fr]">
             {graphSpec.nodes.length > 0 ? (
-              <ConceptMapVisualizer spec={graphSpec} />
+              <Suspense
+                fallback={
+                  <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
+                    Cargando mapa de dependencias...
+                  </div>
+                }
+              >
+                <ConceptMapVisualizer spec={graphSpec} />
+              </Suspense>
             ) : (
               <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
                 Selecciona una materia con módulos disponibles para ver el mapa.
