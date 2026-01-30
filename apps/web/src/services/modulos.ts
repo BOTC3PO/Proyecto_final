@@ -8,7 +8,7 @@ export type ModuloCreatorOptions = {
   quizBlocks: Array<{
     id: string;
     title: string;
-    type: "practica" | "evaluacion";
+    type: "practica" | "evaluacion" | "competencia";
     visibility: "publico" | "escuela";
   }>;
 };
