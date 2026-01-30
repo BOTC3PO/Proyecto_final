@@ -240,7 +240,9 @@ export type Module = {
   rewardsConfig?: ModuleRewardsConfig;
   generatorRef?: ModuleGeneratorRef | null;
   theoryBlocks?: ModuleTheoryBlock[];
+  theoryItems?: ModuleTheoryBlock[];
   resources?: ModuleResource[];
+  quizzes?: ModuleQuiz[];
   levels?: ModuleLevel[];
   levelOrder?: string[];
   createdBy: string;
