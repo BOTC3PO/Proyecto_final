@@ -22,16 +22,6 @@ type ModuleFormState = {
 
 const THEORY_TYPE_OPTIONS: TheoryItemType[] = ["book", "link", "note", "article"];
 
-const makeModuleId = (value: string) => {
-  const base = value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)+/g, "");
-  return `${base || "modulo"}-${Date.now()}`;
-};
-
 const buildQuizId = () => `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
 const ensureQuizDefaults = (quiz: ModuleQuiz): ModuleQuiz => {
@@ -220,8 +210,7 @@ export default function ModuloEditor() {
         setStatus("saved");
         setMessage("Cambios guardados.");
       } else {
-        await apiPost("/api/modulos", {
-          id: makeModuleId(form.title),
+        await apiPost<Module>("/api/modulos", {
           createdBy: user.id,
           ...basePayload,
         });
