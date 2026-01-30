@@ -1,10 +1,11 @@
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   getSubjectCapabilities,
   type ModuleQuiz,
   type ModuleQuizVisibility,
 } from "../domain/module/module.types";
+import QuizImportJson from "../components/modulos/QuizImportJson";
 import { MVP_GENERATOR_CATEGORIES } from "../mvp/mvpData";
 
 const SUBJECTS = [
@@ -27,92 +28,6 @@ const SUBJECTS = [
   "Otro",
 ];
 
-const isNonEmptyString = (value: unknown): value is string =>
-  typeof value === "string" && value.trim().length > 0;
-
-const isRecord = (value: unknown): value is Record<string, unknown> =>
-  typeof value === "object" && value !== null;
-
-const exercisesJsonExample = `{
-  "preguntas": [
-    {
-      "enunciado": "¿Cuál es la fórmula de la velocidad media?",
-      "questionType": "mc",
-      "options": [
-        "v = d / t",
-        "v = t / d",
-        "v = d * t"
-      ],
-      "answerKey": "v = d / t",
-      "explanation": "Se calcula como distancia dividida por tiempo."
-    }
-  ]
-}`;
-
-const validateExercisesJson = (value: unknown) => {
-  const errors: string[] = [];
-  const preguntas = Array.isArray(value)
-    ? value
-    : isRecord(value) && Array.isArray(value.preguntas)
-      ? value.preguntas
-      : null;
-
-  if (!preguntas) {
-    return {
-      isValid: false,
-      errors: ["El JSON debe ser un array de preguntas o un objeto con la clave preguntas."],
-    };
-  }
-
-  if (preguntas.length === 0) {
-    errors.push("Debe incluir al menos una pregunta.");
-  }
-
-  preguntas.forEach((pregunta, index) => {
-    if (!isRecord(pregunta)) {
-      errors.push(`preguntas[${index}] debe ser un objeto con enunciado, respuestas y solucion.`);
-      return;
-    }
-    if (!isNonEmptyString(pregunta.enunciado)) {
-      errors.push(`preguntas[${index}].enunciado debe ser un texto no vacío.`);
-    }
-    const questionType = isNonEmptyString(pregunta.questionType) ? pregunta.questionType.trim() : "";
-    const rawOptions = Array.isArray(pregunta.options)
-      ? pregunta.options
-      : Array.isArray(pregunta.opciones)
-        ? pregunta.opciones
-        : Array.isArray(pregunta.respuestas)
-          ? pregunta.respuestas
-          : null;
-    const requiresOptions = questionType !== "input";
-    if (requiresOptions) {
-      if (!rawOptions || rawOptions.length < 2) {
-        errors.push(`preguntas[${index}].options debe ser un array con al menos 2 opciones.`);
-      } else {
-        rawOptions.forEach((respuesta, respuestaIndex) => {
-          const isStringOption = isNonEmptyString(respuesta);
-          const isObjectOption = isRecord(respuesta) && isNonEmptyString(respuesta.texto);
-          if (!isStringOption && !isObjectOption) {
-            errors.push(
-              `preguntas[${index}].options[${respuestaIndex}] debe ser un texto o un objeto con texto.`,
-            );
-          }
-        });
-      }
-    }
-    const answerKey = pregunta.answerKey ?? pregunta.solucion;
-    if (
-      !(typeof answerKey === "string" && answerKey.trim()) &&
-      !(typeof answerKey === "number" && Number.isFinite(answerKey)) &&
-      !(Array.isArray(answerKey) && answerKey.every((value) => isNonEmptyString(value)))
-    ) {
-      errors.push(`preguntas[${index}].answerKey debe ser un texto o un array válido.`);
-    }
-  });
-
-  return { isValid: errors.length === 0, errors };
-};
-
 const makeQuizId = (value: string) => {
   const base = value
     .toLowerCase()
@@ -133,13 +48,6 @@ export default function EditorCuestionarios() {
   const [competitionRulesVisibility, setCompetitionRulesVisibility] =
     useState<ModuleQuizVisibility>("publico");
   const [statusMessage, setStatusMessage] = useState("");
-  const [exerciseImportStatus, setExerciseImportStatus] = useState<{
-    status: "idle" | "valid" | "error";
-    message: string;
-    errors?: string[];
-  }>({ status: "idle", message: "" });
-  const [exerciseFileName, setExerciseFileName] = useState("");
-  const exerciseFileInputRef = useRef<HTMLInputElement | null>(null);
   const subjectCapabilities = useMemo(() => getSubjectCapabilities(subject), [subject]);
 
   const autoQuizHelperText = subjectCapabilities.supportsAutoQuizzes
@@ -157,43 +65,6 @@ export default function EditorCuestionarios() {
     const nextId = quizId.trim() || makeQuizId(quizName);
     setQuizId(nextId);
     setStatusMessage(`Listo. Usá el ID ${nextId} para vincular este cuestionario a un módulo.`);
-  };
-
-  const handleExerciseFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    setExerciseImportStatus({ status: "idle", message: "" });
-    setExerciseFileName("");
-    try {
-      const raw = await file.text();
-      const parsed = JSON.parse(raw) as unknown;
-      const validation = validateExercisesJson(parsed);
-      if (!validation.isValid) {
-        setExerciseImportStatus({
-          status: "error",
-          message: "El archivo no coincide con el esquema de planilla.",
-          errors: validation.errors,
-        });
-        if (exerciseFileInputRef.current) {
-          exerciseFileInputRef.current.value = "";
-        }
-        return;
-      }
-      setExerciseFileName(file.name);
-      setExerciseImportStatus({
-        status: "valid",
-        message: "Planilla válida. Lista para importar preguntas.",
-      });
-    } catch (error) {
-      setExerciseImportStatus({
-        status: "error",
-        message: "No se pudo leer el archivo JSON.",
-        errors: [error instanceof Error ? error.message : "JSON inválido."],
-      });
-      if (exerciseFileInputRef.current) {
-        exerciseFileInputRef.current.value = "";
-      }
-    }
   };
 
   return (
@@ -347,38 +218,7 @@ export default function EditorCuestionarios() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="border rounded-lg p-4 space-y-2">
-                <h3 className="text-sm font-semibold">Importar JSON</h3>
-                <input
-                  type="file"
-                  accept=".json"
-                  className="block w-full text-sm text-gray-700 file:mr-4 file:rounded-md file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
-                  ref={exerciseFileInputRef}
-                  onChange={handleExerciseFileChange}
-                />
-                <p className="text-xs text-gray-500">
-                  Incluye en cada pregunta: enunciado, opciones (si aplica) y respuesta correcta.
-                </p>
-                {exerciseImportStatus.status === "valid" && (
-                  <p className="text-xs text-emerald-600">
-                    {exerciseImportStatus.message} {exerciseFileName ? `(${exerciseFileName})` : ""}
-                  </p>
-                )}
-                {exerciseImportStatus.status === "error" && (
-                  <div className="rounded-md border border-red-200 bg-red-50 p-3 text-xs text-red-700 space-y-2">
-                    <p className="font-semibold">{exerciseImportStatus.message}</p>
-                    <ul className="list-disc pl-4 space-y-1">
-                      {exerciseImportStatus.errors?.map((error) => (
-                        <li key={error}>{error}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                <details className="rounded-md border border-slate-200 bg-slate-50 p-3 text-[11px] text-slate-600">
-                  <summary className="cursor-pointer font-medium">Ver ejemplo de planilla válida</summary>
-                  <pre className="mt-2 whitespace-pre-wrap font-mono">{exercisesJsonExample}</pre>
-                </details>
-              </div>
+              <QuizImportJson />
 
               <div className="border rounded-lg p-4 space-y-2">
                 <h3 className="text-sm font-semibold">Descargar JSON base</h3>
