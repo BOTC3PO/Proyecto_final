@@ -1,5 +1,9 @@
 // types.ts
 import type { VisualSpec } from "../../visualizadores/types";
+import type {
+  GeneratedQuestionDTO,
+  QuestionCorrection,
+} from "./generated-question";
 export type Materia = "matematica" | "fisica" | "economia" | "contabilidad";
 
 export type Dificultad = "basico" | "intermedio" | "avanzado"|"Legendario"|"Divino";
@@ -39,6 +43,11 @@ export interface Ejercicio {
     tags?: string[];
   };
   visual?: VisualSpec;
+}
+
+export interface GeneratedExercise {
+  question: GeneratedQuestionDTO;
+  correction: QuestionCorrection;
 }
 
 export type GeneratorMetadata = {

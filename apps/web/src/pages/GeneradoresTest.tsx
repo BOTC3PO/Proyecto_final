@@ -3,13 +3,14 @@ import type {
   Dificultad as DificultadCore,
   GeneradorParametros,
 } from "../generador/core/types";
+import type { GeneratedQuestionDTO } from "../generador/core/generated-question";
 import type { Dificultad as DificultadMath } from "../generador/matematicas/generic";
 import type { Dificultad as DificultadQuimica } from "../generador/quimica/generico";
 import type { Dificultad as DificultadEconomia } from "../generador/economia/generico";
 import { GENERADORES_MATEMATICAS_POR_TEMA, GENERATORS_BY_TEMA } from "../generador/matematicas";
 import { GENERADORES_QUIMICA_DESCRIPTORES, GENERADORES_QUIMICA } from "../generador/quimica/indexQuimica";
 import { GENERADORES_ECONOMIA_DESCRIPTORES, GENERADORES_ECONOMIA_POR_CLAVE } from "../generador/economia/indexEconomia";
-import { createGeneradoresFisicaDescriptorPorId, createGeneradoresFisica } from "../generador/fisica/indexFisica";
+import { createGeneradoresFisica } from "../generador/fisica/indexFisica";
 import { crearCalculadoraFisica } from "../generador/fisica/calculadora";
 import { createPrng } from "../generador/core/prng";
 import VisualizerRenderer from "../visualizadores/graficos/VisualizerRenderer";
@@ -18,6 +19,9 @@ import {
   DIFICULTADES_POR_MATERIA,
   type MateriaUI,
 } from "../generador/core/dificultades";
+import { adaptMathExercise } from "../generador/matematicas/adapters";
+import { adaptEconomiaExercise } from "../generador/economia/adapters";
+import { adaptQuimicaExercise } from "../generador/quimica/adapters";
 
 const mapDificultadCoreABasica = (
   dificultad: DificultadCore
@@ -45,16 +49,16 @@ export default function GeneradoresTest() {
   const [modoRespuesta, setModoRespuesta] = useState<"quiz" | "completar">(
     "quiz"
   );
-  const [resultado, setResultado] = useState<unknown>(null);
+  const [resultado, setResultado] = useState<GeneratedQuestionDTO | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [seed, setSeed] = useState("");
 
   const listingPrng = useMemo(() => createPrng(seed || "listado-generadores"), [seed]);
   const prng = useMemo(() => (seed ? createPrng(seed) : null), [seed]);
   const generadoresFisica = useMemo(() => createGeneradoresFisica(listingPrng), [listingPrng]);
-  const generadoresFisicaPorId = useMemo(
-    () => createGeneradoresFisicaDescriptorPorId(listingPrng),
-    [listingPrng]
+  const generadoresFisicaSeeded = useMemo(
+    () => (prng ? createGeneradoresFisica(prng) : []),
+    [prng]
   );
 
   const opcionesGenerador = useMemo(() => {
@@ -81,14 +85,15 @@ export default function GeneradoresTest() {
           .map((clave) => ({ value: clave, label: clave }));
       case "fisica":
       default:
-        return Object.keys(generadoresFisicaPorId)
+        return generadoresFisica
+          .map((generador) => generador.id)
           .sort()
           .map((id) => ({
             value: id,
             label: id,
           }));
     }
-  }, [materia, generadoresFisicaPorId]);
+  }, [materia, generadoresFisica]);
 
   useEffect(() => {
     setGeneradorSeleccionado(opcionesGenerador[0]?.value ?? "");
@@ -684,34 +689,35 @@ export default function GeneradoresTest() {
           const descriptor =
             GENERADORES_MATEMATICAS_POR_TEMA[Number(generadorSeleccionado)];
           if (!descriptor) throw new Error("Generador de matemáticas no disponible.");
-          setResultado(
-            descriptor.generate(
-              dificultad as DificultadMath,
-              { modo: modoRespuesta },
-              prng
-            )
+          const exercise = descriptor.generate(
+            dificultad as DificultadMath,
+            { modo: modoRespuesta },
+            prng
           );
+          setResultado(adaptMathExercise(exercise).question);
           break;
         }
         case "quimica": {
           const descriptor =
             GENERADORES_QUIMICA_DESCRIPTORES[Number(generadorSeleccionado)];
           if (!descriptor) throw new Error("Generador de química no disponible.");
-          setResultado(
-            descriptor.generate(mapDificultadCoreABasica(dificultad), prng)
-          );
+          const exercise = descriptor.generate(mapDificultadCoreABasica(dificultad), prng);
+          setResultado(adaptQuimicaExercise(exercise).question);
           break;
         }
         case "economia": {
           const descriptor =
             GENERADORES_ECONOMIA_DESCRIPTORES[generadorSeleccionado];
           if (!descriptor) throw new Error("Generador de economía no disponible.");
-          setResultado(descriptor.generate(dificultad as DificultadEconomia, prng));
+          const exercise = descriptor.generate(dificultad as DificultadEconomia, prng);
+          setResultado(adaptEconomiaExercise(exercise).question);
           break;
         }
         case "fisica": {
-          const descriptor = generadoresFisicaPorId[generadorSeleccionado];
-          if (!descriptor) throw new Error("Generador de física no disponible.");
+          const generator = generadoresFisicaSeeded.find(
+            (item) => item.id === generadorSeleccionado
+          );
+          if (!generator) throw new Error("Generador de física no disponible.");
 
           const params: GeneradorParametros = {
             materia: "fisica",
@@ -721,7 +727,7 @@ export default function GeneradoresTest() {
             nivel: dificultad as DificultadCore,
           };
 
-          setResultado(descriptor.generate(params, calculadoraFisica));
+          setResultado(generator.generateRenderable(params, calculadoraFisica).question);
           break;
         }
         default:
@@ -737,17 +743,7 @@ export default function GeneradoresTest() {
     ? JSON.stringify(resultado, null, 2)
     : "Selecciona un generador y presiona \"Generar ejercicio\".";
 
-  const resumen = resultado as
-    | {
-        enunciado?: string;
-        opciones?: string[];
-        respuestaCorrecta?: string;
-        explicacionPasoAPaso?: string[];
-        explicacion?: string;
-        tituloTema?: string;
-        visual?: VisualSpec;
-      }
-    | undefined;
+  const resumen = resultado;
 
   return (
     <main className="flex-1">
@@ -914,51 +910,24 @@ export default function GeneradoresTest() {
         <section className="mt-6 grid gap-6 lg:grid-cols-2">
           <div className="bg-white rounded-xl shadow p-6 space-y-4">
             <h2 className="text-lg font-semibold text-gray-900">Vista previa</h2>
-            {resumen?.enunciado ? (
+            {resumen?.prompt ? (
               <>
                 <div>
                   <p className="text-sm text-gray-500">Enunciado</p>
                   <p className="mt-1 text-gray-900 whitespace-pre-wrap">
-                    {resumen.enunciado}
+                    {resumen.prompt}
                   </p>
                 </div>
-                {resumen.opciones && resumen.opciones.length > 0 && (
+                {resumen.options && resumen.options.length > 0 && (
                   <div>
                     <p className="text-sm text-gray-500">Opciones</p>
                     <ul className="mt-2 space-y-1 text-sm text-gray-800">
-                      {resumen.opciones.map((opcion, index) => (
-                        <li key={`${opcion}-${index}`}>
-                          {index + 1}. {opcion}
+                      {resumen.options.map((opcion, index) => (
+                        <li key={`${opcion.id}-${index}`}>
+                          {index + 1}. {opcion.text}
                         </li>
                       ))}
                     </ul>
-                  </div>
-                )}
-                {resumen.respuestaCorrecta && (
-                  <div>
-                    <p className="text-sm text-gray-500">Respuesta correcta</p>
-                    <p className="mt-1 font-medium text-gray-900">
-                      {resumen.respuestaCorrecta}
-                    </p>
-                  </div>
-                )}
-                {resumen.explicacionPasoAPaso &&
-                  resumen.explicacionPasoAPaso.length > 0 && (
-                    <div>
-                      <p className="text-sm text-gray-500">Pasos sugeridos</p>
-                      <ul className="mt-2 space-y-1 text-sm text-gray-700">
-                        {resumen.explicacionPasoAPaso.map((paso, index) => (
-                          <li key={`${paso}-${index}`}>• {paso}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                {resumen.explicacion && (
-                  <div>
-                    <p className="text-sm text-gray-500">Explicación</p>
-                    <p className="mt-1 text-sm text-gray-700">
-                      {resumen.explicacion}
-                    </p>
                   </div>
                 )}
                 {resumen.visual && (

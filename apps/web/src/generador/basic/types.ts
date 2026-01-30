@@ -78,28 +78,11 @@ export interface QuizInstance {
   generatorVersion?: number;
 }
 
-export type GeneratedQuestion = GeneratedMC | GeneratedTF | GeneratedMatch;
-
-export interface GeneratedMC {
+export type GeneratedQuestion = {
   id: string;
-  type: "mc";
+  type: "mc" | "tf" | "match";
   prompt: string;
-  options: Array<{
-    optionId: string;
-    text: string;
-  }>;
-}
-
-export interface GeneratedTF {
-  id: string;
-  type: "tf";
-  prompt: string;
-}
-
-export interface GeneratedMatch {
-  id: string;
-  type: "match";
-  prompt: string;
-  leftItems: Array<{ itemId: string; text: string }>;
-  rightItems: Array<{ itemId: string; text: string }>;
-}
+  options?: Array<{ optionId: string; text: string }>;
+  leftItems?: Array<{ itemId: string; text: string }>;
+  rightItems?: Array<{ itemId: string; text: string }>;
+};

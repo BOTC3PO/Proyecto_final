@@ -8,8 +8,6 @@ import type {
   MCQuestion,
   TFQuestion,
   MatchQuestion,
-  GeneratedMC,
-  GeneratedMatch,
 } from "./types";
 
 import { createPrng, type PRNG } from "../core/prng";
@@ -79,8 +77,8 @@ export class QuizGenerator {
       const userAnswer = validated.answers[genQ.id];
 
       if (originalQ.type === "mc") {
-        const mcQ = originalQ as MCQuestion;
-        const genMC = genQ as GeneratedMC;
+      const mcQ = originalQ as MCQuestion;
+      const genMC = genQ;
 
         const selectedOption = genMC.options.find((o) => o.optionId === userAnswer);
         if (!selectedOption) {
@@ -107,8 +105,8 @@ export class QuizGenerator {
       }
 
       if (originalQ.type === "match") {
-        const matchQ = originalQ as MatchQuestion;
-        const genMatch = genQ as GeneratedMatch;
+      const matchQ = originalQ as MatchQuestion;
+      const genMatch = genQ;
 
         let allCorrect = true;
 
