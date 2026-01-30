@@ -58,8 +58,7 @@ export default function ModuloDetail() {
         attempt?: { id?: string };
       }>("/api/quiz-attempts", {
         moduleId: module.id,
-        quizId,
-        userId: user.id
+        quizId
       });
       const attemptId = response.attemptId ?? response.id ?? response.attempt?.id;
       if (!attemptId) {
