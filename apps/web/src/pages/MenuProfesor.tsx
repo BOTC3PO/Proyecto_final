@@ -4,7 +4,11 @@ import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Module, ModuleDependency } from "../domain/module/module.types";
 import { getSubjectColor } from "../domain/module/subjectColors";
-import { fetchProfesorMenuDashboard, type ProfesorMenuDashboard } from "../services/profesor";
+import {
+  fetchProfesorMenuDashboard,
+  filterProfesorQuickLinks,
+  type ProfesorMenuDashboard
+} from "../services/profesor";
 import ConceptMapVisualizer from "../visualizadores/graficos/ConceptMapVisualizer";
 import type { ConceptMapSpec, ConceptLink } from "../visualizadores/types";
 
@@ -289,6 +293,13 @@ export default function menuProfesor() {
     }
     return moduleById.get(selectedGraphModuleId) ?? null;
   }, [moduleById, selectedGraphModuleId]);
+
+  const quickLinks = useMemo(() => {
+    if (!dashboard) {
+      return null;
+    }
+    return filterProfesorQuickLinks(dashboard.quickLinks);
+  }, [dashboard]);
 
   const previewDependencies = useMemo(() => {
     if (!graphSelection) {
@@ -684,8 +695,8 @@ export default function menuProfesor() {
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {dashboardLoading && <p className="text-sm text-gray-500">Cargando accesos rápidos...</p>}
           {!dashboardLoading &&
-            dashboard &&
-            Object.entries(dashboard.quickLinks).map(([section, links]) => (
+            quickLinks &&
+            Object.entries(quickLinks).map(([section, links]) => (
               <div key={section} className="bg-white rounded-xl shadow">
                 <div className="bg-sky-600 text-white font-semibold rounded-t-xl px-4 py-2">
                   {section === "academico" ? "Académico" : "Gestión"}
@@ -703,7 +714,10 @@ export default function menuProfesor() {
                 </div>
               </div>
             ))}
-          {!dashboardLoading && dashboard && dashboard.quickLinks.academico.length === 0 && (
+          {!dashboardLoading &&
+            quickLinks &&
+            quickLinks.academico.length === 0 &&
+            quickLinks.gestion.length === 0 && (
             <p className="text-sm text-gray-500">No hay accesos rápidos configurados.</p>
           )}
         </div>
