@@ -9,6 +9,24 @@ import type {
   ModuleVisibility,
 } from "../../domain/module/module.types";
 
+const hashString = (value: string) => {
+  let hash = 0;
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash << 5) - hash + value.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+};
+
+const mulberry32 = (seed: number) => {
+  return () => {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+};
+
 const VISIBILITY_LABELS: Record<ModuleVisibility, string> = {
   publico: "Público",
   privado: "Privado",
@@ -37,6 +55,7 @@ export default function ModuloDetail() {
   const [startStatus, setStartStatus] = useState<
     Record<string, { status: "idle" | "loading" | "error"; message?: string }>
   >({});
+  const [previewOpen, setPreviewOpen] = useState<Record<string, boolean>>({});
 
   const handleStartAttempt = async (quizId: string) => {
     if (!module?.id) return;
@@ -74,6 +93,38 @@ export default function ModuloDetail() {
         }
       }));
     }
+  };
+
+  const buildPreviewItems = (quiz: ModuleQuiz) => {
+    if (quiz.questions && quiz.questions.length > 0) {
+      return quiz.questions.slice(0, 3).map((question, index) => ({
+        id: question.id,
+        label: `Pregunta ${index + 1}: ${question.prompt}`,
+      }));
+    }
+
+    const total = quiz.count ?? 3;
+    if (!quiz.generatorId || total <= 0) {
+      return [
+        {
+          id: `${quiz.id}-empty`,
+          label: "Este quiz no tiene preguntas ni generador configurado.",
+        },
+      ];
+    }
+
+    const seedSource = String(
+      quiz.fixedSeed ?? `${quiz.id}:${quiz.generatorId}:${quiz.generatorVersion ?? 1}`
+    );
+    const random = mulberry32(hashString(seedSource));
+    const previewCount = Math.min(total, 5);
+    return Array.from({ length: previewCount }, (_, index) => {
+      const token = Math.floor(random() * 900 + 100);
+      return {
+        id: `${quiz.id}-preview-${index + 1}`,
+        label: `Pregunta ${index + 1} · semilla ${token}`,
+      };
+    });
   };
 
   useEffect(() => {
@@ -246,12 +297,33 @@ export default function ModuloDetail() {
                   >
                     {startStatus[quiz.id]?.status === "loading" ? "Iniciando..." : "Empezar"}
                   </button>
+                  <button
+                    type="button"
+                    className="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-slate-300"
+                    onClick={() =>
+                      setPreviewOpen((prev) => ({ ...prev, [quiz.id]: !prev[quiz.id] }))
+                    }
+                  >
+                    {previewOpen[quiz.id] ? "Ocultar vista previa" : "Vista previa"}
+                  </button>
                   {startStatus[quiz.id]?.status === "error" ? (
                     <span className="text-xs text-red-600">
                       {startStatus[quiz.id]?.message ?? "No se pudo iniciar el quiz."}
                     </span>
                   ) : null}
                 </div>
+                {previewOpen[quiz.id] ? (
+                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
+                    <p className="font-semibold text-slate-700">
+                      Vista previa (semilla fija, no registra intento)
+                    </p>
+                    <ul className="mt-2 list-disc space-y-1 pl-4">
+                      {buildPreviewItems(quiz).map((item) => (
+                        <li key={item.id}>{item.label}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
               </article>
             ))}
           </div>
