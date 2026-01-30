@@ -3,7 +3,7 @@ import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
-import { ClassroomSchema } from "../schema/aula";
+import { ClassroomPatchSchema, ClassroomSchema } from "../schema/aula";
 
 export const aulas = Router();
 
@@ -85,7 +85,7 @@ aulas.put("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) =>
 
 aulas.patch("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
-    const parsed = ClassroomUpdateSchema.parse(req.body);
+    const parsed = ClassroomPatchSchema.parse(req.body);
     const db = await getDb();
     const update = { ...parsed, updatedAt: new Date().toISOString() };
     const result = await db.collection("aulas").updateOne({ id: req.params.id }, { $set: update });
