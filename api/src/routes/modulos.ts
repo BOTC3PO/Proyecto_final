@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { requireUser } from "../lib/user-auth";
@@ -115,7 +116,17 @@ modulos.get("/api/modulos/:id", async (req, res) => {
 
 modulos.post("/api/modulos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
-    const payload = { ...req.body, updatedAt: req.body?.updatedAt ?? new Date().toISOString() };
+    const moduleId =
+      typeof req.body?.id === "string" && req.body.id.trim()
+        ? req.body.id
+        : req.body?._id
+          ? req.body._id.toString()
+          : new ObjectId().toString();
+    const payload = {
+      ...req.body,
+      id: moduleId,
+      updatedAt: req.body?.updatedAt ?? new Date().toISOString()
+    };
     const parsed = ModuleSchema.parse(payload);
     const db = await getDb();
     const result = await db.collection("modulos").insertOne(parsed);
