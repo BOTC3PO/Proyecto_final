@@ -684,7 +684,7 @@ db.createCollection("economia_saldos", {
       bsonType: "object",
       required: ["usuarioId", "saldo", "moneda", "updatedAt"],
       properties: {
-        usuarioId: { bsonType: "string" },
+        usuarioId: { bsonType: "objectId" },
         saldo: { bsonType: "double", minimum: 0 },
         moneda: { bsonType: "string" },
         updatedAt: { bsonType: "date" }
