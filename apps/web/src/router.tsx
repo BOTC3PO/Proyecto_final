@@ -66,6 +66,10 @@ import DiccionarioTest from "./pages/DiccionarioTest";
 import test from "./sys/testmode";
 
 const testmode = test();
+const moduleAccessRoles = testmode
+  ? ["USER", "PARENT", "TEACHER", "ADMIN", "ENTERPRISE", "GUEST"]
+  : ["USER", "PARENT", "TEACHER", "ADMIN", "ENTERPRISE"];
+const modulePlayRoles = testmode ? ["USER", "PARENT", "TEACHER", "GUEST"] : ["USER", "PARENT", "TEACHER"];
 
 const ModuloEditRedirect = () => {
   const { id } = useParams();
@@ -390,7 +394,7 @@ export const router = createBrowserRouter([
       {
         path: "modulos",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'ENTERPRISE', 'GUEST']}>
+          <ProtectedRoute allow={moduleAccessRoles}>
             <ModulosList />
           </ProtectedRoute>
         ),
@@ -414,7 +418,7 @@ export const router = createBrowserRouter([
       {
         path: "modulos/:id",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'ENTERPRISE', 'GUEST']}>
+          <ProtectedRoute allow={moduleAccessRoles}>
             <ModuloDetail />
           </ProtectedRoute>
         ),
@@ -422,7 +426,7 @@ export const router = createBrowserRouter([
       {
         path: "modulos/:id/jugar",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'GUEST']}>
+          <ProtectedRoute allow={modulePlayRoles}>
             <JugarModulo />
           </ProtectedRoute>
         ),
@@ -430,7 +434,7 @@ export const router = createBrowserRouter([
       {
         path: "quiz/attempt/:attemptId",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'GUEST']}>
+          <ProtectedRoute allow={modulePlayRoles}>
             <QuizAttempt />
           </ProtectedRoute>
         ),
