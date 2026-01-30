@@ -9,7 +9,7 @@ export class CambiosEstadoGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     let masa: number;
     let calorLatente: number;
-    const sustancia = Math.random() > 0.5 ? "agua" : "hielo";
+    const sustancia = this.prng.next() > 0.5 ? "agua" : "hielo";
 
     switch (params.nivel) {
       case "basico":

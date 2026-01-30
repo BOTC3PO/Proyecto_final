@@ -103,10 +103,11 @@ const TEMAS_CON_DIFICULTAD_CORE = new Set([
 
 const wrapConDificultadBasica =
   (generator: GeneratorFn): GeneratorFn =>
-  (dificultad, config) =>
+  (dificultad, config, prng) =>
     generator(
       dificultad ? normalizarDificultadBasica(dificultad) : dificultad,
-      config
+      config,
+      prng
     );
 
 const GENERATORS_BY_TEMA_BASE: Record<number, GeneratorFn> = {

@@ -16,7 +16,7 @@ export class LongitudOndaGenerator extends FisicaBaseGenerator {
         frecuencia = this.randomInt(100, 1000);
         break;
       case "intermedio":
-        velocidad = Math.random() > 0.5 ? 340 : 1500; // aire o agua
+        velocidad = this.prng.next() > 0.5 ? 340 : 1500; // aire o agua
         frecuencia = this.randomInt(500, 5000);
         break;
       default:

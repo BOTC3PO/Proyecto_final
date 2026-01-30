@@ -1,6 +1,6 @@
 // src/generators/quimica/93_materiales_inflamables.ts
 // src/generators/quimica/93_materiales_inflamables.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaInflamables {
   enunciado: string;
@@ -40,7 +40,7 @@ const PREGUNTAS_INFLAMABLES: PreguntaInflamables[] = [
 export const generarMaterialesInflamables: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_INFLAMABLES.length);
+  const index = randInt(0, PREGUNTAS_INFLAMABLES.length - 1);
   const q = PREGUNTAS_INFLAMABLES[index];
 
   return {

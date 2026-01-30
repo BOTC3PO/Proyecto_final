@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  randomBool,
   randomInt,
   pickRandom,
   normalizarDificultadCore,
@@ -33,7 +34,7 @@ export const generarEcuacionesConParametros: GeneratorFn = (
   let correcta = xSol;
 
   if (tipo === "a_x_mas_b") {
-    const a = randomInt(2, rango) * (Math.random() < 0.5 ? 1 : -1);
+    const a = randomInt(2, rango) * (randomBool() ? 1 : -1);
     const b = randomInt(-10, 10);
     const c = randomInt(-10, 10);
 

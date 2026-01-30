@@ -1,6 +1,6 @@
 // src/generators/quimica/86_sintesis.ts
 // src/generators/quimica/86_sintesis.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaSintesis {
   enunciado: string;
@@ -39,7 +39,7 @@ const PREGUNTAS_SINTESIS: PreguntaSintesis[] = [
 export const generarReaccionSintesis: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_SINTESIS.length);
+  const index = randInt(0, PREGUNTAS_SINTESIS.length - 1);
   const q = PREGUNTAS_SINTESIS[index];
 
   return {

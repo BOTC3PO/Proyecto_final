@@ -4,11 +4,9 @@ import {
   type Dificultad,
   type GeneratorFn,
   makeQuizGenerator,
+  randInt,
+  randomBool,
 } from "./generico";
-
-function randInt(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 const PARAMS: Record<
   Dificultad,
@@ -32,7 +30,7 @@ export const genARNetoDesdeBruto: GeneratorFn = makeQuizGenerator(
       const descuentos = Math.round(bruto * tasaAportes);
       const neto = bruto - descuentos;
 
-      const preguntaNeto = soloNeto ? true : Math.random() < 0.5;
+      const preguntaNeto = soloNeto ? true : randomBool();
       const opcionCorrecta = preguntaNeto ? neto : descuentos;
 
       const opcionesNumericas = new Set<number>();

@@ -3,11 +3,9 @@ import {
   type Dificultad,
   type GeneratorFn,
   makeQuizGenerator,
+  randInt,
+  randomBool,
 } from "./generico";
-
-function randInt(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 type Caso = {
   enunciado: string;
@@ -93,7 +91,7 @@ export const genARIVACalculo: GeneratorFn = makeQuizGenerator(
       const baseAlta = randInt(40, 140) * 1000;
       const tasaGeneral = 0.21;
       const tasaEsencial = 0.105;
-      const esencial = Math.random() < 0.5;
+      const esencial = randomBool();
       const tasa = esencial ? tasaEsencial : tasaGeneral;
       const etiqueta = esencial ? "esencial" : "general";
 

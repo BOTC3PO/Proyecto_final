@@ -1,6 +1,6 @@
 // src/generators/quimica/82_sustancia_pura_vs_mezcla.ts
 // src/generators/quimica/82_sustancia_pura_vs_mezcla.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaSustanciaMezcla {
   enunciado: string;
@@ -51,7 +51,7 @@ const PREGUNTAS_SUSTANCIA_MEZCLA: PreguntaSustanciaMezcla[] = [
 export const generarSustanciaPuraVsMezcla: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_SUSTANCIA_MEZCLA.length);
+  const index = randInt(0, PREGUNTAS_SUSTANCIA_MEZCLA.length - 1);
   const q = PREGUNTAS_SUSTANCIA_MEZCLA[index];
 
   return {

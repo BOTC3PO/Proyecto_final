@@ -1,10 +1,11 @@
 // src/generators/economia/contab_03_saldoNormal.ts
 import type { Dificultad } from "../core/types";
-import { makeQuizGenerator,type GeneratorFn } from "./generico";
-
-function randInRange(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import {
+  makeQuizGenerator,
+  type GeneratorFn,
+  randInt,
+  randomBool,
+} from "./generico";
 
 export const genContabSaldoNormal: GeneratorFn = makeQuizGenerator(
   3,
@@ -15,13 +16,13 @@ export const genContabSaldoNormal: GeneratorFn = makeQuizGenerator(
         deudora: ["Caja", "Banco c/c", "Clientes", "Mercaderías"],
         acreedora: ["Proveedores", "Deudas Bancarias", "Capital"],
       };
-      const esDeudoraPorNaturaleza = Math.random() < 0.5; // para variar el enunciado
+      const esDeudoraPorNaturaleza = randomBool(); // para variar el enunciado
       const nombreCuenta = esDeudoraPorNaturaleza
         ? cuentasPorNaturaleza.deudora[
-            Math.floor(Math.random() * cuentasPorNaturaleza.deudora.length)
+            randInt(0, cuentasPorNaturaleza.deudora.length - 1)
           ]
         : cuentasPorNaturaleza.acreedora[
-            Math.floor(Math.random() * cuentasPorNaturaleza.acreedora.length)
+            randInt(0, cuentasPorNaturaleza.acreedora.length - 1)
           ];
 
       const rangosPorDificultad: Record<Dificultad, [number, number]> = {
@@ -34,8 +35,8 @@ export const genContabSaldoNormal: GeneratorFn = makeQuizGenerator(
       const [min, max] = rangosPorDificultad[dificultad] ?? [5, 20];
 
       // Débitos y Créditos aleatorios
-      const debitos = randInRange(min, max) * 1000;
-      const creditos = randInRange(min - 3, max - 5) * 1000;
+      const debitos = randInt(min, max) * 1000;
+      const creditos = randInt(min - 3, max - 5) * 1000;
 
       const saldo = Math.abs(debitos - creditos);
       const esSaldoDeudor = debitos > creditos;

@@ -5,11 +5,8 @@ import {
   type GeneratorFn,
   makeQuizGenerator,
   pickOne,
+  randInt,
 } from "./generico";
-
-function randInt(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 type Caso = {
   enunciado: string;

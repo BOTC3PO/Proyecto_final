@@ -1,6 +1,6 @@
 // src/generators/quimica/87_descomposicion.ts
 // src/generators/quimica/87_descomposicion.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaDescomposicion {
   enunciado: string;
@@ -39,7 +39,7 @@ const PREGUNTAS_DESCOMPOSICION: PreguntaDescomposicion[] = [
 export const generarReaccionDescomposicion: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_DESCOMPOSICION.length);
+  const index = randInt(0, PREGUNTAS_DESCOMPOSICION.length - 1);
   const q = PREGUNTAS_DESCOMPOSICION[index];
 
   return {

@@ -1,6 +1,6 @@
 // src/generators/quimica/70_radio_atomico_comparacion.ts
 // src/generators/quimica/70_radio_atomico_comparacion.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 import { PERIODIC_TABLE_ELEMENTS } from "./periodicTableData";
 
 interface ParRadioAtomico {
@@ -23,7 +23,7 @@ const PARES_RADIO: ParRadioAtomico[] = [
 export const generarRadioAtomicoComparacion: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PARES_RADIO.length);
+  const index = randInt(0, PARES_RADIO.length - 1);
   const par = PARES_RADIO[index];
 
   const opciones = [par.elemento1, par.elemento2];

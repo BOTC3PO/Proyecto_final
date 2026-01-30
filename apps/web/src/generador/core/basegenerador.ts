@@ -5,8 +5,14 @@ import type {
   Ejercicio,
   Calculator,
 } from "./types";
+import type { PRNG } from "./prng";
 
 export abstract class BaseGenerator {
+  protected prng: PRNG;
+
+  constructor(prng: PRNG) {
+    this.prng = prng;
+  }
   /**
    * Identificador único del generador.
    * Ej: "matematica/sumas_basicas", "fisica/MRU"
@@ -45,9 +51,7 @@ export abstract class BaseGenerator {
    * Genera un entero aleatorio entre min y max (incluidos).
    */
   protected randomInt(min: number, max: number): number {
-    const from = Math.ceil(min);
-    const to = Math.floor(max);
-    return Math.floor(Math.random() * (to - from + 1)) + from;
+    return this.prng.int(min, max);
   }
 
   /**
@@ -55,8 +59,13 @@ export abstract class BaseGenerator {
    * Podés reemplazar esto con uuid si querés.
    */
   protected generateId(prefix: string): string {
-    const random = Math.random().toString(36).substring(2, 8);
-    return `${prefix}_${Date.now()}_${random}`;
+    const random = Math.floor(this.prng.next() * 0xffffff)
+      .toString(36)
+      .padStart(6, "0");
+    const suffix = Math.floor(this.prng.next() * 0xffffff)
+      .toString(36)
+      .padStart(6, "0");
+    return `${prefix}_${random}_${suffix}`;
   }
 
   /**

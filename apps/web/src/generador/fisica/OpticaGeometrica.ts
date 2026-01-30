@@ -8,7 +8,7 @@ export class OpticaGeometricaGenerator extends FisicaBaseGenerator {
 
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     // Elegimos si calculamos ángulo de reflexión o de incidencia (pero la relación es 1:1)
-    const calcularReflexion = Math.random() > 0.5;
+    const calcularReflexion = this.prng.next() > 0.5;
 
     let anguloIncidencia: number;
 

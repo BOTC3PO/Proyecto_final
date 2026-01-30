@@ -1,6 +1,6 @@
 // src/generators/quimica/74_configuracion_electronica.ts
 // src/generators/quimica/74_configuracion_electronica.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt, shuffle } from "./generico";
 import type { ChemElectronShell, ChemStructureSpec } from "../../visualizadores/types";
 
 interface ElementoConfig {
@@ -280,7 +280,7 @@ const ELEMENTOS_CONFIG: ElementoConfig[] = [
 export const generarConfiguracionElectronica: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * ELEMENTOS_CONFIG.length);
+  const index = randInt(0, ELEMENTOS_CONFIG.length - 1);
   const el = ELEMENTOS_CONFIG[index];
 
   const opcionesSet = new Set<string>();
@@ -289,8 +289,7 @@ export const generarConfiguracionElectronica: GeneratorFn = (
     if (opcionesSet.size >= 4) break;
     opcionesSet.add(o);
   }
-  const opciones = Array.from(opcionesSet);
-  opciones.sort(() => Math.random() - 0.5);
+  const opciones = shuffle(Array.from(opcionesSet));
 
   const indiceCorrecto = opciones.indexOf(el.configuracionCorrecta);
 

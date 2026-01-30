@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import type { GeneradorParametros } from "../generador/core/types";
 import { CaidaLibreGenerator } from "../generador/fisica/CaidaLibre";
 import { crearCalculadoraFisica } from "../generador/fisica/calculadora";
+import { createPrng } from "../generador/core/prng";
 import FreeFallSimulationVisualizer from "../visualizadores/fisica/FreeFallSimulationVisualizer";
 import type { PhysicsSimulationSpec } from "../visualizadores/types";
 
@@ -44,15 +45,16 @@ const generarSerie = (
 
 export default function SimulacionesFisica() {
   const calculadoraFisica = useMemo(() => crearCalculadoraFisica(), []);
+  const prng = useMemo(() => createPrng("simulacion-fisica"), []);
   const ejercicioBase = useMemo(() => {
-    const generador = new CaidaLibreGenerator();
+    const generador = new CaidaLibreGenerator(prng);
     const parametros: GeneradorParametros = {
       materia: "fisica",
       categoria: "caida_libre",
       nivel: "intermedio",
     };
     return generador.generarEjercicio(parametros, calculadoraFisica);
-  }, [calculadoraFisica]);
+  }, [calculadoraFisica, prng]);
 
   const gBase = ejercicioBase.datos.g as number;
   const tiempoBase = ejercicioBase.datos.tiempo as number;

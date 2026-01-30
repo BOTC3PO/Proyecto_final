@@ -16,7 +16,7 @@ export class SumaFuerzasGenerator extends FisicaBaseGenerator {
     for (let i = 0; i < cantidadFuerzas; i++) {
       const fuerza = this.randomInt(5, 50);
       // algunas positivas, algunas negativas
-      fuerzas.push(Math.random() > 0.3 ? fuerza : -fuerza);
+      fuerzas.push(this.prng.next() > 0.3 ? fuerza : -fuerza);
     }
 
     const resultado = calc.calcular({
@@ -32,7 +32,7 @@ export class SumaFuerzasGenerator extends FisicaBaseGenerator {
         3,
         0.4
       )
-        .map((v) => (Math.random() > 0.5 ? v : -v))
+        .map((v) => (this.prng.next() > 0.5 ? v : -v))
         .map(String),
     ]);
     const vectorColors = ["#2563EB", "#F97316", "#10B981", "#A855F7"];

@@ -1,5 +1,5 @@
 // src/generators/quimica/indexQuimica.ts
-import type { GeneratorFn } from "./generico";
+import { type GeneratorFn, setPrng } from "./generico";
 
 /* ────────────────────────────────────────────────
    BLOQUE 1 — ESTEQUIOMETRÍA (1–12)
@@ -164,7 +164,17 @@ import { generarEquiposProteccionQuimica } from "./95_equipos_proteccion";
    MAPA FINAL DE GENERADORES POR ID (1–95)
 ────────────────────────────────────────────────── */
 
-export const GENERADORES_QUIMICA: Record<number, GeneratorFn> = {
+const wrapWithPrng =
+  (generator: GeneratorFn): GeneratorFn =>
+  (dificultad, prng) => {
+    if (!prng) {
+      throw new Error("Se requiere un PRNG inicializado para generar ejercicios.");
+    }
+    setPrng(prng);
+    return generator(dificultad, prng);
+  };
+
+const GENERADORES_QUIMICA_BASE: Record<number, GeneratorFn> = {
   /* Estequiometría */
   1: generarBalanceo,
   2: generarCalculoMoles,
@@ -292,3 +302,10 @@ export const GENERADORES_QUIMICA: Record<number, GeneratorFn> = {
   94: generarRiesgosToxicos,
   95: generarEquiposProteccionQuimica,
 };
+
+export const GENERADORES_QUIMICA: Record<number, GeneratorFn> = Object.fromEntries(
+  Object.entries(GENERADORES_QUIMICA_BASE).map(([id, generator]) => [
+    Number(id),
+    wrapWithPrng(generator),
+  ])
+) as Record<number, GeneratorFn>;

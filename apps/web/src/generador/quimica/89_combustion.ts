@@ -1,6 +1,6 @@
 // src/generators/quimica/89_combustion.ts
 // src/generators/quimica/89_combustion.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaCombustion {
   enunciado: string;
@@ -51,7 +51,7 @@ const PREGUNTAS_COMBUSTION: PreguntaCombustion[] = [
 export const generarReaccionCombustion: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_COMBUSTION.length);
+  const index = randInt(0, PREGUNTAS_COMBUSTION.length - 1);
   const q = PREGUNTAS_COMBUSTION[index];
 
   return {

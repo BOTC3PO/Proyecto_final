@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  randomBool,
   randomInt,
   normalizarDificultadCore,
   mcd,
@@ -165,7 +166,7 @@ function generarEjercicioComparar(dificultad: Dificultad) {
 
 function generarEjercicioSumaResta(dificultad: Dificultad) {
   const dificultadCore = normalizarDificultadCore(dificultad);
-  const mismoDen = dificultadCore === "basico" || Math.random() < 0.5;
+  const mismoDen = dificultadCore === "basico" || randomBool();
 
   let f1: Fraccion;
   let f2: Fraccion;
@@ -182,7 +183,7 @@ function generarEjercicioSumaResta(dificultad: Dificultad) {
     f2 = generarFraccionAleatoria(dificultad);
   }
 
-  const esSuma = Math.random() < 0.5;
+  const esSuma = randomBool();
 
   const numRes = esSuma
     ? f1.num * f2.den + f2.num * f1.den

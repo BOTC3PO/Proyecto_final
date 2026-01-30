@@ -1,6 +1,6 @@
 // src/generators/quimica/92_pictogramas_ghs.ts
 // src/generators/quimica/92_pictogramas_ghs.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaGHS {
   enunciado: string;
@@ -54,7 +54,7 @@ const PREGUNTAS_GHS: PreguntaGHS[] = [
 export const generarPictogramasGHS: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_GHS.length);
+  const index = randInt(0, PREGUNTAS_GHS.length - 1);
   const q = PREGUNTAS_GHS[index];
 
   return {

@@ -1,6 +1,6 @@
 // src/generators/quimica/79_enlace_metalico.ts
 // src/generators/quimica/79_enlace_metalico.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaMetalico {
   enunciado: string;
@@ -46,7 +46,7 @@ const PREGUNTAS_METALICO: PreguntaMetalico[] = [
 export const generarEnlaceMetalico: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_METALICO.length);
+  const index = randInt(0, PREGUNTAS_METALICO.length - 1);
   const q = PREGUNTAS_METALICO[index];
 
   return {

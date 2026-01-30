@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  randomBool,
   randomInt,
 } from "./generic";
 
@@ -20,7 +21,7 @@ export const generarValorAbsolutoDistancia: GeneratorFn = (
   const distancia = Math.abs(a - b);
   const correcta = distancia;
 
-  const modo = Math.random() < 0.5 ? "directo" : "inversion";
+  const modo = randomBool() ? "directo" : "inversion";
 
   let enunciado: string;
 

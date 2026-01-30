@@ -4,6 +4,7 @@ import {
   type GeneratorFn,
   crearQuizBase,
   rangoPorDificultadCore,
+  randomBool,
   randomInt,
   obtenerDivisores,
 } from "./generic";
@@ -16,7 +17,7 @@ type TipoProblema = "multiplo" | "divisor";
 export const generarMultiplosYDivisores: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
-  const tipo: TipoProblema = Math.random() < 0.5 ? "multiplo" : "divisor";
+  const tipo: TipoProblema = randomBool() ? "multiplo" : "divisor";
 
   const [min, max] = rangoPorDificultadCore(dificultad, {
     basico: [2, 20],

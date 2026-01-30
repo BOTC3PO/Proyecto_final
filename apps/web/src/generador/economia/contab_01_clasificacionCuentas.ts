@@ -1,7 +1,7 @@
 // src/generators/economia/contab_01_clasificacionCuentas.ts
 
 import { type Dificultad } from "../core/types";
-import { makeQuizGenerator, pickOne , type GeneratorFn} from "./generico";
+import { makeQuizGenerator, pickOne, randInt, type GeneratorFn } from "./generico";
 
 type Clasificacion = "Activo" | "Pasivo" | "Patrimonio Neto" | "R+" | "R-";
 
@@ -52,7 +52,7 @@ export const genContabClasificacionCuentas: GeneratorFn = makeQuizGenerator(
 
       const distractores = OPCIONES_BASE.filter((c) => c !== correct);
       while (opciones.length < cantOpciones && distractores.length > 0) {
-        const idx = Math.floor(Math.random() * distractores.length);
+        const idx = randInt(0, distractores.length - 1);
         opciones.push(distractores.splice(idx, 1)[0]);
       }
 

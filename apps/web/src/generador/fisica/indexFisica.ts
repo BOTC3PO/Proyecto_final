@@ -1,5 +1,6 @@
 // src/ejercicios/fisica/indexFisica.ts
 import { BaseGenerator } from "../core/basegenerador";
+import type { PRNG } from "../core/prng";
 
 // Cinemática
 import { MRUGenerator } from "./MRU";
@@ -51,58 +52,60 @@ import { PresionGenerator } from "./Presion";
 import { PresionHidrostaticaGenerator } from "./PresionHidrostatica";
 import { CaudalGenerator } from "./Caudal";
 
-export const GENERADORES_FISICA: BaseGenerator[] = [
+export const createGeneradoresFisica = (prng: PRNG): BaseGenerator[] => [
   // Cinemática
-  new MRUGenerator(),
-  new MRUVGenerator(),
-  new CaidaLibreGenerator(),
-  new ConversionUnidadesCinematicaGenerator(),
-  new RelacionDistanciaTiempoGenerator(),
-  new MovimientoVerticalGenerator(),
-  new MovimientoHorizontalGenerator(),
+  new MRUGenerator(prng),
+  new MRUVGenerator(prng),
+  new CaidaLibreGenerator(prng),
+  new ConversionUnidadesCinematicaGenerator(prng),
+  new RelacionDistanciaTiempoGenerator(prng),
+  new MovimientoVerticalGenerator(prng),
+  new MovimientoHorizontalGenerator(prng),
 
   // Dinámica
-  new SumaFuerzasGenerator(),
-  new PesoGenerator(),
-  new FriccionGenerator(),
-  new PlanoInclinadoGenerator(),
-  new LeyHookeGenerator(),
+  new SumaFuerzasGenerator(prng),
+  new PesoGenerator(prng),
+  new FriccionGenerator(prng),
+  new PlanoInclinadoGenerator(prng),
+  new LeyHookeGenerator(prng),
 
   // Trabajo y Energía
-  new TrabajoMecanicoGenerator(),
-  new EnergiaCineticaGenerator(),
-  new EnergiaPotencialGenerator(),
-  new ConservacionEnergiaGenerator(),
-  new PotenciaMecanicaGenerator(),
+  new TrabajoMecanicoGenerator(prng),
+  new EnergiaCineticaGenerator(prng),
+  new EnergiaPotencialGenerator(prng),
+  new ConservacionEnergiaGenerator(prng),
+  new PotenciaMecanicaGenerator(prng),
 
   // Termodinámica
-  new CalorGenerator(),
-  new ConversionTemperaturaGenerator(),
-  new CambiosEstadoGenerator(),
-  new DilatacionTermicaGenerator(),
+  new CalorGenerator(prng),
+  new ConversionTemperaturaGenerator(prng),
+  new CambiosEstadoGenerator(prng),
+  new DilatacionTermicaGenerator(prng),
 
   // Electricidad
-  new LeyOhmGenerator(),
-  new PotenciaElectricaGenerator(),
-  new ResistenciaSerieGenerator(),
-  new ResistenciaParaleloGenerator(),
-  new ConsumoElectricoGenerator(),
+  new LeyOhmGenerator(prng),
+  new PotenciaElectricaGenerator(prng),
+  new ResistenciaSerieGenerator(prng),
+  new ResistenciaParaleloGenerator(prng),
+  new ConsumoElectricoGenerator(prng),
 
   // Ondas y Óptica
-  new FrecuenciaPeriodoGenerator(),
-  new VelocidadOndasGenerator(),
-  new LongitudOndaGenerator(),
-  new IndiceRefraccionGenerator(),
-  new EcuacionLentesGenerator(),
-  new OpticaGeometricaGenerator(),
+  new FrecuenciaPeriodoGenerator(prng),
+  new VelocidadOndasGenerator(prng),
+  new LongitudOndaGenerator(prng),
+  new IndiceRefraccionGenerator(prng),
+  new EcuacionLentesGenerator(prng),
+  new OpticaGeometricaGenerator(prng),
 
   // Fluidos
-  new DensidadGenerator(),
-  new PresionGenerator(),
-  new PresionHidrostaticaGenerator(),
-  new CaudalGenerator(),
+  new DensidadGenerator(prng),
+  new PresionGenerator(prng),
+  new PresionHidrostaticaGenerator(prng),
+  new CaudalGenerator(prng),
 ];
 
 // (Opcional) Map por id, si te sirve:
-export const GENERADORES_FISICA_POR_ID: Record<string, BaseGenerator> =
-  Object.fromEntries(GENERADORES_FISICA.map((g) => [g.id, g]));
+export const createGeneradoresFisicaPorId = (
+  prng: PRNG
+): Record<string, BaseGenerator> =>
+  Object.fromEntries(createGeneradoresFisica(prng).map((g) => [g.id, g]));

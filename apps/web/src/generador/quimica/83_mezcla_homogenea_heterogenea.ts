@@ -1,6 +1,6 @@
 // src/generators/quimica/83_mezcla_homogenea_heterogenea.ts
 // src/generators/quimica/83_mezcla_homogenea_heterogenea.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaTipoMezcla {
   enunciado: string;
@@ -51,7 +51,7 @@ const PREGUNTAS_MEZCLAS: PreguntaTipoMezcla[] = [
 export const generarMezclaHomogeneaHeterogenea: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_MEZCLAS.length);
+  const index = randInt(0, PREGUNTAS_MEZCLAS.length - 1);
   const q = PREGUNTAS_MEZCLAS[index];
 
   return {

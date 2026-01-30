@@ -17,11 +17,11 @@ export class PresionGenerator extends FisicaBaseGenerator {
         break;
       case "intermedio":
         fuerza = this.randomInt(500, 3000);
-        area = this.redondear(Math.random() * 50 + 5, 2);
+        area = this.redondear(this.prng.next() * 50 + 5, 2);
         break;
       default:
         fuerza = this.randomInt(2000, 10000);
-        area = this.redondear(Math.random() * 100 + 10, 2);
+        area = this.redondear(this.prng.next() * 100 + 10, 2);
     }
 
     const resultado = calc.calcular({

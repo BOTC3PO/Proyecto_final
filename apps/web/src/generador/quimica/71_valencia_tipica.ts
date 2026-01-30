@@ -1,6 +1,6 @@
 // src/generators/quimica/71_valencia_tipica.ts
 // src/generators/quimica/71_valencia_tipica.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt, shuffle } from "./generico";
 
 interface ElementoValencia {
   nombre: string;
@@ -51,7 +51,7 @@ const ELEMENTOS_VALENCIA: ElementoValencia[] = [
 export const generarValenciaTipica: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * ELEMENTOS_VALENCIA.length);
+  const index = randInt(0, ELEMENTOS_VALENCIA.length - 1);
   const el = ELEMENTOS_VALENCIA[index];
 
   // armamos opciones mezclando
@@ -61,9 +61,7 @@ export const generarValenciaTipica: GeneratorFn = (
     if (opcionesSet.size >= 4) break;
     opcionesSet.add(d);
   }
-  const opciones = Array.from(opcionesSet);
-  // barajamos un poquito
-  opciones.sort(() => Math.random() - 0.5);
+  const opciones = shuffle(Array.from(opcionesSet));
 
   const indiceCorrecto = opciones.indexOf(el.valenciaCorrecta);
 

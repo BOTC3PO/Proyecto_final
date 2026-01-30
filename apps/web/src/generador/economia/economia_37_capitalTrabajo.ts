@@ -6,11 +6,8 @@ import {
   ajustarRango,
   dificultadFactor,
   makeQuizGenerator,
+  randInt,
 } from "./generico";
-
-function randInt(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 export const genCapitalTrabajo: GeneratorFn = makeQuizGenerator(
   37,

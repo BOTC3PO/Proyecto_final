@@ -1,6 +1,6 @@
 // src/generators/quimica/90_neutralizacion.ts
 // src/generators/quimica/90_neutralizacion.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaNeutralizacion {
   enunciado: string;
@@ -39,7 +39,7 @@ const PREGUNTAS_NEUTRALIZACION: PreguntaNeutralizacion[] = [
 export const generarNeutralizacionAcidoBase: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_NEUTRALIZACION.length);
+  const index = randInt(0, PREGUNTAS_NEUTRALIZACION.length - 1);
   const q = PREGUNTAS_NEUTRALIZACION[index];
 
   return {

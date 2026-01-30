@@ -13,15 +13,15 @@ export class FriccionGenerator extends FisicaBaseGenerator {
     switch (params.nivel) {
       case "basico":
         masa = this.randomInt(10, 50);
-        coeficiente = this.redondear(Math.random() * 0.3 + 0.1, 2);
+        coeficiente = this.redondear(this.prng.next() * 0.3 + 0.1, 2);
         break;
       case "intermedio":
         masa = this.randomInt(30, 100);
-        coeficiente = this.redondear(Math.random() * 0.5 + 0.2, 2);
+        coeficiente = this.redondear(this.prng.next() * 0.5 + 0.2, 2);
         break;
       default:
         masa = this.randomInt(50, 200);
-        coeficiente = this.redondear(Math.random() * 0.8 + 0.3, 2);
+        coeficiente = this.redondear(this.prng.next() * 0.8 + 0.3, 2);
     }
 
     const g = 9.8;

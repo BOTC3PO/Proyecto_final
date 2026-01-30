@@ -1,6 +1,6 @@
 // src/generators/quimica/95_equipos_proteccion.ts
 // src/generators/quimica/95_equipos_proteccion.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaEPP {
   enunciado: string;
@@ -52,7 +52,7 @@ const PREGUNTAS_EPP: PreguntaEPP[] = [
 export const generarEquiposProteccionQuimica: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_EPP.length);
+  const index = randInt(0, PREGUNTAS_EPP.length - 1);
   const q = PREGUNTAS_EPP[index];
 
   return {

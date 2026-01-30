@@ -2,6 +2,7 @@
 
 // Importás la dificultad “global” que ya tenés en types.ts
 import type { Dificultad as DificultadGlobal } from "../core/types";
+import type { PRNG } from "../core/prng";
 
 // Re-export para usarla en los generadores de economía
 export type Dificultad = DificultadGlobal;
@@ -26,7 +27,20 @@ export interface QuizExercise extends BaseExercise {
 export type Exercise = QuizExercise;
 
 // Firma estándar de un generador de ejercicios
-export type GeneratorFn = (dificultad?: Dificultad) => Exercise;
+export type GeneratorFn = (dificultad?: Dificultad, prng?: PRNG) => Exercise;
+
+let ACTIVE_PRNG: PRNG | null = null;
+
+export function setPrng(prng: PRNG): void {
+  ACTIVE_PRNG = prng;
+}
+
+function requirePrng(): PRNG {
+  if (!ACTIVE_PRNG) {
+    throw new Error("PRNG no inicializado para generadores de economía.");
+  }
+  return ACTIVE_PRNG;
+}
 
 export const DIFICULTAD_ORDEN: Dificultad[] = [
   "basico",
@@ -84,7 +98,15 @@ export function esDificultadMinima(
  * Devuelve un elemento aleatorio de un array.
  */
 export function pickOne<T>(items: T[]): T {
-  return items[Math.floor(Math.random() * items.length)];
+  return items[requirePrng().int(0, items.length - 1)];
+}
+
+export function randInt(min: number, max: number): number {
+  return requirePrng().int(min, max);
+}
+
+export function randomBool(probability = 0.5): boolean {
+  return requirePrng().next() < probability;
 }
 
 /**
@@ -97,7 +119,7 @@ function shuffleWithCorrectIndex(
   const items = opciones.map((text, index) => ({ text, index }));
 
   for (let i = items.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = requirePrng().int(0, i);
     [items[i], items[j]] = [items[j], items[i]];
   }
 
@@ -159,11 +181,15 @@ export function makeQuizGenerator(
     }
   >
 ): GeneratorFn {
-  return (dificultad?: Dificultad) => {
+  return (dificultad?: Dificultad, prng?: PRNG) => {
+    if (!prng) {
+      throw new Error("Se requiere un PRNG inicializado para generar ejercicios.");
+    }
+    setPrng(prng);
     const dif = (dificultad ?? ("intermedio" as Dificultad)) as Dificultad;
 
     // ahora plantillas es un array de funciones, esto compila bien
-    const idx = Math.floor(Math.random() * plantillas.length);
+    const idx = requirePrng().int(0, plantillas.length - 1);
     const template = plantillas[idx];
     const base = template(dif);
 
@@ -182,13 +208,19 @@ export function createPlaceholderQuiz(
   idTema: number,
   tituloTema: string
 ): GeneratorFn {
-  return (dificultad: Dificultad = "intermedio" as Dificultad) => ({
-    idTema,
-    tituloTema,
-    dificultad,
-    tipo: "quiz",
-    enunciado: `Ejercicio tipo quiz aún no implementado para el tema: ${tituloTema}`,
-    opciones: [],
-    indiceCorrecto: 0,
-  });
+  return (dificultad: Dificultad = "intermedio" as Dificultad, prng?: PRNG) => {
+    if (!prng) {
+      throw new Error("Se requiere un PRNG inicializado para generar ejercicios.");
+    }
+    setPrng(prng);
+    return {
+      idTema,
+      tituloTema,
+      dificultad,
+      tipo: "quiz",
+      enunciado: `Ejercicio tipo quiz aún no implementado para el tema: ${tituloTema}`,
+      opciones: [],
+      indiceCorrecto: 0,
+    };
+  };
 }

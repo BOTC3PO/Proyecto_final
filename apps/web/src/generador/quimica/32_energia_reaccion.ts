@@ -3,6 +3,7 @@ import {
   type GeneratorFn,
   type NumericExercise,
   randFloat,
+  randomBool,
 } from "./generico";
 
 // masa molar genérica para el reactivo A (solo para convertir masa→moles)
@@ -12,14 +13,14 @@ export const generarEnergiaReaccion: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
   // Elegimos si la reacción es exotérmica (ΔH<0) o endotérmica (ΔH>0)
-  const esExotermica = Math.random() < 0.5;
+  const esExotermica = randomBool();
 
   const deltaHMolar = esExotermica
     ? randFloat(-300, -50, 0)   // kJ/mol
     : randFloat(50, 300, 0);    // kJ/mol
 
   // Elegimos si damos moles o masa
-  const usarMolesDirectos = Math.random() < 0.5;
+  const usarMolesDirectos = randomBool();
   let n: number;
   let masa: number | null = null;
 

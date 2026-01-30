@@ -1,6 +1,6 @@
 // src/generators/quimica/94_riesgos_toxicos.ts
 // src/generators/quimica/94_riesgos_toxicos.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaToxicos {
   enunciado: string;
@@ -39,7 +39,7 @@ const PREGUNTAS_TOXICOS: PreguntaToxicos[] = [
 export const generarRiesgosToxicos: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_TOXICOS.length);
+  const index = randInt(0, PREGUNTAS_TOXICOS.length - 1);
   const q = PREGUNTAS_TOXICOS[index];
 
   return {

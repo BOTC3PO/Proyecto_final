@@ -24,7 +24,7 @@ export class CalorGenerator extends FisicaBaseGenerator {
         break;
       default:
         masa = this.randomInt(500, 3000);
-        calorEspecifico = this.redondear(Math.random() * 4 + 0.3, 2);
+        calorEspecifico = this.redondear(this.prng.next() * 4 + 0.3, 2);
         deltaT = this.randomInt(30, 150);
     }
 

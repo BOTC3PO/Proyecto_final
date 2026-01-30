@@ -1,6 +1,6 @@
 // src/generators/quimica/81_geometria_molecular_vsepr.ts
 // src/generators/quimica/81_geometria_molecular_vsepr.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 import { VSEPR_VISUAL_SPEC } from "./vseprVisualSpec";
 
 interface PreguntaVSEPR {
@@ -64,7 +64,7 @@ const PREGUNTAS_VSEPR: PreguntaVSEPR[] = [
 export const generarGeometriaMolecularVSEPR: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_VSEPR.length);
+  const index = randInt(0, PREGUNTAS_VSEPR.length - 1);
   const q = PREGUNTAS_VSEPR[index];
 
   return {

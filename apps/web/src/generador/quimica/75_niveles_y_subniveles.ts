@@ -1,6 +1,6 @@
 // src/generators/quimica/75_niveles_y_subniveles.ts
 // src/generators/quimica/75_niveles_y_subniveles.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaNiveles {
   enunciado: string;
@@ -39,7 +39,7 @@ const PREGUNTAS_NIVELES: PreguntaNiveles[] = [
 export const generarNivelesSubnivelesEnergia: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_NIVELES.length);
+  const index = randInt(0, PREGUNTAS_NIVELES.length - 1);
   const q = PREGUNTAS_NIVELES[index];
 
   return {

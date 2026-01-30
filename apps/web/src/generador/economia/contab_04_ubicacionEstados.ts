@@ -1,7 +1,7 @@
 // src/generators/economia/contab_04_ubicacionEstados.ts
 
-import { type Dificultad} from "../core/types";
-import { makeQuizGenerator, pickOne,type GeneratorFn } from "./generico";
+import { type Dificultad } from "../core/types";
+import { makeQuizGenerator, pickOne, randInt, type GeneratorFn } from "./generico";
 
 type Ubicacion =
   | "Activo Corriente"
@@ -58,7 +58,7 @@ export const genContabUbicacionEstados: GeneratorFn = makeQuizGenerator(
 
       const distractores = OPCIONES_ESTADO.filter((o) => o !== correcta);
       while (opciones.length < cantOpciones && distractores.length > 0) {
-        const idx = Math.floor(Math.random() * distractores.length);
+        const idx = randInt(0, distractores.length - 1);
         opciones.push(distractores.splice(idx, 1)[0]);
       }
 

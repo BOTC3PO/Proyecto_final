@@ -1,6 +1,6 @@
 // src/generators/quimica/76_orbitales_spdf.ts
 // src/generators/quimica/76_orbitales_spdf.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaOrbitales {
   enunciado: string;
@@ -36,7 +36,7 @@ const PREGUNTAS_ORBITALES: PreguntaOrbitales[] = [
 export const generarOrbitalesSPDF: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_ORBITALES.length);
+  const index = randInt(0, PREGUNTAS_ORBITALES.length - 1);
   const q = PREGUNTAS_ORBITALES[index];
 
   return {

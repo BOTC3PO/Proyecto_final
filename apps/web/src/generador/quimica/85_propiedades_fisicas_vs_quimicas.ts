@@ -1,6 +1,6 @@
 // src/generators/quimica/85_propiedades_fisicas_vs_quimicas.ts
 // src/generators/quimica/85_propiedades_fisicas_vs_quimicas.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaPropiedad {
   enunciado: string;
@@ -65,7 +65,7 @@ const PREGUNTAS_PROPIEDADES: PreguntaPropiedad[] = [
 export const generarPropiedadesFisicasVsQuimicas: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_PROPIEDADES.length);
+  const index = randInt(0, PREGUNTAS_PROPIEDADES.length - 1);
   const q = PREGUNTAS_PROPIEDADES[index];
 
   return {

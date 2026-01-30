@@ -1,6 +1,6 @@
 // src/generators/quimica/72_particulas_subatomicas.ts
 // src/generators/quimica/72_particulas_subatomicas.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaSubatomica {
   enunciado: string;
@@ -33,7 +33,7 @@ const PREGUNTAS_SUBATOMICAS: PreguntaSubatomica[] = [
 export const generarParticulasSubatomicas: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_SUBATOMICAS.length);
+  const index = randInt(0, PREGUNTAS_SUBATOMICAS.length - 1);
   const q = PREGUNTAS_SUBATOMICAS[index];
 
   return {
