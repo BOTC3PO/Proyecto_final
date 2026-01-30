@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  randomBool,
   randomInt,
   pickRandom,
 } from "./generic";
@@ -25,13 +26,13 @@ export const generarIntervalosSoluciones: GeneratorFn = (
 
   if (tipo === "xMayor") {
     // x > b o x ≥ b
-    const cerrado = Math.random() < 0.5;
+    const cerrado = randomBool();
     enunciado = `Escribe en notación de intervalos el conjunto solución de la inecuación:\n\nx ${
       cerrado ? "≥" : ">" 
     } ${b}`;
     correcta = cerrado ? `[${b}, +∞)` : `(${b}, +∞)`;
   } else if (tipo === "xMenor") {
-    const cerrado = Math.random() < 0.5;
+    const cerrado = randomBool();
     enunciado = `Escribe en notación de intervalos el conjunto solución de la inecuación:\n\nx ${
       cerrado ? "≤" : "<"
     } ${a}`;

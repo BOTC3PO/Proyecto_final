@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  randomBool,
   randomInt,
   pickRandom,
   normalizarDificultadCore,
@@ -70,7 +71,7 @@ export const generarUnidadesMedida: GeneratorFn = (
   while (distractores.size < 3) {
     const factorError = pickRandom([0.1, 0.5, 2, 10]);
     const cand =
-      Math.random() < 0.5
+      randomBool()
         ? redondeado * factorError
         : redondeado / factorError;
     const candR =

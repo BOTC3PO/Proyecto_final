@@ -1,6 +1,6 @@
 // src/generators/quimica/77_enlace_ionico.ts
 // src/generators/quimica/77_enlace_ionico.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 import { VSEPR_VISUAL_SPEC } from "./vseprVisualSpec";
 
 interface PreguntaIonico {
@@ -47,7 +47,7 @@ const PREGUNTAS_IONICO: PreguntaIonico[] = [
 export const generarEnlaceIonico: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_IONICO.length);
+  const index = randInt(0, PREGUNTAS_IONICO.length - 1);
   const q = PREGUNTAS_IONICO[index];
 
   return {

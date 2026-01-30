@@ -4,6 +4,7 @@ import {
   type NumericExercise,
   randInt,
   randFloat,
+  randomBool,
 } from "./generico";
 
 type TipoComparacion = "Ka" | "pKa";
@@ -11,7 +12,7 @@ type TipoComparacion = "Ka" | "pKa";
 export const generarFuerzaAcidosBases: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const tipo: TipoComparacion = Math.random() < 0.5 ? "Ka" : "pKa";
+  const tipo: TipoComparacion = randomBool() ? "Ka" : "pKa";
 
   // Generamos pKa1 y pKa2 razonables (ácidos débiles)
   let pKa1Base = randInt(2, 9);
@@ -23,8 +24,8 @@ export const generarFuerzaAcidosBases: GeneratorFn = (
   }
 
   // Permitimos medias unidades algunos casos
-  const pKa1 = pKa1Base + (Math.random() < 0.5 ? 0 : 0.5);
-  const pKa2 = pKa2Base + (Math.random() < 0.5 ? 0 : 0.5);
+  const pKa1 = pKa1Base + (randomBool() ? 0 : 0.5);
+  const pKa2 = pKa2Base + (randomBool() ? 0 : 0.5);
 
   const Ka1 = Math.pow(10, -pKa1);
   const Ka2 = Math.pow(10, -pKa2);

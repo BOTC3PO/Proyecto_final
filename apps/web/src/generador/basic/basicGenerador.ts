@@ -12,7 +12,7 @@ import type {
   GeneratedMatch,
 } from "./types";
 
-import { SeededRandom, generateSeed } from "./seed";
+import { createPrng, type PRNG } from "../core/prng";
 
 export class QuizGenerator {
   private template: QuizTemplate;
@@ -24,7 +24,7 @@ export class QuizGenerator {
   generate(options?: {
     displayCount?: number;
     selection?: SelectionConfig;
-    seed?: string;
+    seed: string;
     shuffleOptions?: boolean;
   }): QuizInstance {
     const displayCount =
@@ -33,13 +33,16 @@ export class QuizGenerator {
     const selection =
       options?.selection ?? this.template.settings.selectionDefault;
 
-    const seed = options?.seed ?? generateSeed();
+    if (!options?.seed) {
+      throw new Error("Se requiere un seed provisto por el backend.");
+    }
+
+    const seed = options.seed;
 
     const shuffleOptions = options?.shuffleOptions ?? true;
 
-    const selectedQuestions = this.selectQuestions(selection, displayCount, seed);
-
-    const rng = new SeededRandom(seed);
+    const rng = createPrng(seed);
+    const selectedQuestions = this.selectQuestions(selection, displayCount, rng);
     const generatedQuestions = selectedQuestions.map((q) =>
       this.generateQuestion(q, rng, shuffleOptions)
     );
@@ -136,7 +139,7 @@ export class QuizGenerator {
   private selectQuestions(
     selection: SelectionConfig,
     displayCount: number,
-    seed: string
+    rng: PRNG
   ): Question[] {
     const poolSize = this.template.pool.length;
     const actualDisplayCount = Math.min(displayCount, poolSize);
@@ -163,7 +166,6 @@ export class QuizGenerator {
     }
 
     if (selection.mode === "random" || selection.mode === "byTags") {
-      const rng = new SeededRandom(seed);
       return rng.sample(candidatePool, actualDisplayCount);
     }
 
@@ -172,7 +174,7 @@ export class QuizGenerator {
 
   private generateQuestion(
     question: Question,
-    rng: SeededRandom,
+    rng: PRNG,
     shuffleOptions: boolean
   ): GeneratedQuestion {
     if (question.type === "mc") {

@@ -1,8 +1,5 @@
 // src/generators/quimica/67_tabla_periodica_numero_atomico.ts
-import {
-  type GeneratorFn,
-  type QuizExercise,
-} from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface ElementoZA {
   simbolo: string;
@@ -24,13 +21,13 @@ const ELEMENTOS_Z: ElementoZA[] = [
 export const generarNumeroAtomico: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * ELEMENTOS_Z.length);
+  const index = randInt(0, ELEMENTOS_Z.length - 1);
   const el = ELEMENTOS_Z[index];
 
   const opcionesSet = new Set<number>();
   opcionesSet.add(el.Z);
   while (opcionesSet.size < 4) {
-    const delta = Math.floor(Math.random() * 5) - 2; // -2 a +2
+    const delta = randInt(-2, 2);
     const candidato = el.Z + delta;
     if (candidato > 0) opcionesSet.add(candidato);
   }

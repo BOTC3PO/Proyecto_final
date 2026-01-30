@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  randomFloat,
   randomInt,
   normalizarDificultadCore,
 } from "./generic";
@@ -37,7 +38,7 @@ export const generarRaices: GeneratorFn = (
   const tipo: TipoRaiz =
     dificultadCore === "basico"
       ? "cuadrada"
-      : Math.random() < (dificultadCore === "intermedio" ? 0.7 : 0.5)
+      : randomFloat() < (dificultadCore === "intermedio" ? 0.7 : 0.5)
       ? "cuadrada"
       : "cubica";
 

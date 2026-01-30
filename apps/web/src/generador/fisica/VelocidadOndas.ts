@@ -17,11 +17,11 @@ export class VelocidadOndasGenerator extends FisicaBaseGenerator {
         break;
       case "intermedio":
         frecuencia = this.randomInt(50, 500);
-        longitud = this.redondear(Math.random() * 20 + 1, 2);
+        longitud = this.redondear(this.prng.next() * 20 + 1, 2);
         break;
       default:
         frecuencia = this.randomInt(100, 10000);
-        longitud = this.redondear(Math.random() * 100 + 0.1, 3);
+        longitud = this.redondear(this.prng.next() * 100 + 0.1, 3);
     }
 
     const resultado = calc.calcular({

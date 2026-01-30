@@ -7,7 +7,7 @@ export class DensidadGenerator extends FisicaBaseGenerator {
   categorias: string[] = ["densidad"];
 
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
-    const calcularDensidad = Math.random() > 0.3;
+    const calcularDensidad = this.prng.next() > 0.3;
     let masa: number;
     let volumen: number;
     let densidad: number;

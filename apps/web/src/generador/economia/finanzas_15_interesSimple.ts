@@ -4,11 +4,8 @@ import {
   type Dificultad,
   type GeneratorFn,
   makeQuizGenerator,
+  randInt,
 } from "./generico";
-
-function randInt(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 export const genFinanzasInteresSimple: GeneratorFn = makeQuizGenerator(
   15,

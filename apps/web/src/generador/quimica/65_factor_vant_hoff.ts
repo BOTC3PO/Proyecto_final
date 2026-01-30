@@ -1,8 +1,5 @@
 // src/generators/quimica/65_factor_vant_hoff.ts
-import type {
-  GeneratorFn,
-  NumericExercise,
-} from "./generico";
+import { type GeneratorFn, type NumericExercise, randInt } from "./generico";
 
 type SalInfo = {
   nombre: string;
@@ -22,7 +19,7 @@ const SALES: SalInfo[] = [
 export const generarFactorVantHoff: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const index = Math.floor(Math.random() * SALES.length);
+  const index = randInt(0, SALES.length - 1);
   const sal = SALES[index];
 
   const iTeorico = sal.iones;

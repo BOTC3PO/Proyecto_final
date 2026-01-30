@@ -1,6 +1,6 @@
 // src/generators/quimica/91_reaccion_precipitacion.ts
 // src/generators/quimica/91_reaccion_precipitacion.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaPrecipitacion {
   enunciado: string;
@@ -39,7 +39,7 @@ const PREGUNTAS_PRECIPITACION: PreguntaPrecipitacion[] = [
 export const generarReaccionPrecipitacion: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_PRECIPITACION.length);
+  const index = randInt(0, PREGUNTAS_PRECIPITACION.length - 1);
   const q = PREGUNTAS_PRECIPITACION[index];
 
   return {

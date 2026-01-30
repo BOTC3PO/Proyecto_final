@@ -1,6 +1,7 @@
 // src/ejercicios/fisica/generico.ts
 
 import { BaseGenerator } from "../core/basegenerador";
+import type { PRNG } from "../core/prng";
 // Si en algún momento usás GeneradorParametros, Ejercicio o Calculator, los volvés a importar.
 // import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
@@ -9,6 +10,10 @@ import { BaseGenerator } from "../core/basegenerador";
  */
 export abstract class FisicaBaseGenerator extends BaseGenerator {
   readonly materia = "fisica" as const;
+
+  constructor(prng: PRNG) {
+    super(prng);
+  }
 
   /**
    * Convierte unidades de longitud a metros
@@ -51,7 +56,7 @@ export abstract class FisicaBaseGenerator extends BaseGenerator {
     const opciones: Set<number> = new Set();
     
     while (opciones.size < cantidad) {
-      const factor = 1 + (Math.random() * variacion * 2 - variacion);
+      const factor = 1 + (this.prng.next() * variacion * 2 - variacion);
       const incorrecta = this.redondear(correcta * factor);
       if (incorrecta !== correcta && incorrecta > 0) {
         opciones.add(incorrecta);
@@ -67,7 +72,7 @@ export abstract class FisicaBaseGenerator extends BaseGenerator {
   protected mezclar<T>(array: T[]): T[] {
     const result = [...array];
     for (let i = result.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
+      const j = this.prng.int(0, i);
       [result[i], result[j]] = [result[j], result[i]];
     }
     return result;

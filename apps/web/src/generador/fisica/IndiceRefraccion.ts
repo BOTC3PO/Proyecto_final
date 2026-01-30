@@ -28,7 +28,7 @@ export class IndiceRefraccionGenerator extends FisicaBaseGenerator {
     indiceMedio = medio.indice;
     velocidadMedio = this.redondear(c / indiceMedio);
 
-    const calcularIndice = Math.random() > 0.5;
+    const calcularIndice = this.prng.next() > 0.5;
 
     let datos: any;
     let enunciado: string;

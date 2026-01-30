@@ -498,13 +498,12 @@ export default function EditorCuestionarios() {
                   <div className="border rounded-lg p-4 space-y-3">
                     <h3 className="text-sm font-semibold">Semilla y cantidad</h3>
                     <p className="text-xs text-gray-600">
-                      Usa la semilla definida en <span className="font-mono">generador/basic/seed.ts</span> o ingresa
-                      una personalizada para reproducir exámenes.
+                      Usa la semilla provista por el backend para reproducir exámenes de forma determinística.
                     </p>
                     <input
                       disabled={generatorInputsDisabled}
                       className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      placeholder="Semilla (opcional)"
+                      placeholder="Semilla del backend"
                     />
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <input

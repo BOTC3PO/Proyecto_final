@@ -1,9 +1,6 @@
 // src/generators/quimica/69_electronegatividad_comparacion.ts
 // src/generators/quimica/69_electronegatividad_comparacion.ts
-import type {
-  GeneratorFn,
-  QuizExercise
-} from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 import { PERIODIC_TABLE_ELEMENTS } from "./periodicTableData";
 
 interface ParElectronegatividad {
@@ -24,7 +21,7 @@ const PARES_EN: ParElectronegatividad[] = [
 export const generarElectronegatividadComparacion: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PARES_EN.length);
+  const index = randInt(0, PARES_EN.length - 1);
   const par = PARES_EN[index];
 
   const opciones = [par.elemento1, par.elemento2];

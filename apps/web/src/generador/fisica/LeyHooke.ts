@@ -13,15 +13,15 @@ export class LeyHookeGenerator extends FisicaBaseGenerator {
     switch (params.nivel) {
       case "basico":
         constante = this.randomInt(50, 200);
-        deformacion = this.redondear(Math.random() * 0.3 + 0.05, 2);
+        deformacion = this.redondear(this.prng.next() * 0.3 + 0.05, 2);
         break;
       case "intermedio":
         constante = this.randomInt(150, 500);
-        deformacion = this.redondear(Math.random() * 0.5 + 0.1, 2);
+        deformacion = this.redondear(this.prng.next() * 0.5 + 0.1, 2);
         break;
       default:
         constante = this.randomInt(300, 1000);
-        deformacion = this.redondear(Math.random() * 1 + 0.2, 2);
+        deformacion = this.redondear(this.prng.next() * 1 + 0.2, 2);
     }
 
     const resultado = calc.calcular({

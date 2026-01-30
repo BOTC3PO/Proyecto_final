@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  randomBool,
   randomInt,
   pickRandom,
   normalizarDificultadCore,
@@ -27,7 +28,7 @@ export const generarProductosNotables: GeneratorFn = (
   const b = randomInt(1, maxTermino);
 
   if (tipo === "cuadradoBinomio") {
-    const signo = Math.random() < 0.5 ? "+" : "-";
+    const signo = randomBool() ? "+" : "-";
     const binomio = signo === "+"
       ? `(${a}x + ${b})`
       : `(${a}x - ${b})`;

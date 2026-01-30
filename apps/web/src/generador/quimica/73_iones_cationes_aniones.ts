@@ -1,6 +1,6 @@
 // src/generators/quimica/73_iones_cationes_aniones.ts
 // src/generators/quimica/73_iones_cationes_aniones.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaIon {
   enunciado: string;
@@ -50,7 +50,7 @@ const PREGUNTAS_IONES: PreguntaIon[] = [
 export const generarIonesCationesAniones: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_IONES.length);
+  const index = randInt(0, PREGUNTAS_IONES.length - 1);
   const q = PREGUNTAS_IONES[index];
 
   return {

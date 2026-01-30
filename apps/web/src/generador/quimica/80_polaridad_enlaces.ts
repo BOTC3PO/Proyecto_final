@@ -1,6 +1,6 @@
 // src/generators/quimica/80_polaridad_enlaces.ts
 // src/generators/quimica/80_polaridad_enlaces.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 import { VSEPR_VISUAL_SPEC } from "./vseprVisualSpec";
 
 interface PreguntaPolaridad {
@@ -43,7 +43,7 @@ const PREGUNTAS_POLARIDAD: PreguntaPolaridad[] = [
 export const generarPolaridadEnlaces: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_POLARIDAD.length);
+  const index = randInt(0, PREGUNTAS_POLARIDAD.length - 1);
   const q = PREGUNTAS_POLARIDAD[index];
 
   return {

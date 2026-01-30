@@ -4,6 +4,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  randomBool,
   randomInt,
   normalizarDificultadCore,
 } from "./generic";
@@ -48,7 +49,7 @@ export const generarNotacionCientifica: GeneratorFn = (
 
   const k = randomInt(-maxExp, maxExp);
   const a = randomInt(1, 9);
-  const signo = Math.random() < 0.5 ? -1 : 1;
+  const signo = randomBool() ? -1 : 1;
 
   // Número real N = signo * a * 10^k
   const N = signo * a * 10 ** k;

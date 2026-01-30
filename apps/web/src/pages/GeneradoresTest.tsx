@@ -9,8 +9,9 @@ import type { Dificultad as DificultadEconomia } from "../generador/economia/gen
 import { GENERATORS_BY_TEMA } from "../generador/matematicas";
 import { GENERADORES_QUIMICA } from "../generador/quimica/indexQuimica";
 import { GENERADORES_ECONOMIA_POR_CLAVE } from "../generador/economia/indexEconomia";
-import { GENERADORES_FISICA } from "../generador/fisica/indexFisica";
+import { createGeneradoresFisica } from "../generador/fisica/indexFisica";
 import { crearCalculadoraFisica } from "../generador/fisica/calculadora";
+import { createPrng } from "../generador/core/prng";
 import VisualizerRenderer from "../visualizadores/graficos/VisualizerRenderer";
 import type { VisualSpec } from "../visualizadores/types";
 import {
@@ -46,6 +47,11 @@ export default function GeneradoresTest() {
   );
   const [resultado, setResultado] = useState<unknown>(null);
   const [error, setError] = useState<string | null>(null);
+  const [seed, setSeed] = useState("");
+
+  const listingPrng = useMemo(() => createPrng(seed || "listado-generadores"), [seed]);
+  const prng = useMemo(() => (seed ? createPrng(seed) : null), [seed]);
+  const generadoresFisica = useMemo(() => createGeneradoresFisica(listingPrng), [listingPrng]);
 
   const opcionesGenerador = useMemo(() => {
     switch (materia) {
@@ -71,12 +77,12 @@ export default function GeneradoresTest() {
           .map((clave) => ({ value: clave, label: clave }));
       case "fisica":
       default:
-        return GENERADORES_FISICA.map((generador) => ({
+        return generadoresFisica.map((generador) => ({
           value: generador.id,
           label: generador.id,
         }));
     }
-  }, [materia]);
+  }, [materia, generadoresFisica]);
 
   useEffect(() => {
     setGeneradorSeleccionado(opcionesGenerador[0]?.value ?? "");
@@ -660,30 +666,37 @@ export default function GeneradoresTest() {
     setError(null);
 
     try {
+      if (!seed) {
+        throw new Error("Se requiere una semilla provista por el backend.");
+      }
+      if (!prng) {
+        throw new Error("No se pudo inicializar el PRNG con la semilla.");
+      }
+
       switch (materia) {
         case "matematica": {
           const generador = GENERATORS_BY_TEMA[Number(generadorSeleccionado)];
           if (!generador) throw new Error("Generador de matemáticas no disponible.");
           setResultado(
-            generador(dificultad as DificultadMath, { modo: modoRespuesta })
+            generador(dificultad as DificultadMath, { modo: modoRespuesta }, prng)
           );
           break;
         }
         case "quimica": {
           const generador = GENERADORES_QUIMICA[Number(generadorSeleccionado)];
           if (!generador) throw new Error("Generador de química no disponible.");
-          setResultado(generador(mapDificultadCoreABasica(dificultad)));
+          setResultado(generador(mapDificultadCoreABasica(dificultad), prng));
           break;
         }
         case "economia": {
           const generador =
             GENERADORES_ECONOMIA_POR_CLAVE[generadorSeleccionado];
           if (!generador) throw new Error("Generador de economía no disponible.");
-          setResultado(generador(dificultad as DificultadEconomia));
+          setResultado(generador(dificultad as DificultadEconomia, prng));
           break;
         }
         case "fisica": {
-          const generador = GENERADORES_FISICA.find(
+          const generador = generadoresFisica.find(
             (item) => item.id === generadorSeleccionado
           );
           if (!generador) throw new Error("Generador de física no disponible.");
@@ -810,6 +823,21 @@ export default function GeneradoresTest() {
                   </option>
                 ))}
               </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Semilla (backend)
+              </label>
+              <input
+                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-blue-500"
+                value={seed}
+                onChange={(event) => setSeed(event.target.value)}
+                placeholder="Seed provisto por el backend"
+              />
+              <p className="mt-1 text-xs text-gray-500">
+                Esta semilla controla todos los sorteos determinísticos.
+              </p>
             </div>
 
             <div>

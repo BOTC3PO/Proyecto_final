@@ -1,6 +1,6 @@
 // src/generators/quimica/84_metodos_separacion.ts
 // src/generators/quimica/84_metodos_separacion.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaSeparacion {
   enunciado: string;
@@ -67,7 +67,7 @@ const PREGUNTAS_SEPARACION: PreguntaSeparacion[] = [
 export const generarMetodosSeparacion: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_SEPARACION.length);
+  const index = randInt(0, PREGUNTAS_SEPARACION.length - 1);
   const q = PREGUNTAS_SEPARACION[index];
 
   return {

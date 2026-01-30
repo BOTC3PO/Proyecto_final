@@ -7,7 +7,7 @@ export class FrecuenciaPeriodoGenerator extends FisicaBaseGenerator {
   categorias: string[] = ["frecuencia_periodo"];
 
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
-    const calcularFrecuencia = Math.random() > 0.5;
+    const calcularFrecuencia = this.prng.next() > 0.5;
     let frecuencia: number;
     let periodo: number;
 

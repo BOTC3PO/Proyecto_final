@@ -7,7 +7,7 @@ export class ConversionTemperaturaGenerator extends FisicaBaseGenerator {
   categorias: string[] = ["conversion_temperatura"];
 
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
-    const conversion = Math.random() > 0.5 ? "C_a_F" : "F_a_C";
+    const conversion = this.prng.next() > 0.5 ? "C_a_F" : "F_a_C";
     let temperatura: number;
 
     switch (params.nivel) {

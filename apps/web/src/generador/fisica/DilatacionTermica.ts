@@ -24,7 +24,7 @@ export class DilatacionTermicaGenerator extends FisicaBaseGenerator {
         break;
       default:
         longitud = this.randomInt(500, 3000);
-        coeficiente = this.redondear(Math.random() * 0.00003 + 0.00001, 6);
+        coeficiente = this.redondear(this.prng.next() * 0.00003 + 0.00001, 6);
         deltaT = this.randomInt(50, 200);
     }
 

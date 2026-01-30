@@ -3,6 +3,7 @@ import {
   type GeneratorFn,
   type NumericExercise,
   randFloat,
+  randomBool,
 } from "./generico";
 
 const M_N2 = 28.0; // g/mol
@@ -13,7 +14,7 @@ export const generarReactivoLimitante: GeneratorFn = (
 ): NumericExercise => {
   // Reacción: N2 + 3 H2 → 2 NH3
   // Hacemos que uno de los dos sea claramente limitante
-  const limitarPor = Math.random() < 0.5 ? "N2" : "H2";
+  const limitarPor = randomBool() ? "N2" : "H2";
 
   let masaN2: number;
   let masaH2: number;

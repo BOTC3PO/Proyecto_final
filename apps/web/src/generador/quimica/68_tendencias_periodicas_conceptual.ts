@@ -1,9 +1,6 @@
 // src/generators/quimica/68_tendencias_periodicas_conceptual.ts
 // src/generators/quimica/68_tendencias_periodicas_conceptual.ts
-import type {
-  GeneratorFn,
-  QuizExercise
-} from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 import { PERIODIC_TABLE_ELEMENTS } from "./periodicTableData";
 
 interface PreguntaTendencia {
@@ -69,7 +66,7 @@ const PREGUNTAS_TENDENCIAS: PreguntaTendencia[] = [
 export const generarTendenciasPeriodicas: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_TENDENCIAS.length);
+  const index = randInt(0, PREGUNTAS_TENDENCIAS.length - 1);
   const q = PREGUNTAS_TENDENCIAS[index];
 
   return {

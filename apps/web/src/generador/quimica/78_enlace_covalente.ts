@@ -1,6 +1,6 @@
 // src/generators/quimica/78_enlace_covalente.ts
 // src/generators/quimica/78_enlace_covalente.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 import { VSEPR_VISUAL_SPEC } from "./vseprVisualSpec";
 
 interface PreguntaCovalente {
@@ -42,7 +42,7 @@ const PREGUNTAS_COVALENTE: PreguntaCovalente[] = [
 export const generarEnlaceCovalente: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_COVALENTE.length);
+  const index = randInt(0, PREGUNTAS_COVALENTE.length - 1);
   const q = PREGUNTAS_COVALENTE[index];
 
   return {

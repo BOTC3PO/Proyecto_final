@@ -1,6 +1,6 @@
 // src/generators/quimica/88_desplazamiento_simple_doble.ts
 // src/generators/quimica/88_desplazamiento_simple_doble.ts
-import type { GeneratorFn, QuizExercise } from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 
 interface PreguntaDesplazamiento {
   enunciado: string;
@@ -51,7 +51,7 @@ const PREGUNTAS_DESPLAZAMIENTO: PreguntaDesplazamiento[] = [
 export const generarDesplazamientoSimpleDoble: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * PREGUNTAS_DESPLAZAMIENTO.length);
+  const index = randInt(0, PREGUNTAS_DESPLAZAMIENTO.length - 1);
   const q = PREGUNTAS_DESPLAZAMIENTO[index];
 
   return {

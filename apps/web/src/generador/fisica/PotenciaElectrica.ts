@@ -17,11 +17,11 @@ export class PotenciaElectricaGenerator extends FisicaBaseGenerator {
         break;
       case "intermedio":
         voltaje = this.randomInt(12, 120);
-        corriente = this.redondear(Math.random() * 10 + 0.5, 2);
+        corriente = this.redondear(this.prng.next() * 10 + 0.5, 2);
         break;
       default:
         voltaje = this.randomInt(110, 240);
-        corriente = this.redondear(Math.random() * 20 + 1, 2);
+        corriente = this.redondear(this.prng.next() * 20 + 1, 2);
     }
 
     const resultado = calc.calcular({

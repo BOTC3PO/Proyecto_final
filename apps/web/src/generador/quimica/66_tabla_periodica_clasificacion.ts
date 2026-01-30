@@ -1,9 +1,6 @@
 // src/generators/quimica/66_tabla_periodica_clasificacion.ts
 // src/generators/quimica/66_tabla_periodica_clasificacion.ts
-import type {
-  GeneratorFn,
-  QuizExercise
-} from "./generico";
+import { type GeneratorFn, type QuizExercise, randInt } from "./generico";
 import { PERIODIC_TABLE_ELEMENTS } from "./periodicTableData";
 
 type TipoElemento = "metal" | "no metal" | "metaloide";
@@ -29,7 +26,7 @@ const ELEMENTOS_CLASIFICACION: ElementoClasificacion[] = [
 export const generarClasificacionTablaPeriodica: GeneratorFn = (
   dificultad = "media"
 ): QuizExercise => {
-  const index = Math.floor(Math.random() * ELEMENTOS_CLASIFICACION.length);
+  const index = randInt(0, ELEMENTOS_CLASIFICACION.length - 1);
   const el = ELEMENTOS_CLASIFICACION[index];
 
   const opciones: string[] = ["metal", "no metal", "metaloide"];

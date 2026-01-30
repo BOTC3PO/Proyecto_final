@@ -1,6 +1,7 @@
 // src/generators/math/generic.ts
 
 import type { Dificultad as DificultadCore } from "../core/types";
+import type { PRNG } from "../core/prng";
 
 export type DificultadBasica = "facil" | "media" | "dificil";
 export type Dificultad = DificultadCore | DificultadBasica;
@@ -39,12 +40,25 @@ export type Exercise = QuizExercise | CompletarExercise;
 // Firma genérica de un generador
 export type GeneratorFn = (
   dificultad?: Dificultad,
-  config?: GeneradorConfig
+  config?: GeneradorConfig,
+  prng?: PRNG
 ) => Exercise;
 
 // -------- Helpers genéricos --------
 
 let GLOBAL_ID_COUNTER = 1;
+let ACTIVE_PRNG: PRNG | null = null;
+
+export function setPrng(prng: PRNG): void {
+  ACTIVE_PRNG = prng;
+}
+
+function requirePrng(): PRNG {
+  if (!ACTIVE_PRNG) {
+    throw new Error("PRNG no inicializado para generadores de matemáticas.");
+  }
+  return ACTIVE_PRNG;
+}
 
 export function generarId(): string {
   return `ej-${GLOBAL_ID_COUNTER++}`;
@@ -52,23 +66,25 @@ export function generarId(): string {
 
 export function randomInt(min: number, max: number): number {
   // ambos inclusive
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return requirePrng().int(min, max);
 }
 
 // generic.ts
 export function pickRandom<T>(arr: readonly T[]): T {
-  const idx = Math.floor(Math.random() * arr.length);
+  const idx = requirePrng().int(0, arr.length - 1);
   return arr[idx];
 }
 
-
 export function shuffleArray<T>(arr: T[]): T[] {
-  const copy = [...arr];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = randomInt(0, i);
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
+  return requirePrng().shuffle(arr);
+}
+
+export function randomFloat(): number {
+  return requirePrng().next();
+}
+
+export function randomBool(probability = 0.5): boolean {
+  return requirePrng().next() < probability;
 }
 
 export function normalizarDificultadCore(
@@ -199,8 +215,12 @@ export function convertirQuizACompletar(
 }
 
 export function wrapConModo(generator: GeneratorFn): GeneratorFn {
-  return (dificultad?: Dificultad, config?: GeneradorConfig) => {
-    const ejercicio = generator(dificultad, config);
+  return (dificultad?: Dificultad, config?: GeneradorConfig, prng?: PRNG) => {
+    if (!prng) {
+      throw new Error("Se requiere un PRNG inicializado para generar ejercicios.");
+    }
+    setPrng(prng);
+    const ejercicio = generator(dificultad, config, prng);
     if (config?.modo === "completar") {
       return convertirQuizACompletar(ejercicio);
     }
@@ -220,7 +240,10 @@ export function esPrimo(n: number): boolean {
   return true;
 }
 
-export function generarPrimoEnRango(min: number, max: number): number {
+export function generarPrimoEnRango(
+  min: number,
+  max: number
+): number {
   let intento = 0;
   while (intento < 1000) {
     const n = randomInt(min, max);

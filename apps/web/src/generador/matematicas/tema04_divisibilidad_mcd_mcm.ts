@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  randomBool,
   rangoPorDificultadCore,
   randomInt,
   mcd,
@@ -30,7 +31,7 @@ function generarPar(dificultad: Dificultad): [number, number] {
 export const generarDivisibilidadMcdMcm: GeneratorFn = (
   dificultad = "intermedio"
 ) => {
-  const tipo: TipoProblema = Math.random() < 0.5 ? "MCD" : "MCM";
+  const tipo: TipoProblema = randomBool() ? "MCD" : "MCM";
   const [a, b] = generarPar(dificultad);
 
   let respuesta: number;
