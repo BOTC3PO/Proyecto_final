@@ -64,6 +64,13 @@ export default function menuProfesor() {
   const [dashboard, setDashboard] = useState<ProfesorMenuDashboard | null>(null);
   const [dashboardLoading, setDashboardLoading] = useState(true);
   const [dashboardError, setDashboardError] = useState<string | null>(null);
+  const [menuState, setMenuState] = useState<{
+    status: "loading" | "ready" | "error";
+    message: string;
+  }>({
+    status: "loading",
+    message: "Cargando el menú del profesor..."
+  });
 
   const categoryOptions = useMemo(() => {
     const categories = modules
@@ -175,6 +182,26 @@ export default function menuProfesor() {
       active = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (dashboardError) {
+      setMenuState({
+        status: "error",
+        message: "No pudimos cargar el menú del profesor. Intenta nuevamente más tarde."
+      });
+      return;
+    }
+
+    if (dashboardLoading || modulesStatus === "loading") {
+      setMenuState({
+        status: "loading",
+        message: "Cargando el menú del profesor..."
+      });
+      return;
+    }
+
+    setMenuState({ status: "ready", message: "" });
+  }, [dashboardError, dashboardLoading, modulesStatus]);
 
   const subjectOptions = useMemo(() => {
     const subjects = modules
@@ -335,398 +362,415 @@ export default function menuProfesor() {
   return (
     <main className="flex-1">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
-        <div className="bg-white rounded-xl shadow flex items-center gap-4 p-5">
-          <div className="w-12 h-12 rounded-full bg-blue-600 text-white grid place-content-center font-semibold">
-            {dashboard?.profile.initials ?? "--"}
-          </div>
-          <div className="flex-1">
-            <h2 className="font-semibold">{dashboard?.profile.name ?? "Cargando..."}</h2>
-            <p className="text-gray-600">{dashboard?.profile.role ?? ""}</p>
-          </div>
-          <div className="flex items-center gap-5">
-            <button title="Notificaciones" aria-label="Notificaciones">
-              🔔
-            </button>
-            <span className="flex items-center gap-2 text-gray-400">
-              👤 Perfil
-            </span>
-          </div>
-        </div>
-        {dashboardError && (
-          <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-            Error al cargar el resumen: {dashboardError}
-          </div>
+        {menuState.status !== "ready" && (
+          <section
+            className={`rounded-xl border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-600 ${
+              menuState.status === "loading" ? "animate-pulse" : ""
+            }`}
+          >
+            <p className="font-semibold text-slate-700">{menuState.message}</p>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              <div className="h-20 rounded-lg bg-slate-100" />
+              <div className="h-20 rounded-lg bg-slate-100" />
+              <div className="h-20 rounded-lg bg-slate-100" />
+            </div>
+            <div className="mt-4 h-40 rounded-lg bg-slate-100" />
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <div className="h-24 rounded-lg bg-slate-100" />
+              <div className="h-24 rounded-lg bg-slate-100" />
+            </div>
+          </section>
         )}
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <div className="bg-white rounded-xl shadow p-5 flex items-center gap-4">
-            <div className="text-3xl">🕒</div>
-            <div>
-              <p className="text-gray-500">Próxima Clase</p>
-              <p className="text-xl font-semibold">
-                {dashboardLoading ? "Cargando..." : dashboard?.nextClass.detail ?? "--"}
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl shadow p-5 flex items-center gap-4">
-            <div className="text-3xl">👪</div>
-            <div>
-              <p className="text-gray-500">Estudiantes Activos</p>
-              <p className="text-2xl font-bold">
-                {dashboardLoading ? "--" : `${dashboard?.activeStudents ?? 0} estudiantes`}
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl shadow p-5">
-            <div className="flex items-center gap-3">
-              <div className="text-3xl">🎓</div>
-              <p className="text-gray-600">Progreso general de la próxima clase</p>
-            </div>
-            <div className="mt-3 h-3 w-full bg-gray-200 rounded">
-              <div
-                className="h-3 bg-gray-400 rounded"
-                style={{ width: `${dashboard?.progressNextClass ?? 0}%` }}
-              ></div>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {dashboardLoading && <p className="text-sm text-gray-500">Cargando métricas...</p>}
-          {!dashboardLoading &&
-            dashboard?.kpiCards.map((card) => (
-            <Link
-              key={card.id}
-              className="group rounded-xl border border-transparent bg-white p-5 shadow transition hover:border-blue-200 hover:shadow-md"
-              to={card.href}
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-sm text-gray-500">{card.label}</p>
-                  <p className="mt-2 text-3xl font-semibold text-gray-900">{card.value}</p>
-                  <p className="mt-2 text-xs text-gray-400">{card.helper}</p>
-                </div>
-                <span className="text-3xl">{card.icon}</span>
+        {menuState.status === "ready" && (
+          <>
+            <div className="bg-white rounded-xl shadow flex items-center gap-4 p-5">
+              <div className="w-12 h-12 rounded-full bg-blue-600 text-white grid place-content-center font-semibold">
+                {dashboard?.profile.initials ?? "--"}
               </div>
-              <span className="mt-4 inline-flex text-xs font-semibold uppercase tracking-wide text-blue-600 group-hover:underline">
-                Ver detalle
-              </span>
-            </Link>
-          ))}
-          {!dashboardLoading && dashboard?.kpiCards.length === 0 && (
-            <p className="text-sm text-gray-500">No hay métricas disponibles.</p>
-          )}
-        </div>
-
-        <section className="bg-white rounded-xl shadow p-5">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <h3 className="text-lg font-semibold">Planificación semanal</h3>
-              <p className="text-sm text-gray-500">
-                Próximas clases y actividades prioritarias.
-              </p>
-            </div>
-            <span className="inline-flex items-center gap-2 rounded-md border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-400">
-              Calendario (próximamente)
-            </span>
-          </div>
-          <ul className="mt-4 divide-y divide-gray-100">
-            {dashboardLoading && <li className="py-3 text-sm text-gray-500">Cargando planificación...</li>}
-            {!dashboardLoading &&
-              dashboard?.weeklyPlan.map((item) => (
-                <li key={item.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
-                  <div>
-                    <p className="font-semibold text-gray-900">{item.title}</p>
-                    <p className="text-sm text-gray-500">{item.detail}</p>
-                  </div>
-                  <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                    {item.status}
-                  </span>
-                </li>
-              ))}
-            {!dashboardLoading && dashboard?.weeklyPlan.length === 0 && (
-              <li className="py-3 text-sm text-gray-500">No hay actividades programadas.</li>
-            )}
-          </ul>
-        </section>
-
-        <div className="bg-white rounded-xl shadow p-5">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <h3 className="text-lg font-semibold">Módulos activos</h3>
-            <div className="flex items-center gap-3">
-              <Link
-                className="inline-flex items-center gap-2 rounded-md border border-blue-200 px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50"
-                to="/profesor/aulas#crear"
-              >
-                + Crear aula
-              </Link>
-              <Link
-                className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
-                to="/profesor/cursos/nuevo"
-              >
-                + Crear clase/sección
-              </Link>
-              <Link className="text-sm text-blue-600 hover:underline" to="/modulos/crear">
-                Crear módulo
-              </Link>
-            </div>
-          </div>
-          <div className="mt-4 grid gap-3 lg:grid-cols-[2fr_1fr_1fr]">
-            <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
-              Buscar módulo
-              <input
-                className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
-                placeholder="Busca por título o descripción"
-                type="search"
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-              />
-            </label>
-            <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
-              Categoría
-              <select
-                className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
-                value={selectedCategory}
-                onChange={(event) => setSelectedCategory(event.target.value)}
-              >
-                <option value="todas">Todas</option>
-                {categoryOptions.map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
-              Visibilidad
-              <select
-                className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
-                value={selectedVisibility}
-                onChange={(event) => setSelectedVisibility(event.target.value)}
-              >
-                <option value="todas">Todas</option>
-                <option value="publico">Publicado</option>
-                <option value="privado">Privado</option>
-              </select>
-            </label>
-          </div>
-          {activeFilters.length > 0 && (
-            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-              <span className="text-gray-500">Filtros activos:</span>
-              {activeFilters.map((filter) => (
-                <span
-                  key={filter.key}
-                  className="rounded-full bg-blue-50 px-3 py-1 font-semibold text-blue-700"
-                >
-                  {filter.label}
+              <div className="flex-1">
+                <h2 className="font-semibold">{dashboard?.profile.name ?? "Cargando..."}</h2>
+                <p className="text-gray-600">{dashboard?.profile.role ?? ""}</p>
+              </div>
+              <div className="flex items-center gap-5">
+                <button title="Notificaciones" aria-label="Notificaciones">
+                  🔔
+                </button>
+                <span className="flex items-center gap-2 text-gray-400">
+                  👤 Perfil
                 </span>
-              ))}
+              </div>
             </div>
-          )}
-          {modulesStatus === "loading" && (
-            <p className="mt-4 text-sm text-gray-500">Cargando módulos...</p>
-          )}
-          {modulesStatus === "error" && modulesError && (
-            <p className="mt-4 text-sm text-red-600">{modulesError}</p>
-          )}
-          {modulesStatus === "ready" && (
-            <div className="mt-4 grid gap-4 md:grid-cols-3">
-              {filteredModules.map((module) => {
-                const subjectLabel = module.subject ?? module.category;
-                const subjectColor = getSubjectColor(subjectLabel);
 
-                return (
-                  <article
-                    key={module.id}
-                    className="rounded-lg border p-4"
-                    style={{
-                      borderColor: subjectColor.border,
-                      backgroundColor: subjectColor.background
-                    }}
-                  >
-                    <p className="text-xs uppercase text-gray-500">{module.category}</p>
-                    <h4 className="mt-2 font-semibold">{module.title}</h4>
-                    <p className="mt-2 text-sm text-gray-600">{module.description}</p>
-                    <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                      <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
-                        {module.visibility === "publico" ? "Publicado" : "Privado"}
-                      </span>
-                      <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
-                        Dependencias: {module.dependencies.length}
-                      </span>
-                      {module.createdByRole === "admin" && (
-                        <span className="rounded-full bg-amber-100 px-2 py-1 text-amber-700">
-                          Creado por admin
-                        </span>
-                      )}
-                    </div>
-                    <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500">
-                      <span>{module.level}</span>
-                      <span>{module.durationMinutes} min</span>
-                    </div>
-                    <p className="mt-2 text-xs text-gray-500">
-                      Autor: {module.authorName ?? module.createdBy ?? "--"}
-                    </p>
-                    <Link
-                      className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      to={`/modulos/${module.id}/editar`}
-                    >
-                      Editar módulo
-                    </Link>
-                  </article>
-                );
-              })}
-            </div>
-          )}
-          {modulesStatus === "ready" && filteredModules.length === 0 && (
-            <p className="mt-4 text-sm text-gray-500">
-              No hay módulos que coincidan con los filtros seleccionados.
-            </p>
-          )}
-        </div>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <div className="bg-white rounded-xl shadow p-5 flex items-center gap-4">
+                <div className="text-3xl">🕒</div>
+                <div>
+                  <p className="text-gray-500">Próxima Clase</p>
+                  <p className="text-xl font-semibold">
+                    {dashboard?.nextClass.detail ?? "--"}
+                  </p>
+                </div>
+              </div>
 
-        <section className="bg-white rounded-xl shadow p-5">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <h3 className="text-lg font-semibold">Mapa de dependencias</h3>
-              <p className="text-sm text-gray-500">
-                Revisa cómo se encadenan los módulos y filtra por materia o ruta completa.
-              </p>
+              <div className="bg-white rounded-xl shadow p-5 flex items-center gap-4">
+                <div className="text-3xl">👪</div>
+                <div>
+                  <p className="text-gray-500">Estudiantes Activos</p>
+                  <p className="text-2xl font-bold">
+                    {`${dashboard?.activeStudents ?? 0} estudiantes`}
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow p-5">
+                <div className="flex items-center gap-3">
+                  <div className="text-3xl">🎓</div>
+                  <p className="text-gray-600">Progreso general de la próxima clase</p>
+                </div>
+                <div className="mt-3 h-3 w-full bg-gray-200 rounded">
+                  <div
+                    className="h-3 bg-gray-400 rounded"
+                    style={{ width: `${dashboard?.progressNextClass ?? 0}%` }}
+                  ></div>
+                </div>
+              </div>
             </div>
-            {graphSelection && (
-              <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
-                Seleccionado: {graphSelection.title}
-              </span>
-            )}
-          </div>
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
-            <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
-              Materia
-              <select
-                className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
-                value={selectedSubject}
-                onChange={(event) => setSelectedSubject(event.target.value)}
-              >
-                <option value="todas">Todas</option>
-                {subjectOptions.map((subject) => (
-                  <option key={subject} value={subject}>
-                    {subject}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
-              Módulo base
-              <select
-                className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
-                value={selectedGraphModuleId}
-                onChange={(event) => setSelectedGraphModuleId(event.target.value)}
-              >
-                {graphModules.map((module) => (
-                  <option key={module.id} value={module.id}>
-                    {module.title}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="flex items-center gap-3 rounded-md border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-700">
-              <input
-                checked={showFullPath}
-                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-200"
-                type="checkbox"
-                onChange={(event) => setShowFullPath(event.target.checked)}
-              />
-              Mostrar ruta completa
-            </label>
-          </div>
-          <div className="mt-4 grid gap-4 lg:grid-cols-[2fr_1fr]">
-            {graphSpec.nodes.length > 0 ? (
-              <Suspense
-                fallback={
-                  <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
-                    Cargando mapa de dependencias...
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              {dashboard?.kpiCards.map((card) => (
+                <Link
+                  key={card.id}
+                  className="group rounded-xl border border-transparent bg-white p-5 shadow transition hover:border-blue-200 hover:shadow-md"
+                  to={card.href}
+                >
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <p className="text-sm text-gray-500">{card.label}</p>
+                      <p className="mt-2 text-3xl font-semibold text-gray-900">{card.value}</p>
+                      <p className="mt-2 text-xs text-gray-400">{card.helper}</p>
+                    </div>
+                    <span className="text-3xl">{card.icon}</span>
                   </div>
-                }
-              >
-                <ConceptMapVisualizer spec={graphSpec} />
-              </Suspense>
-            ) : (
-              <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
-                Selecciona una materia con módulos disponibles para ver el mapa.
-              </div>
-            )}
-            <div className="space-y-4">
-              <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                <p className="text-xs font-semibold uppercase text-slate-500">
-                  Vista previa compacta
-                </p>
-                <p className="mt-2 text-sm text-slate-600">
-                  Nodos anteriores y posteriores al módulo seleccionado.
-                </p>
-              </div>
-              <div className="rounded-lg border border-slate-200 p-4">
-                <p className="text-xs font-semibold uppercase text-slate-500">Anteriores</p>
-                <ul className="mt-3 space-y-2">
-                  {previewDependencies.previous.length === 0 && (
-                    <li className="text-sm text-slate-400">Sin dependencias previas.</li>
-                  )}
-                  {previewDependencies.previous.map((module) => (
-                    <li key={module.id} className="rounded-md bg-slate-50 px-3 py-2 text-sm">
-                      <p className="font-semibold text-slate-700">{module.title}</p>
-                      <p className="text-xs text-slate-500">{module.subject}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="rounded-lg border border-slate-200 p-4">
-                <p className="text-xs font-semibold uppercase text-slate-500">Posteriores</p>
-                <ul className="mt-3 space-y-2">
-                  {previewDependencies.next.length === 0 && (
-                    <li className="text-sm text-slate-400">Sin módulos dependientes.</li>
-                  )}
-                  {previewDependencies.next.map((module) => (
-                    <li key={module.id} className="rounded-md bg-slate-50 px-3 py-2 text-sm">
-                      <p className="font-semibold text-slate-700">{module.title}</p>
-                      <p className="text-xs text-slate-500">{module.subject}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  <span className="mt-4 inline-flex text-xs font-semibold uppercase tracking-wide text-blue-600 group-hover:underline">
+                    Ver detalle
+                  </span>
+                </Link>
+              ))}
+              {dashboard?.kpiCards.length === 0 && (
+                <p className="text-sm text-gray-500">No hay métricas disponibles.</p>
+              )}
             </div>
-          </div>
-        </section>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          {dashboardLoading && <p className="text-sm text-gray-500">Cargando accesos rápidos...</p>}
-          {!dashboardLoading &&
-            quickLinks &&
-            Object.entries(quickLinks).map(([section, links]) => (
-              <div key={section} className="bg-white rounded-xl shadow">
-                <div className="bg-sky-600 text-white font-semibold rounded-t-xl px-4 py-2">
-                  {section === "academico" ? "Académico" : "Gestión"}
+            <section className="bg-white rounded-xl shadow p-5">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h3 className="text-lg font-semibold">Planificación semanal</h3>
+                  <p className="text-sm text-gray-500">
+                    Próximas clases y actividades prioritarias.
+                  </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x">
-                  {links.map((link) => (
-                    <Link
-                      key={link.id}
-                      className="h-20 grid place-content-center hover:bg-gray-50"
-                      to={link.href}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                <span className="inline-flex items-center gap-2 rounded-md border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-400">
+                  Calendario (próximamente)
+                </span>
+              </div>
+              <ul className="mt-4 divide-y divide-gray-100">
+                {dashboard?.weeklyPlan.map((item) => (
+                  <li
+                    key={item.id}
+                    className="flex flex-wrap items-center justify-between gap-3 py-3"
+                  >
+                    <div>
+                      <p className="font-semibold text-gray-900">{item.title}</p>
+                      <p className="text-sm text-gray-500">{item.detail}</p>
+                    </div>
+                    <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                      {item.status}
+                    </span>
+                  </li>
+                ))}
+                {dashboard?.weeklyPlan.length === 0 && (
+                  <li className="py-3 text-sm text-gray-500">No hay actividades programadas.</li>
+                )}
+              </ul>
+            </section>
+
+            <div className="bg-white rounded-xl shadow p-5">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <h3 className="text-lg font-semibold">Módulos activos</h3>
+                <div className="flex items-center gap-3">
+                  <Link
+                    className="inline-flex items-center gap-2 rounded-md border border-blue-200 px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50"
+                    to="/profesor/aulas#crear"
+                  >
+                    + Crear aula
+                  </Link>
+                  <Link
+                    className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
+                    to="/profesor/cursos/nuevo"
+                  >
+                    + Crear clase/sección
+                  </Link>
+                  <Link className="text-sm text-blue-600 hover:underline" to="/modulos/crear">
+                    Crear módulo
+                  </Link>
                 </div>
               </div>
-            ))}
-          {!dashboardLoading &&
-            quickLinks &&
-            quickLinks.academico.length === 0 &&
-            quickLinks.gestion.length === 0 && (
-            <p className="text-sm text-gray-500">No hay accesos rápidos configurados.</p>
-          )}
-        </div>
+              <div className="mt-4 grid gap-3 lg:grid-cols-[2fr_1fr_1fr]">
+                <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+                  Buscar módulo
+                  <input
+                    className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    placeholder="Busca por título o descripción"
+                    type="search"
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                  />
+                </label>
+                <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+                  Categoría
+                  <select
+                    className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    value={selectedCategory}
+                    onChange={(event) => setSelectedCategory(event.target.value)}
+                  >
+                    <option value="todas">Todas</option>
+                    {categoryOptions.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+                  Visibilidad
+                  <select
+                    className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    value={selectedVisibility}
+                    onChange={(event) => setSelectedVisibility(event.target.value)}
+                  >
+                    <option value="todas">Todas</option>
+                    <option value="publico">Publicado</option>
+                    <option value="privado">Privado</option>
+                  </select>
+                </label>
+              </div>
+              {activeFilters.length > 0 && (
+                <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+                  <span className="text-gray-500">Filtros activos:</span>
+                  {activeFilters.map((filter) => (
+                    <span
+                      key={filter.key}
+                      className="rounded-full bg-blue-50 px-3 py-1 font-semibold text-blue-700"
+                    >
+                      {filter.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {modulesStatus === "loading" && (
+                <p className="mt-4 text-sm text-gray-500">Cargando módulos...</p>
+              )}
+              {modulesStatus === "error" && modulesError && (
+                <p className="mt-4 text-sm text-red-600">{modulesError}</p>
+              )}
+              {modulesStatus === "ready" && (
+                <div className="mt-4 grid gap-4 md:grid-cols-3">
+                  {filteredModules.map((module) => {
+                    const subjectLabel = module.subject ?? module.category;
+                    const subjectColor = getSubjectColor(subjectLabel);
+
+                    return (
+                      <article
+                        key={module.id}
+                        className="rounded-lg border p-4"
+                        style={{
+                          borderColor: subjectColor.border,
+                          backgroundColor: subjectColor.background
+                        }}
+                      >
+                        <p className="text-xs uppercase text-gray-500">{module.category}</p>
+                        <h4 className="mt-2 font-semibold">{module.title}</h4>
+                        <p className="mt-2 text-sm text-gray-600">{module.description}</p>
+                        <div className="mt-2 flex flex-wrap gap-2 text-xs">
+                          <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
+                            {module.visibility === "publico" ? "Publicado" : "Privado"}
+                          </span>
+                          <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
+                            Dependencias: {module.dependencies.length}
+                          </span>
+                          {module.createdByRole === "admin" && (
+                            <span className="rounded-full bg-amber-100 px-2 py-1 text-amber-700">
+                              Creado por admin
+                            </span>
+                          )}
+                        </div>
+                        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500">
+                          <span>{module.level}</span>
+                          <span>{module.durationMinutes} min</span>
+                        </div>
+                        <p className="mt-2 text-xs text-gray-500">
+                          Autor: {module.authorName ?? module.createdBy ?? "--"}
+                        </p>
+                        <Link
+                          className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
+                          to={`/modulos/${module.id}/editar`}
+                        >
+                          Editar módulo
+                        </Link>
+                      </article>
+                    );
+                  })}
+                </div>
+              )}
+              {modulesStatus === "ready" && filteredModules.length === 0 && (
+                <p className="mt-4 text-sm text-gray-500">
+                  No hay módulos que coincidan con los filtros seleccionados.
+                </p>
+              )}
+            </div>
+
+            <section className="bg-white rounded-xl shadow p-5">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h3 className="text-lg font-semibold">Mapa de dependencias</h3>
+                  <p className="text-sm text-gray-500">
+                    Revisa cómo se encadenan los módulos y filtra por materia o ruta completa.
+                  </p>
+                </div>
+                {graphSelection && (
+                  <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
+                    Seleccionado: {graphSelection.title}
+                  </span>
+                )}
+              </div>
+              <div className="mt-4 grid gap-3 md:grid-cols-3">
+                <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+                  Materia
+                  <select
+                    className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    value={selectedSubject}
+                    onChange={(event) => setSelectedSubject(event.target.value)}
+                  >
+                    <option value="todas">Todas</option>
+                    {subjectOptions.map((subject) => (
+                      <option key={subject} value={subject}>
+                        {subject}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+                  Módulo base
+                  <select
+                    className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    value={selectedGraphModuleId}
+                    onChange={(event) => setSelectedGraphModuleId(event.target.value)}
+                  >
+                    {graphModules.map((module) => (
+                      <option key={module.id} value={module.id}>
+                        {module.title}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="flex items-center gap-3 rounded-md border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-700">
+                  <input
+                    checked={showFullPath}
+                    className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-200"
+                    type="checkbox"
+                    onChange={(event) => setShowFullPath(event.target.checked)}
+                  />
+                  Mostrar ruta completa
+                </label>
+              </div>
+              <div className="mt-4 grid gap-4 lg:grid-cols-[2fr_1fr]">
+                {graphSpec.nodes.length > 0 ? (
+                  <Suspense
+                    fallback={
+                      <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
+                        Cargando mapa de dependencias...
+                      </div>
+                    }
+                  >
+                    <ConceptMapVisualizer spec={graphSpec} />
+                  </Suspense>
+                ) : (
+                  <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
+                    Selecciona una materia con módulos disponibles para ver el mapa.
+                  </div>
+                )}
+                <div className="space-y-4">
+                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-xs font-semibold uppercase text-slate-500">
+                      Vista previa compacta
+                    </p>
+                    <p className="mt-2 text-sm text-slate-600">
+                      Nodos anteriores y posteriores al módulo seleccionado.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-slate-200 p-4">
+                    <p className="text-xs font-semibold uppercase text-slate-500">Anteriores</p>
+                    <ul className="mt-3 space-y-2">
+                      {previewDependencies.previous.length === 0 && (
+                        <li className="text-sm text-slate-400">
+                          Sin dependencias previas.
+                        </li>
+                      )}
+                      {previewDependencies.previous.map((module) => (
+                        <li key={module.id} className="rounded-md bg-slate-50 px-3 py-2 text-sm">
+                          <p className="font-semibold text-slate-700">{module.title}</p>
+                          <p className="text-xs text-slate-500">{module.subject}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="rounded-lg border border-slate-200 p-4">
+                    <p className="text-xs font-semibold uppercase text-slate-500">Posteriores</p>
+                    <ul className="mt-3 space-y-2">
+                      {previewDependencies.next.length === 0 && (
+                        <li className="text-sm text-slate-400">Sin módulos dependientes.</li>
+                      )}
+                      {previewDependencies.next.map((module) => (
+                        <li key={module.id} className="rounded-md bg-slate-50 px-3 py-2 text-sm">
+                          <p className="font-semibold text-slate-700">{module.title}</p>
+                          <p className="text-xs text-slate-500">{module.subject}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+              {quickLinks &&
+                Object.entries(quickLinks).map(([section, links]) => (
+                  <div key={section} className="bg-white rounded-xl shadow">
+                    <div className="bg-sky-600 text-white font-semibold rounded-t-xl px-4 py-2">
+                      {section === "academico" ? "Académico" : "Gestión"}
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x">
+                      {links.map((link) => (
+                        <Link
+                          key={link.id}
+                          className="h-20 grid place-content-center hover:bg-gray-50"
+                          to={link.href}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              {quickLinks &&
+                quickLinks.academico.length === 0 &&
+                quickLinks.gestion.length === 0 && (
+                <p className="text-sm text-gray-500">No hay accesos rápidos configurados.</p>
+              )}
+            </div>
+          </>
+        )}
       </div>
     </main>
   );
