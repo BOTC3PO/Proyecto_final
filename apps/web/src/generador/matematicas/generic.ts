@@ -46,11 +46,12 @@ export type GeneratorFn = (
 
 // -------- Helpers genéricos --------
 
-let GLOBAL_ID_COUNTER = 1;
 let ACTIVE_PRNG: PRNG | null = null;
+let QUESTION_INDEX = 0;
 
 export function setPrng(prng: PRNG): void {
   ACTIVE_PRNG = prng;
+  QUESTION_INDEX = 0;
 }
 
 function requirePrng(): PRNG {
@@ -61,7 +62,12 @@ function requirePrng(): PRNG {
 }
 
 export function generarId(): string {
-  return `ej-${GLOBAL_ID_COUNTER++}`;
+  const prng = requirePrng();
+  const index = QUESTION_INDEX++;
+  const random = Math.floor(prng.next() * 0xffffff)
+    .toString(36)
+    .padStart(6, "0");
+  return `ej-${index.toString(36).padStart(4, "0")}-${random}`;
 }
 
 export function randomInt(min: number, max: number): number {

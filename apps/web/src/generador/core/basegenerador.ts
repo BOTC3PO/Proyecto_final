@@ -9,6 +9,7 @@ import type { PRNG } from "./prng";
 
 export abstract class BaseGenerator {
   protected prng: PRNG;
+  private idCounter = 0;
 
   constructor(prng: PRNG) {
     this.prng = prng;
@@ -59,13 +60,11 @@ export abstract class BaseGenerator {
    * Podés reemplazar esto con uuid si querés.
    */
   protected generateId(prefix: string): string {
+    const counter = this.idCounter++;
     const random = Math.floor(this.prng.next() * 0xffffff)
       .toString(36)
       .padStart(6, "0");
-    const suffix = Math.floor(this.prng.next() * 0xffffff)
-      .toString(36)
-      .padStart(6, "0");
-    return `${prefix}_${random}_${suffix}`;
+    return `${prefix}_${counter.toString(36).padStart(4, "0")}_${random}`;
   }
 
   /**
