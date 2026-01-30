@@ -150,8 +150,7 @@ export default function ModuloEditor() {
       generatorVersion: mode === "generated" ? 1 : undefined,
       params: mode === "generated" ? {} : undefined,
       count: mode === "generated" ? 10 : undefined,
-      seedPolicy: mode === "generated" ? "fixed" : undefined,
-      fixedSeed: mode === "generated" ? "teacher-preview" : undefined,
+      seedPolicy: mode === "generated" ? "perAttempt" : undefined,
     });
     setQuizzes((prev) => [...prev, baseQuiz]);
   };
@@ -202,8 +201,9 @@ export default function ModuloEditor() {
             generatorVersion: quiz.mode === "generated" ? quiz.generatorVersion : undefined,
             params: quiz.mode === "generated" ? quiz.params : undefined,
             count: quiz.mode === "generated" ? quiz.count : undefined,
-            seedPolicy: quiz.mode === "generated" ? quiz.seedPolicy ?? "fixed" : undefined,
-            fixedSeed: quiz.mode === "generated" ? quiz.fixedSeed ?? "teacher-preview" : undefined,
+            seedPolicy: quiz.mode === "generated" ? quiz.seedPolicy ?? "perAttempt" : undefined,
+            fixedSeed:
+              quiz.mode === "generated" && quiz.seedPolicy === "fixed" ? quiz.fixedSeed : undefined,
           };
 
           if (!isTemporaryQuizId(quizId)) {
