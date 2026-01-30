@@ -254,7 +254,7 @@ db.runCommand({
             properties: {
               id: { bsonType: "string" },
               title: { bsonType: "string" },
-              type: { bsonType: "string", enum: ["practica", "evaluacion"] },
+              type: { bsonType: "string", enum: ["practica", "evaluacion", "competencia"] },
               visibility: { bsonType: "string", enum: ["publico", "escuela"] },
               status: { bsonType: "string", enum: ["draft", "published", "archived"] },
               version: { bsonType: "int", minimum: 1 },
