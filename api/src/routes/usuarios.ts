@@ -75,12 +75,18 @@ usuarios.get("/api/usuarios/:id", async (req, res) => {
   const managedClassIds = requester?.teacherProfile?.managedClassIds ?? [];
 const adminClassCriteria: Array<Record<string, unknown>> = [{ adminIds: requesterId }];
   if (managedClassIds.length) adminClassCriteria.push({ _id: { $in: managedClassIds } });
+  const memberUserIds = [objectId, objectId.toString()];
   const classAccess = await db.collection("clases").findOne(
     {
       $and: [
         { $or: adminClassCriteria },
         {
-          $or: [{ teacherIds: objectId }, { studentIds: objectId }]
+          members: {
+            $elemMatch: {
+              userId: { $in: memberUserIds },
+              roleInClass: { $in: ["TEACHER", "STUDENT"] }
+            }
+          }
         }
       ]
     },
