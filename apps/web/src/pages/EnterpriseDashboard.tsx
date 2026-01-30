@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useAuth } from "../auth/use-auth";
 import { createClassroom } from "../services/aulas";
 import {
   fetchEnterpriseDashboard,
@@ -16,7 +17,8 @@ type CreateClassForm = {
 };
 
 export default function EnterpriseDashboard() {
-  const schoolId = "escuela-demo";
+  const { user } = useAuth();
+  const schoolId = user?.schoolId ?? null;
   const [staff, setStaff] = useState<EnterpriseStaffMember[]>([]);
   const [dashboard, setDashboard] = useState<EnterpriseDashboardData | null>(null);
   const [loadingDashboard, setLoadingDashboard] = useState(true);
@@ -34,7 +36,7 @@ export default function EnterpriseDashboard() {
 
   useEffect(() => {
     let active = true;
-    fetchEnterpriseStaff(schoolId)
+    fetchEnterpriseStaff()
       .then((data) => {
         if (!active) return;
         setStaff(data);
@@ -47,11 +49,11 @@ export default function EnterpriseDashboard() {
     return () => {
       active = false;
     };
-  }, [schoolId]);
+  }, [user?.id]);
 
   useEffect(() => {
     let active = true;
-    fetchEnterpriseDashboard(schoolId)
+    fetchEnterpriseDashboard()
       .then((data) => {
         if (!active) return;
         setDashboard(data);
@@ -68,11 +70,10 @@ export default function EnterpriseDashboard() {
     return () => {
       active = false;
     };
-  }, [schoolId]);
+  }, [user?.id]);
 
-  const availableStaff = useMemo(() => staff.filter((member) => member.schoolId === schoolId), [staff, schoolId]);
-  const teachers = availableStaff.filter((member) => member.role === "TEACHER");
-  const admins = availableStaff.filter((member) => member.role === "ADMIN");
+  const teachers = useMemo(() => staff.filter((member) => member.role === "TEACHER"), [staff]);
+  const admins = useMemo(() => staff.filter((member) => member.role === "ADMIN"), [staff]);
 
   const updateField = (field: keyof CreateClassForm, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -98,7 +99,7 @@ export default function EnterpriseDashboard() {
         description: form.description.trim(),
         accessType: form.accessType,
         status: "activa",
-        institutionId: schoolId,
+        institutionId: schoolId ?? undefined,
         category: "Escuela",
         createdBy: form.adminId,
         teacherIds: [form.teacherId],
