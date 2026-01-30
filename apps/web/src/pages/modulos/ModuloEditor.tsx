@@ -220,10 +220,7 @@ export default function ModuloEditor() {
         setStatus("saved");
         setMessage("Cambios guardados.");
       } else {
-        await apiPost<Module>("/api/modulos", {
-          createdBy: user.id,
-          ...basePayload,
-        });
+        await apiPost<Module>("/api/modulos", basePayload);
         setStatus("saved");
         setMessage("Módulo creado correctamente.");
         navigate("/modulos", { replace: true });
