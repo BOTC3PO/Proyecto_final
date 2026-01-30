@@ -1,9 +1,11 @@
+import type { Response } from "express";
 import { Router } from "express";
 import { requireAdmin } from "../lib/admin-auth";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { hashPassword, verifyPassword } from "../lib/passwords";
+import { normalizeSchoolId, requireUser } from "../lib/user-auth";
 import { BootstrapAdminRequestSchema, CreateAdminSchema, LoginSchema, RegisterSchema } from "../schema/auth";
 
 export const auth = Router();
@@ -146,9 +148,37 @@ auth.post("/api/auth/login", async (req, res) => {
       username: user.username,
       email: user.email,
       fullName: user.fullName,
-      role: user.role
+      role: user.role,
+      schoolId: normalizeSchoolId(user.escuelaId)
     });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
+});
+
+const sendAuthenticatedUser = (res: Response) => {
+  const user = res.locals.user as {
+    _id?: { toString?: () => string };
+    role?: string;
+    schoolId?: string | null;
+    username?: string;
+    email?: string;
+    fullName?: string;
+  };
+  res.json({
+    id: user?._id?.toString?.() ?? null,
+    role: user?.role ?? null,
+    schoolId: user?.schoolId ?? null,
+    username: user?.username ?? null,
+    email: user?.email ?? null,
+    fullName: user?.fullName ?? null
+  });
+};
+
+auth.get("/api/auth/me", requireUser, (_req, res) => {
+  sendAuthenticatedUser(res);
+});
+
+auth.get("/api/me", requireUser, (_req, res) => {
+  sendAuthenticatedUser(res);
 });
