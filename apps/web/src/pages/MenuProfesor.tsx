@@ -118,12 +118,10 @@ export default function menuProfesor() {
     }
     setModulesStatus("loading");
     setModulesError(null);
-    apiGet<{ items: Module[] }>("/api/modulos")
+    apiGet<{ items: Module[] }>("/api/modulos?mine=true")
       .then((data) => {
         if (!active) return;
-        const mapped = data.items
-          .filter((module) => module.createdBy === user.id)
-          .map((module) => ({
+        const mapped = data.items.map((module) => ({
           id: module.id,
           title: module.title,
           description: module.description,
