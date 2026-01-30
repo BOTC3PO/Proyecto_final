@@ -1,43 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
 import type { Module, ModuleQuiz } from "../domain/module/module.types";
 import type { Book } from "../domain/book/book.types";
 import BookReader from "../bookEditor/BookReader";
-import { GENERADORES_BASIC } from "../generador/basic";
-import type { QuizInstance } from "../generador/basic";
-import { GENERATORS_BY_TEMA } from "../generador/matematicas";
-import type { Exercise as MathExercise, GeneradorConfig } from "../generador/matematicas/generic";
-import { GENERADORES_QUIMICA } from "../generador/quimica/indexQuimica";
-import type { Exercise as QuimicaExercise } from "../generador/quimica/generico";
-import { GENERADORES_ECONOMIA_POR_CLAVE } from "../generador/economia/indexEconomia";
-import type { Exercise as EconomiaExercise } from "../generador/economia/generico";
-import { GENERADORES_FISICA_POR_ID } from "../generador/fisica/indexFisica";
-import VisualizerRenderer from "../visualizadores/graficos/VisualizerRenderer";
-import type { VisualSpec } from "../visualizadores/types";
-
-type GeneratedQuiz =
-  | { kind: "math"; exercise: MathExercise }
-  | { kind: "quimica"; exercise: QuimicaExercise }
-  | { kind: "economia"; exercise: EconomiaExercise }
-  | { kind: "basic"; exercise: QuizInstance }
-  | { kind: "unsupported"; message: string };
 
 type BookResourceState =
   | { status: "loading" }
   | { status: "ready"; record: { id: string; title: string; book: Book } }
   | { status: "error"; message: string };
-
-const buildGeneratorInfo = (id: string) => {
-  const raw = id.trim();
-  const hasPrefix = raw.includes(":");
-  if (!hasPrefix) {
-    return { materia: "matematicas", key: raw };
-  }
-  const [materia, ...rest] = raw.split(":");
-  return { materia: materia.trim(), key: rest.join(":").trim() };
-};
 
 const QUIZ_TYPE_LABELS: Record<ModuleQuiz["type"], string> = {
   practica: "Práctica",
@@ -45,85 +17,9 @@ const QUIZ_TYPE_LABELS: Record<ModuleQuiz["type"], string> = {
   competencia: "Competencia",
 };
 
-const renderExercise = (quiz: GeneratedQuiz) => {
-  if (quiz.kind === "unsupported") {
-    return <p className="text-sm text-gray-500">{quiz.message}</p>;
-  }
-
-  if (quiz.kind === "basic") {
-    const quizTitle = quiz.exercise.metadata.titulo ?? quiz.exercise.metadata.id ?? "Sin título";
-    return (
-      <div className="space-y-3">
-        <p className="text-sm text-gray-600">{quizTitle}</p>
-        <ol className="space-y-2 list-decimal list-inside">
-          {quiz.exercise.questions.map((question) => (
-            <li key={question.id} className="text-sm text-gray-700">
-              {question.prompt}
-            </li>
-          ))}
-        </ol>
-      </div>
-    );
-  }
-
-  const exercise = quiz.exercise;
-  const visualSpec = "visualSpec" in exercise ? exercise.visualSpec : undefined;
-
-  const renderVisual = (visualSpec?: VisualSpec) => {
-    if (!visualSpec) return null;
-    const title =
-      "title" in visualSpec && visualSpec.title
-        ? visualSpec.title
-        : "Visualización";
-    return (
-      <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
-        <h3 className="text-sm font-semibold text-slate-700">{title}</h3>
-        <div className="mt-3">
-          <VisualizerRenderer spec={visualSpec} />
-        </div>
-      </div>
-    );
-  };
-
-  if (exercise.tipo === "numeric") {
-    return (
-      <div className="space-y-2">
-        <p className="text-sm text-gray-700">{exercise.enunciado}</p>
-        <p className="text-xs text-gray-500">
-          Resultado esperado: <span className="font-medium">{String(exercise.resultado)}</span>
-        </p>
-        {renderVisual(visualSpec)}
-      </div>
-    );
-  }
-
-  if (exercise.tipo === "completar") {
-    return (
-      <div className="space-y-2">
-        <p className="text-sm text-gray-700">{exercise.enunciado}</p>
-        <p className="text-xs text-gray-500">
-          Respuesta: <span className="font-medium">{exercise.respuestaCorrecta}</span>
-        </p>
-        {renderVisual(visualSpec)}
-      </div>
-    );
-  }
-
-  return (
-    <div className="space-y-2">
-      <p className="text-sm text-gray-700">{exercise.enunciado}</p>
-      <ul className="list-disc list-inside text-sm text-gray-600">
-        {exercise.opciones?.map((option) => (
-          <li key={option}>{option}</li>
-        ))}
-      </ul>
-      {renderVisual(visualSpec)}
-    </div>
-  );
-};
-
 export default function JugarModulo() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [module, setModule] = useState<Module | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -134,6 +30,9 @@ export default function JugarModulo() {
   const progressStartedRef = useRef(false);
   const [bookStates, setBookStates] = useState<Record<string, BookResourceState>>({});
   const [selectedLevel, setSelectedLevel] = useState("");
+  const [startStatus, setStartStatus] = useState<
+    Record<string, { status: "idle" | "loading" | "error"; message?: string }>
+  >({});
 
   useEffect(() => {
     if (!id) return;
@@ -176,6 +75,45 @@ export default function JugarModulo() {
     });
   }, [module, user?.id]);
 
+  const handleStartAttempt = async (quizId: string) => {
+    if (!module?.id) return;
+    if (!user?.id) {
+      setStartStatus((prev) => ({
+        ...prev,
+        [quizId]: {
+          status: "error",
+          message: "Necesitás iniciar sesión para comenzar el quiz."
+        }
+      }));
+      return;
+    }
+    setStartStatus((prev) => ({ ...prev, [quizId]: { status: "loading" } }));
+    try {
+      const response = await apiPost<{
+        attemptId?: string;
+        id?: string;
+        attempt?: { id?: string };
+      }>("/api/quiz-attempts", {
+        moduleId: module.id,
+        quizId,
+        userId: user.id
+      });
+      const attemptId = response.attemptId ?? response.id ?? response.attempt?.id;
+      if (!attemptId) {
+        throw new Error("No se recibió el ID del intento.");
+      }
+      navigate(`/quiz/attempt/${attemptId}`);
+    } catch (error) {
+      setStartStatus((prev) => ({
+        ...prev,
+        [quizId]: {
+          status: "error",
+          message: error instanceof Error ? error.message : "No se pudo iniciar el quiz."
+        }
+      }));
+    }
+  };
+
   const activeLevelData = useMemo(
     () => module?.levels?.find((level) => level.level === selectedLevel) ?? module?.levels?.[0],
     [module, selectedLevel],
@@ -215,63 +153,6 @@ export default function JugarModulo() {
         });
     });
   }, [levelResources]);
-
-  const generatedQuiz = useMemo<GeneratedQuiz | null>(() => {
-    if (!module?.generatorRef) return null;
-
-    const { materia, key } = buildGeneratorInfo(module.generatorRef.id);
-    const difficulty = module.generatorRef.config?.dificultad ?? module.generatorRef.config?.difficulty;
-
-    if (materia === "matematicas") {
-      const tema = Number(key);
-      const generador = Number.isNaN(tema) ? undefined : GENERATORS_BY_TEMA[tema];
-      if (!generador) {
-        return { kind: "unsupported", message: "No hay generador configurado para este tema." };
-      }
-      const exercise = generador(
-        difficulty as MathExercise["dificultad"] | undefined,
-        module.generatorRef.config as GeneradorConfig | undefined
-      );
-      return { kind: "math", exercise };
-    }
-
-    if (materia === "quimica") {
-      const tema = Number(key);
-      const generador = Number.isNaN(tema) ? undefined : GENERADORES_QUIMICA[tema];
-      if (!generador) {
-        return { kind: "unsupported", message: "No hay generador de química con ese ID." };
-      }
-      const exercise = generador(difficulty as QuimicaExercise["dificultad"] | undefined);
-      return { kind: "quimica", exercise };
-    }
-
-    if (materia === "economia") {
-      const generador = GENERADORES_ECONOMIA_POR_CLAVE[key];
-      if (!generador) {
-        return { kind: "unsupported", message: "No hay generador de economía con esa clave." };
-      }
-      const exercise = generador(difficulty as EconomiaExercise["dificultad"] | undefined);
-      return { kind: "economia", exercise };
-    }
-
-    if (materia === "basic") {
-      const generador = GENERADORES_BASIC[key];
-      if (!generador) {
-        return { kind: "unsupported", message: "No hay generador básico con esa clave." };
-      }
-      const exercise = generador.generate(module.generatorRef.config as Record<string, unknown> | undefined);
-      return { kind: "basic", exercise };
-    }
-
-    if (materia === "fisica") {
-      const generador = GENERADORES_FISICA_POR_ID[key];
-      if (generador) {
-        return { kind: "unsupported", message: `Generador físico ${generador.id} listo. Falta el motor de cálculo.` };
-      }
-    }
-
-    return { kind: "unsupported", message: "No se pudo resolver el generador configurado." };
-  }, [module]);
 
   const buildTextDownloadUrl = (content: string, mimeType: string) =>
     `data:${mimeType};charset=utf-8,${encodeURIComponent(content)}`;
@@ -350,25 +231,35 @@ export default function JugarModulo() {
           {levelQuizzes.length > 0 ? (
             <ul className="space-y-2 text-sm text-gray-700">
               {levelQuizzes.map((quiz) => (
-                <li key={quiz.id} className="rounded-md border border-gray-200 p-3">
-                  <p className="font-medium">{quiz.title}</p>
-                  <p className="text-xs text-gray-500">
-                    Tipo: {QUIZ_TYPE_LABELS[quiz.type]} · Visibilidad:{" "}
-                    {quiz.visibility === "publico" ? "Público" : "Escuela específica"}
-                  </p>
+                <li key={quiz.id} className="rounded-md border border-gray-200 p-3 space-y-3">
+                  <div>
+                    <p className="font-medium">{quiz.title}</p>
+                    <p className="text-xs text-gray-500">
+                      Tipo: {QUIZ_TYPE_LABELS[quiz.type]} · Visibilidad:{" "}
+                      {quiz.visibility === "publico" ? "Público" : "Escuela específica"}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <button
+                      type="button"
+                      className="rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white disabled:bg-slate-300"
+                      onClick={() => handleStartAttempt(quiz.id)}
+                      disabled={startStatus[quiz.id]?.status === "loading"}
+                    >
+                      {startStatus[quiz.id]?.status === "loading" ? "Iniciando..." : "Empezar"}
+                    </button>
+                    {startStatus[quiz.id]?.status === "error" ? (
+                      <span className="text-xs text-red-600">
+                        {startStatus[quiz.id]?.message ?? "No se pudo iniciar el quiz."}
+                      </span>
+                    ) : null}
+                  </div>
                 </li>
               ))}
             </ul>
           ) : (
             <p className="text-sm text-gray-500">No hay cuestionarios definidos para este nivel.</p>
           )}
-          <div className="pt-4">
-            {generatedQuiz ? (
-              renderExercise(generatedQuiz)
-            ) : (
-              <p className="text-sm text-gray-500">No hay generador configurado para este módulo.</p>
-            )}
-          </div>
           <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
             <button
               type="button"

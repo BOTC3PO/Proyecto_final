@@ -40,6 +40,7 @@ import HijosProgreso from "./pages/HijosProgreso";
 import ProfesorReportes from "./pages/ProfesorReportes";
 import AdminReportes from "./pages/AdminReportes";
 import AlumnoEncuestas from "./pages/AlumnoEncuestas";
+import QuizAttempt from "./pages/quizzes/QuizAttempt";
 import LaboratorioWeb3 from "./pages/LaboratorioWeb3";
 import ProfesorCalendario from "./pages/ProfesorCalendario";
 import HijosAgregar from "./pages/HijosAgregar";
@@ -423,6 +424,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'GUEST']}>
             <JugarModulo />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "quiz/attempt/:attemptId",
+        element: (
+          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'GUEST']}>
+            <QuizAttempt />
           </ProtectedRoute>
         ),
       },

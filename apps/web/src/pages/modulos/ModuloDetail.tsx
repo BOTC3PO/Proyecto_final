@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { apiGet } from "../../lib/api";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../../auth/use-auth";
+import { apiGet, apiPost } from "../../lib/api";
 import type {
   Module,
   ModuleQuiz,
@@ -28,9 +29,53 @@ type ModuloDetailResponse = Module & {
 
 export default function ModuloDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const [module, setModule] = useState<ModuloDetailResponse | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [startStatus, setStartStatus] = useState<
+    Record<string, { status: "idle" | "loading" | "error"; message?: string }>
+  >({});
+
+  const handleStartAttempt = async (quizId: string) => {
+    if (!module?.id) return;
+    if (!user?.id) {
+      setStartStatus((prev) => ({
+        ...prev,
+        [quizId]: {
+          status: "error",
+          message: "Necesitás iniciar sesión para comenzar el quiz."
+        }
+      }));
+      return;
+    }
+    setStartStatus((prev) => ({ ...prev, [quizId]: { status: "loading" } }));
+    try {
+      const response = await apiPost<{
+        attemptId?: string;
+        id?: string;
+        attempt?: { id?: string };
+      }>("/api/quiz-attempts", {
+        moduleId: module.id,
+        quizId,
+        userId: user.id
+      });
+      const attemptId = response.attemptId ?? response.id ?? response.attempt?.id;
+      if (!attemptId) {
+        throw new Error("No se recibió el ID del intento.");
+      }
+      navigate(`/quiz/attempt/${attemptId}`);
+    } catch (error) {
+      setStartStatus((prev) => ({
+        ...prev,
+        [quizId]: {
+          status: "error",
+          message: error instanceof Error ? error.message : "No se pudo iniciar el quiz."
+        }
+      }));
+    }
+  };
 
   useEffect(() => {
     if (!id) return;
@@ -185,12 +230,29 @@ export default function ModuloDetail() {
             {quizzes.map((quiz) => (
               <article
                 key={quiz.id}
-                className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm space-y-3"
               >
-                <h3 className="text-sm font-semibold text-slate-800">{quiz.title}</h3>
-                <p className="text-xs font-medium text-slate-500">
-                  Tipo: {QUIZ_TYPE_LABELS[quiz.type]}
-                </p>
+                <div>
+                  <h3 className="text-sm font-semibold text-slate-800">{quiz.title}</h3>
+                  <p className="text-xs font-medium text-slate-500">
+                    Tipo: {QUIZ_TYPE_LABELS[quiz.type]}
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    className="rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white disabled:bg-slate-300"
+                    onClick={() => handleStartAttempt(quiz.id)}
+                    disabled={startStatus[quiz.id]?.status === "loading"}
+                  >
+                    {startStatus[quiz.id]?.status === "loading" ? "Iniciando..." : "Empezar"}
+                  </button>
+                  {startStatus[quiz.id]?.status === "error" ? (
+                    <span className="text-xs text-red-600">
+                      {startStatus[quiz.id]?.message ?? "No se pudo iniciar el quiz."}
+                    </span>
+                  ) : null}
+                </div>
               </article>
             ))}
           </div>
