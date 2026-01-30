@@ -37,6 +37,10 @@ export const NAV_BY_ROLE: NavMap = {
   ],
   ENTERPRISE: [
     { label: 'Panel escuela', to: '/enterprise' },
+    { label: 'Aulas', to: '/enterprise/aulas' },
+    { label: 'Miembros', to: '/enterprise/miembros' },
+    { label: 'Módulos', to: '/enterprise/modulos' },
+    { label: 'Mensajes', to: '/enterprise/mensajes' },
     { label: 'Convenios', to: '/enterprise/contratos' },
     { label: 'Reportes', to: '/enterprise/reportes' },
   ],

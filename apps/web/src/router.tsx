@@ -56,6 +56,10 @@ import ProfesorAsistencia from "./pages/ProfesorAsistencia";
 import EnterpriseDashboard from "./pages/EnterpriseDashboard";
 import EnterpriseContratos from "./pages/EnterpriseContratos";
 import EnterpriseReportes from "./pages/EnterpriseReportes";
+import EnterpriseAulas from "./pages/EnterpriseAulas";
+import EnterpriseMiembros from "./pages/EnterpriseMiembros";
+import EnterpriseModulos from "./pages/EnterpriseModulos";
+import EnterpriseMensajes from "./pages/EnterpriseMensajes";
 import MenuProfesor from "./pages/MenuProfesor";
 import ProfesorAulaConfiguracion from "./pages/ProfesorAulaConfiguracion";
 import Terminos from "./pages/Terminos";
@@ -462,6 +466,38 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['ENTERPRISE']}>
             <EnterpriseReportes />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "enterprise/aulas",
+        element: (
+          <ProtectedRoute allow={['ENTERPRISE']}>
+            <EnterpriseAulas />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "enterprise/miembros",
+        element: (
+          <ProtectedRoute allow={['ENTERPRISE']}>
+            <EnterpriseMiembros />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "enterprise/modulos",
+        element: (
+          <ProtectedRoute allow={['ENTERPRISE']}>
+            <EnterpriseModulos />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "enterprise/mensajes",
+        element: (
+          <ProtectedRoute allow={['ENTERPRISE']}>
+            <EnterpriseMensajes />
           </ProtectedRoute>
         ),
       },
