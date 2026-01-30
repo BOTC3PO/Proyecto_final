@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { z } from "zod";
 import { useAuth } from "../../auth/use-auth";
 import { apiGet, apiPatch, apiPost } from "../../lib/api";
 import type { Module, ModuleDependency, ModuleQuiz } from "../../domain/module/module.types";
@@ -40,6 +41,18 @@ const ensureQuizDefaults = (quiz: ModuleQuiz): ModuleQuiz => {
   };
 };
 
+const manualQuestionSchema = z.object({
+  questionType: z.enum(["mc", "vf", "input"]),
+  options: z.array(z.string().min(1)).min(1),
+  answerKey: z.union([z.string().min(1), z.array(z.string().min(1)).min(1)]),
+});
+
+const generatedQuizSchema = z.object({
+  generatorId: z.string().min(1),
+  params: z.record(z.unknown()),
+  count: z.number().int().min(1),
+});
+
 export default function ModuloEditor() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -47,6 +60,7 @@ export default function ModuloEditor() {
   const isEditing = Boolean(id);
   const [status, setStatus] = useState<SaveStatus>(isEditing ? "loading" : "idle");
   const [message, setMessage] = useState("");
+  const [validationErrors, setValidationErrors] = useState<string[]>([]);
   const [form, setForm] = useState<ModuleFormState>({
     title: "",
     description: "",
@@ -169,10 +183,47 @@ export default function ModuloEditor() {
     event.preventDefault();
     setStatus("saving");
     setMessage("");
+    setValidationErrors([]);
     try {
       if (!user?.id) {
         setStatus("error");
         setMessage("Necesitás iniciar sesión para guardar el módulo.");
+        return;
+      }
+
+      const quizErrors: string[] = [];
+      quizzes.forEach((quiz, quizIndex) => {
+        const quizLabel = quiz.title.trim() || `Cuestionario ${quizIndex + 1}`;
+        if (quiz.mode === "manual") {
+          const questions = quiz.questions ?? [];
+          questions.forEach((question, questionIndex) => {
+            const result = manualQuestionSchema.safeParse(question);
+            if (!result.success) {
+              quizErrors.push(
+                `${quizLabel}: la pregunta ${questionIndex + 1} requiere tipo de pregunta, opciones y respuesta.`,
+              );
+            }
+          });
+        }
+
+        if (quiz.mode === "generated") {
+          const result = generatedQuizSchema.safeParse({
+            generatorId: quiz.generatorId,
+            params: quiz.params,
+            count: quiz.count,
+          });
+          if (!result.success) {
+            quizErrors.push(
+              `${quizLabel}: indicá un generador válido, parámetros y una cantidad mayor a cero.`,
+            );
+          }
+        }
+      });
+
+      if (quizErrors.length > 0) {
+        setStatus("error");
+        setMessage("Revisá los cuestionarios antes de guardar.");
+        setValidationErrors(quizErrors);
         return;
       }
 
@@ -219,10 +270,12 @@ export default function ModuloEditor() {
         await apiPatch(`/api/modulos/${id}`, basePayload);
         setStatus("saved");
         setMessage("Cambios guardados.");
+        setValidationErrors([]);
       } else {
         await apiPost<Module>("/api/modulos", basePayload);
         setStatus("saved");
         setMessage("Módulo creado correctamente.");
+        setValidationErrors([]);
         navigate("/modulos", { replace: true });
       }
     } catch {
@@ -517,15 +570,24 @@ export default function ModuloEditor() {
               >
                 {status === "saving" ? "Guardando..." : isEditing ? "Guardar cambios" : "Crear módulo"}
               </button>
-              {message ? (
-                <span
-                  className={`text-sm ${
-                    status === "saved" ? "text-emerald-600" : status === "error" ? "text-red-600" : "text-gray-600"
-                  }`}
-                >
-                  {message}
-                </span>
-              ) : null}
+              <div className="flex flex-col gap-2">
+                {message ? (
+                  <span
+                    className={`text-sm ${
+                      status === "saved" ? "text-emerald-600" : status === "error" ? "text-red-600" : "text-gray-600"
+                    }`}
+                  >
+                    {message}
+                  </span>
+                ) : null}
+                {validationErrors.length > 0 ? (
+                  <ul className="list-disc space-y-1 pl-5 text-sm text-red-600">
+                    {validationErrors.map((error) => (
+                      <li key={error}>{error}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
             </div>
           </form>
         )}
