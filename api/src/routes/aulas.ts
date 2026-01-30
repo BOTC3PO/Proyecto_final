@@ -3,11 +3,11 @@ import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
-import { ClassroomPatchSchema, ClassroomSchema } from "../schema/aula";
+import { ClassroomCreateSchema, ClassroomPatchSchema } from "../schema/aula";
 
 export const aulas = Router();
 
-const ClassroomUpdateSchema = ClassroomSchema.partial().omit({ id: true, createdAt: true, createdBy: true });
+const ClassroomUpdateSchema = ClassroomCreateSchema.omit({ id: true, createdAt: true, createdBy: true });
 const FREE_CLASSROOM_LIMIT = 10;
 
 const clampLimit = (value: string | undefined) => {
@@ -48,7 +48,7 @@ aulas.post("/api/aulas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
       createdAt: req.body?.createdAt ?? now,
       updatedAt: req.body?.updatedAt ?? now
     };
-    const parsed = ClassroomSchema.parse(payload);
+    const parsed = ClassroomCreateSchema.parse(payload);
     const db = await getDb();
     const activeClassroomFilter = {
       createdBy: parsed.createdBy,
