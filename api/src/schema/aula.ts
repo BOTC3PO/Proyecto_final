@@ -10,7 +10,7 @@ const ClassroomMemberSchema = z.object({
   schoolId: z.string().min(1)
 });
 
-const ClassroomBaseSchema = z.object({
+export const ClassroomBaseSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
   description: z.string().min(1),
@@ -27,50 +27,16 @@ const ClassroomBaseSchema = z.object({
   updatedAt: z.string().datetime()
 });
 
-export const ClassroomCreateSchema = ClassroomBaseSchema.superRefine((data, ctx) => {
-  const adminCount = data.members.filter((member) => member.roleInClass === "ADMIN").length;
-  if (adminCount < 1) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      path: ["members"],
-      message: "members must include at least one ADMIN"
-    });
-  }
-  const teacherCount = data.members.filter((member) => member.roleInClass === "TEACHER").length;
-  if (teacherCount < 1) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      path: ["members"],
-      message: "members must include at least one TEACHER"
-    });
-  }
-  const classroomSchoolId = data.schoolId ?? data.institutionId;
-  if (classroomSchoolId) {
-    const invalidMember = data.members.find((member) => member.schoolId !== classroomSchoolId);
-    if (invalidMember) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["members"],
-        message: "members must match the classroom schoolId"
-      });
-    }
-  }
-  const teacherRecordId = data.teacherOfRecord ?? data.teacherId;
-  if (teacherRecordId) {
-    const hasTeacherRecord = data.members.some(
-      (member) => member.userId === teacherRecordId && member.roleInClass === "TEACHER"
-    );
-    if (!hasTeacherRecord) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["teacherOfRecord"],
-        message: "teacherOfRecord/teacherId must match a TEACHER member"
-      });
-    }
-  }
-});
-
-export const ClassroomPatchSchema = ClassroomBaseSchema.partial().superRefine((data, ctx) => {
+const applyClassroomMemberRules = (
+  data: {
+    members?: z.infer<typeof ClassroomMemberSchema>[];
+    schoolId?: string;
+    institutionId?: string;
+    teacherOfRecord?: string;
+    teacherId?: string;
+  },
+  ctx: z.RefinementCtx
+) => {
   if (data.members) {
     const adminCount = data.members.filter((member) => member.roleInClass === "ADMIN").length;
     if (adminCount < 1) {
@@ -113,7 +79,17 @@ export const ClassroomPatchSchema = ClassroomBaseSchema.partial().superRefine((d
       });
     }
   }
-});
+};
+
+export const ClassroomCreateSchema = ClassroomBaseSchema.superRefine(applyClassroomMemberRules);
+
+export const ClassroomUpdateSchema = ClassroomBaseSchema.omit({
+  id: true,
+  createdAt: true,
+  createdBy: true
+}).superRefine(applyClassroomMemberRules);
+
+export const ClassroomPatchSchema = ClassroomBaseSchema.partial().superRefine(applyClassroomMemberRules);
 
 export const ClassroomSchema = ClassroomCreateSchema;
 
