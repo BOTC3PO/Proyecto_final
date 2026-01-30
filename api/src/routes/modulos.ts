@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
+import { requireUser } from "../lib/user-auth";
 import { ModuleSchema } from "../schema/modulo";
 
 export const modulos = Router();
@@ -26,12 +27,25 @@ const parseVisibilityList = (value: unknown) => {
 };
 
 modulos.get("/api/modulos/buscar", async (req, res) => {
+  const mine = req.query.mine === "true";
+  if (mine) {
+    await new Promise<void>((resolve) => {
+      requireUser(req, res, () => resolve());
+    });
+    if (res.headersSent) return;
+  }
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const query = typeof req.query.query === "string" ? req.query.query.trim() : "";
   const category = typeof req.query.category === "string" ? req.query.category.trim() : "";
-  const createdBy = typeof req.query.createdBy === "string" ? req.query.createdBy.trim() : "";
+  const createdBy = mine
+    ? req.user?._id
+      ? req.user._id.toString()
+      : ""
+    : typeof req.query.createdBy === "string"
+      ? req.query.createdBy.trim()
+      : "";
   const schoolId = typeof req.query.schoolId === "string" ? req.query.schoolId.trim() : "";
   const visibilityList = parseVisibilityList(req.query.visibility);
 
