@@ -46,7 +46,7 @@ export const ModuleQuizSchema = z.object({
   title: z.string().min(1),
   type: z.enum(["practica", "evaluacion", "competencia"]),
   mode: z.enum(["manual", "generated"]).optional(),
-  visibility: ModuleQuizVisibilitySchema,
+  visibility: ModuleQuizVisibilitySchema.default("publico"),
   schoolId: z.string().min(1).optional(),
   schoolName: z.string().min(1).optional(),
   competitionRules: z.string().min(1).optional(),
