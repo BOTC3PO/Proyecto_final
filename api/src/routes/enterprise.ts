@@ -135,12 +135,12 @@ enterprise.post("/api/enterprise/aulas", requireUser, ...bodyLimitMB(ENV.MAX_PAG
       res.status(400).json({ error: "invalid schoolId" });
       return;
     }
-    const rawTeacherIds = Array.isArray(req.body?.teacherIds)
+    const rawTeacherIds: unknown[] = Array.isArray(req.body?.teacherIds)
       ? req.body.teacherIds
       : req.body?.teacherId
         ? [req.body.teacherId]
         : [];
-    const teacherIds = rawTeacherIds
+    const teacherIds: string[] = rawTeacherIds
       .filter((value: unknown): value is string => typeof value === "string")
       .map((value) => value.trim())
       .filter((value) => value !== "");
