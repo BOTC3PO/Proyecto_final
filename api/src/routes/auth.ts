@@ -4,6 +4,7 @@ import { requireAdmin } from "../lib/admin-auth";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
+import { getCanonicalMembershipRole } from "../lib/membership-roles";
 import { hashPassword, verifyPassword } from "../lib/passwords";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
 import { BootstrapAdminRequestSchema, CreateAdminSchema, LoginSchema, RegisterSchema } from "../schema/auth";
@@ -108,11 +109,12 @@ auth.post("/api/auth/register", async (req, res) => {
       updatedAt: now
     };
     const result = await db.collection("usuarios").insertOne(doc);
-    if (escuelaId && (role === "TEACHER" || role === "ENTERPRISE")) {
+    const membershipRole = getCanonicalMembershipRole(role);
+    if (escuelaId && membershipRole && (role === "TEACHER" || role === "ENTERPRISE")) {
       await db.collection("membresias_escuela").insertOne({
         usuarioId: result.insertedId,
         escuelaId,
-        rol: role === "ENTERPRISE" ? "ADMIN" : "TEACHER",
+        rol: membershipRole,
         estado: "activa",
         fechaAlta: now,
         createdAt: now,

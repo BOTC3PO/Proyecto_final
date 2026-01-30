@@ -105,6 +105,8 @@ db.createCollection("escuelas", {
 // ============================================================================
 // MEMBRESIAS_ESCUELA COLLECTION
 // ============================================================================
+const MEMBERSHIP_ROLES = ["ADMIN", "TEACHER", "STUDENT", "PARENT"];
+
 db.createCollection("membresias_escuela", {
   validator: {
     $jsonSchema: {
@@ -113,7 +115,7 @@ db.createCollection("membresias_escuela", {
       properties: {
         usuarioId: { bsonType: "objectId" },
         escuelaId: { bsonType: "objectId" },
-        rol: { bsonType: "string", enum: ["ADMIN", "TEACHER", "STUDENT", "PARENT"] },
+        rol: { bsonType: "string", enum: MEMBERSHIP_ROLES },
         estado: { bsonType: "string", enum: ["activa", "suspendida", "revocada"] },
         fechaAlta: { bsonType: "date" },
         fechaBaja: { bsonType: ["date", "null"] },
