@@ -125,6 +125,7 @@ modulos.post("/api/modulos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) =
     const payload = {
       ...req.body,
       id: moduleId,
+      createdAt: req.body?.createdAt ?? new Date().toISOString(),
       updatedAt: req.body?.updatedAt ?? new Date().toISOString()
     };
     const parsed = ModuleSchema.parse(payload);
