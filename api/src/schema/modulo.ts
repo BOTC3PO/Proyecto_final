@@ -181,6 +181,7 @@ export const ModuleSchema = z.object({
   createdBy: z.string().min(1),
   createdByRole: z.enum(["admin", "docente"]).optional(),
   authorName: z.string().min(1).optional(),
+  createdAt: z.string().datetime(),
   updatedAt: z.string().datetime()
 });
 
