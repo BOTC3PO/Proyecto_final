@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiGet } from "../lib/api";
 
 export type TareaResumen = {
   id: string;
@@ -8,5 +8,5 @@ export type TareaResumen = {
 };
 
 export async function fetchTareas(): Promise<TareaResumen[]> {
-  return apiFetch<TareaResumen[]>("/api/tareas");
+  return apiGet<TareaResumen[]>("/api/tareas");
 }

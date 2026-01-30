@@ -1,4 +1,4 @@
-import { API_BASE_URL, apiFetch } from "./api";
+import { API_BASE_URL, apiGet } from "../lib/api";
 
 export type ReporteFilters = {
   aula?: string;
@@ -66,7 +66,7 @@ export const fetchReporte = async (
 ): Promise<ReporteResponse> => {
   const query = buildParams(filters);
   const path = `/api/reportes/${rol}${query ? `?${query}` : ""}`;
-  return apiFetch<ReporteResponse>(path);
+  return apiGet<ReporteResponse>(path);
 };
 
 export const downloadReporte = async (

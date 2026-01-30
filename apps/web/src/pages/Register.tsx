@@ -1,7 +1,7 @@
 // RegistrationForm.tsx
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { apiFetch } from "../services/api";
+import { apiPost } from "../lib/api";
 import { fetchRegistroOpciones } from "../services/registro";
 
 /* ===========================
@@ -359,23 +359,20 @@ export default function RegistrationForm() {
       const birthdate = formData.birthdateISO
         ? new Date(`${formData.birthdateISO}T00:00:00.000Z`).toISOString()
         : undefined;
-      await apiFetch<{ id: string }>("/api/auth/register", {
-        method: "POST",
-        body: JSON.stringify({
-          username: formData.username,
-          email: formData.email,
-          fullName: formData.fullName,
-          password: formData.password,
-          birthdate,
-          role: formData.role,
-          teacherType: formData.role === "teacher" ? formData.teacherType : undefined,
-          schoolCode: formData.schoolCode || undefined,
-          consents: {
-            privacyConsent: formData.privacyConsent,
-            termsAccepted: formData.termsAccepted,
-            consentedAt: new Date().toISOString()
-          }
-        })
+      await apiPost<{ id: string }>("/api/auth/register", {
+        username: formData.username,
+        email: formData.email,
+        fullName: formData.fullName,
+        password: formData.password,
+        birthdate,
+        role: formData.role,
+        teacherType: formData.role === "teacher" ? formData.teacherType : undefined,
+        schoolCode: formData.schoolCode || undefined,
+        consents: {
+          privacyConsent: formData.privacyConsent,
+          termsAccepted: formData.termsAccepted,
+          consentedAt: new Date().toISOString()
+        }
       });
       navigate("/login");
     } catch (error) {

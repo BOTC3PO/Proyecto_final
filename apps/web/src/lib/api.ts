@@ -1,4 +1,7 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5050";
+export const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ??
+  import.meta.env.VITE_API_URL ??
+  "http://localhost:5050";
 
 export class ApiError extends Error {
   status: number;
@@ -44,3 +47,5 @@ export const apiPatch = <T>(path: string, body: unknown, options?: RequestOption
   apiRequest<T>(path, { ...options, method: "PATCH", body: JSON.stringify(body) });
 export const apiPut = <T>(path: string, body: unknown, options?: RequestOptions) =>
   apiRequest<T>(path, { ...options, method: "PUT", body: JSON.stringify(body) });
+export const apiDelete = <T>(path: string, options?: RequestOptions) =>
+  apiRequest<T>(path, { ...options, method: "DELETE" });

@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiDelete, apiGet, apiPatch, apiPost } from "../lib/api";
 
 export type SurveyType = "normal" | "puntuacion" | "segunda_vuelta";
 export type SurveyStatus = "borrador" | "activa" | "cerrada" | "archivada";
@@ -74,45 +74,37 @@ export type SurveyVotePayload =
   | { aulaId: string; ranking: string[] };
 
 export async function fetchSurveys(aulaId: string): Promise<SurveyListResponse> {
-  return apiFetch<SurveyListResponse>(`/api/encuestas?aulaId=${encodeURIComponent(aulaId)}`);
+  return apiGet<SurveyListResponse>(`/api/encuestas?aulaId=${encodeURIComponent(aulaId)}`);
 }
 
 export async function fetchSurveyDefaults(): Promise<SurveyDefaults> {
-  return apiFetch<SurveyDefaults>("/api/encuestas/defaults");
+  return apiGet<SurveyDefaults>("/api/encuestas/defaults");
 }
 
 export async function fetchSurveyScoreValues(): Promise<SurveyScoreValues> {
-  return apiFetch<SurveyScoreValues>("/api/encuestas/puntuaciones");
+  return apiGet<SurveyScoreValues>("/api/encuestas/puntuaciones");
 }
 
 export async function createSurvey(payload: Survey): Promise<{ id: string; surveyId: string }> {
-  return apiFetch<{ id: string; surveyId: string }>("/api/encuestas", {
-    method: "POST",
-    body: JSON.stringify(payload)
-  });
+  return apiPost<{ id: string; surveyId: string }>("/api/encuestas", payload);
 }
 
 export async function updateSurvey(id: string, payload: Partial<Omit<Survey, "id" | "createdAt" | "createdBy">>) {
-  return apiFetch<{ ok: boolean }>(`/api/encuestas/${id}`, {
-    method: "PATCH",
-    body: JSON.stringify(payload)
-  });
+  return apiPatch<{ ok: boolean }>(`/api/encuestas/${id}`, payload);
 }
 
 export async function deleteSurvey(id: string): Promise<void> {
-  await apiFetch<void>(`/api/encuestas/${id}`, { method: "DELETE" });
+  await apiDelete<void>(`/api/encuestas/${id}`);
 }
 
 export async function voteSurvey(id: string, payload: SurveyVotePayload, usuarioId: string) {
-  return apiFetch<{ ok: boolean }>(`/api/encuestas/${id}/votos`, {
-    method: "POST",
+  return apiPost<{ ok: boolean }>(`/api/encuestas/${id}/votos`, payload, {
     headers: {
       "x-usuario-id": usuarioId
-    },
-    body: JSON.stringify(payload)
+    }
   });
 }
 
 export async function fetchSurveyResults(id: string, aulaId: string) {
-  return apiFetch<SurveyResults>(`/api/encuestas/${id}/resultados?aulaId=${encodeURIComponent(aulaId)}`);
+  return apiGet<SurveyResults>(`/api/encuestas/${id}/resultados?aulaId=${encodeURIComponent(aulaId)}`);
 }

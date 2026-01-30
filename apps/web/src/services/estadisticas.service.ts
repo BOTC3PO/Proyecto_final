@@ -1,6 +1,4 @@
-import { apiFetch } from "./api";
-
-const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:5050";
+import { API_BASE_URL, apiGet } from "../lib/api";
 
 export type ProfesorEstadisticasFilters = {
   fechaInicio?: string;
@@ -69,7 +67,7 @@ const buildQuery = (filters?: ProfesorEstadisticasFilters) => {
 
 export async function getProfesorEstadisticas(filters?: ProfesorEstadisticasFilters) {
   const query = buildQuery(filters);
-  return apiFetch<ProfesorEstadisticasResponse>(`/api/estadisticas/profesor${query}`);
+  return apiGet<ProfesorEstadisticasResponse>(`/api/estadisticas/profesor${query}`);
 }
 
 export async function exportProfesorEstadisticas(
@@ -86,5 +84,5 @@ export async function exportProfesorEstadisticas(
 }
 
 export async function getProfesorEstadisticasOptions() {
-  return apiFetch<ProfesorEstadisticasOptions>("/api/estadisticas/profesor/opciones");
+  return apiGet<ProfesorEstadisticasOptions>("/api/estadisticas/profesor/opciones");
 }

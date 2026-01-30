@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiGet } from "../lib/api";
 
 export type EnterpriseIndicator = {
   id: string;
@@ -32,17 +32,17 @@ export type EnterpriseReporte = {
 };
 
 export async function fetchEnterpriseStaff(schoolId: string): Promise<EnterpriseStaffMember[]> {
-  return apiFetch<EnterpriseStaffMember[]>(`/api/escuelas/${schoolId}/miembros`);
+  return apiGet<EnterpriseStaffMember[]>(`/api/escuelas/${schoolId}/miembros`);
 }
 
 export async function fetchEnterpriseDashboard(schoolId: string): Promise<EnterpriseDashboardData> {
-  return apiFetch<EnterpriseDashboardData>(`/api/escuelas/${schoolId}/dashboard`);
+  return apiGet<EnterpriseDashboardData>(`/api/escuelas/${schoolId}/dashboard`);
 }
 
 export async function fetchEnterpriseContratos(schoolId: string): Promise<EnterpriseContrato[]> {
-  return apiFetch<EnterpriseContrato[]>(`/api/escuelas/${schoolId}/contratos`);
+  return apiGet<EnterpriseContrato[]>(`/api/escuelas/${schoolId}/contratos`);
 }
 
 export async function fetchEnterpriseReportes(schoolId: string): Promise<EnterpriseReporte[]> {
-  return apiFetch<EnterpriseReporte[]>(`/api/escuelas/${schoolId}/reportes`);
+  return apiGet<EnterpriseReporte[]>(`/api/escuelas/${schoolId}/reportes`);
 }

@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiGet } from "../lib/api";
 
 export type ProfesorAsistenciaResumen = {
   id: string;
@@ -64,17 +64,17 @@ export type ProfesorMenuDashboard = {
 };
 
 export async function fetchProfesorAsistencia(): Promise<ProfesorAsistenciaResumen[]> {
-  return apiFetch<ProfesorAsistenciaResumen[]>("/api/profesor/asistencia");
+  return apiGet<ProfesorAsistenciaResumen[]>("/api/profesor/asistencia");
 }
 
 export async function fetchProfesorCursos(): Promise<ProfesorCursoResumen[]> {
-  return apiFetch<ProfesorCursoResumen[]>("/api/profesor/cursos");
+  return apiGet<ProfesorCursoResumen[]>("/api/profesor/cursos");
 }
 
 export async function fetchProfesorCalificaciones(): Promise<ProfesorCalificacionResumen[]> {
-  return apiFetch<ProfesorCalificacionResumen[]>("/api/profesor/calificaciones");
+  return apiGet<ProfesorCalificacionResumen[]>("/api/profesor/calificaciones");
 }
 
 export async function fetchProfesorMenuDashboard(): Promise<ProfesorMenuDashboard> {
-  return apiFetch<ProfesorMenuDashboard>("/api/profesor/menu");
+  return apiGet<ProfesorMenuDashboard>("/api/profesor/menu");
 }

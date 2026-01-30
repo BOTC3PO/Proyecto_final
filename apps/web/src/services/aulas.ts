@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiDelete, apiGet, apiPost, apiPut } from "../lib/api";
 import type { Classroom, ClassroomListResponse } from "../domain/classroom/classroom.types";
 
 export type ClassroomStudentProgress = {
@@ -21,34 +21,26 @@ export type ClassroomProgressSnapshot = {
 };
 
 export async function fetchClassrooms(): Promise<ClassroomListResponse> {
-  return apiFetch<ClassroomListResponse>("/api/aulas");
+  return apiGet<ClassroomListResponse>("/api/aulas");
 }
 
 export async function fetchClassroomDetail(classroomId: string): Promise<Classroom> {
-  return apiFetch<Classroom>(`/api/aulas/${classroomId}`);
+  return apiGet<Classroom>(`/api/aulas/${classroomId}`);
 }
 
 export async function createClassroom(payload: Classroom): Promise<{ id: string; classroomId: string }> {
-  return apiFetch<{ id: string; classroomId: string }>("/api/aulas", {
-    method: "POST",
-    body: JSON.stringify(payload)
-  });
+  return apiPost<{ id: string; classroomId: string }>("/api/aulas", payload);
 }
 
 export async function updateClassroom(
   classroomId: string,
   payload: Partial<Omit<Classroom, "id" | "createdAt" | "createdBy">>
 ): Promise<{ ok: boolean }> {
-  return apiFetch<{ ok: boolean }>(`/api/aulas/${classroomId}`, {
-    method: "PUT",
-    body: JSON.stringify(payload)
-  });
+  return apiPut<{ ok: boolean }>(`/api/aulas/${classroomId}`, payload);
 }
 
 export async function deleteClassroom(classroomId: string): Promise<void> {
-  await apiFetch<void>(`/api/aulas/${classroomId}`, {
-    method: "DELETE"
-  });
+  await apiDelete<void>(`/api/aulas/${classroomId}`);
 }
 
 export async function fetchClassroomProgressSnapshots(
@@ -56,5 +48,5 @@ export async function fetchClassroomProgressSnapshots(
 ): Promise<ClassroomProgressSnapshot[]> {
   const params = new URLSearchParams();
   if (classroomIds.length) params.set("classroomIds", classroomIds.join(","));
-  return apiFetch<ClassroomProgressSnapshot[]>(`/api/aulas/progreso?${params.toString()}`);
+  return apiGet<ClassroomProgressSnapshot[]>(`/api/aulas/progreso?${params.toString()}`);
 }

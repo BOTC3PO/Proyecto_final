@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
-import { apiFetch } from "../services/api";
+import { apiPost } from "../lib/api";
 
 type LoginForm = {
   user: string;
@@ -46,16 +46,13 @@ export default function Login() {
     if (!validate()) return;
     setStatus({ loading: true, error: null });
     try {
-      const payload = await apiFetch<{
+      const payload = await apiPost<{
         id: string;
         username: string;
         email: string;
         fullName?: string;
         role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "ENTERPRISE" | "GUEST";
-      }>("/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify({ identifier: form.user, password: form.password }),
-      });
+      }>("/api/auth/login", { identifier: form.user, password: form.password });
       login(
         {
           id: payload.id,

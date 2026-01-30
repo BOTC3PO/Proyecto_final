@@ -1,4 +1,4 @@
-import { apiFetch } from "./api";
+import { apiGet } from "../lib/api";
 
 export type CalendarioAgendaItem = {
   id: string;
@@ -29,5 +29,5 @@ export type CalendarioData = {
 };
 
 export async function fetchCalendario(): Promise<CalendarioData> {
-  return apiFetch<CalendarioData>("/api/calendario");
+  return apiGet<CalendarioData>("/api/calendario");
 }
