@@ -904,6 +904,7 @@ db.membresias_escuela.insertMany([
 
 db.modulos.insertOne({
   _id: moduloId,
+  id: moduloId.toString(),
   createdBy: teacherId,
   title: "Introducción a las fracciones",
   description: "Módulo con teoría y prácticas básicas sobre fracciones.",
@@ -936,6 +937,7 @@ db.modulos.insertOne({
 
 db.modulos.insertOne({
   _id: moduloGeografiaId,
+  id: moduloGeografiaId.toString(),
   createdBy: teacherId,
   title: "Mapas físicos y políticos del mundo",
   description: "Exploración de mapas físicos, políticos y lectura de fronteras.",
@@ -980,6 +982,7 @@ db.modulos.insertOne({
 
 db.modulos.insertOne({
   _id: moduloCartografiaId,
+  id: moduloCartografiaId.toString(),
   createdBy: teacherId,
   title: "Cartografía básica: coordenadas, escalas y proyecciones",
   description:
@@ -1028,6 +1031,7 @@ db.modulos.insertOne({
 
 db.modulos.insertOne({
   _id: moduloAtlasDigitalId,
+  id: moduloAtlasDigitalId.toString(),
   createdBy: teacherId,
   title: "Atlas digitales y mapas interactivos",
   description:
@@ -1096,6 +1100,7 @@ db.modulos.insertOne({
 
 db.modulos.insertOne({
   _id: moduloGeografiaFisicaId,
+  id: moduloGeografiaFisicaId.toString(),
   createdBy: teacherId,
   title: "Geografía física: relieve, agua y tectónica",
   description:
@@ -1172,6 +1177,7 @@ db.modulos.insertOne({
 
 db.modulos.insertOne({
   _id: moduloMapaClimaticoId,
+  id: moduloMapaClimaticoId.toString(),
   createdBy: teacherId,
   title: "Mapa climático",
   description: "Interpretación de mapas climáticos y climogramas para analizar patrones del clima.",
@@ -1233,6 +1239,7 @@ db.modulos.insertOne({
 
 db.modulos.insertOne({
   _id: moduloMapaPoblacionId,
+  id: moduloMapaPoblacionId.toString(),
   createdBy: teacherId,
   title: "Mapa de población",
   description:
@@ -1295,6 +1302,7 @@ db.modulos.insertOne({
 
 db.modulos.insertOne({
   _id: moduloMapaEconomicoId,
+  id: moduloMapaEconomicoId.toString(),
   createdBy: teacherId,
   title: "Mapa económico",
   description:
