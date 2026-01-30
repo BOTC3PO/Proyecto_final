@@ -459,7 +459,7 @@ export default function menuProfesor() {
               >
                 + Crear clase/sección
               </Link>
-              <Link className="text-sm text-blue-600 hover:underline" to="/profesor/crear-modulo">
+              <Link className="text-sm text-blue-600 hover:underline" to="/modulos/crear">
                 Crear módulo
               </Link>
             </div>
@@ -562,7 +562,7 @@ export default function menuProfesor() {
                     </p>
                     <Link
                       className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      to={`/profesor/editar-modulo/${module.id}`}
+                      to={`/modulos/${module.id}/editar`}
                     >
                       Editar módulo
                     </Link>

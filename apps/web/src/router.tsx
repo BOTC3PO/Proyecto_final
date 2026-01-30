@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter, Navigate, useParams } from "react-router-dom";
 import { ProtectedRoute } from "./routing/ProtectedRoute";
 import RootLayout from "./layouts/RootLayout";
 
@@ -32,7 +32,8 @@ import ProfesorEstadisticas from "./pages/ProfesorEstadisticas";
 import ProfesorEvaluaciones from "./pages/ProfesorEvaluaciones";
 import ProfesorMateriales from "./pages/ProfesorMateriales";
 import ProfesorMensajes from "./pages/ProfesorMensajes";
-import ProfesorModulos from "./pages/ProfesorModulos";
+import ModulosList from "./pages/modulos/ModulosList";
+import ModuloDetail from "./pages/modulos/ModuloDetail";
 import ProfesorEncuestas from "./pages/ProfesorEncuestas";
 import ProfesorCursoNuevo from "./pages/ProfesorCursoNuevo";
 import HijosProgreso from "./pages/HijosProgreso";
@@ -64,6 +65,11 @@ import DiccionarioTest from "./pages/DiccionarioTest";
 import test from "./sys/testmode";
 
 const testmode = test();
+
+const ModuloEditRedirect = () => {
+  const { id } = useParams();
+  return <Navigate to={id ? `/modulos/${id}/editar` : "/modulos"} replace />;
+};
 
 
 export const router = createBrowserRouter([
@@ -264,7 +270,7 @@ export const router = createBrowserRouter([
         path: "profesor/modulos",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorModulos />
+            <Navigate to="/modulos" replace />
           </ProtectedRoute>
         ),
       },
@@ -360,7 +366,7 @@ export const router = createBrowserRouter([
         path: "profesor/crear-modulo",
         element: (
           <ProtectedRoute allow={['TEACHER','GUEST']}>
-            <CrearModulo />
+            <Navigate to="/modulos/crear" replace />
           </ProtectedRoute>
         ),
       },
@@ -376,7 +382,39 @@ export const router = createBrowserRouter([
         path: "profesor/editar-modulo/:id",
         element: (
           <ProtectedRoute allow={['TEACHER','GUEST']}>
+            <ModuloEditRedirect />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "modulos",
+        element: (
+          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'ENTERPRISE', 'GUEST']}>
+            <ModulosList />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "modulos/crear",
+        element: (
+          <ProtectedRoute allow={['TEACHER','GUEST']}>
+            <CrearModulo />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "modulos/:id/editar",
+        element: (
+          <ProtectedRoute allow={['TEACHER','GUEST']}>
             <EditarModulo />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "modulos/:id",
+        element: (
+          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'ENTERPRISE', 'GUEST']}>
+            <ModuloDetail />
           </ProtectedRoute>
         ),
       },
