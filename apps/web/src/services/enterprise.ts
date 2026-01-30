@@ -31,18 +31,18 @@ export type EnterpriseReporte = {
   descripcion: string;
 };
 
-export async function fetchEnterpriseStaff(schoolId: string): Promise<EnterpriseStaffMember[]> {
-  return apiGet<EnterpriseStaffMember[]>(`/api/escuelas/${schoolId}/miembros`);
+export async function fetchEnterpriseStaff(): Promise<EnterpriseStaffMember[]> {
+  return apiGet<EnterpriseStaffMember[]>("/api/enterprise/miembros");
 }
 
-export async function fetchEnterpriseDashboard(schoolId: string): Promise<EnterpriseDashboardData> {
-  return apiGet<EnterpriseDashboardData>(`/api/escuelas/${schoolId}/dashboard`);
+export async function fetchEnterpriseDashboard(): Promise<EnterpriseDashboardData> {
+  return apiGet<EnterpriseDashboardData>("/api/enterprise/dashboard");
 }
 
-export async function fetchEnterpriseContratos(schoolId: string): Promise<EnterpriseContrato[]> {
-  return apiGet<EnterpriseContrato[]>(`/api/escuelas/${schoolId}/contratos`);
+export async function fetchEnterpriseContratos(): Promise<EnterpriseContrato[]> {
+  return apiGet<EnterpriseContrato[]>("/api/enterprise/contratos");
 }
 
-export async function fetchEnterpriseReportes(schoolId: string): Promise<EnterpriseReporte[]> {
-  return apiGet<EnterpriseReporte[]>(`/api/escuelas/${schoolId}/reportes`);
+export async function fetchEnterpriseReportes(): Promise<EnterpriseReporte[]> {
+  return apiGet<EnterpriseReporte[]>("/api/enterprise/reportes");
 }

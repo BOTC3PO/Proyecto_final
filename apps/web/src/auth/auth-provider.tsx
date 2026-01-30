@@ -46,13 +46,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     persistUser(nextUser, remember);
   };
 
-  const loginAs = (role: Role, options?: { remember?: boolean }) => {
+  const loginAs = (role: Role, options?: { remember?: boolean; schoolId?: string | null }) => {
     if (!isTestAuthEnabled) {
       console.warn('loginAs is disabled in production. Use real auth/session flow.');
       return;
     }
     const remember = options?.remember ?? shouldPersist;
-    persistUser({ id: '1', name: 'Demo', role }, remember);
+    persistUser(
+      { id: '1', name: 'Demo', role, schoolId: options?.schoolId ?? null },
+      remember
+    );
   };
 
   const logout = () => persistUser(null, false);

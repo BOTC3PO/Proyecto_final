@@ -52,12 +52,14 @@ export default function Login() {
         email: string;
         fullName?: string;
         role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "ENTERPRISE" | "GUEST";
+        schoolId?: string | null;
       }>("/api/auth/login", { identifier: form.user, password: form.password });
       login(
         {
           id: payload.id,
           name: payload.fullName?.trim() || payload.username,
           role: payload.role,
+          schoolId: payload.schoolId ?? null,
         },
         { remember: form.remember },
       );

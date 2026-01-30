@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../auth/use-auth";
 import { fetchEnterpriseContratos, type EnterpriseContrato } from "../services/enterprise";
 
 export default function EnterpriseContratos() {
-  const schoolId = "escuela-demo";
+  const { user } = useAuth();
   const [contratos, setContratos] = useState<EnterpriseContrato[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
-    fetchEnterpriseContratos(schoolId)
+    fetchEnterpriseContratos()
       .then((data) => {
         if (!active) return;
         setContratos(data);
@@ -26,7 +27,7 @@ export default function EnterpriseContratos() {
     return () => {
       active = false;
     };
-  }, [schoolId]);
+  }, [user?.id]);
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
