@@ -34,7 +34,7 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Mis Cursos', to: '/profesor/cursos' },
     { label: 'Crear curso', to: '/profesor/cursos/nuevo' },
     { label: 'Aulas', to: '/profesor/aulas' },
-    { label: 'Módulos', to: '/profesor/modulos' },
+    { label: 'Módulos', to: '/modulos' },
     { label: 'Materiales', to: '/profesor/materiales' },
     { label: 'Evaluaciones', to: '/profesor/evaluaciones' },
     { label: 'Encuestas', to: '/profesor/encuestas' },

@@ -626,7 +626,7 @@ export default function EditorCuestionarios() {
             >
               Guardar cuestionario
             </button>
-            <Link className="text-sm text-blue-600 hover:underline" to="/profesor/crear-modulo">
+            <Link className="text-sm text-blue-600 hover:underline" to="/modulos/crear">
               Volver al creador de módulos
             </Link>
           </div>
