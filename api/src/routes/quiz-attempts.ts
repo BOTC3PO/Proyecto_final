@@ -140,7 +140,8 @@ quizAttempts.post("/api/quiz-attempts", ...bodyLimitMB(2), requireUser, async (r
 });
 
 quizAttempts.get("/api/quiz-attempts/:id", requireUser, async (req, res) => {
-  const attemptObjectId = toObjectId(req.params.id);
+  const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  const attemptObjectId = toObjectId(idParam);
   if (!attemptObjectId) return res.status(400).json({ error: "invalid attempt id" });
   const userId =
     typeof req.user?._id?.toString === "function"
@@ -178,7 +179,8 @@ quizAttempts.post(
   async (req, res) => {
     try {
       const payload = QuizAttemptSubmitSchema.parse(req.body);
-      const attemptObjectId = toObjectId(req.params.id);
+      const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+      const attemptObjectId = toObjectId(idParam);
       if (!attemptObjectId) return res.status(400).json({ error: "invalid attempt id" });
       const userId =
         typeof req.user?._id?.toString === "function"
