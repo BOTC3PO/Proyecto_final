@@ -79,10 +79,16 @@ usuarios.get("/api/usuarios", requireUser, async (req, res) => {
   const cursor = db
     .collection("usuarios")
     .find(query)
+    .project({ _id: 1, username: 1, role: 1, escuelaId: 1 })
     .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
     .limit(limit)
     .sort({ createdAt: -1 });
-  const items = await cursor.toArray();
+  const items = (await cursor.toArray()).map((item) => ({
+    id: item._id,
+    username: item.username,
+    role: item.role,
+    escuelaId: item.escuelaId
+  }));
   res.json({ items, limit, offset });
 });
 
