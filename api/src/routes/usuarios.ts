@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
+import { normalizeSchoolId, requireUser } from "../lib/user-auth";
 import { UsuarioSchema } from "../schema/usuario";
 
 export const usuarios = Router();
@@ -46,13 +47,38 @@ usuarios.post("/api/usuarios", async (req, res) => {
   }
 });
 
-usuarios.get("/api/usuarios", async (req, res) => {
+usuarios.get("/api/usuarios", requireUser, async (req, res) => {
+  const user = (req as { user?: { role?: string; schoolId?: string | null; escuelaId?: unknown } }).user;
+  const role = typeof user?.role === "string" ? user.role : null;
+  if (!role) {
+    res.status(403).json({ error: "forbidden" });
+    return;
+  }
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
+  const query: Record<string, unknown> = { isDeleted: { $ne: true } };
+  if (role === "ADMIN") {
+    // Global access.
+  } else if (role === "ENTERPRISE" || role === "TEACHER") {
+    const schoolId =
+      typeof user?.schoolId === "string" ? user.schoolId : normalizeSchoolId(user?.escuelaId);
+    if (!schoolId) {
+      res.status(403).json({ error: "forbidden" });
+      return;
+    }
+    const escuelaObjectId = toObjectId(schoolId);
+    query.escuelaId = escuelaObjectId ?? schoolId;
+  } else if (role === "USER" || role === "PARENT") {
+    res.status(403).json({ error: "forbidden" });
+    return;
+  } else {
+    res.status(403).json({ error: "forbidden" });
+    return;
+  }
   const cursor = db
     .collection("usuarios")
-    .find({ isDeleted: { $ne: true } })
+    .find(query)
     .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
     .limit(limit)
     .sort({ createdAt: -1 });
