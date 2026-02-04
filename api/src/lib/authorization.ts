@@ -28,3 +28,31 @@ export const canReadAsLearner = (role?: string | null) => {
   const membership = getCanonicalMembershipRole(role ?? undefined);
   return membership === "STUDENT" || membership === "PARENT";
 };
+
+type ClassroomMember = { userId?: string; roleInClass?: string };
+
+export const canManageClassroom = ({
+  requesterId,
+  requesterRole,
+  requesterSchoolId,
+  classroomSchoolId,
+  classroomMembers
+}: {
+  requesterId: string | null;
+  requesterRole?: string | null;
+  requesterSchoolId?: string | null;
+  classroomSchoolId?: string | null;
+  classroomMembers?: ClassroomMember[] | null;
+}) => {
+  const hasInstitutionRole =
+    requesterRole === "DIRECTIVO" &&
+    !!requesterSchoolId &&
+    !!classroomSchoolId &&
+    requesterSchoolId === classroomSchoolId;
+  const hasAdminMembership = !!requesterId
+    ? (classroomMembers ?? []).some(
+        (member) => member.userId === requesterId && member.roleInClass === "ADMIN"
+      )
+    : false;
+  return hasInstitutionRole || hasAdminMembership;
+};
