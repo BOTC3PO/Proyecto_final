@@ -238,7 +238,9 @@ reportes.get("/api/informes/hijos/:hijoId", async (req, res) => {
 type ReporteFilters = {
   aula?: string;
   grupo?: string;
+  institucion?: string;
   periodo?: string;
+  roles?: string[];
   tipoActividad?: string;
 };
 
@@ -288,10 +290,29 @@ const toStringValue = (value: unknown): string | undefined => {
   return undefined;
 };
 
+const toStringList = (value: unknown): string[] | undefined => {
+  if (Array.isArray(value)) {
+    const items = value
+      .filter((item): item is string => typeof item === "string")
+      .map((item) => item.trim())
+      .filter(Boolean);
+    return items.length ? items : undefined;
+  }
+  const raw = toStringValue(value);
+  if (!raw) return undefined;
+  const items = raw
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+  return items.length ? items : undefined;
+};
+
 const parseFilters = (query: Record<string, unknown>): ReporteFilters => ({
   aula: toStringValue(query.aula),
   grupo: toStringValue(query.grupo),
+  institucion: toStringValue(query.institucion) ?? toStringValue(query.institution),
   periodo: toStringValue(query.periodo),
+  roles: toStringList(query.roles ?? query.rol ?? query.role)?.map((role) => role.toUpperCase()),
   tipoActividad: toStringValue(query.tipoActividad)
 });
 
@@ -311,7 +332,159 @@ const parseLote = (query: Record<string, unknown>) => {
   };
 };
 
-const buildReporteData = (rol: "profesor" | "admin", filtros: ReporteFilters, loteIds: string[]) => {
+const buildSchoolFilter = (schoolId?: string) => {
+  if (!schoolId) return {};
+  const escuelaObjectId = toObjectId(schoolId);
+  return escuelaObjectId ? { escuelaId: escuelaObjectId } : { escuelaId: schoolId };
+};
+
+const buildAulaFilter = (filtros: ReporteFilters, schoolId?: string) => {
+  if (filtros.aula) return { id: filtros.aula };
+  if (!schoolId) return {};
+  return { $or: [{ institutionId: schoolId }, { schoolId }] };
+};
+
+const uniqueIds = (values: string[]) => Array.from(new Set(values.filter(Boolean)));
+
+const buildUserIdMatch = (values: string[]) => {
+  const objectIds = values.map((id) => toObjectId(id)).filter(Boolean);
+  const stringIds = values.filter((id) => !toObjectId(id));
+  const matchParts: Record<string, unknown>[] = [];
+  if (objectIds.length) matchParts.push({ _id: { $in: objectIds } });
+  if (stringIds.length) matchParts.push({ _id: { $in: stringIds } });
+  if (matchParts.length === 0) return {};
+  if (matchParts.length === 1) return matchParts[0];
+  return { $or: matchParts };
+};
+
+const buildComentario = (promedio: number, completadas: number, total: number) => {
+  if (total === 0) return "Sin actividad registrada en el periodo.";
+  const avance = total > 0 ? completadas / total : 0;
+  if (promedio >= 4.5 && avance >= 0.8) return "Excelente desempeño y constancia destacada.";
+  if (promedio >= 4.0) return "Buen avance, mantener la participación y el ritmo.";
+  if (avance >= 0.6) return "Avance constante, reforzar temas con puntajes bajos.";
+  return "Se recomienda acompañamiento para mejorar resultados.";
+};
+
+const roundNumber = (value: number, precision = 2) => {
+  const factor = Math.pow(10, precision);
+  return Math.round(value * factor) / factor;
+};
+
+const buildReporteData = async (
+  rol: "profesor" | "admin",
+  filtros: ReporteFilters,
+  loteIds: string[],
+  scopeSchoolId?: string
+) => {
+  const db = await getDb();
+  const scopedSchoolId = filtros.institucion ?? scopeSchoolId;
+  const aulas = await db
+    .collection("aulas")
+    .find(buildAulaFilter(filtros, scopedSchoolId), { projection: { id: 1, name: 1, members: 1 } })
+    .toArray();
+  const aulaIds = aulas.map((aula) => aula.id).filter(Boolean);
+  const rawMembers = aulas.flatMap((aula) => (Array.isArray(aula.members) ? aula.members : []));
+  const roleFilter = filtros.roles?.length ? new Set(filtros.roles) : null;
+  const scopedMembers = roleFilter
+    ? rawMembers.filter((member) => roleFilter.has(String(member.roleInClass).toUpperCase()))
+    : rawMembers;
+  const memberUserIds = uniqueIds(scopedMembers.map((member) => String(member.userId)));
+
+  const userFilter: Record<string, unknown> = {
+    ...buildSchoolFilter(scopedSchoolId),
+    isDeleted: { $ne: true }
+  };
+  if (filtros.roles?.length) {
+    userFilter.role = { $in: filtros.roles };
+  }
+  if (memberUserIds.length) {
+    Object.assign(userFilter, buildUserIdMatch(memberUserIds));
+  }
+
+  const usuarios = await db
+    .collection("usuarios")
+    .find(userFilter)
+    .project({ fullName: 1, username: 1, role: 1 })
+    .toArray();
+  const usuarioIds = uniqueIds(
+    usuarios.map((user) => user._id?.toString?.() ?? "").filter(Boolean)
+  );
+  const scopedUsuarioIds = memberUserIds.length ? memberUserIds : usuarioIds;
+
+  const progresoMatch: Record<string, unknown> = {};
+  if (aulaIds.length) progresoMatch.aulaId = aulaIds.length === 1 ? aulaIds[0] : { $in: aulaIds };
+  if (scopedUsuarioIds.length) progresoMatch.usuarioId = { $in: scopedUsuarioIds };
+
+  const progresoResumen = await db
+    .collection("progreso_modulos")
+    .aggregate([
+      { $match: progresoMatch },
+      {
+        $group: {
+          _id: null,
+          actividades: { $sum: 1 },
+          completadas: {
+            $sum: { $cond: [{ $eq: ["$status", "completado"] }, 1, 0] }
+          },
+          promedioScore: { $avg: { $ifNull: ["$score", 0] } }
+        }
+      }
+    ])
+    .toArray();
+
+  const usuariosConActividad = await db
+    .collection("progreso_modulos")
+    .aggregate([
+      { $match: progresoMatch },
+      { $group: { _id: "$usuarioId" } },
+      { $count: "total" }
+    ])
+    .toArray();
+
+  const boletinesRaw = await db
+    .collection("progreso_modulos")
+    .aggregate([
+      { $match: progresoMatch },
+      {
+        $group: {
+          _id: "$usuarioId",
+          promedioScore: { $avg: { $ifNull: ["$score", 0] } },
+          completadas: {
+            $sum: { $cond: [{ $eq: ["$status", "completado"] }, 1, 0] }
+          },
+          total: { $sum: 1 }
+        }
+      },
+      { $sort: { promedioScore: -1 } },
+      { $limit: 6 }
+    ])
+    .toArray();
+
+  const usuariosMap = new Map(
+    usuarios.map((user) => [user._id?.toString?.() ?? "", user])
+  );
+  const boletines: Boletin[] = boletinesRaw.map((item) => {
+    const usuario = usuariosMap.get(String(item._id));
+    const nombre = usuario?.fullName ?? usuario?.username ?? `Usuario ${String(item._id).slice(-6)}`;
+    const promedio = roundNumber(item.promedioScore ?? 0, 2);
+    const completadas = item.completadas ?? 0;
+    const total = item.total ?? 0;
+    return {
+      estudiante: nombre,
+      promedio,
+      comentarios: buildComentario(promedio, completadas, total)
+    };
+  });
+
+  const resumen = progresoResumen[0];
+  const totalActividades = resumen?.actividades ?? 0;
+  const totalCompletadas = resumen?.completadas ?? 0;
+  const promedioGrupo = roundNumber(resumen?.promedioScore ?? 0, 2);
+  const totalMiembros = scopedUsuarioIds.length;
+  const asistentes = usuariosConActividad[0]?.total ?? 0;
+  const asistenciaPromedio = totalMiembros ? roundNumber(asistentes / totalMiembros, 2) : 0;
+
   const configuracion: ReporteConfig = {
     encabezado: {
       titulo: `Reporte comparativo - ${rol === "profesor" ? "Profesor" : "Administrador"}`,
@@ -324,20 +497,14 @@ const buildReporteData = (rol: "profesor" | "admin", filtros: ReporteFilters, lo
     }
   };
 
-  const boletines: Boletin[] = [
-    { estudiante: "María López", promedio: 4.6, comentarios: "Excelente avance en lecturas guiadas." },
-    { estudiante: "Juan Pérez", promedio: 3.9, comentarios: "Reforzar comprensión lectora y prácticas." },
-    { estudiante: "Camila Torres", promedio: 4.2, comentarios: "Buen desempeño, mantener participación." }
-  ];
-
   return {
     rol,
     filtros,
     configuracion,
     comparativo: {
-      promedioGrupo: rol === "admin" ? 4.2 : 4.1,
-      asistenciaPromedio: rol === "admin" ? 0.92 : 0.9,
-      actividadesEvaluadas: rol === "admin" ? 128 : 42
+      promedioGrupo,
+      asistenciaPromedio,
+      actividadesEvaluadas: totalActividades
     },
     boletines,
     generacionLotes: loteIds.length
@@ -374,11 +541,12 @@ const buildFilePayload = (data: ReporteResponse, formato: ReporteFormato) => {
   };
 };
 
-const handleReporte = (rol: "profesor" | "admin") => (req: any, res: any) => {
+const handleReporte = (rol: "profesor" | "admin") => async (req: any, res: any) => {
   const filtros = parseFilters(req.query);
   const formato = parseFormato(req.query.formato);
   const lote = parseLote(req.query);
-  const data = buildReporteData(rol, filtros, lote.ids);
+  const scopeSchoolId = typeof req.user?.schoolId === "string" ? req.user.schoolId : undefined;
+  const data = await buildReporteData(rol, filtros, lote.ids, scopeSchoolId);
 
   if (formato !== "json") {
     const payload = buildFilePayload(data, formato);
@@ -401,4 +569,96 @@ reportes.get(
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.REPORTS),
   handleReporte("admin")
+);
+
+reportes.get(
+  "/api/reportes/economia",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.ECONOMY),
+  async (req, res) => {
+    const filtros = parseFilters(req.query);
+    const scopeSchoolId = typeof req.user?.schoolId === "string" ? req.user.schoolId : undefined;
+    const scopedSchoolId = filtros.institucion ?? scopeSchoolId;
+    const db = await getDb();
+    const aulas = await db
+      .collection("aulas")
+      .find(buildAulaFilter(filtros, scopedSchoolId), { projection: { id: 1 } })
+      .toArray();
+    const aulaIds = aulas.map((aula) => aula.id).filter(Boolean);
+    const match: Record<string, unknown> = {};
+    if (scopedSchoolId) match.schoolId = scopedSchoolId;
+    if (aulaIds.length) match.aulaId = aulaIds.length === 1 ? aulaIds[0] : { $in: aulaIds };
+
+    if (filtros.roles?.length) {
+      const userFilter: Record<string, unknown> = {
+        ...buildSchoolFilter(scopedSchoolId),
+        role: { $in: filtros.roles },
+        isDeleted: { $ne: true }
+      };
+      const usuarios = await db
+        .collection("usuarios")
+        .find(userFilter)
+        .project({ _id: 1 })
+        .toArray();
+      const usuarioIds = uniqueIds(
+        usuarios.map((user) => user._id?.toString?.() ?? "").filter(Boolean)
+      );
+      if (usuarioIds.length) {
+        match.usuarioId = { $in: usuarioIds };
+      }
+    }
+
+    const resumen = await db
+      .collection("economia_transacciones")
+      .aggregate([
+        { $match: match },
+        {
+          $group: {
+            _id: "$tipo",
+            total: { $sum: "$monto" },
+            transacciones: { $sum: 1 }
+          }
+        }
+      ])
+      .toArray();
+
+    const detalleMotivos = await db
+      .collection("economia_transacciones")
+      .aggregate([
+        { $match: match },
+        { $group: { _id: "$motivo", total: { $sum: "$monto" }, transacciones: { $sum: 1 } } },
+        { $sort: { total: -1 } },
+        { $limit: 5 }
+      ])
+      .toArray();
+
+    const credito = resumen.find((item) => item._id === "credito");
+    const debito = resumen.find((item) => item._id === "debito");
+    const totalCreditos = roundNumber(credito?.total ?? 0, 2);
+    const totalDebitos = roundNumber(debito?.total ?? 0, 2);
+    const totalTransacciones = resumen.reduce((acc, item) => acc + (item.transacciones ?? 0), 0);
+
+    res.json({
+      filtros,
+      periodo: filtros.periodo ?? "actual",
+      aulas: aulaIds.length ? aulaIds : "general",
+      totales: {
+        creditos: totalCreditos,
+        debitos: totalDebitos,
+        neto: roundNumber(totalCreditos - totalDebitos, 2),
+        transacciones: totalTransacciones
+      },
+      detallePorTipo: resumen.map((item) => ({
+        tipo: item._id,
+        total: roundNumber(item.total ?? 0, 2),
+        transacciones: item.transacciones ?? 0
+      })),
+      topMotivos: detalleMotivos.map((item) => ({
+        motivo: item._id,
+        total: roundNumber(item.total ?? 0, 2),
+        transacciones: item.transacciones ?? 0
+      })),
+      generadoEn: new Date().toISOString()
+    });
+  }
 );
