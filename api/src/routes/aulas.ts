@@ -3,7 +3,15 @@ import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
-import { ClassroomCreateSchema, ClassroomPatchSchema, ClassroomUpdateSchema } from "../schema/aula";
+import {
+  CLASSROOM_ACTIVE_STATUS_VALUES,
+  ClassroomCreateSchema,
+  ClassroomPatchSchema,
+  ClassroomUpdateSchema,
+  isClassroomActiveStatus,
+  isClassroomReadOnlyStatus,
+  normalizeClassroomStatus
+} from "../schema/aula";
 
 export const aulas = Router();
 
@@ -43,17 +51,20 @@ aulas.post("/api/aulas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
     const now = new Date().toISOString();
     const payload = {
       ...req.body,
-      status: req.body?.status ?? "activa",
+      status: req.body?.status ?? "ACTIVE",
       createdAt: req.body?.createdAt ?? now,
       updatedAt: req.body?.updatedAt ?? now
     };
     const parsed = ClassroomCreateSchema.parse(payload);
+    if (parsed.classCode && !isClassroomActiveStatus(parsed.status)) {
+      return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
+    }
     const db = await getDb();
     const activeClassroomFilter = {
       createdBy: parsed.createdBy,
       isDeleted: { $ne: true },
       archived: { $ne: true },
-      status: { $ne: "archivada" }
+      status: { $in: CLASSROOM_ACTIVE_STATUS_VALUES }
     };
     const activeClassroomCount = await db.collection("aulas").countDocuments(activeClassroomFilter);
     if (activeClassroomCount >= FREE_CLASSROOM_LIMIT) {
@@ -73,8 +84,27 @@ aulas.put("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) =>
   try {
     const parsed = ClassroomUpdateSchema.parse(req.body);
     const db = await getDb();
+    const classroom = await db.collection("aulas").findOne({ id: req.params.id });
+    if (!classroom) return res.status(404).json({ error: "not found" });
+    if (
+      isClassroomReadOnlyStatus(classroom.status) &&
+      (parsed.members || parsed.teacherId || parsed.teacherOfRecord)
+    ) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    const nextStatus = normalizeClassroomStatus(parsed.status ?? classroom.status);
+    if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
+      return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
+    }
     const update = { ...parsed, updatedAt: new Date().toISOString() };
-    const result = await db.collection("aulas").updateOne({ id: req.params.id }, { $set: update });
+    const updateOperation: { $set: Record<string, unknown>; $unset?: Record<string, ""> } = {
+      $set: update
+    };
+    if (isClassroomReadOnlyStatus(nextStatus)) {
+      updateOperation.$unset = { classCode: "" };
+      delete update.classCode;
+    }
+    const result = await db.collection("aulas").updateOne({ id: req.params.id }, updateOperation);
     if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
     res.json({ ok: true });
   } catch (e: any) {
@@ -86,8 +116,27 @@ aulas.patch("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) 
   try {
     const parsed = ClassroomPatchSchema.parse(req.body);
     const db = await getDb();
+    const classroom = await db.collection("aulas").findOne({ id: req.params.id });
+    if (!classroom) return res.status(404).json({ error: "not found" });
+    if (
+      isClassroomReadOnlyStatus(classroom.status) &&
+      (parsed.members || parsed.teacherId || parsed.teacherOfRecord)
+    ) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+    const nextStatus = normalizeClassroomStatus(parsed.status ?? classroom.status);
+    if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
+      return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
+    }
     const update = { ...parsed, updatedAt: new Date().toISOString() };
-    const result = await db.collection("aulas").updateOne({ id: req.params.id }, { $set: update });
+    const updateOperation: { $set: Record<string, unknown>; $unset?: Record<string, ""> } = {
+      $set: update
+    };
+    if (isClassroomReadOnlyStatus(nextStatus)) {
+      updateOperation.$unset = { classCode: "" };
+      delete update.classCode;
+    }
+    const result = await db.collection("aulas").updateOne({ id: req.params.id }, updateOperation);
     if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
     res.json({ ok: true });
   } catch (e: any) {
@@ -99,6 +148,9 @@ aulas.post("/api/aulas/:id/reasignar-profesor", requireUser, express.json(), asy
   const db = await getDb();
   const classroom = await db.collection("aulas").findOne({ id: req.params.id });
   if (!classroom) return res.status(404).json({ error: "not found" });
+  if (isClassroomReadOnlyStatus(classroom.status)) {
+    return res.status(403).json({ error: "classroom is read-only" });
+  }
   const schoolId = classroom.schoolId ?? classroom.institutionId;
   if (!schoolId || typeof schoolId !== "string") {
     return res.status(400).json({ error: "classroom schoolId missing" });

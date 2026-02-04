@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { getDb } from "../lib/db";
+import { isClassroomActiveStatus } from "../schema/aula";
 
 export const publicaciones = Router();
 
@@ -45,6 +46,12 @@ publicaciones.post("/api/aulas/:id/publicaciones", async (req, res) => {
   if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
     return res.status(400).json({ error: "contenido requerido" });
   }
+  const db = await getDb();
+  const classroom = await db.collection("aulas").findOne({ id: req.params.id });
+  if (!classroom) return res.status(404).json({ error: "classroom not found" });
+  if (!isClassroomActiveStatus(classroom.status)) {
+    return res.status(403).json({ error: "classroom is read-only" });
+  }
   const now = new Date().toISOString();
   const attachmentList = sanitizeAttachments(payload.archivos);
   const publication = {
@@ -59,7 +66,6 @@ publicaciones.post("/api/aulas/:id/publicaciones", async (req, res) => {
     createdAt: now,
     updatedAt: now
   };
-  const db = await getDb();
   await db.collection("publicaciones").insertOne(publication);
   res.status(201).json(publication);
 });

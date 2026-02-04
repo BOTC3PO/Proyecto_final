@@ -1,7 +1,31 @@
 import { z } from "zod";
 
 export const ClassroomAccessSchema = z.enum(["publica", "privada"]);
-export const ClassroomStatusSchema = z.enum(["activa", "archivada"]);
+
+export const normalizeClassroomStatus = (status: unknown) => {
+  if (typeof status !== "string") return null;
+  const trimmed = status.trim();
+  if (!trimmed) return null;
+  const upper = trimmed.toUpperCase();
+  if (upper === "ACTIVA") return "ACTIVE";
+  if (upper === "ARCHIVADA") return "ARCHIVED";
+  if (upper === "ACTIVE" || upper === "ARCHIVED" || upper === "LOCKED") return upper;
+  return null;
+};
+
+export const CLASSROOM_ACTIVE_STATUS_VALUES = ["ACTIVE", "activa"] as const;
+export const CLASSROOM_READONLY_STATUS_VALUES = ["ARCHIVED", "archivada", "LOCKED"] as const;
+
+export const isClassroomActiveStatus = (status: unknown) => normalizeClassroomStatus(status) === "ACTIVE";
+export const isClassroomReadOnlyStatus = (status: unknown) => {
+  const normalized = normalizeClassroomStatus(status);
+  return normalized === "ARCHIVED" || normalized === "LOCKED";
+};
+
+export const ClassroomStatusSchema = z.preprocess(
+  (status) => normalizeClassroomStatus(status) ?? status,
+  z.enum(["ACTIVE", "ARCHIVED", "LOCKED"])
+);
 export const ClassroomRoleSchema = z.enum(["ADMIN", "TEACHER", "STUDENT"]);
 
 const ClassroomMemberSchema = z.object({
@@ -19,6 +43,7 @@ export const ClassroomBaseSchema = z.object({
   category: z.string().min(1).optional(),
   accessType: ClassroomAccessSchema,
   status: ClassroomStatusSchema,
+  classCode: z.string().min(1).optional(),
   createdBy: z.string().min(1),
   members: z.array(ClassroomMemberSchema).min(1),
   teacherOfRecord: z.string().min(1).optional(),
