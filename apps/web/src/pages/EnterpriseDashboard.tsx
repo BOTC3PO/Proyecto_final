@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import {
   ENTERPRISE_FEATURES,
+  type EnterpriseFeature,
+  isFeatureEnabled,
   canAccessFeature,
   canWriteFeature
 } from "../entitlements/enterprise";
@@ -48,6 +50,41 @@ export default function EnterpriseDashboard() {
     entitlements ? canAccessFeature(entitlements, ENTERPRISE_FEATURES.MEMBERS) : false;
   const canWriteClassrooms =
     entitlements ? canWriteFeature(entitlements, ENTERPRISE_FEATURES.CLASSROOMS) : false;
+  const featureCards = useMemo(
+    (): { feature: EnterpriseFeature; label: string }[] => [
+      { feature: ENTERPRISE_FEATURES.DASHBOARD, label: "Panel de escuela" },
+      { feature: ENTERPRISE_FEATURES.CLASSROOMS, label: "Aulas" },
+      { feature: ENTERPRISE_FEATURES.MEMBERS, label: "Miembros" },
+      { feature: ENTERPRISE_FEATURES.MODULES, label: "Módulos" },
+      { feature: ENTERPRISE_FEATURES.MESSAGES, label: "Mensajes" },
+      { feature: ENTERPRISE_FEATURES.CONTRACTS, label: "Contratos" },
+      { feature: ENTERPRISE_FEATURES.REPORTS, label: "Reportes" },
+      { feature: ENTERPRISE_FEATURES.PARENTS, label: "Padres y tutores" },
+      { feature: ENTERPRISE_FEATURES.INSTITUTIONAL_BENEFITS, label: "Beneficios institucionales" },
+      { feature: ENTERPRISE_FEATURES.AUDIT, label: "Auditoría" },
+      { feature: ENTERPRISE_FEATURES.ADVANCED_MODERATION, label: "Moderación avanzada" },
+      { feature: ENTERPRISE_FEATURES.ADMIN_TOOLS, label: "Herramientas de administración" },
+      { feature: ENTERPRISE_FEATURES.ECONOMY, label: "Economía" },
+      { feature: ENTERPRISE_FEATURES.QUIZZES, label: "Quizzes" }
+    ],
+    []
+  );
+
+  const resolveFeatureStatus = (feature: EnterpriseFeature) => {
+    if (!entitlements) {
+      return { label: "Sin datos", tone: "text-slate-500 bg-slate-100" };
+    }
+    if (!isFeatureEnabled(entitlements, feature)) {
+      return { label: "No incluido", tone: "text-slate-500 bg-slate-100" };
+    }
+    if (entitlements.accessLevel === "disabled") {
+      return { label: "Suspendido", tone: "text-red-700 bg-red-100" };
+    }
+    if (entitlements.accessLevel === "read_only") {
+      return { label: "Solo lectura", tone: "text-amber-700 bg-amber-100" };
+    }
+    return { label: "Activo", tone: "text-emerald-700 bg-emerald-100" };
+  };
 
   useEffect(() => {
     if (entitlementsLoading) return;
@@ -161,6 +198,38 @@ export default function EnterpriseDashboard() {
           </p>
         )}
       </header>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 className="text-lg font-semibold text-slate-900">Accesos del plan</h2>
+            <p className="text-sm text-slate-500">
+              Revisa las funciones disponibles según el plan y el estado de la suscripción.
+            </p>
+          </div>
+          {entitlements && (
+            <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+              Plan {entitlements.plan.replace("ENTERPRISE_", "")}
+            </span>
+          )}
+        </div>
+        <div className="mt-4 grid gap-3 md:grid-cols-2">
+          {featureCards.map(({ feature, label }) => {
+            const status = resolveFeatureStatus(feature);
+            return (
+              <div
+                key={feature}
+                className="flex items-center justify-between rounded-xl border border-slate-200 px-4 py-3"
+              >
+                <span className="text-sm font-semibold text-slate-700">{label}</span>
+                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${status.tone}`}>
+                  {status.label}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
       <section className="grid gap-4 md:grid-cols-3">
         {loadingDashboard && <p className="text-sm text-slate-500">Cargando indicadores...</p>}
