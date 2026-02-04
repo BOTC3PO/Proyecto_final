@@ -10,6 +10,7 @@ import { createPublication, fetchPublications, type Publication } from "../servi
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
 import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 import { fetchTeacherTools, type TeacherTool } from "../services/aula";
+import { fetchResourceLinks, type ResourceLink, type ResourceLinkType } from "../services/resource-links";
 
 type ProgressItem = {
   moduloId: string;
@@ -58,6 +59,9 @@ export default function aula() {
   const [progressError, setProgressError] = useState<string | null>(null);
   const [teacherTools, setTeacherTools] = useState<TeacherTool[]>([]);
   const [toolsError, setToolsError] = useState<string | null>(null);
+  const [resourceLinks, setResourceLinks] = useState<ResourceLink[]>([]);
+  const [resourceLinksLoading, setResourceLinksLoading] = useState(true);
+  const [resourceLinksError, setResourceLinksError] = useState<string | null>(null);
   const normalizedStatus = useMemo(
     () => normalizeClassroomStatus(classroom?.status ?? null),
     [classroom?.status]
@@ -232,6 +236,30 @@ export default function aula() {
     };
   }, [classroomId, user?.id]);
 
+  useEffect(() => {
+    if (!classroomId) return;
+    let active = true;
+    setResourceLinksLoading(true);
+    setResourceLinksError(null);
+    fetchResourceLinks(classroomId)
+      .then((response) => {
+        if (!active) return;
+        setResourceLinks(response.items);
+      })
+      .catch((error) => {
+        if (!active) return;
+        setResourceLinks([]);
+        setResourceLinksError(error instanceof Error ? error.message : "No pudimos cargar los enlaces.");
+      })
+      .finally(() => {
+        if (!active) return;
+        setResourceLinksLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [classroomId]);
+
   const isTeacherOfClass = useMemo(() => {
     if (!user || !classroom || user.role !== "TEACHER") return false;
     if (classroom.createdBy === user.id) return true;
@@ -266,6 +294,26 @@ export default function aula() {
     if (classroom?.id) return classroom.id;
     return "Sin código";
   }, [classroom?.classCode, classroom?.id, isClassroomActive]);
+
+  const getResourceTypeMeta = (type: ResourceLinkType) => {
+    switch (type) {
+      case "drive":
+        return { label: "Drive", badge: "bg-emerald-100 text-emerald-700" };
+      case "youtube":
+        return { label: "YouTube", badge: "bg-red-100 text-red-700" };
+      default:
+        return { label: "Externo", badge: "bg-slate-100 text-slate-700" };
+    }
+  };
+
+  const getResourceDisplayUrl = (url: string) => {
+    try {
+      const parsed = new URL(url);
+      return parsed.hostname.replace(/^www\./, "");
+    } catch {
+      return url;
+    }
+  };
 
   return (
     <main className="flex-1">
@@ -452,6 +500,39 @@ export default function aula() {
                       </div>
                     </div>
                   ))}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl shadow p-4">
+              <h3 className="text-lg font-semibold">Enlaces útiles</h3>
+              <div className="mt-3 space-y-2 text-sm">
+                {resourceLinksLoading && <p className="text-gray-500">Cargando enlaces...</p>}
+                {resourceLinksError && !resourceLinksLoading && (
+                  <p className="text-red-600">{resourceLinksError}</p>
+                )}
+                {!resourceLinksLoading && !resourceLinksError && resourceLinks.length === 0 && (
+                  <p className="text-gray-500">No hay enlaces disponibles.</p>
+                )}
+                {!resourceLinksLoading &&
+                  !resourceLinksError &&
+                  resourceLinks.map((link) => {
+                    const meta = getResourceTypeMeta(link.type);
+                    return (
+                      <a
+                        key={link.id}
+                        className="flex items-center justify-between gap-3 rounded-md border border-gray-100 px-3 py-2 hover:border-blue-200 hover:bg-blue-50"
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <div className="flex flex-col">
+                          <span className="font-medium text-gray-900">{getResourceDisplayUrl(link.url)}</span>
+                          <span className="text-xs text-gray-500">{link.url}</span>
+                        </div>
+                        <span className={`text-xs px-2 py-0.5 rounded-full ${meta.badge}`}>{meta.label}</span>
+                      </a>
+                    );
+                  })}
               </div>
             </div>
 
