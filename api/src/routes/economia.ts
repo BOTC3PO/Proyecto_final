@@ -44,10 +44,89 @@ const buildUsuarioObjectId = (usuarioId: string) => {
   return new ObjectId(usuarioId);
 };
 
+const resolveAulaSchoolId = (aula?: { schoolId?: string; institutionId?: string }) => {
+  const schoolId = aula?.schoolId ?? aula?.institutionId;
+  return typeof schoolId === "string" && schoolId.trim() ? schoolId : null;
+};
+
+const resolveMotivoTipoEducativo = (motivo: string) => {
+  const base = motivo.trim().split(":")[0]?.toLowerCase();
+  if (base === "modulo" || base === "quiz" || base === "tarea") return base;
+  return null;
+};
+
+const buildReferenciaMatch = (referenciaId: string) => {
+  if (ObjectId.isValid(referenciaId)) {
+    return { $or: [{ id: referenciaId }, { _id: new ObjectId(referenciaId) }] };
+  }
+  return { id: referenciaId };
+};
+
+const verifyEventoEducativo = async (
+  db: Awaited<ReturnType<typeof getDb>>,
+  tipo: "modulo" | "quiz" | "tarea",
+  referenciaId: string,
+  aulaId: string,
+  schoolId: string
+) => {
+  if (tipo === "modulo") {
+    const modulo = await db.collection("modulos").findOne({ id: referenciaId });
+    if (!modulo) return false;
+    if (modulo.aulaId && modulo.aulaId !== aulaId) return false;
+    if (modulo.schoolId && modulo.schoolId !== schoolId) return false;
+    return true;
+  }
+  if (tipo === "quiz") {
+    const modulo = await db.collection("modulos").findOne({
+      $or: [{ "quizzes.id": referenciaId }, { "levels.quizzes.id": referenciaId }]
+    });
+    if (!modulo) return false;
+    if (modulo.aulaId && modulo.aulaId !== aulaId) return false;
+    if (modulo.schoolId && modulo.schoolId !== schoolId) return false;
+    return true;
+  }
+  const tarea = await db.collection("tareas").findOne(buildReferenciaMatch(referenciaId));
+  if (!tarea) return false;
+  if (tarea.aulaId && tarea.aulaId !== aulaId) return false;
+  if (tarea.schoolId && tarea.schoolId !== schoolId) return false;
+  return true;
+};
+
+const ensureUsuarioEnAula = (
+  aula: { members?: Array<{ userId?: string }>; schoolId?: string; institutionId?: string } | null,
+  usuarioId: string,
+  schoolId: string
+) => {
+  if (!aula) return { ok: false, error: "aula not found" as const, status: 404 };
+  const aulaSchoolId = resolveAulaSchoolId(aula);
+  if (!aulaSchoolId) return { ok: false, error: "classroom schoolId missing" as const, status: 400 };
+  if (aulaSchoolId !== schoolId) return { ok: false, error: "schoolId mismatch" as const, status: 403 };
+  const members = Array.isArray(aula.members) ? aula.members : [];
+  const isMember = members.some((member) => member.userId === usuarioId);
+  if (!isMember) return { ok: false, error: "usuario no pertenece al aula" as const, status: 403 };
+  return { ok: true as const, aulaSchoolId };
+};
+
 const buildPrecioPromedio = (values: number[]) => {
   const valid = values.filter((value) => value > 0);
   if (!valid.length) return 100;
   return valid.reduce((acc, value) => acc + value, 0) / valid.length;
+};
+
+const registerEconomiaAuditoria = async (
+  db: Awaited<ReturnType<typeof getDb>>,
+  payload: {
+    actor: string;
+    motivo: string;
+    verificacion: Record<string, unknown>;
+  }
+) => {
+  await db.collection("economia_auditoria").insertOne({
+    actor: payload.actor,
+    timestamp: new Date().toISOString(),
+    motivo: payload.motivo,
+    verificacion: payload.verificacion
+  });
 };
 
 const MACRO_MODULOS = {
@@ -370,16 +449,46 @@ economia.post(
         createdAt: new Date().toISOString()
       };
       const parsed = TransaccionSchema.parse(payload);
+      const actorId =
+        (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?._id?.toString?.() ??
+        (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?.id ??
+        "desconocido";
       const usuarioObjectId = buildUsuarioObjectId(parsed.usuarioId);
       if (!usuarioObjectId) {
         return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
       }
+      const aula = await db.collection("aulas").findOne({ id: parsed.aulaId });
+      const aulaCheck = ensureUsuarioEnAula(aula, parsed.usuarioId, parsed.schoolId);
+      if (!aulaCheck.ok) {
+        return res.status(aulaCheck.status).json({ error: aulaCheck.error });
+      }
       if (parsed.tipo === "credito") {
+        if (!parsed.referenciaId || !parsed.referenciaId.trim()) {
+          return res.status(400).json({ error: "referenciaId is required for creditos" });
+        }
+        const tipoEvento = resolveMotivoTipoEducativo(parsed.motivo);
+        if (!tipoEvento) {
+          return res
+            .status(400)
+            .json({ error: "motivo debe indicar modulo, quiz o tarea" });
+        }
+        const referenciaValida = await verifyEventoEducativo(
+          db,
+          tipoEvento,
+          parsed.referenciaId,
+          parsed.aulaId,
+          parsed.schoolId
+        );
+        if (!referenciaValida) {
+          return res
+            .status(400)
+            .json({ error: "referencia educativa invalida para el aula/escuela" });
+        }
         if (limites.recompensaMaxima > 0 && parsed.monto > limites.recompensaMaxima) {
           return res.status(400).json({ error: "limite de recompensa excedido" });
         }
         const rangoDia = buildDayRange();
-        const aulaFiltro = parsed.aulaId ? { aulaId: parsed.aulaId } : {};
+        const aulaFiltro = { aulaId: parsed.aulaId, schoolId: parsed.schoolId };
         const baseMatch = {
           tipo: "credito",
           createdAt: { $gte: rangoDia.desde, $lte: rangoDia.hasta },
@@ -439,6 +548,21 @@ economia.post(
         },
         { upsert: true }
       );
+      if (parsed.tipo === "credito") {
+        const verificacion = {
+          usuarioId: parsed.usuarioId,
+          aulaId: parsed.aulaId,
+          schoolId: parsed.schoolId,
+          referenciaId: parsed.referenciaId,
+          tipoEvento: resolveMotivoTipoEducativo(parsed.motivo),
+          valido: true
+        };
+        await registerEconomiaAuditoria(db, {
+          actor: actorId,
+          motivo: parsed.motivo,
+          verificacion
+        });
+      }
       res.status(201).json({ id: parsed.id, saldo: nuevoSaldo });
     } catch (e: any) {
       res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -623,10 +747,18 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
     const db = await getDb();
     const examen = await db.collection("economia_examenes").findOne({ id: req.params.id });
     if (!examen) return res.status(404).json({ error: "examen not found" });
+    if (!examen.aulaId) return res.status(400).json({ error: "aulaId is required" });
     if (examen.estado === "cerrado") {
       return res.status(200).json({ ok: true, message: "examen ya cerrado" });
     }
     const config = await getEconomiaConfig(db);
+    const aula = await db.collection("aulas").findOne({ id: examen.aulaId });
+    const schoolId = resolveAulaSchoolId(aula);
+    if (!schoolId) return res.status(400).json({ error: "classroom schoolId missing" });
+    const actorId =
+      (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?._id?.toString?.() ??
+      (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?.id ??
+      "desconocido";
     const now = new Date().toISOString();
     const pujas = await db
       .collection("economia_examen_pujas")
@@ -657,6 +789,7 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
         id: new ObjectId().toString(),
         usuarioId: puja.usuarioId,
         aulaId: examen.aulaId,
+        schoolId,
         tipo: "debito",
         monto: costoTotal,
         moneda: config.moneda.codigo,
@@ -721,6 +854,7 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
         id: new ObjectId().toString(),
         usuarioId: ganador.usuarioId,
         aulaId: examen.aulaId,
+        schoolId,
         tipo: "credito",
         monto: premio,
         moneda: config.moneda.codigo,
@@ -749,6 +883,18 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
         },
         { upsert: true }
       );
+      await registerEconomiaAuditoria(db, {
+        actor: actorId,
+        motivo: transaccion.motivo,
+        verificacion: {
+          usuarioId: transaccion.usuarioId,
+          aulaId: transaccion.aulaId,
+          schoolId: transaccion.schoolId,
+          referenciaId: transaccion.referenciaId,
+          tipoEvento: "quiz",
+          valido: true
+        }
+      });
     }
     await db.collection("economia_examenes").updateOne(
       { id: req.params.id },

@@ -61,7 +61,8 @@ export const TransaccionTipoSchema = z.enum(["credito", "debito"]);
 export const TransaccionSchema = z.object({
   id: z.string().min(1),
   usuarioId: z.string().min(1),
-  aulaId: z.string().min(1).optional(),
+  aulaId: z.string().min(1),
+  schoolId: z.string().min(1),
   tipo: TransaccionTipoSchema,
   monto: z.number().positive(),
   moneda: z.string().min(1),
