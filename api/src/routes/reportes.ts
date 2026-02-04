@@ -17,6 +17,13 @@ const AprobacionVinculoSchema = z.object({
   parentId: objectIdString
 });
 
+const getAuthenticatedUserId = (req: any) => {
+  const userId = req.user?._id;
+  if (!userId) return null;
+  if (typeof userId === "string") return toObjectId(userId);
+  return userId;
+};
+
 const daysBetween = (start: Date, end: Date) => (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
 
 const isMinor = (birthdate?: Date | null) => {
@@ -94,9 +101,8 @@ const validarAccesoPadre = async (
   return { ok: false, status: 403, error: "approval required" as const };
 };
 
-reportes.post("/api/vinculos/solicitar", async (req, res) => {
-  const parentIdParam = req.header("x-usuario-id");
-  const parentId = typeof parentIdParam === "string" ? toObjectId(parentIdParam) : null;
+reportes.post("/api/vinculos/solicitar", requireUser, async (req, res) => {
+  const parentId = getAuthenticatedUserId(req);
   try {
     const parsed = SolicitudVinculoSchema.parse(req.body);
     const childId = toObjectId(parsed.childId);
@@ -148,9 +154,8 @@ reportes.post("/api/vinculos/solicitar", async (req, res) => {
   }
 });
 
-reportes.post("/api/vinculos/aprobar", async (req, res) => {
-  const childIdParam = req.header("x-usuario-id");
-  const childId = typeof childIdParam === "string" ? toObjectId(childIdParam) : null;
+reportes.post("/api/vinculos/aprobar", requireUser, async (req, res) => {
+  const childId = getAuthenticatedUserId(req);
   try {
     const parsed = AprobacionVinculoSchema.parse(req.body);
     const parentId = toObjectId(parsed.parentId);
@@ -199,9 +204,8 @@ reportes.post("/api/vinculos/aprobar", async (req, res) => {
   }
 });
 
-reportes.get("/api/vinculos/validar", async (req, res) => {
-  const parentIdParam = req.header("x-usuario-id");
-  const parentId = typeof parentIdParam === "string" ? toObjectId(parentIdParam) : null;
+reportes.get("/api/vinculos/validar", requireUser, async (req, res) => {
+  const parentId = getAuthenticatedUserId(req);
   const childIdParam = req.query.childId;
   const childId = typeof childIdParam === "string" ? toObjectId(childIdParam) : null;
   const result = await validarAccesoPadre(parentId, childId);
@@ -209,9 +213,8 @@ reportes.get("/api/vinculos/validar", async (req, res) => {
   return res.json({ ok: true, acceso: result.acceso });
 });
 
-reportes.get("/api/estadisticas/hijos/:hijoId", async (req, res) => {
-  const parentIdParam = req.header("x-usuario-id");
-  const parentId = typeof parentIdParam === "string" ? toObjectId(parentIdParam) : null;
+reportes.get("/api/estadisticas/hijos/:hijoId", requireUser, async (req, res) => {
+  const parentId = getAuthenticatedUserId(req);
   const childId = toObjectId(req.params.hijoId);
   const acceso = await validarAccesoPadre(parentId, childId);
   if (!acceso.ok) return res.status(acceso.status).json({ error: acceso.error });
@@ -223,9 +226,8 @@ reportes.get("/api/estadisticas/hijos/:hijoId", async (req, res) => {
   return res.json({ items, resumen: { completados, total: items.length, progreso } });
 });
 
-reportes.get("/api/informes/hijos/:hijoId", async (req, res) => {
-  const parentIdParam = req.header("x-usuario-id");
-  const parentId = typeof parentIdParam === "string" ? toObjectId(parentIdParam) : null;
+reportes.get("/api/informes/hijos/:hijoId", requireUser, async (req, res) => {
+  const parentId = getAuthenticatedUserId(req);
   const childId = toObjectId(req.params.hijoId);
   const acceso = await validarAccesoPadre(parentId, childId);
   if (!acceso.ok) return res.status(acceso.status).json({ error: acceso.error });
