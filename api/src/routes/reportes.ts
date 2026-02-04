@@ -22,6 +22,21 @@ const isMinor = (birthdate?: Date | null) => {
   return daysBetween(birthdate, new Date()) < 365.25 * 18;
 };
 
+const findParentInvite = async (
+  db: Awaited<ReturnType<typeof getDb>>,
+  parentId: ReturnType<typeof toObjectId>,
+  childId: ReturnType<typeof toObjectId>
+) => {
+  const invite = await db.collection("parent_invites").findOne({
+    parentId,
+    childId,
+    estado: { $ne: "revocada" }
+  });
+  if (!invite) return null;
+  if (invite.expiresAt instanceof Date && invite.expiresAt.getTime() < Date.now()) return null;
+  return invite;
+};
+
 const logReportePadre = async (params: {
   parentId: ReturnType<typeof toObjectId>;
   childId: ReturnType<typeof toObjectId>;
@@ -86,6 +101,19 @@ reportes.post("/api/vinculos/solicitar", async (req, res) => {
     if (!parentId || !childId) return res.status(400).json({ error: "invalid parent or child id" });
     const db = await getDb();
     const existing = await db.collection("vinculos_padre_hijo").findOne({ parentId, childId });
+    const invite = await findParentInvite(db, parentId, childId);
+    if (!invite) {
+      return res.status(403).json({ error: "institutional invite required" });
+    }
+    const activeCount = await db.collection("vinculos_padre_hijo").countDocuments({
+      childId,
+      estado: { $ne: "revocado" },
+      ...(existing ? { _id: { $ne: existing._id } } : {})
+    });
+    const overrideRequested = invite?.overrideParentLimit === true;
+    if (activeCount >= 2 && !overrideRequested) {
+      return res.status(409).json({ error: "child already has max parents" });
+    }
     const now = new Date();
     if (existing) {
       await db.collection("vinculos_padre_hijo").updateOne(
@@ -94,7 +122,10 @@ reportes.post("/api/vinculos/solicitar", async (req, res) => {
           $set: {
             estado: existing.estado === "aprobado" ? "aprobado" : "pendiente",
             solicitadoAt: existing.solicitadoAt ?? now,
-            updatedAt: now
+            updatedAt: now,
+            ...(overrideRequested
+              ? { overrideApprovedBy: invite?.overrideApprovedBy ?? invite?.createdBy ?? null }
+              : {})
           }
         }
       );
@@ -106,7 +137,8 @@ reportes.post("/api/vinculos/solicitar", async (req, res) => {
       estado: "pendiente",
       solicitadoAt: now,
       createdAt: now,
-      updatedAt: now
+      updatedAt: now,
+      ...(overrideRequested ? { overrideApprovedBy: invite?.overrideApprovedBy ?? invite?.createdBy ?? null } : {})
     });
     return res.status(201).json({ ok: true, estado: "pendiente" });
   } catch (e: any) {
@@ -122,19 +154,39 @@ reportes.post("/api/vinculos/aprobar", async (req, res) => {
     const parentId = toObjectId(parsed.parentId);
     if (!parentId || !childId) return res.status(400).json({ error: "invalid parent or child id" });
     const db = await getDb();
+    const existing = await db.collection("vinculos_padre_hijo").findOne({ parentId, childId });
+    const invite = await findParentInvite(db, parentId, childId);
+    if (!invite) {
+      return res.status(403).json({ error: "institutional invite required" });
+    }
+    const activeCount = await db.collection("vinculos_padre_hijo").countDocuments({
+      childId,
+      estado: { $ne: "revocado" },
+      ...(existing ? { _id: { $ne: existing._id } } : {})
+    });
+    const overrideRequested = invite?.overrideParentLimit === true;
+    if (activeCount >= 2 && !overrideRequested) {
+      return res.status(409).json({ error: "child already has max parents" });
+    }
     const result = await db.collection("vinculos_padre_hijo").updateOne(
       { parentId, childId, estado: { $ne: "revocado" } },
       {
         $set: {
           estado: "aprobado",
           aprobadoAt: new Date(),
-          updatedAt: new Date()
+          updatedAt: new Date(),
+          ...(overrideRequested
+            ? { overrideApprovedBy: invite?.overrideApprovedBy ?? invite?.createdBy ?? null }
+            : {})
         },
         $setOnInsert: {
           parentId,
           childId,
           solicitadoAt: new Date(),
-          createdAt: new Date()
+          createdAt: new Date(),
+          ...(overrideRequested
+            ? { overrideApprovedBy: invite?.overrideApprovedBy ?? invite?.createdBy ?? null }
+            : {})
         }
       },
       { upsert: true }
