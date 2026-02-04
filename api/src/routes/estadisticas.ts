@@ -31,6 +31,14 @@ type ActividadSemanalItem = {
   interacciones?: number | null;
 };
 
+type QuizMetricsItem = {
+  _id?: string | null;
+  intentos?: number | null;
+  intentosEntregados?: number | null;
+  promedioScore?: number | null;
+  promedioMaxScore?: number | null;
+};
+
 const buildDateMatch = (filters: StatsFilters, field: string) => {
   const range: { $gte?: Date; $lte?: Date } = {};
   if (filters.fechaInicio) range.$gte = new Date(filters.fechaInicio);
@@ -169,6 +177,109 @@ const buildCsv = (data: Awaited<ReturnType<typeof buildProfesorStats>>) => {
   return rows.map((row) => row.join(",")).join("\n");
 };
 
+const buildQuizMetrics = async (
+  filters: StatsFilters,
+  scopeMatch: Record<string, unknown>
+) => {
+  const db = await getDb();
+  const baseMatch = buildDateMatch(filters, "createdAt");
+  const basePipeline = [
+    { $match: baseMatch },
+    {
+      $lookup: {
+        from: "modulos",
+        localField: "moduleId",
+        foreignField: "id",
+        as: "module"
+      }
+    },
+    { $unwind: { path: "$module", preserveNullAndEmptyArrays: true } },
+    {
+      $lookup: {
+        from: "quizzes",
+        localField: "quizId",
+        foreignField: "id",
+        as: "quizMeta"
+      }
+    },
+    { $unwind: { path: "$quizMeta", preserveNullAndEmptyArrays: true } },
+    {
+      $addFields: {
+        aulaId: "$module.aulaId",
+        docenteId: { $ifNull: ["$module.createdBy", "$quizMeta.createdBy"] },
+        institucionId: {
+          $ifNull: [
+            "$module.schoolId",
+            { $ifNull: ["$module.visibilityConfig.institution", "$quizMeta.schoolId"] }
+          ]
+        }
+      }
+    },
+    { $match: scopeMatch }
+  ];
+
+  const summary = (await db
+    .collection("quiz_attempts")
+    .aggregate([
+      ...basePipeline,
+      {
+        $group: {
+          _id: null,
+          intentos: { $sum: 1 },
+          intentosEntregados: {
+            $sum: { $cond: [{ $in: ["$status", ["submitted", "graded"]] }, 1, 0] }
+          },
+          promedioScore: { $avg: { $ifNull: ["$score", 0] } },
+          promedioMaxScore: { $avg: { $ifNull: ["$maxScore", 0] } }
+        }
+      }
+    ])
+    .toArray()) as QuizMetricsItem[];
+
+  const perQuiz = (await db
+    .collection("quiz_attempts")
+    .aggregate([
+      ...basePipeline,
+      {
+        $group: {
+          _id: "$quizId",
+          intentos: { $sum: 1 },
+          promedioScore: { $avg: { $ifNull: ["$score", 0] } },
+          promedioMaxScore: { $avg: { $ifNull: ["$maxScore", 0] } }
+        }
+      },
+      { $sort: { intentos: -1 } }
+    ])
+    .toArray()) as QuizMetricsItem[];
+
+  const summaryItem = summary[0];
+  const promedioMaxScore = summaryItem?.promedioMaxScore ?? 0;
+  const accuracy =
+    promedioMaxScore > 0 ? Math.round(((summaryItem?.promedioScore ?? 0) / promedioMaxScore) * 100) : 0;
+
+  return {
+    resumen: {
+      intentos: summaryItem?.intentos ?? 0,
+      intentosEntregados: summaryItem?.intentosEntregados ?? 0,
+      scorePromedio: Math.round(summaryItem?.promedioScore ?? 0),
+      maxScorePromedio: Math.round(summaryItem?.promedioMaxScore ?? 0),
+      precisionPromedio: accuracy
+    },
+    quizzes: perQuiz.map((item) => {
+      const maxScore = item.promedioMaxScore ?? 0;
+      const quizAccuracy =
+        maxScore > 0 ? Math.round(((item.promedioScore ?? 0) / maxScore) * 100) : 0;
+      return {
+        quizId: item._id ?? "Sin quiz",
+        intentos: item.intentos ?? 0,
+        scorePromedio: Math.round(item.promedioScore ?? 0),
+        maxScorePromedio: Math.round(item.promedioMaxScore ?? 0),
+        precisionPromedio: quizAccuracy
+      };
+    })
+  };
+};
+
 estadisticas.get("/api/estadisticas/profesor", async (req, res) => {
   const filters: StatsFilters = {
     fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
@@ -204,4 +315,38 @@ estadisticas.get("/api/estadisticas/profesor/export", async (req, res) => {
   res.setHeader("Content-Type", "text/csv");
   res.setHeader("Content-Disposition", "attachment; filename=estadisticas-profesor.csv");
   return res.send(csv);
+});
+
+estadisticas.get("/api/estadisticas/quizzes/aula/:aulaId", async (req, res) => {
+  const aulaId = typeof req.params.aulaId === "string" ? req.params.aulaId : "";
+  if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
+  const filters: StatsFilters = {
+    fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
+    fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined
+  };
+  const data = await buildQuizMetrics(filters, { aulaId });
+  res.json(data);
+});
+
+estadisticas.get("/api/estadisticas/quizzes/docente/:docenteId", async (req, res) => {
+  const docenteId = typeof req.params.docenteId === "string" ? req.params.docenteId : "";
+  if (!docenteId) return res.status(400).json({ error: "docenteId requerido" });
+  const filters: StatsFilters = {
+    fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
+    fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined
+  };
+  const data = await buildQuizMetrics(filters, { docenteId });
+  res.json(data);
+});
+
+estadisticas.get("/api/estadisticas/quizzes/institucion/:institucionId", async (req, res) => {
+  const institucionId =
+    typeof req.params.institucionId === "string" ? req.params.institucionId : "";
+  if (!institucionId) return res.status(400).json({ error: "institucionId requerida" });
+  const filters: StatsFilters = {
+    fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
+    fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined
+  };
+  const data = await buildQuizMetrics(filters, { institucionId });
+  res.json(data);
 });

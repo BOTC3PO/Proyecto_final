@@ -12,7 +12,7 @@ export const QuizVersionSchema = z.preprocess((value) => {
 }, z.number().int().finite());
 
 export const QuizAttemptCreateSchema = z.object({
-  moduleId: z.string().min(1),
+  moduleId: z.string().min(1).optional(),
   quizId: z.string().min(1)
 });
 
