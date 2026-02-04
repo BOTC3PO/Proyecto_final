@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import { z } from "zod";
 import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
@@ -12,9 +13,11 @@ import {
   EconomiaRiesgoCursoSchema,
   ExamenEconomiaSchema,
   EventoEconomicoSchema,
+  IntercambioSchema,
   ModuloEconomiaSchema,
   PujaExamenSchema,
   PuntosExamenSchema,
+  CompraSchema,
   RecompensaSchema,
   SaldoSchema,
   TransaccionSchema
@@ -139,6 +142,16 @@ type MacroModo = "normal" | "inflacion" | "deflacion" | "hiperinflacion";
 
 const roundMoney = (value: number) => Number(value.toFixed(2));
 
+const INTERCAMBIO_LIMITS = {
+  maxDiario: 5,
+  cooldownMinutos: 15,
+  scoreThreshold: 0.7,
+  montoAlto: 500,
+  ventanaCancelacionesDias: 7
+};
+
+const clampScore = (value: number) => Math.max(0, Math.min(1, value));
+
 const buildIsoRange = (desde?: string, hasta?: string) => {
   const now = new Date();
   const defaultDesde = new Date(now);
@@ -162,6 +175,38 @@ const buildDayRange = (date = new Date()) => {
     desde: start.toISOString(),
     hasta: end.toISOString()
   };
+};
+
+const getRequesterId = (req: express.Request) =>
+  (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?._id?.toString?.() ??
+  (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?.id ??
+  null;
+
+const getRequesterRole = (req: express.Request) =>
+  (req as { user?: { role?: string } }).user?.role ?? null;
+
+const canModerateIntercambios = (role: string | null) =>
+  role === "ADMIN" || role === "DIRECTIVO" || role === "TEACHER";
+
+const getRequesterSchoolId = (req: express.Request) => {
+  const user = (req as { user?: { schoolId?: string | null; escuelaId?: unknown } }).user;
+  if (typeof user?.schoolId === "string" && user.schoolId.trim()) return user.schoolId;
+  const escuelaId = user?.escuelaId;
+  if (typeof escuelaId === "string" && escuelaId.trim()) return escuelaId;
+  const escuelaObj = escuelaId as { toString?: () => string };
+  if (escuelaObj?.toString) return escuelaObj.toString();
+  return null;
+};
+
+const buildIntercambioScore = (params: {
+  diarios: number;
+  cancelRatio: number;
+  monto: number;
+}) => {
+  const diarioScore = Math.min(params.diarios / INTERCAMBIO_LIMITS.maxDiario, 1);
+  const cancelScore = clampScore(params.cancelRatio);
+  const montoScore = Math.min(params.monto / INTERCAMBIO_LIMITS.montoAlto, 1);
+  return clampScore(diarioScore * 0.4 + cancelScore * 0.4 + montoScore * 0.2);
 };
 
 const getMacroAjuste = async (db: Awaited<ReturnType<typeof getDb>>) => {
@@ -259,6 +304,22 @@ const PujaExamenCreateSchema = PujaExamenSchema.omit({
   estado: true
 });
 const EconomiaRiesgoCursoUpdateSchema = EconomiaRiesgoCursoSchema.omit({ updatedAt: true }).partial();
+const IntercambioCreateSchema = z.object({
+  aulaId: z.string().min(1),
+  schoolId: z.string().min(1),
+  creadorId: z.string().min(1),
+  receptorId: z.string().min(1),
+  monto: z.number().positive(),
+  moneda: z.string().min(1).optional()
+});
+const CompraCreateSchema = z.object({
+  usuarioId: z.string().min(1),
+  aulaId: z.string().min(1),
+  schoolId: z.string().min(1),
+  concepto: z.string().min(1),
+  monto: z.number().positive(),
+  moneda: z.string().min(1).optional()
+});
 
 economia.get("/api/economia/config", async (_req, res) => {
   const db = await getDb();
@@ -569,6 +630,340 @@ economia.post(
     }
   }
 );
+
+economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+  try {
+    const payload = IntercambioCreateSchema.parse(req.body ?? {});
+    const requesterId = getRequesterId(req);
+    if (!requesterId || requesterId !== payload.creadorId) {
+      return res.status(403).json({ error: "creadorId no coincide con el usuario autenticado" });
+    }
+    if (payload.creadorId === payload.receptorId) {
+      return res.status(400).json({ error: "receptorId debe ser distinto al creador" });
+    }
+    const db = await getDb();
+    const config = await getEconomiaConfig(db);
+    const aula = await db.collection("aulas").findOne({ id: payload.aulaId });
+    const aulaCheck = ensureUsuarioEnAula(aula, payload.creadorId, payload.schoolId);
+    if (!aulaCheck.ok) {
+      return res.status(aulaCheck.status).json({ error: aulaCheck.error });
+    }
+    const receptorCheck = ensureUsuarioEnAula(aula, payload.receptorId, payload.schoolId);
+    if (!receptorCheck.ok) {
+      return res.status(receptorCheck.status).json({ error: receptorCheck.error });
+    }
+    const usuarioObjectId = buildUsuarioObjectId(payload.creadorId);
+    if (!usuarioObjectId) {
+      return res.status(400).json({ error: "creadorId must be a valid ObjectId" });
+    }
+    const saldoDoc = await db.collection("economia_saldos").findOne({
+      usuarioId: usuarioObjectId
+    });
+    const saldoActual = saldoDoc?.saldo ?? 0;
+    if (saldoActual < payload.monto) {
+      return res.status(400).json({ error: "saldo insuficiente" });
+    }
+    const rangoDia = buildDayRange();
+    const totalHoy = await db.collection("economia_intercambios").countDocuments({
+      creadorId: payload.creadorId,
+      createdAt: { $gte: rangoDia.desde, $lte: rangoDia.hasta }
+    });
+    if (totalHoy >= INTERCAMBIO_LIMITS.maxDiario) {
+      return res.status(429).json({ error: "limite diario de intercambios excedido" });
+    }
+    const ultimo = await db.collection("economia_intercambios").findOne(
+      { creadorId: payload.creadorId },
+      { sort: { createdAt: -1 } }
+    );
+    if (ultimo?.createdAt) {
+      const diffMs = Date.now() - new Date(ultimo.createdAt).getTime();
+      if (diffMs < INTERCAMBIO_LIMITS.cooldownMinutos * 60 * 1000) {
+        return res.status(429).json({ error: "cooldown activo para crear intercambios" });
+      }
+    }
+    const inicioCancelaciones = new Date();
+    inicioCancelaciones.setDate(inicioCancelaciones.getDate() - INTERCAMBIO_LIMITS.ventanaCancelacionesDias);
+    const totalVentana = await db.collection("economia_intercambios").countDocuments({
+      creadorId: payload.creadorId,
+      createdAt: { $gte: inicioCancelaciones.toISOString() }
+    });
+    const canceladosVentana = await db.collection("economia_intercambios").countDocuments({
+      creadorId: payload.creadorId,
+      estado: "cancelado",
+      createdAt: { $gte: inicioCancelaciones.toISOString() }
+    });
+    const score = buildIntercambioScore({
+      diarios: totalHoy,
+      cancelRatio: totalVentana ? canceladosVentana / totalVentana : 0,
+      monto: payload.monto
+    });
+    const moderacionEstado = score >= INTERCAMBIO_LIMITS.scoreThreshold ? "pendiente" : "aprobado";
+    const now = new Date().toISOString();
+    const intercambio = IntercambioSchema.parse({
+      id: new ObjectId().toString(),
+      aulaId: payload.aulaId,
+      schoolId: payload.schoolId,
+      creadorId: payload.creadorId,
+      receptorId: payload.receptorId,
+      monto: payload.monto,
+      moneda: payload.moneda ?? config.moneda.codigo,
+      estado: "pendiente",
+      moderacion: {
+        estado: moderacionEstado,
+        updatedAt: now
+      },
+      riesgoScore: score,
+      createdAt: now,
+      updatedAt: now
+    });
+    await db.collection("economia_intercambios").insertOne(intercambio);
+    res.status(201).json({ id: intercambio.id, moderacion: intercambio.moderacion });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
+
+economia.post("/api/economia/intercambios/:id/aceptar", async (req, res) => {
+  try {
+    const db = await getDb();
+    const intercambio = await db.collection("economia_intercambios").findOne({ id: req.params.id });
+    if (!intercambio) return res.status(404).json({ error: "intercambio not found" });
+    if (intercambio.estado !== "pendiente") {
+      return res.status(400).json({ error: "intercambio no disponible" });
+    }
+    if (intercambio.moderacion?.estado !== "aprobado") {
+      return res.status(403).json({ error: "intercambio pendiente de moderacion" });
+    }
+    const requesterId = getRequesterId(req);
+    if (!requesterId || requesterId !== intercambio.receptorId) {
+      return res.status(403).json({ error: "solo el receptor puede aceptar" });
+    }
+    const aula = await db.collection("aulas").findOne({ id: intercambio.aulaId });
+    const creadorCheck = ensureUsuarioEnAula(aula, intercambio.creadorId, intercambio.schoolId);
+    if (!creadorCheck.ok) {
+      return res.status(creadorCheck.status).json({ error: creadorCheck.error });
+    }
+    const receptorCheck = ensureUsuarioEnAula(aula, intercambio.receptorId, intercambio.schoolId);
+    if (!receptorCheck.ok) {
+      return res.status(receptorCheck.status).json({ error: receptorCheck.error });
+    }
+    const creadorObjectId = buildUsuarioObjectId(intercambio.creadorId);
+    const receptorObjectId = buildUsuarioObjectId(intercambio.receptorId);
+    if (!creadorObjectId || !receptorObjectId) {
+      return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+    }
+    const saldoCreador = await db.collection("economia_saldos").findOne({
+      usuarioId: creadorObjectId
+    });
+    const saldoActual = saldoCreador?.saldo ?? 0;
+    if (saldoActual < intercambio.monto) {
+      return res.status(400).json({ error: "saldo insuficiente en creador" });
+    }
+    const config = await getEconomiaConfig(db);
+    const now = new Date().toISOString();
+    const transaccionDebito = TransaccionSchema.parse({
+      id: new ObjectId().toString(),
+      usuarioId: intercambio.creadorId,
+      aulaId: intercambio.aulaId,
+      schoolId: intercambio.schoolId,
+      tipo: "debito",
+      monto: intercambio.monto,
+      moneda: intercambio.moneda ?? config.moneda.codigo,
+      motivo: `intercambio:${intercambio.id}:debito`,
+      referenciaId: intercambio.id,
+      createdAt: now
+    });
+    const transaccionCredito = TransaccionSchema.parse({
+      id: new ObjectId().toString(),
+      usuarioId: intercambio.receptorId,
+      aulaId: intercambio.aulaId,
+      schoolId: intercambio.schoolId,
+      tipo: "credito",
+      monto: intercambio.monto,
+      moneda: intercambio.moneda ?? config.moneda.codigo,
+      motivo: `intercambio:${intercambio.id}:credito`,
+      referenciaId: intercambio.id,
+      createdAt: now
+    });
+    await db.collection("economia_transacciones").insertMany([transaccionDebito, transaccionCredito]);
+    await db.collection("economia_saldos").updateOne(
+      { usuarioId: creadorObjectId },
+      {
+        $set: {
+          usuarioId: creadorObjectId,
+          saldo: saldoActual - intercambio.monto,
+          moneda: transaccionDebito.moneda,
+          updatedAt: now
+        }
+      },
+      { upsert: true }
+    );
+    const saldoReceptor = await db
+      .collection("economia_saldos")
+      .findOne({ usuarioId: receptorObjectId });
+    await db.collection("economia_saldos").updateOne(
+      { usuarioId: receptorObjectId },
+      {
+        $set: {
+          usuarioId: receptorObjectId,
+          saldo: (saldoReceptor?.saldo ?? 0) + intercambio.monto,
+          moneda: transaccionCredito.moneda,
+          updatedAt: now
+        }
+      },
+      { upsert: true }
+    );
+    await db.collection("economia_intercambios").updateOne(
+      { id: intercambio.id },
+      { $set: { estado: "aceptado", updatedAt: now, resolvedAt: now } }
+    );
+    res.json({ ok: true });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
+
+economia.post("/api/economia/intercambios/:id/cancelar", async (req, res) => {
+  try {
+    const db = await getDb();
+    const intercambio = await db.collection("economia_intercambios").findOne({ id: req.params.id });
+    if (!intercambio) return res.status(404).json({ error: "intercambio not found" });
+    if (intercambio.estado !== "pendiente") {
+      return res.status(400).json({ error: "intercambio no disponible" });
+    }
+    const requesterId = getRequesterId(req);
+    if (!requesterId || (requesterId !== intercambio.creadorId && requesterId !== intercambio.receptorId)) {
+      return res.status(403).json({ error: "no autorizado a cancelar" });
+    }
+    const now = new Date().toISOString();
+    await db.collection("economia_intercambios").updateOne(
+      { id: intercambio.id },
+      { $set: { estado: "cancelado", updatedAt: now, resolvedAt: now } }
+    );
+    res.json({ ok: true });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
+
+economia.post(
+  "/api/economia/intercambios/:id/moderar",
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    try {
+      const role = getRequesterRole(req);
+      if (!canModerateIntercambios(role)) {
+        return res.status(403).json({ error: "forbidden" });
+      }
+      const parsed = z
+        .object({
+          estado: z.enum(["aprobado", "bloqueado"]),
+          motivo: z.string().min(1).optional()
+        })
+        .parse(req.body ?? {});
+      const db = await getDb();
+      const intercambio = await db.collection("economia_intercambios").findOne({ id: req.params.id });
+      if (!intercambio) return res.status(404).json({ error: "intercambio not found" });
+      if (role !== "ADMIN") {
+        const requesterSchoolId = getRequesterSchoolId(req);
+        if (!requesterSchoolId || requesterSchoolId !== intercambio.schoolId) {
+          return res.status(403).json({ error: "forbidden" });
+        }
+      }
+      const requesterId = getRequesterId(req) ?? "desconocido";
+      const now = new Date().toISOString();
+      const update: Record<string, unknown> = {
+        moderacion: {
+          estado: parsed.estado,
+          moderadorId: requesterId,
+          motivo: parsed.motivo,
+          updatedAt: now
+        },
+        updatedAt: now
+      };
+      if (parsed.estado === "bloqueado") {
+        update.estado = "bloqueado";
+        update.resolvedAt = now;
+      }
+      await db.collection("economia_intercambios").updateOne({ id: req.params.id }, { $set: update });
+      res.json({ ok: true });
+    } catch (e: any) {
+      res.status(400).json({ error: e?.message ?? "invalid payload" });
+    }
+  }
+);
+
+economia.post("/api/economia/compras", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+  try {
+    const payload = CompraCreateSchema.parse(req.body ?? {});
+    const requesterId = getRequesterId(req);
+    const requesterRole = getRequesterRole(req);
+    const isOwner = requesterId && requesterId === payload.usuarioId;
+    if (!isOwner && !canModerateIntercambios(requesterRole)) {
+      return res.status(403).json({ error: "usuario no autorizado" });
+    }
+    const db = await getDb();
+    const config = await getEconomiaConfig(db);
+    const aula = await db.collection("aulas").findOne({ id: payload.aulaId });
+    const aulaCheck = ensureUsuarioEnAula(aula, payload.usuarioId, payload.schoolId);
+    if (!aulaCheck.ok) {
+      return res.status(aulaCheck.status).json({ error: aulaCheck.error });
+    }
+    const usuarioObjectId = buildUsuarioObjectId(payload.usuarioId);
+    if (!usuarioObjectId) {
+      return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+    }
+    const saldoDoc = await db.collection("economia_saldos").findOne({
+      usuarioId: usuarioObjectId
+    });
+    const saldoActual = saldoDoc?.saldo ?? 0;
+    if (saldoActual < payload.monto) {
+      return res.status(400).json({ error: "saldo insuficiente" });
+    }
+    const now = new Date().toISOString();
+    const compra = CompraSchema.parse({
+      id: new ObjectId().toString(),
+      usuarioId: payload.usuarioId,
+      aulaId: payload.aulaId,
+      schoolId: payload.schoolId,
+      concepto: payload.concepto,
+      monto: payload.monto,
+      moneda: payload.moneda ?? config.moneda.codigo,
+      estado: "completada",
+      createdAt: now,
+      updatedAt: now
+    });
+    const transaccion = TransaccionSchema.parse({
+      id: new ObjectId().toString(),
+      usuarioId: payload.usuarioId,
+      aulaId: payload.aulaId,
+      schoolId: payload.schoolId,
+      tipo: "debito",
+      monto: payload.monto,
+      moneda: compra.moneda,
+      motivo: `compra:${compra.concepto}`,
+      referenciaId: compra.id,
+      createdAt: now
+    });
+    await db.collection("economia_compras").insertOne(compra);
+    await db.collection("economia_transacciones").insertOne(transaccion);
+    await db.collection("economia_saldos").updateOne(
+      { usuarioId: usuarioObjectId },
+      {
+        $set: {
+          usuarioId: usuarioObjectId,
+          saldo: saldoActual - payload.monto,
+          moneda: compra.moneda,
+          updatedAt: now
+        }
+      },
+      { upsert: true }
+    );
+    res.status(201).json({ id: compra.id, saldo: saldoActual - payload.monto });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
 
 economia.get("/api/economia/modulos", async (req, res) => {
   const moduloId = req.query.moduloId;

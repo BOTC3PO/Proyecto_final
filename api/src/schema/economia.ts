@@ -126,6 +126,50 @@ export const PuntosExamenSchema = z.object({
   updatedAt: z.string().datetime()
 });
 
+export const IntercambioModeracionSchema = z.object({
+  estado: z.enum(["pendiente", "aprobado", "bloqueado"]),
+  moderadorId: z.string().min(1).optional(),
+  motivo: z.string().min(1).optional(),
+  updatedAt: z.string().datetime()
+});
+
+export const IntercambioEstadoSchema = z.enum([
+  "pendiente",
+  "aceptado",
+  "cancelado",
+  "rechazado",
+  "bloqueado"
+]);
+
+export const IntercambioSchema = z.object({
+  id: z.string().min(1),
+  aulaId: z.string().min(1),
+  schoolId: z.string().min(1),
+  creadorId: z.string().min(1),
+  receptorId: z.string().min(1),
+  monto: z.number().positive(),
+  moneda: z.string().min(1),
+  estado: IntercambioEstadoSchema,
+  moderacion: IntercambioModeracionSchema,
+  riesgoScore: z.number().min(0).max(1),
+  createdAt: z.string().datetime(),
+  updatedAt: z.string().datetime(),
+  resolvedAt: z.string().datetime().optional()
+});
+
+export const CompraSchema = z.object({
+  id: z.string().min(1),
+  usuarioId: z.string().min(1),
+  aulaId: z.string().min(1),
+  schoolId: z.string().min(1),
+  concepto: z.string().min(1),
+  monto: z.number().positive(),
+  moneda: z.string().min(1),
+  estado: z.enum(["completada", "cancelada"]),
+  createdAt: z.string().datetime(),
+  updatedAt: z.string().datetime()
+});
+
 export type EconomiaConfig = z.infer<typeof EconomiaConfigSchema>;
 export type Saldo = z.infer<typeof SaldoSchema>;
 export type Recompensa = z.infer<typeof RecompensaSchema>;
@@ -136,3 +180,5 @@ export type ExamenEconomia = z.infer<typeof ExamenEconomiaSchema>;
 export type PujaExamen = z.infer<typeof PujaExamenSchema>;
 export type PuntosExamen = z.infer<typeof PuntosExamenSchema>;
 export type EconomiaRiesgoCurso = z.infer<typeof EconomiaRiesgoCursoSchema>;
+export type Intercambio = z.infer<typeof IntercambioSchema>;
+export type Compra = z.infer<typeof CompraSchema>;
