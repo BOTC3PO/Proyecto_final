@@ -8,6 +8,7 @@ import {
   requireActiveInstitutionBenefit,
   requireEnterpriseFeature
 } from "../lib/entitlements";
+import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
   EconomiaConfigSchema,
   EconomiaRiesgoCursoSchema,
@@ -357,10 +358,10 @@ economia.patch("/api/economia/config", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (r
 economia.get("/api/economia/recompensas", async (req, res) => {
   const db = await getDb();
   const tipo = req.query.tipo;
-  const filtro =
+  const filtro: Record<string, unknown> =
     typeof tipo === "string" && ["modulo", "tarea", "bonus"].includes(tipo)
-      ? { tipo }
-      : {};
+      ? { tipo, isDeleted: { $ne: true } }
+      : { isDeleted: { $ne: true } };
   const ajuste = await getMacroAjuste(db);
   const items = await db
     .collection("economia_recompensas")
@@ -392,7 +393,12 @@ economia.post("/api/economia/recompensas", ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
     };
     const parsed = RecompensaSchema.parse(payload);
     const db = await getDb();
-    await db.collection("economia_recompensas").insertOne(parsed);
+    await db.collection("economia_recompensas").insertOne({
+      ...parsed,
+      isDeleted: false,
+      deletedAt: null,
+      deletedBy: null
+    });
     res.status(201).json({ id: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -405,7 +411,10 @@ economia.put("/api/economia/recompensas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), a
     const db = await getDb();
     const result = await db
       .collection("economia_recompensas")
-      .updateOne({ id: req.params.id }, { $set: { ...parsed, updatedAt: new Date().toISOString() } });
+      .updateOne(
+        { id: req.params.id, isDeleted: { $ne: true } },
+        { $set: { ...parsed, updatedAt: new Date().toISOString() } }
+      );
     if (!result.matchedCount) return res.status(404).json({ error: "not found" });
     res.json({ ok: true });
   } catch (e: any) {
@@ -419,7 +428,10 @@ economia.patch("/api/economia/recompensas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB),
     const db = await getDb();
     const result = await db
       .collection("economia_recompensas")
-      .updateOne({ id: req.params.id }, { $set: { ...parsed, updatedAt: new Date().toISOString() } });
+      .updateOne(
+        { id: req.params.id, isDeleted: { $ne: true } },
+        { $set: { ...parsed, updatedAt: new Date().toISOString() } }
+      );
     if (!result.matchedCount) return res.status(404).json({ error: "not found" });
     res.json({ ok: true });
   } catch (e: any) {
@@ -429,8 +441,20 @@ economia.patch("/api/economia/recompensas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB),
 
 economia.delete("/api/economia/recompensas/:id", async (req, res) => {
   const db = await getDb();
-  const result = await db.collection("economia_recompensas").deleteOne({ id: req.params.id });
-  if (!result.deletedCount) return res.status(404).json({ error: "not found" });
+  const now = new Date().toISOString();
+  const deletedBy = getRequesterId(req) ?? "desconocido";
+  const result = await db.collection("economia_recompensas").updateOne(
+    { id: req.params.id, isDeleted: { $ne: true } },
+    {
+      $set: {
+        isDeleted: true,
+        deletedAt: now,
+        deletedBy,
+        updatedAt: now
+      }
+    }
+  );
+  if (!result.matchedCount) return res.status(404).json({ error: "not found" });
   res.status(204).send();
 });
 
@@ -1310,7 +1334,11 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
 
 economia.get("/api/economia/eventos", async (_req, res) => {
   const db = await getDb();
-  const items = await db.collection("economia_eventos").find({}).sort({ updatedAt: -1 }).toArray();
+  const items = await db
+    .collection("economia_eventos")
+    .find({ isDeleted: { $ne: true } })
+    .sort({ updatedAt: -1 })
+    .toArray();
   res.json({ items });
 });
 
@@ -1323,7 +1351,12 @@ economia.post("/api/economia/eventos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (r
     };
     const parsed = EventoEconomicoSchema.parse(payload);
     const db = await getDb();
-    await db.collection("economia_eventos").insertOne(parsed);
+    await db.collection("economia_eventos").insertOne({
+      ...parsed,
+      isDeleted: false,
+      deletedAt: null,
+      deletedBy: null
+    });
     res.status(201).json({ id: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -1336,7 +1369,10 @@ economia.patch("/api/economia/eventos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
     const db = await getDb();
     const result = await db
       .collection("economia_eventos")
-      .updateOne({ id: req.params.id }, { $set: { ...parsed, updatedAt: new Date().toISOString() } });
+      .updateOne(
+        { id: req.params.id, isDeleted: { $ne: true } },
+        { $set: { ...parsed, updatedAt: new Date().toISOString() } }
+      );
     if (!result.matchedCount) return res.status(404).json({ error: "not found" });
     res.json({ ok: true });
   } catch (e: any) {
@@ -1345,6 +1381,72 @@ economia.patch("/api/economia/eventos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
 });
 
 economia.delete("/api/economia/eventos/:id", async (req, res) => {
+  const db = await getDb();
+  const now = new Date().toISOString();
+  const deletedBy = getRequesterId(req) ?? "desconocido";
+  const result = await db.collection("economia_eventos").updateOne(
+    { id: req.params.id, isDeleted: { $ne: true } },
+    {
+      $set: {
+        isDeleted: true,
+        deletedAt: now,
+        deletedBy,
+        updatedAt: now
+      }
+    }
+  );
+  if (!result.matchedCount) return res.status(404).json({ error: "not found" });
+  res.status(204).send();
+});
+
+economia.get("/api/admin/economia/recompensas", requireAdminAuth, async (req, res) => {
+  const db = await getDb();
+  const tipo = req.query.tipo;
+  const includeDeleted = req.query.includeDeleted === "true";
+  const onlyDeleted = req.query.onlyDeleted === "true";
+  const filtro: Record<string, unknown> =
+    typeof tipo === "string" && ["modulo", "tarea", "bonus"].includes(tipo)
+      ? { tipo }
+      : {};
+  if (onlyDeleted) {
+    filtro.isDeleted = true;
+  } else if (!includeDeleted) {
+    filtro.isDeleted = { $ne: true };
+  }
+  const items = await db
+    .collection("economia_recompensas")
+    .find(filtro)
+    .sort({ updatedAt: -1 })
+    .toArray();
+  res.json({ items });
+});
+
+economia.delete("/api/admin/economia/recompensas/:id", requireAdminAuth, async (req, res) => {
+  const db = await getDb();
+  const result = await db.collection("economia_recompensas").deleteOne({ id: req.params.id });
+  if (!result.deletedCount) return res.status(404).json({ error: "not found" });
+  res.status(204).send();
+});
+
+economia.get("/api/admin/economia/eventos", requireAdminAuth, async (_req, res) => {
+  const db = await getDb();
+  const includeDeleted = _req.query.includeDeleted === "true";
+  const onlyDeleted = _req.query.onlyDeleted === "true";
+  const filtro: Record<string, unknown> = {};
+  if (onlyDeleted) {
+    filtro.isDeleted = true;
+  } else if (!includeDeleted) {
+    filtro.isDeleted = { $ne: true };
+  }
+  const items = await db
+    .collection("economia_eventos")
+    .find(filtro)
+    .sort({ updatedAt: -1 })
+    .toArray();
+  res.json({ items });
+});
+
+economia.delete("/api/admin/economia/eventos/:id", requireAdminAuth, async (req, res) => {
   const db = await getDb();
   const result = await db.collection("economia_eventos").deleteOne({ id: req.params.id });
   if (!result.deletedCount) return res.status(404).json({ error: "not found" });
