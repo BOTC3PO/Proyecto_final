@@ -29,7 +29,7 @@ db.createCollection("usuarios", {
         },
         role: {
           bsonType: "string",
-          enum: ["ADMIN", "USER", "PARENT", "TEACHER", "ENTERPRISE", "GUEST"],
+          enum: ["ADMIN", "USER", "PARENT", "TEACHER", "DIRECTIVO", "GUEST"],
           description: "Rol principal"
         },
         escuelaId: {

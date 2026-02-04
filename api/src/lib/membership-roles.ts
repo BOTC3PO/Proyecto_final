@@ -4,7 +4,7 @@ export type MembershipRole = (typeof MEMBERSHIP_ROLES)[number];
 
 const USER_ROLE_TO_MEMBERSHIP_ROLE: Record<string, MembershipRole | null> = {
   ADMIN: "ADMIN",
-  ENTERPRISE: "ADMIN",
+  DIRECTIVO: "ADMIN",
   TEACHER: "TEACHER",
   USER: "STUDENT",
   PARENT: "PARENT",

@@ -6,7 +6,7 @@ export const UsuarioSchema = z.object({
   username: z.string().min(3).max(64),
   email: z.string().email(),
   fullName: z.string().min(3).max(120),
-  role: z.enum(["ADMIN", "USER", "PARENT", "TEACHER", "ENTERPRISE", "GUEST"]),
+  role: z.enum(["ADMIN", "USER", "PARENT", "TEACHER", "DIRECTIVO", "GUEST"]),
   escuelaId: objectIdString.nullish(),
   birthdate: z.string().datetime().nullish(),
   passwordHash: z.string().min(10).nullish(),

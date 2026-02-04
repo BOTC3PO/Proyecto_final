@@ -107,7 +107,7 @@ aulas.post("/api/aulas/:id/reasignar-profesor", requireUser, express.json(), asy
     .user;
   const requesterId = requester?._id?.toString?.() ?? null;
   if (!requesterId) return res.status(403).json({ error: "forbidden" });
-  const isEnterprise = requester?.role === "ENTERPRISE" && requester?.schoolId === schoolId;
+  const isEnterprise = requester?.role === "DIRECTIVO" && requester?.schoolId === schoolId;
   const members = Array.isArray(classroom.members) ? classroom.members : [];
   const isAdminMember = members.some(
     (member: { userId?: string; roleInClass?: string }) =>
