@@ -3,6 +3,7 @@ import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
+import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
   CLASSROOM_ACTIVE_STATUS_VALUES,
   ClassroomCreateSchema,
@@ -25,13 +26,16 @@ const clampLimit = (value: string | undefined) => {
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 
+const getRequesterId = (req: express.Request) =>
+  (req as { user?: { _id?: { toString?: () => string } } }).user?._id?.toString?.() ?? null;
+
 aulas.get("/api/aulas", async (req, res) => {
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const cursor = db
     .collection("aulas")
-    .find({})
+    .find({ isDeleted: { $ne: true } })
     .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
     .limit(limit)
     .sort({ updatedAt: -1 });
@@ -41,7 +45,7 @@ aulas.get("/api/aulas", async (req, res) => {
 
 aulas.get("/api/aulas/:id", async (req, res) => {
   const db = await getDb();
-  const item = await db.collection("aulas").findOne({ id: req.params.id });
+  const item = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
   if (!item) return res.status(404).json({ error: "not found" });
   res.json(item);
 });
@@ -84,7 +88,7 @@ aulas.put("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) =>
   try {
     const parsed = ClassroomUpdateSchema.parse(req.body);
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.id });
+    const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
     if (!classroom) return res.status(404).json({ error: "not found" });
     if (
       isClassroomReadOnlyStatus(classroom.status) &&
@@ -104,7 +108,9 @@ aulas.put("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) =>
       updateOperation.$unset = { classCode: "" };
       delete update.classCode;
     }
-    const result = await db.collection("aulas").updateOne({ id: req.params.id }, updateOperation);
+    const result = await db
+      .collection("aulas")
+      .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, updateOperation);
     if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
     res.json({ ok: true });
   } catch (e: any) {
@@ -116,7 +122,7 @@ aulas.patch("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) 
   try {
     const parsed = ClassroomPatchSchema.parse(req.body);
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.id });
+    const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
     if (!classroom) return res.status(404).json({ error: "not found" });
     if (
       isClassroomReadOnlyStatus(classroom.status) &&
@@ -136,7 +142,9 @@ aulas.patch("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) 
       updateOperation.$unset = { classCode: "" };
       delete update.classCode;
     }
-    const result = await db.collection("aulas").updateOne({ id: req.params.id }, updateOperation);
+    const result = await db
+      .collection("aulas")
+      .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, updateOperation);
     if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
     res.json({ ok: true });
   } catch (e: any) {
@@ -146,7 +154,7 @@ aulas.patch("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) 
 
 aulas.post("/api/aulas/:id/reasignar-profesor", requireUser, express.json(), async (req, res) => {
   const db = await getDb();
-  const classroom = await db.collection("aulas").findOne({ id: req.params.id });
+  const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
   if (!classroom) return res.status(404).json({ error: "not found" });
   if (isClassroomReadOnlyStatus(classroom.status)) {
     return res.status(403).json({ error: "classroom is read-only" });
@@ -219,12 +227,55 @@ aulas.post("/api/aulas/:id/reasignar-profesor", requireUser, express.json(), asy
     teacherId,
     updatedAt: new Date().toISOString()
   };
-  const result = await db.collection("aulas").updateOne({ id: req.params.id }, { $set: update });
+  const result = await db
+    .collection("aulas")
+    .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, { $set: update });
   if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
   res.json({ ok: true });
 });
 
-aulas.delete("/api/aulas/:id", async (req, res) => {
+aulas.delete("/api/aulas/:id", requireUser, async (req, res) => {
+  const db = await getDb();
+  const now = new Date().toISOString();
+  const deletedBy = getRequesterId(req);
+  const result = await db.collection("aulas").updateOne(
+    { id: req.params.id, isDeleted: { $ne: true } },
+    {
+      $set: {
+        isDeleted: true,
+        deletedAt: now,
+        deletedBy,
+        updatedAt: now
+      }
+    }
+  );
+  if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+  res.status(204).send();
+});
+
+aulas.get("/api/admin/aulas", requireAdminAuth, async (req, res) => {
+  const db = await getDb();
+  const limit = clampLimit(req.query.limit as string | undefined);
+  const offset = Number(req.query.offset ?? 0);
+  const includeDeleted = req.query.includeDeleted === "true";
+  const onlyDeleted = req.query.onlyDeleted === "true";
+  const filter: Record<string, unknown> = {};
+  if (onlyDeleted) {
+    filter.isDeleted = true;
+  } else if (!includeDeleted) {
+    filter.isDeleted = { $ne: true };
+  }
+  const items = await db
+    .collection("aulas")
+    .find(filter)
+    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
+    .limit(limit)
+    .sort({ updatedAt: -1 })
+    .toArray();
+  res.json({ items, limit, offset });
+});
+
+aulas.delete("/api/admin/aulas/:id", requireAdminAuth, async (req, res) => {
   const db = await getDb();
   const result = await db.collection("aulas").deleteOne({ id: req.params.id });
   if (result.deletedCount === 0) return res.status(404).json({ error: "not found" });
