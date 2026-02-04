@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail, updateClassroom } from "../services/aulas";
 
 type FormState = {
@@ -16,7 +17,7 @@ const buildInitialState = (classroom: Classroom): FormState => ({
   name: classroom.name,
   description: classroom.description,
   accessType: classroom.accessType,
-  status: classroom.status,
+  status: normalizeClassroomStatus(classroom.status) ?? "ACTIVE",
   institutionId: classroom.institutionId ?? "",
   category: classroom.category ?? "",
 });
@@ -146,8 +147,9 @@ export default function ProfesorAulaConfiguracion() {
                 value={form.status}
                 onChange={(event) => handleFieldChange("status", event.target.value)}
               >
-                <option value="activa">Activa</option>
-                <option value="archivada">Archivada</option>
+                <option value="ACTIVE">Activa</option>
+                <option value="ARCHIVED">Archivada</option>
+                <option value="LOCKED">Bloqueada</option>
               </select>
             </label>
           </div>

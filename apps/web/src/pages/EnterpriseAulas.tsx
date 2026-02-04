@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { getClassroomStatusLabel } from "../domain/classroom/classroom.types";
 import { fetchEnterpriseAulas } from "../services/enterprise";
 
 const ACCESS_LABELS: Record<Classroom["accessType"], string> = {
   publica: "Pública",
   privada: "Privada",
-};
-
-const STATUS_LABELS: Record<Classroom["status"], string> = {
-  activa: "Activa",
-  archivada: "Archivada",
 };
 
 export default function EnterpriseAulas() {
@@ -73,7 +69,7 @@ export default function EnterpriseAulas() {
                   </div>
                 </div>
                 <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                  {STATUS_LABELS[aula.status]}
+                  {getClassroomStatusLabel(aula.status)}
                 </span>
               </div>
             ))}

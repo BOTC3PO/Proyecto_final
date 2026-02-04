@@ -4,7 +4,7 @@ import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
-import { ClassroomSchema } from "../schema/aula";
+import { CLASSROOM_ACTIVE_STATUS_VALUES, ClassroomSchema, isClassroomActiveStatus } from "../schema/aula";
 
 export const enterprise = Router();
 
@@ -66,7 +66,7 @@ enterprise.get("/api/enterprise/dashboard", requireUser, async (req, res) => {
   });
   const activeClassroomCount = await db
     .collection("aulas")
-    .countDocuments({ institutionId: schoolId, status: "activa" });
+    .countDocuments({ institutionId: schoolId, status: { $in: CLASSROOM_ACTIVE_STATUS_VALUES } });
   const moduleCount = await db
     .collection("modulos")
     .countDocuments({ visibility: "escuela", schoolId });
@@ -220,11 +220,15 @@ enterprise.post("/api/enterprise/aulas", requireUser, ...bodyLimitMB(ENV.MAX_PAG
       institutionId: schoolId,
       createdBy: adminId,
       members,
-      status: req.body?.status ?? "activa",
+      status: req.body?.status ?? "ACTIVE",
       createdAt: req.body?.createdAt ?? now,
       updatedAt: req.body?.updatedAt ?? now
     };
     const parsed = ClassroomSchema.parse(payload);
+    if (parsed.classCode && !isClassroomActiveStatus(parsed.status)) {
+      res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
+      return;
+    }
     const result = await db.collection("aulas").insertOne(parsed);
     res.status(201).json({ id: result.insertedId, classroomId: parsed.id });
   } catch (e: any) {

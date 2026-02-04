@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { useAuth } from "../auth/use-auth";
 import {
   createClassroom,
@@ -17,7 +18,7 @@ const emptyForm = {
   name: "",
   description: "",
   accessType: "publica" as Classroom["accessType"],
-  status: "activa" as Classroom["status"],
+  status: "ACTIVE" as Classroom["status"],
   institutionId: "",
   category: ""
 };
@@ -184,7 +185,7 @@ export default function ProfesorAulas() {
       name: classroom.name,
       description: classroom.description,
       accessType: classroom.accessType,
-      status: classroom.status,
+      status: normalizeClassroomStatus(classroom.status) ?? "ACTIVE",
       institutionId: classroom.institutionId ?? "",
       category: classroom.category ?? ""
     });
@@ -232,7 +233,13 @@ export default function ProfesorAulas() {
   const handleArchiveToggle = async (classroom: Classroom) => {
     setSubmitError(null);
     setIsSubmitting(true);
-    const nextStatus = classroom.status === "activa" ? "archivada" : "activa";
+    const normalizedStatus = normalizeClassroomStatus(classroom.status);
+    if (normalizedStatus === "LOCKED") {
+      setSubmitError("El aula está bloqueada y no admite cambios de estado.");
+      setIsSubmitting(false);
+      return;
+    }
+    const nextStatus = normalizedStatus === "ACTIVE" ? "ARCHIVED" : "ACTIVE";
     try {
       await updateClassroom(classroom.id, { status: nextStatus });
       setClassrooms((prev) =>
@@ -263,7 +270,7 @@ export default function ProfesorAulas() {
       name: `${classroom.name} (copia)`,
       description: classroom.description,
       accessType: classroom.accessType,
-      status: "activa",
+      status: "ACTIVE",
       institutionId: classroom.institutionId ?? "",
       category: classroom.category ?? ""
     });
@@ -351,8 +358,9 @@ export default function ProfesorAulas() {
                 onChange={(event) => handleFieldChange("status", event.target.value)}
                 className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
               >
-                <option value="activa">Activa</option>
-                <option value="archivada">Archivada</option>
+                <option value="ACTIVE">Activa</option>
+                <option value="ARCHIVED">Archivada</option>
+                <option value="LOCKED">Bloqueada</option>
               </select>
             </div>
             <div className="md:col-span-2">
@@ -437,12 +445,13 @@ export default function ProfesorAulas() {
                   </div>
                   <span
                     className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                      classroom.status === "archivada"
+                      normalizeClassroomStatus(classroom.status) === "ARCHIVED" ||
+                      normalizeClassroomStatus(classroom.status) === "LOCKED"
                         ? "bg-gray-100 text-gray-600"
                         : "bg-green-100 text-green-700"
                     }`}
                   >
-                    {classroom.status === "archivada" ? "Archivada" : "Activa"}
+                    {getClassroomStatusLabel(classroom.status)}
                   </span>
                 </div>
                 <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-gray-600">
@@ -564,9 +573,13 @@ export default function ProfesorAulas() {
                       type="button"
                       className="rounded-md border border-amber-200 px-3 py-1 text-xs text-amber-700 hover:bg-amber-50"
                       onClick={() => handleArchiveToggle(classroom)}
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || normalizeClassroomStatus(classroom.status) === "LOCKED"}
                     >
-                      {classroom.status === "archivada" ? "Reactivar" : "Archivar"}
+                      {normalizeClassroomStatus(classroom.status) === "LOCKED"
+                        ? "Bloqueada"
+                        : normalizeClassroomStatus(classroom.status) === "ARCHIVED"
+                        ? "Reactivar"
+                        : "Archivar"}
                     </button>
                     <button
                       type="button"

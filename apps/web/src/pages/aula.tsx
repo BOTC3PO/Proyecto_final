@@ -4,6 +4,7 @@ import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail } from "../services/aulas";
 import { createPublication, fetchPublications, type Publication } from "../services/publicaciones";
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
@@ -57,6 +58,12 @@ export default function aula() {
   const [progressError, setProgressError] = useState<string | null>(null);
   const [teacherTools, setTeacherTools] = useState<TeacherTool[]>([]);
   const [toolsError, setToolsError] = useState<string | null>(null);
+  const normalizedStatus = useMemo(
+    () => normalizeClassroomStatus(classroom?.status ?? null),
+    [classroom?.status]
+  );
+  const isClassroomReadOnly = normalizedStatus === "ARCHIVED" || normalizedStatus === "LOCKED";
+  const isClassroomActive = normalizedStatus === "ACTIVE";
 
   const classroomId = useMemo(() => {
     const params = new URLSearchParams(location.search);
@@ -144,6 +151,11 @@ export default function aula() {
     if (!newPublication.trim()) {
       setPublicationStatus("error");
       setPublicationMessage("Escribe una novedad antes de publicar.");
+      return;
+    }
+    if (isClassroomReadOnly) {
+      setPublicationStatus("error");
+      setPublicationMessage("El aula está en modo solo lectura.");
       return;
     }
     setPublicationStatus("submitting");
@@ -249,10 +261,11 @@ export default function aula() {
   }, [classroom?.teacherName, isTeacherOfClass, user?.name]);
 
   const classCode = useMemo(() => {
+    if (!isClassroomActive) return "No disponible";
     if (classroom?.classCode) return classroom.classCode;
     if (classroom?.id) return classroom.id;
     return "Sin código";
-  }, [classroom?.classCode, classroom?.id]);
+  }, [classroom?.classCode, classroom?.id, isClassroomActive]);
 
   return (
     <main className="flex-1">
@@ -261,6 +274,9 @@ export default function aula() {
           <div className="absolute left-5 bottom-3 text-sm">
             {roleLabel} • {teacherName} | Código de clase: {classCode}
           </div>
+          <span className="absolute left-5 top-3 rounded-full bg-white/20 px-3 py-1 text-xs uppercase tracking-wide">
+            {getClassroomStatusLabel(classroom?.status)}
+          </span>
           {user?.role === "TEACHER" ? (
             classroomId ? (
               <Link
@@ -291,11 +307,12 @@ export default function aula() {
                   placeholder="Escribe una novedad..."
                   value={newPublication}
                   onChange={(event) => setNewPublication(event.target.value)}
+                  disabled={isClassroomReadOnly}
                 />
                 <button
                   className="ml-3 bg-blue-600 text-white px-4 py-2 rounded-md disabled:opacity-60"
                   onClick={handleSubmitPublication}
-                  disabled={publicationStatus === "submitting"}
+                  disabled={publicationStatus === "submitting" || isClassroomReadOnly}
                 >
                   {publicationStatus === "submitting" ? "Publicando..." : "Publicar"}
                 </button>
@@ -313,11 +330,17 @@ export default function aula() {
                   multiple
                   className="hidden"
                   onChange={(event) => handleFilesChange(event.target.files)}
+                  disabled={isClassroomReadOnly}
                 />
                 {publicationFiles.length > 0 && (
                   <span className="text-xs text-gray-500">{publicationFiles.length} archivo(s) adjunto(s)</span>
                 )}
               </div>
+              {isClassroomReadOnly && (
+                <p className="mt-3 text-xs text-amber-600">
+                  Esta aula está {normalizedStatus === "ARCHIVED" ? "archivada" : "bloqueada"} y no admite publicaciones.
+                </p>
+              )}
               {publicationMessage && (
                 <p className={`mt-3 text-xs ${publicationStatus === "error" ? "text-red-600" : "text-green-600"}`}>
                   {publicationMessage}

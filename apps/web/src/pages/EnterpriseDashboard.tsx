@@ -98,7 +98,7 @@ export default function EnterpriseDashboard() {
         name: form.name.trim(),
         description: form.description.trim(),
         accessType: form.accessType,
-        status: "activa",
+        status: "ACTIVE",
         institutionId: schoolId ?? undefined,
         category: "Escuela",
         createdBy: form.adminId,
