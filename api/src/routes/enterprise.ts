@@ -2,6 +2,7 @@ import express, { Router } from "express";
 import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
+import { fetchActiveStudentSummary } from "../lib/enterprise-billing";
 import { toObjectId } from "../lib/ids";
 import { ENTERPRISE_FEATURES, getSchoolEntitlements, requireEnterpriseFeature } from "../lib/entitlements";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
@@ -302,6 +303,50 @@ enterprise.get(
     const db = await getDb();
     const items = await db.collection("enterprise_contratos").find({ schoolId }).toArray();
     res.json(items);
+  }
+);
+
+enterprise.get(
+  "/api/enterprise/billing",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.CONTRACTS),
+  async (req, res) => {
+    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
+    if (!schoolId) return;
+    const db = await getDb();
+    const escuela = await db
+      .collection("escuelas")
+      .findOne({ _id: toObjectId(schoolId) ?? schoolId }, { projection: { pricePerStudent: 1 } });
+    const contract = await db
+      .collection("enterprise_contratos")
+      .find({ schoolId })
+      .sort({ createdAt: -1 })
+      .limit(1)
+      .next();
+    const pricePerStudent =
+      typeof escuela?.pricePerStudent === "number"
+        ? escuela.pricePerStudent
+        : typeof contract?.pricePerStudent === "number"
+          ? contract.pricePerStudent
+          : 0;
+    const summary = await fetchActiveStudentSummary(db, schoolId);
+    const breakdown = summary.students.map((student) => ({
+      userId: student.userId,
+      classroomIds: student.classroomIds,
+      classroomCount: student.classroomCount,
+      amount: pricePerStudent
+    }));
+    const total = pricePerStudent * summary.activeStudentCount;
+    const billingCycle = {
+      schoolId,
+      pricePerStudent,
+      activeStudentCount: summary.activeStudentCount,
+      total,
+      breakdown,
+      generatedAt: new Date().toISOString()
+    };
+    await db.collection("enterprise_billing_cycles").insertOne(billingCycle);
+    res.json(billingCycle);
   }
 );
 

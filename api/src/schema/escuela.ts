@@ -6,7 +6,8 @@ export const EscuelaSchema = z.object({
   address: z.string().max(200).nullish(),
   adminIds: z.array(z.string().regex(/^[a-fA-F0-9]{24}$/)).optional(),
   subscriptionStatus: z.enum(["ACTIVE", "PAST_DUE", "SUSPENDED", "INACTIVE"]).optional(),
-  plan: z.enum(["ENTERPRISE_BASIC", "ENTERPRISE_STD", "ENTERPRISE_PLUS"]).optional()
+  plan: z.enum(["ENTERPRISE_BASIC", "ENTERPRISE_STD", "ENTERPRISE_PLUS"]).optional(),
+  pricePerStudent: z.number().nonnegative().optional()
 });
 
 export type EscuelaInput = z.infer<typeof EscuelaSchema>;
