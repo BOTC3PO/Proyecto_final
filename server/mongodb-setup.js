@@ -487,6 +487,63 @@ db.createCollection("movimientos_billetera", {
 });
 
 // ============================================================================
+// QUIZZES COLLECTION
+// ============================================================================
+if (!db.getCollectionNames().includes("quizzes")) {
+  db.createCollection("quizzes", {
+    validator: {
+      $jsonSchema: {
+        bsonType: "object",
+        required: ["id", "title", "type", "visibility", "createdAt", "updatedAt"],
+        properties: {
+          id: { bsonType: "string" },
+          moduleId: { bsonType: ["string", "objectId", "null"] },
+          title: { bsonType: "string" },
+          type: { bsonType: "string" },
+          mode: { bsonType: "string" },
+          visibility: { bsonType: "string" },
+          schoolId: { bsonType: "string" },
+          schoolName: { bsonType: "string" },
+          competitionRules: { bsonType: "string" },
+          competitionRulesVisibility: { bsonType: "string" },
+          currentVersion: { bsonType: "int" },
+          createdBy: { bsonType: ["string", "objectId"] },
+          createdAt: { bsonType: "date" },
+          updatedAt: { bsonType: "date" }
+        }
+      }
+    }
+  });
+}
+
+// ============================================================================
+// QUIZ_VERSIONS COLLECTION
+// ============================================================================
+if (!db.getCollectionNames().includes("quiz_versions")) {
+  db.createCollection("quiz_versions", {
+    validator: {
+      $jsonSchema: {
+        bsonType: "object",
+        required: ["quizId", "version", "createdAt", "updatedAt"],
+        properties: {
+          quizId: { bsonType: ["string", "objectId"] },
+          version: { bsonType: "int" },
+          questions: { bsonType: "array" },
+          generatorId: { bsonType: "string" },
+          generatorVersion: { bsonType: ["int", "string"] },
+          params: { bsonType: "object" },
+          count: { bsonType: "int" },
+          seedPolicy: { bsonType: "string" },
+          fixedSeed: { bsonType: ["string", "int"] },
+          createdAt: { bsonType: "date" },
+          updatedAt: { bsonType: "date" }
+        }
+      }
+    }
+  });
+}
+
+// ============================================================================
 // QUIZ_ATTEMPTS COLLECTION
 // ============================================================================
 if (!db.getCollectionNames().includes("quiz_attempts")) {
@@ -495,7 +552,6 @@ if (!db.getCollectionNames().includes("quiz_attempts")) {
       $jsonSchema: {
         bsonType: "object",
         required: [
-          "moduleId",
           "quizId",
           "quizVersion",
           "userId",
@@ -508,12 +564,13 @@ if (!db.getCollectionNames().includes("quiz_attempts")) {
           "updatedAt"
         ],
         properties: {
-          moduleId: { bsonType: ["string", "objectId"] },
+          moduleId: { bsonType: ["string", "objectId", "null"] },
           quizId: { bsonType: ["string", "objectId"] },
           quizVersion: { bsonType: "int" },
           userId: { bsonType: ["string", "objectId"] },
           seed: { bsonType: ["int", "string", "null"] },
           answers: { bsonType: ["object", "array"] },
+          feedback: { bsonType: "object" },
           score: { bsonType: ["double", "int", "decimal"] },
           maxScore: { bsonType: ["double", "int", "decimal"] },
           status: {
@@ -593,6 +650,14 @@ db.quiz_attempts.createIndex(
   { unique: true, partialFilterExpression: { status: "in_progress" } }
 );
 db.quiz_attempts.createIndex({ moduleId: 1, quizId: 1, userId: 1, createdAt: -1 });
+
+// Quizzes indexes
+db.quizzes.createIndex({ id: 1 }, { unique: true });
+db.quizzes.createIndex({ moduleId: 1 });
+db.quizzes.createIndex({ schoolId: 1 });
+
+// Quiz versions indexes
+db.quiz_versions.createIndex({ quizId: 1, version: 1 }, { unique: true });
 
 // ============================================================================
 // ECONOMIA COLLECTIONS
