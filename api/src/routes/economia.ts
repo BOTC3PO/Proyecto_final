@@ -2,7 +2,11 @@ import express, { Router } from "express";
 import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
-import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
+import {
+  ENTERPRISE_FEATURES,
+  requireActiveInstitutionBenefit,
+  requireEnterpriseFeature
+} from "../lib/entitlements";
 import {
   EconomiaConfigSchema,
   EconomiaRiesgoCursoSchema,
@@ -19,7 +23,11 @@ import { requireUser } from "../lib/user-auth";
 
 export const economia = Router();
 
-economia.use(requireUser, requireEnterpriseFeature(ENTERPRISE_FEATURES.ECONOMY));
+economia.use(
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.ECONOMY),
+  requireActiveInstitutionBenefit
+);
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 

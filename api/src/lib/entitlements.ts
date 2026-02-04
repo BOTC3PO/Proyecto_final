@@ -137,9 +137,19 @@ export const getSchoolEntitlements = async (schoolId: string): Promise<Enterpris
   return buildEntitlementSnapshot(plan, subscriptionStatus);
 };
 
-const resolveSchoolIdFromRequest = (req: { user?: { schoolId?: string | null; escuelaId?: unknown } }) => {
+export const resolveSchoolIdFromRequest = (req: {
+  user?: { schoolId?: string | null; escuelaId?: unknown };
+}) => {
   if (typeof req.user?.schoolId === "string") return req.user.schoolId;
   return normalizeSchoolId(req.user?.escuelaId);
+};
+
+const resolveUserIdFromRequest = (req: {
+  user?: { _id?: { toString?: () => string }; id?: string };
+}) => {
+  if (typeof req.user?._id?.toString === "function") return req.user._id.toString();
+  if (typeof req.user?.id === "string") return req.user.id;
+  return null;
 };
 
 export const requireEnterpriseFeature = (
@@ -159,6 +169,48 @@ export const requireEnterpriseFeature = (
       return res.status(403).json({ error: "subscription past due: read-only access" });
     }
     res.locals.entitlements = entitlements;
+    return next();
+  } catch (error) {
+    return next(error);
+  }
+};
+
+export const hasActiveInstitutionBenefit = async (schoolId: string, userId: string): Promise<boolean> => {
+  const db = await getDb();
+  const match = await db.collection("aulas").findOne({
+    status: "ACTIVE",
+    $or: [{ institutionId: schoolId }, { schoolId }],
+    "members.userId": userId
+  });
+  return Boolean(match);
+};
+
+export const getActiveInstitutionBenefitStatus = async (req: {
+  user?: { schoolId?: string | null; escuelaId?: unknown; _id?: { toString?: () => string }; id?: string };
+}): Promise<{ active: boolean }> => {
+  const schoolId = resolveSchoolIdFromRequest(req);
+  const userId = resolveUserIdFromRequest(req);
+  if (!schoolId || !userId) return { active: false };
+  const active = await hasActiveInstitutionBenefit(schoolId, userId);
+  return { active };
+};
+
+export const requireActiveInstitutionBenefit: RequestHandler = async (req, res, next) => {
+  try {
+    const schoolId = resolveSchoolIdFromRequest(req as {
+      user?: { schoolId?: string | null; escuelaId?: unknown; _id?: { toString?: () => string }; id?: string };
+    });
+    const userId = resolveUserIdFromRequest(req as {
+      user?: { _id?: { toString?: () => string }; id?: string };
+    });
+    if (!schoolId || !userId) {
+      return res.status(403).json({ error: "institutional benefits inactive" });
+    }
+    const active = await hasActiveInstitutionBenefit(schoolId, userId);
+    if (!active) {
+      return res.status(403).json({ error: "institutional benefits inactive" });
+    }
+    res.locals.benefitActive = true;
     return next();
   } catch (error) {
     return next(error);
