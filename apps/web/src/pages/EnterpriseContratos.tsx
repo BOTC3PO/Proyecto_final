@@ -1,14 +1,34 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
+import {
+  ENTERPRISE_FEATURES,
+  canAccessFeature,
+  canWriteFeature
+} from "../entitlements/enterprise";
+import { useEnterpriseEntitlements } from "../hooks/use-enterprise-entitlements";
 import { fetchEnterpriseContratos, type EnterpriseContrato } from "../services/enterprise";
 
 export default function EnterpriseContratos() {
   const { user } = useAuth();
+  const {
+    entitlements,
+    loading: entitlementsLoading,
+    error: entitlementsError
+  } = useEnterpriseEntitlements();
   const [contratos, setContratos] = useState<EnterpriseContrato[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const canViewContratos =
+    entitlements ? canAccessFeature(entitlements, ENTERPRISE_FEATURES.CONTRACTS) : false;
+  const canWriteContratos =
+    entitlements ? canWriteFeature(entitlements, ENTERPRISE_FEATURES.CONTRACTS) : false;
 
   useEffect(() => {
+    if (entitlementsLoading) return;
+    if (!canViewContratos) {
+      setLoading(false);
+      return;
+    }
     let active = true;
     fetchEnterpriseContratos()
       .then((data) => {
@@ -27,7 +47,7 @@ export default function EnterpriseContratos() {
     return () => {
       active = false;
     };
-  }, [user?.id]);
+  }, [user?.id, entitlementsLoading, canViewContratos]);
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
@@ -36,12 +56,23 @@ export default function EnterpriseContratos() {
         <p className="text-base text-slate-600">
           Consulta el estado de los convenios institucionales y sus fechas de renovación.
         </p>
+        {entitlementsError && (
+          <p className="text-sm text-red-500">Error de suscripción: {entitlementsError}</p>
+        )}
+        {!entitlementsLoading && !canViewContratos && (
+          <p className="text-sm text-amber-600">
+            Tu plan actual no incluye la gestión de convenios institucionales.
+          </p>
+        )}
       </header>
 
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-lg font-semibold text-slate-900">Convenios vigentes</h2>
-          <button className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white">
+          <button
+            className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
+            disabled={!canWriteContratos}
+          >
             Nuevo convenio
           </button>
         </div>

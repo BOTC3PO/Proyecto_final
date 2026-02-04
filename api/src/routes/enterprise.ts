@@ -3,6 +3,7 @@ import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
+import { ENTERPRISE_FEATURES, getSchoolEntitlements, requireEnterpriseFeature } from "../lib/entitlements";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
 import { CLASSROOM_ACTIVE_STATUS_VALUES, ClassroomSchema, isClassroomActiveStatus } from "../schema/aula";
 
@@ -31,99 +32,132 @@ const buildSchoolFilters = (schoolId: string) => {
   return { escuelaFilter, escuelaObjectId };
 };
 
-enterprise.get("/api/enterprise/miembros", requireUser, async (req, res) => {
+enterprise.get("/api/enterprise/entitlements", requireUser, async (req, res) => {
   const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
   if (!schoolId) return;
-  const db = await getDb();
-  const { escuelaFilter } = buildSchoolFilters(schoolId);
-  const items = await db
-    .collection("usuarios")
-    .find({
+  const entitlements = await getSchoolEntitlements(schoolId);
+  res.json(entitlements);
+});
+
+enterprise.get(
+  "/api/enterprise/miembros",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.MEMBERS),
+  async (req, res) => {
+    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
+    if (!schoolId) return;
+    const db = await getDb();
+    const { escuelaFilter } = buildSchoolFilters(schoolId);
+    const items = await db
+      .collection("usuarios")
+      .find({
+        ...escuelaFilter,
+        role: { $in: ["ADMIN", "TEACHER"] },
+        isDeleted: { $ne: true }
+      })
+      .project({ fullName: 1, role: 1, escuelaId: 1, username: 1 })
+      .toArray();
+    const staff = items.map((item) => ({
+      id: item._id?.toString?.() ?? "",
+      name: item.fullName ?? item.username ?? "Sin nombre",
+      role: item.role,
+      schoolId: normalizeSchoolId(item.escuelaId) ?? schoolId
+    }));
+    res.json(staff);
+  }
+);
+
+enterprise.get(
+  "/api/enterprise/dashboard",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.DASHBOARD),
+  async (req, res) => {
+    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
+    if (!schoolId) return;
+    const db = await getDb();
+    const entitlements = await getSchoolEntitlements(schoolId);
+    const { escuelaFilter } = buildSchoolFilters(schoolId);
+    const staffCount = await db.collection("usuarios").countDocuments({
       ...escuelaFilter,
       role: { $in: ["ADMIN", "TEACHER"] },
       isDeleted: { $ne: true }
-    })
-    .project({ fullName: 1, role: 1, escuelaId: 1, username: 1 })
-    .toArray();
-  const staff = items.map((item) => ({
-    id: item._id?.toString?.() ?? "",
-    name: item.fullName ?? item.username ?? "Sin nombre",
-    role: item.role,
-    schoolId: normalizeSchoolId(item.escuelaId) ?? schoolId
-  }));
-  res.json(staff);
-});
+    });
+    const activeClassroomCount = await db
+      .collection("aulas")
+      .countDocuments({ institutionId: schoolId, status: { $in: CLASSROOM_ACTIVE_STATUS_VALUES } });
+    const moduleCount = await db
+      .collection("modulos")
+      .countDocuments({ visibility: "escuela", schoolId });
 
-enterprise.get("/api/enterprise/dashboard", requireUser, async (req, res) => {
-  const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
-  if (!schoolId) return;
-  const db = await getDb();
-  const { escuelaFilter } = buildSchoolFilters(schoolId);
-  const staffCount = await db.collection("usuarios").countDocuments({
-    ...escuelaFilter,
-    role: { $in: ["ADMIN", "TEACHER"] },
-    isDeleted: { $ne: true }
-  });
-  const activeClassroomCount = await db
-    .collection("aulas")
-    .countDocuments({ institutionId: schoolId, status: { $in: CLASSROOM_ACTIVE_STATUS_VALUES } });
-  const moduleCount = await db
-    .collection("modulos")
-    .countDocuments({ visibility: "escuela", schoolId });
+    const indicadores = [
+      { id: "staff", label: "Equipo escolar", value: staffCount.toString() },
+      { id: "aulas", label: "Aulas activas", value: activeClassroomCount.toString() },
+      { id: "modulos", label: "Módulos escolares", value: moduleCount.toString() }
+    ];
 
-  const indicadores = [
-    { id: "staff", label: "Equipo escolar", value: staffCount.toString() },
-    { id: "aulas", label: "Aulas activas", value: activeClassroomCount.toString() },
-    { id: "modulos", label: "Módulos escolares", value: moduleCount.toString() }
-  ];
+    const acciones: string[] = [];
+    if (activeClassroomCount === 0) acciones.push("Crear la primera aula de tu institución.");
+    if (moduleCount === 0) acciones.push("Publicar módulos para compartir con docentes.");
+    if (staffCount === 0) acciones.push("Invitar docentes y administradores a la escuela.");
+    if (acciones.length === 0) {
+      acciones.push(
+        "Revisar el avance semanal del equipo.",
+        "Coordinar nuevas capacitaciones con los docentes."
+      );
+    }
 
-  const acciones: string[] = [];
-  if (activeClassroomCount === 0) acciones.push("Crear la primera aula de tu institución.");
-  if (moduleCount === 0) acciones.push("Publicar módulos para compartir con docentes.");
-  if (staffCount === 0) acciones.push("Invitar docentes y administradores a la escuela.");
-  if (acciones.length === 0) {
-    acciones.push(
-      "Revisar el avance semanal del equipo.",
-      "Coordinar nuevas capacitaciones con los docentes."
-    );
+    res.json({ indicadores, acciones, entitlements });
   }
+);
 
-  res.json({ indicadores, acciones });
-});
+enterprise.get(
+  "/api/enterprise/modulos",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.MODULES),
+  async (req, res) => {
+    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
+    if (!schoolId) return;
+    const db = await getDb();
+    const limit = clampLimit(req.query.limit as string | undefined);
+    const offset = Number(req.query.offset ?? 0);
+    const cursor = db
+      .collection("modulos")
+      .find({ visibility: "escuela", schoolId })
+      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
+      .limit(limit)
+      .sort({ updatedAt: -1 });
+    const items = await cursor.toArray();
+    res.json({ items, limit, offset });
+  }
+);
 
-enterprise.get("/api/enterprise/modulos", requireUser, async (req, res) => {
-  const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
-  if (!schoolId) return;
-  const db = await getDb();
-  const limit = clampLimit(req.query.limit as string | undefined);
-  const offset = Number(req.query.offset ?? 0);
-  const cursor = db
-    .collection("modulos")
-    .find({ visibility: "escuela", schoolId })
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ updatedAt: -1 });
-  const items = await cursor.toArray();
-  res.json({ items, limit, offset });
-});
+enterprise.get(
+  "/api/enterprise/aulas",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.CLASSROOMS),
+  async (req, res) => {
+    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
+    if (!schoolId) return;
+    const db = await getDb();
+    const limit = clampLimit(req.query.limit as string | undefined);
+    const offset = Number(req.query.offset ?? 0);
+    const cursor = db
+      .collection("aulas")
+      .find({ institutionId: schoolId })
+      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
+      .limit(limit)
+      .sort({ updatedAt: -1 });
+    const items = await cursor.toArray();
+    res.json({ items, limit, offset });
+  }
+);
 
-enterprise.get("/api/enterprise/aulas", requireUser, async (req, res) => {
-  const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
-  if (!schoolId) return;
-  const db = await getDb();
-  const limit = clampLimit(req.query.limit as string | undefined);
-  const offset = Number(req.query.offset ?? 0);
-  const cursor = db
-    .collection("aulas")
-    .find({ institutionId: schoolId })
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ updatedAt: -1 });
-  const items = await cursor.toArray();
-  res.json({ items, limit, offset });
-});
-
-enterprise.post("/api/enterprise/aulas", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+enterprise.post(
+  "/api/enterprise/aulas",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.CLASSROOMS),
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
   try {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
@@ -234,36 +268,52 @@ enterprise.post("/api/enterprise/aulas", requireUser, ...bodyLimitMB(ENV.MAX_PAG
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
-});
+  }
+);
 
-enterprise.get("/api/enterprise/mensajes", requireUser, async (req, res) => {
-  const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
-  if (!schoolId) return;
-  const db = await getDb();
-  const limit = clampLimit(req.query.limit as string | undefined);
-  const offset = Number(req.query.offset ?? 0);
-  const cursor = db
-    .collection("mensajes_reportados")
-    .find({ schoolId })
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ createdAt: -1 });
-  const items = await cursor.toArray();
-  res.json({ items, limit, offset });
-});
+enterprise.get(
+  "/api/enterprise/mensajes",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.MESSAGES),
+  async (req, res) => {
+    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
+    if (!schoolId) return;
+    const db = await getDb();
+    const limit = clampLimit(req.query.limit as string | undefined);
+    const offset = Number(req.query.offset ?? 0);
+    const cursor = db
+      .collection("mensajes_reportados")
+      .find({ schoolId })
+      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
+      .limit(limit)
+      .sort({ createdAt: -1 });
+    const items = await cursor.toArray();
+    res.json({ items, limit, offset });
+  }
+);
 
-enterprise.get("/api/enterprise/contratos", requireUser, async (req, res) => {
-  const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
-  if (!schoolId) return;
-  const db = await getDb();
-  const items = await db.collection("enterprise_contratos").find({ schoolId }).toArray();
-  res.json(items);
-});
+enterprise.get(
+  "/api/enterprise/contratos",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.CONTRACTS),
+  async (req, res) => {
+    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
+    if (!schoolId) return;
+    const db = await getDb();
+    const items = await db.collection("enterprise_contratos").find({ schoolId }).toArray();
+    res.json(items);
+  }
+);
 
-enterprise.get("/api/enterprise/reportes", requireUser, async (req, res) => {
-  const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
-  if (!schoolId) return;
-  const db = await getDb();
-  const items = await db.collection("enterprise_reportes").find({ schoolId }).toArray();
-  res.json(items);
-});
+enterprise.get(
+  "/api/enterprise/reportes",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.REPORTS),
+  async (req, res) => {
+    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
+    if (!schoolId) return;
+    const db = await getDb();
+    const items = await db.collection("enterprise_reportes").find({ schoolId }).toArray();
+    res.json(items);
+  }
+);

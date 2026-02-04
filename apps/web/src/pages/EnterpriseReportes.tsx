@@ -1,14 +1,31 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
+import {
+  ENTERPRISE_FEATURES,
+  canAccessFeature
+} from "../entitlements/enterprise";
+import { useEnterpriseEntitlements } from "../hooks/use-enterprise-entitlements";
 import { fetchEnterpriseReportes, type EnterpriseReporte } from "../services/enterprise";
 
 export default function EnterpriseReportes() {
   const { user } = useAuth();
+  const {
+    entitlements,
+    loading: entitlementsLoading,
+    error: entitlementsError
+  } = useEnterpriseEntitlements();
   const [reportes, setReportes] = useState<EnterpriseReporte[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const canViewReportes =
+    entitlements ? canAccessFeature(entitlements, ENTERPRISE_FEATURES.REPORTS) : false;
 
   useEffect(() => {
+    if (entitlementsLoading) return;
+    if (!canViewReportes) {
+      setLoading(false);
+      return;
+    }
     let active = true;
     fetchEnterpriseReportes()
       .then((data) => {
@@ -27,7 +44,7 @@ export default function EnterpriseReportes() {
     return () => {
       active = false;
     };
-  }, [user?.id]);
+  }, [user?.id, entitlementsLoading, canViewReportes]);
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
@@ -36,6 +53,14 @@ export default function EnterpriseReportes() {
         <p className="text-base text-slate-600">
           Descarga información clave y comparte insights con los equipos directivos de la escuela.
         </p>
+        {entitlementsError && (
+          <p className="text-sm text-red-500">Error de suscripción: {entitlementsError}</p>
+        )}
+        {!entitlementsLoading && !canViewReportes && (
+          <p className="text-sm text-amber-600">
+            Tu plan actual no incluye reportes avanzados.
+          </p>
+        )}
       </header>
 
       <section className="grid gap-4 md:grid-cols-3">

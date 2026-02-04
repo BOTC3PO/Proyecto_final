@@ -94,6 +94,8 @@ db.createCollection("escuelas", {
           bsonType: "array",
           items: { bsonType: "objectId" }
         },
+        subscriptionStatus: { bsonType: "string", enum: ["ACTIVE", "PAST_DUE", "SUSPENDED", "INACTIVE"] },
+        plan: { bsonType: "string", enum: ["ENTERPRISE_BASIC", "ENTERPRISE_STD", "ENTERPRISE_PLUS"] },
         isDeleted: { bsonType: "bool" },
         createdAt: { bsonType: "date" },
         updatedAt: { bsonType: "date" }
@@ -811,6 +813,8 @@ db.escuelas.insertOne({
   code: "EPN-001",
   address: "Av. Siempre Viva 742",
   adminIds: [adminId],
+  subscriptionStatus: "ACTIVE",
+  plan: "ENTERPRISE_PLUS",
   isDeleted: false,
   createdAt: new Date(),
 });

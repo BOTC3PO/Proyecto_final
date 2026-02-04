@@ -1,5 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "../auth/use-auth";
+import {
+  ENTERPRISE_FEATURES,
+  canAccessFeature
+} from "../entitlements/enterprise";
+import { useEnterpriseEntitlements } from "../hooks/use-enterprise-entitlements";
 import { fetchEnterpriseStaff, type EnterpriseStaffMember } from "../services/enterprise";
 
 const ROLE_LABELS: Record<EnterpriseStaffMember["role"], string> = {
@@ -9,11 +14,23 @@ const ROLE_LABELS: Record<EnterpriseStaffMember["role"], string> = {
 
 export default function EnterpriseMiembros() {
   const { user } = useAuth();
+  const {
+    entitlements,
+    loading: entitlementsLoading,
+    error: entitlementsError
+  } = useEnterpriseEntitlements();
   const [staff, setStaff] = useState<EnterpriseStaffMember[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const canViewStaff =
+    entitlements ? canAccessFeature(entitlements, ENTERPRISE_FEATURES.MEMBERS) : false;
 
   useEffect(() => {
+    if (entitlementsLoading) return;
+    if (!canViewStaff) {
+      setLoading(false);
+      return;
+    }
     let active = true;
     fetchEnterpriseStaff()
       .then((data) => {
@@ -32,7 +49,7 @@ export default function EnterpriseMiembros() {
     return () => {
       active = false;
     };
-  }, [user?.id]);
+  }, [user?.id, entitlementsLoading, canViewStaff]);
 
   const grouped = useMemo(() => {
     return staff.reduce(
@@ -51,6 +68,14 @@ export default function EnterpriseMiembros() {
         <p className="text-base text-slate-600">
           Revisa el personal administrativo y docente asignado a tu institución.
         </p>
+        {entitlementsError && (
+          <p className="text-sm text-red-500">Error de suscripción: {entitlementsError}</p>
+        )}
+        {!entitlementsLoading && !canViewStaff && (
+          <p className="text-sm text-amber-600">
+            Tu plan actual no incluye la gestión de miembros institucionales.
+          </p>
+        )}
       </header>
 
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

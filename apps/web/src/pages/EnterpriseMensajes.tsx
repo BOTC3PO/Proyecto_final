@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
+import {
+  ENTERPRISE_FEATURES,
+  canAccessFeature
+} from "../entitlements/enterprise";
+import { useEnterpriseEntitlements } from "../hooks/use-enterprise-entitlements";
 import { fetchEnterpriseMensajes, type EnterpriseMensaje } from "../services/enterprise";
 
 const resolveMessageId = (message: EnterpriseMensaje, index: number) =>
@@ -17,11 +22,23 @@ const resolveCreatedAt = (message: EnterpriseMensaje) => message.createdAt ?? me
 
 export default function EnterpriseMensajes() {
   const { user } = useAuth();
+  const {
+    entitlements,
+    loading: entitlementsLoading,
+    error: entitlementsError
+  } = useEnterpriseEntitlements();
   const [mensajes, setMensajes] = useState<EnterpriseMensaje[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const canViewMensajes =
+    entitlements ? canAccessFeature(entitlements, ENTERPRISE_FEATURES.MESSAGES) : false;
 
   useEffect(() => {
+    if (entitlementsLoading) return;
+    if (!canViewMensajes) {
+      setLoading(false);
+      return;
+    }
     let active = true;
     fetchEnterpriseMensajes()
       .then((data) => {
@@ -40,7 +57,7 @@ export default function EnterpriseMensajes() {
     return () => {
       active = false;
     };
-  }, [user?.id]);
+  }, [user?.id, entitlementsLoading, canViewMensajes]);
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
@@ -49,6 +66,14 @@ export default function EnterpriseMensajes() {
         <p className="text-base text-slate-600">
           Supervisa los mensajes reportados por la comunidad y su estado actual.
         </p>
+        {entitlementsError && (
+          <p className="text-sm text-red-500">Error de suscripción: {entitlementsError}</p>
+        )}
+        {!entitlementsLoading && !canViewMensajes && (
+          <p className="text-sm text-amber-600">
+            Tu plan actual no incluye la revisión de mensajes reportados.
+          </p>
+        )}
       </header>
 
       <section className="space-y-4">
