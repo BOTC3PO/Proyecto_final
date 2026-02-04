@@ -110,7 +110,7 @@ auth.post("/api/auth/register", async (req, res) => {
     };
     const result = await db.collection("usuarios").insertOne(doc);
     const membershipRole = getCanonicalMembershipRole(role);
-    if (escuelaId && membershipRole && (role === "TEACHER" || role === "ENTERPRISE")) {
+    if (escuelaId && membershipRole && (role === "TEACHER" || role === "DIRECTIVO")) {
       await db.collection("membresias_escuela").insertOne({
         usuarioId: result.insertedId,
         escuelaId,

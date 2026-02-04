@@ -184,7 +184,7 @@ enterprise.post("/api/enterprise/aulas", requireUser, ...bodyLimitMB(ENV.MAX_PAG
       return;
     }
     const adminRole = adminUser.role;
-    if (adminRole !== "ENTERPRISE" && adminRole !== "TEACHER" && adminRole !== "ADMIN") {
+    if (adminRole !== "DIRECTIVO" && adminRole !== "TEACHER" && adminRole !== "ADMIN") {
       res.status(400).json({ error: "admin role invalid" });
       return;
     }

@@ -51,7 +51,7 @@ export default function Login() {
         username: string;
         email: string;
         fullName?: string;
-        role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "ENTERPRISE" | "GUEST";
+        role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST";
         schoolId?: string | null;
       }>("/api/auth/login", { identifier: form.user, password: form.password });
       login(

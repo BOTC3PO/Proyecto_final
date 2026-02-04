@@ -71,8 +71,8 @@ import test from "./sys/testmode";
 
 const testmode = test();
 const moduleAccessRoles = testmode
-  ? ["USER", "PARENT", "TEACHER", "ADMIN", "ENTERPRISE", "GUEST"]
-  : ["USER", "PARENT", "TEACHER", "ADMIN", "ENTERPRISE"];
+  ? ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO", "GUEST"]
+  : ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"];
 const modulePlayRoles = testmode ? ["USER", "PARENT", "TEACHER", "GUEST"] : ["USER", "PARENT", "TEACHER"];
 
 const ModuloEditRedirect = () => {
@@ -448,7 +448,7 @@ export const router = createBrowserRouter([
       {
         path: "enterprise",
         element: (
-          <ProtectedRoute allow={['ENTERPRISE']}>
+          <ProtectedRoute allow={['DIRECTIVO']}>
             <EnterpriseDashboard />
           </ProtectedRoute>
         ),
@@ -456,7 +456,7 @@ export const router = createBrowserRouter([
       {
         path: "enterprise/contratos",
         element: (
-          <ProtectedRoute allow={['ENTERPRISE']}>
+          <ProtectedRoute allow={['DIRECTIVO']}>
             <EnterpriseContratos />
           </ProtectedRoute>
         ),
@@ -464,7 +464,7 @@ export const router = createBrowserRouter([
       {
         path: "enterprise/reportes",
         element: (
-          <ProtectedRoute allow={['ENTERPRISE']}>
+          <ProtectedRoute allow={['DIRECTIVO']}>
             <EnterpriseReportes />
           </ProtectedRoute>
         ),
@@ -472,7 +472,7 @@ export const router = createBrowserRouter([
       {
         path: "enterprise/aulas",
         element: (
-          <ProtectedRoute allow={['ENTERPRISE']}>
+          <ProtectedRoute allow={['DIRECTIVO']}>
             <EnterpriseAulas />
           </ProtectedRoute>
         ),
@@ -480,7 +480,7 @@ export const router = createBrowserRouter([
       {
         path: "enterprise/miembros",
         element: (
-          <ProtectedRoute allow={['ENTERPRISE']}>
+          <ProtectedRoute allow={['DIRECTIVO']}>
             <EnterpriseMiembros />
           </ProtectedRoute>
         ),
@@ -488,7 +488,7 @@ export const router = createBrowserRouter([
       {
         path: "enterprise/modulos",
         element: (
-          <ProtectedRoute allow={['ENTERPRISE']}>
+          <ProtectedRoute allow={['DIRECTIVO']}>
             <EnterpriseModulos />
           </ProtectedRoute>
         ),
@@ -496,7 +496,7 @@ export const router = createBrowserRouter([
       {
         path: "enterprise/mensajes",
         element: (
-          <ProtectedRoute allow={['ENTERPRISE']}>
+          <ProtectedRoute allow={['DIRECTIVO']}>
             <EnterpriseMensajes />
           </ProtectedRoute>
         ),

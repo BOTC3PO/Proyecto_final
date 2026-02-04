@@ -255,7 +255,7 @@ export default function Navbar() {
               <option value="USER">USER (Alumno)</option>
               <option value="PARENT">PARENT</option>
               <option value="TEACHER">TEACHER</option>
-              <option value="ENTERPRISE">ENTERPRISE</option>
+              <option value="DIRECTIVO">DIRECTIVO</option>
               <option value="GUEST">GUEST</option>
             </select>
           ) : null}

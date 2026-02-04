@@ -5,7 +5,7 @@
 Estos roles aplican a todo el sistema:
 
 - **ADMIN**: administrador global con acceso completo a la plataforma.
-- **ENTERPRISE**: rol para cuentas empresariales con acceso a funcionalidades corporativas.
+- **DIRECTIVO**: rol para cuentas institucionales con acceso a funcionalidades corporativas.
 - **TEACHER**: rol global para docentes que pueden operar en el sistema.
 - **USER**: rol base para usuarios sin privilegios administrativos.
 

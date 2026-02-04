@@ -60,7 +60,7 @@ usuarios.get("/api/usuarios", requireUser, async (req, res) => {
   const query: Record<string, unknown> = { isDeleted: { $ne: true } };
   if (role === "ADMIN") {
     // Global access.
-  } else if (role === "ENTERPRISE" || role === "TEACHER") {
+  } else if (role === "DIRECTIVO" || role === "TEACHER") {
     const schoolId =
       typeof user?.schoolId === "string" ? user.schoolId : normalizeSchoolId(user?.escuelaId);
     if (!schoolId) {
