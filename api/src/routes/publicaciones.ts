@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { getDb } from "../lib/db";
 import { isClassroomActiveStatus } from "../schema/aula";
+import { requireUser } from "../lib/user-auth";
+import { getCanonicalMembershipRole } from "../lib/membership-roles";
 
 export const publicaciones = Router();
 
@@ -16,6 +18,19 @@ type CreatePublicationPayload = {
   title?: string;
   archivos?: PublicationAttachment[];
 };
+
+type CreateCommentPayload = {
+  contenido: string;
+};
+
+const TEACHER_PUBLICATION_ROLES = new Set(["TEACHER", "DIRECTIVO", "ADMIN"]);
+
+const getRequester = (req: {
+  user?: { _id?: { toString?: () => string }; role?: string; fullName?: string };
+}) => req.user;
+
+const getRequesterId = (requester: { _id?: { toString?: () => string } } | undefined) =>
+  requester?._id?.toString?.() ?? null;
 
 const sanitizeAttachments = (archivos: unknown): PublicationAttachment[] => {
   if (!Array.isArray(archivos)) return [];
@@ -35,16 +50,22 @@ publicaciones.get("/api/aulas/:id/publicaciones", async (req, res) => {
   const db = await getDb();
   const items = await db
     .collection("publicaciones")
-    .find({ aulaId: req.params.id })
+    .find({ aulaId: req.params.id, isDeleted: { $ne: true } })
     .sort({ createdAt: -1 })
     .toArray();
   res.json({ items });
 });
 
-publicaciones.post("/api/aulas/:id/publicaciones", async (req, res) => {
+publicaciones.post("/api/aulas/:id/publicaciones", requireUser, async (req, res) => {
   const payload = req.body as CreatePublicationPayload | undefined;
   if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
     return res.status(400).json({ error: "contenido requerido" });
+  }
+  const requester = getRequester(req as { user?: { _id?: { toString?: () => string }; role?: string } });
+  const requesterId = getRequesterId(requester);
+  if (!requesterId) return res.status(403).json({ error: "forbidden" });
+  if (!requester?.role || !TEACHER_PUBLICATION_ROLES.has(requester.role)) {
+    return res.status(403).json({ error: "forbidden" });
   }
   const db = await getDb();
   const classroom = await db.collection("aulas").findOne({ id: req.params.id });
@@ -52,7 +73,8 @@ publicaciones.post("/api/aulas/:id/publicaciones", async (req, res) => {
   if (!isClassroomActiveStatus(classroom.status)) {
     return res.status(403).json({ error: "classroom is read-only" });
   }
-  const now = new Date().toISOString();
+  const now = new Date();
+  const nowIso = now.toISOString();
   const attachmentList = sanitizeAttachments(payload.archivos);
   const publication = {
     id: `pub-${Date.now()}`,
@@ -63,9 +85,94 @@ publicaciones.post("/api/aulas/:id/publicaciones", async (req, res) => {
     links: [],
     archivos: attachmentList,
     publishedAtLabel: "Publicado recién",
-    createdAt: now,
-    updatedAt: now
+    createdAt: nowIso,
+    updatedAt: nowIso,
+    isDeleted: false,
+    deletedAt: null,
+    deletedBy: null
   };
   await db.collection("publicaciones").insertOne(publication);
+  await db.collection("moderacion_eventos").insertOne({
+    tipo: "publicacion_creada",
+    publicacionId: publication.id,
+    aulaId: publication.aulaId,
+    usuarioId: requesterId,
+    createdAt: now
+  });
   res.status(201).json(publication);
+});
+
+publicaciones.get("/api/aulas/:id/publicaciones/:pubId/comentarios", async (req, res) => {
+  const db = await getDb();
+  const publication = await db.collection("publicaciones").findOne({
+    id: req.params.pubId,
+    aulaId: req.params.id,
+    isDeleted: { $ne: true }
+  });
+  if (!publication) return res.status(404).json({ error: "publicacion not found" });
+  const items = await db
+    .collection("comentarios")
+    .find({ aulaId: req.params.id, publicacionId: req.params.pubId, isDeleted: { $ne: true } })
+    .sort({ createdAt: 1 })
+    .toArray();
+  res.json({ items });
+});
+
+publicaciones.post("/api/aulas/:id/publicaciones/:pubId/comentarios", requireUser, async (req, res) => {
+  const payload = req.body as CreateCommentPayload | undefined;
+  if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
+    return res.status(400).json({ error: "contenido requerido" });
+  }
+  const requester = getRequester(req as {
+    user?: { _id?: { toString?: () => string }; role?: string; fullName?: string };
+  });
+  const requesterId = getRequesterId(requester);
+  if (!requesterId) return res.status(403).json({ error: "forbidden" });
+  const membershipRole = getCanonicalMembershipRole(requester?.role ?? null);
+  if (membershipRole !== "STUDENT") {
+    return res.status(403).json({ error: "student role required" });
+  }
+  const db = await getDb();
+  const classroom = await db.collection("aulas").findOne({ id: req.params.id });
+  if (!classroom) return res.status(404).json({ error: "classroom not found" });
+  if (!isClassroomActiveStatus(classroom.status)) {
+    return res.status(403).json({ error: "classroom is read-only" });
+  }
+  const members = Array.isArray(classroom.members) ? classroom.members : [];
+  const isStudentMember = members.some(
+    (member: { userId?: string; roleInClass?: string }) =>
+      member.userId === requesterId && member.roleInClass === "STUDENT"
+  );
+  if (!isStudentMember) return res.status(403).json({ error: "student membership required" });
+  const publication = await db.collection("publicaciones").findOne({
+    id: req.params.pubId,
+    aulaId: req.params.id,
+    isDeleted: { $ne: true }
+  });
+  if (!publication) return res.status(404).json({ error: "publicacion not found" });
+  const now = new Date();
+  const nowIso = now.toISOString();
+  const comment = {
+    id: `com-${Date.now()}`,
+    aulaId: req.params.id,
+    publicacionId: req.params.pubId,
+    body: payload.contenido.trim(),
+    authorId: requesterId,
+    authorName: requester?.fullName ?? null,
+    createdAt: nowIso,
+    updatedAt: nowIso,
+    isDeleted: false,
+    deletedAt: null,
+    deletedBy: null
+  };
+  await db.collection("comentarios").insertOne(comment);
+  await db.collection("moderacion_eventos").insertOne({
+    tipo: "comentario_creado",
+    comentarioId: comment.id,
+    publicacionId: comment.publicacionId,
+    aulaId: comment.aulaId,
+    usuarioId: requesterId,
+    createdAt: now
+  });
+  res.status(201).json(comment);
 });
