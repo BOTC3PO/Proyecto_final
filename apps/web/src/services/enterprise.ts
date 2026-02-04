@@ -1,6 +1,7 @@
 import { apiGet } from "../lib/api";
 import type { ClassroomListResponse } from "../domain/classroom/classroom.types";
 import type { Module } from "../domain/module/module.types";
+import type { EnterpriseEntitlements } from "../entitlements/enterprise";
 
 export type EnterpriseIndicator = {
   id: string;
@@ -18,6 +19,7 @@ export type EnterpriseStaffMember = {
 export type EnterpriseDashboardData = {
   indicadores: EnterpriseIndicator[];
   acciones: string[];
+  entitlements?: EnterpriseEntitlements;
 };
 
 export type EnterpriseContrato = {
@@ -62,6 +64,10 @@ export async function fetchEnterpriseStaff(): Promise<EnterpriseStaffMember[]> {
 
 export async function fetchEnterpriseDashboard(): Promise<EnterpriseDashboardData> {
   return apiGet<EnterpriseDashboardData>("/api/enterprise/dashboard");
+}
+
+export async function fetchEnterpriseEntitlements(): Promise<EnterpriseEntitlements> {
+  return apiGet<EnterpriseEntitlements>("/api/enterprise/entitlements");
 }
 
 export async function fetchEnterpriseContratos(): Promise<EnterpriseContrato[]> {

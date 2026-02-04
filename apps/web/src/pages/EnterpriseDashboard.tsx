@@ -1,5 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "../auth/use-auth";
+import {
+  ENTERPRISE_FEATURES,
+  canAccessFeature,
+  canWriteFeature
+} from "../entitlements/enterprise";
+import { useEnterpriseEntitlements } from "../hooks/use-enterprise-entitlements";
 import { createClassroom } from "../services/aulas";
 import {
   fetchEnterpriseDashboard,
@@ -19,6 +25,11 @@ type CreateClassForm = {
 export default function EnterpriseDashboard() {
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? null;
+  const {
+    entitlements,
+    loading: entitlementsLoading,
+    error: entitlementsError
+  } = useEnterpriseEntitlements();
   const [staff, setStaff] = useState<EnterpriseStaffMember[]>([]);
   const [dashboard, setDashboard] = useState<EnterpriseDashboardData | null>(null);
   const [loadingDashboard, setLoadingDashboard] = useState(true);
@@ -33,8 +44,17 @@ export default function EnterpriseDashboard() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const canManageMembers =
+    entitlements ? canAccessFeature(entitlements, ENTERPRISE_FEATURES.MEMBERS) : false;
+  const canWriteClassrooms =
+    entitlements ? canWriteFeature(entitlements, ENTERPRISE_FEATURES.CLASSROOMS) : false;
 
   useEffect(() => {
+    if (entitlementsLoading) return;
+    if (!canManageMembers) {
+      setStaff([]);
+      return;
+    }
     let active = true;
     fetchEnterpriseStaff()
       .then((data) => {
@@ -49,7 +69,7 @@ export default function EnterpriseDashboard() {
     return () => {
       active = false;
     };
-  }, [user?.id]);
+  }, [user?.id, entitlementsLoading, canManageMembers]);
 
   useEffect(() => {
     let active = true;
@@ -81,6 +101,10 @@ export default function EnterpriseDashboard() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!canWriteClassrooms) {
+      setMessage("Tu suscripción no permite crear nuevas aulas.");
+      return;
+    }
     if (!form.name.trim() || !form.description.trim()) {
       setMessage("Completa el nombre y la descripción del aula.");
       return;
@@ -123,6 +147,19 @@ export default function EnterpriseDashboard() {
         <p className="text-base text-slate-600">
           Supervisa el estado académico de tu institución y asigna aulas a docentes y administradores.
         </p>
+        {entitlementsError && (
+          <p className="text-sm text-red-500">Error de suscripción: {entitlementsError}</p>
+        )}
+        {entitlements?.accessLevel === "read_only" && (
+          <p className="text-sm text-amber-600">
+            Tu suscripción está en mora. Puedes consultar información, pero no crear nuevas aulas.
+          </p>
+        )}
+        {entitlements?.accessLevel === "disabled" && (
+          <p className="text-sm text-red-600">
+            La suscripción está suspendida o inactiva. Las funciones premium están deshabilitadas.
+          </p>
+        )}
       </header>
 
       <section className="grid gap-4 md:grid-cols-3">
@@ -162,6 +199,7 @@ export default function EnterpriseDashboard() {
               onChange={(event) => updateField("name", event.target.value)}
               placeholder="Ej. 3° B - Primaria"
               required
+              disabled={!canWriteClassrooms}
             />
           </label>
           <label className="grid gap-2 text-sm font-semibold text-slate-700 md:col-span-2">
@@ -172,6 +210,7 @@ export default function EnterpriseDashboard() {
               onChange={(event) => updateField("description", event.target.value)}
               placeholder="Describe objetivos o lineamientos principales."
               required
+              disabled={!canWriteClassrooms}
             />
           </label>
           <label className="grid gap-2 text-sm font-semibold text-slate-700">
@@ -180,6 +219,7 @@ export default function EnterpriseDashboard() {
               className="rounded-md border border-slate-200 px-3 py-2 text-sm"
               value={form.accessType}
               onChange={(event) => updateField("accessType", event.target.value)}
+              disabled={!canWriteClassrooms}
             >
               <option value="privada">Privada</option>
               <option value="publica">Pública</option>
@@ -191,6 +231,7 @@ export default function EnterpriseDashboard() {
               className="rounded-md border border-slate-200 px-3 py-2 text-sm"
               value={form.teacherId}
               onChange={(event) => updateField("teacherId", event.target.value)}
+              disabled={!canWriteClassrooms || !canManageMembers}
             >
               <option value="">Selecciona un docente</option>
               {teachers.map((teacher) => (
@@ -207,6 +248,7 @@ export default function EnterpriseDashboard() {
               className="rounded-md border border-slate-200 px-3 py-2 text-sm"
               value={form.adminId}
               onChange={(event) => updateField("adminId", event.target.value)}
+              disabled={!canWriteClassrooms || !canManageMembers}
             >
               <option value="">Selecciona un administrador</option>
               {admins.map((admin) => (
@@ -221,7 +263,7 @@ export default function EnterpriseDashboard() {
             <button
               type="submit"
               className="inline-flex items-center justify-center rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 disabled:opacity-60"
-              disabled={isSubmitting}
+              disabled={isSubmitting || !canWriteClassrooms}
             >
               {isSubmitting ? "Creando..." : "Crear aula"}
             </button>

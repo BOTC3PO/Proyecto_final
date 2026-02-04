@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabel } from "../domain/classroom/classroom.types";
+import {
+  ENTERPRISE_FEATURES,
+  canAccessFeature
+} from "../entitlements/enterprise";
+import { useEnterpriseEntitlements } from "../hooks/use-enterprise-entitlements";
 import { fetchEnterpriseAulas } from "../services/enterprise";
 
 const ACCESS_LABELS: Record<Classroom["accessType"], string> = {
@@ -11,11 +16,23 @@ const ACCESS_LABELS: Record<Classroom["accessType"], string> = {
 
 export default function EnterpriseAulas() {
   const { user } = useAuth();
+  const {
+    entitlements,
+    loading: entitlementsLoading,
+    error: entitlementsError
+  } = useEnterpriseEntitlements();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const canViewAulas =
+    entitlements ? canAccessFeature(entitlements, ENTERPRISE_FEATURES.CLASSROOMS) : false;
 
   useEffect(() => {
+    if (entitlementsLoading) return;
+    if (!canViewAulas) {
+      setLoading(false);
+      return;
+    }
     let active = true;
     fetchEnterpriseAulas()
       .then((data) => {
@@ -34,7 +51,7 @@ export default function EnterpriseAulas() {
     return () => {
       active = false;
     };
-  }, [user?.id]);
+  }, [user?.id, entitlementsLoading, canViewAulas]);
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
@@ -43,6 +60,14 @@ export default function EnterpriseAulas() {
         <p className="text-base text-slate-600">
           Administra las aulas activas de tu institución y revisa su estado actual.
         </p>
+        {entitlementsError && (
+          <p className="text-sm text-red-500">Error de suscripción: {entitlementsError}</p>
+        )}
+        {!entitlementsLoading && !canViewAulas && (
+          <p className="text-sm text-amber-600">
+            Tu plan actual no incluye la administración de aulas institucionales.
+          </p>
+        )}
       </header>
 
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

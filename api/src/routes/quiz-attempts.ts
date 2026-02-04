@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import type { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
+import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
 import { toObjectId } from "../lib/ids";
 import { requireUser } from "../lib/user-auth";
 import {
@@ -97,7 +98,12 @@ const gradeAnswers = (
 
 export const quizAttempts = Router();
 
-quizAttempts.post("/api/quiz-attempts", ...bodyLimitMB(2), requireUser, async (req, res) => {
+quizAttempts.post(
+  "/api/quiz-attempts",
+  ...bodyLimitMB(2),
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  async (req, res) => {
   try {
     const payload = QuizAttemptCreateSchema.parse(req.body);
     const db = await getDb();
@@ -137,9 +143,14 @@ quizAttempts.post("/api/quiz-attempts", ...bodyLimitMB(2), requireUser, async (r
   } catch (error: any) {
     res.status(400).json({ error: error?.message ?? "invalid payload" });
   }
-});
+  }
+);
 
-quizAttempts.get("/api/quiz-attempts/:id", requireUser, async (req, res) => {
+quizAttempts.get(
+  "/api/quiz-attempts/:id",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  async (req, res) => {
   const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
   const attemptObjectId = toObjectId(idParam);
   if (!attemptObjectId) return res.status(400).json({ error: "invalid attempt id" });
@@ -170,12 +181,14 @@ quizAttempts.get("/api/quiz-attempts/:id", requireUser, async (req, res) => {
     answers: attempt.answers,
     quiz: quiz ? { title: quiz.title, questions: quiz.questions ?? [] } : undefined
   });
-});
+  }
+);
 
 quizAttempts.post(
   "/api/quiz-attempts/:id/submit",
   ...bodyLimitMB(2),
   requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
   async (req, res) => {
     try {
       const payload = QuizAttemptSubmitSchema.parse(req.body);

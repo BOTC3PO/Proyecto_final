@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { z } from "zod";
 import { getDb } from "../lib/db";
+import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
 import { toObjectId } from "../lib/ids";
+import { requireUser } from "../lib/user-auth";
 
 export const reportes = Router();
 
@@ -388,5 +390,15 @@ const handleReporte = (rol: "profesor" | "admin") => (req: any, res: any) => {
   return res.json(data);
 };
 
-reportes.get("/api/reportes/profesor", handleReporte("profesor"));
-reportes.get("/api/reportes/admin", handleReporte("admin"));
+reportes.get(
+  "/api/reportes/profesor",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.REPORTS),
+  handleReporte("profesor")
+);
+reportes.get(
+  "/api/reportes/admin",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.REPORTS),
+  handleReporte("admin")
+);

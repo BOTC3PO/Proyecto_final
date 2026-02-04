@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import type { Module, ModuleVisibility } from "../domain/module/module.types";
+import {
+  ENTERPRISE_FEATURES,
+  canAccessFeature
+} from "../entitlements/enterprise";
+import { useEnterpriseEntitlements } from "../hooks/use-enterprise-entitlements";
 import { fetchEnterpriseModulos } from "../services/enterprise";
 
 const VISIBILITY_LABELS: Record<ModuleVisibility, string> = {
@@ -13,11 +18,23 @@ const resolveMateria = (module: Module) => module.subject || module.category || 
 
 export default function EnterpriseModulos() {
   const { user } = useAuth();
+  const {
+    entitlements,
+    loading: entitlementsLoading,
+    error: entitlementsError
+  } = useEnterpriseEntitlements();
   const [modules, setModules] = useState<Module[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const canViewModules =
+    entitlements ? canAccessFeature(entitlements, ENTERPRISE_FEATURES.MODULES) : false;
 
   useEffect(() => {
+    if (entitlementsLoading) return;
+    if (!canViewModules) {
+      setLoading(false);
+      return;
+    }
     let active = true;
     fetchEnterpriseModulos()
       .then((data) => {
@@ -36,7 +53,7 @@ export default function EnterpriseModulos() {
     return () => {
       active = false;
     };
-  }, [user?.id]);
+  }, [user?.id, entitlementsLoading, canViewModules]);
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
@@ -45,6 +62,14 @@ export default function EnterpriseModulos() {
         <p className="text-base text-slate-600">
           Visualiza los módulos disponibles para tu institución y su visibilidad actual.
         </p>
+        {entitlementsError && (
+          <p className="text-sm text-red-500">Error de suscripción: {entitlementsError}</p>
+        )}
+        {!entitlementsLoading && !canViewModules && (
+          <p className="text-sm text-amber-600">
+            Tu plan actual no incluye el catálogo de módulos institucionales.
+          </p>
+        )}
       </header>
 
       <section className="grid gap-4 md:grid-cols-2">
