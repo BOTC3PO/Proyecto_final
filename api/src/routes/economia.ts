@@ -21,7 +21,6 @@ import {
   PuntosExamenSchema,
   CompraSchema,
   RecompensaSchema,
-  SaldoSchema,
   TransaccionSchema
 } from "../schema/economia";
 import { requireUser } from "../lib/user-auth";
@@ -301,7 +300,14 @@ const getEconomiaConfig = async (db: Awaited<ReturnType<typeof getDb>>) => {
 
 const ConfigUpdateSchema = EconomiaConfigSchema.omit({ id: true, updatedAt: true }).partial();
 const RecompensaUpdateSchema = RecompensaSchema.omit({ id: true, updatedAt: true }).partial();
-const SaldoUpdateSchema = SaldoSchema.omit({ usuarioId: true, updatedAt: true }).partial();
+const SaldoManualUpdateSchema = z.object({
+  saldo: z.number().min(0),
+  moneda: z.string().min(1).optional(),
+  motivo: z.string().min(1),
+  referenciaId: z.string().min(1),
+  aulaId: z.string().min(1),
+  schoolId: z.string().min(1)
+});
 const ModuloEconomiaUpdateSchema = ModuloEconomiaSchema.omit({ moduloId: true, updatedAt: true }).partial();
 const EventoEconomicoUpdateSchema = EventoEconomicoSchema.omit({ id: true, updatedAt: true }).partial();
 const ExamenEconomiaUpdateSchema = ExamenEconomiaSchema.omit({ id: true, updatedAt: true }).partial();
@@ -490,9 +496,12 @@ economia.get("/api/economia/saldos", async (req, res) => {
   });
 });
 
-economia.patch("/api/economia/saldos/:usuarioId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
-  try {
-    if (!ensureCanMintCurrency(req, res)) return;
+economia.patch(
+  "/api/economia/saldos/:usuarioId",
+  requireAdminAuth,
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    const actorId = getRequesterId(req) ?? "desconocido";
     const usuarioId = normalizeUsuarioId(req.params.usuarioId);
     if (!usuarioId) {
       return res.status(400).json({ error: "usuarioId is required" });
@@ -501,17 +510,109 @@ economia.patch("/api/economia/saldos/:usuarioId", ...bodyLimitMB(ENV.MAX_PAGE_MB
     if (!usuarioObjectId) {
       return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
     }
-    const parsed = SaldoUpdateSchema.parse(req.body ?? {});
+    if (!ensureCanMintCurrency(req, res)) return;
     const db = await getDb();
-    const update = { ...parsed, usuarioId: usuarioObjectId, updatedAt: new Date().toISOString() };
+    const parsedResult = SaldoManualUpdateSchema.safeParse(req.body ?? {});
+    if (!parsedResult.success) {
+      await registerEconomiaAuditoria(db, {
+        actor: actorId,
+        motivo: typeof req.body?.motivo === "string" ? req.body.motivo : "desconocido",
+        verificacion: {
+          usuarioId,
+          referenciaId: req.body?.referenciaId ?? null,
+          resultado: "payload_invalido"
+        }
+      });
+      return res.status(400).json({ error: "invalid payload" });
+    }
+    const parsed = parsedResult.data;
+    const tipoEvento = resolveMotivoTipoEducativo(parsed.motivo);
+    if (!tipoEvento) {
+      await registerEconomiaAuditoria(db, {
+        actor: actorId,
+        motivo: parsed.motivo,
+        verificacion: {
+          usuarioId,
+          referenciaId: parsed.referenciaId,
+          resultado: "motivo_invalido",
+          valido: false
+        }
+      });
+      return res.status(400).json({ error: "motivo debe indicar modulo, quiz o tarea" });
+    }
+    const aula = await db.collection("aulas").findOne({ id: parsed.aulaId });
+    const aulaCheck = ensureUsuarioEnAula(aula, usuarioId, parsed.schoolId);
+    if (!aulaCheck.ok) {
+      await registerEconomiaAuditoria(db, {
+        actor: actorId,
+        motivo: parsed.motivo,
+        verificacion: {
+          usuarioId,
+          referenciaId: parsed.referenciaId,
+          resultado: "aula_invalida",
+          detalle: aulaCheck.error,
+          valido: false
+        }
+      });
+      return res.status(aulaCheck.status).json({ error: aulaCheck.error });
+    }
+    const referenciaValida = await verifyEventoEducativo(
+      db,
+      tipoEvento,
+      parsed.referenciaId,
+      parsed.aulaId,
+      parsed.schoolId
+    );
+    if (!referenciaValida) {
+      await registerEconomiaAuditoria(db, {
+        actor: actorId,
+        motivo: parsed.motivo,
+        verificacion: {
+          usuarioId,
+          referenciaId: parsed.referenciaId,
+          resultado: "referencia_invalida",
+          valido: false
+        }
+      });
+      return res
+        .status(400)
+        .json({ error: "referencia educativa invalida para el aula/escuela" });
+    }
+    const saldoDoc = await db.collection("economia_saldos").findOne({
+      usuarioId: usuarioObjectId
+    });
+    const saldoActual = saldoDoc?.saldo ?? 0;
+    const nuevoSaldo = parsed.saldo;
+    const config = await getEconomiaConfig(db);
+    const moneda =
+      parsed.moneda ?? saldoDoc?.moneda ?? config.moneda.codigo;
+    const update = {
+      usuarioId: usuarioObjectId,
+      saldo: nuevoSaldo,
+      moneda,
+      updatedAt: new Date().toISOString()
+    };
     const result = await db
       .collection("economia_saldos")
       .updateOne({ usuarioId: usuarioObjectId }, { $set: update }, { upsert: true });
+    await registerEconomiaAuditoria(db, {
+      actor: actorId,
+      motivo: parsed.motivo,
+      verificacion: {
+        usuarioId,
+        referenciaId: parsed.referenciaId,
+        aulaId: parsed.aulaId,
+        schoolId: parsed.schoolId,
+        saldoAnterior: saldoActual,
+        saldoNuevo: nuevoSaldo,
+        incremento: nuevoSaldo > saldoActual,
+        resultado: "aprobado",
+        valido: true
+      }
+    });
     res.status(result.upsertedCount ? 201 : 200).json({ ok: true });
-  } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
-});
+);
 
 economia.get("/api/economia/transacciones", async (req, res) => {
   const usuarioId = req.query.usuarioId;
