@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
+import { assertClassroomWritable } from "../lib/classroom";
 import { SurveyBaseSchema, SurveySchema } from "../schema/encuesta";
 
 export const encuestas = Router();
@@ -62,6 +63,9 @@ encuestas.post("/api/encuestas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, re
     const db = await getDb();
     const classroom = await db.collection("aulas").findOne({ id: parsed.classroomId });
     if (!classroom) return res.status(400).json({ error: "classroom not found" });
+    if (!assertClassroomWritable(res, classroom)) {
+      return;
+    }
     const result = await db.collection("encuestas").insertOne(parsed);
     res.status(201).json({ id: result.insertedId, surveyId: parsed.id });
   } catch (e: any) {
@@ -73,9 +77,15 @@ encuestas.put("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req,
   try {
     const parsed = SurveyUpdateSchema.parse(req.body);
     const db = await getDb();
+    const survey = await db.collection("encuestas").findOne({ id: req.params.id });
+    if (!survey) return res.status(404).json({ error: "not found" });
+    const classroom = await db.collection("aulas").findOne({ id: survey.classroomId });
+    if (!classroom) return res.status(404).json({ error: "classroom not found" });
+    if (!assertClassroomWritable(res, classroom)) {
+      return;
+    }
     const update = { ...parsed, updatedAt: new Date().toISOString() };
-    const result = await db.collection("encuestas").updateOne({ id: req.params.id }, { $set: update });
-    if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+    await db.collection("encuestas").updateOne({ id: req.params.id }, { $set: update });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -86,9 +96,15 @@ encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (re
   try {
     const parsed = SurveyUpdateSchema.parse(req.body);
     const db = await getDb();
+    const survey = await db.collection("encuestas").findOne({ id: req.params.id });
+    if (!survey) return res.status(404).json({ error: "not found" });
+    const classroom = await db.collection("aulas").findOne({ id: survey.classroomId });
+    if (!classroom) return res.status(404).json({ error: "classroom not found" });
+    if (!assertClassroomWritable(res, classroom)) {
+      return;
+    }
     const update = { ...parsed, updatedAt: new Date().toISOString() };
-    const result = await db.collection("encuestas").updateOne({ id: req.params.id }, { $set: update });
-    if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+    await db.collection("encuestas").updateOne({ id: req.params.id }, { $set: update });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -97,6 +113,13 @@ encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (re
 
 encuestas.delete("/api/encuestas/:id", async (req, res) => {
   const db = await getDb();
+  const survey = await db.collection("encuestas").findOne({ id: req.params.id });
+  if (!survey) return res.status(404).json({ error: "not found" });
+  const classroom = await db.collection("aulas").findOne({ id: survey.classroomId });
+  if (!classroom) return res.status(404).json({ error: "classroom not found" });
+  if (!assertClassroomWritable(res, classroom)) {
+    return;
+  }
   const result = await db.collection("encuestas").deleteOne({ id: req.params.id });
   if (result.deletedCount === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
@@ -113,6 +136,11 @@ encuestas.post("/api/encuestas/:id/votos", ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
   }
   try {
     const db = await getDb();
+    const classroom = await db.collection("aulas").findOne({ id: aulaId });
+    if (!classroom) return res.status(404).json({ error: "classroom not found" });
+    if (!assertClassroomWritable(res, classroom)) {
+      return;
+    }
     const survey = await db.collection("encuestas").findOne({ id: req.params.id, classroomId: aulaId });
     if (!survey) return res.status(404).json({ error: "not found" });
     const optionList = (survey.options ?? []) as Array<{ id: string; label: string }>;
