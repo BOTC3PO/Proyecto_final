@@ -1,7 +1,7 @@
 import express, { Router } from "express";
 import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
-import { getCanonicalMembershipRole } from "../lib/membership-roles";
+import { canReadAsLearner, isStaffRole } from "../lib/authorization";
 import { requireUser } from "../lib/user-auth";
 import { isClassroomReadOnlyStatus } from "../schema/aula";
 import { ResourceLinkSchema } from "../schema/resource-link";
@@ -26,16 +26,6 @@ const getUserId = (user?: { _id?: ObjectId | string }) => {
 
 const getSchoolId = (user?: { schoolId?: string | null }) =>
   typeof user?.schoolId === "string" ? user.schoolId : null;
-
-const isStaffRole = (role?: string | null) => {
-  const membership = getCanonicalMembershipRole(role ?? undefined);
-  return membership === "ADMIN" || membership === "TEACHER";
-};
-
-const canReadAsLearner = (role?: string | null) => {
-  const membership = getCanonicalMembershipRole(role ?? undefined);
-  return membership === "STUDENT" || membership === "PARENT";
-};
 
 const buildClassroomSchoolId = (classroom?: { schoolId?: string; institutionId?: string }) =>
   classroom?.schoolId ?? classroom?.institutionId ?? null;
