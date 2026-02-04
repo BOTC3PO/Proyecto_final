@@ -333,6 +333,10 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   const [coinFeedback, setCoinFeedback] = useState<CoinFeedback | null>(null);
   const [missionContribution, setMissionContribution] = useState<Record<string, number>>({});
   const [openSimulationId, setOpenSimulationId] = useState<string | null>(null);
+  const [benefitsStatus, setBenefitsStatus] = useState<"loading" | "active" | "inactive" | "error">(
+    "loading"
+  );
+  const [benefitsError, setBenefitsError] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -380,6 +384,32 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   }, [user?.id]);
 
   useEffect(() => {
+    let active = true;
+    if (!user?.id) {
+      setBenefitsStatus("error");
+      setBenefitsError("No se encontró un alumno autenticado.");
+      return () => {
+        active = false;
+      };
+    }
+    setBenefitsStatus("loading");
+    setBenefitsError(null);
+    apiGet<{ active: boolean }>("/api/beneficios/estado")
+      .then((response) => {
+        if (!active) return;
+        setBenefitsStatus(response.active ? "active" : "inactive");
+      })
+      .catch((error) => {
+        if (!active) return;
+        setBenefitsStatus("error");
+        setBenefitsError(error instanceof Error ? error.message : "No se pudo validar beneficios.");
+      });
+    return () => {
+      active = false;
+    };
+  }, [user?.id]);
+
+  useEffect(() => {
     const stored = localStorage.getItem(ECONOMY_STORAGE_KEY);
     if (!stored) return;
     try {
@@ -403,6 +433,19 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   }, [coinFeedback]);
 
   const progressLabel = useMemo(() => `${completedModules} módulos completados`, [completedModules]);
+  const benefitsValue = useMemo(() => {
+    switch (benefitsStatus) {
+      case "active":
+        return "Vigentes";
+      case "inactive":
+        return "No vigentes";
+      case "error":
+        return "Sin información";
+      case "loading":
+      default:
+        return "Verificando...";
+    }
+  }, [benefitsStatus]);
 
   const completedModuleSet = useMemo(() => new Set(economy.completedModuleIds), [economy.completedModuleIds]);
   const completedTaskSet = useMemo(() => new Set(economy.completedTaskIds), [economy.completedTaskIds]);
@@ -751,6 +794,9 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             {progressStatus === "error" && progressError && (
               <p className="text-sm text-red-600">{progressError}</p>
             )}
+            {benefitsStatus === "error" && benefitsError && (
+              <p className="text-sm text-red-600">{benefitsError}</p>
+            )}
             {progressStatus === "ready" && modulesCount === 0 && (
               <p className="text-sm text-gray-500">Todavía no tenés módulos asignados.</p>
             )}
@@ -763,6 +809,11 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
               icon={<Trophy className="h-6 w-6 text-yellow-500" />}
               label="Módulos completos"
               value={`${completedModules} Módulos`}
+            />
+            <InfoCard
+              icon={<Award className="h-6 w-6 text-emerald-600" />}
+              label="Beneficios vigentes"
+              value={benefitsValue}
             />
             <ProgressBar percent={progressPercent} label={progressLabel} />
           </div>

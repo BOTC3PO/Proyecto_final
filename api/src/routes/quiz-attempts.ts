@@ -1,7 +1,11 @@
 import express, { Router } from "express";
 import type { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
-import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
+import {
+  ENTERPRISE_FEATURES,
+  requireActiveInstitutionBenefit,
+  requireEnterpriseFeature
+} from "../lib/entitlements";
 import { toObjectId } from "../lib/ids";
 import { requireUser } from "../lib/user-auth";
 import {
@@ -103,6 +107,7 @@ quizAttempts.post(
   ...bodyLimitMB(2),
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requireActiveInstitutionBenefit,
   async (req, res) => {
   try {
     const payload = QuizAttemptCreateSchema.parse(req.body);
@@ -150,6 +155,7 @@ quizAttempts.get(
   "/api/quiz-attempts/:id",
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requireActiveInstitutionBenefit,
   async (req, res) => {
   const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
   const attemptObjectId = toObjectId(idParam);
@@ -189,6 +195,7 @@ quizAttempts.post(
   ...bodyLimitMB(2),
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requireActiveInstitutionBenefit,
   async (req, res) => {
     try {
       const payload = QuizAttemptSubmitSchema.parse(req.body);
