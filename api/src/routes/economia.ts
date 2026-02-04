@@ -3,6 +3,7 @@ import { z } from "zod";
 import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
+import { canModerateIntercambios } from "../lib/authorization";
 import {
   ENTERPRISE_FEATURES,
   requireActiveInstitutionBenefit,
@@ -185,9 +186,6 @@ const getRequesterId = (req: express.Request) =>
 
 const getRequesterRole = (req: express.Request) =>
   (req as { user?: { role?: string } }).user?.role ?? null;
-
-const canModerateIntercambios = (role: string | null) =>
-  role === "ADMIN" || role === "DIRECTIVO" || role === "TEACHER";
 
 const getRequesterSchoolId = (req: express.Request) => {
   const user = (req as { user?: { schoolId?: string | null; escuelaId?: unknown } }).user;

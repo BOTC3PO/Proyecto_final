@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { getDb } from "../lib/db";
 import { isClassroomActiveStatus } from "../schema/aula";
+import { canPostAsStudent, canPostInClass } from "../lib/authorization";
 import { requireUser } from "../lib/user-auth";
-import { getCanonicalMembershipRole } from "../lib/membership-roles";
 
 export const publicaciones = Router();
 
@@ -22,8 +22,6 @@ type CreatePublicationPayload = {
 type CreateCommentPayload = {
   contenido: string;
 };
-
-const TEACHER_PUBLICATION_ROLES = new Set(["TEACHER", "DIRECTIVO", "ADMIN"]);
 
 const getRequester = (req: {
   user?: { _id?: { toString?: () => string }; role?: string; fullName?: string };
@@ -64,7 +62,7 @@ publicaciones.post("/api/aulas/:id/publicaciones", requireUser, async (req, res)
   const requester = getRequester(req as { user?: { _id?: { toString?: () => string }; role?: string } });
   const requesterId = getRequesterId(requester);
   if (!requesterId) return res.status(403).json({ error: "forbidden" });
-  if (!requester?.role || !TEACHER_PUBLICATION_ROLES.has(requester.role)) {
+  if (!canPostInClass(requester?.role ?? null)) {
     return res.status(403).json({ error: "forbidden" });
   }
   const db = await getDb();
@@ -128,8 +126,7 @@ publicaciones.post("/api/aulas/:id/publicaciones/:pubId/comentarios", requireUse
   });
   const requesterId = getRequesterId(requester);
   if (!requesterId) return res.status(403).json({ error: "forbidden" });
-  const membershipRole = getCanonicalMembershipRole(requester?.role ?? null);
-  if (membershipRole !== "STUDENT") {
+  if (!canPostAsStudent(requester?.role ?? null)) {
     return res.status(403).json({ error: "student role required" });
   }
   const db = await getDb();

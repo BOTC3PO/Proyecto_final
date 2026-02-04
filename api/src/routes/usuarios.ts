@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { canManageParents, canViewAllUsers } from "../lib/authorization";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
@@ -58,9 +59,9 @@ usuarios.get("/api/usuarios", requireUser, async (req, res) => {
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const query: Record<string, unknown> = { isDeleted: { $ne: true } };
-  if (role === "ADMIN") {
+  if (canViewAllUsers(role)) {
     // Global access.
-  } else if (role === "DIRECTIVO" || role === "TEACHER") {
+  } else if (canManageParents(role)) {
     const schoolId =
       typeof user?.schoolId === "string" ? user.schoolId : normalizeSchoolId(user?.escuelaId);
     if (!schoolId) {
@@ -69,9 +70,6 @@ usuarios.get("/api/usuarios", requireUser, async (req, res) => {
     }
     const escuelaObjectId = toObjectId(schoolId);
     query.escuelaId = escuelaObjectId ?? schoolId;
-  } else if (role === "USER" || role === "PARENT") {
-    res.status(403).json({ error: "forbidden" });
-    return;
   } else {
     res.status(403).json({ error: "forbidden" });
     return;
