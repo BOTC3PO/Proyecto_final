@@ -3,7 +3,7 @@ import { z } from "zod";
 import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
-import { canModerateIntercambios } from "../lib/authorization";
+import { canMintCurrency, canModerateIntercambios } from "../lib/authorization";
 import {
   ENTERPRISE_FEATURES,
   requireActiveInstitutionBenefit,
@@ -197,6 +197,15 @@ const getRequesterSchoolId = (req: express.Request) => {
   return null;
 };
 
+const ensureCanMintCurrency = (req: express.Request, res: express.Response) => {
+  const role = getRequesterRole(req);
+  if (!canMintCurrency(role)) {
+    res.status(403).json({ error: "forbidden" });
+    return false;
+  }
+  return true;
+};
+
 const buildIntercambioScore = (params: {
   diarios: number;
   cancelRatio: number;
@@ -384,6 +393,7 @@ economia.get("/api/economia/recompensas", async (req, res) => {
 
 economia.post("/api/economia/recompensas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    if (!ensureCanMintCurrency(req, res)) return;
     const payload = {
       ...req.body,
       id: req.body?.id ?? new ObjectId().toString(),
@@ -405,6 +415,7 @@ economia.post("/api/economia/recompensas", ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
 
 economia.put("/api/economia/recompensas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    if (!ensureCanMintCurrency(req, res)) return;
     const parsed = RecompensaUpdateSchema.parse(req.body ?? {});
     const db = await getDb();
     const result = await db
@@ -422,6 +433,7 @@ economia.put("/api/economia/recompensas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), a
 
 economia.patch("/api/economia/recompensas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    if (!ensureCanMintCurrency(req, res)) return;
     const parsed = RecompensaUpdateSchema.parse(req.body ?? {});
     const db = await getDb();
     const result = await db
@@ -438,6 +450,7 @@ economia.patch("/api/economia/recompensas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB),
 });
 
 economia.delete("/api/economia/recompensas/:id", async (req, res) => {
+  if (!ensureCanMintCurrency(req, res)) return;
   const db = await getDb();
   const now = new Date().toISOString();
   const deletedBy = getRequesterId(req) ?? "desconocido";
@@ -479,6 +492,7 @@ economia.get("/api/economia/saldos", async (req, res) => {
 
 economia.patch("/api/economia/saldos/:usuarioId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    if (!ensureCanMintCurrency(req, res)) return;
     const usuarioId = normalizeUsuarioId(req.params.usuarioId);
     if (!usuarioId) {
       return res.status(400).json({ error: "usuarioId is required" });
@@ -522,6 +536,7 @@ economia.post(
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
+      if (!ensureCanMintCurrency(req, res)) return;
       const db = await getDb();
       const config = await getEconomiaConfig(db);
       const limites = config.limites ?? defaultConfig().limites;
@@ -747,6 +762,7 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
 
 economia.post("/api/economia/intercambios/:id/aceptar", async (req, res) => {
   try {
+    if (!ensureCanMintCurrency(req, res)) return;
     const db = await getDb();
     const intercambio = await db.collection("economia_intercambios").findOne({ id: req.params.id });
     if (!intercambio) return res.status(404).json({ error: "intercambio not found" });
@@ -917,6 +933,7 @@ economia.post(
 
 economia.post("/api/economia/compras", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    if (!ensureCanMintCurrency(req, res)) return;
     const payload = CompraCreateSchema.parse(req.body ?? {});
     const requesterId = getRequesterId(req);
     const requesterRole = getRequesterRole(req);
@@ -1161,6 +1178,7 @@ economia.get("/api/economia/examenes/puntos", async (req, res) => {
 
 economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
   try {
+    if (!ensureCanMintCurrency(req, res)) return;
     const db = await getDb();
     const examen = await db.collection("economia_examenes").findOne({ id: req.params.id });
     if (!examen) return res.status(404).json({ error: "examen not found" });
