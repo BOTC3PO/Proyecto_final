@@ -2,6 +2,7 @@ import express, { Router } from "express";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
+import { canCreateClass, canManageClassroom, canManageParents } from "../lib/authorization";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
@@ -29,6 +30,12 @@ const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 const getRequesterId = (req: express.Request) =>
   (req as { user?: { _id?: { toString?: () => string } } }).user?._id?.toString?.() ?? null;
 
+const getRequesterRole = (req: express.Request) =>
+  (req as { user?: { role?: string | null } }).user?.role ?? null;
+
+const getRequesterSchoolId = (req: express.Request) =>
+  (req as { user?: { schoolId?: string | null } }).user?.schoolId ?? null;
+
 aulas.get("/api/aulas", async (req, res) => {
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
@@ -50,8 +57,12 @@ aulas.get("/api/aulas/:id", async (req, res) => {
   res.json(item);
 });
 
-aulas.post("/api/aulas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+aulas.post("/api/aulas", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    const role = getRequesterRole(req);
+    if (!canCreateClass(role)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
     const now = new Date().toISOString();
     const payload = {
       ...req.body,
@@ -84,8 +95,12 @@ aulas.post("/api/aulas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   }
 });
 
-aulas.put("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+aulas.put("/api/aulas/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    const role = getRequesterRole(req);
+    if (!canManageParents(role)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
     const parsed = ClassroomUpdateSchema.parse(req.body);
     const db = await getDb();
     const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
@@ -118,8 +133,12 @@ aulas.put("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) =>
   }
 });
 
-aulas.patch("/api/aulas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+aulas.patch("/api/aulas/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    const role = getRequesterRole(req);
+    if (!canManageParents(role)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
     const parsed = ClassroomPatchSchema.parse(req.body);
     const db = await getDb();
     const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
@@ -163,17 +182,21 @@ aulas.post("/api/aulas/:id/reasignar-profesor", requireUser, express.json(), asy
   if (!schoolId || typeof schoolId !== "string") {
     return res.status(400).json({ error: "classroom schoolId missing" });
   }
-  const requester = (req as { user?: { _id?: { toString?: () => string }; role?: string; schoolId?: string | null } })
-    .user;
-  const requesterId = requester?._id?.toString?.() ?? null;
-  if (!requesterId) return res.status(403).json({ error: "forbidden" });
-  const isEnterprise = requester?.role === "DIRECTIVO" && requester?.schoolId === schoolId;
+  const requesterId = getRequesterId(req);
+  const requesterRole = getRequesterRole(req);
+  const requesterSchoolId = getRequesterSchoolId(req);
   const members = Array.isArray(classroom.members) ? classroom.members : [];
-  const isAdminMember = members.some(
-    (member: { userId?: string; roleInClass?: string }) =>
-      member.userId === requesterId && member.roleInClass === "ADMIN"
-  );
-  if (!isEnterprise && !isAdminMember) return res.status(403).json({ error: "forbidden" });
+  if (
+    !canManageClassroom({
+      requesterId,
+      requesterRole,
+      requesterSchoolId,
+      classroomSchoolId: schoolId,
+      classroomMembers: members
+    })
+  ) {
+    return res.status(403).json({ error: "forbidden" });
+  }
 
   const teacherIdRaw =
     typeof req.body?.teacherId === "string"
@@ -235,6 +258,10 @@ aulas.post("/api/aulas/:id/reasignar-profesor", requireUser, express.json(), asy
 });
 
 aulas.delete("/api/aulas/:id", requireUser, async (req, res) => {
+  const role = getRequesterRole(req);
+  if (!canManageParents(role)) {
+    return res.status(403).json({ error: "forbidden" });
+  }
   const db = await getDb();
   const now = new Date().toISOString();
   const deletedBy = getRequesterId(req);
