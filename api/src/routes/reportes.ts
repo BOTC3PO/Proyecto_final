@@ -46,6 +46,32 @@ const findParentInvite = async (
   return invite;
 };
 
+const resolveOverrideApprovedBy = (invite: { overrideApprovedBy?: unknown; createdBy?: unknown } | null) => {
+  if (!invite) return null;
+  const candidate = invite.overrideApprovedBy ?? invite.createdBy ?? null;
+  if (!candidate) return null;
+  if (typeof candidate === "string") return toObjectId(candidate);
+  return candidate;
+};
+
+const logOverrideParentLimit = async (params: {
+  parentId: ReturnType<typeof toObjectId>;
+  childId: ReturnType<typeof toObjectId>;
+  inviteId: unknown;
+  overrideApprovedBy: ReturnType<typeof toObjectId>;
+  requestedBy: ReturnType<typeof toObjectId>;
+}) => {
+  const db = await getDb();
+  await db.collection("eventos_reportes_padres").insertOne({
+    parentId: params.parentId,
+    childId: params.childId,
+    inviteId: params.inviteId,
+    overrideApprovedBy: params.overrideApprovedBy,
+    requestedBy: params.requestedBy,
+    createdAt: new Date()
+  });
+};
+
 const logReportePadre = async (params: {
   parentId: ReturnType<typeof toObjectId>;
   childId: ReturnType<typeof toObjectId>;
@@ -119,10 +145,23 @@ reportes.post("/api/vinculos/solicitar", requireUser, async (req, res) => {
       ...(existing ? { _id: { $ne: existing._id } } : {})
     });
     const overrideRequested = invite?.overrideParentLimit === true;
+    const overrideApprovedBy = overrideRequested ? resolveOverrideApprovedBy(invite) : null;
+    if (overrideRequested && !overrideApprovedBy) {
+      return res.status(403).json({ error: "override approver required" });
+    }
     if (activeCount >= 2 && !overrideRequested) {
       return res.status(409).json({ error: "child already has max parents" });
     }
     const now = new Date();
+    if (overrideRequested && overrideApprovedBy) {
+      await logOverrideParentLimit({
+        parentId,
+        childId,
+        inviteId: invite?._id,
+        overrideApprovedBy,
+        requestedBy: parentId
+      });
+    }
     if (existing) {
       await db.collection("vinculos_padre_hijo").updateOne(
         { _id: existing._id },
@@ -131,9 +170,7 @@ reportes.post("/api/vinculos/solicitar", requireUser, async (req, res) => {
             estado: existing.estado === "aprobado" ? "aprobado" : "pendiente",
             solicitadoAt: existing.solicitadoAt ?? now,
             updatedAt: now,
-            ...(overrideRequested
-              ? { overrideApprovedBy: invite?.overrideApprovedBy ?? invite?.createdBy ?? null }
-              : {})
+            ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})
           }
         }
       );
@@ -146,7 +183,7 @@ reportes.post("/api/vinculos/solicitar", requireUser, async (req, res) => {
       solicitadoAt: now,
       createdAt: now,
       updatedAt: now,
-      ...(overrideRequested ? { overrideApprovedBy: invite?.overrideApprovedBy ?? invite?.createdBy ?? null } : {})
+      ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})
     });
     return res.status(201).json({ ok: true, estado: "pendiente" });
   } catch (e: any) {
@@ -172,8 +209,21 @@ reportes.post("/api/vinculos/aprobar", requireUser, async (req, res) => {
       ...(existing ? { _id: { $ne: existing._id } } : {})
     });
     const overrideRequested = invite?.overrideParentLimit === true;
+    const overrideApprovedBy = overrideRequested ? resolveOverrideApprovedBy(invite) : null;
+    if (overrideRequested && !overrideApprovedBy) {
+      return res.status(403).json({ error: "override approver required" });
+    }
     if (activeCount >= 2 && !overrideRequested) {
       return res.status(409).json({ error: "child already has max parents" });
+    }
+    if (overrideRequested && overrideApprovedBy) {
+      await logOverrideParentLimit({
+        parentId,
+        childId,
+        inviteId: invite?._id,
+        overrideApprovedBy,
+        requestedBy: childId
+      });
     }
     const result = await db.collection("vinculos_padre_hijo").updateOne(
       { parentId, childId, estado: { $ne: "revocado" } },
@@ -182,18 +232,14 @@ reportes.post("/api/vinculos/aprobar", requireUser, async (req, res) => {
           estado: "aprobado",
           aprobadoAt: new Date(),
           updatedAt: new Date(),
-          ...(overrideRequested
-            ? { overrideApprovedBy: invite?.overrideApprovedBy ?? invite?.createdBy ?? null }
-            : {})
+          ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})
         },
         $setOnInsert: {
           parentId,
           childId,
           solicitadoAt: new Date(),
           createdAt: new Date(),
-          ...(overrideRequested
-            ? { overrideApprovedBy: invite?.overrideApprovedBy ?? invite?.createdBy ?? null }
-            : {})
+          ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})
         }
       },
       { upsert: true }
