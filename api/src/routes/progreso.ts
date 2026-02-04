@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
+import { assertClassroomWritable } from "../lib/classroom";
 import { ProgressSchema } from "../schema/progreso";
 
 export const progreso = Router();
@@ -17,6 +18,12 @@ progreso.post("/api/progreso", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res)
     };
     const parsed = ProgressSchema.parse(payload);
     const db = await getDb();
+    if (parsed.aulaId) {
+      const classroom = await db.collection("aulas").findOne({ id: parsed.aulaId });
+      if (classroom && !assertClassroomWritable(res, classroom)) {
+        return;
+      }
+    }
     const filter = {
       usuarioId: parsed.usuarioId,
       moduloId: parsed.moduloId,
@@ -82,6 +89,12 @@ progreso.patch("/api/progreso/:moduloId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async
   try {
     const parsed = ProgressUpdateSchema.parse(req.body);
     const db = await getDb();
+    if (aulaId) {
+      const classroom = await db.collection("aulas").findOne({ id: aulaId });
+      if (classroom && !assertClassroomWritable(res, classroom)) {
+        return;
+      }
+    }
     const update = { ...parsed, updatedAt: new Date().toISOString() };
     const filter = {
       usuarioId,

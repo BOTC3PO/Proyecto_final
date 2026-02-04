@@ -4,6 +4,7 @@ import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { canMintCurrency, canModerateIntercambios } from "../lib/authorization";
+import { assertClassroomWritable } from "../lib/classroom";
 import {
   ENTERPRISE_FEATURES,
   requireActiveInstitutionBenefit,
@@ -541,6 +542,9 @@ economia.patch(
       return res.status(400).json({ error: "motivo debe indicar modulo, quiz o tarea" });
     }
     const aula = await db.collection("aulas").findOne({ id: parsed.aulaId });
+    if (!assertClassroomWritable(res, aula)) {
+      return;
+    }
     const aulaCheck = ensureUsuarioEnAula(aula, usuarioId, parsed.schoolId);
     if (!aulaCheck.ok) {
       await registerEconomiaAuditoria(db, {
@@ -657,6 +661,9 @@ economia.post(
         return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
       }
       const aula = await db.collection("aulas").findOne({ id: parsed.aulaId });
+      if (!assertClassroomWritable(res, aula)) {
+        return;
+      }
       const aulaCheck = ensureUsuarioEnAula(aula, parsed.usuarioId, parsed.schoolId);
       if (!aulaCheck.ok) {
         return res.status(aulaCheck.status).json({ error: aulaCheck.error });
@@ -782,6 +789,9 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
     const db = await getDb();
     const config = await getEconomiaConfig(db);
     const aula = await db.collection("aulas").findOne({ id: payload.aulaId });
+    if (!assertClassroomWritable(res, aula)) {
+      return;
+    }
     const aulaCheck = ensureUsuarioEnAula(aula, payload.creadorId, payload.schoolId);
     if (!aulaCheck.ok) {
       return res.status(aulaCheck.status).json({ error: aulaCheck.error });
@@ -878,6 +888,9 @@ economia.post("/api/economia/intercambios/:id/aceptar", async (req, res) => {
       return res.status(403).json({ error: "solo el receptor puede aceptar" });
     }
     const aula = await db.collection("aulas").findOne({ id: intercambio.aulaId });
+    if (!assertClassroomWritable(res, aula)) {
+      return;
+    }
     const creadorCheck = ensureUsuarioEnAula(aula, intercambio.creadorId, intercambio.schoolId);
     if (!creadorCheck.ok) {
       return res.status(creadorCheck.status).json({ error: creadorCheck.error });
@@ -974,6 +987,10 @@ economia.post("/api/economia/intercambios/:id/cancelar", async (req, res) => {
     if (!requesterId || (requesterId !== intercambio.creadorId && requesterId !== intercambio.receptorId)) {
       return res.status(403).json({ error: "no autorizado a cancelar" });
     }
+    const aula = await db.collection("aulas").findOne({ id: intercambio.aulaId });
+    if (aula && !assertClassroomWritable(res, aula)) {
+      return;
+    }
     const now = new Date().toISOString();
     await db.collection("economia_intercambios").updateOne(
       { id: intercambio.id },
@@ -1003,6 +1020,10 @@ economia.post(
       const db = await getDb();
       const intercambio = await db.collection("economia_intercambios").findOne({ id: req.params.id });
       if (!intercambio) return res.status(404).json({ error: "intercambio not found" });
+      const aula = await db.collection("aulas").findOne({ id: intercambio.aulaId });
+      if (aula && !assertClassroomWritable(res, aula)) {
+        return;
+      }
       if (role !== "ADMIN") {
         const requesterSchoolId = getRequesterSchoolId(req);
         if (!requesterSchoolId || requesterSchoolId !== intercambio.schoolId) {
@@ -1045,6 +1066,9 @@ economia.post("/api/economia/compras", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (r
     const db = await getDb();
     const config = await getEconomiaConfig(db);
     const aula = await db.collection("aulas").findOne({ id: payload.aulaId });
+    if (!assertClassroomWritable(res, aula)) {
+      return;
+    }
     const aulaCheck = ensureUsuarioEnAula(aula, payload.usuarioId, payload.schoolId);
     if (!aulaCheck.ok) {
       return res.status(aulaCheck.status).json({ error: aulaCheck.error });
@@ -1171,6 +1195,12 @@ economia.post("/api/economia/examenes", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (
     };
     const parsed = ExamenEconomiaSchema.parse(payload);
     const db = await getDb();
+    if (parsed.aulaId) {
+      const aula = await db.collection("aulas").findOne({ id: parsed.aulaId });
+      if (aula && !assertClassroomWritable(res, aula)) {
+        return;
+      }
+    }
     await db.collection("economia_examenes").insertOne(parsed);
     res.status(201).json({ id: parsed.id });
   } catch (e: any) {
@@ -1182,11 +1212,18 @@ economia.patch("/api/economia/examenes/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
   try {
     const parsed = ExamenEconomiaUpdateSchema.parse(req.body ?? {});
     const db = await getDb();
-    const result = await db.collection("economia_examenes").updateOne(
+    const existing = await db.collection("economia_examenes").findOne({ id: req.params.id });
+    if (!existing) return res.status(404).json({ error: "not found" });
+    if (existing.aulaId) {
+      const aula = await db.collection("aulas").findOne({ id: existing.aulaId });
+      if (aula && !assertClassroomWritable(res, aula)) {
+        return;
+      }
+    }
+    await db.collection("economia_examenes").updateOne(
       { id: req.params.id },
       { $set: { ...parsed, updatedAt: new Date().toISOString() } }
     );
-    if (!result.matchedCount) return res.status(404).json({ error: "not found" });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -1212,6 +1249,13 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
     const db = await getDb();
     const examen = await db.collection("economia_examenes").findOne({ id: req.params.id });
     if (!examen) return res.status(404).json({ error: "examen not found" });
+    const aulaId = parsed.aulaId ?? examen.aulaId;
+    if (aulaId) {
+      const aula = await db.collection("aulas").findOne({ id: aulaId });
+      if (aula && !assertClassroomWritable(res, aula)) {
+        return;
+      }
+    }
     if (!examen.subastaActiva || examen.estado !== "anunciado") {
       return res.status(400).json({ error: "subasta inactiva" });
     }
@@ -1289,6 +1333,9 @@ economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
     }
     const config = await getEconomiaConfig(db);
     const aula = await db.collection("aulas").findOne({ id: examen.aulaId });
+    if (aula && !assertClassroomWritable(res, aula)) {
+      return;
+    }
     const schoolId = resolveAulaSchoolId(aula);
     if (!schoolId) return res.status(400).json({ error: "classroom schoolId missing" });
     const actorId =
@@ -1596,6 +1643,10 @@ economia.put("/api/economia/riesgo/:aulaId", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
     };
     const validated = EconomiaRiesgoCursoSchema.parse(update);
     const db = await getDb();
+    const aula = await db.collection("aulas").findOne({ id: req.params.aulaId });
+    if (aula && !assertClassroomWritable(res, aula)) {
+      return;
+    }
     await db
       .collection("economia_riesgo_cursos")
       .updateOne({ aulaId: req.params.aulaId }, { $set: validated }, { upsert: true });
@@ -1611,14 +1662,18 @@ economia.patch(
   async (req, res) => {
     try {
       const parsed = EconomiaRiesgoCursoUpdateSchema.parse(req.body ?? {});
-      const update = {
-        ...parsed,
-        updatedAt: new Date().toISOString()
-      };
-      const db = await getDb();
-      const result = await db
-        .collection("economia_riesgo_cursos")
-        .updateOne({ aulaId: req.params.aulaId }, { $set: update }, { upsert: true });
+    const update = {
+      ...parsed,
+      updatedAt: new Date().toISOString()
+    };
+    const db = await getDb();
+    const aula = await db.collection("aulas").findOne({ id: req.params.aulaId });
+    if (aula && !assertClassroomWritable(res, aula)) {
+      return;
+    }
+    const result = await db
+      .collection("economia_riesgo_cursos")
+      .updateOne({ aulaId: req.params.aulaId }, { $set: update }, { upsert: true });
       res.status(result.upsertedCount ? 201 : 200).json({ ok: true });
     } catch (e: any) {
       res.status(400).json({ error: e?.message ?? "invalid payload" });

@@ -2,6 +2,7 @@ import express, { Router } from "express";
 import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
+import { assertClassroomWritable } from "../lib/classroom";
 import { requireUser } from "../lib/user-auth";
 import { ModuleSchema } from "../schema/modulo";
 
@@ -130,6 +131,12 @@ modulos.post("/api/modulos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) =
     };
     const parsed = ModuleSchema.parse(payload);
     const db = await getDb();
+    if (parsed.aulaId) {
+      const classroom = await db.collection("aulas").findOne({ id: parsed.aulaId });
+      if (classroom && !assertClassroomWritable(res, classroom)) {
+        return;
+      }
+    }
     const result = await db.collection("modulos").insertOne(parsed);
     res.status(201).json({ id: result.insertedId, moduleId: parsed.id });
   } catch (e: any) {
@@ -141,9 +148,16 @@ modulos.put("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
     const db = await getDb();
+    const existing = await db.collection("modulos").findOne({ id: req.params.id });
+    if (!existing) return res.status(404).json({ error: "not found" });
+    if (existing.aulaId) {
+      const classroom = await db.collection("aulas").findOne({ id: existing.aulaId });
+      if (classroom && !assertClassroomWritable(res, classroom)) {
+        return;
+      }
+    }
     const update = { ...parsed, updatedAt: new Date().toISOString() };
-    const result = await db.collection("modulos").updateOne({ id: req.params.id }, { $set: update });
-    if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+    await db.collection("modulos").updateOne({ id: req.params.id }, { $set: update });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -154,9 +168,16 @@ modulos.patch("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, r
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
     const db = await getDb();
+    const existing = await db.collection("modulos").findOne({ id: req.params.id });
+    if (!existing) return res.status(404).json({ error: "not found" });
+    if (existing.aulaId) {
+      const classroom = await db.collection("aulas").findOne({ id: existing.aulaId });
+      if (classroom && !assertClassroomWritable(res, classroom)) {
+        return;
+      }
+    }
     const update = { ...parsed, updatedAt: new Date().toISOString() };
-    const result = await db.collection("modulos").updateOne({ id: req.params.id }, { $set: update });
-    if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+    await db.collection("modulos").updateOne({ id: req.params.id }, { $set: update });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -165,6 +186,14 @@ modulos.patch("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, r
 
 modulos.delete("/api/modulos/:id", async (req, res) => {
   const db = await getDb();
+  const existing = await db.collection("modulos").findOne({ id: req.params.id });
+  if (!existing) return res.status(404).json({ error: "not found" });
+  if (existing.aulaId) {
+    const classroom = await db.collection("aulas").findOne({ id: existing.aulaId });
+    if (classroom && !assertClassroomWritable(res, classroom)) {
+      return;
+    }
+  }
   const result = await db.collection("modulos").deleteOne({ id: req.params.id });
   if (result.deletedCount === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
