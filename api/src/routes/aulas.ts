@@ -71,7 +71,11 @@ aulas.post("/api/aulas", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (re
       updatedAt: req.body?.updatedAt ?? now
     };
     const parsed = ClassroomCreateSchema.parse(payload);
-    if (parsed.classCode && !isClassroomActiveStatus(parsed.status)) {
+    const normalizedStatus = normalizeClassroomStatus(parsed.status);
+    if (!normalizedStatus) {
+      return res.status(400).json({ error: "invalid classroom status" });
+    }
+    if (parsed.classCode && !isClassroomActiveStatus(normalizedStatus)) {
       return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
     }
     const db = await getDb();
@@ -105,13 +109,20 @@ aulas.put("/api/aulas/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async 
     const db = await getDb();
     const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
     if (!classroom) return res.status(404).json({ error: "not found" });
+    const currentStatus = normalizeClassroomStatus(classroom.status);
+    if (!currentStatus) {
+      return res.status(409).json({ error: "invalid classroom status" });
+    }
     if (
-      isClassroomReadOnlyStatus(classroom.status) &&
+      isClassroomReadOnlyStatus(currentStatus) &&
       (parsed.members || parsed.teacherId || parsed.teacherOfRecord)
     ) {
       return res.status(403).json({ error: "classroom is read-only" });
     }
-    const nextStatus = normalizeClassroomStatus(parsed.status ?? classroom.status);
+    const nextStatus = parsed.status ? normalizeClassroomStatus(parsed.status) : currentStatus;
+    if (!nextStatus) {
+      return res.status(400).json({ error: "invalid classroom status" });
+    }
     if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
       return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
     }
@@ -143,13 +154,20 @@ aulas.patch("/api/aulas/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
     const db = await getDb();
     const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
     if (!classroom) return res.status(404).json({ error: "not found" });
+    const currentStatus = normalizeClassroomStatus(classroom.status);
+    if (!currentStatus) {
+      return res.status(409).json({ error: "invalid classroom status" });
+    }
     if (
-      isClassroomReadOnlyStatus(classroom.status) &&
+      isClassroomReadOnlyStatus(currentStatus) &&
       (parsed.members || parsed.teacherId || parsed.teacherOfRecord)
     ) {
       return res.status(403).json({ error: "classroom is read-only" });
     }
-    const nextStatus = normalizeClassroomStatus(parsed.status ?? classroom.status);
+    const nextStatus = parsed.status ? normalizeClassroomStatus(parsed.status) : currentStatus;
+    if (!nextStatus) {
+      return res.status(400).json({ error: "invalid classroom status" });
+    }
     if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
       return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
     }
@@ -175,7 +193,11 @@ aulas.post("/api/aulas/:id/reasignar-profesor", requireUser, express.json(), asy
   const db = await getDb();
   const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
   if (!classroom) return res.status(404).json({ error: "not found" });
-  if (isClassroomReadOnlyStatus(classroom.status)) {
+  const currentStatus = normalizeClassroomStatus(classroom.status);
+  if (!currentStatus) {
+    return res.status(409).json({ error: "invalid classroom status" });
+  }
+  if (isClassroomReadOnlyStatus(currentStatus)) {
     return res.status(403).json({ error: "classroom is read-only" });
   }
   const schoolId = classroom.schoolId ?? classroom.institutionId;
