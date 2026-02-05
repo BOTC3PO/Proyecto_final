@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { canReadAsLearner, isStaffRole } from "../lib/authorization";
 import { requireUser } from "../lib/user-auth";
-import { isClassroomReadOnlyStatus } from "../schema/aula";
+import { isClassroomReadOnlyStatus, normalizeClassroomStatus } from "../schema/aula";
 import { ResourceLinkSchema } from "../schema/resource-link";
 
 export const resourceLinks = Router();
@@ -65,7 +65,11 @@ resourceLinks.post("/api/aulas/:aulaId/resource-links", requireUser, ...bodyLimi
   const db = await getDb();
   const classroom = await db.collection("aulas").findOne({ id: req.params.aulaId });
   if (!classroom) return res.status(404).json({ error: "classroom not found" });
-  if (isClassroomReadOnlyStatus(classroom.status)) {
+  const currentStatus = normalizeClassroomStatus(classroom.status);
+  if (!currentStatus) {
+    return res.status(409).json({ error: "invalid classroom status" });
+  }
+  if (isClassroomReadOnlyStatus(currentStatus)) {
     return res.status(403).json({ error: "classroom is read-only" });
   }
 
@@ -105,7 +109,11 @@ resourceLinks.put("/api/aulas/:aulaId/resource-links/:id", requireUser, ...bodyL
   const db = await getDb();
   const classroom = await db.collection("aulas").findOne({ id: req.params.aulaId });
   if (!classroom) return res.status(404).json({ error: "classroom not found" });
-  if (isClassroomReadOnlyStatus(classroom.status)) {
+  const currentStatus = normalizeClassroomStatus(classroom.status);
+  if (!currentStatus) {
+    return res.status(409).json({ error: "invalid classroom status" });
+  }
+  if (isClassroomReadOnlyStatus(currentStatus)) {
     return res.status(403).json({ error: "classroom is read-only" });
   }
 
@@ -136,7 +144,11 @@ resourceLinks.patch(
     const db = await getDb();
     const classroom = await db.collection("aulas").findOne({ id: req.params.aulaId });
     if (!classroom) return res.status(404).json({ error: "classroom not found" });
-    if (isClassroomReadOnlyStatus(classroom.status)) {
+    const currentStatus = normalizeClassroomStatus(classroom.status);
+    if (!currentStatus) {
+      return res.status(409).json({ error: "invalid classroom status" });
+    }
+    if (isClassroomReadOnlyStatus(currentStatus)) {
       return res.status(403).json({ error: "classroom is read-only" });
     }
 
@@ -164,7 +176,11 @@ resourceLinks.delete("/api/aulas/:aulaId/resource-links/:id", requireUser, async
   const db = await getDb();
   const classroom = await db.collection("aulas").findOne({ id: req.params.aulaId });
   if (!classroom) return res.status(404).json({ error: "classroom not found" });
-  if (isClassroomReadOnlyStatus(classroom.status)) {
+  const currentStatus = normalizeClassroomStatus(classroom.status);
+  if (!currentStatus) {
+    return res.status(409).json({ error: "invalid classroom status" });
+  }
+  if (isClassroomReadOnlyStatus(currentStatus)) {
     return res.status(403).json({ error: "classroom is read-only" });
   }
 

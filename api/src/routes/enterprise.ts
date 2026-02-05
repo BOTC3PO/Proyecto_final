@@ -6,7 +6,12 @@ import { fetchActiveStudentSummary } from "../lib/enterprise-billing";
 import { toObjectId } from "../lib/ids";
 import { ENTERPRISE_FEATURES, getSchoolEntitlements, requireEnterpriseFeature } from "../lib/entitlements";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
-import { CLASSROOM_ACTIVE_STATUS_VALUES, ClassroomSchema, isClassroomActiveStatus } from "../schema/aula";
+import {
+  CLASSROOM_ACTIVE_STATUS_VALUES,
+  ClassroomSchema,
+  isClassroomActiveStatus,
+  normalizeClassroomStatus
+} from "../schema/aula";
 
 export const enterprise = Router();
 
@@ -260,7 +265,12 @@ enterprise.post(
       updatedAt: req.body?.updatedAt ?? now
     };
     const parsed = ClassroomSchema.parse(payload);
-    if (parsed.classCode && !isClassroomActiveStatus(parsed.status)) {
+    const normalizedStatus = normalizeClassroomStatus(parsed.status);
+    if (!normalizedStatus) {
+      res.status(400).json({ error: "invalid classroom status" });
+      return;
+    }
+    if (parsed.classCode && !isClassroomActiveStatus(normalizedStatus)) {
       res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
       return;
     }

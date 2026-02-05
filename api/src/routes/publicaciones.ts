@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getDb } from "../lib/db";
-import { isClassroomActiveStatus } from "../schema/aula";
+import { isClassroomActiveStatus, normalizeClassroomStatus } from "../schema/aula";
 import { canPostAsStudent, canPostInClass } from "../lib/authorization";
 import { requireUser } from "../lib/user-auth";
 
@@ -68,7 +68,11 @@ publicaciones.post("/api/aulas/:id/publicaciones", requireUser, async (req, res)
   const db = await getDb();
   const classroom = await db.collection("aulas").findOne({ id: req.params.id });
   if (!classroom) return res.status(404).json({ error: "classroom not found" });
-  if (!isClassroomActiveStatus(classroom.status)) {
+  const currentStatus = normalizeClassroomStatus(classroom.status);
+  if (!currentStatus) {
+    return res.status(409).json({ error: "invalid classroom status" });
+  }
+  if (!isClassroomActiveStatus(currentStatus)) {
     return res.status(403).json({ error: "classroom is read-only" });
   }
   const now = new Date();
@@ -132,7 +136,11 @@ publicaciones.post("/api/aulas/:id/publicaciones/:pubId/comentarios", requireUse
   const db = await getDb();
   const classroom = await db.collection("aulas").findOne({ id: req.params.id });
   if (!classroom) return res.status(404).json({ error: "classroom not found" });
-  if (!isClassroomActiveStatus(classroom.status)) {
+  const currentStatus = normalizeClassroomStatus(classroom.status);
+  if (!currentStatus) {
+    return res.status(409).json({ error: "invalid classroom status" });
+  }
+  if (!isClassroomActiveStatus(currentStatus)) {
     return res.status(403).json({ error: "classroom is read-only" });
   }
   const members = Array.isArray(classroom.members) ? classroom.members : [];
