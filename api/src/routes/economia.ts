@@ -154,6 +154,14 @@ const INTERCAMBIO_LIMITS = {
 
 const clampScore = (value: number) => Math.max(0, Math.min(1, value));
 
+const parseBoolean = (value: unknown) => {
+  if (typeof value !== "string") return false;
+  const normalized = value.trim().toLowerCase();
+  return normalized === "true" || normalized === "1" || normalized === "si" || normalized === "yes";
+};
+
+const buildSaldoKey = (usuarioId: string, moneda: string) => `${usuarioId}::${moneda}`;
+
 const buildIsoRange = (desde?: string, hasta?: string) => {
   const now = new Date();
   const defaultDesde = new Date(now);
@@ -177,6 +185,15 @@ const buildDayRange = (date = new Date()) => {
     desde: start.toISOString(),
     hasta: end.toISOString()
   };
+};
+
+const normalizeUsuarioKey = (value: unknown) => {
+  if (typeof value === "string" && value.trim()) return value.trim();
+  if (value && typeof (value as { toString?: () => string }).toString === "function") {
+    const candidate = (value as { toString?: () => string }).toString?.();
+    return typeof candidate === "string" ? candidate : "";
+  }
+  return "";
 };
 
 const getRequesterId = (req: express.Request) =>
@@ -1639,6 +1656,154 @@ economia.delete("/api/admin/economia/eventos/:id", requireAdminAuth, async (req,
   );
   if (!result.matchedCount) return res.status(404).json({ error: "not found" });
   res.status(204).send();
+});
+
+economia.get("/api/admin/economia/validacion", requireAdminAuth, async (req, res) => {
+  const db = await getDb();
+  const applyDefaults = parseBoolean(req.query.applyDefaults);
+  const now = new Date().toISOString();
+  const inconsistencias: Array<Record<string, unknown>> = [];
+  const defaultsApplied = {
+    billeteras: 0,
+    economia_saldos: 0
+  };
+
+  const billeteras = await db
+    .collection("billeteras")
+    .find({}, { projection: { usuarioId: 1, saldo: 1, moneda: 1, updatedAt: 1 } })
+    .toArray();
+  const billeteraIds = billeteras.map((billetera) => billetera._id?.toString?.() ?? "").filter(Boolean);
+  const billeteraSet = new Set(billeteraIds);
+
+  if (applyDefaults) {
+    const missingUpdated = billeteras.filter((billetera) => !billetera.updatedAt);
+    if (missingUpdated.length) {
+      const result = await db.collection("billeteras").bulkWrite(
+        missingUpdated.map((billetera) => ({
+          updateOne: {
+            filter: { _id: billetera._id },
+            update: { $set: { updatedAt: now } }
+          }
+        }))
+      );
+      defaultsApplied.billeteras = result.modifiedCount;
+    }
+  }
+
+  const movimientos = await db
+    .collection("movimientos_billetera")
+    .find({}, { projection: { billeteraId: 1, tipo: 1, monto: 1, fecha: 1 } })
+    .toArray();
+  const totalPorBilletera = new Map<string, number>();
+
+  for (const movimiento of movimientos) {
+    const billeteraId = movimiento.billeteraId?.toString?.() ?? "";
+    const monto = typeof movimiento.monto === "number" ? movimiento.monto : 0;
+    const factor = movimiento.tipo === "debito" ? -1 : 1;
+    if (!billeteraId || !billeteraSet.has(billeteraId)) {
+      inconsistencias.push({
+        tipo: "movimiento_billetera_sin_billetera",
+        movimientoId: movimiento._id?.toString?.() ?? null,
+        billeteraId: billeteraId || null,
+        monto,
+        fecha: movimiento.fecha ?? null
+      });
+      continue;
+    }
+    totalPorBilletera.set(
+      billeteraId,
+      (totalPorBilletera.get(billeteraId) ?? 0) + factor * monto
+    );
+  }
+
+  for (const billetera of billeteras) {
+    const billeteraId = billetera._id?.toString?.() ?? "";
+    if (!billeteraId) continue;
+    const saldo = typeof billetera.saldo === "number" ? billetera.saldo : 0;
+    const total = totalPorBilletera.get(billeteraId) ?? 0;
+    if (roundMoney(saldo) !== roundMoney(total)) {
+      inconsistencias.push({
+        tipo: "billetera_saldo_inconsistente",
+        billeteraId,
+        usuarioId: billetera.usuarioId?.toString?.() ?? null,
+        moneda: billetera.moneda ?? null,
+        saldo: roundMoney(saldo),
+        totalMovimientos: roundMoney(total)
+      });
+    }
+  }
+
+  const economiaSaldos = await db
+    .collection("economia_saldos")
+    .find({}, { projection: { usuarioId: 1, saldo: 1, moneda: 1, updatedAt: 1 } })
+    .toArray();
+
+  if (applyDefaults) {
+    const missingUpdated = economiaSaldos.filter((saldo) => !saldo.updatedAt);
+    if (missingUpdated.length) {
+      const result = await db.collection("economia_saldos").bulkWrite(
+        missingUpdated.map((saldo) => ({
+          updateOne: {
+            filter: { _id: saldo._id },
+            update: { $set: { updatedAt: now } }
+          }
+        }))
+      );
+      defaultsApplied.economia_saldos = result.modifiedCount;
+    }
+  }
+
+  const transacciones = await db
+    .collection("economia_transacciones")
+    .find({}, { projection: { usuarioId: 1, tipo: 1, monto: 1, moneda: 1, createdAt: 1 } })
+    .toArray();
+  const totalPorSaldo = new Map<string, number>();
+
+  for (const transaccion of transacciones) {
+    const usuarioId = normalizeUsuarioKey(transaccion.usuarioId);
+    if (!usuarioId) continue;
+    const moneda =
+      typeof transaccion.moneda === "string" && transaccion.moneda.trim()
+        ? transaccion.moneda
+        : "desconocida";
+    const key = buildSaldoKey(usuarioId, moneda);
+    const monto = typeof transaccion.monto === "number" ? transaccion.monto : 0;
+    const factor = transaccion.tipo === "debito" ? -1 : 1;
+    totalPorSaldo.set(key, (totalPorSaldo.get(key) ?? 0) + factor * monto);
+  }
+
+  for (const saldo of economiaSaldos) {
+    const usuarioId = normalizeUsuarioKey(saldo.usuarioId);
+    if (!usuarioId) continue;
+    const moneda =
+      typeof saldo.moneda === "string" && saldo.moneda.trim() ? saldo.moneda : "desconocida";
+    const key = buildSaldoKey(usuarioId, moneda);
+    const total = totalPorSaldo.get(key) ?? 0;
+    const saldoActual = typeof saldo.saldo === "number" ? saldo.saldo : 0;
+    if (roundMoney(saldoActual) !== roundMoney(total)) {
+      inconsistencias.push({
+        tipo: "economia_saldo_inconsistente",
+        usuarioId,
+        moneda,
+        saldo: roundMoney(saldoActual),
+        totalTransacciones: roundMoney(total)
+      });
+    }
+  }
+
+  res.json({
+    generadoEn: now,
+    applyDefaults,
+    resumen: {
+      billeteras: billeteras.length,
+      movimientos: movimientos.length,
+      economiaSaldos: economiaSaldos.length,
+      economiaTransacciones: transacciones.length
+    },
+    defaultsApplied,
+    totalInconsistencias: inconsistencias.length,
+    inconsistencias
+  });
 });
 
 economia.get("/api/economia/riesgo", async (req, res) => {
