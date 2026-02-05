@@ -3,3 +3,4 @@ en esta carpeta estara la documentacion del proyecto
 - bootstrap-admin.md: guia para configurar y ejecutar el bootstrap del administrador inicial
 - roles.md: descripcion de roles globales, roles por escuela y registro de admins/docentes
 - book-editor.md: uso del editor de libros y estructura del schema de datos
+- estado-actual-vs-roadmap.md: resumen del estado actual del producto vs roadmap
