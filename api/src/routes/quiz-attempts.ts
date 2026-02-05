@@ -30,6 +30,7 @@ type ModuleQuiz = {
     explanation?: string;
   }>;
   count?: number;
+  seedPolicy?: string;
   fixedSeed?: string | number;
   generatorId?: string;
   generatorVersion?: number | string;
