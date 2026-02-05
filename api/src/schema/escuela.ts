@@ -11,3 +11,9 @@ export const EscuelaSchema = z.object({
 });
 
 export type EscuelaInput = z.infer<typeof EscuelaSchema>;
+
+export const EscuelaPatchSchema = EscuelaSchema.pick({
+  subscriptionStatus: true,
+  plan: true,
+  pricePerStudent: true
+}).partial();
