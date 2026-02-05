@@ -366,7 +366,35 @@ aulas.get("/api/admin/aulas", requireAdminAuth, async (req, res) => {
 
 aulas.delete("/api/admin/aulas/:id", requireAdminAuth, async (req, res) => {
   const db = await getDb();
-  const result = await db.collection("aulas").deleteOne({ id: req.params.id });
-  if (result.deletedCount === 0) return res.status(404).json({ error: "not found" });
+  const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
+  if (!classroom) return res.status(404).json({ error: "not found" });
+  const currentStatus = normalizeClassroomStatus(classroom.status);
+  if (!currentStatus) {
+    return res.status(409).json({ error: "invalid classroom status" });
+  }
+  const now = new Date().toISOString();
+  const deletedBy = getRequesterId(req);
+  await db.collection("auditoria_aulas").insertOne({
+    aulaId: classroom.id ?? req.params.id,
+    schoolId: classroom.schoolId ?? classroom.institutionId,
+    previousStatus: currentStatus,
+    newStatus: currentStatus,
+    previousIsDeleted: false,
+    newIsDeleted: true,
+    actorId: deletedBy,
+    createdAt: now
+  });
+  const result = await db.collection("aulas").updateOne(
+    { id: req.params.id, isDeleted: { $ne: true } },
+    {
+      $set: {
+        isDeleted: true,
+        deletedAt: now,
+        deletedBy,
+        updatedAt: now
+      }
+    }
+  );
+  if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
 });
