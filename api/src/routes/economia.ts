@@ -662,10 +662,15 @@ economia.post(
       const db = await getDb();
       const config = await getEconomiaConfig(db);
       const limites = config.limites ?? defaultConfig().limites;
+      const monedaConfig = config.moneda.codigo;
+      const monedaSolicitada = req.body?.moneda ?? monedaConfig;
+      if (monedaSolicitada !== monedaConfig) {
+        return res.status(400).json({ error: "moneda invalida" });
+      }
       const payload = {
         ...req.body,
         id: req.body?.id ?? new ObjectId().toString(),
-        moneda: req.body?.moneda ?? config.moneda.codigo,
+        moneda: monedaSolicitada,
         createdAt: new Date().toISOString()
       };
       const parsed = TransaccionSchema.parse(payload);
