@@ -1624,8 +1624,20 @@ economia.get("/api/admin/economia/eventos", requireAdminAuth, async (_req, res) 
 
 economia.delete("/api/admin/economia/eventos/:id", requireAdminAuth, async (req, res) => {
   const db = await getDb();
-  const result = await db.collection("economia_eventos").deleteOne({ id: req.params.id });
-  if (!result.deletedCount) return res.status(404).json({ error: "not found" });
+  const now = new Date().toISOString();
+  const deletedBy = getRequesterId(req) ?? "desconocido";
+  const result = await db.collection("economia_eventos").updateOne(
+    { id: req.params.id, isDeleted: { $ne: true } },
+    {
+      $set: {
+        isDeleted: true,
+        deletedAt: now,
+        deletedBy,
+        updatedAt: now
+      }
+    }
+  );
+  if (!result.matchedCount) return res.status(404).json({ error: "not found" });
   res.status(204).send();
 });
 
