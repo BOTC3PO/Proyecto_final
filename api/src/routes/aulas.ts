@@ -126,6 +126,26 @@ aulas.put("/api/aulas/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async 
     if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
       return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
     }
+    const currentIsDeleted = classroom.isDeleted === true;
+    const nextIsDeleted =
+      typeof parsed.isDeleted === "boolean" ? parsed.isDeleted : classroom.isDeleted === true;
+    const shouldAuditStatus = currentStatus !== nextStatus;
+    const shouldAuditDeletion = currentIsDeleted !== nextIsDeleted;
+    if (shouldAuditStatus || shouldAuditDeletion) {
+      const auditEntry: Record<string, unknown> = {
+        aulaId: classroom.id ?? req.params.id,
+        schoolId: classroom.schoolId ?? classroom.institutionId,
+        previousStatus: currentStatus,
+        newStatus: nextStatus,
+        actorId: getRequesterId(req),
+        createdAt: new Date().toISOString()
+      };
+      if (shouldAuditDeletion) {
+        auditEntry.previousIsDeleted = currentIsDeleted;
+        auditEntry.newIsDeleted = nextIsDeleted;
+      }
+      await db.collection("auditoria_aulas").insertOne(auditEntry);
+    }
     const update = { ...parsed, updatedAt: new Date().toISOString() };
     const updateOperation: { $set: Record<string, unknown>; $unset?: Record<string, ""> } = {
       $set: update
@@ -170,6 +190,26 @@ aulas.patch("/api/aulas/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
     }
     if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
       return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
+    }
+    const currentIsDeleted = classroom.isDeleted === true;
+    const nextIsDeleted =
+      typeof parsed.isDeleted === "boolean" ? parsed.isDeleted : classroom.isDeleted === true;
+    const shouldAuditStatus = currentStatus !== nextStatus;
+    const shouldAuditDeletion = currentIsDeleted !== nextIsDeleted;
+    if (shouldAuditStatus || shouldAuditDeletion) {
+      const auditEntry: Record<string, unknown> = {
+        aulaId: classroom.id ?? req.params.id,
+        schoolId: classroom.schoolId ?? classroom.institutionId,
+        previousStatus: currentStatus,
+        newStatus: nextStatus,
+        actorId: getRequesterId(req),
+        createdAt: new Date().toISOString()
+      };
+      if (shouldAuditDeletion) {
+        auditEntry.previousIsDeleted = currentIsDeleted;
+        auditEntry.newIsDeleted = nextIsDeleted;
+      }
+      await db.collection("auditoria_aulas").insertOne(auditEntry);
     }
     const update = { ...parsed, updatedAt: new Date().toISOString() };
     const updateOperation: { $set: Record<string, unknown>; $unset?: Record<string, ""> } = {
