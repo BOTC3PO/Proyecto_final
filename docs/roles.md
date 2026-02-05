@@ -1,11 +1,15 @@
 # Roles y membresías
 
+> Referencias de términos clave en el [glosario](glosario.md).
+
 ## Roles globales
 
 Estos roles aplican a todo el sistema:
 
 - **ADMIN**: administrador global con acceso completo a la plataforma.
-- **DIRECTIVO**: rol para cuentas institucionales con acceso a funcionalidades corporativas.
+- **DIRECTIVO**: rol para cuentas institucionales con acceso a funcionalidades corporativas. En
+  términos de negocio, puede vincularse con la etiqueta **Directivo** (ver glosario), pero no es
+  una suscripción ni un nombre de plan.
 - **TEACHER**: rol global para docentes que pueden operar en el sistema.
 - **USER**: rol base para usuarios sin privilegios administrativos.
 
