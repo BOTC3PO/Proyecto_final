@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
+import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
+import { requireUser } from "../lib/user-auth";
 
 export const estadisticas = Router();
 
@@ -281,83 +283,108 @@ const buildQuizMetrics = async (
   };
 };
 
-estadisticas.get("/api/estadisticas/profesor", async (req, res) => {
-  const filters: StatsFilters = {
-    fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
-    fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined,
-    moduloId: typeof req.query.moduloId === "string" ? req.query.moduloId : undefined,
-    categoria: typeof req.query.categoria === "string" ? req.query.categoria : undefined,
-    cohorte: typeof req.query.cohorte === "string" ? req.query.cohorte : undefined
-  };
+estadisticas.get(
+  "/api/estadisticas/profesor",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.REPORTS),
+  async (req, res) => {
+    const filters: StatsFilters = {
+      fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
+      fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined,
+      moduloId: typeof req.query.moduloId === "string" ? req.query.moduloId : undefined,
+      categoria: typeof req.query.categoria === "string" ? req.query.categoria : undefined,
+      cohorte: typeof req.query.cohorte === "string" ? req.query.cohorte : undefined
+    };
 
-  const data = await buildProfesorStats(filters);
-  res.json(data);
-});
-
-estadisticas.get("/api/estadisticas/profesor/export", async (req, res) => {
-  const format = typeof req.query.format === "string" ? req.query.format : "excel";
-  const filters: StatsFilters = {
-    fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
-    fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined,
-    moduloId: typeof req.query.moduloId === "string" ? req.query.moduloId : undefined,
-    categoria: typeof req.query.categoria === "string" ? req.query.categoria : undefined,
-    cohorte: typeof req.query.cohorte === "string" ? req.query.cohorte : undefined
-  };
-  const data = await buildProfesorStats(filters);
-  const requester = (req as { user?: { _id?: { toString?: () => string } } }).user;
-  await recordAuditLog({
-    actorId: requester?._id?.toString?.() ?? "anonymous",
-    action: "estadisticas.export",
-    targetType: "estadisticas_profesor",
-    targetId: format,
-    metadata: {
-      filters
-    }
-  });
-
-  if (format === "pdf") {
-    const body = `Reporte de estadísticas\n\nCompletadas: ${data.general.completadas}\nEntregas: ${data.general.entregas}\nTiempo promedio: ${data.general.tiempoPromedioMin} min\nAccesos: ${data.participacion.accesos}\nForos: ${data.participacion.foros}\nEncuestas: ${data.participacion.encuestas}`;
-    res.setHeader("Content-Type", "application/pdf");
-    res.setHeader("Content-Disposition", "attachment; filename=estadisticas-profesor.pdf");
-    return res.send(body);
+    const data = await buildProfesorStats(filters);
+    res.json(data);
   }
+);
 
-  const csv = buildCsv(data);
-  res.setHeader("Content-Type", "text/csv");
-  res.setHeader("Content-Disposition", "attachment; filename=estadisticas-profesor.csv");
-  return res.send(csv);
-});
+estadisticas.get(
+  "/api/estadisticas/profesor/export",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.REPORTS),
+  async (req, res) => {
+    const format = typeof req.query.format === "string" ? req.query.format : "excel";
+    const filters: StatsFilters = {
+      fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
+      fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined,
+      moduloId: typeof req.query.moduloId === "string" ? req.query.moduloId : undefined,
+      categoria: typeof req.query.categoria === "string" ? req.query.categoria : undefined,
+      cohorte: typeof req.query.cohorte === "string" ? req.query.cohorte : undefined
+    };
+    const data = await buildProfesorStats(filters);
+    const requester = (req as { user?: { _id?: { toString?: () => string } } }).user;
+    await recordAuditLog({
+      actorId: requester?._id?.toString?.() ?? "anonymous",
+      action: "estadisticas.export",
+      targetType: "estadisticas_profesor",
+      targetId: format,
+      metadata: {
+        filters
+      }
+    });
 
-estadisticas.get("/api/estadisticas/quizzes/aula/:aulaId", async (req, res) => {
-  const aulaId = typeof req.params.aulaId === "string" ? req.params.aulaId : "";
-  if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
-  const filters: StatsFilters = {
-    fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
-    fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined
-  };
-  const data = await buildQuizMetrics(filters, { aulaId });
-  res.json(data);
-});
+    if (format === "pdf") {
+      const body = `Reporte de estadísticas\n\nCompletadas: ${data.general.completadas}\nEntregas: ${data.general.entregas}\nTiempo promedio: ${data.general.tiempoPromedioMin} min\nAccesos: ${data.participacion.accesos}\nForos: ${data.participacion.foros}\nEncuestas: ${data.participacion.encuestas}`;
+      res.setHeader("Content-Type", "application/pdf");
+      res.setHeader("Content-Disposition", "attachment; filename=estadisticas-profesor.pdf");
+      return res.send(body);
+    }
 
-estadisticas.get("/api/estadisticas/quizzes/docente/:docenteId", async (req, res) => {
-  const docenteId = typeof req.params.docenteId === "string" ? req.params.docenteId : "";
-  if (!docenteId) return res.status(400).json({ error: "docenteId requerido" });
-  const filters: StatsFilters = {
-    fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
-    fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined
-  };
-  const data = await buildQuizMetrics(filters, { docenteId });
-  res.json(data);
-});
+    const csv = buildCsv(data);
+    res.setHeader("Content-Type", "text/csv");
+    res.setHeader("Content-Disposition", "attachment; filename=estadisticas-profesor.csv");
+    return res.send(csv);
+  }
+);
 
-estadisticas.get("/api/estadisticas/quizzes/institucion/:institucionId", async (req, res) => {
-  const institucionId =
-    typeof req.params.institucionId === "string" ? req.params.institucionId : "";
-  if (!institucionId) return res.status(400).json({ error: "institucionId requerida" });
-  const filters: StatsFilters = {
-    fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
-    fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined
-  };
-  const data = await buildQuizMetrics(filters, { institucionId });
-  res.json(data);
-});
+estadisticas.get(
+  "/api/estadisticas/quizzes/aula/:aulaId",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  async (req, res) => {
+    const aulaId = typeof req.params.aulaId === "string" ? req.params.aulaId : "";
+    if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
+    const filters: StatsFilters = {
+      fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
+      fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined
+    };
+    const data = await buildQuizMetrics(filters, { aulaId });
+    res.json(data);
+  }
+);
+
+estadisticas.get(
+  "/api/estadisticas/quizzes/docente/:docenteId",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  async (req, res) => {
+    const docenteId = typeof req.params.docenteId === "string" ? req.params.docenteId : "";
+    if (!docenteId) return res.status(400).json({ error: "docenteId requerido" });
+    const filters: StatsFilters = {
+      fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
+      fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined
+    };
+    const data = await buildQuizMetrics(filters, { docenteId });
+    res.json(data);
+  }
+);
+
+estadisticas.get(
+  "/api/estadisticas/quizzes/institucion/:institucionId",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  async (req, res) => {
+    const institucionId =
+      typeof req.params.institucionId === "string" ? req.params.institucionId : "";
+    if (!institucionId) return res.status(400).json({ error: "institucionId requerida" });
+    const filters: StatsFilters = {
+      fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
+      fechaFin: typeof req.query.fechaFin === "string" ? req.query.fechaFin : undefined
+    };
+    const data = await buildQuizMetrics(filters, { institucionId });
+    res.json(data);
+  }
+);
