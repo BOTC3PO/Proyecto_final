@@ -4,7 +4,8 @@ import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { requirePolicy } from "../lib/authorization";
 import { requireClassroomScope } from "../lib/classroom-scope";
-import { normalizeSchoolId, requireUser } from "../lib/user-auth";
+import { normalizeSchoolId } from "../lib/school-ids";
+import { requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
   CLASSROOM_ACTIVE_STATUS_VALUES,

@@ -3,7 +3,8 @@ import { requirePolicy } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
-import { normalizeSchoolId, requireUser } from "../lib/user-auth";
+import { normalizeSchoolId } from "../lib/school-ids";
+import { requireUser } from "../lib/user-auth";
 import { serializeUsuario } from "../lib/user-serializer";
 import { UsuarioSchema } from "../schema/usuario";
 

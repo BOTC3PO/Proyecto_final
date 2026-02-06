@@ -1,7 +1,7 @@
-import type { RequestHandler } from "express";
+import type { Request, RequestHandler, Response } from "express";
 import { getDb } from "./db";
 import { toObjectId } from "./ids";
-import { normalizeSchoolId } from "./user-auth";
+import { normalizeSchoolId } from "./school-ids";
 
 export const ENTERPRISE_PLANS = [
   "ENTERPRISE_BASIC",
@@ -110,6 +110,13 @@ const resolveAccessLevel = (status: SubscriptionStatus): AccessLevel => {
 
 const isReadOnlyMethod = (method: string) => method === "GET" || method === "HEAD";
 
+const SUBSCRIPTION_WRITE_BYPASS = [
+  { method: "POST", path: "/api/payments/initiate" }
+];
+
+const isSubscriptionWriteBypass = (req: Request) =>
+  SUBSCRIPTION_WRITE_BYPASS.some((entry) => entry.method === req.method && entry.path === req.path);
+
 export const isFeatureInPlan = (plan: EnterprisePlan, feature: EnterpriseFeature) =>
   ENTERPRISE_PLAN_FEATURES[plan].includes(feature);
 
@@ -173,6 +180,22 @@ export const requireEnterpriseFeature = (
   } catch (error) {
     return next(error);
   }
+};
+
+export const enforceSubscriptionAccess = async (req: Request, res: Response): Promise<boolean> => {
+  const schoolId = resolveSchoolIdFromRequest(req as { user?: { schoolId?: string | null; escuelaId?: unknown } });
+  if (!schoolId) return true;
+  const entitlements = await getSchoolEntitlements(schoolId);
+  res.locals.entitlements = entitlements;
+  if (entitlements.accessLevel === "active") return true;
+  if (isReadOnlyMethod(req.method)) return true;
+  if (isSubscriptionWriteBypass(req)) return true;
+  if (entitlements.accessLevel === "disabled") {
+    res.status(403).json({ error: "subscription inactive" });
+    return false;
+  }
+  res.status(403).json({ error: "subscription past due: read-only access" });
+  return false;
 };
 
 export const hasActiveInstitutionBenefit = async (schoolId: string, userId: string): Promise<boolean> => {

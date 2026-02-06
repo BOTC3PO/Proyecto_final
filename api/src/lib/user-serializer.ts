@@ -1,4 +1,4 @@
-import { normalizeSchoolId } from "./user-auth";
+import { normalizeSchoolId } from "./school-ids";
 
 type UserAccessLevel = "admin" | "member" | "public";
 

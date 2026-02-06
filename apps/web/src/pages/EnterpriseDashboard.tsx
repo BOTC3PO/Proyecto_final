@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import {
+  BILLING_DELINQUENCY_POLICY,
   ENTERPRISE_FEATURES,
   type EnterpriseFeature,
   isFeatureEnabled,
@@ -198,6 +199,35 @@ export default function EnterpriseDashboard() {
           </p>
         )}
       </header>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="space-y-2">
+          <h2 className="text-lg font-semibold text-slate-900">Política de mora</h2>
+          <p className="text-sm text-slate-500">
+            Si existen facturas impagas, el acceso se ajusta automáticamente. A partir de{" "}
+            {BILLING_DELINQUENCY_POLICY.pastDueDays} días se habilita solo lectura, y desde{" "}
+            {BILLING_DELINQUENCY_POLICY.suspendDays} días se bloquean las funciones ENTERPRISE.
+          </p>
+        </div>
+        <div className="mt-4 grid gap-3 md:grid-cols-2">
+          <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+            <h3 className="font-semibold">PAST_DUE · Solo lectura</h3>
+            <ul className="mt-2 space-y-1 text-amber-800">
+              <li>• Lectura de panel, aulas, reportes, miembros, módulos y mensajes.</li>
+              <li>• No se permiten altas o ediciones en aulas, usuarios, publicaciones, economía y quizzes.</li>
+              <li>• La iniciación de pagos permanece disponible.</li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900">
+            <h3 className="font-semibold">SUSPENDED/INACTIVE · Bloqueado</h3>
+            <ul className="mt-2 space-y-1 text-red-800">
+              <li>• Funciones ENTERPRISE bloqueadas (panel, miembros, módulos, mensajes, contratos, reportes).</li>
+              <li>• Escrituras bloqueadas en recursos críticos.</li>
+              <li>• Solo lectura y pagos habilitados para reactivar la cuenta.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-2">
