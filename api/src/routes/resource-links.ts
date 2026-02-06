@@ -1,5 +1,6 @@
 import express, { Router } from "express";
 import { ObjectId } from "mongodb";
+import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
 import { canReadAsLearner, isStaffRole } from "../lib/authorization";
 import { requireUser } from "../lib/user-auth";
@@ -99,6 +100,17 @@ resourceLinks.post("/api/aulas/:aulaId/resource-links", requireUser, ...bodyLimi
     };
     const parsed = ResourceLinkSchema.parse(payload);
     const result = await db.collection("resource_links").insertOne(parsed);
+    await recordAuditLog({
+      actorId: userId,
+      action: "resource_links.create",
+      targetType: "resource_link",
+      targetId: parsed.id,
+      metadata: {
+        aulaId: parsed.aulaId,
+        schoolId: parsed.schoolId,
+        visibility: parsed.visibility ?? null
+      }
+    });
     res.status(201).json({ id: result.insertedId, resourceLinkId: parsed.id });
   } catch (error: any) {
     res.status(400).json({ error: error?.message ?? "invalid payload" });
@@ -120,8 +132,9 @@ resourceLinks.put("/api/aulas/:aulaId/resource-links/:id", requireUser, ...bodyL
   const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
   if (!isStaffRole(user?.role)) return res.status(403).json({ error: "forbidden" });
   const schoolId = getSchoolId(user);
+  const userId = getUserId(user);
   const classroomSchoolId = buildClassroomSchoolId(classroom);
-  if (!schoolId || classroomSchoolId !== schoolId) return res.status(403).json({ error: "forbidden" });
+  if (!schoolId || !userId || classroomSchoolId !== schoolId) return res.status(403).json({ error: "forbidden" });
 
   try {
     const parsed = ResourceLinkUpdateSchema.parse(req.body);
@@ -130,6 +143,16 @@ resourceLinks.put("/api/aulas/:aulaId/resource-links/:id", requireUser, ...bodyL
       .collection("resource_links")
       .updateOne({ id: req.params.id, aulaId: req.params.aulaId }, { $set: update });
     if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+    await recordAuditLog({
+      actorId: userId,
+      action: "resource_links.update",
+      targetType: "resource_link",
+      targetId: req.params.id,
+      metadata: {
+        aulaId: req.params.aulaId,
+        fields: Object.keys(update)
+      }
+    });
     res.json({ ok: true });
   } catch (error: any) {
     res.status(400).json({ error: error?.message ?? "invalid payload" });
@@ -155,8 +178,9 @@ resourceLinks.patch(
     const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
     if (!isStaffRole(user?.role)) return res.status(403).json({ error: "forbidden" });
     const schoolId = getSchoolId(user);
+    const userId = getUserId(user);
     const classroomSchoolId = buildClassroomSchoolId(classroom);
-    if (!schoolId || classroomSchoolId !== schoolId) return res.status(403).json({ error: "forbidden" });
+    if (!schoolId || !userId || classroomSchoolId !== schoolId) return res.status(403).json({ error: "forbidden" });
 
     try {
       const parsed = ResourceLinkUpdateSchema.partial().parse(req.body);
@@ -165,6 +189,16 @@ resourceLinks.patch(
         .collection("resource_links")
         .updateOne({ id: req.params.id, aulaId: req.params.aulaId }, { $set: update });
       if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+      await recordAuditLog({
+        actorId: userId,
+        action: "resource_links.patch",
+        targetType: "resource_link",
+        targetId: req.params.id,
+        metadata: {
+          aulaId: req.params.aulaId,
+          fields: Object.keys(update)
+        }
+      });
       res.json({ ok: true });
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });
@@ -184,15 +218,25 @@ resourceLinks.delete("/api/aulas/:aulaId/resource-links/:id", requireUser, async
     return res.status(403).json({ error: "classroom is read-only" });
   }
 
-  const user = (req as { user?: { role?: string; schoolId?: string | null } }).user;
+  const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
   if (!isStaffRole(user?.role)) return res.status(403).json({ error: "forbidden" });
   const schoolId = getSchoolId(user);
+  const userId = getUserId(user);
   const classroomSchoolId = buildClassroomSchoolId(classroom);
-  if (!schoolId || classroomSchoolId !== schoolId) return res.status(403).json({ error: "forbidden" });
+  if (!schoolId || !userId || classroomSchoolId !== schoolId) return res.status(403).json({ error: "forbidden" });
 
   const result = await db
     .collection("resource_links")
     .deleteOne({ id: req.params.id, aulaId: req.params.aulaId });
   if (result.deletedCount === 0) return res.status(404).json({ error: "not found" });
+  await recordAuditLog({
+    actorId: userId,
+    action: "resource_links.delete",
+    targetType: "resource_link",
+    targetId: req.params.id,
+    metadata: {
+      aulaId: req.params.aulaId
+    }
+  });
   res.status(204).send();
 });

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
 
 export const estadisticas = Router();
@@ -303,6 +304,16 @@ estadisticas.get("/api/estadisticas/profesor/export", async (req, res) => {
     cohorte: typeof req.query.cohorte === "string" ? req.query.cohorte : undefined
   };
   const data = await buildProfesorStats(filters);
+  const requester = (req as { user?: { _id?: { toString?: () => string } } }).user;
+  await recordAuditLog({
+    actorId: requester?._id?.toString?.() ?? "anonymous",
+    action: "estadisticas.export",
+    targetType: "estadisticas_profesor",
+    targetId: format,
+    metadata: {
+      filters
+    }
+  });
 
   if (format === "pdf") {
     const body = `Reporte de estadísticas\n\nCompletadas: ${data.general.completadas}\nEntregas: ${data.general.entregas}\nTiempo promedio: ${data.general.tiempoPromedioMin} min\nAccesos: ${data.participacion.accesos}\nForos: ${data.participacion.foros}\nEncuestas: ${data.participacion.encuestas}`;

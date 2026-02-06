@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
 import { isClassroomActiveStatus, normalizeClassroomStatus } from "../schema/aula";
 import { canPostAsStudent, canPostInClass, canReadAsLearner, isStaffRole } from "../lib/authorization";
@@ -151,6 +152,16 @@ publicaciones.post("/api/aulas/:id/publicaciones", requireUser, publicacionesLim
     usuarioId: requesterId,
     createdAt: now
   });
+  await recordAuditLog({
+    actorId: requesterId,
+    action: "publicaciones.create",
+    targetType: "publicacion",
+    targetId: publication.id,
+    metadata: {
+      aulaId: publication.aulaId,
+      archivos: attachmentList.length
+    }
+  });
   res.status(201).json(publication);
 });
 
@@ -253,6 +264,16 @@ publicaciones.post(
       aulaId: comment.aulaId,
       usuarioId: requesterId,
       createdAt: now
+    });
+    await recordAuditLog({
+      actorId: requesterId,
+      action: "comentarios.create",
+      targetType: "comentario",
+      targetId: comment.id,
+      metadata: {
+        aulaId: comment.aulaId,
+        publicacionId: comment.publicacionId
+      }
     });
     res.status(201).json(comment);
   }
