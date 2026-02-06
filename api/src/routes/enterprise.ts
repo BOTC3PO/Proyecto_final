@@ -5,7 +5,8 @@ import { ENV } from "../lib/env";
 import { fetchActiveStudentSummary } from "../lib/enterprise-billing";
 import { toObjectId } from "../lib/ids";
 import { ENTERPRISE_FEATURES, getSchoolEntitlements, requireEnterpriseFeature } from "../lib/entitlements";
-import { normalizeSchoolId, requireUser } from "../lib/user-auth";
+import { normalizeSchoolId } from "../lib/school-ids";
+import { requireUser } from "../lib/user-auth";
 import {
   CLASSROOM_ACTIVE_STATUS_VALUES,
   ClassroomSchema,

@@ -2,7 +2,9 @@ import type { NextFunction, Request, Response } from "express";
 import { ObjectId } from "mongodb";
 import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from "./auth-token";
 import { getDb } from "./db";
+import { enforceSubscriptionAccess } from "./entitlements";
 import { toObjectId } from "./ids";
+import { normalizeSchoolId } from "./school-ids";
 
 type AuthenticatedUser = Record<string, unknown> & {
   _id?: ObjectId;
@@ -10,15 +12,6 @@ type AuthenticatedUser = Record<string, unknown> & {
   guestOnboardingStatus?: string | null;
   escuelaId?: unknown;
   schoolId?: string | null;
-};
-
-export const normalizeSchoolId = (escuelaId: unknown) => {
-  if (!escuelaId) return null;
-  if (typeof escuelaId === "string") return escuelaId;
-  if (escuelaId instanceof ObjectId) return escuelaId.toString();
-  const maybeToString = escuelaId as { toString?: () => string };
-  if (typeof maybeToString.toString === "function") return maybeToString.toString();
-  return null;
 };
 
 export const requireUser = async (req: Request, res: Response, next: NextFunction) => {
@@ -71,6 +64,8 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
     }
     (req as { user?: AuthenticatedUser }).user = userContext;
     res.locals.user = userContext;
+    const hasAccess = await enforceSubscriptionAccess(req, res);
+    if (!hasAccess) return;
     next();
   } catch (error) {
     res.status(500).json({ error: "Authentication failed" });

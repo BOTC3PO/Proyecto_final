@@ -10,7 +10,8 @@ import { getCanonicalMembershipRole } from "../lib/membership-roles";
 import { assertMembershipInvariants, assertValidMembershipTransition } from "../lib/memberships";
 import { hashPassword, verifyPassword } from "../lib/passwords";
 import { createRateLimiter } from "../lib/rate-limit";
-import { normalizeSchoolId, requireUser } from "../lib/user-auth";
+import { normalizeSchoolId } from "../lib/school-ids";
+import { requireUser } from "../lib/user-auth";
 import {
   BootstrapAdminRequestSchema,
   CreateAdminSchema,

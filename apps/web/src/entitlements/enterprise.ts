@@ -73,6 +73,11 @@ export const ENTERPRISE_PLAN_FEATURES: Record<EnterprisePlan, EnterpriseFeature[
   ]
 };
 
+export const BILLING_DELINQUENCY_POLICY = {
+  pastDueDays: 7,
+  suspendDays: 30
+};
+
 export const isFeatureEnabled = (entitlements: EnterpriseEntitlements, feature: EnterpriseFeature) =>
   entitlements.features.includes(feature);
 
