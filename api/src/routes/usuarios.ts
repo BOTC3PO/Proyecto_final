@@ -17,7 +17,12 @@ const clampLimit = (value: string | undefined) => {
 
 usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), async (req, res) => {
   try {
-    const parsed = UsuarioSchema.parse(req.body);
+    const nowIso = new Date().toISOString();
+    const parsed = UsuarioSchema.parse({
+      ...req.body,
+      createdAt: nowIso,
+      updatedAt: nowIso
+    });
     const requester =
       (res.locals as {
         user?: { _id?: { toString?: () => string }; role?: string; escuelaId?: unknown; schoolId?: string | null };

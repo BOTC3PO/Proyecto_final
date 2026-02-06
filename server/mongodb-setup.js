@@ -13,7 +13,7 @@ db.createCollection("usuarios", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["username", "email", "fullName", "role", "createdAt"],
+      required: ["username", "email", "fullName", "role", "createdAt", "updatedAt"],
       properties: {
         username: {
           bsonType: "string",
@@ -112,7 +112,7 @@ db.createCollection("escuelas", {
 // ============================================================================
 // MEMBRESIAS_ESCUELA COLLECTION
 // ============================================================================
-const MEMBERSHIP_ROLES = ["ADMIN", "TEACHER", "STUDENT", "PARENT"];
+const MEMBERSHIP_ROLES = ["DIRECTIVO", "TEACHER", "STUDENT", "PARENT"];
 
 db.createCollection("membresias_escuela", {
   validator: {

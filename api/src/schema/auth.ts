@@ -8,7 +8,7 @@ export const RegisterSchema = z.object({
   email: z.string().email(),
   fullName: z.string().min(3).max(120),
   password: z.string().min(6).max(256),
-  role: z.enum(["USER", "TEACHER", "DIRECTIVO"]).optional(),
+  role: z.enum(["USER", "PARENT", "TEACHER", "DIRECTIVO", "GUEST"]).optional(),
   teacherType: z.string().min(1).optional(),
   escuelaId: objectIdString.nullish(),
   schoolCode: z.string().min(2).max(32).optional(),
