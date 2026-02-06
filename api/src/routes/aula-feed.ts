@@ -1,51 +1,105 @@
 import { Router } from "express";
+import { canReadAsLearner, isStaffRole } from "../lib/authorization";
+import { getDb } from "../lib/db";
 import { requireUser } from "../lib/user-auth";
+import { isClassroomReadOnlyStatus } from "../schema/aula";
 
 export const aulaFeed = Router();
 
-const publicaciones = [
-  {
-    id: "pub-001",
-    authorInitials: "JP",
-    title: "Nuevo módulo disponible: Multiplicación",
-    body:
-      "Se ha desbloqueado el módulo de multiplicación para los estudiantes que completaron “Sumas Avanzadas”. Incluye ejercicios interactivos y práctica guiada.",
-    links: [
-      { label: "Ver módulo", href: "#" },
-      { label: "Iniciar práctica", href: "#" }
-    ],
-    publishedAtLabel: "Publicado ayer"
-  },
-  {
-    id: "pub-002",
-    authorInitials: "JP",
-    title: "Recordatorio de evaluación",
-    body:
-      "El viernes tendremos la evaluación de sumas avanzadas. Revisen el material y completen las actividades pendientes.",
-    publishedAtLabel: "Publicado hoy"
+const getRequesterId = (req: { user?: { _id?: { toString?: () => string } } }) =>
+  req.user?._id?.toString?.() ?? null;
+
+const getRequesterRole = (req: { user?: { role?: string | null } }) => req.user?.role ?? null;
+
+const getRequesterSchoolId = (req: { user?: { schoolId?: string | null } }) => req.user?.schoolId ?? null;
+
+const canAccessClassroom = ({
+  requesterId,
+  requesterRole,
+  requesterSchoolId,
+  classroomSchoolId,
+  classroomMembers
+}: {
+  requesterId: string | null;
+  requesterRole?: string | null;
+  requesterSchoolId?: string | null;
+  classroomSchoolId?: string | null;
+  classroomMembers?: Array<{ userId?: string }> | null;
+}) => {
+  if (requesterRole === "ADMIN") return true;
+  const isMember = !!requesterId && (classroomMembers ?? []).some((member) => member.userId === requesterId);
+  if (isMember) return true;
+  const hasStaffSchoolAccess =
+    isStaffRole(requesterRole) && !!requesterSchoolId && !!classroomSchoolId && requesterSchoolId === classroomSchoolId;
+  if (hasStaffSchoolAccess) return true;
+  if (canReadAsLearner(requesterRole)) return isMember;
+  return false;
+};
+
+const resolveClassroomContext = async (req: { query: { classroomId?: unknown }; user?: Record<string, unknown> }) => {
+  const classroomId = typeof req.query.classroomId === "string" ? req.query.classroomId : null;
+  if (!classroomId) return { error: { status: 404, message: "classroom not found" } };
+  const db = await getDb();
+  const classroom = await db.collection("aulas").findOne({ id: classroomId, isDeleted: { $ne: true } });
+  if (!classroom) return { error: { status: 404, message: "classroom not found" } };
+  if (isClassroomReadOnlyStatus(classroom.status)) {
+    return { error: { status: 410, message: "classroom feed not available" } };
   }
-];
+  const requesterId = getRequesterId(req as { user?: { _id?: { toString?: () => string } } });
+  const requesterRole = getRequesterRole(req as { user?: { role?: string | null } });
+  const requesterSchoolId = getRequesterSchoolId(req as { user?: { schoolId?: string | null } });
+  if (
+    !canAccessClassroom({
+      requesterId,
+      requesterRole,
+      requesterSchoolId,
+      classroomSchoolId: classroom.schoolId ?? classroom.institutionId,
+      classroomMembers: Array.isArray(classroom.members) ? classroom.members : []
+    })
+  ) {
+    return { error: { status: 403, message: "forbidden" } };
+  }
+  return { classroomId, classroom };
+};
 
-const leaderboard = [
-  { id: "lb-1", name: "Ana García", points: 980 },
-  { id: "lb-2", name: "Carlos Ruiz", points: 850 },
-  { id: "lb-3", name: "María Torres", points: 720 }
-];
-
-const upcomingActivities = [
-  { id: "act-1", label: "Evaluación Sumas Avanzadas", when: "Mañana" },
-  { id: "act-2", label: "Modo Aventura", when: "Viernes" },
-  { id: "act-3", label: "Actividad de repaso", when: "Lunes" }
-];
-
-aulaFeed.get("/api/aula/publicaciones", requireUser, (_req, res) => {
-  res.json({ items: publicaciones });
+aulaFeed.get("/api/aula/publicaciones", requireUser, async (req, res) => {
+  const context = await resolveClassroomContext(req);
+  if ("error" in context) {
+    return res.status(context.error.status).json({ error: context.error.message });
+  }
+  const db = await getDb();
+  const items = await db
+    .collection("publicaciones")
+    .find({ aulaId: context.classroomId, isDeleted: { $ne: true } })
+    .sort({ createdAt: -1 })
+    .toArray();
+  res.json({ items });
 });
 
-aulaFeed.get("/api/aula/leaderboard", requireUser, (_req, res) => {
-  res.json({ items: leaderboard });
+aulaFeed.get("/api/aula/leaderboard", requireUser, async (req, res) => {
+  const context = await resolveClassroomContext(req);
+  if ("error" in context) {
+    return res.status(context.error.status).json({ error: context.error.message });
+  }
+  const db = await getDb();
+  const items = await db
+    .collection("ranking")
+    .find({ aulaId: context.classroomId, isDeleted: { $ne: true } })
+    .sort({ points: -1 })
+    .toArray();
+  res.json({ items });
 });
 
-aulaFeed.get("/api/aula/actividades", requireUser, (_req, res) => {
-  res.json({ items: upcomingActivities });
+aulaFeed.get("/api/aula/actividades", requireUser, async (req, res) => {
+  const context = await resolveClassroomContext(req);
+  if ("error" in context) {
+    return res.status(context.error.status).json({ error: context.error.message });
+  }
+  const db = await getDb();
+  const items = await db
+    .collection("actividades")
+    .find({ aulaId: context.classroomId, isDeleted: { $ne: true } })
+    .sort({ createdAt: 1 })
+    .toArray();
+  res.json({ items });
 });
