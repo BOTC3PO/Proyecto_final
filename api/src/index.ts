@@ -28,6 +28,7 @@ import { profesor } from "./routes/profesor";
 import { quizAttempts } from "./routes/quiz-attempts";
 import { resourceLinks } from "./routes/resource-links";
 import { payments } from "./routes/payments";
+import { padres } from "./routes/padres";
 import { createRateLimiter } from "./lib/rate-limit";
 import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
 const app = express();
@@ -66,6 +67,7 @@ app.use(profesor);
 app.use(quizAttempts);
 app.use(resourceLinks);
 app.use(payments);
+app.use(padres);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.listen(ENV.PORT, () => {
   console.log(`API on http://localhost:${ENV.PORT}`);

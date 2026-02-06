@@ -2,6 +2,8 @@ import express, { Router } from "express";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { assertClassroomWritable } from "../lib/classroom";
+import { toObjectId } from "../lib/ids";
+import { requireUser } from "../lib/user-auth";
 import { ProgressSchema } from "../schema/progreso";
 
 export const progreso = Router();
@@ -9,6 +11,45 @@ export const progreso = Router();
 const ProgressUpdateSchema = ProgressSchema.partial().omit({ usuarioId: true, moduloId: true });
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
+
+const daysBetween = (start: Date, end: Date) => (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
+
+const isMinor = (birthdate?: Date | null) => {
+  if (!birthdate) return false;
+  return daysBetween(birthdate, new Date()) < 365.25 * 18;
+};
+
+const normalizeUsername = (value?: string | null) => {
+  if (!value) return "";
+  const trimmed = value.trim();
+  if (!trimmed) return "";
+  return trimmed.startsWith("@") ? trimmed : `@${trimmed}`;
+};
+
+const normalizeArea = (value?: string | null) => {
+  const raw = value?.toLowerCase() ?? "";
+  if (raw.includes("mate")) return "Matemática";
+  if (raw.includes("lengua") || raw.includes("liter")) return "Lengua";
+  if (raw.includes("ciencia")) return "Ciencias";
+  if (raw.includes("historia")) return "Historia";
+  if (raw.includes("geogra")) return "Geografía";
+  if (raw.includes("arte")) return "Arte";
+  return "Otro";
+};
+
+const formatActivityDate = (value?: string | null) => {
+  if (!value) return "Sin registro";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toISOString().slice(0, 10);
+};
+
+const resolveParentId = (req: any) => {
+  const raw = req.user?._id ?? req.user?.id;
+  if (!raw) return null;
+  if (typeof raw === "string") return toObjectId(raw);
+  return raw;
+};
 
 progreso.post("/api/progreso", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
@@ -78,6 +119,175 @@ progreso.get("/api/progreso", async (req, res) => {
     };
   });
   res.json({ items, unlocks });
+});
+
+progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
+  const parentId = resolveParentId(req);
+  if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
+  const db = await getDb();
+  const vinculos = await db
+    .collection("vinculos_padre_hijo")
+    .find({ parentId, estado: { $ne: "revocado" } })
+    .toArray();
+  if (!vinculos.length) return res.json([]);
+  const childIds = vinculos.map((v) => v.childId).filter(Boolean);
+  const children = await db
+    .collection("usuarios")
+    .find({ _id: { $in: childIds }, isDeleted: { $ne: true } })
+    .project({ fullName: 1, username: 1, birthdate: 1 })
+    .toArray();
+  const childMap = new Map(children.map((child) => [child._id?.toString?.() ?? "", child]));
+  const allowed = vinculos.filter((v) => {
+    const child = childMap.get(v.childId?.toString?.() ?? "");
+    if (!child) return false;
+    const minor = isMinor(child.birthdate instanceof Date ? child.birthdate : null);
+    if (minor) return true;
+    return v.estado === "aprobado";
+  });
+  if (!allowed.length) return res.json([]);
+  const childIdStrings = allowed.map((v) => v.childId.toString());
+  const progressItems = await db
+    .collection("progreso_modulos")
+    .find({ usuarioId: { $in: childIdStrings } })
+    .toArray();
+  const moduleIds = Array.from(new Set(progressItems.map((item) => item.moduloId)));
+  const modules = moduleIds.length
+    ? await db
+        .collection("modulos")
+        .find({ id: { $in: moduleIds } })
+        .project({ id: 1, title: 1, subject: 1, category: 1, dependencies: 1 })
+        .toArray()
+    : [];
+  const moduleMap = new Map(modules.map((module) => [module.id, module]));
+  const progressByChild = new Map<string, typeof progressItems>();
+  for (const item of progressItems) {
+    const list = progressByChild.get(item.usuarioId) ?? [];
+    list.push(item);
+    progressByChild.set(item.usuarioId, list);
+  }
+  const completedByChild = new Map<string, Set<string>>();
+  for (const item of progressItems) {
+    if (item.status !== "completado") continue;
+    const set = completedByChild.get(item.usuarioId) ?? new Set<string>();
+    set.add(item.moduloId);
+    completedByChild.set(item.usuarioId, set);
+  }
+
+  const responses = allowed.map((v) => {
+    const childId = v.childId.toString();
+    const child = childMap.get(childId);
+    const progress = progressByChild.get(childId) ?? [];
+    const completedSet = completedByChild.get(childId) ?? new Set<string>();
+    const total = progress.length;
+    const completados = progress.filter((item) => item.status === "completado").length;
+    const progresoGeneral = total ? Math.round((completados / total) * 100) : 0;
+    const modulos = progress.map((item) => {
+      const module = moduleMap.get(item.moduloId);
+      const dependencies = Array.isArray(module?.dependencies) ? module?.dependencies : [];
+      const requiredDeps = dependencies
+        .map((dep) => (dep?.type === "required" ? dep.id : null))
+        .filter((dep): dep is string => Boolean(dep));
+      const missingDeps = requiredDeps.filter((dep) => !completedSet.has(dep));
+      const isLocked = missingDeps.length > 0;
+      const estado =
+        item.status === "completado"
+          ? "Completado"
+          : isLocked
+            ? "Bloqueado"
+            : "En curso";
+      const progreso = item.status === "completado" ? 100 : item.status === "en_progreso" ? 60 : 25;
+      return {
+        id: item.moduloId,
+        titulo: module?.title ?? "Módulo",
+        area: normalizeArea(module?.subject ?? module?.category),
+        progreso,
+        estado,
+        ultimaActividad: formatActivityDate(item.updatedAt)
+      };
+    });
+    return {
+      id: childId,
+      nombre: child?.fullName ?? v.nombre ?? "Sin nombre",
+      usuario: normalizeUsername(child?.username ?? v.usuario),
+      grado: v.grado ?? "Sin grado",
+      progresoGeneral,
+      modulos
+    };
+  });
+  res.json(responses);
+});
+
+progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
+  const parentId = resolveParentId(req);
+  if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
+  const childId = toObjectId(req.params.id);
+  if (!childId) return res.status(400).json({ error: "invalid child id" });
+  const db = await getDb();
+  const child = await db
+    .collection("usuarios")
+    .findOne({ _id: childId, isDeleted: { $ne: true } }, { projection: { fullName: 1, username: 1, birthdate: 1 } });
+  if (!child) return res.status(404).json({ error: "child not found" });
+  const vinculo = await db.collection("vinculos_padre_hijo").findOne({
+    parentId,
+    childId,
+    estado: { $ne: "revocado" }
+  });
+  if (!vinculo) return res.status(403).json({ error: "no link" });
+  const minor = isMinor(child.birthdate instanceof Date ? child.birthdate : null);
+  if (!minor && vinculo.estado !== "aprobado") {
+    return res.status(403).json({ error: "approval required" });
+  }
+  const progress = await db
+    .collection("progreso_modulos")
+    .find({ usuarioId: childId.toString() })
+    .toArray();
+  const moduleIds = Array.from(new Set(progress.map((item) => item.moduloId)));
+  const modules = moduleIds.length
+    ? await db
+        .collection("modulos")
+        .find({ id: { $in: moduleIds } })
+        .project({ id: 1, title: 1, subject: 1, category: 1, dependencies: 1 })
+        .toArray()
+    : [];
+  const moduleMap = new Map(modules.map((module) => [module.id, module]));
+  const completedSet = new Set(
+    progress.filter((item) => item.status === "completado").map((item) => item.moduloId)
+  );
+  const total = progress.length;
+  const completados = progress.filter((item) => item.status === "completado").length;
+  const progresoGeneral = total ? Math.round((completados / total) * 100) : 0;
+  const modulos = progress.map((item) => {
+    const module = moduleMap.get(item.moduloId);
+    const dependencies = Array.isArray(module?.dependencies) ? module?.dependencies : [];
+    const requiredDeps = dependencies
+      .map((dep) => (dep?.type === "required" ? dep.id : null))
+      .filter((dep): dep is string => Boolean(dep));
+    const missingDeps = requiredDeps.filter((dep) => !completedSet.has(dep));
+    const isLocked = missingDeps.length > 0;
+    const estado =
+      item.status === "completado"
+        ? "Completado"
+        : isLocked
+          ? "Bloqueado"
+          : "En curso";
+    const progreso = item.status === "completado" ? 100 : item.status === "en_progreso" ? 60 : 25;
+    return {
+      id: item.moduloId,
+      titulo: module?.title ?? "Módulo",
+      area: normalizeArea(module?.subject ?? module?.category),
+      progreso,
+      estado,
+      ultimaActividad: formatActivityDate(item.updatedAt)
+    };
+  });
+  res.json({
+    id: childId.toString(),
+    nombre: child.fullName ?? vinculo.nombre ?? "Sin nombre",
+    usuario: normalizeUsername(child.username ?? vinculo.usuario),
+    grado: vinculo.grado ?? "Sin grado",
+    progresoGeneral,
+    modulos
+  });
 });
 
 progreso.patch("/api/progreso/:moduloId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
