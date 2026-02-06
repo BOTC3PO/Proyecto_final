@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { canManageParents, canViewAllUsers } from "../lib/authorization";
+import { canManageParents, canReadAsLearner, canViewAllUsers } from "../lib/authorization";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
@@ -13,9 +13,26 @@ const clampLimit = (value: string | undefined) => {
   return Math.min(parsed, 100);
 };
 
-usuarios.post("/api/usuarios", async (req, res) => {
+usuarios.post("/api/usuarios", requireUser, async (req, res) => {
   try {
     const parsed = UsuarioSchema.parse(req.body);
+    const requester =
+      (res.locals as { user?: { role?: string; escuelaId?: unknown; schoolId?: string | null } }).user ??
+      (req as { user?: { role?: string; escuelaId?: unknown; schoolId?: string | null } }).user;
+    const role = typeof requester?.role === "string" ? requester.role : null;
+    if (!role || (!canManageParents(role) && !canViewAllUsers(role))) {
+      res.status(403).json({ error: "forbidden" });
+      return;
+    }
+    if (!canViewAllUsers(role)) {
+      const requesterSchoolId =
+        typeof requester?.schoolId === "string" ? requester.schoolId : normalizeSchoolId(requester?.escuelaId);
+      const targetSchoolId = normalizeSchoolId(parsed.escuelaId);
+      if (!requesterSchoolId || !targetSchoolId || requesterSchoolId !== targetSchoolId) {
+        res.status(403).json({ error: "forbidden" });
+        return;
+      }
+    }
     const db = await getDb();
     const now = new Date();
     const doc = {
@@ -90,20 +107,28 @@ usuarios.get("/api/usuarios", requireUser, async (req, res) => {
   res.json({ items, limit, offset });
 });
 
-usuarios.get("/api/usuarios/:id", async (req, res) => {
+usuarios.get("/api/usuarios/:id", requireUser, async (req, res) => {
   const db = await getDb();
   const objectId = toObjectId(req.params.id);
   if (!objectId) return res.status(400).json({ error: "invalid id" });
-  const requesterIdParam = req.header("x-usuario-id");
-  const requesterId = typeof requesterIdParam === "string" ? toObjectId(requesterIdParam) : null;
+  const requester =
+    (res.locals as { user?: { _id?: { toString?: () => string }; role?: string; teacherProfile?: unknown } }).user ??
+    (req as { user?: { _id?: { toString?: () => string }; role?: string; teacherProfile?: unknown } }).user;
+  const requesterId = requester?._id?.toString?.() ?? null;
   if (!requesterId) return res.status(403).json({ error: "forbidden" });
+  const requesterRole = typeof requester?.role === "string" ? requester.role : null;
+  if (!canManageParents(requesterRole) && !canReadAsLearner(requesterRole) && !canViewAllUsers(requesterRole)) {
+    return res.status(403).json({ error: "forbidden" });
+  }
   const item = await db.collection("usuarios").findOne({ _id: objectId, isDeleted: { $ne: true } });
   if (!item) return res.status(404).json({ error: "not found" });
-  const requester = await db
-    .collection("usuarios")
-    .findOne({ _id: requesterId, isDeleted: { $ne: true } }, { projection: { teacherProfile: 1 } });
-  const managedClassIds = requester?.teacherProfile?.managedClassIds ?? [];
-const adminClassCriteria: Array<Record<string, unknown>> = [{ adminIds: requesterId }];
+  if (canViewAllUsers(requesterRole)) {
+    res.json(item);
+    return;
+  }
+  const managedClassIds = (requester as { teacherProfile?: { managedClassIds?: unknown[] } })?.teacherProfile
+    ?.managedClassIds ?? [];
+  const adminClassCriteria: Array<Record<string, unknown>> = [{ adminIds: requesterId }];
   if (managedClassIds.length) adminClassCriteria.push({ _id: { $in: managedClassIds } });
   const memberUserIds = [objectId, objectId.toString()];
   const classAccess = await db.collection("clases").findOne(

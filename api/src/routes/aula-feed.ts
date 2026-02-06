@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { requireUser } from "../lib/user-auth";
 
 export const aulaFeed = Router();
 
@@ -37,14 +38,14 @@ const upcomingActivities = [
   { id: "act-3", label: "Actividad de repaso", when: "Lunes" }
 ];
 
-aulaFeed.get("/api/aula/publicaciones", (_req, res) => {
+aulaFeed.get("/api/aula/publicaciones", requireUser, (_req, res) => {
   res.json({ items: publicaciones });
 });
 
-aulaFeed.get("/api/aula/leaderboard", (_req, res) => {
+aulaFeed.get("/api/aula/leaderboard", requireUser, (_req, res) => {
   res.json({ items: leaderboard });
 });
 
-aulaFeed.get("/api/aula/actividades", (_req, res) => {
+aulaFeed.get("/api/aula/actividades", requireUser, (_req, res) => {
   res.json({ items: upcomingActivities });
 });
