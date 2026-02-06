@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
-import { requireAdmin } from "../lib/auth";
+import { requireAdmin } from "../lib/admin-auth";
 
 export const moderacion = Router();
 
@@ -46,6 +46,9 @@ moderacion.post("/api/moderacion/usuarios/:id/ban", async (req, res) => {
   const userId = toObjectId(req.params.id);
   if (!userId) return res.status(400).json({ error: "invalid user id" });
   const now = new Date();
+  const actor = res.locals.adminUser as { _id?: unknown } | undefined;
+  const actorId = actor?._id;
+  const actorIp = (req.header("x-forwarded-for") ?? "").split(",")[0].trim() || req.ip;
   const motivo = typeof req.body?.motivo === "string" ? req.body.motivo.trim() : "";
   const duracionDias = Number(req.body?.duracionDias ?? 0);
   const bannedUntil = Number.isFinite(duracionDias) && duracionDias > 0
@@ -56,6 +59,11 @@ moderacion.post("/api/moderacion/usuarios/:id/ban", async (req, res) => {
     tipo: "ban",
     motivo,
     duracionDias: Number.isFinite(duracionDias) ? duracionDias : 0,
+    actorId,
+    metadata: {
+      ip: actorIp,
+      timestamp: now
+    },
     createdAt: now
   };
   await db.collection("moderacion_eventos").insertOne(event);
@@ -77,6 +85,9 @@ moderacion.post("/api/moderacion/usuarios/:id/advertencias", async (req, res) =>
   const userId = toObjectId(req.params.id);
   if (!userId) return res.status(400).json({ error: "invalid user id" });
   const now = new Date();
+  const actor = res.locals.adminUser as { _id?: unknown } | undefined;
+  const actorId = actor?._id;
+  const actorIp = (req.header("x-forwarded-for") ?? "").split(",")[0].trim() || req.ip;
   const motivo = typeof req.body?.motivo === "string" ? req.body.motivo.trim() : "";
   const severidad = typeof req.body?.severidad === "string" ? req.body.severidad.trim() : "";
   const event = {
@@ -84,6 +95,11 @@ moderacion.post("/api/moderacion/usuarios/:id/advertencias", async (req, res) =>
     tipo: "advertencia",
     motivo,
     severidad,
+    actorId,
+    metadata: {
+      ip: actorIp,
+      timestamp: now
+    },
     createdAt: now
   };
   await db.collection("moderacion_eventos").insertOne(event);
