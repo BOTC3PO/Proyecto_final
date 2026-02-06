@@ -27,7 +27,9 @@ export const UsuarioSchema = z.object({
     .object({
       managedClassIds: z.array(objectIdString).optional()
     })
-    .optional()
+    .optional(),
+  createdAt: z.string().datetime(),
+  updatedAt: z.string().datetime()
 });
 
 export type UsuarioInput = z.infer<typeof UsuarioSchema>;

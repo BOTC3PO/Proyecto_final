@@ -52,10 +52,13 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       res.status(403).json({ error: "User not found" });
       return;
     }
+    const resolvedSchoolId =
+      claims.schoolId ?? claims.escuelaId ?? normalizeSchoolId(user.escuelaId);
     const userContext: AuthenticatedUser = {
       ...buildUserContextFromClaims(claims),
       guestOnboardingStatus: (user as { guestOnboardingStatus?: string | null }).guestOnboardingStatus ?? null,
-      schoolId: claims.schoolId ?? normalizeSchoolId(user.escuelaId)
+      schoolId: resolvedSchoolId,
+      escuelaId: resolvedSchoolId
     };
     const allowGuestPaths = new Set(["/api/auth/me", "/api/me"]);
     if (

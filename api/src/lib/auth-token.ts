@@ -112,14 +112,15 @@ export const verifyToken = (token: string, expectedType?: TokenType) => {
 export const createAccessToken = (user: TokenUser) => {
   const now = Math.floor(Date.now() / 1000);
   const exp = now + ACCESS_TTL_SECONDS;
+  const resolvedSchoolId = user.schoolId ?? user.escuelaId ?? null;
   const payload: TokenClaims = {
     sub: user.id,
     email: user.email,
     username: user.username,
     role: user.role,
     guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-    schoolId: user.schoolId ?? null,
-    escuelaId: user.escuelaId ?? user.schoolId ?? null,
+    schoolId: resolvedSchoolId,
+    escuelaId: resolvedSchoolId,
     fullName: user.fullName ?? null,
     iat: now,
     exp,
@@ -155,14 +156,17 @@ export const createRefreshToken = (user: TokenUser) => {
   };
 };
 
-export const buildUserContextFromClaims = (claims: TokenClaims) => ({
-  _id: claims.sub,
-  id: claims.sub,
-  role: claims.role,
-  guestOnboardingStatus: claims.guestOnboardingStatus ?? null,
-  schoolId: claims.schoolId ?? null,
-  escuelaId: claims.escuelaId ?? claims.schoolId ?? null,
-  email: claims.email,
-  username: claims.username,
-  fullName: claims.fullName
-});
+export const buildUserContextFromClaims = (claims: TokenClaims) => {
+  const resolvedSchoolId = claims.schoolId ?? claims.escuelaId ?? null;
+  return {
+    _id: claims.sub,
+    id: claims.sub,
+    role: claims.role,
+    guestOnboardingStatus: claims.guestOnboardingStatus ?? null,
+    schoolId: resolvedSchoolId,
+    escuelaId: resolvedSchoolId,
+    email: claims.email,
+    username: claims.username,
+    fullName: claims.fullName
+  };
+};
