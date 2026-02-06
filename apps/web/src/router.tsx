@@ -65,6 +65,7 @@ import ProfesorAulaConfiguracion from "./pages/ProfesorAulaConfiguracion";
 import Terminos from "./pages/Terminos";
 import Privacidad from "./pages/Privacidad";
 import DiccionarioTest from "./pages/DiccionarioTest";
+import GuestOnboarding from "./pages/GuestOnboarding";
 
 
 import test from "./sys/testmode";
@@ -115,6 +116,7 @@ export const router = createBrowserRouter([
       { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
       { path: "editor", element: <BookEditorPage /> },
       { path: "editor/:id", element: <BookEditorPage /> },
+      { path: "onboarding-guest", element: <GuestOnboarding /> },
       ...(testmode
         ? [
             { path: "generadores", element: <GeneradoresTest /> },

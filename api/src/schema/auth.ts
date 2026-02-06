@@ -63,7 +63,12 @@ export const CreateAdminSchema = z.object({
   password: z.string().min(8).max(256)
 });
 
+export const GuestSessionSchema = z.object({
+  fullName: z.string().min(2).max(120).optional()
+});
+
 export type RegisterInput = z.infer<typeof RegisterSchema>;
 export type LoginInput = z.infer<typeof LoginSchema>;
 export type BootstrapAdminInput = z.infer<typeof BootstrapAdminRequestSchema>;
 export type CreateAdminInput = z.infer<typeof CreateAdminSchema>;
+export type GuestSessionInput = z.infer<typeof GuestSessionSchema>;

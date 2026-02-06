@@ -53,7 +53,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
     const remember = options?.remember ?? shouldPersist;
     persistUser(
-      { id: '1', name: 'Demo', role, schoolId: options?.schoolId ?? null },
+      {
+        id: '1',
+        name: 'Demo',
+        role,
+        guestOnboardingStatus: role === 'GUEST' ? 'aceptado' : null,
+        schoolId: options?.schoolId ?? null,
+      },
       remember
     );
   };

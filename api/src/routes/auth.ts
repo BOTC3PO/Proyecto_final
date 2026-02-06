@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import type { Response } from "express";
 import { Router } from "express";
 import { requireAdmin } from "../lib/admin-auth";
@@ -9,7 +10,13 @@ import { getCanonicalMembershipRole } from "../lib/membership-roles";
 import { hashPassword, verifyPassword } from "../lib/passwords";
 import { createRateLimiter } from "../lib/rate-limit";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
-import { BootstrapAdminRequestSchema, CreateAdminSchema, LoginSchema, RegisterSchema } from "../schema/auth";
+import {
+  BootstrapAdminRequestSchema,
+  CreateAdminSchema,
+  GuestSessionSchema,
+  LoginSchema,
+  RegisterSchema
+} from "../schema/auth";
 
 export const auth = Router();
 
@@ -138,6 +145,60 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
   }
 });
 
+auth.post("/api/auth/guest", authLimiter, async (req, res) => {
+  try {
+    const parsed = GuestSessionSchema.parse(req.body ?? {});
+    const db = await getDb();
+    const now = new Date();
+    const guestId = crypto.randomUUID();
+    const username = `guest_${guestId.slice(0, 8)}`;
+    const email = `guest+${guestId}@example.com`;
+    const doc = {
+      username,
+      email,
+      fullName: parsed.fullName ?? "Invitado",
+      role: "GUEST",
+      guestOnboardingStatus: "pendiente",
+      passwordHash: null,
+      isDeleted: false,
+      createdAt: now,
+      updatedAt: now
+    };
+    const result = await db.collection("usuarios").insertOne(doc);
+    const accessToken = createAccessToken({
+      id: result.insertedId.toString(),
+      email: doc.email,
+      username: doc.username,
+      role: doc.role,
+      guestOnboardingStatus: doc.guestOnboardingStatus,
+      schoolId: null,
+      fullName: doc.fullName
+    });
+    const refreshToken = createRefreshToken({ id: result.insertedId.toString() });
+    res.status(201).json({
+      id: result.insertedId,
+      username: doc.username,
+      email: doc.email,
+      fullName: doc.fullName,
+      role: doc.role,
+      guestOnboardingStatus: doc.guestOnboardingStatus,
+      schoolId: null,
+      accessToken: accessToken.token,
+      expiresAt: accessToken.expiresAt,
+      expiresIn: accessToken.expiresIn,
+      ...(refreshToken
+        ? {
+            refreshToken: refreshToken.token,
+            refreshExpiresAt: refreshToken.expiresAt,
+            refreshExpiresIn: refreshToken.expiresIn
+          }
+        : {})
+    });
+  } catch (e: any) {
+    res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+});
+
 auth.post("/api/auth/login", authLimiter, async (req, res) => {
   try {
     const parsed = LoginSchema.parse(req.body ?? {});
@@ -161,6 +222,7 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
       email: user.email,
       username: user.username,
       role: user.role,
+      guestOnboardingStatus: user.guestOnboardingStatus ?? null,
       schoolId: normalizeSchoolId(user.escuelaId),
       fullName: user.fullName ?? null
     });
@@ -171,6 +233,7 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
       email: user.email,
       fullName: user.fullName,
       role: user.role,
+      guestOnboardingStatus: user.guestOnboardingStatus ?? null,
       schoolId: normalizeSchoolId(user.escuelaId),
       accessToken: accessToken.token,
       expiresAt: accessToken.expiresAt,
@@ -192,6 +255,7 @@ const sendAuthenticatedUser = (res: Response) => {
   const user = res.locals.user as {
     _id?: { toString?: () => string };
     role?: string;
+    guestOnboardingStatus?: string | null;
     schoolId?: string | null;
     username?: string;
     email?: string;
@@ -200,6 +264,7 @@ const sendAuthenticatedUser = (res: Response) => {
   res.json({
     id: user?._id?.toString?.() ?? null,
     role: user?.role ?? null,
+    guestOnboardingStatus: user?.guestOnboardingStatus ?? null,
     schoolId: user?.schoolId ?? null,
     username: user?.username ?? null,
     email: user?.email ?? null,
