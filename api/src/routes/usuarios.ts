@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { canManageParents, canReadAsLearner, canViewAllUsers } from "../lib/authorization";
+import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
@@ -18,8 +19,12 @@ usuarios.post("/api/usuarios", requireUser, async (req, res) => {
   try {
     const parsed = UsuarioSchema.parse(req.body);
     const requester =
-      (res.locals as { user?: { role?: string; escuelaId?: unknown; schoolId?: string | null } }).user ??
-      (req as { user?: { role?: string; escuelaId?: unknown; schoolId?: string | null } }).user;
+      (res.locals as {
+        user?: { _id?: { toString?: () => string }; role?: string; escuelaId?: unknown; schoolId?: string | null };
+      }).user ??
+      (req as {
+        user?: { _id?: { toString?: () => string }; role?: string; escuelaId?: unknown; schoolId?: string | null };
+      }).user;
     const role = typeof requester?.role === "string" ? requester.role : null;
     if (!role || (!canManageParents(role) && !canViewAllUsers(role))) {
       res.status(403).json({ error: "forbidden" });
@@ -60,6 +65,16 @@ usuarios.post("/api/usuarios", requireUser, async (req, res) => {
       updatedAt: now
     };
     const result = await db.collection("usuarios").insertOne(doc);
+    await recordAuditLog({
+      actorId: requester?._id?.toString?.() ?? "system",
+      action: "usuarios.create",
+      targetType: "usuario",
+      targetId: result.insertedId.toString(),
+      metadata: {
+        role: doc.role ?? null,
+        escuelaId: doc.escuelaId?.toString?.() ?? null
+      }
+    });
     res.status(201).json({ id: result.insertedId });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
