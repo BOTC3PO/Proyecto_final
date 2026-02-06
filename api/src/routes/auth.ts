@@ -4,6 +4,7 @@ import { requireAdmin } from "../lib/admin-auth";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
+import { createAccessToken, createRefreshToken } from "../lib/auth-token";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
 import { hashPassword, verifyPassword } from "../lib/passwords";
 import { createRateLimiter } from "../lib/rate-limit";
@@ -151,13 +152,32 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
       res.status(401).json({ error: "Credenciales inválidas" });
       return;
     }
+    const accessToken = createAccessToken({
+      id: user._id.toString(),
+      email: user.email,
+      username: user.username,
+      role: user.role,
+      schoolId: normalizeSchoolId(user.escuelaId),
+      fullName: user.fullName ?? null
+    });
+    const refreshToken = createRefreshToken({ id: user._id.toString() });
     res.json({
       id: user._id,
       username: user.username,
       email: user.email,
       fullName: user.fullName,
       role: user.role,
-      schoolId: normalizeSchoolId(user.escuelaId)
+      schoolId: normalizeSchoolId(user.escuelaId),
+      accessToken: accessToken.token,
+      expiresAt: accessToken.expiresAt,
+      expiresIn: accessToken.expiresIn,
+      ...(refreshToken
+        ? {
+            refreshToken: refreshToken.token,
+            refreshExpiresAt: refreshToken.expiresAt,
+            refreshExpiresIn: refreshToken.expiresIn
+          }
+        : {})
     });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });

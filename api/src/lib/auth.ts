@@ -1,21 +1,26 @@
 import type { NextFunction, Request, Response } from "express";
+import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from "./auth-token";
 
 const ADMIN_ROLE = "ADMIN";
 
-const extractRole = (req: Request): string | undefined => {
-  const headerRole = req.header("x-user-role") ?? req.header("x-role");
-  if (headerRole) return headerRole;
-  const maybeUser = (req as { user?: { role?: string } }).user;
-  if (maybeUser?.role) return maybeUser.role;
-  if (typeof req.body?.role === "string") return req.body.role;
-  return undefined;
-};
-
 export const requireAdmin = (req: Request, res: Response, next: NextFunction) => {
-  const role = extractRole(req);
-  if (role !== ADMIN_ROLE) {
+  const token = extractTokenFromRequest(req);
+  if (!token) {
+    res.status(401).json({ error: "Missing authentication" });
+    return;
+  }
+  const verification = verifyToken(token, "access");
+  if (!verification.ok) {
+    res.status(401).json({ error: verification.error });
+    return;
+  }
+  const claims = verification.payload;
+  if (claims.role !== ADMIN_ROLE) {
     res.status(403).json({ error: "admin role required" });
     return;
   }
+  (req as { user?: ReturnType<typeof buildUserContextFromClaims> }).user = buildUserContextFromClaims(
+    claims
+  );
   next();
 };
