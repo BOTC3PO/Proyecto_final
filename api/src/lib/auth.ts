@@ -3,6 +3,10 @@ import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from
 
 const ADMIN_ROLE = "ADMIN";
 
+/**
+ * @deprecated Use requirePolicy with requireUser or requireAdmin from admin-auth instead.
+ * This middleware remains only for temporary compatibility and will be removed.
+ */
 export const requireAdmin = (req: Request, res: Response, next: NextFunction) => {
   const token = extractTokenFromRequest(req);
   if (!token) {
