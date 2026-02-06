@@ -5,12 +5,14 @@ process.env.DB_NAME = `economia_transacciones_${Date.now()}_${Math.random()
   .slice(2)}`;
 process.env.MONGO_REQUIRE_AUTH = "false";
 process.env.MONGO_REQUIRE_TLS = "false";
+process.env.JWT_SECRET = process.env.JWT_SECRET ?? "test-secret";
 
 import assert from "node:assert/strict";
 import type { Server } from "node:http";
 import { after, before, test } from "node:test";
 import express from "express";
 import { MongoClient, ObjectId } from "mongodb";
+import { createAccessToken } from "../../src/lib/auth-token";
 
 let client: MongoClient;
 let app: express.Express;
@@ -112,11 +114,12 @@ after(async () => {
 });
 
 test("POST /api/economia/transacciones rechaza moneda distinta a la configurada", async () => {
+  const token = createAccessToken({ id: usuarioIdString, role: "ADMIN", schoolId }).token;
   const response = await fetch(`${baseUrl}/api/economia/transacciones`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "x-usuario-id": usuarioIdString
+      authorization: `Bearer ${token}`
     },
     body: JSON.stringify({
       usuarioId: usuarioIdString,

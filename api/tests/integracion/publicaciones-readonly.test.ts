@@ -3,12 +3,14 @@ process.env.MONGO_URI = process.env.MONGO_URI ?? "mongodb://localhost:27017";
 process.env.DB_NAME = `publicaciones_readonly_${Date.now()}_${Math.random().toString(16).slice(2)}`;
 process.env.MONGO_REQUIRE_AUTH = "false";
 process.env.MONGO_REQUIRE_TLS = "false";
+process.env.JWT_SECRET = process.env.JWT_SECRET ?? "test-secret";
 
 import assert from "node:assert/strict";
 import type { Server } from "node:http";
 import { after, before, beforeEach, test } from "node:test";
 import express from "express";
 import { MongoClient, ObjectId } from "mongodb";
+import { createAccessToken } from "../../src/lib/auth-token";
 
 type ClassroomStatus = "ARCHIVED" | "archivada" | "LOCKED";
 
@@ -120,11 +122,12 @@ for (const status of classroomStatuses) {
     await seedClassroom(status);
 
     const countBefore = await db.collection("publicaciones").countDocuments();
+    const token = createAccessToken({ id: adminUserId.toString(), role: "ADMIN", schoolId }).token;
     const response = await fetch(`${baseUrl}/api/aulas/${aulaId}/publicaciones`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        "x-usuario-id": adminUserId.toString()
+        authorization: `Bearer ${token}`
       },
       body: JSON.stringify({
         contenido: "Nueva publicación",
@@ -149,13 +152,14 @@ for (const status of classroomStatuses) {
     const publicacionesBefore = await db.collection("publicaciones").countDocuments();
     const comentariosBefore = await db.collection("comentarios").countDocuments();
 
+    const token = createAccessToken({ id: studentUserId.toString(), role: "USER", schoolId }).token;
     const response = await fetch(
       `${baseUrl}/api/aulas/${aulaId}/publicaciones/${publicationId}/comentarios`,
       {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          "x-usuario-id": studentUserId.toString()
+          authorization: `Bearer ${token}`
         },
         body: JSON.stringify({
           contenido: "Comentario"

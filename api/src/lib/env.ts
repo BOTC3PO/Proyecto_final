@@ -20,5 +20,11 @@ export const ENV = {
   MONGO_MIN_POOL_SIZE: Number(process.env.MONGO_MIN_POOL_SIZE ?? 0),
   MONGO_SERVER_SELECTION_MS: Number(process.env.MONGO_SERVER_SELECTION_MS ?? 5000),
   MONGO_REQUIRE_AUTH: parseBool(process.env.MONGO_REQUIRE_AUTH, true),
-  BOOTSTRAP_ADMIN_KEY: process.env.BOOTSTRAP_ADMIN_KEY ?? ""
+  BOOTSTRAP_ADMIN_KEY: process.env.BOOTSTRAP_ADMIN_KEY ?? "",
+  JWT_SECRET: process.env.JWT_SECRET ?? "dev-secret",
+  JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET ?? "",
+  JWT_ISSUER: process.env.JWT_ISSUER ?? "",
+  JWT_AUDIENCE: process.env.JWT_AUDIENCE ?? "",
+  JWT_ACCESS_TTL_SECONDS: Number(process.env.JWT_ACCESS_TTL_SECONDS ?? 60 * 60),
+  JWT_REFRESH_TTL_SECONDS: Number(process.env.JWT_REFRESH_TTL_SECONDS ?? 0)
 };

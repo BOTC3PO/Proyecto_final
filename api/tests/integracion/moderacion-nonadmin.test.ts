@@ -3,12 +3,14 @@ process.env.MONGO_URI = process.env.MONGO_URI ?? "mongodb://localhost:27017";
 process.env.DB_NAME = `moderacion_nonadmin_${Date.now()}_${Math.random().toString(16).slice(2)}`;
 process.env.MONGO_REQUIRE_AUTH = "false";
 process.env.MONGO_REQUIRE_TLS = "false";
+process.env.JWT_SECRET = process.env.JWT_SECRET ?? "test-secret";
 
 import assert from "node:assert/strict";
 import type { Server } from "node:http";
 import { after, before, beforeEach, test } from "node:test";
 import express from "express";
 import { MongoClient, ObjectId } from "mongodb";
+import { createAccessToken } from "../../src/lib/auth-token";
 
 let client: MongoClient;
 let app: express.Express;
@@ -31,11 +33,11 @@ const baseUserData = {
   lastWarningSeverity: null
 };
 
-const fetchWithRole = (path: string, options: RequestInit = {}) =>
+const fetchWithRole = (path: string, token: string, options: RequestInit = {}) =>
   fetch(`${baseUrl}${path}`, {
     ...options,
     headers: {
-      "x-user-role": nonAdminRole,
+      authorization: `Bearer ${token}`,
       "content-type": "application/json",
       ...(options.headers ?? {})
     }
@@ -97,7 +99,8 @@ after(async () => {
 
 test("GET /api/moderacion/clases-publicas rechaza rol no-admin", async () => {
   const beforeState = await getState();
-  const response = await fetchWithRole("/api/moderacion/clases-publicas");
+  const token = createAccessToken({ id: targetUserId.toString(), role: nonAdminRole }).token;
+  const response = await fetchWithRole("/api/moderacion/clases-publicas", token);
   const body = await response.json();
 
   assert.equal(response.status, 403);
@@ -107,7 +110,8 @@ test("GET /api/moderacion/clases-publicas rechaza rol no-admin", async () => {
 
 test("GET /api/moderacion/mensajes-reportados rechaza rol no-admin", async () => {
   const beforeState = await getState();
-  const response = await fetchWithRole("/api/moderacion/mensajes-reportados");
+  const token = createAccessToken({ id: targetUserId.toString(), role: nonAdminRole }).token;
+  const response = await fetchWithRole("/api/moderacion/mensajes-reportados", token);
   const body = await response.json();
 
   assert.equal(response.status, 403);
@@ -117,7 +121,8 @@ test("GET /api/moderacion/mensajes-reportados rechaza rol no-admin", async () =>
 
 test("POST /api/moderacion/usuarios/:id/ban rechaza rol no-admin", async () => {
   const beforeState = await getState();
-  const response = await fetchWithRole(`/api/moderacion/usuarios/${targetUserId.toString()}/ban`, {
+  const token = createAccessToken({ id: targetUserId.toString(), role: nonAdminRole }).token;
+  const response = await fetchWithRole(`/api/moderacion/usuarios/${targetUserId.toString()}/ban`, token, {
     method: "POST",
     body: JSON.stringify({ motivo: "Motivo", duracionDias: 2 })
   });
@@ -130,8 +135,10 @@ test("POST /api/moderacion/usuarios/:id/ban rechaza rol no-admin", async () => {
 
 test("POST /api/moderacion/usuarios/:id/advertencias rechaza rol no-admin", async () => {
   const beforeState = await getState();
+  const token = createAccessToken({ id: targetUserId.toString(), role: nonAdminRole }).token;
   const response = await fetchWithRole(
     `/api/moderacion/usuarios/${targetUserId.toString()}/advertencias`,
+    token,
     {
       method: "POST",
       body: JSON.stringify({ motivo: "Motivo", severidad: "alta" })

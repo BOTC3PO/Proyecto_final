@@ -3,12 +3,14 @@ process.env.MONGO_URI = process.env.MONGO_URI ?? "mongodb://localhost:27017";
 process.env.DB_NAME = `reportes_padre_${Date.now()}_${Math.random().toString(16).slice(2)}`;
 process.env.MONGO_REQUIRE_AUTH = "false";
 process.env.MONGO_REQUIRE_TLS = "false";
+process.env.JWT_SECRET = process.env.JWT_SECRET ?? "test-secret";
 
 import assert from "node:assert/strict";
 import type { Server } from "node:http";
 import { after, before, beforeEach, test } from "node:test";
 import express from "express";
 import { MongoClient, ObjectId } from "mongodb";
+import { createAccessToken } from "../../src/lib/auth-token";
 
 let client: MongoClient;
 let app: express.Express;
@@ -24,11 +26,12 @@ const adultoBirthdate = () => {
 };
 
 const callReporteEndpoints = async (childIdString: string, parentIdString: string) => {
+  const token = createAccessToken({ id: parentIdString, role: "PARENT" }).token;
   const estadisticasResponse = await fetch(`${baseUrl}/api/estadisticas/hijos/${childIdString}`, {
     method: "GET",
     headers: {
       "content-type": "application/json",
-      "x-usuario-id": parentIdString
+      authorization: `Bearer ${token}`
     }
   });
   const estadisticasBody = await estadisticasResponse.json();
@@ -37,7 +40,7 @@ const callReporteEndpoints = async (childIdString: string, parentIdString: strin
     method: "GET",
     headers: {
       "content-type": "application/json",
-      "x-usuario-id": parentIdString
+      authorization: `Bearer ${token}`
     }
   });
   const informesBody = await informesResponse.json();
