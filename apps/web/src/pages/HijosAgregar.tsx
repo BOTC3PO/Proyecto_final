@@ -1,5 +1,6 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import DateInput from "../components/DateInput";
+import { ApiError, apiPost } from "../lib/api";
 import { fetchRegistroOpciones } from "../services/registro";
 
 type HijoForm = {
@@ -74,9 +75,7 @@ export default function HijosAgregar() {
     if (!validate()) return;
     setSaving(true);
     try {
-      // TODO: POST a tu backend NoSQL
-      // await api.post("/hijos", form)
-      console.log("Hijo guardado:", form);
+      await apiPost<{ ok: boolean }>("/api/hijos", form);
       // limpiar (opcional)
       setForm({
         nombre: "",
@@ -90,8 +89,28 @@ export default function HijosAgregar() {
       });
       setErrors({});
     } catch (err: any) {
-      // error de backend (ej: usuario duplicado)
-      setErrors((p) => ({ ...p, usuario: err?.message || "No se pudo guardar" }));
+      let message = "No se pudo guardar";
+      let status = 0;
+      if (err instanceof ApiError) {
+        status = err.status;
+        try {
+          const parsed = JSON.parse(err.message);
+          message = parsed?.error ?? err.message;
+        } catch {
+          message = err.message;
+        }
+      } else if (err instanceof Error) {
+        message = err.message;
+      }
+      if (status === 404) {
+        setErrors((p) => ({ ...p, usuario: "No encontramos el usuario indicado." }));
+      } else if (status === 409) {
+        setErrors((p) => ({ ...p, usuario: "Ese usuario ya está vinculado." }));
+      } else if (status === 400) {
+        setErrors((p) => ({ ...p, usuario: message || "Validación inválida." }));
+      } else {
+        setErrors((p) => ({ ...p, usuario: message || "No se pudo guardar" }));
+      }
     } finally {
       setSaving(false);
     }

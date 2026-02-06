@@ -42,3 +42,7 @@ export async function fetchProgresoEstudiante(): Promise<ProgresoEstudianteRespo
 export async function fetchProgresoHijos(): Promise<ChildProgress[]> {
   return apiGet<ChildProgress[]>("/api/progreso/hijos");
 }
+
+export async function fetchProgresoHijo(id: string): Promise<ChildProgress> {
+  return apiGet<ChildProgress>(`/api/progreso/hijos/${id}`);
+}
