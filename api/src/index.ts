@@ -27,11 +27,18 @@ import { beneficios } from "./routes/beneficios";
 import { profesor } from "./routes/profesor";
 import { quizAttempts } from "./routes/quiz-attempts";
 import { resourceLinks } from "./routes/resource-links";
+import { createRateLimiter } from "./lib/rate-limit";
 const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
 app.use(morgan("tiny"));
 app.use(express.json());
+app.use(
+  createRateLimiter({
+    windowMs: 15 * 60 * 1000,
+    limit: 100
+  })
+);
 app.use(health);
 app.use(pages);
 app.use(auth);
