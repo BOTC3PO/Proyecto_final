@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { canManageParents, canReadAsLearner, canViewAllUsers } from "../lib/authorization";
+import { requirePolicy } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
@@ -15,7 +15,7 @@ const clampLimit = (value: string | undefined) => {
   return Math.min(parsed, 100);
 };
 
-usuarios.post("/api/usuarios", requireUser, async (req, res) => {
+usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), async (req, res) => {
   try {
     const parsed = UsuarioSchema.parse(req.body);
     const requester =
@@ -25,12 +25,13 @@ usuarios.post("/api/usuarios", requireUser, async (req, res) => {
       (req as {
         user?: { _id?: { toString?: () => string }; role?: string; escuelaId?: unknown; schoolId?: string | null };
       }).user;
-    const role = typeof requester?.role === "string" ? requester.role : null;
-    if (!role || (!canManageParents(role) && !canViewAllUsers(role))) {
+    const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
+    const accessLevel = authorization?.data?.accessLevel;
+    if (accessLevel !== "admin" && accessLevel !== "school") {
       res.status(403).json({ error: "forbidden" });
       return;
     }
-    if (!canViewAllUsers(role)) {
+    if (accessLevel !== "admin") {
       const requesterSchoolId =
         typeof requester?.schoolId === "string" ? requester.schoolId : normalizeSchoolId(requester?.escuelaId);
       const targetSchoolId = normalizeSchoolId(parsed.escuelaId);
@@ -81,20 +82,17 @@ usuarios.post("/api/usuarios", requireUser, async (req, res) => {
   }
 });
 
-usuarios.get("/api/usuarios", requireUser, async (req, res) => {
+usuarios.get("/api/usuarios", requireUser, requirePolicy("usuarios/list"), async (req, res) => {
   const user = (req as { user?: { role?: string; schoolId?: string | null; escuelaId?: unknown } }).user;
-  const role = typeof user?.role === "string" ? user.role : null;
-  if (!role) {
-    res.status(403).json({ error: "forbidden" });
-    return;
-  }
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const query: Record<string, unknown> = { isDeleted: { $ne: true } };
-  if (canViewAllUsers(role)) {
+  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
+  const accessLevel = authorization?.data?.accessLevel;
+  if (accessLevel === "admin") {
     // Global access.
-  } else if (canManageParents(role)) {
+  } else if (accessLevel === "school") {
     const schoolId =
       typeof user?.schoolId === "string" ? user.schoolId : normalizeSchoolId(user?.escuelaId);
     if (!schoolId) {
@@ -123,7 +121,7 @@ usuarios.get("/api/usuarios", requireUser, async (req, res) => {
   res.json({ items, limit, offset });
 });
 
-usuarios.get("/api/usuarios/:id", requireUser, async (req, res) => {
+usuarios.get("/api/usuarios/:id", requireUser, requirePolicy("usuarios/read"), async (req, res) => {
   const db = await getDb();
   const objectId = toObjectId(req.params.id);
   if (!objectId) return res.status(400).json({ error: "invalid id" });
@@ -132,10 +130,8 @@ usuarios.get("/api/usuarios/:id", requireUser, async (req, res) => {
     (req as { user?: { _id?: { toString?: () => string }; role?: string; teacherProfile?: unknown } }).user;
   const requesterId = requester?._id?.toString?.() ?? null;
   if (!requesterId) return res.status(403).json({ error: "forbidden" });
-  const requesterRole = typeof requester?.role === "string" ? requester.role : null;
-  if (!canManageParents(requesterRole) && !canReadAsLearner(requesterRole) && !canViewAllUsers(requesterRole)) {
-    return res.status(403).json({ error: "forbidden" });
-  }
+  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
+  const accessLevel = authorization?.data?.accessLevel;
   const item = await db.collection("usuarios").findOne(
     { _id: objectId, isDeleted: { $ne: true } },
     {
@@ -150,7 +146,7 @@ usuarios.get("/api/usuarios/:id", requireUser, async (req, res) => {
     }
   );
   if (!item) return res.status(404).json({ error: "not found" });
-  if (canViewAllUsers(requesterRole)) {
+  if (accessLevel === "admin") {
     res.json(serializeUsuario(item, { access: "admin" }));
     return;
   }

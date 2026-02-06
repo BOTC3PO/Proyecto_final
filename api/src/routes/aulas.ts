@@ -2,13 +2,7 @@ import express, { Router } from "express";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
-import {
-  canCreateClass,
-  canManageClassroom,
-  canManageParents,
-  canReadAsLearner,
-  isStaffRole
-} from "../lib/authorization";
+import { requirePolicy } from "../lib/authorization";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
@@ -36,23 +30,21 @@ const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 const getRequesterId = (req: express.Request) =>
   (req as { user?: { _id?: { toString?: () => string } } }).user?._id?.toString?.() ?? null;
 
-const getRequesterRole = (req: express.Request) =>
-  (req as { user?: { role?: string | null } }).user?.role ?? null;
-
 const getRequesterSchoolId = (req: express.Request) =>
   (req as { user?: { schoolId?: string | null } }).user?.schoolId ?? null;
 
-aulas.get("/api/aulas", requireUser, async (req, res) => {
+aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, res) => {
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const requesterId = getRequesterId(req);
-  const requesterRole = getRequesterRole(req);
   const requesterSchoolId = getRequesterSchoolId(req);
+  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
+  const accessLevel = authorization?.data?.accessLevel ?? null;
   const query: Record<string, unknown> = { isDeleted: { $ne: true } };
-  if (requesterRole === "ADMIN") {
+  if (accessLevel === "admin") {
     // Global access.
-  } else if (canManageParents(requesterRole) || isStaffRole(requesterRole)) {
+  } else if (accessLevel === "staff") {
     const orFilters: Array<Record<string, unknown>> = [];
     if (requesterSchoolId) {
       orFilters.push({ schoolId: requesterSchoolId }, { institutionId: requesterSchoolId });
@@ -65,7 +57,7 @@ aulas.get("/api/aulas", requireUser, async (req, res) => {
     } else {
       return res.status(403).json({ error: "forbidden" });
     }
-  } else if (canReadAsLearner(requesterRole)) {
+  } else if (accessLevel === "learner") {
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
     query["members.userId"] = requesterId;
   } else {
@@ -81,30 +73,27 @@ aulas.get("/api/aulas", requireUser, async (req, res) => {
   res.json({ items, limit, offset });
 });
 
-aulas.get("/api/aulas/:id", requireUser, async (req, res) => {
+aulas.get("/api/aulas/:id", requireUser, requirePolicy("aulas/read"), async (req, res) => {
   const db = await getDb();
   const item = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
   if (!item) return res.status(404).json({ error: "not found" });
   const requesterId = getRequesterId(req);
-  const requesterRole = getRequesterRole(req);
   const requesterSchoolId = getRequesterSchoolId(req);
+  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
+  const accessLevel = authorization?.data?.accessLevel ?? null;
   const members = Array.isArray(item.members) ? item.members : [];
   const isMember = !!requesterId && members.some((member: { userId?: string }) => member.userId === requesterId);
   const schoolId = item.schoolId ?? item.institutionId;
   const hasStaffSchoolAccess =
-    isStaffRole(requesterRole) && !!requesterSchoolId && !!schoolId && requesterSchoolId === schoolId;
-  if (requesterRole !== "ADMIN" && !isMember && !hasStaffSchoolAccess) {
+    accessLevel === "staff" && !!requesterSchoolId && !!schoolId && requesterSchoolId === schoolId;
+  if (accessLevel !== "admin" && !isMember && !hasStaffSchoolAccess) {
     return res.status(403).json({ error: "forbidden" });
   }
   res.json(item);
 });
 
-aulas.post("/api/aulas", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
-    const role = getRequesterRole(req);
-    if (!canCreateClass(role)) {
-      return res.status(403).json({ error: "forbidden" });
-    }
     const now = new Date().toISOString();
     const payload = {
       ...req.body,
@@ -141,231 +130,241 @@ aulas.post("/api/aulas", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (re
   }
 });
 
-aulas.put("/api/aulas/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
-  try {
-    const role = getRequesterRole(req);
-    if (!canManageParents(role)) {
-      return res.status(403).json({ error: "forbidden" });
+aulas.put(
+  "/api/aulas/:id",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    try {
+      const parsed = ClassroomUpdateSchema.parse(req.body);
+      const db = await getDb();
+      const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
+      if (!classroom) return res.status(404).json({ error: "not found" });
+      const currentStatus = normalizeClassroomStatus(classroom.status);
+      if (!currentStatus) {
+        return res.status(409).json({ error: "invalid classroom status" });
+      }
+      if (
+        isClassroomReadOnlyStatus(currentStatus) &&
+        (parsed.members || parsed.teacherId || parsed.teacherOfRecord)
+      ) {
+        return res.status(403).json({ error: "classroom is read-only" });
+      }
+      const nextStatus = parsed.status ? normalizeClassroomStatus(parsed.status) : currentStatus;
+      if (!nextStatus) {
+        return res.status(400).json({ error: "invalid classroom status" });
+      }
+      if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
+        return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
+      }
+      const currentIsDeleted = classroom.isDeleted === true;
+      const nextIsDeleted =
+        typeof parsed.isDeleted === "boolean" ? parsed.isDeleted : classroom.isDeleted === true;
+      const shouldAuditStatus = currentStatus !== nextStatus;
+      const shouldAuditDeletion = currentIsDeleted !== nextIsDeleted;
+      if (shouldAuditStatus || shouldAuditDeletion) {
+        const auditEntry: Record<string, unknown> = {
+          aulaId: classroom.id ?? req.params.id,
+          schoolId: classroom.schoolId ?? classroom.institutionId,
+          previousStatus: currentStatus,
+          newStatus: nextStatus,
+          actorId: getRequesterId(req),
+          createdAt: new Date().toISOString()
+        };
+        if (shouldAuditDeletion) {
+          auditEntry.previousIsDeleted = currentIsDeleted;
+          auditEntry.newIsDeleted = nextIsDeleted;
+        }
+        await db.collection("auditoria_aulas").insertOne(auditEntry);
+      }
+      const update = { ...parsed, updatedAt: new Date().toISOString() };
+      const updateOperation: { $set: Record<string, unknown>; $unset?: Record<string, ""> } = {
+        $set: update
+      };
+      if (isClassroomReadOnlyStatus(nextStatus)) {
+        updateOperation.$unset = { classCode: "" };
+        delete update.classCode;
+      }
+      const result = await db
+        .collection("aulas")
+        .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, updateOperation);
+      if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+      res.json({ ok: true });
+    } catch (e: any) {
+      res.status(400).json({ error: e?.message ?? "invalid payload" });
     }
-    const parsed = ClassroomUpdateSchema.parse(req.body);
+  }
+);
+
+aulas.patch(
+  "/api/aulas/:id",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    try {
+      const parsed = ClassroomPatchSchema.parse(req.body);
+      const db = await getDb();
+      const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
+      if (!classroom) return res.status(404).json({ error: "not found" });
+      const currentStatus = normalizeClassroomStatus(classroom.status);
+      if (!currentStatus) {
+        return res.status(409).json({ error: "invalid classroom status" });
+      }
+      if (
+        isClassroomReadOnlyStatus(currentStatus) &&
+        (parsed.members || parsed.teacherId || parsed.teacherOfRecord)
+      ) {
+        return res.status(403).json({ error: "classroom is read-only" });
+      }
+      const nextStatus = parsed.status ? normalizeClassroomStatus(parsed.status) : currentStatus;
+      if (!nextStatus) {
+        return res.status(400).json({ error: "invalid classroom status" });
+      }
+      if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
+        return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
+      }
+      const currentIsDeleted = classroom.isDeleted === true;
+      const nextIsDeleted =
+        typeof parsed.isDeleted === "boolean" ? parsed.isDeleted : classroom.isDeleted === true;
+      const shouldAuditStatus = currentStatus !== nextStatus;
+      const shouldAuditDeletion = currentIsDeleted !== nextIsDeleted;
+      if (shouldAuditStatus || shouldAuditDeletion) {
+        const auditEntry: Record<string, unknown> = {
+          aulaId: classroom.id ?? req.params.id,
+          schoolId: classroom.schoolId ?? classroom.institutionId,
+          previousStatus: currentStatus,
+          newStatus: nextStatus,
+          actorId: getRequesterId(req),
+          createdAt: new Date().toISOString()
+        };
+        if (shouldAuditDeletion) {
+          auditEntry.previousIsDeleted = currentIsDeleted;
+          auditEntry.newIsDeleted = nextIsDeleted;
+        }
+        await db.collection("auditoria_aulas").insertOne(auditEntry);
+      }
+      const update = { ...parsed, updatedAt: new Date().toISOString() };
+      const updateOperation: { $set: Record<string, unknown>; $unset?: Record<string, ""> } = {
+        $set: update
+      };
+      if (isClassroomReadOnlyStatus(nextStatus)) {
+        updateOperation.$unset = { classCode: "" };
+        delete update.classCode;
+      }
+      const result = await db
+        .collection("aulas")
+        .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, updateOperation);
+      if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+      res.json({ ok: true });
+    } catch (e: any) {
+      res.status(400).json({ error: e?.message ?? "invalid payload" });
+    }
+  }
+);
+
+aulas.post(
+  "/api/aulas/:id/reasignar-profesor",
+  requireUser,
+  express.json(),
+  async (req, res, next) => {
     const db = await getDb();
     const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
     if (!classroom) return res.status(404).json({ error: "not found" });
+    res.locals.classroom = classroom;
+    next();
+  },
+  requirePolicy("aulas/manage-classroom", (_req, res) => ({
+    classroom: res.locals.classroom as {
+      members?: { userId?: string; roleInClass?: string }[] | null;
+      schoolId?: string;
+      institutionId?: string;
+    }
+  })),
+  async (req, res) => {
+    const classroom = res.locals.classroom as {
+      members?: { userId?: string; roleInClass?: string }[];
+      schoolId?: string;
+      institutionId?: string;
+      status?: string;
+      id?: string;
+    };
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
       return res.status(409).json({ error: "invalid classroom status" });
     }
-    if (
-      isClassroomReadOnlyStatus(currentStatus) &&
-      (parsed.members || parsed.teacherId || parsed.teacherOfRecord)
-    ) {
+    if (isClassroomReadOnlyStatus(currentStatus)) {
       return res.status(403).json({ error: "classroom is read-only" });
     }
-    const nextStatus = parsed.status ? normalizeClassroomStatus(parsed.status) : currentStatus;
-    if (!nextStatus) {
-      return res.status(400).json({ error: "invalid classroom status" });
+    const schoolId = classroom.schoolId ?? classroom.institutionId;
+    if (!schoolId || typeof schoolId !== "string") {
+      return res.status(400).json({ error: "classroom schoolId missing" });
     }
-    if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
-      return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
-    }
-    const currentIsDeleted = classroom.isDeleted === true;
-    const nextIsDeleted =
-      typeof parsed.isDeleted === "boolean" ? parsed.isDeleted : classroom.isDeleted === true;
-    const shouldAuditStatus = currentStatus !== nextStatus;
-    const shouldAuditDeletion = currentIsDeleted !== nextIsDeleted;
-    if (shouldAuditStatus || shouldAuditDeletion) {
-      const auditEntry: Record<string, unknown> = {
-        aulaId: classroom.id ?? req.params.id,
-        schoolId: classroom.schoolId ?? classroom.institutionId,
-        previousStatus: currentStatus,
-        newStatus: nextStatus,
-        actorId: getRequesterId(req),
-        createdAt: new Date().toISOString()
-      };
-      if (shouldAuditDeletion) {
-        auditEntry.previousIsDeleted = currentIsDeleted;
-        auditEntry.newIsDeleted = nextIsDeleted;
-      }
-      await db.collection("auditoria_aulas").insertOne(auditEntry);
-    }
-    const update = { ...parsed, updatedAt: new Date().toISOString() };
-    const updateOperation: { $set: Record<string, unknown>; $unset?: Record<string, ""> } = {
-      $set: update
-    };
-    if (isClassroomReadOnlyStatus(nextStatus)) {
-      updateOperation.$unset = { classCode: "" };
-      delete update.classCode;
-    }
-    const result = await db
-      .collection("aulas")
-      .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, updateOperation);
-    if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
-    res.json({ ok: true });
-  } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
-  }
-});
+    const members = Array.isArray(classroom.members) ? classroom.members : [];
 
-aulas.patch("/api/aulas/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
-  try {
-    const role = getRequesterRole(req);
-    if (!canManageParents(role)) {
-      return res.status(403).json({ error: "forbidden" });
-    }
-    const parsed = ClassroomPatchSchema.parse(req.body);
+    const teacherIdRaw =
+      typeof req.body?.teacherId === "string"
+        ? req.body.teacherId
+        : typeof req.body?.newTeacherId === "string"
+          ? req.body.newTeacherId
+          : null;
+    const teacherId = teacherIdRaw?.trim();
+    if (!teacherId) return res.status(400).json({ error: "teacherId is required" });
+    const removeTeacherId =
+      typeof req.body?.removeTeacherId === "string" ? req.body.removeTeacherId.trim() : null;
+
+    const teacherObjectId = toObjectId(teacherId);
+    if (!teacherObjectId) return res.status(400).json({ error: "invalid teacherId" });
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
-    if (!classroom) return res.status(404).json({ error: "not found" });
-    const currentStatus = normalizeClassroomStatus(classroom.status);
-    if (!currentStatus) {
-      return res.status(409).json({ error: "invalid classroom status" });
-    }
-    if (
-      isClassroomReadOnlyStatus(currentStatus) &&
-      (parsed.members || parsed.teacherId || parsed.teacherOfRecord)
-    ) {
-      return res.status(403).json({ error: "classroom is read-only" });
-    }
-    const nextStatus = parsed.status ? normalizeClassroomStatus(parsed.status) : currentStatus;
-    if (!nextStatus) {
-      return res.status(400).json({ error: "invalid classroom status" });
-    }
-    if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
-      return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
-    }
-    const currentIsDeleted = classroom.isDeleted === true;
-    const nextIsDeleted =
-      typeof parsed.isDeleted === "boolean" ? parsed.isDeleted : classroom.isDeleted === true;
-    const shouldAuditStatus = currentStatus !== nextStatus;
-    const shouldAuditDeletion = currentIsDeleted !== nextIsDeleted;
-    if (shouldAuditStatus || shouldAuditDeletion) {
-      const auditEntry: Record<string, unknown> = {
-        aulaId: classroom.id ?? req.params.id,
-        schoolId: classroom.schoolId ?? classroom.institutionId,
-        previousStatus: currentStatus,
-        newStatus: nextStatus,
-        actorId: getRequesterId(req),
-        createdAt: new Date().toISOString()
-      };
-      if (shouldAuditDeletion) {
-        auditEntry.previousIsDeleted = currentIsDeleted;
-        auditEntry.newIsDeleted = nextIsDeleted;
+    const teacherUser = await db
+      .collection("usuarios")
+      .findOne({ _id: teacherObjectId, isDeleted: { $ne: true } }, { projection: { role: 1, escuelaId: 1 } });
+    if (!teacherUser) return res.status(400).json({ error: "teacher not found" });
+    if (teacherUser.role !== "TEACHER") return res.status(400).json({ error: "teacher role invalid" });
+    const teacherSchoolId = normalizeSchoolId(teacherUser.escuelaId);
+    if (teacherSchoolId !== schoolId) return res.status(403).json({ error: "teacher school mismatch" });
+
+    let updatedMembers = members.map((member: { userId: string; roleInClass: string; schoolId?: string }) => {
+      if (member.userId === teacherId) {
+        return { ...member, roleInClass: "TEACHER", schoolId };
       }
-      await db.collection("auditoria_aulas").insertOne(auditEntry);
+      return member;
+    });
+    if (!updatedMembers.some((member: { userId?: string }) => member.userId === teacherId)) {
+      updatedMembers = [...updatedMembers, { userId: teacherId, roleInClass: "TEACHER", schoolId }];
     }
-    const update = { ...parsed, updatedAt: new Date().toISOString() };
-    const updateOperation: { $set: Record<string, unknown>; $unset?: Record<string, ""> } = {
-      $set: update
+    if (removeTeacherId && removeTeacherId !== teacherId) {
+      updatedMembers = updatedMembers.filter(
+        (member: { userId?: string; roleInClass?: string }) =>
+          !(member.userId === removeTeacherId && member.roleInClass === "TEACHER")
+      );
+    }
+    const adminCount = updatedMembers.filter(
+      (member: { roleInClass?: string }) => member.roleInClass === "ADMIN"
+    ).length;
+    const teacherCount = updatedMembers.filter(
+      (member: { roleInClass?: string }) => member.roleInClass === "TEACHER"
+    ).length;
+    if (adminCount < 1 || teacherCount < 1) {
+      return res.status(400).json({ error: "classroom must keep at least one ADMIN and one TEACHER" });
+    }
+
+    const update = {
+      members: updatedMembers,
+      teacherOfRecord: teacherId,
+      teacherId,
+      updatedAt: new Date().toISOString()
     };
-    if (isClassroomReadOnlyStatus(nextStatus)) {
-      updateOperation.$unset = { classCode: "" };
-      delete update.classCode;
-    }
     const result = await db
       .collection("aulas")
-      .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, updateOperation);
+      .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, { $set: update });
     if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
     res.json({ ok: true });
-  } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
-});
+);
 
-aulas.post("/api/aulas/:id/reasignar-profesor", requireUser, express.json(), async (req, res) => {
-  const db = await getDb();
-  const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
-  if (!classroom) return res.status(404).json({ error: "not found" });
-  const currentStatus = normalizeClassroomStatus(classroom.status);
-  if (!currentStatus) {
-    return res.status(409).json({ error: "invalid classroom status" });
-  }
-  if (isClassroomReadOnlyStatus(currentStatus)) {
-    return res.status(403).json({ error: "classroom is read-only" });
-  }
-  const schoolId = classroom.schoolId ?? classroom.institutionId;
-  if (!schoolId || typeof schoolId !== "string") {
-    return res.status(400).json({ error: "classroom schoolId missing" });
-  }
-  const requesterId = getRequesterId(req);
-  const requesterRole = getRequesterRole(req);
-  const requesterSchoolId = getRequesterSchoolId(req);
-  const members = Array.isArray(classroom.members) ? classroom.members : [];
-  if (
-    !canManageClassroom({
-      requesterId,
-      requesterRole,
-      requesterSchoolId,
-      classroomSchoolId: schoolId,
-      classroomMembers: members
-    })
-  ) {
-    return res.status(403).json({ error: "forbidden" });
-  }
-
-  const teacherIdRaw =
-    typeof req.body?.teacherId === "string"
-      ? req.body.teacherId
-      : typeof req.body?.newTeacherId === "string"
-        ? req.body.newTeacherId
-        : null;
-  const teacherId = teacherIdRaw?.trim();
-  if (!teacherId) return res.status(400).json({ error: "teacherId is required" });
-  const removeTeacherId =
-    typeof req.body?.removeTeacherId === "string" ? req.body.removeTeacherId.trim() : null;
-
-  const teacherObjectId = toObjectId(teacherId);
-  if (!teacherObjectId) return res.status(400).json({ error: "invalid teacherId" });
-  const teacherUser = await db
-    .collection("usuarios")
-    .findOne({ _id: teacherObjectId, isDeleted: { $ne: true } }, { projection: { role: 1, escuelaId: 1 } });
-  if (!teacherUser) return res.status(400).json({ error: "teacher not found" });
-  if (teacherUser.role !== "TEACHER") return res.status(400).json({ error: "teacher role invalid" });
-  const teacherSchoolId = normalizeSchoolId(teacherUser.escuelaId);
-  if (teacherSchoolId !== schoolId) return res.status(403).json({ error: "teacher school mismatch" });
-
-  let updatedMembers = members.map((member: { userId: string; roleInClass: string; schoolId?: string }) => {
-    if (member.userId === teacherId) {
-      return { ...member, roleInClass: "TEACHER", schoolId };
-    }
-    return member;
-  });
-  if (!updatedMembers.some((member: { userId?: string }) => member.userId === teacherId)) {
-    updatedMembers = [...updatedMembers, { userId: teacherId, roleInClass: "TEACHER", schoolId }];
-  }
-  if (removeTeacherId && removeTeacherId !== teacherId) {
-    updatedMembers = updatedMembers.filter(
-      (member: { userId?: string; roleInClass?: string }) =>
-        !(member.userId === removeTeacherId && member.roleInClass === "TEACHER")
-    );
-  }
-  const adminCount = updatedMembers.filter(
-    (member: { roleInClass?: string }) => member.roleInClass === "ADMIN"
-  ).length;
-  const teacherCount = updatedMembers.filter(
-    (member: { roleInClass?: string }) => member.roleInClass === "TEACHER"
-  ).length;
-  if (adminCount < 1 || teacherCount < 1) {
-    return res.status(400).json({ error: "classroom must keep at least one ADMIN and one TEACHER" });
-  }
-
-  const update = {
-    members: updatedMembers,
-    teacherOfRecord: teacherId,
-    teacherId,
-    updatedAt: new Date().toISOString()
-  };
-  const result = await db
-    .collection("aulas")
-    .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, { $set: update });
-  if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
-  res.json({ ok: true });
-});
-
-aulas.delete("/api/aulas/:id", requireUser, async (req, res) => {
-  const role = getRequesterRole(req);
-  if (!canManageParents(role)) {
-    return res.status(403).json({ error: "forbidden" });
-  }
+aulas.delete("/api/aulas/:id", requireUser, requirePolicy("aulas/manage"), async (req, res) => {
   const db = await getDb();
   const now = new Date().toISOString();
   const deletedBy = getRequesterId(req);

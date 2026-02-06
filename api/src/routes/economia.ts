@@ -3,7 +3,7 @@ import { z } from "zod";
 import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
-import { canMintCurrency, canModerateIntercambios } from "../lib/authorization";
+import { requirePolicy } from "../lib/authorization";
 import { assertClassroomWritable } from "../lib/classroom";
 import {
   ENTERPRISE_FEATURES,
@@ -201,9 +201,6 @@ const getRequesterId = (req: express.Request) =>
   (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?.id ??
   null;
 
-const getRequesterRole = (req: express.Request) =>
-  (req as { user?: { role?: string } }).user?.role ?? null;
-
 const getRequesterSchoolId = (req: express.Request) => {
   const user = (req as { user?: { schoolId?: string | null; escuelaId?: unknown } }).user;
   if (typeof user?.schoolId === "string" && user.schoolId.trim()) return user.schoolId;
@@ -212,15 +209,6 @@ const getRequesterSchoolId = (req: express.Request) => {
   const escuelaObj = escuelaId as { toString?: () => string };
   if (escuelaObj?.toString) return escuelaObj.toString();
   return null;
-};
-
-const ensureCanMintCurrency = (req: express.Request, res: express.Response) => {
-  const role = getRequesterRole(req);
-  if (!canMintCurrency(role)) {
-    res.status(403).json({ error: "forbidden" });
-    return false;
-  }
-  return true;
 };
 
 const buildIntercambioScore = (params: {
@@ -415,66 +403,77 @@ economia.get("/api/economia/recompensas", async (req, res) => {
   });
 });
 
-economia.post("/api/economia/recompensas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
-  try {
-    if (!ensureCanMintCurrency(req, res)) return;
-    const payload = {
-      ...req.body,
-      id: req.body?.id ?? new ObjectId().toString(),
-      updatedAt: new Date().toISOString()
-    };
-    const parsed = RecompensaSchema.parse(payload);
-    const db = await getDb();
-    await db.collection("economia_recompensas").insertOne({
-      ...parsed,
-      isDeleted: false,
-      deletedAt: null,
-      deletedBy: null
-    });
-    res.status(201).json({ id: parsed.id });
-  } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
+economia.post(
+  "/api/economia/recompensas",
+  requirePolicy("economia/mint"),
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    try {
+      const payload = {
+        ...req.body,
+        id: req.body?.id ?? new ObjectId().toString(),
+        updatedAt: new Date().toISOString()
+      };
+      const parsed = RecompensaSchema.parse(payload);
+      const db = await getDb();
+      await db.collection("economia_recompensas").insertOne({
+        ...parsed,
+        isDeleted: false,
+        deletedAt: null,
+        deletedBy: null
+      });
+      res.status(201).json({ id: parsed.id });
+    } catch (e: any) {
+      res.status(400).json({ error: e?.message ?? "invalid payload" });
+    }
   }
-});
+);
 
-economia.put("/api/economia/recompensas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
-  try {
-    if (!ensureCanMintCurrency(req, res)) return;
-    const parsed = RecompensaUpdateSchema.parse(req.body ?? {});
-    const db = await getDb();
-    const result = await db
-      .collection("economia_recompensas")
-      .updateOne(
-        { id: req.params.id, isDeleted: { $ne: true } },
-        { $set: { ...parsed, updatedAt: new Date().toISOString() } }
-      );
-    if (!result.matchedCount) return res.status(404).json({ error: "not found" });
-    res.json({ ok: true });
-  } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
+economia.put(
+  "/api/economia/recompensas/:id",
+  requirePolicy("economia/mint"),
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    try {
+      const parsed = RecompensaUpdateSchema.parse(req.body ?? {});
+      const db = await getDb();
+      const result = await db
+        .collection("economia_recompensas")
+        .updateOne(
+          { id: req.params.id, isDeleted: { $ne: true } },
+          { $set: { ...parsed, updatedAt: new Date().toISOString() } }
+        );
+      if (!result.matchedCount) return res.status(404).json({ error: "not found" });
+      res.json({ ok: true });
+    } catch (e: any) {
+      res.status(400).json({ error: e?.message ?? "invalid payload" });
+    }
   }
-});
+);
 
-economia.patch("/api/economia/recompensas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
-  try {
-    if (!ensureCanMintCurrency(req, res)) return;
-    const parsed = RecompensaUpdateSchema.parse(req.body ?? {});
-    const db = await getDb();
-    const result = await db
-      .collection("economia_recompensas")
-      .updateOne(
-        { id: req.params.id, isDeleted: { $ne: true } },
-        { $set: { ...parsed, updatedAt: new Date().toISOString() } }
-      );
-    if (!result.matchedCount) return res.status(404).json({ error: "not found" });
-    res.json({ ok: true });
-  } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
+economia.patch(
+  "/api/economia/recompensas/:id",
+  requirePolicy("economia/mint"),
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    try {
+      const parsed = RecompensaUpdateSchema.parse(req.body ?? {});
+      const db = await getDb();
+      const result = await db
+        .collection("economia_recompensas")
+        .updateOne(
+          { id: req.params.id, isDeleted: { $ne: true } },
+          { $set: { ...parsed, updatedAt: new Date().toISOString() } }
+        );
+      if (!result.matchedCount) return res.status(404).json({ error: "not found" });
+      res.json({ ok: true });
+    } catch (e: any) {
+      res.status(400).json({ error: e?.message ?? "invalid payload" });
+    }
   }
-});
+);
 
-economia.delete("/api/economia/recompensas/:id", async (req, res) => {
-  if (!ensureCanMintCurrency(req, res)) return;
+economia.delete("/api/economia/recompensas/:id", requirePolicy("economia/mint"), async (req, res) => {
   const db = await getDb();
   const now = new Date().toISOString();
   const deletedBy = getRequesterId(req) ?? "desconocido";
@@ -517,6 +516,7 @@ economia.get("/api/economia/saldos", async (req, res) => {
 economia.patch(
   "/api/economia/saldos/:usuarioId",
   requireAdminAuth,
+  requirePolicy("economia/mint"),
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     const actorId = getRequesterId(req) ?? "desconocido";
@@ -528,7 +528,6 @@ economia.patch(
     if (!usuarioObjectId) {
       return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
     }
-    if (!ensureCanMintCurrency(req, res)) return;
     const db = await getDb();
     const parsedResult = SaldoManualUpdateSchema.safeParse(req.body ?? {});
     if (!parsedResult.success) {
@@ -655,10 +654,10 @@ economia.get("/api/economia/transacciones", async (req, res) => {
 
 economia.post(
   "/api/economia/transacciones",
+  requirePolicy("economia/mint"),
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
-      if (!ensureCanMintCurrency(req, res)) return;
       const db = await getDb();
       const config = await getEconomiaConfig(db);
       const limites = config.limites ?? defaultConfig().limites;
@@ -893,9 +892,8 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
   }
 });
 
-economia.post("/api/economia/intercambios/:id/aceptar", async (req, res) => {
+economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/mint"), async (req, res) => {
   try {
-    if (!ensureCanMintCurrency(req, res)) return;
     const db = await getDb();
     const intercambio = await db.collection("economia_intercambios").findOne({ id: req.params.id });
     if (!intercambio) return res.status(404).json({ error: "intercambio not found" });
@@ -1026,13 +1024,10 @@ economia.post("/api/economia/intercambios/:id/cancelar", async (req, res) => {
 
 economia.post(
   "/api/economia/intercambios/:id/moderar",
+  requirePolicy("economia/moderate-intercambios"),
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
-      const role = getRequesterRole(req);
-      if (!canModerateIntercambios(role)) {
-        return res.status(403).json({ error: "forbidden" });
-      }
       const parsed = z
         .object({
           estado: z.enum(["aprobado", "bloqueado"]),
@@ -1046,7 +1041,9 @@ economia.post(
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
       }
-      if (role !== "ADMIN") {
+      const authorization = res.locals.authorization as { data?: { isAdmin?: boolean } } | undefined;
+      const isAdmin = authorization?.data?.isAdmin === true;
+      if (!isAdmin) {
         const requesterSchoolId = getRequesterSchoolId(req);
         if (!requesterSchoolId || requesterSchoolId !== intercambio.schoolId) {
           return res.status(403).json({ error: "forbidden" });
@@ -1075,81 +1072,79 @@ economia.post(
   }
 );
 
-economia.post("/api/economia/compras", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
-  try {
-    if (!ensureCanMintCurrency(req, res)) return;
-    const payload = CompraCreateSchema.parse(req.body ?? {});
-    const requesterId = getRequesterId(req);
-    const requesterRole = getRequesterRole(req);
-    const isOwner = requesterId && requesterId === payload.usuarioId;
-    if (!isOwner && !canModerateIntercambios(requesterRole)) {
-      return res.status(403).json({ error: "usuario no autorizado" });
+economia.post(
+  "/api/economia/compras",
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  requirePolicy("economia/compras"),
+  async (req, res) => {
+    try {
+      const payload = CompraCreateSchema.parse(req.body ?? {});
+      const db = await getDb();
+      const config = await getEconomiaConfig(db);
+      const aula = await db.collection("aulas").findOne({ id: payload.aulaId });
+      if (!assertClassroomWritable(res, aula)) {
+        return;
+      }
+      const aulaCheck = ensureUsuarioEnAula(aula, payload.usuarioId, payload.schoolId);
+      if (!aulaCheck.ok) {
+        return res.status(aulaCheck.status).json({ error: aulaCheck.error });
+      }
+      const usuarioObjectId = buildUsuarioObjectId(payload.usuarioId);
+      if (!usuarioObjectId) {
+        return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+      }
+      const saldoDoc = await db.collection("economia_saldos").findOne({
+        usuarioId: usuarioObjectId
+      });
+      const saldoActual = saldoDoc?.saldo ?? 0;
+      if (saldoActual < payload.monto) {
+        return res.status(400).json({ error: "saldo insuficiente" });
+      }
+      const now = new Date().toISOString();
+      const compra = CompraSchema.parse({
+        id: new ObjectId().toString(),
+        usuarioId: payload.usuarioId,
+        aulaId: payload.aulaId,
+        schoolId: payload.schoolId,
+        concepto: payload.concepto,
+        monto: payload.monto,
+        moneda: payload.moneda ?? config.moneda.codigo,
+        estado: "completada",
+        createdAt: now,
+        updatedAt: now
+      });
+      const transaccion = TransaccionSchema.parse({
+        id: new ObjectId().toString(),
+        usuarioId: payload.usuarioId,
+        aulaId: payload.aulaId,
+        schoolId: payload.schoolId,
+        tipo: "debito",
+        monto: payload.monto,
+        moneda: compra.moneda,
+        motivo: `compra:${compra.concepto}`,
+        referenciaId: compra.id,
+        createdAt: now
+      });
+      await db.collection("economia_compras").insertOne(compra);
+      await db.collection("economia_transacciones").insertOne(transaccion);
+      await db.collection("economia_saldos").updateOne(
+        { usuarioId: usuarioObjectId },
+        {
+          $set: {
+            usuarioId: usuarioObjectId,
+            saldo: saldoActual - payload.monto,
+            moneda: compra.moneda,
+            updatedAt: now
+          }
+        },
+        { upsert: true }
+      );
+      res.status(201).json({ id: compra.id, saldo: saldoActual - payload.monto });
+    } catch (e: any) {
+      res.status(400).json({ error: e?.message ?? "invalid payload" });
     }
-    const db = await getDb();
-    const config = await getEconomiaConfig(db);
-    const aula = await db.collection("aulas").findOne({ id: payload.aulaId });
-    if (!assertClassroomWritable(res, aula)) {
-      return;
-    }
-    const aulaCheck = ensureUsuarioEnAula(aula, payload.usuarioId, payload.schoolId);
-    if (!aulaCheck.ok) {
-      return res.status(aulaCheck.status).json({ error: aulaCheck.error });
-    }
-    const usuarioObjectId = buildUsuarioObjectId(payload.usuarioId);
-    if (!usuarioObjectId) {
-      return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
-    }
-    const saldoDoc = await db.collection("economia_saldos").findOne({
-      usuarioId: usuarioObjectId
-    });
-    const saldoActual = saldoDoc?.saldo ?? 0;
-    if (saldoActual < payload.monto) {
-      return res.status(400).json({ error: "saldo insuficiente" });
-    }
-    const now = new Date().toISOString();
-    const compra = CompraSchema.parse({
-      id: new ObjectId().toString(),
-      usuarioId: payload.usuarioId,
-      aulaId: payload.aulaId,
-      schoolId: payload.schoolId,
-      concepto: payload.concepto,
-      monto: payload.monto,
-      moneda: payload.moneda ?? config.moneda.codigo,
-      estado: "completada",
-      createdAt: now,
-      updatedAt: now
-    });
-    const transaccion = TransaccionSchema.parse({
-      id: new ObjectId().toString(),
-      usuarioId: payload.usuarioId,
-      aulaId: payload.aulaId,
-      schoolId: payload.schoolId,
-      tipo: "debito",
-      monto: payload.monto,
-      moneda: compra.moneda,
-      motivo: `compra:${compra.concepto}`,
-      referenciaId: compra.id,
-      createdAt: now
-    });
-    await db.collection("economia_compras").insertOne(compra);
-    await db.collection("economia_transacciones").insertOne(transaccion);
-    await db.collection("economia_saldos").updateOne(
-      { usuarioId: usuarioObjectId },
-      {
-        $set: {
-          usuarioId: usuarioObjectId,
-          saldo: saldoActual - payload.monto,
-          moneda: compra.moneda,
-          updatedAt: now
-        }
-      },
-      { upsert: true }
-    );
-    res.status(201).json({ id: compra.id, saldo: saldoActual - payload.monto });
-  } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
-});
+);
 
 economia.get("/api/economia/modulos", async (req, res) => {
   const moduloId = req.query.moduloId;
@@ -1343,9 +1338,8 @@ economia.get("/api/economia/examenes/puntos", async (req, res) => {
   });
 });
 
-economia.post("/api/economia/examenes/:id/cerrar", async (req, res) => {
+economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"), async (req, res) => {
   try {
-    if (!ensureCanMintCurrency(req, res)) return;
     const db = await getDb();
     const examen = await db.collection("economia_examenes").findOne({ id: req.params.id });
     if (!examen) return res.status(404).json({ error: "examen not found" });

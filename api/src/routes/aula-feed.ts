@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { canReadAsLearner, isStaffRole } from "../lib/authorization";
+import { requirePolicy } from "../lib/authorization";
 import { getDb } from "../lib/db";
 import { requireUser } from "../lib/user-auth";
 import { isClassroomReadOnlyStatus } from "../schema/aula";
@@ -9,34 +9,34 @@ export const aulaFeed = Router();
 const getRequesterId = (req: { user?: { _id?: { toString?: () => string } } }) =>
   req.user?._id?.toString?.() ?? null;
 
-const getRequesterRole = (req: { user?: { role?: string | null } }) => req.user?.role ?? null;
-
 const getRequesterSchoolId = (req: { user?: { schoolId?: string | null } }) => req.user?.schoolId ?? null;
 
 const canAccessClassroom = ({
   requesterId,
-  requesterRole,
+  accessLevel,
   requesterSchoolId,
   classroomSchoolId,
   classroomMembers
 }: {
   requesterId: string | null;
-  requesterRole?: string | null;
+  accessLevel: "admin" | "staff" | "learner";
   requesterSchoolId?: string | null;
   classroomSchoolId?: string | null;
   classroomMembers?: Array<{ userId?: string }> | null;
 }) => {
-  if (requesterRole === "ADMIN") return true;
+  if (accessLevel === "admin") return true;
   const isMember = !!requesterId && (classroomMembers ?? []).some((member) => member.userId === requesterId);
   if (isMember) return true;
-  const hasStaffSchoolAccess =
-    isStaffRole(requesterRole) && !!requesterSchoolId && !!classroomSchoolId && requesterSchoolId === classroomSchoolId;
-  if (hasStaffSchoolAccess) return true;
-  if (canReadAsLearner(requesterRole)) return isMember;
+  if (accessLevel === "staff") {
+    return !!requesterSchoolId && !!classroomSchoolId && requesterSchoolId === classroomSchoolId;
+  }
   return false;
 };
 
-const resolveClassroomContext = async (req: { query: { classroomId?: unknown }; user?: Record<string, unknown> }) => {
+const resolveClassroomContext = async (
+  req: { query: { classroomId?: unknown }; user?: Record<string, unknown> },
+  accessLevel: "admin" | "staff" | "learner"
+) => {
   const classroomId = typeof req.query.classroomId === "string" ? req.query.classroomId : null;
   if (!classroomId) return { error: { status: 404, message: "classroom not found" } };
   const db = await getDb();
@@ -46,12 +46,11 @@ const resolveClassroomContext = async (req: { query: { classroomId?: unknown }; 
     return { error: { status: 410, message: "classroom feed not available" } };
   }
   const requesterId = getRequesterId(req as { user?: { _id?: { toString?: () => string } } });
-  const requesterRole = getRequesterRole(req as { user?: { role?: string | null } });
   const requesterSchoolId = getRequesterSchoolId(req as { user?: { schoolId?: string | null } });
   if (
     !canAccessClassroom({
       requesterId,
-      requesterRole,
+      accessLevel,
       requesterSchoolId,
       classroomSchoolId: classroom.schoolId ?? classroom.institutionId,
       classroomMembers: Array.isArray(classroom.members) ? classroom.members : []
@@ -62,8 +61,13 @@ const resolveClassroomContext = async (req: { query: { classroomId?: unknown }; 
   return { classroomId, classroom };
 };
 
-aulaFeed.get("/api/aula/publicaciones", requireUser, async (req, res) => {
-  const context = await resolveClassroomContext(req);
+aulaFeed.get("/api/aula/publicaciones", requireUser, requirePolicy("aula-feed/read"), async (req, res) => {
+  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
+  const accessLevel = authorization?.data?.accessLevel;
+  if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
+    return res.status(403).json({ error: "forbidden" });
+  }
+  const context = await resolveClassroomContext(req, accessLevel);
   if ("error" in context) {
     return res.status(context.error.status).json({ error: context.error.message });
   }
@@ -76,8 +80,13 @@ aulaFeed.get("/api/aula/publicaciones", requireUser, async (req, res) => {
   res.json({ items });
 });
 
-aulaFeed.get("/api/aula/leaderboard", requireUser, async (req, res) => {
-  const context = await resolveClassroomContext(req);
+aulaFeed.get("/api/aula/leaderboard", requireUser, requirePolicy("aula-feed/read"), async (req, res) => {
+  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
+  const accessLevel = authorization?.data?.accessLevel;
+  if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
+    return res.status(403).json({ error: "forbidden" });
+  }
+  const context = await resolveClassroomContext(req, accessLevel);
   if ("error" in context) {
     return res.status(context.error.status).json({ error: context.error.message });
   }
@@ -90,8 +99,13 @@ aulaFeed.get("/api/aula/leaderboard", requireUser, async (req, res) => {
   res.json({ items });
 });
 
-aulaFeed.get("/api/aula/actividades", requireUser, async (req, res) => {
-  const context = await resolveClassroomContext(req);
+aulaFeed.get("/api/aula/actividades", requireUser, requirePolicy("aula-feed/read"), async (req, res) => {
+  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
+  const accessLevel = authorization?.data?.accessLevel;
+  if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
+    return res.status(403).json({ error: "forbidden" });
+  }
+  const context = await resolveClassroomContext(req, accessLevel);
   if ("error" in context) {
     return res.status(context.error.status).json({ error: context.error.message });
   }
