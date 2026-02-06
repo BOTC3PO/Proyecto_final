@@ -21,8 +21,9 @@ export const canModerateIntercambios = (role?: string | null) => canModerateCont
 export const canViewAllUsers = (role?: string | null) => role === "ADMIN";
 
 export const isStaffRole = (role?: string | null) => {
+  if (role === "ADMIN") return true;
   const membership = getCanonicalMembershipRole(role ?? undefined);
-  return membership === "ADMIN" || membership === "TEACHER";
+  return membership === "DIRECTIVO" || membership === "TEACHER";
 };
 
 export const canReadAsLearner = (role?: string | null) => {

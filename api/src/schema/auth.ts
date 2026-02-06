@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { getCanonicalMembershipRole } from "../lib/membership-roles";
 
 const objectIdString = z.string().regex(/^[a-fA-F0-9]{24}$/);
 
@@ -23,7 +24,19 @@ export const RegisterSchema = z.object({
   .refine((data) => !(data.escuelaId && data.schoolCode), {
     message: "Provide either escuelaId or schoolCode, not both",
     path: ["schoolCode"]
-  });
+  })
+  .refine(
+    (data) => {
+      const hasSchool = Boolean(data.escuelaId || data.schoolCode);
+      if (!hasSchool) return true;
+      const role = data.role ?? "USER";
+      return Boolean(getCanonicalMembershipRole(role));
+    },
+    {
+      message: "Role must support school membership when escuelaId or schoolCode is provided",
+      path: ["role"]
+    }
+  );
 
 export const LoginSchema = z
   .object({

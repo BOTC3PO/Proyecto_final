@@ -96,6 +96,11 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
       }
       escuelaId = escuela._id;
     }
+    const membershipRole = getCanonicalMembershipRole(role);
+    if (escuelaId && !membershipRole) {
+      res.status(400).json({ error: "Role requires no school membership" });
+      return;
+    }
     const doc = {
       username: parsed.username,
       email: parsed.email,
@@ -116,8 +121,7 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
       updatedAt: now
     };
     const result = await db.collection("usuarios").insertOne(doc);
-    const membershipRole = getCanonicalMembershipRole(role);
-    if (escuelaId && membershipRole && (role === "TEACHER" || role === "DIRECTIVO")) {
+    if (escuelaId && membershipRole) {
       await db.collection("membresias_escuela").insertOne({
         usuarioId: result.insertedId,
         escuelaId,
