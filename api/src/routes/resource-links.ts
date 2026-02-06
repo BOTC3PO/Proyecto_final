@@ -3,6 +3,7 @@ import { ObjectId } from "mongodb";
 import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
 import { requirePolicy } from "../lib/authorization";
+import { requireClassroomScope } from "../lib/classroom-scope";
 import { requireUser } from "../lib/user-auth";
 import { isClassroomReadOnlyStatus, normalizeClassroomStatus } from "../schema/aula";
 import { ResourceLinkSchema } from "../schema/resource-link";
@@ -28,27 +29,18 @@ const getUserId = (user?: { _id?: ObjectId | string }) => {
 const getSchoolId = (user?: { schoolId?: string | null }) =>
   typeof user?.schoolId === "string" ? user.schoolId : null;
 
-const buildClassroomSchoolId = (classroom?: { schoolId?: string; institutionId?: string }) =>
-  classroom?.schoolId ?? classroom?.institutionId ?? null;
-
 resourceLinks.get(
   "/api/aulas/:aulaId/resource-links",
   requireUser,
   requirePolicy("resource-links/read"),
+  requireClassroomScope({ paramName: "aulaId", allowMemberRoles: "any", allowSchoolMatch: true }),
   async (req, res) => {
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.aulaId });
-    if (!classroom) return res.status(404).json({ error: "classroom not found" });
+    const classroom = res.locals.classroom;
 
     const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
     const userId = getUserId(user);
     if (!userId) return res.status(403).json({ error: "forbidden" });
-
-    const classroomSchoolId = buildClassroomSchoolId(classroom);
-    const userSchoolId = getSchoolId(user);
-    if (!classroomSchoolId || classroomSchoolId !== userSchoolId) {
-      return res.status(403).json({ error: "forbidden" });
-    }
 
     const filter: Record<string, unknown> = { aulaId: req.params.aulaId };
     const authorization = res.locals.authorization as { data?: { isStaff?: boolean } } | undefined;
@@ -72,11 +64,11 @@ resourceLinks.post(
   "/api/aulas/:aulaId/resource-links",
   requireUser,
   requirePolicy("resource-links/write"),
+  requireClassroomScope({ paramName: "aulaId", allowMemberRoles: ["ADMIN", "TEACHER"], allowSchoolMatch: true }),
   ...bodyLimitMB(5),
   async (req, res) => {
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.aulaId });
-    if (!classroom) return res.status(404).json({ error: "classroom not found" });
+    const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
       return res.status(409).json({ error: "invalid classroom status" });
@@ -87,9 +79,8 @@ resourceLinks.post(
 
     const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
     const userId = getUserId(user);
-    const schoolId = getSchoolId(user);
-    const classroomSchoolId = buildClassroomSchoolId(classroom);
-    if (!userId || !schoolId || classroomSchoolId !== schoolId) return res.status(403).json({ error: "forbidden" });
+    const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
+    if (!userId || !schoolId) return res.status(403).json({ error: "forbidden" });
 
     try {
       const now = new Date().toISOString();
@@ -132,11 +123,11 @@ resourceLinks.put(
   "/api/aulas/:aulaId/resource-links/:id",
   requireUser,
   requirePolicy("resource-links/write"),
+  requireClassroomScope({ paramName: "aulaId", allowMemberRoles: ["ADMIN", "TEACHER"], allowSchoolMatch: true }),
   ...bodyLimitMB(5),
   async (req, res) => {
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.aulaId });
-    if (!classroom) return res.status(404).json({ error: "classroom not found" });
+    const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
       return res.status(409).json({ error: "invalid classroom status" });
@@ -146,10 +137,9 @@ resourceLinks.put(
     }
 
     const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
-    const schoolId = getSchoolId(user);
+    const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
     const userId = getUserId(user);
-    const classroomSchoolId = buildClassroomSchoolId(classroom);
-    if (!schoolId || !userId || classroomSchoolId !== schoolId) return res.status(403).json({ error: "forbidden" });
+    if (!schoolId || !userId) return res.status(403).json({ error: "forbidden" });
 
     try {
       const parsed = ResourceLinkUpdateSchema.parse(req.body);
@@ -179,11 +169,11 @@ resourceLinks.patch(
   "/api/aulas/:aulaId/resource-links/:id",
   requireUser,
   requirePolicy("resource-links/write"),
+  requireClassroomScope({ paramName: "aulaId", allowMemberRoles: ["ADMIN", "TEACHER"], allowSchoolMatch: true }),
   ...bodyLimitMB(5),
   async (req, res) => {
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.aulaId });
-    if (!classroom) return res.status(404).json({ error: "classroom not found" });
+    const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
       return res.status(409).json({ error: "invalid classroom status" });
@@ -193,10 +183,9 @@ resourceLinks.patch(
     }
 
     const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
-    const schoolId = getSchoolId(user);
+    const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
     const userId = getUserId(user);
-    const classroomSchoolId = buildClassroomSchoolId(classroom);
-    if (!schoolId || !userId || classroomSchoolId !== schoolId) return res.status(403).json({ error: "forbidden" });
+    if (!schoolId || !userId) return res.status(403).json({ error: "forbidden" });
 
     try {
       const parsed = ResourceLinkUpdateSchema.partial().parse(req.body);
@@ -226,10 +215,10 @@ resourceLinks.delete(
   "/api/aulas/:aulaId/resource-links/:id",
   requireUser,
   requirePolicy("resource-links/write"),
+  requireClassroomScope({ paramName: "aulaId", allowMemberRoles: ["ADMIN", "TEACHER"], allowSchoolMatch: true }),
   async (req, res) => {
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.aulaId });
-    if (!classroom) return res.status(404).json({ error: "classroom not found" });
+    const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
       return res.status(409).json({ error: "invalid classroom status" });
@@ -239,10 +228,9 @@ resourceLinks.delete(
     }
 
     const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
-    const schoolId = getSchoolId(user);
+    const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
     const userId = getUserId(user);
-    const classroomSchoolId = buildClassroomSchoolId(classroom);
-    if (!schoolId || !userId || classroomSchoolId !== schoolId) return res.status(403).json({ error: "forbidden" });
+    if (!schoolId || !userId) return res.status(403).json({ error: "forbidden" });
 
     const result = await db
       .collection("resource_links")

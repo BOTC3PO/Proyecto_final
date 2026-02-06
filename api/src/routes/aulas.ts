@@ -3,6 +3,7 @@ import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { requirePolicy } from "../lib/authorization";
+import { requireClassroomScope } from "../lib/classroom-scope";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
@@ -73,24 +74,19 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
   res.json({ items, limit, offset });
 });
 
-aulas.get("/api/aulas/:id", requireUser, requirePolicy("aulas/read"), async (req, res) => {
-  const db = await getDb();
-  const item = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
-  if (!item) return res.status(404).json({ error: "not found" });
-  const requesterId = getRequesterId(req);
-  const requesterSchoolId = getRequesterSchoolId(req);
-  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
-  const accessLevel = authorization?.data?.accessLevel ?? null;
-  const members = Array.isArray(item.members) ? item.members : [];
-  const isMember = !!requesterId && members.some((member: { userId?: string }) => member.userId === requesterId);
-  const schoolId = item.schoolId ?? item.institutionId;
-  const hasStaffSchoolAccess =
-    accessLevel === "staff" && !!requesterSchoolId && !!schoolId && requesterSchoolId === schoolId;
-  if (accessLevel !== "admin" && !isMember && !hasStaffSchoolAccess) {
-    return res.status(403).json({ error: "forbidden" });
+aulas.get(
+  "/api/aulas/:id",
+  requireUser,
+  requirePolicy("aulas/read"),
+  requireClassroomScope({
+    allowMemberRoles: "any",
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  async (_req, res) => {
+    res.json(res.locals.classroom);
   }
-  res.json(item);
-});
+);
 
 aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
@@ -134,13 +130,17 @@ aulas.put(
   "/api/aulas/:id",
   requireUser,
   requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
       const parsed = ClassroomUpdateSchema.parse(req.body);
       const db = await getDb();
-      const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
-      if (!classroom) return res.status(404).json({ error: "not found" });
+      const classroom = res.locals.classroom;
       const currentStatus = normalizeClassroomStatus(classroom.status);
       if (!currentStatus) {
         return res.status(409).json({ error: "invalid classroom status" });
@@ -201,13 +201,17 @@ aulas.patch(
   "/api/aulas/:id",
   requireUser,
   requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
       const parsed = ClassroomPatchSchema.parse(req.body);
       const db = await getDb();
-      const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
-      if (!classroom) return res.status(404).json({ error: "not found" });
+      const classroom = res.locals.classroom;
       const currentStatus = normalizeClassroomStatus(classroom.status);
       if (!currentStatus) {
         return res.status(409).json({ error: "invalid classroom status" });
@@ -267,14 +271,13 @@ aulas.patch(
 aulas.post(
   "/api/aulas/:id/reasignar-profesor",
   requireUser,
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN"],
+    allowSchoolMatch: true,
+    schoolMatchRoles: ["DIRECTIVO"],
+    notFoundMessage: "not found"
+  }),
   express.json(),
-  async (req, res, next) => {
-    const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
-    if (!classroom) return res.status(404).json({ error: "not found" });
-    res.locals.classroom = classroom;
-    next();
-  },
   requirePolicy("aulas/manage-classroom", (_req, res) => ({
     classroom: res.locals.classroom as {
       members?: { userId?: string; roleInClass?: string }[] | null;
@@ -364,24 +367,34 @@ aulas.post(
   }
 );
 
-aulas.delete("/api/aulas/:id", requireUser, requirePolicy("aulas/manage"), async (req, res) => {
-  const db = await getDb();
-  const now = new Date().toISOString();
-  const deletedBy = getRequesterId(req);
-  const result = await db.collection("aulas").updateOne(
-    { id: req.params.id, isDeleted: { $ne: true } },
-    {
-      $set: {
-        isDeleted: true,
-        deletedAt: now,
-        deletedBy,
-        updatedAt: now
+aulas.delete(
+  "/api/aulas/:id",
+  requireUser,
+  requirePolicy("aulas/manage"),
+  requireClassroomScope({
+    allowMemberRoles: ["ADMIN", "TEACHER"],
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  async (req, res) => {
+    const db = await getDb();
+    const now = new Date().toISOString();
+    const deletedBy = getRequesterId(req);
+    const result = await db.collection("aulas").updateOne(
+      { id: req.params.id, isDeleted: { $ne: true } },
+      {
+        $set: {
+          isDeleted: true,
+          deletedAt: now,
+          deletedBy,
+          updatedAt: now
+        }
       }
-    }
-  );
-  if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
-  res.status(204).send();
-});
+    );
+    if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+    res.status(204).send();
+  }
+);
 
 aulas.get("/api/admin/aulas", requireAdminAuth, async (req, res) => {
   const db = await getDb();

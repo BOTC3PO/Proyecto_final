@@ -3,6 +3,7 @@ import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
 import { isClassroomActiveStatus, normalizeClassroomStatus } from "../schema/aula";
 import { requirePolicy } from "../lib/authorization";
+import { requireClassroomScope } from "../lib/classroom-scope";
 import { createRateLimiter } from "../lib/rate-limit";
 import { requireUser } from "../lib/user-auth";
 
@@ -37,28 +38,6 @@ const getRequester = (req: {
 const getRequesterId = (requester: { _id?: { toString?: () => string } } | undefined) =>
   requester?._id?.toString?.() ?? null;
 
-const canAccessClassroom = ({
-  requesterId,
-  accessLevel,
-  requesterSchoolId,
-  classroomSchoolId,
-  classroomMembers
-}: {
-  requesterId: string | null;
-  accessLevel: "admin" | "staff" | "learner";
-  requesterSchoolId?: string | null;
-  classroomSchoolId?: string | null;
-  classroomMembers?: Array<{ userId?: string }> | null;
-}) => {
-  if (accessLevel === "admin") return true;
-  const isMember = !!requesterId && (classroomMembers ?? []).some((member) => member.userId === requesterId);
-  if (isMember) return true;
-  if (accessLevel === "staff") {
-    return !!requesterSchoolId && !!classroomSchoolId && requesterSchoolId === classroomSchoolId;
-  }
-  return false;
-};
-
 const sanitizeAttachments = (archivos: unknown): PublicationAttachment[] => {
   if (!Array.isArray(archivos)) return [];
   return archivos
@@ -77,6 +56,7 @@ publicaciones.get(
   "/api/aulas/:id/publicaciones",
   requireUser,
   requirePolicy("publicaciones/read"),
+  requireClassroomScope({ allowMemberRoles: "any", allowSchoolMatch: true }),
   async (req, res) => {
     const requester = getRequester(req as {
       user?: { _id?: { toString?: () => string }; role?: string; fullName?: string; schoolId?: string | null };
@@ -89,19 +69,6 @@ publicaciones.get(
       return res.status(403).json({ error: "forbidden" });
     }
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
-    if (!classroom) return res.status(404).json({ error: "classroom not found" });
-    if (
-      !canAccessClassroom({
-        requesterId,
-        accessLevel,
-        requesterSchoolId: requester?.schoolId ?? null,
-        classroomSchoolId: classroom.schoolId ?? classroom.institutionId,
-        classroomMembers: Array.isArray(classroom.members) ? classroom.members : []
-      })
-    ) {
-      return res.status(403).json({ error: "forbidden" });
-    }
     const items = await db
       .collection("publicaciones")
       .find({ aulaId: req.params.id, isDeleted: { $ne: true } })
@@ -116,6 +83,7 @@ publicaciones.post(
   requireUser,
   publicacionesLimiter,
   requirePolicy("publicaciones/create"),
+  requireClassroomScope({ allowMemberRoles: ["ADMIN", "TEACHER"], allowSchoolMatch: true }),
   async (req, res) => {
     const payload = req.body as CreatePublicationPayload | undefined;
     if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
@@ -125,8 +93,7 @@ publicaciones.post(
     const requesterId = getRequesterId(requester);
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.id });
-    if (!classroom) return res.status(404).json({ error: "classroom not found" });
+    const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
       return res.status(409).json({ error: "invalid classroom status" });
@@ -178,6 +145,7 @@ publicaciones.get(
   "/api/aulas/:id/publicaciones/:pubId/comentarios",
   requireUser,
   requirePolicy("publicaciones/read"),
+  requireClassroomScope({ allowMemberRoles: "any", allowSchoolMatch: true }),
   async (req, res) => {
     const requester = getRequester(req as {
       user?: { _id?: { toString?: () => string }; role?: string; fullName?: string; schoolId?: string | null };
@@ -190,19 +158,6 @@ publicaciones.get(
       return res.status(403).json({ error: "forbidden" });
     }
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
-    if (!classroom) return res.status(404).json({ error: "classroom not found" });
-    if (
-      !canAccessClassroom({
-        requesterId,
-        accessLevel,
-        requesterSchoolId: requester?.schoolId ?? null,
-        classroomSchoolId: classroom.schoolId ?? classroom.institutionId,
-        classroomMembers: Array.isArray(classroom.members) ? classroom.members : []
-      })
-    ) {
-      return res.status(403).json({ error: "forbidden" });
-    }
     const publication = await db.collection("publicaciones").findOne({
       id: req.params.pubId,
       aulaId: req.params.id,
@@ -223,6 +178,7 @@ publicaciones.post(
   requireUser,
   publicacionesLimiter,
   requirePolicy("publicaciones/comment"),
+  requireClassroomScope({ allowMemberRoles: ["STUDENT"], allowSchoolMatch: true }),
   async (req, res) => {
     const payload = req.body as CreateCommentPayload | undefined;
     if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
@@ -234,8 +190,7 @@ publicaciones.post(
     const requesterId = getRequesterId(requester);
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: req.params.id });
-    if (!classroom) return res.status(404).json({ error: "classroom not found" });
+    const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
       return res.status(409).json({ error: "invalid classroom status" });
@@ -243,12 +198,6 @@ publicaciones.post(
     if (!isClassroomActiveStatus(currentStatus)) {
       return res.status(403).json({ error: "classroom is read-only" });
     }
-    const members = Array.isArray(classroom.members) ? classroom.members : [];
-    const isStudentMember = members.some(
-      (member: { userId?: string; roleInClass?: string }) =>
-        member.userId === requesterId && member.roleInClass === "STUDENT"
-    );
-    if (!isStudentMember) return res.status(403).json({ error: "student membership required" });
     const publication = await db.collection("publicaciones").findOne({
       id: req.params.pubId,
       aulaId: req.params.id,
