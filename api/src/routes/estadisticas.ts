@@ -2,6 +2,8 @@ import { Router } from "express";
 import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
 import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
+import { requirePolicy } from "../lib/authorization";
+import { buildSimplePdf } from "../lib/pdf";
 import { requireUser } from "../lib/user-auth";
 
 export const estadisticas = Router();
@@ -180,6 +182,21 @@ const buildCsv = (data: Awaited<ReturnType<typeof buildProfesorStats>>) => {
   return rows.map((row) => row.join(",")).join("\n");
 };
 
+const buildPdf = (data: Awaited<ReturnType<typeof buildProfesorStats>>) =>
+  buildSimplePdf([
+    "Reporte de estadísticas",
+    "",
+    "Resumen general",
+    `Actividades completadas: ${data.general.completadas}`,
+    `Entregas: ${data.general.entregas}`,
+    `Tiempo promedio (min): ${data.general.tiempoPromedioMin}`,
+    "",
+    "Participación",
+    `Accesos: ${data.participacion.accesos}`,
+    `Foros: ${data.participacion.foros}`,
+    `Encuestas: ${data.participacion.encuestas}`
+  ]);
+
 const buildQuizMetrics = async (
   filters: StatsFilters,
   scopeMatch: Record<string, unknown>
@@ -287,6 +304,7 @@ estadisticas.get(
   "/api/estadisticas/profesor",
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.REPORTS),
+  requirePolicy("estadisticas/read"),
   async (req, res) => {
     const filters: StatsFilters = {
       fechaInicio: typeof req.query.fechaInicio === "string" ? req.query.fechaInicio : undefined,
@@ -305,6 +323,7 @@ estadisticas.get(
   "/api/estadisticas/profesor/export",
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.REPORTS),
+  requirePolicy("estadisticas/export"),
   async (req, res) => {
     const format = typeof req.query.format === "string" ? req.query.format : "excel";
     const filters: StatsFilters = {
@@ -327,7 +346,7 @@ estadisticas.get(
     });
 
     if (format === "pdf") {
-      const body = `Reporte de estadísticas\n\nCompletadas: ${data.general.completadas}\nEntregas: ${data.general.entregas}\nTiempo promedio: ${data.general.tiempoPromedioMin} min\nAccesos: ${data.participacion.accesos}\nForos: ${data.participacion.foros}\nEncuestas: ${data.participacion.encuestas}`;
+      const body = await buildPdf(data);
       res.setHeader("Content-Type", "application/pdf");
       res.setHeader("Content-Disposition", "attachment; filename=estadisticas-profesor.pdf");
       return res.send(body);
@@ -344,6 +363,7 @@ estadisticas.get(
   "/api/estadisticas/quizzes/aula/:aulaId",
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requirePolicy("estadisticas/read"),
   async (req, res) => {
     const aulaId = typeof req.params.aulaId === "string" ? req.params.aulaId : "";
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
@@ -360,6 +380,7 @@ estadisticas.get(
   "/api/estadisticas/quizzes/docente/:docenteId",
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requirePolicy("estadisticas/read"),
   async (req, res) => {
     const docenteId = typeof req.params.docenteId === "string" ? req.params.docenteId : "";
     if (!docenteId) return res.status(400).json({ error: "docenteId requerido" });
@@ -376,6 +397,7 @@ estadisticas.get(
   "/api/estadisticas/quizzes/institucion/:institucionId",
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requirePolicy("estadisticas/read"),
   async (req, res) => {
     const institucionId =
       typeof req.params.institucionId === "string" ? req.params.institucionId : "";
