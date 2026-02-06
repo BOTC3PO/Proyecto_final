@@ -6,10 +6,16 @@ import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
 import { hashPassword, verifyPassword } from "../lib/passwords";
+import { createRateLimiter } from "../lib/rate-limit";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
 import { BootstrapAdminRequestSchema, CreateAdminSchema, LoginSchema, RegisterSchema } from "../schema/auth";
 
 export const auth = Router();
+
+const authLimiter = createRateLimiter({
+  windowMs: 15 * 60 * 1000,
+  limit: 10
+});
 
 auth.post("/api/auth/bootstrap-admin", async (req, res) => {
   try {
@@ -74,7 +80,7 @@ auth.post("/api/admins", requireAdmin, async (req, res) => {
   }
 });
 
-auth.post("/api/auth/register", async (req, res) => {
+auth.post("/api/auth/register", authLimiter, async (req, res) => {
   try {
     const parsed = RegisterSchema.parse(req.body ?? {});
     const db = await getDb();
@@ -127,7 +133,7 @@ auth.post("/api/auth/register", async (req, res) => {
   }
 });
 
-auth.post("/api/auth/login", async (req, res) => {
+auth.post("/api/auth/login", authLimiter, async (req, res) => {
   try {
     const parsed = LoginSchema.parse(req.body ?? {});
     const db = await getDb();
