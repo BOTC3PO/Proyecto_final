@@ -9,6 +9,7 @@ export type TokenClaims = {
   email?: string;
   username?: string;
   role?: string;
+  guestOnboardingStatus?: string | null;
   schoolId?: string | null;
   escuelaId?: string | null;
   fullName?: string | null;
@@ -24,6 +25,7 @@ export type TokenUser = {
   email?: string;
   username?: string;
   role?: string;
+  guestOnboardingStatus?: string | null;
   schoolId?: string | null;
   escuelaId?: string | null;
   fullName?: string | null;
@@ -115,6 +117,7 @@ export const createAccessToken = (user: TokenUser) => {
     email: user.email,
     username: user.username,
     role: user.role,
+    guestOnboardingStatus: user.guestOnboardingStatus ?? null,
     schoolId: user.schoolId ?? null,
     escuelaId: user.escuelaId ?? user.schoolId ?? null,
     fullName: user.fullName ?? null,
@@ -156,6 +159,7 @@ export const buildUserContextFromClaims = (claims: TokenClaims) => ({
   _id: claims.sub,
   id: claims.sub,
   role: claims.role,
+  guestOnboardingStatus: claims.guestOnboardingStatus ?? null,
   schoolId: claims.schoolId ?? null,
   escuelaId: claims.escuelaId ?? claims.schoolId ?? null,
   email: claims.email,

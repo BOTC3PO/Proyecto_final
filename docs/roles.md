@@ -12,6 +12,30 @@ Estos roles aplican a todo el sistema:
   una suscripción ni un nombre de plan.
 - **TEACHER**: rol global para docentes que pueden operar en el sistema.
 - **USER**: rol base para usuarios sin privilegios administrativos.
+- **GUEST**: rol temporal para visitantes. Su acceso está controlado por un estado de onboarding
+  almacenado en `usuarios.guestOnboardingStatus`.
+
+### Onboarding para GUEST
+
+El onboarding de GUEST vive en el documento del usuario (`usuarios.guestOnboardingStatus`) y usa
+los estados:
+
+- `pendiente`: alta iniciada, sin aprobación.
+- `aceptado`: habilita el acceso a rutas protegidas con `GUEST`.
+- `rechazado`: acceso denegado; debe completar el alta formal.
+
+Mientras el estado sea distinto de `aceptado`, las rutas protegidas y los endpoints que requieren
+autenticación bloquean operaciones para GUEST.
+
+El alta/sesión inicial de GUEST se crea con `POST /api/auth/guest`, que devuelve tokens y deja el
+estado en `pendiente`.
+
+### Transición GUEST → USER/PARENT/TEACHER/DIRECTIVO
+
+1. Completar el alta formal (registro o proceso de validación).
+2. Actualizar el rol global del usuario a `USER`, `PARENT`, `TEACHER` o `DIRECTIVO`.
+3. Marcar el onboarding como `aceptado` o limpiar `guestOnboardingStatus` si ya no aplica.
+4. (Si corresponde) crear la membresía en `membresias_escuela` con el rol escolar adecuado.
 
 ## Roles por escuela (membresías)
 

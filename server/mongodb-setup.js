@@ -32,6 +32,11 @@ db.createCollection("usuarios", {
           enum: ["ADMIN", "USER", "PARENT", "TEACHER", "DIRECTIVO", "GUEST"],
           description: "Rol principal"
         },
+        guestOnboardingStatus: {
+          bsonType: ["string", "null"],
+          enum: ["pendiente", "aceptado", "rechazado", null],
+          description: "Estado de onboarding para cuentas GUEST"
+        },
         escuelaId: {
           bsonType: ["objectId", "null"],
           description: "Referencia a escuela (opcional)"

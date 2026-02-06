@@ -5,6 +5,7 @@ export type User = {
   id: string;
   name: string;
   role: Role;
+  guestOnboardingStatus?: 'pendiente' | 'aceptado' | 'rechazado' | null;
   schoolId?: string | null;
 };
 

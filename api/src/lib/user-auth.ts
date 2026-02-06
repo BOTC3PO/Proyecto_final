@@ -7,6 +7,7 @@ import { toObjectId } from "./ids";
 type AuthenticatedUser = Record<string, unknown> & {
   _id?: ObjectId;
   role?: string;
+  guestOnboardingStatus?: string | null;
   escuelaId?: unknown;
   schoolId?: string | null;
 };
@@ -53,8 +54,18 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
     }
     const userContext: AuthenticatedUser = {
       ...buildUserContextFromClaims(claims),
+      guestOnboardingStatus: (user as { guestOnboardingStatus?: string | null }).guestOnboardingStatus ?? null,
       schoolId: claims.schoolId ?? normalizeSchoolId(user.escuelaId)
     };
+    const allowGuestPaths = new Set(["/api/auth/me", "/api/me"]);
+    if (
+      userContext.role === "GUEST" &&
+      userContext.guestOnboardingStatus !== "aceptado" &&
+      !allowGuestPaths.has(req.path)
+    ) {
+      res.status(403).json({ error: "Guest onboarding pending approval" });
+      return;
+    }
     (req as { user?: AuthenticatedUser }).user = userContext;
     res.locals.user = userContext;
     next();
