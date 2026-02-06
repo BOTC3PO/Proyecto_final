@@ -66,6 +66,8 @@ export type AuthorizationPolicy =
   | "publicaciones/comment"
   | "publicaciones/create"
   | "publicaciones/read"
+  | "progreso/read"
+  | "progreso/write"
   | "reportes/export"
   | "reportes/read"
   | "resource-links/read"
@@ -88,6 +90,14 @@ const resolveAccessLevel = (role?: string | null) => {
   if (role === "ADMIN") return "admin" as const;
   if (canManageParents(role) || isStaffRole(role)) return "staff" as const;
   if (canReadAsLearner(role)) return "learner" as const;
+  return null;
+};
+
+const resolveTargetUsuarioId = (req: Request) => {
+  const bodyUserId = typeof req.body?.usuarioId === "string" ? req.body.usuarioId : null;
+  if (bodyUserId) return bodyUserId;
+  const queryUserId = typeof req.query?.usuarioId === "string" ? req.query.usuarioId : null;
+  if (queryUserId) return queryUserId;
   return null;
 };
 
@@ -144,6 +154,21 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
       const accessLevel = resolveAccessLevel(user?.role);
       if (!accessLevel) return { allowed: false };
       return { allowed: true, data: { accessLevel } };
+    },
+    "progreso/read": (user, context) => {
+      const requesterId = getUserId(user);
+      if (!requesterId) return { allowed: false };
+      const targetUsuarioId = resolveTargetUsuarioId(context.req);
+      if (targetUsuarioId && requesterId === targetUsuarioId) return { allowed: true };
+      return { allowed: isStaffRole(user?.role ?? null), data: { isStaff: isStaffRole(user?.role ?? null) } };
+    },
+    "progreso/write": (user, context) => {
+      const requesterId = getUserId(user);
+      if (!requesterId) return { allowed: false };
+      const targetUsuarioId =
+        resolveTargetUsuarioId(context.req) ?? (context.req.method === "PATCH" ? requesterId : null);
+      if (targetUsuarioId && requesterId === targetUsuarioId) return { allowed: true };
+      return { allowed: isStaffRole(user?.role ?? null), data: { isStaff: isStaffRole(user?.role ?? null) } };
     },
     "reportes/export": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),
     "reportes/read": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),

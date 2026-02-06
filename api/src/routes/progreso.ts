@@ -1,6 +1,8 @@
 import express, { Router } from "express";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
+import { requirePolicy, isStaffRole } from "../lib/authorization";
+import { recordAuditLog } from "../lib/audit-log";
 import { assertClassroomWritable } from "../lib/classroom";
 import { toObjectId } from "../lib/ids";
 import { requireUser } from "../lib/user-auth";
@@ -51,40 +53,75 @@ const resolveParentId = (req: any) => {
   return raw;
 };
 
-progreso.post("/api/progreso", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
-  try {
-    const payload = {
-      ...req.body,
-      updatedAt: req.body?.updatedAt ?? new Date().toISOString()
-    };
-    const parsed = ProgressSchema.parse(payload);
-    const db = await getDb();
-    if (parsed.aulaId) {
-      const classroom = await db.collection("aulas").findOne({ id: parsed.aulaId });
-      if (classroom && !assertClassroomWritable(res, classroom)) {
-        return;
-      }
-    }
-    const filter = {
-      usuarioId: parsed.usuarioId,
-      moduloId: parsed.moduloId,
-      ...(parsed.aulaId ? { aulaId: parsed.aulaId } : {})
-    };
-    const result = await db.collection("progreso_modulos").updateOne(
-      filter,
-      { $set: parsed },
-      { upsert: true }
-    );
-    res.status(result.upsertedCount ? 201 : 200).json({ ok: true });
-  } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
-  }
-});
+const resolveAuthenticatedUserId = (req: any) => {
+  const raw = req.user?._id ?? req.user?.id;
+  if (!raw) return null;
+  if (typeof raw === "string") return raw;
+  if (typeof raw?.toString === "function") return raw.toString();
+  return null;
+};
 
-progreso.get("/api/progreso", async (req, res) => {
+progreso.post(
+  "/api/progreso",
+  requireUser,
+  requirePolicy("progreso/write"),
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    try {
+      const authenticatedUserId = resolveAuthenticatedUserId(req);
+      if (!authenticatedUserId) {
+        return res.status(401).json({ error: "user not authenticated" });
+      }
+      const payload = {
+        ...req.body,
+        updatedAt: req.body?.updatedAt ?? new Date().toISOString()
+      };
+      const parsed = ProgressSchema.parse(payload);
+      if (parsed.usuarioId !== authenticatedUserId && !isStaffRole(req.user?.role ?? null)) {
+        return res.status(403).json({ error: "forbidden" });
+      }
+      const db = await getDb();
+      if (parsed.aulaId) {
+        const classroom = await db.collection("aulas").findOne({ id: parsed.aulaId });
+        if (classroom && !assertClassroomWritable(res, classroom)) {
+          return;
+        }
+      }
+      const filter = {
+        usuarioId: parsed.usuarioId,
+        moduloId: parsed.moduloId,
+        ...(parsed.aulaId ? { aulaId: parsed.aulaId } : {})
+      };
+      const result = await db.collection("progreso_modulos").updateOne(
+        filter,
+        { $set: parsed },
+        { upsert: true }
+      );
+      await recordAuditLog({
+        actorId: authenticatedUserId,
+        action: result.upsertedCount ? "progreso.create" : "progreso.update",
+        targetType: "progreso_modulo",
+        targetId: `${parsed.usuarioId}:${parsed.moduloId}`,
+        metadata: { aulaId: parsed.aulaId ?? null, status: parsed.status ?? null }
+      });
+      res.status(result.upsertedCount ? 201 : 200).json({ ok: true });
+    } catch (e: any) {
+      res.status(400).json({ error: e?.message ?? "invalid payload" });
+    }
+  }
+);
+
+progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async (req, res) => {
   const usuarioId = req.query.usuarioId;
   if (typeof usuarioId !== "string" || !usuarioId.trim()) {
     return res.status(400).json({ error: "usuarioId is required" });
+  }
+  const authenticatedUserId = resolveAuthenticatedUserId(req);
+  if (!authenticatedUserId) {
+    return res.status(401).json({ error: "user not authenticated" });
+  }
+  if (usuarioId !== authenticatedUserId && !isStaffRole(req.user?.role ?? null)) {
+    return res.status(403).json({ error: "forbidden" });
   }
   const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
   const db = await getDb();
@@ -290,34 +327,53 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
   });
 });
 
-progreso.patch("/api/progreso/:moduloId", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
-  const usuarioId = req.header("x-usuario-id");
-  if (typeof usuarioId !== "string" || !usuarioId.trim()) {
-    return res.status(400).json({ error: "x-usuario-id header is required" });
-  }
-  const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
-  try {
-    const parsed = ProgressUpdateSchema.parse(req.body);
-    const db = await getDb();
-    if (aulaId) {
-      const classroom = await db.collection("aulas").findOne({ id: aulaId });
-      if (classroom && !assertClassroomWritable(res, classroom)) {
-        return;
-      }
+progreso.patch(
+  "/api/progreso/:moduloId",
+  requireUser,
+  requirePolicy("progreso/write"),
+  ...bodyLimitMB(ENV.MAX_PAGE_MB),
+  async (req, res) => {
+    const usuarioId = resolveAuthenticatedUserId(req);
+    if (!usuarioId) {
+      return res.status(401).json({ error: "user not authenticated" });
     }
-    const update = { ...parsed, updatedAt: new Date().toISOString() };
-    const filter = {
-      usuarioId,
-      moduloId: req.params.moduloId,
-      ...(aulaId ? { aulaId } : {})
-    };
-    const result = await db.collection("progreso_modulos").updateOne(
-      filter,
-      { $set: update }
-    );
-    if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
-    res.json({ ok: true });
-  } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
+    const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
+    try {
+      if (typeof req.body?.usuarioId === "string" && req.body.usuarioId !== usuarioId) {
+        return res.status(403).json({ error: "forbidden" });
+      }
+      const parsed = ProgressUpdateSchema.parse(req.body);
+      const db = await getDb();
+      if (aulaId) {
+        const classroom = await db.collection("aulas").findOne({ id: aulaId });
+        if (classroom && !assertClassroomWritable(res, classroom)) {
+          return;
+        }
+      }
+      const update = { ...parsed, updatedAt: new Date().toISOString() };
+      const filter = {
+        usuarioId,
+        moduloId: req.params.moduloId,
+        ...(aulaId ? { aulaId } : {})
+      };
+      const result = await db.collection("progreso_modulos").updateOne(
+        filter,
+        { $set: update }
+      );
+      if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+      await recordAuditLog({
+        actorId: usuarioId,
+        action: "progreso.update",
+        targetType: "progreso_modulo",
+        targetId: `${usuarioId}:${req.params.moduloId}`,
+        metadata: {
+          aulaId: aulaId ?? null,
+          updatedFields: Object.keys(parsed)
+        }
+      });
+      res.json({ ok: true });
+    } catch (e: any) {
+      res.status(400).json({ error: e?.message ?? "invalid payload" });
+    }
   }
-});
+);
