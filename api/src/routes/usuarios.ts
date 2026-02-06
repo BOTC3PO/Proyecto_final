@@ -3,6 +3,7 @@ import { canManageParents, canReadAsLearner, canViewAllUsers } from "../lib/auth
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
+import { serializeUsuario } from "../lib/user-serializer";
 import { UsuarioSchema } from "../schema/usuario";
 
 export const usuarios = Router();
@@ -120,10 +121,22 @@ usuarios.get("/api/usuarios/:id", requireUser, async (req, res) => {
   if (!canManageParents(requesterRole) && !canReadAsLearner(requesterRole) && !canViewAllUsers(requesterRole)) {
     return res.status(403).json({ error: "forbidden" });
   }
-  const item = await db.collection("usuarios").findOne({ _id: objectId, isDeleted: { $ne: true } });
+  const item = await db.collection("usuarios").findOne(
+    { _id: objectId, isDeleted: { $ne: true } },
+    {
+      projection: {
+        username: 1,
+        email: 1,
+        fullName: 1,
+        role: 1,
+        escuelaId: 1,
+        teacherProfile: 1
+      }
+    }
+  );
   if (!item) return res.status(404).json({ error: "not found" });
   if (canViewAllUsers(requesterRole)) {
-    res.json(item);
+    res.json(serializeUsuario(item, { access: "admin" }));
     return;
   }
   const managedClassIds = (requester as { teacherProfile?: { managedClassIds?: unknown[] } })?.teacherProfile
@@ -148,13 +161,13 @@ usuarios.get("/api/usuarios/:id", requireUser, async (req, res) => {
     { projection: { _id: 1 } }
   );
   if (classAccess) {
-    res.json(item);
+    res.json(serializeUsuario(item, { access: "member" }));
     return;
   }
   const hasPublicTeacherModules =
     item.teacherProfile?.modules?.some((module: { isPublic?: boolean }) => module.isPublic === true) ?? false;
   if (!item.escuelaId && hasPublicTeacherModules) {
-    res.json(item);
+    res.json(serializeUsuario(item, { access: "public" }));
     return;
   }
   const targetMemberships = await db
@@ -181,14 +194,19 @@ usuarios.get("/api/usuarios/:id", requireUser, async (req, res) => {
       estado: { $ne: "revocada" }
     });
     if (membresia) {
-      res.json({
-        ...item,
-        rolEscuela: membresia.rol,
-        estadoMembresia: membresia.estado,
-        fechaAltaMembresia: membresia.fechaAlta
-      });
+      res.json(
+        serializeUsuario(item, {
+          access: "member",
+          membership: {
+            rolEscuela: membresia.rol,
+            estadoMembresia: membresia.estado,
+            fechaAltaMembresia: membresia.fechaAlta,
+            escuelaId: membresia.escuelaId
+          }
+        })
+      );
       return;
     }
   }
-  res.json(item);
+  res.json(serializeUsuario(item, { access: "member" }));
 });
