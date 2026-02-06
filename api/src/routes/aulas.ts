@@ -2,7 +2,13 @@ import express, { Router } from "express";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
-import { canCreateClass, canManageClassroom, canManageParents } from "../lib/authorization";
+import {
+  canCreateClass,
+  canManageClassroom,
+  canManageParents,
+  canReadAsLearner,
+  isStaffRole
+} from "../lib/authorization";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
@@ -36,13 +42,38 @@ const getRequesterRole = (req: express.Request) =>
 const getRequesterSchoolId = (req: express.Request) =>
   (req as { user?: { schoolId?: string | null } }).user?.schoolId ?? null;
 
-aulas.get("/api/aulas", async (req, res) => {
+aulas.get("/api/aulas", requireUser, async (req, res) => {
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
+  const requesterId = getRequesterId(req);
+  const requesterRole = getRequesterRole(req);
+  const requesterSchoolId = getRequesterSchoolId(req);
+  const query: Record<string, unknown> = { isDeleted: { $ne: true } };
+  if (requesterRole === "ADMIN") {
+    // Global access.
+  } else if (canManageParents(requesterRole) || isStaffRole(requesterRole)) {
+    const orFilters: Array<Record<string, unknown>> = [];
+    if (requesterSchoolId) {
+      orFilters.push({ schoolId: requesterSchoolId }, { institutionId: requesterSchoolId });
+    }
+    if (requesterId) {
+      orFilters.push({ "members.userId": requesterId });
+    }
+    if (orFilters.length) {
+      query.$or = orFilters;
+    } else {
+      return res.status(403).json({ error: "forbidden" });
+    }
+  } else if (canReadAsLearner(requesterRole)) {
+    if (!requesterId) return res.status(403).json({ error: "forbidden" });
+    query["members.userId"] = requesterId;
+  } else {
+    return res.status(403).json({ error: "forbidden" });
+  }
   const cursor = db
     .collection("aulas")
-    .find({ isDeleted: { $ne: true } })
+    .find(query)
     .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
     .limit(limit)
     .sort({ updatedAt: -1 });
@@ -50,10 +81,21 @@ aulas.get("/api/aulas", async (req, res) => {
   res.json({ items, limit, offset });
 });
 
-aulas.get("/api/aulas/:id", async (req, res) => {
+aulas.get("/api/aulas/:id", requireUser, async (req, res) => {
   const db = await getDb();
   const item = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
   if (!item) return res.status(404).json({ error: "not found" });
+  const requesterId = getRequesterId(req);
+  const requesterRole = getRequesterRole(req);
+  const requesterSchoolId = getRequesterSchoolId(req);
+  const members = Array.isArray(item.members) ? item.members : [];
+  const isMember = !!requesterId && members.some((member: { userId?: string }) => member.userId === requesterId);
+  const schoolId = item.schoolId ?? item.institutionId;
+  const hasStaffSchoolAccess =
+    isStaffRole(requesterRole) && !!requesterSchoolId && !!schoolId && requesterSchoolId === schoolId;
+  if (requesterRole !== "ADMIN" && !isMember && !hasStaffSchoolAccess) {
+    return res.status(403).json({ error: "forbidden" });
+  }
   res.json(item);
 });
 

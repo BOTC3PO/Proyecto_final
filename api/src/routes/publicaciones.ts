@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { getDb } from "../lib/db";
 import { isClassroomActiveStatus, normalizeClassroomStatus } from "../schema/aula";
-import { canPostAsStudent, canPostInClass } from "../lib/authorization";
+import { canPostAsStudent, canPostInClass, canReadAsLearner, isStaffRole } from "../lib/authorization";
 import { requireUser } from "../lib/user-auth";
 
 export const publicaciones = Router();
@@ -24,11 +24,34 @@ type CreateCommentPayload = {
 };
 
 const getRequester = (req: {
-  user?: { _id?: { toString?: () => string }; role?: string; fullName?: string };
+  user?: { _id?: { toString?: () => string }; role?: string; fullName?: string; schoolId?: string | null };
 }) => req.user;
 
 const getRequesterId = (requester: { _id?: { toString?: () => string } } | undefined) =>
   requester?._id?.toString?.() ?? null;
+
+const canAccessClassroom = ({
+  requesterId,
+  requesterRole,
+  requesterSchoolId,
+  classroomSchoolId,
+  classroomMembers
+}: {
+  requesterId: string | null;
+  requesterRole?: string | null;
+  requesterSchoolId?: string | null;
+  classroomSchoolId?: string | null;
+  classroomMembers?: Array<{ userId?: string }> | null;
+}) => {
+  if (requesterRole === "ADMIN") return true;
+  const isMember = !!requesterId && (classroomMembers ?? []).some((member) => member.userId === requesterId);
+  if (isMember) return true;
+  const hasStaffSchoolAccess =
+    isStaffRole(requesterRole) && !!requesterSchoolId && !!classroomSchoolId && requesterSchoolId === classroomSchoolId;
+  if (hasStaffSchoolAccess) return true;
+  if (canReadAsLearner(requesterRole)) return isMember;
+  return false;
+};
 
 const sanitizeAttachments = (archivos: unknown): PublicationAttachment[] => {
   if (!Array.isArray(archivos)) return [];
@@ -44,8 +67,29 @@ const sanitizeAttachments = (archivos: unknown): PublicationAttachment[] => {
     });
 };
 
-publicaciones.get("/api/aulas/:id/publicaciones", async (req, res) => {
+publicaciones.get("/api/aulas/:id/publicaciones", requireUser, async (req, res) => {
+  const requester = getRequester(req as {
+    user?: { _id?: { toString?: () => string }; role?: string; fullName?: string; schoolId?: string | null };
+  });
+  const requesterId = getRequesterId(requester);
+  const requesterRole = requester?.role ?? null;
+  if (!requesterId || (!isStaffRole(requesterRole) && !canReadAsLearner(requesterRole) && requesterRole !== "ADMIN")) {
+    return res.status(403).json({ error: "forbidden" });
+  }
   const db = await getDb();
+  const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
+  if (!classroom) return res.status(404).json({ error: "classroom not found" });
+  if (
+    !canAccessClassroom({
+      requesterId,
+      requesterRole,
+      requesterSchoolId: requester?.schoolId ?? null,
+      classroomSchoolId: classroom.schoolId ?? classroom.institutionId,
+      classroomMembers: Array.isArray(classroom.members) ? classroom.members : []
+    })
+  ) {
+    return res.status(403).json({ error: "forbidden" });
+  }
   const items = await db
     .collection("publicaciones")
     .find({ aulaId: req.params.id, isDeleted: { $ne: true } })
@@ -104,8 +148,29 @@ publicaciones.post("/api/aulas/:id/publicaciones", requireUser, async (req, res)
   res.status(201).json(publication);
 });
 
-publicaciones.get("/api/aulas/:id/publicaciones/:pubId/comentarios", async (req, res) => {
+publicaciones.get("/api/aulas/:id/publicaciones/:pubId/comentarios", requireUser, async (req, res) => {
+  const requester = getRequester(req as {
+    user?: { _id?: { toString?: () => string }; role?: string; fullName?: string; schoolId?: string | null };
+  });
+  const requesterId = getRequesterId(requester);
+  const requesterRole = requester?.role ?? null;
+  if (!requesterId || (!isStaffRole(requesterRole) && !canReadAsLearner(requesterRole) && requesterRole !== "ADMIN")) {
+    return res.status(403).json({ error: "forbidden" });
+  }
   const db = await getDb();
+  const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
+  if (!classroom) return res.status(404).json({ error: "classroom not found" });
+  if (
+    !canAccessClassroom({
+      requesterId,
+      requesterRole,
+      requesterSchoolId: requester?.schoolId ?? null,
+      classroomSchoolId: classroom.schoolId ?? classroom.institutionId,
+      classroomMembers: Array.isArray(classroom.members) ? classroom.members : []
+    })
+  ) {
+    return res.status(403).json({ error: "forbidden" });
+  }
   const publication = await db.collection("publicaciones").findOne({
     id: req.params.pubId,
     aulaId: req.params.id,
