@@ -7,6 +7,7 @@ import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { createAccessToken, createRefreshToken } from "../lib/auth-token";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
+import { assertMembershipInvariants, assertValidMembershipTransition } from "../lib/memberships";
 import { hashPassword, verifyPassword } from "../lib/passwords";
 import { createRateLimiter } from "../lib/rate-limit";
 import { normalizeSchoolId, requireUser } from "../lib/user-auth";
@@ -95,6 +96,7 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
     const now = new Date();
     const role = parsed.role ?? "USER";
     let escuelaId = parsed.escuelaId ? toObjectId(parsed.escuelaId) : null;
+    let escuelaExists: boolean | undefined;
     if (parsed.schoolCode) {
       const escuela = await db.collection("escuelas").findOne({ code: parsed.schoolCode });
       if (!escuela?._id) {
@@ -102,6 +104,18 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         return;
       }
       escuelaId = escuela._id;
+      escuelaExists = true;
+    } else if (parsed.escuelaId) {
+      if (!escuelaId) {
+        res.status(400).json({ error: "Invalid school id" });
+        return;
+      }
+      const escuela = await db.collection("escuelas").findOne({ _id: escuelaId }, { projection: { _id: 1 } });
+      if (!escuela?._id) {
+        res.status(400).json({ error: "Invalid school id" });
+        return;
+      }
+      escuelaExists = true;
     }
     const membershipRole = getCanonicalMembershipRole(role);
     if (escuelaId && !membershipRole) {
@@ -129,6 +143,14 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
     };
     const result = await db.collection("usuarios").insertOne(doc);
     if (escuelaId && membershipRole) {
+      assertValidMembershipTransition(null, "activa");
+      assertMembershipInvariants({
+        estado: "activa",
+        escuelaId,
+        escuelaExists,
+        membershipRole,
+        userRole: role
+      });
       await db.collection("membresias_escuela").insertOne({
         usuarioId: result.insertedId,
         escuelaId,
