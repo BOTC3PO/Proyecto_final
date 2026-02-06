@@ -35,6 +35,53 @@ const getRequesterId = (req: express.Request) =>
 const getRequesterSchoolId = (req: express.Request) =>
   (req as { user?: { schoolId?: string | null } }).user?.schoolId ?? null;
 
+const parseStatusList = (value: unknown) => {
+  if (typeof value !== "string") return null;
+  const entries = value
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+  if (entries.length === 0) return null;
+  const normalized = entries.map((entry) => normalizeClassroomStatus(entry));
+  if (normalized.some((status) => !status)) return null;
+  return Array.from(new Set(normalized.filter((status): status is string => Boolean(status))));
+};
+
+const isValidStatusTransition = (currentStatus: string, nextStatus: string) => {
+  if (currentStatus === nextStatus) return true;
+  const allowedTransitions: Record<string, string[]> = {
+    ACTIVE: ["ARCHIVED"],
+    ARCHIVED: ["LOCKED"],
+    LOCKED: []
+  };
+  return (allowedTransitions[currentStatus] ?? []).includes(nextStatus);
+};
+
+const getClassroomDeletionBlockers = async (
+  db: Awaited<ReturnType<typeof getDb>>,
+  classroom: {
+    id?: string;
+    members?: { roleInClass?: string }[];
+  }
+) => {
+  const blockers: string[] = [];
+  const members = Array.isArray(classroom.members) ? classroom.members : [];
+  const studentCount = members.filter((member) => member.roleInClass === "STUDENT").length;
+  if (studentCount > 0) {
+    blockers.push("classroom has active students");
+  }
+  if (classroom.id) {
+    const activeModuleCount = await db.collection("modulos").countDocuments({
+      aulaId: classroom.id,
+      isDeleted: { $ne: true }
+    });
+    if (activeModuleCount > 0) {
+      blockers.push("classroom has active modules");
+    }
+  }
+  return blockers;
+};
+
 aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, res) => {
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
@@ -44,6 +91,17 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
   const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
   const accessLevel = authorization?.data?.accessLevel ?? null;
   const query: Record<string, unknown> = { isDeleted: { $ne: true } };
+  const statusList = parseStatusList(req.query.status);
+  const includeArchived = req.query.includeArchived === "true";
+  if (req.query.status !== undefined && !statusList) {
+    return res.status(400).json({ error: "invalid status filter" });
+  }
+  if (statusList) {
+    query.status = { $in: statusList };
+  } else if (!includeArchived) {
+    query.status = { $nin: ["ARCHIVED", "LOCKED"] };
+    query.archived = { $ne: true };
+  }
   if (accessLevel === "admin") {
     // Global access.
   } else if (accessLevel === "staff") {
@@ -74,6 +132,64 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
   const items = await cursor.toArray();
   res.json({ items, limit, offset });
 });
+
+aulas.get(
+  "/api/aulas/:id/historial",
+  requireUser,
+  requirePolicy("aulas/read"),
+  requireClassroomScope({
+    allowMemberRoles: "any",
+    allowSchoolMatch: true,
+    notFoundMessage: "not found"
+  }),
+  async (req, res) => {
+    const db = await getDb();
+    const limit = clampLimit(req.query.limit as string | undefined);
+    const offset = Number(req.query.offset ?? 0);
+    const filter: Record<string, unknown> = { aulaId: req.params.id };
+
+    if (typeof req.query.startDate === "string" || typeof req.query.endDate === "string") {
+      const createdAtFilter: Record<string, string> = {};
+      if (typeof req.query.startDate === "string") {
+        const startDate = new Date(req.query.startDate);
+        if (Number.isNaN(startDate.getTime())) {
+          return res.status(400).json({ error: "invalid startDate" });
+        }
+        createdAtFilter.$gte = startDate.toISOString();
+      }
+      if (typeof req.query.endDate === "string") {
+        const endDate = new Date(req.query.endDate);
+        if (Number.isNaN(endDate.getTime())) {
+          return res.status(400).json({ error: "invalid endDate" });
+        }
+        createdAtFilter.$lte = endDate.toISOString();
+      }
+      if (Object.keys(createdAtFilter).length > 0) {
+        filter.createdAt = createdAtFilter;
+      }
+    }
+
+    if (typeof req.query.changeType === "string" && req.query.changeType.trim()) {
+      const changeType = req.query.changeType.trim().toLowerCase();
+      if (changeType === "status") {
+        filter.$expr = { $ne: ["$previousStatus", "$newStatus"] };
+      } else if (changeType === "deletion") {
+        filter.$expr = { $ne: ["$previousIsDeleted", "$newIsDeleted"] };
+      } else {
+        return res.status(400).json({ error: "invalid changeType" });
+      }
+    }
+
+    const items = await db
+      .collection("auditoria_aulas")
+      .find(filter)
+      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
+      .limit(limit)
+      .sort({ createdAt: -1 })
+      .toArray();
+    res.json({ items, limit, offset });
+  }
+);
 
 aulas.get(
   "/api/aulas/:id",
@@ -156,6 +272,12 @@ aulas.put(
       if (!nextStatus) {
         return res.status(400).json({ error: "invalid classroom status" });
       }
+      if (!isValidStatusTransition(currentStatus, nextStatus)) {
+        return res.status(409).json({
+          error: "invalid classroom status transition",
+          detail: `${currentStatus} -> ${nextStatus}`
+        });
+      }
       if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
         return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
       }
@@ -226,6 +348,12 @@ aulas.patch(
       const nextStatus = parsed.status ? normalizeClassroomStatus(parsed.status) : currentStatus;
       if (!nextStatus) {
         return res.status(400).json({ error: "invalid classroom status" });
+      }
+      if (!isValidStatusTransition(currentStatus, nextStatus)) {
+        return res.status(409).json({
+          error: "invalid classroom status transition",
+          detail: `${currentStatus} -> ${nextStatus}`
+        });
       }
       if (parsed.classCode && !isClassroomActiveStatus(nextStatus)) {
         return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
@@ -368,6 +496,8 @@ aulas.post(
   }
 );
 
+// Soft delete: classrooms are retained with isDeleted=true for audit/retention purposes.
+// Deletion is blocked while there are active modules or enrolled students.
 aulas.delete(
   "/api/aulas/:id",
   requireUser,
@@ -379,6 +509,14 @@ aulas.delete(
   }),
   async (req, res) => {
     const db = await getDb();
+    const classroom = res.locals.classroom as {
+      id?: string;
+      members?: { roleInClass?: string }[];
+    };
+    const blockers = await getClassroomDeletionBlockers(db, classroom);
+    if (blockers.length > 0) {
+      return res.status(409).json({ error: "delete blocked", reasons: blockers });
+    }
     const now = new Date().toISOString();
     const deletedBy = getRequesterId(req);
     const result = await db.collection("aulas").updateOne(
@@ -423,6 +561,10 @@ aulas.delete("/api/admin/aulas/:id", requireAdminAuth, async (req, res) => {
   const db = await getDb();
   const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
   if (!classroom) return res.status(404).json({ error: "not found" });
+  const blockers = await getClassroomDeletionBlockers(db, classroom);
+  if (blockers.length > 0) {
+    return res.status(409).json({ error: "delete blocked", reasons: blockers });
+  }
   const currentStatus = normalizeClassroomStatus(classroom.status);
   if (!currentStatus) {
     return res.status(409).json({ error: "invalid classroom status" });
