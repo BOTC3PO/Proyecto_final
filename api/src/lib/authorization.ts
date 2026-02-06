@@ -61,9 +61,13 @@ export type AuthorizationPolicy =
   | "economia/compras"
   | "economia/mint"
   | "economia/moderate-intercambios"
+  | "estadisticas/export"
+  | "estadisticas/read"
   | "publicaciones/comment"
   | "publicaciones/create"
   | "publicaciones/read"
+  | "reportes/export"
+  | "reportes/read"
   | "resource-links/read"
   | "resource-links/write"
   | "usuarios/create"
@@ -132,6 +136,8 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
       allowed: canModerateIntercambios(user?.role ?? null),
       data: { isAdmin: user?.role === "ADMIN" }
     }),
+    "estadisticas/export": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),
+    "estadisticas/read": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),
     "publicaciones/comment": (user) => ({ allowed: canPostAsStudent(user?.role ?? null) }),
     "publicaciones/create": (user) => ({ allowed: canPostInClass(user?.role ?? null) }),
     "publicaciones/read": (user) => {
@@ -139,6 +145,8 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
       if (!accessLevel) return { allowed: false };
       return { allowed: true, data: { accessLevel } };
     },
+    "reportes/export": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),
+    "reportes/read": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),
     "resource-links/read": (user) => {
       const isStaff = isStaffRole(user?.role ?? null);
       const canRead = isStaff || canReadAsLearner(user?.role ?? null);

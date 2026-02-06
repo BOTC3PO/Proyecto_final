@@ -1,8 +1,10 @@
 import { Router } from "express";
 import { z } from "zod";
 import { getDb } from "../lib/db";
+import { isStaffRole, requirePolicy } from "../lib/authorization";
 import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
 import { toObjectId } from "../lib/ids";
+import { buildSimplePdf } from "../lib/pdf";
 import { requireUser } from "../lib/user-auth";
 
 export const reportes = Router();
@@ -292,7 +294,7 @@ type ReporteFilters = {
   tipoActividad?: string;
 };
 
-type ReporteFormato = "pdf" | "excel" | "json";
+type ReporteFormato = "pdf" | "excel" | "csv" | "json";
 
 type ReporteConfig = {
   encabezado: {
@@ -325,6 +327,12 @@ type ReporteResponse = {
   generacionLotes?: {
     total: number;
     ids: string[];
+  };
+  paginacion?: {
+    limit: number;
+    offset: number;
+    totalAulas: number;
+    totalUsuarios: number;
   };
   generadoEn: string;
 };
@@ -366,8 +374,16 @@ const parseFilters = (query: Record<string, unknown>): ReporteFilters => ({
 
 const parseFormato = (value: unknown): ReporteFormato => {
   const format = toStringValue(value)?.toLowerCase();
-  if (format === "pdf" || format === "excel") return format;
+  if (format === "pdf" || format === "excel" || format === "csv") return format;
   return "json";
+};
+
+const parsePagination = (query: Record<string, unknown>) => {
+  const limitRaw = Number(toStringValue(query.limit));
+  const offsetRaw = Number(toStringValue(query.offset));
+  const limit = Number.isFinite(limitRaw) ? Math.min(Math.max(limitRaw, 1), 500) : 100;
+  const offset = Number.isFinite(offsetRaw) && offsetRaw > 0 ? Math.floor(offsetRaw) : 0;
+  return { limit, offset };
 };
 
 const parseLote = (query: Record<string, unknown>) => {
@@ -423,13 +439,18 @@ const buildReporteData = async (
   rol: "profesor" | "admin",
   filtros: ReporteFilters,
   loteIds: string[],
+  pagination: { limit: number; offset: number },
   scopeSchoolId?: string
 ) => {
   const db = await getDb();
   const scopedSchoolId = filtros.institucion ?? scopeSchoolId;
+  const aulaFilter = buildAulaFilter(filtros, scopedSchoolId);
+  const totalAulas = await db.collection("aulas").countDocuments(aulaFilter);
   const aulas = await db
     .collection("aulas")
-    .find(buildAulaFilter(filtros, scopedSchoolId), { projection: { id: 1, name: 1, members: 1 } })
+    .find(aulaFilter, { projection: { id: 1, name: 1, members: 1 } })
+    .skip(pagination.offset)
+    .limit(pagination.limit)
     .toArray();
   const aulaIds = aulas.map((aula) => aula.id).filter(Boolean);
   const rawMembers = aulas.flatMap((aula) => (Array.isArray(aula.members) ? aula.members : []));
@@ -450,10 +471,13 @@ const buildReporteData = async (
     Object.assign(userFilter, buildUserIdMatch(memberUserIds));
   }
 
+  const totalUsuarios = await db.collection("usuarios").countDocuments(userFilter);
   const usuarios = await db
     .collection("usuarios")
     .find(userFilter)
     .project({ fullName: 1, username: 1, role: 1 })
+    .skip(pagination.offset)
+    .limit(pagination.limit)
     .toArray();
   const usuarioIds = uniqueIds(
     usuarios.map((user) => user._id?.toString?.() ?? "").filter(Boolean)
@@ -549,6 +573,12 @@ const buildReporteData = async (
     rol,
     filtros,
     configuracion,
+    paginacion: {
+      limit: pagination.limit,
+      offset: pagination.offset,
+      totalAulas,
+      totalUsuarios
+    },
     comparativo: {
       promedioGrupo,
       asistenciaPromedio,
@@ -565,27 +595,75 @@ const buildReporteData = async (
   } satisfies ReporteResponse;
 };
 
-const buildFilePayload = (data: ReporteResponse, formato: ReporteFormato) => {
-  const header = `${data.configuracion.encabezado.titulo}\n${data.configuracion.encabezado.subtitulo}\nLogo: ${data.configuracion.encabezado.logoUrl}\n`;
-  const footer = `\n${data.configuracion.piePagina.texto}\nGenerado por: ${data.configuracion.piePagina.generadoPor}\n`;
-  const body = [
-    `Filtros: ${JSON.stringify(data.filtros)}`,
-    `Comparativo: ${JSON.stringify(data.comparativo)}`,
-    `Boletines: ${JSON.stringify(data.boletines)}`,
-    data.generacionLotes ? `Lotes: ${JSON.stringify(data.generacionLotes)}` : "Lotes: n/a",
-    `Generado: ${data.generadoEn}`
-  ].join("\n");
+const escapeCsvValue = (value: string | number) => {
+  const raw = String(value ?? "");
+  if (raw.includes("\"") || raw.includes(",") || raw.includes("\n")) {
+    return `"${raw.replace(/\"/g, "\"\"")}"`;
+  }
+  return raw;
+};
 
-  const content = `${header}${body}${footer}`;
-  const buffer = Buffer.from(content, "utf-8");
+const buildReporteCsv = (data: ReporteResponse) => {
+  const rows = [
+    ["Titulo", data.configuracion.encabezado.titulo],
+    ["Subtitulo", data.configuracion.encabezado.subtitulo],
+    ["Logo", data.configuracion.encabezado.logoUrl],
+    ["Generado", data.generadoEn],
+    [],
+    ["Promedio grupo", data.comparativo.promedioGrupo],
+    ["Asistencia promedio", data.comparativo.asistenciaPromedio],
+    ["Actividades evaluadas", data.comparativo.actividadesEvaluadas],
+    [],
+    ["Estudiante", "Promedio", "Comentarios"],
+    ...data.boletines.map((item) => [item.estudiante, item.promedio, item.comentarios])
+  ];
+  return rows
+    .map((row) =>
+      row
+        .map((value) => (value === undefined ? "" : escapeCsvValue(value)))
+        .join(",")
+    )
+    .join("\n");
+};
 
+const buildFilePayload = async (data: ReporteResponse, formato: ReporteFormato) => {
+  if (formato === "pdf") {
+    return {
+      buffer: buildSimplePdf([
+        data.configuracion.encabezado.titulo,
+        data.configuracion.encabezado.subtitulo,
+        `Logo: ${data.configuracion.encabezado.logoUrl}`,
+        "",
+        "Comparativo",
+        `Promedio grupo: ${data.comparativo.promedioGrupo}`,
+        `Asistencia promedio: ${data.comparativo.asistenciaPromedio}`,
+        `Actividades evaluadas: ${data.comparativo.actividadesEvaluadas}`,
+        "",
+        "Boletines destacados",
+        ...data.boletines.flatMap((item) => [
+          `${item.estudiante} · ${item.promedio}`,
+          `Comentarios: ${item.comentarios}`
+        ]),
+        "",
+        data.configuracion.piePagina.texto,
+        `Generado por: ${data.configuracion.piePagina.generadoPor}`,
+        `Generado: ${data.generadoEn}`
+      ]),
+      contentType: "application/pdf",
+      extension: "pdf"
+    };
+  }
+  if (formato === "csv" || formato === "excel") {
+    return {
+      buffer: Buffer.from(buildReporteCsv(data), "utf-8"),
+      contentType: "text/csv",
+      extension: "csv"
+    };
+  }
   return {
-    buffer,
-    contentType:
-      formato === "pdf"
-        ? "application/pdf"
-        : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    extension: formato === "pdf" ? "pdf" : "xlsx"
+    buffer: Buffer.from(buildReporteCsv(data), "utf-8"),
+    contentType: "text/csv",
+    extension: "csv"
   };
 };
 
@@ -593,11 +671,16 @@ const handleReporte = (rol: "profesor" | "admin") => async (req: any, res: any) 
   const filtros = parseFilters(req.query);
   const formato = parseFormato(req.query.formato);
   const lote = parseLote(req.query);
+  const pagination = parsePagination(req.query);
+  const requesterRole = typeof req.user?.role === "string" ? req.user.role : null;
+  if (formato !== "json" && !isStaffRole(requesterRole)) {
+    return res.status(403).json({ error: "report export requires staff role" });
+  }
   const scopeSchoolId = typeof req.user?.schoolId === "string" ? req.user.schoolId : undefined;
-  const data = await buildReporteData(rol, filtros, lote.ids, scopeSchoolId);
+  const data = await buildReporteData(rol, filtros, lote.ids, pagination, scopeSchoolId);
 
   if (formato !== "json") {
-    const payload = buildFilePayload(data, formato);
+    const payload = await buildFilePayload(data, formato);
     res.setHeader("Content-Type", payload.contentType);
     res.setHeader("Content-Disposition", `attachment; filename=\"reporte-${rol}.${payload.extension}\"`);
     return res.send(payload.buffer);
@@ -610,12 +693,14 @@ reportes.get(
   "/api/reportes/profesor",
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.REPORTS),
+  requirePolicy("reportes/read"),
   handleReporte("profesor")
 );
 reportes.get(
   "/api/reportes/admin",
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.REPORTS),
+  requirePolicy("reportes/read"),
   handleReporte("admin")
 );
 
@@ -623,14 +708,20 @@ reportes.get(
   "/api/reportes/economia",
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.ECONOMY),
+  requirePolicy("reportes/read"),
   async (req, res) => {
     const filtros = parseFilters(req.query);
+    const pagination = parsePagination(req.query);
     const scopeSchoolId = typeof req.user?.schoolId === "string" ? req.user.schoolId : undefined;
     const scopedSchoolId = filtros.institucion ?? scopeSchoolId;
     const db = await getDb();
+    const aulaFilter = buildAulaFilter(filtros, scopedSchoolId);
+    const totalAulas = await db.collection("aulas").countDocuments(aulaFilter);
     const aulas = await db
       .collection("aulas")
-      .find(buildAulaFilter(filtros, scopedSchoolId), { projection: { id: 1 } })
+      .find(aulaFilter, { projection: { id: 1 } })
+      .skip(pagination.offset)
+      .limit(pagination.limit)
       .toArray();
     const aulaIds = aulas.map((aula) => aula.id).filter(Boolean);
     const match: Record<string, unknown> = {};
@@ -643,10 +734,13 @@ reportes.get(
         role: { $in: filtros.roles },
         isDeleted: { $ne: true }
       };
+      const totalUsuarios = await db.collection("usuarios").countDocuments(userFilter);
       const usuarios = await db
         .collection("usuarios")
         .find(userFilter)
         .project({ _id: 1 })
+        .skip(pagination.offset)
+        .limit(pagination.limit)
         .toArray();
       const usuarioIds = uniqueIds(
         usuarios.map((user) => user._id?.toString?.() ?? "").filter(Boolean)
@@ -654,6 +748,7 @@ reportes.get(
       if (usuarioIds.length) {
         match.usuarioId = { $in: usuarioIds };
       }
+      (res.locals as { economiaTotalUsuarios?: number }).economiaTotalUsuarios = totalUsuarios;
     }
 
     const resumen = await db
@@ -685,11 +780,18 @@ reportes.get(
     const totalCreditos = roundNumber(credito?.total ?? 0, 2);
     const totalDebitos = roundNumber(debito?.total ?? 0, 2);
     const totalTransacciones = resumen.reduce((acc, item) => acc + (item.transacciones ?? 0), 0);
+    const totalUsuarios = (res.locals as { economiaTotalUsuarios?: number }).economiaTotalUsuarios ?? 0;
 
     res.json({
       filtros,
       periodo: filtros.periodo ?? "actual",
       aulas: aulaIds.length ? aulaIds : "general",
+      paginacion: {
+        limit: pagination.limit,
+        offset: pagination.offset,
+        totalAulas,
+        totalUsuarios
+      },
       totales: {
         creditos: totalCreditos,
         debitos: totalDebitos,
