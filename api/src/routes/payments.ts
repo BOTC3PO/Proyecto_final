@@ -7,8 +7,10 @@ import {
   createReceiptForInvoice,
   PAYMENT_STATUSES,
   validateWebhookSignature,
+  type Invoice,
   type PaymentStatus,
-  type PaymentWebhookPayload
+  type PaymentWebhookPayload,
+  type Receipt
 } from "../lib/payments";
 import { recordAuditLog } from "../lib/audit-log";
 import { ENTERPRISE_FEATURES, requireEnterpriseFeature, resolveSchoolIdFromRequest } from "../lib/entitlements";
@@ -87,12 +89,12 @@ payments.post("/api/payments/webhook", async (req, res) => {
     return;
   }
   const db = await getDb();
-  const invoice = await db.collection("invoices").findOne({ invoiceId: payload.invoiceId });
+  const invoice = await db.collection<Invoice>("invoices").findOne({ invoiceId: payload.invoiceId });
   if (!invoice) {
     res.status(404).json({ error: "invoice not found" });
     return;
   }
-  const updates = {
+  const updates: Partial<Invoice> = {
     provider: typeof payload.provider === "string" ? payload.provider : invoice.provider,
     externalReference:
       typeof payload.externalReference === "string" ? payload.externalReference : invoice.externalReference ?? null,
@@ -101,13 +103,14 @@ payments.post("/api/payments/webhook", async (req, res) => {
     currency: typeof payload.currency === "string" ? payload.currency : invoice.currency
   };
   await db
-    .collection("invoices")
+    .collection<Invoice>("invoices")
     .updateOne(
       { invoiceId: payload.invoiceId },
       { $set: { ...updates, status, updatedAt: new Date().toISOString() } }
     );
   if (status === "PAID") {
-    await createReceiptForInvoice(db, { ...invoice, ...updates }, payload);
+    const nextInvoice: Invoice = { ...invoice, ...updates };
+    await createReceiptForInvoice(db, nextInvoice, payload);
   }
   res.json({ ok: true });
 });
@@ -128,7 +131,7 @@ payments.get(
       ...(status ? { status } : {})
     };
     const invoices = await db
-      .collection("invoices")
+      .collection<Invoice>("invoices")
       .find(invoiceFilter)
       .sort({ createdAt: -1 })
       .skip(offset)
@@ -136,7 +139,7 @@ payments.get(
       .toArray();
     const invoiceIds = invoices.map((invoice) => invoice.invoiceId);
     const receipts = invoiceIds.length
-      ? await db.collection("receipts").find({ invoiceId: { $in: invoiceIds } }).toArray()
+      ? await db.collection<Receipt>("receipts").find({ invoiceId: { $in: invoiceIds } }).toArray()
       : [];
     const actorId =
       typeof req.user?.id === "string"
