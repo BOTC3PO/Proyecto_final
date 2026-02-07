@@ -48,6 +48,7 @@ export const ClassroomBaseSchema = z.object({
   members: z.array(ClassroomMemberSchema).min(1),
   teacherOfRecord: z.string().min(1).optional(),
   teacherId: z.string().min(1).optional(),
+  isDeleted: z.boolean().optional(),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime()
 });
