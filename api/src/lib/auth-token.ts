@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import type { Request } from "express";
 import { ENV } from "./env";
+import { toObjectId } from "./ids";
 
 type TokenType = "access" | "refresh";
 
@@ -158,8 +159,9 @@ export const createRefreshToken = (user: TokenUser) => {
 
 export const buildUserContextFromClaims = (claims: TokenClaims) => {
   const resolvedSchoolId = claims.schoolId ?? claims.escuelaId ?? null;
+  const objectId = toObjectId(claims.sub);
   return {
-    _id: claims.sub,
+    _id: objectId ?? undefined,
     id: claims.sub,
     role: claims.role,
     guestOnboardingStatus: claims.guestOnboardingStatus ?? null,
