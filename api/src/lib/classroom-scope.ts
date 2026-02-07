@@ -4,6 +4,14 @@ import { getDb } from "./db";
 
 type ClassroomMember = { userId?: string; roleInClass?: string };
 
+type AulaDoc = {
+  id?: string;
+  schoolId?: string;
+  institutionId?: string;
+  members?: ClassroomMember[];
+  isDeleted?: boolean;
+};
+
 type ClassroomScopeOptions = {
   paramName?: string;
   allowMemberRoles?: "any" | string[];
@@ -44,7 +52,7 @@ export const requireClassroomScope =
     if (!options.includeDeleted) {
       filter.isDeleted = { $ne: true };
     }
-    const classroom = await db.collection("aulas").findOne(filter);
+    const classroom = await db.collection<AulaDoc>("aulas").findOne(filter);
     if (!classroom) {
       res.status(404).json({ error: options.notFoundMessage ?? "classroom not found" });
       return;
