@@ -49,6 +49,7 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       claims.schoolId ?? claims.escuelaId ?? normalizeSchoolId(user.escuelaId);
     const userContext: AuthenticatedUser = {
       ...buildUserContextFromClaims(claims),
+      _id: objectId,
       guestOnboardingStatus: (user as { guestOnboardingStatus?: string | null }).guestOnboardingStatus ?? null,
       schoolId: resolvedSchoolId,
       escuelaId: resolvedSchoolId
