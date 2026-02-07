@@ -5,6 +5,7 @@ import { requirePolicy, isStaffRole } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
 import { assertClassroomWritable } from "../lib/classroom";
 import { toObjectId } from "../lib/ids";
+import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
 import { ProgressSchema } from "../schema/progreso";
 
@@ -114,8 +115,8 @@ progreso.post(
 );
 
 progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async (req, res) => {
-  const usuarioId = req.query.usuarioId;
-  if (typeof usuarioId !== "string" || !usuarioId.trim()) {
+  const usuarioId = getQueryString(req.query.usuarioId);
+  if (!usuarioId || !usuarioId.trim()) {
     return res.status(400).json({ error: "usuarioId is required" });
   }
   const authenticatedUserId = resolveAuthenticatedUserId(req);
@@ -125,7 +126,7 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
   if (usuarioId !== authenticatedUserId && !isStaffRole(req.user?.role ?? null)) {
     return res.status(403).json({ error: "forbidden" });
   }
-  const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
+  const aulaId = getQueryString(req.query.aulaId);
   const db = await getDb();
   const progressFilter = { usuarioId, ...(aulaId ? { aulaId } : {}) };
   const items = await db.collection("progreso_modulos").find(progressFilter).toArray();
@@ -339,7 +340,7 @@ progreso.patch(
     if (!usuarioId) {
       return res.status(401).json({ error: "user not authenticated" });
     }
-    const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
+    const aulaId = getQueryString(req.query.aulaId);
     try {
       if (typeof req.body?.usuarioId === "string" && req.body.usuarioId !== usuarioId) {
         return res.status(403).json({ error: "forbidden" });
