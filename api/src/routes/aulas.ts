@@ -44,7 +44,13 @@ const parseStatusList = (value: unknown) => {
   if (entries.length === 0) return null;
   const normalized = entries.map((entry) => normalizeClassroomStatus(entry));
   if (normalized.some((status) => !status)) return null;
-  return Array.from(new Set(normalized.filter((status): status is string => Boolean(status))));
+  return Array.from(
+    new Set(
+      normalized.filter(
+        (status): status is NonNullable<ReturnType<typeof normalizeClassroomStatus>> => status !== null
+      )
+    )
+  );
 };
 
 const isValidStatusTransition = (currentStatus: string, nextStatus: string) => {
