@@ -260,7 +260,8 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
 progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
-  const childId = toObjectId(req.params.id);
+  const childIdParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  const childId = toObjectId(childIdParam);
   if (!childId) return res.status(400).json({ error: "invalid child id" });
   const db = await getDb();
   const child = await db
