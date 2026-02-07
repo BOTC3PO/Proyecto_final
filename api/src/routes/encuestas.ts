@@ -61,7 +61,9 @@ encuestas.post("/api/encuestas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, re
     };
     const parsed = SurveySchema.parse(payload);
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: parsed.classroomId });
+    const classroom = await db
+      .collection<{ status?: unknown }>("aulas")
+      .findOne({ id: parsed.classroomId }, { projection: { status: 1 } });
     if (!classroom) return res.status(400).json({ error: "classroom not found" });
     if (!assertClassroomWritable(res, classroom)) {
       return;
@@ -79,7 +81,9 @@ encuestas.put("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req,
     const db = await getDb();
     const survey = await db.collection("encuestas").findOne({ id: req.params.id });
     if (!survey) return res.status(404).json({ error: "not found" });
-    const classroom = await db.collection("aulas").findOne({ id: survey.classroomId });
+    const classroom = await db
+      .collection<{ status?: unknown }>("aulas")
+      .findOne({ id: survey.classroomId }, { projection: { status: 1 } });
     if (!classroom) return res.status(404).json({ error: "classroom not found" });
     if (!assertClassroomWritable(res, classroom)) {
       return;
@@ -98,7 +102,9 @@ encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (re
     const db = await getDb();
     const survey = await db.collection("encuestas").findOne({ id: req.params.id });
     if (!survey) return res.status(404).json({ error: "not found" });
-    const classroom = await db.collection("aulas").findOne({ id: survey.classroomId });
+    const classroom = await db
+      .collection<{ status?: unknown }>("aulas")
+      .findOne({ id: survey.classroomId }, { projection: { status: 1 } });
     if (!classroom) return res.status(404).json({ error: "classroom not found" });
     if (!assertClassroomWritable(res, classroom)) {
       return;
@@ -115,7 +121,9 @@ encuestas.delete("/api/encuestas/:id", async (req, res) => {
   const db = await getDb();
   const survey = await db.collection("encuestas").findOne({ id: req.params.id });
   if (!survey) return res.status(404).json({ error: "not found" });
-  const classroom = await db.collection("aulas").findOne({ id: survey.classroomId });
+  const classroom = await db
+    .collection<{ status?: unknown }>("aulas")
+    .findOne({ id: survey.classroomId }, { projection: { status: 1 } });
   if (!classroom) return res.status(404).json({ error: "classroom not found" });
   if (!assertClassroomWritable(res, classroom)) {
     return;
@@ -136,7 +144,9 @@ encuestas.post("/api/encuestas/:id/votos", ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
   }
   try {
     const db = await getDb();
-    const classroom = await db.collection("aulas").findOne({ id: aulaId });
+    const classroom = await db
+      .collection<{ status?: unknown }>("aulas")
+      .findOne({ id: aulaId }, { projection: { status: 1 } });
     if (!classroom) return res.status(404).json({ error: "classroom not found" });
     if (!assertClassroomWritable(res, classroom)) {
       return;

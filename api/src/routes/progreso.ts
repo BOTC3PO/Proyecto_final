@@ -82,7 +82,9 @@ progreso.post(
       }
       const db = await getDb();
       if (parsed.aulaId) {
-        const classroom = await db.collection("aulas").findOne({ id: parsed.aulaId });
+        const classroom = await db
+          .collection<{ status?: unknown }>("aulas")
+          .findOne({ id: parsed.aulaId }, { projection: { status: 1 } });
         if (classroom && !assertClassroomWritable(res, classroom)) {
           return;
         }
@@ -345,7 +347,9 @@ progreso.patch(
       const parsed = ProgressUpdateSchema.parse(req.body);
       const db = await getDb();
       if (aulaId) {
-        const classroom = await db.collection("aulas").findOne({ id: aulaId });
+        const classroom = await db
+          .collection<{ status?: unknown }>("aulas")
+          .findOne({ id: aulaId }, { projection: { status: 1 } });
         if (classroom && !assertClassroomWritable(res, classroom)) {
           return;
         }
