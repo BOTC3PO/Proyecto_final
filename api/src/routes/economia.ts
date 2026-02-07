@@ -28,6 +28,13 @@ import { requireUser } from "../lib/user-auth";
 
 export const economia = Router();
 
+type AulaDoc = {
+  status?: unknown;
+  schoolId?: string;
+  institutionId?: string;
+  members?: Array<{ userId?: string }>;
+};
+
 economia.use(
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.ECONOMY),
@@ -49,7 +56,7 @@ const buildUsuarioObjectId = (usuarioId: string) => {
   return new ObjectId(usuarioId);
 };
 
-const resolveAulaSchoolId = (aula?: { schoolId?: string; institutionId?: string }) => {
+const resolveAulaSchoolId = (aula?: AulaDoc) => {
   const schoolId = aula?.schoolId ?? aula?.institutionId;
   return typeof schoolId === "string" && schoolId.trim() ? schoolId : null;
 };
@@ -97,11 +104,7 @@ const verifyEventoEducativo = async (
   return true;
 };
 
-const ensureUsuarioEnAula = (
-  aula: { members?: Array<{ userId?: string }>; schoolId?: string; institutionId?: string } | null,
-  usuarioId: string,
-  schoolId: string
-) => {
+const ensureUsuarioEnAula = (aula: AulaDoc | null, usuarioId: string, schoolId: string) => {
   if (!aula) return { ok: false, error: "aula not found" as const, status: 404 };
   const aulaSchoolId = resolveAulaSchoolId(aula);
   if (!aulaSchoolId) return { ok: false, error: "classroom schoolId missing" as const, status: 400 };
@@ -557,7 +560,7 @@ economia.patch(
       });
       return res.status(400).json({ error: "motivo debe indicar modulo, quiz o tarea" });
     }
-    const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: parsed.aulaId });
+    const aula = await db.collection<AulaDoc>("aulas").findOne({ id: parsed.aulaId });
     if (!assertClassroomWritable(res, aula)) {
       return;
     }
@@ -681,7 +684,7 @@ economia.post(
       if (!usuarioObjectId) {
         return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
       }
-      const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: parsed.aulaId });
+      const aula = await db.collection<AulaDoc>("aulas").findOne({ id: parsed.aulaId });
       if (!assertClassroomWritable(res, aula)) {
         return;
       }
@@ -809,7 +812,7 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
     }
     const db = await getDb();
     const config = await getEconomiaConfig(db);
-    const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: payload.aulaId });
+    const aula = await db.collection<AulaDoc>("aulas").findOne({ id: payload.aulaId });
     if (!assertClassroomWritable(res, aula)) {
       return;
     }
@@ -907,7 +910,7 @@ economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/
     if (!requesterId || requesterId !== intercambio.receptorId) {
       return res.status(403).json({ error: "solo el receptor puede aceptar" });
     }
-    const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: intercambio.aulaId });
+    const aula = await db.collection<AulaDoc>("aulas").findOne({ id: intercambio.aulaId });
     if (!assertClassroomWritable(res, aula)) {
       return;
     }
@@ -1007,7 +1010,7 @@ economia.post("/api/economia/intercambios/:id/cancelar", async (req, res) => {
     if (!requesterId || (requesterId !== intercambio.creadorId && requesterId !== intercambio.receptorId)) {
       return res.status(403).json({ error: "no autorizado a cancelar" });
     }
-    const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: intercambio.aulaId });
+    const aula = await db.collection<AulaDoc>("aulas").findOne({ id: intercambio.aulaId });
     if (aula && !assertClassroomWritable(res, aula)) {
       return;
     }
@@ -1037,7 +1040,7 @@ economia.post(
       const db = await getDb();
       const intercambio = await db.collection("economia_intercambios").findOne({ id: req.params.id });
       if (!intercambio) return res.status(404).json({ error: "intercambio not found" });
-      const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: intercambio.aulaId });
+      const aula = await db.collection<AulaDoc>("aulas").findOne({ id: intercambio.aulaId });
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
       }
@@ -1081,7 +1084,7 @@ economia.post(
       const payload = CompraCreateSchema.parse(req.body ?? {});
       const db = await getDb();
       const config = await getEconomiaConfig(db);
-      const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: payload.aulaId });
+      const aula = await db.collection<AulaDoc>("aulas").findOne({ id: payload.aulaId });
       if (!assertClassroomWritable(res, aula)) {
         return;
       }
@@ -1213,7 +1216,7 @@ economia.post("/api/economia/examenes", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (
     const parsed = ExamenEconomiaSchema.parse(payload);
     const db = await getDb();
     if (parsed.aulaId) {
-      const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: parsed.aulaId });
+      const aula = await db.collection<AulaDoc>("aulas").findOne({ id: parsed.aulaId });
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
       }
@@ -1232,7 +1235,7 @@ economia.patch("/api/economia/examenes/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
     const existing = await db.collection("economia_examenes").findOne({ id: req.params.id });
     if (!existing) return res.status(404).json({ error: "not found" });
     if (existing.aulaId) {
-      const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: existing.aulaId });
+      const aula = await db.collection<AulaDoc>("aulas").findOne({ id: existing.aulaId });
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
       }
@@ -1268,7 +1271,7 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
     if (!examen) return res.status(404).json({ error: "examen not found" });
     const aulaId = parsed.aulaId ?? examen.aulaId;
     if (aulaId) {
-      const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: aulaId });
+      const aula = await db.collection<AulaDoc>("aulas").findOne({ id: aulaId });
       if (aula && !assertClassroomWritable(res, aula)) {
         return;
       }
@@ -1348,7 +1351,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       return res.status(200).json({ ok: true, message: "examen ya cerrado" });
     }
     const config = await getEconomiaConfig(db);
-    const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: examen.aulaId });
+    const aula = await db.collection<AulaDoc>("aulas").findOne({ id: examen.aulaId });
     if (aula && !assertClassroomWritable(res, aula)) {
       return;
     }
@@ -1831,7 +1834,7 @@ economia.put("/api/economia/riesgo/:aulaId", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
     };
     const validated = EconomiaRiesgoCursoSchema.parse(update);
     const db = await getDb();
-    const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: req.params.aulaId });
+    const aula = await db.collection<AulaDoc>("aulas").findOne({ id: req.params.aulaId });
     if (aula && !assertClassroomWritable(res, aula)) {
       return;
     }
@@ -1855,7 +1858,7 @@ economia.patch(
       updatedAt: new Date().toISOString()
     };
     const db = await getDb();
-    const aula = await db.collection<{ status?: unknown }>("aulas").findOne({ id: req.params.aulaId });
+    const aula = await db.collection<AulaDoc>("aulas").findOne({ id: req.params.aulaId });
     if (aula && !assertClassroomWritable(res, aula)) {
       return;
     }
