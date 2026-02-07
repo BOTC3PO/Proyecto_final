@@ -129,7 +129,9 @@ usuarios.get("/api/usuarios", requireUser, requirePolicy("usuarios/list"), async
 
 usuarios.get("/api/usuarios/:id", requireUser, requirePolicy("usuarios/read"), async (req, res) => {
   const db = await getDb();
-  const objectId = toObjectId(req.params.id);
+  const rawId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!rawId) return res.status(400).json({ error: "missing id" });
+  const objectId = toObjectId(rawId);
   if (!objectId) return res.status(400).json({ error: "invalid id" });
   const requester =
     (res.locals as { user?: { _id?: { toString?: () => string }; role?: string; teacherProfile?: unknown } }).user ??
