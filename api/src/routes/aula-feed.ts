@@ -2,7 +2,7 @@ import { Router } from "express";
 import { requirePolicy } from "../lib/authorization";
 import { getDb } from "../lib/db";
 import { requireUser } from "../lib/user-auth";
-import { isClassroomReadOnlyStatus } from "../schema/aula";
+import { Classroom, isClassroomReadOnlyStatus } from "../schema/aula";
 
 export const aulaFeed = Router();
 
@@ -33,17 +33,23 @@ const canAccessClassroom = ({
   return false;
 };
 
+type ClassroomContext =
+  | { success: false; error: { status: number; message: string } }
+  | { success: true; classroomId: string; classroom: Classroom };
+
 const resolveClassroomContext = async (
   req: { query: { classroomId?: unknown }; user?: Record<string, unknown> },
   accessLevel: "admin" | "staff" | "learner"
-) => {
+): Promise<ClassroomContext> => {
   const classroomId = typeof req.query.classroomId === "string" ? req.query.classroomId : null;
-  if (!classroomId) return { error: { status: 404, message: "classroom not found" } };
+  if (!classroomId) return { success: false, error: { status: 404, message: "classroom not found" } };
   const db = await getDb();
-  const classroom = await db.collection("aulas").findOne({ id: classroomId, isDeleted: { $ne: true } });
-  if (!classroom) return { error: { status: 404, message: "classroom not found" } };
+  const classroom = await db
+    .collection<Classroom>("aulas")
+    .findOne({ id: classroomId, isDeleted: { $ne: true } });
+  if (!classroom) return { success: false, error: { status: 404, message: "classroom not found" } };
   if (isClassroomReadOnlyStatus(classroom.status)) {
-    return { error: { status: 410, message: "classroom feed not available" } };
+    return { success: false, error: { status: 410, message: "classroom feed not available" } };
   }
   const requesterId = getRequesterId(req as { user?: { _id?: { toString?: () => string } } });
   const requesterSchoolId = getRequesterSchoolId(req as { user?: { schoolId?: string | null } });
@@ -56,9 +62,9 @@ const resolveClassroomContext = async (
       classroomMembers: Array.isArray(classroom.members) ? classroom.members : []
     })
   ) {
-    return { error: { status: 403, message: "forbidden" } };
+    return { success: false, error: { status: 403, message: "forbidden" } };
   }
-  return { classroomId, classroom };
+  return { success: true, classroomId, classroom };
 };
 
 aulaFeed.get("/api/aula/publicaciones", requireUser, requirePolicy("aula-feed/read"), async (req, res) => {
@@ -68,7 +74,7 @@ aulaFeed.get("/api/aula/publicaciones", requireUser, requirePolicy("aula-feed/re
     return res.status(403).json({ error: "forbidden" });
   }
   const context = await resolveClassroomContext(req, accessLevel);
-  if ("error" in context) {
+  if (!context.success) {
     return res.status(context.error.status).json({ error: context.error.message });
   }
   const db = await getDb();
@@ -87,7 +93,7 @@ aulaFeed.get("/api/aula/leaderboard", requireUser, requirePolicy("aula-feed/read
     return res.status(403).json({ error: "forbidden" });
   }
   const context = await resolveClassroomContext(req, accessLevel);
-  if ("error" in context) {
+  if (!context.success) {
     return res.status(context.error.status).json({ error: context.error.message });
   }
   const db = await getDb();
@@ -106,7 +112,7 @@ aulaFeed.get("/api/aula/actividades", requireUser, requirePolicy("aula-feed/read
     return res.status(403).json({ error: "forbidden" });
   }
   const context = await resolveClassroomContext(req, accessLevel);
-  if ("error" in context) {
+  if (!context.success) {
     return res.status(context.error.status).json({ error: context.error.message });
   }
   const db = await getDb();
