@@ -9,6 +9,7 @@ import { requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import {
   CLASSROOM_ACTIVE_STATUS_VALUES,
+  Classroom,
   ClassroomCreateSchema,
   ClassroomPatchSchema,
   ClassroomUpdateSchema,
@@ -65,10 +66,7 @@ const isValidStatusTransition = (currentStatus: string, nextStatus: string) => {
 
 const getClassroomDeletionBlockers = async (
   db: Awaited<ReturnType<typeof getDb>>,
-  classroom: {
-    id?: string;
-    members?: { roleInClass?: string }[];
-  }
+  classroom: Pick<Classroom, "id" | "members">
 ) => {
   const blockers: string[] = [];
   const members = Array.isArray(classroom.members) ? classroom.members : [];
@@ -522,10 +520,7 @@ aulas.delete(
   }),
   async (req, res) => {
     const db = await getDb();
-    const classroom = res.locals.classroom as {
-      id?: string;
-      members?: { roleInClass?: string }[];
-    };
+    const classroom = res.locals.classroom as Pick<Classroom, "id" | "members">;
     const blockers = await getClassroomDeletionBlockers(db, classroom);
     if (blockers.length > 0) {
       return res.status(409).json({ error: "delete blocked", reasons: blockers });
@@ -572,9 +567,11 @@ aulas.get("/api/admin/aulas", requireAdminAuth, async (req, res) => {
 
 aulas.delete("/api/admin/aulas/:id", requireAdminAuth, async (req, res) => {
   const db = await getDb();
-  const classroom = await db.collection("aulas").findOne({ id: req.params.id, isDeleted: { $ne: true } });
+  const classroom = (await db
+    .collection("aulas")
+    .findOne({ id: req.params.id, isDeleted: { $ne: true } })) as Classroom | null;
   if (!classroom) return res.status(404).json({ error: "not found" });
-  const blockers = await getClassroomDeletionBlockers(db, classroom);
+  const blockers = await getClassroomDeletionBlockers(db, { id: classroom.id, members: classroom.members });
   if (blockers.length > 0) {
     return res.status(409).json({ error: "delete blocked", reasons: blockers });
   }
