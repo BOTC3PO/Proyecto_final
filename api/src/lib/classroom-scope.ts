@@ -4,6 +4,13 @@ import { getDb } from "./db";
 
 type ClassroomMember = { userId?: string; roleInClass?: string };
 
+type UserIdentity = {
+  role?: string;
+  schoolId?: string | null;
+  _id?: { toString?: () => string } | string;
+  id?: string;
+};
+
 type AulaDoc = {
   id?: string;
   schoolId?: string;
@@ -22,7 +29,7 @@ type ClassroomScopeOptions = {
   notFoundMessage?: string;
 };
 
-const resolveUserId = (user?: { _id?: { toString?: () => string } | string; id?: string }) => {
+const resolveUserId = (user?: UserIdentity) => {
   if (!user) return null;
   if (typeof user._id === "string") return user._id;
   if (user._id && typeof user._id === "object" && typeof user._id.toString === "function") {
@@ -32,7 +39,7 @@ const resolveUserId = (user?: { _id?: { toString?: () => string } | string; id?:
   return null;
 };
 
-const resolveUserSchoolId = (user?: { schoolId?: string | null }) =>
+const resolveUserSchoolId = (user?: UserIdentity) =>
   typeof user?.schoolId === "string" ? user.schoolId : null;
 
 const resolveClassroomSchoolId = (classroom?: { schoolId?: string; institutionId?: string }) =>
@@ -58,7 +65,7 @@ export const requireClassroomScope =
       return;
     }
 
-    const user = (req as { user?: { role?: string; schoolId?: string | null } }).user;
+    const user = (req as { user?: UserIdentity }).user;
     const userId = resolveUserId(user);
     const userRole = user?.role ?? null;
     const userSchoolId = resolveUserSchoolId(user);
