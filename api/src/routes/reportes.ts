@@ -276,11 +276,15 @@ reportes.get("/api/vinculos/validar", requireUser, async (req, res) => {
 
 reportes.get("/api/estadisticas/hijos/:hijoId", requireUser, async (req, res) => {
   const parentId = getAuthenticatedUserId(req);
-  const childId = toObjectId(req.params.hijoId);
+  const rawHijoId = Array.isArray(req.params.hijoId) ? req.params.hijoId[0] : req.params.hijoId;
+  if (typeof rawHijoId !== "string" || !rawHijoId) {
+    return res.status(400).json({ error: "invalid hijoId" });
+  }
+  const childId = toObjectId(rawHijoId);
   const acceso = await validarAccesoPadre(parentId, childId);
   if (!acceso.ok) return res.status(acceso.status).json({ error: acceso.error });
   const db = await getDb();
-  const items = await db.collection("progreso_modulos").find({ usuarioId: req.params.hijoId }).toArray();
+  const items = await db.collection("progreso_modulos").find({ usuarioId: rawHijoId }).toArray();
   const completados = items.filter((item) => item.status === "completado").length;
   const progreso = items.length ? Math.round((completados / items.length) * 100) : 0;
   await logReportePadre({ parentId, childId, tipo: "estadisticas", acceso: acceso.acceso });
@@ -289,11 +293,15 @@ reportes.get("/api/estadisticas/hijos/:hijoId", requireUser, async (req, res) =>
 
 reportes.get("/api/informes/hijos/:hijoId", requireUser, async (req, res) => {
   const parentId = getAuthenticatedUserId(req);
-  const childId = toObjectId(req.params.hijoId);
+  const rawHijoId = Array.isArray(req.params.hijoId) ? req.params.hijoId[0] : req.params.hijoId;
+  if (typeof rawHijoId !== "string" || !rawHijoId) {
+    return res.status(400).json({ error: "invalid hijoId" });
+  }
+  const childId = toObjectId(rawHijoId);
   const acceso = await validarAccesoPadre(parentId, childId);
   if (!acceso.ok) return res.status(acceso.status).json({ error: acceso.error });
   const db = await getDb();
-  const items = await db.collection("progreso_modulos").find({ usuarioId: req.params.hijoId }).toArray();
+  const items = await db.collection("progreso_modulos").find({ usuarioId: rawHijoId }).toArray();
   await logReportePadre({ parentId, childId, tipo: "informe", acceso: acceso.acceso });
   return res.json({ generatedAt: new Date().toISOString(), items });
 });
