@@ -29,6 +29,8 @@ const getUserId = (user?: { _id?: ObjectId | string }) => {
 const getSchoolId = (user?: { schoolId?: string | null }) =>
   typeof user?.schoolId === "string" ? user.schoolId : null;
 
+const getParamId = (value: string | string[] | undefined) => (Array.isArray(value) ? value[0] : value) ?? null;
+
 resourceLinks.get(
   "/api/aulas/:aulaId/resource-links",
   requireUser,
@@ -127,6 +129,8 @@ resourceLinks.put(
   ...bodyLimitMB(5),
   async (req, res) => {
     const db = await getDb();
+    const resourceLinkId = getParamId(req.params.id);
+    const aulaId = getParamId(req.params.aulaId);
     const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
@@ -140,21 +144,22 @@ resourceLinks.put(
     const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
     const userId = getUserId(user);
     if (!schoolId || !userId) return res.status(403).json({ error: "forbidden" });
+    if (!resourceLinkId || !aulaId) return res.status(400).json({ error: "invalid params" });
 
     try {
       const parsed = ResourceLinkUpdateSchema.parse(req.body);
       const update = { ...parsed, updatedAt: new Date().toISOString() };
       const result = await db
         .collection("resource_links")
-        .updateOne({ id: req.params.id, aulaId: req.params.aulaId }, { $set: update });
+        .updateOne({ id: resourceLinkId, aulaId }, { $set: update });
       if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
       await recordAuditLog({
         actorId: userId,
         action: "resource_links.update",
         targetType: "resource_link",
-        targetId: req.params.id,
+        targetId: resourceLinkId,
         metadata: {
-          aulaId: req.params.aulaId,
+          aulaId,
           fields: Object.keys(update)
         }
       });
@@ -173,6 +178,8 @@ resourceLinks.patch(
   ...bodyLimitMB(5),
   async (req, res) => {
     const db = await getDb();
+    const resourceLinkId = getParamId(req.params.id);
+    const aulaId = getParamId(req.params.aulaId);
     const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
@@ -186,21 +193,22 @@ resourceLinks.patch(
     const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
     const userId = getUserId(user);
     if (!schoolId || !userId) return res.status(403).json({ error: "forbidden" });
+    if (!resourceLinkId || !aulaId) return res.status(400).json({ error: "invalid params" });
 
     try {
       const parsed = ResourceLinkUpdateSchema.partial().parse(req.body);
       const update = { ...parsed, updatedAt: new Date().toISOString() };
       const result = await db
         .collection("resource_links")
-        .updateOne({ id: req.params.id, aulaId: req.params.aulaId }, { $set: update });
+        .updateOne({ id: resourceLinkId, aulaId }, { $set: update });
       if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
       await recordAuditLog({
         actorId: userId,
         action: "resource_links.patch",
         targetType: "resource_link",
-        targetId: req.params.id,
+        targetId: resourceLinkId,
         metadata: {
-          aulaId: req.params.aulaId,
+          aulaId,
           fields: Object.keys(update)
         }
       });
@@ -218,6 +226,8 @@ resourceLinks.delete(
   requireClassroomScope({ paramName: "aulaId", allowMemberRoles: ["ADMIN", "TEACHER"], allowSchoolMatch: true }),
   async (req, res) => {
     const db = await getDb();
+    const resourceLinkId = getParamId(req.params.id);
+    const aulaId = getParamId(req.params.aulaId);
     const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
@@ -231,18 +241,19 @@ resourceLinks.delete(
     const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
     const userId = getUserId(user);
     if (!schoolId || !userId) return res.status(403).json({ error: "forbidden" });
+    if (!resourceLinkId || !aulaId) return res.status(400).json({ error: "invalid params" });
 
     const result = await db
       .collection("resource_links")
-      .deleteOne({ id: req.params.id, aulaId: req.params.aulaId });
+      .deleteOne({ id: resourceLinkId, aulaId });
     if (result.deletedCount === 0) return res.status(404).json({ error: "not found" });
     await recordAuditLog({
       actorId: userId,
       action: "resource_links.delete",
       targetType: "resource_link",
-      targetId: req.params.id,
+      targetId: resourceLinkId,
       metadata: {
-        aulaId: req.params.aulaId
+        aulaId
       }
     });
     res.status(204).send();
