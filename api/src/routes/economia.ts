@@ -1355,7 +1355,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
     if (aula && !assertClassroomWritable(res, aula)) {
       return;
     }
-    const schoolId = resolveAulaSchoolId(aula);
+    const schoolId = resolveAulaSchoolId(aula ?? undefined);
     if (!schoolId) return res.status(400).json({ error: "classroom schoolId missing" });
     const actorId =
       (req as { user?: { _id?: { toString?: () => string }; id?: string } }).user?._id?.toString?.() ??
