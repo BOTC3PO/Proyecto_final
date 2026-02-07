@@ -132,7 +132,9 @@ modulos.post("/api/modulos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) =
     const parsed = ModuleSchema.parse(payload);
     const db = await getDb();
     if (parsed.aulaId) {
-      const classroom = await db.collection("aulas").findOne({ id: parsed.aulaId });
+      const classroom = await db
+        .collection<{ status?: unknown }>("aulas")
+        .findOne({ id: parsed.aulaId }, { projection: { status: 1 } });
       if (classroom && !assertClassroomWritable(res, classroom)) {
         return;
       }
@@ -151,7 +153,9 @@ modulos.put("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res
     const existing = await db.collection("modulos").findOne({ id: req.params.id });
     if (!existing) return res.status(404).json({ error: "not found" });
     if (existing.aulaId) {
-      const classroom = await db.collection("aulas").findOne({ id: existing.aulaId });
+      const classroom = await db
+        .collection<{ status?: unknown }>("aulas")
+        .findOne({ id: existing.aulaId }, { projection: { status: 1 } });
       if (classroom && !assertClassroomWritable(res, classroom)) {
         return;
       }
@@ -171,7 +175,9 @@ modulos.patch("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, r
     const existing = await db.collection("modulos").findOne({ id: req.params.id });
     if (!existing) return res.status(404).json({ error: "not found" });
     if (existing.aulaId) {
-      const classroom = await db.collection("aulas").findOne({ id: existing.aulaId });
+      const classroom = await db
+        .collection<{ status?: unknown }>("aulas")
+        .findOne({ id: existing.aulaId }, { projection: { status: 1 } });
       if (classroom && !assertClassroomWritable(res, classroom)) {
         return;
       }
@@ -189,7 +195,9 @@ modulos.delete("/api/modulos/:id", async (req, res) => {
   const existing = await db.collection("modulos").findOne({ id: req.params.id });
   if (!existing) return res.status(404).json({ error: "not found" });
   if (existing.aulaId) {
-    const classroom = await db.collection("aulas").findOne({ id: existing.aulaId });
+    const classroom = await db
+      .collection<{ status?: unknown }>("aulas")
+      .findOne({ id: existing.aulaId }, { projection: { status: 1 } });
     if (classroom && !assertClassroomWritable(res, classroom)) {
       return;
     }
