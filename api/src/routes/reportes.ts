@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { ObjectId } from "mongodb";
 import { z } from "zod";
 import { getDb } from "../lib/db";
 import { isStaffRole, requirePolicy } from "../lib/authorization";
@@ -33,12 +34,23 @@ const isMinor = (birthdate?: Date | null) => {
   return daysBetween(birthdate, new Date()) < 365.25 * 18;
 };
 
+type ParentInvite = {
+  _id?: ObjectId;
+  parentId: ReturnType<typeof toObjectId>;
+  childId: ReturnType<typeof toObjectId>;
+  estado?: string;
+  expiresAt?: Date;
+  overrideParentLimit?: boolean;
+  overrideApprovedBy?: ObjectId | string;
+  createdBy?: ObjectId | string;
+};
+
 const findParentInvite = async (
   db: Awaited<ReturnType<typeof getDb>>,
   parentId: ReturnType<typeof toObjectId>,
   childId: ReturnType<typeof toObjectId>
 ) => {
-  const invite = await db.collection("parent_invites").findOne({
+  const invite = await db.collection<ParentInvite>("parent_invites").findOne({
     parentId,
     childId,
     estado: { $ne: "revocada" }
@@ -48,12 +60,12 @@ const findParentInvite = async (
   return invite;
 };
 
-const resolveOverrideApprovedBy = (invite: { overrideApprovedBy?: unknown; createdBy?: unknown } | null) => {
+const resolveOverrideApprovedBy = (invite: ParentInvite | null): ObjectId | null => {
   if (!invite) return null;
   const candidate = invite.overrideApprovedBy ?? invite.createdBy ?? null;
   if (!candidate) return null;
   if (typeof candidate === "string") return toObjectId(candidate);
-  return candidate;
+  return candidate instanceof ObjectId ? candidate : null;
 };
 
 const logOverrideParentLimit = async (params: {
