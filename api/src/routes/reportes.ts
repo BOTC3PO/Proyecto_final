@@ -6,6 +6,7 @@ import { isStaffRole, requirePolicy } from "../lib/authorization";
 import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
 import { toObjectId } from "../lib/ids";
 import { buildSimplePdf } from "../lib/pdf";
+import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
 
 export const reportes = Router();
@@ -266,8 +267,8 @@ reportes.post("/api/vinculos/aprobar", requireUser, async (req, res) => {
 
 reportes.get("/api/vinculos/validar", requireUser, async (req, res) => {
   const parentId = getAuthenticatedUserId(req);
-  const childIdParam = req.query.childId;
-  const childId = typeof childIdParam === "string" ? toObjectId(childIdParam) : null;
+  const childIdParam = getQueryString(req.query.childId);
+  const childId = childIdParam ? toObjectId(childIdParam) : null;
   const result = await validarAccesoPadre(parentId, childId);
   if (!result.ok) return res.status(result.status).json({ ok: false, error: result.error });
   return res.json({ ok: true, acceso: result.acceso });
@@ -353,8 +354,8 @@ const LOGO_INSTITUCIONAL =
   "https://storage.googleapis.com/educaai-public/assets/logo-institucional.png";
 
 const toStringValue = (value: unknown): string | undefined => {
-  if (typeof value === "string" && value.trim()) return value.trim();
-  if (Array.isArray(value) && typeof value[0] === "string") return value[0].trim();
+  const raw = getQueryString(value);
+  if (typeof raw === "string" && raw.trim()) return raw.trim();
   return undefined;
 };
 

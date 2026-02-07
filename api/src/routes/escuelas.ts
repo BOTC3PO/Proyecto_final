@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
+import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
 import { EscuelaPatchSchema, EscuelaSchema } from "../schema/escuela";
 
@@ -36,8 +37,8 @@ escuelas.post("/api/escuelas", async (req, res) => {
 
 escuelas.get("/api/escuelas", async (req, res) => {
   const db = await getDb();
-  const limit = clampLimit(req.query.limit as string | undefined);
-  const offset = Number(req.query.offset ?? 0);
+  const limit = clampLimit(getQueryString(req.query.limit));
+  const offset = Number(getQueryString(req.query.offset) ?? 0);
   const cursor = db
     .collection("escuelas")
     .find({ isDeleted: { $ne: true } })
