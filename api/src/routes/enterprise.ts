@@ -325,9 +325,14 @@ enterprise.get(
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
     const db = await getDb();
+    const escuelaObjectId = toObjectId(schoolId);
+    if (!escuelaObjectId) {
+      res.status(400).json({ error: "invalid schoolId" });
+      return;
+    }
     const escuela = await db
       .collection("escuelas")
-      .findOne({ _id: toObjectId(schoolId) ?? schoolId }, { projection: { pricePerStudent: 1 } });
+      .findOne({ _id: escuelaObjectId }, { projection: { pricePerStudent: 1 } });
     const contract = await db
       .collection("enterprise_contratos")
       .find({ schoolId })
