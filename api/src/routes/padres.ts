@@ -7,6 +7,7 @@ import { requireUser } from "../lib/user-auth";
 export const padres = Router();
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
+const getParamId = (value: string | string[] | undefined) => (Array.isArray(value) ? value[0] : value) ?? null;
 
 const VinculoHijoSchema = z.object({
   nombre: z.string().min(1),
@@ -142,7 +143,8 @@ padres.post("/api/hijos", requireUser, ...bodyLimitMB(2), async (req, res) => {
 padres.get("/api/padres/hijos/:id/limites", requireUser, async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
-  const childId = toObjectId(req.params.id);
+  const childIdParam = getParamId(req.params.id);
+  const childId = childIdParam ? toObjectId(childIdParam) : null;
   if (!childId) return res.status(400).json({ error: "invalid child id" });
   const access = await ensureParentAccess({ parentId, childId });
   if (!access.ok) return res.status(access.status).json({ error: access.error });
@@ -157,7 +159,8 @@ padres.get("/api/padres/hijos/:id/limites", requireUser, async (req, res) => {
 padres.patch("/api/padres/hijos/:id/limites", requireUser, ...bodyLimitMB(1), async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
-  const childId = toObjectId(req.params.id);
+  const childIdParam = getParamId(req.params.id);
+  const childId = childIdParam ? toObjectId(childIdParam) : null;
   if (!childId) return res.status(400).json({ error: "invalid child id" });
   try {
     const parsed = RestriccionesSchema.parse(req.body);

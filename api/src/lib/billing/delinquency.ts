@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { getDb } from "../db";
 import { ENV } from "../env";
 import { toObjectId } from "../ids";
@@ -34,6 +35,9 @@ export const runDelinquencySweep = async () => {
 
   const bulk = db.collection("escuelas").initializeUnorderedBulkOp();
   let changeCount = 0;
+  const unpaidSchoolIds = unpaidBySchool
+    .map((entry) => toObjectId(entry._id))
+    .filter((value): value is ObjectId => value !== null);
 
   for (const unpaid of unpaidBySchool) {
     if (!unpaid?._id || !unpaid.oldestInvoiceAt) continue;
@@ -55,9 +59,7 @@ export const runDelinquencySweep = async () => {
       {
         subscriptionStatus: { $in: ["PAST_DUE", "SUSPENDED"] },
         _id: {
-          $nin: unpaidBySchool
-            .map((entry) => toObjectId(entry._id) ?? entry._id)
-            .filter((value) => value !== null)
+          $nin: unpaidSchoolIds
         }
       },
       { projection: { _id: 1 } }
