@@ -439,7 +439,14 @@ aulas.post(
     if (!schoolId || typeof schoolId !== "string") {
       return res.status(400).json({ error: "classroom schoolId missing" });
     }
-    const members = Array.isArray(classroom.members) ? classroom.members : [];
+    const isValidMember = (
+      member: { userId?: string; roleInClass?: string; schoolId?: string }
+    ): member is { userId: string; roleInClass: string; schoolId?: string } =>
+      typeof member.userId === "string" &&
+      member.userId.trim().length > 0 &&
+      typeof member.roleInClass === "string" &&
+      member.roleInClass.trim().length > 0;
+    const members = Array.isArray(classroom.members) ? classroom.members.filter(isValidMember) : [];
 
     const teacherIdRaw =
       typeof req.body?.teacherId === "string"
