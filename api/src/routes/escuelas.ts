@@ -61,7 +61,8 @@ escuelas.get("/api/escuelas/code/:code", async (req, res) => {
 
 escuelas.get("/api/escuelas/:id", async (req, res) => {
   const db = await getDb();
-  const objectId = toObjectId(req.params.id);
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  const objectId = toObjectId(id);
   if (!objectId) return res.status(400).json({ error: "invalid id" });
   const item = await db.collection("escuelas").findOne({ _id: objectId, isDeleted: { $ne: true } });
   if (!item) return res.status(404).json({ error: "not found" });
@@ -71,7 +72,8 @@ escuelas.get("/api/escuelas/:id", async (req, res) => {
 escuelas.patch("/api/escuelas/:id", requireUser, async (req, res) => {
   try {
     const parsed = EscuelaPatchSchema.parse(req.body);
-    const objectId = toObjectId(req.params.id);
+    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    const objectId = toObjectId(id);
     if (!objectId) return res.status(400).json({ error: "invalid id" });
     const db = await getDb();
     const escuela = await db.collection("escuelas").findOne({ _id: objectId, isDeleted: { $ne: true } });
@@ -83,7 +85,7 @@ escuelas.patch("/api/escuelas/:id", requireUser, async (req, res) => {
       parsed.pricePerStudent !== undefined && parsed.pricePerStudent !== escuela.pricePerStudent;
     if (shouldAuditPlan || shouldAuditStatus || shouldAuditPrice) {
       await db.collection("eventos_suscripciones").insertOne({
-        schoolId: escuela._id?.toString?.() ?? req.params.id,
+        schoolId: escuela._id?.toString?.() ?? id,
         previousPlan: escuela.plan ?? null,
         newPlan: parsed.plan ?? escuela.plan ?? null,
         previousStatus: escuela.subscriptionStatus ?? null,
