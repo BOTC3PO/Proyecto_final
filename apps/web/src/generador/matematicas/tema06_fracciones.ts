@@ -37,8 +37,6 @@ function generarFraccionAleatoria(dificultad: Dificultad): Fraccion {
       rango = [2, 20];
       break;
     case "avanzado":
-    case "Legendario":
-    case "Divino":
     default:
       rango = [2, 40];
       break;

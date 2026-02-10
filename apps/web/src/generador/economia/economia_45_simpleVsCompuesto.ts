@@ -62,7 +62,7 @@ const CASOS: {
     tipo: "Interés simple",
     explicacion:
       "El interés se mantiene lineal porque la base de cálculo no cambia.",
-    dificultadMinima: "Legendario",
+    dificultadMinima: "avanzado",
   },
   {
     descripcion:
@@ -70,7 +70,7 @@ const CASOS: {
     tipo: "Interés compuesto",
     explicacion:
       "Al agregarse al capital, los intereses futuros se calculan sobre un saldo mayor.",
-    dificultadMinima: "Divino",
+    dificultadMinima: "avanzado",
   },
 ];
 

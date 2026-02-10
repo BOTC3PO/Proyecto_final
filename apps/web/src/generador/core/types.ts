@@ -6,7 +6,7 @@ import type {
 } from "./generated-question";
 export type Materia = "matematica" | "fisica" | "economia" | "contabilidad";
 
-export type Dificultad = "basico" | "intermedio" | "avanzado"|"Legendario"|"Divino";
+export type Dificultad = "basico" | "intermedio" | "avanzado";
 
 export interface GeneradorOpciones {
   // Configuración genérica; luego podés especializar según materia/categoría

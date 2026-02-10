@@ -99,8 +99,6 @@ export const genARIVACalculo: GeneratorFn = makeQuizGenerator(
         basico: crearCasoTotal(base, tasaGeneral, "general"),
         intermedio: crearCasoTotal(base, tasa, etiqueta),
         avanzado: crearCasoIVA(base, tasa, etiqueta),
-        Legendario: crearCasoBaseDesdeTotal(baseAlta, tasa, etiqueta),
-        Divino: crearCasoBaseDesdeTotal(baseAlta, tasaGeneral, "general"),
       };
 
       return casos[dificultad];

@@ -60,7 +60,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
         "Los conceptos remunerativos forman parte de la base para aportes y contribuciones; los no remunerativos no integran esa base.",
     },
   ],
-  Legendario: [
     {
       enunciado:
         "Si un recibo incluye horas extras, ¿dónde suelen aparecer y cómo impactan?",
@@ -75,7 +74,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
         "Las horas extras son remunerativas y se suman en la sección de Remuneraciones, incrementando el sueldo bruto.",
     },
   ],
-  Divino: [
     {
       enunciado:
         "En muchos recibos aparece una sección de 'Aportes del empleador'. ¿Qué representa?",

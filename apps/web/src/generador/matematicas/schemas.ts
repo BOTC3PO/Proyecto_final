@@ -6,8 +6,6 @@ const DificultadSchema = z.enum([
   "basico",
   "intermedio",
   "avanzado",
-  "Legendario",
-  "Divino",
   "facil",
   "media",
   "dificil",

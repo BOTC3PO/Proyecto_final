@@ -45,8 +45,6 @@ export const genContabClasificacionCuentas: GeneratorFn = makeQuizGenerator(
         basico: 3,
         intermedio: 4,
         avanzado: 5,
-        Legendario: 5,
-        Divino: 5,
       };
       const cantOpciones = opcionesPorDificultad[dificultad] ?? 4;
 
@@ -64,7 +62,7 @@ export const genContabClasificacionCuentas: GeneratorFn = makeQuizGenerator(
         indiceCorrecto,
         explicacion:
           "Se clasifican las cuentas según si representan bienes/derechos (Activo), deudas (Pasivo), aportes y resultados acumulados (Patrimonio Neto) o resultados del ejercicio (R+ ingresos, R- costos/gastos)." +
-          (dificultad === "avanzado" || dificultad === "Legendario" || dificultad === "Divino"
+          (dificultad === "avanzado"
             ? " En niveles altos, revisá si la cuenta refleja una fuente de financiamiento (Pasivo/PN) o un resultado del período (R+/R-)."
             : ""),
       };

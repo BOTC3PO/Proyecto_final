@@ -14,8 +14,6 @@ const PARAMS: Record<
   basico: { min: 60, max: 120, desvio: 20, opciones: 4 },
   intermedio: { min: 80, max: 180, desvio: 25, opciones: 4 },
   avanzado: { min: 120, max: 260, desvio: 30, opciones: 4 },
-  Legendario: { min: 200, max: 380, desvio: 35, opciones: 5 },
-  Divino: { min: 300, max: 500, desvio: 40, opciones: 5 },
 };
 
 export const genARAportes17: GeneratorFn = makeQuizGenerator(

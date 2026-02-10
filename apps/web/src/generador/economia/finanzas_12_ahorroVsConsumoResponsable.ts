@@ -103,8 +103,6 @@ const SITUACIONES_POR_DIFICULTAD: Record<
   basico: SITUACIONES_BASICO,
   intermedio: SITUACIONES_INTERMEDIO,
   avanzado: SITUACIONES_AVANZADO,
-  Legendario: SITUACIONES_LEGENDARIO,
-  Divino: SITUACIONES_DIVINO,
 };
 
 export const genFinanzasAhorroVsConsumoResponsable: GeneratorFn =

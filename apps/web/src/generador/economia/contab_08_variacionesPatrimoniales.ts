@@ -89,8 +89,6 @@ export const genContabVariacionesPatrimoniales: GeneratorFn =
             "Se otorga un préstamo a un tercero desde Caja.",
           ],
           avanzado: HECHOS.map((hecho) => hecho.descripcion),
-          Legendario: HECHOS.map((hecho) => hecho.descripcion),
-          Divino: HECHOS.map((hecho) => hecho.descripcion),
         };
         const pool = HECHOS.filter((hecho) =>
           (hechosPorDificultad[dificultad] ?? []).includes(hecho.descripcion)
@@ -112,9 +110,7 @@ export const genContabVariacionesPatrimoniales: GeneratorFn =
           explicacion:
             "Las operaciones permutativas cambian la composición del patrimonio pero no su valor total; las modificativas aumentan o disminuyen el patrimonio neto. " +
             hecho.detalle +
-            (dificultad === "avanzado" ||
-            dificultad === "Legendario" ||
-            dificultad === "Divino"
+            (dificultad === "avanzado"
               ? " En niveles altos, identificá si interviene un resultado (ingreso/gasto) o solo activos y pasivos."
               : ""),
         };

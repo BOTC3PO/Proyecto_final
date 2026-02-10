@@ -123,8 +123,6 @@ const CASOS_POR_DIFICULTAD: Record<
   basico: CASOS_BASICO,
   intermedio: CASOS_INTERMEDIO,
   avanzado: CASOS_AVANZADO,
-  Legendario: CASOS_LEGENDARIO,
-  Divino: CASOS_DIVINO,
 };
 
 export const genFinanzasPublicidadEnganosa: GeneratorFn = makeQuizGenerator(

@@ -6,8 +6,6 @@ export const DIFICULTADES_CORE: readonly DificultadCore[] = [
   "basico",
   "intermedio",
   "avanzado",
-  "Legendario",
-  "Divino",
 ];
 
 export const DIFICULTADES_POR_MATERIA: Record<

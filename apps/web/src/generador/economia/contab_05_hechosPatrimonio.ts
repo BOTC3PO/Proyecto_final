@@ -79,8 +79,6 @@ export const genContabHechosPatrimonio: GeneratorFn = makeQuizGenerator(
           "Se pasa la mercadería del depósito al salón de ventas.",
         ],
         avanzado: HECHOS.map((hecho) => hecho.descripcion),
-        Legendario: HECHOS.map((hecho) => hecho.descripcion),
-        Divino: HECHOS.map((hecho) => hecho.descripcion),
       };
       const pool = HECHOS.filter((hecho) =>
         (hechosPorDificultad[dificultad] ?? []).includes(hecho.descripcion)
@@ -98,9 +96,7 @@ export const genContabHechosPatrimonio: GeneratorFn = makeQuizGenerator(
         indiceCorrecto,
         explicacion:
           hecho.detalle +
-          (dificultad === "avanzado" ||
-          dificultad === "Legendario" ||
-          dificultad === "Divino"
+          (dificultad === "avanzado"
             ? " Recordá identificar si el hecho modifica el patrimonio neto o solo la composición."
             : ""),
       };

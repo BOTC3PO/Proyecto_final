@@ -106,8 +106,6 @@ const GASTOS_POR_DIFICULTAD: Record<
   basico: GASTOS_BASICO,
   intermedio: GASTOS_INTERMEDIO,
   avanzado: GASTOS_AVANZADO,
-  Legendario: GASTOS_LEGENDARIO,
-  Divino: GASTOS_DIVINO,
 };
 
 export const genFinanzasGastosEsencialesNoEsenciales: GeneratorFn =

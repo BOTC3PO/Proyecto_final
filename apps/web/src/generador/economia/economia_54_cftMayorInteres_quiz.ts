@@ -44,7 +44,7 @@ export const genQuizCFTMayorInteres: GeneratorFn = makeQuizGenerator(
           indiceCorrecto: 0,
           explicacion:
             "Los costos adicionales influyen en el CFT final.",
-          dificultadMinima: "Legendario" as Dificultad,
+          dificultadMinima: "avanzado" as Dificultad,
         },
         {
           enunciado:
@@ -52,7 +52,7 @@ export const genQuizCFTMayorInteres: GeneratorFn = makeQuizGenerator(
           indiceCorrecto: 0,
           explicacion:
             "El CFT integra todos los cargos asociados al préstamo.",
-          dificultadMinima: "Divino" as Dificultad,
+          dificultadMinima: "avanzado" as Dificultad,
         },
       ];
 

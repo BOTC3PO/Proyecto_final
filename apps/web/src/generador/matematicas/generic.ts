@@ -120,8 +120,6 @@ export function normalizarDificultadBasica(
     case "intermedio":
       return "media";
     case "avanzado":
-    case "Legendario":
-    case "Divino":
       return "dificil";
     default:
       return dificultad;
@@ -154,8 +152,6 @@ export function rangoPorDificultadCore(
     basico: [number, number];
     intermedio: [number, number];
     avanzado: [number, number];
-    Legendario?: [number, number];
-    Divino?: [number, number];
   }
 ): [number, number] {
   const normalizada = normalizarDificultadCore(dificultad);
@@ -163,8 +159,6 @@ export function rangoPorDificultadCore(
     basico: overrides.basico,
     intermedio: overrides.intermedio,
     avanzado: overrides.avanzado,
-    Legendario: overrides.Legendario ?? overrides.avanzado,
-    Divino: overrides.Divino ?? overrides.avanzado,
   };
   return base[normalizada];
 }

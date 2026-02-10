@@ -66,7 +66,7 @@ export const GeneradorParametrosSchema = z
       required_error: "La materia es obligatoria.",
     }),
     categoria: z.string().min(1, "La categoría es obligatoria."),
-    nivel: z.enum(["basico", "intermedio", "avanzado", "Legendario", "Divino"], {
+    nivel: z.enum(["basico", "intermedio", "avanzado"], {
       required_error: "El nivel es obligatorio.",
     }),
     opciones: GeneradorOpcionesSchema.optional(),

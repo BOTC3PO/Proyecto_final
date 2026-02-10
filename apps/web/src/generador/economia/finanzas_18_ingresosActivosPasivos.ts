@@ -106,8 +106,6 @@ const INGRESOS_POR_DIFICULTAD: Record<
   basico: INGRESOS_BASICO,
   intermedio: INGRESOS_INTERMEDIO,
   avanzado: INGRESOS_AVANZADO,
-  Legendario: INGRESOS_LEGENDARIO,
-  Divino: INGRESOS_DIVINO,
 };
 
 export const genFinanzasIngresosActivosPasivos: GeneratorFn =

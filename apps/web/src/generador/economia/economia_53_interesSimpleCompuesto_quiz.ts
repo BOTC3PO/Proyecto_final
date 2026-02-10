@@ -39,12 +39,12 @@ const CASOS = [
   {
     desc: "Un préstamo calcula interés lineal sobre el capital original durante todo el período.",
     tipo: "Interés simple" as Tipo,
-    dificultadMinima: "Legendario" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
   {
     desc: "El interés de cada período se calcula sobre un saldo que ya incluye intereses anteriores.",
     tipo: "Interés compuesto" as Tipo,
-    dificultadMinima: "Divino" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
 ];
 

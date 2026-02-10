@@ -21,7 +21,7 @@ export const genProductividadEscolar: GeneratorFn = makeQuizGenerator(
       const insumo = randInt(insumoMin, insumoMax);
 
       const productividad = produccion / insumo;
-      const decimales = esDificultadMinima(dificultad, "Legendario") ? 2 : 1;
+      const decimales = esDificultadMinima(dificultad, "avanzado") ? 2 : 1;
       const factorRedondeo = 10 ** decimales;
       const productividadRedondeada =
         Math.round(productividad * factorRedondeo) / factorRedondeo;

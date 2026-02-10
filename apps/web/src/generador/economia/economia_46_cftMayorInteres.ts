@@ -45,7 +45,7 @@ export const genCFTMayorInteres: GeneratorFn = makeQuizGenerator(
           indiceCorrecto: 1,
           explicacion:
             "Es falso: el CFT incluye comisiones, impuestos, seguros y otros cargos.",
-          dificultadMinima: "Legendario" as Dificultad,
+          dificultadMinima: "avanzado" as Dificultad,
         },
         {
           enunciado:
@@ -53,7 +53,7 @@ export const genCFTMayorInteres: GeneratorFn = makeQuizGenerator(
           indiceCorrecto: 0,
           explicacion:
             "El CFT agrega costos extra, por eso suele ser mayor que la tasa.",
-          dificultadMinima: "Divino" as Dificultad,
+          dificultadMinima: "avanzado" as Dificultad,
         },
       ];
 

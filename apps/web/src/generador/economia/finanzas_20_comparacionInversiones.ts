@@ -46,7 +46,6 @@ export const genFinanzasComparacionInversiones: GeneratorFn =
             tiempoMax: 2,
             diferenciaTasa: 4,
           },
-          Legendario: {
             capitalMin: 12,
             capitalMax: 40,
             tasaMin: 15,
@@ -55,7 +54,6 @@ export const genFinanzasComparacionInversiones: GeneratorFn =
             tiempoMax: 3,
             diferenciaTasa: 3,
           },
-          Divino: {
             capitalMin: 15,
             capitalMax: 50,
             tasaMin: 18,

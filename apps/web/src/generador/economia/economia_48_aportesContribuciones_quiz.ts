@@ -39,12 +39,12 @@ const CASOS = [
   {
     desc: "Aporte adicional que realiza el empleador para el seguro de vida colectivo.",
     tipo: "Contribución del empleador" as Tipo,
-    dificultadMinima: "Legendario" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
   {
     desc: "Descuento en el recibo del empleado destinado a la obra social.",
     tipo: "Aporte del trabajador" as Tipo,
-    dificultadMinima: "Divino" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
 ];
 

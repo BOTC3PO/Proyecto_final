@@ -51,8 +51,6 @@ export const genContabUbicacionEstados: GeneratorFn = makeQuizGenerator(
         basico: 3,
         intermedio: 4,
         avanzado: 5,
-        Legendario: 5,
-        Divino: 5,
       };
       const cantOpciones = opcionesPorDificultad[dificultad] ?? 4;
 
@@ -70,9 +68,7 @@ export const genContabUbicacionEstados: GeneratorFn = makeQuizGenerator(
         indiceCorrecto,
         explicacion:
           "En el Balance se separan las cuentas según su exigibilidad o realización (Corriente/No Corriente) y en el Estado de Resultados se presentan ingresos y costos/gastos del período." +
-          (dificultad === "avanzado" ||
-          dificultad === "Legendario" ||
-          dificultad === "Divino"
+          (dificultad === "avanzado"
             ? " En niveles altos, considerá si la cuenta es de activo/pasivo o si corresponde al estado de resultados."
             : ""),
       };

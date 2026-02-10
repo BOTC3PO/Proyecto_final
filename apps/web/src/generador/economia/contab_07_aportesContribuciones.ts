@@ -67,8 +67,6 @@ export const genContabAportesContribuciones: GeneratorFn = makeQuizGenerator(
           "Contribución de la empresa a la Obra Social.",
         ],
         avanzado: CONCEPTOS.map((concepto) => concepto.descripcion),
-        Legendario: CONCEPTOS.map((concepto) => concepto.descripcion),
-        Divino: CONCEPTOS.map((concepto) => concepto.descripcion),
       };
       const pool = CONCEPTOS.filter((concepto) =>
         (conceptosPorDificultad[dificultad] ?? []).includes(
@@ -90,9 +88,7 @@ export const genContabAportesContribuciones: GeneratorFn = makeQuizGenerator(
         indiceCorrecto,
         explicacion:
           "Los aportes se descuentan del salario del trabajador; las contribuciones son montos adicionales que paga el empleador sobre el sueldo." +
-          (dificultad === "avanzado" ||
-          dificultad === "Legendario" ||
-          dificultad === "Divino"
+          (dificultad === "avanzado"
             ? " En niveles altos, distinguí entre descuentos del recibo de sueldo y costos patronales."
             : ""),
       };

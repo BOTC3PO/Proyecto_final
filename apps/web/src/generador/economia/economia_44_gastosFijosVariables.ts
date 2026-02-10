@@ -63,14 +63,14 @@ const GASTOS: {
     tipo: "Gasto variable",
     detalle:
       "El costo aumenta cuando se envían más unidades.",
-    dificultadMinima: "Legendario",
+    dificultadMinima: "avanzado",
   },
   {
     descripcion: "Mantenimiento programado de las instalaciones pagado mensualmente.",
     tipo: "Gasto fijo",
     detalle:
       "Se paga en forma regular aunque cambie la cantidad producida.",
-    dificultadMinima: "Divino",
+    dificultadMinima: "avanzado",
   },
 ];
 

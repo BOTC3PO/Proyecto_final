@@ -100,8 +100,6 @@ const ITEMS_POR_DIFICULTAD: Record<
   basico: ITEMS_BASICO,
   intermedio: ITEMS_INTERMEDIO,
   avanzado: ITEMS_AVANZADO,
-  Legendario: ITEMS_LEGENDARIO,
-  Divino: ITEMS_DIVINO,
 };
 
 export const genFinanzasLiquidezPersonal: GeneratorFn = makeQuizGenerator(

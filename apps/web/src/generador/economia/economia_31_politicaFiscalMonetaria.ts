@@ -74,7 +74,7 @@ const CASOS: {
     respuesta: "Política monetaria contractiva",
     explicacion:
       "Al absorber liquidez, disminuye la cantidad de dinero disponible y se enfría la economía.",
-    dificultadMinima: "Legendario",
+    dificultadMinima: "avanzado",
   },
   {
     descripcion:
@@ -82,7 +82,7 @@ const CASOS: {
     respuesta: "Política fiscal expansiva",
     explicacion:
       "El estímulo fiscal vía mayor gasto busca impulsar la demanda y el empleo.",
-    dificultadMinima: "Legendario",
+    dificultadMinima: "avanzado",
   },
   {
     descripcion:
@@ -90,7 +90,7 @@ const CASOS: {
     respuesta: "Política monetaria expansiva",
     explicacion:
       "Baja tasas y compra activos para inyectar dinero y estimular crédito y gasto.",
-    dificultadMinima: "Divino",
+    dificultadMinima: "avanzado",
   },
 ];
 

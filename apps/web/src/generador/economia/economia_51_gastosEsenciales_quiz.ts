@@ -49,12 +49,12 @@ const CASOS = [
   {
     desc: "Cambio de celular por un modelo más nuevo, sin fallas en el anterior.",
     tipo: "Gasto no esencial" as Tipo,
-    dificultadMinima: "Legendario" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
   {
     desc: "Pago de transporte diario para ir al trabajo o estudio.",
     tipo: "Gasto esencial" as Tipo,
-    dificultadMinima: "Divino" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
 ];
 

@@ -47,7 +47,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       detalle: "Está registrado y cumple obligaciones fiscales.",
     },
   ],
-  Legendario: [
     {
       text: "Empleado con contrato temporal registrado y aportes completos.",
       tipo: "Formal",
@@ -59,7 +58,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       detalle: "No hay registro ni aportes.",
     },
   ],
-  Divino: [
     {
       text: "Microemprendedor que vende por redes sin facturar ni registrar actividad.",
       tipo: "Informal",

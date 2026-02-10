@@ -66,7 +66,7 @@ const CASOS: {
     agente: "Sector externo",
     explicacion:
       "El comercio internacional de insumos y productos pertenece al sector externo.",
-    dificultadMinima: "Legendario",
+    dificultadMinima: "avanzado",
   },
   {
     descripcion:
@@ -74,7 +74,7 @@ const CASOS: {
     agente: "Empresas",
     explicacion:
       "Las empresas combinan factores de producción para generar bienes y servicios.",
-    dificultadMinima: "Divino",
+    dificultadMinima: "avanzado",
   },
 ];
 

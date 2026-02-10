@@ -15,8 +15,6 @@ const PARAMS: Record<
   basico: { min: 60, max: 120, desvio: 20, opciones: 4, soloNeto: true },
   intermedio: { min: 80, max: 180, desvio: 25, opciones: 4, soloNeto: false },
   avanzado: { min: 120, max: 260, desvio: 30, opciones: 4, soloNeto: false },
-  Legendario: { min: 200, max: 360, desvio: 35, opciones: 5, soloNeto: false },
-  Divino: { min: 300, max: 500, desvio: 40, opciones: 5, soloNeto: false },
 };
 
 export const genARNetoDesdeBruto: GeneratorFn = makeQuizGenerator(

@@ -40,7 +40,6 @@ export const genFinanzasInteresCompuesto: GeneratorFn = makeQuizGenerator(
           tiempoMax: 4,
           desvio: 20,
         },
-        Legendario: {
           capitalMin: 20,
           capitalMax: 60,
           tasaMin: 10,
@@ -49,7 +48,6 @@ export const genFinanzasInteresCompuesto: GeneratorFn = makeQuizGenerator(
           tiempoMax: 5,
           desvio: 15,
         },
-        Divino: {
           capitalMin: 30,
           capitalMax: 80,
           tasaMin: 12,
