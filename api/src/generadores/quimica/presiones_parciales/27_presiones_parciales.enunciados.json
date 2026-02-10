@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "En un recipiente se mezclan dos gases ideales {{gasA}} y {{gasB}} a la misma temperatura.\nHay n({{gasA}}) = {{nA}} mol y n({{gasB}}) = {{nB}} mol, y la presión total del recipiente es P_total = {{Ptotal}} atm.\na) Calcula la fracción molar de cada gas.\nb) Calcula la presión parcial de {{gasA}} (P_{{gasA}}) y de {{gasB}} (P_{{gasB}}).",
+    "data": {
+      "gasA": "A",
+      "gasB": "B",
+      "nAMin": 0.5,
+      "nAMax": 2.0,
+      "nBMin": 0.5,
+      "nBMax": 2.0,
+      "pTotalMin": 0.8,
+      "pTotalMax": 1.5
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una mezcla gaseosa contiene {{gasA}} y {{gasB}} en el mismo recipiente.\nSe registran n({{gasA}}) = {{nA}} mol, n({{gasB}}) = {{nB}} mol y P_total = {{Ptotal}} atm.\nDetermina x({{gasA}}), x({{gasB}}), P_{{gasA}} y P_{{gasB}}.",
+    "data": {
+      "gasA": "X",
+      "gasB": "Y",
+      "nAMin": 0.6,
+      "nAMax": 2.2,
+      "nBMin": 0.6,
+      "nBMax": 2.2,
+      "pTotalMin": 0.9,
+      "pTotalMax": 1.6
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "En un sistema cerrado se mezclan dos gases ideales {{gasA}} y {{gasB}}.\nSi n({{gasA}}) = {{nA}} mol, n({{gasB}}) = {{nB}} mol y P_total = {{Ptotal}} atm, calcula las fracciones molares y las presiones parciales de cada componente.",
+    "data": {
+      "gasA": "A",
+      "gasB": "B",
+      "nAMin": 1.0,
+      "nAMax": 4.0,
+      "nBMin": 1.0,
+      "nBMax": 4.0,
+      "pTotalMin": 1.0,
+      "pTotalMax": 3.0
+    }
+  },
+  {
+    "id": 4,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para una mezcla ideal binaria de {{gasA}} y {{gasB}}, se conocen n({{gasA}}) = {{nA}} mol, n({{gasB}}) = {{nB}} mol y presión total {{Ptotal}} atm.\nObtén x({{gasA}}), x({{gasB}}), P_{{gasA}} y P_{{gasB}} según la ley de Dalton.",
+    "data": {
+      "gasA": "M",
+      "gasB": "N",
+      "nAMin": 1.2,
+      "nAMax": 4.5,
+      "nBMin": 1.2,
+      "nBMax": 4.5,
+      "pTotalMin": 1.2,
+      "pTotalMax": 3.2
+    }
+  },
+  {
+    "id": 5,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Una mezcla de gases ideales {{gasA}}/{{gasB}} presenta n({{gasA}}) = {{nA}} mol y n({{gasB}}) = {{nB}} mol bajo una presión total de {{Ptotal}} atm.\nCalcula x_i y P_i para ambos gases e interpreta si uno domina la presión total.",
+    "data": {
+      "gasA": "P",
+      "gasB": "Q",
+      "nAMin": 1.5,
+      "nAMax": 5.0,
+      "nBMin": 1.5,
+      "nBMax": 5.0,
+      "pTotalMin": 1.5,
+      "pTotalMax": 4.0
+    }
+  }
+]
