@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se calienta una muestra de {{sustancia}}. La masa es m = {{m}} g y su temperatura aumenta en ΔT = {{deltaT}} °C. Sabiendo que el calor específico es c = {{c}} J/g·°C, calcula el calor Q absorbido (en J).",
+    "data": {
+      "sustancia": "agua",
+      "c": 4.18,
+      "mMin": 50,
+      "mMax": 200,
+      "deltaTMin": 5,
+      "deltaTMax": 25
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se calienta una muestra de {{sustancia}}. La masa es m = {{m}} g y su temperatura aumenta en ΔT = {{deltaT}} °C. Sabiendo que el calor específico es c = {{c}} J/g·°C, calcula el calor Q absorbido (en J).",
+    "data": {
+      "sustancia": "agua",
+      "c": 4.18,
+      "mMin": 100,
+      "mMax": 500,
+      "deltaTMin": 10,
+      "deltaTMax": 40
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se calienta una muestra de {{sustancia}}. La masa es m = {{m}} g y su temperatura aumenta en ΔT = {{deltaT}} °C. Sabiendo que el calor específico es c = {{c}} J/g·°C, calcula el calor Q absorbido (en J).",
+    "data": {
+      "sustancia": "agua",
+      "c": 4.18,
+      "mMin": 300,
+      "mMax": 900,
+      "deltaTMin": 20,
+      "deltaTMax": 70
+    }
+  }
+]
