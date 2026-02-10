@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se prepara una solución disolviendo {{soluto}} ({{formula}}, M ≈ {{masaMolar}} g/mol) en agua.\\nSe disuelven {{masaSoluto}} g de soluto en {{masaDisolvente}} g de agua.\\nCalcula la molalidad (m) de la solución.",
+    "data": {
+      "soluto": "glucosa",
+      "formula": "C₆H₁₂O₆",
+      "masaMolar": 180,
+      "masaSolutoMin": 5,
+      "masaSolutoMax": 20,
+      "masaDisolventeMin": 100,
+      "masaDisolventeMax": 300
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se prepara una solución disolviendo {{soluto}} ({{formula}}, M ≈ {{masaMolar}} g/mol) en agua.\\nSe disuelven {{masaSoluto}} g de soluto en {{masaDisolvente}} g de agua.\\nCalcula la molalidad (m) de la solución.",
+    "data": {
+      "soluto": "sacarosa",
+      "formula": "C₁₂H₂₂O₁₁",
+      "masaMolar": 342,
+      "masaSolutoMin": 10,
+      "masaSolutoMax": 40,
+      "masaDisolventeMin": 200,
+      "masaDisolventeMax": 600
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se prepara una solución disolviendo {{soluto}} ({{formula}}, M ≈ {{masaMolar}} g/mol) en agua.\\nSe disuelven {{masaSoluto}} g de soluto en {{masaDisolvente}} g de agua.\\nCalcula la molalidad (m) de la solución.",
+    "data": {
+      "soluto": "etilenglicol",
+      "formula": "C₂H₆O₂",
+      "masaMolar": 62.07,
+      "masaSolutoMin": 15,
+      "masaSolutoMax": 70,
+      "masaDisolventeMin": 150,
+      "masaDisolventeMax": 500
+    }
+  }
+]
