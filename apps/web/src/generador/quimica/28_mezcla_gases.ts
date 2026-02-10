@@ -3,31 +3,133 @@ import {
   type GeneratorFn,
   type NumericExercise,
   randFloat,
+  choice,
 } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/28_mezcla_gases.enunciados.json?raw";
 
-const R = 0.082; // L·atm·K⁻¹·mol⁻¹
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface RangoDato {
+  min: number;
+  max: number;
+  decimales: number;
+}
+
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    R: number;
+    nA: RangoDato;
+    nB: RangoDato;
+    T: RangoDato;
+    V: RangoDato;
+  };
+}
+
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function validarRangoDato(rango: RangoDato | undefined, itemId: number, key: string): void {
+  if (
+    !rango ||
+    typeof rango.min !== "number" ||
+    typeof rango.max !== "number" ||
+    typeof rango.decimales !== "number"
+  ) {
+    throw new Error(`Rango inválido para ${key} en catálogo para id=${itemId}.`);
+  }
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(
+      `Catálogo inválido en 28_mezcla_gases.enunciados.json: ${String(error)}`
+    );
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("El catálogo 28_mezcla_gases.enunciados.json debe ser un array.");
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.data?.R !== "number") {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+
+    validarRangoDato(item.data.nA, item.id, "nA");
+    validarRangoDato(item.data.nB, item.id, "nB");
+    validarRangoDato(item.data.T, item.id, "T");
+    validarRangoDato(item.data.V, item.id, "V");
+  }
+
+  return items;
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+const CATALOGO = parseCatalogo();
 
 export const generarMezclaGases: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const nA = dificultad === "facil"
-    ? randFloat(0.5, 2.0, 2)
-    : randFloat(1.0, 4.0, 2);
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const nB = dificultad === "facil"
-    ? randFloat(0.5, 2.0, 2)
-    : randFloat(1.0, 4.0, 2);
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
+
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en 28_mezcla_gases.enunciados.json.`
+    );
+  }
+
+  const selected = choice(pool);
+
+  const nA = randFloat(selected.data.nA.min, selected.data.nA.max, selected.data.nA.decimales);
+  const nB = randFloat(selected.data.nB.min, selected.data.nB.max, selected.data.nB.decimales);
+  const T = randFloat(selected.data.T.min, selected.data.T.max, selected.data.T.decimales);
+  const V = randFloat(selected.data.V.min, selected.data.V.max, selected.data.V.decimales);
+  const R = selected.data.R;
 
   const nTotal = nA + nB;
 
-  const T = randFloat(290, 320, 0);       // K
-  const V = dificultad === "facil"
-    ? randFloat(5, 15, 1)                 // L
-    : randFloat(5, 25, 1);
-
   // P_total = n_total · R · T / V
   const Ptotal = (nTotal * R * T) / V;
-
   const xA = nA / nTotal;
   const xB = nB / nTotal;
   const PA = xA * Ptotal;
@@ -43,17 +145,17 @@ export const generarMezclaGases: GeneratorFn = (
   const PAR = parseFloat(PA.toFixed(2));
   const PBR = parseFloat(PB.toFixed(2));
 
-  return {
+  const ejercicio = {
     idTema: 28,
     tituloTema: "Mezcla de gases (fracción molar, presión total)",
     dificultad,
-    tipo: "numeric",
-    enunciado:
-      "En un recipiente de volumen V se encuentran dos gases ideales A y B a la misma temperatura T.\n" +
-      `Hay n(A) = ${nAR} mol y n(B) = ${nBR} mol en un volumen de ${VR} L a T = ${TR} K.\n` +
-      "a) Calcula la presión total del gas (P_total).\n" +
-      "b) Calcula la fracción molar de cada gas.\n" +
-      "c) Calcula las presiones parciales P_A y P_B.",
+    tipo: "numeric" as const,
+    enunciado: renderEnunciado(selected.enunciadoBase, {
+      nA: nAR,
+      nB: nBR,
+      T: TR,
+      V: VR,
+    }),
     datos: {
       nA: nAR,
       nB: nBR,
@@ -84,5 +186,18 @@ export const generarMezclaGases: GeneratorFn = (
       "Halla las fracciones molares: x(A) = n(A)/n_total, x(B) = n(B)/n_total.",
       "Usa P_A = x(A)·P_total y P_B = x(B)·P_total para las presiones parciales.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      generador: "balanceo",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      generador: "balanceo";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };

@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "En un recipiente de volumen {{V}} L se encuentran dos gases ideales A y B a la misma temperatura {{T}} K. Hay n(A) = {{nA}} mol y n(B) = {{nB}} mol. a) Calcula la presión total del gas (P_total). b) Calcula la fracción molar de cada gas. c) Calcula las presiones parciales P_A y P_B.",
+    "data": {
+      "R": 0.082,
+      "nA": { "min": 0.5, "max": 2, "decimales": 2 },
+      "nB": { "min": 0.5, "max": 2, "decimales": 2 },
+      "T": { "min": 290, "max": 320, "decimales": 0 },
+      "V": { "min": 5, "max": 15, "decimales": 1 }
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "En un recipiente de volumen {{V}} L se encuentran dos gases ideales A y B a la misma temperatura {{T}} K. Hay n(A) = {{nA}} mol y n(B) = {{nB}} mol. a) Calcula la presión total del gas (P_total). b) Calcula la fracción molar de cada gas. c) Calcula las presiones parciales P_A y P_B.",
+    "data": {
+      "R": 0.082,
+      "nA": { "min": 1, "max": 4, "decimales": 2 },
+      "nB": { "min": 1, "max": 4, "decimales": 2 },
+      "T": { "min": 290, "max": 320, "decimales": 0 },
+      "V": { "min": 5, "max": 25, "decimales": 1 }
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "En un recipiente de volumen {{V}} L se encuentran dos gases ideales A y B a la misma temperatura {{T}} K. Hay n(A) = {{nA}} mol y n(B) = {{nB}} mol. a) Calcula la presión total del gas (P_total). b) Calcula la fracción molar de cada gas. c) Calcula las presiones parciales P_A y P_B.",
+    "data": {
+      "R": 0.082,
+      "nA": { "min": 1.5, "max": 5, "decimales": 2 },
+      "nB": { "min": 1.5, "max": 5, "decimales": 2 },
+      "T": { "min": 280, "max": 340, "decimales": 0 },
+      "V": { "min": 4, "max": 20, "decimales": 1 }
+    }
+  }
+]
