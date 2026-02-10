@@ -8,6 +8,20 @@ import { parseEconomiaParams } from "./schemas";
 // Re-export para usarla en los generadores de economía
 export type Dificultad = DificultadGlobal;
 
+export const ENUNCIADOS_ECONOMIA: Record<string, string> = {
+  "economia:contabilidad/1": "Clasificar cuentas contables según su naturaleza y rubro correcto.",
+  "economia:finanzas/12": "Evaluar ahorro vs consumo responsable en una situación cotidiana.",
+  "economia:economia_ar/25": "Interpretar concepto y aplicación básica de IVA en Argentina.",
+  "economia:economia/39": "Analizar productividad con datos simples y criterio económico escolar.",
+  "economia:economia/45": "Distinguir interés simple vs compuesto y su impacto en decisiones financieras.",
+  "economia:economia/54": "Comparar CFT e interés nominal para elegir la opción más conveniente."
+};
+
+export const getEconomiaPromptHint = (targetId: string): string =>
+  ENUNCIADOS_ECONOMIA[targetId] ??
+  `Resolver ejercicio de ${targetId} justificando la opción correcta en contexto económico.`;
+
+
 // Base común para todos los ejercicios de economía/contabilidad
 export interface BaseExercise {
   idTema: number;       // 1, 2, 3... según tu tabla de temas

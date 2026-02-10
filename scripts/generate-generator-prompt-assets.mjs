@@ -35,6 +35,36 @@ const FISICA_PROMPT_HINTS = {
   "fisica/cinematica/mru": "Resolver MRU calculando distancia, tiempo o velocidad con unidades claras.",
 };
 
+
+const QUIMICA_PROMPT_HINTS = {
+  "quimica:1": "Balancear ecuaciones químicas respetando conservación de masa y coeficientes enteros mínimos.",
+  "quimica:20": "Resolver diluciones relacionando concentración y volumen antes/después del proceso.",
+  "quimica:34": "Calcular pH/pOH e identificar acidez/basicidad de soluciones.",
+  "quimica:84": "Seleccionar método de separación de mezclas según propiedades físicas relevantes.",
+  "quimica:90": "Reconocer y analizar reacciones de neutralización ácido-base con productos esperados.",
+  "quimica:95": "Elegir EPP adecuado según riesgo químico del escenario planteado.",
+};
+
+const ECONOMIA_PROMPT_HINTS = {
+  "economia:contabilidad/1": "Clasificar cuentas contables según su naturaleza y rubro correcto.",
+  "economia:finanzas/12": "Evaluar ahorro vs consumo responsable en una situación cotidiana.",
+  "economia:economia_ar/25": "Interpretar concepto y aplicación básica de IVA en Argentina.",
+  "economia:economia/39": "Analizar productividad con datos simples y criterio económico escolar.",
+  "economia:economia/45": "Distinguir interés simple vs compuesto y su impacto en decisiones financieras.",
+  "economia:economia/54": "Comparar CFT e interés nominal para elegir la opción más conveniente.",
+};
+
+const buildPromptBodyText = (targetId) => {
+  if (FISICA_PROMPT_HINTS[targetId]) return FISICA_PROMPT_HINTS[targetId];
+  if (QUIMICA_PROMPT_HINTS[targetId]) return QUIMICA_PROMPT_HINTS[targetId];
+  if (ECONOMIA_PROMPT_HINTS[targetId]) return ECONOMIA_PROMPT_HINTS[targetId];
+  if (targetId.startsWith('quimica:')) return `Resolver ejercicio de ${targetId} explicando concepto químico principal y resultado esperado.`;
+  if (targetId.startsWith('economia:')) return `Resolver ejercicio de ${targetId} justificando la opción correcta en contexto económico.`;
+  if (targetId.startsWith('matematicas:')) return `Resolver ejercicio de ${targetId} mostrando procedimiento y validación del resultado.`;
+  if (targetId.startsWith('fisica/')) return `Resolver ejercicio de ${targetId} aplicando la ley física correspondiente y unidades del SI.`;
+  return `Instrucción activa para ${targetId}`;
+};
+
 const uniq = (arr)=> [...new Set(arr)];
 const targetIds = [
   ...uniq(mathIds).map((id)=>`matematicas:${id}`),
@@ -49,7 +79,7 @@ const seedTs = `export type PromptSeed = {\n  id: string;\n  targetType: \"GENER
   targetId,
   kind:'TEXT',
   title: targetId,
-  bodyText: FISICA_PROMPT_HINTS[targetId] ?? `Instrucción activa para ${targetId}`,
+  bodyText: buildPromptBodyText(targetId),
   source:'DEFAULT',
   status:'ACTIVE'
 })), null, 2)};\n`;

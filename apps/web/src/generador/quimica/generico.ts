@@ -5,6 +5,21 @@ import type { PRNG } from "../core/prng";
 
 export type Dificultad = "facil" | "media" | "dificil";
 
+export const ENUNCIADOS_QUIMICA: Record<string, string> = {
+  "quimica:1": "Balancear ecuaciones químicas respetando conservación de masa y coeficientes enteros mínimos.",
+  "quimica:20": "Resolver diluciones relacionando concentración y volumen antes/después del proceso.",
+  "quimica:34": "Calcular pH/pOH e identificar acidez/basicidad de soluciones.",
+  "quimica:63": "Aplicar elevación ebulloscópica para estimar cambio de punto de ebullición.",
+  "quimica:84": "Seleccionar método de separación de mezclas según propiedades físicas relevantes.",
+  "quimica:90": "Reconocer y analizar reacciones de neutralización ácido-base con productos esperados.",
+  "quimica:95": "Elegir EPP adecuado según riesgo químico del escenario planteado."
+};
+
+export const getQuimicaPromptHint = (targetId: string): string =>
+  ENUNCIADOS_QUIMICA[targetId] ??
+  `Resolver ejercicio de ${targetId} explicando concepto principal y resultado esperado.`;
+
+
 export interface BaseExercise {
   idTema: number;            // 1 a 95
   tituloTema: string;
