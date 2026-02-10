@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una muestra de {{masaMuestra}} g de NaCl impuro tiene una pureza de {{pureza}}%. Calcula la masa de NaCl puro presente.",
+    "data": {
+      "soluto": "NaCl",
+      "masaMuestraMin": 10,
+      "masaMuestraMax": 200,
+      "purezaMin": 70,
+      "purezaMax": 95
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una muestra de {{masaMuestra}} g de CaCO3 contiene {{pureza}}% de pureza. ¿Qué masa de CaCO3 puro hay en la muestra?",
+    "data": {
+      "soluto": "CaCO3",
+      "masaMuestraMin": 15,
+      "masaMuestraMax": 250,
+      "purezaMin": 65,
+      "purezaMax": 92
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se requieren {{masaPura}} g de KNO3 puro para una práctica. Si el reactivo comercial tiene {{pureza}}% de pureza, ¿qué masa de reactivo impuro debe pesarse?",
+    "data": {
+      "soluto": "KNO3",
+      "masaPuraMin": 20,
+      "masaPuraMax": 180,
+      "purezaMin": 75,
+      "purezaMax": 98
+    }
+  },
+  {
+    "id": 4,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "De una muestra de {{masaMuestra}} g de CuSO4·5H2O impuro se obtienen {{masaPura}} g de sustancia pura. Calcula el porcentaje de pureza de la muestra.",
+    "data": {
+      "soluto": "CuSO4·5H2O",
+      "masaMuestraMin": 25,
+      "masaMuestraMax": 300,
+      "masaPuraMin": 15,
+      "masaPuraMax": 250
+    }
+  },
+  {
+    "id": 5,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Un lote de {{masaLote}} g de MgSO4 de pureza {{pureza}}% se mezcla con {{masaExtra}} g de MgSO4 puro. ¿Cuál es el nuevo porcentaje de pureza de la mezcla final?",
+    "data": {
+      "soluto": "MgSO4",
+      "masaLoteMin": 100,
+      "masaLoteMax": 800,
+      "purezaMin": 60,
+      "purezaMax": 90,
+      "masaExtraMin": 10,
+      "masaExtraMax": 200
+    }
+  },
+  {
+    "id": 6,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se toma una muestra de {{masaMuestra}} g de AgNO3 técnico para preparar una solución que requiere {{masaPura}} g de AgNO3 puro. Determina la pureza mínima (%) que debe tener el reactivo para que la muestra sea suficiente.",
+    "data": {
+      "soluto": "AgNO3",
+      "masaMuestraMin": 30,
+      "masaMuestraMax": 250,
+      "masaPuraMin": 20,
+      "masaPuraMax": 220
+    }
+  }
+]
