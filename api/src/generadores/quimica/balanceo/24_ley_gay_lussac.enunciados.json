@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Un gas se encuentra en un recipiente rígido (volumen constante). La presión inicial es P₁ = {{P1}} atm y la temperatura inicial T₁ = {{T1}} K. Luego se calienta el gas hasta una temperatura T₂ = {{T2}} K. Asumiendo volumen constante, calcula la nueva presión P₂ del gas.",
+    "data": {
+      "p1Min": 0.8,
+      "p1Max": 1.2,
+      "t1Min": 280,
+      "t1Max": 305,
+      "deltaTMin": 10,
+      "deltaTMax": 35
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "En un tanque cerrado de volumen constante, un gas tiene inicialmente P₁ = {{P1}} atm a T₁ = {{T1}} K. Si se incrementa la temperatura hasta T₂ = {{T2}} K, determina la presión final P₂.",
+    "data": {
+      "p1Min": 0.7,
+      "p1Max": 1.8,
+      "t1Min": 275,
+      "t1Max": 315,
+      "deltaTMin": 20,
+      "deltaTMax": 60
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Un recipiente rígido contiene un gas a P₁ = {{P1}} atm y T₁ = {{T1}} K. Tras un calentamiento, la temperatura llega a T₂ = {{T2}} K. Aplicando la ley de Gay-Lussac, calcula la presión final P₂.",
+    "data": {
+      "p1Min": 0.5,
+      "p1Max": 2.2,
+      "t1Min": 260,
+      "t1Max": 320,
+      "deltaTMin": 30,
+      "deltaTMax": 90
+    }
+  }
+]
