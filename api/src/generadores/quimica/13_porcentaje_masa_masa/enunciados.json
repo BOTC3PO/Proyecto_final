@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se prepara una solución disolviendo un soluto sólido en un disolvente líquido. Si se disuelven {{masaSoluto}} g de soluto y la masa total de la solución resultante es {{masaSolucion}} g, calcula la concentración en porcentaje masa/masa (% m/m) del soluto.",
+    "data": {
+      "masaSolutoMin": 2,
+      "masaSolutoMax": 10,
+      "masaDisolventeMin": 20,
+      "masaDisolventeMax": 90,
+      "decimales": 1
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "En una mezcla homogénea, se tienen {{masaSoluto}} g de soluto y {{masaSolucion}} g de solución total. Determina el porcentaje masa/masa (% m/m) del soluto.",
+    "data": {
+      "masaSolutoMin": 5,
+      "masaSolutoMax": 20,
+      "masaDisolventeMin": 30,
+      "masaDisolventeMax": 180,
+      "decimales": 1
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se formula una solución con {{masaSoluto}} g de soluto. Si la masa total de la solución es {{masaSolucion}} g, calcula la concentración en % m/m y expresa el resultado con un decimal.",
+    "data": {
+      "masaSolutoMin": 12,
+      "masaSolutoMax": 35,
+      "masaDisolventeMin": 40,
+      "masaDisolventeMax": 220,
+      "decimales": 1
+    }
+  }
+]
