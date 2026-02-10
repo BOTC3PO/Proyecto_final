@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Un gas ideal sufre simultáneamente cambios de presión, volumen y temperatura.\nInicialmente se encuentra a P₁ = {{P1}} atm, V₁ = {{V1}} L y T₁ = {{T1}} K.\nTras el cambio, ocupa un volumen V₂ = {{V2}} L a una temperatura T₂ = {{T2}} K.\nCalcula la nueva presión P₂ del gas (en atm), suponiendo cantidad de gas constante.",
+    "data": {
+      "P1Min": 0.8,
+      "P1Max": 1.2,
+      "V1Min": 1.0,
+      "V1Max": 3.0,
+      "T1Min": 280,
+      "T1Max": 310,
+      "factorVolumenMin": 0.6,
+      "factorVolumenMax": 1.4,
+      "deltaTMin": 10,
+      "deltaTMax": 40
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Un gas ideal sufre simultáneamente cambios de presión, volumen y temperatura.\nInicialmente se encuentra a P₁ = {{P1}} atm, V₁ = {{V1}} L y T₁ = {{T1}} K.\nTras el cambio, ocupa un volumen V₂ = {{V2}} L a una temperatura T₂ = {{T2}} K.\nCalcula la nueva presión P₂ del gas (en atm), suponiendo cantidad de gas constante.",
+    "data": {
+      "P1Min": 0.5,
+      "P1Max": 2.0,
+      "V1Min": 1.0,
+      "V1Max": 5.0,
+      "T1Min": 270,
+      "T1Max": 320,
+      "factorVolumenMin": 0.5,
+      "factorVolumenMax": 1.5,
+      "deltaTMin": 20,
+      "deltaTMax": 80
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Un gas ideal sufre simultáneamente cambios de presión, volumen y temperatura.\nInicialmente se encuentra a P₁ = {{P1}} atm, V₁ = {{V1}} L y T₁ = {{T1}} K.\nTras el cambio, ocupa un volumen V₂ = {{V2}} L a una temperatura T₂ = {{T2}} K.\nCalcula la nueva presión P₂ del gas (en atm), suponiendo cantidad de gas constante.",
+    "data": {
+      "P1Min": 0.4,
+      "P1Max": 2.5,
+      "V1Min": 0.8,
+      "V1Max": 6.0,
+      "T1Min": 250,
+      "T1Max": 330,
+      "factorVolumenMin": 0.4,
+      "factorVolumenMax": 1.7,
+      "deltaTMin": 30,
+      "deltaTMax": 120
+    }
+  }
+]
