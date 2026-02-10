@@ -22,6 +22,71 @@ import {
 import { adaptMathExercise } from "../generador/matematicas/adapters";
 import { adaptEconomiaExercise } from "../generador/economia/adapters";
 import { adaptQuimicaExercise } from "../generador/quimica/adapters";
+import { fetchActivePrompts, type PromptRecord } from "../services/prompts";
+
+type PromptTemplateKind = "TEXT" | "PARAM_LIMITS";
+
+type PromptGeneratorConfig = {
+  id: string;
+  label: string;
+  promptText: string;
+  templateKind: PromptTemplateKind;
+  metadata?: Record<string, unknown>;
+  paramLimits?: Record<string, unknown>;
+};
+
+const PROMPTS_TARGET_TYPE = "exercise_generator";
+
+const ensurePromptTemplateKind = (value: unknown): PromptTemplateKind =>
+  value === "PARAM_LIMITS" ? "PARAM_LIMITS" : "TEXT";
+
+const toRecord = (value: unknown): Record<string, unknown> | undefined =>
+  value && typeof value === "object" && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : undefined;
+
+const parsePromptConfig = (
+  materia: MateriaUI,
+  prompt: PromptRecord,
+  generatorExists: (id: string) => boolean
+): PromptGeneratorConfig | null => {
+  const params = toRecord(prompt.paramsSchema) ?? {};
+  const templateKind = ensurePromptTemplateKind(params.templateKind);
+  const configuredId =
+    params.generatorId ?? params.generatorKey ?? params.id ?? prompt.title;
+  const id = String(configuredId ?? "").trim();
+  if (!id || !generatorExists(id)) return null;
+  const configuredLabel = String(params.label ?? "").trim();
+  const defaultLabel =
+    materia === "economia" || materia === "fisica" ? id : `Tema ${id}`;
+
+  return {
+    id,
+    label: configuredLabel || defaultLabel,
+    promptText: prompt.bodyText,
+    templateKind,
+    metadata: toRecord(params.metadata),
+    paramLimits: toRecord(params.paramLimits),
+  };
+};
+
+const applyPromptToQuestion = (
+  question: GeneratedQuestionDTO,
+  promptConfig: PromptGeneratorConfig
+): GeneratedQuestionDTO => ({
+  ...question,
+  prompt: promptConfig.promptText?.trim() || question.prompt,
+  metadata: {
+    ...(question.metadata ?? {}),
+    ...(promptConfig.metadata ?? {}),
+  },
+  data: {
+    ...(question.data ?? {}),
+    ...(promptConfig.templateKind === "PARAM_LIMITS"
+      ? { paramLimits: promptConfig.paramLimits ?? {} }
+      : {}),
+  },
+});
 
 const mapDificultadCoreABasica = (
   dificultad: DificultadCore
@@ -52,6 +117,9 @@ export default function GeneradoresTest() {
   const [resultado, setResultado] = useState<GeneratedQuestionDTO | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [seed, setSeed] = useState("");
+  const [promptOptions, setPromptOptions] = useState<PromptGeneratorConfig[]>([]);
+  const [promptsLoading, setPromptsLoading] = useState(false);
+  const [promptsError, setPromptsError] = useState<string | null>(null);
 
   const listingPrng = useMemo(() => createPrng(seed || "listado-generadores"), [seed]);
   const prng = useMemo(() => (seed ? createPrng(seed) : null), [seed]);
@@ -62,37 +130,61 @@ export default function GeneradoresTest() {
   );
 
   const opcionesGenerador = useMemo(() => {
-    switch (materia) {
-      case "matematica":
-        return Object.keys(GENERATORS_BY_TEMA)
-          .map((id) => Number(id))
-          .sort((a, b) => a - b)
-          .map((id) => ({
-            value: id.toString(),
-            label: `Tema ${id}`,
-          }));
-      case "quimica":
-        return Object.keys(GENERADORES_QUIMICA)
-          .map((id) => Number(id))
-          .sort((a, b) => a - b)
-          .map((id) => ({
-            value: id.toString(),
-            label: `Tema ${id}`,
-          }));
-      case "economia":
-        return Object.keys(GENERADORES_ECONOMIA_POR_CLAVE)
-          .sort()
-          .map((clave) => ({ value: clave, label: clave }));
-      case "fisica":
-      default:
-        return generadoresFisica
-          .map((generador) => generador.id)
-          .sort()
-          .map((id) => ({
-            value: id,
-            label: id,
-          }));
-    }
+    return promptOptions.map((promptOption) => ({
+      value: promptOption.id,
+      label: promptOption.label,
+    }));
+  }, [promptOptions]);
+
+  const promptConfigSeleccionado = useMemo(
+    () => promptOptions.find((option) => option.id === generadorSeleccionado) ?? null,
+    [promptOptions, generadorSeleccionado]
+  );
+
+  useEffect(() => {
+    const generatorExists = (id: string) => {
+      switch (materia) {
+        case "matematica":
+          return Boolean(GENERATORS_BY_TEMA[Number(id)]);
+        case "quimica":
+          return Boolean(GENERADORES_QUIMICA[Number(id)]);
+        case "economia":
+          return Boolean(GENERADORES_ECONOMIA_POR_CLAVE[id]);
+        case "fisica":
+        default:
+          return generadoresFisica.some((generador) => generador.id === id);
+      }
+    };
+
+    const loadPrompts = async () => {
+      setPromptsLoading(true);
+      setPromptsError(null);
+      setPromptOptions([]);
+
+      const targetId = `generadores:${materia}`;
+      try {
+        const prompts = await fetchActivePrompts(PROMPTS_TARGET_TYPE, targetId);
+        const options = prompts
+          .map((prompt) => parsePromptConfig(materia, prompt, generatorExists))
+          .filter((prompt): prompt is PromptGeneratorConfig => Boolean(prompt))
+          .sort((a, b) => a.label.localeCompare(b.label));
+
+        if (options.length === 0) {
+          throw new Error(
+            `No hay prompts activos configurados para ${targetId}. Ejecutá la seed/migración para poblar /api/prompts.`
+          );
+        }
+
+        setPromptOptions(options);
+      } catch (err) {
+        const message = err instanceof Error ? err.message : "Error desconocido al listar prompts.";
+        setPromptsError(message);
+      } finally {
+        setPromptsLoading(false);
+      }
+    };
+
+    void loadPrompts();
   }, [materia, generadoresFisica]);
 
   useEffect(() => {
@@ -677,6 +769,17 @@ export default function GeneradoresTest() {
     setError(null);
 
     try {
+      if (promptsLoading) {
+        throw new Error("Esperá a que finalice la carga de prompts activos.");
+      }
+      if (promptsError) {
+        throw new Error(promptsError);
+      }
+      if (!promptConfigSeleccionado) {
+        throw new Error(
+          `Falta configuración de prompts activos para ${materia}. Ejecutá la seed/migración.`
+        );
+      }
       if (!seed) {
         throw new Error("Se requiere una semilla provista por el backend.");
       }
@@ -694,7 +797,8 @@ export default function GeneradoresTest() {
             { modo: modoRespuesta },
             prng
           );
-          setResultado(adaptMathExercise(exercise).question);
+          const question = adaptMathExercise(exercise).question;
+          setResultado(applyPromptToQuestion(question, promptConfigSeleccionado));
           break;
         }
         case "quimica": {
@@ -702,7 +806,8 @@ export default function GeneradoresTest() {
             GENERADORES_QUIMICA_DESCRIPTORES[Number(generadorSeleccionado)];
           if (!descriptor) throw new Error("Generador de química no disponible.");
           const exercise = descriptor.generate(mapDificultadCoreABasica(dificultad), prng);
-          setResultado(adaptQuimicaExercise(exercise).question);
+          const question = adaptQuimicaExercise(exercise).question;
+          setResultado(applyPromptToQuestion(question, promptConfigSeleccionado));
           break;
         }
         case "economia": {
@@ -710,7 +815,8 @@ export default function GeneradoresTest() {
             GENERADORES_ECONOMIA_DESCRIPTORES[generadorSeleccionado];
           if (!descriptor) throw new Error("Generador de economía no disponible.");
           const exercise = descriptor.generate(dificultad as DificultadEconomia, prng);
-          setResultado(adaptEconomiaExercise(exercise).question);
+          const question = adaptEconomiaExercise(exercise).question;
+          setResultado(applyPromptToQuestion(question, promptConfigSeleccionado));
           break;
         }
         case "fisica": {
@@ -727,7 +833,8 @@ export default function GeneradoresTest() {
             nivel: dificultad as DificultadCore,
           };
 
-          setResultado(generator.generateRenderable(params, calculadoraFisica).question);
+          const question = generator.generateRenderable(params, calculadoraFisica).question;
+          setResultado(applyPromptToQuestion(question, promptConfigSeleccionado));
           break;
         }
         default:
@@ -826,6 +933,7 @@ export default function GeneradoresTest() {
                 className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
                 value={generadorSeleccionado}
                 onChange={(event) => setGeneradorSeleccionado(event.target.value)}
+                disabled={promptsLoading || Boolean(promptsError) || opcionesGenerador.length === 0}
               >
                 {opcionesGenerador.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -833,6 +941,14 @@ export default function GeneradoresTest() {
                   </option>
                 ))}
               </select>
+              {promptsLoading ? (
+                <p className="mt-1 text-xs text-gray-500">Cargando prompts activos…</p>
+              ) : null}
+              {promptsError ? (
+                <p className="mt-1 text-xs text-red-600">
+                  Error de configuración: {promptsError}
+                </p>
+              ) : null}
             </div>
 
             <div>
@@ -892,6 +1008,7 @@ export default function GeneradoresTest() {
             <button
               type="button"
               onClick={generarEjercicio}
+              disabled={promptsLoading || Boolean(promptsError) || !promptConfigSeleccionado}
               className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700"
             >
               Generar ejercicio
