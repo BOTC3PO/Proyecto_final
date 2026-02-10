@@ -4,49 +4,39 @@
     "activo": true,
     "difficulty": "basico",
     "enunciadoBase": "__ H2 + __ O2 → __ H2O",
-    "data": {
-      "coeficientes": [2, 1, 2],
-      "especies": ["H2", "O2", "H2O"]
-    }
+    "coeficientes": [2, 1, 2],
+    "especies": ["H2", "O2", "H2O"]
   },
   {
     "id": 2,
     "activo": true,
     "difficulty": "basico",
     "enunciadoBase": "__ N2 + __ H2 → __ NH3",
-    "data": {
-      "coeficientes": [1, 3, 2],
-      "especies": ["N2", "H2", "NH3"]
-    }
+    "coeficientes": [1, 3, 2],
+    "especies": ["N2", "H2", "NH3"]
   },
   {
     "id": 3,
     "activo": true,
     "difficulty": "intermedio",
     "enunciadoBase": "__ Fe + __ O2 → __ Fe2O3",
-    "data": {
-      "coeficientes": [4, 3, 2],
-      "especies": ["Fe", "O2", "Fe2O3"]
-    }
+    "coeficientes": [4, 3, 2],
+    "especies": ["Fe", "O2", "Fe2O3"]
   },
   {
     "id": 4,
     "activo": true,
     "difficulty": "intermedio",
     "enunciadoBase": "__ Na + __ Cl2 → __ NaCl",
-    "data": {
-      "coeficientes": [2, 1, 2],
-      "especies": ["Na", "Cl2", "NaCl"]
-    }
+    "coeficientes": [2, 1, 2],
+    "especies": ["Na", "Cl2", "NaCl"]
   },
   {
     "id": 5,
     "activo": true,
     "difficulty": "avanzado",
     "enunciadoBase": "__ C3H8 + __ O2 → __ CO2 + __ H2O",
-    "data": {
-      "coeficientes": [1, 5, 3, 4],
-      "especies": ["C3H8", "O2", "CO2", "H2O"]
-    }
+    "coeficientes": [1, 5, 3, 4],
+    "especies": ["C3H8", "O2", "CO2", "H2O"]
   }
 ]
