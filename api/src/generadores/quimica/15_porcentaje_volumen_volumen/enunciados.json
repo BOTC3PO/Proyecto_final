@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se prepara una solución mezclando {{volumenSoluto}} mL de soluto con suficiente disolvente para obtener {{volumenSolucion}} mL de solución total. Calcula el porcentaje volumen/volumen (% v/v) del soluto.",
+    "data": {
+      "solutoMin": 5,
+      "solutoMax": 25,
+      "disolventeMin": 70,
+      "disolventeMax": 150,
+      "decimales": 1
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Una disolución contiene {{volumenSoluto}} mL de etanol y un volumen final de {{volumenSolucion}} mL. Determina la concentración expresada en % v/v.",
+    "data": {
+      "solutoMin": 10,
+      "solutoMax": 40,
+      "disolventeMin": 90,
+      "disolventeMax": 220,
+      "decimales": 1
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se formula una mezcla líquida con {{volumenSoluto}} mL de soluto y volumen total final de {{volumenSolucion}} mL. Halla el porcentaje en volumen (% v/v) del soluto y redondea a {{decimalesResultado}} decimal.",
+    "data": {
+      "solutoMin": 15,
+      "solutoMax": 55,
+      "disolventeMin": 85,
+      "disolventeMax": 280,
+      "decimales": 1
+    }
+  }
+]
