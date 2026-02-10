@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se desea preparar una solución acuosa de {{sustancia}} (M ≈ {{masaMolar}} g/mol). La concentración deseada es de {{molaridad}} mol/L y el volumen final {{volumen}} L. Calcula la masa de {{sustancia}} que se debe pesar para preparar la solución.",
+    "data": {
+      "sustancia": "NaCl",
+      "masaMolar": 58.5,
+      "molaridadMin": 0.1,
+      "molaridadMax": 0.5,
+      "volumenMin": 0.1,
+      "volumenMax": 0.5
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se desea preparar una solución acuosa de {{sustancia}} (M ≈ {{masaMolar}} g/mol). La concentración deseada es de {{molaridad}} mol/L y el volumen final {{volumen}} L. Calcula la masa de {{sustancia}} que se debe pesar para preparar la solución.",
+    "data": {
+      "sustancia": "NaCl",
+      "masaMolar": 58.5,
+      "molaridadMin": 0.5,
+      "molaridadMax": 1.5,
+      "volumenMin": 0.25,
+      "volumenMax": 1.0
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se desea preparar una solución acuosa de {{sustancia}} (M ≈ {{masaMolar}} g/mol). La concentración deseada es de {{molaridad}} mol/L y el volumen final {{volumen}} L. Calcula la masa de {{sustancia}} que se debe pesar para preparar la solución.",
+    "data": {
+      "sustancia": "NaCl",
+      "masaMolar": 58.5,
+      "molaridadMin": 1.5,
+      "molaridadMax": 2.0,
+      "volumenMin": 0.5,
+      "volumenMax": 1.0
+    }
+  }
+]
