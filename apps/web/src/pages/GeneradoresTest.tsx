@@ -97,8 +97,6 @@ const mapDificultadCoreABasica = (
     case "intermedio":
       return "media";
     case "avanzado":
-    case "Legendario":
-    case "Divino":
       return "dificil";
     default:
       return "media";

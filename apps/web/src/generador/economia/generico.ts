@@ -49,16 +49,12 @@ export const DIFICULTAD_ORDEN: Dificultad[] = [
   "basico",
   "intermedio",
   "avanzado",
-  "Legendario",
-  "Divino",
 ];
 
 export const DIFICULTAD_RANK: Record<Dificultad, number> = {
   basico: 0,
   intermedio: 1,
   avanzado: 2,
-  Legendario: 3,
-  Divino: 4,
 };
 
 export function dificultadFactor(dificultad: Dificultad): number {
@@ -69,10 +65,6 @@ export function dificultadFactor(dificultad: Dificultad): number {
       return 1;
     case "avanzado":
       return 1.2;
-    case "Legendario":
-      return 1.4;
-    case "Divino":
-      return 1.6;
     default:
       return 1;
   }

@@ -39,12 +39,12 @@ const CASOS = [
   {
     desc: "Financiar vacaciones con cuotas largas y sin ahorro previo.",
     tipo: "Deuda mala" as Tipo,
-    dificultadMinima: "Legendario" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
   {
     desc: "Solicitar crédito para reparar maquinaria esencial para continuar trabajando.",
     tipo: "Deuda buena" as Tipo,
-    dificultadMinima: "Divino" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
 ];
 

@@ -98,7 +98,7 @@ const CASOS: {
     correcta: "Sustitutos",
     explicacion:
       "Ambos cumplen la misma función y pueden reemplazarse según la preferencia del consumidor.",
-    dificultadMinima: "Legendario",
+    dificultadMinima: "avanzado",
   },
   {
     enunciado:
@@ -107,7 +107,7 @@ const CASOS: {
     correcta: "Bien de capital",
     explicacion:
       "Se utiliza como herramienta para crear otros bienes, no para consumo directo.",
-    dificultadMinima: "Divino",
+    dificultadMinima: "avanzado",
   },
 ];
 

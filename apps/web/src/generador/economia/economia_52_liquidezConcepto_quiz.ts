@@ -39,12 +39,12 @@ const CASOS = [
   {
     desc: "La familia mantiene dinero en una cuenta remunerada que permite retirar en 24 horas.",
     tipo: "Alta liquidez" as Tipo,
-    dificultadMinima: "Legendario" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
   {
     desc: "Los ahorros están concentrados en un inmueble que no puede venderse rápidamente.",
     tipo: "Baja liquidez" as Tipo,
-    dificultadMinima: "Divino" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
 ];
 

@@ -13,8 +13,6 @@ const PARAMS: Record<
   basico: { peaMin: 100000, peaMax: 300000, tasaMax: 12, desvio: 25, opciones: 4 },
   intermedio: { peaMin: 200000, peaMax: 500000, tasaMax: 15, desvio: 30, opciones: 4 },
   avanzado: { peaMin: 300000, peaMax: 700000, tasaMax: 18, desvio: 35, opciones: 4 },
-  Legendario: { peaMin: 400000, peaMax: 900000, tasaMax: 20, desvio: 40, opciones: 5 },
-  Divino: { peaMin: 600000, peaMax: 1200000, tasaMax: 22, desvio: 45, opciones: 5 },
 };
 
 export const genARTasaDesempleo: GeneratorFn = makeQuizGenerator(

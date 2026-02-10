@@ -45,13 +45,13 @@ const CASOS = [
     anuncio:
       "“Tasa nominal 70%, CFT 95% con seguro incluido y detalle de cargos”.",
     tipo: "Publicidad clara" as Tipo,
-    dificultadMinima: "Legendario" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
   {
     anuncio:
       "“Hasta 50% de descuento”. No aclara condiciones ni productos alcanzados.",
     tipo: "Publicidad engañosa" as Tipo,
-    dificultadMinima: "Divino" as Dificultad,
+    dificultadMinima: "avanzado" as Dificultad,
   },
 ];
 

@@ -108,8 +108,6 @@ const DEUDAS_POR_DIFICULTAD: Record<
   basico: DEUDAS_BASICO,
   intermedio: DEUDAS_INTERMEDIO,
   avanzado: DEUDAS_AVANZADO,
-  Legendario: DEUDAS_LEGENDARIO,
-  Divino: DEUDAS_DIVINO,
 };
 
 export const genFinanzasDeudaBuenaMala: GeneratorFn = makeQuizGenerator(

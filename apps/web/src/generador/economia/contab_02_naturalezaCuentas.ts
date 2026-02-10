@@ -42,8 +42,6 @@ export const genContabNaturalezaCuentas: GeneratorFn = makeQuizGenerator(
           "Proveedores",
         ],
         avanzado: CUENTAS_NATURALEZA.map((cuenta) => cuenta.nombre),
-        Legendario: CUENTAS_NATURALEZA.map((cuenta) => cuenta.nombre),
-        Divino: CUENTAS_NATURALEZA.map((cuenta) => cuenta.nombre),
       };
       const nombresPermitidos = cuentasPorDificultad[dificultad] ?? [];
       const pool =
@@ -62,9 +60,7 @@ export const genContabNaturalezaCuentas: GeneratorFn = makeQuizGenerator(
         indiceCorrecto,
         explicacion:
           "En general, las cuentas de Activo y gastos tienen naturaleza Deudora; las de Pasivo, Patrimonio Neto e ingresos tienen naturaleza Acreedora." +
-          (dificultad === "avanzado" ||
-          dificultad === "Legendario" ||
-          dificultad === "Divino"
+          (dificultad === "avanzado"
             ? " En niveles altos, verificá si la cuenta representa un recurso (deudora) o una obligación/financiamiento (acreedora)."
             : ""),
       };

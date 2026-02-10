@@ -29,8 +29,6 @@ export const genContabSaldoNormal: GeneratorFn = makeQuizGenerator(
         basico: [5, 10],
         intermedio: [8, 16],
         avanzado: [12, 25],
-        Legendario: [15, 30],
-        Divino: [18, 35],
       };
       const [min, max] = rangosPorDificultad[dificultad] ?? [5, 20];
 
@@ -53,9 +51,7 @@ export const genContabSaldoNormal: GeneratorFn = makeQuizGenerator(
       const indiceCorrecto = opciones.indexOf(respuestaCorrecta);
 
       const masDetalle =
-        dificultad === "avanzado" ||
-        dificultad === "Legendario" ||
-        dificultad === "Divino"
+        dificultad === "avanzado"
           ? " El saldo se calcula sumando todos los débitos, restando todos los créditos y verificando el lado con mayor importe en la cuenta T."
           : "";
 

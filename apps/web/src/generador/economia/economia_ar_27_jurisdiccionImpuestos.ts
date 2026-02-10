@@ -43,7 +43,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       detalle: "Tasa local municipal.",
     },
   ],
-  Legendario: [
     {
       desc: "Impuesto al Cheque",
       tipo: "Nacional",
@@ -55,7 +54,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       detalle: "Tributo provincial asociado al vehículo.",
     },
   ],
-  Divino: [
     {
       desc: "Tasa de habilitación comercial",
       tipo: "Municipal",

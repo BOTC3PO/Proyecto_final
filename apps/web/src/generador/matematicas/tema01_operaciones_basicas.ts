@@ -32,8 +32,6 @@ function generarOperacion(dificultad: Dificultad): {
     basico: ["+", "-"],
     intermedio: ["+", "-", "×"],
     avanzado: ["+", "-", "×", "÷"],
-    Legendario: ["+", "-", "×", "÷"],
-    Divino: ["+", "-", "×", "÷"],
   };
 
   const op = pickRandom(opsSegunDif[dificultadCore]);

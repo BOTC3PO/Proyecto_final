@@ -124,11 +124,9 @@ export const genARIVA: GeneratorFn = makeQuizGenerator(
           crearCasoIVA(base, tasaGeneral, "general"),
           crearCasoIVA(base, tasaEsencial, "esencial"),
         ],
-        Legendario: [
           crearCasoBaseDesdeTotal(baseAlta, tasaGeneral, "general"),
           crearCasoBaseDesdeTotal(baseAlta, tasaEsencial, "esencial"),
         ],
-        Divino: [
           crearCasoTotal(baseAlta, tasaGeneral, "general"),
           crearCasoIVA(baseAlta, tasaEsencial, "esencial"),
         ],

@@ -80,8 +80,6 @@ export const genContabBienesDerechosObligaciones: GeneratorFn =
             "Facturas de proveedores pendientes de pago.",
           ],
           avanzado: ITEMS.map((item) => item.descripcion),
-          Legendario: ITEMS.map((item) => item.descripcion),
-          Divino: ITEMS.map((item) => item.descripcion),
         };
         const pool = ITEMS.filter((item) =>
           (itemsPorDificultad[dificultad] ?? []).includes(item.descripcion)
@@ -98,9 +96,7 @@ export const genContabBienesDerechosObligaciones: GeneratorFn =
           indiceCorrecto,
           explicacion:
             "El patrimonio está formado por bienes (lo que la empresa posee), derechos (lo que tiene para cobrar) y obligaciones (lo que debe a terceros)." +
-            (dificultad === "avanzado" ||
-            dificultad === "Legendario" ||
-            dificultad === "Divino"
+            (dificultad === "avanzado"
               ? " En niveles altos, identificá si el elemento implica propiedad, un crédito o una deuda."
               : ""),
         };

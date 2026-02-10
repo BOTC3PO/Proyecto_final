@@ -66,7 +66,7 @@ const CASOS: {
     tipo: "Oligopolio",
     explicacion:
       "Pocos grandes oferentes con barreras de entrada, interdependencia y competencia estratégica.",
-    dificultadMinima: "Legendario",
+    dificultadMinima: "avanzado",
   },
   {
     descripcion:
@@ -74,7 +74,7 @@ const CASOS: {
     tipo: "Competencia monopolística",
     explicacion:
       "Existe diferenciación de producto con numerosos oferentes y cierta libertad de entrada.",
-    dificultadMinima: "Divino",
+    dificultadMinima: "avanzado",
   },
 ];
 
