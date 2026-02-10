@@ -5,51 +5,128 @@ import {
   randFloat,
   choice,
 } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/03_calculo_masa.enunciados.json?raw";
 
-const MASA_MOLAR_APROX: Record<string, number> = {
-  H2O: 18.0,
-  NaCl: 58.5,
-  CO2: 44.0,
-  O2: 32.0,
-  CaCO3: 100.0,
-};
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    sustancia: string;
+    masaMolar: number;
+    molesMin: number;
+    molesMax: number;
+  };
+}
+
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(
+      `Catálogo inválido en 03_calculo_masa.enunciados.json: ${String(error)}`
+    );
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("El catálogo 03_calculo_masa.enunciados.json debe ser un array.");
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (
+      typeof item.data?.sustancia !== "string" ||
+      typeof item.data?.masaMolar !== "number" ||
+      typeof item.data?.molesMin !== "number" ||
+      typeof item.data?.molesMax !== "number"
+    ) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+  }
+
+  return items;
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+const CATALOGO = parseCatalogo();
 
 export const generarCalculoMasa: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const sustancias = Object.keys(MASA_MOLAR_APROX);
-  const sustancia = choice(sustancias);
-  const M = MASA_MOLAR_APROX[sustancia];
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const moles = dificultad === "facil"
-    ? randFloat(0.2, 2.0, 2)
-    : dificultad === "media"
-    ? randFloat(0.5, 5.0, 2)
-    : randFloat(1.0, 10.0, 2);
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
 
-  const masa = moles * M;
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en 03_calculo_masa.enunciados.json.`
+    );
+  }
 
-  return {
+  const selected = choice(pool);
+  const moles = randFloat(selected.data.molesMin, selected.data.molesMax, 2);
+  const masa = moles * selected.data.masaMolar;
+
+  const ejercicio = {
     idTema: 3,
     tituloTema: "Cálculo de masa",
     dificultad,
-    tipo: "numeric",
-    enunciado:
-      `Se tienen ${moles} mol de ${sustancia} (M ≈ ${M} g/mol).\n` +
-      `Calcula la masa de la muestra en gramos.`,
-    datos: { moles, masaMolar: M },
+    tipo: "numeric" as const,
+    enunciado: renderEnunciado(selected.enunciadoBase, {
+      moles,
+      sustancia: selected.data.sustancia,
+      masaMolar: selected.data.masaMolar,
+    }),
+    datos: { moles, masaMolar: selected.data.masaMolar },
     unidades: { moles: "mol", masaMolar: "g/mol", resultado: "g" },
     resultado: parseFloat(masa.toFixed(2)),
     visualSpec: {
-      kind: "chart",
-      chartType: "bar",
+      kind: "chart" as const,
+      chartType: "bar" as const,
       title: "Relación moles-masa",
       xAxis: { label: "Magnitud" },
       yAxis: { label: "Valor" },
       series: [
         {
           id: "moles-masa",
-          label: sustancia,
+          label: selected.data.sustancia,
           data: [
             { x: "Moles (mol)", y: parseFloat(moles.toFixed(2)) },
             { x: "Masa (g)", y: parseFloat(masa.toFixed(2)) },
@@ -60,8 +137,21 @@ export const generarCalculoMasa: GeneratorFn = (
     toleranciaRelativa: 0.02,
     pasos: [
       "Usa la relación: m = n · M.",
-      `Sustituye: m = ${moles} mol · ${M} g/mol.`,
+      `Sustituye: m = ${moles} mol · ${selected.data.masaMolar} g/mol.`,
       "Redondea el resultado a 2 cifras decimales.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      generador: "balanceo",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      generador: "balanceo";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };
