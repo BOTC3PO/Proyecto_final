@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se prepara una solución mezclando etanol (C2H5OH, M ≈ 46 g/mol) con agua (H2O, M ≈ 18 g/mol). Se usan {{masaEtanol}} g de etanol y {{masaAgua}} g de agua. Calcula la fracción molar de etanol (Xetanol) y la fracción molar de agua (Xagua).",
+    "data": {
+      "soluto": "etanol",
+      "solvente": "agua",
+      "masaMolarSoluto": 46,
+      "masaMolarSolvente": 18,
+      "masaSolutoMin": 5,
+      "masaSolutoMax": 20,
+      "masaSolventeMin": 50,
+      "masaSolventeMax": 150,
+      "decimalesMasa": 1,
+      "decimalesFraccion": 3
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se prepara una solución mezclando etanol (C2H5OH, M ≈ 46 g/mol) con agua (H2O, M ≈ 18 g/mol). Se usan {{masaEtanol}} g de etanol y {{masaAgua}} g de agua. Calcula la fracción molar de etanol (Xetanol) y la fracción molar de agua (Xagua).",
+    "data": {
+      "soluto": "etanol",
+      "solvente": "agua",
+      "masaMolarSoluto": 46,
+      "masaMolarSolvente": 18,
+      "masaSolutoMin": 10,
+      "masaSolutoMax": 40,
+      "masaSolventeMin": 80,
+      "masaSolventeMax": 250,
+      "decimalesMasa": 1,
+      "decimalesFraccion": 3
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se prepara una solución mezclando etanol (C2H5OH, M ≈ 46 g/mol) con agua (H2O, M ≈ 18 g/mol). Se usan {{masaEtanol}} g de etanol y {{masaAgua}} g de agua. Calcula la fracción molar de etanol (Xetanol) y la fracción molar de agua (Xagua).",
+    "data": {
+      "soluto": "etanol",
+      "solvente": "agua",
+      "masaMolarSoluto": 46,
+      "masaMolarSolvente": 18,
+      "masaSolutoMin": 25,
+      "masaSolutoMax": 80,
+      "masaSolventeMin": 120,
+      "masaSolventeMax": 400,
+      "decimalesMasa": 1,
+      "decimalesFraccion": 3
+    }
+  }
+]
