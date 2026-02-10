@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se tienen {{moles}} mol de {{sustancia}} (M ≈ {{masaMolar}} g/mol). Calcula la masa de la muestra en gramos.",
+    "data": {
+      "sustancia": "H2O",
+      "masaMolar": 18,
+      "molesMin": 0.2,
+      "molesMax": 2
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se tienen {{moles}} mol de {{sustancia}} (M ≈ {{masaMolar}} g/mol). Calcula la masa de la muestra en gramos.",
+    "data": {
+      "sustancia": "O2",
+      "masaMolar": 32,
+      "molesMin": 0.3,
+      "molesMax": 2.4
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se tienen {{moles}} mol de {{sustancia}} (M ≈ {{masaMolar}} g/mol). Calcula la masa de la muestra en gramos.",
+    "data": {
+      "sustancia": "CO2",
+      "masaMolar": 44,
+      "molesMin": 0.5,
+      "molesMax": 5
+    }
+  },
+  {
+    "id": 4,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se tienen {{moles}} mol de {{sustancia}} (M ≈ {{masaMolar}} g/mol). Calcula la masa de la muestra en gramos.",
+    "data": {
+      "sustancia": "NaCl",
+      "masaMolar": 58.5,
+      "molesMin": 0.4,
+      "molesMax": 4.5
+    }
+  },
+  {
+    "id": 5,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se tienen {{moles}} mol de {{sustancia}} (M ≈ {{masaMolar}} g/mol). Calcula la masa de la muestra en gramos.",
+    "data": {
+      "sustancia": "CaCO3",
+      "masaMolar": 100,
+      "molesMin": 1,
+      "molesMax": 10
+    }
+  }
+]
