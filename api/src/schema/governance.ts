@@ -3,7 +3,13 @@ import { z } from "zod";
 export const GovernanceTargetTypeSchema = z.string().min(1);
 
 export const PromptKindSchema = z.enum(["QUESTION", "TASK", "ANNOUNCEMENT"]);
-export const PromptStatusSchema = z.enum(["ACTIVE", "INACTIVE", "ARCHIVED"]);
+export const PromptStatusSchema = z.enum([
+  "ACTIVE",
+  "INACTIVE",
+  "ARCHIVED",
+  "DEPRECATED",
+  "REMOVED"
+]);
 
 export const PromptSchema = z.object({
   id: z.string().min(1),
