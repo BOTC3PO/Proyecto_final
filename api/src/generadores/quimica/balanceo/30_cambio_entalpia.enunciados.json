@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "La combustión completa del metano se describe por la reacción:\n{{reaccion}}\ncon un cambio de entalpía estándar ΔH° = {{deltaHMolar}} kJ por mol de CH₄.\n\nSi se queman completamente {{masaCH4}} g de CH₄, calcula el cambio de entalpía total ΔH (en kJ) para esta cantidad de metano.",
+    "data": {
+      "reaccion": "CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l)",
+      "masaMolarCH4": 16,
+      "deltaHMolar": -890,
+      "masaMin": 5,
+      "masaMax": 25
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "La combustión completa del metano se describe por la reacción:\n{{reaccion}}\ncon un cambio de entalpía estándar ΔH° = {{deltaHMolar}} kJ por mol de CH₄.\n\nSi se queman completamente {{masaCH4}} g de CH₄, calcula el cambio de entalpía total ΔH (en kJ) para esta cantidad de metano.",
+    "data": {
+      "reaccion": "CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l)",
+      "masaMolarCH4": 16,
+      "deltaHMolar": -890,
+      "masaMin": 10,
+      "masaMax": 50
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "La combustión completa del metano se describe por la reacción:\n{{reaccion}}\ncon un cambio de entalpía estándar ΔH° = {{deltaHMolar}} kJ por mol de CH₄.\n\nSi se queman completamente {{masaCH4}} g de CH₄, calcula el cambio de entalpía total ΔH (en kJ) para esta cantidad de metano.",
+    "data": {
+      "reaccion": "CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l)",
+      "masaMolarCH4": 16,
+      "deltaHMolar": -890,
+      "masaMin": 30,
+      "masaMax": 120
+    }
+  }
+]
