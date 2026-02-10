@@ -13,6 +13,7 @@ import {
   canActorCreateProposal,
   canActorVoteOnLevel,
   evaluateGovernanceLevel,
+  evaluateProposalOutcome,
   validateGovernancePermissions
 } from "../lib/governance";
 
@@ -170,11 +171,15 @@ governance.post("/api/proposals/:id/close", async (req, res) => {
       { approve: 0, reject: 0, abstain: 0 }
     );
 
-    const approved = summary.approve > summary.reject;
-    const nextStatus = approved ? "APPROVED" : "REJECTED";
+    const outcome = evaluateProposalOutcome({
+      level: proposal.level,
+      approve: summary.approve,
+      reject: summary.reject
+    });
+    const nextStatus = outcome.approved ? "APPROVED" : "REJECTED";
 
     let applyResult: { applied: boolean; reason?: string } = { applied: false };
-    if (approved) {
+    if (outcome.approved) {
       applyResult = await applyApprovedGovernanceChange(db, proposal);
     }
 
@@ -186,7 +191,8 @@ governance.post("/api/proposals/:id/close", async (req, res) => {
           closedAt: new Date().toISOString(),
           closedBy: actorId,
           voteSummary: summary,
-          applyResult
+          applyResult,
+          closeRule: outcome.rule
         }
       }
     );
@@ -195,7 +201,8 @@ governance.post("/api/proposals/:id/close", async (req, res) => {
       id: proposalId,
       status: nextStatus,
       summary,
-      applyResult
+      applyResult,
+      closeRule: outcome.rule
     });
   } catch (error: any) {
     return res.status(400).json({ error: error?.message ?? "unable to close proposal" });
