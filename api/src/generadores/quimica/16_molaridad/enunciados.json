@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se disuelven {{masaSoluto}} g de {{sustancia}} (M ≈ {{masaMolar}} g/mol) para preparar {{volumen}} L de solución. Calcula la molaridad (mol/L).",
+    "data": {
+      "sustancia": "NaCl",
+      "masaMolar": 58.5,
+      "masaMin": 5,
+      "masaMax": 16,
+      "volumenMin": 0.2,
+      "volumenMax": 0.5
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una muestra de {{masaSoluto}} g de {{sustancia}} (M ≈ {{masaMolar}} g/mol) se afora a {{volumen}} L. Determina su molaridad.",
+    "data": {
+      "sustancia": "KNO3",
+      "masaMolar": 101.1,
+      "masaMin": 10,
+      "masaMax": 28,
+      "volumenMin": 0.2,
+      "volumenMax": 0.7
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se preparan {{volumen}} L de una solución de {{sustancia}} disolviendo {{masaSoluto}} g (M ≈ {{masaMolar}} g/mol). Calcula la molaridad final.",
+    "data": {
+      "sustancia": "CaCl2",
+      "masaMolar": 111,
+      "masaMin": 20,
+      "masaMax": 55,
+      "volumenMin": 0.25,
+      "volumenMax": 0.9
+    }
+  },
+  {
+    "id": 4,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para una solución de {{sustancia}}, se disuelven {{masaSoluto}} g de soluto (M ≈ {{masaMolar}} g/mol) y se completa a {{volumen}} L. ¿Cuál es la molaridad?",
+    "data": {
+      "sustancia": "Na2SO4",
+      "masaMolar": 142,
+      "masaMin": 22,
+      "masaMax": 70,
+      "volumenMin": 0.3,
+      "volumenMax": 1
+    }
+  },
+  {
+    "id": 5,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se pesan {{masaSoluto}} g de {{sustancia}} (M ≈ {{masaMolar}} g/mol) y se prepara un volumen final de {{volumen}} L. Calcula la molaridad con 3 decimales.",
+    "data": {
+      "sustancia": "Al2(SO4)3",
+      "masaMolar": 342.15,
+      "masaMin": 45,
+      "masaMax": 130,
+      "volumenMin": 0.18,
+      "volumenMax": 0.75
+    }
+  },
+  {
+    "id": 6,
+    "activo": false,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se prepara una solución de {{sustancia}} con {{masaSoluto}} g de soluto (M ≈ {{masaMolar}} g/mol) en {{volumen}} L de solución. Calcula la molaridad.",
+    "data": {
+      "sustancia": "FeCl3",
+      "masaMolar": 162.2,
+      "masaMin": 30,
+      "masaMax": 95,
+      "volumenMin": 0.2,
+      "volumenMax": 0.8
+    }
+  }
+]

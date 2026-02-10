@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se tiene una solución madre con concentración C₁ = {{C1}} mol/L.\nSe toman V₁ = {{V1}} mL de esta solución y se diluye hasta un volumen final V₂ = {{V2}} mL.\nCalcula la concentración final C₂.",
+    "data": {
+      "C1Min": 0.5,
+      "C1Max": 1.5,
+      "V1Min": 10,
+      "V1Max": 50,
+      "factorDilucion": 2,
+      "decimalsC1": 2,
+      "decimalsV1": 1,
+      "decimalsC2": 3,
+      "pasos": [
+        "En una dilución se conserva la cantidad de soluto: C₁·V₁ = C₂·V₂.",
+        "Despeja C₂: C₂ = (C₁·V₁) / V₂.",
+        "Sustituye los valores usando las mismas unidades de volumen.",
+        "Redondea el resultado a 3 decimales."
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Un laboratorio dispone de una solución de concentración C₁ = {{C1}} mol/L.\nSe toman {{V1}} mL y se agregan solvente hasta completar {{V2}} mL.\nDetermina la nueva concentración C₂ de la solución.",
+    "data": {
+      "C1Min": 1,
+      "C1Max": 3,
+      "V1Min": 20,
+      "V1Max": 80,
+      "factorDilucion": 3,
+      "decimalsC1": 2,
+      "decimalsV1": 1,
+      "decimalsC2": 3,
+      "pasos": [
+        "Aplica la ecuación de dilución C₁V₁ = C₂V₂.",
+        "Calcula C₂ usando C₂ = (C₁·V₁)/V₂.",
+        "Comprueba que V₂ > V₁ para validar que sí hubo dilución.",
+        "Expresa la respuesta final en mol/L con 3 decimales."
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Para preparar una disolución de trabajo se parte de una solución stock de C₁ = {{C1}} mol/L.\nSe extraen {{V1}} mL y luego se diluyen hasta {{V2}} mL.\nCalcula C₂ e interpreta el factor de dilución aplicado.",
+    "data": {
+      "C1Min": 2,
+      "C1Max": 5,
+      "V1Min": 15,
+      "V1Max": 60,
+      "factorDilucion": 4,
+      "decimalsC1": 2,
+      "decimalsV1": 1,
+      "decimalsC2": 4,
+      "pasos": [
+        "Usa C₁V₁ = C₂V₂ para modelar la dilución.",
+        "Despeja C₂ y sustituye los datos numéricos.",
+        "Calcula también el factor de dilución como V₂/V₁.",
+        "Redondea C₂ a 4 decimales y reporta unidades correctas."
+      ]
+    }
+  }
+]

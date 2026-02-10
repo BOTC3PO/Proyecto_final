@@ -3,45 +3,147 @@ import {
   type GeneratorFn,
   type NumericExercise,
   randFloat,
+  choice,
 } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/18_normalidad/enunciados.json?raw";
 
-// H2SO4 (ácido sulfúrico) para reacciones ácido-base: 2 equivalentes por mol
-const MASA_MOLAR_H2SO4 = 98.0; // g/mol (aprox)
-const VALENCIA_H2SO4 = 2;      // 2 H+ por mol
+type DificultadCore = "basico" | "intermedio" | "avanzado";
 
-export const generarNormalidad: GeneratorFn = (
-  dificultad = "media"
-): NumericExercise => {
-  const masaSoluto = dificultad === "facil"
-    ? randFloat(4, 15, 1)         // g
-    : randFloat(8, 30, 1);
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    solutoNombre: string;
+    formula: string;
+    masaMolar: number;
+    valencia: number;
+    masaMin: number;
+    masaMax: number;
+    volumenMin: number;
+    volumenMax: number;
+    masaDecimales: number;
+    volumenDecimales: number;
+  };
+}
 
-  const volumenLitros = dificultad === "facil"
-    ? randFloat(0.1, 0.5, 2)      // L
-    : randFloat(0.25, 1.0, 2);
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
 
-  const moles = masaSoluto / MASA_MOLAR_H2SO4;
-  const equivalentes = moles * VALENCIA_H2SO4;
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(`Catálogo inválido en enunciados.json: ${String(error)}`);
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("El catálogo enunciados.json debe ser un array.");
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (
+      typeof item.data?.solutoNombre !== "string" ||
+      typeof item.data?.formula !== "string" ||
+      typeof item.data?.masaMolar !== "number" ||
+      typeof item.data?.valencia !== "number" ||
+      typeof item.data?.masaMin !== "number" ||
+      typeof item.data?.masaMax !== "number" ||
+      typeof item.data?.volumenMin !== "number" ||
+      typeof item.data?.volumenMax !== "number" ||
+      typeof item.data?.masaDecimales !== "number" ||
+      typeof item.data?.volumenDecimales !== "number"
+    ) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+  }
+
+  return items;
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+const CATALOGO = parseCatalogo();
+
+export const generarNormalidad: GeneratorFn = (dificultad = "media"): NumericExercise => {
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
+
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
+
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en 18_normalidad/enunciados.json.`
+    );
+  }
+
+  const selected = choice(pool);
+  const masaSoluto = randFloat(
+    selected.data.masaMin,
+    selected.data.masaMax,
+    selected.data.masaDecimales
+  );
+  const volumenLitros = randFloat(
+    selected.data.volumenMin,
+    selected.data.volumenMax,
+    selected.data.volumenDecimales
+  );
+
+  const moles = masaSoluto / selected.data.masaMolar;
+  const equivalentes = moles * selected.data.valencia;
   const normalidad = equivalentes / volumenLitros;
 
-  const masaSolutoR = parseFloat(masaSoluto.toFixed(1));
-  const volumenLitrosR = parseFloat(volumenLitros.toFixed(2));
   const resultado = parseFloat(normalidad.toFixed(3));
 
-  return {
+  const ejercicio = {
     idTema: 18,
     tituloTema: "Normalidad (N)",
     dificultad,
-    tipo: "numeric",
-    enunciado:
-      "Se prepara una solución de ácido sulfúrico H₂SO₄ (M ≈ 98 g/mol) para usarla en una titulación ácido–base.\n" +
-      `Se disuelven ${masaSolutoR} g de H₂SO₄ en agua hasta obtener ${volumenLitrosR} L de solución.\n` +
-      "Sabiendo que H₂SO₄ aporta 2 H⁺ por mol (2 equivalentes por mol), calcula la normalidad (N) de la solución.",
+    tipo: "numeric" as const,
+    enunciado: renderEnunciado(selected.enunciadoBase, {
+      solutoNombre: selected.data.solutoNombre,
+      formula: selected.data.formula,
+      masaMolar: selected.data.masaMolar,
+      masaSoluto,
+      volumenLitros,
+      valencia: selected.data.valencia,
+    }),
     datos: {
-      masaSoluto: masaSolutoR,
-      masaMolar: MASA_MOLAR_H2SO4,
-      volumen: volumenLitrosR,
-      valencia: VALENCIA_H2SO4,
+      masaSoluto,
+      masaMolar: selected.data.masaMolar,
+      volumen: volumenLitros,
+      valencia: selected.data.valencia,
     },
     unidades: {
       masaSoluto: "g",
@@ -52,10 +154,23 @@ export const generarNormalidad: GeneratorFn = (
     resultado,
     toleranciaRelativa: 0.03,
     pasos: [
-      "Convierte la masa de H₂SO₄ a moles: n = m / M.",
-      "Calcula los equivalentes: eq = n · valencia (2 equivalentes por mol para H₂SO₄).",
-      "Aplica la definición de normalidad: N = eq / V.",
+      "Convierte la masa del soluto a moles: n = m / M.",
+      "Calcula equivalentes: eq = n · valencia.",
+      "Aplica normalidad: N = eq / V.",
       "Redondea el resultado a 3 cifras decimales.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      tema: "18_normalidad",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      tema: "18_normalidad";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };

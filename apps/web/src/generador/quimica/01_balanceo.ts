@@ -5,6 +5,7 @@ import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/01_
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
 interface BalanceoCatalogItem {
+interface CatalogItem {
   id: number;
   activo: boolean;
   difficulty: DificultadCore;
@@ -25,6 +26,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): BalanceoCatalogItem[] {
+function parseCatalogo(): CatalogItem[] {
   let parsed: unknown;
 
   try {
@@ -40,6 +42,7 @@ function parseCatalogo(): BalanceoCatalogItem[] {
   }
 
   const items = parsed as BalanceoCatalogItem[];
+  const items = parsed as CatalogItem[];
   const ids = new Set<number>();
 
   for (const item of items) {
@@ -47,6 +50,10 @@ function parseCatalogo(): BalanceoCatalogItem[] {
       throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
     }
     ids.add(item.id);
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
 
     if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
       throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
@@ -66,6 +73,19 @@ function parseCatalogo(): BalanceoCatalogItem[] {
     }
 
     if (!item.data.especies.every((especie) => typeof especie === "string")) {
+    if (!Array.isArray(item.data?.coeficientes) || !Array.isArray(item.data?.especies)) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (item.data.coeficientes.length === 0 || item.data.especies.length === 0) {
+      throw new Error(`Data vacía en catálogo para id=${item.id}.`);
+    }
+
+    if (item.data.coeficientes.some((value) => typeof value !== "number")) {
+      throw new Error(`Coeficientes inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (item.data.especies.some((value) => typeof value !== "string")) {
       throw new Error(`Especies inválidas en catálogo para id=${item.id}.`);
     }
 
@@ -86,6 +106,11 @@ export function getBalanceoCatalogItemById(itemId: number): BalanceoCatalogItem 
     throw new Error(`No existe itemId=${itemId} en 01_balanceo.enunciados.json.`);
   }
 
+export function findBalanceoCatalogItemById(itemId: number): CatalogItem {
+  const item = CATALOGO.find((entry) => entry.id === itemId);
+  if (!item) {
+    throw new Error(`No existe itemId=${itemId} en 01_balanceo.enunciados.json.`);
+  }
   return item;
 }
 

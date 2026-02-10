@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se tienen {{masa}} g de {{sustancia}} (M ≈ {{masaMolar}} g/mol). Calcula cuántas partículas hay en la muestra usando Nₐ = 6.022·10²³ partículas/mol.",
+    "data": {
+      "sustancia": "H2O",
+      "masaMolar": 18,
+      "masaMin": 2,
+      "masaMax": 20
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Una muestra de {{sustancia}} tiene una masa de {{masa}} g y masa molar {{masaMolar}} g/mol. Determina el número de partículas presentes.",
+    "data": {
+      "sustancia": "NaCl",
+      "masaMolar": 58.5,
+      "masaMin": 10,
+      "masaMax": 80
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Para {{masa}} g de {{sustancia}} (M = {{masaMolar}} g/mol), calcula el total de partículas y exprésalo en notación científica.",
+    "data": {
+      "sustancia": "CO2",
+      "masaMolar": 44,
+      "masaMin": 12,
+      "masaMax": 95
+    }
+  },
+  {
+    "id": 4,
+    "activo": false,
+    "difficulty": "avanzado",
+    "enunciadoBase": "En un cilindro hay {{masa}} g de {{sustancia}} con M = {{masaMolar}} g/mol. Halla cuántas partículas hay.",
+    "data": {
+      "sustancia": "O2",
+      "masaMolar": 32,
+      "masaMin": 8,
+      "masaMax": 70
+    }
+  }
+]

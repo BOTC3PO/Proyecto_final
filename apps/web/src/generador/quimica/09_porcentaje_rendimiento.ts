@@ -3,52 +3,151 @@ import {
   type GeneratorFn,
   type NumericExercise,
   randFloat,
+  choice,
 } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/09_porcentaje_rendimiento/enunciados.json?raw";
 
-// Reacción: 2 H2 + O2 → 2 H2O
-const M_H2 = 2.0;   // g/mol
-const M_H2O = 18.0; // g/mol
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    masaH2Min: number;
+    masaH2Max: number;
+    decimalesMasaH2: number;
+    factorRealMin: number;
+    factorRealMax: number;
+    decimalesFactorReal: number;
+    masaMolarH2: number;
+    masaMolarH2O: number;
+  };
+}
+
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(`Catálogo inválido en enunciados.json: ${String(error)}`);
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("El catálogo enunciados.json debe ser un array.");
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (
+      typeof item.data?.masaH2Min !== "number" ||
+      typeof item.data?.masaH2Max !== "number" ||
+      typeof item.data?.decimalesMasaH2 !== "number" ||
+      typeof item.data?.factorRealMin !== "number" ||
+      typeof item.data?.factorRealMax !== "number" ||
+      typeof item.data?.decimalesFactorReal !== "number" ||
+      typeof item.data?.masaMolarH2 !== "number" ||
+      typeof item.data?.masaMolarH2O !== "number"
+    ) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+  }
+
+  return items;
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+const CATALOGO = parseCatalogo();
+
+export function obtenerItemCatalogoPorId(itemId: number): CatalogItem {
+  const item = CATALOGO.find((catalogItem) => catalogItem.id === itemId);
+  if (!item) {
+    throw new Error(`No existe itemId=${itemId} en enunciados.json.`);
+  }
+  return item;
+}
 
 export const generarPorcentajeRendimiento: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const masaH2 = dificultad === "facil"
-    ? randFloat(2, 10, 1)
-    : randFloat(5, 20, 1);
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const nH2 = masaH2 / M_H2;
-  const nH2Oteorico = nH2;
-  const masaH2Oteorica = nH2Oteorico * M_H2O;
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
 
-  // rendimiento real entre 60% y 95%
-  const factorReal = dificultad === "facil"
-    ? randFloat(0.8, 0.95, 2)
-    : randFloat(0.6, 0.95, 2);
+  if (pool.length === 0) {
+    throw new Error(`No hay enunciados activos para nivel ${nivelCore} en enunciados.json.`);
+  }
 
-  const masaH2Oreal = masaH2Oteorica * factorReal;
+  const selected = choice(pool);
+  const masaH2 = randFloat(
+    selected.data.masaH2Min,
+    selected.data.masaH2Max,
+    selected.data.decimalesMasaH2
+  );
 
-  const masaH2r = parseFloat(masaH2.toFixed(1));
-  const masaTeorR = parseFloat(masaH2Oteorica.toFixed(2));
-  const masaRealR = parseFloat(masaH2Oreal.toFixed(2));
-  const porcentajeRend = (masaRealR / masaTeorR) * 100;
-  const porcentajeR = parseFloat(porcentajeRend.toFixed(1));
+  const nH2 = masaH2 / selected.data.masaMolarH2;
+  const masaTeoricaH2O = nH2 * selected.data.masaMolarH2O;
+  const factorReal = randFloat(
+    selected.data.factorRealMin,
+    selected.data.factorRealMax,
+    selected.data.decimalesFactorReal
+  );
+  const masaRealH2O = masaTeoricaH2O * factorReal;
 
-  return {
+  const masaH2R = parseFloat(masaH2.toFixed(selected.data.decimalesMasaH2));
+  const masaTeoricaH2OR = parseFloat(masaTeoricaH2O.toFixed(2));
+  const masaRealH2OR = parseFloat(masaRealH2O.toFixed(2));
+  const porcentajeRendimiento = (masaRealH2OR / masaTeoricaH2OR) * 100;
+  const porcentajeR = parseFloat(porcentajeRendimiento.toFixed(1));
+
+  const ejercicio = {
     idTema: 9,
     tituloTema: "Porcentaje de rendimiento",
     dificultad,
-    tipo: "numeric",
-    enunciado:
-      "En la reacción de formación de agua:\n" +
-      "2 H₂(g) + O₂(g) → 2 H₂O(l)\n\n" +
-      `Se hacen reaccionar ${masaH2r} g de H₂ con exceso de O₂.\n` +
-      `La masa teórica de agua que podría obtenerse es de ${masaTeorR} g.\n` +
-      `En el laboratorio se obtienen realmente ${masaRealR} g de agua.\n` +
-      "Calcula el porcentaje de rendimiento de la reacción.",
+    tipo: "numeric" as const,
+    enunciado: renderEnunciado(selected.enunciadoBase, {
+      masaH2: masaH2R,
+      masaTeoricaH2O: masaTeoricaH2OR,
+      masaRealH2O: masaRealH2OR,
+    }),
     datos: {
-      masaH2: masaH2r,
-      masaTeoricaH2O: masaTeorR,
-      masaRealH2O: masaRealR,
+      masaH2: masaH2R,
+      masaTeoricaH2O: masaTeoricaH2OR,
+      masaRealH2O: masaRealH2OR,
     },
     unidades: {
       masaH2: "g",
@@ -58,8 +157,8 @@ export const generarPorcentajeRendimiento: GeneratorFn = (
     },
     resultado: porcentajeR,
     visualSpec: {
-      kind: "chart",
-      chartType: "bar",
+      kind: "chart" as const,
+      chartType: "bar" as const,
       title: "Rendimiento real vs teórico",
       xAxis: { label: "Masa (g)" },
       yAxis: { label: "Valor" },
@@ -68,8 +167,8 @@ export const generarPorcentajeRendimiento: GeneratorFn = (
           id: "rendimiento",
           label: "Agua obtenida",
           data: [
-            { x: "Teórica", y: masaTeorR },
-            { x: "Real", y: masaRealR },
+            { x: "Teórica", y: masaTeoricaH2OR },
+            { x: "Real", y: masaRealH2OR },
           ],
         },
       ],
@@ -80,5 +179,18 @@ export const generarPorcentajeRendimiento: GeneratorFn = (
       "Aplica la fórmula: % rendimiento = (masa real / masa teórica) · 100.",
       "Sustituye las masas y redondea el resultado a 1 decimal.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      tema: "09_porcentaje_rendimiento",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      tema: "09_porcentaje_rendimiento";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };

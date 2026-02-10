@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se prepara una solución de {{solutoNombre}} ({{formula}}, M ≈ {{masaMolar}} g/mol). Se disuelven {{masaSoluto}} g en agua hasta completar {{volumenLitros}} L de solución. Sabiendo que aporta {{valencia}} equivalentes por mol, calcula la normalidad (N).",
+    "data": {
+      "solutoNombre": "ácido sulfúrico",
+      "formula": "H₂SO₄",
+      "masaMolar": 98,
+      "valencia": 2,
+      "masaMin": 4,
+      "masaMax": 14,
+      "volumenMin": 0.2,
+      "volumenMax": 0.6,
+      "masaDecimales": 1,
+      "volumenDecimales": 2
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se prepara una solución de {{solutoNombre}} ({{formula}}, M ≈ {{masaMolar}} g/mol). Se disuelven {{masaSoluto}} g en agua hasta completar {{volumenLitros}} L de solución. Sabiendo que aporta {{valencia}} equivalentes por mol, calcula la normalidad (N).",
+    "data": {
+      "solutoNombre": "hidróxido de calcio",
+      "formula": "Ca(OH)₂",
+      "masaMolar": 74.09,
+      "valencia": 2,
+      "masaMin": 3,
+      "masaMax": 12,
+      "volumenMin": 0.25,
+      "volumenMax": 0.7,
+      "masaDecimales": 1,
+      "volumenDecimales": 2
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se prepara una solución de {{solutoNombre}} ({{formula}}, M ≈ {{masaMolar}} g/mol). Se disuelven {{masaSoluto}} g en agua hasta completar {{volumenLitros}} L de solución. Sabiendo que aporta {{valencia}} equivalentes por mol, calcula la normalidad (N).",
+    "data": {
+      "solutoNombre": "ácido fosfórico",
+      "formula": "H₃PO₄",
+      "masaMolar": 98,
+      "valencia": 3,
+      "masaMin": 6,
+      "masaMax": 22,
+      "volumenMin": 0.2,
+      "volumenMax": 0.8,
+      "masaDecimales": 1,
+      "volumenDecimales": 2
+    }
+  },
+  {
+    "id": 4,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se prepara una solución de {{solutoNombre}} ({{formula}}, M ≈ {{masaMolar}} g/mol). Se disuelven {{masaSoluto}} g en agua hasta completar {{volumenLitros}} L de solución. Sabiendo que aporta {{valencia}} equivalentes por mol, calcula la normalidad (N).",
+    "data": {
+      "solutoNombre": "hidróxido de aluminio",
+      "formula": "Al(OH)₃",
+      "masaMolar": 78,
+      "valencia": 3,
+      "masaMin": 5,
+      "masaMax": 20,
+      "volumenMin": 0.15,
+      "volumenMax": 0.65,
+      "masaDecimales": 1,
+      "volumenDecimales": 2
+    }
+  },
+  {
+    "id": 5,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se prepara una solución de {{solutoNombre}} ({{formula}}, M ≈ {{masaMolar}} g/mol). Se disuelven {{masaSoluto}} g en agua hasta completar {{volumenLitros}} L de solución. Sabiendo que aporta {{valencia}} equivalentes por mol, calcula la normalidad (N).",
+    "data": {
+      "solutoNombre": "ácido oxálico",
+      "formula": "H₂C₂O₄",
+      "masaMolar": 90.03,
+      "valencia": 2,
+      "masaMin": 8,
+      "masaMax": 28,
+      "volumenMin": 0.1,
+      "volumenMax": 0.5,
+      "masaDecimales": 1,
+      "volumenDecimales": 2
+    }
+  }
+]

@@ -3,45 +3,146 @@ import {
   type GeneratorFn,
   type NumericExercise,
   randFloat,
+  choice,
 } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/20_diluciones/enunciados.json?raw";
+
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface DilucionData {
+  C1Min: number;
+  C1Max: number;
+  V1Min: number;
+  V1Max: number;
+  factorDilucion: number;
+  decimalsC1: number;
+  decimalsV1: number;
+  decimalsC2: number;
+  pasos: string[];
+}
+
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: DilucionData;
+}
+
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(`Catálogo inválido en 20_diluciones/enunciados.json: ${String(error)}`);
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("El catálogo 20_diluciones/enunciados.json debe ser un array.");
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    const data = item.data;
+    const numericFields: (keyof Omit<DilucionData, "pasos">)[] = [
+      "C1Min",
+      "C1Max",
+      "V1Min",
+      "V1Max",
+      "factorDilucion",
+      "decimalsC1",
+      "decimalsV1",
+      "decimalsC2",
+    ];
+
+    for (const key of numericFields) {
+      if (typeof data?.[key] !== "number") {
+        throw new Error(`Data inválida en catálogo para id=${item.id}: campo ${key}.`);
+      }
+    }
+
+    if (!Array.isArray(data?.pasos) || data.pasos.some((paso) => typeof paso !== "string")) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}: campo pasos.`);
+    }
+  }
+
+  return items;
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+const CATALOGO = parseCatalogo();
+
+export function getDilucionesCatalogItemById(itemId: number): CatalogItem {
+  const found = CATALOGO.find((item) => item.id === itemId);
+  if (!found) {
+    throw new Error(`No existe itemId=${itemId} en 20_diluciones/enunciados.json.`);
+  }
+  return found;
+}
 
 export const generarDiluciones: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const C1 = dificultad === "facil"
-    ? randFloat(0.5, 1.5, 2)      // mol/L
-    : randFloat(1.0, 3.0, 2);
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const V1 = dificultad === "facil"
-    ? randFloat(10, 50, 1)       // mL
-    : randFloat(20, 80, 1);
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
 
-  const factorDilucion = dificultad === "facil"
-    ? 2
-    : 3; // para no complicar demasiado
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en 20_diluciones/enunciados.json.`
+    );
+  }
 
-  const V2 = V1 * factorDilucion; // mL
-  const C2 = (C1 * V1) / V2;
+  const selected = choice(pool);
+  const C1 = randFloat(selected.data.C1Min, selected.data.C1Max, selected.data.decimalsC1);
+  const V1 = randFloat(selected.data.V1Min, selected.data.V1Max, selected.data.decimalsV1);
+  const V2 = parseFloat((V1 * selected.data.factorDilucion).toFixed(selected.data.decimalsV1));
+  const C2 = parseFloat(((C1 * V1) / V2).toFixed(selected.data.decimalsC2));
 
-  const C1R = parseFloat(C1.toFixed(2));
-  const V1R = parseFloat(V1.toFixed(1));
-  const V2R = parseFloat(V2.toFixed(1));
-  const C2R = parseFloat(C2.toFixed(3));
-
-  return {
+  const ejercicio = {
     idTema: 20,
     tituloTema: "Diluciones (C₁V₁ = C₂V₂)",
     dificultad,
-    tipo: "numeric",
-    enunciado:
-      "Se tiene una solución concentrada de un soluto cualquiera.\n" +
-      `Su concentración inicial es C₁ = ${C1R} mol/L y se toman ${V1R} mL de esta solución.\n` +
-      `Luego se añade disolvente hasta alcanzar un volumen final de ${V2R} mL.\n` +
-      "Calcula la nueva concentración C₂ de la solución diluida.",
+    tipo: "numeric" as const,
+    enunciado: renderEnunciado(selected.enunciadoBase, { C1, V1, V2 }),
     datos: {
-      C1: C1R,
-      V1: V1R,
-      V2: V2R,
+      C1,
+      V1,
+      V2,
+      factorDilucion: selected.data.factorDilucion,
     },
     unidades: {
       C1: "mol/L",
@@ -49,13 +150,21 @@ export const generarDiluciones: GeneratorFn = (
       V2: "mL",
       resultado: "mol/L",
     },
-    resultado: C2R,
+    resultado: C2,
     toleranciaRelativa: 0.02,
-    pasos: [
-      "Recuerda que en una dilución se conserva el número de moles de soluto: C₁·V₁ = C₂·V₂.",
-      "Despeja C₂: C₂ = (C₁·V₁) / V₂.",
-      "Sustituye los valores de C₁, V₁ y V₂ (en las mismas unidades de volumen).",
-      "Redondea el resultado a 3 cifras decimales.",
-    ],
+    pasos: selected.data.pasos,
+    catalogRef: {
+      materia: "quimica",
+      tema: "20_diluciones",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      tema: "20_diluciones";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };

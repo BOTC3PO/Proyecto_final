@@ -2,78 +2,135 @@
 import {
   type GeneratorFn,
   type NumericExercise,
-  choice,
   randFloat,
+  choice,
 } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/relaciones_molares/enunciados.json?raw";
 
-interface ReaccionSimple {
-  ecuacion: string;
-  // coeficientes estequiométricos en orden [reactivo1, reactivo2?, producto1...]
-  // vamos a usar solo una relación a→p o p→p para el enunciado
-  nombreReactivo: string;
-  nombreProducto: string;
-  coefReactivo: number;
-  coefProducto: number;
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    ecuacion: string;
+    nombreReactivo: string;
+    nombreProducto: string;
+    coefReactivo: number;
+    coefProducto: number;
+    nReactivoMin: number;
+    nReactivoMax: number;
+    nReactivoDecimales: number;
+  };
 }
 
-const REACCIONES: ReaccionSimple[] = [
-  {
-    ecuacion: "N2 + 3 H2 → 2 NH3",
-    nombreReactivo: "H₂",
-    nombreProducto: "NH₃",
-    coefReactivo: 3,
-    coefProducto: 2,
-  },
-  {
-    ecuacion: "2 H2 + O2 → 2 H2O",
-    nombreReactivo: "O₂",
-    nombreProducto: "H₂O",
-    coefReactivo: 1,
-    coefProducto: 2,
-  },
-  {
-    ecuacion: "4 Al + 3 O2 → 2 Al2O3",
-    nombreReactivo: "Al",
-    nombreProducto: "Al₂O₃",
-    coefReactivo: 4,
-    coefProducto: 2,
-  },
-  {
-    ecuacion: "CaCO3 → CaO + CO2",
-    nombreReactivo: "CaCO₃",
-    nombreProducto: "CO₂",
-    coefReactivo: 1,
-    coefProducto: 1,
-  },
-];
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(
+      `Catálogo inválido en relaciones_molares/enunciados.json: ${String(error)}`
+    );
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("El catálogo relaciones_molares/enunciados.json debe ser un array.");
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (
+      typeof item.data?.ecuacion !== "string" ||
+      typeof item.data?.nombreReactivo !== "string" ||
+      typeof item.data?.nombreProducto !== "string" ||
+      typeof item.data?.coefReactivo !== "number" ||
+      typeof item.data?.coefProducto !== "number" ||
+      typeof item.data?.nReactivoMin !== "number" ||
+      typeof item.data?.nReactivoMax !== "number" ||
+      typeof item.data?.nReactivoDecimales !== "number"
+    ) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+  }
+
+  return items;
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+const CATALOGO = parseCatalogo();
 
 export const generarRelacionesMolares: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const rxn = choice(REACCIONES);
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  // moles de reactivo dados
-  const nReactivo = dificultad === "facil"
-    ? randFloat(0.5, 2.0, 2)
-    : randFloat(1.0, 5.0, 2);
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
 
-  // nProducto = nReactivo * (coefProducto / coefReactivo)
-  const nProducto = nReactivo * (rxn.coefProducto / rxn.coefReactivo);
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en relaciones_molares/enunciados.json.`
+    );
+  }
 
-  return {
+  const selected = choice(pool);
+  const nReactivo = randFloat(
+    selected.data.nReactivoMin,
+    selected.data.nReactivoMax,
+    selected.data.nReactivoDecimales
+  );
+  const nProducto = nReactivo * (selected.data.coefProducto / selected.data.coefReactivo);
+
+  const ejercicio = {
     idTema: 5,
     tituloTema: "Relaciones molares entre reactivos y productos",
     dificultad,
-    tipo: "numeric",
-    enunciado:
-      `Para la reacción balanceada:\n` +
-      `${rxn.ecuacion}\n\n` +
-      `Si reaccionan completamente ${nReactivo} mol de ${rxn.nombreReactivo}, ` +
-      `¿cuántos moles de ${rxn.nombreProducto} se forman?`,
+    tipo: "numeric" as const,
+    enunciado: renderEnunciado(selected.enunciadoBase, {
+      ecuacion: selected.data.ecuacion,
+      nReactivo,
+      nombreReactivo: selected.data.nombreReactivo,
+      nombreProducto: selected.data.nombreProducto,
+    }),
     datos: {
       nReactivo,
-      coefReactivo: rxn.coefReactivo,
-      coefProducto: rxn.coefProducto,
+      coefReactivo: selected.data.coefReactivo,
+      coefProducto: selected.data.coefProducto,
     },
     unidades: {
       nReactivo: "mol",
@@ -81,8 +138,8 @@ export const generarRelacionesMolares: GeneratorFn = (
     },
     resultado: parseFloat(nProducto.toFixed(3)),
     visualSpec: {
-      kind: "chart",
-      chartType: "bar",
+      kind: "chart" as const,
+      chartType: "bar" as const,
       title: "Relación molar reactivo-producto",
       xAxis: { label: "Sustancia" },
       yAxis: { label: "Moles" },
@@ -91,8 +148,11 @@ export const generarRelacionesMolares: GeneratorFn = (
           id: "relacion-molar",
           label: "Moles",
           data: [
-            { x: rxn.nombreReactivo, y: parseFloat(nReactivo.toFixed(2)) },
-            { x: rxn.nombreProducto, y: parseFloat(nProducto.toFixed(2)) },
+            {
+              x: selected.data.nombreReactivo,
+              y: parseFloat(nReactivo.toFixed(selected.data.nReactivoDecimales)),
+            },
+            { x: selected.data.nombreProducto, y: parseFloat(nProducto.toFixed(2)) },
           ],
         },
       ],
@@ -100,10 +160,23 @@ export const generarRelacionesMolares: GeneratorFn = (
     toleranciaRelativa: 0.02,
     pasos: [
       "Identifica los coeficientes estequiométricos de la ecuación balanceada.",
-      `Relación: n(${rxn.nombreProducto}) / n(${rxn.nombreReactivo}) = ` +
-        `${rxn.coefProducto} / ${rxn.coefReactivo}.`,
-      `Calcula: n(${rxn.nombreProducto}) = ${nReactivo} · (${rxn.coefProducto}/${rxn.coefReactivo}).`,
+      `Relación: n(${selected.data.nombreProducto}) / n(${selected.data.nombreReactivo}) = ` +
+        `${selected.data.coefProducto} / ${selected.data.coefReactivo}.`,
+      `Calcula: n(${selected.data.nombreProducto}) = ${nReactivo} · (${selected.data.coefProducto}/${selected.data.coefReactivo}).`,
       "Redondea el resultado a 3 cifras decimales.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      tema: "relaciones_molares",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      tema: "relaciones_molares";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };

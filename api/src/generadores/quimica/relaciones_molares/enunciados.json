@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Para la reacción balanceada:\n{{ecuacion}}\n\nSi reaccionan completamente {{nReactivo}} mol de {{nombreReactivo}}, ¿cuántos moles de {{nombreProducto}} se forman?",
+    "data": {
+      "ecuacion": "N2 + 3 H2 → 2 NH3",
+      "nombreReactivo": "H₂",
+      "nombreProducto": "NH₃",
+      "coefReactivo": 3,
+      "coefProducto": 2,
+      "nReactivoMin": 0.5,
+      "nReactivoMax": 2,
+      "nReactivoDecimales": 2
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Para la reacción balanceada:\n{{ecuacion}}\n\nSi reaccionan completamente {{nReactivo}} mol de {{nombreReactivo}}, ¿cuántos moles de {{nombreProducto}} se forman?",
+    "data": {
+      "ecuacion": "2 H2 + O2 → 2 H2O",
+      "nombreReactivo": "O₂",
+      "nombreProducto": "H₂O",
+      "coefReactivo": 1,
+      "coefProducto": 2,
+      "nReactivoMin": 0.5,
+      "nReactivoMax": 2,
+      "nReactivoDecimales": 2
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para la reacción balanceada:\n{{ecuacion}}\n\nSi reaccionan completamente {{nReactivo}} mol de {{nombreReactivo}}, ¿cuántos moles de {{nombreProducto}} se forman?",
+    "data": {
+      "ecuacion": "4 Al + 3 O2 → 2 Al2O3",
+      "nombreReactivo": "Al",
+      "nombreProducto": "Al₂O₃",
+      "coefReactivo": 4,
+      "coefProducto": 2,
+      "nReactivoMin": 1,
+      "nReactivoMax": 5,
+      "nReactivoDecimales": 2
+    }
+  },
+  {
+    "id": 4,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Para la reacción balanceada:\n{{ecuacion}}\n\nSi reaccionan completamente {{nReactivo}} mol de {{nombreReactivo}}, ¿cuántos moles de {{nombreProducto}} se forman?",
+    "data": {
+      "ecuacion": "CaCO3 → CaO + CO2",
+      "nombreReactivo": "CaCO₃",
+      "nombreProducto": "CO₂",
+      "coefReactivo": 1,
+      "coefProducto": 1,
+      "nReactivoMin": 1,
+      "nReactivoMax": 5,
+      "nReactivoDecimales": 2
+    }
+  }
+]
