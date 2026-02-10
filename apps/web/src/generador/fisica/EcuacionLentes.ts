@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaEcuacionLentes.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class EcuacionLentesGenerator extends FisicaBaseGenerator {
@@ -50,7 +50,6 @@ export class EcuacionLentesGenerator extends FisicaBaseGenerator {
       categoria: "ecuacion_lentes",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["ecuacion_lentes"][0] ||
         `Un objeto está a ${distanciaObjeto} cm de una lente convergente con distancia focal ${distanciaFocal} cm. ¿A qué distancia se forma la imagen?`,
       tipoRespuesta: "multiple",
       datos: { distanciaObjeto, distanciaFocal },

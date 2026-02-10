@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaEnergiaCinetica.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class EnergiaCineticaGenerator extends FisicaBaseGenerator {
@@ -49,7 +49,6 @@ export class EnergiaCineticaGenerator extends FisicaBaseGenerator {
       categoria: "energia_cinetica",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["energia_cinetica"][0] ||
         `Un objeto de ${masa} kg se mueve a ${velocidad} m/s. ¿Cuál es su energía cinética?`,
       tipoRespuesta: "multiple",
       datos: { masa, velocidad },

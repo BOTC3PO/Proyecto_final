@@ -31,7 +31,7 @@ const resolveActorId = (req: { header: (name: string) => string | undefined; bod
 
 governance.get("/api/prompts", async (req, res) => {
   try {
-    const targetType = String(req.query.targetType ?? "").trim();
+    const targetType = String(req.query.targetType ?? "").trim().toUpperCase();
     const targetId = String(req.query.targetId ?? "").trim();
 
     if (!targetType || !targetId) {

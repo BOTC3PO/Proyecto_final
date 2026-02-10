@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaOpticaGeometrica.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class OpticaGeometricaGenerator extends FisicaBaseGenerator {
@@ -59,7 +59,7 @@ export class OpticaGeometricaGenerator extends FisicaBaseGenerator {
       categoria: "optica_geometrica",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["optica_geometrica"][0] || enunciado,
+        enunciado,
       tipoRespuesta: "multiple",
       datos,
       opciones: opciones.map((o) => `${o}°`),

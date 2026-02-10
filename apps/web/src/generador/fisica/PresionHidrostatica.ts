@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaPresionHidrostatica.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class PresionHidrostaticaGenerator extends FisicaBaseGenerator {
@@ -54,7 +54,6 @@ export class PresionHidrostaticaGenerator extends FisicaBaseGenerator {
       categoria: "presion_hidrostatica",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["presion_hidrostatica"][0] ||
         `¿Cuál es la presión hidrostática en ${fluido.nombre} a ${profundidad} m de profundidad? (ρ = ${densidad} kg/m³, g = 9.8 m/s²)`,
       tipoRespuesta: "multiple",
       datos: { densidad, g, profundidad },

@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaDensidad.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class DensidadGenerator extends FisicaBaseGenerator {
@@ -63,7 +63,7 @@ export class DensidadGenerator extends FisicaBaseGenerator {
       materia: this.materia,
       categoria: "densidad",
       nivel: params.nivel,
-      enunciado: ENUNCIADOS_FISICA["densidad"][0] || enunciado,
+      enunciado: enunciado,
       tipoRespuesta: "multiple",
       datos,
       opciones: opciones.map((o) => `${o} ${unidad}`),

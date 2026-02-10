@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaLongitudOnda.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class LongitudOndaGenerator extends FisicaBaseGenerator {
@@ -41,7 +41,6 @@ export class LongitudOndaGenerator extends FisicaBaseGenerator {
       categoria: "longitud_onda",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["longitud_onda"][0] ||
         `Una onda se propaga a ${velocidad} m/s con frecuencia ${frecuencia} Hz. ¿Cuál es su longitud de onda?`,
       tipoRespuesta: "multiple",
       datos: { velocidad, frecuencia },

@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaMovimientoHorizontal.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class MovimientoHorizontalGenerator extends FisicaBaseGenerator {
@@ -42,7 +42,6 @@ export class MovimientoHorizontalGenerator extends FisicaBaseGenerator {
       categoria: "movimiento_horizontal",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["movimiento_horizontal"][0] ||
         `Desde una altura de ${altura} m se lanza horizontalmente un objeto con velocidad ${velocidad} m/s. ¿Qué distancia horizontal recorre antes de tocar el suelo? (g = 9.8 m/s²)`,
       tipoRespuesta: "multiple",
       datos: { altura, velocidad, g },

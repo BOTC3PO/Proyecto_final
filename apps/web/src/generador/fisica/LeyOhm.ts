@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaLeyOhm.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class LeyOhmGenerator extends FisicaBaseGenerator {
@@ -65,7 +65,7 @@ export class LeyOhmGenerator extends FisicaBaseGenerator {
       materia: this.materia,
       categoria: "ley_ohm",
       nivel: params.nivel,
-      enunciado: ENUNCIADOS_FISICA["ley_ohm"][0] || enunciado,
+      enunciado: enunciado,
       tipoRespuesta: "multiple",
       datos,
       opciones: opciones.map((o) => `${o} ${unidad}`),

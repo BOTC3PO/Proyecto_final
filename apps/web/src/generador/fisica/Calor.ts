@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaCalor.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class CalorGenerator extends FisicaBaseGenerator {
@@ -61,7 +61,6 @@ export class CalorGenerator extends FisicaBaseGenerator {
       categoria: "calor",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["calor"][0] ||
         `¿Cuánto calor se necesita para elevar la temperatura de ${masa} g de una sustancia (c = ${calorEspecifico} J/g°C) en ${deltaT}°C?`,
       tipoRespuesta: "multiple",
       datos: { masa, calorEspecifico, deltaT },

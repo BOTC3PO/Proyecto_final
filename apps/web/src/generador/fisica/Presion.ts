@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaPresion.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class PresionGenerator extends FisicaBaseGenerator {
@@ -41,7 +41,6 @@ export class PresionGenerator extends FisicaBaseGenerator {
       categoria: "presion",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["presion"][0] ||
         `Se aplica una fuerza de ${fuerza} N sobre un área de ${area} cm². ¿Cuál es la presión?`,
       tipoRespuesta: "multiple",
       datos: { fuerza, area },

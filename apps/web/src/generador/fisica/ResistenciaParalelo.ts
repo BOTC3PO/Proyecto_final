@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaResistenciaParalelo.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class ResistenciaParaleloGenerator extends FisicaBaseGenerator {
@@ -61,7 +61,6 @@ export class ResistenciaParaleloGenerator extends FisicaBaseGenerator {
       categoria: "resistencia_paralelo",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["resistencia_paralelo"][0] ||
         `Calcula la resistencia equivalente de estas resistencias en paralelo: ${resistencias
           .map((r) => `${r} Ω`)
           .join(", ")}`,

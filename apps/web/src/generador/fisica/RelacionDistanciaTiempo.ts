@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaRelacionDistanciaTiempo.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class RelacionDistanciaTiempoGenerator extends FisicaBaseGenerator {
@@ -88,7 +88,7 @@ export class RelacionDistanciaTiempoGenerator extends FisicaBaseGenerator {
       categoria: "relacion_distancia_tiempo",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["relacion_distancia_tiempo"][0] || enunciado,
+        enunciado,
       tipoRespuesta: "multiple",
       datos,
       opciones: opciones.map((o) => `${o} ${unidad}`),

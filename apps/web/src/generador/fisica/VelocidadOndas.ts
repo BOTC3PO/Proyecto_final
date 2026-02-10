@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaVelocidadOndas.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class VelocidadOndasGenerator extends FisicaBaseGenerator {
@@ -41,7 +41,6 @@ export class VelocidadOndasGenerator extends FisicaBaseGenerator {
       categoria: "velocidad_ondas",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["velocidad_ondas"][0] ||
         `Una onda tiene frecuencia ${frecuencia} Hz y longitud de onda ${longitud} m. ¿Cuál es su velocidad de propagación?`,
       tipoRespuesta: "multiple",
       datos: { frecuencia, longitud },

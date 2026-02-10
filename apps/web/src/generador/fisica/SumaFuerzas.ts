@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaSumaFuerzas.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class SumaFuerzasGenerator extends FisicaBaseGenerator {
@@ -50,7 +50,6 @@ export class SumaFuerzasGenerator extends FisicaBaseGenerator {
       categoria: "suma_fuerzas",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["suma_fuerzas"][0] ||
         `Sobre un objeto actúan las siguientes fuerzas: ${fuerzas
           .map((f) => `${f} N`)
           .join(", ")}. ¿Cuál es la fuerza resultante?`,

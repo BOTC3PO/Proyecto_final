@@ -1,4 +1,4 @@
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class MRUGenerator extends FisicaBaseGenerator {
@@ -51,7 +51,6 @@ export class MRUGenerator extends FisicaBaseGenerator {
       categoria: "MRU",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["MRU"][0] ||
         `Un vehículo se desplaza con velocidad constante de ${velocidad} m/s durante ${tiempo} segundos. ¿Qué distancia recorre?`,
       tipoRespuesta: "multiple",
       datos: { velocidad, tiempo },

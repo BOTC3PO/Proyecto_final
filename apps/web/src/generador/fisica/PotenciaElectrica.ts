@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaPotenciaElectrica.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class PotenciaElectricaGenerator extends FisicaBaseGenerator {
@@ -41,7 +41,6 @@ export class PotenciaElectricaGenerator extends FisicaBaseGenerator {
       categoria: "potencia_electrica",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["potencia_electrica"][0] ||
         `Un dispositivo funciona con ${voltaje} V y consume ${corriente} A. ¿Cuál es su potencia?`,
       tipoRespuesta: "multiple",
       datos: { voltaje, corriente },

@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaIndiceRefraccion.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class IndiceRefraccionGenerator extends FisicaBaseGenerator {
@@ -65,7 +65,7 @@ export class IndiceRefraccionGenerator extends FisicaBaseGenerator {
       categoria: "indice_refraccion",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["indice_refraccion"][0] || enunciado,
+        enunciado,
       tipoRespuesta: "multiple",
       datos,
       opciones: opciones.map((o) => `${o} ${unidad}`.trim()),

@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaConversionTemperatura.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class ConversionTemperaturaGenerator extends FisicaBaseGenerator {
@@ -50,7 +50,6 @@ export class ConversionTemperaturaGenerator extends FisicaBaseGenerator {
       categoria: "conversion_temperatura",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["conversion_temperatura"][0] ||
         `Convierte ${temperatura}${unidadOrigen} a ${unidadDestino}`,
       tipoRespuesta: "multiple",
       datos: { temperatura, tipo: conversion },

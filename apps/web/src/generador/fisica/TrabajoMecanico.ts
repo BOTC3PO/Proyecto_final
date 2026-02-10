@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaTrabajoMecanico.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class TrabajoMecanicoGenerator extends FisicaBaseGenerator {
@@ -41,7 +41,6 @@ export class TrabajoMecanicoGenerator extends FisicaBaseGenerator {
       categoria: "trabajo_mecanico",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["trabajo_mecanico"][0] ||
         `Se aplica una fuerza de ${fuerza} N para mover un objeto ${distancia} m en la misma dirección. ¿Cuánto trabajo se realiza?`,
       tipoRespuesta: "multiple",
       datos: { fuerza, distancia },

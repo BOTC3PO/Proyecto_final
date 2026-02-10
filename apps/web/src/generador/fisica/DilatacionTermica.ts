@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaDilatacionTermica.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class DilatacionTermicaGenerator extends FisicaBaseGenerator {
@@ -45,7 +45,6 @@ export class DilatacionTermicaGenerator extends FisicaBaseGenerator {
       categoria: "dilatacion_termica",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["dilatacion_termica"][0] ||
         `Una barra de ${longitud} cm se calienta ${deltaT}°C. Si α = ${coeficiente} °C⁻¹, ¿cuánto se dilata?`,
       tipoRespuesta: "multiple",
       datos: { longitud, coeficiente, deltaT },

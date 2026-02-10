@@ -107,6 +107,22 @@ const findQuiz = (module: ModuleWithQuizzes | null, quizId: string) => {
   return null;
 };
 
+
+const ensureGeneratorPromptConfigured = async (
+  db: Awaited<ReturnType<typeof getDb>>,
+  generatorId: string
+) => {
+  const prompt = await db.collection("prompts").findOne({
+    targetType: "GENERATOR",
+    targetId: generatorId,
+    kind: "TEXT",
+    status: "ACTIVE"
+  });
+  if (!prompt || typeof prompt.bodyText !== "string" || !prompt.bodyText.trim()) {
+    throw new Error(`missing ACTIVE TEXT prompt for generatorId=${generatorId}`);
+  }
+};
+
 const buildSeed = (quiz: ModuleQuiz | null) => {
   if (!quiz) return null;
   if (quiz.fixedSeed !== undefined) return quiz.fixedSeed;
@@ -245,6 +261,9 @@ quizAttempts.post(
     );
     const quiz = collectionQuiz ?? findQuiz(module, payload.quizId);
     if (!quiz) return res.status(404).json({ error: "quiz not found" });
+    if (quiz.generatorId) {
+      await ensureGeneratorPromptConfigured(db, quiz.generatorId);
+    }
     const quizVersionSource = version?.version ?? quiz.generatorVersion ?? 1;
     const quizVersion = QuizVersionSchema.parse(quizVersionSource);
     const userId =

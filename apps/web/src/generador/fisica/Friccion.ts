@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaFriccion.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class FriccionGenerator extends FisicaBaseGenerator {
@@ -43,7 +43,6 @@ export class FriccionGenerator extends FisicaBaseGenerator {
       categoria: "friccion",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["friccion"][0] ||
         `Un objeto de ${masa} kg se desliza sobre una superficie con coeficiente de fricción μ = ${coeficiente}. ¿Cuál es la fuerza de fricción? (g = 9.8 m/s²)`,
       tipoRespuesta: "multiple",
       datos: { masa, coeficiente, g },

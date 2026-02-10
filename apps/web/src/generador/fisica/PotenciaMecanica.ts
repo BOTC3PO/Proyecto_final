@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaPotenciaMecanica.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class PotenciaMecanicaGenerator extends FisicaBaseGenerator {
@@ -41,7 +41,6 @@ export class PotenciaMecanicaGenerator extends FisicaBaseGenerator {
       categoria: "potencia_mecanica",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["potencia_mecanica"][0] ||
         `Se realiza un trabajo de ${trabajo} J en ${tiempo} segundos. ¿Cuál es la potencia desarrollada?`,
       tipoRespuesta: "multiple",
       datos: { trabajo, tiempo },

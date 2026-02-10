@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaCambiosEstado.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class CambiosEstadoGenerator extends FisicaBaseGenerator {
@@ -58,7 +58,6 @@ export class CambiosEstadoGenerator extends FisicaBaseGenerator {
       categoria: "cambios_estado",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["cambios_estado"][0] ||
         `¿Cuánto calor se necesita para ${proceso} ${masa} g de ${sustancia}? (L = ${calorLatente} kJ/kg)`,
       tipoRespuesta: "multiple",
       datos: { masa, calorLatente, sustancia },

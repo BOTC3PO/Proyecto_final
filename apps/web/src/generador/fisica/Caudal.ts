@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaCaudal.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class CaudalGenerator extends FisicaBaseGenerator {
@@ -41,7 +41,6 @@ export class CaudalGenerator extends FisicaBaseGenerator {
       categoria: "caudal",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["caudal"][0] ||
         `Por una tubería circulan ${volumen} litros en ${tiempo} segundos. ¿Cuál es el caudal?`,
       tipoRespuesta: "multiple",
       datos: { volumen, tiempo },
