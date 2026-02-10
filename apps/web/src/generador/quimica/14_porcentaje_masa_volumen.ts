@@ -1,25 +1,132 @@
-// src/generators/quimica/14_porcentaje_masa_volumen.ts
 import {
   type GeneratorFn,
   type NumericExercise,
+  choice,
   randFloat,
 } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/14_porcentaje_masa_volumen/enunciados.json?raw";
+
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    soluto: string;
+    masaSolutoMin: number;
+    masaSolutoMax: number;
+    volumenSolucionMin: number;
+    volumenSolucionMax: number;
+    decimalesMasa: number;
+    decimalesVolumen: number;
+  };
+}
+
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+const CATALOGO_TEMA = "14_porcentaje_masa_volumen";
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(
+      `Catálogo inválido en ${CATALOGO_TEMA}/enunciados.json: ${String(error)}`
+    );
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error(`El catálogo ${CATALOGO_TEMA}/enunciados.json debe ser un array.`);
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (
+      typeof item.data?.soluto !== "string" ||
+      typeof item.data?.masaSolutoMin !== "number" ||
+      typeof item.data?.masaSolutoMax !== "number" ||
+      typeof item.data?.volumenSolucionMin !== "number" ||
+      typeof item.data?.volumenSolucionMax !== "number" ||
+      typeof item.data?.decimalesMasa !== "number" ||
+      typeof item.data?.decimalesVolumen !== "number"
+    ) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+  }
+
+  return items;
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+const CATALOGO = parseCatalogo();
+
+export function getCatalogItemById(itemId: number): CatalogItem {
+  const item = CATALOGO.find((entry) => entry.id === itemId);
+  if (!item) {
+    throw new Error(`No existe itemId=${itemId} en ${CATALOGO_TEMA}/enunciados.json.`);
+  }
+  return item;
+}
 
 export const generarPorcentajeMasaVolumen: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const masaSoluto = dificultad === "facil"
-    ? randFloat(2, 10, 1)
-    : randFloat(5, 20, 1);        // g
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const volumenSolucion = dificultad === "facil"
-    ? randFloat(50, 200, 0)       // mL
-    : randFloat(100, 500, 0);
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
 
-  const masaSolutoR = parseFloat(masaSoluto.toFixed(1));
-  const volumenSolucionR = parseFloat(volumenSolucion.toFixed(0));
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en ${CATALOGO_TEMA}/enunciados.json.`
+    );
+  }
 
-  const porcentaje = (masaSolutoR / volumenSolucionR) * 100;
+  const selected = choice(pool);
+  const masaSoluto = randFloat(
+    selected.data.masaSolutoMin,
+    selected.data.masaSolutoMax,
+    selected.data.decimalesMasa
+  );
+  const volumenSolucion = randFloat(
+    selected.data.volumenSolucionMin,
+    selected.data.volumenSolucionMax,
+    selected.data.decimalesVolumen
+  );
+
+  const porcentaje = (masaSoluto / volumenSolucion) * 100;
   const resultado = parseFloat(porcentaje.toFixed(1));
 
   return {
@@ -27,13 +134,14 @@ export const generarPorcentajeMasaVolumen: GeneratorFn = (
     tituloTema: "% m/v",
     dificultad,
     tipo: "numeric",
-    enunciado:
-      "Se prepara una solución acuosa de un soluto sólido.\n" +
-      `Si se disuelven ${masaSolutoR} g de soluto hasta obtener un volumen final de ${volumenSolucionR} mL de solución,\n` +
-      "calcula la concentración en porcentaje masa/volumen (% m/v) del soluto.",
+    enunciado: renderEnunciado(selected.enunciadoBase, {
+      soluto: selected.data.soluto,
+      masaSoluto,
+      volumenSolucion,
+    }),
     datos: {
-      masaSoluto: masaSolutoR,
-      volumenSolucion: volumenSolucionR,
+      masaSoluto,
+      volumenSolucion,
     },
     unidades: {
       masaSoluto: "g",
@@ -44,9 +152,20 @@ export const generarPorcentajeMasaVolumen: GeneratorFn = (
     toleranciaRelativa: 0.02,
     pasos: [
       "Recuerda que % m/v = (masa de soluto en g / volumen de solución en mL) · 100.",
-      `Sustituye los datos: % m/v = (${masaSolutoR} g / ${volumenSolucionR} mL) · 100.`,
+      `Sustituye los datos: % m/v = (${masaSoluto} g / ${volumenSolucion} mL) · 100.`,
       "Realiza la división y multiplica por 100.",
       "Redondea el resultado a 1 decimal.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      tema: CATALOGO_TEMA,
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      tema: "14_porcentaje_masa_volumen";
+      itemId: number;
+    };
   };
 };
