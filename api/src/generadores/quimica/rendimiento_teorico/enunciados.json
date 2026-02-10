@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se considera la reacción: {{reaccion}}.\n\nSe hacen reaccionar completamente {{masaH2}} g de H₂ con exceso de O₂. Calcula la masa teórica de agua (H₂O) que se puede obtener.",
+    "data": {
+      "reactivo": "H2",
+      "producto": "H2O",
+      "reaccion": "2 H₂(g) + O₂(g) → 2 H₂O(l)",
+      "masaMolarReactivo": 2,
+      "masaMolarProducto": 18,
+      "masaMin": 2,
+      "masaMax": 10,
+      "decimalesMasa": 1
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para la reacción {{reaccion}}, el H₂ es el reactivo limitante y el O₂ está en exceso.\n\nSi reaccionan completamente {{masaH2}} g de H₂, determina la masa teórica de H₂O formada.",
+    "data": {
+      "reactivo": "H2",
+      "producto": "H2O",
+      "reaccion": "2 H₂(g) + O₂(g) → 2 H₂O(l)",
+      "masaMolarReactivo": 2,
+      "masaMolarProducto": 18,
+      "masaMin": 5,
+      "masaMax": 20,
+      "decimalesMasa": 1
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se estudia la síntesis de agua con la reacción balanceada {{reaccion}}.\n\nPartiendo de {{masaH2}} g de H₂ puro y con O₂ en exceso, calcula el rendimiento teórico en masa de H₂O.",
+    "data": {
+      "reactivo": "H2",
+      "producto": "H2O",
+      "reaccion": "2 H₂(g) + O₂(g) → 2 H₂O(l)",
+      "masaMolarReactivo": 2,
+      "masaMolarProducto": 18,
+      "masaMin": 8,
+      "masaMax": 28,
+      "decimalesMasa": 1
+    }
+  }
+]
