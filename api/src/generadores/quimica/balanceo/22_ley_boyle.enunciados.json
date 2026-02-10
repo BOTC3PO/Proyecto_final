@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Un gas ideal se encuentra inicialmente a temperatura constante. La presión inicial es P₁ = {{P1}} atm y el volumen inicial V₁ = {{V1}} L. Luego se comprime el gas hasta un volumen V₂ = {{V2}} L. Suponiendo temperatura constante, calcula la nueva presión P₂ del gas (en atm).",
+    "data": {
+      "p1Min": 0.8,
+      "p1Max": 1.2,
+      "v1Min": 1.0,
+      "v1Max": 3.0,
+      "factorCompresionMin": 0.4,
+      "factorCompresionMax": 0.8
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Un gas ideal se encuentra inicialmente a temperatura constante. La presión inicial es P₁ = {{P1}} atm y el volumen inicial V₁ = {{V1}} L. Luego se comprime el gas hasta un volumen V₂ = {{V2}} L. Suponiendo temperatura constante, calcula la nueva presión P₂ del gas (en atm).",
+    "data": {
+      "p1Min": 0.6,
+      "p1Max": 1.8,
+      "v1Min": 1.0,
+      "v1Max": 4.0,
+      "factorCompresionMin": 0.35,
+      "factorCompresionMax": 0.85
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Un gas ideal se encuentra inicialmente a temperatura constante. La presión inicial es P₁ = {{P1}} atm y el volumen inicial V₁ = {{V1}} L. Luego se comprime el gas hasta un volumen V₂ = {{V2}} L. Suponiendo temperatura constante, calcula la nueva presión P₂ del gas (en atm).",
+    "data": {
+      "p1Min": 0.5,
+      "p1Max": 2.0,
+      "v1Min": 1.0,
+      "v1Max": 5.0,
+      "factorCompresionMin": 0.3,
+      "factorCompresionMax": 0.9
+    }
+  }
+]
