@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una muestra de {{masa}} g de {{sustancia}} tiene una masa molar aproximada de {{masaMolar}} g/mol. ¿Cuántos moles de {{sustancia}} hay en la muestra?",
+    "data": {
+      "sustancia": "H2O",
+      "masaMolar": 18,
+      "masaMin": 5,
+      "masaMax": 50
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una muestra de {{masa}} g de {{sustancia}} tiene una masa molar aproximada de {{masaMolar}} g/mol. ¿Cuántos moles de {{sustancia}} hay en la muestra?",
+    "data": {
+      "sustancia": "O2",
+      "masaMolar": 32,
+      "masaMin": 5,
+      "masaMax": 60
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Una muestra de {{masa}} g de {{sustancia}} tiene una masa molar aproximada de {{masaMolar}} g/mol. ¿Cuántos moles de {{sustancia}} hay en la muestra?",
+    "data": {
+      "sustancia": "CO2",
+      "masaMolar": 44,
+      "masaMin": 20,
+      "masaMax": 150
+    }
+  },
+  {
+    "id": 4,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Una muestra de {{masa}} g de {{sustancia}} tiene una masa molar aproximada de {{masaMolar}} g/mol. ¿Cuántos moles de {{sustancia}} hay en la muestra?",
+    "data": {
+      "sustancia": "NaCl",
+      "masaMolar": 58.5,
+      "masaMin": 15,
+      "masaMax": 180
+    }
+  },
+  {
+    "id": 5,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Una muestra de {{masa}} g de {{sustancia}} tiene una masa molar aproximada de {{masaMolar}} g/mol. ¿Cuántos moles de {{sustancia}} hay en la muestra?",
+    "data": {
+      "sustancia": "CaCO3",
+      "masaMolar": 100,
+      "masaMin": 40,
+      "masaMax": 300
+    }
+  }
+]
