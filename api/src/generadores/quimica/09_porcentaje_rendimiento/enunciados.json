@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "En la reacción de formación de agua:\n2 H₂(g) + O₂(g) → 2 H₂O(l)\n\nSe hacen reaccionar {{masaH2}} g de H₂ con exceso de O₂.\nLa masa teórica de agua que podría obtenerse es de {{masaTeoricaH2O}} g.\nEn el laboratorio se obtienen realmente {{masaRealH2O}} g de agua.\nCalcula el porcentaje de rendimiento de la reacción.",
+    "data": {
+      "masaH2Min": 2,
+      "masaH2Max": 10,
+      "decimalesMasaH2": 1,
+      "factorRealMin": 0.8,
+      "factorRealMax": 0.95,
+      "decimalesFactorReal": 2,
+      "masaMolarH2": 2,
+      "masaMolarH2O": 18
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "En la reacción de formación de agua:\n2 H₂(g) + O₂(g) → 2 H₂O(l)\n\nSe hacen reaccionar {{masaH2}} g de H₂ con exceso de O₂.\nLa masa teórica de agua que podría obtenerse es de {{masaTeoricaH2O}} g.\nEn el laboratorio se obtienen realmente {{masaRealH2O}} g de agua.\nCalcula el porcentaje de rendimiento de la reacción.",
+    "data": {
+      "masaH2Min": 5,
+      "masaH2Max": 20,
+      "decimalesMasaH2": 1,
+      "factorRealMin": 0.6,
+      "factorRealMax": 0.95,
+      "decimalesFactorReal": 2,
+      "masaMolarH2": 2,
+      "masaMolarH2O": 18
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "En la reacción de formación de agua:\n2 H₂(g) + O₂(g) → 2 H₂O(l)\n\nSe hacen reaccionar {{masaH2}} g de H₂ con exceso de O₂.\nLa masa teórica de agua que podría obtenerse es de {{masaTeoricaH2O}} g.\nEn el laboratorio se obtienen realmente {{masaRealH2O}} g de agua.\nCalcula el porcentaje de rendimiento de la reacción.",
+    "data": {
+      "masaH2Min": 8,
+      "masaH2Max": 25,
+      "decimalesMasaH2": 1,
+      "factorRealMin": 0.55,
+      "factorRealMax": 0.9,
+      "decimalesFactorReal": 2,
+      "masaMolarH2": 2,
+      "masaMolarH2O": 18
+    }
+  }
+]
