@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "./02_calculo_moles.enunciados.json?raw";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/02_calculo_moles.enunciados.json?raw";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
