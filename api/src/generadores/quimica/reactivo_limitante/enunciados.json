@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "La reacción de síntesis del amoníaco es:\nN₂(g) + 3 H₂(g) → 2 NH₃(g)\n\nSe mezclan {{masaN2}} g de N₂ y {{masaH2}} g de H₂.\na) Indica cuál es el reactivo limitante.\nb) Calcula cuántos moles de NH₃ se pueden formar como máximo.",
+    "data": {
+      "reactivoLimitante": "N2",
+      "reactivoExceso": "H2",
+      "coefLimitante": 1,
+      "coefExceso": 3,
+      "coefProducto": 2,
+      "producto": "NH3",
+      "masaMolarLimitante": 28,
+      "masaMolarExceso": 2,
+      "molesLimitanteMin": 0.5,
+      "molesLimitanteMax": 2,
+      "factorExcesoMin": 1.2,
+      "factorExcesoMax": 1.8
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "La reacción de síntesis del amoníaco es:\nN₂(g) + 3 H₂(g) → 2 NH₃(g)\n\nSe mezclan {{masaN2}} g de N₂ y {{masaH2}} g de H₂.\na) Indica cuál es el reactivo limitante.\nb) Calcula cuántos moles de NH₃ se pueden formar como máximo.",
+    "data": {
+      "reactivoLimitante": "H2",
+      "reactivoExceso": "N2",
+      "coefLimitante": 3,
+      "coefExceso": 1,
+      "coefProducto": 2,
+      "producto": "NH3",
+      "masaMolarLimitante": 2,
+      "masaMolarExceso": 28,
+      "molesLimitanteMin": 1.5,
+      "molesLimitanteMax": 5,
+      "factorExcesoMin": 1.2,
+      "factorExcesoMax": 2
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Para la reacción N₂(g) + 3 H₂(g) → 2 NH₃(g), se cargan {{masaN2}} g de N₂ y {{masaH2}} g de H₂ en un reactor cerrado.\n\nDetermina el reactivo limitante y los moles máximos de NH₃ que pueden obtenerse.",
+    "data": {
+      "reactivoLimitante": "N2",
+      "reactivoExceso": "H2",
+      "coefLimitante": 1,
+      "coefExceso": 3,
+      "coefProducto": 2,
+      "producto": "NH3",
+      "masaMolarLimitante": 28,
+      "masaMolarExceso": 2,
+      "molesLimitanteMin": 2,
+      "molesLimitanteMax": 4,
+      "factorExcesoMin": 1.1,
+      "factorExcesoMax": 1.4
+    }
+  }
+]
