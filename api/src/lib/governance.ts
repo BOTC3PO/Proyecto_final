@@ -1,5 +1,10 @@
 import { Db } from "mongodb";
 import { z } from "zod";
+import {
+  canProposeGovernanceChange,
+  canVoteContent,
+  canVoteGovernance
+} from "./authorization";
 import { GovernanceLevelSchema, ProposalSchema } from "../schema/governance";
 
 type GovernanceLevel = z.infer<typeof GovernanceLevelSchema>;
@@ -7,15 +12,43 @@ type ProposalDocument = z.infer<typeof ProposalSchema>;
 
 const GOVERNANCE_TARGET_TYPES = new Set(["GOVERNANCE", "POLICY", "SYSTEM_CONFIG"]);
 
+const normalizeRole = (role?: unknown) => {
+  if (typeof role !== "string") return "";
+  return role.trim().toUpperCase();
+};
+
+const toAuthorizationRole = (role?: unknown) => {
+  const normalized = normalizeRole(role);
+  if (normalized === "USER") return "STUDENT";
+  return normalized;
+};
+
 export const evaluateGovernanceLevel = (
   targetType: string,
   proposalType: string,
-  explicitLevel?: GovernanceLevel
+  _explicitLevel?: GovernanceLevel
 ): GovernanceLevel => {
-  if (explicitLevel) return explicitLevel;
   if (GOVERNANCE_TARGET_TYPES.has(targetType.toUpperCase())) return "GOVERNANCE";
   if (proposalType.toUpperCase().startsWith("GOVERNANCE_")) return "GOVERNANCE";
   return "CONTENT";
+};
+
+const getActorRole = async (db: Db, actorId: string) => {
+  const user = await db.collection("usuarios").findOne({ id: actorId });
+  return toAuthorizationRole(user?.rol ?? user?.role ?? "");
+};
+
+export const canActorCreateProposal = async (db: Db, actorId: string) => {
+  if (!actorId) return false;
+  const role = await getActorRole(db, actorId);
+  return canProposeGovernanceChange(role);
+};
+
+export const canActorVoteOnLevel = async (db: Db, actorId: string, level: GovernanceLevel) => {
+  if (!actorId) return false;
+  const role = await getActorRole(db, actorId);
+  if (level === "GOVERNANCE") return canVoteGovernance(role);
+  return canVoteContent(role);
 };
 
 export const validateGovernancePermissions = async (params: {
@@ -28,11 +61,10 @@ export const validateGovernancePermissions = async (params: {
   const { db, actorId, level, targetType, targetId } = params;
   if (!actorId) return false;
 
-  const user = await db.collection("usuarios").findOne({ id: actorId });
-  const globalRole = String(user?.rol ?? "").toLowerCase();
-  if (globalRole === "admin" || globalRole === "superadmin") return true;
+  const role = await getActorRole(db, actorId);
+  if (canVoteGovernance(role)) return true;
 
-  if (level === "CONTENT") return true;
+  if (level === "CONTENT") return canVoteContent(role);
 
   const membership = await db.collection("membresias").findOne({
     userId: actorId,

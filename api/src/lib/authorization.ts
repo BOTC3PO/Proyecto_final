@@ -31,6 +31,16 @@ export const canReadAsLearner = (role?: string | null) => {
   return membership === "STUDENT" || membership === "PARENT";
 };
 
+export const canProposeGovernanceChange = (role?: string | null) => isStaffRole(role);
+
+export const canVoteContent = (role?: string | null) => {
+  if (role === "ADMIN") return true;
+  const membership = getCanonicalMembershipRole(role ?? undefined);
+  return membership === "DIRECTIVO" || membership === "TEACHER" || membership === "STUDENT";
+};
+
+export const canVoteGovernance = (role?: string | null) => role === "ADMIN";
+
 type ClassroomMember = { userId?: string; roleInClass?: string };
 type AuthorizationUser = {
   _id?: { toString?: () => string } | string;
