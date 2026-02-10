@@ -28,6 +28,13 @@ const fisicaIds = run("rg -n \"readonly id = \\\"[^\\\"]+\\\"\" apps/web/src/gen
   .map((line)=> line.match(/readonly id = \"([^\"]+)\"/)?.[1])
   .filter(Boolean);
 
+
+const FISICA_PROMPT_HINTS = {
+  "fisica/termodinamica/calor": "¿Cuánto calor se necesita para elevar la temperatura de una sustancia usando Q = m·c·ΔT?",
+  "fisica/electricidad/ley_ohm": "Aplicar ley de Ohm para calcular V, I o R en un circuito resistivo simple.",
+  "fisica/cinematica/mru": "Resolver MRU calculando distancia, tiempo o velocidad con unidades claras.",
+};
+
 const uniq = (arr)=> [...new Set(arr)];
 const targetIds = [
   ...uniq(mathIds).map((id)=>`matematicas:${id}`),
@@ -42,7 +49,7 @@ const seedTs = `export type PromptSeed = {\n  id: string;\n  targetType: \"GENER
   targetId,
   kind:'TEXT',
   title: targetId,
-  bodyText: `Prompt activo para ${targetId}`,
+  bodyText: FISICA_PROMPT_HINTS[targetId] ?? `Instrucción activa para ${targetId}`,
   source:'DEFAULT',
   status:'ACTIVE'
 })), null, 2)};\n`;
