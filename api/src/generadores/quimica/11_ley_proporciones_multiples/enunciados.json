@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Dos compuestos distintos están formados por los mismos elementos X e Y.\nEn el compuesto A, 10 g de X se combinan con {{masaY1}} g de Y.\nEn el compuesto B, 10 g de X se combinan con {{masaY2}} g de Y.\n\nCalcula la razón entre las masas de Y en ambos compuestos (masa de Y en B / masa de Y en A).\nIndica el valor numérico aproximado de esa razón.",
+    "data": {
+      "masaX": 10,
+      "masaY1Min": 4,
+      "masaY1Max": 8,
+      "razonMin": 2,
+      "razonMax": 3,
+      "ruidoMin": -0.2,
+      "ruidoMax": 0.2,
+      "decimales": 1,
+      "toleranciaRelativa": 0.05
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "En dos compuestos de X con Y, la masa de X se mantiene constante en 10 g.\nPara el compuesto A, la masa de Y es {{masaY1}} g y para el compuesto B es {{masaY2}} g.\n\nDetermina el cociente m(Y en B) / m(Y en A) y reporta el valor con dos decimales.",
+    "data": {
+      "masaX": 10,
+      "masaY1Min": 5,
+      "masaY1Max": 10,
+      "razonMin": 2,
+      "razonMax": 4,
+      "ruidoMin": -0.2,
+      "ruidoMax": 0.2,
+      "decimales": 1,
+      "toleranciaRelativa": 0.05
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se analizan dos compuestos formados por los mismos elementos X e Y con masa fija de X = 10 g.\nEl compuesto A contiene {{masaY1}} g de Y y el compuesto B contiene {{masaY2}} g de Y.\n\nCalcula la razón m(Y_B)/m(Y_A) y explica brevemente por qué este patrón respalda la ley de proporciones múltiples.",
+    "data": {
+      "masaX": 10,
+      "masaY1Min": 6,
+      "masaY1Max": 12,
+      "razonMin": 2,
+      "razonMax": 4,
+      "ruidoMin": -0.15,
+      "ruidoMax": 0.15,
+      "decimales": 2,
+      "toleranciaRelativa": 0.04
+    }
+  }
+]
