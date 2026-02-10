@@ -3,40 +3,156 @@ import {
   type GeneratorFn,
   type NumericExercise,
   randFloat,
+  choice,
 } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/23_ley_charles.enunciados.json?raw";
+
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface LeyCharlesCatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    v1Min: number;
+    v1Max: number;
+    t1Min: number;
+    t1Max: number;
+    deltaTMin: number;
+    deltaTMax: number;
+    decimalesV1: number;
+    decimalesTemperatura: number;
+    decimalesResultado: number;
+  };
+}
+
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function parseCatalogo(): LeyCharlesCatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(
+      `Catálogo inválido en 23_ley_charles.enunciados.json: ${String(error)}`
+    );
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("El catálogo 23_ley_charles.enunciados.json debe ser un array.");
+  }
+
+  const items = parsed as LeyCharlesCatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    const d = item.data;
+    if (
+      typeof d?.v1Min !== "number" ||
+      typeof d?.v1Max !== "number" ||
+      typeof d?.t1Min !== "number" ||
+      typeof d?.t1Max !== "number" ||
+      typeof d?.deltaTMin !== "number" ||
+      typeof d?.deltaTMax !== "number" ||
+      typeof d?.decimalesV1 !== "number" ||
+      typeof d?.decimalesTemperatura !== "number" ||
+      typeof d?.decimalesResultado !== "number"
+    ) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (d.v1Min > d.v1Max || d.t1Min > d.t1Max || d.deltaTMin > d.deltaTMax) {
+      throw new Error(`Rangos inválidos en catálogo para id=${item.id}.`);
+    }
+  }
+
+  return items;
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+const CATALOGO = parseCatalogo();
+
+export function getLeyCharlesCatalogItemById(itemId: number): LeyCharlesCatalogItem {
+  const item = CATALOGO.find((entry) => entry.id === itemId);
+
+  if (!item) {
+    throw new Error(`No existe itemId=${itemId} en 23_ley_charles.enunciados.json.`);
+  }
+
+  return item;
+}
 
 export const generarLeyCharles: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const V1 = dificultad === "facil"
-    ? randFloat(1.0, 3.0, 2)   // L
-    : randFloat(1.0, 5.0, 2);
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const T1 = randFloat(280, 310, 0); // K (aprox 7–37 °C)
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
 
-  // Calentamos el gas → T2 mayor que T1
-  const deltaT = dificultad === "facil"
-    ? randFloat(10, 40, 0)
-    : randFloat(20, 80, 0);
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en 23_ley_charles.enunciados.json.`
+    );
+  }
+
+  const selected = choice(pool);
+
+  const V1 = randFloat(selected.data.v1Min, selected.data.v1Max, selected.data.decimalesV1);
+  const T1 = randFloat(selected.data.t1Min, selected.data.t1Max, selected.data.decimalesTemperatura);
+  const deltaT = randFloat(
+    selected.data.deltaTMin,
+    selected.data.deltaTMax,
+    selected.data.decimalesTemperatura
+  );
 
   const T2 = T1 + deltaT;
   const V2 = (V1 * T2) / T1;
 
-  const V1R = parseFloat(V1.toFixed(2));
-  const T1R = parseFloat(T1.toFixed(0));
-  const T2R = parseFloat(T2.toFixed(0));
-  const V2R = parseFloat(V2.toFixed(2));
+  const V1R = parseFloat(V1.toFixed(selected.data.decimalesV1));
+  const T1R = parseFloat(T1.toFixed(selected.data.decimalesTemperatura));
+  const T2R = parseFloat(T2.toFixed(selected.data.decimalesTemperatura));
+  const V2R = parseFloat(V2.toFixed(selected.data.decimalesResultado));
 
-  return {
+  const ejercicio = {
     idTema: 23,
     tituloTema: "Ley de Charles",
     dificultad,
-    tipo: "numeric",
-    enunciado:
-      "Un gas se encuentra contenido en un cilindro a presión constante.\n" +
-      `Su volumen inicial es V₁ = ${V1R} L y la temperatura inicial T₁ = ${T1R} K.\n` +
-      `Luego se calienta el gas hasta una temperatura T₂ = ${T2R} K.\n` +
-      "Suponiendo presión constante, calcula el nuevo volumen V₂ del gas.",
+    tipo: "numeric" as const,
+    enunciado: renderEnunciado(selected.enunciadoBase, {
+      V1: V1R,
+      T1: T1R,
+      T2: T2R,
+    }),
     datos: {
       V1: V1R,
       T1: T1R,
@@ -56,5 +172,18 @@ export const generarLeyCharles: GeneratorFn = (
       "Sustituye los valores de V₁, T₁ y T₂ (en Kelvin).",
       "Redondea el resultado a 2 decimales.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      generador: "balanceo",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      generador: "balanceo";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };
