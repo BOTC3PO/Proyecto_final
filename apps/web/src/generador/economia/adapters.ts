@@ -14,6 +14,9 @@ const hashString = (value: string): string => {
   return Math.abs(hash).toString(36);
 };
 
+const asRecord = (value: object): Record<string, unknown> =>
+  value as Record<string, unknown>;
+
 const mapQuiz = (exercise: QuizExercise): GeneratedQuestionPayload => {
   const options = exercise.opciones.map((text, index) => ({
     id: `opt_${index}`,
@@ -59,7 +62,7 @@ export const adaptEconomiaExercise = (exercise: Exercise): GeneratedQuestionPayl
         temaTitulo: exercise.tituloTema,
         dificultad: exercise.dificultad,
       },
-      data: exercise,
+      data: asRecord(exercise),
     },
     correction: {
       id,
