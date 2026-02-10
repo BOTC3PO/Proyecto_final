@@ -1,56 +1,108 @@
 // src/generators/quimica/01_balanceo.ts
 import { type GeneratorFn, type NumericExercise, choice } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/01_balanceo.enunciados.json?raw";
 
-interface EcuacionBalanceo {
-  enunciadoBase: string;      // con __ para coeficientes
-  coeficientes: number[];     // solución
-  especies: string[];
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    coeficientes: number[];
+    especies: string[];
+  };
 }
 
-const ECUACIONES: EcuacionBalanceo[] = [
-  {
-    enunciadoBase: "__ H2 + __ O2 → __ H2O",
-    coeficientes: [2, 1, 2],
-    especies: ["H2", "O2", "H2O"],
-  },
-  {
-    enunciadoBase: "__ N2 + __ H2 → __ NH3",
-    coeficientes: [1, 3, 2],
-    especies: ["N2", "H2", "NH3"],
-  },
-  {
-    enunciadoBase: "__ Fe + __ O2 → __ Fe2O3",
-    coeficientes: [4, 3, 2],
-    especies: ["Fe", "O2", "Fe2O3"],
-  },
-  {
-    enunciadoBase: "__ Na + __ Cl2 → __ NaCl",
-    coeficientes: [2, 1, 2],
-    especies: ["Na", "Cl2", "NaCl"],
-  },
-  {
-    enunciadoBase: "__ C3H8 + __ O2 → __ CO2 + __ H2O",
-    coeficientes: [1, 5, 3, 4],
-    especies: ["C3H8", "O2", "CO2", "H2O"],
-  },
-];
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(
+      `Catálogo inválido en 01_balanceo.enunciados.json: ${String(error)}`
+    );
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("El catálogo 01_balanceo.enunciados.json debe ser un array.");
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (
+      !Array.isArray(item.data?.coeficientes) ||
+      item.data.coeficientes.some((coef) => typeof coef !== "number") ||
+      !Array.isArray(item.data?.especies) ||
+      item.data.especies.some((especie) => typeof especie !== "string") ||
+      item.data.coeficientes.length !== item.data.especies.length
+    ) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+  }
+
+  return items;
+}
+
+const CATALOGO = parseCatalogo();
 
 export const generarBalanceo: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const ecuacion = choice(ECUACIONES);
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  return {
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
+
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en 01_balanceo.enunciados.json.`
+    );
+  }
+
+  const selected = choice(pool);
+
+  const ejercicio = {
     idTema: 1,
     tituloTema: "Balanceo de ecuaciones químicas",
     dificultad,
-    tipo: "numeric",
-    enunciado: `Balancea la siguiente ecuación química (escribe los coeficientes en orden):\n${ecuacion.enunciadoBase}`,
+    tipo: "numeric" as const,
+    enunciado: `Balancea la siguiente ecuación química (escribe los coeficientes en orden):\n${selected.enunciadoBase}`,
     datos: {},
-    resultado: ecuacion.coeficientes,
+    resultado: selected.data.coeficientes,
     visualSpec: {
-      kind: "chart",
-      chartType: "bar",
+      kind: "chart" as const,
+      chartType: "bar" as const,
       title: "Coeficientes estequiométricos",
       xAxis: { label: "Especie" },
       yAxis: { label: "Coeficiente" },
@@ -58,9 +110,9 @@ export const generarBalanceo: GeneratorFn = (
         {
           id: "coeficientes",
           label: "Coeficiente",
-          data: ecuacion.especies.map((especie, index) => ({
+          data: selected.data.especies.map((especie, index) => ({
             x: especie,
-            y: ecuacion.coeficientes[index] ?? 0,
+            y: selected.data.coeficientes[index] ?? 0,
           })),
         },
       ],
@@ -70,5 +122,18 @@ export const generarBalanceo: GeneratorFn = (
       "Ajusta los coeficientes para igualar la cantidad de átomos en ambos lados.",
       "Verifica que la ecuación quede balanceada en todos los elementos.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      generador: "balanceo",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      generador: "balanceo";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };

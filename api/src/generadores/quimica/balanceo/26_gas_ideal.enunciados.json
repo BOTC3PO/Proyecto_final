@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Un gas ideal ocupa un determinado volumen a cierta temperatura.\\nEn un recipiente de volumen V = {{V}} L se encuentran n = {{n}} mol de gas a T = {{T}} K.\\nCalcula la presión del gas en atm, usando R = {{R}} L·atm·K⁻¹·mol⁻¹.",
+    "data": {
+      "nMin": 0.5,
+      "nMax": 2,
+      "tMin": 280,
+      "tMax": 320,
+      "vMin": 8,
+      "vMax": 15,
+      "decimalesN": 2,
+      "decimalesT": 0,
+      "decimalesV": 1,
+      "R": 0.082
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Un gas ideal ocupa un determinado volumen a cierta temperatura.\\nEn un recipiente de volumen V = {{V}} L se encuentran n = {{n}} mol de gas a T = {{T}} K.\\nCalcula la presión del gas en atm, usando R = {{R}} L·atm·K⁻¹·mol⁻¹.",
+    "data": {
+      "nMin": 0.8,
+      "nMax": 2.2,
+      "tMin": 285,
+      "tMax": 330,
+      "vMin": 7,
+      "vMax": 16,
+      "decimalesN": 2,
+      "decimalesT": 0,
+      "decimalesV": 1,
+      "R": 0.082
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Un gas ideal ocupa un determinado volumen a cierta temperatura.\\nEn un recipiente de volumen V = {{V}} L se encuentran n = {{n}} mol de gas a T = {{T}} K.\\nCalcula la presión del gas en atm, usando R = {{R}} L·atm·K⁻¹·mol⁻¹.",
+    "data": {
+      "nMin": 1,
+      "nMax": 4,
+      "tMin": 280,
+      "tMax": 340,
+      "vMin": 5,
+      "vMax": 20,
+      "decimalesN": 2,
+      "decimalesT": 0,
+      "decimalesV": 1,
+      "R": 0.082
+    }
+  },
+  {
+    "id": 4,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Un gas ideal ocupa un determinado volumen a cierta temperatura.\\nEn un recipiente de volumen V = {{V}} L se encuentran n = {{n}} mol de gas a T = {{T}} K.\\nCalcula la presión del gas en atm, usando R = {{R}} L·atm·K⁻¹·mol⁻¹.",
+    "data": {
+      "nMin": 1.5,
+      "nMax": 4.5,
+      "tMin": 290,
+      "tMax": 345,
+      "vMin": 6,
+      "vMax": 22,
+      "decimalesN": 2,
+      "decimalesT": 0,
+      "decimalesV": 1,
+      "R": 0.082
+    }
+  },
+  {
+    "id": 5,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Un gas ideal ocupa un determinado volumen a cierta temperatura.\\nEn un recipiente de volumen V = {{V}} L se encuentran n = {{n}} mol de gas a T = {{T}} K.\\nCalcula la presión del gas en atm, usando R = {{R}} L·atm·K⁻¹·mol⁻¹.",
+    "data": {
+      "nMin": 2,
+      "nMax": 5,
+      "tMin": 300,
+      "tMax": 360,
+      "vMin": 5,
+      "vMax": 25,
+      "decimalesN": 2,
+      "decimalesT": 0,
+      "decimalesV": 1,
+      "R": 0.082
+    }
+  }
+]
