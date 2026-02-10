@@ -3,51 +3,153 @@ import {
   type GeneratorFn,
   type NumericExercise,
   randFloat,
+  choice,
 } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/12_ley_proporciones_definidas/enunciados.json?raw";
+
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    masaMuestra1Min: number;
+    masaMuestra1Max: number;
+    masaMuestra2Min: number;
+    masaMuestra2Max: number;
+    porcentajeXMin: number;
+    porcentajeXMax: number;
+  };
+}
+
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(
+      `Catálogo inválido en 12_ley_proporciones_definidas/enunciados.json: ${String(error)}`
+    );
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error(
+      "El catálogo 12_ley_proporciones_definidas/enunciados.json debe ser un array."
+    );
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (
+      typeof item.data?.masaMuestra1Min !== "number" ||
+      typeof item.data?.masaMuestra1Max !== "number" ||
+      typeof item.data?.masaMuestra2Min !== "number" ||
+      typeof item.data?.masaMuestra2Max !== "number" ||
+      typeof item.data?.porcentajeXMin !== "number" ||
+      typeof item.data?.porcentajeXMax !== "number"
+    ) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+  }
+
+  return items;
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+const CATALOGO = parseCatalogo();
+
+export function obtenerEnunciadoLeyProporcionesDefinidasPorItemId(
+  itemId: number
+): CatalogItem {
+  const item = CATALOGO.find((entry) => entry.id === itemId);
+  if (!item) {
+    throw new Error(`No existe itemId=${itemId} en 12_ley_proporciones_definidas/enunciados.json.`);
+  }
+  return item;
+}
 
 export const generarLeyProporcionesDefinidas: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  // Compuesto genérico: XO (por ejemplo, óxido de X)
-  // Muestra 1: elegimos masa total y porcentaje de X
-  const masaMuestra1 = dificultad === "facil"
-    ? randFloat(5, 20, 1)
-    : randFloat(10, 50, 1);
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const porcentajeX = randFloat(30, 80, 1); // % en masa de X
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
+
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en 12_ley_proporciones_definidas/enunciados.json.`
+    );
+  }
+
+  const selected = choice(pool);
+  const masaMuestra1 = randFloat(
+    selected.data.masaMuestra1Min,
+    selected.data.masaMuestra1Max,
+    2
+  );
+  const masaMuestra2 = randFloat(
+    selected.data.masaMuestra2Min,
+    selected.data.masaMuestra2Max,
+    2
+  );
+  const porcentajeX = randFloat(selected.data.porcentajeXMin, selected.data.porcentajeXMax, 1);
   const fraccionX = porcentajeX / 100;
 
-  const masaX1 = masaMuestra1 * fraccionX;
-  const masaX1r = parseFloat(masaX1.toFixed(2));
-
-  // Muestra 2: masa diferente, mismo porcentaje teórico
-  const masaMuestra2 = dificultad === "facil"
-    ? randFloat(5, 20, 1)
-    : randFloat(10, 50, 1);
-  const masaX2 = masaMuestra2 * fraccionX;
-  const masaMuestra2r = parseFloat(masaMuestra2.toFixed(2));
-  const masaX2r = parseFloat(masaX2.toFixed(2));
+  const masaX1r = parseFloat((masaMuestra1 * fraccionX).toFixed(2));
+  const masaX2r = parseFloat((masaMuestra2 * fraccionX).toFixed(2));
   const porcentajeMuestra1 = parseFloat(((masaX1r / masaMuestra1) * 100).toFixed(1));
+  const resultado = parseFloat(((masaX2r / masaMuestra2) * 100).toFixed(1));
 
-  // Lo que pedimos: porcentaje en masa de X (a partir de la muestra 2, por ejemplo)
-  const porcentajeCalculado = (masaX2r / masaMuestra2r) * 100;
-  const resultado = parseFloat(porcentajeCalculado.toFixed(1));
-
-  return {
+  const ejercicio = {
     idTema: 12,
     tituloTema: "Ley de las proporciones definidas",
     dificultad,
-    tipo: "numeric",
-    enunciado:
-      "Se estudia un mismo compuesto formado por el elemento X y oxígeno (XO).\n\n" +
-      `• En una primera muestra del compuesto, de masa ${masaMuestra1.toFixed(2)} g, se encuentran ${masaX1r} g de X.\n` +
-      `• En una segunda muestra, de masa ${masaMuestra2r} g, se encuentran ${masaX2r} g de X.\n\n` +
-      "Calcula el porcentaje en masa de X en la segunda muestra.\n" +
-      "¿Coincide con el porcentaje en la primera muestra (ley de las proporciones definidas)?",
+    tipo: "numeric" as const,
+    enunciado: renderEnunciado(selected.enunciadoBase, {
+      masaMuestra1: masaMuestra1.toFixed(2),
+      masaX1: masaX1r.toFixed(2),
+      masaMuestra2: masaMuestra2.toFixed(2),
+      masaX2: masaX2r.toFixed(2),
+    }),
     datos: {
-      masaMuestra1: parseFloat(masaMuestra1.toFixed(2)),
+      masaMuestra1,
       masaX1: masaX1r,
-      masaMuestra2: masaMuestra2r,
+      masaMuestra2,
       masaX2: masaX2r,
     },
     unidades: {
@@ -59,8 +161,8 @@ export const generarLeyProporcionesDefinidas: GeneratorFn = (
     },
     resultado,
     visualSpec: {
-      kind: "chart",
-      chartType: "bar",
+      kind: "chart" as const,
+      chartType: "bar" as const,
       title: "Porcentaje en masa de X",
       xAxis: { label: "Muestra" },
       yAxis: { label: "% en masa de X" },
@@ -78,9 +180,22 @@ export const generarLeyProporcionesDefinidas: GeneratorFn = (
     toleranciaRelativa: 0.02,
     pasos: [
       "Calcula el porcentaje en masa de X en la segunda muestra: %X = (m(X) / m(muestra)) · 100.",
-      `Sustituye los valores: %X = (${masaX2r} g / ${masaMuestra2r} g) · 100.`,
+      `Sustituye los valores: %X = (${masaX2r} g / ${masaMuestra2.toFixed(2)} g) · 100.`,
       "Compara este porcentaje con el de la primera muestra: ambos deben ser prácticamente iguales.",
       "Esto ilustra que un compuesto puro siempre tiene la misma proporción en masa de sus elementos.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      tema: "12_ley_proporciones_definidas",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      tema: "12_ley_proporciones_definidas";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };

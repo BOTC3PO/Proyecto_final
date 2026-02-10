@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se estudia un mismo compuesto formado por el elemento X y oxígeno (XO).\n\n• En una primera muestra del compuesto, de masa {{masaMuestra1}} g, se encuentran {{masaX1}} g de X.\n• En una segunda muestra, de masa {{masaMuestra2}} g, se encuentran {{masaX2}} g de X.\n\nCalcula el porcentaje en masa de X en la segunda muestra.\n¿Coincide con el porcentaje en la primera muestra (ley de las proporciones definidas)?",
+    "data": {
+      "masaMuestra1Min": 5,
+      "masaMuestra1Max": 20,
+      "masaMuestra2Min": 5,
+      "masaMuestra2Max": 20,
+      "porcentajeXMin": 35,
+      "porcentajeXMax": 70
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se analiza un compuesto puro XO en dos muestras distintas.\n\n• Primera muestra: masa total {{masaMuestra1}} g y masa de X de {{masaX1}} g.\n• Segunda muestra: masa total {{masaMuestra2}} g y masa de X de {{masaX2}} g.\n\nDetermina el porcentaje en masa de X en la segunda muestra y compáralo con la primera.",
+    "data": {
+      "masaMuestra1Min": 12,
+      "masaMuestra1Max": 40,
+      "masaMuestra2Min": 12,
+      "masaMuestra2Max": 40,
+      "porcentajeXMin": 30,
+      "porcentajeXMax": 80
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Para verificar la ley de las proporciones definidas en el compuesto XO, se tienen dos lotes:\n\n• Lote A: {{masaMuestra1}} g de compuesto con {{masaX1}} g de elemento X.\n• Lote B: {{masaMuestra2}} g de compuesto con {{masaX2}} g de elemento X.\n\nCalcula el porcentaje en masa de X en el lote B y justifica si el compuesto conserva la misma proporción másica.",
+    "data": {
+      "masaMuestra1Min": 20,
+      "masaMuestra1Max": 50,
+      "masaMuestra2Min": 20,
+      "masaMuestra2Max": 50,
+      "porcentajeXMin": 25,
+      "porcentajeXMax": 85
+    }
+  }
+]
