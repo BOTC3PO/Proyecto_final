@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "La reacción de síntesis del amoníaco es:\nN₂(g) + 3 H₂(g) → 2 NH₃(g)\n\nSe mezclan {{masaN2}} g de N₂ y {{masaH2}} g de H₂, y la reacción avanza hasta completarse.\na) Indica cuál es el reactivo en exceso.\nb) Calcula cuántos moles y cuánta masa de ese reactivo quedan sin reaccionar.",
+    "data": {
+      "masaMolarN2": 28,
+      "masaMolarH2": 2,
+      "nN2Min": 0.5,
+      "nN2Max": 2,
+      "nH2Min": 1,
+      "nH2Max": 3,
+      "factorExcesoMin": 1.3,
+      "factorExcesoMax": 1.8
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para la reacción:\nN₂(g) + 3 H₂(g) → 2 NH₃(g)\n\nSe cargan {{masaN2}} g de N₂ y {{masaH2}} g de H₂ en un reactor cerrado y la reacción ocurre hasta agotarse el reactivo limitante.\na) Determina el reactivo en exceso.\nb) Informa los moles y gramos que sobran de dicho reactivo.",
+    "data": {
+      "masaMolarN2": 28,
+      "masaMolarH2": 2,
+      "nN2Min": 1,
+      "nN2Max": 3.5,
+      "nH2Min": 1.5,
+      "nH2Max": 4.5,
+      "factorExcesoMin": 1.35,
+      "factorExcesoMax": 2
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Considera la síntesis de amoníaco:\nN₂(g) + 3 H₂(g) → 2 NH₃(g)\n\nEn una corrida se introducen {{masaN2}} g de N₂ y {{masaH2}} g de H₂. Asumiendo conversión completa del limitante:\na) identifica el reactivo en exceso,\nb) calcula los moles sobrantes y la masa remanente.",
+    "data": {
+      "masaMolarN2": 28,
+      "masaMolarH2": 2,
+      "nN2Min": 2,
+      "nN2Max": 5,
+      "nH2Min": 2,
+      "nH2Max": 6,
+      "factorExcesoMin": 1.4,
+      "factorExcesoMax": 2.3
+    }
+  }
+]

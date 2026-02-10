@@ -4,15 +4,110 @@ import {
   type NumericExercise,
   randFloat,
   randomBool,
+  choice,
 } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/reactivo_en_exceso/enunciados.json?raw";
 
-const M_N2 = 28.0; // g/mol
-const M_H2 = 2.0;  // g/mol
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    masaMolarN2: number;
+    masaMolarH2: number;
+    nN2Min: number;
+    nN2Max: number;
+    nH2Min: number;
+    nH2Max: number;
+    factorExcesoMin: number;
+    factorExcesoMax: number;
+  };
+}
+
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(`Catálogo inválido en reactivo_en_exceso/enunciados.json: ${String(error)}`);
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("El catálogo reactivo_en_exceso/enunciados.json debe ser un array.");
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (
+      typeof item.data?.masaMolarN2 !== "number" ||
+      typeof item.data?.masaMolarH2 !== "number" ||
+      typeof item.data?.nN2Min !== "number" ||
+      typeof item.data?.nN2Max !== "number" ||
+      typeof item.data?.nH2Min !== "number" ||
+      typeof item.data?.nH2Max !== "number" ||
+      typeof item.data?.factorExcesoMin !== "number" ||
+      typeof item.data?.factorExcesoMax !== "number"
+    ) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+  }
+
+  return items;
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+const CATALOGO = parseCatalogo();
 
 export const generarReactivoEnExceso: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  // Reacción: N2 + 3 H2 → 2 NH3
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
+
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
+
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en reactivo_en_exceso/enunciados.json.`
+    );
+  }
+
+  const selected = choice(pool);
   const limitarPor = randomBool() ? "N2" : "H2";
 
   let masaN2: number;
@@ -22,36 +117,28 @@ export const generarReactivoEnExceso: GeneratorFn = (
   let masaSobrante: number;
 
   if (limitarPor === "N2") {
-    // N2 limitante → H2 en exceso
-    const nN2 = dificultad === "facil"
-      ? randFloat(0.5, 2.0, 2)
-      : randFloat(1.0, 4.0, 2);
+    const nN2 = randFloat(selected.data.nN2Min, selected.data.nN2Max, 2);
     const nH2req = 3 * nN2;
-    const factorExceso = randFloat(1.3, 2.0, 2);
+    const factorExceso = randFloat(selected.data.factorExcesoMin, selected.data.factorExcesoMax, 2);
     const nH2 = nH2req * factorExceso;
 
-    masaN2 = nN2 * M_N2;
-    masaH2 = nH2 * M_H2;
+    masaN2 = nN2 * selected.data.masaMolarN2;
+    masaH2 = nH2 * selected.data.masaMolarH2;
 
-    const nH2consumido = nH2req;
-    molesSobrantes = nH2 - nH2consumido;
-    masaSobrante = molesSobrantes * M_H2;
+    molesSobrantes = nH2 - nH2req;
+    masaSobrante = molesSobrantes * selected.data.masaMolarH2;
     reactivoEnExceso = "H2";
   } else {
-    // H2 limitante → N2 en exceso
-    const nH2 = dificultad === "facil"
-      ? randFloat(1.0, 3.0, 2)
-      : randFloat(1.5, 5.0, 2);
+    const nH2 = randFloat(selected.data.nH2Min, selected.data.nH2Max, 2);
     const nN2req = nH2 / 3;
-    const factorExceso = randFloat(1.3, 2.0, 2);
+    const factorExceso = randFloat(selected.data.factorExcesoMin, selected.data.factorExcesoMax, 2);
     const nN2 = nN2req * factorExceso;
 
-    masaN2 = nN2 * M_N2;
-    masaH2 = nH2 * M_H2;
+    masaN2 = nN2 * selected.data.masaMolarN2;
+    masaH2 = nH2 * selected.data.masaMolarH2;
 
-    const nN2consumido = nN2req;
-    molesSobrantes = nN2 - nN2consumido;
-    masaSobrante = molesSobrantes * M_N2;
+    molesSobrantes = nN2 - nN2req;
+    masaSobrante = molesSobrantes * selected.data.masaMolarN2;
     reactivoEnExceso = "N2";
   }
 
@@ -59,27 +146,25 @@ export const generarReactivoEnExceso: GeneratorFn = (
   const masaH2r = parseFloat(masaH2.toFixed(1));
   const molesSobR = parseFloat(molesSobrantes.toFixed(3));
   const masaSobR = parseFloat(masaSobrante.toFixed(2));
-  const molesN2r = parseFloat((masaN2 / M_N2).toFixed(3));
-  const molesH2r = parseFloat((masaH2 / M_H2).toFixed(3));
+  const molesN2r = parseFloat((masaN2 / selected.data.masaMolarN2).toFixed(3));
+  const molesH2r = parseFloat((masaH2 / selected.data.masaMolarH2).toFixed(3));
   const sobranteN2 = reactivoEnExceso === "N2" ? molesSobR : 0;
   const sobranteH2 = reactivoEnExceso === "H2" ? molesSobR : 0;
 
-  return {
+  const ejercicio = {
     idTema: 7,
     tituloTema: "Reactivo en exceso",
     dificultad,
-    tipo: "numeric",
-    enunciado:
-      "La reacción de síntesis del amoníaco es:\n" +
-      "N₂(g) + 3 H₂(g) → 2 NH₃(g)\n\n" +
-      `Se mezclan ${masaN2r} g de N₂ y ${masaH2r} g de H₂, y la reacción avanza hasta completarse.\n` +
-      "a) Indica cuál es el reactivo en exceso.\n" +
-      "b) Calcula cuántos moles y cuánta masa de ese reactivo quedan sin reaccionar.",
+    tipo: "numeric" as const,
+    enunciado: renderEnunciado(selected.enunciadoBase, {
+      masaN2: masaN2r,
+      masaH2: masaH2r,
+    }),
     datos: {
       masaN2: masaN2r,
       masaH2: masaH2r,
-      masaMolarN2: M_N2,
-      masaMolarH2: M_H2,
+      masaMolarN2: selected.data.masaMolarN2,
+      masaMolarH2: selected.data.masaMolarH2,
     },
     unidades: {
       masaN2: "g",
@@ -95,8 +180,8 @@ export const generarReactivoEnExceso: GeneratorFn = (
       masaSobrante: masaSobR,
     },
     visualSpec: {
-      kind: "chart",
-      chartType: "bar",
+      kind: "chart" as const,
+      chartType: "bar" as const,
       title: "Reactivo en exceso (moles)",
       xAxis: { label: "Reactivo" },
       yAxis: { label: "Moles" },
@@ -126,5 +211,18 @@ export const generarReactivoEnExceso: GeneratorFn = (
       "Resta los moles consumidos de los moles iniciales del reactivo en exceso.",
       "Convierte los moles sobrantes a masa usando su masa molar.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      tema: "reactivo_en_exceso",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      tema: "reactivo_en_exceso";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };
