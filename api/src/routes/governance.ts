@@ -10,6 +10,8 @@ import {
 } from "../schema/governance";
 import {
   applyApprovedGovernanceChange,
+  canActorCreateProposal,
+  canActorVoteOnLevel,
   evaluateGovernanceLevel,
   validateGovernancePermissions
 } from "../lib/governance";
@@ -71,14 +73,8 @@ governance.post("/api/proposals", async (req, res) => {
   try {
     const db = await getDb();
     const parsed = CreateProposalInputSchema.parse(req.body ?? {});
-    const level = evaluateGovernanceLevel(parsed.targetType, parsed.proposalType, parsed.level);
-    const allowed = await validateGovernancePermissions({
-      db,
-      actorId: parsed.createdBy,
-      level,
-      targetType: parsed.targetType,
-      targetId: parsed.targetId
-    });
+    const level = evaluateGovernanceLevel(parsed.targetType, parsed.proposalType);
+    const allowed = await canActorCreateProposal(db, parsed.createdBy);
 
     if (!allowed) return res.status(403).json({ error: "permission denied" });
 
@@ -111,6 +107,9 @@ governance.post("/api/proposals/:id/vote", async (req, res) => {
     if (proposal.status !== "OPEN") return res.status(409).json({ error: "proposal is not open" });
 
     const parsed = CastVoteInputSchema.parse(req.body ?? {});
+    const canVote = await canActorVoteOnLevel(db, parsed.voterId, proposal.level);
+    if (!canVote) return res.status(403).json({ error: "permission denied" });
+
     const vote = VoteSchema.parse({
       id: randomUUID(),
       proposalId,
