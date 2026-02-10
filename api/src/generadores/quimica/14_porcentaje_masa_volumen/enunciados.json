@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se prepara una solución acuosa de {{soluto}}. Si se disuelven {{masaSoluto}} g de soluto hasta obtener un volumen final de {{volumenSolucion}} mL de solución, calcula la concentración en porcentaje masa/volumen (% m/v).",
+    "data": {
+      "soluto": "cloruro de sodio",
+      "masaSolutoMin": 2,
+      "masaSolutoMax": 10,
+      "volumenSolucionMin": 50,
+      "volumenSolucionMax": 200,
+      "decimalesMasa": 1,
+      "decimalesVolumen": 0
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "En laboratorio se formula una solución de {{soluto}}. Se pesan {{masaSoluto}} g del soluto y se enrasa hasta {{volumenSolucion}} mL de solución total. Determina el porcentaje masa/volumen (% m/v).",
+    "data": {
+      "soluto": "glucosa",
+      "masaSolutoMin": 5,
+      "masaSolutoMax": 20,
+      "volumenSolucionMin": 100,
+      "volumenSolucionMax": 500,
+      "decimalesMasa": 1,
+      "decimalesVolumen": 0
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Una disolución de {{soluto}} se prepara con {{masaSoluto}} g de soluto en un volumen final de {{volumenSolucion}} mL. Calcula la concentración expresada como % m/v y reporta el resultado con 1 decimal.",
+    "data": {
+      "soluto": "sulfato de cobre(II)",
+      "masaSolutoMin": 8,
+      "masaSolutoMax": 25,
+      "volumenSolucionMin": 80,
+      "volumenSolucionMax": 350,
+      "decimalesMasa": 1,
+      "decimalesVolumen": 0
+    }
+  }
+]
