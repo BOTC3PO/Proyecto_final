@@ -1,24 +1,113 @@
 // src/generators/quimica/22_ley_boyle.ts
-import {
-  type GeneratorFn,
-  type NumericExercise,
-  randFloat,
-} from "./generico";
+import { type GeneratorFn, type NumericExercise, randFloat, choice } from "./generico";
+import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/22_ley_boyle.enunciados.json?raw";
+
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface CatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data: {
+    p1Min: number;
+    p1Max: number;
+    v1Min: number;
+    v1Max: number;
+    factorCompresionMin: number;
+    factorCompresionMax: number;
+  };
+}
+
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+function getNivelCore(nivel: string): DificultadCore {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  if (nivel === "dificil") return "avanzado";
+  throw new Error(`Nivel de dificultad no soportado: ${nivel}`);
+}
+
+function renderEnunciado(base: string, values: Record<string, number | string>): string {
+  return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
+}
+
+function parseCatalogo(): CatalogItem[] {
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(catalogoRaw);
+  } catch (error) {
+    throw new Error(
+      `Catálogo inválido en 22_ley_boyle.enunciados.json: ${String(error)}`
+    );
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("El catálogo 22_ley_boyle.enunciados.json debe ser un array.");
+  }
+
+  const items = parsed as CatalogItem[];
+  const ids = new Set<number>();
+
+  for (const item of items) {
+    if (typeof item.id !== "number" || ids.has(item.id)) {
+      throw new Error("Cada ítem del catálogo debe tener un id numérico único.");
+    }
+    ids.add(item.id);
+
+    if (!DIFICULTAD_ORDEN.includes(item.difficulty)) {
+      throw new Error(`Dificultad inválida en catálogo para id=${item.id}.`);
+    }
+
+    if (typeof item.activo !== "boolean" || typeof item.enunciadoBase !== "string") {
+      throw new Error(`Campos obligatorios inválidos en catálogo para id=${item.id}.`);
+    }
+
+    if (
+      typeof item.data?.p1Min !== "number" ||
+      typeof item.data?.p1Max !== "number" ||
+      typeof item.data?.v1Min !== "number" ||
+      typeof item.data?.v1Max !== "number" ||
+      typeof item.data?.factorCompresionMin !== "number" ||
+      typeof item.data?.factorCompresionMax !== "number"
+    ) {
+      throw new Error(`Data inválida en catálogo para id=${item.id}.`);
+    }
+  }
+
+  return items;
+}
+
+const CATALOGO = parseCatalogo();
 
 export const generarLeyBoyle: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
-  const P1 = dificultad === "facil"
-    ? randFloat(0.8, 1.2, 2)   // atm
-    : randFloat(0.5, 2.0, 2);
+  const nivelCore = getNivelCore(dificultad);
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const V1 = dificultad === "facil"
-    ? randFloat(1.0, 3.0, 2)   // L
-    : randFloat(1.0, 5.0, 2);
+  const pool = CATALOGO.filter((item) => {
+    if (!item.activo) return false;
+    const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
+    return itemLevel <= maxLevel;
+  });
 
-  const factorCompresion = dificultad === "facil"
-    ? randFloat(0.4, 0.8, 2)   // V2 menor que V1
-    : randFloat(0.3, 0.9, 2);
+  if (pool.length === 0) {
+    throw new Error(
+      `No hay enunciados activos para nivel ${nivelCore} en 22_ley_boyle.enunciados.json.`
+    );
+  }
+
+  const selected = choice(pool);
+
+  const P1 = randFloat(selected.data.p1Min, selected.data.p1Max, 2);
+  const V1 = randFloat(selected.data.v1Min, selected.data.v1Max, 2);
+  const factorCompresion = randFloat(
+    selected.data.factorCompresionMin,
+    selected.data.factorCompresionMax,
+    2
+  );
 
   const V2 = V1 * factorCompresion;
   const P2 = (P1 * V1) / V2;
@@ -28,16 +117,16 @@ export const generarLeyBoyle: GeneratorFn = (
   const V2R = parseFloat(V2.toFixed(2));
   const P2R = parseFloat(P2.toFixed(2));
 
-  return {
+  const ejercicio = {
     idTema: 22,
     tituloTema: "Ley de Boyle",
     dificultad,
-    tipo: "numeric",
-    enunciado:
-      "Un gas ideal se encuentra inicialmente a temperatura constante.\n" +
-      `La presión inicial es P₁ = ${P1R} atm y el volumen inicial V₁ = ${V1R} L.\n` +
-      `Luego se comprime el gas hasta un volumen V₂ = ${V2R} L.\n` +
-      "Suponiendo temperatura constante, calcula la nueva presión P₂ del gas (en atm).",
+    tipo: "numeric" as const,
+    enunciado: renderEnunciado(selected.enunciadoBase, {
+      P1: P1R,
+      V1: V1R,
+      V2: V2R,
+    }),
     datos: {
       P1: P1R,
       V1: V1R,
@@ -57,5 +146,18 @@ export const generarLeyBoyle: GeneratorFn = (
       "Sustituye los valores numéricos y calcula.",
       "Redondea el resultado a 2 decimales.",
     ],
+    catalogRef: {
+      materia: "quimica",
+      generador: "balanceo",
+      itemId: selected.id,
+    },
+  } as NumericExercise & {
+    catalogRef: {
+      materia: "quimica";
+      generador: "balanceo";
+      itemId: number;
+    };
   };
+
+  return ejercicio;
 };
