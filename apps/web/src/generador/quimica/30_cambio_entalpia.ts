@@ -1,6 +1,6 @@
 // src/generators/quimica/30_cambio_entalpia.ts
 import { type GeneratorFn, type NumericExercise, randFloat, choice } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/30_cambio_entalpia.enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -28,15 +28,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en 30_cambio_entalpia.enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("30_cambio_entalpia");
 
   if (!Array.isArray(parsed)) {
     throw new Error(

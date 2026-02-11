@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/25_ley_combinada_gases.enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -38,15 +38,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en 25_ley_combinada_gases.enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("25_ley_combinada_gases");
 
   if (!Array.isArray(parsed)) {
     throw new Error(

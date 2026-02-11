@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/15_porcentaje_volumen_volumen/enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -33,15 +33,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en 15_porcentaje_volumen_volumen/enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("15_porcentaje_volumen_volumen");
 
   if (!Array.isArray(parsed)) {
     throw new Error(

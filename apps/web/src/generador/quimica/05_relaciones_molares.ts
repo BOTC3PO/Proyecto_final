@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/relaciones_molares/enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -36,15 +36,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en relaciones_molares/enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("05_relaciones_molares");
 
   if (!Array.isArray(parsed)) {
     throw new Error("El catálogo relaciones_molares/enunciados.json debe ser un array.");

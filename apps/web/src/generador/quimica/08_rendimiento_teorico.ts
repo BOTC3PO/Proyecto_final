@@ -5,7 +5,7 @@ import {
   choice,
   randFloat,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/rendimiento_teorico/enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -36,15 +36,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en rendimiento_teorico/enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("08_rendimiento_teorico");
 
   if (!Array.isArray(parsed)) {
     throw new Error("El catálogo rendimiento_teorico/enunciados.json debe ser un array.");
