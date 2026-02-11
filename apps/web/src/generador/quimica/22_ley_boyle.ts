@@ -1,6 +1,6 @@
 // src/generators/quimica/22_ley_boyle.ts
 import { type GeneratorFn, type NumericExercise, randFloat, choice } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/22_ley_boyle.enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -33,15 +33,7 @@ function renderEnunciado(base: string, values: Record<string, number | string>):
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en 22_ley_boyle.enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("22_ley_boyle");
 
   if (!Array.isArray(parsed)) {
     throw new Error("El catálogo 22_ley_boyle.enunciados.json debe ser un array.");

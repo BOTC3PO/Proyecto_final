@@ -6,7 +6,7 @@ import {
   randomBool,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/reactivo_en_exceso/enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -37,13 +37,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(`Catálogo inválido en reactivo_en_exceso/enunciados.json: ${String(error)}`);
-  }
+  const parsed = getCatalogoTemaSync("07_reactivo_en_exceso");
 
   if (!Array.isArray(parsed)) {
     throw new Error("El catálogo reactivo_en_exceso/enunciados.json debe ser un array.");

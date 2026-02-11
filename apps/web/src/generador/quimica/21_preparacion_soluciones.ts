@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/21_preparacion_soluciones.enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -38,15 +38,7 @@ function renderEnunciado(base: string, values: Record<string, number | string>):
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en 21_preparacion_soluciones.enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("21_preparacion_soluciones");
 
   if (!Array.isArray(parsed)) {
     throw new Error(

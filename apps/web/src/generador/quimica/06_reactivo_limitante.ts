@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/reactivo_limitante/enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -42,15 +42,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en reactivo_limitante/enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("06_reactivo_limitante");
 
   if (!Array.isArray(parsed)) {
     throw new Error("El catálogo reactivo_limitante/enunciados.json debe ser un array.");

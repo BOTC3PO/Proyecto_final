@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/29_calor.enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -34,15 +34,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en 29_calor.enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("29_calor");
 
   if (!Array.isArray(parsed)) {
     throw new Error("El catálogo 29_calor.enunciados.json debe ser un array.");
