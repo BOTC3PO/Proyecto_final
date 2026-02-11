@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/26_gas_ideal.enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -38,15 +38,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en 26_gas_ideal.enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("26_gas_ideal");
 
   if (!Array.isArray(parsed)) {
     throw new Error("El catálogo 26_gas_ideal.enunciados.json debe ser un array.");

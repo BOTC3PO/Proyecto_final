@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/28_mezcla_gases.enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -50,15 +50,7 @@ function validarRangoDato(rango: RangoDato | undefined, itemId: number, key: str
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en 28_mezcla_gases.enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("28_mezcla_gases");
 
   if (!Array.isArray(parsed)) {
     throw new Error("El catálogo 28_mezcla_gases.enunciados.json debe ser un array.");

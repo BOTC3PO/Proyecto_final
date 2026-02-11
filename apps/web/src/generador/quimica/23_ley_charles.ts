@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/23_ley_charles.enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -37,15 +37,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): LeyCharlesCatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en 23_ley_charles.enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("23_ley_charles");
 
   if (!Array.isArray(parsed)) {
     throw new Error("El catálogo 23_ley_charles.enunciados.json debe ser un array.");

@@ -23,6 +23,7 @@ import { adaptMathExercise } from "../generador/matematicas/adapters";
 import { adaptEconomiaExercise } from "../generador/economia/adapters";
 import { adaptQuimicaExercise } from "../generador/quimica/adapters";
 import { fetchActivePrompts, type PromptRecord } from "../services/prompts";
+import { precargarCatalogoTemaPorId } from "../generador/quimica/catalogoApi";
 
 type PromptTemplateKind = "TEXT" | "PARAM_LIMITS";
 
@@ -118,6 +119,8 @@ export default function GeneradoresTest() {
   const [promptOptions, setPromptOptions] = useState<PromptGeneratorConfig[]>([]);
   const [promptsLoading, setPromptsLoading] = useState(false);
   const [promptsError, setPromptsError] = useState<string | null>(null);
+  const [quimicaPreloadLoading, setQuimicaPreloadLoading] = useState(false);
+  const [quimicaPreloadError, setQuimicaPreloadError] = useState<string | null>(null);
 
   const listingPrng = useMemo(() => createPrng(seed || "listado-generadores"), [seed]);
   const prng = useMemo(() => (seed ? createPrng(seed) : null), [seed]);
@@ -763,6 +766,43 @@ export default function GeneradoresTest() {
     []
   );
 
+  useEffect(() => {
+    if (materia !== "quimica") {
+      setQuimicaPreloadError(null);
+      setQuimicaPreloadLoading(false);
+      return;
+    }
+
+    const idTema = Number(generadorSeleccionado);
+    if (!Number.isInteger(idTema) || idTema <= 0) {
+      setQuimicaPreloadError(null);
+      setQuimicaPreloadLoading(false);
+      return;
+    }
+
+    let active = true;
+    setQuimicaPreloadLoading(true);
+    setQuimicaPreloadError(null);
+
+    void precargarCatalogoTemaPorId(idTema)
+      .catch((error: unknown) => {
+        if (!active) return;
+        setQuimicaPreloadError(
+          error instanceof Error
+            ? error.message
+            : "No se pudo precargar consignas de química."
+        );
+      })
+      .finally(() => {
+        if (!active) return;
+        setQuimicaPreloadLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [materia, generadorSeleccionado]);
+
   const generarEjercicio = () => {
     setError(null);
 
@@ -803,6 +843,12 @@ export default function GeneradoresTest() {
           const descriptor =
             GENERADORES_QUIMICA_DESCRIPTORES[Number(generadorSeleccionado)];
           if (!descriptor) throw new Error("Generador de química no disponible.");
+          if (quimicaPreloadLoading) {
+            throw new Error("Esperá a que finalice la precarga de consignas de química.");
+          }
+          if (quimicaPreloadError) {
+            throw new Error(quimicaPreloadError);
+          }
           const exercise = descriptor.generate(mapDificultadCoreABasica(dificultad), prng);
           const question = adaptQuimicaExercise(exercise).question;
           setResultado(applyPromptToQuestion(question, promptConfigSeleccionado));
@@ -946,6 +992,12 @@ export default function GeneradoresTest() {
                 <p className="mt-1 text-xs text-red-600">
                   Error de configuración: {promptsError}
                 </p>
+              ) : null}
+              {materia === "quimica" && quimicaPreloadLoading ? (
+                <p className="mt-1 text-xs text-gray-500">Precargando consignas de química…</p>
+              ) : null}
+              {materia === "quimica" && quimicaPreloadError ? (
+                <p className="mt-1 text-xs text-red-600">Error de consignas: {quimicaPreloadError}</p>
               ) : null}
             </div>
 

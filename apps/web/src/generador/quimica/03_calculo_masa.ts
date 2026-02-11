@@ -5,7 +5,7 @@ import {
   randFloat,
   choice,
 } from "./generico";
-import catalogoRaw from "../../../../../api/src/generadores/quimica/balanceo/03_calculo_masa.enunciados.json?raw";
+import { getCatalogoTemaSync } from "./catalogoApi";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -32,15 +32,7 @@ function getNivelCore(nivel: string): DificultadCore {
 }
 
 function parseCatalogo(): CatalogItem[] {
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(catalogoRaw);
-  } catch (error) {
-    throw new Error(
-      `Catálogo inválido en 03_calculo_masa.enunciados.json: ${String(error)}`
-    );
-  }
+  const parsed = getCatalogoTemaSync("03_calculo_masa");
 
   if (!Array.isArray(parsed)) {
     throw new Error("El catálogo 03_calculo_masa.enunciados.json debe ser un array.");
