@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una reacción de primer orden tiene constante k={{k}} s⁻¹. Calcula su semivida.",
+    "data": {
+      "kMin": 0.0005,
+      "kMax": 0.02
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "La semivida de una reacción de primer orden es {{t12}} min. Calcula k y el tiempo necesario para que quede el {{porcentaje}}% del reactivo inicial.",
+    "data": {
+      "t12Min": 5,
+      "t12Max": 120,
+      "porcentajeOptions": [25, 12.5, 10]
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Para una reacción de segundo orden con [A]₀={{a0}} mol·L⁻¹ y k={{k}} L·mol⁻¹·s⁻¹, calcula la semivida y compara cómo cambiaría si [A]₀ se duplicara.",
+    "data": {
+      "a0Min": 0.05,
+      "a0Max": 0.8,
+      "kMin": 0.01,
+      "kMax": 1.2,
+      "orden": 2
+    }
+  }
+]

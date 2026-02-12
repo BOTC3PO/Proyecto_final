@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Para una reacción de primer orden, la concentración inicial es [A]₀={{a0}} mol·L⁻¹ y después de {{tiempoMin}} min queda [A]={{a}} mol·L⁻¹. Calcula k.",
+    "data": {
+      "a0Min": 0.2,
+      "a0Max": 1,
+      "aMin": 0.05,
+      "aMax": 0.8,
+      "tiempoMinimo": 5,
+      "tiempoMaximo": 60
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para la ley v = k[A]^2, en un experimento se mide v={{velocidad}} mol·L⁻¹·s⁻¹ cuando [A]={{concentracion}} mol·L⁻¹. Determina k y sus unidades.",
+    "data": {
+      "velocidadMin": 0.001,
+      "velocidadMax": 0.08,
+      "concentracionMin": 0.05,
+      "concentracionMax": 0.8
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se obtuvieron datos de velocidades iniciales para A + B → productos y se determinó v = k[A]^m[B]^n con m={{m}} y n={{n}}. Usa un conjunto experimental para calcular k y expresa unidades en función del orden global.",
+    "data": {
+      "mOptions": [1, 2],
+      "nOptions": [0, 1],
+      "incluyeAnalisisUnidades": true
+    }
+  }
+]

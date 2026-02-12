@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "En una electrólisis de CuSO₄, pasa una corriente de {{intensidadA}} A durante {{tiempoMin}} min. Calcula la masa de cobre depositada.",
+    "data": {
+      "masaMolar": 63.55,
+      "electrones": 2,
+      "faraday": 96485,
+      "intensidadMin": 0.8,
+      "intensidadMax": 2.5,
+      "tiempoMinimo": 10,
+      "tiempoMaximo": 40
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Durante la electrólisis de AgNO₃ con rendimiento del 100%, circulan {{intensidadA}} A por {{tiempoMin}} min. Determina la masa de Ag obtenida.",
+    "data": {
+      "masaMolar": 107.87,
+      "electrones": 1,
+      "faraday": 96485,
+      "intensidadMin": 1,
+      "intensidadMax": 4,
+      "tiempoMinimo": 15,
+      "tiempoMaximo": 60
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Una celda electrolítica produce aluminio por reducción de Al³⁺. Si se aplican {{intensidadA}} A durante {{tiempoMin}} min y el rendimiento de corriente es {{rendimiento}}%, calcula la masa real de Al obtenida.",
+    "data": {
+      "masaMolar": 26.98,
+      "electrones": 3,
+      "faraday": 96485,
+      "intensidadMin": 5,
+      "intensidadMax": 20,
+      "tiempoMinimo": 30,
+      "tiempoMaximo": 180,
+      "rendimientoMin": 70,
+      "rendimientoMax": 95
+    }
+  }
+]

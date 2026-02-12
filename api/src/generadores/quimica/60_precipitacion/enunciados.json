@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se mezclan volúmenes iguales de soluciones de AgNO₃ y NaCl con concentraciones {{c1}} y {{c2}} mol·L⁻¹. Determina si precipita AgCl comparando Q con Ksp={{ksp}}.",
+    "data": {
+      "cMin": 1e-4,
+      "cMax": 0.05,
+      "kspMin": 1e-11,
+      "kspMax": 1e-9,
+      "sal": "AgCl"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Al mezclar soluciones de CaCl₂ y Na₂CO₃ con concentraciones y volúmenes dados, calcula las concentraciones finales iónicas y decide si hay precipitación de CaCO₃ (Ksp={{ksp}}).",
+    "data": {
+      "kspMin": 1e-10,
+      "kspMax": 1e-8,
+      "requiereDilucion": true,
+      "sal": "CaCO3"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Diseña el criterio de precipitación selectiva para una mezcla con dos cationes metálicos y un anión precipitante. Con los Ksp provistos, determina qué sólido precipita primero y el rango de concentración del anión.",
+    "data": {
+      "precipitacionSelectiva": true,
+      "requiereComparacionKsp": true
+    }
+  }
+]

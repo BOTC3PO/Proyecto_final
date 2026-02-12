@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Para la sal poco soluble AgCl(s) ⇌ Ag⁺ + Cl⁻, si la solubilidad molar es s={{s}} mol·L⁻¹, calcula Ksp.",
+    "data": {
+      "sMin": 1e-6,
+      "sMax": 2e-4,
+      "estequiometria": [1, 1]
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para CaF₂(s) ⇌ Ca²⁺ + 2F⁻, se conoce Ksp={{ksp}}. Calcula la solubilidad molar en agua pura.",
+    "data": {
+      "kspMin": 1e-12,
+      "kspMax": 1e-9,
+      "estequiometria": [1, 2]
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "La sal M₂X₃(s) presenta Ksp={{ksp}}. Expresa el equilibrio en función de s y calcula la solubilidad molar aproximada.",
+    "data": {
+      "kspMin": 1e-25,
+      "kspMax": 1e-15,
+      "estequiometria": [2, 3],
+      "requierePotencias": true
+    }
+  }
+]

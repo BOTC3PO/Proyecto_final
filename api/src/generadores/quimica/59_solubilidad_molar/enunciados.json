@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Calcula la solubilidad molar de BaSO₄ en agua si Ksp={{ksp}}.",
+    "data": {
+      "kspMin": 1e-12,
+      "kspMax": 1e-9,
+      "estequiometria": [1, 1]
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Determina la solubilidad molar de PbI₂ en una solución que ya contiene [I⁻]={{ionComun}} mol·L⁻¹ (efecto del ion común), sabiendo que Ksp={{ksp}}.",
+    "data": {
+      "kspMin": 1e-10,
+      "kspMax": 1e-7,
+      "ionComunMin": 0.005,
+      "ionComunMax": 0.2,
+      "estequiometria": [1, 2]
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Una sal MX₂ tiene Ksp={{ksp}}. Calcula su solubilidad molar en presencia de [M²⁺] inicial={{catIon}} mol·L⁻¹ y discute la aproximación utilizada.",
+    "data": {
+      "kspMin": 1e-14,
+      "kspMax": 1e-9,
+      "catIonMin": 0.001,
+      "catIonMax": 0.05,
+      "estequiometria": [1, 2]
+    }
+  }
+]
