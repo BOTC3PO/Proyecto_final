@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Escribe la configuración electrónica de {{elemento}} (Z={{Z}}) siguiendo el principio de Aufbau.",
+    "data": {
+      "tema": "74_configuracion_electronica",
+      "version": 1,
+      "nivelSugerido": "basico"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Escribe la configuración electrónica de {{elemento}} (Z={{Z}}) siguiendo el principio de Aufbau.",
+    "data": {
+      "tema": "74_configuracion_electronica",
+      "version": 1,
+      "nivelSugerido": "intermedio"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Escribe la configuración electrónica de {{elemento}} (Z={{Z}}) siguiendo el principio de Aufbau.",
+    "data": {
+      "tema": "74_configuracion_electronica",
+      "version": 1,
+      "nivelSugerido": "avanzado"
+    }
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Determina si el enlace entre {{atomo1}} y {{atomo2}} es polar o no polar a partir de sus electronegatividades.",
+    "data": {
+      "tema": "80_polaridad_enlaces",
+      "version": 1,
+      "nivelSugerido": "basico"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Determina si el enlace entre {{atomo1}} y {{atomo2}} es polar o no polar a partir de sus electronegatividades.",
+    "data": {
+      "tema": "80_polaridad_enlaces",
+      "version": 1,
+      "nivelSugerido": "intermedio"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Determina si el enlace entre {{atomo1}} y {{atomo2}} es polar o no polar a partir de sus electronegatividades.",
+    "data": {
+      "tema": "80_polaridad_enlaces",
+      "version": 1,
+      "nivelSugerido": "avanzado"
+    }
+  }
+]

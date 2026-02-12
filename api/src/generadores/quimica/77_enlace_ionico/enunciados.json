@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Predice el compuesto iónico formado entre {{metal}} y {{noMetal}}, indicando fórmula y razón de cargas.",
+    "data": {
+      "tema": "77_enlace_ionico",
+      "version": 1,
+      "nivelSugerido": "basico"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Predice el compuesto iónico formado entre {{metal}} y {{noMetal}}, indicando fórmula y razón de cargas.",
+    "data": {
+      "tema": "77_enlace_ionico",
+      "version": 1,
+      "nivelSugerido": "intermedio"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Predice el compuesto iónico formado entre {{metal}} y {{noMetal}}, indicando fórmula y razón de cargas.",
+    "data": {
+      "tema": "77_enlace_ionico",
+      "version": 1,
+      "nivelSugerido": "avanzado"
+    }
+  }
+]

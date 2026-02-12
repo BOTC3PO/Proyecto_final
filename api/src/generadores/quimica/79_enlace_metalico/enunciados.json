@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Explica cómo el modelo del “mar de electrones” justifica la propiedad metálica de {{metal}}.",
+    "data": {
+      "tema": "79_enlace_metalico",
+      "version": 1,
+      "nivelSugerido": "basico"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Explica cómo el modelo del “mar de electrones” justifica la propiedad metálica de {{metal}}.",
+    "data": {
+      "tema": "79_enlace_metalico",
+      "version": 1,
+      "nivelSugerido": "intermedio"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Explica cómo el modelo del “mar de electrones” justifica la propiedad metálica de {{metal}}.",
+    "data": {
+      "tema": "79_enlace_metalico",
+      "version": 1,
+      "nivelSugerido": "avanzado"
+    }
+  }
+]

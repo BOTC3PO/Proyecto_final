@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Determina el tipo de enlace covalente (simple, doble o triple) predominante en {{molecula}} y explica por qué.",
+    "data": {
+      "tema": "78_enlace_covalente",
+      "version": 1,
+      "nivelSugerido": "basico"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Determina el tipo de enlace covalente (simple, doble o triple) predominante en {{molecula}} y explica por qué.",
+    "data": {
+      "tema": "78_enlace_covalente",
+      "version": 1,
+      "nivelSugerido": "intermedio"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Determina el tipo de enlace covalente (simple, doble o triple) predominante en {{molecula}} y explica por qué.",
+    "data": {
+      "tema": "78_enlace_covalente",
+      "version": 1,
+      "nivelSugerido": "avanzado"
+    }
+  }
+]
