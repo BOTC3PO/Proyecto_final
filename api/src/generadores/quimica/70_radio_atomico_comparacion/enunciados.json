@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Entre {{elementoA}} y {{elementoB}}, indica cuál tiene mayor radio atómico y explica con la tendencia periódica correspondiente.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Ordena los elementos {{elementos}} de mayor a menor radio atómico considerando su ubicación por período y grupo.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Para el conjunto {{elementos}}, compara radio atómico y radio iónico esperado (cuando formen cationes/aniones comunes) y argumenta las diferencias con base en carga efectiva y estructura electrónica.",
+    "data": {}
+  }
+]

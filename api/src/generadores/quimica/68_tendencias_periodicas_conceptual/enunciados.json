@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Explica, usando tendencias periódicas, cómo varía el radio atómico al avanzar en un período y al descender en un grupo.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Compara energía de ionización y afinidad electrónica en los elementos {{elementos}} e indica la tendencia general que justifica las diferencias observadas.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Analiza el comportamiento conjunto de radio atómico, electronegatividad y energía de ionización para {{elementos}}. Justifica los valores relativos con base en carga nuclear efectiva y apantallamiento.",
+    "data": {}
+  }
+]

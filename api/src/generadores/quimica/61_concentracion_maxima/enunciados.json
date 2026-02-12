@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una solución acuosa de NaCl tiene concentración de {{concentracion}} g/L a {{temperatura}} °C. Si la concentración máxima (solubilidad) del NaCl a esa temperatura es {{solubilidad}} g/L, determina si la solución es insaturada, saturada o sobresaturada.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se preparan {{volumen}} mL de una solución de KNO3 disolviendo {{masaSoluto}} g de sal a {{temperatura}} °C. Con una solubilidad de {{solubilidad}} g por 100 mL de agua a esa temperatura, calcula la concentración en g/L y clasifica la solución (insaturada/saturada/sobresaturada).",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Una solución de sacarosa contiene {{masaSoluto}} g de soluto en {{masaAgua}} g de agua a {{temperatura}} °C. Si la concentración máxima permitida es {{solubilidad}} g de soluto por 100 g de agua, determina cuántos gramos adicionales podrían disolverse o cuántos gramos precipitarían para alcanzar la saturación.",
+    "data": {}
+  }
+]
