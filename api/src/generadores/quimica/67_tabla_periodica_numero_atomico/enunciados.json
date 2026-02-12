@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Indica el número atómico de los siguientes elementos: {{elementos}}.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Ordena los elementos {{elementos}} de menor a mayor número atómico e indica Z para cada uno.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se dan los números atómicos {{numerosAtomicos}}. Identifica el elemento correspondiente a cada uno y ubícalo por período y grupo en la tabla periódica.",
+    "data": {}
+  }
+]

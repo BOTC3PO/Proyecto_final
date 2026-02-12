@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Clasifica los siguientes elementos según su tipo (metal, no metal o metaloide): {{elementos}}.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para cada elemento de la lista {{elementos}}, indica su clasificación (metal alcalino, alcalinotérreo, halógeno, gas noble, metal de transición u otra familia pertinente).",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Dado el conjunto {{elementos}}, clasifica cada elemento por bloque (s, p, d, f), tipo químico (metal/no metal/metaloide) y familia periódica principal cuando corresponda.",
+    "data": {}
+  }
+]

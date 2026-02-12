@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una solución acuosa tiene molalidad {{molalidad}} m y produce un descenso crioscópico ΔTf={{deltaTf}} °C. Si Kf={{kf}} °C·kg/mol, calcula el factor de Van’t Hoff i.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para una solución de masa molar conocida, se midió una elevación ebulloscópica de ΔTb={{deltaTb}} °C con Kb={{kb}} °C·kg/mol y molalidad {{molalidad}} m. Determina i y comenta si el soluto se comporta como no electrolito o electrolito.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Una muestra de {{masaSoluto}} g de un electrólito (M={{masaMolar}} g/mol) se disuelve en {{kgSolvente}} kg de agua. Si la presión osmótica medida es {{pi}} atm a {{temperaturaK}} K en un volumen de {{volumenL}} L, calcula el factor de Van’t Hoff experimental i.",
+    "data": {}
+  }
+]

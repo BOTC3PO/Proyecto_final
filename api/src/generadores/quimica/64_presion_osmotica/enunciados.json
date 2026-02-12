@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una solución contiene {{molesSoluto}} mol de glucosa en un volumen final de {{volumenL}} L a {{temperaturaK}} K. Calcula la presión osmótica usando π=iMRT con i={{i}} y R={{r}} L·atm·mol⁻¹·K⁻¹.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se disuelven {{masaSoluto}} g de un soluto no electrolito (M={{masaMolar}} g/mol) hasta completar {{volumenL}} L de solución a {{temperaturaK}} K. Determina la presión osmótica en atm.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Una solución presenta una presión osmótica de {{pi}} atm a {{temperaturaK}} K y volumen {{volumenL}} L. Si el soluto es un electrolito con i={{i}}, calcula cuántos moles y qué masa (M={{masaMolar}} g/mol) de soluto contiene la solución.",
+    "data": {}
+  }
+]

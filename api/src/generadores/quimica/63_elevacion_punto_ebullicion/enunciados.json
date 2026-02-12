@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se disuelven {{molesSoluto}} mol de urea (i=1) en {{kgSolvente}} kg de agua. Si Kb={{kb}} °C·kg/mol, calcula la elevación del punto de ebullición (ΔTb) y el nuevo punto de ebullición.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Una solución contiene {{masaSoluto}} g de NaCl (M={{masaMolar}} g/mol, i={{i}}) en {{kgSolvente}} kg de agua. Con Kb={{kb}} °C·kg/mol, determina ΔTb y la temperatura final de ebullición.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se requiere elevar el punto de ebullición del agua hasta {{tbFinal}} °C. Para {{kgSolvente}} kg de agua y un soluto no volátil de masa molar {{masaMolar}} g/mol (i={{i}}), calcula cuántos gramos de soluto se deben agregar, usando Kb={{kb}} °C·kg/mol.",
+    "data": {}
+  }
+]

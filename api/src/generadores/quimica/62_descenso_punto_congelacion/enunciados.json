@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se disuelven {{molesSoluto}} mol de glucosa (no electrolito) en {{kgSolvente}} kg de agua. Si Kf del agua es {{kf}} °C·kg/mol, calcula el descenso del punto de congelación (ΔTf) y el nuevo punto de congelación de la solución.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Una solución se prepara disolviendo {{masaSoluto}} g de etilenglicol (M={{masaMolar}} g/mol, i={{i}}) en {{kgSolvente}} kg de agua. Usa Kf={{kf}} °C·kg/mol para calcular ΔTf y la temperatura de congelación final.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se desea que una solución acuosa con Kf={{kf}} °C·kg/mol congele a {{tfFinal}} °C. Si se usan {{kgSolvente}} kg de agua y CaCl2 (i={{i}}, M={{masaMolar}} g/mol), calcula la masa de soluto necesaria para lograr ese punto de congelación.",
+    "data": {}
+  }
+]

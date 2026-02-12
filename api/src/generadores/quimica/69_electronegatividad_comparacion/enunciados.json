@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Compara la electronegatividad entre {{elementoA}} y {{elementoB}} e indica cuál atrae con mayor fuerza a los electrones en un enlace covalente.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Ordena de menor a mayor electronegatividad los elementos {{elementos}} y justifica brevemente usando su posición en la tabla periódica.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Dados los pares {{paresElementos}}, determina en cada caso cuál enlace presenta mayor polaridad esperada a partir de la diferencia de electronegatividad.",
+    "data": {}
+  }
+]
