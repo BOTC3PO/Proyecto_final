@@ -4,7 +4,7 @@ import path from "node:path";
 
 const router = Router();
 const QUIMICA_ROOT = path.resolve(process.cwd(), "api/src/generadores/quimica");
-const TEMA_REGEX = /^\d{2}_[a-z0-9_]+$/;
+const TEMA_REGEX = /^\d{2}_[A-Za-z0-9_]+$/;
 
 router.get("/api/consignas/quimica", async (_req, res) => {
   try {
@@ -31,19 +31,12 @@ router.get("/api/consignas/quimica/:tema", async (req, res) => {
     return res.status(400).json({ error: "tema invalido" });
   }
 
-  const enunciadosPath = path.resolve(temaPath, "enunciados.json");
-  const enunciadoLegacyPath = path.resolve(temaPath, "enunciado.json");
-  let catalogPath = enunciadosPath;
+  const catalogPath = path.resolve(temaPath, "enunciado.json");
 
   try {
-    await access(enunciadosPath);
+    await access(catalogPath);
   } catch {
-    try {
-      await access(enunciadoLegacyPath);
-      catalogPath = enunciadoLegacyPath;
-    } catch {
-      return res.status(404).json({ error: "enunciados no encontrados" });
-    }
+    return res.status(404).json({ error: "enunciados no encontrados" });
   }
 
   try {
