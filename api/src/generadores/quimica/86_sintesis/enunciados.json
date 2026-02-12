@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Identificá la reacción de síntesis en el siguiente esquema: {ecuacion}.",
+    "data": {
+      "ecuacion": "2H2 + O2 -> 2H2O"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Balanceá y clasificá como síntesis la reacción: {ecuacion}.",
+    "data": {
+      "ecuacion": "N2 + H2 -> NH3"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Determiná los productos esperados en una reacción de síntesis entre {reactivoA} y {reactivoB}.",
+    "data": {
+      "reactivoA": "óxido de calcio",
+      "reactivoB": "agua"
+    }
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Clasificá la propiedad {propiedad} como física o química.",
+    "data": {
+      "propiedad": "punto de ebullición",
+      "respuesta": "física"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Indicá si el cambio {cambio} implica propiedad física o química.",
+    "data": {
+      "cambio": "oxidación del hierro",
+      "respuesta": "química"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Analizá el proceso {proceso} e identificá evidencias de cambio físico y químico.",
+    "data": {
+      "proceso": "calentar azúcar hasta caramelizar"
+    }
+  }
+]

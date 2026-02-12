@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Determiná si la mezcla {mezcla} es homogénea o heterogénea.",
+    "data": {
+      "mezcla": "agua con sal",
+      "respuesta": "homogénea"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Identificá la fase o fases presentes en {mezcla}.",
+    "data": {
+      "mezcla": "agua y aceite",
+      "fases": 2
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Proponé un criterio experimental para distinguir entre mezcla homogénea y heterogénea en {mezcla}.",
+    "data": {
+      "mezcla": "leche"
+    }
+  }
+]

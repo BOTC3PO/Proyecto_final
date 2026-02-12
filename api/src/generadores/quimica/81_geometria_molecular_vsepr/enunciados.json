@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Identificá la geometría molecular según VSEPR para {molecula}.",
+    "data": {
+      "molecula": "H2O",
+      "opciones": [
+        "lineal",
+        "angular",
+        "trigonal plana",
+        "tetraédrica"
+      ],
+      "respuesta": "angular"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Determiná la geometría electrónica y molecular de {molecula}.",
+    "data": {
+      "molecula": "NH3",
+      "geometriaElectronica": "tetraédrica",
+      "geometriaMolecular": "trigonal piramidal"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Compará la geometría molecular, polaridad y ángulo de enlace esperado para {moleculaA} y {moleculaB}.",
+    "data": {
+      "moleculaA": "CO2",
+      "moleculaB": "SO2"
+    }
+  }
+]

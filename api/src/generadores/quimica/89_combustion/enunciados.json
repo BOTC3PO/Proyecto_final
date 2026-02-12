@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Identificá reactivos y productos en la combustión completa de {combustible}.",
+    "data": {
+      "combustible": "metano"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Balanceá la ecuación de combustión de {combustible}.",
+    "data": {
+      "combustible": "propano"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Compará combustión completa e incompleta de {combustible} y sus productos.",
+    "data": {
+      "combustible": "butano"
+    }
+  }
+]

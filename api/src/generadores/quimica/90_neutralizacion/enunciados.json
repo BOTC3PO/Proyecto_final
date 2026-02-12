@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Reconocé la reacción de neutralización en {ecuacion}.",
+    "data": {
+      "ecuacion": "HCl + NaOH -> NaCl + H2O"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Calculá el producto salino formado al neutralizar {acido} con {base}.",
+    "data": {
+      "acido": "H2SO4",
+      "base": "KOH"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Resolvé un problema de neutralización ácido-base con datos de concentración y volumen.",
+    "data": {
+      "acido": "ácido acético 0.1 M",
+      "base": "NaOH 0.1 M"
+    }
+  }
+]
