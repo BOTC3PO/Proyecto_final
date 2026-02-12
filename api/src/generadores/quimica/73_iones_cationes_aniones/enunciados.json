@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Clasifica la especie {{especie}} como catión, anión o átomo neutro e indica su carga neta.",
+    "data": {
+      "tema": "73_iones_cationes_aniones",
+      "version": 1,
+      "nivelSugerido": "basico"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Clasifica la especie {{especie}} como catión, anión o átomo neutro e indica su carga neta.",
+    "data": {
+      "tema": "73_iones_cationes_aniones",
+      "version": 1,
+      "nivelSugerido": "intermedio"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Clasifica la especie {{especie}} como catión, anión o átomo neutro e indica su carga neta.",
+    "data": {
+      "tema": "73_iones_cationes_aniones",
+      "version": 1,
+      "nivelSugerido": "avanzado"
+    }
+  }
+]

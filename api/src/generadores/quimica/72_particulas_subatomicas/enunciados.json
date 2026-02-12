@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Para el átomo con número atómico {{Z}} y número másico {{A}}, determina protones, neutrones y electrones (átomo neutro).",
+    "data": {
+      "tema": "72_particulas_subatomicas",
+      "version": 1,
+      "nivelSugerido": "basico"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para el átomo con número atómico {{Z}} y número másico {{A}}, determina protones, neutrones y electrones (átomo neutro).",
+    "data": {
+      "tema": "72_particulas_subatomicas",
+      "version": 1,
+      "nivelSugerido": "intermedio"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Para el átomo con número atómico {{Z}} y número másico {{A}}, determina protones, neutrones y electrones (átomo neutro).",
+    "data": {
+      "tema": "72_particulas_subatomicas",
+      "version": 1,
+      "nivelSugerido": "avanzado"
+    }
+  }
+]

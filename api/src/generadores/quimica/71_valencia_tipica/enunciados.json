@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Identifica la valencia típica del elemento {{elemento}} en compuestos comunes y justifica brevemente tu elección.",
+    "data": {
+      "tema": "71_valencia_tipica",
+      "version": 1,
+      "nivelSugerido": "basico"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Identifica la valencia típica del elemento {{elemento}} en compuestos comunes y justifica brevemente tu elección.",
+    "data": {
+      "tema": "71_valencia_tipica",
+      "version": 1,
+      "nivelSugerido": "intermedio"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Identifica la valencia típica del elemento {{elemento}} en compuestos comunes y justifica brevemente tu elección.",
+    "data": {
+      "tema": "71_valencia_tipica",
+      "version": 1,
+      "nivelSugerido": "avanzado"
+    }
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Determina cuántos orbitales y cuántos electrones máximos corresponden al subnivel {{subnivel}}.",
+    "data": {
+      "tema": "76_orbitales_spdf",
+      "version": 1,
+      "nivelSugerido": "basico"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Determina cuántos orbitales y cuántos electrones máximos corresponden al subnivel {{subnivel}}.",
+    "data": {
+      "tema": "76_orbitales_spdf",
+      "version": 1,
+      "nivelSugerido": "intermedio"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Determina cuántos orbitales y cuántos electrones máximos corresponden al subnivel {{subnivel}}.",
+    "data": {
+      "tema": "76_orbitales_spdf",
+      "version": 1,
+      "nivelSugerido": "avanzado"
+    }
+  }
+]
