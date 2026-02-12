@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Calcula el pH de una solución con [H+] = {{h}} mol/L.",
+    "data": {
+      "hMinExp": -4,
+      "hMaxExp": -2
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Determina [H+] si el pH de la solución es {{ph}}.",
+    "data": {
+      "phMin": 2,
+      "phMax": 6
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Una disolución se diluye y [H+] cambia por un factor {{factor}}. Si el pH inicial es {{ph0}}, calcula el pH final.",
+    "data": {
+      "ph0Min": 1,
+      "ph0Max": 5,
+      "factorOptions": [
+        2,
+        5,
+        10,
+        20,
+        50,
+        100
+      ]
+    }
+  }
+]

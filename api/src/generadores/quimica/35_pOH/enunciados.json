@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Calcula el pOH de una solución con [OH-] = {{oh}} mol/L.",
+    "data": {
+      "ohMinExp": -4,
+      "ohMaxExp": -2
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Determina [OH-] si el pOH de la solución es {{poh}}.",
+    "data": {
+      "pohMin": 2,
+      "pohMax": 8
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Una base se diluye y [OH-] cambia por un factor {{factor}}. Si el pOH inicial es {{poh0}}, calcula el pOH final.",
+    "data": {
+      "poh0Min": 2,
+      "poh0Max": 7,
+      "factorOptions": [
+        2,
+        5,
+        10,
+        20,
+        50,
+        100
+      ]
+    }
+  }
+]

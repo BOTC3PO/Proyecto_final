@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Clasifica como ácido/base fuerte o débil la especie {{especie}} y justifica brevemente.",
+    "data": {
+      "especies": [
+        "HCl",
+        "HNO3",
+        "CH3COOH",
+        "NH3",
+        "NaOH"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Ordena por fuerza ácida: {{lista}} usando Ka o pKa cualitativamente.",
+    "data": {
+      "listas": [
+        [
+          "HClO4",
+          "HClO",
+          "CH3COOH"
+        ],
+        [
+          "HF",
+          "HCl",
+          "HBr"
+        ]
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Analiza el equilibrio ácido-base del par {{par}} y predice el sentido favorecido según fortaleza relativa.",
+    "data": {
+      "pares": [
+        "CH3COOH/CH3COO- con NH3/NH4+",
+        "HF/F- con H2O/OH-"
+      ]
+    }
+  }
+]

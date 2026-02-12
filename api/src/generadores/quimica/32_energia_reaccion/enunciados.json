@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Calcula la energía de reacción usando energías de enlace promedio para: {{reaccion}}.",
+    "data": {
+      "reaccion": "H2(g)+Cl2(g)→2 HCl(g)",
+      "romper": [
+        "H-H",
+        "Cl-Cl"
+      ],
+      "formar": [
+        "H-Cl"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "A partir de los datos de enlace, estima ΔH de la reacción {{reaccion}} e indica si es endotérmica o exotérmica.",
+    "data": {
+      "reaccion": "CH4(g)+2 O2(g)→CO2(g)+2 H2O(g)",
+      "romper": [
+        "C-H",
+        "O=O"
+      ],
+      "formar": [
+        "C=O",
+        "O-H"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Usando energías de enlace promedio, calcula ΔH para {{reaccion}} y analiza la magnitud del intercambio energético.",
+    "data": {
+      "reaccion": "N2(g)+3 H2(g)→2 NH3(g)",
+      "romper": [
+        "N≡N",
+        "H-H"
+      ],
+      "formar": [
+        "N-H"
+      ]
+    }
+  }
+]

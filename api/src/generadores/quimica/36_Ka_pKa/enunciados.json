@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Para un ácido con Ka = {{ka}}, calcula su pKa.",
+    "data": {
+      "kaMinExp": -6,
+      "kaMaxExp": -2
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Calcula Ka de un ácido débil cuyo pKa es {{pka}}.",
+    "data": {
+      "pkaMin": 2,
+      "pkaMax": 8
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Compara dos ácidos con pKa {{pka1}} y {{pka2}} y determina cuál es más fuerte y en qué factor aproximado de Ka difieren.",
+    "data": {
+      "pairs": [
+        [
+          3.2,
+          5.7
+        ],
+        [
+          4.1,
+          6.1
+        ],
+        [
+          2.8,
+          4.8
+        ]
+      ]
+    }
+  }
+]
