@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "¿Qué volumen de HCl {{ca}} M se necesita para neutralizar {{vb}} mL de NaOH {{cb}} M?",
+    "data": {
+      "caMin": 0.1,
+      "caMax": 1.0,
+      "cbMin": 0.1,
+      "cbMax": 1.0,
+      "vbMin": 10,
+      "vbMax": 100
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Calcula el pH en el punto de equivalencia para la neutralización entre {{acido}} y {{base}} fuertes.",
+    "data": {
+      "acido": "HCl",
+      "base": "NaOH",
+      "concMin": 0.05,
+      "concMax": 0.5
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "En una titulación de ácido débil con base fuerte, determina el pH en semiequivalencia usando pKa={{pka}}.",
+    "data": {
+      "pkaMin": 3.5,
+      "pkaMax": 6.5,
+      "acido": "ácido acético",
+      "base": "NaOH"
+    }
+  }
+]

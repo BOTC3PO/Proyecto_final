@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Usando la ley de Hess, calcula ΔH para la reacción objetivo {{objetivo}} a partir de las ecuaciones dadas.",
+    "data": {
+      "objetivo": "C(s)+1/2 O2(g)→CO(g)",
+      "ecuaciones": [
+        {
+          "eq": "C(s)+O2(g)→CO2(g)",
+          "deltaH": -393.5
+        },
+        {
+          "eq": "CO(g)+1/2 O2(g)→CO2(g)",
+          "deltaH": -283.0
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Aplica la ley de Hess para obtener ΔH de {{objetivo}} combinando las reacciones provistas y justificando inversiones/multiplicaciones.",
+    "data": {
+      "objetivo": "2 NO(g)+O2(g)→2 NO2(g)",
+      "ecuaciones": [
+        {
+          "eq": "N2(g)+O2(g)→2 NO(g)",
+          "deltaH": 180.5
+        },
+        {
+          "eq": "N2(g)+2 O2(g)→2 NO2(g)",
+          "deltaH": 66.4
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Determina ΔH de {{objetivo}} por ley de Hess usando las ecuaciones auxiliares y controlando los coeficientes estequiométricos.",
+    "data": {
+      "objetivo": "C2H4(g)+H2(g)→C2H6(g)",
+      "ecuaciones": [
+        {
+          "eq": "C2H4(g)+3 O2(g)→2 CO2(g)+2 H2O(l)",
+          "deltaH": -1411
+        },
+        {
+          "eq": "C2H6(g)+7/2 O2(g)→2 CO2(g)+3 H2O(l)",
+          "deltaH": -1560
+        },
+        {
+          "eq": "H2(g)+1/2 O2(g)→H2O(l)",
+          "deltaH": -285.8
+        }
+      ]
+    }
+  }
+]

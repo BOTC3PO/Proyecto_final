@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "El combustible {{combustible}} tiene poder calorífico de {{pc}} kJ/kg. ¿Qué energía libera al quemar {{masa}} kg?",
+    "data": {
+      "combustible": "gas natural",
+      "pc": 50000,
+      "masaMin": 0.5,
+      "masaMax": 3
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Calcula la masa de {{combustible}} necesaria para suministrar {{energia}} MJ, si su poder calorífico es {{pc}} kJ/kg.",
+    "data": {
+      "combustible": "GLP",
+      "pc": 46000,
+      "energiaMin": 20,
+      "energiaMax": 120
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Un sistema usa {{combustible}} ({{pc}} kJ/kg) con rendimiento {{rend}}%. Determina la masa necesaria para entregar {{energiaUtil}} MJ útiles.",
+    "data": {
+      "combustible": "diesel",
+      "pc": 43000,
+      "rendMin": 65,
+      "rendMax": 90,
+      "energiaUtilMin": 50,
+      "energiaUtilMax": 250
+    }
+  }
+]

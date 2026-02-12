@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "A 25°C, calcula [OH-] si [H+] = {{h}} mol/L.",
+    "data": {
+      "hMinExp": -6,
+      "hMaxExp": -2,
+      "kw": 1e-14
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "A 25°C, calcula [H+] si [OH-] = {{oh}} mol/L.",
+    "data": {
+      "ohMinExp": -6,
+      "ohMaxExp": -2,
+      "kw": 1e-14
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "A 25°C, dada una solución con pH {{ph}}, calcula [H+], [OH-] y pOH.",
+    "data": {
+      "phMin": 2,
+      "phMax": 12,
+      "kw": 1e-14
+    }
+  }
+]

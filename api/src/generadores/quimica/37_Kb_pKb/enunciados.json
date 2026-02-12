@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Para una base con Kb = {{kb}}, calcula su pKb.",
+    "data": {
+      "kbMinExp": -7,
+      "kbMaxExp": -3
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Calcula Kb de una base débil cuyo pKb es {{pkb}}.",
+    "data": {
+      "pkbMin": 3,
+      "pkbMax": 10
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Compara dos bases con pKb {{pkb1}} y {{pkb2}} e indica cuál es más fuerte y por qué factor de Kb difieren.",
+    "data": {
+      "pairs": [
+        [
+          3.5,
+          6.0
+        ],
+        [
+          4.2,
+          5.2
+        ],
+        [
+          2.9,
+          4.9
+        ]
+      ]
+    }
+  }
+]
