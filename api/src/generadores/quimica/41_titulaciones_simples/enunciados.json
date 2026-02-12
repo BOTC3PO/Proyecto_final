@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se titula una disolución ácida con una base fuerte. Calcula la concentración desconocida aplicando neutralización ácido-base.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "En una titulación de neutralización se conocen volúmenes y concentración de uno de los reactivos. Determina la concentración faltante.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Resuelve una titulación simple en el punto de equivalencia usando la relación estequiométrica correspondiente.",
+    "data": {}
+  }
+]

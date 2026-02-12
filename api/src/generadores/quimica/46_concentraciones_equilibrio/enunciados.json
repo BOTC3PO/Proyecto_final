@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Calcula una concentración de equilibrio desconocida a partir de Kc y datos parciales.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Determina concentraciones de equilibrio en una reacción reversible usando relaciones estequiométricas.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Resuelve concentraciones de equilibrio aplicando Kc y verifica la coherencia física de los resultados.",
+    "data": {}
+  }
+]

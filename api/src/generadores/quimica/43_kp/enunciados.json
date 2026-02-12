@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Para una reacción gaseosa en equilibrio, calcula Kp a partir de presiones parciales de equilibrio.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Con datos de presión parcial en equilibrio de especies gaseosas, determina Kp.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Resuelve el cálculo de Kp para una reacción gaseosa y discute el significado del valor obtenido.",
+    "data": {}
+  }
+]

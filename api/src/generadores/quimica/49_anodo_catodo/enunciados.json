@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Identifica ánodo y cátodo en una celda galvánica comparando potenciales estándar.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "A partir de E° de reducción, determina en qué electrodo ocurre oxidación y reducción.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Dadas dos semirreacciones, establece el sentido del flujo electrónico y clasifica ánodo/cátodo.",
+    "data": {}
+  }
+]
