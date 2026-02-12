@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Compara dos potenciales estándar de reducción e identifica cuál tiene mayor tendencia a reducirse.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Con dos semirreacciones y sus E°, determina el par más oxidante y la diferencia de potencial.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Analiza potenciales estándar de electrodo para decidir factibilidad y comparar fuerza oxidante relativa.",
+    "data": {}
+  }
+]

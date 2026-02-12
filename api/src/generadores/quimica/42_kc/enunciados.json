@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Para una reacción reversible con concentraciones de equilibrio conocidas, calcula la constante Kc.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Usando datos de equilibrio para reactivos y productos, determina el valor numérico de Kc.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Analiza concentraciones a equilibrio de una reacción homogénea y calcula Kc, interpretando si favorece productos o reactivos.",
+    "data": {}
+  }
+]

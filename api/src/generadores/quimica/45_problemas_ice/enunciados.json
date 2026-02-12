@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Plantea una tabla ICE para una reacción reversible simple y calcula concentraciones de equilibrio.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Resuelve un problema de equilibrio químico usando el método ICE y la constante Kc.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Desarrolla un problema ICE completo, incluyendo planteo algebraico y concentraciones de equilibrio.",
+    "data": {}
+  }
+]

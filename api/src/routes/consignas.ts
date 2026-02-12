@@ -31,16 +31,23 @@ router.get("/api/consignas/quimica/:tema", async (req, res) => {
     return res.status(400).json({ error: "tema invalido" });
   }
 
-  const enunciadoPath = path.resolve(temaPath, "enunciado.json");
+  const enunciadosPath = path.resolve(temaPath, "enunciados.json");
+  const enunciadoLegacyPath = path.resolve(temaPath, "enunciado.json");
+  let catalogPath = enunciadosPath;
 
   try {
-    await access(enunciadoPath);
+    await access(enunciadosPath);
   } catch {
-    return res.status(404).json({ error: "enunciado no encontrado" });
+    try {
+      await access(enunciadoLegacyPath);
+      catalogPath = enunciadoLegacyPath;
+    } catch {
+      return res.status(404).json({ error: "enunciados no encontrados" });
+    }
   }
 
   try {
-    const raw = await readFile(enunciadoPath, "utf8");
+    const raw = await readFile(catalogPath, "utf8");
     return res.json(JSON.parse(raw));
   } catch {
     return res.status(500).json({ error: "no se pudo leer consigna" });

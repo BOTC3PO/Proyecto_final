@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Compara Q con K para una reacción reversible e indica la dirección espontánea del cambio.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Dados Q y K en una mezcla reaccionante, determina si el sistema evoluciona a productos o reactivos.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Evalúa Qc frente a Kc y justifica si el sistema está en equilibrio o hacia qué lado se desplazará.",
+    "data": {}
+  }
+]

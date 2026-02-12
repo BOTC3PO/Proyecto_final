@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Calcula ΔG° usando la relación ΔG° = −nFE° para una celda electroquímica.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Con n y E°celda conocidos, determina el cambio de energía libre estándar en kJ/mol.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Evalúa ΔG° de una reacción redox y deduce espontaneidad a partir del signo obtenido.",
+    "data": {}
+  }
+]

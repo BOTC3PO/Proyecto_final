@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Calcula E°celda a partir de los potenciales estándar de cátodo y ánodo.",
+    "data": {}
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Determina el potencial de celda usando E°celda = E°cátodo − E°ánodo.",
+    "data": {}
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Resuelve el voltaje estándar de una celda y concluye sobre espontaneidad del proceso.",
+    "data": {}
+  }
+]
