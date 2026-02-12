@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Clasificá la reacción {ecuacion} como desplazamiento simple o doble.",
+    "data": {
+      "ecuacion": "Zn + 2HCl -> ZnCl2 + H2"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Completá y balanceá la reacción de desplazamiento simple: {ecuacionIncompleta}.",
+    "data": {
+      "ecuacionIncompleta": "Fe + CuSO4 -> __ + __"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Determiná si ocurre la reacción de doble desplazamiento entre {reactivos} según solubilidad.",
+    "data": {
+      "reactivos": "Na2CO3(aq) y CaCl2(aq)"
+    }
+  }
+]

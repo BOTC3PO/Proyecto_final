@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Elegí el método de separación más adecuado para {mezcla}.",
+    "data": {
+      "mezcla": "arena y agua",
+      "metodo": "filtración"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Explicá por qué {metodo} sirve para separar {mezcla}.",
+    "data": {
+      "metodo": "destilación simple",
+      "mezcla": "agua y alcohol"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Diseñá una secuencia de métodos para separar {mezclaCompleja}.",
+    "data": {
+      "mezclaCompleja": "agua, sal y limaduras de hierro"
+    }
+  }
+]

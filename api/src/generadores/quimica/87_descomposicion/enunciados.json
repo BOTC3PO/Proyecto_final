@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Reconocé la reacción de descomposición en {ecuacion}.",
+    "data": {
+      "ecuacion": "2KClO3 -> 2KCl + 3O2"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Balanceá la siguiente reacción de descomposición: {ecuacion}.",
+    "data": {
+      "ecuacion": "CaCO3 -> CaO + CO2"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Predicí productos y condiciones para la descomposición de {compuesto}.",
+    "data": {
+      "compuesto": "peróxido de hidrógeno"
+    }
+  }
+]

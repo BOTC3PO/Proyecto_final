@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Clasificá el siguiente caso como sustancia pura o mezcla: {caso}.",
+    "data": {
+      "caso": "agua destilada",
+      "respuesta": "sustancia pura"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Indicá si {caso} corresponde a elemento, compuesto o mezcla.",
+    "data": {
+      "caso": "aire atmosférico",
+      "respuesta": "mezcla"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Justificá la clasificación de {caso} usando criterios de composición y propiedades.",
+    "data": {
+      "caso": "bronce"
+    }
+  }
+]
