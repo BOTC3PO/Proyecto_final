@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Clasifica etanol, gasolina y agua destilada según su inflamabilidad e identifica cuál requiere mayor distancia de fuentes de ignición.",
+    "data": {
+      "sustancias": ["etanol", "gasolina", "agua destilada"],
+      "tipo": "clasificacion"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Un solvente tiene punto de inflamación de 18 °C. Evalúa si debe almacenarse como líquido inflamable en un laboratorio a 25 °C y justifica.",
+    "data": {
+      "propiedad": "punto_inflamacion",
+      "valor": 18,
+      "unidad": "C",
+      "tipo": "criterio"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Diseña un protocolo de respuesta inicial ante derrame de acetona cerca de un equipo eléctrico energizado, priorizando control de ignición y ventilación.",
+    "data": {
+      "sustancia": "acetona",
+      "escenario": "derrame",
+      "tipo": "protocolo"
+    }
+  }
+]

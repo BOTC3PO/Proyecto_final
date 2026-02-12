@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Diferencia toxicidad aguda y toxicidad crónica usando un ejemplo de exposición en laboratorio.",
+    "data": {
+      "conceptos": ["toxicidad_aguda", "toxicidad_cronica"],
+      "tipo": "conceptual"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Una ficha SDS indica H301 y H331 para una sustancia. Interpreta estas frases H y propone controles para ingestión e inhalación.",
+    "data": {
+      "frasesH": ["H301", "H331"],
+      "tipo": "sds"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Compara dos rutas de exposición (dérmica vs inhalatoria) para tolueno en una práctica de laboratorio y argumenta cuál representa mayor riesgo bajo ventilación deficiente.",
+    "data": {
+      "sustancia": "tolueno",
+      "rutas": ["dermica", "inhalatoria"],
+      "tipo": "evaluacion_riesgo"
+    }
+  }
+]

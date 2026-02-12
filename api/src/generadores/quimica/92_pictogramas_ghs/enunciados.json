@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Una etiqueta muestra el pictograma de llama (GHS02). Indica el peligro principal y una medida preventiva básica.",
+    "data": {
+      "pictograma": "GHS02",
+      "categoria": "inflamabilidad",
+      "tipo": "interpretacion"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Un envase contiene los pictogramas GHS05 y GHS07. Explica qué riesgos combinados representa y qué EPP mínimo corresponde.",
+    "data": {
+      "pictogramas": ["GHS05", "GHS07"],
+      "categoria": "corrosivo_irritante",
+      "tipo": "analisis"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Relaciona los pictogramas GHS06, GHS08 y GHS09 con ejemplos de sustancias y prioriza acciones de control para almacenamiento seguro.",
+    "data": {
+      "pictogramas": ["GHS06", "GHS08", "GHS09"],
+      "categoria": "toxicidad_salud_ambiente",
+      "tipo": "aplicacion"
+    }
+  }
+]
