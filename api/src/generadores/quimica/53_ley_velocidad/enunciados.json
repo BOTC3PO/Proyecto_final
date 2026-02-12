@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Para la reacción A → productos, en un experimento se observa una velocidad inicial de {{velocidad}} mol·L⁻¹·s⁻¹ cuando [A] = {{concentracion}} mol·L⁻¹. Expresa la ley de velocidad suponiendo orden 1 en A.",
+    "data": {
+      "velocidadMin": 0.001,
+      "velocidadMax": 0.02,
+      "concentracionMin": 0.05,
+      "concentracionMax": 0.8
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para la reacción A + B → productos, se propone la ley v = k[A]^m[B]^n. Al duplicar [A] manteniendo [B], la velocidad se multiplica por {{factorA}}; al duplicar [B] manteniendo [A], la velocidad se multiplica por {{factorB}}. Determina m y n.",
+    "data": {
+      "factorAOptions": [2, 4, 8],
+      "factorBOptions": [1, 2, 4]
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se estudia la reacción 2 NO + O₂ → 2 NO₂ y se obtienen datos de velocidades iniciales. A partir de la tabla experimental, determina la ley de velocidad completa y calcula k con unidades correctas.",
+    "data": {
+      "requiereTabla": true,
+      "ordenesEsperados": {
+        "NO": 2,
+        "O2": 1
+      }
+    }
+  }
+]

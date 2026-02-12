@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Durante la electrólisis de una disolución de CuSO₄ se hace pasar una corriente de {{intensidadA}} A durante {{tiempoMin}} min. Calcula la carga total transferida.",
+    "data": {
+      "intensidadMin": 0.5,
+      "intensidadMax": 2.5,
+      "tiempoMinimo": 5,
+      "tiempoMaximo": 30
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "En la electrodeposición de plata (Ag⁺ + e⁻ → Ag), circula una corriente de {{intensidadA}} A durante {{tiempoMin}} min. Determina los moles de electrones transferidos.",
+    "data": {
+      "intensidadMin": 1,
+      "intensidadMax": 5,
+      "tiempoMinimo": 10,
+      "tiempoMaximo": 60,
+      "faraday": 96485
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se desea depositar cobre a partir de Cu²⁺ en una celda electrolítica. Si se aplican {{intensidadA}} A durante {{tiempoMin}} min, calcula la masa teórica de Cu depositada usando las leyes de Faraday.",
+    "data": {
+      "intensidadMin": 2,
+      "intensidadMax": 8,
+      "tiempoMinimo": 20,
+      "tiempoMaximo": 120,
+      "electrones": 2,
+      "masaMolar": 63.55,
+      "faraday": 96485
+    }
+  }
+]

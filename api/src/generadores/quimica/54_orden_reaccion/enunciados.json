@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "La concentración de un reactivo disminuye linealmente con el tiempo. Identifica el orden de reacción y justifica brevemente.",
+    "data": {
+      "patron": "concentracion_vs_t_lineal"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Para una reacción A → productos, al triplicar [A] inicial la velocidad inicial aumenta {{factorVelocidad}} veces. Determina el orden parcial respecto de A.",
+    "data": {
+      "baseConcentracion": 3,
+      "factorVelocidadOpciones": [3, 9, 27]
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "A partir de datos experimentales de [A] en función del tiempo, compara los ajustes de [A], ln[A] y 1/[A] vs t para determinar el orden global de la reacción y la ecuación integrada aplicable.",
+    "data": {
+      "metodo": "ajuste_lineal",
+      "modelos": ["orden_cero", "primer_orden", "segundo_orden"]
+    }
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se grafican [A] vs tiempo, ln[A] vs tiempo y 1/[A] vs tiempo para una reacción. Identifica cuál gráfico debe ser lineal si la reacción es de primer orden.",
+    "data": {
+      "ordenObjetivo": 1,
+      "graficoLinealEsperado": "lnA_vs_t"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "A partir de una gráfica lineal de ln[A] vs t con pendiente {{pendiente}}, calcula la constante de velocidad y clasifica el orden de reacción.",
+    "data": {
+      "pendienteMin": -0.12,
+      "pendienteMax": -0.005,
+      "unidadTiempo": "s"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Se dispone de datos cinéticos experimentales con ruido. Evalúa qué transformación ([A], ln[A], 1/[A]) produce el mejor ajuste lineal y reporta orden de reacción, k y R².",
+    "data": {
+      "requiereRegresion": true,
+      "metricas": ["k", "r2", "orden"]
+    }
+  }
+]
