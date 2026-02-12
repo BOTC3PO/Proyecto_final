@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Se mezclan 50 mL de AgNO3 0.10 M con 50 mL de NaCl 0.10 M. Determina si se forma precipitado y escribe la ecuación iónica neta.",
+    "data": {
+      "reactivos": ["AgNO3", "NaCl"],
+      "precipitadoEsperado": "AgCl",
+      "tipo": "identificacion"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Se mezclan 100 mL de BaCl2 0.20 M y 150 mL de Na2SO4 0.15 M. Calcula la masa de BaSO4 precipitado y el reactivo limitante.",
+    "data": {
+      "reactivos": ["BaCl2", "Na2SO4"],
+      "precipitadoEsperado": "BaSO4",
+      "tipo": "estequiometria"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "En una mezcla de Pb(NO3)2 y KI se obtiene un precipitado amarillo. Ajusta la reacción molecular, iónica total e iónica neta e identifica los iones espectadores.",
+    "data": {
+      "reactivos": ["Pb(NO3)2", "KI"],
+      "precipitadoEsperado": "PbI2",
+      "tipo": "ionica"
+    }
+  }
+]

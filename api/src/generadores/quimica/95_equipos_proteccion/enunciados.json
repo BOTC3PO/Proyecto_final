@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "activo": true,
+    "difficulty": "basico",
+    "enunciadoBase": "Selecciona el EPP mínimo para preparar una solución diluida de NaCl en laboratorio escolar.",
+    "data": {
+      "escenario": "preparacion_solucion_simple",
+      "tipo": "seleccion_epp"
+    }
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "difficulty": "intermedio",
+    "enunciadoBase": "Durante el trasvasado de HCl concentrado, determina qué tipo de guante y protección ocular corresponde y explica por qué.",
+    "data": {
+      "sustancia": "HCl concentrado",
+      "riesgo": "corrosivo",
+      "tipo": "compatibilidad_epp"
+    }
+  },
+  {
+    "id": 3,
+    "activo": true,
+    "difficulty": "avanzado",
+    "enunciadoBase": "Define un esquema completo de EPP para manipulación de solventes volátiles y tóxicos en campana extractora, incluyendo límites del respirador.",
+    "data": {
+      "escenario": "solventes_volatiles_toxicos",
+      "tipo": "plan_integral"
+    }
+  }
+]
