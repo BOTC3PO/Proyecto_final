@@ -42,13 +42,18 @@ export const generarNotacionCientifica: GeneratorFn = (
   const dificultadCore = normalizarDificultadCore(dificultad);
   const maxExp =
     dificultadCore === "basico"
-      ? 3
+      ? 2
       : dificultadCore === "intermedio"
-      ? 6
-      : 9;
+      ? 5
+      : 8;
 
   const k = randomInt(-maxExp, maxExp);
-  const a = randomInt(1, 9);
+  const a =
+    dificultadCore === "basico"
+      ? randomInt(1, 6)
+      : dificultadCore === "intermedio"
+      ? randomInt(1, 8)
+      : randomInt(1, 9);
   const signo = randomBool() ? -1 : 1;
 
   // Número real N = signo * a * 10^k
@@ -58,9 +63,10 @@ export const generarNotacionCientifica: GeneratorFn = (
 
   const opciones = [correcta];
   const distractores = new Set<string>();
+  const maxDeltaK = dificultadCore === "basico" ? 1 : 2;
 
   while (opciones.length < 4) {
-    const deltaK = randomInt(-2, 2);
+    const deltaK = randomInt(-maxDeltaK, maxDeltaK);
     const deltaA = randomInt(-3, 3) / 10;
 
     const candK = k + deltaK;

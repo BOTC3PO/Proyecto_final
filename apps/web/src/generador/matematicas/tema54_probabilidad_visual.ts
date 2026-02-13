@@ -38,13 +38,16 @@ export const generarProbabilidadVisual: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
   const dificultadCore = normalizarDificultadCore(dificultad);
-  const tipos = [
-    "arbol",
-    "binomial_media",
-    "normal_area",
-    "area_curva",
-    "simulacion",
-  ] as const;
+  const tipos =
+    dificultadCore === "basico"
+      ? (["arbol", "normal_area", "simulacion"] as const)
+      : ([
+          "arbol",
+          "binomial_media",
+          "normal_area",
+          "area_curva",
+          "simulacion",
+        ] as const);
   const tipo = pickRandom(tipos);
 
   if (tipo === "arbol") {
@@ -103,7 +106,10 @@ export const generarProbabilidadVisual: GeneratorFn = (
         : dificultadCore === "intermedio"
         ? randomInt(17, 24)
         : randomInt(25, 30);
-    const p = pickRandom([0.2, 0.3, 0.4, 0.5, 0.6]);
+    const p =
+      dificultadCore === "intermedio"
+        ? pickRandom([0.3, 0.4, 0.5])
+        : pickRandom([0.2, 0.3, 0.4, 0.5, 0.6]);
     const esperado = Number((n * p).toFixed(1));
 
     const opciones = crearOpcionesUnicas(String(esperado), [
@@ -167,7 +173,14 @@ export const generarProbabilidadVisual: GeneratorFn = (
       : dificultadCore === "intermedio"
       ? randomInt(600, 1200)
       : randomInt(1500, 3000);
-  const frecuencia = Number((randomInt(48, 52) / 100).toFixed(2));
+  const frecuencia = Number(
+    (
+      randomInt(
+        dificultadCore === "basico" ? 49 : 48,
+        dificultadCore === "avanzado" ? 53 : 52
+      ) / 100
+    ).toFixed(2)
+  );
 
   return crearQuizBase({
     idTema: ID_TEMA,

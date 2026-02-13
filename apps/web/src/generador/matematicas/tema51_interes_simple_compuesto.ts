@@ -26,12 +26,21 @@ export const generarInteresSimpleCompuesto: GeneratorFn = (
   const capital =
     dificultadCore === "basico"
       ? randomInt(1000, 5000)
-      : randomInt(1000, 10000); // pesos
-  const tasa = dificultadCore === "basico" ? randomInt(1, 8) : randomInt(1, 10);          // % anual
+      : dificultadCore === "intermedio"
+      ? randomInt(2000, 12000)
+      : randomInt(5000, 25000); // pesos
+  const tasa =
+    dificultadCore === "basico"
+      ? randomInt(2, 8)
+      : dificultadCore === "intermedio"
+      ? randomInt(3, 10)
+      : randomInt(4, 14); // % anual
   const anios =
     dificultadCore === "basico"
       ? randomInt(1, 3)
-      : randomInt(1, 5);
+      : dificultadCore === "intermedio"
+      ? randomInt(2, 5)
+      : randomInt(3, 7);
 
   let enunciado: string;
   let monto: number;
@@ -58,9 +67,10 @@ export const generarInteresSimpleCompuesto: GeneratorFn = (
 
   const opciones = [correcta];
   const distractores = new Set<number>();
+  const deltaPorcMax = dificultadCore === "basico" ? 12 : 20;
 
   while (opciones.length < 4) {
-    const deltaPorc = randomInt(-20, 20); // +-20%
+    const deltaPorc = randomInt(-deltaPorcMax, deltaPorcMax);
     const cand = Math.round(correcta * (1 + deltaPorc / 100));
     if (cand > 0 && cand !== correcta && !distractores.has(cand)) {
       opciones.push(cand);

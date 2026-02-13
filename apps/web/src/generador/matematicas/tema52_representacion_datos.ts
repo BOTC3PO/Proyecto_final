@@ -170,13 +170,18 @@ function generarPuntosDispersion(
 export const generarRepresentacionDatos: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
-  const tipo: TipoEjercicio = pickRandom([
-    "tabla_frecuencias",
-    "histograma",
-    "poligono_frecuencia",
-    "boxplot",
-    "dispersion",
-  ]);
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const tipos: TipoEjercicio[] =
+    dificultadCore === "basico"
+      ? ["tabla_frecuencias", "histograma", "dispersion"]
+      : [
+          "tabla_frecuencias",
+          "histograma",
+          "poligono_frecuencia",
+          "boxplot",
+          "dispersion",
+        ];
+  const tipo: TipoEjercicio = pickRandom(tipos);
 
   if (tipo === "tabla_frecuencias") {
     const { datos, valores, frecuencias } = generarListaDiscreta(dificultad);

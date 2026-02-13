@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  normalizarDificultadCore,
   pickRandom,
 } from "./generic";
 
@@ -35,18 +36,25 @@ function graficoDosColas(zLabel: string): string {
 export const generarInferenciaEstadistica: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
-  const tipo: TipoEjercicio = pickRandom([
-    "interpretacion_ic",
-    "region_rechazo",
-    "p_valor",
-  ]);
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const tipos: TipoEjercicio[] =
+    dificultadCore === "basico"
+      ? ["interpretacion_ic", "region_rechazo"]
+      : ["interpretacion_ic", "region_rechazo", "p_valor"];
+  const tipo: TipoEjercicio = pickRandom(tipos);
 
   if (tipo === "interpretacion_ic") {
-    const intervalo = pickRandom([
-      { li: 48, ls: 52, media: 50 },
-      { li: 96, ls: 104, media: 100 },
-      { li: 18, ls: 22, media: 20 },
-    ]);
+    const intervalo =
+      dificultadCore === "basico"
+        ? pickRandom([
+            { li: 48, ls: 52, media: 50 },
+            { li: 18, ls: 22, media: 20 },
+          ])
+        : pickRandom([
+            { li: 48, ls: 52, media: 50 },
+            { li: 96, ls: 104, media: 100 },
+            { li: 18, ls: 22, media: 20 },
+          ]);
     const enunciado =
       `Se construyó un intervalo de confianza del 95% para la media: ` +
       `[${intervalo.li}, ${intervalo.ls}].\n` +

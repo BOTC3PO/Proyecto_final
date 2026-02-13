@@ -21,8 +21,18 @@ interface CasoRadical {
 function generarCasoRadical(dificultad: Dificultad): CasoRadical {
   // √(k² * n) = k√n
   const dificultadCore = normalizarDificultadCore(dificultad);
-  const k = randomInt(2, dificultadCore === "basico" ? 5 : 9);
-  const nOpciones = [2, 3, 5, 6, 7];
+  const k =
+    dificultadCore === "basico"
+      ? randomInt(2, 4)
+      : dificultadCore === "intermedio"
+      ? randomInt(3, 7)
+      : randomInt(4, 9);
+  const nOpciones =
+    dificultadCore === "basico"
+      ? [2, 3, 5]
+      : dificultadCore === "intermedio"
+      ? [2, 3, 5, 6, 7]
+      : [2, 3, 5, 6, 7, 8, 10, 11];
   const n = pickRandom(nOpciones);
 
   const radicando = k * k * n;
@@ -44,6 +54,8 @@ export const generarRadicalesSimplificacion: GeneratorFn = (
 
   const distractores = new Set<string>();
   distractores.add(caso.expresion);
+  const deltaKMax = normalizarDificultadCore(dificultad) === "avanzado" ? 3 : 2;
+  const deltaNMax = normalizarDificultadCore(dificultad) === "basico" ? 2 : 4;
 
   while (opciones.length < 4) {
     const match = correcta.match(/^(\d+)√(\d+)$/);
@@ -51,8 +63,8 @@ export const generarRadicalesSimplificacion: GeneratorFn = (
     const k = parseInt(match[1], 10);
     const n = parseInt(match[2], 10);
 
-    const candK = k + randomInt(-2, 2);
-    const candN = n + randomInt(-3, 3);
+    const candK = k + randomInt(-deltaKMax, deltaKMax);
+    const candN = n + randomInt(-deltaNMax, deltaNMax);
     if (candK <= 0 || candN <= 0) continue;
 
     const cand = `${candK}√${candN}`;
