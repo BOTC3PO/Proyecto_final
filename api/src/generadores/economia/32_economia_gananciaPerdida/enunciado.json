@@ -1,8 +1,14 @@
 {
   "schemaVersion": 1,
   "slug": "32_economia_gananciaPerdida",
-  "titulo": "Economia GananciaPerdida",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 32_economia_gananciaPerdida.",
+  "titulo": "32 economia gananciaPerdida",
+  "tipo": "calculo",
+  "variables": [
+    "precio",
+    "cantidad",
+    "costo_fijo",
+    "costo_variable_unitario"
+  ],
+  "enunciado": "Resuelve el caso para 32_economia_gananciaPerdida usando {{precio}}, {{cantidad}}, {{costo_fijo}}, {{costo_variable_unitario}}.",
   "requiereGrafico": false
 }

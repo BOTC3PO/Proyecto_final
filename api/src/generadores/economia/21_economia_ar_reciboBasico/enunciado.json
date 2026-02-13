@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "21_economia_ar_reciboBasico",
-  "titulo": "Economia Ar ReciboBasico",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 21_economia_ar_reciboBasico.",
+  "titulo": "21 economia ar reciboBasico",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 21_economia_ar_reciboBasico.",
   "requiereGrafico": false
 }

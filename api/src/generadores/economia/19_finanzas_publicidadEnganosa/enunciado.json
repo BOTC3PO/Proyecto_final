@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "19_finanzas_publicidadEnganosa",
-  "titulo": "Finanzas PublicidadEnganosa",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 19_finanzas_publicidadEnganosa.",
+  "titulo": "19 finanzas publicidadEnganosa",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 19_finanzas_publicidadEnganosa.",
   "requiereGrafico": false
 }

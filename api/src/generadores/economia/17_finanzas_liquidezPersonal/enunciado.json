@@ -1,8 +1,12 @@
 {
   "schemaVersion": 1,
   "slug": "17_finanzas_liquidezPersonal",
-  "titulo": "Finanzas LiquidezPersonal",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 17_finanzas_liquidezPersonal.",
+  "titulo": "17 finanzas liquidezPersonal",
+  "tipo": "calculo",
+  "variables": [
+    "activos_corrientes",
+    "pasivos_corrientes"
+  ],
+  "enunciado": "Resuelve el caso para 17_finanzas_liquidezPersonal usando {{activos_corrientes}}, {{pasivos_corrientes}}.",
   "requiereGrafico": false
 }

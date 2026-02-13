@@ -1,8 +1,13 @@
 {
   "schemaVersion": 1,
   "slug": "48_economia_aportesContribuciones_quiz",
-  "titulo": "Economia AportesContribuciones Quiz",
+  "titulo": "48 economia aportesContribuciones quiz",
   "tipo": "mixto",
-  "enunciado": "Placeholder para 48_economia_aportesContribuciones_quiz.",
+  "variables": [
+    "salario_bruto",
+    "tasa_aportes",
+    "tasa_contribuciones"
+  ],
+  "enunciado": "Resuelve el caso para 48_economia_aportesContribuciones_quiz usando {{salario_bruto}}, {{tasa_aportes}}, {{tasa_contribuciones}}.",
   "requiereGrafico": false
 }

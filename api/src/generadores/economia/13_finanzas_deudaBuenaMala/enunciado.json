@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "13_finanzas_deudaBuenaMala",
-  "titulo": "Finanzas DeudaBuenaMala",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 13_finanzas_deudaBuenaMala.",
+  "titulo": "13 finanzas deudaBuenaMala",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 13_finanzas_deudaBuenaMala.",
   "requiereGrafico": false
 }

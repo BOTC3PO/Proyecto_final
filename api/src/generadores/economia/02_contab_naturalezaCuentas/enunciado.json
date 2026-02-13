@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "02_contab_naturalezaCuentas",
-  "titulo": "Contab NaturalezaCuentas",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 02_contab_naturalezaCuentas.",
+  "titulo": "02 contab naturalezaCuentas",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 02_contab_naturalezaCuentas.",
   "requiereGrafico": false
 }

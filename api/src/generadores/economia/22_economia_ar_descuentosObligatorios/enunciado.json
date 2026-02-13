@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "22_economia_ar_descuentosObligatorios",
-  "titulo": "Economia Ar DescuentosObligatorios",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 22_economia_ar_descuentosObligatorios.",
+  "titulo": "22 economia ar descuentosObligatorios",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 22_economia_ar_descuentosObligatorios.",
   "requiereGrafico": false
 }

@@ -1,8 +1,12 @@
 {
   "schemaVersion": 1,
   "slug": "52_economia_liquidezConcepto_quiz",
-  "titulo": "Economia LiquidezConcepto Quiz",
+  "titulo": "52 economia liquidezConcepto quiz",
   "tipo": "mixto",
-  "enunciado": "Placeholder para 52_economia_liquidezConcepto_quiz.",
+  "variables": [
+    "activos_corrientes",
+    "pasivos_corrientes"
+  ],
+  "enunciado": "Resuelve el caso para 52_economia_liquidezConcepto_quiz usando {{activos_corrientes}}, {{pasivos_corrientes}}.",
   "requiereGrafico": false
 }

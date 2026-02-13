@@ -1,18 +1,57 @@
 {
   "schemaVersion": 1,
   "slug": "39_economia_productividad",
-  "rangos": {
-    "cantidadPreguntas": {
-      "min": 1,
-      "max": 10
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "produccion": [
+          10,
+          100
+        ],
+        "horas_trabajadas": [
+          10,
+          100
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorA": {
-      "min": 1,
-      "max": 100
+    "intermedio": {
+      "rangos": {
+        "produccion": [
+          10,
+          1000
+        ],
+        "horas_trabajadas": [
+          10,
+          1000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorB": {
-      "min": 1,
-      "max": 1000
+    "avanzado": {
+      "rangos": {
+        "produccion": [
+          10,
+          10000
+        ],
+        "horas_trabajadas": [
+          10,
+          10000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     }
   }
 }

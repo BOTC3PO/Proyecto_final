@@ -1,8 +1,13 @@
 {
   "schemaVersion": 1,
   "slug": "23_economia_ar_aportes17",
-  "titulo": "Economia Ar Aportes17",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 23_economia_ar_aportes17.",
+  "titulo": "23 economia ar aportes17",
+  "tipo": "calculo",
+  "variables": [
+    "salario_bruto",
+    "tasa_aportes",
+    "tasa_contribuciones"
+  ],
+  "enunciado": "Resuelve el caso para 23_economia_ar_aportes17 usando {{salario_bruto}}, {{tasa_aportes}}, {{tasa_contribuciones}}.",
   "requiereGrafico": false
 }

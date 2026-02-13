@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "plantillas": {
+    "interes_simple": [
+      "capital",
+      "tasa",
+      "tiempo"
+    ],
+    "interes_compuesto": [
+      "capital",
+      "tasa",
+      "periodos"
+    ],
+    "inflacion": [
+      "precio_inicial",
+      "precio_final"
+    ],
+    "elasticidad": [
+      "q1",
+      "q2",
+      "p1",
+      "p2"
+    ],
+    "oferta_demanda_equilibrio": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "costo_ingreso_utilidad": [
+      "precio",
+      "cantidad",
+      "costo_fijo",
+      "costo_variable_unitario"
+    ],
+    "pib": [
+      "consumo",
+      "inversion",
+      "gasto",
+      "exportaciones",
+      "importaciones"
+    ],
+    "tipo_cambio": [
+      "moneda_local",
+      "moneda_ext",
+      "tc"
+    ],
+    "presupuesto": [
+      "ingresos",
+      "gastos_fijos",
+      "gastos_variables",
+      "ahorro_objetivo"
+    ],
+    "impuestos_laborales": [
+      "salario_bruto",
+      "tasa_aportes",
+      "tasa_contribuciones"
+    ],
+    "porcentajes": [
+      "base",
+      "porcentaje"
+    ],
+    "rentabilidad": [
+      "ingresos",
+      "costos"
+    ],
+    "productividad": [
+      "produccion",
+      "horas_trabajadas"
+    ],
+    "liquidez": [
+      "activos_corrientes",
+      "pasivos_corrientes"
+    ]
+  },
+  "asignacionPorTema": {
+    "07_contab_aportesContribuciones": "impuestos_laborales",
+    "09_finanzas_presupuestoFamiliar": "presupuesto",
+    "14_finanzas_cftVsInteres": "porcentajes",
+    "15_finanzas_interesSimple": "interes_simple",
+    "16_finanzas_interesCompuesto": "interes_compuesto",
+    "17_finanzas_liquidezPersonal": "liquidez",
+    "20_finanzas_comparacionInversiones": "rentabilidad",
+    "21_economia_ar_reciboBasico": "impuestos_laborales",
+    "22_economia_ar_descuentosObligatorios": "impuestos_laborales",
+    "23_economia_ar_aportes17": "impuestos_laborales",
+    "24_economia_ar_netoDesdeBruto": "impuestos_laborales",
+    "25_economia_ar_iva": "porcentajes",
+    "26_economia_ar_ivaCalculo": "porcentajes",
+    "30_economia_ar_tasaDesempleo": "porcentajes",
+    "32_economia_gananciaPerdida": "costo_ingreso_utilidad",
+    "33_economia_resultadoBruto": "costo_ingreso_utilidad",
+    "34_economia_resultadoNeto": "costo_ingreso_utilidad",
+    "35_economia_margenBruto": "costo_ingreso_utilidad",
+    "36_economia_margenNeto": "costo_ingreso_utilidad",
+    "37_economia_capitalTrabajo": "rentabilidad",
+    "38_economia_puntoEquilibrio": "oferta_demanda_equilibrio",
+    "39_economia_productividad": "productividad",
+    "40_economia_porcentajesSimples": "porcentajes",
+    "44_economia_gastosFijosVariables": "costo_ingreso_utilidad",
+    "45_economia_simpleVsCompuesto": "interes_compuesto",
+    "46_economia_cftMayorInteres": "porcentajes",
+    "47_economia_gananciaVsEquilibrio": "oferta_demanda_equilibrio",
+    "48_economia_aportesContribuciones_quiz": "impuestos_laborales",
+    "52_economia_liquidezConcepto_quiz": "liquidez",
+    "53_economia_interesSimpleCompuesto_quiz": "interes_compuesto",
+    "54_economia_cftMayorInteres_quiz": "porcentajes",
+    "55_economia_gananciaVsEquilibrio_quiz": "oferta_demanda_equilibrio"
+  }
+}

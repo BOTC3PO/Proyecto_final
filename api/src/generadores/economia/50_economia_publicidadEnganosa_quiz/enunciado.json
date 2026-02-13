@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "50_economia_publicidadEnganosa_quiz",
-  "titulo": "Economia PublicidadEnganosa Quiz",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 50_economia_publicidadEnganosa_quiz.",
+  "titulo": "50 economia publicidadEnganosa quiz",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 50_economia_publicidadEnganosa_quiz.",
   "requiereGrafico": false
 }

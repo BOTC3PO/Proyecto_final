@@ -1,18 +1,69 @@
 {
   "schemaVersion": 1,
   "slug": "53_economia_interesSimpleCompuesto_quiz",
-  "rangos": {
-    "cantidadPreguntas": {
-      "min": 1,
-      "max": 10
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "capital": [
+          1000,
+          20000
+        ],
+        "tasa": [
+          0.01,
+          0.1
+        ],
+        "periodos": [
+          1,
+          12
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": true,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorA": {
-      "min": 1,
-      "max": 100
+    "intermedio": {
+      "rangos": {
+        "capital": [
+          1000,
+          200000
+        ],
+        "tasa": [
+          0.01,
+          0.3
+        ],
+        "periodos": [
+          1,
+          60
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": true,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorB": {
-      "min": 1,
-      "max": 1000
+    "avanzado": {
+      "rangos": {
+        "capital": [
+          1000,
+          2000000
+        ],
+        "tasa": [
+          0.01,
+          1.0
+        ],
+        "periodos": [
+          1,
+          240
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": true,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     }
   }
 }

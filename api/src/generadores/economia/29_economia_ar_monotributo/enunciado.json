@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "29_economia_ar_monotributo",
-  "titulo": "Economia Ar Monotributo",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 29_economia_ar_monotributo.",
+  "titulo": "29 economia ar monotributo",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 29_economia_ar_monotributo.",
   "requiereGrafico": false
 }

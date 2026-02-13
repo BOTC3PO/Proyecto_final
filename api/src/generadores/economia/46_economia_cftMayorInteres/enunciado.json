@@ -1,8 +1,12 @@
 {
   "schemaVersion": 1,
   "slug": "46_economia_cftMayorInteres",
-  "titulo": "Economia CftMayorInteres",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 46_economia_cftMayorInteres.",
+  "titulo": "46 economia cftMayorInteres",
+  "tipo": "calculo",
+  "variables": [
+    "base",
+    "porcentaje"
+  ],
+  "enunciado": "Resuelve el caso para 46_economia_cftMayorInteres usando {{base}}, {{porcentaje}}.",
   "requiereGrafico": false
 }

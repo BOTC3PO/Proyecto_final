@@ -1,18 +1,81 @@
 {
   "schemaVersion": 1,
   "slug": "09_finanzas_presupuestoFamiliar",
-  "rangos": {
-    "cantidadPreguntas": {
-      "min": 1,
-      "max": 10
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "ingresos": [
+          1000,
+          20000
+        ],
+        "gastos_fijos": [
+          1000,
+          20000
+        ],
+        "gastos_variables": [
+          1000,
+          20000
+        ],
+        "ahorro_objetivo": [
+          1000,
+          20000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorA": {
-      "min": 1,
-      "max": 100
+    "intermedio": {
+      "rangos": {
+        "ingresos": [
+          1000,
+          200000
+        ],
+        "gastos_fijos": [
+          1000,
+          200000
+        ],
+        "gastos_variables": [
+          1000,
+          200000
+        ],
+        "ahorro_objetivo": [
+          1000,
+          200000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorB": {
-      "min": 1,
-      "max": 1000
+    "avanzado": {
+      "rangos": {
+        "ingresos": [
+          1000,
+          2000000
+        ],
+        "gastos_fijos": [
+          1000,
+          2000000
+        ],
+        "gastos_variables": [
+          1000,
+          2000000
+        ],
+        "ahorro_objetivo": [
+          1000,
+          2000000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     }
   }
 }

@@ -1,18 +1,57 @@
 {
   "schemaVersion": 1,
   "slug": "40_economia_porcentajesSimples",
-  "rangos": {
-    "cantidadPreguntas": {
-      "min": 1,
-      "max": 10
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "base": [
+          1000,
+          20000
+        ],
+        "porcentaje": [
+          0.01,
+          0.1
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorA": {
-      "min": 1,
-      "max": 100
+    "intermedio": {
+      "rangos": {
+        "base": [
+          1000,
+          200000
+        ],
+        "porcentaje": [
+          0.01,
+          0.3
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorB": {
-      "min": 1,
-      "max": 1000
+    "avanzado": {
+      "rangos": {
+        "base": [
+          1000,
+          2000000
+        ],
+        "porcentaje": [
+          0.01,
+          1.0
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     }
   }
 }

@@ -1,8 +1,14 @@
 {
   "schemaVersion": 1,
   "slug": "36_economia_margenNeto",
-  "titulo": "Economia MargenNeto",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 36_economia_margenNeto.",
+  "titulo": "36 economia margenNeto",
+  "tipo": "calculo",
+  "variables": [
+    "precio",
+    "cantidad",
+    "costo_fijo",
+    "costo_variable_unitario"
+  ],
+  "enunciado": "Resuelve el caso para 36_economia_margenNeto usando {{precio}}, {{cantidad}}, {{costo_fijo}}, {{costo_variable_unitario}}.",
   "requiereGrafico": false
 }

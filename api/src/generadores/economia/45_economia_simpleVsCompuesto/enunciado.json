@@ -1,8 +1,13 @@
 {
   "schemaVersion": 1,
   "slug": "45_economia_simpleVsCompuesto",
-  "titulo": "Economia SimpleVsCompuesto",
+  "titulo": "45 economia simpleVsCompuesto",
   "tipo": "mixto",
-  "enunciado": "Placeholder para 45_economia_simpleVsCompuesto.",
+  "variables": [
+    "capital",
+    "tasa",
+    "periodos"
+  ],
+  "enunciado": "Resuelve el caso para 45_economia_simpleVsCompuesto usando {{capital}}, {{tasa}}, {{periodos}}.",
   "requiereGrafico": false
 }

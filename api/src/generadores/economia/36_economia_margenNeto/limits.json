@@ -1,18 +1,81 @@
 {
   "schemaVersion": 1,
   "slug": "36_economia_margenNeto",
-  "rangos": {
-    "cantidadPreguntas": {
-      "min": 1,
-      "max": 10
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "precio": [
+          10,
+          200
+        ],
+        "cantidad": [
+          10,
+          100
+        ],
+        "costo_fijo": [
+          1000,
+          20000
+        ],
+        "costo_variable_unitario": [
+          1000,
+          20000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": true,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorA": {
-      "min": 1,
-      "max": 100
+    "intermedio": {
+      "rangos": {
+        "precio": [
+          10,
+          2000
+        ],
+        "cantidad": [
+          10,
+          1000
+        ],
+        "costo_fijo": [
+          1000,
+          200000
+        ],
+        "costo_variable_unitario": [
+          1000,
+          200000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": true,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorB": {
-      "min": 1,
-      "max": 1000
+    "avanzado": {
+      "rangos": {
+        "precio": [
+          10,
+          20000
+        ],
+        "cantidad": [
+          10,
+          10000
+        ],
+        "costo_fijo": [
+          1000,
+          2000000
+        ],
+        "costo_variable_unitario": [
+          1000,
+          2000000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": true,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     }
   }
 }

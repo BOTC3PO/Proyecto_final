@@ -1,8 +1,12 @@
 {
   "schemaVersion": 1,
   "slug": "18_finanzas_ingresosActivosPasivos",
-  "titulo": "Finanzas IngresosActivosPasivos",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 18_finanzas_ingresosActivosPasivos.",
+  "titulo": "18 finanzas ingresosActivosPasivos",
+  "tipo": "calculo",
+  "variables": [
+    "valor_a",
+    "valor_b"
+  ],
+  "enunciado": "Resuelve el caso para 18_finanzas_ingresosActivosPasivos usando {{valor_a}}, {{valor_b}}.",
   "requiereGrafico": false
 }

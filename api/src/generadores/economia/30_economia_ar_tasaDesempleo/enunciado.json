@@ -1,8 +1,12 @@
 {
   "schemaVersion": 1,
   "slug": "30_economia_ar_tasaDesempleo",
-  "titulo": "Economia Ar TasaDesempleo",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 30_economia_ar_tasaDesempleo.",
+  "titulo": "30 economia ar tasaDesempleo",
+  "tipo": "calculo",
+  "variables": [
+    "base",
+    "porcentaje"
+  ],
+  "enunciado": "Resuelve el caso para 30_economia_ar_tasaDesempleo usando {{base}}, {{porcentaje}}.",
   "requiereGrafico": false
 }

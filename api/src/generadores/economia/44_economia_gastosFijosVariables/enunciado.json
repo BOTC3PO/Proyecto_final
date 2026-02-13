@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "44_economia_gastosFijosVariables",
-  "titulo": "Economia GastosFijosVariables",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 44_economia_gastosFijosVariables.",
+  "titulo": "44 economia gastosFijosVariables",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 44_economia_gastosFijosVariables.",
   "requiereGrafico": false
 }

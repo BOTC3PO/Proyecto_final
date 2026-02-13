@@ -1,8 +1,13 @@
 {
   "schemaVersion": 1,
   "slug": "16_finanzas_interesCompuesto",
-  "titulo": "Finanzas InteresCompuesto",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 16_finanzas_interesCompuesto.",
+  "titulo": "16 finanzas interesCompuesto",
+  "tipo": "calculo",
+  "variables": [
+    "capital",
+    "tasa",
+    "periodos"
+  ],
+  "enunciado": "Resuelve el caso para 16_finanzas_interesCompuesto usando {{capital}}, {{tasa}}, {{periodos}}.",
   "requiereGrafico": false
 }

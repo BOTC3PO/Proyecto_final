@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "27_economia_ar_jurisdiccionImpuestos",
-  "titulo": "Economia Ar JurisdiccionImpuestos",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 27_economia_ar_jurisdiccionImpuestos.",
+  "titulo": "27 economia ar jurisdiccionImpuestos",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 27_economia_ar_jurisdiccionImpuestos.",
   "requiereGrafico": false
 }

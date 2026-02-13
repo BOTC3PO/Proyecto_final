@@ -1,8 +1,14 @@
 {
   "schemaVersion": 1,
   "slug": "55_economia_gananciaVsEquilibrio_quiz",
-  "titulo": "Economia GananciaVsEquilibrio Quiz",
+  "titulo": "55 economia gananciaVsEquilibrio quiz",
   "tipo": "mixto",
-  "enunciado": "Placeholder para 55_economia_gananciaVsEquilibrio_quiz.",
-  "requiereGrafico": false
+  "variables": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "enunciado": "Resuelve el caso para 55_economia_gananciaVsEquilibrio_quiz usando {{a}}, {{b}}, {{c}}, {{d}}.",
+  "requiereGrafico": true
 }

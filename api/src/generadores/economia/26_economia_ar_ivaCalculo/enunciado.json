@@ -1,8 +1,12 @@
 {
   "schemaVersion": 1,
   "slug": "26_economia_ar_ivaCalculo",
-  "titulo": "Economia Ar IvaCalculo",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 26_economia_ar_ivaCalculo.",
+  "titulo": "26 economia ar ivaCalculo",
+  "tipo": "calculo",
+  "variables": [
+    "base",
+    "porcentaje"
+  ],
+  "enunciado": "Resuelve el caso para 26_economia_ar_ivaCalculo usando {{base}}, {{porcentaje}}.",
   "requiereGrafico": false
 }

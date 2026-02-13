@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "03_contab_saldoNormal",
-  "titulo": "Contab SaldoNormal",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 03_contab_saldoNormal.",
+  "titulo": "03 contab saldoNormal",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 03_contab_saldoNormal.",
   "requiereGrafico": false
 }

@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "05_contab_hechosPatrimonio",
-  "titulo": "Contab HechosPatrimonio",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 05_contab_hechosPatrimonio.",
+  "titulo": "05 contab hechosPatrimonio",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 05_contab_hechosPatrimonio.",
   "requiereGrafico": false
 }
