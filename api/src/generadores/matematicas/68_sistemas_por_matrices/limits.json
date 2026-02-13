@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "tema": "tema68_sistemas_por_matrices",
+  "porDificultad": {
+    "basico": { "rango": [1, 20], "rangos": { "numeros": [1, 20] } },
+    "intermedio": { "rango": [1, 50], "rangos": { "numeros": [1, 50] } },
+    "avanzado": { "rango": [1, 100], "rangos": { "numeros": [1, 100] } }
+  }
+}
