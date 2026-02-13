@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "49_economia_deudaBuenaMala_quiz",
-  "titulo": "Economia DeudaBuenaMala Quiz",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 49_economia_deudaBuenaMala_quiz.",
+  "titulo": "49 economia deudaBuenaMala quiz",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 49_economia_deudaBuenaMala_quiz.",
   "requiereGrafico": false
 }

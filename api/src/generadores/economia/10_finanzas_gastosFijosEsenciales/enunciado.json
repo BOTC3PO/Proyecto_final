@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "10_finanzas_gastosFijosEsenciales",
-  "titulo": "Finanzas GastosFijosEsenciales",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 10_finanzas_gastosFijosEsenciales.",
+  "titulo": "10 finanzas gastosFijosEsenciales",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 10_finanzas_gastosFijosEsenciales.",
   "requiereGrafico": false
 }

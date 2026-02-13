@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "51_economia_gastosEsenciales_quiz",
-  "titulo": "Economia GastosEsenciales Quiz",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 51_economia_gastosEsenciales_quiz.",
+  "titulo": "51 economia gastosEsenciales quiz",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 51_economia_gastosEsenciales_quiz.",
   "requiereGrafico": false
 }

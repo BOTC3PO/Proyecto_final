@@ -1,8 +1,13 @@
 {
   "schemaVersion": 1,
   "slug": "07_contab_aportesContribuciones",
-  "titulo": "Contab AportesContribuciones",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 07_contab_aportesContribuciones.",
+  "titulo": "07 contab aportesContribuciones",
+  "tipo": "calculo",
+  "variables": [
+    "salario_bruto",
+    "tasa_aportes",
+    "tasa_contribuciones"
+  ],
+  "enunciado": "Resuelve el caso para 07_contab_aportesContribuciones usando {{salario_bruto}}, {{tasa_aportes}}, {{tasa_contribuciones}}.",
   "requiereGrafico": false
 }

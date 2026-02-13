@@ -1,8 +1,14 @@
 {
   "schemaVersion": 1,
   "slug": "09_finanzas_presupuestoFamiliar",
-  "titulo": "Finanzas PresupuestoFamiliar",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 09_finanzas_presupuestoFamiliar.",
+  "titulo": "09 finanzas presupuestoFamiliar",
+  "tipo": "calculo",
+  "variables": [
+    "ingresos",
+    "gastos_fijos",
+    "gastos_variables",
+    "ahorro_objetivo"
+  ],
+  "enunciado": "Resuelve el caso para 09_finanzas_presupuestoFamiliar usando {{ingresos}}, {{gastos_fijos}}, {{gastos_variables}}, {{ahorro_objetivo}}.",
   "requiereGrafico": false
 }

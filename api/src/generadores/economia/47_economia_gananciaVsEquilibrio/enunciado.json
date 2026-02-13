@@ -1,8 +1,14 @@
 {
   "schemaVersion": 1,
   "slug": "47_economia_gananciaVsEquilibrio",
-  "titulo": "Economia GananciaVsEquilibrio",
+  "titulo": "47 economia gananciaVsEquilibrio",
   "tipo": "mixto",
-  "enunciado": "Placeholder para 47_economia_gananciaVsEquilibrio.",
-  "requiereGrafico": false
+  "variables": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "enunciado": "Resuelve el caso para 47_economia_gananciaVsEquilibrio usando {{a}}, {{b}}, {{c}}, {{d}}.",
+  "requiereGrafico": true
 }

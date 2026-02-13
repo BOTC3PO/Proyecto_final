@@ -1,18 +1,81 @@
 {
   "schemaVersion": 1,
   "slug": "55_economia_gananciaVsEquilibrio_quiz",
-  "rangos": {
-    "cantidadPreguntas": {
-      "min": 1,
-      "max": 10
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "a": [
+          10,
+          100
+        ],
+        "b": [
+          10,
+          100
+        ],
+        "c": [
+          10,
+          100
+        ],
+        "d": [
+          10,
+          100
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorA": {
-      "min": 1,
-      "max": 100
+    "intermedio": {
+      "rangos": {
+        "a": [
+          10,
+          1000
+        ],
+        "b": [
+          10,
+          1000
+        ],
+        "c": [
+          10,
+          1000
+        ],
+        "d": [
+          10,
+          1000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorB": {
-      "min": 1,
-      "max": 1000
+    "avanzado": {
+      "rangos": {
+        "a": [
+          10,
+          10000
+        ],
+        "b": [
+          10,
+          10000
+        ],
+        "c": [
+          10,
+          10000
+        ],
+        "d": [
+          10,
+          10000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     }
   }
 }

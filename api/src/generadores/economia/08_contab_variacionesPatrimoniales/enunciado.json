@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "08_contab_variacionesPatrimoniales",
-  "titulo": "Contab VariacionesPatrimoniales",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 08_contab_variacionesPatrimoniales.",
+  "titulo": "08 contab variacionesPatrimoniales",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 08_contab_variacionesPatrimoniales.",
   "requiereGrafico": false
 }

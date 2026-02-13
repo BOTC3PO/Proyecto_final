@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "04_contab_ubicacionEstados",
-  "titulo": "Contab UbicacionEstados",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 04_contab_ubicacionEstados.",
+  "titulo": "04 contab ubicacionEstados",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 04_contab_ubicacionEstados.",
   "requiereGrafico": false
 }

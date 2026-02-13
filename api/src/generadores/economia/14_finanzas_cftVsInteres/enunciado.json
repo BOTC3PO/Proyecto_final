@@ -1,8 +1,12 @@
 {
   "schemaVersion": 1,
   "slug": "14_finanzas_cftVsInteres",
-  "titulo": "Finanzas CftVsInteres",
+  "titulo": "14 finanzas cftVsInteres",
   "tipo": "mixto",
-  "enunciado": "Placeholder para 14_finanzas_cftVsInteres.",
+  "variables": [
+    "base",
+    "porcentaje"
+  ],
+  "enunciado": "Resuelve el caso para 14_finanzas_cftVsInteres usando {{base}}, {{porcentaje}}.",
   "requiereGrafico": false
 }

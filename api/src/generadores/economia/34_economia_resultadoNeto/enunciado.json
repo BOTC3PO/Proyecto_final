@@ -1,8 +1,14 @@
 {
   "schemaVersion": 1,
   "slug": "34_economia_resultadoNeto",
-  "titulo": "Economia ResultadoNeto",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 34_economia_resultadoNeto.",
+  "titulo": "34 economia resultadoNeto",
+  "tipo": "calculo",
+  "variables": [
+    "precio",
+    "cantidad",
+    "costo_fijo",
+    "costo_variable_unitario"
+  ],
+  "enunciado": "Resuelve el caso para 34_economia_resultadoNeto usando {{precio}}, {{cantidad}}, {{costo_fijo}}, {{costo_variable_unitario}}.",
   "requiereGrafico": false
 }

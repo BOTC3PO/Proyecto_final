@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "41_economia_clasificacionBienes",
-  "titulo": "Economia ClasificacionBienes",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 41_economia_clasificacionBienes.",
+  "titulo": "41 economia clasificacionBienes",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 41_economia_clasificacionBienes.",
   "requiereGrafico": false
 }

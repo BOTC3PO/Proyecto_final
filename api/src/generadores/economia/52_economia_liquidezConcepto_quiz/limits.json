@@ -1,18 +1,57 @@
 {
   "schemaVersion": 1,
   "slug": "52_economia_liquidezConcepto_quiz",
-  "rangos": {
-    "cantidadPreguntas": {
-      "min": 1,
-      "max": 10
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "activos_corrientes": [
+          1000,
+          20000
+        ],
+        "pasivos_corrientes": [
+          1000,
+          20000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorA": {
-      "min": 1,
-      "max": 100
+    "intermedio": {
+      "rangos": {
+        "activos_corrientes": [
+          1000,
+          200000
+        ],
+        "pasivos_corrientes": [
+          1000,
+          200000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorB": {
-      "min": 1,
-      "max": 1000
+    "avanzado": {
+      "rangos": {
+        "activos_corrientes": [
+          1000,
+          2000000
+        ],
+        "pasivos_corrientes": [
+          1000,
+          2000000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     }
   }
 }

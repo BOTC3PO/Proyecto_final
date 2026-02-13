@@ -1,8 +1,12 @@
 {
   "schemaVersion": 1,
   "slug": "39_economia_productividad",
-  "titulo": "Economia Productividad",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 39_economia_productividad.",
+  "titulo": "39 economia productividad",
+  "tipo": "calculo",
+  "variables": [
+    "produccion",
+    "horas_trabajadas"
+  ],
+  "enunciado": "Resuelve el caso para 39_economia_productividad usando {{produccion}}, {{horas_trabajadas}}.",
   "requiereGrafico": false
 }

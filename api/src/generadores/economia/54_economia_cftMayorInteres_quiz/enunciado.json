@@ -1,8 +1,12 @@
 {
   "schemaVersion": 1,
   "slug": "54_economia_cftMayorInteres_quiz",
-  "titulo": "Economia CftMayorInteres Quiz",
+  "titulo": "54 economia cftMayorInteres quiz",
   "tipo": "mixto",
-  "enunciado": "Placeholder para 54_economia_cftMayorInteres_quiz.",
+  "variables": [
+    "base",
+    "porcentaje"
+  ],
+  "enunciado": "Resuelve el caso para 54_economia_cftMayorInteres_quiz usando {{base}}, {{porcentaje}}.",
   "requiereGrafico": false
 }

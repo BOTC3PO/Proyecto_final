@@ -1,8 +1,13 @@
 {
   "schemaVersion": 1,
   "slug": "53_economia_interesSimpleCompuesto_quiz",
-  "titulo": "Economia InteresSimpleCompuesto Quiz",
+  "titulo": "53 economia interesSimpleCompuesto quiz",
   "tipo": "mixto",
-  "enunciado": "Placeholder para 53_economia_interesSimpleCompuesto_quiz.",
+  "variables": [
+    "capital",
+    "tasa",
+    "periodos"
+  ],
+  "enunciado": "Resuelve el caso para 53_economia_interesSimpleCompuesto_quiz usando {{capital}}, {{tasa}}, {{periodos}}.",
   "requiereGrafico": false
 }

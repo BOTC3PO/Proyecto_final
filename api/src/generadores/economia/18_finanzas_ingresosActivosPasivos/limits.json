@@ -1,18 +1,57 @@
 {
   "schemaVersion": 1,
   "slug": "18_finanzas_ingresosActivosPasivos",
-  "rangos": {
-    "cantidadPreguntas": {
-      "min": 1,
-      "max": 10
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "valor_a": [
+          10,
+          100
+        ],
+        "valor_b": [
+          10,
+          100
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorA": {
-      "min": 1,
-      "max": 100
+    "intermedio": {
+      "rangos": {
+        "valor_a": [
+          10,
+          1000
+        ],
+        "valor_b": [
+          10,
+          1000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorB": {
-      "min": 1,
-      "max": 1000
+    "avanzado": {
+      "rangos": {
+        "valor_a": [
+          10,
+          10000
+        ],
+        "valor_b": [
+          10,
+          10000
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": false,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     }
   }
 }

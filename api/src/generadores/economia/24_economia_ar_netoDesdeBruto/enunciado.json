@@ -1,8 +1,13 @@
 {
   "schemaVersion": 1,
   "slug": "24_economia_ar_netoDesdeBruto",
-  "titulo": "Economia Ar NetoDesdeBruto",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 24_economia_ar_netoDesdeBruto.",
+  "titulo": "24 economia ar netoDesdeBruto",
+  "tipo": "calculo",
+  "variables": [
+    "salario_bruto",
+    "tasa_aportes",
+    "tasa_contribuciones"
+  ],
+  "enunciado": "Resuelve el caso para 24_economia_ar_netoDesdeBruto usando {{salario_bruto}}, {{tasa_aportes}}, {{tasa_contribuciones}}.",
   "requiereGrafico": false
 }

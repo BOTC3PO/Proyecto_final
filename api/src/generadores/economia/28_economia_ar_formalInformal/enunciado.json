@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "28_economia_ar_formalInformal",
-  "titulo": "Economia Ar FormalInformal",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 28_economia_ar_formalInformal.",
+  "titulo": "28 economia ar formalInformal",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 28_economia_ar_formalInformal.",
   "requiereGrafico": false
 }

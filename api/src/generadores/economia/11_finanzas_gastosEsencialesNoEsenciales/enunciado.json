@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "11_finanzas_gastosEsencialesNoEsenciales",
-  "titulo": "Finanzas GastosEsencialesNoEsenciales",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 11_finanzas_gastosEsencialesNoEsenciales.",
+  "titulo": "11 finanzas gastosEsencialesNoEsenciales",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 11_finanzas_gastosEsencialesNoEsenciales.",
   "requiereGrafico": false
 }

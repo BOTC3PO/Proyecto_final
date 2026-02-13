@@ -1,8 +1,14 @@
 {
   "schemaVersion": 1,
   "slug": "35_economia_margenBruto",
-  "titulo": "Economia MargenBruto",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 35_economia_margenBruto.",
+  "titulo": "35 economia margenBruto",
+  "tipo": "calculo",
+  "variables": [
+    "precio",
+    "cantidad",
+    "costo_fijo",
+    "costo_variable_unitario"
+  ],
+  "enunciado": "Resuelve el caso para 35_economia_margenBruto usando {{precio}}, {{cantidad}}, {{costo_fijo}}, {{costo_variable_unitario}}.",
   "requiereGrafico": false
 }

@@ -1,8 +1,12 @@
 {
   "schemaVersion": 1,
   "slug": "40_economia_porcentajesSimples",
-  "titulo": "Economia PorcentajesSimples",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 40_economia_porcentajesSimples.",
+  "titulo": "40 economia porcentajesSimples",
+  "tipo": "calculo",
+  "variables": [
+    "base",
+    "porcentaje"
+  ],
+  "enunciado": "Resuelve el caso para 40_economia_porcentajesSimples usando {{base}}, {{porcentaje}}.",
   "requiereGrafico": false
 }

@@ -1,8 +1,14 @@
 {
   "schemaVersion": 1,
   "slug": "33_economia_resultadoBruto",
-  "titulo": "Economia ResultadoBruto",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 33_economia_resultadoBruto.",
+  "titulo": "33 economia resultadoBruto",
+  "tipo": "calculo",
+  "variables": [
+    "precio",
+    "cantidad",
+    "costo_fijo",
+    "costo_variable_unitario"
+  ],
+  "enunciado": "Resuelve el caso para 33_economia_resultadoBruto usando {{precio}}, {{cantidad}}, {{costo_fijo}}, {{costo_variable_unitario}}.",
   "requiereGrafico": false
 }

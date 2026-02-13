@@ -1,8 +1,14 @@
 {
   "schemaVersion": 1,
   "slug": "38_economia_puntoEquilibrio",
-  "titulo": "Economia PuntoEquilibrio",
+  "titulo": "38 economia puntoEquilibrio",
   "tipo": "mixto",
-  "enunciado": "Placeholder para 38_economia_puntoEquilibrio.",
-  "requiereGrafico": false
+  "variables": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "enunciado": "Resuelve el caso para 38_economia_puntoEquilibrio usando {{a}}, {{b}}, {{c}}, {{d}}.",
+  "requiereGrafico": true
 }

@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "06_contab_bienesDerechosObligaciones",
-  "titulo": "Contab BienesDerechosObligaciones",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 06_contab_bienesDerechosObligaciones.",
+  "titulo": "06 contab bienesDerechosObligaciones",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 06_contab_bienesDerechosObligaciones.",
   "requiereGrafico": false
 }

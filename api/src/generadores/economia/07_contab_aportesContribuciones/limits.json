@@ -1,18 +1,69 @@
 {
   "schemaVersion": 1,
   "slug": "07_contab_aportesContribuciones",
-  "rangos": {
-    "cantidadPreguntas": {
-      "min": 1,
-      "max": 10
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "salario_bruto": [
+          1000,
+          20000
+        ],
+        "tasa_aportes": [
+          0.01,
+          0.1
+        ],
+        "tasa_contribuciones": [
+          0.01,
+          0.1
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": true,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorA": {
-      "min": 1,
-      "max": 100
+    "intermedio": {
+      "rangos": {
+        "salario_bruto": [
+          1000,
+          200000
+        ],
+        "tasa_aportes": [
+          0.01,
+          0.3
+        ],
+        "tasa_contribuciones": [
+          0.01,
+          0.3
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": true,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     },
-    "valorB": {
-      "min": 1,
-      "max": 1000
+    "avanzado": {
+      "rangos": {
+        "salario_bruto": [
+          1000,
+          2000000
+        ],
+        "tasa_aportes": [
+          0.01,
+          1.0
+        ],
+        "tasa_contribuciones": [
+          0.01,
+          1.0
+        ]
+      },
+      "reglas": {
+        "permitirDecimales": true,
+        "redondeo": "2_decimales",
+        "evitarCeros": true
+      }
     }
   }
 }

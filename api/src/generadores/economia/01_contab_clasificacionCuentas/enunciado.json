@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "slug": "01_contab_clasificacionCuentas",
-  "titulo": "Contab ClasificacionCuentas",
-  "tipo": "mixto",
-  "enunciado": "Placeholder para 01_contab_clasificacionCuentas.",
+  "titulo": "01 contab clasificacionCuentas",
+  "tipo": "conceptual",
+  "variables": [],
+  "enunciado": "Describe y fundamenta el concepto principal de 01_contab_clasificacionCuentas.",
   "requiereGrafico": false
 }
