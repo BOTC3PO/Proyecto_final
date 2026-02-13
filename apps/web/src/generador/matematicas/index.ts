@@ -90,6 +90,36 @@ import generarRepresentacionDatos from "./tema52_representacion_datos";
 import generarTendenciasDescriptiva from "./tema53_tendencias_descriptiva";
 import generarProbabilidadVisual from "./tema54_probabilidad_visual";
 import generarInferenciaEstadistica from "./tema55_inferencia_estadistica";
+import generarTema56TrigonometriaBasica from "./tema56_trigonometria_basica";
+import generarTema57TrigonometriaAplicada from "./tema57_trigonometria_aplicada";
+import generarTema58IdentidadesTrigonometricas from "./tema58_identidades_trigonometricas";
+import generarTema59EcuacionesTrigonometricas from "./tema59_ecuaciones_trigonometricas";
+import generarTema60FuncionesExponenciales from "./tema60_funciones_exponenciales";
+import generarTema61FuncionesLogaritmicas from "./tema61_funciones_logaritmicas";
+import generarTema62EcuacionesExponenciales from "./tema62_ecuaciones_exponenciales";
+import generarTema63EcuacionesLogaritmicas from "./tema63_ecuaciones_logaritmicas";
+import generarTema64NumerosComplejos from "./tema64_numeros_complejos";
+import generarTema65OperacionesComplejos from "./tema65_operaciones_complejos";
+import generarTema66MatricesBasico from "./tema66_matrices_basico";
+import generarTema67DeterminantesBasico from "./tema67_determinantes_basico";
+import generarTema68SistemasPorMatrices from "./tema68_sistemas_por_matrices";
+import generarTema69VectoresBasico from "./tema69_vectores_basico";
+import generarTema70GeometriaEspacial from "./tema70_geometria_espacial";
+import generarTema71LimitesFunciones from "./tema71_limites_funciones";
+import generarTema72Continuidad from "./tema72_continuidad";
+import generarTema73DerivadaDefinicion from "./tema73_derivada_definicion";
+import generarTema74DerivadasBasicas from "./tema74_derivadas_basicas";
+import generarTema75ReglasDerivacion from "./tema75_reglas_derivacion";
+import generarTema76AplicacionesDerivadas from "./tema76_aplicaciones_derivadas";
+import generarTema77IntegralIndefinida from "./tema77_integral_indefinida";
+import generarTema78IntegralDefinida from "./tema78_integral_definida";
+import generarTema79AplicacionesIntegrales from "./tema79_aplicaciones_integrales";
+import generarTema80EcuacionesDiferencialesBasico from "./tema80_ecuaciones_diferenciales_basico";
+import generarTema81ProbabilidadAvanzada from "./tema81_probabilidad_avanzada";
+import generarTema82VariablesAleatorias from "./tema82_variables_aleatorias";
+import generarTema83Distribuciones from "./tema83_distribuciones";
+import generarTema84EstadisticaInferencial from "./tema84_estadistica_inferencial";
+import generarTema85RegresionCorrelacion from "./tema85_regresion_correlacion";
 
 // =======================================================
 // MAPA GLOBAL: idTema → GeneratorFn
@@ -99,7 +129,8 @@ const TEMAS_CON_DIFICULTAD_CORE = new Set([
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
   22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
   41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
-  52, 53, 54, 55,
+  52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
+  71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85,
 ]);
 
 const wrapConDificultadBasica =
@@ -182,6 +213,36 @@ const GENERATORS_BY_TEMA_BASE: Record<number, GeneratorFn> = {
   53: generarTendenciasDescriptiva,
   54: generarProbabilidadVisual,
   55: generarInferenciaEstadistica,
+  56: generarTema56TrigonometriaBasica,
+  57: generarTema57TrigonometriaAplicada,
+  58: generarTema58IdentidadesTrigonometricas,
+  59: generarTema59EcuacionesTrigonometricas,
+  60: generarTema60FuncionesExponenciales,
+  61: generarTema61FuncionesLogaritmicas,
+  62: generarTema62EcuacionesExponenciales,
+  63: generarTema63EcuacionesLogaritmicas,
+  64: generarTema64NumerosComplejos,
+  65: generarTema65OperacionesComplejos,
+  66: generarTema66MatricesBasico,
+  67: generarTema67DeterminantesBasico,
+  68: generarTema68SistemasPorMatrices,
+  69: generarTema69VectoresBasico,
+  70: generarTema70GeometriaEspacial,
+  71: generarTema71LimitesFunciones,
+  72: generarTema72Continuidad,
+  73: generarTema73DerivadaDefinicion,
+  74: generarTema74DerivadasBasicas,
+  75: generarTema75ReglasDerivacion,
+  76: generarTema76AplicacionesDerivadas,
+  77: generarTema77IntegralIndefinida,
+  78: generarTema78IntegralDefinida,
+  79: generarTema79AplicacionesIntegrales,
+  80: generarTema80EcuacionesDiferencialesBasico,
+  81: generarTema81ProbabilidadAvanzada,
+  82: generarTema82VariablesAleatorias,
+  83: generarTema83Distribuciones,
+  84: generarTema84EstadisticaInferencial,
+  85: generarTema85RegresionCorrelacion,
 };
 
 export const GENERATORS_BY_TEMA: Record<number, GeneratorFn> = Object.fromEntries(
@@ -238,6 +299,36 @@ export const TEMAS_MATEMATICAS_INFO: Record<
     titulo: "Inferencia estadística: intervalos y contrastes",
     dificultad: "basico",
   },
+  56: { titulo: "Trigonometría básica", dificultad: "basico" },
+  57: { titulo: "Trigonometría aplicada", dificultad: "intermedio" },
+  58: { titulo: "Identidades trigonométricas", dificultad: "intermedio" },
+  59: { titulo: "Ecuaciones trigonométricas", dificultad: "avanzado" },
+  60: { titulo: "Funciones exponenciales", dificultad: "basico" },
+  61: { titulo: "Funciones logarítmicas", dificultad: "basico" },
+  62: { titulo: "Ecuaciones exponenciales", dificultad: "intermedio" },
+  63: { titulo: "Ecuaciones logarítmicas", dificultad: "intermedio" },
+  64: { titulo: "Números complejos", dificultad: "basico" },
+  65: { titulo: "Operaciones con complejos", dificultad: "intermedio" },
+  66: { titulo: "Matrices básico", dificultad: "basico" },
+  67: { titulo: "Determinantes básico", dificultad: "intermedio" },
+  68: { titulo: "Sistemas por matrices", dificultad: "intermedio" },
+  69: { titulo: "Vectores básico", dificultad: "basico" },
+  70: { titulo: "Geometría espacial", dificultad: "intermedio" },
+  71: { titulo: "Límites de funciones", dificultad: "intermedio" },
+  72: { titulo: "Continuidad", dificultad: "intermedio" },
+  73: { titulo: "Derivada por definición", dificultad: "intermedio" },
+  74: { titulo: "Derivadas básicas", dificultad: "basico" },
+  75: { titulo: "Reglas de derivación", dificultad: "intermedio" },
+  76: { titulo: "Aplicaciones de derivadas", dificultad: "avanzado" },
+  77: { titulo: "Integral indefinida", dificultad: "intermedio" },
+  78: { titulo: "Integral definida", dificultad: "intermedio" },
+  79: { titulo: "Aplicaciones de integrales", dificultad: "avanzado" },
+  80: { titulo: "Ecuaciones diferenciales básico", dificultad: "avanzado" },
+  81: { titulo: "Probabilidad avanzada", dificultad: "avanzado" },
+  82: { titulo: "Variables aleatorias", dificultad: "intermedio" },
+  83: { titulo: "Distribuciones", dificultad: "intermedio" },
+  84: { titulo: "Estadística inferencial", dificultad: "avanzado" },
+  85: { titulo: "Regresión y correlación", dificultad: "avanzado" },
 };
 
 // Helper opcional para obtener un generador de forma segura
