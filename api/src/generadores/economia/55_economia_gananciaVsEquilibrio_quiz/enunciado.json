@@ -10,5 +10,43 @@
     "d"
   ],
   "enunciado": "Resuelve el caso para 55_economia_gananciaVsEquilibrio_quiz usando {{a}}, {{b}}, {{c}}, {{d}}.",
-  "requiereGrafico": true
+  "requiereGrafico": true,
+  "grafico": {
+    "tipo": "costo_ingreso",
+    "ejes": {
+      "x": "Cantidad",
+      "y": "Monto"
+    },
+    "curvas": [
+      {
+        "id": "R",
+        "etiqueta": "Ingreso total",
+        "forma": "lineal",
+        "params": {
+          "m": 24,
+          "n": 0
+        }
+      },
+      {
+        "id": "C",
+        "etiqueta": "Costo total",
+        "forma": "lineal",
+        "params": {
+          "m": 15,
+          "n": 90
+        }
+      }
+    ],
+    "puntos": [
+      {
+        "id": "PE",
+        "etiqueta": "Break-even",
+        "derivado": "interseccion",
+        "curvas": [
+          "R",
+          "C"
+        ]
+      }
+    ]
+  }
 }

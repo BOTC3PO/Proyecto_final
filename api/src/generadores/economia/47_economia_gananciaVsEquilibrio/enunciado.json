@@ -10,5 +10,43 @@
     "d"
   ],
   "enunciado": "Resuelve el caso para 47_economia_gananciaVsEquilibrio usando {{a}}, {{b}}, {{c}}, {{d}}.",
-  "requiereGrafico": true
+  "requiereGrafico": true,
+  "grafico": {
+    "tipo": "costo_ingreso",
+    "ejes": {
+      "x": "Cantidad",
+      "y": "Monto"
+    },
+    "curvas": [
+      {
+        "id": "R",
+        "etiqueta": "Ingreso total",
+        "forma": "lineal",
+        "params": {
+          "m": 30,
+          "n": 0
+        }
+      },
+      {
+        "id": "C",
+        "etiqueta": "Costo total",
+        "forma": "lineal",
+        "params": {
+          "m": 18,
+          "n": 120
+        }
+      }
+    ],
+    "puntos": [
+      {
+        "id": "PE",
+        "etiqueta": "Punto de equilibrio",
+        "derivado": "interseccion",
+        "curvas": [
+          "R",
+          "C"
+        ]
+      }
+    ]
+  }
 }
