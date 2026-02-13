@@ -44,7 +44,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       explicacion:
         "El aporte obligatorio del trabajador a PAMI suele ser el 3% del sueldo bruto remunerativo.",
     },
-  ],
     {
       enunciado:
         "Si mirás la parte de 'aportes del trabajador' en un recibo típico, ¿qué tres conceptos principales suelen aparecer con 11%, 3% y 3%?",
@@ -58,7 +57,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       explicacion:
         "En un esquema escolar básico se ve: 11% Jubilación, 3% Obra Social y 3% PAMI, todos calculados sobre el bruto remunerativo.",
     },
-  ],
     {
       enunciado:
         "¿Cuál es el total de aportes del trabajador si se suman Jubilación (11%), Obra Social (3%) y PAMI (3%)?",

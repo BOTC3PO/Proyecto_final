@@ -42,7 +42,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       tipo: "Municipal",
       detalle: "Tasa local municipal.",
     },
-  ],
     {
       desc: "Impuesto al Cheque",
       tipo: "Nacional",
@@ -53,7 +52,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       tipo: "Provincial",
       detalle: "Tributo provincial asociado al vehículo.",
     },
-  ],
     {
       desc: "Tasa de habilitación comercial",
       tipo: "Municipal",

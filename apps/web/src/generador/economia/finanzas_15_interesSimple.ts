@@ -40,6 +40,7 @@ export const genFinanzasInteresSimple: GeneratorFn = makeQuizGenerator(
           tiempoMax: 4,
           desvio: 20,
         },
+        experto: {
           capitalMin: 50,
           capitalMax: 120,
           tasaMin: 15,
@@ -48,6 +49,7 @@ export const genFinanzasInteresSimple: GeneratorFn = makeQuizGenerator(
           tiempoMax: 5,
           desvio: 15,
         },
+        maestro: {
           capitalMin: 80,
           capitalMax: 200,
           tasaMin: 20,
