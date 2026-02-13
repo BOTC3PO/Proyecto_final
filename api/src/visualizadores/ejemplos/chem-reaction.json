@@ -1,0 +1,80 @@
+{
+  "id": "chem-reaction",
+  "title": "Reacción química",
+  "description": "Representación con reactivos, productos y pasos.",
+  "spec": {
+    "kind": "chem-reaction",
+    "title": "Síntesis de agua",
+    "description": "Se reordenan moléculas de hidrógeno y oxígeno para formar agua.",
+    "reactants": [
+      {
+        "id": "h2",
+        "formula": "H₂",
+        "coefficient": 2,
+        "moles": 2
+      },
+      {
+        "id": "o2",
+        "formula": "O₂",
+        "coefficient": 1,
+        "moles": 1
+      }
+    ],
+    "products": [
+      {
+        "id": "h2o",
+        "formula": "H₂O",
+        "coefficient": 2,
+        "moles": 2
+      }
+    ],
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Activación",
+        "description": "Se aproximan las moléculas de hidrógeno y oxígeno.",
+        "reactants": [
+          {
+            "id": "h2-step1",
+            "formula": "H₂",
+            "coefficient": 2,
+            "moles": 2
+          },
+          {
+            "id": "o2-step1",
+            "formula": "O₂",
+            "coefficient": 1,
+            "moles": 1
+          }
+        ],
+        "products": [
+          {
+            "id": "mix",
+            "formula": "H₂ · O₂",
+            "coefficient": 1
+          }
+        ]
+      },
+      {
+        "id": "step-2",
+        "title": "Reordenamiento",
+        "description": "Los enlaces se reorganizan para formar agua.",
+        "reactants": [
+          {
+            "id": "mix-2",
+            "formula": "H₂ · O₂",
+            "coefficient": 1
+          }
+        ],
+        "products": [
+          {
+            "id": "h2o-step2",
+            "formula": "H₂O",
+            "coefficient": 2,
+            "moles": 2
+          }
+        ]
+      }
+    ]
+  }
+}

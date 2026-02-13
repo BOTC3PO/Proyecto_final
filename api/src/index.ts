@@ -31,6 +31,7 @@ import { payments } from "./routes/payments";
 import { padres } from "./routes/padres";
 import { governance } from "./routes/governance";
 import { consignas } from "./routes/consignas";
+import { visualizadoresRouter } from "./routes/visualizadores";
 import { createRateLimiter } from "./lib/rate-limit";
 import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
 const app = express();
@@ -46,6 +47,7 @@ app.use(
 );
 app.use(health);
 app.use(consignas);
+app.use("/api/visualizadores", visualizadoresRouter);
 app.use(pages);
 app.use(auth);
 app.use(usuarios);

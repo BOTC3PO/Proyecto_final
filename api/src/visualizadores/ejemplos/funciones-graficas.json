@@ -1,0 +1,72 @@
+{
+  "id": "funciones-graficas",
+  "title": "Funciones (gráficas)",
+  "description": "Funciones lineales y cuadráticas con puntos clave.",
+  "spec": {
+    "kind": "funciones-graficas",
+    "title": "Funciones en el plano cartesiano",
+    "description": "Comparación de una función lineal y una cuadrática.",
+    "axes": {
+      "x": {
+        "label": "x",
+        "min": -5,
+        "max": 5
+      },
+      "y": {
+        "label": "y",
+        "min": -4,
+        "max": 8
+      }
+    },
+    "functions": [
+      {
+        "id": "f1",
+        "type": "lineal",
+        "expression": "y = 2x + 1",
+        "domain": {
+          "start": -4,
+          "end": 4,
+          "step": 1
+        },
+        "keyPoints": [
+          {
+            "x": -2,
+            "y": -3,
+            "label": "Intercepto"
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "label": "Ordenada"
+          }
+        ],
+        "color": "#2563eb",
+        "notes": "Pendiente positiva."
+      },
+      {
+        "id": "f2",
+        "type": "cuadratica",
+        "expression": "y = x² - 2x",
+        "domain": {
+          "start": -2,
+          "end": 4,
+          "step": 0.5
+        },
+        "keyPoints": [
+          {
+            "x": 1,
+            "y": -1,
+            "label": "Vértice"
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "label": "Corte"
+          }
+        ],
+        "color": "#f97316",
+        "notes": "Concavidad hacia arriba."
+      }
+    ]
+  }
+}

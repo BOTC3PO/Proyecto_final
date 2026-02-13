@@ -1,0 +1,139 @@
+{
+  "id": "chem-titration",
+  "title": "Curva de titulación",
+  "description": "Curva pH-volumen con punto equivalente e indicador.",
+  "spec": {
+    "kind": "chem-titration",
+    "title": "Titulación ácido-base fuerte",
+    "description": "Ejemplo de curva con cambio rápido cerca del punto equivalente.",
+    "axes": {
+      "x": {
+        "label": "Volumen añadido",
+        "unit": "mL",
+        "min": 0,
+        "max": 50
+      },
+      "y": {
+        "label": "pH",
+        "min": 0,
+        "max": 14
+      }
+    },
+    "curve": {
+      "color": "#38bdf8",
+      "points": [
+        {
+          "volume": 0,
+          "pH": 1.2
+        },
+        {
+          "volume": 5,
+          "pH": 1.5
+        },
+        {
+          "volume": 10,
+          "pH": 2.1
+        },
+        {
+          "volume": 15,
+          "pH": 3.1
+        },
+        {
+          "volume": 20,
+          "pH": 4.5
+        },
+        {
+          "volume": 22,
+          "pH": 5.6
+        },
+        {
+          "volume": 24,
+          "pH": 6.7
+        },
+        {
+          "volume": 25,
+          "pH": 7
+        },
+        {
+          "volume": 26,
+          "pH": 7.8
+        },
+        {
+          "volume": 28,
+          "pH": 9.3
+        },
+        {
+          "volume": 32,
+          "pH": 11.1
+        },
+        {
+          "volume": 40,
+          "pH": 12.3
+        },
+        {
+          "volume": 50,
+          "pH": 12.8
+        }
+      ]
+    },
+    "milestones": [
+      {
+        "id": "start",
+        "label": "Inicio",
+        "volume": 0,
+        "pH": 1.2,
+        "type": "start"
+      },
+      {
+        "id": "eq",
+        "label": "Punto equivalente",
+        "volume": 25,
+        "pH": 7,
+        "type": "equivalence"
+      },
+      {
+        "id": "end",
+        "label": "Exceso de base",
+        "volume": 50,
+        "pH": 12.8,
+        "type": "end"
+      }
+    ],
+    "indicator": {
+      "title": "Indicador de color",
+      "currentPH": 7,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 3,
+          "color": "#f87171",
+          "label": "Ácido fuerte (0-3)"
+        },
+        {
+          "min": 3,
+          "max": 6,
+          "color": "#fb923c",
+          "label": "Ácido débil (3-6)"
+        },
+        {
+          "min": 6,
+          "max": 8,
+          "color": "#34d399",
+          "label": "Zona neutra (6-8)"
+        },
+        {
+          "min": 8,
+          "max": 11,
+          "color": "#60a5fa",
+          "label": "Base débil (8-11)"
+        },
+        {
+          "min": 11,
+          "max": 14,
+          "color": "#a78bfa",
+          "label": "Base fuerte (11-14)"
+        }
+      ]
+    }
+  }
+}

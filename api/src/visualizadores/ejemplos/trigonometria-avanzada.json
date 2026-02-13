@@ -1,0 +1,99 @@
+{
+  "id": "trigonometria-avanzada",
+  "title": "Trigonometría avanzada",
+  "description": "Círculo unitario y funciones trigonométricas.",
+  "spec": {
+    "kind": "trigonometria-avanzada",
+    "title": "Círculo unitario",
+    "description": "Puntos notables y funciones seno/coseno.",
+    "unitCircle": {
+      "radius": 1,
+      "points": [
+        {
+          "angleDeg": 0,
+          "x": 1,
+          "y": 0,
+          "label": "0°"
+        },
+        {
+          "angleDeg": 90,
+          "x": 0,
+          "y": 1,
+          "label": "90°"
+        },
+        {
+          "angleDeg": 180,
+          "x": -1,
+          "y": 0,
+          "label": "180°"
+        },
+        {
+          "angleDeg": 270,
+          "x": 0,
+          "y": -1,
+          "label": "270°"
+        }
+      ]
+    },
+    "functions": [
+      {
+        "id": "t1",
+        "type": "seno",
+        "expression": "y = sen(x)",
+        "amplitude": 1,
+        "period": 360,
+        "phaseShift": 0,
+        "keyPoints": [
+          {
+            "x": 0,
+            "y": 0,
+            "label": "Origen"
+          },
+          {
+            "x": 90,
+            "y": 1,
+            "label": "Máximo"
+          }
+        ],
+        "notes": "Oscilación básica."
+      },
+      {
+        "id": "t2",
+        "type": "coseno",
+        "expression": "y = cos(x)",
+        "amplitude": 1,
+        "period": 360,
+        "phaseShift": 0,
+        "keyPoints": [
+          {
+            "x": 0,
+            "y": 1,
+            "label": "Máximo"
+          },
+          {
+            "x": 180,
+            "y": -1,
+            "label": "Mínimo"
+          }
+        ],
+        "notes": "Desfase de 90° respecto al seno."
+      }
+    ],
+    "angles": [
+      {
+        "id": "ang1",
+        "label": "π/6",
+        "valueDeg": 30,
+        "valueRad": "π/6",
+        "ratio": "1/2"
+      },
+      {
+        "id": "ang2",
+        "label": "π/4",
+        "valueDeg": 45,
+        "valueRad": "π/4",
+        "ratio": "√2/2"
+      }
+    ]
+  }
+}

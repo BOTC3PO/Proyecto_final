@@ -1,0 +1,65 @@
+{
+  "id": "chart",
+  "title": "Gráfico comparativo",
+  "description": "Series con métricas trimestrales.",
+  "spec": {
+    "kind": "chart",
+    "chartType": "bar",
+    "title": "Participación en talleres",
+    "xAxis": {
+      "label": "Trimestre"
+    },
+    "yAxis": {
+      "label": "Participantes",
+      "unit": "alumnos"
+    },
+    "series": [
+      {
+        "id": "s1",
+        "label": "Robótica",
+        "color": "#2563eb",
+        "data": [
+          {
+            "x": "T1",
+            "y": 42
+          },
+          {
+            "x": "T2",
+            "y": 55
+          },
+          {
+            "x": "T3",
+            "y": 63
+          },
+          {
+            "x": "T4",
+            "y": 58
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "label": "Arte",
+        "color": "#f97316",
+        "data": [
+          {
+            "x": "T1",
+            "y": 35
+          },
+          {
+            "x": "T2",
+            "y": 48
+          },
+          {
+            "x": "T3",
+            "y": 51
+          },
+          {
+            "x": "T4",
+            "y": 60
+          }
+        ]
+      }
+    ]
+  }
+}
