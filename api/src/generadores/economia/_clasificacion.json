@@ -39,7 +39,7 @@
     "35_economia_margenBruto": "calculo",
     "36_economia_margenNeto": "calculo",
     "37_economia_capitalTrabajo": "calculo",
-    "38_economia_puntoEquilibrio": "mixto",
+    "38_economia_puntoEquilibrio": "grafico",
     "39_economia_productividad": "calculo",
     "40_economia_porcentajesSimples": "calculo",
     "41_economia_clasificacionBienes": "conceptual",
@@ -48,7 +48,7 @@
     "44_economia_gastosFijosVariables": "conceptual",
     "45_economia_simpleVsCompuesto": "mixto",
     "46_economia_cftMayorInteres": "calculo",
-    "47_economia_gananciaVsEquilibrio": "mixto",
+    "47_economia_gananciaVsEquilibrio": "grafico",
     "48_economia_aportesContribuciones_quiz": "mixto",
     "49_economia_deudaBuenaMala_quiz": "conceptual",
     "50_economia_publicidadEnganosa_quiz": "conceptual",
@@ -56,7 +56,7 @@
     "52_economia_liquidezConcepto_quiz": "mixto",
     "53_economia_interesSimpleCompuesto_quiz": "mixto",
     "54_economia_cftMayorInteres_quiz": "mixto",
-    "55_economia_gananciaVsEquilibrio_quiz": "mixto"
+    "55_economia_gananciaVsEquilibrio_quiz": "grafico"
   },
   "todosTemas": [
     "01_contab_clasificacionCuentas",

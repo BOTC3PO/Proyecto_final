@@ -10,5 +10,43 @@
     "d"
   ],
   "enunciado": "Resuelve el caso para 38_economia_puntoEquilibrio usando {{a}}, {{b}}, {{c}}, {{d}}.",
-  "requiereGrafico": true
+  "requiereGrafico": true,
+  "grafico": {
+    "tipo": "oferta_demanda",
+    "ejes": {
+      "x": "Cantidad",
+      "y": "Precio"
+    },
+    "curvas": [
+      {
+        "id": "D",
+        "etiqueta": "Demanda",
+        "forma": "lineal",
+        "params": {
+          "a": 100,
+          "b": 2
+        }
+      },
+      {
+        "id": "S",
+        "etiqueta": "Oferta",
+        "forma": "lineal",
+        "params": {
+          "c": 10,
+          "d": 1
+        }
+      }
+    ],
+    "puntos": [
+      {
+        "id": "E",
+        "etiqueta": "Equilibrio",
+        "derivado": "interseccion",
+        "curvas": [
+          "D",
+          "S"
+        ]
+      }
+    ]
+  }
 }
