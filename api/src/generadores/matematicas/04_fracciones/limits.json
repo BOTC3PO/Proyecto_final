@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "temaId": 4,
+  "slug": "04_fracciones",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "numeros": [
+          1,
+          20
+        ]
+      },
+      "operacionesPermitidas": [
+        "+",
+        "-"
+      ],
+      "reglas": {
+        "permitirNegativos": false,
+        "divisionExacta": true,
+        "permitirDecimales": false
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "numeros": [
+          1,
+          60
+        ]
+      },
+      "operacionesPermitidas": [
+        "+",
+        "-",
+        "×"
+      ],
+      "reglas": {
+        "permitirNegativos": true,
+        "divisionExacta": true,
+        "permitirDecimales": false
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "numeros": [
+          -120,
+          120
+        ]
+      },
+      "operacionesPermitidas": [
+        "+",
+        "-",
+        "×",
+        "÷"
+      ],
+      "reglas": {
+        "permitirNegativos": true,
+        "divisionExacta": false,
+        "permitirDecimales": true
+      }
+    }
+  }
+}
