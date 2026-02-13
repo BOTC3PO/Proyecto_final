@@ -22,6 +22,21 @@ const MATEMATICAS_TEMAS_PERMITIDOS = new Set([
   "13_ratios_y_tasas",
   "14_progresiones",
   "15_limites",
+  "31_funciones_exponenciales",
+  "32_funciones_logaritmicas",
+  "33_ecuaciones_exponenciales",
+  "34_ecuaciones_logaritmicas",
+  "35_trigonometria_avanzada",
+  "36_identidades_trigonometricas",
+  "37_ecuaciones_trigonometricas",
+  "38_geometria_del_espacio",
+  "39_vectores_avanzado",
+  "40_producto_escalar_y_vectorial",
+  "41_matrices_avanzado",
+  "42_determinantes_avanzado",
+  "43_sistemas_lineales_matrices",
+  "44_transformaciones_geometricas",
+  "45_numeros_complejos",
 ]);
 
 router.get("/api/consignas/quimica", async (_req, res) => {

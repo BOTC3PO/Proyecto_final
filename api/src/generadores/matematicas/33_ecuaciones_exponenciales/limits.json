@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "temaId": 33,
+  "slug": "33_ecuaciones_exponenciales",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "base": [
+          2,
+          6
+        ],
+        "exponente": [
+          1,
+          5
+        ]
+      },
+      "operacionesPermitidas": [
+        "igualacion_potencias"
+      ],
+      "reglas": {
+        "mismaBaseEnAmbosLados": true,
+        "solucionEntera": true,
+        "permitirTrasladoTerminos": false
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "base": [
+          2,
+          10
+        ],
+        "exponente": [
+          -4,
+          7
+        ],
+        "constante": [
+          -30,
+          30
+        ]
+      },
+      "operacionesPermitidas": [
+        "igualacion_potencias",
+        "logaritmizacion"
+      ],
+      "reglas": {
+        "mismaBaseEnAmbosLados": false,
+        "solucionEntera": false,
+        "permitirTrasladoTerminos": true
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "base": [
+          1.1,
+          12
+        ],
+        "exponente": [
+          -6,
+          9
+        ],
+        "constante": [
+          -80,
+          80
+        ]
+      },
+      "operacionesPermitidas": [
+        "sustitucion",
+        "logaritmizacion",
+        "analisis_dominios"
+      ],
+      "reglas": {
+        "permitirMultiplesSoluciones": true,
+        "permitirSolucionesNoEnteras": true,
+        "validarDominio": true
+      }
+    }
+  }
+}

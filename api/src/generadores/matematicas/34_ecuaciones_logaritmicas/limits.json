@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "temaId": 34,
+  "slug": "34_ecuaciones_logaritmicas",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "base": [
+          2,
+          10
+        ],
+        "argumento": [
+          1,
+          1000
+        ]
+      },
+      "operacionesPermitidas": [
+        "definicion_logaritmo"
+      ],
+      "reglas": {
+        "unSoloLogaritmo": true,
+        "solucionEntera": true,
+        "validarArgumentoPositivo": true
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "base": [
+          2,
+          12
+        ],
+        "argumento": [
+          1,
+          5000
+        ],
+        "constante": [
+          -20,
+          20
+        ]
+      },
+      "operacionesPermitidas": [
+        "propiedades_logaritmos",
+        "sistema_simple"
+      ],
+      "reglas": {
+        "permitirSumaRestaLogs": true,
+        "solucionEntera": false,
+        "validarArgumentoPositivo": true
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "base": [
+          1.2,
+          15
+        ],
+        "argumento": [
+          0.1,
+          100000
+        ],
+        "constante": [
+          -50,
+          50
+        ]
+      },
+      "operacionesPermitidas": [
+        "propiedades_logaritmos",
+        "cambio_base",
+        "descartarExtranas"
+      ],
+      "reglas": {
+        "permitirMultiplesLogaritmos": true,
+        "permitirSolucionesNoEnteras": true,
+        "descartarSolucionesExtranas": true
+      }
+    }
+  }
+}

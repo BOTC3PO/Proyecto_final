@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "temaId": 45,
+  "slug": "45_numeros_complejos",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "parteReal": [
+          -12,
+          12
+        ],
+        "parteImaginaria": [
+          -12,
+          12
+        ]
+      },
+      "operacionesPermitidas": [
+        "suma",
+        "resta",
+        "modulo"
+      ],
+      "reglas": {
+        "permitirFormaPolar": false,
+        "permitirDivision": false,
+        "precisionDecimal": 2
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "parteReal": [
+          -25,
+          25
+        ],
+        "parteImaginaria": [
+          -25,
+          25
+        ]
+      },
+      "operacionesPermitidas": [
+        "producto",
+        "division",
+        "conjugado"
+      ],
+      "reglas": {
+        "permitirFormaPolar": true,
+        "permitirDivision": true,
+        "precisionDecimal": 3
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "parteReal": [
+          -40,
+          40
+        ],
+        "parteImaginaria": [
+          -40,
+          40
+        ],
+        "exponente": [
+          2,
+          8
+        ]
+      },
+      "operacionesPermitidas": [
+        "forma_polar",
+        "teorema_de_moivre",
+        "raices_nesimas"
+      ],
+      "reglas": {
+        "permitirFormaPolar": true,
+        "permitirDivision": true,
+        "precisionDecimal": 4
+      }
+    }
+  }
+}

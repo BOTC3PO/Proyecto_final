@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "temaId": 42,
+  "slug": "42_determinantes_avanzado",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "dimension": [
+          2,
+          2
+        ],
+        "elementos": [
+          -8,
+          8
+        ]
+      },
+      "operacionesPermitidas": [
+        "regla_sarrus_basica"
+      ],
+      "reglas": {
+        "permitirFracciones": false,
+        "usarCofactores": false,
+        "valorAbsolutoMaximo": 200
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "dimension": [
+          3,
+          3
+        ],
+        "elementos": [
+          -10,
+          10
+        ]
+      },
+      "operacionesPermitidas": [
+        "sarrus",
+        "cofactores"
+      ],
+      "reglas": {
+        "permitirFracciones": true,
+        "usarCofactores": true,
+        "valorAbsolutoMaximo": 1500
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "dimension": [
+          3,
+          4
+        ],
+        "elementos": [
+          -15,
+          15
+        ]
+      },
+      "operacionesPermitidas": [
+        "propiedades_determinante",
+        "eliminacion_gaussiana"
+      ],
+      "reglas": {
+        "permitirFracciones": true,
+        "usarCofactores": true,
+        "valorAbsolutoMaximo": 5000
+      }
+    }
+  }
+}

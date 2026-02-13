@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "temaId": 36,
+  "slug": "36_identidades_trigonometricas",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "anguloGrados": [
+          0,
+          360
+        ]
+      },
+      "operacionesPermitidas": [
+        "pitagoricas",
+        "reciprocas"
+      ],
+      "reglas": {
+        "demostracionesCortas": true,
+        "permitirTangenteSecante": false,
+        "precisionDecimal": 3
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "anguloGrados": [
+          -360,
+          360
+        ]
+      },
+      "operacionesPermitidas": [
+        "suma_diferencia",
+        "angulo_doble"
+      ],
+      "reglas": {
+        "demostracionesCortas": false,
+        "permitirTangenteSecante": true,
+        "permitirCotangenteCosecante": false
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "anguloRadianes": [
+          -9.42,
+          9.42
+        ]
+      },
+      "operacionesPermitidas": [
+        "angulo_medio",
+        "producto_suma",
+        "suma_producto"
+      ],
+      "reglas": {
+        "permitirTodasFunciones": true,
+        "simplificacionAlgebraicaCompleta": true,
+        "precisionDecimal": 4
+      }
+    }
+  }
+}

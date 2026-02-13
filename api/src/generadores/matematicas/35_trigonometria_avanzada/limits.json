@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "temaId": 35,
+  "slug": "35_trigonometria_avanzada",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "anguloGrados": [
+          0,
+          360
+        ]
+      },
+      "operacionesPermitidas": [
+        "valores_notables",
+        "conversion_grados_radianes"
+      ],
+      "reglas": {
+        "usarCuadrantes": true,
+        "permitirIdentidadesCompuestas": false,
+        "precisionDecimal": 2
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "anguloGrados": [
+          -720,
+          720
+        ],
+        "coeficiente": [
+          1,
+          6
+        ]
+      },
+      "operacionesPermitidas": [
+        "periodicidad",
+        "reduccion_angulo",
+        "funciones_inversas_basicas"
+      ],
+      "reglas": {
+        "usarCuadrantes": true,
+        "permitirIdentidadesCompuestas": true,
+        "precisionDecimal": 3
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "anguloRadianes": [
+          -12.57,
+          12.57
+        ],
+        "coeficiente": [
+          -8,
+          8
+        ]
+      },
+      "operacionesPermitidas": [
+        "analisis_signos",
+        "composicion_funciones",
+        "identificacion_periodo_fase"
+      ],
+      "reglas": {
+        "permitirTransformacionesCompletas": true,
+        "precisionDecimal": 4,
+        "evitarIndeterminaciones": true
+      }
+    }
+  }
+}

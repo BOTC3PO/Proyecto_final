@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "temaId": 32,
+  "slug": "32_funciones_logaritmicas",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "base": [
+          2,
+          10
+        ],
+        "argumento": [
+          1,
+          1000
+        ]
+      },
+      "operacionesPermitidas": [
+        "valor_logaritmo",
+        "conversion_exponencial"
+      ],
+      "reglas": {
+        "permitirBase10": true,
+        "permitirBaseE": false,
+        "resultadoEnteroPreferido": true
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "base": [
+          2,
+          12
+        ],
+        "argumento": [
+          0.1,
+          5000
+        ]
+      },
+      "operacionesPermitidas": [
+        "propiedades_logaritmos",
+        "ecuacion_simple"
+      ],
+      "reglas": {
+        "permitirBase10": true,
+        "permitirBaseE": true,
+        "argumentoPositivoEstricto": true
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "base": [
+          1.2,
+          15
+        ],
+        "argumento": [
+          0.01,
+          100000
+        ],
+        "coeficiente": [
+          -8,
+          8
+        ]
+      },
+      "operacionesPermitidas": [
+        "expansion_condensacion",
+        "cambio_base",
+        "modelacion"
+      ],
+      "reglas": {
+        "permitirBase10": true,
+        "permitirBaseE": true,
+        "permitirCoeficientesNegativos": true
+      }
+    }
+  }
+}

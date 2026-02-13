@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "temaId": 39,
+  "slug": "39_vectores_avanzado",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "componentes": [
+          -10,
+          10
+        ]
+      },
+      "operacionesPermitidas": [
+        "suma_resta",
+        "modulo"
+      ],
+      "reglas": {
+        "dimension": 2,
+        "permitirFracciones": false,
+        "normalizacion": false
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "componentes": [
+          -20,
+          20
+        ]
+      },
+      "operacionesPermitidas": [
+        "combinacion_lineal",
+        "vector_unitario"
+      ],
+      "reglas": {
+        "dimension": 3,
+        "permitirFracciones": true,
+        "normalizacion": true
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "componentes": [
+          -50,
+          50
+        ],
+        "escalar": [
+          -8,
+          8
+        ]
+      },
+      "operacionesPermitidas": [
+        "dependencia_lineal",
+        "proyeccion",
+        "angulo_vectores"
+      ],
+      "reglas": {
+        "dimension": 3,
+        "permitirFracciones": true,
+        "normalizacion": true
+      }
+    }
+  }
+}
