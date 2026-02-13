@@ -1,0 +1,92 @@
+{
+  "id": "geometria-plana-espacial",
+  "title": "Geometría plana y espacial",
+  "description": "Figuras con parámetros y propiedades clave.",
+  "spec": {
+    "kind": "geometria-plana-espacial",
+    "title": "Figuras destacadas",
+    "description": "Triángulo y prisma con datos esenciales.",
+    "figures": [
+      {
+        "id": "g1",
+        "name": "Triángulo isósceles",
+        "dimension": "plana",
+        "type": "triangulo",
+        "parameters": [
+          {
+            "label": "Base",
+            "value": 8,
+            "unit": "cm"
+          },
+          {
+            "label": "Lado",
+            "value": 6,
+            "unit": "cm"
+          },
+          {
+            "label": "Altura",
+            "value": 5,
+            "unit": "cm"
+          }
+        ],
+        "angles": [
+          {
+            "id": "a1",
+            "vertex": "A",
+            "valueDeg": 50,
+            "label": "Ángulo A"
+          },
+          {
+            "id": "a2",
+            "vertex": "B",
+            "valueDeg": 80,
+            "label": "Ángulo B"
+          }
+        ],
+        "properties": [
+          {
+            "label": "Área",
+            "value": "20 cm²"
+          }
+        ],
+        "formula": "Área = (b · h) / 2",
+        "notes": "Lados iguales en los vértices A y C."
+      },
+      {
+        "id": "g2",
+        "name": "Prisma rectangular",
+        "dimension": "espacial",
+        "type": "prisma",
+        "parameters": [
+          {
+            "label": "Largo",
+            "value": 4,
+            "unit": "cm"
+          },
+          {
+            "label": "Ancho",
+            "value": 3,
+            "unit": "cm"
+          },
+          {
+            "label": "Alto",
+            "value": 6,
+            "unit": "cm"
+          }
+        ],
+        "properties": [
+          {
+            "label": "Volumen",
+            "value": "72 cm³"
+          },
+          {
+            "label": "Área total",
+            "value": "108 cm²"
+          }
+        ],
+        "formula": "V = l · w · h",
+        "notes": "Base rectangular con 6 caras."
+      }
+    ]
+  }
+}

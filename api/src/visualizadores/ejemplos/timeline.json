@@ -1,0 +1,57 @@
+{
+  "id": "timeline",
+  "title": "Línea de tiempo",
+  "description": "Secuencia de hitos clave con rangos y marcadores.",
+  "spec": {
+    "kind": "timeline",
+    "title": "Proyecto de ciencias",
+    "range": {
+      "start": "Mar 2024",
+      "end": "Ago 2024"
+    },
+    "markers": [
+      {
+        "id": "m1",
+        "label": "Kick-off",
+        "date": "Mar 2024"
+      },
+      {
+        "id": "m2",
+        "label": "Entrega final",
+        "date": "Ago 2024"
+      }
+    ],
+    "events": [
+      {
+        "id": "e1",
+        "title": "Investigación inicial",
+        "date": "Mar 2024",
+        "description": "Recolección de datos y fuentes.",
+        "tags": [
+          "Lecturas",
+          "Definición"
+        ]
+      },
+      {
+        "id": "e2",
+        "title": "Experimentos",
+        "date": "May 2024",
+        "description": "Pruebas controladas y análisis.",
+        "tags": [
+          "Laboratorio",
+          "Hipótesis"
+        ]
+      },
+      {
+        "id": "e3",
+        "title": "Presentación",
+        "date": "Ago 2024",
+        "description": "Síntesis de resultados y conclusiones.",
+        "tags": [
+          "Entrega",
+          "Demo"
+        ]
+      }
+    ]
+  }
+}

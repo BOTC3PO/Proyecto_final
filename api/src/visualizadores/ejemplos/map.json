@@ -1,0 +1,69 @@
+{
+  "id": "map",
+  "title": "Mapa interactivo",
+  "description": "Marcadores con rutas y categorías.",
+  "spec": {
+    "kind": "map",
+    "title": "Salida educativa",
+    "viewport": {
+      "center": [
+        -34.6037,
+        -58.3816
+      ],
+      "zoom": 1.4
+    },
+    "markers": [
+      {
+        "id": "m1",
+        "label": "Museo",
+        "coordinates": [
+          -34.6037,
+          -58.3816
+        ],
+        "description": "Punto de encuentro principal.",
+        "category": "Cultura"
+      },
+      {
+        "id": "m2",
+        "label": "Parque",
+        "coordinates": [
+          -34.5778,
+          -58.4083
+        ],
+        "description": "Actividad al aire libre.",
+        "category": "Naturaleza"
+      },
+      {
+        "id": "m3",
+        "label": "Laboratorio",
+        "coordinates": [
+          -34.6154,
+          -58.4333
+        ],
+        "description": "Visita técnica.",
+        "category": "Ciencia"
+      }
+    ],
+    "routes": [
+      {
+        "id": "r1",
+        "label": "Recorrido recomendado",
+        "color": "#10b981",
+        "path": [
+          [
+            -34.6037,
+            -58.3816
+          ],
+          [
+            -34.5778,
+            -58.4083
+          ],
+          [
+            -34.6154,
+            -58.4333
+          ]
+        ]
+      }
+    ]
+  }
+}

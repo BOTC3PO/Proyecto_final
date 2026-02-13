@@ -1,0 +1,59 @@
+{
+  "id": "algebra-calculo-visual",
+  "title": "Álgebra y cálculo visual",
+  "description": "Sistemas, derivadas e integrales con pasos clave.",
+  "spec": {
+    "kind": "algebra-calculo-visual",
+    "title": "Resumen de álgebra y cálculo",
+    "description": "Muestra procesos y resultados visuales.",
+    "systems": [
+      {
+        "id": "sistema-1",
+        "equations": [
+          "2x + y = 7",
+          "x - y = 1"
+        ],
+        "solution": {
+          "x": 2,
+          "y": 3
+        },
+        "steps": [
+          "Despejar y en la segunda ecuación.",
+          "Sustituir en la primera."
+        ]
+      }
+    ],
+    "derivatives": [
+      {
+        "id": "der-1",
+        "function": "x³ - 3x² + 2",
+        "derivative": "3x² - 6x",
+        "criticalPoints": [
+          {
+            "x": 0,
+            "y": 2,
+            "label": "Máximo local"
+          },
+          {
+            "x": 2,
+            "y": -2,
+            "label": "Mínimo local"
+          }
+        ],
+        "notes": "Puntos críticos evaluados en f(x)."
+      }
+    ],
+    "integrals": [
+      {
+        "id": "int-1",
+        "function": "x²",
+        "bounds": {
+          "lower": 0,
+          "upper": 2
+        },
+        "area": 2.6666666666666665,
+        "notes": "Área bajo la curva en [0,2]."
+      }
+    ]
+  }
+}

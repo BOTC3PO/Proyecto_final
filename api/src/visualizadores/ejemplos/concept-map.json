@@ -1,0 +1,51 @@
+{
+  "id": "concept-map",
+  "title": "Mapa conceptual",
+  "description": "Relaciones entre conceptos clave de un tema.",
+  "spec": {
+    "kind": "concept-map",
+    "title": "Ecosistema urbano",
+    "nodes": [
+      {
+        "id": "n1",
+        "label": "Energía",
+        "group": "Recursos"
+      },
+      {
+        "id": "n2",
+        "label": "Transporte",
+        "group": "Infraestructura"
+      },
+      {
+        "id": "n3",
+        "label": "Emisiones",
+        "group": "Impacto"
+      },
+      {
+        "id": "n4",
+        "label": "Salud pública",
+        "group": "Impacto"
+      }
+    ],
+    "links": [
+      {
+        "id": "l1",
+        "sourceId": "n1",
+        "targetId": "n2",
+        "relation": "impulsa"
+      },
+      {
+        "id": "l2",
+        "sourceId": "n2",
+        "targetId": "n3",
+        "relation": "genera"
+      },
+      {
+        "id": "l3",
+        "sourceId": "n3",
+        "targetId": "n4",
+        "relation": "afecta"
+      }
+    ]
+  }
+}

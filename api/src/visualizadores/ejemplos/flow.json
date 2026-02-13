@@ -1,0 +1,49 @@
+{
+  "id": "flow",
+  "title": "Diagrama de flujo",
+  "description": "Pasos de una actividad guiada.",
+  "spec": {
+    "kind": "flow",
+    "title": "Proceso de investigación",
+    "steps": [
+      {
+        "id": "s1",
+        "label": "Pregunta inicial",
+        "type": "start"
+      },
+      {
+        "id": "s2",
+        "label": "Recolección de datos",
+        "type": "process"
+      },
+      {
+        "id": "s3",
+        "label": "¿Hay evidencia?",
+        "type": "decision"
+      },
+      {
+        "id": "s4",
+        "label": "Conclusiones",
+        "type": "end"
+      }
+    ],
+    "connections": [
+      {
+        "id": "c1",
+        "fromId": "s1",
+        "toId": "s2"
+      },
+      {
+        "id": "c2",
+        "fromId": "s2",
+        "toId": "s3"
+      },
+      {
+        "id": "c3",
+        "fromId": "s3",
+        "toId": "s4",
+        "label": "Sí"
+      }
+    ]
+  }
+}
