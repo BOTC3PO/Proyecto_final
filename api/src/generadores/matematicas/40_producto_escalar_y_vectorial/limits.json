@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "temaId": 40,
+  "slug": "40_producto_escalar_y_vectorial",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "componentes": [
+          -8,
+          8
+        ]
+      },
+      "operacionesPermitidas": [
+        "producto_escalar"
+      ],
+      "reglas": {
+        "dimension": 2,
+        "usarInterpretacionGeometrica": true,
+        "permitirResultadoDecimal": false
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "componentes": [
+          -15,
+          15
+        ]
+      },
+      "operacionesPermitidas": [
+        "producto_escalar",
+        "producto_vectorial"
+      ],
+      "reglas": {
+        "dimension": 3,
+        "usarInterpretacionGeometrica": true,
+        "permitirResultadoDecimal": true
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "componentes": [
+          -30,
+          30
+        ]
+      },
+      "operacionesPermitidas": [
+        "triple_producto_mixto",
+        "area_volumen_orientado"
+      ],
+      "reglas": {
+        "dimension": 3,
+        "usarInterpretacionGeometrica": true,
+        "permitirResultadoDecimal": true
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "temaId": 41,
+  "slug": "41_matrices_avanzado",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "dimension": [
+          2,
+          2
+        ],
+        "elementos": [
+          -6,
+          6
+        ]
+      },
+      "operacionesPermitidas": [
+        "suma",
+        "producto_escalar"
+      ],
+      "reglas": {
+        "permitirFracciones": false,
+        "incluirMatrizIdentidad": true,
+        "incluirMatrizTranspuesta": false
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "dimension": [
+          2,
+          3
+        ],
+        "elementos": [
+          -12,
+          12
+        ]
+      },
+      "operacionesPermitidas": [
+        "multiplicacion",
+        "transpuesta",
+        "traza"
+      ],
+      "reglas": {
+        "permitirFracciones": true,
+        "incluirMatrizIdentidad": true,
+        "incluirMatrizTranspuesta": true
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "dimension": [
+          3,
+          4
+        ],
+        "elementos": [
+          -20,
+          20
+        ]
+      },
+      "operacionesPermitidas": [
+        "inversa",
+        "rango",
+        "potencia_matriz"
+      ],
+      "reglas": {
+        "permitirFracciones": true,
+        "incluirMatrizSingular": true,
+        "validarCondicionInvertibilidad": true
+      }
+    }
+  }
+}

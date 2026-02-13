@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "temaId": 44,
+  "slug": "44_transformaciones_geometricas",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "coordenadas": [
+          -10,
+          10
+        ]
+      },
+      "operacionesPermitidas": [
+        "traslacion",
+        "simetria_ejes"
+      ],
+      "reglas": {
+        "dimension": 2,
+        "usarMatrices": false,
+        "permitirComposicion": false
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "coordenadas": [
+          -20,
+          20
+        ],
+        "anguloGrados": [
+          -180,
+          180
+        ]
+      },
+      "operacionesPermitidas": [
+        "rotacion",
+        "homotecia",
+        "composicion_simple"
+      ],
+      "reglas": {
+        "dimension": 2,
+        "usarMatrices": true,
+        "permitirComposicion": true
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "coordenadas": [
+          -50,
+          50
+        ],
+        "anguloGrados": [
+          -360,
+          360
+        ],
+        "factorEscala": [
+          -4,
+          4
+        ]
+      },
+      "operacionesPermitidas": [
+        "matriz_transformacion",
+        "composicion_multiple",
+        "cambio_base"
+      ],
+      "reglas": {
+        "dimension": 3,
+        "usarMatrices": true,
+        "permitirComposicion": true
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "temaId": 37,
+  "slug": "37_ecuaciones_trigonometricas",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "anguloGrados": [
+          0,
+          360
+        ]
+      },
+      "operacionesPermitidas": [
+        "ecuaciones_basicas"
+      ],
+      "reglas": {
+        "unaFuncionTrigonometrica": true,
+        "solucionesNotables": true,
+        "intervaloCerrado": true
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "anguloGrados": [
+          -360,
+          360
+        ],
+        "coeficiente": [
+          1,
+          4
+        ]
+      },
+      "operacionesPermitidas": [
+        "factorizacion_trig",
+        "angulo_doble"
+      ],
+      "reglas": {
+        "permitirMasDeUnaFuncion": true,
+        "incluirGeneralSolucion": true,
+        "intervaloCerrado": true
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "anguloRadianes": [
+          -6.28,
+          6.28
+        ],
+        "coeficiente": [
+          -6,
+          6
+        ]
+      },
+      "operacionesPermitidas": [
+        "sustitucion",
+        "identidades",
+        "analisis_restricciones"
+      ],
+      "reglas": {
+        "permitirEcuacionesMixtas": true,
+        "exigirGeneralSolucion": true,
+        "validarRestriccionesDominio": true
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "temaId": 38,
+  "slug": "38_geometria_del_espacio",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "longitud": [
+          1,
+          20
+        ],
+        "altura": [
+          1,
+          20
+        ]
+      },
+      "operacionesPermitidas": [
+        "volumen_prismas",
+        "area_superficial_basica"
+      ],
+      "reglas": {
+        "usarSoloFigurasRegulares": true,
+        "permitirDecimales": false,
+        "usarPiAproximado": 3.14
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "longitud": [
+          1,
+          60
+        ],
+        "altura": [
+          1,
+          50
+        ],
+        "radio": [
+          1,
+          25
+        ]
+      },
+      "operacionesPermitidas": [
+        "volumen_cilindro_cono_esfera",
+        "area_superficial"
+      ],
+      "reglas": {
+        "usarSoloFigurasRegulares": false,
+        "permitirDecimales": true,
+        "usarPiAproximado": 3.1416
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "longitud": [
+          0.5,
+          120
+        ],
+        "altura": [
+          0.5,
+          100
+        ],
+        "radio": [
+          0.5,
+          40
+        ]
+      },
+      "operacionesPermitidas": [
+        "secciones_planas",
+        "razones_volumen",
+        "optimización_geometrica"
+      ],
+      "reglas": {
+        "permitirComposicionSolidos": true,
+        "permitirDecimales": true,
+        "precisionDecimal": 3
+      }
+    }
+  }
+}

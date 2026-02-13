@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "temaId": 31,
+  "slug": "31_funciones_exponenciales",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "base": [
+          2,
+          5
+        ],
+        "exponente": [
+          1,
+          4
+        ],
+        "resultado": [
+          1,
+          500
+        ]
+      },
+      "operacionesPermitidas": [
+        "evaluacion",
+        "tabla_simple"
+      ],
+      "reglas": {
+        "permitirBaseFraccionaria": false,
+        "permitirExponenteNegativo": false,
+        "usarSoloEnteros": true
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "base": [
+          2,
+          9
+        ],
+        "exponente": [
+          -3,
+          6
+        ],
+        "resultado": [
+          0.01,
+          20000
+        ]
+      },
+      "operacionesPermitidas": [
+        "evaluacion",
+        "simplificacion",
+        "comparacion_crecimiento"
+      ],
+      "reglas": {
+        "permitirBaseFraccionaria": true,
+        "permitirExponenteNegativo": true,
+        "usarSoloEnteros": false
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "base": [
+          0.2,
+          12
+        ],
+        "exponente": [
+          -5,
+          8
+        ],
+        "coeficiente": [
+          -10,
+          10
+        ]
+      },
+      "operacionesPermitidas": [
+        "modelacion",
+        "transformaciones",
+        "comparacion_crecimiento"
+      ],
+      "reglas": {
+        "permitirBaseFraccionaria": true,
+        "permitirExponenteNegativo": true,
+        "permitirCoeficientesNegativos": true
+      }
+    }
+  }
+}

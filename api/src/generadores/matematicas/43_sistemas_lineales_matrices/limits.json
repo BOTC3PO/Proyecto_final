@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "temaId": 43,
+  "slug": "43_sistemas_lineales_matrices",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "variables": [
+          2,
+          2
+        ],
+        "coeficientes": [
+          -8,
+          8
+        ]
+      },
+      "operacionesPermitidas": [
+        "sustitucion",
+        "matriz_aumentada_basica"
+      ],
+      "reglas": {
+        "tipoSistema": "compatible_determinado",
+        "permitirFracciones": false,
+        "verificarUnicaSolucion": true
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "variables": [
+          2,
+          3
+        ],
+        "coeficientes": [
+          -12,
+          12
+        ]
+      },
+      "operacionesPermitidas": [
+        "gauss",
+        "gauss_jordan"
+      ],
+      "reglas": {
+        "tipoSistema": "mixto",
+        "permitirFracciones": true,
+        "verificarUnicaSolucion": false
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "variables": [
+          3,
+          4
+        ],
+        "coeficientes": [
+          -20,
+          20
+        ]
+      },
+      "operacionesPermitidas": [
+        "inversa_matriz",
+        "regla_cramer",
+        "analisis_rango"
+      ],
+      "reglas": {
+        "tipoSistema": "mixto",
+        "permitirFracciones": true,
+        "clasificarSistema": true
+      }
+    }
+  }
+}
