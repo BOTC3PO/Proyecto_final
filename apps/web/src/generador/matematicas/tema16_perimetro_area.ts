@@ -1,124 +1,63 @@
-// src/generators/math/tema16_perimetro_area.ts
 import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
-  randomInt,
-  pickRandom,
   normalizarDificultadCore,
+  pickRandom,
+  randomInt,
 } from "./generic";
 
 const ID_TEMA = 16;
-const TITULO = "Perímetro y área de figuras simples";
+const TITULO = "Inecuaciones lineales";
 
-type Figura = "cuadrado" | "rectangulo" | "triangulo";
-type TipoProblema = "perimetro" | "area";
+type Signo = "<" | "<=" | ">" | ">=";
 
-interface DatosFigura {
-  figura: Figura;
-  tipo: TipoProblema;
-  enunciado: string;
-  resultado: number;
-  explicacion: string;
-}
-
-function generarDatosFigura(dificultad: Dificultad): DatosFigura {
-  const figura: Figura = pickRandom(["cuadrado", "rectangulo", "triangulo"]);
-  const tipo: TipoProblema = pickRandom(["perimetro", "area"]);
-
-  // Rango de lados
-  const dificultadCore = normalizarDificultadCore(dificultad);
-  const max =
-    dificultadCore === "basico" ? 15 : dificultadCore === "intermedio" ? 30 : 50;
-  const min = 2;
-
-  if (figura === "cuadrado") {
-    const lado = randomInt(min, max);
-    if (tipo === "perimetro") {
-      const per = 4 * lado;
-      return {
-        figura,
-        tipo,
-        enunciado: `Un cuadrado tiene lados de ${lado} cm. ¿Cuál es su perímetro?`,
-        resultado: per,
-        explicacion: `El perímetro de un cuadrado es 4 × lado = 4 × ${lado} = ${per}.`,
-      };
-    } else {
-      const area = lado * lado;
-      return {
-        figura,
-        tipo,
-        enunciado: `Un cuadrado tiene lados de ${lado} cm. ¿Cuál es su área?`,
-        resultado: area,
-        explicacion: `El área de un cuadrado es lado × lado = ${lado} × ${lado} = ${area}.`,
-      };
-    }
-  }
-
-  if (figura === "rectangulo") {
-    const base = randomInt(min, max);
-    const altura = randomInt(min, max);
-    if (tipo === "perimetro") {
-      const per = 2 * (base + altura);
-      return {
-        figura,
-        tipo,
-        enunciado: `Un rectángulo tiene base ${base} cm y altura ${altura} cm. ¿Cuál es su perímetro?`,
-        resultado: per,
-        explicacion: `El perímetro de un rectángulo es 2 × (base + altura) = 2 × (${base} + ${altura}) = ${per}.`,
-      };
-    } else {
-      const area = base * altura;
-      return {
-        figura,
-        tipo,
-        enunciado: `Un rectángulo tiene base ${base} cm y altura ${altura} cm. ¿Cuál es su área?`,
-        resultado: area,
-        explicacion: `El área de un rectángulo es base × altura = ${base} × ${altura} = ${area}.`,
-      };
-    }
-  }
-
-  // Triángulo: solo trabajamos área para no complicar perímetro
-  const base = randomInt(min, max);
-  const altura = randomInt(min, max);
-  const area = (base * altura) / 2;
-
-  return {
-    figura,
-    tipo: "area",
-    enunciado: `Un triángulo tiene base ${base} cm y altura ${altura} cm. ¿Cuál es su área?`,
-    resultado: area,
-    explicacion: `El área de un triángulo es (base × altura) / 2 = (${base} × ${altura}) / 2 = ${area}.`,
-  };
+function resolverInecuacion(a: number, signo: Signo, k: number): string {
+  const invierte = a < 0;
+  const signoFinal: Signo = invierte
+    ? signo === "<"
+      ? ">"
+      : signo === "<="
+      ? ">="
+      : signo === ">"
+      ? "<"
+      : "<="
+    : signo;
+  return `x ${signoFinal} ${k}`;
 }
 
 export const generarPerimetroArea: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
-  const datos = generarDatosFigura(dificultad);
-  const correcta = datos.resultado;
+  const d = normalizarDificultadCore(dificultad);
+  const rango = d === "basico" ? 6 : d === "intermedio" ? 10 : 15;
+  const a = randomInt(-rango, rango) || 1;
+  const b = randomInt(-rango, rango);
+  const k = randomInt(-rango, rango);
+  const signo = pickRandom<Signo>(["<", "<=", ">", ">="]);
 
-  const opciones = [correcta];
-  const distractores = new Set<number>();
+  const c = a * k + b;
+  const inecuacion = `${a}x ${b >= 0 ? "+" : "-"} ${Math.abs(b)} ${signo} ${c}`;
+  const correcta = resolverInecuacion(a, signo, k);
 
-  while (distractores.size < 3) {
-    const delta = randomInt(-correcta, correcta);
-    if (delta === 0) continue;
-    const cand = correcta + delta;
-    if (cand > 0 && cand !== correcta) distractores.add(cand);
-  }
-
-  opciones.push(...Array.from(distractores));
+  const opciones = [
+    correcta,
+    `x ${signo} ${k}`,
+    `x = ${k}`,
+    `x ${pickRandom(["<", ">"])} ${-k}`,
+  ];
 
   return crearQuizBase({
     idTema: ID_TEMA,
     tituloTema: TITULO,
     dificultad,
-    enunciado: datos.enunciado,
+    enunciado: `Resuelve la inecuación:
+
+${inecuacion}`,
     opciones,
     indiceCorrecto: 0,
-    explicacion: datos.explicacion,
+    explicacion:
+      "Se despeja x como en una ecuación. Si se divide por un número negativo, el signo de la inecuación se invierte.",
   });
 };
 

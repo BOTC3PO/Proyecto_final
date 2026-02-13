@@ -1,81 +1,41 @@
-// src/generators/math/tema30_ecuaciones_parametros.ts
 import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
-  randomBool,
-  randomInt,
-  pickRandom,
   normalizarDificultadCore,
+  pickRandom,
+  randomInt,
 } from "./generic";
 
 const ID_TEMA = 30;
-const TITULO = "Ecuaciones lineales con paréntesis / parámetros";
+const TITULO = "Combinatoria";
 
-type TipoEcuacion = "a_x_mas_b" | "x_mas_b_sobre_k";
+function factorial(n: number): number {
+  let r = 1;
+  for (let i = 2; i <= n; i++) r *= i;
+  return r;
+}
 
 export const generarEcuacionesConParametros: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
-  const dificultadCore = normalizarDificultadCore(dificultad);
-  const tipo: TipoEcuacion = pickRandom(["a_x_mas_b", "x_mas_b_sobre_k"]);
+  const d = normalizarDificultadCore(dificultad);
+  const tipo = pickRandom(["permutaciones", "combinaciones"] as const);
 
-  const rango =
-    dificultadCore === "basico"
-      ? 5
-      : dificultadCore === "intermedio"
-      ? 10
-      : 15;
+  const n = d === "basico" ? randomInt(4, 6) : d === "intermedio" ? randomInt(5, 7) : randomInt(6, 8);
+  const k = randomInt(2, n - 1);
 
-  const xSol = randomInt(-rango * 2, rango * 2);
+  const correcta =
+    tipo === "permutaciones"
+      ? factorial(n)
+      : Math.round(factorial(n) / (factorial(k) * factorial(n - k)));
 
-  let enunciado: string;
-  let opciones: number[];
-  let correcta = xSol;
+  const opciones = [correcta, correcta + 1, Math.max(1, correcta - 1), n * k];
 
-  if (tipo === "a_x_mas_b") {
-    const a = randomInt(2, rango) * (randomBool() ? 1 : -1);
-    const b = randomInt(-10, 10);
-    const c = randomInt(-10, 10);
-
-    // Ecuación: a(x + b) = c
-    // Para que xSol sea solución: a(xSol + b) = c
-    const cReal = a * (xSol + b);
-
-    const ecuacion = `${a}(x ${b >= 0 ? "+ " + b : "- " + Math.abs(
-      b
-    )}) = ${cReal}`;
-
-    enunciado = `Resuelve la ecuación y encuentra el valor de x:\n\n${ecuacion}`;
-  } else {
-    const k = randomInt(2, 8);
-    const b = randomInt(-10, 10);
-
-    // Ecuación: (x + b)/k = c  => x = k*c - b
-    const c = randomInt(-rango, rango);
-    const xReal = k * c - b;
-
-    correcta = xReal;
-
-    const ecuacion = `(x ${b >= 0 ? "+ " + b : "- " + Math.abs(
-      b
-    )}) / ${k} = ${c}`;
-
-    enunciado = `Resuelve la ecuación y encuentra el valor de x:\n\n${ecuacion}`;
-  }
-
-  // Opciones
-  opciones = [correcta];
-  const distractores = new Set<number>();
-
-  while (distractores.size < 3) {
-    const delta = randomInt(-6, 6);
-    if (delta === 0) continue;
-    const cand = correcta + delta;
-    if (cand !== correcta) distractores.add(cand);
-  }
-
-  opciones.push(...Array.from(distractores));
+  const enunciado =
+    tipo === "permutaciones"
+      ? `¿De cuántas formas se pueden ordenar ${n} elementos distintos?`
+      : `¿De cuántas formas se pueden elegir ${k} elementos de un conjunto de ${n} elementos, sin importar el orden?`;
 
   return crearQuizBase({
     idTema: ID_TEMA,
@@ -85,7 +45,9 @@ export const generarEcuacionesConParametros: GeneratorFn = (
     opciones,
     indiceCorrecto: 0,
     explicacion:
-      "Se aplican operaciones inversas paso a paso: primero se elimina el paréntesis o la división, y luego se despeja x.",
+      tipo === "permutaciones"
+        ? "Las permutaciones de n elementos distintos son n!."
+        : "Las combinaciones se calculan con C(n,k)=n!/(k!(n-k)!).",
   });
 };
 

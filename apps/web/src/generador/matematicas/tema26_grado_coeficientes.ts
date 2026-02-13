@@ -1,129 +1,48 @@
-// src/generators/math/tema26_grado_coeficientes.ts
 import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
-  randomInt,
-  pickRandom,
   normalizarDificultadCore,
+  pickRandom,
+  randomInt,
 } from "./generic";
 
 const ID_TEMA = 26;
-const TITULO = "Grado y coeficientes de un polinomio";
-
-interface PoliInfo {
-  expresion: string;
-  grado: number;
-  coefLider: number; // coef del término de mayor grado
-  cantTerminos: number;
-}
-
-function generarPolinomioInfo(dificultad: Dificultad): PoliInfo {
-  const dificultadCore = normalizarDificultadCore(dificultad);
-  const maxGrado =
-    dificultadCore === "basico"
-      ? 2
-      : dificultadCore === "intermedio"
-      ? 3
-      : 4;
-
-  const grado = randomInt(1, maxGrado);
-
-  // Generamos coeficientes desde grado hasta 0
-  const coeficientes: number[] = [];
-  for (let exp = grado; exp >= 0; exp--) {
-    let coef = randomInt(-9, 9);
-    if (exp === grado && coef === 0) coef = randomInt(1, 9); // el líder no puede ser 0
-    coeficientes.push(coef);
-  }
-
-  // Construcción de expresión
-  const partes: string[] = [];
-  coeficientes.forEach((coef, idx) => {
-    const exp = grado - idx;
-    if (coef === 0) return;
-
-    let termino = "";
-    if (exp === 0) {
-      termino = `${coef}`;
-    } else if (exp === 1) {
-      if (coef === 1) termino = "x";
-      else if (coef === -1) termino = "-x";
-      else termino = `${coef}x`;
-    } else {
-      if (coef === 1) termino = `x^${exp}`;
-      else if (coef === -1) termino = `-x^${exp}`;
-      else termino = `${coef}x^${exp}`;
-    }
-
-    if (partes.length === 0) {
-      partes.push(termino);
-    } else {
-      if (coef > 0) partes.push(`+ ${termino}`);
-      else partes.push(`- ${termino.replace("-", "")}`);
-    }
-  });
-
-  const expresion = partes.join(" ");
-  const coefLider = coeficientes[0];
-  const cantTerminos = partes.length || 1;
-
-  return { expresion, grado, coefLider, cantTerminos };
-}
-
-type TipoPregunta = "grado" | "coefLider" | "cantTerminos";
+const TITULO = "Matrices";
 
 export const generarGradoCoeficientes: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
-  const info = generarPolinomioInfo(dificultad);
-  const tipo: TipoPregunta = pickRandom([
-    "grado",
-    "coefLider",
-    "cantTerminos",
-  ]);
+  const d = normalizarDificultadCore(dificultad);
+  const rango = d === "basico" ? 5 : d === "intermedio" ? 8 : 12;
 
-  let enunciado: string;
-  let correcta: number;
-  let explicacion: string;
+  const a11 = randomInt(-rango, rango);
+  const a12 = randomInt(-rango, rango);
+  const a21 = randomInt(-rango, rango);
+  const a22 = randomInt(-rango, rango);
 
-  if (tipo === "grado") {
-    enunciado = `Determina el grado del siguiente polinomio en x:\n\nP(x) = ${info.expresion}`;
-    correcta = info.grado;
-    explicacion =
-      "El grado de un polinomio es el mayor exponente con el que aparece la variable.";
-  } else if (tipo === "coefLider") {
-    enunciado = `Determina el coeficiente principal (del término de mayor grado) del polinomio:\n\nP(x) = ${info.expresion}`;
-    correcta = info.coefLider;
-    explicacion =
-      "El coeficiente principal es el coeficiente del término con mayor exponente.";
-  } else {
-    enunciado = `¿Cuántos términos no nulos tiene el siguiente polinomio?\n\nP(x) = ${info.expresion}`;
-    correcta = info.cantTerminos;
-    explicacion =
-      "Los términos son las partes separadas por suma o resta. Se cuentan solo los que tienen coeficiente distinto de cero.";
-  }
+  const b11 = randomInt(-rango, rango);
+  const b12 = randomInt(-rango, rango);
+  const b21 = randomInt(-rango, rango);
+  const b22 = randomInt(-rango, rango);
 
-  const opciones = [correcta];
-  const distractores = new Set<number>();
+  const operacion = pickRandom(["suma", "resta"] as const);
+  const c11 = operacion === "suma" ? a11 + b11 : a11 - b11;
 
-  while (distractores.size < 3) {
-    const delta = randomInt(-3, 3);
-    if (delta === 0) continue;
-    const cand = correcta + delta;
-    if (cand >= 0 && cand !== correcta) distractores.add(cand);
-  }
-
-  opciones.push(...Array.from(distractores));
+  const opciones = [c11, c11 + 1, c11 - 1, -c11];
 
   return crearQuizBase({
     idTema: ID_TEMA,
     tituloTema: TITULO,
     dificultad,
-    enunciado,
+    enunciado: `Sean
+A = [[${a11}, ${a12}], [${a21}, ${a22}]]
+B = [[${b11}, ${b12}], [${b21}, ${b22}]]
+
+Si C = A ${operacion === "suma" ? "+" : "-"} B, ¿cuál es el valor de c11?`,
     opciones,
     indiceCorrecto: 0,
-    explicacion,
+    explicacion: "Las matrices se suman/restan elemento a elemento en la misma posición.",
   });
 };
 
