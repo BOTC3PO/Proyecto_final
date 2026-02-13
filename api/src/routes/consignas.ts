@@ -6,6 +6,7 @@ const router = Router();
 const QUIMICA_ROOT = path.resolve(process.cwd(), "api/src/generadores/quimica");
 const MATEMATICAS_ROOT = path.resolve(process.cwd(), "api/src/generadores/matematicas");
 const FISICA_ROOT = path.resolve(__dirname, "..", "generadores", "fisica");
+const ECONOMIA_ROOT = path.resolve(process.cwd(), "api/src/generadores/economia");
 const TEMA_REGEX = /^\d{2}_[A-Za-z0-9_]+$/;
 const MATEMATICAS_TEMAS_PERMITIDOS = new Set([
   "01_operaciones_basicas",
@@ -79,6 +80,119 @@ const FISICA_TEMAS_PERMITIDOS = new Set([
   "37_bernoulli",
   "38_principio_arquimedes",
 ]);
+const ECONOMIA_TEMAS_PERMITIDOS = new Set([
+  "01_contab_clasificacionCuentas",
+  "02_contab_naturalezaCuentas",
+  "03_contab_saldoNormal",
+  "04_contab_ubicacionEstados",
+  "05_contab_hechosPatrimonio",
+  "06_contab_bienesDerechosObligaciones",
+  "07_contab_aportesContribuciones",
+  "08_contab_variacionesPatrimoniales",
+  "09_finanzas_presupuestoFamiliar",
+  "10_finanzas_gastosFijosEsenciales",
+  "11_finanzas_gastosEsencialesNoEsenciales",
+  "12_finanzas_ahorroVsConsumoResponsable",
+  "13_finanzas_deudaBuenaMala",
+  "14_finanzas_cftVsInteres",
+  "15_finanzas_interesSimple",
+  "16_finanzas_interesCompuesto",
+  "17_finanzas_liquidezPersonal",
+  "18_finanzas_ingresosActivosPasivos",
+  "19_finanzas_publicidadEnganosa",
+  "20_finanzas_comparacionInversiones",
+  "21_economia_ar_reciboBasico",
+  "21_finanzas_segurosFamilia",
+  "22_economia_ar_descuentosObligatorios",
+  "23_economia_ar_aportes17",
+  "24_economia_ar_netoDesdeBruto",
+  "25_economia_ar_iva",
+  "26_economia_ar_ivaCalculo",
+  "27_economia_ar_jurisdiccionImpuestos",
+  "28_economia_ar_formalInformal",
+  "29_economia_ar_monotributo",
+  "30_economia_ar_tasaDesempleo",
+  "31_economia_politicaFiscalMonetaria",
+  "32_economia_gananciaPerdida",
+  "33_economia_resultadoBruto",
+  "34_economia_resultadoNeto",
+  "35_economia_margenBruto",
+  "36_economia_margenNeto",
+  "37_economia_capitalTrabajo",
+  "38_economia_puntoEquilibrio",
+  "39_economia_productividad",
+  "40_economia_porcentajesSimples",
+  "41_economia_clasificacionBienes",
+  "42_economia_agentesEconomicos",
+  "43_economia_estructurasMercado",
+  "44_economia_gastosFijosVariables",
+  "45_economia_simpleVsCompuesto",
+  "46_economia_cftMayorInteres",
+  "47_economia_gananciaVsEquilibrio",
+  "48_economia_aportesContribuciones_quiz",
+  "49_economia_deudaBuenaMala_quiz",
+  "50_economia_publicidadEnganosa_quiz",
+  "51_economia_gastosEsenciales_quiz",
+  "52_economia_liquidezConcepto_quiz",
+  "53_economia_interesSimpleCompuesto_quiz",
+  "54_economia_cftMayorInteres_quiz",
+  "55_economia_gananciaVsEquilibrio_quiz",
+]);
+
+router.get("/api/consignas/economia", async (_req, res) => {
+  try {
+    const entries = await readdir(ECONOMIA_ROOT, { withFileTypes: true });
+    const temas = entries
+      .filter(
+        (entry) =>
+          entry.isDirectory() && TEMA_REGEX.test(entry.name) && ECONOMIA_TEMAS_PERMITIDOS.has(entry.name)
+      )
+      .map((entry) => entry.name)
+      .sort((a, b) => a.localeCompare(b));
+
+    return res.json(temas.map((id) => ({ id })));
+  } catch {
+    return res.status(500).json({ error: "no se pudo listar consignas de economia" });
+  }
+});
+
+router.get("/api/consignas/economia/:tema", async (req, res) => {
+  const tema = String(req.params.tema ?? "");
+  if (!TEMA_REGEX.test(tema) || !ECONOMIA_TEMAS_PERMITIDOS.has(tema)) {
+    return res.status(400).json({ error: "tema invalido" });
+  }
+
+  const temaPath = path.resolve(ECONOMIA_ROOT, tema);
+  if (!temaPath.startsWith(`${ECONOMIA_ROOT}${path.sep}`)) {
+    return res.status(400).json({ error: "tema invalido" });
+  }
+
+  const enunciadoPath = path.resolve(temaPath, "enunciado.json");
+  const limitsPath = path.resolve(temaPath, "limits.json");
+
+  try {
+    await access(enunciadoPath);
+  } catch {
+    return res.status(404).json({ error: "enunciados no encontrados" });
+  }
+
+  try {
+    const rawEnunciado = await readFile(enunciadoPath, "utf8");
+    let limits: unknown = null;
+
+    try {
+      await access(limitsPath);
+      const rawLimits = await readFile(limitsPath, "utf8");
+      limits = JSON.parse(rawLimits);
+    } catch {
+      limits = null;
+    }
+
+    return res.json({ enunciado: JSON.parse(rawEnunciado), limits });
+  } catch {
+    return res.status(500).json({ error: "no se pudo leer consigna" });
+  }
+});
 
 router.get("/api/consignas/quimica", async (_req, res) => {
   try {

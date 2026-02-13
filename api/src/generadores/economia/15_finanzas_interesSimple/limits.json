@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "slug": "15_finanzas_interesSimple",
+  "rangos": {
+    "cantidadPreguntas": {
+      "min": 1,
+      "max": 10
+    },
+    "valorA": {
+      "min": 1,
+      "max": 100
+    },
+    "valorB": {
+      "min": 1,
+      "max": 1000
+    }
+  }
+}
