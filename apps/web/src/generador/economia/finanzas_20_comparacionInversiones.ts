@@ -46,6 +46,7 @@ export const genFinanzasComparacionInversiones: GeneratorFn =
             tiempoMax: 2,
             diferenciaTasa: 4,
           },
+          experto: {
             capitalMin: 12,
             capitalMax: 40,
             tasaMin: 15,
@@ -54,6 +55,7 @@ export const genFinanzasComparacionInversiones: GeneratorFn =
             tiempoMax: 3,
             diferenciaTasa: 3,
           },
+          maestro: {
             capitalMin: 15,
             capitalMax: 50,
             tasaMin: 18,

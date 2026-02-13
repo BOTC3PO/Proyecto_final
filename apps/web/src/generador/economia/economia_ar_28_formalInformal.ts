@@ -46,7 +46,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       tipo: "Formal",
       detalle: "Está registrado y cumple obligaciones fiscales.",
     },
-  ],
     {
       text: "Empleado con contrato temporal registrado y aportes completos.",
       tipo: "Formal",
@@ -57,7 +56,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       tipo: "Informal",
       detalle: "No hay registro ni aportes.",
     },
-  ],
     {
       text: "Microemprendedor que vende por redes sin facturar ni registrar actividad.",
       tipo: "Informal",
