@@ -1,75 +1,44 @@
-// src/generators/math/tema17_angulos.ts
 import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  normalizarDificultadCore,
   randomInt,
-  pickRandom,
 } from "./generic";
 
 const ID_TEMA = 17;
-const TITULO = "Clasificación de ángulos";
-
-type TipoAngulo =
-  | "agudo"
-  | "recto"
-  | "obtuso"
-  | "llano"
-  | "completo";
-
-function generarMedidaYTipo(): { grados: number; tipo: TipoAngulo } {
-  const tipos: TipoAngulo[] = ["agudo", "recto", "obtuso", "llano", "completo"];
-  const tipo = pickRandom(tipos);
-
-  switch (tipo) {
-    case "agudo":
-      return { grados: randomInt(1, 89), tipo };
-    case "recto":
-      return { grados: 90, tipo };
-    case "obtuso":
-      return { grados: randomInt(91, 179), tipo };
-    case "llano":
-      return { grados: 180, tipo };
-    case "completo":
-      return { grados: 360, tipo };
-  }
-}
+const TITULO = "Valor absoluto";
 
 export const generarAngulos: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
-  const { grados, tipo } = generarMedidaYTipo();
+  const d = normalizarDificultadCore(dificultad);
+  const rango = d === "basico" ? 8 : d === "intermedio" ? 12 : 20;
+  const a = randomInt(-rango, rango);
+  const b = d === "basico" ? randomInt(1, 6) : randomInt(1, 10);
+
+  const s1 = a - b;
+  const s2 = a + b;
+  const correcta = `{${Math.min(s1, s2)}, ${Math.max(s1, s2)}}`;
 
   const opciones = [
-    "Ángulo agudo",
-    "Ángulo recto",
-    "Ángulo obtuso",
-    "Ángulo llano",
-    "Ángulo completo",
+    correcta,
+    `{${a - b}}`,
+    `{${a + b}}`,
+    `{${-a - b}, ${-a + b}}`,
   ];
-
-  const mapa: Record<TipoAngulo, string> = {
-    agudo: "Ángulo agudo",
-    recto: "Ángulo recto",
-    obtuso: "Ángulo obtuso",
-    llano: "Ángulo llano",
-    completo: "Ángulo completo",
-  };
-
-  const correcta = mapa[tipo];
-  const indiceCorrecto = opciones.indexOf(correcta);
-
-  const enunciado = `Un ángulo mide ${grados}°. ¿Cómo se clasifica?`;
 
   return crearQuizBase({
     idTema: ID_TEMA,
     tituloTema: TITULO,
     dificultad,
-    enunciado,
+    enunciado: `Resuelve la ecuación de valor absoluto:
+
+|x ${a >= 0 ? "-" : "+"} ${Math.abs(a)}| = ${b}`,
     opciones,
-    indiceCorrecto,
+    indiceCorrecto: 0,
     explicacion:
-      "Ángulo agudo: menos de 90°. Recto: 90°. Obtuso: entre 90° y 180°. Llano: 180°. Completo: 360°.",
+      "Si |x-a|=b con b>0, entonces hay dos soluciones: x=a-b y x=a+b.",
   });
 };
 

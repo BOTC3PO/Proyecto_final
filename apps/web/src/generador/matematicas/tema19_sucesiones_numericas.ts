@@ -1,107 +1,62 @@
-// src/generators/math/tema19_sucesiones_numericas.ts
 import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
-  randomInt,
-  pickRandom,
   normalizarDificultadCore,
+  randomInt,
 } from "./generic";
 
 const ID_TEMA = 19;
-const TITULO = "Sucesiones numéricas (patrones)";
+const TITULO = "Polinomios";
 
-type TipoSucesion = "aritmetica" | "geometrica";
-
-function generarSucesionAritmetica(
-  longitud: number,
-  inicio: number,
-  diferencia: number
-): number[] {
-  const res: number[] = [];
-  for (let i = 0; i < longitud; i++) {
-    res.push(inicio + i * diferencia);
-  }
-  return res;
+interface Poli {
+  a: number;
+  b: number;
+  c: number;
+  d: number;
 }
 
-function generarSucesionGeometrica(
-  longitud: number,
-  inicio: number,
-  razon: number
-): number[] {
-  const res: number[] = [];
-  let actual = inicio;
-  for (let i = 0; i < longitud; i++) {
-    res.push(actual);
-    actual *= razon;
-  }
-  return res;
+function toString(p: Poli): string {
+  const partes = [`${p.a}x^3`, `${p.b >= 0 ? "+" : "-"} ${Math.abs(p.b)}x^2`, `${p.c >= 0 ? "+" : "-"} ${Math.abs(p.c)}x`, `${p.d >= 0 ? "+" : "-"} ${Math.abs(p.d)}`];
+  return partes.join(" ");
 }
 
 export const generarSucesionesNumericas: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
-  const dificultadCore = normalizarDificultadCore(dificultad);
-  const tipo: TipoSucesion =
-    dificultadCore === "basico"
-      ? "aritmetica"
-      : pickRandom(["aritmetica", "geometrica"]);
+  const d = normalizarDificultadCore(dificultad);
+  const rango = d === "basico" ? 4 : d === "intermedio" ? 7 : 10;
 
-  const longitud = dificultadCore === "basico" ? 4 : 5;
+  const p1: Poli = { a: randomInt(-rango, rango) || 1, b: randomInt(-rango, rango), c: randomInt(-rango, rango), d: randomInt(-rango, rango) };
+  const p2: Poli = { a: randomInt(-rango, rango) || -1, b: randomInt(-rango, rango), c: randomInt(-rango, rango), d: randomInt(-rango, rango) };
 
-  let sucesion: number[];
-  let siguiente: number;
-  let descripcionTipo: string;
+  const suma: Poli = {
+    a: p1.a + p2.a,
+    b: p1.b + p2.b,
+    c: p1.c + p2.c,
+    d: p1.d + p2.d,
+  };
 
-  if (tipo === "aritmetica") {
-    const inicio = randomInt(-10, 20);
-    const dif = randomInt(-5, 10) || 1;
-    sucesion = generarSucesionAritmetica(longitud + 1, inicio, dif);
-    siguiente = sucesion[sucesion.length - 1];
-    sucesion = sucesion.slice(0, longitud);
-    descripcionTipo = `Sucesión aritmética de diferencia ${dif}.`;
-  } else {
-    const inicio = randomInt(1, 5);
-    const razon =
-      dificultadCore === "basico"
-        ? pickRandom([2, 3])
-        : dificultadCore === "intermedio"
-        ? pickRandom([2, 3, 4])
-        : pickRandom([2, 3, 4, 5]);
-    sucesion = generarSucesionGeometrica(longitud + 1, inicio, razon);
-    siguiente = sucesion[sucesion.length - 1];
-    sucesion = sucesion.slice(0, longitud);
-    descripcionTipo = `Sucesión geométrica de razón ${razon}.`;
-  }
-
-  const opciones = [siguiente];
-  const distractores = new Set<number>();
-
-  while (distractores.size < 3) {
-    const delta = randomInt(-10, 10);
-    if (delta === 0) continue;
-    const cand = siguiente + delta;
-    if (cand !== siguiente) distractores.add(cand);
-  }
-
-  opciones.push(...Array.from(distractores));
-
-  const enunciado =
-    `Observa la siguiente sucesión numérica:\n\n` +
-    sucesion.join(", ") +
-    `, ?\n\n` +
-    `¿Qué número debería ir en lugar del signo de interrogación?`;
+  const correcta = toString(suma);
+  const opciones = [
+    correcta,
+    toString({ ...suma, b: suma.b + 1 }),
+    toString({ ...suma, c: suma.c - 1 }),
+    toString({ ...suma, d: suma.d + 2 }),
+  ];
 
   return crearQuizBase({
     idTema: ID_TEMA,
     tituloTema: TITULO,
     dificultad,
-    enunciado,
+    enunciado: `Suma los polinomios:
+
+P(x) = ${toString(p1)}
+Q(x) = ${toString(p2)}`,
     opciones,
     indiceCorrecto: 0,
     explicacion:
-      `Se identifica la regla de formación de la sucesión. En este caso: ${descripcionTipo}`,
+      "Para sumar polinomios se agrupan términos de igual grado y se suman sus coeficientes.",
   });
 };
 
