@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "temaId": 15,
+  "slug": "15_energia_potencial",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "numeros": [
+          1,
+          10
+        ]
+      },
+      "reglas": {
+        "permitirNegativos": false,
+        "permitirDecimales": false
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "numeros": [
+          1,
+          100
+        ]
+      },
+      "reglas": {
+        "permitirNegativos": false,
+        "permitirDecimales": false
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "numeros": [
+          -200,
+          200
+        ]
+      },
+      "reglas": {
+        "permitirNegativos": true,
+        "permitirDecimales": true
+      }
+    }
+  }
+}
