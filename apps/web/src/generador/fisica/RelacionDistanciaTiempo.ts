@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaRelacionDistanciaTiempo.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "05_relacion_distancia_tiempo";
 
 export class RelacionDistanciaTiempoGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/cinematica/relacion_distancia_tiempo";
@@ -13,20 +16,17 @@ export class RelacionDistanciaTiempoGenerator extends FisicaBaseGenerator {
     // Generamos valores base (en MRU)
     let velocidad: number;
     let tiempo: number;
-
-    switch (params.nivel) {
-      case "basico":
-        velocidad = this.randomInt(5, 25);   // m/s
-        tiempo = this.randomInt(2, 10);      // s
-        break;
-      case "intermedio":
-        velocidad = this.randomInt(10, 40);
-        tiempo = this.randomInt(3, 20);
-        break;
-      default:
-        velocidad = this.randomInt(20, 60);
-        tiempo = this.randomInt(5, 30);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    velocidad = randIntFromPorNivel(limits, params.nivel, "velocidad", this, {
+      basico: [5, 25],
+      intermedio: [10, 40],
+      avanzado: [20, 60],
+    });
+    tiempo = randIntFromPorNivel(limits, params.nivel, "tiempo", this, {
+      basico: [2, 10],
+      intermedio: [3, 20],
+      avanzado: [5, 30],
+    });
 
     const distancia = this.redondear(velocidad * tiempo); // m
 

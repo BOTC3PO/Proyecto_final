@@ -5,39 +5,42 @@
   "porDificultad": {
     "basico": {
       "rangos": {
-        "numeros": [
-          1,
-          10
+        "distanciaFocal": [
+          5,
+          20
+        ],
+        "distanciaObjeto": [
+          25,
+          60
         ]
       },
-      "reglas": {
-        "permitirNegativos": false,
-        "permitirDecimales": false
-      }
+      "reglas": {}
     },
     "intermedio": {
       "rangos": {
-        "numeros": [
-          1,
-          100
+        "distanciaFocal": [
+          10,
+          40
+        ],
+        "distanciaObjeto": [
+          50,
+          150
         ]
       },
-      "reglas": {
-        "permitirNegativos": false,
-        "permitirDecimales": false
-      }
+      "reglas": {}
     },
     "avanzado": {
       "rangos": {
-        "numeros": [
-          -200,
-          200
+        "distanciaFocal": [
+          15,
+          100
+        ],
+        "distanciaObjeto": [
+          100,
+          500
         ]
       },
-      "reglas": {
-        "permitirNegativos": true,
-        "permitirDecimales": true
-      }
+      "reglas": {}
     }
   }
 }

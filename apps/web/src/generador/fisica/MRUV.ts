@@ -1,5 +1,8 @@
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "02_mruv";
 
 export class MRUVGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/cinematica/mruv";
@@ -10,23 +13,22 @@ export class MRUVGenerator extends FisicaBaseGenerator {
     let v0: number;
     let aceleracion: number;
     let tiempo: number;
-
-    switch (nivel) {
-      case "basico":
-        v0 = this.randomInt(0, 20);
-        aceleracion = this.randomInt(1, 5);
-        tiempo = this.randomInt(2, 5);
-        break;
-      case "intermedio":
-        v0 = this.randomInt(5, 40);
-        aceleracion = this.randomInt(2, 10);
-        tiempo = this.randomInt(3, 8);
-        break;
-      default:
-        v0 = this.randomInt(10, 60);
-        aceleracion = this.randomInt(5, 15);
-        tiempo = this.randomInt(4, 12);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    v0 = randIntFromPorNivel(limits, nivel, "v0", this, {
+      basico: [0, 20],
+      intermedio: [5, 40],
+      avanzado: [10, 60],
+    });
+    aceleracion = randIntFromPorNivel(limits, nivel, "aceleracion", this, {
+      basico: [1, 5],
+      intermedio: [2, 10],
+      avanzado: [5, 15],
+    });
+    tiempo = randIntFromPorNivel(limits, nivel, "tiempo", this, {
+      basico: [2, 5],
+      intermedio: [3, 8],
+      avanzado: [4, 12],
+    });
 
     const resultado = calc.calcular({
       tipo: "MRUV_velocidad_final",

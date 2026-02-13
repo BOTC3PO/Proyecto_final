@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaPotenciaMecanica.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "17_potencia_mecanica";
 
 export class PotenciaMecanicaGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/energia/potencia_mecanica";
@@ -9,20 +12,17 @@ export class PotenciaMecanicaGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     let trabajo: number;
     let tiempo: number;
-
-    switch (params.nivel) {
-      case "basico":
-        trabajo = this.randomInt(100, 500);
-        tiempo = this.randomInt(5, 20);
-        break;
-      case "intermedio":
-        trabajo = this.randomInt(500, 3000);
-        tiempo = this.randomInt(10, 60);
-        break;
-      default:
-        trabajo = this.randomInt(2000, 10000);
-        tiempo = this.randomInt(30, 180);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    trabajo = randIntFromPorNivel(limits, params.nivel, "trabajo", this, {
+      basico: [100, 500],
+      intermedio: [500, 3000],
+      avanzado: [2000, 10000],
+    });
+    tiempo = randIntFromPorNivel(limits, params.nivel, "tiempo", this, {
+      basico: [5, 20],
+      intermedio: [10, 60],
+      avanzado: [30, 180],
+    });
 
     const resultado = calc.calcular({
       tipo: "potencia_mecanica",

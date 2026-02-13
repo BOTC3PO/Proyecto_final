@@ -4,40 +4,16 @@
   "slug": "04_conversion_unidades_cinematica",
   "porDificultad": {
     "basico": {
-      "rangos": {
-        "numeros": [
-          1,
-          10
-        ]
-      },
-      "reglas": {
-        "permitirNegativos": false,
-        "permitirDecimales": false
-      }
+      "rangos": {},
+      "reglas": {}
     },
     "intermedio": {
-      "rangos": {
-        "numeros": [
-          1,
-          100
-        ]
-      },
-      "reglas": {
-        "permitirNegativos": false,
-        "permitirDecimales": false
-      }
+      "rangos": {},
+      "reglas": {}
     },
     "avanzado": {
-      "rangos": {
-        "numeros": [
-          -200,
-          200
-        ]
-      },
-      "reglas": {
-        "permitirNegativos": true,
-        "permitirDecimales": true
-      }
+      "rangos": {},
+      "reglas": {}
     }
   }
 }

@@ -1,5 +1,8 @@
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "03_caida_libre";
 
 export class CaidaLibreGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/cinematica/caida_libre";
@@ -8,17 +11,12 @@ export class CaidaLibreGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     const g = 9.8;
     let tiempo: number;
-
-    switch (params.nivel) {
-      case "basico":
-        tiempo = this.randomInt(1, 3);
-        break;
-      case "intermedio":
-        tiempo = this.randomInt(2, 5);
-        break;
-      default:
-        tiempo = this.randomInt(3, 8);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    tiempo = randIntFromPorNivel(limits, params.nivel, "tiempo", this, {
+      basico: [1, 3],
+      intermedio: [2, 5],
+      avanzado: [3, 8],
+    });
 
     const resultado = calc.calcular({
       tipo: "caida_libre",

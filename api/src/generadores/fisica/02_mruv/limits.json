@@ -5,39 +5,54 @@
   "porDificultad": {
     "basico": {
       "rangos": {
-        "numeros": [
+        "v0": [
+          0,
+          20
+        ],
+        "aceleracion": [
           1,
-          10
+          5
+        ],
+        "tiempo": [
+          2,
+          5
         ]
       },
-      "reglas": {
-        "permitirNegativos": false,
-        "permitirDecimales": false
-      }
+      "reglas": {}
     },
     "intermedio": {
       "rangos": {
-        "numeros": [
-          1,
-          100
+        "v0": [
+          5,
+          40
+        ],
+        "aceleracion": [
+          2,
+          10
+        ],
+        "tiempo": [
+          3,
+          8
         ]
       },
-      "reglas": {
-        "permitirNegativos": false,
-        "permitirDecimales": false
-      }
+      "reglas": {}
     },
     "avanzado": {
       "rangos": {
-        "numeros": [
-          -200,
-          200
+        "v0": [
+          10,
+          60
+        ],
+        "aceleracion": [
+          5,
+          15
+        ],
+        "tiempo": [
+          4,
+          12
         ]
       },
-      "reglas": {
-        "permitirNegativos": true,
-        "permitirDecimales": true
-      }
+      "reglas": {}
     }
   }
 }

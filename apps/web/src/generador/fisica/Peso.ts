@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaPeso.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "09_peso";
 
 export class PesoGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/dinamica/peso";
@@ -9,17 +12,12 @@ export class PesoGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     const g = 9.8;
     let masa: number;
-
-    switch (params.nivel) {
-      case "basico":
-        masa = this.randomInt(5, 50);
-        break;
-      case "intermedio":
-        masa = this.randomInt(20, 150);
-        break;
-      default:
-        masa = this.randomInt(50, 500);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    masa = randIntFromPorNivel(limits, params.nivel, "masa", this, {
+      basico: [5, 50],
+      intermedio: [20, 150],
+      avanzado: [50, 500],
+    });
 
     const resultado = calc.calcular({
       tipo: "peso",

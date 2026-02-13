@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaOpticaGeometrica.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "32_optica_geometrica";
 
 export class OpticaGeometricaGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/optica/optica_geometrica";
@@ -11,17 +14,12 @@ export class OpticaGeometricaGenerator extends FisicaBaseGenerator {
     const calcularReflexion = this.prng.next() > 0.5;
 
     let anguloIncidencia: number;
-
-    switch (params.nivel) {
-      case "basico":
-        anguloIncidencia = this.randomInt(10, 60);
-        break;
-      case "intermedio":
-        anguloIncidencia = this.randomInt(15, 75);
-        break;
-      default:
-        anguloIncidencia = this.randomInt(5, 85);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    anguloIncidencia = randIntFromPorNivel(limits, params.nivel, "anguloIncidencia", this, {
+      basico: [10, 60],
+      intermedio: [15, 75],
+      avanzado: [5, 85],
+    });
 
     const anguloReflexion = anguloIncidencia;
 
