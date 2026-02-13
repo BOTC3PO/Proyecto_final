@@ -219,13 +219,15 @@ export default function GeneradoresTest() {
       try {
         const listado = await listarVisualizadores();
         const detalles = await Promise.all(
-          listado.map(async (item) => {
+          listado.map(async (item): Promise<VisualizadorEjemplo> => {
             try {
               const detalle = (await obtenerVisualizador(item.id)) as unknown;
               if (!detalle || typeof detalle !== "object") {
                 return {
-                  ...item,
-                  spec: { kind: "timeline", events: [] },
+                  id: item.id,
+                  title: item.title,
+                  description: item.description,
+                  spec: { kind: "timeline", events: [] as const },
                   invalidSpec: true,
                 };
               }
@@ -243,7 +245,7 @@ export default function GeneradoresTest() {
                   title: typeof parsed.title === "string" ? parsed.title : item.title,
                   description:
                     typeof parsed.description === "string" ? parsed.description : item.description,
-                  spec: { kind: "timeline", events: [] },
+                  spec: { kind: "timeline", events: [] as const },
                   invalidSpec: true,
                 };
               }
@@ -256,15 +258,19 @@ export default function GeneradoresTest() {
                 spec: parsed.spec,
               };
             } catch (_error) {
-              return null;
+              return {
+                id: item.id,
+                title: item.title,
+                description: item.description,
+                spec: { kind: "timeline", events: [] as const },
+                invalidSpec: true,
+              };
             }
           })
         );
 
         if (!active) return;
-        setVisualizadoresEjemplo(
-          detalles.filter((detalle): detalle is VisualizadorEjemplo => Boolean(detalle))
-        );
+        setVisualizadoresEjemplo(detalles);
       } catch (_error) {
         if (!active) return;
         setVisualizadoresError("No se pudieron cargar ejemplos");
