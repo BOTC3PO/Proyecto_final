@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  normalizarDificultadCore,
   pickRandom,
   randomInt,
 } from "./generic";
@@ -37,7 +38,7 @@ function construirOpcionesNumericas(correcta: number, maxOpciones = 4): string[]
 }
 
 function generarSerieTemporal(tipo: "creciente" | "decreciente" | "estable") {
-  const base = randomInt(20, 35);
+  const base = randomInt(20, 40);
   const pendiente = tipo === "estable" ? 0 : randomInt(3, 6);
   return MESES.map((mes, idx) => {
     const ruido = randomInt(-2, 2);
@@ -90,16 +91,25 @@ function generarDispersion(tipo: "positiva" | "negativa") {
 export const generarTendenciasDescriptiva: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
-  const tipo: TipoEjercicio = pickRandom([
-    "linea_temporal",
-    "barras_agrupadas",
-    "barras_apiladas",
-    "boxplot",
-    "dispersion",
-  ]);
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const tipos: TipoEjercicio[] =
+    dificultadCore === "basico"
+      ? ["linea_temporal", "barras_agrupadas", "dispersion"]
+      : [
+          "linea_temporal",
+          "barras_agrupadas",
+          "barras_apiladas",
+          "boxplot",
+          "dispersion",
+        ];
+  const tipo: TipoEjercicio = pickRandom(tipos);
 
   if (tipo === "linea_temporal") {
-    const tendencia = pickRandom(["creciente", "decreciente", "estable"] as const);
+    const tendencias =
+      dificultadCore === "basico"
+        ? (["creciente", "decreciente"] as const)
+        : (["creciente", "decreciente", "estable"] as const);
+    const tendencia = pickRandom(tendencias);
     const serie = generarSerieTemporal(tendencia);
     const enunciado =
       "En un gráfico de líneas se muestran las ventas mensuales (en unidades):\n\n" +

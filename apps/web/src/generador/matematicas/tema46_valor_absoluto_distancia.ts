@@ -3,6 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
+  normalizarDificultadCore,
   randomBool,
   randomInt,
 } from "./generic";
@@ -13,9 +14,17 @@ const TITULO = "Valor absoluto como distancia en la recta numérica";
 export const generarValorAbsolutoDistancia: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
+  const dificultadCore = normalizarDificultadCore(dificultad);
+  const limite =
+    dificultadCore === "basico"
+      ? 10
+      : dificultadCore === "intermedio"
+      ? 20
+      : 40;
+
   // Distancia entre dos puntos a y b en R es |a - b|
-  const a = randomInt(-10, 10);
-  let b = randomInt(-10, 10);
+  const a = randomInt(-limite, limite);
+  let b = randomInt(-limite, limite);
   if (b === a) b += 1;
 
   const distancia = Math.abs(a - b);
@@ -39,8 +48,15 @@ export const generarValorAbsolutoDistancia: GeneratorFn = (
     const opciones = [correcta];
     const distractores = new Set<number>();
 
+    const variacionDistractor =
+      dificultadCore === "basico"
+        ? 4
+        : dificultadCore === "intermedio"
+        ? 7
+        : 12;
+
     while (distractores.size < 3) {
-      const delta = randomInt(-5, 5);
+      const delta = randomInt(-variacionDistractor, variacionDistractor);
       if (delta === 0) continue;
       const cand = correcta + delta;
       if (cand >= 0 && cand !== correcta) distractores.add(cand);

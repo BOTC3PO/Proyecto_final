@@ -31,7 +31,12 @@ export const generarEcuacionesPotenciasRadicales: GeneratorFn = (
 
   if (tipo === "x2_igual_a") {
     // x^2 = a
-    const x0 = randomInt(1, dificultadCore === "basico" ? 10 : 20);
+    const x0 =
+      dificultadCore === "basico"
+        ? randomInt(1, 8)
+        : dificultadCore === "intermedio"
+        ? randomInt(2, 12)
+        : randomInt(3, 20);
     const a = x0 * x0;
 
     enunciado = `Resuelve la ecuación:\n\nx² = ${a}`;
@@ -58,8 +63,18 @@ export const generarEcuacionesPotenciasRadicales: GeneratorFn = (
 
   if (tipo === "sqrt_x_mas_a") {
     // √(x + a) = b => x + a = b² => x = b² - a
-    const a = randomInt(-5, 10);
-    const b = randomInt(1, dificultadCore === "basico" ? 5 : 8);
+    const a =
+      dificultadCore === "basico"
+        ? randomInt(-3, 6)
+        : dificultadCore === "intermedio"
+        ? randomInt(-6, 10)
+        : randomInt(-10, 14);
+    const b =
+      dificultadCore === "basico"
+        ? randomInt(1, 4)
+        : dificultadCore === "intermedio"
+        ? randomInt(2, 7)
+        : randomInt(3, 9);
 
     const xSol = b * b - a;
 
@@ -72,8 +87,9 @@ export const generarEcuacionesPotenciasRadicales: GeneratorFn = (
     opciones.push(correcta);
 
     const distractores = new Set<number>();
+    const salto = dificultadCore === "avanzado" ? 7 : 5;
     while (opciones.length < 4) {
-      const delta = randomInt(-5, 5);
+      const delta = randomInt(-salto, salto);
       if (delta === 0) continue;
       const cand = xSol + delta;
       if (cand !== xSol && !distractores.has(cand)) {
@@ -95,8 +111,10 @@ export const generarEcuacionesPotenciasRadicales: GeneratorFn = (
   }
 
   // a_pow_x: a^x = N, con x entero pequeño
-  const aBase = randomInt(2, 5);
-  const xSol = randomInt(1, 4);
+  const aBase =
+    dificultadCore === "intermedio" ? randomInt(2, 4) : randomInt(2, 5);
+  const xSol =
+    dificultadCore === "intermedio" ? randomInt(1, 3) : randomInt(2, 4);
   const N = aBase ** xSol;
 
   enunciado = `Resuelve la ecuación en números enteros:\n\n${aBase}^x = ${N}`;
@@ -105,8 +123,9 @@ export const generarEcuacionesPotenciasRadicales: GeneratorFn = (
 
   opciones.push(correcta);
   const distractores = new Set<number>();
+  const variacion = dificultadCore === "avanzado" ? 4 : 3;
   while (opciones.length < 4) {
-    const delta = randomInt(-3, 3);
+    const delta = randomInt(-variacion, variacion);
     if (delta === 0) continue;
     const cand = xSol + delta;
     if (cand !== xSol && cand >= -5 && cand <= 10 && !distractores.has(cand)) {

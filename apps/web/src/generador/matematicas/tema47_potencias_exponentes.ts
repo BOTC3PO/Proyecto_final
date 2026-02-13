@@ -18,8 +18,17 @@ export const generarPotenciasExponentes: GeneratorFn = (
   dificultad: Dificultad = "basico"
 ) => {
   const dificultadCore = normalizarDificultadCore(dificultad);
-  const tipo: TipoPotencia = pickRandom(["producto", "potenciaDePotencia", "cociente"]);
-  const base = randomInt(2, 9);
+  const tipos: TipoPotencia[] =
+    dificultadCore === "basico"
+      ? ["producto", "potenciaDePotencia"]
+      : ["producto", "potenciaDePotencia", "cociente"];
+  const tipo: TipoPotencia = pickRandom(tipos);
+  const base =
+    dificultadCore === "basico"
+      ? randomInt(2, 6)
+      : dificultadCore === "intermedio"
+      ? randomInt(2, 8)
+      : randomInt(2, 9);
 
   const rangoExp =
     dificultadCore === "basico"
@@ -53,9 +62,10 @@ export const generarPotenciasExponentes: GeneratorFn = (
 
   const opciones = [correcta];
   const distractores = new Set<string>();
+  const variacion = dificultadCore === "avanzado" ? 3 : 2;
 
   while (distractores.size < 3) {
-    const delta = randomInt(-2, 2);
+    const delta = randomInt(-variacion, variacion);
     const match = correcta.match(/\^(\d+)/);
     if (!match) break;
     const expo = parseInt(match[1], 10);
