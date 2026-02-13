@@ -92,10 +92,9 @@ function renderEnunciado(base: string, values: Record<string, number | string>):
   return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
 }
 
-const CATALOGO = parseCatalogo();
 
 export function getDilucionesCatalogItemById(itemId: number): CatalogItem {
-  const found = CATALOGO.find((item) => item.id === itemId);
+  const found = parseCatalogo().find((item) => item.id === itemId);
   if (!found) {
     throw new Error(`No existe itemId=${itemId} en 20_diluciones/enunciados.json.`);
   }
@@ -105,10 +104,11 @@ export function getDilucionesCatalogItemById(itemId: number): CatalogItem {
 export const generarDiluciones: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
+  const catalogo = parseCatalogo();
   const nivelCore = getNivelCore(dificultad);
   const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const pool = CATALOGO.filter((item) => {
+  const pool = catalogo.filter((item) => {
     if (!item.activo) return false;
     const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
     return itemLevel <= maxLevel;

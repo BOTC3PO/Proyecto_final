@@ -85,10 +85,9 @@ function parseCatalogo(): CatalogItem[] {
   return items;
 }
 
-const CATALOGO = parseCatalogo();
 
 export function findPreparacionSolucionesCatalogItemById(itemId: number): CatalogItem {
-  const item = CATALOGO.find((entry) => entry.id === itemId);
+  const item = parseCatalogo().find((entry) => entry.id === itemId);
   if (!item) {
     throw new Error(
       `No existe itemId=${itemId} en 21_preparacion_soluciones.enunciados.json.`
@@ -100,10 +99,11 @@ export function findPreparacionSolucionesCatalogItemById(itemId: number): Catalo
 export const generarPreparacionSoluciones: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
+  const catalogo = parseCatalogo();
   const nivelCore = getNivelCore(dificultad);
   const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const pool = CATALOGO.filter((item) => {
+  const pool = catalogo.filter((item) => {
     if (!item.activo) return false;
     const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
     return itemLevel <= maxLevel;

@@ -71,15 +71,15 @@ function parseCatalogo(): CatalogItem[] {
   return items;
 }
 
-const CATALOGO = parseCatalogo();
 
 export const generarLeyBoyle: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
+  const catalogo = parseCatalogo();
   const nivelCore = getNivelCore(dificultad);
   const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const pool = CATALOGO.filter((item) => {
+  const pool = catalogo.filter((item) => {
     if (!item.activo) return false;
     const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
     return itemLevel <= maxLevel;

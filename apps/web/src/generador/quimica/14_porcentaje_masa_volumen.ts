@@ -78,10 +78,9 @@ function renderEnunciado(base: string, values: Record<string, number | string>):
   return base.replaceAll(/\{\{(\w+)\}\}/g, (_, key: string) => String(values[key] ?? ""));
 }
 
-const CATALOGO = parseCatalogo();
 
 export function getCatalogItemById(itemId: number): CatalogItem {
-  const item = CATALOGO.find((entry) => entry.id === itemId);
+  const item = parseCatalogo().find((entry) => entry.id === itemId);
   if (!item) {
     throw new Error(`No existe itemId=${itemId} en ${CATALOGO_TEMA}/enunciados.json.`);
   }
@@ -91,10 +90,11 @@ export function getCatalogItemById(itemId: number): CatalogItem {
 export const generarPorcentajeMasaVolumen: GeneratorFn = (
   dificultad = "media"
 ): NumericExercise => {
+  const catalogo = parseCatalogo();
   const nivelCore = getNivelCore(dificultad);
   const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
 
-  const pool = CATALOGO.filter((item) => {
+  const pool = catalogo.filter((item) => {
     if (!item.activo) return false;
     const itemLevel = DIFICULTAD_ORDEN.indexOf(item.difficulty);
     return itemLevel <= maxLevel;
