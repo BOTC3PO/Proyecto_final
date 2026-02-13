@@ -3,85 +3,54 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
-  rangoPorDificultadCore,
   randomInt,
   pickRandom,
 } from "./generic";
+import { getRangoConFallback } from "./limits";
 
 const ID_TEMA = 2;
 const TITULO = "Operaciones combinadas";
 
-type Op = "+" | "-" | "×" | "÷";
-
-function evaluar(a: number, op: Op, b: number): number {
-  switch (op) {
-    case "+":
-      return a + b;
-    case "-":
-      return a - b;
-    case "×":
-      return a * b;
-    case "÷":
-      return a / b;
-  }
-}
-
-// Plantillas tipo: (a + b) × c, a + b × c, etc.
 function generarExpresion(dificultad: Dificultad): {
   texto: string;
   resultado: number;
 } {
-  const [min, max] = rangoPorDificultadCore(dificultad, {
+  const [min, max] = getRangoConFallback(ID_TEMA, dificultad, {
     basico: [1, 20],
     intermedio: [1, 50],
     avanzado: [1, 100],
   });
 
   const plantillas = [
-    // a + b × c
     () => {
       const a = randomInt(min, max);
       const b = randomInt(min, max);
       const c = randomInt(min, max);
-      const res = a + b * c;
-      const texto = `${a} + ${b} × ${c}`;
-      return { texto, resultado: res };
+      return { texto: `${a} + ${b} × ${c}`, resultado: a + b * c };
     },
-    // (a + b) × c
     () => {
       const a = randomInt(min, max);
       const b = randomInt(min, max);
       const c = randomInt(min, max);
-      const res = (a + b) * c;
-      const texto = `(${a} + ${b}) × ${c}`;
-      return { texto, resultado: res };
+      return { texto: `(${a} + ${b}) × ${c}`, resultado: (a + b) * c };
     },
-    // a × b - c
     () => {
       const a = randomInt(min, max);
       const b = randomInt(min, max);
       const c = randomInt(min, max);
-      const res = a * b - c;
-      const texto = `${a} × ${b} - ${c}`;
-      return { texto, resultado: res };
+      return { texto: `${a} × ${b} - ${c}`, resultado: a * b - c };
     },
-    // a - b × c
     () => {
       const a = randomInt(min, max);
       const b = randomInt(min, max);
       const c = randomInt(min, max);
-      const res = a - b * c;
-      const texto = `${a} - ${b} × ${c}`;
-      return { texto, resultado: res };
+      return { texto: `${a} - ${b} × ${c}`, resultado: a - b * c };
     },
-    // (a - b) × c
     () => {
       const a = randomInt(min, max);
       const b = randomInt(min, max);
       const c = randomInt(min, max);
-      const res = (a - b) * c;
-      const texto = `(${a} - ${b}) × ${c}`;
-      return { texto, resultado: res };
+      return { texto: `(${a} - ${b}) × ${c}`, resultado: (a - b) * c };
     },
   ];
 
@@ -98,20 +67,17 @@ export const generarOperacionesCombinadas: GeneratorFn = (
   while (distractores.size < 3) {
     const delta = randomInt(-15, 15);
     if (delta === 0) continue;
-    const candidato = resultado + delta;
-    distractores.add(candidato);
+    distractores.add(resultado + delta);
   }
 
   const opciones = [resultado, ...Array.from(distractores)];
   const indiceCorrecto = 0;
 
-  const enunciado = `Resuelve la siguiente operación respetando la prioridad de las operaciones:\n\n${texto}`;
-
   return crearQuizBase({
     idTema: ID_TEMA,
     tituloTema: TITULO,
     dificultad,
-    enunciado,
+    enunciado: `Resuelve la siguiente operación respetando la prioridad de las operaciones:\n\n${texto}`,
     opciones,
     indiceCorrecto,
     explicacion:

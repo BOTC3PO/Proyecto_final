@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "temaId": 3,
+  "slug": "03_potencias_y_raices",
+  "porDificultad": {
+    "basico": {
+      "rangos": {
+        "numeros": [
+          1,
+          20
+        ],
+        "exponente": [
+          2,
+          3
+        ]
+      },
+      "operacionesPermitidas": [
+        "+",
+        "-"
+      ],
+      "reglas": {
+        "permitirNegativos": false,
+        "divisionExacta": true,
+        "permitirDecimales": false
+      }
+    },
+    "intermedio": {
+      "rangos": {
+        "numeros": [
+          1,
+          60
+        ],
+        "exponente": [
+          2,
+          4
+        ]
+      },
+      "operacionesPermitidas": [
+        "+",
+        "-",
+        "×"
+      ],
+      "reglas": {
+        "permitirNegativos": true,
+        "divisionExacta": true,
+        "permitirDecimales": false
+      }
+    },
+    "avanzado": {
+      "rangos": {
+        "numeros": [
+          -120,
+          120
+        ],
+        "exponente": [
+          2,
+          6
+        ]
+      },
+      "operacionesPermitidas": [
+        "+",
+        "-",
+        "×",
+        "÷"
+      ],
+      "reglas": {
+        "permitirNegativos": true,
+        "divisionExacta": false,
+        "permitirDecimales": true
+      }
+    }
+  }
+}

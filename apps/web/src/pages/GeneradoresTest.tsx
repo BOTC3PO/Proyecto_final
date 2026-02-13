@@ -23,7 +23,8 @@ import { adaptMathExercise } from "../generador/matematicas/adapters";
 import { adaptEconomiaExercise } from "../generador/economia/adapters";
 import { adaptQuimicaExercise } from "../generador/quimica/adapters";
 import { fetchActivePrompts, type PromptRecord } from "../services/prompts";
-import { precargarCatalogoTemaPorId } from "../generador/quimica/catalogoApi";
+import { precargarCatalogoTemaPorId as precargarCatalogoQuimicaPorId } from "../generador/quimica/catalogoApi";
+import { precargarCatalogoTemaPorId as precargarCatalogoMatematicasPorId } from "../generador/matematicas/catalogoApi";
 
 type PromptTemplateKind = "TEXT" | "PARAM_LIMITS";
 
@@ -121,6 +122,8 @@ export default function GeneradoresTest() {
   const [promptsError, setPromptsError] = useState<string | null>(null);
   const [quimicaPreloadLoading, setQuimicaPreloadLoading] = useState(false);
   const [quimicaPreloadError, setQuimicaPreloadError] = useState<string | null>(null);
+  const [matematicaPreloadLoading, setMatematicaPreloadLoading] = useState(false);
+  const [matematicaPreloadError, setMatematicaPreloadError] = useState<string | null>(null);
 
   const listingPrng = useMemo(() => createPrng(seed || "listado-generadores"), [seed]);
   const prng = useMemo(() => (seed ? createPrng(seed) : null), [seed]);
@@ -784,7 +787,7 @@ export default function GeneradoresTest() {
     setQuimicaPreloadLoading(true);
     setQuimicaPreloadError(null);
 
-    void precargarCatalogoTemaPorId(idTema)
+    void precargarCatalogoQuimicaPorId(idTema)
       .catch((error: unknown) => {
         if (!active) return;
         setQuimicaPreloadError(
@@ -796,6 +799,43 @@ export default function GeneradoresTest() {
       .finally(() => {
         if (!active) return;
         setQuimicaPreloadLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [materia, generadorSeleccionado]);
+
+  useEffect(() => {
+    if (materia !== "matematica") {
+      setMatematicaPreloadError(null);
+      setMatematicaPreloadLoading(false);
+      return;
+    }
+
+    const idTema = Number(generadorSeleccionado);
+    if (!Number.isInteger(idTema) || idTema <= 0) {
+      setMatematicaPreloadError(null);
+      setMatematicaPreloadLoading(false);
+      return;
+    }
+
+    let active = true;
+    setMatematicaPreloadLoading(true);
+    setMatematicaPreloadError(null);
+
+    void precargarCatalogoMatematicasPorId(idTema)
+      .catch((error: unknown) => {
+        if (!active) return;
+        setMatematicaPreloadError(
+          error instanceof Error
+            ? error.message
+            : "No se pudo precargar límites de matemáticas."
+        );
+      })
+      .finally(() => {
+        if (!active) return;
+        setMatematicaPreloadLoading(false);
       });
 
     return () => {
@@ -830,6 +870,9 @@ export default function GeneradoresTest() {
           const descriptor =
             GENERADORES_MATEMATICAS_POR_TEMA[Number(generadorSeleccionado)];
           if (!descriptor) throw new Error("Generador de matemáticas no disponible.");
+          if (matematicaPreloadLoading) {
+            throw new Error("Esperá a que finalice la precarga de límites de matemáticas.");
+          }
           const exercise = descriptor.generate(
             dificultad as DificultadMath,
             { modo: modoRespuesta },
@@ -998,6 +1041,12 @@ export default function GeneradoresTest() {
               ) : null}
               {materia === "quimica" && quimicaPreloadError ? (
                 <p className="mt-1 text-xs text-red-600">Error de consignas: {quimicaPreloadError}</p>
+              ) : null}
+              {materia === "matematica" && matematicaPreloadLoading ? (
+                <p className="mt-1 text-xs text-gray-500">Precargando límites de matemáticas…</p>
+              ) : null}
+              {materia === "matematica" && matematicaPreloadError ? (
+                <p className="mt-1 text-xs text-amber-600">Límites no disponibles, se usarán valores por defecto: {matematicaPreloadError}</p>
               ) : null}
             </div>
 
