@@ -2,6 +2,8 @@
 import { type Exercise, type GeneratorFn, setPrng } from "./generico";
 import { parseQuimicaParams } from "./schemas";
 import type { GeneratorDescriptor } from "../core/types";
+import type { PRNG } from "../core/prng";
+import { getCatalogoTemaSync, getTemaByIdSync } from "./catalogoApi";
 
 /* ────────────────────────────────────────────────
    BLOQUE 1 — ESTEQUIOMETRÍA (1–12)
@@ -166,6 +168,69 @@ import { generarEquiposProteccionQuimica } from "./95_equipos_proteccion";
    MAPA FINAL DE GENERADORES POR ID (1–95)
 ────────────────────────────────────────────────── */
 
+
+
+type DificultadCore = "basico" | "intermedio" | "avanzado";
+
+interface ConsignaCatalogItem {
+  id: number;
+  activo: boolean;
+  difficulty: DificultadCore;
+  enunciadoBase: string;
+  data?: Record<string, unknown>;
+}
+
+const DIFICULTAD_ORDEN: DificultadCore[] = ["basico", "intermedio", "avanzado"];
+
+const getNivelCore = (nivel: string): DificultadCore => {
+  if (nivel === "facil") return "basico";
+  if (nivel === "media") return "intermedio";
+  return "avanzado";
+};
+
+const renderEnunciado = (base: string, values: Record<string, unknown>): string =>
+  base.replaceAll(/\{\{(\w+)\}\}|\{(\w+)\}/g, (_m, k1?: string, k2?: string) => {
+    const key = k1 ?? k2 ?? "";
+    const value = values[key];
+    return value === undefined || value === null ? "" : String(value);
+  });
+
+const applyConsignaDesdeApi = (exercise: Exercise, dificultad: string | undefined, prng: PRNG): Exercise => {
+  const tema = getTemaByIdSync(exercise.idTema);
+  if (!tema) {
+    throw new Error(`No se pudo resolver tema de consignas para química ${String(exercise.idTema).padStart(2, "0")}.`);
+  }
+
+  const catalogo = getCatalogoTemaSync(tema);
+  if (!Array.isArray(catalogo) || catalogo.length === 0) {
+    throw new Error(`No hay consignas precargadas para ${tema}.`);
+  }
+
+  const items = catalogo as ConsignaCatalogItem[];
+  const nivelCore = getNivelCore(dificultad ?? "media");
+  const maxLevel = DIFICULTAD_ORDEN.indexOf(nivelCore);
+  const pool = items.filter((item) =>
+    item?.activo === true &&
+    typeof item.enunciadoBase === "string" &&
+    DIFICULTAD_ORDEN.includes(item.difficulty) &&
+    DIFICULTAD_ORDEN.indexOf(item.difficulty) <= maxLevel
+  );
+
+  if (pool.length === 0) {
+    throw new Error(`No hay consignas activas para ${tema} en nivel ${nivelCore}.`);
+  }
+
+  const selected = pool[prng.int(0, pool.length - 1)];
+  const data = selected.data && typeof selected.data === "object" ? selected.data : {};
+  const enunciado = renderEnunciado(selected.enunciadoBase, data);
+
+  if (!enunciado || enunciado.trim().length === 0) {
+    throw new Error(`La consigna de ${tema} es inválida o vacía.`);
+  }
+
+  return { ...exercise, enunciado };
+};
+
 const wrapWithPrng =
   (generator: GeneratorFn): GeneratorFn =>
   (dificultad, prng) => {
@@ -174,7 +239,8 @@ const wrapWithPrng =
       throw new Error("Se requiere un PRNG inicializado para generar ejercicios.");
     }
     setPrng(prng);
-    return generator(dificultad, prng);
+    const exercise = generator(dificultad, prng);
+    return applyConsignaDesdeApi(exercise, dificultad, prng);
   };
 
 const GENERADORES_QUIMICA_BASE: Record<number, GeneratorFn> = {
