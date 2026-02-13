@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaMovimientoVertical.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "06_movimiento_vertical";
 
 export class MovimientoVerticalGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/cinematica/movimiento_vertical";
@@ -9,17 +12,12 @@ export class MovimientoVerticalGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     const g = 9.8;
     let v0: number;
-
-    switch (params.nivel) {
-      case "basico":
-        v0 = this.randomInt(5, 20);  // m/s
-        break;
-      case "intermedio":
-        v0 = this.randomInt(10, 35);
-        break;
-      default:
-        v0 = this.randomInt(20, 60);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    v0 = randIntFromPorNivel(limits, params.nivel, "v0", this, {
+      basico: [5, 20],
+      intermedio: [10, 35],
+      avanzado: [20, 60],
+    });
 
     const resultado = calc.calcular({
       tipo: "movimiento_vertical_altura_max",

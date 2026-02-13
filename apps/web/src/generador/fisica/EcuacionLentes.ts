@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaEcuacionLentes.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "31_ecuacion_lentes";
 
 export class EcuacionLentesGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/ondas_optica/ecuacion_lentes";
@@ -9,20 +12,17 @@ export class EcuacionLentesGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     let distanciaObjeto: number;
     let distanciaFocal: number;
-
-    switch (params.nivel) {
-      case "basico":
-        distanciaFocal = this.randomInt(5, 20);
-        distanciaObjeto = this.randomInt(25, 60);
-        break;
-      case "intermedio":
-        distanciaFocal = this.randomInt(10, 40);
-        distanciaObjeto = this.randomInt(50, 150);
-        break;
-      default:
-        distanciaFocal = this.randomInt(15, 100);
-        distanciaObjeto = this.randomInt(100, 500);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    distanciaFocal = randIntFromPorNivel(limits, params.nivel, "distanciaFocal", this, {
+      basico: [5, 20],
+      intermedio: [10, 40],
+      avanzado: [15, 100],
+    });
+    distanciaObjeto = randIntFromPorNivel(limits, params.nivel, "distanciaObjeto", this, {
+      basico: [25, 60],
+      intermedio: [50, 150],
+      avanzado: [100, 500],
+    });
 
     const resultado = calc.calcular({
       tipo: "ecuacion_lentes",

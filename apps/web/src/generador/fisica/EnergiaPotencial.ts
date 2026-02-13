@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaEnergiaPotencial.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "15_energia_potencial";
 
 export class EnergiaPotencialGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/energia/energia_potencial";
@@ -10,20 +13,17 @@ export class EnergiaPotencialGenerator extends FisicaBaseGenerator {
     const g = 9.8;
     let masa: number;
     let altura: number;
-
-    switch (params.nivel) {
-      case "basico":
-        masa = this.randomInt(5, 30);
-        altura = this.randomInt(2, 10);
-        break;
-      case "intermedio":
-        masa = this.randomInt(20, 100);
-        altura = this.randomInt(5, 30);
-        break;
-      default:
-        masa = this.randomInt(50, 300);
-        altura = this.randomInt(10, 100);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    masa = randIntFromPorNivel(limits, params.nivel, "masa", this, {
+      basico: [5, 30],
+      intermedio: [20, 100],
+      avanzado: [50, 300],
+    });
+    altura = randIntFromPorNivel(limits, params.nivel, "altura", this, {
+      basico: [2, 10],
+      intermedio: [5, 30],
+      avanzado: [10, 100],
+    });
 
     const resultado = calc.calcular({
       tipo: "energia_potencial",

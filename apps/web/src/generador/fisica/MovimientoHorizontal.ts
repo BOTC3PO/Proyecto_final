@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaMovimientoHorizontal.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "07_movimiento_horizontal";
 
 export class MovimientoHorizontalGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/cinematica/movimiento_horizontal";
@@ -10,20 +13,17 @@ export class MovimientoHorizontalGenerator extends FisicaBaseGenerator {
     const g = 9.8;
     let altura: number;
     let velocidad: number;
-
-    switch (params.nivel) {
-      case "basico":
-        altura = this.randomInt(5, 20);     // m
-        velocidad = this.randomInt(5, 20);  // m/s
-        break;
-      case "intermedio":
-        altura = this.randomInt(10, 50);
-        velocidad = this.randomInt(10, 40);
-        break;
-      default:
-        altura = this.randomInt(20, 100);
-        velocidad = this.randomInt(20, 60);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    altura = randIntFromPorNivel(limits, params.nivel, "altura", this, {
+      basico: [5, 20],
+      intermedio: [10, 50],
+      avanzado: [20, 100],
+    });
+    velocidad = randIntFromPorNivel(limits, params.nivel, "velocidad", this, {
+      basico: [5, 20],
+      intermedio: [10, 40],
+      avanzado: [20, 60],
+    });
 
     const resultado = calc.calcular({
       tipo: "movimiento_horizontal_alcance",

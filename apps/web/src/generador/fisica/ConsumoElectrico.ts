@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaConsumoElectrico.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "26_consumo_electrico";
 
 export class ConsumoElectricoGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/electricidad/consumo_electrico";
@@ -9,20 +12,17 @@ export class ConsumoElectricoGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     let potencia: number;
     let tiempo: number;
-
-    switch (params.nivel) {
-      case "basico":
-        potencia = this.randomInt(100, 1000);
-        tiempo = this.randomInt(2, 10);
-        break;
-      case "intermedio":
-        potencia = this.randomInt(500, 3000);
-        tiempo = this.randomInt(5, 24);
-        break;
-      default:
-        potencia = this.randomInt(1000, 5000);
-        tiempo = this.randomInt(10, 100);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    potencia = randIntFromPorNivel(limits, params.nivel, "potencia", this, {
+      basico: [100, 1000],
+      intermedio: [500, 3000],
+      avanzado: [1000, 5000],
+    });
+    tiempo = randIntFromPorNivel(limits, params.nivel, "tiempo", this, {
+      basico: [2, 10],
+      intermedio: [5, 24],
+      avanzado: [10, 100],
+    });
 
     const resultado = calc.calcular({
       tipo: "consumo_electrico",

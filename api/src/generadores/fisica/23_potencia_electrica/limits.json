@@ -5,39 +5,34 @@
   "porDificultad": {
     "basico": {
       "rangos": {
-        "numeros": [
+        "voltaje": [
+          5,
+          24
+        ],
+        "corriente": [
           1,
-          10
+          5
         ]
       },
-      "reglas": {
-        "permitirNegativos": false,
-        "permitirDecimales": false
-      }
+      "reglas": {}
     },
     "intermedio": {
       "rangos": {
-        "numeros": [
-          1,
-          100
+        "voltaje": [
+          12,
+          120
         ]
       },
-      "reglas": {
-        "permitirNegativos": false,
-        "permitirDecimales": false
-      }
+      "reglas": {}
     },
     "avanzado": {
       "rangos": {
-        "numeros": [
-          -200,
-          200
+        "voltaje": [
+          110,
+          240
         ]
       },
-      "reglas": {
-        "permitirNegativos": true,
-        "permitirDecimales": true
-      }
+      "reglas": {}
     }
   }
 }

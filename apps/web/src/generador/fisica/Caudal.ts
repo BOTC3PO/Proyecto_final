@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaCaudal.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "36_caudal";
 
 export class CaudalGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/fluidos/caudal";
@@ -9,20 +12,17 @@ export class CaudalGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     let volumen: number;
     let tiempo: number;
-
-    switch (params.nivel) {
-      case "basico":
-        volumen = this.randomInt(100, 1000);
-        tiempo = this.randomInt(10, 60);
-        break;
-      case "intermedio":
-        volumen = this.randomInt(500, 5000);
-        tiempo = this.randomInt(30, 300);
-        break;
-      default:
-        volumen = this.randomInt(1000, 20000);
-        tiempo = this.randomInt(60, 600);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    volumen = randIntFromPorNivel(limits, params.nivel, "volumen", this, {
+      basico: [100, 1000],
+      intermedio: [500, 5000],
+      avanzado: [1000, 20000],
+    });
+    tiempo = randIntFromPorNivel(limits, params.nivel, "tiempo", this, {
+      basico: [10, 60],
+      intermedio: [30, 300],
+      avanzado: [60, 600],
+    });
 
     const resultado = calc.calcular({
       tipo: "caudal",

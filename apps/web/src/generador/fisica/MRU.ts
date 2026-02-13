@@ -1,5 +1,8 @@
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "01_mru";
 
 export class MRUGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/cinematica/mru";
@@ -9,20 +12,17 @@ export class MRUGenerator extends FisicaBaseGenerator {
     const nivel = params.nivel;
     let velocidad: number;
     let tiempo: number;
-
-    switch (nivel) {
-      case "basico":
-        velocidad = this.randomInt(10, 60);
-        tiempo = this.randomInt(1, 5);
-        break;
-      case "intermedio":
-        velocidad = this.randomInt(20, 120);
-        tiempo = this.randomInt(2, 10);
-        break;
-      default:
-        velocidad = this.randomInt(50, 200);
-        tiempo = this.randomInt(5, 20);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    velocidad = randIntFromPorNivel(limits, nivel, "velocidad", this, {
+      basico: [10, 60],
+      intermedio: [20, 120],
+      avanzado: [50, 200],
+    });
+    tiempo = randIntFromPorNivel(limits, nivel, "tiempo", this, {
+      basico: [1, 5],
+      intermedio: [2, 10],
+      avanzado: [5, 20],
+    });
 
     const resultado = calc.calcular({
       tipo: "MRU_distancia",

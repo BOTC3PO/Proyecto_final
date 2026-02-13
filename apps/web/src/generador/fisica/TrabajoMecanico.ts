@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaTrabajoMecanico.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "13_trabajo_mecanico";
 
 export class TrabajoMecanicoGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/energia/trabajo_mecanico";
@@ -9,20 +12,17 @@ export class TrabajoMecanicoGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     let fuerza: number;
     let distancia: number;
-
-    switch (params.nivel) {
-      case "basico":
-        fuerza = this.randomInt(10, 50);
-        distancia = this.randomInt(2, 10);
-        break;
-      case "intermedio":
-        fuerza = this.randomInt(30, 150);
-        distancia = this.randomInt(5, 30);
-        break;
-      default:
-        fuerza = this.randomInt(100, 500);
-        distancia = this.randomInt(10, 100);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    fuerza = randIntFromPorNivel(limits, params.nivel, "fuerza", this, {
+      basico: [10, 50],
+      intermedio: [30, 150],
+      avanzado: [100, 500],
+    });
+    distancia = randIntFromPorNivel(limits, params.nivel, "distancia", this, {
+      basico: [2, 10],
+      intermedio: [5, 30],
+      avanzado: [10, 100],
+    });
 
     const resultado = calc.calcular({
       tipo: "trabajo_mecanico",

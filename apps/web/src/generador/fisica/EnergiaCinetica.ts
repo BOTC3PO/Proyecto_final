@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaEnergiaCinetica.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "14_energia_cinetica";
 
 export class EnergiaCineticaGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/energia/energia_cinetica";
@@ -9,20 +12,17 @@ export class EnergiaCineticaGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     let masa: number;
     let velocidad: number;
-
-    switch (params.nivel) {
-      case "basico":
-        masa = this.randomInt(5, 30);
-        velocidad = this.randomInt(2, 10);
-        break;
-      case "intermedio":
-        masa = this.randomInt(20, 100);
-        velocidad = this.randomInt(5, 25);
-        break;
-      default:
-        masa = this.randomInt(50, 300);
-        velocidad = this.randomInt(10, 50);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    masa = randIntFromPorNivel(limits, params.nivel, "masa", this, {
+      basico: [5, 30],
+      intermedio: [20, 100],
+      avanzado: [50, 300],
+    });
+    velocidad = randIntFromPorNivel(limits, params.nivel, "velocidad", this, {
+      basico: [2, 10],
+      intermedio: [5, 25],
+      avanzado: [10, 50],
+    });
 
     const resultado = calc.calcular({
       tipo: "energia_cinetica",

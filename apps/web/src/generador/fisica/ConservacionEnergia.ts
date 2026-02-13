@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaConservacionEnergia.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "16_conservacion_energia";
 
 export class ConservacionEnergiaGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/energia/conservacion_energia";
@@ -10,20 +13,17 @@ export class ConservacionEnergiaGenerator extends FisicaBaseGenerator {
     const g = 9.8;
     let masa: number;
     let altura: number;
-
-    switch (params.nivel) {
-      case "basico":
-        masa = this.randomInt(2, 10);
-        altura = this.randomInt(5, 15);
-        break;
-      case "intermedio":
-        masa = this.randomInt(5, 30);
-        altura = this.randomInt(10, 40);
-        break;
-      default:
-        masa = this.randomInt(10, 50);
-        altura = this.randomInt(20, 100);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    masa = randIntFromPorNivel(limits, params.nivel, "masa", this, {
+      basico: [2, 10],
+      intermedio: [5, 30],
+      avanzado: [10, 50],
+    });
+    altura = randIntFromPorNivel(limits, params.nivel, "altura", this, {
+      basico: [5, 15],
+      intermedio: [10, 40],
+      avanzado: [20, 100],
+    });
 
     const resultado = calc.calcular({
       tipo: "conservacion_energia",

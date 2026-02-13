@@ -1,6 +1,9 @@
 // src/ejercicios/fisica/temaPlanoInclinado.ts
 import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
+import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
+
+const TEMA = "11_plano_inclinado";
 
 export class PlanoInclinadoGenerator extends FisicaBaseGenerator {
   readonly id = "fisica/dinamica/plano_inclinado";
@@ -9,20 +12,17 @@ export class PlanoInclinadoGenerator extends FisicaBaseGenerator {
   generarEjercicio(params: GeneradorParametros, calc: Calculator): Ejercicio {
     let masa: number;
     let angulo: number;
-
-    switch (params.nivel) {
-      case "basico":
-        masa = this.randomInt(5, 30);
-        angulo = this.randomInt(15, 30);
-        break;
-      case "intermedio":
-        masa = this.randomInt(20, 80);
-        angulo = this.randomInt(25, 45);
-        break;
-      default:
-        masa = this.randomInt(40, 150);
-        angulo = this.randomInt(30, 60);
-    }
+    const limits = getFisicaTemaLimitsSync(TEMA);
+    masa = randIntFromPorNivel(limits, params.nivel, "masa", this, {
+      basico: [5, 30],
+      intermedio: [20, 80],
+      avanzado: [40, 150],
+    });
+    angulo = randIntFromPorNivel(limits, params.nivel, "angulo", this, {
+      basico: [15, 30],
+      intermedio: [25, 45],
+      avanzado: [30, 60],
+    });
 
     const g = 9.8;
     const resultado = calc.calcular({
