@@ -56,7 +56,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       explicacion:
         "El pago mensual fijo por categoría es propio del régimen de Monotributo.",
     },
-  ],
     {
       enunciado:
         "¿Cuál es el criterio principal para clasificar las categorías del Monotributo en el enfoque escolar?",
@@ -70,7 +69,6 @@ const CASOS_POR_DIFICULTAD: Record<Dificultad, Caso[]> = {
       explicacion:
         "Las categorías del Monotributo se determinan principalmente por el nivel de ingresos o facturación.",
     },
-  ],
     {
       enunciado:
         "Un monotributista no emite facturas ni declara ingresos. ¿Qué problema principal aparece?",
