@@ -1,15 +1,15 @@
 import { ApiError, apiGet } from "../../lib/api";
 
-const limitsPorTema = new Map<string, Record<string, unknown>>();
+const catalogoPorTema = new Map<string, Record<string, unknown>>();
 const pendingPorTema = new Map<string, Promise<void>>();
 let temasDisponibles: string[] | null = null;
 const temaPorId = new Map<number, string>();
 
 const getOrCreateTema = (tema: string): Record<string, unknown> => {
-  const actual = limitsPorTema.get(tema);
+  const actual = catalogoPorTema.get(tema);
   if (actual) return actual;
   const nuevo: Record<string, unknown> = {};
-  limitsPorTema.set(tema, nuevo);
+  catalogoPorTema.set(tema, nuevo);
   return nuevo;
 };
 
@@ -80,4 +80,17 @@ export async function precargarCatalogoTemaPorId(idTema: number): Promise<void> 
 
 export function getTemaByIdSync(idTema: number): string | null {
   return temaPorId.get(idTema) ?? null;
+}
+
+
+export function getEnunciadoTemaSync(tema: string): unknown {
+  const catalogo = getOrCreateTema(tema);
+  if (catalogo.enunciado !== undefined) return catalogo.enunciado;
+  return undefined;
+}
+
+export function getEnunciadoTemaByIdSync(idTema: number): unknown {
+  const tema = getTemaByIdSync(idTema);
+  if (!tema) return undefined;
+  return getEnunciadoTemaSync(tema);
 }

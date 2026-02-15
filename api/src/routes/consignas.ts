@@ -39,6 +39,36 @@ const MATEMATICAS_TEMAS_PERMITIDOS = new Set([
   "43_sistemas_lineales_matrices",
   "44_transformaciones_geometricas",
   "45_numeros_complejos",
+  "56_trigonometria_basica",
+  "57_trigonometria_aplicada",
+  "58_identidades_trigonometricas",
+  "59_ecuaciones_trigonometricas",
+  "60_funciones_exponenciales",
+  "61_funciones_logaritmicas",
+  "62_ecuaciones_exponenciales",
+  "63_ecuaciones_logaritmicas",
+  "64_numeros_complejos",
+  "65_operaciones_complejos",
+  "66_matrices_basico",
+  "67_determinantes_basico",
+  "68_sistemas_por_matrices",
+  "69_vectores_basico",
+  "70_geometria_espacial",
+  "71_limites_funciones",
+  "72_continuidad",
+  "73_derivada_definicion",
+  "74_derivadas_basicas",
+  "75_reglas_derivacion",
+  "76_aplicaciones_derivadas",
+  "77_integral_indefinida",
+  "78_integral_definida",
+  "79_aplicaciones_integrales",
+  "80_ecuaciones_diferenciales_basico",
+  "81_probabilidad_avanzada",
+  "82_variables_aleatorias",
+  "83_distribuciones",
+  "84_estadistica_inferencial",
+  "85_regresion_correlacion",
 ]);
 const FISICA_TEMAS_PERMITIDOS = new Set([
   "01_mru",
@@ -266,6 +296,7 @@ router.get("/api/consignas/matematicas/:tema", async (req, res) => {
   }
 
   const limitsPath = path.resolve(temaPath, "limits.json");
+  const enunciadoPath = path.resolve(temaPath, "enunciado.json");
 
   try {
     await access(limitsPath);
@@ -274,8 +305,19 @@ router.get("/api/consignas/matematicas/:tema", async (req, res) => {
   }
 
   try {
-    const raw = await readFile(limitsPath, "utf8");
-    return res.json(JSON.parse(raw));
+    const rawLimits = await readFile(limitsPath, "utf8");
+    const limits = JSON.parse(rawLimits);
+
+    let enunciado: unknown;
+    try {
+      await access(enunciadoPath);
+      const rawEnunciado = await readFile(enunciadoPath, "utf8");
+      enunciado = JSON.parse(rawEnunciado);
+    } catch {
+      enunciado = undefined;
+    }
+
+    return res.json({ limits, enunciado });
   } catch {
     return res.status(500).json({ error: "no se pudo leer limites" });
   }
