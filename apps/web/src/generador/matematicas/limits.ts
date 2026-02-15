@@ -15,7 +15,13 @@ type TemaLimits = {
   porDificultad?: Record<DificultadCore, NivelLimits>;
 };
 
-const asTemaLimits = (value: Record<string, unknown>): TemaLimits => value as TemaLimits;
+const asTemaLimits = (value: Record<string, unknown>): TemaLimits => {
+  const nested = value.limits;
+  if (nested && typeof nested === "object" && !Array.isArray(nested)) {
+    return nested as TemaLimits;
+  }
+  return value as TemaLimits;
+};
 
 function getNivel(idTema: number, dificultad: Dificultad): NivelLimits | null {
   const tema = getTemaByIdSync(idTema);

@@ -4,6 +4,7 @@ import type {
   QuestionCorrection,
   GeneratedQuestionPayload,
 } from "../core/generated-question";
+import { resolverEnunciadoDesdeCatalogo } from "./enunciados";
 
 const mapQuiz = (exercise: QuizExercise): GeneratedQuestionPayload => {
   const options = exercise.opciones.map((text, index) => ({
@@ -13,7 +14,7 @@ const mapQuiz = (exercise: QuizExercise): GeneratedQuestionPayload => {
   return {
     question: {
       id: exercise.id,
-      prompt: exercise.enunciado,
+      prompt: resolverEnunciadoDesdeCatalogo(exercise.idTema, exercise.enunciado),
       questionType: "mc",
       options,
       metadata: {
@@ -35,7 +36,7 @@ const mapQuiz = (exercise: QuizExercise): GeneratedQuestionPayload => {
 const mapCompletar = (exercise: CompletarExercise): GeneratedQuestionPayload => ({
   question: {
     id: exercise.id,
-    prompt: exercise.enunciado,
+    prompt: resolverEnunciadoDesdeCatalogo(exercise.idTema, exercise.enunciado),
     questionType: "input",
     metadata: {
       generatorId: exercise.generatorId,

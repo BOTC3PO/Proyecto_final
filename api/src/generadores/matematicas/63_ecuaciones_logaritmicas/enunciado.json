@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "enunciados": [
+    {
+      "mode": "cuenta",
+      "template": "Calculá el resultado."
+    },
+    {
+      "mode": "texto",
+      "template": "Resolver el problema usando los datos proporcionados."
+    }
+  ]
+}
