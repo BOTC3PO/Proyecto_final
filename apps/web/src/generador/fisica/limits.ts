@@ -5,7 +5,7 @@ export type Rango = readonly [number, number];
 export type FallbackPorNivel = Record<Dificultad, Rango>;
 
 export function getFisicaTemaLimitsSync(temaSlug: string): Record<string, unknown> {
-  return getCatalogoTemaFisicaSync(temaSlug);
+  return getCatalogoTemaFisicaSync(temaSlug).limits ?? {};
 }
 
 export function getRango(

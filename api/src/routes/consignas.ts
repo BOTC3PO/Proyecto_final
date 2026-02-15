@@ -308,9 +308,14 @@ router.get("/api/consignas/fisica/:tema", async (req, res) => {
   }
 
   const limitsPath = path.join(FISICA_ROOT, tema, "limits.json");
+  const enunciadoPath = path.join(FISICA_ROOT, tema, "enunciado.json");
   const resolvedLimitsPath = path.resolve(limitsPath);
+  const resolvedEnunciadoPath = path.resolve(enunciadoPath);
 
   if (!resolvedLimitsPath.startsWith(`${FISICA_ROOT}${path.sep}`)) {
+    return res.status(400).json({ error: "tema invalido" });
+  }
+  if (!resolvedEnunciadoPath.startsWith(`${FISICA_ROOT}${path.sep}`)) {
     return res.status(400).json({ error: "tema invalido" });
   }
 
@@ -321,8 +326,19 @@ router.get("/api/consignas/fisica/:tema", async (req, res) => {
   }
 
   try {
-    const raw = await readFile(resolvedLimitsPath, "utf8");
-    return res.json(JSON.parse(raw));
+    const rawLimits = await readFile(resolvedLimitsPath, "utf8");
+    const limits = JSON.parse(rawLimits);
+
+    let enunciado: unknown;
+    try {
+      await access(resolvedEnunciadoPath);
+      const rawEnunciado = await readFile(resolvedEnunciadoPath, "utf8");
+      enunciado = JSON.parse(rawEnunciado);
+    } catch {
+      enunciado = undefined;
+    }
+
+    return res.json({ limits, enunciado });
   } catch {
     return res.status(500).json({ error: "no se pudo leer limites" });
   }

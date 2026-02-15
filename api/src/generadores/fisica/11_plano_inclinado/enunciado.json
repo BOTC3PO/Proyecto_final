@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "enunciados": [
+    {
+      "mode": "texto",
+      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+    }
+  ]
+}
