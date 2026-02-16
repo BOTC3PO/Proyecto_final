@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoAporte = "Aporte del trabajador" | "Contribución del empleador";
 
@@ -79,11 +80,12 @@ export const genContabAportesContribuciones: GeneratorFn = makeQuizGenerator(
         "Contribución del empleador",
       ];
       const indiceCorrecto = opciones.indexOf(concepto.tipo);
+      const fallbackEnunciado = `Clasificá el siguiente concepto del recibo de sueldo
+
+${concepto.descripcion}`;
 
       return {
-        enunciado:
-          "Clasificá el siguiente concepto del recibo de sueldo:\n\n" +
-          concepto.descripcion,
+        enunciado: resolveTemaEnunciado(7, { concepto: concepto.descripcion }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

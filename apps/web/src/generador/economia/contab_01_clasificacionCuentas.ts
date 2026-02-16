@@ -2,6 +2,7 @@
 
 import { type Dificultad } from "../core/types";
 import { makeQuizGenerator, pickOne, randInt, type GeneratorFn } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 type Clasificacion = "Activo" | "Pasivo" | "Patrimonio Neto" | "R+" | "R-";
 
@@ -41,12 +42,11 @@ export const genContabClasificacionCuentas: GeneratorFn = makeQuizGenerator(
       let opciones: string[] = [correct];
 
       // Ajusta cantidad de opciones según dificultad
-      const opcionesPorDificultad: Record<Dificultad, number> = {
-        basico: 3,
-        intermedio: 4,
-        avanzado: 5,
-      };
-      const cantOpciones = opcionesPorDificultad[dificultad] ?? 4;
+      const [cantOpcionesRaw] = resolveTemaRange(1, dificultad, "cantOpciones", [
+        dificultad === "basico" ? 3 : dificultad === "intermedio" ? 4 : 5,
+        dificultad === "basico" ? 3 : dificultad === "intermedio" ? 4 : 5,
+      ]);
+      const cantOpciones = Math.max(2, Math.round(cantOpcionesRaw));
 
       const distractores = OPCIONES_BASE.filter((c) => c !== correct);
       while (opciones.length < cantOpciones && distractores.length > 0) {
@@ -56,8 +56,10 @@ export const genContabClasificacionCuentas: GeneratorFn = makeQuizGenerator(
 
       const indiceCorrecto = opciones.indexOf(correct);
 
+      const fallbackEnunciado = `La cuenta "${cuenta.nombre}" se clasifica como:`;
+
       return {
-        enunciado: `La cuenta "${cuenta.nombre}" se clasifica como:`,
+        enunciado: resolveTemaEnunciado(1, { cuenta: cuenta.nombre }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

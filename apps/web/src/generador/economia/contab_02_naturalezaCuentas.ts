@@ -2,6 +2,7 @@
 
 import { type Dificultad } from "../core/types";
 import { makeQuizGenerator, pickOne,type GeneratorFn } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Naturaleza = "Deudora" | "Acreedora";
 
@@ -54,8 +55,10 @@ export const genContabNaturalezaCuentas: GeneratorFn = makeQuizGenerator(
       const opciones = ["Deudora", "Acreedora"];
       const indiceCorrecto = opciones.indexOf(cuenta.naturaleza);
 
+      const fallbackEnunciado = `¿Qué naturaleza tiene la cuenta "${cuenta.nombre}"?`;
+
       return {
-        enunciado: `¿Qué naturaleza tiene la cuenta "${cuenta.nombre}"?`,
+        enunciado: resolveTemaEnunciado(2, { cuenta: cuenta.nombre }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:
