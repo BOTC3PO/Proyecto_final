@@ -73,12 +73,30 @@ payments.post(
 
 payments.post("/api/payments/webhook", async (req, res) => {
   const signature = typeof req.headers["x-payments-signature"] === "string" ? req.headers["x-payments-signature"] : "";
-  const payloadString = JSON.stringify(req.body ?? {});
+  const rawPayload = Buffer.isBuffer(req.body)
+    ? req.body
+    : Buffer.isBuffer(req.rawBody)
+      ? req.rawBody
+      : null;
+
+  if (!rawPayload) {
+    res.status(400).json({ error: "invalid payload" });
+    return;
+  }
+
+  const payloadString = rawPayload.toString("utf8");
   if (!validateWebhookSignature(payloadString, signature, ENV.PAYMENTS_WEBHOOK_SECRET)) {
     res.status(401).json({ error: "invalid signature" });
     return;
   }
-  const payload = req.body as PaymentWebhookPayload;
+
+  let payload: PaymentWebhookPayload;
+  try {
+    payload = JSON.parse(payloadString) as PaymentWebhookPayload;
+  } catch {
+    res.status(400).json({ error: "invalid payload" });
+    return;
+  }
   if (!payload?.invoiceId || typeof payload.invoiceId !== "string") {
     res.status(400).json({ error: "invoiceId required" });
     return;
