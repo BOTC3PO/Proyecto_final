@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 type Respuesta =
   | "Conviene la inversión A"
@@ -18,60 +19,16 @@ export const genFinanzasComparacionInversiones: GeneratorFn =
     "Comparación simple de inversiones del hogar",
     [
       (dificultad: Dificultad) => {
-        const rangosPorDificultad = {
-          basico: {
-            capitalMin: 5,
-            capitalMax: 15,
-            tasaMin: 10,
-            tasaMax: 25,
-            tiempoMin: 1,
-            tiempoMax: 1,
-            diferenciaTasa: 6,
-          },
-          intermedio: {
-            capitalMin: 8,
-            capitalMax: 20,
-            tasaMin: 12,
-            tasaMax: 30,
-            tiempoMin: 1,
-            tiempoMax: 1,
-            diferenciaTasa: 4,
-          },
-          avanzado: {
-            capitalMin: 10,
-            capitalMax: 30,
-            tasaMin: 12,
-            tasaMax: 35,
-            tiempoMin: 1,
-            tiempoMax: 2,
-            diferenciaTasa: 4,
-          },
-          experto: {
-            capitalMin: 12,
-            capitalMax: 40,
-            tasaMin: 15,
-            tasaMax: 40,
-            tiempoMin: 1,
-            tiempoMax: 3,
-            diferenciaTasa: 3,
-          },
-          maestro: {
-            capitalMin: 15,
-            capitalMax: 50,
-            tasaMin: 18,
-            tasaMax: 45,
-            tiempoMin: 1,
-            tiempoMax: 4,
-            diferenciaTasa: 2,
-          },
-        };
+        const [capitalMin, capitalMax] = resolveTemaRange(20, dificultad, "capital", [5, 15]);
+        const [tasaMin, tasaMax] = resolveTemaRange(20, dificultad, "tasa", [10, 25]);
+        const [tiempoMin, tiempoMax] = resolveTemaRange(20, dificultad, "tiempo", [1, 1]);
+        const [diferenciaTasaMin, diferenciaTasaMax] = resolveTemaRange(20, dificultad, "diferenciaTasa", [-6, 6]);
 
-        const rango = rangosPorDificultad[dificultad];
-        const capital = randInt(rango.capitalMin, rango.capitalMax) * 10000;
-        const tasaA = randInt(rango.tasaMin, rango.tasaMax);
-        const tasaB = tasaA + randInt(-rango.diferenciaTasa, rango.diferenciaTasa);
-        const tiempoA = randInt(rango.tiempoMin, rango.tiempoMax);
-        const tiempoB = randInt(rango.tiempoMin, rango.tiempoMax);
+        const capital = randInt(capitalMin, capitalMax) * 10000;
+        const tasaA = randInt(tasaMin, tasaMax);
+        const tasaB = tasaA + randInt(diferenciaTasaMin, diferenciaTasaMax);
+        const tiempoA = randInt(tiempoMin, tiempoMax);
+        const tiempoB = randInt(tiempoMin, tiempoMax);
 
         const rendimientoA = capital * (tasaA / 100) * tiempoA;
         const rendimientoB = capital * (tasaB / 100) * tiempoB;
@@ -92,14 +49,16 @@ export const genFinanzasComparacionInversiones: GeneratorFn =
         ];
         const indiceCorrecto = opciones.indexOf(respuesta);
 
+        const fallbackEnunciado =
+          `Una familia quiere invertir $ ${capital.toLocaleString(
+            "es-AR"
+          )}.\n\n` +
+          `Inversión A: rinde un ${tasaA}% anual durante ${tiempoA} año(s).\n` +
+          `Inversión B: rinde un ${tasaB}% anual durante ${tiempoB} año(s).\n\n` +
+          `Suponiendo el mismo riesgo y sin otros costos, ¿cuál conviene más?`;
+
         return {
-          enunciado:
-            `Una familia quiere invertir $ ${capital.toLocaleString(
-              "es-AR"
-            )}.\n\n` +
-            `Inversión A: rinde un ${tasaA}% anual durante ${tiempoA} año(s).\n` +
-            `Inversión B: rinde un ${tasaB}% anual durante ${tiempoB} año(s).\n\n` +
-            `Suponiendo el mismo riesgo y sin otros costos, ¿cuál conviene más?`,
+          enunciado: resolveTemaEnunciado(20, { capital, tasaA, tasaB, tiempoA, tiempoB }, fallbackEnunciado),
           opciones,
           indiceCorrecto,
           explicacion:

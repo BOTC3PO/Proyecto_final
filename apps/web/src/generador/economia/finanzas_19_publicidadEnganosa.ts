@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoCaso = "Publicidad engañosa" | "Publicidad clara";
 
@@ -137,10 +138,12 @@ export const genFinanzasPublicidadEnganosa: GeneratorFn = makeQuizGenerator(
       ];
       const indiceCorrecto = opciones.indexOf(caso.tipo);
 
+      const fallbackEnunciado =
+        "Leé el siguiente anuncio y decidí si se trata de publicidad engañosa o clara para el consumidor:\n\n" +
+        caso.anuncio;
+
       return {
-        enunciado:
-          "Leé el siguiente anuncio y decidí si se trata de publicidad engañosa o clara para el consumidor:\n\n" +
-          caso.anuncio,
+        enunciado: resolveTemaEnunciado(19, { ...caso }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

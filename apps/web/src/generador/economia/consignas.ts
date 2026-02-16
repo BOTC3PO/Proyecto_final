@@ -16,7 +16,7 @@ const asTupleRange = (value: unknown): [number, number] | null => {
 };
 
 export const resolveTemaRange = (
-  tema: string,
+  tema: number | string,
   dificultad: Dificultad,
   key: string,
   fallback: [number, number]
@@ -32,14 +32,20 @@ export const resolveTemaRange = (
   const direct = asTupleRange(rangos?.[key]);
   if (direct) return direct;
 
-  const limitsRoot = asRecord(root.limits);
-  const fromSuggestedSchema = asTupleRange(asRecord(limitsRoot?.[dificultad])?.[key]);
-  if (fromSuggestedSchema) return fromSuggestedSchema;
+  const fromDifficulty = asTupleRange(asRecord(root[dificultad])?.[key]);
+  if (fromDifficulty) return fromDifficulty;
+
+  const rangosRoot = asRecord(root.rangos);
+  const fromRangosRoot = asTupleRange(rangosRoot?.[key]);
+  if (fromRangosRoot) return fromRangosRoot;
+
+  const fromRoot = asTupleRange(root[key]);
+  if (fromRoot) return fromRoot;
 
   return fallback;
 };
 
-const resolveTemplate = (tema: string): string | null => {
+const resolveTemplate = (tema: number | string): string | null => {
   const enunciadoRaw = getCatalogoTemaEconomiaSync(tema).enunciado;
   const root = asRecord(enunciadoRaw);
   if (!root) return null;
@@ -64,10 +70,19 @@ const renderTemplate = (template: string, values: Record<string, unknown>): stri
   });
 
 export const resolveTemaEnunciado = (
-  tema: string,
-  fallback: string,
-  values: Record<string, unknown>
+  tema: number | string,
+  valuesOrFallback: Record<string, unknown> | string,
+  fallbackOrValues: string | Record<string, unknown>
 ): string => {
+  const values =
+    typeof valuesOrFallback === "string"
+      ? (fallbackOrValues as Record<string, unknown>)
+      : valuesOrFallback;
+  const fallback =
+    typeof valuesOrFallback === "string"
+      ? valuesOrFallback
+      : (fallbackOrValues as string);
+
   const template = resolveTemplate(tema);
   if (!template) return fallback;
 

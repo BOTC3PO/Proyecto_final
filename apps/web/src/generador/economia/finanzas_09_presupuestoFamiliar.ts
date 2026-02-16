@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type CategoriaPresupuesto = "Ingreso" | "Gasto" | "Ahorro";
 
@@ -119,10 +120,12 @@ export const genFinanzasPresupuestoFamiliar: GeneratorFn = makeQuizGenerator(
       ];
       const indiceCorrecto = opciones.indexOf(item.categoriaCorrecta);
 
+      const fallbackEnunciado =
+        "En un presupuesto familiar, ¿cómo se clasifica el siguiente concepto?\n\n" +
+        item.descripcion;
+
       return {
-        enunciado:
-          "En un presupuesto familiar, ¿cómo se clasifica el siguiente concepto?\n\n" +
-          item.descripcion,
+        enunciado: resolveTemaEnunciado(9, { ...item }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

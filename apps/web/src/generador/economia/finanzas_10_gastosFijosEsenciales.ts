@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoGasto =
   | "Gasto fijo esencial"
@@ -120,9 +121,11 @@ export const genFinanzasGastosFijosEsenciales: GeneratorFn = makeQuizGenerator(
       ];
       const indiceCorrecto = opciones.indexOf(gasto.tipo);
 
+      const fallbackEnunciado =
+        "Clasificá el siguiente gasto del hogar:\n\n" + gasto.descripcion;
+
       return {
-        enunciado:
-          "Clasificá el siguiente gasto del hogar:\n\n" + gasto.descripcion,
+        enunciado: resolveTemaEnunciado(10, { ...gasto }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

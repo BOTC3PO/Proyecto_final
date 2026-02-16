@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoDecision = "Ahorro" | "Consumo responsable";
 
@@ -115,10 +116,12 @@ export const genFinanzasAhorroVsConsumoResponsable: GeneratorFn =
         const opciones: TipoDecision[] = ["Ahorro", "Consumo responsable"];
         const indiceCorrecto = opciones.indexOf(situacion.tipo);
 
+        const fallbackEnunciado =
+          "En la siguiente situación, ¿predomina el Ahorro o el Consumo responsable?\n\n" +
+          situacion.descripcion;
+
         return {
-          enunciado:
-            "En la siguiente situación, ¿predomina el Ahorro o el Consumo responsable?\n\n" +
-            situacion.descripcion,
+          enunciado: resolveTemaEnunciado(12, { ...situacion }, fallbackEnunciado),
           opciones,
           indiceCorrecto,
           explicacion:

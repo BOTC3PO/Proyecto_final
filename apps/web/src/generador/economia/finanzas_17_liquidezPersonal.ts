@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoLiquidez = "Dinero disponible" | "Dinero inmovilizado";
 
@@ -114,10 +115,12 @@ export const genFinanzasLiquidezPersonal: GeneratorFn = makeQuizGenerator(
       ];
       const indiceCorrecto = opciones.indexOf(item.tipo);
 
+      const fallbackEnunciado =
+        "Clasificá el siguiente recurso del hogar según su liquidez:\n\n" +
+        item.descripcion;
+
       return {
-        enunciado:
-          "Clasificá el siguiente recurso del hogar según su liquidez:\n\n" +
-          item.descripcion,
+        enunciado: resolveTemaEnunciado(17, { ...item }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

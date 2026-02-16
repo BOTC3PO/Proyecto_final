@@ -6,64 +6,21 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 export const genFinanzasInteresCompuesto: GeneratorFn = makeQuizGenerator(
   16,
   "Interés compuesto (capital × (1 + i)^t)",
   [
     (dificultad: Dificultad) => {
-      const rangosPorDificultad = {
-        basico: {
-          capitalMin: 5,
-          capitalMax: 15,
-          tasaMin: 4,
-          tasaMax: 10,
-          tiempoMin: 1,
-          tiempoMax: 2,
-          desvio: 35,
-        },
-        intermedio: {
-          capitalMin: 10,
-          capitalMax: 30,
-          tasaMin: 6,
-          tasaMax: 15,
-          tiempoMin: 1,
-          tiempoMax: 3,
-          desvio: 25,
-        },
-        avanzado: {
-          capitalMin: 15,
-          capitalMax: 40,
-          tasaMin: 8,
-          tasaMax: 18,
-          tiempoMin: 2,
-          tiempoMax: 4,
-          desvio: 20,
-        },
-        experto: {
-          capitalMin: 20,
-          capitalMax: 60,
-          tasaMin: 10,
-          tasaMax: 22,
-          tiempoMin: 2,
-          tiempoMax: 5,
-          desvio: 15,
-        },
-        maestro: {
-          capitalMin: 30,
-          capitalMax: 80,
-          tasaMin: 12,
-          tasaMax: 25,
-          tiempoMin: 3,
-          tiempoMax: 6,
-          desvio: 12,
-        },
-      };
+      const [capitalMin, capitalMax] = resolveTemaRange(16, dificultad, "capital", [5, 15]);
+      const [tasaMin, tasaMax] = resolveTemaRange(16, dificultad, "tasa", [4, 10]);
+      const [tiempoMin, tiempoMax] = resolveTemaRange(16, dificultad, "tiempo", [1, 2]);
+      const [desvioMin, desvioMax] = resolveTemaRange(16, dificultad, "desvio", [-35, 35]);
 
-      const rango = rangosPorDificultad[dificultad];
-      const capital = randInt(rango.capitalMin, rango.capitalMax) * 10000;
-      const tasa = randInt(rango.tasaMin, rango.tasaMax);
-      const tiempo = randInt(rango.tiempoMin, rango.tiempoMax);
+      const capital = randInt(capitalMin, capitalMax) * 10000;
+      const tasa = randInt(tasaMin, tasaMax);
+      const tiempo = randInt(tiempoMin, tiempoMax);
 
       // M = C (1 + i)^t
       const montoReal = Math.round(
@@ -75,7 +32,7 @@ export const genFinanzasInteresCompuesto: GeneratorFn = makeQuizGenerator(
       opcionesNumericas.add(montoReal);
 
       while (opcionesNumericas.size < 4) {
-        const desvioPorc = randInt(-rango.desvio, rango.desvio);
+        const desvioPorc = randInt(desvioMin, desvioMax);
         const candidato = Math.round(
           montoReal * (1 + desvioPorc / 100)
         );
@@ -91,11 +48,13 @@ export const genFinanzasInteresCompuesto: GeneratorFn = makeQuizGenerator(
       const correcta = "$ " + montoReal.toLocaleString("es-AR");
       const indiceCorrecto = opciones.indexOf(correcta);
 
+      const fallbackEnunciado =
+        `Una persona invierte $ ${capital.toLocaleString("es-AR")} ` +
+        `al interés compuesto del ${tasa}% anual durante ${tiempo} año(s).\n` +
+        `¿Cuál es el monto aproximado al final del período? (Usar M = C × (1 + i)^t)`;
+
       return {
-        enunciado:
-          `Una persona invierte $ ${capital.toLocaleString("es-AR")} ` +
-          `al interés compuesto del ${tasa}% anual durante ${tiempo} año(s).\n` +
-          `¿Cuál es el monto aproximado al final del período? (Usar M = C × (1 + i)^t)`,
+        enunciado: resolveTemaEnunciado(16, { capital, tasa, tiempo, montoReal }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

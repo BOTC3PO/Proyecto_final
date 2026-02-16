@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoSeguro =
   | "Seguro de hogar"
@@ -210,8 +211,10 @@ export const genFinanzasSegurosFamilia: GeneratorFn = makeQuizGenerator(
       const caso = pickOne(CASOS_POR_DIFICULTAD[dificultad]);
       const indiceCorrecto = caso.opciones.indexOf(caso.correcta);
 
+      const fallbackEnunciado = caso.enunciado;
+
       return {
-        enunciado: caso.enunciado,
+        enunciado: resolveTemaEnunciado(21, { ...caso }, fallbackEnunciado),
         opciones: caso.opciones,
         indiceCorrecto,
         explicacion:
