@@ -56,7 +56,11 @@ app.use(modulos);
 app.use(progreso);
 app.use(libros);
 app.use(estadisticas);
-app.use(seed);
+if (ENV.ENABLE_SEED_ENDPOINT) {
+  app.use(seed);
+} else {
+  app.use("/api/seed", (_req, res) => res.status(404).json({ error: "not found" }));
+}
 app.use(reportes);
 app.use(encuestas);
 app.use(aulas);
