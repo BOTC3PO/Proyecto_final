@@ -1,9 +1,10 @@
 import { Router } from "express";
+import { requireAdmin } from "../lib/admin-auth";
 import { getDb } from "../lib/db";
 
 export const seed = Router();
 
-seed.post("/api/seed/modulos", async (_req, res) => {
+seed.post("/api/seed/modulos", requireAdmin, async (_req, res) => {
   const db = await getDb();
   const now = new Date().toISOString();
   const modulosBase = [
