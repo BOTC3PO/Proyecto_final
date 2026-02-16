@@ -7,6 +7,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Tipo = "Aporte del trabajador" | "Contribución del empleador";
 
@@ -65,8 +66,7 @@ export const genQuizAportesContribuciones: GeneratorFn = makeQuizGenerator(
 
       return {
         enunciado:
-          "En esta situación del recibo de sueldo, ¿se trata de un aporte del trabajador o una contribución del empleador?\n\n" +
-          caso.desc,
+          resolveTemaEnunciado(48, { ...caso }, "En esta situación del recibo de sueldo, ¿se trata de un aporte del trabajador o una contribución del empleador?\n\n" + caso.desc),
         opciones,
         indiceCorrecto,
         explicacion:

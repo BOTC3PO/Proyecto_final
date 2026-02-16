@@ -7,6 +7,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Tipo = "Deuda buena" | "Deuda mala";
 
@@ -60,9 +61,11 @@ export const genQuizDeudaBuenaMala: GeneratorFn = makeQuizGenerator(
       const opciones: Tipo[] = ["Deuda buena", "Deuda mala"];
       const indiceCorrecto = opciones.indexOf(caso.tipo);
 
+      const fallbackEnunciado =
+        "Clasificá la siguiente situación de endeudamiento:\n\n" + caso.desc;
+
       return {
-        enunciado:
-          "Clasificá la siguiente situación de endeudamiento:\n\n" + caso.desc,
+        enunciado: resolveTemaEnunciado(49, { ...caso }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

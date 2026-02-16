@@ -8,6 +8,7 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 type Situacion = "Pérdida" | "Equilibrio" | "Ganancia";
 
@@ -16,9 +17,10 @@ export const genQuizGananciaVsEquilibrio: GeneratorFn = makeQuizGenerator(
   "Ganancia > equilibrio según Q vs Q* (quiz)",
   [
     (dificultad: Dificultad) => {
-      const [qMin, qMax] = ajustarRango(100, 1000, dificultad);
+      const [qMin, qMax] = resolveTemaRange(55, dificultad, "qEquilibrio", ajustarRango(100, 1000, dificultad));
       const qEquilibrio = randInt(qMin, qMax);
-      const offsetMax = Math.round(300 * dificultadFactor(dificultad));
+      const [offsetBase] = resolveTemaRange(55, dificultad, "offsetMax", [300, 300]);
+      const offsetMax = Math.round(offsetBase * dificultadFactor(dificultad));
       const offset = randInt(-offsetMax, offsetMax);
       const qReal = Math.max(0, qEquilibrio + offset);
 
@@ -30,11 +32,13 @@ export const genQuizGananciaVsEquilibrio: GeneratorFn = makeQuizGenerator(
       const opciones: Situacion[] = ["Pérdida", "Equilibrio", "Ganancia"];
       const indiceCorrecto = opciones.indexOf(situacion);
 
-      return {
-        enunciado:
+      const fallbackEnunciado =
           `El punto de equilibrio de una empresa es Q* = ${qEquilibrio} unidades.\n` +
           `En un período vende Q = ${qReal} unidades.\n\n` +
-          `Según la comparación entre Q y Q*, ¿la empresa está en pérdida, equilibrio o ganancia?`,
+          `Según la comparación entre Q y Q*, ¿la empresa está en pérdida, equilibrio o ganancia?`;
+
+      return {
+        enunciado: resolveTemaEnunciado(55, { qEquilibrio, qReal, situacion }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

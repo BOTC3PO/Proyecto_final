@@ -7,6 +7,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Tipo = "Interés simple" | "Interés compuesto";
 
@@ -62,8 +63,7 @@ export const genQuizInteresSimpleCompuesto: GeneratorFn = makeQuizGenerator(
 
       return {
         enunciado:
-          "Indicá si la siguiente descripción corresponde a interés simple o compuesto:\n\n" +
-          caso.desc,
+          resolveTemaEnunciado(53, { ...caso }, "Indicá si la siguiente descripción corresponde a interés simple o compuesto:\n\n" + caso.desc),
         opciones,
         indiceCorrecto,
         explicacion:

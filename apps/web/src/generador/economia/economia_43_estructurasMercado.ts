@@ -7,6 +7,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Mercado =
   | "Competencia perfecta"
@@ -97,8 +98,7 @@ export const genEstructurasMercado: GeneratorFn = makeQuizGenerator(
 
       return {
         enunciado:
-          "Identificá la estructura de mercado de la siguiente situación:\n\n" +
-          caso.descripcion,
+          resolveTemaEnunciado(43, { ...caso }, "Identificá la estructura de mercado de la siguiente situación:\n\n" + caso.descripcion),
         opciones,
         indiceCorrecto,
         explicacion: caso.explicacion,

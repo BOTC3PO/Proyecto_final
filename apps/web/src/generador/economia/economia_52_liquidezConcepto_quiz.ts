@@ -7,6 +7,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Tipo = "Alta liquidez" | "Baja liquidez";
 
@@ -62,8 +63,7 @@ export const genQuizLiquidezConcepto: GeneratorFn = makeQuizGenerator(
 
       return {
         enunciado:
-          "Según la siguiente situación, ¿la familia tiene alta o baja liquidez?\n\n" +
-          caso.desc,
+          resolveTemaEnunciado(52, { ...caso }, "Según la siguiente situación, ¿la familia tiene alta o baja liquidez?\n\n" + caso.desc),
         opciones,
         indiceCorrecto,
         explicacion:

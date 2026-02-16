@@ -9,14 +9,15 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 export const genProductividadEscolar: GeneratorFn = makeQuizGenerator(
   39,
   "Productividad escolar: Producción / Insumos",
   [
     (dificultad: Dificultad) => {
-      const [produccionMin, produccionMax] = ajustarRango(200, 2000, dificultad);
-      const [insumoMin, insumoMax] = ajustarRango(4, 40, dificultad, 2);
+      const [produccionMin, produccionMax] = resolveTemaRange(39, dificultad, "produccion", ajustarRango(200, 2000, dificultad));
+      const [insumoMin, insumoMax] = resolveTemaRange(39, dificultad, "insumo", ajustarRango(4, 40, dificultad, 2));
       const produccion = randInt(produccionMin, produccionMax);
       const insumo = randInt(insumoMin, insumoMax);
 
@@ -54,14 +55,16 @@ export const genProductividadEscolar: GeneratorFn = makeQuizGenerator(
       const opciones = Array.from(opcionesSet);
       const indiceCorrecto = opciones.indexOf(opcionCorrecta);
 
-      return {
-        enunciado:
+      const fallbackEnunciado =
           `En una actividad escolar se producen ${produccion.toLocaleString(
             "es-AR"
           )} unidades usando ${insumo.toLocaleString(
             "es-AR"
           )} unidades de insumo (por ejemplo, horas de trabajo).\n` +
-          `¿Cuál es la productividad aproximada (Producción / Insumos)?`,
+          `¿Cuál es la productividad aproximada (Producción / Insumos)?`;
+
+      return {
+        enunciado: resolveTemaEnunciado(39, { produccion, insumo, productividad: productividadRedondeada }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

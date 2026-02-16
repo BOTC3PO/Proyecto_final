@@ -7,6 +7,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 export const genCFTMayorInteres: GeneratorFn = makeQuizGenerator(
   46,
@@ -64,7 +65,7 @@ export const genCFTMayorInteres: GeneratorFn = makeQuizGenerator(
       const opciones = ["Verdadero", "Falso"];
 
       return {
-        enunciado: caso.enunciado,
+        enunciado: resolveTemaEnunciado(46, { ...caso }, caso.enunciado),
         opciones,
         indiceCorrecto: caso.indiceCorrecto,
         explicacion: caso.explicacion,

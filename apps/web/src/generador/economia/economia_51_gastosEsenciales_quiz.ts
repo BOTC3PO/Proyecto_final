@@ -7,6 +7,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Tipo = "Gasto esencial" | "Gasto no esencial";
 
@@ -72,8 +73,7 @@ export const genQuizGastosEsenciales: GeneratorFn = makeQuizGenerator(
 
       return {
         enunciado:
-          "En el presupuesto familiar, ¿cómo clasificarías el siguiente gasto?\n\n" +
-          caso.desc,
+          resolveTemaEnunciado(51, { ...caso }, "En el presupuesto familiar, ¿cómo clasificarías el siguiente gasto?\n\n" + caso.desc),
         opciones,
         indiceCorrecto,
         explicacion:
