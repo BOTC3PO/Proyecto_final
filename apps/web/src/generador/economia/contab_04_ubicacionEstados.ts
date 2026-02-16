@@ -2,6 +2,7 @@
 
 import { type Dificultad } from "../core/types";
 import { makeQuizGenerator, pickOne, randInt, type GeneratorFn } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 type Ubicacion =
   | "Activo Corriente"
@@ -47,12 +48,11 @@ export const genContabUbicacionEstados: GeneratorFn = makeQuizGenerator(
 
       let opciones: string[] = [correcta];
 
-      const opcionesPorDificultad: Record<Dificultad, number> = {
-        basico: 3,
-        intermedio: 4,
-        avanzado: 5,
-      };
-      const cantOpciones = opcionesPorDificultad[dificultad] ?? 4;
+      const [cantOpcionesRaw] = resolveTemaRange(4, dificultad, "cantOpciones", [
+        dificultad === "basico" ? 3 : dificultad === "intermedio" ? 4 : 5,
+        dificultad === "basico" ? 3 : dificultad === "intermedio" ? 4 : 5,
+      ]);
+      const cantOpciones = Math.max(2, Math.round(cantOpcionesRaw));
 
       const distractores = OPCIONES_ESTADO.filter((o) => o !== correcta);
       while (opciones.length < cantOpciones && distractores.length > 0) {
@@ -62,8 +62,10 @@ export const genContabUbicacionEstados: GeneratorFn = makeQuizGenerator(
 
       const indiceCorrecto = opciones.indexOf(correcta);
 
+      const fallbackEnunciado = `¿Dónde se ubica la cuenta "${cuenta.nombre}" en los estados contables?`;
+
       return {
-        enunciado: `¿Dónde se ubica la cuenta "${cuenta.nombre}" en los estados contables?`,
+        enunciado: resolveTemaEnunciado(4, { cuenta: cuenta.nombre }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

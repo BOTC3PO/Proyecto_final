@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Categoria = "Bien" | "Derecho" | "Obligación";
 
@@ -87,11 +88,12 @@ export const genContabBienesDerechosObligaciones: GeneratorFn =
         const item = pickOne(pool.length > 0 ? pool : ITEMS);
         const opciones: Categoria[] = ["Bien", "Derecho", "Obligación"];
         const indiceCorrecto = opciones.indexOf(item.categoria);
+        const fallbackEnunciado = `Clasificá el siguiente elemento del patrimonio como Bien, Derecho u Obligación
+
+${item.descripcion}`;
 
         return {
-          enunciado:
-            "Clasificá el siguiente elemento del patrimonio como Bien, Derecho u Obligación:\n\n" +
-            item.descripcion,
+          enunciado: resolveTemaEnunciado(6, { item: item.descripcion }, fallbackEnunciado),
           opciones,
           indiceCorrecto,
           explicacion:

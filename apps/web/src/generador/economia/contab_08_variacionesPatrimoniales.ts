@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoVariacion =
   | "Permutativa"
@@ -100,11 +101,12 @@ export const genContabVariacionesPatrimoniales: GeneratorFn =
           "Modificativa Disminutiva",
         ];
         const indiceCorrecto = opciones.indexOf(hecho.tipo);
+        const fallbackEnunciado = `Clasificá la siguiente operación según el tipo de variación patrimonial
+
+${hecho.descripcion}`;
 
         return {
-          enunciado:
-            "Clasificá la siguiente operación según el tipo de variación patrimonial:\n\n" +
-            hecho.descripcion,
+          enunciado: resolveTemaEnunciado(8, { hecho: hecho.descripcion }, fallbackEnunciado),
           opciones,
           indiceCorrecto,
           explicacion:

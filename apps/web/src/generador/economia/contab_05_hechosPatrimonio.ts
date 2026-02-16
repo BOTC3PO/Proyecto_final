@@ -2,6 +2,7 @@
 
 import { type Dificultad } from "../core/types";
 import { makeQuizGenerator, pickOne,type GeneratorFn } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Afecta = "Afecta el patrimonio" | "No afecta el patrimonio";
 
@@ -89,9 +90,12 @@ export const genContabHechosPatrimonio: GeneratorFn = makeQuizGenerator(
         "No afecta el patrimonio",
       ];
       const indiceCorrecto = opciones.indexOf(hecho.respuesta);
+      const fallbackEnunciado = `Indique si el siguiente hecho económico afecta o no afecta al patrimonio:
+
+${hecho.descripcion}`;
 
       return {
-        enunciado: `Indique si el siguiente hecho económico afecta o no afecta al patrimonio:\n\n${hecho.descripcion}`,
+        enunciado: resolveTemaEnunciado(5, { hecho: hecho.descripcion }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

@@ -6,6 +6,7 @@ import {
   randInt,
   randomBool,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 export const genContabSaldoNormal: GeneratorFn = makeQuizGenerator(
   3,
@@ -25,12 +26,16 @@ export const genContabSaldoNormal: GeneratorFn = makeQuizGenerator(
             randInt(0, cuentasPorNaturaleza.acreedora.length - 1)
           ];
 
-      const rangosPorDificultad: Record<Dificultad, [number, number]> = {
-        basico: [5, 10],
-        intermedio: [8, 16],
-        avanzado: [12, 25],
-      };
-      const [min, max] = rangosPorDificultad[dificultad] ?? [5, 20];
+      const [min, max] = resolveTemaRange(
+        3,
+        dificultad,
+        "asientosBase",
+        dificultad === "basico"
+          ? [5, 10]
+          : dificultad === "intermedio"
+            ? [8, 16]
+            : [12, 25]
+      );
 
       // Débitos y Créditos aleatorios
       const debitos = randInt(min, max) * 1000;
@@ -55,11 +60,17 @@ export const genContabSaldoNormal: GeneratorFn = makeQuizGenerator(
           ? " El saldo se calcula sumando todos los débitos, restando todos los créditos y verificando el lado con mayor importe en la cuenta T."
           : "";
 
+      const fallbackEnunciado =
+        `En la cuenta "${nombreCuenta}" se registraron Débitos por ` +
+        `${debitos.toLocaleString("es-AR")} y Créditos por ` +
+        `${creditos.toLocaleString("es-AR")}. ¿Cuál es el saldo final y su tipo?`;
+
       return {
-        enunciado:
-          `En la cuenta "${nombreCuenta}" se registraron Débitos por ` +
-          `${debitos.toLocaleString("es-AR")} y Créditos por ` +
-          `${creditos.toLocaleString("es-AR")}. ¿Cuál es el saldo final y su tipo?`,
+        enunciado: resolveTemaEnunciado(
+          3,
+          { nombreCuenta, debitos, creditos },
+          fallbackEnunciado
+        ),
         opciones,
         indiceCorrecto,
         explicacion:
