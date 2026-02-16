@@ -1,96 +1,76 @@
 import { getCatalogoTemaEconomiaSync } from "./catalogoApi";
 import type { Dificultad } from "./generico";
 
-const isRecord = (value: unknown): value is Record<string, unknown> =>
-  typeof value === "object" && value !== null && !Array.isArray(value);
+type UnknownRecord = Record<string, unknown>;
 
-const normalizeDificultad = (dificultad: Dificultad): "basico" | "intermedio" | "avanzado" => {
-  if (dificultad === "basico" || dificultad === "intermedio" || dificultad === "avanzado") {
-    return dificultad;
-  }
-  return "intermedio";
-};
+const asRecord = (value: unknown): UnknownRecord | null =>
+  value && typeof value === "object" && !Array.isArray(value)
+    ? (value as UnknownRecord)
+    : null;
 
 const asTupleRange = (value: unknown): [number, number] | null => {
   if (!Array.isArray(value) || value.length < 2) return null;
-  const min = Number(value[0]);
-  const max = Number(value[1]);
-  if (!Number.isFinite(min) || !Number.isFinite(max)) return null;
+  const [min, max] = value;
+  if (typeof min !== "number" || typeof max !== "number") return null;
   return [min, max];
 };
 
-const renderTemplate = (template: string, variables: Record<string, unknown>): string =>
-  template
-    .replace(/\{\{\s*([\w.]+)\s*\}\}/g, (_, key: string) => String(variables[key] ?? ""))
-    .replace(/\{\s*([\w.]+)\s*\}/g, (_, key: string) => String(variables[key] ?? ""));
-
-const getTemaLimits = (tema: number): Record<string, unknown> | null => {
-  const rawLimits = getCatalogoTemaEconomiaSync(String(tema)).limits;
-  if (!isRecord(rawLimits)) return null;
-  if (isRecord(rawLimits.limits)) return rawLimits.limits;
-  return rawLimits;
-};
-
-export function resolveTemaRange(
-  tema: number,
+export const resolveTemaRange = (
+  tema: string,
   dificultad: Dificultad,
   key: string,
   fallback: [number, number]
-): [number, number] {
-  const limits = getTemaLimits(tema);
-  if (!limits) return fallback;
+): [number, number] => {
+  const limits = getCatalogoTemaEconomiaSync(tema).limits;
+  const root = asRecord(limits);
+  if (!root) return fallback;
 
-  const dif = normalizeDificultad(dificultad);
-  const porDificultad = isRecord(limits.porDificultad) ? limits.porDificultad : null;
-  const nivel = porDificultad && isRecord(porDificultad[dif]) ? porDificultad[dif] : null;
-  const nivelRangos = nivel && isRecord(nivel.rangos) ? nivel.rangos : null;
+  const porDificultad = asRecord(root.porDificultad);
+  const nivel = asRecord(porDificultad?.[dificultad]);
+  const rangos = asRecord(nivel?.rangos);
 
-  const fromPorDificultad = asTupleRange(nivelRangos?.[key]);
-  if (fromPorDificultad) return fromPorDificultad;
+  const direct = asTupleRange(rangos?.[key]);
+  if (direct) return direct;
 
-  const byDificultad = isRecord(limits[dif]) ? (limits[dif] as Record<string, unknown>) : null;
-  const fromNestedDificultad = asTupleRange(byDificultad?.[key]);
-  if (fromNestedDificultad) return fromNestedDificultad;
-
-  const rangos = isRecord(limits.rangos) ? limits.rangos : null;
-  const fromRangosPlano = asTupleRange(rangos?.[key]);
-  if (fromRangosPlano) return fromRangosPlano;
-
-  const fromPlano = asTupleRange(limits[key]);
-  if (fromPlano) return fromPlano;
+  const limitsRoot = asRecord(root.limits);
+  const fromSuggestedSchema = asTupleRange(asRecord(limitsRoot?.[dificultad])?.[key]);
+  if (fromSuggestedSchema) return fromSuggestedSchema;
 
   return fallback;
-}
+};
 
-export function resolveTemaEnunciado(
-  tema: number,
-  variables: Record<string, unknown>,
-  fallbackTexto: string
-): string {
-  const raw = getCatalogoTemaEconomiaSync(String(tema)).enunciado;
-  let template: string | null = null;
+const resolveTemplate = (tema: string): string | null => {
+  const enunciadoRaw = getCatalogoTemaEconomiaSync(tema).enunciado;
+  const root = asRecord(enunciadoRaw);
+  if (!root) return null;
 
-  if (typeof raw === "string") {
-    template = raw;
-  } else if (isRecord(raw)) {
-    if (typeof raw.template === "string") {
-      template = raw.template;
-    } else if (typeof raw.enunciado === "string") {
-      template = raw.enunciado;
-    } else if (typeof raw.texto === "string") {
-      template = raw.texto;
-    } else if (Array.isArray(raw.enunciados)) {
-      const first = raw.enunciados.find((item) => isRecord(item) && typeof item.template === "string") as
-        | Record<string, unknown>
-        | undefined;
-      if (first && typeof first.template === "string") {
-        template = first.template;
-      }
-    }
+  if (typeof root.enunciado === "string" && root.enunciado.trim().length > 0) {
+    return root.enunciado;
   }
 
-  if (!template || template.trim().length === 0) return fallbackTexto;
+  const enunciados = root.enunciados;
+  if (!Array.isArray(enunciados) || enunciados.length === 0) return null;
+  const first = asRecord(enunciados[0]);
+  if (!first) return null;
+  const template = first.template;
+  return typeof template === "string" && template.trim().length > 0 ? template : null;
+};
 
-  const rendered = renderTemplate(template, variables).trim();
-  return rendered.length > 0 ? rendered : fallbackTexto;
-}
+const renderTemplate = (template: string, values: Record<string, unknown>): string =>
+  template.replaceAll(/\{\{(\w+)\}\}|\{(\w+)\}/g, (_m, k1?: string, k2?: string) => {
+    const key = k1 ?? k2 ?? "";
+    const value = values[key];
+    return value === undefined || value === null ? "" : String(value);
+  });
+
+export const resolveTemaEnunciado = (
+  tema: string,
+  fallback: string,
+  values: Record<string, unknown>
+): string => {
+  const template = resolveTemplate(tema);
+  if (!template) return fallback;
+
+  const rendered = renderTemplate(template, values).trim();
+  return rendered.length > 0 ? rendered : fallback;
+};
