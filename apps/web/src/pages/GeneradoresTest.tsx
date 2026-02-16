@@ -12,6 +12,7 @@ import { GENERADORES_QUIMICA_DESCRIPTORES, GENERADORES_QUIMICA } from "../genera
 import { GENERADORES_ECONOMIA_DESCRIPTORES, GENERADORES_ECONOMIA_POR_CLAVE } from "../generador/economia/indexEconomia";
 import { createGeneradoresFisica } from "../generador/fisica/indexFisica";
 import { crearCalculadoraFisica } from "../generador/fisica/calculadora";
+import { precargarCatalogoTemaFisicaPorGeneratorId } from "../generador/fisica/catalogoApi";
 import { createPrng } from "../generador/core/prng";
 import VisualizerRenderer from "../visualizadores/graficos/VisualizerRenderer";
 import type { VisualSpec } from "../visualizadores/types";
@@ -139,6 +140,8 @@ export default function GeneradoresTest() {
   const [quimicaPreloadError, setQuimicaPreloadError] = useState<string | null>(null);
   const [matematicaPreloadLoading, setMatematicaPreloadLoading] = useState(false);
   const [matematicaPreloadError, setMatematicaPreloadError] = useState<string | null>(null);
+  const [fisicaPreloadLoading, setFisicaPreloadLoading] = useState(false);
+  const [fisicaPreloadError, setFisicaPreloadError] = useState<string | null>(null);
   const [visualizadoresEjemplo, setVisualizadoresEjemplo] = useState<VisualizadorEjemplo[]>([]);
   const [visualizadoresLoading, setVisualizadoresLoading] = useState(false);
   const [visualizadoresError, setVisualizadoresError] = useState<string | null>(null);
@@ -295,6 +298,42 @@ export default function GeneradoresTest() {
 
   const calculadoraFisica = useMemo(() => crearCalculadoraFisica(), []);
 
+  useEffect(() => {
+    if (materia !== "fisica") {
+      setFisicaPreloadError(null);
+      setFisicaPreloadLoading(false);
+      return;
+    }
+
+    if (!generadorSeleccionado) {
+      setFisicaPreloadError(null);
+      setFisicaPreloadLoading(false);
+      return;
+    }
+
+    let active = true;
+    setFisicaPreloadLoading(true);
+    setFisicaPreloadError(null);
+
+    void precargarCatalogoTemaFisicaPorGeneratorId(generadorSeleccionado)
+      .catch((error: unknown) => {
+        if (!active) return;
+        setFisicaPreloadError(
+          error instanceof Error
+            ? error.message
+            : "No se pudo precargar consignas de física."
+        );
+      })
+      .finally(() => {
+        if (!active) return;
+        setFisicaPreloadLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [materia, generadorSeleccionado]);
+
 
   useEffect(() => {
     if (materia !== "quimica") {
@@ -438,6 +477,12 @@ export default function GeneradoresTest() {
             (item) => item.id === generadorSeleccionado
           );
           if (!generator) throw new Error("Generador de física no disponible.");
+          if (fisicaPreloadLoading) {
+            throw new Error("Esperá a que finalice la precarga de consignas de física.");
+          }
+          if (fisicaPreloadError) {
+            throw new Error(fisicaPreloadError);
+          }
 
           const params: GeneradorParametros = {
             materia: "fisica",
@@ -580,6 +625,12 @@ export default function GeneradoresTest() {
               ) : null}
               {materia === "quimica" && quimicaPreloadError ? (
                 <p className="mt-1 text-xs text-red-600">Error de consignas: {quimicaPreloadError}</p>
+              ) : null}
+              {materia === "fisica" && fisicaPreloadLoading ? (
+                <p className="mt-1 text-xs text-gray-500">Precargando consignas de física…</p>
+              ) : null}
+              {materia === "fisica" && fisicaPreloadError ? (
+                <p className="mt-1 text-xs text-red-600">Error de consignas: {fisicaPreloadError}</p>
               ) : null}
               {materia === "matematica" && matematicaPreloadLoading ? (
                 <p className="mt-1 text-xs text-gray-500">Precargando límites de matemáticas…</p>

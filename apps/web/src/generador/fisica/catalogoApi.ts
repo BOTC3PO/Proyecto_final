@@ -8,6 +8,7 @@ type CatalogoTemaFisica = {
 const catalogosPorTema = new Map<string, CatalogoTemaFisica>();
 const pendingPorTema = new Map<string, Promise<void>>();
 let temasDisponibles: string[] | null = null;
+const temaPorGeneratorId = new Map<string, string>();
 
 const getOrCreateTema = (tema: string): CatalogoTemaFisica => {
   const actual = catalogosPorTema.get(tema);
@@ -75,4 +76,35 @@ export async function precargarCatalogoTemaFisica(tema: string): Promise<void> {
   } finally {
     pendingPorTema.delete(tema);
   }
+}
+
+const extractSlugFromGeneratorId = (generatorId: string): string => {
+  const normalized = generatorId.trim();
+  if (!normalized) return "";
+  const segmentos = normalized.split("/").filter(Boolean);
+  return segmentos.at(-1) ?? "";
+};
+
+const resolveTemaFisicaByGeneratorId = async (generatorId: string): Promise<string> => {
+  const cached = temaPorGeneratorId.get(generatorId);
+  if (cached) return cached;
+
+  const slug = extractSlugFromGeneratorId(generatorId);
+  if (!slug) {
+    throw new Error("No se pudo resolver el tema de física: id de generador inválido.");
+  }
+
+  const temas = await listarTemasFisica();
+  const tema = temas.find((item) => item.endsWith(`_${slug}`));
+  if (!tema) {
+    throw new Error(`No existe carpeta de consignas para el generador ${generatorId}.`);
+  }
+
+  temaPorGeneratorId.set(generatorId, tema);
+  return tema;
+};
+
+export async function precargarCatalogoTemaFisicaPorGeneratorId(generatorId: string): Promise<void> {
+  const tema = await resolveTemaFisicaByGeneratorId(generatorId);
+  await precargarCatalogoTemaFisica(tema);
 }
