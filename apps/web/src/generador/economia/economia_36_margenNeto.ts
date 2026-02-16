@@ -9,14 +9,15 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 export const genMargenNeto: GeneratorFn = makeQuizGenerator(
   36,
   "Margen neto: Resultado Neto / Ventas",
   [
     (dificultad: Dificultad) => {
-      const [ventasMin, ventasMax] = ajustarRango(100, 300, dificultad);
-      const [netoMin, netoMax] = ajustarRango(20, 150, dificultad);
+      const [ventasMin, ventasMax] = resolveTemaRange(36, dificultad, "ventas", ajustarRango(100, 300, dificultad));
+      const [netoMin, netoMax] = resolveTemaRange(36, dificultad, "resultadoNeto", ajustarRango(20, 150, dificultad));
       const ventas = randInt(ventasMin, ventasMax) * 1000;
       const resultadoNeto = randInt(netoMin, netoMax) * 1000;
 
@@ -51,14 +52,16 @@ export const genMargenNeto: GeneratorFn = makeQuizGenerator(
       const opciones = Array.from(opcionesSet);
       const indiceCorrecto = opciones.indexOf(opcionCorrecta);
 
-      return {
-        enunciado:
+      const fallbackEnunciado =
           `Una empresa tiene Ventas por $ ${ventas.toLocaleString(
             "es-AR"
           )} y un Resultado Neto de $ ${resultadoNeto.toLocaleString(
             "es-AR"
           )}.\n` +
-          `¿Cuál es el margen neto aproximado (Resultado Neto / Ventas × 100)?`,
+          `¿Cuál es el margen neto aproximado (Resultado Neto / Ventas × 100)?`;
+
+      return {
+        enunciado: resolveTemaEnunciado(36, { ventas, resultadoNeto }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

@@ -7,6 +7,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoBien =
   | "Bien libre"
@@ -123,7 +124,7 @@ export const genClasificacionBienes: GeneratorFn = makeQuizGenerator(
       const indiceCorrecto = caso.opciones.indexOf(caso.correcta);
 
       return {
-        enunciado: caso.enunciado,
+        enunciado: resolveTemaEnunciado(41, { ...caso }, caso.enunciado),
         opciones: caso.opciones,
         indiceCorrecto,
         explicacion: caso.explicacion,

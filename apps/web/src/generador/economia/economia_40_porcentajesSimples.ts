@@ -8,6 +8,7 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 type TipoCaso = "descuento" | "aumento" | "impuesto";
 
@@ -20,8 +21,8 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
       const tipo = tipos[randInt(0, tipos.length - 1)];
 
       if (tipo === "descuento") {
-        const [precioMin, precioMax] = ajustarRango(10, 80, dificultad);
-        const [porcentajeMin, porcentajeMax] = ajustarRango(5, 40, dificultad, 1);
+        const [precioMin, precioMax] = resolveTemaRange(40, dificultad, "precio", ajustarRango(10, 80, dificultad));
+        const [porcentajeMin, porcentajeMax] = resolveTemaRange(40, dificultad, "porcentajeDescuento", ajustarRango(5, 40, dificultad, 1));
         const precio = randInt(precioMin, precioMax) * 1000;
         const porcentaje = randInt(porcentajeMin, porcentajeMax);
 
@@ -50,12 +51,14 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
         const opciones = Array.from(opcionesSet);
         const indiceCorrecto = opciones.indexOf(opcionCorrecta);
 
-        return {
-          enunciado:
+        const fallbackEnunciado =
             `Un producto del hogar cuesta $ ${precio.toLocaleString(
               "es-AR"
             )} y tiene un descuento del ${porcentaje}%.\n` +
-            `¿Cuál es el precio final a pagar? (Usar Precio final = Precio – Precio × %)`,
+            `¿Cuál es el precio final a pagar? (Usar Precio final = Precio – Precio × %)`;
+
+        return {
+          enunciado: resolveTemaEnunciado(40, { tipo, precio, porcentaje, precioFinal }, fallbackEnunciado),
           opciones,
           indiceCorrecto,
           explicacion:
@@ -64,8 +67,8 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
       }
 
       if (tipo === "aumento") {
-        const [precioMin, precioMax] = ajustarRango(10, 80, dificultad);
-        const [porcentajeMin, porcentajeMax] = ajustarRango(5, 40, dificultad, 1);
+        const [precioMin, precioMax] = resolveTemaRange(40, dificultad, "precio", ajustarRango(10, 80, dificultad));
+        const [porcentajeMin, porcentajeMax] = resolveTemaRange(40, dificultad, "porcentajeAumento", ajustarRango(5, 40, dificultad, 1));
         const precio = randInt(precioMin, precioMax) * 1000;
         const porcentaje = randInt(porcentajeMin, porcentajeMax);
 
@@ -94,12 +97,14 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
         const opciones = Array.from(opcionesSet);
         const indiceCorrecto = opciones.indexOf(opcionCorrecta);
 
-        return {
-          enunciado:
+        const fallbackEnunciado =
             `Un servicio del hogar cuesta $ ${precio.toLocaleString(
               "es-AR"
             )} y aumenta un ${porcentaje}%.\n` +
-            `¿Cuál es el nuevo precio? (Usar Precio final = Precio + Precio × %)`,
+            `¿Cuál es el nuevo precio? (Usar Precio final = Precio + Precio × %)`;
+
+        return {
+          enunciado: resolveTemaEnunciado(40, { tipo, precio, porcentaje, precioFinal }, fallbackEnunciado),
           opciones,
           indiceCorrecto,
           explicacion:
@@ -108,8 +113,8 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
       }
 
       // impuesto simple
-      const [baseMin, baseMax] = ajustarRango(10, 80, dificultad);
-      const [porcentajeMin, porcentajeMax] = ajustarRango(5, 30, dificultad, 1);
+      const [baseMin, baseMax] = resolveTemaRange(40, dificultad, "base", ajustarRango(10, 80, dificultad));
+      const [porcentajeMin, porcentajeMax] = resolveTemaRange(40, dificultad, "porcentajeImpuesto", ajustarRango(5, 30, dificultad, 1));
       const base = randInt(baseMin, baseMax) * 1000;
       const porcentaje = randInt(porcentajeMin, porcentajeMax);
 
@@ -138,12 +143,14 @@ export const genPorcentajesSimples: GeneratorFn = makeQuizGenerator(
       const opciones = Array.from(opcionesSet);
       const indiceCorrecto = opciones.indexOf(opcionCorrecta);
 
-      return {
-        enunciado:
+      const fallbackEnunciado =
           `Una familia debe pagar un impuesto simple del ${porcentaje}% sobre un monto base de $ ${base.toLocaleString(
             "es-AR"
           )}.\n` +
-          `¿Cuál es el monto total a pagar (base + impuesto)?`,
+          `¿Cuál es el monto total a pagar (base + impuesto)?`;
+
+      return {
+        enunciado: resolveTemaEnunciado(40, { tipo, base, porcentaje, total }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:

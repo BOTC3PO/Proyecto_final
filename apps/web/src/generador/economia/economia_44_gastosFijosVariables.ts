@@ -7,6 +7,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoGasto = "Gasto fijo" | "Gasto variable";
 
@@ -88,8 +89,7 @@ export const genGastosFijosVariables: GeneratorFn = makeQuizGenerator(
 
       return {
         enunciado:
-          "Clasificá el siguiente gasto de la empresa como fijo o variable:\n\n" +
-          gasto.descripcion,
+          resolveTemaEnunciado(44, { ...gasto }, "Clasificá el siguiente gasto de la empresa como fijo o variable:\n\n" + gasto.descripcion),
         opciones,
         indiceCorrecto,
         explicacion: gasto.detalle,

@@ -7,6 +7,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Agente =
   | "Hogares/Familias"
@@ -97,8 +98,7 @@ export const genAgentesEconomicos: GeneratorFn = makeQuizGenerator(
 
       return {
         enunciado:
-          "En el flujo circular de la economía escolar, ¿qué agente económico corresponde a la siguiente descripción?\n\n" +
-          caso.descripcion,
+          resolveTemaEnunciado(42, { ...caso }, "En el flujo circular de la economía escolar, ¿qué agente económico corresponde a la siguiente descripción?\n\n" + caso.descripcion),
         opciones,
         indiceCorrecto,
         explicacion: caso.explicacion,

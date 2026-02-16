@@ -8,19 +8,22 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 export const genPuntoEquilibrio: GeneratorFn = makeQuizGenerator(
   38,
   "Punto de equilibrio simple: CF / (P – CVu)",
   [
     (dificultad: Dificultad) => {
-      const [costoFijoMin, costoFijoMax] = ajustarRango(200, 800, dificultad);
-      const [precioMin, precioMax] = ajustarRango(2000, 8000, dificultad);
+      const [costoFijoMin, costoFijoMax] = resolveTemaRange(38, dificultad, "costoFijo", ajustarRango(200, 800, dificultad));
+      const [precioMin, precioMax] = resolveTemaRange(38, dificultad, "precioUnitario", ajustarRango(2000, 8000, dificultad));
       const costoFijo = randInt(costoFijoMin, costoFijoMax) * 1000;
       const precioUnitario = randInt(precioMin, precioMax);
       const factor = dificultadFactor(dificultad);
-      const margenMin = Math.max(300, Math.round(500 * factor));
-      const costoVariableMin = Math.max(100, Math.round(300 * factor));
+      const [margenMinBase] = resolveTemaRange(38, dificultad, "margenMin", [500, 500]);
+      const [costoVariableMinBase] = resolveTemaRange(38, dificultad, "costoVariableMin", [300, 300]);
+      const margenMin = Math.max(300, Math.round(margenMinBase * factor));
+      const costoVariableMin = Math.max(100, Math.round(costoVariableMinBase * factor));
       const costoVariableMax = Math.max(costoVariableMin + 1, precioUnitario - margenMin);
       const costoVariableUnitario = randInt(costoVariableMin, costoVariableMax);
 
@@ -42,8 +45,7 @@ export const genPuntoEquilibrio: GeneratorFn = makeQuizGenerator(
       const opciones = Array.from(opcionesSet);
       const indiceCorrecto = opciones.indexOf(opcionCorrecta);
 
-      return {
-        enunciado:
+      const fallbackEnunciado =
           `Una empresa tiene Costos Fijos de $ ${costoFijo.toLocaleString(
             "es-AR"
           )}.\n` +
@@ -52,7 +54,14 @@ export const genPuntoEquilibrio: GeneratorFn = makeQuizGenerator(
           )} por unidad y el costo variable unitario (CVu) es de $ ${costoVariableUnitario.toLocaleString(
             "es-AR"
           )}.\n` +
-          `¿Cuál es el punto de equilibrio aproximado en unidades (PE = CF / (P – CVu))?`,
+          `¿Cuál es el punto de equilibrio aproximado en unidades (PE = CF / (P – CVu))?`;
+
+      return {
+        enunciado: resolveTemaEnunciado(
+          38,
+          { costoFijo, precioUnitario, costoVariableUnitario, qEquilibrio },
+          fallbackEnunciado
+        ),
         opciones,
         indiceCorrecto,
         explicacion:

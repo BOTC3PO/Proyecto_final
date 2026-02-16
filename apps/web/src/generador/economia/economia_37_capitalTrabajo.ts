@@ -8,14 +8,15 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
 export const genCapitalTrabajo: GeneratorFn = makeQuizGenerator(
   37,
   "Capital de trabajo: Activo Corriente – Pasivo Corriente",
   [
     (dificultad: Dificultad) => {
-      const [activoMin, activoMax] = ajustarRango(100, 300, dificultad);
-      const [pasivoMin, pasivoMax] = ajustarRango(50, 250, dificultad);
+      const [activoMin, activoMax] = resolveTemaRange(37, dificultad, "activoCorriente", ajustarRango(100, 300, dificultad));
+      const [pasivoMin, pasivoMax] = resolveTemaRange(37, dificultad, "pasivoCorriente", ajustarRango(50, 250, dificultad));
       const activoCorriente = randInt(activoMin, activoMax) * 1000;
       const pasivoCorriente = randInt(pasivoMin, pasivoMax) * 1000;
       const capitalTrabajo = activoCorriente - pasivoCorriente;
@@ -39,14 +40,16 @@ export const genCapitalTrabajo: GeneratorFn = makeQuizGenerator(
       const opciones = Array.from(opcionesSet);
       const indiceCorrecto = opciones.indexOf(opcionCorrecta);
 
-      return {
-        enunciado:
+      const fallbackEnunciado =
           `Una empresa presenta un Activo Corriente de $ ${activoCorriente.toLocaleString(
             "es-AR"
           )} y un Pasivo Corriente de $ ${pasivoCorriente.toLocaleString(
             "es-AR"
           )}.\n` +
-          `¿Cuál es su capital de trabajo (AC – PC)?`,
+          `¿Cuál es su capital de trabajo (AC – PC)?`;
+
+      return {
+        enunciado: resolveTemaEnunciado(37, { activoCorriente, pasivoCorriente }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:
