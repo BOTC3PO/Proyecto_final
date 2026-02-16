@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoIngreso = "Ingreso activo" | "Ingreso pasivo";
 
@@ -121,10 +122,12 @@ export const genFinanzasIngresosActivosPasivos: GeneratorFn =
         ];
         const indiceCorrecto = opciones.indexOf(ingreso.tipo);
 
+        const fallbackEnunciado =
+          "Clasificá el siguiente ingreso del hogar:\n\n" +
+          ingreso.descripcion;
+
         return {
-          enunciado:
-            "Clasificá el siguiente ingreso del hogar:\n\n" +
-            ingreso.descripcion,
+          enunciado: resolveTemaEnunciado(18, { ...ingreso }, fallbackEnunciado),
           opciones,
           indiceCorrecto,
           explicacion:

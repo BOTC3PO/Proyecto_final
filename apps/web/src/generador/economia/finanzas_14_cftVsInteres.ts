@@ -6,6 +6,7 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
 
 type Concepto = "Interés" | "Costo financiero total (CFT)";
 
@@ -114,10 +115,12 @@ export const genFinanzasCftVsInteres: GeneratorFn = makeQuizGenerator(
       const opciones: Concepto[] = ["Interés", "Costo financiero total (CFT)"];
       const indiceCorrecto = opciones.indexOf(caso.respuesta);
 
+      const fallbackEnunciado =
+        "El siguiente enunciado se refiere principalmente a Interés o a Costo financiero total (CFT):\n\n" +
+        caso.descripcion;
+
       return {
-        enunciado:
-          "El siguiente enunciado se refiere principalmente a Interés o a Costo financiero total (CFT):\n\n" +
-          caso.descripcion,
+        enunciado: resolveTemaEnunciado(14, { ...caso }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion:
