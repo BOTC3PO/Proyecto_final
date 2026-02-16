@@ -1,4 +1,4 @@
-import express from "express";
+import express, { type Request } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
@@ -38,7 +38,15 @@ const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
 app.use(morgan("tiny"));
-app.use(express.json());
+app.use("/api/payments/webhook", express.raw({ type: "application/json" }));
+app.use(express.json({
+  verify: (req, _res, buf) => {
+    const request = req as Request;
+    if (request.originalUrl === "/api/payments/webhook") {
+      request.rawBody = Buffer.from(buf);
+    }
+  }
+}));
 app.use(
   createRateLimiter({
     windowMs: 15 * 60 * 1000,
