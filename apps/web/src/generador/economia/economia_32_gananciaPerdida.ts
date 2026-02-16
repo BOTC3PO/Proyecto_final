@@ -8,14 +8,19 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
+
+const TEMA = "32_economia_gananciaPerdida";
 
 export const genGananciaPerdida: GeneratorFn = makeQuizGenerator(
   32,
   "Ganancia / Pérdida: Ingreso Total – Costo Total",
   [
     (dificultad: Dificultad) => {
-      const [ingresoMin, ingresoMax] = ajustarRango(50, 200, dificultad);
-      const [costoMin, costoMax] = ajustarRango(30, 180, dificultad);
+      const [ingresoBaseMin, ingresoBaseMax] = resolveTemaRange(TEMA, dificultad, "ingreso_total", [50, 200]);
+      const [ingresoMin, ingresoMax] = ajustarRango(ingresoBaseMin, ingresoBaseMax, dificultad);
+      const [costoBaseMin, costoBaseMax] = resolveTemaRange(TEMA, dificultad, "costo_total", [30, 180]);
+      const [costoMin, costoMax] = ajustarRango(costoBaseMin, costoBaseMax, dificultad);
       const ingresoTotal = randInt(ingresoMin, ingresoMax) * 1000;
       const costoTotal = randInt(costoMin, costoMax) * 1000;
 
@@ -46,14 +51,19 @@ export const genGananciaPerdida: GeneratorFn = makeQuizGenerator(
       const opciones = Array.from(opcionesSet);
       const indiceCorrecto = opciones.indexOf(opcionCorrectaTexto);
 
+      const enunciadoFallback =
+        `Una actividad económica obtiene un Ingreso Total (IT) de $ ${ingresoTotal.toLocaleString(
+          "es-AR"
+        )} y un Costo Total (CT) de $ ${costoTotal.toLocaleString("es-AR")}.\n` +
+        `¿Cuál es el resultado (ganancia o pérdida) usando: Resultado = IT – CT?`;
+
       return {
-        enunciado:
-          `Una actividad económica obtiene un Ingreso Total (IT) de $ ${ingresoTotal.toLocaleString(
-            "es-AR"
-          )} y un Costo Total (CT) de $ ${costoTotal.toLocaleString(
-            "es-AR"
-          )}.\n` +
-          `¿Cuál es el resultado (ganancia o pérdida) usando: Resultado = IT – CT?`,
+        enunciado: resolveTemaEnunciado(TEMA, enunciadoFallback, {
+          ingreso_total: ingresoTotal.toLocaleString("es-AR"),
+          costo_total: costoTotal.toLocaleString("es-AR"),
+          IT: ingresoTotal.toLocaleString("es-AR"),
+          CT: costoTotal.toLocaleString("es-AR"),
+        }),
         opciones,
         indiceCorrecto,
         explicacion:

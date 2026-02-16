@@ -9,14 +9,19 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
+
+const TEMA = "35_economia_margenBruto";
 
 export const genMargenBruto: GeneratorFn = makeQuizGenerator(
   35,
   "Margen bruto: Ganancia Bruta / Ventas",
   [
     (dificultad: Dificultad) => {
-      const [ventasMin, ventasMax] = ajustarRango(100, 300, dificultad);
-      const [costoMin, costoMax] = ajustarRango(50, 250, dificultad);
+      const [ventasBaseMin, ventasBaseMax] = resolveTemaRange(TEMA, dificultad, "ventas", [100, 300]);
+      const [ventasMin, ventasMax] = ajustarRango(ventasBaseMin, ventasBaseMax, dificultad);
+      const [costoBaseMin, costoBaseMax] = resolveTemaRange(TEMA, dificultad, "costo_ventas", [50, 250]);
+      const [costoMin, costoMax] = ajustarRango(costoBaseMin, costoBaseMax, dificultad);
       const ventas = randInt(ventasMin, ventasMax) * 1000;
       const costoVentas = randInt(costoMin, costoMax) * 1000;
 
@@ -52,15 +57,19 @@ export const genMargenBruto: GeneratorFn = makeQuizGenerator(
       const opciones = Array.from(opcionesSet);
       const indiceCorrecto = opciones.indexOf(opcionCorrecta);
 
+      const enunciadoFallback =
+        `Una empresa tiene Ventas por $ ${ventas.toLocaleString("es-AR")} y Costo de ventas por $ ${costoVentas.toLocaleString(
+          "es-AR"
+        )}.\n` +
+        `La Ganancia Bruta es Ventas – Costo de ventas.\n` +
+        `¿Cuál es el margen bruto aproximado (Ganancia Bruta / Ventas × 100)?`;
+
       return {
-        enunciado:
-          `Una empresa tiene Ventas por $ ${ventas.toLocaleString(
-            "es-AR"
-          )} y Costo de ventas por $ ${costoVentas.toLocaleString(
-            "es-AR"
-          )}.\n` +
-          `La Ganancia Bruta es Ventas – Costo de ventas.\n` +
-          `¿Cuál es el margen bruto aproximado (Ganancia Bruta / Ventas × 100)?`,
+        enunciado: resolveTemaEnunciado(TEMA, enunciadoFallback, {
+          ventas: ventas.toLocaleString("es-AR"),
+          costo_ventas: costoVentas.toLocaleString("es-AR"),
+          ganancia_bruta: gananciaBruta.toLocaleString("es-AR"),
+        }),
         opciones,
         indiceCorrecto,
         explicacion:

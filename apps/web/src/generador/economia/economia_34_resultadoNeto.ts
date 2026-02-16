@@ -8,14 +8,19 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
+
+const TEMA = "34_economia_resultadoNeto";
 
 export const genResultadoNeto: GeneratorFn = makeQuizGenerator(
   34,
   "Resultado Neto: Resultado Bruto – Gastos",
   [
     (dificultad: Dificultad) => {
-      const [brutoMin, brutoMax] = ajustarRango(80, 250, dificultad);
-      const [gastosMin, gastosMax] = ajustarRango(20, 150, dificultad);
+      const [brutoBaseMin, brutoBaseMax] = resolveTemaRange(TEMA, dificultad, "resultado_bruto", [80, 250]);
+      const [brutoMin, brutoMax] = ajustarRango(brutoBaseMin, brutoBaseMax, dificultad);
+      const [gastosBaseMin, gastosBaseMax] = resolveTemaRange(TEMA, dificultad, "gastos", [20, 150]);
+      const [gastosMin, gastosMax] = ajustarRango(gastosBaseMin, gastosBaseMax, dificultad);
       const resultadoBruto = randInt(brutoMin, brutoMax) * 1000;
       const gastos = randInt(gastosMin, gastosMax) * 1000;
       const resultadoNeto = resultadoBruto - gastos;
@@ -43,14 +48,17 @@ export const genResultadoNeto: GeneratorFn = makeQuizGenerator(
       const opciones = Array.from(opcionesSet);
       const indiceCorrecto = opciones.indexOf(opcionCorrecta);
 
+      const enunciadoFallback =
+        `Una empresa tiene Resultado Bruto de $ ${resultadoBruto.toLocaleString("es-AR")} y Gastos de $ ${gastos.toLocaleString(
+          "es-AR"
+        )}.\n` +
+        `¿Cuál es el Resultado Neto usando: Resultado Neto = Resultado Bruto – Gastos?`;
+
       return {
-        enunciado:
-          `Una empresa tiene Resultado Bruto de $ ${resultadoBruto.toLocaleString(
-            "es-AR"
-          )} y Gastos de $ ${gastos.toLocaleString(
-            "es-AR"
-          )}.\n` +
-          `¿Cuál es el Resultado Neto usando: Resultado Neto = Resultado Bruto – Gastos?`,
+        enunciado: resolveTemaEnunciado(TEMA, enunciadoFallback, {
+          resultado_bruto: resultadoBruto.toLocaleString("es-AR"),
+          gastos: gastos.toLocaleString("es-AR"),
+        }),
         opciones,
         indiceCorrecto,
         explicacion:

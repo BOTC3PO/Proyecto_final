@@ -7,12 +7,16 @@ import {
   esDificultadMinima,
   pickOne,
 } from "./generico";
+import { getCatalogoTemaEconomiaSync } from "./catalogoApi";
+import { resolveTemaEnunciado } from "./consignas";
 
 type TipoPolitica =
   | "Política fiscal expansiva"
   | "Política fiscal contractiva"
   | "Política monetaria expansiva"
   | "Política monetaria contractiva";
+
+const TEMA = "31_economia_politicaFiscalMonetaria";
 
 const CASOS: {
   descripcion: string;
@@ -94,12 +98,42 @@ const CASOS: {
   },
 ];
 
+const getCasosCatalogo = (): typeof CASOS => {
+  const limits = getCatalogoTemaEconomiaSync(TEMA).limits;
+  const source = limits && typeof limits === "object" && !Array.isArray(limits)
+    ? (limits as Record<string, unknown>).casos
+    : null;
+  if (!Array.isArray(source)) return CASOS;
+
+  const parsed = source
+    .map((item) => (item && typeof item === "object" && !Array.isArray(item) ? (item as Record<string, unknown>) : null))
+    .filter((item): item is Record<string, unknown> => item !== null)
+    .map((item) => {
+      const descripcion = typeof item.descripcion === "string" ? item.descripcion : null;
+      const respuesta = typeof item.respuesta === "string" ? item.respuesta : null;
+      const explicacion = typeof item.explicacion === "string" ? item.explicacion : "";
+      const dificultadMinima = item.dificultadMinima;
+      if (!descripcion || !respuesta || !["basico", "intermedio", "avanzado"].includes(String(dificultadMinima))) {
+        return null;
+      }
+      return {
+        descripcion,
+        respuesta: respuesta as TipoPolitica,
+        explicacion,
+        dificultadMinima: dificultadMinima as Dificultad,
+      };
+    })
+    .filter((item): item is (typeof CASOS)[number] => item !== null);
+
+  return parsed.length > 0 ? parsed : CASOS;
+};
+
 export const genPoliticaFiscalMonetaria: GeneratorFn = makeQuizGenerator(
   31,
   "Política fiscal vs monetaria (expansiva/contractiva)",
   [
     (dificultad: Dificultad) => {
-      const casosDisponibles = CASOS.filter((caso) =>
+      const casosDisponibles = getCasosCatalogo().filter((caso) =>
         esDificultadMinima(dificultad, caso.dificultadMinima)
       );
       const caso = pickOne(casosDisponibles);
@@ -111,10 +145,14 @@ export const genPoliticaFiscalMonetaria: GeneratorFn = makeQuizGenerator(
       ];
       const indiceCorrecto = opciones.indexOf(caso.respuesta);
 
+      const enunciadoFallback =
+        "Clasificá la siguiente medida de política económica:\n\n" +
+        caso.descripcion;
+
       return {
-        enunciado:
-          "Clasificá la siguiente medida de política económica:\n\n" +
-          caso.descripcion,
+        enunciado: resolveTemaEnunciado(TEMA, enunciadoFallback, {
+          descripcion: caso.descripcion,
+        }),
         opciones,
         indiceCorrecto,
         explicacion: caso.explicacion,
