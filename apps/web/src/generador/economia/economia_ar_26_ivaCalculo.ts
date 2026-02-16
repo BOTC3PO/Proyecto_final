@@ -6,6 +6,9 @@ import {
   randInt,
   randomBool,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
+
+const TEMA = "economia_ar_26_ivaCalculo";
 
 type Caso = {
   enunciado: string;
@@ -87,8 +90,10 @@ export const genARIVACalculo: GeneratorFn = makeQuizGenerator(
   "IVA cálculo escolar (21% general o 10.5% esencial)",
   [
     (dificultad: Dificultad) => {
-      const base = randInt(10, 90) * 1000;
-      const baseAlta = randInt(40, 140) * 1000;
+      const [baseMin, baseMax] = resolveTemaRange(TEMA, dificultad, "base", [10, 90]);
+      const [baseAltaMin, baseAltaMax] = resolveTemaRange(TEMA, dificultad, "baseAlta", [40, 140]);
+      const base = randInt(baseMin, baseMax) * 1000;
+      const baseAlta = randInt(baseAltaMin, baseAltaMax) * 1000;
       const tasaGeneral = 0.21;
       const tasaEsencial = 0.105;
       const esencial = randomBool();
@@ -101,7 +106,12 @@ export const genARIVACalculo: GeneratorFn = makeQuizGenerator(
         avanzado: crearCasoIVA(base, tasa, etiqueta),
       };
 
-      return casos[dificultad];
+      const caso = casos[dificultad];
+      const fallbackEnunciado = caso.enunciado;
+      return {
+        ...caso,
+        enunciado: resolveTemaEnunciado(TEMA, { enunciado: caso.enunciado }, fallbackEnunciado),
+      };
     },
   ]
 );

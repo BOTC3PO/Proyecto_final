@@ -7,14 +7,14 @@ import {
   randInt,
   randomBool,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
-const PARAMS: Record<
-  Dificultad,
-  { min: number; max: number; desvio: number; opciones: number; soloNeto: boolean }
-> = {
-  basico: { min: 60, max: 120, desvio: 20, opciones: 4, soloNeto: true },
-  intermedio: { min: 80, max: 180, desvio: 25, opciones: 4, soloNeto: false },
-  avanzado: { min: 120, max: 260, desvio: 30, opciones: 4, soloNeto: false },
+const TEMA = "economia_ar_24_netoDesdeBruto";
+
+const SOLO_NETO_POR_DIFICULTAD: Record<Dificultad, boolean> = {
+  basico: true,
+  intermedio: false,
+  avanzado: false,
 };
 
 export const genARNetoDesdeBruto: GeneratorFn = makeQuizGenerator(
@@ -22,8 +22,13 @@ export const genARNetoDesdeBruto: GeneratorFn = makeQuizGenerator(
   "Netos y descuentos del salario (partiendo del bruto remunerativo)",
   [
     (dificultad: Dificultad) => {
-      const { min, max, desvio, opciones, soloNeto } = PARAMS[dificultad];
+      const [min, max] = resolveTemaRange(TEMA, dificultad, "bruto", [60, 120]);
+      const [desvioMin, desvioMax] = resolveTemaRange(TEMA, dificultad, "desvio", [20, 20]);
+      const [opcionesMin] = resolveTemaRange(TEMA, dificultad, "opciones", [4, 4]);
+      const soloNeto = SOLO_NETO_POR_DIFICULTAD[dificultad];
       const bruto = randInt(min, max) * 1000;
+      const desvio = randInt(desvioMin, desvioMax);
+      const opciones = Math.max(2, Math.round(opcionesMin));
       const tasaAportes = 0.17;
       const descuentos = Math.round(bruto * tasaAportes);
       const neto = bruto - descuentos;
@@ -51,13 +56,13 @@ export const genARNetoDesdeBruto: GeneratorFn = makeQuizGenerator(
       );
 
       if (preguntaNeto) {
+        const fallbackEnunciado =
+          `Un trabajador tiene un sueldo bruto remunerativo de $ ${bruto.toLocaleString("es-AR")}.\n` +
+          `Suponiendo aportes obligatorios totales del 17% (jubilación, obra social, PAMI), ` +
+          `¿cuál es el 'Neto a cobrar' aproximado?`;
+
         return {
-          enunciado:
-            `Un trabajador tiene un sueldo bruto remunerativo de $ ${bruto.toLocaleString(
-              "es-AR"
-            )}.\n` +
-            `Suponiendo aportes obligatorios totales del 17% (jubilación, obra social, PAMI), ` +
-            `¿cuál es el 'Neto a cobrar' aproximado?`,
+          enunciado: resolveTemaEnunciado(TEMA, { bruto, descuentos, neto, pregunta: "neto" }, fallbackEnunciado),
           opciones: opcionesTexto,
           indiceCorrecto,
           explicacion:
@@ -65,13 +70,13 @@ export const genARNetoDesdeBruto: GeneratorFn = makeQuizGenerator(
         };
       }
 
+      const fallbackEnunciado =
+        `Un trabajador tiene un sueldo bruto remunerativo de $ ${bruto.toLocaleString("es-AR")}.\n` +
+        `Suponiendo que se le descuentan los aportes obligatorios típicos (17% en total), ` +
+        `¿cuál es el total aproximado de descuentos del trabajador?`;
+
       return {
-        enunciado:
-          `Un trabajador tiene un sueldo bruto remunerativo de $ ${bruto.toLocaleString(
-            "es-AR"
-          )}.\n` +
-          `Suponiendo que se le descuentan los aportes obligatorios típicos (17% en total), ` +
-          `¿cuál es el total aproximado de descuentos del trabajador?`,
+        enunciado: resolveTemaEnunciado(TEMA, { bruto, descuentos, neto, pregunta: "descuentos" }, fallbackEnunciado),
         opciones: opcionesTexto,
         indiceCorrecto,
         explicacion:

@@ -7,6 +7,9 @@ import {
   pickOne,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
+
+const TEMA = "economia_ar_25_iva";
 
 type Caso = {
   enunciado: string;
@@ -109,8 +112,10 @@ export const genARIVA: GeneratorFn = makeQuizGenerator(
   "IVA Argentina: 21% general y 10,5% bienes esenciales",
   [
     (dificultad: Dificultad) => {
-      const base = randInt(10, 80) * 1000;
-      const baseAlta = randInt(40, 120) * 1000;
+      const [baseMin, baseMax] = resolveTemaRange(TEMA, dificultad, "base", [10, 80]);
+      const [baseAltaMin, baseAltaMax] = resolveTemaRange(TEMA, dificultad, "baseAlta", [40, 120]);
+      const base = randInt(baseMin, baseMax) * 1000;
+      const baseAlta = randInt(baseAltaMin, baseAltaMax) * 1000;
       const tasaGeneral = 0.21;
       const tasaEsencial = 0.105;
 
@@ -131,8 +136,9 @@ export const genARIVA: GeneratorFn = makeQuizGenerator(
       };
 
       const caso = pickOne(casos[dificultad]);
+      const fallbackEnunciado = caso.enunciado;
       return {
-        enunciado: caso.enunciado,
+        enunciado: resolveTemaEnunciado(TEMA, { enunciado: caso.enunciado }, fallbackEnunciado),
         opciones: caso.opciones,
         indiceCorrecto: caso.indiceCorrecto,
         explicacion: caso.explicacion,

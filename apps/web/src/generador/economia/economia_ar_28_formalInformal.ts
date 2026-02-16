@@ -5,6 +5,9 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
+
+const TEMA = "economia_ar_28_formalInformal";
 
 type Tipo = "Formal" | "Informal";
 
@@ -78,8 +81,10 @@ export const genARFormalInformal: GeneratorFn = makeQuizGenerator(
       const opciones: Tipo[] = ["Formal", "Informal"];
       const indiceCorrecto = opciones.indexOf(caso.tipo);
 
+      const fallbackEnunciado = `Clasificá la situación laboral en Argentina:\n\n${caso.text}`;
+
       return {
-        enunciado: `Clasificá la situación laboral en Argentina:\n\n${caso.text}`,
+        enunciado: resolveTemaEnunciado(TEMA, { situacion: caso.text }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion: caso.detalle,
