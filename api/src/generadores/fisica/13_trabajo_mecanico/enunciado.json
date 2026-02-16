@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Se aplica una fuerza de {{fuerza}} N para mover un objeto {{distancia}} m en la misma dirección. ¿Cuánto trabajo se realiza?"
     }
   ]
 }

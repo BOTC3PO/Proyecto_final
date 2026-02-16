@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaLeyHooke.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class LeyHookeGenerator extends FisicaBaseGenerator {
@@ -41,7 +41,7 @@ export class LeyHookeGenerator extends FisicaBaseGenerator {
       categoria: "ley_hooke",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["ley_hooke"][0] ||
+        getFisicaEnunciado("ley_hooke", { constante, deformacion }) ||
         `Un resorte con constante elástica k = ${constante} N/m se estira ${deformacion} m. ¿Qué fuerza se aplicó?`,
       tipoRespuesta: "multiple",
       datos: { constante, deformacion },

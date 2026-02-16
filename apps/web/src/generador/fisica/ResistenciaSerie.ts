@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaResistenciaSerie.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class ResistenciaSerieGenerator extends FisicaBaseGenerator {
@@ -37,6 +37,7 @@ export class ResistenciaSerieGenerator extends FisicaBaseGenerator {
       value,
       unit: "Ω",
     }));
+    const resistenciasTexto = resistencias.map((r) => `${r} Ω`).join(", ");
     const opciones = this.mezclar([
       resistenciaTotal.toString(),
       ...this.generarOpcionesIncorrectas(resistenciaTotal, 3, 0.3).map(String),
@@ -48,7 +49,7 @@ export class ResistenciaSerieGenerator extends FisicaBaseGenerator {
       categoria: "resistencia_serie",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["resistencia_serie"][0] ||
+        getFisicaEnunciado("resistencia_serie", { resistenciasTexto }) ||
         `Calcula la resistencia equivalente de estas resistencias en serie: ${resistencias
           .map((r) => `${r} Ω`)
           .join(", ")}`,

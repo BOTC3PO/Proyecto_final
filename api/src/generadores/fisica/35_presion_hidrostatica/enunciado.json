@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "¿Cuál es la presión hidrostática en {{fluido}} a {{profundidad}} m de profundidad? (ρ = {{densidad}} kg/m³, g = {{g}} m/s²)"
     }
   ]
 }

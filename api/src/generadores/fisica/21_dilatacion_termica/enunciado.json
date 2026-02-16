@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Una barra de {{longitud}} cm se calienta {{deltaT}}°C. Si α = {{coeficiente}} °C⁻¹, ¿cuánto se dilata?"
     }
   ]
 }

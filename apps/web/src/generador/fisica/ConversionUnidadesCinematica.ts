@@ -1,4 +1,4 @@
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class ConversionUnidadesCinematicaGenerator extends FisicaBaseGenerator {
@@ -34,7 +34,7 @@ export class ConversionUnidadesCinematicaGenerator extends FisicaBaseGenerator {
       categoria: "conversion_unidades_cinematica",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["conversion_unidades_cinematica"][0] ||
+        getFisicaEnunciado("conversion_unidades_cinematica", { valorInicial, unidadOrigen: conversion.de, unidadDestino: conversion.a }) ||
         `Convierte ${valorInicial} ${conversion.de} a ${conversion.a}`,
       tipoRespuesta: "multiple",
       datos: {

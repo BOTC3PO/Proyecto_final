@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "¿Cuánto calor se necesita para elevar la temperatura de {{masa}} g de una sustancia (c = {{calorEspecifico}} J/g°C) en {{deltaT}}°C?"
     }
   ]
 }

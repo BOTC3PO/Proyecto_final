@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaConservacionEnergia.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
 
@@ -51,7 +51,7 @@ export class ConservacionEnergiaGenerator extends FisicaBaseGenerator {
       categoria: "conservacion_energia",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["conservacion_energia"][0] ||
+        getFisicaEnunciado("conservacion_energia", { masa, altura, g }) ||
         `Un objeto de ${masa} kg se suelta desde ${altura} m de altura. ¿Con qué velocidad llega al suelo? (Desprecia la fricción, g = 9.8 m/s²)`,
       tipoRespuesta: "multiple",
       datos: { masa, g, altura },

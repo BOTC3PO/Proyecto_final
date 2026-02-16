@@ -3,7 +3,11 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un rayo de luz incide sobre un espejo plano con un ángulo de incidencia de {{anguloIncidencia}}°. ¿Cuál es el ángulo de reflexión?"
+    },
+    {
+      "mode": "texto",
+      "template": "Un rayo de luz se refleja en un espejo plano con un ángulo de reflexión de {{anguloReflexion}}°. ¿Cuál fue el ángulo de incidencia?"
     }
   ]
 }

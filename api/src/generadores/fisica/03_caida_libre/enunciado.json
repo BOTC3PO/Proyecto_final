@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un objeto se deja caer libremente desde el reposo. ¿Con qué velocidad llega al suelo después de {{tiempo}} segundos? (g = {{g}} m/s²)"
     }
   ]
 }

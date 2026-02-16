@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Se realiza un trabajo de {{trabajo}} J en {{tiempo}} segundos. ¿Cuál es la potencia desarrollada?"
     }
   ]
 }

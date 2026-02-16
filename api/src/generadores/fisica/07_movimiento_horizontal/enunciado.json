@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Desde una altura de {{altura}} m se lanza horizontalmente un objeto con velocidad {{velocidad}} m/s. ¿Qué distancia horizontal recorre antes de tocar el suelo? (g = {{g}} m/s²)"
     }
   ]
 }

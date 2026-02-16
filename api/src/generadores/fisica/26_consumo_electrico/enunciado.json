@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un aparato de {{potencia}} W funciona {{tiempo}} horas. ¿Cuántos kWh consume?"
     }
   ]
 }

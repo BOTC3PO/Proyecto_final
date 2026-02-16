@@ -158,3 +158,21 @@ export const ENUNCIADOS_FISICA: Record<string, string[]> = new Proxy(
     },
   }
 );
+
+export function renderTemplate(template: string, data: Record<string, unknown>): string {
+  return Object.entries(data).reduce((result, [key, value]) => {
+    const placeholder = `{{${key}}}`;
+    return result.split(placeholder).join(String(value));
+  }, template);
+}
+
+export function getFisicaEnunciado(
+  categoria: string,
+  data?: Record<string, unknown>,
+  idx: number = 0
+): string | null {
+  const template = ENUNCIADOS_FISICA[categoria]?.[idx];
+  if (!template) return null;
+  if (!data) return template;
+  return renderTemplate(template, data);
+}

@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Una onda tiene frecuencia {{frecuencia}} Hz y longitud de onda {{longitud}} m. ¿Cuál es su velocidad de propagación?"
     }
   ]
 }

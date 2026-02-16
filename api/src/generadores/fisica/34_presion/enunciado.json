@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Se aplica una fuerza de {{fuerza}} N sobre un área de {{area}} cm². ¿Cuál es la presión?"
     }
   ]
 }

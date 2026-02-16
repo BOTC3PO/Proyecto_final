@@ -3,7 +3,11 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un objeto tiene masa {{masa}} g y volumen {{volumen}} cm³. ¿Cuál es su densidad?"
+    },
+    {
+      "mode": "texto",
+      "template": "Un material con densidad {{densidad}} g/cm³ ocupa {{volumen}} cm³. ¿Cuál es su masa?"
     }
   ]
 }

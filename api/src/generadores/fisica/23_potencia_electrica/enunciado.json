@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un dispositivo funciona con {{voltaje}} V y consume {{corriente}} A. ¿Cuál es su potencia?"
     }
   ]
 }

@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Se lanza verticalmente hacia arriba un objeto con velocidad inicial de {{v0}} m/s. ¿Cuál es la altura máxima que alcanza? (g = {{g}} m/s²)"
     }
   ]
 }
