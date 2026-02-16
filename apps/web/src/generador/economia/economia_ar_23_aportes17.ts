@@ -6,23 +6,21 @@ import {
   makeQuizGenerator,
   randInt,
 } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
 
-const PARAMS: Record<
-  Dificultad,
-  { min: number; max: number; desvio: number; opciones: number }
-> = {
-  basico: { min: 60, max: 120, desvio: 20, opciones: 4 },
-  intermedio: { min: 80, max: 180, desvio: 25, opciones: 4 },
-  avanzado: { min: 120, max: 260, desvio: 30, opciones: 4 },
-};
+const TEMA = "economia_ar_23_aportes17";
 
 export const genARAportes17: GeneratorFn = makeQuizGenerator(
   23,
   "Total típico de aportes obligatorios (17% sobre remunerativo)",
   [
     (dificultad: Dificultad) => {
-      const { min, max, desvio, opciones } = PARAMS[dificultad];
+      const [min, max] = resolveTemaRange(TEMA, dificultad, "bruto", [60, 120]);
+      const [desvioMin, desvioMax] = resolveTemaRange(TEMA, dificultad, "desvio", [20, 20]);
+      const [opcionesMin] = resolveTemaRange(TEMA, dificultad, "opciones", [4, 4]);
       const bruto = randInt(min, max) * 1000;
+      const desvio = randInt(desvioMin, desvioMax);
+      const opciones = Math.max(2, Math.round(opcionesMin));
       const tasaAportes = 0.17;
       const totalAportes = Math.round(bruto * tasaAportes);
 
@@ -46,13 +44,13 @@ export const genARAportes17: GeneratorFn = makeQuizGenerator(
         "$ " + opcionCorrecta.toLocaleString("es-AR")
       );
 
+      const fallbackEnunciado =
+        `Un trabajador tiene un sueldo bruto remunerativo de $ ${bruto.toLocaleString("es-AR")}.\n` +
+        `Suponiendo los aportes obligatorios típicos (11% jubilación, 3% obra social, 3% PAMI), ` +
+        `¿cuál es el total aproximado de aportes del trabajador (17% del bruto)?`;
+
       return {
-        enunciado:
-          `Un trabajador tiene un sueldo bruto remunerativo de $ ${bruto.toLocaleString(
-            "es-AR"
-          )}.\n` +
-          `Suponiendo los aportes obligatorios típicos (11% jubilación, 3% obra social, 3% PAMI), ` +
-          `¿cuál es el total aproximado de aportes del trabajador (17% del bruto)?`,
+        enunciado: resolveTemaEnunciado(TEMA, { bruto, tasaAportes }, fallbackEnunciado),
         opciones: opcionesTexto,
         indiceCorrecto,
         explicacion:

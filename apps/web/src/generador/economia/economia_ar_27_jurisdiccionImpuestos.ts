@@ -5,6 +5,9 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
+
+const TEMA = "economia_ar_27_jurisdiccionImpuestos";
 
 type Jur = "Nacional" | "Provincial" | "Municipal";
 
@@ -74,8 +77,10 @@ export const genARJurisdiccionImpuestos: GeneratorFn = makeQuizGenerator(
       const opciones: Jur[] = ["Nacional", "Provincial", "Municipal"];
       const indiceCorrecto = opciones.indexOf(imp.tipo);
 
+      const fallbackEnunciado = `¿A qué jurisdicción pertenece el impuesto/tasa: "${imp.desc}"?`;
+
       return {
-        enunciado: `¿A qué jurisdicción pertenece el impuesto/tasa: "${imp.desc}"?`,
+        enunciado: resolveTemaEnunciado(TEMA, { impuesto: imp.desc }, fallbackEnunciado),
         opciones,
         indiceCorrecto,
         explicacion: imp.detalle,

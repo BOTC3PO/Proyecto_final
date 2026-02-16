@@ -6,6 +6,9 @@ import {
   makeQuizGenerator,
   pickOne,
 } from "./generico";
+import { resolveTemaEnunciado } from "./consignas";
+
+const TEMA = "economia_ar_21_reciboBasico";
 
 type Caso = {
   enunciado: string;
@@ -94,8 +97,9 @@ export const genARReciboBasico: GeneratorFn = makeQuizGenerator(
   [
     (dificultad: Dificultad) => {
       const caso = pickOne(CASOS_POR_DIFICULTAD[dificultad]);
+      const fallbackEnunciado = caso.enunciado;
       return {
-        enunciado: caso.enunciado,
+        enunciado: resolveTemaEnunciado(TEMA, { enunciado: caso.enunciado }, fallbackEnunciado),
         opciones: caso.opciones,
         indiceCorrecto: caso.indiceCorrecto,
         explicacion: caso.explicacion,
