@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un vehículo se desplaza con velocidad constante de {{velocidad}} m/s durante {{tiempo}} segundos. ¿Qué distancia recorre?"
     }
   ]
 }

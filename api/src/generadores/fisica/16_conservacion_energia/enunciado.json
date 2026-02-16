@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un objeto de {{masa}} kg se suelta desde {{altura}} m de altura. ¿Con qué velocidad llega al suelo? (Desprecia la fricción, g = {{g}} m/s²)"
     }
   ]
 }

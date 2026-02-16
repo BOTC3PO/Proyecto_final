@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaEnergiaPotencial.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
 
@@ -50,7 +50,7 @@ export class EnergiaPotencialGenerator extends FisicaBaseGenerator {
       categoria: "energia_potencial",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["energia_potencial"][0] ||
+        getFisicaEnunciado("energia_potencial", { masa, altura, g }) ||
         `Un objeto de ${masa} kg está a ${altura} m de altura. ¿Cuál es su energía potencial gravitatoria? (g = 9.8 m/s²)`,
       tipoRespuesta: "multiple",
       datos: { masa, g, altura },

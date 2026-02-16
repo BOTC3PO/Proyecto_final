@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un objeto de {{masa}} kg se mueve a {{velocidad}} m/s. ¿Cuál es su energía cinética?"
     }
   ]
 }

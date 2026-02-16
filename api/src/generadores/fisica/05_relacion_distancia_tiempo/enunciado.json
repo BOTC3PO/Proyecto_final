@@ -3,7 +3,15 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un móvil se desplaza con velocidad constante de {{velocidad}} m/s durante {{tiempo}} s. ¿Qué distancia recorre?"
+    },
+    {
+      "mode": "texto",
+      "template": "Un móvil recorre {{distancia}} m en {{tiempo}} s con movimiento rectilíneo uniforme. ¿Cuál es su velocidad?"
+    },
+    {
+      "mode": "texto",
+      "template": "Un móvil recorre {{distancia}} m con velocidad constante de {{velocidad}} m/s. ¿Cuánto tiempo tarda?"
     }
   ]
 }

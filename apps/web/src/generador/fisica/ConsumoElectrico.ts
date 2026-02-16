@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaConsumoElectrico.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
 
@@ -41,7 +41,7 @@ export class ConsumoElectricoGenerator extends FisicaBaseGenerator {
       categoria: "consumo_electrico",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["consumo_electrico"][0] ||
+        getFisicaEnunciado("consumo_electrico", { potencia, tiempo }) ||
         `Un aparato de ${potencia} W funciona ${tiempo} horas. ¿Cuántos kWh consume?`,
       tipoRespuesta: "multiple",
       datos: { potencia, tiempo },

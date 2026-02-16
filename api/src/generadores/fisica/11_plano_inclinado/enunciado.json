@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un objeto de {{masa}} kg está sobre un plano inclinado de {{angulo}}°. ¿Cuál es la componente de su peso paralela al plano? (g = {{g}} m/s²)"
     }
   ]
 }

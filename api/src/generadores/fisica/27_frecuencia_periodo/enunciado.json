@@ -3,7 +3,11 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Una onda tiene un período de {{periodo}} s. ¿Cuál es su frecuencia?"
+    },
+    {
+      "mode": "texto",
+      "template": "Una onda tiene una frecuencia de {{frecuencia}} Hz. ¿Cuál es su período?"
     }
   ]
 }

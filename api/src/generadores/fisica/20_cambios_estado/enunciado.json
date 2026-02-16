@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "¿Cuánto calor se necesita para {{proceso}} {{masa}} g de {{sustancia}}? (L = {{calorLatente}} kJ/kg)"
     }
   ]
 }

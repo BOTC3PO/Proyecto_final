@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un objeto de {{masa}} kg está a {{altura}} m de altura. ¿Cuál es su energía potencial gravitatoria? (g = {{g}} m/s²)"
     }
   ]
 }

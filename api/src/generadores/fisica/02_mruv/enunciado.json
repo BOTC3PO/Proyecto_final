@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un móvil parte con velocidad inicial de {{v0}} m/s y acelera a {{aceleracion}} m/s². ¿Cuál es su velocidad final después de {{tiempo}} segundos?"
     }
   ]
 }

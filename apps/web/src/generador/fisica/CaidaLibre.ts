@@ -1,4 +1,4 @@
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
 
@@ -35,7 +35,7 @@ export class CaidaLibreGenerator extends FisicaBaseGenerator {
       categoria: "caida_libre",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["caida_libre"][0] ||
+        getFisicaEnunciado("caida_libre", { tiempo, g }) ||
         `Un objeto se deja caer libremente desde el reposo. ¿Con qué velocidad llega al suelo después de ${tiempo} segundos? (g = 9.8 m/s²)`,
       tipoRespuesta: "multiple",
       datos: { g, tiempo },

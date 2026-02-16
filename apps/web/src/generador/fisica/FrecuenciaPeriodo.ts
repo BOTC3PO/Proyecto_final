@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaFrecuenciaPeriodo.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class FrecuenciaPeriodoGenerator extends FisicaBaseGenerator {
@@ -59,7 +59,7 @@ export class FrecuenciaPeriodoGenerator extends FisicaBaseGenerator {
       categoria: "frecuencia_periodo",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["frecuencia_periodo"][0] || enunciado,
+        getFisicaEnunciado("frecuencia_periodo", { frecuencia, periodo }, calcularFrecuencia ? 0 : 1) || enunciado,
       tipoRespuesta: "multiple",
       datos,
       opciones: opciones.map((o) => `${o} ${unidad}`),

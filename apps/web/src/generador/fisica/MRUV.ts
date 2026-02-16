@@ -1,4 +1,4 @@
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
 
@@ -59,7 +59,7 @@ export class MRUVGenerator extends FisicaBaseGenerator {
       categoria: "aceleracion_MRUV",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["aceleracion_MRUV"][0] ||
+        getFisicaEnunciado("aceleracion_MRUV", { v0, aceleracion, tiempo }) ||
         `Un móvil parte con velocidad inicial de ${v0} m/s y acelera a ${aceleracion} m/s². ¿Cuál es su velocidad final después de ${tiempo} segundos?`,
       tipoRespuesta: "multiple",
       datos: { v0, aceleracion, tiempo },

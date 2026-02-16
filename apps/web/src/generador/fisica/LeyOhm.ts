@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaLeyOhm.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 
 export class LeyOhmGenerator extends FisicaBaseGenerator {
@@ -31,22 +31,30 @@ export class LeyOhmGenerator extends FisicaBaseGenerator {
     let enunciado: string;
     let respuesta: string;
     let unidad: string;
+    let valor1: number;
+    let valor2: number;
 
     if (tipo === "calcular_V") {
       datos = { corriente, resistencia };
       enunciado = `Por una resistencia de ${resistencia} Ω circula una corriente de ${corriente} A. ¿Cuál es el voltaje?`;
       respuesta = voltaje.toString();
       unidad = "V";
+      valor1 = resistencia;
+      valor2 = corriente;
     } else if (tipo === "calcular_I") {
       datos = { voltaje, resistencia };
       enunciado = `Un circuito tiene ${voltaje} V y ${resistencia} Ω. ¿Qué corriente circula?`;
       respuesta = corriente.toString();
       unidad = "A";
+      valor1 = voltaje;
+      valor2 = resistencia;
     } else {
       datos = { voltaje, corriente };
       enunciado = `Con ${voltaje} V circula ${corriente} A. ¿Cuál es la resistencia?`;
       respuesta = resistencia.toString();
       unidad = "Ω";
+      valor1 = voltaje;
+      valor2 = corriente;
     }
 
     const resultado = calc.calcular({
@@ -65,7 +73,7 @@ export class LeyOhmGenerator extends FisicaBaseGenerator {
       materia: this.materia,
       categoria: "ley_ohm",
       nivel: params.nivel,
-      enunciado: ENUNCIADOS_FISICA["ley_ohm"][0] || enunciado,
+      enunciado: getFisicaEnunciado("ley_ohm", { valor1, valor2 }, tipo === "calcular_V" ? 0 : tipo === "calcular_I" ? 1 : 2) || enunciado,
       tipoRespuesta: "multiple",
       datos,
       opciones: opciones.map((o) => `${o} ${unidad}`),

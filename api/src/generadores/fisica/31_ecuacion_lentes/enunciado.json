@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Un objeto está a {{distanciaObjeto}} cm de una lente convergente con distancia focal {{distanciaFocal}} cm. ¿A qué distancia se forma la imagen?"
     }
   ]
 }

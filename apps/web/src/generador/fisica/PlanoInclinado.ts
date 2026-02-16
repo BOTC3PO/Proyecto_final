@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaPlanoInclinado.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
 
@@ -43,7 +43,7 @@ export class PlanoInclinadoGenerator extends FisicaBaseGenerator {
       categoria: "plano_inclinado",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["plano_inclinado"][0] ||
+        getFisicaEnunciado("plano_inclinado", { masa, angulo, g }) ||
         `Un objeto de ${masa} kg está sobre un plano inclinado de ${angulo}°. ¿Cuál es la componente de su peso paralela al plano? (g = 9.8 m/s²)`,
       tipoRespuesta: "multiple",
       datos: { masa, angulo, g },

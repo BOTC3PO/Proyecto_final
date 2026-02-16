@@ -3,7 +3,15 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Por una resistencia de {{valor1}} Ω circula una corriente de {{valor2}} A. ¿Cuál es el voltaje?"
+    },
+    {
+      "mode": "texto",
+      "template": "Un circuito tiene {{valor1}} V y {{valor2}} Ω. ¿Qué corriente circula?"
+    },
+    {
+      "mode": "texto",
+      "template": "Con {{valor1}} V circula {{valor2}} A. ¿Cuál es la resistencia?"
     }
   ]
 }

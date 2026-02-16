@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Calcula la resistencia equivalente de estas resistencias en paralelo: {{resistenciasTexto}}"
     }
   ]
 }

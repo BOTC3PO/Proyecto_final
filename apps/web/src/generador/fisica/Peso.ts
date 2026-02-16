@@ -1,5 +1,5 @@
 // src/ejercicios/fisica/temaPeso.ts
-import { FisicaBaseGenerator, ENUNCIADOS_FISICA } from "./generico";
+import { FisicaBaseGenerator, getFisicaEnunciado } from "./generico";
 import type { GeneradorParametros, Ejercicio, Calculator } from "../core/types";
 import { getFisicaTemaLimitsSync, randIntFromPorNivel } from "./limits";
 
@@ -36,7 +36,7 @@ export class PesoGenerator extends FisicaBaseGenerator {
       categoria: "peso",
       nivel: params.nivel,
       enunciado:
-        ENUNCIADOS_FISICA["peso"][0] ||
+        getFisicaEnunciado("peso", { masa, g }) ||
         `Calcula el peso de un objeto de ${masa} kg. (g = 9.8 m/s²)`,
       tipoRespuesta: "multiple",
       datos: { masa, g },

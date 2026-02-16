@@ -3,7 +3,11 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "La luz viaja a {{velocidadMedio}} m/s en un medio. ¿Cuál es el índice de refracción? (c = {{c}} m/s)"
+    },
+    {
+      "mode": "texto",
+      "template": "¿A qué velocidad viaja la luz en {{medio}}? (n = {{indiceMedio}}, c = {{c}} m/s)"
     }
   ]
 }

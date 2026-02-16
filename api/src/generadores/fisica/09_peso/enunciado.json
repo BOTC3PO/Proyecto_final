@@ -3,7 +3,7 @@
   "enunciados": [
     {
       "mode": "texto",
-      "template": "Resolver el ejercicio utilizando los datos proporcionados."
+      "template": "Calcula el peso de un objeto de {{masa}} kg. (g = {{g}} m/s²)"
     }
   ]
 }
