@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const ModuleVisibilitySchema = z.enum(["publico", "privado", "escuela"]);
 export const ModuleQuizVisibilitySchema = z.enum(["publico", "escuela"]);
+export const ModuleStatusSchema = z.enum(["ACTIVE", "ARCHIVED"]);
 
 export const ModuleResourceSchema = z.discriminatedUnion("type", [
   z.object({
@@ -184,6 +185,7 @@ export const ModuleSchema = z.object({
   durationMinutes: z.number().int().positive(),
   recommendedCourse: z.string().min(1).optional(),
   visibility: ModuleVisibilitySchema,
+  status: ModuleStatusSchema.default("ACTIVE"),
   visibilityConfig: ModuleVisibilityConfigSchema.nullable().optional(),
   dependencies: z.array(ModuleDependencySchema),
   scoringConfig: ModuleScoringConfigSchema.optional(),
