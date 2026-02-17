@@ -48,6 +48,8 @@ const timingSafeEquals = (a: string, b: string) => {
   return crypto.timingSafeEqual(aBuf, bBuf);
 };
 
+const isTokenType = (value: unknown): value is TokenType => value === "access" || value === "refresh";
+
 const buildToken = (payload: TokenClaims, secret: string) => {
   const header = { alg: "HS256", typ: "JWT" };
   const headerPart = base64UrlEncode(JSON.stringify(header));
@@ -86,7 +88,16 @@ export const verifyToken = (token: string, expectedType?: TokenType) => {
   if (!parsed || parsed.header?.alg !== "HS256") {
     return { ok: false as const, error: "Invalid authentication token" };
   }
-  const expectedSignature = sign(parsed.signingInput, ENV.JWT_SECRET);
+  const payloadType = parsed.payload?.typ;
+  if (expectedType && payloadType && (!isTokenType(payloadType) || payloadType !== expectedType)) {
+    return { ok: false as const, error: "Invalid authentication token" };
+  }
+
+  const resolvedType: TokenType =
+    expectedType ?? (payloadType === "refresh" ? "refresh" : "access");
+  const verificationSecret =
+    resolvedType === "refresh" ? ENV.JWT_REFRESH_SECRET || ENV.JWT_SECRET : ENV.JWT_SECRET;
+  const expectedSignature = sign(parsed.signingInput, verificationSecret);
   if (!timingSafeEquals(parsed.signature, expectedSignature)) {
     return { ok: false as const, error: "Invalid authentication token" };
   }
