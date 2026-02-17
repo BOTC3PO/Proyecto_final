@@ -110,6 +110,7 @@ Invoke-Step -Name 'api'      -ScriptRelPath 'install\api.ps1'
 Invoke-Step -Name 'web'      -ScriptRelPath 'install\web.ps1'
 Invoke-Step -Name 'mobile'   -ScriptRelPath 'install\mobile.ps1'
 Invoke-Step -Name 'extras'   -ScriptRelPath 'install\extras.ps1'
+Invoke-Step -Name 'diccionario' -ScriptRelPath 'install\diccionario.ps1'
 
 Write-Log "Instalacion completa." 'INFO'
 
