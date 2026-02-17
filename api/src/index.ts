@@ -34,6 +34,9 @@ import { consignas } from "./routes/consignas";
 import { visualizadoresRouter } from "./routes/visualizadores";
 import { createRateLimiter } from "./lib/rate-limit";
 import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
+import { dictionary } from "./routes/dictionary";
+import fs from "node:fs";
+import path from "node:path";
 const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
@@ -78,6 +81,7 @@ app.use(publicaciones);
 app.use(moderacion);
 app.use(configuracion);
 app.use(diccionarios);
+app.use(dictionary);
 app.use(enterprise);
 app.use(beneficios);
 app.use(profesor);
@@ -87,7 +91,21 @@ app.use(payments);
 app.use(padres);
 app.use(governance);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
-app.listen(ENV.PORT, () => {
-  console.log(`API on http://localhost:${ENV.PORT}`);
-});
-scheduleDelinquencyJob();
+
+const bootstrap = async () => {
+  if (ENV.DB_KIND === "sqlite") {
+    const sqlitePath = path.isAbsolute(ENV.SQLITE_PATH) ? ENV.SQLITE_PATH : path.resolve(process.cwd(), ENV.SQLITE_PATH);
+    if (!fs.existsSync(sqlitePath)) {
+      throw new Error(`DB_KIND=sqlite but SQLITE_PATH does not exist: ${sqlitePath}`);
+    }
+    const sqliteModule = await import("./db/sqliteDictionary");
+    sqliteModule.getSqliteDictionaryService();
+  }
+
+  app.listen(ENV.PORT, () => {
+    console.log(`API on http://localhost:${ENV.PORT}`);
+  });
+  scheduleDelinquencyJob();
+};
+
+void bootstrap();
