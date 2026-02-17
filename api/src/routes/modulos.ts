@@ -120,7 +120,7 @@ modulos.get("/api/modulos/:id", async (req, res) => {
   res.json(withDefaultStatus(item));
 });
 
-modulos.post("/api/modulos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const moduleId =
       typeof req.body?.id === "string" && req.body.id.trim()
@@ -151,7 +151,7 @@ modulos.post("/api/modulos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) =
   }
 });
 
-modulos.put("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
     const db = await getDb();
@@ -173,7 +173,7 @@ modulos.put("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res
   }
 });
 
-modulos.patch("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
     const db = await getDb();
@@ -195,7 +195,7 @@ modulos.patch("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, r
   }
 });
 
-modulos.delete("/api/modulos/:id", async (req, res) => {
+modulos.delete("/api/modulos/:id", requireUser, async (req, res) => {
   const db = await getDb();
   const existing = await db.collection("modulos").findOne({ id: req.params.id });
   if (!existing) return res.status(404).json({ error: "not found" });
