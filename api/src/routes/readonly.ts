@@ -84,7 +84,11 @@ readonlyRouter.get("/api/readonly/catalogo", async (_req, res) => {
     const db = await getDb();
 
     const [modulosActivos, generadores, visualizadores, idiomasDiccionario] = await Promise.all([
-      db.collection("modulos").find({}).sort({ updatedAt: -1 }).toArray(),
+      db
+        .collection("modulos")
+        .find({ $or: [{ status: "ACTIVE" }, { status: { $exists: false } }] })
+        .sort({ updatedAt: -1 })
+        .toArray(),
       Promise.all(
         SUBJECTS.map(async (materia) => ({
           materia,

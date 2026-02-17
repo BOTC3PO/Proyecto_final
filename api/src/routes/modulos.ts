@@ -10,6 +10,11 @@ export const modulos = Router();
 
 const ModuleUpdateSchema = ModuleSchema.partial().omit({ id: true });
 
+const withDefaultStatus = <T extends { status?: unknown }>(module: T) => ({
+  ...module,
+  status: module.status ?? "ACTIVE"
+});
+
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
   if (Number.isNaN(parsed) || parsed <= 0) return 20;
@@ -88,7 +93,7 @@ modulos.get("/api/modulos/buscar", async (req, res) => {
     .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
     .limit(limit)
     .sort({ updatedAt: -1 });
-  const items = await cursor.toArray();
+  const items = (await cursor.toArray()).map(withDefaultStatus);
   res.json({ items, limit, offset });
 });
 
@@ -104,7 +109,7 @@ modulos.get("/api/modulos", async (req, res) => {
     .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
     .limit(limit)
     .sort({ updatedAt: -1 });
-  const items = await cursor.toArray();
+  const items = (await cursor.toArray()).map(withDefaultStatus);
   res.json({ items, limit, offset });
 });
 
@@ -112,7 +117,7 @@ modulos.get("/api/modulos/:id", async (req, res) => {
   const db = await getDb();
   const item = await db.collection("modulos").findOne({ id: req.params.id });
   if (!item) return res.status(404).json({ error: "not found" });
-  res.json(item);
+  res.json(withDefaultStatus(item));
 });
 
 modulos.post("/api/modulos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
@@ -139,7 +144,7 @@ modulos.post("/api/modulos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) =
         return;
       }
     }
-    const result = await db.collection("modulos").insertOne(parsed);
+    const result = await db.collection("modulos").insertOne(withDefaultStatus(parsed));
     res.status(201).json({ id: result.insertedId, moduleId: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -160,7 +165,7 @@ modulos.put("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res
         return;
       }
     }
-    const update = { ...parsed, updatedAt: new Date().toISOString() };
+    const update = { ...parsed, status: parsed.status ?? existing.status ?? "ACTIVE", updatedAt: new Date().toISOString() };
     await db.collection("modulos").updateOne({ id: req.params.id }, { $set: update });
     res.json({ ok: true });
   } catch (e: any) {
@@ -182,7 +187,7 @@ modulos.patch("/api/modulos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, r
         return;
       }
     }
-    const update = { ...parsed, updatedAt: new Date().toISOString() };
+    const update = { ...parsed, status: parsed.status ?? existing.status ?? "ACTIVE", updatedAt: new Date().toISOString() };
     await db.collection("modulos").updateOne({ id: req.params.id }, { $set: update });
     res.json({ ok: true });
   } catch (e: any) {
