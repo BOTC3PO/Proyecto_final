@@ -13,6 +13,8 @@ const SUBJECT_ROOTS = {
 
 type Subject = keyof typeof SUBJECT_ROOTS;
 
+export const SUBJECTS = Object.keys(SUBJECT_ROOTS) as Subject[];
+
 type ConsignaWrapper = {
   topic: string;
   subject: Subject;
@@ -64,7 +66,7 @@ const sortTopics = (a: string, b: string): number => {
   return a.localeCompare(b);
 };
 
-const listTopicsFromFilesystem = async (subject: Subject): Promise<string[]> => {
+export const listTopicsFromFilesystem = async (subject: Subject): Promise<string[]> => {
   const root = SUBJECT_ROOTS[subject];
   const entries = await readdir(root, { withFileTypes: true });
   const temas: string[] = [];
@@ -163,3 +165,5 @@ registerSubjectRoutes("matematicas");
 registerSubjectRoutes("fisica");
 
 export const consignas = router;
+
+export type { Subject };

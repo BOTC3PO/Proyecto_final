@@ -35,6 +35,7 @@ import { visualizadoresRouter } from "./routes/visualizadores";
 import { createRateLimiter } from "./lib/rate-limit";
 import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
 import { dictionary } from "./routes/dictionary";
+import { readonlyRouter } from "./routes/readonly";
 import fs from "node:fs";
 import path from "node:path";
 const app = express();
@@ -90,6 +91,7 @@ app.use(resourceLinks);
 app.use(payments);
 app.use(padres);
 app.use(governance);
+app.use(readonlyRouter);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 
 const bootstrap = async () => {
