@@ -173,6 +173,32 @@ const assertNoDuplicateOptions = (exercise: Exercise): void => {
   assert.equal(set.size, exercise.opciones.length, `Opciones duplicadas en tema ${exercise.idTema}: ${exercise.opciones.join(" | ")}`);
 };
 
+
+const assertInterpolatedPrompt = (exercise: Exercise): void => {
+  assert.equal(exercise.tipo, "quiz");
+  assert.ok(!exercise.enunciado.includes("{{"), `Enunciado sin interpolar en tema ${exercise.idTema}: ${exercise.enunciado}`);
+
+  if (exercise.idTema === 56) {
+    const match = exercise.enunciado.match(/mide (\d+)/g);
+    if (match) {
+      for (const token of match) {
+        assert.match(token, /\d+/);
+      }
+    }
+    return;
+  }
+
+  if (exercise.idTema === 57) {
+    const numeros = exercise.enunciado.match(/\d+/g) ?? [];
+    assert.ok(numeros.length >= 2, `Enunciado de tema 57 sin valores esperados: ${exercise.enunciado}`);
+    return;
+  }
+
+  if (exercise.idTema === 58 || exercise.idTema === 59) return;
+
+  assert.fail(`Tema no soportado para validación de interpolación: ${exercise.idTema}`);
+};
+
 const assertTrig56to59Correctness = (exercise: Exercise): void => {
   assert.equal(exercise.tipo, "quiz");
   const correcta = getCorrectOption(exercise);
@@ -280,6 +306,7 @@ test("matemáticas temas 56–59: variantes válidas por dificultad y sin duplic
         assertFiniteDeep(exercise);
         assertNoDuplicateOptions(exercise);
         assertTrig56to59Correctness(exercise);
+        assertInterpolatedPrompt(exercise);
       }
     }
   }
