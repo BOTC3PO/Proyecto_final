@@ -7,6 +7,7 @@ import {
   randomInt,
 } from "./generic";
 import { getRangoConFallback } from "./limits";
+import { preloadGeneradoresTema } from "../generadores_api";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
 
 const ID_TEMA = 64;
@@ -23,13 +24,15 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 const formatComplejo = (a: number, b: number): string => `${a} ${b < 0 ? "-" : "+"} ${Math.abs(b)}i`;
 
 const generarTema64: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante = pickRandom(["comp.forma.identificar", "comp.conjugado", "comp.modulo"] as const);
 
   if (variante === "comp.forma.identificar") {
-    const [minRaw, maxRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "numeros");
-    const a = randomInt(clampInt(minRaw, 1, 12), clampInt(Math.max(minRaw, maxRaw), 2, dificultadCore === "basico" ? 12 : 20));
-    const b = randomInt(-8, 8);
+    const [minRealRaw, maxRealRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "real");
+    const [minImagRaw, maxImagRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "imag");
+    const a = randomInt(clampInt(minRealRaw, 1, 12), clampInt(Math.max(minRealRaw, maxRealRaw), 2, dificultadCore === "basico" ? 12 : 20));
+    const b = randomInt(-clampInt(Math.max(minImagRaw, maxImagRaw), 2, 12), clampInt(Math.max(minImagRaw, maxImagRaw), 2, 12));
     const imag = b === 0 ? 1 : b;
 
     return crearQuizBase({
@@ -50,8 +53,12 @@ const generarTema64: GeneratorFn = (dificultad: Dificultad = "basico") => {
   }
 
   if (variante === "comp.conjugado") {
-    const a = randomInt(-9, 9);
-    const b = randomInt(1, dificultadCore === "basico" ? 6 : 9);
+    const [minRealRaw, maxRealRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "real");
+    const [minImagRaw, maxImagRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "imag");
+    const limReal = clampInt(Math.max(minRealRaw, maxRealRaw), 2, 9);
+    const limImag = clampInt(Math.max(minImagRaw, maxImagRaw), 2, dificultadCore === "basico" ? 6 : 9);
+    const a = randomInt(-limReal, limReal);
+    const b = randomInt(1, limImag);
 
     return crearQuizBase({
       idTema: ID_TEMA,

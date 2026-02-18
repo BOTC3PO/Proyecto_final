@@ -7,6 +7,7 @@ import {
   randomInt,
 } from "./generic";
 import { getRangoConFallback } from "./limits";
+import { preloadGeneradoresTema } from "../generadores_api";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
 
 const ID_TEMA = 62;
@@ -21,13 +22,17 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 };
 
 const generarTema62: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante = pickRandom(["exp.eq.basica", "exp.eq.misma_base", "exp.eq.igualar_potencias"] as const);
 
   if (variante === "exp.eq.basica") {
     const [minBaseRaw, maxBaseRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "base");
     const base = randomInt(clampInt(minBaseRaw, 2, 9), clampInt(Math.max(minBaseRaw, maxBaseRaw), 2, 9));
-    const n = randomInt(2, dificultadCore === "basico" ? 4 : 6);
+    const [minExpRaw, maxExpRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "exponente");
+    const minExp = clampInt(minExpRaw, 2, 6);
+  const maxExp = clampInt(maxExpRaw, 2, dificultadCore === "basico" ? 4 : 6);
+  const n = randomInt(minExp, Math.max(minExp, maxExp));
     const correcta = `x=${n}`;
 
     return crearQuizBase({
@@ -49,7 +54,10 @@ const generarTema62: GeneratorFn = (dificultad: Dificultad = "basico") => {
 
   if (variante === "exp.eq.misma_base") {
     const base = randomInt(2, 7);
-    const n = randomInt(2, dificultadCore === "basico" ? 4 : 6);
+    const [minExpRaw, maxExpRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "exponente");
+    const minExp = clampInt(minExpRaw, 2, 6);
+  const maxExp = clampInt(maxExpRaw, 2, dificultadCore === "basico" ? 4 : 6);
+  const n = randomInt(minExp, Math.max(minExp, maxExp));
     const valor = base ** n;
     const correcta = `x=${n}`;
 
@@ -70,7 +78,10 @@ const generarTema62: GeneratorFn = (dificultad: Dificultad = "basico") => {
     });
   }
 
-  const n = randomInt(2, dificultadCore === "basico" ? 4 : 6);
+  const [minExpRaw, maxExpRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "exponente");
+  const minExp = clampInt(minExpRaw, 2, 6);
+  const maxExp = clampInt(maxExpRaw, 2, dificultadCore === "basico" ? 4 : 6);
+  const n = randomInt(minExp, Math.max(minExp, maxExp));
   const k = 2 * n;
   const correcta = `x=${n}`;
 

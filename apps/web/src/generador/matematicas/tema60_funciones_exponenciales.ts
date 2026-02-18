@@ -7,6 +7,7 @@ import {
   randomInt,
 } from "./generic";
 import { getRangoConFallback } from "./limits";
+import { preloadGeneradoresTema } from "../generadores_api";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
 
 const ID_TEMA = 60;
@@ -21,6 +22,7 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 };
 
 const generarTema60: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante = pickRandom(["exp.func.evaluar", "exp.func.crecimiento", "exp.func.comparar"] as const);
 
@@ -29,8 +31,9 @@ const generarTema60: GeneratorFn = (dificultad: Dificultad = "basico") => {
     const minBase = clampInt(minBaseRaw, 2, 9);
     const maxBase = clampInt(maxBaseRaw, 2, dificultadCore === "basico" ? 5 : 9);
     const base = randomInt(minBase, Math.max(minBase, maxBase));
-    const expMax = dificultadCore === "basico" ? 4 : 6;
-    const n = randomInt(2, expMax);
+    const [minExpRaw, maxExpRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "exponente");
+    const expMax = clampInt(maxExpRaw, 3, dificultadCore === "basico" ? 4 : 6);
+    const n = randomInt(clampInt(minExpRaw, 2, expMax), expMax);
     const correcta = base ** n;
 
     return crearQuizBase({
@@ -51,10 +54,15 @@ const generarTema60: GeneratorFn = (dificultad: Dificultad = "basico") => {
   }
 
   if (variante === "exp.func.crecimiento") {
-    const [minPRaw, maxPRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "valor_inicial");
+    const [minPRaw, maxPRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "coeficiente");
     const p0 = clampInt(randomInt(minPRaw, maxPRaw), 1, dificultadCore === "basico" ? 12 : 24);
-    const b = randomInt(2, dificultadCore === "avanzado" ? 5 : 4);
-    const t = randomInt(2, dificultadCore === "basico" ? 3 : 5);
+    const [minExpRaw, maxExpRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "exponente");
+    const [minTimeRaw, maxTimeRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "tiempo");
+    const minFactor = clampInt(minExpRaw, 2, 5);
+    const maxFactor = clampInt(maxExpRaw, 2, dificultadCore === "avanzado" ? 5 : 4);
+    const b = randomInt(minFactor, Math.max(minFactor, maxFactor));
+    const tMax = clampInt(maxTimeRaw, 2, dificultadCore === "basico" ? 3 : 5);
+    const t = randomInt(clampInt(minTimeRaw, 2, tMax), tMax);
     const correcta = p0 * b ** t;
 
     return crearQuizBase({

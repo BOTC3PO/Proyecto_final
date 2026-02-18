@@ -1,4 +1,5 @@
 import type { Dificultad } from "./generic";
+import { getConsigna } from "../generadores_api";
 
 export type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -26,6 +27,8 @@ const renderTemplate = (template: string, variables?: Record<string, string | nu
     return value === undefined || value === null ? "" : String(value);
   });
 
+const hasPlaceholders = (text: string): boolean => /{{\s*[^}]+\s*}}/.test(text);
+
 export const construirEnunciado = ({
   idTema,
   dificultad,
@@ -33,14 +36,22 @@ export const construirEnunciado = ({
   fallback,
   variables,
 }: EnunciadoArgs): string => {
-  void idTema;
-  void dificultad;
-  void claveSubtipo;
-  const rendered = renderTemplate(fallback, variables).trim();
-  if (rendered.includes("{{")) {
-    throw new Error(`Enunciado sin interpolar detectado: ${rendered}`);
+  const templateApi = getConsigna(idTema, dificultad, claveSubtipo);
+  const template = typeof templateApi === "string" && templateApi.trim().length > 0
+    ? templateApi
+    : fallback;
+
+  const rendered = renderTemplate(template, variables).trim();
+  if (!hasPlaceholders(rendered)) {
+    return rendered;
   }
-  return rendered;
+
+  const fallbackRendered = renderTemplate(fallback, variables).trim();
+  if (hasPlaceholders(fallbackRendered)) {
+    throw new Error(`Enunciado sin interpolar detectado: ${fallbackRendered}`);
+  }
+
+  return fallbackRendered;
 };
 
 export const buildOpcionesUnicas = (
