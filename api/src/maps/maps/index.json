@@ -1,0 +1,51 @@
+{
+  "version": "natural-earth-v1",
+  "physical": {
+    "earth": {
+      "land": {
+        "110m": "/api/maps/physical/earth/land_110m.topo.json",
+        "50m": "/api/maps/physical/earth/land_50m.topo.json"
+      },
+      "ocean": {
+        "110m": "/api/maps/physical/earth/ocean_110m.topo.json",
+        "50m": "/api/maps/physical/earth/ocean_50m.topo.json"
+      },
+      "lakes": {
+        "110m": "/api/maps/physical/earth/lakes_110m.topo.json",
+        "50m": "/api/maps/physical/earth/lakes_50m.topo.json"
+      },
+      "rivers": {
+        "110m": "/api/maps/physical/earth/rivers_110m.topo.json",
+        "50m": "/api/maps/physical/earth/rivers_50m.topo.json"
+      },
+      "coastline": {
+        "110m": "/api/maps/physical/earth/coastline_110m.topo.json",
+        "50m": "/api/maps/physical/earth/coastline_50m.topo.json"
+      }
+    }
+  },
+  "political": {
+    "earth": {
+      "countries": {
+        "110m": "/api/maps/political/earth/countries_110m.topo.json",
+        "50m": "/api/maps/political/earth/countries_50m.topo.json"
+      },
+      "states_provinces": {
+        "110m": "/api/maps/political/earth/states_provinces_110m.topo.json",
+        "50m": "/api/maps/political/earth/states_provinces_50m.topo.json"
+      },
+      "places": {
+        "110m": "/api/maps/political/earth/populated_places_110m.topo.json",
+        "50m": "/api/maps/political/earth/populated_places_50m.topo.json"
+      },
+      "urban_areas": {
+        "50m": "/api/maps/political/earth/urban_areas_50m.topo.json"
+      },
+      "boundaries": {
+        "land_110m": "/api/maps/political/earth/boundary_lines_land_110m.topo.json",
+        "land_50m": "/api/maps/political/earth/boundary_lines_land_50m.topo.json",
+        "maritime_50m": "/api/maps/political/earth/boundary_maritime_50m.topo.json"
+      }
+    }
+  }
+}
