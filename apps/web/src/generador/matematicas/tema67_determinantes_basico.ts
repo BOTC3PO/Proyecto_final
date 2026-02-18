@@ -8,6 +8,7 @@ import {
 } from "./generic";
 import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
+import { preloadGeneradoresTema } from "../generadores_api";
 
 const ID_TEMA = 67;
 const TITULO = "Determinantes básico";
@@ -24,6 +25,7 @@ const mat2x2ToStr = (a: number, b: number, c: number, d: number): string => `[[$
 const mat3x3ToStr = (m: number[][]): string => `[${m.map((fila) => `[${fila.join(",")}]`).join(",")}]`;
 
 const generarTema67: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante = pickRandom(["det.2x2.calcular", "det.propiedad.escalar", "det.triangular"] as const);
   const [minRaw, maxRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "mat");

@@ -8,6 +8,7 @@ import {
 } from "./generic";
 import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
+import { preloadGeneradoresTema } from "../generadores_api";
 
 const ID_TEMA = 70;
 const TITULO = "Geometría espacial";
@@ -28,6 +29,7 @@ const simplificarRaiz = (n: number): string => {
 };
 
 const generarTema70: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante = pickRandom(["geo3d.distancia", "geo3d.punto_medio", "geo3d.plano_basico"] as const);
   const [minRaw, maxRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "vec");
