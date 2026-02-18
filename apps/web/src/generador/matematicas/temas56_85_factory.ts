@@ -62,6 +62,26 @@ const getTrigRanges = (ctx: Ctx) => {
   };
 };
 
+function construirEnunciado(
+  idTema: number,
+  dificultad: Dificultad,
+  clave: string,
+  fallback: string,
+  variables?: Record<string, string | number>
+): string {
+  void idTema;
+  void dificultad;
+  void clave;
+
+  let enunciado = fallback;
+  if (variables) {
+    for (const [nombre, valor] of Object.entries(variables)) {
+      enunciado = enunciado.replace(`{{${nombre}}}`, String(valor));
+    }
+  }
+  return enunciado;
+}
+
 const genTrig56_Basica = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
   const { angleMin, angleMax, lengthMin, lengthMax } = getTrigRanges(ctx);
   const dificultadCore = normalizarDificultadCore(ctx.dificultad);
@@ -76,11 +96,18 @@ const genTrig56_Basica = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
     const opuesto = randomInt(lengthMin, lengthMax);
     const adyacente = randomInt(lengthMin, lengthMax);
     const correcta = formatNum(opuesto / adyacente);
+    const enunciado = construirEnunciado(
+      ctx.idTema,
+      ctx.dificultad,
+      "trig.basica.razon",
+      "En un triángulo rectángulo, si el cateto opuesto mide {{opuesto}} y el adyacente {{adyacente}}, ¿cuál es tan(θ)?",
+      { opuesto, adyacente }
+    );
     return crearQuizBase({
       idTema: ctx.idTema,
       tituloTema: ctx.titulo,
       dificultad: ctx.dificultad,
-      enunciado: `En un triángulo rectángulo, si el cateto opuesto mide ${opuesto} y el adyacente ${adyacente}, ¿cuál es tan(θ)?`,
+      enunciado,
       opciones: uniqueOptions(correcta, [
         formatNum(adyacente / opuesto),
         formatNum(opuesto + adyacente),
@@ -96,11 +123,18 @@ const genTrig56_Basica = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
     const base = randomInt(lengthMin, lengthMax);
     if (tipo === "45") {
       const correcta = base;
+      const enunciado = construirEnunciado(
+        ctx.idTema,
+        ctx.dificultad,
+        "trig.basica.lado",
+        "En un triángulo rectángulo isósceles (45°-45°-90°), si un cateto mide {{base}}, ¿cuánto mide el otro cateto?",
+        { base }
+      );
       return crearQuizBase({
         idTema: ctx.idTema,
         tituloTema: ctx.titulo,
         dificultad: ctx.dificultad,
-        enunciado: `En un triángulo rectángulo isósceles (45°-45°-90°), si un cateto mide ${base}, ¿cuánto mide el otro cateto?`,
+        enunciado,
         opciones: uniqueOptions(correcta, [base + 1, Math.max(1, base - 1), base * 2]),
         indiceCorrecto: 0,
         explicacion: "En un triángulo 45°-45°-90°, ambos catetos son iguales.",
@@ -109,11 +143,18 @@ const genTrig56_Basica = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
 
     if (tipo === "30") {
       const correcta = base;
+      const enunciado = construirEnunciado(
+        ctx.idTema,
+        ctx.dificultad,
+        "trig.basica.lado",
+        "En un triángulo 30°-60°-90°, si el cateto opuesto a 30° mide {{base}}, ¿cuánto mide la hipotenusa?",
+        { base }
+      );
       return crearQuizBase({
         idTema: ctx.idTema,
         tituloTema: ctx.titulo,
         dificultad: ctx.dificultad,
-        enunciado: `En un triángulo 30°-60°-90°, si el cateto opuesto a 30° mide ${base}, ¿cuánto mide la hipotenusa?`,
+        enunciado,
         opciones: uniqueOptions(correcta * 2, [correcta, correcta * 3, formatNum(correcta * 1.5)]),
         indiceCorrecto: 0,
         explicacion: "En un triángulo 30°-60°-90°, la hipotenusa es el doble del cateto opuesto a 30°.",
@@ -121,11 +162,18 @@ const genTrig56_Basica = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
     }
 
     const correcta = base;
+    const enunciado = construirEnunciado(
+      ctx.idTema,
+      ctx.dificultad,
+      "trig.basica.lado",
+      "En un triángulo 30°-60°-90°, si el cateto opuesto a 30° mide {{base}}, ¿cuánto mide el cateto opuesto a 60°?",
+      { base }
+    );
     return crearQuizBase({
       idTema: ctx.idTema,
       tituloTema: ctx.titulo,
       dificultad: ctx.dificultad,
-      enunciado: `En un triángulo 30°-60°-90°, si el cateto opuesto a 30° mide ${base}, ¿cuánto mide el cateto opuesto a 60°?`,
+      enunciado,
       opciones: uniqueOptions(formatNum(correcta * Math.sqrt(3)), [correcta * 2, correcta, formatNum(correcta * 1.5)]),
       indiceCorrecto: 0,
       explicacion: "En un triángulo 30°-60°-90°, los lados están en razón 1 : √3 : 2.",
@@ -134,11 +182,18 @@ const genTrig56_Basica = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
 
   const angulo = randomInt(Math.max(10, angleMin), Math.min(80, angleMax));
   const complementario = 90 - angulo;
+  const enunciado = construirEnunciado(
+    ctx.idTema,
+    ctx.dificultad,
+    "trig.basica.complementario",
+    "En un triángulo rectángulo, si un ángulo agudo mide {{angulo}}°, ¿cuánto mide su complementario?",
+    { angulo }
+  );
   return crearQuizBase({
     idTema: ctx.idTema,
     tituloTema: ctx.titulo,
     dificultad: ctx.dificultad,
-    enunciado: `En un triángulo rectángulo, si un ángulo agudo mide ${angulo}°, ¿cuánto mide su complementario?`,
+    enunciado,
     opciones: uniqueOptions(complementario, [complementario + 5, Math.max(1, complementario - 5), 180 - angulo]),
     indiceCorrecto: 0,
     explicacion: "En triángulos rectángulos, los ángulos agudos son complementarios y suman 90°.",
@@ -158,11 +213,18 @@ const genTrig57_Aplicada = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
     const angulo = pickRandom([30, 45, 60] as const);
     const tanValor = angulo === 30 ? 1 / Math.sqrt(3) : angulo === 45 ? 1 : Math.sqrt(3);
     const altura = formatNum(sombra * tanValor);
+    const enunciado = construirEnunciado(
+      ctx.idTema,
+      ctx.dificultad,
+      "trig.aplicada.altura",
+      "Un poste proyecta una sombra de {{sombra}} m y el ángulo de elevación del sol es {{angulo}}°. ¿Cuál es la altura del poste?",
+      { sombra, angulo }
+    );
     return crearQuizBase({
       idTema: ctx.idTema,
       tituloTema: ctx.titulo,
       dificultad: ctx.dificultad,
-      enunciado: `Un poste proyecta una sombra de ${sombra} m y el ángulo de elevación del sol es ${angulo}°. ¿Cuál es la altura del poste?`,
+      enunciado,
       opciones: uniqueOptions(altura, [
         formatNum(sombra / tanValor),
         formatNum(sombra * (angulo === 45 ? Math.sqrt(2) : 0.5)),
@@ -178,11 +240,18 @@ const genTrig57_Aplicada = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
     const angulo = pickRandom([30, 45, 60] as const);
     const tanValor = angulo === 30 ? 1 / Math.sqrt(3) : angulo === 45 ? 1 : Math.sqrt(3);
     const distancia = formatNum(altura / tanValor);
+    const enunciado = construirEnunciado(
+      ctx.idTema,
+      ctx.dificultad,
+      "trig.aplicada.distancia",
+      "Desde un punto del suelo se observa la cima de un edificio de {{altura}} m con un ángulo de elevación de {{angulo}}°. ¿A qué distancia horizontal está el edificio?",
+      { altura, angulo }
+    );
     return crearQuizBase({
       idTema: ctx.idTema,
       tituloTema: ctx.titulo,
       dificultad: ctx.dificultad,
-      enunciado: `Desde un punto del suelo se observa la cima de un edificio de ${altura} m con un ángulo de elevación de ${angulo}°. ¿A qué distancia horizontal está el edificio?`,
+      enunciado,
       opciones: uniqueOptions(distancia, [
         formatNum(altura * tanValor),
         formatNum(altura / (tanValor + 1)),
@@ -196,11 +265,18 @@ const genTrig57_Aplicada = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
   const dy = randomInt(lengthMin, lengthMax);
   const dx = randomInt(lengthMin, lengthMax);
   const tanTheta = formatNum(dy / dx);
+  const enunciado = construirEnunciado(
+    ctx.idTema,
+    ctx.dificultad,
+    "trig.aplicada.pendiente",
+    "Una rampa sube {{dy}} m verticalmente por cada {{dx}} m horizontales. ¿Cuál es tan(θ) de su inclinación?",
+    { dy, dx }
+  );
   return crearQuizBase({
     idTema: ctx.idTema,
     tituloTema: ctx.titulo,
     dificultad: ctx.dificultad,
-    enunciado: `Una rampa sube ${dy} m verticalmente por cada ${dx} m horizontales. ¿Cuál es tan(θ) de su inclinación?`,
+    enunciado,
     opciones: uniqueOptions(tanTheta, [formatNum(dx / dy), formatNum((dy + dx) / dx), formatNum(dy / (dy + dx))]),
     indiceCorrecto: 0,
     explicacion: "La pendiente trigonométrica es tan(θ)=Δy/Δx.",
@@ -215,11 +291,17 @@ const genTrig58_Identidades = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
       : pickRandom(["pitagorica", "simplificacion", "tansec"] as const);
 
   if (variante === "pitagorica") {
+    const enunciado = construirEnunciado(
+      ctx.idTema,
+      ctx.dificultad,
+      "trig.identidad.completar",
+      "Completa la identidad: sin²(x) + ____ = 1"
+    );
     return crearQuizBase({
       idTema: ctx.idTema,
       tituloTema: ctx.titulo,
       dificultad: ctx.dificultad,
-      enunciado: "Completa la identidad: sin²(x) + ____ = 1",
+      enunciado,
       opciones: uniqueOptions("cos²(x)", ["tan²(x)", "sec²(x)", "1 - sin(x)"]),
       indiceCorrecto: 0,
       explicacion: "La identidad pitagórica básica es sin²(x)+cos²(x)=1.",
@@ -227,22 +309,34 @@ const genTrig58_Identidades = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
   }
 
   if (variante === "simplificacion") {
+    const enunciado = construirEnunciado(
+      ctx.idTema,
+      ctx.dificultad,
+      "trig.identidad.simplificar",
+      "Simplifica la expresión: 1 − sin²(x)"
+    );
     return crearQuizBase({
       idTema: ctx.idTema,
       tituloTema: ctx.titulo,
       dificultad: ctx.dificultad,
-      enunciado: "Simplifica la expresión: 1 − sin²(x)",
+      enunciado,
       opciones: uniqueOptions("cos²(x)", ["1 + sin²(x)", "cos(x)", "tan²(x)"]),
       indiceCorrecto: 0,
       explicacion: "De sin²(x)+cos²(x)=1 se obtiene 1−sin²(x)=cos²(x).",
     });
   }
 
+  const enunciado = construirEnunciado(
+    ctx.idTema,
+    ctx.dificultad,
+    "trig.identidad.tan_sec",
+    "Completa la identidad: 1 + tan²(x) = ____"
+  );
   return crearQuizBase({
     idTema: ctx.idTema,
     tituloTema: ctx.titulo,
     dificultad: ctx.dificultad,
-    enunciado: "Completa la identidad: 1 + tan²(x) = ____",
+    enunciado,
     opciones: uniqueOptions("sec²(x)", ["cosec²(x)", "cos²(x)", "1/cos(x)"]),
     indiceCorrecto: 0,
     explicacion: "La identidad pitagórica extendida es 1+tan²(x)=sec²(x).",
@@ -268,11 +362,18 @@ const genTrig59_Ecuaciones = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
       { enunciado: "cos(θ)=-1/2", correcta: toAngleSet([120, 240]), distractores: [toAngleSet([60, 240]), toAngleSet([120]), toAngleSet([150, 210])] },
     ] as const;
     const caso = pickRandom(casos);
+    const enunciado = construirEnunciado(
+      ctx.idTema,
+      ctx.dificultad,
+      "trig.ecuacion.sin",
+      "Resuelve {{expresion}} para θ en [0°, 360°].",
+      { expresion: caso.enunciado }
+    );
     return crearQuizBase({
       idTema: ctx.idTema,
       tituloTema: ctx.titulo,
       dificultad: ctx.dificultad,
-      enunciado: `Resuelve ${caso.enunciado} para θ en [0°, 360°].`,
+      enunciado,
       opciones: uniqueOptions(caso.correcta, [...caso.distractores]),
       indiceCorrecto: 0,
       explicacion: "Se usan valores notables del círculo trigonométrico en el dominio [0°,360°].",
@@ -285,22 +386,35 @@ const genTrig59_Ecuaciones = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
       { enunciado: "tan(θ)=0", correcta: toAngleSet([0, 180, 360]), distractores: [toAngleSet([0, 180]), toAngleSet([90, 270]), toAngleSet([45, 225])] },
     ] as const;
     const caso = pickRandom(casos);
+    const enunciado = construirEnunciado(
+      ctx.idTema,
+      ctx.dificultad,
+      "trig.ecuacion.tan",
+      "Resuelve {{expresion}} para θ en [0°, 360°].",
+      { expresion: caso.enunciado }
+    );
     return crearQuizBase({
       idTema: ctx.idTema,
       tituloTema: ctx.titulo,
       dificultad: ctx.dificultad,
-      enunciado: `Resuelve ${caso.enunciado} para θ en [0°, 360°].`,
+      enunciado,
       opciones: uniqueOptions(caso.correcta, [...caso.distractores]),
       indiceCorrecto: 0,
       explicacion: "La tangente tiene período 180° y se validan todas las soluciones del dominio.",
     });
   }
 
+  const enunciado = construirEnunciado(
+    ctx.idTema,
+    ctx.dificultad,
+    "trig.ecuacion.cos",
+    "Resuelve sin²(θ)=1/4 para θ en [0°, 360°]."
+  );
   return crearQuizBase({
     idTema: ctx.idTema,
     tituloTema: ctx.titulo,
     dificultad: ctx.dificultad,
-    enunciado: "Resuelve sin²(θ)=1/4 para θ en [0°, 360°].",
+    enunciado,
     opciones: uniqueOptions(toAngleSet([30, 150, 210, 330]), [toAngleSet([30, 150]), toAngleSet([60, 120, 240, 300]), toAngleSet([30, 330])]),
     indiceCorrecto: 0,
     explicacion: "Si sin²(θ)=1/4 entonces sin(θ)=±1/2, y se toman los cuatro ángulos del dominio.",
