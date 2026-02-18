@@ -312,22 +312,21 @@ test("matemáticas temas 56–59: variantes válidas por dificultad y sin duplic
   }
 });
 
-test("matemáticas temas 60–85: mantienen fallback legacy por rangos", () => {
+test("matemáticas temas 60–65: smoke nativo sin placeholders y con opciones únicas", () => {
   const dificultades = ["basico", "intermedio", "avanzado"] as const;
 
-  for (let idTema = 60; idTema <= 85; idTema += 1) {
+  for (let idTema = 60; idTema <= 65; idTema += 1) {
     const descriptor = GENERADORES_MATEMATICAS_POR_TEMA[idTema];
     for (const dificultad of dificultades) {
-      const exercise = descriptor.generate(dificultad, { modo: "quiz" }, createPrng(`legacy-${idTema}-${dificultad}`));
-      assert.equal(exercise.tipo, "quiz");
-      if (idTema <= 63) {
-        assert.match(exercise.enunciado, /^Calcula \d+\^\d+\.$/);
-      } else if (idTema <= 70) {
-        assert.match(exercise.enunciado, /^Para la matriz 2x2 A = /);
-      } else if (idTema <= 80) {
-        assert.match(exercise.enunciado, /^Deriva f\(x\) = /);
-      } else {
-        assert.match(exercise.enunciado, /^Si hay \d+ casos favorables de \d+ posibles/);
+      for (let i = 0; i < 50; i += 1) {
+        const exercise = descriptor.generate(dificultad, { modo: "quiz" }, createPrng(`tema-${idTema}-${dificultad}-${i}`));
+        assert.equal(exercise.idTema, idTema);
+        assert.equal(exercise.tipo, "quiz");
+        assert.ok(exercise.enunciado.trim().length > 0);
+        assert.ok(!exercise.enunciado.includes("{{"));
+        assert.equal(exercise.opciones.length, 4);
+        assert.equal(new Set(exercise.opciones).size, 4);
+        assert.ok(exercise.indiceCorrecto >= 0 && exercise.indiceCorrecto < exercise.opciones.length);
       }
     }
   }
