@@ -421,6 +421,7 @@ const genTrig59_Ecuaciones = (ctx: Ctx): ReturnType<typeof crearQuizBase> => {
   });
 };
 
+// Compatibilidad temporal: 56..59 siguen disponibles desde la factory mientras se migra su consumo.
 const generatorsByTema = {
   56: genTrig56_Basica,
   57: genTrig57_Aplicada,
