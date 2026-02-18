@@ -1,6 +1,7 @@
 import type { Dificultad } from "./generic";
 import { normalizarDificultadCore } from "./generic";
 import { getCatalogoTemaSync, getTemaByIdSync } from "./catalogoApi";
+import { getLimite } from "../generadores_api";
 
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
@@ -39,6 +40,15 @@ export function getRangoConFallback(
   key = "numeros"
 ): [number, number] {
   const dif = normalizarDificultadCore(dificultad);
+  const fromApi = getLimite(idTema, dificultad, key);
+  const fromApiNumeros = key === "numeros" ? null : getLimite(idTema, dificultad, "numeros");
+  const apiCandidate = fromApi ?? fromApiNumeros;
+  if (apiCandidate) {
+    const [minApi, maxApi] = apiCandidate;
+    if (Number.isFinite(minApi) && Number.isFinite(maxApi) && minApi < maxApi) {
+      return [minApi, maxApi];
+    }
+  }
   const fromJson = getNivel(idTema, dificultad)?.rangos?.[key];
   return Array.isArray(fromJson) && fromJson.length === 2
     ? [Number(fromJson[0]), Number(fromJson[1])]
