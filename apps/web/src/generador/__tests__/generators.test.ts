@@ -13,6 +13,7 @@ import { crearCalculadoraFisica } from "../fisica/calculadora";
 import { MRUGenerator } from "../fisica/MRU";
 import { parseFisicaParametros } from "../fisica/schemas";
 import { GENERADORES_MATEMATICAS_POR_TEMA } from "../matematicas";
+import type { Exercise } from "../matematicas/generic";
 import { toCorrection as toMathCorrection } from "../matematicas/adapters";
 import { parseMatematicasParams } from "../matematicas/schemas";
 import { GENERADORES_QUIMICA_DESCRIPTORES } from "../quimica/indexQuimica";
@@ -149,4 +150,158 @@ test("params inválidos entregan errores claros por materia", () => {
       }),
     /Parámetros inválidos/i
   );
+});
+
+
+const formatNumLocal = (n: number): string =>
+  Number.isInteger(n) ? String(n) : n.toFixed(2).replace(/\.00$/, "");
+
+const tanNotable = (angulo: number): number => {
+  if (angulo === 30) return 1 / Math.sqrt(3);
+  if (angulo === 45) return 1;
+  return Math.sqrt(3);
+};
+
+const getCorrectOption = (exercise: Exercise): string => {
+  assert.equal(exercise.tipo, "quiz");
+  return exercise.opciones[exercise.indiceCorrecto];
+};
+
+const assertNoDuplicateOptions = (exercise: Exercise): void => {
+  assert.equal(exercise.tipo, "quiz");
+  const set = new Set(exercise.opciones);
+  assert.equal(set.size, exercise.opciones.length, `Opciones duplicadas en tema ${exercise.idTema}: ${exercise.opciones.join(" | ")}`);
+};
+
+const assertTrig56to59Correctness = (exercise: Exercise): void => {
+  assert.equal(exercise.tipo, "quiz");
+  const correcta = getCorrectOption(exercise);
+
+  if (exercise.idTema === 56) {
+    let match = exercise.enunciado.match(/opuesto mide (\d+) y el adyacente (\d+).+tan\(θ\)/);
+    if (match) {
+      const [, op, ad] = match;
+      assert.equal(correcta, formatNumLocal(Number(op) / Number(ad)));
+      return;
+    }
+
+    match = exercise.enunciado.match(/45°-45°-90°.+cateto mide (\d+)/);
+    if (match) {
+      assert.equal(correcta, String(Number(match[1])));
+      return;
+    }
+
+    match = exercise.enunciado.match(/opuesto a 30° mide (\d+), ¿cuánto mide la hipotenusa/);
+    if (match) {
+      assert.equal(correcta, String(Number(match[1]) * 2));
+      return;
+    }
+
+    match = exercise.enunciado.match(/opuesto a 30° mide (\d+), ¿cuánto mide el cateto opuesto a 60°/);
+    if (match) {
+      assert.equal(correcta, formatNumLocal(Number(match[1]) * Math.sqrt(3)));
+      return;
+    }
+
+    match = exercise.enunciado.match(/ángulo agudo mide (\d+)°.+complementario/);
+    if (match) {
+      assert.equal(correcta, String(90 - Number(match[1])));
+      return;
+    }
+  }
+
+  if (exercise.idTema === 57) {
+    let match = exercise.enunciado.match(/sombra de (\d+) m.+es (\d+)°.+altura del poste/);
+    if (match) {
+      const [, sombra, angulo] = match;
+      assert.equal(correcta, formatNumLocal(Number(sombra) * tanNotable(Number(angulo))));
+      return;
+    }
+
+    match = exercise.enunciado.match(/edificio de (\d+) m.+es (\d+)°.+distancia horizontal/);
+    if (match) {
+      const [, altura, angulo] = match;
+      assert.equal(correcta, formatNumLocal(Number(altura) / tanNotable(Number(angulo))));
+      return;
+    }
+
+    match = exercise.enunciado.match(/sube (\d+) m.+cada (\d+) m.+tan\(θ\)/);
+    if (match) {
+      const [, dy, dx] = match;
+      assert.equal(correcta, formatNumLocal(Number(dy) / Number(dx)));
+      return;
+    }
+  }
+
+  if (exercise.idTema === 58) {
+    if (exercise.enunciado.includes("sin²(x) + ____ = 1")) {
+      assert.equal(correcta, "cos²(x)");
+      return;
+    }
+    if (exercise.enunciado.includes("1 − sin²(x)")) {
+      assert.equal(correcta, "cos²(x)");
+      return;
+    }
+    if (exercise.enunciado.includes("1 + tan²(x)")) {
+      assert.equal(correcta, "sec²(x)");
+      return;
+    }
+  }
+
+  if (exercise.idTema === 59) {
+    const expectedByPrompt: Record<string, string> = {
+      "Resuelve sin(θ)=0 para θ en [0°, 360°].": "0°, 180°, 360°",
+      "Resuelve sin(θ)=1/2 para θ en [0°, 360°].": "30°, 150°",
+      "Resuelve cos(θ)=0 para θ en [0°, 360°].": "90°, 270°",
+      "Resuelve cos(θ)=1/2 para θ en [0°, 360°].": "60°, 300°",
+      "Resuelve cos(θ)=-1/2 para θ en [0°, 360°].": "120°, 240°",
+      "Resuelve tan(θ)=1 para θ en [0°, 360°].": "45°, 225°",
+      "Resuelve tan(θ)=0 para θ en [0°, 360°].": "0°, 180°, 360°",
+      "Resuelve sin²(θ)=1/4 para θ en [0°, 360°].": "30°, 150°, 210°, 330°",
+    };
+    const expected = expectedByPrompt[exercise.enunciado];
+    assert.ok(expected, `Enunciado no reconocido en tema 59: ${exercise.enunciado}`);
+    assert.equal(correcta, expected);
+    return;
+  }
+
+  assert.fail(`No se pudo validar el ejercicio del tema ${exercise.idTema}: ${exercise.enunciado}`);
+};
+
+test("matemáticas temas 56–59: variantes válidas por dificultad y sin duplicados", () => {
+  const dificultades = ["basico", "intermedio", "avanzado"] as const;
+  const temas = [56, 57, 58, 59] as const;
+
+  for (const idTema of temas) {
+    const descriptor = GENERADORES_MATEMATICAS_POR_TEMA[idTema];
+    for (const dificultad of dificultades) {
+      for (let i = 0; i < 50; i += 1) {
+        const exercise = descriptor.generate(dificultad, { modo: "quiz" }, createPrng(`tema-${idTema}-${dificultad}-${i}`));
+        assertFiniteDeep(exercise);
+        assertNoDuplicateOptions(exercise);
+        assertTrig56to59Correctness(exercise);
+      }
+    }
+  }
+});
+
+test("matemáticas temas 60–85: mantienen fallback legacy por rangos", () => {
+  const dificultades = ["basico", "intermedio", "avanzado"] as const;
+
+  for (let idTema = 60; idTema <= 85; idTema += 1) {
+    const descriptor = GENERADORES_MATEMATICAS_POR_TEMA[idTema];
+    for (const dificultad of dificultades) {
+      const exercise = descriptor.generate(dificultad, { modo: "quiz" }, createPrng(`legacy-${idTema}-${dificultad}`));
+      assert.equal(exercise.tipo, "quiz");
+      if (idTema <= 63) {
+        assert.match(exercise.enunciado, /^Calcula \d+\^\d+\.$/);
+      } else if (idTema <= 70) {
+        assert.match(exercise.enunciado, /^Para la matriz 2x2 A = /);
+      } else if (idTema <= 80) {
+        assert.match(exercise.enunciado, /^Deriva f\(x\) = /);
+      } else {
+        assert.match(exercise.enunciado, /^Si hay \d+ casos favorables de \d+ posibles/);
+      }
+    }
+  }
 });
