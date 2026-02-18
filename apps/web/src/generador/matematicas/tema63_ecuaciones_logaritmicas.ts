@@ -7,6 +7,7 @@ import {
   randomInt,
 } from "./generic";
 import { getRangoConFallback } from "./limits";
+import { preloadGeneradoresTema } from "../generadores_api";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
 
 const ID_TEMA = 63;
@@ -21,13 +22,17 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 };
 
 const generarTema63: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante = pickRandom(["log.eq.basica", "log.eq.igualdad", "log.eq.propiedad"] as const);
 
   if (variante === "log.eq.basica") {
     const [minBaseRaw, maxBaseRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "base");
     const base = randomInt(clampInt(minBaseRaw, 2, 5), clampInt(Math.max(minBaseRaw, maxBaseRaw), 2, 5));
-    const n = randomInt(1, dificultadCore === "basico" ? 4 : 5);
+    const [minExpRaw, maxExpRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "exponente");
+    const minExp = clampInt(minExpRaw, 1, 5);
+    const maxExp = clampInt(maxExpRaw, 1, dificultadCore === "basico" ? 4 : 5);
+    const n = randomInt(minExp, Math.max(minExp, maxExp));
     const x = base ** n;
 
     return crearQuizBase({
@@ -49,7 +54,10 @@ const generarTema63: GeneratorFn = (dificultad: Dificultad = "basico") => {
 
   if (variante === "log.eq.igualdad") {
     const base = randomInt(2, 5);
-    const n = randomInt(1, dificultadCore === "basico" ? 4 : 5);
+    const [minExpRaw, maxExpRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "exponente");
+    const minExp = clampInt(minExpRaw, 1, 5);
+    const maxExp = clampInt(maxExpRaw, 1, dificultadCore === "basico" ? 4 : 5);
+    const n = randomInt(minExp, Math.max(minExp, maxExp));
     const y = base ** n;
 
     return crearQuizBase({

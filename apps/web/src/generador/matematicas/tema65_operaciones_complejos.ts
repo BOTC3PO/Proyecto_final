@@ -7,6 +7,7 @@ import {
   randomInt,
 } from "./generic";
 import { getRangoConFallback } from "./limits";
+import { preloadGeneradoresTema } from "../generadores_api";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
 
 const ID_TEMA = 65;
@@ -23,16 +24,19 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 const formatComplejo = (a: number, b: number): string => `${a} ${b < 0 ? "-" : "+"} ${Math.abs(b)}i`;
 
 const generarTema65: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante = pickRandom(["comp.op.suma", "comp.op.producto", "comp.op.division_simple"] as const);
-  const [minRaw, maxRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "numeros");
-  const lim = clampInt(Math.max(minRaw, maxRaw), 3, dificultadCore === "basico" ? 6 : 10);
+  const [minRealRaw, maxRealRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "real");
+  const [minImagRaw, maxImagRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "imag");
+  const limReal = clampInt(Math.max(minRealRaw, maxRealRaw), 3, dificultadCore === "basico" ? 6 : 10);
+  const limImag = clampInt(Math.max(minImagRaw, maxImagRaw), 3, dificultadCore === "basico" ? 6 : 10);
 
   if (variante === "comp.op.suma") {
-    const a = randomInt(-lim, lim);
-    const b = randomInt(-lim, lim);
-    const c = randomInt(-lim, lim);
-    const d = randomInt(-lim, lim);
+    const a = randomInt(-limReal, limReal);
+    const b = randomInt(-limImag, limImag);
+    const c = randomInt(-limReal, limReal);
+    const d = randomInt(-limImag, limImag);
     const re = a + c;
     const im = b + d;
 
