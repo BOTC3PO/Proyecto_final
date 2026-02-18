@@ -7,6 +7,8 @@ import {
   randomInt,
 } from "./generic";
 import { getRangoConFallback } from "./limits";
+import { preloadGeneradoresTema } from "../generadores_api";
+import { construirEnunciado } from "./tema56_59_enunciados";
 
 const ID_TEMA = 57;
 const TITULO = "Trigonometría aplicada";
@@ -41,27 +43,15 @@ const uniqueOptions = (correcta: string | number, distractores: Array<string | n
 };
 
 const getTrigRanges = (dificultad: Dificultad) => {
-  const [min, max] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "numeros");
+  const [min, max] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "longitud");
   return {
     lengthMin: clamp(min, 1, 50),
     lengthMax: clamp(max, 1, 50),
   };
 };
 
-function construirEnunciado(
-  fallback: string,
-  variables?: Record<string, string | number>
-): string {
-  let enunciado = fallback;
-  if (variables) {
-    for (const [nombre, valor] of Object.entries(variables)) {
-      enunciado = enunciado.replace(`{{${nombre}}}`, String(valor));
-    }
-  }
-  return enunciado;
-}
-
 const generarTrigonometriaAplicada: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  void preloadGeneradoresTema(ID_TEMA);
   const { lengthMin, lengthMax } = getTrigRanges(dificultad);
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante =
@@ -79,10 +69,13 @@ const generarTrigonometriaAplicada: GeneratorFn = (dificultad: Dificultad = "bas
       idTema: ID_TEMA,
       tituloTema: TITULO,
       dificultad,
-      enunciado: construirEnunciado(
-        "Un poste proyecta una sombra de {{sombra}} m y el ángulo de elevación del sol es {{angulo}}°. ¿Cuál es la altura del poste?",
-        { sombra, angulo }
-      ),
+      enunciado: construirEnunciado({
+        idTema: ID_TEMA,
+        dificultad,
+        claveSubtipo: "trig.aplicada.altura",
+        fallback: "Un poste proyecta una sombra de {{sombra}} m y el ángulo de elevación del sol es {{angulo}}°. ¿Cuál es la altura del poste?",
+        variables: { sombra, angulo },
+      }),
       opciones: uniqueOptions(altura, [
         formatNum(sombra / tanValor),
         formatNum(sombra * (angulo === 45 ? Math.sqrt(2) : 0.5)),
@@ -103,10 +96,13 @@ const generarTrigonometriaAplicada: GeneratorFn = (dificultad: Dificultad = "bas
       idTema: ID_TEMA,
       tituloTema: TITULO,
       dificultad,
-      enunciado: construirEnunciado(
-        "Desde un punto del suelo se observa la cima de un edificio de {{altura}} m con un ángulo de elevación de {{angulo}}°. ¿A qué distancia horizontal está el edificio?",
-        { altura, angulo }
-      ),
+      enunciado: construirEnunciado({
+        idTema: ID_TEMA,
+        dificultad,
+        claveSubtipo: "trig.aplicada.distancia",
+        fallback: "Desde un punto del suelo se observa la cima de un edificio de {{altura}} m con un ángulo de elevación de {{angulo}}°. ¿A qué distancia horizontal está el edificio?",
+        variables: { altura, angulo },
+      }),
       opciones: uniqueOptions(distancia, [
         formatNum(altura * tanValor),
         formatNum(altura / (tanValor + 1)),
@@ -125,10 +121,13 @@ const generarTrigonometriaAplicada: GeneratorFn = (dificultad: Dificultad = "bas
     idTema: ID_TEMA,
     tituloTema: TITULO,
     dificultad,
-    enunciado: construirEnunciado(
-      "Una rampa sube {{dy}} m verticalmente por cada {{dx}} m horizontales. ¿Cuál es tan(θ) de su inclinación?",
-      { dy, dx }
-    ),
+    enunciado: construirEnunciado({
+      idTema: ID_TEMA,
+      dificultad,
+      claveSubtipo: "trig.aplicada.pendiente",
+      fallback: "Una rampa sube {{dy}} m verticalmente por cada {{dx}} m horizontales. ¿Cuál es tan(θ) de su inclinación?",
+      variables: { dy, dx },
+    }),
     opciones: uniqueOptions(tanTheta, [formatNum(dx / dy), formatNum((dy + dx) / dx), formatNum(dy / (dy + dx))]),
     indiceCorrecto: 0,
     explicacion: "La pendiente trigonométrica es tan(θ)=Δy/Δx.",

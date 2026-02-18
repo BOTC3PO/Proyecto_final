@@ -7,6 +7,8 @@ import {
   randomInt,
 } from "./generic";
 import { getRangoConFallback } from "./limits";
+import { preloadGeneradoresTema } from "../generadores_api";
+import { construirEnunciado } from "./tema56_59_enunciados";
 
 const ID_TEMA = 56;
 const TITULO = "Trigonometría básica";
@@ -41,29 +43,18 @@ const uniqueOptions = (correcta: string | number, distractores: Array<string | n
 };
 
 const getTrigRanges = (dificultad: Dificultad) => {
-  const [min, max] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "numeros");
+  const [angleMinRaw, angleMaxRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "angulo");
+  const [lengthMinRaw, lengthMaxRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "longitud");
   return {
-    angleMin: clamp(min, 5, 85),
-    angleMax: clamp(max, 5, 85),
-    lengthMin: clamp(min, 1, 50),
-    lengthMax: clamp(max, 1, 50),
+    angleMin: clamp(angleMinRaw, 5, 85),
+    angleMax: clamp(angleMaxRaw, 5, 85),
+    lengthMin: clamp(lengthMinRaw, 1, 50),
+    lengthMax: clamp(lengthMaxRaw, 1, 50),
   };
 };
 
-function construirEnunciado(
-  fallback: string,
-  variables?: Record<string, string | number>
-): string {
-  let enunciado = fallback;
-  if (variables) {
-    for (const [nombre, valor] of Object.entries(variables)) {
-      enunciado = enunciado.replace(`{{${nombre}}}`, String(valor));
-    }
-  }
-  return enunciado;
-}
-
 const generarTrigonometriaBasica: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  void preloadGeneradoresTema(ID_TEMA);
   const { angleMin, angleMax, lengthMin, lengthMax } = getTrigRanges(dificultad);
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante =
@@ -81,10 +72,13 @@ const generarTrigonometriaBasica: GeneratorFn = (dificultad: Dificultad = "basic
       idTema: ID_TEMA,
       tituloTema: TITULO,
       dificultad,
-      enunciado: construirEnunciado(
-        "En un triángulo rectángulo, si el cateto opuesto mide {{opuesto}} y el adyacente {{adyacente}}, ¿cuál es tan(θ)?",
-        { opuesto, adyacente }
-      ),
+      enunciado: construirEnunciado({
+        idTema: ID_TEMA,
+        dificultad,
+        claveSubtipo: "trig.basica.razon",
+        fallback: "En un triángulo rectángulo, si el cateto opuesto mide {{opuesto}} y el adyacente {{adyacente}}, ¿cuál es tan(θ)?",
+        variables: { opuesto, adyacente },
+      }),
       opciones: uniqueOptions(correcta, [
         formatNum(adyacente / opuesto),
         formatNum(opuesto + adyacente),
@@ -104,10 +98,13 @@ const generarTrigonometriaBasica: GeneratorFn = (dificultad: Dificultad = "basic
         idTema: ID_TEMA,
         tituloTema: TITULO,
         dificultad,
-        enunciado: construirEnunciado(
-          "En un triángulo rectángulo isósceles (45°-45°-90°), si un cateto mide {{base}}, ¿cuánto mide el otro cateto?",
-          { base }
-        ),
+        enunciado: construirEnunciado({
+          idTema: ID_TEMA,
+          dificultad,
+          claveSubtipo: "trig.basica.lado",
+          fallback: "En un triángulo rectángulo isósceles (45°-45°-90°), si un cateto mide {{base}}, ¿cuánto mide el otro cateto?",
+          variables: { base },
+        }),
         opciones: uniqueOptions(base, [base + 1, Math.max(1, base - 1), base * 2]),
         indiceCorrecto: 0,
         explicacion: "En un triángulo 45°-45°-90°, ambos catetos son iguales.",
@@ -119,10 +116,13 @@ const generarTrigonometriaBasica: GeneratorFn = (dificultad: Dificultad = "basic
         idTema: ID_TEMA,
         tituloTema: TITULO,
         dificultad,
-        enunciado: construirEnunciado(
-          "En un triángulo 30°-60°-90°, si el cateto opuesto a 30° mide {{base}}, ¿cuánto mide la hipotenusa?",
-          { base }
-        ),
+        enunciado: construirEnunciado({
+          idTema: ID_TEMA,
+          dificultad,
+          claveSubtipo: "trig.basica.lado",
+          fallback: "En un triángulo 30°-60°-90°, si el cateto opuesto a 30° mide {{base}}, ¿cuánto mide la hipotenusa?",
+          variables: { base },
+        }),
         opciones: uniqueOptions(base * 2, [base, base * 3, formatNum(base * 1.5)]),
         indiceCorrecto: 0,
         explicacion: "En un triángulo 30°-60°-90°, la hipotenusa es el doble del cateto opuesto a 30°.",
@@ -133,10 +133,13 @@ const generarTrigonometriaBasica: GeneratorFn = (dificultad: Dificultad = "basic
       idTema: ID_TEMA,
       tituloTema: TITULO,
       dificultad,
-      enunciado: construirEnunciado(
-        "En un triángulo 30°-60°-90°, si el cateto opuesto a 30° mide {{base}}, ¿cuánto mide el cateto opuesto a 60°?",
-        { base }
-      ),
+      enunciado: construirEnunciado({
+        idTema: ID_TEMA,
+        dificultad,
+        claveSubtipo: "trig.basica.lado",
+        fallback: "En un triángulo 30°-60°-90°, si el cateto opuesto a 30° mide {{base}}, ¿cuánto mide el cateto opuesto a 60°?",
+        variables: { base },
+      }),
       opciones: uniqueOptions(formatNum(base * Math.sqrt(3)), [base * 2, base, formatNum(base * 1.5)]),
       indiceCorrecto: 0,
       explicacion: "En un triángulo 30°-60°-90°, los lados están en razón 1 : √3 : 2.",
@@ -149,10 +152,13 @@ const generarTrigonometriaBasica: GeneratorFn = (dificultad: Dificultad = "basic
     idTema: ID_TEMA,
     tituloTema: TITULO,
     dificultad,
-    enunciado: construirEnunciado(
-      "En un triángulo rectángulo, si un ángulo agudo mide {{angulo}}°, ¿cuánto mide su complementario?",
-      { angulo }
-    ),
+    enunciado: construirEnunciado({
+      idTema: ID_TEMA,
+      dificultad,
+      claveSubtipo: "trig.basica.complementario",
+      fallback: "En un triángulo rectángulo, si un ángulo agudo mide {{angulo}}°, ¿cuánto mide su complementario?",
+      variables: { angulo },
+    }),
     opciones: uniqueOptions(complementario, [complementario + 5, Math.max(1, complementario - 5), 180 - angulo]),
     indiceCorrecto: 0,
     explicacion: "En triángulos rectángulos, los ángulos agudos son complementarios y suman 90°.",

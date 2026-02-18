@@ -5,6 +5,8 @@ import {
   normalizarDificultadCore,
   pickRandom,
 } from "./generic";
+import { preloadGeneradoresTema } from "../generadores_api";
+import { construirEnunciado } from "./tema56_59_enunciados";
 
 const ID_TEMA = 59;
 const TITULO = "Ecuaciones trigonométricas";
@@ -30,20 +32,8 @@ const toAngleSet = (values: number[]): string =>
     .map((v) => `${v}°`)
     .join(", ");
 
-function construirEnunciado(
-  fallback: string,
-  variables?: Record<string, string | number>
-): string {
-  let enunciado = fallback;
-  if (variables) {
-    for (const [nombre, valor] of Object.entries(variables)) {
-      enunciado = enunciado.replace(`{{${nombre}}}`, String(valor));
-    }
-  }
-  return enunciado;
-}
-
 const generarEcuacionesTrigonometricas: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  void preloadGeneradoresTema(ID_TEMA);
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante =
     dificultadCore === "avanzado"
@@ -84,10 +74,13 @@ const generarEcuacionesTrigonometricas: GeneratorFn = (dificultad: Dificultad = 
       idTema: ID_TEMA,
       tituloTema: TITULO,
       dificultad,
-      enunciado: construirEnunciado(
-        "Resuelve {{expresion}} para θ en [0°, 360°].",
-        { expresion: caso.enunciado }
-      ),
+      enunciado: construirEnunciado({
+        idTema: ID_TEMA,
+        dificultad,
+        claveSubtipo: "trig.ecuacion.sin",
+        fallback: "Resuelve {{expresion}} para θ en [0°, 360°].",
+        variables: { expresion: caso.enunciado },
+      }),
       opciones: uniqueOptions(caso.correcta, [...caso.distractores]),
       indiceCorrecto: 0,
       explicacion: "Se usan valores notables del círculo trigonométrico en el dominio [0°,360°].",
@@ -113,10 +106,13 @@ const generarEcuacionesTrigonometricas: GeneratorFn = (dificultad: Dificultad = 
       idTema: ID_TEMA,
       tituloTema: TITULO,
       dificultad,
-      enunciado: construirEnunciado(
-        "Resuelve {{expresion}} para θ en [0°, 360°].",
-        { expresion: caso.enunciado }
-      ),
+      enunciado: construirEnunciado({
+        idTema: ID_TEMA,
+        dificultad,
+        claveSubtipo: "trig.ecuacion.tan",
+        fallback: "Resuelve {{expresion}} para θ en [0°, 360°].",
+        variables: { expresion: caso.enunciado },
+      }),
       opciones: uniqueOptions(caso.correcta, [...caso.distractores]),
       indiceCorrecto: 0,
       explicacion: "La tangente tiene período 180° y se validan todas las soluciones del dominio.",
@@ -127,7 +123,12 @@ const generarEcuacionesTrigonometricas: GeneratorFn = (dificultad: Dificultad = 
     idTema: ID_TEMA,
     tituloTema: TITULO,
     dificultad,
-    enunciado: construirEnunciado("Resuelve sin²(θ)=1/4 para θ en [0°, 360°]."),
+    enunciado: construirEnunciado({
+    idTema: ID_TEMA,
+    dificultad,
+    claveSubtipo: "trig.ecuacion.cos",
+    fallback: "Resuelve sin²(θ)=1/4 para θ en [0°, 360°].",
+  }),
     opciones: uniqueOptions(toAngleSet([30, 150, 210, 330]), [
       toAngleSet([30, 150]),
       toAngleSet([60, 120, 240, 300]),
