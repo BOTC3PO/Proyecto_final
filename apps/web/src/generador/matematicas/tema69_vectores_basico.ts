@@ -8,6 +8,7 @@ import {
 } from "./generic";
 import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
+import { preloadGeneradoresTema } from "../generadores_api";
 
 const ID_TEMA = 69;
 const TITULO = "Vectores básico";
@@ -23,6 +24,7 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 const vec2ToStr = (x: number, y: number): string => `(${x},${y})`;
 
 const generarTema69: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante = pickRandom(["vec.suma_resta", "vec.modulo", "vec.producto_punto"] as const);
   const [minRaw, maxRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "vec");

@@ -8,7 +8,7 @@ export type GeneradoresTemaPayload = {
   consignas?: unknown;
 };
 
-type CacheStatus = "idle" | "ready" | "unavailable";
+type CacheStatus = "unfetched" | "loading" | "ready" | "unavailable";
 
 type CacheEntry = {
   status: CacheStatus;
@@ -35,6 +35,10 @@ const asNumericTuple = (value: unknown): [number, number] | null => {
 
 const setUnavailable = (idTema: number): void => {
   cache.set(idTema, { status: "unavailable", data: null });
+};
+
+const setLoading = (idTema: number): void => {
+  cache.set(idTema, { status: "loading", data: null });
 };
 
 const setReady = (idTema: number, payload: GeneradoresTemaPayload): void => {
@@ -78,6 +82,8 @@ export async function preloadGeneradoresTema(idTema: number): Promise<void> {
     return;
   }
 
+  setLoading(idTema);
+
   const promise = (async () => {
     const tema = await resolveTemaSlug(idTema);
     if (!tema) {
@@ -96,7 +102,7 @@ export async function preloadGeneradoresTema(idTema: number): Promise<void> {
     } catch (error) {
       if (
         error instanceof ApiError &&
-        [401, 403, 404].includes(error.status)
+        [401, 403, 404, 500].includes(error.status)
       ) {
         setUnavailable(idTema);
         return;

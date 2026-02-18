@@ -8,6 +8,7 @@ import {
 } from "./generic";
 import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
+import { preloadGeneradoresTema } from "../generadores_api";
 
 const ID_TEMA = 66;
 const TITULO = "Matrices básico";
@@ -29,6 +30,7 @@ const generarMatriz = (filas: number, columnas: number, min: number, max: number
   Array.from({ length: filas }, () => Array.from({ length: columnas }, () => randomInt(min, max)));
 
 const generarTema66: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante = pickRandom(["mat.basica.suma", "mat.basica.multiplicar_escalar", "mat.basica.transpuesta"] as const);
 

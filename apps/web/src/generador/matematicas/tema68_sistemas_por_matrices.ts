@@ -8,6 +8,7 @@ import {
 } from "./generic";
 import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
+import { preloadGeneradoresTema } from "../generadores_api";
 
 const ID_TEMA = 68;
 const TITULO = "Sistemas por matrices";
@@ -25,6 +26,7 @@ const vec2ToStr = (v: [number, number]): string => `[${v[0]},${v[1]}]`;
 const parToStr = (x: number, y: number): string => `(${x},${y})`;
 
 const generarTema68: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const dificultadCore = normalizarDificultadCore(dificultad);
   const variante = pickRandom(["sist.2x2.resolver", "sist.2x2.identificar", "sist.matriz_vector"] as const);
   const [minRaw, maxRaw] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "mat");
