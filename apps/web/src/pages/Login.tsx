@@ -54,7 +54,7 @@ export default function Login() {
         role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST";
         guestOnboardingStatus?: "pendiente" | "aceptado" | "rechazado" | null;
         schoolId?: string | null;
-      }>("/api/auth/login", { identifier: form.user, password: form.password });
+      }>("/api/auth/login", { email: form.user, password: form.password });
       login(
         {
           id: payload.id,
