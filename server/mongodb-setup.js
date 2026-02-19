@@ -960,7 +960,7 @@ db.membresias_escuela.insertMany([
   {
     usuarioId: adminId,
     escuelaId: escuelaId,
-    rol: "ADMIN",
+    rol: "DIRECTIVO",
     estado: "activa",
     fechaAlta: new Date(),
     createdAt: new Date(),
