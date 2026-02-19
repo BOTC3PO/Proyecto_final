@@ -66,6 +66,7 @@ import Terminos from "./pages/Terminos";
 import Privacidad from "./pages/Privacidad";
 import DiccionarioTest from "./pages/DiccionarioTest";
 import GuestOnboarding from "./pages/GuestOnboarding";
+import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
 
 
 import test from "./sys/testmode";
@@ -117,6 +118,7 @@ export const router = createBrowserRouter([
       { path: "editor", element: <BookEditorPage /> },
       { path: "editor/:id", element: <BookEditorPage /> },
       { path: "onboarding-guest", element: <GuestOnboarding /> },
+      { path: "geografia/mapa", element: <GeografiaMapaSelector /> },
       ...(testmode
         ? [
             { path: "generadores", element: <GeneradoresTest /> },
