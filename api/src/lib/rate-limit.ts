@@ -1,4 +1,5 @@
 import rateLimit from "express-rate-limit";
+import type { Request } from "express";
 
 const defaultRateLimitMessage = { error: "Too many requests" };
 
@@ -23,7 +24,8 @@ export const createRateLimiter = ({
     standardHeaders: true,
     legacyHeaders: false,
     handler: (req, res) => {
-      const retryAfterSeconds = Math.max(1, Math.ceil(((req.rateLimit?.resetTime?.getTime() ?? Date.now()) - Date.now()) / 1000));
+      const requestWithRateLimit = req as Request & { rateLimit?: { resetTime?: Date } };
+      const retryAfterSeconds = Math.max(1, Math.ceil(((requestWithRateLimit.rateLimit?.resetTime?.getTime() ?? Date.now()) - Date.now()) / 1000));
       res.status(429).json({
         ...message,
         retryAfterSeconds
