@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import type { Response } from "express";
 import { Router } from "express";
+import { ZodError } from "zod";
 import { requireAdmin } from "../lib/admin-auth";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
@@ -92,8 +93,26 @@ auth.post("/api/admins", requireAdmin, async (req, res) => {
 
 auth.post("/api/auth/register", authLimiter, async (req, res) => {
   try {
-    const parsed = RegisterSchema.parse(req.body ?? {});
+    const body = req.body ?? {};
+    if (typeof body.email !== "string" || typeof body.password !== "string") {
+      res.status(400).json({ error: "Missing email or password" });
+      return;
+    }
+
+    const parsed = RegisterSchema.parse({
+      ...body,
+      email: body.email.trim().toLowerCase()
+    });
     const db = await getDb();
+    const existingEmail = await db.collection("usuarios").findOne({
+      email: parsed.email,
+      isDeleted: { $ne: true }
+    });
+    if (existingEmail?._id) {
+      res.status(409).json({ error: "Email already exists" });
+      return;
+    }
+
     const now = new Date();
     const role = parsed.role ?? "USER";
     let escuelaId = parsed.escuelaId ? toObjectId(parsed.escuelaId) : null;
@@ -164,7 +183,15 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
     }
     res.status(201).json({ id: result.insertedId });
   } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
+    if (e instanceof ZodError) {
+      res.status(400).json({ error: e.message || "invalid payload" });
+      return;
+    }
+    if (e && typeof e === "object" && "code" in e && e.code === 11000) {
+      res.status(409).json({ error: "Email already exists" });
+      return;
+    }
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
@@ -224,20 +251,41 @@ auth.post("/api/auth/guest", authLimiter, async (req, res) => {
 
 auth.post("/api/auth/login", authLimiter, async (req, res) => {
   try {
-    const parsed = LoginSchema.parse(req.body ?? {});
+    const body = req.body ?? {};
+    if (typeof body.email !== "string" || typeof body.password !== "string") {
+      res.status(400).json({ error: "Missing email or password" });
+      return;
+    }
+
+    const parsed = LoginSchema.parse({
+      ...body,
+      email: body.email.trim().toLowerCase(),
+      identifier: body.email.trim().toLowerCase()
+    });
     const db = await getDb();
-    const identifier = parsed.identifier ?? parsed.email ?? parsed.username ?? "";
+    const identifier = parsed.email;
     const user = await db.collection("usuarios").findOne({
       $or: [{ email: identifier }, { username: identifier }],
       isDeleted: { $ne: true }
     });
     if (!user || typeof user.passwordHash !== "string") {
-      res.status(401).json({ error: "Credenciales inválidas" });
+      if (ENV.NODE_ENV !== "production") {
+        console.warn("[auth/login] Invalid credentials: user not found or password hash missing", {
+          email: identifier
+        });
+      }
+      res.status(401).json({ error: "Invalid credentials" });
       return;
     }
     const isValid = verifyPassword(parsed.password, user.passwordHash);
     if (!isValid) {
-      res.status(401).json({ error: "Credenciales inválidas" });
+      if (ENV.NODE_ENV !== "production") {
+        console.warn("[auth/login] Invalid credentials: password mismatch", {
+          email: identifier,
+          userId: user._id?.toString?.()
+        });
+      }
+      res.status(401).json({ error: "Invalid credentials" });
       return;
     }
     const accessToken = createAccessToken({
@@ -250,7 +298,7 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
       fullName: user.fullName ?? null
     });
     const refreshToken = createRefreshToken({ id: user._id.toString() });
-    res.json({
+    res.status(200).json({
       id: user._id,
       username: user.username,
       email: user.email,
@@ -270,7 +318,11 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
         : {})
     });
   } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
+    if (e instanceof ZodError) {
+      res.status(400).json({ error: e.message || "invalid payload" });
+      return;
+    }
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
