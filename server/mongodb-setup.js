@@ -8,10 +8,50 @@
 
 // 2. Create collections with validation schemas
 
+function ensureCollection(name, options = {}) {
+  const exists = db.getCollectionInfos({ name }).length > 0;
+  if (!exists) {
+    db.createCollection(name, options);
+    return;
+  }
+
+  const collModPayload = {};
+  if (options.validator) {
+    collModPayload.validator = options.validator;
+  }
+  if (options.validationLevel) {
+    collModPayload.validationLevel = options.validationLevel;
+  }
+  if (options.validationAction) {
+    collModPayload.validationAction = options.validationAction;
+  }
+
+  if (Object.keys(collModPayload).length > 0) {
+    db.runCommand({ collMod: name, ...collModPayload });
+  }
+}
+
+
+function upsertById(collectionName, doc) {
+  db.getCollection(collectionName).replaceOne({ _id: doc._id }, doc, { upsert: true });
+}
+
+function upsertByFilter(collectionName, filter, doc) {
+  db.getCollection(collectionName).replaceOne(filter, doc, { upsert: true });
+}
+
+function printJSON(label, payload) {
+  print(label + ': ' + JSON.stringify(payload));
+}
+
+function isValidObjectIdHex(value) {
+  return typeof value === 'string' && /^[0-9a-fA-F]{24}$/.test(value);
+}
+
 // ============================================================================
 // USUARIOS COLLECTION
 // ============================================================================
-db.createCollection("usuarios", {
+ensureCollection("usuarios", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -88,7 +128,7 @@ db.createCollection("usuarios", {
 // ============================================================================
 // ESCUELAS COLLECTION
 // ============================================================================
-db.createCollection("escuelas", {
+ensureCollection("escuelas", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -116,7 +156,7 @@ db.createCollection("escuelas", {
 // ============================================================================
 const MEMBERSHIP_ROLES = ["DIRECTIVO", "TEACHER", "STUDENT", "PARENT"];
 
-db.createCollection("membresias_escuela", {
+ensureCollection("membresias_escuela", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -138,7 +178,7 @@ db.createCollection("membresias_escuela", {
 // ============================================================================
 // CLASES COLLECTION
 // ============================================================================
-db.createCollection("clases", {
+ensureCollection("clases", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -208,11 +248,7 @@ db.createCollection("clases", {
 // ============================================================================
 // MODULOS COLLECTION
 // ============================================================================
-if (!db.getCollectionNames().includes("modulos")) {
-  db.createCollection("modulos");
-}
-db.runCommand({
-  collMod: "modulos",
+ensureCollection("modulos", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -220,7 +256,7 @@ db.runCommand({
       properties: {
         id: { bsonType: "string" },
         aulaId: { bsonType: ["string", "null"] },
-        createdBy: { bsonType: "string" },
+        createdBy: { bsonType: "objectId" },
         title: { bsonType: "string" },
         description: { bsonType: "string" },
         subject: { bsonType: "string" },
@@ -364,7 +400,7 @@ db.runCommand({
 // ============================================================================
 // CURSOS COLLECTION
 // ============================================================================
-db.createCollection("cursos", {
+ensureCollection("cursos", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -404,7 +440,7 @@ db.createCollection("cursos", {
 // ============================================================================
 // MENSAJES COLLECTION
 // ============================================================================
-db.createCollection("mensajes", {
+ensureCollection("mensajes", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -438,7 +474,7 @@ db.createCollection("mensajes", {
 // ============================================================================
 // TRANSFERENCIAS COLLECTION
 // ============================================================================
-db.createCollection("transferencias", {
+ensureCollection("transferencias", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -458,7 +494,7 @@ db.createCollection("transferencias", {
 // ============================================================================
 // BILLETERAS COLLECTION
 // ============================================================================
-db.createCollection("billeteras", {
+ensureCollection("billeteras", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -476,7 +512,7 @@ db.createCollection("billeteras", {
 // ============================================================================
 // MOVIMIENTOS_BILLETERA COLLECTION
 // ============================================================================
-db.createCollection("movimientos_billetera", {
+ensureCollection("movimientos_billetera", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -496,119 +532,248 @@ db.createCollection("movimientos_billetera", {
 // ============================================================================
 // QUIZZES COLLECTION
 // ============================================================================
-if (!db.getCollectionNames().includes("quizzes")) {
-  db.createCollection("quizzes", {
-    validator: {
-      $jsonSchema: {
-        bsonType: "object",
-        required: ["id", "title", "type", "visibility", "createdAt", "updatedAt"],
-        properties: {
-          id: { bsonType: "string" },
-          moduleId: { bsonType: ["string", "objectId", "null"] },
-          title: { bsonType: "string" },
-          type: { bsonType: "string" },
-          mode: { bsonType: "string" },
-          visibility: { bsonType: "string" },
-          schoolId: { bsonType: "string" },
-          schoolName: { bsonType: "string" },
-          competitionRules: { bsonType: "string" },
-          competitionRulesVisibility: { bsonType: "string" },
-          currentVersion: { bsonType: "int" },
-          createdBy: { bsonType: ["string", "objectId"] },
-          createdAt: { bsonType: "date" },
-          updatedAt: { bsonType: "date" }
-        }
+ensureCollection("quizzes", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id", "title", "type", "visibility", "createdAt", "updatedAt"],
+      properties: {
+        id: { bsonType: "string" },
+        moduleId: { bsonType: ["objectId", "null"] },
+        title: { bsonType: "string" },
+        type: { bsonType: "string" },
+        mode: { bsonType: "string" },
+        visibility: { bsonType: "string" },
+        schoolId: { bsonType: "objectId" },
+        schoolName: { bsonType: "string" },
+        competitionRules: { bsonType: "string" },
+        competitionRulesVisibility: { bsonType: "string" },
+        currentVersion: { bsonType: "int" },
+        createdBy: { bsonType: "objectId" },
+        createdAt: { bsonType: "date" },
+        updatedAt: { bsonType: "date" }
       }
     }
-  });
-}
+  }
+});
 
 // ============================================================================
 // QUIZ_VERSIONS COLLECTION
 // ============================================================================
-if (!db.getCollectionNames().includes("quiz_versions")) {
-  db.createCollection("quiz_versions", {
-    validator: {
-      $jsonSchema: {
-        bsonType: "object",
-        required: ["quizId", "version", "createdAt", "updatedAt"],
-        properties: {
-          quizId: { bsonType: ["string", "objectId"] },
-          version: { bsonType: "int" },
-          questions: { bsonType: "array" },
-          generatorId: { bsonType: "string" },
-          generatorVersion: { bsonType: ["int", "string"] },
-          params: { bsonType: "object" },
-          count: { bsonType: "int" },
-          seedPolicy: { bsonType: "string" },
-          fixedSeed: { bsonType: ["string", "int"] },
-          createdAt: { bsonType: "date" },
-          updatedAt: { bsonType: "date" }
-        }
+ensureCollection("quiz_versions", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["quizId", "version", "createdAt", "updatedAt"],
+      properties: {
+        quizId: { bsonType: "objectId" },
+        version: { bsonType: "int" },
+        questions: { bsonType: "array" },
+        generatorId: { bsonType: "string" },
+        generatorVersion: { bsonType: ["int", "string"] },
+        params: { bsonType: "object" },
+        count: { bsonType: "int" },
+        seedPolicy: { bsonType: "string" },
+        fixedSeed: { bsonType: ["string", "int"] },
+        createdAt: { bsonType: "date" },
+        updatedAt: { bsonType: "date" }
       }
     }
-  });
-}
+  }
+});
 
 // ============================================================================
 // QUIZ_ATTEMPTS COLLECTION
 // ============================================================================
-if (!db.getCollectionNames().includes("quiz_attempts")) {
-  db.createCollection("quiz_attempts", {
-    validator: {
-      $jsonSchema: {
-        bsonType: "object",
-        required: [
-          "quizId",
-          "quizVersion",
-          "userId",
-          "seed",
-          "answers",
-          "score",
-          "maxScore",
-          "status",
-          "createdAt",
-          "updatedAt"
-        ],
-        properties: {
-          moduleId: { bsonType: ["string", "objectId", "null"] },
-          quizId: { bsonType: ["string", "objectId"] },
-          quizVersion: { bsonType: "int" },
-          userId: { bsonType: ["string", "objectId"] },
-          seed: { bsonType: ["int", "string", "null"] },
-          answers: { bsonType: ["object", "array"] },
-          feedback: { bsonType: "object" },
-          score: { bsonType: ["double", "int", "decimal"] },
-          maxScore: { bsonType: ["double", "int", "decimal"] },
-          status: {
-            bsonType: "string",
-            enum: ["in_progress", "submitted", "graded", "abandoned"]
-          },
-          createdAt: { bsonType: "date" },
-          updatedAt: { bsonType: "date" }
-        }
+ensureCollection("quiz_attempts", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "quizId",
+        "quizVersion",
+        "userId",
+        "seed",
+        "answers",
+        "score",
+        "maxScore",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ],
+      properties: {
+        moduleId: { bsonType: ["objectId", "null"] },
+        quizId: { bsonType: "objectId" },
+        quizVersion: { bsonType: "int" },
+        userId: { bsonType: "objectId" },
+        seed: { bsonType: ["int", "string", "null"] },
+        answers: { bsonType: ["object", "array"] },
+        feedback: { bsonType: "object" },
+        score: { bsonType: ["double", "int", "decimal"] },
+        maxScore: { bsonType: ["double", "int", "decimal"] },
+        status: {
+          bsonType: "string",
+          enum: ["in_progress", "submitted", "graded", "abandoned"]
+        },
+        createdAt: { bsonType: "date" },
+        updatedAt: { bsonType: "date" }
       }
     }
-  });
-}
+  }
+});
 
 // ============================================================================
 // CREATE INDEXES FOR PERFORMANCE
 // ============================================================================
 
+function migrateStringIdField(collectionName, fieldName) {
+  const invalidValues = [];
+  db.getCollection(collectionName)
+    .find({ [fieldName]: { $type: "string" } }, { [fieldName]: 1 })
+    .forEach((doc) => {
+      const raw = doc[fieldName];
+      if (isValidObjectIdHex(raw)) {
+        db.getCollection(collectionName).updateOne(
+          { _id: doc._id },
+          { $set: { [fieldName]: ObjectId(raw) } }
+        );
+      } else {
+        invalidValues.push({ _id: doc._id, value: raw });
+      }
+    });
+
+  if (invalidValues.length > 0) {
+    printJSON(`[MIGRATION][WARN] ${collectionName}.${fieldName} invalid string ObjectId`, invalidValues);
+  }
+}
+
+function checkTypeMix(collectionName, fieldName) {
+  const result = db.getCollection(collectionName).aggregate([
+    { $match: { [fieldName]: { $exists: true, $ne: null } } },
+    { $group: { _id: { $type: `$${fieldName}` }, count: { $sum: 1 } } },
+    { $sort: { _id: 1 } }
+  ]).toArray();
+  printJSON(`[AUDIT] type distribution ${collectionName}.${fieldName}`, result);
+  return result.length > 1;
+}
+
+function checkDuplicateValues(collectionName, fieldName) {
+  const duplicates = db.getCollection(collectionName).aggregate([
+    { $match: { [fieldName]: { $exists: true, $ne: null } } },
+    { $group: { _id: `$${fieldName}`, count: { $sum: 1 }, ids: { $push: "$_id" } } },
+    { $match: { count: { $gt: 1 } } },
+    { $limit: 25 }
+  ]).toArray();
+
+  if (duplicates.length > 0) {
+    printJSON(`[AUDIT][ERROR] duplicates ${collectionName}.${fieldName}`, duplicates);
+    return true;
+  }
+
+  return false;
+}
+
+function checkOrphans(sourceCollection, localField, targetCollection, targetField = "_id") {
+  const orphans = db.getCollection(sourceCollection).aggregate([
+    { $match: { [localField]: { $exists: true, $ne: null } } },
+    {
+      $lookup: {
+        from: targetCollection,
+        localField,
+        foreignField: targetField,
+        as: "_ref"
+      }
+    },
+    { $match: { _ref: { $size: 0 } } },
+    { $project: { _id: 1, [localField]: 1 } },
+    { $limit: 25 }
+  ]).toArray();
+
+  if (orphans.length > 0) {
+    printJSON(`[AUDIT][ERROR] orphans ${sourceCollection}.${localField} -> ${targetCollection}.${targetField}`, orphans);
+    return true;
+  }
+
+  return false;
+}
+
+function runAudits() {
+  let hasErrors = false;
+
+  [
+    ["modulos", "createdBy"],
+    ["quizzes", "createdBy"],
+    ["quizzes", "schoolId"],
+    ["quiz_attempts", "userId"],
+    ["quiz_attempts", "moduleId"],
+    ["quiz_attempts", "quizId"],
+    ["billeteras", "usuarioId"],
+    ["economia_transacciones", "usuarioId"],
+    ["usuarios", "escuelaId"],
+    ["membresias_escuela", "usuarioId"],
+    ["membresias_escuela", "escuelaId"]
+  ].forEach(([collectionName, fieldName]) => {
+    if (checkTypeMix(collectionName, fieldName)) {
+      hasErrors = true;
+    }
+  });
+
+  [
+    ["usuarios", "email"],
+    ["usuarios", "username"],
+    ["escuelas", "code"],
+    ["modulos", "id"],
+    ["quizzes", "id"]
+  ].forEach(([collectionName, fieldName]) => {
+    if (checkDuplicateValues(collectionName, fieldName)) {
+      hasErrors = true;
+    }
+  });
+
+  [
+    ["membresias_escuela", "usuarioId", "usuarios", "_id"],
+    ["membresias_escuela", "escuelaId", "escuelas", "_id"],
+    ["quiz_attempts", "userId", "usuarios", "_id"],
+    ["quiz_attempts", "moduleId", "modulos", "_id"],
+    ["quiz_attempts", "quizId", "quizzes", "_id"]
+  ].forEach(([sourceCollection, localField, targetCollection, targetField]) => {
+    if (checkOrphans(sourceCollection, localField, targetCollection, targetField)) {
+      hasErrors = true;
+    }
+  });
+
+  if (hasErrors) {
+    throw new Error("AUDIT_FAILED: se detectaron inconsistencias de tipos, duplicados u orfandad de referencias.");
+  }
+}
+
+// Dev migration for legacy string references
+migrateStringIdField("modulos", "createdBy");
+migrateStringIdField("economia_transacciones", "usuarioId");
+migrateStringIdField("quizzes", "schoolId");
+migrateStringIdField("quizzes", "createdBy");
+migrateStringIdField("quiz_attempts", "userId");
+migrateStringIdField("quiz_attempts", "moduleId");
+migrateStringIdField("quiz_attempts", "quizId");
+migrateStringIdField("quiz_versions", "quizId");
+
+// Audits before unique indexes creation to fail fast with clearer errors
+runAudits();
+
+
 // Usuarios indexes
-db.usuarios.createIndex({ username: 1 }, { unique: true });
-db.usuarios.createIndex({ email: 1 }, { unique: true });
+db.usuarios.createIndex({ username: 1 }, { unique: true, name: "usuarios_username_unique" });
+db.usuarios.createIndex({ email: 1 }, { unique: true, name: "usuarios_email_unique" });
 db.usuarios.createIndex({ role: 1 });
 db.usuarios.createIndex({ escuelaId: 1 });
 db.usuarios.createIndex({ "teacherProfile.managedClassIds": 1 });
 
 // Escuelas indexes
-db.escuelas.createIndex({ code: 1 }, { unique: true });
+db.escuelas.createIndex({ code: 1 }, { unique: true, name: "escuelas_code_unique" });
 db.escuelas.createIndex({ name: 1 });
 
 // Membresias escuela indexes
-db.membresias_escuela.createIndex({ usuarioId: 1, escuelaId: 1 }, { unique: true });
+db.membresias_escuela.createIndex({ usuarioId: 1, escuelaId: 1 }, { unique: true, name: "membresias_usuario_escuela_unique" });
 db.membresias_escuela.createIndex({ escuelaId: 1 });
 db.membresias_escuela.createIndex({ rol: 1 });
 
@@ -625,7 +790,7 @@ db.modulos.createIndex({ subject: 1, category: 1 });
 db.modulos.createIndex({ visibility: 1 });
 db.modulos.createIndex({ visibility: 1, "visibilityConfig.institution": 1 });
 db.modulos.createIndex({ aulaId: 1 });
-db.modulos.createIndex({ id: 1 }, { unique: true });
+db.modulos.createIndex({ id: 1 }, { unique: true, name: "modulos_id_unique" });
 db.modulos.createIndex({ title: "text", description: "text" });
 
 // Cursos indexes
@@ -644,7 +809,7 @@ db.transferencias.createIndex({ fromSchoolId: 1 });
 db.transferencias.createIndex({ toSchoolId: 1 });
 
 // Billeteras indexes
-db.billeteras.createIndex({ usuarioId: 1 }, { unique: true });
+db.billeteras.createIndex({ usuarioId: 1 }, { unique: true, name: "billeteras_usuarioId_unique" });
 
 // Movimientos billetera indexes
 db.movimientos_billetera.createIndex({ billeteraId: 1 });
@@ -666,17 +831,17 @@ db.quiz_attempts.createIndex(
 db.quiz_attempts.createIndex({ moduleId: 1, quizId: 1, userId: 1, createdAt: -1 });
 
 // Quizzes indexes
-db.quizzes.createIndex({ id: 1 }, { unique: true });
+db.quizzes.createIndex({ id: 1 }, { unique: true, name: "quizzes_id_unique" });
 db.quizzes.createIndex({ moduleId: 1 });
 db.quizzes.createIndex({ schoolId: 1 });
 
 // Quiz versions indexes
-db.quiz_versions.createIndex({ quizId: 1, version: 1 }, { unique: true });
+db.quiz_versions.createIndex({ quizId: 1, version: 1 }, { unique: true, name: "quiz_versions_quiz_version_unique" });
 
 // ============================================================================
 // ECONOMIA COLLECTIONS
 // ============================================================================
-db.createCollection("economia_config", {
+ensureCollection("economia_config", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -759,7 +924,7 @@ db.createCollection("economia_config", {
   }
 });
 
-db.createCollection("economia_saldos", {
+ensureCollection("economia_saldos", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -774,7 +939,7 @@ db.createCollection("economia_saldos", {
   }
 });
 
-db.createCollection("economia_recompensas", {
+ensureCollection("economia_recompensas", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -794,14 +959,14 @@ db.createCollection("economia_recompensas", {
   }
 });
 
-db.createCollection("economia_transacciones", {
+ensureCollection("economia_transacciones", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
       required: ["id", "usuarioId", "tipo", "monto", "moneda", "motivo", "createdAt"],
       properties: {
         id: { bsonType: "string" },
-        usuarioId: { bsonType: "string" },
+        usuarioId: { bsonType: "objectId" },
         aulaId: { bsonType: ["string", "null"] },
         tipo: { bsonType: "string", enum: ["credito", "debito"] },
         monto: { bsonType: "double", minimum: 0 },
@@ -814,7 +979,7 @@ db.createCollection("economia_transacciones", {
   }
 });
 
-db.createCollection("economia_modulos", {
+ensureCollection("economia_modulos", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -828,7 +993,7 @@ db.createCollection("economia_modulos", {
   }
 });
 
-db.createCollection("economia_eventos", {
+ensureCollection("economia_eventos", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -849,7 +1014,7 @@ db.createCollection("economia_eventos", {
   }
 });
 
-db.createCollection("economia_riesgo_cursos", {
+ensureCollection("economia_riesgo_cursos", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -869,24 +1034,24 @@ db.createCollection("economia_riesgo_cursos", {
 // INSERT SAMPLE DATA
 // ============================================================================
 
-const escuelaId = new ObjectId();
-const adminId = new ObjectId();
-const teacherId = new ObjectId();
-const studentId = new ObjectId();
-const parentId = new ObjectId();
-const moduloId = new ObjectId();
-const moduloGeografiaId = new ObjectId();
-const moduloCartografiaId = new ObjectId();
-const moduloGeografiaFisicaId = new ObjectId();
-const moduloAtlasDigitalId = new ObjectId();
-const moduloMapaClimaticoId = new ObjectId();
-const moduloMapaPoblacionId = new ObjectId();
-const moduloMapaEconomicoId = new ObjectId();
-const claseId = new ObjectId();
+const escuelaId = ObjectId("64f000000000000000000001");
+const adminId = ObjectId("64f000000000000000000002");
+const teacherId = ObjectId("64f000000000000000000003");
+const studentId = ObjectId("64f000000000000000000004");
+const parentId = ObjectId("64f000000000000000000005");
+const moduloId = ObjectId("64f000000000000000000101");
+const moduloGeografiaId = ObjectId("64f000000000000000000102");
+const moduloCartografiaId = ObjectId("64f000000000000000000103");
+const moduloGeografiaFisicaId = ObjectId("64f000000000000000000104");
+const moduloAtlasDigitalId = ObjectId("64f000000000000000000105");
+const moduloMapaClimaticoId = ObjectId("64f000000000000000000106");
+const moduloMapaPoblacionId = ObjectId("64f000000000000000000107");
+const moduloMapaEconomicoId = ObjectId("64f000000000000000000108");
+const claseId = ObjectId("64f000000000000000000201");
 const defaultPasswordHash =
   "pbkdf2$100000$7c364c45dc86c2e66b18381b56b58011$b017ae4e62b1b9491ef80df0d001b2644b2aa3d1d691d43ff62138ed2b640328";
 
-db.escuelas.insertOne({
+upsertById("escuelas", {
   _id: escuelaId,
   name: "Escuela Primaria Norte",
   code: "EPN-001",
@@ -898,7 +1063,7 @@ db.escuelas.insertOne({
   createdAt: new Date(),
 });
 
-db.usuarios.insertMany([
+[
   {
     _id: adminId,
     username: "admin.escuela",
@@ -954,9 +1119,9 @@ db.usuarios.insertMany([
     createdAt: new Date(),
     updatedAt: new Date(),
   }
-]);
+].forEach((usuarioDoc) => upsertById("usuarios", usuarioDoc));
 
-db.membresias_escuela.insertMany([
+[
   {
     usuarioId: adminId,
     escuelaId: escuelaId,
@@ -989,12 +1154,18 @@ db.membresias_escuela.insertMany([
     fechaAlta: new Date(),
     createdAt: new Date(),
   }
-]);
+].forEach((membresiaDoc) => {
+  upsertByFilter(
+    "membresias_escuela",
+    { usuarioId: membresiaDoc.usuarioId, escuelaId: membresiaDoc.escuelaId },
+    membresiaDoc
+  );
+});
 
-db.modulos.insertOne({
+upsertById("modulos", {
   _id: moduloId,
   id: moduloId.toString(),
-  createdBy: teacherId.toString(),
+  createdBy: teacherId,
   title: "Introducción a las fracciones",
   description: "Módulo con teoría y prácticas básicas sobre fracciones.",
   subject: "Matemáticas",
@@ -1025,10 +1196,10 @@ db.modulos.insertOne({
   updatedAt: new Date(),
 });
 
-db.modulos.insertOne({
+upsertById("modulos", {
   _id: moduloGeografiaId,
   id: moduloGeografiaId.toString(),
-  createdBy: teacherId.toString(),
+  createdBy: teacherId,
   title: "Mapas físicos y políticos del mundo",
   description: "Exploración de mapas físicos, políticos y lectura de fronteras.",
   subject: "Geografía",
@@ -1071,10 +1242,10 @@ db.modulos.insertOne({
   updatedAt: new Date(),
 });
 
-db.modulos.insertOne({
+upsertById("modulos", {
   _id: moduloCartografiaId,
   id: moduloCartografiaId.toString(),
-  createdBy: teacherId.toString(),
+  createdBy: teacherId,
   title: "Cartografía básica: coordenadas, escalas y proyecciones",
   description:
     "Módulo introductorio para interpretar coordenadas, calcular escalas y comparar proyecciones cartográficas.",
@@ -1121,10 +1292,10 @@ db.modulos.insertOne({
   updatedAt: new Date(),
 });
 
-db.modulos.insertOne({
+upsertById("modulos", {
   _id: moduloAtlasDigitalId,
   id: moduloAtlasDigitalId.toString(),
-  createdBy: teacherId.toString(),
+  createdBy: teacherId,
   title: "Atlas digitales y mapas interactivos",
   description:
     "Uso de atlas digitales, capas temáticas y comparación de imágenes satelitales para interpretar cambios en el territorio.",
@@ -1191,10 +1362,10 @@ db.modulos.insertOne({
   updatedAt: new Date(),
 });
 
-db.modulos.insertOne({
+upsertById("modulos", {
   _id: moduloGeografiaFisicaId,
   id: moduloGeografiaFisicaId.toString(),
-  createdBy: teacherId.toString(),
+  createdBy: teacherId,
   title: "Geografía física: relieve, agua y tectónica",
   description:
     "Módulo para interpretar el relieve terrestre, perfiles topográficos y procesos geológicos.",
@@ -1269,10 +1440,10 @@ db.modulos.insertOne({
   updatedAt: new Date(),
 });
 
-db.modulos.insertOne({
+upsertById("modulos", {
   _id: moduloMapaClimaticoId,
   id: moduloMapaClimaticoId.toString(),
-  createdBy: teacherId.toString(),
+  createdBy: teacherId,
   title: "Mapa climático",
   description: "Interpretación de mapas climáticos y climogramas para analizar patrones del clima.",
   subject: "Geografía",
@@ -1332,10 +1503,10 @@ db.modulos.insertOne({
   updatedAt: new Date(),
 });
 
-db.modulos.insertOne({
+upsertById("modulos", {
   _id: moduloMapaPoblacionId,
   id: moduloMapaPoblacionId.toString(),
-  createdBy: teacherId.toString(),
+  createdBy: teacherId,
   title: "Mapa de población",
   description:
     "Análisis de mapas de densidad poblacional, coropletas y flujos migratorios.",
@@ -1396,10 +1567,10 @@ db.modulos.insertOne({
   updatedAt: new Date(),
 });
 
-db.modulos.insertOne({
+upsertById("modulos", {
   _id: moduloMapaEconomicoId,
   id: moduloMapaEconomicoId.toString(),
-  createdBy: teacherId.toString(),
+  createdBy: teacherId,
   title: "Mapa económico",
   description:
     "Lectura de mapas de actividades económicas, PIB y redes de comercio.",
@@ -1460,7 +1631,7 @@ db.modulos.insertOne({
   updatedAt: new Date(),
 });
 
-db.clases.insertOne({
+upsertById("clases", {
   _id: claseId,
   name: "5º A",
   grade: "5º Primaria",
@@ -1484,7 +1655,7 @@ db.clases.insertOne({
   createdAt: new Date(),
 });
 
-db.mensajes.insertOne({
+upsertByFilter("mensajes", { studentId, parentId, classId: claseId }, {
   studentId,
   parentId,
   classId: claseId,
@@ -1499,18 +1670,20 @@ db.mensajes.insertOne({
     }
   ],
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
-db.transferencias.insertOne({
+upsertByFilter("transferencias", { studentId, toSchoolId: escuelaId }, {
   studentId,
   fromSchoolId: new ObjectId(),
   toSchoolId: escuelaId,
   status: "pending",
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
-const billeteraId = new ObjectId();
-db.billeteras.insertOne({
+const billeteraId = ObjectId("64f000000000000000000301");
+upsertById("billeteras", {
   _id: billeteraId,
   usuarioId: studentId,
   saldo: 1500,
@@ -1518,7 +1691,56 @@ db.billeteras.insertOne({
   updatedAt: new Date(),
 });
 
-db.movimientos_billetera.insertOne({
+const quizId = ObjectId("64f000000000000000000401");
+
+upsertById("quizzes", {
+  _id: quizId,
+  id: "quiz-fracciones-001",
+  moduleId: moduloId,
+  title: "Quiz de fracciones",
+  type: "evaluacion",
+  mode: "manual",
+  visibility: "escuela",
+  schoolId: escuelaId,
+  schoolName: "Escuela Primaria Norte",
+  competitionRules: "",
+  competitionRulesVisibility: "private",
+  currentVersion: 1,
+  createdBy: teacherId,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+});
+
+upsertByFilter("quiz_versions", { quizId, version: 1 }, {
+  quizId,
+  version: 1,
+  questions: [],
+  generatorId: "manual",
+  generatorVersion: 1,
+  params: {},
+  count: 0,
+  seedPolicy: "fixed",
+  fixedSeed: 12345,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+});
+
+upsertByFilter("quiz_attempts", { quizId, userId: studentId, status: "submitted" }, {
+  moduleId: moduloId,
+  quizId,
+  quizVersion: 1,
+  userId: studentId,
+  seed: 12345,
+  answers: [],
+  feedback: {},
+  score: 8,
+  maxScore: 10,
+  status: "submitted",
+  createdAt: new Date(),
+  updatedAt: new Date(),
+});
+
+upsertByFilter("movimientos_billetera", { billeteraId, motivo: "Inicio de cuenta", origen: "registro" }, {
   billeteraId,
   tipo: "credito",
   monto: 1500,
@@ -1527,7 +1749,19 @@ db.movimientos_billetera.insertOne({
   fecha: new Date(),
 });
 
-db.cursos.insertOne({
+upsertByFilter("economia_transacciones", { id: "trx-inicio-001" }, {
+  id: "trx-inicio-001",
+  usuarioId: studentId,
+  aulaId: null,
+  tipo: "credito",
+  monto: 1500,
+  moneda: "ARS",
+  motivo: "Inicio de cuenta",
+  referenciaId: billeteraId.toString(),
+  createdAt: new Date(),
+});
+
+upsertByFilter("cursos", { name: "Curso de Matemáticas", teacherId }, {
   name: "Curso de Matemáticas",
   description: "Curso completo de matemáticas para primaria.",
   price: 199.99,
@@ -1545,6 +1779,7 @@ db.cursos.insertOne({
   ],
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 print("Database setup completed successfully!");
