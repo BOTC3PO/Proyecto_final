@@ -1,6 +1,7 @@
 import { type Dificultad, type GeneratorFn, crearQuizBase, pickRandom, randomInt } from "./generic";
 import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, construirEnunciado } from "./temas56_85_helpers";
+import { preloadGeneradoresTema } from "../generadores_api";
 import { formatFraction } from "./temas71_80_helpers";
 
 const ID_TEMA = 79;
@@ -14,6 +15,7 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 };
 
 const generarTema79: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const variante = pickRandom(["calc.int.aplic_area", "calc.int.aplic_volumen_discos", "calc.int.aplic_desplazamiento"] as const);
   const [minCoef, maxCoef] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "coef");
   const lim = Math.max(2, Math.min(8, Math.max(Math.abs(minCoef), Math.abs(maxCoef))));

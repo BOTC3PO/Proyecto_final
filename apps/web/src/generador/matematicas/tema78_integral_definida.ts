@@ -1,6 +1,7 @@
 import { type Dificultad, type GeneratorFn, crearQuizBase, pickRandom, randomInt } from "./generic";
 import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, construirEnunciado } from "./temas56_85_helpers";
+import { preloadGeneradoresTema } from "../generadores_api";
 
 const ID_TEMA = 78;
 const TITULO = "Integral definida";
@@ -15,6 +16,7 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 const integrarPotencia = (n: number, a: number, b: number): number => (b ** (n + 1) - a ** (n + 1)) / (n + 1);
 
 const generarTema78: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const variante = pickRandom(["calc.int.def_potencia", "calc.int.def_area_simple", "calc.int.def_promedio"] as const);
   const [minCoef, maxCoef] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "coef");
   const lim = Math.max(2, Math.min(8, Math.max(Math.abs(minCoef), Math.abs(maxCoef))));
