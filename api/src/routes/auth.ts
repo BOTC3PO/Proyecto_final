@@ -23,9 +23,13 @@ import {
 
 export const auth = Router();
 
+const isProduction = ENV.NODE_ENV === "production";
+
 const authLimiter = createRateLimiter({
-  windowMs: 15 * 60 * 1000,
-  limit: 10
+  windowMs: 60 * 1000,
+  limit: isProduction ? 20 : 100,
+  enabled: !ENV.AUTH_RATE_LIMIT_DISABLED,
+  message: { error: "Too many requests" }
 });
 
 auth.post("/api/auth/bootstrap-admin", async (req, res) => {
