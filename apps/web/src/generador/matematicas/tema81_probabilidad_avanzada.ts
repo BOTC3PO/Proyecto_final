@@ -31,6 +31,7 @@ const generarTema81: GeneratorFn = (dificultad: Dificultad = "basico") => {
 
     const pA = aNum / aDen;
     const pB = bNum / bDen;
+    const pInter = interNum / interDen;
     const correcta = fraccionReducida(interNum * bDen, interDen * bNum);
     const distractor1 = fraccionReducida(interNum * aDen, interDen * aNum);
     const distractor2 = formatNum(pA * pB);
