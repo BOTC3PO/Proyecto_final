@@ -1,5 +1,6 @@
 import { type Dificultad, type GeneratorFn, crearQuizBase, pickRandom, randomInt } from "./generic";
 import { getRangoConFallback } from "./limits";
+import { preloadGeneradoresTema } from "../generadores_api";
 import { buildOpcionesUnicas, construirEnunciado } from "./temas56_85_helpers";
 
 const ID_TEMA = 84;
@@ -13,12 +14,15 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 };
 
 const generarTema84: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const variante = pickRandom(["inf.intervalo_confianza_concepto", "inf.tamano_muestra", "inf.pvalor_concepto"] as const);
+  const [minConf, maxConf] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "conf");
 
   if (variante === "inf.intervalo_confianza_concepto") {
     const [minMuestra, maxMuestra] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "muestra");
     const centro = randomInt(Math.max(10, minMuestra * 5), Math.max(20, maxMuestra * 5));
     const margen = randomInt(2, 8);
+    const confNivel = Math.max(80, Math.min(99, Math.round((minConf + maxConf) / 2)));
 
     return crearQuizBase({
       idTema: ID_TEMA,
@@ -28,8 +32,8 @@ const generarTema84: GeneratorFn = (dificultad: Dificultad = "basico") => {
         idTema: ID_TEMA,
         dificultad,
         claveSubtipo: "inf.intervalo_confianza_concepto",
-        fallback: "Un IC del 95% para la media es [{{a}}, {{b}}]. ¿Qué interpretación es correcta?",
-        variables: { a: centro - margen, b: centro + margen },
+        fallback: "Un IC del {{conf}}% para la media es [{{a}}, {{b}}]. ¿Qué interpretación es correcta?",
+        variables: { conf: confNivel, a: centro - margen, b: centro + margen },
       }),
       opciones: buildOpcionesUnicas(
         "Si repitiéramos el muestreo muchas veces, cerca del 95% de los intervalos construidos contendrían la media real.",

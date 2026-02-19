@@ -13,10 +13,10 @@ type CacheStatus = "unfetched" | "loading" | "ready" | "unavailable";
 type CacheEntry = {
   status: CacheStatus;
   data: GeneradoresTemaPayload | null;
+  promise?: Promise<void>;
 };
 
 const cache = new Map<number, CacheEntry>();
-const inFlightByTema = new Map<number, Promise<void>>();
 
 const temaSlugById = new Map<number, string>();
 
@@ -75,16 +75,14 @@ const normalizePayload = (raw: unknown): GeneradoresTemaPayload | null => {
 export async function preloadGeneradoresTema(idTema: number): Promise<void> {
   const entry = cache.get(idTema);
   if (entry?.status === "ready" || entry?.status === "unavailable") return;
-
-  const pending = inFlightByTema.get(idTema);
-  if (pending) {
-    await pending;
+  if (entry?.status === "loading" && entry.promise) {
+    await entry.promise;
     return;
   }
 
   setLoading(idTema);
 
-  const promise = (async () => {
+  const promise: Promise<void> = (async () => {
     const tema = await resolveTemaSlug(idTema);
     if (!tema) {
       setUnavailable(idTema);
@@ -112,11 +110,11 @@ export async function preloadGeneradoresTema(idTema: number): Promise<void> {
     }
   })();
 
-  inFlightByTema.set(idTema, promise);
+  cache.set(idTema, { status: "loading", data: null, promise });
   try {
     await promise;
-  } finally {
-    inFlightByTema.delete(idTema);
+  } catch {
+    // best-effort: nunca propagar errores de preload
   }
 }
 
@@ -217,6 +215,5 @@ export const __debug = {
   },
   clear(): void {
     cache.clear();
-    inFlightByTema.clear();
   },
 };
