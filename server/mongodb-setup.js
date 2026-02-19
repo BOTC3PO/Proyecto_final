@@ -1171,7 +1171,7 @@ upsertById("modulos", {
   subject: "Matemáticas",
   category: "Aritmética básica",
   difficultyLevel: "Básico",
-  durationMinutes: 25,
+  durationMinutes: NumberInt(25),
   visibility: "publico",
   theoryItems: [
     {
@@ -1205,7 +1205,7 @@ upsertById("modulos", {
   subject: "Geografía",
   category: "Geografía del Mundo",
   difficultyLevel: "Básico",
-  durationMinutes: 30,
+  durationMinutes: NumberInt(30),
   visibility: "publico",
   theoryItems: [
     {
@@ -1252,7 +1252,7 @@ upsertById("modulos", {
   subject: "Geografía",
   category: "Cartografía básica",
   difficultyLevel: "Básico",
-  durationMinutes: 35,
+  durationMinutes: NumberInt(35),
   visibility: "publico",
   theoryItems: [
     {
@@ -1302,7 +1302,7 @@ upsertById("modulos", {
   subject: "Geografía",
   category: "Tecnologías geoespaciales",
   difficultyLevel: "Intermedio",
-  durationMinutes: 40,
+  durationMinutes: NumberInt(40),
   visibility: "publico",
   theoryItems: [
     {
@@ -1372,7 +1372,7 @@ upsertById("modulos", {
   subject: "Geografía",
   category: "Geografía física",
   difficultyLevel: "Intermedio",
-  durationMinutes: 40,
+  durationMinutes: NumberInt(40),
   visibility: "publico",
   theoryItems: [
     {
@@ -1449,7 +1449,7 @@ upsertById("modulos", {
   subject: "Geografía",
   category: "Clima y ambiente",
   difficultyLevel: "Básico",
-  durationMinutes: 30,
+  durationMinutes: NumberInt(30),
   visibility: "publico",
   theoryItems: [
     {
@@ -1513,7 +1513,7 @@ upsertById("modulos", {
   subject: "Geografía",
   category: "Población y migraciones",
   difficultyLevel: "Intermedio",
-  durationMinutes: 35,
+  durationMinutes: NumberInt(35),
   visibility: "publico",
   theoryItems: [
     {
@@ -1577,7 +1577,7 @@ upsertById("modulos", {
   subject: "Geografía",
   category: "Economía y desarrollo",
   difficultyLevel: "Intermedio",
-  durationMinutes: 35,
+  durationMinutes: NumberInt(35),
   visibility: "publico",
   theoryItems: [
     {
@@ -1705,22 +1705,22 @@ upsertById("quizzes", {
   schoolName: "Escuela Primaria Norte",
   competitionRules: "",
   competitionRulesVisibility: "private",
-  currentVersion: 1,
+  currentVersion: NumberInt(1),
   createdBy: teacherId,
   createdAt: new Date(),
   updatedAt: new Date(),
 });
 
-upsertByFilter("quiz_versions", { quizId, version: 1 }, {
+upsertByFilter("quiz_versions", { quizId, version: NumberInt(1) }, {
   quizId,
-  version: 1,
+  version: NumberInt(1),
   questions: [],
   generatorId: "manual",
-  generatorVersion: 1,
+  generatorVersion: NumberInt(1),
   params: {},
-  count: 0,
+  count: NumberInt(0),
   seedPolicy: "fixed",
-  fixedSeed: 12345,
+  fixedSeed: NumberInt(12345),
   createdAt: new Date(),
   updatedAt: new Date(),
 });
@@ -1728,9 +1728,9 @@ upsertByFilter("quiz_versions", { quizId, version: 1 }, {
 upsertByFilter("quiz_attempts", { quizId, userId: studentId, status: "submitted" }, {
   moduleId: moduloId,
   quizId,
-  quizVersion: 1,
+  quizVersion: NumberInt(1),
   userId: studentId,
-  seed: 12345,
+  seed: NumberInt(12345),
   answers: [],
   feedback: {},
   score: 8,
@@ -1765,7 +1765,7 @@ upsertByFilter("cursos", { name: "Curso de Matemáticas", teacherId }, {
   name: "Curso de Matemáticas",
   description: "Curso completo de matemáticas para primaria.",
   price: 199.99,
-  durationHours: 40,
+  durationHours: NumberInt(40),
   type: "privado",
   teacherId,
   moduleIds: [moduloId],
@@ -1773,7 +1773,7 @@ upsertByFilter("cursos", { name: "Curso de Matemáticas", teacherId }, {
     {
       userId: studentId,
       status: "en_progreso",
-      progress: 45,
+      progress: NumberInt(45),
       enrolledAt: new Date(),
     }
   ],
@@ -1781,6 +1781,33 @@ upsertByFilter("cursos", { name: "Curso de Matemáticas", teacherId }, {
   createdAt: new Date(),
   updatedAt: new Date(),
 });
+
+function auditType(coll, field) {
+  const c = db.getCollection(coll);
+  const total = c.countDocuments();
+  const present = c.countDocuments({ [field]: { $exists: true } });
+  const dist = c.aggregate([
+    { $match: { [field]: { $exists: true } } },
+    { $group: { _id: { $type: `$${field}` }, n: { $sum: 1 } } },
+    { $sort: { n: -1 } }
+  ]).toArray();
+
+  print(`[AUDIT] ${coll}.${field} total=${total} present=${present} dist=${JSON.stringify(dist)}`);
+
+  const hasDouble = dist.some((d) => d._id === "double");
+  if (hasDouble) {
+    throw new Error(`[AUDIT FAIL] ${coll}.${field} contiene doubles; deben ser int (NumberInt).`);
+  }
+}
+
+[
+  ["modulos", "durationMinutes"],
+  ["quizzes", "currentVersion"],
+  ["quiz_versions", "version"],
+  ["quiz_attempts", "quizVersion"],
+  ["cursos", "durationHours"],
+  ["cursos", "enrollments.progress"]
+].forEach(([coll, field]) => auditType(coll, field));
 
 print("Database setup completed successfully!");
 print("Collections created: usuarios, escuelas, membresias_escuela, clases, modulos, cursos, mensajes, transferencias, billeteras, movimientos_billetera");
