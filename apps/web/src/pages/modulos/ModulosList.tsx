@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { apiGet } from "../../lib/api";
 import type { Module, ModuleVisibility } from "../../domain/module/module.types";
@@ -46,7 +46,6 @@ export default function ModulosList() {
   const [selectedVisibility, setSelectedVisibility] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchParams] = useSearchParams();
 
   const isTestMode = testmode();
   const canCreate = useMemo(
@@ -69,15 +68,6 @@ export default function ModulosList() {
     modules.forEach((module) => values.add(resolveCategoria(module)));
     return Array.from(values).sort((a, b) => a.localeCompare(b));
   }, [modules]);
-
-  useEffect(() => {
-    const querySubject = searchParams.get("subject");
-    if (querySubject) {
-      setSelectedSubject(querySubject);
-    }
-    // Solo inicializa desde query params al montar.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const statusOptions = useMemo(() => {
     const values = new Set<string>();
