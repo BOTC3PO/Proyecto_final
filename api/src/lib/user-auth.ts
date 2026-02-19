@@ -16,6 +16,12 @@ type AuthenticatedUser = Record<string, unknown> & {
 
 export const requireUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    const publicAuthPaths = new Set(["/api/auth/login", "/api/auth/register", "/auth/login", "/auth/register", "/login", "/register"]);
+    if (publicAuthPaths.has(req.path)) {
+      next();
+      return;
+    }
+
     const token = extractTokenFromRequest(req);
     if (!token) {
       res.status(401).json({ error: "Missing authentication" });
