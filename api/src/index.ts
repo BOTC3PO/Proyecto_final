@@ -34,6 +34,7 @@ import { consignas } from "./routes/consignas";
 import { visualizadoresRouter } from "./routes/visualizadores";
 import { createRateLimiter } from "./lib/rate-limit";
 import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
+import { markUsersWithoutUsablePasswordForReset } from "./lib/password-health";
 import { dictionary } from "./routes/dictionary";
 import { readonlyRouter } from "./routes/readonly";
 import { registro } from "./routes/registro";
@@ -116,6 +117,10 @@ const bootstrap = async () => {
     console.log(`API on http://localhost:${ENV.PORT}`);
   });
   scheduleDelinquencyJob();
+  await markUsersWithoutUsablePasswordForReset({
+    actorId: "system",
+    reason: "startup-password-hash-migration"
+  });
 };
 
 void bootstrap();
