@@ -263,7 +263,7 @@ ensureCollection("modulos", {
         category: { bsonType: ["string", "null"] },
         difficultyLevel: {
           bsonType: ["string", "null"],
-          enum: ["Básico", "Intermedio", "Avanzado"]
+          enum: ["Básico", "Intermedio", "Avanzado", null]
         },
         durationMinutes: { bsonType: ["int", "null"] },
         visibility: {
@@ -1061,6 +1061,7 @@ upsertById("escuelas", {
   plan: "ENTERPRISE_PLUS",
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 [
@@ -1653,6 +1654,7 @@ upsertById("clases", {
   ],
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 upsertByFilter("mensajes", { studentId, parentId, classId: claseId }, {
@@ -1686,7 +1688,7 @@ const billeteraId = ObjectId("64f000000000000000000301");
 upsertById("billeteras", {
   _id: billeteraId,
   usuarioId: studentId,
-  saldo: 1500,
+  saldo: 1500.0,
   moneda: "ARS",
   updatedAt: new Date(),
 });
@@ -1743,7 +1745,7 @@ upsertByFilter("quiz_attempts", { quizId, userId: studentId, status: "submitted"
 upsertByFilter("movimientos_billetera", { billeteraId, motivo: "Inicio de cuenta", origen: "registro" }, {
   billeteraId,
   tipo: "credito",
-  monto: 1500,
+  monto: 1500.0,
   motivo: "Inicio de cuenta",
   origen: "registro",
   fecha: new Date(),
@@ -1754,11 +1756,12 @@ upsertByFilter("economia_transacciones", { id: "trx-inicio-001" }, {
   usuarioId: studentId,
   aulaId: null,
   tipo: "credito",
-  monto: 1500,
+  monto: 1500.0,
   moneda: "ARS",
   motivo: "Inicio de cuenta",
   referenciaId: billeteraId.toString(),
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 upsertByFilter("cursos", { name: "Curso de Matemáticas", teacherId }, {
@@ -1800,6 +1803,20 @@ function auditType(coll, field) {
   }
 }
 
+function auditDouble(coll, field) {
+  const dist = db.getCollection(coll).aggregate([
+    { $match: { [field]: { $exists: true } } },
+    { $group: { _id: { $type: `$${field}` }, n: { $sum: 1 } } }
+  ]).toArray();
+
+  print(`[AUDIT] ${coll}.${field} ${JSON.stringify(dist)}`);
+
+  const invalid = dist.find((d) => d._id !== "double");
+  if (invalid) {
+    throw new Error(`${coll}.${field} contiene tipo inválido ${invalid._id}, se requiere double`);
+  }
+}
+
 [
   ["modulos", "durationMinutes"],
   ["quizzes", "currentVersion"],
@@ -1808,6 +1825,9 @@ function auditType(coll, field) {
   ["cursos", "durationHours"],
   ["cursos", "enrollments.progress"]
 ].forEach(([coll, field]) => auditType(coll, field));
+
+auditDouble("economia_transacciones", "monto");
+auditDouble("billeteras", "saldo");
 
 print("Database setup completed successfully!");
 print("Collections created: usuarios, escuelas, membresias_escuela, clases, modulos, cursos, mensajes, transferencias, billeteras, movimientos_billetera");
