@@ -651,10 +651,17 @@ db.movimientos_billetera.createIndex({ billeteraId: 1 });
 db.movimientos_billetera.createIndex({ fecha: -1 });
 
 // Quiz attempts indexes
-db.quiz_attempts.createIndex({ moduleId: 1, quizId: 1, userId: 1, status: 1 });
 db.quiz_attempts.createIndex(
   { moduleId: 1, quizId: 1, userId: 1, status: 1 },
-  { unique: true, partialFilterExpression: { status: "in_progress" } }
+  { name: "quiz_attempts_module_quiz_user_status" }
+);
+db.quiz_attempts.createIndex(
+  { moduleId: 1, quizId: 1, userId: 1, status: 1 },
+  {
+    name: "quiz_attempts_module_quiz_user_status_in_progress_unique",
+    unique: true,
+    partialFilterExpression: { status: "in_progress" }
+  }
 );
 db.quiz_attempts.createIndex({ moduleId: 1, quizId: 1, userId: 1, createdAt: -1 });
 
