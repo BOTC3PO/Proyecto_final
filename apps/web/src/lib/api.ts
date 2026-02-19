@@ -3,6 +3,43 @@ export const API_BASE_URL =
   import.meta.env.VITE_API_URL ??
   "http://localhost:5050";
 
+const AUTH_TOKEN_STORAGE_KEY = "auth.token";
+
+let authToken: string | null = null;
+
+const readStoredToken = () => {
+  if (typeof window === "undefined") return null;
+  try {
+    return localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+};
+
+export const getAuthToken = () => {
+  if (authToken) return authToken;
+  authToken = readStoredToken();
+  return authToken;
+};
+
+export const setAuthToken = (token: string | null, options?: { remember?: boolean }) => {
+  authToken = token;
+  if (typeof window === "undefined") return;
+  try {
+    if (!token) {
+      localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY);
+      return;
+    }
+    if (options?.remember) {
+      localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, token);
+    } else {
+      localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY);
+    }
+  } catch {
+    // ignore storage errors
+  }
+};
+
 export class ApiError extends Error {
   status: number;
 
@@ -23,8 +60,10 @@ const buildUrl = (path: string) => {
 };
 
 export async function apiRequest<T>(path: string, options: RequestOptions = {}): Promise<T> {
+  const token = getAuthToken();
   const headers: Record<string, string> = {
     Accept: "application/json",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
     ...options.headers
   };
   const body = options.body;

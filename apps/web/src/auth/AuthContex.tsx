@@ -12,7 +12,7 @@ export type User = {
 export type AuthContextValue = {
   user: User | null;
   loginAs: (role: Role, options?: { remember?: boolean; schoolId?: string | null }) => void;
-  login: (user: User, options?: { remember?: boolean }) => void;
+  login: (user: User, token: string, options?: { remember?: boolean }) => void;
   logout: () => void;
 };
 

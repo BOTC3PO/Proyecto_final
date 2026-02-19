@@ -55,6 +55,7 @@ export default function Login() {
         role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST";
         guestOnboardingStatus?: "pendiente" | "aceptado" | "rechazado" | null;
         schoolId?: string | null;
+        accessToken: string;
       }>("/api/auth/login", { email: form.user, password: form.password });
       login(
         {
@@ -64,6 +65,7 @@ export default function Login() {
           guestOnboardingStatus: payload.guestOnboardingStatus ?? null,
           schoolId: payload.schoolId ?? null,
         },
+        payload.accessToken,
         { remember: form.remember },
       );
       navigate("/");

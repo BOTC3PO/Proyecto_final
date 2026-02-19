@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import type { Role } from '../auth/roles';
 import testmode from '../sys/testmode';
+import { apiGet } from '../lib/api';
 
 export function ProtectedRoute({
   children,
@@ -28,19 +29,13 @@ export function ProtectedRoute({
 
     const checkSession = async () => {
       try {
-        const response = await fetch('/api/me', {
-          method: 'GET',
+        const data = await apiGet<{
+          role?: Role;
+          guestOnboardingStatus?: 'pendiente' | 'aceptado' | 'rechazado' | null;
+        }>('/api/me', {
           credentials: 'include',
           signal: controller.signal,
         });
-        if (!response.ok) {
-          setSessionRole(null);
-          return;
-        }
-        const data = (await response.json()) as {
-          role?: Role;
-          guestOnboardingStatus?: 'pendiente' | 'aceptado' | 'rechazado' | null;
-        };
         setSessionRole(data.role ?? null);
         setSessionGuestStatus(data.guestOnboardingStatus ?? null);
       } catch (error) {
