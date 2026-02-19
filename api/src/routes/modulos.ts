@@ -10,10 +10,15 @@ export const modulos = Router();
 
 const ModuleUpdateSchema = ModuleSchema.partial().omit({ id: true });
 
-const withDefaultStatus = <T extends { status?: unknown }>(module: T) => ({
-  ...module,
-  status: module.status ?? "ACTIVE"
-});
+type AnyDoc = Record<string, any>;
+
+function withDefaultStatus<T extends AnyDoc>(module: T): T & { status: {} } {
+  const status = module?.status ?? {};
+  return {
+    ...module,
+    status
+  };
+}
 
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
