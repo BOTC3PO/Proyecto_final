@@ -903,6 +903,7 @@ db.usuarios.insertMany([
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
     isDeleted: false,
     createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     _id: teacherId,
@@ -916,6 +917,7 @@ db.usuarios.insertMany([
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
     isDeleted: false,
     createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     _id: studentId,
@@ -929,6 +931,7 @@ db.usuarios.insertMany([
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
     isDeleted: false,
     createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     _id: parentId,
@@ -942,6 +945,7 @@ db.usuarios.insertMany([
     consents: { privacyConsent: true, termsAccepted: true, consentedAt: new Date() },
     isDeleted: false,
     createdAt: new Date(),
+    updatedAt: new Date(),
   }
 ]);
 
