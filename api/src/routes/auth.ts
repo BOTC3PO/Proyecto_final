@@ -256,18 +256,17 @@ auth.post("/api/auth/guest", authLimiter, async (req, res) => {
 auth.post("/api/auth/login", authLimiter, async (req, res) => {
   try {
     const body = req.body ?? {};
-    if (typeof body.email !== "string" || typeof body.password !== "string") {
-      res.status(400).json({ error: "Missing email or password" });
+    if (typeof body.identifier !== "string" || typeof body.password !== "string") {
+      res.status(400).json({ error: "Missing identifier or password" });
       return;
     }
 
     const parsed = LoginSchema.parse({
       ...body,
-      email: body.email.trim().toLowerCase(),
-      identifier: body.email.trim().toLowerCase()
+      identifier: body.identifier.trim().toLowerCase()
     });
     const db = await getDb();
-    const identifier = parsed.email;
+    const identifier = parsed.identifier;
     const user = await db.collection("usuarios").findOne({
       $or: [{ email: identifier }, { username: identifier }],
       isDeleted: { $ne: true }
@@ -275,7 +274,7 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
     if (!user || typeof user.passwordHash !== "string") {
       if (ENV.NODE_ENV !== "production") {
         console.warn("[auth/login] Invalid credentials: user not found or password hash missing", {
-          email: identifier
+          identifier
         });
       }
       res.status(401).json({ error: "Invalid credentials" });
@@ -285,7 +284,7 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
     if (!isValid) {
       if (ENV.NODE_ENV !== "production") {
         console.warn("[auth/login] Invalid credentials: password mismatch", {
-          email: identifier,
+          identifier,
           userId: user._id?.toString?.()
         });
       }
