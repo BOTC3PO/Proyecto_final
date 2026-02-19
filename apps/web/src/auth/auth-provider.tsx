@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import type { Role } from './roles';
 import { AuthContext, type User } from './AuthContex';
 import testmode from '../sys/testmode';
+import { setAuthToken } from '../lib/api';
 
 const STORAGE_KEY = 'auth.user';
 
@@ -41,8 +42,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const login = (nextUser: User, options?: { remember?: boolean }) => {
+  const login = (nextUser: User, token: string, options?: { remember?: boolean }) => {
     const remember = options?.remember ?? shouldPersist;
+    setAuthToken(token, { remember });
     persistUser(nextUser, remember);
   };
 
@@ -52,6 +54,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
     const remember = options?.remember ?? shouldPersist;
+    setAuthToken(null);
     persistUser(
       {
         id: '1',
@@ -64,7 +67,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  const logout = () => persistUser(null, false);
+  const logout = () => {
+    setAuthToken(null);
+    persistUser(null, false);
+  };
 
   const value = useMemo(() => ({ user, login, loginAs, logout }), [user]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
