@@ -1,5 +1,7 @@
 // MongoDB Database Setup for /apps/web
 // Run this script in MongoDB shell or MongoDB Compass
+// IMPORTANT: execute this against the SAME database configured as DB_NAME in api/.env.
+// Example: mongosh "mongodb://localhost:27017/educational_platform" ./server/mongodb-setup.js
 
 // 1. Create the database
 //use educational_platform;
