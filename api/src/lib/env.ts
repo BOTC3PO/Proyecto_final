@@ -42,4 +42,5 @@ export const ENV = {
   GOV_CONTENT_YES_GT_NO: parseBool(process.env.GOV_CONTENT_YES_GT_NO, true),
   GOV_GOVERNANCE_RULE: (process.env.GOV_GOVERNANCE_RULE ?? "SUPERMAJORITY_2_3").toUpperCase(),
   ENABLE_SEED_ENDPOINT: parseBool(process.env.ENABLE_SEED_ENDPOINT, false),
+  AUTH_RATE_LIMIT_DISABLED: parseBool(process.env.AUTH_RATE_LIMIT_DISABLED, false),
 };

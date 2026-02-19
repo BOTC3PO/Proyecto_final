@@ -43,6 +43,7 @@ export default function Login() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (status.loading) return;
     if (!validate()) return;
     setStatus({ loading: true, error: null });
     try {

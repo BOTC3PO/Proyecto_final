@@ -33,8 +33,30 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
   }
   const response = await fetch(buildUrl(path), { ...options, headers });
   if (!response.ok) {
-    const text = await response.text();
-    throw new ApiError(text || response.statusText, response.status);
+    const retryAfterHeader = response.headers.get("Retry-After");
+    let message = response.statusText;
+
+    const contentType = response.headers.get("content-type") ?? "";
+    if (contentType.includes("application/json")) {
+      const payload = (await response.json().catch(() => null)) as
+        | { error?: string; retryAfterSeconds?: number }
+        | null;
+      if (payload?.error) {
+        message = payload.error;
+      }
+      if (response.status === 429) {
+        const headerRetryAfter = Number(retryAfterHeader ?? 0);
+        const retryAfterSeconds = payload?.retryAfterSeconds ?? (Number.isFinite(headerRetryAfter) && headerRetryAfter > 0 ? headerRetryAfter : null);
+        message = retryAfterSeconds
+          ? `${message}. Intentá nuevamente en ${retryAfterSeconds} segundos.`
+          : message;
+      }
+    } else {
+      const text = await response.text();
+      message = text || message;
+    }
+
+    throw new ApiError(message || "Request failed", response.status);
   }
   if (response.status === 204) return undefined as T;
   return response.json() as Promise<T>;
