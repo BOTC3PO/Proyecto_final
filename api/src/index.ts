@@ -42,6 +42,48 @@ import { mapsRouter } from "./routes/maps";
 import { requireUser } from "./lib/user-auth";
 import fs from "node:fs";
 import path from "node:path";
+import { getDb } from "./lib/db";
+
+const SEED_ADMIN_EMAIL = "admin@escuela.com";
+
+const runStartupDataChecks = async () => {
+  if (ENV.DB_KIND !== "mongo") {
+    return;
+  }
+
+  try {
+    const db = await getDb();
+    const usuarios = db.collection("usuarios");
+
+    const [totalUsers, totalAdmins, seedAdmin] = await Promise.all([
+      usuarios.estimatedDocumentCount(),
+      usuarios.countDocuments({ role: "ADMIN", isDeleted: { $ne: true } }),
+      usuarios.findOne({ email: SEED_ADMIN_EMAIL, isDeleted: { $ne: true } }, { projection: { _id: 1 } })
+    ]);
+
+    if (totalUsers === 0) {
+      console.warn(
+        `[startup-check] La DB '${ENV.DB_NAME}' no tiene usuarios. Ejecutá server/mongodb-setup.js en esta misma DB.`
+      );
+      return;
+    }
+
+    if (totalAdmins === 0) {
+      console.warn(
+        `[startup-check] La DB '${ENV.DB_NAME}' tiene usuarios pero ningún ADMIN activo. Revisá seed/migraciones.`
+      );
+    }
+
+    if (!seedAdmin) {
+      console.warn(
+        `[startup-check] No existe el usuario semilla '${SEED_ADMIN_EMAIL}' en DB '${ENV.DB_NAME}'. Posible desalineación de DB_NAME o seed.`
+      );
+    }
+  } catch (error) {
+    console.warn("[startup-check] No se pudo verificar alineación de seed/admin en startup.", error);
+  }
+};
+
 const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
@@ -117,6 +159,7 @@ const bootstrap = async () => {
     console.log(`API on http://localhost:${ENV.PORT}`);
   });
   scheduleDelinquencyJob();
+  await runStartupDataChecks();
   await markUsersWithoutUsablePasswordForReset({
     actorId: "system",
     reason: "startup-password-hash-migration"
