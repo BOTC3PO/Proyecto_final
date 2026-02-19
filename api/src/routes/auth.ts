@@ -9,7 +9,8 @@ import { toObjectId } from "../lib/ids";
 import { createAccessToken, createRefreshToken } from "../lib/auth-token";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
 import { assertMembershipInvariants, assertValidMembershipTransition } from "../lib/memberships";
-import { hashPassword, verifyPassword } from "../lib/passwords";
+import { hashPassword, isPasswordHashUsable, verifyPassword } from "../lib/passwords";
+import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
 import { createRateLimiter } from "../lib/rate-limit";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
@@ -271,9 +272,16 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
       $or: [{ email: identifier }, { username: identifier }],
       isDeleted: { $ne: true }
     });
-    if (!user || typeof user.passwordHash !== "string") {
+    if (!user || typeof user.passwordHash !== "string" || !isPasswordHashUsable(user.passwordHash)) {
+      if (user?._id) {
+        await markUsersWithoutUsablePasswordForReset({
+          actorId: "system",
+          reason: "auth-login-invalid-password-hash",
+          targetUserId: user._id.toString()
+        });
+      }
       if (ENV.NODE_ENV !== "production") {
-        console.warn("[auth/login] Invalid credentials: user not found or password hash missing", {
+        console.warn("[auth/login] Invalid credentials: user not found or password hash missing/invalid", {
           identifier
         });
       }

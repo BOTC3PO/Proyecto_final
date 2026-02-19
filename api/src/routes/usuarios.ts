@@ -3,10 +3,12 @@ import { requirePolicy } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
+import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
+import { hashPassword } from "../lib/passwords";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
 import { serializeUsuario } from "../lib/user-serializer";
-import { UsuarioSchema } from "../schema/usuario";
+import { UsuarioWriteSchema } from "../schema/usuario";
 
 export const usuarios = Router();
 
@@ -16,10 +18,11 @@ const clampLimit = (value: string | undefined) => {
   return Math.min(parsed, 100);
 };
 
+
 usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), async (req, res) => {
   try {
     const nowIso = new Date().toISOString();
-    const parsed = UsuarioSchema.parse({
+    const parsed = UsuarioWriteSchema.parse({
       ...req.body,
       createdAt: nowIso,
       updatedAt: nowIso
@@ -50,6 +53,7 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
     const now = new Date();
     const doc = {
       ...parsed,
+      passwordHash: hashPassword(parsed.password),
       escuelaId: parsed.escuelaId ? toObjectId(parsed.escuelaId) : null,
       birthdate: parsed.birthdate ? new Date(parsed.birthdate) : null,
       consents: parsed.consents
@@ -71,6 +75,7 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
       createdAt: now,
       updatedAt: now
     };
+    delete (doc as { password?: string }).password;
     const result = await db.collection("usuarios").insertOne(doc);
     await recordAuditLog({
       actorId: requester?._id?.toString?.() ?? "system",
@@ -79,8 +84,14 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
       targetId: result.insertedId.toString(),
       metadata: {
         role: doc.role ?? null,
-        escuelaId: doc.escuelaId?.toString?.() ?? null
+        escuelaId: doc.escuelaId?.toString?.() ?? null,
+        passwordResetRequired: doc.passwordResetRequired === true
       }
+    });
+    await markUsersWithoutUsablePasswordForReset({
+      actorId: requester?._id?.toString?.() ?? "system",
+      reason: "post-create-validation",
+      targetUserId: result.insertedId.toString()
     });
     res.status(201).json({ id: result.insertedId });
   } catch (e: any) {

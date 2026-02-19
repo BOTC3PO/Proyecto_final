@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const objectIdString = z.string().regex(/^[a-fA-F0-9]{24}$/);
 
-export const UsuarioSchema = z.object({
+const UsuarioBaseSchema = z.object({
   username: z.string().min(3).max(64),
   email: z.string().email(),
   fullName: z.string().min(3).max(120),
@@ -10,7 +10,6 @@ export const UsuarioSchema = z.object({
   guestOnboardingStatus: z.enum(["pendiente", "aceptado", "rechazado"]).optional(),
   escuelaId: objectIdString.nullish(),
   birthdate: z.string().datetime().nullish(),
-  passwordHash: z.string().min(10).nullish(),
   consents: z
     .object({
       privacyConsent: z.boolean().optional(),
@@ -32,4 +31,16 @@ export const UsuarioSchema = z.object({
   updatedAt: z.string().datetime()
 });
 
-export type UsuarioInput = z.infer<typeof UsuarioSchema>;
+export const UsuarioWriteSchema = UsuarioBaseSchema.extend({
+  password: z.string().min(8).max(128)
+}).strict();
+
+export const UsuarioReadSchema = UsuarioBaseSchema.extend({
+  passwordHash: z.string().min(10).nullish()
+}).strict();
+
+// Backward-compatible export for existing consumers that expect read shape.
+export const UsuarioSchema = UsuarioReadSchema;
+
+export type UsuarioWriteInput = z.infer<typeof UsuarioWriteSchema>;
+export type UsuarioInput = z.infer<typeof UsuarioReadSchema>;

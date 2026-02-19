@@ -13,7 +13,28 @@ export const hashPassword = (password: string) => {
   return `${HASH_PREFIX}$${HASH_ITERATIONS}$${salt}$${derived}`;
 };
 
+export const isPasswordHashUsable = (storedHash: unknown) => {
+  if (typeof storedHash !== "string") return false;
+  const normalized = storedHash.startsWith("$") ? storedHash.slice(1) : storedHash;
+  const [prefix, iterationsRaw, saltRaw, hashRaw] = normalized.split("$");
+  if (!prefix || !iterationsRaw || !saltRaw || !hashRaw) return false;
+  const iterations = Number(iterationsRaw);
+  if (!Number.isFinite(iterations) || iterations <= 0) return false;
+  if (prefix === HASH_PREFIX) {
+    if (!/^[a-fA-F0-9]+$/.test(saltRaw) || !/^[a-fA-F0-9]+$/.test(hashRaw)) return false;
+    if (saltRaw.length % 2 !== 0 || hashRaw.length % 2 !== 0) return false;
+    return true;
+  }
+  if (prefix === "pbkdf2-sha256") {
+    const salt = Buffer.from(saltRaw, "base64");
+    const hash = Buffer.from(hashRaw, "base64");
+    return salt.length > 0 && hash.length > 0;
+  }
+  return false;
+};
+
 export const verifyPassword = (password: string, storedHash: string) => {
+  if (!isPasswordHashUsable(storedHash)) return false;
   const normalized = storedHash.startsWith("$") ? storedHash.slice(1) : storedHash;
   const [prefix, iterationsRaw, saltRaw, hashRaw] = normalized.split("$");
   if (!prefix || !iterationsRaw || !saltRaw || !hashRaw) return false;
