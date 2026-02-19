@@ -37,6 +37,7 @@ import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
 import { dictionary } from "./routes/dictionary";
 import { readonlyRouter } from "./routes/readonly";
 import { mapsRouter } from "./routes/maps";
+import { requireUser } from "./lib/user-auth";
 import fs from "node:fs";
 import path from "node:path";
 const app = express();
@@ -64,6 +65,9 @@ app.use("/api/visualizadores", visualizadoresRouter);
 app.use("/api/maps", mapsRouter);
 app.use(pages);
 app.use(auth);
+
+app.use(requireUser);
+
 app.use(usuarios);
 app.use(escuelas);
 app.use(modulos);
