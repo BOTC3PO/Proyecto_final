@@ -10,7 +10,8 @@
     "dict:smoke": "ts-node --transpile-only scripts/dict_smoke_test.ts",
     "dict:explain": "ts-node --transpile-only scripts/explain_plan.ts",
     "sqlite:ensure-indexes": "ts-node --transpile-only scripts/sqlite_ensure_indexes.ts",
-    "admin:ensure-runtime": "ts-node --transpile-only scripts/ensure_admin_runtime.ts"
+    "admin:ensure-runtime": "ts-node --transpile-only scripts/ensure_admin_runtime.ts",
+    "password:diagnose": "ts-node --transpile-only scripts/password_hash_diagnostics.ts"
   },
   "dependencies": {
     "cors": "2.8.5",
