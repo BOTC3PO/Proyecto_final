@@ -274,6 +274,10 @@ function DateInput({
 
 export default function RegistrationForm() {
   const navigate = useNavigate();
+  const roleMap: Record<string, "USER" | "TEACHER"> = {
+    student: "USER",
+    teacher: "TEACHER"
+  };
   const [teacherTypes, setTeacherTypes] = useState<Array<{ value: string; label: string }>>([]);
   const [monthOptions, setMonthOptions] = useState<string[]>([]);
   const [optionsError, setOptionsError] = useState<string | null>(null);
@@ -324,10 +328,11 @@ export default function RegistrationForm() {
   };
 
   const handleRoleChange = (value: string) => {
+    const mappedRole = roleMap[value] ?? value;
     setFormData((s) => ({
       ...s,
-      role: value,
-      teacherType: value === "teacher" ? s.teacherType : ""
+      role: mappedRole,
+      teacherType: mappedRole === "TEACHER" ? s.teacherType : ""
     }));
   };
 
@@ -342,7 +347,7 @@ export default function RegistrationForm() {
       setStatus({ loading: false, error: "Selecciona un rol para continuar." });
       return;
     }
-    if (formData.role === "teacher" && !formData.teacherType) {
+    if (formData.role === "TEACHER" && !formData.teacherType) {
       setStatus({ loading: false, error: "Selecciona el tipo de profesor." });
       return;
     }
@@ -366,7 +371,7 @@ export default function RegistrationForm() {
         password: formData.password,
         birthdate,
         role: formData.role,
-        teacherType: formData.role === "teacher" ? formData.teacherType : undefined,
+        teacherType: formData.role === "TEACHER" ? formData.teacherType : undefined,
         schoolCode: formData.schoolCode || undefined,
         consents: {
           privacyConsent: formData.privacyConsent,
@@ -456,7 +461,7 @@ export default function RegistrationForm() {
               </select>
             </div>
 
-            {formData.role === "teacher" && (
+            {formData.role === "TEACHER" && (
               <div>
                 <label className="block text-gray-800 text-lg mb-2 font-normal">Tipo de Profesor</label>
                 <select
