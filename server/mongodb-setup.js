@@ -1022,6 +1022,7 @@ db.modulos.insertOne({
   progress: [],
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 db.modulos.insertOne({
@@ -1067,6 +1068,7 @@ db.modulos.insertOne({
   progress: [],
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 db.modulos.insertOne({
@@ -1116,6 +1118,7 @@ db.modulos.insertOne({
   progress: [],
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 db.modulos.insertOne({
@@ -1185,6 +1188,7 @@ db.modulos.insertOne({
   progress: [],
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 db.modulos.insertOne({
@@ -1262,6 +1266,7 @@ db.modulos.insertOne({
   progress: [],
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 db.modulos.insertOne({
@@ -1324,6 +1329,7 @@ db.modulos.insertOne({
   progress: [],
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 db.modulos.insertOne({
@@ -1387,6 +1393,7 @@ db.modulos.insertOne({
   progress: [],
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 db.modulos.insertOne({
@@ -1450,6 +1457,7 @@ db.modulos.insertOne({
   progress: [],
   isDeleted: false,
   createdAt: new Date(),
+  updatedAt: new Date(),
 });
 
 db.clases.insertOne({
