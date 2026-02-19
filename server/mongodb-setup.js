@@ -875,7 +875,7 @@ const moduloMapaPoblacionId = new ObjectId();
 const moduloMapaEconomicoId = new ObjectId();
 const claseId = new ObjectId();
 const defaultPasswordHash =
-  "pbkdf2$100000$ae30ab2431a9014a369007c291d0d5d9$1e72e69ff068d5b1108bdc60b4764690e454086422f77e9d658dd99e55f2deba9b8ca4564e1bb11a32277227005dd07a4510dfaa95188d8ea46999f50044bfe3";
+  "pbkdf2$100000$b142c6ce8da912e98148614e87cb2cf4$aee08b4f7ed477b8c077036bd58cf480867554e5f20da13a6c6921ce13032b44e44cf101cdaa0b54ec9f72d11fd8706698b0e20641666f3ef6facacfda6122c4";
 
 db.escuelas.insertOne({
   _id: escuelaId,
