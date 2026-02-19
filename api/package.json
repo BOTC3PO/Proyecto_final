@@ -12,7 +12,8 @@
     "sqlite:ensure-indexes": "ts-node --transpile-only scripts/sqlite_ensure_indexes.ts",
     "admin:ensure-runtime": "ts-node --transpile-only scripts/ensure_admin_runtime.ts",
     "password:diagnose": "ts-node --transpile-only scripts/password_hash_diagnostics.ts",
-    "auth:health": "ts-node --transpile-only scripts/auth_health_check.ts"
+    "auth:health": "ts-node --transpile-only scripts/auth_health_check.ts",
+    "maps:index": "ts-node --transpile-only scripts/index_maps_to_sqlite.ts"
   },
   "dependencies": {
     "cors": "2.8.5",
