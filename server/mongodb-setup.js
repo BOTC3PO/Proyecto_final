@@ -2,7 +2,7 @@
 // Run this script in MongoDB shell or MongoDB Compass
 
 // 1. Create the database
-// use educational_platform;
+//use educational_platform;
 
 // 2. Create collections with validation schemas
 
@@ -875,7 +875,7 @@ const moduloMapaPoblacionId = new ObjectId();
 const moduloMapaEconomicoId = new ObjectId();
 const claseId = new ObjectId();
 const defaultPasswordHash =
-  "pbkdf2$100000$b142c6ce8da912e98148614e87cb2cf4$aee08b4f7ed477b8c077036bd58cf480867554e5f20da13a6c6921ce13032b44e44cf101cdaa0b54ec9f72d11fd8706698b0e20641666f3ef6facacfda6122c4";
+  "pbkdf2$100000$7c364c45dc86c2e66b18381b56b58011$b017ae4e62b1b9491ef80df0d001b2644b2aa3d1d691d43ff62138ed2b640328";
 
 db.escuelas.insertOne({
   _id: escuelaId,
