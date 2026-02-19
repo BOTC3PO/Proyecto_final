@@ -1,6 +1,7 @@
 import { type Dificultad, type GeneratorFn, crearQuizBase, pickRandom, randomInt } from "./generic";
 import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, construirEnunciado } from "./temas56_85_helpers";
+import { preloadGeneradoresTema } from "../generadores_api";
 
 const ID_TEMA = 80;
 const TITULO = "Ecuaciones diferenciales (básico)";
@@ -13,9 +14,10 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 };
 
 const generarTema80: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const variante = pickRandom(["calc.ed.separable_simple", "calc.ed.crecimiento_exponencial", "calc.ed_solucion_verificar"] as const);
-  const [minDxdt, maxDxdt] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "dxdt");
-  const lim = Math.max(2, Math.min(8, Math.max(Math.abs(minDxdt), Math.abs(maxDxdt))));
+  const [minK, maxK] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "k");
+  const lim = Math.max(2, Math.min(8, Math.max(Math.abs(minK), Math.abs(maxK))));
 
   if (variante === "calc.ed.separable_simple") {
     const k = randomInt(1, lim);
