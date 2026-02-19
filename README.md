@@ -108,7 +108,46 @@ Opciones:
 - Levantar Mongo local (instalación nativa) en `mongodb://localhost:27017`.
 - O usar una URI remota y setear `MONGO_URI` en `api/.env`.
 
-### D) Levantar API
+### D) Flujo único recomendado de arranque (Mongo + DB + seed + API)
+
+> Para evitar desalineaciones, usar **siempre el mismo `DB_NAME`** en API y en el script de setup.
+
+1. Configurar `api/.env`:
+
+```env
+MONGO_URI=mongodb://localhost:27017
+DB_NAME=educational_platform
+```
+
+2. Crear/seedear esa misma DB ejecutando `server/mongodb-setup.js` sobre el `DB_NAME` anterior.
+
+Ejemplo con mongosh:
+
+```bash
+mongosh "mongodb://localhost:27017/educational_platform" ./server/mongodb-setup.js
+```
+
+3. (Opcional, recomendado) Verificar usuario semilla de autenticación:
+
+```bash
+cd /workspace/Proyecto_final/api
+npm run auth:health
+```
+
+4. Levantar la API:
+
+```bash
+cd /workspace/Proyecto_final/api
+npm run dev
+```
+
+Desde este cambio, la API también ejecuta una verificación de startup y muestra warning si:
+
+- la DB está vacía,
+- no existe ningún usuario ADMIN,
+- o falta `admin@escuela.com` en la DB configurada por `DB_NAME`.
+
+### E) Levantar API
 
 Desde `api/`:
 
@@ -120,7 +159,7 @@ npm run dev
 - Script real: `dev: nodemon` (ejecuta `ts-node src/index.ts` según `api/nodemon.json`).
 - Puerto por defecto confirmado: **5050** (`PORT`, fallback en código).
 
-### E) Levantar Web
+### F) Levantar Web
 
 Desde `apps/web/`:
 
@@ -162,6 +201,7 @@ Si ves errores como **`Missing authentication`**:
 - `npm run dict:smoke` → smoke test de diccionario SQLite.
 - `npm run dict:explain` → inspección/explicación de plan de consultas del diccionario.
 - `npm run sqlite:ensure-indexes` → asegura índices SQLite para el diccionario.
+- `npm run auth:health` → valida que el usuario semilla `admin@escuela.com` exista en `DB_NAME` y tenga `passwordHash` utilizable (sin exponer credenciales).
 
 ### Web (`/apps/web/package.json`)
 
