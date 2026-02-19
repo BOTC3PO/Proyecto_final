@@ -36,6 +36,7 @@ import { createRateLimiter } from "./lib/rate-limit";
 import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
 import { dictionary } from "./routes/dictionary";
 import { readonlyRouter } from "./routes/readonly";
+import { registro } from "./routes/registro";
 import { mapsRouter } from "./routes/maps";
 import { requireUser } from "./lib/user-auth";
 import fs from "node:fs";
@@ -65,6 +66,7 @@ app.use("/api/visualizadores", visualizadoresRouter);
 app.use("/api/maps", mapsRouter);
 app.use(pages);
 app.use(auth);
+app.use(registro);
 
 app.use(requireUser);
 
