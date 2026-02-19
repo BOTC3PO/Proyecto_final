@@ -16,18 +16,20 @@ type AuthenticatedUser = Record<string, unknown> & {
 
 export const requireUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const normalizedPath = req.path.replace(/\/+$/, "") || "/";
-    const publicAuthPaths = new Set([
-      "/api/auth/login",
-      "/api/auth/register",
-      "/auth/login",
-      "/auth/register",
-      "/login",
-      "/register"
-    ]);
-    if (publicAuthPaths.has(normalizedPath)) {
-      next();
-      return;
+    const url = (req.originalUrl || "").split("?")[0];
+
+    if (req.method === "OPTIONS") {
+      return next();
+    }
+
+    if (
+      url === "/api/auth/login" ||
+      url === "/api/auth/register" ||
+      url === "/api/auth/guest" ||
+      url === "/api/auth/bootstrap-admin" ||
+      url === "/health"
+    ) {
+      return next();
     }
 
     const token = extractTokenFromRequest(req);
