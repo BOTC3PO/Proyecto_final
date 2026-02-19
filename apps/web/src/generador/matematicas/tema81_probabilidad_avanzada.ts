@@ -1,5 +1,6 @@
 import { type Dificultad, type GeneratorFn, crearQuizBase, pickRandom, randomInt } from "./generic";
 import { getRangoConFallback } from "./limits";
+import { preloadGeneradoresTema } from "../generadores_api";
 import { buildOpcionesUnicas, construirEnunciado, formatNum } from "./temas56_85_helpers";
 import { combinatoria, fraccionReducida } from "./temas81_85_helpers";
 
@@ -14,7 +15,11 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 };
 
 const generarTema81: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const variante = pickRandom(["prob.condicional", "prob.union_interseccion", "prob.combinatoria_simple"] as const);
+  const [minP, maxP] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "p");
+  const [minTotal, maxTotal] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "total");
+  const [minN, maxN] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "n");
 
   if (variante === "prob.condicional") {
     const bDen = pickRandom([4, 5, 8, 10]);
@@ -54,8 +59,10 @@ const generarTema81: GeneratorFn = (dificultad: Dificultad = "basico") => {
   }
 
   if (variante === "prob.union_interseccion") {
-    const pA = randomInt(2, 7) * 10;
-    const pB = randomInt(2, 7) * 10;
+    const minPct = Math.max(2, Math.min(7, Math.round(minP)));
+    const maxPct = Math.max(minPct, Math.min(7, Math.round(maxP)));
+    const pA = randomInt(minPct, maxPct) * 10;
+    const pB = randomInt(minPct, maxPct) * 10;
     const minInter = Math.max(0, pA + pB - 100);
     const maxInter = Math.min(pA, pB, 40);
     const pInter = randomInt(minInter / 10, Math.max(minInter / 10, maxInter / 10)) * 10;
@@ -78,9 +85,9 @@ const generarTema81: GeneratorFn = (dificultad: Dificultad = "basico") => {
     });
   }
 
-  const total = 5;
-  const rojas = 2;
-  const extraidas = 2;
+  const total = Math.max(5, Math.min(12, randomInt(Math.max(5, minTotal), Math.max(5, maxTotal))));
+  const extraidas = Math.max(2, Math.min(3, randomInt(Math.max(2, minN), Math.max(2, Math.min(maxN, total - 1)))));
+  const rojas = Math.max(2, Math.min(total - 1, Math.round(total * 0.4)));
   const favorables = combinatoria(rojas, 1) * combinatoria(total - rojas, 1);
   const totalFormas = combinatoria(total, extraidas);
   const correcta = fraccionReducida(favorables, totalFormas);

@@ -1,5 +1,6 @@
 import { type Dificultad, type GeneratorFn, crearQuizBase, pickRandom, randomInt } from "./generic";
 import { getRangoConFallback } from "./limits";
+import { preloadGeneradoresTema } from "../generadores_api";
 import { buildOpcionesUnicas, construirEnunciado, formatNum } from "./temas56_85_helpers";
 import { combinatoria } from "./temas81_85_helpers";
 
@@ -14,13 +15,21 @@ const fallbackRangos: Record<DificultadCore, [number, number]> = {
 };
 
 const generarTema83: GeneratorFn = (dificultad: Dificultad = "basico") => {
+  preloadGeneradoresTema(ID_TEMA).catch(() => {});
   const variante = pickRandom(["dist.binomial", "dist.normal_concepto", "dist.poisson_simple"] as const);
+  const [minK, maxK] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "k");
+  const [minP, maxP] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "p");
+  const [minLambda, maxLambda] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "lambda");
 
   if (variante === "dist.binomial") {
     const [minN, maxN] = getRangoConFallback(ID_TEMA, dificultad, fallbackRangos, "n");
     const n = Math.max(3, Math.min(8, randomInt(Math.max(3, minN), Math.max(4, Math.min(8, maxN)))));
-    const k = randomInt(0, n);
-    const p = pickRandom([0.5, 0.25, 0.75]);
+    const kMin = Math.max(0, Math.min(n, Math.round(minK)));
+    const kMax = Math.max(kMin, Math.min(n, Math.round(maxK)));
+    const k = randomInt(kMin, kMax);
+    const pMin = Math.max(0.1, Math.min(0.9, minP / 10));
+    const pMax = Math.max(pMin, Math.min(0.9, maxP / 10));
+    const p = pickRandom([pMin, (pMin + pMax) / 2, pMax]);
     const q = 1 - p;
     const comb = combinatoria(n, k);
     const correcta = comb * p ** k * q ** (n - k);
@@ -60,7 +69,9 @@ const generarTema83: GeneratorFn = (dificultad: Dificultad = "basico") => {
     });
   }
 
-  const lambda = randomInt(1, 6);
+  const lambdaMin = Math.max(1, Math.round(minLambda));
+  const lambdaMax = Math.max(lambdaMin, Math.round(maxLambda));
+  const lambda = randomInt(lambdaMin, lambdaMax);
   return crearQuizBase({
     idTema: ID_TEMA,
     tituloTema: TITULO,
