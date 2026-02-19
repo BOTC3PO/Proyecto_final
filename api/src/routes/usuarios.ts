@@ -77,6 +77,8 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
     };
     delete (doc as { password?: string }).password;
     const result = await db.collection("usuarios").insertOne(doc);
+    const passwordResetRequired =
+      "passwordResetRequired" in doc && doc.passwordResetRequired === true;
     await recordAuditLog({
       actorId: requester?._id?.toString?.() ?? "system",
       action: "usuarios.create",
@@ -85,7 +87,7 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
       metadata: {
         role: doc.role ?? null,
         escuelaId: doc.escuelaId?.toString?.() ?? null,
-        passwordResetRequired: doc.passwordResetRequired === true
+        passwordResetRequired
       }
     });
     await markUsersWithoutUsablePasswordForReset({
