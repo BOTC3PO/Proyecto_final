@@ -16,8 +16,16 @@ type AuthenticatedUser = Record<string, unknown> & {
 
 export const requireUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const publicAuthPaths = new Set(["/api/auth/login", "/api/auth/register", "/auth/login", "/auth/register", "/login", "/register"]);
-    if (publicAuthPaths.has(req.path)) {
+    const normalizedPath = req.path.replace(/\/+$/, "") || "/";
+    const publicAuthPaths = new Set([
+      "/api/auth/login",
+      "/api/auth/register",
+      "/auth/login",
+      "/auth/register",
+      "/login",
+      "/register"
+    ]);
+    if (publicAuthPaths.has(normalizedPath)) {
       next();
       return;
     }
