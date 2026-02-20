@@ -339,6 +339,18 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
       $or: [{ email: identifier }, { username: identifier }],
       isDeleted: { $ne: true }
     });
+    if (user?.role === "GUEST") {
+      if (ENV.NODE_ENV !== "production") {
+        console.warn("[auth/login] Guest account attempted password login", {
+          identifier,
+          userId: user._id?.toString?.()
+        });
+      }
+      res.status(403).json({
+        error: "Guest accounts cannot log in with password. Please complete onboarding to create credentials."
+      });
+      return;
+    }
     if (!user || typeof user.passwordHash !== "string" || !isPasswordHashUsable(user.passwordHash)) {
       if (user?._id) {
         await markUsersWithoutUsablePasswordForReset({
