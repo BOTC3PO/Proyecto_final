@@ -69,35 +69,15 @@ npm install
 
 ### B) Variables de entorno
 
-No se encontró `.env.example` en raíz/API/web.
+Se incluyen ejemplos versionados:
 
-Crear `api/.env` con claves mínimas detectadas en código (completar según entorno):
+- `api/.env.example` para la API.
+- `.env.example` en la raíz como referencia rápida de variables compartidas (web/API).
 
-```env
-PORT=5050
-CORS_ORIGIN=http://localhost:5173
+Pasos recomendados:
 
-MONGO_URI=mongodb://localhost:27017
-DB_NAME=educational_platform
-
-JWT_SECRET=TODO
-JWT_REFRESH_SECRET=TODO
-
-# Opcional para bootstrap admin
-BOOTSTRAP_ADMIN_KEY=TODO
-
-# Opcional para diccionario SQLite
-DB_KIND=mongo
-SQLITE_PATH=./data/diccionario.sqlite
-SQLITE_READONLY=1
-SQLITE_CACHE_KB=65536
-```
-
-Crear `apps/web/.env` (si necesitás apuntar a otra API):
-
-```env
-VITE_API_BASE_URL=http://localhost:5050
-```
+1. Crear `api/.env` a partir de `api/.env.example`.
+2. (Opcional) Crear `apps/web/.env` a partir de las variables `VITE_*` del `.env.example` de raíz.
 
 ### C) Levantar Mongo
 
