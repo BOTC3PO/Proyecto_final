@@ -36,7 +36,7 @@ export function ProtectedRoute({
 }) {
   const { user } = useAuth();
   const storedUser = readStoredUser();
-  const isTestMode = testmode() || import.meta.env.DEV;
+  const isTestMode = testmode();
 
   const role = user?.role ?? storedUser?.role ?? (isTestMode ? 'GUEST' : null);
   const guestStatus = user?.guestOnboardingStatus ?? storedUser?.guestOnboardingStatus ?? null;

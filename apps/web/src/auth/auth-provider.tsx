@@ -11,7 +11,7 @@ const getStorage = (remember: boolean) =>
   remember ? window.localStorage : window.sessionStorage;
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const isTestAuthEnabled = testmode() || import.meta.env.DEV;
+  const isTestAuthEnabled = testmode();
   const [user, setUser] = useState<User | null>(() => {
     if (typeof window === 'undefined') return null;
     try {
