@@ -239,12 +239,8 @@ const getRequesterId = (req: express.Request) =>
   null;
 
 const getRequesterSchoolId = (req: express.Request) => {
-  const user = (req as { user?: { schoolId?: string | null; escuelaId?: unknown } }).user;
+  const user = (req as { user?: { schoolId?: string | null } }).user;
   if (typeof user?.schoolId === "string" && user.schoolId.trim()) return user.schoolId;
-  const escuelaId = user?.escuelaId;
-  if (typeof escuelaId === "string" && escuelaId.trim()) return escuelaId;
-  const escuelaObj = escuelaId as { toString?: () => string };
-  if (escuelaObj?.toString) return escuelaObj.toString();
   return null;
 };
 

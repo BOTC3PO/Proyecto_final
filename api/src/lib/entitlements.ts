@@ -3,7 +3,6 @@ import type { Filter } from "mongodb";
 import { ObjectId } from "mongodb";
 import { getDb } from "./db";
 import { toObjectId } from "./ids";
-import { normalizeSchoolId } from "./school-ids";
 
 export const ENTERPRISE_PLANS = [
   "ENTERPRISE_BASIC",
@@ -152,11 +151,8 @@ export const getSchoolEntitlements = async (schoolId: string): Promise<Enterpris
 };
 
 export const resolveSchoolIdFromRequest = (req: {
-  user?: { schoolId?: string | null; escuelaId?: unknown };
-}) => {
-  if (typeof req.user?.schoolId === "string") return req.user.schoolId;
-  return normalizeSchoolId(req.user?.escuelaId);
-};
+  user?: { schoolId?: string | null };
+}) => (typeof req.user?.schoolId === "string" ? req.user.schoolId : null);
 
 const resolveUserIdFromRequest = (req: {
   user?: { _id?: { toString?: () => string }; id?: string };
@@ -170,7 +166,7 @@ export const requireEnterpriseFeature = (
   feature: EnterpriseFeature
 ): RequestHandler => async (req, res, next) => {
   try {
-    const schoolId = resolveSchoolIdFromRequest(req as { user?: { schoolId?: string | null; escuelaId?: unknown } });
+    const schoolId = resolveSchoolIdFromRequest(req as { user?: { schoolId?: string | null } });
     if (!schoolId) return next();
     const entitlements = await getSchoolEntitlements(schoolId);
     if (!isFeatureInPlan(entitlements.plan, feature)) {
@@ -190,7 +186,7 @@ export const requireEnterpriseFeature = (
 };
 
 export const enforceSubscriptionAccess = async (req: Request, res: Response): Promise<boolean> => {
-  const schoolId = resolveSchoolIdFromRequest(req as { user?: { schoolId?: string | null; escuelaId?: unknown } });
+  const schoolId = resolveSchoolIdFromRequest(req as { user?: { schoolId?: string | null } });
   if (!schoolId) return true;
   const entitlements = await getSchoolEntitlements(schoolId);
   res.locals.entitlements = entitlements;
@@ -216,7 +212,7 @@ export const hasActiveInstitutionBenefit = async (schoolId: string, userId: stri
 };
 
 export const getActiveInstitutionBenefitStatus = async (req: {
-  user?: { schoolId?: string | null; escuelaId?: unknown; _id?: { toString?: () => string }; id?: string };
+  user?: { schoolId?: string | null; _id?: { toString?: () => string }; id?: string };
 }): Promise<{ active: boolean }> => {
   const schoolId = resolveSchoolIdFromRequest(req);
   const userId = resolveUserIdFromRequest(req);
@@ -228,7 +224,7 @@ export const getActiveInstitutionBenefitStatus = async (req: {
 export const requireActiveInstitutionBenefit: RequestHandler = async (req, res, next) => {
   try {
     const schoolId = resolveSchoolIdFromRequest(req as {
-      user?: { schoolId?: string | null; escuelaId?: unknown; _id?: { toString?: () => string }; id?: string };
+      user?: { schoolId?: string | null; _id?: { toString?: () => string }; id?: string };
     });
     const userId = resolveUserIdFromRequest(req as {
       user?: { _id?: { toString?: () => string }; id?: string };

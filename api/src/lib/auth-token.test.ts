@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
 import { ENV } from "./env";
-import { verifyToken, type TokenClaims } from "./auth-token";
+import { buildUserContextFromClaims, createAccessToken, verifyToken, type TokenClaims } from "./auth-token";
 
 const sign = (data: string, secret: string) =>
   crypto.createHmac("sha256", secret).update(data).digest("base64url");
@@ -92,4 +92,23 @@ test("verifyToken keeps consistent error messages for invalid and expired tokens
     ENV.JWT_SECRET = originalSecret;
     ENV.JWT_REFRESH_SECRET = originalRefreshSecret;
   }
+});
+
+
+test("access token and user context use schoolId as canonical field", () => {
+  const access = createAccessToken({ id: "user-4", schoolId: "school-123" });
+  const [, payloadPart] = access.token.split(".");
+  const payload = JSON.parse(Buffer.from(payloadPart, "base64url").toString("utf8")) as Record<string, unknown>;
+
+  assert.equal(payload.schoolId, "school-123");
+  assert.equal("escuelaId" in payload, false);
+
+  const context = buildUserContextFromClaims({
+    sub: "user-4",
+    iat: 1,
+    exp: 2,
+    schoolId: "school-123"
+  });
+  assert.equal(context.schoolId, "school-123");
+  assert.equal("escuelaId" in context, false);
 });

@@ -29,10 +29,10 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
     });
     const requester =
       (res.locals as {
-        user?: { _id?: { toString?: () => string }; role?: string; escuelaId?: unknown; schoolId?: string | null };
+        user?: { _id?: { toString?: () => string }; role?: string; schoolId?: string | null };
       }).user ??
       (req as {
-        user?: { _id?: { toString?: () => string }; role?: string; escuelaId?: unknown; schoolId?: string | null };
+        user?: { _id?: { toString?: () => string }; role?: string; schoolId?: string | null };
       }).user;
     const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
     const accessLevel = authorization?.data?.accessLevel;
@@ -41,8 +41,7 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
       return;
     }
     if (accessLevel !== "admin") {
-      const requesterSchoolId =
-        typeof requester?.schoolId === "string" ? requester.schoolId : normalizeSchoolId(requester?.escuelaId);
+      const requesterSchoolId = typeof requester?.schoolId === "string" ? requester.schoolId : null;
       const targetSchoolId = normalizeSchoolId(parsed.escuelaId);
       if (!requesterSchoolId || !targetSchoolId || requesterSchoolId !== targetSchoolId) {
         res.status(403).json({ error: "forbidden" });
@@ -102,7 +101,7 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
 });
 
 usuarios.get("/api/usuarios", requireUser, requirePolicy("usuarios/list"), async (req, res) => {
-  const user = (req as { user?: { role?: string; schoolId?: string | null; escuelaId?: unknown } }).user;
+  const user = (req as { user?: { role?: string; schoolId?: string | null } }).user;
   const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
@@ -112,8 +111,7 @@ usuarios.get("/api/usuarios", requireUser, requirePolicy("usuarios/list"), async
   if (accessLevel === "admin") {
     // Global access.
   } else if (accessLevel === "school") {
-    const schoolId =
-      typeof user?.schoolId === "string" ? user.schoolId : normalizeSchoolId(user?.escuelaId);
+    const schoolId = typeof user?.schoolId === "string" ? user.schoolId : null;
     if (!schoolId) {
       res.status(403).json({ error: "forbidden" });
       return;
