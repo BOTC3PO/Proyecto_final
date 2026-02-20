@@ -476,24 +476,29 @@ economia.patch(
   }
 );
 
-economia.delete("/api/economia/recompensas/:id", requirePolicy("economia/mint"), async (req, res) => {
-  const db = await getDb();
-  const now = new Date().toISOString();
-  const deletedBy = getRequesterId(req) ?? "desconocido";
-  const result = await db.collection("economia_recompensas").updateOne(
-    { id: req.params.id, isDeleted: { $ne: true } },
-    {
-      $set: {
-        isDeleted: true,
-        deletedAt: now,
-        deletedBy,
-        updatedAt: now
+economia.delete(
+  "/api/economia/recompensas/:id",
+  requireUser,
+  requirePolicy("economia/mint"),
+  async (req, res) => {
+    const db = await getDb();
+    const now = new Date().toISOString();
+    const deletedBy = getRequesterId(req) ?? "desconocido";
+    const result = await db.collection("economia_recompensas").updateOne(
+      { id: req.params.id, isDeleted: { $ne: true } },
+      {
+        $set: {
+          isDeleted: true,
+          deletedAt: now,
+          deletedBy,
+          updatedAt: now
+        }
       }
-    }
-  );
-  if (!result.matchedCount) return res.status(404).json({ error: "not found" });
-  res.status(204).send();
-});
+    );
+    if (!result.matchedCount) return res.status(404).json({ error: "not found" });
+    res.status(204).send();
+  }
+);
 
 economia.get("/api/economia/saldos", async (req, res) => {
   const usuarioId = normalizeUsuarioId(req.query.usuarioId);
