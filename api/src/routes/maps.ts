@@ -68,10 +68,17 @@ mapsRouter.get("/manifest.meta", (_req, res) => {
   res.json(payload);
 });
 
-mapsRouter.get("/*.topo.json", (req, res, next) => {
+mapsRouter.get("/*file", (req, res, next) => {
   loadAssets();
 
-  const uri = `/api/maps/${req.path.replace(/^\//, "")}`;
+  const requested = (req.params as unknown as { file?: string | string[] }).file;
+  const requestedFile = Array.isArray(requested) ? requested.join("/") : String(requested ?? "");
+  if (!requestedFile.endsWith(".topo.json")) {
+    next();
+    return;
+  }
+
+  const uri = `/api/maps/${requestedFile}`;
   const asset = cachedAssetsByUri.get(uri);
 
   if (asset) {
@@ -82,7 +89,7 @@ mapsRouter.get("/*.topo.json", (req, res, next) => {
       return;
     }
   } else {
-    const filePath = path.join(mapsPath, req.path.replace(/^\//, ""));
+    const filePath = path.join(mapsPath, requestedFile);
     if (fs.existsSync(filePath)) {
       const hash = crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
       res.setHeader("ETag", strongEtag(hash));
