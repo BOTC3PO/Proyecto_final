@@ -6,7 +6,7 @@ import { requireAdmin } from "../lib/admin-auth";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
-import { createAccessToken, createRefreshToken } from "../lib/auth-token";
+import { createAccessToken, createRefreshToken, verifyToken } from "../lib/auth-token";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
 import { assertMembershipInvariants, assertValidMembershipTransition } from "../lib/memberships";
 import { hashPassword, isPasswordHashUsable, verifyPassword } from "../lib/passwords";
@@ -19,6 +19,7 @@ import {
   CreateAdminSchema,
   GuestSessionSchema,
   LoginSchema,
+  RefreshTokenSchema,
   RegisterSchema
 } from "../schema/auth";
 
@@ -254,6 +255,72 @@ auth.post("/api/auth/guest", authLimiter, async (req, res) => {
   }
 });
 
+
+
+auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
+  try {
+    const parsed = RefreshTokenSchema.parse(req.body ?? {});
+    const verification = verifyToken(parsed.refreshToken, "refresh");
+    if (!verification.ok) {
+      res.status(401).json({ error: verification.error });
+      return;
+    }
+
+    const userId = verification.payload.sub;
+    if (!userId) {
+      res.status(401).json({ error: "Invalid authentication token" });
+      return;
+    }
+
+    const objectId = toObjectId(userId);
+    if (!objectId) {
+      res.status(401).json({ error: "Invalid authentication token" });
+      return;
+    }
+
+    const db = await getDb();
+    const user = await db.collection("usuarios").findOne({
+      _id: objectId,
+      isDeleted: { $ne: true }
+    });
+
+    if (!user?._id) {
+      res.status(403).json({ error: "User not found" });
+      return;
+    }
+
+    const accessToken = createAccessToken({
+      id: user._id.toString(),
+      email: user.email,
+      username: user.username,
+      role: user.role,
+      guestOnboardingStatus: user.guestOnboardingStatus ?? null,
+      schoolId: normalizeSchoolId(user.escuelaId),
+      fullName: user.fullName ?? null
+    });
+
+    const nextRefreshToken = createRefreshToken({ id: user._id.toString() });
+
+    res.status(200).json({
+      accessToken: accessToken.token,
+      expiresAt: accessToken.expiresAt,
+      expiresIn: accessToken.expiresIn,
+      ...(nextRefreshToken
+        ? {
+            refreshToken: nextRefreshToken.token,
+            refreshExpiresAt: nextRefreshToken.expiresAt,
+            refreshExpiresIn: nextRefreshToken.expiresIn
+          }
+        : {})
+    });
+  } catch (e: any) {
+    if (e instanceof ZodError) {
+      res.status(400).json({ error: e.message || "invalid payload" });
+      return;
+    }
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 auth.post("/api/auth/login", authLimiter, async (req, res) => {
   try {
     const body = req.body ?? {};
