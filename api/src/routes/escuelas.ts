@@ -36,7 +36,7 @@ escuelas.post("/api/escuelas", requireAdmin, async (req, res) => {
   }
 });
 
-escuelas.get("/api/escuelas", async (req, res) => {
+escuelas.get("/api/escuelas", requireUser, async (req, res) => {
   const db = await getDb();
   const limit = clampLimit(getQueryString(req.query.limit));
   const offset = Number(getQueryString(req.query.offset) ?? 0);
