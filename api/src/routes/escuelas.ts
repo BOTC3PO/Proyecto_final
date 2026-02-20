@@ -1,12 +1,18 @@
 import express, { Router } from "express";
 import { requireAdmin } from "../lib/admin-auth";
 import { getDb } from "../lib/db";
+import { createRateLimiter } from "../lib/rate-limit";
 import { toObjectId } from "../lib/ids";
 import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
 import { EscuelaPatchSchema, EscuelaSchema } from "../schema/escuela";
 
 export const escuelas = Router();
+
+const escuelasMutationLimiter = createRateLimiter({
+  windowMs: 10 * 60 * 1000,
+  limit: 30
+});
 
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
@@ -17,7 +23,7 @@ const clampLimit = (value: string | undefined) => {
 const getRequesterId = (req: express.Request) =>
   (req as { user?: { _id?: { toString?: () => string } } }).user?._id?.toString?.() ?? null;
 
-escuelas.post("/api/escuelas", requireAdmin, async (req, res) => {
+escuelas.post("/api/escuelas", requireAdmin, escuelasMutationLimiter, async (req, res) => {
   try {
     const parsed = EscuelaSchema.parse(req.body);
     const db = await getDb();
@@ -70,7 +76,7 @@ escuelas.get("/api/escuelas/:id", async (req, res) => {
   res.json(item);
 });
 
-escuelas.patch("/api/escuelas/:id", requireUser, async (req, res) => {
+escuelas.patch("/api/escuelas/:id", requireUser, escuelasMutationLimiter, async (req, res) => {
   try {
     const parsed = EscuelaPatchSchema.parse(req.body);
     const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;

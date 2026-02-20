@@ -11,6 +11,7 @@ import {
   requireEnterpriseFeature
 } from "../lib/entitlements";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
+import { createRateLimiter } from "../lib/rate-limit";
 import {
   EconomiaConfigSchema,
   EconomiaRiesgoCursoSchema,
@@ -27,6 +28,39 @@ import {
 import { requireUser } from "../lib/user-auth";
 
 export const economia = Router();
+
+const economiaMutationLimiter = createRateLimiter({
+  windowMs: 10 * 60 * 1000,
+  limit: 60
+});
+
+const economiaHighRiskMutationLimiter = createRateLimiter({
+  windowMs: 10 * 60 * 1000,
+  limit: 20
+});
+
+const isMutationMethod = (method: string) =>
+  method === "POST" || method === "PUT" || method === "PATCH" || method === "DELETE";
+
+economia.use("/api/economia", (req, res, next) => {
+  if (!isMutationMethod(req.method)) return next();
+  return economiaMutationLimiter(req, res, next);
+});
+
+economia.use("/api/admin/economia", (req, res, next) => {
+  if (!isMutationMethod(req.method)) return next();
+  return economiaMutationLimiter(req, res, next);
+});
+
+economia.use("/api/economia/intercambios", (req, res, next) => {
+  if (!isMutationMethod(req.method)) return next();
+  return economiaHighRiskMutationLimiter(req, res, next);
+});
+
+economia.use("/api/economia/examenes", (req, res, next) => {
+  if (!isMutationMethod(req.method)) return next();
+  return economiaHighRiskMutationLimiter(req, res, next);
+});
 
 type AulaDoc = {
   status?: unknown;
