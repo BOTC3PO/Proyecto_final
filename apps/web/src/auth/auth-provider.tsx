@@ -7,23 +7,31 @@ import { setAuthToken } from '../lib/api';
 
 const STORAGE_KEY = 'auth.user';
 
+const getStorage = (remember: boolean) =>
+  remember ? window.localStorage : window.sessionStorage;
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const isTestAuthEnabled = testmode() || import.meta.env.DEV;
   const [user, setUser] = useState<User | null>(() => {
     if (typeof window === 'undefined') return null;
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) return null;
-      return JSON.parse(stored) as User;
+      const localStored = window.localStorage.getItem(STORAGE_KEY);
+      if (localStored) return JSON.parse(localStored) as User;
+
+      const sessionStored = window.sessionStorage.getItem(STORAGE_KEY);
+      if (sessionStored) return JSON.parse(sessionStored) as User;
+
+      return null;
     } catch {
-      localStorage.removeItem(STORAGE_KEY);
+      window.localStorage.removeItem(STORAGE_KEY);
+      window.sessionStorage.removeItem(STORAGE_KEY);
       return null;
     }
   });
   const [shouldPersist, setShouldPersist] = useState(() => {
     if (typeof window === 'undefined') return false;
     try {
-      return Boolean(localStorage.getItem(STORAGE_KEY));
+      return Boolean(window.localStorage.getItem(STORAGE_KEY));
     } catch {
       return false;
     }
@@ -33,10 +41,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(nextUser);
     setShouldPersist(remember);
     if (typeof window === 'undefined') return;
-    if (nextUser && remember) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(nextUser));
-    } else {
-      localStorage.removeItem(STORAGE_KEY);
+
+    window.localStorage.removeItem(STORAGE_KEY);
+    window.sessionStorage.removeItem(STORAGE_KEY);
+
+    if (nextUser) {
+      getStorage(remember).setItem(STORAGE_KEY, JSON.stringify(nextUser));
     }
   };
 

@@ -7,10 +7,16 @@ const AUTH_TOKEN_STORAGE_KEY = "auth.token";
 
 let authToken: string | null = null;
 
-const readStoredToken = () => {
+const getStorage = (type: "local" | "session") => {
   if (typeof window === "undefined") return null;
+  return type === "local" ? window.localStorage : window.sessionStorage;
+};
+
+const readStoredToken = () => {
   try {
-    return localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);
+    const localToken = getStorage("local")?.getItem(AUTH_TOKEN_STORAGE_KEY);
+    if (localToken) return localToken;
+    return getStorage("session")?.getItem(AUTH_TOKEN_STORAGE_KEY) ?? null;
   } catch {
     return null;
   }
@@ -24,16 +30,24 @@ export const getAuthToken = () => {
 
 export const setAuthToken = (token: string | null, options?: { remember?: boolean }) => {
   authToken = token;
-  if (typeof window === "undefined") return;
   try {
+    const localStorageRef = getStorage("local");
+    const sessionStorageRef = getStorage("session");
+    if (!localStorageRef || !sessionStorageRef) return;
+
     if (!token) {
-      localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY);
+      localStorageRef.removeItem(AUTH_TOKEN_STORAGE_KEY);
+      sessionStorageRef.removeItem(AUTH_TOKEN_STORAGE_KEY);
       return;
     }
+
+    localStorageRef.removeItem(AUTH_TOKEN_STORAGE_KEY);
+    sessionStorageRef.removeItem(AUTH_TOKEN_STORAGE_KEY);
+
     if (options?.remember) {
-      localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, token);
+      localStorageRef.setItem(AUTH_TOKEN_STORAGE_KEY, token);
     } else {
-      localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY);
+      sessionStorageRef.setItem(AUTH_TOKEN_STORAGE_KEY, token);
     }
   } catch {
     // ignore storage errors
