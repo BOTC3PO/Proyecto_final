@@ -1,10 +1,29 @@
 import type { ReactNode } from 'react';
-import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import type { Role } from '../auth/roles';
+import type { User } from '../auth/AuthContex';
 import testmode from '../sys/testmode';
-import { apiGet } from '../lib/api';
+
+const STORAGE_KEY = 'auth.user';
+
+const readStoredUser = (): User | null => {
+  if (typeof window === 'undefined') return null;
+
+  try {
+    const localStored = window.localStorage.getItem(STORAGE_KEY);
+    if (localStored) return JSON.parse(localStored) as User;
+
+    const sessionStored = window.sessionStorage.getItem(STORAGE_KEY);
+    if (sessionStored) return JSON.parse(sessionStored) as User;
+
+    return null;
+  } catch {
+    window.localStorage.removeItem(STORAGE_KEY);
+    window.sessionStorage.removeItem(STORAGE_KEY);
+    return null;
+  }
+};
 
 export function ProtectedRoute({
   children,
@@ -12,54 +31,21 @@ export function ProtectedRoute({
   redirectTo = '/login',
 }: {
   children: ReactNode;
-  allow: Role[];           // roles permitidos
+  allow: Role[];
   redirectTo?: string;
 }) {
   const { user } = useAuth();
+  const storedUser = readStoredUser();
   const isTestMode = testmode() || import.meta.env.DEV;
-  const [sessionRole, setSessionRole] = useState<Role | null>(null);
-  const [sessionGuestStatus, setSessionGuestStatus] = useState<
-    'pendiente' | 'aceptado' | 'rechazado' | null
-  >(null);
-  const [sessionChecked, setSessionChecked] = useState(false);
 
-  useEffect(() => {
-    if (isTestMode || user || sessionChecked) return;
-    const controller = new AbortController();
+  const role = user?.role ?? storedUser?.role ?? (isTestMode ? 'GUEST' : null);
+  const guestStatus = user?.guestOnboardingStatus ?? storedUser?.guestOnboardingStatus ?? null;
 
-    const checkSession = async () => {
-      try {
-        const data = await apiGet<{
-          role?: Role;
-          guestOnboardingStatus?: 'pendiente' | 'aceptado' | 'rechazado' | null;
-        }>('/api/me', {
-          credentials: 'include',
-          signal: controller.signal,
-        });
-        setSessionRole(data.role ?? null);
-        setSessionGuestStatus(data.guestOnboardingStatus ?? null);
-      } catch (error) {
-        if (!(error instanceof DOMException && error.name === 'AbortError')) {
-          setSessionRole(null);
-          setSessionGuestStatus(null);
-        }
-      } finally {
-        setSessionChecked(true);
-      }
-    };
-
-    void checkSession();
-
-    return () => controller.abort();
-  }, [isTestMode, sessionChecked, user]);
-
-  const role = user?.role ?? sessionRole ?? (isTestMode ? 'GUEST' : null);
-  const guestStatus = user?.guestOnboardingStatus ?? sessionGuestStatus ?? null;
-  if (!role && !isTestMode && !sessionChecked) return null;
-  if (role === 'GUEST' && !guestStatus && !sessionChecked) return null;
   if (role === 'GUEST' && allow.includes('GUEST') && guestStatus !== 'aceptado') {
     return <Navigate to="/onboarding-guest" replace />;
   }
+
   if (!role || !allow.includes(role)) return <Navigate to={redirectTo} replace />;
+
   return <>{children}</>;
 }
