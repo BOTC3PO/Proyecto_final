@@ -350,7 +350,7 @@ economia.get("/api/economia/config", async (_req, res) => {
   res.json(config);
 });
 
-economia.patch("/api/economia/config", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+economia.patch("/api/economia/config", requireAdminAuth, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ConfigUpdateSchema.parse(req.body ?? {});
     const db = await getDb();
