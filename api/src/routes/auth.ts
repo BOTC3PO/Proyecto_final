@@ -20,7 +20,8 @@ import {
   GuestSessionSchema,
   LoginSchema,
   RefreshTokenSchema,
-  RegisterSchema
+  RegisterSchema,
+  ForgotPasswordSchema
 } from "../schema/auth";
 
 export const auth = Router();
@@ -321,6 +322,58 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
+  try {
+    const body = req.body ?? {};
+    if (typeof body.email !== "string") {
+      res.status(400).json({ error: "Missing email" });
+      return;
+    }
+
+    const parsed = ForgotPasswordSchema.parse({
+      email: body.email.trim().toLowerCase()
+    });
+
+    const db = await getDb();
+    const user = await db.collection("usuarios").findOne(
+      {
+        email: parsed.email,
+        isDeleted: { $ne: true }
+      },
+      {
+        projection: {
+          _id: 1,
+          role: 1,
+          email: 1,
+          username: 1,
+          fullName: 1
+        }
+      }
+    );
+
+    if (user?._id && user.role !== "GUEST") {
+      if (ENV.NODE_ENV !== "production") {
+        console.info("[auth/forgot-password] Password reset request received", {
+          userId: user._id.toString(),
+          email: user.email
+        });
+      }
+    }
+
+    res.status(200).json({
+      ok: true,
+      message:
+        "Si existe una cuenta con ese correo, enviaremos instrucciones para restablecer tu contraseña."
+    });
+  } catch (e: any) {
+    if (e instanceof ZodError) {
+      res.status(400).json({ error: e.message || "invalid payload" });
+      return;
+    }
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 auth.post("/api/auth/login", authLimiter, async (req, res) => {
   try {
     const body = req.body ?? {};
