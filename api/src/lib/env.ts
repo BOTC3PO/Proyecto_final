@@ -26,7 +26,14 @@ export const ENV = {
   MONGO_REQUIRE_AUTH: parseBool(process.env.MONGO_REQUIRE_AUTH, true),
   PAYMENTS_WEBHOOK_SECRET: process.env.PAYMENTS_WEBHOOK_SECRET ?? "",
   BOOTSTRAP_ADMIN_KEY: process.env.BOOTSTRAP_ADMIN_KEY ?? "",
-  JWT_SECRET: process.env.JWT_SECRET ?? "dev-secret",
+  JWT_SECRET:
+    process.env.JWT_SECRET ??
+    (() => {
+      if ((process.env.NODE_ENV ?? "development") === "production") {
+        throw new Error("JWT_SECRET must be defined when NODE_ENV is production");
+      }
+      return "dev-secret";
+    })(),
   JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET ?? "",
   JWT_ISSUER: process.env.JWT_ISSUER ?? "",
   JWT_AUDIENCE: process.env.JWT_AUDIENCE ?? "",
