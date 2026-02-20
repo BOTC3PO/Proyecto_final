@@ -2,12 +2,13 @@ import { z } from "zod";
 
 const objectIdString = z.string().regex(/^[a-fA-F0-9]{24}$/);
 
-const UsuarioBaseSchema = z.object({
+const UsuarioBaseObjectSchema = z.object({
   username: z.string().min(3).max(64),
   email: z.string().email(),
   fullName: z.string().min(3).max(120),
   role: z.enum(["ADMIN", "USER", "PARENT", "TEACHER", "DIRECTIVO", "GUEST"]),
   guestOnboardingStatus: z.enum(["pendiente", "aceptado", "rechazado"]).optional(),
+  schoolId: objectIdString.nullish(),
   escuelaId: objectIdString.nullish(),
   birthdate: z.string().datetime().nullish(),
   consents: z
@@ -31,13 +32,23 @@ const UsuarioBaseSchema = z.object({
   updatedAt: z.string().datetime()
 });
 
-export const UsuarioWriteSchema = UsuarioBaseSchema.extend({
-  password: z.string().min(8).max(128)
-}).strict();
+const withSchoolAliasValidation = <T extends z.ZodTypeAny>(schema: T) =>
+  schema.refine((data: any) => !(data.schoolId && data.escuelaId), {
+    message: "Provide either schoolId or escuelaId, not both",
+    path: ["schoolId"]
+  });
 
-export const UsuarioReadSchema = UsuarioBaseSchema.extend({
-  passwordHash: z.string().min(10).nullish()
-}).strict();
+export const UsuarioWriteSchema = withSchoolAliasValidation(
+  UsuarioBaseObjectSchema.extend({
+    password: z.string().min(8).max(128)
+  }).strict()
+);
+
+export const UsuarioReadSchema = withSchoolAliasValidation(
+  UsuarioBaseObjectSchema.extend({
+    passwordHash: z.string().min(10).nullish()
+  }).strict()
+);
 
 // Backward-compatible export for existing consumers that expect read shape.
 export const UsuarioSchema = UsuarioReadSchema;
