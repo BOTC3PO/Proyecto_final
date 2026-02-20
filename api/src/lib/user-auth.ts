@@ -4,13 +4,11 @@ import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from
 import { getDb } from "./db";
 import { enforceSubscriptionAccess } from "./entitlements";
 import { toObjectId } from "./ids";
-import { normalizeSchoolId } from "./school-ids";
 
 type AuthenticatedUser = Record<string, unknown> & {
   _id?: ObjectId;
   role?: string;
   guestOnboardingStatus?: string | null;
-  escuelaId?: unknown;
   schoolId?: string | null;
 };
 
@@ -61,14 +59,11 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       res.status(403).json({ error: "User not found" });
       return;
     }
-    const resolvedSchoolId =
-      claims.schoolId ?? claims.escuelaId ?? normalizeSchoolId(user.escuelaId);
     const userContext: AuthenticatedUser = {
       ...buildUserContextFromClaims(claims),
       _id: objectId,
       guestOnboardingStatus: (user as { guestOnboardingStatus?: string | null }).guestOnboardingStatus ?? null,
-      schoolId: resolvedSchoolId,
-      escuelaId: resolvedSchoolId
+      schoolId: claims.schoolId ?? null
     };
     const allowGuestPaths = new Set(["/api/auth/me", "/api/me"]);
     if (

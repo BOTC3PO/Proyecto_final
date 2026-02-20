@@ -18,7 +18,7 @@ import { requireUser } from "../lib/user-auth";
 
 export const payments = Router();
 
-const resolveSchoolId = (req: { user?: { schoolId?: string | null; escuelaId?: unknown } }, res: any) => {
+const resolveSchoolId = (req: { user?: { schoolId?: string | null } }, res: any) => {
   const schoolId = resolveSchoolIdFromRequest(req);
   if (!schoolId) {
     res.status(403).json({ error: "School not assigned" });
@@ -37,7 +37,7 @@ payments.post(
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.CONTRACTS),
   async (req, res) => {
-    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null; escuelaId?: unknown } }, res);
+    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
     const billingCycleId = typeof req.body?.billingCycleId === "string" ? req.body.billingCycleId : null;
     const db = await getDb();
@@ -138,7 +138,7 @@ payments.get(
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.CONTRACTS),
   async (req, res) => {
-    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null; escuelaId?: unknown } }, res);
+    const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
     const limit = Math.min(Number(req.query.limit ?? 20) || 20, 100);
     const offset = Number(req.query.offset ?? 0) || 0;

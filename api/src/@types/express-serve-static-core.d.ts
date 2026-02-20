@@ -9,7 +9,6 @@ declare module "express-serve-static-core" {
         | { toString(): string }
         | import("mongodb").ObjectId;
       role?: string;
-      escuelaId?: unknown;
       schoolId?: string | null;
       [key: string]: unknown;
     };
