@@ -1,4 +1,4 @@
-import express, { type Request } from "express";
+import express, { type NextFunction, type Request, type Response } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
@@ -136,6 +136,27 @@ app.use(padres);
 app.use(governance);
 app.use(readonlyRouter);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
+app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
+  const statusCode =
+    typeof err === "object" &&
+    err !== null &&
+    "status" in err &&
+    typeof err.status === "number"
+      ? err.status
+      : 500;
+
+  const message =
+    typeof err === "object" &&
+    err !== null &&
+    "message" in err &&
+    typeof err.message === "string" &&
+    err.message.length > 0
+      ? err.message
+      : "internal server error";
+
+  console.error("[api-error]", err);
+  res.status(statusCode).json({ error: message });
+});
 
 const bootstrap = async () => {
   if (ENV.DB_KIND === "sqlite") {
