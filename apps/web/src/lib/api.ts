@@ -5,6 +5,7 @@ export const API_BASE_URL =
 
 const AUTH_TOKEN_STORAGE_KEY = "auth.token";
 const REFRESH_TOKEN_STORAGE_KEY = "auth.refreshToken";
+const AUTH_USER_STORAGE_KEY = "auth.user";
 
 let authToken: string | null = null;
 let refreshToken: string | null = null;
@@ -24,8 +25,33 @@ const readStoredToken = (storageKey: string) => {
   }
 };
 
+const hasPersistedUser = () => {
+  try {
+    const localStoredUser = getStorage("local")?.getItem(AUTH_USER_STORAGE_KEY);
+    if (localStoredUser) {
+      JSON.parse(localStoredUser);
+      return true;
+    }
+
+    const sessionStoredUser = getStorage("session")?.getItem(AUTH_USER_STORAGE_KEY);
+    if (sessionStoredUser) {
+      JSON.parse(sessionStoredUser);
+      return true;
+    }
+
+    return false;
+  } catch {
+    return false;
+  }
+};
+
 export const getAuthToken = () => {
   if (authToken) return authToken;
+  if (!hasPersistedUser()) {
+    setAuthToken(null);
+    setRefreshToken(null);
+    return null;
+  }
   authToken = readStoredToken(AUTH_TOKEN_STORAGE_KEY);
   return authToken;
 };
