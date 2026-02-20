@@ -4,19 +4,21 @@ export const API_BASE_URL =
   "http://localhost:5050";
 
 const AUTH_TOKEN_STORAGE_KEY = "auth.token";
+const REFRESH_TOKEN_STORAGE_KEY = "auth.refreshToken";
 
 let authToken: string | null = null;
+let refreshToken: string | null = null;
 
 const getStorage = (type: "local" | "session") => {
   if (typeof window === "undefined") return null;
   return type === "local" ? window.localStorage : window.sessionStorage;
 };
 
-const readStoredToken = () => {
+const readStoredToken = (storageKey: string) => {
   try {
-    const localToken = getStorage("local")?.getItem(AUTH_TOKEN_STORAGE_KEY);
+    const localToken = getStorage("local")?.getItem(storageKey);
     if (localToken) return localToken;
-    return getStorage("session")?.getItem(AUTH_TOKEN_STORAGE_KEY) ?? null;
+    return getStorage("session")?.getItem(storageKey) ?? null;
   } catch {
     return null;
   }
@@ -24,8 +26,15 @@ const readStoredToken = () => {
 
 export const getAuthToken = () => {
   if (authToken) return authToken;
-  authToken = readStoredToken();
+  authToken = readStoredToken(AUTH_TOKEN_STORAGE_KEY);
   return authToken;
+};
+
+
+export const getRefreshToken = () => {
+  if (refreshToken) return refreshToken;
+  refreshToken = readStoredToken(REFRESH_TOKEN_STORAGE_KEY);
+  return refreshToken;
 };
 
 export const setAuthToken = (token: string | null, options?: { remember?: boolean }) => {
@@ -54,6 +63,34 @@ export const setAuthToken = (token: string | null, options?: { remember?: boolea
   }
 };
 
+
+
+export const setRefreshToken = (token: string | null, options?: { remember?: boolean }) => {
+  refreshToken = token;
+  try {
+    const localStorageRef = getStorage("local");
+    const sessionStorageRef = getStorage("session");
+    if (!localStorageRef || !sessionStorageRef) return;
+
+    if (!token) {
+      localStorageRef.removeItem(REFRESH_TOKEN_STORAGE_KEY);
+      sessionStorageRef.removeItem(REFRESH_TOKEN_STORAGE_KEY);
+      return;
+    }
+
+    localStorageRef.removeItem(REFRESH_TOKEN_STORAGE_KEY);
+    sessionStorageRef.removeItem(REFRESH_TOKEN_STORAGE_KEY);
+
+    if (options?.remember) {
+      localStorageRef.setItem(REFRESH_TOKEN_STORAGE_KEY, token);
+    } else {
+      sessionStorageRef.setItem(REFRESH_TOKEN_STORAGE_KEY, token);
+    }
+  } catch {
+    // ignore storage errors
+  }
+};
+
 export class ApiError extends Error {
   status: number;
 
@@ -73,7 +110,45 @@ const buildUrl = (path: string) => {
   return `${API_BASE_URL.replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
 };
 
-export async function apiRequest<T>(path: string, options: RequestOptions = {}): Promise<T> {
+
+let refreshRequest: Promise<string | null> | null = null;
+
+const attemptTokenRefresh = async () => {
+  const currentRefreshToken = getRefreshToken();
+  if (!currentRefreshToken) return null;
+  const response = await fetch(buildUrl("/api/auth/refresh"), {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ refreshToken: currentRefreshToken })
+  });
+  if (!response.ok) {
+    setAuthToken(null);
+    setRefreshToken(null);
+    return null;
+  }
+  const payload = (await response.json()) as { accessToken?: string; refreshToken?: string };
+  if (!payload.accessToken) return null;
+  const remember = Boolean(getStorage("local")?.getItem(AUTH_TOKEN_STORAGE_KEY));
+  setAuthToken(payload.accessToken, { remember });
+  if (payload.refreshToken) {
+    setRefreshToken(payload.refreshToken, { remember });
+  }
+  return payload.accessToken;
+};
+
+const refreshAccessToken = async () => {
+  if (!refreshRequest) {
+    refreshRequest = attemptTokenRefresh().finally(() => {
+      refreshRequest = null;
+    });
+  }
+  return refreshRequest;
+};
+
+export async function apiRequest<T>(path: string, options: RequestOptions = {}, retryOnUnauthorized = true): Promise<T> {
   const token = getAuthToken();
   const headers: Record<string, string> = {
     Accept: "application/json",
@@ -85,6 +160,12 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
     headers["Content-Type"] = headers["Content-Type"] ?? "application/json";
   }
   const response = await fetch(buildUrl(path), { ...options, headers });
+  if (response.status === 401 && retryOnUnauthorized && path !== "/api/auth/refresh") {
+    const nextAccessToken = await refreshAccessToken();
+    if (nextAccessToken) {
+      return apiRequest<T>(path, options, false);
+    }
+  }
   if (!response.ok) {
     const retryAfterHeader = response.headers.get("Retry-After");
     let message = response.statusText;

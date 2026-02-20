@@ -61,8 +61,13 @@ export const GuestSessionSchema = z.object({
   fullName: z.string().min(2).max(120).optional()
 });
 
+export const RefreshTokenSchema = z.object({
+  refreshToken: z.string().min(1)
+});
+
 export type RegisterInput = z.infer<typeof RegisterSchema>;
 export type LoginInput = z.infer<typeof LoginSchema>;
 export type BootstrapAdminInput = z.infer<typeof BootstrapAdminRequestSchema>;
 export type CreateAdminInput = z.infer<typeof CreateAdminSchema>;
 export type GuestSessionInput = z.infer<typeof GuestSessionSchema>;
+export type RefreshTokenInput = z.infer<typeof RefreshTokenSchema>;

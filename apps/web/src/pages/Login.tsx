@@ -56,6 +56,7 @@ export default function Login() {
         guestOnboardingStatus?: "pendiente" | "aceptado" | "rechazado" | null;
         schoolId?: string | null;
         accessToken: string;
+        refreshToken?: string;
       }>("/api/auth/login", { identifier: form.user, password: form.password });
       login(
         {
@@ -66,6 +67,7 @@ export default function Login() {
           schoolId: payload.schoolId ?? null,
         },
         payload.accessToken,
+        payload.refreshToken ?? null,
         { remember: form.remember },
       );
       navigate("/");
