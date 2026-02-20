@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import { requireAdmin } from "../lib/admin-auth";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
 import { getQueryString } from "../lib/query";
@@ -16,7 +17,7 @@ const clampLimit = (value: string | undefined) => {
 const getRequesterId = (req: express.Request) =>
   (req as { user?: { _id?: { toString?: () => string } } }).user?._id?.toString?.() ?? null;
 
-escuelas.post("/api/escuelas", async (req, res) => {
+escuelas.post("/api/escuelas", requireAdmin, async (req, res) => {
   try {
     const parsed = EscuelaSchema.parse(req.body);
     const db = await getDb();
