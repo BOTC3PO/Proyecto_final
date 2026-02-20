@@ -122,7 +122,7 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
 
     const now = new Date();
     const role = parsed.role ?? "USER";
-    let escuelaId = parsed.escuelaId ? toObjectId(parsed.escuelaId) : null;
+    let escuelaId = parsed.schoolId ? toObjectId(parsed.schoolId) : null;
     let escuelaExists: boolean | undefined;
     if (parsed.schoolCode) {
       const escuela = await db.collection("escuelas").findOne({ code: parsed.schoolCode });
@@ -132,7 +132,7 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
       }
       escuelaId = escuela._id;
       escuelaExists = true;
-    } else if (parsed.escuelaId) {
+    } else if (parsed.schoolId) {
       if (!escuelaId) {
         res.status(400).json({ error: "Invalid school id" });
         return;
@@ -296,7 +296,7 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
       username: user.username,
       role: user.role,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(user.escuelaId),
+      schoolId: normalizeSchoolId(user.schoolId ?? user.escuelaId),
       fullName: user.fullName ?? null
     });
 
@@ -437,7 +437,7 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
       username: user.username,
       role: user.role,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(user.escuelaId),
+      schoolId: normalizeSchoolId(user.schoolId ?? user.escuelaId),
       fullName: user.fullName ?? null
     });
     const refreshToken = createRefreshToken({ id: user._id.toString() });
@@ -448,7 +448,7 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
       fullName: user.fullName,
       role: user.role,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(user.escuelaId),
+      schoolId: normalizeSchoolId(user.schoolId ?? user.escuelaId),
       accessToken: accessToken.token,
       expiresAt: accessToken.expiresAt,
       expiresIn: accessToken.expiresIn,

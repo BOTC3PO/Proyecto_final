@@ -4,6 +4,7 @@ import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from
 import { getDb } from "./db";
 import { enforceSubscriptionAccess } from "./entitlements";
 import { toObjectId } from "./ids";
+import { normalizeSchoolId } from "./school-ids";
 
 type AuthenticatedUser = Record<string, unknown> & {
   _id?: ObjectId;
@@ -63,7 +64,7 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       ...buildUserContextFromClaims(claims),
       _id: objectId,
       guestOnboardingStatus: (user as { guestOnboardingStatus?: string | null }).guestOnboardingStatus ?? null,
-      schoolId: claims.schoolId ?? null
+      schoolId: claims.schoolId ?? normalizeSchoolId((user as { escuelaId?: unknown }).escuelaId) ?? null
     };
     const allowGuestPaths = new Set(["/api/auth/me", "/api/me"]);
     if (
