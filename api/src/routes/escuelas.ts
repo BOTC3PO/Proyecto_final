@@ -79,6 +79,21 @@ escuelas.patch("/api/escuelas/:id", requireUser, async (req, res) => {
     const db = await getDb();
     const escuela = await db.collection("escuelas").findOne({ _id: objectId, isDeleted: { $ne: true } });
     if (!escuela) return res.status(404).json({ error: "not found" });
+    const requester = (req as { user?: { _id?: { toString?: () => string }; role?: string } }).user;
+    const requesterId = requester?._id?.toString?.() ?? null;
+    const isPlatformAdmin = requester?.role === "ADMIN";
+    const isSchoolAdmin =
+      !!requesterId &&
+      Array.isArray(escuela.adminIds) &&
+      escuela.adminIds.some((adminId: unknown) => {
+        if (!adminId) return false;
+        if (typeof adminId === "string") return adminId === requesterId;
+        const adminObj = adminId as { toString?: () => string };
+        return adminObj.toString?.() === requesterId;
+      });
+    if (!isPlatformAdmin && !isSchoolAdmin) {
+      return res.status(403).json({ error: "forbidden" });
+    }
     const shouldAuditPlan = parsed.plan !== undefined && parsed.plan !== escuela.plan;
     const shouldAuditStatus =
       parsed.subscriptionStatus !== undefined && parsed.subscriptionStatus !== escuela.subscriptionStatus;
