@@ -1563,7 +1563,7 @@ economia.patch("/api/economia/eventos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
   }
 });
 
-economia.delete("/api/economia/eventos/:id", async (req, res) => {
+economia.delete("/api/economia/eventos/:id", requireAdminAuth, async (req, res) => {
   const db = await getDb();
   const now = new Date().toISOString();
   const deletedBy = getRequesterId(req) ?? "desconocido";
