@@ -44,8 +44,6 @@ import fs from "node:fs";
 import path from "node:path";
 import { getDb } from "./lib/db";
 
-const SEED_ADMIN_EMAIL = "admin@escuela.com";
-
 const runStartupDataChecks = async () => {
   if (ENV.DB_KIND !== "mongo") {
     return;
@@ -55,10 +53,9 @@ const runStartupDataChecks = async () => {
     const db = await getDb();
     const usuarios = db.collection("usuarios");
 
-    const [totalUsers, totalAdmins, seedAdmin] = await Promise.all([
+    const [totalUsers, totalAdmins] = await Promise.all([
       usuarios.estimatedDocumentCount(),
-      usuarios.countDocuments({ role: "ADMIN", isDeleted: { $ne: true } }),
-      usuarios.findOne({ email: SEED_ADMIN_EMAIL, isDeleted: { $ne: true } }, { projection: { _id: 1 } })
+      usuarios.countDocuments({ role: "ADMIN", isDeleted: { $ne: true } })
     ]);
 
     if (totalUsers === 0) {
@@ -74,11 +71,6 @@ const runStartupDataChecks = async () => {
       );
     }
 
-    if (!seedAdmin) {
-      console.warn(
-        `[startup-check] No existe el usuario semilla '${SEED_ADMIN_EMAIL}' en DB '${ENV.DB_NAME}'. Posible desalineación de DB_NAME o seed.`
-      );
-    }
   } catch (error) {
     console.warn("[startup-check] No se pudo verificar alineación de seed/admin en startup.", error);
   }
