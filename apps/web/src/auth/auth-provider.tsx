@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import type { Role } from './roles';
 import { AuthContext, type User } from './AuthContex';
@@ -6,6 +6,8 @@ import testmode from '../sys/testmode';
 import { setAuthToken, setRefreshToken } from '../lib/api';
 
 const STORAGE_KEY = 'auth.user';
+
+const AUTH_SESSION_CLEARED_EVENT = 'auth:session-cleared';
 
 const getStorage = (remember: boolean) =>
   remember ? window.localStorage : window.sessionStorage;
@@ -82,6 +84,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setRefreshToken(null);
     persistUser(null, false);
   };
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+
+    const handleSessionCleared = () => {
+      persistUser(null, false);
+    };
+
+    window.addEventListener(AUTH_SESSION_CLEARED_EVENT, handleSessionCleared);
+    return () => {
+      window.removeEventListener(AUTH_SESSION_CLEARED_EVENT, handleSessionCleared);
+    };
+  }, []);
 
   const value = useMemo(() => ({ user, login, loginAs, logout }), [user]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

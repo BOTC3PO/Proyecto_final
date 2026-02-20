@@ -6,6 +6,7 @@ export const API_BASE_URL =
 const AUTH_TOKEN_STORAGE_KEY = "auth.token";
 const REFRESH_TOKEN_STORAGE_KEY = "auth.refreshToken";
 const AUTH_USER_STORAGE_KEY = "auth.user";
+const AUTH_SESSION_CLEARED_EVENT = "auth:session-cleared";
 
 let authToken: string | null = null;
 let refreshToken: string | null = null;
@@ -22,6 +23,26 @@ const readStoredToken = (storageKey: string) => {
     return getStorage("session")?.getItem(storageKey) ?? null;
   } catch {
     return null;
+  }
+};
+
+const clearStoredAuthSession = () => {
+  authToken = null;
+  refreshToken = null;
+  try {
+    const localStorageRef = getStorage("local");
+    const sessionStorageRef = getStorage("session");
+    localStorageRef?.removeItem(AUTH_TOKEN_STORAGE_KEY);
+    localStorageRef?.removeItem(REFRESH_TOKEN_STORAGE_KEY);
+    localStorageRef?.removeItem(AUTH_USER_STORAGE_KEY);
+    sessionStorageRef?.removeItem(AUTH_TOKEN_STORAGE_KEY);
+    sessionStorageRef?.removeItem(REFRESH_TOKEN_STORAGE_KEY);
+    sessionStorageRef?.removeItem(AUTH_USER_STORAGE_KEY);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event(AUTH_SESSION_CLEARED_EVENT));
+    }
+  } catch {
+    // ignore storage errors
   }
 };
 
@@ -151,12 +172,14 @@ const attemptTokenRefresh = async () => {
     body: JSON.stringify({ refreshToken: currentRefreshToken })
   });
   if (!response.ok) {
-    setAuthToken(null);
-    setRefreshToken(null);
+    clearStoredAuthSession();
     return null;
   }
   const payload = (await response.json()) as { accessToken?: string; refreshToken?: string };
-  if (!payload.accessToken) return null;
+  if (!payload.accessToken) {
+    clearStoredAuthSession();
+    return null;
+  }
   const remember = Boolean(getStorage("local")?.getItem(AUTH_TOKEN_STORAGE_KEY));
   setAuthToken(payload.accessToken, { remember });
   if (payload.refreshToken) {
