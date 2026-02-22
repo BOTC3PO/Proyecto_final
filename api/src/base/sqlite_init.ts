@@ -1,43 +1,35 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 /**
  * sqlite_init.ts
- * ──────────────────────────────────────────────────────────────────────────────
- * Crea la base SQLite y aplica core_schema.sql (idempotente).
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Thin wrapper kept for backward compatibility.
+ * Delegates to sqliteMigrate.ts, which applies all pending migrations and
+ * tracks versions via PRAGMA user_version.
  *
- * Uso: npm run db:sqlite:init
+ * Usage:   npm run db:sqlite:migrate     ← preferred
+ *          ts-node src/base/sqlite_init.ts  ← also works
  *
  * Variables de entorno:
- *   SQLITE_PATH   ./data/core.db  (por defecto)
+ *   SQLITE_PATH   path to the SQLite file (default: ./data/core.db)
+ *
+ * NOTE — previous bug fixed:
+ *   The original script referenced "../db/core_schema.sql" which resolved to
+ *   api/src/db/core_schema.sql — a path that did not exist. The schema files
+ *   live under api/src/base/ and are now consolidated into api/sql/schema.sql.
+ *   All DDL is applied through the migration runner (api/src/db/sqliteMigrate.ts).
  */
 
-import fs from "fs";
 import path from "path";
-import Database from "better-sqlite3";
+import { runMigrations } from "../db/sqliteMigrate";
 
-try { require("dotenv").config(); } catch { /* optional */ }
-
-const SQLITE_PATH = process.env.SQLITE_PATH ?? path.join(process.cwd(), "data", "core.db");
-const SCHEMA_PATH = path.join(__dirname, "../db/core_schema.sql");
-
-function main() {
-  const dir = path.dirname(SQLITE_PATH);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-
-  if (!fs.existsSync(SCHEMA_PATH)) {
-    throw new Error(`Schema not found: ${SCHEMA_PATH}`);
-  }
-
-  const db = new Database(SQLITE_PATH);
-  db.pragma("journal_mode = WAL");
-  db.pragma("foreign_keys = OFF");
-
-  const sql = fs.readFileSync(SCHEMA_PATH, "utf8");
-  db.exec(sql);
-
-  const { user_version } = db.pragma("user_version", { simple: true }) as { user_version: number };
-  console.log(`[OK] SQLite initialized at ${SQLITE_PATH}  (schema version: ${user_version})`);
-
-  db.close();
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  require("dotenv").config();
+} catch {
+  /* dotenv is optional */
 }
 
-main();
+const dbPath =
+  process.env.SQLITE_PATH ?? path.resolve(process.cwd(), "data", "core.db");
+
+runMigrations(dbPath);
