@@ -1,0 +1,3397 @@
+{
+  "collections": {
+    "aulas": {
+      "read": [
+        {
+          "file": "src/routes/aula-feed.ts",
+          "line": 47,
+          "operation": "findOne",
+          "filter": "{ id: classroomId, isDeleted: { $ne: true } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 130,
+          "operation": "find",
+          "filter": "query",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 236,
+          "operation": "count",
+          "filter": "activeClassroomFilter",
+          "operators": []
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 558,
+          "operation": "find",
+          "filter": "filter",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 570,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 598,
+          "operation": "findOne",
+          "filter": "{ id: parsed.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 722,
+          "operation": "findOne",
+          "filter": "{ id: parsed.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 850,
+          "operation": "findOne",
+          "filter": "{ id: payload.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 948,
+          "operation": "findOne",
+          "filter": "{ id: intercambio.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1048,
+          "operation": "findOne",
+          "filter": "{ id: intercambio.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1078,
+          "operation": "findOne",
+          "filter": "{ id: intercambio.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1122,
+          "operation": "findOne",
+          "filter": "{ id: payload.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1254,
+          "operation": "findOne",
+          "filter": "{ id: parsed.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1273,
+          "operation": "findOne",
+          "filter": "{ id: existing.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1309,
+          "operation": "findOne",
+          "filter": "{ id: aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1389,
+          "operation": "findOne",
+          "filter": "{ id: examen.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1872,
+          "operation": "findOne",
+          "filter": "{ id: req.params.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1896,
+          "operation": "findOne",
+          "filter": "{ id: req.params.aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 64,
+          "operation": "findOne",
+          "filter": "{ id: parsed.classroomId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 84,
+          "operation": "findOne",
+          "filter": "{ id: survey.classroomId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 105,
+          "operation": "findOne",
+          "filter": "{ id: survey.classroomId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 124,
+          "operation": "findOne",
+          "filter": "{ id: survey.classroomId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 147,
+          "operation": "findOne",
+          "filter": "{ id: aulaId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 92,
+          "operation": "count",
+          "filter": "{ institutionId: schoolId, status: { $in: CLASSROOM_ACTIVE_STATUS_VALUES } }",
+          "operators": [
+            "$in"
+          ]
+        },
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 151,
+          "operation": "find",
+          "filter": "{ institutionId: schoolId }",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/moderacion.ts",
+          "line": 20,
+          "operation": "find",
+          "filter": "{ accessType: \"publica\" }",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 145,
+          "operation": "findOne",
+          "filter": "{ id: parsed.aulaId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 166,
+          "operation": "findOne",
+          "filter": "{ id: existing.aulaId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 188,
+          "operation": "findOne",
+          "filter": "{ id: existing.aulaId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 208,
+          "operation": "findOne",
+          "filter": "{ id: existing.aulaId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/profesor.ts",
+          "line": 128,
+          "operation": "find",
+          "filter": "{\n      $or: [\n        { createdBy: teacherId },\n        { teacherId: teacherId },\n        { teacherOfRecord: teacherId },\n        { members: { $elemMatch: { roleInClass: \"TEACHER\", userId: teacherId } } }\n      ]\n    }",
+          "operators": [
+            "$elemMatch",
+            "$or"
+          ]
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 86,
+          "operation": "findOne",
+          "filter": "{ id: parsed.aulaId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 352,
+          "operation": "findOne",
+          "filter": "{ id: aulaId }",
+          "options": "{ projection: { status: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 469,
+          "operation": "count",
+          "filter": "aulaFilter",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 470,
+          "operation": "find",
+          "filter": "aulaFilter",
+          "skip": "pagination.offset",
+          "limit": "pagination.limit",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 740,
+          "operation": "count",
+          "filter": "aulaFilter",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 741,
+          "operation": "find",
+          "filter": "aulaFilter",
+          "skip": "pagination.offset",
+          "limit": "pagination.limit",
+          "operators": []
+        },
+        {
+          "file": "src/lib/classroom-scope.ts",
+          "line": 62,
+          "operation": "findOne",
+          "filter": "filter",
+          "operators": []
+        },
+        {
+          "file": "src/lib/enterprise-billing.ts",
+          "line": 21,
+          "operation": "aggregate",
+          "pipeline": "[\n      { $match: buildClassroomMatch(schoolId) },\n      { $unwind: \"$members\" },\n      { $match: { \"members.roleInClass\": \"STUDENT\" } },\n      {\n        $group: {\n          _id: \"$members.userId\",\n          classroomIds: { $addToSet: \"$id\" }\n        }\n      },\n      {\n        $project: {\n          _id: 0,\n          userId: \"$_id\",\n          classroomIds: 1,\n          classroomCount: { $size: \"$classroomIds\" }\n        }\n      },\n      { $sort: { userId: 1 } }\n    ]",
+          "operators": [
+            "$addToSet",
+            "$classroomIds",
+            "$group",
+            "$id",
+            "$match",
+            "$members",
+            "$project",
+            "$size",
+            "$sort",
+            "$unwind"
+          ]
+        },
+        {
+          "file": "src/lib/entitlements.ts",
+          "line": 206,
+          "operation": "findOne",
+          "filter": "{\n    status: \"ACTIVE\",\n    $or: [{ institutionId: schoolId }, { schoolId }],\n    \"members.userId\": userId\n  }",
+          "operators": [
+            "$or"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 243,
+          "operation": "insertOne",
+          "filter": "parsed",
+          "operators": []
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 316,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "updateOperation",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 393,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "updateOperation",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 502,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "{ $set: update }",
+          "operators": [
+            "$ne",
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 530,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "{\n        $set: {\n          isDeleted: true,\n          deletedAt: now,\n          deletedBy,\n          updatedAt: now\n        }\n      }",
+          "operators": [
+            "$ne",
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 594,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "{\n      $set: {\n        isDeleted: true,\n        deletedAt: now,\n        deletedBy,\n        updatedAt: now\n      }\n    }",
+          "operators": [
+            "$ne",
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 278,
+          "operation": "insertOne",
+          "filter": "parsed",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "publicaciones": {
+      "read": [
+        {
+          "file": "src/routes/aula-feed.ts",
+          "line": 81,
+          "operation": "find",
+          "filter": "{ aulaId: context.classroomId, isDeleted: { $ne: true } }",
+          "sort": "{ createdAt: -1 }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/publicaciones.ts",
+          "line": 72,
+          "operation": "find",
+          "filter": "{ aulaId: req.params.id, isDeleted: { $ne: true } }",
+          "sort": "{ createdAt: -1 }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/publicaciones.ts",
+          "line": 161,
+          "operation": "findOne",
+          "filter": "{\n      id: req.params.pubId,\n      aulaId: req.params.id,\n      isDeleted: { $ne: true }\n    }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/publicaciones.ts",
+          "line": 201,
+          "operation": "findOne",
+          "filter": "{\n      id: req.params.pubId,\n      aulaId: req.params.id,\n      isDeleted: { $ne: true }\n    }",
+          "operators": [
+            "$ne"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/publicaciones.ts",
+          "line": 122,
+          "operation": "insertOne",
+          "filter": "publication",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "ranking": {
+      "read": [
+        {
+          "file": "src/routes/aula-feed.ts",
+          "line": 100,
+          "operation": "find",
+          "filter": "{ aulaId: context.classroomId, isDeleted: { $ne: true } }",
+          "sort": "{ points: -1 }",
+          "operators": [
+            "$ne"
+          ]
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "actividades": {
+      "read": [
+        {
+          "file": "src/routes/aula-feed.ts",
+          "line": 119,
+          "operation": "find",
+          "filter": "{ aulaId: context.classroomId, isDeleted: { $ne: true } }",
+          "sort": "{ createdAt: 1 }",
+          "operators": [
+            "$ne"
+          ]
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "modulos": {
+      "read": [
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 78,
+          "operation": "count",
+          "filter": "{\n      aulaId: classroom.id,\n      isDeleted: { $ne: true }\n    }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 119,
+          "operation": "findOne",
+          "filter": "{ id: referenciaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 126,
+          "operation": "findOne",
+          "filter": "{\n      $or: [{ \"quizzes.id\": referenciaId }, { \"levels.quizzes.id\": referenciaId }]\n    }",
+          "operators": [
+            "$or"
+          ]
+        },
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 95,
+          "operation": "count",
+          "filter": "{ visibility: \"escuela\", schoolId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 130,
+          "operation": "find",
+          "filter": "{ visibility: \"escuela\", schoolId }",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 95,
+          "operation": "find",
+          "filter": "filter",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 111,
+          "operation": "find",
+          "filter": "filter",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 123,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 163,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 185,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 205,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/profesor.ts",
+          "line": 146,
+          "operation": "find",
+          "filter": "{ $or: moduleFilters }",
+          "operators": [
+            "$or"
+          ]
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 133,
+          "operation": "find",
+          "filter": "aulaId ? { aulaId } : {}",
+          "operators": []
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 195,
+          "operation": "find",
+          "filter": "{ id: { $in: moduleIds } }",
+          "operators": [
+            "$in"
+          ]
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 287,
+          "operation": "find",
+          "filter": "{ id: { $in: moduleIds } }",
+          "operators": [
+            "$in"
+          ]
+        },
+        {
+          "file": "src/routes/quiz-attempts.ts",
+          "line": 153,
+          "operation": "findOne",
+          "filter": "{ id: moduleId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/quiz-attempts.ts",
+          "line": 237,
+          "operation": "findOne",
+          "filter": "{ id: payload.moduleId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/readonly.ts",
+          "line": 87,
+          "operation": "find",
+          "filter": "{ $or: [{ status: \"ACTIVE\" }, { status: { $exists: false } }] }",
+          "sort": "{ updatedAt: -1 }",
+          "operators": [
+            "$exists",
+            "$or"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 152,
+          "operation": "insertOne",
+          "filter": "withDefaultStatus(parsed)",
+          "operators": []
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 174,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id }",
+          "update": "{ $set: update }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 196,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id }",
+          "update": "{ $set: update }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/modulos.ts",
+          "line": 215,
+          "operation": "deleteOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": [
+        "id"
+      ]
+    },
+    "auditoria_aulas": {
+      "read": [
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 187,
+          "operation": "find",
+          "filter": "filter",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ createdAt: -1 }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 306,
+          "operation": "insertOne",
+          "filter": "auditEntry",
+          "operators": []
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 383,
+          "operation": "insertOne",
+          "filter": "auditEntry",
+          "operators": []
+        },
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 584,
+          "operation": "insertOne",
+          "filter": "{\n    aulaId: classroom.id ?? req.params.id,\n    schoolId: classroom.schoolId ?? classroom.institutionId,\n    previousStatus: currentStatus,\n    newStatus: currentStatus,\n    previousIsDeleted: false,\n    newIsDeleted: true,\n    actorId: deletedBy,\n    createdAt: now\n  }",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "usuarios": {
+      "read": [
+        {
+          "file": "src/routes/aulas.ts",
+          "line": 463,
+          "operation": "findOne",
+          "filter": "{ _id: teacherObjectId, isDeleted: { $ne: true } }",
+          "options": "{ projection: { role: 1, escuelaId: 1 } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/auth.ts",
+          "line": 55,
+          "operation": "findOne",
+          "filter": "{ role: \"ADMIN\" }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/auth.ts",
+          "line": 114,
+          "operation": "findOne",
+          "filter": "{\n      email: parsed.email,\n      isDeleted: { $ne: true }\n    }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/auth.ts",
+          "line": 283,
+          "operation": "findOne",
+          "filter": "{\n      _id: objectId,\n      isDeleted: { $ne: true }\n    }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/auth.ts",
+          "line": 338,
+          "operation": "findOne",
+          "filter": "{\n        email: parsed.email,\n        isDeleted: { $ne: true }\n      }",
+          "options": "{\n        projection: {\n          _id: 1,\n          role: 1,\n          email: 1,\n          username: 1,\n          fullName: 1\n        }\n      }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/auth.ts",
+          "line": 391,
+          "operation": "findOne",
+          "filter": "{\n      $or: [{ email: identifier }, { username: identifier }],\n      isDeleted: { $ne: true }\n    }",
+          "operators": [
+            "$ne",
+            "$or"
+          ]
+        },
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 58,
+          "operation": "find",
+          "filter": "{\n        ...escuelaFilter,\n        role: { $in: [\"ADMIN\", \"TEACHER\"] },\n        isDeleted: { $ne: true }\n      }",
+          "operators": [
+            "$in",
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 87,
+          "operation": "count",
+          "filter": "{\n      ...escuelaFilter,\n      role: { $in: [\"ADMIN\", \"TEACHER\"] },\n      isDeleted: { $ne: true }\n    }",
+          "operators": [
+            "$in",
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 216,
+          "operation": "find",
+          "filter": "{ _id: { $in: lookupIds }, isDeleted: { $ne: true } }",
+          "operators": [
+            "$in",
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/padres.ts",
+          "line": 54,
+          "operation": "findOne",
+          "filter": "{ _id: params.childId, isDeleted: { $ne: true } }",
+          "options": "{ projection: { birthdate: 1 } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/padres.ts",
+          "line": 78,
+          "operation": "findOne",
+          "filter": "{\n      username: { $regex: new RegExp(`^${escapeRegex(username)}$`, \"i\") },\n      isDeleted: { $ne: true }\n    }",
+          "operators": [
+            "$ne",
+            "$regex"
+          ]
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 174,
+          "operation": "find",
+          "filter": "{ _id: { $in: childIds }, isDeleted: { $ne: true } }",
+          "operators": [
+            "$in",
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 267,
+          "operation": "findOne",
+          "filter": "{ _id: childId, isDeleted: { $ne: true } }",
+          "options": "{ projection: { fullName: 1, username: 1, birthdate: 1 } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 125,
+          "operation": "findOne",
+          "filter": "{ _id: childId, isDeleted: { $ne: true } }",
+          "options": "{ projection: { birthdate: 1 } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 495,
+          "operation": "count",
+          "filter": "userFilter",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 496,
+          "operation": "find",
+          "filter": "userFilter",
+          "skip": "pagination.offset",
+          "limit": "pagination.limit",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 758,
+          "operation": "count",
+          "filter": "userFilter",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 759,
+          "operation": "find",
+          "filter": "userFilter",
+          "skip": "pagination.offset",
+          "limit": "pagination.limit",
+          "operators": []
+        },
+        {
+          "file": "src/routes/usuarios.ts",
+          "line": 125,
+          "operation": "find",
+          "filter": "query",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ createdAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/usuarios.ts",
+          "line": 154,
+          "operation": "findOne",
+          "filter": "{ _id: objectId, isDeleted: { $ne: true } }",
+          "options": "{\n      projection: {\n        username: 1,\n        email: 1,\n        fullName: 1,\n        role: 1,\n        escuelaId: 1,\n        teacherProfile: 1\n      }\n    }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/lib/admin-auth.ts",
+          "line": 30,
+          "operation": "findOne",
+          "filter": "{ _id: objectId, role: \"ADMIN\", isDeleted: { $ne: true } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/lib/governance.ts",
+          "line": 40,
+          "operation": "findOne",
+          "filter": "{ id: actorId }",
+          "operators": []
+        },
+        {
+          "file": "src/lib/password-health.ts",
+          "line": 16,
+          "operation": "find",
+          "filter": "query",
+          "operators": []
+        },
+        {
+          "file": "src/lib/user-auth.ts",
+          "line": 56,
+          "operation": "findOne",
+          "filter": "{ _id: objectId, isDeleted: { $ne: true } }",
+          "operators": [
+            "$ne"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/auth.ts",
+          "line": 71,
+          "operation": "insertOne",
+          "filter": "doc",
+          "operators": []
+        },
+        {
+          "file": "src/routes/auth.ts",
+          "line": 94,
+          "operation": "insertOne",
+          "filter": "doc",
+          "operators": []
+        },
+        {
+          "file": "src/routes/auth.ts",
+          "line": 171,
+          "operation": "insertOne",
+          "filter": "doc",
+          "operators": []
+        },
+        {
+          "file": "src/routes/auth.ts",
+          "line": 224,
+          "operation": "insertOne",
+          "filter": "doc",
+          "operators": []
+        },
+        {
+          "file": "src/routes/moderacion.ts",
+          "line": 70,
+          "operation": "updateOne",
+          "filter": "{ _id: userId }",
+          "update": "{\n      $set: {\n        isBanned: true,\n        bannedAt: now,\n        bannedUntil\n      }\n    }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/moderacion.ts",
+          "line": 106,
+          "operation": "updateOne",
+          "filter": "{ _id: userId }",
+          "update": "{\n      $set: {\n        lastWarningAt: now,\n        lastWarningReason: motivo,\n        lastWarningSeverity: severidad\n      },\n      $inc: { warningCount: 1 }\n    }",
+          "operators": [
+            "$inc",
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/usuarios.ts",
+          "line": 78,
+          "operation": "insertOne",
+          "filter": "doc",
+          "operators": []
+        },
+        {
+          "file": "src/lib/password-health.ts",
+          "line": 24,
+          "operation": "updateOne",
+          "filter": "{ _id: user._id }",
+          "update": "{\n        $set: {\n          passwordResetRequired: true,\n          updatedAt: new Date()\n        }\n      }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": [
+        "email",
+        "username"
+      ]
+    },
+    "escuelas": {
+      "read": [
+        {
+          "file": "src/routes/auth.ts",
+          "line": 128,
+          "operation": "findOne",
+          "filter": "{ code: parsed.schoolCode }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/auth.ts",
+          "line": 140,
+          "operation": "findOne",
+          "filter": "{ _id: escuelaId }",
+          "options": "{ projection: { _id: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 333,
+          "operation": "findOne",
+          "filter": "{ _id: escuelaObjectId }",
+          "options": "{ projection: { pricePerStudent: 1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/escuelas.ts",
+          "line": 49,
+          "operation": "find",
+          "filter": "{ isDeleted: { $ne: true } }",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ createdAt: -1 }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/escuelas.ts",
+          "line": 61,
+          "operation": "findOne",
+          "filter": "{ code: req.params.code, isDeleted: { $ne: true } }",
+          "options": "{ projection: { name: 1 } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/escuelas.ts",
+          "line": 74,
+          "operation": "findOne",
+          "filter": "{ _id: objectId, isDeleted: { $ne: true } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/escuelas.ts",
+          "line": 86,
+          "operation": "findOne",
+          "filter": "{ _id: objectId, isDeleted: { $ne: true } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/lib/billing/delinquency.ts",
+          "line": 52,
+          "operation": "find",
+          "filter": "filter",
+          "operators": []
+        },
+        {
+          "file": "src/lib/billing/delinquency.ts",
+          "line": 56,
+          "operation": "find",
+          "filter": "{\n        subscriptionStatus: { $in: [\"PAST_DUE\", \"SUSPENDED\"] },\n        _id: {\n          $nin: unpaidSchoolIds\n        }\n      }",
+          "operators": [
+            "$in",
+            "$nin"
+          ]
+        },
+        {
+          "file": "src/lib/billing/delinquency.ts",
+          "line": 70,
+          "operation": "find",
+          "filter": "{ _id: school._id }",
+          "operators": []
+        },
+        {
+          "file": "src/lib/entitlements.ts",
+          "line": 147,
+          "operation": "findOne",
+          "filter": "filter",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/escuelas.ts",
+          "line": 38,
+          "operation": "insertOne",
+          "filter": "doc",
+          "operators": []
+        },
+        {
+          "file": "src/routes/escuelas.ts",
+          "line": 131,
+          "operation": "updateOne",
+          "filter": "{ _id: objectId }",
+          "update": "{ $set: update }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/lib/billing/delinquency.ts",
+          "line": 52,
+          "operation": "updateOne",
+          "filter": "{ $set: { subscriptionStatus: nextStatus } }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/lib/billing/delinquency.ts",
+          "line": 70,
+          "operation": "updateOne",
+          "filter": "{ $set: { subscriptionStatus: \"ACTIVE\" } }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": [
+        "code"
+      ]
+    },
+    "membresias_escuela": {
+      "read": [
+        {
+          "file": "src/routes/usuarios.ts",
+          "line": 203,
+          "operation": "find",
+          "filter": "{ usuarioId: objectId, estado: { $ne: \"revocada\" } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/usuarios.ts",
+          "line": 214,
+          "operation": "findOne",
+          "filter": "{\n    usuarioId: requesterId,\n    escuelaId: escuelaId ? escuelaId : { $in: targetEscuelaIds },\n    estado: { $ne: \"revocada\" }\n  }",
+          "operators": [
+            "$in",
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/usuarios.ts",
+          "line": 221,
+          "operation": "findOne",
+          "filter": "{\n      usuarioId: objectId,\n      escuelaId,\n      estado: { $ne: \"revocada\" }\n    }",
+          "operators": [
+            "$ne"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/auth.ts",
+          "line": 181,
+          "operation": "insertOne",
+          "filter": "{\n        usuarioId: result.insertedId,\n        escuelaId,\n        rol: membershipRole,\n        estado: \"activa\",\n        fechaAlta: now,\n        createdAt: now,\n        updatedAt: now\n      }",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": [
+        "escuelaId",
+        "usuarioId"
+      ]
+    },
+    "config_modulos": {
+      "read": [
+        {
+          "file": "src/routes/configuracion.ts",
+          "line": 57,
+          "operation": "findOne",
+          "filter": "{ id }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/configuracion.ts",
+          "line": 70,
+          "operation": "insertOne",
+          "filter": "fallback",
+          "operators": []
+        },
+        {
+          "file": "src/routes/configuracion.ts",
+          "line": 81,
+          "operation": "updateOne",
+          "filter": "{ id }",
+          "update": "{ $set: payload }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/lib/governance.ts",
+          "line": 297,
+          "operation": "updateOne",
+          "filter": "{ id }",
+          "update": "{ $set: { id, items, updatedAt: toIsoNow() } }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "tareas": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 134,
+          "operation": "findOne",
+          "filter": "buildReferenciaMatch(referenciaId)",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "economia_auditoria": {
+      "read": [],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 166,
+          "operation": "insertOne",
+          "filter": "{\n    actor: payload.actor,\n    timestamp: new Date().toISOString(),\n    motivo: payload.motivo,\n    verificacion: payload.verificacion\n  }",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_modulos": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 261,
+          "operation": "find",
+          "filter": "{ moduloId: { $in: macroIds } }",
+          "operators": [
+            "$in"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1191,
+          "operation": "find",
+          "filter": "filtro",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1205,
+          "operation": "updateOne",
+          "filter": "{ moduloId: req.params.moduloId }",
+          "update": "{ $set: validated }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_config": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 336,
+          "operation": "findOne",
+          "filter": "{ id: \"general\" }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 401,
+          "operation": "updateOne",
+          "filter": "{ id: \"general\" }",
+          "update": "{ $set: validated }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_recompensas": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 418,
+          "operation": "find",
+          "filter": "filtro",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1634,
+          "operation": "find",
+          "filter": "filtro",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 452,
+          "operation": "insertOne",
+          "filter": "{\n        ...parsed,\n        isDeleted: false,\n        deletedAt: null,\n        deletedBy: null\n      }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 473,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "{ $set: { ...parsed, updatedAt: new Date().toISOString() } }",
+          "operators": [
+            "$ne",
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 495,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "{ $set: { ...parsed, updatedAt: new Date().toISOString() } }",
+          "operators": [
+            "$ne",
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 517,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "{\n        $set: {\n          isDeleted: true,\n          deletedAt: now,\n          deletedBy,\n          updatedAt: now\n        }\n      }",
+          "operators": [
+            "$ne",
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1646,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "{\n      $set: {\n        isDeleted: true,\n        deletedAt: now,\n        deletedBy,\n        updatedAt: now\n      }\n    }",
+          "operators": [
+            "$ne",
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_saldos": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 543,
+          "operation": "findOne",
+          "filter": "{ usuarioId: usuarioObjectId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 639,
+          "operation": "findOne",
+          "filter": "{\n      usuarioId: usuarioObjectId\n    }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 794,
+          "operation": "findOne",
+          "filter": "{\n        usuarioId: usuarioObjectId\n      }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 866,
+          "operation": "findOne",
+          "filter": "{\n      usuarioId: usuarioObjectId\n    }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 965,
+          "operation": "findOne",
+          "filter": "{\n      usuarioId: creadorObjectId\n    }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1011,
+          "operation": "findOne",
+          "filter": "{ usuarioId: receptorObjectId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1134,
+          "operation": "findOne",
+          "filter": "{\n        usuarioId: usuarioObjectId\n      }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1341,
+          "operation": "findOne",
+          "filter": "{\n      usuarioId: usuarioObjectId\n    }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1412,
+          "operation": "findOne",
+          "filter": "{\n        usuarioId: usuarioObjectId\n      }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1507,
+          "operation": "findOne",
+          "filter": "{ usuarioId: usuarioObjectId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1773,
+          "operation": "find",
+          "filter": "{}",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 653,
+          "operation": "updateOne",
+          "filter": "{ usuarioId: usuarioObjectId }",
+          "update": "{ $set: update }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 804,
+          "operation": "updateOne",
+          "filter": "{ usuarioId: usuarioObjectId }",
+          "update": "{\n          $set: {\n            usuarioId: usuarioObjectId,\n            saldo: nuevoSaldo,\n            moneda: parsed.moneda,\n            updatedAt: new Date().toISOString()\n          }\n        }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 999,
+          "operation": "updateOne",
+          "filter": "{ usuarioId: creadorObjectId }",
+          "update": "{\n        $set: {\n          usuarioId: creadorObjectId,\n          saldo: saldoActual - intercambio.monto,\n          moneda: transaccionDebito.moneda,\n          updatedAt: now\n        }\n      }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1014,
+          "operation": "updateOne",
+          "filter": "{ usuarioId: receptorObjectId }",
+          "update": "{\n        $set: {\n          usuarioId: receptorObjectId,\n          saldo: (saldoReceptor?.saldo ?? 0) + intercambio.monto,\n          moneda: transaccionCredito.moneda,\n          updatedAt: now\n        }\n      }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1168,
+          "operation": "updateOne",
+          "filter": "{ usuarioId: usuarioObjectId }",
+          "update": "{\n          $set: {\n            usuarioId: usuarioObjectId,\n            saldo: saldoActual - payload.monto,\n            moneda: compra.moneda,\n            updatedAt: now\n          }\n        }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1438,
+          "operation": "updateOne",
+          "filter": "{ usuarioId: usuarioObjectId }",
+          "update": "{\n          $set: {\n            usuarioId: usuarioObjectId,\n            saldo: nuevoSaldo,\n            moneda: transaccion.moneda,\n            updatedAt: now\n          }\n        }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1511,
+          "operation": "updateOne",
+          "filter": "{ usuarioId: usuarioObjectId }",
+          "update": "{\n          $set: {\n            usuarioId: usuarioObjectId,\n            saldo: saldoActual + premio,\n            moneda: transaccion.moneda,\n            updatedAt: now\n          }\n        }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_transacciones": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 683,
+          "operation": "find",
+          "filter": "{ usuarioId }",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ createdAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 763,
+          "operation": "aggregate",
+          "pipeline": "[\n              { $match: baseMatch },\n              { $group: { _id: null, total: { $sum: \"$monto\" } } }\n            ]",
+          "operators": [
+            "$group",
+            "$match",
+            "$monto",
+            "$sum"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 776,
+          "operation": "aggregate",
+          "pipeline": "[\n              {\n                $match: {\n                  ...baseMatch,\n                  usuarioId: parsed.usuarioId\n                }\n              },\n              { $group: { _id: null, total: { $sum: \"$monto\" } } }\n            ]",
+          "operators": [
+            "$group",
+            "$match",
+            "$monto",
+            "$sum"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1793,
+          "operation": "find",
+          "filter": "{}",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1927,
+          "operation": "aggregate",
+          "pipeline": "[\n      {\n        $match: {\n          ...rango,\n          ...filtroAula,\n          tipo: \"debito\",\n          motivo: { $regex: /(subasta_examen|penalizacion|quemado|burn)/ }\n        }\n      },\n      { $group: { _id: null, total: { $sum: \"$monto\" } } }\n    ]",
+          "operators": [
+            "$group",
+            "$match",
+            "$monto",
+            "$regex",
+            "$sum"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 775,
+          "operation": "aggregate",
+          "pipeline": "[\n        { $match: match },\n        {\n          $group: {\n            _id: \"$tipo\",\n            total: { $sum: \"$monto\" },\n            transacciones: { $sum: 1 }\n          }\n        }\n      ]",
+          "operators": [
+            "$group",
+            "$match",
+            "$monto",
+            "$sum",
+            "$tipo"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 789,
+          "operation": "aggregate",
+          "pipeline": "[\n        { $match: match },\n        { $group: { _id: \"$motivo\", total: { $sum: \"$monto\" }, transacciones: { $sum: 1 } } },\n        { $sort: { total: -1 } },\n        { $limit: 5 }\n      ]",
+          "operators": [
+            "$group",
+            "$limit",
+            "$match",
+            "$monto",
+            "$motivo",
+            "$sort",
+            "$sum"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 799,
+          "operation": "find",
+          "filter": "(item) => item._id === \"credito\"",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 800,
+          "operation": "find",
+          "filter": "(item) => item._id === \"debito\"",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 803,
+          "operation": "insertOne",
+          "filter": "parsed",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1167,
+          "operation": "insertOne",
+          "filter": "transaccion",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1437,
+          "operation": "insertOne",
+          "filter": "transaccion",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1502,
+          "operation": "insertOne",
+          "filter": "transaccion",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_intercambios": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 874,
+          "operation": "count",
+          "filter": "{\n      creadorId: payload.creadorId,\n      createdAt: { $gte: rangoDia.desde, $lte: rangoDia.hasta }\n    }",
+          "operators": [
+            "$gte",
+            "$lte"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 881,
+          "operation": "findOne",
+          "filter": "{ creadorId: payload.creadorId }",
+          "options": "{ sort: { createdAt: -1 } }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 893,
+          "operation": "count",
+          "filter": "{\n      creadorId: payload.creadorId,\n      createdAt: { $gte: inicioCancelaciones.toISOString() }\n    }",
+          "operators": [
+            "$gte"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 897,
+          "operation": "count",
+          "filter": "{\n      creadorId: payload.creadorId,\n      estado: \"cancelado\",\n      createdAt: { $gte: inicioCancelaciones.toISOString() }\n    }",
+          "operators": [
+            "$gte"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 936,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1039,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1076,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 926,
+          "operation": "insertOne",
+          "filter": "intercambio",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1026,
+          "operation": "updateOne",
+          "filter": "{ id: intercambio.id }",
+          "update": "{ $set: { estado: \"aceptado\", updatedAt: now, resolvedAt: now } }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1053,
+          "operation": "updateOne",
+          "filter": "{ id: intercambio.id }",
+          "update": "{ $set: { estado: \"cancelado\", updatedAt: now, resolvedAt: now } }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1105,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id }",
+          "update": "{ $set: update }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_compras": {
+      "read": [],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1166,
+          "operation": "insertOne",
+          "filter": "compra",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_examenes": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1219,
+          "operation": "find",
+          "filter": "filtro",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1270,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1305,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1382,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1471,
+          "operation": "find",
+          "filter": "{ estado: \"cerrado\", id: { $ne: req.params.id } }",
+          "sort": "{ updatedAt: -1 }",
+          "limit": "4",
+          "operators": [
+            "$ne"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1259,
+          "operation": "insertOne",
+          "filter": "parsed",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1278,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id }",
+          "update": "{ $set: { ...parsed, updatedAt: new Date().toISOString() } }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1536,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id }",
+          "update": "{\n        $set: {\n          estado: \"cerrado\",\n          subastaActiva: false,\n          precioPromedio: precioPromedioActual,\n          updatedAt: now\n        }\n      }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_examen_pujas": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1293,
+          "operation": "find",
+          "filter": "filtro",
+          "sort": "{ createdAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1320,
+          "operation": "aggregate",
+          "pipeline": "[\n        {\n          $match: {\n            examenId: req.params.id,\n            usuarioId: parsed.usuarioId,\n            estado: { $in: [\"pendiente\", \"aceptada\"] }\n          }\n        },\n        { $group: { _id: null, total: { $sum: \"$puntos\" } } }\n      ]",
+          "operators": [
+            "$group",
+            "$in",
+            "$match",
+            "$puntos",
+            "$sum"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1400,
+          "operation": "find",
+          "filter": "{ examenId: req.params.id, estado: \"pendiente\" }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1920,
+          "operation": "aggregate",
+          "pipeline": "[\n      { $match: { ...rango, ...filtroAula } },\n      { $group: { _id: null, total: { $sum: { $multiply: [\"$puntos\", \"$montoPorPunto\"] } } } }\n    ]",
+          "operators": [
+            "$group",
+            "$match",
+            "$montoPorPunto",
+            "$multiply",
+            "$puntos",
+            "$sum"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1357,
+          "operation": "insertOne",
+          "filter": "validated",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1418,
+          "operation": "updateOne",
+          "filter": "{ id: puja.id }",
+          "update": "{ $set: { estado: \"rechazada\", resolvedAt: now } }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1465,
+          "operation": "updateOne",
+          "filter": "{ id: puja.id }",
+          "update": "{ $set: { estado: \"aceptada\", resolvedAt: now } }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_examen_puntos": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1370,
+          "operation": "findOne",
+          "filter": "{ usuarioId }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1457,
+          "operation": "updateOne",
+          "filter": "{ usuarioId: puja.usuarioId }",
+          "update": "{ $inc: { puntos: puntosNetos }, $set: { updatedAt: now } }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$inc",
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "economia_eventos": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1555,
+          "operation": "find",
+          "filter": "{ isDeleted: { $ne: true } }",
+          "sort": "{ updatedAt: -1 }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1671,
+          "operation": "find",
+          "filter": "filtro",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1572,
+          "operation": "insertOne",
+          "filter": "{\n      ...parsed,\n      isDeleted: false,\n      deletedAt: null,\n      deletedBy: null\n    }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1588,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "{ $set: { ...parsed, updatedAt: new Date().toISOString() } }",
+          "operators": [
+            "$ne",
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1605,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "{\n      $set: {\n        isDeleted: true,\n        deletedAt: now,\n        deletedBy,\n        updatedAt: now\n      }\n    }",
+          "operators": [
+            "$ne",
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1683,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id, isDeleted: { $ne: true } }",
+          "update": "{\n      $set: {\n        isDeleted: true,\n        deletedAt: now,\n        deletedBy,\n        updatedAt: now\n      }\n    }",
+          "operators": [
+            "$ne",
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "billeteras": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1708,
+          "operation": "find",
+          "filter": "{}",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": [
+        "usuarioId"
+      ]
+    },
+    "movimientos_billetera": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1730,
+          "operation": "find",
+          "filter": "{}",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "economia_riesgo_cursos": {
+      "read": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1852,
+          "operation": "findOne",
+          "filter": "{ aulaId }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1876,
+          "operation": "updateOne",
+          "filter": "{ aulaId: req.params.aulaId }",
+          "update": "{ $set: validated }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/economia.ts",
+          "line": 1900,
+          "operation": "updateOne",
+          "filter": "{ aulaId: req.params.aulaId }",
+          "update": "{ $set: update }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "encuestas": {
+      "read": [
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 34,
+          "operation": "find",
+          "filter": "{ classroomId: aulaId }",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 48,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id, classroomId: aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 82,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 103,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 122,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 154,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id, classroomId: aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 256,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id, classroomId: aulaId }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 71,
+          "operation": "insertOne",
+          "filter": "parsed",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 92,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id }",
+          "update": "{ $set: update }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 113,
+          "operation": "updateOne",
+          "filter": "{ id: req.params.id }",
+          "update": "{ $set: update }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 131,
+          "operation": "deleteOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 245,
+          "operation": "updateOne",
+          "filter": "{ id: survey.id }",
+          "update": "{ $inc: { responsesCount: 1 } }",
+          "operators": [
+            "$inc"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "encuestas_respuestas": {
+      "read": [
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 165,
+          "operation": "findOne",
+          "filter": "{ surveyId: survey.id, classroomId: aulaId, usuarioId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 265,
+          "operation": "find",
+          "filter": "{ surveyId: survey.id, classroomId: aulaId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/estadisticas.ts",
+          "line": 120,
+          "operation": "count",
+          "filter": "participacionMatch",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 175,
+          "operation": "insertOne",
+          "filter": "{\n        surveyId: survey.id,\n        classroomId: aulaId,\n        usuarioId,\n        optionId,\n        createdAt: new Date().toISOString()\n      }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 209,
+          "operation": "insertOne",
+          "filter": "{\n        surveyId: survey.id,\n        classroomId: aulaId,\n        usuarioId,\n        scores: parsedScores,\n        createdAt: new Date().toISOString()\n      }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/encuestas.ts",
+          "line": 235,
+          "operation": "insertOne",
+          "filter": "{\n        surveyId: survey.id,\n        classroomId: aulaId,\n        usuarioId,\n        ranking,\n        createdAt: new Date().toISOString()\n      }",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "mensajes_reportados": {
+      "read": [
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 296,
+          "operation": "find",
+          "filter": "{ schoolId }",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ createdAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/moderacion.ts",
+          "line": 34,
+          "operation": "find",
+          "filter": "{}",
+          "skip": "Number.isNaN(offset) || offset < 0 ? 0 : offset",
+          "limit": "limit",
+          "sort": "{ createdAt: -1 }",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "enterprise_contratos": {
+      "read": [
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 315,
+          "operation": "find",
+          "filter": "{ schoolId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 336,
+          "operation": "find",
+          "filter": "{ schoolId }",
+          "sort": "{ createdAt: -1 }",
+          "limit": "1",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "enterprise_billing_cycles": {
+      "read": [
+        {
+          "file": "src/routes/payments.ts",
+          "line": 47,
+          "operation": "findOne",
+          "filter": "billingCycleObjectId ? { _id: billingCycleObjectId } : { _id: billingCycleId }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 364,
+          "operation": "insertOne",
+          "filter": "billingCycle",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "enterprise_reportes": {
+      "read": [
+        {
+          "file": "src/routes/enterprise.ts",
+          "line": 377,
+          "operation": "find",
+          "filter": "{ schoolId }",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "eventos_suscripciones": {
+      "read": [],
+      "write": [
+        {
+          "file": "src/routes/escuelas.ts",
+          "line": 109,
+          "operation": "insertOne",
+          "filter": "{\n        schoolId: escuela._id?.toString?.() ?? id,\n        previousPlan: escuela.plan ?? null,\n        newPlan: parsed.plan ?? escuela.plan ?? null,\n        previousStatus: escuela.subscriptionStatus ?? null,\n        newStatus: parsed.subscriptionStatus ?? escuela.subscriptionStatus ?? null,\n        previousPricePerStudent:\n          typeof escuela.pricePerStudent === \"number\" ? escuela.pricePerStudent : null,\n        newPricePerStudent:\n          typeof parsed.pricePerStudent === \"number\"\n            ? parsed.pricePerStudent\n            : typeof escuela.pricePerStudent === \"number\"\n              ? escuela.pricePerStudent\n              : null,\n        actorId: getRequesterId(req),\n        createdAt: new Date().toISOString()\n      }",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "progreso_modulos": {
+      "read": [
+        {
+          "file": "src/routes/estadisticas.ts",
+          "line": 71,
+          "operation": "aggregate",
+          "pipeline": "[\n      { $match: progresoMatch },\n      {\n        $group: {\n          _id: \"$moduloId\",\n          completadas: {\n            $sum: { $cond: [{ $eq: [\"$status\", \"completado\"] }, 1, 0] }\n          },\n          pendientes: {\n            $sum: { $cond: [{ $ne: [\"$status\", \"completado\"] }, 1, 0] }\n          },\n          tiempoPromedioMin: { $avg: { $ifNull: [\"$timeSpentMinutes\", 0] } },\n          scorePromedio: { $avg: { $ifNull: [\"$score\", 0] } },\n          scoreMax: { $max: { $ifNull: [\"$score\", 0] } },\n          scoreMin: { $min: { $ifNull: [\"$score\", 0] } }\n        }\n      },\n      { $sort: { completadas: -1 } }\n    ]",
+          "operators": [
+            "$avg",
+            "$cond",
+            "$eq",
+            "$group",
+            "$ifNull",
+            "$match",
+            "$max",
+            "$min",
+            "$moduloId",
+            "$ne",
+            "$score",
+            "$sort",
+            "$status",
+            "$sum",
+            "$timeSpentMinutes"
+          ]
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 132,
+          "operation": "find",
+          "filter": "progressFilter",
+          "operators": []
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 189,
+          "operation": "find",
+          "filter": "{ usuarioId: { $in: childIdStrings } }",
+          "operators": [
+            "$in"
+          ]
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 281,
+          "operation": "find",
+          "filter": "{ usuarioId: childId.toString() }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 287,
+          "operation": "find",
+          "filter": "{ usuarioId: rawHijoId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 304,
+          "operation": "find",
+          "filter": "{ usuarioId: rawHijoId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 512,
+          "operation": "aggregate",
+          "pipeline": "[\n      { $match: progresoMatch },\n      {\n        $group: {\n          _id: null,\n          actividades: { $sum: 1 },\n          completadas: {\n            $sum: { $cond: [{ $eq: [\"$status\", \"completado\"] }, 1, 0] }\n          },\n          promedioScore: { $avg: { $ifNull: [\"$score\", 0] } }\n        }\n      }\n    ]",
+          "operators": [
+            "$avg",
+            "$cond",
+            "$eq",
+            "$group",
+            "$ifNull",
+            "$match",
+            "$score",
+            "$status",
+            "$sum"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 529,
+          "operation": "aggregate",
+          "pipeline": "[\n      { $match: progresoMatch },\n      { $group: { _id: \"$usuarioId\" } },\n      { $count: \"total\" }\n    ]",
+          "operators": [
+            "$count",
+            "$group",
+            "$match",
+            "$usuarioId"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 538,
+          "operation": "aggregate",
+          "pipeline": "[\n      { $match: progresoMatch },\n      {\n        $group: {\n          _id: \"$usuarioId\",\n          promedioScore: { $avg: { $ifNull: [\"$score\", 0] } },\n          completadas: {\n            $sum: { $cond: [{ $eq: [\"$status\", \"completado\"] }, 1, 0] }\n          },\n          total: { $sum: 1 }\n        }\n      },\n      { $sort: { promedioScore: -1 } },\n      { $limit: 6 }\n    ]",
+          "operators": [
+            "$avg",
+            "$cond",
+            "$eq",
+            "$group",
+            "$ifNull",
+            "$limit",
+            "$match",
+            "$score",
+            "$sort",
+            "$status",
+            "$sum",
+            "$usuarioId"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 98,
+          "operation": "updateOne",
+          "filter": "filter",
+          "update": "{ $set: parsed }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 365,
+          "operation": "updateOne",
+          "filter": "filter",
+          "update": "{ $set: update }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "entregas": {
+      "read": [
+        {
+          "file": "src/routes/estadisticas.ts",
+          "line": 100,
+          "operation": "count",
+          "filter": "entregasMatch",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "notas_temas": {
+      "read": [
+        {
+          "file": "src/routes/estadisticas.ts",
+          "line": 109,
+          "operation": "aggregate",
+          "pipeline": "[\n      { $match: buildMatch(filters, \"createdAt\") },\n      { $group: { _id: \"$tema\", promedio: { $avg: \"$score\" } } },\n      { $sort: { promedio: -1 } }\n    ]",
+          "operators": [
+            "$avg",
+            "$group",
+            "$match",
+            "$score",
+            "$sort",
+            "$tema"
+          ]
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "accesos": {
+      "read": [
+        {
+          "file": "src/routes/estadisticas.ts",
+          "line": 118,
+          "operation": "count",
+          "filter": "participacionMatch",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "foros_respuestas": {
+      "read": [
+        {
+          "file": "src/routes/estadisticas.ts",
+          "line": 119,
+          "operation": "count",
+          "filter": "participacionMatch",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "participacion": {
+      "read": [
+        {
+          "file": "src/routes/estadisticas.ts",
+          "line": 122,
+          "operation": "aggregate",
+          "pipeline": "[\n      { $match: participacionMatch },\n      {\n        $group: {\n          _id: {\n            $dateToString: {\n              format: \"%Y-%m-%d\",\n              date: { $ifNull: [\"$createdAt\", new Date()] }\n            }\n          },\n          interacciones: { $sum: 1 }\n        }\n      },\n      { $sort: { _id: 1 } },\n      { $limit: 8 }\n    ]",
+          "operators": [
+            "$createdAt",
+            "$dateToString",
+            "$group",
+            "$ifNull",
+            "$limit",
+            "$match",
+            "$sort",
+            "$sum"
+          ]
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "quiz_attempts": {
+      "read": [
+        {
+          "file": "src/routes/estadisticas.ts",
+          "line": 241,
+          "operation": "aggregate",
+          "pipeline": "[\n      ...basePipeline,\n      {\n        $group: {\n          _id: null,\n          intentos: { $sum: 1 },\n          intentosEntregados: {\n            $sum: { $cond: [{ $in: [\"$status\", [\"submitted\", \"graded\"]] }, 1, 0] }\n          },\n          promedioScore: { $avg: { $ifNull: [\"$score\", 0] } },\n          promedioMaxScore: { $avg: { $ifNull: [\"$maxScore\", 0] } }\n        }\n      }\n    ]",
+          "operators": [
+            "$avg",
+            "$cond",
+            "$group",
+            "$ifNull",
+            "$in",
+            "$maxScore",
+            "$score",
+            "$status",
+            "$sum"
+          ]
+        },
+        {
+          "file": "src/routes/estadisticas.ts",
+          "line": 259,
+          "operation": "aggregate",
+          "pipeline": "[\n      ...basePipeline,\n      {\n        $group: {\n          _id: \"$quizId\",\n          intentos: { $sum: 1 },\n          promedioScore: { $avg: { $ifNull: [\"$score\", 0] } },\n          promedioMaxScore: { $avg: { $ifNull: [\"$maxScore\", 0] } }\n        }\n      },\n      { $sort: { intentos: -1 } }\n    ]",
+          "operators": [
+            "$avg",
+            "$group",
+            "$ifNull",
+            "$maxScore",
+            "$quizId",
+            "$score",
+            "$sort",
+            "$sum"
+          ]
+        },
+        {
+          "file": "src/routes/quiz-attempts.ts",
+          "line": 300,
+          "operation": "findOne",
+          "filter": "{ _id: attemptObjectId, userId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/quiz-attempts.ts",
+          "line": 345,
+          "operation": "findOne",
+          "filter": "{ _id: attemptObjectId, userId }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/quiz-attempts.ts",
+          "line": 273,
+          "operation": "insertOne",
+          "filter": "attempt",
+          "operators": []
+        },
+        {
+          "file": "src/routes/quiz-attempts.ts",
+          "line": 362,
+          "operation": "updateOne",
+          "filter": "{ _id: attemptObjectId }",
+          "update": "{\n          $set: {\n            answers: payload.answers,\n            feedback,\n            status: \"submitted\",\n            score,\n            maxScore,\n            quizVersion: normalizedQuizVersion,\n            updatedAt\n          }\n        }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": [
+        "moduleId",
+        "quizId",
+        "status",
+        "userId"
+      ]
+    },
+    "prompts": {
+      "read": [
+        {
+          "file": "src/routes/governance.ts",
+          "line": 42,
+          "operation": "find",
+          "filter": "{ targetType, targetId, status: \"ACTIVE\" }",
+          "sort": "{ createdAt: -1 }",
+          "operators": []
+        },
+        {
+          "file": "src/lib/governance.ts",
+          "line": 166,
+          "operation": "findOne",
+          "filter": "{ id: promptId }",
+          "operators": []
+        },
+        {
+          "file": "src/lib/governance.ts",
+          "line": 167,
+          "operation": "findOne",
+          "filter": "{\n          targetType: proposal.targetType,\n          targetId: proposal.targetId,\n          status: \"ACTIVE\"\n        }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/lib/governance.ts",
+          "line": 144,
+          "operation": "insertOne",
+          "filter": "{\n      id: promptId,\n      targetType: proposal.targetType,\n      targetId: proposal.targetId,\n      kind,\n      title,\n      bodyText,\n      paramsSchema,\n      status: \"ACTIVE\",\n      createdBy: proposal.createdBy,\n      createdAt: now,\n      source: \"GOVERNANCE\",\n      proposalId: proposal.id,\n      version: 1\n    }",
+          "operators": []
+        },
+        {
+          "file": "src/lib/governance.ts",
+          "line": 180,
+          "operation": "updateOne",
+          "filter": "{ id: String(existingPrompt.id) }",
+          "update": "{\n        $set: {\n          status: \"INACTIVE\",\n          supersededBy: nextId,\n          supersededAt: now\n        }\n      }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/lib/governance.ts",
+          "line": 193,
+          "operation": "insertOne",
+          "filter": "{\n      ...existingWithoutId,\n      id: nextId,\n      title:\n        typeof (updates as Record<string, unknown>).title === \"string\"\n          ? (updates as Record<string, string>).title\n          : existingPrompt.title,\n      bodyText:\n        typeof (updates as Record<string, unknown>).bodyText === \"string\"\n          ? (updates as Record<string, string>).bodyText\n          : existingPrompt.bodyText,\n      kind:\n        typeof (updates as Record<string, unknown>).kind === \"string\"\n          ? (updates as Record<string, string>).kind\n          : existingPrompt.kind,\n      paramsSchema:\n        (updates as Record<string, unknown>).paramsSchema &&\n        typeof (updates as Record<string, unknown>).paramsSchema === \"object\"\n          ? ((updates as Record<string, unknown>).paramsSchema as Record<string, unknown>)\n          : existingPrompt.paramsSchema,\n      status: \"ACTIVE\",\n      source: \"GOVERNANCE\",\n      proposalId: proposal.id,\n      previousVersionId: String(existingPrompt.id),\n      version: nextVersion,\n      createdAt: now,\n      createdBy: proposal.createdBy\n    }",
+          "operators": []
+        },
+        {
+          "file": "src/lib/governance.ts",
+          "line": 238,
+          "operation": "updateOne",
+          "filter": "{ id: promptId }",
+          "update": "{\n        $set: {\n          status: nextStatus,\n          removedByProposalId: proposal.id,\n          removedAt: toIsoNow(),\n          source: \"GOVERNANCE\"\n        }\n      }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/lib/governance.ts",
+          "line": 311,
+          "operation": "updateOne",
+          "filter": "{ id: promptId }",
+          "update": "{ $set: { status } }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "proposals": {
+      "read": [
+        {
+          "file": "src/routes/governance.ts",
+          "line": 106,
+          "operation": "findOne",
+          "filter": "{ id: proposalId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/governance.ts",
+          "line": 138,
+          "operation": "findOne",
+          "filter": "{ id: proposalId }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/governance.ts",
+          "line": 95,
+          "operation": "insertOne",
+          "filter": "proposal",
+          "operators": []
+        },
+        {
+          "file": "src/routes/governance.ts",
+          "line": 186,
+          "operation": "updateOne",
+          "filter": "{ id: proposalId }",
+          "update": "{\n        $set: {\n          status: nextStatus,\n          closedAt: new Date().toISOString(),\n          closedBy: actorId,\n          voteSummary: summary,\n          applyResult,\n          closeRule: outcome.rule\n        }\n      }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "votes": {
+      "read": [
+        {
+          "file": "src/routes/governance.ts",
+          "line": 162,
+          "operation": "find",
+          "filter": "{ proposalId }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/governance.ts",
+          "line": 122,
+          "operation": "updateOne",
+          "filter": "{ proposalId, voterId: vote.voterId }",
+          "update": "{ $set: vote }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "libros": {
+      "read": [
+        {
+          "file": "src/routes/libros.ts",
+          "line": 81,
+          "operation": "count",
+          "filter": "filter",
+          "operators": []
+        },
+        {
+          "file": "src/routes/libros.ts",
+          "line": 84,
+          "operation": "find",
+          "filter": "filter",
+          "sort": "{ updatedAt: -1, createdAt: -1, id: 1 }",
+          "skip": "(currentPage - 1) * pageSize",
+          "limit": "pageSize",
+          "operators": []
+        },
+        {
+          "file": "src/routes/libros.ts",
+          "line": 108,
+          "operation": "findOne",
+          "filter": "{ id: req.params.id }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/libros.ts",
+          "line": 51,
+          "operation": "updateOne",
+          "filter": "{ id: parsed.id }",
+          "update": "{ $set: parsed }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": [
+        "id",
+        "title"
+      ]
+    },
+    "moderacion_eventos": {
+      "read": [],
+      "write": [
+        {
+          "file": "src/routes/moderacion.ts",
+          "line": 69,
+          "operation": "insertOne",
+          "filter": "event",
+          "operators": []
+        },
+        {
+          "file": "src/routes/moderacion.ts",
+          "line": 105,
+          "operation": "insertOne",
+          "filter": "event",
+          "operators": []
+        },
+        {
+          "file": "src/routes/publicaciones.ts",
+          "line": 123,
+          "operation": "insertOne",
+          "filter": "{\n      tipo: \"publicacion_creada\",\n      publicacionId: publication.id,\n      aulaId: publication.aulaId,\n      usuarioId: requesterId,\n      createdAt: now\n    }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/publicaciones.ts",
+          "line": 223,
+          "operation": "insertOne",
+          "filter": "{\n      tipo: \"comentario_creado\",\n      comentarioId: comment.id,\n      publicacionId: comment.publicacionId,\n      aulaId: comment.aulaId,\n      usuarioId: requesterId,\n      createdAt: now\n    }",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "vinculos_padre_hijo": {
+      "read": [
+        {
+          "file": "src/routes/padres.ts",
+          "line": 58,
+          "operation": "findOne",
+          "filter": "{\n    parentId: params.parentId,\n    childId: params.childId,\n    estado: { $ne: \"revocado\" }\n  }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/padres.ts",
+          "line": 84,
+          "operation": "findOne",
+          "filter": "{ parentId, childId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/padres.ts",
+          "line": 88,
+          "operation": "count",
+          "filter": "{\n      childId,\n      estado: { $ne: \"revocado\" },\n      ...(existing ? { _id: { $ne: existing._id } } : {})\n    }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 168,
+          "operation": "find",
+          "filter": "{ parentId, estado: { $ne: \"revocado\" } }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/progreso.ts",
+          "line": 271,
+          "operation": "findOne",
+          "filter": "{\n    parentId,\n    childId,\n    estado: { $ne: \"revocado\" }\n  }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 129,
+          "operation": "findOne",
+          "filter": "{\n    parentId,\n    childId,\n    estado: { $ne: \"revocado\" }\n  }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 152,
+          "operation": "findOne",
+          "filter": "{ parentId, childId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 157,
+          "operation": "count",
+          "filter": "{\n      childId,\n      estado: { $ne: \"revocado\" },\n      ...(existing ? { _id: { $ne: existing._id } } : {})\n    }",
+          "operators": [
+            "$ne"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 216,
+          "operation": "findOne",
+          "filter": "{ parentId, childId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 221,
+          "operation": "count",
+          "filter": "{\n      childId,\n      estado: { $ne: \"revocado\" },\n      ...(existing ? { _id: { $ne: existing._id } } : {})\n    }",
+          "operators": [
+            "$ne"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/padres.ts",
+          "line": 98,
+          "operation": "updateOne",
+          "filter": "{ _id: existing._id }",
+          "update": "{\n          $set: {\n            estado: existing.estado === \"aprobado\" ? \"aprobado\" : \"pendiente\",\n            solicitadoAt: existing.solicitadoAt ?? now,\n            updatedAt: now,\n            nombre: parsed.nombre,\n            usuario: parsed.usuario,\n            grado: parsed.grado,\n            escuela: parsed.escuela ?? null,\n            notas: parsed.notas ?? null,\n            permisos: {\n              tareas: parsed.permisosTareas,\n              mensajes: parsed.permisosMensajes\n            }\n          }\n        }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/padres.ts",
+          "line": 120,
+          "operation": "insertOne",
+          "filter": "{\n      parentId,\n      childId,\n      estado: minor ? \"aprobado\" : \"pendiente\",\n      solicitadoAt: now,\n      createdAt: now,\n      updatedAt: now,\n      nombre: parsed.nombre,\n      usuario: parsed.usuario,\n      grado: parsed.grado,\n      escuela: parsed.escuela ?? null,\n      notas: parsed.notas ?? null,\n      permisos: {\n        tareas: parsed.permisosTareas,\n        mensajes: parsed.permisosMensajes\n      }\n    }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/padres.ts",
+          "line": 175,
+          "operation": "updateOne",
+          "filter": "{ parentId, childId }",
+          "update": "{\n        $set: {\n          permisos: nextPermisos,\n          notas: parsed.notas ?? access.vinculo?.notas ?? null,\n          updatedAt: new Date()\n        }\n      }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 181,
+          "operation": "updateOne",
+          "filter": "{ _id: existing._id }",
+          "update": "{\n          $set: {\n            estado: existing.estado === \"aprobado\" ? \"aprobado\" : \"pendiente\",\n            solicitadoAt: existing.solicitadoAt ?? now,\n            updatedAt: now,\n            ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})\n          }\n        }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 194,
+          "operation": "insertOne",
+          "filter": "{\n      parentId,\n      childId,\n      estado: \"pendiente\",\n      solicitadoAt: now,\n      createdAt: now,\n      updatedAt: now,\n      ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})\n    }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 243,
+          "operation": "updateOne",
+          "filter": "{ parentId, childId, estado: { $ne: \"revocado\" } }",
+          "update": "{\n        $set: {\n          estado: \"aprobado\",\n          aprobadoAt: new Date(),\n          updatedAt: new Date(),\n          ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})\n        },\n        $setOnInsert: {\n          parentId,\n          childId,\n          solicitadoAt: new Date(),\n          createdAt: new Date(),\n          ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})\n        }\n      }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$ne",
+            "$set",
+            "$setOnInsert"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "pages": {
+      "read": [
+        {
+          "file": "src/routes/pages.ts",
+          "line": 30,
+          "operation": "findOne",
+          "filter": "{ _id: objectId }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/pages.ts",
+          "line": 15,
+          "operation": "insertOne",
+          "filter": "doc",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "invoices": {
+      "read": [
+        {
+          "file": "src/routes/payments.ts",
+          "line": 110,
+          "operation": "findOne",
+          "filter": "{ invoiceId: payload.invoiceId }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/payments.ts",
+          "line": 151,
+          "operation": "find",
+          "filter": "invoiceFilter",
+          "sort": "{ createdAt: -1 }",
+          "skip": "offset",
+          "limit": "limit",
+          "operators": []
+        },
+        {
+          "file": "src/lib/billing/delinquency.ts",
+          "line": 28,
+          "operation": "aggregate",
+          "pipeline": "[\n      { $match: { status: { $ne: \"PAID\" } } },\n      { $group: { _id: \"$schoolId\", oldestInvoiceAt: { $min: \"$createdAt\" } } }\n    ]",
+          "operators": [
+            "$createdAt",
+            "$group",
+            "$match",
+            "$min",
+            "$ne",
+            "$schoolId"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/payments.ts",
+          "line": 123,
+          "operation": "updateOne",
+          "filter": "{ invoiceId: payload.invoiceId }",
+          "update": "{ $set: { ...updates, status, updatedAt: new Date().toISOString() } }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/lib/payments/index.ts",
+          "line": 76,
+          "operation": "insertOne",
+          "filter": "invoice",
+          "operators": []
+        },
+        {
+          "file": "src/lib/payments/index.ts",
+          "line": 93,
+          "operation": "updateOne",
+          "filter": "{ invoiceId: invoice.invoiceId }",
+          "update": "{ $set: nextInvoice }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/lib/payments/index.ts",
+          "line": 122,
+          "operation": "updateOne",
+          "filter": "{ invoiceId: invoice.invoiceId }",
+          "update": "{ $set: { receiptId: receipt.receiptId, updatedAt: new Date().toISOString() } }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "receipts": {
+      "read": [
+        {
+          "file": "src/routes/payments.ts",
+          "line": 160,
+          "operation": "find",
+          "filter": "{ invoiceId: { $in: invoiceIds } }",
+          "operators": [
+            "$in"
+          ]
+        },
+        {
+          "file": "src/lib/payments/index.ts",
+          "line": 104,
+          "operation": "findOne",
+          "filter": "{ invoiceId: invoice.invoiceId }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/lib/payments/index.ts",
+          "line": 121,
+          "operation": "insertOne",
+          "filter": "receipt",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "asistencias": {
+      "read": [
+        {
+          "file": "src/routes/profesor.ts",
+          "line": 254,
+          "operation": "find",
+          "filter": "buildTeacherFilter(teacherId, [\"teacherId\", \"createdBy\"])",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "cursos": {
+      "read": [
+        {
+          "file": "src/routes/profesor.ts",
+          "line": 279,
+          "operation": "find",
+          "filter": "buildTeacherFilter(teacherId, [\"teacherId\", \"createdBy\"])",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "calificaciones": {
+      "read": [
+        {
+          "file": "src/routes/profesor.ts",
+          "line": 304,
+          "operation": "find",
+          "filter": "buildTeacherFilter(teacherId, [\"teacherId\", \"createdBy\"])",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "comentarios": {
+      "read": [
+        {
+          "file": "src/routes/publicaciones.ts",
+          "line": 167,
+          "operation": "find",
+          "filter": "{ aulaId: req.params.id, publicacionId: req.params.pubId, isDeleted: { $ne: true } }",
+          "sort": "{ createdAt: 1 }",
+          "operators": [
+            "$ne"
+          ]
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/publicaciones.ts",
+          "line": 222,
+          "operation": "insertOne",
+          "filter": "comment",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "quizzes": {
+      "read": [
+        {
+          "file": "src/routes/quiz-attempts.ts",
+          "line": 149,
+          "operation": "findOne",
+          "filter": "{ id: quizId }",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": [
+        "id"
+      ]
+    },
+    "quiz_versions": {
+      "read": [
+        {
+          "file": "src/routes/quiz-attempts.ts",
+          "line": 157,
+          "operation": "findOne",
+          "filter": "{ quizId, version: versionToUse }",
+          "operators": []
+        }
+      ],
+      "write": [],
+      "indexesReferenced": [
+        "quizId",
+        "version"
+      ]
+    },
+    "parent_invites": {
+      "read": [
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 54,
+          "operation": "findOne",
+          "filter": "{\n    parentId,\n    childId,\n    estado: { $ne: \"revocada\" }\n  }",
+          "operators": [
+            "$ne"
+          ]
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "eventos_reportes_padres": {
+      "read": [],
+      "write": [
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 80,
+          "operation": "insertOne",
+          "filter": "{\n    parentId: params.parentId,\n    childId: params.childId,\n    inviteId: params.inviteId,\n    overrideApprovedBy: params.overrideApprovedBy,\n    requestedBy: params.requestedBy,\n    createdAt: new Date()\n  }",
+          "operators": []
+        },
+        {
+          "file": "src/routes/reportes.ts",
+          "line": 97,
+          "operation": "insertOne",
+          "filter": "{\n    parentId: params.parentId,\n    childId: params.childId,\n    tipo: params.tipo,\n    acceso: params.acceso,\n    createdAt: new Date()\n  }",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "resource_links": {
+      "read": [
+        {
+          "file": "src/routes/resource-links.ts",
+          "line": 60,
+          "operation": "find",
+          "filter": "filter",
+          "sort": "{ updatedAt: -1 }",
+          "operators": []
+        }
+      ],
+      "write": [
+        {
+          "file": "src/routes/resource-links.ts",
+          "line": 105,
+          "operation": "insertOne",
+          "filter": "parsed",
+          "operators": []
+        },
+        {
+          "file": "src/routes/resource-links.ts",
+          "line": 152,
+          "operation": "updateOne",
+          "filter": "{ id: resourceLinkId, aulaId }",
+          "update": "{ $set: update }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/resource-links.ts",
+          "line": 201,
+          "operation": "updateOne",
+          "filter": "{ id: resourceLinkId, aulaId }",
+          "update": "{ $set: update }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/routes/resource-links.ts",
+          "line": 246,
+          "operation": "deleteOne",
+          "filter": "{ id: resourceLinkId, aulaId }",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "clases": {
+      "read": [
+        {
+          "file": "src/routes/usuarios.ts",
+          "line": 177,
+          "operation": "findOne",
+          "filter": "{\n      $and: [\n        { $or: adminClassCriteria },\n        {\n          members: {\n            $elemMatch: {\n              userId: { $in: memberUserIds },\n              roleInClass: { $in: [\"TEACHER\", \"STUDENT\"] }\n            }\n          }\n        }\n      ]\n    }",
+          "options": "{ projection: { _id: 1 } }",
+          "operators": [
+            "$and",
+            "$elemMatch",
+            "$in",
+            "$or"
+          ]
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "audit_logs": {
+      "read": [],
+      "write": [
+        {
+          "file": "src/lib/audit-log.ts",
+          "line": 29,
+          "operation": "insertOne",
+          "filter": "entry",
+          "operators": []
+        }
+      ],
+      "indexesReferenced": []
+    },
+    "membresias": {
+      "read": [
+        {
+          "file": "src/lib/governance.ts",
+          "line": 72,
+          "operation": "findOne",
+          "filter": "{\n    userId: actorId,\n    targetType,\n    targetId,\n    role: { $in: [\"owner\", \"admin\"] }\n  }",
+          "operators": [
+            "$in"
+          ]
+        }
+      ],
+      "write": [],
+      "indexesReferenced": []
+    },
+    "system_config": {
+      "read": [],
+      "write": [
+        {
+          "file": "src/lib/governance.ts",
+          "line": 263,
+          "operation": "updateOne",
+          "filter": "{ id: proposal.targetId || \"critical\" }",
+          "update": "{\n          $set: {\n            ...(patch as Record<string, unknown>),\n            updatedAt: toIsoNow(),\n            updatedByProposalId: proposal.id\n          }\n        }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        },
+        {
+          "file": "src/lib/governance.ts",
+          "line": 277,
+          "operation": "updateOne",
+          "filter": "{ id: proposal.targetId || \"critical\" }",
+          "update": "{\n        $set: {\n          [key]: value,\n          updatedAt: toIsoNow(),\n          updatedByProposalId: proposal.id\n        }\n      }",
+          "options": "{ upsert: true }",
+          "operators": [
+            "$set"
+          ]
+        }
+      ],
+      "indexesReferenced": []
+    }
+  },
+  "generatedAt": "2026-02-22T05:51:30.807Z",
+  "scannedFiles": 59
+}

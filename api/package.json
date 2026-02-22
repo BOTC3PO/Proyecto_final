@@ -13,7 +13,8 @@
     "admin:ensure-runtime": "ts-node --transpile-only scripts/ensure_admin_runtime.ts",
     "password:diagnose": "ts-node --transpile-only scripts/password_hash_diagnostics.ts",
     "auth:health": "ts-node --transpile-only scripts/auth_health_check.ts",
-    "maps:index": "ts-node --transpile-only scripts/index_maps_to_sqlite.ts"
+    "maps:index": "ts-node --transpile-only scripts/index_maps_to_sqlite.ts",
+    "db:inventory": "ts-node --transpile-only scripts/analyze-db-usage.ts"
   },
   "dependencies": {
     "cors": "2.8.5",
