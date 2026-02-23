@@ -41,19 +41,17 @@ import { readonlyRouter } from "./routes/readonly";
 import { registro } from "./routes/registro";
 import { mapsRouter } from "./routes/maps";
 import { requireUser } from "./lib/user-auth";
-import { getDb } from "./lib/db";
+import { openSqlite } from "./lib/db";
 
-const runStartupDataChecks = async () => {
+const runStartupDataChecks = () => {
   try {
-    const db = await getDb();
-    const usuarios = db.collection("usuarios");
-    const totalUsers = usuarios.estimatedDocumentCount();
-    const totalAdmins = usuarios.countDocuments({ role: "ADMIN", isDeleted: { $ne: true } });
-
+    const sqlite = openSqlite();
+    const totalUsers = (sqlite.prepare("SELECT COUNT(*) AS c FROM usuarios").get() as { c: number }).c;
     if (totalUsers === 0) {
       console.warn("[startup-check] La DB no tiene usuarios. Ejecutá el seed inicial.");
       return;
     }
+    const totalAdmins = (sqlite.prepare("SELECT COUNT(*) AS c FROM usuarios WHERE role = ? AND is_deleted = 0").get("ADMIN") as { c: number }).c;
     if (totalAdmins === 0) {
       console.warn("[startup-check] La DB tiene usuarios pero ningún ADMIN activo.");
     }
@@ -150,7 +148,7 @@ const bootstrap = async () => {
     console.log(`API on http://localhost:${ENV.PORT}`);
   });
   scheduleDelinquencyJob();
-  await runStartupDataChecks();
+  runStartupDataChecks();
   await markUsersWithoutUsablePasswordForReset({
     actorId: "system",
     reason: "startup-password-hash-migration"

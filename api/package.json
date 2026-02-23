@@ -6,6 +6,8 @@
     "dev": "nodemon",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
+    "db:sqlite:migrate": "ts-node --transpile-only src/db/sqliteMigrate.ts",
+    "db:seed": "ts-node --transpile-only src/db/sqliteSeed.ts",
     "validate:economia": "node scripts/validarEconomia.js",
     "dict:smoke": "ts-node --transpile-only scripts/dict_smoke_test.ts",
     "dict:explain": "ts-node --transpile-only scripts/explain_plan.ts",
