@@ -13,7 +13,7 @@ type Param = string | number | null;
 
 let _sqlite: InstanceType<typeof Database> | null = null;
 
-function openSqlite(): InstanceType<typeof Database> {
+export function openSqlite(): InstanceType<typeof Database> {
   if (_sqlite) return _sqlite;
   const dbPath = path.isAbsolute(ENV.SQLITE_PATH)
     ? ENV.SQLITE_PATH
