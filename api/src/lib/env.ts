@@ -7,10 +7,8 @@ const parseBool = (value: string | undefined, fallback: boolean) => {
 export const ENV = {
   NODE_ENV: process.env.NODE_ENV ?? "development",
   PORT: Number(process.env.PORT ?? 5050),
-  DB_KIND: (process.env.DB_KIND ?? "mongo").toLowerCase(),
-  MONGO_URI: process.env.MONGO_URI ?? "mongodb://localhost:27017",
-  DB_NAME: process.env.DB_NAME ?? "educational_platform",
-  SQLITE_PATH: process.env.SQLITE_PATH ?? "./data/diccionario.sqlite",
+  DB_KIND: (process.env.DB_KIND ?? "sqlite").toLowerCase(),
+  SQLITE_PATH: process.env.SQLITE_PATH ?? "./data/core.sqlite",
   SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, true),
   SQLITE_CACHE_KB: Number(process.env.SQLITE_CACHE_KB ?? 65536),
   CORS_ORIGIN: (process.env.CORS_ORIGIN ?? "http://localhost:5173").split(","),

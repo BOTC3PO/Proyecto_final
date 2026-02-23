@@ -1,6 +1,6 @@
 import express, { Router } from "express";
-import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
+import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { assertClassroomWritable } from "../lib/classroom";
 import { requireUser } from "../lib/user-auth";
@@ -132,7 +132,7 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
         ? req.body.id
         : req.body?._id
           ? req.body._id.toString()
-          : new ObjectId().toString();
+          : generateId();
     const payload = {
       ...req.body,
       id: moduleId,

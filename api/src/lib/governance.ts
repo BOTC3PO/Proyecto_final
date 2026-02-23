@@ -1,5 +1,5 @@
 import { randomUUID } from "crypto";
-import { Db } from "mongodb";
+import type { Db } from "./db";
 import { z } from "zod";
 import { ENV } from "./env";
 import {

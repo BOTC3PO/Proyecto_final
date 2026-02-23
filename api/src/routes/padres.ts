@@ -148,7 +148,7 @@ padres.get("/api/padres/hijos/:id/limites", requireUser, async (req, res) => {
   if (!childId) return res.status(400).json({ error: "invalid child id" });
   const access = await ensureParentAccess({ parentId, childId });
   if (!access.ok) return res.status(access.status).json({ error: access.error });
-  const permisos = access.vinculo?.permisos ?? {};
+  const permisos = (access.vinculo?.permisos ?? {}) as { tareas?: boolean; mensajes?: boolean };
   res.json({
     permisosTareas: permisos.tareas ?? true,
     permisosMensajes: permisos.mensajes ?? true,
@@ -168,8 +168,8 @@ padres.patch("/api/padres/hijos/:id/limites", requireUser, ...bodyLimitMB(1), as
     if (!access.ok) return res.status(access.status).json({ error: access.error });
     const currentPermisos = access.vinculo?.permisos ?? {};
     const nextPermisos = {
-      tareas: parsed.permisosTareas ?? currentPermisos.tareas ?? true,
-      mensajes: parsed.permisosMensajes ?? currentPermisos.mensajes ?? true
+      tareas: parsed.permisosTareas ?? (currentPermisos as { tareas?: boolean }).tareas ?? true,
+      mensajes: parsed.permisosMensajes ?? (currentPermisos as { mensajes?: boolean }).mensajes ?? true
     };
     const db = await getDb();
     await db.collection("vinculos_padre_hijo").updateOne(

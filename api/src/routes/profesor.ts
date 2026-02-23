@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { requireUser } from "../lib/user-auth";
 
@@ -36,7 +35,7 @@ type ModuloDocente = {
 };
 
 type CursoDocente = {
-  _id?: ObjectId | string;
+  _id?: string;
   id?: string;
   name?: string;
   enrollments?: { userId?: string }[];
@@ -45,7 +44,7 @@ type CursoDocente = {
 };
 
 type AsistenciaDocente = {
-  _id?: ObjectId | string;
+  _id?: string;
   id?: string;
   curso?: string;
   nombreCurso?: string;
@@ -56,7 +55,7 @@ type AsistenciaDocente = {
 };
 
 type CalificacionDocente = {
-  _id?: ObjectId | string;
+  _id?: string;
   id?: string;
   grupo?: string;
   curso?: string;
@@ -77,20 +76,16 @@ const getTeacherId = (user?: AuthUser) => {
 };
 
 const buildTeacherFilter = (teacherId: string, fields: string[]) => {
-  const values: Array<string | ObjectId> = [teacherId];
-  if (ObjectId.isValid(teacherId)) {
-    values.push(new ObjectId(teacherId));
-  }
+  const values: Array<string > = [teacherId];
   return {
     $or: fields.map((field) => ({ [field]: { $in: values } }))
   };
 };
 
-const getDocumentId = (doc?: { _id?: ObjectId | string; id?: string }) => {
+const getDocumentId = (doc?: { _id?: string; id?: string }) => {
   if (doc?.id) return doc.id;
   if (!doc?._id) return "";
-  if (typeof doc._id === "string") return doc._id;
-  return doc._id.toString();
+  return doc._id ?? "";
 };
 
 const getDisplayName = (user?: AuthUser) =>

@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { ObjectId } from "mongodb";
 import { z } from "zod";
 import { getDb } from "../lib/db";
 import { isStaffRole, requirePolicy } from "../lib/authorization";
@@ -36,14 +35,14 @@ const isMinor = (birthdate?: Date | null) => {
 };
 
 type ParentInvite = {
-  _id?: ObjectId;
+  _id?: string | null;
   parentId: ReturnType<typeof toObjectId>;
   childId: ReturnType<typeof toObjectId>;
   estado?: string;
   expiresAt?: Date;
   overrideParentLimit?: boolean;
-  overrideApprovedBy?: ObjectId | string;
-  createdBy?: ObjectId | string;
+  overrideApprovedBy?: string;
+  createdBy?: string;
 };
 
 const findParentInvite = async (
@@ -61,12 +60,12 @@ const findParentInvite = async (
   return invite;
 };
 
-const resolveOverrideApprovedBy = (invite: ParentInvite | null): ObjectId | null => {
+const resolveOverrideApprovedBy = (invite: ParentInvite | null): string | null | null => {
   if (!invite) return null;
   const candidate = invite.overrideApprovedBy ?? invite.createdBy ?? null;
   if (!candidate) return null;
   if (typeof candidate === "string") return toObjectId(candidate);
-  return candidate instanceof ObjectId ? candidate : null;
+  return null;
 };
 
 const logOverrideParentLimit = async (params: {
@@ -419,8 +418,7 @@ const parseLote = (query: Record<string, unknown>) => {
 
 const buildSchoolFilter = (schoolId?: string) => {
   if (!schoolId) return {};
-  const escuelaObjectId = toObjectId(schoolId);
-  return escuelaObjectId ? { escuelaId: escuelaObjectId } : { escuelaId: schoolId };
+  return { escuelaId: schoolId };
 };
 
 const buildAulaFilter = (filtros: ReporteFilters, schoolId?: string) => {
@@ -432,8 +430,8 @@ const buildAulaFilter = (filtros: ReporteFilters, schoolId?: string) => {
 const uniqueIds = (values: string[]) => Array.from(new Set(values.filter(Boolean)));
 
 const buildUserIdMatch = (values: string[]) => {
-  const objectIds = values.map((id) => toObjectId(id)).filter(Boolean);
-  const stringIds = values.filter((id) => !toObjectId(id));
+  const objectIds = values.filter(Boolean);
+  const stringIds: string[] = [];
   const matchParts: Record<string, unknown>[] = [];
   if (objectIds.length) matchParts.push({ _id: { $in: objectIds } });
   if (stringIds.length) matchParts.push({ _id: { $in: stringIds } });
@@ -469,7 +467,7 @@ const buildReporteData = async (
   const totalAulas = await db.collection("aulas").countDocuments(aulaFilter);
   const aulas = await db
     .collection("aulas")
-    .find(aulaFilter, { projection: { id: 1, name: 1, members: 1 } })
+    .find(aulaFilter).project({ id: 1, name: 1, members: 1 })
     .skip(pagination.offset)
     .limit(pagination.limit)
     .toArray();
@@ -559,10 +557,10 @@ const buildReporteData = async (
   );
   const boletines: Boletin[] = boletinesRaw.map((item) => {
     const usuario = usuariosMap.get(String(item._id));
-    const nombre = usuario?.fullName ?? usuario?.username ?? `Usuario ${String(item._id).slice(-6)}`;
-    const promedio = roundNumber(item.promedioScore ?? 0, 2);
-    const completadas = item.completadas ?? 0;
-    const total = item.total ?? 0;
+    const nombre = String(usuario?.fullName ?? usuario?.username ?? `Usuario ${String(item._id).slice(-6)}`);
+    const promedio = roundNumber((item.promedioScore as number) ?? 0, 2);
+    const completadas = (item.completadas as number) ?? 0;
+    const total = (item.total as number) ?? 0;
     return {
       estudiante: nombre,
       promedio,
@@ -571,11 +569,11 @@ const buildReporteData = async (
   });
 
   const resumen = progresoResumen[0];
-  const totalActividades = resumen?.actividades ?? 0;
-  const totalCompletadas = resumen?.completadas ?? 0;
-  const promedioGrupo = roundNumber(resumen?.promedioScore ?? 0, 2);
+  const totalActividades = (resumen?.actividades as number) ?? 0;
+  const totalCompletadas = (resumen?.completadas as number) ?? 0;
+  const promedioGrupo = roundNumber((resumen?.promedioScore as number) ?? 0, 2);
   const totalMiembros = scopedUsuarioIds.length;
-  const asistentes = usuariosConActividad[0]?.total ?? 0;
+  const asistentes = (usuariosConActividad[0]?.total as number) ?? 0;
   const asistenciaPromedio = totalMiembros ? roundNumber(asistentes / totalMiembros, 2) : 0;
 
   const configuracion: ReporteConfig = {
@@ -740,7 +738,7 @@ reportes.get(
     const totalAulas = await db.collection("aulas").countDocuments(aulaFilter);
     const aulas = await db
       .collection("aulas")
-      .find(aulaFilter, { projection: { id: 1 } })
+      .find(aulaFilter).project({ id: 1 })
       .skip(pagination.offset)
       .limit(pagination.limit)
       .toArray();
@@ -798,9 +796,9 @@ reportes.get(
 
     const credito = resumen.find((item) => item._id === "credito");
     const debito = resumen.find((item) => item._id === "debito");
-    const totalCreditos = roundNumber(credito?.total ?? 0, 2);
-    const totalDebitos = roundNumber(debito?.total ?? 0, 2);
-    const totalTransacciones = resumen.reduce((acc, item) => acc + (item.transacciones ?? 0), 0);
+    const totalCreditos = roundNumber((credito?.total as number) ?? 0, 2);
+    const totalDebitos = roundNumber((debito?.total as number) ?? 0, 2);
+    const totalTransacciones = resumen.reduce((acc, item) => acc + ((item.transacciones as number) ?? 0), 0);
     const totalUsuarios = (res.locals as { economiaTotalUsuarios?: number }).economiaTotalUsuarios ?? 0;
 
     res.json({
@@ -821,12 +819,12 @@ reportes.get(
       },
       detallePorTipo: resumen.map((item) => ({
         tipo: item._id,
-        total: roundNumber(item.total ?? 0, 2),
+        total: roundNumber((item.total as number) ?? 0, 2),
         transacciones: item.transacciones ?? 0
       })),
       topMotivos: detalleMotivos.map((item) => ({
         motivo: item._id,
-        total: roundNumber(item.total ?? 0, 2),
+        total: roundNumber((item.total as number) ?? 0, 2),
         transacciones: item.transacciones ?? 0
       })),
       generadoEn: new Date().toISOString()

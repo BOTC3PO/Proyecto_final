@@ -20,14 +20,7 @@ pages.post("/api/pages", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
 });
 pages.get("/api/pages/:id", async (req, res) => {
   const db = await getDb();
-  const { ObjectId } = await import("mongodb");
-  let objectId: InstanceType<typeof ObjectId>;
-  try {
-    objectId = new ObjectId(req.params.id);
-  } catch {
-    return res.status(400).json({ error: "invalid id" });
-  }
-  const page = await db.collection("pages").findOne({ _id: objectId });
+  const page = await db.collection("pages").findOne({ _id: req.params.id });
   if (!page) return res.status(404).json({ error: "not found" });
   res.json(page);
 });

@@ -1,5 +1,4 @@
 import express, { Router } from "express";
-import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
 import { fetchActiveStudentSummary } from "../lib/enterprise-billing";
@@ -34,9 +33,7 @@ const resolveSchoolId = (req: { user?: { schoolId?: string | null } }, res: any)
 };
 
 const buildSchoolFilters = (schoolId: string) => {
-  const escuelaObjectId = toObjectId(schoolId);
-  const escuelaFilter = escuelaObjectId ? { escuelaId: escuelaObjectId } : { escuelaId: schoolId };
-  return { escuelaFilter, escuelaObjectId };
+  return { escuelaFilter: { escuelaId: schoolId }, escuelaObjectId: schoolId };
 };
 
 enterprise.get("/api/enterprise/entitlements", requireUser, async (req, res) => {
@@ -205,8 +202,8 @@ enterprise.post(
       res.status(400).json({ error: "invalid adminId" });
       return;
     }
-    const isObjectId = (value: ReturnType<typeof toObjectId>): value is ObjectId => value !== null;
-    const teacherObjectIds = uniqueTeacherIds.map((id) => toObjectId(id)).filter(isObjectId);
+    const isValidId = (value: ReturnType<typeof toObjectId>): value is string => value !== null;
+    const teacherObjectIds = uniqueTeacherIds.map((id) => toObjectId(id)).filter(isValidId);
     if (teacherObjectIds.length !== uniqueTeacherIds.length) {
       res.status(400).json({ error: "invalid teacherId" });
       return;
@@ -219,7 +216,7 @@ enterprise.post(
       .project({ role: 1, escuelaId: 1 })
       .toArray();
     const usersById = new Map(users.map((user) => [user._id?.toString?.() ?? "", user]));
-    const adminUser = usersById.get(adminObjectId.toString());
+    const adminUser = usersById.get(adminObjectId);
     if (!adminUser) {
       res.status(400).json({ error: "admin not found" });
       return;
@@ -325,7 +322,7 @@ enterprise.get(
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
     const db = await getDb();
-    const escuelaObjectId = toObjectId(schoolId);
+    const escuelaObjectId = schoolId;
     if (!escuelaObjectId) {
       res.status(400).json({ error: "invalid schoolId" });
       return;

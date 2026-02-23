@@ -1,5 +1,4 @@
 import express, { Router } from "express";
-import type { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
 import {
   ENTERPRISE_FEATURES,
@@ -78,7 +77,7 @@ type QuizFeedback = {
 };
 
 type QuizAttemptRecord = {
-  _id: ObjectId;
+  _id: string;
   moduleId: string | null;
   quizId: string;
   quizVersion: number;

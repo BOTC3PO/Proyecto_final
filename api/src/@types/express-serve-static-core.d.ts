@@ -4,10 +4,7 @@ declare module "express-serve-static-core" {
   interface Request {
     rawBody?: Buffer;
     user?: {
-      _id?:
-        | string
-        | { toString(): string }
-        | import("mongodb").ObjectId;
+      _id?: string | { toString(): string };
       role?: string;
       schoolId?: string | null;
       [key: string]: unknown;

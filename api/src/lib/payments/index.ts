@@ -1,12 +1,12 @@
+import type { Db } from "../db";
 import { randomUUID, createHmac, timingSafeEqual } from "crypto";
-import type { Db, ObjectId } from "mongodb";
+
 
 export const PAYMENT_STATUSES = ["PENDING", "PAID", "FAILED"] as const;
 
 export type PaymentStatus = (typeof PAYMENT_STATUSES)[number];
 
 export type Invoice = {
-  _id?: ObjectId;
   invoiceId: string;
   schoolId: string;
   billingCycleId?: string | null;
@@ -22,7 +22,6 @@ export type Invoice = {
 };
 
 export type Receipt = {
-  _id?: ObjectId;
   receiptId: string;
   invoiceId: string;
   schoolId: string;

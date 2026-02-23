@@ -64,5 +64,5 @@ seed.post("/api/seed/modulos", requireAdmin, async (_req, res) => {
   }));
 
   const result = await db.collection("modulos").bulkWrite(operations);
-  res.status(201).json({ ok: true, upserted: result.upsertedCount, matched: result.matchedCount });
+  res.status(201).json({ ok: true, upserted: result.upsertedCount, matched: result.modifiedCount });
 });
