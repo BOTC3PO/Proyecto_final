@@ -2,6 +2,7 @@
 
 import type { Dificultad as DificultadCore } from "../core/types";
 import type { PRNG } from "../core/prng";
+import type { VisualSpec } from "../../visualizadores/types";
 import { parseMatematicasParams } from "./schemas";
 
 export type DificultadBasica = "facil" | "media" | "dificil";
@@ -21,6 +22,7 @@ export interface BaseExercise {
   generatorId?: string;
   generatorVersion?: number;
   tipo: "quiz"; // de momento solo quiz, luego podés ampliar
+  visual?: VisualSpec;
 }
 
 export interface QuizExercise extends BaseExercise {

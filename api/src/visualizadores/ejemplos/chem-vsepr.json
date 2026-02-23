@@ -1,0 +1,121 @@
+{
+  "id": "chem-vsepr",
+  "title": "Geometría molecular – VSEPR",
+  "description": "Modelos de geometría molecular según la teoría VSEPR para moléculas comunes del currículo.",
+  "spec": {
+    "kind": "chem-vsepr",
+    "title": "Geometría molecular – Teoría VSEPR",
+    "description": "La geometría de una molécula depende de los pares enlazantes y no enlazantes del átomo central.",
+    "geometries": [
+      {
+        "id": "lineal",
+        "label": "Lineal",
+        "expectedAngles": [180],
+        "description": "2 pares enlazantes, 0 no enlazantes. Ángulo de enlace 180°."
+      },
+      {
+        "id": "angular",
+        "label": "Angular",
+        "expectedAngles": [104.5],
+        "description": "2 pares enlazantes, 2 no enlazantes. Ángulo de enlace ~104.5°."
+      },
+      {
+        "id": "trigonal",
+        "label": "Trigonal planar",
+        "expectedAngles": [120],
+        "description": "3 pares enlazantes, 0 no enlazantes. Ángulo de enlace 120°."
+      },
+      {
+        "id": "tetraedrica",
+        "label": "Tetraédrica",
+        "expectedAngles": [109.5],
+        "description": "4 pares enlazantes, 0 no enlazantes. Ángulo de enlace 109.5°."
+      }
+    ],
+    "molecules": [
+      {
+        "id": "co2",
+        "name": "Dióxido de carbono (CO₂)",
+        "formula": "CO₂",
+        "geometry": "lineal",
+        "atoms": [
+          { "id": "o1",  "element": "O", "position": { "x": 80,  "y": 200 }, "role": "ligand",  "color": "#dc2626" },
+          { "id": "c1",  "element": "C", "position": { "x": 200, "y": 200 }, "role": "central", "color": "#374151" },
+          { "id": "o2",  "element": "O", "position": { "x": 320, "y": 200 }, "role": "ligand",  "color": "#dc2626" }
+        ],
+        "bonds": [
+          { "id": "b1", "fromId": "c1", "toId": "o1", "order": 2, "style": "doble" },
+          { "id": "b2", "fromId": "c1", "toId": "o2", "order": 2, "style": "doble" }
+        ],
+        "angles": [
+          { "id": "a1", "label": "∠OCO", "atomIds": ["o1", "c1", "o2"], "expectedAngle": 180, "description": "Geometría lineal – 180°" }
+        ],
+        "notes": "Molécula lineal, apolar a pesar de tener enlaces polares (simetría)"
+      },
+      {
+        "id": "h2o",
+        "name": "Agua (H₂O)",
+        "formula": "H₂O",
+        "geometry": "angular",
+        "atoms": [
+          { "id": "h1",  "element": "H", "position": { "x": 120, "y": 280 }, "role": "ligand",  "color": "#6b7280" },
+          { "id": "o1",  "element": "O", "position": { "x": 200, "y": 170 }, "role": "central", "color": "#dc2626" },
+          { "id": "h2",  "element": "H", "position": { "x": 280, "y": 280 }, "role": "ligand",  "color": "#6b7280" }
+        ],
+        "bonds": [
+          { "id": "b1", "fromId": "o1", "toId": "h1", "order": 1, "style": "simple" },
+          { "id": "b2", "fromId": "o1", "toId": "h2", "order": 1, "style": "simple" }
+        ],
+        "angles": [
+          { "id": "a1", "label": "∠HOH", "atomIds": ["h1", "o1", "h2"], "expectedAngle": 104.5, "description": "Geometría angular – 104.5° (2 pares no enlazantes en O)" }
+        ],
+        "notes": "Molécula polar. Los 2 pares solitarios del oxígeno comprimen el ángulo de enlace."
+      },
+      {
+        "id": "bf3",
+        "name": "Trifluoruro de boro (BF₃)",
+        "formula": "BF₃",
+        "geometry": "trigonal",
+        "atoms": [
+          { "id": "b1",  "element": "B", "position": { "x": 200, "y": 190 }, "role": "central", "color": "#f97316" },
+          { "id": "f1",  "element": "F", "position": { "x": 200, "y": 90  }, "role": "ligand",  "color": "#16a34a" },
+          { "id": "f2",  "element": "F", "position": { "x": 113, "y": 240 }, "role": "ligand",  "color": "#16a34a" },
+          { "id": "f3",  "element": "F", "position": { "x": 287, "y": 240 }, "role": "ligand",  "color": "#16a34a" }
+        ],
+        "bonds": [
+          { "id": "b1", "fromId": "b1", "toId": "f1", "order": 1, "style": "simple" },
+          { "id": "b2", "fromId": "b1", "toId": "f2", "order": 1, "style": "simple" },
+          { "id": "b3", "fromId": "b1", "toId": "f3", "order": 1, "style": "simple" }
+        ],
+        "angles": [
+          { "id": "a1", "label": "∠FBF", "atomIds": ["f1", "b1", "f2"], "expectedAngle": 120, "description": "Geometría trigonal planar – 120°" }
+        ],
+        "notes": "Trigonal planar. Sin pares solitarios en el átomo central."
+      },
+      {
+        "id": "ch4",
+        "name": "Metano (CH₄)",
+        "formula": "CH₄",
+        "geometry": "tetraedrica",
+        "atoms": [
+          { "id": "c1",  "element": "C", "position": { "x": 200, "y": 200 }, "role": "central", "color": "#374151" },
+          { "id": "h1",  "element": "H", "position": { "x": 200, "y": 100 }, "role": "ligand",  "color": "#6b7280" },
+          { "id": "h2",  "element": "H", "position": { "x": 130, "y": 270 }, "role": "ligand",  "color": "#6b7280" },
+          { "id": "h3",  "element": "H", "position": { "x": 270, "y": 270 }, "role": "ligand",  "color": "#6b7280" },
+          { "id": "h4",  "element": "H", "position": { "x": 260, "y": 140 }, "role": "ligand",  "color": "#6b7280" }
+        ],
+        "bonds": [
+          { "id": "b1", "fromId": "c1", "toId": "h1", "order": 1, "style": "simple" },
+          { "id": "b2", "fromId": "c1", "toId": "h2", "order": 1, "style": "simple" },
+          { "id": "b3", "fromId": "c1", "toId": "h3", "order": 1, "style": "simple" },
+          { "id": "b4", "fromId": "c1", "toId": "h4", "order": 1, "style": "simple" }
+        ],
+        "angles": [
+          { "id": "a1", "label": "∠HCH", "atomIds": ["h1", "c1", "h2"], "expectedAngle": 109.5, "description": "Geometría tetraédrica – 109.5°" }
+        ],
+        "notes": "Tetraédrica perfecta. 4 pares enlazantes, 0 solitarios."
+      }
+    ],
+    "defaultMoleculeId": "h2o"
+  }
+}

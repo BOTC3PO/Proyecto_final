@@ -1,0 +1,105 @@
+{
+  "id": "circuit",
+  "title": "Circuito eléctrico en serie",
+  "description": "Circuito con batería y resistencias en serie. Aplica Ley de Ohm y cálculo de potencia.",
+  "spec": {
+    "kind": "circuit",
+    "title": "Circuito en serie – Ley de Ohm",
+    "description": "Una batería de 12 V conectada a dos resistencias en serie de 4 Ω y 8 Ω.",
+    "nodes": [
+      { "id": "n1", "label": "A", "position": { "x": 0.1, "y": 0.5 } },
+      { "id": "n2", "label": "B", "position": { "x": 0.4, "y": 0.2 } },
+      { "id": "n3", "label": "C", "position": { "x": 0.7, "y": 0.2 } },
+      { "id": "n4", "label": "D", "position": { "x": 0.9, "y": 0.5 } },
+      { "id": "n5", "label": "E", "position": { "x": 0.7, "y": 0.8 } },
+      { "id": "n6", "label": "F", "position": { "x": 0.4, "y": 0.8 } }
+    ],
+    "components": [
+      {
+        "id": "bat1",
+        "type": "battery",
+        "label": "Batería",
+        "fromNodeId": "n1",
+        "toNodeId": "n2",
+        "value": 12,
+        "unit": "V"
+      },
+      {
+        "id": "r1",
+        "type": "resistor",
+        "label": "R₁",
+        "fromNodeId": "n2",
+        "toNodeId": "n3",
+        "value": 4,
+        "unit": "Ω"
+      },
+      {
+        "id": "w1",
+        "type": "wire",
+        "fromNodeId": "n3",
+        "toNodeId": "n4"
+      },
+      {
+        "id": "r2",
+        "type": "resistor",
+        "label": "R₂",
+        "fromNodeId": "n4",
+        "toNodeId": "n5",
+        "value": 8,
+        "unit": "Ω"
+      },
+      {
+        "id": "w2",
+        "type": "wire",
+        "fromNodeId": "n5",
+        "toNodeId": "n6"
+      },
+      {
+        "id": "w3",
+        "type": "wire",
+        "fromNodeId": "n6",
+        "toNodeId": "n1"
+      }
+    ],
+    "measurements": [
+      {
+        "id": "m1",
+        "type": "resistencia",
+        "value": 12,
+        "unit": "Ω",
+        "label": "Resistencia total (R₁+R₂)"
+      },
+      {
+        "id": "m2",
+        "type": "corriente",
+        "value": 1,
+        "unit": "A",
+        "label": "Corriente (I = V/R)"
+      },
+      {
+        "id": "m3",
+        "type": "voltaje",
+        "value": 4,
+        "unit": "V",
+        "label": "Caída en R₁",
+        "relatedComponentId": "r1"
+      },
+      {
+        "id": "m4",
+        "type": "voltaje",
+        "value": 8,
+        "unit": "V",
+        "label": "Caída en R₂",
+        "relatedComponentId": "r2"
+      },
+      {
+        "id": "m5",
+        "type": "potencia",
+        "value": 12,
+        "unit": "W",
+        "label": "Potencia total (P = V·I)"
+      }
+    ],
+    "layout": { "width": 520, "height": 260 }
+  }
+}

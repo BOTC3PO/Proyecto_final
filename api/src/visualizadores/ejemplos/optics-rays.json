@@ -1,0 +1,71 @@
+{
+  "id": "optics-rays",
+  "title": "Óptica geométrica – lente convergente",
+  "description": "Diagrama de rayos para una lente convergente. Muestra la formación de imagen real e invertida.",
+  "spec": {
+    "kind": "optics-rays",
+    "title": "Lente convergente – formación de imagen",
+    "description": "Objeto a 30 cm de una lente con f=20 cm. Imagen real, invertida y ampliada a 60 cm.",
+    "layout": {
+      "xRange": { "min": -80, "max": 120 },
+      "yRange": { "min": -60, "max": 60 }
+    },
+    "element": {
+      "type": "lente-convergente",
+      "positionX": 0,
+      "height": 100,
+      "label": "Lente (f=20 cm)"
+    },
+    "object": {
+      "position": { "x": -30, "y": 0 },
+      "height": 20,
+      "label": "Objeto"
+    },
+    "image": {
+      "position": { "x": 60, "y": 0 },
+      "height": -40,
+      "label": "Imagen",
+      "virtual": false
+    },
+    "focalPoints": {
+      "left":  { "x": -20, "label": "F'" },
+      "right": { "x": 20,  "label": "F" }
+    },
+    "rays": [
+      {
+        "id": "r1",
+        "label": "Rayo paralelo al eje",
+        "kind": "paralelo",
+        "color": "#2563eb",
+        "points": [
+          { "x": -30, "y": 20 },
+          { "x": 0,   "y": 20 },
+          { "x": 60,  "y": -40 }
+        ]
+      },
+      {
+        "id": "r2",
+        "label": "Rayo por el centro óptico",
+        "kind": "centro",
+        "color": "#16a34a",
+        "points": [
+          { "x": -30, "y": 20 },
+          { "x": 0,   "y": 0  },
+          { "x": 60,  "y": -40 }
+        ]
+      },
+      {
+        "id": "r3",
+        "label": "Rayo por el foco objeto",
+        "kind": "focal",
+        "color": "#f97316",
+        "points": [
+          { "x": -30, "y": 20 },
+          { "x": -20, "y": 8  },
+          { "x": 0,   "y": -6 },
+          { "x": 60,  "y": -40 }
+        ]
+      }
+    ]
+  }
+}

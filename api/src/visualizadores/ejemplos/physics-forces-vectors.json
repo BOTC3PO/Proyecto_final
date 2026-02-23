@@ -1,0 +1,57 @@
+{
+  "id": "physics-forces-vectors",
+  "title": "Diagrama de fuerzas – plano inclinado",
+  "description": "Vectores de fuerza sobre un bloque en un plano inclinado: peso, normal, rozamiento y resultante.",
+  "spec": {
+    "kind": "physics-forces-vectors",
+    "title": "Fuerzas sobre un bloque en plano inclinado (θ = 30°)",
+    "description": "Bloque de 5 kg sobre un plano inclinado 30°. Se muestran todas las fuerzas que actúan sobre él.",
+    "unit": "N",
+    "body": {
+      "label": "Bloque 5 kg",
+      "shape": "rect",
+      "width": 50,
+      "height": 30,
+      "color": "#94a3b8"
+    },
+    "vectors": [
+      {
+        "id": "peso",
+        "label": "Peso (P)",
+        "magnitude": 49,
+        "angleDeg": 270,
+        "color": "#dc2626",
+        "showComponents": true,
+        "componentLabels": { "x": "P·sin30°=24.5N", "y": "P·cos30°=42.4N" }
+      },
+      {
+        "id": "normal",
+        "label": "Normal (N)",
+        "magnitude": 42.4,
+        "angleDeg": 60,
+        "color": "#16a34a",
+        "showComponents": false
+      },
+      {
+        "id": "rozamiento",
+        "label": "Rozamiento (f)",
+        "magnitude": 12.3,
+        "angleDeg": 150,
+        "color": "#9333ea",
+        "showComponents": false
+      },
+      {
+        "id": "resultante",
+        "label": "Resultante",
+        "magnitude": 12.2,
+        "angleDeg": 330,
+        "color": "#f97316",
+        "showComponents": false
+      }
+    ],
+    "options": {
+      "showComponents": true,
+      "showAxes": true
+    }
+  }
+}

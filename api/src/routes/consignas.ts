@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
+import { getDb } from "../lib/db";
 
 const router = Router();
 
@@ -21,6 +22,16 @@ type ConsignaWrapper = {
   limits: unknown | null;
   enunciado: unknown | null;
   meta: Record<string, unknown> | null;
+};
+
+type GeneradorAdminOverride = {
+  subject: Subject;
+  topic: string;
+  status: "ACTIVE" | "INACTIVE";
+  enunciado?: unknown;
+  limits?: unknown;
+  createdAt?: string;
+  updatedAt?: string;
 };
 
 const TEMA_REGEX = /^\d{2}_[A-Za-z0-9_]+$/;
@@ -66,22 +77,77 @@ const sortTopics = (a: string, b: string): number => {
   return a.localeCompare(b);
 };
 
+const getDbOverridesForSubject = async (subject: Subject): Promise<GeneradorAdminOverride[]> => {
+  try {
+    const db = await getDb();
+    return (await db.collection("generadores_admin").find({ subject }).toArray()) as GeneradorAdminOverride[];
+  } catch {
+    return [];
+  }
+};
+
+const getDbOverrideForTopic = async (subject: Subject, topic: string): Promise<GeneradorAdminOverride | null> => {
+  try {
+    const db = await getDb();
+    return (await db.collection("generadores_admin").findOne({ subject, topic })) as GeneradorAdminOverride | null;
+  } catch {
+    return null;
+  }
+};
+
 export const listTopicsFromFilesystem = async (subject: Subject): Promise<string[]> => {
   const root = SUBJECT_ROOTS[subject];
   const entries = await readdir(root, { withFileTypes: true });
-  const temas: string[] = [];
+  const fsTemas: string[] = [];
 
   for (const entry of entries) {
     if (!entry.isDirectory() || !isTemaSafe(entry.name)) continue;
     const temaPath = resolveTemaPath(subject, entry.name);
     if (!temaPath) continue;
-    if (await hasKnownDataFile(temaPath)) temas.push(entry.name);
+    if (await hasKnownDataFile(temaPath)) fsTemas.push(entry.name);
   }
 
-  return temas.sort(sortTopics);
+  // Merge with DB overrides
+  const overrides = await getDbOverridesForSubject(subject);
+  const inactiveTopics = new Set(
+    overrides.filter((o) => o.status === "INACTIVE").map((o) => o.topic)
+  );
+  const dbOnlyTopics = overrides
+    .filter((o) => o.status === "ACTIVE" && !fsTemas.includes(o.topic) && isTemaSafe(o.topic))
+    .map((o) => o.topic);
+
+  const filteredFilesystem = fsTemas.filter((t) => !inactiveTopics.has(t));
+  return [...filteredFilesystem, ...dbOnlyTopics].sort(sortTopics);
 };
 
 const buildWrapper = async (subject: Subject, tema: string): Promise<ConsignaWrapper | null> => {
+  // Check DB override first
+  const override = await getDbOverrideForTopic(subject, tema);
+
+  if (override) {
+    // If deactivated, treat as not found
+    if (override.status === "INACTIVE") return null;
+
+    // If DB has content override, use it (falling back to filesystem for missing parts)
+    if (override.enunciado !== undefined || override.limits !== undefined) {
+      const temaPath = resolveTemaPath(subject, tema);
+      const fsEnunciado = temaPath
+        ? (await readJsonIfExists(path.join(temaPath, "enunciado.json"))) ??
+          (await readJsonIfExists(path.join(temaPath, "enunciados.json")))
+        : null;
+      const fsLimits = temaPath ? await readJsonIfExists(path.join(temaPath, "limits.json")) : null;
+
+      return {
+        topic: tema,
+        subject,
+        limits: override.limits !== undefined ? override.limits : fsLimits,
+        enunciado: override.enunciado !== undefined ? override.enunciado : fsEnunciado,
+        meta: null,
+      };
+    }
+  }
+
+  // Fall back to filesystem
   const temaPath = resolveTemaPath(subject, tema);
   if (!temaPath) return null;
   if (!(await hasKnownDataFile(temaPath))) return null;
