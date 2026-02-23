@@ -48,10 +48,12 @@ const runStartupDataChecks = () => {
     const sqlite = openSqlite();
     const totalUsers = (sqlite.prepare("SELECT COUNT(*) AS c FROM usuarios").get() as { c: number }).c;
     if (totalUsers === 0) {
-      console.warn("[startup-check] La DB no tiene usuarios. Ejecutá el seed inicial.");
+      console.warn("[startup-check] La DB no tiene usuarios. Ejecutá 'npm run db:init' para inicializar.");
       return;
     }
-    const totalAdmins = (sqlite.prepare("SELECT COUNT(*) AS c FROM usuarios WHERE role = ? AND is_deleted = 0").get("ADMIN") as { c: number }).c;
+    const totalAdmins = (sqlite.prepare(
+      "SELECT COUNT(*) AS c FROM usuarios WHERE json_extract(doc, '$.role') = ? AND (json_extract(doc, '$.isDeleted') IS NULL OR json_extract(doc, '$.isDeleted') = 0)"
+    ).get("ADMIN") as { c: number }).c;
     if (totalAdmins === 0) {
       console.warn("[startup-check] La DB tiene usuarios pero ningún ADMIN activo.");
     }

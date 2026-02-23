@@ -130,7 +130,7 @@ export function runMigrations(dbPath: string): void {
 if (require.main === module) {
   const dbPath =
     process.env.SQLITE_PATH ??
-    path.resolve(process.cwd(), "data", "core.db");
+    path.resolve(process.cwd(), "data", "core.sqlite");
 
   runMigrations(dbPath);
 }
