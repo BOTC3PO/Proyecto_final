@@ -59,3 +59,4 @@ coverage/
 
 # === Git merge conflict backups ===
 *.orig
+CLAUDE.MD
