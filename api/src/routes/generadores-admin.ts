@@ -8,7 +8,8 @@ export const generadoresAdmin = Router();
 
 const VALID_SUBJECTS = new Set<string>(SUBJECTS);
 
-const isValidSubject = (s: string): s is Subject => VALID_SUBJECTS.has(s);
+const isValidSubject = (s: string | string[]): s is Subject =>
+  typeof s === "string" && VALID_SUBJECTS.has(s);
 
 /**
  * GET /api/admin/generadores
