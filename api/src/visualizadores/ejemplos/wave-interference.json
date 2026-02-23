@@ -1,0 +1,42 @@
+{
+  "id": "wave-interference",
+  "title": "Interferencia de ondas",
+  "description": "Superposición de dos ondas sinusoidales con diferente frecuencia. Muestra interferencia constructiva y destructiva.",
+  "spec": {
+    "kind": "wave-interference",
+    "title": "Superposición de ondas sonoras",
+    "description": "Dos ondas de distinta frecuencia se suman para producir el fenómeno de batido.",
+    "axes": {
+      "x": { "label": "Tiempo", "unit": "s", "min": 0, "max": 6.28 },
+      "y": { "label": "Amplitud", "unit": "m", "min": -2.5, "max": 2.5 }
+    },
+    "samples": 200,
+    "waves": [
+      {
+        "id": "onda1",
+        "label": "Onda 1 (f=1 Hz)",
+        "amplitude": 1.0,
+        "frequency": 1.0,
+        "phase": 0,
+        "color": "#2563eb"
+      },
+      {
+        "id": "onda2",
+        "label": "Onda 2 (f=1.2 Hz)",
+        "amplitude": 1.0,
+        "frequency": 1.2,
+        "phase": 0,
+        "color": "#16a34a"
+      }
+    ],
+    "superposition": {
+      "enabled": true,
+      "label": "Superposición (A₁+A₂)",
+      "color": "#dc2626"
+    },
+    "animation": {
+      "enabled": false,
+      "speed": 1
+    }
+  }
+}

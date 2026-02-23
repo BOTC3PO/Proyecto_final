@@ -1,0 +1,37 @@
+{
+  "id": "field-lines",
+  "title": "Líneas de campo eléctrico",
+  "description": "Campo eléctrico generado por dos cargas opuestas (dipolo). Las líneas van de la carga positiva a la negativa.",
+  "spec": {
+    "kind": "field-lines",
+    "title": "Campo eléctrico – dipolo de cargas",
+    "description": "Distribución de líneas de campo entre una carga positiva (+q) y una negativa (−q).",
+    "sources": [
+      {
+        "id": "carga-pos",
+        "type": "carga",
+        "magnitude": 1,
+        "polarity": "positiva",
+        "label": "+q",
+        "position": { "x": 150, "y": 200 }
+      },
+      {
+        "id": "carga-neg",
+        "type": "carga",
+        "magnitude": 1,
+        "polarity": "negativa",
+        "label": "−q",
+        "position": { "x": 370, "y": 200 }
+      }
+    ],
+    "lines": [
+      { "id": "l1", "strength": 1, "points": [{"x":150,"y":170},{"x":200,"y":150},{"x":260,"y":148},{"x":320,"y":152},{"x":370,"y":170}] },
+      { "id": "l2", "strength": 1, "points": [{"x":150,"y":230},{"x":200,"y":250},{"x":260,"y":252},{"x":320,"y":248},{"x":370,"y":230}] },
+      { "id": "l3", "strength": 1, "points": [{"x":120,"y":200},{"x":100,"y":160},{"x":120,"y":100},{"x":200,"y":80},{"x":300,"y":85},{"x":380,"y":110},{"x":400,"y":160},{"x":420,"y":200}] },
+      { "id": "l4", "strength": 1, "points": [{"x":120,"y":200},{"x":100,"y":240},{"x":120,"y":300},{"x":200,"y":320},{"x":300,"y":315},{"x":380,"y":290},{"x":400,"y":240},{"x":420,"y":200}] },
+      { "id": "l5", "strength": 0.7, "points": [{"x":150,"y":185},{"x":190,"y":175},{"x":260,"y":172},{"x":330,"y":176},{"x":370,"y":185}] },
+      { "id": "l6", "strength": 0.7, "points": [{"x":150,"y":215},{"x":190,"y":225},{"x":260,"y":228},{"x":330,"y":224},{"x":370,"y":215}] }
+    ],
+    "layout": { "width": 520, "height": 400 }
+  }
+}

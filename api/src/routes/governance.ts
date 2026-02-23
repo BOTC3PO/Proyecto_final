@@ -70,6 +70,43 @@ governance.get("/api/prompts", async (req, res) => {
   }
 });
 
+governance.get("/api/proposals", async (req, res) => {
+  try {
+    const db = await getDb();
+    const statusFilter = typeof req.query.status === "string" ? req.query.status.toUpperCase() : "";
+    const targetType = typeof req.query.targetType === "string" ? req.query.targetType.trim() : "";
+    const targetId = typeof req.query.targetId === "string" ? req.query.targetId.trim() : "";
+
+    const filter: Record<string, unknown> = {};
+    if (statusFilter) filter.status = statusFilter;
+    if (targetType) filter.targetType = targetType;
+    if (targetId) filter.targetId = targetId;
+
+    const proposals = await db
+      .collection("proposals")
+      .find(filter)
+      .sort({ createdAt: -1 })
+      .limit(100)
+      .toArray();
+
+    return res.json({ items: proposals });
+  } catch (error: any) {
+    return res.status(500).json({ error: error?.message ?? "failed to list proposals" });
+  }
+});
+
+governance.get("/api/proposals/:id", async (req, res) => {
+  try {
+    const db = await getDb();
+    const proposalId = String(req.params.id ?? "").trim();
+    const proposal = await db.collection("proposals").findOne({ id: proposalId });
+    if (!proposal) return res.status(404).json({ error: "proposal not found" });
+    return res.json(proposal);
+  } catch (error: any) {
+    return res.status(500).json({ error: error?.message ?? "failed to get proposal" });
+  }
+});
+
 governance.post("/api/proposals", async (req, res) => {
   try {
     const db = await getDb();

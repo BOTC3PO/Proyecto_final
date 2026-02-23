@@ -312,6 +312,88 @@ export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDo
     return { applied: true };
   }
 
+  if (type === "SET_GENERATOR_STATUS") {
+    const subject = typeof payload.subject === "string" ? payload.subject.trim() : "";
+    const topic = typeof payload.topic === "string" ? payload.topic.trim() : "";
+    const status = typeof payload.status === "string" ? payload.status.toUpperCase().trim() : "";
+
+    if (!subject || !topic) return { applied: false, reason: "invalid SET_GENERATOR_STATUS payload: subject and topic required" };
+    if (!["ACTIVE", "INACTIVE"].includes(status)) return { applied: false, reason: "invalid SET_GENERATOR_STATUS payload: status must be ACTIVE or INACTIVE" };
+
+    await db.collection("generadores_admin").updateOne(
+      { subject, topic },
+      {
+        $set: {
+          subject,
+          topic,
+          status,
+          updatedAt: toIsoNow(),
+          updatedByProposalId: proposal.id,
+        }
+      },
+      { upsert: true }
+    );
+
+    return { applied: true, action: "SET_GENERATOR_STATUS", subject, topic, status };
+  }
+
+  if (type === "UPDATE_GENERATOR") {
+    const subject = typeof payload.subject === "string" ? payload.subject.trim() : "";
+    const topic = typeof payload.topic === "string" ? payload.topic.trim() : "";
+
+    if (!subject || !topic) return { applied: false, reason: "invalid UPDATE_GENERATOR payload: subject and topic required" };
+
+    const update: Record<string, unknown> = {
+      subject,
+      topic,
+      status: "ACTIVE",
+      updatedAt: toIsoNow(),
+      updatedByProposalId: proposal.id,
+    };
+
+    if (payload.enunciado !== undefined) update.enunciado = payload.enunciado;
+    if (payload.limits !== undefined) update.limits = payload.limits;
+
+    await db.collection("generadores_admin").updateOne(
+      { subject, topic },
+      {
+        $set: update,
+        $setOnInsert: { createdAt: toIsoNow() },
+      },
+      { upsert: true }
+    );
+
+    return { applied: true, action: "UPDATE_GENERATOR", subject, topic };
+  }
+
+  if (type === "CREATE_GENERATOR") {
+    const subject = typeof payload.subject === "string" ? payload.subject.trim() : "";
+    const topic = typeof payload.topic === "string" ? payload.topic.trim() : "";
+
+    if (!subject || !topic) return { applied: false, reason: "invalid CREATE_GENERATOR payload: subject and topic required" };
+    if (!payload.enunciado) return { applied: false, reason: "invalid CREATE_GENERATOR payload: enunciado is required" };
+
+    const now = toIsoNow();
+    await db.collection("generadores_admin").updateOne(
+      { subject, topic },
+      {
+        $set: {
+          subject,
+          topic,
+          enunciado: payload.enunciado,
+          limits: payload.limits ?? null,
+          status: "ACTIVE",
+          createdAt: now,
+          updatedAt: now,
+          createdByProposalId: proposal.id,
+        }
+      },
+      { upsert: true }
+    );
+
+    return { applied: true, action: "CREATE_GENERATOR", subject, topic };
+  }
+
   return {
     applied: false,
     reason: `unsupported proposalType: ${proposal.proposalType}`

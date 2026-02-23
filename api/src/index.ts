@@ -31,6 +31,7 @@ import { payments } from "./routes/payments";
 import { padres } from "./routes/padres";
 import { governance } from "./routes/governance";
 import { consignas } from "./routes/consignas";
+import { generadoresAdmin } from "./routes/generadores-admin";
 import { visualizadoresRouter } from "./routes/visualizadores";
 import { createRateLimiter } from "./lib/rate-limit";
 import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
@@ -119,6 +120,7 @@ app.use(resourceLinks);
 app.use(payments);
 app.use(padres);
 app.use(governance);
+app.use(generadoresAdmin);
 app.use(readonlyRouter);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {

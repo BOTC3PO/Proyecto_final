@@ -1,0 +1,60 @@
+{
+  "id": "energy-chart",
+  "title": "Energía mecánica – conservación",
+  "description": "Gráfica de energía cinética, potencial y total durante caída libre. Ilustra conservación de la energía mecánica.",
+  "spec": {
+    "kind": "energy-chart",
+    "title": "Conservación de la energía mecánica",
+    "description": "Pelota de 2 kg lanzada desde 20 m de altura. La energía total se conserva (sin rozamiento).",
+    "axes": {
+      "x": { "variable": "posicion", "label": "Altura", "unit": "m" },
+      "y": { "label": "Energía", "unit": "J" }
+    },
+    "series": [
+      {
+        "id": "ep",
+        "label": "Energía Potencial (Ep)",
+        "energyType": "Ep",
+        "color": "#16a34a",
+        "data": [
+          { "x": 0,  "y": 0   },
+          { "x": 5,  "y": 98  },
+          { "x": 10, "y": 196 },
+          { "x": 15, "y": 294 },
+          { "x": 20, "y": 392 }
+        ]
+      },
+      {
+        "id": "ec",
+        "label": "Energía Cinética (Ec)",
+        "energyType": "Ec",
+        "color": "#2563eb",
+        "data": [
+          { "x": 0,  "y": 392 },
+          { "x": 5,  "y": 294 },
+          { "x": 10, "y": 196 },
+          { "x": 15, "y": 98  },
+          { "x": 20, "y": 0   }
+        ]
+      },
+      {
+        "id": "etotal",
+        "label": "Energía Total (Em)",
+        "energyType": "Etotal",
+        "color": "#dc2626",
+        "data": [
+          { "x": 0,  "y": 392 },
+          { "x": 5,  "y": 392 },
+          { "x": 10, "y": 392 },
+          { "x": 15, "y": 392 },
+          { "x": 20, "y": 392 }
+        ]
+      }
+    ],
+    "totalSeriesId": "etotal",
+    "conservation": {
+      "tolerance": 0.01,
+      "note": "Em = Ep + Ec = constante = 392 J (m=2 kg, h=20 m, g=9.8 m/s²)"
+    }
+  }
+}
