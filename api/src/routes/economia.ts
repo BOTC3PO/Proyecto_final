@@ -821,7 +821,7 @@ economia.post(
               { $group: { _id: null, total: { $sum: "$monto" } } }
             ])
             .toArray();
-          const emisionActual = totalEmision[0]?.total ?? 0;
+          const emisionActual = (totalEmision[0]?.total ?? 0) as number;
           if (emisionActual + parsed.monto > limites.emisionDiaria) {
             return res.status(400).json({ error: "limite de emision diaria excedido" });
           }
@@ -839,7 +839,7 @@ economia.post(
               { $group: { _id: null, total: { $sum: "$monto" } } }
             ])
             .toArray();
-          const recompensaActual = totalUsuario[0]?.total ?? 0;
+          const recompensaActual = (totalUsuario[0]?.total ?? 0) as number;
           if (recompensaActual + parsed.monto > limites.recompensaDiaria) {
             return res.status(400).json({ error: "limite de recompensa diaria excedido" });
           }
@@ -1385,7 +1385,7 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
         { $group: { _id: null, total: { $sum: "$puntos" } } }
       ])
       .toArray();
-    const totalActual = existing[0]?.total ?? 0;
+    const totalActual = (existing[0]?.total ?? 0) as number;
     if (totalActual + parsed.puntos > (examen.maxCompra ?? Infinity)) {
       return res.status(400).json({ error: "limite de compra excedido" });
     }
