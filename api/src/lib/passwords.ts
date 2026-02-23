@@ -6,9 +6,10 @@ const HASH_KEY_LENGTH = 64;
 const HASH_DIGEST = "sha256";
 
 export const hashPassword = (password: string) => {
-  const salt = crypto.randomBytes(16).toString("hex");
+  const saltBuffer = crypto.randomBytes(16);
+  const salt = saltBuffer.toString("hex");
   const derived = crypto
-    .pbkdf2Sync(password, salt, HASH_ITERATIONS, HASH_KEY_LENGTH, HASH_DIGEST)
+    .pbkdf2Sync(password, saltBuffer, HASH_ITERATIONS, HASH_KEY_LENGTH, HASH_DIGEST)
     .toString("hex");
   return `${HASH_PREFIX}$${HASH_ITERATIONS}$${salt}$${derived}`;
 };
