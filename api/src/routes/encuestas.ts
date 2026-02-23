@@ -6,6 +6,28 @@ import { SurveyBaseSchema, SurveySchema } from "../schema/encuesta";
 
 export const encuestas = Router();
 
+type SurveyDoc = {
+  _id?: string;
+  id?: string;
+  status?: string;
+  type?: string;
+  startAt?: string;
+  endAt?: string;
+  maxOptions?: number;
+  showResultsBeforeClose?: boolean;
+  showResultsRealtime?: boolean;
+  options?: Array<{ id: string; label: string }>;
+  classroomId?: string;
+};
+
+type SurveyResponseDoc = {
+  _id?: string;
+  surveyId?: string;
+  classroomId?: string;
+  usuarioId?: string;
+  optionId?: string;
+};
+
 const SurveyUpdateSchema = SurveyBaseSchema.partial().omit({ id: true, createdAt: true, createdBy: true });
 
 const clampLimit = (value: string | undefined) => {
@@ -45,7 +67,7 @@ encuestas.get("/api/encuestas/:id", async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
   const db = await getDb();
-  const item = await db.collection("encuestas").findOne({ id: req.params.id, classroomId: aulaId });
+  const item = await db.collection<SurveyDoc>("encuestas").findOne({ id: req.params.id, classroomId: aulaId });
   if (!item) return res.status(404).json({ error: "not found" });
   res.json(item);
 });
@@ -79,7 +101,7 @@ encuestas.put("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req,
   try {
     const parsed = SurveyUpdateSchema.parse(req.body);
     const db = await getDb();
-    const survey = await db.collection("encuestas").findOne({ id: req.params.id });
+    const survey = await db.collection<SurveyDoc>("encuestas").findOne({ id: req.params.id });
     if (!survey) return res.status(404).json({ error: "not found" });
     const classroom = await db
       .collection<{ status?: unknown }>("aulas")
@@ -100,7 +122,7 @@ encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (re
   try {
     const parsed = SurveyUpdateSchema.parse(req.body);
     const db = await getDb();
-    const survey = await db.collection("encuestas").findOne({ id: req.params.id });
+    const survey = await db.collection<SurveyDoc>("encuestas").findOne({ id: req.params.id });
     if (!survey) return res.status(404).json({ error: "not found" });
     const classroom = await db
       .collection<{ status?: unknown }>("aulas")
@@ -119,7 +141,7 @@ encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (re
 
 encuestas.delete("/api/encuestas/:id", async (req, res) => {
   const db = await getDb();
-  const survey = await db.collection("encuestas").findOne({ id: req.params.id });
+  const survey = await db.collection<SurveyDoc>("encuestas").findOne({ id: req.params.id });
   if (!survey) return res.status(404).json({ error: "not found" });
   const classroom = await db
     .collection<{ status?: unknown }>("aulas")
@@ -151,7 +173,7 @@ encuestas.post("/api/encuestas/:id/votos", ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
     if (!assertClassroomWritable(res, classroom)) {
       return;
     }
-    const survey = await db.collection("encuestas").findOne({ id: req.params.id, classroomId: aulaId });
+    const survey = await db.collection<SurveyDoc>("encuestas").findOne({ id: req.params.id, classroomId: aulaId });
     if (!survey) return res.status(404).json({ error: "not found" });
     const optionList = (survey.options ?? []) as Array<{ id: string; label: string }>;
     const optionIds = new Set(optionList.map((option) => option.id));
@@ -159,7 +181,7 @@ encuestas.post("/api/encuestas/:id/votos", ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
       return res.status(400).json({ error: "survey closed" });
     }
     const now = new Date();
-    if (now < new Date(survey.startAt) || now >= new Date(survey.endAt)) {
+    if (now < new Date(survey.startAt ?? "") || now >= new Date(survey.endAt ?? "")) {
       return res.status(400).json({ error: "survey inactive" });
     }
     const existingVote = await db
@@ -203,7 +225,7 @@ encuestas.post("/api/encuestas/:id/votos", ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
         usedOptions.add(item.optionId);
         parsedScores.push({ optionId: item.optionId, score: item.score });
       }
-      if (survey.maxOptions && parsedScores.length > survey.maxOptions) {
+      if (survey.maxOptions && parsedScores.length > (survey.maxOptions as number)) {
         return res.status(400).json({ error: "scores exceed maxOptions" });
       }
       await db.collection("encuestas_respuestas").insertOne({
@@ -253,11 +275,11 @@ encuestas.get("/api/encuestas/:id/resultados", async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
   const db = await getDb();
-  const survey = await db.collection("encuestas").findOne({ id: req.params.id, classroomId: aulaId });
+  const survey = await db.collection<SurveyDoc>("encuestas").findOne({ id: req.params.id, classroomId: aulaId });
   if (!survey) return res.status(404).json({ error: "not found" });
   const now = new Date();
   const canShowResults =
-    now >= new Date(survey.endAt) ||
+    now >= new Date(survey.endAt ?? "") ||
     survey.status === "cerrada" ||
     survey.showResultsBeforeClose ||
     survey.showResultsRealtime;
@@ -356,7 +378,7 @@ encuestas.get("/api/encuestas/:id/resultados", async (req, res) => {
 
   const counts = new Map<string, number>();
   for (const response of responses) {
-    counts.set(response.optionId, (counts.get(response.optionId) ?? 0) + 1);
+    counts.set(response.optionId as string, (counts.get(response.optionId as string) ?? 0) + 1);
   }
   const options = optionList.map((option) => {
     const count = counts.get(option.id) ?? 0;

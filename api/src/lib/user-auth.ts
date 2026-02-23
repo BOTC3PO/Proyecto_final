@@ -1,5 +1,5 @@
 import type { NextFunction, Request, Response } from "express";
-import { ObjectId } from "mongodb";
+
 import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from "./auth-token";
 import { getDb } from "./db";
 import { enforceSubscriptionAccess } from "./entitlements";
@@ -7,7 +7,7 @@ import { toObjectId } from "./ids";
 import { normalizeSchoolId } from "./school-ids";
 
 type AuthenticatedUser = Record<string, unknown> & {
-  _id?: ObjectId;
+  _id?: string;
   role?: string;
   guestOnboardingStatus?: string | null;
   schoolId?: string | null;

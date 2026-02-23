@@ -195,7 +195,7 @@ usuarios.get("/api/usuarios/:id", requireUser, requirePolicy("usuarios/read"), a
     return;
   }
   const hasPublicTeacherModules =
-    item.teacherProfile?.modules?.some((module: { isPublic?: boolean }) => module.isPublic === true) ?? false;
+    (item.teacherProfile as { modules?: Array<{ isPublic?: boolean }> } | undefined)?.modules?.some((module: { isPublic?: boolean }) => module.isPublic === true) ?? false;
   if (!item.escuelaId && hasPublicTeacherModules) {
     res.json(serializeUsuario(item, { access: "public" }));
     return;
@@ -207,7 +207,7 @@ usuarios.get("/api/usuarios/:id", requireUser, requirePolicy("usuarios/read"), a
     .toArray();
   const targetEscuelaIds = targetMemberships.map((membership) => membership.escuelaId).filter(Boolean);
   if (!targetEscuelaIds.length) return res.status(403).json({ error: "forbidden" });
-  const targetEscuelaIdSet = new Set(targetEscuelaIds.map((escuelaId) => escuelaId.toString()));
+  const targetEscuelaIdSet = new Set(targetEscuelaIds.map((escuelaId) => String(escuelaId)));
   const escuelaIdParam = req.query.escuelaId;
   const escuelaId = typeof escuelaIdParam === "string" ? toObjectId(escuelaIdParam) : null;
   if (escuelaId && !targetEscuelaIdSet.has(escuelaId.toString())) return res.status(403).json({ error: "forbidden" });
@@ -228,10 +228,10 @@ usuarios.get("/api/usuarios/:id", requireUser, requirePolicy("usuarios/read"), a
         serializeUsuario(item, {
           access: "member",
           membership: {
-            rolEscuela: membresia.rol,
-            estadoMembresia: membresia.estado,
-            fechaAltaMembresia: membresia.fechaAlta,
-            escuelaId: membresia.escuelaId
+            rolEscuela: membresia.rol as string | undefined,
+            estadoMembresia: membresia.estado as string | undefined,
+            fechaAltaMembresia: membresia.fechaAlta as string | undefined,
+            escuelaId: membresia.escuelaId as string | undefined
           }
         })
       );

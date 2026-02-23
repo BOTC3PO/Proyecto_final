@@ -1,7 +1,7 @@
 import express, { Router } from "express";
 import { z } from "zod";
-import { ObjectId } from "mongodb";
 import { getDb } from "../lib/db";
+import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { requirePolicy } from "../lib/authorization";
 import { assertClassroomWritable } from "../lib/classroom";
@@ -69,6 +69,65 @@ type AulaDoc = {
   members?: Array<{ userId?: string }>;
 };
 
+type IntercambioDoc = {
+  _id?: string;
+  id?: string;
+  estado?: string;
+  moderacion?: { estado?: string };
+  creadorId?: string;
+  receptorId?: string;
+  schoolId?: string;
+  aulaId?: string;
+  monto?: number;
+  moneda?: string;
+  tipo?: string;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+type ExamenDoc = {
+  _id?: string;
+  id?: string;
+  estado?: string;
+  subastaActiva?: boolean;
+  maxCompra?: number;
+  impuestoTasa?: number;
+  fechaExamen?: string;
+  aulaId?: string;
+  precioPromedio?: number | null;
+};
+
+type PujaDoc = {
+  _id?: string;
+  id?: string;
+  estado?: string;
+  usuarioId?: string;
+  puntos?: number;
+  montoPorPunto?: number;
+  examenId?: string;
+};
+
+type SaldoDoc = {
+  _id?: string;
+  usuarioId?: string;
+  saldo?: number;
+  moneda?: string;
+  updatedAt?: string;
+};
+
+type AjusteDoc = {
+  _id?: string;
+  modo?: string;
+  tasaAplicada?: number;
+  precioFactor?: number;
+  recompensaFactor?: number;
+};
+
+type ItemPrecioDoc = {
+  _id?: string;
+  precioPromedio?: number | null;
+};
+
 economia.use(
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.ECONOMY),
@@ -85,10 +144,7 @@ const clampLimit = (value: string | undefined) => {
 
 const normalizeUsuarioId = (value: unknown) => (typeof value === "string" ? value.trim() : "");
 
-const buildUsuarioObjectId = (usuarioId: string) => {
-  if (!ObjectId.isValid(usuarioId)) return null;
-  return new ObjectId(usuarioId);
-};
+const buildUsuarioObjectId = (usuarioId: string): string | null => usuarioId || null;
 
 const resolveAulaSchoolId = (aula?: AulaDoc) => {
   const schoolId = aula?.schoolId ?? aula?.institutionId;
@@ -102,9 +158,7 @@ const resolveMotivoTipoEducativo = (motivo: string) => {
 };
 
 const buildReferenciaMatch = (referenciaId: string) => {
-  if (ObjectId.isValid(referenciaId)) {
-    return { $or: [{ id: referenciaId }, { _id: new ObjectId(referenciaId) }] };
-  }
+  // ID is already a string, just search by id field
   return { id: referenciaId };
 };
 
@@ -422,7 +476,7 @@ economia.get("/api/economia/recompensas", async (req, res) => {
     .toArray();
   const adjustedItems = items.map((item) => ({
     ...item,
-    montoAjustado: roundMoney(item.monto * ajuste.recompensaFactor)
+    montoAjustado: roundMoney((item.monto as number) * (ajuste.recompensaFactor as number))
   }));
   res.json({
     items: adjustedItems,
@@ -444,7 +498,7 @@ economia.post(
     try {
       const payload = {
         ...req.body,
-        id: req.body?.id ?? new ObjectId().toString(),
+        id: req.body?.id ?? generateId(),
         updatedAt: new Date().toISOString()
       };
       const parsed = RecompensaSchema.parse(payload);
@@ -537,10 +591,10 @@ economia.get("/api/economia/saldos", async (req, res) => {
   }
   const usuarioObjectId = buildUsuarioObjectId(usuarioId);
   if (!usuarioObjectId) {
-    return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+    return res.status(400).json({ error: "usuarioId is required" });
   }
   const db = await getDb();
-  const saldo = await db.collection("economia_saldos").findOne({ usuarioId: usuarioObjectId });
+  const saldo = await db.collection<SaldoDoc>("economia_saldos").findOne({ usuarioId: usuarioObjectId });
   if (saldo) return res.json({ ...saldo, usuarioId });
   const config = await getEconomiaConfig(db);
   res.json({
@@ -564,7 +618,7 @@ economia.patch(
     }
     const usuarioObjectId = buildUsuarioObjectId(usuarioId);
     if (!usuarioObjectId) {
-      return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+      return res.status(400).json({ error: "usuarioId is required" });
     }
     const db = await getDb();
     const parsedResult = SaldoManualUpdateSchema.safeParse(req.body ?? {});
@@ -636,7 +690,7 @@ economia.patch(
         .status(400)
         .json({ error: "referencia educativa invalida para el aula/escuela" });
     }
-    const saldoDoc = await db.collection("economia_saldos").findOne({
+    const saldoDoc = await db.collection<SaldoDoc>("economia_saldos").findOne({
       usuarioId: usuarioObjectId
     });
     const saldoActual = saldoDoc?.saldo ?? 0;
@@ -668,7 +722,7 @@ economia.patch(
         valido: true
       }
     });
-    res.status(result.upsertedCount ? 201 : 200).json({ ok: true });
+    res.status(result.upsertedId ? 201 : 200).json({ ok: true });
   }
 );
 
@@ -706,7 +760,7 @@ economia.post(
       }
       const payload = {
         ...req.body,
-        id: req.body?.id ?? new ObjectId().toString(),
+        id: req.body?.id ?? generateId(),
         moneda: monedaSolicitada,
         createdAt: new Date().toISOString()
       };
@@ -717,7 +771,7 @@ economia.post(
         "desconocido";
       const usuarioObjectId = buildUsuarioObjectId(parsed.usuarioId);
       if (!usuarioObjectId) {
-        return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+        return res.status(400).json({ error: "usuarioId is required" });
       }
       const aula = await db.collection<AulaDoc>("aulas").findOne({ id: parsed.aulaId });
       if (!assertClassroomWritable(res, aula)) {
@@ -791,10 +845,10 @@ economia.post(
           }
         }
       }
-      const saldoDoc = await db.collection("economia_saldos").findOne({
+      const saldoDoc = await db.collection<SaldoDoc>("economia_saldos").findOne({
         usuarioId: usuarioObjectId
       });
-      const saldoActual = saldoDoc?.saldo ?? 0;
+      const saldoActual = (saldoDoc?.saldo as number) ?? 0;
       const nuevoSaldo =
         parsed.tipo === "credito" ? saldoActual + parsed.monto : saldoActual - parsed.monto;
       if (nuevoSaldo < 0) {
@@ -863,7 +917,7 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
     if (!usuarioObjectId) {
       return res.status(400).json({ error: "creadorId must be a valid ObjectId" });
     }
-    const saldoDoc = await db.collection("economia_saldos").findOne({
+    const saldoDoc = await db.collection<SaldoDoc>("economia_saldos").findOne({
       usuarioId: usuarioObjectId
     });
     const saldoActual = saldoDoc?.saldo ?? 0;
@@ -878,7 +932,7 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
     if (totalHoy >= INTERCAMBIO_LIMITS.maxDiario) {
       return res.status(429).json({ error: "limite diario de intercambios excedido" });
     }
-    const ultimo = await db.collection("economia_intercambios").findOne(
+    const ultimo = await db.collection<IntercambioDoc>("economia_intercambios").findOne(
       { creadorId: payload.creadorId },
       { sort: { createdAt: -1 } }
     );
@@ -907,7 +961,7 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
     const moderacionEstado = score >= INTERCAMBIO_LIMITS.scoreThreshold ? "pendiente" : "aprobado";
     const now = new Date().toISOString();
     const intercambio = IntercambioSchema.parse({
-      id: new ObjectId().toString(),
+      id: generateId(),
       aulaId: payload.aulaId,
       schoolId: payload.schoolId,
       creadorId: payload.creadorId,
@@ -933,7 +987,7 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
 economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/mint"), async (req, res) => {
   try {
     const db = await getDb();
-    const intercambio = await db.collection("economia_intercambios").findOne({ id: req.params.id });
+    const intercambio = await db.collection<IntercambioDoc>("economia_intercambios").findOne({ id: req.params.id });
     if (!intercambio) return res.status(404).json({ error: "intercambio not found" });
     if (intercambio.estado !== "pendiente") {
       return res.status(400).json({ error: "intercambio no disponible" });
@@ -949,47 +1003,48 @@ economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/
     if (!assertClassroomWritable(res, aula)) {
       return;
     }
-    const creadorCheck = ensureUsuarioEnAula(aula, intercambio.creadorId, intercambio.schoolId);
+    const creadorCheck = ensureUsuarioEnAula(aula, intercambio.creadorId ?? "", intercambio.schoolId ?? "");
     if (!creadorCheck.ok) {
       return res.status(creadorCheck.status).json({ error: creadorCheck.error });
     }
-    const receptorCheck = ensureUsuarioEnAula(aula, intercambio.receptorId, intercambio.schoolId);
+    const receptorCheck = ensureUsuarioEnAula(aula, intercambio.receptorId ?? "", intercambio.schoolId ?? "");
     if (!receptorCheck.ok) {
       return res.status(receptorCheck.status).json({ error: receptorCheck.error });
     }
-    const creadorObjectId = buildUsuarioObjectId(intercambio.creadorId);
-    const receptorObjectId = buildUsuarioObjectId(intercambio.receptorId);
+    const creadorObjectId = buildUsuarioObjectId(intercambio.creadorId ?? "");
+    const receptorObjectId = buildUsuarioObjectId(intercambio.receptorId ?? "");
     if (!creadorObjectId || !receptorObjectId) {
-      return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+      return res.status(400).json({ error: "usuarioId is required" });
     }
-    const saldoCreador = await db.collection("economia_saldos").findOne({
+    const saldoCreador = await db.collection<SaldoDoc>("economia_saldos").findOne({
       usuarioId: creadorObjectId
     });
     const saldoActual = saldoCreador?.saldo ?? 0;
-    if (saldoActual < intercambio.monto) {
+    const intercambioMonto = intercambio.monto ?? 0;
+    if (saldoActual < intercambioMonto) {
       return res.status(400).json({ error: "saldo insuficiente en creador" });
     }
     const config = await getEconomiaConfig(db);
     const now = new Date().toISOString();
     const transaccionDebito = TransaccionSchema.parse({
-      id: new ObjectId().toString(),
+      id: generateId(),
       usuarioId: intercambio.creadorId,
       aulaId: intercambio.aulaId,
       schoolId: intercambio.schoolId,
       tipo: "debito",
-      monto: intercambio.monto,
+      monto: intercambioMonto,
       moneda: intercambio.moneda ?? config.moneda.codigo,
       motivo: `intercambio:${intercambio.id}:debito`,
       referenciaId: intercambio.id,
       createdAt: now
     });
     const transaccionCredito = TransaccionSchema.parse({
-      id: new ObjectId().toString(),
+      id: generateId(),
       usuarioId: intercambio.receptorId,
       aulaId: intercambio.aulaId,
       schoolId: intercambio.schoolId,
       tipo: "credito",
-      monto: intercambio.monto,
+      monto: intercambioMonto,
       moneda: intercambio.moneda ?? config.moneda.codigo,
       motivo: `intercambio:${intercambio.id}:credito`,
       referenciaId: intercambio.id,
@@ -1001,7 +1056,7 @@ economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/
       {
         $set: {
           usuarioId: creadorObjectId,
-          saldo: saldoActual - intercambio.monto,
+          saldo: saldoActual - intercambioMonto,
           moneda: transaccionDebito.moneda,
           updatedAt: now
         }
@@ -1009,14 +1064,14 @@ economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/
       { upsert: true }
     );
     const saldoReceptor = await db
-      .collection("economia_saldos")
+      .collection<SaldoDoc>("economia_saldos")
       .findOne({ usuarioId: receptorObjectId });
     await db.collection("economia_saldos").updateOne(
       { usuarioId: receptorObjectId },
       {
         $set: {
           usuarioId: receptorObjectId,
-          saldo: (saldoReceptor?.saldo ?? 0) + intercambio.monto,
+          saldo: (saldoReceptor?.saldo ?? 0) + intercambioMonto,
           moneda: transaccionCredito.moneda,
           updatedAt: now
         }
@@ -1036,7 +1091,7 @@ economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/
 economia.post("/api/economia/intercambios/:id/cancelar", async (req, res) => {
   try {
     const db = await getDb();
-    const intercambio = await db.collection("economia_intercambios").findOne({ id: req.params.id });
+    const intercambio = await db.collection<IntercambioDoc>("economia_intercambios").findOne({ id: req.params.id });
     if (!intercambio) return res.status(404).json({ error: "intercambio not found" });
     if (intercambio.estado !== "pendiente") {
       return res.status(400).json({ error: "intercambio no disponible" });
@@ -1073,7 +1128,7 @@ economia.post(
         })
         .parse(req.body ?? {});
       const db = await getDb();
-      const intercambio = await db.collection("economia_intercambios").findOne({ id: req.params.id });
+      const intercambio = await db.collection<IntercambioDoc>("economia_intercambios").findOne({ id: req.params.id });
       if (!intercambio) return res.status(404).json({ error: "intercambio not found" });
       const aula = await db.collection<AulaDoc>("aulas").findOne({ id: intercambio.aulaId });
       if (aula && !assertClassroomWritable(res, aula)) {
@@ -1129,9 +1184,9 @@ economia.post(
       }
       const usuarioObjectId = buildUsuarioObjectId(payload.usuarioId);
       if (!usuarioObjectId) {
-        return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+        return res.status(400).json({ error: "usuarioId is required" });
       }
-      const saldoDoc = await db.collection("economia_saldos").findOne({
+      const saldoDoc = await db.collection<SaldoDoc>("economia_saldos").findOne({
         usuarioId: usuarioObjectId
       });
       const saldoActual = saldoDoc?.saldo ?? 0;
@@ -1140,7 +1195,7 @@ economia.post(
       }
       const now = new Date().toISOString();
       const compra = CompraSchema.parse({
-        id: new ObjectId().toString(),
+        id: generateId(),
         usuarioId: payload.usuarioId,
         aulaId: payload.aulaId,
         schoolId: payload.schoolId,
@@ -1152,7 +1207,7 @@ economia.post(
         updatedAt: now
       });
       const transaccion = TransaccionSchema.parse({
-        id: new ObjectId().toString(),
+        id: generateId(),
         usuarioId: payload.usuarioId,
         aulaId: payload.aulaId,
         schoolId: payload.schoolId,
@@ -1216,11 +1271,11 @@ economia.get("/api/economia/examenes", async (req, res) => {
   const filtro = typeof estado === "string" && estado.trim() ? { estado } : {};
   const db = await getDb();
   const ajuste = await getMacroAjuste(db);
-  const items = await db.collection("economia_examenes").find(filtro).sort({ updatedAt: -1 }).toArray();
+  const items = await db.collection<ExamenDoc>("economia_examenes").find(filtro).sort({ updatedAt: -1 }).toArray();
   const adjustedItems = items.map((item) => ({
     ...item,
     precioPromedioAjustado:
-      item.precioPromedio !== undefined
+      item.precioPromedio != null
         ? roundMoney(item.precioPromedio * ajuste.precioFactor)
         : undefined
   }));
@@ -1240,7 +1295,7 @@ economia.post("/api/economia/examenes", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (
   try {
     const payload = {
       ...req.body,
-      id: req.body?.id ?? new ObjectId().toString(),
+      id: req.body?.id ?? generateId(),
       aulaId: req.body?.aulaId,
       estado: "anunciado",
       subastaActiva: true,
@@ -1267,7 +1322,7 @@ economia.patch("/api/economia/examenes/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
   try {
     const parsed = ExamenEconomiaUpdateSchema.parse(req.body ?? {});
     const db = await getDb();
-    const existing = await db.collection("economia_examenes").findOne({ id: req.params.id });
+    const existing = await db.collection<ExamenDoc>("economia_examenes").findOne({ id: req.params.id });
     if (!existing) return res.status(404).json({ error: "not found" });
     if (existing.aulaId) {
       const aula = await db.collection<AulaDoc>("aulas").findOne({ id: existing.aulaId });
@@ -1302,7 +1357,7 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
   try {
     const parsed = PujaExamenCreateSchema.parse({ ...req.body, examenId: req.params.id });
     const db = await getDb();
-    const examen = await db.collection("economia_examenes").findOne({ id: req.params.id });
+    const examen = await db.collection<ExamenDoc>("economia_examenes").findOne({ id: req.params.id });
     if (!examen) return res.status(404).json({ error: "examen not found" });
     const aulaId = parsed.aulaId ?? examen.aulaId;
     if (aulaId) {
@@ -1314,7 +1369,7 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
     if (!examen.subastaActiva || examen.estado !== "anunciado") {
       return res.status(400).json({ error: "subasta inactiva" });
     }
-    if (new Date(examen.fechaExamen) <= new Date()) {
+    if (new Date(examen.fechaExamen ?? "") <= new Date()) {
       return res.status(400).json({ error: "examen vencido" });
     }
     const existing = await db
@@ -1331,14 +1386,14 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
       ])
       .toArray();
     const totalActual = existing[0]?.total ?? 0;
-    if (totalActual + parsed.puntos > examen.maxCompra) {
+    if (totalActual + parsed.puntos > (examen.maxCompra ?? Infinity)) {
       return res.status(400).json({ error: "limite de compra excedido" });
     }
     const usuarioObjectId = buildUsuarioObjectId(parsed.usuarioId);
     if (!usuarioObjectId) {
-      return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+      return res.status(400).json({ error: "usuarioId is required" });
     }
-    const saldoDoc = await db.collection("economia_saldos").findOne({
+    const saldoDoc = await db.collection<SaldoDoc>("economia_saldos").findOne({
       usuarioId: usuarioObjectId
     });
     const saldoActual = saldoDoc?.saldo ?? 0;
@@ -1348,7 +1403,7 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
     }
     const payload = {
       ...parsed,
-      id: new ObjectId().toString(),
+      id: generateId(),
       aulaId: parsed.aulaId ?? examen.aulaId,
       estado: "pendiente",
       createdAt: new Date().toISOString()
@@ -1379,7 +1434,7 @@ economia.get("/api/economia/examenes/puntos", async (req, res) => {
 economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"), async (req, res) => {
   try {
     const db = await getDb();
-    const examen = await db.collection("economia_examenes").findOne({ id: req.params.id });
+    const examen = await db.collection<ExamenDoc>("economia_examenes").findOne({ id: req.params.id });
     if (!examen) return res.status(404).json({ error: "examen not found" });
     if (!examen.aulaId) return res.status(400).json({ error: "aulaId is required" });
     if (examen.estado === "cerrado") {
@@ -1398,22 +1453,22 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       "desconocido";
     const now = new Date().toISOString();
     const pujas = await db
-      .collection("economia_examen_pujas")
+      .collection<PujaDoc>("economia_examen_pujas")
       .find({ examenId: req.params.id, estado: "pendiente" })
       .toArray();
     const rankingPuntos = new Map<string, number>();
     let precioTotal = 0;
     let precioCount = 0;
     for (const puja of pujas) {
-      const usuarioObjectId = buildUsuarioObjectId(puja.usuarioId);
+      const usuarioObjectId = buildUsuarioObjectId(puja.usuarioId ?? "");
       if (!usuarioObjectId) {
-        return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+        return res.status(400).json({ error: "usuarioId is required" });
       }
-      const saldoDoc = await db.collection("economia_saldos").findOne({
+      const saldoDoc = await db.collection<SaldoDoc>("economia_saldos").findOne({
         usuarioId: usuarioObjectId
       });
       const saldoActual = saldoDoc?.saldo ?? 0;
-      const costoTotal = puja.puntos * puja.montoPorPunto;
+      const costoTotal = (puja.puntos ?? 0) * (puja.montoPorPunto ?? 0);
       if (saldoActual < costoTotal) {
         await db.collection("economia_examen_pujas").updateOne(
           { id: puja.id },
@@ -1423,7 +1478,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       }
       const nuevoSaldo = saldoActual - costoTotal;
       const transaccion = TransaccionSchema.parse({
-        id: new ObjectId().toString(),
+        id: generateId(),
         usuarioId: puja.usuarioId,
         aulaId: examen.aulaId,
         schoolId,
@@ -1447,7 +1502,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
         },
         { upsert: true }
       );
-      const puntosNetos = Math.max(0, puja.puntos * (1 - examen.impuestoTasa));
+      const puntosNetos = Math.max(0, (puja.puntos ?? 0) * (1 - (examen.impuestoTasa ?? 0)));
       const puntosUpdate = {
         usuarioId: puja.usuarioId,
         puntos: puntosNetos,
@@ -1459,8 +1514,8 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
         { $inc: { puntos: puntosNetos }, $set: { updatedAt: now } },
         { upsert: true }
       );
-      rankingPuntos.set(puja.usuarioId, (rankingPuntos.get(puja.usuarioId) ?? 0) + puntosNetos);
-      precioTotal += puja.montoPorPunto;
+      rankingPuntos.set(puja.usuarioId ?? "", (rankingPuntos.get(puja.usuarioId ?? "") ?? 0) + puntosNetos);
+      precioTotal += (puja.montoPorPunto ?? 0);
       precioCount += 1;
       await db.collection("economia_examen_pujas").updateOne(
         { id: puja.id },
@@ -1488,7 +1543,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       const premio = ganador.puntos * precioPromedioRanking * factor;
       if (premio <= 0) continue;
       const transaccion = TransaccionSchema.parse({
-        id: new ObjectId().toString(),
+        id: generateId(),
         usuarioId: ganador.usuarioId,
         aulaId: examen.aulaId,
         schoolId,
@@ -1502,10 +1557,10 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       await db.collection("economia_transacciones").insertOne(transaccion);
       const usuarioObjectId = buildUsuarioObjectId(ganador.usuarioId);
       if (!usuarioObjectId) {
-        return res.status(400).json({ error: "usuarioId must be a valid ObjectId" });
+        return res.status(400).json({ error: "usuarioId is required" });
       }
       const saldoDoc = await db
-        .collection("economia_saldos")
+        .collection<SaldoDoc>("economia_saldos")
         .findOne({ usuarioId: usuarioObjectId });
       const saldoActual = saldoDoc?.saldo ?? 0;
       await db.collection("economia_saldos").updateOne(
@@ -1564,7 +1619,7 @@ economia.post("/api/economia/eventos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (r
   try {
     const payload = {
       ...req.body,
-      id: req.body?.id ?? new ObjectId().toString(),
+      id: req.body?.id ?? generateId(),
       updatedAt: new Date().toISOString()
     };
     const parsed = EventoEconomicoSchema.parse(payload);
@@ -1707,7 +1762,7 @@ economia.get("/api/admin/economia/validacion", requireAdminAuth, async (req, res
 
   const billeteras = await db
     .collection("billeteras")
-    .find({}, { projection: { usuarioId: 1, saldo: 1, moneda: 1, updatedAt: 1 } })
+    .find({}).project({ usuarioId: 1, saldo: 1, moneda: 1, updatedAt: 1 })
     .toArray();
   const billeteraIds = billeteras.map((billetera) => billetera._id?.toString?.() ?? "").filter(Boolean);
   const billeteraSet = new Set(billeteraIds);
@@ -1729,7 +1784,7 @@ economia.get("/api/admin/economia/validacion", requireAdminAuth, async (req, res
 
   const movimientos = await db
     .collection("movimientos_billetera")
-    .find({}, { projection: { billeteraId: 1, tipo: 1, monto: 1, fecha: 1 } })
+    .find({}).project({ billeteraId: 1, tipo: 1, monto: 1, fecha: 1 })
     .toArray();
   const totalPorBilletera = new Map<string, number>();
 
@@ -1772,7 +1827,7 @@ economia.get("/api/admin/economia/validacion", requireAdminAuth, async (req, res
 
   const economiaSaldos = await db
     .collection("economia_saldos")
-    .find({}, { projection: { usuarioId: 1, saldo: 1, moneda: 1, updatedAt: 1 } })
+    .find({}).project({ usuarioId: 1, saldo: 1, moneda: 1, updatedAt: 1 })
     .toArray();
 
   if (applyDefaults) {
@@ -1792,7 +1847,7 @@ economia.get("/api/admin/economia/validacion", requireAdminAuth, async (req, res
 
   const transacciones = await db
     .collection("economia_transacciones")
-    .find({}, { projection: { usuarioId: 1, tipo: 1, monto: 1, moneda: 1, createdAt: 1 } })
+    .find({}).project({ usuarioId: 1, tipo: 1, monto: 1, moneda: 1, createdAt: 1 })
     .toArray();
   const totalPorSaldo = new Map<string, number>();
 
@@ -1900,7 +1955,7 @@ economia.patch(
     const result = await db
       .collection("economia_riesgo_cursos")
       .updateOne({ aulaId: req.params.aulaId }, { $set: update }, { upsert: true });
-      res.status(result.upsertedCount ? 201 : 200).json({ ok: true });
+      res.status(result.upsertedId ? 201 : 200).json({ ok: true });
     } catch (e: any) {
       res.status(400).json({ error: e?.message ?? "invalid payload" });
     }
@@ -1947,7 +2002,7 @@ economia.get("/api/economia/metricas", async (req, res) => {
       precioFactor: ajuste.precioFactor,
       recompensaFactor: ajuste.recompensaFactor
     },
-    volumenSubastas: roundMoney(volumenSubastasResult[0]?.total ?? 0),
-    dineroQuemado: roundMoney(dineroQuemadoResult[0]?.total ?? 0)
+    volumenSubastas: roundMoney((volumenSubastasResult[0]?.total as number) ?? 0),
+    dineroQuemado: roundMoney((dineroQuemadoResult[0]?.total as number) ?? 0)
   });
 });

@@ -1,8 +1,6 @@
 import type { Request, RequestHandler, Response } from "express";
-import type { Filter } from "mongodb";
-import { ObjectId } from "mongodb";
+
 import { getDb } from "./db";
-import { toObjectId } from "./ids";
 
 export const ENTERPRISE_PLANS = [
   "ENTERPRISE_BASIC",
@@ -85,7 +83,7 @@ export type EnterpriseEntitlementSnapshot = {
 };
 
 type SchoolDoc = {
-  _id: ObjectId | string;
+  _id: string;
   plan?: unknown;
   subscriptionStatus?: unknown;
 };
@@ -142,9 +140,7 @@ export const buildEntitlementSnapshot = (
 
 export const getSchoolEntitlements = async (schoolId: string): Promise<EnterpriseEntitlementSnapshot> => {
   const db = await getDb();
-  const escuelaObjectId = toObjectId(schoolId);
-  const filter: Filter<SchoolDoc> = escuelaObjectId ? { _id: escuelaObjectId } : { _id: schoolId };
-  const school = await db.collection<SchoolDoc>("escuelas").findOne(filter);
+  const school = await db.collection<SchoolDoc>("escuelas").findOne({ _id: schoolId });
   const plan = normalizePlan(school?.plan);
   const subscriptionStatus = normalizeStatus(school?.subscriptionStatus);
   return buildEntitlementSnapshot(plan, subscriptionStatus);

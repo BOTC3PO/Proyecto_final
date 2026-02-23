@@ -1,7 +1,7 @@
 import express, { Router } from "express";
-import { ObjectId } from "mongodb";
 import { recordAuditLog } from "../lib/audit-log";
 import { getDb } from "../lib/db";
+import { generateId } from "../lib/ids";
 import { requirePolicy } from "../lib/authorization";
 import { requireClassroomScope } from "../lib/classroom-scope";
 import { requireUser } from "../lib/user-auth";
@@ -20,10 +20,9 @@ const ResourceLinkUpdateSchema = ResourceLinkSchema.partial().omit({
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 
-const getUserId = (user?: { _id?: ObjectId | string }) => {
+const getUserId = (user?: { _id?: string }) => {
   if (!user?._id) return null;
-  if (typeof user._id === "string") return user._id;
-  return user._id.toString();
+  return user._id ?? "";
 };
 
 const getSchoolId = (user?: { schoolId?: string | null }) =>
@@ -40,7 +39,7 @@ resourceLinks.get(
     const db = await getDb();
     const classroom = res.locals.classroom;
 
-    const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
+    const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: string } }).user;
     const userId = getUserId(user);
     if (!userId) return res.status(403).json({ error: "forbidden" });
 
@@ -79,7 +78,7 @@ resourceLinks.post(
       return res.status(403).json({ error: "classroom is read-only" });
     }
 
-    const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
+    const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: string } }).user;
     const userId = getUserId(user);
     const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
     if (!userId || !schoolId) return res.status(403).json({ error: "forbidden" });
@@ -91,7 +90,7 @@ resourceLinks.post(
           ? req.body.id.trim()
           : req.body?._id
             ? req.body._id.toString()
-            : new ObjectId().toString();
+            : generateId();
       const payload = {
         ...req.body,
         id: linkId,
@@ -140,7 +139,7 @@ resourceLinks.put(
       return res.status(403).json({ error: "classroom is read-only" });
     }
 
-    const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
+    const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: string } }).user;
     const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
     const userId = getUserId(user);
     if (!schoolId || !userId) return res.status(403).json({ error: "forbidden" });
@@ -189,7 +188,7 @@ resourceLinks.patch(
       return res.status(403).json({ error: "classroom is read-only" });
     }
 
-    const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
+    const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: string } }).user;
     const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
     const userId = getUserId(user);
     if (!schoolId || !userId) return res.status(403).json({ error: "forbidden" });
@@ -237,7 +236,7 @@ resourceLinks.delete(
       return res.status(403).json({ error: "classroom is read-only" });
     }
 
-    const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: ObjectId | string } }).user;
+    const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: string } }).user;
     const schoolId = getSchoolId(user) ?? classroom.schoolId ?? classroom.institutionId ?? null;
     const userId = getUserId(user);
     if (!schoolId || !userId) return res.status(403).json({ error: "forbidden" });

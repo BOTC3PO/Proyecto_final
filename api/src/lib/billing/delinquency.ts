@@ -1,7 +1,6 @@
-import { ObjectId } from "mongodb";
+
 import { getDb } from "../db";
 import { ENV } from "../env";
-import { toObjectId } from "../ids";
 
 type DelinquencyStatus = "ACTIVE" | "PAST_DUE" | "SUSPENDED";
 
@@ -35,18 +34,15 @@ export const runDelinquencySweep = async () => {
 
   const bulk = db.collection("escuelas").initializeUnorderedBulkOp();
   let changeCount = 0;
-  const unpaidSchoolIds = unpaidBySchool
-    .map((entry) => toObjectId(entry._id))
-    .filter((value): value is ObjectId => value !== null);
+  const unpaidSchoolIds = unpaidBySchool.map((entry) => entry._id).filter(Boolean);
 
   for (const unpaid of unpaidBySchool) {
     if (!unpaid?._id || !unpaid.oldestInvoiceAt) continue;
     const daysPastDue = computeDaysPastDue(unpaid.oldestInvoiceAt, now);
     if (daysPastDue === null) continue;
     const nextStatus = resolveDelinquencyStatus(daysPastDue);
-    const escuelaId = toObjectId(unpaid._id);
     const filter = {
-      ...(escuelaId ? { _id: escuelaId } : { _id: unpaid._id }),
+      _id: unpaid._id,
       subscriptionStatus: { $ne: "INACTIVE" }
     };
     bulk.find(filter).updateOne({ $set: { subscriptionStatus: nextStatus } });
@@ -55,15 +51,13 @@ export const runDelinquencySweep = async () => {
 
   const clearedSchools = await db
     .collection("escuelas")
-    .find(
-      {
-        subscriptionStatus: { $in: ["PAST_DUE", "SUSPENDED"] },
-        _id: {
-          $nin: unpaidSchoolIds
-        }
-      },
-      { projection: { _id: 1 } }
-    )
+    .find({
+      subscriptionStatus: { $in: ["PAST_DUE", "SUSPENDED"] },
+      _id: {
+        $nin: unpaidSchoolIds
+      }
+    })
+    .project({ _id: 1 })
     .toArray();
 
   for (const school of clearedSchools) {

@@ -11,6 +11,42 @@ import { ProgressSchema } from "../schema/progreso";
 
 export const progreso = Router();
 
+type ProgresoDoc = {
+  _id?: string;
+  usuarioId?: string;
+  moduloId?: string;
+  status?: string;
+  aulaId?: string;
+  updatedAt?: string;
+};
+
+type ModuloDoc = {
+  _id?: string;
+  id?: string;
+  title?: string;
+  subject?: string;
+  category?: string;
+  dependencies?: Array<{ type?: string; id?: string }>;
+};
+
+type VinculoDoc = {
+  _id?: string;
+  parentId?: string;
+  childId?: string;
+  estado?: string;
+  nombre?: string;
+  usuario?: string;
+  grado?: string;
+};
+
+type ChildDoc = {
+  _id?: string;
+  fullName?: string;
+  username?: string;
+  birthdate?: unknown;
+  isDeleted?: boolean;
+};
+
 const ProgressUpdateSchema = ProgressSchema.partial().omit({ usuarioId: true, moduloId: true });
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
@@ -102,12 +138,12 @@ progreso.post(
       );
       await recordAuditLog({
         actorId: authenticatedUserId,
-        action: result.upsertedCount ? "progreso.create" : "progreso.update",
+        action: result.upsertedId ? "progreso.create" : "progreso.update",
         targetType: "progreso_modulo",
         targetId: `${parsed.usuarioId}:${parsed.moduloId}`,
         metadata: { aulaId: parsed.aulaId ?? null, status: parsed.status ?? null }
       });
-      res.status(result.upsertedCount ? 201 : 200).json({ ok: true });
+      res.status(result.upsertedId ? 201 : 200).json({ ok: true });
     } catch (e: any) {
       res.status(400).json({ error: e?.message ?? "invalid payload" });
     }
@@ -129,10 +165,10 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
   const aulaId = getQueryString(req.query.aulaId);
   const db = await getDb();
   const progressFilter = { usuarioId, ...(aulaId ? { aulaId } : {}) };
-  const items = await db.collection("progreso_modulos").find(progressFilter).toArray();
+  const items = await db.collection<ProgresoDoc>("progreso_modulos").find(progressFilter).toArray();
   const modules = await db
-    .collection("modulos")
-    .find(aulaId ? { aulaId } : {}, { projection: { id: 1, dependencies: 1, title: 1 } })
+    .collection<ModuloDoc>("modulos")
+    .find(aulaId ? { aulaId } : {}).project({ id: 1, dependencies: 1, title: 1 })
     .toArray();
   const completedIds = new Set(
     items.filter((item) => item.status === "completado").map((item) => item.moduloId)
@@ -172,49 +208,49 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
   if (!vinculos.length) return res.json([]);
   const childIds = vinculos.map((v) => v.childId).filter(Boolean);
   const children = await db
-    .collection("usuarios")
+    .collection<ChildDoc>("usuarios")
     .find({ _id: { $in: childIds }, isDeleted: { $ne: true } })
     .project({ fullName: 1, username: 1, birthdate: 1 })
     .toArray();
   const childMap = new Map(children.map((child) => [child._id?.toString?.() ?? "", child]));
   const allowed = vinculos.filter((v) => {
-    const child = childMap.get(v.childId?.toString?.() ?? "");
+    const child = childMap.get(String(v.childId ?? ""));
     if (!child) return false;
     const minor = isMinor(child.birthdate instanceof Date ? child.birthdate : null);
     if (minor) return true;
     return v.estado === "aprobado";
   });
   if (!allowed.length) return res.json([]);
-  const childIdStrings = allowed.map((v) => v.childId.toString());
+  const childIdStrings = allowed.map((v) => String(v.childId));
   const progressItems = await db
-    .collection("progreso_modulos")
+    .collection<ProgresoDoc>("progreso_modulos")
     .find({ usuarioId: { $in: childIdStrings } })
     .toArray();
   const moduleIds = Array.from(new Set(progressItems.map((item) => item.moduloId)));
   const modules = moduleIds.length
     ? await db
-        .collection("modulos")
+        .collection<ModuloDoc>("modulos")
         .find({ id: { $in: moduleIds } })
         .project({ id: 1, title: 1, subject: 1, category: 1, dependencies: 1 })
         .toArray()
     : [];
-  const moduleMap = new Map(modules.map((module) => [module.id, module]));
+  const moduleMap = new Map(modules.map((module) => [module.id ?? "", module]));
   const progressByChild = new Map<string, typeof progressItems>();
   for (const item of progressItems) {
-    const list = progressByChild.get(item.usuarioId) ?? [];
+    const list = progressByChild.get(item.usuarioId as string) ?? [];
     list.push(item);
-    progressByChild.set(item.usuarioId, list);
+    progressByChild.set(item.usuarioId as string, list);
   }
   const completedByChild = new Map<string, Set<string>>();
   for (const item of progressItems) {
     if (item.status !== "completado") continue;
-    const set = completedByChild.get(item.usuarioId) ?? new Set<string>();
-    set.add(item.moduloId);
-    completedByChild.set(item.usuarioId, set);
+    const set = completedByChild.get(item.usuarioId as string) ?? new Set<string>();
+    set.add(item.moduloId as string);
+    completedByChild.set(item.usuarioId as string, set);
   }
 
   const responses = allowed.map((v) => {
-    const childId = v.childId.toString();
+    const childId = String(v.childId ?? "");
     const child = childMap.get(childId);
     const progress = progressByChild.get(childId) ?? [];
     const completedSet = completedByChild.get(childId) ?? new Set<string>();
@@ -222,7 +258,7 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
     const completados = progress.filter((item) => item.status === "completado").length;
     const progresoGeneral = total ? Math.round((completados / total) * 100) : 0;
     const modulos = progress.map((item) => {
-      const module = moduleMap.get(item.moduloId);
+      const module = moduleMap.get(item.moduloId ?? "");
       const dependencies = Array.isArray(module?.dependencies) ? module?.dependencies : [];
       const requiredDeps = dependencies
         .map((dep) => (dep?.type === "required" ? dep.id : null))
@@ -238,18 +274,18 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
       const progreso = item.status === "completado" ? 100 : item.status === "en_progreso" ? 60 : 25;
       return {
         id: item.moduloId,
-        titulo: module?.title ?? "Módulo",
-        area: normalizeArea(module?.subject ?? module?.category),
+        titulo: (module?.title ?? "Módulo") as string,
+        area: normalizeArea((module?.subject ?? module?.category) as string | undefined),
         progreso,
         estado,
-        ultimaActividad: formatActivityDate(item.updatedAt)
+        ultimaActividad: formatActivityDate(item.updatedAt as string | undefined)
       };
     });
     return {
       id: childId,
-      nombre: child?.fullName ?? v.nombre ?? "Sin nombre",
-      usuario: normalizeUsername(child?.username ?? v.usuario),
-      grado: v.grado ?? "Sin grado",
+      nombre: String(child?.fullName ?? v.nombre ?? "Sin nombre"),
+      usuario: normalizeUsername((child?.username ?? v.usuario) as string | undefined),
+      grado: String(v.grado ?? "Sin grado"),
       progresoGeneral,
       modulos
     };
@@ -265,10 +301,10 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
   if (!childId) return res.status(400).json({ error: "invalid child id" });
   const db = await getDb();
   const child = await db
-    .collection("usuarios")
+    .collection<ChildDoc>("usuarios")
     .findOne({ _id: childId, isDeleted: { $ne: true } }, { projection: { fullName: 1, username: 1, birthdate: 1 } });
   if (!child) return res.status(404).json({ error: "child not found" });
-  const vinculo = await db.collection("vinculos_padre_hijo").findOne({
+  const vinculo = await db.collection<VinculoDoc>("vinculos_padre_hijo").findOne({
     parentId,
     childId,
     estado: { $ne: "revocado" }
@@ -279,18 +315,18 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
     return res.status(403).json({ error: "approval required" });
   }
   const progress = await db
-    .collection("progreso_modulos")
+    .collection<ProgresoDoc>("progreso_modulos")
     .find({ usuarioId: childId.toString() })
     .toArray();
   const moduleIds = Array.from(new Set(progress.map((item) => item.moduloId)));
   const modules = moduleIds.length
     ? await db
-        .collection("modulos")
+        .collection<ModuloDoc>("modulos")
         .find({ id: { $in: moduleIds } })
         .project({ id: 1, title: 1, subject: 1, category: 1, dependencies: 1 })
         .toArray()
     : [];
-  const moduleMap = new Map(modules.map((module) => [module.id, module]));
+  const moduleMap = new Map(modules.map((module) => [module.id ?? "", module]));
   const completedSet = new Set(
     progress.filter((item) => item.status === "completado").map((item) => item.moduloId)
   );
@@ -298,7 +334,7 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
   const completados = progress.filter((item) => item.status === "completado").length;
   const progresoGeneral = total ? Math.round((completados / total) * 100) : 0;
   const modulos = progress.map((item) => {
-    const module = moduleMap.get(item.moduloId);
+    const module = moduleMap.get(item.moduloId ?? "");
     const dependencies = Array.isArray(module?.dependencies) ? module?.dependencies : [];
     const requiredDeps = dependencies
       .map((dep) => (dep?.type === "required" ? dep.id : null))
@@ -314,18 +350,18 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
     const progreso = item.status === "completado" ? 100 : item.status === "en_progreso" ? 60 : 25;
     return {
       id: item.moduloId,
-      titulo: module?.title ?? "Módulo",
-      area: normalizeArea(module?.subject ?? module?.category),
+      titulo: (module?.title ?? "Módulo") as string,
+      area: normalizeArea((module?.subject ?? module?.category) as string | undefined),
       progreso,
       estado,
-      ultimaActividad: formatActivityDate(item.updatedAt)
+      ultimaActividad: formatActivityDate(item.updatedAt as string | undefined)
     };
   });
   res.json({
     id: childId.toString(),
-    nombre: child.fullName ?? vinculo.nombre ?? "Sin nombre",
-    usuario: normalizeUsername(child.username ?? vinculo.usuario),
-    grado: vinculo.grado ?? "Sin grado",
+    nombre: (child.fullName ?? vinculo.nombre ?? "Sin nombre") as string,
+    usuario: normalizeUsername((child.username ?? vinculo.usuario) as string | undefined),
+    grado: (vinculo.grado ?? "Sin grado") as string,
     progresoGeneral,
     modulos
   });

@@ -40,37 +40,22 @@ import { readonlyRouter } from "./routes/readonly";
 import { registro } from "./routes/registro";
 import { mapsRouter } from "./routes/maps";
 import { requireUser } from "./lib/user-auth";
-import fs from "node:fs";
-import path from "node:path";
 import { getDb } from "./lib/db";
 
 const runStartupDataChecks = async () => {
-  if (ENV.DB_KIND !== "mongo") {
-    return;
-  }
-
   try {
     const db = await getDb();
     const usuarios = db.collection("usuarios");
-
-    const [totalUsers, totalAdmins] = await Promise.all([
-      usuarios.estimatedDocumentCount(),
-      usuarios.countDocuments({ role: "ADMIN", isDeleted: { $ne: true } })
-    ]);
+    const totalUsers = usuarios.estimatedDocumentCount();
+    const totalAdmins = usuarios.countDocuments({ role: "ADMIN", isDeleted: { $ne: true } });
 
     if (totalUsers === 0) {
-      console.warn(
-        `[startup-check] La DB '${ENV.DB_NAME}' no tiene usuarios. Ejecutá server/mongodb-setup.js en esta misma DB.`
-      );
+      console.warn("[startup-check] La DB no tiene usuarios. Ejecutá el seed inicial.");
       return;
     }
-
     if (totalAdmins === 0) {
-      console.warn(
-        `[startup-check] La DB '${ENV.DB_NAME}' tiene usuarios pero ningún ADMIN activo. Revisá seed/migraciones.`
-      );
+      console.warn("[startup-check] La DB tiene usuarios pero ningún ADMIN activo.");
     }
-
   } catch (error) {
     console.warn("[startup-check] No se pudo verificar alineación de seed/admin en startup.", error);
   }
@@ -159,15 +144,6 @@ app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
 });
 
 const bootstrap = async () => {
-  if (ENV.DB_KIND === "sqlite") {
-    const sqlitePath = path.isAbsolute(ENV.SQLITE_PATH) ? ENV.SQLITE_PATH : path.resolve(process.cwd(), ENV.SQLITE_PATH);
-    if (!fs.existsSync(sqlitePath)) {
-      throw new Error(`DB_KIND=sqlite but SQLITE_PATH does not exist: ${sqlitePath}`);
-    }
-    const sqliteModule = await import("./db/sqliteDictionary");
-    sqliteModule.getSqliteDictionaryService();
-  }
-
   app.listen(ENV.PORT, () => {
     console.log(`API on http://localhost:${ENV.PORT}`);
   });

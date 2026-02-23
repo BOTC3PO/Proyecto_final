@@ -59,7 +59,7 @@ governance.get("/api/prompts", async (req, res) => {
             : {},
         status: String(prompt.status ?? "ACTIVE"),
         createdBy: String(prompt.createdBy ?? ""),
-        createdAt: new Date(prompt.createdAt ?? new Date()).toISOString(),
+        createdAt: new Date(String(prompt.createdAt ?? new Date())).toISOString(),
         source: String(prompt.source ?? "governance")
       })
     );
@@ -141,7 +141,7 @@ governance.post("/api/proposals/:id/close", async (req, res) => {
     const proposal = ProposalSchema.parse({
       ...proposalRaw,
       id: String(proposalRaw.id ?? proposalRaw._id ?? ""),
-      createdAt: new Date(proposalRaw.createdAt ?? new Date()).toISOString()
+      createdAt: new Date(String(proposalRaw.createdAt ?? new Date())).toISOString()
     });
 
     if (proposal.status !== "OPEN") {
@@ -161,7 +161,7 @@ governance.post("/api/proposals/:id/close", async (req, res) => {
 
     const votes = await db.collection("votes").find({ proposalId }).toArray();
     const summary = votes.reduce(
-      (acc, vote) => {
+      (acc: { approve: number; reject: number; abstain: number }, vote) => {
         const value = String(vote.vote ?? "").toUpperCase();
         if (value === "APPROVE") acc.approve += 1;
         if (value === "REJECT") acc.reject += 1;

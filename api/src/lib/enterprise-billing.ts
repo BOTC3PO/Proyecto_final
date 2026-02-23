@@ -1,4 +1,4 @@
-import type { Db } from "mongodb";
+import type { Db } from "./db";
 import { CLASSROOM_ACTIVE_STATUS_VALUES } from "../schema/aula";
 
 export type ActiveStudentBreakdown = {

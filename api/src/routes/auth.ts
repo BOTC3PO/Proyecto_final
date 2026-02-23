@@ -26,6 +26,21 @@ import {
 
 export const auth = Router();
 
+type DbUser = {
+  _id: string;
+  email?: string;
+  username?: string;
+  role?: string;
+  guestOnboardingStatus?: string | null;
+  schoolId?: string | null;
+  escuelaId?: string | null;
+  fullName?: string | null;
+  password?: string;
+  passwordHash?: string;
+  passwordResetRequired?: boolean;
+  isDeleted?: boolean;
+};
+
 const isProduction = ENV.NODE_ENV === "production";
 
 const authLimiter = createRateLimiter({
@@ -52,7 +67,7 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
     }
     const parsed = BootstrapAdminRequestSchema.parse(req.body ?? {});
     const db = await getDb();
-    const existingAdmin = await db.collection("usuarios").findOne({ role: "ADMIN" });
+    const existingAdmin = await db.collection<DbUser>("usuarios").findOne({ role: "ADMIN" });
     if (existingAdmin) {
       res.status(409).json({ error: "Admin already exists" });
       return;
@@ -111,7 +126,7 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
       email: body.email.trim().toLowerCase()
     });
     const db = await getDb();
-    const existingEmail = await db.collection("usuarios").findOne({
+    const existingEmail = await db.collection<DbUser>("usuarios").findOne({
       email: parsed.email,
       isDeleted: { $ne: true }
     });
@@ -130,7 +145,7 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         res.status(400).json({ error: "Invalid school code" });
         return;
       }
-      escuelaId = escuela._id;
+      escuelaId = escuela._id as string;
       escuelaExists = true;
     } else if (parsed.schoolId) {
       if (!escuelaId) {
@@ -280,7 +295,7 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
     }
 
     const db = await getDb();
-    const user = await db.collection("usuarios").findOne({
+    const user = await db.collection<DbUser>("usuarios").findOne({
       _id: objectId,
       isDeleted: { $ne: true }
     });
@@ -335,7 +350,7 @@ auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
     });
 
     const db = await getDb();
-    const user = await db.collection("usuarios").findOne(
+    const user = await db.collection<DbUser>("usuarios").findOne(
       {
         email: parsed.email,
         isDeleted: { $ne: true }
@@ -388,7 +403,7 @@ auth.post("/api/auth/login", authLimiter, async (req, res) => {
     });
     const db = await getDb();
     const identifier = parsed.identifier;
-    const user = await db.collection("usuarios").findOne({
+    const user = await db.collection<DbUser>("usuarios").findOne({
       $or: [{ email: identifier }, { username: identifier }],
       isDeleted: { $ne: true }
     });

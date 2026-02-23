@@ -34,7 +34,7 @@ export const markUsersWithoutUsablePasswordForReset = async (params: {
       actorId,
       action: "usuarios.password_reset_required",
       targetType: "usuario",
-      targetId: user._id.toString(),
+      targetId: String(user._id),
       metadata: {
         reason,
         role: typeof user.role === "string" ? user.role : null,
