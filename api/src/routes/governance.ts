@@ -4,6 +4,7 @@ import { getDb } from "../lib/db";
 import {
   CastVoteInputSchema,
   CreateProposalInputSchema,
+  GovernanceLevelSchema,
   PromptSchema,
   ProposalSchema,
   VoteSchema
@@ -145,7 +146,7 @@ governance.post("/api/proposals/:id/vote", async (req, res) => {
     if (proposal.status !== "OPEN") return res.status(409).json({ error: "proposal is not open" });
 
     const parsed = CastVoteInputSchema.parse(req.body ?? {});
-    const canVote = await canActorVoteOnLevel(db, parsed.voterId, proposal.level);
+    const canVote = await canActorVoteOnLevel(db, parsed.voterId, GovernanceLevelSchema.parse(proposal.level));
     if (!canVote) return res.status(403).json({ error: "permission denied" });
 
     const vote = VoteSchema.parse({
