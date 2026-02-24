@@ -26,7 +26,7 @@ try {
   /* dotenv is optional */
 }
 
-const SEED_FILE = path.resolve(__dirname, "../../src/base/seed_minimal.sql");
+const SEED_FILE = path.resolve(__dirname, "../base/seed_minimal.sql");
 
 function runSeed(dbPath: string): void {
   if (!fs.existsSync(dbPath)) {
@@ -65,8 +65,8 @@ function runSeed(dbPath: string): void {
 
 if (require.main === module) {
   const dbPath =
-    process.env.SQLITE_PATH ??
-    path.resolve(process.cwd(), "data", "core.sqlite");
+    process.env.SQLITE_CORE_PATH ??
+    path.resolve(process.cwd(), "src", "base", "core_schema.sqlite");
 
   runSeed(dbPath);
 }

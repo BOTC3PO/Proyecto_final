@@ -30,6 +30,6 @@ try {
 }
 
 const dbPath =
-  process.env.SQLITE_PATH ?? path.resolve(process.cwd(), "data", "core.db");
+  process.env.SQLITE_CORE_PATH ?? path.resolve(process.cwd(), "src", "base", "core_schema.sqlite");
 
 runMigrations(dbPath);

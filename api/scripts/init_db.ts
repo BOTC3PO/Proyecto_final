@@ -169,7 +169,7 @@ function initDb(dbPath: string): void {
 
 if (require.main === module) {
   const dbPath =
-    process.env.SQLITE_PATH ?? path.resolve(process.cwd(), "data", "core.sqlite");
+    process.env.SQLITE_CORE_PATH ?? path.resolve(process.cwd(), "src", "base", "core_schema.sqlite");
   initDb(dbPath);
 }
 

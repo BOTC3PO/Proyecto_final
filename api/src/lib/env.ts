@@ -8,7 +8,7 @@ export const ENV = {
   NODE_ENV: process.env.NODE_ENV ?? "development",
   PORT: Number(process.env.PORT ?? 5050),
   DB_KIND: (process.env.DB_KIND ?? "sqlite").toLowerCase(),
-  SQLITE_PATH: process.env.SQLITE_PATH ?? "./data/diccionario.sqlite",
+  SQLITE_PATH: process.env.SQLITE_PATH ?? "./src/diccionarios/Diccionario.sqlite",
   SQLITE_CORE_PATH: process.env.SQLITE_CORE_PATH ?? "./src/base/core_schema.sqlite",
   SQLITE_CONTENT_PATH: process.env.SQLITE_CONTENT_PATH ?? "./src/base/modulos_quizzes.sqlite",
   SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
