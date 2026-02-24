@@ -1,4 +1,3 @@
-import { ENV } from "../src/lib/env";
 import { getDb } from "../src/lib/db";
 import { isPasswordHashUsable } from "../src/lib/passwords";
 
@@ -12,14 +11,14 @@ async function main() {
   );
 
   if (!user) {
-    console.error(`[auth:health] Usuario semilla no encontrado: ${TARGET_EMAIL} (DB_NAME=${ENV.DB_NAME})`);
+    console.error(`[auth:health] Usuario semilla no encontrado: ${TARGET_EMAIL}`);
     process.exit(1);
   }
 
   const hashOk = isPasswordHashUsable(user.passwordHash);
   if (!hashOk) {
     console.error(
-      `[auth:health] Usuario '${TARGET_EMAIL}' existe, pero passwordHash inválido/no utilizable (DB_NAME=${ENV.DB_NAME}).`
+      `[auth:health] Usuario '${TARGET_EMAIL}' existe, pero passwordHash inválido/no utilizable.`
     );
     process.exit(1);
   }
@@ -31,7 +30,7 @@ async function main() {
   }
 
   console.log(
-    `[auth:health] OK usuario semilla presente con hash utilizable (email=${TARGET_EMAIL}, db=${ENV.DB_NAME}).`
+    `[auth:health] OK usuario semilla presente con hash utilizable (email=${TARGET_EMAIL}, db=core_schema.sqlite).`
   );
 }
 

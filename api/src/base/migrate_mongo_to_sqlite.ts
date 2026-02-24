@@ -27,8 +27,8 @@ import Database from "better-sqlite3";
 try { require("dotenv").config(); } catch { /* dotenv optional */ }
 
 const MONGO_URI   = process.env.MONGO_URI   ?? "mongodb://localhost:27017/educational_platform";
-const SQLITE_PATH = process.env.SQLITE_PATH ?? path.join(process.cwd(), "data", "core.db");
-const SCHEMA_PATH = path.join(__dirname, "../db/core_schema.sql");
+const SQLITE_PATH = process.env.SQLITE_CORE_PATH ?? path.join(process.cwd(), "src", "base", "core_schema.sqlite");
+const SCHEMA_PATH = path.join(__dirname, "core_schema.sql");
 const FRESH       = process.argv.includes("--fresh");
 
 // ── helpers ──────────────────────────────────────────────────────────────────
