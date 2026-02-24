@@ -114,6 +114,7 @@ export type ModuleSubjectCapabilities = {
 const buildTheoryTypes = (supportsTuesdayJs: boolean, disabledReason: string): TheoryTypeOption[] => [
   { value: "Video", label: "Video" },
   { value: "Texto", label: "Texto" },
+  { value: "Presentación", label: "Presentación" },
   { value: "Enlace", label: "Enlace" },
   { value: "Libro", label: "Libro" },
   { value: "Documento", label: "Documento" },
