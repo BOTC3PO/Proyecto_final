@@ -39,11 +39,6 @@ export function ProtectedRoute({
   const isTestMode = testmode();
 
   const role = user?.role ?? storedUser?.role ?? (isTestMode ? 'GUEST' : null);
-  const guestStatus = user?.guestOnboardingStatus ?? storedUser?.guestOnboardingStatus ?? null;
-
-  if (role === 'GUEST' && allow.includes('GUEST') && guestStatus !== 'aceptado') {
-    return <Navigate to="/onboarding-guest" replace />;
-  }
 
   if (!role || !allow.includes(role)) return <Navigate to={redirectTo} replace />;
 
