@@ -27,7 +27,7 @@ pages.get("/api/pages", async (req, res) => {
     const filter: Record<string, any> = q ? { title: { $regex: q, $options: "i" } } : {};
     const total = await db.collection("pages").countDocuments(filter);
     const items = await db
-      .collection("pages")
+      .collection<{ _id: string; title: string; createdAt: string }>("pages")
       .find(filter)
       .project({ _id: 1, title: 1, createdAt: 1 })
       .sort({ createdAt: -1 })
