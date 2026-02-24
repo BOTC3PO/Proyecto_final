@@ -76,10 +76,7 @@ export default function Login() {
         DIRECTIVO: "/enterprise",
         USER: "/menualumno",
         PARENT: "/menualumno",
-        GUEST:
-          payload.guestOnboardingStatus === "aceptado"
-            ? "/menualumno"
-            : "/onboarding-guest",
+        GUEST: "/",
       };
       navigate(redirectByRole[payload.role] ?? "/");
     } catch (error) {

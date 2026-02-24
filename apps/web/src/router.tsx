@@ -72,10 +72,8 @@ import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
 import test from "./sys/testmode";
 
 const testmode = test();
-const moduleAccessRoles = testmode
-  ? ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO", "GUEST"]
-  : ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"];
-const modulePlayRoles = testmode ? ["USER", "PARENT", "TEACHER", "GUEST"] : ["USER", "PARENT", "TEACHER"];
+const moduleAccessRoles = ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"];
+const modulePlayRoles = ["USER", "PARENT", "TEACHER"];
 
 const ModuloEditRedirect = () => {
   const { id } = useParams();
@@ -175,16 +173,15 @@ export const router = createBrowserRouter([
       {
         path: "clases",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER',"GUEST"]}>
+          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER']}>
             <Clases />
           </ProtectedRoute>
         ),
       },   
-      //delete GUEST
       {
         path: "menualumno",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT',"GUEST" ]}> 
+          <ProtectedRoute allow={['USER', 'PARENT']}>
             <MenuAlumno />
           </ProtectedRoute>
         ),
