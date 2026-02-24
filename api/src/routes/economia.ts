@@ -5,11 +5,6 @@ import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { requirePolicy } from "../lib/authorization";
 import { assertClassroomWritable } from "../lib/classroom";
-import {
-  ENTERPRISE_FEATURES,
-  requireActiveInstitutionBenefit,
-  requireEnterpriseFeature
-} from "../lib/entitlements";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
 import { createRateLimiter } from "../lib/rate-limit";
 import {
@@ -130,9 +125,7 @@ type ItemPrecioDoc = {
 
 economia.use(
   ["/api/economia", "/api/admin/economia"],
-  requireUser,
-  requireEnterpriseFeature(ENTERPRISE_FEATURES.ECONOMY),
-  requireActiveInstitutionBenefit
+  requireUser
 );
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
