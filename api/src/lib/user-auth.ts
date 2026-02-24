@@ -25,6 +25,8 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       url === "/api/auth/login" ||
       url === "/api/auth/register" ||
       url === "/api/auth/guest" ||
+      url === "/api/auth/refresh" ||
+      url === "/api/auth/forgot-password" ||
       url === "/api/auth/bootstrap-admin" ||
       url === "/health"
     ) {

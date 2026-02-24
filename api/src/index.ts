@@ -52,7 +52,7 @@ const runStartupDataChecks = () => {
       return;
     }
     const totalAdmins = (sqlite.prepare(
-      "SELECT COUNT(*) AS c FROM usuarios WHERE json_extract(doc, '$.role') = ? AND (json_extract(doc, '$.isDeleted') IS NULL OR json_extract(doc, '$.isDeleted') = 0)"
+      "SELECT COUNT(*) AS c FROM usuarios WHERE role = ? AND is_deleted = 0"
     ).get("ADMIN") as { c: number }).c;
     if (totalAdmins === 0) {
       console.warn("[startup-check] La DB tiene usuarios pero ningún ADMIN activo.");
