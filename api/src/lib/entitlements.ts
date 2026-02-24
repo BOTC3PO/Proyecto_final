@@ -199,12 +199,21 @@ export const enforceSubscriptionAccess = async (req: Request, res: Response): Pr
 
 export const hasActiveInstitutionBenefit = async (schoolId: string, userId: string): Promise<boolean> => {
   const db = await getDb();
-  const match = await db.collection("aulas").findOne({
-    status: "ACTIVE",
-    $or: [{ institutionId: schoolId }, { schoolId }],
-    "members.userId": userId
-  });
-  return Boolean(match);
+  // The SQLite schema stores classrooms in `clases` (no embedded members/status).
+  // Members live in the separate `clase_miembros` table, so we do two queries.
+  const classrooms = await db
+    .collection<{ _id: string }>("aulas")
+    .find({ escuelaId: schoolId, isDeleted: false })
+    .toArray();
+  if (!classrooms.length) return false;
+  const classroomIds = classrooms
+    .map((c) => (typeof c._id === "string" ? c._id : null))
+    .filter((id): id is string => id !== null);
+  if (!classroomIds.length) return false;
+  const membership = await db
+    .collection("clase_miembros")
+    .findOne({ usuarioId: userId, claseId: { $in: classroomIds } });
+  return Boolean(membership);
 };
 
 export const getActiveInstitutionBenefitStatus = async (req: {
