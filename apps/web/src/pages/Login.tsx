@@ -70,7 +70,18 @@ export default function Login() {
         payload.refreshToken ?? null,
         { remember: form.remember },
       );
-      navigate("/");
+      const redirectByRole: Record<typeof payload.role, string> = {
+        ADMIN: "/admin",
+        TEACHER: "/profesor",
+        DIRECTIVO: "/enterprise",
+        USER: "/menualumno",
+        PARENT: "/menualumno",
+        GUEST:
+          payload.guestOnboardingStatus === "aceptado"
+            ? "/menualumno"
+            : "/onboarding-guest",
+      };
+      navigate(redirectByRole[payload.role] ?? "/");
     } catch (error) {
       const message = error instanceof Error ? error.message : "No pudimos iniciar sesión.";
       setStatus({ loading: false, error: message });
