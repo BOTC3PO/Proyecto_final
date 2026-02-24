@@ -129,6 +129,7 @@ type ItemPrecioDoc = {
 };
 
 economia.use(
+  ["/api/economia", "/api/admin/economia"],
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.ECONOMY),
   requireActiveInstitutionBenefit
