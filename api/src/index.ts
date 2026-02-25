@@ -39,6 +39,8 @@ import { markUsersWithoutUsablePasswordForReset } from "./lib/password-health";
 import { dictionary } from "./routes/dictionary";
 import { readonlyRouter } from "./routes/readonly";
 import { registro } from "./routes/registro";
+import { adminRouter } from "./routes/admin";
+import { tareasRouter } from "./routes/tareas";
 import { mapsRouter } from "./routes/maps";
 import { requireUser } from "./lib/user-auth";
 import { openSqlite } from "./lib/db";
@@ -78,7 +80,7 @@ app.use(express.json({
 app.use(
   createRateLimiter({
     windowMs: 15 * 60 * 1000,
-    limit: 100
+    limit: 500
   })
 );
 app.use(health);
@@ -110,6 +112,8 @@ app.use(aulaFeed);
 app.use(publicaciones);
 app.use(moderacion);
 app.use(configuracion);
+app.use("/api/dictionary", createRateLimiter({ windowMs: 15 * 60 * 1000, limit: 5000 }));
+app.use("/api/diccionarios", createRateLimiter({ windowMs: 15 * 60 * 1000, limit: 5000 }));
 app.use(diccionarios);
 app.use(dictionary);
 app.use(enterprise);
@@ -121,6 +125,8 @@ app.use(payments);
 app.use(padres);
 app.use(governance);
 app.use(generadoresAdmin);
+app.use(adminRouter);
+app.use(tareasRouter);
 app.use(readonlyRouter);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {

@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import type { Role } from './roles';
 import { AuthContext, type User } from './AuthContex';
-import testmode from '../sys/testmode';
 import { setAuthToken, setRefreshToken } from '../lib/api';
 
 const STORAGE_KEY = 'auth.user';
@@ -13,7 +12,6 @@ const getStorage = (remember: boolean) =>
   remember ? window.localStorage : window.sessionStorage;
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const isTestAuthEnabled = testmode();
   const [user, setUser] = useState<User | null>(() => {
     if (typeof window === 'undefined') return null;
     try {
@@ -59,24 +57,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     persistUser(nextUser, remember);
   };
 
-  const loginAs = (role: Role, options?: { remember?: boolean; schoolId?: string | null }) => {
-    if (!isTestAuthEnabled) {
-      console.warn('loginAs is disabled in production. Use real auth/session flow.');
-      return;
-    }
-    const remember = options?.remember ?? shouldPersist;
-    setAuthToken(null);
-    setRefreshToken(null);
-    persistUser(
-      {
-        id: '1',
-        name: 'Demo',
-        role,
-        guestOnboardingStatus: role === 'GUEST' ? 'aceptado' : null,
-        schoolId: options?.schoolId ?? null,
-      },
-      remember
-    );
+  const loginAs = (_role: Role, _options?: { remember?: boolean; schoolId?: string | null }) => {
+    console.warn('loginAs is disabled. Use real auth/session flow.');
   };
 
   const logout = () => {

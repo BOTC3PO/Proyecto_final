@@ -1,9 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { NAV_BY_ROLE } from './navConfig';
-import type { Role } from '../auth/roles';
 import { useEffect, useState } from 'react';
-import testmode from '../sys/testmode';
 
 // Páginas que usan el navbar público
 const PUBLIC_PAGES = ['/', '/metodologia', '/explorar', '/contact', '/login', '/register'];
@@ -12,15 +10,15 @@ const publicHomePath = '/';
 
 
 export default function Navbar() {
-  const { user, logout, loginAs } = useAuth();
+  const { user, logout } = useAuth();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const role = user?.role ?? 'GUEST';
   const items = NAV_BY_ROLE[role];
   
-  // Determinar si mostrar navbar público
-  const isPublicPage = PUBLIC_PAGES.includes(location.pathname);
+  // Mostrar navbar público sólo si el usuario es GUEST (no autenticado)
+  const isPublicPage = PUBLIC_PAGES.includes(location.pathname) && role === 'GUEST';
   
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -243,23 +241,6 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          {/* Botones de demo para cambiar rol rápido (sacalos en producción) */}
-          {testmode() ? (
-            <select
-              className="px-2 py-1 text-sm border rounded"
-              onChange={(e) => loginAs(e.target.value as Role)}
-              defaultValue=""
-            >
-              <option value="" disabled>Cambiar rol (demo)</option>
-              <option value="ADMIN">ADMIN</option>
-              <option value="USER">USER (Alumno)</option>
-              <option value="PARENT">PARENT</option>
-              <option value="TEACHER">TEACHER</option>
-              <option value="DIRECTIVO">DIRECTIVO</option>
-              <option value="GUEST">GUEST</option>
-            </select>
-          ) : null}
-
           {role !== 'GUEST' ? (
             <button onClick={logout} className="px-3 py-1 text-sm text-white bg-gray-900 rounded">
               Salir

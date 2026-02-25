@@ -17,10 +17,6 @@ import Metodologia from "./pages/metodologia";
 import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
-import GeneradoresTest from "./pages/GeneradoresTest";
-import ConceptMapDemo from "./pages/ConceptMapDemo";
-import ChartsDemo from "./pages/ChartsDemo";
-import SimulacionesFisica from "./pages/SimulacionesFisica";
 import CrearModulo from "./pages/crearModulo";
 import EditorCuestionarios from "./pages/EditorCuestionarios";
 import EditarModulo from "./pages/editarModulo";
@@ -48,6 +44,7 @@ import AdminPanel from "./pages/adminPanel";
 import Admin from "./pages/Admin";
 import AdminUsuarios from "./pages/AdminUsuarios";
 import AdminCursos from "./pages/AdminCursos";
+import AdminMaterias from "./pages/AdminMaterias";
 import Tareas from "./pages/Tareas";
 import Progreso from "./pages/Progreso";
 import ProfesorCursos from "./pages/ProfesorCursos";
@@ -69,9 +66,6 @@ import GuestOnboarding from "./pages/GuestOnboarding";
 import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
 
 
-import test from "./sys/testmode";
-
-const testmode = test();
 const moduleAccessRoles = ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"];
 const modulePlayRoles = ["USER", "PARENT", "TEACHER"];
 
@@ -87,14 +81,7 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       // Rutas públicas (GUEST)
-      //home solo funciona para probar los roles 
-      
-      ...(testmode ? [
-        { index: true, element: <HomePage /> },
-        { path: "inicio", element: <HomePage /> }
-      ] : [
-        { index: true, element: <HomePage /> }
-      ]),
+      { index: true, element: <HomePage /> },
 
       { path: "explorar", element: <Explorar /> },
       { path: "precios", element: <Pricing /> },
@@ -117,15 +104,6 @@ export const router = createBrowserRouter([
       { path: "editor/:id", element: <BookEditorPage /> },
       { path: "onboarding-guest", element: <GuestOnboarding /> },
       { path: "geografia/mapa", element: <GeografiaMapaSelector /> },
-      ...(testmode
-        ? [
-            { path: "generadores", element: <GeneradoresTest /> },
-            { path: "concept-map", element: <ConceptMapDemo /> },
-            { path: "charts", element: <ChartsDemo /> },
-            { path: "simulaciones", element: <SimulacionesFisica /> },
-          ]
-        : []),
-
 
       // Admin
       {
@@ -149,6 +127,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['ADMIN']}>
             <AdminCursos />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "admin/materias",
+        element: (
+          <ProtectedRoute allow={['ADMIN']}>
+            <AdminMaterias />
           </ProtectedRoute>
         ),
       },
