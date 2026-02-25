@@ -50,6 +50,14 @@ const authLimiter = createRateLimiter({
   message: { error: "Too many requests" }
 });
 
+// Limitador estricto solo para intentos de login: 10 intentos / 15 min por IP
+const loginLimiter = createRateLimiter({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  enabled: !ENV.AUTH_RATE_LIMIT_DISABLED,
+  message: { error: "Demasiados intentos de inicio de sesión. Intenta de nuevo en 15 minutos." }
+});
+
 auth.post("/api/auth/bootstrap-admin", async (req, res) => {
   try {
     if (!req.body || Object.keys(req.body).length === 0) {
@@ -389,7 +397,7 @@ auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
   }
 });
 
-auth.post("/api/auth/login", authLimiter, async (req, res) => {
+auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
   try {
     const body = req.body ?? {};
     if (typeof body.identifier !== "string" || typeof body.password !== "string") {
