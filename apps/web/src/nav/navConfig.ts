@@ -1,9 +1,8 @@
 import type { Role } from '../auth/roles';
-import testmode from '../sys/testmode';
 
 type NavItem = { label: string; to: string; exact?: boolean };
 type NavMap = Record<Role, NavItem[]>;
-export const ROLE_HOME_PATH = testmode() ? '/inicio' : '/';
+export const ROLE_HOME_PATH = '/';
 
 // Base de “Usuario/Alumno”
 const userBase: NavItem[] = [

@@ -88,14 +88,7 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       // Rutas públicas (GUEST)
-      //home solo funciona para probar los roles 
-      
-      ...(testmode ? [
-        { index: true, element: <HomePage /> },
-        { path: "inicio", element: <HomePage /> }
-      ] : [
-        { index: true, element: <HomePage /> }
-      ]),
+      { index: true, element: <HomePage /> },
 
       { path: "explorar", element: <Explorar /> },
       { path: "precios", element: <Pricing /> },
