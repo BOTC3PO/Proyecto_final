@@ -3,8 +3,6 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import type { Role } from '../auth/roles';
 import type { User } from '../auth/AuthContex';
-import testmode from '../sys/testmode';
-
 const STORAGE_KEY = 'auth.user';
 
 const readStoredUser = (): User | null => {
@@ -36,9 +34,8 @@ export function ProtectedRoute({
 }) {
   const { user } = useAuth();
   const storedUser = readStoredUser();
-  const isTestMode = testmode();
 
-  const role = user?.role ?? storedUser?.role ?? (isTestMode ? 'GUEST' : null);
+  const role = user?.role ?? storedUser?.role ?? null;
 
   if (!role || !allow.includes(role)) return <Navigate to={redirectTo} replace />;
 

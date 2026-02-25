@@ -3,8 +3,6 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { apiGet } from "../../lib/api";
 import type { Module, ModuleVisibility } from "../../domain/module/module.types";
-import testmode from "../../sys/testmode";
-
 const VISIBILITY_LABELS: Record<ModuleVisibility, string> = {
   publico: "Público",
   privado: "Privado",
@@ -48,15 +46,8 @@ export default function ModulosList() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchParams] = useSearchParams();
 
-  const isTestMode = testmode();
-  const canCreate = useMemo(
-    () => ["TEACHER", "ADMIN"].includes(role) || (isTestMode && role === "GUEST"),
-    [isTestMode, role]
-  );
-  const canEdit = useMemo(
-    () => ["TEACHER", "ADMIN"].includes(role) || (isTestMode && role === "GUEST"),
-    [isTestMode, role]
-  );
+  const canCreate = useMemo(() => ["TEACHER", "ADMIN"].includes(role), [role]);
+  const canEdit = useMemo(() => ["TEACHER", "ADMIN"].includes(role), [role]);
 
   const subjectOptions = useMemo(() => {
     const values = new Set<string>();

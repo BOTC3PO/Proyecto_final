@@ -17,10 +17,6 @@ import Metodologia from "./pages/metodologia";
 import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
-import GeneradoresTest from "./pages/GeneradoresTest";
-import ConceptMapDemo from "./pages/ConceptMapDemo";
-import ChartsDemo from "./pages/ChartsDemo";
-import SimulacionesFisica from "./pages/SimulacionesFisica";
 import CrearModulo from "./pages/crearModulo";
 import EditorCuestionarios from "./pages/EditorCuestionarios";
 import EditarModulo from "./pages/editarModulo";
@@ -70,9 +66,6 @@ import GuestOnboarding from "./pages/GuestOnboarding";
 import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
 
 
-import test from "./sys/testmode";
-
-const testmode = test();
 const moduleAccessRoles = ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"];
 const modulePlayRoles = ["USER", "PARENT", "TEACHER"];
 
@@ -111,15 +104,6 @@ export const router = createBrowserRouter([
       { path: "editor/:id", element: <BookEditorPage /> },
       { path: "onboarding-guest", element: <GuestOnboarding /> },
       { path: "geografia/mapa", element: <GeografiaMapaSelector /> },
-      ...(testmode
-        ? [
-            { path: "generadores", element: <GeneradoresTest /> },
-            { path: "concept-map", element: <ConceptMapDemo /> },
-            { path: "charts", element: <ChartsDemo /> },
-            { path: "simulaciones", element: <SimulacionesFisica /> },
-          ]
-        : []),
-
 
       // Admin
       {
