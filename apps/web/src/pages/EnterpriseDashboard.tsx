@@ -384,6 +384,20 @@ export default function EnterpriseDashboard() {
           )}
         </ul>
       </section>
+
+      <section className="rounded-2xl border border-violet-100 bg-violet-50 p-5">
+        <h2 className="text-base font-semibold text-violet-900">Gobernanza colaborativa</h2>
+        <p className="mt-1 text-sm text-violet-700">
+          Participá en propuestas de cambio para módulos, generadores de ejercicios y configuraciones.
+          Solo directivos, docentes y administradores pueden crear y votar propuestas.
+        </p>
+        <a
+          href="/gobernanza"
+          className="mt-3 inline-block rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 transition-colors"
+        >
+          Ir a gobernanza →
+        </a>
+      </section>
     </main>
   );
 }

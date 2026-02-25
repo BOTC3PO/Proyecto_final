@@ -69,11 +69,12 @@ export const validateGovernancePermissions = async (params: {
 
   if (level === "CONTENT") return canVoteContent(role);
 
+  // "admin de las aulas" se refiere a un directivo o a un profesor, no literalmente a un admin
   const membership = await db.collection("membresias").findOne({
     userId: actorId,
     targetType,
     targetId,
-    role: { $in: ["owner", "admin"] }
+    role: { $in: ["owner", "admin", "TEACHER", "DIRECTIVO"] }
   });
 
   return Boolean(membership);

@@ -64,6 +64,9 @@ import Privacidad from "./pages/Privacidad";
 import DiccionarioTest from "./pages/DiccionarioTest";
 import GuestOnboarding from "./pages/GuestOnboarding";
 import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
+import Gobernanza from "./pages/Gobernanza";
+import GobernanzaPropuesta from "./pages/GobernanzaPropuesta";
+import GobernanzaNuevaPropuesta from "./pages/GobernanzaNuevaPropuesta";
 
 
 const moduleAccessRoles = ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"];
@@ -489,6 +492,32 @@ export const router = createBrowserRouter([
         ),
       },
 
+
+      // Gobernanza — solo directivos, docentes y administradores
+      {
+        path: "gobernanza",
+        element: (
+          <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
+            <Gobernanza />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "gobernanza/propuestas/nueva",
+        element: (
+          <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
+            <GobernanzaNuevaPropuesta />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "gobernanza/propuestas/:id",
+        element: (
+          <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
+            <GobernanzaPropuesta />
+          </ProtectedRoute>
+        ),
+      },
 
       // 404
       { path: "404", element: <NotFound /> },

@@ -39,7 +39,7 @@ export const canVoteContent = (role?: string | null) => {
   return membership === "DIRECTIVO" || membership === "TEACHER" || membership === "STUDENT";
 };
 
-export const canVoteGovernance = (role?: string | null) => role === "ADMIN";
+export const canVoteGovernance = (role?: string | null) => !!role && STAFF_ROLES.has(role);
 
 type ClassroomMember = { userId?: string; roleInClass?: string };
 type AuthorizationUser = {
@@ -225,9 +225,14 @@ export const canManageClassroom = ({
     !!requesterSchoolId &&
     !!classroomSchoolId &&
     requesterSchoolId === classroomSchoolId;
+  // "admin de las aulas" se refiere a un directivo o a un profesor, no literalmente a un admin
   const hasAdminMembership = !!requesterId
     ? (classroomMembers ?? []).some(
-        (member) => member.userId === requesterId && member.roleInClass === "ADMIN"
+        (member) =>
+          member.userId === requesterId &&
+          (member.roleInClass === "TEACHER" ||
+            member.roleInClass === "DIRECTIVO" ||
+            member.roleInClass === "ADMIN")
       )
     : false;
   return hasInstitutionRole || hasAdminMembership;

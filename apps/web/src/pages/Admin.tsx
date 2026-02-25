@@ -21,6 +21,11 @@ const adminSections = [
     to: '/admin/reportes',
     desc: 'Gestiona solicitudes, permisos y métricas clave relacionadas con reportes.',
   },
+  {
+    label: 'Gobernanza',
+    to: '/gobernanza',
+    desc: 'Propuestas de cambio para generadores, enunciados y configuraciones. Votación colaborativa entre directivos, docentes y administradores.',
+  },
 ];
 
 export default function Admin() {
