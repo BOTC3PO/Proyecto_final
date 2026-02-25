@@ -197,6 +197,59 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
   res.json({ items, unlocks });
 });
 
+progreso.get("/api/progreso/estudiante", requireUser, async (req, res) => {
+  try {
+    const userId = resolveAuthenticatedUserId(req);
+    if (!userId) return res.status(401).json({ error: "user not authenticated" });
+    const db = await getDb();
+    const progresoItems = await db
+      .collection<ProgresoDoc>("progreso_modulos")
+      .find({ usuarioId: userId })
+      .sort({ updatedAt: -1 })
+      .limit(20)
+      .toArray();
+    const moduloIds = progresoItems.map((p) => p.moduloId).filter(Boolean);
+    const modulosMap = new Map<string, ModuloDoc>();
+    if (moduloIds.length > 0) {
+      const modulosDocs = await db
+        .collection<ModuloDoc>("modulos")
+        .find({ $or: [{ id: { $in: moduloIds } }, { _id: { $in: moduloIds } }] })
+        .project({ id: 1, title: 1, subject: 1, category: 1 })
+        .toArray();
+      for (const m of modulosDocs) {
+        const key = (m.id ?? m._id?.toString?.()) ?? "";
+        if (key) modulosMap.set(key, m);
+      }
+    }
+    const avances = progresoItems.map((item, index) => {
+      const modulo = modulosMap.get(item.moduloId ?? "");
+      const titulo = modulo?.title ?? item.moduloId ?? `Módulo ${index + 1}`;
+      const statusRaw = item.status ?? "en-curso";
+      const porcentaje =
+        statusRaw === "completado" ? "100%" : statusRaw === "en-curso" ? "En progreso" : "0%";
+      return {
+        id: item._id?.toString?.() ?? `avance-${index}`,
+        modulo: titulo,
+        progreso: porcentaje
+      };
+    });
+    const completados = progresoItems.filter((p) => p.status === "completado").length;
+    const total = progresoItems.length;
+    const sugerencia =
+      total === 0
+        ? { titulo: "Empieza tu camino", mensaje: "Explora los módulos disponibles y comienza tu primer desafío." }
+        : completados === total
+          ? { titulo: "¡Módulos completados!", mensaje: "Excelente trabajo. Sigue explorando nuevos contenidos." }
+          : {
+              titulo: "Continúa aprendiendo",
+              mensaje: `Tienes ${total - completados} módulo${total - completados !== 1 ? "s" : ""} en progreso. ¡Sigue adelante!`
+            };
+    res.json({ avances, sugerencia });
+  } catch {
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
 progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });

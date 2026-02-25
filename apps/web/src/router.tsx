@@ -48,6 +48,7 @@ import AdminPanel from "./pages/adminPanel";
 import Admin from "./pages/Admin";
 import AdminUsuarios from "./pages/AdminUsuarios";
 import AdminCursos from "./pages/AdminCursos";
+import AdminMaterias from "./pages/AdminMaterias";
 import Tareas from "./pages/Tareas";
 import Progreso from "./pages/Progreso";
 import ProfesorCursos from "./pages/ProfesorCursos";
@@ -149,6 +150,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['ADMIN']}>
             <AdminCursos />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "admin/materias",
+        element: (
+          <ProtectedRoute allow={['ADMIN']}>
+            <AdminMaterias />
           </ProtectedRoute>
         ),
       },
