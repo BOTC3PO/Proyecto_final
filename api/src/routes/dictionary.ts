@@ -31,7 +31,7 @@ const parseLimit = (value: unknown) => {
   if (!isString(value) || !value.trim()) return 50;
   const num = Number.parseInt(value, 10);
   if (!Number.isFinite(num)) return 50;
-  return Math.min(200, Math.max(1, num));
+  return Math.min(2000, Math.max(1, num));
 };
 
 const getSqliteServiceIfEnabled = async () => {

@@ -112,6 +112,8 @@ app.use(aulaFeed);
 app.use(publicaciones);
 app.use(moderacion);
 app.use(configuracion);
+app.use("/api/dictionary", createRateLimiter({ windowMs: 15 * 60 * 1000, limit: 5000 }));
+app.use("/api/diccionarios", createRateLimiter({ windowMs: 15 * 60 * 1000, limit: 5000 }));
 app.use(diccionarios);
 app.use(dictionary);
 app.use(enterprise);
