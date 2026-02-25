@@ -7,8 +7,7 @@ export const ROLE_HOME_PATH = testmode() ? '/inicio' : '/';
 
 // Base de “Usuario/Alumno”
 const userBase: NavItem[] = [
-  { label: 'Panel', to: '/alumno', exact: true },
-  { label: 'Inicio', to: ROLE_HOME_PATH },
+  { label: 'Inicio', to: '/alumno', exact: true },
   { label: 'Clases', to: '/clases' },
   { label: 'Tareas', to: '/tareas' },
   { label: 'Encuestas', to: '/encuestas' },

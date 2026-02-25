@@ -19,8 +19,8 @@ export default function Navbar() {
   const role = user?.role ?? 'GUEST';
   const items = NAV_BY_ROLE[role];
   
-  // Determinar si mostrar navbar público
-  const isPublicPage = PUBLIC_PAGES.includes(location.pathname);
+  // Mostrar navbar público sólo si el usuario es GUEST (no autenticado)
+  const isPublicPage = PUBLIC_PAGES.includes(location.pathname) && role === 'GUEST';
   
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
