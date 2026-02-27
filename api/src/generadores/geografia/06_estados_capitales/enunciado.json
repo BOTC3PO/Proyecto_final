@@ -1,1 +1,145 @@
-[]
+[
+  {
+    "id": "geo06_ms_1",
+    "type": "map-select",
+    "prompt": "Haz clic en el país cuya capital es Buenos Aires.",
+    "map": {
+      "layers": [
+        {
+          "src": "physical/land",
+          "style": {
+            "fill": "#f0ebe3",
+            "stroke": "#ccc"
+          }
+        },
+        {
+          "src": "political/countries",
+          "style": {
+            "fill": "#e8e4dc",
+            "stroke": "#999",
+            "strokeWidth": 0.5
+          },
+          "interactive": true
+        },
+        {
+          "src": "political/boundaries",
+          "style": {
+            "stroke": "#888",
+            "strokeWidth": 0.6
+          }
+        }
+      ],
+      "bbox": [
+        -82,
+        -56,
+        -34,
+        13
+      ],
+      "title": "América del Sur - Capitales"
+    },
+    "selectKind": "country",
+    "correctIds": [
+      "ARG"
+    ],
+    "selectOptions": [
+      {
+        "id": "ARG",
+        "label": "Argentina"
+      },
+      {
+        "id": "URY",
+        "label": "Uruguay"
+      },
+      {
+        "id": "PRY",
+        "label": "Paraguay"
+      },
+      {
+        "id": "CHL",
+        "label": "Chile"
+      }
+    ],
+    "explanation": "Buenos Aires es la capital federal de Argentina. No debe confundirse con Montevideo (Uruguay), Asunción (Paraguay) ni Santiago (Chile).",
+    "tags": [
+      "estados",
+      "capitales",
+      "america_sur",
+      "mapa"
+    ]
+  },
+  {
+    "id": "geo06_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál es la capital de Brasil?",
+    "options": [
+      {
+        "text": "Brasilia",
+        "correct": true,
+        "because": "Brasilia fue construida como capital federal en 1960 para descentralizar el país del litoral atlántico."
+      },
+      {
+        "text": "São Paulo",
+        "correct": false,
+        "because": "São Paulo es la ciudad más poblada de Brasil y su principal centro económico, pero no la capital."
+      },
+      {
+        "text": "Río de Janeiro",
+        "correct": false,
+        "because": "Río de Janeiro fue capital de Brasil hasta 1960, cuando fue reemplazada por la nueva ciudad de Brasilia."
+      },
+      {
+        "text": "Salvador",
+        "correct": false,
+        "because": "Salvador fue la primera capital colonial de Brasil (hasta 1763), pero hoy no es la capital del país."
+      }
+    ],
+    "explanation": "Brasilia, inaugurada el 21 de abril de 1960 y diseñada con forma de avión, es la capital federal de Brasil desde que reemplazó a Río de Janeiro.",
+    "tags": [
+      "estados",
+      "capitales",
+      "brasil"
+    ]
+  },
+  {
+    "id": "geo06_tf_1",
+    "type": "tf",
+    "prompt": "Washington D.C. es también la ciudad más poblada de los Estados Unidos.",
+    "answer": false,
+    "becauseTrue": "Incorrecto. Washington D.C. es la capital federal, pero no la ciudad más poblada; ese título pertenece a Nueva York.",
+    "becauseFalse": "Correcto. Washington D.C. es la capital de Estados Unidos, pero Nueva York es la ciudad más poblada del país con más de 8 millones de habitantes en la ciudad propiamente dicha.",
+    "tags": [
+      "estados",
+      "capitales",
+      "eeuu"
+    ]
+  },
+  {
+    "id": "geo06_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada país con su capital.",
+    "pairs": [
+      {
+        "left": "Australia",
+        "right": "Canberra"
+      },
+      {
+        "left": "Canadá",
+        "right": "Ottawa"
+      },
+      {
+        "left": "India",
+        "right": "Nueva Delhi"
+      },
+      {
+        "left": "Sudáfrica",
+        "right": "Pretoria (sede ejecutiva)"
+      }
+    ],
+    "explanation": "En muchos países la capital no es la ciudad más grande: Australia eligió Canberra sobre Sídney, Canadá Ottawa sobre Toronto, etc. Sudáfrica tiene tres capitales para sus tres poderes.",
+    "tags": [
+      "estados",
+      "capitales",
+      "mundo"
+    ]
+  }
+]

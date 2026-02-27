@@ -9,6 +9,7 @@ import type {
   TFQuestion,
   MatchQuestion,
 } from "./types";
+import type { MapSelectQuestion } from "./mapTypes";
 
 import { createPrng, type PRNG } from "../core/prng";
 import {
@@ -132,6 +133,20 @@ export class QuizGenerator {
         };
         return;
       }
+
+      if (originalQ.type === "map-select") {
+        const msQ = originalQ as MapSelectQuestion;
+        const isCorrect =
+          typeof userAnswer === "string" &&
+          Array.isArray(msQ.correctIds) &&
+          msQ.correctIds.includes(userAnswer);
+
+        results[genQ.id] = {
+          correct: isCorrect,
+          explanation: msQ.explanation,
+        };
+        return;
+      }
     });
 
     return results;
@@ -189,6 +204,7 @@ export class QuizGenerator {
           optionId: `opt_${idx}`,
           text: opt.text,
         })),
+        ...(question.map ? { map: question.map } : {}),
       };
     }
 
@@ -197,6 +213,7 @@ export class QuizGenerator {
         id: question.id,
         type: "tf",
         prompt: question.prompt,
+        ...(question.map ? { map: question.map } : {}),
       };
     }
 
@@ -219,6 +236,24 @@ export class QuizGenerator {
         prompt: question.prompt,
         leftItems,
         rightItems,
+        ...(question.map ? { map: question.map } : {}),
+      };
+    }
+
+    if (question.type === "map-select") {
+      const msQ = question as MapSelectQuestion;
+      const shuffledOptions =
+        shuffleOptions && msQ.selectOptions
+          ? rng.shuffle(msQ.selectOptions)
+          : msQ.selectOptions;
+
+      return {
+        id: msQ.id,
+        type: "map-select",
+        prompt: msQ.prompt,
+        map: msQ.map,
+        selectKind: msQ.selectKind,
+        ...(shuffledOptions ? { selectOptions: shuffledOptions } : {}),
       };
     }
 

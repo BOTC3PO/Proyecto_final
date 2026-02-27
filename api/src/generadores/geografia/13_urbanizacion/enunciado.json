@@ -1,1 +1,77 @@
-[]
+[
+  {
+    "id": "geo13_mc_1",
+    "type": "mc",
+    "prompt": "¿Cómo se define una megaciudad según el criterio demográfico más aceptado?",
+    "options": [
+      {
+        "text": "Una ciudad con más de 10 millones de habitantes",
+        "correct": true,
+        "because": "La ONU y la mayoría de organismos internacionales definen megaciudad (megacity) como un área urbana que supera los 10 millones de habitantes."
+      },
+      {
+        "text": "Una ciudad con más de 1 millón de habitantes",
+        "correct": false,
+        "because": "Una ciudad con más de 1 millón es simplemente una 'ciudad millonaria'; la categoría de megaciudad requiere al menos 10 millones."
+      },
+      {
+        "text": "Una ciudad que abarca el territorio de varios países",
+        "correct": false,
+        "because": "Una ciudad transfronteriza es una 'ciudad internacional' o 'conurbación transfronteriza', no una megaciudad. El criterio es demográfico, no territorial."
+      },
+      {
+        "text": "Una ciudad capital de un país con más de 100 millones de habitantes",
+        "correct": false,
+        "because": "No existe tal definición; megaciudad es un término puramente demográfico referido al tamaño de la población urbana."
+      }
+    ],
+    "explanation": "Una megaciudad es un área urbana que supera los 10 millones de habitantes. Ejemplos actuales: Tokio (~37M), Delhi (~33M), Shanghai (~28M), São Paulo (~22M), Ciudad de México (~22M).",
+    "tags": [
+      "urbanizacion",
+      "megaciudades",
+      "demografia"
+    ]
+  },
+  {
+    "id": "geo13_tf_1",
+    "type": "tf",
+    "prompt": "Más de la mitad de la población mundial vive actualmente en áreas urbanas.",
+    "answer": true,
+    "becauseTrue": "Correcto. Según la ONU, en 2007 la población urbana superó por primera vez a la rural a nivel global, y la tendencia continúa: hoy más del 56% de la humanidad vive en ciudades.",
+    "becauseFalse": "Incorrecto. La urbanización ha avanzado enormemente: desde 2007 la población urbana supera a la rural a escala mundial. En 2050 se estima que el 68% de la humanidad vivirá en ciudades.",
+    "tags": [
+      "urbanizacion",
+      "poblacion",
+      "tendencias"
+    ]
+  },
+  {
+    "id": "geo13_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada concepto urbano con su definición.",
+    "pairs": [
+      {
+        "left": "Conurbación",
+        "right": "Fusión de dos o más ciudades que crecen hasta unirse físicamente"
+      },
+      {
+        "left": "Área metropolitana",
+        "right": "Ciudad central más municipios periféricos económicamente integrados"
+      },
+      {
+        "left": "Suburbanización",
+        "right": "Expansión residencial hacia la periferia urbana"
+      },
+      {
+        "left": "Gentrificación",
+        "right": "Renovación de barrios populares que eleva precios y desplaza a residentes originales"
+      }
+    ],
+    "explanation": "El estudio del espacio urbano requiere vocabulario específico para describir procesos como la expansión periférica (suburbanización), la fusión de ciudades (conurbación) o el cambio socioeconómico de barrios (gentrificación).",
+    "tags": [
+      "urbanizacion",
+      "vocabulario",
+      "procesos_urbanos"
+    ]
+  }
+]

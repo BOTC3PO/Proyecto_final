@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "id": "geo01_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál es la montaña más alta de América?",
+    "options": [
+      {
+        "text": "Monte Aconcagua (6.961 m)",
+        "correct": true,
+        "because": "El Aconcagua, en la provincia argentina de Mendoza, es el punto culminante de América y del hemisferio occidental."
+      },
+      {
+        "text": "Monte McKinley / Denali (6.190 m)",
+        "correct": false,
+        "because": "El Denali es la montaña más alta de América del Norte, pero no de todo el continente americano."
+      },
+      {
+        "text": "Nevado Huascarán (6.768 m)",
+        "correct": false,
+        "because": "El Huascarán es el pico más alto de Perú y de los Andes tropicales, pero no de toda América."
+      },
+      {
+        "text": "Volcán Ojos del Salado (6.893 m)",
+        "correct": false,
+        "because": "El Ojos del Salado es el volcán activo más alto del mundo, pero no la montaña más alta de América."
+      }
+    ],
+    "explanation": "El Aconcagua (6.961 m s.n.m.), ubicado en los Andes argentinos, es la montaña más alta del continente americano y del hemisferio occidental y sur.",
+    "tags": [
+      "relieve",
+      "montañas",
+      "america_sur"
+    ]
+  },
+  {
+    "id": "geo01_ms_1",
+    "type": "map-select",
+    "prompt": "En el mapa, haz clic en el país donde se encuentra el monte Aconcagua.",
+    "map": {
+      "layers": [
+        {
+          "src": "physical/land",
+          "style": {
+            "fill": "#f0ebe3",
+            "stroke": "#ccc"
+          }
+        },
+        {
+          "src": "political/countries",
+          "style": {
+            "fill": "#e8e4dc",
+            "stroke": "#999",
+            "strokeWidth": 0.5
+          },
+          "interactive": true
+        },
+        {
+          "src": "physical/coastline",
+          "style": {
+            "stroke": "#888",
+            "strokeWidth": 0.8
+          }
+        }
+      ],
+      "bbox": [
+        -82,
+        -56,
+        -34,
+        13
+      ],
+      "title": "América del Sur",
+      "description": "Selecciona el país donde se ubica el monte Aconcagua"
+    },
+    "selectKind": "country",
+    "correctIds": [
+      "ARG"
+    ],
+    "selectOptions": [
+      {
+        "id": "ARG",
+        "label": "Argentina"
+      },
+      {
+        "id": "CHL",
+        "label": "Chile"
+      },
+      {
+        "id": "BOL",
+        "label": "Bolivia"
+      },
+      {
+        "id": "PER",
+        "label": "Perú"
+      }
+    ],
+    "explanation": "El Aconcagua (6.961 m) se ubica en la provincia de Mendoza, Argentina, en la cordillera de los Andes, cerca de la frontera con Chile.",
+    "tags": [
+      "relieve",
+      "montañas",
+      "america_sur",
+      "mapa"
+    ]
+  },
+  {
+    "id": "geo01_tf_1",
+    "type": "tf",
+    "prompt": "La erosión es un proceso destructivo que desgasta y modela las formas del relieve.",
+    "answer": true,
+    "becauseTrue": "Correcto. La erosión (por agua, viento, hielo) destruye y transporta materiales, dando forma a valles, cañones, dunas y otras formas del relieve.",
+    "becauseFalse": "Incorrecto. La erosión sí es un proceso modelador destructivo del relieve; el proceso constructivo complementario es la sedimentación o deposición.",
+    "tags": [
+      "relieve",
+      "procesos_exogenos",
+      "erosion"
+    ]
+  },
+  {
+    "id": "geo01_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada forma de relieve con su proceso principal de formación.",
+    "pairs": [
+      {
+        "left": "Cordillera",
+        "right": "Choque de placas tectónicas"
+      },
+      {
+        "left": "Cañón fluvial",
+        "right": "Erosión del agua a lo largo del tiempo"
+      },
+      {
+        "left": "Delta",
+        "right": "Acumulación de sedimentos en la desembocadura"
+      },
+      {
+        "left": "Duna",
+        "right": "Acumulación de arena por acción del viento"
+      }
+    ],
+    "explanation": "Las formas del relieve se originan tanto por fuerzas internas (tectónica) como por fuerzas externas (erosión y sedimentación por agua, viento o hielo).",
+    "tags": [
+      "relieve",
+      "formacion",
+      "procesos"
+    ]
+  }
+]

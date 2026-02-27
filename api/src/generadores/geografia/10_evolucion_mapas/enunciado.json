@@ -1,1 +1,78 @@
-[]
+[
+  {
+    "id": "geo10_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál fue la principal innovación de la proyección de Mercator (1569)?",
+    "options": [
+      {
+        "text": "Permitió trazar rutas de navegación como líneas rectas (loxodrómicas) de rumbo constante",
+        "correct": true,
+        "because": "La proyección de Mercator conserva los ángulos (es conforme), lo que hace que una línea recta en el mapa mantenga un rumbo constante, ideal para la navegación a vela."
+      },
+      {
+        "text": "Representó las áreas de todos los continentes con sus proporciones exactas",
+        "correct": false,
+        "because": "La proyección Mercator distorsiona enormemente las áreas: Groenlandia aparece del tamaño de África, cuando en realidad es 14 veces más pequeña."
+      },
+      {
+        "text": "Fue el primer mapa en incluir el continente americano con nombre",
+        "correct": false,
+        "because": "El primer mapa en nombrar «América» fue el de Waldseemüller (1507), anterior a Mercator."
+      },
+      {
+        "text": "Representó la Tierra como una esfera dividida en husos horarios",
+        "correct": false,
+        "because": "Los husos horarios fueron estandarizados en el Congreso Internacional de Washington (1884), siglos después de Mercator."
+      }
+    ],
+    "explanation": "La proyección de Mercator (1569) fue revolucionaria para la navegación: al conservar los ángulos, convirtió las rutas de rumbo constante (loxodrómicas) en líneas rectas, facilitando enormemente la navegación oceánica a vela.",
+    "tags": [
+      "cartografia",
+      "mercator",
+      "proyecciones",
+      "historia"
+    ]
+  },
+  {
+    "id": "geo10_tf_1",
+    "type": "tf",
+    "prompt": "Las cartas portulanas medievales se utilizaban principalmente para la navegación fluvial y terrestre, no marítima.",
+    "answer": false,
+    "becauseTrue": "Incorrecto. Las cartas portulanas eran precisamente mapas marítimos de costas y puertos usados para la navegación oceánica.",
+    "becauseFalse": "Correcto. Las cartas portulanas (siglos XIII-XVI) eran mapas náuticos de gran precisión para las costas mediterráneas y atlánticas. Fueron herramientas esenciales para la navegación marítima de galeras y carabelas.",
+    "tags": [
+      "cartografia",
+      "portulanas",
+      "medieval"
+    ]
+  },
+  {
+    "id": "geo10_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada hito cartográfico con su período o innovación.",
+    "pairs": [
+      {
+        "left": "Mapamundi de Ptolomeo",
+        "right": "Antigüedad clásica: primer atlas con coordenadas"
+      },
+      {
+        "left": "Carta portulana",
+        "right": "Baja Edad Media: navegación por costas del Mediterráneo"
+      },
+      {
+        "left": "Proyección de Mercator",
+        "right": "Siglo XVI: rumbo constante para navegación oceánica"
+      },
+      {
+        "left": "SIG (Sistemas de Información Geográfica)",
+        "right": "Siglo XX: análisis cartográfico digital multicapa"
+      }
+    ],
+    "explanation": "La historia de la cartografía refleja los avances en matemáticas, técnica e instrumentación: de los mapas ptolemaicos a los SIG actuales, cada era aportó nuevas herramientas para representar el espacio.",
+    "tags": [
+      "cartografia",
+      "historia",
+      "evolucion"
+    ]
+  }
+]

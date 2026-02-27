@@ -1,1 +1,77 @@
-[]
+[
+  {
+    "id": "geo04_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál es el factor principal que determina qué bioma se desarrolla en una región?",
+    "options": [
+      {
+        "text": "La combinación de temperatura y precipitación",
+        "correct": true,
+        "because": "El clima (temperatura + humedad) determina qué plantas y animales pueden sobrevivir en una región, dando lugar a los distintos biomas."
+      },
+      {
+        "text": "La altitud sobre el nivel del mar únicamente",
+        "correct": false,
+        "because": "La altitud influye en el clima local y genera pisos bioclimáticos, pero no es el único factor determinante del bioma."
+      },
+      {
+        "text": "El tipo de roca y composición del suelo",
+        "correct": false,
+        "because": "El sustrato geológico condiciona el suelo localmente, pero el macroclima es el determinante principal del bioma."
+      },
+      {
+        "text": "La proximidad a los océanos exclusivamente",
+        "correct": false,
+        "because": "La distancia al mar afecta la continentalidad y las precipitaciones, pero no explica por sí sola la distribución global de biomas."
+      }
+    ],
+    "explanation": "Los biomas terrestres (selva tropical, sabana, desierto, pradera, taiga, tundra…) están determinados principalmente por el clima: temperatura y precipitaciones definen qué seres vivos pueden establecerse en cada zona.",
+    "tags": [
+      "biomas",
+      "clima",
+      "vegetacion"
+    ]
+  },
+  {
+    "id": "geo04_tf_1",
+    "type": "tf",
+    "prompt": "La selva tropical lluviosa es el bioma con mayor biodiversidad del planeta.",
+    "answer": true,
+    "becauseTrue": "Correcto. La selva tropical alberga más del 50% de las especies conocidas en apenas el 6% de la superficie terrestre, gracias a su calor constante, elevada humedad y alta productividad primaria.",
+    "becauseFalse": "Incorrecto. La selva tropical sí posee la mayor biodiversidad global; la combinación de calor, humedad y luz permite una enorme diversificación de nichos ecológicos.",
+    "tags": [
+      "biomas",
+      "selva_tropical",
+      "biodiversidad"
+    ]
+  },
+  {
+    "id": "geo04_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada bioma con su paisaje o especie más representativa.",
+    "pairs": [
+      {
+        "left": "Taiga (bosque boreal)",
+        "right": "Coníferas (pinos, abetos) e inviernos nevados"
+      },
+      {
+        "left": "Sabana africana",
+        "right": "Pastizales con árboles dispersos y gran fauna herbívora"
+      },
+      {
+        "left": "Tundra ártica",
+        "right": "Sin árboles, permafrost y tapiz de musgos y líquenes"
+      },
+      {
+        "left": "Desierto cálido",
+        "right": "Escasas lluvias, cactáceas y gran amplitud térmica diaria"
+      }
+    ],
+    "explanation": "Cada bioma posee una combinación única de condiciones climáticas que favorece cierto tipo de vegetación y fauna adaptadas a ese ambiente.",
+    "tags": [
+      "biomas",
+      "caracteristicas",
+      "fauna_flora"
+    ]
+  }
+]

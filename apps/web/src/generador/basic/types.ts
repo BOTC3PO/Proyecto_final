@@ -3,6 +3,15 @@
 // TIPOS (Plantilla / Selección / Preguntas / Instancia generada)
 // ============================================================
 
+export type {
+  MapSpec,
+  MapLayerDef,
+  MapHighlight,
+  MapHighlightKind,
+  MapSelectQuestion,
+} from "./mapTypes";
+import type { MapSpec, MapSelectQuestion } from "./mapTypes";
+
 export interface QuizTemplate {
   schema: string;
   metadata: {
@@ -29,7 +38,7 @@ export interface SelectionConfig {
   tags?: string[];
 }
 
-export type Question = MCQuestion | TFQuestion | MatchQuestion;
+export type Question = MCQuestion | TFQuestion | MatchQuestion | MapSelectQuestion;
 
 export interface MCQuestion {
   id: string;
@@ -42,6 +51,8 @@ export interface MCQuestion {
   }>;
   explanation: string;
   tags: string[];
+  /** Mapa de contexto/teoría opcional (se muestra junto a la pregunta) */
+  map?: MapSpec;
 }
 
 export interface TFQuestion {
@@ -52,6 +63,8 @@ export interface TFQuestion {
   becauseTrue: string;
   becauseFalse: string;
   tags: string[];
+  /** Mapa de contexto/teoría opcional */
+  map?: MapSpec;
 }
 
 export interface MatchQuestion {
@@ -64,6 +77,8 @@ export interface MatchQuestion {
   }>;
   explanation: string;
   tags?: string[];
+  /** Mapa de contexto/teoría opcional */
+  map?: MapSpec;
 }
 
 export interface QuizInstance {
@@ -80,9 +95,16 @@ export interface QuizInstance {
 
 export type GeneratedQuestion = {
   id: string;
-  type: "mc" | "tf" | "match";
+  type: "mc" | "tf" | "match" | "map-select";
   prompt: string;
+  // mc
   options?: Array<{ optionId: string; text: string }>;
+  // match
   leftItems?: Array<{ itemId: string; text: string }>;
   rightItems?: Array<{ itemId: string; text: string }>;
+  // contexto visual (mc / tf / match con mapa)
+  map?: MapSpec;
+  // map-select
+  selectKind?: string;
+  selectOptions?: Array<{ id: string; label: string }>;
 };

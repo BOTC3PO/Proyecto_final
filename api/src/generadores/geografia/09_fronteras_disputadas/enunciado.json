@@ -1,1 +1,109 @@
-[]
+[
+  {
+    "id": "geo09_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuáles son las principales causas de las disputas territoriales entre países?",
+    "options": [
+      {
+        "text": "Recursos naturales, herencia colonial de fronteras arbitrarias y razones étnicas o históricas",
+        "correct": true,
+        "because": "La mayoría de los conflictos territoriales actuales tienen raíces en fronteras trazadas artificialmente en el período colonial, en la presencia de recursos estratégicos (petróleo, agua) o en identidades étnicas y nacionales que cruzan fronteras."
+      },
+      {
+        "text": "Diferencias en el idioma oficial de cada país",
+        "correct": false,
+        "because": "Las diferencias lingüísticas pueden generar tensiones internas, pero raramente son la causa principal de disputas territoriales entre Estados."
+      },
+      {
+        "text": "Desacuerdos sobre el valor de la moneda local",
+        "correct": false,
+        "because": "Las disputas monetarias son de carácter económico y diplomático, no territorial."
+      },
+      {
+        "text": "Distintas zonas horarias en la frontera",
+        "correct": false,
+        "because": "Las diferencias horarias se gestionan diplomáticamente sin generar disputas territoriales."
+      }
+    ],
+    "explanation": "Los conflictos territoriales suelen originarse en fronteras heredadas del colonialismo que ignoraron realidades étnicas y geográficas, en la presencia de recursos naturales valiosos, o en reclamaciones históricas y culturales superpuestas.",
+    "tags": [
+      "fronteras",
+      "conflictos",
+      "causas"
+    ]
+  },
+  {
+    "id": "geo09_tf_1",
+    "type": "tf",
+    "prompt": "Las islas Malvinas son disputadas entre Argentina y Chile.",
+    "answer": false,
+    "becauseTrue": "Incorrecto. Las Malvinas son disputadas entre Argentina y el Reino Unido, no con Chile.",
+    "becauseFalse": "Correcto. Las islas Malvinas (Falkland Islands) están bajo administración del Reino Unido desde 1833, pero Argentina las reclama como parte de su territorio. La disputa es bilateral entre Argentina y el Reino Unido, no involucra a Chile.",
+    "tags": [
+      "fronteras",
+      "malvinas",
+      "argentina"
+    ]
+  },
+  {
+    "id": "geo09_ms_1",
+    "type": "map-select",
+    "prompt": "Haz clic en el país que administra actualmente las islas Malvinas (Falkland Islands), objeto de disputa con Argentina.",
+    "map": {
+      "layers": [
+        {
+          "src": "physical/land",
+          "style": {
+            "fill": "#f0ebe3",
+            "stroke": "#ccc"
+          }
+        },
+        {
+          "src": "political/countries",
+          "style": {
+            "fill": "#e8e4dc",
+            "stroke": "#999",
+            "strokeWidth": 0.5
+          },
+          "interactive": true
+        }
+      ],
+      "bbox": [
+        -20,
+        45,
+        5,
+        65
+      ],
+      "title": "Europa - Potencias coloniales"
+    },
+    "selectKind": "country",
+    "correctIds": [
+      "GBR"
+    ],
+    "selectOptions": [
+      {
+        "id": "GBR",
+        "label": "Reino Unido"
+      },
+      {
+        "id": "FRA",
+        "label": "Francia"
+      },
+      {
+        "id": "ESP",
+        "label": "España"
+      },
+      {
+        "id": "PRT",
+        "label": "Portugal"
+      }
+    ],
+    "explanation": "El Reino Unido administra las islas Malvinas desde 1833. Argentina las reclama soberanamente desde su independencia, argumentando herencia de la soberanía española sobre la región.",
+    "tags": [
+      "fronteras",
+      "malvinas",
+      "reino_unido",
+      "mapa"
+    ]
+  }
+]

@@ -1,1 +1,77 @@
-[]
+[
+  {
+    "id": "geo14_mc_1",
+    "type": "mc",
+    "prompt": "¿A qué sector económico pertenece la actividad agrícola?",
+    "options": [
+      {
+        "text": "Sector primario",
+        "correct": true,
+        "because": "El sector primario incluye todas las actividades de extracción directa de recursos naturales: agricultura, ganadería, pesca, minería y silvicultura."
+      },
+      {
+        "text": "Sector secundario",
+        "correct": false,
+        "because": "El sector secundario se dedica a transformar las materias primas en productos elaborados; es decir, la industria manufacturera y la construcción."
+      },
+      {
+        "text": "Sector terciario",
+        "correct": false,
+        "because": "El sector terciario agrupa los servicios: comercio, transporte, educación, salud, turismo, etc."
+      },
+      {
+        "text": "Sector cuaternario",
+        "correct": false,
+        "because": "El sector cuaternario (o del conocimiento) incluye investigación, tecnología, información y servicios de alto valor intelectual."
+      }
+    ],
+    "explanation": "El sector primario comprende todas las actividades que extraen recursos naturales directamente: agricultura, ganadería, pesca, minería y explotación forestal. Es el punto de partida de la cadena productiva.",
+    "tags": [
+      "actividades_economicas",
+      "sector_primario",
+      "agricultura"
+    ]
+  },
+  {
+    "id": "geo14_tf_1",
+    "type": "tf",
+    "prompt": "El sector terciario incluye actividades como la banca, la educación y el comercio.",
+    "answer": true,
+    "becauseTrue": "Correcto. El sector terciario agrupa todos los servicios: comercio, transporte, finanzas, educación, salud, turismo, administración pública, etc. Es el sector dominante en las economías desarrolladas.",
+    "becauseFalse": "Incorrecto. La banca, la educación y el comercio sí pertenecen al sector terciario (servicios). La industria manufacturera es el sector secundario; la agricultura, el primario.",
+    "tags": [
+      "actividades_economicas",
+      "sector_terciario",
+      "servicios"
+    ]
+  },
+  {
+    "id": "geo14_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada actividad económica con su sector.",
+    "pairs": [
+      {
+        "left": "Extracción de petróleo",
+        "right": "Sector primario"
+      },
+      {
+        "left": "Fabricación de automóviles",
+        "right": "Sector secundario"
+      },
+      {
+        "left": "Servicio de atención médica",
+        "right": "Sector terciario"
+      },
+      {
+        "left": "Desarrollo de software",
+        "right": "Sector cuaternario"
+      }
+    ],
+    "explanation": "La clasificación sectorial de la economía describe la estructura productiva: de la extracción de recursos naturales a la producción industrial, los servicios y el conocimiento. Las economías avanzadas tienden a concentrarse en los sectores terciario y cuaternario.",
+    "tags": [
+      "actividades_economicas",
+      "sectores",
+      "clasificacion"
+    ]
+  }
+]

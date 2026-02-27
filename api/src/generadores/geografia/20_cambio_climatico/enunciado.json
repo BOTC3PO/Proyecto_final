@@ -1,1 +1,77 @@
-[]
+[
+  {
+    "id": "geo20_mc_1",
+    "type": "mc",
+    "prompt": "¿Qué gas es el principal responsable del aumento del efecto invernadero antropogénico?",
+    "options": [
+      {
+        "text": "Dióxido de carbono (CO₂)",
+        "correct": true,
+        "because": "El CO₂ es el gas de efecto invernadero más importante por su volumen de emisiones: la quema de combustibles fósiles, la deforestación y la industria generan más de 37.000 millones de toneladas de CO₂ al año."
+      },
+      {
+        "text": "Oxígeno (O₂)",
+        "correct": false,
+        "because": "El oxígeno no es un gas de efecto invernadero; al contrario, es esencial para la vida y no absorbe radiación infrarroja."
+      },
+      {
+        "text": "Nitrógeno (N₂)",
+        "correct": false,
+        "because": "El nitrógeno representa el 78% de la atmósfera pero no tiene efecto invernadero significativo; no absorbe radiación infrarroja."
+      },
+      {
+        "text": "Argón (Ar)",
+        "correct": false,
+        "because": "El argón es un gas noble inerte sin efecto invernadero."
+      }
+    ],
+    "explanation": "El CO₂ es el gas de efecto invernadero más abundante de origen antropogénico. Aunque el metano (CH₄) tiene mayor potencial de calentamiento por molécula, las emisiones masivas de CO₂ por combustibles fósiles lo convierten en el principal impulsor del cambio climático actual.",
+    "tags": [
+      "cambio_climatico",
+      "efecto_invernadero",
+      "co2"
+    ]
+  },
+  {
+    "id": "geo20_tf_1",
+    "type": "tf",
+    "prompt": "El Protocolo de Kioto (1997) fue el primer acuerdo internacional vinculante para reducir emisiones de gases de efecto invernadero.",
+    "answer": true,
+    "becauseTrue": "Correcto. El Protocolo de Kioto (adoptado en 1997, vigente desde 2005) estableció compromisos vinculantes de reducción de emisiones para los países industrializados, siendo el primer instrumento legal internacional con ese objetivo.",
+    "becauseFalse": "Incorrecto. El Protocolo de Kioto sí fue el primer acuerdo internacional legalmente vinculante para reducir emisiones de GEI. La Convención Marco de la ONU sobre Cambio Climático (1992) era un marco no vinculante; Kioto le añadió compromisos concretos.",
+    "tags": [
+      "cambio_climatico",
+      "kioto",
+      "acuerdos_internacionales"
+    ]
+  },
+  {
+    "id": "geo20_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada efecto del cambio climático con la región más afectada.",
+    "pairs": [
+      {
+        "left": "Deshielo de casquetes polares",
+        "right": "Ártico y Antártida"
+      },
+      {
+        "left": "Desertificación acelerada",
+        "right": "Sahel africano y sur de Europa"
+      },
+      {
+        "left": "Aumento del nivel del mar",
+        "right": "Países insulares del Pacífico (ej.: Tuvalu, Kiribati)"
+      },
+      {
+        "left": "Intensificación de huracanes y tifones",
+        "right": "Cuencas del Caribe y del Pacífico occidental"
+      }
+    ],
+    "explanation": "El cambio climático no afecta igual a todas las regiones: las zonas polares sufren el calentamiento más rápido; los países insulares de poca altitud enfrentan la inundación; el Sahel sufre desertificación; las cuencas tropicales, tormentas más intensas.",
+    "tags": [
+      "cambio_climatico",
+      "efectos",
+      "regiones"
+    ]
+  }
+]

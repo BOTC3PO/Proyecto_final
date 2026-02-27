@@ -1,1 +1,77 @@
-[]
+[
+  {
+    "id": "geo15_mc_1",
+    "type": "mc",
+    "prompt": "¿Qué mide el Índice de Desarrollo Humano (IDH)?",
+    "options": [
+      {
+        "text": "Una combinación de esperanza de vida, nivel educativo e ingreso per cápita",
+        "correct": true,
+        "because": "El IDH del PNUD combina tres dimensiones: longevidad (esperanza de vida), conocimiento (años de escolaridad y escolarización esperada) e ingresos (PBI per cápita en PPA)."
+      },
+      {
+        "text": "Exclusivamente el Producto Bruto Interno (PBI) de cada país",
+        "correct": false,
+        "because": "El PBI solo mide la producción económica, no el bienestar ni el acceso a educación o salud. El IDH fue creado precisamente para superar esta limitación del PBI."
+      },
+      {
+        "text": "El nivel de corrupción percibida en los gobiernos",
+        "correct": false,
+        "because": "El nivel de corrupción se mide con el Índice de Percepción de Corrupción (IPC) de Transparencia Internacional, no con el IDH."
+      },
+      {
+        "text": "El porcentaje de población con acceso a internet",
+        "correct": false,
+        "because": "El acceso a internet es un indicador tecnológico específico, no parte de la fórmula del IDH."
+      }
+    ],
+    "explanation": "El IDH fue diseñado por el PNUD en 1990 para medir el desarrollo humano más allá del PBI, combinando longevidad, educación e ingreso. Un IDH cercano a 1 indica alto desarrollo; cercano a 0, bajo desarrollo.",
+    "tags": [
+      "indicadores",
+      "idh",
+      "desarrollo_humano"
+    ]
+  },
+  {
+    "id": "geo15_tf_1",
+    "type": "tf",
+    "prompt": "El PBI per cápita por sí solo es suficiente para medir el nivel de desarrollo de un país.",
+    "answer": false,
+    "becauseTrue": "Incorrecto. El PBI per cápita solo mide producción económica, pero no distribuye la riqueza, ni contempla educación, salud, libertades ni desigualdad.",
+    "becauseFalse": "Correcto. El PBI per cápita es un indicador económico incompleto: no dice nada sobre la distribución de la riqueza (un país puede tener alto PBI y enorme desigualdad), ni sobre salud, educación, derechos o calidad de vida. Por eso existen indicadores complementarios como el IDH o el coeficiente de Gini.",
+    "tags": [
+      "indicadores",
+      "pbi",
+      "limitaciones"
+    ]
+  },
+  {
+    "id": "geo15_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada indicador socioeconómico con lo que mide.",
+    "pairs": [
+      {
+        "left": "Coeficiente de Gini",
+        "right": "Desigualdad en la distribución del ingreso"
+      },
+      {
+        "left": "Tasa de alfabetización",
+        "right": "Porcentaje de población que sabe leer y escribir"
+      },
+      {
+        "left": "Esperanza de vida al nacer",
+        "right": "Promedio de años que se espera viva una persona"
+      },
+      {
+        "left": "Índice de pobreza multidimensional",
+        "right": "Carencias en salud, educación y nivel de vida simultáneamente"
+      }
+    ],
+    "explanation": "El desarrollo socioeconómico requiere múltiples indicadores porque ninguno por sí solo captura toda la realidad. Los países avanzados combinan alto IDH, bajo Gini, alta esperanza de vida y alta alfabetización.",
+    "tags": [
+      "indicadores",
+      "medicion",
+      "desarrollo"
+    ]
+  }
+]

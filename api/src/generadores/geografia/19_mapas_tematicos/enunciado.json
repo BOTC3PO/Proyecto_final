@@ -1,1 +1,77 @@
-[]
+[
+  {
+    "id": "geo19_mc_1",
+    "type": "mc",
+    "prompt": "¿Qué representa un mapa coroplético?",
+    "options": [
+      {
+        "text": "Áreas coloreadas según el valor de una variable estadística en cada región",
+        "correct": true,
+        "because": "Los mapas coropléticos usan diferentes tonos o colores para mostrar la variación espacial de una variable cuantitativa (densidad de población, PBI per cápita, temperatura media, etc.) en áreas predefinidas."
+      },
+      {
+        "text": "La distribución de puntos donde cada punto equivale a una cantidad fija",
+        "correct": false,
+        "because": "Eso describe un mapa de puntos o de densidad puntual, no un mapa coroplético."
+      },
+      {
+        "text": "Líneas que unen puntos de igual valor (isarítmicas)",
+        "correct": false,
+        "because": "Las líneas que unen puntos de igual valor se llaman isolíneas (isohietas, isotermas, isobaras, curvas de nivel). El mapa resultante se llama isarítmico, no coroplético."
+      },
+      {
+        "text": "Símbolos de tamaño proporcional a la cantidad representada",
+        "correct": false,
+        "because": "Eso describe un mapa de símbolos proporcionales (cartograma o mapa de símbolos graduados), no un coroplético."
+      }
+    ],
+    "explanation": "Los mapas coropléticos asignan un color o tono a cada unidad territorial según el valor de una variable: cuanto más intensa la tonalidad, mayor el valor. Son frecuentes en estadística social, economía y demografía.",
+    "tags": [
+      "mapas_tematicos",
+      "corepletico",
+      "cartografia"
+    ]
+  },
+  {
+    "id": "geo19_tf_1",
+    "type": "tf",
+    "prompt": "Un mapa topográfico utiliza curvas de nivel (isolíneas) para representar el relieve del terreno.",
+    "answer": true,
+    "becauseTrue": "Correcto. Las curvas de nivel son isolíneas que conectan puntos a la misma altitud. La distancia entre ellas (equidistancia) indica la pendiente: curvas muy juntas = terreno empinado; muy separadas = terreno llano.",
+    "becauseFalse": "Incorrecto. Los mapas topográficos sí usan curvas de nivel para representar la altitud y el relieve. Es su característica definitoria, junto con la escala detallada que permite identificar valles, cumbres y pendientes.",
+    "tags": [
+      "mapas_tematicos",
+      "topografia",
+      "curvas_nivel"
+    ]
+  },
+  {
+    "id": "geo19_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada tipo de mapa temático con lo que representa.",
+    "pairs": [
+      {
+        "left": "Mapa climático",
+        "right": "Distribución de tipos de clima o temperatura y precipitación"
+      },
+      {
+        "left": "Mapa demográfico",
+        "right": "Densidad o distribución de la población"
+      },
+      {
+        "left": "Mapa geológico",
+        "right": "Tipos de rocas y estructuras del subsuelo"
+      },
+      {
+        "left": "Mapa de flujos",
+        "right": "Movimientos o intercambios entre lugares (migraciones, comercio)"
+      }
+    ],
+    "explanation": "Los mapas temáticos representan una variable específica sobre la base de un mapa base. Su diseño (simbología, color, escala) debe ser coherente con la variable representada para comunicar claramente la información geográfica.",
+    "tags": [
+      "mapas_tematicos",
+      "tipos",
+      "simbologia"
+    ]
+  }
+]
