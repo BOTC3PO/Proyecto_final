@@ -41,7 +41,7 @@ tareasRouter.get("/api/tareas", requireUser, async (req, res) => {
       const dueRaw = item.dueDate ?? item.vence;
       let vence = "Sin fecha";
       if (dueRaw) {
-        const d = new Date(dueRaw);
+        const d = new Date(dueRaw as string | number | Date);
         if (!Number.isNaN(d.getTime())) {
           vence = d.toLocaleDateString("es-AR", { day: "2-digit", month: "2-digit", year: "numeric" });
         } else {
