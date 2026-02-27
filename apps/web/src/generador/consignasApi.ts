@@ -1,6 +1,6 @@
 import { ApiError, apiGet } from "../lib/api";
 
-export type Subject = "matematicas" | "fisica" | "quimica" | "economia";
+export type Subject = "matematicas" | "fisica" | "quimica" | "economia" | "geografia";
 
 export type Consigna = {
   limits: Record<string, unknown> | null;
