@@ -1,0 +1,98 @@
+[
+  {
+    "id": "eng01_mc_1",
+    "type": "mc",
+    "prompt": "Which part of speech is the word 'quickly' in the sentence 'She runs quickly'?",
+    "options": [
+      {
+        "text": "Adverb",
+        "correct": true,
+        "because": "'Quickly' modifies the verb 'runs' and tells us how she runs. Words that modify verbs, adjectives, or other adverbs are adverbs."
+      },
+      {
+        "text": "Adjective",
+        "correct": false,
+        "because": "Adjectives modify nouns or pronouns, not verbs. 'Quickly' modifies the verb 'runs'."
+      },
+      {
+        "text": "Verb",
+        "correct": false,
+        "because": "A verb expresses an action or state. 'Quickly' describes how the action is done, so it is an adverb."
+      },
+      {
+        "text": "Noun",
+        "correct": false,
+        "because": "A noun names a person, place, thing, or idea. 'Quickly' describes an action."
+      }
+    ],
+    "explanation": "Adverbs modify verbs, adjectives, or other adverbs. They often answer the questions 'how?', 'when?', 'where?', or 'to what extent?'. Many adverbs end in '-ly' (quickly, slowly, carefully).",
+    "tags": [
+      "parts_of_speech",
+      "adverb",
+      "morphology"
+    ]
+  },
+  {
+    "id": "eng01_fb_1",
+    "type": "fill-blank",
+    "prompt": "Write the part of speech of the underlined word.",
+    "template": "In 'The tall building collapsed', the word 'tall' is a(n) {{blank_1}} because it describes the noun 'building'.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "adjective"
+        ],
+        "hint": "(part of speech)"
+      }
+    ],
+    "explanation": "Adjectives describe or modify nouns and pronouns. 'Tall' tells us what kind of building it is. Adjectives answer questions like 'What kind?', 'How many?', or 'Which one?'.",
+    "tags": [
+      "parts_of_speech",
+      "adjective",
+      "morphology"
+    ]
+  },
+  {
+    "id": "eng01_tf_1",
+    "type": "tf",
+    "prompt": "Prepositions show the relationship between a noun (or pronoun) and other words in a sentence.",
+    "answer": true,
+    "becauseTrue": "Correct. Prepositions (in, on, at, under, between, for, with, etc.) connect nouns or pronouns to other words and show relationships of place, time, direction, and manner.",
+    "becauseFalse": "Incorrect. Prepositions do show relationships between nouns/pronouns and other sentence elements. Examples: 'the book on the table' (location), 'at 5 pm' (time), 'with care' (manner).",
+    "tags": [
+      "parts_of_speech",
+      "prepositions",
+      "morphology"
+    ]
+  },
+  {
+    "id": "eng01_match_1",
+    "type": "match",
+    "prompt": "Match each word to its part of speech.",
+    "pairs": [
+      {
+        "left": "freedom",
+        "right": "Noun"
+      },
+      {
+        "left": "enormous",
+        "right": "Adjective"
+      },
+      {
+        "left": "although",
+        "right": "Conjunction"
+      },
+      {
+        "left": "quickly",
+        "right": "Adverb"
+      }
+    ],
+    "explanation": "The eight traditional parts of speech in English are: noun, pronoun, verb, adjective, adverb, preposition, conjunction, and interjection. Identifying them is fundamental to understanding sentence structure.",
+    "tags": [
+      "parts_of_speech",
+      "classification",
+      "morphology"
+    ]
+  }
+]

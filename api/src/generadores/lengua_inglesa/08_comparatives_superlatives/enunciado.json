@@ -1,0 +1,69 @@
+[
+  {
+    "id": "eng08_mc_1",
+    "type": "mc",
+    "prompt": "Which sentence uses comparatives/superlatives correctly?",
+    "options": [
+      {
+        "text": "Mount Everest is the highest mountain in the world.",
+        "correct": true,
+        "because": "'Highest' is the correct superlative of 'high' (one syllable: high → higher → highest). Superlatives use 'the' + adjective + -est."
+      },
+      {
+        "text": "Mount Everest is the most high mountain in the world.",
+        "correct": false,
+        "because": "One-syllable adjectives form superlatives with '-est', not 'most': 'the highest', not 'the most high'."
+      },
+      {
+        "text": "She is more taller than her brother.",
+        "correct": false,
+        "because": "Never use 'more' AND '-er' together. For short adjectives: taller (not 'more taller'). 'More' is used for long adjectives (more interesting)."
+      },
+      {
+        "text": "This is the goodest cake I've ever tasted.",
+        "correct": false,
+        "because": "'Good' has an irregular comparative and superlative: good → better → best. Not 'gooder' or 'goodest'."
+      }
+    ],
+    "explanation": "Comparatives and superlatives: 1-syllable adjectives → -er/-est (tall/taller/tallest); 2+ syllables → more/most (beautiful/more beautiful/most beautiful); irregular: good/better/best, bad/worse/worst.",
+    "tags": [
+      "comparatives",
+      "superlatives",
+      "adjectives"
+    ]
+  },
+  {
+    "id": "eng08_fb_1",
+    "type": "fill-blank",
+    "prompt": "Complete with the correct comparative form.",
+    "template": "A car is {{blank_1}} (expensive) than a bicycle.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "more expensive"
+        ],
+        "hint": "(comparative of 'expensive')"
+      }
+    ],
+    "explanation": "'Expensive' has three syllables, so it forms its comparative with 'more': 'more expensive'. One-syllable adjectives use -er: tall → taller. Two-syllable adjectives ending in -y use -ier: happy → happier.",
+    "tags": [
+      "comparatives",
+      "formation",
+      "adjectives"
+    ]
+  },
+  {
+    "id": "eng08_tf_1",
+    "type": "tf",
+    "prompt": "'As...as' is used to show that two things are equal in a particular quality.",
+    "answer": true,
+    "becauseTrue": "Correct. 'As + adjective + as' expresses equality: 'She is as tall as her sister.' The negative form 'not as...as' or 'not so...as' expresses inequality: 'He is not as fast as she is.'",
+    "becauseFalse": "Incorrect. 'As...as' does express equality: 'This book is as interesting as that one.' The negative 'not as...as' shows that two things are different: 'He isn't as old as he looks.'",
+    "tags": [
+      "comparatives",
+      "as_as",
+      "equality"
+    ]
+  }
+]

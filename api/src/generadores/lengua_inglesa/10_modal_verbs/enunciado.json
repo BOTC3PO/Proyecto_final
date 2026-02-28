@@ -1,0 +1,86 @@
+[
+  {
+    "id": "eng10_mc_1",
+    "type": "mc",
+    "prompt": "Which sentence expresses obligation/necessity most strongly?",
+    "options": [
+      {
+        "text": "You must wear a seatbelt. It's the law.",
+        "correct": true,
+        "because": "'Must' expresses strong obligation, often internal (from the speaker's authority) or legal. It is stronger than 'should' (advice) or 'have to' (external obligation)."
+      },
+      {
+        "text": "You should wear a seatbelt.",
+        "correct": false,
+        "because": "'Should' expresses advice or recommendation, not strong obligation. It is softer than 'must'."
+      },
+      {
+        "text": "You could wear a seatbelt.",
+        "correct": false,
+        "because": "'Could' expresses possibility or suggestion, not obligation."
+      },
+      {
+        "text": "You might wear a seatbelt.",
+        "correct": false,
+        "because": "'Might' expresses weak possibility, not obligation."
+      }
+    ],
+    "explanation": "Modal verbs of obligation: must (strong, legal/personal authority), have to (external obligation), should (advice/recommendation), ought to (mild duty). 'Mustn't' = prohibition; 'don't have to' = no obligation (not the same as prohibition).",
+    "tags": [
+      "modal_verbs",
+      "obligation",
+      "must_should"
+    ]
+  },
+  {
+    "id": "eng10_fb_1",
+    "type": "fill-blank",
+    "prompt": "Complete with the correct modal verb (can, could, should, must, might).",
+    "template": "You look exhausted. You {{blank_1}} get some rest — it would really help you feel better.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "should",
+          "ought to"
+        ],
+        "hint": "(advice)"
+      }
+    ],
+    "explanation": "'Should' and 'ought to' express advice or recommendation. 'Must' would be too strong (obligation), 'might' expresses possibility, 'could' is a suggestion but weaker. For health advice, 'should' is the most natural choice.",
+    "tags": [
+      "modal_verbs",
+      "should",
+      "advice"
+    ]
+  },
+  {
+    "id": "eng10_match_1",
+    "type": "match",
+    "prompt": "Match each modal verb to its primary meaning.",
+    "pairs": [
+      {
+        "left": "can",
+        "right": "Ability / Permission (informal)"
+      },
+      {
+        "left": "must",
+        "right": "Strong obligation / Logical deduction"
+      },
+      {
+        "left": "might",
+        "right": "Weak possibility / Uncertainty"
+      },
+      {
+        "left": "would",
+        "right": "Conditional / Polite request / Past habit"
+      }
+    ],
+    "explanation": "Modal verbs are auxiliary verbs that express modality: possibility, ability, permission, obligation, or deduction. They do not change form for person or number (no 's' in 3rd person: 'she can', not 'she cans').",
+    "tags": [
+      "modal_verbs",
+      "meanings",
+      "usage"
+    ]
+  }
+]

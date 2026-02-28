@@ -1,0 +1,77 @@
+[
+  {
+    "id": "esp08_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál de estas oraciones interrogativas indirectas está escrita correctamente?",
+    "options": [
+      {
+        "text": "Me preguntó qué estabas haciendo.",
+        "correct": true,
+        "because": "Las interrogativas indirectas van introducidas por el nexo interrogativo (qué, dónde, cómo...) sin signo de interrogación, con verbo en indicativo o subjuntivo según el contexto."
+      },
+      {
+        "text": "Me preguntó qué estabas haciendo?",
+        "correct": false,
+        "because": "Las interrogativas indirectas (subordinadas) no llevan signos de interrogación."
+      },
+      {
+        "text": "Me preguntó ¿qué estabas haciendo?",
+        "correct": false,
+        "because": "Los signos de interrogación son propios de las interrogativas directas. Las indirectas son oraciones subordinadas sin signos de interrogación."
+      },
+      {
+        "text": "Me pregunto que estabas haciendo.",
+        "correct": false,
+        "because": "Las interrogativas indirectas introducidas por pronombres/adverbios interrogativos ('qué', 'dónde', 'cómo') no llevan 'que' sino el pronombre interrogativo directamente."
+      }
+    ],
+    "explanation": "Las interrogativas directas usan signos de interrogación (¿...?). Las interrogativas indirectas son oraciones subordinadas introducidas por nexos interrogativos (qué, dónde, cómo) sin signos de interrogación.",
+    "tags": [
+      "sintaxis",
+      "interrogativas",
+      "directas_indirectas"
+    ]
+  },
+  {
+    "id": "esp08_tf_1",
+    "type": "tf",
+    "prompt": "En español, la negación principal se expresa colocando 'no' inmediatamente antes del verbo.",
+    "answer": true,
+    "becauseTrue": "Correcto. La negación estándar en español se forma con 'no' preverbal: 'no como', 'no voy', 'no lo haré'. Si hay pronombres átonos antes del verbo, el 'no' va antes de ellos: 'no lo veo', 'no se lo digas'.",
+    "becauseFalse": "Incorrecto. El adverbio de negación 'no' sí debe colocarse antes del verbo (y antes de los pronombres átonos si los hay) para negar la oración.",
+    "tags": [
+      "sintaxis",
+      "negacion",
+      "posicion"
+    ]
+  },
+  {
+    "id": "esp08_match_1",
+    "type": "match",
+    "prompt": "Clasifica cada oración según su modalidad (tipo de oración por la actitud del hablante).",
+    "pairs": [
+      {
+        "left": "¿Cuándo llega el tren?",
+        "right": "Interrogativa directa"
+      },
+      {
+        "left": "¡Qué película tan buena!",
+        "right": "Exclamativa"
+      },
+      {
+        "left": "No comas tan rápido.",
+        "right": "Exhortativa (imperativa negativa)"
+      },
+      {
+        "left": "Posiblemente llueva mañana.",
+        "right": "Dubitativa"
+      }
+    ],
+    "explanation": "Las oraciones pueden clasificarse según la modalidad o actitud del hablante: enunciativas, interrogativas, exclamativas, exhortativas (imperativas), dubitativas y desiderativas.",
+    "tags": [
+      "sintaxis",
+      "modalidad",
+      "tipos_de_oracion"
+    ]
+  }
+]

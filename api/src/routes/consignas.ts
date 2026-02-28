@@ -11,6 +11,8 @@ const SUBJECT_ROOTS = {
   quimica: path.resolve(process.cwd(), "api/src/generadores/quimica"),
   economia: path.resolve(process.cwd(), "api/src/generadores/economia"),
   geografia: path.resolve(process.cwd(), "api/src/generadores/geografia"),
+  lengua_espanola: path.resolve(process.cwd(), "api/src/generadores/lengua_espanola"),
+  lengua_inglesa: path.resolve(process.cwd(), "api/src/generadores/lengua_inglesa"),
 } as const;
 
 type Subject = keyof typeof SUBJECT_ROOTS;
@@ -231,6 +233,8 @@ registerSubjectRoutes("quimica");
 registerSubjectRoutes("matematicas");
 registerSubjectRoutes("fisica");
 registerSubjectRoutes("geografia");
+registerSubjectRoutes("lengua_espanola");
+registerSubjectRoutes("lengua_inglesa");
 
 export const consignas = router;
 

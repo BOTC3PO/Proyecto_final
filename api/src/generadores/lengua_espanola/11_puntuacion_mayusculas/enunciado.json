@@ -1,0 +1,80 @@
+[
+  {
+    "id": "esp11_mc_1",
+    "type": "mc",
+    "prompt": "¿En cuál de estas oraciones se usan correctamente los signos de puntuación?",
+    "options": [
+      {
+        "text": "Compré pan, leche, queso y yogur.",
+        "correct": true,
+        "because": "La coma separa los elementos de una enumeración. No se pone coma antes del último elemento cuando va unido con 'y' (salvo que se quiera enfatizar o en series largas)."
+      },
+      {
+        "text": "Compré: pan leche queso y yogur.",
+        "correct": false,
+        "because": "Los dos puntos no se usan para introducir complementos directos del verbo. El uso correcto sería la coma para enumerar."
+      },
+      {
+        "text": "Compré pan; leche; queso y yogur.",
+        "correct": false,
+        "because": "El punto y coma se usa para separar proposiciones o elementos de una lista cuando cada elemento ya contiene comas. Aquí la coma simple es suficiente."
+      },
+      {
+        "text": "Compré pan, leche, queso, y yogur.",
+        "correct": false,
+        "because": "En español estándar no se pone coma antes de 'y' en una serie simple. (La 'coma de Oxford' es opcional en inglés pero no es normativa en español.)"
+      }
+    ],
+    "explanation": "En enumeraciones simples, los elementos se separan con comas. No se usa coma antes de 'y' que une el último elemento en enumeraciones sencillas (diferencia con el inglés).",
+    "tags": [
+      "ortografia",
+      "puntuacion",
+      "coma",
+      "enumeracion"
+    ]
+  },
+  {
+    "id": "esp11_tf_1",
+    "type": "tf",
+    "prompt": "Los nombres de los días de la semana y los meses del año se escriben en minúscula en español.",
+    "answer": true,
+    "becauseTrue": "Correcto. En español, los días (lunes, martes...) y los meses (enero, febrero...) se escriben en minúscula, a diferencia del inglés donde se escriben con mayúscula (Monday, January).",
+    "becauseFalse": "Incorrecto. En español, los días de la semana y los meses del año se escriben en minúscula: 'el lunes pasado', 'en enero'. Solo se capitalizan si comienzan una oración.",
+    "tags": [
+      "ortografia",
+      "mayusculas",
+      "dias_meses"
+    ]
+  },
+  {
+    "id": "esp11_fb_1",
+    "type": "fill-blank",
+    "prompt": "Indica qué signo de puntuación falta en el espacio señalado.",
+    "template": "La oración 'Llegó tarde{{blank_1}} sin embargo, nadie lo notó' necesita un {{blank_2}} antes de 'sin embargo'.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          ";",
+          ":",
+          "punto y coma"
+        ],
+        "hint": "(signo de puntuación)"
+      },
+      {
+        "id": "blank_2",
+        "correctAnswers": [
+          "punto y coma",
+          "punto y coma (;)"
+        ],
+        "hint": "(nombre del signo)"
+      }
+    ],
+    "explanation": "Antes de conectores adversativos y explicativos como 'sin embargo', 'no obstante', 'es decir', 'por tanto', generalmente se usa punto y coma (;) si la frase anterior es relativamente corta, o punto si es más larga.",
+    "tags": [
+      "ortografia",
+      "puntuacion",
+      "punto_y_coma"
+    ]
+  }
+]

@@ -1,0 +1,69 @@
+[
+  {
+    "id": "eng07_mc_1",
+    "type": "mc",
+    "prompt": "Which sentence correctly transforms 'Shakespeare wrote Hamlet' into passive voice?",
+    "options": [
+      {
+        "text": "Hamlet was written by Shakespeare.",
+        "correct": true,
+        "because": "Correct passive: subject (Hamlet) + was (past of 'be') + written (past participle) + by Shakespeare (agent). The direct object becomes the new subject."
+      },
+      {
+        "text": "Hamlet was wrote by Shakespeare.",
+        "correct": false,
+        "because": "The passive requires the PAST PARTICIPLE, not the past simple. 'Written' is the past participle of 'write', not 'wrote'."
+      },
+      {
+        "text": "Shakespeare was written Hamlet.",
+        "correct": false,
+        "because": "The subject of the passive should be the original object ('Hamlet'), not the original subject ('Shakespeare')."
+      },
+      {
+        "text": "Hamlet written by Shakespeare.",
+        "correct": false,
+        "because": "The auxiliary 'be' is missing. Passive voice requires: be (in the correct tense) + past participle."
+      }
+    ],
+    "explanation": "Passive voice: Object (→ new subject) + be (conjugated) + past participle + (by + agent, optional). Active: 'Shakespeare wrote Hamlet' → Passive: 'Hamlet was written by Shakespeare.'",
+    "tags": [
+      "syntax",
+      "passive_voice",
+      "transformation"
+    ]
+  },
+  {
+    "id": "eng07_fb_1",
+    "type": "fill-blank",
+    "prompt": "Rewrite the active sentence in passive voice. Write only the passive verb phrase.",
+    "template": "Active: 'They are building a new hospital.'\nPassive: A new hospital {{blank_1}} by them.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "is being built"
+        ],
+        "hint": "(present continuous passive)"
+      }
+    ],
+    "explanation": "Present continuous passive: am/is/are + being + past participle. 'They are building' → 'is being built'. The subject 'a new hospital' (singular) determines 'is'.",
+    "tags": [
+      "syntax",
+      "passive_voice",
+      "continuous"
+    ]
+  },
+  {
+    "id": "eng07_tf_1",
+    "type": "tf",
+    "prompt": "The passive voice is often used when the agent (doer of the action) is unknown or unimportant.",
+    "answer": true,
+    "becauseTrue": "Correct. We use passive to focus on the action or result rather than who performed it. Examples: 'The window was broken' (unknown/unimportant who broke it), 'Oil was discovered in 1859' (focus on discovery).",
+    "becauseFalse": "Incorrect. The passive voice is indeed preferred when the agent is unknown ('The car was stolen'), unimportant ('The report is being prepared'), or when we want to emphasize the object/result over the doer.",
+    "tags": [
+      "syntax",
+      "passive_voice",
+      "usage"
+    ]
+  }
+]

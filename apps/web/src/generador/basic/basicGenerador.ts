@@ -11,6 +11,7 @@ import type {
   QuizAnswers,
 } from "./types";
 import type { MapSelectQuestion } from "./mapTypes";
+import type { FillBlankQuestion } from "./languageTypes";
 
 import { createPrng, type PRNG } from "../core/prng";
 import {
@@ -139,6 +140,38 @@ const HANDLERS: Record<string, QuestionHandlers> = {
         Array.isArray(msQ.correctIds) &&
         msQ.correctIds.includes(userAnswer);
       return { correct: isCorrect, explanation: msQ.explanation };
+    },
+  },
+
+  "fill-blank": {
+    generate(q, _rng, _shuffleOptions) {
+      const fbQ = q as FillBlankQuestion;
+      return {
+        id: fbQ.id,
+        type: "fill-blank",
+        prompt: fbQ.prompt,
+        template: fbQ.template,
+        blanks: fbQ.blanks.map((b) => ({ id: b.id, ...(b.hint ? { hint: b.hint } : {}) })),
+      };
+    },
+    validate(originalQ, _genQ, userAnswer) {
+      const fbQ = originalQ as FillBlankQuestion;
+      const answers = (userAnswer ?? {}) as Record<string, string>;
+
+      // All blanks must be answered
+      if (Object.keys(answers).length !== fbQ.blanks.length) {
+        return { correct: false, explanation: fbQ.explanation };
+      }
+
+      const normalize = (s: string) =>
+        s.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+      const allCorrect = fbQ.blanks.every((blank) => {
+        const given = normalize(answers[blank.id] ?? "");
+        return blank.correctAnswers.some((a) => normalize(a) === given);
+      });
+
+      return { correct: allCorrect, explanation: fbQ.explanation };
     },
   },
 };
