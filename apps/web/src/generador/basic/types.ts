@@ -108,3 +108,12 @@ export type GeneratedQuestion = {
   selectKind?: string;
   selectOptions?: Array<{ id: string; label: string }>;
 };
+
+/** Respuesta del alumno por tipo de pregunta */
+export type MCAnswer = string;                     // optionId seleccionado
+export type TFAnswer = boolean;                    // verdadero / falso
+export type MatchAnswer = Record<string, string>;  // leftItemId → rightItemId
+export type MapSelectAnswer = string;              // id del elemento seleccionado en el mapa
+
+export type QuizAnswerValue = MCAnswer | TFAnswer | MatchAnswer | MapSelectAnswer;
+export type QuizAnswers = Record<string, QuizAnswerValue>;
