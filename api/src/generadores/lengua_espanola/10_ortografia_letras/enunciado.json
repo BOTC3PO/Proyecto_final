@@ -1,0 +1,78 @@
+[
+  {
+    "id": "esp10_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál de estas palabras se escribe con 'b'?",
+    "options": [
+      {
+        "text": "beber",
+        "correct": true,
+        "because": "'Beber' se escribe con 'b'. Regla: las palabras con el prefijo 'be-/bi-/bis-' se escriben con 'b'. Además, los verbos terminados en '-bir' (excepto hervir, servir, vivir) se escriben con 'b'."
+      },
+      {
+        "text": "hervir",
+        "correct": false,
+        "because": "'Hervir' se escribe con 'v'. Es una de las excepciones a la regla de los verbos en '-vir' (hervir, servir, vivir se escriben con 'v')."
+      },
+      {
+        "text": "vivir",
+        "correct": false,
+        "because": "'Vivir' se escribe con 'v', siendo una excepción a la regla de los verbos en '-bir'."
+      },
+      {
+        "text": "revolver",
+        "correct": false,
+        "because": "'Revolver' se escribe con 'v'. El prefijo 're-' no determina el uso de 'b' o 'v'."
+      }
+    ],
+    "explanation": "Regla: los verbos en '-bir' generalmente se escriben con 'b' (escribir, recibir, prohibir). Excepciones con 'v': hervir, servir, vivir. Beber sigue la regla del prefijo 'be-' y no tiene terminación '-bir'.",
+    "tags": [
+      "ortografia",
+      "b_v",
+      "reglas"
+    ]
+  },
+  {
+    "id": "esp10_fb_1",
+    "type": "fill-blank",
+    "prompt": "Completa la palabra con 'g' o 'j' según corresponda.",
+    "template": "La palabra 'ima{{blank_1}}en' (imagen) se escribe con {{blank_2}}.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "g"
+        ],
+        "hint": "('g' o 'j')"
+      },
+      {
+        "id": "blank_2",
+        "correctAnswers": [
+          "g",
+          "la letra g",
+          "«g»"
+        ],
+        "hint": "(nombre de la letra)"
+      }
+    ],
+    "explanation": "'Imagen' se escribe con 'g' porque la sílaba 'gen' (terminación de muchos sustantivos) generalmente se escribe con 'g': imagen, origen, virgen, margen. Excepción: 'joven'.",
+    "tags": [
+      "ortografia",
+      "g_j",
+      "reglas"
+    ]
+  },
+  {
+    "id": "esp10_tf_1",
+    "type": "tf",
+    "prompt": "Las palabras 'haber' y 'a ver' son homófonos (suenan igual) pero tienen significados y escrituras diferentes.",
+    "answer": true,
+    "becauseTrue": "Correcto. 'Haber' (verbo auxiliar: 'debe haber llegado') y 'a ver' (preposición 'a' + infinitivo 'ver': 'vamos a ver') suenan igual en muchos dialectos del español pero son gramaticalmente distintas.",
+    "becauseFalse": "Incorrecto. 'Haber' (verbo) y 'a ver' (preposición + verbo) sí son homófonos: tienen la misma pronunciación pero diferente escritura y significado, lo que genera confusiones ortográficas frecuentes.",
+    "tags": [
+      "ortografia",
+      "homofonos",
+      "h"
+    ]
+  }
+]

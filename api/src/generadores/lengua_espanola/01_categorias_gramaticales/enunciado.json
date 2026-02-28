@@ -1,0 +1,99 @@
+[
+  {
+    "id": "esp01_mc_1",
+    "type": "mc",
+    "prompt": "¿Qué categoría gramatical es la palabra 'rápidamente'?",
+    "options": [
+      {
+        "text": "Adverbio",
+        "correct": true,
+        "because": "'Rápidamente' modifica al verbo e indica modo. Los adverbios son palabras invariables que modifican verbos, adjetivos u otros adverbios."
+      },
+      {
+        "text": "Adjetivo",
+        "correct": false,
+        "because": "Los adjetivos modifican sustantivos y concuerdan en género y número con ellos. 'Rápidamente' no modifica un sustantivo."
+      },
+      {
+        "text": "Sustantivo",
+        "correct": false,
+        "because": "Los sustantivos nombran personas, animales, cosas o ideas. 'Rápidamente' no nombra nada."
+      },
+      {
+        "text": "Verbo",
+        "correct": false,
+        "because": "Los verbos expresan acciones o estados. 'Rápidamente' no es una forma verbal."
+      }
+    ],
+    "explanation": "'Rápidamente' es un adverbio de modo formado por el adjetivo 'rápida' + el sufijo '-mente'. Los adverbios son invariables (no tienen género ni número) y modifican verbos, adjetivos u otros adverbios.",
+    "tags": [
+      "categorias_gramaticales",
+      "adverbio",
+      "morfologia"
+    ]
+  },
+  {
+    "id": "esp01_fb_1",
+    "type": "fill-blank",
+    "prompt": "Completa con la categoría gramatical correcta de la palabra destacada.",
+    "template": "En la oración 'El libro azul es mío', la palabra 'azul' es un {{blank_1}} porque modifica al sustantivo 'libro'.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "adjetivo",
+          "adjetivo calificativo"
+        ],
+        "hint": "(categoría gramatical)"
+      }
+    ],
+    "explanation": "'Azul' es un adjetivo calificativo que indica una cualidad del sustantivo 'libro'. Concuerda en género (masculino) y número (singular) con el sustantivo que modifica.",
+    "tags": [
+      "categorias_gramaticales",
+      "adjetivo",
+      "morfologia"
+    ]
+  },
+  {
+    "id": "esp01_tf_1",
+    "type": "tf",
+    "prompt": "Los artículos (el, la, los, las, un, una) son una subcategoría de los determinantes.",
+    "answer": true,
+    "becauseTrue": "Correcto. Los artículos son un tipo de determinante que acompaña al sustantivo y lo actualiza (lo presenta como conocido o desconocido). La RAE los clasifica dentro de los determinantes.",
+    "becauseFalse": "Incorrecto. Los artículos sí son una subcategoría de los determinantes según la gramática normativa actual de la RAE (Nueva gramática, 2009).",
+    "tags": [
+      "categorias_gramaticales",
+      "articulos",
+      "determinantes"
+    ]
+  },
+  {
+    "id": "esp01_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada ejemplo con su categoría gramatical.",
+    "pairs": [
+      {
+        "left": "correr, saltar, pensar",
+        "right": "Verbos"
+      },
+      {
+        "left": "mesa, ciudad, amor",
+        "right": "Sustantivos"
+      },
+      {
+        "left": "grande, rojo, feliz",
+        "right": "Adjetivos"
+      },
+      {
+        "left": "y, pero, aunque",
+        "right": "Conjunciones"
+      }
+    ],
+    "explanation": "Las categorías gramaticales o clases de palabras agrupan las palabras según su función en la oración y sus características morfológicas.",
+    "tags": [
+      "categorias_gramaticales",
+      "clasificacion",
+      "morfologia"
+    ]
+  }
+]

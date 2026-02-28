@@ -3,6 +3,18 @@
 // TIPOS (Plantilla / Selección / Preguntas / Instancia generada)
 // ============================================================
 
+export type {
+  MapSpec,
+  MapLayerDef,
+  MapHighlight,
+  MapHighlightKind,
+  MapSelectQuestion,
+} from "./mapTypes";
+import type { MapSpec, MapSelectQuestion } from "./mapTypes";
+
+export type { FillBlankQuestion, BlankDef } from "./languageTypes";
+import type { FillBlankQuestion } from "./languageTypes";
+
 export interface QuizTemplate {
   schema: string;
   metadata: {
@@ -29,7 +41,7 @@ export interface SelectionConfig {
   tags?: string[];
 }
 
-export type Question = MCQuestion | TFQuestion | MatchQuestion;
+export type Question = MCQuestion | TFQuestion | MatchQuestion | MapSelectQuestion | FillBlankQuestion;
 
 export interface MCQuestion {
   id: string;
@@ -42,6 +54,8 @@ export interface MCQuestion {
   }>;
   explanation: string;
   tags: string[];
+  /** Mapa de contexto/teoría opcional (se muestra junto a la pregunta) */
+  map?: MapSpec;
 }
 
 export interface TFQuestion {
@@ -52,6 +66,8 @@ export interface TFQuestion {
   becauseTrue: string;
   becauseFalse: string;
   tags: string[];
+  /** Mapa de contexto/teoría opcional */
+  map?: MapSpec;
 }
 
 export interface MatchQuestion {
@@ -64,6 +80,8 @@ export interface MatchQuestion {
   }>;
   explanation: string;
   tags?: string[];
+  /** Mapa de contexto/teoría opcional */
+  map?: MapSpec;
 }
 
 export interface QuizInstance {
@@ -80,9 +98,30 @@ export interface QuizInstance {
 
 export type GeneratedQuestion = {
   id: string;
-  type: "mc" | "tf" | "match";
+  type: "mc" | "tf" | "match" | "map-select" | "fill-blank";
   prompt: string;
+  // mc
   options?: Array<{ optionId: string; text: string }>;
+  // match
   leftItems?: Array<{ itemId: string; text: string }>;
   rightItems?: Array<{ itemId: string; text: string }>;
+  // contexto visual (mc / tf / match con mapa)
+  map?: MapSpec;
+  // map-select
+  selectKind?: string;
+  selectOptions?: Array<{ id: string; label: string }>;
+  // fill-blank
+  template?: string;
+  blanks?: Array<{ id: string; hint?: string }>;
 };
+
+/** Respuesta del alumno por tipo de pregunta */
+export type MCAnswer = string;                     // optionId seleccionado
+export type TFAnswer = boolean;                    // verdadero / falso
+export type MatchAnswer = Record<string, string>;  // leftItemId → rightItemId
+export type MapSelectAnswer = string;              // id del elemento seleccionado en el mapa
+
+export type FillBlankAnswer = Record<string, string>; // blankId → texto ingresado
+
+export type QuizAnswerValue = MCAnswer | TFAnswer | MatchAnswer | MapSelectAnswer | FillBlankAnswer;
+export type QuizAnswers = Record<string, QuizAnswerValue>;

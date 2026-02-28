@@ -1,0 +1,98 @@
+[
+  {
+    "id": "eng02_fb_1",
+    "type": "fill-blank",
+    "prompt": "Complete the sentence using the correct form of the verb in brackets.",
+    "template": "Every morning, she {{blank_1}} (to drink) a cup of coffee before going to work.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "drinks"
+        ],
+        "hint": "(present simple, 3rd person singular)"
+      }
+    ],
+    "explanation": "In present simple, third person singular (he/she/it) adds '-s' or '-es' to the base verb: drink → drinks. This tense describes habits, routines, and general truths.",
+    "tags": [
+      "verb_tenses",
+      "present_simple",
+      "third_person"
+    ]
+  },
+  {
+    "id": "eng02_mc_1",
+    "type": "mc",
+    "prompt": "Which sentence correctly uses the past simple tense?",
+    "options": [
+      {
+        "text": "She visited Paris last year.",
+        "correct": true,
+        "because": "'Visited' is the past simple form of 'visit' (regular verb: add -ed). 'Last year' is a past time reference."
+      },
+      {
+        "text": "She has visited Paris last year.",
+        "correct": false,
+        "because": "Present perfect ('has visited') is not used with specific past time expressions like 'last year'. Use past simple instead."
+      },
+      {
+        "text": "She visit Paris last year.",
+        "correct": false,
+        "because": "In past simple, the verb must be conjugated: 'visited', not the base form 'visit'."
+      },
+      {
+        "text": "She was visiting Paris last year.",
+        "correct": false,
+        "because": "'Was visiting' is past continuous, used for actions in progress at a specific past time, not for completed actions."
+      }
+    ],
+    "explanation": "Past simple is used for completed actions at a specific time in the past. It is formed with -ed for regular verbs (visited, worked) or with irregular forms (went, saw, bought). It cannot be combined with 'since', 'yet', or 'already'.",
+    "tags": [
+      "verb_tenses",
+      "past_simple",
+      "regular_verbs"
+    ]
+  },
+  {
+    "id": "eng02_tf_1",
+    "type": "tf",
+    "prompt": "In English, the future with 'will' is used to make predictions and spontaneous decisions.",
+    "answer": true,
+    "becauseTrue": "Correct. 'Will + base verb' is used for: (1) predictions ('It will rain tomorrow'), (2) spontaneous decisions ('I'll have the soup'), and (3) promises and offers ('I'll help you').",
+    "becauseFalse": "Incorrect. 'Will + base verb' is indeed used for predictions and spontaneous decisions. For planned future events or scheduled activities, 'be going to' or present continuous is preferred.",
+    "tags": [
+      "verb_tenses",
+      "future_will",
+      "usage"
+    ]
+  },
+  {
+    "id": "eng02_match_1",
+    "type": "match",
+    "prompt": "Match each sentence to the tense it uses.",
+    "pairs": [
+      {
+        "left": "I usually wake up at 7 am.",
+        "right": "Present simple (habit)"
+      },
+      {
+        "left": "They bought a new car yesterday.",
+        "right": "Past simple (completed action)"
+      },
+      {
+        "left": "I'll call you tonight.",
+        "right": "Future with will (spontaneous decision)"
+      },
+      {
+        "left": "She didn't finish her homework.",
+        "right": "Past simple negative"
+      }
+    ],
+    "explanation": "Recognizing which tense to use depends on time references (yesterday, usually, tomorrow) and the nature of the action (completed, habitual, or future).",
+    "tags": [
+      "verb_tenses",
+      "simple_tenses",
+      "identification"
+    ]
+  }
+]

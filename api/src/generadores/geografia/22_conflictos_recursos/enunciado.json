@@ -1,0 +1,78 @@
+[
+  {
+    "id": "geo22_mc_1",
+    "type": "mc",
+    "prompt": "¿Qué recurso natural es el más frecuentemente señalado como causa de conflictos en el siglo XXI?",
+    "options": [
+      {
+        "text": "El agua dulce",
+        "correct": true,
+        "because": "La escasez de agua dulce, agravada por el cambio climático, la contaminación y la mala gestión, genera crecientes tensiones entre países que comparten cuencas hidrográficas (ej.: Nilo, Éufrates-Tigris, Mekong)."
+      },
+      {
+        "text": "El oro",
+        "correct": false,
+        "because": "El oro genera conflictos locales y minería ilegal, pero no es el recurso que más amenaza la estabilidad geopolítica global en el siglo XXI."
+      },
+      {
+        "text": "El carbón",
+        "correct": false,
+        "because": "El carbón ha perdido peso estratégico con la transición energética; los conflictos actuales se centran más en el petróleo, el gas y el agua."
+      },
+      {
+        "text": "La madera",
+        "right": false,
+        "correct": false,
+        "because": "La deforestación ilegal genera conflictos locales, pero la madera no es el recurso estratégico que más causa disputas interestatales en la actualidad."
+      }
+    ],
+    "explanation": "El agua dulce es el recurso que más tensiones geopolíticas genera en el siglo XXI: solo el 2,5% del agua del planeta es dulce, y esa pequeña fracción está mal distribuida. Los conflictos en torno al Nilo (Etiopía-Egipto-Sudán) y el Tigris-Éufrates (Turquía-Siria-Irak) son ejemplos actuales.",
+    "tags": [
+      "conflictos_recursos",
+      "agua",
+      "geopolitica"
+    ]
+  },
+  {
+    "id": "geo22_tf_1",
+    "type": "tf",
+    "prompt": "El concepto de «agua virtual» se refiere al agua que un país tiene almacenada en glaciares y acuíferos subterráneos.",
+    "answer": false,
+    "becauseTrue": "Incorrecto. El agua virtual es el agua incorporada en los procesos de producción de bienes y alimentos que se exportan, no el agua almacenada.",
+    "becauseFalse": "Correcto. El «agua virtual» (concepto de John Allan, 1993) es el agua incorporada implícitamente en la producción de bienes: por ejemplo, producir 1 kg de carne requiere aproximadamente 15.000 litros de agua. Cuando un país exporta carne, exporta también ese 'agua virtual'.",
+    "tags": [
+      "conflictos_recursos",
+      "agua_virtual",
+      "comercio"
+    ]
+  },
+  {
+    "id": "geo22_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada región con su principal recurso natural en disputa o de alta tensión.",
+    "pairs": [
+      {
+        "left": "Oriente Medio (Golfo Pérsico)",
+        "right": "Petróleo y gas natural"
+      },
+      {
+        "left": "Cuenca del Nilo (África oriental)",
+        "right": "Agua dulce para irrigación y consumo"
+      },
+      {
+        "left": "Mar de China Meridional",
+        "right": "Derechos de pesca y reservas submarinas de hidrocarburos"
+      },
+      {
+        "left": "Ártico",
+        "right": "Recursos minerales y nuevas rutas de navegación"
+      }
+    ],
+    "explanation": "Los recursos naturales son un factor clave en la geopolítica mundial. El petróleo domina Oriente Medio, el agua genera tensiones en África y Asia, y el Ártico emergió como nueva frontera de disputa por el deshielo inducido por el cambio climático.",
+    "tags": [
+      "conflictos_recursos",
+      "geopolitica",
+      "regiones"
+    ]
+  }
+]

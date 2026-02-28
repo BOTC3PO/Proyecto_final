@@ -1,0 +1,119 @@
+[
+  {
+    "id": "geo16_mc_1",
+    "type": "mc",
+    "prompt": "¿Qué miden las líneas de latitud (paralelos)?",
+    "options": [
+      {
+        "text": "La distancia angular al norte o al sur del Ecuador",
+        "correct": true,
+        "because": "La latitud se mide en grados desde 0° (Ecuador) hasta 90° Norte (Polo Norte) y 90° Sur (Polo Sur). Indica la posición norte-sur de un punto en el planeta."
+      },
+      {
+        "text": "La distancia angular al este o al oeste del meridiano de Greenwich",
+        "correct": false,
+        "because": "Eso lo mide la longitud (medida por los meridianos), no la latitud. Los paralelos miden distancia al Ecuador."
+      },
+      {
+        "text": "La altitud de un punto sobre el nivel del mar",
+        "correct": false,
+        "because": "La altitud es la tercera coordenada geográfica, medida en metros sobre el nivel del mar; no es la latitud."
+      },
+      {
+        "text": "El ángulo entre el norte magnético y el norte geográfico",
+        "correct": false,
+        "because": "Eso es la declinación magnética, un concepto de navegación, no una coordenada de latitud."
+      }
+    ],
+    "explanation": "La latitud mide la distancia angular desde el Ecuador (0°) hacia los polos (90° N o 90° S). Los paralelos son los círculos horizontales imaginarios que rodean la Tierra paralelamente al Ecuador.",
+    "tags": [
+      "coordenadas",
+      "latitud",
+      "paralelos"
+    ]
+  },
+  {
+    "id": "geo16_tf_1",
+    "type": "tf",
+    "prompt": "El meridiano de Greenwich (meridiano 0°) pasa por la ciudad de Londres, en el Reino Unido.",
+    "answer": true,
+    "becauseTrue": "Correcto. El meridiano de Greenwich pasa por el Observatorio Real de Greenwich, en el sureste de Londres. Fue adoptado como meridiano de referencia internacional en el Congreso de Washington de 1884.",
+    "becauseFalse": "Incorrecto. El meridiano 0° sí pasa por Greenwich, en el sureste de Londres. Fue establecido como meridiano de referencia en la Conferencia Internacional del Meridiano de Washington (1884).",
+    "tags": [
+      "coordenadas",
+      "meridianos",
+      "greenwich"
+    ]
+  },
+  {
+    "id": "geo16_ms_1",
+    "type": "map-select",
+    "prompt": "Las coordenadas 0° latitud, 0° longitud se ubican en el océano Atlántico, frente a las costas de África occidental. Haz clic en el país africano más cercano a ese punto (llamado «Null Island»).",
+    "map": {
+      "layers": [
+        {
+          "src": "physical/land",
+          "style": {
+            "fill": "#f0ebe3",
+            "stroke": "#ccc"
+          }
+        },
+        {
+          "src": "political/countries",
+          "style": {
+            "fill": "#e8e4dc",
+            "stroke": "#999",
+            "strokeWidth": 0.5
+          },
+          "interactive": true
+        },
+        {
+          "src": "physical/coastline",
+          "style": {
+            "stroke": "#6699cc",
+            "strokeWidth": 0.6
+          }
+        }
+      ],
+      "bbox": [
+        -20,
+        -10,
+        20,
+        20
+      ],
+      "title": "Golfo de Guinea — Punto 0°, 0°"
+    },
+    "selectKind": "country",
+    "correctIds": [
+      "GHA",
+      "GNQ",
+      "NGA",
+      "CMR"
+    ],
+    "selectOptions": [
+      {
+        "id": "GHA",
+        "label": "Ghana"
+      },
+      {
+        "id": "GNQ",
+        "label": "Guinea Ecuatorial"
+      },
+      {
+        "id": "MAR",
+        "label": "Marruecos"
+      },
+      {
+        "id": "ZAF",
+        "label": "Sudáfrica"
+      }
+    ],
+    "explanation": "El punto de coordenadas (0°, 0°) se ubica en el golfo de Guinea, frente a las costas de Ghana y Guinea Ecuatorial. El país más cercano a ese punto es Ghana, al norte, o Guinea Ecuatorial.",
+    "tags": [
+      "coordenadas",
+      "africa",
+      "ecuador",
+      "mapa"
+    ]
+  }
+]

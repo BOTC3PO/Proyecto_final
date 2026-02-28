@@ -1,0 +1,77 @@
+[
+  {
+    "id": "eng05_mc_1",
+    "type": "mc",
+    "prompt": "Identify the direct object in: 'My brother gave me a birthday present.'",
+    "options": [
+      {
+        "text": "a birthday present",
+        "correct": true,
+        "because": "The direct object answers 'what?' about the verb. 'Gave what? → a birthday present'. The indirect object is 'me' (gave to whom?)."
+      },
+      {
+        "text": "me",
+        "correct": false,
+        "because": "'Me' is the indirect object (the recipient of the giving). Direct object answers 'what was given?': a birthday present."
+      },
+      {
+        "text": "My brother",
+        "correct": false,
+        "because": "'My brother' is the subject of the sentence (the one performing the action)."
+      },
+      {
+        "text": "gave",
+        "correct": false,
+        "because": "'Gave' is the verb (past simple of 'give'). Verbs are not objects."
+      }
+    ],
+    "explanation": "In ditransitive sentences (with two objects), the indirect object (IO) answers 'to whom/for whom', while the direct object (DO) answers 'what/whom'. IO typically comes before DO: 'gave [me=IO] [a present=DO]'.",
+    "tags": [
+      "syntax",
+      "sentence_structure",
+      "direct_object"
+    ]
+  },
+  {
+    "id": "eng05_tf_1",
+    "type": "tf",
+    "prompt": "English follows a basic Subject-Verb-Object (SVO) word order in affirmative statements.",
+    "answer": true,
+    "becauseTrue": "Correct. English is an SVO language: 'She [S] reads [V] books [O]'. This is the default order for affirmative sentences and differs from languages like Japanese (SOV) or Arabic (VSO).",
+    "becauseFalse": "Incorrect. English does follow SVO order: 'The cat [S] chased [V] the mouse [O]'. This rigid word order is important because English has few inflections to mark grammatical roles.",
+    "tags": [
+      "syntax",
+      "svo",
+      "word_order"
+    ]
+  },
+  {
+    "id": "eng05_match_1",
+    "type": "match",
+    "prompt": "Identify the grammatical role of each underlined element in the sentence 'My sister carefully read the old letter yesterday'.",
+    "pairs": [
+      {
+        "left": "My sister",
+        "right": "Subject"
+      },
+      {
+        "left": "carefully",
+        "right": "Adverbial (manner)"
+      },
+      {
+        "left": "the old letter",
+        "right": "Direct object"
+      },
+      {
+        "left": "yesterday",
+        "right": "Adverbial (time)"
+      }
+    ],
+    "explanation": "In SVO sentences, the subject performs the action, the direct object receives it, and adverbials (adverbs/adverb phrases) add information about how, when, where, or why the action happened.",
+    "tags": [
+      "syntax",
+      "sentence_analysis",
+      "roles"
+    ]
+  }
+]

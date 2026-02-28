@@ -1,0 +1,76 @@
+[
+  {
+    "id": "eng04_mc_1",
+    "type": "mc",
+    "prompt": "Which sentence demonstrates correct subject-verb agreement?",
+    "options": [
+      {
+        "text": "Neither the students nor the teacher was late.",
+        "correct": true,
+        "because": "With 'neither...nor', the verb agrees with the subject closest to the verb. 'The teacher' (singular) is closest, so 'was' is correct."
+      },
+      {
+        "text": "Neither the students nor the teacher were late.",
+        "correct": false,
+        "because": "With 'neither...nor', the verb agrees with the closest subject. 'The teacher' is singular, so 'was' is correct, not 'were'."
+      },
+      {
+        "text": "The team are playing well today.",
+        "correct": false,
+        "because": "In American English, collective nouns (team, committee, group) take singular verbs: 'The team is playing'. (British English may use plural.)"
+      },
+      {
+        "text": "Everyone are invited to the party.",
+        "correct": false,
+        "because": "Indefinite pronouns (everyone, everyone, nobody, someone, something) are singular and take singular verbs: 'Everyone is invited'."
+      }
+    ],
+    "explanation": "Subject-verb agreement rules: (1) singular subjects take singular verbs; (2) with neither...nor/either...or, the verb agrees with the nearest subject; (3) indefinite pronouns (everyone, nobody) are singular.",
+    "tags": [
+      "subject_verb_agreement",
+      "grammar",
+      "rules"
+    ]
+  },
+  {
+    "id": "eng04_fb_1",
+    "type": "fill-blank",
+    "prompt": "Write the correct form of the irregular verb.",
+    "template": "The past simple of 'to go' is {{blank_1}}, and the past participle is {{blank_2}}.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "went"
+        ],
+        "hint": "(past simple of 'go')"
+      },
+      {
+        "id": "blank_2",
+        "correctAnswers": [
+          "gone"
+        ],
+        "hint": "(past participle of 'go')"
+      }
+    ],
+    "explanation": "'Go' is one of the most irregular verbs in English: base form (go) → past simple (went) → past participle (gone). Note that 'went' and 'gone' come from completely different word roots.",
+    "tags": [
+      "irregular_verbs",
+      "go",
+      "morphology"
+    ]
+  },
+  {
+    "id": "eng04_tf_1",
+    "type": "tf",
+    "prompt": "The verb 'to be' has three different forms in the present tense: am, is, and are.",
+    "answer": true,
+    "becauseTrue": "Correct. 'To be' is the most irregular verb in English: I am, you are, he/she/it is, we/you/they are. In past tense it has two forms: was (I/he/she/it) and were (you/we/they).",
+    "becauseFalse": "Incorrect. 'To be' does have three present forms: am (I), is (he/she/it), and are (you/we/they). This makes it the most irregular English verb.",
+    "tags": [
+      "irregular_verbs",
+      "to_be",
+      "subject_verb_agreement"
+    ]
+  }
+]

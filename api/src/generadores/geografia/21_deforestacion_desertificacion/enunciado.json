@@ -1,0 +1,116 @@
+[
+  {
+    "id": "geo21_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál es la causa principal de la desertificación en las zonas áridas y semiáridas?",
+    "options": [
+      {
+        "text": "La combinación de sobreexplotación del suelo, sobrepastoreo y cambio climático",
+        "correct": true,
+        "because": "La desertificación es un proceso multifactorial: el sobrepastoreo elimina la cubierta vegetal, la agricultura insostenible agota el suelo, y el cambio climático reduce las lluvias, generando un ciclo de degradación irreversible."
+      },
+      {
+        "text": "Solo la falta de lluvia natural (clima árido preexistente)",
+        "correct": false,
+        "because": "El clima árido es un factor predisponente, pero la desertificación requiere la intervención humana que acelera la degradación: un desierto natural no es desertificación."
+      },
+      {
+        "text": "La contaminación química de ríos y acuíferos",
+        "correct": false,
+        "because": "La contaminación hídrica es un problema grave pero distinto a la desertificación; esta última se refiere a la pérdida de suelo fértil, no a la contaminación del agua."
+      },
+      {
+        "text": "El exceso de lluvias que erosiona el suelo",
+        "correct": false,
+        "because": "El exceso de lluvia causa erosión hídrica, que puede degradar el suelo, pero la desertificación ocurre precisamente en regiones con escasez de agua, no con exceso."
+      }
+    ],
+    "explanation": "La desertificación es la degradación de tierras áridas, semiáridas y subhúmedas causada principalmente por actividades humanas (sobrepastoreo, agricultura insostenible, deforestación) amplificadas por el cambio climático. No es simplemente el avance natural de los desiertos.",
+    "tags": [
+      "desertificacion",
+      "causas",
+      "degradacion_suelo"
+    ]
+  },
+  {
+    "id": "geo21_tf_1",
+    "type": "tf",
+    "prompt": "La deforestación en la Amazonía afecta no solo a Brasil sino también al ciclo hidrológico de toda Sudamérica.",
+    "answer": true,
+    "becauseTrue": "Correcto. La selva amazónica genera sus propias lluvias mediante la evapotranspiración (ríos voladores). Su destrucción reduce la humedad que llega a regiones distantes como el sur de Brasil, Uruguay y Argentina, afectando la agricultura y los caudales de ríos.",
+    "becauseFalse": "Incorrecto. La Amazonía sí tiene efectos regionales sobre el clima: los 'ríos voladores' (corrientes de vapor de agua generadas por la selva) llevan humedad a miles de kilómetros de distancia; su reducción afecta las precipitaciones de toda la cuenca del Plata.",
+    "tags": [
+      "deforestacion",
+      "amazonia",
+      "ciclo_hidrologico"
+    ]
+  },
+  {
+    "id": "geo21_ms_1",
+    "type": "map-select",
+    "prompt": "Haz clic en el país que posee la mayor superficie de selva tropical deforestada en América del Sur durante las últimas décadas.",
+    "map": {
+      "layers": [
+        {
+          "src": "physical/land",
+          "style": {
+            "fill": "#f0ebe3",
+            "stroke": "#ccc"
+          }
+        },
+        {
+          "src": "political/countries",
+          "style": {
+            "fill": "#e8e4dc",
+            "stroke": "#999",
+            "strokeWidth": 0.5
+          },
+          "interactive": true
+        },
+        {
+          "src": "physical/rivers",
+          "style": {
+            "stroke": "#4a90d9",
+            "strokeWidth": 1.0
+          }
+        }
+      ],
+      "bbox": [
+        -82,
+        -22,
+        -34,
+        8
+      ],
+      "title": "Amazonía — Deforestación"
+    },
+    "selectKind": "country",
+    "correctIds": [
+      "BRA"
+    ],
+    "selectOptions": [
+      {
+        "id": "BRA",
+        "label": "Brasil"
+      },
+      {
+        "id": "BOL",
+        "label": "Bolivia"
+      },
+      {
+        "id": "PER",
+        "label": "Perú"
+      },
+      {
+        "id": "COL",
+        "label": "Colombia"
+      }
+    ],
+    "explanation": "Brasil concentra alrededor del 60% de la Amazonía y ha registrado las mayores pérdidas absolutas de selva tropical, especialmente en los estados de Pará, Mato Grosso y Rondônia. Las tasas de deforestación varían según las políticas gubernamentales.",
+    "tags": [
+      "deforestacion",
+      "amazonia",
+      "brasil",
+      "mapa"
+    ]
+  }
+]

@@ -1,0 +1,127 @@
+[
+  {
+    "id": "geo05_ms_1",
+    "type": "map-select",
+    "prompt": "El «Cinturón de Fuego del Pacífico» concentra el 90% de los terremotos del mundo. Haz clic en uno de los países que forman parte de este cinturón.",
+    "map": {
+      "layers": [
+        {
+          "src": "physical/land",
+          "style": {
+            "fill": "#f0ebe3",
+            "stroke": "#ccc"
+          }
+        },
+        {
+          "src": "political/countries",
+          "style": {
+            "fill": "#e8e4dc",
+            "stroke": "#999",
+            "strokeWidth": 0.5
+          },
+          "interactive": true
+        },
+        {
+          "src": "physical/coastline",
+          "style": {
+            "stroke": "#6699cc",
+            "strokeWidth": 0.6
+          }
+        }
+      ],
+      "bbox": [
+        -180,
+        -60,
+        180,
+        75
+      ],
+      "title": "Cinturón de Fuego del Pacífico"
+    },
+    "selectKind": "country",
+    "correctIds": [
+      "JPN",
+      "CHL",
+      "MEX",
+      "IDN",
+      "PHL",
+      "NZL",
+      "PER",
+      "USA"
+    ],
+    "selectOptions": [
+      {
+        "id": "JPN",
+        "label": "Japón"
+      },
+      {
+        "id": "CHL",
+        "label": "Chile"
+      },
+      {
+        "id": "MEX",
+        "label": "México"
+      },
+      {
+        "id": "IDN",
+        "label": "Indonesia"
+      },
+      {
+        "id": "DEU",
+        "label": "Alemania"
+      },
+      {
+        "id": "EGY",
+        "label": "Egipto"
+      }
+    ],
+    "explanation": "El Cinturón de Fuego rodea el océano Pacífico y pasa por Japón, Filipinas, Indonesia, Chile, Perú, México y la costa oeste de EE.UU. Alemania y Egipto no pertenecen a este cinturón.",
+    "tags": [
+      "procesos_naturales",
+      "terremotos",
+      "cinturon_de_fuego",
+      "mapa"
+    ]
+  },
+  {
+    "id": "geo05_tf_1",
+    "type": "tf",
+    "prompt": "Los volcanes de punto caliente (hotspot), como los de Hawái, se forman en el interior de las placas tectónicas, alejados de los bordes de placa.",
+    "answer": true,
+    "becauseTrue": "Correcto. Los hotspots son anomalías termales en el manto que perforan la corteza independientemente de los bordes de placa. La cadena hawaiana es el ejemplo clásico.",
+    "becauseFalse": "Incorrecto. Los hotspots sí se forman en el interior de las placas, no en sus bordes. La cadena de islas hawaianas evidencia el movimiento de la placa Pacífica sobre un punto caliente fijo.",
+    "tags": [
+      "procesos_naturales",
+      "volcanismo",
+      "hotspot"
+    ]
+  },
+  {
+    "id": "geo05_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada tipo de borde de placa tectónica con el proceso geológico que genera.",
+    "pairs": [
+      {
+        "left": "Borde convergente (subducción)",
+        "right": "Terremotos profundos y cadenas volcánicas"
+      },
+      {
+        "left": "Borde divergente (dorsales)",
+        "right": "Expansión del fondo oceánico y volcanes submarinos"
+      },
+      {
+        "left": "Borde transformante (fallas)",
+        "right": "Terremotos superficiales sin vulcanismo"
+      },
+      {
+        "left": "Punto caliente (hotspot)",
+        "right": "Vulcanismo intraplaca y cadenas de islas volcánicas"
+      }
+    ],
+    "explanation": "Los diferentes tipos de bordes entre placas tectónicas generan procesos geológicos distintos: subducción → volcanes y sismos profundos; dorsales → expansión oceánica; fallas transformantes → sismos superficiales.",
+    "tags": [
+      "procesos_naturales",
+      "tectonica",
+      "bordes_placa"
+    ]
+  }
+]

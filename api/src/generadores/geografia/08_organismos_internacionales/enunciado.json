@@ -1,0 +1,77 @@
+[
+  {
+    "id": "geo08_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál es el principal objetivo de la Organización de las Naciones Unidas (ONU)?",
+    "options": [
+      {
+        "text": "Mantener la paz y la seguridad internacionales y fomentar la cooperación entre naciones",
+        "correct": true,
+        "because": "Según la Carta de las Naciones Unidas (1945), sus propósitos principales son mantener la paz y seguridad, desarrollar relaciones amistosas y promover la cooperación internacional."
+      },
+      {
+        "text": "Regular el comercio mundial y establecer aranceles entre países",
+        "correct": false,
+        "because": "La regulación del comercio es función de la OMC (Organización Mundial del Comercio), no de la ONU."
+      },
+      {
+        "text": "Gestionar la deuda externa de los países en desarrollo",
+        "correct": false,
+        "because": "La gestión de deuda corresponde al FMI (Fondo Monetario Internacional) y al Banco Mundial, no a la ONU directamente."
+      },
+      {
+        "text": "Supervisar las elecciones en todos los países miembros",
+        "correct": false,
+        "because": "La ONU puede enviar observadores electorales a solicitud de países, pero no supervisa obligatoriamente todas las elecciones del mundo."
+      }
+    ],
+    "explanation": "La ONU fue fundada en 1945 con el objetivo central de prevenir conflictos futuros tras la Segunda Guerra Mundial, mantener la paz y la seguridad internacionales, y promover la cooperación en asuntos económicos, sociales y humanitarios.",
+    "tags": [
+      "organismos_internacionales",
+      "onu",
+      "paz"
+    ]
+  },
+  {
+    "id": "geo08_tf_1",
+    "type": "tf",
+    "prompt": "La principal función del Fondo Monetario Internacional (FMI) es promover la paz y la seguridad internacionales.",
+    "answer": false,
+    "becauseTrue": "Incorrecto. Esa es la función de la ONU. El FMI se especializa en la estabilidad financiera y monetaria internacional.",
+    "becauseFalse": "Correcto. El FMI no tiene función militar ni de seguridad; su rol es supervisar el sistema monetario internacional, prestar asistencia financiera a países con crisis de balanza de pagos y promover la cooperación económica.",
+    "tags": [
+      "organismos_internacionales",
+      "fmi",
+      "economia"
+    ]
+  },
+  {
+    "id": "geo08_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada organismo internacional con su función principal.",
+    "pairs": [
+      {
+        "left": "UNESCO",
+        "right": "Promover la educación, la ciencia y la cultura"
+      },
+      {
+        "left": "OMS",
+        "right": "Coordinar la salud pública internacional"
+      },
+      {
+        "left": "OMC",
+        "right": "Regular el comercio mundial y resolver disputas comerciales"
+      },
+      {
+        "left": "ACNUR",
+        "right": "Proteger y asistir a los refugiados en el mundo"
+      }
+    ],
+    "explanation": "El sistema de organismos internacionales de la ONU está especializado: cada agencia tiene un mandato específico en áreas como salud, educación, comercio o refugiados.",
+    "tags": [
+      "organismos_internacionales",
+      "onu",
+      "especializacion"
+    ]
+  }
+]

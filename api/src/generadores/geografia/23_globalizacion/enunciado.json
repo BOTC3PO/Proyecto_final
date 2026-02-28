@@ -1,0 +1,77 @@
+[
+  {
+    "id": "geo23_mc_1",
+    "type": "mc",
+    "prompt": "¿A qué se refiere principalmente el proceso de globalización?",
+    "options": [
+      {
+        "text": "Al aumento de la interconexión e interdependencia económica, cultural, política y tecnológica a escala mundial",
+        "correct": true,
+        "because": "La globalización describe el proceso por el cual los países, las empresas y las personas están cada vez más conectadas e interdependientes gracias al comercio, las migraciones, las comunicaciones y las tecnologías digitales."
+      },
+      {
+        "text": "A la homogeneización total de todas las culturas del mundo en una sola cultura global",
+        "correct": false,
+        "because": "La globalización puede generar cierta estandarización cultural, pero también provoca reacciones de afirmación de identidades locales (glocalización) y no implica necesariamente la desaparición de las culturas locales."
+      },
+      {
+        "text": "Al proceso por el cual todos los países adoptan el mismo sistema de gobierno",
+        "correct": false,
+        "because": "La globalización no implica convergencia política obligatoria; hay sistemas muy distintos (democracias, autocracias, etc.) en el mundo globalizado."
+      },
+      {
+        "text": "A la unificación de todas las monedas nacionales en una sola moneda mundial",
+        "correct": false,
+        "because": "No existe ni está prevista una moneda mundial única. La globalización financiera no requiere moneda única; el dólar cumple parcialmente ese rol como moneda de reserva, pero convive con cientos de monedas nacionales."
+      }
+    ],
+    "explanation": "La globalización es un proceso multidimensional de integración mundial en lo económico (cadenas de valor globales, libre comercio), lo cultural (difusión de costumbres, música, cine), lo tecnológico (internet, redes) y lo político (organismos internacionales).",
+    "tags": [
+      "globalizacion",
+      "definicion",
+      "interdependencia"
+    ]
+  },
+  {
+    "id": "geo23_tf_1",
+    "type": "tf",
+    "prompt": "La globalización cultural produce inevitablemente la homogeneización de todas las culturas del mundo.",
+    "answer": false,
+    "becauseTrue": "Incorrecto. La globalización también puede reforzar las identidades locales y generar procesos de 'glocalización' o hibridación cultural.",
+    "becauseFalse": "Correcto. Si bien la globalización difunde elementos culturales dominantes (especialmente anglosajones), también provoca reacciones de valorización de culturas locales y fenómenos de 'glocalización': la adaptación de lo global al contexto local. Las culturas se hibridan más que desaparecer.",
+    "tags": [
+      "globalizacion",
+      "cultura",
+      "homogeneizacion"
+    ]
+  },
+  {
+    "id": "geo23_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada dimensión de la globalización con un ejemplo concreto.",
+    "pairs": [
+      {
+        "left": "Globalización económica",
+        "right": "Cadenas de producción de smartphones distribuidas en 20 países"
+      },
+      {
+        "left": "Globalización cultural",
+        "right": "Expansión mundial del K-pop y las plataformas de streaming"
+      },
+      {
+        "left": "Globalización tecnológica",
+        "right": "Internet y redes sociales que conectan personas en tiempo real"
+      },
+      {
+        "left": "Globalización política",
+        "right": "Acuerdos climáticos multilaterales como el Acuerdo de París"
+      }
+    ],
+    "explanation": "La globalización no es un fenómeno único sino múltiple: afecta simultáneamente la economía (cadenas de valor globales), la cultura (difusión de contenidos), la tecnología (conectividad digital) y la política (gobernanza global y organismos internacionales).",
+    "tags": [
+      "globalizacion",
+      "dimensiones",
+      "ejemplos"
+    ]
+  }
+]

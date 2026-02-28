@@ -1,0 +1,77 @@
+[
+  {
+    "id": "geo07_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál es la principal diferencia entre una república y una monarquía?",
+    "options": [
+      {
+        "text": "En la república el jefe de Estado es electo; en la monarquía el cargo es hereditario",
+        "correct": true,
+        "because": "La distinción fundamental es el origen del poder: elección popular (temporal) en la república vs. herencia dinástica (vitalicia) en la monarquía."
+      },
+      {
+        "text": "En la república hay un parlamento; en la monarquía no existe legislativo",
+        "correct": false,
+        "because": "Tanto las repúblicas como las monarquías pueden tener parlamento; de hecho, la mayoría de las monarquías actuales son constitucionales con parlamento."
+      },
+      {
+        "text": "La república siempre es democrática; la monarquía siempre es autoritaria",
+        "correct": false,
+        "because": "Hay repúblicas autoritarias (ej.: Cuba, Corea del Norte) y monarquías constitucionales democráticas (ej.: España, Suecia, Japón)."
+      },
+      {
+        "text": "En la república el poder es vitalicio; en la monarquía es temporal",
+        "correct": false,
+        "because": "Es exactamente al revés: el monarca ejerce el cargo de por vida (o hasta abdicación), mientras el jefe de Estado republicano tiene mandatos limitados."
+      }
+    ],
+    "explanation": "La diferencia esencial entre república y monarquía es el origen y la duración del cargo de jefe de Estado: electivo y temporal en la república; hereditario y vitalicio en la monarquía.",
+    "tags": [
+      "formas_gobierno",
+      "republica",
+      "monarquia"
+    ]
+  },
+  {
+    "id": "geo07_tf_1",
+    "type": "tf",
+    "prompt": "En un sistema parlamentario, el jefe de gobierno (primer ministro) es elegido directamente por el pueblo en elecciones generales.",
+    "answer": false,
+    "becauseTrue": "Incorrecto. En el parlamentarismo el primer ministro es designado por el parlamento (o por el monarca a propuesta del parlamento), no elegido directamente por los ciudadanos.",
+    "becauseFalse": "Correcto. En el sistema parlamentario el primer ministro emerge del parlamento: el líder del partido (o coalición) con mayoría parlamentaria es nombrado jefe de gobierno. La elección directa del ejecutivo es característica del presidencialismo.",
+    "tags": [
+      "formas_gobierno",
+      "parlamentarismo",
+      "presidencialismo"
+    ]
+  },
+  {
+    "id": "geo07_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada forma de gobierno con un país representativo.",
+    "pairs": [
+      {
+        "left": "Monarquía constitucional parlamentaria",
+        "right": "España"
+      },
+      {
+        "left": "República presidencialista",
+        "right": "México"
+      },
+      {
+        "left": "República semipresidencialista",
+        "right": "Francia"
+      },
+      {
+        "left": "Monarquía absoluta",
+        "right": "Arabia Saudita"
+      }
+    ],
+    "explanation": "Las formas de gobierno varían en cómo se organiza el poder ejecutivo y su relación con el legislativo. La mayoría de las democracias occidentales son parlamentarias o semipresidencialistas.",
+    "tags": [
+      "formas_gobierno",
+      "ejemplos",
+      "mundo"
+    ]
+  }
+]

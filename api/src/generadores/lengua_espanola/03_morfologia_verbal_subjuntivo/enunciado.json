@@ -1,0 +1,70 @@
+[
+  {
+    "id": "esp03_mc_1",
+    "type": "mc",
+    "prompt": "¿En cuál de estas oraciones se usa correctamente el subjuntivo?",
+    "options": [
+      {
+        "text": "Espero que vengas pronto.",
+        "correct": true,
+        "because": "Tras verbos de deseo (esperar, querer, desear) + 'que', el verbo de la subordinada va en subjuntivo."
+      },
+      {
+        "text": "Espero que vienes pronto.",
+        "correct": false,
+        "because": "Incorrecto. Después de 'espero que', el verbo debe ir en subjuntivo ('vengas'), no en indicativo ('vienes')."
+      },
+      {
+        "text": "Es obvio que vengas.",
+        "correct": false,
+        "because": "Con expresiones que afirman certeza ('es obvio que', 'es cierto que'), se usa indicativo, no subjuntivo."
+      },
+      {
+        "text": "Sé que hables español.",
+        "correct": false,
+        "because": "Con 'saber que' (conocimiento seguro), se usa indicativo: 'sé que hablas español'."
+      }
+    ],
+    "explanation": "El subjuntivo se usa tras verbos o expresiones de deseo, duda, emoción, ruego o valoración subjetiva + 'que'. Los verbos de certeza (saber, ver, es obvio) llevan indicativo.",
+    "tags": [
+      "morfologia_verbal",
+      "subjuntivo",
+      "uso"
+    ]
+  },
+  {
+    "id": "esp03_fb_1",
+    "type": "fill-blank",
+    "prompt": "Completa con la forma correcta del imperativo.",
+    "template": "Para pedir a un amigo que cierre la puerta, le dices: '{{blank_1}} la puerta, por favor.'",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "cierra",
+          "Cierra"
+        ],
+        "hint": "(imperativo, tú, 'cerrar')"
+      }
+    ],
+    "explanation": "El imperativo del verbo 'cerrar' para 'tú' es 'cierra' (forma irregular: e→ie en presente, pero el imperativo de tú toma la forma del presente de indicativo sin la 's': cierras → cierra).",
+    "tags": [
+      "morfologia_verbal",
+      "imperativo",
+      "conjugacion"
+    ]
+  },
+  {
+    "id": "esp03_tf_1",
+    "type": "tf",
+    "prompt": "El pretérito imperfecto de subjuntivo tiene dos formas válidas: una en '-ra' y otra en '-se' (ej.: hablara / hablase).",
+    "answer": true,
+    "becauseTrue": "Correcto. El imperfecto de subjuntivo tiene dos paradigmas igualmente válidos y normativos: el de '-ra' (hablara, cantara) y el de '-se' (hablase, cantase). Ambos son intercambiables en la mayoría de los contextos.",
+    "becauseFalse": "Incorrecto. Sí existen dos formas del imperfecto de subjuntivo en español (-ra y -se), ambas igualmente correctas y reconocidas por la RAE.",
+    "tags": [
+      "morfologia_verbal",
+      "subjuntivo",
+      "imperfecto"
+    ]
+  }
+]

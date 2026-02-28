@@ -1,0 +1,70 @@
+[
+  {
+    "id": "eng06_mc_1",
+    "type": "mc",
+    "prompt": "Which question is correctly formed?",
+    "options": [
+      {
+        "text": "Where does she live?",
+        "correct": true,
+        "because": "Questions in present simple use do/does + subject + base verb. 'She' (3rd person singular) requires 'does'. Word order: question word + does + subject + base verb."
+      },
+      {
+        "text": "Where she does live?",
+        "correct": false,
+        "because": "Incorrect word order. The auxiliary 'does' must come before the subject in questions: 'does she' not 'she does'."
+      },
+      {
+        "text": "Where does she lives?",
+        "correct": false,
+        "because": "After the auxiliary 'does', use the base form of the verb without '-s': 'live', not 'lives'. The '-s' is carried by 'does'."
+      },
+      {
+        "text": "Where she lives?",
+        "correct": false,
+        "because": "Questions require subject-auxiliary inversion. Without an auxiliary, this sounds like a statement, not a question."
+      }
+    ],
+    "explanation": "Yes/No questions and wh-questions in present/past simple require do/does/did + subject + base verb. In present simple with 3rd person singular, 'does' takes the '-s' and the main verb stays in base form.",
+    "tags": [
+      "questions",
+      "formation",
+      "auxiliary_verbs"
+    ]
+  },
+  {
+    "id": "eng06_fb_1",
+    "type": "fill-blank",
+    "prompt": "Complete the negative sentence with the correct auxiliary.",
+    "template": "She {{blank_1}} understand the instructions, so she asked for help.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "didn't",
+          "did not"
+        ],
+        "hint": "(past simple negative)"
+      }
+    ],
+    "explanation": "Past simple negatives use 'did not / didn't + base verb': 'She didn't understand.' The main verb returns to base form because 'did' carries the past tense marker.",
+    "tags": [
+      "negations",
+      "past_simple",
+      "auxiliary"
+    ]
+  },
+  {
+    "id": "eng06_tf_1",
+    "type": "tf",
+    "prompt": "In questions with 'be' as the main verb, you do NOT need 'do/does/did'.",
+    "answer": true,
+    "becauseTrue": "Correct. When 'be' is the main verb, it inverts directly with the subject: 'Is she happy?' (not 'Does she be happy?'). This also applies to 'have' as an auxiliary and all modal verbs.",
+    "becauseFalse": "Incorrect. 'Be' as a main verb inverts with the subject without needing 'do': 'Are you ready?', 'Was he there?', 'Is this correct?' The 'do/does/did' auxiliary is only needed for main verbs other than 'be'.",
+    "tags": [
+      "questions",
+      "to_be",
+      "inversion"
+    ]
+  }
+]

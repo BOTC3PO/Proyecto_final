@@ -1,0 +1,77 @@
+[
+  {
+    "id": "geo17_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuántos husos horarios existen en el mundo?",
+    "options": [
+      {
+        "text": "24 husos horarios oficiales (aunque algunos países usan medias horas)",
+        "correct": true,
+        "because": "La Tierra se divide en 24 husos de 15° de longitud cada uno (360° ÷ 24 = 15°). Sin embargo, algunos países usan compensaciones de media o cuarto de hora por razones prácticas."
+      },
+      {
+        "text": "12 husos horarios, uno por cada hora del reloj de 12 horas",
+        "correct": false,
+        "because": "Hay 24 husos, no 12, porque el planeta tiene 360° y cada huso cubre 15° correspondientes a 1 hora (360° ÷ 24 = 15°)."
+      },
+      {
+        "text": "360 husos, uno por cada grado de longitud",
+        "correct": false,
+        "because": "Si hubiera un huso por grado, habría 360 zonas horarias; en cambio el sistema estándar agrupa 15° por huso para dar 24 zonas correspondientes a las 24 horas del día."
+      },
+      {
+        "text": "Depende del número de países del mundo",
+        "correct": false,
+        "because": "Los husos horarios se basan en la geometría de la Tierra (360° en 24 horas), no en el número de países."
+      }
+    ],
+    "explanation": "Existen 24 husos horarios estándar de 15° cada uno. En la práctica, algunos países adoptan compensaciones de ±30 o ±45 minutos para alinear su horario con las fronteras políticas (ej.: India UTC+5:30, Irán UTC+3:30).",
+    "tags": [
+      "husos_horarios",
+      "tiempo",
+      "geografia_matematica"
+    ]
+  },
+  {
+    "id": "geo17_tf_1",
+    "type": "tf",
+    "prompt": "China, siendo un país de gran extensión este-oeste, utiliza un único huso horario oficial para todo su territorio.",
+    "answer": true,
+    "becauseTrue": "Correcto. A pesar de que geográficamente China debería abarcar 5 husos horarios, el gobierno usa el horario de Pekín (UTC+8) en todo el país, lo que genera grandes diferencias entre el amanecer en el este y el oeste.",
+    "becauseFalse": "Incorrecto. China sí usa un único huso horario nacional (UTC+8, horario de Pekín) para todo su extenso territorio, aunque esto significa que en el extremo occidental (Xinjiang) el sol puede salir a las 10 de la mañana en invierno.",
+    "tags": [
+      "husos_horarios",
+      "china",
+      "caso_especial"
+    ]
+  },
+  {
+    "id": "geo17_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada ciudad con su huso horario aproximado (UTC).",
+    "pairs": [
+      {
+        "left": "Londres (invierno)",
+        "right": "UTC+0"
+      },
+      {
+        "left": "Buenos Aires",
+        "right": "UTC-3"
+      },
+      {
+        "left": "Tokio",
+        "right": "UTC+9"
+      },
+      {
+        "left": "Nueva York (invierno)",
+        "right": "UTC-5"
+      }
+    ],
+    "explanation": "Los husos horarios se expresan como desviaciones (positivas al este, negativas al oeste) respecto al meridiano de Greenwich (UTC). Conocer los husos permite calcular diferencias horarias entre ciudades del mundo.",
+    "tags": [
+      "husos_horarios",
+      "ciudades",
+      "utc"
+    ]
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "geo03_mc_1",
+    "type": "mc",
+    "prompt": "¿Qué tipo de clima predomina en la región mediterránea (costas de España, Italia y Grecia)?",
+    "map": {
+      "layers": [
+        {
+          "src": "physical/land",
+          "style": {
+            "fill": "#f0ebe3",
+            "stroke": "#ccc"
+          }
+        },
+        {
+          "src": "political/countries",
+          "style": {
+            "fill": "#e8e4dc",
+            "stroke": "#aaa",
+            "strokeWidth": 0.5
+          }
+        },
+        {
+          "src": "physical/coastline",
+          "style": {
+            "stroke": "#6699cc",
+            "strokeWidth": 0.7
+          }
+        }
+      ],
+      "bbox": [
+        -10,
+        30,
+        40,
+        50
+      ],
+      "title": "Región mediterránea"
+    },
+    "options": [
+      {
+        "text": "Mediterráneo: veranos secos y calurosos, inviernos suaves y lluviosos",
+        "correct": true,
+        "because": "El clima mediterráneo se caracteriza por la inversión estacional de precipitaciones: lluvia en invierno y sequía estival por el anticiclón subtropical."
+      },
+      {
+        "text": "Oceánico: precipitaciones uniformes todo el año y temperaturas suaves",
+        "correct": false,
+        "because": "El clima oceánico predomina en la fachada atlántica. En el Mediterráneo las lluvias están concentradas en invierno."
+      },
+      {
+        "text": "Continental: inviernos muy fríos y veranos calurosos con pocas lluvias",
+        "correct": false,
+        "because": "El clima continental se da en el interior de los grandes continentes, lejos de la influencia marina."
+      },
+      {
+        "text": "Desértico: precipitaciones inferiores a 250 mm anuales",
+        "correct": false,
+        "because": "El clima mediterráneo recibe entre 300 y 900 mm anuales concentrados en otoño-invierno; no es desértico."
+      }
+    ],
+    "explanation": "El clima mediterráneo es único por su régimen hídrico invertido: precipitaciones en invierno y aridez estival, resultado de la alternancia entre frentes oceánicos y el anticiclón de las Azores en verano.",
+    "tags": [
+      "climas",
+      "mediterraneo",
+      "europa"
+    ]
+  },
+  {
+    "id": "geo03_tf_1",
+    "type": "tf",
+    "prompt": "El clima tropical se caracteriza por presentar temperaturas elevadas y uniformes durante todo el año, sin estaciones frías.",
+    "answer": true,
+    "becauseTrue": "Correcto. En la zona tropical la radiación solar es intensa y constante, manteniendo temperaturas medias por encima de los 18 °C todos los meses.",
+    "becauseFalse": "Incorrecto. El clima tropical sí tiene temperaturas altas y constantes; la variación térmica anual es pequeña (< 5 °C). Sus estaciones se distinguen por la lluvia, no por la temperatura.",
+    "tags": [
+      "climas",
+      "tropical",
+      "temperatura"
+    ]
+  },
+  {
+    "id": "geo03_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada tipo climático con su característica más representativa.",
+    "pairs": [
+      {
+        "left": "Clima polar",
+        "right": "Temperatura media del mes más cálido inferior a 10 °C"
+      },
+      {
+        "left": "Clima árido / desértico",
+        "right": "Precipitaciones menores a 250 mm anuales"
+      },
+      {
+        "left": "Clima templado oceánico",
+        "right": "Lluvia frecuente todo el año y escasa amplitud térmica"
+      },
+      {
+        "left": "Clima monzónico",
+        "right": "Alternancia de estación muy lluviosa y estación seca marcada"
+      }
+    ],
+    "explanation": "Cada tipo climático queda definido por la combinación de temperaturas y precipitaciones a lo largo del año. Conocer sus características permite identificarlos en climogramas y en la distribución mundial.",
+    "tags": [
+      "climas",
+      "clasificacion",
+      "caracteristicas"
+    ]
+  }
+]

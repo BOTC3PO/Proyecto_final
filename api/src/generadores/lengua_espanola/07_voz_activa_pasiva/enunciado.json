@@ -1,0 +1,69 @@
+[
+  {
+    "id": "esp07_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál es la transformación correcta a voz pasiva de 'El profesor corrigió los exámenes'?",
+    "options": [
+      {
+        "text": "Los exámenes fueron corregidos por el profesor.",
+        "correct": true,
+        "because": "Transformación correcta: CD activo → sujeto pasivo; sujeto activo → complemento agente ('por el profesor'); verbo → ser + participio concordado."
+      },
+      {
+        "text": "Los exámenes fue corregido por el profesor.",
+        "correct": false,
+        "because": "Error de concordancia: 'los exámenes' (plural) requiere 'fueron corregidos' (plural), no 'fue corregido'."
+      },
+      {
+        "text": "El profesor fue corregido por los exámenes.",
+        "correct": false,
+        "because": "El sujeto de la pasiva debe ser el complemento directo de la activa ('los exámenes'), no el sujeto activo."
+      },
+      {
+        "text": "Se corrigieron los exámenes.",
+        "correct": false,
+        "because": "Esta es la pasiva refleja (con 'se'), no la pasiva perifrástica con 'ser' que pide la pregunta."
+      }
+    ],
+    "explanation": "La voz pasiva perifrástica se forma: ser (conjugado) + participio (concordado con el sujeto paciente). El sujeto activo pasa a ser complemento agente (con 'por'). El CD activo se convierte en sujeto pasivo.",
+    "tags": [
+      "sintaxis",
+      "voz_pasiva",
+      "transformacion"
+    ]
+  },
+  {
+    "id": "esp07_fb_1",
+    "type": "fill-blank",
+    "prompt": "Transforma a voz pasiva la siguiente oración activa. Escribe solo la oración completa transformada.",
+    "template": "Oración activa: 'Los arquitectos diseñaron el edificio.'\\nVoz pasiva: El edificio {{blank_1}} diseñado por los arquitectos.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "fue"
+        ],
+        "hint": "(verbo ser conjugado en el tiempo correcto)"
+      }
+    ],
+    "explanation": "Al transformar a voz pasiva, el verbo 'diseñaron' (pretérito indefinido) se convierte en 'fue' (pretérito indefinido de 'ser') + participio 'diseñado'. El sujeto 'el edificio' (singular) determina el número del verbo.",
+    "tags": [
+      "sintaxis",
+      "voz_pasiva",
+      "ser_participio"
+    ]
+  },
+  {
+    "id": "esp07_tf_1",
+    "type": "tf",
+    "prompt": "La construcción 'Se alquila apartamento' es un ejemplo de pasiva refleja.",
+    "answer": true,
+    "becauseTrue": "Correcto. La pasiva refleja se construye con 'se' + verbo en 3ª persona (singular o plural según el sujeto). En 'se alquila apartamento', 'apartamento' es el sujeto paciente y el verbo concuerda con él.",
+    "becauseFalse": "Incorrecto. 'Se alquila apartamento' sí es una pasiva refleja: 'se' + verbo activo que concuerda con el sujeto paciente ('apartamento', singular → 'alquila').",
+    "tags": [
+      "sintaxis",
+      "pasiva_refleja",
+      "se"
+    ]
+  }
+]

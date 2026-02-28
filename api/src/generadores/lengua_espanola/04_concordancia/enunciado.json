@@ -1,0 +1,74 @@
+[
+  {
+    "id": "esp04_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál de estas oraciones tiene un error de concordancia?",
+    "options": [
+      {
+        "text": "Los niños juegan en el parque.",
+        "correct": false,
+        "because": "Concordancia correcta: sujeto plural (Los niños) + verbo plural (juegan)."
+      },
+      {
+        "text": "La chica y el chico llegaron tarde.",
+        "correct": false,
+        "because": "Concordancia correcta: sujeto compuesto (varios elementos) + verbo plural (llegaron)."
+      },
+      {
+        "text": "Había muchas personas en el lugar.",
+        "correct": false,
+        "because": "'Haber' impersonal va siempre en singular aunque el complemento sea plural: 'había personas' es correcto."
+      },
+      {
+        "text": "Los documentos fue revisado ayer.",
+        "correct": true,
+        "because": "Error de concordancia: sujeto plural 'los documentos' requiere verbo plural 'fueron revisados', no 'fue revisado'."
+      }
+    ],
+    "explanation": "La concordancia verbal exige que el verbo concuerde en número y persona con el sujeto. 'Los documentos' (plural) requiere 'fueron revisados' (plural), no la forma singular 'fue revisado'.",
+    "tags": [
+      "concordancia",
+      "errores",
+      "sintaxis"
+    ]
+  },
+  {
+    "id": "esp04_fb_1",
+    "type": "fill-blank",
+    "prompt": "Completa con la forma correcta del adjetivo para que haya concordancia.",
+    "template": "Vi una película muy {{blank_1}} y un libro igualmente interesante.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "entretenida",
+          "buena",
+          "divertida",
+          "larga",
+          "corta",
+          "aburrida"
+        ],
+        "hint": "(adjetivo femenino singular que califique 'película')"
+      }
+    ],
+    "explanation": "El adjetivo debe concordar en género y número con el sustantivo que modifica: 'película' es femenino singular, por lo tanto el adjetivo debe estar en forma femenina singular.",
+    "tags": [
+      "concordancia",
+      "adjetivo",
+      "genero_numero"
+    ]
+  },
+  {
+    "id": "esp04_tf_1",
+    "type": "tf",
+    "prompt": "En la oración 'Se venden pisos', el verbo 'venden' concuerda con 'pisos' porque actúa como sujeto.",
+    "answer": true,
+    "becauseTrue": "Correcto. En las construcciones con 'se' pasiva refleja, 'pisos' funciona como sujeto paciente y el verbo concuerda con él en número: 'se venden pisos' (plural) vs 'se vende un piso' (singular).",
+    "becauseFalse": "Incorrecto. En 'se venden pisos', la construcción es una pasiva refleja: 'pisos' es el sujeto paciente y el verbo concuerda con él en número plural.",
+    "tags": [
+      "concordancia",
+      "pasiva_refleja",
+      "se"
+    ]
+  }
+]

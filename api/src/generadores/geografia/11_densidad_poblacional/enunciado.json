@@ -1,0 +1,77 @@
+[
+  {
+    "id": "geo11_mc_1",
+    "type": "mc",
+    "prompt": "¿Qué continente tiene la mayor densidad de población promedio?",
+    "options": [
+      {
+        "text": "Asia",
+        "correct": true,
+        "because": "Asia alberga más del 60% de la población mundial en el 30% del territorio emergido. Países como Bangladesh, Japón e India tienen densidades extremadamente altas."
+      },
+      {
+        "text": "Europa",
+        "correct": false,
+        "because": "Europa tiene alta densidad pero menor que Asia; además su crecimiento demográfico es mucho más lento."
+      },
+      {
+        "text": "África",
+        "correct": false,
+        "because": "África tiene el crecimiento demográfico más rápido, pero aún con densidades medias inferiores a Asia en general."
+      },
+      {
+        "text": "América del Norte",
+        "correct": false,
+        "because": "América del Norte (especialmente Canadá y EE.UU.) tiene extensas zonas despobladas que bajan mucho la densidad media."
+      }
+    ],
+    "explanation": "Asia es el continente más densamente poblado del mundo: concentra al 60% de la humanidad. Zonas como el delta del Ganges, la llanura china o las islas de Java tienen densidades superiores a 1.000 hab/km².",
+    "tags": [
+      "densidad_poblacional",
+      "asia",
+      "demografia"
+    ]
+  },
+  {
+    "id": "geo11_tf_1",
+    "type": "tf",
+    "prompt": "La densidad de población se calcula dividiendo el número de habitantes entre la superficie del territorio.",
+    "answer": true,
+    "becauseTrue": "Correcto. La fórmula es: Densidad (hab/km²) = Población total ÷ Superficie (km²). Es una medida del promedio de personas por unidad de área.",
+    "becauseFalse": "Incorrecto. La densidad de población sí se calcula dividiendo la cantidad de habitantes por la superficie del territorio, expresada en habitantes por km².",
+    "tags": [
+      "densidad_poblacional",
+      "calculo",
+      "formula"
+    ]
+  },
+  {
+    "id": "geo11_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada país o región con su categoría aproximada de densidad de población.",
+    "pairs": [
+      {
+        "left": "Bangladesh",
+        "right": "Muy alta densidad (> 1.000 hab/km²)"
+      },
+      {
+        "left": "Australia",
+        "right": "Muy baja densidad (< 5 hab/km²)"
+      },
+      {
+        "left": "Alemania",
+        "right": "Alta densidad (200-300 hab/km²)"
+      },
+      {
+        "left": "Brasil",
+        "right": "Densidad media con grandes contrastes regionales"
+      }
+    ],
+    "explanation": "La densidad de población varía enormemente: Bangladesh es uno de los países más densamente poblados del mundo, mientras Australia —con gran superficie y poca población— es uno de los más despoblados.",
+    "tags": [
+      "densidad_poblacional",
+      "ejemplos",
+      "mundo"
+    ]
+  }
+]

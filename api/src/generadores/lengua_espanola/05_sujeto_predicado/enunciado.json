@@ -1,0 +1,88 @@
+[
+  {
+    "id": "esp05_mc_1",
+    "type": "mc",
+    "prompt": "En la oración 'Los estudiantes de la clase aprobaron el examen', ¿cuál es el núcleo del sujeto?",
+    "options": [
+      {
+        "text": "estudiantes",
+        "correct": true,
+        "because": "El núcleo del sujeto es el sustantivo o pronombre principal del sintagma nominal sujeto. 'Los estudiantes de la clase' → núcleo: 'estudiantes'."
+      },
+      {
+        "text": "los",
+        "correct": false,
+        "because": "'Los' es el artículo (determinante) que acompaña al núcleo 'estudiantes', no es el núcleo."
+      },
+      {
+        "text": "clase",
+        "correct": false,
+        "because": "'Clase' es parte del complemento del nombre ('de la clase'), no el núcleo del sujeto."
+      },
+      {
+        "text": "aprobaron",
+        "correct": false,
+        "because": "'Aprobaron' es el núcleo del predicado (verbo), no del sujeto."
+      }
+    ],
+    "explanation": "El núcleo del sujeto es el sustantivo o pronombre más importante del sintagma nominal sujeto. En 'Los estudiantes de la clase', 'estudiantes' es el núcleo porque es el que determina la concordancia verbal (aprobaron, no aprobó).",
+    "tags": [
+      "sintaxis",
+      "sujeto",
+      "nucleo"
+    ]
+  },
+  {
+    "id": "esp05_fb_1",
+    "type": "fill-blank",
+    "prompt": "Analiza la siguiente oración e indica si el sujeto es explícito o tácito (elíptico).",
+    "template": "En la oración 'Comieron toda la pizza', el sujeto es {{blank_1}} porque no aparece expresado en la oración.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "tácito",
+          "elíptico",
+          "omitido",
+          "implícito"
+        ],
+        "hint": "(explícito o tácito)"
+      }
+    ],
+    "explanation": "El sujeto tácito (también llamado elíptico u omitido) no aparece expresado en la oración pero puede deducirse de la desinencia verbal: '-ieron' indica tercera persona del plural (ellos/ellas).",
+    "tags": [
+      "sintaxis",
+      "sujeto",
+      "sujeto_tacito"
+    ]
+  },
+  {
+    "id": "esp05_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada oración con su tipo de sujeto.",
+    "pairs": [
+      {
+        "left": "María lee novelas.",
+        "right": "Sujeto explícito (nombre propio)"
+      },
+      {
+        "left": "Llueve mucho en otoño.",
+        "right": "Oración impersonal (sin sujeto)"
+      },
+      {
+        "left": "Somos estudiantes.",
+        "right": "Sujeto tácito (nosotros, por la desinencia)"
+      },
+      {
+        "left": "Se venden casas.",
+        "right": "Sujeto paciente (pasiva refleja)"
+      }
+    ],
+    "explanation": "El sujeto puede ser explícito (aparece en la oración), tácito (se deduce por la desinencia verbal), o puede no existir en oraciones impersonales como las de fenómenos meteorológicos.",
+    "tags": [
+      "sintaxis",
+      "sujeto",
+      "tipos"
+    ]
+  }
+]

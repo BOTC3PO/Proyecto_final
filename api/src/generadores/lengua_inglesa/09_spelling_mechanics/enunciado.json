@@ -1,0 +1,76 @@
+[
+  {
+    "id": "eng09_mc_1",
+    "type": "mc",
+    "prompt": "Which sentence uses homophones correctly?",
+    "options": [
+      {
+        "text": "There are three cats over there, and they're all asleep.",
+        "correct": true,
+        "because": "'There' (location/existence), 'over there' (place), and 'they're' (they are) are all used correctly in their proper contexts."
+      },
+      {
+        "text": "Their is a problem with they're car.",
+        "correct": false,
+        "because": "'Their' is a possessive (their car), and 'they're' = 'they are'. The sentence should be: 'There is a problem with their car.'"
+      },
+      {
+        "text": "They're going to there house.",
+        "correct": false,
+        "because": "'They're' = 'they are' (correct). But 'there house' is wrong; it should be 'their house' (possessive)."
+      },
+      {
+        "text": "I want to no if your coming.",
+        "correct": false,
+        "because": "'No' should be 'know', and 'your' should be 'you're' (you are). Multiple homophone errors."
+      }
+    ],
+    "explanation": "Key English homophones: there (place/existence) vs their (possessive) vs they're (they are); your (possessive) vs you're (you are); to/too/two; know/no; its (possessive) vs it's (it is).",
+    "tags": [
+      "mechanics",
+      "homophones",
+      "spelling"
+    ]
+  },
+  {
+    "id": "eng09_fb_1",
+    "type": "fill-blank",
+    "prompt": "Complete with the correct word (its / it's).",
+    "template": "The dog wagged {{blank_1}} tail when {{blank_2}} owner came home.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "its"
+        ],
+        "hint": "('its' possessive or 'it's' = it is)"
+      },
+      {
+        "id": "blank_2",
+        "correctAnswers": [
+          "its"
+        ],
+        "hint": "('its' possessive or 'it's' = it is)"
+      }
+    ],
+    "explanation": "'Its' (no apostrophe) is a possessive pronoun: 'the dog's tail' = 'its tail'. 'It's' (with apostrophe) is a contraction of 'it is' or 'it has'. A simple test: if you can say 'it is' or 'it has', use 'it's'; otherwise use 'its'.",
+    "tags": [
+      "mechanics",
+      "its_its",
+      "apostrophe"
+    ]
+  },
+  {
+    "id": "eng09_tf_1",
+    "type": "tf",
+    "prompt": "An apostrophe is used in contractions to show where letters have been omitted.",
+    "answer": true,
+    "becauseTrue": "Correct. In contractions, the apostrophe marks the missing letter(s): can't (can not), don't (do not), I'm (I am), won't (will not), it's (it is/has). The apostrophe replaces the omitted characters.",
+    "becauseFalse": "Incorrect. Apostrophes in contractions do mark omitted letters: 'don't' = 'do not' (the apostrophe replaces the 'o'). Apostrophes are also used for possession (John's book) but never for regular plurals.",
+    "tags": [
+      "mechanics",
+      "apostrophe",
+      "contractions"
+    ]
+  }
+]

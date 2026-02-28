@@ -1,0 +1,92 @@
+[
+  {
+    "id": "eng11_mc_1",
+    "type": "mc",
+    "prompt": "What does the phrasal verb 'give up' mean in 'Don't give up on your dreams'?",
+    "options": [
+      {
+        "text": "Stop trying / abandon",
+        "correct": true,
+        "because": "'Give up' means to stop trying or to abandon an effort. It is a separable phrasal verb: 'give up smoking' or 'give it up'."
+      },
+      {
+        "text": "Give as a gift",
+        "correct": false,
+        "because": "'Give' alone means to present something. 'Give up' is an idiomatic phrasal verb with a completely different meaning."
+      },
+      {
+        "text": "Increase",
+        "correct": false,
+        "because": "'Give up' means to stop/quit. 'Go up' means to increase or rise."
+      },
+      {
+        "text": "Return something",
+        "correct": false,
+        "because": "'Give back' means to return. 'Give up' means to quit or surrender."
+      }
+    ],
+    "explanation": "Phrasal verbs combine a verb + particle (preposition or adverb) to create a new idiomatic meaning: give up (quit), look up (search/look toward), run into (meet unexpectedly), turn down (refuse). The meaning is often not predictable from the parts.",
+    "tags": [
+      "phrasal_verbs",
+      "give_up",
+      "meaning"
+    ]
+  },
+  {
+    "id": "eng11_fb_1",
+    "type": "fill-blank",
+    "prompt": "Expand the contraction to its full form.",
+    "template": "'I'm' is a contraction of {{blank_1}}, and 'won't' is a contraction of {{blank_2}}.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "I am"
+        ],
+        "hint": "(full form of I'm)"
+      },
+      {
+        "id": "blank_2",
+        "correctAnswers": [
+          "will not"
+        ],
+        "hint": "(full form of won't)"
+      }
+    ],
+    "explanation": "Common contractions: I'm (I am), you're (you are), he's (he is/has), it's (it is/has), we'll (we will), won't (will not — note the spelling change), can't (cannot), don't (do not), didn't (did not).",
+    "tags": [
+      "contractions",
+      "spelling",
+      "mechanics"
+    ]
+  },
+  {
+    "id": "eng11_match_1",
+    "type": "match",
+    "prompt": "Match each phrasal verb to its meaning.",
+    "pairs": [
+      {
+        "left": "look after",
+        "right": "Take care of"
+      },
+      {
+        "left": "find out",
+        "right": "Discover / Learn information"
+      },
+      {
+        "left": "put off",
+        "right": "Postpone / Delay"
+      },
+      {
+        "left": "run out of",
+        "right": "Have no more of something"
+      }
+    ],
+    "explanation": "Phrasal verbs are very common in spoken and informal English. They can be separable (put it off / put off the meeting) or inseparable (run out of money — you cannot separate these). Learning them in context is most effective.",
+    "tags": [
+      "phrasal_verbs",
+      "meaning",
+      "vocabulary"
+    ]
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "esp06_mc_1",
+    "type": "mc",
+    "prompt": "En 'Le regalé flores a mi madre', ¿cuál es el complemento indirecto?",
+    "options": [
+      {
+        "text": "a mi madre",
+        "correct": true,
+        "because": "El complemento indirecto indica la persona o cosa que recibe o se beneficia de la acción del verbo. La pregunta clave es 'le regalé flores ¿a quién?' → a mi madre."
+      },
+      {
+        "text": "flores",
+        "correct": false,
+        "because": "'Flores' es el complemento directo (el objeto regalado). Pregunta: '¿qué regalé?' → flores."
+      },
+      {
+        "text": "Le",
+        "correct": false,
+        "because": "'Le' es el pronombre clítico que duplica al complemento indirecto 'a mi madre'. No es en sí el complemento indirecto sino su pronombre."
+      },
+      {
+        "text": "regalé",
+        "correct": false,
+        "because": "'Regalé' es el núcleo verbal del predicado."
+      }
+    ],
+    "explanation": "El complemento indirecto (CI) designa el destinatario o beneficiario de la acción. Se introduce con la preposición 'a' y responde a la pregunta '¿a quién/para quién?'. A menudo está duplicado por un pronombre clítico (le, les).",
+    "tags": [
+      "sintaxis",
+      "complemento_indirecto",
+      "analisis"
+    ]
+  },
+  {
+    "id": "esp06_tf_1",
+    "type": "tf",
+    "prompt": "El complemento directo puede sustituirse por los pronombres 'lo', 'la', 'los', 'las'.",
+    "answer": true,
+    "becauseTrue": "Correcto. Los pronombres de complemento directo son: lo/la (singular) y los/las (plural). Si puedo reemplazar el complemento por uno de estos pronombres, es CD: 'Como la manzana' → 'La como'.",
+    "becauseFalse": "Incorrecto. El complemento directo sí se sustituye por lo, la, los, las. Si el complemento se sustituye por le/les, entonces es complemento indirecto.",
+    "tags": [
+      "sintaxis",
+      "complemento_directo",
+      "pronombres"
+    ]
+  },
+  {
+    "id": "esp06_match_1",
+    "type": "match",
+    "prompt": "Identifica la función sintáctica de los sintagmas en negrita en cada oración.",
+    "pairs": [
+      {
+        "left": "Estudio en la biblioteca. ('en la biblioteca')",
+        "right": "Complemento circunstancial de lugar"
+      },
+      {
+        "left": "Llegué ayer. ('ayer')",
+        "right": "Complemento circunstancial de tiempo"
+      },
+      {
+        "left": "Trabajo con entusiasmo. ('con entusiasmo')",
+        "right": "Complemento circunstancial de modo"
+      },
+      {
+        "left": "Come mucho. ('mucho')",
+        "right": "Complemento circunstancial de cantidad"
+      }
+    ],
+    "explanation": "Los complementos circunstanciales aportan información sobre las circunstancias de la acción (dónde, cuándo, cómo, cuánto, por qué, etc.). Son opcionales y no cambian el núcleo de la oración.",
+    "tags": [
+      "sintaxis",
+      "complementos_circunstanciales",
+      "tipos"
+    ]
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "esp02_fb_1",
+    "type": "fill-blank",
+    "prompt": "Conjuga el verbo indicado en el tiempo y persona señalados.",
+    "template": "El verbo 'hablar' en primera persona del plural del pretérito imperfecto de indicativo es: nosotros {{blank_1}}.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "hablábamos"
+        ],
+        "hint": "(pretérito imperfecto, nosotros)"
+      }
+    ],
+    "explanation": "La primera persona del plural del pretérito imperfecto de los verbos de la primera conjugación (-ar) termina en '-ábamos'. 'Hablar' → 'hablábamos'.",
+    "tags": [
+      "morfologia_verbal",
+      "indicativo",
+      "preterito_imperfecto",
+      "conjugacion"
+    ]
+  },
+  {
+    "id": "esp02_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál es la forma correcta del verbo 'ir' en la tercera persona del plural del pretérito indefinido?",
+    "options": [
+      {
+        "text": "fueron",
+        "correct": true,
+        "because": "'Ir' es irregular en el pretérito indefinido: fui, fuiste, fue, fuimos, fuisteis, fueron. Comparte estas formas con el verbo 'ser'."
+      },
+      {
+        "text": "iban",
+        "correct": false,
+        "because": "'Iban' es el pretérito imperfecto (3ª persona plural), no el indefinido."
+      },
+      {
+        "text": "irán",
+        "correct": false,
+        "because": "'Irán' es el futuro simple de indicativo (3ª persona plural), no el indefinido."
+      },
+      {
+        "text": "han ido",
+        "correct": false,
+        "because": "'Han ido' es el pretérito perfecto compuesto, no el indefinido simple."
+      }
+    ],
+    "explanation": "El verbo 'ir' es muy irregular en español. En el pretérito indefinido: fui, fuiste, fue, fuimos, fuisteis, fueron (mismas formas que el verbo 'ser').",
+    "tags": [
+      "morfologia_verbal",
+      "indicativo",
+      "preterito_indefinido",
+      "irregulares"
+    ]
+  },
+  {
+    "id": "esp02_tf_1",
+    "type": "tf",
+    "prompt": "El pretérito pluscuamperfecto de indicativo se forma con el imperfecto de 'haber' + participio pasado.",
+    "answer": true,
+    "becauseTrue": "Correcto. El pluscuamperfecto se construye así: había/habías/había/habíamos/habíais/habían + participio. Ejemplo: 'había comido', 'habíamos llegado'.",
+    "becauseFalse": "Incorrecto. El pluscuamperfecto sí usa el imperfecto de 'haber' (había, habías...) más el participio del verbo principal.",
+    "tags": [
+      "morfologia_verbal",
+      "indicativo",
+      "pluscuamperfecto",
+      "tiempos_compuestos"
+    ]
+  },
+  {
+    "id": "esp02_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada forma verbal con su tiempo de indicativo.",
+    "pairs": [
+      {
+        "left": "cantaré",
+        "right": "Futuro simple"
+      },
+      {
+        "left": "cantaba",
+        "right": "Pretérito imperfecto"
+      },
+      {
+        "left": "canté",
+        "right": "Pretérito indefinido"
+      },
+      {
+        "left": "cantaría",
+        "right": "Condicional simple"
+      }
+    ],
+    "explanation": "Los tiempos del modo indicativo expresan acciones reales o consideradas reales por el hablante, ubicadas en distintos momentos del pasado, presente o futuro.",
+    "tags": [
+      "morfologia_verbal",
+      "indicativo",
+      "tiempos_verbales"
+    ]
+  }
+]

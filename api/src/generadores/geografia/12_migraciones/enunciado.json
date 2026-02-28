@@ -1,0 +1,77 @@
+[
+  {
+    "id": "geo12_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál es la diferencia fundamental entre un inmigrante económico y un refugiado?",
+    "options": [
+      {
+        "text": "El refugiado huye de persecución, guerra o catástrofe; el migrante económico busca mejores condiciones de vida voluntariamente",
+        "correct": true,
+        "because": "La Convención de Ginebra (1951) define al refugiado como quien huye de persecución por motivos de raza, religión, nacionalidad, opinión política o pertenencia a grupo social. El migrante económico actúa por voluntad propia en busca de trabajo u oportunidades."
+      },
+      {
+        "text": "El refugiado puede volver a su país; el migrante económico no",
+        "correct": false,
+        "because": "Es al revés: el refugiado generalmente no puede regresar sin poner en riesgo su vida, mientras que el migrante económico puede hacerlo."
+      },
+      {
+        "text": "Solo los migrantes económicos reciben protección internacional",
+        "correct": false,
+        "because": "Son los refugiados quienes reciben protección internacional específica bajo el mandato del ACNUR. Los migrantes económicos no tienen ese estatus protegido."
+      },
+      {
+        "text": "La diferencia es solo legal, sin implicaciones prácticas",
+        "correct": false,
+        "because": "La diferencia tiene implicaciones muy prácticas: el refugiado tiene derecho a protección y no puede ser devuelto a su país (non-refoulement); el migrante económico puede ser deportado."
+      }
+    ],
+    "explanation": "La distinción legal y práctica entre refugiado y migrante económico es fundamental: el refugiado huye de amenazas a su vida y tiene derecho a protección internacional, mientras el migrante económico se desplaza por razones de mejora voluntaria de vida.",
+    "tags": [
+      "migraciones",
+      "refugiados",
+      "definicion"
+    ]
+  },
+  {
+    "id": "geo12_tf_1",
+    "type": "tf",
+    "prompt": "El cambio climático es reconocido como un factor que puede generar migraciones forzadas en el siglo XXI.",
+    "answer": true,
+    "becauseTrue": "Correcto. El aumento del nivel del mar, las sequías extremas y los desastres climáticos ya están desplazando a millones de personas, especialmente en países insulares y zonas costeras. La ONU reconoce los «desplazados climáticos».",
+    "becauseFalse": "Incorrecto. El cambio climático sí es un motor emergente de migraciones: la pérdida de tierras cultivables, la desertificación y la subida del nivel del mar ya generan desplazamientos masivos.",
+    "tags": [
+      "migraciones",
+      "cambio_climatico",
+      "desplazados"
+    ]
+  },
+  {
+    "id": "geo12_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada tipo de migración con su definición.",
+    "pairs": [
+      {
+        "left": "Emigración",
+        "right": "Salida de personas de su país o región de origen"
+      },
+      {
+        "left": "Inmigración",
+        "right": "Llegada de personas a un nuevo país o región"
+      },
+      {
+        "left": "Migración estacional",
+        "right": "Desplazamiento temporal vinculado a ciclos agrícolas o climáticos"
+      },
+      {
+        "left": "Éxodo rural",
+        "right": "Movimiento masivo del campo a la ciudad"
+      }
+    ],
+    "explanation": "La terminología migratoria es relativa al punto de vista: un mismo desplazamiento es emigración desde el origen e inmigración desde el destino. Las migraciones pueden ser internas o internacionales, voluntarias o forzadas.",
+    "tags": [
+      "migraciones",
+      "tipos",
+      "vocabulario"
+    ]
+  }
+]

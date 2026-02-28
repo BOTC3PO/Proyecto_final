@@ -1,0 +1,145 @@
+[
+  {
+    "id": "geo02_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál es la principal consecuencia de la deforestación en las cuencas hidrográficas?",
+    "options": [
+      {
+        "text": "Aumento de la erosión y de las inundaciones",
+        "correct": true,
+        "because": "Sin cobertura vegetal, el agua de lluvia cae directamente sobre el suelo desnudo, aumentando la erosión y la escorrentía."
+      },
+      {
+        "text": "Disminución de la temperatura del agua en los ríos",
+        "correct": false,
+        "because": "La deforestación aumenta la temperatura del agua (menos sombra) y no la disminuye."
+      },
+      {
+        "text": "Mayor infiltración de agua en el suelo",
+        "correct": false,
+        "because": "Sin raíces ni humus, el suelo pierde capacidad de infiltración y el agua corre superficialmente."
+      },
+      {
+        "text": "Reducción de sedimentos en los ríos",
+        "correct": false,
+        "because": "Ocurre lo contrario: la deforestación aumenta la carga de sedimentos en los ríos."
+      }
+    ],
+    "explanation": "La vegetación actúa como esponja: retiene el suelo, regula la escorrentía y filtra el agua. Sin ella, la erosión se acelera y las inundaciones son más frecuentes e intensas.",
+    "tags": [
+      "hidrografia",
+      "cuencas",
+      "deforestacion"
+    ]
+  },
+  {
+    "id": "geo02_tf_1",
+    "type": "tf",
+    "prompt": "Los ríos endorreicos son aquellos que desembocan en un lago o mar interior sin llegar al océano.",
+    "answer": true,
+    "becauseTrue": "Correcto. Los ríos endorreicos drenan hacia cuencas cerradas (ej.: lago Titicaca, mar Caspio), sin conexión con el océano.",
+    "becauseFalse": "Incorrecto. Los ríos endorreicos sí desembocan en un lago o depresión interior y no alcanzan el océano; los exorreicos son los que sí llegan al mar.",
+    "tags": [
+      "hidrografia",
+      "rios",
+      "cuencas_endorreicas"
+    ]
+  },
+  {
+    "id": "geo02_match_1",
+    "type": "match",
+    "prompt": "Relaciona cada término hidrográfico con su definición.",
+    "pairs": [
+      {
+        "left": "Afluente",
+        "right": "Río secundario que desemboca en uno principal"
+      },
+      {
+        "left": "Delta",
+        "right": "Depósito sedimentario en la desembocadura de un río"
+      },
+      {
+        "left": "Cuenca hidrográfica",
+        "right": "Territorio drenado por un río y sus afluentes"
+      },
+      {
+        "left": "Divisoria de aguas",
+        "right": "Línea que separa dos cuencas hidrográficas"
+      }
+    ],
+    "explanation": "Los conceptos básicos de hidrografía describen la estructura y funcionamiento de los sistemas fluviales: desde la divisoria que delimita la cuenca hasta el delta donde el río entrega sus sedimentos al mar.",
+    "tags": [
+      "hidrografia",
+      "vocabulario",
+      "rios"
+    ]
+  },
+  {
+    "id": "geo02_ms_1",
+    "type": "map-select",
+    "prompt": "Haz clic en el país por donde discurre la mayor parte de la cuenca del río Amazonas.",
+    "map": {
+      "layers": [
+        {
+          "src": "physical/land",
+          "style": {
+            "fill": "#f0ebe3",
+            "stroke": "#ccc"
+          }
+        },
+        {
+          "src": "political/countries",
+          "style": {
+            "fill": "#e8e4dc",
+            "stroke": "#999",
+            "strokeWidth": 0.5
+          },
+          "interactive": true
+        },
+        {
+          "src": "physical/rivers",
+          "style": {
+            "stroke": "#4a90d9",
+            "strokeWidth": 1.2
+          }
+        }
+      ],
+      "bbox": [
+        -82,
+        -22,
+        -34,
+        8
+      ],
+      "title": "Cuenca del Amazonas"
+    },
+    "selectKind": "country",
+    "correctIds": [
+      "BRA"
+    ],
+    "selectOptions": [
+      {
+        "id": "BRA",
+        "label": "Brasil"
+      },
+      {
+        "id": "PER",
+        "label": "Perú"
+      },
+      {
+        "id": "COL",
+        "label": "Colombia"
+      },
+      {
+        "id": "BOL",
+        "label": "Bolivia"
+      }
+    ],
+    "explanation": "Brasil alberga aproximadamente el 60% de la cuenca del Amazonas. El río nace en los Andes peruanos pero recorre la mayor parte de su extensión por territorio brasileño antes de desembocar en el Atlántico.",
+    "tags": [
+      "hidrografia",
+      "amazonas",
+      "brasil",
+      "mapa"
+    ]
+  }
+]

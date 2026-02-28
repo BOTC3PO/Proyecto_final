@@ -1,0 +1,70 @@
+[
+  {
+    "id": "eng03_fb_1",
+    "type": "fill-blank",
+    "prompt": "Complete using the present perfect.",
+    "template": "I {{blank_1}} (never / to visit) Japan, but I would love to go there someday.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "have never visited",
+          "'ve never visited"
+        ],
+        "hint": "(present perfect, I)"
+      }
+    ],
+    "explanation": "Present perfect (have/has + past participle) is used for life experiences when no specific time is given. With 'never', 'ever', 'already', 'yet', and 'just', present perfect is preferred over past simple.",
+    "tags": [
+      "verb_tenses",
+      "present_perfect",
+      "experience"
+    ]
+  },
+  {
+    "id": "eng03_mc_1",
+    "type": "mc",
+    "prompt": "Which sentence correctly uses the present continuous?",
+    "options": [
+      {
+        "text": "She is studying for her exams right now.",
+        "correct": true,
+        "because": "Present continuous (is + studying) describes an action happening at the moment of speaking. 'Right now' confirms this."
+      },
+      {
+        "text": "She is studying every day.",
+        "correct": false,
+        "because": "'Every day' indicates a habit or routine, which requires present simple: 'She studies every day'."
+      },
+      {
+        "text": "She studies right now.",
+        "correct": false,
+        "because": "'Right now' signals that the action is in progress at this moment, which requires present continuous: 'is studying'."
+      },
+      {
+        "text": "She was studying right now.",
+        "correct": false,
+        "because": "Past continuous ('was studying') refers to past actions in progress, not present ones."
+      }
+    ],
+    "explanation": "Present continuous (am/is/are + verb-ing) is used for: actions happening now ('I am eating'), temporary situations ('She is staying with her friend'), and fixed future arrangements ('We are meeting at 6').",
+    "tags": [
+      "verb_tenses",
+      "present_continuous",
+      "usage"
+    ]
+  },
+  {
+    "id": "eng03_tf_1",
+    "type": "tf",
+    "prompt": "The present perfect can be used with 'since' and 'for' to describe actions that started in the past and continue to the present.",
+    "answer": true,
+    "becauseTrue": "Correct. 'I have lived here for ten years' (duration) and 'She has worked here since 2015' (starting point) both use present perfect to show ongoing situations. 'Since' = starting point; 'for' = duration.",
+    "becauseFalse": "Incorrect. Present perfect with 'for' and 'since' does describe situations that began in the past and are still continuing: 'I have known him for years' (he is still known to me).",
+    "tags": [
+      "verb_tenses",
+      "present_perfect",
+      "since_for"
+    ]
+  }
+]

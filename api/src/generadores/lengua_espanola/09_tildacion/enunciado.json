@@ -1,0 +1,71 @@
+[
+  {
+    "id": "esp09_mc_1",
+    "type": "mc",
+    "prompt": "¿Cuál de estas palabras lleva tilde correctamente según las reglas de acentuación?",
+    "options": [
+      {
+        "text": "camión",
+        "correct": true,
+        "because": "'Camión' es una palabra aguda (última sílaba tónica: ca-MIÓN) terminada en 'n', por lo que lleva tilde según la regla general."
+      },
+      {
+        "text": "virgen",
+        "correct": false,
+        "because": "'Virgen' es una palabra llana (penúltima sílaba tónica: VIR-gen) terminada en 'n'. Las llanas terminadas en 'n' NO llevan tilde (a diferencia de las agudas)."
+      },
+      {
+        "text": "exámen",
+        "correct": false,
+        "because": "'Examen' (ex-a-men) es llana terminada en 'n', por eso NO lleva tilde. El plural 'exámenes' sí lleva tilde porque es esdrújula."
+      },
+      {
+        "text": "cafe",
+        "correct": false,
+        "because": "'Café' es aguda terminada en vocal, por lo que SÍ debe llevar tilde. Sin tilde es una falta ortográfica."
+      }
+    ],
+    "explanation": "Regla general de acentuación: AGUDAS llevan tilde si terminan en vocal, 'n' o 's'. LLANAS llevan tilde si NO terminan en vocal, 'n' o 's'. ESDRÚJULAS y sobresdrújulas siempre llevan tilde.",
+    "tags": [
+      "ortografia",
+      "tildacion",
+      "reglas_generales"
+    ]
+  },
+  {
+    "id": "esp09_fb_1",
+    "type": "fill-blank",
+    "prompt": "Clasifica la siguiente palabra según su acentuación (aguda, llana, esdrújula o sobresdrújula).",
+    "template": "La palabra 'teléfono' (te-lé-fo-no) es {{blank_1}} porque la sílaba tónica es la antepenúltima.",
+    "blanks": [
+      {
+        "id": "blank_1",
+        "correctAnswers": [
+          "esdrújula",
+          "esdrujula"
+        ],
+        "hint": "(aguda / llana / esdrújula / sobresdrújula)"
+      }
+    ],
+    "explanation": "Las palabras esdrújulas tienen la sílaba tónica en la antepenúltima posición (tercera desde el final) y SIEMPRE llevan tilde: 'teléfono', 'música', 'sílaba', 'esdrújula'.",
+    "tags": [
+      "ortografia",
+      "tildacion",
+      "clasificacion"
+    ]
+  },
+  {
+    "id": "esp09_tf_1",
+    "type": "tf",
+    "prompt": "Las palabras monosílabas nunca llevan tilde, salvo en los casos de tilde diacrítica.",
+    "answer": true,
+    "becauseTrue": "Correcto. Los monosílabos no se acentúan ortográficamente porque no hay ambigüedad de sílaba tónica. La excepción son los monosílabos con tilde diacrítica (él/el, tú/tu, sí/si, mí/mi, té/te, más/mas, sé/se, dé/de), que se escriben con tilde para distinguir diferentes funciones gramaticales.",
+    "becauseFalse": "Incorrecto. Los monosílabos en general no llevan tilde. Solo la llevan los casos de tilde diacrítica: 'él' (pronombre) vs 'el' (artículo), 'tú' (pronombre) vs 'tu' (posesivo), etc.",
+    "tags": [
+      "ortografia",
+      "tildacion",
+      "monosilabos",
+      "diacritica"
+    ]
+  }
+]
