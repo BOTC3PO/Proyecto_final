@@ -4,6 +4,7 @@ import { createGeneradoresFisicaDescriptorPorId, createGeneradoresFisicaPorId } 
 import { GENERADORES_QUIMICA, GENERADORES_QUIMICA_DESCRIPTORES } from "./quimica/indexQuimica";
 import { GENERADORES_ECONOMIA_DESCRIPTORES, GENERADORES_ECONOMIA_POR_CLAVE } from "./economia/indexEconomia";
 import { GENERADORES_GEOGRAFIA_DESCRIPTORES, getGeneradorGeografia } from "./geografia/indexGeografia";
+import { GENERADORES_HISTORIA_DESCRIPTORES, getGeneradorHistoria } from "./historia/indexHistoria";
 import { GENERADORES_LENGUA_ESP_DESCRIPTORES, getGeneradorLenguaEspanola } from "./lengua_espanola/indexLenguaEspanola";
 import { GENERADORES_LENGUA_ENG_DESCRIPTORES, getGeneradorLenguaInglesa } from "./lengua_inglesa/indexLenguaInglesa";
 import { createPrng, type PRNG } from "./core/prng";
@@ -55,6 +56,16 @@ export {
 } from "./lengua_inglesa/indexLenguaInglesa";
 
 export {
+  GENERADORES_HISTORIA_DESCRIPTORES,
+  getGeneradorHistoria,
+  getGeneradorHistoriaById,
+  listarTemasHistoria,
+  precargarHistoriaTema,
+  precargarHistoriaTemaById,
+  initHistoriaDescriptores,
+} from "./historia/indexHistoria";
+
+export {
   GENERADORES_CONTABILIDAD,
   GENERADORES_FINANZAS,
   GENERADORES_ECONOMIA_AR,
@@ -73,6 +84,8 @@ export const GENERADORES_POR_MATERIA = (prng: PRNG) => ({
   quimica: GENERADORES_QUIMICA_DESCRIPTORES,
   economia: GENERADORES_ECONOMIA_DESCRIPTORES,
   geografia: GENERADORES_GEOGRAFIA_DESCRIPTORES,
+  // historia: GENERADORES_HISTORIA_DESCRIPTORES se popula dinámicamente via initHistoriaDescriptores()
+  historia: GENERADORES_HISTORIA_DESCRIPTORES,
   lengua_espanola: GENERADORES_LENGUA_ESP_DESCRIPTORES,
   lengua_inglesa: GENERADORES_LENGUA_ENG_DESCRIPTORES,
 });
@@ -94,6 +107,7 @@ export const createGeneratorRegistry = (seed: string) => {
     quimica: GENERADORES_QUIMICA,
     economia: GENERADORES_ECONOMIA_POR_CLAVE,
     geografia: getGeneradorGeografia,
+    historia: getGeneradorHistoria,
     lengua_espanola: getGeneradorLenguaEspanola,
     lengua_inglesa: getGeneradorLenguaInglesa,
   };
