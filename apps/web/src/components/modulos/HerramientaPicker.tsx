@@ -684,6 +684,645 @@ const SUBJECTS: SubjectEntry[] = [
       },
     ],
   },
+  // ── Física ────────────────────────────────────────────────────────────────
+  {
+    subject: "Física",
+    color: "bg-violet-100 text-violet-700 border-violet-200",
+    icon: "⚡",
+    tools: [
+      {
+        toolKind: "physics-motion-chart",
+        label: "Movimiento rectilíneo",
+        description: "Graficá posición y velocidad en movimientos MRU y MRUV",
+        defaultSpec: {
+          kind: "physics-motion-chart",
+          title: "MRU – Movimiento Rectilíneo Uniforme",
+          motion: {
+            type: "MRU",
+            time: 10,
+            initialPosition: 0,
+            initialVelocity: 5,
+            acceleration: 0,
+          },
+          axes: {
+            time: { label: "Tiempo", unit: "s" },
+            position: { label: "Posición", unit: "m" },
+            velocity: { label: "Velocidad", unit: "m/s" },
+          },
+          series: {
+            position: {
+              id: "pos",
+              label: "Posición",
+              data: Array.from({ length: 11 }, (_, t) => ({ t, value: 5 * t })),
+              color: "#2563eb",
+            },
+            velocity: {
+              id: "vel",
+              label: "Velocidad",
+              data: Array.from({ length: 11 }, (_, t) => ({ t, value: 5 })),
+              color: "#16a34a",
+            },
+          },
+        } as VisualSpec,
+      },
+      {
+        toolKind: "physics-forces-vectors",
+        label: "Diagrama de fuerzas",
+        description: "Representá fuerzas con vectores y analizá su resultante",
+        defaultSpec: {
+          kind: "physics-forces-vectors",
+          title: "Diagrama de fuerzas sobre un bloque",
+          unit: "N",
+          body: { label: "Bloque", shape: "rect", width: 60, height: 40, color: "#94a3b8" },
+          vectors: [
+            { id: "peso", label: "Peso", magnitude: 50, angleDeg: 270, color: "#dc2626", showComponents: false },
+            { id: "normal", label: "Normal", magnitude: 50, angleDeg: 90, color: "#2563eb", showComponents: false },
+            { id: "friccion", label: "Fricción", magnitude: 15, angleDeg: 180, color: "#ca8a04", showComponents: false },
+            { id: "aplicada", label: "F aplicada", magnitude: 30, angleDeg: 0, color: "#16a34a", showComponents: true },
+          ],
+          options: { showAxes: true },
+        } as VisualSpec,
+      },
+      {
+        toolKind: "energy-chart",
+        label: "Energía mecánica",
+        description: "Visualizá energía cinética, potencial y la conservación total",
+        defaultSpec: {
+          kind: "energy-chart",
+          title: "Conservación de energía mecánica",
+          axes: {
+            x: { label: "Tiempo", unit: "s", variable: "tiempo" },
+            y: { label: "Energía", unit: "J" },
+          },
+          series: [
+            {
+              id: "ec",
+              label: "Energía cinética",
+              energyType: "Ec",
+              data: Array.from({ length: 6 }, (_, t) => ({ x: t * 2, y: Math.round(50 * (1 - Math.cos(t))) })),
+              color: "#2563eb",
+            },
+            {
+              id: "ep",
+              label: "Energía potencial",
+              energyType: "Ep",
+              data: Array.from({ length: 6 }, (_, t) => ({ x: t * 2, y: Math.round(50 * Math.cos(t)) })),
+              color: "#16a34a",
+            },
+          ],
+          totalSeriesId: "ec",
+          conservation: { tolerance: 2, note: "Energía total ≈ 50 J" },
+        } as VisualSpec,
+      },
+      {
+        toolKind: "circuit",
+        label: "Circuito eléctrico",
+        description: "Modelá circuitos con resistencias, baterías e interruptores",
+        defaultSpec: {
+          kind: "circuit",
+          title: "Circuito en serie simple",
+          nodes: [
+            { id: "n1", label: "+", position: { x: 80, y: 120 } },
+            { id: "n2", label: "", position: { x: 280, y: 120 } },
+            { id: "n3", label: "", position: { x: 280, y: 280 } },
+            { id: "n4", label: "–", position: { x: 80, y: 280 } },
+          ],
+          components: [
+            { id: "bat", type: "battery", label: "9 V", fromNodeId: "n4", toNodeId: "n1", value: 9, unit: "V" },
+            { id: "r1", type: "resistor", label: "R1 = 30 Ω", fromNodeId: "n1", toNodeId: "n2", value: 30, unit: "Ω" },
+            { id: "r2", type: "resistor", label: "R2 = 60 Ω", fromNodeId: "n2", toNodeId: "n3", value: 60, unit: "Ω" },
+            { id: "w1", type: "wire", fromNodeId: "n3", toNodeId: "n4" },
+          ],
+          measurements: [
+            { id: "m1", type: "corriente", value: 0.1, unit: "A", label: "I total" },
+            { id: "m2", type: "resistencia", value: 90, unit: "Ω", label: "R equivalente" },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "field-lines",
+        label: "Líneas de campo",
+        description: "Visualizá campos eléctricos y magnéticos con sus líneas de fuerza",
+        defaultSpec: {
+          kind: "field-lines",
+          title: "Campo eléctrico – cargas opuestas",
+          sources: [
+            { id: "q1", type: "carga", polarity: "positiva", magnitude: 1, label: "+q", position: { x: 150, y: 200 } },
+            { id: "q2", type: "carga", polarity: "negativa", magnitude: 1, label: "–q", position: { x: 350, y: 200 } },
+          ],
+          lines: [
+            { id: "l1", points: [{ x: 165, y: 185 }, { x: 240, y: 160 }, { x: 335, y: 185 }] },
+            { id: "l2", points: [{ x: 150, y: 175 }, { x: 150, y: 120 }, { x: 350, y: 120 }, { x: 350, y: 175 }] },
+            { id: "l3", points: [{ x: 165, y: 215 }, { x: 240, y: 240 }, { x: 335, y: 215 }] },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "wave-interference",
+        label: "Interferencia de ondas",
+        description: "Superponé ondas y observá interferencia constructiva y destructiva",
+        defaultSpec: {
+          kind: "wave-interference",
+          title: "Superposición de ondas",
+          axes: { x: { label: "Tiempo (ms)", min: 0, max: 10 }, y: { label: "Amplitud", min: -3, max: 3 } },
+          samples: 200,
+          waves: [
+            { id: "w1", label: "Onda 1", amplitude: 1, frequency: 2, phase: 0, color: "#2563eb" },
+            { id: "w2", label: "Onda 2", amplitude: 1, frequency: 2, phase: 0, color: "#dc2626" },
+          ],
+          superposition: { enabled: true, label: "Resultante", color: "#7c3aed" },
+          animation: { enabled: false, speed: 1 },
+        } as VisualSpec,
+      },
+      {
+        toolKind: "optics-rays",
+        label: "Óptica geométrica",
+        description: "Trazá rayos de luz en lentes y espejos",
+        defaultSpec: {
+          kind: "optics-rays",
+          title: "Lente convergente",
+          layout: { xRange: { min: -300, max: 300 }, yRange: { min: -200, max: 200 } },
+          element: { type: "lente-convergente", positionX: 0, height: 160, label: "Lente" },
+          object: { position: { x: -200, y: 0 }, height: 60, label: "Objeto" },
+          image: { position: { x: 150, y: 0 }, height: -45, label: "Imagen", virtual: false },
+          focalPoints: { left: { x: -100, label: "F'" }, right: { x: 100, label: "F" } },
+          rays: [
+            { id: "r1", label: "Rayo paralelo", kind: "paralelo", points: [{ x: -200, y: 30 }, { x: 0, y: 30 }, { x: 150, y: -22 }], color: "#2563eb" },
+            { id: "r2", label: "Rayo central", kind: "centro", points: [{ x: -200, y: 30 }, { x: 0, y: 0 }, { x: 150, y: -22 }], color: "#16a34a" },
+            { id: "r3", label: "Rayo focal", kind: "focal", points: [{ x: -200, y: 30 }, { x: 0, y: 30 }, { x: 100, y: 0 }, { x: 150, y: -22 }], color: "#dc2626" },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "physics-simulation",
+        label: "Caída libre",
+        description: "Simulá el movimiento de caída libre con parámetros ajustables",
+        defaultSpec: {
+          kind: "physics-simulation",
+          title: "Simulación de caída libre",
+          model: {
+            id: "free-fall",
+            label: "Caída libre",
+            equation: "y(t) = y₀ + v₀·t − ½·g·t²",
+            assumptions: ["Sin resistencia del aire", "g = 9.8 m/s²"],
+          },
+          parameters: [
+            { id: "h0", label: "Altura inicial", input: "number", unit: "m", min: 1, max: 200, step: 1, value: 50 },
+            { id: "v0", label: "Velocidad inicial", input: "number", unit: "m/s", min: 0, max: 20, step: 0.5, value: 0 },
+          ],
+          outputs: [
+            { id: "tfall", label: "Tiempo de caída", unit: "s", value: 3.19 },
+            { id: "vfinal", label: "Velocidad final", unit: "m/s", value: 31.3 },
+          ],
+          series: [
+            {
+              id: "pos",
+              label: "Posición",
+              unit: "m",
+              data: Array.from({ length: 33 }, (_, i) => {
+                const t = i * 0.1;
+                return { t, value: Math.max(0, 50 - 0.5 * 9.8 * t * t) };
+              }),
+              color: "#2563eb",
+            },
+          ],
+        } as VisualSpec,
+      },
+    ],
+  },
+  // ── Química ───────────────────────────────────────────────────────────────
+  {
+    subject: "Química",
+    color: "bg-emerald-100 text-emerald-700 border-emerald-200",
+    icon: "⚗️",
+    tools: [
+      {
+        toolKind: "chem-reaction",
+        label: "Reacción química",
+        description: "Balanceá ecuaciones y visualizá reactivos y productos con coeficientes",
+        defaultSpec: {
+          kind: "chem-reaction",
+          title: "Combustión del metano",
+          reactants: [
+            { id: "ch4", formula: "CH₄", label: "Metano", coefficient: 1, moles: 1, state: "g" },
+            { id: "o2", formula: "O₂", label: "Oxígeno", coefficient: 2, moles: 2, state: "g" },
+          ],
+          products: [
+            { id: "co2", formula: "CO₂", label: "Dióxido de carbono", coefficient: 1, moles: 1, state: "g" },
+            { id: "h2o", formula: "H₂O", label: "Agua", coefficient: 2, moles: 2, state: "l" },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "chem-structure",
+        label: "Estructura atómica",
+        description: "Explorá la distribución electrónica y modelos moleculares",
+        defaultSpec: {
+          kind: "chem-structure",
+          title: "Estructura del carbono",
+          electronDistribution: {
+            atom: "C",
+            model: "bohr",
+            shells: [
+              { shell: "K", electrons: 2, label: "n=1" },
+              { shell: "L", electrons: 4, label: "n=2" },
+            ],
+            notation: "1s² 2s² 2p²",
+          },
+          molecularModels: [
+            {
+              id: "co2",
+              name: "CO₂",
+              formula: "CO₂",
+              geometry: "lineal",
+              atoms: [
+                { id: "o1", element: "O", position: { x: -1.2, y: 0, z: 0 }, color: "#dc2626" },
+                { id: "c", element: "C", position: { x: 0, y: 0, z: 0 }, color: "#1c1917" },
+                { id: "o2", element: "O", position: { x: 1.2, y: 0, z: 0 }, color: "#dc2626" },
+              ],
+              bonds: [
+                { id: "b1", fromId: "o1", toId: "c", order: 2, style: "doble" },
+                { id: "b2", fromId: "c", toId: "o2", order: 2, style: "doble" },
+              ],
+            },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "chem-periodic-table",
+        label: "Tabla periódica",
+        description: "Explorá propiedades periódicas con colores por categoría o electronegatividad",
+        defaultSpec: {
+          kind: "chem-periodic-table",
+          title: "Tabla periódica – electronegatividad",
+          highlightProperty: { key: "electronegativity", label: "Electronegatividad", unit: "Pauling" },
+          scale: { type: "sequential", colors: ["#fef9c3", "#1d4ed8"], min: 0.7, max: 4.0 },
+          elements: [
+            { atomicNumber: 1, symbol: "H", name: "Hidrógeno", period: 1, group: 1, category: "no-metal", properties: { electronegativity: 2.2 } },
+            { atomicNumber: 6, symbol: "C", name: "Carbono", period: 2, group: 14, category: "no-metal", properties: { electronegativity: 2.55 } },
+            { atomicNumber: 7, symbol: "N", name: "Nitrógeno", period: 2, group: 15, category: "no-metal", properties: { electronegativity: 3.04 } },
+            { atomicNumber: 8, symbol: "O", name: "Oxígeno", period: 2, group: 16, category: "no-metal", properties: { electronegativity: 3.44 } },
+            { atomicNumber: 9, symbol: "F", name: "Flúor", period: 2, group: 17, category: "halogeno", properties: { electronegativity: 3.98 } },
+            { atomicNumber: 11, symbol: "Na", name: "Sodio", period: 3, group: 1, category: "metal-alcalino", properties: { electronegativity: 0.93 } },
+            { atomicNumber: 17, symbol: "Cl", name: "Cloro", period: 3, group: 17, category: "halogeno", properties: { electronegativity: 3.16 } },
+          ],
+          focusElements: ["H", "C", "N", "O", "F", "Na", "Cl"],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "chem-vsepr",
+        label: "Geometría molecular (VSEPR)",
+        description: "Analizá geometrías moleculares y ángulos de enlace",
+        defaultSpec: {
+          kind: "chem-vsepr",
+          title: "Geometría molecular VSEPR",
+          geometries: [
+            { id: "lineal", label: "Lineal", expectedAngles: [180], description: "2 pares enlazantes" },
+            { id: "angular", label: "Angular", expectedAngles: [104.5], description: "2 enlazantes + 2 libres" },
+            { id: "trigonal", label: "Trigonal plana", expectedAngles: [120], description: "3 pares enlazantes" },
+            { id: "tetraedrica", label: "Tetraédrica", expectedAngles: [109.5], description: "4 pares enlazantes" },
+          ],
+          molecules: [
+            {
+              id: "h2o",
+              name: "Agua",
+              formula: "H₂O",
+              geometry: "angular",
+              atoms: [
+                { id: "o", element: "O", position: { x: 0.5, y: 0.4 }, role: "central", color: "#dc2626" },
+                { id: "h1", element: "H", position: { x: 0.25, y: 0.65 }, role: "ligand", color: "#94a3b8" },
+                { id: "h2", element: "H", position: { x: 0.75, y: 0.65 }, role: "ligand", color: "#94a3b8" },
+              ],
+              bonds: [
+                { id: "b1", fromId: "o", toId: "h1", order: 1 },
+                { id: "b2", fromId: "o", toId: "h2", order: 1 },
+              ],
+              angles: [
+                { id: "a1", label: "∠HOH", atomIds: ["h1", "o", "h2"], expectedAngle: 104.5 },
+              ],
+              notes: "El agua es angular por dos pares de electrones no enlazantes",
+            },
+          ],
+          defaultMoleculeId: "h2o",
+        } as VisualSpec,
+      },
+      {
+        toolKind: "chem-titration",
+        label: "Curva de titulación",
+        description: "Analizá el punto de equivalencia ácido-base con indicadores",
+        defaultSpec: {
+          kind: "chem-titration",
+          title: "Titulación ácido fuerte – base fuerte",
+          axes: {
+            x: { label: "Volumen NaOH (mL)", min: 0, max: 50 },
+            y: { label: "pH", min: 0, max: 14 },
+          },
+          curve: {
+            points: [
+              { volume: 0, pH: 1.0 }, { volume: 10, pH: 1.37 }, { volume: 20, pH: 1.95 },
+              { volume: 24, pH: 2.69 }, { volume: 25, pH: 7.0 }, { volume: 26, pH: 11.3 },
+              { volume: 30, pH: 12.1 }, { volume: 40, pH: 12.52 }, { volume: 50, pH: 12.7 },
+            ],
+            color: "#2563eb",
+          },
+          milestones: [
+            { id: "inicio", label: "Inicio", volume: 0, pH: 1.0, type: "start" },
+            { id: "eq", label: "Punto de equivalencia", volume: 25, pH: 7.0, type: "equivalence" },
+          ],
+          indicator: {
+            title: "Fenolftaleína",
+            ranges: [
+              { min: 0, max: 8.2, color: "#fef9c3", label: "Incoloro" },
+              { min: 8.2, max: 10, color: "#fbcfe8", label: "Rosa" },
+              { min: 10, max: 14, color: "#ec4899", label: "Fucsia" },
+            ],
+            currentPH: 7.0,
+          },
+        } as VisualSpec,
+      },
+    ],
+  },
+  // ── Matemáticas ───────────────────────────────────────────────────────────
+  {
+    subject: "Matemáticas",
+    color: "bg-yellow-100 text-yellow-700 border-yellow-200",
+    icon: "📐",
+    tools: [
+      {
+        toolKind: "funciones-graficas",
+        label: "Funciones y gráficas",
+        description: "Graficá funciones lineales, cuadráticas y paramétricas con puntos clave",
+        defaultSpec: {
+          kind: "funciones-graficas",
+          title: "Funciones lineales y cuadráticas",
+          axes: { x: { label: "x", min: -5, max: 5 }, y: { label: "y", min: -10, max: 10 } },
+          functions: [
+            {
+              id: "f1",
+              type: "lineal",
+              expression: "2x + 1",
+              domain: { start: -5, end: 5, step: 0.5 },
+              keyPoints: [{ x: 0, y: 1, label: "Ordenada al origen" }, { x: -0.5, y: 0, label: "Raíz" }],
+              color: "#2563eb",
+              notes: "Pendiente positiva m=2",
+            },
+            {
+              id: "f2",
+              type: "cuadratica",
+              expression: "x² - 3",
+              domain: { start: -5, end: 5, step: 0.5 },
+              keyPoints: [{ x: 0, y: -3, label: "Vértice" }, { x: 1.73, y: 0, label: "Raíz" }],
+              color: "#dc2626",
+              notes: "Parábola vertical hacia arriba",
+            },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "geometria-plana-espacial",
+        label: "Geometría plana y espacial",
+        description: "Explorá figuras 2D y 3D con sus propiedades, fórmulas y medidas",
+        defaultSpec: {
+          kind: "geometria-plana-espacial",
+          title: "Figuras geométricas",
+          figures: [
+            {
+              id: "triangulo",
+              name: "Triángulo rectángulo",
+              dimension: "plana",
+              type: "triangulo",
+              parameters: [
+                { label: "Cateto a", value: 3, unit: "cm" },
+                { label: "Cateto b", value: 4, unit: "cm" },
+                { label: "Hipotenusa", value: 5, unit: "cm" },
+              ],
+              angles: [
+                { id: "ang1", vertex: "A", valueDeg: 90, label: "90°" },
+                { id: "ang2", vertex: "B", valueDeg: 53.1, label: "≈53°" },
+                { id: "ang3", vertex: "C", valueDeg: 36.9, label: "≈37°" },
+              ],
+              properties: [
+                { label: "Área", value: "6 cm²" },
+                { label: "Perímetro", value: "12 cm" },
+              ],
+              formula: "A = (base × altura) / 2",
+            },
+            {
+              id: "esfera",
+              name: "Esfera",
+              dimension: "espacial",
+              type: "esfera",
+              parameters: [{ label: "Radio", value: 4, unit: "cm" }],
+              properties: [
+                { label: "Área superficial", value: "≈ 201.06 cm²" },
+                { label: "Volumen", value: "≈ 268.08 cm³" },
+              ],
+              formula: "V = (4/3)·π·r³",
+            },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "trigonometria-avanzada",
+        label: "Trigonometría y círculo unitario",
+        description: "Explorá funciones trigonométricas, amplitud, período y desfasaje",
+        defaultSpec: {
+          kind: "trigonometria-avanzada",
+          title: "Trigonometría – círculo unitario",
+          unitCircle: {
+            radius: 1,
+            points: [
+              { angleDeg: 0, x: 1, y: 0, label: "0°" },
+              { angleDeg: 30, x: 0.866, y: 0.5, label: "30°" },
+              { angleDeg: 45, x: 0.707, y: 0.707, label: "45°" },
+              { angleDeg: 60, x: 0.5, y: 0.866, label: "60°" },
+              { angleDeg: 90, x: 0, y: 1, label: "90°" },
+              { angleDeg: 180, x: -1, y: 0, label: "180°" },
+              { angleDeg: 270, x: 0, y: -1, label: "270°" },
+            ],
+          },
+          functions: [
+            {
+              id: "seno",
+              type: "seno",
+              expression: "sen(x)",
+              amplitude: 1,
+              period: 360,
+              phaseShift: 0,
+              keyPoints: [
+                { x: 0, y: 0, label: "Origen" },
+                { x: 90, y: 1, label: "Máximo" },
+                { x: 270, y: -1, label: "Mínimo" },
+              ],
+            },
+            {
+              id: "coseno",
+              type: "coseno",
+              expression: "cos(x)",
+              amplitude: 1,
+              period: 360,
+              phaseShift: 0,
+              keyPoints: [
+                { x: 0, y: 1, label: "Máximo" },
+                { x: 180, y: -1, label: "Mínimo" },
+              ],
+            },
+          ],
+          angles: [
+            { id: "a30", label: "30°", valueDeg: 30, valueRad: "π/6", ratio: "1/2" },
+            { id: "a45", label: "45°", valueDeg: 45, valueRad: "π/4", ratio: "√2/2" },
+            { id: "a60", label: "60°", valueDeg: 60, valueRad: "π/3", ratio: "√3/2" },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "algebra-calculo-visual",
+        label: "Álgebra y cálculo",
+        description: "Visualizá sistemas de ecuaciones, derivadas e integrales definidas",
+        defaultSpec: {
+          kind: "algebra-calculo-visual",
+          title: "Álgebra y cálculo diferencial",
+          systems: [
+            {
+              id: "sys1",
+              equations: ["2x + y = 8", "x – y = 1"],
+              solution: { x: 3, y: 2 },
+              steps: ["Despejamos y de la 2.ª ecuación: y = x – 1", "Sustituimos en la 1.ª: 2x + (x–1) = 8 → x = 3", "Luego y = 2"],
+            },
+          ],
+          derivatives: [
+            {
+              id: "d1",
+              function: "x³ – 3x",
+              derivative: "3x² – 3",
+              criticalPoints: [
+                { x: -1, y: 2, label: "Máximo local" },
+                { x: 1, y: -2, label: "Mínimo local" },
+              ],
+              notes: "Igualamos f'(x)=0 para hallar extremos",
+            },
+          ],
+          integrals: [
+            {
+              id: "i1",
+              function: "x²",
+              bounds: { lower: 0, upper: 3 },
+              area: 9,
+              notes: "∫₀³ x² dx = [x³/3]₀³ = 9",
+            },
+          ],
+        } as VisualSpec,
+      },
+    ],
+  },
+  // ── Gráficos generales ────────────────────────────────────────────────────
+  {
+    subject: "Gráficos",
+    color: "bg-gray-100 text-gray-700 border-gray-200",
+    icon: "📊",
+    tools: [
+      {
+        toolKind: "chart",
+        label: "Gráfico de datos",
+        description: "Creá gráficos de barras, líneas, áreas, torta y dispersión",
+        defaultSpec: {
+          kind: "chart",
+          chartType: "bar",
+          title: "Gráfico de barras",
+          xAxis: { label: "Categorías" },
+          yAxis: { label: "Valores" },
+          series: [
+            {
+              id: "s1",
+              label: "Serie A",
+              data: [
+                { x: "Ene", y: 40 }, { x: "Feb", y: 55 }, { x: "Mar", y: 48 },
+                { x: "Abr", y: 70 }, { x: "May", y: 62 },
+              ],
+              color: "#2563eb",
+            },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "timeline",
+        label: "Línea de tiempo",
+        description: "Organizá eventos históricos o procesos en orden cronológico",
+        defaultSpec: {
+          kind: "timeline",
+          title: "Línea de tiempo",
+          range: { start: "1900", end: "2000" },
+          events: [
+            { id: "e1", title: "Primer hecho", date: "1920-01-01", description: "Descripción del primer hecho" },
+            { id: "e2", title: "Segundo hecho", date: "1950-06-15", description: "Descripción del segundo hecho" },
+            { id: "e3", title: "Tercer hecho", date: "1980-09-30", description: "Descripción del tercer hecho" },
+          ],
+          markers: [],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "concept-map",
+        label: "Mapa conceptual",
+        description: "Conectá conceptos con relaciones etiquetadas",
+        defaultSpec: {
+          kind: "concept-map",
+          title: "Mapa conceptual",
+          nodes: [
+            { id: "n1", label: "Concepto central", group: "main" },
+            { id: "n2", label: "Concepto A", group: "sub" },
+            { id: "n3", label: "Concepto B", group: "sub" },
+            { id: "n4", label: "Concepto C", group: "sub" },
+          ],
+          links: [
+            { id: "l1", sourceId: "n1", targetId: "n2", relation: "incluye" },
+            { id: "l2", sourceId: "n1", targetId: "n3", relation: "genera" },
+            { id: "l3", sourceId: "n2", targetId: "n4", relation: "depende de" },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "flow",
+        label: "Diagrama de flujo",
+        description: "Representá procesos con decisiones, pasos y conexiones",
+        defaultSpec: {
+          kind: "flow",
+          title: "Diagrama de flujo",
+          steps: [
+            { id: "s1", label: "Inicio", type: "start" },
+            { id: "s2", label: "Paso 1", type: "process", description: "Descripción del paso" },
+            { id: "s3", label: "¿Condición?", type: "decision" },
+            { id: "s4", label: "Resultado A", type: "process" },
+            { id: "s5", label: "Resultado B", type: "process" },
+            { id: "s6", label: "Fin", type: "end" },
+          ],
+          connections: [
+            { id: "c1", fromId: "s1", toId: "s2" },
+            { id: "c2", fromId: "s2", toId: "s3" },
+            { id: "c3", fromId: "s3", toId: "s4", label: "Sí" },
+            { id: "c4", fromId: "s3", toId: "s5", label: "No" },
+            { id: "c5", fromId: "s4", toId: "s6" },
+            { id: "c6", fromId: "s5", toId: "s6" },
+          ],
+        } as VisualSpec,
+      },
+      {
+        toolKind: "map",
+        label: "Mapa interactivo",
+        description: "Agregá marcadores y rutas sobre un mapa con coordenadas",
+        defaultSpec: {
+          kind: "map",
+          title: "Mapa de ubicaciones",
+          viewport: { center: [-34.6, -58.4], zoom: 5 },
+          markers: [
+            { id: "m1", label: "Buenos Aires", coordinates: [-34.6037, -58.3816], description: "Capital de Argentina" },
+            { id: "m2", label: "Córdoba", coordinates: [-31.4135, -64.1811], description: "Segunda ciudad" },
+            { id: "m3", label: "Rosario", coordinates: [-32.9468, -60.6393], description: "Tercera ciudad" },
+          ],
+          routes: [],
+        } as VisualSpec,
+      },
+    ],
+  },
 ];
 
 export default function HerramientaPicker({ isOpen, onSelect, onClose }: HerramientaPickerProps) {
