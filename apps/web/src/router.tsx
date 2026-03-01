@@ -418,7 +418,7 @@ export const router = createBrowserRouter([
       {
         path: "modulos",
         element: (
-          <ProtectedRoute allow={moduleAccessRoles}>
+          <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"]}>
             <ModulosList />
           </ProtectedRoute>
         ),
@@ -442,7 +442,7 @@ export const router = createBrowserRouter([
       {
         path: "modulos/:id",
         element: (
-          <ProtectedRoute allow={moduleAccessRoles}>
+          <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"]}>
             <ModuloDetail />
           </ProtectedRoute>
         ),
@@ -450,7 +450,7 @@ export const router = createBrowserRouter([
       {
         path: "modulos/:id/jugar",
         element: (
-          <ProtectedRoute allow={modulePlayRoles}>
+          <ProtectedRoute allow={["USER", "PARENT", "TEACHER"]}>
             <JugarModulo />
           </ProtectedRoute>
         ),
@@ -458,7 +458,7 @@ export const router = createBrowserRouter([
       {
         path: "quiz/attempt/:attemptId",
         element: (
-          <ProtectedRoute allow={modulePlayRoles}>
+          <ProtectedRoute allow={["USER", "PARENT", "TEACHER"]}>
             <QuizAttempt />
           </ProtectedRoute>
         ),
