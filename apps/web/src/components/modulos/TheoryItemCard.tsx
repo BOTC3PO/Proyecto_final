@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { detailToSlides } from "./TheorySlideEditor";
+import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import type { VisualSpec } from "../../visualizadores/types";
 
 // All supported theory item types (old English + new Spanish + catch-all string)
 export type TheoryItemType = string;
@@ -29,6 +31,7 @@ function getTypeLabel(type: string): string {
     TuesdayJS: "TuesdayJS",
     Nota: "Nota",
     Artículo: "Artículo",
+    Herramienta: "Herramienta interactiva",
     // English (backwards compat)
     book: "Libro",
     link: "Enlace",
@@ -44,12 +47,50 @@ const isNoteType = (t: string) =>
   t === "note" || t === "Nota" || t === "Texto" || t === "article" || t === "Artículo" || t === "Documento";
 const isPresentationType = (t: string) => t === "Presentación";
 const isTuesdayType = (t: string) => t === "TuesdayJS";
+const isHerramientaType = (t: string) => t === "Herramienta";
 
 const isExternalUrl = (v: string) => v.startsWith("http://") || v.startsWith("https://");
 const isInternalLink = (v: string) => v.startsWith("/");
 
+function parseHerramientaDetail(detail: string): { spec: VisualSpec; subject?: string } | null {
+  try {
+    const parsed = JSON.parse(detail) as { spec?: VisualSpec; subject?: string };
+    if (parsed && typeof parsed === "object" && parsed.spec) {
+      return { spec: parsed.spec, subject: parsed.subject };
+    }
+  } catch {
+    // not valid JSON
+  }
+  return null;
+}
+
 export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProps) {
   const typeLabel = getTypeLabel(item.type);
+
+  // --- Herramienta interactiva ---
+  if (isHerramientaType(item.type)) {
+    const parsed = parseHerramientaDetail(item.detail);
+    return (
+      <article className="rounded-lg border border-blue-200 bg-white shadow-sm overflow-hidden">
+        <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 border-b border-blue-200">
+          <span className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+            {typeLabel}
+          </span>
+          {parsed?.subject ? (
+            <span className="text-xs text-blue-500">· {parsed.subject}</span>
+          ) : null}
+          <h4 className="ml-auto text-sm font-semibold text-slate-800">{item.title}</h4>
+        </div>
+        <div className="p-4">
+          {parsed ? (
+            <VisualizerRenderer spec={parsed.spec} />
+          ) : (
+            <p className="text-sm text-slate-400">No se pudo cargar la herramienta.</p>
+          )}
+        </div>
+      </article>
+    );
+  }
 
   // --- Presentation type ---
   if (isPresentationType(item.type)) {
@@ -172,3 +213,4 @@ export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProp
     </article>
   );
 }
+

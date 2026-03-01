@@ -1,0 +1,59 @@
+{
+  "id": "stat-distribution",
+  "title": "Distribución normal estándar",
+  "description": "Distribución normal con media 0 y desviación estándar 1. Muestra la campana de Gauss y las reglas empíricas 68-95-99.7.",
+  "spec": {
+    "kind": "stat-distribution",
+    "title": "Distribución Normal Estándar N(0,1)",
+    "description": "La distribución normal estándar tiene media μ=0 y desviación estándar σ=1. El 68% de los datos caen dentro de ±1σ, el 95% dentro de ±2σ y el 99.7% dentro de ±3σ.",
+    "distributionType": "normal",
+    "parameters": {
+      "mean": 0,
+      "stdDev": 1
+    },
+    "samples": 1000,
+    "curve": [
+      { "x": -4.0, "y": 0.0001 },
+      { "x": -3.5, "y": 0.0009 },
+      { "x": -3.0, "y": 0.0044 },
+      { "x": -2.5, "y": 0.0175 },
+      { "x": -2.0, "y": 0.0540 },
+      { "x": -1.5, "y": 0.1295 },
+      { "x": -1.0, "y": 0.2420 },
+      { "x": -0.5, "y": 0.3521 },
+      { "x":  0.0, "y": 0.3989 },
+      { "x":  0.5, "y": 0.3521 },
+      { "x":  1.0, "y": 0.2420 },
+      { "x":  1.5, "y": 0.1295 },
+      { "x":  2.0, "y": 0.0540 },
+      { "x":  2.5, "y": 0.0175 },
+      { "x":  3.0, "y": 0.0044 },
+      { "x":  3.5, "y": 0.0009 },
+      { "x":  4.0, "y": 0.0001 }
+    ],
+    "histogram": [
+      { "x": -3.5, "count": 2 },
+      { "x": -3.0, "count": 4 },
+      { "x": -2.5, "count": 17 },
+      { "x": -2.0, "count": 44 },
+      { "x": -1.5, "count": 92 },
+      { "x": -1.0, "count": 150 },
+      { "x": -0.5, "count": 191 },
+      { "x":  0.0, "count": 198 },
+      { "x":  0.5, "count": 191 },
+      { "x":  1.0, "count": 150 },
+      { "x":  1.5, "count": 92 },
+      { "x":  2.0, "count": 44 },
+      { "x":  2.5, "count": 17 },
+      { "x":  3.0, "count": 4 },
+      { "x":  3.5, "count": 2 }
+    ],
+    "annotations": [
+      { "x": -1, "label": "μ − σ", "color": "#2563eb" },
+      { "x":  1, "label": "μ + σ", "color": "#2563eb" },
+      { "x": -2, "label": "μ − 2σ", "color": "#f97316" },
+      { "x":  2, "label": "μ + 2σ", "color": "#f97316" },
+      { "x":  0, "label": "μ = 0", "color": "#16a34a" }
+    ]
+  }
+}

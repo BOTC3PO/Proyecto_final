@@ -2,9 +2,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
-import type { Module, ModuleQuiz } from "../domain/module/module.types";
+import type { Module, ModuleQuiz, ModuleTheoryBlock } from "../domain/module/module.types";
 import type { Book } from "../domain/book/book.types";
 import BookReader from "../bookEditor/BookReader";
+import TheoryItemCard from "../components/modulos/TheoryItemCard";
 
 type BookResourceState =
   | { status: "loading" }
@@ -221,9 +222,29 @@ export default function JugarModulo() {
 
         <section className="bg-white rounded-xl shadow p-6 space-y-3">
           <h2 className="text-lg font-semibold">Teoría</h2>
-          <p className="text-sm text-gray-700">
-            {module.description || "Este módulo todavía no tiene teoría cargada."}
-          </p>
+          {module.description ? (
+            <p className="text-sm text-gray-700">{module.description}</p>
+          ) : null}
+          {(() => {
+            const items: ModuleTheoryBlock[] =
+              (module as Module & { theoryBlocks?: ModuleTheoryBlock[]; theoryItems?: ModuleTheoryBlock[] })
+                .theoryBlocks ??
+              (module as Module & { theoryBlocks?: ModuleTheoryBlock[]; theoryItems?: ModuleTheoryBlock[] })
+                .theoryItems ??
+              [];
+            if (items.length === 0 && !module.description) {
+              return (
+                <p className="text-sm text-gray-500">Este módulo todavía no tiene teoría cargada.</p>
+              );
+            }
+            return (
+              <div className="space-y-3">
+                {items.map((item) => (
+                  <TheoryItemCard key={item.id} item={item} />
+                ))}
+              </div>
+            );
+          })()}
         </section>
 
         <section className="bg-white rounded-xl shadow p-6 space-y-3">

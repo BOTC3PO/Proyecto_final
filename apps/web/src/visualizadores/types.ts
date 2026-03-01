@@ -24,7 +24,48 @@ export type VisualSpec =
   | ChemStructureSpec
   | ChemPeriodicTableSpec
   | ChemVSEPRSpec
-  | ChemTitrationSpec;
+  | ChemTitrationSpec
+  // Estadística
+  | StatDistributionSpec
+  | StatRegressionSpec
+  // Ciencias Sociales
+  | SocialPopulationPyramidSpec
+  | SocialChoroplethSpec
+  // Filosofía
+  | PhilArgumentMapSpec
+  | PhilDilemmaSpec
+  // Arte
+  | ArtColorWheelSpec
+  | ArtCompositionSpec
+  // Biología
+  | BioCellDiagramSpec
+  | BioGeneticsSpec
+  | BioPopulationDynamicsSpec
+  // Música
+  | MusicWaveformSpec
+  | MusicRhythmGridSpec
+  // Política
+  | PolVotingSystemsSpec
+  | PolPowerDistributionSpec
+  // Educación Cívica
+  | CivicRightsTreeSpec
+  | CivicBudgetSpec
+  // Ciencias Ambientales
+  | EnvCarbonCycleSpec
+  | EnvEcosystemSpec
+  // Informática
+  | CsSortingSpec
+  | CsGraphSpec
+  | CsBinaryTreeSpec
+  // Ciencias Naturales
+  | NatWeatherSpec
+  | NatWaterCycleSpec
+  // Cocina
+  | CookRecipeScalerSpec
+  | CookMaillardSpec
+  // Vida Práctica
+  | LifeBudgetSpec
+  | LifeTimeMatrixSpec;
 
 export interface TimelineSpec {
   kind: "timeline";
@@ -996,4 +1037,534 @@ export interface PhysicsSimulationSpec {
   outputs: SimulationOutputSpec[];
   series?: SimulationSeriesSpec[];
   notes?: string[];
+}
+
+// ── Estadística ─────────────────────────────────────────────────────────────
+
+export interface StatDistributionSpec {
+  kind: "stat-distribution";
+  title?: string;
+  description?: string;
+  distributionType: "normal" | "binomial" | "uniform";
+  parameters: {
+    mean?: number;
+    stdDev?: number;
+    n?: number;
+    p?: number;
+    min?: number;
+    max?: number;
+  };
+  samples: number;
+  curve: Array<{ x: number; y: number }>;
+  histogram?: Array<{ x: number; count: number }>;
+  annotations?: Array<{ x: number; label: string; color?: string }>;
+}
+
+export interface StatRegressionSpec {
+  kind: "stat-regression";
+  title?: string;
+  description?: string;
+  points: Array<{ x: number; y: number; label?: string }>;
+  regression: {
+    type: "linear" | "quadratic";
+    coefficients: number[];
+    r2: number;
+    line: Array<{ x: number; y: number }>;
+  };
+  axes: {
+    x: { label?: string; min: number; max: number };
+    y: { label?: string; min: number; max: number };
+  };
+  residuals?: Array<{ x: number; observed: number; predicted: number }>;
+}
+
+// ── Ciencias Sociales ────────────────────────────────────────────────────────
+
+export interface SocialPopulationPyramidSpec {
+  kind: "social-population-pyramid";
+  title?: string;
+  description?: string;
+  year: number;
+  ageGroups: Array<{ label: string; male: number; female: number }>;
+  unit?: "percent" | "count";
+  annotations?: Array<{ ageGroup: string; note: string }>;
+}
+
+export interface SocialChoroplethSpec {
+  kind: "social-choropleth";
+  title?: string;
+  description?: string;
+  variable: string;
+  unit?: string;
+  regions: Array<{ id: string; label: string; value: number; color?: string }>;
+  scale: { min: number; max: number; colors: [string, string] };
+}
+
+// ── Filosofía ────────────────────────────────────────────────────────────────
+
+export interface PhilArgumentMapSpec {
+  kind: "phil-argument-map";
+  title?: string;
+  description?: string;
+  claim: { id: string; text: string };
+  nodes: Array<{
+    id: string;
+    text: string;
+    type: "premise" | "objection" | "rebuttal" | "conclusion";
+    parentId?: string;
+  }>;
+  relations: Array<{
+    id: string;
+    fromId: string;
+    toId: string;
+    kind: "supports" | "attacks";
+  }>;
+}
+
+export interface PhilDilemmaSpec {
+  kind: "phil-dilemma";
+  title?: string;
+  description?: string;
+  scenario: string;
+  options: Array<{
+    id: string;
+    label: string;
+    framework: "utilitarianism" | "deontology" | "virtue" | "contractualism";
+    analysis: string;
+    consequences: string[];
+  }>;
+  activeOptionId?: string;
+}
+
+// ── Arte ─────────────────────────────────────────────────────────────────────
+
+export interface ArtColorWheelSpec {
+  kind: "art-color-wheel";
+  title?: string;
+  description?: string;
+  selectedHue: number;
+  harmony: "complementary" | "triadic" | "analogous" | "split-complementary";
+  palette: Array<{ hue: number; saturation: number; lightness: number; label: string }>;
+  swatches: Array<{ color: string; label: string; role: string }>;
+}
+
+export interface ArtCompositionSpec {
+  kind: "art-composition";
+  title?: string;
+  description?: string;
+  canvasWidth: number;
+  canvasHeight: number;
+  rule: "rule-of-thirds" | "golden-ratio" | "symmetry" | "diagonal";
+  overlayLines: Array<{ x1: number; y1: number; x2: number; y2: number; label?: string; color?: string }>;
+  zones: Array<{ x: number; y: number; width: number; height: number; label?: string; color?: string; opacity?: number }>;
+  elements: Array<{ id: string; x: number; y: number; width: number; height: number; label?: string; color?: string }>;
+}
+
+// ── Biología ─────────────────────────────────────────────────────────────────
+
+export interface BioCellDiagramSpec {
+  kind: "bio-cell-diagram";
+  title?: string;
+  description?: string;
+  cellType: "animal" | "plant" | "bacteria";
+  organelles: Array<{
+    id: string;
+    label: string;
+    description?: string;
+    cx: number;
+    cy: number;
+    rx: number;
+    ry: number;
+    color?: string;
+    highlighted?: boolean;
+  }>;
+  highlightedOrganelleId?: string;
+}
+
+export interface BioGeneticsSpec {
+  kind: "bio-genetics";
+  title?: string;
+  description?: string;
+  cross: "monohybrid" | "dihybrid";
+  parent1Alleles: string[];
+  parent2Alleles: string[];
+  punnettSquare: Array<Array<{ alleles: string; phenotype?: string; dominant?: boolean }>>;
+  phenotypeRatio?: string;
+  genotypeRatio?: string;
+  notes?: string[];
+}
+
+export interface BioPopulationDynamicsSpec {
+  kind: "bio-population-dynamics";
+  title?: string;
+  description?: string;
+  model: "logistic" | "lotka-volterra" | "exponential";
+  parameters: {
+    carryingCapacity?: number;
+    growthRate?: number;
+    initialPrey?: number;
+    initialPredator?: number;
+    preyGrowthRate?: number;
+    predationRate?: number;
+    predatorDeathRate?: number;
+    predatorEfficiency?: number;
+  };
+  timeSeries: Array<{
+    id: string;
+    label: string;
+    color?: string;
+    data: Array<{ t: number; value: number }>;
+  }>;
+  axes: { x: { label?: string }; y: { label?: string } };
+}
+
+// ── Música ───────────────────────────────────────────────────────────────────
+
+export interface MusicWaveformSpec {
+  kind: "music-waveform";
+  title?: string;
+  description?: string;
+  note: string;
+  baseFrequency: number;
+  harmonics: Array<{
+    id: string;
+    order: number;
+    frequency: number;
+    amplitude: number;
+    color?: string;
+    label?: string;
+  }>;
+  compositeWave: Array<{ x: number; y: number }>;
+  axes: {
+    x: { label?: string; min: number; max: number };
+    y: { label?: string; min: number; max: number };
+  };
+}
+
+export interface MusicRhythmGridSpec {
+  kind: "music-rhythm-grid";
+  title?: string;
+  description?: string;
+  timeSignature: { beats: number; division: number };
+  tempo: number;
+  measures: number;
+  tracks: Array<{
+    id: string;
+    instrument: string;
+    color?: string;
+    beats: Array<{ measure: number; beat: number; accent?: boolean }>;
+  }>;
+}
+
+// ── Política ─────────────────────────────────────────────────────────────────
+
+export interface PolVotingSystemsSpec {
+  kind: "pol-voting-systems";
+  title?: string;
+  description?: string;
+  candidates: Array<{ id: string; name: string; color?: string }>;
+  ballots: Array<{ id: string; preferences: string[] }>;
+  results: {
+    plurality: Array<{ candidateId: string; votes: number }>;
+    runoff?: Array<{ candidateId: string; votes: number; round: number }>;
+    borda?: Array<{ candidateId: string; points: number }>;
+  };
+  winnerBySystem: { plurality: string; runoff?: string; borda?: string };
+}
+
+export interface PolPowerDistributionSpec {
+  kind: "pol-power-distribution";
+  title?: string;
+  description?: string;
+  system: "presidential" | "parliamentary" | "federal";
+  branches: Array<{
+    id: string;
+    label: string;
+    role: string;
+    powers: string[];
+    checksOn: string[];
+    color?: string;
+    cx: number;
+    cy: number;
+  }>;
+  relations: Array<{
+    id: string;
+    fromId: string;
+    toId: string;
+    label?: string;
+    kind: "check" | "appoints" | "reports-to";
+  }>;
+}
+
+// ── Educación Cívica ─────────────────────────────────────────────────────────
+
+export interface CivicRightsTreeSpec {
+  kind: "civic-rights-tree";
+  title?: string;
+  description?: string;
+  root: { id: string; label: string; description?: string };
+  categories: Array<{
+    id: string;
+    label: string;
+    color?: string;
+    rights: Array<{ id: string; label: string; description?: string; article?: string }>;
+  }>;
+  highlightedRightId?: string;
+}
+
+export interface CivicBudgetSpec {
+  kind: "civic-budget";
+  title?: string;
+  description?: string;
+  totalBudget: number;
+  unit?: string;
+  currency?: string;
+  categories: Array<{
+    id: string;
+    label: string;
+    allocated: number;
+    color?: string;
+    subcategories?: Array<{ id: string; label: string; allocated: number }>;
+  }>;
+  comparison?: {
+    label: string;
+    categories: Array<{ id: string; allocated: number }>;
+  };
+}
+
+// ── Ciencias Ambientales ─────────────────────────────────────────────────────
+
+export interface EnvCarbonCycleSpec {
+  kind: "env-carbon-cycle";
+  title?: string;
+  description?: string;
+  reservoirs: Array<{
+    id: string;
+    label: string;
+    amount: number;
+    unit?: string;
+    cx: number;
+    cy: number;
+    color?: string;
+    radius?: number;
+  }>;
+  fluxes: Array<{
+    id: string;
+    fromId: string;
+    toId: string;
+    amount: number;
+    label?: string;
+    color?: string;
+    highlighted?: boolean;
+  }>;
+  humanFlux?: { fromId: string; amount: number; label?: string };
+}
+
+export interface EnvEcosystemSpec {
+  kind: "env-ecosystem";
+  title?: string;
+  description?: string;
+  biome: "bosque-tropical" | "desierto" | "oceano" | "pradera" | "tundra";
+  trophicLevels: Array<{
+    level: number;
+    label: string;
+    organisms: Array<{
+      id: string;
+      name: string;
+      population: number;
+      energyPercent: number;
+      color?: string;
+    }>;
+  }>;
+  energyLoss: number;
+}
+
+// ── Informática ──────────────────────────────────────────────────────────────
+
+export interface CsSortingSpec {
+  kind: "cs-sorting";
+  title?: string;
+  description?: string;
+  algorithm: "bubble" | "selection" | "insertion" | "merge" | "quick";
+  initialArray: number[];
+  steps: Array<{
+    stepIndex: number;
+    array: number[];
+    comparing?: [number, number];
+    swapped?: [number, number];
+    sorted?: number[];
+    description?: string;
+  }>;
+  currentStep: number;
+  complexity: { time: string; space: string };
+}
+
+export interface CsGraphSpec {
+  kind: "cs-graph";
+  title?: string;
+  description?: string;
+  directed: boolean;
+  weighted: boolean;
+  nodes: Array<{ id: string; label: string; x: number; y: number; color?: string; visited?: boolean }>;
+  edges: Array<{ id: string; fromId: string; toId: string; weight?: number; highlighted?: boolean }>;
+  algorithm?: "bfs" | "dfs" | "dijkstra" | "none";
+  traversalOrder?: string[];
+  startNodeId?: string;
+}
+
+export interface CsBinaryTreeSpec {
+  kind: "cs-binary-tree";
+  title?: string;
+  description?: string;
+  nodes: Array<{
+    id: string;
+    value: number | string;
+    parentId?: string;
+    side?: "left" | "right";
+    x?: number;
+    y?: number;
+    highlighted?: boolean;
+    visited?: boolean;
+  }>;
+  traversalOrder?: "inorder" | "preorder" | "postorder" | "levelorder";
+  visitedSequence?: string[];
+  isBST?: boolean;
+}
+
+// ── Ciencias Naturales ───────────────────────────────────────────────────────
+
+export interface NatWeatherSpec {
+  kind: "nat-weather";
+  title?: string;
+  description?: string;
+  location?: string;
+  season: "verano" | "otono" | "invierno" | "primavera";
+  variables: {
+    temperature: number;
+    humidity: number;
+    pressure: number;
+    windSpeed: number;
+    precipitation: number;
+  };
+  timeSeries?: Array<{
+    id: string;
+    label: string;
+    color?: string;
+    data: Array<{ x: number; y: number }>;
+  }>;
+  phenomena?: Array<{ id: string; name: string; description: string; active: boolean }>;
+}
+
+export interface NatWaterCycleSpec {
+  kind: "nat-water-cycle";
+  title?: string;
+  description?: string;
+  stages: Array<{
+    id: string;
+    label: string;
+    description?: string;
+    cx: number;
+    cy: number;
+    radius?: number;
+    color?: string;
+    active?: boolean;
+  }>;
+  fluxes: Array<{
+    id: string;
+    fromId: string;
+    toId: string;
+    label?: string;
+    rate?: number;
+    color?: string;
+  }>;
+  humanImpactFactor: number;
+}
+
+// ── Cocina ───────────────────────────────────────────────────────────────────
+
+export interface CookRecipeScalerSpec {
+  kind: "cook-recipe-scaler";
+  title?: string;
+  description?: string;
+  servingsBase: number;
+  servingsCurrent: number;
+  ingredients: Array<{
+    id: string;
+    name: string;
+    amountBase: number;
+    unit: string;
+    amountCurrent: number;
+    category?: "dry" | "liquid" | "fresh" | "spice";
+  }>;
+  nutritionPerServing?: {
+    calories: number;
+    protein: number;
+    carbs: number;
+    fat: number;
+  };
+  steps?: string[];
+}
+
+export interface CookMaillardSpec {
+  kind: "cook-maillard";
+  title?: string;
+  description?: string;
+  temperature: number;
+  time: number;
+  moisture: number;
+  reactionZones: Array<{
+    id: string;
+    label: string;
+    minTemp: number;
+    maxTemp: number;
+    color: string;
+    description: string;
+  }>;
+  currentZoneId?: string;
+  colorProgression: Array<{ temp: number; color: string; label: string }>;
+  flavorCompounds?: Array<{ name: string; formsBelow?: number; formsAbove?: number; description?: string }>;
+}
+
+// ── Vida Práctica ─────────────────────────────────────────────────────────────
+
+export interface LifeBudgetSpec {
+  kind: "life-budget";
+  title?: string;
+  description?: string;
+  monthlyIncome: number;
+  currency?: string;
+  expenses: Array<{
+    id: string;
+    category: string;
+    planned: number;
+    actual?: number;
+    color?: string;
+    essential?: boolean;
+  }>;
+  savings: { planned: number; actual?: number };
+  rules?: Array<{ name: string; description: string; allocation: Record<string, number> }>;
+  activeRule?: string;
+}
+
+export interface LifeTimeMatrixSpec {
+  kind: "life-time-matrix";
+  title?: string;
+  description?: string;
+  totalHoursPerWeek: number;
+  tasks: Array<{
+    id: string;
+    label: string;
+    urgent: boolean;
+    important: boolean;
+    hours: number;
+    color?: string;
+    quadrant?: "I" | "II" | "III" | "IV";
+    action?: string;
+  }>;
+  quadrantLabels?: {
+    I?: string;
+    II?: string;
+    III?: string;
+    IV?: string;
+  };
 }

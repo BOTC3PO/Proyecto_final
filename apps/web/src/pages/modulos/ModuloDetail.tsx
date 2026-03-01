@@ -8,6 +8,7 @@ import type {
   ModuleTheoryBlock,
   ModuleVisibility,
 } from "../../domain/module/module.types";
+import TheoryItemCard from "../../components/modulos/TheoryItemCard";
 
 const hashString = (value: string) => {
   let hash = 0;
@@ -254,16 +255,7 @@ export default function ModuloDetail() {
         ) : (
           <div className="grid gap-3">
             {theoryItems.map((item) => (
-              <article
-                key={item.id}
-                className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
-              >
-                <div className="flex flex-col gap-1">
-                  <h3 className="text-sm font-semibold text-slate-800">{item.title}</h3>
-                  <p className="text-xs font-medium text-slate-500">Tipo: {item.type}</p>
-                  <p className="text-sm text-slate-600">{item.detail}</p>
-                </div>
-              </article>
+              <TheoryItemCard key={item.id} item={item} />
             ))}
           </div>
         )}

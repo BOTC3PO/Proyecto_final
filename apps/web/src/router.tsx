@@ -67,6 +67,20 @@ import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
 import Gobernanza from "./pages/Gobernanza";
 import GobernanzaPropuesta from "./pages/GobernanzaPropuesta";
 import GobernanzaNuevaPropuesta from "./pages/GobernanzaNuevaPropuesta";
+import HerramientasEducativas from "./pages/herramientas/HerramientasEducativas";
+import HerramientasEstadistica from "./pages/herramientas/HerramientasEstadistica";
+import HerramientasCienciasSociales from "./pages/herramientas/HerramientasCienciasSociales";
+import HerramientasFilosofia from "./pages/herramientas/HerramientasFilosofia";
+import HerramientasArte from "./pages/herramientas/HerramientasArte";
+import HerramientasBiologia from "./pages/herramientas/HerramientasBiologia";
+import HerramientasMusica from "./pages/herramientas/HerramientasMusica";
+import HerramientasPolitica from "./pages/herramientas/HerramientasPolitica";
+import HerramientasCivica from "./pages/herramientas/HerramientasCivica";
+import HerramientasAmbiental from "./pages/herramientas/HerramientasAmbiental";
+import HerramientasInformatica from "./pages/herramientas/HerramientasInformatica";
+import HerramientasNaturales from "./pages/herramientas/HerramientasNaturales";
+import HerramientasCocina from "./pages/herramientas/HerramientasCocina";
+import HerramientasVidaPractica from "./pages/herramientas/HerramientasVidaPractica";
 
 
 const moduleAccessRoles = ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"];
@@ -107,6 +121,22 @@ export const router = createBrowserRouter([
       { path: "editor/:id", element: <BookEditorPage /> },
       { path: "onboarding-guest", element: <GuestOnboarding /> },
       { path: "geografia/mapa", element: <GeografiaMapaSelector /> },
+
+      // Herramientas Educativas (public)
+      { path: "herramientas", element: <HerramientasEducativas /> },
+      { path: "herramientas/estadistica", element: <HerramientasEstadistica /> },
+      { path: "herramientas/ciencias-sociales", element: <HerramientasCienciasSociales /> },
+      { path: "herramientas/filosofia", element: <HerramientasFilosofia /> },
+      { path: "herramientas/arte", element: <HerramientasArte /> },
+      { path: "herramientas/biologia", element: <HerramientasBiologia /> },
+      { path: "herramientas/musica", element: <HerramientasMusica /> },
+      { path: "herramientas/politica", element: <HerramientasPolitica /> },
+      { path: "herramientas/civica", element: <HerramientasCivica /> },
+      { path: "herramientas/ambiental", element: <HerramientasAmbiental /> },
+      { path: "herramientas/informatica", element: <HerramientasInformatica /> },
+      { path: "herramientas/naturales", element: <HerramientasNaturales /> },
+      { path: "herramientas/cocina", element: <HerramientasCocina /> },
+      { path: "herramientas/vida-practica", element: <HerramientasVidaPractica /> },
 
       // Admin
       {

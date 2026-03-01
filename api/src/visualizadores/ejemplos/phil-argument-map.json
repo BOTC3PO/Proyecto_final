@@ -1,0 +1,57 @@
+{
+  "id": "phil-argument-map",
+  "title": "Mapa argumentativo — El silogismo de Sócrates",
+  "description": "Representación del argumento clásico deductivo: todos los hombres son mortales, Sócrates es hombre, por lo tanto Sócrates es mortal.",
+  "spec": {
+    "kind": "phil-argument-map",
+    "title": "Silogismo Aristotélico: La mortalidad de Sócrates",
+    "description": "Un silogismo es un argumento deductivo con dos premisas y una conclusión. Este ejemplo clásico muestra cómo la lógica formal permite derivar conclusiones necesarias a partir de afirmaciones generales y particulares.",
+    "claim": {
+      "id": "claim-principal",
+      "text": "Sócrates es mortal"
+    },
+    "nodes": [
+      {
+        "id": "p1",
+        "text": "Todos los hombres son mortales",
+        "type": "premise"
+      },
+      {
+        "id": "p2",
+        "text": "Sócrates es un hombre",
+        "type": "premise"
+      },
+      {
+        "id": "c1",
+        "text": "Por lo tanto, Sócrates es mortal",
+        "type": "conclusion",
+        "parentId": "claim-principal"
+      },
+      {
+        "id": "obj1",
+        "text": "Objeción: ¿cómo sabemos que TODOS los hombres son mortales? No hemos observado a todos.",
+        "type": "objection",
+        "parentId": "p1"
+      },
+      {
+        "id": "reb1",
+        "text": "Respuesta: La premisa es una generalización empírica inductiva, aceptada universalmente con base en evidencia histórica suficiente.",
+        "type": "rebuttal",
+        "parentId": "obj1"
+      },
+      {
+        "id": "obj2",
+        "text": "Objeción: El argumento es válido pero ¿es sólido? Dependemos de la verdad de las premisas.",
+        "type": "objection",
+        "parentId": "c1"
+      }
+    ],
+    "relations": [
+      { "id": "r1", "fromId": "p1", "toId": "c1",   "kind": "supports" },
+      { "id": "r2", "fromId": "p2", "toId": "c1",   "kind": "supports" },
+      { "id": "r3", "fromId": "obj1", "toId": "p1", "kind": "attacks"  },
+      { "id": "r4", "fromId": "reb1", "toId": "obj1","kind": "attacks" },
+      { "id": "r5", "fromId": "obj2", "toId": "c1", "kind": "attacks"  }
+    ]
+  }
+}

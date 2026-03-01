@@ -7,6 +7,7 @@ import type { Module, ModuleDependency, ModuleQuiz } from "../../domain/module/m
 import { getSubjectCapabilities, MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor, { detailToSlides, slidesToDetail } from "../../components/modulos/TheorySlideEditor";
+import HerramientaPicker from "../../components/modulos/HerramientaPicker";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
@@ -65,6 +66,7 @@ const isBookType = (t: string) => t === "book" || t === "Libro";
 const isLinkType = (t: string) => t === "link" || t === "Enlace";
 const isTuesdayType = (t: string) => t === "TuesdayJS";
 const isPresentationType = (t: string) => t === "Presentación";
+const isHerramientaType = (t: string) => t === "Herramienta";
 const needsUrlOrId = (t: string) => isBookType(t) || isLinkType(t) || isTuesdayType(t);
 
 export default function ModuloEditor() {
@@ -106,6 +108,9 @@ export default function ModuloEditor() {
   const [tuesdayResults, setTuesdayResults] = useState<TuesdayResult[]>([]);
   const [tuesdayLoading, setTuesdayLoading] = useState(false);
   const [tuesdayPickerFor, setTuesdayPickerFor] = useState<"new" | string | null>(null);
+
+  // --- Herramienta picker state ---
+  const [herramientaPickerFor, setHerramientaPickerFor] = useState<"new" | string | null>(null);
 
   // --- Slide editor state ---
   // "new" = editing slides for new item form | string = existing item id
@@ -276,6 +281,7 @@ export default function ModuloEditor() {
   const handleAddTheoryItem = () => {
     if (!newTheoryItem.title.trim()) return;
     if (needsUrlOrId(newTheoryItem.type) && !newTheoryItem.detail.trim()) return;
+    if (isHerramientaType(newTheoryItem.type) && !newTheoryItem.detail.trim()) return;
 
     let detail = newTheoryItem.detail.trim();
     if (isPresentationType(newTheoryItem.type) && !detail) {
@@ -688,6 +694,27 @@ export default function ModuloEditor() {
                           ? "Crear presentación"
                           : "Editar presentación"}
                       </button>
+                    </div>
+                  ) : isHerramientaType(newTheoryItem.type) ? (
+                    <div className="flex items-center gap-3">
+                      <HerramientaPicker
+                        isOpen={herramientaPickerFor === "new"}
+                        onSelect={(detail) => {
+                          setNewTheoryItem((prev) => ({ ...prev, detail }));
+                          setHerramientaPickerFor(null);
+                        }}
+                        onClose={() => setHerramientaPickerFor(null)}
+                      />
+                      <button
+                        type="button"
+                        className="rounded-md border border-gray-300 px-3 py-1.5 text-xs hover:bg-gray-100"
+                        onClick={() => setHerramientaPickerFor("new")}
+                      >
+                        {newTheoryItem.detail ? "Cambiar herramienta" : "Seleccionar herramienta"}
+                      </button>
+                      {newTheoryItem.detail ? (
+                        <span className="text-xs text-green-600">✓ Herramienta seleccionada</span>
+                      ) : null}
                     </div>
                   ) : isLinkType(newTheoryItem.type) ? (
                     <input

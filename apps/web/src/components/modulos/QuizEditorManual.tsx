@@ -1,4 +1,8 @@
+import { useState } from "react";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
+import HerramientaPicker from "./HerramientaPicker";
+import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import type { VisualSpec } from "../../visualizadores/types";
 
 const QUESTION_TYPES: Array<NonNullable<ModuleQuizQuestion["questionType"]>> = [
   "mc",
@@ -20,7 +24,22 @@ const createQuestion = (questionType: ModuleQuizQuestion["questionType"]): Modul
   explanation: "",
 });
 
+function parseVisualContext(detail: string | undefined): { spec: VisualSpec; subject?: string; title?: string } | null {
+  if (!detail) return null;
+  try {
+    const parsed = JSON.parse(detail) as { spec?: VisualSpec; subject?: string; title?: string };
+    if (parsed && typeof parsed === "object" && parsed.spec) {
+      return { spec: parsed.spec, subject: parsed.subject, title: parsed.title };
+    }
+  } catch {
+    // not valid JSON
+  }
+  return null;
+}
+
 export default function QuizEditorManual({ questions, onChange }: QuizEditorManualProps) {
+  const [herramientaPickerFor, setHerramientaPickerFor] = useState<number | null>(null);
+
   const updateQuestion = (index: number, patch: Partial<ModuleQuizQuestion>) => {
     const next = [...questions];
     next[index] = { ...next[index], ...patch };
@@ -65,6 +84,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
         const questionType = question.questionType ?? "mc";
         const showOptions = questionType !== "input";
         const isTrueFalse = questionType === "vf";
+        const visualContext = parseVisualContext(question.visualContext);
 
         return (
           <div key={question.id} className="rounded-lg border border-gray-200 p-4 space-y-3">
@@ -78,6 +98,40 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                 Quitar
               </button>
             </div>
+
+            {visualContext ? (
+              <div className="rounded-lg border border-blue-200 bg-blue-50 overflow-hidden">
+                <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-blue-200">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold text-blue-700">Herramienta interactiva</span>
+                    {visualContext.subject ? (
+                      <span className="text-xs text-blue-500">· {visualContext.subject}</span>
+                    ) : null}
+                    {visualContext.title ? (
+                      <span className="text-xs text-blue-600">{visualContext.title}</span>
+                    ) : null}
+                  </div>
+                  <button
+                    type="button"
+                    className="text-xs text-red-500 hover:underline"
+                    onClick={() => updateQuestion(index, { visualContext: undefined })}
+                  >
+                    Quitar herramienta
+                  </button>
+                </div>
+                <div className="p-3 bg-white">
+                  <VisualizerRenderer spec={visualContext.spec} />
+                </div>
+              </div>
+            ) : (
+              <button
+                type="button"
+                className="text-xs text-blue-600 hover:underline border border-blue-200 rounded px-2 py-1"
+                onClick={() => setHerramientaPickerFor(index)}
+              >
+                + Agregar herramienta interactiva
+              </button>
+            )}
 
             <textarea
               className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
@@ -194,6 +248,17 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
           + Respuesta abierta
         </button>
       </div>
+
+      {herramientaPickerFor !== null ? (
+        <HerramientaPicker
+          isOpen={true}
+          onSelect={(detail) => {
+            updateQuestion(herramientaPickerFor, { visualContext: detail });
+            setHerramientaPickerFor(null);
+          }}
+          onClose={() => setHerramientaPickerFor(null)}
+        />
+      ) : null}
     </div>
   );
 }
