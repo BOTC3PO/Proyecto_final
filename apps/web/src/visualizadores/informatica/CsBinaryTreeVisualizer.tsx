@@ -1,4 +1,4 @@
-import { CsBinaryTreeSpec } from "../types";
+import type { CsBinaryTreeSpec } from "../types";
 
 interface Props {
   spec: CsBinaryTreeSpec;

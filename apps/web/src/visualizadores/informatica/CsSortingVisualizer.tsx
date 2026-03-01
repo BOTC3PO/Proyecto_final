@@ -1,4 +1,4 @@
-import { CsSortingSpec } from "../types";
+import type { CsSortingSpec } from "../types";
 
 interface Props {
   spec: CsSortingSpec;

@@ -1,4 +1,4 @@
-import { CivicBudgetSpec } from "../types";
+import type { CivicBudgetSpec } from "../types";
 
 // Auto-palette for categories without a color
 const AUTO_PALETTE = [

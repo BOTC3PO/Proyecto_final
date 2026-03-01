@@ -1,4 +1,4 @@
-import { CivicRightsTreeSpec } from "../types";
+import type { CivicRightsTreeSpec } from "../types";
 
 // Auto-palette for categories without a color
 const AUTO_PALETTE = [

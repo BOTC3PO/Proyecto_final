@@ -1,4 +1,4 @@
-import { CsGraphSpec } from "../types";
+import type { CsGraphSpec } from "../types";
 
 interface Props {
   spec: CsGraphSpec;

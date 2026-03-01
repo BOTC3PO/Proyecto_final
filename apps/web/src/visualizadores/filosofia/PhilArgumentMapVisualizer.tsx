@@ -1,4 +1,4 @@
-import { PhilArgumentMapSpec } from "../types";
+import type { PhilArgumentMapSpec } from "../types";
 
 interface NodeLayout {
   id: string;
