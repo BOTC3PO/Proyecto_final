@@ -1,4 +1,4 @@
-import { BioGeneticsSpec } from "../types";
+import type { BioGeneticsSpec } from "../types";
 
 interface Props {
   spec: BioGeneticsSpec;

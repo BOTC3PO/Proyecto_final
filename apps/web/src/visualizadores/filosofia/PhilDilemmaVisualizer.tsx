@@ -1,4 +1,4 @@
-import { PhilDilemmaSpec } from "../types";
+import type { PhilDilemmaSpec } from "../types";
 
 type Framework = "utilitarianism" | "deontology" | "virtue" | "contractualism";
 

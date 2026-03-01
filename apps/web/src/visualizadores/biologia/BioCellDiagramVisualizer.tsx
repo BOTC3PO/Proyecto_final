@@ -1,4 +1,4 @@
-import { BioCellDiagramSpec } from "../types";
+import type { BioCellDiagramSpec } from "../types";
 
 interface Props {
   spec: BioCellDiagramSpec;
