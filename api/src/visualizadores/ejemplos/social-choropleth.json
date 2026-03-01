@@ -1,0 +1,43 @@
+{
+  "id": "social-choropleth",
+  "title": "PIB per cápita — Provincias de Argentina",
+  "description": "Mapa coroplético con el PIB per cápita estimado por provincia argentina (USD, 2022). Las provincias con mayor actividad industrial y servicios concentran los valores más altos.",
+  "spec": {
+    "kind": "social-choropleth",
+    "title": "PIB per cápita por provincia — Argentina 2022",
+    "description": "El Producto Interno Bruto per cápita muestra grandes disparidades regionales. Buenos Aires concentra servicios financieros; Neuquén y Santa Cruz lideran por extracción de hidrocarburos y recursos naturales.",
+    "variable": "PIB per cápita",
+    "unit": "USD",
+    "regions": [
+      { "id": "bsas",      "label": "Buenos Aires",       "value": 14200 },
+      { "id": "caba",      "label": "Ciudad de Buenos Aires", "value": 28500 },
+      { "id": "catamarca", "label": "Catamarca",          "value": 9800  },
+      { "id": "chaco",     "label": "Chaco",              "value": 6200  },
+      { "id": "chubut",    "label": "Chubut",             "value": 18700 },
+      { "id": "cordoba",   "label": "Córdoba",            "value": 15100 },
+      { "id": "corrientes","label": "Corrientes",         "value": 7400  },
+      { "id": "entrerios", "label": "Entre Ríos",         "value": 10200 },
+      { "id": "formosa",   "label": "Formosa",            "value": 5800  },
+      { "id": "jujuy",     "label": "Jujuy",              "value": 7600  },
+      { "id": "lapampa",   "label": "La Pampa",           "value": 16400 },
+      { "id": "larioja",   "label": "La Rioja",           "value": 8100  },
+      { "id": "mendoza",   "label": "Mendoza",            "value": 12900 },
+      { "id": "misiones",  "label": "Misiones",           "value": 7900  },
+      { "id": "neuquen",   "label": "Neuquén",            "value": 24600 },
+      { "id": "rionegro",  "label": "Río Negro",          "value": 13500 },
+      { "id": "salta",     "label": "Salta",              "value": 8700  },
+      { "id": "sanjuan",   "label": "San Juan",           "value": 9400  },
+      { "id": "sanluis",   "label": "San Luis",           "value": 11200 },
+      { "id": "santacruz", "label": "Santa Cruz",         "value": 22100 },
+      { "id": "santafe",   "label": "Santa Fe",           "value": 14800 },
+      { "id": "sgo_estero","label": "Santiago del Estero","value": 6500  },
+      { "id": "tierrfuego","label": "Tierra del Fuego",   "value": 19300 },
+      { "id": "tucuman",   "label": "Tucumán",            "value": 9100  }
+    ],
+    "scale": {
+      "min": 5000,
+      "max": 30000,
+      "colors": ["#dbeafe", "#1d4ed8"]
+    }
+  }
+}

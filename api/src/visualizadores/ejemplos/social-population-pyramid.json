@@ -1,0 +1,35 @@
+{
+  "id": "social-population-pyramid",
+  "title": "Pirámide poblacional de Argentina",
+  "description": "Distribución de la población argentina por sexo y grupo etario (estimación 2023). Refleja una estructura demográfica en transición.",
+  "spec": {
+    "kind": "social-population-pyramid",
+    "title": "Pirámide de Población — Argentina 2023",
+    "description": "Distribución por grupo de edad y sexo. Los valores representan miles de habitantes. Argentina muestra una pirámide regresiva con mayor proporción de adultos mayores, indicando transición demográfica avanzada.",
+    "year": 2023,
+    "unit": "count",
+    "ageGroups": [
+      { "label": "0-4",   "male": 1620, "female": 1550 },
+      { "label": "5-9",   "male": 1680, "female": 1610 },
+      { "label": "10-14", "male": 1700, "female": 1630 },
+      { "label": "15-19", "male": 1720, "female": 1660 },
+      { "label": "20-24", "male": 1700, "female": 1650 },
+      { "label": "25-29", "male": 1620, "female": 1590 },
+      { "label": "30-34", "male": 1540, "female": 1520 },
+      { "label": "35-39", "male": 1450, "female": 1440 },
+      { "label": "40-44", "male": 1350, "female": 1360 },
+      { "label": "45-49", "male": 1280, "female": 1310 },
+      { "label": "50-54", "male": 1180, "female": 1230 },
+      { "label": "55-59", "male": 1060, "female": 1130 },
+      { "label": "60-64", "male":  880, "female":  970 },
+      { "label": "65-69", "male":  700, "female":  800 },
+      { "label": "70-74", "male":  540, "female":  660 },
+      { "label": "75-79", "male":  360, "female":  490 },
+      { "label": "80+",   "male":  260, "female":  420 }
+    ],
+    "annotations": [
+      { "ageGroup": "15-19", "note": "Gran cohorte de jóvenes en edad productiva" },
+      { "ageGroup": "65-69", "note": "Inicio del envejecimiento poblacional notable" }
+    ]
+  }
+}

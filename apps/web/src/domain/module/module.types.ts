@@ -63,6 +63,7 @@ export type ModuleQuizQuestion = {
   answerKey?: string | string[];
   explanation?: string;
   focus?: string | null;
+  visualContext?: string;
 };
 
 export type ModuleGeneratorRef = {
@@ -118,6 +119,7 @@ const buildTheoryTypes = (supportsTuesdayJs: boolean, disabledReason: string): T
   { value: "Enlace", label: "Enlace" },
   { value: "Libro", label: "Libro" },
   { value: "Documento", label: "Documento" },
+  { value: "Herramienta", label: "Herramienta interactiva" },
   {
     value: "TuesdayJS",
     label: "TuesdayJS",
@@ -187,6 +189,90 @@ export const MODULE_SUBJECT_CAPABILITIES: Record<string, ModuleSubjectCapabiliti
     supportsGenerators: false,
     supportsAutoQuizzes: false,
     supportsSpecialResources: true,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  Estadística: {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  "Ciencias Sociales": {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  Filosofía: {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  Arte: {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  Música: {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  Política: {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  "Educación Cívica": {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  "Ciencias Ambientales": {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  Informática: {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  "Ciencias Naturales": {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  Cocina: {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
+    supportsTuesdayJs: false,
+    theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
+  },
+  "Vida Práctica": {
+    supportsGenerators: false,
+    supportsAutoQuizzes: false,
+    supportsSpecialResources: false,
     supportsTuesdayJs: false,
     theoryTypes: buildTheoryTypes(false, DEFAULT_DISABLED_REASONS.tuesdayJs),
   },

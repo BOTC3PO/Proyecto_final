@@ -1,0 +1,62 @@
+{
+  "id": "stat-regression",
+  "title": "Regresión lineal — correlación positiva",
+  "description": "Diagrama de dispersión con correlación positiva y línea de regresión calculada por mínimos cuadrados.",
+  "spec": {
+    "kind": "stat-regression",
+    "title": "Regresión Lineal: Horas de estudio vs Calificación",
+    "description": "Se observa una correlación positiva entre las horas de estudio semanales y la calificación final. La recta de regresión minimiza los residuos cuadráticos.",
+    "points": [
+      { "x": 1,  "y": 42,  "label": "Est. 1" },
+      { "x": 2,  "y": 50,  "label": "Est. 2" },
+      { "x": 3,  "y": 55,  "label": "Est. 3" },
+      { "x": 3,  "y": 48,  "label": "Est. 4" },
+      { "x": 4,  "y": 60,  "label": "Est. 5" },
+      { "x": 5,  "y": 63,  "label": "Est. 6" },
+      { "x": 5,  "y": 58,  "label": "Est. 7" },
+      { "x": 6,  "y": 70,  "label": "Est. 8" },
+      { "x": 7,  "y": 72,  "label": "Est. 9" },
+      { "x": 7,  "y": 75,  "label": "Est. 10" },
+      { "x": 8,  "y": 78,  "label": "Est. 11" },
+      { "x": 9,  "y": 82,  "label": "Est. 12" },
+      { "x": 10, "y": 88,  "label": "Est. 13" },
+      { "x": 10, "y": 85,  "label": "Est. 14" },
+      { "x": 11, "y": 90,  "label": "Est. 15" }
+    ],
+    "regression": {
+      "type": "linear",
+      "coefficients": [4.7, 37.2],
+      "r2": 0.967,
+      "line": [
+        { "x": 0,  "y": 37.2 },
+        { "x": 2,  "y": 46.6 },
+        { "x": 4,  "y": 56.0 },
+        { "x": 6,  "y": 65.4 },
+        { "x": 8,  "y": 74.8 },
+        { "x": 10, "y": 84.2 },
+        { "x": 12, "y": 93.6 }
+      ]
+    },
+    "axes": {
+      "x": { "label": "Horas de estudio por semana", "min": 0, "max": 12 },
+      "y": { "label": "Calificación (sobre 100)", "min": 30, "max": 100 }
+    },
+    "residuals": [
+      { "x": 1,  "observed": 42,  "predicted": 41.9 },
+      { "x": 2,  "observed": 50,  "predicted": 46.6 },
+      { "x": 3,  "observed": 55,  "predicted": 51.3 },
+      { "x": 3,  "observed": 48,  "predicted": 51.3 },
+      { "x": 4,  "observed": 60,  "predicted": 56.0 },
+      { "x": 5,  "observed": 63,  "predicted": 60.7 },
+      { "x": 5,  "observed": 58,  "predicted": 60.7 },
+      { "x": 6,  "observed": 70,  "predicted": 65.4 },
+      { "x": 7,  "observed": 72,  "predicted": 70.1 },
+      { "x": 7,  "observed": 75,  "predicted": 70.1 },
+      { "x": 8,  "observed": 78,  "predicted": 74.8 },
+      { "x": 9,  "observed": 82,  "predicted": 79.5 },
+      { "x": 10, "observed": 88,  "predicted": 84.2 },
+      { "x": 10, "observed": 85,  "predicted": 84.2 },
+      { "x": 11, "observed": 90,  "predicted": 88.9 }
+    ]
+  }
+}

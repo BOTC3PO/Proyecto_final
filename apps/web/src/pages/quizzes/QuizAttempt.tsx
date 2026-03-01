@@ -2,6 +2,21 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { apiGet, apiPost } from "../../lib/api";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
+import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import type { VisualSpec } from "../../visualizadores/types";
+
+function parseVisualContext(detail: string | undefined): VisualSpec | null {
+  if (!detail) return null;
+  try {
+    const parsed = JSON.parse(detail) as { spec?: VisualSpec };
+    if (parsed && typeof parsed === "object" && parsed.spec) {
+      return parsed.spec;
+    }
+  } catch {
+    // not valid JSON
+  }
+  return null;
+}
 
 type AttemptAnswerValue = string | string[];
 
@@ -190,6 +205,16 @@ export default function QuizAttempt() {
                 const isMulti = Array.isArray(question.answerKey) && hasOptions;
                 return (
                   <li key={question.id} className="space-y-3">
+                    {parseVisualContext(question.visualContext) ? (
+                      <div className="rounded-lg border border-blue-200 bg-blue-50 overflow-hidden">
+                        <div className="px-3 py-2 border-b border-blue-200">
+                          <span className="text-xs font-semibold text-blue-700">Herramienta interactiva</span>
+                        </div>
+                        <div className="p-3 bg-white">
+                          <VisualizerRenderer spec={parseVisualContext(question.visualContext)!} />
+                        </div>
+                      </div>
+                    ) : null}
                     <div className="space-y-1">
                       <p className="text-sm text-gray-500">Pregunta {index + 1}</p>
                       <p className="text-base text-gray-800">{question.prompt}</p>
