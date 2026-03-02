@@ -30,6 +30,7 @@ import ProfesorMateriales from "./pages/ProfesorMateriales";
 import ProfesorMensajes from "./pages/ProfesorMensajes";
 import ModulosList from "./pages/modulos/ModulosList";
 import ModuloDetail from "./pages/modulos/ModuloDetail";
+import ReproductorModulos from "./pages/modulos/ReproductorModulos";
 import ProfesorEncuestas from "./pages/ProfesorEncuestas";
 import ProfesorCursoNuevo from "./pages/ProfesorCursoNuevo";
 import HijosProgreso from "./pages/HijosProgreso";
@@ -454,6 +455,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={["USER", "PARENT", "TEACHER"]}>
             <JugarModulo />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "reproductor",
+        element: (
+          <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"]}>
+            <ReproductorModulos />
           </ProtectedRoute>
         ),
       },
