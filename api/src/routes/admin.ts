@@ -89,7 +89,6 @@ adminRouter.get("/api/admin/usuarios/:id/modulos-completados", requireAdmin, asy
 
 adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) => {
   try {
-    const { id } = req.params;
     const { role } = req.body ?? {};
     const allowedRoles = ["ADMIN", "USER", "TEACHER", "PARENT", "DIRECTIVO", "GUEST"];
     if (!role || !allowedRoles.includes(role)) {
@@ -108,7 +107,7 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
       });
     }
     const { toObjectId } = await import("../lib/ids");
-    const objectId = toObjectId(id);
+    const objectId = toObjectId(String(req.params.id));
     if (!objectId) return res.status(400).json({ error: "invalid id" });
     const target = await db.collection("usuarios").findOne({ _id: objectId, isDeleted: { $ne: true } });
     if (!target) return res.status(404).json({ error: "usuario no encontrado" });
@@ -133,15 +132,18 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
 adminRouter.get("/api/admin/stats", requireAdmin, async (req, res) => {
   try {
     const db = await getDb();
-    const [totalUsuarios, escuelasActivas, modulosPublicos, eventosModeracion] = await Promise.all([
-      db.collection("usuarios").find({ isDeleted: { $ne: true } }).toArray().then((r) => r.length),
-      db.collection("escuelas").find({ isDeleted: { $ne: true } }).toArray().then((r) => r.length),
-      db.collection("modulos").find({ visibility: "publico", isDeleted: { $ne: true } }).toArray().then((r) => r.length),
-      db.collection("moderacion_eventos").find({
-        createdAt: { $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) }
-      }).toArray().then((r) => r.length)
-    ]);
-    res.json({ totalUsuarios, escuelasActivas, modulosPublicos, eventosModeracion });
+    const usuariosArr = await db.collection("usuarios").find({ isDeleted: { $ne: true } }).toArray();
+    const escuelasArr = await db.collection("escuelas").find({ isDeleted: { $ne: true } }).toArray();
+    const modulosArr = await db.collection("modulos").find({ visibility: "publico", isDeleted: { $ne: true } }).toArray();
+    const eventosArr = await db.collection("moderacion_eventos").find({
+      createdAt: { $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) }
+    }).toArray();
+    res.json({
+      totalUsuarios: usuariosArr.length,
+      escuelasActivas: escuelasArr.length,
+      modulosPublicos: modulosArr.length,
+      eventosModeracion: eventosArr.length
+    });
   } catch {
     res.status(500).json({ error: "internal server error" });
   }
@@ -153,20 +155,19 @@ adminRouter.get("/api/admin/reportes-global", requireAdmin, async (req, res) => 
     const dias = Number(req.query.dias ?? 30);
     const desde = new Date(Date.now() - dias * 24 * 60 * 60 * 1000);
 
-    const [usuariosRecientes, usuariosTotales, usuariosActivos,
-           eventosRecientes, topModulos] = await Promise.all([
-      db.collection("usuarios").find({
-        isDeleted: { $ne: true },
-        createdAt: { $gte: desde }
-      }).project({ createdAt: 1, role: 1 }).toArray(),
-      db.collection("usuarios").find({ isDeleted: { $ne: true } }).toArray().then((r) => r.length),
-      db.collection("usuarios").find({ isDeleted: { $ne: true }, isActive: { $ne: false } }).toArray().then((r) => r.length),
-      db.collection("moderacion_eventos").find({
-        createdAt: { $gte: desde }
-      }).sort({ createdAt: -1 }).limit(20).toArray(),
-      db.collection("progreso_modulos").find({ status: "completado" })
-        .project({ moduloId: 1 }).toArray()
-    ]);
+    const usuariosRecientes = await db.collection("usuarios").find({
+      isDeleted: { $ne: true },
+      createdAt: { $gte: desde }
+    }).project({ createdAt: 1, role: 1 }).toArray();
+    const todosUsuarios = await db.collection("usuarios").find({ isDeleted: { $ne: true } }).toArray();
+    const usuariosActivos = await db.collection("usuarios").find({ isDeleted: { $ne: true }, isActive: { $ne: false } }).toArray();
+    const usuariosTotales = todosUsuarios.length;
+    const totalActivos = usuariosActivos.length;
+    const eventosRecientes = await db.collection("moderacion_eventos").find({
+      createdAt: { $gte: desde }
+    }).sort({ createdAt: -1 }).limit(20).toArray();
+    const topModulos = await db.collection("progreso_modulos").find({ status: "completado" })
+      .project({ moduloId: 1 }).toArray();
 
     const countByModulo = new Map<string, number>();
     for (const p of topModulos) {
@@ -194,18 +195,18 @@ adminRouter.get("/api/admin/reportes-global", requireAdmin, async (req, res) => 
       registro: {
         periodo: dias,
         total: usuariosRecientes.length,
-        porRol: usuariosRecientes.reduce((acc: Record<string, number>, u) => {
-          const r = (u.role ?? "USER") as string;
+        porRol: usuariosRecientes.reduce((acc: Record<string, number>, u: Record<string, unknown>) => {
+          const r = (u["role"] ?? "USER") as string;
           acc[r] = (acc[r] ?? 0) + 1;
           return acc;
         }, {})
       },
-      usuarios: { total: usuariosTotales, activos: usuariosActivos, inactivos: usuariosTotales - usuariosActivos },
+      usuarios: { total: usuariosTotales, activos: totalActivos, inactivos: usuariosTotales - totalActivos },
       topModulos: topModulosResult,
-      eventosModeracion: eventosRecientes.map((e) => ({
-        tipo: e.tipo as string,
-        motivo: (e.motivo ?? "") as string,
-        createdAt: e.createdAt ? new Date(e.createdAt as string).toISOString() : ""
+      eventosModeracion: eventosRecientes.map((e: Record<string, unknown>) => ({
+        tipo: e["tipo"] as string,
+        motivo: (e["motivo"] ?? "") as string,
+        createdAt: e["createdAt"] ? new Date(e["createdAt"] as string).toISOString() : ""
       }))
     });
   } catch {
