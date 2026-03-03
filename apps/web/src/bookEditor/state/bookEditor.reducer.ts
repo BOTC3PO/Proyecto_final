@@ -6,6 +6,7 @@ import type {
   TextRun,
   TextStyle,
   BlockStyle,
+  BookAsset,
 } from "../../domain/book/book.types";
 
 export type EditorState = {
@@ -66,7 +67,24 @@ export type EditorAction =
   | { type: "DELETE_PAGE"; pageId: string }
   | { type: "DELETE_BLOCK"; pageId: string; blockId: string }
   | { type: "DUPLICATE_PAGE"; pageId: string }
-  | { type: "DUPLICATE_BLOCK"; pageId: string; blockId: string };
+  | { type: "DUPLICATE_BLOCK"; pageId: string; blockId: string }
+  | { type: "RESTORE_BOOK"; book: Book }
+  | {
+      type: "UPDATE_METADATA";
+      patch: { title?: string; subtitle?: string; language?: string; difficulty?: number };
+    }
+  | {
+      type: "UPDATE_THEME";
+      patch: {
+        paperColor?: string;
+        textColor?: string;
+        fontFamily?: string;
+        baseFontSizePx?: number;
+        lineHeight?: number;
+      };
+    }
+  | { type: "ADD_ASSET"; asset: BookAsset }
+  | { type: "REMOVE_ASSET"; assetId: string };
 
 function updatePage(book: Book, pageId: string, updater: (p: Page) => Page): Book {
   return {
@@ -435,6 +453,54 @@ export function editorReducer(state: EditorState, action: EditorAction): EditorS
         ...state,
         book: updatedBook,
         selectedBlockId: newBlockId || state.selectedBlockId,
+        dirty: true,
+      };
+    }
+
+    case "RESTORE_BOOK":
+      return { ...state, book: action.book, dirty: true };
+
+    case "UPDATE_METADATA": {
+      if (!state.book) return state;
+      return {
+        ...state,
+        book: { ...state.book, metadata: { ...state.book.metadata, ...action.patch } },
+        dirty: true,
+      };
+    }
+
+    case "UPDATE_THEME": {
+      if (!state.book) return state;
+      return {
+        ...state,
+        book: {
+          ...state.book,
+          metadata: {
+            ...state.book.metadata,
+            theme: { ...(state.book.metadata.theme ?? {}), ...action.patch },
+          },
+        },
+        dirty: true,
+      };
+    }
+
+    case "ADD_ASSET": {
+      if (!state.book) return state;
+      return {
+        ...state,
+        book: { ...state.book, assets: [...(state.book.assets ?? []), action.asset] },
+        dirty: true,
+      };
+    }
+
+    case "REMOVE_ASSET": {
+      if (!state.book) return state;
+      return {
+        ...state,
+        book: {
+          ...state.book,
+          assets: (state.book.assets ?? []).filter((a) => a.id !== action.assetId),
+        },
         dirty: true,
       };
     }

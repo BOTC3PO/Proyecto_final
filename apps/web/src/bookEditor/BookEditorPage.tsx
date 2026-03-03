@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import type { Block, Book, Page } from "../domain/book/book.types";
+import type { Block, Book, BookAsset, Page } from "../domain/book/book.types";
 import { useBookEditor } from "./state/useBookEditor";
 import type { EditorAction } from "./state/bookEditor.reducer";
 import { ensureUniqueIds } from "./services/ids";
@@ -81,7 +81,7 @@ function prepareBookForEditor(input: Book): Book {
 export default function BookEditorPage() {
   const { id: routeId } = useParams();
   const location = useLocation();
-  const { state, dispatch, selectedPage, selectedBlock, runValidation } = useBookEditor();
+  const { state, dispatch, undo, redo, canUndo, canRedo, selectedPage, selectedBlock, runValidation } = useBookEditor();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // UI state
@@ -118,6 +118,11 @@ export default function BookEditorPage() {
     totalPages: number;
     total: number;
   } | null>(null);
+
+  // Asset management
+  const [assetPickerOpen, setAssetPickerOpen] = useState(false);
+  const [assetPickerTarget, setAssetPickerTarget] = useState<string | null>(null);
+  const assetFileRef = useRef<HTMLInputElement>(null);
 
   const book = state.book;
   const queryId = new URLSearchParams(location.search).get("id");
@@ -318,7 +323,56 @@ export default function BookEditorPage() {
     }
   }
 
-  //const validationIssues = state.issues;
+  // Keyboard shortcuts for undo/redo (only when not focused inside an editable element)
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      const ctrl = e.ctrlKey || e.metaKey;
+      const tag = (e.target as HTMLElement)?.tagName?.toLowerCase();
+      const isEditable = tag === "input" || tag === "textarea" || (e.target as HTMLElement)?.isContentEditable;
+      if (isEditable) return;
+
+      if (ctrl && !e.shiftKey && e.key === "z") {
+        e.preventDefault();
+        undo();
+      } else if (ctrl && (e.key === "y" || (e.shiftKey && e.key === "z"))) {
+        e.preventDefault();
+        redo();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [undo, redo]);
+
+  // Asset upload
+  function handleAssetFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const dataUrl = ev.target?.result as string;
+      const img = new Image();
+      img.onload = () => {
+        const asset: BookAsset = {
+          id: `asset-${Date.now().toString(36)}`,
+          name: file.name,
+          mimeType: file.type,
+          dataUrl,
+          width: img.naturalWidth,
+          height: img.naturalHeight,
+        };
+        dispatch({ type: "ADD_ASSET", asset });
+        if (assetPickerTarget && selectedPage) {
+          dispatch({ type: "UPDATE_IMAGE", pageId: selectedPage.id, blockId: assetPickerTarget, patch: { assetId: asset.id } });
+          setAssetPickerOpen(false);
+          setAssetPickerTarget(null);
+        }
+      };
+      img.src = dataUrl;
+    };
+    reader.readAsDataURL(file);
+    e.target.value = "";
+  }
 
   // ===== Render helpers =====
   const paperColor = book?.metadata.theme?.paperColor ?? book?.metadata.paper_color ?? "#F5F1E6";
@@ -384,6 +438,22 @@ export default function BookEditorPage() {
           </div>
 
           <div className="flex items-center gap-2">
+            <button
+              className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-40"
+              onClick={undo}
+              disabled={!canUndo}
+              title="Deshacer (Ctrl+Z)"
+            >
+              ↩
+            </button>
+            <button
+              className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-40"
+              onClick={redo}
+              disabled={!canRedo}
+              title="Rehacer (Ctrl+Y)"
+            >
+              ↪
+            </button>
             <button
               className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-60"
               onClick={handleSaveRemote}
@@ -590,10 +660,11 @@ export default function BookEditorPage() {
                 }}
               >
                 {previewMode === "preview" ? (
-                  <PreviewPage page={selectedPage} />
+                  <PreviewPage page={selectedPage} assets={book.assets ?? []} />
                 ) : (
                   <EditPage
                     page={selectedPage}
+                    assets={book.assets ?? []}
                     selectedBlockId={state.selectedBlockId}
                     onSelectBlock={(id) => dispatch({ type: "SELECT_BLOCK", blockId: id })}
                     onMoveBlock={(blockId, dir) =>
@@ -630,12 +701,7 @@ export default function BookEditorPage() {
           <div className="text-sm font-semibold">Inspector</div>
           <div className="mt-3 space-y-3">
             <InspectorCard title="Documento">
-              <KV label="Título" value={book.metadata.title} />
-              <KV label="Idioma" value={book.metadata.language ?? "—"} />
-              <KV label="Dificultad" value={String(book.metadata.difficulty ?? "—")} />
-              <KV label="Papel" value={paperColor} />
-              <KV label="Texto" value={textColor} />
-              <KV label="Fuente" value={fontFamily} />
+              <MetadataEditor book={book} dispatch={dispatch} />
             </InspectorCard>
 
             <InspectorCard title="Página seleccionada">
@@ -677,7 +743,16 @@ export default function BookEditorPage() {
                       ✕ Eliminar
                     </IconBtn>
                   </div>
-                  <BlockInspector block={selectedBlock} pageId={selectedPage.id} dispatch={dispatch} />
+                  <BlockInspector
+                    block={selectedBlock}
+                    pageId={selectedPage.id}
+                    assets={book.assets ?? []}
+                    dispatch={dispatch}
+                    onAssignAsset={(blockId) => {
+                      setAssetPickerTarget(blockId);
+                      setAssetPickerOpen(true);
+                    }}
+                  />
                 </>
               ) : (
                 <div className="text-sm text-slate-500">Seleccioná un bloque para ver detalles.</div>
@@ -864,6 +939,25 @@ export default function BookEditorPage() {
           </div>
         </Modal>
       )}
+
+      {/* Asset picker modal */}
+      {assetPickerOpen && (
+        <AssetsModal
+          assets={book.assets ?? []}
+          targetBlockId={assetPickerTarget}
+          onSelect={(assetId) => {
+            if (assetPickerTarget && selectedPage) {
+              dispatch({ type: "UPDATE_IMAGE", pageId: selectedPage.id, blockId: assetPickerTarget, patch: { assetId } });
+            }
+            setAssetPickerOpen(false);
+            setAssetPickerTarget(null);
+          }}
+          onUpload={() => assetFileRef.current?.click()}
+          onRemove={(assetId) => dispatch({ type: "REMOVE_ASSET", assetId })}
+          onClose={() => { setAssetPickerOpen(false); setAssetPickerTarget(null); }}
+        />
+      )}
+      <input ref={assetFileRef} type="file" accept="image/*" className="hidden" onChange={handleAssetFileChange} />
     </div>
   );
 }
@@ -872,13 +966,14 @@ export default function BookEditorPage() {
 
 function EditPage(props: {
   page: Page;
+  assets: BookAsset[];
   selectedBlockId: string | null;
   onSelectBlock: (id: string) => void;
   onMoveBlock: (blockId: string, dir: "up" | "down") => void;
   onDeleteBlock: (blockId: string) => void;
   onDuplicateBlock: (blockId: string) => void;
 }) {
-  const { page, selectedBlockId, onSelectBlock, onMoveBlock, onDeleteBlock, onDuplicateBlock } = props;
+  const { page, assets, selectedBlockId, onSelectBlock, onMoveBlock, onDeleteBlock, onDuplicateBlock } = props;
 
   return (
     <div className="space-y-3">
@@ -926,7 +1021,7 @@ function EditPage(props: {
             </div>
 
             <div className="px-3 pb-3 pt-1">
-              <BlockRender block={b} />
+              <BlockRender block={b} assets={assets} />
             </div>
           </div>
         );
@@ -935,20 +1030,20 @@ function EditPage(props: {
   );
 }
 
-function PreviewPage(props: { page: Page }) {
-  const { page } = props;
+function PreviewPage(props: { page: Page; assets: BookAsset[] }) {
+  const { page, assets } = props;
   return (
     <div className="space-y-3">
       {page.content.map((b) => (
         <div key={(b as any).id} className="rounded-xl">
-          <BlockRender block={b} preview />
+          <BlockRender block={b} assets={assets} preview />
         </div>
       ))}
     </div>
   );
 }
 
-function BlockRender({ block, preview }: { block: Block; preview?: boolean }) {
+function BlockRender({ block, preview, assets = [] }: { block: Block; preview?: boolean; assets?: BookAsset[] }) {
   if (block.type === "divider") return <div className="my-2 border-t border-black/20" />;
 
   if (block.type === "pageBreak") {
@@ -978,11 +1073,21 @@ function BlockRender({ block, preview }: { block: Block; preview?: boolean }) {
 
   if (block.type === "image") {
     const align = block.blockStyle?.align ?? "center";
+    const asset = assets.find((a) => a.id === block.assetId);
     return (
       <div style={{ textAlign: align as any }}>
-        <div className="inline-grid place-items-center rounded-xl border border-black/20 bg-white/40 px-6 py-10 text-xs text-black/70">
-          Imagen (assetId: <span className="font-mono">{block.assetId}</span>)
-        </div>
+        {asset ? (
+          <img
+            src={asset.dataUrl}
+            alt={block.caption ?? asset.name}
+            className="inline-block max-w-full rounded-xl"
+            style={{ maxHeight: preview ? undefined : "200px" }}
+          />
+        ) : (
+          <div className="inline-grid place-items-center rounded-xl border border-black/20 bg-white/40 px-6 py-10 text-xs text-black/70">
+            Imagen (assetId: <span className="font-mono">{block.assetId}</span>)
+          </div>
+        )}
         {block.caption ? <div className="mt-2 text-sm italic opacity-80">{block.caption}</div> : null}
       </div>
     );
@@ -1121,11 +1226,15 @@ function AlignButtons({
 function BlockInspector({
   block,
   pageId,
+  assets,
   dispatch,
+  onAssignAsset,
 }: {
   block: Block;
   pageId: string;
+  assets: BookAsset[];
   dispatch: (action: EditorAction) => void;
+  onAssignAsset?: (blockId: string) => void;
 }) {
   if (block.type === "heading") {
     return (
@@ -1274,8 +1383,31 @@ function BlockInspector({
   }
 
   if (block.type === "image") {
+    const assignedAsset = assets.find((a) => a.id === block.assetId);
     return (
       <div className="mt-3 space-y-3">
+        <div>
+          <div className="text-xs text-slate-500">Imagen asignada</div>
+          <div className="mt-1">
+            {assignedAsset ? (
+              <div className="overflow-hidden rounded-lg border bg-slate-50">
+                <img src={assignedAsset.dataUrl} alt={assignedAsset.name} className="h-24 w-full object-cover" />
+                <div className="truncate px-2 py-1 text-xs text-slate-500">{assignedAsset.name}</div>
+              </div>
+            ) : (
+              <div className="rounded-lg border border-dashed px-3 py-4 text-center text-xs text-slate-400">
+                Sin imagen asignada
+              </div>
+            )}
+          </div>
+          <button
+            className="mt-1 w-full rounded-lg bg-slate-100 px-2 py-1.5 text-xs font-medium hover:bg-slate-200"
+            onClick={() => onAssignAsset?.(block.id)}
+          >
+            {assignedAsset ? "Cambiar imagen" : "Asignar imagen"}
+          </button>
+        </div>
+
         <div>
           <div className="text-xs text-slate-500">Caption</div>
           <input
@@ -1304,4 +1436,203 @@ function BlockInspector({
   }
 
   return null;
+}
+
+function MetadataEditor({ book, dispatch }: { book: Book; dispatch: (action: EditorAction) => void }) {
+  const theme = book.metadata.theme ?? {};
+
+  return (
+    <div className="space-y-2">
+      <div>
+        <div className="text-xs text-slate-500">Título</div>
+        <input
+          className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
+          value={book.metadata.title}
+          onChange={(e) => dispatch({ type: "UPDATE_METADATA", patch: { title: e.target.value } })}
+        />
+      </div>
+
+      <div>
+        <div className="text-xs text-slate-500">Idioma</div>
+        <select
+          className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
+          value={book.metadata.language ?? "es"}
+          onChange={(e) => dispatch({ type: "UPDATE_METADATA", patch: { language: e.target.value } })}
+        >
+          <option value="es">Español</option>
+          <option value="en">English</option>
+          <option value="pt">Português</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+        </select>
+      </div>
+
+      <div>
+        <div className="text-xs text-slate-500">Dificultad</div>
+        <div className="mt-1 flex gap-1">
+          {[1, 2, 3, 4, 5].map((n) => (
+            <button
+              key={n}
+              className={classNames(
+                "flex-1 rounded-lg py-1 text-xs font-medium",
+                (book.metadata.difficulty ?? 3) === n ? "bg-slate-900 text-white" : "bg-slate-100 hover:bg-slate-200"
+              )}
+              onClick={() => dispatch({ type: "UPDATE_METADATA", patch: { difficulty: n } })}
+            >
+              {n}★
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="pt-1">
+        <div className="text-xs font-semibold text-slate-600">Tema visual</div>
+
+        <div className="mt-2 grid grid-cols-2 gap-2">
+          <div>
+            <div className="text-xs text-slate-500">Papel</div>
+            <div className="mt-1 flex items-center gap-1">
+              <input
+                type="color"
+                className="h-7 w-10 cursor-pointer rounded border"
+                value={theme.paperColor ?? "#E0C9A6"}
+                onChange={(e) => dispatch({ type: "UPDATE_THEME", patch: { paperColor: e.target.value } })}
+              />
+              <span className="font-mono text-xs text-slate-500">{theme.paperColor ?? "#E0C9A6"}</span>
+            </div>
+          </div>
+          <div>
+            <div className="text-xs text-slate-500">Texto</div>
+            <div className="mt-1 flex items-center gap-1">
+              <input
+                type="color"
+                className="h-7 w-10 cursor-pointer rounded border"
+                value={theme.textColor ?? "#2B2B2B"}
+                onChange={(e) => dispatch({ type: "UPDATE_THEME", patch: { textColor: e.target.value } })}
+              />
+              <span className="font-mono text-xs text-slate-500">{theme.textColor ?? "#2B2B2B"}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-2">
+          <div className="text-xs text-slate-500">Fuente</div>
+          <select
+            className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
+            value={theme.fontFamily ?? "serif"}
+            onChange={(e) => dispatch({ type: "UPDATE_THEME", patch: { fontFamily: e.target.value } })}
+          >
+            <option value="serif">Serif</option>
+            <option value="sans-serif">Sans-serif</option>
+            <option value="monospace">Monospace</option>
+            <option value="Georgia, serif">Georgia</option>
+            <option value="'Times New Roman', serif">Times New Roman</option>
+            <option value="Arial, sans-serif">Arial</option>
+          </select>
+        </div>
+
+        <div className="mt-2 grid grid-cols-2 gap-2">
+          <div>
+            <div className="text-xs text-slate-500">Tamaño base (px)</div>
+            <input
+              type="number"
+              className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
+              value={theme.baseFontSizePx ?? 18}
+              min={10}
+              max={32}
+              step={1}
+              onChange={(e) => dispatch({ type: "UPDATE_THEME", patch: { baseFontSizePx: Number(e.target.value) } })}
+            />
+          </div>
+          <div>
+            <div className="text-xs text-slate-500">Interlineado</div>
+            <input
+              type="number"
+              className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
+              value={theme.lineHeight ?? 1.6}
+              min={1}
+              max={3}
+              step={0.1}
+              onChange={(e) => dispatch({ type: "UPDATE_THEME", patch: { lineHeight: Number(e.target.value) } })}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AssetsModal({
+  assets,
+  targetBlockId,
+  onSelect,
+  onUpload,
+  onRemove,
+  onClose,
+}: {
+  assets: BookAsset[];
+  targetBlockId: string | null;
+  onSelect: (assetId: string) => void;
+  onUpload: () => void;
+  onRemove: (assetId: string) => void;
+  onClose: () => void;
+}) {
+  return (
+    <Modal title="Gestor de imágenes" onClose={onClose}>
+      <div className="space-y-4">
+        <div className="flex items-center justify-between gap-2">
+          <div className="text-xs text-slate-500">
+            {targetBlockId
+              ? "Seleccioná una imagen para asignarla al bloque, o subí una nueva."
+              : "Imágenes disponibles en este libro."}
+          </div>
+          <button
+            className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white"
+            onClick={onUpload}
+          >
+            + Subir imagen
+          </button>
+        </div>
+
+        {assets.length === 0 ? (
+          <div className="rounded-xl border border-dashed px-6 py-10 text-center text-sm text-slate-500">
+            No hay imágenes. Subí una para comenzar.
+          </div>
+        ) : (
+          <div className="grid max-h-[50vh] grid-cols-2 gap-3 overflow-auto sm:grid-cols-3">
+            {assets.map((asset) => (
+              <div key={asset.id} className="group relative overflow-hidden rounded-xl border bg-slate-50">
+                <button
+                  className="w-full"
+                  onClick={() => targetBlockId && onSelect(asset.id)}
+                  title={targetBlockId ? `Asignar ${asset.name}` : asset.name}
+                >
+                  <img src={asset.dataUrl} alt={asset.name} className="h-28 w-full object-cover" />
+                  <div className="truncate px-2 py-1 text-left text-xs text-slate-600">{asset.name}</div>
+                  {asset.width ? (
+                    <div className="px-2 pb-1 text-xs text-slate-400">
+                      {asset.width}×{asset.height}px
+                    </div>
+                  ) : null}
+                </button>
+                <button
+                  className="absolute right-1 top-1 rounded-full bg-white/80 px-1.5 py-0.5 text-xs text-red-600 opacity-0 transition hover:bg-red-50 group-hover:opacity-100"
+                  title="Eliminar imagen"
+                  onClick={() => onRemove(asset.id)}
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="flex justify-end">
+          <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={onClose}>
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </Modal>
+  );
 }
