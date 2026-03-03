@@ -7,6 +7,7 @@ import type {
   TextStyle,
   BlockStyle,
   BookAsset,
+  BookNote,
 } from "../../domain/book/book.types";
 
 export type EditorState = {
@@ -17,6 +18,9 @@ export type EditorState = {
   dirty: boolean;
 };
 
+type TocEntry = { id: string; title: string; pageStart: number; anchor: string };
+type PageAnchor = { id: string; label?: string };
+
 export type EditorAction =
   | { type: "LOAD_BOOK"; book: Book }
   | { type: "SELECT_PAGE"; pageId: string }
@@ -25,6 +29,7 @@ export type EditorAction =
   | { type: "MARK_DIRTY"; dirty: boolean }
   | { type: "ADD_PAGE" }
   | { type: "ADD_BLOCK"; blockType: Block["type"] }
+  | { type: "UPDATE_PAGE_TITLE"; pageId: string; title: string }
   | {
       type: "UPDATE_PARAGRAPH_RUN";
       pageId: string;
@@ -60,7 +65,7 @@ export type EditorAction =
       type: "UPDATE_IMAGE";
       pageId: string;
       blockId: string;
-      patch: { caption?: string; blockStyle?: Partial<BlockStyle> };
+      patch: { caption?: string; assetId?: string; blockStyle?: Partial<BlockStyle> };
     }
   | { type: "MOVE_PAGE"; pageId: string; direction: "up" | "down" }
   | { type: "MOVE_BLOCK"; pageId: string; blockId: string; direction: "up" | "down" }
@@ -84,7 +89,20 @@ export type EditorAction =
       };
     }
   | { type: "ADD_ASSET"; asset: BookAsset }
-  | { type: "REMOVE_ASSET"; assetId: string };
+  | { type: "REMOVE_ASSET"; assetId: string }
+  // TOC
+  | { type: "ADD_TOC_ENTRY"; entry: TocEntry }
+  | { type: "UPDATE_TOC_ENTRY"; entryId: string; patch: Partial<Omit<TocEntry, "id">> }
+  | { type: "REMOVE_TOC_ENTRY"; entryId: string }
+  | { type: "MOVE_TOC_ENTRY"; entryId: string; direction: "up" | "down" }
+  // Page anchors
+  | { type: "ADD_PAGE_ANCHOR"; pageId: string; anchor: PageAnchor }
+  | { type: "UPDATE_PAGE_ANCHOR"; pageId: string; anchorId: string; patch: { label?: string } }
+  | { type: "REMOVE_PAGE_ANCHOR"; pageId: string; anchorId: string }
+  // Notes (glossary / author notes)
+  | { type: "ADD_NOTE"; note: BookNote }
+  | { type: "UPDATE_NOTE"; noteId: string; patch: Partial<Omit<BookNote, "id">> }
+  | { type: "REMOVE_NOTE"; noteId: string };
 
 function updatePage(book: Book, pageId: string, updater: (p: Page) => Page): Book {
   return {
@@ -142,7 +160,6 @@ function createDefaultBlock(
       return { type: "pageBreak", id };
 
     default: {
-      // Exhaustividad: si agregás nuevos tipos, TS te va a avisar acá.
       const _never: never = blockType;
       return _never;
     }
@@ -224,6 +241,15 @@ export function editorReducer(state: EditorState, action: EditorAction): EditorS
       };
     }
 
+    case "UPDATE_PAGE_TITLE": {
+      if (!state.book) return state;
+      const updatedBook = updatePage(state.book, action.pageId, (p) => ({
+        ...p,
+        title: action.title || undefined,
+      }));
+      return { ...state, book: updatedBook, dirty: true };
+    }
+
     case "UPDATE_PARAGRAPH_RUN": {
       if (!state.book) return state;
 
@@ -235,7 +261,6 @@ export function editorReducer(state: EditorState, action: EditorAction): EditorS
 
           const runs = b.runs ?? [{ text: "" }];
 
-          // Handle empty runs array when appending first run
           if (runs.length === 0 && runIndex === 0) {
             return { ...b, runs: [{ text: "", ...patch }] };
           }
@@ -323,6 +348,7 @@ export function editorReducer(state: EditorState, action: EditorAction): EditorS
           if (b.type !== "image") return b;
           return {
             ...b,
+            ...(patch.assetId !== undefined && { assetId: patch.assetId }),
             ...(patch.caption !== undefined && { caption: patch.caption }),
             ...(patch.blockStyle !== undefined && {
               blockStyle: { ...(b.blockStyle ?? {}), ...patch.blockStyle },
@@ -500,6 +526,123 @@ export function editorReducer(state: EditorState, action: EditorAction): EditorS
         book: {
           ...state.book,
           assets: (state.book.assets ?? []).filter((a) => a.id !== action.assetId),
+        },
+        dirty: true,
+      };
+    }
+
+    // ─── TOC ────────────────────────────────────────────────────────────────
+
+    case "ADD_TOC_ENTRY": {
+      if (!state.book) return state;
+      const index = [...(state.book.structure?.index ?? []), action.entry];
+      return {
+        ...state,
+        book: { ...state.book, structure: { ...(state.book.structure ?? {}), index } },
+        dirty: true,
+      };
+    }
+
+    case "UPDATE_TOC_ENTRY": {
+      if (!state.book) return state;
+      const index = (state.book.structure?.index ?? []).map((e) =>
+        e.id === action.entryId ? { ...e, ...action.patch } : e
+      );
+      return {
+        ...state,
+        book: { ...state.book, structure: { ...(state.book.structure ?? {}), index } },
+        dirty: true,
+      };
+    }
+
+    case "REMOVE_TOC_ENTRY": {
+      if (!state.book) return state;
+      const index = (state.book.structure?.index ?? []).filter((e) => e.id !== action.entryId);
+      return {
+        ...state,
+        book: { ...state.book, structure: { ...(state.book.structure ?? {}), index } },
+        dirty: true,
+      };
+    }
+
+    case "MOVE_TOC_ENTRY": {
+      if (!state.book) return state;
+      const arr = [...(state.book.structure?.index ?? [])];
+      const idx = arr.findIndex((e) => e.id === action.entryId);
+      if (idx < 0) return state;
+      const newIdx = action.direction === "up" ? idx - 1 : idx + 1;
+      if (newIdx < 0 || newIdx >= arr.length) return state;
+      [arr[idx], arr[newIdx]] = [arr[newIdx], arr[idx]];
+      return {
+        ...state,
+        book: { ...state.book, structure: { ...(state.book.structure ?? {}), index: arr } },
+        dirty: true,
+      };
+    }
+
+    // ─── Page Anchors ────────────────────────────────────────────────────────
+
+    case "ADD_PAGE_ANCHOR": {
+      if (!state.book) return state;
+      const updatedBook = updatePage(state.book, action.pageId, (p) => ({
+        ...p,
+        anchors: [...(p.anchors ?? []), action.anchor],
+      }));
+      return { ...state, book: updatedBook, dirty: true };
+    }
+
+    case "UPDATE_PAGE_ANCHOR": {
+      if (!state.book) return state;
+      const updatedBook = updatePage(state.book, action.pageId, (p) => ({
+        ...p,
+        anchors: (p.anchors ?? []).map((a) =>
+          a.id === action.anchorId ? { ...a, ...action.patch } : a
+        ),
+      }));
+      return { ...state, book: updatedBook, dirty: true };
+    }
+
+    case "REMOVE_PAGE_ANCHOR": {
+      if (!state.book) return state;
+      const updatedBook = updatePage(state.book, action.pageId, (p) => ({
+        ...p,
+        anchors: (p.anchors ?? []).filter((a) => a.id !== action.anchorId),
+      }));
+      return { ...state, book: updatedBook, dirty: true };
+    }
+
+    // ─── Notes ──────────────────────────────────────────────────────────────
+
+    case "ADD_NOTE": {
+      if (!state.book) return state;
+      return {
+        ...state,
+        book: { ...state.book, notes: [...(state.book.notes ?? []), action.note] },
+        dirty: true,
+      };
+    }
+
+    case "UPDATE_NOTE": {
+      if (!state.book) return state;
+      return {
+        ...state,
+        book: {
+          ...state.book,
+          notes: (state.book.notes ?? []).map((n) =>
+            n.id === action.noteId ? { ...n, ...action.patch } : n
+          ),
+        },
+        dirty: true,
+      };
+    }
+
+    case "REMOVE_NOTE": {
+      if (!state.book) return state;
+      return {
+        ...state,
+        book: {
+          ...state.book,
+          notes: (state.book.notes ?? []).filter((n) => n.id !== action.noteId),
         },
         dirty: true,
       };

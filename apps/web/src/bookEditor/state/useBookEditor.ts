@@ -10,6 +10,7 @@ const MAX_HISTORY = 30;
 const HISTORY_MUTATING_TYPES = new Set<EditorAction["type"]>([
   "ADD_PAGE",
   "ADD_BLOCK",
+  "UPDATE_PAGE_TITLE",
   "UPDATE_PARAGRAPH_RUN",
   "UPDATE_PARAGRAPH_BLOCKSTYLE",
   "UPDATE_RUN_STYLE",
@@ -25,6 +26,16 @@ const HISTORY_MUTATING_TYPES = new Set<EditorAction["type"]>([
   "UPDATE_THEME",
   "ADD_ASSET",
   "REMOVE_ASSET",
+  "ADD_TOC_ENTRY",
+  "UPDATE_TOC_ENTRY",
+  "REMOVE_TOC_ENTRY",
+  "MOVE_TOC_ENTRY",
+  "ADD_PAGE_ANCHOR",
+  "UPDATE_PAGE_ANCHOR",
+  "REMOVE_PAGE_ANCHOR",
+  "ADD_NOTE",
+  "UPDATE_NOTE",
+  "REMOVE_NOTE",
 ]);
 
 type HistorySnapshot = Book | null;
@@ -67,8 +78,6 @@ export function useBookEditor() {
           past: [...historyRef.current.past.slice(-(MAX_HISTORY - 1)), bookRef.current],
           future: [],
         };
-        // rawDispatch will trigger a re-render, which re-reads historyRef for canUndo/canRedo
-        // so we don't need setHistoryVersion here
       }
       rawDispatch(action);
     },

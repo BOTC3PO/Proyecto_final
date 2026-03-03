@@ -10,6 +10,15 @@ export type BookAsset = {
   height?: number;
 };
 
+/** Nota de autor: glosario, aclaración o definición referenciable desde el texto. */
+export type BookNote = {
+  id: string;
+  term: string;
+  content: string;
+  /** IDs de páginas que mencionan esta nota */
+  pages?: string[];
+};
+
 export type Book = {
   schema: BookSchemaV10 | BookSchemaV11;
   metadata: {
@@ -38,7 +47,7 @@ export type Book = {
   };
   assets?: BookAsset[];
   pages: Page[];
-  notes?: any[];
+  notes?: BookNote[];
   glossary?: any[];
   references?: any[];
 };

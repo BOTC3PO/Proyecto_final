@@ -1,19 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import type { Block, Book, BookAsset, Page } from "../domain/book/book.types";
+import type { Block, Book, BookAsset, BookNote, Page } from "../domain/book/book.types";
 import { useBookEditor } from "./state/useBookEditor";
 import type { EditorAction } from "./state/bookEditor.reducer";
 import { ensureUniqueIds } from "./services/ids";
 import { exportBookToDownload, importBookFromFile } from "./services/importExport";
 import { migrateToV11ForEditor } from "./services/migrate";
 import { fetchBook, fetchBooks, saveBook } from "./services/booksApi";
+import type { BookListItem } from "./services/booksApi";
 
-// ===== Helpers UI-only =====
+// ===== Helpers =====
 function classNames(...xs: Array<string | false | null | undefined>) {
   return xs.filter(Boolean).join(" ");
 }
 
-function prettyJson(obj: any) {
+function prettyJson(obj: unknown) {
   return JSON.stringify(obj, null, 2);
 }
 
@@ -21,7 +22,32 @@ function clamp(n: number, a: number, b: number) {
   return Math.max(a, Math.min(b, n));
 }
 
-// ===== Mock book inicial  =====
+// ===== FSA types =====
+interface FileSystemFileHandle {
+  getFile(): Promise<File>;
+  createWritable(): Promise<FileSystemWritableFileStream>;
+  queryPermission(desc: { mode: "readwrite" }): Promise<PermissionState>;
+  requestPermission(desc: { mode: "readwrite" }): Promise<PermissionState>;
+  name: string;
+}
+interface FileSystemWritableFileStream {
+  write(data: string | Blob | ArrayBuffer): Promise<void>;
+  close(): Promise<void>;
+}
+declare global {
+  interface Window {
+    showOpenFilePicker?: (opts?: {
+      types?: Array<{ description: string; accept: Record<string, string[]> }>;
+      multiple?: boolean;
+    }) => Promise<FileSystemFileHandle[]>;
+    showSaveFilePicker?: (opts?: {
+      suggestedName?: string;
+      types?: Array<{ description: string; accept: Record<string, string[]> }>;
+    }) => Promise<FileSystemFileHandle>;
+  }
+}
+
+// ===== EMPTY_BOOK =====
 const EMPTY_BOOK: Book = {
   schema: "book.pages@1.1",
   metadata: {
@@ -54,1382 +80,1273 @@ const EMPTY_BOOK: Book = {
           id: "p001_h1_001",
           level: 1,
           text: "Título",
-          blockStyle: { align: "center", spacingBeforePx: 24, spacingAfterPx: 12 },
-          textStyle: { fontSizePx: 34, bold: true, color: "#1A1A1A", fontFamily: "serif" },
+          blockStyle: { align: "left" },
+          textStyle: { bold: true },
         },
         {
           type: "paragraph",
-          id: "p001_par_001",
-          blockStyle: { align: "justify", indentFirstLinePx: 28, spacingAfterPx: 12 },
-          runs: [{ text: "Escribí acá…", style: { fontSizePx: 18 } }],
+          id: "p001_p_001",
+          runs: [{ text: "Escribe aquí el contenido de tu libro." }],
+          blockStyle: { align: "left" },
         },
       ],
-      notesLinked: [],
-      meta: { chapterId: "draft", estimatedReadingSeconds: 30 },
     },
   ],
   notes: [],
 };
 
-function prepareBookForEditor(input: Book): Book {
-  const migrated = migrateToV11ForEditor(input);
-  const { book } = ensureUniqueIds(migrated);
-  return book;
-}
-
-// ===== Componente principal =====
-export default function BookEditorPage() {
-  const { id: routeId } = useParams();
-  const location = useLocation();
-  const { state, dispatch, undo, redo, canUndo, canRedo, selectedPage, selectedBlock, runValidation } = useBookEditor();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // UI state
-  // Mobile tabs
-  const [mobileTab, setMobileTab] = useState<"pages" | "content" | "inspector">("content");
-
-  // Panels toggles
-  const [showInspector, setShowInspector] = useState(true);
-
-  // Preview toggle
-  const [previewMode, setPreviewMode] = useState<"edit" | "preview">("edit");
-
-  // JSON modal
-  const [jsonModalOpen, setJsonModalOpen] = useState(false);
-  const [jsonDraft, setJsonDraft] = useState("");
-
-  // Validation drawer
-  const [issuesOpen, setIssuesOpen] = useState(false);
-
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadError, setLoadError] = useState<string | null>(null);
-  const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
-  const [saveError, setSaveError] = useState<string | null>(null);
-  const [draftSavedAt, setDraftSavedAt] = useState<string | null>(null);
-  const [libraryOpen, setLibraryOpen] = useState(false);
-  const [libraryInput, setLibraryInput] = useState("");
-  const [libraryQuery, setLibraryQuery] = useState("");
-  const [libraryPage, setLibraryPage] = useState(1);
-  const [libraryLoading, setLibraryLoading] = useState(false);
-  const [libraryError, setLibraryError] = useState<string | null>(null);
-  const [libraryResults, setLibraryResults] = useState<{
-    items: Array<{ id: string; title: string; createdAt?: string; updatedAt?: string }>;
-    page: number;
-    totalPages: number;
-    total: number;
-  } | null>(null);
-
-  // Asset management
-  const [assetPickerOpen, setAssetPickerOpen] = useState(false);
-  const [assetPickerTarget, setAssetPickerTarget] = useState<string | null>(null);
-  const assetFileRef = useRef<HTMLInputElement>(null);
-
-  const book = state.book;
-  const queryId = new URLSearchParams(location.search).get("id");
-  const bookId = routeId ?? queryId ?? null;
-
-  useEffect(() => {
-    let ignore = false;
-
-    async function loadInitialBook() {
-      setIsLoading(true);
-      setLoadError(null);
-
-      let loadedBook: Book | null = null;
-
-      if (bookId) {
-        try {
-          const remote = await fetchBook(bookId);
-          if (ignore) return;
-          loadedBook = prepareBookForEditor(remote);
-        } catch (e) {
-          if (ignore) return;
-          console.error("No se pudo cargar el libro remoto:", e);
-          setLoadError("No se pudo cargar el libro remoto. Se usará el borrador local.");
-        }
-      }
-
-      if (!loadedBook) {
-        let fallback = EMPTY_BOOK;
-        try {
-          const raw = localStorage.getItem("bookEditor:draft");
-          if (raw) {
-            const parsed = JSON.parse(raw) as Book;
-            fallback = parsed;
-          }
-        } catch (e) {
-          console.error("No se pudo cargar el borrador:", e);
-        }
-        loadedBook = prepareBookForEditor(fallback);
-      }
-
-      dispatch({ type: "LOAD_BOOK", book: loadedBook });
-      setIsLoading(false);
-    }
-
-    loadInitialBook();
-
-    return () => {
-      ignore = true;
-    };
-  }, [bookId, dispatch]);
-
-  useEffect(() => {
-    if (!libraryOpen) return;
-    let ignore = false;
-
-    async function loadLibrary() {
-      setLibraryLoading(true);
-      setLibraryError(null);
-      try {
-        const response = await fetchBooks({ q: libraryQuery || undefined, page: libraryPage, pageSize: 8 });
-        if (ignore) return;
-        setLibraryResults({
-          items: response.items,
-          page: response.page,
-          totalPages: response.totalPages,
-          total: response.total
-        });
-      } catch (e) {
-        if (ignore) return;
-        console.error("No se pudo cargar la biblioteca:", e);
-        setLibraryError("No se pudieron cargar los libros guardados. Revisá tu conexión.");
-      } finally {
-        if (!ignore) setLibraryLoading(false);
-      }
-    }
-
-    loadLibrary();
-    return () => {
-      ignore = true;
-    };
-  }, [libraryOpen, libraryQuery, libraryPage]);
-
-  useEffect(() => {
-    if (!book) return;
-    try {
-      localStorage.setItem("bookEditor:draft", JSON.stringify(book));
-    } catch (e) {
-      console.error("No se pudo guardar el borrador:", e);
-    }
-  }, [book]);
-
-  useEffect(() => {
-    if (!book) return;
-    runValidation(book);
-  }, [book, runValidation]);
-
-  useEffect(() => {
-    if (state.dirty && saveStatus === "saved") {
-      setSaveStatus("idle");
-    }
-  }, [saveStatus, state.dirty]);
-
-  // ===== Acciones UI (lógica básica placeholder) =====
-  function openJsonModal() {
-    if (!book) return;
-    setJsonDraft(prettyJson(book));
-    setJsonModalOpen(true);
-  }
-
-  function applyJsonDraft() {
-    try {
-      const parsed = prepareBookForEditor(JSON.parse(jsonDraft));
-      dispatch({ type: "LOAD_BOOK", book: parsed });
-      dispatch({ type: "MARK_DIRTY", dirty: true });
-      setJsonModalOpen(false);
-    } catch (e: any) {
-      alert("JSON inválido: " + (e?.message ?? "error"));
-    }
-  }
-
-  function addPage() {
-    dispatch({ type: "ADD_PAGE" });
-  }
-
-  function addBlock(type: Block["type"]) {
-    if (!selectedPage) return;
-    dispatch({ type: "ADD_BLOCK", blockType: type });
-  }
-
-  async function handleImportFile(event: React.ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    try {
-      const imported = await importBookFromFile(file);
-      dispatch({ type: "LOAD_BOOK", book: imported });
-      dispatch({ type: "MARK_DIRTY", dirty: true });
-      setMobileTab("content");
-    } catch (e: any) {
-      alert("No se pudo importar el archivo: " + (e?.message ?? "error"));
-    } finally {
-      event.target.value = "";
-    }
-  }
-
-  async function handleSaveRemote() {
-    if (!book) return;
-    setSaveStatus("saving");
-    setSaveError(null);
-
-    try {
-      await saveBook(book);
-      dispatch({ type: "MARK_DIRTY", dirty: false });
-      setSaveStatus("saved");
-    } catch (e: any) {
-      console.error("No se pudo guardar:", e);
-      setSaveStatus("error");
-      setSaveError("No se pudo guardar en el servidor.");
-    }
-  }
-
-  function handleSaveDraft() {
-    if (!book) return;
-    try {
-      localStorage.setItem("bookEditor:draft", JSON.stringify(book));
-      setDraftSavedAt(new Date().toISOString());
-    } catch (e) {
-      console.error("No se pudo guardar el borrador:", e);
-      setSaveStatus("error");
-      setSaveError("No se pudo guardar el borrador local.");
-    }
-  }
-
-  function openLibrary() {
-    setLibraryOpen(true);
-    setLibraryInput("");
-    setLibraryQuery("");
-    setLibraryPage(1);
-    setLibraryResults(null);
-    setLibraryError(null);
-  }
-
-  async function handleOpenBook(id: string) {
-    setLibraryError(null);
-    setIsLoading(true);
-    try {
-      const remote = await fetchBook(id);
-      const loaded = prepareBookForEditor(remote);
-      dispatch({ type: "LOAD_BOOK", book: loaded });
-      dispatch({ type: "MARK_DIRTY", dirty: false });
-      setSaveStatus("idle");
-      setLibraryOpen(false);
-    } catch (e) {
-      console.error("No se pudo abrir el libro:", e);
-      setLibraryError("No se pudo abrir el libro seleccionado.");
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  // Keyboard shortcuts for undo/redo (only when not focused inside an editable element)
-  useEffect(() => {
-    function onKeyDown(e: KeyboardEvent) {
-      const ctrl = e.ctrlKey || e.metaKey;
-      const tag = (e.target as HTMLElement)?.tagName?.toLowerCase();
-      const isEditable = tag === "input" || tag === "textarea" || (e.target as HTMLElement)?.isContentEditable;
-      if (isEditable) return;
-
-      if (ctrl && !e.shiftKey && e.key === "z") {
-        e.preventDefault();
-        undo();
-      } else if (ctrl && (e.key === "y" || (e.shiftKey && e.key === "z"))) {
-        e.preventDefault();
-        redo();
-      }
-    }
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [undo, redo]);
-
-  // Asset upload
-  function handleAssetFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const dataUrl = ev.target?.result as string;
-      const img = new Image();
-      img.onload = () => {
-        const asset: BookAsset = {
-          id: `asset-${Date.now().toString(36)}`,
-          name: file.name,
-          mimeType: file.type,
-          dataUrl,
-          width: img.naturalWidth,
-          height: img.naturalHeight,
-        };
-        dispatch({ type: "ADD_ASSET", asset });
-        if (assetPickerTarget && selectedPage) {
-          dispatch({ type: "UPDATE_IMAGE", pageId: selectedPage.id, blockId: assetPickerTarget, patch: { assetId: asset.id } });
-          setAssetPickerOpen(false);
-          setAssetPickerTarget(null);
-        }
-      };
-      img.src = dataUrl;
-    };
-    reader.readAsDataURL(file);
-    e.target.value = "";
-  }
-
-  // ===== Render helpers =====
-  const paperColor = book?.metadata.theme?.paperColor ?? book?.metadata.paper_color ?? "#F5F1E6";
-  const textColor = book?.metadata.theme?.textColor ?? book?.metadata.text_color ?? "#1B1B1B";
-  const baseFontSize = book?.metadata.theme?.baseFontSizePx ?? 18;
-  const fontFamily = book?.metadata.theme?.fontFamily ?? "serif";
-  const lineHeight = book?.metadata.theme?.lineHeight ?? 1.6;
-
-  if (!book) {
-    return (
-      <div className="min-h-screen bg-slate-50 text-slate-900">
-        <header className="sticky top-0 z-40 border-b bg-white/90 backdrop-blur">
-          <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 sm:px-6">
-            <div className="flex min-w-0 flex-1 items-center gap-3">
-              <div className="grid h-9 w-9 place-items-center rounded-xl bg-slate-900 font-semibold text-white">B</div>
-              <div className="min-w-0">
-                <div className="truncate text-sm font-semibold">Editor de libros</div>
-                <div className="truncate text-xs text-slate-500">Preparando editor…</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 text-xs text-slate-500">
-              {isLoading ? (
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 animate-spin rounded-full border border-slate-300 border-t-transparent" />
-                  Cargando…
-                </div>
-              ) : null}
-              {loadError ? <span className="text-red-600">{loadError}</span> : null}
-            </div>
-          </div>
-        </header>
-        <div className="p-6">Cargando editor…</div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      {/* Top bar */}
-      <header className="sticky top-0 z-40 border-b bg-white/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 sm:px-6">
-          <div className="flex min-w-0 flex-1 items-center gap-3">
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-slate-900 font-semibold text-white">B</div>
-            <div className="min-w-0">
-              <div className="truncate text-sm font-semibold">{book.metadata.title}</div>
-              <div className="truncate text-xs text-slate-500">
-                {book.metadata.id} · {book.schema} {state.dirty ? "· sin guardar" : "· guardado"}
-              </div>
-              <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500">
-                {isLoading ? (
-                  <span className="inline-flex items-center gap-2 text-slate-500">
-                    <span className="h-3 w-3 animate-spin rounded-full border border-slate-300 border-t-transparent" />
-                    Cargando…
-                  </span>
-                ) : null}
-                {saveStatus === "saving" ? <span className="text-slate-500">Guardando…</span> : null}
-                {saveStatus === "saved" ? <span className="text-emerald-600">Guardado</span> : null}
-                {saveStatus === "error" ? <span className="text-red-600">{saveError ?? "Error al guardar"}</span> : null}
-                {draftSavedAt ? <span className="text-slate-400">Borrador local actualizado</span> : null}
-                {loadError ? <span className="text-red-600">{loadError}</span> : null}
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-40"
-              onClick={undo}
-              disabled={!canUndo}
-              title="Deshacer (Ctrl+Z)"
-            >
-              ↩
-            </button>
-            <button
-              className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-40"
-              onClick={redo}
-              disabled={!canRedo}
-              title="Rehacer (Ctrl+Y)"
-            >
-              ↪
-            </button>
-            <button
-              className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-60"
-              onClick={handleSaveRemote}
-              disabled={saveStatus === "saving" || isLoading}
-            >
-              Guardar
-            </button>
-            <button
-              className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-60"
-              onClick={handleSaveDraft}
-              disabled={isLoading}
-            >
-              Guardar borrador local
-            </button>
-            <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={openLibrary}>
-              Abrir libro
-            </button>
-            <button
-              className={classNames(
-                "rounded-lg px-3 py-2 text-sm font-medium",
-                previewMode === "edit" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-900"
-              )}
-              onClick={() => setPreviewMode("edit")}
-            >
-              Editar
-            </button>
-            <button
-              className={classNames(
-                "rounded-lg px-3 py-2 text-sm font-medium",
-                previewMode === "preview" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-900"
-              )}
-              onClick={() => setPreviewMode("preview")}
-            >
-              Vista previa
-            </button>
-
-            <button
-              className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
-              onClick={() => {
-                runValidation(book);
-                setIssuesOpen(true);
-              }}
-            >
-              Validación ({state.issues.length})
-            </button>
-
-            <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={openJsonModal}>
-              JSON
-            </button>
-
-            <button
-              className="hidden sm:inline-flex rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
-              onClick={() => setShowInspector((v) => !v)}
-            >
-              {showInspector ? "Ocultar" : "Mostrar"} inspector
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile tabs */}
-        <div className="border-t bg-white sm:hidden">
-          <div className="mx-auto flex max-w-7xl gap-2 px-3 py-2">
-            {(["pages", "content", "inspector"] as const).map((t) => (
-              <button
-                key={t}
-                className={classNames(
-                  "flex-1 rounded-lg px-3 py-2 text-sm font-medium",
-                  mobileTab === t ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-900"
-                )}
-                onClick={() => setMobileTab(t)}
-              >
-                {t === "pages" ? "Páginas" : t === "content" ? "Contenido" : "Inspector"}
-              </button>
-            ))}
-          </div>
-        </div>
-      </header>
-
-      {/* Main layout */}
-      <main className="mx-auto grid max-w-7xl gap-3 px-3 py-3 sm:grid-cols-[280px_1fr] sm:px-6 lg:grid-cols-[300px_1fr_340px]">
-        {/* Sidebar: Pages */}
-        <aside
-          className={classNames(
-            "rounded-2xl border bg-white p-3",
-            "sm:block",
-            mobileTab === "pages" ? "block" : "hidden sm:block"
-          )}
-        >
-          <div className="flex items-center justify-between gap-2">
-            <div className="text-sm font-semibold">Páginas</div>
-            <button className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" onClick={addPage}>
-              + Hoja
-            </button>
-          </div>
-
-          <div className="mt-3 space-y-2">
-            <input
-              className="w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-              placeholder="Buscar página… (UI)"
-              disabled
-            />
-            <div className="max-h-[70vh] overflow-auto pr-1">
-              <ul className="space-y-1">
-                {book.pages.map((p, pageIdx) => {
-                  const active = p.id === state.selectedPageId;
-                  return (
-                    <li key={p.id}>
-                      <div
-                        className={classNames(
-                          "rounded-xl border",
-                          active ? "border-slate-900 bg-slate-50" : "border-transparent hover:border-slate-200 hover:bg-slate-50"
-                        )}
-                      >
-                        <button
-                          className="w-full px-3 py-2 text-left"
-                          onClick={() => {
-                            dispatch({ type: "SELECT_PAGE", pageId: p.id });
-                            setMobileTab("content");
-                          }}
-                        >
-                          <div className="flex items-center justify-between gap-2">
-                            <div className="min-w-0">
-                              <div className="truncate text-sm font-semibold">{p.title ?? `Página ${p.number}`}</div>
-                              <div className="truncate text-xs text-slate-500">{p.id} · Nº {p.number}</div>
-                            </div>
-                            <div className="text-xs text-slate-500">{p.content.length} bloques</div>
-                          </div>
-                        </button>
-                        <div className="flex items-center gap-0.5 border-t px-2 py-1">
-                          <IconBtn
-                            title="Subir página"
-                            disabled={pageIdx === 0}
-                            onClick={() => dispatch({ type: "MOVE_PAGE", pageId: p.id, direction: "up" })}
-                          >▲</IconBtn>
-                          <IconBtn
-                            title="Bajar página"
-                            disabled={pageIdx === book.pages.length - 1}
-                            onClick={() => dispatch({ type: "MOVE_PAGE", pageId: p.id, direction: "down" })}
-                          >▼</IconBtn>
-                          <IconBtn
-                            title="Duplicar página"
-                            onClick={() => dispatch({ type: "DUPLICATE_PAGE", pageId: p.id })}
-                          >⊕</IconBtn>
-                          <IconBtn
-                            title="Eliminar página"
-                            disabled={book.pages.length <= 1}
-                            danger
-                            onClick={() => dispatch({ type: "DELETE_PAGE", pageId: p.id })}
-                          >✕</IconBtn>
-                        </div>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        </aside>
-
-        {/* Center: Editor / Preview */}
-        <section className={classNames("rounded-2xl border bg-white p-3", mobileTab === "content" ? "block" : "hidden sm:block")}>
-          {!selectedPage ? (
-            <div className="grid place-items-center py-16 text-slate-500">No hay página seleccionada.</div>
-          ) : (
-            <>
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="min-w-0">
-                  <div className="truncate text-sm font-semibold">
-                    {selectedPage.title ?? `Página ${selectedPage.number}`} <span className="text-slate-400">·</span>{" "}
-                    <span className="text-slate-500">{selectedPage.id}</span>
-                  </div>
-                  <div className="text-xs text-slate-500">
-                    Capítulo: {selectedPage.meta?.chapterId ?? "—"} · Tiempo estimado: {selectedPage.meta?.estimatedReadingSeconds ?? "—"}s
-                  </div>
-                </div>
-
-                {previewMode === "edit" && (
-                  <div className="flex flex-wrap items-center gap-2">
-                    <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => addBlock("heading")}>
-                      + Título
-                    </button>
-                    <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => addBlock("paragraph")}>
-                      + Párrafo
-                    </button>
-                    <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => addBlock("image")}>
-                      + Imagen
-                    </button>
-                    <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => addBlock("divider")}>
-                      + Separador
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              {/* Canvas */}
-              <div
-                className="mt-3 rounded-2xl border p-4 sm:p-6"
-                style={{
-                  background: paperColor,
-                  color: textColor,
-                  fontFamily,
-                  fontSize: baseFontSize,
-                  lineHeight,
-                }}
-              >
-                {previewMode === "preview" ? (
-                  <PreviewPage page={selectedPage} assets={book.assets ?? []} />
-                ) : (
-                  <EditPage
-                    page={selectedPage}
-                    assets={book.assets ?? []}
-                    selectedBlockId={state.selectedBlockId}
-                    onSelectBlock={(id) => dispatch({ type: "SELECT_BLOCK", blockId: id })}
-                    onMoveBlock={(blockId, dir) =>
-                      dispatch({ type: "MOVE_BLOCK", pageId: selectedPage.id, blockId, direction: dir })
-                    }
-                    onDeleteBlock={(blockId) =>
-                      dispatch({ type: "DELETE_BLOCK", pageId: selectedPage.id, blockId })
-                    }
-                    onDuplicateBlock={(blockId) =>
-                      dispatch({ type: "DUPLICATE_BLOCK", pageId: selectedPage.id, blockId })
-                    }
-                  />
-                )}
-              </div>
-
-              {/* Footer helper */}
-              <div className="mt-3 text-xs text-slate-500">
-                Consejos: mantené IDs únicos por bloque (ej. <code className="rounded bg-slate-100 px-1">p002_par_001</code>) y TOC anchors tipo{" "}
-                <code className="rounded bg-slate-100 px-1">p025:a1</code>.
-              </div>
-            </>
-          )}
-        </section>
-
-        {/* Inspector */}
-        <aside
-          className={classNames(
-            "rounded-2xl border bg-white p-3",
-            "lg:block",
-            showInspector ? "block" : "hidden lg:block",
-            mobileTab === "inspector" ? "block" : "hidden sm:hidden lg:block"
-          )}
-        >
-          <div className="text-sm font-semibold">Inspector</div>
-          <div className="mt-3 space-y-3">
-            <InspectorCard title="Documento">
-              <MetadataEditor book={book} dispatch={dispatch} />
-            </InspectorCard>
-
-            <InspectorCard title="Página seleccionada">
-              {selectedPage ? (
-                <>
-                  <KV label="ID" value={selectedPage.id} />
-                  <KV label="Número" value={String(selectedPage.number)} />
-                  <KV label="Bloques" value={String(selectedPage.content.length)} />
-                  <KV label="Anchor base" value={(selectedPage.anchors?.[0]?.id ?? "—") as string} />
-                </>
-              ) : (
-                <div className="text-sm text-slate-500">—</div>
-              )}
-            </InspectorCard>
-
-            <InspectorCard title="Bloque seleccionado">
-              {selectedBlock && selectedPage ? (
-                <>
-                  <div className="flex items-center justify-between gap-2 flex-wrap">
-                    <KV label="Tipo" value={selectedBlock.type} />
-                    <KV label="ID" value={selectedBlock.id} />
-                  </div>
-                  <div className="mt-2 flex gap-1">
-                    <IconBtn
-                      title="Duplicar bloque"
-                      onClick={() =>
-                        dispatch({ type: "DUPLICATE_BLOCK", pageId: selectedPage.id, blockId: selectedBlock.id })
-                      }
-                    >
-                      ⊕ Duplicar
-                    </IconBtn>
-                    <IconBtn
-                      title="Eliminar bloque"
-                      danger
-                      onClick={() =>
-                        dispatch({ type: "DELETE_BLOCK", pageId: selectedPage.id, blockId: selectedBlock.id })
-                      }
-                    >
-                      ✕ Eliminar
-                    </IconBtn>
-                  </div>
-                  <BlockInspector
-                    block={selectedBlock}
-                    pageId={selectedPage.id}
-                    assets={book.assets ?? []}
-                    dispatch={dispatch}
-                    onAssignAsset={(blockId) => {
-                      setAssetPickerTarget(blockId);
-                      setAssetPickerOpen(true);
-                    }}
-                  />
-                </>
-              ) : (
-                <div className="text-sm text-slate-500">Seleccioná un bloque para ver detalles.</div>
-              )}
-            </InspectorCard>
-
-            <InspectorCard title="Acciones (UI)">
-              <div className="space-y-2">
-                <button
-                  className="w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
-                  onClick={() => fileInputRef.current?.click()}
-                >
-                  Importar JSON
-                </button>
-                <button
-                  className="w-full rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white"
-                  onClick={() => exportBookToDownload(book, `${book.metadata.id || "book"}.json`)}
-                >
-                  Exportar
-                </button>
-                <button
-                  className="w-full rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
-                  onClick={() => setPreviewMode((m) => (m === "edit" ? "preview" : "edit"))}
-                >
-                  Alternar vista
-                </button>
-              </div>
-              <input ref={fileInputRef} type="file" accept="application/json" className="hidden" onChange={handleImportFile} />
-            </InspectorCard>
-          </div>
-        </aside>
-      </main>
-
-      {/* JSON Modal */}
-      {jsonModalOpen && (
-        <Modal title="Editar JSON (temporal)" onClose={() => setJsonModalOpen(false)}>
-          <div className="space-y-3">
-            <div className="text-xs text-slate-600">
-              Esto es solo para acelerar pruebas. En la lógica final, el editor va a generar/validar y exportar sin tocar JSON a mano.
-            </div>
-            <textarea
-              className="h-[50vh] w-full rounded-xl border px-3 py-2 font-mono text-xs outline-none focus:ring-2 focus:ring-slate-300"
-              value={jsonDraft}
-              onChange={(e) => setJsonDraft(e.target.value)}
-            />
-            <div className="flex flex-wrap justify-end gap-2">
-              <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={() => setJsonModalOpen(false)}>
-                Cancelar
-              </button>
-              <button className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" onClick={applyJsonDraft}>
-                Aplicar JSON
-              </button>
-            </div>
-          </div>
-        </Modal>
-      )}
-
-      {/* Issues Drawer */}
-      {issuesOpen && (
-        <Modal title="Validación (preliminar)" onClose={() => setIssuesOpen(false)}>
-          <div className="space-y-3">
-            <div className="text-xs text-slate-600">
-              Esta validación usa el servicio compartido. Luego implementamos el validador real: IDs únicos, anchors existentes, TOC ↔ páginas, notes ↔ referencias, assets ↔ uso, etc.
-            </div>
-
-            <div className="max-h-[55vh] overflow-auto rounded-xl border">
-              {state.issues.length === 0 ? (
-                <div className="p-4 text-sm text-slate-600">Sin issues detectados.</div>
-              ) : (
-                <ul className="divide-y">
-                  {state.issues.map((it, i) => (
-                    <li key={i} className="p-3">
-                      <div className="flex items-start gap-2">
-                        <span
-                          className={classNames(
-                            "mt-0.5 inline-flex rounded-full px-2 py-0.5 text-xs font-semibold",
-                            it.level === "error" ? "bg-red-100 text-red-700" : "bg-amber-100 text-amber-700"
-                          )}
-                        >
-                          {it.level.toUpperCase()}
-                        </span>
-                        <div className="min-w-0">
-                          <div className="text-sm">{it.message}</div>
-                          {it.path ? <div className="mt-1 text-xs text-slate-500">{it.path}</div> : null}
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            <div className="flex justify-end">
-              <button className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" onClick={() => setIssuesOpen(false)}>
-                Cerrar
-              </button>
-            </div>
-          </div>
-        </Modal>
-      )}
-
-      {libraryOpen && (
-        <Modal title="Abrir libro guardado" onClose={() => setLibraryOpen(false)}>
-          <div className="space-y-4">
-            <form
-              className="flex flex-wrap items-center gap-2"
-              onSubmit={(event) => {
-                event.preventDefault();
-                setLibraryPage(1);
-                setLibraryQuery(libraryInput.trim());
-              }}
-            >
-              <input
-                className="min-w-[220px] flex-1 rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-                placeholder="Buscar por título o ID"
-                value={libraryInput}
-                onChange={(event) => setLibraryInput(event.target.value)}
-              />
-              <button className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white" type="submit">
-                Buscar
-              </button>
-              <button
-                className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium"
-                type="button"
-                onClick={() => {
-                  setLibraryInput("");
-                  setLibraryQuery("");
-                  setLibraryPage(1);
-                }}
-              >
-                Limpiar
-              </button>
-            </form>
-
-            {libraryError ? <div className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{libraryError}</div> : null}
-
-            <div className="rounded-xl border">
-              <div className="divide-y">
-                {libraryLoading ? (
-                  <div className="px-4 py-6 text-center text-sm text-slate-500">Cargando libros...</div>
-                ) : libraryResults?.items.length ? (
-                  libraryResults.items.map((item) => (
-                    <button
-                      key={item.id}
-                      className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left hover:bg-slate-50"
-                      onClick={() => handleOpenBook(item.id)}
-                    >
-                      <div className="min-w-0">
-                        <div className="truncate text-sm font-semibold">{item.title}</div>
-                        <div className="truncate text-xs text-slate-500">{item.id}</div>
-                      </div>
-                      <div className="text-xs text-slate-400">
-                        {item.updatedAt ? `Actualizado ${new Date(item.updatedAt).toLocaleDateString()}` : "Sin fecha"}
-                      </div>
-                    </button>
-                  ))
-                ) : (
-                  <div className="px-4 py-6 text-center text-sm text-slate-500">No hay libros guardados.</div>
-                )}
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
-              <span>
-                {libraryResults ? `Página ${libraryResults.page} de ${libraryResults.totalPages} · ${libraryResults.total} libros` : "—"}
-              </span>
-              <div className="flex items-center gap-2">
-                <button
-                  className="rounded-lg border px-3 py-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  onClick={() => setLibraryPage((p) => Math.max(1, p - 1))}
-                  disabled={libraryLoading || (libraryResults?.page ?? 1) <= 1}
-                >
-                  Anterior
-                </button>
-                <button
-                  className="rounded-lg border px-3 py-1 disabled:cursor-not-allowed disabled:opacity-50"
-                  onClick={() => setLibraryPage((p) => (libraryResults ? Math.min(libraryResults.totalPages, p + 1) : p + 1))}
-                  disabled={libraryLoading || (libraryResults ? libraryResults.page >= libraryResults.totalPages : false)}
-                >
-                  Siguiente
-                </button>
-              </div>
-            </div>
-          </div>
-        </Modal>
-      )}
-
-      {/* Asset picker modal */}
-      {assetPickerOpen && (
-        <AssetsModal
-          assets={book.assets ?? []}
-          targetBlockId={assetPickerTarget}
-          onSelect={(assetId) => {
-            if (assetPickerTarget && selectedPage) {
-              dispatch({ type: "UPDATE_IMAGE", pageId: selectedPage.id, blockId: assetPickerTarget, patch: { assetId } });
-            }
-            setAssetPickerOpen(false);
-            setAssetPickerTarget(null);
-          }}
-          onUpload={() => assetFileRef.current?.click()}
-          onRemove={(assetId) => dispatch({ type: "REMOVE_ASSET", assetId })}
-          onClose={() => { setAssetPickerOpen(false); setAssetPickerTarget(null); }}
-        />
-      )}
-      <input ref={assetFileRef} type="file" accept="image/*" className="hidden" onChange={handleAssetFileChange} />
-    </div>
-  );
-}
-
-// ===== Subcomponentes =====
-
-function EditPage(props: {
-  page: Page;
-  assets: BookAsset[];
-  selectedBlockId: string | null;
-  onSelectBlock: (id: string) => void;
-  onMoveBlock: (blockId: string, dir: "up" | "down") => void;
-  onDeleteBlock: (blockId: string) => void;
-  onDuplicateBlock: (blockId: string) => void;
+// ===== Modal =====
+function Modal({
+  title,
+  onClose,
+  children,
+  wide,
+}: {
+  title: string;
+  onClose: () => void;
+  children: React.ReactNode;
+  wide?: boolean;
 }) {
-  const { page, assets, selectedBlockId, onSelectBlock, onMoveBlock, onDeleteBlock, onDuplicateBlock } = props;
-
   return (
-    <div className="space-y-3">
-      {page.content.map((b, blockIdx) => {
-        const id = b.id;
-        const active = selectedBlockId === id;
-        const isFirst = blockIdx === 0;
-        const isLast = blockIdx === page.content.length - 1;
-
-        return (
-          <div
-            key={id}
-            className={classNames(
-              "rounded-xl border transition",
-              active ? "border-slate-900 bg-white/60" : "border-white/20 bg-white/30 hover:bg-white/50"
-            )}
-            onClick={() => onSelectBlock(id)}
-          >
-            <div className="flex items-center justify-between gap-2 px-3 pt-2">
-              <div className="flex items-center gap-2">
-                <div className="text-xs font-semibold text-slate-700">{b.type.toUpperCase()}</div>
-                <div className="text-[11px] text-slate-400">{id}</div>
-              </div>
-              <div className="flex items-center gap-0.5">
-                <IconBtn
-                  title="Subir bloque"
-                  disabled={isFirst}
-                  onClick={(e) => { e.stopPropagation(); onMoveBlock(id, "up"); }}
-                >▲</IconBtn>
-                <IconBtn
-                  title="Bajar bloque"
-                  disabled={isLast}
-                  onClick={(e) => { e.stopPropagation(); onMoveBlock(id, "down"); }}
-                >▼</IconBtn>
-                <IconBtn
-                  title="Duplicar bloque"
-                  onClick={(e) => { e.stopPropagation(); onDuplicateBlock(id); }}
-                >⊕</IconBtn>
-                <IconBtn
-                  title="Eliminar bloque"
-                  danger
-                  onClick={(e) => { e.stopPropagation(); onDeleteBlock(id); }}
-                >✕</IconBtn>
-              </div>
-            </div>
-
-            <div className="px-3 pb-3 pt-1">
-              <BlockRender block={b} assets={assets} />
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function PreviewPage(props: { page: Page; assets: BookAsset[] }) {
-  const { page, assets } = props;
-  return (
-    <div className="space-y-3">
-      {page.content.map((b) => (
-        <div key={(b as any).id} className="rounded-xl">
-          <BlockRender block={b} assets={assets} preview />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function BlockRender({ block, preview, assets = [] }: { block: Block; preview?: boolean; assets?: BookAsset[] }) {
-  if (block.type === "divider") return <div className="my-2 border-t border-black/20" />;
-
-  if (block.type === "pageBreak") {
-    return (
-      <div className="my-2 rounded-lg border border-dashed border-black/30 px-3 py-2 text-center text-xs text-black/70">
-        Salto de página
-      </div>
-    );
-  }
-
-  if (block.type === "heading") {
-    const align = block.blockStyle?.align ?? "left";
-    const size = clamp(block.textStyle?.fontSizePx ?? (block.level === 1 ? 30 : 22), 14, 60);
-    const style: React.CSSProperties = {
-      textAlign: align,
-      fontSize: size,
-      fontWeight: block.textStyle?.bold ? 700 : 600,
-      fontStyle: block.textStyle?.italic ? "italic" : "normal",
-      textDecoration: block.textStyle?.underline ? "underline" : "none",
-      color: block.textStyle?.color,
-      fontFamily: block.textStyle?.fontFamily,
-      marginTop: block.blockStyle?.spacingBeforePx ?? 0,
-      marginBottom: block.blockStyle?.spacingAfterPx ?? 8,
-    };
-    return <div style={style}>{block.text}</div>;
-  }
-
-  if (block.type === "image") {
-    const align = block.blockStyle?.align ?? "center";
-    const asset = assets.find((a) => a.id === block.assetId);
-    return (
-      <div style={{ textAlign: align as any }}>
-        {asset ? (
-          <img
-            src={asset.dataUrl}
-            alt={block.caption ?? asset.name}
-            className="inline-block max-w-full rounded-xl"
-            style={{ maxHeight: preview ? undefined : "200px" }}
-          />
-        ) : (
-          <div className="inline-grid place-items-center rounded-xl border border-black/20 bg-white/40 px-6 py-10 text-xs text-black/70">
-            Imagen (assetId: <span className="font-mono">{block.assetId}</span>)
-          </div>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      onClick={onClose}
+    >
+      <div
+        className={classNames(
+          "bg-white rounded-lg shadow-2xl flex flex-col max-h-[90vh]",
+          wide ? "w-[700px]" : "w-[520px]"
         )}
-        {block.caption ? <div className="mt-2 text-sm italic opacity-80">{block.caption}</div> : null}
-      </div>
-    );
-  }
-
-  // paragraph
-  const align = block.blockStyle?.align ?? "left";
-  const indent = block.blockStyle?.indentFirstLinePx ?? 0;
-  const style: React.CSSProperties = {
-    textAlign: align,
-    textIndent: indent ? `${indent}px` : undefined,
-    marginTop: block.blockStyle?.spacingBeforePx ?? 0,
-    marginBottom: block.blockStyle?.spacingAfterPx ?? 10,
-  };
-
-  // Soportar ambos: text o runs (para transición)
-  const runs = block.runs ?? (typeof block.text === "string" ? [{ text: block.text }] : [{ text: "" }]);
-
-  return (
-    <p style={style} className={classNames(preview ? "opacity-95" : "opacity-90")}>
-      {runs.map((r, i) => {
-        const s = r.style ?? {};
-        const spanStyle: React.CSSProperties = {
-          fontFamily: s.fontFamily,
-          fontSize: s.fontSizePx,
-          color: s.color,
-          fontWeight: s.bold ? 700 : undefined,
-          fontStyle: s.italic ? "italic" : undefined,
-          textDecoration: s.underline ? "underline" : undefined,
-          verticalAlign: s.superscript ? "super" : s.subscript ? "sub" : undefined,
-        };
-        return (
-          <span key={i} style={spanStyle}>
-            {r.text}
-          </span>
-        );
-      })}
-    </p>
-  );
-}
-
-function InspectorCard({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="rounded-2xl border bg-white p-3">
-      <div className="text-xs font-semibold text-slate-700">{title}</div>
-      <div className="mt-2">{children}</div>
-    </div>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-start justify-between gap-3 py-1">
-      <div className="text-xs text-slate-500">{label}</div>
-      <div className="min-w-0 text-right text-xs font-semibold text-slate-800">{value}</div>
-    </div>
-  );
-}
-
-function Modal({ title, children, onClose }: { title: string; children: React.ReactNode; onClose: () => void }) {
-  return (
-    <div className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-3">
-      <div className="w-full max-w-3xl rounded-2xl bg-white shadow-xl">
-        <div className="flex items-center justify-between gap-2 border-b px-4 py-3">
-          <div className="text-sm font-semibold">{title}</div>
-          <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={onClose}>
-            Cerrar
+        onClick={(e: React.MouseEvent) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between px-4 py-3 border-b">
+          <span className="font-semibold text-slate-800">{title}</span>
+          <button
+            className="text-slate-400 hover:text-slate-700 text-xl leading-none"
+            onClick={onClose}
+          >
+            &times;
           </button>
         </div>
-        <div className="p-4">{children}</div>
+        <div className="flex-1 overflow-y-auto p-4">{children}</div>
       </div>
     </div>
   );
 }
 
+// ===== IconBtn =====
 function IconBtn({
-  children,
+  label,
+  title,
   onClick,
   disabled,
   danger,
-  title,
+  small,
 }: {
-  children: React.ReactNode;
+  label: string;
+  title?: string;
   onClick: (e: React.MouseEvent) => void;
   disabled?: boolean;
   danger?: boolean;
-  title?: string;
+  small?: boolean;
 }) {
   return (
     <button
-      title={title}
-      disabled={disabled}
+      title={title ?? label}
       onClick={onClick}
+      disabled={disabled}
       className={classNames(
-        "rounded px-1.5 py-0.5 text-xs font-medium transition disabled:cursor-not-allowed disabled:opacity-30",
-        danger ? "text-red-600 hover:bg-red-50" : "text-slate-600 hover:bg-slate-200"
+        "rounded font-mono select-none transition-colors",
+        small ? "px-1 py-0 text-xs" : "px-1.5 py-0.5 text-sm",
+        danger
+          ? "text-red-500 hover:bg-red-50 disabled:opacity-30"
+          : "text-slate-600 hover:bg-slate-100 disabled:opacity-30"
       )}
     >
-      {children}
+      {label}
     </button>
   );
 }
 
+// ===== AlignButtons =====
 function AlignButtons({
   value,
   onChange,
-  includeJustify = true,
 }: {
-  value: string;
-  onChange: (a: "left" | "center" | "right" | "justify") => void;
-  includeJustify?: boolean;
+  value?: string;
+  onChange: (v: "left" | "center" | "right" | "justify") => void;
 }) {
-  const options = includeJustify
-    ? (["left", "center", "right", "justify"] as const)
-    : (["left", "center", "right"] as const);
-  const labels: Record<string, string> = { left: "←", center: "↔", right: "→", justify: "≡" };
+  const aligns: Array<{ v: "left" | "center" | "right" | "justify"; label: string }> = [
+    { v: "left", label: "L" },
+    { v: "center", label: "C" },
+    { v: "right", label: "R" },
+    { v: "justify", label: "J" },
+  ];
   return (
-    <div className="flex gap-1">
-      {options.map((a) => (
+    <div className="flex gap-0.5">
+      {aligns.map((a) => (
         <button
-          key={a}
-          title={a}
+          key={a.v}
+          onClick={() => onChange(a.v)}
           className={classNames(
-            "flex-1 rounded-lg py-1 text-xs",
-            value === a ? "bg-slate-900 text-white" : "bg-slate-100 hover:bg-slate-200"
+            "w-6 h-6 text-xs rounded font-mono",
+            value === a.v
+              ? "bg-indigo-600 text-white"
+              : "bg-slate-100 text-slate-600 hover:bg-slate-200"
           )}
-          onClick={() => onChange(a)}
         >
-          {labels[a]}
+          {a.label}
         </button>
       ))}
     </div>
   );
 }
 
-function BlockInspector({
-  block,
-  pageId,
-  assets,
-  dispatch,
-  onAssignAsset,
+// ===== InspectorCard =====
+function InspectorCard({
+  title,
+  children,
+  defaultOpen = true,
 }: {
-  block: Block;
-  pageId: string;
-  assets: BookAsset[];
-  dispatch: (action: EditorAction) => void;
-  onAssignAsset?: (blockId: string) => void;
+  title: string;
+  children: React.ReactNode;
+  defaultOpen?: boolean;
 }) {
-  if (block.type === "heading") {
-    return (
-      <div className="mt-3 space-y-3">
-        <div>
-          <div className="text-xs text-slate-500">Texto</div>
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div className="border-b border-slate-100">
+      <button
+        className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide hover:bg-slate-50"
+        onClick={() => setOpen((o) => !o)}
+      >
+        {title}
+        <span className="text-slate-400">{open ? "▲" : "▼"}</span>
+      </button>
+      {open && <div className="px-3 pb-3 pt-1 space-y-2">{children}</div>}
+    </div>
+  );
+}
+
+// ===== KV (Key-Value row) =====
+function KV({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-xs text-slate-500 w-20 shrink-0">{label}</span>
+      <div className="flex-1">{children}</div>
+    </div>
+  );
+}
+
+// ===== Small input helpers =====
+const inputCls =
+  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400";
+const textareaCls =
+  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400 resize-none";
+
+// ===== MetadataEditor =====
+function MetadataEditor({
+  book,
+  dispatch,
+}: {
+  book: Book;
+  dispatch: (a: EditorAction) => void;
+}) {
+  const m = book.metadata;
+  const th = m.theme ?? {};
+  return (
+    <div className="space-y-2">
+      <KV label="Título">
+        <input
+          className={inputCls}
+          value={m.title}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({ type: "UPDATE_METADATA", patch: { title: e.target.value } })
+          }
+        />
+      </KV>
+      <KV label="Subtítulo">
+        <input
+          className={inputCls}
+          value={m.subtitle ?? ""}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({ type: "UPDATE_METADATA", patch: { subtitle: e.target.value } })
+          }
+        />
+      </KV>
+      <KV label="Idioma">
+        <input
+          className={inputCls}
+          value={m.language ?? ""}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({ type: "UPDATE_METADATA", patch: { language: e.target.value } })
+          }
+        />
+      </KV>
+      <KV label="Dificultad">
+        <input
+          type="number"
+          className={inputCls}
+          min={1}
+          max={5}
+          value={m.difficulty ?? ""}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({
+              type: "UPDATE_METADATA",
+              patch: { difficulty: Number(e.target.value) },
+            })
+          }
+        />
+      </KV>
+      <KV label="Color papel">
+        <input
+          type="color"
+          className="w-full h-6 rounded border border-slate-200 cursor-pointer"
+          value={th.paperColor ?? "#FFFFFF"}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({ type: "UPDATE_THEME", patch: { paperColor: e.target.value } })
+          }
+        />
+      </KV>
+      <KV label="Color texto">
+        <input
+          type="color"
+          className="w-full h-6 rounded border border-slate-200 cursor-pointer"
+          value={th.textColor ?? "#000000"}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({ type: "UPDATE_THEME", patch: { textColor: e.target.value } })
+          }
+        />
+      </KV>
+      <KV label="Tipografía">
+        <select
+          className={inputCls}
+          value={th.fontFamily ?? "serif"}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            dispatch({ type: "UPDATE_THEME", patch: { fontFamily: e.target.value } })
+          }
+        >
+          <option value="serif">Serif</option>
+          <option value="sans-serif">Sans-serif</option>
+          <option value="monospace">Mono</option>
+          <option value="Georgia, serif">Georgia</option>
+          <option value="'Palatino Linotype', serif">Palatino</option>
+        </select>
+      </KV>
+      <KV label="Tamaño px">
+        <input
+          type="number"
+          className={inputCls}
+          min={10}
+          max={36}
+          value={th.baseFontSizePx ?? 18}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({
+              type: "UPDATE_THEME",
+              patch: { baseFontSizePx: Number(e.target.value) },
+            })
+          }
+        />
+      </KV>
+      <KV label="Interlineado">
+        <input
+          type="number"
+          className={inputCls}
+          step={0.1}
+          min={1}
+          max={3}
+          value={th.lineHeight ?? 1.6}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({
+              type: "UPDATE_THEME",
+              patch: { lineHeight: Number(e.target.value) },
+            })
+          }
+        />
+      </KV>
+    </div>
+  );
+}
+
+// ===== PageInspector =====
+function PageInspector({
+  page,
+  dispatch,
+}: {
+  page: Page;
+  dispatch: (a: EditorAction) => void;
+}) {
+  const [newAnchorId, setNewAnchorId] = useState("");
+  const [newAnchorLabel, setNewAnchorLabel] = useState("");
+
+  const addAnchor = () => {
+    const id = newAnchorId.trim();
+    if (!id) return;
+    dispatch({
+      type: "ADD_PAGE_ANCHOR",
+      pageId: page.id,
+      anchor: { id, label: newAnchorLabel.trim() || undefined },
+    });
+    setNewAnchorId("");
+    setNewAnchorLabel("");
+  };
+
+  return (
+    <div className="space-y-2">
+      <KV label="Título pág.">
+        <input
+          className={inputCls}
+          value={page.title ?? ""}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({ type: "UPDATE_PAGE_TITLE", pageId: page.id, title: e.target.value })
+          }
+        />
+      </KV>
+      <div>
+        <p className="text-xs font-medium text-slate-500 mb-1">Anclas</p>
+        {(page.anchors ?? []).length === 0 && (
+          <p className="text-xs text-slate-400 italic">Sin anclas</p>
+        )}
+        {(page.anchors ?? []).map((a) => (
+          <div key={a.id} className="flex items-center gap-1 mb-1">
+            <span className="text-xs font-mono text-indigo-600 truncate max-w-[60px]">{a.id}</span>
+            <input
+              className={classNames(inputCls, "flex-1")}
+              placeholder="etiqueta"
+              value={a.label ?? ""}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                dispatch({
+                  type: "UPDATE_PAGE_ANCHOR",
+                  pageId: page.id,
+                  anchorId: a.id,
+                  patch: { label: e.target.value },
+                })
+              }
+            />
+            <button
+              className="text-red-400 hover:text-red-600 text-xs"
+              onClick={() =>
+                dispatch({ type: "REMOVE_PAGE_ANCHOR", pageId: page.id, anchorId: a.id })
+              }
+            >
+              ✕
+            </button>
+          </div>
+        ))}
+        <div className="mt-2 space-y-1">
           <input
-            className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-            value={block.text}
-            onChange={(e) =>
-              dispatch({ type: "UPDATE_HEADING", pageId, blockId: block.id, patch: { text: e.target.value } })
+            className={inputCls}
+            placeholder="id-ancla"
+            value={newAnchorId}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewAnchorId(e.target.value)}
+          />
+          <input
+            className={inputCls}
+            placeholder="etiqueta (opcional)"
+            value={newAnchorLabel}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setNewAnchorLabel(e.target.value)
             }
           />
+          <button
+            className="w-full text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded py-1"
+            onClick={addAnchor}
+          >
+            + Agregar ancla
+          </button>
         </div>
+      </div>
+    </div>
+  );
+}
 
-        <div>
-          <div className="text-xs text-slate-500">Nivel</div>
-          <div className="mt-1 flex gap-1">
-            {([1, 2, 3, 4, 5, 6] as const).map((lvl) => (
+// ===== BlockInspector =====
+function BlockInspector({
+  block,
+  page,
+  book,
+  dispatch,
+}: {
+  block: Block;
+  page: Page;
+  book: Book;
+  dispatch: (a: EditorAction) => void;
+}) {
+  if (block.type === "heading") {
+    const levels: Array<1 | 2 | 3 | 4 | 5 | 6> = [1, 2, 3, 4, 5, 6];
+    return (
+      <div className="space-y-2">
+        <KV label="Nivel">
+          <div className="flex gap-0.5 flex-wrap">
+            {levels.map((l) => (
               <button
-                key={lvl}
-                className={classNames(
-                  "flex-1 rounded-lg py-1 text-xs font-bold",
-                  block.level === lvl ? "bg-slate-900 text-white" : "bg-slate-100 hover:bg-slate-200"
-                )}
+                key={l}
                 onClick={() =>
-                  dispatch({ type: "UPDATE_HEADING", pageId, blockId: block.id, patch: { level: lvl } })
+                  dispatch({
+                    type: "UPDATE_HEADING",
+                    pageId: page.id,
+                    blockId: block.id,
+                    patch: { level: l },
+                  })
                 }
+                className={classNames(
+                  "w-7 h-6 text-xs rounded font-mono",
+                  block.level === l
+                    ? "bg-indigo-600 text-white"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                )}
               >
-                H{lvl}
+                H{l}
               </button>
             ))}
           </div>
-        </div>
-
-        <div>
-          <div className="text-xs text-slate-500">Alineación</div>
-          <div className="mt-1">
-            <AlignButtons
-              value={block.blockStyle?.align ?? "left"}
-              onChange={(a) =>
-                dispatch({ type: "UPDATE_HEADING", pageId, blockId: block.id, patch: { blockStyle: { align: a } } })
-              }
-            />
-          </div>
-        </div>
-
-        <div>
-          <div className="text-xs text-slate-500">Estilo de texto</div>
-          <div className="mt-1 flex gap-1">
+        </KV>
+        <KV label="Alineación">
+          <AlignButtons
+            value={block.blockStyle?.align}
+            onChange={(v) =>
+              dispatch({
+                type: "UPDATE_HEADING",
+                pageId: page.id,
+                blockId: block.id,
+                patch: { blockStyle: { align: v } },
+              })
+            }
+          />
+        </KV>
+        <KV label="Estilo">
+          <div className="flex gap-1">
             <button
-              className={classNames(
-                "flex-1 rounded-lg py-1 text-sm font-bold",
-                block.textStyle?.bold ? "bg-slate-900 text-white" : "bg-slate-100 hover:bg-slate-200"
-              )}
               onClick={() =>
                 dispatch({
                   type: "UPDATE_HEADING",
-                  pageId,
+                  pageId: page.id,
                   blockId: block.id,
                   patch: { textStyle: { bold: !block.textStyle?.bold } },
                 })
               }
+              className={classNames(
+                "px-2 py-0.5 text-xs rounded font-bold",
+                block.textStyle?.bold
+                  ? "bg-indigo-600 text-white"
+                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+              )}
             >
-              B
+              N
             </button>
             <button
-              className={classNames(
-                "flex-1 rounded-lg py-1 text-sm italic",
-                block.textStyle?.italic ? "bg-slate-900 text-white" : "bg-slate-100 hover:bg-slate-200"
-              )}
               onClick={() =>
                 dispatch({
                   type: "UPDATE_HEADING",
-                  pageId,
+                  pageId: page.id,
                   blockId: block.id,
                   patch: { textStyle: { italic: !block.textStyle?.italic } },
                 })
               }
+              className={classNames(
+                "px-2 py-0.5 text-xs rounded italic",
+                block.textStyle?.italic
+                  ? "bg-indigo-600 text-white"
+                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+              )}
             >
-              I
+              K
             </button>
           </div>
+        </KV>
+      </div>
+    );
+  }
+
+  if (block.type === "paragraph") {
+    const run0 = block.runs?.[0];
+    return (
+      <div className="space-y-2">
+        <KV label="Alineación">
+          <AlignButtons
+            value={block.blockStyle?.align}
+            onChange={(v) =>
+              dispatch({
+                type: "UPDATE_PARAGRAPH_BLOCKSTYLE",
+                pageId: page.id,
+                blockId: block.id,
+                patch: { align: v },
+              })
+            }
+          />
+        </KV>
+        <KV label="Sangría 1ª">
+          <input
+            type="number"
+            className={inputCls}
+            value={block.blockStyle?.indentFirstLinePx ?? 0}
+            step={4}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              dispatch({
+                type: "UPDATE_PARAGRAPH_BLOCKSTYLE",
+                pageId: page.id,
+                blockId: block.id,
+                patch: { indentFirstLinePx: Number(e.target.value) },
+              })
+            }
+          />
+        </KV>
+        <KV label="Estilo">
+          <div className="flex gap-1">
+            <button
+              onClick={() =>
+                dispatch({
+                  type: "UPDATE_PARAGRAPH_RUN",
+                  pageId: page.id,
+                  blockId: block.id,
+                  runIndex: 0,
+                  patch: { style: { bold: !run0?.style?.bold } },
+                })
+              }
+              className={classNames(
+                "px-2 py-0.5 text-xs rounded font-bold",
+                run0?.style?.bold
+                  ? "bg-indigo-600 text-white"
+                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+              )}
+            >
+              N
+            </button>
+            <button
+              onClick={() =>
+                dispatch({
+                  type: "UPDATE_PARAGRAPH_RUN",
+                  pageId: page.id,
+                  blockId: block.id,
+                  runIndex: 0,
+                  patch: { style: { italic: !run0?.style?.italic } },
+                })
+              }
+              className={classNames(
+                "px-2 py-0.5 text-xs rounded italic",
+                run0?.style?.italic
+                  ? "bg-indigo-600 text-white"
+                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+              )}
+            >
+              K
+            </button>
+          </div>
+        </KV>
+      </div>
+    );
+  }
+
+  if (block.type === "image") {
+    const asset = (book.assets ?? []).find((a) => a.id === block.assetId);
+    return (
+      <div className="space-y-2">
+        <KV label="Asset">
+          <span className="text-xs text-slate-500 truncate block">{asset?.name ?? block.assetId}</span>
+        </KV>
+        <KV label="Alineación">
+          <AlignButtons
+            value={block.blockStyle?.align}
+            onChange={(v) =>
+              dispatch({
+                type: "UPDATE_IMAGE",
+                pageId: page.id,
+                blockId: block.id,
+                patch: { blockStyle: { align: v } },
+              })
+            }
+          />
+        </KV>
+        <KV label="Pie">
+          <input
+            className={inputCls}
+            value={block.caption ?? ""}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              dispatch({
+                type: "UPDATE_IMAGE",
+                pageId: page.id,
+                blockId: block.id,
+                patch: { caption: e.target.value },
+              })
+            }
+          />
+        </KV>
+        <KV label="Cambiar">
+          <select
+            className={inputCls}
+            value={block.assetId}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              dispatch({
+                type: "UPDATE_IMAGE",
+                pageId: page.id,
+                blockId: block.id,
+                patch: { assetId: e.target.value },
+              })
+            }
+          >
+            {(book.assets ?? []).map((a) => (
+              <option key={a.id} value={a.id}>
+                {a.name}
+              </option>
+            ))}
+          </select>
+        </KV>
+      </div>
+    );
+  }
+
+  return <p className="text-xs text-slate-400 italic">Sin opciones para este bloque</p>;
+}
+
+// ===== NotesPanel =====
+function NotesPanel({
+  book,
+  dispatch,
+}: {
+  book: Book;
+  dispatch: (a: EditorAction) => void;
+}) {
+  const [newTerm, setNewTerm] = useState("");
+  const [newContent, setNewContent] = useState("");
+  const notes = book.notes ?? [];
+
+  const addNote = () => {
+    const term = newTerm.trim();
+    const content = newContent.trim();
+    if (!term) return;
+    const note: BookNote = {
+      id: "note-" + Date.now().toString(36),
+      term,
+      content,
+    };
+    dispatch({ type: "ADD_NOTE", note });
+    setNewTerm("");
+    setNewContent("");
+  };
+
+  return (
+    <div className="space-y-3">
+      {notes.length === 0 && <p className="text-xs text-slate-400 italic">Sin notas</p>}
+      {notes.map((note) => (
+        <div key={note.id} className="border border-slate-100 rounded p-2 space-y-1">
+          <div className="flex items-center gap-1">
+            <input
+              className={classNames(inputCls, "font-semibold flex-1")}
+              value={note.term}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                dispatch({ type: "UPDATE_NOTE", noteId: note.id, patch: { term: e.target.value } })
+              }
+            />
+            <button
+              className="text-red-400 hover:text-red-600 text-xs"
+              onClick={() => dispatch({ type: "REMOVE_NOTE", noteId: note.id })}
+            >
+              ✕
+            </button>
+          </div>
+          <textarea
+            className={classNames(textareaCls, "h-14")}
+            value={note.content}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+              dispatch({
+                type: "UPDATE_NOTE",
+                noteId: note.id,
+                patch: { content: e.target.value },
+              })
+            }
+          />
+        </div>
+      ))}
+      <div className="border border-dashed border-slate-200 rounded p-2 space-y-1">
+        <p className="text-xs font-medium text-slate-500">Nueva nota</p>
+        <input
+          className={inputCls}
+          placeholder="Término"
+          value={newTerm}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTerm(e.target.value)}
+        />
+        <textarea
+          className={classNames(textareaCls, "h-14")}
+          placeholder="Contenido"
+          value={newContent}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setNewContent(e.target.value)}
+        />
+        <button
+          className="w-full text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded py-1"
+          onClick={addNote}
+        >
+          + Agregar nota
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ===== TOC Modal =====
+function TocModal({
+  book,
+  dispatch,
+  onClose,
+}: {
+  book: Book;
+  dispatch: (a: EditorAction) => void;
+  onClose: () => void;
+}) {
+  const [newTitle, setNewTitle] = useState("");
+  const [newAnchor, setNewAnchor] = useState("");
+  const [newPageStart, setNewPageStart] = useState(1);
+
+  const entries = book.structure?.index ?? [];
+
+  // Build datalist of all page:anchor pairs
+  const anchorOptions = book.pages.flatMap((p) =>
+    (p.anchors ?? []).map((a) => p.id + ":" + a.id)
+  );
+
+  const addEntry = () => {
+    const title = newTitle.trim();
+    if (!title) return;
+    dispatch({
+      type: "ADD_TOC_ENTRY",
+      entry: {
+        id: "toc-" + Date.now().toString(36),
+        title,
+        pageStart: newPageStart,
+        anchor: newAnchor.trim(),
+      },
+    });
+    setNewTitle("");
+    setNewAnchor("");
+    setNewPageStart(1);
+  };
+
+  return (
+    <Modal title="Índice / Tabla de contenidos" onClose={onClose} wide>
+      <datalist id="toc-anchor-opts">
+        {anchorOptions.map((o) => (
+          <option key={o} value={o} />
+        ))}
+      </datalist>
+
+      {entries.length === 0 && (
+        <p className="text-sm text-slate-400 italic mb-4">Sin entradas de índice</p>
+      )}
+
+      <div className="space-y-2 mb-4">
+        {entries.map((entry, idx) => (
+          <div key={entry.id} className="flex items-center gap-1 border border-slate-100 rounded p-2">
+            <div className="flex flex-col gap-0.5 mr-1">
+              <button
+                className="text-xs text-slate-400 hover:text-slate-700 leading-none"
+                onClick={() =>
+                  dispatch({ type: "MOVE_TOC_ENTRY", entryId: entry.id, direction: "up" })
+                }
+                disabled={idx === 0}
+              >
+                ▲
+              </button>
+              <button
+                className="text-xs text-slate-400 hover:text-slate-700 leading-none"
+                onClick={() =>
+                  dispatch({ type: "MOVE_TOC_ENTRY", entryId: entry.id, direction: "down" })
+                }
+                disabled={idx === entries.length - 1}
+              >
+                ▼
+              </button>
+            </div>
+            <input
+              className={classNames(inputCls, "flex-1")}
+              placeholder="Título"
+              value={entry.title}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                dispatch({
+                  type: "UPDATE_TOC_ENTRY",
+                  entryId: entry.id,
+                  patch: { title: e.target.value },
+                })
+              }
+            />
+            <input
+              className={classNames(inputCls, "w-28")}
+              placeholder="pageId:anchorId"
+              list="toc-anchor-opts"
+              value={entry.anchor}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                dispatch({
+                  type: "UPDATE_TOC_ENTRY",
+                  entryId: entry.id,
+                  patch: { anchor: e.target.value },
+                })
+              }
+            />
+            <input
+              type="number"
+              className={classNames(inputCls, "w-14")}
+              placeholder="Pág."
+              value={entry.pageStart}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                dispatch({
+                  type: "UPDATE_TOC_ENTRY",
+                  entryId: entry.id,
+                  patch: { pageStart: Number(e.target.value) },
+                })
+              }
+            />
+            <button
+              className="text-red-400 hover:text-red-600 text-sm"
+              onClick={() => dispatch({ type: "REMOVE_TOC_ENTRY", entryId: entry.id })}
+            >
+              ✕
+            </button>
+          </div>
+        ))}
+      </div>
+
+      <div className="border border-dashed border-slate-200 rounded p-3 space-y-2">
+        <p className="text-xs font-semibold text-slate-500">Nueva entrada</p>
+        <div className="flex gap-1">
+          <input
+            className={classNames(inputCls, "flex-1")}
+            placeholder="Título"
+            value={newTitle}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTitle(e.target.value)}
+          />
+          <input
+            className={classNames(inputCls, "w-28")}
+            placeholder="pageId:anchorId"
+            list="toc-anchor-opts"
+            value={newAnchor}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewAnchor(e.target.value)}
+          />
+          <input
+            type="number"
+            className={classNames(inputCls, "w-14")}
+            placeholder="Pág."
+            value={newPageStart}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setNewPageStart(Number(e.target.value))
+            }
+          />
+        </div>
+        <button
+          className="w-full text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded py-1"
+          onClick={addEntry}
+        >
+          + Agregar entrada
+        </button>
+      </div>
+    </Modal>
+  );
+}
+
+// ===== AssetsModal =====
+function AssetsModal({
+  book,
+  dispatch,
+  onClose,
+}: {
+  book: Book;
+  dispatch: (a: EditorAction) => void;
+  onClose: () => void;
+}) {
+  const fileRef = useRef<HTMLInputElement>(null);
+  const assets = book.assets ?? [];
+
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const asset: BookAsset = {
+        id: "asset-" + Date.now().toString(36),
+        name: file.name,
+        mimeType: file.type,
+        dataUrl: reader.result as string,
+      };
+      const img = new Image();
+      img.onload = () => {
+        dispatch({ type: "ADD_ASSET", asset: { ...asset, width: img.width, height: img.height } });
+      };
+      img.onerror = () => {
+        dispatch({ type: "ADD_ASSET", asset });
+      };
+      img.src = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+    e.target.value = "";
+  };
+
+  return (
+    <Modal title="Biblioteca de imágenes" onClose={onClose} wide>
+      <div className="mb-4">
+        <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFile} />
+        <button
+          className="px-3 py-1.5 text-sm bg-indigo-600 text-white rounded hover:bg-indigo-700"
+          onClick={() => fileRef.current?.click()}
+        >
+          + Subir imagen
+        </button>
+      </div>
+
+      {assets.length === 0 && (
+        <p className="text-sm text-slate-400 italic">Sin assets</p>
+      )}
+
+      <div className="grid grid-cols-3 gap-3">
+        {assets.map((a) => (
+          <div key={a.id} className="border border-slate-200 rounded overflow-hidden group relative">
+            {a.dataUrl.startsWith("data:image") ? (
+              <img
+                src={a.dataUrl}
+                alt={a.name}
+                className="w-full h-24 object-cover"
+              />
+            ) : (
+              <div className="w-full h-24 bg-slate-100 flex items-center justify-center text-xs text-slate-400">
+                {a.mimeType}
+              </div>
+            )}
+            <div className="p-1 text-xs text-slate-600 truncate">{a.name}</div>
+            <button
+              className="absolute top-1 right-1 bg-red-500 text-white text-xs rounded px-1 opacity-0 group-hover:opacity-100 transition-opacity"
+              onClick={() => dispatch({ type: "REMOVE_ASSET", assetId: a.id })}
+            >
+              ✕
+            </button>
+          </div>
+        ))}
+      </div>
+    </Modal>
+  );
+}
+
+// ===== LibraryModal =====
+function LibraryModal({
+  dispatch,
+  onClose,
+}: {
+  dispatch: (a: EditorAction) => void;
+  onClose: () => void;
+}) {
+  const [books, setBooks] = useState<BookListItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState("");
+
+  useEffect(() => {
+    fetchBooks()
+      .then((r) => setBooks(r.items))
+      .catch((e: unknown) => setErr(String(e)))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const load = async (id: string) => {
+    try {
+      const b = await fetchBook(id);
+      const migrated = migrateToV11ForEditor(b);
+      const { book } = ensureUniqueIds(migrated);
+      dispatch({ type: "LOAD_BOOK", book });
+      onClose();
+    } catch (e: unknown) {
+      alert("Error al cargar: " + String(e));
+    }
+  };
+
+  return (
+    <Modal title="Biblioteca de libros" onClose={onClose}>
+      {loading && <p className="text-sm text-slate-500">Cargando...</p>}
+      {err && <p className="text-sm text-red-500">{err}</p>}
+      {!loading && !err && books.length === 0 && (
+        <p className="text-sm text-slate-400 italic">Sin libros en el servidor</p>
+      )}
+      <div className="space-y-2">
+        {books.map((b) => (
+          <div
+            key={b.id}
+            className="flex items-center justify-between border border-slate-100 rounded p-2"
+          >
+            <div>
+              <p className="text-sm font-medium text-slate-800">{b.title}</p>
+              <p className="text-xs text-slate-400">{b.id}</p>
+            </div>
+            <button
+              className="px-2 py-1 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded"
+              onClick={() => load(b.id)}
+            >
+              Abrir
+            </button>
+          </div>
+        ))}
+      </div>
+    </Modal>
+  );
+}
+
+// ===== JsonModal =====
+function JsonModal({ book, onClose }: { book: Book; onClose: () => void }) {
+  return (
+    <Modal title="JSON del libro" onClose={onClose} wide>
+      <pre className="text-xs bg-slate-50 rounded p-3 overflow-auto max-h-[60vh] whitespace-pre-wrap break-all">
+        {prettyJson(book)}
+      </pre>
+    </Modal>
+  );
+}
+
+// ===== InlineBlock =====
+function InlineBlock({
+  block,
+  page,
+  book,
+  isSelected,
+  dispatch,
+  onSelect,
+}: {
+  block: Block;
+  page: Page;
+  book: Book;
+  isSelected: boolean;
+  dispatch: (a: EditorAction) => void;
+  onSelect: () => void;
+}) {
+  const theme = book.metadata.theme ?? {};
+  const paperColor = theme.paperColor ?? "#FFFFFF";
+  const textColor = theme.textColor ?? "#000000";
+  const fontFamily = theme.fontFamily ?? "serif";
+  const basePx = theme.baseFontSizePx ?? 18;
+
+  const pageIdx = page.content.findIndex((b) => b.id === block.id);
+  const totalBlocks = page.content.length;
+
+  // Shared style for selected block wrapper
+  const wrapperCls = classNames(
+    "relative group",
+    isSelected ? "ring-2 ring-indigo-400 rounded" : "hover:ring-1 hover:ring-slate-300 rounded"
+  );
+
+  // Block toolbar (visible only when selected)
+  const blockToolbar = isSelected ? (
+    <div className="absolute -top-7 left-0 z-10 flex items-center gap-0.5 bg-white border border-slate-200 rounded shadow-sm px-1 py-0.5">
+      <span className="text-xs text-slate-400 mr-1 font-mono">{block.type}</span>
+      <IconBtn
+        label="▲"
+        title="Subir bloque"
+        small
+        onClick={(e: React.MouseEvent) => {
+          e.stopPropagation();
+          dispatch({ type: "MOVE_BLOCK", pageId: page.id, blockId: block.id, direction: "up" });
+        }}
+        disabled={pageIdx === 0}
+      />
+      <IconBtn
+        label="▼"
+        title="Bajar bloque"
+        small
+        onClick={(e: React.MouseEvent) => {
+          e.stopPropagation();
+          dispatch({ type: "MOVE_BLOCK", pageId: page.id, blockId: block.id, direction: "down" });
+        }}
+        disabled={pageIdx === totalBlocks - 1}
+      />
+      <IconBtn
+        label="⊕"
+        title="Duplicar bloque"
+        small
+        onClick={(e: React.MouseEvent) => {
+          e.stopPropagation();
+          dispatch({ type: "DUPLICATE_BLOCK", pageId: page.id, blockId: block.id });
+        }}
+      />
+      <IconBtn
+        label="✕"
+        title="Eliminar bloque"
+        small
+        danger
+        onClick={(e: React.MouseEvent) => {
+          e.stopPropagation();
+          dispatch({ type: "DELETE_BLOCK", pageId: page.id, blockId: block.id });
+        }}
+      />
+    </div>
+  ) : null;
+
+  if (block.type === "heading") {
+    const tagFontSizes: Record<number, number> = { 1: 2.0, 2: 1.6, 3: 1.3, 4: 1.1, 5: 1.0, 6: 0.9 };
+    const factor = tagFontSizes[block.level] ?? 1;
+    const fontSize = basePx * factor;
+    const align = block.blockStyle?.align ?? "left";
+    const style: React.CSSProperties = {
+      fontFamily,
+      fontSize,
+      color: textColor,
+      textAlign: align,
+      fontWeight: block.textStyle?.bold !== false ? "bold" : "normal",
+      fontStyle: block.textStyle?.italic ? "italic" : "normal",
+      background: "transparent",
+      border: "none",
+      outline: "none",
+      width: "100%",
+      padding: "2px 0",
+      lineHeight: 1.2,
+    };
+
+    return (
+      <div className={wrapperCls} onClick={onSelect}>
+        {blockToolbar}
+        <div className="py-1 px-1">
+          {isSelected ? (
+            <input
+              type="text"
+              autoFocus
+              style={style}
+              value={block.text}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                dispatch({
+                  type: "UPDATE_HEADING",
+                  pageId: page.id,
+                  blockId: block.id,
+                  patch: { text: e.target.value },
+                })
+              }
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
+            />
+          ) : (
+            <div
+              style={{ ...style, cursor: "text" } as React.CSSProperties}
+            >
+              {block.text || <span style={{ color: "#aaa" }}>Título vacío</span>}
+            </div>
+          )}
         </div>
       </div>
     );
   }
 
   if (block.type === "paragraph") {
-    const runs = block.runs ?? (typeof block.text === "string" ? [{ text: block.text }] : [{ text: "" }]);
-    const firstRun = runs[0] ?? { text: "" };
+    const text =
+      block.text ??
+      (block.runs ?? []).map((r) => r.text).join("");
+    const align = block.blockStyle?.align ?? "left";
+    const indentPx = block.blockStyle?.indentFirstLinePx ?? 0;
+    const style: React.CSSProperties = {
+      fontFamily,
+      fontSize: basePx,
+      color: textColor,
+      textAlign: align,
+      textIndent: indentPx ? `${indentPx}px` : undefined,
+      background: "transparent",
+      border: "none",
+      outline: "none",
+      width: "100%",
+      resize: "none",
+      lineHeight: theme.lineHeight ?? 1.6,
+      padding: "2px 0",
+    };
 
     return (
-      <div className="mt-3 space-y-3">
-        <div>
-          <div className="text-xs text-slate-500">Texto (1er run)</div>
-          <textarea
-            className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-            rows={3}
-            value={firstRun.text}
-            onChange={(e) =>
-              dispatch({
-                type: "UPDATE_PARAGRAPH_RUN",
-                pageId,
-                blockId: block.id,
-                runIndex: 0,
-                patch: { text: e.target.value },
-              })
-            }
-          />
-        </div>
-
-        <div>
-          <div className="text-xs text-slate-500">Alineación</div>
-          <div className="mt-1">
-            <AlignButtons
-              value={block.blockStyle?.align ?? "left"}
-              onChange={(a) =>
-                dispatch({ type: "UPDATE_PARAGRAPH_BLOCKSTYLE", pageId, blockId: block.id, patch: { align: a } })
+      <div className={wrapperCls} onClick={onSelect}>
+        {blockToolbar}
+        <div className="py-1 px-1">
+          {isSelected ? (
+            <textarea
+              autoFocus
+              rows={Math.max(3, Math.ceil(text.length / 60))}
+              style={style}
+              value={text}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                dispatch({
+                  type: "UPDATE_PARAGRAPH_RUN",
+                  pageId: page.id,
+                  blockId: block.id,
+                  runIndex: 0,
+                  patch: { text: e.target.value },
+                })
               }
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
             />
-          </div>
-        </div>
-
-        <div>
-          <div className="text-xs text-slate-500">Sangría 1ª línea (px)</div>
-          <input
-            type="number"
-            className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-            value={block.blockStyle?.indentFirstLinePx ?? 0}
-            min={0}
-            max={120}
-            step={4}
-            onChange={(e) =>
-              dispatch({
-                type: "UPDATE_PARAGRAPH_BLOCKSTYLE",
-                pageId,
-                blockId: block.id,
-                patch: { indentFirstLinePx: Number(e.target.value) },
-              })
-            }
-          />
+          ) : (
+            <p
+              style={style as React.CSSProperties}
+              className="whitespace-pre-wrap cursor-text"
+            >
+              {text || <span style={{ color: "#aaa" }}>Párrafo vacío</span>}
+            </p>
+          )}
         </div>
       </div>
     );
   }
 
   if (block.type === "image") {
-    const assignedAsset = assets.find((a) => a.id === block.assetId);
+    const asset = (book.assets ?? []).find((a) => a.id === block.assetId);
+    const align = block.blockStyle?.align ?? "center";
+    const justifyMap: Record<string, string> = {
+      left: "flex-start",
+      center: "center",
+      right: "flex-end",
+      justify: "center",
+    };
+
     return (
-      <div className="mt-3 space-y-3">
-        <div>
-          <div className="text-xs text-slate-500">Imagen asignada</div>
-          <div className="mt-1">
-            {assignedAsset ? (
-              <div className="overflow-hidden rounded-lg border bg-slate-50">
-                <img src={assignedAsset.dataUrl} alt={assignedAsset.name} className="h-24 w-full object-cover" />
-                <div className="truncate px-2 py-1 text-xs text-slate-500">{assignedAsset.name}</div>
-              </div>
-            ) : (
-              <div className="rounded-lg border border-dashed px-3 py-4 text-center text-xs text-slate-400">
-                Sin imagen asignada
-              </div>
-            )}
-          </div>
-          <button
-            className="mt-1 w-full rounded-lg bg-slate-100 px-2 py-1.5 text-xs font-medium hover:bg-slate-200"
-            onClick={() => onAssignAsset?.(block.id)}
-          >
-            {assignedAsset ? "Cambiar imagen" : "Asignar imagen"}
-          </button>
+      <div className={wrapperCls} onClick={onSelect}>
+        {blockToolbar}
+        <div
+          className="py-2 px-1 flex flex-col"
+          style={{ alignItems: justifyMap[align] ?? "center" }}
+        >
+          {asset?.dataUrl ? (
+            <div className="relative">
+              <img
+                src={asset.dataUrl}
+                alt={asset.name}
+                className="max-w-full max-h-64 rounded shadow"
+              />
+              {isSelected && (
+                <div className="absolute inset-0 bg-indigo-600/20 flex items-center justify-center rounded">
+                  <span className="bg-indigo-600 text-white text-xs px-2 py-1 rounded">
+                    Cambiar imagen en Inspector
+                  </span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div
+              className="w-full h-32 bg-slate-100 border-2 border-dashed border-slate-300 rounded flex items-center justify-center cursor-pointer hover:bg-slate-200"
+            >
+              <span className="text-slate-400 text-sm">
+                {isSelected ? "Asignar imagen en Inspector" : "Sin imagen asignada"}
+              </span>
+            </div>
+          )}
+          {block.caption && (
+            <p
+              className="text-center text-xs mt-1"
+              style={{ fontFamily, color: textColor, opacity: 0.7 }}
+            >
+              {block.caption}
+            </p>
+          )}
         </div>
+      </div>
+    );
+  }
 
-        <div>
-          <div className="text-xs text-slate-500">Caption</div>
-          <input
-            className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-            value={block.caption ?? ""}
-            onChange={(e) =>
-              dispatch({ type: "UPDATE_IMAGE", pageId, blockId: block.id, patch: { caption: e.target.value } })
-            }
-          />
+  if (block.type === "divider") {
+    return (
+      <div className={wrapperCls} onClick={onSelect}>
+        {blockToolbar}
+        <div className="py-3 px-1">
+          <hr className="border-t border-slate-300" />
         </div>
+      </div>
+    );
+  }
 
-        <div>
-          <div className="text-xs text-slate-500">Alineación</div>
-          <div className="mt-1">
-            <AlignButtons
-              value={block.blockStyle?.align ?? "center"}
-              onChange={(a) =>
-                dispatch({ type: "UPDATE_IMAGE", pageId, blockId: block.id, patch: { blockStyle: { align: a } } })
-              }
-              includeJustify={false}
-            />
-          </div>
+  if (block.type === "pageBreak") {
+    return (
+      <div className={wrapperCls} onClick={onSelect}>
+        {blockToolbar}
+        <div className="py-2 px-1 border border-dashed border-slate-300 rounded text-center text-xs text-slate-400">
+          — Salto de página —
         </div>
       </div>
     );
@@ -1438,201 +1355,589 @@ function BlockInspector({
   return null;
 }
 
-function MetadataEditor({ book, dispatch }: { book: Book; dispatch: (action: EditorAction) => void }) {
+// ===== PageCanvas =====
+function PageCanvas({
+  page,
+  book,
+  selectedBlockId,
+  dispatch,
+}: {
+  page: Page;
+  book: Book;
+  selectedBlockId: string | null;
+  dispatch: (a: EditorAction) => void;
+}) {
   const theme = book.metadata.theme ?? {};
+  const paperColor = theme.paperColor ?? "#FFFFFF";
 
   return (
-    <div className="space-y-2">
-      <div>
-        <div className="text-xs text-slate-500">Título</div>
-        <input
-          className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-          value={book.metadata.title}
-          onChange={(e) => dispatch({ type: "UPDATE_METADATA", patch: { title: e.target.value } })}
-        />
-      </div>
-
-      <div>
-        <div className="text-xs text-slate-500">Idioma</div>
-        <select
-          className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-          value={book.metadata.language ?? "es"}
-          onChange={(e) => dispatch({ type: "UPDATE_METADATA", patch: { language: e.target.value } })}
-        >
-          <option value="es">Español</option>
-          <option value="en">English</option>
-          <option value="pt">Português</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-        </select>
-      </div>
-
-      <div>
-        <div className="text-xs text-slate-500">Dificultad</div>
-        <div className="mt-1 flex gap-1">
-          {[1, 2, 3, 4, 5].map((n) => (
-            <button
-              key={n}
-              className={classNames(
-                "flex-1 rounded-lg py-1 text-xs font-medium",
-                (book.metadata.difficulty ?? 3) === n ? "bg-slate-900 text-white" : "bg-slate-100 hover:bg-slate-200"
-              )}
-              onClick={() => dispatch({ type: "UPDATE_METADATA", patch: { difficulty: n } })}
-            >
-              {n}★
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="pt-1">
-        <div className="text-xs font-semibold text-slate-600">Tema visual</div>
-
-        <div className="mt-2 grid grid-cols-2 gap-2">
-          <div>
-            <div className="text-xs text-slate-500">Papel</div>
-            <div className="mt-1 flex items-center gap-1">
-              <input
-                type="color"
-                className="h-7 w-10 cursor-pointer rounded border"
-                value={theme.paperColor ?? "#E0C9A6"}
-                onChange={(e) => dispatch({ type: "UPDATE_THEME", patch: { paperColor: e.target.value } })}
-              />
-              <span className="font-mono text-xs text-slate-500">{theme.paperColor ?? "#E0C9A6"}</span>
-            </div>
-          </div>
-          <div>
-            <div className="text-xs text-slate-500">Texto</div>
-            <div className="mt-1 flex items-center gap-1">
-              <input
-                type="color"
-                className="h-7 w-10 cursor-pointer rounded border"
-                value={theme.textColor ?? "#2B2B2B"}
-                onChange={(e) => dispatch({ type: "UPDATE_THEME", patch: { textColor: e.target.value } })}
-              />
-              <span className="font-mono text-xs text-slate-500">{theme.textColor ?? "#2B2B2B"}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-2">
-          <div className="text-xs text-slate-500">Fuente</div>
-          <select
-            className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-            value={theme.fontFamily ?? "serif"}
-            onChange={(e) => dispatch({ type: "UPDATE_THEME", patch: { fontFamily: e.target.value } })}
-          >
-            <option value="serif">Serif</option>
-            <option value="sans-serif">Sans-serif</option>
-            <option value="monospace">Monospace</option>
-            <option value="Georgia, serif">Georgia</option>
-            <option value="'Times New Roman', serif">Times New Roman</option>
-            <option value="Arial, sans-serif">Arial</option>
-          </select>
-        </div>
-
-        <div className="mt-2 grid grid-cols-2 gap-2">
-          <div>
-            <div className="text-xs text-slate-500">Tamaño base (px)</div>
-            <input
-              type="number"
-              className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-              value={theme.baseFontSizePx ?? 18}
-              min={10}
-              max={32}
-              step={1}
-              onChange={(e) => dispatch({ type: "UPDATE_THEME", patch: { baseFontSizePx: Number(e.target.value) } })}
-            />
-          </div>
-          <div>
-            <div className="text-xs text-slate-500">Interlineado</div>
-            <input
-              type="number"
-              className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
-              value={theme.lineHeight ?? 1.6}
-              min={1}
-              max={3}
-              step={0.1}
-              onChange={(e) => dispatch({ type: "UPDATE_THEME", patch: { lineHeight: Number(e.target.value) } })}
-            />
-          </div>
-        </div>
+    <div
+      className="rounded-lg shadow-xl mx-auto my-6"
+      style={{
+        background: paperColor,
+        maxWidth: 680,
+        minHeight: 900,
+        padding: "56px 64px",
+        fontFamily: theme.fontFamily ?? "serif",
+      }}
+      onClick={() => dispatch({ type: "SELECT_BLOCK", blockId: null })}
+    >
+      <div className="space-y-2">
+        {page.content.length === 0 && (
+          <p className="text-center text-slate-300 italic text-sm py-16">
+            Página vacía — usa el panel inferior para agregar bloques
+          </p>
+        )}
+        {page.content.map((block) => (
+          <InlineBlock
+            key={block.id}
+            block={block}
+            page={page}
+            book={book}
+            isSelected={selectedBlockId === block.id}
+            dispatch={dispatch}
+            onSelect={() => dispatch({ type: "SELECT_BLOCK", blockId: block.id })}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
-function AssetsModal({
-  assets,
-  targetBlockId,
-  onSelect,
-  onUpload,
-  onRemove,
-  onClose,
+// ===== Add Block Bar =====
+function AddBlockBar({
+  dispatch,
 }: {
-  assets: BookAsset[];
-  targetBlockId: string | null;
-  onSelect: (assetId: string) => void;
-  onUpload: () => void;
-  onRemove: (assetId: string) => void;
-  onClose: () => void;
+  dispatch: (a: EditorAction) => void;
 }) {
+  const types: Array<{ t: Block["type"]; label: string }> = [
+    { t: "heading", label: "Título" },
+    { t: "paragraph", label: "Párrafo" },
+    { t: "image", label: "Imagen" },
+    { t: "divider", label: "Divisor" },
+    { t: "pageBreak", label: "Salto" },
+  ];
   return (
-    <Modal title="Gestor de imágenes" onClose={onClose}>
-      <div className="space-y-4">
-        <div className="flex items-center justify-between gap-2">
-          <div className="text-xs text-slate-500">
-            {targetBlockId
-              ? "Seleccioná una imagen para asignarla al bloque, o subí una nueva."
-              : "Imágenes disponibles en este libro."}
-          </div>
-          <button
-            className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white"
-            onClick={onUpload}
-          >
-            + Subir imagen
-          </button>
-        </div>
+    <div className="flex items-center gap-1 flex-wrap">
+      <span className="text-xs text-slate-500 mr-1">+ Bloque:</span>
+      {types.map(({ t, label }) => (
+        <button
+          key={t}
+          className="px-2 py-0.5 text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 rounded"
+          onClick={() => dispatch({ type: "ADD_BLOCK", blockType: t })}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+}
 
-        {assets.length === 0 ? (
-          <div className="rounded-xl border border-dashed px-6 py-10 text-center text-sm text-slate-500">
-            No hay imágenes. Subí una para comenzar.
-          </div>
-        ) : (
-          <div className="grid max-h-[50vh] grid-cols-2 gap-3 overflow-auto sm:grid-cols-3">
-            {assets.map((asset) => (
-              <div key={asset.id} className="group relative overflow-hidden rounded-xl border bg-slate-50">
-                <button
-                  className="w-full"
-                  onClick={() => targetBlockId && onSelect(asset.id)}
-                  title={targetBlockId ? `Asignar ${asset.name}` : asset.name}
-                >
-                  <img src={asset.dataUrl} alt={asset.name} className="h-28 w-full object-cover" />
-                  <div className="truncate px-2 py-1 text-left text-xs text-slate-600">{asset.name}</div>
-                  {asset.width ? (
-                    <div className="px-2 pb-1 text-xs text-slate-400">
-                      {asset.width}×{asset.height}px
-                    </div>
-                  ) : null}
-                </button>
-                <button
-                  className="absolute right-1 top-1 rounded-full bg-white/80 px-1.5 py-0.5 text-xs text-red-600 opacity-0 transition hover:bg-red-50 group-hover:opacity-100"
-                  title="Eliminar imagen"
-                  onClick={() => onRemove(asset.id)}
-                >
-                  ✕
-                </button>
-              </div>
-            ))}
-          </div>
+// ===== MAIN COMPONENT =====
+export default function BookEditorPage() {
+  const params = useParams<{ id?: string }>();
+  const location = useLocation();
+
+  const { state, dispatch, undo, redo, canUndo, canRedo, selectedPage, selectedBlock, runValidation } =
+    useBookEditor();
+
+  const book = state.book;
+
+  // FSA state
+  const [fsaHandle, setFsaHandle] = useState<FileSystemFileHandle | null>(null);
+  const [fsaFileName, setFsaFileName] = useState<string | null>(null);
+
+  // Modal visibility
+  const [showToc, setShowToc] = useState(false);
+  const [showAssets, setShowAssets] = useState(false);
+  const [showLibrary, setShowLibrary] = useState(false);
+  const [showJson, setShowJson] = useState(false);
+
+  // Import file ref
+  const importRef = useRef<HTMLInputElement>(null);
+
+  // Load book from URL param or default
+  useEffect(() => {
+    const loadInitial = async () => {
+      if (params.id) {
+        try {
+          const b = await fetchBook(params.id);
+          const migrated = migrateToV11ForEditor(b);
+          const { book: uniq } = ensureUniqueIds(migrated);
+          dispatch({ type: "LOAD_BOOK", book: uniq });
+          runValidation(uniq);
+        } catch {
+          dispatch({ type: "LOAD_BOOK", book: EMPTY_BOOK });
+        }
+      } else {
+        dispatch({ type: "LOAD_BOOK", book: EMPTY_BOOK });
+      }
+    };
+    loadInitial();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params.id]);
+
+  // Validation on book change
+  useEffect(() => {
+    if (book) runValidation(book);
+  }, [book, runValidation]);
+
+  // ===== FSA handlers =====
+  const openLocalFile = useCallback(async () => {
+    if (!window.showOpenFilePicker) {
+      alert("File System Access API no soportada en este navegador. Usa Chrome/Edge.");
+      return;
+    }
+    try {
+      const [handle] = await window.showOpenFilePicker({
+        types: [
+          {
+            description: "Libro JSON",
+            accept: { "application/json": [".json"] },
+          },
+        ],
+        multiple: false,
+      });
+      const file = await handle.getFile();
+      const b = await importBookFromFile(file);
+      dispatch({ type: "LOAD_BOOK", book: b });
+      setFsaHandle(handle);
+      setFsaFileName(handle.name);
+    } catch (e: unknown) {
+      if (e instanceof Error && e.name === "AbortError") return;
+      alert("Error al abrir archivo: " + String(e));
+    }
+  }, [dispatch]);
+
+  const saveLocalFile = useCallback(async () => {
+    if (!book) return;
+    const json = JSON.stringify(book, null, 2);
+
+    if (fsaHandle) {
+      try {
+        let perm = await fsaHandle.queryPermission({ mode: "readwrite" });
+        if (perm !== "granted") {
+          perm = await fsaHandle.requestPermission({ mode: "readwrite" });
+        }
+        if (perm === "granted") {
+          const writable = await fsaHandle.createWritable();
+          await writable.write(json);
+          await writable.close();
+          dispatch({ type: "MARK_DIRTY", dirty: false });
+          return;
+        }
+      } catch {
+        // fall through to showSaveFilePicker
+      }
+    }
+
+    if (window.showSaveFilePicker) {
+      try {
+        const handle = await window.showSaveFilePicker({
+          suggestedName: fsaFileName ?? `${book.metadata.title ?? "libro"}.json`,
+          types: [
+            {
+              description: "Libro JSON",
+              accept: { "application/json": [".json"] },
+            },
+          ],
+        });
+        const writable = await handle.createWritable();
+        await writable.write(json);
+        await writable.close();
+        setFsaHandle(handle);
+        setFsaFileName(handle.name);
+        dispatch({ type: "MARK_DIRTY", dirty: false });
+        return;
+      } catch (e: unknown) {
+        if (e instanceof Error && e.name === "AbortError") return;
+      }
+    }
+
+    // Fallback: download
+    exportBookToDownload(book, fsaFileName ?? `${book.metadata.title ?? "libro"}.json`);
+    dispatch({ type: "MARK_DIRTY", dirty: false });
+  }, [book, dispatch, fsaHandle, fsaFileName]);
+
+  // ===== Import / Export =====
+  const handleImportFile = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      try {
+        const b = await importBookFromFile(file);
+        dispatch({ type: "LOAD_BOOK", book: b });
+        setFsaHandle(null);
+        setFsaFileName(file.name);
+      } catch (err: unknown) {
+        alert("Error al importar: " + String(err));
+      }
+      e.target.value = "";
+    },
+    [dispatch]
+  );
+
+  const handleSaveServer = useCallback(async () => {
+    if (!book) return;
+    try {
+      const res = await saveBook(book);
+      alert(`Guardado en servidor. ID: ${res.id}`);
+      dispatch({ type: "MARK_DIRTY", dirty: false });
+    } catch (e: unknown) {
+      alert("Error al guardar: " + String(e));
+    }
+  }, [book, dispatch]);
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      const ctrl = e.ctrlKey || e.metaKey;
+      if (ctrl && e.key === "z" && !e.shiftKey) {
+        e.preventDefault();
+        undo();
+      } else if (ctrl && (e.key === "y" || (e.key === "z" && e.shiftKey))) {
+        e.preventDefault();
+        redo();
+      } else if (ctrl && e.key === "s") {
+        e.preventDefault();
+        saveLocalFile();
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [undo, redo, saveLocalFile]);
+
+  if (!book) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-slate-100">
+        <p className="text-slate-500 text-lg">Cargando editor…</p>
+      </div>
+    );
+  }
+
+  const issues = state.issues;
+  const errorCount = issues.filter((i) => i.level === "error").length;
+  const warnCount = issues.filter((i) => i.level === "warn").length;
+
+  // Inspector sections visibility: open by default when relevant block selected
+  const hasSelectedBlock = !!selectedBlock;
+  const hasSelectedPage = !!selectedPage;
+
+  return (
+    <div className="h-screen flex flex-col overflow-hidden bg-slate-100">
+      {/* ===== HEADER ===== */}
+      <header className="flex-shrink-0 h-12 bg-slate-800 text-white flex items-center px-3 gap-2 shadow-md z-20">
+        <span className="font-bold text-base mr-2 truncate max-w-[180px]" title={book.metadata.title}>
+          {book.metadata.title || "Sin título"}
+        </span>
+
+        {state.dirty && (
+          <span className="text-xs bg-amber-500 text-white px-1.5 py-0.5 rounded">
+            Sin guardar
+          </span>
+        )}
+        {fsaFileName && (
+          <span className="text-xs text-slate-400 truncate max-w-[140px]" title={fsaFileName}>
+            {fsaFileName}
+          </span>
         )}
 
-        <div className="flex justify-end">
-          <button className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-medium" onClick={onClose}>
-            Cerrar
-          </button>
-        </div>
-      </div>
-    </Modal>
+        <div className="flex-1" />
+
+        {/* Undo/Redo */}
+        <button
+          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-40"
+          onClick={undo}
+          disabled={!canUndo}
+          title="Deshacer (Ctrl+Z)"
+        >
+          ↩ Deshacer
+        </button>
+        <button
+          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-40"
+          onClick={redo}
+          disabled={!canRedo}
+          title="Rehacer (Ctrl+Y)"
+        >
+          ↪ Rehacer
+        </button>
+
+        <div className="w-px h-6 bg-slate-600 mx-1" />
+
+        {/* FSA buttons */}
+        <button
+          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          onClick={openLocalFile}
+          title="Abrir archivo local (File System Access API)"
+        >
+          Abrir local
+        </button>
+        <button
+          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          onClick={saveLocalFile}
+          title="Guardar en archivo local (Ctrl+S)"
+        >
+          Guardar local
+        </button>
+
+        <div className="w-px h-6 bg-slate-600 mx-1" />
+
+        {/* Import/Export */}
+        <input
+          ref={importRef}
+          type="file"
+          accept=".json"
+          className="hidden"
+          onChange={handleImportFile}
+        />
+        <button
+          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          onClick={() => importRef.current?.click()}
+          title="Importar JSON"
+        >
+          Importar
+        </button>
+        <button
+          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          onClick={() =>
+            exportBookToDownload(book, `${book.metadata.title || "libro"}.json`)
+          }
+          title="Exportar JSON"
+        >
+          Exportar
+        </button>
+        <button
+          className="px-2 py-1 text-xs bg-green-700 hover:bg-green-600 rounded"
+          onClick={handleSaveServer}
+          title="Guardar en servidor"
+        >
+          Guardar API
+        </button>
+
+        <div className="w-px h-6 bg-slate-600 mx-1" />
+
+        {/* Feature buttons */}
+        <button
+          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          onClick={() => setShowToc(true)}
+        >
+          Índice
+        </button>
+        <button
+          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          onClick={() => setShowAssets(true)}
+        >
+          Imágenes
+        </button>
+        <button
+          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          onClick={() => setShowLibrary(true)}
+        >
+          Biblioteca
+        </button>
+        <button
+          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          onClick={() => setShowJson(true)}
+        >
+          JSON
+        </button>
+
+        {/* Issues badge */}
+        {(errorCount > 0 || warnCount > 0) && (
+          <div className="flex gap-1 ml-1">
+            {errorCount > 0 && (
+              <span className="text-xs bg-red-600 text-white px-1.5 py-0.5 rounded">
+                {errorCount} error{errorCount > 1 ? "es" : ""}
+              </span>
+            )}
+            {warnCount > 0 && (
+              <span className="text-xs bg-amber-500 text-white px-1.5 py-0.5 rounded">
+                {warnCount} aviso{warnCount > 1 ? "s" : ""}
+              </span>
+            )}
+          </div>
+        )}
+      </header>
+
+      {/* ===== MAIN 3-PANEL LAYOUT ===== */}
+      <main className="flex flex-1 overflow-hidden min-h-0">
+        {/* ===== LEFT SIDEBAR: Pages ===== */}
+        <aside className="w-48 flex-shrink-0 border-r border-slate-200 bg-white flex flex-col overflow-hidden">
+          <div className="flex items-center justify-between px-2 py-2 border-b border-slate-100">
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+              Páginas
+            </span>
+            <button
+              className="text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded px-1.5 py-0.5"
+              onClick={() => dispatch({ type: "ADD_PAGE" })}
+              title="Nueva página"
+            >
+              +
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto">
+            {book.pages.map((page, idx) => {
+              const isActive = state.selectedPageId === page.id;
+              return (
+                <div
+                  key={page.id}
+                  className={classNames(
+                    "group flex items-center gap-1 px-2 py-1.5 cursor-pointer border-b border-slate-50 select-none",
+                    isActive
+                      ? "bg-indigo-50 border-l-2 border-l-indigo-500"
+                      : "hover:bg-slate-50"
+                  )}
+                  onClick={() => dispatch({ type: "SELECT_PAGE", pageId: page.id })}
+                >
+                  <div className="flex-1 min-w-0">
+                    <p
+                      className={classNames(
+                        "text-xs truncate",
+                        isActive ? "text-indigo-700 font-medium" : "text-slate-700"
+                      )}
+                    >
+                      {page.title || `Pág. ${idx + 1}`}
+                    </p>
+                    <p className="text-xs text-slate-400">{page.content.length} bloques</p>
+                  </div>
+                  {isActive && (
+                    <div className="flex flex-col gap-0.5 opacity-0 group-hover:opacity-100">
+                      <button
+                        className="text-slate-400 hover:text-slate-700 text-xs leading-none"
+                        title="Mover arriba"
+                        onClick={(e: React.MouseEvent) => {
+                          e.stopPropagation();
+                          dispatch({ type: "MOVE_PAGE", pageId: page.id, direction: "up" });
+                        }}
+                      >
+                        ▲
+                      </button>
+                      <button
+                        className="text-slate-400 hover:text-slate-700 text-xs leading-none"
+                        title="Mover abajo"
+                        onClick={(e: React.MouseEvent) => {
+                          e.stopPropagation();
+                          dispatch({ type: "MOVE_PAGE", pageId: page.id, direction: "down" });
+                        }}
+                      >
+                        ▼
+                      </button>
+                    </div>
+                  )}
+                  {isActive && (
+                    <div className="flex gap-0.5 opacity-0 group-hover:opacity-100">
+                      <button
+                        className="text-slate-400 hover:text-indigo-600 text-xs"
+                        title="Duplicar"
+                        onClick={(e: React.MouseEvent) => {
+                          e.stopPropagation();
+                          dispatch({ type: "DUPLICATE_PAGE", pageId: page.id });
+                        }}
+                      >
+                        ⊕
+                      </button>
+                      <button
+                        className="text-slate-400 hover:text-red-600 text-xs"
+                        title="Eliminar"
+                        onClick={(e: React.MouseEvent) => {
+                          e.stopPropagation();
+                          if (book.pages.length > 1) {
+                            dispatch({ type: "DELETE_PAGE", pageId: page.id });
+                          }
+                        }}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </aside>
+
+        {/* ===== CENTER: Canvas ===== */}
+        <section className="flex-1 overflow-y-auto flex flex-col">
+          {/* Add block toolbar pinned at top of canvas area */}
+          {selectedPage && (
+            <div className="flex-shrink-0 bg-white border-b border-slate-200 px-3 py-1.5 flex items-center gap-2">
+              <AddBlockBar dispatch={dispatch} />
+            </div>
+          )}
+
+          {selectedPage ? (
+            <PageCanvas
+              page={selectedPage}
+              book={book}
+              selectedBlockId={state.selectedBlockId}
+              dispatch={dispatch}
+            />
+          ) : (
+            <div className="flex-1 flex items-center justify-center text-slate-400 text-sm">
+              Selecciona una página
+            </div>
+          )}
+        </section>
+
+        {/* ===== RIGHT SIDEBAR: Inspector ===== */}
+        <aside className="w-72 flex-shrink-0 border-l border-slate-200 bg-white flex flex-col overflow-hidden">
+          <div className="flex-shrink-0 px-3 py-2 border-b border-slate-100">
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+              Inspector
+            </span>
+          </div>
+          <div className="flex-1 overflow-y-auto">
+            {/* DOCUMENTO */}
+            <InspectorCard title="Documento">
+              <MetadataEditor book={book} dispatch={dispatch} />
+            </InspectorCard>
+
+            {/* PÁGINA */}
+            <InspectorCard title="Página" defaultOpen={hasSelectedPage}>
+              {selectedPage ? (
+                <PageInspector page={selectedPage} dispatch={dispatch} />
+              ) : (
+                <p className="text-xs text-slate-400 italic">Sin página seleccionada</p>
+              )}
+            </InspectorCard>
+
+            {/* BLOQUE */}
+            <InspectorCard title="Bloque" defaultOpen={hasSelectedBlock}>
+              {selectedBlock && selectedPage ? (
+                <BlockInspector
+                  block={selectedBlock}
+                  page={selectedPage}
+                  book={book}
+                  dispatch={dispatch}
+                />
+              ) : (
+                <p className="text-xs text-slate-400 italic">
+                  Haz clic en un bloque para editarlo
+                </p>
+              )}
+            </InspectorCard>
+
+            {/* NOTAS */}
+            <InspectorCard title="Notas / Glosario" defaultOpen={false}>
+              <NotesPanel book={book} dispatch={dispatch} />
+            </InspectorCard>
+          </div>
+        </aside>
+      </main>
+
+      {/* ===== MODALS ===== */}
+      {showToc && (
+        <TocModal book={book} dispatch={dispatch} onClose={() => setShowToc(false)} />
+      )}
+      {showAssets && (
+        <AssetsModal book={book} dispatch={dispatch} onClose={() => setShowAssets(false)} />
+      )}
+      {showLibrary && (
+        <LibraryModal dispatch={dispatch} onClose={() => setShowLibrary(false)} />
+      )}
+      {showJson && (
+        <JsonModal book={book} onClose={() => setShowJson(false)} />
+      )}
+    </div>
   );
 }
