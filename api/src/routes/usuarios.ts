@@ -240,3 +240,76 @@ usuarios.get("/api/usuarios/:id", requireUser, requirePolicy("usuarios/read"), a
   }
   res.json(serializeUsuario(item, { access: "member" }));
 });
+
+usuarios.get("/api/perfil", requireUser, async (req, res) => {
+  try {
+    const userReq = (req as { user?: { _id?: unknown; id?: unknown; role?: string } }).user;
+    const rawId = userReq?._id ?? userReq?.id;
+    const userId = rawId ? (typeof rawId === "string" ? rawId : String(rawId)) : null;
+    if (!userId) return res.status(401).json({ error: "not authenticated" });
+    const db = await getDb();
+    const objectId = toObjectId(userId);
+    const userDoc = await db.collection("usuarios").findOne(
+      { _id: objectId, isDeleted: { $ne: true } },
+      { projection: { _id: 1, username: 1, email: 1, fullName: 1, role: 1, escuelaId: 1, createdAt: 1, isBanned: 1, warningCount: 1 } }
+    );
+    if (!userDoc) return res.status(404).json({ error: "not found" });
+
+    const progresoItems = await db
+      .collection("progreso_modulos")
+      .find({ usuarioId: userId, status: "completado" })
+      .project({ moduloId: 1 })
+      .toArray();
+    const moduloIds = progresoItems.map((p) => p.moduloId as string).filter(Boolean);
+    let modulosCompletados = { publicos: 0, privados: 0, total: 0 };
+    if (moduloIds.length > 0) {
+      const modulos = await db.collection("modulos")
+        .find({ $or: [{ id: { $in: moduloIds } }, { _id: { $in: moduloIds.map((id) => toObjectId(id)).filter(Boolean) } }] })
+        .project({ id: 1, _id: 1, visibility: 1 })
+        .toArray();
+      const visMap = new Map(modulos.map((m) => [(m.id ?? m._id?.toString?.()) as string, (m.visibility ?? "privado") as string]));
+      let pub = 0; let priv = 0;
+      for (const id of moduloIds) {
+        if (visMap.get(id) === "publico") pub++; else priv++;
+      }
+      modulosCompletados = { publicos: pub, privados: priv, total: moduloIds.length };
+    }
+
+    let hijos: Array<{ id: string; nombre: string; usuario: string }> = [];
+    if (userDoc.role === "PARENT") {
+      const vinculos = await db
+        .collection("vinculos_padre_hijo")
+        .find({ parentId: userId, estado: "aprobado" })
+        .project({ childId: 1 })
+        .toArray();
+      const childIds = vinculos.map((v) => v.childId as string).filter(Boolean);
+      if (childIds.length > 0) {
+        const childDocs = await db.collection("usuarios")
+          .find({ $or: [{ _id: { $in: childIds.map((id) => toObjectId(id)).filter(Boolean) } }, { _id: { $in: childIds } }] })
+          .project({ _id: 1, fullName: 1, username: 1 })
+          .toArray();
+        hijos = childDocs.map((c) => ({
+          id: (c._id?.toString?.() ?? "") as string,
+          nombre: (c.fullName ?? c.username ?? "Sin nombre") as string,
+          usuario: (c.username ?? "") as string
+        }));
+      }
+    }
+
+    res.json({
+      id: userDoc._id?.toString?.() ?? userId,
+      username: (userDoc.username ?? "") as string,
+      email: (userDoc.email ?? "") as string,
+      fullName: (userDoc.fullName ?? userDoc.username ?? "Sin nombre") as string,
+      role: (userDoc.role ?? "USER") as string,
+      escuelaId: userDoc.escuelaId ? String(userDoc.escuelaId) : null,
+      createdAt: userDoc.createdAt ? new Date(userDoc.createdAt as string).toISOString() : null,
+      isBanned: userDoc.isBanned === true,
+      warningCount: typeof userDoc.warningCount === "number" ? userDoc.warningCount : 0,
+      modulosCompletados,
+      hijos
+    });
+  } catch {
+    res.status(500).json({ error: "internal server error" });
+  }
+});

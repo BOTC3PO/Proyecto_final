@@ -4,27 +4,32 @@ const adminSections = [
   {
     label: 'Usuarios',
     to: '/admin/usuarios',
-    desc: 'Gestiona solicitudes, permisos y métricas clave relacionadas con usuarios.',
-  },
-  {
-    label: 'Cursos',
-    to: '/admin/cursos',
-    desc: 'Gestiona solicitudes, permisos y métricas clave relacionadas con cursos.',
+    desc: 'Busca, modera y gestiona roles de los usuarios de la plataforma.',
   },
   {
     label: 'Materias',
     to: '/admin/materias',
-    desc: 'Gestiona solicitudes, permisos y métricas clave relacionadas con materias.',
+    desc: 'Crea, edita y activa/desactiva materias disponibles en la plataforma.',
+  },
+  {
+    label: 'Módulos públicos',
+    to: '/modulos',
+    desc: 'Explora y crea módulos de aprendizaje de acceso público.',
+  },
+  {
+    label: 'Moderación',
+    to: '/admin/moderacion',
+    desc: 'Gestiona aulas públicas, mensajes reportados, bans y advertencias.',
   },
   {
     label: 'Reportes',
     to: '/admin/reportes',
-    desc: 'Gestiona solicitudes, permisos y métricas clave relacionadas con reportes.',
+    desc: 'Estadísticas globales de la plataforma: usuarios, módulos y moderación.',
   },
   {
     label: 'Gobernanza',
     to: '/gobernanza',
-    desc: 'Propuestas de cambio para generadores, enunciados y configuraciones. Votación colaborativa entre directivos, docentes y administradores.',
+    desc: 'Propuestas de cambio y votaciones colaborativas entre administradores.',
   },
 ];
 
@@ -35,12 +40,11 @@ export default function Admin() {
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Admin</p>
         <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">Panel administrativo</h1>
         <p className="max-w-2xl text-base text-slate-600">
-          Supervisa usuarios, cursos y reportes desde un mismo lugar. Aquí encontrarás los accesos
-          rápidos para las tareas operativas del equipo.
+          Supervisión global de la plataforma: usuarios, módulos públicos, moderación y configuración.
         </p>
       </header>
 
-      <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {adminSections.map((item) => (
           <Link
             key={item.label}
@@ -63,7 +67,19 @@ export default function Admin() {
             to="/admin/panel"
             className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
           >
-            Panel de control
+            Panel de control global
+          </Link>
+          <Link
+            to="/modulos/crear"
+            className="rounded-full border border-violet-200 px-4 py-2 text-sm font-semibold text-violet-700 hover:bg-violet-50 transition-colors"
+          >
+            Crear módulo público
+          </Link>
+          <Link
+            to="/alumno"
+            className="rounded-full border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors"
+          >
+            Ver como alumno
           </Link>
         </div>
       </section>
