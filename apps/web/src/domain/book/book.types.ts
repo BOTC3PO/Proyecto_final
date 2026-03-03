@@ -1,6 +1,24 @@
 export type BookSchemaV10 = "book.pages@1.0";
 export type BookSchemaV11 = "book.pages@1.1";
 
+export type BookAsset = {
+  id: string;
+  name: string;
+  mimeType: string;
+  dataUrl: string;
+  width?: number;
+  height?: number;
+};
+
+/** Nota de autor: glosario, aclaración o definición referenciable desde el texto. */
+export type BookNote = {
+  id: string;
+  term: string;
+  content: string;
+  /** IDs de páginas que mencionan esta nota */
+  pages?: string[];
+};
+
 export type Book = {
   schema: BookSchemaV10 | BookSchemaV11;
   metadata: {
@@ -27,9 +45,9 @@ export type Book = {
     pageNumbering?: { startAt?: number };
     index?: Array<{ id: string; title: string; pageStart: number; anchor: string }>;
   };
-  assets?: any[];
+  assets?: BookAsset[];
   pages: Page[];
-  notes?: any[];
+  notes?: BookNote[];
   glossary?: any[];
   references?: any[];
 };
