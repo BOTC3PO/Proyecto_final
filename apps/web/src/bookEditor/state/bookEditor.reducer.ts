@@ -43,7 +43,30 @@ export type EditorAction =
       blockId: string;
       runIndex: number;
       patch: Partial<TextStyle>;
-    };
+    }
+  | {
+      type: "UPDATE_HEADING";
+      pageId: string;
+      blockId: string;
+      patch: {
+        text?: string;
+        level?: 1 | 2 | 3 | 4 | 5 | 6;
+        blockStyle?: Partial<BlockStyle>;
+        textStyle?: Partial<TextStyle>;
+      };
+    }
+  | {
+      type: "UPDATE_IMAGE";
+      pageId: string;
+      blockId: string;
+      patch: { caption?: string; blockStyle?: Partial<BlockStyle> };
+    }
+  | { type: "MOVE_PAGE"; pageId: string; direction: "up" | "down" }
+  | { type: "MOVE_BLOCK"; pageId: string; blockId: string; direction: "up" | "down" }
+  | { type: "DELETE_PAGE"; pageId: string }
+  | { type: "DELETE_BLOCK"; pageId: string; blockId: string }
+  | { type: "DUPLICATE_PAGE"; pageId: string }
+  | { type: "DUPLICATE_BLOCK"; pageId: string; blockId: string };
 
 function updatePage(book: Book, pageId: string, updater: (p: Page) => Page): Book {
   return {
@@ -106,6 +129,10 @@ function createDefaultBlock(
       return _never;
     }
   }
+}
+
+function makeSuffix(): string {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 4);
 }
 
 export function editorReducer(state: EditorState, action: EditorAction): EditorState {
@@ -189,8 +216,13 @@ export function editorReducer(state: EditorState, action: EditorAction): EditorS
           if (b.type !== "paragraph") return b;
 
           const runs = b.runs ?? [{ text: "" }];
-          const safeIndex = Math.max(0, Math.min(runIndex, runs.length - 1));
 
+          // Handle empty runs array when appending first run
+          if (runs.length === 0 && runIndex === 0) {
+            return { ...b, runs: [{ text: "", ...patch }] };
+          }
+
+          const safeIndex = Math.max(0, Math.min(runIndex, runs.length - 1));
           const updatedRuns = runs.map((r, i) => (i === safeIndex ? { ...r, ...patch } : r));
 
           return { ...b, runs: updatedRuns };
@@ -236,6 +268,175 @@ export function editorReducer(state: EditorState, action: EditorAction): EditorS
       );
 
       return { ...state, book: updatedBook, dirty: true };
+    }
+
+    case "UPDATE_HEADING": {
+      if (!state.book) return state;
+
+      const { pageId, blockId, patch } = action;
+
+      const updatedBook = updatePage(state.book, pageId, (p) =>
+        updateBlockOnPage(p, blockId, (b): Block => {
+          if (b.type !== "heading") return b;
+          return {
+            ...b,
+            ...(patch.text !== undefined && { text: patch.text }),
+            ...(patch.level !== undefined && { level: patch.level }),
+            ...(patch.blockStyle !== undefined && {
+              blockStyle: { ...(b.blockStyle ?? {}), ...patch.blockStyle },
+            }),
+            ...(patch.textStyle !== undefined && {
+              textStyle: { ...(b.textStyle ?? {}), ...patch.textStyle },
+            }),
+          };
+        })
+      );
+
+      return { ...state, book: updatedBook, dirty: true };
+    }
+
+    case "UPDATE_IMAGE": {
+      if (!state.book) return state;
+
+      const { pageId, blockId, patch } = action;
+
+      const updatedBook = updatePage(state.book, pageId, (p) =>
+        updateBlockOnPage(p, blockId, (b): Block => {
+          if (b.type !== "image") return b;
+          return {
+            ...b,
+            ...(patch.caption !== undefined && { caption: patch.caption }),
+            ...(patch.blockStyle !== undefined && {
+              blockStyle: { ...(b.blockStyle ?? {}), ...patch.blockStyle },
+            }),
+          };
+        })
+      );
+
+      return { ...state, book: updatedBook, dirty: true };
+    }
+
+    case "MOVE_PAGE": {
+      if (!state.book) return state;
+
+      const pages = [...state.book.pages];
+      const idx = pages.findIndex((p) => p.id === action.pageId);
+      if (idx < 0) return state;
+
+      const newIdx = action.direction === "up" ? idx - 1 : idx + 1;
+      if (newIdx < 0 || newIdx >= pages.length) return state;
+
+      [pages[idx], pages[newIdx]] = [pages[newIdx], pages[idx]];
+
+      return { ...state, book: { ...state.book, pages }, dirty: true };
+    }
+
+    case "MOVE_BLOCK": {
+      if (!state.book) return state;
+
+      const updatedBook = updatePage(state.book, action.pageId, (p) => {
+        const content = [...p.content];
+        const idx = content.findIndex((b) => b.id === action.blockId);
+        if (idx < 0) return p;
+
+        const newIdx = action.direction === "up" ? idx - 1 : idx + 1;
+        if (newIdx < 0 || newIdx >= content.length) return p;
+
+        [content[idx], content[newIdx]] = [content[newIdx], content[idx]];
+        return { ...p, content };
+      });
+
+      return { ...state, book: updatedBook, dirty: true };
+    }
+
+    case "DELETE_PAGE": {
+      if (!state.book) return state;
+      if (state.book.pages.length <= 1) return state;
+
+      const pages = state.book.pages.filter((p) => p.id !== action.pageId);
+      const newSelectedId =
+        state.selectedPageId === action.pageId ? (pages[0]?.id ?? null) : state.selectedPageId;
+
+      return {
+        ...state,
+        book: { ...state.book, pages },
+        selectedPageId: newSelectedId,
+        selectedBlockId: state.selectedPageId === action.pageId ? null : state.selectedBlockId,
+        dirty: true,
+      };
+    }
+
+    case "DELETE_BLOCK": {
+      if (!state.book) return state;
+
+      const updatedBook = updatePage(state.book, action.pageId, (p) => ({
+        ...p,
+        content: p.content.filter((b) => b.id !== action.blockId),
+      }));
+
+      return {
+        ...state,
+        book: updatedBook,
+        selectedBlockId: state.selectedBlockId === action.blockId ? null : state.selectedBlockId,
+        dirty: true,
+      };
+    }
+
+    case "DUPLICATE_PAGE": {
+      if (!state.book) return state;
+
+      const idx = state.book.pages.findIndex((p) => p.id === action.pageId);
+      if (idx < 0) return state;
+
+      const original = state.book.pages[idx];
+      const suffix = makeSuffix();
+
+      const newPage: Page = {
+        ...original,
+        id: `${original.id}-c${suffix}`,
+        title: original.title ? `${original.title} (copia)` : undefined,
+        content: original.content.map((b) => ({ ...b, id: `${b.id}-c${suffix}` } as Block)),
+      };
+
+      const pages = [...state.book.pages];
+      pages.splice(idx + 1, 0, newPage);
+
+      const renumbered = pages.map((p, i) => ({ ...p, number: i + 1 }));
+
+      return {
+        ...state,
+        book: { ...state.book, pages: renumbered },
+        selectedPageId: newPage.id,
+        selectedBlockId: null,
+        dirty: true,
+      };
+    }
+
+    case "DUPLICATE_BLOCK": {
+      if (!state.book) return state;
+
+      const suffix = makeSuffix();
+      let newBlockId = "";
+
+      const updatedBook = updatePage(state.book, action.pageId, (p) => {
+        const idx = p.content.findIndex((b) => b.id === action.blockId);
+        if (idx < 0) return p;
+
+        const original = p.content[idx];
+        const newBlock: Block = { ...original, id: `${original.id}-c${suffix}` } as Block;
+        newBlockId = newBlock.id;
+
+        const content = [...p.content];
+        content.splice(idx + 1, 0, newBlock);
+        return { ...p, content };
+      });
+
+      return {
+        ...state,
+        book: updatedBook,
+        selectedBlockId: newBlockId || state.selectedBlockId,
+        dirty: true,
+      };
     }
 
     default:

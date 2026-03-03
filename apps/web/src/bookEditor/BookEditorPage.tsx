@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import type { Block, Book, Page } from "../domain/book/book.types";
 import { useBookEditor } from "./state/useBookEditor";
+import type { EditorAction } from "./state/bookEditor.reducer";
 import { ensureUniqueIds } from "./services/ids";
 import { exportBookToDownload, importBookFromFile } from "./services/importExport";
 import { migrateToV11ForEditor } from "./services/migrate";
@@ -486,28 +487,54 @@ export default function BookEditorPage() {
             />
             <div className="max-h-[70vh] overflow-auto pr-1">
               <ul className="space-y-1">
-                {book.pages.map((p) => {
+                {book.pages.map((p, pageIdx) => {
                   const active = p.id === state.selectedPageId;
                   return (
                     <li key={p.id}>
-                      <button
+                      <div
                         className={classNames(
-                          "w-full rounded-xl border px-3 py-2 text-left",
+                          "rounded-xl border",
                           active ? "border-slate-900 bg-slate-50" : "border-transparent hover:border-slate-200 hover:bg-slate-50"
                         )}
-                        onClick={() => {
-                          dispatch({ type: "SELECT_PAGE", pageId: p.id });
-                          setMobileTab("content");
-                        }}
                       >
-                        <div className="flex items-center justify-between gap-2">
-                          <div className="min-w-0">
-                            <div className="truncate text-sm font-semibold">{p.title ?? `Página ${p.number}`}</div>
-                            <div className="truncate text-xs text-slate-500">{p.id} · Nº {p.number}</div>
+                        <button
+                          className="w-full px-3 py-2 text-left"
+                          onClick={() => {
+                            dispatch({ type: "SELECT_PAGE", pageId: p.id });
+                            setMobileTab("content");
+                          }}
+                        >
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="min-w-0">
+                              <div className="truncate text-sm font-semibold">{p.title ?? `Página ${p.number}`}</div>
+                              <div className="truncate text-xs text-slate-500">{p.id} · Nº {p.number}</div>
+                            </div>
+                            <div className="text-xs text-slate-500">{p.content.length} bloques</div>
                           </div>
-                          <div className="text-xs text-slate-500">{p.content.length} bloques</div>
+                        </button>
+                        <div className="flex items-center gap-0.5 border-t px-2 py-1">
+                          <IconBtn
+                            title="Subir página"
+                            disabled={pageIdx === 0}
+                            onClick={() => dispatch({ type: "MOVE_PAGE", pageId: p.id, direction: "up" })}
+                          >▲</IconBtn>
+                          <IconBtn
+                            title="Bajar página"
+                            disabled={pageIdx === book.pages.length - 1}
+                            onClick={() => dispatch({ type: "MOVE_PAGE", pageId: p.id, direction: "down" })}
+                          >▼</IconBtn>
+                          <IconBtn
+                            title="Duplicar página"
+                            onClick={() => dispatch({ type: "DUPLICATE_PAGE", pageId: p.id })}
+                          >⊕</IconBtn>
+                          <IconBtn
+                            title="Eliminar página"
+                            disabled={book.pages.length <= 1}
+                            danger
+                            onClick={() => dispatch({ type: "DELETE_PAGE", pageId: p.id })}
+                          >✕</IconBtn>
                         </div>
-                      </button>
+                      </div>
                     </li>
                   );
                 })}
@@ -569,6 +596,15 @@ export default function BookEditorPage() {
                     page={selectedPage}
                     selectedBlockId={state.selectedBlockId}
                     onSelectBlock={(id) => dispatch({ type: "SELECT_BLOCK", blockId: id })}
+                    onMoveBlock={(blockId, dir) =>
+                      dispatch({ type: "MOVE_BLOCK", pageId: selectedPage.id, blockId, direction: dir })
+                    }
+                    onDeleteBlock={(blockId) =>
+                      dispatch({ type: "DELETE_BLOCK", pageId: selectedPage.id, blockId })
+                    }
+                    onDuplicateBlock={(blockId) =>
+                      dispatch({ type: "DUPLICATE_BLOCK", pageId: selectedPage.id, blockId })
+                    }
                   />
                 )}
               </div>
@@ -616,16 +652,32 @@ export default function BookEditorPage() {
             </InspectorCard>
 
             <InspectorCard title="Bloque seleccionado">
-              {selectedBlock ? (
+              {selectedBlock && selectedPage ? (
                 <>
-                  <KV label="Tipo" value={selectedBlock.type} />
-                  <KV label="ID" value={(selectedBlock as any).id} />
-                  {"text" in selectedBlock && typeof (selectedBlock as any).text === "string" ? (
-                    <div className="mt-2 line-clamp-4 text-xs text-slate-500">{(selectedBlock as any).text}</div>
-                  ) : null}
-                  {"runs" in selectedBlock && Array.isArray((selectedBlock as any).runs) ? (
-                    <div className="mt-2 text-xs text-slate-500">Runs: {(selectedBlock as any).runs.length}</div>
-                  ) : null}
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <KV label="Tipo" value={selectedBlock.type} />
+                    <KV label="ID" value={selectedBlock.id} />
+                  </div>
+                  <div className="mt-2 flex gap-1">
+                    <IconBtn
+                      title="Duplicar bloque"
+                      onClick={() =>
+                        dispatch({ type: "DUPLICATE_BLOCK", pageId: selectedPage.id, blockId: selectedBlock.id })
+                      }
+                    >
+                      ⊕ Duplicar
+                    </IconBtn>
+                    <IconBtn
+                      title="Eliminar bloque"
+                      danger
+                      onClick={() =>
+                        dispatch({ type: "DELETE_BLOCK", pageId: selectedPage.id, blockId: selectedBlock.id })
+                      }
+                    >
+                      ✕ Eliminar
+                    </IconBtn>
+                  </div>
+                  <BlockInspector block={selectedBlock} pageId={selectedPage.id} dispatch={dispatch} />
                 </>
               ) : (
                 <div className="text-sm text-slate-500">Seleccioná un bloque para ver detalles.</div>
@@ -822,33 +874,61 @@ function EditPage(props: {
   page: Page;
   selectedBlockId: string | null;
   onSelectBlock: (id: string) => void;
+  onMoveBlock: (blockId: string, dir: "up" | "down") => void;
+  onDeleteBlock: (blockId: string) => void;
+  onDuplicateBlock: (blockId: string) => void;
 }) {
-  const { page, selectedBlockId, onSelectBlock } = props;
+  const { page, selectedBlockId, onSelectBlock, onMoveBlock, onDeleteBlock, onDuplicateBlock } = props;
 
   return (
     <div className="space-y-3">
-      {page.content.map((b) => {
-        const id = (b as any).id as string;
+      {page.content.map((b, blockIdx) => {
+        const id = b.id;
         const active = selectedBlockId === id;
+        const isFirst = blockIdx === 0;
+        const isLast = blockIdx === page.content.length - 1;
 
         return (
-          <button
+          <div
             key={id}
             className={classNames(
-              "w-full rounded-xl border p-3 text-left transition",
+              "rounded-xl border transition",
               active ? "border-slate-900 bg-white/60" : "border-white/20 bg-white/30 hover:bg-white/50"
             )}
             onClick={() => onSelectBlock(id)}
           >
-            <div className="flex items-center justify-between gap-2">
-              <div className="text-xs font-semibold text-slate-700">{b.type.toUpperCase()}</div>
-              <div className="text-[11px] text-slate-500">{id}</div>
+            <div className="flex items-center justify-between gap-2 px-3 pt-2">
+              <div className="flex items-center gap-2">
+                <div className="text-xs font-semibold text-slate-700">{b.type.toUpperCase()}</div>
+                <div className="text-[11px] text-slate-400">{id}</div>
+              </div>
+              <div className="flex items-center gap-0.5">
+                <IconBtn
+                  title="Subir bloque"
+                  disabled={isFirst}
+                  onClick={(e) => { e.stopPropagation(); onMoveBlock(id, "up"); }}
+                >▲</IconBtn>
+                <IconBtn
+                  title="Bajar bloque"
+                  disabled={isLast}
+                  onClick={(e) => { e.stopPropagation(); onMoveBlock(id, "down"); }}
+                >▼</IconBtn>
+                <IconBtn
+                  title="Duplicar bloque"
+                  onClick={(e) => { e.stopPropagation(); onDuplicateBlock(id); }}
+                >⊕</IconBtn>
+                <IconBtn
+                  title="Eliminar bloque"
+                  danger
+                  onClick={(e) => { e.stopPropagation(); onDeleteBlock(id); }}
+                >✕</IconBtn>
+              </div>
             </div>
 
-            <div className="mt-2">
+            <div className="px-3 pb-3 pt-1">
               <BlockRender block={b} />
             </div>
-          </button>
+          </div>
         );
       })}
     </div>
@@ -976,4 +1056,252 @@ function Modal({ title, children, onClose }: { title: string; children: React.Re
       </div>
     </div>
   );
+}
+
+function IconBtn({
+  children,
+  onClick,
+  disabled,
+  danger,
+  title,
+}: {
+  children: React.ReactNode;
+  onClick: (e: React.MouseEvent) => void;
+  disabled?: boolean;
+  danger?: boolean;
+  title?: string;
+}) {
+  return (
+    <button
+      title={title}
+      disabled={disabled}
+      onClick={onClick}
+      className={classNames(
+        "rounded px-1.5 py-0.5 text-xs font-medium transition disabled:cursor-not-allowed disabled:opacity-30",
+        danger ? "text-red-600 hover:bg-red-50" : "text-slate-600 hover:bg-slate-200"
+      )}
+    >
+      {children}
+    </button>
+  );
+}
+
+function AlignButtons({
+  value,
+  onChange,
+  includeJustify = true,
+}: {
+  value: string;
+  onChange: (a: "left" | "center" | "right" | "justify") => void;
+  includeJustify?: boolean;
+}) {
+  const options = includeJustify
+    ? (["left", "center", "right", "justify"] as const)
+    : (["left", "center", "right"] as const);
+  const labels: Record<string, string> = { left: "←", center: "↔", right: "→", justify: "≡" };
+  return (
+    <div className="flex gap-1">
+      {options.map((a) => (
+        <button
+          key={a}
+          title={a}
+          className={classNames(
+            "flex-1 rounded-lg py-1 text-xs",
+            value === a ? "bg-slate-900 text-white" : "bg-slate-100 hover:bg-slate-200"
+          )}
+          onClick={() => onChange(a)}
+        >
+          {labels[a]}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function BlockInspector({
+  block,
+  pageId,
+  dispatch,
+}: {
+  block: Block;
+  pageId: string;
+  dispatch: (action: EditorAction) => void;
+}) {
+  if (block.type === "heading") {
+    return (
+      <div className="mt-3 space-y-3">
+        <div>
+          <div className="text-xs text-slate-500">Texto</div>
+          <input
+            className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
+            value={block.text}
+            onChange={(e) =>
+              dispatch({ type: "UPDATE_HEADING", pageId, blockId: block.id, patch: { text: e.target.value } })
+            }
+          />
+        </div>
+
+        <div>
+          <div className="text-xs text-slate-500">Nivel</div>
+          <div className="mt-1 flex gap-1">
+            {([1, 2, 3, 4, 5, 6] as const).map((lvl) => (
+              <button
+                key={lvl}
+                className={classNames(
+                  "flex-1 rounded-lg py-1 text-xs font-bold",
+                  block.level === lvl ? "bg-slate-900 text-white" : "bg-slate-100 hover:bg-slate-200"
+                )}
+                onClick={() =>
+                  dispatch({ type: "UPDATE_HEADING", pageId, blockId: block.id, patch: { level: lvl } })
+                }
+              >
+                H{lvl}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div className="text-xs text-slate-500">Alineación</div>
+          <div className="mt-1">
+            <AlignButtons
+              value={block.blockStyle?.align ?? "left"}
+              onChange={(a) =>
+                dispatch({ type: "UPDATE_HEADING", pageId, blockId: block.id, patch: { blockStyle: { align: a } } })
+              }
+            />
+          </div>
+        </div>
+
+        <div>
+          <div className="text-xs text-slate-500">Estilo de texto</div>
+          <div className="mt-1 flex gap-1">
+            <button
+              className={classNames(
+                "flex-1 rounded-lg py-1 text-sm font-bold",
+                block.textStyle?.bold ? "bg-slate-900 text-white" : "bg-slate-100 hover:bg-slate-200"
+              )}
+              onClick={() =>
+                dispatch({
+                  type: "UPDATE_HEADING",
+                  pageId,
+                  blockId: block.id,
+                  patch: { textStyle: { bold: !block.textStyle?.bold } },
+                })
+              }
+            >
+              B
+            </button>
+            <button
+              className={classNames(
+                "flex-1 rounded-lg py-1 text-sm italic",
+                block.textStyle?.italic ? "bg-slate-900 text-white" : "bg-slate-100 hover:bg-slate-200"
+              )}
+              onClick={() =>
+                dispatch({
+                  type: "UPDATE_HEADING",
+                  pageId,
+                  blockId: block.id,
+                  patch: { textStyle: { italic: !block.textStyle?.italic } },
+                })
+              }
+            >
+              I
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (block.type === "paragraph") {
+    const runs = block.runs ?? (typeof block.text === "string" ? [{ text: block.text }] : [{ text: "" }]);
+    const firstRun = runs[0] ?? { text: "" };
+
+    return (
+      <div className="mt-3 space-y-3">
+        <div>
+          <div className="text-xs text-slate-500">Texto (1er run)</div>
+          <textarea
+            className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
+            rows={3}
+            value={firstRun.text}
+            onChange={(e) =>
+              dispatch({
+                type: "UPDATE_PARAGRAPH_RUN",
+                pageId,
+                blockId: block.id,
+                runIndex: 0,
+                patch: { text: e.target.value },
+              })
+            }
+          />
+        </div>
+
+        <div>
+          <div className="text-xs text-slate-500">Alineación</div>
+          <div className="mt-1">
+            <AlignButtons
+              value={block.blockStyle?.align ?? "left"}
+              onChange={(a) =>
+                dispatch({ type: "UPDATE_PARAGRAPH_BLOCKSTYLE", pageId, blockId: block.id, patch: { align: a } })
+              }
+            />
+          </div>
+        </div>
+
+        <div>
+          <div className="text-xs text-slate-500">Sangría 1ª línea (px)</div>
+          <input
+            type="number"
+            className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
+            value={block.blockStyle?.indentFirstLinePx ?? 0}
+            min={0}
+            max={120}
+            step={4}
+            onChange={(e) =>
+              dispatch({
+                type: "UPDATE_PARAGRAPH_BLOCKSTYLE",
+                pageId,
+                blockId: block.id,
+                patch: { indentFirstLinePx: Number(e.target.value) },
+              })
+            }
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (block.type === "image") {
+    return (
+      <div className="mt-3 space-y-3">
+        <div>
+          <div className="text-xs text-slate-500">Caption</div>
+          <input
+            className="mt-1 w-full rounded-lg border px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-slate-300"
+            value={block.caption ?? ""}
+            onChange={(e) =>
+              dispatch({ type: "UPDATE_IMAGE", pageId, blockId: block.id, patch: { caption: e.target.value } })
+            }
+          />
+        </div>
+
+        <div>
+          <div className="text-xs text-slate-500">Alineación</div>
+          <div className="mt-1">
+            <AlignButtons
+              value={block.blockStyle?.align ?? "center"}
+              onChange={(a) =>
+                dispatch({ type: "UPDATE_IMAGE", pageId, blockId: block.id, patch: { blockStyle: { align: a } } })
+              }
+              includeJustify={false}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return null;
 }
