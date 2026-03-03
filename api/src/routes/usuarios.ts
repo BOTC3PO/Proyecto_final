@@ -249,10 +249,9 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
     if (!userId) return res.status(401).json({ error: "not authenticated" });
     const db = await getDb();
     const objectId = toObjectId(userId);
-    const userDoc = await db.collection("usuarios").findOne(
-      { _id: objectId, isDeleted: { $ne: true } },
-      { projection: { _id: 1, username: 1, email: 1, fullName: 1, role: 1, escuelaId: 1, createdAt: 1, isBanned: 1, warningCount: 1 } }
-    );
+    // Prefer the doc already fetched by requireUser middleware to avoid a redundant DB query
+    const userDoc = (res.locals.userDoc as Record<string, unknown> | null)
+      ?? await db.collection("usuarios").findOne({ _id: objectId, isDeleted: { $ne: true } });
     if (!userDoc) return res.status(404).json({ error: "not found" });
 
     const progresoItems = await db

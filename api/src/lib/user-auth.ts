@@ -62,6 +62,8 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       res.status(403).json({ error: "User not found" });
       return;
     }
+    // Cache the full user document so route handlers can use it without a second DB query
+    res.locals.userDoc = user;
     const userContext: AuthenticatedUser = {
       ...buildUserContextFromClaims(claims),
       _id: objectId,
