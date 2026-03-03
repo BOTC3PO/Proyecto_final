@@ -9,10 +9,23 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
     const db = await getDb();
     const limit = Math.min(Number(req.query.limit ?? 50), 200);
     const offset = Number(req.query.offset ?? 0);
+    const q = typeof req.query.q === "string" ? req.query.q.trim() : "";
+    const roleFilter = typeof req.query.role === "string" ? req.query.role.trim() : "";
+
+    const filter: Record<string, unknown> = { isDeleted: { $ne: true } };
+    if (roleFilter) filter.role = roleFilter;
+    if (q) {
+      filter.$or = [
+        { username: { $regex: q, $options: "i" } },
+        { fullName: { $regex: q, $options: "i" } },
+        { email: { $regex: q, $options: "i" } }
+      ];
+    }
+
     const items = await db
       .collection("usuarios")
-      .find({ isDeleted: { $ne: true } })
-      .project({ _id: 1, fullName: 1, username: 1, role: 1, isActive: 1, createdAt: 1 })
+      .find(filter)
+      .project({ _id: 1, fullName: 1, username: 1, email: 1, role: 1, isActive: 1, createdAt: 1, isBanned: 1, warningCount: 1, createdBy: 1 })
       .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
       .limit(Number.isNaN(limit) || limit <= 0 ? 50 : limit)
       .sort({ createdAt: -1 })
@@ -20,10 +33,182 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
     const usuarios = items.map((item) => ({
       id: item._id?.toString?.() ?? "",
       nombre: (item.fullName ?? item.username ?? "Sin nombre") as string,
+      username: (item.username ?? "") as string,
+      email: (item.email ?? "") as string,
       rol: (item.role ?? "USER") as string,
-      estado: item.isActive === false ? "Inactivo" : "Activo"
+      estado: item.isActive === false ? "Inactivo" : "Activo",
+      isBanned: item.isBanned === true,
+      warningCount: typeof item.warningCount === "number" ? item.warningCount : 0,
+      createdAt: item.createdAt ? new Date(item.createdAt as string).toISOString() : ""
     }));
     res.json(usuarios);
+  } catch {
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+adminRouter.get("/api/admin/usuarios/:id/modulos-completados", requireAdmin, async (req, res) => {
+  try {
+    const { toObjectId } = await import("../lib/ids");
+    const userId = req.params.id;
+    const db = await getDb();
+    const progresoItems = await db
+      .collection("progreso_modulos")
+      .find({ usuarioId: userId, status: "completado" })
+      .project({ moduloId: 1 })
+      .toArray();
+    const moduloIds = progresoItems.map((p) => p.moduloId as string).filter(Boolean);
+    if (!moduloIds.length) {
+      return res.json({ publicos: 0, privados: 0, total: 0 });
+    }
+    const modulos = await db
+      .collection("modulos")
+      .find({ $or: [
+        { id: { $in: moduloIds } },
+        { _id: { $in: moduloIds.map((id) => toObjectId(id)).filter(Boolean) } }
+      ]})
+      .project({ id: 1, _id: 1, visibility: 1 })
+      .toArray();
+    const visibilityMap = new Map<string, string>();
+    for (const m of modulos) {
+      const key = (m.id ?? m._id?.toString?.()) as string;
+      if (key) visibilityMap.set(key, (m.visibility ?? "privado") as string);
+    }
+    let publicos = 0;
+    let privados = 0;
+    for (const id of moduloIds) {
+      const vis = visibilityMap.get(id) ?? "privado";
+      if (vis === "publico") publicos++;
+      else privados++;
+    }
+    res.json({ publicos, privados, total: moduloIds.length });
+  } catch {
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) => {
+  try {
+    const { role } = req.body ?? {};
+    const allowedRoles = ["ADMIN", "USER", "TEACHER", "PARENT", "DIRECTIVO", "GUEST"];
+    if (!role || !allowedRoles.includes(role)) {
+      return res.status(400).json({ error: "role inválido" });
+    }
+    const db = await getDb();
+    const actor = res.locals.adminUser as { _id?: unknown; createdBy?: unknown } | undefined;
+    const actorDoc = actor?._id
+      ? await db.collection("usuarios").findOne({ _id: actor._id })
+      : null;
+    const isBootstrap = actorDoc && (actorDoc.createdBy === null || actorDoc.createdBy === undefined);
+    if (!isBootstrap) {
+      return res.status(403).json({
+        error: "Solo el administrador principal puede promover directamente. Usa gobernanza.",
+        requiresGovernance: true
+      });
+    }
+    const { toObjectId } = await import("../lib/ids");
+    const objectId = toObjectId(String(req.params.id));
+    if (!objectId) return res.status(400).json({ error: "invalid id" });
+    const target = await db.collection("usuarios").findOne({ _id: objectId, isDeleted: { $ne: true } });
+    if (!target) return res.status(404).json({ error: "usuario no encontrado" });
+    await db.collection("usuarios").updateOne(
+      { _id: objectId },
+      { $set: { role, updatedAt: new Date().toISOString() } }
+    );
+    await db.collection("moderacion_eventos").insertOne({
+      usuarioId: objectId,
+      tipo: "role_change",
+      motivo: `Rol cambiado a ${role}`,
+      actorId: actor?._id,
+      metadata: { prevRole: target.role, newRole: role, timestamp: new Date() },
+      createdAt: new Date()
+    });
+    res.json({ ok: true, role });
+  } catch {
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+adminRouter.get("/api/admin/stats", requireAdmin, async (req, res) => {
+  try {
+    const db = await getDb();
+    const usuariosArr = await db.collection("usuarios").find({ isDeleted: { $ne: true } }).toArray();
+    const escuelasArr = await db.collection("escuelas").find({ isDeleted: { $ne: true } }).toArray();
+    const modulosArr = await db.collection("modulos").find({ visibility: "publico", isDeleted: { $ne: true } }).toArray();
+    const eventosArr = await db.collection("moderacion_eventos").find({
+      createdAt: { $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) }
+    }).toArray();
+    res.json({
+      totalUsuarios: usuariosArr.length,
+      escuelasActivas: escuelasArr.length,
+      modulosPublicos: modulosArr.length,
+      eventosModeracion: eventosArr.length
+    });
+  } catch {
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+adminRouter.get("/api/admin/reportes-global", requireAdmin, async (req, res) => {
+  try {
+    const db = await getDb();
+    const dias = Number(req.query.dias ?? 30);
+    const desde = new Date(Date.now() - dias * 24 * 60 * 60 * 1000);
+
+    const usuariosRecientes = await db.collection("usuarios").find({
+      isDeleted: { $ne: true },
+      createdAt: { $gte: desde }
+    }).project({ createdAt: 1, role: 1 }).toArray();
+    const todosUsuarios = await db.collection("usuarios").find({ isDeleted: { $ne: true } }).toArray();
+    const usuariosActivos = await db.collection("usuarios").find({ isDeleted: { $ne: true }, isActive: { $ne: false } }).toArray();
+    const usuariosTotales = todosUsuarios.length;
+    const totalActivos = usuariosActivos.length;
+    const eventosRecientes = await db.collection("moderacion_eventos").find({
+      createdAt: { $gte: desde }
+    }).sort({ createdAt: -1 }).limit(20).toArray();
+    const topModulos = await db.collection("progreso_modulos").find({ status: "completado" })
+      .project({ moduloId: 1 }).toArray();
+
+    const countByModulo = new Map<string, number>();
+    for (const p of topModulos) {
+      const key = p.moduloId as string;
+      if (key) countByModulo.set(key, (countByModulo.get(key) ?? 0) + 1);
+    }
+    const topModuloIds = [...countByModulo.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([id]) => id);
+    const modulosDocs = topModuloIds.length > 0
+      ? await db.collection("modulos").find({ $or: [
+          { id: { $in: topModuloIds } },
+          { _id: { $in: topModuloIds } }
+        ]}).project({ id: 1, _id: 1, title: 1, visibility: 1 }).toArray()
+      : [];
+    const moduloNombres = new Map(modulosDocs.map((m) => [(m.id ?? m._id?.toString?.()) as string, (m.title ?? "Sin título") as string]));
+    const topModulosResult = topModuloIds.map((id) => ({
+      moduloId: id,
+      titulo: moduloNombres.get(id) ?? "Sin título",
+      completados: countByModulo.get(id) ?? 0
+    }));
+
+    res.json({
+      registro: {
+        periodo: dias,
+        total: usuariosRecientes.length,
+        porRol: usuariosRecientes.reduce((acc: Record<string, number>, u: Record<string, unknown>) => {
+          const r = (u["role"] ?? "USER") as string;
+          acc[r] = (acc[r] ?? 0) + 1;
+          return acc;
+        }, {})
+      },
+      usuarios: { total: usuariosTotales, activos: totalActivos, inactivos: usuariosTotales - totalActivos },
+      topModulos: topModulosResult,
+      eventosModeracion: eventosRecientes.map((e: Record<string, unknown>) => ({
+        tipo: e["tipo"] as string,
+        motivo: (e["motivo"] ?? "") as string,
+        createdAt: e["createdAt"] ? new Date(e["createdAt"] as string).toISOString() : ""
+      }))
+    });
   } catch {
     res.status(500).json({ error: "internal server error" });
   }

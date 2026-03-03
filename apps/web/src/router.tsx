@@ -46,6 +46,9 @@ import Admin from "./pages/Admin";
 import AdminUsuarios from "./pages/AdminUsuarios";
 import AdminCursos from "./pages/AdminCursos";
 import AdminMaterias from "./pages/AdminMaterias";
+import AdminModeracion from "./pages/AdminModeracion";
+import AdminReportesGlobal from "./pages/AdminReportesGlobal";
+import Perfil from "./pages/Perfil";
 import Tareas from "./pages/Tareas";
 import Progreso from "./pages/Progreso";
 import ProfesorCursos from "./pages/ProfesorCursos";
@@ -86,7 +89,7 @@ import HerramientasVidaPractica from "./pages/herramientas/HerramientasVidaPract
 
 
 const moduleAccessRoles = ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"];
-const modulePlayRoles = ["USER", "PARENT", "TEACHER"];
+const modulePlayRoles = ["USER", "PARENT", "TEACHER", "ADMIN"];
 
 const ModuloEditRedirect = () => {
   const { id } = useParams();
@@ -178,7 +181,7 @@ export const router = createBrowserRouter([
         path: "admin/reportes",
         element: (
           <ProtectedRoute allow={['ADMIN']}>
-            <AdminReportes />
+            <AdminReportesGlobal />
           </ProtectedRoute>
         ),
       },
@@ -190,20 +193,38 @@ export const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      {
+        path: "admin/moderacion",
+        element: (
+          <ProtectedRoute allow={['ADMIN']}>
+            <AdminModeracion />
+          </ProtectedRoute>
+        ),
+      },
 
-      // Usuario/Alumno + Padres
+      // Perfil universal (todos los roles autenticados)
+      {
+        path: "perfil",
+        element: (
+          <ProtectedRoute allow={['ADMIN', 'USER', 'PARENT', 'TEACHER', 'DIRECTIVO']}>
+            <Perfil />
+          </ProtectedRoute>
+        ),
+      },
+
+      // Usuario/Alumno + Padres (ADMIN también puede acceder como usuario)
       {
         path: "clases",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER']}>
+          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN']}>
             <Clases />
           </ProtectedRoute>
         ),
-      },   
+      },
       {
         path: "menualumno",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT']}>
+          <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
             <MenuAlumno />
           </ProtectedRoute>
         ),
@@ -211,7 +232,7 @@ export const router = createBrowserRouter([
       {
         path: "alumno",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT']}>
+          <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
             <MenuAlumno />
           </ProtectedRoute>
         ),
@@ -219,7 +240,7 @@ export const router = createBrowserRouter([
       {
         path: "tareas",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT']}>
+          <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
             <Tareas />
           </ProtectedRoute>
         ),
@@ -227,7 +248,7 @@ export const router = createBrowserRouter([
       {
         path: "encuestas",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT']}>
+          <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
             <AlumnoEncuestas />
           </ProtectedRoute>
         ),
@@ -235,7 +256,7 @@ export const router = createBrowserRouter([
       {
         path: "progreso",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT']}>
+          <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
             <Progreso />
           </ProtectedRoute>
         ),
@@ -429,7 +450,7 @@ export const router = createBrowserRouter([
       {
         path: "modulos/crear",
         element: (
-          <ProtectedRoute allow={['TEACHER']}>
+          <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
             <CrearModulo />
           </ProtectedRoute>
         ),
@@ -437,7 +458,7 @@ export const router = createBrowserRouter([
       {
         path: "modulos/:id/editar",
         element: (
-          <ProtectedRoute allow={['TEACHER']}>
+          <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
             <EditarModulo />
           </ProtectedRoute>
         ),
@@ -469,7 +490,7 @@ export const router = createBrowserRouter([
       {
         path: "quiz/attempt/:attemptId",
         element: (
-          <ProtectedRoute allow={["USER", "PARENT", "TEACHER"]}>
+          <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN"]}>
             <QuizAttempt />
           </ProtectedRoute>
         ),

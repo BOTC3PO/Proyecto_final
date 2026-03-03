@@ -4,13 +4,14 @@ type NavItem = { label: string; to: string; exact?: boolean };
 type NavMap = Record<Role, NavItem[]>;
 export const ROLE_HOME_PATH = '/';
 
-// Base de “Usuario/Alumno”
+// Base de "Usuario/Alumno"
 const userBase: NavItem[] = [
   { label: 'Inicio', to: '/alumno', exact: true },
   { label: 'Clases', to: '/clases' },
   { label: 'Tareas', to: '/tareas' },
   { label: 'Encuestas', to: '/encuestas' },
   { label: 'Progreso', to: '/progreso' },
+  { label: 'Mi Perfil', to: '/perfil' },
 ];
 
 // Padres = similar a Usuario + 1 página extra
@@ -20,9 +21,11 @@ export const NAV_BY_ROLE: NavMap = {
   ADMIN: [
     { label: 'Panel', to: '/admin' },
     { label: 'Usuarios', to: '/admin/usuarios' },
-    { label: 'Cursos', to: '/admin/cursos' },
+    { label: 'Materias', to: '/admin/materias' },
+    { label: 'Módulos', to: '/modulos' },
+    { label: 'Moderación', to: '/admin/moderacion' },
     { label: 'Reportes', to: '/admin/reportes' },
-    { label: 'Panel de control', to: '/admin/panel' },
+    { label: 'Mi Perfil', to: '/perfil' },
   ],
   USER: userBase,
   PARENT: [...userBase, parentExtra, { label: 'Agregar hijo', to: '/hijos/agregar' }],
@@ -32,6 +35,7 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Aulas', to: '/profesor/aulas' },
     { label: 'Módulos', to: '/modulos' },
     { label: 'Evaluaciones', to: '/profesor/evaluaciones' },
+    { label: 'Mi Perfil', to: '/perfil' },
   ],
   DIRECTIVO: [
     { label: 'Panel escuela', to: '/enterprise' },
@@ -41,6 +45,7 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Mensajes', to: '/enterprise/mensajes' },
     { label: 'Convenios', to: '/enterprise/contratos' },
     { label: 'Reportes', to: '/enterprise/reportes' },
+    { label: 'Mi Perfil', to: '/perfil' },
   ],
   GUEST: [
     { label: 'Inicio', to: ROLE_HOME_PATH },
