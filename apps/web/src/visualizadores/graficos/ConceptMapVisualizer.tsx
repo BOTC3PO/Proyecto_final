@@ -9,10 +9,6 @@ type Position = {
   y: number;
 };
 
-  positions: Map<string, Position>;
-  width: number;
-  height: number;
-};
 
 const NODE_WIDTH = 170;
 const NODE_HEIGHT = 62;
