@@ -694,6 +694,28 @@ function BlockInspector({
     );
   }
 
+  if (block.type === "divider") {
+    return (
+      <div className="space-y-2">
+        <KV label="Color línea">
+          <input
+            type="color"
+            className="w-full h-6 rounded border border-slate-200 cursor-pointer"
+            value={block.color ?? "#94a3b8"}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              dispatch({
+                type: "UPDATE_DIVIDER",
+                pageId: page.id,
+                blockId: block.id,
+                patch: { color: e.target.value },
+              })
+            }
+          />
+        </KV>
+      </div>
+    );
+  }
+
   return <p className="text-xs text-slate-400 italic">Sin opciones para este bloque</p>;
 }
 
@@ -935,6 +957,37 @@ function TocModal({
           + Agregar entrada
         </button>
       </div>
+
+      {/* ── Rendered preview ── */}
+      {entries.length > 0 && (
+        <div className="mt-6">
+          <p className="text-xs font-semibold text-slate-500 mb-3 uppercase tracking-wide">
+            Vista previa del índice
+          </p>
+          <div
+            className="rounded-lg border border-slate-200 bg-white p-6"
+            style={{ fontFamily: book.metadata.theme?.fontFamily ?? "serif" }}
+          >
+            <h2 className="text-lg font-bold mb-4 text-slate-800 border-b border-slate-200 pb-2">
+              Índice
+            </h2>
+            <div className="space-y-2">
+              {entries.map((entry) => (
+                <div key={entry.id} className="flex items-baseline gap-1">
+                  <span className="text-sm text-slate-800 shrink-0">{entry.title}</span>
+                  <span
+                    className="flex-1 border-b border-dotted border-slate-300 mb-1"
+                    style={{ minWidth: 16 }}
+                  />
+                  <span className="text-sm text-slate-500 shrink-0 tabular-nums">
+                    {entry.pageStart}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </Modal>
   );
 }
@@ -1190,7 +1243,7 @@ function InlineBlock({
     };
 
     return (
-      <div className={wrapperCls} onClick={onSelect}>
+      <div className={wrapperCls} onClick={(e: React.MouseEvent) => { e.stopPropagation(); onSelect(); }}>
         {blockToolbar}
         <div className="py-1 px-1">
           {isSelected ? (
@@ -1243,7 +1296,7 @@ function InlineBlock({
     };
 
     return (
-      <div className={wrapperCls} onClick={onSelect}>
+      <div className={wrapperCls} onClick={(e: React.MouseEvent) => { e.stopPropagation(); onSelect(); }}>
         {blockToolbar}
         <div className="py-1 px-1">
           {isSelected ? (
@@ -1287,7 +1340,7 @@ function InlineBlock({
     };
 
     return (
-      <div className={wrapperCls} onClick={onSelect}>
+      <div className={wrapperCls} onClick={(e: React.MouseEvent) => { e.stopPropagation(); onSelect(); }}>
         {blockToolbar}
         <div
           className="py-2 px-1 flex flex-col"
@@ -1331,11 +1384,12 @@ function InlineBlock({
   }
 
   if (block.type === "divider") {
+    const divColor = block.color ?? "#94a3b8";
     return (
-      <div className={wrapperCls} onClick={onSelect}>
+      <div className={wrapperCls} onClick={(e: React.MouseEvent) => { e.stopPropagation(); onSelect(); }}>
         {blockToolbar}
         <div className="py-3 px-1">
-          <hr className="border-t border-slate-300" />
+          <hr style={{ borderColor: divColor, borderTopWidth: 1 }} />
         </div>
       </div>
     );
@@ -1343,7 +1397,7 @@ function InlineBlock({
 
   if (block.type === "pageBreak") {
     return (
-      <div className={wrapperCls} onClick={onSelect}>
+      <div className={wrapperCls} onClick={(e: React.MouseEvent) => { e.stopPropagation(); onSelect(); }}>
         {blockToolbar}
         <div className="py-2 px-1 border border-dashed border-slate-300 rounded text-center text-xs text-slate-400">
           — Salto de página —
@@ -1361,28 +1415,34 @@ function PageCanvas({
   book,
   selectedBlockId,
   dispatch,
+  desktopView,
 }: {
   page: Page;
   book: Book;
   selectedBlockId: string | null;
   dispatch: (a: EditorAction) => void;
+  desktopView: boolean;
 }) {
   const theme = book.metadata.theme ?? {};
   const paperColor = theme.paperColor ?? "#FFFFFF";
+  const textColor = theme.textColor ?? "#000000";
+  const startAt = book.structure?.pageNumbering?.startAt ?? 1;
+  const pageNumber = (startAt - 1) + page.number;
 
   return (
     <div
-      className="rounded-lg shadow-xl mx-auto my-6"
+      className="rounded-lg shadow-xl mx-auto my-6 flex flex-col"
       style={{
         background: paperColor,
-        maxWidth: 680,
+        maxWidth: desktopView ? 1100 : 680,
+        width: "100%",
         minHeight: 900,
-        padding: "56px 64px",
+        padding: desktopView ? "56px 120px" : "56px 64px",
         fontFamily: theme.fontFamily ?? "serif",
       }}
       onClick={() => dispatch({ type: "SELECT_BLOCK", blockId: null })}
     >
-      <div className="space-y-2">
+      <div className="flex-1 space-y-2">
         {page.content.length === 0 && (
           <p className="text-center text-slate-300 italic text-sm py-16">
             Página vacía — usa el panel inferior para agregar bloques
@@ -1399,6 +1459,13 @@ function PageCanvas({
             onSelect={() => dispatch({ type: "SELECT_BLOCK", blockId: block.id })}
           />
         ))}
+      </div>
+      {/* Page number at bottom */}
+      <div
+        className="mt-8 pt-3 text-center text-xs select-none"
+        style={{ borderTop: `1px solid ${textColor}22`, color: `${textColor}99` }}
+      >
+        {pageNumber}
       </div>
     </div>
   );
@@ -1452,6 +1519,9 @@ export default function BookEditorPage() {
   const [showAssets, setShowAssets] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);
   const [showJson, setShowJson] = useState(false);
+
+  // Desktop / mobile canvas view
+  const [desktopView, setDesktopView] = useState(false);
 
   // Import file ref
   const importRef = useRef<HTMLInputElement>(null);
@@ -1716,6 +1786,22 @@ export default function BookEditorPage() {
 
         <div className="w-px h-6 bg-slate-600 mx-1" />
 
+        {/* View toggle */}
+        <button
+          className={classNames(
+            "px-2 py-1 text-xs rounded",
+            desktopView
+              ? "bg-indigo-600 text-white hover:bg-indigo-500"
+              : "bg-slate-700 hover:bg-slate-600 text-white"
+          )}
+          onClick={() => setDesktopView((v) => !v)}
+          title="Alternar vista móvil / escritorio"
+        >
+          {desktopView ? "🖥 PC" : "📱 Móvil"}
+        </button>
+
+        <div className="w-px h-6 bg-slate-600 mx-1" />
+
         {/* Feature buttons */}
         <button
           className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
@@ -1871,6 +1957,7 @@ export default function BookEditorPage() {
               book={book}
               selectedBlockId={state.selectedBlockId}
               dispatch={dispatch}
+              desktopView={desktopView}
             />
           ) : (
             <div className="flex-1 flex items-center justify-center text-slate-400 text-sm">

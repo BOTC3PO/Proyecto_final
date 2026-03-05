@@ -20,7 +20,7 @@ const renderBlock = (block: Block) => {
         </p>
       );
     case "divider":
-      return <hr className="border-gray-200" />;
+      return <hr style={{ borderColor: block.color ?? "#e5e7eb" }} />;
     case "pageBreak":
       return <div className="h-px bg-gray-200 my-4" />;
     case "image": {
@@ -46,6 +46,7 @@ const renderBlock = (block: Block) => {
 };
 
 export default function BookReader({ book }: { book: Book }) {
+  const startAt = book.structure?.pageNumbering?.startAt ?? 1;
   return (
     <div className="space-y-6">
       <header className="space-y-1">
@@ -53,19 +54,24 @@ export default function BookReader({ book }: { book: Book }) {
         <h2 className="text-lg font-semibold">{book.metadata.title}</h2>
       </header>
       <div className="space-y-6">
-        {book.pages.map((page) => (
-          <section key={page.id} className="rounded-lg border border-gray-200 bg-white p-4 space-y-3">
-            <div className="flex items-center justify-between text-xs text-gray-500">
-              <span>{page.title ?? `Página ${page.number}`}</span>
-              <span>Página {page.number}</span>
-            </div>
-            <div className="space-y-3">
-              {page.content.map((block) => (
-                <div key={block.id}>{renderBlock(block)}</div>
-              ))}
-            </div>
-          </section>
-        ))}
+        {book.pages.map((page) => {
+          const pageNum = (startAt - 1) + page.number;
+          return (
+            <section key={page.id} className="rounded-lg border border-gray-200 bg-white p-4 space-y-3 flex flex-col">
+              <div className="flex items-center justify-between text-xs text-gray-500">
+                <span>{page.title ?? `Página ${page.number}`}</span>
+              </div>
+              <div className="flex-1 space-y-3">
+                {page.content.map((block) => (
+                  <div key={block.id}>{renderBlock(block)}</div>
+                ))}
+              </div>
+              <div className="mt-4 pt-2 text-center text-xs text-gray-400 border-t border-gray-100">
+                {pageNum}
+              </div>
+            </section>
+          );
+        })}
       </div>
     </div>
   );
