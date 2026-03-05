@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "save":"tsc -b > errores_web.txt 2",
     "lint": "eslint .",
     "preview": "vite preview"
   },
