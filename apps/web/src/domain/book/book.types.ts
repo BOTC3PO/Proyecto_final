@@ -86,5 +86,5 @@ export type Block =
   | { type: "heading"; id: string; level: 1|2|3|4|5|6; text: string; blockStyle?: BlockStyle; textStyle?: TextStyle }
   | { type: "paragraph"; id: string; text?: string; runs?: TextRun[]; blockStyle?: BlockStyle }
   | { type: "image"; id: string; assetId: string; caption?: string; blockStyle?: BlockStyle }
-  | { type: "divider"; id: string }
+  | { type: "divider"; id: string; color?: string }
   | { type: "pageBreak"; id: string };
