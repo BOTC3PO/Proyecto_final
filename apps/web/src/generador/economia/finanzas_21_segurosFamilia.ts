@@ -8,10 +8,6 @@ import {
 } from "./generico";
 import { resolveTemaEnunciado } from "./consignas";
 
-  | "Seguro de hogar"
-  | "Seguro de auto"
-  | "Seguro de vida"
-  | "Seguro de salud";
 
 const CASOS_BASICO = [
   {
