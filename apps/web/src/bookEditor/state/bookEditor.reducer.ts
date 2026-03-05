@@ -102,7 +102,9 @@ export type EditorAction =
   // Notes (glossary / author notes)
   | { type: "ADD_NOTE"; note: BookNote }
   | { type: "UPDATE_NOTE"; noteId: string; patch: Partial<Omit<BookNote, "id">> }
-  | { type: "REMOVE_NOTE"; noteId: string };
+  | { type: "REMOVE_NOTE"; noteId: string }
+  // Divider
+  | { type: "UPDATE_DIVIDER"; pageId: string; blockId: string; patch: { color?: string } };
 
 function updatePage(book: Book, pageId: string, updater: (p: Page) => Page): Book {
   return {
@@ -646,6 +648,18 @@ export function editorReducer(state: EditorState, action: EditorAction): EditorS
         },
         dirty: true,
       };
+    }
+
+    case "UPDATE_DIVIDER": {
+      if (!state.book) return state;
+      const { pageId, blockId, patch } = action;
+      const updatedBook = updatePage(state.book, pageId, (p) =>
+        updateBlockOnPage(p, blockId, (b): Block => {
+          if (b.type !== "divider") return b;
+          return { ...b, ...patch };
+        })
+      );
+      return { ...state, book: updatedBook, dirty: true };
     }
 
     default:
