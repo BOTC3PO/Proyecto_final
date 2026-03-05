@@ -150,8 +150,8 @@ const ChartPanel = ({
   title: string;
   unit?: string;
   data: DataPoint[];
-  annotation?: PhysicsMotionChartSpec["annotations"]["slope"];
-  areaAnnotation?: PhysicsMotionChartSpec["annotations"]["area"];
+  annotation?: NonNullable<PhysicsMotionChartSpec["annotations"]>["slope"];
+  areaAnnotation?: NonNullable<PhysicsMotionChartSpec["annotations"]>["area"];
   color: string;
 }) => {
   const timeRange = getTimeRange(data);

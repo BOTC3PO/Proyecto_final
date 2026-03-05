@@ -35,7 +35,6 @@ import ProfesorEncuestas from "./pages/ProfesorEncuestas";
 import ProfesorCursoNuevo from "./pages/ProfesorCursoNuevo";
 import HijosProgreso from "./pages/HijosProgreso";
 import ProfesorReportes from "./pages/ProfesorReportes";
-import AdminReportes from "./pages/AdminReportes";
 import AlumnoEncuestas from "./pages/AlumnoEncuestas";
 import QuizAttempt from "./pages/quizzes/QuizAttempt";
 import LaboratorioWeb3 from "./pages/LaboratorioWeb3";
@@ -88,8 +87,6 @@ import HerramientasCocina from "./pages/herramientas/HerramientasCocina";
 import HerramientasVidaPractica from "./pages/herramientas/HerramientasVidaPractica";
 
 
-const moduleAccessRoles = ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"];
-const modulePlayRoles = ["USER", "PARENT", "TEACHER", "ADMIN"];
 
 const ModuloEditRedirect = () => {
   const { id } = useParams();

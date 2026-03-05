@@ -61,7 +61,6 @@ export const generarRacionalesSimples: GeneratorFn = (
   // Producto de fracciones: ((ax + b)/(x)) * ((cx + d)/(x))
   const num1 = `${a}x + ${b}`;
   const num2 = `${c}x + ${d}`;
-  const den = "x";
 
   // Resultado formal: ((ax + b)(cx + d))/x²  (no desarrollamos numerador)
   const correcta = `(${num1})(${num2}) / x^2`;

@@ -52,7 +52,7 @@ const GASTOS_BASICO: {
   },
 ];
 
-const GASTOS_INTERMEDIO = [
+const GASTOS_INTERMEDIO: { descripcion: string; tipo: TipoGasto }[] = [
   ...GASTOS_BASICO,
   {
     descripcion: "Pago mensual de un plan de internet para estudiar/trabajar.",
@@ -64,7 +64,7 @@ const GASTOS_INTERMEDIO = [
   },
 ];
 
-const GASTOS_AVANZADO = [
+const GASTOS_AVANZADO: { descripcion: string; tipo: TipoGasto }[] = [
   ...GASTOS_INTERMEDIO,
   {
     descripcion: "Reparación de un electrodoméstico esencial en el hogar.",
@@ -76,7 +76,7 @@ const GASTOS_AVANZADO = [
   },
 ];
 
-const GASTOS_LEGENDARIO = [
+const GASTOS_LEGENDARIO: { descripcion: string; tipo: TipoGasto }[] = [
   ...GASTOS_AVANZADO,
   {
     descripcion: "Compra de útiles escolares para el inicio de clases.",
@@ -88,17 +88,6 @@ const GASTOS_LEGENDARIO = [
   },
 ];
 
-const GASTOS_DIVINO = [
-  ...GASTOS_LEGENDARIO,
-  {
-    descripcion: "Pago de un tratamiento médico indicado por un profesional.",
-    tipo: "Gasto esencial",
-  },
-  {
-    descripcion: "Cambio de auto por un modelo más nuevo sin necesidad.",
-    tipo: "Gasto no esencial",
-  },
-];
 
 const GASTOS_POR_DIFICULTAD: Record<
   Dificultad,

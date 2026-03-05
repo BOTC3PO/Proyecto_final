@@ -44,7 +44,7 @@ const INGRESOS_BASICO: {
   },
 ];
 
-const INGRESOS_INTERMEDIO = [
+const INGRESOS_INTERMEDIO: { descripcion: string; tipo: TipoIngreso }[] = [
   ...INGRESOS_BASICO,
   {
     descripcion:
@@ -58,7 +58,7 @@ const INGRESOS_INTERMEDIO = [
   },
 ];
 
-const INGRESOS_AVANZADO = [
+const INGRESOS_AVANZADO: { descripcion: string; tipo: TipoIngreso }[] = [
   ...INGRESOS_INTERMEDIO,
   {
     descripcion:
@@ -72,7 +72,7 @@ const INGRESOS_AVANZADO = [
   },
 ];
 
-const INGRESOS_LEGENDARIO = [
+const INGRESOS_LEGENDARIO: { descripcion: string; tipo: TipoIngreso }[] = [
   ...INGRESOS_AVANZADO,
   {
     descripcion:
@@ -86,19 +86,6 @@ const INGRESOS_LEGENDARIO = [
   },
 ];
 
-const INGRESOS_DIVINO = [
-  ...INGRESOS_LEGENDARIO,
-  {
-    descripcion:
-      "Pago por asesorías profesionales con clientes de forma presencial.",
-    tipo: "Ingreso activo",
-  },
-  {
-    descripcion:
-      "Intereses generados por un fondo de inversión sin gestión diaria.",
-    tipo: "Ingreso pasivo",
-  },
-];
 
 const INGRESOS_POR_DIFICULTAD: Record<
   Dificultad,

@@ -16,32 +16,6 @@ interface Polinomio {
   c: number; // término independiente
 }
 
-function poliToString(p: Polinomio): string {
-  const partes: string[] = [];
-
-  if (p.a !== 0) {
-    const c = p.a;
-    if (c === 1) partes.push("x^2");
-    else if (c === -1) partes.push("-x^2");
-    else partes.push(`${c}x^2`);
-  }
-
-  if (p.b !== 0) {
-    const c = p.b;
-    const s = partes.length && c > 0 ? "+" : "";
-    if (c === 1) partes.push(`${s}x`);
-    else if (c === -1) partes.push(`${s}-x`);
-    else partes.push(`${s}${c}x`);
-  }
-
-  if (p.c !== 0 || partes.length === 0) {
-    const c = p.c;
-    const s = partes.length && c > 0 ? "+" : "";
-    partes.push(`${s}${c}`);
-  }
-
-  return partes.join(" ");
-}
 
 export const generarMultiplicacionPolinomiosAvanzada: GeneratorFn = (
   dificultad: Dificultad = "intermedio"

@@ -44,7 +44,7 @@ const ITEMS_BASICO: {
   },
 ];
 
-const ITEMS_INTERMEDIO = [
+const ITEMS_INTERMEDIO: { descripcion: string; tipo: TipoLiquidez }[] = [
   ...ITEMS_BASICO,
   {
     descripcion:
@@ -57,7 +57,7 @@ const ITEMS_INTERMEDIO = [
   },
 ];
 
-const ITEMS_AVANZADO = [
+const ITEMS_AVANZADO: { descripcion: string; tipo: TipoLiquidez }[] = [
   ...ITEMS_INTERMEDIO,
   {
     descripcion: "Dinero en una caja de ahorro con extracción inmediata.",
@@ -69,7 +69,7 @@ const ITEMS_AVANZADO = [
   },
 ];
 
-const ITEMS_LEGENDARIO = [
+const ITEMS_LEGENDARIO: { descripcion: string; tipo: TipoLiquidez }[] = [
   ...ITEMS_AVANZADO,
   {
     descripcion: "Saldo en una billetera virtual listo para transferir.",
@@ -81,18 +81,6 @@ const ITEMS_LEGENDARIO = [
   },
 ];
 
-const ITEMS_DIVINO = [
-  ...ITEMS_LEGENDARIO,
-  {
-    descripcion:
-      "Dinero apartado en una cuenta de ahorro con disponibilidad diaria.",
-    tipo: "Dinero disponible",
-  },
-  {
-    descripcion: "Compra de maquinaria para un negocio propio.",
-    tipo: "Dinero inmovilizado",
-  },
-];
 
 const ITEMS_POR_DIFICULTAD: Record<
   Dificultad,

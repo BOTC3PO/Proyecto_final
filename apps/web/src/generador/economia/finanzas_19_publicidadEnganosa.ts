@@ -45,7 +45,7 @@ const CASOS_BASICO: {
   },
 ];
 
-const CASOS_INTERMEDIO = [
+const CASOS_INTERMEDIO: { anuncio: string; tipo: TipoCaso; consejo: string }[] = [
   ...CASOS_BASICO,
   {
     anuncio:
@@ -63,7 +63,7 @@ const CASOS_INTERMEDIO = [
   },
 ];
 
-const CASOS_AVANZADO = [
+const CASOS_AVANZADO: { anuncio: string; tipo: TipoCaso; consejo: string }[] = [
   ...CASOS_INTERMEDIO,
   {
     anuncio:
@@ -99,23 +99,6 @@ const CASOS_LEGENDARIO = [
   },
 ];
 
-const CASOS_DIVINO = [
-  ...CASOS_LEGENDARIO,
-  {
-    anuncio:
-      "“Cuotas sin interés” pero el precio al contado es mucho menor y no lo aclara.",
-    tipo: "Publicidad engañosa",
-    consejo:
-      "Si no compara con precio de contado, puede ocultar un sobreprecio.",
-  },
-  {
-    anuncio:
-      "“Precio contado y financiado detallados. CFT y tasas visibles.”",
-    tipo: "Publicidad clara",
-    consejo:
-      "Expone el costo real del financiamiento comparando con el precio de contado.",
-  },
-];
 
 const CASOS_POR_DIFICULTAD: Record<
   Dificultad,

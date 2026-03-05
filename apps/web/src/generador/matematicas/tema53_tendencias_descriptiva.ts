@@ -127,7 +127,7 @@ export const generarTendenciasDescriptiva: GeneratorFn = (
       tituloTema: TITULO,
       dificultad,
       enunciado,
-      opciones: OPCIONES_TENDENCIA,
+      opciones: [...OPCIONES_TENDENCIA],
       indiceCorrecto: OPCIONES_TENDENCIA.indexOf(correcta),
       explicacion:
         "La tendencia general se observa comparando el inicio y el final de la serie temporal.",

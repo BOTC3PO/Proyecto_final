@@ -31,10 +31,6 @@ function getStageColor(stage: { id: string; color?: string }): string {
   return "#94a3b8";
 }
 
-function getActiveColor(baseColor: string): string {
-  // Return a slightly brighter version by using the same color at full opacity
-  return baseColor;
-}
 
 function buildArrowId(fluxId: string): string {
   return `arrow-${fluxId.replace(/[^a-zA-Z0-9]/g, "-")}`;

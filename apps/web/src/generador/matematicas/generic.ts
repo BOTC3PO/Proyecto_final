@@ -21,7 +21,7 @@ export interface BaseExercise {
   dificultad: Dificultad;
   generatorId?: string;
   generatorVersion?: number;
-  tipo: "quiz"; // de momento solo quiz, luego podés ampliar
+  tipo: "quiz" | "completar";
   visual?: VisualSpec;
 }
 

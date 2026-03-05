@@ -28,15 +28,15 @@ export const combinatoria = (n: number, k: number): number => {
   return Math.round(numerador / denominador);
 };
 
-export const media = (datos: number[]): number =>
+export const media = (datos: readonly number[]): number =>
   datos.reduce((acc, n) => acc + n, 0) / datos.length;
 
-export const varianzaPoblacional = (datos: number[]): number => {
+export const varianzaPoblacional = (datos: readonly number[]): number => {
   const mu = media(datos);
   return datos.reduce((acc, n) => acc + (n - mu) ** 2, 0) / datos.length;
 };
 
-export const desviacionEstandarPoblacional = (datos: number[]): number =>
+export const desviacionEstandarPoblacional = (datos: readonly number[]): number =>
   Math.sqrt(varianzaPoblacional(datos));
 
 export const covarianzaPoblacional = (x: readonly number[], y: readonly number[]): number => {

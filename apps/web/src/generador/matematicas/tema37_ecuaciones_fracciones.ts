@@ -50,7 +50,6 @@ export const generarEcuacionesFraccionesAlgebraicas: GeneratorFn = (
 
     // (a1 xSol + b1)/k1 = (a2 xSol + b2)/k2
     const lhs = (a1 * xSol + b1) * k2;
-    const rhs = (a2 * xSol + b2) * k1;
 
     // Ajustamos uno de los términos para que la igualdad sea verdadera
     // Tomamos c2 tal que (a1 xSol + b1)/k1 = (a2 xSol + c2)/k2

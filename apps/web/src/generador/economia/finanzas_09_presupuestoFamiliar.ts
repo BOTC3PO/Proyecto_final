@@ -46,7 +46,7 @@ const ITEMS_BASICO: {
   },
 ];
 
-const ITEMS_INTERMEDIO = [
+const ITEMS_INTERMEDIO: { descripcion: string; categoriaCorrecta: CategoriaPresupuesto }[] = [
   ...ITEMS_BASICO,
   {
     descripcion: "Ingreso por venta ocasional de un mueble usado.",
@@ -58,7 +58,7 @@ const ITEMS_INTERMEDIO = [
   },
 ];
 
-const ITEMS_AVANZADO = [
+const ITEMS_AVANZADO: { descripcion: string; categoriaCorrecta: CategoriaPresupuesto }[] = [
   ...ITEMS_INTERMEDIO,
   {
     descripcion:
@@ -71,7 +71,7 @@ const ITEMS_AVANZADO = [
   },
 ];
 
-const ITEMS_LEGENDARIO = [
+const ITEMS_LEGENDARIO: { descripcion: string; categoriaCorrecta: CategoriaPresupuesto }[] = [
   ...ITEMS_AVANZADO,
   {
     descripcion:
@@ -85,18 +85,6 @@ const ITEMS_LEGENDARIO = [
   },
 ];
 
-const ITEMS_DIVINO = [
-  ...ITEMS_LEGENDARIO,
-  {
-    descripcion:
-      "Pago de intereses de una tarjeta de crédito por compras previas.",
-    categoriaCorrecta: "Gasto",
-  },
-  {
-    descripcion: "Bonificación anual que se recibe por desempeño laboral.",
-    categoriaCorrecta: "Ingreso",
-  },
-];
 
 const ITEMS_POR_DIFICULTAD: Record<
   Dificultad,

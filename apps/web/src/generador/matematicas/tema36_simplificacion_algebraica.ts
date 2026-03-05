@@ -17,7 +17,7 @@ interface ExpresionCaso {
   explicacion: string;
 }
 
-function generarCaso(dificultad: Dificultad): ExpresionCaso {
+function generarCaso(_dificultad: Dificultad): ExpresionCaso {
   const k1 = randomInt(1, 5);
   const k2 = randomInt(1, 5);
   const k3 = randomInt(1, 5);

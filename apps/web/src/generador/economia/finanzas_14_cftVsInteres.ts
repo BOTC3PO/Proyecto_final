@@ -41,7 +41,7 @@ const CASOS_BASICO: {
   },
 ];
 
-const CASOS_INTERMEDIO = [
+const CASOS_INTERMEDIO: { descripcion: string; respuesta: Concepto }[] = [
   ...CASOS_BASICO,
   {
     descripcion:
@@ -55,7 +55,7 @@ const CASOS_INTERMEDIO = [
   },
 ];
 
-const CASOS_AVANZADO = [
+const CASOS_AVANZADO: { descripcion: string; respuesta: Concepto }[] = [
   ...CASOS_INTERMEDIO,
   {
     descripcion:
@@ -83,19 +83,6 @@ const CASOS_LEGENDARIO = [
   },
 ];
 
-const CASOS_DIVINO = [
-  ...CASOS_LEGENDARIO,
-  {
-    descripcion:
-      "Es el indicador clave para comparar ofertas cuando hay cargos ocultos.",
-    respuesta: "Costo financiero total (CFT)",
-  },
-  {
-    descripcion:
-      "Parte del costo de un préstamo que no incluye comisiones ni seguros.",
-    respuesta: "Interés",
-  },
-];
 
 const CASOS_POR_DIFICULTAD: Record<
   Dificultad,

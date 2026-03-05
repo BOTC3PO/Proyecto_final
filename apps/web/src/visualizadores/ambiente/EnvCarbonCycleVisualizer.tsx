@@ -21,9 +21,6 @@ function scaleY(cy: number) {
   return cy * VIEW_H;
 }
 
-function arrowId(fromId: string, toId: string) {
-  return `arrow-${fromId}-${toId}`;
-}
 
 export default function EnvCarbonCycleVisualizer({ spec }: Props) {
   const { reservoirs = [], fluxes = [], humanFlux, title, description } = spec;

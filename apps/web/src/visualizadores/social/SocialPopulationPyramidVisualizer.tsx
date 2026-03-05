@@ -17,22 +17,6 @@ const BAR_MAX_LENGTH = 120;
 const MALE_COLOR = "#60a5fa";   // blue-400
 const FEMALE_COLOR = "#fb7185"; // rose-400
 
-function hexLerp(hex1: string, hex2: string, t: number): string {
-  const parse = (h: string) => {
-    const s = h.replace("#", "");
-    return [
-      parseInt(s.slice(0, 2), 16),
-      parseInt(s.slice(2, 4), 16),
-      parseInt(s.slice(4, 6), 16),
-    ];
-  };
-  const [r1, g1, b1] = parse(hex1);
-  const [r2, g2, b2] = parse(hex2);
-  const r = Math.round(r1 + (r2 - r1) * t);
-  const g = Math.round(g1 + (g2 - g1) * t);
-  const b = Math.round(b1 + (b2 - b1) * t);
-  return `rgb(${r},${g},${b})`;
-}
 
 export default function SocialPopulationPyramidVisualizer({ spec }: Props) {
   const { ageGroups = [], year, unit, title, description } = spec;

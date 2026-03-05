@@ -152,7 +152,7 @@ export abstract class BaseGenerator {
   /**
    * Genera un entero aleatorio entre min y max (incluidos).
    */
-  protected randomInt(min: number, max: number): number {
+  randomInt(min: number, max: number): number {
     return this.prng.int(min, max);
   }
 

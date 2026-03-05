@@ -9,13 +9,6 @@ import {
 } from "./generico";
 import { resolveTemaEnunciado } from "./consignas";
 
-type TipoBien =
-  | "Bien libre"
-  | "Bien económico"
-  | "Bien de consumo"
-  | "Bien de capital"
-  | "Bien sustituto"
-  | "Bien complementario";
 
 const CASOS: {
   enunciado: string;

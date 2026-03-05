@@ -8,11 +8,6 @@ import {
 } from "./generico";
 import { resolveTemaEnunciado } from "./consignas";
 
-type TipoSeguro =
-  | "Seguro de hogar"
-  | "Seguro de auto"
-  | "Seguro de vida"
-  | "Seguro de salud";
 
 const CASOS_BASICO = [
   {
@@ -159,35 +154,6 @@ const CASOS_LEGENDARIO = [
   },
 ];
 
-const CASOS_DIVINO = [
-  ...CASOS_LEGENDARIO,
-  {
-    enunciado:
-      "Una persona asegura su vivienda contra incendios, robos y daños climáticos.",
-    opciones: [
-      "Seguro de hogar",
-      "Seguro de auto",
-      "Seguro de vida",
-      "Seguro de salud",
-    ],
-    correcta: "Seguro de hogar",
-    explicacion:
-      "El seguro de hogar cubre riesgos como incendio, robo y daños.",
-  },
-  {
-    enunciado:
-      "Un plan garantiza una suma a los beneficiarios ante el fallecimiento del titular.",
-    opciones: [
-      "Seguro de hogar",
-      "Seguro de auto",
-      "Seguro de vida",
-      "Seguro de salud",
-    ],
-    correcta: "Seguro de vida",
-    explicacion:
-      "El seguro de vida busca proteger económicamente a la familia.",
-  },
-];
 
 const CASOS_POR_DIFICULTAD: Record<
   Dificultad,

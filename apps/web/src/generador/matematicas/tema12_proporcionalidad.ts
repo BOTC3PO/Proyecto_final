@@ -3,7 +3,7 @@ import {
   type Dificultad,
   type GeneratorFn,
   crearQuizBase,
-  pickRandom,
+  pickRandom as _pickRandom,
   randomInt,
 } from "./generic";
 

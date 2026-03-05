@@ -121,7 +121,6 @@ export default function ChemTitrationVisualizer({
   const chartHeight = height - padding.top - padding.bottom;
 
   const volumes = spec.curve.points.map((point) => point.volume);
-  const pHValues = spec.curve.points.map((point) => point.pH);
   const minX = spec.axes?.x?.min ?? Math.min(...volumes);
   const maxX = spec.axes?.x?.max ?? Math.max(...volumes);
   const minY = spec.axes?.y?.min ?? 0;
