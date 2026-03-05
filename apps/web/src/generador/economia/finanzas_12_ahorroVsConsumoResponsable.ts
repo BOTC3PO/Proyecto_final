@@ -69,7 +69,7 @@ const SITUACIONES_AVANZADO: { descripcion: string; tipo: TipoDecision }[] = [
   },
 ];
 
-const SITUACIONES_LEGENDARIO: { descripcion: string; tipo: TipoDecision }[] = [
+const _SITUACIONES_LEGENDARIO: { descripcion: string; tipo: TipoDecision }[] = [
   ...SITUACIONES_AVANZADO,
   {
     descripcion:

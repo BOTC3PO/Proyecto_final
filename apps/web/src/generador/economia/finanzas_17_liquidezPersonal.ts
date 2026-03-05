@@ -69,7 +69,7 @@ const ITEMS_AVANZADO: { descripcion: string; tipo: TipoLiquidez }[] = [
   },
 ];
 
-const ITEMS_LEGENDARIO: { descripcion: string; tipo: TipoLiquidez }[] = [
+const _ITEMS_LEGENDARIO: { descripcion: string; tipo: TipoLiquidez }[] = [
   ...ITEMS_AVANZADO,
   {
     descripcion: "Saldo en una billetera virtual listo para transferir.",

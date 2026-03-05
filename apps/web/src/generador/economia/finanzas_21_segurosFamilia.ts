@@ -124,7 +124,7 @@ const CASOS_AVANZADO = [
   },
 ];
 
-const CASOS_LEGENDARIO = [
+const _CASOS_LEGENDARIO = [
   ...CASOS_AVANZADO,
   {
     enunciado:

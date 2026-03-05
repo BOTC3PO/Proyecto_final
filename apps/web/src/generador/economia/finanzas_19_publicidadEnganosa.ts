@@ -81,7 +81,7 @@ const CASOS_AVANZADO: { anuncio: string; tipo: TipoCaso; consejo: string }[] = [
   },
 ];
 
-const CASOS_LEGENDARIO = [
+const _CASOS_LEGENDARIO = [
   ...CASOS_AVANZADO,
   {
     anuncio:
