@@ -10,12 +10,6 @@ import {
 const ID_TEMA = 41;
 const TITULO = "Multiplicación de polinomios (binomio × trinomio)";
 
-interface Polinomio {
-  a: number; // x^2
-  b: number; // x
-  c: number; // término independiente
-}
-
 
 export const generarMultiplicacionPolinomiosAvanzada: GeneratorFn = (
   dificultad: Dificultad = "intermedio"

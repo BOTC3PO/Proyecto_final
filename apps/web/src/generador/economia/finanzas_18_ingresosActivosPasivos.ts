@@ -72,7 +72,7 @@ const INGRESOS_AVANZADO: { descripcion: string; tipo: TipoIngreso }[] = [
   },
 ];
 
-const INGRESOS_LEGENDARIO: { descripcion: string; tipo: TipoIngreso }[] = [
+const _INGRESOS_LEGENDARIO: { descripcion: string; tipo: TipoIngreso }[] = [
   ...INGRESOS_AVANZADO,
   {
     descripcion:

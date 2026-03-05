@@ -71,7 +71,7 @@ const ITEMS_AVANZADO: { descripcion: string; categoriaCorrecta: CategoriaPresupu
   },
 ];
 
-const ITEMS_LEGENDARIO: { descripcion: string; categoriaCorrecta: CategoriaPresupuesto }[] = [
+const _ITEMS_LEGENDARIO: { descripcion: string; categoriaCorrecta: CategoriaPresupuesto }[] = [
   ...ITEMS_AVANZADO,
   {
     descripcion:

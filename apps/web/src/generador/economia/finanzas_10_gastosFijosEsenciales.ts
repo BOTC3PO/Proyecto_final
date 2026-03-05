@@ -75,7 +75,7 @@ const GASTOS_AVANZADO: { descripcion: string; tipo: TipoGasto }[] = [
   },
 ];
 
-const GASTOS_LEGENDARIO: { descripcion: string; tipo: TipoGasto }[] = [
+const _GASTOS_LEGENDARIO: { descripcion: string; tipo: TipoGasto }[] = [
   ...GASTOS_AVANZADO,
   {
     descripcion: "Mantenimiento mensual del ascensor del edificio.",

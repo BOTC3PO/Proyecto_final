@@ -69,7 +69,7 @@ const CASOS_AVANZADO: { descripcion: string; respuesta: Concepto }[] = [
   },
 ];
 
-const CASOS_LEGENDARIO = [
+const _CASOS_LEGENDARIO = [
   ...CASOS_AVANZADO,
   {
     descripcion:

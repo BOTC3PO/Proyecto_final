@@ -74,7 +74,7 @@ export const genARIVACalculo: GeneratorFn = makeQuizGenerator(
   [
     (dificultad: Dificultad) => {
       const [baseMin, baseMax] = resolveTemaRange(TEMA, dificultad, "base", [10, 90]);
-      const [baseAltaMin, baseAltaMax] = resolveTemaRange(TEMA, dificultad, "baseAlta", [40, 140]);
+      resolveTemaRange(TEMA, dificultad, "baseAlta", [40, 140]);
       const base = randInt(baseMin, baseMax) * 1000;
       const tasaGeneral = 0.21;
       const tasaEsencial = 0.105;

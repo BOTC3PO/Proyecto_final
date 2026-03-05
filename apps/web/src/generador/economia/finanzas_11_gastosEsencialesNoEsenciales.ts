@@ -76,7 +76,7 @@ const GASTOS_AVANZADO: { descripcion: string; tipo: TipoGasto }[] = [
   },
 ];
 
-const GASTOS_LEGENDARIO: { descripcion: string; tipo: TipoGasto }[] = [
+const _GASTOS_LEGENDARIO: { descripcion: string; tipo: TipoGasto }[] = [
   ...GASTOS_AVANZADO,
   {
     descripcion: "Compra de útiles escolares para el inicio de clases.",

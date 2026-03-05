@@ -74,7 +74,7 @@ const DEUDAS_AVANZADO: { descripcion: string; tipo: TipoDeuda }[] = [
   },
 ];
 
-const DEUDAS_LEGENDARIO: { descripcion: string; tipo: TipoDeuda }[] = [
+const _DEUDAS_LEGENDARIO: { descripcion: string; tipo: TipoDeuda }[] = [
   ...DEUDAS_AVANZADO,
   {
     descripcion:

@@ -45,7 +45,7 @@ export const generarEcuacionesFraccionesAlgebraicas: GeneratorFn = (
     const k1 = randomInt(2, 9);
 
     const a2 = randomInt(1, 5);
-    const b2 = randomInt(-5, 5);
+
     const k2 = randomInt(2, 9);
 
     // (a1 xSol + b1)/k1 = (a2 xSol + b2)/k2
