@@ -3,7 +3,7 @@ import {
   type GeneratorFn,
   type NumericExercise,
   randInt,
-  randFloat,
+  randFloat as _randFloat,
   randomBool,
 } from "./generico";
 

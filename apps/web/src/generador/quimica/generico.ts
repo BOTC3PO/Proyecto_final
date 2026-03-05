@@ -21,9 +21,10 @@ export interface NumericExercise extends BaseExercise {
   datos: Record<string, number>;
   unidades?: Record<string, string>;
   // Puede ser un número, un vector (ej. coeficientes) o un objeto
-  resultado: number | number[] | Record<string, number> | string;
+  resultado: number | number[] | Record<string, number | string> | string;
   toleranciaRelativa?: number; // 0.05 = ±5%
   pasos?: string[];
+  catalogRef?: Record<string, unknown>;
 }
 
 // Ejercicio tipo quiz (sin matemáticas)

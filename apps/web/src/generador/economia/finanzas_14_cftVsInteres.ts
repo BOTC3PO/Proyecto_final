@@ -41,7 +41,7 @@ const CASOS_BASICO: {
   },
 ];
 
-const CASOS_INTERMEDIO = [
+const CASOS_INTERMEDIO: { descripcion: string; respuesta: Concepto }[] = [
   ...CASOS_BASICO,
   {
     descripcion:
@@ -55,7 +55,7 @@ const CASOS_INTERMEDIO = [
   },
 ];
 
-const CASOS_AVANZADO = [
+const CASOS_AVANZADO: { descripcion: string; respuesta: Concepto }[] = [
   ...CASOS_INTERMEDIO,
   {
     descripcion:
@@ -83,7 +83,7 @@ const CASOS_LEGENDARIO = [
   },
 ];
 
-const CASOS_DIVINO = [
+const _CASOS_DIVINO = [
   ...CASOS_LEGENDARIO,
   {
     descripcion:

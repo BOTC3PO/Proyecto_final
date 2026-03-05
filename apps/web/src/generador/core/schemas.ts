@@ -11,7 +11,7 @@ export const formatZodError = (error: z.ZodError): string =>
 const finiteNumber = (label: string) =>
   z
     .number({
-      invalid_type_error: `${label} debe ser un número.`,
+      message: `${label} debe ser un número.`,
     })
     .refine(Number.isFinite, {
       message: `${label} debe ser un número finito.`,
@@ -63,11 +63,11 @@ export const GeneradorOpcionesSchema = z
 export const GeneradorParametrosSchema = z
   .object({
     materia: z.enum(["matematica", "fisica", "economia", "contabilidad"], {
-      required_error: "La materia es obligatoria.",
+      message: "La materia es obligatoria.",
     }),
     categoria: z.string().min(1, "La categoría es obligatoria."),
     nivel: z.enum(["basico", "intermedio", "avanzado"], {
-      required_error: "El nivel es obligatorio.",
+      message: "El nivel es obligatorio.",
     }),
     opciones: GeneradorOpcionesSchema.optional(),
   })

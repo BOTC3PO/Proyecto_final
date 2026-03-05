@@ -57,7 +57,7 @@ const manualQuestionSchema = z.object({
 
 const generatedQuizSchema = z.object({
   generatorId: z.string().min(1),
-  params: z.record(z.unknown()),
+  params: z.record(z.string(), z.unknown()),
   count: z.number().int().min(1),
 });
 

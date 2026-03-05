@@ -2,7 +2,7 @@ import type { ArtColorWheelSpec } from "../types";
 
 type Props = { spec: ArtColorWheelSpec };
 
-const TWO_PI = Math.PI * 2;
+const _TWO_PI = Math.PI * 2;
 const SEGMENTS = 36;
 const DEG_PER_SEGMENT = 360 / SEGMENTS;
 

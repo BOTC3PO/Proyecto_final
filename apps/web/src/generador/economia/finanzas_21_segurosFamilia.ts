@@ -8,7 +8,7 @@ import {
 } from "./generico";
 import { resolveTemaEnunciado } from "./consignas";
 
-type TipoSeguro =
+type _TipoSeguro =
   | "Seguro de hogar"
   | "Seguro de auto"
   | "Seguro de vida"
@@ -159,7 +159,7 @@ const CASOS_LEGENDARIO = [
   },
 ];
 
-const CASOS_DIVINO = [
+const _CASOS_DIVINO = [
   ...CASOS_LEGENDARIO,
   {
     enunciado:

@@ -41,12 +41,7 @@ export default function CivicRightsTreeVisualizer({
   const catRadius = 110;
   const rightRadius = 210;
 
-  // Highlighted right lookup
-  let highlightedRight: {
-    label: string;
-    description?: string;
-    article?: string;
-  } | null = null;
+  // Highlighted right lookup (computed after rightPositions is built)
 
   // Build category positions
   const catCount = categories.length;
@@ -94,11 +89,11 @@ export default function CivicRightsTreeVisualizer({
         catColor: catPos.color,
       });
 
-      if (right.id === spec.highlightedRightId) {
-        highlightedRight = right;
-      }
+
     });
   }
+
+  const highlightedRight = rightPositions.find(rp => rp.right.id === spec.highlightedRightId)?.right ?? null;
 
   return (
     <div>

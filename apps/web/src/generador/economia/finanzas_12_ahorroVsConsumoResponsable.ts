@@ -41,7 +41,7 @@ const SITUACIONES_BASICO: {
   },
 ];
 
-const SITUACIONES_INTERMEDIO = [
+const SITUACIONES_INTERMEDIO: { descripcion: string; tipo: TipoDecision }[] = [
   ...SITUACIONES_BASICO,
   {
     descripcion:
@@ -55,7 +55,7 @@ const SITUACIONES_INTERMEDIO = [
   },
 ];
 
-const SITUACIONES_AVANZADO = [
+const SITUACIONES_AVANZADO: { descripcion: string; tipo: TipoDecision }[] = [
   ...SITUACIONES_INTERMEDIO,
   {
     descripcion:
@@ -69,7 +69,7 @@ const SITUACIONES_AVANZADO = [
   },
 ];
 
-const SITUACIONES_LEGENDARIO = [
+const SITUACIONES_LEGENDARIO: { descripcion: string; tipo: TipoDecision }[] = [
   ...SITUACIONES_AVANZADO,
   {
     descripcion:
@@ -83,7 +83,7 @@ const SITUACIONES_LEGENDARIO = [
   },
 ];
 
-const SITUACIONES_DIVINO = [
+const _SITUACIONES_DIVINO = [
   ...SITUACIONES_LEGENDARIO,
   {
     descripcion:

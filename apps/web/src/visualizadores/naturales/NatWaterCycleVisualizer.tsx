@@ -31,7 +31,7 @@ function getStageColor(stage: { id: string; color?: string }): string {
   return "#94a3b8";
 }
 
-function getActiveColor(baseColor: string): string {
+function _getActiveColor(baseColor: string): string {
   // Return a slightly brighter version by using the same color at full opacity
   return baseColor;
 }

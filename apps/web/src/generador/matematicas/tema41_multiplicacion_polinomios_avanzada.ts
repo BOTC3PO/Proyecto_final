@@ -16,7 +16,7 @@ interface Polinomio {
   c: number; // término independiente
 }
 
-function poliToString(p: Polinomio): string {
+function _poliToString(p: Polinomio): string {
   const partes: string[] = [];
 
   if (p.a !== 0) {

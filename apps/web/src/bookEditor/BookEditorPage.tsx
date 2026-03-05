@@ -18,7 +18,7 @@ function prettyJson(obj: unknown) {
   return JSON.stringify(obj, null, 2);
 }
 
-function clamp(n: number, a: number, b: number) {
+function _clamp(n: number, a: number, b: number) {
   return Math.max(a, Math.min(b, n));
 }
 
@@ -1162,7 +1162,7 @@ function InlineBlock({
   onSelect: () => void;
 }) {
   const theme = book.metadata.theme ?? {};
-  const paperColor = theme.paperColor ?? "#FFFFFF";
+  const _paperColor = theme.paperColor ?? "#FFFFFF";
   const textColor = theme.textColor ?? "#000000";
   const fontFamily = theme.fontFamily ?? "serif";
   const basePx = theme.baseFontSizePx ?? 18;
@@ -1503,7 +1503,7 @@ function AddBlockBar({
 // ===== MAIN COMPONENT =====
 export default function BookEditorPage() {
   const params = useParams<{ id?: string }>();
-  const location = useLocation();
+  const _location = useLocation();
 
   const { state, dispatch, undo, redo, canUndo, canRedo, selectedPage, selectedBlock, runValidation } =
     useBookEditor();

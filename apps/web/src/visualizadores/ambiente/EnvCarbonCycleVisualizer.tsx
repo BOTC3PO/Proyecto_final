@@ -21,7 +21,7 @@ function scaleY(cy: number) {
   return cy * VIEW_H;
 }
 
-function arrowId(fromId: string, toId: string) {
+function _arrowId(fromId: string, toId: string) {
   return `arrow-${fromId}-${toId}`;
 }
 

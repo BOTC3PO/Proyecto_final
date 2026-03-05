@@ -51,7 +51,7 @@ const GASTOS_BASICO: {
   },
 ];
 
-const GASTOS_INTERMEDIO = [
+const GASTOS_INTERMEDIO: { descripcion: string; tipo: TipoGasto }[] = [
   ...GASTOS_BASICO,
   {
     descripcion: "Pago mensual del abono de transporte público.",
@@ -63,7 +63,7 @@ const GASTOS_INTERMEDIO = [
   },
 ];
 
-const GASTOS_AVANZADO = [
+const GASTOS_AVANZADO: { descripcion: string; tipo: TipoGasto }[] = [
   ...GASTOS_INTERMEDIO,
   {
     descripcion: "Compra de medicamentos de uso permanente.",
@@ -75,7 +75,7 @@ const GASTOS_AVANZADO = [
   },
 ];
 
-const GASTOS_LEGENDARIO = [
+const GASTOS_LEGENDARIO: { descripcion: string; tipo: TipoGasto }[] = [
   ...GASTOS_AVANZADO,
   {
     descripcion: "Mantenimiento mensual del ascensor del edificio.",
@@ -87,7 +87,7 @@ const GASTOS_LEGENDARIO = [
   },
 ];
 
-const GASTOS_DIVINO = [
+const _GASTOS_DIVINO = [
   ...GASTOS_LEGENDARIO,
   {
     descripcion: "Reparación imprevista del calefón en invierno.",

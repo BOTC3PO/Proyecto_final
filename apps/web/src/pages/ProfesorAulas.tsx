@@ -280,7 +280,7 @@ export default function ProfesorAulas() {
   const updateReportSelection = (classroomId: string, updates: Partial<{ format: "pdf" | "xlsx"; studentId: string }>) => {
     setReportSelections((prev) => ({
       ...prev,
-      [classroomId]: { format: "pdf", studentId: "", ...prev[classroomId], ...updates }
+      [classroomId]: { ...(prev[classroomId] ?? { format: "pdf" as const, studentId: "" }), ...updates }
     }));
   };
 

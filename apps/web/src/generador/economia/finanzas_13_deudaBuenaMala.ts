@@ -46,7 +46,7 @@ const DEUDAS_BASICO: {
   },
 ];
 
-const DEUDAS_INTERMEDIO = [
+const DEUDAS_INTERMEDIO: { descripcion: string; tipo: TipoDeuda }[] = [
   ...DEUDAS_BASICO,
   {
     descripcion:
@@ -60,7 +60,7 @@ const DEUDAS_INTERMEDIO = [
   },
 ];
 
-const DEUDAS_AVANZADO = [
+const DEUDAS_AVANZADO: { descripcion: string; tipo: TipoDeuda }[] = [
   ...DEUDAS_INTERMEDIO,
   {
     descripcion:
@@ -74,7 +74,7 @@ const DEUDAS_AVANZADO = [
   },
 ];
 
-const DEUDAS_LEGENDARIO = [
+const DEUDAS_LEGENDARIO: { descripcion: string; tipo: TipoDeuda }[] = [
   ...DEUDAS_AVANZADO,
   {
     descripcion:
@@ -88,7 +88,7 @@ const DEUDAS_LEGENDARIO = [
   },
 ];
 
-const DEUDAS_DIVINO = [
+const _DEUDAS_DIVINO = [
   ...DEUDAS_LEGENDARIO,
   {
     descripcion:

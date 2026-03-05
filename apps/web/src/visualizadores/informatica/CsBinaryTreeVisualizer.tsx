@@ -60,7 +60,7 @@ function buildLayout(
 
   // Auto-layout: level-by-level using parent-child structure
   // Find root (node with no parentId)
-  const parentIds = new Set(nodes.map((n) => n.parentId).filter(Boolean));
+  const _parentIds = new Set(nodes.map((n) => n.parentId).filter(Boolean));
   const roots = nodes.filter((n) => !n.parentId);
   const root = roots[0];
   if (!root) return [];

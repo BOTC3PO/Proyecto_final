@@ -36,7 +36,7 @@ export interface QuizTemplate {
 
 export interface SelectionConfig {
   mode: "random" | "fixed" | "byTags";
-  seeded: boolean;
+  seeded?: boolean;
   ids?: string[];
   tags?: string[];
 }

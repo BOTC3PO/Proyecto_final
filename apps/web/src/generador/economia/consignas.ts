@@ -21,7 +21,7 @@ export const resolveTemaRange = (
   key: string,
   fallback: [number, number]
 ): [number, number] => {
-  const limits = getCatalogoTemaEconomiaSync(tema).limits;
+  const limits = getCatalogoTemaEconomiaSync(String(tema)).limits;
   const root = asRecord(limits);
   if (!root) return fallback;
 
@@ -46,7 +46,7 @@ export const resolveTemaRange = (
 };
 
 const resolveTemplate = (tema: number | string): string | null => {
-  const enunciadoRaw = getCatalogoTemaEconomiaSync(tema).enunciado;
+  const enunciadoRaw = getCatalogoTemaEconomiaSync(String(tema)).enunciado;
   const root = asRecord(enunciadoRaw);
   if (!root) return null;
 

@@ -63,7 +63,7 @@ export const generarEnergiaReaccion: GeneratorFn = (
     datos: {
       deltaHMolar: deltaHMolarR,
       n: nR,
-      masa: masaR,
+      masa: masaR ?? 0,
       masaMolarA: M_A,
     },
     unidades: {

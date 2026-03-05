@@ -31,10 +31,10 @@ const SelectionConfigSchema = z.discriminatedUnion("mode", [
 const BasicGenerateOptionsSchema = z
   .object({
     seed: z
-      .string({ required_error: "Se requiere un seed provisto por el backend." })
+      .string({ message: "Se requiere un seed provisto por el backend." })
       .min(1, "Se requiere un seed provisto por el backend."),
     displayCount: z
-      .number({ invalid_type_error: "displayCount debe ser un número." })
+      .number({ message: "displayCount debe ser un número." })
       .int("displayCount debe ser un entero.")
       .positive("displayCount debe ser mayor a 0.")
       .optional(),
@@ -46,7 +46,7 @@ const BasicGenerateOptionsSchema = z
 const BasicRecreateOptionsSchema = z
   .object({
     seed: z
-      .string({ required_error: "Se requiere un seed provisto por el backend." })
+      .string({ message: "Se requiere un seed provisto por el backend." })
       .min(1, "Se requiere un seed provisto por el backend."),
     shuffleOptions: z.boolean().optional(),
   })
@@ -55,12 +55,9 @@ const BasicRecreateOptionsSchema = z
 const BasicCorrectionSchema = z
   .object({
     seed: z
-      .string({ required_error: "Se requiere un seed provisto por el backend." })
+      .string({ message: "Se requiere un seed provisto por el backend." })
       .min(1, "Se requiere un seed provisto por el backend."),
-    answers: z.record(z.unknown(), {
-      invalid_type_error: "Las respuestas deben ser un objeto.",
-      required_error: "Se requieren respuestas para corregir.",
-    }),
+    answers: z.record(z.string(), z.unknown()),
   })
   .strict();
 

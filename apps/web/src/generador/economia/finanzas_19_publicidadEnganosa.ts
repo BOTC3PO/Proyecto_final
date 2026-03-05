@@ -45,7 +45,7 @@ const CASOS_BASICO: {
   },
 ];
 
-const CASOS_INTERMEDIO = [
+const CASOS_INTERMEDIO: { anuncio: string; tipo: TipoCaso; consejo: string }[] = [
   ...CASOS_BASICO,
   {
     anuncio:
@@ -63,7 +63,7 @@ const CASOS_INTERMEDIO = [
   },
 ];
 
-const CASOS_AVANZADO = [
+const CASOS_AVANZADO: { anuncio: string; tipo: TipoCaso; consejo: string }[] = [
   ...CASOS_INTERMEDIO,
   {
     anuncio:
@@ -99,7 +99,7 @@ const CASOS_LEGENDARIO = [
   },
 ];
 
-const CASOS_DIVINO = [
+const _CASOS_DIVINO = [
   ...CASOS_LEGENDARIO,
   {
     anuncio:

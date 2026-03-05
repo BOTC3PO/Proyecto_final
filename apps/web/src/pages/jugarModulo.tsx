@@ -348,7 +348,7 @@ export default function JugarModulo() {
           {levelResources.length > 0 ? (
             <ul className="space-y-2 text-sm text-gray-700">
               {levelResources.map((resource, index) => {
-                const bookState = bookStates[resource.id];
+                const bookState = resource.type === "book" ? bookStates[resource.id] : undefined;
                 return (
                   <li key={`${resource.type}-${index}`}>
                     {resource.type === "book" && (

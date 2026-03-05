@@ -35,9 +35,11 @@ export type AnswerKey =
   | string
   | string[]
   | number
+  | number[]
   | boolean
   | Record<string, string>
-  | Record<string, number>;
+  | Record<string, number>
+  | Record<string, string | number>;
 
 export interface QuestionCorrection {
   id: string;

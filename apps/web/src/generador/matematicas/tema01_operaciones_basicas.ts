@@ -21,7 +21,7 @@ function generarOperacion(dificultad: Dificultad): {
   op: OperacionBasica;
   resultado: number;
 } {
-  const dificultadCore = normalizarDificultadCore(dificultad);
+  const _dificultadCore = normalizarDificultadCore(dificultad);
   const [min, max] = getRangoConFallback(
     ID_TEMA,
     dificultad,

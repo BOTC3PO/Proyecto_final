@@ -17,7 +17,7 @@ const BAR_MAX_LENGTH = 120;
 const MALE_COLOR = "#60a5fa";   // blue-400
 const FEMALE_COLOR = "#fb7185"; // rose-400
 
-function hexLerp(hex1: string, hex2: string, t: number): string {
+function _hexLerp(hex1: string, hex2: string, t: number): string {
   const parse = (h: string) => {
     const s = h.replace("#", "");
     return [

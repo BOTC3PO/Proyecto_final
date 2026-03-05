@@ -195,7 +195,6 @@ export default function ReproductorModulos() {
                       ? {
                           backgroundColor: color.background,
                           color: color.text,
-                          ringColor: color.border,
                         }
                       : { color: "#475569" }
                   }

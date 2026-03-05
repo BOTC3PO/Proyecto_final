@@ -5,7 +5,7 @@ import React, {
   useState,
   type ChangeEvent,
   type KeyboardEvent,
-  type MouseEvent as ReactMouseEvent,
+
 } from "react";
 import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -179,7 +179,7 @@ export default function DateInput({
                   ? "bg-blue-100 text-blue-700 hover:bg-blue-200"
                   : "text-gray-700 hover:bg-gray-100",
           ].join(" ")}
-          aria-pressed={isSel}
+          aria-pressed={isSel || false}
           aria-label={`Seleccionar ${d} ${MONTHS[currentMonth]} ${currentYear}`}
         >
           {d}

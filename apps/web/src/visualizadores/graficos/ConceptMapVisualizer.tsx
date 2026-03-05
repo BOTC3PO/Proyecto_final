@@ -9,7 +9,7 @@ type Position = {
   y: number;
 };
 
-type LayoutResult = {
+type _LayoutResult = {
   positions: Map<string, Position>;
   width: number;
   height: number;
