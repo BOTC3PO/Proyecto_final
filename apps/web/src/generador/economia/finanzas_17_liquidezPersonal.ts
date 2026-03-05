@@ -81,18 +81,6 @@ const ITEMS_LEGENDARIO: { descripcion: string; tipo: TipoLiquidez }[] = [
   },
 ];
 
-const _ITEMS_DIVINO = [
-  ...ITEMS_LEGENDARIO,
-  {
-    descripcion:
-      "Dinero apartado en una cuenta de ahorro con disponibilidad diaria.",
-    tipo: "Dinero disponible",
-  },
-  {
-    descripcion: "Compra de maquinaria para un negocio propio.",
-    tipo: "Dinero inmovilizado",
-  },
-];
 
 const ITEMS_POR_DIFICULTAD: Record<
   Dificultad,

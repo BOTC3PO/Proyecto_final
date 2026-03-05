@@ -83,19 +83,6 @@ const CASOS_LEGENDARIO = [
   },
 ];
 
-const _CASOS_DIVINO = [
-  ...CASOS_LEGENDARIO,
-  {
-    descripcion:
-      "Es el indicador clave para comparar ofertas cuando hay cargos ocultos.",
-    respuesta: "Costo financiero total (CFT)",
-  },
-  {
-    descripcion:
-      "Parte del costo de un préstamo que no incluye comisiones ni seguros.",
-    respuesta: "Interés",
-  },
-];
 
 const CASOS_POR_DIFICULTAD: Record<
   Dificultad,

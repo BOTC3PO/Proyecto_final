@@ -132,7 +132,6 @@ export default function EnvEcosystemVisualizer({ spec }: Props) {
           const { x1, x2, x3, x4, y1, y2 } = t;
           const points = `${x1},${y2} ${x2},${y2} ${x3},${y1} ${x4},${y1}`;
           const midY = (y1 + y2) / 2;
-          const _midTopW = x3 - x4;
           const bandW = x2 - x1;
 
           // Organism names

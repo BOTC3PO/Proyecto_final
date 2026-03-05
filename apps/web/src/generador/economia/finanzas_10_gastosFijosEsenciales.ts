@@ -87,17 +87,6 @@ const GASTOS_LEGENDARIO: { descripcion: string; tipo: TipoGasto }[] = [
   },
 ];
 
-const _GASTOS_DIVINO = [
-  ...GASTOS_LEGENDARIO,
-  {
-    descripcion: "Reparación imprevista del calefón en invierno.",
-    tipo: "Gasto variable esencial",
-  },
-  {
-    descripcion: "Pago mensual de una suscripción premium de videojuegos.",
-    tipo: "Gasto no esencial",
-  },
-];
 
 const GASTOS_POR_DIFICULTAD: Record<
   Dificultad,

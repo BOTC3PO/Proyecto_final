@@ -86,19 +86,6 @@ const INGRESOS_LEGENDARIO: { descripcion: string; tipo: TipoIngreso }[] = [
   },
 ];
 
-const _INGRESOS_DIVINO = [
-  ...INGRESOS_LEGENDARIO,
-  {
-    descripcion:
-      "Pago por asesorías profesionales con clientes de forma presencial.",
-    tipo: "Ingreso activo",
-  },
-  {
-    descripcion:
-      "Intereses generados por un fondo de inversión sin gestión diaria.",
-    tipo: "Ingreso pasivo",
-  },
-];
 
 const INGRESOS_POR_DIFICULTAD: Record<
   Dificultad,

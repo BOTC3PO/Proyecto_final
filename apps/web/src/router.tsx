@@ -87,8 +87,6 @@ import HerramientasCocina from "./pages/herramientas/HerramientasCocina";
 import HerramientasVidaPractica from "./pages/herramientas/HerramientasVidaPractica";
 
 
-const _moduleAccessRoles = ["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"];
-const _modulePlayRoles = ["USER", "PARENT", "TEACHER", "ADMIN"];
 
 const ModuloEditRedirect = () => {
   const { id } = useParams();

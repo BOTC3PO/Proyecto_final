@@ -88,19 +88,6 @@ const DEUDAS_LEGENDARIO: { descripcion: string; tipo: TipoDeuda }[] = [
   },
 ];
 
-const _DEUDAS_DIVINO = [
-  ...DEUDAS_LEGENDARIO,
-  {
-    descripcion:
-      "Endeudarse para invertir en un negocio con plan de ingresos realista.",
-    tipo: "Deuda buena",
-  },
-  {
-    descripcion:
-      "Pedir préstamos para cubrir apuestas o juegos de azar.",
-    tipo: "Deuda mala",
-  },
-];
 
 const DEUDAS_POR_DIFICULTAD: Record<
   Dificultad,

@@ -85,18 +85,6 @@ const ITEMS_LEGENDARIO: { descripcion: string; categoriaCorrecta: CategoriaPresu
   },
 ];
 
-const _ITEMS_DIVINO = [
-  ...ITEMS_LEGENDARIO,
-  {
-    descripcion:
-      "Pago de intereses de una tarjeta de crédito por compras previas.",
-    categoriaCorrecta: "Gasto",
-  },
-  {
-    descripcion: "Bonificación anual que se recibe por desempeño laboral.",
-    categoriaCorrecta: "Ingreso",
-  },
-];
 
 const ITEMS_POR_DIFICULTAD: Record<
   Dificultad,

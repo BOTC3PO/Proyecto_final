@@ -99,23 +99,6 @@ const CASOS_LEGENDARIO = [
   },
 ];
 
-const _CASOS_DIVINO = [
-  ...CASOS_LEGENDARIO,
-  {
-    anuncio:
-      "“Cuotas sin interés” pero el precio al contado es mucho menor y no lo aclara.",
-    tipo: "Publicidad engañosa",
-    consejo:
-      "Si no compara con precio de contado, puede ocultar un sobreprecio.",
-  },
-  {
-    anuncio:
-      "“Precio contado y financiado detallados. CFT y tasas visibles.”",
-    tipo: "Publicidad clara",
-    consejo:
-      "Expone el costo real del financiamiento comparando con el precio de contado.",
-  },
-];
 
 const CASOS_POR_DIFICULTAD: Record<
   Dificultad,

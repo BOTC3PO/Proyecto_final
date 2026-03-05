@@ -88,17 +88,6 @@ const GASTOS_LEGENDARIO: { descripcion: string; tipo: TipoGasto }[] = [
   },
 ];
 
-const _GASTOS_DIVINO = [
-  ...GASTOS_LEGENDARIO,
-  {
-    descripcion: "Pago de un tratamiento médico indicado por un profesional.",
-    tipo: "Gasto esencial",
-  },
-  {
-    descripcion: "Cambio de auto por un modelo más nuevo sin necesidad.",
-    tipo: "Gasto no esencial",
-  },
-];
 
 const GASTOS_POR_DIFICULTAD: Record<
   Dificultad,

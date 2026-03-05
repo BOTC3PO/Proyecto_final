@@ -83,19 +83,6 @@ const SITUACIONES_LEGENDARIO: { descripcion: string; tipo: TipoDecision }[] = [
   },
 ];
 
-const _SITUACIONES_DIVINO = [
-  ...SITUACIONES_LEGENDARIO,
-  {
-    descripcion:
-      "Revisar el resumen de la tarjeta y ajustar gastos antes del vencimiento.",
-    tipo: "Consumo responsable",
-  },
-  {
-    descripcion:
-      "Ahorrar para reemplazar un bien esencial antes de que se rompa.",
-    tipo: "Ahorro",
-  },
-];
 
 const SITUACIONES_POR_DIFICULTAD: Record<
   Dificultad,

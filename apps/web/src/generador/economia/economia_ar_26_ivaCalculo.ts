@@ -67,23 +67,6 @@ function crearCasoIVA(base: number, tasa: number, etiqueta: string): Caso {
   };
 }
 
-function _crearCasoBaseDesdeTotal(total: number, tasa: number, etiqueta: string): Caso {
-  const base = Math.round(total / (1 + tasa));
-  const opciones = crearOpciones(base, 25, 4);
-  const indiceCorrecto = opciones.indexOf("$ " + base.toLocaleString("es-AR"));
-
-  return {
-    enunciado:
-      `Producto ${etiqueta} con precio final (IVA incluido) de $ ${total.toLocaleString(
-        "es-AR"
-      )}. ` +
-      `Si la alícuota es ${tasa * 100}%, ¿cuál es el precio sin IVA aproximado?`,
-    opciones,
-    indiceCorrecto,
-    explicacion:
-      "Para quitar el IVA se divide el precio final por (1 + alícuota).",
-  };
-}
 
 export const genARIVACalculo: GeneratorFn = makeQuizGenerator(
   26,
@@ -93,7 +76,6 @@ export const genARIVACalculo: GeneratorFn = makeQuizGenerator(
       const [baseMin, baseMax] = resolveTemaRange(TEMA, dificultad, "base", [10, 90]);
       const [baseAltaMin, baseAltaMax] = resolveTemaRange(TEMA, dificultad, "baseAlta", [40, 140]);
       const base = randInt(baseMin, baseMax) * 1000;
-      const _baseAlta = randInt(baseAltaMin, baseAltaMax) * 1000;
       const tasaGeneral = 0.21;
       const tasaEsencial = 0.105;
       const esencial = randomBool();

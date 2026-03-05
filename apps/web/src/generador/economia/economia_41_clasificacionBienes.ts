@@ -9,7 +9,6 @@ import {
 } from "./generico";
 import { resolveTemaEnunciado } from "./consignas";
 
-type _TipoBien =
   | "Bien libre"
   | "Bien económico"
   | "Bien de consumo"
