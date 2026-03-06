@@ -6,7 +6,8 @@ import { apiGet, apiPatch, apiPost } from "../../lib/api";
 import type { Module, ModuleDependency, ModuleQuiz } from "../../domain/module/module.types";
 import { getSubjectCapabilities, MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
-import TheorySlideEditor, { detailToSlides, slidesToDetail } from "../../components/modulos/TheorySlideEditor";
+import TheorySlideEditor, { detailToPresentation, slidesToDetail } from "../../components/modulos/TheorySlideEditor";
+import type { PresentationTheme } from "../../components/modulos/TheorySlideEditor";
 import HerramientaPicker from "../../components/modulos/HerramientaPicker";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
@@ -315,8 +316,8 @@ export default function ModuloEditor() {
 
   // ─── Slide editor callbacks ───────────────────────────────────────────────
 
-  const handleSlidesDone = (slides: ReturnType<typeof detailToSlides>) => {
-    const detail = slidesToDetail(slides);
+  const handleSlidesDone = (slides: Parameters<typeof slidesToDetail>[0], theme: PresentationTheme) => {
+    const detail = slidesToDetail(slides, theme);
     if (slidesEditorFor === "new") {
       setNewTheoryItem((prev) => ({ ...prev, detail }));
     } else if (slidesEditorFor) {
@@ -487,11 +488,11 @@ export default function ModuloEditor() {
 
   const slidesEditorItem =
     slidesEditorFor === "new"
-      ? { title: newTheoryItem.title, slides: detailToSlides(newTheoryItem.detail) }
+      ? { title: newTheoryItem.title, ...detailToPresentation(newTheoryItem.detail) }
       : slidesEditorFor
         ? (() => {
             const item = theoryItems.find((i) => i.id === slidesEditorFor);
-            return item ? { title: item.title, slides: detailToSlides(item.detail) } : null;
+            return item ? { title: item.title, ...detailToPresentation(item.detail) } : null;
           })()
         : null;
 
@@ -504,6 +505,7 @@ export default function ModuloEditor() {
         <TheorySlideEditor
           presentationTitle={slidesEditorItem.title}
           initialSlides={slidesEditorItem.slides}
+          initialTheme={slidesEditorItem.theme}
           onDone={handleSlidesDone}
           onClose={() => setSlidesEditorFor(null)}
         />
@@ -681,16 +683,16 @@ export default function ModuloEditor() {
                   ) : isPresentationType(newTheoryItem.type) ? (
                     <div className="flex items-center gap-3">
                       <span className="text-xs text-gray-500">
-                        {detailToSlides(newTheoryItem.detail).length === 0
+                        {detailToPresentation(newTheoryItem.detail).slides.length === 0
                           ? "Sin diapositivas"
-                          : `${detailToSlides(newTheoryItem.detail).length} diapositiva(s)`}
+                          : `${detailToPresentation(newTheoryItem.detail).slides.length} diapositiva(s)`}
                       </span>
                       <button
                         type="button"
                         className="rounded-md border border-gray-300 px-3 py-1.5 text-xs hover:bg-gray-100"
                         onClick={() => setSlidesEditorFor("new")}
                       >
-                        {detailToSlides(newTheoryItem.detail).length === 0
+                        {detailToPresentation(newTheoryItem.detail).slides.length === 0
                           ? "Crear presentación"
                           : "Editar presentación"}
                       </button>
@@ -792,7 +794,7 @@ export default function ModuloEditor() {
                           ) : isPresentationType(item.type) ? (
                             <div className="flex items-center gap-3">
                               <span className="text-xs text-gray-500">
-                                {detailToSlides(item.detail).length} diapositiva(s)
+                                {detailToPresentation(item.detail).slides.length} diapositiva(s)
                               </span>
                               <button
                                 type="button"
