@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "save":"tsc -b > errores_web.txt 2",
+    "save": "tsc -b > errores_web.txt 2",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "4.1.18",
+    "@types/animejs": "^3.1.13",
+    "animejs": "^3.2.2",
     "d3-geo": "3.1.1",
     "glob": "13.0.0",
     "lucide-react": "0.561.0",

@@ -7,7 +7,7 @@ import type { Module, ModuleDependency, ModuleQuiz } from "../../domain/module/m
 import { getSubjectCapabilities, MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor, { detailToPresentation, slidesToDetail } from "../../components/modulos/TheorySlideEditor";
-import type { PresentationTheme } from "../../components/modulos/TheorySlideEditor";
+import type { PresentationTheme, AccentColor } from "../../components/modulos/TheorySlideEditor";
 import HerramientaPicker from "../../components/modulos/HerramientaPicker";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
@@ -316,8 +316,8 @@ export default function ModuloEditor() {
 
   // ─── Slide editor callbacks ───────────────────────────────────────────────
 
-  const handleSlidesDone = (slides: Parameters<typeof slidesToDetail>[0], theme: PresentationTheme) => {
-    const detail = slidesToDetail(slides, theme);
+  const handleSlidesDone = (slides: Parameters<typeof slidesToDetail>[0], theme: PresentationTheme, accentColor?: AccentColor) => {
+    const detail = slidesToDetail(slides, theme, accentColor);
     if (slidesEditorFor === "new") {
       setNewTheoryItem((prev) => ({ ...prev, detail }));
     } else if (slidesEditorFor) {
@@ -506,6 +506,7 @@ export default function ModuloEditor() {
           presentationTitle={slidesEditorItem.title}
           initialSlides={slidesEditorItem.slides}
           initialTheme={slidesEditorItem.theme}
+          initialAccentColor={slidesEditorItem.accentColor}
           onDone={handleSlidesDone}
           onClose={() => setSlidesEditorFor(null)}
         />
