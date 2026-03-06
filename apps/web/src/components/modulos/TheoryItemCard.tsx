@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { detailToSlides } from "./TheorySlideEditor";
+import { Play } from "lucide-react";
+import { detailToPresentation } from "./TheorySlideEditor";
+import SlidePresenter from "./SlidePresenter";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
 import type { VisualSpec } from "../../visualizadores/types";
 
@@ -66,6 +69,7 @@ function parseHerramientaDetail(detail: string): { spec: VisualSpec; subject?: s
 
 export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProps) {
   const typeLabel = getTypeLabel(item.type);
+  const [presenterOpen, setPresenterOpen] = useState(false);
 
   // --- Herramienta interactiva ---
   if (isHerramientaType(item.type)) {
@@ -94,20 +98,45 @@ export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProp
 
   // --- Presentation type ---
   if (isPresentationType(item.type)) {
-    const slides = detailToSlides(item.detail);
+    const { slides, theme } = detailToPresentation(item.detail);
+    const firstSlide = slides[0];
     return (
-      <article className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-        <p className="text-xs uppercase tracking-wide text-gray-400">{typeLabel}</p>
-        <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
-        <p className="mt-1 text-xs text-gray-500">
-          {slides.length === 0
-            ? "Sin diapositivas"
-            : `${slides.length} diapositiva${slides.length !== 1 ? "s" : ""}`}
-        </p>
-        {slides.length > 0 && slides[0].body ? (
-          <p className="mt-2 text-sm text-gray-600 line-clamp-2">{slides[0].body}</p>
+      <>
+        {presenterOpen && slides.length > 0 ? (
+          <SlidePresenter
+            slides={slides}
+            theme={theme}
+            title={item.title}
+            onClose={() => setPresenterOpen(false)}
+          />
         ) : null}
-      </article>
+        <article className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-xs uppercase tracking-wide text-gray-400">{typeLabel}</p>
+              <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
+              <p className="mt-1 text-xs text-gray-500">
+                {slides.length === 0
+                  ? "Sin diapositivas"
+                  : `${slides.length} diapositiva${slides.length !== 1 ? "s" : ""}`}
+              </p>
+              {firstSlide?.body ? (
+                <p className="mt-2 text-sm text-gray-600 line-clamp-2">{firstSlide.body}</p>
+              ) : null}
+            </div>
+            {slides.length > 0 ? (
+              <button
+                type="button"
+                className="flex-shrink-0 flex items-center gap-1.5 rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-indigo-700"
+                onClick={() => setPresenterOpen(true)}
+              >
+                <Play size={12} />
+                Presentar
+              </button>
+            ) : null}
+          </div>
+        </article>
+      </>
     );
   }
 
