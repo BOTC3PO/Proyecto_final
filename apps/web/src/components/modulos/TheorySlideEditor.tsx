@@ -3,13 +3,14 @@ import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown } from "lucide-react";
 
 // ─── Layout presets ───────────────────────────────────────────────────────────
 
-export type LayoutPreset = "centered" | "top" | "split" | "bottom-text";
+export type LayoutPreset = "centered" | "top" | "split" | "bottom-text" | "quote";
 
 export const LAYOUT_META: Record<LayoutPreset, { label: string; description: string }> = {
   centered:      { label: "Centrado",      description: "Contenido centrado vertical y horizontalmente" },
   top:           { label: "Desde arriba",  description: "Contenido fluye desde la parte superior" },
   split:         { label: "Dos columnas",  description: "Texto dividido en dos columnas" },
   "bottom-text": { label: "Texto al pie",  description: "Contenido anclado abajo — ideal con imagen de fondo" },
+  quote:         { label: "Cita",          description: "Cita destacada centrada con comillas decorativas" },
 };
 
 export function layoutContainerClass(layout: LayoutPreset): string {
@@ -18,6 +19,7 @@ export function layoutContainerClass(layout: LayoutPreset): string {
     case "top":          return "flex flex-col justify-start gap-5 h-full";
     case "split":        return "flex flex-col gap-5 h-full";
     case "bottom-text":  return "flex flex-col justify-end gap-4 h-full";
+    case "quote":        return "flex flex-col items-center justify-center text-center gap-6 h-full px-8";
   }
 }
 
@@ -132,6 +134,30 @@ export const THEMES: Record<ThemeKey, ThemeConfig> = {
   },
 };
 
+// ─── Accent color ─────────────────────────────────────────────────────────────
+
+export type AccentColor = "indigo" | "rose" | "emerald" | "amber" | "violet" | "sky";
+
+export type AccentConfig = {
+  label: string;
+  swatch: string;
+  /** Tailwind bg class for progress bar and active dot */
+  bar: string;
+  /** Tailwind text class for heading override */
+  heading: string;
+  /** Tailwind text class for bullet markers */
+  bullet: string;
+};
+
+export const ACCENT_COLORS: Record<AccentColor, AccentConfig> = {
+  indigo:  { label: "Índigo",    swatch: "#6366f1", bar: "bg-indigo-500",  heading: "text-indigo-600",  bullet: "text-indigo-500" },
+  rose:    { label: "Rosa",      swatch: "#f43f5e", bar: "bg-rose-500",    heading: "text-rose-600",    bullet: "text-rose-500"   },
+  emerald: { label: "Esmeralda", swatch: "#10b981", bar: "bg-emerald-500", heading: "text-emerald-600", bullet: "text-emerald-500"},
+  amber:   { label: "Ámbar",     swatch: "#f59e0b", bar: "bg-amber-500",   heading: "text-amber-600",   bullet: "text-amber-500"  },
+  violet:  { label: "Violeta",   swatch: "#8b5cf6", bar: "bg-violet-500",  heading: "text-violet-600",  bullet: "text-violet-500" },
+  sky:     { label: "Cielo",     swatch: "#0ea5e9", bar: "bg-sky-500",     heading: "text-sky-600",     bullet: "text-sky-500"    },
+};
+
 // ─── Slide type ───────────────────────────────────────────────────────────────
 
 export type Slide = {
@@ -161,7 +187,7 @@ export type Slide = {
 
 /** Maps old SlideLayout string values to the new LayoutPreset system */
 function legacyLayoutToPreset(raw?: string): LayoutPreset {
-  const valid: LayoutPreset[] = ["centered", "top", "split", "bottom-text"];
+  const valid: LayoutPreset[] = ["centered", "top", "split", "bottom-text", "quote"];
   if (raw && valid.includes(raw as LayoutPreset)) return raw as LayoutPreset;
   const map: Record<string, LayoutPreset> = {
     "title-text":    "top",
@@ -169,7 +195,7 @@ function legacyLayoutToPreset(raw?: string): LayoutPreset {
     "image-caption": "bottom-text",
     "two-columns":   "split",
     code:            "top",
-    quote:           "centered",
+    quote:           "quote",
   };
   return map[raw ?? ""] ?? "top";
 }
@@ -200,8 +226,18 @@ function normalizeTheme(raw?: unknown): ThemeKey {
   return (raw && Object.keys(THEMES).includes(String(raw)) ? raw : "minimal") as ThemeKey;
 }
 
-export function slidesToDetail(slides: Slide[], theme: ThemeKey = "minimal"): string {
-  return JSON.stringify({ version: 3, theme, slides });
+function normalizeAccentColor(raw?: unknown): AccentColor | undefined {
+  return raw && Object.keys(ACCENT_COLORS).includes(String(raw))
+    ? (raw as AccentColor)
+    : undefined;
+}
+
+export function slidesToDetail(
+  slides: Slide[],
+  theme: ThemeKey = "minimal",
+  accentColor?: AccentColor,
+): string {
+  return JSON.stringify({ version: 3, theme, accentColor, slides });
 }
 
 /** Returns just the Slide array — backward-compat helper. */
@@ -209,8 +245,12 @@ export function detailToSlides(detail: string): Slide[] {
   return detailToPresentation(detail).slides;
 }
 
-/** Returns both slides and theme. Handles all serialization versions. */
-export function detailToPresentation(detail: string): { slides: Slide[]; theme: ThemeKey } {
+/** Returns slides, theme and accentColor. Handles all serialization versions. */
+export function detailToPresentation(detail: string): {
+  slides: Slide[];
+  theme: ThemeKey;
+  accentColor?: AccentColor;
+} {
   try {
     const parsed = JSON.parse(detail);
     if (Array.isArray(parsed)) {
@@ -220,6 +260,7 @@ export function detailToPresentation(detail: string): { slides: Slide[]; theme: 
       return {
         slides: parsed.slides.map(normalizeSlide),
         theme: normalizeTheme(parsed.theme),
+        accentColor: normalizeAccentColor(parsed.accentColor),
       };
     }
   } catch {
@@ -291,6 +332,15 @@ function LayoutIcon({ preset }: { preset: LayoutPreset }) {
           <div className="w-10 h-0.5 rounded bg-current opacity-25" />
         </div>
       );
+    case "quote":
+      return (
+        <div className="flex flex-col items-center justify-center gap-1 h-full">
+          <div className="text-[8px] opacity-30 leading-none font-serif">"</div>
+          <div className="w-10 h-1 rounded bg-current opacity-70" />
+          <div className="w-8 h-0.5 rounded bg-current opacity-40" />
+          <div className="w-6 h-0.5 rounded bg-current opacity-25" />
+        </div>
+      );
   }
 }
 
@@ -303,16 +353,23 @@ type EditorFormProps = {
 
 function SlideEditorForm({ slide, onChange }: EditorFormProps) {
   const isSplit = slide.layout === "split";
+  const isQuote = slide.layout === "quote";
 
   const headingInput = (
     <div>
       <div className="flex items-baseline justify-between mb-1.5">
-        <label className="text-xs font-medium text-gray-500">Título principal</label>
-        <span className="text-[10px] text-gray-300 font-mono">text-4xl font-bold</span>
+        <label className="text-xs font-medium text-gray-500">
+          {isQuote ? "Texto de la cita" : "Título principal"}
+        </label>
+        <span className="text-[10px] text-gray-300 font-mono">
+          {isQuote ? "text-3xl italic font-serif" : "text-4xl font-bold"}
+        </span>
       </div>
       <input
-        className="w-full border-0 border-b-2 border-gray-200 pb-2 text-2xl font-bold leading-tight outline-none focus:border-blue-400 bg-transparent placeholder-gray-200 text-gray-800"
-        placeholder="Título de la diapositiva"
+        className={`w-full border-0 border-b-2 border-gray-200 pb-2 leading-tight outline-none focus:border-blue-400 bg-transparent placeholder-gray-200 text-gray-800 ${
+          isQuote ? "text-2xl italic font-serif" : "text-2xl font-bold"
+        }`}
+        placeholder={isQuote ? "\"El conocimiento es poder...\"" : "Título de la diapositiva"}
         value={slide.heading}
         onChange={(e) => onChange({ heading: e.target.value })}
       />
@@ -419,58 +476,64 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
 
           <div>
             <div className="flex items-baseline justify-between mb-1.5">
-              <label className="text-xs font-medium text-gray-500">Subtítulo</label>
+              <label className="text-xs font-medium text-gray-500">
+                {isQuote ? "Atribución" : "Subtítulo"}
+              </label>
               <span className="text-[10px] text-gray-300 font-mono">text-xl font-medium</span>
             </div>
             <input
               className="w-full border-0 border-b border-gray-200 pb-1.5 text-lg font-medium leading-snug outline-none focus:border-blue-400 bg-transparent placeholder-gray-200 text-slate-500"
-              placeholder="Subtítulo o descripción secundaria (opcional)"
+              placeholder={isQuote ? "— Autor, Año (opcional)" : "Subtítulo o descripción secundaria (opcional)"}
               value={slide.subtitle ?? ""}
               onChange={(e) => onChange({ subtitle: e.target.value || undefined })}
             />
           </div>
 
-          <div>
-            <div className="flex items-baseline justify-between mb-1.5">
-              <label className="text-xs font-medium text-gray-500">
-                {slide.isCode ? "Código" : "Cuerpo de texto"}
-              </label>
-              <span className="text-[10px] text-gray-300 font-mono">text-base leading-relaxed</span>
-            </div>
-            <textarea
-              className={`w-full border border-gray-200 rounded-lg p-4 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200 leading-relaxed ${
-                slide.isCode ? "font-mono bg-gray-50" : ""
-              }`}
-              placeholder={
-                slide.isCode
-                  ? "// Escribí tu código aquí..."
-                  : "Contenido de la diapositiva...\n\nPodés usar texto libre, listas con guiones (-) o numeradas."
-              }
-              rows={10}
-              value={slide.body ?? ""}
-              onChange={(e) => onChange({ body: e.target.value || undefined })}
-            />
-          </div>
+          {!isQuote ? (
+            <>
+              <div>
+                <div className="flex items-baseline justify-between mb-1.5">
+                  <label className="text-xs font-medium text-gray-500">
+                    {slide.isCode ? "Código" : "Cuerpo de texto"}
+                  </label>
+                  <span className="text-[10px] text-gray-300 font-mono">text-base leading-relaxed</span>
+                </div>
+                <textarea
+                  className={`w-full border border-gray-200 rounded-lg p-4 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200 leading-relaxed ${
+                    slide.isCode ? "font-mono bg-gray-50" : ""
+                  }`}
+                  placeholder={
+                    slide.isCode
+                      ? "// Escribí tu código aquí..."
+                      : "Contenido de la diapositiva...\n\nPodés usar texto libre, listas con guiones (-) o numeradas."
+                  }
+                  rows={10}
+                  value={slide.body ?? ""}
+                  onChange={(e) => onChange({ body: e.target.value || undefined })}
+                />
+              </div>
 
-          <div className="flex items-center gap-3 flex-wrap">
-            <label className="flex items-center gap-2 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                checked={slide.isCode ?? false}
-                onChange={(e) => onChange({ isCode: e.target.checked })}
-              />
-              <span className="text-xs text-gray-600">Mostrar como bloque de código</span>
-            </label>
-            {slide.isCode ? (
-              <input
-                className="border border-gray-200 rounded px-2.5 py-1 text-xs outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
-                placeholder="lenguaje (js, python...)"
-                value={slide.language ?? ""}
-                onChange={(e) => onChange({ language: e.target.value || undefined })}
-              />
-            ) : null}
-          </div>
+              <div className="flex items-center gap-3 flex-wrap">
+                <label className="flex items-center gap-2 cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    checked={slide.isCode ?? false}
+                    onChange={(e) => onChange({ isCode: e.target.checked })}
+                  />
+                  <span className="text-xs text-gray-600">Mostrar como bloque de código</span>
+                </label>
+                {slide.isCode ? (
+                  <input
+                    className="border border-gray-200 rounded px-2.5 py-1 text-xs outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+                    placeholder="lenguaje (js, python...)"
+                    value={slide.language ?? ""}
+                    onChange={(e) => onChange({ language: e.target.value || undefined })}
+                  />
+                ) : null}
+              </div>
+            </>
+          ) : null}
         </>
       )}
     </div>
@@ -483,7 +546,8 @@ type Props = {
   presentationTitle: string;
   initialSlides: Slide[];
   initialTheme?: ThemeKey;
-  onDone: (slides: Slide[], theme: ThemeKey) => void;
+  initialAccentColor?: AccentColor;
+  onDone: (slides: Slide[], theme: ThemeKey, accentColor?: AccentColor) => void;
   onClose: () => void;
 };
 
@@ -493,6 +557,7 @@ export default function TheorySlideEditor({
   presentationTitle,
   initialSlides,
   initialTheme = "minimal",
+  initialAccentColor,
   onDone,
   onClose,
 }: Props) {
@@ -501,6 +566,7 @@ export default function TheorySlideEditor({
   );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [theme, setTheme] = useState<ThemeKey>(initialTheme);
+  const [accentColor, setAccentColor] = useState<AccentColor | undefined>(initialAccentColor);
 
   const currentSlide = slides[currentIndex] ?? null;
 
@@ -566,6 +632,37 @@ export default function TheorySlideEditor({
             ))}
           </div>
 
+          {/* Accent color swatches */}
+          <div className="flex items-center gap-1.5">
+            <span className="text-xs text-gray-400 mr-0.5">Acento:</span>
+            <button
+              type="button"
+              title="Sin color de acento"
+              className={`w-5 h-5 rounded-full border-2 transition-all flex-shrink-0 bg-gray-100 ${
+                accentColor === undefined
+                  ? "border-blue-500 scale-125 shadow-sm"
+                  : "border-gray-300 hover:scale-110 hover:border-gray-400"
+              }`}
+              onClick={() => setAccentColor(undefined)}
+            >
+              <span className="text-[8px] text-gray-400 flex items-center justify-center w-full h-full">✕</span>
+            </button>
+            {(Object.entries(ACCENT_COLORS) as [AccentColor, AccentConfig][]).map(([key, cfg]) => (
+              <button
+                key={key}
+                type="button"
+                title={cfg.label}
+                className={`w-5 h-5 rounded-full border-2 transition-all flex-shrink-0 ${
+                  accentColor === key
+                    ? "border-blue-500 scale-125 shadow-sm"
+                    : "border-gray-300 hover:scale-110 hover:border-gray-400"
+                }`}
+                style={{ background: cfg.swatch }}
+                onClick={() => setAccentColor(key)}
+              />
+            ))}
+          </div>
+
           <button
             type="button"
             className="flex items-center gap-1 rounded-md border border-gray-300 px-3 py-1.5 text-xs hover:bg-gray-100"
@@ -578,7 +675,7 @@ export default function TheorySlideEditor({
           <button
             type="button"
             className="rounded-md bg-blue-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-blue-700"
-            onClick={() => onDone(slides, theme)}
+            onClick={() => onDone(slides, theme, accentColor)}
           >
             Listo
           </button>

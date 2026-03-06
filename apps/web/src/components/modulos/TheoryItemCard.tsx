@@ -98,7 +98,7 @@ export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProp
 
   // --- Presentation type ---
   if (isPresentationType(item.type)) {
-    const { slides, theme } = detailToPresentation(item.detail);
+    const { slides, theme, accentColor } = detailToPresentation(item.detail);
     const firstSlide = slides[0];
     return (
       <>
@@ -106,6 +106,7 @@ export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProp
           <SlidePresenter
             slides={slides}
             theme={theme}
+            accentColor={accentColor}
             title={item.title}
             onClose={() => setPresenterOpen(false)}
           />
