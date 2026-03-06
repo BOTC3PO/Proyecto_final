@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { z } from "zod";
 import { useAuth } from "../../auth/use-auth";
@@ -116,6 +116,18 @@ export default function ModuloEditor() {
   // --- Slide editor state ---
   // "new" = editing slides for new item form | string = existing item id
   const [slidesEditorFor, setSlidesEditorFor] = useState<"new" | string | null>(null);
+
+  // --- Quiz preview state ---
+  const [quizPreviewOpen, setQuizPreviewOpen] = useState<Record<string, boolean>>({});
+
+  // --- Real-time quiz field errors ---
+  const [quizBlurErrors, setQuizBlurErrors] = useState<Record<string, string[]>>({});
+
+  // --- Dependency editor state ---
+  const [depSearch, setDepSearch] = useState("");
+  const [depResults, setDepResults] = useState<Array<{ id: string; title: string }>>([]);
+  const [depLoading, setDepLoading] = useState(false);
+  const [depPickerOpen, setDepPickerOpen] = useState(false);
 
   useEffect(() => {
     if (!isEditing || !id) return;
@@ -314,6 +326,18 @@ export default function ModuloEditor() {
     setTheoryItems((prev) => prev.filter((item) => item.id !== itemId));
   };
 
+  const moveTheoryItem = (itemId: string, dir: "up" | "down") => {
+    setTheoryItems((prev) => {
+      const idx = prev.findIndex((i) => i.id === itemId);
+      if (idx === -1) return prev;
+      const swap = dir === "up" ? idx - 1 : idx + 1;
+      if (swap < 0 || swap >= prev.length) return prev;
+      const next = [...prev];
+      [next[idx], next[swap]] = [next[swap], next[idx]];
+      return next;
+    });
+  };
+
   // ─── Slide editor callbacks ───────────────────────────────────────────────
 
   const handleSlidesDone = (slides: Parameters<typeof slidesToDetail>[0], theme: PresentationTheme, accentColor?: AccentColor) => {
@@ -361,6 +385,94 @@ export default function ModuloEditor() {
 
   const handleImportQuizzes = (importedQuizzes: ModuleQuiz[]) => {
     setQuizzes((prev) => [...prev, ...importedQuizzes.map(ensureQuizDefaults)]);
+  };
+
+  // ─── Dependency editor ────────────────────────────────────────────────────
+
+  const searchModules = useCallback(async (q: string) => {
+    setDepLoading(true);
+    try {
+      const result = await apiGet<{ items?: Array<{ id: string; title: string }> }>(
+        `/api/modulos?q=${encodeURIComponent(q)}&pageSize=8`,
+      );
+      setDepResults(result.items ?? []);
+    } catch {
+      setDepResults([]);
+    } finally {
+      setDepLoading(false);
+    }
+  }, []);
+
+  const addDependency = (mod: { id: string; title: string }) => {
+    const alreadyAdded = form.dependencies.some((d) => d.id === mod.id);
+    if (alreadyAdded) return;
+    updateForm("dependencies", [
+      ...form.dependencies,
+      { id: mod.id, type: "required" as const },
+    ]);
+    setDepPickerOpen(false);
+    setDepSearch("");
+    setDepResults([]);
+  };
+
+  const removeDependency = (depId: string) => {
+    updateForm("dependencies", form.dependencies.filter((d) => d.id !== depId));
+  };
+
+  const updateDependencyType = (depId: string, type: "required" | "unlocks") => {
+    updateForm(
+      "dependencies",
+      form.dependencies.map((d) => (d.id === depId ? { ...d, type } : d)),
+    );
+  };
+
+  // ─── Quiz preview ─────────────────────────────────────────────────────────
+
+  const hashString = (value: string) => {
+    let hash = 0;
+    for (let i = 0; i < value.length; i += 1) {
+      hash = (hash << 5) - hash + value.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash);
+  };
+
+  const mulberry32 = (seed: number) => () => {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+
+  const buildQuizPreviewItems = (quiz: ModuleQuiz) => {
+    if (quiz.questions && quiz.questions.length > 0) {
+      return quiz.questions.slice(0, 3).map((q, i) => ({
+        id: q.id,
+        label: `P${i + 1}: ${q.prompt}`,
+      }));
+    }
+    const total = quiz.count ?? 3;
+    if (!quiz.generatorId || total <= 0) {
+      return [{ id: `${quiz.id}-empty`, label: "Sin preguntas ni generador configurado." }];
+    }
+    const seedSource = String(
+      quiz.fixedSeed ?? `${quiz.id}:${quiz.generatorId}:${quiz.generatorVersion ?? 1}`,
+    );
+    const random = mulberry32(hashString(seedSource));
+    const previewCount = Math.min(total, 5);
+    return Array.from({ length: previewCount }, (_, i) => {
+      const token = Math.floor(random() * 900 + 100);
+      return { id: `${quiz.id}-prev-${i + 1}`, label: `Pregunta ${i + 1} · semilla ${token}` };
+    });
+  };
+
+  // ─── Real-time quiz validation ────────────────────────────────────────────
+
+  const validateQuizTitle = (quizId: string, title: string) => {
+    setQuizBlurErrors((prev) => ({
+      ...prev,
+      [quizId]: title.trim() ? [] : ["El título del cuestionario no puede estar vacío."],
+    }));
   };
 
   // ─── Submit ───────────────────────────────────────────────────────────────
@@ -484,6 +596,34 @@ export default function ModuloEditor() {
     return `${quizzes.length} cuestionario${quizzes.length === 1 ? "" : "s"}`;
   }, [quizzes.length]);
 
+  const sectionStatus = useMemo(() => {
+    const generalOk =
+      form.title.trim().length > 0 &&
+      form.description.trim().length > 0 &&
+      form.subject.length > 0 &&
+      form.category.trim().length > 0 &&
+      form.level.trim().length > 0;
+
+    const theoryOk = theoryItems.length > 0;
+
+    const quizzesOk =
+      quizzes.length === 0 ||
+      quizzes.every((quiz) => {
+        if (!quiz.title.trim()) return false;
+        if (quiz.mode === "manual") {
+          return (quiz.questions ?? []).every(
+            (q) => q.questionType && (q.options?.length ?? 0) > 0 && q.answerKey,
+          );
+        }
+        if (quiz.mode === "generated") {
+          return Boolean(quiz.generatorId) && (quiz.count ?? 0) > 0;
+        }
+        return true;
+      });
+
+    return { generalOk, theoryOk, quizzesOk };
+  }, [form, theoryItems, quizzes]);
+
   // ─── Slide editor for which item ─────────────────────────────────────────
 
   const slidesEditorItem =
@@ -531,7 +671,14 @@ export default function ModuloEditor() {
             <form className="space-y-8" onSubmit={handleSubmit}>
               {/* ── Información general ── */}
               <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
-                <h2 className="text-lg font-semibold text-gray-900">Información general</h2>
+                <div className="flex items-center gap-2">
+                  <h2 className="text-lg font-semibold text-gray-900">Información general</h2>
+                  {sectionStatus.generalOk ? (
+                    <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">✓ Completo</span>
+                  ) : (
+                    <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Incompleto</span>
+                  )}
+                </div>
                 <div className="grid gap-4 md:grid-cols-2">
                   <label className="text-sm font-medium text-gray-700">
                     Título
@@ -620,7 +767,14 @@ export default function ModuloEditor() {
               {/* ── Teoría ── */}
               <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-gray-900">Teoría</h2>
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-lg font-semibold text-gray-900">Teoría</h2>
+                    {sectionStatus.theoryOk ? (
+                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">✓ Completo</span>
+                    ) : (
+                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Sin recursos</span>
+                    )}
+                  </div>
                   <span className="text-xs text-gray-500">{theoryItems.length} recursos</span>
                 </div>
 
@@ -754,83 +908,112 @@ export default function ModuloEditor() {
                 {theoryItems.length === 0 ? (
                   <p className="text-sm text-gray-500">No hay elementos teóricos cargados.</p>
                 ) : (
-                  <div className="grid gap-4 md:grid-cols-2">
-                    {theoryItems.map((item) => (
-                      <div key={item.id} className="space-y-2">
-                        <TheoryItemCard item={item} />
-                        <div className="flex flex-col gap-2">
-                          <input
-                            className="rounded-md border border-gray-300 px-2 py-2 text-xs"
-                            placeholder="Título"
-                            value={item.title}
-                            onChange={(event) =>
-                              updateTheoryItem(item.id, { title: event.target.value })
-                            }
-                          />
-                          {/* Detail editing — conditional on type */}
-                          {isBookType(item.type) ? (
-                            <ExistingBookField
-                              item={item}
-                              isOpen={bookPickerFor === item.id}
-                              search={bookSearch}
-                              results={bookResults}
-                              loading={bookLoading}
-                              onOpenPicker={() => openBookPicker(item.id)}
-                              onSearch={(q) => { setBookSearch(q); searchBooks(q); }}
-                              onSelect={selectBook}
-                              onClose={() => setBookPickerFor(null)}
-                            />
-                          ) : isTuesdayType(item.type) ? (
-                            <ExistingTuesdayField
-                              item={item}
-                              isOpen={tuesdayPickerFor === item.id}
-                              search={tuesdaySearch}
-                              results={tuesdayResults}
-                              loading={tuesdayLoading}
-                              onOpenPicker={() => openTuesdayPicker(item.id)}
-                              onSearch={(q) => { setTuesdaySearch(q); searchTuesdayDocs(q); }}
-                              onSelect={selectTuesdayDoc}
-                              onClose={() => setTuesdayPickerFor(null)}
-                            />
-                          ) : isPresentationType(item.type) ? (
-                            <div className="flex items-center gap-3">
-                              <span className="text-xs text-gray-500">
-                                {detailToPresentation(item.detail).slides.length} diapositiva(s)
-                              </span>
+                  <div className="space-y-3">
+                    {theoryItems.map((item, itemIdx) => (
+                      <div key={item.id} className="rounded-lg border border-gray-200 bg-gray-50 p-3 space-y-2">
+                        <div className="flex items-start gap-2">
+                          {/* Reorder buttons */}
+                          <div className="flex flex-col gap-0.5 pt-0.5 shrink-0">
+                            <button
+                              type="button"
+                              title="Mover arriba"
+                              disabled={itemIdx === 0}
+                              className="flex h-6 w-6 items-center justify-center rounded border border-gray-300 text-xs text-gray-500 hover:bg-white disabled:cursor-not-allowed disabled:opacity-30"
+                              onClick={() => moveTheoryItem(item.id, "up")}
+                            >
+                              ▲
+                            </button>
+                            <button
+                              type="button"
+                              title="Mover abajo"
+                              disabled={itemIdx === theoryItems.length - 1}
+                              className="flex h-6 w-6 items-center justify-center rounded border border-gray-300 text-xs text-gray-500 hover:bg-white disabled:cursor-not-allowed disabled:opacity-30"
+                              onClick={() => moveTheoryItem(item.id, "down")}
+                            >
+                              ▼
+                            </button>
+                          </div>
+                          {/* Position label */}
+                          <span className="shrink-0 rounded bg-gray-200 px-1.5 py-0.5 text-xs font-mono text-gray-600">
+                            {itemIdx + 1}
+                          </span>
+                          <div className="flex-1 space-y-2">
+                            <TheoryItemCard item={item} />
+                            <div className="flex flex-col gap-2">
+                              <input
+                                className="rounded-md border border-gray-300 px-2 py-2 text-xs"
+                                placeholder="Título"
+                                value={item.title}
+                                onChange={(event) =>
+                                  updateTheoryItem(item.id, { title: event.target.value })
+                                }
+                              />
+                              {/* Detail editing — conditional on type */}
+                              {isBookType(item.type) ? (
+                                <ExistingBookField
+                                  item={item}
+                                  isOpen={bookPickerFor === item.id}
+                                  search={bookSearch}
+                                  results={bookResults}
+                                  loading={bookLoading}
+                                  onOpenPicker={() => openBookPicker(item.id)}
+                                  onSearch={(q) => { setBookSearch(q); searchBooks(q); }}
+                                  onSelect={selectBook}
+                                  onClose={() => setBookPickerFor(null)}
+                                />
+                              ) : isTuesdayType(item.type) ? (
+                                <ExistingTuesdayField
+                                  item={item}
+                                  isOpen={tuesdayPickerFor === item.id}
+                                  search={tuesdaySearch}
+                                  results={tuesdayResults}
+                                  loading={tuesdayLoading}
+                                  onOpenPicker={() => openTuesdayPicker(item.id)}
+                                  onSearch={(q) => { setTuesdaySearch(q); searchTuesdayDocs(q); }}
+                                  onSelect={selectTuesdayDoc}
+                                  onClose={() => setTuesdayPickerFor(null)}
+                                />
+                              ) : isPresentationType(item.type) ? (
+                                <div className="flex items-center gap-3">
+                                  <span className="text-xs text-gray-500">
+                                    {detailToPresentation(item.detail).slides.length} diapositiva(s)
+                                  </span>
+                                  <button
+                                    type="button"
+                                    className="text-xs text-blue-600 hover:underline"
+                                    onClick={() => setSlidesEditorFor(item.id)}
+                                  >
+                                    Editar presentación
+                                  </button>
+                                </div>
+                              ) : isLinkType(item.type) ? (
+                                <input
+                                  className="rounded-md border border-gray-300 px-2 py-2 text-xs"
+                                  placeholder="https://..."
+                                  value={item.detail}
+                                  onChange={(event) =>
+                                    updateTheoryItem(item.id, { detail: event.target.value })
+                                  }
+                                />
+                              ) : (
+                                <textarea
+                                  className="rounded-md border border-gray-300 px-2 py-2 text-xs"
+                                  rows={2}
+                                  value={item.detail}
+                                  onChange={(event) =>
+                                    updateTheoryItem(item.id, { detail: event.target.value })
+                                  }
+                                />
+                              )}
                               <button
                                 type="button"
-                                className="text-xs text-blue-600 hover:underline"
-                                onClick={() => setSlidesEditorFor(item.id)}
+                                className="self-start text-xs text-red-500 hover:underline"
+                                onClick={() => removeTheoryItem(item.id)}
                               >
-                                Editar presentación
+                                Eliminar
                               </button>
                             </div>
-                          ) : isLinkType(item.type) ? (
-                            <input
-                              className="rounded-md border border-gray-300 px-2 py-2 text-xs"
-                              placeholder="https://..."
-                              value={item.detail}
-                              onChange={(event) =>
-                                updateTheoryItem(item.id, { detail: event.target.value })
-                              }
-                            />
-                          ) : (
-                            <textarea
-                              className="rounded-md border border-gray-300 px-2 py-2 text-xs"
-                              rows={2}
-                              value={item.detail}
-                              onChange={(event) =>
-                                updateTheoryItem(item.id, { detail: event.target.value })
-                              }
-                            />
-                          )}
-                          <button
-                            type="button"
-                            className="self-start text-xs text-red-500 hover:underline"
-                            onClick={() => removeTheoryItem(item.id)}
-                          >
-                            Eliminar
-                          </button>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -838,10 +1021,123 @@ export default function ModuloEditor() {
                 )}
               </section>
 
+              {/* ── Dependencias ── */}
+              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
+                <div className="flex items-center gap-2">
+                  <h2 className="text-lg font-semibold text-gray-900">Dependencias</h2>
+                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600">
+                    Opcional
+                  </span>
+                </div>
+                <p className="text-xs text-gray-500">
+                  Indicá si este módulo requiere completar otro antes, o si desbloquea módulos al terminarse.
+                </p>
+
+                {form.dependencies.length > 0 ? (
+                  <ul className="space-y-2">
+                    {form.dependencies.map((dep) => (
+                      <li
+                        key={dep.id}
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2"
+                      >
+                        <span className="flex-1 truncate text-xs font-mono text-gray-700">{dep.id}</span>
+                        <select
+                          className="rounded border border-gray-300 px-2 py-1 text-xs"
+                          value={dep.type}
+                          onChange={(e) =>
+                            updateDependencyType(dep.id, e.target.value as "required" | "unlocks")
+                          }
+                        >
+                          <option value="required">Requerido antes</option>
+                          <option value="unlocks">Desbloquea al terminar</option>
+                        </select>
+                        <button
+                          type="button"
+                          className="text-xs text-red-500 hover:underline"
+                          onClick={() => removeDependency(dep.id)}
+                        >
+                          Quitar
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm text-gray-400">Sin dependencias configuradas.</p>
+                )}
+
+                {depPickerOpen ? (
+                  <div className="rounded-lg border border-blue-200 bg-blue-50 p-3 space-y-2">
+                    <input
+                      className="w-full rounded-md border border-gray-300 px-2 py-1.5 text-xs"
+                      placeholder="Buscar módulo por título..."
+                      value={depSearch}
+                      autoFocus
+                      onChange={(e) => {
+                        setDepSearch(e.target.value);
+                        searchModules(e.target.value);
+                      }}
+                    />
+                    {depLoading ? (
+                      <p className="text-xs text-gray-500">Buscando...</p>
+                    ) : depResults.length > 0 ? (
+                      <ul className="max-h-40 overflow-y-auto space-y-0.5">
+                        {depResults
+                          .filter((r) => r.id !== id)
+                          .map((mod) => (
+                            <li key={mod.id}>
+                              <button
+                                type="button"
+                                className="w-full rounded px-2 py-1.5 text-left text-xs text-gray-700 hover:bg-white hover:text-blue-700"
+                                onClick={() => addDependency(mod)}
+                              >
+                                {mod.title}
+                                <span className="ml-1 text-gray-400">({mod.id})</span>
+                              </button>
+                            </li>
+                          ))}
+                      </ul>
+                    ) : (
+                      <p className="text-xs text-gray-400">
+                        {depSearch.length > 0 ? "Sin resultados." : "Escribí para buscar."}
+                      </p>
+                    )}
+                    <button
+                      type="button"
+                      className="text-xs text-gray-400 hover:text-gray-600"
+                      onClick={() => {
+                        setDepPickerOpen(false);
+                        setDepSearch("");
+                        setDepResults([]);
+                      }}
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    className="rounded-md border border-dashed border-gray-300 px-3 py-2 text-xs text-gray-500 hover:border-blue-400 hover:text-blue-600"
+                    onClick={() => {
+                      setDepPickerOpen(true);
+                      searchModules("");
+                    }}
+                  >
+                    + Agregar dependencia
+                  </button>
+                )}
+              </section>
+
               {/* ── Cuestionarios ── */}
               <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-gray-900">Cuestionarios</h2>
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-lg font-semibold text-gray-900">Cuestionarios</h2>
+                    {quizzes.length === 0 ? null : sectionStatus.quizzesOk ? (
+                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">✓ Completo</span>
+                    ) : (
+                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Con errores</span>
+                    )}
+                  </div>
                   <span className="text-xs text-gray-500">{quizCountLabel}</span>
                 </div>
 
@@ -877,12 +1173,22 @@ export default function ModuloEditor() {
                             <label className="text-xs font-medium text-gray-600">
                               Título
                               <input
-                                className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
+                                className={`mt-1 w-full rounded-md border px-2 py-2 text-sm ${
+                                  quizBlurErrors[quiz.id]?.length
+                                    ? "border-red-400 bg-red-50"
+                                    : "border-gray-300"
+                                }`}
                                 value={quiz.title}
                                 onChange={(event) =>
                                   updateQuiz(quiz.id, { title: event.target.value })
                                 }
+                                onBlur={() => validateQuizTitle(quiz.id, quiz.title)}
                               />
+                              {quizBlurErrors[quiz.id]?.map((err) => (
+                                <span key={err} className="mt-0.5 block text-xs text-red-600">
+                                  {err}
+                                </span>
+                              ))}
                             </label>
                             <label className="text-xs font-medium text-gray-600">
                               Tipo
@@ -916,14 +1222,41 @@ export default function ModuloEditor() {
                               </select>
                             </label>
                           </div>
-                          <button
-                            type="button"
-                            className="text-xs text-red-500 hover:underline"
-                            onClick={() => removeQuiz(quiz.id)}
-                          >
-                            Eliminar cuestionario
-                          </button>
+                          <div className="flex flex-col items-end gap-2">
+                            <button
+                              type="button"
+                              className="text-xs text-red-500 hover:underline"
+                              onClick={() => removeQuiz(quiz.id)}
+                            >
+                              Eliminar cuestionario
+                            </button>
+                            <button
+                              type="button"
+                              className="rounded border border-gray-300 px-2 py-1 text-xs text-gray-600 hover:bg-gray-50"
+                              onClick={() =>
+                                setQuizPreviewOpen((prev) => ({
+                                  ...prev,
+                                  [quiz.id]: !prev[quiz.id],
+                                }))
+                              }
+                            >
+                              {quizPreviewOpen[quiz.id] ? "Ocultar vista previa" : "Vista previa"}
+                            </button>
+                          </div>
                         </div>
+
+                        {quizPreviewOpen[quiz.id] ? (
+                          <div className="rounded-lg border border-indigo-200 bg-indigo-50 p-3 text-xs text-indigo-700">
+                            <p className="mb-2 font-semibold">
+                              Vista previa del estudiante (semilla fija, no registra intento)
+                            </p>
+                            <ul className="list-disc space-y-1 pl-4">
+                              {buildQuizPreviewItems(quiz).map((item) => (
+                                <li key={item.id}>{item.label}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
 
                         {quiz.mode === "generated" ? (
                           <QuizEditorGenerated

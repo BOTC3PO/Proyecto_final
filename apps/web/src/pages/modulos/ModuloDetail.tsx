@@ -46,6 +46,16 @@ type ModuloDetailResponse = Module & {
   difficultyLevel?: string;
 };
 
+type QuizAttemptSummary = {
+  id: string;
+  quizId: string;
+  status?: string;
+  score?: number;
+  maxScore?: number;
+  completedAt?: string;
+  createdAt?: string;
+};
+
 export default function ModuloDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -57,6 +67,7 @@ export default function ModuloDetail() {
     Record<string, { status: "idle" | "loading" | "error"; message?: string }>
   >({});
   const [previewOpen, setPreviewOpen] = useState<Record<string, boolean>>({});
+  const [attemptsByQuiz, setAttemptsByQuiz] = useState<Record<string, QuizAttemptSummary[]>>({});
 
   const handleStartAttempt = async (quizId: string) => {
     if (!module?.id) return;
@@ -151,6 +162,34 @@ export default function ModuloDetail() {
       active = false;
     };
   }, [id]);
+
+  // Fetch the current user's quiz attempts for this module
+  useEffect(() => {
+    if (!id || !user?.id) return;
+    let active = true;
+    apiGet<{ items?: QuizAttemptSummary[]; attempts?: QuizAttemptSummary[] } | QuizAttemptSummary[]>(
+      `/api/quiz-attempts?moduleId=${encodeURIComponent(id)}&userId=${encodeURIComponent(user.id)}`,
+    )
+      .then((data) => {
+        if (!active) return;
+        const list: QuizAttemptSummary[] = Array.isArray(data)
+          ? data
+          : (data.items ?? data.attempts ?? []);
+        const byQuiz: Record<string, QuizAttemptSummary[]> = {};
+        list.forEach((attempt) => {
+          if (!attempt.quizId) return;
+          if (!byQuiz[attempt.quizId]) byQuiz[attempt.quizId] = [];
+          byQuiz[attempt.quizId].push(attempt);
+        });
+        setAttemptsByQuiz(byQuiz);
+      })
+      .catch(() => {
+        // Silently ignore — progress display is best-effort
+      });
+    return () => {
+      active = false;
+    };
+  }, [id, user?.id]);
 
   const theoryItems = useMemo(
     () => module?.theoryBlocks ?? module?.theoryItems ?? [],
@@ -269,55 +308,123 @@ export default function ModuloDetail() {
           </div>
         ) : (
           <div className="grid gap-3">
-            {quizzes.map((quiz) => (
-              <article
-                key={quiz.id}
-                className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm space-y-3"
-              >
-                <div>
-                  <h3 className="text-sm font-semibold text-slate-800">{quiz.title}</h3>
-                  <p className="text-xs font-medium text-slate-500">
-                    Tipo: {QUIZ_TYPE_LABELS[quiz.type]}
-                  </p>
-                </div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <button
-                    type="button"
-                    className="rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white disabled:bg-slate-300"
-                    onClick={() => handleStartAttempt(quiz.id)}
-                    disabled={startStatus[quiz.id]?.status === "loading"}
-                  >
-                    {startStatus[quiz.id]?.status === "loading" ? "Iniciando..." : "Empezar"}
-                  </button>
-                  <button
-                    type="button"
-                    className="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-slate-300"
-                    onClick={() =>
-                      setPreviewOpen((prev) => ({ ...prev, [quiz.id]: !prev[quiz.id] }))
-                    }
-                  >
-                    {previewOpen[quiz.id] ? "Ocultar vista previa" : "Vista previa"}
-                  </button>
-                  {startStatus[quiz.id]?.status === "error" ? (
-                    <span className="text-xs text-red-600">
-                      {startStatus[quiz.id]?.message ?? "No se pudo iniciar el quiz."}
-                    </span>
-                  ) : null}
-                </div>
-                {previewOpen[quiz.id] ? (
-                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
-                    <p className="font-semibold text-slate-700">
-                      Vista previa (semilla fija, no registra intento)
-                    </p>
-                    <ul className="mt-2 list-disc space-y-1 pl-4">
-                      {buildPreviewItems(quiz).map((item) => (
-                        <li key={item.id}>{item.label}</li>
-                      ))}
-                    </ul>
+            {quizzes.map((quiz) => {
+              const attempts = attemptsByQuiz[quiz.id] ?? [];
+              const lastAttempt = attempts[attempts.length - 1];
+              const bestScore = attempts.reduce<number | null>((best, a) => {
+                if (a.score == null) return best;
+                return best == null ? a.score : Math.max(best, a.score);
+              }, null);
+              const hasCompleted = attempts.some((a) => a.status === "completed" || a.status === "submitted");
+
+              return (
+                <article
+                  key={quiz.id}
+                  className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm space-y-3"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-sm font-semibold text-slate-800">{quiz.title}</h3>
+                      <p className="text-xs font-medium text-slate-500">
+                        Tipo: {QUIZ_TYPE_LABELS[quiz.type]}
+                      </p>
+                    </div>
+                    {/* Progress badge */}
+                    {attempts.length > 0 ? (
+                      <div className="shrink-0 text-right">
+                        {hasCompleted ? (
+                          <span className="inline-block rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
+                            ✓ Completado
+                          </span>
+                        ) : (
+                          <span className="inline-block rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">
+                            En progreso
+                          </span>
+                        )}
+                      </div>
+                    ) : null}
                   </div>
-                ) : null}
-              </article>
-            ))}
+
+                  {/* Attempt history */}
+                  {attempts.length > 0 ? (
+                    <div className="rounded-lg border border-slate-100 bg-slate-50 p-3 space-y-1.5">
+                      <p className="text-xs font-semibold text-slate-600">
+                        Tus intentos ({attempts.length})
+                      </p>
+                      {bestScore != null && (
+                        <p className="text-xs text-slate-600">
+                          Mejor puntaje:{" "}
+                          <span className="font-semibold text-emerald-700">
+                            {bestScore}
+                            {lastAttempt?.maxScore != null ? ` / ${lastAttempt.maxScore}` : ""}
+                          </span>
+                        </p>
+                      )}
+                      <div className="mt-1 space-y-1">
+                        {attempts.slice(-3).map((attempt, i) => (
+                          <div key={attempt.id} className="flex items-center gap-2 text-xs text-slate-500">
+                            <span className="font-mono">#{attempts.length - (attempts.slice(-3).length - 1 - i)}</span>
+                            {attempt.score != null ? (
+                              <span>
+                                Puntaje: <strong>{attempt.score}{attempt.maxScore != null ? `/${attempt.maxScore}` : ""}</strong>
+                              </span>
+                            ) : (
+                              <span className="italic">Sin puntaje registrado</span>
+                            )}
+                            {(attempt.completedAt ?? attempt.createdAt) ? (
+                              <span className="text-slate-400">
+                                · {new Date(attempt.completedAt ?? attempt.createdAt ?? "").toLocaleDateString()}
+                              </span>
+                            ) : null}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+
+                  <div className="flex flex-wrap items-center gap-3">
+                    <button
+                      type="button"
+                      className="rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white disabled:bg-slate-300"
+                      onClick={() => handleStartAttempt(quiz.id)}
+                      disabled={startStatus[quiz.id]?.status === "loading"}
+                    >
+                      {startStatus[quiz.id]?.status === "loading"
+                        ? "Iniciando..."
+                        : attempts.length > 0
+                          ? "Reintentar"
+                          : "Empezar"}
+                    </button>
+                    <button
+                      type="button"
+                      className="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-slate-300"
+                      onClick={() =>
+                        setPreviewOpen((prev) => ({ ...prev, [quiz.id]: !prev[quiz.id] }))
+                      }
+                    >
+                      {previewOpen[quiz.id] ? "Ocultar vista previa" : "Vista previa"}
+                    </button>
+                    {startStatus[quiz.id]?.status === "error" ? (
+                      <span className="text-xs text-red-600">
+                        {startStatus[quiz.id]?.message ?? "No se pudo iniciar el quiz."}
+                      </span>
+                    ) : null}
+                  </div>
+                  {previewOpen[quiz.id] ? (
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
+                      <p className="font-semibold text-slate-700">
+                        Vista previa (semilla fija, no registra intento)
+                      </p>
+                      <ul className="mt-2 list-disc space-y-1 pl-4">
+                        {buildPreviewItems(quiz).map((item) => (
+                          <li key={item.id}>{item.label}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </article>
+              );
+            })}
           </div>
         )}
       </section>
