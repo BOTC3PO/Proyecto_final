@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown } from "lucide-react";
+import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
+import type { VisualSpec } from "../../visualizadores/types";
+import HerramientaPicker from "./HerramientaPicker";
 
 // ─── Layout presets ───────────────────────────────────────────────────────────
 
@@ -181,7 +183,116 @@ export type Slide = {
   isCode?: boolean;
   /** Code language label (e.g. "javascript") */
   language?: string;
+  /** Embedded interactive tool — replaces body content in the slide */
+  toolSpec?: VisualSpec;
 };
+
+// ─── Tool parameter schema ────────────────────────────────────────────────────
+
+export type ToolParamDef = {
+  id: string;
+  label: string;
+  input: "number" | "boolean" | "select" | "text";
+  unit?: string;
+  min?: number;
+  max?: number;
+  step?: number;
+  defaultValue: number | boolean | string;
+  options?: { label: string; value: string }[];
+  description?: string;
+  /** Dot-notation path within the VisualSpec to set the value (supports array indices like "waves.0.amplitude") */
+  path: string;
+};
+
+/** Editable parameter schemas keyed by VisualSpec.kind */
+export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
+  "chart": [
+    {
+      id: "chartType", label: "Tipo de gráfico", input: "select",
+      path: "chartType", defaultValue: "bar",
+      options: [
+        { label: "Barras",      value: "bar"     },
+        { label: "Líneas",      value: "line"    },
+        { label: "Área",        value: "area"    },
+        { label: "Torta",       value: "pie"     },
+        { label: "Dispersión",  value: "scatter" },
+      ],
+    },
+  ],
+  "funciones-graficas": [
+    { id: "xMin",  label: "X mínimo",    input: "number", path: "axes.x.min",            defaultValue: -10, min: -100, max: -1,  step: 1   },
+    { id: "xMax",  label: "X máximo",    input: "number", path: "axes.x.max",            defaultValue: 10,  min: 1,    max: 100,  step: 1   },
+    { id: "yMin",  label: "Y mínimo",    input: "number", path: "axes.y.min",            defaultValue: -10, min: -100, max: -1,  step: 1   },
+    { id: "yMax",  label: "Y máximo",    input: "number", path: "axes.y.max",            defaultValue: 10,  min: 1,    max: 100,  step: 1   },
+    { id: "expr",  label: "Expresión f₁", input: "text",  path: "functions.0.expression", defaultValue: "x^2", description: "Expresión matemática de la primera función (ej: 2*x+1, x^2-3)" },
+  ],
+  "physics-motion-chart": [
+    {
+      id: "motionType", label: "Tipo de movimiento", input: "select",
+      path: "motion.type", defaultValue: "MRU",
+      options: [{ label: "MRU — vel. constante", value: "MRU" }, { label: "MRUV — acelerado", value: "MRUV" }],
+    },
+    { id: "time", label: "Tiempo total",   input: "number", path: "motion.time",             defaultValue: 10, min: 1, max: 60,  step: 1,   unit: "s"    },
+    { id: "x0",   label: "Pos. inicial",   input: "number", path: "motion.initialPosition",  defaultValue: 0,  min: -100, max: 100, step: 1, unit: "m"  },
+    { id: "v0",   label: "Vel. inicial",   input: "number", path: "motion.initialVelocity",  defaultValue: 5,  min: -50, max: 50, step: 1,   unit: "m/s" },
+    { id: "a",    label: "Aceleración",    input: "number", path: "motion.acceleration",     defaultValue: 2,  min: -20, max: 20, step: 0.5, unit: "m/s²", description: "Solo aplica en MRUV" },
+  ],
+  "stat-distribution": [
+    {
+      id: "distType", label: "Distribución", input: "select",
+      path: "distributionType", defaultValue: "normal",
+      options: [{ label: "Normal", value: "normal" }, { label: "Binomial", value: "binomial" }, { label: "Uniforme", value: "uniform" }],
+    },
+    { id: "mean",    label: "Media (μ)",             input: "number", path: "parameters.mean",   defaultValue: 0,   min: -100, max: 100, step: 1   },
+    { id: "stdDev",  label: "Desv. estándar (σ)",    input: "number", path: "parameters.stdDev", defaultValue: 1,   min: 0.1,  max: 20,  step: 0.1, description: "Solo para distribución normal" },
+    { id: "samples", label: "Muestras",               input: "number", path: "samples",           defaultValue: 100, min: 10,   max: 1000, step: 10  },
+  ],
+  "wave-interference": [
+    { id: "w1amp",  label: "Amplitud onda 1",   input: "number",  path: "waves.0.amplitude",          defaultValue: 1, min: 0.1, max: 5,  step: 0.1        },
+    { id: "w1freq", label: "Frecuencia onda 1", input: "number",  path: "waves.0.frequency",          defaultValue: 1, min: 0.1, max: 10, step: 0.1, unit: "Hz" },
+    { id: "w2amp",  label: "Amplitud onda 2",   input: "number",  path: "waves.1.amplitude",          defaultValue: 1, min: 0.1, max: 5,  step: 0.1        },
+    { id: "w2freq", label: "Frecuencia onda 2", input: "number",  path: "waves.1.frequency",          defaultValue: 2, min: 0.1, max: 10, step: 0.1, unit: "Hz" },
+    { id: "superpos", label: "Ver superposición", input: "boolean", path: "superposition.enabled",   defaultValue: true },
+  ],
+  "funciones-grafico": [
+    { id: "xMin", label: "X mínimo", input: "number", path: "axes.x.min", defaultValue: -10, min: -100, max: -1, step: 1 },
+    { id: "xMax", label: "X máximo", input: "number", path: "axes.x.max", defaultValue: 10,  min: 1, max: 100, step: 1  },
+  ],
+};
+
+/** Read a value at a dot-path within an object (supports numeric array indices) */
+function getAtPath(obj: unknown, path: string): unknown {
+  return path.split(".").reduce((cur: unknown, key) => {
+    if (cur === null || cur === undefined || typeof cur !== "object") return undefined;
+    const idx = parseInt(key, 10);
+    if (!isNaN(idx) && Array.isArray(cur)) return (cur as unknown[])[idx];
+    return (cur as Record<string, unknown>)[key];
+  }, obj);
+}
+
+/** Return a deep copy of obj with the value at dot-path set to value */
+function setAtPath(obj: unknown, path: string, value: unknown): unknown {
+  const dot = path.indexOf(".");
+  if (dot === -1) {
+    const idx = parseInt(path, 10);
+    if (!isNaN(idx)) {
+      const arr = Array.isArray(obj) ? [...(obj as unknown[])] : [];
+      arr[idx] = value;
+      return arr;
+    }
+    return { ...(typeof obj === "object" && obj !== null ? obj : {}), [path]: value };
+  }
+  const head = path.slice(0, dot);
+  const rest = path.slice(dot + 1);
+  const idx = parseInt(head, 10);
+  if (!isNaN(idx)) {
+    const arr = Array.isArray(obj) ? [...(obj as unknown[])] : [];
+    arr[idx] = setAtPath(arr[idx], rest, value);
+    return arr;
+  }
+  const rec = typeof obj === "object" && obj !== null ? (obj as Record<string, unknown>) : {};
+  return { ...rec, [head]: setAtPath(rec[head], rest, value) };
+}
 
 // ─── Serialization ────────────────────────────────────────────────────────────
 
@@ -206,7 +317,6 @@ function normalizeSlide(raw: Record<string, any>): Slide {
   return {
     id: String(raw.id ?? makeSlideId()),
     layout,
-    // Support old "title" field
     heading: String(raw.heading ?? raw.title ?? ""),
     subtitle: raw.subtitle ? String(raw.subtitle) : undefined,
     body: raw.body ? String(raw.body) : undefined,
@@ -216,9 +326,11 @@ function normalizeSlide(raw: Record<string, any>): Slide {
     bgOverlay: (["none", "medium", "dark"].includes(String(raw.bgOverlay ?? ""))
       ? raw.bgOverlay
       : "none") as Slide["bgOverlay"],
-    // Preserve old "code" layout as isCode flag
     isCode: Boolean(raw.isCode) || String(raw.layout) === "code",
     language: raw.language ? String(raw.language) : undefined,
+    toolSpec: raw.toolSpec && typeof raw.toolSpec === "object"
+      ? (raw.toolSpec as VisualSpec)
+      : undefined,
   };
 }
 
@@ -344,6 +456,228 @@ function LayoutIcon({ preset }: { preset: LayoutPreset }) {
   }
 }
 
+// ─── Slide thumbnail (sidebar visual preview) ─────────────────────────────────
+
+type ThumbnailProps = {
+  slide: Slide;
+  theme: ThemeKey;
+  accentColor?: AccentColor;
+};
+
+function SlideThumbnail({ slide, theme, accentColor }: ThumbnailProps) {
+  const cfg = THEMES[theme] ?? THEMES.minimal;
+  const accentCfg = accentColor ? ACCENT_COLORS[accentColor] : null;
+  const headingStyle = accentCfg ? { color: accentCfg.swatch } : undefined;
+  const hasBg = Boolean(slide.bgImage);
+  const hasOverlay = hasBg && slide.bgOverlay !== "none";
+
+  // Render inner slide at 416×234 (16:9), scale(0.5) → visually 208×117
+  const inner = (
+    <div
+      className={`absolute top-0 left-0 origin-top-left overflow-hidden ${cfg.slide}`}
+      style={{ width: "416px", height: "234px", transform: "scale(0.5)" }}
+    >
+      {hasBg && (
+        <img
+          src={slide.bgImage}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+        />
+      )}
+      {hasOverlay && (
+        <div className={`absolute inset-0 ${slide.bgOverlay === "dark" ? cfg.overlayDark : cfg.overlayMedium}`} />
+      )}
+
+      <div className="relative z-10 p-7 h-full flex flex-col gap-3">
+        {slide.layout === "quote" ? (
+          <div className="flex flex-col items-center justify-center h-full gap-3">
+            <div className="text-5xl opacity-20 font-serif leading-none">&ldquo;</div>
+            <div
+              className="text-xl italic font-serif text-center leading-snug"
+              style={hasOverlay ? { color: "white" } : headingStyle}
+            >
+              {slide.heading.slice(0, 80)}
+            </div>
+            {slide.subtitle && (
+              <div className="text-sm opacity-60">— {slide.subtitle.slice(0, 40)}</div>
+            )}
+          </div>
+        ) : slide.layout === "bottom-text" ? (
+          <div className="flex flex-col justify-end h-full gap-2">
+            {slide.heading && (
+              <div
+                className="text-xl font-bold leading-tight"
+                style={hasOverlay ? { color: "white" } : headingStyle}
+              >
+                {slide.heading.slice(0, 60)}
+              </div>
+            )}
+            {slide.subtitle && <div className="text-sm opacity-60">{slide.subtitle.slice(0, 60)}</div>}
+          </div>
+        ) : slide.layout === "split" ? (
+          <>
+            {slide.heading && (
+              <div
+                className="text-xl font-bold leading-tight flex-shrink-0"
+                style={hasOverlay ? { color: "white" } : headingStyle}
+              >
+                {slide.heading.slice(0, 60)}
+              </div>
+            )}
+            <div className="grid grid-cols-[1fr_1px_1fr] gap-4 flex-1 min-h-0">
+              <div className="text-sm opacity-70 overflow-hidden">{(slide.leftColumn ?? slide.body ?? "").slice(0, 100)}</div>
+              <div className="opacity-15 bg-current" />
+              <div className="text-sm opacity-70 overflow-hidden">{(slide.rightColumn ?? "").slice(0, 100)}</div>
+            </div>
+          </>
+        ) : slide.layout === "centered" ? (
+          <div className="flex flex-col items-center justify-center h-full gap-2 text-center">
+            {slide.heading && (
+              <div
+                className="text-xl font-bold leading-tight"
+                style={hasOverlay ? { color: "white" } : headingStyle}
+              >
+                {slide.heading.slice(0, 60)}
+              </div>
+            )}
+            {slide.subtitle && <div className="text-sm opacity-60">{slide.subtitle.slice(0, 60)}</div>}
+            {!slide.toolSpec && slide.body && (
+              <div className="text-xs opacity-50 line-clamp-2">{slide.body.slice(0, 80)}</div>
+            )}
+          </div>
+        ) : (
+          /* top (default) */
+          <>
+            {slide.heading && (
+              <div
+                className="text-xl font-bold leading-tight flex-shrink-0"
+                style={hasOverlay ? { color: "white" } : headingStyle}
+              >
+                {slide.heading.slice(0, 60)}
+              </div>
+            )}
+            {slide.subtitle && <div className="text-sm opacity-60 flex-shrink-0">{slide.subtitle.slice(0, 60)}</div>}
+            {!slide.toolSpec && slide.body && (
+              <div className="text-xs opacity-50 overflow-hidden">{slide.body.slice(0, 120)}</div>
+            )}
+          </>
+        )}
+
+        {/* Tool badge */}
+        {slide.toolSpec && (
+          <div className="absolute bottom-3 left-3 flex items-center gap-1 text-[10px] opacity-50">
+            <span>⚙</span>
+            <span className="font-medium">{slide.toolSpec.kind}</span>
+          </div>
+        )}
+
+        {/* Accent bar at bottom */}
+        {accentCfg && (
+          <div
+            className="absolute bottom-0 left-0 right-0 h-[3px]"
+            style={{ background: accentCfg.swatch }}
+          />
+        )}
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+      {inner}
+    </div>
+  );
+}
+
+// ─── Tool parameter control ───────────────────────────────────────────────────
+
+function ToolParamControl({
+  param,
+  value,
+  onChange,
+}: {
+  param: ToolParamDef;
+  value: unknown;
+  onChange: (v: number | boolean | string) => void;
+}) {
+  if (param.input === "number") {
+    const numVal = value !== undefined ? Number(value) : Number(param.defaultValue);
+    const decimals = param.step && param.step < 1 ? 1 : 0;
+    return (
+      <div className="flex items-center gap-3">
+        <label className="text-xs font-medium text-gray-500 w-32 flex-shrink-0">
+          {param.label}
+          {param.unit && <span className="text-gray-300 ml-1">({param.unit})</span>}
+        </label>
+        <input
+          type="range"
+          min={param.min ?? 0}
+          max={param.max ?? 100}
+          step={param.step ?? 1}
+          value={numVal}
+          onChange={(e) => onChange(Number(e.target.value))}
+          className="flex-1 accent-blue-500"
+        />
+        <span className="text-xs text-gray-600 w-14 text-right tabular-nums font-mono">
+          {numVal.toFixed(decimals)}
+        </span>
+      </div>
+    );
+  }
+  if (param.input === "select") {
+    const strVal = value !== undefined ? String(value) : String(param.defaultValue);
+    return (
+      <div className="flex items-center gap-3">
+        <label className="text-xs font-medium text-gray-500 w-32 flex-shrink-0">{param.label}</label>
+        <select
+          className="flex-1 border border-gray-200 rounded px-2 py-1 text-xs outline-none focus:border-blue-400"
+          value={strVal}
+          onChange={(e) => onChange(e.target.value)}
+        >
+          {param.options?.map((opt) => (
+            <option key={opt.value} value={opt.value}>{opt.label}</option>
+          ))}
+        </select>
+      </div>
+    );
+  }
+  if (param.input === "boolean") {
+    return (
+      <div className="flex items-center gap-3">
+        <span className="text-xs font-medium text-gray-500 w-32 flex-shrink-0">{param.label}</span>
+        <label className="flex items-center gap-2 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            checked={value !== undefined ? Boolean(value) : Boolean(param.defaultValue)}
+            onChange={(e) => onChange(e.target.checked)}
+            className="rounded border-gray-300 text-blue-600"
+          />
+          <span className="text-xs text-gray-500">{Boolean(value) ? "Sí" : "No"}</span>
+        </label>
+      </div>
+    );
+  }
+  if (param.input === "text") {
+    return (
+      <div>
+        <div className="flex items-baseline justify-between mb-1">
+          <label className="text-xs font-medium text-gray-500">{param.label}</label>
+          {param.description && (
+            <span className="text-[10px] text-gray-300">{param.description}</span>
+          )}
+        </div>
+        <input
+          className="w-full border border-gray-200 rounded px-3 py-1.5 text-sm font-mono outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+          value={value !== undefined ? String(value) : String(param.defaultValue)}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      </div>
+    );
+  }
+  return null;
+}
+
 // ─── Editor form ──────────────────────────────────────────────────────────────
 
 type EditorFormProps = {
@@ -352,8 +686,19 @@ type EditorFormProps = {
 };
 
 function SlideEditorForm({ slide, onChange }: EditorFormProps) {
+  const [toolPickerOpen, setToolPickerOpen] = useState(false);
   const isSplit = slide.layout === "split";
   const isQuote = slide.layout === "quote";
+  const hasToolSpec = Boolean(slide.toolSpec);
+
+  /** Apply a param change to the current toolSpec */
+  const applyParamChange = (param: ToolParamDef, value: number | boolean | string) => {
+    if (!slide.toolSpec) return;
+    const updated = setAtPath(slide.toolSpec, param.path, value) as VisualSpec;
+    onChange({ toolSpec: updated });
+  };
+
+  const toolParams = slide.toolSpec ? (TOOL_PARAM_SCHEMAS[slide.toolSpec.kind] ?? []) : [];
 
   const headingInput = (
     <div>
@@ -369,7 +714,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
         className={`w-full border-0 border-b-2 border-gray-200 pb-2 leading-tight outline-none focus:border-blue-400 bg-transparent placeholder-gray-200 text-gray-800 ${
           isQuote ? "text-2xl italic font-serif" : "text-2xl font-bold"
         }`}
-        placeholder={isQuote ? "\"El conocimiento es poder...\"" : "Título de la diapositiva"}
+        placeholder={isQuote ? '"El conocimiento es poder..."' : "Título de la diapositiva"}
         value={slide.heading}
         onChange={(e) => onChange({ heading: e.target.value })}
       />
@@ -378,10 +723,25 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
 
   return (
     <div className="flex flex-col gap-7">
+      {/* ── Tool picker modal (rendered in portal-like fashion) ── */}
+      <HerramientaPicker
+        isOpen={toolPickerOpen}
+        onSelect={(detail) => {
+          try {
+            const parsed = JSON.parse(detail) as { spec: VisualSpec };
+            onChange({ toolSpec: parsed.spec, body: undefined, isCode: false });
+          } catch {
+            // ignore malformed JSON
+          }
+          setToolPickerOpen(false);
+        }}
+        onClose={() => setToolPickerOpen(false)}
+      />
+
       {/* ── Layout picker ── */}
       <div>
         <p className="text-xs font-medium text-gray-500 mb-2">Distribución del contenido</p>
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-5 gap-2">
           {(Object.keys(LAYOUT_META) as LayoutPreset[]).map((preset) => (
             <button
               key={preset}
@@ -491,47 +851,113 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
 
           {!isQuote ? (
             <>
-              <div>
-                <div className="flex items-baseline justify-between mb-1.5">
-                  <label className="text-xs font-medium text-gray-500">
-                    {slide.isCode ? "Código" : "Cuerpo de texto"}
-                  </label>
-                  <span className="text-[10px] text-gray-300 font-mono">text-base leading-relaxed</span>
+              {/* ── Interactive tool section ── */}
+              <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <Settings size={13} className="text-gray-400" />
+                    <p className="text-xs font-medium text-gray-600">Herramienta interactiva</p>
+                  </div>
+                  {hasToolSpec ? (
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] text-gray-400 font-mono">{slide.toolSpec!.kind}</span>
+                      <button
+                        type="button"
+                        className="text-xs text-blue-600 hover:underline"
+                        onClick={() => setToolPickerOpen(true)}
+                      >
+                        Cambiar
+                      </button>
+                      <button
+                        type="button"
+                        className="text-xs text-red-400 hover:underline"
+                        onClick={() => onChange({ toolSpec: undefined })}
+                      >
+                        Quitar
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-700 border border-blue-200 rounded px-2 py-1 bg-white hover:bg-blue-50"
+                      onClick={() => setToolPickerOpen(true)}
+                    >
+                      <Plus size={11} />
+                      Agregar herramienta
+                    </button>
+                  )}
                 </div>
-                <textarea
-                  className={`w-full border border-gray-200 rounded-lg p-4 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200 leading-relaxed ${
-                    slide.isCode ? "font-mono bg-gray-50" : ""
-                  }`}
-                  placeholder={
-                    slide.isCode
-                      ? "// Escribí tu código aquí..."
-                      : "Contenido de la diapositiva...\n\nPodés usar texto libre, listas con guiones (-) o numeradas."
-                  }
-                  rows={10}
-                  value={slide.body ?? ""}
-                  onChange={(e) => onChange({ body: e.target.value || undefined })}
-                />
+
+                {hasToolSpec && toolParams.length > 0 ? (
+                  <div className="flex flex-col gap-3 pt-1">
+                    {toolParams.map((param) => (
+                      <ToolParamControl
+                        key={param.id}
+                        param={param}
+                        value={getAtPath(slide.toolSpec, param.path)}
+                        onChange={(v) => applyParamChange(param, v)}
+                      />
+                    ))}
+                  </div>
+                ) : hasToolSpec ? (
+                  <p className="text-xs text-gray-400 italic">
+                    Esta herramienta no tiene parámetros configurables en el editor.
+                    Los valores se ajustan en la presentación.
+                  </p>
+                ) : (
+                  <p className="text-xs text-gray-400">
+                    Agregá una herramienta interactiva para mostrarla dentro de esta diapositiva.
+                    La herramienta reemplaza el cuerpo de texto.
+                  </p>
+                )}
               </div>
 
-              <div className="flex items-center gap-3 flex-wrap">
-                <label className="flex items-center gap-2 cursor-pointer select-none">
-                  <input
-                    type="checkbox"
-                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                    checked={slide.isCode ?? false}
-                    onChange={(e) => onChange({ isCode: e.target.checked })}
-                  />
-                  <span className="text-xs text-gray-600">Mostrar como bloque de código</span>
-                </label>
-                {slide.isCode ? (
-                  <input
-                    className="border border-gray-200 rounded px-2.5 py-1 text-xs outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
-                    placeholder="lenguaje (js, python...)"
-                    value={slide.language ?? ""}
-                    onChange={(e) => onChange({ language: e.target.value || undefined })}
-                  />
-                ) : null}
-              </div>
+              {/* ── Body / code (hidden when tool is active) ── */}
+              {!hasToolSpec ? (
+                <>
+                  <div>
+                    <div className="flex items-baseline justify-between mb-1.5">
+                      <label className="text-xs font-medium text-gray-500">
+                        {slide.isCode ? "Código" : "Cuerpo de texto"}
+                      </label>
+                      <span className="text-[10px] text-gray-300 font-mono">text-base leading-relaxed</span>
+                    </div>
+                    <textarea
+                      className={`w-full border border-gray-200 rounded-lg p-4 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200 leading-relaxed ${
+                        slide.isCode ? "font-mono bg-gray-50" : ""
+                      }`}
+                      placeholder={
+                        slide.isCode
+                          ? "// Escribí tu código aquí..."
+                          : "Contenido de la diapositiva...\n\nPodés usar texto libre, listas con guiones (-) o numeradas."
+                      }
+                      rows={10}
+                      value={slide.body ?? ""}
+                      onChange={(e) => onChange({ body: e.target.value || undefined })}
+                    />
+                  </div>
+
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <label className="flex items-center gap-2 cursor-pointer select-none">
+                      <input
+                        type="checkbox"
+                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        checked={slide.isCode ?? false}
+                        onChange={(e) => onChange({ isCode: e.target.checked })}
+                      />
+                      <span className="text-xs text-gray-600">Mostrar como bloque de código</span>
+                    </label>
+                    {slide.isCode ? (
+                      <input
+                        className="border border-gray-200 rounded px-2.5 py-1 text-xs outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+                        placeholder="lenguaje (js, python...)"
+                        value={slide.language ?? ""}
+                        onChange={(e) => onChange({ language: e.target.value || undefined })}
+                      />
+                    ) : null}
+                  </div>
+                </>
+              ) : null}
             </>
           ) : null}
         </>
@@ -693,7 +1119,7 @@ export default function TheorySlideEditor({
 
       {/* Body */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar — slide list */}
+        {/* Sidebar — slide thumbnails */}
         <div className="w-52 border-r border-gray-200 overflow-y-auto bg-gray-50 flex-shrink-0 flex flex-col">
           <div className="flex-1">
             {slides.map((slide, index) => (
@@ -701,36 +1127,33 @@ export default function TheorySlideEditor({
                 key={slide.id}
                 className={`group relative border-b border-gray-100 ${
                   currentIndex === index
-                    ? "bg-blue-50 border-l-2 border-l-blue-500"
+                    ? "ring-2 ring-inset ring-blue-500 bg-blue-50"
                     : "hover:bg-gray-100"
                 }`}
               >
                 <button
                   type="button"
-                  className="w-full text-left px-3 py-2.5 pr-9"
+                  className="w-full text-left"
                   onClick={() => setCurrentIndex(index)}
                 >
-                  {/* Mini layout preview + index */}
-                  <div className="flex items-center gap-1.5 mb-1">
-                    <span className="text-[10px] text-gray-400 tabular-nums">{index + 1}</span>
+                  {/* Visual thumbnail */}
+                  <SlideThumbnail slide={slide} theme={theme} accentColor={accentColor} />
+
+                  {/* Label row */}
+                  <div className="px-2 py-1.5 flex items-center gap-1.5">
+                    <span className="text-[10px] text-gray-400 tabular-nums flex-shrink-0">{index + 1}</span>
                     <span className="text-[10px] text-gray-300">·</span>
-                    <span className="text-[10px] text-gray-400 truncate">
-                      {LAYOUT_META[slide.layout].label}
+                    <span className="text-xs text-gray-600 truncate leading-none">
+                      {slide.heading || <span className="text-gray-300 italic">Sin título</span>}
                     </span>
-                    {slide.bgImage ? (
-                      <span className="text-[10px] text-blue-400 ml-auto flex-shrink-0" title="Tiene imagen de fondo">⬚</span>
-                    ) : null}
+                    {slide.toolSpec && (
+                      <Settings size={9} className="text-gray-300 flex-shrink-0 ml-auto" />
+                    )}
                   </div>
-                  <p className="text-sm font-medium text-gray-700 truncate leading-snug">
-                    {slide.heading || <span className="text-gray-300 italic">Sin título</span>}
-                  </p>
-                  {slide.subtitle ? (
-                    <p className="text-xs text-gray-400 truncate">{slide.subtitle}</p>
-                  ) : null}
                 </button>
 
                 {/* Action buttons on hover */}
-                <div className="absolute right-1 top-1/2 -translate-y-1/2 hidden group-hover:flex flex-col gap-0.5">
+                <div className="absolute right-1 top-2 hidden group-hover:flex flex-col gap-0.5 bg-white/80 rounded p-0.5 backdrop-blur-sm">
                   <button
                     type="button"
                     title="Mover arriba"

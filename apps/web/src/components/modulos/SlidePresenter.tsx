@@ -12,6 +12,7 @@ import {
   ACCENT_COLORS,
   layoutContainerClass,
 } from "./TheorySlideEditor";
+import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
 
 // ─── Overlay class resolver ───────────────────────────────────────────────────
 
@@ -92,6 +93,23 @@ function SlideContent({
   // Accent style applied to heading via inline style (overrides Tailwind color safely)
   const headingAccentStyle =
     accentCfg && !hasBgOverlay ? { color: accentCfg.swatch } : undefined;
+
+  // When toolSpec is present, render heading + subtitle + the interactive tool
+  if (slide.toolSpec) {
+    return (
+      <>
+        {slide.heading ? (
+          <h2 className={headingCls} style={headingAccentStyle} data-sa>{slide.heading}</h2>
+        ) : null}
+        {slide.subtitle ? (
+          <p className={subtitleCls} data-sa>{slide.subtitle}</p>
+        ) : null}
+        <div className="flex-1 min-h-0 overflow-auto rounded-lg" data-sa>
+          <VisualizerRenderer spec={slide.toolSpec} />
+        </div>
+      </>
+    );
+  }
 
   if (slide.layout === "quote") {
     return (
