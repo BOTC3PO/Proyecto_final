@@ -24,11 +24,13 @@ type ModuleFormState = {
   level: string;
   durationMinutes: number;
   visibility: Module["visibility"];
+  visibilitySchoolId: string;
   dependencies: ModuleDependency[];
 };
 
 type BookResult = { id: string; title: string };
 type TuesdayResult = { id: string; title: string };
+type EscuelaResult = { id: string; name: string };
 
 const buildQuizId = () => `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 const isTemporaryQuizId = (quizId?: string) => Boolean(quizId && quizId.startsWith("quiz-"));
@@ -65,10 +67,13 @@ const generatedQuizSchema = z.object({
 // Types that need a picker (not a plain textarea)
 const isBookType = (t: string) => t === "book" || t === "Libro";
 const isLinkType = (t: string) => t === "link" || t === "Enlace";
+const isVideoType = (t: string) => t === "Video";
+const isDocumentoType = (t: string) => t === "Documento";
 const isTuesdayType = (t: string) => t === "TuesdayJS";
 const isPresentationType = (t: string) => t === "Presentación";
 const isHerramientaType = (t: string) => t === "Herramienta";
-const needsUrlOrId = (t: string) => isBookType(t) || isLinkType(t) || isTuesdayType(t);
+const needsUrlOrId = (t: string) =>
+  isBookType(t) || isLinkType(t) || isTuesdayType(t) || isVideoType(t) || isDocumentoType(t);
 
 export default function ModuloEditor() {
   const { id } = useParams();
@@ -86,6 +91,7 @@ export default function ModuloEditor() {
     level: "",
     durationMinutes: 30,
     visibility: "publico",
+    visibilitySchoolId: "",
     dependencies: [],
   });
   const [theoryItems, setTheoryItems] = useState<TheoryItem[]>([]);
@@ -112,6 +118,11 @@ export default function ModuloEditor() {
 
   // --- Herramienta picker state ---
   const [herramientaPickerFor, setHerramientaPickerFor] = useState<"new" | string | null>(null);
+
+  // --- School (escuela) picker state ---
+  const [escuelaResults, setEscuelaResults] = useState<EscuelaResult[]>([]);
+  const [escuelaSearch, setEscuelaSearch] = useState("");
+  const [escuelaLoading, setEscuelaLoading] = useState(false);
 
   // --- Slide editor state ---
   // "new" = editing slides for new item form | string = existing item id
@@ -144,6 +155,7 @@ export default function ModuloEditor() {
           level: module.level,
           durationMinutes: module.durationMinutes,
           visibility: module.visibility,
+          visibilitySchoolId: module.schoolId ?? "",
           dependencies: module.dependencies ?? [],
         });
 
@@ -403,6 +415,25 @@ export default function ModuloEditor() {
     }
   }, []);
 
+  // ─── School search helpers ────────────────────────────────────────────────
+
+  const searchEscuelas = useCallback(async (q: string) => {
+    setEscuelaLoading(true);
+    try {
+      const result = await apiGet<{ items?: Array<{ _id: string; id?: string; name: string }> }>(
+        `/api/escuelas?limit=20`,
+      );
+      const items: EscuelaResult[] = (result.items ?? [])
+        .filter((s) => !q || s.name.toLowerCase().includes(q.toLowerCase()))
+        .map((s) => ({ id: s.id ?? s._id, name: s.name }));
+      setEscuelaResults(items);
+    } catch {
+      setEscuelaResults([]);
+    } finally {
+      setEscuelaLoading(false);
+    }
+  }, []);
+
   const addDependency = (mod: { id: string; title: string }) => {
     const alreadyAdded = form.dependencies.some((d) => d.id === mod.id);
     if (alreadyAdded) return;
@@ -536,6 +567,7 @@ export default function ModuloEditor() {
         level: form.level,
         durationMinutes: Number(form.durationMinutes) || 1,
         visibility: form.visibility,
+        schoolId: form.visibility === "escuela" ? form.visibilitySchoolId || undefined : undefined,
         dependencies: form.dependencies,
         theoryItems: theoryItems.map((item) => ({
           id: item.id,
@@ -747,21 +779,95 @@ export default function ModuloEditor() {
                       onChange={(event) => updateForm("durationMinutes", Number(event.target.value))}
                     />
                   </label>
-                  <label className="text-sm font-medium text-gray-700">
+                  <div className="text-sm font-medium text-gray-700">
                     Visibilidad
                     <select
                       className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
                       value={form.visibility}
-                      onChange={(event) =>
-                        updateForm("visibility", event.target.value as Module["visibility"])
-                      }
+                      onChange={(event) => {
+                        updateForm("visibility", event.target.value as Module["visibility"]);
+                        if (event.target.value === "escuela") {
+                          searchEscuelas("");
+                        }
+                      }}
                     >
                       <option value="publico">Público</option>
-                      <option value="privado">Privado</option>
+                      <option value="privado">Privado (solo vos)</option>
                       <option value="escuela">Escuela</option>
                     </select>
-                  </label>
+                  </div>
                 </div>
+
+                {/* School picker — only shown when visibility = "escuela" */}
+                {form.visibility === "escuela" ? (
+                  <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 space-y-2">
+                    <p className="text-xs font-semibold text-amber-800">
+                      ¿A qué escuela aplica esta visibilidad?
+                    </p>
+                    {form.visibilitySchoolId ? (
+                      <div className="flex items-center gap-3">
+                        <span className="text-xs text-amber-900">
+                          Escuela seleccionada:{" "}
+                          <strong>
+                            {escuelaResults.find((e) => e.id === form.visibilitySchoolId)?.name ??
+                              form.visibilitySchoolId}
+                          </strong>
+                        </span>
+                        <button
+                          type="button"
+                          className="text-xs text-amber-700 hover:underline"
+                          onClick={() => {
+                            updateForm("visibilitySchoolId", "");
+                            searchEscuelas("");
+                          }}
+                        >
+                          Cambiar
+                        </button>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="flex gap-2">
+                          <input
+                            className="flex-1 rounded-md border border-gray-300 px-2 py-1.5 text-xs"
+                            placeholder="Buscar escuela..."
+                            value={escuelaSearch}
+                            onChange={(e) => {
+                              setEscuelaSearch(e.target.value);
+                              searchEscuelas(e.target.value);
+                            }}
+                            onFocus={() => {
+                              if (escuelaResults.length === 0) searchEscuelas("");
+                            }}
+                          />
+                        </div>
+                        {escuelaLoading ? (
+                          <p className="text-xs text-gray-500">Buscando...</p>
+                        ) : escuelaResults.length > 0 ? (
+                          <ul className="max-h-36 overflow-y-auto space-y-0.5">
+                            {escuelaResults.map((escuela) => (
+                              <li key={escuela.id}>
+                                <button
+                                  type="button"
+                                  className="w-full rounded px-2 py-1.5 text-left text-xs text-gray-700 hover:bg-amber-100 hover:text-amber-900"
+                                  onClick={() => {
+                                    updateForm("visibilitySchoolId", escuela.id);
+                                    setEscuelaSearch("");
+                                  }}
+                                >
+                                  {escuela.name}
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="text-xs text-gray-400">
+                            {escuelaSearch ? "Sin resultados." : "Escribí para buscar."}
+                          </p>
+                        )}
+                      </>
+                    )}
+                  </div>
+                ) : null}
               </section>
 
               {/* ── Teoría ── */}
@@ -873,6 +979,36 @@ export default function ModuloEditor() {
                         <span className="text-xs text-green-600">✓ Herramienta seleccionada</span>
                       ) : null}
                     </div>
+                  ) : isVideoType(newTheoryItem.type) ? (
+                    <div className="space-y-1">
+                      <input
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                        placeholder="https://youtu.be/... o https://vimeo.com/..."
+                        type="url"
+                        value={newTheoryItem.detail}
+                        onChange={(event) =>
+                          setNewTheoryItem((prev) => ({ ...prev, detail: event.target.value }))
+                        }
+                      />
+                      <p className="text-xs text-gray-400">
+                        Soporta YouTube, Vimeo o un enlace directo a archivo de video.
+                      </p>
+                    </div>
+                  ) : isDocumentoType(newTheoryItem.type) ? (
+                    <div className="space-y-1">
+                      <input
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                        placeholder="https://... (PDF, DOC, etc.)"
+                        type="url"
+                        value={newTheoryItem.detail}
+                        onChange={(event) =>
+                          setNewTheoryItem((prev) => ({ ...prev, detail: event.target.value }))
+                        }
+                      />
+                      <p className="text-xs text-gray-400">
+                        Enlace a un documento externo. Si es PDF, se mostrará como visor; otros tipos se ofrecen como descarga.
+                      </p>
+                    </div>
                   ) : isLinkType(newTheoryItem.type) ? (
                     <input
                       className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
@@ -886,8 +1022,8 @@ export default function ModuloEditor() {
                   ) : (
                     <textarea
                       className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      rows={2}
-                      placeholder="Resumen o contenido"
+                      rows={4}
+                      placeholder="Escribí el contenido del texto aquí..."
                       value={newTheoryItem.detail}
                       onChange={(event) =>
                         setNewTheoryItem((prev) => ({ ...prev, detail: event.target.value }))
@@ -986,9 +1122,35 @@ export default function ModuloEditor() {
                                     Editar presentación
                                   </button>
                                 </div>
+                              ) : isVideoType(item.type) ? (
+                                <div className="space-y-1">
+                                  <input
+                                    className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"
+                                    placeholder="https://youtu.be/... o https://vimeo.com/..."
+                                    type="url"
+                                    value={item.detail}
+                                    onChange={(event) =>
+                                      updateTheoryItem(item.id, { detail: event.target.value })
+                                    }
+                                  />
+                                  <p className="text-[11px] text-gray-400">YouTube, Vimeo o enlace directo a video.</p>
+                                </div>
+                              ) : isDocumentoType(item.type) ? (
+                                <div className="space-y-1">
+                                  <input
+                                    className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"
+                                    placeholder="https://... (PDF, DOC, etc.)"
+                                    type="url"
+                                    value={item.detail}
+                                    onChange={(event) =>
+                                      updateTheoryItem(item.id, { detail: event.target.value })
+                                    }
+                                  />
+                                  <p className="text-[11px] text-gray-400">PDF → visor integrado · otros formatos → descarga.</p>
+                                </div>
                               ) : isLinkType(item.type) ? (
                                 <input
-                                  className="rounded-md border border-gray-300 px-2 py-2 text-xs"
+                                  className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"
                                   placeholder="https://..."
                                   value={item.detail}
                                   onChange={(event) =>
@@ -997,8 +1159,8 @@ export default function ModuloEditor() {
                                 />
                               ) : (
                                 <textarea
-                                  className="rounded-md border border-gray-300 px-2 py-2 text-xs"
-                                  rows={2}
+                                  className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"
+                                  rows={3}
                                   value={item.detail}
                                   onChange={(event) =>
                                     updateTheoryItem(item.id, { detail: event.target.value })
