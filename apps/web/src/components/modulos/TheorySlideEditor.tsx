@@ -259,6 +259,304 @@ export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
     { id: "xMin", label: "X mínimo", input: "number", path: "axes.x.min", defaultValue: -10, min: -100, max: -1, step: 1 },
     { id: "xMax", label: "X máximo", input: "number", path: "axes.x.max", defaultValue: 10,  min: 1, max: 100, step: 1  },
   ],
+
+  // ── Estadística ─────────────────────────────────────────────────────────────
+  "stat-regression": [
+    { id: "regrType", label: "Tipo de regresión", input: "select", path: "regression.type", defaultValue: "linear",
+      options: [{ label: "Lineal", value: "linear" }, { label: "Cuadrática", value: "quadratic" }] },
+  ],
+
+  // ── Ciencias Sociales ────────────────────────────────────────────────────────
+  "social-population-pyramid": [
+    { id: "year", label: "Año", input: "number", path: "year", defaultValue: 2024, min: 1900, max: 2100, step: 1 },
+    { id: "unit", label: "Unidad", input: "select", path: "unit", defaultValue: "percent",
+      options: [{ label: "Porcentaje", value: "percent" }, { label: "Personas", value: "count" }] },
+  ],
+  "social-choropleth": [
+    { id: "scaleMin", label: "Escala mínima", input: "number", path: "scale.min", defaultValue: 0,   min: -1000, max: 1000, step: 0.1 },
+    { id: "scaleMax", label: "Escala máxima", input: "number", path: "scale.max", defaultValue: 100, min: -1000, max: 1000, step: 0.1 },
+  ],
+
+  // ── Filosofía ────────────────────────────────────────────────────────────────
+  "phil-argument-map": [
+    { id: "claim", label: "Afirmación central", input: "text", path: "claim.text", defaultValue: "Ingrese la afirmación central" },
+  ],
+  "phil-dilemma": [
+    { id: "scenario", label: "Descripción del dilema", input: "text", path: "scenario", defaultValue: "Describa el dilema ético" },
+  ],
+
+  // ── Arte ─────────────────────────────────────────────────────────────────────
+  "art-color-wheel": [
+    { id: "hue",     label: "Matiz base (0–360)", input: "number", path: "selectedHue", defaultValue: 200, min: 0, max: 360, step: 1 },
+    { id: "harmony", label: "Armonía",            input: "select", path: "harmony",     defaultValue: "complementary",
+      options: [
+        { label: "Complementaria",       value: "complementary"       },
+        { label: "Triádica",             value: "triadic"             },
+        { label: "Análoga",              value: "analogous"           },
+        { label: "Split-complementaria", value: "split-complementary" },
+      ] },
+  ],
+  "art-composition": [
+    { id: "rule", label: "Regla de composición", input: "select", path: "rule", defaultValue: "rule-of-thirds",
+      options: [
+        { label: "Regla de tercios", value: "rule-of-thirds" },
+        { label: "Proporción áurea", value: "golden-ratio"   },
+        { label: "Simetría",         value: "symmetry"       },
+        { label: "Diagonal",         value: "diagonal"       },
+      ] },
+    { id: "cw", label: "Ancho del lienzo", input: "number", path: "canvasWidth",  defaultValue: 640, min: 200, max: 1920, step: 10, unit: "px" },
+    { id: "ch", label: "Alto del lienzo",  input: "number", path: "canvasHeight", defaultValue: 480, min: 150, max: 1080, step: 10, unit: "px" },
+  ],
+
+  // ── Biología ─────────────────────────────────────────────────────────────────
+  "bio-cell-diagram": [
+    { id: "cellType", label: "Tipo de célula", input: "select", path: "cellType", defaultValue: "animal",
+      options: [{ label: "Animal", value: "animal" }, { label: "Vegetal", value: "plant" }, { label: "Bacteria", value: "bacteria" }] },
+  ],
+  "bio-genetics": [
+    { id: "cross", label: "Tipo de cruce", input: "select", path: "cross", defaultValue: "monohybrid",
+      options: [{ label: "Monohíbrido", value: "monohybrid" }, { label: "Dihíbrido", value: "dihybrid" }] },
+  ],
+  "bio-population-dynamics": [
+    { id: "model", label: "Modelo", input: "select", path: "model", defaultValue: "logistic",
+      options: [
+        { label: "Logístico",      value: "logistic"       },
+        { label: "Lotka-Volterra", value: "lotka-volterra" },
+        { label: "Exponencial",    value: "exponential"    },
+      ] },
+    { id: "capacity", label: "Capacidad de carga (K)", input: "number", path: "parameters.carryingCapacity", defaultValue: 1000, min: 10, max: 100000, step: 10, description: "Solo modelo logístico" },
+    { id: "growRate",  label: "Tasa de crecimiento",   input: "number", path: "parameters.growthRate",       defaultValue: 0.1,  min: 0.01, max: 5, step: 0.01 },
+  ],
+
+  // ── Música ───────────────────────────────────────────────────────────────────
+  "music-waveform": [
+    { id: "baseFreq", label: "Frecuencia base", input: "number", path: "baseFrequency", defaultValue: 440, min: 20, max: 20000, step: 1, unit: "Hz" },
+    { id: "note",     label: "Nota",            input: "text",   path: "note",          defaultValue: "A4" },
+  ],
+  "music-rhythm-grid": [
+    { id: "tempo",    label: "Tempo",             input: "number", path: "tempo",               defaultValue: 120, min: 40, max: 240, step: 1,  unit: "BPM" },
+    { id: "measures", label: "Compases",          input: "number", path: "measures",            defaultValue: 2,   min: 1,  max: 8,   step: 1 },
+    { id: "tsBeats",  label: "Pulsos por compás", input: "number", path: "timeSignature.beats", defaultValue: 4,   min: 2,  max: 12,  step: 1 },
+  ],
+
+  // ── Política ─────────────────────────────────────────────────────────────────
+  "pol-voting-systems": [
+    { id: "c1name", label: "Candidato 1", input: "text", path: "candidates.0.name", defaultValue: "Candidato A" },
+    { id: "c2name", label: "Candidato 2", input: "text", path: "candidates.1.name", defaultValue: "Candidato B" },
+    { id: "c3name", label: "Candidato 3", input: "text", path: "candidates.2.name", defaultValue: "Candidato C" },
+  ],
+  "pol-power-distribution": [
+    { id: "system", label: "Sistema de gobierno", input: "select", path: "system", defaultValue: "presidential",
+      options: [
+        { label: "Presidencialismo", value: "presidential" },
+        { label: "Parlamentarismo",  value: "parliamentary" },
+        { label: "Federalismo",      value: "federal"       },
+      ] },
+  ],
+
+  // ── Educación Cívica ─────────────────────────────────────────────────────────
+  "civic-rights-tree": [
+    { id: "rootLabel", label: "Nodo raíz", input: "text", path: "root.label", defaultValue: "Constitución" },
+  ],
+  "civic-budget": [
+    { id: "totalBudget", label: "Presupuesto total", input: "number", path: "totalBudget", defaultValue: 100000, min: 0, max: 1000000000, step: 1000 },
+    { id: "currency",    label: "Moneda",            input: "text",   path: "currency",    defaultValue: "$" },
+  ],
+
+  // ── Ciencias Ambientales ─────────────────────────────────────────────────────
+  "env-ecosystem": [
+    { id: "biome", label: "Bioma", input: "select", path: "biome", defaultValue: "bosque-tropical",
+      options: [
+        { label: "Bosque tropical", value: "bosque-tropical" },
+        { label: "Desierto",        value: "desierto"        },
+        { label: "Océano",          value: "oceano"          },
+        { label: "Pradera",         value: "pradera"         },
+        { label: "Tundra",          value: "tundra"          },
+      ] },
+    { id: "energyLoss", label: "Pérdida de energía entre niveles", input: "number", path: "energyLoss", defaultValue: 90, min: 1, max: 99, step: 1, unit: "%" },
+  ],
+  "env-carbon-cycle": [
+    { id: "humanFluxAmt", label: "Flujo humano de carbono", input: "number", path: "humanFlux.amount", defaultValue: 9, min: 0, max: 100, step: 0.5, unit: "GtC/año" },
+  ],
+
+  // ── Informática ──────────────────────────────────────────────────────────────
+  "cs-sorting": [
+    { id: "algorithm", label: "Algoritmo", input: "select", path: "algorithm", defaultValue: "bubble",
+      options: [
+        { label: "Burbuja",   value: "bubble"    },
+        { label: "Selección", value: "selection" },
+        { label: "Inserción", value: "insertion" },
+        { label: "Merge",     value: "merge"     },
+        { label: "Quick",     value: "quick"     },
+      ] },
+    { id: "step", label: "Paso inicial", input: "number", path: "currentStep", defaultValue: 0, min: 0, max: 100, step: 1 },
+  ],
+  "cs-graph": [
+    { id: "directed",  label: "Dirigido",  input: "boolean", path: "directed",  defaultValue: false },
+    { id: "weighted",  label: "Ponderado", input: "boolean", path: "weighted",  defaultValue: false },
+    { id: "algorithm", label: "Algoritmo", input: "select",  path: "algorithm", defaultValue: "bfs",
+      options: [
+        { label: "BFS",      value: "bfs"      },
+        { label: "DFS",      value: "dfs"      },
+        { label: "Dijkstra", value: "dijkstra" },
+        { label: "Ninguno",  value: "none"     },
+      ] },
+  ],
+  "cs-binary-tree": [
+    { id: "traversal", label: "Recorrido", input: "select", path: "traversalOrder", defaultValue: "inorder",
+      options: [
+        { label: "Inorden",   value: "inorder"    },
+        { label: "Preorden",  value: "preorder"   },
+        { label: "Postorden", value: "postorder"  },
+        { label: "Por nivel", value: "levelorder" },
+      ] },
+    { id: "isBST", label: "Es BST", input: "boolean", path: "isBST", defaultValue: true },
+  ],
+
+  // ── Ciencias Naturales ───────────────────────────────────────────────────────
+  "nat-weather": [
+    { id: "season", label: "Estación", input: "select", path: "season", defaultValue: "primavera",
+      options: [
+        { label: "Verano",    value: "verano"    },
+        { label: "Otoño",     value: "otono"     },
+        { label: "Invierno",  value: "invierno"  },
+        { label: "Primavera", value: "primavera" },
+      ] },
+    { id: "temp",   label: "Temperatura",     input: "number", path: "variables.temperature",  defaultValue: 22,   min: -60,  max: 60,   step: 0.5, unit: "°C"   },
+    { id: "hum",    label: "Humedad",         input: "number", path: "variables.humidity",      defaultValue: 65,   min: 0,    max: 100,  step: 1,   unit: "%"    },
+    { id: "pres",   label: "Presión",         input: "number", path: "variables.pressure",      defaultValue: 1013, min: 900,  max: 1100, step: 1,   unit: "hPa"  },
+    { id: "wind",   label: "Vel. del viento", input: "number", path: "variables.windSpeed",     defaultValue: 15,   min: 0,    max: 200,  step: 1,   unit: "km/h" },
+    { id: "precip", label: "Precipitación",   input: "number", path: "variables.precipitation", defaultValue: 12,   min: 0,    max: 500,  step: 1,   unit: "mm"   },
+  ],
+  "nat-water-cycle": [
+    { id: "humanImpact", label: "Factor impacto humano", input: "number", path: "humanImpactFactor", defaultValue: 0.25, min: 0, max: 1, step: 0.05, description: "0 = sin impacto, 1 = impacto máximo" },
+  ],
+
+  // ── Cocina ───────────────────────────────────────────────────────────────────
+  "cook-recipe-scaler": [
+    { id: "servingsBase",    label: "Porciones base",     input: "number", path: "servingsBase",    defaultValue: 4, min: 1, max: 100, step: 1 },
+    { id: "servingsCurrent", label: "Porciones actuales", input: "number", path: "servingsCurrent", defaultValue: 4, min: 1, max: 100, step: 1 },
+  ],
+  "cook-maillard": [
+    { id: "temperature", label: "Temperatura", input: "number", path: "temperature", defaultValue: 150, min: 0,  max: 300, step: 1,   unit: "°C"  },
+    { id: "time",        label: "Tiempo",      input: "number", path: "time",        defaultValue: 5,   min: 0,  max: 60,  step: 0.5, unit: "min" },
+    { id: "moisture",    label: "Humedad",     input: "number", path: "moisture",    defaultValue: 30,  min: 0,  max: 100, step: 1,   unit: "%"   },
+  ],
+
+  // ── Vida Práctica ─────────────────────────────────────────────────────────────
+  "life-budget": [
+    { id: "income",   label: "Ingreso mensual", input: "number", path: "monthlyIncome", defaultValue: 100000, min: 0, max: 100000000, step: 1000 },
+    { id: "currency", label: "Moneda",          input: "text",   path: "currency",      defaultValue: "$" },
+  ],
+  "life-time-matrix": [
+    { id: "totalHours", label: "Horas semanales", input: "number", path: "totalHoursPerWeek", defaultValue: 40, min: 1, max: 168, step: 1, unit: "hs" },
+  ],
+
+  // ── Física ───────────────────────────────────────────────────────────────────
+  "physics-forces-vectors": [
+    { id: "unit",      label: "Unidad",             input: "text",    path: "unit",                   defaultValue: "N"   },
+    { id: "showAxes",  label: "Mostrar ejes",        input: "boolean", path: "options.showAxes",       defaultValue: true  },
+    { id: "showComps", label: "Mostrar componentes", input: "boolean", path: "options.showComponents", defaultValue: false },
+  ],
+  "energy-chart": [
+    { id: "xVar",       label: "Variable eje X",          input: "select", path: "axes.x.variable",       defaultValue: "tiempo",
+      options: [{ label: "Tiempo", value: "tiempo" }, { label: "Posición", value: "posicion" }] },
+    { id: "conservTol", label: "Tolerancia conservación", input: "number", path: "conservation.tolerance", defaultValue: 2, min: 0, max: 100, step: 0.5, unit: "J" },
+  ],
+  "circuit": [
+    { id: "comp0val", label: "Valor componente 1", input: "number", path: "components.0.value", defaultValue: 9,  min: 0, max: 10000, step: 0.1 },
+    { id: "comp1val", label: "Valor componente 2", input: "number", path: "components.1.value", defaultValue: 30, min: 0, max: 10000, step: 0.1 },
+    { id: "comp2val", label: "Valor componente 3", input: "number", path: "components.2.value", defaultValue: 60, min: 0, max: 10000, step: 0.1 },
+  ],
+  "field-lines": [
+    { id: "polarity0",  label: "Polaridad fuente 1", input: "select", path: "sources.0.polarity",  defaultValue: "positiva",
+      options: [{ label: "Positiva / Norte", value: "positiva" }, { label: "Negativa / Sur", value: "negativa" }] },
+    { id: "magnitude0", label: "Magnitud fuente 1",  input: "number", path: "sources.0.magnitude", defaultValue: 1, min: 0, max: 100, step: 0.5 },
+    { id: "polarity1",  label: "Polaridad fuente 2", input: "select", path: "sources.1.polarity",  defaultValue: "negativa",
+      options: [{ label: "Positiva / Norte", value: "positiva" }, { label: "Negativa / Sur", value: "negativa" }] },
+  ],
+  "optics-rays": [
+    { id: "elemType",  label: "Elemento óptico",      input: "select", path: "element.type",        defaultValue: "lente-convergente",
+      options: [
+        { label: "Lente convergente", value: "lente-convergente" },
+        { label: "Lente divergente",  value: "lente-divergente"  },
+        { label: "Espejo plano",      value: "espejo-plano"      },
+        { label: "Espejo cóncavo",    value: "espejo-concavo"    },
+        { label: "Espejo convexo",    value: "espejo-convexo"    },
+      ] },
+    { id: "objHeight", label: "Altura del objeto",    input: "number", path: "object.height",       defaultValue: 40, min: 1,    max: 200,  step: 1,  unit: "px" },
+    { id: "elemX",     label: "Posición del elemento",input: "number", path: "element.positionX",   defaultValue: 0,  min: -400, max: 400,  step: 10, unit: "px" },
+  ],
+  "physics-simulation": [
+    { id: "param0", label: "Altura inicial (h₀)",    input: "number", path: "parameters.0.value", defaultValue: 50, min: 0,    max: 1000, step: 1,   unit: "m"   },
+    { id: "param1", label: "Velocidad inicial (v₀)", input: "number", path: "parameters.1.value", defaultValue: 0,  min: -100, max: 100,  step: 0.5, unit: "m/s" },
+  ],
+
+  // ── Química ──────────────────────────────────────────────────────────────────
+  "chem-reaction": [
+    { id: "reactant0", label: "Reactivo 1 (fórmula)", input: "text", path: "reactants.0.formula", defaultValue: "CH₄" },
+    { id: "product0",  label: "Producto 1 (fórmula)", input: "text", path: "products.0.formula",  defaultValue: "CO₂" },
+  ],
+  "chem-structure": [
+    { id: "edModel", label: "Modelo atómico", input: "select", path: "electronDistribution.model", defaultValue: "bohr",
+      options: [
+        { label: "Bohr",             value: "bohr"             },
+        { label: "Nube electrónica", value: "nube-electronica" },
+        { label: "Cuántico",         value: "cuantico"         },
+      ] },
+    { id: "edAtom", label: "Elemento", input: "text", path: "electronDistribution.atom", defaultValue: "C" },
+  ],
+  "chem-periodic-table": [
+    { id: "highlightProp", label: "Propiedad destacada", input: "select", path: "highlightProperty.key", defaultValue: "electronegativity",
+      options: [
+        { label: "Clasificación",      value: "classification"    },
+        { label: "Electronegatividad", value: "electronegativity" },
+        { label: "Radio atómico",      value: "atomicRadius"      },
+        { label: "Energía ionización", value: "ionizationEnergy"  },
+      ] },
+    { id: "scaleType", label: "Tipo de escala", input: "select", path: "scale.type", defaultValue: "sequential",
+      options: [{ label: "Secuencial", value: "sequential" }, { label: "Categórico", value: "categorical" }] },
+  ],
+  "chem-vsepr": [
+    { id: "defaultMolId", label: "Molécula por defecto", input: "text", path: "defaultMoleculeId", defaultValue: "h2o" },
+  ],
+  "chem-titration": [
+    { id: "currentPH", label: "pH actual",            input: "number", path: "indicator.currentPH", defaultValue: 7,  min: 0, max: 14,  step: 0.1 },
+    { id: "axisXMax",  label: "Volumen máx. (eje X)", input: "number", path: "axes.x.max",          defaultValue: 50, min: 5, max: 200, step: 1,  unit: "mL" },
+  ],
+
+  // ── Matemáticas ──────────────────────────────────────────────────────────────
+  "geometria-plana-espacial": [
+    { id: "fig0dim",  label: "Dimensión figura 1", input: "select", path: "figures.0.dimension", defaultValue: "plana",
+      options: [{ label: "Plana (2D)", value: "plana" }, { label: "Espacial (3D)", value: "espacial" }] },
+    { id: "fig0name", label: "Nombre figura 1",    input: "text",   path: "figures.0.name",      defaultValue: "Triángulo rectángulo" },
+  ],
+  "trigonometria-avanzada": [
+    { id: "circleR",  label: "Radio círculo unitario", input: "number", path: "unitCircle.radius",     defaultValue: 1,   min: 0.1, max: 10,  step: 0.1 },
+    { id: "f0amp",    label: "Amplitud función 1",     input: "number", path: "functions.0.amplitude", defaultValue: 1,   min: 0.1, max: 10,  step: 0.1 },
+    { id: "f0period", label: "Período función 1",      input: "number", path: "functions.0.period",    defaultValue: 360, min: 1,   max: 720, step: 1,  unit: "°" },
+  ],
+  "algebra-calculo-visual": [
+    { id: "intLower", label: "Límite inferior integral", input: "number", path: "integrals.0.bounds.lower", defaultValue: 0, min: -100, max: 100, step: 0.5 },
+    { id: "intUpper", label: "Límite superior integral", input: "number", path: "integrals.0.bounds.upper", defaultValue: 3, min: -100, max: 100, step: 0.5 },
+  ],
+
+  // ── Gráficos generales ───────────────────────────────────────────────────────
+  "timeline": [
+    { id: "rangeStart", label: "Año inicio", input: "number", path: "range.start", defaultValue: 1900, min: -5000, max: 3000, step: 1 },
+    { id: "rangeEnd",   label: "Año fin",    input: "number", path: "range.end",   defaultValue: 2000, min: -5000, max: 3000, step: 1 },
+  ],
+  "concept-map": [
+    { id: "centralNode", label: "Concepto central", input: "text", path: "nodes.0.label", defaultValue: "Concepto principal" },
+  ],
+  "flow": [
+    { id: "firstStep", label: "Primer paso", input: "text", path: "steps.0.label", defaultValue: "Inicio" },
+  ],
+  "map": [
+    { id: "zoom", label: "Zoom",     input: "number", path: "viewport.zoom",     defaultValue: 5,     min: 1,    max: 20,  step: 1    },
+    { id: "lat",  label: "Latitud",  input: "number", path: "viewport.center.0", defaultValue: -34.6, min: -90,  max: 90,  step: 0.01 },
+    { id: "lng",  label: "Longitud", input: "number", path: "viewport.center.1", defaultValue: -58.4, min: -180, max: 180, step: 0.01 },
+  ],
 };
 
 /** Read a value at a dot-path within an object (supports numeric array indices) */
