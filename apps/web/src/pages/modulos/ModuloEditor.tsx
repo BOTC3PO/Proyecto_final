@@ -6,9 +6,17 @@ import { apiGet, apiPatch, apiPost } from "../../lib/api";
 import type { Module, ModuleDependency, ModuleQuiz } from "../../domain/module/module.types";
 import { getSubjectCapabilities, MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
-import TheorySlideEditor, { detailToPresentation, slidesToDetail } from "../../components/modulos/TheorySlideEditor";
+import TheorySlideEditor, {
+  detailToPresentation,
+  slidesToDetail,
+  TOOL_PARAM_SCHEMAS,
+  ToolParamControl,
+  getAtPath,
+  setAtPath,
+} from "../../components/modulos/TheorySlideEditor";
 import type { PresentationTheme, AccentColor } from "../../components/modulos/TheorySlideEditor";
 import HerramientaPicker from "../../components/modulos/HerramientaPicker";
+import type { VisualSpec } from "../../visualizadores/types";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
@@ -74,6 +82,22 @@ const isPresentationType = (t: string) => t === "Presentación";
 const isHerramientaType = (t: string) => t === "Herramienta";
 const needsUrlOrId = (t: string) =>
   isBookType(t) || isLinkType(t) || isTuesdayType(t) || isVideoType(t) || isDocumentoType(t);
+
+function parseHerramientaSpec(detail: string): { spec: VisualSpec; subject?: string } | null {
+  try {
+    const parsed = JSON.parse(detail);
+    if (parsed && typeof parsed === "object" && parsed.spec) {
+      return { spec: parsed.spec as VisualSpec, subject: parsed.subject as string | undefined };
+    }
+  } catch {
+    // not JSON
+  }
+  return null;
+}
+
+function serializeHerramientaDetail(spec: VisualSpec, subject?: string): string {
+  return JSON.stringify({ spec, subject });
+}
 
 export default function ModuloEditor() {
   const { id } = useParams();
@@ -959,7 +983,7 @@ export default function ModuloEditor() {
                       </button>
                     </div>
                   ) : isHerramientaType(newTheoryItem.type) ? (
-                    <div className="flex items-center gap-3">
+                    <div className="space-y-3">
                       <HerramientaPicker
                         isOpen={herramientaPickerFor === "new"}
                         onSelect={(detail) => {
@@ -968,16 +992,49 @@ export default function ModuloEditor() {
                         }}
                         onClose={() => setHerramientaPickerFor(null)}
                       />
-                      <button
-                        type="button"
-                        className="rounded-md border border-gray-300 px-3 py-1.5 text-xs hover:bg-gray-100"
-                        onClick={() => setHerramientaPickerFor("new")}
-                      >
-                        {newTheoryItem.detail ? "Cambiar herramienta" : "Seleccionar herramienta"}
-                      </button>
-                      {newTheoryItem.detail ? (
-                        <span className="text-xs text-green-600">✓ Herramienta seleccionada</span>
-                      ) : null}
+                      <div className="flex items-center gap-3">
+                        <button
+                          type="button"
+                          className="rounded-md border border-gray-300 px-3 py-1.5 text-xs hover:bg-gray-100"
+                          onClick={() => setHerramientaPickerFor("new")}
+                        >
+                          {newTheoryItem.detail ? "Cambiar herramienta" : "Seleccionar herramienta"}
+                        </button>
+                        {newTheoryItem.detail ? (
+                          <span className="text-xs text-green-600">✓ Herramienta seleccionada</span>
+                        ) : null}
+                      </div>
+                      {(() => {
+                        const parsed = parseHerramientaSpec(newTheoryItem.detail);
+                        if (!parsed) return null;
+                        const params = TOOL_PARAM_SCHEMAS[parsed.spec.kind] ?? [];
+                        if (params.length === 0) return (
+                          <p className="text-xs text-gray-400 italic">
+                            Esta herramienta no tiene parámetros configurables.
+                          </p>
+                        );
+                        return (
+                          <div className="rounded-lg border border-gray-200 bg-gray-50 p-3 space-y-3">
+                            <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
+                              Parámetros
+                            </p>
+                            {params.map((param) => (
+                              <ToolParamControl
+                                key={param.id}
+                                param={param}
+                                value={getAtPath(parsed.spec, param.path)}
+                                onChange={(v) => {
+                                  const newSpec = setAtPath(parsed.spec, param.path, v) as VisualSpec;
+                                  setNewTheoryItem((prev) => ({
+                                    ...prev,
+                                    detail: serializeHerramientaDetail(newSpec, parsed.subject),
+                                  }));
+                                }}
+                              />
+                            ))}
+                          </div>
+                        );
+                      })()}
                     </div>
                   ) : isVideoType(newTheoryItem.type) ? (
                     <div className="space-y-1">
@@ -1157,6 +1214,54 @@ export default function ModuloEditor() {
                                     updateTheoryItem(item.id, { detail: event.target.value })
                                   }
                                 />
+                              ) : isHerramientaType(item.type) ? (
+                                <div className="space-y-2">
+                                  <HerramientaPicker
+                                    isOpen={herramientaPickerFor === item.id}
+                                    onSelect={(detail) => {
+                                      updateTheoryItem(item.id, { detail });
+                                      setHerramientaPickerFor(null);
+                                    }}
+                                    onClose={() => setHerramientaPickerFor(null)}
+                                  />
+                                  <button
+                                    type="button"
+                                    className="rounded-md border border-gray-300 px-2 py-1.5 text-xs hover:bg-gray-100"
+                                    onClick={() => setHerramientaPickerFor(item.id)}
+                                  >
+                                    Cambiar herramienta
+                                  </button>
+                                  {(() => {
+                                    const parsed = parseHerramientaSpec(item.detail);
+                                    if (!parsed) return null;
+                                    const params = TOOL_PARAM_SCHEMAS[parsed.spec.kind] ?? [];
+                                    if (params.length === 0) return (
+                                      <p className="text-[11px] text-gray-400 italic">
+                                        Esta herramienta no tiene parámetros configurables.
+                                      </p>
+                                    );
+                                    return (
+                                      <div className="rounded-lg border border-gray-200 bg-white p-3 space-y-3">
+                                        <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
+                                          Parámetros
+                                        </p>
+                                        {params.map((param) => (
+                                          <ToolParamControl
+                                            key={param.id}
+                                            param={param}
+                                            value={getAtPath(parsed.spec, param.path)}
+                                            onChange={(v) => {
+                                              const newSpec = setAtPath(parsed.spec, param.path, v) as VisualSpec;
+                                              updateTheoryItem(item.id, {
+                                                detail: serializeHerramientaDetail(newSpec, parsed.subject),
+                                              });
+                                            }}
+                                          />
+                                        ))}
+                                      </div>
+                                    );
+                                  })()}
+                                </div>
                               ) : (
                                 <textarea
                                   className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"

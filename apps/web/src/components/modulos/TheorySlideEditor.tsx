@@ -2,6 +2,7 @@ import { useState } from "react";
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
 import type { VisualSpec } from "../../visualizadores/types";
 import HerramientaPicker from "./HerramientaPicker";
+import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
 
 // ─── Layout presets ───────────────────────────────────────────────────────────
 
@@ -261,7 +262,7 @@ export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
 };
 
 /** Read a value at a dot-path within an object (supports numeric array indices) */
-function getAtPath(obj: unknown, path: string): unknown {
+export function getAtPath(obj: unknown, path: string): unknown {
   return path.split(".").reduce((cur: unknown, key) => {
     if (cur === null || cur === undefined || typeof cur !== "object") return undefined;
     const idx = parseInt(key, 10);
@@ -271,7 +272,7 @@ function getAtPath(obj: unknown, path: string): unknown {
 }
 
 /** Return a deep copy of obj with the value at dot-path set to value */
-function setAtPath(obj: unknown, path: string, value: unknown): unknown {
+export function setAtPath(obj: unknown, path: string, value: unknown): unknown {
   const dot = path.indexOf(".");
   if (dot === -1) {
     const idx = parseInt(path, 10);
@@ -590,9 +591,161 @@ function SlideThumbnail({ slide, theme, accentColor }: ThumbnailProps) {
   );
 }
 
+// ─── Slide preview pane ───────────────────────────────────────────────────────
+
+function SlidePreviewPane({
+  slide,
+  theme,
+  accentColor,
+}: {
+  slide: Slide;
+  theme: ThemeKey;
+  accentColor?: AccentColor;
+}) {
+  const cfg = THEMES[theme] ?? THEMES.minimal;
+  const accentCfg = accentColor ? ACCENT_COLORS[accentColor] : null;
+  const hasBg = Boolean(slide.bgImage);
+  const hasBgOverlay = hasBg && slide.bgOverlay !== "none";
+  const headingAccentStyle =
+    accentCfg && !hasBgOverlay ? { color: accentCfg.swatch } : undefined;
+  const headingCls = hasBgOverlay
+    ? "text-2xl font-bold leading-tight text-white drop-shadow"
+    : cfg.heading.replace("text-4xl", "text-2xl");
+  const subtitleCls = hasBgOverlay
+    ? "text-base font-medium text-white/80 drop-shadow"
+    : cfg.subtitle.replace("text-xl", "text-base");
+
+  return (
+    <div className="flex flex-col gap-3 p-5 h-full">
+      <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-widest flex-shrink-0">
+        Vista previa
+      </p>
+      <div
+        className={`relative w-full rounded-xl overflow-hidden shadow-lg flex-shrink-0 ${cfg.slide}`}
+        style={{ aspectRatio: "16/9" }}
+      >
+        {hasBg && (
+          <img
+            src={slide.bgImage}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).style.display = "none";
+            }}
+          />
+        )}
+        {hasBgOverlay && (
+          <div
+            className={`absolute inset-0 ${
+              slide.bgOverlay === "dark" ? cfg.overlayDark : cfg.overlayMedium
+            }`}
+          />
+        )}
+
+        <div className="relative z-10 h-full flex flex-col p-5 gap-3">
+          {slide.layout === "quote" ? (
+            <div className="flex flex-col items-center justify-center h-full gap-2 text-center">
+              <div className="text-4xl opacity-20 font-serif leading-none">&ldquo;</div>
+              {slide.heading && (
+                <h2
+                  className="text-xl italic font-serif leading-snug"
+                  style={headingAccentStyle}
+                >
+                  {slide.heading}
+                </h2>
+              )}
+              {slide.subtitle && (
+                <p className="text-xs opacity-60">— {slide.subtitle}</p>
+              )}
+            </div>
+          ) : slide.toolSpec ? (
+            <>
+              {slide.heading && (
+                <h2 className={headingCls} style={headingAccentStyle}>
+                  {slide.heading}
+                </h2>
+              )}
+              {slide.subtitle && (
+                <p className={subtitleCls}>{slide.subtitle}</p>
+              )}
+              <div className="flex-1 min-h-0 overflow-hidden rounded-lg">
+                <VisualizerRenderer spec={slide.toolSpec} />
+              </div>
+            </>
+          ) : slide.layout === "split" ? (
+            <>
+              {slide.heading && (
+                <h2 className={headingCls} style={headingAccentStyle}>
+                  {slide.heading}
+                </h2>
+              )}
+              <div className="grid grid-cols-[1fr_1px_1fr] gap-3 flex-1 min-h-0">
+                <div className={`text-xs overflow-auto ${cfg.body}`}>
+                  {slide.leftColumn ?? slide.body ?? ""}
+                </div>
+                <div className="opacity-15 bg-current" />
+                <div className={`text-xs overflow-auto ${cfg.body}`}>
+                  {slide.rightColumn ?? ""}
+                </div>
+              </div>
+            </>
+          ) : slide.layout === "centered" ? (
+            <div className="flex flex-col items-center justify-center h-full gap-2 text-center">
+              {slide.heading && (
+                <h2 className={headingCls} style={headingAccentStyle}>
+                  {slide.heading}
+                </h2>
+              )}
+              {slide.subtitle && <p className={subtitleCls}>{slide.subtitle}</p>}
+              {slide.body && (
+                <p className={`text-xs overflow-auto ${cfg.body}`}>{slide.body}</p>
+              )}
+            </div>
+          ) : slide.layout === "bottom-text" ? (
+            <div className="flex flex-col justify-end h-full gap-2">
+              {slide.heading && (
+                <h2 className={headingCls} style={headingAccentStyle}>
+                  {slide.heading}
+                </h2>
+              )}
+              {slide.subtitle && <p className={subtitleCls}>{slide.subtitle}</p>}
+            </div>
+          ) : (
+            /* top (default) */
+            <>
+              {slide.heading && (
+                <h2 className={headingCls} style={headingAccentStyle}>
+                  {slide.heading}
+                </h2>
+              )}
+              {slide.subtitle && <p className={subtitleCls}>{slide.subtitle}</p>}
+              {slide.isCode && slide.body ? (
+                <pre
+                  className={`text-xs overflow-auto rounded p-3 flex-1 min-h-0 ${cfg.code}`}
+                >
+                  {slide.body}
+                </pre>
+              ) : slide.body ? (
+                <p className={`text-xs overflow-auto ${cfg.body}`}>{slide.body}</p>
+              ) : null}
+            </>
+          )}
+        </div>
+
+        {accentCfg && (
+          <div
+            className="absolute bottom-0 left-0 right-0 h-[3px]"
+            style={{ background: accentCfg.swatch }}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ─── Tool parameter control ───────────────────────────────────────────────────
 
-function ToolParamControl({
+export function ToolParamControl({
   param,
   value,
   onChange,
@@ -1195,29 +1348,43 @@ export default function TheorySlideEditor({
           </button>
         </div>
 
-        {/* Editor panel */}
-        <div className="flex-1 overflow-y-auto">
-          <div className="max-w-3xl mx-auto w-full p-8 flex flex-col gap-8 min-h-full">
-            {currentSlide ? (
-              <>
-                <SlideEditorForm
-                  slide={currentSlide}
-                  onChange={(patch) => updateSlide(currentSlide.id, patch)}
-                />
+        {/* Editor panel (form + preview) */}
+        <div className="flex-1 flex overflow-hidden">
+          {/* Form — left column */}
+          <div className="flex-1 overflow-y-auto border-r border-gray-200">
+            <div className="max-w-2xl mx-auto w-full p-8 flex flex-col gap-8 min-h-full">
+              {currentSlide ? (
+                <>
+                  <SlideEditorForm
+                    slide={currentSlide}
+                    onChange={(patch) => updateSlide(currentSlide.id, patch)}
+                  />
 
-                {slides.length > 1 ? (
-                  <button
-                    type="button"
-                    className="self-start flex items-center gap-1 text-xs text-red-500 hover:underline"
-                    onClick={() => removeSlide(currentSlide.id)}
-                  >
-                    <Trash2 size={12} />
-                    Eliminar diapositiva
-                  </button>
-                ) : null}
-              </>
-            ) : null}
+                  {slides.length > 1 ? (
+                    <button
+                      type="button"
+                      className="self-start flex items-center gap-1 text-xs text-red-500 hover:underline"
+                      onClick={() => removeSlide(currentSlide.id)}
+                    >
+                      <Trash2 size={12} />
+                      Eliminar diapositiva
+                    </button>
+                  ) : null}
+                </>
+              ) : null}
+            </div>
           </div>
+
+          {/* Preview — right column */}
+          {currentSlide ? (
+            <div className="w-[420px] flex-shrink-0 overflow-y-auto bg-gray-50">
+              <SlidePreviewPane
+                slide={currentSlide}
+                theme={theme}
+                accentColor={accentColor}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
