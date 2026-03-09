@@ -17,6 +17,9 @@ import TheorySlideEditor, {
 import type { PresentationTheme, AccentColor } from "../../components/modulos/TheorySlideEditor";
 import HerramientaPicker from "../../components/modulos/HerramientaPicker";
 import type { VisualSpec } from "../../visualizadores/types";
+import type { StatDistributionSpec, StatRegressionSpec } from "../../visualizadores/types";
+import { enrichStatDistributionSpec, enrichStatRegressionSpec } from "../../visualizadores/estadistica/statComputations";
+import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
@@ -986,8 +989,21 @@ export default function ModuloEditor() {
                     <div className="space-y-3">
                       <HerramientaPicker
                         isOpen={herramientaPickerFor === "new"}
-                        onSelect={(detail) => {
-                          setNewTheoryItem((prev) => ({ ...prev, detail }));
+                        onSelect={(rawDetail) => {
+                          // Enrich stat specs so curve data is ready immediately
+                          let enrichedDetail = rawDetail;
+                          try {
+                            const p = parseHerramientaSpec(rawDetail);
+                            if (p) {
+                              let spec = p.spec;
+                              if (spec.kind === "stat-distribution")
+                                spec = enrichStatDistributionSpec(spec as StatDistributionSpec);
+                              else if (spec.kind === "stat-regression")
+                                spec = enrichStatRegressionSpec(spec as StatRegressionSpec);
+                              enrichedDetail = serializeHerramientaDetail(spec, p.subject);
+                            }
+                          } catch { /* keep original */ }
+                          setNewTheoryItem((prev) => ({ ...prev, detail: enrichedDetail }));
                           setHerramientaPickerFor(null);
                         }}
                         onClose={() => setHerramientaPickerFor(null)}
@@ -1007,32 +1023,55 @@ export default function ModuloEditor() {
                       {(() => {
                         const parsed = parseHerramientaSpec(newTheoryItem.detail);
                         if (!parsed) return null;
-                        const params = TOOL_PARAM_SCHEMAS[parsed.spec.kind] ?? [];
-                        if (params.length === 0) return (
-                          <p className="text-xs text-gray-400 italic">
-                            Esta herramienta no tiene parámetros configurables.
-                          </p>
-                        );
+                        const allParams = TOOL_PARAM_SCHEMAS[parsed.spec.kind] ?? [];
+                        const params = allParams.filter((p) => {
+                          if (!p.condition) return true;
+                          return getAtPath(parsed.spec, p.condition.path) === p.condition.value;
+                        });
+                        // enrich for preview
+                        let previewSpec = parsed.spec;
+                        if (previewSpec.kind === "stat-distribution")
+                          previewSpec = enrichStatDistributionSpec(previewSpec as StatDistributionSpec);
+                        else if (previewSpec.kind === "stat-regression")
+                          previewSpec = enrichStatRegressionSpec(previewSpec as StatRegressionSpec);
                         return (
-                          <div className="rounded-lg border border-gray-200 bg-gray-50 p-3 space-y-3">
-                            <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
-                              Parámetros
-                            </p>
-                            {params.map((param) => (
-                              <ToolParamControl
-                                key={param.id}
-                                param={param}
-                                value={getAtPath(parsed.spec, param.path)}
-                                onChange={(v) => {
-                                  const newSpec = setAtPath(parsed.spec, param.path, v) as VisualSpec;
-                                  setNewTheoryItem((prev) => ({
-                                    ...prev,
-                                    detail: serializeHerramientaDetail(newSpec, parsed.subject),
-                                  }));
-                                }}
-                              />
-                            ))}
-                          </div>
+                          <>
+                            {params.length > 0 && (
+                              <div className="rounded-lg border border-gray-200 bg-gray-50 p-3 space-y-3">
+                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
+                                  Parámetros
+                                </p>
+                                {params.map((param) => (
+                                  <ToolParamControl
+                                    key={param.id}
+                                    param={param}
+                                    value={getAtPath(parsed.spec, param.path)}
+                                    onChange={(v) => {
+                                      let newSpec = setAtPath(parsed.spec, param.path, v) as VisualSpec;
+                                      if (newSpec.kind === "stat-distribution")
+                                        newSpec = enrichStatDistributionSpec(newSpec as StatDistributionSpec);
+                                      else if (newSpec.kind === "stat-regression")
+                                        newSpec = enrichStatRegressionSpec(newSpec as StatRegressionSpec);
+                                      setNewTheoryItem((prev) => ({
+                                        ...prev,
+                                        detail: serializeHerramientaDetail(newSpec, parsed.subject),
+                                      }));
+                                    }}
+                                  />
+                                ))}
+                              </div>
+                            )}
+                            {(parsed.spec.kind === "stat-distribution" || parsed.spec.kind === "stat-regression") && (
+                              <div className="rounded-lg border border-gray-200 overflow-hidden bg-white">
+                                <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide px-3 pt-2 pb-1">
+                                  Vista previa
+                                </p>
+                                <div className="px-2 pb-2">
+                                  <VisualizerRenderer spec={previewSpec} />
+                                </div>
+                              </div>
+                            )}
+                          </>
                         );
                       })()}
                     </div>
@@ -1218,8 +1257,20 @@ export default function ModuloEditor() {
                                 <div className="space-y-2">
                                   <HerramientaPicker
                                     isOpen={herramientaPickerFor === item.id}
-                                    onSelect={(detail) => {
-                                      updateTheoryItem(item.id, { detail });
+                                    onSelect={(rawDetail) => {
+                                      let enrichedDetail = rawDetail;
+                                      try {
+                                        const p = parseHerramientaSpec(rawDetail);
+                                        if (p) {
+                                          let spec = p.spec;
+                                          if (spec.kind === "stat-distribution")
+                                            spec = enrichStatDistributionSpec(spec as StatDistributionSpec);
+                                          else if (spec.kind === "stat-regression")
+                                            spec = enrichStatRegressionSpec(spec as StatRegressionSpec);
+                                          enrichedDetail = serializeHerramientaDetail(spec, p.subject);
+                                        }
+                                      } catch { /* keep original */ }
+                                      updateTheoryItem(item.id, { detail: enrichedDetail });
                                       setHerramientaPickerFor(null);
                                     }}
                                     onClose={() => setHerramientaPickerFor(null)}
@@ -1234,31 +1285,54 @@ export default function ModuloEditor() {
                                   {(() => {
                                     const parsed = parseHerramientaSpec(item.detail);
                                     if (!parsed) return null;
-                                    const params = TOOL_PARAM_SCHEMAS[parsed.spec.kind] ?? [];
-                                    if (params.length === 0) return (
-                                      <p className="text-[11px] text-gray-400 italic">
-                                        Esta herramienta no tiene parámetros configurables.
-                                      </p>
-                                    );
+                                    const allParams = TOOL_PARAM_SCHEMAS[parsed.spec.kind] ?? [];
+                                    const params = allParams.filter((p) => {
+                                      if (!p.condition) return true;
+                                      return getAtPath(parsed.spec, p.condition.path) === p.condition.value;
+                                    });
+                                    // enrich for preview
+                                    let previewSpec = parsed.spec;
+                                    if (previewSpec.kind === "stat-distribution")
+                                      previewSpec = enrichStatDistributionSpec(previewSpec as StatDistributionSpec);
+                                    else if (previewSpec.kind === "stat-regression")
+                                      previewSpec = enrichStatRegressionSpec(previewSpec as StatRegressionSpec);
                                     return (
-                                      <div className="rounded-lg border border-gray-200 bg-white p-3 space-y-3">
-                                        <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
-                                          Parámetros
-                                        </p>
-                                        {params.map((param) => (
-                                          <ToolParamControl
-                                            key={param.id}
-                                            param={param}
-                                            value={getAtPath(parsed.spec, param.path)}
-                                            onChange={(v) => {
-                                              const newSpec = setAtPath(parsed.spec, param.path, v) as VisualSpec;
-                                              updateTheoryItem(item.id, {
-                                                detail: serializeHerramientaDetail(newSpec, parsed.subject),
-                                              });
-                                            }}
-                                          />
-                                        ))}
-                                      </div>
+                                      <>
+                                        {params.length > 0 && (
+                                          <div className="rounded-lg border border-gray-200 bg-white p-3 space-y-3">
+                                            <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
+                                              Parámetros
+                                            </p>
+                                            {params.map((param) => (
+                                              <ToolParamControl
+                                                key={param.id}
+                                                param={param}
+                                                value={getAtPath(parsed.spec, param.path)}
+                                                onChange={(v) => {
+                                                  let newSpec = setAtPath(parsed.spec, param.path, v) as VisualSpec;
+                                                  if (newSpec.kind === "stat-distribution")
+                                                    newSpec = enrichStatDistributionSpec(newSpec as StatDistributionSpec);
+                                                  else if (newSpec.kind === "stat-regression")
+                                                    newSpec = enrichStatRegressionSpec(newSpec as StatRegressionSpec);
+                                                  updateTheoryItem(item.id, {
+                                                    detail: serializeHerramientaDetail(newSpec, parsed.subject),
+                                                  });
+                                                }}
+                                              />
+                                            ))}
+                                          </div>
+                                        )}
+                                        {(parsed.spec.kind === "stat-distribution" || parsed.spec.kind === "stat-regression") && (
+                                          <div className="rounded-lg border border-gray-200 overflow-hidden bg-white">
+                                            <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide px-3 pt-2 pb-1">
+                                              Vista previa
+                                            </p>
+                                            <div className="px-2 pb-2">
+                                              <VisualizerRenderer spec={previewSpec} />
+                                            </div>
+                                          </div>
+                                        )}
+                                      </>
                                     );
                                   })()}
                                 </div>
