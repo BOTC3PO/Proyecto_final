@@ -195,7 +195,7 @@ export type Slide = {
 export type ToolParamDef = {
   id: string;
   label: string;
-  input: "number" | "boolean" | "select" | "text";
+  input: "number" | "boolean" | "select" | "text" | "color";
   unit?: string;
   min?: number;
   max?: number;
@@ -290,13 +290,22 @@ export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
 
   // ── Ciencias Sociales ────────────────────────────────────────────────────────
   "social-population-pyramid": [
-    { id: "year", label: "Año", input: "number", path: "year", defaultValue: 2024, min: 1900, max: 2100, step: 1 },
-    { id: "unit", label: "Unidad", input: "select", path: "unit", defaultValue: "percent",
+    { id: "title",       label: "Título",         input: "text",   path: "title",       defaultValue: "Pirámide de población" },
+    { id: "description", label: "Descripción",    input: "text",   path: "description", defaultValue: "" },
+    { id: "year",        label: "Año",            input: "number", path: "year",        defaultValue: 2024, min: 1900, max: 2100, step: 1 },
+    { id: "unit",        label: "Unidad",         input: "select", path: "unit",        defaultValue: "percent",
       options: [{ label: "Porcentaje", value: "percent" }, { label: "Personas", value: "count" }] },
+    { id: "maleColor",   label: "Color hombres",  input: "color",  path: "maleColor",   defaultValue: "#60a5fa" },
+    { id: "femaleColor", label: "Color mujeres",  input: "color",  path: "femaleColor", defaultValue: "#fb7185" },
   ],
   "social-choropleth": [
-    { id: "scaleMin", label: "Escala mínima", input: "number", path: "scale.min", defaultValue: 0,   min: -1000, max: 1000, step: 0.1 },
-    { id: "scaleMax", label: "Escala máxima", input: "number", path: "scale.max", defaultValue: 100, min: -1000, max: 1000, step: 0.1 },
+    { id: "title",     label: "Título",         input: "text",   path: "title",          defaultValue: "Índice de desarrollo" },
+    { id: "variable",  label: "Variable",       input: "text",   path: "variable",       defaultValue: "IDH" },
+    { id: "unit",      label: "Unidad",         input: "text",   path: "unit",           defaultValue: "" },
+    { id: "scaleMin",  label: "Escala mínima",  input: "number", path: "scale.min",      defaultValue: 0,   min: -1_000_000, max: 1_000_000, step: 0.01 },
+    { id: "scaleMax",  label: "Escala máxima",  input: "number", path: "scale.max",      defaultValue: 1,   min: -1_000_000, max: 1_000_000, step: 0.01 },
+    { id: "colorFrom", label: "Color mínimo",   input: "color",  path: "scale.colors.0", defaultValue: "#dbeafe" },
+    { id: "colorTo",   label: "Color máximo",   input: "color",  path: "scale.colors.1", defaultValue: "#1d4ed8" },
   ],
 
   // ── Filosofía ────────────────────────────────────────────────────────────────
@@ -1148,6 +1157,21 @@ export function ToolParamControl({
       </div>
     );
   }
+  if (param.input === "color") {
+    const strVal = value !== undefined ? String(value) : String(param.defaultValue);
+    return (
+      <div className="flex items-center gap-3">
+        <label className="text-xs font-medium text-gray-500 w-32 flex-shrink-0">{param.label}</label>
+        <input
+          type="color"
+          value={strVal}
+          onChange={(e) => onChange(e.target.value)}
+          className="h-7 w-12 rounded border border-gray-200 cursor-pointer bg-transparent p-0.5"
+        />
+        <span className="text-xs text-gray-400 font-mono">{strVal}</span>
+      </div>
+    );
+  }
   return null;
 }
 
@@ -1375,16 +1399,27 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                 </div>
 
                 {hasToolSpec && visibleParams.length > 0 ? (
-                  <div className="flex flex-col gap-3 pt-1">
-                    {visibleParams.map((param) => (
-                      <ToolParamControl
-                        key={param.id}
-                        param={param}
-                        value={getAtPath(slide.toolSpec, param.path)}
-                        onChange={(v) => applyParamChange(param, v)}
-                      />
-                    ))}
-                  </div>
+                  <>
+                    <div className="flex flex-col gap-3 pt-1">
+                      {visibleParams.map((param) => (
+                        <ToolParamControl
+                          key={param.id}
+                          param={param}
+                          value={getAtPath(slide.toolSpec, param.path)}
+                          onChange={(v) => applyParamChange(param, v)}
+                        />
+                      ))}
+                    </div>
+                    {/* ── Inline preview ── */}
+                    <div className="mt-4 pt-3 border-t border-gray-200">
+                      <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                        Vista previa
+                      </p>
+                      <div className="rounded-lg overflow-hidden border border-gray-100 bg-white">
+                        <VisualizerRenderer spec={slide.toolSpec!} />
+                      </div>
+                    </div>
+                  </>
                 ) : hasToolSpec ? (
                   <p className="text-xs text-gray-400 italic">
                     Esta herramienta no tiene parámetros configurables en el editor.

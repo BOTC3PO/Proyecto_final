@@ -14,12 +14,14 @@ const BAR_HEIGHT = 16;
 const BAR_SPACING = 20;
 const BAR_MAX_LENGTH = 120;
 
-const MALE_COLOR = "#60a5fa";   // blue-400
-const FEMALE_COLOR = "#fb7185"; // rose-400
+const DEFAULT_MALE_COLOR = "#60a5fa";   // blue-400
+const DEFAULT_FEMALE_COLOR = "#fb7185"; // rose-400
 
 
 export default function SocialPopulationPyramidVisualizer({ spec }: Props) {
   const { ageGroups = [], year, unit, title, description } = spec;
+  const maleColor = spec.maleColor ?? DEFAULT_MALE_COLOR;
+  const femaleColor = spec.femaleColor ?? DEFAULT_FEMALE_COLOR;
 
   const allValues = ageGroups.flatMap((g) => [g.male, g.female]);
   const maxValue = allValues.length > 0 ? Math.max(...allValues) : 1;
@@ -75,11 +77,11 @@ export default function SocialPopulationPyramidVisualizer({ spec }: Props) {
 
         {/* Legend top-right */}
         <g transform={`translate(${VIEW_WIDTH - MARGIN_RIGHT - 120}, 28)`}>
-          <rect x={0} y={-8} width={12} height={10} fill={MALE_COLOR} rx={2} />
+          <rect x={0} y={-8} width={12} height={10} fill={maleColor} rx={2} />
           <text x={16} y={0} fontSize={9} fill="#475569">
             Hombres
           </text>
-          <rect x={70} y={-8} width={12} height={10} fill={FEMALE_COLOR} rx={2} />
+          <rect x={70} y={-8} width={12} height={10} fill={femaleColor} rx={2} />
           <text x={86} y={0} fontSize={9} fill="#475569">
             Mujeres
           </text>
@@ -192,7 +194,7 @@ export default function SocialPopulationPyramidVisualizer({ spec }: Props) {
                   y={barY}
                   width={maleWidth}
                   height={BAR_HEIGHT}
-                  fill={MALE_COLOR}
+                  fill={maleColor}
                   rx={2}
                   opacity={0.85}
                 />
@@ -205,7 +207,7 @@ export default function SocialPopulationPyramidVisualizer({ spec }: Props) {
                   y={barY}
                   width={femaleWidth}
                   height={BAR_HEIGHT}
-                  fill={FEMALE_COLOR}
+                  fill={femaleColor}
                   rx={2}
                   opacity={0.85}
                 />

@@ -1098,6 +1098,8 @@ export interface SocialPopulationPyramidSpec {
   ageGroups: Array<{ label: string; male: number; female: number }>;
   unit?: "percent" | "count";
   annotations?: Array<{ ageGroup: string; note: string }>;
+  maleColor?: string;
+  femaleColor?: string;
 }
 
 export interface SocialChoroplethSpec {
