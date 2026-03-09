@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
 import type { VisualSpec } from "../../visualizadores/types";
+import type { StatDistributionSpec, StatRegressionSpec } from "../../visualizadores/types";
+import { enrichStatDistributionSpec, enrichStatRegressionSpec } from "../../visualizadores/estadistica/statComputations";
 import HerramientaPicker from "./HerramientaPicker";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
 
@@ -203,6 +205,8 @@ export type ToolParamDef = {
   description?: string;
   /** Dot-notation path within the VisualSpec to set the value (supports array indices like "waves.0.amplitude") */
   path: string;
+  /** Only show this param when another field in the spec equals a specific value */
+  condition?: { path: string; value: unknown };
 };
 
 /** Editable parameter schemas keyed by VisualSpec.kind */
@@ -244,9 +248,17 @@ export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
       path: "distributionType", defaultValue: "normal",
       options: [{ label: "Normal", value: "normal" }, { label: "Binomial", value: "binomial" }, { label: "Uniforme", value: "uniform" }],
     },
-    { id: "mean",    label: "Media (μ)",             input: "number", path: "parameters.mean",   defaultValue: 0,   min: -100, max: 100, step: 1   },
-    { id: "stdDev",  label: "Desv. estándar (σ)",    input: "number", path: "parameters.stdDev", defaultValue: 1,   min: 0.1,  max: 20,  step: 0.1, description: "Solo para distribución normal" },
-    { id: "samples", label: "Muestras",               input: "number", path: "samples",           defaultValue: 100, min: 10,   max: 1000, step: 10  },
+    // Normal
+    { id: "mean",   label: "Media (μ)",          input: "number", path: "parameters.mean",   defaultValue: 0,   min: -100, max: 100, step: 1,   condition: { path: "distributionType", value: "normal" } },
+    { id: "stdDev", label: "Desv. estándar (σ)", input: "number", path: "parameters.stdDev", defaultValue: 1,   min: 0.1,  max: 20,  step: 0.1, condition: { path: "distributionType", value: "normal" } },
+    // Binomial
+    { id: "n", label: "Ensayos (n)",      input: "number", path: "parameters.n", defaultValue: 10,  min: 1,    max: 50,   step: 1,    condition: { path: "distributionType", value: "binomial" } },
+    { id: "p", label: "Probabilidad (p)", input: "number", path: "parameters.p", defaultValue: 0.5, min: 0.01, max: 0.99, step: 0.01, condition: { path: "distributionType", value: "binomial" } },
+    // Uniforme
+    { id: "uMin", label: "Mínimo", input: "number", path: "parameters.min", defaultValue: 0,  min: -100, max: 100, step: 1, condition: { path: "distributionType", value: "uniform" } },
+    { id: "uMax", label: "Máximo", input: "number", path: "parameters.max", defaultValue: 10, min: -100, max: 100, step: 1, condition: { path: "distributionType", value: "uniform" } },
+    // Común
+    { id: "samples", label: "Muestras", input: "number", path: "samples", defaultValue: 100, min: 10, max: 1000, step: 10 },
   ],
   "wave-interference": [
     { id: "w1amp",  label: "Amplitud onda 1",   input: "number",  path: "waves.0.amplitude",          defaultValue: 1, min: 0.1, max: 5,  step: 0.1        },
@@ -262,8 +274,18 @@ export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
 
   // ── Estadística ─────────────────────────────────────────────────────────────
   "stat-regression": [
-    { id: "regrType", label: "Tipo de regresión", input: "select", path: "regression.type", defaultValue: "linear",
+    { id: "regrType",   label: "Tipo de regresión",  input: "select", path: "regression.type",   defaultValue: "linear",
       options: [{ label: "Lineal", value: "linear" }, { label: "Cuadrática", value: "quadratic" }] },
+    { id: "slope",     label: "Pendiente (a)",       input: "number", path: "generator.slope",     defaultValue: 2,   min: -10, max: 10,  step: 0.5 },
+    { id: "intercept", label: "Intercepto (b)",      input: "number", path: "generator.intercept", defaultValue: 0,   min: -20, max: 20,  step: 0.5 },
+    { id: "curvature", label: "Curvatura (c)",       input: "number", path: "generator.curvature", defaultValue: 0.2, min: -3,  max: 3,   step: 0.1,
+      condition: { path: "regression.type", value: "quadratic" } },
+    { id: "noise",     label: "Dispersión",          input: "number", path: "generator.noise",     defaultValue: 1,   min: 0,   max: 8,   step: 0.5 },
+    { id: "nPoints",   label: "Nº de puntos",        input: "number", path: "generator.nPoints",   defaultValue: 10,  min: 4,   max: 30,  step: 1   },
+    { id: "genXMin",   label: "X mínimo",            input: "number", path: "generator.xMin",      defaultValue: 0,   min: -50, max: 50,  step: 1   },
+    { id: "genXMax",   label: "X máximo",            input: "number", path: "generator.xMax",      defaultValue: 10,  min: 1,   max: 100, step: 1   },
+    { id: "xLabel",    label: "Etiqueta eje X",      input: "text",   path: "axes.x.label",        defaultValue: "Variable X" },
+    { id: "yLabel",    label: "Etiqueta eje Y",      input: "text",   path: "axes.y.label",        defaultValue: "Variable Y" },
   ],
 
   // ── Ciencias Sociales ────────────────────────────────────────────────────────
@@ -1145,11 +1167,19 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
   /** Apply a param change to the current toolSpec */
   const applyParamChange = (param: ToolParamDef, value: number | boolean | string) => {
     if (!slide.toolSpec) return;
-    const updated = setAtPath(slide.toolSpec, param.path, value) as VisualSpec;
+    let updated = setAtPath(slide.toolSpec, param.path, value) as VisualSpec;
+    if (updated.kind === "stat-distribution")
+      updated = enrichStatDistributionSpec(updated as StatDistributionSpec);
+    else if (updated.kind === "stat-regression")
+      updated = enrichStatRegressionSpec(updated as StatRegressionSpec);
     onChange({ toolSpec: updated });
   };
 
   const toolParams = slide.toolSpec ? (TOOL_PARAM_SCHEMAS[slide.toolSpec.kind] ?? []) : [];
+  const visibleParams = toolParams.filter((param) => {
+    if (!param.condition) return true;
+    return getAtPath(slide.toolSpec, param.condition.path) === param.condition.value;
+  });
 
   const headingInput = (
     <div>
@@ -1180,7 +1210,12 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
         onSelect={(detail) => {
           try {
             const parsed = JSON.parse(detail) as { spec: VisualSpec };
-            onChange({ toolSpec: parsed.spec, body: undefined, isCode: false });
+            let spec = parsed.spec;
+            if (spec.kind === "stat-distribution")
+              spec = enrichStatDistributionSpec(spec as StatDistributionSpec);
+            else if (spec.kind === "stat-regression")
+              spec = enrichStatRegressionSpec(spec as StatRegressionSpec);
+            onChange({ toolSpec: spec, body: undefined, isCode: false });
           } catch {
             // ignore malformed JSON
           }
@@ -1339,9 +1374,9 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                   )}
                 </div>
 
-                {hasToolSpec && toolParams.length > 0 ? (
+                {hasToolSpec && visibleParams.length > 0 ? (
                   <div className="flex flex-col gap-3 pt-1">
-                    {toolParams.map((param) => (
+                    {visibleParams.map((param) => (
                       <ToolParamControl
                         key={param.id}
                         param={param}
