@@ -222,16 +222,55 @@ function quadraticLeastSquares(
 }
 
 /**
- * Returns a copy of the spec with regression line, R², and axes recomputed
- * from current points and regression type.
+ * Deterministic noise for point index i — returns a value in roughly [-1, 1]
+ * that is stable across renders for the same index.
+ */
+function deterministicNoise(i: number): number {
+  return Math.sin(i * 2.399 + 1.0) * 0.6 + Math.cos(i * 1.0 + 0.5) * 0.4;
+}
+
+/**
+ * Generate points from generator parameters. Points are deterministic so
+ * sliders produce stable, consistent scatter patterns.
+ */
+function generatePoints(generator: NonNullable<StatRegressionSpec["generator"]>, regrType: "linear" | "quadratic"): Array<{ x: number; y: number }> {
+  const { slope, intercept, noise, nPoints, xMin, xMax, curvature = 0 } = generator;
+  const safeN = Math.max(3, Math.round(nPoints));
+  const safeXMin = xMin;
+  const safeXMax = xMax > xMin ? xMax : xMin + 1;
+  const result: Array<{ x: number; y: number }> = [];
+  for (let i = 0; i < safeN; i++) {
+    const t = safeN > 1 ? i / (safeN - 1) : 0.5;
+    const x = safeXMin + t * (safeXMax - safeXMin);
+    let yTrue: number;
+    if (regrType === "quadratic") {
+      yTrue = curvature * x * x + slope * x + intercept;
+    } else {
+      yTrue = slope * x + intercept;
+    }
+    const scatter = noise * deterministicNoise(i);
+    result.push({ x: parseFloat(x.toFixed(4)), y: parseFloat((yTrue + scatter).toFixed(4)) });
+  }
+  return result;
+}
+
+/**
+ * Returns a copy of the spec with regression line, R², and axes recomputed.
+ * If spec.generator is present, data points are regenerated from those params.
  */
 export function enrichStatRegressionSpec(
   spec: StatRegressionSpec,
 ): StatRegressionSpec {
-  const { points, regression, axes } = spec;
+  const { regression, axes } = spec;
+  const type = regression.type ?? "linear";
+
+  // Regenerate points from generator if available
+  const points = spec.generator
+    ? generatePoints(spec.generator, type)
+    : spec.points;
+
   if (!points || points.length < 2) return spec;
 
-  const type = regression.type ?? "linear";
   let coefficients: number[];
   let r2: number;
 
@@ -260,7 +299,7 @@ export function enrichStatRegressionSpec(
     const x = lineXMin + (i / lineSteps) * (lineXMax - lineXMin);
     let y: number;
     if (type === "quadratic") {
-      y = coefficients[0] + coefficients[1] * x + coefficients[2] * x * x;
+      y = coefficients[0] + coefficients[1] * x + (coefficients[2] ?? 0) * x * x;
     } else {
       y = coefficients[0] + coefficients[1] * x;
     }
@@ -271,7 +310,7 @@ export function enrichStatRegressionSpec(
   const residuals = points.map((p) => {
     let predicted: number;
     if (type === "quadratic") {
-      predicted = coefficients[0] + coefficients[1] * p.x + coefficients[2] * p.x * p.x;
+      predicted = coefficients[0] + coefficients[1] * p.x + (coefficients[2] ?? 0) * p.x * p.x;
     } else {
       predicted = coefficients[0] + coefficients[1] * p.x;
     }
@@ -287,6 +326,7 @@ export function enrichStatRegressionSpec(
 
   return {
     ...spec,
+    points,
     regression: {
       ...regression,
       coefficients,

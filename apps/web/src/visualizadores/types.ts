@@ -1076,6 +1076,16 @@ export interface StatRegressionSpec {
     y: { label?: string; min: number; max: number };
   };
   residuals?: Array<{ x: number; observed: number; predicted: number }>;
+  /** Generator parameters — when present, points are regenerated from these */
+  generator?: {
+    slope: number;
+    intercept: number;
+    noise: number;
+    nPoints: number;
+    xMin: number;
+    xMax: number;
+    curvature?: number;
+  };
 }
 
 // ── Ciencias Sociales ────────────────────────────────────────────────────────

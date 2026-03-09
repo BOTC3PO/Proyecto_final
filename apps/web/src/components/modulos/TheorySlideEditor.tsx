@@ -274,10 +274,18 @@ export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
 
   // ── Estadística ─────────────────────────────────────────────────────────────
   "stat-regression": [
-    { id: "regrType", label: "Tipo de regresión", input: "select", path: "regression.type", defaultValue: "linear",
+    { id: "regrType",   label: "Tipo de regresión",  input: "select", path: "regression.type",   defaultValue: "linear",
       options: [{ label: "Lineal", value: "linear" }, { label: "Cuadrática", value: "quadratic" }] },
-    { id: "xLabel", label: "Etiqueta eje X", input: "text",   path: "axes.x.label", defaultValue: "Variable X" },
-    { id: "yLabel", label: "Etiqueta eje Y", input: "text",   path: "axes.y.label", defaultValue: "Variable Y" },
+    { id: "slope",     label: "Pendiente (a)",       input: "number", path: "generator.slope",     defaultValue: 2,   min: -10, max: 10,  step: 0.5 },
+    { id: "intercept", label: "Intercepto (b)",      input: "number", path: "generator.intercept", defaultValue: 0,   min: -20, max: 20,  step: 0.5 },
+    { id: "curvature", label: "Curvatura (c)",       input: "number", path: "generator.curvature", defaultValue: 0.2, min: -3,  max: 3,   step: 0.1,
+      condition: { path: "regression.type", value: "quadratic" } },
+    { id: "noise",     label: "Dispersión",          input: "number", path: "generator.noise",     defaultValue: 1,   min: 0,   max: 8,   step: 0.5 },
+    { id: "nPoints",   label: "Nº de puntos",        input: "number", path: "generator.nPoints",   defaultValue: 10,  min: 4,   max: 30,  step: 1   },
+    { id: "genXMin",   label: "X mínimo",            input: "number", path: "generator.xMin",      defaultValue: 0,   min: -50, max: 50,  step: 1   },
+    { id: "genXMax",   label: "X máximo",            input: "number", path: "generator.xMax",      defaultValue: 10,  min: 1,   max: 100, step: 1   },
+    { id: "xLabel",    label: "Etiqueta eje X",      input: "text",   path: "axes.x.label",        defaultValue: "Variable X" },
+    { id: "yLabel",    label: "Etiqueta eje Y",      input: "text",   path: "axes.y.label",        defaultValue: "Variable Y" },
   ],
 
   // ── Ciencias Sociales ────────────────────────────────────────────────────────
