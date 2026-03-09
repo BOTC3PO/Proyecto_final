@@ -4,7 +4,6 @@ import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer
 import type {
   SocialPopulationPyramidSpec,
   SocialChoroplethSpec,
-  MapSpec,
 } from "../../visualizadores/types";
 
 type Tool = "pyramid" | "choropleth";
@@ -22,61 +21,38 @@ const COLOR_SCHEMES: Record<ColorSchemeKey, { label: string; from: string; to: s
 };
 
 // ── Pyramid data ──────────────────────────────────────────────────────────────
+// Values represent % of total population per sex for broad age groups.
+// Year 2000: expansive pyramid (high birth rates, few elderly).
+// Year 2010: transitional (birth rate dropping, working-age bulge).
+// Year 2020: constrictive/aging (fewer young, more older adults).
 
 const PYRAMID_DATA: Record<
   Year,
   Array<{ label: string; male: number; female: number }>
 > = {
   2000: [
-    { label: "0-4", male: 8.2, female: 7.9 },
-    { label: "5-9", male: 7.8, female: 7.5 },
-    { label: "10-14", male: 7.4, female: 7.1 },
-    { label: "15-19", male: 7.0, female: 6.8 },
-    { label: "20-24", male: 6.5, female: 6.4 },
-    { label: "25-29", male: 6.1, female: 6.0 },
-    { label: "30-34", male: 5.6, female: 5.6 },
-    { label: "35-39", male: 5.0, female: 5.1 },
-    { label: "40-44", male: 4.3, female: 4.5 },
-    { label: "45-49", male: 3.7, female: 3.9 },
-    { label: "50-54", male: 3.0, female: 3.3 },
-    { label: "55-59", male: 2.4, female: 2.7 },
-    { label: "60-64", male: 2.0, female: 2.3 },
-    { label: "65-69", male: 1.5, female: 1.9 },
-    { label: "70+", male: 2.1, female: 3.0 },
+    { label: "0-14",  male: 25, female: 24 },
+    { label: "15-29", male: 22, female: 21 },
+    { label: "30-44", male: 17, female: 17 },
+    { label: "45-59", male: 11, female: 11 },
+    { label: "60-74", male: 6,  female: 7  },
+    { label: "75+",   male: 2,  female: 3  },
   ],
   2010: [
-    { label: "0-4", male: 7.0, female: 6.8 },
-    { label: "5-9", male: 7.3, female: 7.1 },
-    { label: "10-14", male: 7.5, female: 7.2 },
-    { label: "15-19", male: 7.2, female: 7.0 },
-    { label: "20-24", male: 6.8, female: 6.7 },
-    { label: "25-29", male: 6.5, female: 6.4 },
-    { label: "30-34", male: 6.2, female: 6.2 },
-    { label: "35-39", male: 5.8, female: 5.9 },
-    { label: "40-44", male: 5.3, female: 5.5 },
-    { label: "45-49", male: 4.7, female: 4.9 },
-    { label: "50-54", male: 3.9, female: 4.2 },
-    { label: "55-59", male: 3.1, female: 3.4 },
-    { label: "60-64", male: 2.5, female: 2.9 },
-    { label: "65-69", male: 1.8, female: 2.2 },
-    { label: "70+", male: 2.4, female: 3.6 },
+    { label: "0-14",  male: 21, female: 20 },
+    { label: "15-29", male: 23, female: 22 },
+    { label: "30-44", male: 19, female: 19 },
+    { label: "45-59", male: 14, female: 14 },
+    { label: "60-74", male: 8,  female: 9  },
+    { label: "75+",   male: 3,  female: 5  },
   ],
   2020: [
-    { label: "0-4", male: 5.8, female: 5.6 },
-    { label: "5-9", male: 6.2, female: 6.0 },
-    { label: "10-14", male: 6.5, female: 6.3 },
-    { label: "15-19", male: 6.8, female: 6.6 },
-    { label: "20-24", male: 7.0, female: 6.8 },
-    { label: "25-29", male: 6.7, female: 6.6 },
-    { label: "30-34", male: 6.4, female: 6.4 },
-    { label: "35-39", male: 6.0, female: 6.1 },
-    { label: "40-44", male: 5.7, female: 5.8 },
-    { label: "45-49", male: 5.2, female: 5.4 },
-    { label: "50-54", male: 4.6, female: 4.9 },
-    { label: "55-59", male: 3.8, female: 4.1 },
-    { label: "60-64", male: 3.2, female: 3.6 },
-    { label: "65-69", male: 2.5, female: 2.9 },
-    { label: "70+", male: 3.6, female: 5.9 },
+    { label: "0-14",  male: 16, female: 15 },
+    { label: "15-29", male: 19, female: 18 },
+    { label: "30-44", male: 21, female: 20 },
+    { label: "45-59", male: 18, female: 18 },
+    { label: "60-74", male: 13, female: 15 },
+    { label: "75+",   male: 5,  female: 8  },
   ],
 };
 
@@ -128,7 +104,6 @@ export default function HerramientasCienciasSociales() {
   // Choropleth params
   const [selectedIndicator, setSelectedIndicator] = useState<Indicator>("gdp");
   const [colorScheme, setColorScheme] = useState<ColorSchemeKey>("azul");
-  const [showHdiMap, setShowHdiMap] = useState(false);
 
   // Derived scale (auto-computed but user can adjust)
   const indicatorInfo = INDICATOR_DATA[selectedIndicator];
@@ -146,7 +121,6 @@ export default function HerramientasCienciasSociales() {
     setSelectedIndicator(ind);
     setScaleMin(null);
     setScaleMax(null);
-    setShowHdiMap(false);
   };
 
   // ── Specs ────────────────────────────────────────────────────────────────────
@@ -177,6 +151,7 @@ export default function HerramientasCienciasSociales() {
         id: r.id,
         label: r.label,
         value: rawValues[i],
+        coordinates: r.coords,
       })),
       scale: {
         min: effectiveMin,
@@ -185,27 +160,6 @@ export default function HerramientasCienciasSociales() {
       },
     };
   }, [selectedIndicator, colorScheme, effectiveMin, effectiveMax, indicatorInfo, rawValues]);
-
-  const hdiMapSpec = useMemo<MapSpec>(() => {
-    const hdiValues = INDICATOR_DATA.hdi.values;
-    return {
-      kind: "map",
-      title: "Índice de Desarrollo Humano por región",
-      viewport: { center: [-18, -60], zoom: 3 },
-      markers: REGIONS.map((r, i) => ({
-        id: r.id,
-        label: `${r.label}: IDH ${hdiValues[i].toFixed(2)}`,
-        coordinates: r.coords,
-        description: `IDH: ${hdiValues[i].toFixed(2)} — ${
-          hdiValues[i] >= 0.8 ? "Muy alto" :
-          hdiValues[i] >= 0.7 ? "Alto" :
-          hdiValues[i] >= 0.6 ? "Medio" : "Bajo"
-        }`,
-        category: hdiValues[i] >= 0.8 ? "alto" : hdiValues[i] >= 0.7 ? "medio-alto" : "medio",
-      })),
-      routes: [],
-    };
-  }, []);
 
   const tools: Array<{ id: Tool; label: string; icon: string }> = [
     { id: "pyramid",    label: "Pirámide de población", icon: "📊" },
@@ -420,33 +374,6 @@ export default function HerramientasCienciasSociales() {
               </div>
             </div>
 
-            {/* Mapa IDH toggle */}
-            {selectedIndicator === "hdi" && (
-              <div className="pt-2 border-t border-slate-100">
-                <p className="text-xs text-slate-500 mb-2">Vista alternativa para IDH</p>
-                <div className="flex rounded-lg overflow-hidden border border-slate-200 text-xs font-medium">
-                  <button
-                    type="button"
-                    onClick={() => setShowHdiMap(false)}
-                    className={`flex-1 py-2 transition-colors ${
-                      !showHdiMap ? "bg-blue-600 text-white" : "bg-white text-slate-600 hover:bg-slate-50"
-                    }`}
-                  >
-                    📊 Gráfico
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setShowHdiMap(true)}
-                    className={`flex-1 py-2 transition-colors ${
-                      showHdiMap ? "bg-blue-600 text-white" : "bg-white text-slate-600 hover:bg-slate-50"
-                    }`}
-                  >
-                    🗺️ Mapa
-                  </button>
-                </div>
-              </div>
-            )}
-
             {/* Reset scale */}
             {(scaleMin !== null || scaleMax !== null) && (
               <button
@@ -464,11 +391,7 @@ export default function HerramientasCienciasSociales() {
             <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
               Vista previa
             </p>
-            {selectedIndicator === "hdi" && showHdiMap ? (
-              <VisualizerRenderer spec={hdiMapSpec} />
-            ) : (
-              <VisualizerRenderer spec={choroplethSpec} />
-            )}
+            <VisualizerRenderer spec={choroplethSpec} />
           </section>
         </div>
       )}
