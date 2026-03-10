@@ -23,17 +23,26 @@ let cacheBuiltAt = 0;
 
 const loadAssets = () => {
   if (Date.now() - cacheBuiltAt < 30_000 && cachedAssetsByUri.size > 0) return;
-  const db = openMapsDb(sqlitePath, true);
-  const rows = readMapAssets(db, MAPS_SOURCE_VERSION);
-  cachedAssetsByUri = new Map(rows.map((row) => [row.uri, row]));
-  cacheBuiltAt = Date.now();
+  try {
+    const db = openMapsDb(sqlitePath, true);
+    const rows = readMapAssets(db, MAPS_SOURCE_VERSION);
+    cachedAssetsByUri = new Map(rows.map((row) => [row.uri, row]));
+    cacheBuiltAt = Date.now();
+  } catch {
+    // DB not yet initialized or unavailable — asset cache stays empty.
+    // express.static will serve the TopoJSON files directly from disk.
+    cacheBuiltAt = Date.now();
+  }
 };
 
 const strongEtag = (value: string) => `"${value}"`;
 
 mapsRouter.get("/manifest", (_req, res) => {
-  const db = openMapsDb(sqlitePath, true);
-  const rows = readMapAssets(db, MAPS_SOURCE_VERSION);
+  let rows: MapAssetRow[] = [];
+  try {
+    const db = openMapsDb(sqlitePath, true);
+    rows = readMapAssets(db, MAPS_SOURCE_VERSION);
+  } catch { /* DB not initialized */ }
 
   const manifest = buildManifestFromAssets(rows);
   const etag = computeManifestEtag(rows, MAPS_SOURCE_VERSION);
@@ -49,8 +58,11 @@ mapsRouter.get("/manifest", (_req, res) => {
 });
 
 mapsRouter.get("/manifest.meta", (_req, res) => {
-  const db = openMapsDb(sqlitePath, true);
-  const rows = readMapAssets(db, MAPS_SOURCE_VERSION);
+  let rows: MapAssetRow[] = [];
+  try {
+    const db = openMapsDb(sqlitePath, true);
+    rows = readMapAssets(db, MAPS_SOURCE_VERSION);
+  } catch { /* DB not initialized */ }
 
   const payload = {
     ...buildManifestFromAssets(rows),

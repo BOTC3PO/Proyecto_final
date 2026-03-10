@@ -22,7 +22,9 @@ export default function GeografiaMapaSelector() {
 
     fetch("/api/maps/political/earth/countries_110m.topo.json")
       .then(async (response) => {
-        if (!response.ok) {
+        // HTTP 304 (Not Modified) means the browser will serve the cached copy —
+        // treat it as valid. Only reject on genuine error statuses.
+        if (!response.ok && response.status !== 304) {
           throw new Error(`No se pudo cargar el mapa (${response.status})`);
         }
         return response.json() as Promise<TopologyLike>;
@@ -35,6 +37,7 @@ export default function GeografiaMapaSelector() {
       })
       .catch((error) => {
         if (!active) return;
+        console.error("[GeografiaMapaSelector] Error al cargar el mapa:", error);
         setCountries([]);
         setStatus("error");
         setErrorMessage(

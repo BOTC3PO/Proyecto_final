@@ -173,7 +173,9 @@ function ChoroplethMap({ spec }: Props) {
     setMapStatus("loading");
     fetch(LAND_URL)
       .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        // HTTP 304 (Not Modified) means the browser will serve the cached copy —
+        // treat it as valid. Only reject on genuine error statuses.
+        if (!r.ok && r.status !== 304) throw new Error(`HTTP ${r.status}`);
         return r.json() as Promise<TopologyLike>;
       })
       .then((topo) => {
@@ -181,8 +183,9 @@ function ChoroplethMap({ spec }: Props) {
         setLandFeatures(topologyToFeatures(topo));
         setMapStatus("ready");
       })
-      .catch(() => {
+      .catch((err) => {
         if (!active) return;
+        console.error("[ChoroplethMap] Error al cargar el mapa base:", err);
         setMapStatus("error");
       });
     return () => { active = false; };

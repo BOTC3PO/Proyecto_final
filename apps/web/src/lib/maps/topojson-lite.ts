@@ -31,18 +31,24 @@ export type CountryFeature = {
 function decodeArc(topology: TopologyLike, arcIndex: number): number[][] {
   const normalized = arcIndex >= 0 ? arcIndex : ~arcIndex;
   const encoded = topology.arcs[normalized] ?? [];
-  let x = 0;
-  let y = 0;
-  const points = encoded.map(([dx, dy]) => {
-    x += dx;
-    y += dy;
-    if (topology.transform) {
-      const [sx, sy] = topology.transform.scale;
-      const [tx, ty] = topology.transform.translate;
+
+  let points: number[][];
+  if (topology.transform) {
+    // Coordinates are delta-encoded integers; apply quantization transform.
+    const [sx, sy] = topology.transform.scale;
+    const [tx, ty] = topology.transform.translate;
+    let x = 0;
+    let y = 0;
+    points = encoded.map(([dx, dy]) => {
+      x += dx;
+      y += dy;
       return [x * sx + tx, y * sy + ty];
-    }
-    return [x, y];
-  });
+    });
+  } else {
+    // Coordinates are already absolute geographic values (no delta encoding).
+    points = encoded.map(([x, y]) => [x, y]);
+  }
+
   return arcIndex >= 0 ? points : points.slice().reverse();
 }
 
