@@ -74,7 +74,7 @@ export const openMapsDb = (sqlitePath: string, readonly: boolean) => {
   const db = new BetterSqlite3(sqlitePath, { readonly, fileMustExist: false });
   db.pragma("journal_mode = WAL");
   db.pragma("synchronous = NORMAL");
-  ensureMapAssetsSchema(db);
+  if (!readonly) ensureMapAssetsSchema(db);
   return db;
 };
 
