@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
 import type { VisualSpec } from "../../visualizadores/types";
-import type { StatDistributionSpec, StatRegressionSpec } from "../../visualizadores/types";
+import type { StatDistributionSpec, StatRegressionSpec, SocialChoroplethSpec } from "../../visualizadores/types";
 import { enrichStatDistributionSpec, enrichStatRegressionSpec } from "../../visualizadores/estadistica/statComputations";
 import HerramientaPicker from "./HerramientaPicker";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
@@ -195,7 +195,7 @@ export type Slide = {
 export type ToolParamDef = {
   id: string;
   label: string;
-  input: "number" | "boolean" | "select" | "text";
+  input: "number" | "boolean" | "select" | "text" | "color";
   unit?: string;
   min?: number;
   max?: number;
@@ -290,13 +290,22 @@ export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
 
   // ── Ciencias Sociales ────────────────────────────────────────────────────────
   "social-population-pyramid": [
-    { id: "year", label: "Año", input: "number", path: "year", defaultValue: 2024, min: 1900, max: 2100, step: 1 },
-    { id: "unit", label: "Unidad", input: "select", path: "unit", defaultValue: "percent",
+    { id: "title",       label: "Título",         input: "text",   path: "title",       defaultValue: "Pirámide de población" },
+    { id: "description", label: "Descripción",    input: "text",   path: "description", defaultValue: "" },
+    { id: "year",        label: "Año",            input: "number", path: "year",        defaultValue: 2024, min: 1900, max: 2100, step: 1 },
+    { id: "unit",        label: "Unidad",         input: "select", path: "unit",        defaultValue: "percent",
       options: [{ label: "Porcentaje", value: "percent" }, { label: "Personas", value: "count" }] },
+    { id: "maleColor",   label: "Color hombres",  input: "color",  path: "maleColor",   defaultValue: "#60a5fa" },
+    { id: "femaleColor", label: "Color mujeres",  input: "color",  path: "femaleColor", defaultValue: "#fb7185" },
   ],
   "social-choropleth": [
-    { id: "scaleMin", label: "Escala mínima", input: "number", path: "scale.min", defaultValue: 0,   min: -1000, max: 1000, step: 0.1 },
-    { id: "scaleMax", label: "Escala máxima", input: "number", path: "scale.max", defaultValue: 100, min: -1000, max: 1000, step: 0.1 },
+    { id: "title",     label: "Título",         input: "text",   path: "title",          defaultValue: "Índice de desarrollo" },
+    { id: "variable",  label: "Variable",       input: "text",   path: "variable",       defaultValue: "IDH" },
+    { id: "unit",      label: "Unidad",         input: "text",   path: "unit",           defaultValue: "" },
+    { id: "scaleMin",  label: "Escala mínima",  input: "number", path: "scale.min",      defaultValue: 0,   min: -1_000_000, max: 1_000_000, step: 0.01 },
+    { id: "scaleMax",  label: "Escala máxima",  input: "number", path: "scale.max",      defaultValue: 1,   min: -1_000_000, max: 1_000_000, step: 0.01 },
+    { id: "colorFrom", label: "Color mínimo",   input: "color",  path: "scale.colors.0", defaultValue: "#dbeafe" },
+    { id: "colorTo",   label: "Color máximo",   input: "color",  path: "scale.colors.1", defaultValue: "#1d4ed8" },
   ],
 
   // ── Filosofía ────────────────────────────────────────────────────────────────
@@ -1148,6 +1157,21 @@ export function ToolParamControl({
       </div>
     );
   }
+  if (param.input === "color") {
+    const strVal = value !== undefined ? String(value) : String(param.defaultValue);
+    return (
+      <div className="flex items-center gap-3">
+        <label className="text-xs font-medium text-gray-500 w-32 flex-shrink-0">{param.label}</label>
+        <input
+          type="color"
+          value={strVal}
+          onChange={(e) => onChange(e.target.value)}
+          className="h-7 w-12 rounded border border-gray-200 cursor-pointer bg-transparent p-0.5"
+        />
+        <span className="text-xs text-gray-400 font-mono">{strVal}</span>
+      </div>
+    );
+  }
   return null;
 }
 
@@ -1375,16 +1399,109 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                 </div>
 
                 {hasToolSpec && visibleParams.length > 0 ? (
-                  <div className="flex flex-col gap-3 pt-1">
-                    {visibleParams.map((param) => (
-                      <ToolParamControl
-                        key={param.id}
-                        param={param}
-                        value={getAtPath(slide.toolSpec, param.path)}
-                        onChange={(v) => applyParamChange(param, v)}
-                      />
-                    ))}
-                  </div>
+                  <>
+                    <div className="flex flex-col gap-3 pt-1">
+                      {visibleParams.map((param) => (
+                        <ToolParamControl
+                          key={param.id}
+                          param={param}
+                          value={getAtPath(slide.toolSpec, param.path)}
+                          onChange={(v) => applyParamChange(param, v)}
+                        />
+                      ))}
+                    </div>
+                    {/* ── Choropleth region array editor ── */}
+                    {slide.toolSpec?.kind === "social-choropleth" && (
+                      <div className="mt-3 pt-3 border-t border-gray-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <p className="text-xs font-medium text-gray-500">Regiones</p>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const choropleth = slide.toolSpec as SocialChoroplethSpec;
+                              onChange({ toolSpec: { ...choropleth, regions: [...(choropleth.regions ?? []), { id: `r${Date.now()}`, label: "Nueva región", value: 0, coordinates: [0, 0] as [number, number] }] } });
+                            }}
+                            className="flex items-center gap-1 text-xs text-blue-600 hover:underline"
+                          >
+                            <Plus size={11} /> Agregar
+                          </button>
+                        </div>
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-xs border-collapse">
+                            <thead>
+                              <tr className="text-[10px] text-gray-400 uppercase tracking-wide">
+                                <th className="text-left py-1 pr-1 font-medium">Nombre</th>
+                                <th className="text-left py-1 pr-1 font-medium">Valor</th>
+                                <th className="text-left py-1 pr-1 font-medium">Lat</th>
+                                <th className="text-left py-1 pr-1 font-medium">Lng</th>
+                                <th />
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {((slide.toolSpec as SocialChoroplethSpec).regions ?? []).map((region, i) => {
+                                const regions = (slide.toolSpec as SocialChoroplethSpec).regions ?? [];
+                                const updateRegions = (next: typeof regions) =>
+                                  onChange({ toolSpec: { ...(slide.toolSpec as SocialChoroplethSpec), regions: next } });
+                                return (
+                                  <tr key={region.id} className="border-t border-gray-100">
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        className="w-full border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={region.label}
+                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], label: e.target.value }; updateRegions(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        type="number" step="any"
+                                        className="w-16 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={region.value}
+                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], value: Number(e.target.value) }; updateRegions(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        type="number" step="any" placeholder="Lat"
+                                        className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={region.coordinates?.[0] ?? ""}
+                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], coordinates: [Number(e.target.value), n[i].coordinates?.[1] ?? 0] as [number, number] }; updateRegions(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        type="number" step="any" placeholder="Lng"
+                                        className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={region.coordinates?.[1] ?? ""}
+                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], coordinates: [n[i].coordinates?.[0] ?? 0, Number(e.target.value)] as [number, number] }; updateRegions(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pl-1">
+                                      <button
+                                        type="button"
+                                        onClick={() => updateRegions(regions.filter((_, j) => j !== i))}
+                                        className="text-red-400 hover:text-red-600 leading-none px-1 text-sm"
+                                        title="Quitar región"
+                                      >×</button>
+                                    </td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* ── Inline preview ── */}
+                    <div className="mt-4 pt-3 border-t border-gray-200">
+                      <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                        Vista previa
+                      </p>
+                      <div className="rounded-lg overflow-hidden border border-gray-100 bg-white">
+                        <VisualizerRenderer spec={slide.toolSpec!} />
+                      </div>
+                    </div>
+                  </>
                 ) : hasToolSpec ? (
                   <p className="text-xs text-gray-400 italic">
                     Esta herramienta no tiene parámetros configurables en el editor.
