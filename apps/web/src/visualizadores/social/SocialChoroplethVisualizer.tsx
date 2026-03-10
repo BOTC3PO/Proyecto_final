@@ -53,15 +53,16 @@ function buildProjection(
         : f.geometry.coordinates.flat();
     for (const ring of rings) {
       for (const pt of ring as number[][]) {
+        if (!pt || pt.length < 2) continue;
         lons.push(pt[0]);
         lats.push(pt[1]);
       }
     }
   }
-  const minLon = Math.min(...lons);
-  const maxLon = Math.max(...lons);
-  const minLat = Math.max(-85, Math.min(...lats));
-  const maxLat = Math.min(85, Math.max(...lats));
+  const minLon = lons.reduce((a, b) => Math.min(a, b), Infinity);
+  const maxLon = lons.reduce((a, b) => Math.max(a, b), -Infinity);
+  const minLat = Math.max(-85, lats.reduce((a, b) => Math.min(a, b), Infinity));
+  const maxLat = Math.min(85, lats.reduce((a, b) => Math.max(a, b), -Infinity));
   const minMercY = mercatorY(minLat);
   const maxMercY = mercatorY(maxLat);
 
@@ -151,7 +152,7 @@ function ChoroplethBlocks({ spec }: Props) {
 
 // ── Geographic map (same approach as GeografiaMapaSelector) ───────────────────
 
-const LAND_URL = "/api/maps/physical/earth/land_110m.topo.json";
+const LAND_URL = "/api/maps/political/earth/countries_110m.topo.json";
 const MAP_W = 560;
 const MAP_H = 320;
 
