@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState, useMemo } from "react";
-import { geoMercator, geoPath, type GeoPermissibleObjects } from "d3-geo";
-import { feature } from "topojson-client";
+import { useEffect, useMemo, useState } from "react";
+import { topologyToFeatures, type TopologyLike, type CountryFeature } from "../../lib/maps/topojson-lite";
 import type { SocialChoroplethSpec } from "../types";
 
 type Props = { spec: SocialChoroplethSpec };
@@ -29,6 +28,67 @@ function formatValue(v: number, unit?: string): string {
   else if (!Number.isInteger(v)) s = v.toFixed(2);
   else s = String(v);
   return unit ? `${s} ${unit}` : s;
+}
+
+// ── Mercator projection helper ────────────────────────────────────────────────
+// Matches the math in lib/maps/svg-geo-lite so markers align with land paths.
+
+function mercatorY(lat: number): number {
+  const clamped = Math.max(-85, Math.min(85, lat));
+  return Math.log(Math.tan(Math.PI / 4 + (clamped * Math.PI) / 360));
+}
+
+function buildProjection(
+  features: CountryFeature[],
+  width: number,
+  height: number,
+) {
+  // Collect all points from the land features to compute bounds
+  const lons: number[] = [];
+  const lats: number[] = [];
+  for (const f of features) {
+    const rings =
+      f.geometry.type === "Polygon"
+        ? f.geometry.coordinates
+        : f.geometry.coordinates.flat();
+    for (const ring of rings) {
+      for (const pt of ring as number[][]) {
+        lons.push(pt[0]);
+        lats.push(pt[1]);
+      }
+    }
+  }
+  const minLon = Math.min(...lons);
+  const maxLon = Math.max(...lons);
+  const minLat = Math.max(-85, Math.min(...lats));
+  const maxLat = Math.min(85, Math.max(...lats));
+  const minMercY = mercatorY(minLat);
+  const maxMercY = mercatorY(maxLat);
+
+  const projectPoint = (lon: number, lat: number): [number, number] => {
+    const x = ((lon - minLon) / (maxLon - minLon)) * width;
+    const y = ((maxMercY - mercatorY(lat)) / (maxMercY - minMercY)) * height;
+    return [x, y];
+  };
+
+  const ringToPath = (ring: number[][]) => {
+    const cmds = ring.map((pt, i) => {
+      const [x, y] = projectPoint(pt[0], pt[1]);
+      return `${i === 0 ? "M" : "L"}${x.toFixed(2)},${y.toFixed(2)}`;
+    });
+    return `${cmds.join(" ")} Z`;
+  };
+
+  const featurePath = (feature: CountryFeature) => {
+    if (feature.geometry.type === "Polygon") {
+      return feature.geometry.coordinates.map((r) => ringToPath(r as number[][])).join(" ");
+    }
+    return feature.geometry.coordinates
+      .map((poly) => poly.map((r) => ringToPath(r as number[][])).join(" "))
+      .join(" ");
+  };
+
+  return { projectPoint, featurePath };
 }
 
 // ── Fallback block chart (no coordinates) ─────────────────────────────────────
@@ -89,27 +149,17 @@ function ChoroplethBlocks({ spec }: Props) {
   );
 }
 
-// ── Real geographic map ───────────────────────────────────────────────────────
+// ── Geographic map (same approach as GeografiaMapaSelector) ───────────────────
 
 const LAND_URL = "/api/maps/physical/earth/land_110m.topo.json";
-
-type TopoJson = {
-  type: "Topology";
-  objects: Record<string, unknown>;
-  arcs: number[][][];
-  transform?: { scale: [number, number]; translate: [number, number] };
-};
-
 const MAP_W = 560;
 const MAP_H = 320;
 
 function ChoroplethMap({ spec }: Props) {
   const { regions = [], scale, variable, unit, title, description } = spec;
-  const [topo, setTopo] = useState<TopoJson | null>(null);
-  const [topoError, setTopoError] = useState(false);
+  const [landFeatures, setLandFeatures] = useState<CountryFeature[]>([]);
+  const [mapStatus, setMapStatus] = useState<"loading" | "ready" | "error">("loading");
   const [selectedId, setSelectedId] = useState<string | null>(regions[0]?.id ?? null);
-  const [zoom, setZoom] = useState(1);
-  const svgRef = useRef<SVGSVGElement>(null);
 
   const safeMin = scale?.min ?? 0;
   const safeMax = scale?.max ?? 1;
@@ -118,65 +168,43 @@ function ChoroplethMap({ spec }: Props) {
   const range = safeMax - safeMin || 1;
 
   useEffect(() => {
-    let cancelled = false;
+    let active = true;
+    setMapStatus("loading");
     fetch(LAND_URL)
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json() as Promise<TopoJson>;
+        return r.json() as Promise<TopologyLike>;
       })
-      .then((data) => { if (!cancelled) setTopo(data); })
-      .catch(() => { if (!cancelled) setTopoError(true); });
-    return () => { cancelled = true; };
+      .then((topo) => {
+        if (!active) return;
+        setLandFeatures(topologyToFeatures(topo));
+        setMapStatus("ready");
+      })
+      .catch(() => {
+        if (!active) return;
+        setMapStatus("error");
+      });
+    return () => { active = false; };
   }, []);
 
-  // Build projection centered on regions
-  const regionsWithCoords = regions.filter((r) => r.coordinates);
-
-  const projection = useMemo(() => {
-    if (regionsWithCoords.length === 0) return geoMercator().scale(80).translate([MAP_W / 2, MAP_H / 1.5]);
-    const lats = regionsWithCoords.map((r) => r.coordinates![0]);
-    const lngs = regionsWithCoords.map((r) => r.coordinates![1]);
-    const centerLat = (Math.min(...lats) + Math.max(...lats)) / 2;
-    const centerLng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
-    const latSpan = Math.max(20, Math.max(...lats) - Math.min(...lats));
-    const lngSpan = Math.max(20, Math.max(...lngs) - Math.min(...lngs));
-    const baseScale = Math.min(MAP_W / lngSpan, MAP_H / latSpan) * 50;
-    return geoMercator()
-      .center([centerLng, centerLat])
-      .scale(baseScale * zoom)
-      .translate([MAP_W / 2, MAP_H / 2]);
-  }, [regionsWithCoords, zoom]);
-
-  const pathGen = useMemo(() => geoPath(projection), [projection]);
-
-  // Convert TopoJSON land to SVG path
-  const landPath = useMemo(() => {
-    if (!topo) return null;
-    try {
-      const firstObject = Object.values(topo.objects)[0];
-      const geo = feature(topo as Parameters<typeof feature>[0], firstObject as Parameters<typeof feature>[1]);
-      return pathGen(geo as GeoPermissibleObjects) ?? null;
-    } catch {
-      return null;
-    }
-  }, [topo, pathGen]);
+  // Build projection and path generator from land features
+  const { projectPoint, featurePath } = useMemo(() => {
+    if (landFeatures.length === 0) return { projectPoint: null, featurePath: null };
+    return buildProjection(landFeatures, MAP_W, MAP_H);
+  }, [landFeatures]);
 
   // Project region markers
-  const projectedRegions = useMemo(() =>
-    regionsWithCoords.map((r) => {
-      const [lat, lng] = r.coordinates!;
-      const pt = projection([lng, lat]);
-      const t = Math.max(0, Math.min(1, (r.value - safeMin) / range));
-      return {
-        ...r,
-        px: pt?.[0] ?? 0,
-        py: pt?.[1] ?? 0,
-        fillColor: r.color ?? lerpColor(colorFrom, colorTo, t),
-        t,
-      };
-    }),
-    [regionsWithCoords, projection, safeMin, range, colorFrom, colorTo],
-  );
+  const projectedRegions = useMemo(() => {
+    if (!projectPoint) return [];
+    return regions
+      .filter((r) => r.coordinates)
+      .map((r) => {
+        const [lat, lng] = r.coordinates!;
+        const [px, py] = projectPoint(lng, lat);
+        const t = Math.max(0, Math.min(1, (r.value - safeMin) / range));
+        return { ...r, px, py, fillColor: r.color ?? lerpColor(colorFrom, colorTo, t) };
+      });
+  }, [regions, projectPoint, safeMin, range, colorFrom, colorTo]);
 
   const selected = regions.find((r) => r.id === selectedId) ?? null;
 
@@ -189,87 +217,72 @@ function ChoroplethMap({ spec }: Props) {
         </header>
       )}
 
-      {/* Toolbar */}
-      <div className="flex items-center justify-between">
-        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-          {variable}{unit ? ` (${unit})` : ""}
-        </p>
-        <div className="flex items-center gap-1">
-          <button
-            type="button"
-            onClick={() => setZoom((z) => Math.max(0.3, +(z - 0.25).toFixed(2)))}
-            className="rounded border border-slate-200 px-2 py-0.5 text-xs text-slate-500 hover:bg-slate-50"
-          >−</button>
-          <span className="text-[11px] text-slate-400 w-10 text-center">{zoom.toFixed(2)}×</span>
-          <button
-            type="button"
-            onClick={() => setZoom((z) => Math.min(6, +(z + 0.25).toFixed(2)))}
-            className="rounded border border-slate-200 px-2 py-0.5 text-xs text-slate-500 hover:bg-slate-50"
-          >+</button>
-        </div>
-      </div>
+      <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+        {variable}{unit ? ` (${unit})` : ""}
+      </p>
 
       {/* SVG Map */}
-      <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
-        <svg
-          ref={svgRef}
-          viewBox={`0 0 ${MAP_W} ${MAP_H}`}
-          className="w-full"
-          style={{ display: "block" }}
-        >
-          {/* Ocean background */}
-          <rect width={MAP_W} height={MAP_H} fill="#cdd9e8" />
+      <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+        {mapStatus === "loading" && (
+          <div className="flex items-center justify-center h-48 text-sm text-slate-400">
+            Cargando mapa…
+          </div>
+        )}
 
-          {/* Land from TopoJSON */}
-          {landPath && (
-            <path d={landPath} fill="#e8ede4" stroke="#b0bec5" strokeWidth={0.5} />
-          )}
-          {!topo && !topoError && (
-            <text x={MAP_W / 2} y={MAP_H / 2} textAnchor="middle" fontSize={11} fill="#94a3b8">
-              Cargando mapa…
-            </text>
-          )}
-          {topoError && (
-            <text x={MAP_W / 2} y={MAP_H / 2} textAnchor="middle" fontSize={11} fill="#ef4444">
-              No se pudo cargar el mapa base
-            </text>
-          )}
+        {mapStatus === "error" && (
+          <div className="flex items-center justify-center h-48 text-sm text-red-500">
+            No se pudo cargar el mapa base. Verificá que la API esté ejecutándose.
+          </div>
+        )}
 
-          {/* Region markers */}
-          {projectedRegions.map((r) => {
-            const isSelected = r.id === selectedId;
-            const radius = isSelected ? 14 : 10;
-            return (
-              <g key={r.id} style={{ cursor: "pointer" }} onClick={() => setSelectedId(r.id)}>
-                {/* Shadow */}
-                <circle cx={r.px + 1} cy={r.py + 1} r={radius} fill="rgba(0,0,0,0.18)" />
-                {/* Fill */}
-                <circle cx={r.px} cy={r.py} r={radius} fill={r.fillColor} stroke={isSelected ? "#1e293b" : "#fff"} strokeWidth={isSelected ? 2.5 : 1.5} />
-                {/* Label */}
-                <text
-                  x={r.px}
-                  y={r.py + 3.5}
-                  textAnchor="middle"
-                  fontSize={isSelected ? 7 : 6}
-                  fontWeight="700"
-                  fill="#fff"
-                  style={{ pointerEvents: "none", textShadow: "0 0 2px rgba(0,0,0,0.8)" }}
-                >
-                  {r.label.split(" ").slice(-1)[0].slice(0, 4).toUpperCase()}
-                </text>
-              </g>
-            );
-          })}
-        </svg>
+        {mapStatus === "ready" && featurePath && (
+          <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} className="w-full" style={{ display: "block" }}>
+            {/* Ocean */}
+            <rect width={MAP_W} height={MAP_H} fill="#e8eef7" />
+
+            {/* Land */}
+            {landFeatures.map((f, i) => (
+              <path
+                key={i}
+                d={featurePath(f)}
+                fill="#d1d5db"
+                stroke="#94a3b8"
+                strokeWidth={0.4}
+              />
+            ))}
+
+            {/* Region markers */}
+            {projectedRegions.map((r) => {
+              const isSelected = r.id === selectedId;
+              const radius = isSelected ? 12 : 8;
+              return (
+                <g key={r.id} style={{ cursor: "pointer" }} onClick={() => setSelectedId(r.id)}>
+                  <circle cx={r.px + 0.5} cy={r.py + 0.5} r={radius} fill="rgba(0,0,0,0.15)" />
+                  <circle
+                    cx={r.px} cy={r.py} r={radius}
+                    fill={r.fillColor}
+                    stroke={isSelected ? "#1e293b" : "#fff"}
+                    strokeWidth={isSelected ? 2 : 1.5}
+                  />
+                  <text
+                    x={r.px} y={r.py + 3}
+                    textAnchor="middle" fontSize={isSelected ? 6.5 : 5.5}
+                    fontWeight="700" fill="#fff"
+                    style={{ pointerEvents: "none", textShadow: "0 0 2px rgba(0,0,0,0.7)" }}
+                  >
+                    {r.label.split(" ").pop()?.slice(0, 5).toUpperCase()}
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+        )}
       </div>
 
       {/* Color scale legend */}
       <div className="flex items-center gap-2">
         <span className="text-[11px] text-slate-400 font-mono">{formatValue(safeMin, unit)}</span>
-        <div
-          className="flex-1 h-2.5 rounded-full"
-          style={{ background: `linear-gradient(to right, ${colorFrom}, ${colorTo})` }}
-        />
+        <div className="flex-1 h-2.5 rounded-full" style={{ background: `linear-gradient(to right, ${colorFrom}, ${colorTo})` }} />
         <span className="text-[11px] text-slate-400 font-mono">{formatValue(safeMax, unit)}</span>
       </div>
 
@@ -279,17 +292,15 @@ function ChoroplethMap({ spec }: Props) {
           <span
             className="inline-block w-4 h-4 rounded-full flex-shrink-0 border border-white shadow"
             style={{
-              backgroundColor: selected.color ?? lerpColor(
-                colorFrom, colorTo,
-                Math.max(0, Math.min(1, (selected.value - safeMin) / range)),
-              ),
+              backgroundColor: selected.color ?? lerpColor(colorFrom, colorTo, Math.max(0, Math.min(1, (selected.value - safeMin) / range))),
             }}
           />
           <div>
             <p className="text-sm font-semibold text-slate-800">{selected.label}</p>
-            <p className="text-xs text-slate-500">{variable}: <span className="font-medium text-slate-700">{formatValue(selected.value, unit)}</span>
+            <p className="text-xs text-slate-500">
+              {variable}: <span className="font-medium text-slate-700">{formatValue(selected.value, unit)}</span>
               {selected.coordinates && (
-                <span className="ml-2 text-slate-400">· {selected.coordinates[0].toFixed(2)}°, {selected.coordinates[1].toFixed(2)}°</span>
+                <span className="ml-2 text-slate-400">· {selected.coordinates[0].toFixed(1)}°, {selected.coordinates[1].toFixed(1)}°</span>
               )}
             </p>
           </div>
