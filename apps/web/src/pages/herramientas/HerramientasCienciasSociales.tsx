@@ -92,6 +92,18 @@ const INDICATOR_DATA: Record<
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
+type RegionRow = { id: string; label: string; value: number; lat: number; lng: number };
+
+function buildRegionRows(ind: Indicator): RegionRow[] {
+  return REGIONS.map((r, i) => ({
+    id: r.id,
+    label: r.label,
+    value: INDICATOR_DATA[ind].values[i],
+    lat: r.coords[0],
+    lng: r.coords[1],
+  }));
+}
+
 export default function HerramientasCienciasSociales() {
   const [activeTool, setActiveTool] = useState<Tool>("pyramid");
 
@@ -104,12 +116,12 @@ export default function HerramientasCienciasSociales() {
   // Choropleth params
   const [selectedIndicator, setSelectedIndicator] = useState<Indicator>("gdp");
   const [colorScheme, setColorScheme] = useState<ColorSchemeKey>("azul");
+  const [regionRows, setRegionRows] = useState<RegionRow[]>(() => buildRegionRows("gdp"));
 
-  // Derived scale (auto-computed but user can adjust)
+  // Derived scale (auto-computed from editable rows, user can adjust)
   const indicatorInfo = INDICATOR_DATA[selectedIndicator];
-  const rawValues = indicatorInfo.values;
-  const autoMin = Math.min(...rawValues);
-  const autoMax = Math.max(...rawValues);
+  const autoMin = regionRows.length > 0 ? Math.min(...regionRows.map((r) => r.value)) : 0;
+  const autoMax = regionRows.length > 0 ? Math.max(...regionRows.map((r) => r.value)) : 1;
   const [scaleMin, setScaleMin] = useState<number | null>(null);
   const [scaleMax, setScaleMax] = useState<number | null>(null);
 
@@ -121,6 +133,7 @@ export default function HerramientasCienciasSociales() {
     setSelectedIndicator(ind);
     setScaleMin(null);
     setScaleMax(null);
+    setRegionRows(buildRegionRows(ind));
   };
 
   // ── Specs ────────────────────────────────────────────────────────────────────
@@ -147,11 +160,11 @@ export default function HerramientasCienciasSociales() {
       description: `Distribución regional de ${indicatorInfo.variable.toLowerCase()}.`,
       variable: indicatorInfo.variable,
       unit: indicatorInfo.unit || undefined,
-      regions: REGIONS.map((r, i) => ({
+      regions: regionRows.map((r) => ({
         id: r.id,
         label: r.label,
-        value: rawValues[i],
-        coordinates: r.coords,
+        value: r.value,
+        coordinates: [r.lat, r.lng] as [number, number],
       })),
       scale: {
         min: effectiveMin,
@@ -159,7 +172,7 @@ export default function HerramientasCienciasSociales() {
         colors: [scheme.from, scheme.to],
       },
     };
-  }, [selectedIndicator, colorScheme, effectiveMin, effectiveMax, indicatorInfo, rawValues]);
+  }, [regionRows, colorScheme, effectiveMin, effectiveMax, indicatorInfo]);
 
   const tools: Array<{ id: Tool; label: string; icon: string }> = [
     { id: "pyramid",    label: "Pirámide de población", icon: "📊" },
@@ -372,6 +385,116 @@ export default function HerramientasCienciasSociales() {
                   );
                 })}
               </div>
+            </div>
+
+            {/* Region data editor */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Datos de regiones</label>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setRegionRows((prev) => [
+                      ...prev,
+                      { id: `r${Date.now()}`, label: "Nueva región", value: 0, lat: 0, lng: 0 },
+                    ])
+                  }
+                  className="text-xs text-blue-600 hover:underline"
+                >
+                  + Agregar
+                </button>
+              </div>
+              <div className="overflow-x-auto rounded-lg border border-slate-100">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="bg-slate-50 text-[10px] text-slate-400 uppercase tracking-wide">
+                      <th className="text-left px-2 py-1.5 font-medium">Nombre</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Valor</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Lat</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Lng</th>
+                      <th />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {regionRows.map((row, i) => (
+                      <tr key={row.id} className="border-t border-slate-100">
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={row.label}
+                            onChange={(e) =>
+                              setRegionRows((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], label: e.target.value };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            type="number" step="any"
+                            className="w-16 border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={row.value}
+                            onChange={(e) =>
+                              setRegionRows((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], value: Number(e.target.value) };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            type="number" step="any" placeholder="Lat"
+                            className="w-14 border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={row.lat}
+                            onChange={(e) =>
+                              setRegionRows((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], lat: Number(e.target.value) };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            type="number" step="any" placeholder="Lng"
+                            className="w-14 border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={row.lng}
+                            onChange={(e) =>
+                              setRegionRows((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], lng: Number(e.target.value) };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5 text-right">
+                          <button
+                            type="button"
+                            onClick={() => setRegionRows((prev) => prev.filter((_, j) => j !== i))}
+                            className="text-red-400 hover:text-red-600 text-sm leading-none px-1"
+                            title="Quitar región"
+                          >
+                            ×
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <button
+                type="button"
+                onClick={() => setRegionRows(buildRegionRows(selectedIndicator))}
+                className="text-xs text-slate-400 hover:text-slate-600"
+              >
+                Restablecer datos del indicador
+              </button>
             </div>
 
             {/* Reset scale */}

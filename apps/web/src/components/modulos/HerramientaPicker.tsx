@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { VisualSpec } from "../../visualizadores/types";
+import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
 
 type HerramientaPickerProps = {
   isOpen: boolean;
@@ -1335,6 +1336,7 @@ const SUBJECTS: SubjectEntry[] = [
 
 export default function HerramientaPicker({ isOpen, onSelect, onClose }: HerramientaPickerProps) {
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  const [hoveredTool, setHoveredTool] = useState<ToolEntry | null>(null);
 
   if (!isOpen) return null;
 
@@ -1355,7 +1357,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <div className="w-full max-w-3xl rounded-2xl bg-white shadow-2xl flex flex-col max-h-[90vh]">
+      <div className="w-full max-w-5xl rounded-2xl bg-white shadow-2xl flex flex-col max-h-[90vh]">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
           <div className="flex items-center gap-3">
@@ -1384,19 +1386,49 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
         {/* Content */}
         <div className="overflow-y-auto p-6 flex-1">
           {activeSubject ? (
-            /* Tool list */
-            <div className="grid gap-3">
-              {activeSubject.tools.map((tool) => (
-                <button
-                  key={tool.toolKind}
-                  type="button"
-                  onClick={() => handleSelect(activeSubject, tool)}
-                  className="text-left rounded-xl border border-slate-200 bg-white p-4 hover:border-blue-400 hover:bg-blue-50 transition-colors"
-                >
-                  <p className="font-semibold text-slate-800">{tool.label}</p>
-                  <p className="mt-1 text-sm text-slate-500">{tool.description}</p>
-                </button>
-              ))}
+            /* Tool list + live preview */
+            <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-4 min-h-[320px]">
+              {/* Tool buttons */}
+              <div className="flex flex-col gap-2">
+                {activeSubject.tools.map((tool) => {
+                  const isHovered = hoveredTool?.toolKind === tool.toolKind;
+                  return (
+                    <button
+                      key={tool.toolKind}
+                      type="button"
+                      onClick={() => handleSelect(activeSubject, tool)}
+                      onMouseEnter={() => setHoveredTool(tool)}
+                      onFocus={() => setHoveredTool(tool)}
+                      className={`text-left rounded-xl border p-3 transition-colors ${
+                        isHovered
+                          ? "border-blue-400 bg-blue-50"
+                          : "border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50"
+                      }`}
+                    >
+                      <p className="font-semibold text-slate-800 text-sm">{tool.label}</p>
+                      <p className="mt-0.5 text-xs text-slate-500">{tool.description}</p>
+                    </button>
+                  );
+                })}
+              </div>
+              {/* Live preview */}
+              <div className="rounded-xl border border-slate-100 bg-slate-50 p-3 flex flex-col min-h-0">
+                {hoveredTool ? (
+                  <>
+                    <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-2">
+                      Vista previa — {hoveredTool.label}
+                    </p>
+                    <div className="flex-1 overflow-auto rounded-lg bg-white border border-slate-100">
+                      <VisualizerRenderer spec={hoveredTool.defaultSpec} />
+                    </div>
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center justify-center h-full text-slate-400 gap-2 py-8">
+                    <span className="text-3xl">👆</span>
+                    <p className="text-sm">Pasá el cursor sobre una herramienta para ver la vista previa</p>
+                  </div>
+                )}
+              </div>
             </div>
           ) : (
             /* Subject grid */

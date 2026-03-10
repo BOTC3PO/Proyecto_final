@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
 import type { VisualSpec } from "../../visualizadores/types";
-import type { StatDistributionSpec, StatRegressionSpec } from "../../visualizadores/types";
+import type { StatDistributionSpec, StatRegressionSpec, SocialChoroplethSpec } from "../../visualizadores/types";
 import { enrichStatDistributionSpec, enrichStatRegressionSpec } from "../../visualizadores/estadistica/statComputations";
 import HerramientaPicker from "./HerramientaPicker";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
@@ -1410,6 +1410,88 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                         />
                       ))}
                     </div>
+                    {/* ── Choropleth region array editor ── */}
+                    {slide.toolSpec?.kind === "social-choropleth" && (
+                      <div className="mt-3 pt-3 border-t border-gray-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <p className="text-xs font-medium text-gray-500">Regiones</p>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const choropleth = slide.toolSpec as SocialChoroplethSpec;
+                              onChange({ toolSpec: { ...choropleth, regions: [...(choropleth.regions ?? []), { id: `r${Date.now()}`, label: "Nueva región", value: 0, coordinates: [0, 0] as [number, number] }] } });
+                            }}
+                            className="flex items-center gap-1 text-xs text-blue-600 hover:underline"
+                          >
+                            <Plus size={11} /> Agregar
+                          </button>
+                        </div>
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-xs border-collapse">
+                            <thead>
+                              <tr className="text-[10px] text-gray-400 uppercase tracking-wide">
+                                <th className="text-left py-1 pr-1 font-medium">Nombre</th>
+                                <th className="text-left py-1 pr-1 font-medium">Valor</th>
+                                <th className="text-left py-1 pr-1 font-medium">Lat</th>
+                                <th className="text-left py-1 pr-1 font-medium">Lng</th>
+                                <th />
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {((slide.toolSpec as SocialChoroplethSpec).regions ?? []).map((region, i) => {
+                                const regions = (slide.toolSpec as SocialChoroplethSpec).regions ?? [];
+                                const updateRegions = (next: typeof regions) =>
+                                  onChange({ toolSpec: { ...(slide.toolSpec as SocialChoroplethSpec), regions: next } });
+                                return (
+                                  <tr key={region.id} className="border-t border-gray-100">
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        className="w-full border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={region.label}
+                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], label: e.target.value }; updateRegions(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        type="number" step="any"
+                                        className="w-16 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={region.value}
+                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], value: Number(e.target.value) }; updateRegions(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        type="number" step="any" placeholder="Lat"
+                                        className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={region.coordinates?.[0] ?? ""}
+                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], coordinates: [Number(e.target.value), n[i].coordinates?.[1] ?? 0] as [number, number] }; updateRegions(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        type="number" step="any" placeholder="Lng"
+                                        className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={region.coordinates?.[1] ?? ""}
+                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], coordinates: [n[i].coordinates?.[0] ?? 0, Number(e.target.value)] as [number, number] }; updateRegions(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pl-1">
+                                      <button
+                                        type="button"
+                                        onClick={() => updateRegions(regions.filter((_, j) => j !== i))}
+                                        className="text-red-400 hover:text-red-600 leading-none px-1 text-sm"
+                                        title="Quitar región"
+                                      >×</button>
+                                    </td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    )}
+
                     {/* ── Inline preview ── */}
                     <div className="mt-4 pt-3 border-t border-gray-200">
                       <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">
