@@ -1061,16 +1061,14 @@ export default function ModuloEditor() {
                                 ))}
                               </div>
                             )}
-                            {(parsed.spec.kind === "stat-distribution" || parsed.spec.kind === "stat-regression") && (
-                              <div className="rounded-lg border border-gray-200 overflow-hidden bg-white">
-                                <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide px-3 pt-2 pb-1">
-                                  Vista previa
-                                </p>
-                                <div className="px-2 pb-2">
-                                  <VisualizerRenderer spec={previewSpec} />
-                                </div>
+                            <div className="rounded-lg border border-gray-200 overflow-hidden bg-white">
+                              <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide px-3 pt-2 pb-1">
+                                Vista previa
+                              </p>
+                              <div className="px-2 pb-2">
+                                <VisualizerRenderer spec={previewSpec} />
                               </div>
-                            )}
+                            </div>
                           </>
                         );
                       })()}
@@ -1322,16 +1320,14 @@ export default function ModuloEditor() {
                                             ))}
                                           </div>
                                         )}
-                                        {(parsed.spec.kind === "stat-distribution" || parsed.spec.kind === "stat-regression") && (
-                                          <div className="rounded-lg border border-gray-200 overflow-hidden bg-white">
-                                            <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide px-3 pt-2 pb-1">
-                                              Vista previa
-                                            </p>
-                                            <div className="px-2 pb-2">
-                                              <VisualizerRenderer spec={previewSpec} />
-                                            </div>
+                                        <div className="rounded-lg border border-gray-200 overflow-hidden bg-white">
+                                          <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide px-3 pt-2 pb-1">
+                                            Vista previa
+                                          </p>
+                                          <div className="px-2 pb-2">
+                                            <VisualizerRenderer spec={previewSpec} />
                                           </div>
-                                        )}
+                                        </div>
                                       </>
                                     );
                                   })()}
