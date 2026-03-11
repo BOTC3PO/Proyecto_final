@@ -84,7 +84,6 @@ const SUBJECTS: SubjectEntry[] = [
         defaultSpec: {
           kind: "social-population-pyramid",
           title: "Pirámide de población",
-          year: 2024,
           ageGroups: [
             { label: "0-14", male: 18, female: 17 },
             { label: "15-29", male: 20, female: 19 },
