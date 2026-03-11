@@ -7,7 +7,6 @@ import type {
 } from "../../visualizadores/types";
 
 type Tool = "pyramid" | "choropleth";
-type Year = 2000 | 2010 | 2020;
 type Indicator = "gdp" | "density" | "hdi";
 type ColorSchemeKey = "azul" | "verde" | "naranja" | "calor";
 
@@ -21,40 +20,18 @@ const COLOR_SCHEMES: Record<ColorSchemeKey, { label: string; from: string; to: s
 };
 
 // ── Pyramid data ──────────────────────────────────────────────────────────────
-// Values represent % of total population per sex for broad age groups.
-// Year 2000: expansive pyramid (high birth rates, few elderly).
-// Year 2010: transitional (birth rate dropping, working-age bulge).
-// Year 2020: constrictive/aging (fewer young, more older adults).
+// Default age groups (editable by the user in the UI).
 
-const PYRAMID_DATA: Record<
-  Year,
-  Array<{ label: string; male: number; female: number }>
-> = {
-  2000: [
-    { label: "0-14",  male: 25, female: 24 },
-    { label: "15-29", male: 22, female: 21 },
-    { label: "30-44", male: 17, female: 17 },
-    { label: "45-59", male: 11, female: 11 },
-    { label: "60-74", male: 6,  female: 7  },
-    { label: "75+",   male: 2,  female: 3  },
-  ],
-  2010: [
-    { label: "0-14",  male: 21, female: 20 },
-    { label: "15-29", male: 23, female: 22 },
-    { label: "30-44", male: 19, female: 19 },
-    { label: "45-59", male: 14, female: 14 },
-    { label: "60-74", male: 8,  female: 9  },
-    { label: "75+",   male: 3,  female: 5  },
-  ],
-  2020: [
-    { label: "0-14",  male: 16, female: 15 },
-    { label: "15-29", male: 19, female: 18 },
-    { label: "30-44", male: 21, female: 20 },
-    { label: "45-59", male: 18, female: 18 },
-    { label: "60-74", male: 13, female: 15 },
-    { label: "75+",   male: 5,  female: 8  },
-  ],
-};
+type AgeGroupRow = { label: string; male: number; female: number };
+
+const DEFAULT_AGE_GROUPS: AgeGroupRow[] = [
+  { label: "0-14",  male: 16, female: 15 },
+  { label: "15-29", male: 19, female: 18 },
+  { label: "30-44", male: 21, female: 20 },
+  { label: "45-59", male: 18, female: 18 },
+  { label: "60-74", male: 13, female: 15 },
+  { label: "75+",   male: 5,  female: 8  },
+];
 
 // ── Choropleth data ───────────────────────────────────────────────────────────
 
@@ -108,10 +85,11 @@ export default function HerramientasCienciasSociales() {
   const [activeTool, setActiveTool] = useState<Tool>("pyramid");
 
   // Pyramid params
-  const [selectedYear, setSelectedYear] = useState<Year>(2020);
+  const [pyramidTitle, setPyramidTitle] = useState("Pirámide de población — 2020");
   const [pyramidUnit, setPyramidUnit] = useState<"percent" | "count">("percent");
   const [maleColor, setMaleColor] = useState("#60a5fa");
   const [femaleColor, setFemaleColor] = useState("#fb7185");
+  const [ageGroupRows, setAgeGroupRows] = useState<AgeGroupRow[]>(DEFAULT_AGE_GROUPS);
 
   // Choropleth params
   const [selectedIndicator, setSelectedIndicator] = useState<Indicator>("gdp");
@@ -141,15 +119,15 @@ export default function HerramientasCienciasSociales() {
   const pyramidSpec = useMemo<SocialPopulationPyramidSpec>(
     () => ({
       kind: "social-population-pyramid",
-      title: `Pirámide de población — ${selectedYear}`,
+      title: pyramidTitle || undefined,
       description: "Distribución de la población por grupos de edad y sexo.",
-      year: selectedYear,
-      ageGroups: PYRAMID_DATA[selectedYear],
+      year: new Date().getFullYear(),
+      ageGroups: ageGroupRows,
       unit: pyramidUnit,
       maleColor,
       femaleColor,
     }),
-    [selectedYear, pyramidUnit, maleColor, femaleColor],
+    [pyramidTitle, pyramidUnit, maleColor, femaleColor, ageGroupRows],
   );
 
   const choroplethSpec = useMemo<SocialChoroplethSpec>(() => {
@@ -222,18 +200,16 @@ export default function HerramientasCienciasSociales() {
           <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
             <h2 className="text-base font-semibold text-slate-800">Parámetros</h2>
 
-            {/* Año */}
+            {/* Título */}
             <div className="space-y-1.5">
-              <label className="block text-xs font-medium text-slate-600">Año</label>
-              <select
-                value={selectedYear}
-                onChange={(e) => setSelectedYear(Number(e.target.value) as Year)}
+              <label className="block text-xs font-medium text-slate-600">Título</label>
+              <input
+                type="text"
+                value={pyramidTitle}
+                onChange={(e) => setPyramidTitle(e.target.value)}
+                placeholder="Ej: Pirámide de población — 2020"
                 className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
-              >
-                <option value={2000}>2000</option>
-                <option value={2010}>2010</option>
-                <option value={2020}>2020</option>
-              </select>
+              />
             </div>
 
             {/* Unidad */}
@@ -289,6 +265,106 @@ export default function HerramientasCienciasSociales() {
                   Restablecer
                 </button>
               </div>
+            </div>
+
+            {/* Grupos de edad */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Grupos de edad</label>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setAgeGroupRows((prev) => [
+                      ...prev,
+                      { label: "", male: 0, female: 0 },
+                    ])
+                  }
+                  className="text-xs text-blue-600 hover:underline"
+                >
+                  + Agregar rango
+                </button>
+              </div>
+              <div className="overflow-x-auto rounded-lg border border-slate-100">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="bg-slate-50 text-[10px] text-slate-400 uppercase tracking-wide">
+                      <th className="text-left px-2 py-1.5 font-medium">Rango</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Hombres</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Mujeres</th>
+                      <th />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {ageGroupRows.map((row, i) => (
+                      <tr key={i} className="border-t border-slate-100">
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={row.label}
+                            placeholder="0-14"
+                            onChange={(e) =>
+                              setAgeGroupRows((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], label: e.target.value };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            type="number"
+                            step="any"
+                            className="w-16 border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={row.male}
+                            onChange={(e) =>
+                              setAgeGroupRows((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], male: Number(e.target.value) };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            type="number"
+                            step="any"
+                            className="w-16 border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={row.female}
+                            onChange={(e) =>
+                              setAgeGroupRows((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], female: Number(e.target.value) };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5 text-right">
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setAgeGroupRows((prev) => prev.filter((_, j) => j !== i))
+                            }
+                            className="text-red-400 hover:text-red-600 text-sm leading-none px-1"
+                            title="Quitar rango"
+                          >
+                            ×
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <button
+                type="button"
+                onClick={() => setAgeGroupRows(DEFAULT_AGE_GROUPS)}
+                className="text-xs text-slate-400 hover:text-slate-600"
+              >
+                Restablecer datos
+              </button>
             </div>
           </section>
 

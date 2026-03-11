@@ -63,7 +63,7 @@ export default function SocialPopulationPyramidVisualizer({ spec }: Props) {
         role="img"
         aria-label={title ?? "Pirámide poblacional"}
       >
-        {/* Title with year */}
+        {/* Title */}
         <text
           x={CENTER_X}
           y={16}
@@ -72,7 +72,7 @@ export default function SocialPopulationPyramidVisualizer({ spec }: Props) {
           fontWeight="bold"
           fill="#1e293b"
         >
-          {title ? `${title} — ${year}` : `Pirámide Poblacional ${year}`}
+          {title ?? `Pirámide Poblacional ${year}`}
         </text>
 
         {/* Legend top-right */}
