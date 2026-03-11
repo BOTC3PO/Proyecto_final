@@ -17,7 +17,7 @@ import TheorySlideEditor, {
 import type { PresentationTheme, AccentColor } from "../../components/modulos/TheorySlideEditor";
 import HerramientaPicker from "../../components/modulos/HerramientaPicker";
 import type { VisualSpec } from "../../visualizadores/types";
-import type { StatDistributionSpec, StatRegressionSpec } from "../../visualizadores/types";
+import type { StatDistributionSpec, StatRegressionSpec, SocialPopulationPyramidSpec } from "../../visualizadores/types";
 import { enrichStatDistributionSpec, enrichStatRegressionSpec } from "../../visualizadores/estadistica/statComputations";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
@@ -1061,6 +1061,78 @@ export default function ModuloEditor() {
                                 ))}
                               </div>
                             )}
+                            {parsed.spec.kind === "social-population-pyramid" && (() => {
+                              const pyramid = parsed.spec as SocialPopulationPyramidSpec;
+                              const groups = pyramid.ageGroups ?? [];
+                              const updateGroups = (next: typeof groups) => {
+                                const newSpec = { ...pyramid, ageGroups: next } as VisualSpec;
+                                setNewTheoryItem((prev) => ({ ...prev, detail: serializeHerramientaDetail(newSpec, parsed.subject) }));
+                              };
+                              return (
+                                <div className="rounded-lg border border-gray-200 bg-gray-50 p-3 space-y-2">
+                                  <div className="flex items-center justify-between">
+                                    <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">Grupos de edad</p>
+                                    <button
+                                      type="button"
+                                      onClick={() => updateGroups([...groups, { label: "", male: 0, female: 0 }])}
+                                      className="text-xs text-blue-600 hover:underline"
+                                    >
+                                      + Agregar
+                                    </button>
+                                  </div>
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-xs border-collapse">
+                                      <thead>
+                                        <tr className="text-[10px] text-gray-400 uppercase tracking-wide">
+                                          <th className="text-left py-1 pr-1 font-medium">Rango</th>
+                                          <th className="text-left py-1 pr-1 font-medium">Hombres</th>
+                                          <th className="text-left py-1 pr-1 font-medium">Mujeres</th>
+                                          <th />
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        {groups.map((group, i) => (
+                                          <tr key={i} className="border-t border-gray-100">
+                                            <td className="py-0.5 pr-1">
+                                              <input
+                                                className="w-full border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                                value={group.label}
+                                                placeholder="0-14"
+                                                onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], label: e.target.value }; updateGroups(n); }}
+                                              />
+                                            </td>
+                                            <td className="py-0.5 pr-1">
+                                              <input
+                                                type="number" step="any"
+                                                className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                                value={group.male}
+                                                onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], male: Number(e.target.value) }; updateGroups(n); }}
+                                              />
+                                            </td>
+                                            <td className="py-0.5 pr-1">
+                                              <input
+                                                type="number" step="any"
+                                                className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                                value={group.female}
+                                                onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], female: Number(e.target.value) }; updateGroups(n); }}
+                                              />
+                                            </td>
+                                            <td className="py-0.5 pl-1">
+                                              <button
+                                                type="button"
+                                                onClick={() => updateGroups(groups.filter((_, j) => j !== i))}
+                                                className="text-red-400 hover:text-red-600 leading-none px-1 text-sm"
+                                                title="Quitar rango"
+                                              >×</button>
+                                            </td>
+                                          </tr>
+                                        ))}
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              );
+                            })()}
                             <div className="rounded-lg border border-gray-200 overflow-hidden bg-white">
                               <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide px-3 pt-2 pb-1">
                                 Vista previa
@@ -1320,6 +1392,78 @@ export default function ModuloEditor() {
                                             ))}
                                           </div>
                                         )}
+                                        {parsed.spec.kind === "social-population-pyramid" && (() => {
+                                          const pyramid = parsed.spec as SocialPopulationPyramidSpec;
+                                          const groups = pyramid.ageGroups ?? [];
+                                          const updateGroups = (next: typeof groups) => {
+                                            const newSpec = { ...pyramid, ageGroups: next } as VisualSpec;
+                                            updateTheoryItem(item.id, { detail: serializeHerramientaDetail(newSpec, parsed.subject) });
+                                          };
+                                          return (
+                                            <div className="rounded-lg border border-gray-200 bg-white p-3 space-y-2">
+                                              <div className="flex items-center justify-between">
+                                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">Grupos de edad</p>
+                                                <button
+                                                  type="button"
+                                                  onClick={() => updateGroups([...groups, { label: "", male: 0, female: 0 }])}
+                                                  className="text-xs text-blue-600 hover:underline"
+                                                >
+                                                  + Agregar
+                                                </button>
+                                              </div>
+                                              <div className="overflow-x-auto">
+                                                <table className="w-full text-xs border-collapse">
+                                                  <thead>
+                                                    <tr className="text-[10px] text-gray-400 uppercase tracking-wide">
+                                                      <th className="text-left py-1 pr-1 font-medium">Rango</th>
+                                                      <th className="text-left py-1 pr-1 font-medium">Hombres</th>
+                                                      <th className="text-left py-1 pr-1 font-medium">Mujeres</th>
+                                                      <th />
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    {groups.map((group, i) => (
+                                                      <tr key={i} className="border-t border-gray-100">
+                                                        <td className="py-0.5 pr-1">
+                                                          <input
+                                                            className="w-full border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                                            value={group.label}
+                                                            placeholder="0-14"
+                                                            onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], label: e.target.value }; updateGroups(n); }}
+                                                          />
+                                                        </td>
+                                                        <td className="py-0.5 pr-1">
+                                                          <input
+                                                            type="number" step="any"
+                                                            className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                                            value={group.male}
+                                                            onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], male: Number(e.target.value) }; updateGroups(n); }}
+                                                          />
+                                                        </td>
+                                                        <td className="py-0.5 pr-1">
+                                                          <input
+                                                            type="number" step="any"
+                                                            className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                                            value={group.female}
+                                                            onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], female: Number(e.target.value) }; updateGroups(n); }}
+                                                          />
+                                                        </td>
+                                                        <td className="py-0.5 pl-1">
+                                                          <button
+                                                            type="button"
+                                                            onClick={() => updateGroups(groups.filter((_, j) => j !== i))}
+                                                            className="text-red-400 hover:text-red-600 leading-none px-1 text-sm"
+                                                            title="Quitar rango"
+                                                          >×</button>
+                                                        </td>
+                                                      </tr>
+                                                    ))}
+                                                  </tbody>
+                                                </table>
+                                              </div>
+                                            </div>
+                                          );
+                                        })()}
                                         <div className="rounded-lg border border-gray-200 overflow-hidden bg-white">
                                           <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide px-3 pt-2 pb-1">
                                             Vista previa
