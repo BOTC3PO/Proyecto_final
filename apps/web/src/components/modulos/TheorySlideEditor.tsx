@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
 import type { VisualSpec } from "../../visualizadores/types";
-import type { StatDistributionSpec, StatRegressionSpec, SocialChoroplethSpec } from "../../visualizadores/types";
+import type { StatDistributionSpec, StatRegressionSpec, SocialChoroplethSpec, SocialPopulationPyramidSpec } from "../../visualizadores/types";
 import { enrichStatDistributionSpec, enrichStatRegressionSpec } from "../../visualizadores/estadistica/statComputations";
 import HerramientaPicker from "./HerramientaPicker";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
@@ -292,7 +292,6 @@ export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
   "social-population-pyramid": [
     { id: "title",       label: "Título",         input: "text",   path: "title",       defaultValue: "Pirámide de población" },
     { id: "description", label: "Descripción",    input: "text",   path: "description", defaultValue: "" },
-    { id: "year",        label: "Año",            input: "number", path: "year",        defaultValue: 2024, min: 1900, max: 2100, step: 1 },
     { id: "unit",        label: "Unidad",         input: "select", path: "unit",        defaultValue: "percent",
       options: [{ label: "Porcentaje", value: "percent" }, { label: "Personas", value: "count" }] },
     { id: "maleColor",   label: "Color hombres",  input: "color",  path: "maleColor",   defaultValue: "#60a5fa" },
@@ -1481,6 +1480,82 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                                         onClick={() => updateRegions(regions.filter((_, j) => j !== i))}
                                         className="text-red-400 hover:text-red-600 leading-none px-1 text-sm"
                                         title="Quitar región"
+                                      >×</button>
+                                    </td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* ── Population pyramid age group array editor ── */}
+                    {slide.toolSpec?.kind === "social-population-pyramid" && (
+                      <div className="mt-3 pt-3 border-t border-gray-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <p className="text-xs font-medium text-gray-500">Grupos de edad</p>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const pyramid = slide.toolSpec as SocialPopulationPyramidSpec;
+                              const groups = pyramid.ageGroups ?? [];
+                              onChange({ toolSpec: { ...pyramid, ageGroups: [...groups, { label: "", male: 0, female: 0 }] } });
+                            }}
+                            className="flex items-center gap-1 text-xs text-blue-600 hover:underline"
+                          >
+                            <Plus size={11} /> Agregar
+                          </button>
+                        </div>
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-xs border-collapse">
+                            <thead>
+                              <tr className="text-[10px] text-gray-400 uppercase tracking-wide">
+                                <th className="text-left py-1 pr-1 font-medium">Rango</th>
+                                <th className="text-left py-1 pr-1 font-medium">Hombres</th>
+                                <th className="text-left py-1 pr-1 font-medium">Mujeres</th>
+                                <th />
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {((slide.toolSpec as SocialPopulationPyramidSpec).ageGroups ?? []).map((group, i) => {
+                                const pyramid = slide.toolSpec as SocialPopulationPyramidSpec;
+                                const groups = pyramid.ageGroups ?? [];
+                                const updateGroups = (next: typeof groups) =>
+                                  onChange({ toolSpec: { ...pyramid, ageGroups: next } });
+                                return (
+                                  <tr key={i} className="border-t border-gray-100">
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        className="w-full border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={group.label}
+                                        placeholder="0-14"
+                                        onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], label: e.target.value }; updateGroups(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        type="number" step="any"
+                                        className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={group.male}
+                                        onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], male: Number(e.target.value) }; updateGroups(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        type="number" step="any"
+                                        className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                                        value={group.female}
+                                        onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], female: Number(e.target.value) }; updateGroups(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pl-1">
+                                      <button
+                                        type="button"
+                                        onClick={() => updateGroups(groups.filter((_, j) => j !== i))}
+                                        className="text-red-400 hover:text-red-600 leading-none px-1 text-sm"
+                                        title="Quitar rango"
                                       >×</button>
                                     </td>
                                   </tr>
