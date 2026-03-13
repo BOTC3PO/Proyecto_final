@@ -1,8 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { topologyToFeatures, type TopologyLike, type CountryFeature } from "../../lib/maps/topojson-lite";
 import type { SocialChoroplethSpec } from "../types";
 
-type Props = { spec: SocialChoroplethSpec };
+type Props = {
+  spec: SocialChoroplethSpec;
+  onRegionsChange?: (regions: SocialChoroplethSpec["regions"]) => void;
+  /** Muestra buscador de países y botón "Cambiar país". Default: false */
+  searchable?: boolean;
+};
 
 // ── Color helpers ─────────────────────────────────────────────────────────────
 
@@ -31,7 +36,6 @@ function formatValue(v: number, unit?: string): string {
 }
 
 // ── Mercator projection helper ────────────────────────────────────────────────
-// Matches the math in lib/maps/svg-geo-lite so markers align with land paths.
 
 function mercatorY(lat: number): number {
   const clamped = Math.max(-85, Math.min(85, lat));
@@ -43,7 +47,6 @@ function buildProjection(
   width: number,
   height: number,
 ) {
-  // Collect all points from the land features to compute bounds
   const lons: number[] = [];
   const lats: number[] = [];
   for (const f of features) {
@@ -150,17 +153,35 @@ function ChoroplethBlocks({ spec }: Props) {
   );
 }
 
-// ── Geographic map (same approach as GeografiaMapaSelector) ───────────────────
+// ── Geographic map ─────────────────────────────────────────────────────────────
 
 const LAND_URL = "/api/maps/political/earth/countries_110m.topo.json";
 const MAP_W = 560;
 const MAP_H = 320;
 
-function ChoroplethMap({ spec }: Props) {
+type Viewbox = { x: number; y: number; w: number; h: number };
+const INITIAL_VB: Viewbox = { x: 0, y: 0, w: MAP_W, h: MAP_H };
+
+function ChoroplethMap({ spec, onRegionsChange, searchable = false }: Props) {
   const { regions = [], scale, variable, unit, title, description } = spec;
   const [landFeatures, setLandFeatures] = useState<CountryFeature[]>([]);
   const [mapStatus, setMapStatus] = useState<"loading" | "ready" | "error">("loading");
   const [selectedId, setSelectedId] = useState<string | null>(regions[0]?.id ?? null);
+  // "change mode": ID of the region being reassigned to a different country
+  const [changeModeId, setChangeModeId] = useState<string | null>(null);
+  // Country search
+  const [search, setSearch] = useState("");
+  const [searchFocused, setSearchFocused] = useState(false);
+
+  // Pan/zoom state
+  const [vb, setVb] = useState<Viewbox>(INITIAL_VB);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const dragRef = useRef<{ startX: number; startY: number; startVb: Viewbox } | null>(null);
+  const dragDeltaRef = useRef(0);
+  const isDragging = useRef(false);
+  // Auto-fit: run once on initial map load
+  const fitAppliedRef = useRef(false);
+  const initialRegionsRef = useRef(regions);
 
   const safeMin = scale?.min ?? 0;
   const safeMax = scale?.max ?? 1;
@@ -168,13 +189,26 @@ function ChoroplethMap({ spec }: Props) {
   const colorTo = scale?.colors?.[1] ?? "#1d4ed8";
   const range = safeMax - safeMin || 1;
 
+  // Zoom ratio: 1 = full view, <1 = zoomed in
+  const zoomRatio = vb.w / MAP_W;
+
+  // Build ISO A3 → {region, fillColor} lookup
+  const isoRegionMap = useMemo(() => {
+    const map = new Map<string, { region: (typeof regions)[0]; fillColor: string }>();
+    regions.forEach((r) => {
+      if (r.isoA3) {
+        const t = Math.max(0, Math.min(1, (r.value - safeMin) / range));
+        map.set(r.isoA3, { region: r, fillColor: r.color ?? lerpColor(colorFrom, colorTo, t) });
+      }
+    });
+    return map;
+  }, [regions, safeMin, range, colorFrom, colorTo]);
+
   useEffect(() => {
     let active = true;
     setMapStatus("loading");
     fetch(LAND_URL)
       .then((r) => {
-        // HTTP 304 (Not Modified) means the browser will serve the cached copy —
-        // treat it as valid. Only reject on genuine error statuses.
         if (!r.ok && r.status !== 304) throw new Error(`HTTP ${r.status}`);
         return r.json() as Promise<TopologyLike>;
       })
@@ -191,26 +225,201 @@ function ChoroplethMap({ spec }: Props) {
     return () => { active = false; };
   }, []);
 
-  // Build projection and path generator from land features
+  // Non-passive wheel zoom
+  useEffect(() => {
+    const el = svgRef.current;
+    if (!el) return;
+    const handler = (e: WheelEvent) => {
+      e.preventDefault();
+      setVb((prev) => {
+        const factor = e.deltaY > 0 ? 1.15 : 1 / 1.15;
+        const rect = el.getBoundingClientRect();
+        const mx = ((e.clientX - rect.left) / rect.width) * prev.w + prev.x;
+        const my = ((e.clientY - rect.top) / rect.height) * prev.h + prev.y;
+        const newW = Math.min(MAP_W, Math.max(MAP_W / 20, prev.w * factor));
+        const newH = Math.min(MAP_H, Math.max(MAP_H / 20, prev.h * factor));
+        return {
+          x: mx - (mx - prev.x) * (newW / prev.w),
+          y: my - (my - prev.y) * (newH / prev.h),
+          w: newW,
+          h: newH,
+        };
+      });
+    };
+    el.addEventListener("wheel", handler, { passive: false });
+    return () => el.removeEventListener("wheel", handler);
+  }, []);
+
+  // Projection
   const { projectPoint, featurePath } = useMemo(() => {
     if (landFeatures.length === 0) return { projectPoint: null, featurePath: null };
     return buildProjection(landFeatures, MAP_W, MAP_H);
   }, [landFeatures]);
 
-  // Project region markers
-  const projectedRegions = useMemo(() => {
-    if (!projectPoint) return [];
-    return regions
-      .filter((r) => r.coordinates)
-      .map((r) => {
-        const [lat, lng] = r.coordinates!;
-        const [px, py] = projectPoint(lng, lat);
-        const t = Math.max(0, Math.min(1, (r.value - safeMin) / range));
-        return { ...r, px, py, fillColor: r.color ?? lerpColor(colorFrom, colorTo, t) };
-      });
-  }, [regions, projectPoint, safeMin, range, colorFrom, colorTo]);
+  // Pre-compute per-feature SVG bounding-box extent (min of width, height) for label sizing
+  const featureWidthMap = useMemo(() => {
+    if (!projectPoint || landFeatures.length === 0) return new Map<string, number>();
+    const map = new Map<string, number>();
+    for (const f of landFeatures) {
+      const iso = f.properties?.ISO_A3 as string | undefined;
+      if (!iso || iso === "-99") continue;
+      const rings =
+        f.geometry.type === "Polygon"
+          ? f.geometry.coordinates
+          : f.geometry.coordinates.flat();
+      let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+      for (const ring of rings) {
+        for (const pt of ring as number[][]) {
+          if (!pt || pt.length < 2) continue;
+          const [px, py] = projectPoint(pt[0], pt[1]);
+          if (px < minX) minX = px;
+          if (px > maxX) maxX = px;
+          if (py < minY) minY = py;
+          if (py > maxY) maxY = py;
+        }
+      }
+      if (isFinite(maxX) && maxX > minX) {
+        map.set(iso, Math.min(maxX - minX, maxY - minY));
+      }
+    }
+    return map;
+  }, [projectPoint, landFeatures]);
+
+  // Auto-fit viewport to the initial set of regions on first load
+  useEffect(() => {
+    if (!projectPoint || fitAppliedRef.current) return;
+    fitAppliedRef.current = true;
+    const initRegions = initialRegionsRef.current;
+    if (initRegions.length === 0) return;
+
+    const isoToFeature = new Map<string, CountryFeature>();
+    for (const f of landFeatures) {
+      const iso = f.properties?.ISO_A3 as string | undefined;
+      if (iso && iso !== "-99") isoToFeature.set(iso, f);
+    }
+
+    const points: [number, number][] = [];
+    for (const r of initRegions) {
+      if (r.isoA3) {
+        const f = isoToFeature.get(r.isoA3);
+        if (f) {
+          const lx = f.properties?.LABEL_X as number | undefined;
+          const ly = f.properties?.LABEL_Y as number | undefined;
+          if (lx != null && ly != null) { points.push(projectPoint(lx, ly)); continue; }
+        }
+      }
+      if (r.coordinates) {
+        const [lat, lng] = r.coordinates;
+        points.push(projectPoint(lng, lat));
+      }
+    }
+    if (points.length === 0) return;
+
+    const xs = points.map((p) => p[0]);
+    const ys = points.map((p) => p[1]);
+    const minX = Math.min(...xs), maxX = Math.max(...xs);
+    const minY = Math.min(...ys), maxY = Math.max(...ys);
+    const spanX = maxX - minX;
+    const spanY = maxY - minY;
+    const padX = Math.max(60, spanX * 0.5);
+    const padY = Math.max(40, spanY * 0.5);
+    setVb({ x: minX - padX, y: minY - padY, w: spanX + padX * 2, h: spanY + padY * 2 });
+  }, [projectPoint, landFeatures]);
+
+  // Searchable country list from loaded features (when onRegionsChange is active)
+  const countryList = useMemo(() => {
+    if (!onRegionsChange || landFeatures.length === 0) return [];
+    return landFeatures
+      .map((f) => ({
+        iso: f.properties?.ISO_A3 as string | undefined,
+        nameEs: (f.properties?.NAME_ES ?? f.properties?.NAME ?? f.properties?.ISO_A3 ?? "") as string,
+        nameEn: (f.properties?.NAME ?? "") as string,
+        lat: (f.properties?.LABEL_Y ?? 0) as number,
+        lng: (f.properties?.LABEL_X ?? 0) as number,
+      }))
+      .filter((c) => c.iso && c.iso !== "-99")
+      .sort((a, b) => a.nameEs.localeCompare(b.nameEs, "es"));
+  }, [landFeatures, onRegionsChange]);
+
+  const filteredCountries = useMemo(() => {
+    if (!search.trim()) return countryList.slice(0, 8);
+    const q = search.toLowerCase().trim();
+    return countryList
+      .filter((c) => c.nameEs.toLowerCase().includes(q) || c.nameEn.toLowerCase().includes(q))
+      .slice(0, 8);
+  }, [countryList, search]);
 
   const selected = regions.find((r) => r.id === selectedId) ?? null;
+
+  // Add or replace a country region
+  const applyCountry = (
+    iso: string,
+    nameEs: string,
+    lat: number,
+    lng: number,
+    replaceId?: string | null,
+  ) => {
+    if (!onRegionsChange) return;
+    if (replaceId) {
+      // Replace existing region's country info, keep its value
+      const newRegions = regions.map((r) =>
+        r.id === replaceId
+          ? { ...r, label: nameEs, isoA3: iso, coordinates: [lat, lng] as [number, number] }
+          : r,
+      );
+      onRegionsChange(newRegions);
+      setSelectedId(replaceId);
+    } else {
+      // Add new region
+      const newRegion = {
+        id: `r-${Date.now()}`,
+        label: nameEs,
+        value: safeMin + range / 2,
+        coordinates: [lat, lng] as [number, number],
+        isoA3: iso,
+      };
+      onRegionsChange([...regions, newRegion]);
+      setSelectedId(newRegion.id);
+    }
+    setChangeModeId(null);
+    setSearch("");
+    setSearchFocused(false);
+  };
+
+  // Pan handlers
+  const onMouseDown = (e: React.MouseEvent<SVGSVGElement>) => {
+    dragRef.current = { startX: e.clientX, startY: e.clientY, startVb: vb };
+    dragDeltaRef.current = 0;
+    isDragging.current = false;
+  };
+
+  const onMouseMove = (e: React.MouseEvent<SVGSVGElement>) => {
+    if (!dragRef.current) return;
+    const dx = e.clientX - dragRef.current.startX;
+    const dy = e.clientY - dragRef.current.startY;
+    const delta = Math.abs(dx) + Math.abs(dy);
+    dragDeltaRef.current = Math.max(dragDeltaRef.current, delta);
+    if (delta > 3) isDragging.current = true;
+    const scaleX = dragRef.current.startVb.w / (svgRef.current?.clientWidth ?? MAP_W);
+    const scaleY = dragRef.current.startVb.h / (svgRef.current?.clientHeight ?? MAP_H);
+    setVb({
+      ...dragRef.current.startVb,
+      x: dragRef.current.startVb.x - dx * scaleX,
+      y: dragRef.current.startVb.y - dy * scaleY,
+    });
+  };
+
+  const onMouseUp = () => { dragRef.current = null; };
+
+  const zoomBy = (factor: number) => {
+    setVb((prev) => {
+      const cx = prev.x + prev.w / 2;
+      const cy = prev.y + prev.h / 2;
+      const newW = Math.min(MAP_W, Math.max(MAP_W / 20, prev.w * factor));
+      const newH = Math.min(MAP_H, Math.max(MAP_H / 20, prev.h * factor));
+      return { x: cx - newW / 2, y: cy - newH / 2, w: newW, h: newH };
+    });
+  };
 
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm space-y-3">
@@ -225,8 +434,68 @@ function ChoroplethMap({ spec }: Props) {
         {variable}{unit ? ` (${unit})` : ""}
       </p>
 
+      {/* Country search (solo en modo búsqueda explícita) */}
+      {searchable && onRegionsChange && (
+        <div className="relative">
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setTimeout(() => setSearchFocused(false), 150)}
+            placeholder={
+              changeModeId
+                ? `Buscá un país para reemplazar "${selected?.label ?? ""}"`
+                : "Buscá un país para agregar…"
+            }
+            className={`w-full text-sm border rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 ${
+              changeModeId
+                ? "border-amber-400 focus:ring-amber-200 bg-amber-50"
+                : "border-slate-200 focus:ring-blue-200"
+            }`}
+          />
+          {changeModeId && (
+            <button
+              type="button"
+              onClick={() => setChangeModeId(null)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 text-xs"
+            >
+              Cancelar
+            </button>
+          )}
+          {searchFocused && (search.trim() || filteredCountries.length > 0) && (
+            <div className="absolute z-20 top-full mt-1 w-full bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden">
+              {filteredCountries.length === 0 ? (
+                <p className="px-3 py-2 text-xs text-slate-400">Sin resultados</p>
+              ) : (
+                filteredCountries.map((c) => {
+                  const alreadyAdded = !!isoRegionMap.get(c.iso ?? "");
+                  return (
+                    <button
+                      key={c.iso}
+                      type="button"
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={() => {
+                        if (!c.iso) return;
+                        applyCountry(c.iso, c.nameEs, c.lat, c.lng, changeModeId);
+                      }}
+                      className={`w-full text-left px-3 py-1.5 text-sm hover:bg-blue-50 flex items-center justify-between ${
+                        alreadyAdded && !changeModeId ? "opacity-40" : ""
+                      }`}
+                    >
+                      <span className="font-medium text-slate-800">{c.nameEs}</span>
+                      <span className="text-[10px] text-slate-400 ml-2">{c.iso}</span>
+                    </button>
+                  );
+                })
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
       {/* SVG Map */}
-      <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+      <div className="relative rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
         {mapStatus === "loading" && (
           <div className="flex items-center justify-center h-48 text-sm text-slate-400">
             Cargando mapa…
@@ -239,47 +508,194 @@ function ChoroplethMap({ spec }: Props) {
           </div>
         )}
 
-        {mapStatus === "ready" && featurePath && (
-          <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} className="w-full" style={{ display: "block" }}>
-            {/* Ocean */}
-            <rect width={MAP_W} height={MAP_H} fill="#e8eef7" />
+        {mapStatus === "ready" && featurePath && projectPoint && (
+          <>
+            <svg
+              ref={svgRef}
+              viewBox={`${vb.x.toFixed(2)} ${vb.y.toFixed(2)} ${vb.w.toFixed(2)} ${vb.h.toFixed(2)}`}
+              className="w-full"
+              style={{ display: "block", cursor: isDragging.current ? "grabbing" : "grab", userSelect: "none" }}
+              onMouseDown={onMouseDown}
+              onMouseMove={onMouseMove}
+              onMouseUp={onMouseUp}
+              onMouseLeave={onMouseUp}
+            >
+              {/* Ocean */}
+              <rect x={vb.x} y={vb.y} width={vb.w} height={vb.h} fill="#e8eef7" />
 
-            {/* Land */}
-            {landFeatures.map((f, i) => (
-              <path
-                key={i}
-                d={featurePath(f)}
-                fill="#d1d5db"
-                stroke="#94a3b8"
-                strokeWidth={0.4}
-              />
-            ))}
-
-            {/* Region markers */}
-            {projectedRegions.map((r) => {
-              const isSelected = r.id === selectedId;
-              const radius = isSelected ? 12 : 8;
-              return (
-                <g key={r.id} style={{ cursor: "pointer" }} onClick={() => setSelectedId(r.id)}>
-                  <circle cx={r.px + 0.5} cy={r.py + 0.5} r={radius} fill="rgba(0,0,0,0.15)" />
-                  <circle
-                    cx={r.px} cy={r.py} r={radius}
-                    fill={r.fillColor}
-                    stroke={isSelected ? "#1e293b" : "#fff"}
-                    strokeWidth={isSelected ? 2 : 1.5}
-                  />
-                  <text
-                    x={r.px} y={r.py + 3}
-                    textAnchor="middle" fontSize={isSelected ? 6.5 : 5.5}
-                    fontWeight="700" fill="#fff"
-                    style={{ pointerEvents: "none", textShadow: "0 0 2px rgba(0,0,0,0.7)" }}
+              {/* Land polygons */}
+              {landFeatures.map((f, i) => {
+                const iso = f.properties?.ISO_A3 as string | undefined;
+                const match = iso ? isoRegionMap.get(iso) : undefined;
+                const isSelected = match && selectedId === match.region.id;
+                const isChanging = match && changeModeId === match.region.id;
+                const canAdd = !match && !!onRegionsChange;
+                const canChange = !!onRegionsChange;
+                return (
+                  <path
+                    key={i}
+                    d={featurePath(f)}
+                    fill={
+                      isChanging
+                        ? "#fef3c7"
+                        : match
+                        ? match.fillColor
+                        : "#d1d5db"
+                    }
+                    stroke={isSelected ? "#1e293b" : isChanging ? "#f59e0b" : "#94a3b8"}
+                    strokeWidth={isSelected ? 1.2 : isChanging ? 1.5 : 0.4}
+                    style={{ cursor: (match || canAdd || canChange) ? "pointer" : "default" }}
+                    onClick={() => {
+                      if (dragDeltaRef.current >= 4) return;
+                      if (changeModeId) {
+                        // Replace mode: reassign changeModeId region to clicked country
+                        const name = (f.properties?.NAME_ES ?? f.properties?.NAME ?? iso ?? "País") as string;
+                        const lat = (f.properties?.LABEL_Y ?? 0) as number;
+                        const lng = (f.properties?.LABEL_X ?? 0) as number;
+                        if (iso && iso !== "-99") {
+                          applyCountry(iso, name, lat, lng, changeModeId);
+                        }
+                        return;
+                      }
+                      if (match) {
+                        setSelectedId(match.region.id);
+                        return;
+                      }
+                      if (!onRegionsChange) return;
+                      const name = (f.properties?.NAME_ES ?? f.properties?.NAME ?? iso ?? "País") as string;
+                      const lat = (f.properties?.LABEL_Y ?? 0) as number;
+                      const lng = (f.properties?.LABEL_X ?? 0) as number;
+                      if (iso && iso !== "-99") {
+                        applyCountry(iso, name, lat, lng, null);
+                      }
+                    }}
                   >
-                    {r.label.split(" ").pop()?.slice(0, 5).toUpperCase()}
+                    {match && !changeModeId && (
+                      <title>{match.region.label}: {formatValue(match.region.value, unit)}</title>
+                    )}
+                    {changeModeId && (
+                      <title>
+                        {match
+                          ? `Clic para cambiar ${regions.find(r => r.id === changeModeId)?.label ?? ""} → ${(f.properties?.NAME_ES ?? f.properties?.NAME ?? iso) as string}`
+                          : `Clic para cambiar → ${(f.properties?.NAME_ES ?? f.properties?.NAME ?? iso) as string}`}
+                      </title>
+                    )}
+                    {canAdd && iso && iso !== "-99" && !changeModeId && (
+                      <title>Clic para agregar {(f.properties?.NAME_ES ?? f.properties?.NAME ?? iso) as string}</title>
+                    )}
+                  </path>
+                );
+              })}
+
+              {/* Country name labels on colored polygons */}
+              {landFeatures.map((f, i) => {
+                const iso = f.properties?.ISO_A3 as string | undefined;
+                const match = iso ? isoRegionMap.get(iso) : undefined;
+                if (!match) return null;
+                const labelX = f.properties?.LABEL_X as number | undefined;
+                const labelY = f.properties?.LABEL_Y as number | undefined;
+                if (labelX == null || labelY == null) return null;
+                const [px, py] = projectPoint(labelX, labelY);
+                const label = match.region.label;
+                const displayLabel = label.length > 12 ? label.slice(0, 10) + "…" : label;
+                // Polygon-area-aware font size: font must fit within the polygon's SVG extent
+                const featureExtent = iso ? (featureWidthMap.get(iso) ?? MAP_W) : MAP_W;
+                const maxFontFromPolygon = featureExtent / (displayLabel.length * 0.55);
+                // Also scale with zoom so labels grow when zoomed in
+                const zoomBased = 7 * (MAP_W / vb.w) * 0.5;
+                const fontSize = Math.max(1.5, Math.min(maxFontFromPolygon, zoomBased));
+                if (fontSize < 1.2) return null;
+                return (
+                  <text
+                    key={`label-${i}`}
+                    x={px}
+                    y={py}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize={fontSize}
+                    fontWeight="600"
+                    fill="#1e293b"
+                    stroke="rgba(255,255,255,0.8)"
+                    strokeWidth={fontSize * 0.35}
+                    paintOrder="stroke"
+                    style={{ pointerEvents: "none" }}
+                  >
+                    {displayLabel}
                   </text>
-                </g>
-              );
-            })}
-          </svg>
+                );
+              })}
+
+              {/* Círculos solo para regiones sin polígono ISO en el mapa */}
+              {regions
+                .filter((r) => r.coordinates && projectPoint && !isoRegionMap.has(r.isoA3 ?? ""))
+                .map((r) => {
+                  const [lat, lng] = r.coordinates!;
+                  const [px, py] = projectPoint!(lng, lat);
+                  const t = Math.max(0, Math.min(1, (r.value - safeMin) / range));
+                  const fillColor = r.color ?? lerpColor(colorFrom, colorTo, t);
+                  const isSelected = r.id === selectedId;
+                  const baseR = isSelected ? 10 : 7;
+                  const radius = Math.max(2, baseR * zoomRatio);
+                  return (
+                    <g key={r.id} style={{ cursor: "pointer" }} onClick={() => {
+                      if (dragDeltaRef.current < 4) setSelectedId(r.id);
+                    }}>
+                      <circle cx={px + 0.5 * zoomRatio} cy={py + 0.5 * zoomRatio} r={radius} fill="rgba(0,0,0,0.15)" />
+                      <circle
+                        cx={px} cy={py} r={radius}
+                        fill={fillColor}
+                        stroke={isSelected ? "#1e293b" : "#fff"}
+                        strokeWidth={Math.max(0.5, (isSelected ? 2 : 1.5) * zoomRatio)}
+                      />
+                      {radius > 5 && (
+                        <text
+                          x={px} y={py + radius * 0.25}
+                          textAnchor="middle" fontSize={Math.max(2, radius * 0.55)}
+                          fontWeight="700" fill="#fff"
+                          stroke="rgba(0,0,0,0.4)" strokeWidth={radius * 0.08} paintOrder="stroke"
+                          style={{ pointerEvents: "none" }}
+                        >
+                          {r.label.split(" ").pop()?.slice(0, 4).toUpperCase()}
+                        </text>
+                      )}
+                    </g>
+                  );
+                })}
+            </svg>
+
+            {/* Zoom controls */}
+            <div className="absolute top-2 right-2 flex flex-col gap-1">
+              <button
+                type="button"
+                onClick={() => zoomBy(1 / 1.5)}
+                className="w-7 h-7 rounded bg-white/90 border border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900 shadow-sm text-sm font-bold leading-none flex items-center justify-center"
+                title="Acercar"
+              >+</button>
+              <button
+                type="button"
+                onClick={() => zoomBy(1.5)}
+                className="w-7 h-7 rounded bg-white/90 border border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900 shadow-sm text-sm font-bold leading-none flex items-center justify-center"
+                title="Alejar"
+              >−</button>
+              <button
+                type="button"
+                onClick={() => setVb(INITIAL_VB)}
+                className="w-7 h-7 rounded bg-white/90 border border-slate-200 text-slate-500 hover:bg-white hover:text-slate-900 shadow-sm text-xs leading-none flex items-center justify-center"
+                title="Restablecer vista"
+              >⊙</button>
+            </div>
+
+            {onRegionsChange && !changeModeId && (
+              <div className="absolute bottom-2 left-2 bg-white/80 rounded px-2 py-1 text-[10px] text-slate-400 pointer-events-none">
+                Arrastrá · Rueda para zoom · Clic en país gris para agregar
+              </div>
+            )}
+            {changeModeId && (
+              <div className="absolute bottom-2 left-2 bg-amber-50/95 border border-amber-200 rounded px-2 py-1 text-[10px] text-amber-700 pointer-events-none font-medium">
+                Hacé clic en cualquier país para reasignar "{selected?.label}"
+              </div>
+            )}
+          </>
         )}
       </div>
 
@@ -292,26 +708,74 @@ function ChoroplethMap({ spec }: Props) {
 
       {/* Selected region detail */}
       {selected && (
-        <div className="rounded-xl border border-slate-100 bg-slate-50 p-3 flex items-center gap-3">
+        <div className={`rounded-xl border p-3 flex items-start gap-3 ${
+          changeModeId ? "border-amber-300 bg-amber-50" : "border-slate-100 bg-slate-50"
+        }`}>
           <span
-            className="inline-block w-4 h-4 rounded-full flex-shrink-0 border border-white shadow"
+            className="inline-block w-4 h-4 rounded-full flex-shrink-0 border border-white shadow mt-0.5"
             style={{
               backgroundColor: selected.color ?? lerpColor(colorFrom, colorTo, Math.max(0, Math.min(1, (selected.value - safeMin) / range))),
             }}
           />
-          <div>
+          <div className="flex-1 min-w-0">
             <p className="text-sm font-semibold text-slate-800">{selected.label}</p>
-            <p className="text-xs text-slate-500">
-              {variable}: <span className="font-medium text-slate-700">{formatValue(selected.value, unit)}</span>
-              {selected.coordinates && (
-                <span className="ml-2 text-slate-400">· {selected.coordinates[0].toFixed(1)}°, {selected.coordinates[1].toFixed(1)}°</span>
+            <div className="flex items-center gap-2 mt-1 flex-wrap">
+              <span className="text-xs text-slate-500">{variable}:</span>
+              {onRegionsChange ? (
+                <input
+                  type="number"
+                  step="0.01"
+                  className="w-24 text-xs border border-slate-200 rounded px-1.5 py-0.5 focus:outline-none focus:border-blue-400"
+                  value={selected.value}
+                  onChange={(e) => {
+                    const newVal = parseFloat(e.target.value);
+                    if (!isNaN(newVal)) {
+                      onRegionsChange(regions.map((r) => r.id === selected.id ? { ...r, value: newVal } : r));
+                    }
+                  }}
+                />
+              ) : (
+                <span className="text-xs font-medium text-slate-700">{formatValue(selected.value, unit)}</span>
               )}
-            </p>
+              {selected.isoA3 && (
+                <span className="text-[11px] text-slate-400">{selected.isoA3}</span>
+              )}
+            </div>
           </div>
+          {onRegionsChange && (
+            <div className="flex flex-col gap-1 flex-shrink-0">
+              {searchable && (
+                <button
+                  type="button"
+                  title={changeModeId ? "Cancelar cambio de país" : "Cambiar país"}
+                  className={`text-xs px-2 py-0.5 rounded border transition-colors ${
+                    changeModeId
+                      ? "border-amber-400 text-amber-700 bg-amber-100 hover:bg-amber-200"
+                      : "border-slate-200 text-slate-500 hover:border-blue-400 hover:text-blue-600"
+                  }`}
+                  onClick={() => setChangeModeId(changeModeId ? null : selected.id)}
+                >
+                  {changeModeId ? "Cancelar" : "Cambiar país"}
+                </button>
+              )}
+              <button
+                type="button"
+                className="text-slate-400 hover:text-red-500 transition-colors text-xl leading-none text-center"
+                title="Quitar región"
+                onClick={() => {
+                  onRegionsChange(regions.filter((r) => r.id !== selected.id));
+                  setSelectedId(null);
+                  setChangeModeId(null);
+                }}
+              >
+                ×
+              </button>
+            </div>
+          )}
         </div>
       )}
 
-      {/* Marker list */}
+      {/* Region list */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
         {regions.map((region) => {
           const t = Math.max(0, Math.min(1, (region.value - safeMin) / range));
@@ -320,7 +784,7 @@ function ChoroplethMap({ spec }: Props) {
             <button
               key={region.id}
               type="button"
-              onClick={() => setSelectedId(region.id)}
+              onClick={() => { setSelectedId(region.id); setChangeModeId(null); }}
               className={`flex items-center gap-1.5 rounded-lg border px-2 py-1.5 text-xs text-left transition-colors ${
                 selectedId === region.id ? "border-slate-700 bg-slate-50" : "border-slate-100 hover:border-slate-300"
               }`}
@@ -338,8 +802,8 @@ function ChoroplethMap({ spec }: Props) {
 
 // ── Main export ───────────────────────────────────────────────────────────────
 
-export default function SocialChoroplethVisualizer({ spec }: Props) {
-  const hasCoordinates = spec.regions.some((r) => r.coordinates);
-  if (hasCoordinates) return <ChoroplethMap spec={spec} />;
+export default function SocialChoroplethVisualizer({ spec, onRegionsChange, searchable }: Props) {
+  const hasGeoData = spec.regions.some((r) => r.coordinates || r.isoA3);
+  if (hasGeoData) return <ChoroplethMap spec={spec} onRegionsChange={onRegionsChange} searchable={searchable} />;
   return <ChoroplethBlocks spec={spec} />;
 }

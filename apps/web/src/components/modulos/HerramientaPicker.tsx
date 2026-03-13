@@ -1,6 +1,7 @@
 import { useState } from "react";
-import type { VisualSpec } from "../../visualizadores/types";
+import type { VisualSpec, SocialChoroplethSpec } from "../../visualizadores/types";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import SocialChoroplethVisualizer from "../../visualizadores/social/SocialChoroplethVisualizer";
 
 type HerramientaPickerProps = {
   isOpen: boolean;
@@ -101,17 +102,17 @@ const SUBJECTS: SubjectEntry[] = [
         description: "Compara indicadores sociales entre regiones usando color",
         defaultSpec: {
           kind: "social-choropleth",
-          title: "Índice de desarrollo",
+          title: "Índice de Desarrollo Humano — Sudamérica",
           variable: "IDH",
           regions: [
-            { id: "r1", label: "Reg. Norte",    value: 0.82, coordinates: [-5,  -70] },
-            { id: "r2", label: "Reg. Sur",      value: 0.71, coordinates: [-38, -65] },
-            { id: "r3", label: "Reg. Este",     value: 0.79, coordinates: [-15, -45] },
-            { id: "r4", label: "Reg. Oeste",    value: 0.65, coordinates: [-18, -68] },
-            { id: "r5", label: "Reg. Centro",   value: 0.88, coordinates: [-16, -58] },
-            { id: "r6", label: "Reg. Noreste",  value: 0.74, coordinates: [-5,  -38] },
+            { id: "r1", label: "Colombia",  value: 0.77, coordinates: [-4,  -74], isoA3: "COL" },
+            { id: "r2", label: "Argentina", value: 0.84, coordinates: [-34, -64], isoA3: "ARG" },
+            { id: "r3", label: "Brasil",    value: 0.76, coordinates: [-15, -51], isoA3: "BRA" },
+            { id: "r4", label: "Bolivia",   value: 0.69, coordinates: [-17, -65], isoA3: "BOL" },
+            { id: "r5", label: "Paraguay",  value: 0.72, coordinates: [-23, -58], isoA3: "PRY" },
+            { id: "r6", label: "Venezuela", value: 0.71, coordinates: [-8,  -66], isoA3: "VEN" },
           ],
-          scale: { min: 0.5, max: 1.0, colors: ["#fef3c7", "#1d4ed8"] },
+          scale: { min: 0.6, max: 0.9, colors: ["#fef3c7", "#1d4ed8"] },
         } as VisualSpec,
       },
     ],
@@ -1336,6 +1337,7 @@ const SUBJECTS: SubjectEntry[] = [
 export default function HerramientaPicker({ isOpen, onSelect, onClose }: HerramientaPickerProps) {
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
   const [selectedTool, setSelectedTool] = useState<ToolEntry | null>(null);
+  const [editedSpec, setEditedSpec] = useState<VisualSpec | null>(null);
 
   if (!isOpen) return null;
 
@@ -1344,11 +1346,12 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
       subject: entry.subject,
       toolKind: tool.toolKind,
       title: tool.label,
-      spec: tool.defaultSpec,
+      spec: editedSpec ?? tool.defaultSpec,
     });
     onSelect(detail);
     setSelectedSubject(null);
     setSelectedTool(null);
+    setEditedSpec(null);
   };
 
   const activeSubject = selectedSubject
@@ -1364,7 +1367,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
             {activeSubject ? (
               <button
                 type="button"
-                onClick={() => { setSelectedSubject(null); setSelectedTool(null); }}
+                onClick={() => { setSelectedSubject(null); setSelectedTool(null); setEditedSpec(null); }}
                 className="text-sm text-blue-600 hover:underline"
               >
                 ← Volver
@@ -1376,7 +1379,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
           </div>
           <button
             type="button"
-            onClick={() => { setSelectedSubject(null); onClose(); }}
+            onClick={() => { setSelectedSubject(null); setSelectedTool(null); setEditedSpec(null); onClose(); }}
             className="rounded-full p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
           >
             ✕
@@ -1397,7 +1400,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
-                      onClick={() => setSelectedTool(null)}
+                      onClick={() => { setSelectedTool(null); setEditedSpec(null); }}
                       className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50"
                     >
                       Cambiar
@@ -1412,11 +1415,31 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
                   </div>
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-slate-50 p-3">
-                  <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-2">
-                    Vista previa
-                  </p>
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">
+                      Vista previa
+                    </p>
+                    {editedSpec?.kind === "social-choropleth" && (
+                      <p className="text-[10px] text-slate-400 italic">
+                        Hacé clic en un país para agregarlo · × para quitarlo
+                      </p>
+                    )}
+                  </div>
                   <div className="overflow-auto rounded-lg bg-white border border-slate-100">
-                    <VisualizerRenderer spec={selectedTool.defaultSpec} />
+                    {editedSpec?.kind === "social-choropleth" ? (
+                      <SocialChoroplethVisualizer
+                        spec={editedSpec as SocialChoroplethSpec}
+                        searchable
+                        onRegionsChange={(newRegions) =>
+                          setEditedSpec({
+                            ...(editedSpec as SocialChoroplethSpec),
+                            regions: newRegions,
+                          })
+                        }
+                      />
+                    ) : (
+                      <VisualizerRenderer spec={editedSpec ?? selectedTool.defaultSpec} />
+                    )}
                   </div>
                 </div>
               </div>
@@ -1427,7 +1450,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
                   <button
                     key={tool.toolKind}
                     type="button"
-                    onClick={() => setSelectedTool(tool)}
+                    onClick={() => { setSelectedTool(tool); setEditedSpec(tool.defaultSpec); }}
                     className="text-left rounded-xl border border-slate-200 bg-white p-4 hover:border-blue-400 hover:bg-blue-50 transition-colors"
                   >
                     <p className="font-semibold text-slate-800">{tool.label}</p>

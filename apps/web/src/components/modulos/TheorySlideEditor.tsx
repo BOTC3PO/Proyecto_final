@@ -5,6 +5,7 @@ import type { StatDistributionSpec, StatRegressionSpec, SocialChoroplethSpec, So
 import { enrichStatDistributionSpec, enrichStatRegressionSpec } from "../../visualizadores/estadistica/statComputations";
 import HerramientaPicker from "./HerramientaPicker";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import SocialChoroplethVisualizer from "../../visualizadores/social/SocialChoroplethVisualizer";
 
 // ─── Layout presets ───────────────────────────────────────────────────────────
 
@@ -1418,7 +1419,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                             type="button"
                             onClick={() => {
                               const choropleth = slide.toolSpec as SocialChoroplethSpec;
-                              onChange({ toolSpec: { ...choropleth, regions: [...(choropleth.regions ?? []), { id: `r${Date.now()}`, label: "Nueva región", value: 0, coordinates: [0, 0] as [number, number] }] } });
+                              onChange({ toolSpec: { ...choropleth, regions: [...(choropleth.regions ?? []), { id: `r${Date.now()}`, label: "Nueva región", value: 0, coordinates: [0, 0] as [number, number], isoA3: undefined }] } });
                             }}
                             className="flex items-center gap-1 text-xs text-blue-600 hover:underline"
                           >
@@ -1433,6 +1434,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                                 <th className="text-left py-1 pr-1 font-medium">Valor</th>
                                 <th className="text-left py-1 pr-1 font-medium">Lat</th>
                                 <th className="text-left py-1 pr-1 font-medium">Lng</th>
+                                <th className="text-left py-1 pr-1 font-medium">ISO</th>
                                 <th />
                               </tr>
                             </thead>
@@ -1472,6 +1474,14 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                                         className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
                                         value={region.coordinates?.[1] ?? ""}
                                         onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], coordinates: [n[i].coordinates?.[0] ?? 0, Number(e.target.value)] as [number, number] }; updateRegions(n); }}
+                                      />
+                                    </td>
+                                    <td className="py-0.5 pr-1">
+                                      <input
+                                        maxLength={3} placeholder="ARG"
+                                        className="w-12 border border-gray-200 rounded px-1.5 py-0.5 text-xs uppercase focus:outline-none focus:border-blue-400"
+                                        value={region.isoA3 ?? ""}
+                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], isoA3: e.target.value.toUpperCase() || undefined }; updateRegions(n); }}
                                       />
                                     </td>
                                     <td className="py-0.5 pl-1">
@@ -1573,7 +1583,16 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                         Vista previa
                       </p>
                       <div className="rounded-lg overflow-hidden border border-gray-100 bg-white">
-                        <VisualizerRenderer spec={slide.toolSpec!} />
+                        {slide.toolSpec?.kind === "social-choropleth" ? (
+                          <SocialChoroplethVisualizer
+                            spec={slide.toolSpec as SocialChoroplethSpec}
+                            onRegionsChange={(newRegions) =>
+                              onChange({ toolSpec: { ...(slide.toolSpec as SocialChoroplethSpec), regions: newRegions } })
+                            }
+                          />
+                        ) : (
+                          <VisualizerRenderer spec={slide.toolSpec!} />
+                        )}
                       </div>
                     </div>
                   </>
