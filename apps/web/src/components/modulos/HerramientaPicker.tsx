@@ -1,6 +1,7 @@
 import { useState } from "react";
-import type { VisualSpec } from "../../visualizadores/types";
+import type { VisualSpec, SocialChoroplethSpec } from "../../visualizadores/types";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import SocialChoroplethVisualizer from "../../visualizadores/social/SocialChoroplethVisualizer";
 
 type HerramientaPickerProps = {
   isOpen: boolean;
@@ -1336,6 +1337,7 @@ const SUBJECTS: SubjectEntry[] = [
 export default function HerramientaPicker({ isOpen, onSelect, onClose }: HerramientaPickerProps) {
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
   const [selectedTool, setSelectedTool] = useState<ToolEntry | null>(null);
+  const [editedSpec, setEditedSpec] = useState<VisualSpec | null>(null);
 
   if (!isOpen) return null;
 
@@ -1344,11 +1346,12 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
       subject: entry.subject,
       toolKind: tool.toolKind,
       title: tool.label,
-      spec: tool.defaultSpec,
+      spec: editedSpec ?? tool.defaultSpec,
     });
     onSelect(detail);
     setSelectedSubject(null);
     setSelectedTool(null);
+    setEditedSpec(null);
   };
 
   const activeSubject = selectedSubject
@@ -1364,7 +1367,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
             {activeSubject ? (
               <button
                 type="button"
-                onClick={() => { setSelectedSubject(null); setSelectedTool(null); }}
+                onClick={() => { setSelectedSubject(null); setSelectedTool(null); setEditedSpec(null); }}
                 className="text-sm text-blue-600 hover:underline"
               >
                 ← Volver
@@ -1376,7 +1379,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
           </div>
           <button
             type="button"
-            onClick={() => { setSelectedSubject(null); onClose(); }}
+            onClick={() => { setSelectedSubject(null); setSelectedTool(null); setEditedSpec(null); onClose(); }}
             className="rounded-full p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
           >
             ✕
@@ -1397,7 +1400,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
-                      onClick={() => setSelectedTool(null)}
+                      onClick={() => { setSelectedTool(null); setEditedSpec(null); }}
                       className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50"
                     >
                       Cambiar
@@ -1412,11 +1415,30 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
                   </div>
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-slate-50 p-3">
-                  <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-2">
-                    Vista previa
-                  </p>
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">
+                      Vista previa
+                    </p>
+                    {editedSpec?.kind === "social-choropleth" && (
+                      <p className="text-[10px] text-slate-400 italic">
+                        Hacé clic en un país para agregarlo · × para quitarlo
+                      </p>
+                    )}
+                  </div>
                   <div className="overflow-auto rounded-lg bg-white border border-slate-100">
-                    <VisualizerRenderer spec={selectedTool.defaultSpec} />
+                    {editedSpec?.kind === "social-choropleth" ? (
+                      <SocialChoroplethVisualizer
+                        spec={editedSpec as SocialChoroplethSpec}
+                        onRegionsChange={(newRegions) =>
+                          setEditedSpec({
+                            ...(editedSpec as SocialChoroplethSpec),
+                            regions: newRegions,
+                          })
+                        }
+                      />
+                    ) : (
+                      <VisualizerRenderer spec={editedSpec ?? selectedTool.defaultSpec} />
+                    )}
                   </div>
                 </div>
               </div>
@@ -1427,7 +1449,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
                   <button
                     key={tool.toolKind}
                     type="button"
-                    onClick={() => setSelectedTool(tool)}
+                    onClick={() => { setSelectedTool(tool); setEditedSpec(tool.defaultSpec); }}
                     className="text-left rounded-xl border border-slate-200 bg-white p-4 hover:border-blue-400 hover:bg-blue-50 transition-colors"
                   >
                     <p className="font-semibold text-slate-800">{tool.label}</p>
