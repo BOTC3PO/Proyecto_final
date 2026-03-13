@@ -5,6 +5,8 @@ import type { SocialChoroplethSpec } from "../types";
 type Props = {
   spec: SocialChoroplethSpec;
   onRegionsChange?: (regions: SocialChoroplethSpec["regions"]) => void;
+  /** Muestra buscador de países y botón "Cambiar país". Default: false */
+  searchable?: boolean;
 };
 
 // ── Color helpers ─────────────────────────────────────────────────────────────
@@ -160,7 +162,7 @@ const MAP_H = 320;
 type Viewbox = { x: number; y: number; w: number; h: number };
 const INITIAL_VB: Viewbox = { x: 0, y: 0, w: MAP_W, h: MAP_H };
 
-function ChoroplethMap({ spec, onRegionsChange }: Props) {
+function ChoroplethMap({ spec, onRegionsChange, searchable = false }: Props) {
   const { regions = [], scale, variable, unit, title, description } = spec;
   const [landFeatures, setLandFeatures] = useState<CountryFeature[]>([]);
   const [mapStatus, setMapStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -359,8 +361,8 @@ function ChoroplethMap({ spec, onRegionsChange }: Props) {
         {variable}{unit ? ` (${unit})` : ""}
       </p>
 
-      {/* Country search (edit mode only) */}
-      {onRegionsChange && (
+      {/* Country search (solo en modo búsqueda explícita) */}
+      {searchable && onRegionsChange && (
         <div className="relative">
           <input
             type="text"
@@ -546,17 +548,16 @@ function ChoroplethMap({ spec, onRegionsChange }: Props) {
                 );
               })}
 
-              {/* Region markers (circles) — radius scales with zoom */}
+              {/* Círculos solo para regiones sin polígono ISO en el mapa */}
               {regions
-                .filter((r) => r.coordinates && projectPoint)
+                .filter((r) => r.coordinates && projectPoint && !isoRegionMap.has(r.isoA3 ?? ""))
                 .map((r) => {
                   const [lat, lng] = r.coordinates!;
                   const [px, py] = projectPoint!(lng, lat);
                   const t = Math.max(0, Math.min(1, (r.value - safeMin) / range));
                   const fillColor = r.color ?? lerpColor(colorFrom, colorTo, t);
                   const isSelected = r.id === selectedId;
-                  // Radius scales inversely with zoom to keep constant screen size
-                  const baseR = isSelected ? 12 : 8;
+                  const baseR = isSelected ? 10 : 7;
                   const radius = Math.max(2, baseR * zoomRatio);
                   return (
                     <g key={r.id} style={{ cursor: "pointer" }} onClick={() => {
@@ -666,18 +667,20 @@ function ChoroplethMap({ spec, onRegionsChange }: Props) {
           </div>
           {onRegionsChange && (
             <div className="flex flex-col gap-1 flex-shrink-0">
-              <button
-                type="button"
-                title={changeModeId ? "Cancelar cambio de país" : "Cambiar país"}
-                className={`text-xs px-2 py-0.5 rounded border transition-colors ${
-                  changeModeId
-                    ? "border-amber-400 text-amber-700 bg-amber-100 hover:bg-amber-200"
-                    : "border-slate-200 text-slate-500 hover:border-blue-400 hover:text-blue-600"
-                }`}
-                onClick={() => setChangeModeId(changeModeId ? null : selected.id)}
-              >
-                {changeModeId ? "Cancelar" : "Cambiar país"}
-              </button>
+              {searchable && (
+                <button
+                  type="button"
+                  title={changeModeId ? "Cancelar cambio de país" : "Cambiar país"}
+                  className={`text-xs px-2 py-0.5 rounded border transition-colors ${
+                    changeModeId
+                      ? "border-amber-400 text-amber-700 bg-amber-100 hover:bg-amber-200"
+                      : "border-slate-200 text-slate-500 hover:border-blue-400 hover:text-blue-600"
+                  }`}
+                  onClick={() => setChangeModeId(changeModeId ? null : selected.id)}
+                >
+                  {changeModeId ? "Cancelar" : "Cambiar país"}
+                </button>
+              )}
               <button
                 type="button"
                 className="text-slate-400 hover:text-red-500 transition-colors text-xl leading-none text-center"
@@ -722,8 +725,8 @@ function ChoroplethMap({ spec, onRegionsChange }: Props) {
 
 // ── Main export ───────────────────────────────────────────────────────────────
 
-export default function SocialChoroplethVisualizer({ spec, onRegionsChange }: Props) {
+export default function SocialChoroplethVisualizer({ spec, onRegionsChange, searchable }: Props) {
   const hasGeoData = spec.regions.some((r) => r.coordinates || r.isoA3);
-  if (hasGeoData) return <ChoroplethMap spec={spec} onRegionsChange={onRegionsChange} />;
+  if (hasGeoData) return <ChoroplethMap spec={spec} onRegionsChange={onRegionsChange} searchable={searchable} />;
   return <ChoroplethBlocks spec={spec} />;
 }

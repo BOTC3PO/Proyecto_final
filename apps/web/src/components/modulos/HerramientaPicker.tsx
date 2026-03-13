@@ -1429,6 +1429,7 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
                     {editedSpec?.kind === "social-choropleth" ? (
                       <SocialChoroplethVisualizer
                         spec={editedSpec as SocialChoroplethSpec}
+                        searchable
                         onRegionsChange={(newRegions) =>
                           setEditedSpec({
                             ...(editedSpec as SocialChoroplethSpec),
