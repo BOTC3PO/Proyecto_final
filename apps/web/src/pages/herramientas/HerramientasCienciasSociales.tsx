@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import SocialChoroplethVisualizer from "../../visualizadores/social/SocialChoroplethVisualizer";
 import type {
   SocialPopulationPyramidSpec,
   SocialChoroplethSpec,
@@ -621,7 +622,21 @@ export default function HerramientasCienciasSociales() {
             <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
               Vista previa
             </p>
-            <VisualizerRenderer spec={choroplethSpec} />
+            <SocialChoroplethVisualizer
+              spec={choroplethSpec}
+              onRegionsChange={(newRegions) => {
+                setRegionRows(
+                  newRegions.map((r) => ({
+                    id: r.id,
+                    label: r.label,
+                    value: r.value,
+                    lat: r.coordinates?.[0] ?? 0,
+                    lng: r.coordinates?.[1] ?? 0,
+                    isoA3: r.isoA3 ?? "",
+                  }))
+                );
+              }}
+            />
           </section>
         </div>
       )}

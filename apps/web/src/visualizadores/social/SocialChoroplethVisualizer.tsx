@@ -1,8 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { topologyToFeatures, type TopologyLike, type CountryFeature } from "../../lib/maps/topojson-lite";
 import type { SocialChoroplethSpec } from "../types";
 
-type Props = { spec: SocialChoroplethSpec };
+type Props = {
+  spec: SocialChoroplethSpec;
+  onRegionsChange?: (regions: SocialChoroplethSpec["regions"]) => void;
+};
 
 // ── Color helpers ─────────────────────────────────────────────────────────────
 
@@ -156,11 +159,21 @@ const LAND_URL = "/api/maps/political/earth/countries_110m.topo.json";
 const MAP_W = 560;
 const MAP_H = 320;
 
-function ChoroplethMap({ spec }: Props) {
+type Viewbox = { x: number; y: number; w: number; h: number };
+const INITIAL_VB: Viewbox = { x: 0, y: 0, w: MAP_W, h: MAP_H };
+
+function ChoroplethMap({ spec, onRegionsChange }: Props) {
   const { regions = [], scale, variable, unit, title, description } = spec;
   const [landFeatures, setLandFeatures] = useState<CountryFeature[]>([]);
   const [mapStatus, setMapStatus] = useState<"loading" | "ready" | "error">("loading");
   const [selectedId, setSelectedId] = useState<string | null>(regions[0]?.id ?? null);
+
+  // Pan/zoom state
+  const [vb, setVb] = useState<Viewbox>(INITIAL_VB);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const dragRef = useRef<{ startX: number; startY: number; startVb: Viewbox } | null>(null);
+  const dragDeltaRef = useRef(0);
+  const isDragging = useRef(false);
 
   const safeMin = scale?.min ?? 0;
   const safeMax = scale?.max ?? 1;
@@ -203,6 +216,31 @@ function ChoroplethMap({ spec }: Props) {
     return () => { active = false; };
   }, []);
 
+  // Non-passive wheel event for zoom centered at cursor
+  useEffect(() => {
+    const el = svgRef.current;
+    if (!el) return;
+    const handler = (e: WheelEvent) => {
+      e.preventDefault();
+      setVb((prev) => {
+        const factor = e.deltaY > 0 ? 1.15 : 1 / 1.15;
+        const rect = el.getBoundingClientRect();
+        const mx = ((e.clientX - rect.left) / rect.width) * prev.w + prev.x;
+        const my = ((e.clientY - rect.top) / rect.height) * prev.h + prev.y;
+        const newW = Math.min(MAP_W, Math.max(MAP_W / 20, prev.w * factor));
+        const newH = Math.min(MAP_H, Math.max(MAP_H / 20, prev.h * factor));
+        return {
+          x: mx - (mx - prev.x) * (newW / prev.w),
+          y: my - (my - prev.y) * (newH / prev.h),
+          w: newW,
+          h: newH,
+        };
+      });
+    };
+    el.addEventListener("wheel", handler, { passive: false });
+    return () => el.removeEventListener("wheel", handler);
+  }, []);
+
   // Build projection and path generator from land features
   const { projectPoint, featurePath } = useMemo(() => {
     if (landFeatures.length === 0) return { projectPoint: null, featurePath: null };
@@ -224,6 +262,44 @@ function ChoroplethMap({ spec }: Props) {
 
   const selected = regions.find((r) => r.id === selectedId) ?? null;
 
+  // Pan handlers
+  const onMouseDown = (e: React.MouseEvent<SVGSVGElement>) => {
+    dragRef.current = { startX: e.clientX, startY: e.clientY, startVb: vb };
+    dragDeltaRef.current = 0;
+    isDragging.current = false;
+  };
+
+  const onMouseMove = (e: React.MouseEvent<SVGSVGElement>) => {
+    if (!dragRef.current) return;
+    const dx = e.clientX - dragRef.current.startX;
+    const dy = e.clientY - dragRef.current.startY;
+    const delta = Math.abs(dx) + Math.abs(dy);
+    dragDeltaRef.current = Math.max(dragDeltaRef.current, delta);
+    if (delta > 3) isDragging.current = true;
+    const scaleX = dragRef.current.startVb.w / (svgRef.current?.clientWidth ?? MAP_W);
+    const scaleY = dragRef.current.startVb.h / (svgRef.current?.clientHeight ?? MAP_H);
+    setVb({
+      ...dragRef.current.startVb,
+      x: dragRef.current.startVb.x - dx * scaleX,
+      y: dragRef.current.startVb.y - dy * scaleY,
+    });
+  };
+
+  const onMouseUp = () => {
+    dragRef.current = null;
+  };
+
+  // Zoom buttons
+  const zoomBy = (factor: number) => {
+    setVb((prev) => {
+      const cx = prev.x + prev.w / 2;
+      const cy = prev.y + prev.h / 2;
+      const newW = Math.min(MAP_W, Math.max(MAP_W / 20, prev.w * factor));
+      const newH = Math.min(MAP_H, Math.max(MAP_H / 20, prev.h * factor));
+      return { x: cx - newW / 2, y: cy - newH / 2, w: newW, h: newH };
+    });
+  };
+
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm space-y-3">
       {(title || description) && (
@@ -238,7 +314,7 @@ function ChoroplethMap({ spec }: Props) {
       </p>
 
       {/* SVG Map */}
-      <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+      <div className="relative rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
         {mapStatus === "loading" && (
           <div className="flex items-center justify-center h-48 text-sm text-slate-400">
             Cargando mapa…
@@ -252,57 +328,122 @@ function ChoroplethMap({ spec }: Props) {
         )}
 
         {mapStatus === "ready" && featurePath && (
-          <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} className="w-full" style={{ display: "block" }}>
-            {/* Ocean */}
-            <rect width={MAP_W} height={MAP_H} fill="#e8eef7" />
+          <>
+            <svg
+              ref={svgRef}
+              viewBox={`${vb.x.toFixed(2)} ${vb.y.toFixed(2)} ${vb.w.toFixed(2)} ${vb.h.toFixed(2)}`}
+              className="w-full"
+              style={{ display: "block", cursor: isDragging.current ? "grabbing" : "grab", userSelect: "none" }}
+              onMouseDown={onMouseDown}
+              onMouseMove={onMouseMove}
+              onMouseUp={onMouseUp}
+              onMouseLeave={onMouseUp}
+            >
+              {/* Ocean */}
+              <rect x={vb.x} y={vb.y} width={vb.w} height={vb.h} fill="#e8eef7" />
 
-            {/* Land — colored if region has isoA3 matching this country */}
-            {landFeatures.map((f, i) => {
-              const iso = f.properties?.ISO_A3 as string | undefined;
-              const match = iso ? isoRegionMap.get(iso) : undefined;
-              const isSelected = match && selectedId === match.region.id;
-              return (
-                <path
-                  key={i}
-                  d={featurePath(f)}
-                  fill={match ? match.fillColor : "#d1d5db"}
-                  stroke={isSelected ? "#1e293b" : "#94a3b8"}
-                  strokeWidth={isSelected ? 1.2 : 0.4}
-                  style={{ cursor: match ? "pointer" : "default" }}
-                  onClick={() => match && setSelectedId(match.region.id)}
-                >
-                  {match && (
-                    <title>{match.region.label}: {formatValue(match.region.value, unit)}</title>
-                  )}
-                </path>
-              );
-            })}
-
-            {/* Region markers */}
-            {projectedRegions.map((r) => {
-              const isSelected = r.id === selectedId;
-              const radius = isSelected ? 12 : 8;
-              return (
-                <g key={r.id} style={{ cursor: "pointer" }} onClick={() => setSelectedId(r.id)}>
-                  <circle cx={r.px + 0.5} cy={r.py + 0.5} r={radius} fill="rgba(0,0,0,0.15)" />
-                  <circle
-                    cx={r.px} cy={r.py} r={radius}
-                    fill={r.fillColor}
-                    stroke={isSelected ? "#1e293b" : "#fff"}
-                    strokeWidth={isSelected ? 2 : 1.5}
-                  />
-                  <text
-                    x={r.px} y={r.py + 3}
-                    textAnchor="middle" fontSize={isSelected ? 6.5 : 5.5}
-                    fontWeight="700" fill="#fff"
-                    style={{ pointerEvents: "none", textShadow: "0 0 2px rgba(0,0,0,0.7)" }}
+              {/* Land — colored if region has isoA3 matching this country */}
+              {landFeatures.map((f, i) => {
+                const iso = f.properties?.ISO_A3 as string | undefined;
+                const match = iso ? isoRegionMap.get(iso) : undefined;
+                const isSelected = match && selectedId === match.region.id;
+                const canAdd = !match && !!onRegionsChange;
+                return (
+                  <path
+                    key={i}
+                    d={featurePath(f)}
+                    fill={match ? match.fillColor : "#d1d5db"}
+                    stroke={isSelected ? "#1e293b" : "#94a3b8"}
+                    strokeWidth={isSelected ? 1.2 : 0.4}
+                    style={{ cursor: (match || canAdd) ? "pointer" : "default" }}
+                    onClick={() => {
+                      if (dragDeltaRef.current >= 4) return;
+                      if (match) {
+                        setSelectedId(match.region.id);
+                        return;
+                      }
+                      if (!onRegionsChange) return;
+                      // Add country as new region
+                      const name = (f.properties?.NAME_ES ?? f.properties?.NAME ?? iso ?? "País") as string;
+                      const lat = (f.properties?.LABEL_Y ?? 0) as number;
+                      const lng = (f.properties?.LABEL_X ?? 0) as number;
+                      const newRegion = {
+                        id: `r-${Date.now()}`,
+                        label: name,
+                        value: safeMin + range / 2,
+                        coordinates: [lat, lng] as [number, number],
+                        isoA3: iso,
+                      };
+                      onRegionsChange([...regions, newRegion]);
+                      setSelectedId(newRegion.id);
+                    }}
                   >
-                    {r.label.split(" ").pop()?.slice(0, 5).toUpperCase()}
-                  </text>
-                </g>
-              );
-            })}
-          </svg>
+                    {match && (
+                      <title>{match.region.label}: {formatValue(match.region.value, unit)}</title>
+                    )}
+                    {canAdd && iso && (
+                      <title>Clic para agregar {(f.properties?.NAME_ES ?? f.properties?.NAME ?? iso) as string}</title>
+                    )}
+                  </path>
+                );
+              })}
+
+              {/* Region markers */}
+              {projectedRegions.map((r) => {
+                const isSelected = r.id === selectedId;
+                const radius = isSelected ? 12 : 8;
+                return (
+                  <g key={r.id} style={{ cursor: "pointer" }} onClick={() => {
+                    if (dragDeltaRef.current < 4) setSelectedId(r.id);
+                  }}>
+                    <circle cx={r.px + 0.5} cy={r.py + 0.5} r={radius} fill="rgba(0,0,0,0.15)" />
+                    <circle
+                      cx={r.px} cy={r.py} r={radius}
+                      fill={r.fillColor}
+                      stroke={isSelected ? "#1e293b" : "#fff"}
+                      strokeWidth={isSelected ? 2 : 1.5}
+                    />
+                    <text
+                      x={r.px} y={r.py + 3}
+                      textAnchor="middle" fontSize={isSelected ? 6.5 : 5.5}
+                      fontWeight="700" fill="#fff"
+                      style={{ pointerEvents: "none", textShadow: "0 0 2px rgba(0,0,0,0.7)" }}
+                    >
+                      {r.label.split(" ").pop()?.slice(0, 5).toUpperCase()}
+                    </text>
+                  </g>
+                );
+              })}
+            </svg>
+
+            {/* Zoom controls overlay */}
+            <div className="absolute top-2 right-2 flex flex-col gap-1">
+              <button
+                type="button"
+                onClick={() => zoomBy(1 / 1.5)}
+                className="w-7 h-7 rounded bg-white/90 border border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900 shadow-sm text-sm font-bold leading-none flex items-center justify-center"
+                title="Acercar"
+              >+</button>
+              <button
+                type="button"
+                onClick={() => zoomBy(1.5)}
+                className="w-7 h-7 rounded bg-white/90 border border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900 shadow-sm text-sm font-bold leading-none flex items-center justify-center"
+                title="Alejar"
+              >−</button>
+              <button
+                type="button"
+                onClick={() => setVb(INITIAL_VB)}
+                className="w-7 h-7 rounded bg-white/90 border border-slate-200 text-slate-500 hover:bg-white hover:text-slate-900 shadow-sm text-xs leading-none flex items-center justify-center"
+                title="Restablecer vista"
+              >⊙</button>
+            </div>
+
+            {onRegionsChange && (
+              <div className="absolute bottom-2 left-2 bg-white/80 rounded px-2 py-1 text-[10px] text-slate-400 pointer-events-none">
+                Arrastrá para mover · Rueda para zoom · Clic en país gris para agregar
+              </div>
+            )}
+          </>
         )}
       </div>
 
@@ -315,22 +456,53 @@ function ChoroplethMap({ spec }: Props) {
 
       {/* Selected region detail */}
       {selected && (
-        <div className="rounded-xl border border-slate-100 bg-slate-50 p-3 flex items-center gap-3">
+        <div className="rounded-xl border border-slate-100 bg-slate-50 p-3 flex items-start gap-3">
           <span
-            className="inline-block w-4 h-4 rounded-full flex-shrink-0 border border-white shadow"
+            className="inline-block w-4 h-4 rounded-full flex-shrink-0 border border-white shadow mt-0.5"
             style={{
               backgroundColor: selected.color ?? lerpColor(colorFrom, colorTo, Math.max(0, Math.min(1, (selected.value - safeMin) / range))),
             }}
           />
-          <div>
+          <div className="flex-1 min-w-0">
             <p className="text-sm font-semibold text-slate-800">{selected.label}</p>
-            <p className="text-xs text-slate-500">
-              {variable}: <span className="font-medium text-slate-700">{formatValue(selected.value, unit)}</span>
-              {selected.coordinates && (
-                <span className="ml-2 text-slate-400">· {selected.coordinates[0].toFixed(1)}°, {selected.coordinates[1].toFixed(1)}°</span>
+            <div className="flex items-center gap-2 mt-1 flex-wrap">
+              <span className="text-xs text-slate-500">{variable}:</span>
+              {onRegionsChange ? (
+                <input
+                  type="number"
+                  step="0.01"
+                  className="w-24 text-xs border border-slate-200 rounded px-1.5 py-0.5 focus:outline-none focus:border-blue-400"
+                  value={selected.value}
+                  onChange={(e) => {
+                    const newVal = parseFloat(e.target.value);
+                    if (!isNaN(newVal)) {
+                      onRegionsChange(regions.map((r) => r.id === selected.id ? { ...r, value: newVal } : r));
+                    }
+                  }}
+                />
+              ) : (
+                <span className="text-xs font-medium text-slate-700">{formatValue(selected.value, unit)}</span>
               )}
-            </p>
+              {selected.coordinates && (
+                <span className="text-[11px] text-slate-400">
+                  · {selected.coordinates[0].toFixed(1)}°, {selected.coordinates[1].toFixed(1)}°
+                </span>
+              )}
+            </div>
           </div>
+          {onRegionsChange && (
+            <button
+              type="button"
+              className="text-slate-400 hover:text-red-500 transition-colors text-xl leading-none flex-shrink-0"
+              title="Quitar región"
+              onClick={() => {
+                onRegionsChange(regions.filter((r) => r.id !== selected.id));
+                setSelectedId(null);
+              }}
+            >
+              ×
+            </button>
+          )}
         </div>
       )}
 
@@ -361,9 +533,9 @@ function ChoroplethMap({ spec }: Props) {
 
 // ── Main export ───────────────────────────────────────────────────────────────
 
-export default function SocialChoroplethVisualizer({ spec }: Props) {
+export default function SocialChoroplethVisualizer({ spec, onRegionsChange }: Props) {
   // Use the geographic map if any region has coordinates OR an ISO A3 code
   const hasGeoData = spec.regions.some((r) => r.coordinates || r.isoA3);
-  if (hasGeoData) return <ChoroplethMap spec={spec} />;
+  if (hasGeoData) return <ChoroplethMap spec={spec} onRegionsChange={onRegionsChange} />;
   return <ChoroplethBlocks spec={spec} />;
 }
