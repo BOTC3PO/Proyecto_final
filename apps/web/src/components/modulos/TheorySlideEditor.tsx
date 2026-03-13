@@ -5,6 +5,7 @@ import type { StatDistributionSpec, StatRegressionSpec, SocialChoroplethSpec, So
 import { enrichStatDistributionSpec, enrichStatRegressionSpec } from "../../visualizadores/estadistica/statComputations";
 import HerramientaPicker from "./HerramientaPicker";
 import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import SocialChoroplethVisualizer from "../../visualizadores/social/SocialChoroplethVisualizer";
 
 // ─── Layout presets ───────────────────────────────────────────────────────────
 
@@ -1582,7 +1583,16 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                         Vista previa
                       </p>
                       <div className="rounded-lg overflow-hidden border border-gray-100 bg-white">
-                        <VisualizerRenderer spec={slide.toolSpec!} />
+                        {slide.toolSpec?.kind === "social-choropleth" ? (
+                          <SocialChoroplethVisualizer
+                            spec={slide.toolSpec as SocialChoroplethSpec}
+                            onRegionsChange={(newRegions) =>
+                              onChange({ toolSpec: { ...(slide.toolSpec as SocialChoroplethSpec), regions: newRegions } })
+                            }
+                          />
+                        ) : (
+                          <VisualizerRenderer spec={slide.toolSpec!} />
+                        )}
                       </div>
                     </div>
                   </>
