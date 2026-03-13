@@ -270,7 +270,11 @@ function ChoroplethMap({ spec }: Props) {
                   strokeWidth={isSelected ? 1.2 : 0.4}
                   style={{ cursor: match ? "pointer" : "default" }}
                   onClick={() => match && setSelectedId(match.region.id)}
-                />
+                >
+                  {match && (
+                    <title>{match.region.label}: {formatValue(match.region.value, unit)}</title>
+                  )}
+                </path>
               );
             })}
 
@@ -358,7 +362,8 @@ function ChoroplethMap({ spec }: Props) {
 // ── Main export ───────────────────────────────────────────────────────────────
 
 export default function SocialChoroplethVisualizer({ spec }: Props) {
-  const hasCoordinates = spec.regions.some((r) => r.coordinates);
-  if (hasCoordinates) return <ChoroplethMap spec={spec} />;
+  // Use the geographic map if any region has coordinates OR an ISO A3 code
+  const hasGeoData = spec.regions.some((r) => r.coordinates || r.isoA3);
+  if (hasGeoData) return <ChoroplethMap spec={spec} />;
   return <ChoroplethBlocks spec={spec} />;
 }
