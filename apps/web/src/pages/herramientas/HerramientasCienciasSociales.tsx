@@ -36,14 +36,14 @@ const DEFAULT_AGE_GROUPS: AgeGroupRow[] = [
 // ── Choropleth data ───────────────────────────────────────────────────────────
 
 const REGIONS = [
-  { id: "norte",    label: "Reg. Norte",    coords: [-5.0, -70.0] as [number, number] },
-  { id: "sur",      label: "Reg. Sur",      coords: [-38.0, -65.0] as [number, number] },
-  { id: "este",     label: "Reg. Este",     coords: [-15.0, -45.0] as [number, number] },
-  { id: "oeste",    label: "Reg. Oeste",    coords: [-18.0, -68.0] as [number, number] },
-  { id: "centro",   label: "Reg. Centro",   coords: [-16.0, -58.0] as [number, number] },
-  { id: "noreste",  label: "Reg. Noreste",  coords: [-5.0,  -38.0] as [number, number] },
-  { id: "noroeste", label: "Reg. Noroeste", coords: [-2.0,  -76.0] as [number, number] },
-  { id: "sureste",  label: "Reg. Sureste",  coords: [-28.0, -50.0] as [number, number] },
+  { id: "norte",    label: "Reg. Norte",    coords: [-5.0, -70.0] as [number, number],  isoA3: "COL" },
+  { id: "sur",      label: "Reg. Sur",      coords: [-38.0, -65.0] as [number, number], isoA3: "ARG" },
+  { id: "este",     label: "Reg. Este",     coords: [-15.0, -45.0] as [number, number], isoA3: "BRA" },
+  { id: "oeste",    label: "Reg. Oeste",    coords: [-18.0, -68.0] as [number, number], isoA3: "BOL" },
+  { id: "centro",   label: "Reg. Centro",   coords: [-16.0, -58.0] as [number, number], isoA3: "PRY" },
+  { id: "noreste",  label: "Reg. Noreste",  coords: [-5.0,  -38.0] as [number, number], isoA3: "VEN" },
+  { id: "noroeste", label: "Reg. Noroeste", coords: [-2.0,  -76.0] as [number, number], isoA3: "ECU" },
+  { id: "sureste",  label: "Reg. Sureste",  coords: [-28.0, -50.0] as [number, number], isoA3: "URY" },
 ];
 
 const INDICATOR_DATA: Record<
@@ -69,7 +69,7 @@ const INDICATOR_DATA: Record<
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-type RegionRow = { id: string; label: string; value: number; lat: number; lng: number };
+type RegionRow = { id: string; label: string; value: number; lat: number; lng: number; isoA3: string };
 
 function buildRegionRows(ind: Indicator): RegionRow[] {
   return REGIONS.map((r, i) => ({
@@ -78,6 +78,7 @@ function buildRegionRows(ind: Indicator): RegionRow[] {
     value: INDICATOR_DATA[ind].values[i],
     lat: r.coords[0],
     lng: r.coords[1],
+    isoA3: r.isoA3,
   }));
 }
 
@@ -92,6 +93,7 @@ export default function HerramientasCienciasSociales() {
   const [ageGroupRows, setAgeGroupRows] = useState<AgeGroupRow[]>(DEFAULT_AGE_GROUPS);
 
   // Choropleth params
+  const [choroplethTitle, setChoroplethTitle] = useState("Mapa temático — IDH");
   const [selectedIndicator, setSelectedIndicator] = useState<Indicator>("gdp");
   const [colorScheme, setColorScheme] = useState<ColorSchemeKey>("azul");
   const [regionRows, setRegionRows] = useState<RegionRow[]>(() => buildRegionRows("gdp"));
@@ -112,6 +114,7 @@ export default function HerramientasCienciasSociales() {
     setScaleMin(null);
     setScaleMax(null);
     setRegionRows(buildRegionRows(ind));
+    setChoroplethTitle(`Mapa temático — ${INDICATOR_DATA[ind].variable}`);
   };
 
   // ── Specs ────────────────────────────────────────────────────────────────────
@@ -134,7 +137,7 @@ export default function HerramientasCienciasSociales() {
     const scheme = COLOR_SCHEMES[colorScheme];
     return {
       kind: "social-choropleth",
-      title: `Mapa temático — ${indicatorInfo.variable}`,
+      title: choroplethTitle || `Mapa temático — ${indicatorInfo.variable}`,
       description: `Distribución regional de ${indicatorInfo.variable.toLowerCase()}.`,
       variable: indicatorInfo.variable,
       unit: indicatorInfo.unit || undefined,
@@ -143,6 +146,7 @@ export default function HerramientasCienciasSociales() {
         label: r.label,
         value: r.value,
         coordinates: [r.lat, r.lng] as [number, number],
+        isoA3: r.isoA3 || undefined,
       })),
       scale: {
         min: effectiveMin,
@@ -150,7 +154,7 @@ export default function HerramientasCienciasSociales() {
         colors: [scheme.from, scheme.to],
       },
     };
-  }, [regionRows, colorScheme, effectiveMin, effectiveMax, indicatorInfo]);
+  }, [choroplethTitle, regionRows, colorScheme, effectiveMin, effectiveMax, indicatorInfo]);
 
   const tools: Array<{ id: Tool; label: string; icon: string }> = [
     { id: "pyramid",    label: "Pirámide de población", icon: "📊" },
@@ -385,6 +389,18 @@ export default function HerramientasCienciasSociales() {
           <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
             <h2 className="text-base font-semibold text-slate-800">Parámetros</h2>
 
+            {/* Título */}
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Título</label>
+              <input
+                type="text"
+                value={choroplethTitle}
+                onChange={(e) => setChoroplethTitle(e.target.value)}
+                placeholder="Ej: Mapa temático — IDH"
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
+            </div>
+
             {/* Indicador */}
             <div className="space-y-1.5">
               <label className="block text-xs font-medium text-slate-600">Indicador</label>
@@ -472,7 +488,7 @@ export default function HerramientasCienciasSociales() {
                   onClick={() =>
                     setRegionRows((prev) => [
                       ...prev,
-                      { id: `r${Date.now()}`, label: "Nueva región", value: 0, lat: 0, lng: 0 },
+                      { id: `r${Date.now()}`, label: "Nueva región", value: 0, lat: 0, lng: 0, isoA3: "" },
                     ])
                   }
                   className="text-xs text-blue-600 hover:underline"
@@ -488,6 +504,7 @@ export default function HerramientasCienciasSociales() {
                       <th className="text-left px-2 py-1.5 font-medium">Valor</th>
                       <th className="text-left px-2 py-1.5 font-medium">Lat</th>
                       <th className="text-left px-2 py-1.5 font-medium">Lng</th>
+                      <th className="text-left px-2 py-1.5 font-medium">ISO</th>
                       <th />
                     </tr>
                   </thead>
@@ -544,6 +561,20 @@ export default function HerramientasCienciasSociales() {
                               setRegionRows((prev) => {
                                 const n = [...prev];
                                 n[i] = { ...n[i], lng: Number(e.target.value) };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            maxLength={3} placeholder="ARG"
+                            className="w-12 border border-slate-200 rounded px-1.5 py-0.5 text-xs uppercase focus:outline-none focus:border-blue-400"
+                            value={row.isoA3}
+                            onChange={(e) =>
+                              setRegionRows((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], isoA3: e.target.value.toUpperCase() };
                                 return n;
                               })
                             }

@@ -1108,7 +1108,7 @@ export interface SocialChoroplethSpec {
   description?: string;
   variable: string;
   unit?: string;
-  regions: Array<{ id: string; label: string; value: number; color?: string; coordinates?: [number, number] }>;
+  regions: Array<{ id: string; label: string; value: number; color?: string; coordinates?: [number, number]; isoA3?: string }>;
   scale: { min: number; max: number; colors: [string, string] };
 }
 

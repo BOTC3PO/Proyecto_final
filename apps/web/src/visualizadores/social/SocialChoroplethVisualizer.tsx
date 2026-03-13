@@ -168,6 +168,18 @@ function ChoroplethMap({ spec }: Props) {
   const colorTo = scale?.colors?.[1] ?? "#1d4ed8";
   const range = safeMax - safeMin || 1;
 
+  // Build ISO A3 → {region, fillColor} lookup for polygon coloring
+  const isoRegionMap = useMemo(() => {
+    const map = new Map<string, { region: (typeof regions)[0]; fillColor: string }>();
+    regions.forEach((r) => {
+      if (r.isoA3) {
+        const t = Math.max(0, Math.min(1, (r.value - safeMin) / range));
+        map.set(r.isoA3, { region: r, fillColor: r.color ?? lerpColor(colorFrom, colorTo, t) });
+      }
+    });
+    return map;
+  }, [regions, safeMin, range, colorFrom, colorTo]);
+
   useEffect(() => {
     let active = true;
     setMapStatus("loading");
@@ -244,16 +256,23 @@ function ChoroplethMap({ spec }: Props) {
             {/* Ocean */}
             <rect width={MAP_W} height={MAP_H} fill="#e8eef7" />
 
-            {/* Land */}
-            {landFeatures.map((f, i) => (
-              <path
-                key={i}
-                d={featurePath(f)}
-                fill="#d1d5db"
-                stroke="#94a3b8"
-                strokeWidth={0.4}
-              />
-            ))}
+            {/* Land — colored if region has isoA3 matching this country */}
+            {landFeatures.map((f, i) => {
+              const iso = f.properties?.ISO_A3 as string | undefined;
+              const match = iso ? isoRegionMap.get(iso) : undefined;
+              const isSelected = match && selectedId === match.region.id;
+              return (
+                <path
+                  key={i}
+                  d={featurePath(f)}
+                  fill={match ? match.fillColor : "#d1d5db"}
+                  stroke={isSelected ? "#1e293b" : "#94a3b8"}
+                  strokeWidth={isSelected ? 1.2 : 0.4}
+                  style={{ cursor: match ? "pointer" : "default" }}
+                  onClick={() => match && setSelectedId(match.region.id)}
+                />
+              );
+            })}
 
             {/* Region markers */}
             {projectedRegions.map((r) => {
