@@ -179,6 +179,9 @@ function ChoroplethMap({ spec, onRegionsChange, searchable = false }: Props) {
   const dragRef = useRef<{ startX: number; startY: number; startVb: Viewbox } | null>(null);
   const dragDeltaRef = useRef(0);
   const isDragging = useRef(false);
+  // Auto-fit: run once on initial map load
+  const fitAppliedRef = useRef(false);
+  const initialRegionsRef = useRef(regions);
 
   const safeMin = scale?.min ?? 0;
   const safeMax = scale?.max ?? 1;
@@ -252,6 +255,76 @@ function ChoroplethMap({ spec, onRegionsChange, searchable = false }: Props) {
     if (landFeatures.length === 0) return { projectPoint: null, featurePath: null };
     return buildProjection(landFeatures, MAP_W, MAP_H);
   }, [landFeatures]);
+
+  // Pre-compute per-feature SVG bounding-box extent (min of width, height) for label sizing
+  const featureWidthMap = useMemo(() => {
+    if (!projectPoint || landFeatures.length === 0) return new Map<string, number>();
+    const map = new Map<string, number>();
+    for (const f of landFeatures) {
+      const iso = f.properties?.ISO_A3 as string | undefined;
+      if (!iso || iso === "-99") continue;
+      const rings =
+        f.geometry.type === "Polygon"
+          ? f.geometry.coordinates
+          : f.geometry.coordinates.flat();
+      let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+      for (const ring of rings) {
+        for (const pt of ring as number[][]) {
+          if (!pt || pt.length < 2) continue;
+          const [px, py] = projectPoint(pt[0], pt[1]);
+          if (px < minX) minX = px;
+          if (px > maxX) maxX = px;
+          if (py < minY) minY = py;
+          if (py > maxY) maxY = py;
+        }
+      }
+      if (isFinite(maxX) && maxX > minX) {
+        map.set(iso, Math.min(maxX - minX, maxY - minY));
+      }
+    }
+    return map;
+  }, [projectPoint, landFeatures]);
+
+  // Auto-fit viewport to the initial set of regions on first load
+  useEffect(() => {
+    if (!projectPoint || fitAppliedRef.current) return;
+    fitAppliedRef.current = true;
+    const initRegions = initialRegionsRef.current;
+    if (initRegions.length === 0) return;
+
+    const isoToFeature = new Map<string, CountryFeature>();
+    for (const f of landFeatures) {
+      const iso = f.properties?.ISO_A3 as string | undefined;
+      if (iso && iso !== "-99") isoToFeature.set(iso, f);
+    }
+
+    const points: [number, number][] = [];
+    for (const r of initRegions) {
+      if (r.isoA3) {
+        const f = isoToFeature.get(r.isoA3);
+        if (f) {
+          const lx = f.properties?.LABEL_X as number | undefined;
+          const ly = f.properties?.LABEL_Y as number | undefined;
+          if (lx != null && ly != null) { points.push(projectPoint(lx, ly)); continue; }
+        }
+      }
+      if (r.coordinates) {
+        const [lat, lng] = r.coordinates;
+        points.push(projectPoint(lng, lat));
+      }
+    }
+    if (points.length === 0) return;
+
+    const xs = points.map((p) => p[0]);
+    const ys = points.map((p) => p[1]);
+    const minX = Math.min(...xs), maxX = Math.max(...xs);
+    const minY = Math.min(...ys), maxY = Math.max(...ys);
+    const spanX = maxX - minX;
+    const spanY = maxY - minY;
+    const padX = Math.max(60, spanX * 0.5);
+    const padY = Math.max(40, spanY * 0.5);
+    setVb({ x: minX - padX, y: minY - padY, w: spanX + padX * 2, h: spanY + padY * 2 });
+  }, [projectPoint, landFeatures]);
 
   // Searchable country list from loaded features (when onRegionsChange is active)
   const countryList = useMemo(() => {
@@ -523,11 +596,16 @@ function ChoroplethMap({ spec, onRegionsChange, searchable = false }: Props) {
                 const labelY = f.properties?.LABEL_Y as number | undefined;
                 if (labelX == null || labelY == null) return null;
                 const [px, py] = projectPoint(labelX, labelY);
-                // Scale font size with zoom (bigger when zoomed in)
-                const fontSize = Math.max(3, Math.min(9, 7 * (MAP_W / vb.w) * 0.5));
                 const label = match.region.label;
+                const displayLabel = label.length > 12 ? label.slice(0, 10) + "…" : label;
+                // Polygon-area-aware font size: font must fit within the polygon's SVG extent
+                const featureExtent = iso ? (featureWidthMap.get(iso) ?? MAP_W) : MAP_W;
+                const maxFontFromPolygon = featureExtent / (displayLabel.length * 0.55);
+                // Also scale with zoom so labels grow when zoomed in
+                const zoomBased = 7 * (MAP_W / vb.w) * 0.5;
+                const fontSize = Math.max(2.5, Math.min(maxFontFromPolygon, zoomBased));
                 // Only show if font is large enough to be readable
-                if (fontSize < 3.5) return null;
+                if (fontSize < 3) return null;
                 return (
                   <text
                     key={`label-${i}`}
@@ -543,7 +621,7 @@ function ChoroplethMap({ spec, onRegionsChange, searchable = false }: Props) {
                     paintOrder="stroke"
                     style={{ pointerEvents: "none" }}
                   >
-                    {label.length > 12 ? label.slice(0, 10) + "…" : label}
+                    {displayLabel}
                   </text>
                 );
               })}
