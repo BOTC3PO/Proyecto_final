@@ -603,9 +603,8 @@ function ChoroplethMap({ spec, onRegionsChange, searchable = false }: Props) {
                 const maxFontFromPolygon = featureExtent / (displayLabel.length * 0.55);
                 // Also scale with zoom so labels grow when zoomed in
                 const zoomBased = 7 * (MAP_W / vb.w) * 0.5;
-                const fontSize = Math.max(2.5, Math.min(maxFontFromPolygon, zoomBased));
-                // Only show if font is large enough to be readable
-                if (fontSize < 3) return null;
+                const fontSize = Math.max(1.5, Math.min(maxFontFromPolygon, zoomBased));
+                if (fontSize < 1.2) return null;
                 return (
                   <text
                     key={`label-${i}`}
