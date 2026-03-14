@@ -711,47 +711,72 @@ export default function ModuloEditor() {
         />
       ) : null}
 
-      <main className="flex-1">
+      <main className="flex-1 bg-gradient-to-b from-slate-50 to-white min-h-screen">
         <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-          <header className="mb-8">
-            <h1 className="text-3xl font-semibold text-gray-900">
+          <header className="mb-10 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-8 py-8 shadow-lg shadow-indigo-200/50">
+            <h1 className="text-3xl font-bold tracking-tight text-white drop-shadow-sm">
               {isEditing ? "Editar módulo" : "Crear módulo"}
             </h1>
-            <p className="mt-2 text-sm text-gray-600">
+            <p className="mt-2 text-sm text-blue-100/90">
               Cargá teoría, cuestionarios manuales o generados para construir la experiencia del módulo.
             </p>
           </header>
 
           {status === "loading" ? (
-            <div className="rounded-lg border border-dashed border-gray-200 bg-gray-50 p-6 text-sm text-gray-600">
-              Cargando módulo...
+            <div className="space-y-6">
+              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                <div className="animate-pulse space-y-4">
+                  <div className="h-5 w-48 rounded-lg bg-gray-200" />
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="h-10 rounded-lg bg-gray-200" />
+                    <div className="h-10 rounded-lg bg-gray-200" />
+                  </div>
+                  <div className="h-20 rounded-lg bg-gray-200" />
+                  <div className="grid gap-4 md:grid-cols-4">
+                    <div className="h-10 rounded-lg bg-gray-200" />
+                    <div className="h-10 rounded-lg bg-gray-200" />
+                    <div className="h-10 rounded-lg bg-gray-100" />
+                    <div className="h-10 rounded-lg bg-gray-100" />
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                <div className="animate-pulse space-y-3">
+                  <div className="h-5 w-32 rounded-lg bg-gray-200" />
+                  <div className="h-24 rounded-lg bg-gray-100" />
+                </div>
+              </div>
+              <p className="text-center text-sm text-gray-400">Cargando módulo...</p>
             </div>
           ) : (
             <form className="space-y-8" onSubmit={handleSubmit}>
               {/* ── Información general ── */}
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
-                <div className="flex items-center gap-2">
-                  <h2 className="text-lg font-semibold text-gray-900">Información general</h2>
+              <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <div className="h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500" />
+                <div className="p-6 space-y-5">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-blue-600 text-sm">&#9881;</span>
+                  <h2 className="text-lg font-bold text-gray-900 tracking-tight">Información general</h2>
                   {sectionStatus.generalOk ? (
-                    <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">✓ Completo</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">&#10003; Completo</span>
                   ) : (
-                    <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Incompleto</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-200">&#9888; Incompleto</span>
                   )}
                 </div>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <label className="text-sm font-medium text-gray-700">
-                    Título
+                <div className="grid gap-5 md:grid-cols-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    <span className="mb-1.5 flex items-center gap-1.5">&#128221; Título</span>
                     <input
-                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
                       value={form.title}
                       onChange={(event) => updateForm("title", event.target.value)}
                       required
                     />
                   </label>
-                  <label className="text-sm font-medium text-gray-700">
-                    Categoría
+                  <label className="block text-sm font-medium text-gray-700">
+                    <span className="mb-1.5 flex items-center gap-1.5">&#128193; Categoría</span>
                     <input
-                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
                       value={form.category}
                       onChange={(event) => updateForm("category", event.target.value)}
                       required
@@ -759,10 +784,10 @@ export default function ModuloEditor() {
                   </label>
                 </div>
 
-                <label className="text-sm font-medium text-gray-700">
-                  Descripción
+                <label className="block text-sm font-medium text-gray-700">
+                  <span className="mb-1.5 flex items-center gap-1.5">&#128196; Descripción</span>
                   <textarea
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
                     rows={3}
                     value={form.description}
                     onChange={(event) => updateForm("description", event.target.value)}
@@ -770,11 +795,11 @@ export default function ModuloEditor() {
                   />
                 </label>
 
-                <div className="grid gap-4 md:grid-cols-4">
-                  <label className="text-sm font-medium text-gray-700">
-                    Materia
+                <div className="grid gap-5 md:grid-cols-4">
+                  <label className="block text-sm font-medium text-gray-700">
+                    <span className="mb-1.5 flex items-center gap-1.5">&#128218; Materia</span>
                     <select
-                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
                       value={form.subject}
                       onChange={(event) => handleSubjectChange(event.target.value)}
                       required
@@ -787,29 +812,29 @@ export default function ModuloEditor() {
                       ))}
                     </select>
                   </label>
-                  <label className="text-sm font-medium text-gray-700">
-                    Nivel
+                  <label className="block text-sm font-medium text-gray-700">
+                    <span className="mb-1.5 flex items-center gap-1.5">&#127942; Nivel</span>
                     <input
-                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
                       value={form.level}
                       onChange={(event) => updateForm("level", event.target.value)}
                       required
                     />
                   </label>
-                  <label className="text-sm font-medium text-gray-700">
-                    Duración (min)
+                  <label className="block text-sm font-medium text-gray-700">
+                    <span className="mb-1.5 flex items-center gap-1.5">&#9202; Duración (min)</span>
                     <input
                       type="number"
                       min={1}
-                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
                       value={form.durationMinutes}
                       onChange={(event) => updateForm("durationMinutes", Number(event.target.value))}
                     />
                   </label>
                   <div className="text-sm font-medium text-gray-700">
-                    Visibilidad
+                    <span className="mb-1.5 flex items-center gap-1.5">&#128065; Visibilidad</span>
                     <select
-                      className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
                       value={form.visibility}
                       onChange={(event) => {
                         updateForm("visibility", event.target.value as Module["visibility"]);
@@ -827,12 +852,13 @@ export default function ModuloEditor() {
 
                 {/* School picker — only shown when visibility = "escuela" */}
                 {form.visibility === "escuela" ? (
-                  <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 space-y-2">
-                    <p className="text-xs font-semibold text-amber-800">
+                  <div className="rounded-xl border border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-4 space-y-3 shadow-sm">
+                    <p className="flex items-center gap-2 text-xs font-semibold text-amber-800">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-200 text-amber-700 text-[10px]">&#127979;</span>
                       ¿A qué escuela aplica esta visibilidad?
                     </p>
                     {form.visibilitySchoolId ? (
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 rounded-lg bg-white/60 px-3 py-2">
                         <span className="text-xs text-amber-900">
                           Escuela seleccionada:{" "}
                           <strong>
@@ -842,7 +868,7 @@ export default function ModuloEditor() {
                         </span>
                         <button
                           type="button"
-                          className="text-xs text-amber-700 hover:underline"
+                          className="rounded-md bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-700 transition-colors hover:bg-amber-200"
                           onClick={() => {
                             updateForm("visibilitySchoolId", "");
                             searchEscuelas("");
@@ -855,7 +881,7 @@ export default function ModuloEditor() {
                       <>
                         <div className="flex gap-2">
                           <input
-                            className="flex-1 rounded-md border border-gray-300 px-2 py-1.5 text-xs"
+                            className="flex-1 rounded-lg border border-amber-200 bg-white px-3 py-2 text-xs shadow-sm transition-all focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-100"
                             placeholder="Buscar escuela..."
                             value={escuelaSearch}
                             onChange={(e) => {
@@ -868,14 +894,14 @@ export default function ModuloEditor() {
                           />
                         </div>
                         {escuelaLoading ? (
-                          <p className="text-xs text-gray-500">Buscando...</p>
+                          <p className="text-xs text-gray-500 animate-pulse">Buscando...</p>
                         ) : escuelaResults.length > 0 ? (
-                          <ul className="max-h-36 overflow-y-auto space-y-0.5">
+                          <ul className="max-h-36 overflow-y-auto space-y-1 rounded-lg bg-white/60 p-1">
                             {escuelaResults.map((escuela) => (
                               <li key={escuela.id}>
                                 <button
                                   type="button"
-                                  className="w-full rounded px-2 py-1.5 text-left text-xs text-gray-700 hover:bg-amber-100 hover:text-amber-900"
+                                  className="w-full rounded-lg px-3 py-2 text-left text-xs text-gray-700 transition-colors hover:bg-amber-100 hover:text-amber-900"
                                   onClick={() => {
                                     updateForm("visibilitySchoolId", escuela.id);
                                     setEscuelaSearch("");
@@ -895,27 +921,32 @@ export default function ModuloEditor() {
                     )}
                   </div>
                 ) : null}
+                </div>
               </section>
 
               {/* ── Teoría ── */}
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
+              <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <div className="h-1.5 bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500" />
+                <div className="p-6 space-y-5">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <h2 className="text-lg font-semibold text-gray-900">Teoría</h2>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600 text-sm">&#128214;</span>
+                    <h2 className="text-lg font-bold text-gray-900 tracking-tight">Teoría</h2>
                     {sectionStatus.theoryOk ? (
-                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">✓ Completo</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">&#10003; Completo</span>
                     ) : (
-                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Sin recursos</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-200">&#9888; Sin recursos</span>
                     )}
                   </div>
-                  <span className="text-xs text-gray-500">{theoryItems.length} recursos</span>
+                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">{theoryItems.length} recursos</span>
                 </div>
 
                 {/* New theory item form */}
-                <div className="space-y-3 rounded-lg border border-gray-100 bg-gray-50 p-4">
+                <div className="space-y-3 rounded-xl border border-gray-200 bg-gradient-to-br from-gray-50 to-slate-50 p-5 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Agregar recurso</p>
                   <div className="grid gap-3 md:grid-cols-[1fr_180px]">
                     <input
-                      className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      className="rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"
                       placeholder="Título del recurso"
                       value={newTheoryItem.title}
                       onChange={(event) =>
@@ -923,7 +954,7 @@ export default function ModuloEditor() {
                       }
                     />
                     <select
-                      className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      className="rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"
                       value={newTheoryItem.type}
                       onChange={(event) => {
                         const t = event.target.value;
@@ -1199,28 +1230,31 @@ export default function ModuloEditor() {
 
                   <button
                     type="button"
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm hover:bg-gray-100"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-emerald-700 hover:shadow-md active:scale-[0.98]"
                     onClick={handleAddTheoryItem}
                   >
-                    + Agregar
+                    <span className="text-base leading-none">+</span> Agregar recurso
                   </button>
                 </div>
 
                 {/* Existing theory items */}
                 {theoryItems.length === 0 ? (
-                  <p className="text-sm text-gray-500">No hay elementos teóricos cargados.</p>
+                  <div className="rounded-xl border-2 border-dashed border-gray-200 py-8 text-center">
+                    <p className="text-sm text-gray-400">No hay elementos teóricos cargados.</p>
+                    <p className="mt-1 text-xs text-gray-300">Usá el formulario de arriba para agregar recursos.</p>
+                  </div>
                 ) : (
                   <div className="space-y-3">
                     {theoryItems.map((item, itemIdx) => (
-                      <div key={item.id} className="rounded-lg border border-gray-200 bg-gray-50 p-3 space-y-2">
-                        <div className="flex items-start gap-2">
+                      <div key={item.id} className="group rounded-xl border border-gray-200 bg-white p-4 space-y-2 shadow-sm transition-all duration-200 hover:border-gray-300 hover:shadow-md">
+                        <div className="flex items-start gap-3">
                           {/* Reorder buttons */}
-                          <div className="flex flex-col gap-0.5 pt-0.5 shrink-0">
+                          <div className="flex flex-col gap-1 pt-0.5 shrink-0">
                             <button
                               type="button"
                               title="Mover arriba"
                               disabled={itemIdx === 0}
-                              className="flex h-6 w-6 items-center justify-center rounded border border-gray-300 text-xs text-gray-500 hover:bg-white disabled:cursor-not-allowed disabled:opacity-30"
+                              className="flex h-7 w-7 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-xs text-gray-500 transition-all hover:bg-white hover:border-gray-300 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "up")}
                             >
                               ▲
@@ -1229,21 +1263,21 @@ export default function ModuloEditor() {
                               type="button"
                               title="Mover abajo"
                               disabled={itemIdx === theoryItems.length - 1}
-                              className="flex h-6 w-6 items-center justify-center rounded border border-gray-300 text-xs text-gray-500 hover:bg-white disabled:cursor-not-allowed disabled:opacity-30"
+                              className="flex h-7 w-7 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-xs text-gray-500 transition-all hover:bg-white hover:border-gray-300 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "down")}
                             >
                               ▼
                             </button>
                           </div>
                           {/* Position label */}
-                          <span className="shrink-0 rounded bg-gray-200 px-1.5 py-0.5 text-xs font-mono text-gray-600">
+                          <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 text-xs font-bold font-mono text-gray-600 shadow-sm">
                             {itemIdx + 1}
                           </span>
-                          <div className="flex-1 space-y-2">
+                          <div className="flex-1 space-y-3">
                             <TheoryItemCard item={item} />
                             <div className="flex flex-col gap-2">
                               <input
-                                className="rounded-md border border-gray-300 px-2 py-2 text-xs"
+                                className="rounded-lg border border-gray-200 bg-gray-50/50 px-3 py-2 text-xs shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
                                 placeholder="Título"
                                 value={item.title}
                                 onChange={(event) =>
@@ -1488,7 +1522,7 @@ export default function ModuloEditor() {
                               )}
                               <button
                                 type="button"
-                                className="self-start text-xs text-red-500 hover:underline"
+                                className="self-start rounded-md border border-red-200 bg-red-50 px-2.5 py-1 text-xs font-medium text-red-600 transition-all hover:bg-red-100 hover:border-red-300"
                                 onClick={() => removeTheoryItem(item.id)}
                               >
                                 Eliminar
@@ -1500,13 +1534,17 @@ export default function ModuloEditor() {
                     ))}
                   </div>
                 )}
+                </div>
               </section>
 
               {/* ── Dependencias ── */}
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
-                <div className="flex items-center gap-2">
-                  <h2 className="text-lg font-semibold text-gray-900">Dependencias</h2>
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600">
+              <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <div className="h-1.5 bg-gradient-to-r from-slate-400 via-gray-400 to-zinc-400" />
+                <div className="p-6 space-y-4">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-600 text-sm">&#128279;</span>
+                  <h2 className="text-lg font-bold text-gray-900 tracking-tight">Dependencias</h2>
+                  <span className="rounded-full bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-500 ring-1 ring-slate-200">
                     Opcional
                   </span>
                 </div>
@@ -1519,11 +1557,12 @@ export default function ModuloEditor() {
                     {form.dependencies.map((dep) => (
                       <li
                         key={dep.id}
-                        className="flex items-center gap-3 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2"
+                        className="flex items-center gap-3 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-50 to-white px-4 py-3 shadow-sm transition-all hover:shadow-md hover:border-gray-300"
                       >
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-200 text-[10px] font-bold text-slate-600">&#128279;</span>
                         <span className="flex-1 truncate text-xs font-mono text-gray-700">{dep.id}</span>
                         <select
-                          className="rounded border border-gray-300 px-2 py-1 text-xs"
+                          className="rounded-lg border border-gray-200 bg-white px-2.5 py-1.5 text-xs shadow-sm transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
                           value={dep.type}
                           onChange={(e) =>
                             updateDependencyType(dep.id, e.target.value as "required" | "unlocks")
@@ -1534,7 +1573,7 @@ export default function ModuloEditor() {
                         </select>
                         <button
                           type="button"
-                          className="text-xs text-red-500 hover:underline"
+                          className="rounded-md border border-red-200 bg-red-50 px-2 py-1 text-xs font-medium text-red-600 transition-all hover:bg-red-100 hover:border-red-300"
                           onClick={() => removeDependency(dep.id)}
                         >
                           Quitar
@@ -1543,13 +1582,15 @@ export default function ModuloEditor() {
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-sm text-gray-400">Sin dependencias configuradas.</p>
+                  <div className="rounded-xl border-2 border-dashed border-gray-200 py-6 text-center">
+                    <p className="text-sm text-gray-400">Sin dependencias configuradas.</p>
+                  </div>
                 )}
 
                 {depPickerOpen ? (
-                  <div className="rounded-lg border border-blue-200 bg-blue-50 p-3 space-y-2">
+                  <div className="rounded-xl border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50 p-4 space-y-3 shadow-sm">
                     <input
-                      className="w-full rounded-md border border-gray-300 px-2 py-1.5 text-xs"
+                      className="w-full rounded-lg border border-blue-200 bg-white px-3 py-2 text-xs shadow-sm transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
                       placeholder="Buscar módulo por título..."
                       value={depSearch}
                       autoFocus
@@ -1559,16 +1600,16 @@ export default function ModuloEditor() {
                       }}
                     />
                     {depLoading ? (
-                      <p className="text-xs text-gray-500">Buscando...</p>
+                      <p className="text-xs text-gray-500 animate-pulse">Buscando...</p>
                     ) : depResults.length > 0 ? (
-                      <ul className="max-h-40 overflow-y-auto space-y-0.5">
+                      <ul className="max-h-40 overflow-y-auto space-y-1 rounded-lg bg-white/60 p-1">
                         {depResults
                           .filter((r) => r.id !== id)
                           .map((mod) => (
                             <li key={mod.id}>
                               <button
                                 type="button"
-                                className="w-full rounded px-2 py-1.5 text-left text-xs text-gray-700 hover:bg-white hover:text-blue-700"
+                                className="w-full rounded-lg px-3 py-2 text-left text-xs text-gray-700 transition-colors hover:bg-blue-100 hover:text-blue-700"
                                 onClick={() => addDependency(mod)}
                               >
                                 {mod.title}
@@ -1584,7 +1625,7 @@ export default function ModuloEditor() {
                     )}
                     <button
                       type="button"
-                      className="text-xs text-gray-400 hover:text-gray-600"
+                      className="rounded-md bg-gray-100 px-3 py-1.5 text-xs text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-700"
                       onClick={() => {
                         setDepPickerOpen(false);
                         setDepSearch("");
@@ -1597,7 +1638,7 @@ export default function ModuloEditor() {
                 ) : (
                   <button
                     type="button"
-                    className="rounded-md border border-dashed border-gray-300 px-3 py-2 text-xs text-gray-500 hover:border-blue-400 hover:text-blue-600"
+                    className="w-full rounded-xl border-2 border-dashed border-gray-300 px-4 py-3 text-xs font-medium text-gray-500 transition-all duration-200 hover:border-blue-400 hover:bg-blue-50/50 hover:text-blue-600"
                     onClick={() => {
                       setDepPickerOpen(true);
                       searchModules("");
@@ -1606,36 +1647,40 @@ export default function ModuloEditor() {
                     + Agregar dependencia
                   </button>
                 )}
+                </div>
               </section>
 
               {/* ── Cuestionarios ── */}
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
+              <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <div className="h-1.5 bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500" />
+                <div className="p-6 space-y-5">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <h2 className="text-lg font-semibold text-gray-900">Cuestionarios</h2>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-100 text-violet-600 text-sm">&#10068;</span>
+                    <h2 className="text-lg font-bold text-gray-900 tracking-tight">Cuestionarios</h2>
                     {quizzes.length === 0 ? null : sectionStatus.quizzesOk ? (
-                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">✓ Completo</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">&#10003; Completo</span>
                     ) : (
-                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Con errores</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-200">&#9888; Con errores</span>
                     )}
                   </div>
-                  <span className="text-xs text-gray-500">{quizCountLabel}</span>
+                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">{quizCountLabel}</span>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   <button
                     type="button"
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-violet-700 hover:shadow-md active:scale-[0.98]"
                     onClick={() => addQuiz("manual")}
                   >
-                    + Manual
+                    <span className="text-base leading-none">+</span> Manual
                   </button>
                   <button
                     type="button"
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    className="inline-flex items-center gap-1.5 rounded-lg border-2 border-violet-200 bg-violet-50 px-4 py-2.5 text-sm font-medium text-violet-700 shadow-sm transition-all duration-200 hover:bg-violet-100 hover:border-violet-300 active:scale-[0.98]"
                     onClick={() => addQuiz("generated")}
                   >
-                    + Generado
+                    <span className="text-base leading-none">+</span> Generado
                   </button>
                 </div>
 
@@ -1644,20 +1689,25 @@ export default function ModuloEditor() {
                 </div>
 
                 {quizzes.length === 0 ? (
-                  <p className="text-sm text-gray-500">No hay cuestionarios configurados.</p>
+                  <div className="rounded-xl border-2 border-dashed border-gray-200 py-8 text-center">
+                    <p className="text-sm text-gray-400">No hay cuestionarios configurados.</p>
+                    <p className="mt-1 text-xs text-gray-300">Usá los botones de arriba para agregar cuestionarios.</p>
+                  </div>
                 ) : (
                   <div className="space-y-6">
                     {quizzes.map((quiz) => (
-                      <div key={quiz.id} className="rounded-lg border border-gray-200 p-4 space-y-4">
+                      <div key={quiz.id} className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md">
+                        <div className="h-1 bg-gradient-to-r from-violet-400 to-purple-400" />
+                        <div className="p-5 space-y-4">
                         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                          <div className="grid flex-1 gap-3 md:grid-cols-3">
+                          <div className="grid flex-1 gap-4 md:grid-cols-3">
                             <label className="text-xs font-medium text-gray-600">
                               Título
                               <input
-                                className={`mt-1 w-full rounded-md border px-2 py-2 text-sm ${
+                                className={`mt-1 w-full rounded-lg border px-3 py-2.5 text-sm shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 ${
                                   quizBlurErrors[quiz.id]?.length
-                                    ? "border-red-400 bg-red-50"
-                                    : "border-gray-300"
+                                    ? "border-red-400 bg-red-50 focus:ring-red-100"
+                                    : "border-gray-300 focus:border-violet-400 focus:ring-violet-100"
                                 }`}
                                 value={quiz.title}
                                 onChange={(event) =>
@@ -1666,7 +1716,7 @@ export default function ModuloEditor() {
                                 onBlur={() => validateQuizTitle(quiz.id, quiz.title)}
                               />
                               {quizBlurErrors[quiz.id]?.map((err) => (
-                                <span key={err} className="mt-0.5 block text-xs text-red-600">
+                                <span key={err} className="mt-1 block text-xs text-red-600">
                                   {err}
                                 </span>
                               ))}
@@ -1674,7 +1724,7 @@ export default function ModuloEditor() {
                             <label className="text-xs font-medium text-gray-600">
                               Tipo
                               <select
-                                className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
+                                className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
                                 value={quiz.type}
                                 onChange={(event) =>
                                   updateQuiz(quiz.id, {
@@ -1690,7 +1740,7 @@ export default function ModuloEditor() {
                             <label className="text-xs font-medium text-gray-600">
                               Visibilidad
                               <select
-                                className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
+                                className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
                                 value={quiz.visibility}
                                 onChange={(event) =>
                                   updateQuiz(quiz.id, {
@@ -1706,14 +1756,14 @@ export default function ModuloEditor() {
                           <div className="flex flex-col items-end gap-2">
                             <button
                               type="button"
-                              className="text-xs text-red-500 hover:underline"
+                              className="rounded-md border border-red-200 bg-red-50 px-2.5 py-1 text-xs font-medium text-red-600 transition-all hover:bg-red-100 hover:border-red-300"
                               onClick={() => removeQuiz(quiz.id)}
                             >
                               Eliminar cuestionario
                             </button>
                             <button
                               type="button"
-                              className="rounded border border-gray-300 px-2 py-1 text-xs text-gray-600 hover:bg-gray-50"
+                              className="rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-600 transition-all hover:bg-indigo-100 hover:border-indigo-300"
                               onClick={() =>
                                 setQuizPreviewOpen((prev) => ({
                                   ...prev,
@@ -1727,7 +1777,7 @@ export default function ModuloEditor() {
                         </div>
 
                         {quizPreviewOpen[quiz.id] ? (
-                          <div className="rounded-lg border border-indigo-200 bg-indigo-50 p-3 text-xs text-indigo-700">
+                          <div className="rounded-xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-blue-50 p-4 text-xs text-indigo-700 shadow-sm">
                             <p className="mb-2 font-semibold">
                               Vista previa del estudiante (semilla fija, no registra intento)
                             </p>

@@ -99,19 +99,22 @@ export default function ReproductorModulos() {
   }, [subjectFilteredModules, selectedCategory]);
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/40">
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 px-6 py-4">
-        <div className="mx-auto max-w-7xl flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <header className="relative overflow-hidden bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 px-6 py-6 shadow-lg">
+        {/* Decorative background circles */}
+        <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-white/10" />
+        <div className="pointer-events-none absolute -left-6 bottom-0 h-32 w-32 rounded-full bg-white/5" />
+        <div className="relative mx-auto max-w-7xl flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-2xl font-semibold text-slate-900">Reproductor de Módulos</h1>
-            <p className="text-sm text-slate-500 mt-0.5">
-              Explora y reproduce módulos organizados por materia y categoría
+            <h1 className="text-2xl font-bold text-white tracking-tight">Reproductor de Modulos</h1>
+            <p className="text-sm text-indigo-100 mt-1">
+              Explora y reproduce modulos organizados por materia y categoria
             </p>
           </div>
-          <div className="relative w-full sm:w-72">
+          <div className="relative w-full sm:w-80">
             <svg
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400"
+              className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-indigo-300"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -128,52 +131,88 @@ export default function ReproductorModulos() {
                 setSelectedSubject("all");
                 setSelectedCategory("all");
               }}
-              placeholder="Buscar módulos..."
-              className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2 pl-9 pr-4 text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Buscar modulos..."
+              className="w-full rounded-xl border border-white/20 bg-white/15 py-2.5 pl-10 pr-4 text-sm text-white placeholder:text-indigo-200 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/40 focus:bg-white/20 transition-all duration-200"
             />
           </div>
         </div>
       </header>
 
-      {/* Loading / Error states */}
+      {/* Loading state */}
       {loadStatus === "loading" && (
-        <div className="mx-auto max-w-7xl px-6 py-12 text-center text-sm text-slate-500">
-          Cargando módulos…
+        <div className="mx-auto max-w-7xl px-6 py-10">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm space-y-3">
+                <div className="h-2.5 w-full rounded-full bg-slate-100 animate-pulse" />
+                <div className="flex gap-2">
+                  <div className="h-6 w-20 rounded-full bg-slate-100 animate-pulse" />
+                  <div className="h-6 w-16 rounded-full bg-slate-100 animate-pulse" />
+                </div>
+                <div className="h-5 w-3/4 rounded-lg bg-slate-100 animate-pulse" />
+                <div className="h-4 w-full rounded-lg bg-slate-100 animate-pulse" />
+                <div className="h-4 w-2/3 rounded-lg bg-slate-100 animate-pulse" />
+                <div className="flex gap-3 pt-1">
+                  <div className="h-4 w-14 rounded bg-slate-100 animate-pulse" />
+                  <div className="h-4 w-14 rounded bg-slate-100 animate-pulse" />
+                </div>
+                <div className="h-10 w-full rounded-xl bg-slate-100 animate-pulse" />
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
       {loadStatus === "error" && (
         <div className="mx-auto max-w-7xl px-6 py-8">
-          <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
-            {errorMessage ?? "Ocurrió un error al cargar los módulos."}
+          <div className="rounded-2xl border border-red-200 bg-gradient-to-r from-red-50 to-rose-50 p-6 text-sm text-red-700 shadow-sm">
+            <div className="flex items-start gap-3">
+              <svg className="h-5 w-5 shrink-0 text-red-400 mt-0.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+              </svg>
+              <p>{errorMessage ?? "Ocurrio un error al cargar los modulos."}</p>
+            </div>
           </div>
         </div>
       )}
 
       {loadStatus === "ready" && visibleModules.length === 0 && (
-        <div className="mx-auto max-w-7xl px-6 py-16 text-center">
-          <p className="text-sm text-slate-500">No hay módulos disponibles para reproducir.</p>
+        <div className="mx-auto max-w-7xl px-6 py-20 text-center">
+          <div className="mx-auto max-w-sm">
+            <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-indigo-100 to-purple-100">
+              <svg className="h-10 w-10 text-indigo-400" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+              </svg>
+            </div>
+            <p className="text-base font-medium text-slate-600">No hay modulos disponibles para reproducir.</p>
+            <p className="mt-1 text-sm text-slate-400">Los modulos publicados apareceran aqui.</p>
+          </div>
         </div>
       )}
 
       {loadStatus === "ready" && visibleModules.length > 0 && (
         <div className="mx-auto max-w-7xl px-6 py-6 flex gap-6">
-          {/* Sidebar — subjects */}
-          <aside className="hidden lg:flex flex-col w-52 shrink-0 gap-1">
-            <p className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
+          {/* Sidebar -- subjects */}
+          <aside className="hidden lg:flex flex-col w-56 shrink-0 gap-1">
+            <p className="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-400">
               Materias
             </p>
             <button
               type="button"
               onClick={() => handleSubjectClick("all")}
-              className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition text-left ${
+              className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 text-left ${
                 selectedSubject === "all"
-                  ? "bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  ? "bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 ring-1 ring-indigo-200 shadow-sm"
+                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900 hover:translate-x-0.5"
               }`}
             >
               <span>Todas</span>
-              <span className="ml-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">
+              <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                selectedSubject === "all"
+                  ? "bg-indigo-100 text-indigo-600"
+                  : "bg-slate-100 text-slate-500"
+              }`}>
                 {searchedModules.length}
               </span>
             </button>
@@ -185,10 +224,10 @@ export default function ReproductorModulos() {
                   key={subj}
                   type="button"
                   onClick={() => handleSubjectClick(subj)}
-                  className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition text-left ${
+                  className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 text-left ${
                     selectedSubject === subj
-                      ? "ring-1"
-                      : "hover:bg-slate-100"
+                      ? "ring-1 shadow-sm"
+                      : "hover:bg-slate-100 hover:translate-x-0.5"
                   }`}
                   style={
                     selectedSubject === subj
@@ -200,7 +239,7 @@ export default function ReproductorModulos() {
                   }
                 >
                   <span className="truncate">{subj}</span>
-                  <span className="ml-2 shrink-0 rounded-full bg-white/60 px-2 py-0.5 text-xs opacity-80">
+                  <span className="ml-2 shrink-0 rounded-full bg-white/60 px-2.5 py-0.5 text-xs font-semibold opacity-80">
                     {count}
                   </span>
                 </button>
@@ -220,10 +259,10 @@ export default function ReproductorModulos() {
               <button
                 type="button"
                 onClick={() => handleSubjectClick("all")}
-                className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 shadow-sm ${
                   selectedSubject === "all"
-                    ? "bg-indigo-600 text-white"
-                    : "bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900"
+                    ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-indigo-200"
+                    : "bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900 hover:shadow-md"
                 }`}
               >
                 Todas ({searchedModules.length})
@@ -235,10 +274,10 @@ export default function ReproductorModulos() {
                     key={subj}
                     type="button"
                     onClick={() => handleSubjectClick(subj)}
-                    className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
+                    className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 shadow-sm ${
                       selectedSubject === subj
-                        ? "bg-indigo-600 text-white"
-                        : "bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900"
+                        ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-indigo-200"
+                        : "bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900 hover:shadow-md"
                     }`}
                   >
                     {subj} ({count})
@@ -253,23 +292,23 @@ export default function ReproductorModulos() {
                 <button
                   type="button"
                   onClick={() => setSelectedCategory("all")}
-                  className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
+                  className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 ${
                     selectedCategory === "all"
-                      ? "bg-indigo-100 text-indigo-700 ring-1 ring-indigo-300"
-                      : "bg-white text-slate-500 ring-1 ring-slate-200 hover:text-slate-700"
+                      ? "bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 ring-1 ring-indigo-300 shadow-sm"
+                      : "bg-white text-slate-500 ring-1 ring-slate-200 hover:text-slate-700 hover:shadow-sm"
                   }`}
                 >
-                  Todas las categorías
+                  Todas las categorias
                 </button>
                 {categoryOptions.map((cat) => (
                   <button
                     key={cat}
                     type="button"
                     onClick={() => setSelectedCategory(cat)}
-                    className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
+                    className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 ${
                       selectedCategory === cat
-                        ? "bg-indigo-100 text-indigo-700 ring-1 ring-indigo-300"
-                        : "bg-white text-slate-500 ring-1 ring-slate-200 hover:text-slate-700"
+                        ? "bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 ring-1 ring-indigo-300 shadow-sm"
+                        : "bg-white text-slate-500 ring-1 ring-slate-200 hover:text-slate-700 hover:shadow-sm"
                     }`}
                   >
                     {cat}
@@ -280,9 +319,14 @@ export default function ReproductorModulos() {
 
             {/* Module grid */}
             {filteredModules.length === 0 ? (
-              <div className="rounded-xl border border-dashed border-slate-300 bg-white p-12 text-center">
-                <p className="text-sm text-slate-500">
-                  No hay módulos para los filtros seleccionados.
+              <div className="rounded-2xl border-2 border-dashed border-slate-200 bg-gradient-to-br from-white to-slate-50 p-16 text-center">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-slate-100">
+                  <svg className="h-7 w-7 text-slate-400" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  </svg>
+                </div>
+                <p className="text-sm font-medium text-slate-500">
+                  No hay modulos para los filtros seleccionados.
                 </p>
                 <button
                   type="button"
@@ -291,13 +335,16 @@ export default function ReproductorModulos() {
                     setSelectedCategory("all");
                     setSearchTerm("");
                   }}
-                  className="mt-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                  className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-600 transition-all duration-200 hover:bg-indigo-100"
                 >
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
                   Limpiar filtros
                 </button>
               </div>
             ) : (
-              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                 {filteredModules.map((m) => {
                   const subjectColor = getSubjectColor(m.subject);
                   const quizCount = publishedQuizCount(m);
@@ -306,40 +353,42 @@ export default function ReproductorModulos() {
                   return (
                     <article
                       key={m.id}
-                      className="flex flex-col rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                      className="group flex flex-col rounded-2xl border border-slate-200/80 bg-white shadow-sm hover:shadow-xl hover:shadow-indigo-100/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                     >
-                      {/* Color strip */}
+                      {/* Color strip -- gradient and thicker */}
                       <div
-                        className="h-1.5 w-full"
-                        style={{ backgroundColor: subjectColor.border }}
+                        className="h-2 w-full"
+                        style={{
+                          background: `linear-gradient(90deg, ${subjectColor.border}, ${subjectColor.text}40)`,
+                        }}
                       />
 
-                      <div className="flex flex-col flex-1 p-4 gap-3">
+                      <div className="flex flex-col flex-1 p-5 gap-3">
                         {/* Badges row */}
                         <div className="flex flex-wrap items-center gap-1.5">
                           <span
-                            className="rounded-full px-2 py-0.5 text-xs font-semibold"
+                            className="rounded-full px-2.5 py-1 text-xs font-bold shadow-sm"
                             style={{
-                              backgroundColor: subjectColor.background,
+                              background: `linear-gradient(135deg, ${subjectColor.background}, ${subjectColor.background}cc)`,
                               color: subjectColor.text,
                             }}
                           >
                             {resolveSubject(m)}
                           </span>
                           {m.category && m.category !== m.subject && (
-                            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600">
+                            <span className="rounded-full bg-gradient-to-r from-slate-100 to-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-200/60">
                               {resolveCategory(m)}
                             </span>
                           )}
                           {hasRewards && (
-                            <span className="rounded-full bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-700 ring-1 ring-amber-200">
+                            <span className="rounded-full bg-gradient-to-r from-amber-50 to-yellow-50 px-2.5 py-1 text-xs font-bold text-amber-700 ring-1 ring-amber-200 shadow-sm">
                               PF
                             </span>
                           )}
                         </div>
 
                         {/* Title */}
-                        <h2 className="text-base font-semibold text-slate-900 leading-snug">
+                        <h2 className="text-base font-bold text-slate-900 leading-snug group-hover:text-indigo-700 transition-colors duration-200">
                           {m.title}
                         </h2>
 
@@ -351,7 +400,7 @@ export default function ReproductorModulos() {
                         )}
 
                         {/* Meta row */}
-                        <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 mt-auto pt-1">
+                        <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 mt-auto pt-2 border-t border-slate-100">
                           {m.durationMinutes > 0 && (
                             <span className="flex items-center gap-1">
                               <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -382,9 +431,9 @@ export default function ReproductorModulos() {
                         {/* Play button */}
                         <Link
                           to={`/modulos/${m.id}/jugar`}
-                          className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 active:bg-indigo-700"
+                          className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm shadow-indigo-200 transition-all duration-200 hover:from-indigo-500 hover:to-purple-500 hover:shadow-md hover:shadow-indigo-300 active:scale-[0.98] group/btn"
                         >
-                          <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                          <svg className="h-4 w-4 transition-transform duration-200 group-hover/btn:scale-110" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M8 5v14l11-7z" />
                           </svg>
                           Reproducir

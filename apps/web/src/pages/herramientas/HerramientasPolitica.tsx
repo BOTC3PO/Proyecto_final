@@ -270,6 +270,7 @@ export default function HerramientasPolitica() {
   const [activeTool, setActiveTool] = useState<Tool>("voting");
 
   // Voting state
+  const [votingTitle, setVotingTitle] = useState("Comparador de sistemas de votación");
   const [candidateNames, setCandidateNames] = useState([
     "Candidato A",
     "Candidato B",
@@ -279,8 +280,11 @@ export default function HerramientasPolitica() {
   const [votesCounts, setVotesCounts] = useState([600, 400, 300, 200]);
 
   // Power distribution state
+  const [powerTitle, setPowerTitle] = useState("Distribución de poder");
   const [govType, setGovType] = useState<GovType>("presidential");
   const [country, setCountry] = useState<CountryExample>("US");
+  const [branches, setBranches] = useState<BranchDef[]>(POWER_CONFIGS.presidential.branches);
+  const [relations, setRelations] = useState<RelationDef[]>(POWER_CONFIGS.presidential.relations);
 
   const candidates = useMemo(
     () =>
@@ -310,7 +314,7 @@ export default function HerramientasPolitica() {
   const votingSpec = useMemo<PolVotingSystemsSpec>(
     () => ({
       kind: "pol-voting-systems",
-      title: "Comparador de sistemas de votación",
+      title: votingTitle || "Comparador de sistemas de votación",
       description:
         "Compara cómo cada sistema electoral puede producir diferentes ganadores con los mismos votos.",
       candidates,
@@ -326,22 +330,38 @@ export default function HerramientasPolitica() {
         borda: bordaWinner(candidates, votesCounts),
       },
     }),
-    [candidates, ballots, votesCounts],
+    [votingTitle, candidates, ballots, votesCounts],
   );
 
   const effectiveGovType = activeTool === "power" ? govType : "presidential";
 
+  const handleGovTypeChange = (v: GovType) => {
+    setGovType(v);
+    setBranches(POWER_CONFIGS[v].branches);
+    setRelations(POWER_CONFIGS[v].relations);
+    if (v === "presidential") setCountry("US");
+    else if (v === "parliamentary") setCountry("UK");
+    else setCountry("France");
+  };
+
+  const handleCountryChange = (c: CountryExample) => {
+    setCountry(c);
+    const g = COUNTRY_GOV[c];
+    setGovType(g);
+    setBranches(POWER_CONFIGS[g].branches);
+    setRelations(POWER_CONFIGS[g].relations);
+  };
+
   const powerSpec = useMemo<PolPowerDistributionSpec>(() => {
-    const config = POWER_CONFIGS[effectiveGovType];
     return {
       kind: "pol-power-distribution",
-      title: `Distribución de poder: sistema ${effectiveGovType === "presidential" ? "presidencial" : effectiveGovType === "parliamentary" ? "parlamentario" : "semipresidencial"}`,
+      title: powerTitle || `Distribución de poder: sistema ${effectiveGovType === "presidential" ? "presidencial" : effectiveGovType === "parliamentary" ? "parlamentario" : "semipresidencial"}`,
       description: `Estructura de poderes en un sistema ${effectiveGovType}. Ejemplo: ${COUNTRY_NAMES[country]}.`,
       system: effectiveGovType === "semi-presidential" ? "federal" : effectiveGovType,
-      branches: config.branches,
-      relations: config.relations,
+      branches,
+      relations,
     };
-  }, [effectiveGovType, country]);
+  }, [powerTitle, effectiveGovType, country, branches, relations]);
 
   return (
     <div className="space-y-6 px-6 py-8">
@@ -391,59 +411,65 @@ export default function HerramientasPolitica() {
 
       {/* ── Voting Systems tool ── */}
       {activeTool === "voting" && (
-        <>
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">
-              Candidatos y votos
-            </h2>
-            <div className="mt-4 grid gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 items-start">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            <h2 className="text-base font-semibold text-slate-800">Parámetros</h2>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Título</label>
+              <input
+                type="text"
+                value={votingTitle}
+                onChange={(e) => setVotingTitle(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
+            </div>
+
+            <div className="space-y-3 border-t border-slate-100 pt-4">
+              <label className="text-xs font-medium text-slate-600">Candidatos y votos</label>
               {candidateNames.map((name, i) => (
-                <div key={i} className="space-y-2">
-                  <label className="block text-sm font-medium text-slate-700">
-                    Candidato {i + 1}
-                  </label>
-                  <input
-                    type="text"
-                    value={name}
-                    maxLength={32}
-                    onChange={(e) => {
-                      const next = [...candidateNames];
-                      next[i] = e.target.value;
-                      setCandidateNames(next);
-                    }}
-                    className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder={`Candidato ${i + 1}`}
-                  />
-                  <label className="flex items-center justify-between text-sm text-slate-600">
-                    <span>Votos: {votesCounts[i]}</span>
+                <div key={i} className="space-y-1.5">
+                  <div className="flex items-center gap-2">
                     <span
-                      className="inline-block h-3 w-3 rounded-full"
+                      className="inline-block h-3 w-3 rounded-full shrink-0"
                       style={{ backgroundColor: CANDIDATE_COLORS[i] }}
                     />
-                  </label>
-                  <input
-                    type="range"
-                    min={0}
-                    max={1000}
-                    step={10}
-                    value={votesCounts[i]}
-                    onChange={(e) => {
-                      const next = [...votesCounts];
-                      next[i] = Number(e.target.value);
-                      setVotesCounts(next);
-                    }}
-                    className="w-full accent-blue-600"
-                  />
+                    <input
+                      type="text"
+                      value={name}
+                      maxLength={32}
+                      onChange={(e) => {
+                        const next = [...candidateNames];
+                        next[i] = e.target.value;
+                        setCandidateNames(next);
+                      }}
+                      className="flex-1 rounded-md border border-slate-200 px-2 py-1 text-sm focus:outline-none focus:border-blue-400"
+                      placeholder={`Candidato ${i + 1}`}
+                    />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="range"
+                      min={0}
+                      max={1000}
+                      step={10}
+                      value={votesCounts[i]}
+                      onChange={(e) => {
+                        const next = [...votesCounts];
+                        next[i] = Number(e.target.value);
+                        setVotesCounts(next);
+                      }}
+                      className="flex-1 accent-blue-600"
+                    />
+                    <span className="w-14 text-right font-mono text-xs text-slate-500">{votesCounts[i]}</span>
+                  </div>
                 </div>
               ))}
             </div>
-          </section>
 
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-1 text-lg font-semibold text-slate-800">
-              Resumen de ganadores por sistema
-            </h2>
-            <div className="mt-3 grid gap-3 sm:grid-cols-3">
+            {/* Winners summary */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <label className="text-xs font-medium text-slate-600">Ganadores por sistema</label>
               {[
                 { label: "Pluralidad", winner: pluralityWinner(candidates, votesCounts) },
                 { label: "Segunda vuelta", winner: runoffWinner(candidates, votesCounts) },
@@ -451,81 +477,206 @@ export default function HerramientasPolitica() {
               ].map(({ label, winner }) => (
                 <div
                   key={label}
-                  className="rounded-xl border border-slate-100 bg-slate-50 p-4"
+                  className="flex items-center justify-between rounded-lg border border-slate-100 bg-slate-50 px-3 py-2"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  <span className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
                     {label}
-                  </p>
-                  <p className="mt-1 text-base font-semibold text-slate-800">
+                  </span>
+                  <span className="text-xs font-semibold text-slate-800">
                     {winner}
-                  </p>
+                  </span>
                 </div>
               ))}
             </div>
           </section>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              Vista previa
+            </p>
             <VisualizerRenderer spec={votingSpec} />
-          </div>
-        </>
+          </section>
+        </div>
       )}
 
       {/* ── Power Distribution tool ── */}
       {activeTool === "power" && (
-        <>
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">
-              Configuración del sistema
-            </h2>
-            <div className="mt-4 grid gap-5 md:grid-cols-2">
-              <label className="space-y-2 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">
-                  Tipo de gobierno
-                </span>
-                <select
-                  value={govType}
-                  onChange={(e) => {
-                    const v = e.target.value as GovType;
-                    setGovType(v);
-                    // Sync country to a matching example
-                    if (v === "presidential") setCountry("US");
-                    else if (v === "parliamentary") setCountry("UK");
-                    else setCountry("France");
-                  }}
-                  className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="presidential">Presidencial</option>
-                  <option value="parliamentary">Parlamentario</option>
-                  <option value="semi-presidential">Semipresidencial</option>
-                </select>
-              </label>
+        <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 items-start">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            <h2 className="text-base font-semibold text-slate-800">Parámetros</h2>
 
-              <label className="space-y-2 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">
-                  Ejemplo de pais
-                </span>
-                <select
-                  value={country}
-                  onChange={(e) => {
-                    const c = e.target.value as CountryExample;
-                    setCountry(c);
-                    setGovType(COUNTRY_GOV[c]);
-                  }}
-                  className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="US">Estados Unidos (presidencial)</option>
-                  <option value="Argentina">Argentina (presidencial)</option>
-                  <option value="France">Francia (semipresidencial)</option>
-                  <option value="UK">Reino Unido (parlamentario)</option>
-                </select>
-              </label>
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Título</label>
+              <input
+                type="text"
+                value={powerTitle}
+                onChange={(e) => setPowerTitle(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
             </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">
+                Tipo de gobierno
+              </label>
+              <select
+                value={govType}
+                onChange={(e) => handleGovTypeChange(e.target.value as GovType)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              >
+                <option value="presidential">Presidencial</option>
+                <option value="parliamentary">Parlamentario</option>
+                <option value="semi-presidential">Semipresidencial</option>
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">
+                Ejemplo de pais
+              </label>
+              <select
+                value={country}
+                onChange={(e) => handleCountryChange(e.target.value as CountryExample)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              >
+                <option value="US">Estados Unidos (presidencial)</option>
+                <option value="Argentina">Argentina (presidencial)</option>
+                <option value="France">Francia (semipresidencial)</option>
+                <option value="UK">Reino Unido (parlamentario)</option>
+              </select>
+            </div>
+
+            {/* Editable branches table */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <label className="text-xs font-medium text-slate-600">Poderes (ramas)</label>
+              <div className="overflow-x-auto rounded-lg border border-slate-100">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="bg-slate-50 text-[10px] text-slate-400 uppercase tracking-wide">
+                      <th className="text-left px-2 py-1.5 font-medium">Nombre</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Rol</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Poderes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {branches.map((b, i) => (
+                      <tr key={b.id} className="border-t border-slate-100">
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={b.label}
+                            onChange={(e) =>
+                              setBranches((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], label: e.target.value };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={b.role}
+                            onChange={(e) =>
+                              setBranches((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], role: e.target.value };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={b.powers.join(", ")}
+                            onChange={(e) =>
+                              setBranches((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], powers: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Editable relations table */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <label className="text-xs font-medium text-slate-600">Relaciones</label>
+              <div className="overflow-x-auto rounded-lg border border-slate-100">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="bg-slate-50 text-[10px] text-slate-400 uppercase tracking-wide">
+                      <th className="text-left px-2 py-1.5 font-medium">Etiqueta</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Tipo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {relations.map((r, i) => (
+                      <tr key={r.id} className="border-t border-slate-100">
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={r.label}
+                            onChange={(e) =>
+                              setRelations((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], label: e.target.value };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <select
+                            className="w-full border border-slate-200 rounded px-1 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={r.kind}
+                            onChange={(e) =>
+                              setRelations((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], kind: e.target.value as RelationDef["kind"] };
+                                return n;
+                              })
+                            }
+                          >
+                            <option value="check">check</option>
+                            <option value="appoints">appoints</option>
+                            <option value="reports-to">reports-to</option>
+                          </select>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                setBranches(POWER_CONFIGS[govType].branches);
+                setRelations(POWER_CONFIGS[govType].relations);
+              }}
+              className="text-xs text-slate-400 hover:text-slate-600"
+            >
+              Restablecer datos
+            </button>
           </section>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              Vista previa
+            </p>
             <VisualizerRenderer spec={powerSpec} />
-          </div>
-        </>
+          </section>
+        </div>
       )}
     </div>
   );
