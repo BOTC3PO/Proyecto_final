@@ -11,6 +11,14 @@ type Tool = "argument-map" | "dilemma";
 type ArgumentExample = "socrates" | "trolley" | "ontological";
 type DilemmaExample = "trolley" | "prisoner" | "lying";
 
+// ── Types for editable rows ──────────────────────────────────────────────────
+
+type ArgNodeRow = { id: string; text: string; type: "premise" | "conclusion" | "objection" | "rebuttal"; parentId?: string };
+type ArgRelationRow = { id: string; fromId: string; toId: string; kind: "supports" | "attacks" };
+type DilemmaOptionRow = { id: string; label: string; framework: string; analysis: string; consequences: string[] };
+
+// ── Argument map presets ─────────────────────────────────────────────────────
+
 const ARGUMENT_MAPS: Record<ArgumentExample, PhilArgumentMapSpec> = {
   socrates: {
     kind: "phil-argument-map",
@@ -328,19 +336,70 @@ const DILEMMAS: Record<DilemmaExample, PhilDilemmaSpec> = {
 
 export default function HerramientasFilosofia() {
   const [activeTool, setActiveTool] = useState<Tool>("argument-map");
+
+  // ── Argument map state ─────────────────────────────────────────────────────
   const [selectedArgument, setSelectedArgument] =
     useState<ArgumentExample>("socrates");
+  const [argTitle, setArgTitle] = useState(ARGUMENT_MAPS.socrates.title);
+  const [claimText, setClaimText] = useState(ARGUMENT_MAPS.socrates.claim.text);
+  const [argNodes, setArgNodes] = useState<ArgNodeRow[]>(
+    ARGUMENT_MAPS.socrates.nodes.map((n) => ({ id: n.id, text: n.text, type: n.type as ArgNodeRow["type"], parentId: n.parentId })),
+  );
+  const [argRelations, setArgRelations] = useState<ArgRelationRow[]>(
+    ARGUMENT_MAPS.socrates.relations,
+  );
+
+  // ── Dilemma state ──────────────────────────────────────────────────────────
   const [selectedDilemma, setSelectedDilemma] =
     useState<DilemmaExample>("trolley");
+  const [dilTitle, setDilTitle] = useState(DILEMMAS.trolley.title);
+  const [dilScenario, setDilScenario] = useState(DILEMMAS.trolley.scenario);
+  const [dilOptions, setDilOptions] = useState<DilemmaOptionRow[]>(
+    DILEMMAS.trolley.options,
+  );
+
+  // ── Argument example change handler ────────────────────────────────────────
+  const handleArgumentChange = (key: ArgumentExample) => {
+    setSelectedArgument(key);
+    const preset = ARGUMENT_MAPS[key];
+    setArgTitle(preset.title);
+    setClaimText(preset.claim.text);
+    setArgNodes(
+      preset.nodes.map((n) => ({ id: n.id, text: n.text, type: n.type as ArgNodeRow["type"], parentId: n.parentId })),
+    );
+    setArgRelations([...preset.relations]);
+  };
+
+  // ── Dilemma example change handler ─────────────────────────────────────────
+  const handleDilemmaChange = (key: DilemmaExample) => {
+    setSelectedDilemma(key);
+    const preset = DILEMMAS[key];
+    setDilTitle(preset.title);
+    setDilScenario(preset.scenario);
+    setDilOptions([...preset.options]);
+  };
+
+  // ── Specs ──────────────────────────────────────────────────────────────────
 
   const argumentSpec = useMemo<PhilArgumentMapSpec>(
-    () => ARGUMENT_MAPS[selectedArgument],
-    [selectedArgument],
+    () => ({
+      ...ARGUMENT_MAPS[selectedArgument],
+      title: argTitle || ARGUMENT_MAPS[selectedArgument].title,
+      claim: { id: "claim-1", text: claimText },
+      nodes: argNodes,
+      relations: argRelations,
+    }),
+    [selectedArgument, argTitle, claimText, argNodes, argRelations],
   );
 
   const dilemmaSpec = useMemo<PhilDilemmaSpec>(
-    () => DILEMMAS[selectedDilemma],
-    [selectedDilemma],
+    () => ({
+      ...DILEMMAS[selectedDilemma],
+      title: dilTitle || DILEMMAS[selectedDilemma].title,
+      scenario: dilScenario,
+      options: dilOptions,
+    }),
+    [selectedDilemma, dilTitle, dilScenario, dilOptions],
   );
 
   const tools: Array<{ id: Tool; label: string }> = [
@@ -383,64 +442,338 @@ export default function HerramientasFilosofia() {
         ))}
       </div>
 
+      {/* ── ARGUMENT MAP ── */}
       {activeTool === "argument-map" && (
-        <>
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">
-              Selección de argumento
-            </h2>
-            <div className="mt-4">
-              <label className="text-sm text-slate-600">
-                <span className="font-medium text-slate-700">Ejemplo</span>
-                <select
-                  value={selectedArgument}
-                  onChange={(e) =>
-                    setSelectedArgument(e.target.value as ArgumentExample)
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 items-start">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            <h2 className="text-base font-semibold text-slate-800">Parámetros</h2>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Título</label>
+              <input
+                type="text"
+                value={argTitle}
+                onChange={(e) => setArgTitle(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Ejemplo</label>
+              <select
+                value={selectedArgument}
+                onChange={(e) => handleArgumentChange(e.target.value as ArgumentExample)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              >
+                <option value="socrates">Argumento de Sócrates</option>
+                <option value="trolley">Dilema del tranvía</option>
+                <option value="ontological">Argumento ontológico</option>
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Tesis central</label>
+              <textarea
+                value={claimText}
+                onChange={(e) => setClaimText(e.target.value)}
+                rows={2}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400 resize-none"
+              />
+            </div>
+
+            {/* Editable argument nodes */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Nodos</label>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setArgNodes((prev) => [
+                      ...prev,
+                      { id: `n${Date.now()}`, text: "Nuevo nodo", type: "premise" },
+                    ])
                   }
-                  className="ml-3 rounded-md border border-slate-200 px-3 py-2 text-sm"
+                  className="text-xs text-blue-600 hover:underline"
                 >
-                  <option value="socrates">Argumento de Sócrates</option>
-                  <option value="trolley">Dilema del tranvía</option>
-                  <option value="ontological">Argumento ontológico</option>
-                </select>
-              </label>
+                  + Agregar
+                </button>
+              </div>
+              <div className="overflow-x-auto rounded-lg border border-slate-100">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="bg-slate-50 text-[10px] text-slate-400 uppercase tracking-wide">
+                      <th className="text-left px-2 py-1.5 font-medium">Texto</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Tipo</th>
+                      <th />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {argNodes.map((node, i) => (
+                      <tr key={node.id} className="border-t border-slate-100">
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={node.text}
+                            onChange={(e) =>
+                              setArgNodes((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], text: e.target.value };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <select
+                            className="w-20 border border-slate-200 rounded px-1 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={node.type}
+                            onChange={(e) =>
+                              setArgNodes((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], type: e.target.value as ArgNodeRow["type"] };
+                                return n;
+                              })
+                            }
+                          >
+                            <option value="premise">Premisa</option>
+                            <option value="conclusion">Conclusion</option>
+                            <option value="objection">Objecion</option>
+                            <option value="rebuttal">Refutacion</option>
+                          </select>
+                        </td>
+                        <td className="px-1 py-0.5 text-right">
+                          <button
+                            type="button"
+                            onClick={() => setArgNodes((prev) => prev.filter((_, j) => j !== i))}
+                            className="text-red-400 hover:text-red-600 text-sm leading-none px-1"
+                          >
+                            ×
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Editable relations */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Relaciones</label>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setArgRelations((prev) => [
+                      ...prev,
+                      { id: `r${Date.now()}`, fromId: argNodes[0]?.id ?? "", toId: "claim-1", kind: "supports" },
+                    ])
+                  }
+                  className="text-xs text-blue-600 hover:underline"
+                >
+                  + Agregar
+                </button>
+              </div>
+              <div className="overflow-x-auto rounded-lg border border-slate-100">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="bg-slate-50 text-[10px] text-slate-400 uppercase tracking-wide">
+                      <th className="text-left px-2 py-1.5 font-medium">Desde</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Hasta</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Tipo</th>
+                      <th />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {argRelations.map((rel, i) => (
+                      <tr key={rel.id} className="border-t border-slate-100">
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={rel.fromId}
+                            onChange={(e) =>
+                              setArgRelations((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], fromId: e.target.value };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={rel.toId}
+                            onChange={(e) =>
+                              setArgRelations((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], toId: e.target.value };
+                                return n;
+                              })
+                            }
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <select
+                            className="w-20 border border-slate-200 rounded px-1 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={rel.kind}
+                            onChange={(e) =>
+                              setArgRelations((prev) => {
+                                const n = [...prev];
+                                n[i] = { ...n[i], kind: e.target.value as "supports" | "attacks" };
+                                return n;
+                              })
+                            }
+                          >
+                            <option value="supports">Apoya</option>
+                            <option value="attacks">Ataca</option>
+                          </select>
+                        </td>
+                        <td className="px-1 py-0.5 text-right">
+                          <button
+                            type="button"
+                            onClick={() => setArgRelations((prev) => prev.filter((_, j) => j !== i))}
+                            className="text-red-400 hover:text-red-600 text-sm leading-none px-1"
+                          >
+                            ×
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <button
+                type="button"
+                onClick={() => handleArgumentChange(selectedArgument)}
+                className="text-xs text-slate-400 hover:text-slate-600"
+              >
+                Restablecer datos
+              </button>
             </div>
           </section>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              Vista previa
+            </p>
             <VisualizerRenderer spec={argumentSpec} />
-          </div>
-        </>
+          </section>
+        </div>
       )}
 
+      {/* ── DILEMMA ── */}
       {activeTool === "dilemma" && (
-        <>
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">
-              Selección de dilema
-            </h2>
-            <div className="mt-4">
-              <label className="text-sm text-slate-600">
-                <span className="font-medium text-slate-700">Escenario</span>
-                <select
-                  value={selectedDilemma}
-                  onChange={(e) =>
-                    setSelectedDilemma(e.target.value as DilemmaExample)
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 items-start">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            <h2 className="text-base font-semibold text-slate-800">Parámetros</h2>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Título</label>
+              <input
+                type="text"
+                value={dilTitle}
+                onChange={(e) => setDilTitle(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Escenario</label>
+              <select
+                value={selectedDilemma}
+                onChange={(e) => handleDilemmaChange(e.target.value as DilemmaExample)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              >
+                <option value="trolley">El dilema del tranvía</option>
+                <option value="prisoner">El dilema del prisionero</option>
+                <option value="lying">Mentir para proteger</option>
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Texto del escenario</label>
+              <textarea
+                value={dilScenario}
+                onChange={(e) => setDilScenario(e.target.value)}
+                rows={3}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400 resize-none"
+              />
+            </div>
+
+            {/* Editable options */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Opciones</label>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setDilOptions((prev) => [
+                      ...prev,
+                      { id: `opt${Date.now()}`, label: "Nueva opcion", framework: "other", analysis: "", consequences: [] },
+                    ])
                   }
-                  className="ml-3 rounded-md border border-slate-200 px-3 py-2 text-sm"
+                  className="text-xs text-blue-600 hover:underline"
                 >
-                  <option value="trolley">El dilema del tranvía</option>
-                  <option value="prisoner">El dilema del prisionero</option>
-                  <option value="lying">Mentir para proteger</option>
-                </select>
-              </label>
+                  + Agregar
+                </button>
+              </div>
+              {dilOptions.map((opt, i) => (
+                <div key={opt.id} className="rounded-lg border border-slate-100 p-2 space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <input
+                      className="text-xs font-medium text-slate-700 border border-slate-200 rounded px-1.5 py-0.5 w-full mr-1 focus:outline-none focus:border-blue-400"
+                      value={opt.label}
+                      placeholder="Etiqueta"
+                      onChange={(e) =>
+                        setDilOptions((prev) => {
+                          const n = [...prev];
+                          n[i] = { ...n[i], label: e.target.value };
+                          return n;
+                        })
+                      }
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setDilOptions((prev) => prev.filter((_, j) => j !== i))}
+                      className="text-red-400 hover:text-red-600 text-sm px-1 flex-shrink-0"
+                      title="Quitar opcion"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <textarea
+                    className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400 resize-none"
+                    rows={2}
+                    value={opt.analysis}
+                    placeholder="Análisis"
+                    onChange={(e) =>
+                      setDilOptions((prev) => {
+                        const n = [...prev];
+                        n[i] = { ...n[i], analysis: e.target.value };
+                        return n;
+                      })
+                    }
+                  />
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={() => handleDilemmaChange(selectedDilemma)}
+                className="text-xs text-slate-400 hover:text-slate-600"
+              >
+                Restablecer datos
+              </button>
             </div>
           </section>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              Vista previa
+            </p>
             <VisualizerRenderer spec={dilemmaSpec} />
-          </div>
-        </>
+          </section>
+        </div>
       )}
     </div>
   );

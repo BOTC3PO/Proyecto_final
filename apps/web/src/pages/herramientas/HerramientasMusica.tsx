@@ -27,12 +27,16 @@ function computeWaveform(
   });
 }
 
+// ── Types for editable drum tracks ───────────────────────────────────────────
+
+type DrumBeat = { measure: number; beat: number; accent: boolean };
+type DrumTrack = { id: string; instrument: string; color: string; beats: DrumBeat[] };
+
 // ── Pre-built drum pattern ────────────────────────────────────────────────────
 
 function buildDefaultDrumTracks(
   timeSignature: TimeSignature,
-): MusicRhythmGridSpec["tracks"] {
-  // 16 cells per track, beats 0-15
+): DrumTrack[] {
   const kick: number[] = [0, 4, 8, 12];
   const snare: number[] = [4, 12];
   const hihat: number[] = [0, 2, 4, 6, 8, 10, 12, 14];
@@ -41,10 +45,9 @@ function buildDefaultDrumTracks(
   const makeBeats = (
     pattern: number[],
     measure = 1,
-  ): MusicRhythmGridSpec["tracks"][0]["beats"] =>
+  ): DrumBeat[] =>
     pattern.map((beat) => ({ measure, beat, accent: beat === 0 }));
 
-  // Adjust pattern for 3/4
   const kickPat = timeSignature === "3/4" ? [0, 6, 12] : kick;
   const snarePat = timeSignature === "3/4" ? [4, 10] : snare;
   const hihatPat = timeSignature === "6/8" ? [0, 2, 4, 8, 10, 12] : hihat;
@@ -70,20 +73,76 @@ function getTimeSignatureBeats(sig: TimeSignature): { beats: number; division: n
   return { beats: 6, division: 8 };
 }
 
+const TOTAL_CELLS = 16;
+
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function HerramientasMusica() {
   const [activeTool, setActiveTool] = useState<Tool>("music-waveform");
 
-  // music-waveform state
+  // ── Waveform state ────────────────────────────────────────────────────────
+  const [waveTitle, setWaveTitle] = useState("Forma de onda");
   const [frequency, setFrequency] = useState(3);
   const [amplitude, setAmplitude] = useState(1.0);
   const [waveType, setWaveType] = useState<WaveType>("sine");
   const [harmonics, setHarmonics] = useState(1);
 
-  // music-rhythm-grid state
+  // ── Rhythm grid state ─────────────────────────────────────────────────────
+  const [rhythmTitle, setRhythmTitle] = useState("Patron ritmico");
   const [timeSignature, setTimeSignature] = useState<TimeSignature>("4/4");
   const [tempo, setTempo] = useState<number>(120);
+  const [drumTracks, setDrumTracks] = useState<DrumTrack[]>(() => buildDefaultDrumTracks("4/4"));
+
+  // ── Drum track helpers ────────────────────────────────────────────────────
+
+  const toggleBeat = (trackIndex: number, beatIndex: number) => {
+    setDrumTracks((prev) => {
+      const tracks = JSON.parse(JSON.stringify(prev)) as DrumTrack[];
+      const track = tracks[trackIndex];
+      const existing = track.beats.findIndex((b) => b.beat === beatIndex);
+      if (existing >= 0) {
+        track.beats.splice(existing, 1);
+      } else {
+        track.beats.push({ measure: 1, beat: beatIndex, accent: beatIndex === 0 });
+      }
+      return tracks;
+    });
+  };
+
+  const updateTrackInstrument = (trackIndex: number, name: string) => {
+    setDrumTracks((prev) => {
+      const tracks = [...prev];
+      tracks[trackIndex] = { ...tracks[trackIndex], instrument: name };
+      return tracks;
+    });
+  };
+
+  const updateTrackColor = (trackIndex: number, color: string) => {
+    setDrumTracks((prev) => {
+      const tracks = [...prev];
+      tracks[trackIndex] = { ...tracks[trackIndex], color };
+      return tracks;
+    });
+  };
+
+  const addTrack = () => {
+    setDrumTracks((prev) => [
+      ...prev,
+      { id: `t${Date.now()}`, instrument: "Nuevo", color: "#64748b", beats: [] },
+    ]);
+  };
+
+  const removeTrack = (trackIndex: number) => {
+    setDrumTracks((prev) => prev.filter((_, i) => i !== trackIndex));
+  };
+
+  const isBeatActive = (track: DrumTrack, beatIndex: number) =>
+    track.beats.some((b) => b.beat === beatIndex);
+
+  const handleTimeSignatureChange = (sig: TimeSignature) => {
+    setTimeSignature(sig);
+    setDrumTracks(buildDefaultDrumTracks(sig));
+  };
 
   // ── Specs ──────────────────────────────────────────────────────────────────
 
@@ -91,7 +150,6 @@ export default function HerramientasMusica() {
     const compositeWave = computeWaveform(frequency, amplitude, harmonics);
     const maxAmp = Math.max(...compositeWave.map((p) => Math.abs(p.y)));
 
-    // Build harmonic descriptors
     const harmonicsList: MusicWaveformSpec["harmonics"] = Array.from(
       { length: harmonics },
       (_, i) => ({
@@ -125,7 +183,7 @@ export default function HerramientasMusica() {
 
     return {
       kind: "music-waveform",
-      title: waveTypeName[waveType],
+      title: waveTitle || waveTypeName[waveType],
       description: `Frecuencia: ${frequency} Hz | Amplitud: ${amplitude} | Armonicos: ${harmonics}`,
       note: `f = ${frequency} Hz`,
       baseFrequency: frequency,
@@ -136,20 +194,20 @@ export default function HerramientasMusica() {
         y: { label: "Amplitud", min: -maxAmp, max: maxAmp },
       },
     };
-  }, [frequency, amplitude, waveType, harmonics]);
+  }, [waveTitle, frequency, amplitude, waveType, harmonics]);
 
   const rhythmGridSpec = useMemo<MusicRhythmGridSpec>(() => {
     const sig = getTimeSignatureBeats(timeSignature);
     return {
       kind: "music-rhythm-grid",
-      title: `Patron rimico — ${timeSignature} a ${tempo} BPM`,
-      description: "Patron de bateria predefinido con compas editable",
+      title: rhythmTitle || `Patron ritmico — ${timeSignature} a ${tempo} BPM`,
+      description: "Patron de bateria editable con compas configurable",
       timeSignature: sig,
       tempo,
       measures: 1,
-      tracks: buildDefaultDrumTracks(timeSignature),
+      tracks: drumTracks,
     };
-  }, [timeSignature, tempo]);
+  }, [rhythmTitle, timeSignature, tempo, drumTracks]);
 
   const tools: { id: Tool; label: string }[] = [
     { id: "music-waveform", label: "Forma de onda" },
@@ -194,122 +252,222 @@ export default function HerramientasMusica() {
         ))}
       </div>
 
-      {/* music-waveform */}
+      {/* ── FORMA DE ONDA ── */}
       {activeTool === "music-waveform" && (
-        <div className="space-y-4">
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">
-              Parametros de la onda
-            </h2>
-            <div className="mt-4 grid gap-5 md:grid-cols-2">
-              <label className="space-y-1 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">
-                  Frecuencia (Hz):{" "}
-                  <span className="text-purple-700">{frequency}</span>
-                </span>
-                <input
-                  type="range"
-                  min={1}
-                  max={10}
-                  step={1}
-                  value={frequency}
-                  onChange={(e) => setFrequency(Number(e.target.value))}
-                  className="w-full accent-purple-600"
-                />
-              </label>
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 items-start">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            <h2 className="text-base font-semibold text-slate-800">Parametros</h2>
 
-              <label className="space-y-1 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">
-                  Amplitud:{" "}
-                  <span className="text-purple-700">{amplitude.toFixed(1)}</span>
-                </span>
-                <input
-                  type="range"
-                  min={0.1}
-                  max={2.0}
-                  step={0.1}
-                  value={amplitude}
-                  onChange={(e) => setAmplitude(Number(e.target.value))}
-                  className="w-full accent-purple-600"
-                />
-              </label>
-
-              <label className="space-y-1 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">
-                  Armonicos:{" "}
-                  <span className="text-purple-700">{harmonics}</span>
-                </span>
-                <input
-                  type="range"
-                  min={1}
-                  max={8}
-                  step={1}
-                  value={harmonics}
-                  onChange={(e) => setHarmonics(Number(e.target.value))}
-                  className="w-full accent-purple-600"
-                />
-              </label>
-
-              <label className="space-y-1 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">Tipo de onda</span>
-                <select
-                  value={waveType}
-                  onChange={(e) => setWaveType(e.target.value as WaveType)}
-                  className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
-                >
-                  <option value="sine">Sinusoidal</option>
-                  <option value="square">Cuadrada</option>
-                  <option value="sawtooth">Sierra</option>
-                  <option value="triangle">Triangular</option>
-                </select>
-              </label>
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Titulo</label>
+              <input
+                type="text"
+                value={waveTitle}
+                onChange={(e) => setWaveTitle(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-purple-400"
+              />
             </div>
+
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Frecuencia (Hz)</label>
+                <span className="text-xs text-purple-700 font-mono">{frequency}</span>
+              </div>
+              <input
+                type="range" min={1} max={10} step={1} value={frequency}
+                onChange={(e) => setFrequency(Number(e.target.value))}
+                className="w-full accent-purple-600"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Amplitud</label>
+                <span className="text-xs text-purple-700 font-mono">{amplitude.toFixed(1)}</span>
+              </div>
+              <input
+                type="range" min={0.1} max={2.0} step={0.1} value={amplitude}
+                onChange={(e) => setAmplitude(Number(e.target.value))}
+                className="w-full accent-purple-600"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Armonicos</label>
+                <span className="text-xs text-purple-700 font-mono">{harmonics}</span>
+              </div>
+              <input
+                type="range" min={1} max={8} step={1} value={harmonics}
+                onChange={(e) => setHarmonics(Number(e.target.value))}
+                className="w-full accent-purple-600"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Tipo de onda</label>
+              <select
+                value={waveType}
+                onChange={(e) => setWaveType(e.target.value as WaveType)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-purple-400"
+              >
+                <option value="sine">Sinusoidal</option>
+                <option value="square">Cuadrada</option>
+                <option value="sawtooth">Sierra</option>
+                <option value="triangle">Triangular</option>
+              </select>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                setWaveTitle("Forma de onda");
+                setFrequency(3);
+                setAmplitude(1.0);
+                setHarmonics(1);
+                setWaveType("sine");
+              }}
+              className="text-xs text-slate-400 hover:text-slate-600"
+            >
+              Restablecer valores
+            </button>
           </section>
+
           <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              Vista previa
+            </p>
             <VisualizerRenderer spec={waveformSpec} />
           </section>
         </div>
       )}
 
-      {/* music-rhythm-grid */}
+      {/* ── GRILLA RITMICA ── */}
       {activeTool === "music-rhythm-grid" && (
-        <div className="space-y-4">
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">
-              Configuracion del compas
-            </h2>
-            <div className="mt-4 grid gap-5 sm:grid-cols-2">
-              <label className="space-y-1 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">Compas</span>
-                <select
-                  value={timeSignature}
-                  onChange={(e) =>
-                    setTimeSignature(e.target.value as TimeSignature)
-                  }
-                  className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
-                >
-                  <option value="4/4">4/4 (Compas de cuatro)</option>
-                  <option value="3/4">3/4 (Vals)</option>
-                  <option value="6/8">6/8 (Compas de seis)</option>
-                </select>
-              </label>
+        <div className="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-6 items-start">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            <h2 className="text-base font-semibold text-slate-800">Parametros</h2>
 
-              <label className="space-y-1 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">Tempo (BPM)</span>
-                <select
-                  value={tempo}
-                  onChange={(e) => setTempo(Number(e.target.value))}
-                  className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Titulo</label>
+              <input
+                type="text"
+                value={rhythmTitle}
+                onChange={(e) => setRhythmTitle(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-purple-400"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Compas</label>
+              <select
+                value={timeSignature}
+                onChange={(e) => handleTimeSignatureChange(e.target.value as TimeSignature)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-purple-400"
+              >
+                <option value="4/4">4/4 (Compas de cuatro)</option>
+                <option value="3/4">3/4 (Vals)</option>
+                <option value="6/8">6/8 (Compas de seis)</option>
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Tempo</label>
+                <span className="text-xs text-purple-700 font-mono">{tempo} BPM</span>
+              </div>
+              <input
+                type="range" min={40} max={200} step={1} value={tempo}
+                onChange={(e) => setTempo(Number(e.target.value))}
+                className="w-full accent-purple-600"
+              />
+              <div className="flex justify-between text-[10px] text-slate-400">
+                <span>40</span>
+                <span>Largo</span>
+                <span>Moderato</span>
+                <span>Allegro</span>
+                <span>Presto</span>
+                <span>200</span>
+              </div>
+            </div>
+
+            {/* Editable drum tracks */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Pistas de bateria</label>
+                <button
+                  type="button"
+                  onClick={addTrack}
+                  className="text-xs text-purple-600 hover:underline"
                 >
-                  <option value={60}>60 BPM — Largo</option>
-                  <option value={80}>80 BPM — Andante</option>
-                  <option value={100}>100 BPM — Moderato</option>
-                  <option value={120}>120 BPM — Allegro</option>
-                </select>
-              </label>
+                  + Agregar pista
+                </button>
+              </div>
+
+              {drumTracks.map((track, ti) => (
+                <div key={track.id} className="rounded-lg border border-slate-100 p-2 space-y-1.5">
+                  <div className="flex items-center gap-1.5">
+                    <input
+                      className="w-20 border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-purple-400"
+                      value={track.instrument}
+                      onChange={(e) => updateTrackInstrument(ti, e.target.value)}
+                    />
+                    <input
+                      type="color"
+                      value={track.color}
+                      onChange={(e) => updateTrackColor(ti, e.target.value)}
+                      className="h-6 w-6 rounded border border-slate-200 cursor-pointer p-0"
+                    />
+                    <div className="flex-1" />
+                    <button
+                      type="button"
+                      onClick={() => removeTrack(ti)}
+                      className="text-red-400 hover:text-red-600 text-sm px-1"
+                      title="Quitar pista"
+                    >
+                      x
+                    </button>
+                  </div>
+                  {/* Beat grid */}
+                  <div className="flex gap-[2px] flex-wrap">
+                    {Array.from({ length: TOTAL_CELLS }, (_, bi) => (
+                      <button
+                        key={bi}
+                        type="button"
+                        onClick={() => toggleBeat(ti, bi)}
+                        className={`w-5 h-5 rounded-sm border text-[9px] font-mono leading-none transition-colors ${
+                          isBeatActive(track, bi)
+                            ? "border-transparent text-white"
+                            : "border-slate-200 bg-slate-50 text-slate-300 hover:border-purple-300"
+                        }`}
+                        style={isBeatActive(track, bi) ? { backgroundColor: track.color } : undefined}
+                        title={`Beat ${bi}`}
+                      >
+                        {bi % 4 === 0 ? bi / 4 + 1 : ""}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+
+              <button
+                type="button"
+                onClick={() => {
+                  setDrumTracks(buildDefaultDrumTracks(timeSignature));
+                  setRhythmTitle("Patron ritmico");
+                  setTempo(120);
+                }}
+                className="text-xs text-slate-400 hover:text-slate-600"
+              >
+                Restablecer datos
+              </button>
             </div>
           </section>
+
           <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              Vista previa
+            </p>
             <VisualizerRenderer spec={rhythmGridSpec} />
           </section>
         </div>

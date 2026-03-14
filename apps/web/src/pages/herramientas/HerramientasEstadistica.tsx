@@ -5,7 +5,10 @@ import type { StatDistributionSpec, StatRegressionSpec } from "../../visualizado
 
 type Tool = "distribution" | "regression";
 
-const FIXED_POINTS: Array<{ x: number; y: number }> = [
+type DataPoint = { x: number; y: number };
+type AnnotationRow = { x: number; label: string; color: string };
+
+const DEFAULT_POINTS: DataPoint[] = [
   { x: 1, y: 2.1 },
   { x: 2, y: 3.8 },
   { x: 3, y: 5.2 },
@@ -28,14 +31,16 @@ const FIXED_POINTS: Array<{ x: number; y: number }> = [
   { x: 20, y: 29.5 },
 ];
 
-function computeRegression(points: Array<{ x: number; y: number }>) {
+function computeRegression(points: DataPoint[]) {
   const n = points.length;
+  if (n === 0) return { slope: 0, intercept: 0, r2: 0 };
   const sumX = points.reduce((s, p) => s + p.x, 0);
   const sumY = points.reduce((s, p) => s + p.y, 0);
   const sumXY = points.reduce((s, p) => s + p.x * p.y, 0);
   const sumX2 = points.reduce((s, p) => s + p.x * p.x, 0);
 
-  const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+  const denom = n * sumX2 - sumX * sumX;
+  const slope = denom === 0 ? 0 : (n * sumXY - sumX * sumY) / denom;
   const intercept = (sumY - slope * sumX) / n;
 
   const yMean = sumY / n;
@@ -52,14 +57,27 @@ function computeRegression(points: Array<{ x: number; y: number }>) {
 export default function HerramientasEstadistica() {
   const [activeTool, setActiveTool] = useState<Tool>("distribution");
 
-  // Distribution parameters
+  // ── Distribution state ──────────────────────────────────────────────────
+  const [distTitle, setDistTitle] = useState("Distribucion de probabilidad");
   const [mean, setMean] = useState(0);
   const [stdDev, setStdDev] = useState(1);
   const [distType, setDistType] = useState<"normal" | "binomial" | "uniform">("normal");
+  const [samples, setSamples] = useState(50);
+  const [annotations, setAnnotations] = useState<AnnotationRow[]>([
+    { x: 0, label: "mu = 0", color: "#2563eb" },
+    { x: 1, label: "mu + sigma", color: "#7c3aed" },
+    { x: -1, label: "mu - sigma", color: "#7c3aed" },
+  ]);
+
+  // ── Regression state ────────────────────────────────────────────────────
+  const [regTitle, setRegTitle] = useState("Regresion lineal");
+  const [dataPoints, setDataPoints] = useState<DataPoint[]>(DEFAULT_POINTS);
+
+  // ── Distribution spec ───────────────────────────────────────────────────
 
   const distributionSpec = useMemo<StatDistributionSpec>(() => {
-    const curve = Array.from({ length: 50 }, (_, i) => {
-      const x = -4 + i * 0.16 + mean;
+    const curve = Array.from({ length: samples }, (_, i) => {
+      const x = -4 + i * (8 / samples) + mean;
       const y =
         (1 / (stdDev * Math.sqrt(2 * Math.PI))) *
         Math.exp(-0.5 * ((x - mean) / stdDev) ** 2);
@@ -68,34 +86,34 @@ export default function HerramientasEstadistica() {
 
     return {
       kind: "stat-distribution",
-      title: "Distribución de probabilidad",
-      description: `Distribución ${distType} con media ${mean} y desviación estándar ${stdDev}.`,
+      title: distTitle || "Distribucion de probabilidad",
+      description: `Distribucion ${distType} con media ${mean} y desviacion estandar ${stdDev}.`,
       distributionType: distType,
-      parameters: {
-        mean,
-        stdDev,
-      },
-      samples: 50,
+      parameters: { mean, stdDev },
+      samples,
       curve,
-      annotations: [
-        { x: mean, label: `μ = ${mean}`, color: "#2563eb" },
-        { x: mean + stdDev, label: `μ + σ`, color: "#7c3aed" },
-        { x: mean - stdDev, label: `μ − σ`, color: "#7c3aed" },
-      ],
+      annotations: annotations.map((a) => ({
+        x: a.x,
+        label: a.label,
+        color: a.color,
+      })),
     };
-  }, [mean, stdDev, distType]);
+  }, [distTitle, mean, stdDev, distType, samples, annotations]);
+
+  // ── Regression spec ─────────────────────────────────────────────────────
 
   const regressionSpec = useMemo<StatRegressionSpec>(() => {
-    const { slope, intercept, r2 } = computeRegression(FIXED_POINTS);
+    const { slope, intercept, r2 } = computeRegression(dataPoints);
 
-    const xMin = 1;
-    const xMax = 20;
+    const xMin = dataPoints.length > 0 ? Math.min(...dataPoints.map((p) => p.x)) : 0;
+    const xMax = dataPoints.length > 0 ? Math.max(...dataPoints.map((p) => p.x)) : 1;
+    const yMax = dataPoints.length > 0 ? Math.max(...dataPoints.map((p) => p.y)) : 1;
     const line = [
       { x: xMin, y: slope * xMin + intercept },
       { x: xMax, y: slope * xMax + intercept },
     ];
 
-    const residuals = FIXED_POINTS.map((p) => ({
+    const residuals = dataPoints.map((p) => ({
       x: p.x,
       observed: p.y,
       predicted: parseFloat((slope * p.x + intercept).toFixed(3)),
@@ -103,9 +121,9 @@ export default function HerramientasEstadistica() {
 
     return {
       kind: "stat-regression",
-      title: "Regresión lineal",
+      title: regTitle || "Regresion lineal",
       description: `Pendiente: ${slope.toFixed(3)}, Intercepto: ${intercept.toFixed(3)}, R² = ${r2.toFixed(4)}`,
-      points: FIXED_POINTS,
+      points: dataPoints,
       regression: {
         type: "linear",
         coefficients: [intercept, slope],
@@ -113,45 +131,86 @@ export default function HerramientasEstadistica() {
         line,
       },
       axes: {
-        x: { label: "Variable X", min: 0, max: 22 },
-        y: { label: "Variable Y", min: 0, max: 32 },
+        x: { label: "Variable X", min: 0, max: Math.ceil(xMax + 2) },
+        y: { label: "Variable Y", min: 0, max: Math.ceil(yMax + 2) },
       },
       residuals,
     };
-  }, []);
+  }, [regTitle, dataPoints]);
+
+  // ── Data point helpers ──────────────────────────────────────────────────
+
+  const updatePoint = (index: number, field: "x" | "y", value: number) => {
+    setDataPoints((prev) => {
+      const n = [...prev];
+      n[index] = { ...n[index], [field]: value };
+      return n;
+    });
+  };
+
+  const addPoint = () => {
+    setDataPoints((prev) => {
+      const lastX = prev.length > 0 ? prev[prev.length - 1].x + 1 : 1;
+      return [...prev, { x: lastX, y: 0 }];
+    });
+  };
+
+  const removePoint = (index: number) => {
+    setDataPoints((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  // ── Annotation helpers ──────────────────────────────────────────────────
+
+  const updateAnnotation = (index: number, field: keyof AnnotationRow, value: string | number) => {
+    setAnnotations((prev) => {
+      const n = [...prev];
+      n[index] = { ...n[index], [field]: value };
+      return n;
+    });
+  };
+
+  const addAnnotation = () => {
+    setAnnotations((prev) => [...prev, { x: mean, label: "Nueva", color: "#64748b" }]);
+  };
+
+  const removeAnnotation = (index: number) => {
+    setAnnotations((prev) => prev.filter((_, i) => i !== index));
+  };
 
   const tools: Array<{ id: Tool; label: string }> = [
-    { id: "distribution", label: "Distribución" },
-    { id: "regression", label: "Regresión" },
+    { id: "distribution", label: "Distribucion" },
+    { id: "regression", label: "Regresion" },
   ];
+
+  const { slope, intercept, r2 } = useMemo(() => computeRegression(dataPoints), [dataPoints]);
 
   return (
     <div className="space-y-6 px-6 py-8">
-      <div className="flex items-center gap-3">
+      <div>
         <Link
           to="/herramientas"
-          className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+          className="text-sm text-blue-600 hover:underline"
         >
           &larr; Volver a herramientas
         </Link>
       </div>
 
       <header className="space-y-2">
-        <h1 className="text-2xl font-semibold text-slate-900">Estadística</h1>
+        <h1 className="text-2xl font-semibold text-slate-900">Estadistica</h1>
         <p className="text-sm text-slate-600">
-          Explora distribuciones de probabilidad y regresión lineal de forma interactiva.
+          Explora distribuciones de probabilidad y regresion lineal de forma interactiva.
         </p>
       </header>
 
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {tools.map((tool) => (
           <button
             key={tool.id}
             onClick={() => setActiveTool(tool.id)}
-            className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+            className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
               activeTool === tool.id
-                ? "bg-blue-600 text-white"
-                : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
+                ? "border-blue-600 bg-blue-600 text-white"
+                : "border-slate-200 bg-white text-slate-700 hover:border-blue-400 hover:text-blue-700"
             }`}
           >
             {tool.label}
@@ -159,111 +218,273 @@ export default function HerramientasEstadistica() {
         ))}
       </div>
 
+      {/* ── DISTRIBUCION ── */}
       {activeTool === "distribution" && (
-        <>
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">
-              Parámetros de la distribución
-            </h2>
-            <div className="mt-4 grid gap-5 md:grid-cols-2">
-              <label className="space-y-2 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">
-                  Media (μ): {mean}
-                </span>
-                <input
-                  type="range"
-                  min={-5}
-                  max={5}
-                  step={0.1}
-                  value={mean}
-                  onChange={(e) => setMean(Number(e.target.value))}
-                  className="w-full accent-blue-600"
-                />
-              </label>
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 items-start">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            <h2 className="text-base font-semibold text-slate-800">Parametros</h2>
 
-              <label className="space-y-2 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">
-                  Desviación estándar (σ): {stdDev}
-                </span>
-                <input
-                  type="range"
-                  min={0.5}
-                  max={4}
-                  step={0.1}
-                  value={stdDev}
-                  onChange={(e) => setStdDev(Number(e.target.value))}
-                  className="w-full accent-blue-600"
-                />
-              </label>
-
-              <label className="space-y-2 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">
-                  Tipo de distribución
-                </span>
-                <select
-                  value={distType}
-                  onChange={(e) =>
-                    setDistType(e.target.value as "normal" | "binomial" | "uniform")
-                  }
-                  className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
-                >
-                  <option value="normal">Normal</option>
-                  <option value="binomial">Binomial</option>
-                  <option value="uniform">Uniforme</option>
-                </select>
-              </label>
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Titulo</label>
+              <input
+                type="text"
+                value={distTitle}
+                onChange={(e) => setDistTitle(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
             </div>
+
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Media (mu)</label>
+                <span className="text-xs text-blue-700 font-mono">{mean}</span>
+              </div>
+              <input
+                type="range" min={-5} max={5} step={0.1} value={mean}
+                onChange={(e) => setMean(Number(e.target.value))}
+                className="w-full accent-blue-600"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Desviacion estandar (sigma)</label>
+                <span className="text-xs text-blue-700 font-mono">{stdDev}</span>
+              </div>
+              <input
+                type="range" min={0.5} max={4} step={0.1} value={stdDev}
+                onChange={(e) => setStdDev(Number(e.target.value))}
+                className="w-full accent-blue-600"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Tipo de distribucion</label>
+              <select
+                value={distType}
+                onChange={(e) => setDistType(e.target.value as "normal" | "binomial" | "uniform")}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              >
+                <option value="normal">Normal</option>
+                <option value="binomial">Binomial</option>
+                <option value="uniform">Uniforme</option>
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Muestras</label>
+                <span className="text-xs text-blue-700 font-mono">{samples}</span>
+              </div>
+              <input
+                type="range" min={10} max={200} step={1} value={samples}
+                onChange={(e) => setSamples(Number(e.target.value))}
+                className="w-full accent-blue-600"
+              />
+            </div>
+
+            {/* Editable annotations */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Anotaciones</label>
+                <button
+                  type="button"
+                  onClick={addAnnotation}
+                  className="text-xs text-blue-600 hover:underline"
+                >
+                  + Agregar
+                </button>
+              </div>
+              <div className="overflow-x-auto rounded-lg border border-slate-100">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="bg-slate-50 text-[10px] text-slate-400 uppercase tracking-wide">
+                      <th className="text-left px-2 py-1.5 font-medium">Pos. X</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Etiqueta</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Color</th>
+                      <th />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {annotations.map((a, i) => (
+                      <tr key={i} className="border-t border-slate-100">
+                        <td className="px-1 py-0.5">
+                          <input
+                            type="number" step="any"
+                            className="w-14 border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={a.x}
+                            onChange={(e) => updateAnnotation(i, "x", Number(e.target.value))}
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={a.label}
+                            onChange={(e) => updateAnnotation(i, "label", e.target.value)}
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            type="color"
+                            value={a.color}
+                            onChange={(e) => updateAnnotation(i, "color", e.target.value)}
+                            className="h-6 w-6 rounded border border-slate-200 cursor-pointer p-0"
+                          />
+                        </td>
+                        <td className="px-1 py-0.5 text-right">
+                          <button
+                            type="button"
+                            onClick={() => removeAnnotation(i)}
+                            className="text-red-400 hover:text-red-600 text-sm leading-none px-1"
+                          >
+                            x
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                setDistTitle("Distribucion de probabilidad");
+                setMean(0);
+                setStdDev(1);
+                setDistType("normal");
+                setSamples(50);
+                setAnnotations([
+                  { x: 0, label: "mu = 0", color: "#2563eb" },
+                  { x: 1, label: "mu + sigma", color: "#7c3aed" },
+                  { x: -1, label: "mu - sigma", color: "#7c3aed" },
+                ]);
+              }}
+              className="text-xs text-slate-400 hover:text-slate-600"
+            >
+              Restablecer valores
+            </button>
           </section>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              Vista previa
+            </p>
             <VisualizerRenderer spec={distributionSpec} />
-          </div>
-        </>
+          </section>
+        </div>
       )}
 
+      {/* ── REGRESION ── */}
       {activeTool === "regression" && (
-        <>
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">
-              Regresión lineal
-            </h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Dataset fijo de 20 puntos. La línea de regresión se calcula
-              automáticamente usando mínimos cuadrados ordinarios.
-            </p>
-            <div className="mt-4 grid grid-cols-3 gap-4">
-              {(() => {
-                const { slope, intercept, r2 } = computeRegression(FIXED_POINTS);
-                return (
-                  <>
-                    <div className="rounded-lg bg-blue-50 p-3 text-center">
-                      <div className="text-xs text-slate-500">Pendiente</div>
-                      <div className="text-lg font-semibold text-blue-700">
-                        {slope.toFixed(3)}
-                      </div>
-                    </div>
-                    <div className="rounded-lg bg-purple-50 p-3 text-center">
-                      <div className="text-xs text-slate-500">Intercepto</div>
-                      <div className="text-lg font-semibold text-purple-700">
-                        {intercept.toFixed(3)}
-                      </div>
-                    </div>
-                    <div className="rounded-lg bg-green-50 p-3 text-center">
-                      <div className="text-xs text-slate-500">R²</div>
-                      <div className="text-lg font-semibold text-green-700">
-                        {r2.toFixed(4)}
-                      </div>
-                    </div>
-                  </>
-                );
-              })()}
+        <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 items-start">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            <h2 className="text-base font-semibold text-slate-800">Parametros</h2>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Titulo</label>
+              <input
+                type="text"
+                value={regTitle}
+                onChange={(e) => setRegTitle(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
             </div>
+
+            {/* Stats cards */}
+            <div className="grid grid-cols-3 gap-2">
+              <div className="rounded-lg bg-blue-50 p-2 text-center">
+                <div className="text-[10px] text-slate-500">Pendiente</div>
+                <div className="text-sm font-semibold text-blue-700">{slope.toFixed(3)}</div>
+              </div>
+              <div className="rounded-lg bg-purple-50 p-2 text-center">
+                <div className="text-[10px] text-slate-500">Intercepto</div>
+                <div className="text-sm font-semibold text-purple-700">{intercept.toFixed(3)}</div>
+              </div>
+              <div className="rounded-lg bg-green-50 p-2 text-center">
+                <div className="text-[10px] text-slate-500">R2</div>
+                <div className="text-sm font-semibold text-green-700">{r2.toFixed(4)}</div>
+              </div>
+            </div>
+
+            {/* Editable data points */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Puntos de datos ({dataPoints.length})</label>
+                <button
+                  type="button"
+                  onClick={addPoint}
+                  className="text-xs text-blue-600 hover:underline"
+                >
+                  + Agregar
+                </button>
+              </div>
+              <div className="overflow-y-auto max-h-60 rounded-lg border border-slate-100">
+                <table className="w-full text-xs">
+                  <thead className="sticky top-0">
+                    <tr className="bg-slate-50 text-[10px] text-slate-400 uppercase tracking-wide">
+                      <th className="text-left px-2 py-1.5 font-medium">#</th>
+                      <th className="text-left px-2 py-1.5 font-medium">X</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Y</th>
+                      <th />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {dataPoints.map((p, i) => (
+                      <tr key={i} className="border-t border-slate-100">
+                        <td className="px-2 py-0.5 text-slate-400">{i + 1}</td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            type="number" step="any"
+                            className="w-14 border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={p.x}
+                            onChange={(e) => updatePoint(i, "x", Number(e.target.value))}
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            type="number" step="any"
+                            className="w-14 border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={p.y}
+                            onChange={(e) => updatePoint(i, "y", Number(e.target.value))}
+                          />
+                        </td>
+                        <td className="px-1 py-0.5 text-right">
+                          <button
+                            type="button"
+                            onClick={() => removePoint(i)}
+                            className="text-red-400 hover:text-red-600 text-sm leading-none px-1"
+                          >
+                            x
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                setRegTitle("Regresion lineal");
+                setDataPoints(DEFAULT_POINTS);
+              }}
+              className="text-xs text-slate-400 hover:text-slate-600"
+            >
+              Restablecer datos
+            </button>
           </section>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              Vista previa
+            </p>
             <VisualizerRenderer spec={regressionSpec} />
-          </div>
-        </>
+          </section>
+        </div>
       )}
     </div>
   );

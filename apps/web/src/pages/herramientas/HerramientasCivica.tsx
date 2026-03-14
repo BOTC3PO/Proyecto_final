@@ -134,9 +134,20 @@ export default function HerramientasCivica() {
   const [activeTool, setActiveTool] = useState<Tool>("rights");
 
   // Rights state
+  const [rightsTitle, setRightsTitle] = useState("Árbol de Derechos Fundamentales");
   const [rightsCategory, setRightsCategory] = useState<RightsCategory>("civil");
+  const [rootLabel, setRootLabel] = useState("Derechos Humanos");
+  const [rootDescription, setRootDescription] = useState("Declaración Universal de los Derechos Humanos, ONU 1948");
+  const [editedRights, setEditedRights] = useState<Record<RightsCategory, RightDef[]>>(() => {
+    const initial: Record<string, RightDef[]> = {};
+    for (const key of Object.keys(RIGHTS_DATA) as RightsCategory[]) {
+      initial[key] = [...RIGHTS_DATA[key].rights];
+    }
+    return initial as Record<RightsCategory, RightDef[]>;
+  });
 
-  // Budget state (each percentage; we enforce sum = 100)
+  // Budget state
+  const [budgetTitle, setBudgetTitle] = useState("Simulador de Presupuesto Público");
   const [budgetAlloc, setBudgetAlloc] = useState<Record<string, number>>({
     education: 25,
     health: 20,
@@ -145,33 +156,35 @@ export default function HerramientasCivica() {
     social: 20,
   });
 
+  const currentRights = editedRights[rightsCategory];
+
   const rightsSpec = useMemo<CivicRightsTreeSpec>(() => {
     const cat = RIGHTS_DATA[rightsCategory];
     return {
       kind: "civic-rights-tree",
-      title: "Árbol de Derechos Fundamentales",
+      title: rightsTitle || "Árbol de Derechos Fundamentales",
       description: `Clasificación de ${cat.label} según la Declaración Universal de los Derechos Humanos.`,
       root: {
         id: "root",
-        label: "Derechos Humanos",
-        description: "Declaración Universal de los Derechos Humanos, ONU 1948",
+        label: rootLabel || "Derechos Humanos",
+        description: rootDescription || "Declaración Universal de los Derechos Humanos, ONU 1948",
       },
       categories: [
         {
           id: rightsCategory,
           label: cat.label,
           color: cat.color,
-          rights: cat.rights,
+          rights: currentRights,
         },
       ],
     };
-  }, [rightsCategory]);
+  }, [rightsTitle, rightsCategory, rootLabel, rootDescription, currentRights]);
 
   const budgetSpec = useMemo<CivicBudgetSpec>(() => {
     const total = Object.values(budgetAlloc).reduce((s, v) => s + v, 0);
     return {
       kind: "civic-budget",
-      title: "Simulador de Presupuesto Público",
+      title: budgetTitle || "Simulador de Presupuesto Público",
       description:
         "Distribuye los recursos públicos entre las distintas áreas del Estado y compara con la asignación recomendada.",
       totalBudget: total,
@@ -191,7 +204,7 @@ export default function HerramientasCivica() {
         })),
       },
     };
-  }, [budgetAlloc]);
+  }, [budgetTitle, budgetAlloc]);
 
   // Adjust sliders so that total stays at 100
   function adjustBudget(changedId: string, newValue: number) {
@@ -228,6 +241,41 @@ export default function HerramientasCivica() {
 
     setBudgetAlloc(nextAlloc);
   }
+
+  const updateRight = (index: number, field: keyof RightDef, value: string) => {
+    setEditedRights((prev) => {
+      const updated = { ...prev };
+      const rights = [...updated[rightsCategory]];
+      rights[index] = { ...rights[index], [field]: value };
+      updated[rightsCategory] = rights;
+      return updated;
+    });
+  };
+
+  const addRight = () => {
+    setEditedRights((prev) => {
+      const updated = { ...prev };
+      const rights = [...updated[rightsCategory]];
+      rights.push({
+        id: `r${Date.now()}`,
+        label: "Nuevo derecho",
+        description: "Descripción del derecho.",
+        article: "Art. ?",
+      });
+      updated[rightsCategory] = rights;
+      return updated;
+    });
+  };
+
+  const removeRight = (index: number) => {
+    setEditedRights((prev) => {
+      const updated = { ...prev };
+      const rights = [...updated[rightsCategory]];
+      rights.splice(index, 1);
+      updated[rightsCategory] = rights;
+      return updated;
+    });
+  };
 
   const budgetTotal = Object.values(budgetAlloc).reduce((s, v) => s + v, 0);
 
@@ -279,128 +327,241 @@ export default function HerramientasCivica() {
 
       {/* ── Rights Tree tool ── */}
       {activeTool === "rights" && (
-        <>
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">
-              Clasificación de derechos
-            </h2>
-            <div className="mt-4">
-              <label className="space-y-2 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">
-                  Categoría de derechos
-                </span>
-                <select
-                  value={rightsCategory}
-                  onChange={(e) =>
-                    setRightsCategory(e.target.value as RightsCategory)
-                  }
-                  className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-72"
-                >
-                  {CATEGORY_OPTIONS.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
+        <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 items-start">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            <h2 className="text-base font-semibold text-slate-800">Parámetros</h2>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Título</label>
+              <input
+                type="text"
+                value={rightsTitle}
+                onChange={(e) => setRightsTitle(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
             </div>
 
-            <div className="mt-5">
-              <p className="mb-3 text-sm font-medium text-slate-700">
-                Derechos en esta categoría:
-              </p>
-              <ul className="grid gap-2 sm:grid-cols-2">
-                {RIGHTS_DATA[rightsCategory].rights.map((r) => (
-                  <li
-                    key={r.id}
-                    className="rounded-lg border border-slate-100 bg-slate-50 px-3 py-2 text-sm"
-                  >
-                    <span
-                      className="mr-2 font-semibold"
-                      style={{
-                        color: RIGHTS_DATA[rightsCategory].color,
-                      }}
-                    >
-                      {r.article}
-                    </span>
-                    <span className="font-medium text-slate-800">
-                      {r.label}
-                    </span>
-                    <p className="mt-0.5 text-xs text-slate-500">
-                      {r.description}
-                    </p>
-                  </li>
-                ))}
-              </ul>
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Raíz: etiqueta</label>
+              <input
+                type="text"
+                value={rootLabel}
+                onChange={(e) => setRootLabel(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
             </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Raíz: descripción</label>
+              <input
+                type="text"
+                value={rootDescription}
+                onChange={(e) => setRootDescription(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">
+                Categoría de derechos
+              </label>
+              <select
+                value={rightsCategory}
+                onChange={(e) =>
+                  setRightsCategory(e.target.value as RightsCategory)
+                }
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              >
+                {CATEGORY_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Editable rights table */}
+            <div className="space-y-2 border-t border-slate-100 pt-4">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">
+                  Derechos ({currentRights.length})
+                </label>
+                <button
+                  type="button"
+                  onClick={addRight}
+                  className="text-xs text-blue-600 hover:underline"
+                >
+                  + Agregar
+                </button>
+              </div>
+              <div className="overflow-x-auto rounded-lg border border-slate-100">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="bg-slate-50 text-[10px] text-slate-400 uppercase tracking-wide">
+                      <th className="text-left px-2 py-1.5 font-medium">Art.</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Nombre</th>
+                      <th className="text-left px-2 py-1.5 font-medium">Descripción</th>
+                      <th />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {currentRights.map((r, i) => (
+                      <tr key={r.id} className="border-t border-slate-100">
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-14 border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={r.article ?? ""}
+                            onChange={(e) => updateRight(i, "article", e.target.value)}
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={r.label}
+                            onChange={(e) => updateRight(i, "label", e.target.value)}
+                          />
+                        </td>
+                        <td className="px-1 py-0.5">
+                          <input
+                            className="w-full border border-slate-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
+                            value={r.description}
+                            onChange={(e) => updateRight(i, "description", e.target.value)}
+                          />
+                        </td>
+                        <td className="px-1 py-0.5 text-right">
+                          <button
+                            type="button"
+                            onClick={() => removeRight(i)}
+                            className="text-red-400 hover:text-red-600 text-sm leading-none px-1"
+                          >
+                            ×
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                const reset: Record<string, RightDef[]> = {};
+                for (const key of Object.keys(RIGHTS_DATA) as RightsCategory[]) {
+                  reset[key] = [...RIGHTS_DATA[key].rights];
+                }
+                setEditedRights(reset as Record<RightsCategory, RightDef[]>);
+                setRootLabel("Derechos Humanos");
+                setRootDescription("Declaración Universal de los Derechos Humanos, ONU 1948");
+              }}
+              className="text-xs text-slate-400 hover:text-slate-600"
+            >
+              Restablecer datos
+            </button>
           </section>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              Vista previa
+            </p>
             <VisualizerRenderer spec={rightsSpec} />
-          </div>
-        </>
+          </section>
+        </div>
       )}
 
       {/* ── Budget tool ── */}
       {activeTool === "budget" && (
-        <>
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="flex items-center justify-between text-lg font-semibold text-slate-800">
-              <span>Asignación presupuestaria</span>
-              <span
-                className={`text-sm font-normal ${
-                  budgetTotal === 100
-                    ? "text-green-600"
-                    : "text-red-500"
-                }`}
-              >
-                Total: {budgetTotal}%
-              </span>
-            </h2>
-            <p className="mt-1 text-sm text-slate-500">
-              Ajusta cada área. El resto se redistribuye automáticamente para mantener el total en 100%.
-            </p>
-            <div className="mt-5 grid gap-5 md:grid-cols-2">
-              {BUDGET_CATEGORIES.map((cat) => (
-                <div key={cat.id} className="space-y-1">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="font-medium text-slate-700">
-                      {cat.label}
-                    </span>
-                    <span
-                      className="font-semibold"
-                      style={{ color: BUDGET_COLORS[cat.id] }}
-                    >
-                      {budgetAlloc[cat.id]}%
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min={0}
-                    max={100}
-                    step={1}
-                    value={budgetAlloc[cat.id] ?? 0}
-                    onChange={(e) =>
-                      adjustBudget(cat.id, Number(e.target.value))
-                    }
-                    className="w-full accent-blue-600"
-                    style={
-                      { accentColor: BUDGET_COLORS[cat.id] } as React.CSSProperties
-                    }
-                  />
-                  <div className="flex justify-between text-xs text-slate-400">
-                    <span>Asignado: {budgetAlloc[cat.id]}%</span>
-                    <span>Ideal: {IDEAL_ALLOCATION[cat.id]}%</span>
-                  </div>
-                </div>
-              ))}
+        <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 items-start">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            <h2 className="text-base font-semibold text-slate-800">Parámetros</h2>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-600">Título</label>
+              <input
+                type="text"
+                value={budgetTitle}
+                onChange={(e) => setBudgetTitle(e.target.value)}
+                className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:border-blue-400"
+              />
             </div>
+
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-600">Asignación presupuestaria</label>
+                <span
+                  className={`text-xs font-mono ${
+                    budgetTotal === 100
+                      ? "text-green-600"
+                      : "text-red-500"
+                  }`}
+                >
+                  Total: {budgetTotal}%
+                </span>
+              </div>
+              <p className="text-[10px] text-slate-400">
+                Ajusta cada área. El resto se redistribuye para mantener 100%.
+              </p>
+            </div>
+
+            {BUDGET_CATEGORIES.map((cat) => (
+              <div key={cat.id} className="space-y-1">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-medium text-slate-700">
+                    {cat.label}
+                  </span>
+                  <span
+                    className="font-semibold font-mono"
+                    style={{ color: BUDGET_COLORS[cat.id] }}
+                  >
+                    {budgetAlloc[cat.id]}%
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  step={1}
+                  value={budgetAlloc[cat.id] ?? 0}
+                  onChange={(e) =>
+                    adjustBudget(cat.id, Number(e.target.value))
+                  }
+                  className="w-full accent-blue-600"
+                  style={
+                    { accentColor: BUDGET_COLORS[cat.id] } as React.CSSProperties
+                  }
+                />
+                <div className="flex justify-between text-[10px] text-slate-400">
+                  <span>Asignado: {budgetAlloc[cat.id]}%</span>
+                  <span>Ideal: {IDEAL_ALLOCATION[cat.id]}%</span>
+                </div>
+              </div>
+            ))}
+
+            <button
+              type="button"
+              onClick={() => {
+                setBudgetAlloc({
+                  education: 25,
+                  health: 20,
+                  infrastructure: 20,
+                  security: 15,
+                  social: 20,
+                });
+              }}
+              className="text-xs text-slate-400 hover:text-slate-600"
+            >
+              Restablecer datos
+            </button>
           </section>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              Vista previa
+            </p>
             <VisualizerRenderer spec={budgetSpec} />
-          </div>
-        </>
+          </section>
+        </div>
       )}
     </div>
   );
