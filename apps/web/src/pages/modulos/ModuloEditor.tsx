@@ -1651,33 +1651,36 @@ export default function ModuloEditor() {
               </section>
 
               {/* ── Cuestionarios ── */}
-              <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
+              <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <div className="h-1.5 bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500" />
+                <div className="p-6 space-y-5">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <h2 className="text-lg font-semibold text-gray-900">Cuestionarios</h2>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-100 text-violet-600 text-sm">&#10068;</span>
+                    <h2 className="text-lg font-bold text-gray-900 tracking-tight">Cuestionarios</h2>
                     {quizzes.length === 0 ? null : sectionStatus.quizzesOk ? (
-                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">✓ Completo</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">&#10003; Completo</span>
                     ) : (
-                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Con errores</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-200">&#9888; Con errores</span>
                     )}
                   </div>
-                  <span className="text-xs text-gray-500">{quizCountLabel}</span>
+                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">{quizCountLabel}</span>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   <button
                     type="button"
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-violet-700 hover:shadow-md active:scale-[0.98]"
                     onClick={() => addQuiz("manual")}
                   >
-                    + Manual
+                    <span className="text-base leading-none">+</span> Manual
                   </button>
                   <button
                     type="button"
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+                    className="inline-flex items-center gap-1.5 rounded-lg border-2 border-violet-200 bg-violet-50 px-4 py-2.5 text-sm font-medium text-violet-700 shadow-sm transition-all duration-200 hover:bg-violet-100 hover:border-violet-300 active:scale-[0.98]"
                     onClick={() => addQuiz("generated")}
                   >
-                    + Generado
+                    <span className="text-base leading-none">+</span> Generado
                   </button>
                 </div>
 
@@ -1686,20 +1689,25 @@ export default function ModuloEditor() {
                 </div>
 
                 {quizzes.length === 0 ? (
-                  <p className="text-sm text-gray-500">No hay cuestionarios configurados.</p>
+                  <div className="rounded-xl border-2 border-dashed border-gray-200 py-8 text-center">
+                    <p className="text-sm text-gray-400">No hay cuestionarios configurados.</p>
+                    <p className="mt-1 text-xs text-gray-300">Usá los botones de arriba para agregar cuestionarios.</p>
+                  </div>
                 ) : (
                   <div className="space-y-6">
                     {quizzes.map((quiz) => (
-                      <div key={quiz.id} className="rounded-lg border border-gray-200 p-4 space-y-4">
+                      <div key={quiz.id} className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md">
+                        <div className="h-1 bg-gradient-to-r from-violet-400 to-purple-400" />
+                        <div className="p-5 space-y-4">
                         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                          <div className="grid flex-1 gap-3 md:grid-cols-3">
+                          <div className="grid flex-1 gap-4 md:grid-cols-3">
                             <label className="text-xs font-medium text-gray-600">
                               Título
                               <input
-                                className={`mt-1 w-full rounded-md border px-2 py-2 text-sm ${
+                                className={`mt-1 w-full rounded-lg border px-3 py-2.5 text-sm shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 ${
                                   quizBlurErrors[quiz.id]?.length
-                                    ? "border-red-400 bg-red-50"
-                                    : "border-gray-300"
+                                    ? "border-red-400 bg-red-50 focus:ring-red-100"
+                                    : "border-gray-300 focus:border-violet-400 focus:ring-violet-100"
                                 }`}
                                 value={quiz.title}
                                 onChange={(event) =>
@@ -1708,7 +1716,7 @@ export default function ModuloEditor() {
                                 onBlur={() => validateQuizTitle(quiz.id, quiz.title)}
                               />
                               {quizBlurErrors[quiz.id]?.map((err) => (
-                                <span key={err} className="mt-0.5 block text-xs text-red-600">
+                                <span key={err} className="mt-1 block text-xs text-red-600">
                                   {err}
                                 </span>
                               ))}
@@ -1716,7 +1724,7 @@ export default function ModuloEditor() {
                             <label className="text-xs font-medium text-gray-600">
                               Tipo
                               <select
-                                className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
+                                className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
                                 value={quiz.type}
                                 onChange={(event) =>
                                   updateQuiz(quiz.id, {
@@ -1732,7 +1740,7 @@ export default function ModuloEditor() {
                             <label className="text-xs font-medium text-gray-600">
                               Visibilidad
                               <select
-                                className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
+                                className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
                                 value={quiz.visibility}
                                 onChange={(event) =>
                                   updateQuiz(quiz.id, {
@@ -1748,14 +1756,14 @@ export default function ModuloEditor() {
                           <div className="flex flex-col items-end gap-2">
                             <button
                               type="button"
-                              className="text-xs text-red-500 hover:underline"
+                              className="rounded-md border border-red-200 bg-red-50 px-2.5 py-1 text-xs font-medium text-red-600 transition-all hover:bg-red-100 hover:border-red-300"
                               onClick={() => removeQuiz(quiz.id)}
                             >
                               Eliminar cuestionario
                             </button>
                             <button
                               type="button"
-                              className="rounded border border-gray-300 px-2 py-1 text-xs text-gray-600 hover:bg-gray-50"
+                              className="rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-600 transition-all hover:bg-indigo-100 hover:border-indigo-300"
                               onClick={() =>
                                 setQuizPreviewOpen((prev) => ({
                                   ...prev,
@@ -1769,7 +1777,7 @@ export default function ModuloEditor() {
                         </div>
 
                         {quizPreviewOpen[quiz.id] ? (
-                          <div className="rounded-lg border border-indigo-200 bg-indigo-50 p-3 text-xs text-indigo-700">
+                          <div className="rounded-xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-blue-50 p-4 text-xs text-indigo-700 shadow-sm">
                             <p className="mb-2 font-semibold">
                               Vista previa del estudiante (semilla fija, no registra intento)
                             </p>
