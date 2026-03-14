@@ -1804,10 +1804,12 @@ export default function ModuloEditor() {
                             onChange={(next) => updateQuiz(quiz.id, { questions: next })}
                           />
                         )}
+                        </div>
                       </div>
                     ))}
                   </div>
                 )}
+                </div>
               </section>
 
               {/* ── Submit ── */}
