@@ -15,7 +15,7 @@ type DilemmaExample = "trolley" | "prisoner" | "lying";
 
 type ArgNodeRow = { id: string; text: string; type: "premise" | "conclusion" | "objection" | "rebuttal"; parentId?: string };
 type ArgRelationRow = { id: string; fromId: string; toId: string; kind: "supports" | "attacks" };
-type DilemmaOptionRow = { id: string; label: string; framework: string; analysis: string; consequences: string[] };
+type DilemmaOptionRow = { id: string; label: string; framework: "utilitarianism" | "deontology" | "virtue" | "contractualism"; analysis: string; consequences: string[] };
 
 // ── Argument map presets ─────────────────────────────────────────────────────
 
@@ -710,7 +710,7 @@ export default function HerramientasFilosofia() {
                   onClick={() =>
                     setDilOptions((prev) => [
                       ...prev,
-                      { id: `opt${Date.now()}`, label: "Nueva opcion", framework: "other", analysis: "", consequences: [] },
+                      { id: `opt${Date.now()}`, label: "Nueva opcion", framework: "utilitarianism", analysis: "", consequences: [] },
                     ])
                   }
                   className="text-xs text-blue-600 hover:underline"

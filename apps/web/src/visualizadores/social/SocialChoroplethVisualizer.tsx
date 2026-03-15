@@ -627,7 +627,7 @@ function ChoroplethMap({ spec, onRegionsChange, searchable = false }: Props) {
 
               {/* Círculos solo para regiones sin polígono ISO en el mapa */}
               {regions
-                .filter((r) => r.coordinates && projectPoint && !isoRegionMap.has(r.isoA3 ?? ""))
+                .filter((r) => r.coordinates && projectPoint != null && !isoRegionMap.has(r.isoA3 ?? ""))
                 .map((r) => {
                   const [lat, lng] = r.coordinates!;
                   const [px, py] = projectPoint!(lng, lat);
