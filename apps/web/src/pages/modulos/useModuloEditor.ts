@@ -9,6 +9,8 @@ import { slidesToDetail, detailToPresentation } from "../../components/modulos/T
 import { fetchBooks } from "../../bookEditor/services/booksApi";
 import { useModuloPersistence } from "./useModuloPersistence";
 
+export { detailToPresentation };
+
 export type ModuleFormState = {
   title: string;
   description: string;
@@ -21,8 +23,8 @@ export type ModuleFormState = {
   dependencies: ModuleDependency[];
 };
 
-type BookResult = { id: string; title: string };
-type TuesdayResult = { id: string; title: string };
+export type BookResult = { id: string; title: string };
+export type TuesdayResult = { id: string; title: string };
 type EscuelaResult = { id: string; name: string };
 
 const buildQuizId = () => `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -427,6 +429,9 @@ export function useModuloEditor(
     });
   };
 
+  const clearBookTitle = () => setNewBookTitle("");
+  const clearDepResults = () => setDepResults([]);
+
   return {
     // Persistence
     status: persistence.status,
@@ -471,6 +476,7 @@ export function useModuloEditor(
     bookPickerFor,
     setBookPickerFor,
     newBookTitle,
+    clearBookTitle,
     openBookPicker,
     selectBook,
     searchBooks,
@@ -497,6 +503,7 @@ export function useModuloEditor(
     depSearch,
     setDepSearch,
     depResults,
+    clearDepResults,
     depLoading,
     depPickerOpen,
     setDepPickerOpen,

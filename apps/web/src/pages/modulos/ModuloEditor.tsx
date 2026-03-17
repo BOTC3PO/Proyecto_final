@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
-import type { ModuleQuiz } from "../../domain/module/module.types";
+import type { ModuleQuiz, Module } from "../../domain/module/module.types";
 import { MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
@@ -11,6 +11,7 @@ import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
 import {
   useModuloEditor,
+  detailToPresentation,
   isBookType,
   isLinkType,
   isVideoType,
@@ -18,7 +19,8 @@ import {
   isTuesdayType,
   isPresentationType,
   isHerramientaType,
-  needsUrlOrId,
+  type BookResult,
+  type TuesdayResult,
 } from "./useModuloEditor";
 
 const SUBJECT_OPTIONS = Object.keys(MODULE_SUBJECT_CAPABILITIES);
@@ -81,6 +83,7 @@ export default function ModuloEditor() {
     bookPickerFor,
     setBookPickerFor,
     newBookTitle,
+    clearBookTitle,
     openBookPicker,
     selectBook,
     searchBooks,
@@ -101,6 +104,7 @@ export default function ModuloEditor() {
     depSearch,
     setDepSearch,
     depResults,
+    clearDepResults,
     depLoading,
     depPickerOpen,
     setDepPickerOpen,
@@ -420,7 +424,7 @@ export default function ModuloEditor() {
                         setNewTheoryItem((prev) => ({ ...prev, type: t, detail: "" }));
                         setBookPickerFor(null);
                         setTuesdayPickerFor(null);
-                        setNewBookTitle("");
+                        clearBookTitle();
                       }}
                     >
                       {subjectCapabilities.theoryTypes.map((opt) => (
@@ -804,7 +808,7 @@ export default function ModuloEditor() {
                       onClick={() => {
                         setDepPickerOpen(false);
                         setDepSearch("");
-                        setDepResults([]);
+                        clearDepResults();
                       }}
                     >
                       Cancelar
