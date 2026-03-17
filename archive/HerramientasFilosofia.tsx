@@ -1,10 +1,10 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
 import type {
   PhilArgumentMapSpec,
   PhilDilemmaSpec,
-} from "../../visualizadores/types";
+} from "./visualizadores/types";
 
 type Tool = "argument-map" | "dilemma";
 

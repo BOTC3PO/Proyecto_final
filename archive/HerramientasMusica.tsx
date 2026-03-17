@@ -1,10 +1,10 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
 import type {
   MusicWaveformSpec,
   MusicRhythmGridSpec,
-} from "../../visualizadores/types";
+} from "./visualizadores/types";
 
 type Tool = "music-waveform" | "music-rhythm-grid";
 type WaveType = "sine" | "square" | "sawtooth" | "triangle";

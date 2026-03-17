@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
-import type { StatDistributionSpec, StatRegressionSpec } from "../../visualizadores/types";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
+import type { StatDistributionSpec, StatRegressionSpec } from "./visualizadores/types";
 
 type Tool = "distribution" | "regression";
 

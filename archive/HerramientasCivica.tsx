@@ -1,10 +1,10 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
 import type {
   CivicRightsTreeSpec,
   CivicBudgetSpec,
-} from "../../visualizadores/types";
+} from "./visualizadores/types";
 
 type Tool = "rights" | "budget";
 

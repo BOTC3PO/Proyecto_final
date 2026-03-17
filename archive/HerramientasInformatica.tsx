@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
-import type { CsSortingSpec, CsGraphSpec, CsBinaryTreeSpec } from "../../visualizadores/types";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
+import type { CsSortingSpec, CsGraphSpec, CsBinaryTreeSpec } from "./visualizadores/types";
 
 type Tool = "cs-sorting" | "cs-graph" | "cs-binary-tree";
 type SortAlg = CsSortingSpec["algorithm"];

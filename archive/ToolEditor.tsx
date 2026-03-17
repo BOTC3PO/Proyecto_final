@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Plus, Settings } from "lucide-react";
-import type { VisualSpec } from "../../../visualizadores/types";
-import { TOOL_PARAM_SCHEMAS } from "../TheorySlideEditor";
-import HerramientaPicker from "../HerramientaPicker";
+import type { VisualSpec } from "./visualizadores/types";
+import { TOOL_PARAM_SCHEMAS } from "../apps/web/src/components/modulos/TheorySlideEditor";
+import HerramientaPicker from "./HerramientaPicker";
 import ToolParamEditor from "./ToolParamEditor";
-import ToolPreview from "./ToolPreview";
+import ToolPreview from "../apps/web/src/components/modulos/tools/ToolPreview";
 
 type Props = {
   spec: VisualSpec | undefined;

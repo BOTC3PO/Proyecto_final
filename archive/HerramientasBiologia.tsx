@@ -1,11 +1,11 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
 import type {
   BioCellDiagramSpec,
   BioGeneticsSpec,
   BioPopulationDynamicsSpec,
-} from "../../visualizadores/types";
+} from "./visualizadores/types";
 
 type Tool = "bio-cell-diagram" | "bio-genetics" | "bio-population-dynamics";
 type CellType = "animal" | "plant" | "bacteria";
