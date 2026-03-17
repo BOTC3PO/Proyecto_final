@@ -3,8 +3,8 @@ import type { GeneradorParametros } from "../generador/core/types";
 import { CaidaLibreGenerator } from "../generador/fisica/CaidaLibre";
 import { crearCalculadoraFisica } from "../generador/fisica/calculadora";
 import { createPrng } from "../generador/core/prng";
-import FreeFallSimulationVisualizer from "../visualizadores/fisica/FreeFallSimulationVisualizer";
-import type { PhysicsSimulationSpec } from "../visualizadores/types";
+import FreeFallSimulationVisualizer from "../../../../archive/visualizadores/fisica/FreeFallSimulationVisualizer";
+import type { PhysicsSimulationSpec } from "../../../../archive/visualizadores/types";
 
 const redondear = (valor: number, decimales = 2) =>
   Number(valor.toFixed(decimales));

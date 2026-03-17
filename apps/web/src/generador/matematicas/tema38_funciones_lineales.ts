@@ -7,7 +7,7 @@ import {
   pickRandom,
   normalizarDificultadCore,
 } from "./generic";
-import type { FuncionesGraficasSpec } from "../../visualizadores/types";
+import type { FuncionesGraficasSpec } from "../../../../../archive/visualizadores/types";
 
 const ID_TEMA = 38;
 const TITULO = "Funciones lineales: pendiente y ordenada al origen";

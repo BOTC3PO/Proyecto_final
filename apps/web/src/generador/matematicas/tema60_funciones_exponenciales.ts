@@ -9,7 +9,7 @@ import {
 import { getRangoConFallback } from "./limits";
 import { preloadGeneradoresTema } from "../generadores_api";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
-import type { FuncionesGraficoSpec } from "../../visualizadores/types";
+import type { FuncionesGraficoSpec } from "../../../../../archive/visualizadores/types";
 
 const ID_TEMA = 60;
 const TITULO = "Funciones exponenciales";

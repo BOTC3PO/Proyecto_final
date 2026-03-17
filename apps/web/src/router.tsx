@@ -71,20 +71,20 @@ import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
 import Gobernanza from "./pages/Gobernanza";
 import GobernanzaPropuesta from "./pages/GobernanzaPropuesta";
 import GobernanzaNuevaPropuesta from "./pages/GobernanzaNuevaPropuesta";
-import HerramientasEducativas from "./pages/herramientas/HerramientasEducativas";
-import HerramientasEstadistica from "./pages/herramientas/HerramientasEstadistica";
-import HerramientasCienciasSociales from "./pages/herramientas/HerramientasCienciasSociales";
-import HerramientasFilosofia from "./pages/herramientas/HerramientasFilosofia";
-import HerramientasArte from "./pages/herramientas/HerramientasArte";
-import HerramientasBiologia from "./pages/herramientas/HerramientasBiologia";
-import HerramientasMusica from "./pages/herramientas/HerramientasMusica";
-import HerramientasPolitica from "./pages/herramientas/HerramientasPolitica";
-import HerramientasCivica from "./pages/herramientas/HerramientasCivica";
-import HerramientasAmbiental from "./pages/herramientas/HerramientasAmbiental";
-import HerramientasInformatica from "./pages/herramientas/HerramientasInformatica";
-import HerramientasNaturales from "./pages/herramientas/HerramientasNaturales";
-import HerramientasCocina from "./pages/herramientas/HerramientasCocina";
-import HerramientasVidaPractica from "./pages/herramientas/HerramientasVidaPractica";
+import HerramientasEducativas from "../../../archive/HerramientasEducativas";
+import HerramientasEstadistica from "../../../archive/HerramientasEstadistica";
+import HerramientasCienciasSociales from "../../../archive/HerramientasCienciasSociales";
+import HerramientasFilosofia from "../../../archive/HerramientasFilosofia";
+import HerramientasArte from "../../../archive/HerramientasArte";
+import HerramientasBiologia from "../../../archive/HerramientasBiologia";
+import HerramientasMusica from "../../../archive/HerramientasMusica";
+import HerramientasPolitica from "../../../archive/HerramientasPolitica";
+import HerramientasCivica from "../../../archive/HerramientasCivica";
+import HerramientasAmbiental from "../../../archive/HerramientasAmbiental";
+import HerramientasInformatica from "../../../archive/HerramientasInformatica";
+import HerramientasNaturales from "../../../archive/HerramientasNaturales";
+import HerramientasCocina from "../../../archive/HerramientasCocina";
+import HerramientasVidaPractica from "../../../archive/HerramientasVidaPractica";
 
 
 

@@ -9,7 +9,7 @@ import {
 import { getRangoConFallback } from "./limits";
 import { preloadGeneradoresTema } from "../generadores_api";
 import { construirEnunciado } from "./tema56_59_enunciados";
-import type { TrigonometriaSpec } from "../../visualizadores/types";
+import type { TrigonometriaSpec } from "../../../../../archive/visualizadores/types";
 
 const ID_TEMA = 56;
 const TITULO = "Trigonometría básica";

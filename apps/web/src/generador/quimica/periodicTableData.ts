@@ -1,4 +1,4 @@
-import type { ChemPeriodicTableElement } from "../../visualizadores/types";
+import type { ChemPeriodicTableElement } from "../../../../../archive/visualizadores/types";
 
 export const PERIODIC_TABLE_ELEMENTS: ChemPeriodicTableElement[] = [
   {

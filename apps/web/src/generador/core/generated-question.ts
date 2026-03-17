@@ -1,4 +1,4 @@
-import type { VisualSpec } from "../../visualizadores/types";
+import type { VisualSpec } from "../../../../../archive/visualizadores/types";
 import type { Materia } from "./types";
 
 export type QuestionType = "mc" | "vf" | "input" | "match" | "interactive";

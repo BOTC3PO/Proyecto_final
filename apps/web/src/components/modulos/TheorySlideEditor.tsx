@@ -1,7 +1,7 @@
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown } from "lucide-react";
-import type { VisualSpec } from "../../visualizadores/types";
+import type { VisualSpec } from "../../../../../archive/visualizadores/types";
 import { useSlideEditor } from "./hooks/useSlideEditor";
-import ToolEditor from "./tools/ToolEditor";
+import ToolEditor from "../../../../../archive/ToolEditor";
 
 // ─── Layout presets ───────────────────────────────────────────────────────────
 

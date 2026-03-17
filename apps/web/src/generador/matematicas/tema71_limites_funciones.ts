@@ -3,7 +3,7 @@ import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, construirEnunciado } from "./temas56_85_helpers";
 import { preloadGeneradoresTema } from "../generadores_api";
 import { evalPoly, polyToString, type PolyTerm } from "./temas71_80_helpers";
-import type { AlgebraCalculoSpec } from "../../visualizadores/types";
+import type { AlgebraCalculoSpec } from "../../../../../archive/visualizadores/types";
 
 const ID_TEMA = 71;
 const TITULO = "Límites de funciones";

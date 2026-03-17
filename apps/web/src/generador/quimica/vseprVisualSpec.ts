@@ -1,4 +1,4 @@
-import type { ChemVSEPRSpec } from "../../visualizadores/types";
+import type { ChemVSEPRSpec } from "../../../../../archive/visualizadores/types";
 
 export const VSEPR_VISUAL_SPEC: ChemVSEPRSpec = {
   kind: "chem-vsepr",

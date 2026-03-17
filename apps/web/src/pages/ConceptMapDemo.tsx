@@ -1,5 +1,5 @@
-import ConceptMapVisualizer from "../visualizadores/graficos/ConceptMapVisualizer";
-import type { ConceptMapSpec } from "../visualizadores/types";
+import ConceptMapVisualizer from "../../../../archive/visualizadores/graficos/ConceptMapVisualizer";
+import type { ConceptMapSpec } from "../../../../archive/visualizadores/types";
 
 const sampleSpec: ConceptMapSpec = {
   kind: "concept-map",

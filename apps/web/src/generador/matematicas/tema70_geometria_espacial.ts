@@ -9,7 +9,7 @@ import {
 import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, clampInt, construirEnunciado } from "./temas56_85_helpers";
 import { preloadGeneradoresTema } from "../generadores_api";
-import type { GeometriaPlanaEspacialSpec } from "../../visualizadores/types";
+import type { GeometriaPlanaEspacialSpec } from "../../../../../archive/visualizadores/types";
 
 const ID_TEMA = 70;
 const TITULO = "Geometría espacial";

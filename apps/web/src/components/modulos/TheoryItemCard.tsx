@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Play } from "lucide-react";
 import { detailToPresentation } from "./TheorySlideEditor";
 import SlidePresenter from "./SlidePresenter";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
-import type { VisualSpec } from "../../visualizadores/types";
+import VisualizerRenderer from "../../../../../archive/visualizadores/graficos/VisualizerRenderer";
+import type { VisualSpec } from "../../../../../archive/visualizadores/types";
 
 // All supported theory item types (old English + new Spanish + catch-all string)
 export type TheoryItemType = string;
