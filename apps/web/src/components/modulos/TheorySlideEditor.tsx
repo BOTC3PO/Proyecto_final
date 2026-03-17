@@ -1,11 +1,7 @@
-import { useState } from "react";
-import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
+import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown } from "lucide-react";
 import type { VisualSpec } from "../../visualizadores/types";
-import type { StatDistributionSpec, StatRegressionSpec, SocialChoroplethSpec, SocialPopulationPyramidSpec } from "../../visualizadores/types";
-import { enrichStatDistributionSpec, enrichStatRegressionSpec } from "../../visualizadores/estadistica/statComputations";
-import HerramientaPicker from "./HerramientaPicker";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
-import SocialChoroplethVisualizer from "../../visualizadores/social/SocialChoroplethVisualizer";
+import { useSlideEditor } from "./hooks/useSlideEditor";
+import ToolEditor from "./tools/ToolEditor";
 
 // ─── Layout presets ───────────────────────────────────────────────────────────
 
@@ -572,6 +568,21 @@ export const TOOL_PARAM_SCHEMAS: Record<string, ToolParamDef[]> = {
     { id: "intUpper", label: "Límite superior integral", input: "number", path: "integrals.0.bounds.upper", defaultValue: 3, min: -100, max: 100, step: 0.5 },
   ],
 
+  // ── Matemáticas (variantes básicas — referencian paths compatibles) ──────────
+  // geometria, trigonometria y algebra-calculo son versiones simplificadas de sus
+  // contrapartes avanzadas. Los paths de texto son comunes entre ambas versiones.
+  "geometria": [
+    { id: "fig0name", label: "Nombre figura 1", input: "text" as const, path: "figures.0.name", defaultValue: "Triángulo rectángulo" },
+    { id: "fig0formula", label: "Fórmula figura 1", input: "text" as const, path: "figures.0.formula", defaultValue: "A = base × altura / 2" },
+  ],
+  "trigonometria": [
+    { id: "ident0expr", label: "Identidad principal", input: "text" as const, path: "identities.0.expression", defaultValue: "sin²θ + cos²θ = 1" },
+  ],
+  "algebra-calculo": [
+    { id: "topic0label", label: "Tema principal", input: "text" as const, path: "topics.0.label", defaultValue: "Derivadas" },
+    { id: "topic0formula", label: "Fórmula", input: "text" as const, path: "topics.0.formula", defaultValue: "f'(x) = lim(Δx→0) [f(x+Δx) - f(x)] / Δx" },
+  ],
+
   // ── Gráficos generales ───────────────────────────────────────────────────────
   "timeline": [
     { id: "rangeStart", label: "Año inicio", input: "number", path: "range.start", defaultValue: 1900, min: -5000, max: 3000, step: 1 },
@@ -715,14 +726,6 @@ export function detailToPresentation(detail: string): {
 
 function makeSlideId() {
   return `slide-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-}
-
-function defaultSlide(): Slide {
-  return { id: makeSlideId(), layout: "top", heading: "", body: "" };
-}
-
-function duplicateSlide(s: Slide): Slide {
-  return { ...s, id: makeSlideId(), heading: s.heading ? `${s.heading} (copia)` : "" };
 }
 
 // ─── Layout preview icon ──────────────────────────────────────────────────────
@@ -1183,27 +1186,8 @@ type EditorFormProps = {
 };
 
 function SlideEditorForm({ slide, onChange }: EditorFormProps) {
-  const [toolPickerOpen, setToolPickerOpen] = useState(false);
   const isSplit = slide.layout === "split";
   const isQuote = slide.layout === "quote";
-  const hasToolSpec = Boolean(slide.toolSpec);
-
-  /** Apply a param change to the current toolSpec */
-  const applyParamChange = (param: ToolParamDef, value: number | boolean | string) => {
-    if (!slide.toolSpec) return;
-    let updated = setAtPath(slide.toolSpec, param.path, value) as VisualSpec;
-    if (updated.kind === "stat-distribution")
-      updated = enrichStatDistributionSpec(updated as StatDistributionSpec);
-    else if (updated.kind === "stat-regression")
-      updated = enrichStatRegressionSpec(updated as StatRegressionSpec);
-    onChange({ toolSpec: updated });
-  };
-
-  const toolParams = slide.toolSpec ? (TOOL_PARAM_SCHEMAS[slide.toolSpec.kind] ?? []) : [];
-  const visibleParams = toolParams.filter((param) => {
-    if (!param.condition) return true;
-    return getAtPath(slide.toolSpec, param.condition.path) === param.condition.value;
-  });
 
   const headingInput = (
     <div>
@@ -1228,26 +1212,6 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
 
   return (
     <div className="flex flex-col gap-7">
-      {/* ── Tool picker modal (rendered in portal-like fashion) ── */}
-      <HerramientaPicker
-        isOpen={toolPickerOpen}
-        onSelect={(detail) => {
-          try {
-            const parsed = JSON.parse(detail) as { spec: VisualSpec };
-            let spec = parsed.spec;
-            if (spec.kind === "stat-distribution")
-              spec = enrichStatDistributionSpec(spec as StatDistributionSpec);
-            else if (spec.kind === "stat-regression")
-              spec = enrichStatRegressionSpec(spec as StatRegressionSpec);
-            onChange({ toolSpec: spec, body: undefined, isCode: false });
-          } catch {
-            // ignore malformed JSON
-          }
-          setToolPickerOpen(false);
-        }}
-        onClose={() => setToolPickerOpen(false)}
-      />
-
       {/* ── Layout picker ── */}
       <div>
         <p className="text-xs font-medium text-gray-500 mb-2">Distribución del contenido</p>
@@ -1362,255 +1326,13 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
           {!isQuote ? (
             <>
               {/* ── Interactive tool section ── */}
-              <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2">
-                    <Settings size={13} className="text-gray-400" />
-                    <p className="text-xs font-medium text-gray-600">Herramienta interactiva</p>
-                  </div>
-                  {hasToolSpec ? (
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] text-gray-400 font-mono">{slide.toolSpec!.kind}</span>
-                      <button
-                        type="button"
-                        className="text-xs text-blue-600 hover:underline"
-                        onClick={() => setToolPickerOpen(true)}
-                      >
-                        Cambiar
-                      </button>
-                      <button
-                        type="button"
-                        className="text-xs text-red-400 hover:underline"
-                        onClick={() => onChange({ toolSpec: undefined })}
-                      >
-                        Quitar
-                      </button>
-                    </div>
-                  ) : (
-                    <button
-                      type="button"
-                      className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-700 border border-blue-200 rounded px-2 py-1 bg-white hover:bg-blue-50"
-                      onClick={() => setToolPickerOpen(true)}
-                    >
-                      <Plus size={11} />
-                      Agregar herramienta
-                    </button>
-                  )}
-                </div>
-
-                {hasToolSpec && visibleParams.length > 0 ? (
-                  <>
-                    <div className="flex flex-col gap-3 pt-1">
-                      {visibleParams.map((param) => (
-                        <ToolParamControl
-                          key={param.id}
-                          param={param}
-                          value={getAtPath(slide.toolSpec, param.path)}
-                          onChange={(v) => applyParamChange(param, v)}
-                        />
-                      ))}
-                    </div>
-                    {/* ── Choropleth region array editor ── */}
-                    {slide.toolSpec?.kind === "social-choropleth" && (
-                      <div className="mt-3 pt-3 border-t border-gray-100">
-                        <div className="flex items-center justify-between mb-2">
-                          <p className="text-xs font-medium text-gray-500">Regiones</p>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              const choropleth = slide.toolSpec as SocialChoroplethSpec;
-                              onChange({ toolSpec: { ...choropleth, regions: [...(choropleth.regions ?? []), { id: `r${Date.now()}`, label: "Nueva región", value: 0, coordinates: [0, 0] as [number, number], isoA3: undefined }] } });
-                            }}
-                            className="flex items-center gap-1 text-xs text-blue-600 hover:underline"
-                          >
-                            <Plus size={11} /> Agregar
-                          </button>
-                        </div>
-                        <div className="overflow-x-auto">
-                          <table className="w-full text-xs border-collapse">
-                            <thead>
-                              <tr className="text-[10px] text-gray-400 uppercase tracking-wide">
-                                <th className="text-left py-1 pr-1 font-medium">Nombre</th>
-                                <th className="text-left py-1 pr-1 font-medium">Valor</th>
-                                <th className="text-left py-1 pr-1 font-medium">Lat</th>
-                                <th className="text-left py-1 pr-1 font-medium">Lng</th>
-                                <th className="text-left py-1 pr-1 font-medium">ISO</th>
-                                <th />
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {((slide.toolSpec as SocialChoroplethSpec).regions ?? []).map((region, i) => {
-                                const regions = (slide.toolSpec as SocialChoroplethSpec).regions ?? [];
-                                const updateRegions = (next: typeof regions) =>
-                                  onChange({ toolSpec: { ...(slide.toolSpec as SocialChoroplethSpec), regions: next } });
-                                return (
-                                  <tr key={region.id} className="border-t border-gray-100">
-                                    <td className="py-0.5 pr-1">
-                                      <input
-                                        className="w-full border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                        value={region.label}
-                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], label: e.target.value }; updateRegions(n); }}
-                                      />
-                                    </td>
-                                    <td className="py-0.5 pr-1">
-                                      <input
-                                        type="number" step="any"
-                                        className="w-16 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                        value={region.value}
-                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], value: Number(e.target.value) }; updateRegions(n); }}
-                                      />
-                                    </td>
-                                    <td className="py-0.5 pr-1">
-                                      <input
-                                        type="number" step="any" placeholder="Lat"
-                                        className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                        value={region.coordinates?.[0] ?? ""}
-                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], coordinates: [Number(e.target.value), n[i].coordinates?.[1] ?? 0] as [number, number] }; updateRegions(n); }}
-                                      />
-                                    </td>
-                                    <td className="py-0.5 pr-1">
-                                      <input
-                                        type="number" step="any" placeholder="Lng"
-                                        className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                        value={region.coordinates?.[1] ?? ""}
-                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], coordinates: [n[i].coordinates?.[0] ?? 0, Number(e.target.value)] as [number, number] }; updateRegions(n); }}
-                                      />
-                                    </td>
-                                    <td className="py-0.5 pr-1">
-                                      <input
-                                        maxLength={3} placeholder="ARG"
-                                        className="w-12 border border-gray-200 rounded px-1.5 py-0.5 text-xs uppercase focus:outline-none focus:border-blue-400"
-                                        value={region.isoA3 ?? ""}
-                                        onChange={(e) => { const n = [...regions]; n[i] = { ...n[i], isoA3: e.target.value.toUpperCase() || undefined }; updateRegions(n); }}
-                                      />
-                                    </td>
-                                    <td className="py-0.5 pl-1">
-                                      <button
-                                        type="button"
-                                        onClick={() => updateRegions(regions.filter((_, j) => j !== i))}
-                                        className="text-red-400 hover:text-red-600 leading-none px-1 text-sm"
-                                        title="Quitar región"
-                                      >×</button>
-                                    </td>
-                                  </tr>
-                                );
-                              })}
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* ── Population pyramid age group array editor ── */}
-                    {slide.toolSpec?.kind === "social-population-pyramid" && (
-                      <div className="mt-3 pt-3 border-t border-gray-100">
-                        <div className="flex items-center justify-between mb-2">
-                          <p className="text-xs font-medium text-gray-500">Grupos de edad</p>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              const pyramid = slide.toolSpec as SocialPopulationPyramidSpec;
-                              const groups = pyramid.ageGroups ?? [];
-                              onChange({ toolSpec: { ...pyramid, ageGroups: [...groups, { label: "", male: 0, female: 0 }] } });
-                            }}
-                            className="flex items-center gap-1 text-xs text-blue-600 hover:underline"
-                          >
-                            <Plus size={11} /> Agregar
-                          </button>
-                        </div>
-                        <div className="overflow-x-auto">
-                          <table className="w-full text-xs border-collapse">
-                            <thead>
-                              <tr className="text-[10px] text-gray-400 uppercase tracking-wide">
-                                <th className="text-left py-1 pr-1 font-medium">Rango</th>
-                                <th className="text-left py-1 pr-1 font-medium">Hombres</th>
-                                <th className="text-left py-1 pr-1 font-medium">Mujeres</th>
-                                <th />
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {((slide.toolSpec as SocialPopulationPyramidSpec).ageGroups ?? []).map((group, i) => {
-                                const pyramid = slide.toolSpec as SocialPopulationPyramidSpec;
-                                const groups = pyramid.ageGroups ?? [];
-                                const updateGroups = (next: typeof groups) =>
-                                  onChange({ toolSpec: { ...pyramid, ageGroups: next } });
-                                return (
-                                  <tr key={i} className="border-t border-gray-100">
-                                    <td className="py-0.5 pr-1">
-                                      <input
-                                        className="w-full border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                        value={group.label}
-                                        placeholder="0-14"
-                                        onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], label: e.target.value }; updateGroups(n); }}
-                                      />
-                                    </td>
-                                    <td className="py-0.5 pr-1">
-                                      <input
-                                        type="number" step="any"
-                                        className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                        value={group.male}
-                                        onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], male: Number(e.target.value) }; updateGroups(n); }}
-                                      />
-                                    </td>
-                                    <td className="py-0.5 pr-1">
-                                      <input
-                                        type="number" step="any"
-                                        className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                        value={group.female}
-                                        onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], female: Number(e.target.value) }; updateGroups(n); }}
-                                      />
-                                    </td>
-                                    <td className="py-0.5 pl-1">
-                                      <button
-                                        type="button"
-                                        onClick={() => updateGroups(groups.filter((_, j) => j !== i))}
-                                        className="text-red-400 hover:text-red-600 leading-none px-1 text-sm"
-                                        title="Quitar rango"
-                                      >×</button>
-                                    </td>
-                                  </tr>
-                                );
-                              })}
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* ── Inline preview ── */}
-                    <div className="mt-4 pt-3 border-t border-gray-200">
-                      <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">
-                        Vista previa
-                      </p>
-                      <div className="rounded-lg overflow-hidden border border-gray-100 bg-white">
-                        {slide.toolSpec?.kind === "social-choropleth" ? (
-                          <SocialChoroplethVisualizer
-                            spec={slide.toolSpec as SocialChoroplethSpec}
-                            onRegionsChange={(newRegions) =>
-                              onChange({ toolSpec: { ...(slide.toolSpec as SocialChoroplethSpec), regions: newRegions } })
-                            }
-                          />
-                        ) : (
-                          <VisualizerRenderer spec={slide.toolSpec!} />
-                        )}
-                      </div>
-                    </div>
-                  </>
-                ) : hasToolSpec ? (
-                  <p className="text-xs text-gray-400 italic">
-                    Esta herramienta no tiene parámetros configurables en el editor.
-                    Los valores se ajustan en la presentación.
-                  </p>
-                ) : (
-                  <p className="text-xs text-gray-400">
-                    Agregá una herramienta interactiva para mostrarla dentro de esta diapositiva.
-                    La herramienta reemplaza el cuerpo de texto.
-                  </p>
-                )}
-              </div>
+              <ToolEditor
+                spec={slide.toolSpec}
+                onChange={(spec) => onChange({ toolSpec: spec, body: spec ? undefined : slide.body, isCode: spec ? false : slide.isCode })}
+              />
 
               {/* ── Body / code (hidden when tool is active) ── */}
-              {!hasToolSpec ? (
+              {!slide.toolSpec ? (
                 <>
                   <div>
                     <div className="flex items-baseline justify-between mb-1.5">
@@ -1684,48 +1406,22 @@ export default function TheorySlideEditor({
   onDone,
   onClose,
 }: Props) {
-  const [slides, setSlides] = useState<Slide[]>(
-    initialSlides.length > 0 ? initialSlides : [defaultSlide()],
-  );
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [theme, setTheme] = useState<ThemeKey>(initialTheme);
-  const [accentColor, setAccentColor] = useState<AccentColor | undefined>(initialAccentColor);
+  const {
+    slides,
+    currentIndex,
+    theme,
+    accentColor,
+    setCurrentIndex,
+    setTheme,
+    setAccentColor,
+    addSlide,
+    updateSlide,
+    removeSlide,
+    dupSlide,
+    moveSlide,
+  } = useSlideEditor(initialSlides, initialTheme, initialAccentColor);
 
   const currentSlide = slides[currentIndex] ?? null;
-
-  const addSlide = () => {
-    const next = [...slides, defaultSlide()];
-    setSlides(next);
-    setCurrentIndex(next.length - 1);
-  };
-
-  const updateSlide = (id: string, patch: Partial<Omit<Slide, "id">>) => {
-    setSlides((prev) => prev.map((s) => (s.id === id ? { ...s, ...patch } : s)));
-  };
-
-  const removeSlide = (id: string) => {
-    if (slides.length === 1) return;
-    const next = slides.filter((s) => s.id !== id);
-    setSlides(next);
-    setCurrentIndex((prev) => Math.min(prev, next.length - 1));
-  };
-
-  const dupSlide = (index: number) => {
-    const copy = duplicateSlide(slides[index]);
-    const next = [...slides];
-    next.splice(index + 1, 0, copy);
-    setSlides(next);
-    setCurrentIndex(index + 1);
-  };
-
-  const moveSlide = (from: number, to: number) => {
-    if (to < 0 || to >= slides.length) return;
-    const next = [...slides];
-    const [moved] = next.splice(from, 1);
-    next.splice(to, 0, moved);
-    setSlides(next);
-    setCurrentIndex(to);
-  };
 
   return (
     <div className="fixed inset-0 z-50 bg-white flex flex-col">

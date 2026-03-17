@@ -1,90 +1,27 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { z } from "zod";
 import { useAuth } from "../../auth/use-auth";
-import { apiGet, apiPatch, apiPost } from "../../lib/api";
-import type { Module, ModuleDependency, ModuleQuiz } from "../../domain/module/module.types";
-import { getSubjectCapabilities, MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
+import type { ModuleQuiz } from "../../domain/module/module.types";
+import { MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
-import TheorySlideEditor, {
-  detailToPresentation,
-  slidesToDetail,
-  TOOL_PARAM_SCHEMAS,
-  ToolParamControl,
-  getAtPath,
-  setAtPath,
-} from "../../components/modulos/TheorySlideEditor";
-import type { PresentationTheme, AccentColor } from "../../components/modulos/TheorySlideEditor";
-import HerramientaPicker from "../../components/modulos/HerramientaPicker";
+import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
+import ToolEditor from "../../components/modulos/tools/ToolEditor";
 import type { VisualSpec } from "../../visualizadores/types";
-import type { StatDistributionSpec, StatRegressionSpec, SocialPopulationPyramidSpec } from "../../visualizadores/types";
-import { enrichStatDistributionSpec, enrichStatRegressionSpec } from "../../visualizadores/estadistica/statComputations";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
-import { fetchBooks } from "../../bookEditor/services/booksApi";
-
-type SaveStatus = "idle" | "loading" | "saving" | "saved" | "error";
-
-type ModuleFormState = {
-  title: string;
-  description: string;
-  subject: string;
-  category: string;
-  level: string;
-  durationMinutes: number;
-  visibility: Module["visibility"];
-  visibilitySchoolId: string;
-  dependencies: ModuleDependency[];
-};
-
-type BookResult = { id: string; title: string };
-type TuesdayResult = { id: string; title: string };
-type EscuelaResult = { id: string; name: string };
-
-const buildQuizId = () => `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-const isTemporaryQuizId = (quizId?: string) => Boolean(quizId && quizId.startsWith("quiz-"));
+import {
+  useModuloEditor,
+  isBookType,
+  isLinkType,
+  isVideoType,
+  isDocumentoType,
+  isTuesdayType,
+  isPresentationType,
+  isHerramientaType,
+  needsUrlOrId,
+} from "./useModuloEditor";
 
 const SUBJECT_OPTIONS = Object.keys(MODULE_SUBJECT_CAPABILITIES);
-
-const ensureQuizDefaults = (quiz: ModuleQuiz): ModuleQuiz => {
-  const merged = {
-    ...quiz,
-    status: quiz.status ?? ("draft" as const),
-    version: quiz.version ?? 1,
-    visibility: quiz.visibility ?? ("publico" as const),
-    type: quiz.type ?? ("evaluacion" as const),
-  };
-  return {
-    ...merged,
-    generatorVersion:
-      merged.mode === "generated" ? (merged.generatorVersion ?? 1) : merged.generatorVersion,
-  };
-};
-
-const manualQuestionSchema = z.object({
-  questionType: z.enum(["mc", "vf", "input"]),
-  options: z.array(z.string().min(1)).min(1),
-  answerKey: z.union([z.string().min(1), z.array(z.string().min(1)).min(1)]),
-});
-
-const generatedQuizSchema = z.object({
-  generatorId: z.string().min(1),
-  params: z.record(z.string(), z.unknown()),
-  count: z.number().int().min(1),
-});
-
-// Types that need a picker (not a plain textarea)
-const isBookType = (t: string) => t === "book" || t === "Libro";
-const isLinkType = (t: string) => t === "link" || t === "Enlace";
-const isVideoType = (t: string) => t === "Video";
-const isDocumentoType = (t: string) => t === "Documento";
-const isTuesdayType = (t: string) => t === "TuesdayJS";
-const isPresentationType = (t: string) => t === "Presentación";
-const isHerramientaType = (t: string) => t === "Herramienta";
-const needsUrlOrId = (t: string) =>
-  isBookType(t) || isLinkType(t) || isTuesdayType(t) || isVideoType(t) || isDocumentoType(t);
 
 function parseHerramientaSpec(detail: string): { spec: VisualSpec; subject?: string } | null {
   try {
@@ -106,401 +43,80 @@ export default function ModuloEditor() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
-  const isEditing = Boolean(id);
-  const [status, setStatus] = useState<SaveStatus>(isEditing ? "loading" : "idle");
-  const [message, setMessage] = useState("");
-  const [validationErrors, setValidationErrors] = useState<string[]>([]);
-  const [form, setForm] = useState<ModuleFormState>({
-    title: "",
-    description: "",
-    subject: "",
-    category: "",
-    level: "",
-    durationMinutes: 30,
-    visibility: "publico",
-    visibilitySchoolId: "",
-    dependencies: [],
-  });
-  const [theoryItems, setTheoryItems] = useState<TheoryItem[]>([]);
-  const [quizzes, setQuizzes] = useState<ModuleQuiz[]>([]);
-  const [newTheoryItem, setNewTheoryItem] = useState<{ title: string; type: string; detail: string }>({
-    title: "",
-    type: "Texto",
-    detail: "",
-  });
 
-  // --- Book picker state ---
-  const [bookSearch, setBookSearch] = useState("");
-  const [bookResults, setBookResults] = useState<BookResult[]>([]);
-  const [bookLoading, setBookLoading] = useState(false);
-  // "new" = picker for new item form | string = picker for existing item by id
-  const [bookPickerFor, setBookPickerFor] = useState<"new" | string | null>(null);
-  const [newBookTitle, setNewBookTitle] = useState(""); // display title for newly selected book
-
-  // --- TuesdayJS picker state ---
-  const [tuesdaySearch, setTuesdaySearch] = useState("");
-  const [tuesdayResults, setTuesdayResults] = useState<TuesdayResult[]>([]);
-  const [tuesdayLoading, setTuesdayLoading] = useState(false);
-  const [tuesdayPickerFor, setTuesdayPickerFor] = useState<"new" | string | null>(null);
-
-  // --- Herramienta picker state ---
-  const [herramientaPickerFor, setHerramientaPickerFor] = useState<"new" | string | null>(null);
-
-  // --- School (escuela) picker state ---
-  const [escuelaResults, setEscuelaResults] = useState<EscuelaResult[]>([]);
-  const [escuelaSearch, setEscuelaSearch] = useState("");
-  const [escuelaLoading, setEscuelaLoading] = useState(false);
-
-  // --- Slide editor state ---
-  // "new" = editing slides for new item form | string = existing item id
-  const [slidesEditorFor, setSlidesEditorFor] = useState<"new" | string | null>(null);
-
-  // --- Quiz preview state ---
-  const [quizPreviewOpen, setQuizPreviewOpen] = useState<Record<string, boolean>>({});
-
-  // --- Real-time quiz field errors ---
-  const [quizBlurErrors, setQuizBlurErrors] = useState<Record<string, string[]>>({});
-
-  // --- Dependency editor state ---
-  const [depSearch, setDepSearch] = useState("");
-  const [depResults, setDepResults] = useState<Array<{ id: string; title: string }>>([]);
-  const [depLoading, setDepLoading] = useState(false);
-  const [depPickerOpen, setDepPickerOpen] = useState(false);
-
-  useEffect(() => {
-    if (!isEditing || !id) return;
-    let active = true;
-    setStatus("loading");
-    apiGet<Module>(`/api/modulos/${id}`)
-      .then((module) => {
-        if (!active) return;
-        setForm({
-          title: module.title,
-          description: module.description,
-          subject: module.subject,
-          category: module.category,
-          level: module.level,
-          durationMinutes: module.durationMinutes,
-          visibility: module.visibility,
-          visibilitySchoolId: module.schoolId ?? "",
-          dependencies: module.dependencies ?? [],
-        });
-
-        // Load theoryItems — also reconstruct from resources[] (books)
-        const rawItems =
-          (module as Module & { theoryItems?: TheoryItem[] }).theoryItems ??
-          module.theoryBlocks ??
-          [];
-        const existingIds = new Set(rawItems.map((i) => i.id));
-
-        // Reconstitute book resources as theory items if not already present
-        type BookResource = { type: "book"; id: string; title?: string };
-        const bookResourceItems: TheoryItem[] = (module.resources ?? [])
-          .filter((r): r is BookResource => r.type === "book")
-          .filter((r) => !existingIds.has(r.id))
-          .map((r) => ({
-            id: r.id,
-            title: r.title ?? r.id,
-            type: "Libro",
-            detail: r.id,
-          }));
-
-        setTheoryItems([
-          ...rawItems.map((item) => ({
-            id: item.id,
-            title: item.title,
-            type: item.type ?? "Texto",
-            detail: item.detail,
-          })),
-          ...bookResourceItems,
-        ]);
-
-        const moduleQuizzes =
-          (module as Module & { quizzes?: ModuleQuiz[] }).quizzes ??
-          module.levels?.flatMap((level) => level.quizzes ?? []) ??
-          [];
-        setQuizzes(moduleQuizzes.map(ensureQuizDefaults));
-        setStatus("idle");
-      })
-      .catch(() => {
-        if (!active) return;
-        setStatus("error");
-        setMessage("No se pudo cargar el módulo.");
-      });
-    return () => {
-      active = false;
-    };
-  }, [id, isEditing]);
+  const {
+    status,
+    message,
+    validationErrors,
+    form,
+    updateForm,
+    handleSubjectChange,
+    subjectCapabilities,
+    isEditing,
+    theoryItems,
+    newTheoryItem,
+    setNewTheoryItem,
+    handleAddTheoryItem,
+    updateTheoryItem,
+    removeTheoryItem,
+    moveTheoryItem,
+    slidesEditorFor,
+    setSlidesEditorFor,
+    slidesEditorItem,
+    handleSlidesDone,
+    quizzes,
+    addQuiz,
+    updateQuiz,
+    removeQuiz,
+    handleImportQuizzes,
+    quizPreviewOpen,
+    setQuizPreviewOpen,
+    quizBlurErrors,
+    validateQuizTitle,
+    sectionStatus,
+    bookSearch,
+    setBookSearch,
+    bookResults,
+    bookLoading,
+    bookPickerFor,
+    setBookPickerFor,
+    newBookTitle,
+    openBookPicker,
+    selectBook,
+    searchBooks,
+    tuesdaySearch,
+    setTuesdaySearch,
+    tuesdayResults,
+    tuesdayLoading,
+    tuesdayPickerFor,
+    setTuesdayPickerFor,
+    openTuesdayPicker,
+    selectTuesdayDoc,
+    searchTuesdayDocs,
+    escuelaResults,
+    escuelaSearch,
+    setEscuelaSearch,
+    escuelaLoading,
+    searchEscuelas,
+    depSearch,
+    setDepSearch,
+    depResults,
+    depLoading,
+    depPickerOpen,
+    setDepPickerOpen,
+    addDependency,
+    removeDependency,
+    updateDependencyType,
+    searchModules,
+    handleSubmit,
+  } = useModuloEditor(id, user, navigate);
 
   const isTeacher = user?.role === "TEACHER";
 
-  // Subject capabilities — drives theory type options
-  const subjectCapabilities = useMemo(
-    () => getSubjectCapabilities(form.subject),
-    [form.subject],
-  );
-
-  const updateForm = <K extends keyof ModuleFormState>(key: K, value: ModuleFormState[K]) => {
-    setForm((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const handleSubjectChange = (newSubject: string) => {
-    updateForm("subject", newSubject);
-    // Reset TuesdayJS type if new subject doesn't support it
-    const caps = getSubjectCapabilities(newSubject);
-    const tuesdayOpt = caps.theoryTypes.find((t) => t.value === "TuesdayJS");
-    if (tuesdayOpt?.disabled && isTuesdayType(newTheoryItem.type)) {
-      setNewTheoryItem((prev) => ({ ...prev, type: "Texto", detail: "" }));
-      setTuesdayPickerFor(null);
-    }
-  };
-
-  // ─── Book picker helpers ──────────────────────────────────────────────────
-
-  const searchBooks = async (q: string) => {
-    setBookLoading(true);
-    try {
-      const result = await fetchBooks({ q, pageSize: 8 });
-      setBookResults(result.items);
-    } catch {
-      setBookResults([]);
-    } finally {
-      setBookLoading(false);
-    }
-  };
-
-  const openBookPicker = (forId: "new" | string) => {
-    setBookPickerFor(forId);
-    setBookSearch("");
-    setBookResults([]);
-    searchBooks(""); // load initial list
-  };
-
-  const selectBook = (book: BookResult) => {
-    if (bookPickerFor === "new") {
-      setNewTheoryItem((prev) => ({
-        ...prev,
-        detail: book.id,
-        title: prev.title || book.title,
-      }));
-      setNewBookTitle(book.title);
-    } else if (bookPickerFor) {
-      updateTheoryItem(bookPickerFor, { detail: book.id });
-    }
-    setBookPickerFor(null);
-    setBookResults([]);
-  };
-
-  // ─── TuesdayJS picker helpers ─────────────────────────────────────────────
-
-  const searchTuesdayDocs = async (q: string) => {
-    setTuesdayLoading(true);
-    try {
-      const result = await apiGet<{ items: TuesdayResult[] }>(
-        `/api/pages?q=${encodeURIComponent(q)}&pageSize=8`,
-      );
-      setTuesdayResults(result.items ?? []);
-    } catch {
-      setTuesdayResults([]);
-    } finally {
-      setTuesdayLoading(false);
-    }
-  };
-
-  const openTuesdayPicker = (forId: "new" | string) => {
-    setTuesdayPickerFor(forId);
-    setTuesdaySearch("");
-    setTuesdayResults([]);
-    searchTuesdayDocs("");
-  };
-
-  const selectTuesdayDoc = (doc: TuesdayResult) => {
-    if (tuesdayPickerFor === "new") {
-      setNewTheoryItem((prev) => ({
-        ...prev,
-        detail: doc.id,
-        title: prev.title || doc.title,
-      }));
-    } else if (tuesdayPickerFor) {
-      updateTheoryItem(tuesdayPickerFor, { detail: doc.id });
-    }
-    setTuesdayPickerFor(null);
-    setTuesdayResults([]);
-  };
-
-  // ─── Theory items ─────────────────────────────────────────────────────────
-
-  const handleAddTheoryItem = () => {
-    if (!newTheoryItem.title.trim()) return;
-    if (needsUrlOrId(newTheoryItem.type) && !newTheoryItem.detail.trim()) return;
-    if (isHerramientaType(newTheoryItem.type) && !newTheoryItem.detail.trim()) return;
-
-    let detail = newTheoryItem.detail.trim();
-    if (isPresentationType(newTheoryItem.type) && !detail) {
-      detail = "[]";
-    } else if (!detail) {
-      detail = "Sin detalle adicional.";
-    }
-
-    const nextItem: TheoryItem = {
-      id: `theory-${Date.now()}`,
-      title: newTheoryItem.title.trim(),
-      type: newTheoryItem.type,
-      detail,
-    };
-    setTheoryItems((prev) => [...prev, nextItem]);
-    setNewTheoryItem({ title: "", type: newTheoryItem.type, detail: "" });
-    setNewBookTitle("");
-    setBookPickerFor(null);
-    setTuesdayPickerFor(null);
-  };
-
-  const updateTheoryItem = (itemId: string, patch: Partial<TheoryItem>) => {
-    setTheoryItems((prev) =>
-      prev.map((item) => (item.id === itemId ? { ...item, ...patch } : item)),
-    );
-  };
-
-  const removeTheoryItem = (itemId: string) => {
-    setTheoryItems((prev) => prev.filter((item) => item.id !== itemId));
-  };
-
-  const moveTheoryItem = (itemId: string, dir: "up" | "down") => {
-    setTheoryItems((prev) => {
-      const idx = prev.findIndex((i) => i.id === itemId);
-      if (idx === -1) return prev;
-      const swap = dir === "up" ? idx - 1 : idx + 1;
-      if (swap < 0 || swap >= prev.length) return prev;
-      const next = [...prev];
-      [next[idx], next[swap]] = [next[swap], next[idx]];
-      return next;
-    });
-  };
-
-  // ─── Slide editor callbacks ───────────────────────────────────────────────
-
-  const handleSlidesDone = (slides: Parameters<typeof slidesToDetail>[0], theme: PresentationTheme, accentColor?: AccentColor) => {
-    const detail = slidesToDetail(slides, theme, accentColor);
-    if (slidesEditorFor === "new") {
-      setNewTheoryItem((prev) => ({ ...prev, detail }));
-    } else if (slidesEditorFor) {
-      updateTheoryItem(slidesEditorFor, { detail });
-    }
-    setSlidesEditorFor(null);
-  };
-
-  // ─── Quizzes ──────────────────────────────────────────────────────────────
-
-  const addQuiz = (mode: "manual" | "generated") => {
-    const baseQuiz: ModuleQuiz = ensureQuizDefaults({
-      id: buildQuizId(),
-      title: "",
-      type: "evaluacion",
-      status: "draft",
-      version: 1,
-      visibility: "publico",
-      mode,
-      questions: mode === "manual" ? [] : undefined,
-      generatorId: mode === "generated" ? "" : undefined,
-      generatorVersion: mode === "generated" ? 1 : undefined,
-      params: mode === "generated" ? {} : undefined,
-      count: mode === "generated" ? 10 : undefined,
-      seedPolicy: mode === "generated" ? "perAttempt" : undefined,
-    });
-    setQuizzes((prev) => [...prev, baseQuiz]);
-  };
-
-  const updateQuiz = (quizId: string, patch: Partial<ModuleQuiz>) => {
-    setQuizzes((prev) =>
-      prev.map((quiz) =>
-        quiz.id === quizId ? ensureQuizDefaults({ ...quiz, ...patch }) : quiz,
-      ),
-    );
-  };
-
-  const removeQuiz = (quizId: string) => {
-    setQuizzes((prev) => prev.filter((quiz) => quiz.id !== quizId));
-  };
-
-  const handleImportQuizzes = (importedQuizzes: ModuleQuiz[]) => {
-    setQuizzes((prev) => [...prev, ...importedQuizzes.map(ensureQuizDefaults)]);
-  };
-
-  // ─── Dependency editor ────────────────────────────────────────────────────
-
-  const searchModules = useCallback(async (q: string) => {
-    setDepLoading(true);
-    try {
-      const result = await apiGet<{ items?: Array<{ id: string; title: string }> }>(
-        `/api/modulos?q=${encodeURIComponent(q)}&pageSize=8`,
-      );
-      setDepResults(result.items ?? []);
-    } catch {
-      setDepResults([]);
-    } finally {
-      setDepLoading(false);
-    }
-  }, []);
-
-  // ─── School search helpers ────────────────────────────────────────────────
-
-  const searchEscuelas = useCallback(async (q: string) => {
-    setEscuelaLoading(true);
-    try {
-      const result = await apiGet<{ items?: Array<{ _id: string; id?: string; name: string }> }>(
-        `/api/escuelas?limit=20`,
-      );
-      const items: EscuelaResult[] = (result.items ?? [])
-        .filter((s) => !q || s.name.toLowerCase().includes(q.toLowerCase()))
-        .map((s) => ({ id: s.id ?? s._id, name: s.name }));
-      setEscuelaResults(items);
-    } catch {
-      setEscuelaResults([]);
-    } finally {
-      setEscuelaLoading(false);
-    }
-  }, []);
-
-  const addDependency = (mod: { id: string; title: string }) => {
-    const alreadyAdded = form.dependencies.some((d) => d.id === mod.id);
-    if (alreadyAdded) return;
-    updateForm("dependencies", [
-      ...form.dependencies,
-      { id: mod.id, type: "required" as const },
-    ]);
-    setDepPickerOpen(false);
-    setDepSearch("");
-    setDepResults([]);
-  };
-
-  const removeDependency = (depId: string) => {
-    updateForm("dependencies", form.dependencies.filter((d) => d.id !== depId));
-  };
-
-  const updateDependencyType = (depId: string, type: "required" | "unlocks") => {
-    updateForm(
-      "dependencies",
-      form.dependencies.map((d) => (d.id === depId ? { ...d, type } : d)),
-    );
-  };
-
-  // ─── Quiz preview ─────────────────────────────────────────────────────────
-
-  const hashString = (value: string) => {
-    let hash = 0;
-    for (let i = 0; i < value.length; i += 1) {
-      hash = (hash << 5) - hash + value.charCodeAt(i);
-      hash |= 0;
-    }
-    return Math.abs(hash);
-  };
-
-  const mulberry32 = (seed: number) => () => {
-    let t = (seed += 0x6d2b79f5);
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
+  const quizCountLabel =
+    quizzes.length === 0
+      ? "Sin cuestionarios"
+      : `${quizzes.length} cuestionario${quizzes.length === 1 ? "" : "s"}`;
 
   const buildQuizPreviewItems = (quiz: ModuleQuiz) => {
     if (quiz.questions && quiz.questions.length > 0) {
@@ -513,187 +129,30 @@ export default function ModuloEditor() {
     if (!quiz.generatorId || total <= 0) {
       return [{ id: `${quiz.id}-empty`, label: "Sin preguntas ni generador configurado." }];
     }
+    const hashStr = (value: string) => {
+      let hash = 0;
+      for (let i = 0; i < value.length; i += 1) {
+        hash = (hash << 5) - hash + value.charCodeAt(i);
+        hash |= 0;
+      }
+      return Math.abs(hash);
+    };
+    const mulberry32 = (seed: number) => () => {
+      let t = (seed += 0x6d2b79f5);
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
     const seedSource = String(
       quiz.fixedSeed ?? `${quiz.id}:${quiz.generatorId}:${quiz.generatorVersion ?? 1}`,
     );
-    const random = mulberry32(hashString(seedSource));
+    const random = mulberry32(hashStr(seedSource));
     const previewCount = Math.min(total, 5);
     return Array.from({ length: previewCount }, (_, i) => {
       const token = Math.floor(random() * 900 + 100);
       return { id: `${quiz.id}-prev-${i + 1}`, label: `Pregunta ${i + 1} · semilla ${token}` };
     });
   };
-
-  // ─── Real-time quiz validation ────────────────────────────────────────────
-
-  const validateQuizTitle = (quizId: string, title: string) => {
-    setQuizBlurErrors((prev) => ({
-      ...prev,
-      [quizId]: title.trim() ? [] : ["El título del cuestionario no puede estar vacío."],
-    }));
-  };
-
-  // ─── Submit ───────────────────────────────────────────────────────────────
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setStatus("saving");
-    setMessage("");
-    setValidationErrors([]);
-    try {
-      if (!user?.id) {
-        setStatus("error");
-        setMessage("Necesitás iniciar sesión para guardar el módulo.");
-        return;
-      }
-
-      const quizErrors: string[] = [];
-      quizzes.forEach((quiz, quizIndex) => {
-        const quizLabel = quiz.title.trim() || `Cuestionario ${quizIndex + 1}`;
-        if (quiz.mode === "manual") {
-          (quiz.questions ?? []).forEach((question, questionIndex) => {
-            const result = manualQuestionSchema.safeParse(question);
-            if (!result.success) {
-              quizErrors.push(
-                `${quizLabel}: la pregunta ${questionIndex + 1} requiere tipo de pregunta, opciones y respuesta.`,
-              );
-            }
-          });
-        }
-        if (quiz.mode === "generated") {
-          const result = generatedQuizSchema.safeParse({
-            generatorId: quiz.generatorId,
-            params: quiz.params,
-            count: quiz.count,
-          });
-          if (!result.success) {
-            quizErrors.push(
-              `${quizLabel}: indicá un generador válido, parámetros y una cantidad mayor a cero.`,
-            );
-          }
-        }
-      });
-
-      if (quizErrors.length > 0) {
-        setStatus("error");
-        setMessage("Revisá los cuestionarios antes de guardar.");
-        setValidationErrors(quizErrors);
-        return;
-      }
-
-      // Books in theoryItems → also populate resources[]
-      const bookResources = theoryItems
-        .filter((item) => isBookType(item.type) && item.detail)
-        .map((item) => ({ type: "book" as const, id: item.detail, title: item.title }));
-
-      const basePayload = {
-        title: form.title,
-        description: form.description,
-        subject: form.subject,
-        category: form.category,
-        level: form.level,
-        durationMinutes: Number(form.durationMinutes) || 1,
-        visibility: form.visibility,
-        schoolId: form.visibility === "escuela" ? form.visibilitySchoolId || undefined : undefined,
-        dependencies: form.dependencies,
-        theoryItems: theoryItems.map((item) => ({
-          id: item.id,
-          title: item.title,
-          type: item.type,
-          detail: item.detail,
-        })),
-        resources: bookResources,
-        quizzes: quizzes.map((quiz) => {
-          const { id: quizId, ...rest } = quiz;
-          const payloadQuiz = {
-            ...rest,
-            title: quiz.title.trim() || `Cuestionario ${quiz.id.slice(-4)}`,
-            questions: quiz.mode === "manual" ? quiz.questions ?? [] : undefined,
-            generatorId: quiz.mode === "generated" ? quiz.generatorId : undefined,
-            generatorVersion: quiz.mode === "generated" ? quiz.generatorVersion : undefined,
-            params: quiz.mode === "generated" ? quiz.params : undefined,
-            count: quiz.mode === "generated" ? quiz.count : undefined,
-            seedPolicy: quiz.mode === "generated" ? quiz.seedPolicy ?? "perAttempt" : undefined,
-            fixedSeed:
-              quiz.mode === "generated" && quiz.seedPolicy === "fixed"
-                ? quiz.fixedSeed
-                : undefined,
-          };
-          if (!isTemporaryQuizId(quizId)) {
-            return { ...payloadQuiz, id: quizId };
-          }
-          return payloadQuiz;
-        }),
-        updatedAt: new Date().toISOString(),
-      };
-
-      if (isEditing && id) {
-        await apiPatch(`/api/modulos/${id}`, basePayload);
-        setStatus("saved");
-        setMessage("Cambios guardados.");
-        setValidationErrors([]);
-      } else {
-        await apiPost<Module>("/api/modulos", {
-          ...basePayload,
-          createdBy: user.id,
-          authorName: (user as { name?: string }).name ?? "",
-          createdAt: new Date().toISOString(),
-        });
-        setStatus("saved");
-        setMessage("Módulo creado correctamente.");
-        setValidationErrors([]);
-        navigate("/modulos", { replace: true });
-      }
-    } catch {
-      setStatus("error");
-      setMessage("No se pudo guardar el módulo.");
-    }
-  };
-
-  const quizCountLabel = useMemo(() => {
-    if (quizzes.length === 0) return "Sin cuestionarios";
-    return `${quizzes.length} cuestionario${quizzes.length === 1 ? "" : "s"}`;
-  }, [quizzes.length]);
-
-  const sectionStatus = useMemo(() => {
-    const generalOk =
-      form.title.trim().length > 0 &&
-      form.description.trim().length > 0 &&
-      form.subject.length > 0 &&
-      form.category.trim().length > 0 &&
-      form.level.trim().length > 0;
-
-    const theoryOk = theoryItems.length > 0;
-
-    const quizzesOk =
-      quizzes.length === 0 ||
-      quizzes.every((quiz) => {
-        if (!quiz.title.trim()) return false;
-        if (quiz.mode === "manual") {
-          return (quiz.questions ?? []).every(
-            (q) => q.questionType && (q.options?.length ?? 0) > 0 && q.answerKey,
-          );
-        }
-        if (quiz.mode === "generated") {
-          return Boolean(quiz.generatorId) && (quiz.count ?? 0) > 0;
-        }
-        return true;
-      });
-
-    return { generalOk, theoryOk, quizzesOk };
-  }, [form, theoryItems, quizzes]);
-
-  // ─── Slide editor for which item ─────────────────────────────────────────
-
-  const slidesEditorItem =
-    slidesEditorFor === "new"
-      ? { title: newTheoryItem.title, ...detailToPresentation(newTheoryItem.detail) }
-      : slidesEditorFor
-        ? (() => {
-            const item = theoryItems.find((i) => i.id === slidesEditorFor);
-            return item ? { title: item.title, ...detailToPresentation(item.detail) } : null;
-          })()
-        : null;
 
   // ─── Render ───────────────────────────────────────────────────────────────
 
@@ -1017,165 +476,20 @@ export default function ModuloEditor() {
                       </button>
                     </div>
                   ) : isHerramientaType(newTheoryItem.type) ? (
-                    <div className="space-y-3">
-                      <HerramientaPicker
-                        isOpen={herramientaPickerFor === "new"}
-                        onSelect={(rawDetail) => {
-                          // Enrich stat specs so curve data is ready immediately
-                          let enrichedDetail = rawDetail;
-                          try {
-                            const p = parseHerramientaSpec(rawDetail);
-                            if (p) {
-                              let spec = p.spec;
-                              if (spec.kind === "stat-distribution")
-                                spec = enrichStatDistributionSpec(spec as StatDistributionSpec);
-                              else if (spec.kind === "stat-regression")
-                                spec = enrichStatRegressionSpec(spec as StatRegressionSpec);
-                              enrichedDetail = serializeHerramientaDetail(spec, p.subject);
-                            }
-                          } catch { /* keep original */ }
-                          setNewTheoryItem((prev) => ({ ...prev, detail: enrichedDetail }));
-                          setHerramientaPickerFor(null);
-                        }}
-                        onClose={() => setHerramientaPickerFor(null)}
-                      />
-                      <div className="flex items-center gap-3">
-                        <button
-                          type="button"
-                          className="rounded-md border border-gray-300 px-3 py-1.5 text-xs hover:bg-gray-100"
-                          onClick={() => setHerramientaPickerFor("new")}
-                        >
-                          {newTheoryItem.detail ? "Cambiar herramienta" : "Seleccionar herramienta"}
-                        </button>
-                        {newTheoryItem.detail ? (
-                          <span className="text-xs text-green-600">✓ Herramienta seleccionada</span>
-                        ) : null}
-                      </div>
-                      {(() => {
-                        const parsed = parseHerramientaSpec(newTheoryItem.detail);
-                        if (!parsed) return null;
-                        const allParams = TOOL_PARAM_SCHEMAS[parsed.spec.kind] ?? [];
-                        const params = allParams.filter((p) => {
-                          if (!p.condition) return true;
-                          return getAtPath(parsed.spec, p.condition.path) === p.condition.value;
-                        });
-                        // enrich for preview
-                        let previewSpec = parsed.spec;
-                        if (previewSpec.kind === "stat-distribution")
-                          previewSpec = enrichStatDistributionSpec(previewSpec as StatDistributionSpec);
-                        else if (previewSpec.kind === "stat-regression")
-                          previewSpec = enrichStatRegressionSpec(previewSpec as StatRegressionSpec);
-                        return (
-                          <>
-                            {params.length > 0 && (
-                              <div className="rounded-lg border border-gray-200 bg-gray-50 p-3 space-y-3">
-                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
-                                  Parámetros
-                                </p>
-                                {params.map((param) => (
-                                  <ToolParamControl
-                                    key={param.id}
-                                    param={param}
-                                    value={getAtPath(parsed.spec, param.path)}
-                                    onChange={(v) => {
-                                      let newSpec = setAtPath(parsed.spec, param.path, v) as VisualSpec;
-                                      if (newSpec.kind === "stat-distribution")
-                                        newSpec = enrichStatDistributionSpec(newSpec as StatDistributionSpec);
-                                      else if (newSpec.kind === "stat-regression")
-                                        newSpec = enrichStatRegressionSpec(newSpec as StatRegressionSpec);
-                                      setNewTheoryItem((prev) => ({
-                                        ...prev,
-                                        detail: serializeHerramientaDetail(newSpec, parsed.subject),
-                                      }));
-                                    }}
-                                  />
-                                ))}
-                              </div>
-                            )}
-                            {parsed.spec.kind === "social-population-pyramid" && (() => {
-                              const pyramid = parsed.spec as SocialPopulationPyramidSpec;
-                              const groups = pyramid.ageGroups ?? [];
-                              const updateGroups = (next: typeof groups) => {
-                                const newSpec = { ...pyramid, ageGroups: next } as VisualSpec;
-                                setNewTheoryItem((prev) => ({ ...prev, detail: serializeHerramientaDetail(newSpec, parsed.subject) }));
-                              };
-                              return (
-                                <div className="rounded-lg border border-gray-200 bg-gray-50 p-3 space-y-2">
-                                  <div className="flex items-center justify-between">
-                                    <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">Grupos de edad</p>
-                                    <button
-                                      type="button"
-                                      onClick={() => updateGroups([...groups, { label: "", male: 0, female: 0 }])}
-                                      className="text-xs text-blue-600 hover:underline"
-                                    >
-                                      + Agregar
-                                    </button>
-                                  </div>
-                                  <div className="overflow-x-auto">
-                                    <table className="w-full text-xs border-collapse">
-                                      <thead>
-                                        <tr className="text-[10px] text-gray-400 uppercase tracking-wide">
-                                          <th className="text-left py-1 pr-1 font-medium">Rango</th>
-                                          <th className="text-left py-1 pr-1 font-medium">Hombres</th>
-                                          <th className="text-left py-1 pr-1 font-medium">Mujeres</th>
-                                          <th />
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        {groups.map((group, i) => (
-                                          <tr key={i} className="border-t border-gray-100">
-                                            <td className="py-0.5 pr-1">
-                                              <input
-                                                className="w-full border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                                value={group.label}
-                                                placeholder="0-14"
-                                                onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], label: e.target.value }; updateGroups(n); }}
-                                              />
-                                            </td>
-                                            <td className="py-0.5 pr-1">
-                                              <input
-                                                type="number" step="any"
-                                                className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                                value={group.male}
-                                                onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], male: Number(e.target.value) }; updateGroups(n); }}
-                                              />
-                                            </td>
-                                            <td className="py-0.5 pr-1">
-                                              <input
-                                                type="number" step="any"
-                                                className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                                value={group.female}
-                                                onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], female: Number(e.target.value) }; updateGroups(n); }}
-                                              />
-                                            </td>
-                                            <td className="py-0.5 pl-1">
-                                              <button
-                                                type="button"
-                                                onClick={() => updateGroups(groups.filter((_, j) => j !== i))}
-                                                className="text-red-400 hover:text-red-600 leading-none px-1 text-sm"
-                                                title="Quitar rango"
-                                              >×</button>
-                                            </td>
-                                          </tr>
-                                        ))}
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                </div>
-                              );
-                            })()}
-                            <div className="rounded-lg border border-gray-200 overflow-hidden bg-white">
-                              <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide px-3 pt-2 pb-1">
-                                Vista previa
-                              </p>
-                              <div className="px-2 pb-2">
-                                <VisualizerRenderer spec={previewSpec} />
-                              </div>
-                            </div>
-                          </>
-                        );
-                      })()}
-                    </div>
+                    <ToolEditor
+                      spec={parseHerramientaSpec(newTheoryItem.detail)?.spec}
+                      onChange={(spec) => {
+                        if (!spec) {
+                          setNewTheoryItem((prev) => ({ ...prev, detail: "" }));
+                        } else {
+                          const parsed = parseHerramientaSpec(newTheoryItem.detail);
+                          setNewTheoryItem((prev) => ({
+                            ...prev,
+                            detail: serializeHerramientaDetail(spec, parsed?.subject),
+                          }));
+                        }
+                      }}
+                    />
                   ) : isVideoType(newTheoryItem.type) ? (
                     <div className="space-y-1">
                       <input
@@ -1358,158 +672,19 @@ export default function ModuloEditor() {
                                   }
                                 />
                               ) : isHerramientaType(item.type) ? (
-                                <div className="space-y-2">
-                                  <HerramientaPicker
-                                    isOpen={herramientaPickerFor === item.id}
-                                    onSelect={(rawDetail) => {
-                                      let enrichedDetail = rawDetail;
-                                      try {
-                                        const p = parseHerramientaSpec(rawDetail);
-                                        if (p) {
-                                          let spec = p.spec;
-                                          if (spec.kind === "stat-distribution")
-                                            spec = enrichStatDistributionSpec(spec as StatDistributionSpec);
-                                          else if (spec.kind === "stat-regression")
-                                            spec = enrichStatRegressionSpec(spec as StatRegressionSpec);
-                                          enrichedDetail = serializeHerramientaDetail(spec, p.subject);
-                                        }
-                                      } catch { /* keep original */ }
-                                      updateTheoryItem(item.id, { detail: enrichedDetail });
-                                      setHerramientaPickerFor(null);
-                                    }}
-                                    onClose={() => setHerramientaPickerFor(null)}
-                                  />
-                                  <button
-                                    type="button"
-                                    className="rounded-md border border-gray-300 px-2 py-1.5 text-xs hover:bg-gray-100"
-                                    onClick={() => setHerramientaPickerFor(item.id)}
-                                  >
-                                    Cambiar herramienta
-                                  </button>
-                                  {(() => {
-                                    const parsed = parseHerramientaSpec(item.detail);
-                                    if (!parsed) return null;
-                                    const allParams = TOOL_PARAM_SCHEMAS[parsed.spec.kind] ?? [];
-                                    const params = allParams.filter((p) => {
-                                      if (!p.condition) return true;
-                                      return getAtPath(parsed.spec, p.condition.path) === p.condition.value;
-                                    });
-                                    // enrich for preview
-                                    let previewSpec = parsed.spec;
-                                    if (previewSpec.kind === "stat-distribution")
-                                      previewSpec = enrichStatDistributionSpec(previewSpec as StatDistributionSpec);
-                                    else if (previewSpec.kind === "stat-regression")
-                                      previewSpec = enrichStatRegressionSpec(previewSpec as StatRegressionSpec);
-                                    return (
-                                      <>
-                                        {params.length > 0 && (
-                                          <div className="rounded-lg border border-gray-200 bg-white p-3 space-y-3">
-                                            <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
-                                              Parámetros
-                                            </p>
-                                            {params.map((param) => (
-                                              <ToolParamControl
-                                                key={param.id}
-                                                param={param}
-                                                value={getAtPath(parsed.spec, param.path)}
-                                                onChange={(v) => {
-                                                  let newSpec = setAtPath(parsed.spec, param.path, v) as VisualSpec;
-                                                  if (newSpec.kind === "stat-distribution")
-                                                    newSpec = enrichStatDistributionSpec(newSpec as StatDistributionSpec);
-                                                  else if (newSpec.kind === "stat-regression")
-                                                    newSpec = enrichStatRegressionSpec(newSpec as StatRegressionSpec);
-                                                  updateTheoryItem(item.id, {
-                                                    detail: serializeHerramientaDetail(newSpec, parsed.subject),
-                                                  });
-                                                }}
-                                              />
-                                            ))}
-                                          </div>
-                                        )}
-                                        {parsed.spec.kind === "social-population-pyramid" && (() => {
-                                          const pyramid = parsed.spec as SocialPopulationPyramidSpec;
-                                          const groups = pyramid.ageGroups ?? [];
-                                          const updateGroups = (next: typeof groups) => {
-                                            const newSpec = { ...pyramid, ageGroups: next } as VisualSpec;
-                                            updateTheoryItem(item.id, { detail: serializeHerramientaDetail(newSpec, parsed.subject) });
-                                          };
-                                          return (
-                                            <div className="rounded-lg border border-gray-200 bg-white p-3 space-y-2">
-                                              <div className="flex items-center justify-between">
-                                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">Grupos de edad</p>
-                                                <button
-                                                  type="button"
-                                                  onClick={() => updateGroups([...groups, { label: "", male: 0, female: 0 }])}
-                                                  className="text-xs text-blue-600 hover:underline"
-                                                >
-                                                  + Agregar
-                                                </button>
-                                              </div>
-                                              <div className="overflow-x-auto">
-                                                <table className="w-full text-xs border-collapse">
-                                                  <thead>
-                                                    <tr className="text-[10px] text-gray-400 uppercase tracking-wide">
-                                                      <th className="text-left py-1 pr-1 font-medium">Rango</th>
-                                                      <th className="text-left py-1 pr-1 font-medium">Hombres</th>
-                                                      <th className="text-left py-1 pr-1 font-medium">Mujeres</th>
-                                                      <th />
-                                                    </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                    {groups.map((group, i) => (
-                                                      <tr key={i} className="border-t border-gray-100">
-                                                        <td className="py-0.5 pr-1">
-                                                          <input
-                                                            className="w-full border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                                            value={group.label}
-                                                            placeholder="0-14"
-                                                            onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], label: e.target.value }; updateGroups(n); }}
-                                                          />
-                                                        </td>
-                                                        <td className="py-0.5 pr-1">
-                                                          <input
-                                                            type="number" step="any"
-                                                            className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                                            value={group.male}
-                                                            onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], male: Number(e.target.value) }; updateGroups(n); }}
-                                                          />
-                                                        </td>
-                                                        <td className="py-0.5 pr-1">
-                                                          <input
-                                                            type="number" step="any"
-                                                            className="w-14 border border-gray-200 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-blue-400"
-                                                            value={group.female}
-                                                            onChange={(e) => { const n = [...groups]; n[i] = { ...n[i], female: Number(e.target.value) }; updateGroups(n); }}
-                                                          />
-                                                        </td>
-                                                        <td className="py-0.5 pl-1">
-                                                          <button
-                                                            type="button"
-                                                            onClick={() => updateGroups(groups.filter((_, j) => j !== i))}
-                                                            className="text-red-400 hover:text-red-600 leading-none px-1 text-sm"
-                                                            title="Quitar rango"
-                                                          >×</button>
-                                                        </td>
-                                                      </tr>
-                                                    ))}
-                                                  </tbody>
-                                                </table>
-                                              </div>
-                                            </div>
-                                          );
-                                        })()}
-                                        <div className="rounded-lg border border-gray-200 overflow-hidden bg-white">
-                                          <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide px-3 pt-2 pb-1">
-                                            Vista previa
-                                          </p>
-                                          <div className="px-2 pb-2">
-                                            <VisualizerRenderer spec={previewSpec} />
-                                          </div>
-                                        </div>
-                                      </>
-                                    );
-                                  })()}
-                                </div>
+                                <ToolEditor
+                                  spec={parseHerramientaSpec(item.detail)?.spec}
+                                  onChange={(spec) => {
+                                    if (!spec) {
+                                      updateTheoryItem(item.id, { detail: "" });
+                                    } else {
+                                      const parsed = parseHerramientaSpec(item.detail);
+                                      updateTheoryItem(item.id, {
+                                        detail: serializeHerramientaDetail(spec, parsed?.subject),
+                                      });
+                                    }
+                                  }}
+                                />
                               ) : (
                                 <textarea
                                   className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"
