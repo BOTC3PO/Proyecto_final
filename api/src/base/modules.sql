@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS modulos (
   teoria_id        TEXT,                     -- FK teoria_json(id)
   tuesday_doc_id   TEXT,                     -- FK tuesdayjs_docs(id)
   libro_id         TEXT,                     -- FK libros_json(id)
+  bloque_id        TEXT,                     -- FK bloques_json(id)
 
   -- config por defecto para generación de quizzes
   default_question_count INTEGER,            -- opcional
@@ -38,7 +39,8 @@ CREATE TABLE IF NOT EXISTS modulos (
   FOREIGN KEY (owner_user_id)  REFERENCES usuarios(id)   ON DELETE SET NULL,
   FOREIGN KEY (teoria_id)      REFERENCES teoria_json(id) ON DELETE SET NULL,
   FOREIGN KEY (tuesday_doc_id) REFERENCES tuesdayjs_docs(id) ON DELETE SET NULL,
-  FOREIGN KEY (libro_id)       REFERENCES libros_json(id) ON DELETE SET NULL
+  FOREIGN KEY (libro_id)       REFERENCES libros_json(id) ON DELETE SET NULL,
+  FOREIGN KEY (bloque_id)      REFERENCES bloques_json(id) ON DELETE SET NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_modulos_owner   ON modulos(owner_user_id);
@@ -78,9 +80,23 @@ CREATE TABLE IF NOT EXISTS libros_json (
   CHECK (json_valid(book))
 );
 
+-- -------------------------
+-- BLOQUES_JSON (editor de bloques v2)
+-- -------------------------
+CREATE TABLE IF NOT EXISTS bloques_json (
+  id             TEXT PRIMARY KEY,
+  schema_version INTEGER NOT NULL DEFAULT 1,
+  document       TEXT NOT NULL,
+  content_hash   TEXT,
+  created_at     TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at     TEXT NOT NULL DEFAULT (datetime('now')),
+  CHECK (json_valid(document))
+);
+
 CREATE INDEX IF NOT EXISTS idx_teoria_hash   ON teoria_json(content_hash);
 CREATE INDEX IF NOT EXISTS idx_tuesday_hash  ON tuesdayjs_docs(content_hash);
 CREATE INDEX IF NOT EXISTS idx_libros_hash   ON libros_json(content_hash);
+CREATE INDEX IF NOT EXISTS idx_bloques_hash  ON bloques_json(content_hash);
 
 -- -------------------------
 -- QUIZZES (1:1 con modulo)
