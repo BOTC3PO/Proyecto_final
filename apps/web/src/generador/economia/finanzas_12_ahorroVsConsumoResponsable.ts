@@ -69,19 +69,6 @@ const SITUACIONES_AVANZADO: { descripcion: string; tipo: TipoDecision }[] = [
   },
 ];
 
-const _SITUACIONES_LEGENDARIO: { descripcion: string; tipo: TipoDecision }[] = [
-  ...SITUACIONES_AVANZADO,
-  {
-    descripcion:
-      "Separar un porcentaje fijo del ingreso para metas de largo plazo.",
-    tipo: "Ahorro",
-  },
-  {
-    descripcion:
-      "Decidir no comprar un producto con publicidad agresiva si no es necesario.",
-    tipo: "Consumo responsable",
-  },
-];
 
 
 const SITUACIONES_POR_DIFICULTAD: Record<

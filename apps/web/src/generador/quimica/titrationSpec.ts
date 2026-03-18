@@ -1,4 +1,4 @@
-import type { ChemTitrationSpec } from "../../../../../archive/visualizadores/types";
+import type { ChemTitrationSpec } from "../../../archive/visualizadores/types";
 
 type TitrationSpecOptions = {
   title: string;

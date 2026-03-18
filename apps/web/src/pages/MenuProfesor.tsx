@@ -9,10 +9,10 @@ import {
   filterProfesorQuickLinks,
   type ProfesorMenuDashboard
 } from "../services/profesor";
-import type { ConceptMapSpec, ConceptLink } from "../../../../archive/visualizadores/types";
+import type { ConceptMapSpec, ConceptLink } from "../../archive/visualizadores/types";
 
 const ConceptMapVisualizer = lazy(
-  () => import("../../../../archive/visualizadores/graficos/ConceptMapVisualizer")
+  () => import("../../archive/visualizadores/graficos/ConceptMapVisualizer")
 );
 
 const getRequiredDependencyIds = (dependencies: Array<ModuleDependency | string>) =>

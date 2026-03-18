@@ -1,6 +1,6 @@
 // src/generators/quimica/generico.ts
 
-import type { VisualSpec } from "../../../../../archive/visualizadores/types";
+import type { VisualSpec } from "../../../archive/visualizadores/types";
 import type { PRNG } from "../core/prng";
 
 export type Dificultad = "facil" | "media" | "dificil";

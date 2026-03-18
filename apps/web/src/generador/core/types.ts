@@ -1,5 +1,5 @@
 // types.ts
-import type { VisualSpec } from "../../../../../archive/visualizadores/types";
+import type { VisualSpec } from "../../../archive/visualizadores/types";
 import type {
   GeneratedQuestionDTO,
   QuestionCorrection,

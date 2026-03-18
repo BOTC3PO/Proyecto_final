@@ -76,17 +76,6 @@ const GASTOS_AVANZADO: { descripcion: string; tipo: TipoGasto }[] = [
   },
 ];
 
-const _GASTOS_LEGENDARIO: { descripcion: string; tipo: TipoGasto }[] = [
-  ...GASTOS_AVANZADO,
-  {
-    descripcion: "Compra de útiles escolares para el inicio de clases.",
-    tipo: "Gasto esencial",
-  },
-  {
-    descripcion: "Suscripción mensual a varias plataformas de streaming.",
-    tipo: "Gasto no esencial",
-  },
-];
 
 
 const GASTOS_POR_DIFICULTAD: Record<

@@ -124,35 +124,6 @@ const CASOS_AVANZADO = [
   },
 ];
 
-const _CASOS_LEGENDARIO = [
-  ...CASOS_AVANZADO,
-  {
-    enunciado:
-      "Un conductor contrata una póliza con cobertura contra terceros y daños propios.",
-    opciones: [
-      "Seguro de hogar",
-      "Seguro de auto",
-      "Seguro de vida",
-      "Seguro de salud",
-    ],
-    correcta: "Seguro de auto",
-    explicacion:
-      "El seguro de auto cubre daños al vehículo y a terceros.",
-  },
-  {
-    enunciado:
-      "Una familia contrata un plan que cubre internaciones y cirugías.",
-    opciones: [
-      "Seguro de hogar",
-      "Seguro de auto",
-      "Seguro de vida",
-      "Seguro de salud",
-    ],
-    correcta: "Seguro de salud",
-    explicacion:
-      "El seguro de salud cubre gastos médicos importantes.",
-  },
-];
 
 
 const CASOS_POR_DIFICULTAD: Record<

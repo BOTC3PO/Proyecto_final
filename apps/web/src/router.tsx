@@ -71,20 +71,8 @@ import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
 import Gobernanza from "./pages/Gobernanza";
 import GobernanzaPropuesta from "./pages/GobernanzaPropuesta";
 import GobernanzaNuevaPropuesta from "./pages/GobernanzaNuevaPropuesta";
-import HerramientasEducativas from "../../../archive/HerramientasEducativas";
-import HerramientasEstadistica from "../../../archive/HerramientasEstadistica";
-import HerramientasCienciasSociales from "../../../archive/HerramientasCienciasSociales";
-import HerramientasFilosofia from "../../../archive/HerramientasFilosofia";
-import HerramientasArte from "../../../archive/HerramientasArte";
-import HerramientasBiologia from "../../../archive/HerramientasBiologia";
-import HerramientasMusica from "../../../archive/HerramientasMusica";
-import HerramientasPolitica from "../../../archive/HerramientasPolitica";
-import HerramientasCivica from "../../../archive/HerramientasCivica";
-import HerramientasAmbiental from "../../../archive/HerramientasAmbiental";
-import HerramientasInformatica from "../../../archive/HerramientasInformatica";
-import HerramientasNaturales from "../../../archive/HerramientasNaturales";
-import HerramientasCocina from "../../../archive/HerramientasCocina";
-import HerramientasVidaPractica from "../../../archive/HerramientasVidaPractica";
+import { HerramientasEducativas, HerramientasEstadistica, HerramientasCienciasSociales, HerramientasFilosofia, HerramientasArte, HerramientasBiologia, HerramientasMusica, HerramientasPolitica, HerramientasCivica, HerramientasAmbiental, HerramientasInformatica, HerramientasNaturales, HerramientasCocina, HerramientasVidaPractica } from "./stubs/herramientas";
+
 
 
 

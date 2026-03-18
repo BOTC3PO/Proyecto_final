@@ -72,19 +72,6 @@ const INGRESOS_AVANZADO: { descripcion: string; tipo: TipoIngreso }[] = [
   },
 ];
 
-const _INGRESOS_LEGENDARIO: { descripcion: string; tipo: TipoIngreso }[] = [
-  ...INGRESOS_AVANZADO,
-  {
-    descripcion:
-      "Ingreso por trabajos temporarios en temporada alta.",
-    tipo: "Ingreso activo",
-  },
-  {
-    descripcion:
-      "Ingresos mensuales por regalías de música en plataformas digitales.",
-    tipo: "Ingreso pasivo",
-  },
-];
 
 
 const INGRESOS_POR_DIFICULTAD: Record<

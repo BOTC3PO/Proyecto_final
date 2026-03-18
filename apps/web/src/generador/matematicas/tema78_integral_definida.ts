@@ -2,7 +2,7 @@ import { type Dificultad, type GeneratorFn, crearQuizBase, pickRandom, randomInt
 import { getRangoConFallback } from "./limits";
 import { buildOpcionesUnicas, construirEnunciado } from "./temas56_85_helpers";
 import { preloadGeneradoresTema } from "../generadores_api";
-import type { AlgebraCalculoSpec } from "../../../../../archive/visualizadores/types";
+import type { AlgebraCalculoSpec } from "../../../archive/visualizadores/types";
 
 const ID_TEMA = 78;
 const TITULO = "Integral definida";

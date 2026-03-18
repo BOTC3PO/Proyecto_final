@@ -81,23 +81,6 @@ const CASOS_AVANZADO: { anuncio: string; tipo: TipoCaso; consejo: string }[] = [
   },
 ];
 
-const _CASOS_LEGENDARIO = [
-  ...CASOS_AVANZADO,
-  {
-    anuncio:
-      "“Crédito inmediato. Aprobación sin requisitos” y no indica tasas ni CFT.",
-    tipo: "Publicidad engañosa",
-    consejo:
-      "La ausencia de información financiera básica es un indicador de publicidad engañosa.",
-  },
-  {
-    anuncio:
-      "“Préstamo personal: CFT 95%, TNA 60%, gastos incluidos y detallados.”",
-    tipo: "Publicidad clara",
-    consejo:
-      "Brinda información completa y visible para una decisión informada.",
-  },
-];
 
 
 const CASOS_POR_DIFICULTAD: Record<

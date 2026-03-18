@@ -2,7 +2,7 @@
 
 import type { Dificultad as DificultadCore } from "../core/types";
 import type { PRNG } from "../core/prng";
-import type { VisualSpec } from "../../../../../archive/visualizadores/types";
+import type { VisualSpec } from "../../../archive/visualizadores/types";
 import { parseMatematicasParams } from "./schemas";
 
 export type DificultadBasica = "facil" | "media" | "dificil";

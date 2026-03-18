@@ -74,19 +74,6 @@ const DEUDAS_AVANZADO: { descripcion: string; tipo: TipoDeuda }[] = [
   },
 ];
 
-const _DEUDAS_LEGENDARIO: { descripcion: string; tipo: TipoDeuda }[] = [
-  ...DEUDAS_AVANZADO,
-  {
-    descripcion:
-      "Solicitar un préstamo para comprar una computadora necesaria para trabajar.",
-    tipo: "Deuda buena",
-  },
-  {
-    descripcion:
-      "Sacar un crédito para vacaciones que no se pueden pagar al contado.",
-    tipo: "Deuda mala",
-  },
-];
 
 
 const DEUDAS_POR_DIFICULTAD: Record<

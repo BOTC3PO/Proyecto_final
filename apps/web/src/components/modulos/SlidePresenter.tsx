@@ -12,7 +12,7 @@ import {
   ACCENT_COLORS,
   layoutContainerClass,
 } from "./TheorySlideEditor";
-import VisualizerRenderer from "../../../../../archive/visualizadores/graficos/VisualizerRenderer";
+import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 
 // ─── Overlay class resolver ───────────────────────────────────────────────────
 

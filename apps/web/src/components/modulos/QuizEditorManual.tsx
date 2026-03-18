@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
-import HerramientaPicker from "../../../../../archive/HerramientaPicker";
-import VisualizerRenderer from "../../../../../archive/visualizadores/graficos/VisualizerRenderer";
-import type { VisualSpec } from "../../../../../archive/visualizadores/types";
+import HerramientaPicker from "../../stubs/HerramientaPicker";
+import VisualizerRenderer from "../../stubs/VisualizerRenderer";
+import type { VisualSpec } from "../../../archive/visualizadores/types";
 
 const QUESTION_TYPES: Array<NonNullable<ModuleQuizQuestion["questionType"]>> = [
   "mc",

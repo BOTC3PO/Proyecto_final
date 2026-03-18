@@ -71,19 +71,6 @@ const ITEMS_AVANZADO: { descripcion: string; categoriaCorrecta: CategoriaPresupu
   },
 ];
 
-const _ITEMS_LEGENDARIO: { descripcion: string; categoriaCorrecta: CategoriaPresupuesto }[] = [
-  ...ITEMS_AVANZADO,
-  {
-    descripcion:
-      "Ingreso extra por trabajos freelance realizados en el mes.",
-    categoriaCorrecta: "Ingreso",
-  },
-  {
-    descripcion:
-      "Dinero reservado para reemplazar un electrodoméstico en el futuro.",
-    categoriaCorrecta: "Ahorro",
-  },
-];
 
 
 const ITEMS_POR_DIFICULTAD: Record<

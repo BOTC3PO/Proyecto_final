@@ -69,19 +69,6 @@ const CASOS_AVANZADO: { descripcion: string; respuesta: Concepto }[] = [
   },
 ];
 
-const _CASOS_LEGENDARIO = [
-  ...CASOS_AVANZADO,
-  {
-    descripcion:
-      "Concepto que incluye tasa nominal, gastos y seguros en una sola medida.",
-    respuesta: "Costo financiero total (CFT)",
-  },
-  {
-    descripcion:
-      "Se calcula aplicando la tasa sobre el capital para obtener el costo del crédito.",
-    respuesta: "Interés",
-  },
-];
 
 
 const CASOS_POR_DIFICULTAD: Record<
