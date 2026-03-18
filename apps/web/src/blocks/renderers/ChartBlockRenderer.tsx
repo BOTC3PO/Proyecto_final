@@ -94,10 +94,16 @@ export function ChartBlockRenderer({ block, doc }: Props) {
   )
 
   if (block.chartType === "pie") {
-    const pieData = chartData.map((entry) => ({
-      name: String(entry.x),
-      value: Number(entry[seriesKeys[0]] ?? 0),
+    const labels = block.data?.labels ?? []
+    const datasets = block.data?.datasets ?? []
+    const pieData = labels.map((label, i) => ({
+      name: label,
+      value: Number(datasets[0]?.values[i] ?? 0),
     }))
+    const pieColors =
+      datasets[0]?.color
+        ? [datasets[0].color]
+        : DEFAULT_COLORS
 
     return (
       <div>
@@ -106,7 +112,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
           <PieChart>
             <Pie data={pieData} dataKey="value" nameKey="name" label>
               {pieData.map((_, i) => (
-                <Cell key={i} fill={seriesColors[i % seriesColors.length]} />
+                <Cell key={i} fill={pieColors[i % pieColors.length]} />
               ))}
             </Pie>
             <Tooltip />

@@ -314,12 +314,10 @@ function FlowBlockEditor({
 }) {
   const addNode = () => {
     const id = crypto.randomUUID()
-    const col = block.nodes.length % 3
-    const row = Math.floor(block.nodes.length / 3)
     onChange({
       nodes: [
         ...block.nodes,
-        { id, label: `Nodo ${block.nodes.length + 1}`, x: col * 160, y: row * 100, shape: "rect" },
+        { id, label: `Nodo ${block.nodes.length + 1}`, x: (block.nodes.length % 4) * 150, y: Math.floor(block.nodes.length / 4) * 120, shape: "rect" },
       ],
     })
   }
