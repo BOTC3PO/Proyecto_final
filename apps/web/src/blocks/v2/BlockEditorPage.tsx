@@ -320,6 +320,7 @@ function ChartInspector({
 }) {
   const tableBlocks = doc.blocks.filter((b) => b.type === "table") as TableBlock[];
   const source = block.sourceTableId ? "table" : "manual";
+  const isMultiSeries = block.chartType === "bar" || block.chartType === "line";
 
   const updateDatasetLabel = (i: number, label: string) => {
     const datasets = (block.data?.datasets ?? []).map((ds, idx) =>
@@ -336,6 +337,23 @@ function ChartInspector({
     const datasets = (block.data?.datasets ?? []).map((ds, idx) =>
       idx === i ? { ...ds, values } : ds
     );
+    onUpdate({ data: { ...block.data, datasets } });
+  };
+
+  const updateDatasetColor = (i: number, color: string) => {
+    const datasets = (block.data?.datasets ?? []).map((ds, idx) =>
+      idx === i ? { ...ds, color } : ds
+    );
+    onUpdate({ data: { ...block.data, datasets } });
+  };
+
+  const addDataset = () => {
+    const datasets = [...(block.data?.datasets ?? []), { label: "", values: [] }];
+    onUpdate({ data: { ...block.data, datasets } });
+  };
+
+  const removeDataset = (i: number) => {
+    const datasets = (block.data?.datasets ?? []).filter((_, idx) => idx !== i);
     onUpdate({ data: { ...block.data, datasets } });
   };
 
@@ -436,20 +454,48 @@ function ChartInspector({
           </div>
           {(block.data?.datasets ?? []).map((ds, i) => (
             <div key={i} className="space-y-1 border border-slate-100 rounded p-2">
+              <div className="flex items-center gap-1">
+                <input
+                  className={inputCls + " flex-1"}
+                  value={ds.label}
+                  onChange={(e) => updateDatasetLabel(i, e.target.value)}
+                  placeholder="Nombre de serie"
+                />
+                {isMultiSeries && (
+                  <input
+                    type="color"
+                    className="w-6 h-6 rounded border border-slate-200 cursor-pointer p-0.5 shrink-0"
+                    value={ds.color ?? "#6366f1"}
+                    onChange={(e) => updateDatasetColor(i, e.target.value)}
+                    title="Color de serie"
+                  />
+                )}
+                {isMultiSeries && (block.data?.datasets ?? []).length > 1 && (
+                  <button
+                    onClick={() => removeDataset(i)}
+                    className="text-red-400 hover:text-red-600 px-1 text-sm shrink-0"
+                    title="Eliminar serie"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
               <input
                 className={inputCls}
-                value={ds.label}
-                onChange={(e) => updateDatasetLabel(i, e.target.value)}
-                placeholder="Nombre de serie"
-              />
-              <input
-                className={inputCls}
-                value={ds.values.join(", ")}
-                onChange={(e) => updateDatasetValues(i, e.target.value)}
+                defaultValue={ds.values.join(", ")}
+                onBlur={(e) => updateDatasetValues(i, e.target.value)}
                 placeholder="0, 0, 0"
               />
             </div>
           ))}
+          {isMultiSeries && (
+            <button
+              onClick={addDataset}
+              className="text-xs px-2 py-1 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded w-full"
+            >
+              + Agregar serie
+            </button>
+          )}
         </>
       )}
 
@@ -653,6 +699,9 @@ export default function BlockEditorPage({
   // FSA
   const fsaHandleRef = useRef<FileSystemFileHandle | null>(null);
   const [fsaFileName, setFsaFileName] = useState<string | null>(null);
+
+  // Hidden file input for "Cargar" button
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Add-block dropdown
   const [showAddMenu, setShowAddMenu] = useState(false);
@@ -859,6 +908,33 @@ export default function BlockEditorPage({
     input.click();
   }, [dispatch]);
 
+  const loadFromFile = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      let parsed: unknown;
+      try {
+        parsed = JSON.parse(reader.result as string);
+      } catch {
+        alert("El archivo no tiene un formato válido de documento de bloques.");
+        return;
+      }
+      if (!isValidBlockDocument(parsed)) {
+        alert("El archivo no tiene un formato válido de documento de bloques.");
+        return;
+      }
+      dispatch({
+        type: "LOAD_DOCUMENT",
+        document: parsed,
+        title: file.name.replace(/\.json$/i, ""),
+      });
+    };
+    reader.readAsText(file);
+    // Reset so the same file can be re-selected
+    e.target.value = "";
+  }, [dispatch]);
+
   const exportFile = useCallback(() => {
     const payload = { ...doc, _title: title };
     const json = JSON.stringify(payload, null, 2);
@@ -1029,6 +1105,19 @@ export default function BlockEditorPage({
         <span className="text-white/30 text-xs">|</span>
 
         {/* Import / Export / API */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".json"
+          className="hidden"
+          onChange={loadFromFile}
+        />
+        <button
+          className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white"
+          onClick={() => fileInputRef.current?.click()}
+        >
+          Cargar
+        </button>
         <button
           className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white"
           onClick={importFile}
