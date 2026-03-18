@@ -17,6 +17,7 @@ import Metodologia from "./pages/metodologia";
 import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
+import BlockEditorPage from "./blocks/v2/BlockEditorPage";
 import CrearModulo from "./pages/crearModulo";
 import EditorCuestionarios from "./pages/EditorCuestionarios";
 import EditarModulo from "./pages/editarModulo";
@@ -110,6 +111,8 @@ export const router = createBrowserRouter([
       { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
       { path: "editor", element: <BookEditorPage /> },
       { path: "editor/:id", element: <BookEditorPage /> },
+      { path: "bloques/editor", element: <BlockEditorPage /> },
+      { path: "bloques/editor/:id", element: <BlockEditorPage /> },
       { path: "onboarding-guest", element: <GuestOnboarding /> },
       { path: "geografia/mapa", element: <GeografiaMapaSelector /> },
 

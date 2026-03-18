@@ -1,11 +1,10 @@
+import { useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
 import { MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
-import { BlockEditor } from "../../blocks/BlockEditor";
-import { deserializeBlockDocument, serializeBlockDocument } from "../../blocks/utils";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
@@ -99,6 +98,42 @@ export default function ModuloEditor() {
     searchModules,
     handleSubmit,
   } = useModuloEditor(id, user, navigate);
+
+  // ── Block editor sessions (for Herramienta items opened in new tab) ──────
+  type SessionEntry =
+    | { context: "new" }
+    | { context: "existing"; itemId: string };
+  const pendingSessionsRef = useRef<Map<string, SessionEntry>>(new Map());
+
+  useEffect(() => {
+    function handleFocus() {
+      for (const [sskey, session] of pendingSessionsRef.current.entries()) {
+        const resultId = sessionStorage.getItem(`block-doc:${sskey}:result`);
+        if (resultId) {
+          if (session.context === "new") {
+            setNewTheoryItem((prev) => ({ ...prev, detail: resultId }));
+          } else {
+            updateTheoryItem(session.itemId, { detail: resultId });
+          }
+          pendingSessionsRef.current.delete(sskey);
+          sessionStorage.removeItem(`block-doc:${sskey}`);
+          sessionStorage.removeItem(`block-doc:${sskey}:result`);
+        }
+      }
+    }
+    window.addEventListener("focus", handleFocus);
+    return () => window.removeEventListener("focus", handleFocus);
+  }, [setNewTheoryItem, updateTheoryItem]);
+
+  function openBlockEditorTab(detail: string, entry: SessionEntry) {
+    const sskey = crypto.randomUUID();
+    sessionStorage.setItem(
+      `block-doc:${sskey}`,
+      JSON.stringify({ detail, title: "Documento de bloques" })
+    );
+    pendingSessionsRef.current.set(sskey, entry);
+    window.open(`/bloques/editor?sskey=${sskey}`, "_blank");
+  }
 
   const isTeacher = user?.role === "TEACHER";
 
@@ -465,15 +500,24 @@ export default function ModuloEditor() {
                       </button>
                     </div>
                   ) : isHerramientaType(newTheoryItem.type) ? (
-                    <BlockEditor
-                      value={deserializeBlockDocument(newTheoryItem.detail)}
-                      onChange={(doc) =>
-                        setNewTheoryItem((prev) => ({
-                          ...prev,
-                          detail: serializeBlockDocument(doc),
-                        }))
-                      }
-                    />
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        className="rounded-md border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
+                        onClick={() =>
+                          openBlockEditorTab(newTheoryItem.detail, { context: "new" })
+                        }
+                      >
+                        Abrir editor de bloques ↗
+                      </button>
+                      {newTheoryItem.detail && (
+                        <span className="text-xs text-gray-400">
+                          {newTheoryItem.detail.startsWith("{")
+                            ? "Documento local"
+                            : `ID: ${newTheoryItem.detail.slice(0, 8)}…`}
+                        </span>
+                      )}
+                    </div>
                   ) : isVideoType(newTheoryItem.type) ? (
                     <div className="space-y-1">
                       <input
@@ -656,14 +700,27 @@ export default function ModuloEditor() {
                                   }
                                 />
                               ) : isHerramientaType(item.type) ? (
-                                <BlockEditor
-                                  value={deserializeBlockDocument(item.detail)}
-                                  onChange={(doc) =>
-                                    updateTheoryItem(item.id, {
-                                      detail: serializeBlockDocument(doc),
-                                    })
-                                  }
-                                />
+                                <div className="flex items-center gap-2">
+                                  <button
+                                    type="button"
+                                    className="rounded-md border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
+                                    onClick={() =>
+                                      openBlockEditorTab(item.detail, {
+                                        context: "existing",
+                                        itemId: item.id,
+                                      })
+                                    }
+                                  >
+                                    Abrir editor de bloques ↗
+                                  </button>
+                                  {item.detail && (
+                                    <span className="text-xs text-gray-400">
+                                      {item.detail.startsWith("{")
+                                        ? "Documento local"
+                                        : `ID: ${item.detail.slice(0, 8)}…`}
+                                    </span>
+                                  )}
+                                </div>
                               ) : (
                                 <textarea
                                   className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"
