@@ -46,6 +46,7 @@ const COLLECTION_TARGETS: Record<string, CollTarget> = {
   teoria_json:            { dbType: "content", table: "teoria_json" },
   tuesdayjs_docs:         { dbType: "content", table: "tuesdayjs_docs" },
   libros_json:            { dbType: "content", table: "libros_json" },
+  bloques_json:           { dbType: "content", table: "bloques_json" },
   quizzes:                { dbType: "content", table: "quizzes" },
   quiz_question_sets:     { dbType: "content", table: "quiz_question_sets" },
   quiz_versions:          { dbType: "content", table: "quiz_versions" },

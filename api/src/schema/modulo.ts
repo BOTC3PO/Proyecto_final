@@ -203,6 +203,7 @@ export const ModuleSchema = z.object({
   resources: z.array(ModuleResourceSchema).optional(),
   levels: z.array(ModuleLevelSchema).optional(),
   levelOrder: z.array(z.string().min(1)).optional(),
+  bloqueId: z.string().min(1).optional(),
   createdBy: z.string().min(1),
   createdByRole: z.enum(["admin", "docente"]).optional(),
   authorName: z.string().min(1).optional(),
