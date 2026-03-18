@@ -1,4 +1,5 @@
 import type { Block, BlockDocument } from "../../types";
+import { arrayMove } from "@dnd-kit/sortable";
 
 export type BlockEditorState = {
   document: BlockDocument;
@@ -13,6 +14,7 @@ export type BlockEditorAction =
   | { type: "DELETE_BLOCK"; blockId: string }
   | { type: "DUPLICATE_BLOCK"; blockId: string }
   | { type: "MOVE_BLOCK"; blockId: string; direction: "up" | "down" }
+  | { type: "MOVE_BLOCK_INDEX"; from: number; to: number }
   | { type: "UPDATE_BLOCK"; blockId: string; patch: Record<string, unknown> }
   | { type: "SELECT_BLOCK"; blockId: string | null }
   | { type: "UPDATE_TITLE"; title: string }
@@ -139,6 +141,11 @@ export function blockEditorReducer(
       const newIdx = action.direction === "up" ? idx - 1 : idx + 1;
       if (newIdx < 0 || newIdx >= blocks.length) return state;
       [blocks[idx], blocks[newIdx]] = [blocks[newIdx], blocks[idx]];
+      return { ...state, document: { ...state.document, blocks }, dirty: true };
+    }
+
+    case "MOVE_BLOCK_INDEX": {
+      const blocks = arrayMove(state.document.blocks, action.from, action.to);
       return { ...state, document: { ...state.document, blocks }, dirty: true };
     }
 

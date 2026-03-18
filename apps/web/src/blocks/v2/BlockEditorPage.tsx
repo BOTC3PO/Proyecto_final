@@ -3,6 +3,22 @@ import { useParams, useSearchParams } from "react-router-dom";
 import katex from "katex";
 import "katex/dist/katex.min.css";
 
+import {
+  DndContext,
+  PointerSensor,
+  KeyboardSensor,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+
 import type {
   Block,
   BlockDocument,
@@ -692,6 +708,71 @@ function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument 
   }
 }
 
+// ─── Sortable sidebar item ────────────────────────────────────────────────────
+
+function SortableBlockItem({
+  block,
+  idx,
+  isActive,
+  onSelect,
+}: {
+  block: Block;
+  idx: number;
+  isActive: boolean;
+  onSelect: () => void;
+}) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: block.id,
+  });
+
+  const style: React.CSSProperties = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+  };
+
+  return (
+    <div ref={setNodeRef} style={style} className="flex items-center group/item">
+      {/* Drag handle */}
+      <span
+        {...attributes}
+        {...listeners}
+        className="pl-1 pr-0.5 text-slate-300 opacity-0 group-hover/item:opacity-100 cursor-grab active:cursor-grabbing select-none text-xs"
+        title="Arrastrar para reordenar"
+      >
+        ⠿
+      </span>
+      <button
+        className={cx(
+          "flex-1 text-left px-2 py-2 flex items-center gap-2 border-l-2 transition-colors",
+          isActive
+            ? "bg-indigo-50 border-l-indigo-500 text-indigo-700"
+            : "border-l-transparent hover:bg-slate-50 text-gray-700"
+        )}
+        onClick={onSelect}
+      >
+        <span
+          className={cx(
+            "font-mono text-xs w-4 text-center",
+            isActive ? "text-indigo-500" : "text-gray-400"
+          )}
+        >
+          {blockIcon(block.type)}
+        </span>
+        <span
+          className={cx(
+            "text-xs w-5 text-right shrink-0",
+            isActive ? "text-indigo-400" : "text-gray-400"
+          )}
+        >
+          {idx + 1}
+        </span>
+        <span className="text-xs truncate flex-1">{blockPreview(block)}</span>
+      </button>
+    </div>
+  );
+}
+
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function BlockEditorPage({
@@ -721,6 +802,25 @@ export default function BlockEditorPage({
 
   // Inline title editing
   const [editingTitle, setEditingTitle] = useState(false);
+
+  // DnD sensors for sidebar
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
+  );
+
+  const handleDragEnd = useCallback(
+    (event: DragEndEvent) => {
+      const { active, over } = event;
+      if (!over || active.id === over.id) return;
+      const blocks = doc.blocks;
+      const from = blocks.findIndex((b) => b.id === active.id);
+      const to = blocks.findIndex((b) => b.id === over.id);
+      if (from < 0 || to < 0) return;
+      dispatch({ type: "MOVE_BLOCK_INDEX", from, to });
+    },
+    [doc.blocks, dispatch]
+  );
   const titleInputRef = useRef<HTMLInputElement>(null);
 
   // ─── Load on mount ──────────────────────────────────────────────────────────
@@ -1198,44 +1298,27 @@ export default function BlockEditorPage({
                 Sin bloques
               </p>
             ) : (
-              doc.blocks.map((block, idx) => {
-                const isActive = block.id === selectedBlockId;
-                return (
-                  <button
-                    key={block.id}
-                    className={cx(
-                      "w-full text-left px-3 py-2 flex items-center gap-2 border-l-2 transition-colors",
-                      isActive
-                        ? "bg-indigo-50 border-l-indigo-500 text-indigo-700"
-                        : "border-l-transparent hover:bg-slate-50 text-gray-700"
-                    )}
-                    onClick={() =>
-                      dispatch({
-                        type: "SELECT_BLOCK",
-                        blockId: isActive ? null : block.id,
-                      })
-                    }
-                  >
-                    <span
-                      className={cx(
-                        "font-mono text-xs w-4 text-center",
-                        isActive ? "text-indigo-500" : "text-gray-400"
-                      )}
-                    >
-                      {blockIcon(block.type)}
-                    </span>
-                    <span
-                      className={cx(
-                        "text-xs w-5 text-right shrink-0",
-                        isActive ? "text-indigo-400" : "text-gray-400"
-                      )}
-                    >
-                      {idx + 1}
-                    </span>
-                    <span className="text-xs truncate flex-1">{blockPreview(block)}</span>
-                  </button>
-                );
-              })
+              <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+                <SortableContext
+                  items={doc.blocks.map((b) => b.id)}
+                  strategy={verticalListSortingStrategy}
+                >
+                  {doc.blocks.map((block, idx) => (
+                    <SortableBlockItem
+                      key={block.id}
+                      block={block}
+                      idx={idx}
+                      isActive={block.id === selectedBlockId}
+                      onSelect={() =>
+                        dispatch({
+                          type: "SELECT_BLOCK",
+                          blockId: block.id === selectedBlockId ? null : block.id,
+                        })
+                      }
+                    />
+                  ))}
+                </SortableContext>
+              </DndContext>
             )}
           </div>
         </aside>
