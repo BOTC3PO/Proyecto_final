@@ -4,8 +4,8 @@ import type { ModuleQuiz, Module } from "../../domain/module/module.types";
 import { MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
-import ToolEditor from "../../stubs/ToolEditor";
-import type { VisualSpec } from "../../../archive/visualizadores/types";
+import { BlockEditor } from "../../blocks/BlockEditor";
+import { deserializeBlockDocument, serializeBlockDocument } from "../../blocks/utils";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
@@ -25,21 +25,6 @@ import {
 
 const SUBJECT_OPTIONS = Object.keys(MODULE_SUBJECT_CAPABILITIES);
 
-function parseHerramientaSpec(detail: string): { spec: VisualSpec; subject?: string } | null {
-  try {
-    const parsed = JSON.parse(detail);
-    if (parsed && typeof parsed === "object" && parsed.spec) {
-      return { spec: parsed.spec as VisualSpec, subject: parsed.subject as string | undefined };
-    }
-  } catch {
-    // not JSON
-  }
-  return null;
-}
-
-function serializeHerramientaDetail(spec: VisualSpec, subject?: string): string {
-  return JSON.stringify({ spec, subject });
-}
 
 export default function ModuloEditor() {
   const { id } = useParams();
@@ -480,19 +465,14 @@ export default function ModuloEditor() {
                       </button>
                     </div>
                   ) : isHerramientaType(newTheoryItem.type) ? (
-                    <ToolEditor
-                      spec={parseHerramientaSpec(newTheoryItem.detail)?.spec}
-                      onChange={(spec) => {
-                        if (!spec) {
-                          setNewTheoryItem((prev) => ({ ...prev, detail: "" }));
-                        } else {
-                          const parsed = parseHerramientaSpec(newTheoryItem.detail);
-                          setNewTheoryItem((prev) => ({
-                            ...prev,
-                            detail: serializeHerramientaDetail(spec, parsed?.subject),
-                          }));
-                        }
-                      }}
+                    <BlockEditor
+                      value={deserializeBlockDocument(newTheoryItem.detail)}
+                      onChange={(doc) =>
+                        setNewTheoryItem((prev) => ({
+                          ...prev,
+                          detail: serializeBlockDocument(doc),
+                        }))
+                      }
                     />
                   ) : isVideoType(newTheoryItem.type) ? (
                     <div className="space-y-1">
@@ -676,18 +656,13 @@ export default function ModuloEditor() {
                                   }
                                 />
                               ) : isHerramientaType(item.type) ? (
-                                <ToolEditor
-                                  spec={parseHerramientaSpec(item.detail)?.spec}
-                                  onChange={(spec) => {
-                                    if (!spec) {
-                                      updateTheoryItem(item.id, { detail: "" });
-                                    } else {
-                                      const parsed = parseHerramientaSpec(item.detail);
-                                      updateTheoryItem(item.id, {
-                                        detail: serializeHerramientaDetail(spec, parsed?.subject),
-                                      });
-                                    }
-                                  }}
+                                <BlockEditor
+                                  value={deserializeBlockDocument(item.detail)}
+                                  onChange={(doc) =>
+                                    updateTheoryItem(item.id, {
+                                      detail: serializeBlockDocument(doc),
+                                    })
+                                  }
                                 />
                               ) : (
                                 <textarea

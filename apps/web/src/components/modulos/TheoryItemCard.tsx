@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Play } from "lucide-react";
 import { detailToPresentation } from "./TheorySlideEditor";
 import SlidePresenter from "./SlidePresenter";
-import VisualizerRenderer from "../../stubs/VisualizerRenderer";
-import type { VisualSpec } from "../../../archive/visualizadores/types";
+import { BlockRenderer } from "../../blocks/BlockRenderer";
+import { deserializeBlockDocument } from "../../blocks/utils";
 
 // All supported theory item types (old English + new Spanish + catch-all string)
 export type TheoryItemType = string;
@@ -55,42 +55,23 @@ const isHerramientaType = (t: string) => t === "Herramienta";
 const isExternalUrl = (v: string) => v.startsWith("http://") || v.startsWith("https://");
 const isInternalLink = (v: string) => v.startsWith("/");
 
-function parseHerramientaDetail(detail: string): { spec: VisualSpec; subject?: string } | null {
-  try {
-    const parsed = JSON.parse(detail) as { spec?: VisualSpec; subject?: string };
-    if (parsed && typeof parsed === "object" && parsed.spec) {
-      return { spec: parsed.spec, subject: parsed.subject };
-    }
-  } catch {
-    // not valid JSON
-  }
-  return null;
-}
-
 export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProps) {
   const typeLabel = getTypeLabel(item.type);
   const [presenterOpen, setPresenterOpen] = useState(false);
 
   // --- Herramienta interactiva ---
   if (isHerramientaType(item.type)) {
-    const parsed = parseHerramientaDetail(item.detail);
+    const doc = deserializeBlockDocument(item.detail);
     return (
       <article className="rounded-lg border border-blue-200 bg-white shadow-sm overflow-hidden">
         <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 border-b border-blue-200">
           <span className="text-xs font-semibold uppercase tracking-wide text-blue-600">
             {typeLabel}
           </span>
-          {parsed?.subject ? (
-            <span className="text-xs text-blue-500">· {parsed.subject}</span>
-          ) : null}
           <h4 className="ml-auto text-sm font-semibold text-slate-800">{item.title}</h4>
         </div>
         <div className="p-4">
-          {parsed ? (
-            <VisualizerRenderer spec={parsed.spec} />
-          ) : (
-            <p className="text-sm text-slate-400">No se pudo cargar la herramienta.</p>
-          )}
+          <BlockRenderer doc={doc} />
         </div>
       </article>
     );
