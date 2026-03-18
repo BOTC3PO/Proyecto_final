@@ -8,6 +8,8 @@ import type { PresentationTheme, AccentColor } from "../../components/modulos/Th
 import { slidesToDetail, detailToPresentation } from "../../components/modulos/TheorySlideEditor";
 import { fetchBooks } from "../../bookEditor/services/booksApi";
 import { useModuloPersistence } from "./useModuloPersistence";
+import type { BlockDocument } from "../../blocks/types";
+import { serializeBlockDocument } from "../../blocks/utils";
 
 export { detailToPresentation };
 
@@ -108,6 +110,7 @@ export function useModuloEditor(
   const [escuelaLoading, setEscuelaLoading] = useState(false);
 
   const [slidesEditorFor, setSlidesEditorFor] = useState<"new" | string | null>(null);
+  const [blockEditorFor, setBlockEditorFor] = useState<"new" | string | null>(null);
   const [quizPreviewOpen, setQuizPreviewOpen] = useState<Record<string, boolean>>({});
   const [quizBlurErrors, setQuizBlurErrors] = useState<Record<string, string[]>>({});
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
@@ -292,6 +295,28 @@ export function useModuloEditor(
     return null;
   }, [slidesEditorFor, newTheoryItem, theoryItems]);
 
+  // ── Block editor ────────────────────────────────────────────────────────────
+  const handleBlockDone = (doc: BlockDocument) => {
+    const detail = serializeBlockDocument(doc);
+    if (blockEditorFor === "new") {
+      setNewTheoryItem((prev) => ({ ...prev, detail }));
+    } else if (blockEditorFor) {
+      updateTheoryItem(blockEditorFor, { detail });
+    }
+    setBlockEditorFor(null);
+  };
+
+  const blockEditorItem = useMemo(() => {
+    if (blockEditorFor === "new") {
+      return { title: newTheoryItem.title, detail: newTheoryItem.detail };
+    }
+    if (blockEditorFor) {
+      const item = theoryItems.find((i) => i.id === blockEditorFor);
+      return item ? { title: item.title, detail: item.detail } : null;
+    }
+    return null;
+  }, [blockEditorFor, newTheoryItem, theoryItems]);
+
   // ── Quizzes ────────────────────────────────────────────────────────────────
   const addQuiz = (mode: "manual" | "generated") => {
     const baseQuiz: ModuleQuiz = ensureQuizDefaults({
@@ -457,6 +482,11 @@ export function useModuloEditor(
     setSlidesEditorFor,
     slidesEditorItem,
     handleSlidesDone,
+    // Block editor
+    blockEditorFor,
+    setBlockEditorFor,
+    blockEditorItem,
+    handleBlockDone,
     // Quizzes
     quizzes,
     addQuiz,
