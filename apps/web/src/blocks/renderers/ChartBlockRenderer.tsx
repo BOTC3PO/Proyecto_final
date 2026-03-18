@@ -96,29 +96,41 @@ export function ChartBlockRenderer({ block, doc }: Props) {
   if (block.chartType === "pie") {
     const labels = block.data?.labels ?? []
     const datasets = block.data?.datasets ?? []
-    const pieData = labels.map((label, i) => ({
-      name: label,
-      value: Number(datasets[0]?.values[i] ?? 0),
-    }))
-    const pieColors =
-      datasets[0]?.color
-        ? [datasets[0].color]
-        : DEFAULT_COLORS
+
+    const renderSinglePie = (ds: (typeof datasets)[number], dsIndex: number) => {
+      const pieData = labels.map((label, i) => ({
+        name: label,
+        value: Number(ds.values[i] ?? 0),
+      }))
+      const sliceColors = ds.color ? [ds.color] : DEFAULT_COLORS
+      return (
+        <div key={dsIndex}>
+          <p className="mb-1 text-xs font-semibold text-center text-gray-600">{ds.label}</p>
+          <ResponsiveContainer width="100%" height={260}>
+            <PieChart>
+              <Pie data={pieData} dataKey="value" nameKey="name" label>
+                {pieData.map((_, i) => (
+                  <Cell key={i} fill={sliceColors[i % sliceColors.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      )
+    }
 
     return (
       <div>
         {title}
-        <ResponsiveContainer width="100%" height={300}>
-          <PieChart>
-            <Pie data={pieData} dataKey="value" nameKey="name" label>
-              {pieData.map((_, i) => (
-                <Cell key={i} fill={pieColors[i % pieColors.length]} />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
+        {datasets.length <= 1 ? (
+          renderSinglePie(datasets[0] ?? { label: "", values: [] }, 0)
+        ) : (
+          <div className="grid grid-cols-2 gap-4">
+            {datasets.map((ds, i) => renderSinglePie(ds, i))}
+          </div>
+        )}
       </div>
     )
   }

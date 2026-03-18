@@ -1,4 +1,4 @@
-import { useCallback } from "react"
+import { useCallback, useState, useEffect } from "react"
 import type { BlockDocument, Block, TextBlock, LatexBlock, TableBlock, ChartBlock, FlowBlock } from "./types"
 import { createEmptyBlockDocument } from "./utils"
 
@@ -186,6 +186,56 @@ function TableBlockEditor({
   )
 }
 
+function DatasetRow({
+  ds,
+  di,
+  onUpdate,
+  onRemove,
+}: {
+  ds: { label: string; values: number[]; color?: string }
+  di: number
+  onUpdate: (di: number, field: string, val: string) => void
+  onRemove: (di: number) => void
+}) {
+  const valuesStr = ds.values.join(", ")
+  const [valuesInput, setValuesInput] = useState(valuesStr)
+  useEffect(() => { setValuesInput(valuesStr) }, [valuesStr])
+
+  return (
+    <div className="flex gap-1 items-center">
+      <input
+        className="w-28 rounded-md border border-gray-300 px-2 py-1 text-xs"
+        placeholder="Nombre serie"
+        value={ds.label}
+        onChange={(e) => onUpdate(di, "label", e.target.value)}
+      />
+      <input
+        className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-xs font-mono"
+        placeholder="Valores: 10, 20, 30"
+        value={valuesInput}
+        onChange={(e) => setValuesInput(e.target.value)}
+        onBlur={() => {
+          const clean = valuesInput.split(",").map((v) => v.trim()).filter(Boolean).map((v) => Number(v) || 0)
+          onUpdate(di, "values", clean.join(","))
+        }}
+      />
+      <input
+        type="color"
+        className="h-7 w-8 rounded border border-gray-300 p-0.5"
+        value={ds.color ?? "#6366f1"}
+        onChange={(e) => onUpdate(di, "color", e.target.value)}
+      />
+      <button
+        type="button"
+        className="rounded border border-red-200 bg-red-50 px-1.5 py-1 text-xs text-red-600 hover:bg-red-100"
+        onClick={() => onRemove(di)}
+      >
+        ✕
+      </button>
+    </div>
+  )
+}
+
 function ChartBlockEditor({
   block,
   onChange,
@@ -196,9 +246,10 @@ function ChartBlockEditor({
   onRemove: () => void
 }) {
   const data = block.data ?? { labels: [], datasets: [] }
+  const [labelsInput, setLabelsInput] = useState(data.labels.join(", "))
 
-  const setLabels = (raw: string) => {
-    const labels = raw.split(",").map((s) => s.trim()).filter(Boolean)
+  const handleLabelsBlur = () => {
+    const labels = labelsInput.split(",").map((s) => s.trim()).filter(Boolean)
     onChange({ data: { ...data, labels } })
   }
 
@@ -249,40 +300,18 @@ function ChartBlockEditor({
             <option value="pie">Torta</option>
           </select>
         </div>
+        {block.chartType === "pie" && (
+          <p className="text-xs text-gray-400">Cada serie genera una torta independiente.</p>
+        )}
         <input
           className="w-full rounded-md border border-gray-300 px-3 py-1.5 text-xs"
           placeholder="Etiquetas separadas por coma: Ene, Feb, Mar"
-          value={data.labels.join(", ")}
-          onChange={(e) => setLabels(e.target.value)}
+          value={labelsInput}
+          onChange={(e) => setLabelsInput(e.target.value)}
+          onBlur={handleLabelsBlur}
         />
         {data.datasets.map((ds, di) => (
-          <div key={di} className="flex gap-1 items-center">
-            <input
-              className="w-28 rounded-md border border-gray-300 px-2 py-1 text-xs"
-              placeholder="Nombre serie"
-              value={ds.label}
-              onChange={(e) => updateDataset(di, "label", e.target.value)}
-            />
-            <input
-              className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-xs font-mono"
-              placeholder="Valores: 10, 20, 30"
-              value={ds.values.join(", ")}
-              onChange={(e) => updateDataset(di, "values", e.target.value)}
-            />
-            <input
-              type="color"
-              className="h-7 w-8 rounded border border-gray-300 p-0.5"
-              value={ds.color ?? "#6366f1"}
-              onChange={(e) => updateDataset(di, "color", e.target.value)}
-            />
-            <button
-              type="button"
-              className="rounded border border-red-200 bg-red-50 px-1.5 py-1 text-xs text-red-600 hover:bg-red-100"
-              onClick={() => removeDataset(di)}
-            >
-              ✕
-            </button>
-          </div>
+          <DatasetRow key={di} ds={ds} di={di} onUpdate={updateDataset} onRemove={removeDataset} />
         ))}
         <button
           type="button"
