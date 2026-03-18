@@ -320,7 +320,13 @@ function ChartInspector({
 }) {
   const tableBlocks = doc.blocks.filter((b) => b.type === "table") as TableBlock[];
   const source = block.sourceTableId ? "table" : "manual";
-  const isMultiSeries = block.chartType === "bar" || block.chartType === "line";
+  const isMultiSeries =
+    block.chartType === "bar" ||
+    block.chartType === "line" ||
+    block.chartType === "area" ||
+    block.chartType === "bar-stacked" ||
+    block.chartType === "bar-grouped" ||
+    block.chartType === "area-stacked";
 
   const updateDatasetLabel = (i: number, label: string) => {
     const datasets = (block.data?.datasets ?? []).map((ds, idx) =>
@@ -382,6 +388,12 @@ function ChartInspector({
           <option value="bar">Barras</option>
           <option value="line">Línea</option>
           <option value="pie">Torta</option>
+          <option value="scatter">Dispersión</option>
+          <option value="area">Área</option>
+          <option value="bar-stacked">Barras apiladas</option>
+          <option value="bar-grouped">Barras agrupadas</option>
+          <option value="area-stacked">Área apilada</option>
+          <option value="histogram">Histograma</option>
         </select>
       </div>
       <div>

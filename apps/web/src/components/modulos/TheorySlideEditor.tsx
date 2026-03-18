@@ -1344,6 +1344,12 @@ function BlockChartEditor({
           <option value="bar">Barras</option>
           <option value="line">Líneas</option>
           <option value="pie">Torta</option>
+          <option value="scatter">Dispersión</option>
+          <option value="area">Área</option>
+          <option value="bar-stacked">Barras apiladas</option>
+          <option value="bar-grouped">Barras agrupadas</option>
+          <option value="area-stacked">Área apilada</option>
+          <option value="histogram">Histograma</option>
         </select>
       </div>
       <input
