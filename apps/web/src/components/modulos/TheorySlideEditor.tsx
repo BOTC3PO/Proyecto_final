@@ -1,8 +1,14 @@
+import { useState, useEffect } from "react";
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
 import type { VisualSpec } from "../../../archive/visualizadores/types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 import { useSlideEditor } from "./hooks/useSlideEditor";
-import ToolEditor from "../../stubs/ToolEditor";
+import type { Block, ChartBlock, FlowBlock, LatexBlock, TableBlock } from "../../blocks/types";
+import { TextBlockRenderer } from "../../blocks/renderers/TextBlockRenderer";
+import { LatexBlockRenderer } from "../../blocks/renderers/LatexBlockRenderer";
+import { TableBlockRenderer } from "../../blocks/renderers/TableBlockRenderer";
+import { ChartBlockRenderer } from "../../blocks/renderers/ChartBlockRenderer";
+import { FlowBlockRenderer } from "../../blocks/renderers/FlowBlockRenderer";
 
 // ─── Layout presets ───────────────────────────────────────────────────────────
 
@@ -186,6 +192,8 @@ export type Slide = {
   language?: string;
   /** Embedded interactive tool — replaces body content in the slide */
   toolSpec?: VisualSpec;
+  /** Embedded v2 block — replaces body content in the slide */
+  blockSpec?: Block;
 };
 
 // ─── Tool parameter schema ────────────────────────────────────────────────────
@@ -673,6 +681,13 @@ function normalizeSlide(raw: Record<string, any>): Slide {
     toolSpec: raw.toolSpec && typeof raw.toolSpec === "object"
       ? (raw.toolSpec as VisualSpec)
       : undefined,
+    blockSpec:
+      raw.blockSpec &&
+      typeof raw.blockSpec === "object" &&
+      typeof (raw.blockSpec as Record<string, unknown>).id === "string" &&
+      typeof (raw.blockSpec as Record<string, unknown>).type === "string"
+        ? (raw.blockSpec as Block)
+        : undefined,
   };
 }
 
@@ -876,7 +891,7 @@ function SlideThumbnail({ slide, theme, accentColor }: ThumbnailProps) {
               </div>
             )}
             {slide.subtitle && <div className="text-sm opacity-60">{slide.subtitle.slice(0, 60)}</div>}
-            {!slide.toolSpec && slide.body && (
+            {!slide.toolSpec && !slide.blockSpec && slide.body && (
               <div className="text-xs opacity-50 line-clamp-2">{slide.body.slice(0, 80)}</div>
             )}
           </div>
@@ -898,11 +913,13 @@ function SlideThumbnail({ slide, theme, accentColor }: ThumbnailProps) {
           </>
         )}
 
-        {/* Tool badge */}
-        {slide.toolSpec && (
+        {/* Tool / block badge */}
+        {(slide.toolSpec || slide.blockSpec) && (
           <div className="absolute bottom-3 left-3 flex items-center gap-1 text-[10px] opacity-50">
             <span>⚙</span>
-            <span className="font-medium">{slide.toolSpec.kind}</span>
+            <span className="font-medium">
+              {slide.blockSpec ? slide.blockSpec.type : slide.toolSpec?.kind}
+            </span>
           </div>
         )}
 
@@ -1005,6 +1022,20 @@ function SlidePreviewPane({
                 <VisualizerRenderer spec={slide.toolSpec} />
               </div>
             </>
+          ) : slide.blockSpec ? (
+            <>
+              {slide.heading && (
+                <h2 className={headingCls} style={headingAccentStyle}>
+                  {slide.heading}
+                </h2>
+              )}
+              {slide.subtitle && (
+                <p className={subtitleCls}>{slide.subtitle}</p>
+              )}
+              <div className="flex-1 min-h-0 overflow-auto rounded-lg">
+                <BlockSpecRenderer block={slide.blockSpec} />
+              </div>
+            </>
           ) : slide.layout === "split" ? (
             <>
               {slide.heading && (
@@ -1074,6 +1105,481 @@ function SlidePreviewPane({
       </div>
     </div>
   );
+}
+
+// ─── Block spec helpers ───────────────────────────────────────────────────────
+
+const BLOCK_TYPE_LABELS: Record<Block["type"], string> = {
+  text:  "Texto enriquecido",
+  latex: "LaTeX",
+  table: "Tabla",
+  chart: "Gráfico",
+  flow:  "Diagrama de flujo",
+};
+
+function createEmptyBlock(type: "chart" | "table" | "latex" | "flow"): Block {
+  const id = crypto.randomUUID();
+  switch (type) {
+    case "chart":
+      return { id, type: "chart", chartType: "bar", data: { labels: [], datasets: [] } };
+    case "table":
+      return { id, type: "table", headers: ["Columna 1", "Columna 2"], rows: [["", ""]] };
+    case "latex":
+      return { id, type: "latex", content: "", displayMode: true };
+    case "flow":
+      return { id, type: "flow", nodes: [], edges: [] };
+  }
+}
+
+function BlockSpecRenderer({ block }: { block: Block }) {
+  const doc = { version: 1 as const, blocks: [block] };
+  switch (block.type) {
+    case "text":  return <TextBlockRenderer block={block} />;
+    case "latex": return <LatexBlockRenderer block={block} />;
+    case "table": return <TableBlockRenderer block={block} />;
+    case "chart": return <ChartBlockRenderer block={block} doc={doc} />;
+    case "flow":  return <FlowBlockRenderer block={block} />;
+  }
+}
+
+function BlockLatexEditor({
+  block,
+  onChange,
+}: {
+  block: LatexBlock;
+  onChange: (patch: Partial<LatexBlock>) => void;
+}) {
+  return (
+    <div className="space-y-2">
+      <textarea
+        className="w-full border border-gray-200 rounded-lg p-3 resize-none font-mono text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+        rows={4}
+        placeholder="Fórmula LaTeX, ej: \frac{a}{b}"
+        value={block.content}
+        onChange={(e) => onChange({ content: e.target.value })}
+      />
+      <label className="flex items-center gap-2 cursor-pointer select-none">
+        <input
+          type="checkbox"
+          className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+          checked={block.displayMode}
+          onChange={(e) => onChange({ displayMode: e.target.checked })}
+        />
+        <span className="text-xs text-gray-600">Modo bloque centrado</span>
+      </label>
+    </div>
+  );
+}
+
+function BlockTableEditor({
+  block,
+  onChange,
+}: {
+  block: TableBlock;
+  onChange: (patch: Partial<TableBlock>) => void;
+}) {
+  return (
+    <div className="space-y-2">
+      <input
+        className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-blue-400"
+        placeholder="Título de la tabla (opcional)"
+        value={block.title ?? ""}
+        onChange={(e) => onChange({ title: e.target.value || undefined })}
+      />
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse text-xs">
+          <thead>
+            <tr>
+              {block.headers.map((h, ci) => (
+                <th key={ci} className="border border-gray-200 p-1 bg-gray-50">
+                  <input
+                    className="w-full bg-transparent font-semibold text-center outline-none"
+                    value={h}
+                    onChange={(e) => {
+                      const headers = [...block.headers];
+                      headers[ci] = e.target.value;
+                      onChange({ headers });
+                    }}
+                  />
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {block.rows.map((row, ri) => (
+              <tr key={ri}>
+                {row.map((cell, ci) => (
+                  <td key={ci} className="border border-gray-200 p-1">
+                    <input
+                      className="w-full bg-transparent outline-none"
+                      value={String(cell)}
+                      onChange={(e) => {
+                        const rows = block.rows.map((r, i) =>
+                          i === ri ? r.map((c, j) => (j === ci ? e.target.value : c)) : r
+                        );
+                        onChange({ rows });
+                      }}
+                    />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="flex gap-2">
+        <button
+          type="button"
+          className="rounded border border-gray-200 px-2 py-1 text-xs hover:bg-gray-50"
+          onClick={() => onChange({ rows: [...block.rows, block.headers.map(() => "")] })}
+        >
+          + Fila
+        </button>
+        <button
+          type="button"
+          className="rounded border border-gray-200 px-2 py-1 text-xs hover:bg-gray-50"
+          onClick={() =>
+            onChange({
+              headers: [...block.headers, `Col ${block.headers.length + 1}`],
+              rows: block.rows.map((r) => [...r, ""]),
+            })
+          }
+        >
+          + Columna
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function BlockChartDatasetRow({
+  ds,
+  di,
+  onUpdate,
+  onRemove,
+}: {
+  ds: { label: string; values: number[]; color?: string };
+  di: number;
+  onUpdate: (di: number, field: string, val: string) => void;
+  onRemove: (di: number) => void;
+}) {
+  const [valuesInput, setValuesInput] = useState(ds.values.join(", "));
+  useEffect(() => { setValuesInput(ds.values.join(", ")); }, [ds.values]);
+  return (
+    <div className="flex gap-1 items-center">
+      <input
+        className="w-28 border border-gray-200 rounded px-2 py-1 text-xs"
+        placeholder="Nombre serie"
+        value={ds.label}
+        onChange={(e) => onUpdate(di, "label", e.target.value)}
+      />
+      <input
+        className="flex-1 border border-gray-200 rounded px-2 py-1 text-xs font-mono"
+        placeholder="10, 20, 30"
+        value={valuesInput}
+        onChange={(e) => setValuesInput(e.target.value)}
+        onBlur={() => {
+          const clean = valuesInput.split(",").map((v) => v.trim()).filter(Boolean).map((v) => Number(v) || 0);
+          onUpdate(di, "values", clean.join(","));
+        }}
+      />
+      <input
+        type="color"
+        className="h-7 w-8 rounded border border-gray-200 p-0.5"
+        value={ds.color ?? "#6366f1"}
+        onChange={(e) => onUpdate(di, "color", e.target.value)}
+      />
+      <button
+        type="button"
+        className="rounded border border-red-200 bg-red-50 px-1.5 py-1 text-xs text-red-600 hover:bg-red-100"
+        onClick={() => onRemove(di)}
+      >
+        ✕
+      </button>
+    </div>
+  );
+}
+
+function BlockChartEditor({
+  block,
+  onChange,
+}: {
+  block: ChartBlock;
+  onChange: (patch: Partial<ChartBlock>) => void;
+}) {
+  const data = block.data ?? { labels: [], datasets: [] };
+  const [labelsInput, setLabelsInput] = useState(data.labels.join(", "));
+  useEffect(() => { setLabelsInput(data.labels.join(", ")); }, [data.labels]);
+
+  const handleLabelsBlur = () => {
+    const labels = labelsInput.split(",").map((s) => s.trim()).filter(Boolean);
+    onChange({ data: { ...data, labels } });
+  };
+
+  const updateDataset = (di: number, field: string, val: string) => {
+    const datasets = data.datasets.map((ds, i) => {
+      if (i !== di) return ds;
+      if (field === "label") return { ...ds, label: val };
+      if (field === "color") return { ...ds, color: val };
+      if (field === "values") return { ...ds, values: val.split(",").map((v) => Number(v.trim()) || 0) };
+      return ds;
+    });
+    onChange({ data: { ...data, datasets } });
+  };
+
+  return (
+    <div className="space-y-2">
+      <div className="flex gap-2">
+        <input
+          className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-blue-400"
+          placeholder="Título del gráfico (opcional)"
+          value={block.title ?? ""}
+          onChange={(e) => onChange({ title: e.target.value || undefined })}
+        />
+        <select
+          className="border border-gray-200 rounded-lg px-2 py-1.5 text-sm outline-none focus:border-blue-400"
+          value={block.chartType}
+          onChange={(e) => onChange({ chartType: e.target.value as ChartBlock["chartType"] })}
+        >
+          <option value="bar">Barras</option>
+          <option value="line">Líneas</option>
+          <option value="pie">Torta</option>
+        </select>
+      </div>
+      <input
+        className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-xs outline-none focus:border-blue-400"
+        placeholder="Etiquetas separadas por coma: Ene, Feb, Mar"
+        value={labelsInput}
+        onChange={(e) => setLabelsInput(e.target.value)}
+        onBlur={handleLabelsBlur}
+      />
+      {data.datasets.map((ds, di) => (
+        <BlockChartDatasetRow
+          key={di}
+          ds={ds}
+          di={di}
+          onUpdate={updateDataset}
+          onRemove={(i) =>
+            onChange({ data: { ...data, datasets: data.datasets.filter((_, j) => j !== i) } })
+          }
+        />
+      ))}
+      <button
+        type="button"
+        className="rounded border border-gray-200 px-2 py-1 text-xs hover:bg-gray-50"
+        onClick={() =>
+          onChange({
+            data: {
+              ...data,
+              datasets: [
+                ...data.datasets,
+                { label: `Serie ${data.datasets.length + 1}`, values: data.labels.map(() => 0) },
+              ],
+            },
+          })
+        }
+      >
+        + Serie
+      </button>
+    </div>
+  );
+}
+
+function BlockFlowEditor({
+  block,
+  onChange,
+}: {
+  block: FlowBlock;
+  onChange: (patch: Partial<FlowBlock>) => void;
+}) {
+  const addNode = () => {
+    const id = crypto.randomUUID();
+    onChange({
+      nodes: [
+        ...block.nodes,
+        {
+          id,
+          label: `Nodo ${block.nodes.length + 1}`,
+          x: (block.nodes.length % 4) * 150,
+          y: Math.floor(block.nodes.length / 4) * 120,
+          shape: "rect" as const,
+        },
+      ],
+    });
+  };
+
+  const updateNode = (id: string, field: string, val: string) => {
+    onChange({
+      nodes: block.nodes.map((n) =>
+        n.id !== id ? n : { ...n, [field]: field === "x" || field === "y" ? Number(val) : val }
+      ),
+    });
+  };
+
+  const removeNode = (id: string) => {
+    onChange({
+      nodes: block.nodes.filter((n) => n.id !== id),
+      edges: block.edges.filter((e) => e.fromId !== id && e.toId !== id),
+    });
+  };
+
+  return (
+    <div className="space-y-2">
+      <input
+        className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-blue-400"
+        placeholder="Título del diagrama (opcional)"
+        value={block.title ?? ""}
+        onChange={(e) => onChange({ title: e.target.value || undefined })}
+      />
+      <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400">Nodos</p>
+      {block.nodes.map((node) => (
+        <div key={node.id} className="flex gap-1 items-center flex-wrap">
+          <input
+            className="w-24 border border-gray-200 rounded px-2 py-1 text-xs"
+            placeholder="Etiqueta"
+            value={node.label}
+            onChange={(e) => updateNode(node.id, "label", e.target.value)}
+          />
+          <select
+            className="border border-gray-200 rounded px-1.5 py-1 text-xs"
+            value={node.shape ?? "rect"}
+            onChange={(e) => updateNode(node.id, "shape", e.target.value)}
+          >
+            <option value="rect">Rect</option>
+            <option value="diamond">Rombo</option>
+            <option value="circle">Círculo</option>
+          </select>
+          <input
+            type="number"
+            className="w-14 border border-gray-200 rounded px-1.5 py-1 text-xs"
+            placeholder="x"
+            value={node.x}
+            onChange={(e) => updateNode(node.id, "x", e.target.value)}
+          />
+          <input
+            type="number"
+            className="w-14 border border-gray-200 rounded px-1.5 py-1 text-xs"
+            placeholder="y"
+            value={node.y}
+            onChange={(e) => updateNode(node.id, "y", e.target.value)}
+          />
+          <input
+            type="color"
+            className="h-7 w-8 rounded border border-gray-200 p-0.5"
+            value={node.color ?? "#e0e7ff"}
+            onChange={(e) => updateNode(node.id, "color", e.target.value)}
+          />
+          <button
+            type="button"
+            className="rounded border border-red-200 bg-red-50 px-1.5 py-1 text-xs text-red-600 hover:bg-red-100"
+            onClick={() => removeNode(node.id)}
+          >
+            ✕
+          </button>
+        </div>
+      ))}
+      <button
+        type="button"
+        className="rounded border border-gray-200 px-2 py-1 text-xs hover:bg-gray-50"
+        onClick={addNode}
+      >
+        + Nodo
+      </button>
+      {block.nodes.length >= 2 && (
+        <>
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400 pt-1">Aristas</p>
+          {block.edges.map((edge) => (
+            <div key={edge.id} className="flex gap-1 items-center">
+              <select
+                className="flex-1 border border-gray-200 rounded px-1.5 py-1 text-xs"
+                value={edge.fromId}
+                onChange={(e) =>
+                  onChange({
+                    edges: block.edges.map((ed) =>
+                      ed.id !== edge.id ? ed : { ...ed, fromId: e.target.value }
+                    ),
+                  })
+                }
+              >
+                {block.nodes.map((n) => <option key={n.id} value={n.id}>{n.label}</option>)}
+              </select>
+              <span className="text-xs text-gray-400">→</span>
+              <select
+                className="flex-1 border border-gray-200 rounded px-1.5 py-1 text-xs"
+                value={edge.toId}
+                onChange={(e) =>
+                  onChange({
+                    edges: block.edges.map((ed) =>
+                      ed.id !== edge.id ? ed : { ...ed, toId: e.target.value }
+                    ),
+                  })
+                }
+              >
+                {block.nodes.map((n) => <option key={n.id} value={n.id}>{n.label}</option>)}
+              </select>
+              <input
+                className="w-20 border border-gray-200 rounded px-1.5 py-1 text-xs"
+                placeholder="Etiqueta"
+                value={edge.label ?? ""}
+                onChange={(e) =>
+                  onChange({
+                    edges: block.edges.map((ed) =>
+                      ed.id !== edge.id ? ed : { ...ed, label: e.target.value || undefined }
+                    ),
+                  })
+                }
+              />
+              <button
+                type="button"
+                className="rounded border border-red-200 bg-red-50 px-1.5 py-1 text-xs text-red-600 hover:bg-red-100"
+                onClick={() =>
+                  onChange({ edges: block.edges.filter((e) => e.id !== edge.id) })
+                }
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            className="rounded border border-gray-200 px-2 py-1 text-xs hover:bg-gray-50"
+            onClick={() => {
+              if (block.nodes.length < 2) return;
+              const id = crypto.randomUUID();
+              onChange({
+                edges: [...block.edges, { id, fromId: block.nodes[0].id, toId: block.nodes[1].id }],
+              });
+            }}
+          >
+            + Arista
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
+
+function BlockSpecEditor({ block, onChange }: { block: Block; onChange: (b: Block) => void }) {
+  switch (block.type) {
+    case "text":
+      return (
+        <textarea
+          className="w-full border border-gray-200 rounded-lg p-3 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+          rows={8}
+          placeholder="Contenido de texto..."
+          value={block.content}
+          onChange={(e) => onChange({ ...block, content: e.target.value })}
+        />
+      );
+    case "latex":
+      return <BlockLatexEditor block={block} onChange={(p) => onChange({ ...block, ...p })} />;
+    case "table":
+      return <BlockTableEditor block={block} onChange={(p) => onChange({ ...block, ...p })} />;
+    case "chart":
+      return <BlockChartEditor block={block} onChange={(p) => onChange({ ...block, ...p })} />;
+    case "flow":
+      return <BlockFlowEditor block={block} onChange={(p) => onChange({ ...block, ...p })} />;
+  }
 }
 
 // ─── Tool parameter control ───────────────────────────────────────────────────
@@ -1189,6 +1695,8 @@ type EditorFormProps = {
 function SlideEditorForm({ slide, onChange }: EditorFormProps) {
   const isSplit = slide.layout === "split";
   const isQuote = slide.layout === "quote";
+  const [showBlockPicker, setShowBlockPicker] = useState(false);
+  useEffect(() => { setShowBlockPicker(false); }, [slide.id]);
 
   const headingInput = (
     <div>
@@ -1326,58 +1834,137 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
 
           {!isQuote ? (
             <>
-              {/* ── Interactive tool section ── */}
-              <ToolEditor
-                spec={slide.toolSpec}
-                onChange={(spec) => onChange({ toolSpec: spec, body: spec ? undefined : slide.body, isCode: spec ? false : slide.isCode })}
-              />
-
-              {/* ── Body / code (hidden when tool is active) ── */}
-              {!slide.toolSpec ? (
+              {slide.blockSpec ? (
+                /* ── Block mode: editor + remove button ── */
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-xs font-medium text-gray-500">
+                      Bloque gráfico — {BLOCK_TYPE_LABELS[slide.blockSpec.type]}
+                    </p>
+                    <button
+                      type="button"
+                      className="flex items-center gap-1 text-xs text-red-500 hover:underline"
+                      onClick={() => onChange({ blockSpec: undefined })}
+                    >
+                      <X size={12} />
+                      Quitar bloque
+                    </button>
+                  </div>
+                  <BlockSpecEditor
+                    block={slide.blockSpec}
+                    onChange={(b) => onChange({ blockSpec: b })}
+                  />
+                </div>
+              ) : (
                 <>
+                  {/* ── Content mode selector ── */}
                   <div>
-                    <div className="flex items-baseline justify-between mb-1.5">
-                      <label className="text-xs font-medium text-gray-500">
-                        {slide.isCode ? "Código" : "Cuerpo de texto"}
+                    <p className="text-xs font-medium text-gray-500 mb-2">Tipo de contenido</p>
+                    <div className="flex gap-4">
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-gray-700">
+                        <input
+                          type="radio"
+                          name={`content-mode-${slide.id}`}
+                          checked={!slide.isCode && !showBlockPicker}
+                          onChange={() => {
+                            setShowBlockPicker(false);
+                            if (slide.isCode) onChange({ isCode: false });
+                          }}
+                        />
+                        Texto
                       </label>
-                      <span className="text-[10px] text-gray-300 font-mono">text-base leading-relaxed</span>
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-gray-700">
+                        <input
+                          type="radio"
+                          name={`content-mode-${slide.id}`}
+                          checked={!!slide.isCode && !showBlockPicker}
+                          onChange={() => {
+                            setShowBlockPicker(false);
+                            onChange({ isCode: true });
+                          }}
+                        />
+                        Código
+                      </label>
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-gray-700">
+                        <input
+                          type="radio"
+                          name={`content-mode-${slide.id}`}
+                          checked={showBlockPicker}
+                          onChange={() => setShowBlockPicker(true)}
+                        />
+                        Bloque gráfico
+                      </label>
                     </div>
-                    <textarea
-                      className={`w-full border border-gray-200 rounded-lg p-4 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200 leading-relaxed ${
-                        slide.isCode ? "font-mono bg-gray-50" : ""
-                      }`}
-                      placeholder={
-                        slide.isCode
-                          ? "// Escribí tu código aquí..."
-                          : "Contenido de la diapositiva...\n\nPodés usar texto libre, listas con guiones (-) o numeradas."
-                      }
-                      rows={10}
-                      value={slide.body ?? ""}
-                      onChange={(e) => onChange({ body: e.target.value || undefined })}
-                    />
                   </div>
 
-                  <div className="flex items-center gap-3 flex-wrap">
-                    <label className="flex items-center gap-2 cursor-pointer select-none">
-                      <input
-                        type="checkbox"
-                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                        checked={slide.isCode ?? false}
-                        onChange={(e) => onChange({ isCode: e.target.checked })}
-                      />
-                      <span className="text-xs text-gray-600">Mostrar como bloque de código</span>
-                    </label>
-                    {slide.isCode ? (
-                      <input
-                        className="border border-gray-200 rounded px-2.5 py-1 text-xs outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
-                        placeholder="lenguaje (js, python...)"
-                        value={slide.language ?? ""}
-                        onChange={(e) => onChange({ language: e.target.value || undefined })}
-                      />
-                    ) : null}
-                  </div>
+                  {showBlockPicker ? (
+                    /* ── Block type picker ── */
+                    <div>
+                      <p className="text-xs text-gray-500 mb-2">Seleccionar tipo de bloque:</p>
+                      <div className="flex gap-2 flex-wrap">
+                        {(["chart", "table", "latex", "flow"] as const).map((t) => (
+                          <button
+                            key={t}
+                            type="button"
+                            className="px-3 py-1.5 rounded-lg border border-gray-200 text-xs hover:border-blue-400 hover:bg-blue-50 text-gray-700"
+                            onClick={() => {
+                              setShowBlockPicker(false);
+                              onChange({ blockSpec: createEmptyBlock(t), body: undefined, isCode: false });
+                            }}
+                          >
+                            {BLOCK_TYPE_LABELS[t]}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    /* ── Body / code ── */
+                    <>
+                      <div>
+                        <div className="flex items-baseline justify-between mb-1.5">
+                          <label className="text-xs font-medium text-gray-500">
+                            {slide.isCode ? "Código" : "Cuerpo de texto"}
+                          </label>
+                          <span className="text-[10px] text-gray-300 font-mono">text-base leading-relaxed</span>
+                        </div>
+                        <textarea
+                          className={`w-full border border-gray-200 rounded-lg p-4 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200 leading-relaxed ${
+                            slide.isCode ? "font-mono bg-gray-50" : ""
+                          }`}
+                          placeholder={
+                            slide.isCode
+                              ? "// Escribí tu código aquí..."
+                              : "Contenido de la diapositiva...\n\nPodés usar texto libre, listas con guiones (-) o numeradas."
+                          }
+                          rows={10}
+                          value={slide.body ?? ""}
+                          onChange={(e) => onChange({ body: e.target.value || undefined })}
+                        />
+                      </div>
+
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <label className="flex items-center gap-2 cursor-pointer select-none">
+                          <input
+                            type="checkbox"
+                            className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                            checked={slide.isCode ?? false}
+                            onChange={(e) => onChange({ isCode: e.target.checked })}
+                          />
+                          <span className="text-xs text-gray-600">Mostrar como bloque de código</span>
+                        </label>
+                        {slide.isCode ? (
+                          <input
+                            className="border border-gray-200 rounded px-2.5 py-1 text-xs outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+                            placeholder="lenguaje (js, python...)"
+                            value={slide.language ?? ""}
+                            onChange={(e) => onChange({ language: e.target.value || undefined })}
+                          />
+                        ) : null}
+                      </div>
+                    </>
+                  )}
                 </>
-              ) : null}
+              )}
             </>
           ) : null}
         </>
