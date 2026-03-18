@@ -10,6 +10,7 @@ import { escuelas } from "./routes/escuelas";
 import { modulos } from "./routes/modulos";
 import { progreso } from "./routes/progreso";
 import { libros } from "./routes/libros";
+import { blockDocuments } from "./routes/block-documents";
 import { seed } from "./routes/seed";
 import { auth } from "./routes/auth";
 import { reportes } from "./routes/reportes";
@@ -98,6 +99,7 @@ app.use(escuelas);
 app.use(modulos);
 app.use(progreso);
 app.use(libros);
+app.use(blockDocuments);
 app.use(estadisticas);
 if (ENV.ENABLE_SEED_ENDPOINT) {
   app.use(seed);
