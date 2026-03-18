@@ -1324,7 +1324,10 @@ export default function BlockEditorPage({
         </aside>
 
         {/* ─── CANVAS ────────────────────────────────────────────────────── */}
-        <main className="flex-1 bg-slate-100 overflow-y-auto">
+        <main
+          className="flex-1 bg-slate-100 overflow-y-auto"
+          onClick={() => dispatch({ type: "SELECT_BLOCK", blockId: null })}
+        >
           <div className="px-8 py-6 max-w-3xl mx-auto">
             {doc.blocks.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-64 gap-3">
@@ -1405,15 +1408,16 @@ export default function BlockEditorPage({
                       {/* Block card */}
                       <div
                         className={cx(
-                          "rounded-2xl border border-gray-200 bg-white shadow-sm p-4 cursor-pointer transition-all",
+                          "rounded-lg border border-gray-200 bg-white shadow-sm p-4 cursor-pointer transition-all",
                           isSelected ? "ring-2 ring-indigo-400" : "hover:shadow-md"
                         )}
-                        onClick={() =>
+                        onClick={(e) => {
+                          e.stopPropagation();
                           dispatch({
                             type: "SELECT_BLOCK",
                             blockId: isSelected ? null : block.id,
-                          })
-                        }
+                          });
+                        }}
                       >
                         <SingleBlockRenderer block={block} doc={doc} />
                       </div>
@@ -1435,65 +1439,59 @@ export default function BlockEditorPage({
           </div>
 
           <div className="flex-1 overflow-y-auto">
-            {/* Documento section */}
-            <InspectorCard title="Documento">
-              <div>
-                <label className="text-xs font-medium text-gray-600 block mb-1">Título</label>
-                <input
-                  className={inputCls}
-                  value={title}
-                  onChange={(e) => dispatch({ type: "UPDATE_TITLE", title: e.target.value })}
-                />
-              </div>
-              <div>
-                <label className="text-xs text-gray-400 block">
-                  {doc.blocks.length} bloque{doc.blocks.length !== 1 ? "s" : ""}
-                </label>
-              </div>
-            </InspectorCard>
-
-            {/* Bloque section */}
-            <InspectorCard title="Bloque">
-              {selectedBlock ? (
-                <>
-                  {selectedBlock.type === "text" && (
-                    <TextInspector
-                      block={selectedBlock as TextBlock}
-                      onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+            {selectedBlock ? (
+              /* ── Block selected: show block editor ── */
+              <InspectorCard title={blockTypeName(selectedBlock.type)}>
+                {selectedBlock.type === "text" && (
+                  <TextInspector
+                    block={selectedBlock as TextBlock}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
+                {selectedBlock.type === "latex" && (
+                  <LatexInspector
+                    block={selectedBlock as LatexBlock}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
+                {selectedBlock.type === "table" && (
+                  <TableInspector
+                    block={selectedBlock as TableBlock}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
+                {selectedBlock.type === "chart" && (
+                  <ChartInspector
+                    block={selectedBlock as ChartBlock}
+                    doc={doc}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
+                {selectedBlock.type === "flow" && (
+                  <FlowInspector
+                    block={selectedBlock as FlowBlock}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
+              </InspectorCard>
+            ) : (
+              /* ── No block selected: show document info + hint ── */
+              <>
+                <InspectorCard title="Documento">
+                  <div>
+                    <label className="text-xs font-medium text-gray-600 block mb-1">Título</label>
+                    <input
+                      className={inputCls}
+                      value={title}
+                      onChange={(e) => dispatch({ type: "UPDATE_TITLE", title: e.target.value })}
                     />
-                  )}
-                  {selectedBlock.type === "latex" && (
-                    <LatexInspector
-                      block={selectedBlock as LatexBlock}
-                      onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
-                    />
-                  )}
-                  {selectedBlock.type === "table" && (
-                    <TableInspector
-                      block={selectedBlock as TableBlock}
-                      onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
-                    />
-                  )}
-                  {selectedBlock.type === "chart" && (
-                    <ChartInspector
-                      block={selectedBlock as ChartBlock}
-                      doc={doc}
-                      onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
-                    />
-                  )}
-                  {selectedBlock.type === "flow" && (
-                    <FlowInspector
-                      block={selectedBlock as FlowBlock}
-                      onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
-                    />
-                  )}
-                </>
-              ) : (
-                <p className="text-xs text-slate-400 italic">
+                  </div>
+                </InspectorCard>
+                <p className="text-xs text-slate-400 italic px-3 pt-4">
                   Hacé clic en un bloque para editarlo
                 </p>
-              )}
-            </InspectorCard>
+              </>
+            )}
           </div>
         </aside>
       </div>
