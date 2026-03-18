@@ -1,9 +1,9 @@
 import { Component } from "react";
 import type { ReactNode } from "react";
-import type { VisualSpec } from "../../../visualizadores/types";
-import { normalizeSpec } from "../../../visualizadores/normalizeSpec";
-import { validateSpec } from "../../../visualizadores/specValidation";
-import VisualizerRenderer from "../../../visualizadores/graficos/VisualizerRenderer";
+import type { VisualSpec } from "../../../../archive/visualizadores/types";
+import { normalizeSpec } from "../../../../archive/visualizadores/normalizeSpec";
+import { validateSpec } from "../../../../archive/visualizadores/specValidation";
+import VisualizerRenderer from "../../../stubs/VisualizerRenderer";
 
 // ─── Error boundary ───────────────────────────────────────────────────────────
 

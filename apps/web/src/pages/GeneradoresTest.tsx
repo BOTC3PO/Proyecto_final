@@ -14,9 +14,9 @@ import { createGeneradoresFisica } from "../generador/fisica/indexFisica";
 import { crearCalculadoraFisica } from "../generador/fisica/calculadora";
 import { precargarCatalogoTemaFisicaPorGeneratorId } from "../generador/fisica/catalogoApi";
 import { createPrng } from "../generador/core/prng";
-import VisualizerRenderer from "../visualizadores/graficos/VisualizerRenderer";
-import type { VisualSpec } from "../visualizadores/types";
-import { listarVisualizadores, obtenerVisualizador } from "../visualizadores/catalogoApi";
+import VisualizerRenderer from "../stubs/VisualizerRenderer";
+import type { VisualSpec } from "../../archive/visualizadores/types";
+import { listarVisualizadores, obtenerVisualizador } from "../stubs/catalogoApi";
 import {
   DIFICULTADES_POR_MATERIA,
   type MateriaUI,

@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { apiGet, apiPost } from "../../lib/api";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
-import type { VisualSpec } from "../../visualizadores/types";
+import VisualizerRenderer from "../../stubs/VisualizerRenderer";
+import type { VisualSpec } from "../../../archive/visualizadores/types";
 
 function parseVisualContext(detail: string | undefined): VisualSpec | null {
   if (!detail) return null;

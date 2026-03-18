@@ -1,11 +1,11 @@
 import { Plus } from "lucide-react";
-import type { VisualSpec, SocialChoroplethSpec, SocialPopulationPyramidSpec } from "../../../visualizadores/types";
+import type { VisualSpec, SocialChoroplethSpec, SocialPopulationPyramidSpec } from "./visualizadores/types";
 import {
   TOOL_PARAM_SCHEMAS,
   ToolParamControl,
   getAtPath,
   setAtPath,
-} from "../TheorySlideEditor";
+} from "../apps/web/src/components/modulos/TheorySlideEditor";
 
 type Props = {
   spec: VisualSpec;

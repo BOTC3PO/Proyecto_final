@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
-import type { LifeBudgetSpec, LifeTimeMatrixSpec } from "../../visualizadores/types";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
+import type { LifeBudgetSpec, LifeTimeMatrixSpec } from "./visualizadores/types";
 
 type Tool = "life-budget" | "life-time-matrix";
 type Quadrant = "I" | "II" | "III" | "IV";

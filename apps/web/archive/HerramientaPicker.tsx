@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { VisualSpec, SocialChoroplethSpec } from "../../visualizadores/types";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
-import SocialChoroplethVisualizer from "../../visualizadores/social/SocialChoroplethVisualizer";
+import type { VisualSpec, SocialChoroplethSpec } from "./visualizadores/types";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
+import SocialChoroplethVisualizer from "./visualizadores/social/SocialChoroplethVisualizer";
 
 type HerramientaPickerProps = {
   isOpen: boolean;

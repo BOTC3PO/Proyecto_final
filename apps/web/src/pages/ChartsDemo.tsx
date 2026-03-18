@@ -1,5 +1,5 @@
-import ChartsVisualizer from "../visualizadores/graficos/ChartsVisualizer";
-import type { ChartSpec } from "../visualizadores/types";
+import ChartsVisualizer from "../../archive/visualizadores/graficos/ChartsVisualizer";
+import type { ChartSpec } from "../../archive/visualizadores/types";
 
 const barSpec: ChartSpec = {
   kind: "chart",

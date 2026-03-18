@@ -1,11 +1,11 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
-import SocialChoroplethVisualizer from "../../visualizadores/social/SocialChoroplethVisualizer";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
+import SocialChoroplethVisualizer from "./visualizadores/social/SocialChoroplethVisualizer";
 import type {
   SocialPopulationPyramidSpec,
   SocialChoroplethSpec,
-} from "../../visualizadores/types";
+} from "./visualizadores/types";
 
 type Tool = "pyramid" | "choropleth";
 type Indicator = "gdp" | "density" | "hdi";

@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
-import type { NatWeatherSpec, NatWaterCycleSpec } from "../../visualizadores/types";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
+import type { NatWeatherSpec, NatWaterCycleSpec } from "./visualizadores/types";
 
 type Tool = "nat-weather" | "nat-water-cycle";
 type Season = NatWeatherSpec["season"];

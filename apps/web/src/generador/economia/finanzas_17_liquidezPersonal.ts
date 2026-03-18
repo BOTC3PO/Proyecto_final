@@ -69,17 +69,6 @@ const ITEMS_AVANZADO: { descripcion: string; tipo: TipoLiquidez }[] = [
   },
 ];
 
-const _ITEMS_LEGENDARIO: { descripcion: string; tipo: TipoLiquidez }[] = [
-  ...ITEMS_AVANZADO,
-  {
-    descripcion: "Saldo en una billetera virtual listo para transferir.",
-    tipo: "Dinero disponible",
-  },
-  {
-    descripcion: "Inversión en un emprendimiento familiar sin rescate inmediato.",
-    tipo: "Dinero inmovilizado",
-  },
-];
 
 
 const ITEMS_POR_DIFICULTAD: Record<

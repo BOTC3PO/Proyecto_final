@@ -1,7 +1,7 @@
 // src/generators/quimica/74_configuracion_electronica.ts
 // src/generators/quimica/74_configuracion_electronica.ts
 import { type GeneratorFn, type QuizExercise, randInt, shuffle } from "./generico";
-import type { ChemElectronShell, ChemStructureSpec } from "../../visualizadores/types";
+import type { ChemElectronShell, ChemStructureSpec } from "../../../archive/visualizadores/types";
 
 interface ElementoConfig {
   nombre: string;

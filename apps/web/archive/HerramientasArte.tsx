@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import VisualizerRenderer from "../../visualizadores/graficos/VisualizerRenderer";
-import type { ArtColorWheelSpec, ArtCompositionSpec } from "../../visualizadores/types";
+import VisualizerRenderer from "./visualizadores/graficos/VisualizerRenderer";
+import type { ArtColorWheelSpec, ArtCompositionSpec } from "./visualizadores/types";
 
 type Tool = "art-color-wheel" | "art-composition";
 type Harmony = ArtColorWheelSpec["harmony"];

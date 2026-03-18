@@ -75,17 +75,6 @@ const GASTOS_AVANZADO: { descripcion: string; tipo: TipoGasto }[] = [
   },
 ];
 
-const _GASTOS_LEGENDARIO: { descripcion: string; tipo: TipoGasto }[] = [
-  ...GASTOS_AVANZADO,
-  {
-    descripcion: "Mantenimiento mensual del ascensor del edificio.",
-    tipo: "Gasto fijo esencial",
-  },
-  {
-    descripcion: "Compra de decoración para renovar el living.",
-    tipo: "Gasto no esencial",
-  },
-];
 
 
 const GASTOS_POR_DIFICULTAD: Record<
