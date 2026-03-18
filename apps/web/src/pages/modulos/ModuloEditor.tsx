@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
@@ -8,6 +7,8 @@ import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
+import BlockEditorPage from "../../blocks/v2/BlockEditorPage";
+import { deserializeBlockDocument } from "../../blocks/utils";
 import {
   useModuloEditor,
   detailToPresentation,
@@ -50,6 +51,10 @@ export default function ModuloEditor() {
     setSlidesEditorFor,
     slidesEditorItem,
     handleSlidesDone,
+    blockEditorFor,
+    setBlockEditorFor,
+    blockEditorItem,
+    handleBlockDone,
     quizzes,
     addQuiz,
     updateQuiz,
@@ -98,42 +103,6 @@ export default function ModuloEditor() {
     searchModules,
     handleSubmit,
   } = useModuloEditor(id, user, navigate);
-
-  // ── Block editor sessions (for Herramienta items opened in new tab) ──────
-  type SessionEntry =
-    | { context: "new" }
-    | { context: "existing"; itemId: string };
-  const pendingSessionsRef = useRef<Map<string, SessionEntry>>(new Map());
-
-  useEffect(() => {
-    function handleFocus() {
-      for (const [sskey, session] of pendingSessionsRef.current.entries()) {
-        const resultId = sessionStorage.getItem(`block-doc:${sskey}:result`);
-        if (resultId) {
-          if (session.context === "new") {
-            setNewTheoryItem((prev) => ({ ...prev, detail: resultId }));
-          } else {
-            updateTheoryItem(session.itemId, { detail: resultId });
-          }
-          pendingSessionsRef.current.delete(sskey);
-          sessionStorage.removeItem(`block-doc:${sskey}`);
-          sessionStorage.removeItem(`block-doc:${sskey}:result`);
-        }
-      }
-    }
-    window.addEventListener("focus", handleFocus);
-    return () => window.removeEventListener("focus", handleFocus);
-  }, [setNewTheoryItem, updateTheoryItem]);
-
-  function openBlockEditorTab(detail: string, entry: SessionEntry) {
-    const sskey = crypto.randomUUID();
-    sessionStorage.setItem(
-      `block-doc:${sskey}`,
-      JSON.stringify({ detail, title: "Documento de bloques" })
-    );
-    pendingSessionsRef.current.set(sskey, entry);
-    window.open(`/bloques/editor?sskey=${sskey}`, "_blank");
-  }
 
   const isTeacher = user?.role === "TEACHER";
 
@@ -192,6 +161,16 @@ export default function ModuloEditor() {
           onDone={handleSlidesDone}
           onClose={() => setSlidesEditorFor(null)}
         />
+      ) : null}
+
+      {/* Block editor overlay — fullscreen, rendered outside the form */}
+      {blockEditorFor && blockEditorItem ? (
+        <div style={{ position: "fixed", inset: 0, zIndex: 50 }}>
+          <BlockEditorPage
+            initialDocument={deserializeBlockDocument(blockEditorItem.detail)}
+            onDone={handleBlockDone}
+          />
+        </div>
       ) : null}
 
       <main className="flex-1 bg-gradient-to-b from-slate-50 to-white min-h-screen">
@@ -504,11 +483,9 @@ export default function ModuloEditor() {
                       <button
                         type="button"
                         className="rounded-md border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
-                        onClick={() =>
-                          openBlockEditorTab(newTheoryItem.detail, { context: "new" })
-                        }
+                        onClick={() => setBlockEditorFor("new")}
                       >
-                        Abrir editor de bloques ↗
+                        Abrir editor de bloques
                       </button>
                       {newTheoryItem.detail && (
                         <span className="text-xs text-gray-400">
@@ -704,14 +681,9 @@ export default function ModuloEditor() {
                                   <button
                                     type="button"
                                     className="rounded-md border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
-                                    onClick={() =>
-                                      openBlockEditorTab(item.detail, {
-                                        context: "existing",
-                                        itemId: item.id,
-                                      })
-                                    }
+                                    onClick={() => setBlockEditorFor(item.id)}
                                   >
-                                    Abrir editor de bloques ↗
+                                    Abrir editor de bloques
                                   </button>
                                   {item.detail && (
                                     <span className="text-xs text-gray-400">

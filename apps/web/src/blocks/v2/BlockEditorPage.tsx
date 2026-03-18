@@ -636,7 +636,13 @@ function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument 
 
 // ─── Main page ────────────────────────────────────────────────────────────────
 
-export default function BlockEditorPage() {
+export default function BlockEditorPage({
+  initialDocument,
+  onDone,
+}: {
+  initialDocument?: BlockDocument;
+  onDone?: (doc: BlockDocument) => void;
+} = {}) {
   const { id } = useParams<{ id?: string }>();
   const [searchParams] = useSearchParams();
   const ssKey = searchParams.get("sskey");
@@ -660,6 +666,12 @@ export default function BlockEditorPage() {
 
   useEffect(() => {
     async function load() {
+      // Priority 0: initialDocument prop (overlay mode)
+      if (initialDocument) {
+        dispatch({ type: "LOAD_DOCUMENT", document: initialDocument });
+        return;
+      }
+
       // Priority 1: sessionStorage key from ModuloEditor
       if (ssKey) {
         try {
@@ -929,6 +941,16 @@ export default function BlockEditorPage() {
     <div className="h-screen flex flex-col overflow-hidden bg-gradient-to-b from-slate-50 to-white">
       {/* ═══ HEADER ═══════════════════════════════════════════════════════════ */}
       <header className="flex-shrink-0 h-12 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white flex items-center px-3 gap-2 shadow-md z-20">
+        {/* Back button (overlay mode) */}
+        {onDone && (
+          <button
+            className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white"
+            onClick={() => onDone(doc)}
+            title="Volver"
+          >
+            ← Volver
+          </button>
+        )}
         {/* Title */}
         <div className="flex items-center gap-2 min-w-0">
           {editingTitle ? (
@@ -1021,9 +1043,9 @@ export default function BlockEditorPage() {
         </button>
         <button
           className="px-2 py-1 text-xs rounded bg-emerald-500/80 hover:bg-emerald-500 text-white"
-          onClick={handleSaveApi}
+          onClick={onDone ? () => onDone(doc) : handleSaveApi}
         >
-          Guardar API
+          {onDone ? "Guardar" : "Guardar API"}
         </button>
       </header>
 
