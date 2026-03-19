@@ -1,3 +1,7 @@
-export { ChartBlockEditor } from "./ChartBlockEditor"
+export { TextBlockEditor } from "./TextBlockEditor"
+export { LatexBlockEditor, InlineLatexEditor } from "./LatexBlockEditor"
+export { TableBlockEditor, InlineTableEditor } from "./TableBlockEditor"
+export { ChartBlockEditor, InlineChartTypeToolbar, CHART_TYPE_OPTIONS } from "./ChartBlockEditor"
+export { FlowBlockEditor } from "./FlowBlockEditor"
 export { MathBlockEditor } from "./MathBlockEditor"
 export { ShapeBlockEditor } from "./ShapeBlockEditor"

@@ -180,29 +180,38 @@ export function BlockEditor({ value, onChange }: Props) {
                   onRemove={() => handleRemove(block.id)}
                 />
               ) : block.type === "table" ? (
-                <TableBlockEditor
-                  block={block}
-                  onChange={(patch) => handleUpdate(block.id, patch)}
-                  onRemove={() => handleRemove(block.id)}
-                />
+                <>
+                  <TableBlockEditor
+                    block={block as TableBlock}
+                    onUpdate={(patch) => handleUpdate(block.id, patch as Partial<Block>)}
+                  />
+                  <button type="button" className="self-start rounded-md border border-red-200 bg-red-50 px-2 py-1 text-xs text-red-600 hover:bg-red-100" onClick={() => handleRemove(block.id)}>✕</button>
+                </>
               ) : block.type === "chart" ? (
-                <ChartBlockEditor
-                  block={block}
-                  onChange={(patch) => handleUpdate(block.id, patch)}
-                  onRemove={() => handleRemove(block.id)}
-                />
+                <>
+                  <ChartBlockEditor
+                    block={block as ChartBlock}
+                    doc={doc}
+                    onUpdate={(patch) => handleUpdate(block.id, patch as Partial<Block>)}
+                  />
+                  <button type="button" className="self-start rounded-md border border-red-200 bg-red-50 px-2 py-1 text-xs text-red-600 hover:bg-red-100" onClick={() => handleRemove(block.id)}>✕</button>
+                </>
               ) : block.type === "flow" ? (
-                <FlowBlockEditor
-                  block={block}
-                  onChange={(patch) => handleUpdate(block.id, patch)}
-                  onRemove={() => handleRemove(block.id)}
-                />
+                <>
+                  <FlowBlockEditor
+                    block={block as FlowBlock}
+                    onUpdate={(patch) => handleUpdate(block.id, patch as Partial<Block>)}
+                  />
+                  <button type="button" className="self-start rounded-md border border-red-200 bg-red-50 px-2 py-1 text-xs text-red-600 hover:bg-red-100" onClick={() => handleRemove(block.id)}>✕</button>
+                </>
               ) : block.type === "math" ? (
-                <MathBlockEditor
-                  block={block as MathBlock}
-                  onChange={(patch) => handleUpdate(block.id, patch as Partial<Block>)}
-                  onRemove={() => handleRemove(block.id)}
-                />
+                <>
+                  <MathBlockEditor
+                    block={block as MathBlock}
+                    onUpdate={(patch) => handleUpdate(block.id, patch as Partial<Block>)}
+                  />
+                  <button type="button" className="self-start rounded-md border border-red-200 bg-red-50 px-2 py-1 text-xs text-red-600 hover:bg-red-100" onClick={() => handleRemove(block.id)}>✕</button>
+                </>
               ) : null}
             </div>
           )

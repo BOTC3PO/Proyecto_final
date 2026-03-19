@@ -1101,11 +1101,6 @@ export function ChartBlockRenderer({ block, doc }: Props) {
   if (block.chartType === "pyramid") {
     const labels = block.data?.labels ?? []
     const values = block.data?.datasets[0]?.values ?? []
-    const colors = values.map(
-      (_, i) =>
-        block.data?.datasets[0]?.color ?? DEFAULT_COLORS[i % DEFAULT_COLORS.length]
-    )
-
     if (labels.length === 0 || values.length === 0) {
       return (
         <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
@@ -1128,7 +1123,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
         {title}
         <div className="overflow-x-auto">
           <svg width={svgW} height={svgH} viewBox={`0 0 ${svgW} ${svgH}`} className="w-full max-w-lg mx-auto">
-            {labels.map((label, i) => {
+            {labels.map((_label, i) => {
               // Render from top of SVG = highest index (top of pyramid)
               const revIdx = labels.length - 1 - i
               const val = values[revIdx] ?? 0

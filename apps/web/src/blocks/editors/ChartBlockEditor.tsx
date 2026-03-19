@@ -1,501 +1,249 @@
-import { useState, useEffect } from "react"
-import type { ChartBlock } from "../types"
+import type { ChartBlock, TableBlock, BlockDocument } from "../types"
+import { ChartBlockRenderer } from "../renderers/ChartBlockRenderer"
 
-function DatasetRow({
-  ds,
-  di,
-  onUpdate,
-  onRemove,
-}: {
-  ds: { label: string; values: number[]; color?: string }
-  di: number
-  onUpdate: (di: number, field: string, val: string) => void
-  onRemove: (di: number) => void
-}) {
-  const valuesStr = ds.values.join(", ")
-  const [valuesInput, setValuesInput] = useState(valuesStr)
-  useEffect(() => {
-    setValuesInput(valuesStr)
-  }, [valuesStr])
-
-  return (
-    <div className="flex gap-1 items-center">
-      <input
-        className="w-28 rounded-md border border-gray-300 px-2 py-1 text-xs"
-        placeholder="Nombre serie"
-        value={ds.label}
-        onChange={(e) => onUpdate(di, "label", e.target.value)}
-      />
-      <input
-        className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-xs font-mono"
-        placeholder="Valores: 10, 20, 30"
-        value={valuesInput}
-        onChange={(e) => setValuesInput(e.target.value)}
-        onBlur={() => {
-          const clean = valuesInput
-            .split(",")
-            .map((v) => v.trim())
-            .filter(Boolean)
-            .map((v) => Number(v) || 0)
-          onUpdate(di, "values", clean.join(","))
-        }}
-      />
-      <input
-        type="color"
-        className="h-7 w-8 rounded border border-gray-300 p-0.5"
-        value={ds.color ?? "#6366f1"}
-        onChange={(e) => onUpdate(di, "color", e.target.value)}
-      />
-      <button
-        type="button"
-        className="rounded border border-red-200 bg-red-50 px-1.5 py-1 text-xs text-red-600 hover:bg-red-100"
-        onClick={() => onRemove(di)}
-      >
-        ✕
-      </button>
-    </div>
-  )
+function cx(...classes: Array<string | false | null | undefined>) {
+  return classes.filter(Boolean).join(" ")
 }
 
-function ScatterDatasetRow({
-  ds,
-  di,
-  onUpdate,
-  onRemove,
-}: {
-  ds: { label: string; values: number[]; xValues?: number[]; color?: string }
-  di: number
-  onUpdate: (di: number, field: string, val: string) => void
-  onRemove: (di: number) => void
-}) {
-  const xStr = (ds.xValues ?? []).join(", ")
-  const yStr = ds.values.join(", ")
-  const [xInput, setXInput] = useState(xStr)
-  const [yInput, setYInput] = useState(yStr)
-  useEffect(() => {
-    setXInput(xStr)
-  }, [xStr])
-  useEffect(() => {
-    setYInput(yStr)
-  }, [yStr])
+const inputCls =
+  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400"
 
+export const CHART_TYPE_OPTIONS: Array<{ value: ChartBlock["chartType"]; label: string; icon: string }> = [
+  { value: "bar", label: "Barras", icon: "▦" },
+  { value: "line", label: "Línea", icon: "⟋" },
+  { value: "pie", label: "Torta", icon: "◑" },
+  { value: "scatter", label: "Puntos", icon: "⁙" },
+  { value: "area", label: "Área", icon: "◿" },
+  { value: "histogram", label: "Hist.", icon: "∏" },
+  { value: "bar-stacked", label: "Apilado", icon: "≡" },
+  { value: "bar-grouped", label: "Agrupado", icon: "∥" },
+]
+
+export function InlineChartTypeToolbar({
+  chartType,
+  onUpdate,
+}: {
+  chartType: ChartBlock["chartType"]
+  onUpdate: (patch: Record<string, unknown>) => void
+}) {
   return (
-    <div className="space-y-1 rounded border border-gray-200 p-2">
-      <div className="flex gap-1 items-center">
-        <input
-          className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-xs"
-          placeholder="Nombre serie"
-          value={ds.label}
-          onChange={(e) => onUpdate(di, "label", e.target.value)}
-        />
-        <input
-          type="color"
-          className="h-7 w-8 rounded border border-gray-300 p-0.5"
-          value={ds.color ?? "#6366f1"}
-          onChange={(e) => onUpdate(di, "color", e.target.value)}
-        />
+    <div
+      className="flex flex-wrap gap-1 p-2 border-b border-slate-100 bg-slate-50 rounded-t-lg"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {CHART_TYPE_OPTIONS.map(({ value, label, icon }) => (
         <button
-          type="button"
-          className="rounded border border-red-200 bg-red-50 px-1.5 py-1 text-xs text-red-600 hover:bg-red-100"
-          onClick={() => onRemove(di)}
+          key={value}
+          onClick={(e) => {
+            e.stopPropagation()
+            onUpdate({ chartType: value })
+          }}
+          className={cx(
+            "flex items-center gap-1 px-2 py-1 rounded text-xs transition-colors border",
+            chartType === value
+              ? "bg-indigo-600 text-white border-indigo-600"
+              : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+          )}
+          title={label}
         >
-          ✕
+          <span className="font-mono">{icon}</span>
+          <span>{label}</span>
         </button>
-      </div>
-      <input
-        className="w-full rounded-md border border-gray-300 px-2 py-1 text-xs font-mono"
-        placeholder="Valores X: 1, 2, 3, 4"
-        value={xInput}
-        onChange={(e) => setXInput(e.target.value)}
-        onBlur={() => {
-          const clean = xInput
-            .split(",")
-            .map((v) => v.trim())
-            .filter(Boolean)
-            .map((v) => Number(v) || 0)
-          onUpdate(di, "xValues", clean.join(","))
-        }}
-      />
-      <input
-        className="w-full rounded-md border border-gray-300 px-2 py-1 text-xs font-mono"
-        placeholder="Valores Y: 10, 20, 15, 30"
-        value={yInput}
-        onChange={(e) => setYInput(e.target.value)}
-        onBlur={() => {
-          const clean = yInput
-            .split(",")
-            .map((v) => v.trim())
-            .filter(Boolean)
-            .map((v) => Number(v) || 0)
-          onUpdate(di, "values", clean.join(","))
-        }}
-      />
+      ))}
     </div>
   )
 }
 
 export function ChartBlockEditor({
   block,
-  onChange,
-  onRemove,
+  doc,
+  onUpdate,
 }: {
   block: ChartBlock
-  onChange: (patch: Partial<ChartBlock>) => void
-  onRemove: () => void
+  doc: BlockDocument
+  onUpdate: (patch: Record<string, unknown>) => void
 }) {
-  const data = block.data ?? { labels: [], datasets: [] }
-  const [labelsInput, setLabelsInput] = useState(data.labels.join(", "))
+  const tableBlocks = doc.blocks.filter((b) => b.type === "table") as TableBlock[]
+  const source = block.sourceTableId ? "table" : "manual"
+  const isMultiSeries =
+    block.chartType === "bar" ||
+    block.chartType === "line" ||
+    block.chartType === "area" ||
+    block.chartType === "bar-stacked" ||
+    block.chartType === "bar-grouped" ||
+    block.chartType === "area-stacked"
 
-  useEffect(() => {
-    setLabelsInput(data.labels.join(", "))
-  }, [data.labels.join(", ")])
+  const updateDatasetLabel = (i: number, label: string) => {
+    const datasets = (block.data?.datasets ?? []).map((ds, idx) =>
+      idx === i ? { ...ds, label } : ds
+    )
+    onUpdate({ data: { ...block.data, datasets } })
+  }
 
-  const handleLabelsBlur = () => {
-    const labels = labelsInput
+  const updateDatasetValues = (i: number, raw: string) => {
+    const values = raw
       .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean)
-    onChange({ data: { ...data, labels } })
+      .map((s) => Number(s.trim()))
+      .filter((n) => !isNaN(n))
+    const datasets = (block.data?.datasets ?? []).map((ds, idx) =>
+      idx === i ? { ...ds, values } : ds
+    )
+    onUpdate({ data: { ...block.data, datasets } })
+  }
+
+  const updateDatasetColor = (i: number, color: string) => {
+    const datasets = (block.data?.datasets ?? []).map((ds, idx) =>
+      idx === i ? { ...ds, color } : ds
+    )
+    onUpdate({ data: { ...block.data, datasets } })
   }
 
   const addDataset = () => {
-    onChange({
-      data: {
-        ...data,
-        datasets: [
-          ...data.datasets,
-          {
-            label: `Serie ${data.datasets.length + 1}`,
-            values: data.labels.map(() => 0),
-          },
-        ],
-      },
-    })
+    const datasets = [...(block.data?.datasets ?? []), { label: "", values: [] }]
+    onUpdate({ data: { ...block.data, datasets } })
   }
 
-  const updateDataset = (di: number, field: string, val: string) => {
-    const datasets = data.datasets.map((ds, i) => {
-      if (i !== di) return ds
-      if (field === "label") return { ...ds, label: val }
-      if (field === "color") return { ...ds, color: val }
-      if (field === "values") {
-        const values = val.split(",").map((v) => Number(v.trim()) || 0)
-        return { ...ds, values }
-      }
-      if (field === "xValues") {
-        const xValues = val.split(",").map((v) => Number(v.trim()) || 0)
-        return { ...ds, xValues }
-      }
-      return ds
-    })
-    onChange({ data: { ...data, datasets } })
+  const removeDataset = (i: number) => {
+    const datasets = (block.data?.datasets ?? []).filter((_, idx) => idx !== i)
+    onUpdate({ data: { ...block.data, datasets } })
   }
 
-  const removeDataset = (di: number) => {
-    onChange({
-      data: {
-        ...data,
-        datasets: data.datasets.filter((_, i) => i !== di),
-      },
-    })
+  const updateLabels = (raw: string) => {
+    const labels = raw.split(",").map((s) => s.trim())
+    onUpdate({ data: { ...block.data, labels } })
   }
-
-  const isHistogram = block.chartType === "histogram"
-  const isScatter = block.chartType === "scatter"
-  const isTimeseries = block.chartType === "timeseries"
-  const isHierarchy = block.chartType === "treemap" || block.chartType === "sankey"
-  const isPyramid = block.chartType === "pyramid"
 
   return (
-    <div className="flex gap-2">
-      <div className="flex-1 space-y-2">
-        {/* Título y tipo */}
-        <div className="flex gap-2">
-          <input
-            className="flex-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm"
-            placeholder="Título del gráfico (opcional)"
-            value={block.title ?? ""}
-            onChange={(e) => onChange({ title: e.target.value || undefined })}
-          />
-          <select
-            className="rounded-md border border-gray-300 px-2 py-1.5 text-sm"
-            value={block.chartType}
-            onChange={(e) =>
-              onChange({ chartType: e.target.value as ChartBlock["chartType"] })
-            }
-          >
-            <option value="bar">Barras</option>
-            <option value="line">Líneas</option>
-            <option value="pie">Torta</option>
-            <option value="scatter">Dispersión</option>
-            <option value="area">Área</option>
-            <option value="bar-stacked">Barras apiladas</option>
-            <option value="bar-grouped">Barras agrupadas</option>
-            <option value="area-stacked">Área apilada</option>
-            <option value="histogram">Histograma</option>
-            <option value="radar">Radar</option>
-            <option value="polar">Polar</option>
-            <option value="boxplot">Boxplot</option>
-            <option value="timeseries">Serie temporal</option>
-            <option value="treemap">Mapa de árbol</option>
-            <option value="sankey">Diagrama de Sankey</option>
-            <option value="pyramid">Pirámide</option>
-          </select>
-        </div>
-
-        {block.chartType === "pie" && (
-          <p className="text-xs text-gray-400">
-            Cada serie genera una torta independiente.
-          </p>
-        )}
-        {isHistogram && (
-          <p className="text-xs text-gray-400">
-            Solo se usa la primera serie de datos.
-          </p>
-        )}
-
-        {/* Formato de fecha para timeseries */}
-        {isTimeseries && (
-          <input
-            className="w-full rounded-md border border-gray-300 px-3 py-1.5 text-xs"
-            placeholder="Formato de fecha: DD/MM/YYYY"
-            value={block.dateFormat ?? ""}
-            onChange={(e) =>
-              onChange({ dateFormat: e.target.value || undefined })
-            }
-          />
-        )}
-
-        {/* Editor de jerarquía para treemap y sankey */}
-        {isHierarchy && (
-          <div className="space-y-2">
-            <p className="text-xs text-gray-400">
-              Las categorías padre agrupan las subcategorías.
-            </p>
-            <div className="rounded border border-gray-200 overflow-hidden">
-              <table className="w-full text-xs">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-2 py-1 text-left font-medium text-gray-500">Categoría padre</th>
-                    <th className="px-2 py-1 text-left font-medium text-gray-500">Subcategoría</th>
-                    <th className="px-2 py-1 text-left font-medium text-gray-500">Valor</th>
-                    <th className="px-2 py-1 w-8" />
-                  </tr>
-                </thead>
-                <tbody>
-                  {(block.hierarchy ?? []).flatMap((parent, pi) =>
-                    (parent.children ?? []).map((child, ci) => (
-                      <tr key={`${pi}-${ci}`} className="border-t border-gray-100">
-                        <td className="px-2 py-1">
-                          <input
-                            className="w-full rounded border border-gray-200 px-1 py-0.5 text-xs"
-                            value={parent.name}
-                            onChange={(e) => {
-                              const hierarchy = (block.hierarchy ?? []).map((p, pii) =>
-                                pii === pi ? { ...p, name: e.target.value } : p
-                              )
-                              onChange({ hierarchy })
-                            }}
-                          />
-                        </td>
-                        <td className="px-2 py-1">
-                          <input
-                            className="w-full rounded border border-gray-200 px-1 py-0.5 text-xs"
-                            value={child.name}
-                            onChange={(e) => {
-                              const hierarchy = (block.hierarchy ?? []).map((p, pii) =>
-                                pii !== pi
-                                  ? p
-                                  : {
-                                      ...p,
-                                      children: (p.children ?? []).map((c, cii) =>
-                                        cii === ci ? { ...c, name: e.target.value } : c
-                                      ),
-                                    }
-                              )
-                              onChange({ hierarchy })
-                            }}
-                          />
-                        </td>
-                        <td className="px-2 py-1">
-                          <input
-                            type="number"
-                            className="w-20 rounded border border-gray-200 px-1 py-0.5 text-xs"
-                            value={child.value}
-                            onChange={(e) => {
-                              const hierarchy = (block.hierarchy ?? []).map((p, pii) =>
-                                pii !== pi
-                                  ? p
-                                  : {
-                                      ...p,
-                                      children: (p.children ?? []).map((c, cii) =>
-                                        cii === ci
-                                          ? { ...c, value: Number(e.target.value) || 0 }
-                                          : c
-                                      ),
-                                    }
-                              )
-                              onChange({ hierarchy })
-                            }}
-                          />
-                        </td>
-                        <td className="px-2 py-1">
-                          <button
-                            type="button"
-                            className="rounded border border-red-200 bg-red-50 px-1 py-0.5 text-xs text-red-600 hover:bg-red-100"
-                            onClick={() => {
-                              let hierarchy = (block.hierarchy ?? []).map((p, pii) =>
-                                pii !== pi
-                                  ? p
-                                  : {
-                                      ...p,
-                                      children: (p.children ?? []).filter((_, cii) => cii !== ci),
-                                    }
-                              )
-                              hierarchy = hierarchy.filter((p) => (p.children ?? []).length > 0)
-                              onChange({ hierarchy })
-                            }}
-                          >
-                            ✕
-                          </button>
-                        </td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
-            </div>
-            <button
-              type="button"
-              className="rounded-md border border-gray-300 px-2 py-1 text-xs hover:bg-gray-50"
-              onClick={() => {
-                const hierarchy = block.hierarchy ?? []
-                onChange({
-                  hierarchy: [
-                    ...hierarchy,
-                    { name: "Padre", children: [{ name: "Hijo", value: 0 }] },
-                  ],
-                })
+    <div className="space-y-2">
+      <div>
+        <label className="text-xs font-medium text-gray-600 block mb-1">Título</label>
+        <input
+          className={inputCls}
+          value={block.title ?? ""}
+          onChange={(e) => onUpdate({ title: e.target.value })}
+        />
+      </div>
+      <p className="text-xs text-slate-400 italic">
+        Cambiá el tipo de gráfico desde la toolbar del bloque en el canvas.
+      </p>
+      <div>
+        <label className="text-xs font-medium text-gray-600 block mb-1">Fuente</label>
+        <div className="flex gap-3">
+          <label className="flex items-center gap-1 text-xs text-gray-600 cursor-pointer">
+            <input
+              type="radio"
+              checked={source === "manual"}
+              onChange={() => onUpdate({ sourceTableId: undefined })}
+            />
+            Manual
+          </label>
+          <label className="flex items-center gap-1 text-xs text-gray-600 cursor-pointer">
+            <input
+              type="radio"
+              checked={source === "table"}
+              onChange={() => {
+                const first = tableBlocks[0]
+                if (first) onUpdate({ sourceTableId: first.id })
               }}
-            >
-              + Agregar fila
-            </button>
-          </div>
-        )}
-
-        {/* Etiquetas (no para scatter, histogram, treemap, sankey) */}
-        {!isScatter && !isHistogram && !isHierarchy && (
-          <input
-            className="w-full rounded-md border border-gray-300 px-3 py-1.5 text-xs"
-            placeholder={
-              isPyramid
-                ? "Niveles de abajo hacia arriba: Base, Medio, Cima"
-                : isTimeseries
-                ? "Fechas separadas por coma: 01/01/2024, 01/02/2024"
-                : "Etiquetas separadas por coma: Ene, Feb, Mar"
-            }
-            value={labelsInput}
-            onChange={(e) => setLabelsInput(e.target.value)}
-            onBlur={handleLabelsBlur}
-          />
-        )}
-
-        {/* Datasets (no para treemap ni sankey) */}
-        {!isHierarchy && (
-          <>
-            {isScatter
-              ? data.datasets.map((ds, di) => (
-                  <ScatterDatasetRow
-                    key={di}
-                    ds={ds}
-                    di={di}
-                    onUpdate={updateDataset}
-                    onRemove={removeDataset}
-                  />
-                ))
-              : data.datasets.map((ds, di) => (
-                  <DatasetRow
-                    key={di}
-                    ds={ds}
-                    di={di}
-                    onUpdate={updateDataset}
-                    onRemove={removeDataset}
-                  />
-                ))}
-
-            {/* Agregar serie (no para histogram ni pyramid) */}
-            {!isHistogram && !isPyramid && (
-              <button
-                type="button"
-                className="rounded-md border border-gray-300 px-2 py-1 text-xs hover:bg-gray-50"
-                onClick={addDataset}
-              >
-                + Serie
-              </button>
-            )}
-          </>
-        )}
-
-        {/* Opciones estadísticas */}
-        <div className="border-t border-gray-100 pt-2 space-y-1.5">
-          <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400">
-            Opciones estadísticas
-          </p>
-          <label className="flex items-center gap-1.5 text-xs text-gray-600">
-            <input
-              type="checkbox"
-              checked={block.showStats ?? false}
-              onChange={(e) =>
-                onChange({ showStats: e.target.checked || undefined })
-              }
+              disabled={tableBlocks.length === 0}
             />
-            Mostrar estadísticas descriptivas
+            Tabla
           </label>
-          <label className="flex items-center gap-1.5 text-xs text-gray-600">
-            <input
-              type="checkbox"
-              checked={block.showProcess ?? false}
-              onChange={(e) =>
-                onChange({ showProcess: e.target.checked || undefined })
-              }
-            />
-            Mostrar proceso de cálculo
-          </label>
-          {block.showProcess && (
-            <select
-              className="rounded-md border border-gray-300 px-2 py-1 text-xs"
-              value={block.statFunction ?? ""}
-              onChange={(e) =>
-                onChange({
-                  statFunction:
-                    (e.target.value as ChartBlock["statFunction"]) || undefined,
-                })
-              }
-            >
-              <option value="">Seleccionar función…</option>
-              <option value="mean">Media</option>
-              <option value="median">Mediana</option>
-              <option value="mode">Moda</option>
-              <option value="variance">Varianza</option>
-              <option value="stddev">Desv. estándar</option>
-              <option value="frequency">Tabla de frecuencias</option>
-              <option value="quartiles">Cuartiles</option>
-              <option value="zscore">Puntuaciones Z</option>
-              <option value="regression">Regresión lineal</option>
-              <option value="correlation">Correlación</option>
-              <option value="summary">Resumen estadístico</option>
-            </select>
-          )}
         </div>
       </div>
 
-      <button
-        type="button"
-        className="self-start rounded-md border border-red-200 bg-red-50 px-2 py-1 text-xs text-red-600 hover:bg-red-100"
-        onClick={onRemove}
-      >
-        ✕
-      </button>
+      {source === "table" && tableBlocks.length > 0 ? (
+        <>
+          <div>
+            <label className="text-xs font-medium text-gray-600 block mb-1">Tabla fuente</label>
+            <select
+              className={inputCls}
+              value={block.sourceTableId ?? ""}
+              onChange={(e) => onUpdate({ sourceTableId: e.target.value })}
+            >
+              {tableBlocks.map((t) => (
+                <option key={t.id} value={t.id}>
+                  {t.title || t.id}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="text-xs font-medium text-gray-600 block mb-1">
+              Col. eje X (índice)
+            </label>
+            <input
+              type="number"
+              className={inputCls}
+              min={0}
+              value={block.xColumn ?? 0}
+              onChange={(e) => onUpdate({ xColumn: Number(e.target.value) })}
+            />
+          </div>
+        </>
+      ) : (
+        <>
+          <div>
+            <label className="text-xs font-medium text-gray-600 block mb-1">
+              Etiquetas (separadas por coma)
+            </label>
+            <input
+              className={inputCls}
+              value={block.data?.labels.join(", ") ?? ""}
+              onChange={(e) => updateLabels(e.target.value)}
+              placeholder="A, B, C"
+            />
+          </div>
+          {(block.data?.datasets ?? []).map((ds, i) => (
+            <div key={i} className="space-y-1 border border-slate-100 rounded p-2">
+              <div className="flex items-center gap-1">
+                <input
+                  className={inputCls + " flex-1"}
+                  value={ds.label}
+                  onChange={(e) => updateDatasetLabel(i, e.target.value)}
+                  placeholder="Nombre de serie"
+                />
+                {isMultiSeries && (
+                  <input
+                    type="color"
+                    className="w-6 h-6 rounded border border-slate-200 cursor-pointer p-0.5 shrink-0"
+                    value={ds.color ?? "#6366f1"}
+                    onChange={(e) => updateDatasetColor(i, e.target.value)}
+                    title="Color de serie"
+                  />
+                )}
+                {isMultiSeries && (block.data?.datasets ?? []).length > 1 && (
+                  <button
+                    onClick={() => removeDataset(i)}
+                    className="text-red-400 hover:text-red-600 px-1 text-sm shrink-0"
+                    title="Eliminar serie"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
+              <input
+                className={inputCls}
+                defaultValue={ds.values.join(", ")}
+                onBlur={(e) => updateDatasetValues(i, e.target.value)}
+                placeholder="0, 0, 0"
+              />
+            </div>
+          ))}
+          {isMultiSeries && (
+            <button
+              onClick={addDataset}
+              className="text-xs px-2 py-1 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded w-full"
+            >
+              + Agregar serie
+            </button>
+          )}
+        </>
+      )}
+
+      <div className="rounded-lg border border-slate-100 bg-slate-50 p-2">
+        <ChartBlockRenderer block={block} doc={doc} />
+      </div>
     </div>
   )
 }

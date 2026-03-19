@@ -1,18 +1,18 @@
 import type { MathBlock } from "../types"
 import { MathBlockRenderer } from "../renderers/MathBlockRenderer"
 
-interface Props {
-  block: MathBlock
-  onChange: (patch: Partial<MathBlock>) => void
-  onRemove: () => void
-}
-
 const inputCls =
-  "border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400"
 
-export function MathBlockEditor({ block, onChange, onRemove }: Props) {
+export function MathBlockEditor({
+  block,
+  onUpdate,
+}: {
+  block: MathBlock
+  onUpdate: (patch: Record<string, unknown>) => void
+}) {
   const addFunction = () => {
-    onChange({
+    onUpdate({
       functions: [
         ...block.functions,
         { id: crypto.randomUUID(), expression: "", color: "#2563eb" },
@@ -21,173 +21,129 @@ export function MathBlockEditor({ block, onChange, onRemove }: Props) {
   }
 
   const removeFunction = (id: string) => {
-    onChange({ functions: block.functions.filter((f) => f.id !== id) })
+    onUpdate({ functions: block.functions.filter((f) => f.id !== id) })
   }
 
-  const updateFunction = (
-    id: string,
-    patch: Partial<MathBlock["functions"][number]>
-  ) => {
-    onChange({
+  const updateFunction = (id: string, patch: Partial<MathBlock["functions"][number]>) => {
+    onUpdate({
       functions: block.functions.map((f) => (f.id === id ? { ...f, ...patch } : f)),
     })
   }
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-4 space-y-4">
-      <div className="flex items-center justify-between">
-        <span className="text-sm font-semibold text-gray-700">Función f(x)</span>
-        <button
-          type="button"
-          onClick={onRemove}
-          className="rounded border border-red-200 bg-red-50 px-2 py-0.5 text-xs text-red-600 hover:bg-red-100"
-        >
-          Eliminar bloque
-        </button>
-      </div>
-
-      {/* Title */}
+    <div className="space-y-2">
       <div>
-        <label className="block text-xs font-medium text-gray-600 mb-1">
-          Título (opcional)
-        </label>
+        <label className="text-xs font-medium text-gray-600 block mb-1">Título</label>
         <input
-          className={`${inputCls} w-full`}
-          placeholder="Título del gráfico"
+          className={inputCls}
           value={block.title ?? ""}
-          onChange={(e) => onChange({ title: e.target.value || undefined })}
+          onChange={(e) => onUpdate({ title: e.target.value || undefined })}
+          placeholder="Título del gráfico"
         />
       </div>
 
-      {/* X range */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-1">
         <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">x mín</label>
+          <label className="text-xs font-medium text-gray-600 block mb-1">x mín</label>
           <input
             type="number"
-            className={`${inputCls} w-full`}
+            className={inputCls}
             value={block.xMin}
-            onChange={(e) => onChange({ xMin: Number(e.target.value) })}
+            onChange={(e) => onUpdate({ xMin: Number(e.target.value) })}
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">x máx</label>
+          <label className="text-xs font-medium text-gray-600 block mb-1">x máx</label>
           <input
             type="number"
-            className={`${inputCls} w-full`}
+            className={inputCls}
             value={block.xMax}
-            onChange={(e) => onChange({ xMax: Number(e.target.value) })}
+            onChange={(e) => onUpdate({ xMax: Number(e.target.value) })}
           />
         </div>
-      </div>
-
-      {/* Y range (optional) */}
-      <div className="grid grid-cols-2 gap-2">
         <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">
-            y mín (auto)
-          </label>
+          <label className="text-xs font-medium text-gray-600 block mb-1">y mín</label>
           <input
             type="number"
-            className={`${inputCls} w-full`}
+            className={inputCls}
             placeholder="auto"
             value={block.yMin ?? ""}
             onChange={(e) =>
-              onChange({ yMin: e.target.value === "" ? undefined : Number(e.target.value) })
+              onUpdate({ yMin: e.target.value === "" ? undefined : Number(e.target.value) })
             }
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">
-            y máx (auto)
-          </label>
+          <label className="text-xs font-medium text-gray-600 block mb-1">y máx</label>
           <input
             type="number"
-            className={`${inputCls} w-full`}
+            className={inputCls}
             placeholder="auto"
             value={block.yMax ?? ""}
             onChange={(e) =>
-              onChange({ yMax: e.target.value === "" ? undefined : Number(e.target.value) })
+              onUpdate({ yMax: e.target.value === "" ? undefined : Number(e.target.value) })
             }
           />
         </div>
       </div>
 
-      {/* Samples */}
       <div>
-        <label className="block text-xs font-medium text-gray-600 mb-1">Muestras</label>
+        <label className="text-xs font-medium text-gray-600 block mb-1">Muestras</label>
         <input
           type="number"
-          className={`${inputCls} w-32`}
+          className={inputCls}
           min={10}
           max={2000}
           value={block.samples ?? 400}
-          onChange={(e) => onChange({ samples: Number(e.target.value) })}
+          onChange={(e) => onUpdate({ samples: Number(e.target.value) })}
         />
       </div>
 
-      {/* Checkboxes */}
-      <div className="flex gap-4">
-        <label className="flex items-center gap-1.5 text-sm text-gray-600 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={block.showGrid ?? true}
-            onChange={(e) => onChange({ showGrid: e.target.checked })}
-          />
-          Cuadrícula
-        </label>
-        <label className="flex items-center gap-1.5 text-sm text-gray-600 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={block.showLegend ?? true}
-            onChange={(e) => onChange({ showLegend: e.target.checked })}
-          />
-          Leyenda
-        </label>
-      </div>
+      <label className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={block.showGrid ?? true}
+          onChange={(e) => onUpdate({ showGrid: e.target.checked })}
+        />
+        Cuadrícula
+      </label>
+      <label className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={block.showLegend ?? true}
+          onChange={(e) => onUpdate({ showLegend: e.target.checked })}
+        />
+        Leyenda
+      </label>
 
-      {/* Functions */}
       <div>
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-semibold text-gray-700">Funciones</span>
+        <div className="flex items-center justify-between mb-1">
+          <label className="text-xs font-medium text-gray-600">Funciones</label>
           <button
-            type="button"
             onClick={addFunction}
-            className="text-xs px-2 py-0.5 rounded border border-blue-600 text-blue-600 hover:bg-blue-50"
+            className="text-xs px-1.5 py-0.5 border border-gray-200 bg-white text-gray-700 hover:bg-slate-50 rounded"
           >
-            + Agregar función
+            + Agregar
           </button>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-1 max-h-48 overflow-y-auto">
           {block.functions.map((fn) => (
-            <div
-              key={fn.id}
-              className="flex items-center gap-2 rounded border border-gray-200 bg-gray-50 px-2 py-2"
-            >
+            <div key={fn.id} className="flex items-center gap-1 text-xs">
               <input
-                className={`${inputCls} flex-1`}
+                className="flex-1 border border-slate-200 rounded px-1 py-0.5 focus:outline-none text-xs"
                 placeholder="sin(x)"
                 value={fn.expression}
                 onChange={(e) => updateFunction(fn.id, { expression: e.target.value })}
               />
               <input
-                className={`${inputCls} w-24`}
-                placeholder="Etiqueta"
-                value={fn.label ?? ""}
-                onChange={(e) =>
-                  updateFunction(fn.id, { label: e.target.value || undefined })
-                }
-              />
-              <input
                 type="color"
-                className="h-7 w-8 rounded border border-gray-200 cursor-pointer"
+                className="h-5 w-6 rounded border border-slate-200 cursor-pointer"
                 value={fn.color ?? "#2563eb"}
                 onChange={(e) => updateFunction(fn.id, { color: e.target.value })}
               />
               <button
-                type="button"
                 onClick={() => removeFunction(fn.id)}
-                className="text-red-400 hover:text-red-600 text-sm px-1"
+                className="text-red-400 hover:text-red-600 px-1"
               >
                 ✕
               </button>
@@ -196,8 +152,7 @@ export function MathBlockEditor({ block, onChange, onRemove }: Props) {
         </div>
       </div>
 
-      {/* Live preview */}
-      <div className="rounded-lg border border-gray-200 bg-gray-50 p-3">
+      <div className="rounded-lg border border-slate-100 bg-slate-50 p-2">
         <MathBlockRenderer block={block} />
       </div>
     </div>
