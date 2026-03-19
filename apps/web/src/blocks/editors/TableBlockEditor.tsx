@@ -1,6 +1,7 @@
 import { useState } from "react"
 import type { KeyboardEvent } from "react"
 import type { TableBlock } from "../types"
+import { runDSL } from "../stats/tableDSL"
 
 interface Props {
   block: TableBlock
@@ -15,6 +16,7 @@ function getCellKey(ri: number, ci: number): string {
 export function TableBlockEditor({ block, onChange, onRemove }: Props) {
   const [selectedCell, setSelectedCell] = useState<{ ri: number; ci: number } | null>(null)
   const [formulaBarValue, setFormulaBarValue] = useState("")
+  const [scriptErrors, setScriptErrors] = useState<{ line: number; message: string }[]>([])
 
   const handleCellClick = (ri: number, ci: number) => {
     const key = getCellKey(ri, ci)
@@ -62,6 +64,12 @@ export function TableBlockEditor({ block, onChange, onRemove }: Props) {
       headers: [...block.headers, `Col ${block.headers.length + 1}`],
       rows: block.rows.map((r) => [...r, ""]),
     })
+  }
+
+  const runScript = () => {
+    if (!block.script) return
+    const result = runDSL(block.script, block)
+    setScriptErrors(result.errors)
   }
 
   return (
@@ -170,6 +178,47 @@ export function TableBlockEditor({ block, onChange, onRemove }: Props) {
           >
             + Columna
           </button>
+        </div>
+
+        {/* Script section */}
+        <div className="rounded-md border border-gray-200 bg-gray-50 p-2 space-y-2">
+          <p className="text-xs font-semibold text-gray-700">Script</p>
+          <textarea
+            className="h-40 w-full rounded border border-gray-300 bg-white px-2 py-1.5 font-mono text-xs outline-none focus:border-violet-400"
+            placeholder={"# Ejemplo: calcular IVA en columna C\nPARA i EN 2..10: C{i} = B{i} * 0.21"}
+            value={block.script ?? ""}
+            onChange={(e) => {
+              setScriptErrors([])
+              onChange({ script: e.target.value || undefined })
+            }}
+          />
+          {scriptErrors.length > 0 && (
+            <div className="space-y-0.5">
+              {scriptErrors.map((err, i) => (
+                <p key={i} className="text-red-500 text-xs">
+                  Línea {err.line}: {err.message}
+                </p>
+              ))}
+            </div>
+          )}
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              className="rounded border border-violet-300 bg-violet-50 px-2 py-1 text-xs text-violet-700 hover:bg-violet-100"
+              onClick={runScript}
+            >
+              ▶ Ejecutar
+            </button>
+            <label className="flex items-center gap-1.5 text-xs text-gray-600 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                className="accent-violet-600"
+                checked={block.showScriptProcess ?? false}
+                onChange={(e) => onChange({ showScriptProcess: e.target.checked || undefined })}
+              />
+              Mostrar proceso al alumno
+            </label>
+          </div>
         </div>
       </div>
       <button
