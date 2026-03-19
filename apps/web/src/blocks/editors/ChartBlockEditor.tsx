@@ -202,6 +202,9 @@ export function ChartBlockEditor({
 
   const isHistogram = block.chartType === "histogram"
   const isScatter = block.chartType === "scatter"
+  const isTimeseries = block.chartType === "timeseries"
+  const isHierarchy = block.chartType === "treemap" || block.chartType === "sankey"
+  const isPyramid = block.chartType === "pyramid"
 
   return (
     <div className="flex gap-2">
@@ -233,6 +236,10 @@ export function ChartBlockEditor({
             <option value="radar">Radar</option>
             <option value="polar">Polar</option>
             <option value="boxplot">Boxplot</option>
+            <option value="timeseries">Serie temporal</option>
+            <option value="treemap">Mapa de árbol</option>
+            <option value="sankey">Diagrama de Sankey</option>
+            <option value="pyramid">Pirámide</option>
           </select>
         </div>
 
@@ -247,47 +254,186 @@ export function ChartBlockEditor({
           </p>
         )}
 
-        {/* Etiquetas (no para scatter ni histogram) */}
-        {!isScatter && !isHistogram && (
+        {/* Formato de fecha para timeseries */}
+        {isTimeseries && (
           <input
             className="w-full rounded-md border border-gray-300 px-3 py-1.5 text-xs"
-            placeholder="Etiquetas separadas por coma: Ene, Feb, Mar"
+            placeholder="Formato de fecha: DD/MM/YYYY"
+            value={block.dateFormat ?? ""}
+            onChange={(e) =>
+              onChange({ dateFormat: e.target.value || undefined })
+            }
+          />
+        )}
+
+        {/* Editor de jerarquía para treemap y sankey */}
+        {isHierarchy && (
+          <div className="space-y-2">
+            <p className="text-xs text-gray-400">
+              Las categorías padre agrupan las subcategorías.
+            </p>
+            <div className="rounded border border-gray-200 overflow-hidden">
+              <table className="w-full text-xs">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-2 py-1 text-left font-medium text-gray-500">Categoría padre</th>
+                    <th className="px-2 py-1 text-left font-medium text-gray-500">Subcategoría</th>
+                    <th className="px-2 py-1 text-left font-medium text-gray-500">Valor</th>
+                    <th className="px-2 py-1 w-8" />
+                  </tr>
+                </thead>
+                <tbody>
+                  {(block.hierarchy ?? []).flatMap((parent, pi) =>
+                    (parent.children ?? []).map((child, ci) => (
+                      <tr key={`${pi}-${ci}`} className="border-t border-gray-100">
+                        <td className="px-2 py-1">
+                          <input
+                            className="w-full rounded border border-gray-200 px-1 py-0.5 text-xs"
+                            value={parent.name}
+                            onChange={(e) => {
+                              const hierarchy = (block.hierarchy ?? []).map((p, pii) =>
+                                pii === pi ? { ...p, name: e.target.value } : p
+                              )
+                              onChange({ hierarchy })
+                            }}
+                          />
+                        </td>
+                        <td className="px-2 py-1">
+                          <input
+                            className="w-full rounded border border-gray-200 px-1 py-0.5 text-xs"
+                            value={child.name}
+                            onChange={(e) => {
+                              const hierarchy = (block.hierarchy ?? []).map((p, pii) =>
+                                pii !== pi
+                                  ? p
+                                  : {
+                                      ...p,
+                                      children: (p.children ?? []).map((c, cii) =>
+                                        cii === ci ? { ...c, name: e.target.value } : c
+                                      ),
+                                    }
+                              )
+                              onChange({ hierarchy })
+                            }}
+                          />
+                        </td>
+                        <td className="px-2 py-1">
+                          <input
+                            type="number"
+                            className="w-20 rounded border border-gray-200 px-1 py-0.5 text-xs"
+                            value={child.value}
+                            onChange={(e) => {
+                              const hierarchy = (block.hierarchy ?? []).map((p, pii) =>
+                                pii !== pi
+                                  ? p
+                                  : {
+                                      ...p,
+                                      children: (p.children ?? []).map((c, cii) =>
+                                        cii === ci
+                                          ? { ...c, value: Number(e.target.value) || 0 }
+                                          : c
+                                      ),
+                                    }
+                              )
+                              onChange({ hierarchy })
+                            }}
+                          />
+                        </td>
+                        <td className="px-2 py-1">
+                          <button
+                            type="button"
+                            className="rounded border border-red-200 bg-red-50 px-1 py-0.5 text-xs text-red-600 hover:bg-red-100"
+                            onClick={() => {
+                              let hierarchy = (block.hierarchy ?? []).map((p, pii) =>
+                                pii !== pi
+                                  ? p
+                                  : {
+                                      ...p,
+                                      children: (p.children ?? []).filter((_, cii) => cii !== ci),
+                                    }
+                              )
+                              hierarchy = hierarchy.filter((p) => (p.children ?? []).length > 0)
+                              onChange({ hierarchy })
+                            }}
+                          >
+                            ✕
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+            <button
+              type="button"
+              className="rounded-md border border-gray-300 px-2 py-1 text-xs hover:bg-gray-50"
+              onClick={() => {
+                const hierarchy = block.hierarchy ?? []
+                onChange({
+                  hierarchy: [
+                    ...hierarchy,
+                    { name: "Padre", children: [{ name: "Hijo", value: 0 }] },
+                  ],
+                })
+              }}
+            >
+              + Agregar fila
+            </button>
+          </div>
+        )}
+
+        {/* Etiquetas (no para scatter, histogram, treemap, sankey) */}
+        {!isScatter && !isHistogram && !isHierarchy && (
+          <input
+            className="w-full rounded-md border border-gray-300 px-3 py-1.5 text-xs"
+            placeholder={
+              isPyramid
+                ? "Niveles de abajo hacia arriba: Base, Medio, Cima"
+                : isTimeseries
+                ? "Fechas separadas por coma: 01/01/2024, 01/02/2024"
+                : "Etiquetas separadas por coma: Ene, Feb, Mar"
+            }
             value={labelsInput}
             onChange={(e) => setLabelsInput(e.target.value)}
             onBlur={handleLabelsBlur}
           />
         )}
 
-        {/* Datasets */}
-        {isScatter
-          ? data.datasets.map((ds, di) => (
-              <ScatterDatasetRow
-                key={di}
-                ds={ds}
-                di={di}
-                onUpdate={updateDataset}
-                onRemove={removeDataset}
-              />
-            ))
-          : data.datasets.map((ds, di) => (
-              <DatasetRow
-                key={di}
-                ds={ds}
-                di={di}
-                onUpdate={updateDataset}
-                onRemove={removeDataset}
-              />
-            ))}
+        {/* Datasets (no para treemap ni sankey) */}
+        {!isHierarchy && (
+          <>
+            {isScatter
+              ? data.datasets.map((ds, di) => (
+                  <ScatterDatasetRow
+                    key={di}
+                    ds={ds}
+                    di={di}
+                    onUpdate={updateDataset}
+                    onRemove={removeDataset}
+                  />
+                ))
+              : data.datasets.map((ds, di) => (
+                  <DatasetRow
+                    key={di}
+                    ds={ds}
+                    di={di}
+                    onUpdate={updateDataset}
+                    onRemove={removeDataset}
+                  />
+                ))}
 
-        {/* Agregar serie (no para histogram) */}
-        {!isHistogram && (
-          <button
-            type="button"
-            className="rounded-md border border-gray-300 px-2 py-1 text-xs hover:bg-gray-50"
-            onClick={addDataset}
-          >
-            + Serie
-          </button>
+            {/* Agregar serie (no para histogram ni pyramid) */}
+            {!isHistogram && !isPyramid && (
+              <button
+                type="button"
+                className="rounded-md border border-gray-300 px-2 py-1 text-xs hover:bg-gray-50"
+                onClick={addDataset}
+              >
+                + Serie
+              </button>
+            )}
+          </>
         )}
 
         {/* Opciones estadísticas */}
