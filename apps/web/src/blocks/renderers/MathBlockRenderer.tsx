@@ -31,9 +31,10 @@ export function MathBlockRenderer({ block }: Props) {
     title,
   } = block
 
-  const { chartData, errors } = useMemo(() => {
+  const { chartData, errors, computedYDomain } = useMemo(() => {
     const errors: Record<string, string> = {}
     const points: Record<string, number | null>[] = []
+    const allValidValues: number[] = []
 
     for (let i = 0; i <= samples; i++) {
       const x = xMin + (i / samples) * (xMax - xMin)
@@ -43,7 +44,13 @@ export function MathBlockRenderer({ block }: Props) {
         try {
           const result: unknown = evaluate(fn.expression, { x })
           if (typeof result === "number" && isFinite(result) && !isNaN(result)) {
-            point[fn.id] = result
+            // Filter discontinuity spikes (e.g. tan near π/2 + nπ)
+            if (Math.abs(result) > 1000) {
+              point[fn.id] = null
+            } else {
+              point[fn.id] = result
+              allValidValues.push(result)
+            }
           } else {
             point[fn.id] = null
           }
@@ -58,11 +65,24 @@ export function MathBlockRenderer({ block }: Props) {
       points.push(point)
     }
 
-    return { chartData: points, errors }
+    // Compute Y domain from percentile 5–95 to avoid outlier-induced flattening
+    let computedYDomain: [number, number] | null = null
+    if (allValidValues.length > 1) {
+      const sorted = [...allValidValues].sort((a, b) => a - b)
+      const p5 = sorted[Math.max(0, Math.floor(sorted.length * 0.05))]
+      const p95 = sorted[Math.min(sorted.length - 1, Math.ceil(sorted.length * 0.95) - 1)]
+      if (p5 !== p95) computedYDomain = [p5, p95]
+    }
+
+    return { chartData: points, errors, computedYDomain }
   }, [functions, xMin, xMax, samples])
 
   const yDomain: [number | "auto", number | "auto"] =
-    yMin !== undefined && yMax !== undefined ? [yMin, yMax] : ["auto", "auto"]
+    yMin !== undefined && yMax !== undefined
+      ? [yMin, yMax]
+      : computedYDomain !== null
+      ? computedYDomain
+      : ["auto", "auto"]
 
   return (
     <div>

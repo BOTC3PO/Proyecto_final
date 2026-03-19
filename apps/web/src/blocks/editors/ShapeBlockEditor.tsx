@@ -39,7 +39,6 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
 
   const handleCollectionChange = (col: ShapeBlock["collection"]) => {
     setActiveCollection(col)
-    onChange({ ...block, collection: col })
   }
 
   // ─── Palette → canvas drag-and-drop ──────────────────────────────────────
@@ -53,9 +52,15 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
     const shapeId = e.dataTransfer.getData("text/plain")
     if (!shapeId) return
     const rect = canvasRef.current?.getBoundingClientRect()
-    if (!rect) return
-    const x = Math.max(0, Math.min(e.clientX - rect.left - 30, width - 60))
-    const y = Math.max(0, Math.min(e.clientY - rect.top - 30, height - 60))
+    let x: number
+    let y: number
+    if (rect && (e.clientX !== 0 || e.clientY !== 0)) {
+      x = Math.max(0, Math.min(e.clientX - rect.left - 30, width - 60))
+      y = Math.max(0, Math.min(e.clientY - rect.top - 30, height - 60))
+    } else {
+      x = 20 + block.items.length * 70
+      y = 20 + (block.items.length % 3) * 70
+    }
     const newItem: ShapeItem = { id: crypto.randomUUID(), shapeId, x, y }
     onChange({ ...block, items: [...block.items, newItem] })
   }
@@ -377,9 +382,9 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
 
           {/* Shape items */}
           {block.items.map((item) => {
-            const shape = COLLECTIONS[block.collection].shapes.find(
-              (s) => s.id === item.shapeId
-            )
+            const shape = Object.values(COLLECTIONS)
+              .flatMap((col) => col.shapes)
+              .find((s) => s.id === item.shapeId)
             if (!shape) return null
             const isSelected = item.id === selectedItemId
             const isConnectingFrom = item.id === connectingFromId
