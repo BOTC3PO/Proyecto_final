@@ -31,6 +31,7 @@ export type TableBlock = {
   title?: string
   headers: string[]
   rows: (string | number)[][]
+  formulas?: Record<string, string> // clave: "A1", "B3", etc. valor: "=SUMA(A1:A5)"
 }
 
 export type ChartBlock = {
@@ -98,10 +99,11 @@ export type ShapeBlock = {
   id: string
   type: "shape"
   title?: string
-  collection: "fisica" | "electrica" | "logica"
+  collection: "basica" | "fisica" | "electrica" | "logica"
   canvasWidth?: number   // default 800
   canvasHeight?: number  // default 500
   items: ShapeItem[]
+  connectors?: ShapeConnector[]
 }
 
 export type ShapeItem = {
@@ -111,4 +113,13 @@ export type ShapeItem = {
   y: number
   label?: string
   rotation?: number      // grados, default 0
+  color?: string
+}
+
+export type ShapeConnector = {
+  id: string
+  fromId: string
+  toId: string
+  label?: string
+  style?: "solid" | "dashed" | "arrow"
 }
