@@ -120,6 +120,7 @@ const buildTheoryTypes = (supportsTuesdayJs: boolean, disabledReason: string): T
   { value: "Libro", label: "Libro" },
   { value: "Documento", label: "Documento" },
   { value: "Herramienta", label: "Herramienta interactiva" },
+  { value: "HerramientaStandalone", label: "Herramienta standalone" },
   {
     value: "TuesdayJS",
     label: "TuesdayJS",

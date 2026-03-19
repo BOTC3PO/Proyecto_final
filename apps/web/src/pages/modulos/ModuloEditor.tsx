@@ -19,6 +19,7 @@ import {
   isTuesdayType,
   isPresentationType,
   isHerramientaType,
+  isHerramientaStandaloneType,
   type BookResult,
   type TuesdayResult,
 } from "./useModuloEditor";
@@ -495,6 +496,21 @@ export default function ModuloEditor() {
                         </span>
                       )}
                     </div>
+                  ) : isHerramientaStandaloneType(newTheoryItem.type) ? (
+                    <div className="space-y-1.5">
+                      <select
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-500"
+                        value={newTheoryItem.detail}
+                        onChange={(event) =>
+                          setNewTheoryItem((prev) => ({ ...prev, detail: event.target.value }))
+                        }
+                      >
+                        <option value="">Seleccionar herramienta...</option>
+                      </select>
+                      <p className="text-xs text-slate-400 italic">
+                        Esta herramienta estará disponible próximamente.
+                      </p>
+                    </div>
                   ) : isVideoType(newTheoryItem.type) ? (
                     <div className="space-y-1">
                       <input
@@ -692,6 +708,21 @@ export default function ModuloEditor() {
                                         : `ID: ${item.detail.slice(0, 8)}…`}
                                     </span>
                                   )}
+                                </div>
+                              ) : isHerramientaStandaloneType(item.type) ? (
+                                <div className="space-y-1.5">
+                                  <select
+                                    className="w-full rounded-md border border-gray-300 px-2 py-2 text-xs text-gray-500"
+                                    value={item.detail === "Sin detalle adicional." ? "" : item.detail}
+                                    onChange={(event) =>
+                                      updateTheoryItem(item.id, { detail: event.target.value })
+                                    }
+                                  >
+                                    <option value="">Seleccionar herramienta...</option>
+                                  </select>
+                                  <p className="text-xs text-slate-400 italic">
+                                    Esta herramienta estará disponible próximamente.
+                                  </p>
                                 </div>
                               ) : (
                                 <textarea
