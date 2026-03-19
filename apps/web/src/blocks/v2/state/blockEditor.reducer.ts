@@ -66,6 +66,17 @@ function createDefaultBlock(blockType: Block["type"]): Block {
           { id: "e2", fromId: "n2", toId: "n3" },
         ],
       };
+    case "math":
+      return {
+        id,
+        type: "math",
+        functions: [{ id: crypto.randomUUID(), expression: "sin(x)", color: "#2563eb" }],
+        xMin: -10,
+        xMax: 10,
+        samples: 400,
+        showGrid: true,
+        showLegend: true,
+      };
     default: {
       const _never: never = blockType;
       return _never;
