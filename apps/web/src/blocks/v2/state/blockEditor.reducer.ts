@@ -77,6 +77,15 @@ function createDefaultBlock(blockType: Block["type"]): Block {
         showGrid: true,
         showLegend: true,
       };
+    case "shape":
+      return {
+        id,
+        type: "shape",
+        collection: "fisica" as const,
+        canvasWidth: 800,
+        canvasHeight: 500,
+        items: [],
+      };
     default: {
       const _never: never = blockType;
       return _never;

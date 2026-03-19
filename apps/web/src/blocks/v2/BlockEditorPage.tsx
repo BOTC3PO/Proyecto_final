@@ -26,6 +26,7 @@ import type {
   FlowBlock,
   LatexBlock,
   MathBlock,
+  ShapeBlock,
   TableBlock,
   TextBlock,
 } from "../types";
@@ -36,7 +37,9 @@ import { TableBlockRenderer } from "../renderers/TableBlockRenderer";
 import { ChartBlockRenderer } from "../renderers/ChartBlockRenderer";
 import { FlowBlockRenderer } from "../renderers/FlowBlockRenderer";
 import { MathBlockRenderer } from "../renderers/MathBlockRenderer";
-import { FunctionSquare } from "lucide-react";
+import { ShapeBlockRenderer } from "../renderers/ShapeBlockRenderer";
+import { ShapeBlockEditor } from "../editors/ShapeBlockEditor";
+import { FunctionSquare, Shapes } from "lucide-react";
 
 import { useBlockEditor } from "./state/useBlockEditor";
 import { fetchBlockDocument, saveBlockDocument } from "./services/blocksApi";
@@ -70,6 +73,8 @@ function blockIcon(type: Block["type"]): string {
       return "⬡";
     case "math":
       return "f";
+    case "shape":
+      return "◈";
     default:
       return "·";
   }
@@ -89,6 +94,8 @@ function blockTypeName(type: Block["type"]): string {
       return "Flujo";
     case "math":
       return "Función f(x)";
+    case "shape":
+      return "Formas";
     default:
       return type;
   }
@@ -112,6 +119,10 @@ function blockPreview(block: Block): string {
       return block.title
         ? block.title.slice(0, 30)
         : block.functions.map((f) => f.expression).join(", ").slice(0, 30) || "(vacío)";
+    case "shape":
+      return block.title
+        ? block.title.slice(0, 30)
+        : block.collection;
     default:
       return "";
   }
@@ -873,6 +884,8 @@ function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument 
       return <FlowBlockRenderer block={block} />;
     case "math":
       return <MathBlockRenderer block={block} />;
+    case "shape":
+      return <ShapeBlockRenderer block={block} />;
     default:
       return <div className="text-xs text-gray-400">Bloque desconocido</div>;
   }
@@ -1287,13 +1300,14 @@ export default function BlockEditorPage({
 
   // ─── Render ──────────────────────────────────────────────────────────────────
 
-  const BLOCK_TYPES: Array<{ type: Block["type"]; label: string }> = [
+  const BLOCK_TYPES: Array<{ type: Block["type"]; label: string; icon?: React.ReactNode }> = [
     { type: "text", label: "Texto" },
     { type: "latex", label: "LaTeX" },
     { type: "table", label: "Tabla" },
     { type: "chart", label: "Gráfico" },
     { type: "flow", label: "Flujo" },
     { type: "math", label: "Función f(x)" },
+    { type: "shape", label: "Formas", icon: <Shapes size={14} className="text-indigo-500 flex-shrink-0" /> },
   ];
 
   return (
@@ -1442,7 +1456,7 @@ export default function BlockEditorPage({
               </button>
               {showAddMenu && (
                 <div className="absolute top-7 right-0 z-30 w-36 bg-white border border-gray-200 rounded-lg shadow-lg py-1">
-                  {BLOCK_TYPES.map(({ type, label }) => (
+                  {BLOCK_TYPES.map(({ type, label, icon }) => (
                     <button
                       key={type}
                       className="w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-slate-50 flex items-center gap-2"
@@ -1451,13 +1465,13 @@ export default function BlockEditorPage({
                         setShowAddMenu(false);
                       }}
                     >
-                      {type === "math" ? (
+                      {icon ?? (type === "math" ? (
                         <FunctionSquare size={14} className="text-indigo-500 flex-shrink-0" />
                       ) : (
                         <span className="font-mono text-indigo-500 w-4 text-center">
                           {blockIcon(type)}
                         </span>
-                      )}
+                      ))}
                       {label}
                     </button>
                   ))}
@@ -1648,6 +1662,24 @@ export default function BlockEditorPage({
                     onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
                   />
                 )}
+                {selectedBlock.type === "math" && (
+                  <MathInspector
+                    block={selectedBlock as MathBlock}
+                    onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                  />
+                )}
+                {selectedBlock.type === "shape" && (
+                  <ShapeBlockEditor
+                    block={selectedBlock as ShapeBlock}
+                    onChange={(updated) =>
+                      dispatch({
+                        type: "UPDATE_BLOCK",
+                        blockId: selectedBlock.id,
+                        patch: updated as unknown as Record<string, unknown>,
+                      })
+                    }
+                  />
+                )}
               </InspectorCard>
             ) : (
               /* ── No block selected: show document info + hint ── */
@@ -1660,16 +1692,6 @@ export default function BlockEditorPage({
                       value={title}
                       onChange={(e) => dispatch({ type: "UPDATE_TITLE", title: e.target.value })}
                     />
-                  )}
-                  {selectedBlock.type === "math" && (
-                    <MathInspector
-                      block={selectedBlock as MathBlock}
-                      onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
-                    />
-                  )}
-                </>
-              ) : (
-                <p className="text-xs text-slate-400 italic">
                   </div>
                 </InspectorCard>
                 <p className="text-xs text-slate-400 italic px-3 pt-4">
