@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Play } from "lucide-react";
+import { Play, Wrench } from "lucide-react";
 import { detailToPresentation } from "./TheorySlideEditor";
 import SlidePresenter from "./SlidePresenter";
 import { BlockRenderer } from "../../blocks/BlockRenderer";
@@ -35,6 +35,7 @@ function getTypeLabel(type: string): string {
     Nota: "Nota",
     Artículo: "Artículo",
     Herramienta: "Herramienta interactiva",
+    HerramientaStandalone: "Herramienta standalone",
     // English (backwards compat)
     book: "Libro",
     link: "Enlace",
@@ -51,6 +52,7 @@ const isNoteType = (t: string) =>
 const isPresentationType = (t: string) => t === "Presentación";
 const isTuesdayType = (t: string) => t === "TuesdayJS";
 const isHerramientaType = (t: string) => t === "Herramienta";
+const isHerramientaStandaloneType = (t: string) => t === "HerramientaStandalone";
 
 const isExternalUrl = (v: string) => v.startsWith("http://") || v.startsWith("https://");
 const isInternalLink = (v: string) => v.startsWith("/");
@@ -58,6 +60,22 @@ const isInternalLink = (v: string) => v.startsWith("/");
 export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProps) {
   const typeLabel = getTypeLabel(item.type);
   const [presenterOpen, setPresenterOpen] = useState(false);
+
+  // --- Herramienta standalone (placeholder) ---
+  if (isHerramientaStandaloneType(item.type)) {
+    return (
+      <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="flex items-center gap-2 mb-2">
+          <p className="text-xs uppercase tracking-wide text-slate-400">{typeLabel}</p>
+          <h4 className="ml-auto text-sm font-semibold text-slate-800">{item.title}</h4>
+        </div>
+        <div className="flex flex-col items-center gap-2 py-4 text-slate-400">
+          <Wrench size={24} className="opacity-40" />
+          <span className="text-sm">Herramienta no disponible aún</span>
+        </div>
+      </article>
+    );
+  }
 
   // --- Herramienta interactiva ---
   if (isHerramientaType(item.type)) {

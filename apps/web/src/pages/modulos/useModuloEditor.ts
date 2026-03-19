@@ -47,6 +47,7 @@ export const ensureQuizDefaults = (quiz: ModuleQuiz): ModuleQuiz => {
 };
 
 export const isTuesdayType = (t: string) => t === "TuesdayJS";
+export const isHerramientaStandaloneType = (t: string) => t === "HerramientaStandalone";
 export const isPresentationType = (t: string) => t === "Presentación";
 export const isHerramientaType = (t: string) => t === "Herramienta";
 export const isBookType = (t: string) => t === "book" || t === "Libro";

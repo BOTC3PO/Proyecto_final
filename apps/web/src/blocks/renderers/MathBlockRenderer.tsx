@@ -81,14 +81,15 @@ export function MathBlockRenderer({ block }: Props) {
           />
           <YAxis domain={yDomain} tick={{ fontSize: 10 }} />
           <Tooltip
-            formatter={(value: number, name: string) => {
-              const fn = functions.find((f) => f.id === name)
+            formatter={(value: unknown, name: unknown) => {
+              const num = Number(value)
+              const fn = functions.find((f) => f.id === String(name))
               return [
-                typeof value === "number" ? value.toFixed(4) : value,
-                fn?.label ?? fn?.expression ?? name,
-              ]
+                Number.isFinite(num) ? num.toFixed(4) : String(value),
+                fn?.label ?? fn?.expression ?? String(name),
+              ] as [string, string]
             }}
-            labelFormatter={(label: number) => `x = ${Number(label).toFixed(3)}`}
+            labelFormatter={(label: unknown) => `x = ${Number(label).toFixed(3)}`}
           />
           {showLegend && (
             <Legend
