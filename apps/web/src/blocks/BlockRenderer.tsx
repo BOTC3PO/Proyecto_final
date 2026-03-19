@@ -5,6 +5,7 @@ import { TableBlockRenderer } from "./renderers/TableBlockRenderer"
 import { ChartBlockRenderer } from "./renderers/ChartBlockRenderer"
 import { FlowBlockRenderer } from "./renderers/FlowBlockRenderer"
 import { MathBlockRenderer } from "./renderers/MathBlockRenderer"
+import { ShapeBlockRenderer } from "./renderers/ShapeBlockRenderer"
 
 interface Props {
   doc: BlockDocument
@@ -27,6 +28,8 @@ export function BlockRenderer({ doc }: Props) {
             return <FlowBlockRenderer key={block.id} block={block} />
           case "math":
             return <MathBlockRenderer key={block.id} block={block} />
+          case "shape":
+            return <ShapeBlockRenderer key={block.id} block={block} />
           default:
             return <div key={(block as { id: string }).id} />
         }

@@ -10,6 +10,7 @@ export type Block =
   | ChartBlock
   | FlowBlock
   | MathBlock
+  | ShapeBlock
 
 export type TextBlock = {
   id: string
@@ -91,4 +92,23 @@ export type MathBlock = {
   samples?: number  // puntos a evaluar, default 400
   showGrid?: boolean
   showLegend?: boolean
+}
+
+export type ShapeBlock = {
+  id: string
+  type: "shape"
+  title?: string
+  collection: "fisica" | "electrica" | "logica"
+  canvasWidth?: number   // default 800
+  canvasHeight?: number  // default 500
+  items: ShapeItem[]
+}
+
+export type ShapeItem = {
+  id: string
+  shapeId: string        // clave de la forma en la coleccion, ej: "resistencia"
+  x: number
+  y: number
+  label?: string
+  rotation?: number      // grados, default 0
 }
