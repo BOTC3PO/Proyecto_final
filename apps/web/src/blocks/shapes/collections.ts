@@ -1,5 +1,55 @@
 import type { ShapeBlock } from "../types"
 
+// ─── Básica ───────────────────────────────────────────────────────────────────
+
+const basicaShapes: ShapeDef[] = [
+  {
+    id: "rectangulo",
+    label: "Rectángulo",
+    svg: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="14" width="52" height="32" rx="2" fill="#e2e8f0" stroke="#1e293b" stroke-width="2"/>
+  <text x="30" y="33" font-size="9" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" font-family="sans-serif">texto</text>
+</svg>`,
+  },
+  {
+    id: "elipse",
+    label: "Elipse",
+    svg: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="30" cy="30" rx="27" ry="18" fill="#e2e8f0" stroke="#1e293b" stroke-width="2"/>
+  <text x="30" y="30" font-size="9" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" font-family="sans-serif">texto</text>
+</svg>`,
+  },
+  {
+    id: "rombo",
+    label: "Rombo",
+    svg: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="30,4 56,30 30,56 4,30" fill="#e2e8f0" stroke="#1e293b" stroke-width="2"/>
+  <text x="30" y="30" font-size="9" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" font-family="sans-serif">texto</text>
+</svg>`,
+  },
+  {
+    id: "triangulo",
+    label: "Triángulo",
+    svg: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="30,4 57,56 3,56" fill="#e2e8f0" stroke="#1e293b" stroke-width="2"/>
+</svg>`,
+  },
+  {
+    id: "flecha_derecha",
+    label: "Flecha →",
+    svg: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="4,22 40,22 40,12 56,30 40,48 40,38 4,38" fill="#93c5fd" stroke="#1e293b" stroke-width="1.5"/>
+</svg>`,
+  },
+  {
+    id: "flecha_abajo",
+    label: "Flecha ↓",
+    svg: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="22,4 22,40 12,40 30,56 48,40 38,40 38,4" fill="#93c5fd" stroke="#1e293b" stroke-width="1.5"/>
+</svg>`,
+  },
+]
+
 export type ShapeDef = {
   id: string
   label: string
@@ -212,6 +262,11 @@ const logicaShapes: ShapeDef[] = [
 // ─── Export ───────────────────────────────────────────────────────────────────
 
 export const COLLECTIONS: Record<ShapeBlock["collection"], CollectionDef> = {
+  basica: {
+    id: "basica",
+    label: "Básica",
+    shapes: basicaShapes,
+  },
   fisica: {
     id: "fisica",
     label: "Física",
