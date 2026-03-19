@@ -619,7 +619,14 @@ export function ChartBlockRenderer({ block, doc }: Props) {
   }
 
   // ── Common: no data guard ────────────────────────────────────────────────
-  if (chartData.length === 0) {
+  // treemap, sankey and pyramid use block.hierarchy / block.data directly and
+  // have their own empty-state handling — skip this guard for those types.
+  if (
+    chartData.length === 0 &&
+    block.chartType !== "treemap" &&
+    block.chartType !== "sankey" &&
+    block.chartType !== "pyramid"
+  ) {
     return (
       <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
         Sin datos
