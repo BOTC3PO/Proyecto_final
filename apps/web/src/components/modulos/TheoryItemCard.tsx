@@ -5,6 +5,10 @@ import { detailToPresentation } from "./TheorySlideEditor";
 import SlidePresenter from "./SlidePresenter";
 import { BlockRenderer } from "../../blocks/BlockRenderer";
 import { deserializeBlockDocument } from "../../blocks/utils";
+import { parseStandaloneConfig } from "./standalone/types";
+import TablaPeriodica from "./standalone/TablaPeriodica";
+import { EscaladorRecetas } from "./standalone/EscaladorRecetas";
+import { LineaTiempo } from "./standalone/LineaTiempo";
 
 // All supported theory item types (old English + new Spanish + catch-all string)
 export type TheoryItemType = string;
@@ -61,18 +65,29 @@ export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProp
   const typeLabel = getTypeLabel(item.type);
   const [presenterOpen, setPresenterOpen] = useState(false);
 
-  // --- Herramienta standalone (placeholder) ---
+  // --- Herramienta standalone ---
   if (isHerramientaStandaloneType(item.type)) {
+    const config = parseStandaloneConfig(item.detail);
+    if (!config) {
+      return (
+        <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="flex items-center gap-2 mb-2">
+            <p className="text-xs uppercase tracking-wide text-slate-400">{typeLabel}</p>
+            <h4 className="ml-auto text-sm font-semibold text-slate-800">{item.title}</h4>
+          </div>
+          <div className="flex flex-col items-center gap-2 py-4 text-slate-400">
+            <Wrench size={24} className="opacity-40" />
+            <span className="text-sm">Herramienta no configurada</span>
+          </div>
+        </article>
+      );
+    }
     return (
       <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-        <div className="flex items-center gap-2 mb-2">
-          <p className="text-xs uppercase tracking-wide text-slate-400">{typeLabel}</p>
-          <h4 className="ml-auto text-sm font-semibold text-slate-800">{item.title}</h4>
-        </div>
-        <div className="flex flex-col items-center gap-2 py-4 text-slate-400">
-          <Wrench size={24} className="opacity-40" />
-          <span className="text-sm">Herramienta no disponible aún</span>
-        </div>
+        <p className="text-xs uppercase tracking-wide text-slate-400 mb-3">{item.title}</p>
+        {config.tool === "tabla-periodica" && <TablaPeriodica />}
+        {config.tool === "escalador-recetas" && <EscaladorRecetas config={config} />}
+        {config.tool === "linea-tiempo" && <LineaTiempo config={config} />}
       </article>
     );
   }
