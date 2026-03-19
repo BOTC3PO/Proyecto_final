@@ -9,6 +9,7 @@ export type Block =
   | TableBlock
   | ChartBlock
   | FlowBlock
+  | MathBlock
 
 export type TextBlock = {
   id: string
@@ -71,4 +72,23 @@ export type FlowBlock = {
     toId: string
     label?: string
   }[]
+}
+
+export type MathBlock = {
+  id: string
+  type: "math"
+  title?: string
+  functions: {
+    id: string
+    expression: string // ej: "sin(x)", "x^2 - 2*x + 1"
+    label?: string
+    color?: string
+  }[]
+  xMin: number
+  xMax: number
+  yMin?: number  // si undefined, se calcula automáticamente
+  yMax?: number
+  samples?: number  // puntos a evaluar, default 400
+  showGrid?: boolean
+  showLegend?: boolean
 }

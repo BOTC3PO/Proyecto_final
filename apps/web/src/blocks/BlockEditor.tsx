@@ -1,7 +1,8 @@
 import { useCallback } from "react"
-import type { BlockDocument, Block, TextBlock, LatexBlock, TableBlock, ChartBlock, FlowBlock } from "./types"
+import type { BlockDocument, Block, TextBlock, LatexBlock, TableBlock, ChartBlock, FlowBlock, MathBlock } from "./types"
 import { createEmptyBlockDocument } from "./utils"
 import { ChartBlockEditor } from "./editors/ChartBlockEditor"
+import { MathBlockEditor } from "./editors/MathBlockEditor"
 import { FlowBlockEditor } from "./editors/FlowBlockEditor"
 
 interface Props {
@@ -223,6 +224,17 @@ export function BlockEditor({ value, onChange }: Props) {
       block = { id: crypto.randomUUID(), type: "chart", chartType: "bar", data: { labels: [], datasets: [] } } satisfies ChartBlock
     } else if (type === "flow") {
       block = { id: crypto.randomUUID(), type: "flow", nodes: [], edges: [] } satisfies FlowBlock
+    } else if (type === "math") {
+      block = {
+        id: crypto.randomUUID(),
+        type: "math",
+        functions: [{ id: crypto.randomUUID(), expression: "sin(x)", color: "#2563eb" }],
+        xMin: -10,
+        xMax: 10,
+        samples: 400,
+        showGrid: true,
+        showLegend: true,
+      } satisfies MathBlock
     } else {
       return
     }
@@ -244,7 +256,9 @@ export function BlockEditor({ value, onChange }: Props) {
               ? "Tabla"
               : block.type === "chart"
               ? "Gráfico"
-              : "Flujo"
+              : block.type === "flow"
+              ? "Flujo"
+              : "Función f(x)"
           return (
             <div key={block.id} className="rounded-md border border-gray-200 bg-white p-3 space-y-1">
               <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400">{label}</p>
@@ -278,6 +292,12 @@ export function BlockEditor({ value, onChange }: Props) {
                   onChange={(patch) => handleUpdate(block.id, patch)}
                   onRemove={() => handleRemove(block.id)}
                 />
+              ) : block.type === "math" ? (
+                <MathBlockEditor
+                  block={block as MathBlock}
+                  onChange={(patch) => handleUpdate(block.id, patch as Partial<Block>)}
+                  onRemove={() => handleRemove(block.id)}
+                />
               ) : null}
             </div>
           )
@@ -285,14 +305,14 @@ export function BlockEditor({ value, onChange }: Props) {
       )}
       <div className="flex flex-wrap gap-2">
         <span className="text-xs text-gray-400 self-center">Agregar:</span>
-        {(["text", "latex", "table", "chart", "flow"] as const).map((t) => (
+        {(["text", "latex", "table", "chart", "flow", "math"] as const).map((t) => (
           <button
             key={t}
             type="button"
             className="rounded-md border border-gray-300 px-2.5 py-1 text-xs hover:bg-gray-50"
             onClick={() => handleAdd(t)}
           >
-            {t === "text" ? "Texto" : t === "latex" ? "LaTeX" : t === "table" ? "Tabla" : t === "chart" ? "Gráfico" : "Flujo"}
+            {t === "text" ? "Texto" : t === "latex" ? "LaTeX" : t === "table" ? "Tabla" : t === "chart" ? "Gráfico" : t === "flow" ? "Flujo" : "Función f(x)"}
           </button>
         ))}
       </div>

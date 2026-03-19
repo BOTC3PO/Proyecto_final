@@ -25,6 +25,7 @@ import type {
   ChartBlock,
   FlowBlock,
   LatexBlock,
+  MathBlock,
   TableBlock,
   TextBlock,
 } from "../types";
@@ -34,6 +35,8 @@ import { LatexBlockRenderer } from "../renderers/LatexBlockRenderer";
 import { TableBlockRenderer } from "../renderers/TableBlockRenderer";
 import { ChartBlockRenderer } from "../renderers/ChartBlockRenderer";
 import { FlowBlockRenderer } from "../renderers/FlowBlockRenderer";
+import { MathBlockRenderer } from "../renderers/MathBlockRenderer";
+import { FunctionSquare } from "lucide-react";
 
 import { useBlockEditor } from "./state/useBlockEditor";
 import { fetchBlockDocument, saveBlockDocument } from "./services/blocksApi";
@@ -65,6 +68,8 @@ function blockIcon(type: Block["type"]): string {
       return "▦";
     case "flow":
       return "⬡";
+    case "math":
+      return "f";
     default:
       return "·";
   }
@@ -82,6 +87,8 @@ function blockTypeName(type: Block["type"]): string {
       return "Gráfico";
     case "flow":
       return "Flujo";
+    case "math":
+      return "Función f(x)";
     default:
       return type;
   }
@@ -101,6 +108,10 @@ function blockPreview(block: Block): string {
       return block.title ? block.title.slice(0, 30) : `Gráfico ${block.chartType}`;
     case "flow":
       return block.title ? block.title.slice(0, 30) : `${block.nodes.length} nodos`;
+    case "math":
+      return block.title
+        ? block.title.slice(0, 30)
+        : block.functions.map((f) => f.expression).join(", ").slice(0, 30) || "(vacío)";
     default:
       return "";
   }
@@ -689,6 +700,163 @@ function FlowInspector({
   );
 }
 
+// ─── Math inspector ───────────────────────────────────────────────────────────
+
+function MathInspector({
+  block,
+  onUpdate,
+}: {
+  block: MathBlock;
+  onUpdate: (patch: Record<string, unknown>) => void;
+}) {
+  const addFunction = () => {
+    onUpdate({
+      functions: [
+        ...block.functions,
+        { id: crypto.randomUUID(), expression: "", color: "#2563eb" },
+      ],
+    });
+  };
+
+  const removeFunction = (id: string) => {
+    onUpdate({ functions: block.functions.filter((f) => f.id !== id) });
+  };
+
+  const updateFunction = (id: string, patch: Partial<MathBlock["functions"][number]>) => {
+    onUpdate({
+      functions: block.functions.map((f) => (f.id === id ? { ...f, ...patch } : f)),
+    });
+  };
+
+  return (
+    <div className="space-y-2">
+      <div>
+        <label className="text-xs font-medium text-gray-600 block mb-1">Título</label>
+        <input
+          className={inputCls}
+          value={block.title ?? ""}
+          onChange={(e) => onUpdate({ title: e.target.value || undefined })}
+          placeholder="Título del gráfico"
+        />
+      </div>
+
+      <div className="grid grid-cols-2 gap-1">
+        <div>
+          <label className="text-xs font-medium text-gray-600 block mb-1">x mín</label>
+          <input
+            type="number"
+            className={inputCls}
+            value={block.xMin}
+            onChange={(e) => onUpdate({ xMin: Number(e.target.value) })}
+          />
+        </div>
+        <div>
+          <label className="text-xs font-medium text-gray-600 block mb-1">x máx</label>
+          <input
+            type="number"
+            className={inputCls}
+            value={block.xMax}
+            onChange={(e) => onUpdate({ xMax: Number(e.target.value) })}
+          />
+        </div>
+        <div>
+          <label className="text-xs font-medium text-gray-600 block mb-1">y mín</label>
+          <input
+            type="number"
+            className={inputCls}
+            placeholder="auto"
+            value={block.yMin ?? ""}
+            onChange={(e) =>
+              onUpdate({ yMin: e.target.value === "" ? undefined : Number(e.target.value) })
+            }
+          />
+        </div>
+        <div>
+          <label className="text-xs font-medium text-gray-600 block mb-1">y máx</label>
+          <input
+            type="number"
+            className={inputCls}
+            placeholder="auto"
+            value={block.yMax ?? ""}
+            onChange={(e) =>
+              onUpdate({ yMax: e.target.value === "" ? undefined : Number(e.target.value) })
+            }
+          />
+        </div>
+      </div>
+
+      <div>
+        <label className="text-xs font-medium text-gray-600 block mb-1">Muestras</label>
+        <input
+          type="number"
+          className={inputCls}
+          min={10}
+          max={2000}
+          value={block.samples ?? 400}
+          onChange={(e) => onUpdate({ samples: Number(e.target.value) })}
+        />
+      </div>
+
+      <label className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={block.showGrid ?? true}
+          onChange={(e) => onUpdate({ showGrid: e.target.checked })}
+        />
+        Cuadrícula
+      </label>
+      <label className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={block.showLegend ?? true}
+          onChange={(e) => onUpdate({ showLegend: e.target.checked })}
+        />
+        Leyenda
+      </label>
+
+      <div>
+        <div className="flex items-center justify-between mb-1">
+          <label className="text-xs font-medium text-gray-600">Funciones</label>
+          <button
+            onClick={addFunction}
+            className="text-xs px-1.5 py-0.5 border border-gray-200 bg-white text-gray-700 hover:bg-slate-50 rounded"
+          >
+            + Agregar
+          </button>
+        </div>
+        <div className="space-y-1 max-h-48 overflow-y-auto">
+          {block.functions.map((fn) => (
+            <div key={fn.id} className="flex items-center gap-1 text-xs">
+              <input
+                className="flex-1 border border-slate-200 rounded px-1 py-0.5 focus:outline-none text-xs"
+                placeholder="sin(x)"
+                value={fn.expression}
+                onChange={(e) => updateFunction(fn.id, { expression: e.target.value })}
+              />
+              <input
+                type="color"
+                className="h-5 w-6 rounded border border-slate-200 cursor-pointer"
+                value={fn.color ?? "#2563eb"}
+                onChange={(e) => updateFunction(fn.id, { color: e.target.value })}
+              />
+              <button
+                onClick={() => removeFunction(fn.id)}
+                className="text-red-400 hover:text-red-600 px-1"
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="rounded-lg border border-slate-100 bg-slate-50 p-2">
+        <MathBlockRenderer block={block} />
+      </div>
+    </div>
+  );
+}
+
 // ─── Single block renderer for canvas ────────────────────────────────────────
 
 function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument }) {
@@ -703,6 +871,8 @@ function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument 
       return <ChartBlockRenderer block={block} doc={doc} />;
     case "flow":
       return <FlowBlockRenderer block={block} />;
+    case "math":
+      return <MathBlockRenderer block={block} />;
     default:
       return <div className="text-xs text-gray-400">Bloque desconocido</div>;
   }
@@ -1123,6 +1293,7 @@ export default function BlockEditorPage({
     { type: "table", label: "Tabla" },
     { type: "chart", label: "Gráfico" },
     { type: "flow", label: "Flujo" },
+    { type: "math", label: "Función f(x)" },
   ];
 
   return (
@@ -1280,9 +1451,13 @@ export default function BlockEditorPage({
                         setShowAddMenu(false);
                       }}
                     >
-                      <span className="font-mono text-indigo-500 w-4 text-center">
-                        {blockIcon(type)}
-                      </span>
+                      {type === "math" ? (
+                        <FunctionSquare size={14} className="text-indigo-500 flex-shrink-0" />
+                      ) : (
+                        <span className="font-mono text-indigo-500 w-4 text-center">
+                          {blockIcon(type)}
+                        </span>
+                      )}
                       {label}
                     </button>
                   ))}
@@ -1485,6 +1660,16 @@ export default function BlockEditorPage({
                       value={title}
                       onChange={(e) => dispatch({ type: "UPDATE_TITLE", title: e.target.value })}
                     />
+                  )}
+                  {selectedBlock.type === "math" && (
+                    <MathInspector
+                      block={selectedBlock as MathBlock}
+                      onUpdate={(patch) => handleBlockUpdate(selectedBlock.id, patch)}
+                    />
+                  )}
+                </>
+              ) : (
+                <p className="text-xs text-slate-400 italic">
                   </div>
                 </InspectorCard>
                 <p className="text-xs text-slate-400 italic px-3 pt-4">
