@@ -39,7 +39,6 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
 
   const handleCollectionChange = (col: ShapeBlock["collection"]) => {
     setActiveCollection(col)
-    onChange({ ...block, collection: col })
   }
 
   // ─── Palette → canvas drag-and-drop ──────────────────────────────────────
@@ -383,9 +382,9 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
 
           {/* Shape items */}
           {block.items.map((item) => {
-            const shape = COLLECTIONS[block.collection].shapes.find(
-              (s) => s.id === item.shapeId
-            )
+            const shape = Object.values(COLLECTIONS)
+              .flatMap((col) => col.shapes)
+              .find((s) => s.id === item.shapeId)
             if (!shape) return null
             const isSelected = item.id === selectedItemId
             const isConnectingFrom = item.id === connectingFromId
