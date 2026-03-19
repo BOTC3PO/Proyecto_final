@@ -23,6 +23,9 @@ import {
   type BookResult,
   type TuesdayResult,
 } from "./useModuloEditor";
+import { STANDALONE_TOOLS, parseStandaloneConfig, type RecetaConfig, type LineaTiempoConfig } from "../../components/modulos/standalone/types";
+import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
+import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
 
 const SUBJECT_OPTIONS = Object.keys(MODULE_SUBJECT_CAPABILITIES);
 
@@ -497,19 +500,61 @@ export default function ModuloEditor() {
                       )}
                     </div>
                   ) : isHerramientaStandaloneType(newTheoryItem.type) ? (
-                    <div className="space-y-1.5">
+                    <div className="space-y-3">
                       <select
                         className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-500"
-                        value={newTheoryItem.detail}
-                        onChange={(event) =>
-                          setNewTheoryItem((prev) => ({ ...prev, detail: event.target.value }))
-                        }
+                        value={(() => {
+                          const cfg = parseStandaloneConfig(newTheoryItem.detail);
+                          return cfg ? cfg.tool : newTheoryItem.detail;
+                        })()}
+                        onChange={(event) => {
+                          const val = event.target.value;
+                          if (val === "tabla-periodica") {
+                            setNewTheoryItem((prev) => ({ ...prev, detail: "tabla-periodica" }));
+                          } else if (val === "escalador-recetas") {
+                            setNewTheoryItem((prev) => ({
+                              ...prev,
+                              detail: JSON.stringify({ tool: "escalador-recetas", titulo: "", porcionesBase: 1, ingredientes: [], pasos: [] } satisfies RecetaConfig),
+                            }));
+                          } else if (val === "linea-tiempo") {
+                            setNewTheoryItem((prev) => ({
+                              ...prev,
+                              detail: JSON.stringify({ tool: "linea-tiempo", titulo: "", eventos: [] } satisfies LineaTiempoConfig),
+                            }));
+                          } else {
+                            setNewTheoryItem((prev) => ({ ...prev, detail: val }));
+                          }
+                        }}
                       >
                         <option value="">Seleccionar herramienta...</option>
+                        {STANDALONE_TOOLS.map((t) => (
+                          <option key={t.value} value={t.value}>{t.label}</option>
+                        ))}
                       </select>
-                      <p className="text-xs text-slate-400 italic">
-                        Esta herramienta estará disponible próximamente.
-                      </p>
+                      {(() => {
+                        const cfg = parseStandaloneConfig(newTheoryItem.detail);
+                        if (cfg?.tool === "escalador-recetas") {
+                          return (
+                            <EscaladorRecetas
+                              config={cfg}
+                              onChange={(updated) =>
+                                setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) }))
+                              }
+                            />
+                          );
+                        }
+                        if (cfg?.tool === "linea-tiempo") {
+                          return (
+                            <LineaTiempo
+                              config={cfg}
+                              onChange={(updated) =>
+                                setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) }))
+                              }
+                            />
+                          );
+                        }
+                        return null;
+                      })()}
                     </div>
                   ) : isVideoType(newTheoryItem.type) ? (
                     <div className="space-y-1">
@@ -710,19 +755,55 @@ export default function ModuloEditor() {
                                   )}
                                 </div>
                               ) : isHerramientaStandaloneType(item.type) ? (
-                                <div className="space-y-1.5">
+                                <div className="space-y-3">
                                   <select
                                     className="w-full rounded-md border border-gray-300 px-2 py-2 text-xs text-gray-500"
-                                    value={item.detail === "Sin detalle adicional." ? "" : item.detail}
-                                    onChange={(event) =>
-                                      updateTheoryItem(item.id, { detail: event.target.value })
-                                    }
+                                    value={(() => {
+                                      const cfg = parseStandaloneConfig(item.detail === "Sin detalle adicional." ? "" : item.detail);
+                                      return cfg ? cfg.tool : "";
+                                    })()}
+                                    onChange={(event) => {
+                                      const val = event.target.value;
+                                      if (val === "tabla-periodica") {
+                                        updateTheoryItem(item.id, { detail: "tabla-periodica" });
+                                      } else if (val === "escalador-recetas") {
+                                        updateTheoryItem(item.id, { detail: JSON.stringify({ tool: "escalador-recetas", titulo: "", porcionesBase: 1, ingredientes: [], pasos: [] } satisfies RecetaConfig) });
+                                      } else if (val === "linea-tiempo") {
+                                        updateTheoryItem(item.id, { detail: JSON.stringify({ tool: "linea-tiempo", titulo: "", eventos: [] } satisfies LineaTiempoConfig) });
+                                      } else {
+                                        updateTheoryItem(item.id, { detail: val });
+                                      }
+                                    }}
                                   >
                                     <option value="">Seleccionar herramienta...</option>
+                                    {STANDALONE_TOOLS.map((t) => (
+                                      <option key={t.value} value={t.value}>{t.label}</option>
+                                    ))}
                                   </select>
-                                  <p className="text-xs text-slate-400 italic">
-                                    Esta herramienta estará disponible próximamente.
-                                  </p>
+                                  {(() => {
+                                    const cfg = parseStandaloneConfig(item.detail === "Sin detalle adicional." ? "" : item.detail);
+                                    if (cfg?.tool === "escalador-recetas") {
+                                      return (
+                                        <EscaladorRecetas
+                                          config={cfg}
+                                          onChange={(updated) =>
+                                            updateTheoryItem(item.id, { detail: JSON.stringify(updated) })
+                                          }
+                                        />
+                                      );
+                                    }
+                                    if (cfg?.tool === "linea-tiempo") {
+                                      return (
+                                        <LineaTiempo
+                                          config={cfg}
+                                          onChange={(updated) =>
+                                            updateTheoryItem(item.id, { detail: JSON.stringify(updated) })
+                                          }
+                                        />
+                                      );
+                                    }
+                                    return null;
+                                  })()}
                                 </div>
                               ) : (
                                 <textarea
