@@ -230,6 +230,9 @@ export function ChartBlockEditor({
             <option value="bar-grouped">Barras agrupadas</option>
             <option value="area-stacked">Área apilada</option>
             <option value="histogram">Histograma</option>
+            <option value="radar">Radar</option>
+            <option value="polar">Polar</option>
+            <option value="boxplot">Boxplot</option>
           </select>
         </div>
 

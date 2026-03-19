@@ -17,6 +17,12 @@ import {
   Area,
   ScatterChart,
   Scatter,
+  RadarChart,
+  Radar,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  ComposedChart,
 } from "recharts"
 import type { ChartBlock, BlockDocument, TableBlock } from "../types"
 import {
@@ -50,6 +56,78 @@ const DEFAULT_COLORS = [
 ]
 
 type ChartEntry = Record<string, string | number>
+
+// ── Boxplot types & shape ─────────────────────────────────────────────────
+
+type BoxEntry = {
+  name: string
+  min: number
+  q1: number
+  q2: number
+  q3: number
+  max: number
+  color: string
+  _v: number
+}
+
+type BoxShapeProps = {
+  x: number
+  y: number
+  width: number
+  height: number
+  fill: string
+  payload: BoxEntry
+  yAxis: { scale: (value: number) => number }
+}
+
+function BoxPlotShape({ x, width, payload, yAxis }: BoxShapeProps) {
+  const { q1, q2, q3, min, max, color } = payload
+  const toY = yAxis.scale
+
+  const yQ3 = toY(q3)
+  const yQ2 = toY(q2)
+  const yQ1 = toY(q1)
+  const yMax = toY(max)
+  const yMin = toY(min)
+
+  const cx = x + width / 2
+  const capHalf = width * 0.25
+  const boxLeft = x + width * 0.15
+  const boxWidth = width * 0.7
+
+  return (
+    <g>
+      {/* IQR Box */}
+      <rect
+        x={boxLeft}
+        y={yQ3}
+        width={boxWidth}
+        height={yQ1 - yQ3}
+        fill={color}
+        fillOpacity={0.7}
+        stroke={color}
+        strokeWidth={1.5}
+      />
+      {/* Median line */}
+      <line
+        x1={boxLeft}
+        y1={yQ2}
+        x2={boxLeft + boxWidth}
+        y2={yQ2}
+        stroke={color}
+        strokeWidth={2.5}
+      />
+      {/* Upper whisker stem (Q3 → max) */}
+      <line x1={cx} y1={yQ3} x2={cx} y2={yMax} stroke={color} strokeWidth={1.5} />
+      {/* Upper cap */}
+      <line x1={cx - capHalf} y1={yMax} x2={cx + capHalf} y2={yMax} stroke={color} strokeWidth={1.5} />
+      {/* Lower whisker stem (Q1 → min) */}
+      <line x1={cx} y1={yQ1} x2={cx} y2={yMin} stroke={color} strokeWidth={1.5} />
+      {/* Lower cap */}
+      <line x1={cx - capHalf} y1={yMin} x2={cx + capHalf} y2={yMin} stroke={color} strokeWidth={1.5} />
+    </g>
+  )
+}
 
 function buildFromTable(
   block: ChartBlock,
@@ -224,7 +302,11 @@ function ProcessPanel({ steps }: { steps: string[] }) {
 
 export function ChartBlockRenderer({ block, doc }: Props) {
   const { chartData, seriesKeys, seriesColors } = useMemo(() => {
-    if (block.chartType === "scatter" || block.chartType === "histogram") {
+    if (
+      block.chartType === "scatter" ||
+      block.chartType === "histogram" ||
+      block.chartType === "boxplot"
+    ) {
       return { chartData: [], seriesKeys: [], seriesColors: [] }
     }
     const data = buildFromTable(block, doc) ?? buildFromData(block)
@@ -450,6 +532,91 @@ export function ChartBlockRenderer({ block, doc }: Props) {
     )
   }
 
+  // ── Boxplot ───────────────────────────────────────────────────────────────
+  if (block.chartType === "boxplot") {
+    const datasets = block.data?.datasets ?? []
+
+    if (datasets.length === 0) {
+      return (
+        <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+          Sin datos
+        </div>
+      )
+    }
+
+    const insufficientDataset = datasets.find((ds) => ds.values.length < 4)
+    if (insufficientDataset) {
+      return (
+        <div>
+          {title}
+          <div className="flex h-[300px] items-center justify-center rounded border border-amber-200 bg-amber-50 text-sm text-amber-700">
+            Datos insuficientes para boxplot — se necesitan al menos 4 valores por serie
+          </div>
+        </div>
+      )
+    }
+
+    const boxData: BoxEntry[] = datasets.map((ds, i) => {
+      const q = quartiles(ds.values)
+      return {
+        name: ds.label,
+        min: Math.min(...ds.values),
+        q1: q.q1,
+        q2: q.q2,
+        q3: q.q3,
+        max: Math.max(...ds.values),
+        color: ds.color ?? DEFAULT_COLORS[i % DEFAULT_COLORS.length],
+        _v: 1,
+      }
+    })
+
+    const globalMin = Math.min(...boxData.map((d) => d.min))
+    const globalMax = Math.max(...boxData.map((d) => d.max))
+    const pad = (globalMax - globalMin) * 0.12 || 1
+
+    const boxProcessSteps = block.showProcess ? getProcessSteps(block) : []
+
+    return (
+      <div>
+        {title}
+        <ResponsiveContainer width="100%" height={300}>
+          <ComposedChart data={boxData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis domain={[globalMin - pad, globalMax + pad]} />
+            <Tooltip
+              content={({ payload: tp }) => {
+                if (!tp || tp.length === 0) return null
+                const d = tp[0].payload as BoxEntry
+                return (
+                  <div className="rounded border border-slate-200 bg-white p-2 text-xs shadow">
+                    <p className="mb-1 font-semibold text-slate-700">{d.name}</p>
+                    <p className="text-slate-600">Máx: {fmt(d.max)}</p>
+                    <p className="text-slate-600">Q3: {fmt(d.q3)}</p>
+                    <p className="font-medium text-slate-700">Mediana: {fmt(d.q2)}</p>
+                    <p className="text-slate-600">Q1: {fmt(d.q1)}</p>
+                    <p className="text-slate-600">Mín: {fmt(d.min)}</p>
+                  </div>
+                )
+              }}
+            />
+            <Bar
+              dataKey="_v"
+              shape={(props: object) => {
+                const p = props as unknown as BoxShapeProps
+                return <BoxPlotShape {...p} />
+              }}
+            />
+          </ComposedChart>
+        </ResponsiveContainer>
+        {block.showStats && (
+          <StatsPanel values={datasets[0].values} />
+        )}
+        {block.showProcess && <ProcessPanel steps={boxProcessSteps} />}
+      </div>
+    )
+  }
+
   // ── Common: no data guard ────────────────────────────────────────────────
   if (chartData.length === 0) {
     return (
@@ -461,6 +628,65 @@ export function ChartBlockRenderer({ block, doc }: Props) {
 
   const firstDatasetValues = block.data?.datasets[0]?.values ?? []
   const processSteps = block.showProcess ? getProcessSteps(block) : []
+
+  // ── Radar ─────────────────────────────────────────────────────────────────
+  if (block.chartType === "radar") {
+    return (
+      <div>
+        {title}
+        <ResponsiveContainer width="100%" height={300}>
+          <RadarChart data={chartData}>
+            <PolarGrid />
+            <PolarAngleAxis dataKey="x" />
+            <Tooltip />
+            {seriesKeys.length > 1 && <Legend />}
+            {seriesKeys.map((key, i) => (
+              <Radar
+                key={key}
+                name={key}
+                dataKey={key}
+                stroke={seriesColors[i]}
+                fill={seriesColors[i]}
+                fillOpacity={0.3}
+              />
+            ))}
+          </RadarChart>
+        </ResponsiveContainer>
+        {block.showStats && <StatsPanel values={firstDatasetValues} />}
+        {block.showProcess && <ProcessPanel steps={processSteps} />}
+      </div>
+    )
+  }
+
+  // ── Polar ─────────────────────────────────────────────────────────────────
+  if (block.chartType === "polar") {
+    return (
+      <div>
+        {title}
+        <ResponsiveContainer width="100%" height={300}>
+          <RadarChart data={chartData}>
+            <PolarGrid />
+            <PolarAngleAxis dataKey="x" />
+            <PolarRadiusAxis />
+            <Tooltip />
+            {seriesKeys.length > 1 && <Legend />}
+            {seriesKeys.map((key, i) => (
+              <Radar
+                key={key}
+                name={key}
+                dataKey={key}
+                stroke={seriesColors[i]}
+                fill={seriesColors[i]}
+                fillOpacity={0.3}
+              />
+            ))}
+          </RadarChart>
+        </ResponsiveContainer>
+        {block.showStats && <StatsPanel values={firstDatasetValues} />}
+        {block.showProcess && <ProcessPanel steps={processSteps} />}
+      </div>
+    )
+  }
 
   // ── Line ─────────────────────────────────────────────────────────────────
   if (block.chartType === "line") {

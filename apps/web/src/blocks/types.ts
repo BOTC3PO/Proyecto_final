@@ -36,7 +36,7 @@ export type ChartBlock = {
   id: string
   type: "chart"
   title?: string
-  chartType: "bar" | "line" | "pie" | "scatter" | "area" | "bar-stacked" | "bar-grouped" | "area-stacked" | "histogram"
+  chartType: "bar" | "line" | "pie" | "scatter" | "area" | "bar-stacked" | "bar-grouped" | "area-stacked" | "histogram" | "radar" | "polar" | "boxplot"
   sourceTableId?: string   // si viene de una tabla del mismo documento
   xColumn?: number         // índice de columna para eje X (cuando usa tabla)
   yColumns?: number[]      // índices de columnas para eje Y (cuando usa tabla)
