@@ -31,6 +31,7 @@ export type TableBlock = {
   title?: string
   headers: string[]
   rows: (string | number)[][]
+  formulas?: Record<string, string> // clave: "A1", "B3", etc. valor: "=SUMA(A1:A5)"
 }
 
 export type ChartBlock = {

@@ -4,6 +4,7 @@ import { createEmptyBlockDocument } from "./utils"
 import { ChartBlockEditor } from "./editors/ChartBlockEditor"
 import { MathBlockEditor } from "./editors/MathBlockEditor"
 import { FlowBlockEditor } from "./editors/FlowBlockEditor"
+import { TableBlockEditor } from "./editors/TableBlockEditor"
 
 interface Props {
   value: BlockDocument
@@ -81,102 +82,6 @@ function LatexBlockEditor({
           />
           Modo bloque centrado
         </label>
-      </div>
-      <button
-        type="button"
-        className="self-start rounded-md border border-red-200 bg-red-50 px-2 py-1 text-xs text-red-600 hover:bg-red-100"
-        onClick={onRemove}
-      >
-        ✕
-      </button>
-    </div>
-  )
-}
-
-function TableBlockEditor({
-  block,
-  onChange,
-  onRemove,
-}: {
-  block: TableBlock
-  onChange: (patch: Partial<TableBlock>) => void
-  onRemove: () => void
-}) {
-  const addRow = () => {
-    onChange({ rows: [...block.rows, block.headers.map(() => "")] })
-  }
-  const addColumn = () => {
-    onChange({
-      headers: [...block.headers, `Col ${block.headers.length + 1}`],
-      rows: block.rows.map((r) => [...r, ""]),
-    })
-  }
-  return (
-    <div className="flex gap-2">
-      <div className="flex-1 space-y-2">
-        <input
-          className="w-full rounded-md border border-gray-300 px-3 py-1.5 text-sm"
-          placeholder="Título de la tabla (opcional)"
-          value={block.title ?? ""}
-          onChange={(e) => onChange({ title: e.target.value || undefined })}
-        />
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse text-xs">
-            <thead>
-              <tr>
-                {block.headers.map((h, ci) => (
-                  <th key={ci} className="border border-gray-300 p-1">
-                    <input
-                      className="w-full bg-transparent font-semibold"
-                      value={h}
-                      onChange={(e) => {
-                        const headers = [...block.headers]
-                        headers[ci] = e.target.value
-                        onChange({ headers })
-                      }}
-                    />
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {block.rows.map((row, ri) => (
-                <tr key={ri}>
-                  {row.map((cell, ci) => (
-                    <td key={ci} className="border border-gray-300 p-1">
-                      <input
-                        className="w-full bg-transparent"
-                        value={String(cell)}
-                        onChange={(e) => {
-                          const rows = block.rows.map((r, i) =>
-                            i === ri ? r.map((c, j) => (j === ci ? e.target.value : c)) : r
-                          )
-                          onChange({ rows })
-                        }}
-                      />
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="flex gap-2">
-          <button
-            type="button"
-            className="rounded-md border border-gray-300 px-2 py-1 text-xs hover:bg-gray-50"
-            onClick={addRow}
-          >
-            + Fila
-          </button>
-          <button
-            type="button"
-            className="rounded-md border border-gray-300 px-2 py-1 text-xs hover:bg-gray-50"
-            onClick={addColumn}
-          >
-            + Columna
-          </button>
-        </div>
       </div>
       <button
         type="button"
