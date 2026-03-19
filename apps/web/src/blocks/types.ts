@@ -105,7 +105,7 @@ export type ShapeBlock = {
   id: string
   type: "shape"
   title?: string
-  collection: "basica" | "fisica" | "electrica" | "logica"
+  collection: "basica" | "fisica" | "electrica" | "logica" | "matematica"
   canvasWidth?: number   // default 800
   canvasHeight?: number  // default 500
   items: ShapeItem[]
