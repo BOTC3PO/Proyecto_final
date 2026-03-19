@@ -186,21 +186,15 @@ const inputCls =
 // ─── Block inspectors ─────────────────────────────────────────────────────────
 
 function TextInspector({
-  block,
-  onUpdate,
+  block: _block,
+  onUpdate: _onUpdate,
 }: {
   block: TextBlock;
   onUpdate: (patch: Record<string, unknown>) => void;
 }) {
   return (
-    <div>
-      <label className="text-xs font-medium text-gray-600 block mb-1">Contenido</label>
-      <textarea
-        className="w-full text-sm border border-slate-200 rounded px-2 py-1.5 focus:outline-none focus:ring-1 focus:ring-indigo-400 resize-none"
-        rows={6}
-        value={block.content}
-        onChange={(e) => onUpdate({ content: e.target.value })}
-      />
+    <div className="text-xs text-slate-400 italic px-1 py-2">
+      Editá el texto directamente en el bloque del canvas. Aquí aparecerán opciones de formato en futuras versiones.
     </div>
   );
 }
@@ -212,31 +206,11 @@ function LatexInspector({
   block: LatexBlock;
   onUpdate: (patch: Record<string, unknown>) => void;
 }) {
-  const { html, error } = (() => {
-    try {
-      return {
-        html: katex.renderToString(block.content, {
-          displayMode: block.displayMode,
-          throwOnError: true,
-        }),
-        error: false,
-      };
-    } catch {
-      return { html: block.content, error: true };
-    }
-  })();
-
   return (
-    <div className="space-y-2">
-      <div>
-        <label className="text-xs font-medium text-gray-600 block mb-1">Fórmula LaTeX</label>
-        <input
-          className={inputCls}
-          value={block.content}
-          onChange={(e) => onUpdate({ content: e.target.value })}
-          placeholder="\sum_{i=1}^{n} x_i"
-        />
-      </div>
+    <div className="space-y-3">
+      <p className="text-xs text-slate-400 italic">
+        Editá la fórmula directamente en el bloque del canvas.
+      </p>
       <label className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
         <input
           type="checkbox"
@@ -245,13 +219,6 @@ function LatexInspector({
         />
         Modo bloque (centrado)
       </label>
-      <div className="rounded-lg border border-slate-100 bg-slate-50 p-3 min-h-[40px]">
-        {error ? (
-          <span className="text-xs text-red-500 font-mono">{block.content}</span>
-        ) : (
-          <span dangerouslySetInnerHTML={{ __html: html }} />
-        )}
-      </div>
     </div>
   );
 }
@@ -274,19 +241,6 @@ function TableInspector({
     onUpdate({ headers: newHeaders, rows: newRows });
   };
 
-  const updateHeader = (i: number, val: string) => {
-    const headers = [...block.headers];
-    headers[i] = val;
-    onUpdate({ headers });
-  };
-
-  const updateCell = (ri: number, ci: number, val: string) => {
-    const rows = block.rows.map((r, rIdx) =>
-      rIdx === ri ? r.map((c, cIdx) => (cIdx === ci ? val : c)) : r
-    );
-    onUpdate({ rows });
-  };
-
   return (
     <div className="space-y-2">
       <div>
@@ -297,38 +251,9 @@ function TableInspector({
           onChange={(e) => onUpdate({ title: e.target.value })}
         />
       </div>
-      <div className="overflow-x-auto">
-        <table className="w-full text-xs border-collapse">
-          <thead>
-            <tr>
-              {block.headers.map((h, i) => (
-                <th key={i} className="border border-slate-200 p-0.5">
-                  <input
-                    className="w-full px-1 py-0.5 font-semibold bg-slate-50 focus:outline-none"
-                    value={h}
-                    onChange={(e) => updateHeader(i, e.target.value)}
-                  />
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {block.rows.map((row, ri) => (
-              <tr key={ri}>
-                {row.map((cell, ci) => (
-                  <td key={ci} className="border border-slate-200 p-0.5">
-                    <input
-                      className="w-full px-1 py-0.5 focus:outline-none"
-                      value={String(cell)}
-                      onChange={(e) => updateCell(ri, ci, e.target.value)}
-                    />
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <p className="text-xs text-slate-400 italic">
+        Editá las celdas directamente en el bloque del canvas. La barra de fórmulas (fx) aparece al seleccionar una celda.
+      </p>
       <div className="flex gap-2">
         <button
           onClick={addRow}
@@ -416,24 +341,9 @@ function ChartInspector({
           onChange={(e) => onUpdate({ title: e.target.value })}
         />
       </div>
-      <div>
-        <label className="text-xs font-medium text-gray-600 block mb-1">Tipo de gráfico</label>
-        <select
-          className={inputCls}
-          value={block.chartType}
-          onChange={(e) => onUpdate({ chartType: e.target.value })}
-        >
-          <option value="bar">Barras</option>
-          <option value="line">Línea</option>
-          <option value="pie">Torta</option>
-          <option value="scatter">Dispersión</option>
-          <option value="area">Área</option>
-          <option value="bar-stacked">Barras apiladas</option>
-          <option value="bar-grouped">Barras agrupadas</option>
-          <option value="area-stacked">Área apilada</option>
-          <option value="histogram">Histograma</option>
-        </select>
-      </div>
+      <p className="text-xs text-slate-400 italic">
+        Cambiá el tipo de gráfico desde la toolbar del bloque en el canvas.
+      </p>
       <div>
         <label className="text-xs font-medium text-gray-600 block mb-1">Fuente</label>
         <div className="flex gap-3">
@@ -868,6 +778,378 @@ function MathInspector({
   );
 }
 
+// ─── Inline block editors ─────────────────────────────────────────────────────
+
+function InlineLatexEditor({
+  block,
+  onUpdate,
+}: {
+  block: LatexBlock;
+  onUpdate: (patch: Record<string, unknown>) => void;
+}) {
+  const { html, error } = (() => {
+    try {
+      return {
+        html: katex.renderToString(block.content, {
+          displayMode: block.displayMode,
+          throwOnError: true,
+        }),
+        error: false,
+      };
+    } catch {
+      return { html: block.content, error: true };
+    }
+  })();
+
+  return (
+    <div className="flex flex-col gap-3" onClick={(e) => e.stopPropagation()}>
+      <input
+        className="w-full text-sm border border-slate-200 rounded px-2 py-1.5 focus:outline-none focus:ring-1 focus:ring-indigo-400 font-mono"
+        value={block.content}
+        onChange={(e) => onUpdate({ content: e.target.value })}
+        onClick={(e) => e.stopPropagation()}
+        placeholder="\sum_{i=1}^{n} x_i"
+        autoFocus
+      />
+      <div className="min-h-[40px] flex items-center justify-center p-3 bg-slate-50 rounded border border-slate-100">
+        {error ? (
+          <span className="text-xs text-red-500 font-mono">{block.content || "Fórmula vacía"}</span>
+        ) : (
+          <span dangerouslySetInnerHTML={{ __html: html }} />
+        )}
+      </div>
+    </div>
+  );
+}
+
+const CHART_TYPE_OPTIONS: Array<{ value: ChartBlock["chartType"]; label: string; icon: string }> = [
+  { value: "bar", label: "Barras", icon: "▦" },
+  { value: "line", label: "Línea", icon: "⟋" },
+  { value: "pie", label: "Torta", icon: "◑" },
+  { value: "scatter", label: "Puntos", icon: "⁙" },
+  { value: "area", label: "Área", icon: "◿" },
+  { value: "histogram", label: "Hist.", icon: "∏" },
+  { value: "bar-stacked", label: "Apilado", icon: "≡" },
+  { value: "bar-grouped", label: "Agrupado", icon: "∥" },
+];
+
+function InlineChartTypeToolbar({
+  chartType,
+  onUpdate,
+}: {
+  chartType: ChartBlock["chartType"];
+  onUpdate: (patch: Record<string, unknown>) => void;
+}) {
+  return (
+    <div
+      className="flex flex-wrap gap-1 p-2 border-b border-slate-100 bg-slate-50 rounded-t-lg"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {CHART_TYPE_OPTIONS.map(({ value, label, icon }) => (
+        <button
+          key={value}
+          onClick={(e) => {
+            e.stopPropagation();
+            onUpdate({ chartType: value });
+          }}
+          className={cx(
+            "flex items-center gap-1 px-2 py-1 rounded text-xs transition-colors border",
+            chartType === value
+              ? "bg-indigo-600 text-white border-indigo-600"
+              : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+          )}
+          title={label}
+        >
+          <span className="font-mono">{icon}</span>
+          <span>{label}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function InlineTableEditor({
+  block,
+  onUpdate,
+}: {
+  block: TableBlock;
+  onUpdate: (patch: Record<string, unknown>) => void;
+}) {
+  const [selectedCell, setSelectedCell] = useState<{ ri: number; ci: number } | null>(null);
+  const [formulaBarValue, setFormulaBarValue] = useState("");
+
+  const getCellKey = (ri: number, ci: number) => `${String.fromCharCode(65 + ci)}${ri + 1}`;
+
+  const handleCellClick = (e: React.MouseEvent, ri: number, ci: number) => {
+    e.stopPropagation();
+    const key = getCellKey(ri, ci);
+    const formula = block.formulas?.[key];
+    setSelectedCell({ ri, ci });
+    setFormulaBarValue(formula ?? String(block.rows[ri][ci]));
+  };
+
+  const commitFormulaBar = (ri: number, ci: number, value: string) => {
+    const key = getCellKey(ri, ci);
+    if (value.startsWith("=")) {
+      const formulas = { ...(block.formulas ?? {}), [key]: value };
+      onUpdate({ formulas });
+    } else {
+      const rows = block.rows.map((r, i) =>
+        i === ri ? r.map((c, j) => (j === ci ? value : c)) : r
+      );
+      const formulas = { ...(block.formulas ?? {}) };
+      delete formulas[key];
+      onUpdate({ rows, formulas: Object.keys(formulas).length > 0 ? formulas : undefined });
+    }
+  };
+
+  return (
+    <div className="space-y-0" onClick={(e) => e.stopPropagation()}>
+      {block.title && (
+        <p className="text-sm font-semibold text-slate-700 px-4 pt-3 pb-1">{block.title}</p>
+      )}
+      <div className="overflow-x-auto px-4 pt-3">
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr>
+              {block.headers.map((h, ci) => (
+                <th key={ci} className="border border-slate-200 bg-slate-50 p-1.5">
+                  <input
+                    className="w-full bg-transparent font-semibold text-sm focus:outline-none text-center"
+                    value={h}
+                    onChange={(e) => {
+                      const headers = [...block.headers];
+                      headers[ci] = e.target.value;
+                      onUpdate({ headers });
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {block.rows.map((row, ri) => (
+              <tr key={ri} className={ri % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+                {row.map((cell, ci) => {
+                  const key = getCellKey(ri, ci);
+                  const hasFormula = !!block.formulas?.[key];
+                  const isSelected = selectedCell?.ri === ri && selectedCell?.ci === ci;
+                  return (
+                    <td
+                      key={ci}
+                      className={cx(
+                        "border border-slate-200 p-1",
+                        hasFormula ? "bg-indigo-50" : "",
+                        isSelected ? "ring-2 ring-inset ring-indigo-400" : ""
+                      )}
+                      onClick={(e) => handleCellClick(e, ri, ci)}
+                    >
+                      <input
+                        className={cx(
+                          "w-full bg-transparent text-sm focus:outline-none px-1",
+                          hasFormula ? "text-indigo-700 cursor-pointer" : ""
+                        )}
+                        value={hasFormula ? String(block.formulas![key]) : String(cell)}
+                        readOnly={hasFormula}
+                        onChange={(e) => {
+                          if (!hasFormula) {
+                            const rows = block.rows.map((r, i) =>
+                              i === ri ? r.map((c, j) => (j === ci ? e.target.value : c)) : r
+                            );
+                            onUpdate({ rows });
+                          }
+                        }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleCellClick(e, ri, ci);
+                        }}
+                      />
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {/* Formula bar at bottom of block */}
+      {selectedCell && (
+        <div className="flex items-center gap-2 border-t border-slate-200 bg-slate-50 px-4 py-1.5 mt-2">
+          <span className="shrink-0 text-xs font-semibold italic text-slate-500 select-none">fx</span>
+          <span className="shrink-0 text-xs text-slate-400 font-mono">
+            {getCellKey(selectedCell.ri, selectedCell.ci)}
+          </span>
+          <input
+            autoFocus
+            className="flex-1 bg-transparent font-mono text-xs outline-none"
+            value={formulaBarValue}
+            onChange={(e) => setFormulaBarValue(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && selectedCell) {
+                commitFormulaBar(selectedCell.ri, selectedCell.ci, formulaBarValue);
+              }
+            }}
+            onBlur={() => {
+              if (selectedCell) {
+                commitFormulaBar(selectedCell.ri, selectedCell.ci, formulaBarValue);
+              }
+            }}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+      <div className="flex gap-2 px-4 pb-3 pt-2" onClick={(e) => e.stopPropagation()}>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            const newRow = new Array(block.headers.length).fill("");
+            onUpdate({ rows: [...block.rows, newRow] });
+          }}
+          className="text-xs px-2 py-1 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded"
+        >
+          + Fila
+        </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            const newHeaders = [...block.headers, `Col ${block.headers.length + 1}`];
+            const newRows = block.rows.map((r) => [...r, ""]);
+            onUpdate({ headers: newHeaders, rows: newRows });
+          }}
+          className="text-xs px-2 py-1 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded"
+        >
+          + Columna
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function CanvasBlockContent({
+  block,
+  doc,
+  isSelected,
+  onUpdate,
+}: {
+  block: Block;
+  doc: BlockDocument;
+  isSelected: boolean;
+  onUpdate: (patch: Record<string, unknown>) => void;
+}) {
+  if (isSelected) {
+    switch (block.type) {
+      case "text":
+        return (
+          <div className="p-4">
+            <textarea
+              className="w-full text-base leading-relaxed font-normal resize-none focus:outline-none bg-transparent border-none p-0"
+              style={{ fontFamily: "inherit", minHeight: "3em" }}
+              rows={Math.max(3, (block as TextBlock).content.split("\n").length + 1)}
+              value={(block as TextBlock).content}
+              onChange={(e) => {
+                e.stopPropagation();
+                onUpdate({ content: e.target.value });
+              }}
+              onClick={(e) => e.stopPropagation()}
+              placeholder="Escribí tu texto aquí..."
+              autoFocus
+            />
+          </div>
+        );
+      case "latex":
+        return (
+          <div className="p-4">
+            <InlineLatexEditor block={block as LatexBlock} onUpdate={onUpdate} />
+          </div>
+        );
+      case "chart":
+        return (
+          <div>
+            <InlineChartTypeToolbar
+              chartType={(block as ChartBlock).chartType}
+              onUpdate={onUpdate}
+            />
+            <div className="p-4">
+              <ChartBlockRenderer block={block as ChartBlock} doc={doc} />
+            </div>
+          </div>
+        );
+      case "table":
+        return <InlineTableEditor block={block as TableBlock} onUpdate={onUpdate} />;
+    }
+  }
+  return (
+    <div className="p-4">
+      <SingleBlockRenderer block={block} doc={doc} />
+    </div>
+  );
+}
+
+// ─── Block type menu list ─────────────────────────────────────────────────────
+
+const BLOCK_TYPES_MENU = [
+  { type: "text" as Block["type"], label: "Texto", icon: "¶" },
+  { type: "latex" as Block["type"], label: "LaTeX", icon: "∑" },
+  { type: "table" as Block["type"], label: "Tabla", icon: "⊞" },
+  { type: "chart" as Block["type"], label: "Gráfico", icon: "▦" },
+  { type: "flow" as Block["type"], label: "Flujo", icon: "⬡" },
+  { type: "math" as Block["type"], label: "Función f(x)", icon: "f" },
+  { type: "shape" as Block["type"], label: "Formas", icon: "◈" },
+];
+
+function AddBlockBetween({ onAdd }: { onAdd: (type: Block["type"]) => void }) {
+  const [showMenu, setShowMenu] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!showMenu) return;
+    function handler(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setShowMenu(false);
+      }
+    }
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [showMenu]);
+
+  return (
+    <div className="relative flex justify-center h-7 items-center group/add z-10">
+      <div className="absolute inset-x-0 h-px bg-transparent group-hover/add:bg-indigo-200 transition-colors top-1/2" />
+      <div className="relative" ref={menuRef}>
+        <button
+          className="w-6 h-6 rounded-full bg-white border-2 border-indigo-300 text-indigo-500 text-sm font-bold leading-none opacity-0 group-hover/add:opacity-100 hover:bg-indigo-500 hover:text-white transition-all shadow-sm flex items-center justify-center"
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowMenu((v) => !v);
+          }}
+          title="Agregar bloque aquí"
+        >
+          +
+        </button>
+        {showMenu && (
+          <div className="absolute top-8 left-1/2 -translate-x-1/2 z-40 bg-white border border-gray-200 rounded-lg shadow-lg py-1 w-44">
+            {BLOCK_TYPES_MENU.map(({ type, label, icon }) => (
+              <button
+                key={type}
+                className="w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-slate-50 flex items-center gap-2"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onAdd(type);
+                  setShowMenu(false);
+                }}
+              >
+                <span className="font-mono text-indigo-500 w-4 text-center">{icon}</span>
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ─── Single block renderer for canvas ────────────────────────────────────────
 
 function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument }) {
@@ -1280,14 +1562,22 @@ export default function BlockEditorPage({
         dispatch({ type: "SELECT_BLOCK", blockId: null });
       } else if ((e.key === "Delete" || e.key === "Backspace") && !isInput && selectedBlockId) {
         e.preventDefault();
-        if (window.confirm("¿Eliminar este bloque?")) {
-          dispatch({ type: "DELETE_BLOCK", blockId: selectedBlockId });
+        dispatch({ type: "DELETE_BLOCK", blockId: selectedBlockId });
+      } else if (e.key === "ArrowUp" && !isInput && selectedBlockId) {
+        e.preventDefault();
+        const idx = doc.blocks.findIndex((b) => b.id === selectedBlockId);
+        if (idx > 0) dispatch({ type: "SELECT_BLOCK", blockId: doc.blocks[idx - 1].id });
+      } else if (e.key === "ArrowDown" && !isInput && selectedBlockId) {
+        e.preventDefault();
+        const idx = doc.blocks.findIndex((b) => b.id === selectedBlockId);
+        if (idx >= 0 && idx < doc.blocks.length - 1) {
+          dispatch({ type: "SELECT_BLOCK", blockId: doc.blocks[idx + 1].id });
         }
       }
     };
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
-  }, [undo, redo, saveLocalFile, dispatch, selectedBlockId]);
+  }, [undo, redo, saveLocalFile, dispatch, selectedBlockId, doc]);
 
   // ─── Block type update helper ────────────────────────────────────────────────
 
@@ -1296,6 +1586,22 @@ export default function BlockEditorPage({
       dispatch({ type: "UPDATE_BLOCK", blockId, patch });
     },
     [dispatch]
+  );
+
+  // ─── Add block at specific position ──────────────────────────────────────────
+  // afterIdx = -1 means "before the first block"; afterIdx = i means "after block at index i"
+
+  const addBlockAt = useCallback(
+    (type: Block["type"], afterIdx: number) => {
+      const fromIdx = doc.blocks.length; // new block will be appended at this index
+      dispatch({ type: "ADD_BLOCK", blockType: type });
+      const toIdx = afterIdx + 1; // desired final index
+      if (toIdx < fromIdx) {
+        dispatch({ type: "MOVE_BLOCK_INDEX", from: fromIdx, to: toIdx });
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [doc.blocks.length, dispatch]
   );
 
   // ─── Render ──────────────────────────────────────────────────────────────────
@@ -1519,98 +1825,106 @@ export default function BlockEditorPage({
         >
           <div className="px-8 py-6 max-w-3xl mx-auto">
             {doc.blocks.length === 0 ? (
-              <div className="flex flex-col items-center justify-center h-64 gap-3">
-                <span className="text-4xl text-slate-300">⬡</span>
+              <div className="flex flex-col items-center justify-center h-64 gap-4 text-center">
+                <span className="text-5xl text-slate-300">⊕</span>
+                <p className="text-base font-medium text-slate-500">
+                  Hacé clic en + para agregar tu primer bloque
+                </p>
                 <p className="text-sm text-slate-400">
-                  Sin bloques — agregá uno desde el panel izquierdo
+                  Usá el botón + del panel izquierdo para comenzar
                 </p>
               </div>
             ) : (
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col">
+                {/* + button before first block */}
+                <AddBlockBetween onAdd={(type) => addBlockAt(type, -1)} />
                 {doc.blocks.map((block, idx) => {
                   const isSelected = block.id === selectedBlockId;
                   return (
-                    <div key={block.id} className="relative group">
-                      {/* Floating toolbar */}
-                      {isSelected && (
-                        <div className="absolute -top-8 left-0 z-10 flex items-center gap-1 bg-white border border-gray-200 rounded-lg shadow-sm px-2 py-1">
-                          <span className="font-mono text-xs text-slate-400 mr-1">
+                    <React.Fragment key={block.id}>
+                      <div className="relative group/block mb-0">
+                        {/* Block type badge – top-right corner */}
+                        {isSelected && (
+                          <span className="absolute top-2 right-2 z-10 text-[10px] bg-slate-100 text-slate-400 rounded px-1 pointer-events-none select-none">
                             {blockTypeName(block.type)}
                           </span>
-                          <button
-                            className={cx(
-                              "w-6 h-6 text-xs rounded border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-30"
-                            )}
-                            title="Mover arriba"
-                            disabled={idx === 0}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              dispatch({
-                                type: "MOVE_BLOCK",
-                                blockId: block.id,
-                                direction: "up",
-                              });
-                            }}
-                          >
-                            ▲
-                          </button>
-                          <button
-                            className="w-6 h-6 text-xs rounded border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-30"
-                            title="Mover abajo"
-                            disabled={idx === doc.blocks.length - 1}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              dispatch({
-                                type: "MOVE_BLOCK",
-                                blockId: block.id,
-                                direction: "down",
-                              });
-                            }}
-                          >
-                            ▼
-                          </button>
-                          <button
-                            className="w-6 h-6 text-xs rounded border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
-                            title="Duplicar"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              dispatch({ type: "DUPLICATE_BLOCK", blockId: block.id });
-                            }}
-                          >
-                            ⊕
-                          </button>
-                          <button
-                            className="w-6 h-6 text-xs rounded border border-red-200 bg-red-50 text-red-600 hover:bg-red-100"
-                            title="Eliminar"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              if (window.confirm("¿Eliminar este bloque?")) {
-                                dispatch({ type: "DELETE_BLOCK", blockId: block.id });
-                              }
-                            }}
-                          >
-                            ✕
-                          </button>
-                        </div>
-                      )}
-
-                      {/* Block card */}
-                      <div
-                        className={cx(
-                          "rounded-lg border border-gray-200 bg-white shadow-sm p-4 cursor-pointer transition-all",
-                          isSelected ? "ring-2 ring-indigo-400" : "hover:shadow-md"
                         )}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          dispatch({
-                            type: "SELECT_BLOCK",
-                            blockId: isSelected ? null : block.id,
-                          });
-                        }}
-                      >
-                        <SingleBlockRenderer block={block} doc={doc} />
+
+                        {/* Floating toolbar – always visible when block is selected */}
+                        {isSelected && (
+                          <div className="absolute -top-8 left-0 z-10 flex items-center gap-1 bg-white border border-gray-200 rounded-lg shadow-sm px-2 py-1">
+                            <button
+                              className="w-6 h-6 text-xs rounded border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-30"
+                              title="Mover arriba (↑)"
+                              disabled={idx === 0}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                dispatch({ type: "MOVE_BLOCK", blockId: block.id, direction: "up" });
+                              }}
+                            >
+                              ▲
+                            </button>
+                            <button
+                              className="w-6 h-6 text-xs rounded border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-30"
+                              title="Mover abajo (↓)"
+                              disabled={idx === doc.blocks.length - 1}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                dispatch({ type: "MOVE_BLOCK", blockId: block.id, direction: "down" });
+                              }}
+                            >
+                              ▼
+                            </button>
+                            <button
+                              className="w-6 h-6 text-xs rounded border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                              title="Duplicar"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                dispatch({ type: "DUPLICATE_BLOCK", blockId: block.id });
+                              }}
+                            >
+                              ⊕
+                            </button>
+                            <button
+                              className="w-6 h-6 text-xs rounded border border-red-200 bg-red-50 text-red-600 hover:bg-red-100"
+                              title="Eliminar (Delete)"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                dispatch({ type: "DELETE_BLOCK", blockId: block.id });
+                              }}
+                            >
+                              ✕
+                            </button>
+                          </div>
+                        )}
+
+                        {/* Block card */}
+                        <div
+                          className={cx(
+                            "rounded-lg border bg-white transition-all overflow-hidden",
+                            isSelected
+                              ? "ring-2 ring-indigo-500 shadow-lg border-indigo-200"
+                              : "border-gray-200 shadow-sm hover:shadow-md cursor-pointer"
+                          )}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            dispatch({
+                              type: "SELECT_BLOCK",
+                              blockId: isSelected ? null : block.id,
+                            });
+                          }}
+                        >
+                          <CanvasBlockContent
+                            block={block}
+                            doc={doc}
+                            isSelected={isSelected}
+                            onUpdate={(patch) => handleBlockUpdate(block.id, patch)}
+                          />
+                        </div>
                       </div>
-                    </div>
+                      {/* + button after this block */}
+                      <AddBlockBetween onAdd={(type) => addBlockAt(type, idx)} />
+                    </React.Fragment>
                   );
                 })}
               </div>

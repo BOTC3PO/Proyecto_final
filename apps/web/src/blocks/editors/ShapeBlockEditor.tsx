@@ -15,7 +15,7 @@ type CanvasDragState = {
   startItemY: number
 }
 
-const COLLECTIONS_ORDER: ShapeBlock["collection"][] = ["basica", "fisica", "electrica", "logica"]
+const COLLECTIONS_ORDER: ShapeBlock["collection"][] = ["basica", "fisica", "electrica", "logica", "matematica"]
 
 export function ShapeBlockEditor({ block, onChange }: Props) {
   const [activeCollection, setActiveCollection] = useState<ShapeBlock["collection"]>(
@@ -220,17 +220,17 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
                 ))}
               </div>
               {/* Shape grid */}
-              <div className="grid grid-cols-6 gap-1">
+              <div className="grid grid-cols-4 gap-1.5">
                 {paletteCollection.shapes.map((shape) => (
                   <div
                     key={shape.id}
-                    className="flex flex-col items-center gap-0.5 cursor-grab hover:bg-gray-50 rounded p-1 border border-transparent hover:border-gray-200 transition-colors"
+                    className="flex flex-col items-center gap-1 cursor-grab hover:bg-indigo-50 rounded p-1.5 border border-transparent hover:border-indigo-200 transition-colors"
                     draggable
                     onDragStart={(e) => e.dataTransfer.setData("text/plain", shape.id)}
-                    title={shape.label}
+                    title="Arrastrá al canvas"
                   >
                     <div
-                      style={{ width: 40, height: 40, pointerEvents: "none" }}
+                      style={{ width: 48, height: 48, pointerEvents: "none" }}
                       dangerouslySetInnerHTML={{ __html: shape.svg }}
                     />
                     <span className="text-[10px] text-gray-600 text-center leading-tight w-full truncate">
