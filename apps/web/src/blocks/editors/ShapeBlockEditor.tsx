@@ -191,9 +191,9 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
   // ─── Render ───────────────────────────────────────────────────────────────
 
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3 w-full overflow-hidden">
       {/* ── Left column: palette + canvas ─────────────────────────────── */}
-      <div className="flex flex-col gap-2 flex-1 min-w-0">
+      <div className="flex flex-col gap-2 flex-1 min-w-0 overflow-y-auto">
 
         {/* Collapsible palette */}
         <div className="border border-gray-200 rounded">
@@ -225,7 +225,7 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
                 ))}
               </div>
               {/* Shape grid */}
-              <div className="grid grid-cols-4 gap-1.5">
+              <div className="grid grid-cols-4 gap-1.5 overflow-hidden">
                 {paletteCollection.shapes.map((shape) => (
                   <div
                     key={shape.id}
@@ -235,7 +235,7 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
                     title="Arrastrá al canvas"
                   >
                     <div
-                      style={{ width: 48, height: 48, pointerEvents: "none" }}
+                      style={{ width: 48, height: 48, pointerEvents: "none", overflow: "hidden" }}
                       dangerouslySetInnerHTML={{ __html: shape.svg }}
                     />
                     <span className="text-[10px] text-gray-600 text-center leading-tight w-full truncate">
@@ -279,6 +279,7 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
         </div>
 
         {/* Canvas */}
+        <div className="overflow-x-auto">
         <div
           ref={canvasRef}
           style={{
@@ -428,12 +429,13 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
             )
           })}
         </div>
+        </div>
       </div>
 
       {/* ── Right column: inspector ───────────────────────────────────────── */}
       <div
         style={{ width: 224, flexShrink: 0 }}
-        className="border border-gray-200 rounded p-3 flex flex-col gap-3"
+        className="border border-gray-200 rounded p-3 flex flex-col gap-3 overflow-y-auto relative"
       >
         {selectedItem ? (
           <>
