@@ -23,6 +23,7 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   ComposedChart,
+  Treemap,
 } from "recharts"
 import type { ChartBlock, BlockDocument, TableBlock } from "../types"
 import {
@@ -818,6 +819,350 @@ export function ChartBlockRenderer({ block, doc }: Props) {
             ))}
           </BarChart>
         </ResponsiveContainer>
+        {block.showStats && <StatsPanel values={firstDatasetValues} />}
+        {block.showProcess && <ProcessPanel steps={processSteps} />}
+      </div>
+    )
+  }
+
+  // ── Timeseries ────────────────────────────────────────────────────────────
+  if (block.chartType === "timeseries") {
+    const dateFormat = block.dateFormat ?? "DD/MM/YYYY"
+    const tickFormatter = (val: string) => {
+      if (!val) return val
+      // Try to format based on dateFormat pattern
+      if (dateFormat === "YYYY") {
+        const m = val.match(/(\d{4})/)
+        if (m) return m[1]
+      }
+      if (dateFormat === "MMM YYYY") {
+        const d = new Date(val)
+        if (!isNaN(d.getTime())) {
+          return d.toLocaleDateString("es", { month: "short", year: "numeric" })
+        }
+      }
+      return val
+    }
+    return (
+      <div>
+        {title}
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={chartData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="x" tick={{ fontSize: 11 }} tickFormatter={tickFormatter} />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            {seriesKeys.map((key, i) => (
+              <Line
+                key={key}
+                type="monotone"
+                dataKey={key}
+                stroke={seriesColors[i]}
+                dot={false}
+              />
+            ))}
+          </LineChart>
+        </ResponsiveContainer>
+        {block.showStats && <StatsPanel values={firstDatasetValues} />}
+        {block.showProcess && <ProcessPanel steps={processSteps} />}
+      </div>
+    )
+  }
+
+  // ── Treemap ───────────────────────────────────────────────────────────────
+  if (block.chartType === "treemap") {
+    const hierarchy = block.hierarchy
+    let treemapData: { name: string; size: number; color?: string }[]
+
+    if (hierarchy && hierarchy.length > 0) {
+      treemapData = hierarchy.flatMap((parent, pi) =>
+        (parent.children ?? []).map((child, ci) => ({
+          name: child.name,
+          size: child.value,
+          color:
+            child.color ??
+            DEFAULT_COLORS[(pi * 3 + ci) % DEFAULT_COLORS.length],
+        }))
+      )
+      if (treemapData.length === 0) {
+        treemapData = hierarchy.map((node, i) => ({
+          name: node.name,
+          size: node.value ?? 0,
+          color: DEFAULT_COLORS[i % DEFAULT_COLORS.length],
+        }))
+      }
+    } else {
+      const labels = block.data?.labels ?? []
+      const values = block.data?.datasets[0]?.values ?? []
+      const baseColor = block.data?.datasets[0]?.color
+      treemapData = labels.map((label, i) => ({
+        name: label,
+        size: values[i] ?? 0,
+        color: baseColor ?? DEFAULT_COLORS[i % DEFAULT_COLORS.length],
+      }))
+    }
+
+    if (treemapData.length === 0) {
+      return (
+        <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+          Sin datos
+        </div>
+      )
+    }
+
+    const CustomizedContent = (props: {
+      x?: number; y?: number; width?: number; height?: number;
+      name?: string; size?: number; color?: string;
+      root?: unknown; depth?: number;
+    }) => {
+      const { x = 0, y = 0, width = 0, height = 0, name, size, color } = props
+      if (width < 20 || height < 20) return null
+      return (
+        <g>
+          <rect x={x} y={y} width={width} height={height} fill={color} stroke="#fff" strokeWidth={2} />
+          {width > 40 && height > 30 && (
+            <text x={x + width / 2} y={y + height / 2 - 6} textAnchor="middle" fill="#fff" fontSize={12} fontWeight="bold">
+              {name}
+            </text>
+          )}
+          {width > 40 && height > 30 && (
+            <text x={x + width / 2} y={y + height / 2 + 10} textAnchor="middle" fill="#fff" fontSize={11}>
+              {size}
+            </text>
+          )}
+        </g>
+      )
+    }
+
+    return (
+      <div>
+        {title}
+        <ResponsiveContainer width="100%" height={300}>
+          <Treemap
+            data={treemapData}
+            dataKey="size"
+            content={<CustomizedContent />}
+          />
+        </ResponsiveContainer>
+      </div>
+    )
+  }
+
+  // ── Sankey ────────────────────────────────────────────────────────────────
+  if (block.chartType === "sankey") {
+    const hierarchy = block.hierarchy ?? []
+
+    if (hierarchy.length === 0) {
+      return (
+        <div>
+          {title}
+          <div className="flex h-[400px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+            Sin datos de jerarquía
+          </div>
+        </div>
+      )
+    }
+
+    const svgW = 600
+    const svgH = 400
+    const nodeW = 24
+    const pad = 40
+    const allFlows: { from: string; to: string; value: number; color: string }[] = []
+
+    hierarchy.forEach((src, si) => {
+      ;(src.children ?? []).forEach((child, ci) => {
+        allFlows.push({
+          from: src.name,
+          to: child.name,
+          value: child.value,
+          color: child.color ?? DEFAULT_COLORS[(si * 3 + ci) % DEFAULT_COLORS.length],
+        })
+      })
+    })
+
+    // Collect unique nodes
+    const srcNames = hierarchy.map((h) => h.name)
+    const dstNames = Array.from(new Set(allFlows.map((f) => f.to)))
+
+    const totalLeft = hierarchy.reduce((s, h) => s + (h.value ?? h.children?.reduce((a, c) => a + c.value, 0) ?? 0), 0) || 1
+    const totalRight = dstNames.reduce((s, name) => {
+      return s + allFlows.filter((f) => f.to === name).reduce((a, f) => a + f.value, 0)
+    }, 0) || 1
+
+    const usableH = svgH - pad * 2
+
+    // Left node positions
+    let leftY = pad
+    const leftNodes: Record<string, { y: number; h: number }> = {}
+    srcNames.forEach((name) => {
+      const srcVal = hierarchy.find((h) => h.name === name)
+      const val = srcVal?.value ?? srcVal?.children?.reduce((a, c) => a + c.value, 0) ?? 0
+      const h = Math.max(10, (val / totalLeft) * usableH)
+      leftNodes[name] = { y: leftY, h }
+      leftY += h + 8
+    })
+
+    // Right node positions
+    let rightY = pad
+    const rightNodes: Record<string, { y: number; h: number }> = {}
+    dstNames.forEach((name) => {
+      const val = allFlows.filter((f) => f.to === name).reduce((a, f) => a + f.value, 0)
+      const h = Math.max(10, (val / totalRight) * usableH)
+      rightNodes[name] = { y: rightY, h }
+      rightY += h + 8
+    })
+
+    // Track offsets for flow placement
+    const leftOffset: Record<string, number> = {}
+    const rightOffset: Record<string, number> = {}
+
+    return (
+      <div>
+        {title}
+        <div className="overflow-x-auto">
+          <svg width={svgW} height={svgH} viewBox={`0 0 ${svgW} ${svgH}`} className="w-full">
+            {/* Flows */}
+            {allFlows.map((flow, fi) => {
+              const ln = leftNodes[flow.from]
+              const rn = rightNodes[flow.to]
+              if (!ln || !rn) return null
+
+              const srcTotal = hierarchy.find((h) => h.name === flow.from)
+              const srcVal = srcTotal?.value ?? srcTotal?.children?.reduce((a, c) => a + c.value, 0) ?? 1
+              const dstVal = allFlows.filter((f) => f.to === flow.to).reduce((a, f) => a + f.value, 0) || 1
+
+              const lOff = leftOffset[flow.from] ?? 0
+              const rOff = rightOffset[flow.to] ?? 0
+
+              const flowHLeft = (flow.value / srcVal) * ln.h
+              const flowHRight = (flow.value / dstVal) * rn.h
+
+              const y1t = ln.y + lOff
+              const y1b = y1t + flowHLeft
+              const y2t = rn.y + rOff
+              const y2b = y2t + flowHRight
+
+              leftOffset[flow.from] = lOff + flowHLeft
+              rightOffset[flow.to] = rOff + flowHRight
+
+              const x1 = pad + nodeW
+              const x2 = svgW - pad - nodeW
+              const mx = (x1 + x2) / 2
+
+              return (
+                <path
+                  key={fi}
+                  d={`M${x1},${y1t} C${mx},${y1t} ${mx},${y2t} ${x2},${y2t} L${x2},${y2b} C${mx},${y2b} ${mx},${y1b} ${x1},${y1b} Z`}
+                  fill={flow.color}
+                  fillOpacity={0.45}
+                  stroke={flow.color}
+                  strokeOpacity={0.3}
+                  strokeWidth={0.5}
+                />
+              )
+            })}
+            {/* Left nodes */}
+            {srcNames.map((name) => {
+              const n = leftNodes[name]
+              if (!n) return null
+              return (
+                <g key={name}>
+                  <rect x={pad} y={n.y} width={nodeW} height={n.h} fill="#6366f1" rx={3} />
+                  <text x={pad + nodeW + 4} y={n.y + n.h / 2 + 4} fontSize={11} fill="#374151">{name}</text>
+                </g>
+              )
+            })}
+            {/* Right nodes */}
+            {dstNames.map((name) => {
+              const n = rightNodes[name]
+              if (!n) return null
+              return (
+                <g key={name}>
+                  <rect x={svgW - pad - nodeW} y={n.y} width={nodeW} height={n.h} fill="#22c55e" rx={3} />
+                  <text x={svgW - pad - nodeW - 4} y={n.y + n.h / 2 + 4} fontSize={11} fill="#374151" textAnchor="end">{name}</text>
+                </g>
+              )
+            })}
+          </svg>
+        </div>
+      </div>
+    )
+  }
+
+  // ── Pyramid ───────────────────────────────────────────────────────────────
+  if (block.chartType === "pyramid") {
+    const labels = block.data?.labels ?? []
+    const values = block.data?.datasets[0]?.values ?? []
+    const colors = values.map(
+      (_, i) =>
+        block.data?.datasets[0]?.color ?? DEFAULT_COLORS[i % DEFAULT_COLORS.length]
+    )
+
+    if (labels.length === 0 || values.length === 0) {
+      return (
+        <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+          Sin datos
+        </div>
+      )
+    }
+
+    const maxVal = Math.max(...values, 1)
+    const barH = 32
+    const gap = 6
+    const svgH = labels.length * (barH + gap) + 20
+    const svgW = 500
+    const maxBarW = 300
+    const centerX = svgW / 2
+
+    // Levels from bottom (index 0) to top (last index)
+    return (
+      <div>
+        {title}
+        <div className="overflow-x-auto">
+          <svg width={svgW} height={svgH} viewBox={`0 0 ${svgW} ${svgH}`} className="w-full max-w-lg mx-auto">
+            {labels.map((label, i) => {
+              // Render from top of SVG = highest index (top of pyramid)
+              const revIdx = labels.length - 1 - i
+              const val = values[revIdx] ?? 0
+              const color = block.data?.datasets[0]?.color
+                ? block.data.datasets[0].color
+                : DEFAULT_COLORS[revIdx % DEFAULT_COLORS.length]
+              const barW = (val / maxVal) * maxBarW
+              const y = i * (barH + gap) + 10
+              return (
+                <g key={i}>
+                  <rect
+                    x={centerX - barW / 2}
+                    y={y}
+                    width={barW}
+                    height={barH}
+                    fill={color}
+                    rx={3}
+                  />
+                  <text
+                    x={centerX - barW / 2 - 6}
+                    y={y + barH / 2 + 4}
+                    textAnchor="end"
+                    fontSize={11}
+                    fill="#374151"
+                  >
+                    {labels[revIdx]}
+                  </text>
+                  <text
+                    x={centerX + barW / 2 + 6}
+                    y={y + barH / 2 + 4}
+                    textAnchor="start"
+                    fontSize={11}
+                    fill="#374151"
+                  >
+                    {val}
+                  </text>
+                </g>
+              )
+            })}
+          </svg>
+        </div>
         {block.showStats && <StatsPanel values={firstDatasetValues} />}
         {block.showProcess && <ProcessPanel steps={processSteps} />}
       </div>

@@ -38,7 +38,7 @@ export type ChartBlock = {
   id: string
   type: "chart"
   title?: string
-  chartType: "bar" | "line" | "pie" | "scatter" | "area" | "bar-stacked" | "bar-grouped" | "area-stacked" | "histogram" | "radar" | "polar" | "boxplot"
+  chartType: "bar" | "line" | "pie" | "scatter" | "area" | "bar-stacked" | "bar-grouped" | "area-stacked" | "histogram" | "radar" | "polar" | "boxplot" | "timeseries" | "treemap" | "sankey" | "pyramid"
   sourceTableId?: string   // si viene de una tabla del mismo documento
   xColumn?: number         // índice de columna para eje X (cuando usa tabla)
   yColumns?: number[]      // índices de columnas para eje Y (cuando usa tabla)
@@ -51,6 +51,12 @@ export type ChartBlock = {
       color?: string
     }[]
   }
+  dateFormat?: string      // formato de fechas en el eje X para timeseries, ej: "DD/MM/YYYY", "MMM YYYY", "YYYY"
+  hierarchy?: {            // datos jerárquicos para treemap y sankey
+    name: string
+    value?: number
+    children?: { name: string; value: number; color?: string }[]
+  }[]
   showStats?: boolean      // muestra tabla de estadísticas descriptivas debajo del gráfico
   showProcess?: boolean    // muestra los pasos de cálculo paso a paso
   statFunction?: "mean" | "median" | "mode" | "variance" | "stddev" | "frequency" | "quartiles" | "zscore" | "regression" | "correlation" | "summary"
