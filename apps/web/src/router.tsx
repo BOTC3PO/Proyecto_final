@@ -69,6 +69,7 @@ import DiccionarioTest from "./pages/DiccionarioTest";
 import GeneradoresTest from "./pages/GeneradoresTest";
 import GuestOnboarding from "./pages/GuestOnboarding";
 import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
+import MapaEditorPage from "./pages/MapaEditorPage";
 import Gobernanza from "./pages/Gobernanza";
 import GobernanzaPropuesta from "./pages/GobernanzaPropuesta";
 import GobernanzaNuevaPropuesta from "./pages/GobernanzaNuevaPropuesta";
@@ -115,6 +116,7 @@ export const router = createBrowserRouter([
       { path: "bloques/editor/:id", element: <BlockEditorPage /> },
       { path: "onboarding-guest", element: <GuestOnboarding /> },
       { path: "geografia/mapa", element: <GeografiaMapaSelector /> },
+      { path: "herramientas/mapa-editor", element: <MapaEditorPage /> },
 
       // Herramientas Educativas (public)
       { path: "herramientas", element: <HerramientasEducativas /> },
