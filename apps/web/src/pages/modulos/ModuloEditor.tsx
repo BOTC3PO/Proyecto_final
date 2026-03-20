@@ -23,7 +23,7 @@ import {
   type BookResult,
   type TuesdayResult,
 } from "./useModuloEditor";
-import { STANDALONE_TOOLS, parseStandaloneConfig, type RecetaConfig, type LineaTiempoConfig } from "../../components/modulos/standalone/types";
+import { STANDALONE_TOOLS, parseStandaloneConfig, type RecetaConfig, type LineaTiempoConfig, type MapaConfig } from "../../components/modulos/standalone/types";
 import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
 
@@ -521,6 +521,11 @@ export default function ModuloEditor() {
                               ...prev,
                               detail: JSON.stringify({ tool: "linea-tiempo", titulo: "", eventos: [] } satisfies LineaTiempoConfig),
                             }));
+                          } else if (val === "mapa") {
+                            setNewTheoryItem((prev) => ({
+                              ...prev,
+                              detail: JSON.stringify({ tool: "mapa", titulo: "", modo: "political", escala: "110m", anotaciones: [] } satisfies MapaConfig),
+                            }));
                           } else {
                             setNewTheoryItem((prev) => ({ ...prev, detail: val }));
                           }
@@ -551,6 +556,37 @@ export default function ModuloEditor() {
                                 setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) }))
                               }
                             />
+                          );
+                        }
+                        if (cfg?.tool === "mapa") {
+                          const ssKey = `new-mapa-${Date.now()}`;
+                          return (
+                            <div className="rounded-lg border border-teal-200 bg-teal-50 p-3 flex items-center gap-3">
+                              <span className="text-xs text-teal-700 flex-1">Mapa configurado ({cfg.anotaciones.length} anotaciones)</span>
+                              <button
+                                type="button"
+                                className="rounded-md border border-teal-400 bg-white px-3 py-1.5 text-xs font-medium text-teal-700 hover:bg-teal-50"
+                                onClick={() => {
+                                  sessionStorage.setItem(`mapa-doc:${ssKey}`, JSON.stringify(cfg));
+                                  const win = window.open(`/herramientas/mapa-editor?sskey=${ssKey}`, "_blank");
+                                  if (!win) return;
+                                  const timer = setInterval(() => {
+                                    if (win.closed) {
+                                      clearInterval(timer);
+                                      try {
+                                        const raw = sessionStorage.getItem(`mapa-doc:${ssKey}:result`);
+                                        if (raw) {
+                                          const updated = JSON.parse(raw) as MapaConfig;
+                                          setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) }));
+                                        }
+                                      } catch { /* ignore */ }
+                                    }
+                                  }, 500);
+                                }}
+                              >
+                                Abrir editor de mapa
+                              </button>
+                            </div>
                           );
                         }
                         return null;
@@ -770,6 +806,8 @@ export default function ModuloEditor() {
                                         updateTheoryItem(item.id, { detail: JSON.stringify({ tool: "escalador-recetas", titulo: "", porcionesBase: 1, ingredientes: [], pasos: [] } satisfies RecetaConfig) });
                                       } else if (val === "linea-tiempo") {
                                         updateTheoryItem(item.id, { detail: JSON.stringify({ tool: "linea-tiempo", titulo: "", eventos: [] } satisfies LineaTiempoConfig) });
+                                      } else if (val === "mapa") {
+                                        updateTheoryItem(item.id, { detail: JSON.stringify({ tool: "mapa", titulo: "", modo: "political", escala: "110m", anotaciones: [] } satisfies MapaConfig) });
                                       } else {
                                         updateTheoryItem(item.id, { detail: val });
                                       }
@@ -800,6 +838,39 @@ export default function ModuloEditor() {
                                             updateTheoryItem(item.id, { detail: JSON.stringify(updated) })
                                           }
                                         />
+                                      );
+                                    }
+                                    if (cfg?.tool === "mapa") {
+                                      const ssKey = `mapa-${item.id}`;
+                                      return (
+                                        <div className="rounded-lg border border-teal-200 bg-teal-50 p-3 flex items-center gap-3">
+                                          <span className="text-xs text-teal-700 flex-1">
+                                            Mapa {cfg.modo === "political" ? "político" : "físico"} ({cfg.anotaciones.length} anotaciones)
+                                          </span>
+                                          <button
+                                            type="button"
+                                            className="rounded-md border border-teal-400 bg-white px-3 py-1.5 text-xs font-medium text-teal-700 hover:bg-teal-50"
+                                            onClick={() => {
+                                              sessionStorage.setItem(`mapa-doc:${ssKey}`, JSON.stringify(cfg));
+                                              const win = window.open(`/herramientas/mapa-editor?sskey=${ssKey}`, "_blank");
+                                              if (!win) return;
+                                              const timer = setInterval(() => {
+                                                if (win.closed) {
+                                                  clearInterval(timer);
+                                                  try {
+                                                    const raw = sessionStorage.getItem(`mapa-doc:${ssKey}:result`);
+                                                    if (raw) {
+                                                      const updated = JSON.parse(raw) as MapaConfig;
+                                                      updateTheoryItem(item.id, { detail: JSON.stringify(updated) });
+                                                    }
+                                                  } catch { /* ignore */ }
+                                                }
+                                              }, 500);
+                                            }}
+                                          >
+                                            Abrir editor de mapa
+                                          </button>
+                                        </div>
                                       );
                                     }
                                     return null;

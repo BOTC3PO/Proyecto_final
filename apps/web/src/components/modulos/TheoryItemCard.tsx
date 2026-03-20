@@ -9,6 +9,7 @@ import { parseStandaloneConfig } from "./standalone/types";
 import TablaPeriodica from "./standalone/TablaPeriodica";
 import { EscaladorRecetas } from "./standalone/EscaladorRecetas";
 import { LineaTiempo } from "./standalone/LineaTiempo";
+import MapaStandalone from "./standalone/MapaStandalone";
 
 // All supported theory item types (old English + new Spanish + catch-all string)
 export type TheoryItemType = string;
@@ -88,6 +89,7 @@ export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProp
         {config.tool === "tabla-periodica" && <TablaPeriodica />}
         {config.tool === "escalador-recetas" && <EscaladorRecetas config={config} />}
         {config.tool === "linea-tiempo" && <LineaTiempo config={config} />}
+        {config.tool === "mapa" && <MapaStandalone config={config} editable={false} />}
       </article>
     );
   }

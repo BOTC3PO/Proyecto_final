@@ -1,12 +1,14 @@
 export type StandaloneTool =
   | "tabla-periodica"
   | "escalador-recetas"
-  | "linea-tiempo";
+  | "linea-tiempo"
+  | "mapa";
 
 export const STANDALONE_TOOLS: { value: StandaloneTool; label: string }[] = [
   { value: "tabla-periodica", label: "Tabla periódica" },
   { value: "escalador-recetas", label: "Escalador de recetas" },
   { value: "linea-tiempo", label: "Línea de tiempo" },
+  { value: "mapa", label: "Mapa histórico/geográfico" },
 ];
 
 // Config para escalador — lo que guarda el docente en detail (JSON)
@@ -42,7 +44,20 @@ export type TablaPeriodica = {
   tool: "tabla-periodica";
 };
 
-export type StandaloneConfig = RecetaConfig | LineaTiempoConfig | TablaPeriodica;
+export type MapaAnotacion =
+  | { id: string; tipo: "marcador"; lat: number; lon: number; etiqueta: string; color?: string }
+  | { id: string; tipo: "zona"; puntos: [number, number][]; etiqueta: string; color?: string }
+  | { id: string; tipo: "flecha"; desde: [number, number]; hasta: [number, number]; etiqueta?: string; color?: string };
+
+export type MapaConfig = {
+  tool: "mapa";
+  titulo?: string;
+  modo: "political" | "physical";
+  escala: "110m" | "50m";
+  anotaciones: MapaAnotacion[];
+};
+
+export type StandaloneConfig = RecetaConfig | LineaTiempoConfig | TablaPeriodica | MapaConfig;
 
 export function parseStandaloneConfig(detail: string): StandaloneConfig | null {
   if (detail === "tabla-periodica") return { tool: "tabla-periodica" };
