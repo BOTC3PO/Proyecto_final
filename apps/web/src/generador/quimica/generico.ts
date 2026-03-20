@@ -2,6 +2,10 @@
 
 import type { VisualSpec } from "../../../archive/visualizadores/types";
 import type { PRNG } from "../core/prng";
+import { setPrng } from "../core/shared";
+
+// Lo que viene de shared — re-exportar para compatibilidad
+export { setPrng, randInt, randFloat, pickOne as choice, shuffle, randomBool, createPlaceholderQuiz } from "../core/shared";
 
 export type Dificultad = "facil" | "media" | "dificil";
 
@@ -43,43 +47,7 @@ export type Exercise = NumericExercise | QuizExercise;
 
 export type GeneratorFn = (dificultad?: Dificultad, prng?: PRNG) => Exercise;
 
-let ACTIVE_PRNG: PRNG | null = null;
-
-export function setPrng(prng: PRNG): void {
-  ACTIVE_PRNG = prng;
-}
-
-function requirePrng(): PRNG {
-  if (!ACTIVE_PRNG) {
-    throw new Error("PRNG no inicializado para generadores de química.");
-  }
-  return ACTIVE_PRNG;
-}
-
-// Helpers generales
-export function randInt(min: number, max: number): number {
-  return requirePrng().int(min, max);
-}
-
-export function randFloat(min: number, max: number, decimales = 2): number {
-  const value = requirePrng().next() * (max - min) + min;
-  return parseFloat(value.toFixed(decimales));
-}
-
-export function choice<T>(arr: T[]): T {
-  return arr[randInt(0, arr.length - 1)];
-}
-
-export function shuffle<T>(arr: T[]): T[] {
-  return requirePrng().shuffle(arr);
-}
-
-export function randomBool(probability = 0.5): boolean {
-  return requirePrng().next() < probability;
-}
-
-// Placeholders para temas aún no implementados
-
+// Placeholder específico de química (numérico)
 export function createPlaceholderNumeric(
   idTema: number,
   tituloTema: string
@@ -97,27 +65,6 @@ export function createPlaceholderNumeric(
       enunciado: `Ejercicio numérico aún no implementado para el tema: ${tituloTema}`,
       datos: {},
       resultado: 0,
-    };
-  };
-}
-
-export function createPlaceholderQuiz(
-  idTema: number,
-  tituloTema: string
-): GeneratorFn {
-  return (dificultad: Dificultad = "media", prng?: PRNG) => {
-    if (!prng) {
-      throw new Error("Se requiere un PRNG inicializado para generar ejercicios.");
-    }
-    setPrng(prng);
-    return {
-      idTema,
-      tituloTema,
-      dificultad,
-      tipo: "quiz",
-      enunciado: `Ejercicio tipo quiz aún no implementado para el tema: ${tituloTema}`,
-      opciones: [],
-      indiceCorrecto: 0,
     };
   };
 }
