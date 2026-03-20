@@ -7,16 +7,16 @@ import { BASIC_TEMPLATES } from "../basic/juegosBasicos";
 import { parseBasicGenerateOptions } from "../basic/schemas";
 import { createPrng } from "../core/prng";
 import { parseEconomiaParams } from "../economia/schemas";
-import { GENERADORES_ECONOMIA_DESCRIPTORES } from "../economia/indexEconomia";
+import { getDescriptorEconomiaPorClave } from "../economia/indexEconomia";
 import { toCorrection as toEconomiaCorrection } from "../economia/adapters";
 import { crearCalculadoraFisica } from "../fisica/calculadora";
 import { MRUGenerator } from "../fisica/MRU";
 import { parseFisicaParametros } from "../fisica/schemas";
-import { GENERADORES_MATEMATICAS_POR_TEMA } from "../matematicas";
+import { getDescriptorPorTema, getGeneratorPorTema } from "../matematicas";
 import type { Exercise } from "../matematicas/generic";
 import { toCorrection as toMathCorrection } from "../matematicas/adapters";
 import { parseMatematicasParams } from "../matematicas/schemas";
-import { GENERADORES_QUIMICA_DESCRIPTORES } from "../quimica/indexQuimica";
+import { getDescriptorQuimicaPorTema } from "../quimica/indexQuimica";
 import { toCorrection as toQuimicaCorrection } from "../quimica/adapters";
 import { parseQuimicaParams } from "../quimica/schemas";
 
@@ -62,8 +62,9 @@ test("basic: mismo seed y corrección consistente con recreación", () => {
   assert.strictEqual(generator.version, 1);
 });
 
-test("matemáticas: determinismo, corrección estable y sin NaN/Infinity", () => {
-  const descriptor = GENERADORES_MATEMATICAS_POR_TEMA[1];
+test("matemáticas: determinismo, corrección estable y sin NaN/Infinity", async () => {
+  const descriptor = await getDescriptorPorTema(1);
+  assert.ok(descriptor, "No se encontró descriptor para tema 1");
   const seed = "math-seed";
   const exerciseA = descriptor.generate("basico", { modo: "quiz" }, createPrng(seed));
   const exerciseB = descriptor.generate("basico", { modo: "quiz" }, createPrng(seed));
@@ -95,8 +96,9 @@ test("física: determinismo, corrección estable y sin NaN/Infinity", () => {
   assert.deepStrictEqual(renderA.correction, renderB.correction);
 });
 
-test("química: determinismo, corrección estable y sin NaN/Infinity", () => {
-  const descriptor = GENERADORES_QUIMICA_DESCRIPTORES[1];
+test("química: determinismo, corrección estable y sin NaN/Infinity", async () => {
+  const descriptor = await getDescriptorQuimicaPorTema(1);
+  assert.ok(descriptor, "No se encontró descriptor para quimica tema 1");
   const seed = "quimica-seed";
   const exerciseA = descriptor.generate("facil", createPrng(seed));
   const exerciseB = descriptor.generate("facil", createPrng(seed));
@@ -107,8 +109,9 @@ test("química: determinismo, corrección estable y sin NaN/Infinity", () => {
   assertFiniteDeep(exerciseA);
 });
 
-test("economía: determinismo, corrección estable y sin NaN/Infinity", () => {
-  const descriptor = GENERADORES_ECONOMIA_DESCRIPTORES["contabilidad/1"];
+test("economía: determinismo, corrección estable y sin NaN/Infinity", async () => {
+  const descriptor = await getDescriptorEconomiaPorClave("contabilidad/1");
+  assert.ok(descriptor, "No se encontró descriptor para contabilidad/1");
   const seed = "economia-seed";
   const exerciseA = descriptor.generate("basico", createPrng(seed));
   const exerciseB = descriptor.generate("basico", createPrng(seed));
@@ -294,12 +297,13 @@ const assertTrig56to59Correctness = (exercise: Exercise): void => {
   assert.fail(`No se pudo validar el ejercicio del tema ${exercise.idTema}: ${exercise.enunciado}`);
 };
 
-test("matemáticas temas 56–59: variantes válidas por dificultad y sin duplicados", () => {
+test("matemáticas temas 56–59: variantes válidas por dificultad y sin duplicados", async () => {
   const dificultades = ["basico", "intermedio", "avanzado"] as const;
   const temas = [56, 57, 58, 59] as const;
 
   for (const idTema of temas) {
-    const descriptor = GENERADORES_MATEMATICAS_POR_TEMA[idTema];
+    const descriptor = await getDescriptorPorTema(idTema);
+    assert.ok(descriptor, `No se encontró descriptor para tema ${idTema}`);
     for (const dificultad of dificultades) {
       for (let i = 0; i < 50; i += 1) {
         const exercise = descriptor.generate(dificultad, { modo: "quiz" }, createPrng(`tema-${idTema}-${dificultad}-${i}`));
@@ -312,11 +316,12 @@ test("matemáticas temas 56–59: variantes válidas por dificultad y sin duplic
   }
 });
 
-test("matemáticas temas 60–65: smoke nativo sin placeholders y con opciones únicas", () => {
+test("matemáticas temas 60–65: smoke nativo sin placeholders y con opciones únicas", async () => {
   const dificultades = ["basico", "intermedio", "avanzado"] as const;
 
   for (let idTema = 60; idTema <= 65; idTema += 1) {
-    const descriptor = GENERADORES_MATEMATICAS_POR_TEMA[idTema];
+    const descriptor = await getDescriptorPorTema(idTema);
+    assert.ok(descriptor, `No se encontró descriptor para tema ${idTema}`);
     for (const dificultad of dificultades) {
       for (let i = 0; i < 50; i += 1) {
         const exercise = descriptor.generate(dificultad, { modo: "quiz" }, createPrng(`tema-${idTema}-${dificultad}-${i}`));

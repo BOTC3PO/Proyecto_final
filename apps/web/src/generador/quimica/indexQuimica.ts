@@ -5,171 +5,6 @@ import type { GeneratorDescriptor } from "../core/types";
 import type { PRNG } from "../core/prng";
 import { getCatalogoTemaSync, getTemaByIdSync } from "./catalogoApi";
 
-/* ────────────────────────────────────────────────
-   BLOQUE 1 — ESTEQUIOMETRÍA (1–12)
-────────────────────────────────────────────────── */
-import { generarBalanceo } from "./01_balanceo";
-import { generarCalculoMoles } from "./02_calculo_moles";
-import { generarCalculoMasa } from "./03_calculo_masa";
-import { generarNumeroParticulas } from "./04_numero_particulas";
-import { generarRelacionesMolares } from "./05_relaciones_molares";
-import { generarReactivoLimitante } from "./06_reactivo_limitante";
-import { generarReactivoEnExceso } from "./07_reactivo_en_exceso";
-import { generarRendimientoTeorico } from "./08_rendimiento_teorico";
-import { generarPorcentajeRendimiento } from "./09_porcentaje_rendimiento";
-import { generarPurezaReactivos } from "./10_pureza_reactivos";
-import { generarLeyProporcionesMultiples } from "./11_ley_proporciones_multiples";
-import { generarLeyProporcionesDefinidas } from "./12_ley_proporciones_definidas";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 2 — SOLUCIONES (13–21)
-────────────────────────────────────────────────── */
-import { generarPorcentajeMasaMasa } from "./13_porcentaje_masa_masa";
-import { generarPorcentajeMasaVolumen } from "./14_porcentaje_masa_volumen";
-import { generarPorcentajeVolumenVolumen } from "./15_porcentaje_volumen_volumen";
-import { generarMolaridad } from "./16_molaridad";
-import { generarMolalidad } from "./17_molalidad";
-import { generarNormalidad } from "./18_normalidad";
-import { generarFraccionMolar } from "./19_fraccion_molar";
-import { generarDiluciones } from "./20_diluciones";
-import { generarPreparacionSoluciones } from "./21_preparacion_soluciones";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 3 — GASES (22–28)
-────────────────────────────────────────────────── */
-import { generarLeyBoyle } from "./22_ley_boyle";
-import { generarLeyCharles } from "./23_ley_charles";
-import { generarLeyGayLussac } from "./24_ley_gay_lussac";
-import { generarLeyCombinadaGases } from "./25_ley_combinada_gases";
-import { generarGasIdeal } from "./26_gas_ideal";
-import { generarPresionesParciales } from "./27_presiones_parciales";
-import { generarMezclaGases } from "./28_mezcla_gases";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 4 — TERMOQUÍMICA (29–33)
-────────────────────────────────────────────────── */
-import { generarCalorQ } from "./29_calor";
-import { generarCambioEntalpia } from "./30_cambio_entalpia";
-import { generarLeyHess } from "./31_ley_hess";
-import { generarEnergiaReaccion } from "./32_energia_reaccion";
-import { generarPoderCalorifico } from "./33_poder_calorifico";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 5 — ÁCIDOS Y BASES (34–41)
-────────────────────────────────────────────────── */
-import { generarPH } from "./34_pH";
-import { generarPOH } from "./35_pOH";
-import { generarKa_pKa } from "./36_Ka_pKa";
-import { generarKb_pKb } from "./37_Kb_pKb";
-import { generarConcentracionesH_OH } from "./38_concentraciones_H_OH";
-import { generarFuerzaAcidosBases } from "./39_fuerza_acidos_bases";
-import { generarNeutralizacion } from "./40_neutralizacion";
-import { generarTitulacionesSimples } from "./41_titulaciones_simples";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 6 — EQUILIBRIO (42–46)
-────────────────────────────────────────────────── */
-import { generarKc } from "./42_kc";
-import { generarKp } from "./43_kp";
-import { generarQ_Direccion } from "./44_q_direccion";
-import { generarProblemasICE } from "./45_problemas_ice";
-import { generarConcentracionesEquilibrio } from "./46_concentraciones_equilibrio";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 7 — ELECTROQUÍMICA (47–52)
-────────────────────────────────────────────────── */
-import { generarPotencialesEstandar } from "./47_potenciales_estandar";
-import { generarEcelda } from "./48_electroquimica_Ecelda";
-import { generarAnodoCatodo } from "./49_anodo_catodo";
-import { generarDeltaG } from "./50_deltaG";
-import { generarLeyesFaraday } from "./51_leyes_faraday";
-import { generarMasaElectrolisis } from "./52_masa_electrolisis";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 8 — CINÉTICA (53–57)
-────────────────────────────────────────────────── */
-import { generarLeyVelocidad } from "./53_ley_velocidad";
-import { generarOrdenReaccion } from "./54_orden_reaccion";
-import { generarConstanteK } from "./55_constante_k";
-import { generarSemivida } from "./56_semivida";
-import { generarGraficosCinetica } from "./57_graficos_cinetica";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 9 — SOLUBILIDAD (58–61)
-────────────────────────────────────────────────── */
-import { generarKsp } from "./58_ksp";
-import { generarSolubilidadMolar } from "./59_solubilidad_molar";
-import { generarPrecipitacion } from "./60_precipitacion";
-import { generarConcentracionMaximaAntesPrecipitar } from "./61_concentracion_maxima";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 10 — COLIGATIVAS (62–65)
-────────────────────────────────────────────────── */
-import { generarDescensoPuntoCongelacion } from "./62_descenso_punto_congelacion";
-import { generarElevacionPuntoEbullicion } from "./63_elevacion_punto_ebullicion";
-import { generarPresionOsmotica } from "./64_presion_osmotica";
-import { generarFactorVantHoff } from "./65_factor_vant_hoff";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 11 — TABLA PERIÓDICA QUIZ (66–71)
-────────────────────────────────────────────────── */
-import { generarClasificacionTablaPeriodica } from "./66_tabla_periodica_clasificacion";
-import { generarNumeroAtomico } from "./67_tabla_periodica_numero_atomico";
-import { generarTendenciasPeriodicas } from "./68_tendencias_periodicas_conceptual";
-import { generarElectronegatividadComparacion } from "./69_electronegatividad_comparacion";
-import { generarRadioAtomicoComparacion } from "./70_radio_atomico_comparacion";
-import { generarValenciaTipica } from "./71_valencia_tipica";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 12 — ESTRUCTURA ATÓMICA QUIZ (72–76)
-────────────────────────────────────────────────── */
-import { generarParticulasSubatomicas } from "./72_particulas_subatomicas";
-import { generarIonesCationesAniones } from "./73_iones_cationes_aniones";
-import { generarConfiguracionElectronica } from "./74_configuracion_electronica";
-import { generarNivelesSubnivelesEnergia } from "./75_niveles_y_subniveles";
-import { generarOrbitalesSPDF } from "./76_orbitales_spdf";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 13 — ENLACES QUIZ (77–81)
-────────────────────────────────────────────────── */
-import { generarEnlaceIonico } from "./77_enlace_ionico";
-import { generarEnlaceCovalente } from "./78_enlace_covalente";
-import { generarEnlaceMetalico } from "./79_enlace_metalico";
-import { generarPolaridadEnlaces } from "./80_polaridad_enlaces";
-import { generarGeometriaMolecularVSEPR } from "./81_geometria_molecular_vsepr";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 14 — MEZCLAS Y MATERIALES QUIZ (82–85)
-────────────────────────────────────────────────── */
-import { generarSustanciaPuraVsMezcla } from "./82_sustancia_pura_vs_mezcla";
-import { generarMezclaHomogeneaHeterogenea } from "./83_mezcla_homogenea_heterogenea";
-import { generarMetodosSeparacion } from "./84_metodos_separacion";
-import { generarPropiedadesFisicasVsQuimicas } from "./85_propiedades_fisicas_vs_quimicas";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 15 — TIPOS DE REACCIONES QUIZ (86–91)
-────────────────────────────────────────────────── */
-import { generarReaccionSintesis } from "./86_sintesis";
-import { generarReaccionDescomposicion } from "./87_descomposicion";
-import { generarDesplazamientoSimpleDoble } from "./88_desplazamiento_simple_doble";
-import { generarReaccionCombustion } from "./89_combustion";
-import { generarNeutralizacionAcidoBase } from "./90_neutralizacion";
-import { generarReaccionPrecipitacion } from "./91_precipitacion";
-
-/* ────────────────────────────────────────────────
-   BLOQUE 16 — SEGURIDAD QUÍMICA QUIZ (92–95)
-────────────────────────────────────────────────── */
-import { generarPictogramasGHS } from "./92_pictogramas_ghs";
-import { generarMaterialesInflamables } from "./93_materiales_inflamables";
-import { generarRiesgosToxicos } from "./94_riesgos_toxicos";
-import { generarEquiposProteccionQuimica } from "./95_equipos_proteccion";
-
-/* ────────────────────────────────────────────────
-   MAPA FINAL DE GENERADORES POR ID (1–95)
-────────────────────────────────────────────────── */
-
-
-
 type DificultadCore = "basico" | "intermedio" | "avanzado";
 
 interface ConsignaCatalogItem {
@@ -243,162 +78,172 @@ const wrapWithPrng =
     return applyConsignaDesdeApi(exercise, dificultad, prng);
   };
 
-const GENERADORES_QUIMICA_BASE: Record<number, GeneratorFn> = {
-  /* Estequiometría */
-  1: generarBalanceo,
-  2: generarCalculoMoles,
-  3: generarCalculoMasa,
-  4: generarNumeroParticulas,
-  5: generarRelacionesMolares,
-  6: generarReactivoLimitante,
-  7: generarReactivoEnExceso,
-  8: generarRendimientoTeorico,
-  9: generarPorcentajeRendimiento,
-  10: generarPurezaReactivos,
-  11: generarLeyProporcionesMultiples,
-  12: generarLeyProporcionesDefinidas,
+// =======================================================
+// LAZY CACHE: idTema → GeneratorFn (wrapped con PRNG y consigna)
+// =======================================================
 
-  /* Soluciones */
-  13: generarPorcentajeMasaMasa,
-  14: generarPorcentajeMasaVolumen,
-  15: generarPorcentajeVolumenVolumen,
-  16: generarMolaridad,
-  17: generarMolalidad,
-  18: generarNormalidad,
-  19: generarFraccionMolar,
-  20: generarDiluciones,
-  21: generarPreparacionSoluciones,
+export const QUIMICA_TEMA_MAX = 95;
 
-  /* Gases */
-  22: generarLeyBoyle,
-  23: generarLeyCharles,
-  24: generarLeyGayLussac,
-  25: generarLeyCombinadaGases,
-  26: generarGasIdeal,
-  27: generarPresionesParciales,
-  28: generarMezclaGases,
+const QUIMICA_CACHE = new Map<number, GeneratorFn>();
 
-  /* Termoquímica */
-  29: generarCalorQ,
-  30: generarCambioEntalpia,
-  31: generarLeyHess,
-  32: generarEnergiaReaccion,
-  33: generarPoderCalorifico,
+export async function getGeneradorQuimica(idTema: number): Promise<GeneratorFn | undefined> {
+  if (QUIMICA_CACHE.has(idTema)) return QUIMICA_CACHE.get(idTema)!;
 
-  /* Ácidos y bases */
-  34: generarPH,
-  35: generarPOH,
-  36: generarKa_pKa,
-  37: generarKb_pKb,
-  38: generarConcentracionesH_OH,
-  39: generarFuerzaAcidosBases,
-  40: generarNeutralizacion,
-  41: generarTitulacionesSimples,
+  let raw: GeneratorFn | undefined;
+  switch (idTema) {
+    /* Estequiometría */
+    case 1: { const { generarBalanceo } = await import("./01_balanceo"); raw = generarBalanceo; break; }
+    case 2: { const { generarCalculoMoles } = await import("./02_calculo_moles"); raw = generarCalculoMoles; break; }
+    case 3: { const { generarCalculoMasa } = await import("./03_calculo_masa"); raw = generarCalculoMasa; break; }
+    case 4: { const { generarNumeroParticulas } = await import("./04_numero_particulas"); raw = generarNumeroParticulas; break; }
+    case 5: { const { generarRelacionesMolares } = await import("./05_relaciones_molares"); raw = generarRelacionesMolares; break; }
+    case 6: { const { generarReactivoLimitante } = await import("./06_reactivo_limitante"); raw = generarReactivoLimitante; break; }
+    case 7: { const { generarReactivoEnExceso } = await import("./07_reactivo_en_exceso"); raw = generarReactivoEnExceso; break; }
+    case 8: { const { generarRendimientoTeorico } = await import("./08_rendimiento_teorico"); raw = generarRendimientoTeorico; break; }
+    case 9: { const { generarPorcentajeRendimiento } = await import("./09_porcentaje_rendimiento"); raw = generarPorcentajeRendimiento; break; }
+    case 10: { const { generarPurezaReactivos } = await import("./10_pureza_reactivos"); raw = generarPurezaReactivos; break; }
+    case 11: { const { generarLeyProporcionesMultiples } = await import("./11_ley_proporciones_multiples"); raw = generarLeyProporcionesMultiples; break; }
+    case 12: { const { generarLeyProporcionesDefinidas } = await import("./12_ley_proporciones_definidas"); raw = generarLeyProporcionesDefinidas; break; }
 
-  /* Equilibrio */
-  42: generarKc,
-  43: generarKp,
-  44: generarQ_Direccion,
-  45: generarProblemasICE,
-  46: generarConcentracionesEquilibrio,
+    /* Soluciones */
+    case 13: { const { generarPorcentajeMasaMasa } = await import("./13_porcentaje_masa_masa"); raw = generarPorcentajeMasaMasa; break; }
+    case 14: { const { generarPorcentajeMasaVolumen } = await import("./14_porcentaje_masa_volumen"); raw = generarPorcentajeMasaVolumen; break; }
+    case 15: { const { generarPorcentajeVolumenVolumen } = await import("./15_porcentaje_volumen_volumen"); raw = generarPorcentajeVolumenVolumen; break; }
+    case 16: { const { generarMolaridad } = await import("./16_molaridad"); raw = generarMolaridad; break; }
+    case 17: { const { generarMolalidad } = await import("./17_molalidad"); raw = generarMolalidad; break; }
+    case 18: { const { generarNormalidad } = await import("./18_normalidad"); raw = generarNormalidad; break; }
+    case 19: { const { generarFraccionMolar } = await import("./19_fraccion_molar"); raw = generarFraccionMolar; break; }
+    case 20: { const { generarDiluciones } = await import("./20_diluciones"); raw = generarDiluciones; break; }
+    case 21: { const { generarPreparacionSoluciones } = await import("./21_preparacion_soluciones"); raw = generarPreparacionSoluciones; break; }
 
-  /* Electroquímica */
-  47: generarPotencialesEstandar,
-  48: generarEcelda,
-  49: generarAnodoCatodo,
-  50: generarDeltaG,
-  51: generarLeyesFaraday,
-  52: generarMasaElectrolisis,
+    /* Gases */
+    case 22: { const { generarLeyBoyle } = await import("./22_ley_boyle"); raw = generarLeyBoyle; break; }
+    case 23: { const { generarLeyCharles } = await import("./23_ley_charles"); raw = generarLeyCharles; break; }
+    case 24: { const { generarLeyGayLussac } = await import("./24_ley_gay_lussac"); raw = generarLeyGayLussac; break; }
+    case 25: { const { generarLeyCombinadaGases } = await import("./25_ley_combinada_gases"); raw = generarLeyCombinadaGases; break; }
+    case 26: { const { generarGasIdeal } = await import("./26_gas_ideal"); raw = generarGasIdeal; break; }
+    case 27: { const { generarPresionesParciales } = await import("./27_presiones_parciales"); raw = generarPresionesParciales; break; }
+    case 28: { const { generarMezclaGases } = await import("./28_mezcla_gases"); raw = generarMezclaGases; break; }
 
-  /* Cinética */
-  53: generarLeyVelocidad,
-  54: generarOrdenReaccion,
-  55: generarConstanteK,
-  56: generarSemivida,
-  57: generarGraficosCinetica,
+    /* Termoquímica */
+    case 29: { const { generarCalorQ } = await import("./29_calor"); raw = generarCalorQ; break; }
+    case 30: { const { generarCambioEntalpia } = await import("./30_cambio_entalpia"); raw = generarCambioEntalpia; break; }
+    case 31: { const { generarLeyHess } = await import("./31_ley_hess"); raw = generarLeyHess; break; }
+    case 32: { const { generarEnergiaReaccion } = await import("./32_energia_reaccion"); raw = generarEnergiaReaccion; break; }
+    case 33: { const { generarPoderCalorifico } = await import("./33_poder_calorifico"); raw = generarPoderCalorifico; break; }
 
-  /* Solubilidad */
-  58: generarKsp,
-  59: generarSolubilidadMolar,
-  60: generarPrecipitacion,
-  61: generarConcentracionMaximaAntesPrecipitar,
+    /* Ácidos y Bases */
+    case 34: { const { generarPH } = await import("./34_pH"); raw = generarPH; break; }
+    case 35: { const { generarPOH } = await import("./35_pOH"); raw = generarPOH; break; }
+    case 36: { const { generarKa_pKa } = await import("./36_Ka_pKa"); raw = generarKa_pKa; break; }
+    case 37: { const { generarKb_pKb } = await import("./37_Kb_pKb"); raw = generarKb_pKb; break; }
+    case 38: { const { generarConcentracionesH_OH } = await import("./38_concentraciones_H_OH"); raw = generarConcentracionesH_OH; break; }
+    case 39: { const { generarFuerzaAcidosBases } = await import("./39_fuerza_acidos_bases"); raw = generarFuerzaAcidosBases; break; }
+    case 40: { const { generarNeutralizacion } = await import("./40_neutralizacion"); raw = generarNeutralizacion; break; }
+    case 41: { const { generarTitulacionesSimples } = await import("./41_titulaciones_simples"); raw = generarTitulacionesSimples; break; }
 
-  /* Coligativas */
-  62: generarDescensoPuntoCongelacion,
-  63: generarElevacionPuntoEbullicion,
-  64: generarPresionOsmotica,
-  65: generarFactorVantHoff,
+    /* Equilibrio */
+    case 42: { const { generarKc } = await import("./42_kc"); raw = generarKc; break; }
+    case 43: { const { generarKp } = await import("./43_kp"); raw = generarKp; break; }
+    case 44: { const { generarQ_Direccion } = await import("./44_q_direccion"); raw = generarQ_Direccion; break; }
+    case 45: { const { generarProblemasICE } = await import("./45_problemas_ice"); raw = generarProblemasICE; break; }
+    case 46: { const { generarConcentracionesEquilibrio } = await import("./46_concentraciones_equilibrio"); raw = generarConcentracionesEquilibrio; break; }
 
-  /* Tabla periódica */
-  66: generarClasificacionTablaPeriodica,
-  67: generarNumeroAtomico,
-  68: generarTendenciasPeriodicas,
-  69: generarElectronegatividadComparacion,
-  70: generarRadioAtomicoComparacion,
-  71: generarValenciaTipica,
+    /* Electroquímica */
+    case 47: { const { generarPotencialesEstandar } = await import("./47_potenciales_estandar"); raw = generarPotencialesEstandar; break; }
+    case 48: { const { generarEcelda } = await import("./48_electroquimica_Ecelda"); raw = generarEcelda; break; }
+    case 49: { const { generarAnodoCatodo } = await import("./49_anodo_catodo"); raw = generarAnodoCatodo; break; }
+    case 50: { const { generarDeltaG } = await import("./50_deltaG"); raw = generarDeltaG; break; }
+    case 51: { const { generarLeyesFaraday } = await import("./51_leyes_faraday"); raw = generarLeyesFaraday; break; }
+    case 52: { const { generarMasaElectrolisis } = await import("./52_masa_electrolisis"); raw = generarMasaElectrolisis; break; }
 
-  /* Estructura atómica */
-  72: generarParticulasSubatomicas,
-  73: generarIonesCationesAniones,
-  74: generarConfiguracionElectronica,
-  75: generarNivelesSubnivelesEnergia,
-  76: generarOrbitalesSPDF,
+    /* Cinética */
+    case 53: { const { generarLeyVelocidad } = await import("./53_ley_velocidad"); raw = generarLeyVelocidad; break; }
+    case 54: { const { generarOrdenReaccion } = await import("./54_orden_reaccion"); raw = generarOrdenReaccion; break; }
+    case 55: { const { generarConstanteK } = await import("./55_constante_k"); raw = generarConstanteK; break; }
+    case 56: { const { generarSemivida } = await import("./56_semivida"); raw = generarSemivida; break; }
+    case 57: { const { generarGraficosCinetica } = await import("./57_graficos_cinetica"); raw = generarGraficosCinetica; break; }
 
-  /* Enlaces */
-  77: generarEnlaceIonico,
-  78: generarEnlaceCovalente,
-  79: generarEnlaceMetalico,
-  80: generarPolaridadEnlaces,
-  81: generarGeometriaMolecularVSEPR,
+    /* Solubilidad */
+    case 58: { const { generarKsp } = await import("./58_ksp"); raw = generarKsp; break; }
+    case 59: { const { generarSolubilidadMolar } = await import("./59_solubilidad_molar"); raw = generarSolubilidadMolar; break; }
+    case 60: { const { generarPrecipitacion } = await import("./60_precipitacion"); raw = generarPrecipitacion; break; }
+    case 61: { const { generarConcentracionMaximaAntesPrecipitar } = await import("./61_concentracion_maxima"); raw = generarConcentracionMaximaAntesPrecipitar; break; }
 
-  /* Mezclas y materiales */
-  82: generarSustanciaPuraVsMezcla,
-  83: generarMezclaHomogeneaHeterogenea,
-  84: generarMetodosSeparacion,
-  85: generarPropiedadesFisicasVsQuimicas,
+    /* Coligativas */
+    case 62: { const { generarDescensoPuntoCongelacion } = await import("./62_descenso_punto_congelacion"); raw = generarDescensoPuntoCongelacion; break; }
+    case 63: { const { generarElevacionPuntoEbullicion } = await import("./63_elevacion_punto_ebullicion"); raw = generarElevacionPuntoEbullicion; break; }
+    case 64: { const { generarPresionOsmotica } = await import("./64_presion_osmotica"); raw = generarPresionOsmotica; break; }
+    case 65: { const { generarFactorVantHoff } = await import("./65_factor_vant_hoff"); raw = generarFactorVantHoff; break; }
 
-  /* Tipos de reacciones */
-  86: generarReaccionSintesis,
-  87: generarReaccionDescomposicion,
-  88: generarDesplazamientoSimpleDoble,
-  89: generarReaccionCombustion,
-  90: generarNeutralizacionAcidoBase,
-  91: generarReaccionPrecipitacion,
+    /* Tabla periódica */
+    case 66: { const { generarClasificacionTablaPeriodica } = await import("./66_tabla_periodica_clasificacion"); raw = generarClasificacionTablaPeriodica; break; }
+    case 67: { const { generarNumeroAtomico } = await import("./67_tabla_periodica_numero_atomico"); raw = generarNumeroAtomico; break; }
+    case 68: { const { generarTendenciasPeriodicas } = await import("./68_tendencias_periodicas_conceptual"); raw = generarTendenciasPeriodicas; break; }
+    case 69: { const { generarElectronegatividadComparacion } = await import("./69_electronegatividad_comparacion"); raw = generarElectronegatividadComparacion; break; }
+    case 70: { const { generarRadioAtomicoComparacion } = await import("./70_radio_atomico_comparacion"); raw = generarRadioAtomicoComparacion; break; }
+    case 71: { const { generarValenciaTipica } = await import("./71_valencia_tipica"); raw = generarValenciaTipica; break; }
 
-  /* Seguridad química */
-  92: generarPictogramasGHS,
-  93: generarMaterialesInflamables,
-  94: generarRiesgosToxicos,
-  95: generarEquiposProteccionQuimica,
-};
+    /* Estructura atómica */
+    case 72: { const { generarParticulasSubatomicas } = await import("./72_particulas_subatomicas"); raw = generarParticulasSubatomicas; break; }
+    case 73: { const { generarIonesCationesAniones } = await import("./73_iones_cationes_aniones"); raw = generarIonesCationesAniones; break; }
+    case 74: { const { generarConfiguracionElectronica } = await import("./74_configuracion_electronica"); raw = generarConfiguracionElectronica; break; }
+    case 75: { const { generarNivelesSubnivelesEnergia } = await import("./75_niveles_y_subniveles"); raw = generarNivelesSubnivelesEnergia; break; }
+    case 76: { const { generarOrbitalesSPDF } = await import("./76_orbitales_spdf"); raw = generarOrbitalesSPDF; break; }
 
-export const GENERADORES_QUIMICA: Record<number, GeneratorFn> = Object.fromEntries(
-  Object.entries(GENERADORES_QUIMICA_BASE).map(([id, generator]) => [
-    Number(id),
-    wrapWithPrng(generator),
-  ])
-) as Record<number, GeneratorFn>;
+    /* Enlaces */
+    case 77: { const { generarEnlaceIonico } = await import("./77_enlace_ionico"); raw = generarEnlaceIonico; break; }
+    case 78: { const { generarEnlaceCovalente } = await import("./78_enlace_covalente"); raw = generarEnlaceCovalente; break; }
+    case 79: { const { generarEnlaceMetalico } = await import("./79_enlace_metalico"); raw = generarEnlaceMetalico; break; }
+    case 80: { const { generarPolaridadEnlaces } = await import("./80_polaridad_enlaces"); raw = generarPolaridadEnlaces; break; }
+    case 81: { const { generarGeometriaMolecularVSEPR } = await import("./81_geometria_molecular_vsepr"); raw = generarGeometriaMolecularVSEPR; break; }
+
+    /* Mezclas y materiales */
+    case 82: { const { generarSustanciaPuraVsMezcla } = await import("./82_sustancia_pura_vs_mezcla"); raw = generarSustanciaPuraVsMezcla; break; }
+    case 83: { const { generarMezclaHomogeneaHeterogenea } = await import("./83_mezcla_homogenea_heterogenea"); raw = generarMezclaHomogeneaHeterogenea; break; }
+    case 84: { const { generarMetodosSeparacion } = await import("./84_metodos_separacion"); raw = generarMetodosSeparacion; break; }
+    case 85: { const { generarPropiedadesFisicasVsQuimicas } = await import("./85_propiedades_fisicas_vs_quimicas"); raw = generarPropiedadesFisicasVsQuimicas; break; }
+
+    /* Tipos de reacciones */
+    case 86: { const { generarReaccionSintesis } = await import("./86_sintesis"); raw = generarReaccionSintesis; break; }
+    case 87: { const { generarReaccionDescomposicion } = await import("./87_descomposicion"); raw = generarReaccionDescomposicion; break; }
+    case 88: { const { generarDesplazamientoSimpleDoble } = await import("./88_desplazamiento_simple_doble"); raw = generarDesplazamientoSimpleDoble; break; }
+    case 89: { const { generarReaccionCombustion } = await import("./89_combustion"); raw = generarReaccionCombustion; break; }
+    case 90: { const { generarNeutralizacionAcidoBase } = await import("./90_neutralizacion"); raw = generarNeutralizacionAcidoBase; break; }
+    case 91: { const { generarReaccionPrecipitacion } = await import("./91_precipitacion"); raw = generarReaccionPrecipitacion; break; }
+
+    /* Seguridad química */
+    case 92: { const { generarPictogramasGHS } = await import("./92_pictogramas_ghs"); raw = generarPictogramasGHS; break; }
+    case 93: { const { generarMaterialesInflamables } = await import("./93_materiales_inflamables"); raw = generarMaterialesInflamables; break; }
+    case 94: { const { generarRiesgosToxicos } = await import("./94_riesgos_toxicos"); raw = generarRiesgosToxicos; break; }
+    case 95: { const { generarEquiposProteccionQuimica } = await import("./95_equipos_proteccion"); raw = generarEquiposProteccionQuimica; break; }
+
+    default: return undefined;
+  }
+
+  if (raw) {
+    const wrapped = wrapWithPrng(raw);
+    QUIMICA_CACHE.set(idTema, wrapped);
+    return wrapped;
+  }
+  return undefined;
+}
 
 const QUIMICA_GENERATOR_VERSION = 1;
 
-export const GENERADORES_QUIMICA_DESCRIPTORES: Record<
-  number,
-  GeneratorDescriptor<Exercise, Parameters<GeneratorFn>>
-> = Object.fromEntries(
-  Object.entries(GENERADORES_QUIMICA).map(([id, generator]) => {
-    const idTema = Number(id);
-    const generatorId = `quimica:${idTema}`;
-    return [
-      idTema,
-      {
-        id: generatorId,
-        version: QUIMICA_GENERATOR_VERSION,
-        generate: (...args) => ({
-          ...generator(...args),
-          generatorId,
-          generatorVersion: QUIMICA_GENERATOR_VERSION,
-        }),
-      },
-    ];
-  })
-) as Record<number, GeneratorDescriptor<Exercise, Parameters<GeneratorFn>>>;
+export async function getDescriptorQuimicaPorTema(
+  idTema: number
+): Promise<GeneratorDescriptor<Exercise, Parameters<GeneratorFn>> | undefined> {
+  const generator = await getGeneradorQuimica(idTema);
+  if (!generator) return undefined;
+  const generatorId = `quimica:${idTema}`;
+  return {
+    id: generatorId,
+    version: QUIMICA_GENERATOR_VERSION,
+    generate: (...args) => ({
+      ...generator(...args),
+      generatorId,
+      generatorVersion: QUIMICA_GENERATOR_VERSION,
+    }),
+  };
+}

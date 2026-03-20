@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { __debug } from "../generadores_api";
-import { GENERATORS_BY_TEMA } from "../matematicas";
+import { getGeneratorPorTema } from "../matematicas";
 import { getRangoConFallback } from "../matematicas/limits";
 import { construirEnunciado } from "../matematicas/temas56_85_helpers";
 
@@ -115,13 +115,13 @@ test("si la consigna API deja placeholders, construirEnunciado usa fallback sin 
   assert.ok(!enunciado.includes("{{"));
 });
 
-test("smoke 60-65: genera quizzes válidos en todas las dificultades", () => {
+test("smoke 60-65: genera quizzes válidos en todas las dificultades", async () => {
   __debug.clear();
   const temas = [60, 61, 62, 63, 64, 65] as const;
   const dificultades = ["basico", "intermedio", "avanzado"] as const;
 
   for (const tema of temas) {
-    const gen = GENERATORS_BY_TEMA[tema];
+    const gen = await getGeneratorPorTema(tema);
     assert.ok(gen, `No se encontró generador para tema ${tema}`);
 
     for (const dificultad of dificultades) {

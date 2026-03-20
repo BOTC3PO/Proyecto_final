@@ -1,209 +1,133 @@
 import type { Exercise, GeneratorFn } from "./generico";
 import type { GeneratorDescriptor } from "../core/types";
 
-import { genContabClasificacionCuentas } from "./contab_01_clasificacionCuentas";
-import { genContabNaturalezaCuentas } from "./contab_02_naturalezaCuentas";
-import { genContabSaldoNormal } from "./contab_03_saldoNormal";
-import { genContabUbicacionEstados } from "./contab_04_ubicacionEstados";
-import { genContabHechosPatrimonio } from "./contab_05_hechosPatrimonio";
-import { genContabBienesDerechosObligaciones } from "./contab_06_bienesDerechosObligaciones";
-import { genContabAportesContribuciones } from "./contab_07_aportesContribuciones";
-import { genContabVariacionesPatrimoniales } from "./contab_08_variacionesPatrimoniales";
-
-import { genFinanzasPresupuestoFamiliar } from "./finanzas_09_presupuestoFamiliar";
-import { genFinanzasGastosFijosEsenciales } from "./finanzas_10_gastosFijosEsenciales";
-import { genFinanzasGastosEsencialesNoEsenciales } from "./finanzas_11_gastosEsencialesNoEsenciales";
-import { genFinanzasAhorroVsConsumoResponsable } from "./finanzas_12_ahorroVsConsumoResponsable";
-import { genFinanzasDeudaBuenaMala } from "./finanzas_13_deudaBuenaMala";
-import { genFinanzasCftVsInteres } from "./finanzas_14_cftVsInteres";
-import { genFinanzasInteresSimple } from "./finanzas_15_interesSimple";
-import { genFinanzasInteresCompuesto } from "./finanzas_16_interesCompuesto";
-import { genFinanzasLiquidezPersonal } from "./finanzas_17_liquidezPersonal";
-import { genFinanzasIngresosActivosPasivos } from "./finanzas_18_ingresosActivosPasivos";
-import { genFinanzasPublicidadEnganosa } from "./finanzas_19_publicidadEnganosa";
-import { genFinanzasComparacionInversiones } from "./finanzas_20_comparacionInversiones";
-import { genFinanzasSegurosFamilia } from "./finanzas_21_segurosFamilia";
-
-import { genARReciboBasico } from "./economia_ar_21_reciboBasico";
-import { genARDescuentosObligatorios } from "./economia_ar_22_descuentosObligatorios";
-import { genARAportes17 } from "./economia_ar_23_aportes17";
-import { genARNetoDesdeBruto } from "./economia_ar_24_netoDesdeBruto";
-import { genARIVA } from "./economia_ar_25_iva";
-import { genARIVACalculo } from "./economia_ar_26_ivaCalculo";
-import { genARJurisdiccionImpuestos } from "./economia_ar_27_jurisdiccionImpuestos";
-import { genARFormalInformal } from "./economia_ar_28_formalInformal";
-import { genARMonotributo } from "./economia_ar_29_monotributo";
-import { genARTasaDesempleo } from "./economia_ar_30_tasaDesempleo";
-
-import { genPoliticaFiscalMonetaria } from "./economia_31_politicaFiscalMonetaria";
-import { genGananciaPerdida } from "./economia_32_gananciaPerdida";
-import { genResultadoBruto } from "./economia_33_resultadoBruto";
-import { genResultadoNeto } from "./economia_34_resultadoNeto";
-import { genMargenBruto } from "./economia_35_margenBruto";
-import { genMargenNeto } from "./economia_36_margenNeto";
-import { genCapitalTrabajo } from "./economia_37_capitalTrabajo";
-import { genPuntoEquilibrio } from "./economia_38_puntoEquilibrio";
-import { genProductividadEscolar } from "./economia_39_productividad";
-import { genPorcentajesSimples } from "./economia_40_porcentajesSimples";
-import { genClasificacionBienes } from "./economia_41_clasificacionBienes";
-import { genAgentesEconomicos } from "./economia_42_agentesEconomicos";
-import { genEstructurasMercado } from "./economia_43_estructurasMercado";
-import { genGastosFijosVariables } from "./economia_44_gastosFijosVariables";
-import { genInteresSimpleVsCompuestoConcepto } from "./economia_45_simpleVsCompuesto";
-import { genCFTMayorInteres } from "./economia_46_cftMayorInteres";
-import { genGananciaVsEquilibrio } from "./economia_47_gananciaVsEquilibrio";
-import { genQuizAportesContribuciones } from "./economia_48_aportesContribuciones_quiz";
-import { genQuizDeudaBuenaMala } from "./economia_49_deudaBuenaMala_quiz";
-import { genQuizPublicidadEnganosa } from "./economia_50_publicidadEnganosa_quiz";
-import { genQuizGastosEsenciales } from "./economia_51_gastosEsenciales_quiz";
-import { genQuizLiquidezConcepto } from "./economia_52_liquidezConcepto_quiz";
-import { genQuizInteresSimpleCompuesto } from "./economia_53_interesSimpleCompuesto_quiz";
-import { genQuizCFTMayorInteres } from "./economia_54_cftMayorInteres_quiz";
-import { genQuizGananciaVsEquilibrio } from "./economia_55_gananciaVsEquilibrio_quiz";
-
 export type EconomiaCategoria =
   | "contabilidad"
   | "finanzas"
   | "economia_ar"
   | "economia";
 
-export const GENERADORES_CONTABILIDAD: Record<number, GeneratorFn> = {
-  1: genContabClasificacionCuentas,
-  2: genContabNaturalezaCuentas,
-  3: genContabSaldoNormal,
-  4: genContabUbicacionEstados,
-  5: genContabHechosPatrimonio,
-  6: genContabBienesDerechosObligaciones,
-  7: genContabAportesContribuciones,
-  8: genContabVariacionesPatrimoniales,
-};
+// =======================================================
+// CLAVES VÁLIDAS para verificación de existencia
+// =======================================================
 
-export const GENERADORES_FINANZAS: Record<number, GeneratorFn> = {
-  9: genFinanzasPresupuestoFamiliar,
-  10: genFinanzasGastosFijosEsenciales,
-  11: genFinanzasGastosEsencialesNoEsenciales,
-  12: genFinanzasAhorroVsConsumoResponsable,
-  13: genFinanzasDeudaBuenaMala,
-  14: genFinanzasCftVsInteres,
-  15: genFinanzasInteresSimple,
-  16: genFinanzasInteresCompuesto,
-  17: genFinanzasLiquidezPersonal,
-  18: genFinanzasIngresosActivosPasivos,
-  19: genFinanzasPublicidadEnganosa,
-  20: genFinanzasComparacionInversiones,
-  21: genFinanzasSegurosFamilia,
-};
+export const ECONOMIA_CLAVES_VALIDAS: ReadonlySet<string> = new Set<string>([
+  // Contabilidad (1–8)
+  ...Array.from({ length: 8 }, (_, i) => `contabilidad/${i + 1}`),
+  // Finanzas (9–21)
+  ...Array.from({ length: 13 }, (_, i) => `finanzas/${i + 9}`),
+  // Economía Argentina (21–30)
+  ...Array.from({ length: 10 }, (_, i) => `economia_ar/${i + 21}`),
+  // Economía general (31–55)
+  ...Array.from({ length: 25 }, (_, i) => `economia/${i + 31}`),
+]);
 
-export const GENERADORES_ECONOMIA_AR: Record<number, GeneratorFn> = {
-  21: genARReciboBasico,
-  22: genARDescuentosObligatorios,
-  23: genARAportes17,
-  24: genARNetoDesdeBruto,
-  25: genARIVA,
-  26: genARIVACalculo,
-  27: genARJurisdiccionImpuestos,
-  28: genARFormalInformal,
-  29: genARMonotributo,
-  30: genARTasaDesempleo,
-};
+// =======================================================
+// LAZY CACHE: clave → GeneratorFn
+// =======================================================
 
-export const GENERADORES_ECONOMIA: Record<number, GeneratorFn> = {
-  31: genPoliticaFiscalMonetaria,
-  32: genGananciaPerdida,
-  33: genResultadoBruto,
-  34: genResultadoNeto,
-  35: genMargenBruto,
-  36: genMargenNeto,
-  37: genCapitalTrabajo,
-  38: genPuntoEquilibrio,
-  39: genProductividadEscolar,
-  40: genPorcentajesSimples,
-  41: genClasificacionBienes,
-  42: genAgentesEconomicos,
-  43: genEstructurasMercado,
-  44: genGastosFijosVariables,
-  45: genInteresSimpleVsCompuestoConcepto,
-  46: genCFTMayorInteres,
-  47: genGananciaVsEquilibrio,
-  48: genQuizAportesContribuciones,
-  49: genQuizDeudaBuenaMala,
-  50: genQuizPublicidadEnganosa,
-  51: genQuizGastosEsenciales,
-  52: genQuizLiquidezConcepto,
-  53: genQuizInteresSimpleCompuesto,
-  54: genQuizCFTMayorInteres,
-  55: genQuizGananciaVsEquilibrio,
-};
-
-export const GENERADORES_ECONOMIA_POR_CATEGORIA: Record<
-  EconomiaCategoria,
-  Record<number, GeneratorFn>
-> = {
-  contabilidad: GENERADORES_CONTABILIDAD,
-  finanzas: GENERADORES_FINANZAS,
-  economia_ar: GENERADORES_ECONOMIA_AR,
-  economia: GENERADORES_ECONOMIA,
-};
-
-export const GENERADORES_ECONOMIA_POR_CLAVE: Record<string, GeneratorFn> = {
-  ...Object.fromEntries(
-    Object.entries(GENERADORES_CONTABILIDAD).map(([id, generador]) => [
-      `contabilidad/${id}`,
-      generador,
-    ])
-  ),
-  ...Object.fromEntries(
-    Object.entries(GENERADORES_FINANZAS).map(([id, generador]) => [
-      `finanzas/${id}`,
-      generador,
-    ])
-  ),
-  ...Object.fromEntries(
-    Object.entries(GENERADORES_ECONOMIA_AR).map(([id, generador]) => [
-      `economia_ar/${id}`,
-      generador,
-    ])
-  ),
-  ...Object.fromEntries(
-    Object.entries(GENERADORES_ECONOMIA).map(([id, generador]) => [
-      `economia/${id}`,
-      generador,
-    ])
-  ),
-};
+const ECONOMIA_CACHE = new Map<string, GeneratorFn>();
 
 const ECONOMIA_GENERATOR_VERSION = 1;
 
-export const GENERADORES_ECONOMIA_DESCRIPTORES: Record<
-  string,
-  GeneratorDescriptor<Exercise, Parameters<GeneratorFn>>
-> = Object.fromEntries(
-  Object.entries(GENERADORES_ECONOMIA_POR_CLAVE).map(([clave, generator]) => {
-    const generatorId = `economia:${clave}`;
-    return [
-      clave,
-      {
-        id: generatorId,
-        version: ECONOMIA_GENERATOR_VERSION,
-        generate: (...args) => ({
-          ...generator(...args),
-          generatorId,
-          generatorVersion: ECONOMIA_GENERATOR_VERSION,
-        }),
-      },
-    ];
-  })
-) as Record<string, GeneratorDescriptor<Exercise, Parameters<GeneratorFn>>>;
+export async function getGeneradorEconomiaPorClave(
+  clave: string
+): Promise<GeneratorFn | undefined> {
+  if (ECONOMIA_CACHE.has(clave)) return ECONOMIA_CACHE.get(clave)!;
 
-export function getGeneradorEconomia(
-  categoria: EconomiaCategoria,
-  idTema: number
-): GeneratorFn | undefined {
-  return GENERADORES_ECONOMIA_POR_CATEGORIA[categoria]?.[idTema];
+  let fn: GeneratorFn | undefined;
+  switch (clave) {
+    /* Contabilidad */
+    case "contabilidad/1": { const { genContabClasificacionCuentas } = await import("./contab_01_clasificacionCuentas"); fn = genContabClasificacionCuentas; break; }
+    case "contabilidad/2": { const { genContabNaturalezaCuentas } = await import("./contab_02_naturalezaCuentas"); fn = genContabNaturalezaCuentas; break; }
+    case "contabilidad/3": { const { genContabSaldoNormal } = await import("./contab_03_saldoNormal"); fn = genContabSaldoNormal; break; }
+    case "contabilidad/4": { const { genContabUbicacionEstados } = await import("./contab_04_ubicacionEstados"); fn = genContabUbicacionEstados; break; }
+    case "contabilidad/5": { const { genContabHechosPatrimonio } = await import("./contab_05_hechosPatrimonio"); fn = genContabHechosPatrimonio; break; }
+    case "contabilidad/6": { const { genContabBienesDerechosObligaciones } = await import("./contab_06_bienesDerechosObligaciones"); fn = genContabBienesDerechosObligaciones; break; }
+    case "contabilidad/7": { const { genContabAportesContribuciones } = await import("./contab_07_aportesContribuciones"); fn = genContabAportesContribuciones; break; }
+    case "contabilidad/8": { const { genContabVariacionesPatrimoniales } = await import("./contab_08_variacionesPatrimoniales"); fn = genContabVariacionesPatrimoniales; break; }
+
+    /* Finanzas */
+    case "finanzas/9": { const { genFinanzasPresupuestoFamiliar } = await import("./finanzas_09_presupuestoFamiliar"); fn = genFinanzasPresupuestoFamiliar; break; }
+    case "finanzas/10": { const { genFinanzasGastosFijosEsenciales } = await import("./finanzas_10_gastosFijosEsenciales"); fn = genFinanzasGastosFijosEsenciales; break; }
+    case "finanzas/11": { const { genFinanzasGastosEsencialesNoEsenciales } = await import("./finanzas_11_gastosEsencialesNoEsenciales"); fn = genFinanzasGastosEsencialesNoEsenciales; break; }
+    case "finanzas/12": { const { genFinanzasAhorroVsConsumoResponsable } = await import("./finanzas_12_ahorroVsConsumoResponsable"); fn = genFinanzasAhorroVsConsumoResponsable; break; }
+    case "finanzas/13": { const { genFinanzasDeudaBuenaMala } = await import("./finanzas_13_deudaBuenaMala"); fn = genFinanzasDeudaBuenaMala; break; }
+    case "finanzas/14": { const { genFinanzasCftVsInteres } = await import("./finanzas_14_cftVsInteres"); fn = genFinanzasCftVsInteres; break; }
+    case "finanzas/15": { const { genFinanzasInteresSimple } = await import("./finanzas_15_interesSimple"); fn = genFinanzasInteresSimple; break; }
+    case "finanzas/16": { const { genFinanzasInteresCompuesto } = await import("./finanzas_16_interesCompuesto"); fn = genFinanzasInteresCompuesto; break; }
+    case "finanzas/17": { const { genFinanzasLiquidezPersonal } = await import("./finanzas_17_liquidezPersonal"); fn = genFinanzasLiquidezPersonal; break; }
+    case "finanzas/18": { const { genFinanzasIngresosActivosPasivos } = await import("./finanzas_18_ingresosActivosPasivos"); fn = genFinanzasIngresosActivosPasivos; break; }
+    case "finanzas/19": { const { genFinanzasPublicidadEnganosa } = await import("./finanzas_19_publicidadEnganosa"); fn = genFinanzasPublicidadEnganosa; break; }
+    case "finanzas/20": { const { genFinanzasComparacionInversiones } = await import("./finanzas_20_comparacionInversiones"); fn = genFinanzasComparacionInversiones; break; }
+    case "finanzas/21": { const { genFinanzasSegurosFamilia } = await import("./finanzas_21_segurosFamilia"); fn = genFinanzasSegurosFamilia; break; }
+
+    /* Economía Argentina */
+    case "economia_ar/21": { const { genARReciboBasico } = await import("./economia_ar_21_reciboBasico"); fn = genARReciboBasico; break; }
+    case "economia_ar/22": { const { genARDescuentosObligatorios } = await import("./economia_ar_22_descuentosObligatorios"); fn = genARDescuentosObligatorios; break; }
+    case "economia_ar/23": { const { genARAportes17 } = await import("./economia_ar_23_aportes17"); fn = genARAportes17; break; }
+    case "economia_ar/24": { const { genARNetoDesdeBruto } = await import("./economia_ar_24_netoDesdeBruto"); fn = genARNetoDesdeBruto; break; }
+    case "economia_ar/25": { const { genARIVA } = await import("./economia_ar_25_iva"); fn = genARIVA; break; }
+    case "economia_ar/26": { const { genARIVACalculo } = await import("./economia_ar_26_ivaCalculo"); fn = genARIVACalculo; break; }
+    case "economia_ar/27": { const { genARJurisdiccionImpuestos } = await import("./economia_ar_27_jurisdiccionImpuestos"); fn = genARJurisdiccionImpuestos; break; }
+    case "economia_ar/28": { const { genARFormalInformal } = await import("./economia_ar_28_formalInformal"); fn = genARFormalInformal; break; }
+    case "economia_ar/29": { const { genARMonotributo } = await import("./economia_ar_29_monotributo"); fn = genARMonotributo; break; }
+    case "economia_ar/30": { const { genARTasaDesempleo } = await import("./economia_ar_30_tasaDesempleo"); fn = genARTasaDesempleo; break; }
+
+    /* Economía general */
+    case "economia/31": { const { genPoliticaFiscalMonetaria } = await import("./economia_31_politicaFiscalMonetaria"); fn = genPoliticaFiscalMonetaria; break; }
+    case "economia/32": { const { genGananciaPerdida } = await import("./economia_32_gananciaPerdida"); fn = genGananciaPerdida; break; }
+    case "economia/33": { const { genResultadoBruto } = await import("./economia_33_resultadoBruto"); fn = genResultadoBruto; break; }
+    case "economia/34": { const { genResultadoNeto } = await import("./economia_34_resultadoNeto"); fn = genResultadoNeto; break; }
+    case "economia/35": { const { genMargenBruto } = await import("./economia_35_margenBruto"); fn = genMargenBruto; break; }
+    case "economia/36": { const { genMargenNeto } = await import("./economia_36_margenNeto"); fn = genMargenNeto; break; }
+    case "economia/37": { const { genCapitalTrabajo } = await import("./economia_37_capitalTrabajo"); fn = genCapitalTrabajo; break; }
+    case "economia/38": { const { genPuntoEquilibrio } = await import("./economia_38_puntoEquilibrio"); fn = genPuntoEquilibrio; break; }
+    case "economia/39": { const { genProductividadEscolar } = await import("./economia_39_productividad"); fn = genProductividadEscolar; break; }
+    case "economia/40": { const { genPorcentajesSimples } = await import("./economia_40_porcentajesSimples"); fn = genPorcentajesSimples; break; }
+    case "economia/41": { const { genClasificacionBienes } = await import("./economia_41_clasificacionBienes"); fn = genClasificacionBienes; break; }
+    case "economia/42": { const { genAgentesEconomicos } = await import("./economia_42_agentesEconomicos"); fn = genAgentesEconomicos; break; }
+    case "economia/43": { const { genEstructurasMercado } = await import("./economia_43_estructurasMercado"); fn = genEstructurasMercado; break; }
+    case "economia/44": { const { genGastosFijosVariables } = await import("./economia_44_gastosFijosVariables"); fn = genGastosFijosVariables; break; }
+    case "economia/45": { const { genInteresSimpleVsCompuestoConcepto } = await import("./economia_45_simpleVsCompuesto"); fn = genInteresSimpleVsCompuestoConcepto; break; }
+    case "economia/46": { const { genCFTMayorInteres } = await import("./economia_46_cftMayorInteres"); fn = genCFTMayorInteres; break; }
+    case "economia/47": { const { genGananciaVsEquilibrio } = await import("./economia_47_gananciaVsEquilibrio"); fn = genGananciaVsEquilibrio; break; }
+    case "economia/48": { const { genQuizAportesContribuciones } = await import("./economia_48_aportesContribuciones_quiz"); fn = genQuizAportesContribuciones; break; }
+    case "economia/49": { const { genQuizDeudaBuenaMala } = await import("./economia_49_deudaBuenaMala_quiz"); fn = genQuizDeudaBuenaMala; break; }
+    case "economia/50": { const { genQuizPublicidadEnganosa } = await import("./economia_50_publicidadEnganosa_quiz"); fn = genQuizPublicidadEnganosa; break; }
+    case "economia/51": { const { genQuizGastosEsenciales } = await import("./economia_51_gastosEsenciales_quiz"); fn = genQuizGastosEsenciales; break; }
+    case "economia/52": { const { genQuizLiquidezConcepto } = await import("./economia_52_liquidezConcepto_quiz"); fn = genQuizLiquidezConcepto; break; }
+    case "economia/53": { const { genQuizInteresSimpleCompuesto } = await import("./economia_53_interesSimpleCompuesto_quiz"); fn = genQuizInteresSimpleCompuesto; break; }
+    case "economia/54": { const { genQuizCFTMayorInteres } = await import("./economia_54_cftMayorInteres_quiz"); fn = genQuizCFTMayorInteres; break; }
+    case "economia/55": { const { genQuizGananciaVsEquilibrio } = await import("./economia_55_gananciaVsEquilibrio_quiz"); fn = genQuizGananciaVsEquilibrio; break; }
+
+    default: return undefined;
+  }
+
+  if (fn) ECONOMIA_CACHE.set(clave, fn);
+  return fn;
 }
 
-export function getGeneradorEconomiaPorClave(
+export async function getDescriptorEconomiaPorClave(
   clave: string
-): GeneratorFn | undefined {
-  return GENERADORES_ECONOMIA_POR_CLAVE[clave];
+): Promise<GeneratorDescriptor<Exercise, Parameters<GeneratorFn>> | undefined> {
+  const generator = await getGeneradorEconomiaPorClave(clave);
+  if (!generator) return undefined;
+  const generatorId = `economia:${clave}`;
+  return {
+    id: generatorId,
+    version: ECONOMIA_GENERATOR_VERSION,
+    generate: (...args) => ({
+      ...generator(...args),
+      generatorId,
+      generatorVersion: ECONOMIA_GENERATOR_VERSION,
+    }),
+  };
+}
+
+export async function getGeneradorEconomia(
+  categoria: EconomiaCategoria,
+  idTema: number
+): Promise<GeneratorFn | undefined> {
+  return getGeneradorEconomiaPorClave(`${categoria}/${idTema}`);
 }

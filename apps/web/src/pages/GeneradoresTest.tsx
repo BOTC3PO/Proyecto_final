@@ -7,10 +7,11 @@ import type { GeneratedQuestionDTO } from "../generador/core/generated-question"
 import type { Dificultad as DificultadMath } from "../generador/matematicas/generic";
 import type { Dificultad as DificultadQuimica } from "../generador/quimica/generico";
 import type { Dificultad as DificultadEconomia } from "../generador/economia/generico";
-import { GENERADORES_MATEMATICAS_POR_TEMA, GENERATORS_BY_TEMA } from "../generador/matematicas";
-import { GENERADORES_QUIMICA_DESCRIPTORES, GENERADORES_QUIMICA } from "../generador/quimica/indexQuimica";
-import { GENERADORES_ECONOMIA_DESCRIPTORES, GENERADORES_ECONOMIA_POR_CLAVE } from "../generador/economia/indexEconomia";
+import { getGeneratorPorTema, MATEMATICAS_TEMA_MAX } from "../generador/matematicas";
+import { getGeneradorQuimica, QUIMICA_TEMA_MAX } from "../generador/quimica/indexQuimica";
+import { getGeneradorEconomiaPorClave, ECONOMIA_CLAVES_VALIDAS } from "../generador/economia/indexEconomia";
 import { createGeneradoresFisica } from "../generador/fisica/indexFisica";
+import type { BaseGenerator } from "../generador/core/basegenerador";
 import { crearCalculadoraFisica } from "../generador/fisica/calculadora";
 import { precargarCatalogoTemaFisicaPorGeneratorId } from "../generador/fisica/catalogoApi";
 import { createPrng } from "../generador/core/prng";
@@ -148,11 +149,20 @@ export default function GeneradoresTest() {
 
   const listingPrng = useMemo(() => createPrng(seed || "listado-generadores"), [seed]);
   const prng = useMemo(() => (seed ? createPrng(seed) : null), [seed]);
-  const generadoresFisica = useMemo(() => createGeneradoresFisica(listingPrng), [listingPrng]);
-  const generadoresFisicaSeeded = useMemo(
-    () => (prng ? createGeneradoresFisica(prng) : []),
-    [prng]
-  );
+  const [generadoresFisica, setGeneradoresFisica] = useState<BaseGenerator[]>([]);
+  const [generadoresFisicaSeeded, setGeneradoresFisicaSeeded] = useState<BaseGenerator[]>([]);
+
+  useEffect(() => {
+    void createGeneradoresFisica(listingPrng).then(setGeneradoresFisica);
+  }, [listingPrng]);
+
+  useEffect(() => {
+    if (!prng) {
+      setGeneradoresFisicaSeeded([]);
+      return;
+    }
+    void createGeneradoresFisica(prng).then(setGeneradoresFisicaSeeded);
+  }, [prng]);
 
   const opcionesGenerador = useMemo(() => {
     return promptOptions.map((promptOption) => ({
@@ -169,12 +179,16 @@ export default function GeneradoresTest() {
   useEffect(() => {
     const generatorExists = (id: string) => {
       switch (materia) {
-        case "matematica":
-          return Boolean(GENERATORS_BY_TEMA[Number(id)]);
-        case "quimica":
-          return Boolean(GENERADORES_QUIMICA[Number(id)]);
+        case "matematica": {
+          const n = Number(id);
+          return Number.isInteger(n) && n >= 1 && n <= MATEMATICAS_TEMA_MAX;
+        }
+        case "quimica": {
+          const n = Number(id);
+          return Number.isInteger(n) && n >= 1 && n <= QUIMICA_TEMA_MAX;
+        }
         case "economia":
-          return Boolean(GENERADORES_ECONOMIA_POR_CLAVE[id]);
+          return ECONOMIA_CLAVES_VALIDAS.has(id);
         case "fisica":
         default:
           return generadoresFisica.some((generador) => generador.id === id);
@@ -409,7 +423,7 @@ export default function GeneradoresTest() {
     };
   }, [materia, generadorSeleccionado]);
 
-  const generarEjercicio = () => {
+  const generarEjercicio = async () => {
     setError(null);
 
     try {
@@ -433,13 +447,12 @@ export default function GeneradoresTest() {
 
       switch (materia) {
         case "matematica": {
-          const descriptor =
-            GENERADORES_MATEMATICAS_POR_TEMA[Number(generadorSeleccionado)];
-          if (!descriptor) throw new Error("Generador de matemáticas no disponible.");
           if (matematicaPreloadLoading) {
             throw new Error("Esperá a que finalice la precarga de límites de matemáticas.");
           }
-          const exercise = descriptor.generate(
+          const generatorFn = await getGeneratorPorTema(Number(generadorSeleccionado));
+          if (!generatorFn) throw new Error("Generador de matemáticas no disponible.");
+          const exercise = generatorFn(
             dificultad as DificultadMath,
             { modo: modoRespuesta },
             prng
@@ -449,25 +462,23 @@ export default function GeneradoresTest() {
           break;
         }
         case "quimica": {
-          const descriptor =
-            GENERADORES_QUIMICA_DESCRIPTORES[Number(generadorSeleccionado)];
-          if (!descriptor) throw new Error("Generador de química no disponible.");
           if (quimicaPreloadLoading) {
             throw new Error("Esperá a que finalice la precarga de consignas de química.");
           }
           if (quimicaPreloadError) {
             throw new Error(quimicaPreloadError);
           }
-          const exercise = descriptor.generate(mapDificultadCoreABasica(dificultad), prng);
+          const generatorFn = await getGeneradorQuimica(Number(generadorSeleccionado));
+          if (!generatorFn) throw new Error("Generador de química no disponible.");
+          const exercise = generatorFn(mapDificultadCoreABasica(dificultad), prng);
           const question = adaptQuimicaExercise(exercise).question;
           setResultado(applyPromptToQuestion(question, promptConfigSeleccionado));
           break;
         }
         case "economia": {
-          const descriptor =
-            GENERADORES_ECONOMIA_DESCRIPTORES[generadorSeleccionado];
-          if (!descriptor) throw new Error("Generador de economía no disponible.");
-          const exercise = descriptor.generate(dificultad as DificultadEconomia, prng);
+          const generatorFn = await getGeneradorEconomiaPorClave(generadorSeleccionado);
+          if (!generatorFn) throw new Error("Generador de economía no disponible.");
+          const exercise = generatorFn(dificultad as DificultadEconomia, prng);
           const question = adaptEconomiaExercise(exercise).question;
           setResultado(applyPromptToQuestion(question, promptConfigSeleccionado));
           break;
@@ -696,7 +707,7 @@ export default function GeneradoresTest() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <button
               type="button"
-              onClick={generarEjercicio}
+              onClick={() => { void generarEjercicio(); }}
               disabled={promptsLoading || Boolean(promptsError) || !promptConfigSeleccionado}
               className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700"
             >

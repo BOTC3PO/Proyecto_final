@@ -2,15 +2,15 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { __debug } from "../generadores_api";
-import { GENERATORS_BY_TEMA } from "../matematicas";
+import { getGeneratorPorTema } from "../matematicas";
 
-test("smoke 66-70: generadores nativos válidos en todas las dificultades", () => {
+test("smoke 66-70: generadores nativos válidos en todas las dificultades", async () => {
   __debug.clear();
   const temas = [66, 67, 68, 69, 70] as const;
   const dificultades = ["basico", "intermedio", "avanzado"] as const;
 
   for (const tema of temas) {
-    const gen = GENERATORS_BY_TEMA[tema];
+    const gen = await getGeneratorPorTema(tema);
     assert.ok(gen, `No se encontró generador para tema ${tema}`);
 
     for (const dificultad of dificultades) {
