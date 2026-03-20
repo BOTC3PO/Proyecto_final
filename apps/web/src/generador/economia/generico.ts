@@ -1,9 +1,13 @@
 // src/generators/economia/generico.ts
 
-// Importás la dificultad “global” que ya tenés en types.ts
+// Importás la dificultad "global" que ya tenés en types.ts
 import type { Dificultad as DificultadGlobal } from "../core/types";
 import type { PRNG } from "../core/prng";
+import { setPrng, requirePrng } from "../core/shared";
 import { parseEconomiaParams } from "./schemas";
+
+// Lo que viene de shared — re-exportar para compatibilidad
+export { setPrng, randInt, randomBool, pickOne, createPlaceholderQuiz } from "../core/shared";
 
 // Re-export para usarla en los generadores de economía
 export type Dificultad = DificultadGlobal;
@@ -31,19 +35,6 @@ export type Exercise = QuizExercise;
 
 // Firma estándar de un generador de ejercicios
 export type GeneratorFn = (dificultad?: Dificultad, prng?: PRNG) => Exercise;
-
-let ACTIVE_PRNG: PRNG | null = null;
-
-export function setPrng(prng: PRNG): void {
-  ACTIVE_PRNG = prng;
-}
-
-function requirePrng(): PRNG {
-  if (!ACTIVE_PRNG) {
-    throw new Error("PRNG no inicializado para generadores de economía.");
-  }
-  return ACTIVE_PRNG;
-}
 
 export const DIFICULTAD_ORDEN: Dificultad[] = [
   "basico",
@@ -87,21 +78,6 @@ export function esDificultadMinima(
   minima: Dificultad
 ): boolean {
   return DIFICULTAD_RANK[dificultadActual] >= DIFICULTAD_RANK[minima];
-}
-
-/**
- * Devuelve un elemento aleatorio de un array.
- */
-export function pickOne<T>(items: T[]): T {
-  return items[requirePrng().int(0, items.length - 1)];
-}
-
-export function randInt(min: number, max: number): number {
-  return requirePrng().int(min, max);
-}
-
-export function randomBool(probability = 0.5): boolean {
-  return requirePrng().next() < probability;
 }
 
 /**
@@ -195,28 +171,5 @@ export function makeQuizGenerator(
       dificultad: dif,
       ...base,
     });
-  };
-}
-/**
- * Generador placeholder para temas que todavía no implementaste.
- */
-export function createPlaceholderQuiz(
-  idTema: number,
-  tituloTema: string
-): GeneratorFn {
-  return (dificultad: Dificultad = "intermedio" as Dificultad, prng?: PRNG) => {
-    if (!prng) {
-      throw new Error("Se requiere un PRNG inicializado para generar ejercicios.");
-    }
-    setPrng(prng);
-    return {
-      idTema,
-      tituloTema,
-      dificultad,
-      tipo: "quiz",
-      enunciado: `Ejercicio tipo quiz aún no implementado para el tema: ${tituloTema}`,
-      opciones: [],
-      indiceCorrecto: 0,
-    };
   };
 }

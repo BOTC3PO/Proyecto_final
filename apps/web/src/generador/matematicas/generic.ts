@@ -3,6 +3,7 @@
 import type { Dificultad as DificultadCore } from "../core/types";
 import type { PRNG } from "../core/prng";
 import type { VisualSpec } from "../../../archive/visualizadores/types";
+import { setPrng as setSharedPrng, requirePrng } from "../core/shared";
 import { parseMatematicasParams } from "./schemas";
 
 export type DificultadBasica = "facil" | "media" | "dificil";
@@ -51,19 +52,11 @@ export type GeneratorFn = (
 
 // -------- Helpers genéricos --------
 
-let ACTIVE_PRNG: PRNG | null = null;
 let QUESTION_INDEX = 0;
 
 export function setPrng(prng: PRNG): void {
-  ACTIVE_PRNG = prng;
+  setSharedPrng(prng);
   QUESTION_INDEX = 0;
-}
-
-function requirePrng(): PRNG {
-  if (!ACTIVE_PRNG) {
-    throw new Error("PRNG no inicializado para generadores de matemáticas.");
-  }
-  return ACTIVE_PRNG;
 }
 
 export function generarId(): string {
