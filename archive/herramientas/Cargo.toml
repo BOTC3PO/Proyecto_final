@@ -1,0 +1,14 @@
+[package]
+name = "compress_jsonl"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rayon = "1.10"
+flate2 = "1.0"
+walkdir = "2.5"
+num_cpus = "1.16"
+
+[[bin]]
+name = "compress_jsonl"
+path = "compress_jsonl.rs"
