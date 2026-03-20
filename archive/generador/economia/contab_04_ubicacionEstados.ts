@@ -1,0 +1,79 @@
+// src/generators/economia/contab_04_ubicacionEstados.ts
+
+import { type Dificultad } from "../core/types";
+import { makeQuizGenerator, pickOne, randInt, type GeneratorFn } from "./generico";
+import { resolveTemaEnunciado, resolveTemaRange } from "./consignas";
+
+type Ubicacion =
+  | "Activo Corriente"
+  | "Activo No Corriente"
+  | "Pasivo Corriente"
+  | "Pasivo No Corriente"
+  | "Resultados (Ingresos)"
+  | "Resultados (Costos/Gastos)";
+
+const CUENTAS_UBICACION: { nombre: string; ubicacion: Ubicacion }[] = [
+  { nombre: "Caja", ubicacion: "Activo Corriente" },
+  { nombre: "Banco c/c", ubicacion: "Activo Corriente" },
+  { nombre: "Clientes", ubicacion: "Activo Corriente" },
+  { nombre: "Mercaderías", ubicacion: "Activo Corriente" },
+  { nombre: "Muebles y Útiles", ubicacion: "Activo No Corriente" },
+  { nombre: "Inmuebles", ubicacion: "Activo No Corriente" },
+  { nombre: "Proveedores", ubicacion: "Pasivo Corriente" },
+  { nombre: "Sueldos a Pagar", ubicacion: "Pasivo Corriente" },
+  { nombre: "Préstamos a Largo Plazo", ubicacion: "Pasivo No Corriente" },
+  { nombre: "Capital", ubicacion: "Patrimonio Neto" as any }, // por si después agregás PN aparte
+  { nombre: "Ventas", ubicacion: "Resultados (Ingresos)" },
+  { nombre: "Intereses Ganados", ubicacion: "Resultados (Ingresos)" },
+  { nombre: "Sueldos y Jornales", ubicacion: "Resultados (Costos/Gastos)" },
+  { nombre: "Alquileres Perdidos", ubicacion: "Resultados (Costos/Gastos)" },
+];
+
+const OPCIONES_ESTADO: Ubicacion[] = [
+  "Activo Corriente",
+  "Activo No Corriente",
+  "Pasivo Corriente",
+  "Pasivo No Corriente",
+  "Resultados (Ingresos)",
+  "Resultados (Costos/Gastos)",
+];
+
+export const genContabUbicacionEstados: GeneratorFn = makeQuizGenerator(
+  4,
+  "Ubicación de cuentas en estados contables",
+  [
+    (dificultad: Dificultad) => {
+      const cuenta = pickOne(CUENTAS_UBICACION);
+      const correcta = cuenta.ubicacion;
+
+      let opciones: string[] = [correcta];
+
+      const [cantOpcionesRaw] = resolveTemaRange(4, dificultad, "cantOpciones", [
+        dificultad === "basico" ? 3 : dificultad === "intermedio" ? 4 : 5,
+        dificultad === "basico" ? 3 : dificultad === "intermedio" ? 4 : 5,
+      ]);
+      const cantOpciones = Math.max(2, Math.round(cantOpcionesRaw));
+
+      const distractores = OPCIONES_ESTADO.filter((o) => o !== correcta);
+      while (opciones.length < cantOpciones && distractores.length > 0) {
+        const idx = randInt(0, distractores.length - 1);
+        opciones.push(distractores.splice(idx, 1)[0]);
+      }
+
+      const indiceCorrecto = opciones.indexOf(correcta);
+
+      const fallbackEnunciado = `¿Dónde se ubica la cuenta "${cuenta.nombre}" en los estados contables?`;
+
+      return {
+        enunciado: resolveTemaEnunciado(4, { cuenta: cuenta.nombre }, fallbackEnunciado),
+        opciones,
+        indiceCorrecto,
+        explicacion:
+          "En el Balance se separan las cuentas según su exigibilidad o realización (Corriente/No Corriente) y en el Estado de Resultados se presentan ingresos y costos/gastos del período." +
+          (dificultad === "avanzado"
+            ? " En niveles altos, considerá si la cuenta es de activo/pasivo o si corresponde al estado de resultados."
+            : ""),
+      };
+    },
+  ]
+);
