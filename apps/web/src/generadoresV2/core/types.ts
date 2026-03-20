@@ -19,6 +19,10 @@ export function ajustarRango(min: number, max: number, d: Dificultad, minFloor =
   return [lo, hi];
 }
 // ── Tipos de ejercicio ────────────────────────────────────────────
+export interface VisualSpec {
+  tipo: string;
+  datos?: Record<string, unknown>;
+}
 export interface EjercicioBase {
   id: string;
   materia: Materia;
@@ -26,6 +30,7 @@ export interface EjercicioBase {
   dificultad: Dificultad;
   generatorId?: string;
   generatorVersion?: number;
+  visual?: VisualSpec;
 }
 export interface EjercicioQuiz extends EjercicioBase {
   tipo: "quiz";
