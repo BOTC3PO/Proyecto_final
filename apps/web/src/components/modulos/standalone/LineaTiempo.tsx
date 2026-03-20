@@ -4,31 +4,67 @@ import { type LineaTiempoConfig } from "./types";
 
 type AlumnoProps = { config: LineaTiempoConfig };
 
+const EVENT_COLORS = [
+  { bg: "#dbeafe", dot: "#2563eb", text: "#1d4ed8" }, // azul
+  { bg: "#dcfce7", dot: "#16a34a", text: "#15803d" }, // verde
+  { bg: "#fef9c3", dot: "#ca8a04", text: "#a16207" }, // amarillo
+  { bg: "#fce7f3", dot: "#db2777", text: "#be185d" }, // rosa
+  { bg: "#ffedd5", dot: "#ea580c", text: "#c2410c" }, // naranja
+  { bg: "#ede9fe", dot: "#7c3aed", text: "#6d28d9" }, // violeta
+  { bg: "#cffafe", dot: "#0891b2", text: "#0e7490" }, // cian
+  { bg: "#fee2e2", dot: "#dc2626", text: "#b91c1c" }, // rojo
+];
+
+function isYear(fecha: string): boolean {
+  return /^\d{4}$/.test(fecha.trim());
+}
+
 function LineaTiempoAlumno({ config }: AlumnoProps) {
   return (
     <div className="space-y-3">
       {config.titulo && (
         <h3 className="text-base font-semibold text-slate-800">{config.titulo}</h3>
       )}
-      <div className="relative pl-6">
+      <div className="relative pl-16">
         {/* Vertical line */}
-        <div className="absolute left-2 top-2 bottom-2 w-0.5 bg-slate-200" />
-        <div className="space-y-4">
-          {config.eventos.map((ev) => (
-            <div key={ev.id} className="relative">
-              {/* Dot */}
-              <div className="absolute -left-4 mt-1.5 w-3 h-3 rounded-full bg-indigo-500 border-2 border-white shadow-sm" />
-              <div className="bg-white rounded-lg border border-slate-200 p-3 shadow-sm">
-                <div className="flex items-start justify-between gap-2 flex-wrap">
-                  <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">
-                    {ev.fecha}
-                  </span>
+        <div className="absolute left-5 top-2 bottom-2 w-0.5 bg-gradient-to-b from-slate-200 via-slate-300 to-slate-200" />
+        <div className="space-y-6">
+          {config.eventos.map((ev, idx) => {
+            const color = EVENT_COLORS[idx % EVENT_COLORS.length];
+            return (
+              <div key={ev.id} className="relative">
+                {/* Dot con fecha */}
+                <div
+                  className="absolute -left-11 top-2 w-10 h-10 rounded-full flex items-center justify-center shadow-sm border-2 border-white"
+                  style={{ backgroundColor: color.dot }}
+                >
+                  {isYear(ev.fecha) ? (
+                    <span className="text-xs font-bold text-white leading-tight text-center px-0.5">
+                      {ev.fecha.trim()}
+                    </span>
+                  ) : (
+                    <span className="text-white text-sm">●</span>
+                  )}
+                </div>
+                {/* Tarjeta */}
+                <div
+                  className="rounded-lg p-3 shadow-sm"
+                  style={{
+                    backgroundColor: color.bg,
+                    borderLeft: `3px solid ${color.dot}`,
+                  }}
+                >
+                  <p className="font-semibold text-slate-800">{ev.titulo}</p>
+                  {ev.descripcion && (
+                    <p className="text-sm text-slate-600 mt-0.5">{ev.descripcion}</p>
+                  )}
                   {ev.tags && ev.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap gap-1 mt-2">
                       {ev.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full"
+                          className="text-xs px-2 py-0.5 rounded-full font-medium"
+                          style={{ color: color.text, backgroundColor: "rgba(255,255,255,0.6)" }}
                         >
                           {tag}
                         </span>
@@ -36,13 +72,9 @@ function LineaTiempoAlumno({ config }: AlumnoProps) {
                     </div>
                   )}
                 </div>
-                <p className="text-sm font-semibold text-slate-800 mt-1">{ev.titulo}</p>
-                {ev.descripcion && (
-                  <p className="text-sm text-slate-600 mt-0.5">{ev.descripcion}</p>
-                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
           {config.eventos.length === 0 && (
             <p className="text-sm text-slate-400 italic">Sin eventos</p>
           )}
