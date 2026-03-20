@@ -19,10 +19,47 @@ export function ajustarRango(min: number, max: number, d: Dificultad, minFloor =
   return [lo, hi];
 }
 // ── Tipos de ejercicio ────────────────────────────────────────────
-export interface VisualSpec {
-  tipo: string;
-  datos?: Record<string, unknown>;
+export interface LineChartSpec {
+  kind: "line-chart";
+  title?: string;
+  xLabel?: string;
+  yLabel?: string;
+  xUnit?: string;
+  yUnit?: string;
+  series: {
+    id: string;
+    label: string;
+    color?: string;
+    points: { x: number; y: number }[];
+  }[];
+  annotations?: {
+    id: string;
+    x: number;
+    y?: number;
+    label: string;
+    color?: string;
+  }[];
 }
+export interface VectorDiagramSpec {
+  kind: "vector-diagram";
+  vectors: { id: string; label: string; dx: number; dy: number; color?: string }[];
+}
+export interface CircuitSpec {
+  kind: "circuit";
+  elements: { id: string; type: string; value?: number; unit?: string }[];
+}
+export interface StaticImageSpec {
+  kind: "static-image";
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+export type VisualSpec =
+  | LineChartSpec
+  | VectorDiagramSpec
+  | CircuitSpec
+  | StaticImageSpec;
 export interface EjercicioBase {
   id: string;
   materia: Materia;
