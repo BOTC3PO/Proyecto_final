@@ -12,25 +12,32 @@ function formatAmount(value: number): string {
 
 function EscaladorAlumno({ config }: AlumnoProps) {
   const [multiplier, setMultiplier] = useState(1);
+  const [pasosOpen, setPasosOpen] = useState(true);
+
+  const porciones = config.porcionesBase > 0
+    ? Math.round(config.porcionesBase * multiplier * 10) / 10
+    : 0;
 
   return (
     <div className="space-y-4">
+      {/* Header */}
       <div>
-        <h3 className="text-base font-semibold text-slate-800">{config.titulo}</h3>
+        <h3 className="text-xl font-bold text-slate-800">{config.titulo}</h3>
         {config.descripcion && (
           <p className="text-sm text-slate-500 mt-1">{config.descripcion}</p>
         )}
+        {config.porcionesBase > 0 && (
+          <span className="inline-block mt-2 text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full">
+            Para {config.porcionesBase} porciones
+          </span>
+        )}
       </div>
 
-      <div className="space-y-1">
-        <label className="text-xs font-medium text-slate-600">
-          Multiplicador: <span className="font-bold text-slate-800">×{multiplier}</span>
-          {config.porcionesBase > 0 && (
-            <span className="text-slate-400 ml-1">
-              ({Math.round(config.porcionesBase * multiplier * 10) / 10} porciones)
-            </span>
-          )}
-        </label>
+      {/* Multiplicador */}
+      <div className="bg-indigo-50 rounded-xl p-4 space-y-3">
+        <div className="text-center">
+          <span className="text-5xl font-black text-indigo-700">×{multiplier}</span>
+        </div>
         <input
           type="range"
           min={0.5}
@@ -40,41 +47,82 @@ function EscaladorAlumno({ config }: AlumnoProps) {
           onChange={(e) => setMultiplier(Number(e.target.value))}
           className="w-full accent-indigo-600"
         />
-        <div className="flex justify-between text-xs text-slate-400">
-          <span>×0.5</span>
-          <span>×10</span>
-          <span>×20</span>
+        <div className="flex gap-2 justify-center">
+          {[0.5, 1, 2, 4].map((v) => (
+            <button
+              key={v}
+              type="button"
+              onClick={() => setMultiplier(v)}
+              className={`px-3 py-1 rounded-lg text-sm font-medium border transition-colors ${
+                multiplier === v
+                  ? "bg-indigo-600 text-white border-indigo-600"
+                  : "bg-white text-indigo-700 border-indigo-200 hover:bg-indigo-100"
+              }`}
+            >
+              ×{v}
+            </button>
+          ))}
         </div>
+        {config.porcionesBase > 0 && (
+          <p className="text-center text-xs text-slate-500">= {porciones} porciones</p>
+        )}
       </div>
 
+      {/* Ingredientes */}
       {config.ingredientes.length > 0 && (
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
             Ingredientes
           </h4>
-          <ul className="divide-y divide-slate-100 border border-slate-100 rounded-lg overflow-hidden">
-            {config.ingredientes.map((ing) => (
-              <li key={ing.id} className="flex justify-between items-center px-3 py-2 text-sm bg-white">
-                <span className="text-slate-700">{ing.nombre}</span>
-                <span className="font-medium text-slate-900">
-                  {formatAmount(ing.cantidadBase * multiplier)} {ing.unidad}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <div className="grid grid-cols-2 gap-2">
+            {config.ingredientes.map((ing) => {
+              const scaled = formatAmount(ing.cantidadBase * multiplier);
+              const base = formatAmount(ing.cantidadBase);
+              return (
+                <div
+                  key={ing.id}
+                  className="bg-white border border-slate-100 rounded-lg p-3"
+                >
+                  <p className="text-xs text-slate-500">{ing.nombre}</p>
+                  {multiplier !== 1 && (
+                    <p className="text-xs text-slate-300 line-through">
+                      {base} {ing.unidad}
+                    </p>
+                  )}
+                  <p className="text-2xl font-bold text-slate-800 leading-tight">
+                    {scaled}
+                    <span className="text-sm text-slate-400 ml-1">{ing.unidad}</span>
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
 
+      {/* Pasos — acordeón */}
       {config.pasos.length > 0 && (
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
-            Pasos
-          </h4>
-          <ol className="list-decimal list-inside space-y-1.5">
-            {config.pasos.map((paso, i) => (
-              <li key={i} className="text-sm text-slate-700">{paso}</li>
-            ))}
-          </ol>
+          <button
+            type="button"
+            onClick={() => setPasosOpen((o) => !o)}
+            className="flex items-center justify-between w-full text-left text-sm font-semibold text-slate-700 py-2 border-b border-slate-100"
+          >
+            <span>Preparación ({config.pasos.length} pasos)</span>
+            <span className="text-slate-400 text-xs">{pasosOpen ? "▲" : "▼"}</span>
+          </button>
+          {pasosOpen && (
+            <ol className="mt-3 space-y-2">
+              {config.pasos.map((paso, i) => (
+                <li key={i} className="flex gap-3 items-start">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center">
+                    {i + 1}
+                  </span>
+                  <span className="text-sm text-slate-700 pt-0.5">{paso}</span>
+                </li>
+              ))}
+            </ol>
+          )}
         </div>
       )}
     </div>
