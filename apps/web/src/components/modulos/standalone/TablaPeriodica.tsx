@@ -31,6 +31,73 @@ const CATEGORY_COLORS: Record<string, string> = {
   "unknown, probably metalloid": "#94a3b8",
 };
 
+const CATEGORY_ES: Record<string, string> = {
+  "diatomic nonmetal": "No metal diatómico",
+  "noble gas": "Gas noble",
+  "alkali metal": "Metal alcalino",
+  "alkaline earth metal": "Metal alcalinotérreo",
+  "metalloid": "Metaloide",
+  "polyatomic nonmetal": "No metal poliatómico",
+  "post-transition metal": "Metal post-transición",
+  "transition metal": "Metal de transición",
+  "lanthanide": "Lantánido",
+  "actinide": "Actínido",
+  "unknown, probably transition metal": "Desconocido",
+  "unknown, probably post-transition metal": "Desconocido",
+  "unknown, predicted to be noble gas": "Desconocido",
+  "unknown, probably metalloid": "Desconocido",
+};
+
+const PHASE_ES: Record<string, string> = {
+  "Gas": "Gas",
+  "Solid": "Sólido",
+  "Liquid": "Líquido",
+  "Unknown": "Desconocido",
+};
+
+const NAME_ES: Record<string, string> = {
+  "Hydrogen": "Hidrógeno", "Helium": "Helio", "Lithium": "Litio",
+  "Beryllium": "Berilio", "Boron": "Boro", "Carbon": "Carbono",
+  "Nitrogen": "Nitrógeno", "Oxygen": "Oxígeno", "Fluorine": "Flúor",
+  "Neon": "Neón", "Sodium": "Sodio", "Magnesium": "Magnesio",
+  "Aluminum": "Aluminio", "Silicon": "Silicio", "Phosphorus": "Fósforo",
+  "Sulfur": "Azufre", "Chlorine": "Cloro", "Argon": "Argón",
+  "Potassium": "Potasio", "Calcium": "Calcio", "Scandium": "Escandio",
+  "Titanium": "Titanio", "Vanadium": "Vanadio", "Chromium": "Cromo",
+  "Manganese": "Manganeso", "Iron": "Hierro", "Cobalt": "Cobalto",
+  "Nickel": "Níquel", "Copper": "Cobre", "Zinc": "Zinc",
+  "Gallium": "Galio", "Germanium": "Germanio", "Arsenic": "Arsénico",
+  "Selenium": "Selenio", "Bromine": "Bromo", "Krypton": "Kriptón",
+  "Rubidium": "Rubidio", "Strontium": "Estroncio", "Yttrium": "Itrio",
+  "Zirconium": "Circonio", "Niobium": "Niobio", "Molybdenum": "Molibdeno",
+  "Technetium": "Tecnecio", "Ruthenium": "Rutenio", "Rhodium": "Rodio",
+  "Palladium": "Paladio", "Silver": "Plata", "Cadmium": "Cadmio",
+  "Indium": "Indio", "Tin": "Estaño", "Antimony": "Antimonio",
+  "Tellurium": "Telurio", "Iodine": "Yodo", "Xenon": "Xenón",
+  "Cesium": "Cesio", "Barium": "Bario", "Lanthanum": "Lantano",
+  "Cerium": "Cerio", "Praseodymium": "Praseodimio", "Neodymium": "Neodimio",
+  "Promethium": "Prometio", "Samarium": "Samario", "Europium": "Europio",
+  "Gadolinium": "Gadolinio", "Terbium": "Terbio", "Dysprosium": "Disprosio",
+  "Holmium": "Holmio", "Erbium": "Erbio", "Thulium": "Tulio",
+  "Ytterbium": "Iterbio", "Lutetium": "Lutecio", "Hafnium": "Hafnio",
+  "Tantalum": "Tántalo", "Tungsten": "Wolframio", "Rhenium": "Renio",
+  "Osmium": "Osmio", "Iridium": "Iridio", "Platinum": "Platino",
+  "Gold": "Oro", "Mercury": "Mercurio", "Thallium": "Talio",
+  "Lead": "Plomo", "Bismuth": "Bismuto", "Polonium": "Polonio",
+  "Astatine": "Ástato", "Radon": "Radón", "Francium": "Francio",
+  "Radium": "Radio", "Actinium": "Actinio", "Thorium": "Torio",
+  "Protactinium": "Protactinio", "Uranium": "Uranio", "Neptunium": "Neptunio",
+  "Plutonium": "Plutonio", "Americium": "Americio", "Curium": "Curio",
+  "Berkelium": "Berkelio", "Californium": "Californio", "Einsteinium": "Einstenio",
+  "Fermium": "Fermio", "Mendelevium": "Mendelevio", "Nobelium": "Nobelio",
+  "Lawrencium": "Laurencio", "Rutherfordium": "Rutherfordio", "Dubnium": "Dubnio",
+  "Seaborgium": "Seaborgio", "Bohrium": "Bohrio", "Hassium": "Hasio",
+  "Meitnerium": "Meitnerio", "Darmstadtium": "Darmstadtio", "Roentgenium": "Roentgenio",
+  "Copernicium": "Copernicio", "Nihonium": "Nihonio", "Flerovium": "Flerovio",
+  "Moscovium": "Moscovio", "Livermorium": "Livermorio", "Tennessine": "Teneso",
+  "Oganesson": "Oganesón", "Ununennium": "Ununenio",
+};
+
 function getColor(category: string): string {
   return CATEGORY_COLORS[category] ?? "#cbd5e1";
 }
@@ -56,7 +123,7 @@ function DetailPanel({ el, onClose }: DetailPanelProps) {
               {el.symbol}
             </div>
             <div>
-              <div className="text-xl font-bold text-slate-900">{el.name}</div>
+              <div className="text-xl font-bold text-slate-900">{NAME_ES[el.name] ?? el.name}</div>
               <div className="text-sm text-slate-500">#{el.number}</div>
             </div>
           </div>
@@ -74,11 +141,11 @@ function DetailPanel({ el, onClose }: DetailPanelProps) {
           </div>
           <div className="flex justify-between">
             <dt className="text-slate-500">Categoría</dt>
-            <dd className="font-medium capitalize">{el.category}</dd>
+            <dd className="font-medium">{CATEGORY_ES[el.category] ?? el.category}</dd>
           </div>
           <div className="flex justify-between">
             <dt className="text-slate-500">Fase</dt>
-            <dd className="font-medium">{el.phase}</dd>
+            <dd className="font-medium">{PHASE_ES[el.phase] ?? el.phase}</dd>
           </div>
           <div className="flex justify-between">
             <dt className="text-slate-500">Electronegatividad</dt>
@@ -130,7 +197,7 @@ export default function TablaPeriodica() {
   const lanthanides = elements.filter((e) => e.ypos === 8);
   const actinides = elements.filter((e) => e.ypos === 9);
 
-  const CELL_SIZE = 48;
+  const CELL_SIZE = 40;
   const GAP = 2;
 
   const cellStyle = (el: Element) => ({
@@ -139,15 +206,15 @@ export default function TablaPeriodica() {
   });
 
   return (
-    <div className="overflow-x-auto">
+    <div className="max-w-full overflow-x-auto">
       {selected && <DetailPanel el={selected} onClose={() => setSelected(null)} />}
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-2 mb-3">
+      <div className="flex flex-wrap gap-1.5 mb-3">
         {Object.entries(CATEGORY_COLORS).slice(0, 10).map(([cat, color]) => (
-          <span key={cat} className="flex items-center gap-1 text-xs text-slate-600">
-            <span className="inline-block w-3 h-3 rounded-sm" style={{ backgroundColor: color }} />
-            <span className="capitalize">{cat}</span>
+          <span key={cat} className="flex items-center gap-1 text-[10px] text-slate-600">
+            <span className="inline-block w-2.5 h-2.5 rounded-sm flex-shrink-0" style={{ backgroundColor: color }} />
+            <span>{CATEGORY_ES[cat] ?? cat}</span>
           </span>
         ))}
       </div>
@@ -166,7 +233,7 @@ export default function TablaPeriodica() {
           <button
             key={el.number}
             type="button"
-            title={el.name}
+            title={NAME_ES[el.name] ?? el.name}
             style={{
               ...cellStyle(el),
               backgroundColor: getColor(el.category),
@@ -174,44 +241,44 @@ export default function TablaPeriodica() {
             className="rounded flex flex-col items-center justify-center cursor-pointer hover:opacity-80 transition-opacity border border-white/40"
             onClick={() => setSelected(el)}
           >
-            <span className="text-[9px] text-slate-700 leading-none">{el.number}</span>
-            <span className="text-sm font-bold text-slate-800 leading-tight">{el.symbol}</span>
+            <span className="text-[8px] text-slate-700 leading-none">{el.number}</span>
+            <span className="text-xs font-bold text-slate-800 leading-tight">{el.symbol}</span>
           </button>
         ))}
       </div>
 
       {/* Lanthanides row */}
       <div className="flex gap-0.5 mb-1 ml-2">
-        <span className="text-[10px] text-slate-400 w-16 self-center">Lantánidos</span>
+        <span className="text-[10px] text-slate-400 w-14 self-center">Lantánidos</span>
         {lanthanides.map((el) => (
           <button
             key={el.number}
             type="button"
-            title={el.name}
+            title={NAME_ES[el.name] ?? el.name}
             style={{ width: CELL_SIZE, height: CELL_SIZE, backgroundColor: getColor(el.category) }}
             className="rounded flex flex-col items-center justify-center cursor-pointer hover:opacity-80 transition-opacity border border-white/40"
             onClick={() => setSelected(el)}
           >
-            <span className="text-[9px] text-slate-700 leading-none">{el.number}</span>
-            <span className="text-sm font-bold text-slate-800 leading-tight">{el.symbol}</span>
+            <span className="text-[8px] text-slate-700 leading-none">{el.number}</span>
+            <span className="text-xs font-bold text-slate-800 leading-tight">{el.symbol}</span>
           </button>
         ))}
       </div>
 
       {/* Actinides row */}
       <div className="flex gap-0.5 ml-2">
-        <span className="text-[10px] text-slate-400 w-16 self-center">Actínidos</span>
+        <span className="text-[10px] text-slate-400 w-14 self-center">Actínidos</span>
         {actinides.map((el) => (
           <button
             key={el.number}
             type="button"
-            title={el.name}
+            title={NAME_ES[el.name] ?? el.name}
             style={{ width: CELL_SIZE, height: CELL_SIZE, backgroundColor: getColor(el.category) }}
             className="rounded flex flex-col items-center justify-center cursor-pointer hover:opacity-80 transition-opacity border border-white/40"
             onClick={() => setSelected(el)}
           >
-            <span className="text-[9px] text-slate-700 leading-none">{el.number}</span>
-            <span className="text-sm font-bold text-slate-800 leading-tight">{el.symbol}</span>
+            <span className="text-[8px] text-slate-700 leading-none">{el.number}</span>
+            <span className="text-xs font-bold text-slate-800 leading-tight">{el.symbol}</span>
           </button>
         ))}
       </div>
