@@ -2,7 +2,7 @@ import { BaseGenerador } from "../core/baseGenerador";
 import type { PRNG } from "../core/prng";
 import type { Dificultad, Ejercicio, Calculator, LineChartSpec } from "../core/types";
 import { placeholder } from "../core/shared";
-import { mcd } from "./helpers/estadistica";
+import { mcd, media, mediana, moda, combinatoria, permutacion } from "./helpers/estadistica";
 import {
   type Termino,
   formatTermino,
@@ -40,6 +40,17 @@ export class AlgebraGenerator extends BaseGenerador {
     "division_polinomios",
     "identidad_ecuacion",
     "intervalos_soluciones",
+    "valor_absoluto_ec",
+    "valor_absoluto_dist",
+    "potencias_exponentes",
+    "radicales_simplificacion",
+    "ecuaciones_rad_pot",
+    "notacion_cientifica",
+    "interes",
+    "estadistica_descriptiva",
+    "tendencias",
+    "probabilidad_visual",
+    "combinatoria_basica",
   ];
 
   constructor(prng: PRNG) {
@@ -72,6 +83,17 @@ export class AlgebraGenerator extends BaseGenerador {
       case "division_polinomios":       return this.genDivisionPolinomios(dificultad);
       case "identidad_ecuacion":        return this.genIdentidadEcuacion(dificultad);
       case "intervalos_soluciones":     return this.genIntervalosSoluciones(dificultad);
+      case "valor_absoluto_ec":         return this.genValorAbsolutoEc(dificultad);
+      case "valor_absoluto_dist":       return this.genValorAbsolutoDist(dificultad);
+      case "potencias_exponentes":      return this.genPotenciasExponentes(dificultad);
+      case "radicales_simplificacion":  return this.genRadicalesSimplificacion(dificultad);
+      case "ecuaciones_rad_pot":        return this.genEcuacionesRadPot(dificultad);
+      case "notacion_cientifica":       return this.genNotacionCientifica(dificultad);
+      case "interes":                   return this.genInteres(dificultad);
+      case "estadistica_descriptiva":   return this.genEstadisticaDescriptiva(dificultad);
+      case "tendencias":                return this.genTendencias(dificultad);
+      case "probabilidad_visual":       return this.genProbabilidadVisual(dificultad);
+      case "combinatoria_basica":       return this.genCombinatoriaBasica(dificultad);
       default:                          return placeholder(subtipo, this.materia, dificultad);
     }
   }
@@ -1536,6 +1558,737 @@ export class AlgebraGenerator extends BaseGenerador {
       opciones: [intervaloStr, ...incorrectas.slice(0, 3)],
       indiceCorrecto: 0,
       explicacion: `La solución es ${notacionStr}, que en notación de intervalo es ${intervaloStr}`,
+    });
+  }
+
+  // ── 25. Valor absoluto — ecuación |ax+b| = c ───────────────────────────
+
+  private genValorAbsolutoEc(dif: Dificultad): Ejercicio {
+    const a = dif === "basico" ? 1 : this.randInt(1, 4);
+    const b = dif === "basico" ? 0 : this.randInt(-6, 6);
+    const c = this.randInt(1, 8);
+
+    // Two cases: ax+b = c  OR  ax+b = -c
+    // x1 = (c-b)/a,  x2 = (-c-b)/a
+    const num1 = c - b, num2 = -c - b;
+    const fmt = (num: number, den: number) => {
+      const g = mcd(Math.abs(num) || 1, Math.abs(den));
+      const n = num / g, d = den / g;
+      return d === 1 ? `${n}` : `${n}/${d}`;
+    };
+
+    const x1 = fmt(num1, a);
+    const x2 = fmt(num2, a);
+    const noSol = c < 0;
+
+    const eqStr = a === 1
+      ? (b === 0 ? `|x| = ${c}` : `|x ${b >= 0 ? `+ ${b}` : `- ${Math.abs(b)}`}| = ${c}`)
+      : (b === 0 ? `|${a}x| = ${c}` : `|${a}x ${b >= 0 ? `+ ${b}` : `- ${Math.abs(b)}`}| = ${c}`);
+
+    if (noSol) {
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "valor_absoluto_ec", dificultad: dif,
+        enunciado: `Resuelve: ${eqStr}`,
+        opciones: ["Sin solución (|expresión| ≥ 0)", `x = ${x1}`, `x = ${x2}`, `x₁ = ${x1}, x₂ = ${x2}`],
+        indiceCorrecto: 0,
+        explicacion: `El valor absoluto nunca es negativo, por lo que no hay solución real`,
+      });
+    }
+
+    const resp = x1 === x2 ? `x = ${x1}` : `x₁ = ${x1}, x₂ = ${x2}`;
+    const inc = [
+      `x = ${x1}`,
+      `x = ${x2}`,
+      `x₁ = ${x1}, x₂ = ${fmt(num1 + 1, a)}`,
+    ].filter(o => o !== resp);
+
+    return this.crearQuiz({
+      id: this.uid(), materia: this.materia,
+      subtipo: "valor_absoluto_ec", dificultad: dif,
+      enunciado: `Resuelve: ${eqStr}`,
+      opciones: [resp, ...inc.slice(0, 3)],
+      indiceCorrecto: 0,
+      explicacion:
+        `Caso 1: ${a === 1 ? "" : `${a}`}x${b !== 0 ? ` + ${b}` : ""} = ${c} → x = ${x1}\n` +
+        `Caso 2: ${a === 1 ? "" : `${a}`}x${b !== 0 ? ` + ${b}` : ""} = ${-c} → x = ${x2}`,
+    });
+  }
+
+  // ── 26. Valor absoluto — distancia |x−a| < r ──────────────────────────
+
+  private genValorAbsolutoDist(dif: Dificultad): Ejercicio {
+    const centro = this.randInt(-5, 5);
+    const radio = this.randInt(1, 5);
+
+    if (dif === "basico") {
+      // Interpret |x - a| as distance on number line
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "valor_absoluto_dist", dificultad: dif,
+        enunciado:
+          `|x − ${centro}| representa la distancia de x al punto ${centro}. ` +
+          `¿Cuánto vale |${centro + radio} − ${centro}|?`,
+        opciones: [`${radio}`, `${-radio}`, `${2 * radio}`, `${radio + 1}`],
+        indiceCorrecto: 0,
+        explicacion: `|${centro + radio} − ${centro}| = |${radio}| = ${radio}`,
+      });
+    }
+
+    // |x - a| < r  →  a - r < x < a + r  →  intervalo (a-r, a+r)
+    const lo = centro - radio, hi = centro + radio;
+    const strict = dif !== "avanzado";
+    const tipo = strict ? "<" : "≤";
+    const intervalo = strict ? `(${lo}, ${hi})` : `[${lo}, ${hi}]`;
+
+    return this.crearQuiz({
+      id: this.uid(), materia: this.materia,
+      subtipo: "valor_absoluto_dist", dificultad: dif,
+      enunciado: `Resuelve: |x − ${centro}| ${tipo} ${radio}`,
+      opciones: [
+        intervalo,
+        `(${lo - 1}, ${hi + 1})`,
+        `(-∞, ${lo}) ∪ (${hi}, +∞)`,
+        `[${lo}, ${hi}]`,
+      ].filter((v, i, a) => a.indexOf(v) === i),
+      indiceCorrecto: 0,
+      explicacion:
+        `|x − ${centro}| ${tipo} ${radio}  ↔  −${radio} ${tipo} x − ${centro} ${tipo} ${radio}  ↔  ${intervalo}`,
+    });
+  }
+
+  // ── 27. Potencias y exponentes con variables ───────────────────────────
+
+  private genPotenciasExponentes(dif: Dificultad): Ejercicio {
+    type Regla = "cero" | "negativo" | "producto" | "cociente" | "potPot" | "fraccionaria";
+    const reglas: Regla[] = dif === "basico"
+      ? ["cero", "negativo", "producto"]
+      : dif === "intermedio"
+        ? ["producto", "cociente", "potPot"]
+        : ["negativo", "cociente", "potPot", "fraccionaria"];
+
+    const regla = this.pickOne(reglas);
+    const m = this.randInt(2, 6), n = this.randInt(2, 5);
+
+    switch (regla) {
+      case "cero":
+        return this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "potencias_exponentes", dificultad: dif,
+          enunciado: `Simplifica: x⁰  (x ≠ 0)`,
+          opciones: ["1", "0", "x", "No definido"],
+          indiceCorrecto: 0,
+          explicacion: `Por definición, cualquier base distinta de 0 elevada a 0 es 1`,
+        });
+      case "negativo": {
+        return this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "potencias_exponentes", dificultad: dif,
+          enunciado: `Simplifica: x^(−${m})  (x ≠ 0)`,
+          opciones: [`1/x^${m}`, `-x^${m}`, `x^${m}`, `-1/x^${m}`],
+          indiceCorrecto: 0,
+          explicacion: `x^(−n) = 1/x^n`,
+        });
+      }
+      case "producto":
+        return this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "potencias_exponentes", dificultad: dif,
+          enunciado: `Simplifica: x^${m} · x^${n}`,
+          opciones: [`x^${m + n}`, `x^${m * n}`, `x^${m - n}`, `${m + n}x`],
+          indiceCorrecto: 0,
+          explicacion: `x^m · x^n = x^(m+n) = x^${m + n}`,
+        });
+      case "cociente": {
+        const big = m + n;
+        return this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "potencias_exponentes", dificultad: dif,
+          enunciado: `Simplifica: x^${big} / x^${n}  (x ≠ 0)`,
+          opciones: [`x^${m}`, `x^${big + n}`, `x^${big * n}`, `${m}x`],
+          indiceCorrecto: 0,
+          explicacion: `x^a / x^b = x^(a−b) = x^${m}`,
+        });
+      }
+      case "potPot":
+        return this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "potencias_exponentes", dificultad: dif,
+          enunciado: `Simplifica: (x^${m})^${n}`,
+          opciones: [`x^${m * n}`, `x^${m + n}`, `x^${m - n}`, `${n}x^${m}`],
+          indiceCorrecto: 0,
+          explicacion: `(x^m)^n = x^(m·n) = x^${m * n}`,
+        });
+      case "fraccionaria":
+      default: {
+        const idx = this.randInt(2, 4);
+        return this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "potencias_exponentes", dificultad: dif,
+          enunciado: `Simplifica: x^(1/${idx})`,
+          opciones: [`${idx}√x`, `x/${idx}`, `x^${idx}`, `1/(x·${idx})`],
+          indiceCorrecto: 0,
+          explicacion: `x^(1/n) = ⁿ√x, por lo que x^(1/${idx}) = ${idx}√x`,
+        });
+      }
+    }
+  }
+
+  // ── 28. Radicales — simplificación y racionalización ──────────────────
+
+  private genRadicalesSimplificacion(dif: Dificultad): Ejercicio {
+    if (dif === "basico") {
+      // √(a²) = a  (a > 0)
+      const a = this.randInt(2, 9);
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "radicales_simplificacion", dificultad: dif,
+        enunciado: `Simplifica: √${a * a}`,
+        opciones: [`${a}`, `${a * a}`, `${a + 1}`, `${2 * a}`],
+        indiceCorrecto: 0,
+        explicacion: `√${a * a} = √(${a}²) = ${a}`,
+      });
+    }
+
+    if (dif === "intermedio") {
+      // √(a²·b) = a√b  where b is square-free small integer
+      const a = this.randInt(2, 5);
+      const b = this.pickOne([2, 3, 5, 6, 7] as const);
+      const radicando = a * a * b;
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "radicales_simplificacion", dificultad: dif,
+        enunciado: `Simplifica: √${radicando}`,
+        opciones: [`${a}√${b}`, `${a + 1}√${b}`, `${a}√${b + 1}`, `${a * b}√${a}`],
+        indiceCorrecto: 0,
+        explicacion: `√${radicando} = √(${a}²·${b}) = ${a}√${b}`,
+      });
+    }
+
+    // avanzado: racionalizar 1/√b = √b/b
+    const b = this.pickOne([2, 3, 5, 7] as const);
+    return this.crearQuiz({
+      id: this.uid(), materia: this.materia,
+      subtipo: "radicales_simplificacion", dificultad: dif,
+      enunciado: `Racionaliza el denominador: 1/√${b}`,
+      opciones: [`√${b}/${b}`, `1/${b}`, `√${b}`, `${b}/√${b}`],
+      indiceCorrecto: 0,
+      explicacion:
+        `Multiplicar por √${b}/√${b}: (1·√${b}) / (√${b}·√${b}) = √${b}/${b}`,
+    });
+  }
+
+  // ── 29. Ecuaciones con radicales/potencias ─────────────────────────────
+
+  private genEcuacionesRadPot(dif: Dificultad): Ejercicio {
+    if (dif === "basico") {
+      // √x = c  →  x = c²  (dominio x ≥ 0)
+      const c = this.randInt(1, 7);
+      const sol = c * c;
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "ecuaciones_rad_pot", dificultad: dif,
+        enunciado: `Resuelve: √x = ${c}  (x ≥ 0)`,
+        opciones: [`x = ${sol}`, `x = ${c}`, `x = ${2 * c}`, `x = ${c + 1}`],
+        indiceCorrecto: 0,
+        explicacion: `Elevando al cuadrado: x = ${c}² = ${sol}. Verificación: √${sol} = ${c} ✓`,
+      });
+    }
+
+    if (dif === "intermedio") {
+      // √(ax + b) = c  →  ax+b = c²  →  x = (c²-b)/a
+      const a = this.randInt(1, 4);
+      const c = this.randInt(1, 5);
+      const b = this.randInt(0, 8);
+      const numX = c * c - b;
+      const g = mcd(Math.abs(numX) || 1, a);
+      const solStr = (a / g === 1) ? `${numX / g}` : `${numX / g}/${a / g}`;
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "ecuaciones_rad_pot", dificultad: dif,
+        enunciado: `Resuelve: √(${a}x + ${b}) = ${c}  (verificar dominio)`,
+        opciones: [
+          `x = ${solStr}`,
+          `x = ${numX + 1}`,
+          `x = ${c * c}`,
+          `x = ${b}`,
+        ],
+        indiceCorrecto: 0,
+        explicacion:
+          `Elevando al cuadrado: ${a}x + ${b} = ${c * c} → ${a}x = ${numX} → x = ${solStr}. ` +
+          `Verificar que ${a}·(${solStr}) + ${b} = ${c * c} ≥ 0 ✓`,
+      });
+    }
+
+    // avanzado: x² = k, doble solución con dominio real
+    const k = this.randInt(4, 36);
+    const sq = Math.round(Math.sqrt(k));
+    const isPerfect = sq * sq === k;
+    if (isPerfect) {
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "ecuaciones_rad_pot", dificultad: dif,
+        enunciado: `Resuelve: x² = ${k}`,
+        opciones: [`x = ±${sq}`, `x = ${sq}`, `x = −${sq}`, `x = ${k}`],
+        indiceCorrecto: 0,
+        explicacion: `x² = ${k} → x = ±√${k} = ±${sq}`,
+      });
+    }
+    const sqStr = `√${k}`;
+    return this.crearQuiz({
+      id: this.uid(), materia: this.materia,
+      subtipo: "ecuaciones_rad_pot", dificultad: dif,
+      enunciado: `Resuelve: x² = ${k}`,
+      opciones: [`x = ±${sqStr}`, `x = ${sqStr}`, `x = −${sqStr}`, `x = ${k}`],
+      indiceCorrecto: 0,
+      explicacion: `x² = ${k} → x = ±√${k}`,
+    });
+  }
+
+  // ── 30. Notación científica ────────────────────────────────────────────
+
+  private genNotacionCientifica(dif: Dificultad): Ejercicio {
+    if (dif === "basico") {
+      // Convert standard ↔ scientific
+      const exp = this.randInt(2, 6);
+      const mantisa = this.randInt(1, 9);
+      const num = mantisa * Math.pow(10, exp);
+      const resp = `${mantisa} × 10^${exp}`;
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "notacion_cientifica", dificultad: dif,
+        enunciado: `Escribe ${num.toLocaleString("es-MX")} en notación científica`,
+        opciones: [
+          resp,
+          `${mantisa} × 10^${exp - 1}`,
+          `${mantisa} × 10^${exp + 1}`,
+          `${mantisa + 1} × 10^${exp}`,
+        ],
+        indiceCorrecto: 0,
+        explicacion: `${num} = ${mantisa} × 10^${exp}`,
+      });
+    }
+
+    if (dif === "intermedio") {
+      // Convert small number (negative exponent)
+      const exp = this.randInt(2, 5);
+      const mantisa = this.randInt(1, 9);
+      const str = `0.${"0".repeat(exp - 1)}${mantisa}`;
+      const resp = `${mantisa} × 10^(−${exp})`;
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "notacion_cientifica", dificultad: dif,
+        enunciado: `Escribe ${str} en notación científica`,
+        opciones: [
+          resp,
+          `${mantisa} × 10^${exp}`,
+          `${mantisa} × 10^(−${exp + 1})`,
+          `${mantisa} × 10^(−${exp - 1})`,
+        ],
+        indiceCorrecto: 0,
+        explicacion: `El decimal se desplaza ${exp} lugares → ${resp}`,
+      });
+    }
+
+    // avanzado: multiply two numbers in scientific notation
+    const m1 = this.randInt(2, 9), e1 = this.randInt(2, 5);
+    const m2 = this.randInt(2, 9), e2 = this.randInt(2, 5);
+    const mProd = m1 * m2;
+    const eProd = e1 + e2;
+    // Normalize: if mProd ≥ 10
+    const extra = mProd >= 10 ? 1 : 0;
+    const mNorm = extra ? mProd / 10 : mProd;
+    const eNorm = eProd + extra;
+    const resp = `${mNorm} × 10^${eNorm}`;
+    return this.crearQuiz({
+      id: this.uid(), materia: this.materia,
+      subtipo: "notacion_cientifica", dificultad: dif,
+      enunciado:
+        `Calcula: (${m1} × 10^${e1}) × (${m2} × 10^${e2})`,
+      opciones: [
+        resp,
+        `${mNorm} × 10^${eNorm - 1}`,
+        `${mProd} × 10^${eProd}`,
+        `${mNorm} × 10^${eNorm + 1}`,
+      ].filter((v, i, a) => a.indexOf(v) === i),
+      indiceCorrecto: 0,
+      explicacion:
+        `Multiplicar mantisas: ${m1}×${m2} = ${mProd}; sumar exponentes: ${e1}+${e2} = ${eProd}` +
+        (extra ? `; normalizar: ${mNorm} × 10^${eNorm}` : ``),
+    });
+  }
+
+  // ── 31. Interés simple y compuesto ────────────────────────────────────
+
+  private genInteres(dif: Dificultad): Ejercicio {
+    if (dif === "basico") {
+      // I = P·r·t, find I
+      const P = this.randInt(1, 10) * 1000;
+      const rPct = this.randInt(3, 12);
+      const t = this.randInt(1, 5);
+      const I = (P * rPct * t) / 100;
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "interes", dificultad: dif,
+        enunciado:
+          `Calcula el interés simple: P = $${P}, tasa = ${rPct}% anual, t = ${t} año(s).\n` +
+          `I = P · r · t`,
+        opciones: [
+          `$${I}`,
+          `$${I + P * t / 100}`,
+          `$${I * 2}`,
+          `$${I - P * rPct / 100}`,
+        ].filter((v, i, a) => a.indexOf(v) === i),
+        indiceCorrecto: 0,
+        explicacion: `I = ${P} × ${rPct / 100} × ${t} = $${I}`,
+      });
+    }
+
+    if (dif === "intermedio") {
+      // Find P given I, r, t
+      const rPct = this.randInt(3, 10);
+      const t = this.randInt(1, 4);
+      const P = this.randInt(1, 8) * 1000;
+      const I = (P * rPct * t) / 100;
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "interes", dificultad: dif,
+        enunciado:
+          `Interés simple: I = $${I}, tasa = ${rPct}% anual, t = ${t} año(s). ¿Cuál es el capital P?\n` +
+          `I = P · r · t  →  P = I / (r · t)`,
+        opciones: [
+          `$${P}`,
+          `$${P + 500}`,
+          `$${P - 500}`,
+          `$${P * 2}`,
+        ].filter((v, i, a) => a.indexOf(v) === i),
+        indiceCorrecto: 0,
+        explicacion: `P = ${I} / (${rPct / 100} × ${t}) = $${P}`,
+      });
+    }
+
+    // avanzado: compuesto A = P(1+r)^t
+    const P = this.randInt(1, 5) * 1000;
+    const rPct = this.randInt(5, 15);
+    const t = this.randInt(2, 5);
+    const r = rPct / 100;
+    const A = Math.round(P * Math.pow(1 + r, t));
+    return this.crearQuiz({
+      id: this.uid(), materia: this.materia,
+      subtipo: "interes", dificultad: dif,
+      enunciado:
+        `Interés compuesto: P = $${P}, tasa = ${rPct}% anual, t = ${t} años.\n` +
+        `A = P(1 + r)^t`,
+      opciones: [
+        `≈ $${A}`,
+        `≈ $${Math.round(P * (1 + r * t))}`,
+        `≈ $${A + 100}`,
+        `≈ $${A - 200}`,
+      ].filter((v, i, a) => a.indexOf(v) === i),
+      indiceCorrecto: 0,
+      explicacion:
+        `A = ${P} × (1 + ${r})^${t} = ${P} × ${(1 + r).toFixed(2)}^${t} ≈ $${A}`,
+    });
+  }
+
+  // ── 32. Estadística descriptiva ────────────────────────────────────────
+
+  private genEstadisticaDescriptiva(dif: Dificultad): Ejercicio {
+    const n = dif === "basico" ? 5 : dif === "intermedio" ? 7 : 9;
+    const datos: number[] = [];
+    for (let i = 0; i < n; i++) {
+      datos.push(this.randInt(1, 20));
+    }
+    // Force a repeated value for moda
+    if (dif !== "avanzado") {
+      datos[n - 1] = datos[0];
+    }
+
+    const tipo = this.pickOne(["media", "mediana", "moda", "rango"] as const);
+    const datosStr = datos.join(", ");
+
+    switch (tipo) {
+      case "media": {
+        const m = media(datos);
+        const mStr = Number.isInteger(m) ? `${m}` : m.toFixed(2);
+        return this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "estadistica_descriptiva", dificultad: dif,
+          enunciado: `Calcula la media del conjunto: {${datosStr}}`,
+          opciones: [
+            mStr,
+            `${(m + 1).toFixed(2)}`,
+            `${(m - 1).toFixed(2)}`,
+            `${mediana(datos)}`,
+          ].filter((v, i, a) => a.indexOf(v) === i),
+          indiceCorrecto: 0,
+          explicacion:
+            `Media = (${datos.join(" + ")}) / ${n} = ${datos.reduce((s, v) => s + v, 0)} / ${n} = ${mStr}`,
+        });
+      }
+      case "mediana": {
+        const sorted = [...datos].sort((a, b) => a - b);
+        const med = mediana(datos);
+        const medStr = `${med}`;
+        return this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "estadistica_descriptiva", dificultad: dif,
+          enunciado: `Calcula la mediana del conjunto: {${datosStr}}`,
+          opciones: [
+            medStr,
+            `${med + 1}`,
+            `${med - 1}`,
+            `${media(datos).toFixed(2)}`,
+          ].filter((v, i, a) => a.indexOf(v) === i),
+          indiceCorrecto: 0,
+          explicacion:
+            `Ordenado: {${sorted.join(", ")}}. Mediana = valor central = ${medStr}`,
+        });
+      }
+      case "moda": {
+        const mo = moda(datos);
+        const moStr = mo === null ? "No hay moda" : `${mo}`;
+        return this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "estadistica_descriptiva", dificultad: dif,
+          enunciado: `Halla la moda del conjunto: {${datosStr}}`,
+          opciones: [
+            moStr,
+            `${datos[1]}`,
+            `${media(datos).toFixed(1)}`,
+            "No hay moda",
+          ].filter((v, i, a) => a.indexOf(v) === i),
+          indiceCorrecto: 0,
+          explicacion: mo === null
+            ? `Todos los valores aparecen la misma cantidad de veces → no hay moda`
+            : `El valor ${mo} es el que más se repite`,
+        });
+      }
+      case "rango":
+      default: {
+        const rango = Math.max(...datos) - Math.min(...datos);
+        return this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "estadistica_descriptiva", dificultad: dif,
+          enunciado: `Calcula el rango del conjunto: {${datosStr}}`,
+          opciones: [
+            `${rango}`,
+            `${rango + 1}`,
+            `${rango - 1}`,
+            `${Math.max(...datos)}`,
+          ].filter((v, i, a) => a.indexOf(v) === i),
+          indiceCorrecto: 0,
+          explicacion:
+            `Rango = máximo − mínimo = ${Math.max(...datos)} − ${Math.min(...datos)} = ${rango}`,
+        });
+      }
+    }
+  }
+
+  // ── 33. Tendencias (creciente/decreciente, máximo/mínimo) ─────────────
+
+  private genTendencias(dif: Dificultad): Ejercicio {
+    const tipos = ["lineal_crec", "lineal_decrec", "cuadratica_min", "cuadratica_max"];
+    const tipo = this.pickOne(tipos as string[]) as "lineal_crec" | "lineal_decrec" | "cuadratica_min" | "cuadratica_max";
+
+    if (tipo === "lineal_crec" || tipo === "lineal_decrec") {
+      const m = tipo === "lineal_crec" ? this.randInt(1, 4) : -this.randInt(1, 4);
+      const b = this.randInt(-3, 3);
+      const fn = (x: number) => m * x + b;
+      const visual: LineChartSpec = {
+        kind: "line-chart",
+        title: "Tendencia lineal",
+        xLabel: "x", yLabel: "f(x)",
+        series: [{ id: "f", label: `f(x) = ${m}x ${b >= 0 ? `+ ${b}` : `- ${Math.abs(b)}`}`, points: generarPuntos(fn, -5, 5, 11) }],
+      };
+      return {
+        ...this.crearQuiz({
+          id: this.uid(), materia: this.materia,
+          subtipo: "tendencias", dificultad: dif,
+          enunciado: `¿La función f(x) = ${m}x ${b >= 0 ? `+ ${b}` : `- ${Math.abs(b)}`} es creciente o decreciente?`,
+          opciones: [
+            m > 0 ? "Creciente (pendiente positiva)" : "Decreciente (pendiente negativa)",
+            m > 0 ? "Decreciente" : "Creciente",
+            "Constante",
+            "Depende del valor de x",
+          ],
+          indiceCorrecto: 0,
+          explicacion: `La pendiente es ${m} ${m > 0 ? "> 0 → función creciente" : "< 0 → función decreciente"}`,
+        }),
+        visual,
+      };
+    }
+
+    // cuadrática
+    const a = tipo === "cuadratica_min" ? this.randInt(1, 3) : -this.randInt(1, 3);
+    const h = this.randInt(-3, 3);
+    const k = this.randInt(-5, 5);
+    const fn = (x: number) => a * (x - h) * (x - h) + k;
+    const visual: LineChartSpec = {
+      kind: "line-chart",
+      title: "Parábola",
+      xLabel: "x", yLabel: "f(x)",
+      series: [{ id: "f", label: `f(x) = ${a}(x${h >= 0 ? `−${h}` : `+${-h}`})² ${k >= 0 ? `+ ${k}` : `− ${Math.abs(k)}`}`, points: generarPuntos(fn, h - 4, h + 4, 17) }],
+      annotations: [{ id: "vertice", x: h, y: k, label: `Vértice (${h}, ${k})` }],
+    };
+    const esMin = a > 0;
+    return {
+      ...this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "tendencias", dificultad: dif,
+        enunciado:
+          `Para f(x) = ${a}(x${h >= 0 ? `−${h}` : `+${-h}`})² ${k >= 0 ? `+ ${k}` : `− ${Math.abs(k)}`}, ` +
+          `¿el vértice es un máximo o mínimo? ¿Cuál es su valor?`,
+        opciones: [
+          `${esMin ? "Mínimo" : "Máximo"} en (${h}, ${k})`,
+          `${esMin ? "Máximo" : "Mínimo"} en (${h}, ${k})`,
+          `${esMin ? "Mínimo" : "Máximo"} en (${k}, ${h})`,
+          "No tiene vértice",
+        ],
+        indiceCorrecto: 0,
+        explicacion:
+          `a = ${a} ${a > 0 ? "> 0 → parábola abre hacia arriba → vértice es mínimo" : "< 0 → parábola abre hacia abajo → vértice es máximo"} en (${h}, ${k})`,
+      }),
+      visual,
+    };
+  }
+
+  // ── 34. Probabilidad visual ───────────────────────────────────────────
+
+  private genProbabilidadVisual(dif: Dificultad): Ejercicio {
+    if (dif === "basico") {
+      // Simple: cara / cruz
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "probabilidad_visual", dificultad: dif,
+        enunciado:
+          `Se lanza una moneda. El diagrama de árbol tiene 2 ramas: Cara (C) y Cruz (X). ` +
+          `¿Cuál es la probabilidad de obtener Cara?`,
+        opciones: ["1/2", "1/3", "1/4", "2/3"],
+        indiceCorrecto: 0,
+        explicacion: `Hay 2 resultados igualmente probables. P(Cara) = 1/2`,
+      });
+    }
+
+    if (dif === "intermedio") {
+      // Tabla de doble entrada: 2 dados, probabilidad de suma
+      const suma = this.randInt(4, 10);
+      const favorables: [number, number][] = [];
+      for (let i = 1; i <= 6; i++) {
+        for (let j = 1; j <= 6; j++) {
+          if (i + j === suma) favorables.push([i, j]);
+        }
+      }
+      const total = 36;
+      const f = favorables.length;
+      const g = mcd(f, total);
+      const resp = `${f / g}/${total / g}`;
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "probabilidad_visual", dificultad: dif,
+        enunciado:
+          `Se lanzan 2 dados. Usando la tabla de doble entrada (6×6 = 36 resultados posibles), ` +
+          `¿cuál es la probabilidad de que la suma sea ${suma}?`,
+        opciones: [
+          resp,
+          `${f}/${total}`,
+          `${f + 1}/${total}`,
+          `${f - 1}/${total}`,
+        ].filter((v, i, a) => a.indexOf(v) === i && v !== "0/36" && !v.startsWith("-")),
+        indiceCorrecto: 0,
+        explicacion:
+          `Combinaciones que suman ${suma}: ${favorables.map(([a, b]) => `(${a},${b})`).join(", ")}. ` +
+          `P = ${f}/${total} = ${resp}`,
+      });
+    }
+
+    // avanzado: árbol con dos eventos dependientes
+    const totalBolas = this.randInt(5, 8);
+    const rojas = this.randInt(2, totalBolas - 1);
+    const azules = totalBolas - rojas;
+    // P(roja, luego roja sin reemplazo)
+    const numP = rojas * (rojas - 1);
+    const denP = totalBolas * (totalBolas - 1);
+    const g2 = mcd(numP, denP);
+    const resp = numP === 0 ? "0" : `${numP / g2}/${denP / g2}`;
+    return this.crearQuiz({
+      id: this.uid(), materia: this.materia,
+      subtipo: "probabilidad_visual", dificultad: dif,
+      enunciado:
+        `Una bolsa tiene ${rojas} bolas rojas y ${azules} azules. ` +
+        `Se extraen 2 sin reemplazo. ¿P(ambas rojas)?`,
+      opciones: [
+        resp,
+        `${rojas}/${totalBolas}`,
+        `${rojas * rojas}/${totalBolas * totalBolas}`,
+        `${rojas * (rojas - 1)}/${totalBolas * totalBolas}`,
+      ].filter((v, i, a) => a.indexOf(v) === i),
+      indiceCorrecto: 0,
+      explicacion:
+        `P(R₁)·P(R₂|R₁) = ${rojas}/${totalBolas} × ${rojas - 1}/${totalBolas - 1} = ${numP}/${denP} = ${resp}`,
+    });
+  }
+
+  // ── 35. Combinatoria básica ────────────────────────────────────────────
+
+  private genCombinatoriaBasica(dif: Dificultad): Ejercicio {
+    if (dif === "basico") {
+      // Principio multiplicativo
+      const a = this.randInt(2, 5);
+      const b = this.randInt(2, 5);
+      const prod = a * b;
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "combinatoria_basica", dificultad: dif,
+        enunciado:
+          `Un menú tiene ${a} platos principales y ${b} postres. ` +
+          `¿Cuántas combinaciones distintas de plato+postre hay?`,
+        opciones: [`${prod}`, `${a + b}`, `${prod + a}`, `${prod - b}`],
+        indiceCorrecto: 0,
+        explicacion: `Principio multiplicativo: ${a} × ${b} = ${prod}`,
+      });
+    }
+
+    if (dif === "intermedio") {
+      // Permutaciones P(n,k) = n!/(n-k)!
+      const n = this.randInt(5, 8);
+      const k = this.randInt(2, 3);
+      const p = permutacion(n, k);
+      return this.crearQuiz({
+        id: this.uid(), materia: this.materia,
+        subtipo: "combinatoria_basica", dificultad: dif,
+        enunciado:
+          `¿De cuántas maneras se pueden elegir y ordenar ${k} personas de un grupo de ${n}?\n` +
+          `P(${n}, ${k}) = ${n}! / (${n}−${k})!`,
+        opciones: [
+          `${p}`,
+          `${combinatoria(n, k)}`,
+          `${p + n}`,
+          `${p - k}`,
+        ].filter((v, i, a) => a.indexOf(v) === i),
+        indiceCorrecto: 0,
+        explicacion: `P(${n},${k}) = ${n}!/(${n - k})! = ${p}`,
+      });
+    }
+
+    // avanzado: combinaciones C(n,k)
+    const n = this.randInt(6, 10);
+    const k = this.randInt(2, 4);
+    const c = combinatoria(n, k);
+    return this.crearQuiz({
+      id: this.uid(), materia: this.materia,
+      subtipo: "combinatoria_basica", dificultad: dif,
+      enunciado:
+        `¿De cuántas maneras se pueden elegir ${k} personas de un grupo de ${n} (sin importar el orden)?\n` +
+        `C(${n}, ${k}) = ${n}! / (${k}! · (${n}−${k})!)`,
+      opciones: [
+        `${c}`,
+        `${permutacion(n, k)}`,
+        `${c + 1}`,
+        `${c - 1}`,
+      ].filter((v, i, a) => a.indexOf(v) === i),
+      indiceCorrecto: 0,
+      explicacion: `C(${n},${k}) = ${n}!/(${k}!·${n - k}!) = ${c}`,
     });
   }
 }
