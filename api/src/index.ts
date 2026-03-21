@@ -35,6 +35,7 @@ import { consignas } from "./routes/consignas";
 import { generadoresAdmin } from "./routes/generadores-admin";
 import { visualizadoresRouter } from "./routes/visualizadores";
 import { herramientasRouter } from "./routes/herramientas";
+import { assetsRouter } from "./routes/assets";
 import { createRateLimiter } from "./lib/rate-limit";
 import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
 import { markUsersWithoutUsablePasswordForReset } from "./lib/password-health";
@@ -87,6 +88,7 @@ app.use(
 );
 app.use(health);
 app.use(consignas);
+app.use("/api/assets", assetsRouter);
 app.use("/api/visualizadores", visualizadoresRouter);
 app.use("/api/herramientas", herramientasRouter);
 app.use("/api/maps", mapsRouter);
