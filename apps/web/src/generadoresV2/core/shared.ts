@@ -1,5 +1,5 @@
 import type { PRNG } from "./prng";
-import type { Dificultad, EjercicioQuiz, Materia } from "./types";
+import type { Dificultad, EjercicioCompletar, EjercicioQuiz, Materia } from "./types";
 
 // ── Aritmética ────────────────────────────────────────────────────
 export function redondear(v: number, decimals = 2): number {
@@ -74,4 +74,21 @@ export function crearQuiz(prng: PRNG, params: QuizParams): EjercicioQuiz {
 // ── Plantillas ────────────────────────────────────────────────────
 export function renderTemplate(template: string, data: Record<string, unknown>): string {
   return template.replace(/\{\{(\w+)\}\}/g, (_, key: string) => String(data[key] ?? ""));
+}
+
+// ── Placeholder para subtipos no implementados ─────────────────────
+export function placeholder(
+  subtipo: string,
+  materia: Materia,
+  dificultad: Dificultad
+): EjercicioCompletar {
+  return {
+    id: `placeholder-${subtipo}-${Math.floor(Math.random() * 1e6)}`,
+    tipo: "completar",
+    materia,
+    subtipo,
+    dificultad,
+    enunciado: `[Próximamente] Ejercicio de tipo "${subtipo}"`,
+    respuestaCorrecta: "—",
+  };
 }
