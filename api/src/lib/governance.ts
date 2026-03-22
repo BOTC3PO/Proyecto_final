@@ -14,6 +14,14 @@ type ProposalDocument = z.infer<typeof ProposalSchema>;
 
 const GOVERNANCE_TARGET_TYPES = new Set(["GOVERNANCE", "POLICY", "SYSTEM_CONFIG"]);
 const GOVERNANCE_RULES = new Set(["MAJORITY", "SUPERMAJORITY_2_3", "UNANIMOUS"]);
+const ADMIN_ONLY_PROPOSAL_TYPES = new Set([
+  "ADD_PROMPT",
+  "UPDATE_PROMPT",
+  "REMOVE_PROMPT",
+  "SET_PROMPT_STATUS",
+  "SYSTEM_CHANGE",
+  "UPDATE_CONFIG",
+]);
 
 const normalizeRole = (role?: unknown) => {
   if (typeof role !== "string") return "";
@@ -127,6 +135,18 @@ const toIsoNow = () => new Date().toISOString();
 
 export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDocument) => {
   const type = proposal.proposalType.toUpperCase();
+  const createdBy = typeof proposal.createdBy === "string"
+    ? proposal.createdBy : "";
+  if (ADMIN_ONLY_PROPOSAL_TYPES.has(type)) {
+    const user = createdBy
+      ? await db.collection("usuarios").findOne({ id: createdBy })
+      : null;
+    const role = typeof user?.role === "string"
+      ? user.role.toUpperCase() : "";
+    if (role !== "ADMIN") {
+      return { applied: false, reason: "proposal type restricted to admin" };
+    }
+  }
   const payload = proposal.payload as Record<string, unknown>;
 
   if (type === "ADD_PROMPT") {

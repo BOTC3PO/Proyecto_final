@@ -66,7 +66,6 @@ import ProfesorAulaConfiguracion from "./pages/ProfesorAulaConfiguracion";
 import Terminos from "./pages/Terminos";
 import Privacidad from "./pages/Privacidad";
 import DiccionarioTest from "./pages/DiccionarioTest";
-import GeneradoresTest from "./pages/GeneradoresTest";
 import GuestOnboarding from "./pages/GuestOnboarding";
 import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
 import MapaEditorPage from "./pages/MapaEditorPage";
@@ -107,7 +106,6 @@ export const router = createBrowserRouter([
       { path: "terminos", element: <Terminos /> },
       { path: "privacidad", element: <Privacidad /> },
       { path: "diccionarios-test", element: <DiccionarioTest /> },
-      { path: "generadores-demo", element: <GeneradoresTest /> },
       { path: "metodologia", element: <Metodologia /> },
       { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
       { path: "editor", element: <BookEditorPage /> },

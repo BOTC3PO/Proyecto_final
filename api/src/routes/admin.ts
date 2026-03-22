@@ -129,7 +129,7 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
   }
 });
 
-adminRouter.get("/api/admin/stats", requireAdmin, async (req, res) => {
+adminRouter.get("/api/admin/stats", requireAdmin, async (_req, res) => {
   try {
     const db = await getDb();
     const usuariosArr = await db.collection("usuarios").find({ isDeleted: { $ne: true } }).toArray();
@@ -244,7 +244,7 @@ adminRouter.get("/api/admin/cursos", requireAdmin, async (req, res) => {
   }
 });
 
-adminRouter.get("/api/admin/materias", requireAdmin, async (req, res) => {
+adminRouter.get("/api/admin/materias", requireAdmin, async (_req, res) => {
   try {
     const db = await getDb();
     const items = await db

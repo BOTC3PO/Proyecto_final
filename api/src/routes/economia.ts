@@ -110,19 +110,6 @@ type SaldoDoc = {
   updatedAt?: string;
 };
 
-type AjusteDoc = {
-  _id?: string;
-  modo?: string;
-  tasaAplicada?: number;
-  precioFactor?: number;
-  recompensaFactor?: number;
-};
-
-type ItemPrecioDoc = {
-  _id?: string;
-  precioPromedio?: number | null;
-};
-
 economia.use(
   ["/api/economia", "/api/admin/economia"],
   requireUser

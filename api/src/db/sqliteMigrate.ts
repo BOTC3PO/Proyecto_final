@@ -127,10 +127,55 @@ export function runMigrations(dbPath: string): void {
 // ─────────────────────────────────────────────────────────────────────────────
 // CLI entry point (executed when called via npm run db:sqlite:migrate)
 // ─────────────────────────────────────────────────────────────────────────────
+/**
+ * Detects DBs that were bootstrapped externally (e.g. directly from a .sql
+ * schema file) and had their user_version pre-set without running the full
+ * migration SQL.  If the DB reports a version > 0 but is missing a table
+ * that migration 0001 is supposed to create, the version is reset to 0 so
+ * the runner replays all migrations from the start.
+ *
+ * Every CREATE TABLE / INDEX statement in the migration files uses
+ * IF NOT EXISTS, so replaying them is safe — already-existing objects are
+ * silently skipped.
+ */
+function repairIncompleteBootstrap(dbPath: string): void {
+  if (!fs.existsSync(dbPath)) return;
+
+  const db = new Database(dbPath);
+  try {
+    const ver = db.pragma("user_version", { simple: true }) as number;
+    if (ver === 0) return;
+
+    const row = db
+      .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='modulos'")
+      .get();
+
+    if (!row) {
+      db.pragma("user_version = 0");
+      console.log(
+        `[sqlite:migrate] ${path.basename(dbPath)}: incomplete bootstrap detected ` +
+          `(user_version was ${ver}, 'modulos' table missing) — reset to 0 for replay.`
+      );
+    }
+  } finally {
+    db.close();
+  }
+}
+
 if (require.main === module) {
-  const dbPath =
+  const corePath =
     process.env.SQLITE_CORE_PATH ??
     path.resolve(process.cwd(), "src", "base", "core_schema.sqlite");
 
-  runMigrations(dbPath);
+  const contentPath =
+    process.env.SQLITE_CONTENT_PATH ??
+    path.resolve(process.cwd(), "src", "base", "modulos_quizzes.sqlite");
+
+  console.log("[sqlite:migrate] ── core ──────────────────────────────────");
+  repairIncompleteBootstrap(corePath);
+  runMigrations(corePath);
+
+  console.log("[sqlite:migrate] ── content ───────────────────────────────");
+  repairIncompleteBootstrap(contentPath);
+  runMigrations(contentPath);
 }

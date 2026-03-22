@@ -51,6 +51,8 @@ const COLLECTION_TARGETS: Record<string, CollTarget> = {
   quiz_question_sets:     { dbType: "content", table: "quiz_question_sets" },
   quiz_versions:          { dbType: "content", table: "quiz_versions" },
   quiz_attempts:          { dbType: "content", table: "quiz_attempts" },
+  generator_configs:      { dbType: "content", table: "generator_configs" },
+  suggestions:            { dbType: "content", table: "suggestions" },
 };
 
 // ── SmartDb ───────────────────────────────────────────────────────────────────

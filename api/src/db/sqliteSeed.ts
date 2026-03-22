@@ -64,11 +64,19 @@ function runSeed(dbPath: string): void {
 }
 
 if (require.main === module) {
-  const dbPath =
+  const corePath =
     process.env.SQLITE_CORE_PATH ??
     path.resolve(process.cwd(), "src", "base", "core_schema.sqlite");
 
-  runSeed(dbPath);
+  const contentPath =
+    process.env.SQLITE_CONTENT_PATH ??
+    path.resolve(process.cwd(), "src", "base", "modulos_quizzes.sqlite");
+
+  console.log("[sqlite:seed] ── core ──────────────────────────────────");
+  runSeed(corePath);
+
+  console.log("[sqlite:seed] ── content ───────────────────────────────");
+  runSeed(contentPath);
 }
 
 export { runSeed };

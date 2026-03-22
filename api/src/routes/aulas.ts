@@ -7,9 +7,9 @@ import { requireClassroomScope } from "../lib/classroom-scope";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
+import type { Classroom } from "../schema/aula";
 import {
   CLASSROOM_ACTIVE_STATUS_VALUES,
-  Classroom,
   ClassroomCreateSchema,
   ClassroomPatchSchema,
   ClassroomUpdateSchema,
