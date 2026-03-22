@@ -203,6 +203,59 @@ INSERT OR IGNORE INTO ledger_movimientos (
 );
 
 -- =============================================================================
+-- GENERATOR CONFIGS — seed inicial
+-- =============================================================================
+INSERT OR IGNORE INTO generator_configs
+  (id, materia, label, description, version, subtipos, variables_schema)
+VALUES(
+  'biologia/biologia', 'Biología', 'Biología general',
+  'Genética, pirámide de biomasas y clasificación de seres vivos', 1,
+  '[{"id":"genetica_mendel","label":"Genética de Mendel","activo":true,"peso":1},{"id":"piramide_biomasas","label":"Pirámide de biomasas","activo":true,"peso":1},{"id":"clasificacion_seres_vivos","label":"Clasificación de seres vivos","activo":true,"peso":1}]',
+  '{"genetica_mendel":{"padre1":"Genotipo primer progenitor. Ej: Aa","padre2":"Genotipo segundo progenitor. Ej: aa","descripcion":"Tipo de cruce. Ej: retrocruzamiento (Aa x aa)","fenotipoDom":"Proporción fenotipo dominante. Ej: 1/2","fenotipoRec":"Proporción fenotipo recesivo. Ej: 1/2"},"piramide_biomasas":{"productor":"Biomasa nivel productor en kg. Valores posibles: 100,200,500,1000,2000,5000,10000","consumidor1":"Biomasa consumidores primarios = productor / 10","consumidor2":"Biomasa consumidores secundarios = productor / 100","consumidorTerciario":"Biomasa nivel 4 en avanzado. Valores: 1,2,5,10,20"},"clasificacion_seres_vivos":{"nombre":"Nombre del ser vivo. Ej: Escherichia coli","reino":"Valores: Monera | Protista | Fungi | Plantae | Animalia","celula":"Valores: eucariota | procariota","nutricion":"Valores: autótrofo | heterótrofo"}}'
+);
+
+INSERT OR IGNORE INTO generator_configs
+  (id, materia, label, description, version, subtipos, variables_schema)
+VALUES(
+  'informatica/informatica', 'Informática', 'Informática general',
+  'Conversión de bases, operaciones lógicas y álgebra booleana', 1,
+  '[{"id":"conversion_bases","label":"Conversión de bases","activo":true,"peso":1},{"id":"operaciones_logicas","label":"Operaciones lógicas","activo":true,"peso":1},{"id":"algebra_booleana","label":"Álgebra booleana","activo":true,"peso":1}]',
+  '{"conversion_bases":{"n":"Valor decimal. Básico: 1-255, Intermedio: 16-255, Avanzado suma: 1-100","binario":"Binario 8 bits. Ej: 00101010","hexadecimal":"Hexadecimal. Ej: 2A"},"operaciones_logicas":{"a_b":"Operandos: 0 o 1","op":"Operación: AND | OR | XOR | NOT","c":"Tercer operando intermedio: 0 o 1","expr":"Expresión avanzada. Ej: A XOR B XOR C"},"algebra_booleana":{"expresion":"Expresión a simplificar. Ej: A AND 1","resultado":"Resultado. Ej: A","ley":"Ley aplicada. Ej: identidad, nulidad, De Morgan, absorción"}}'
+);
+
+INSERT OR IGNORE INTO generator_configs
+  (id, materia, label, description, version, subtipos, variables_schema)
+VALUES(
+  'economia/contabilidad', 'Economía', 'Contabilidad',
+  'Clasificación, naturaleza y ubicación de cuentas contables', 1,
+  '[{"id":"clasificacion_cuentas","label":"Clasificación de cuentas","activo":true,"peso":1},{"id":"naturaleza_cuentas","label":"Naturaleza de cuentas","activo":true,"peso":1},{"id":"ubicacion_estados","label":"Ubicación en estados financieros","activo":true,"peso":1},{"id":"hechos_patrimonio","label":"Hechos patrimoniales","activo":true,"peso":1}]',
+  '{"clasificacion_cuentas":{"nombre":"Cuenta contable. Ej: Caja, Capital, Proveedores","clasificacion":"Valores: Activo | Pasivo | Patrimonio Neto | R+ | R-"},"naturaleza_cuentas":{"nombre":"Cuenta contable","naturaleza":"Valores: Deudora | Acreedora"},"ubicacion_estados":{"nombre":"Cuenta contable","ubicacion":"Valores: Activo Corriente | Activo No Corriente | Pasivo Corriente | Pasivo No Corriente | Resultados (Ingresos) | Resultados (Costos/Gastos)"},"hechos_patrimonio":{"descripcion":"Descripción del hecho económico","respuesta":"Valores: Afecta el patrimonio | No afecta el patrimonio"}}'
+);
+
+INSERT OR IGNORE INTO generator_configs
+  (id, materia, label, description, version, subtipos, variables_schema)
+VALUES(
+  'economia/finanzas', 'Economía', 'Finanzas personales',
+  'Presupuesto, gastos, ahorro y deudas', 1,
+  '[{"id":"presupuesto_familiar","label":"Presupuesto familiar","activo":true,"peso":1},{"id":"gastos_fijos","label":"Gastos fijos y variables","activo":true,"peso":1},{"id":"gastos_esenciales","label":"Gastos esenciales vs no esenciales","activo":true,"peso":1},{"id":"ahorro_vs_consumo","label":"Ahorro vs consumo responsable","activo":true,"peso":1},{"id":"deuda_buena_mala","label":"Deuda buena vs mala","activo":true,"peso":1}]',
+  '{"_patron":"Todos los subtipos siguen el mismo esquema","descripcion":"Situación o ítem a clasificar (texto libre)","tipo_o_categoria":"Clasificación correcta (enum de 2-3 valores según subtipo)"}'
+);
+
+INSERT OR IGNORE INTO generator_configs
+  (id, materia, label, description, version, subtipos)
+VALUES(
+  'geografia/basic', 'Geografía', 'Geografía',
+  'Generador básico — usa referencias del servidor', 1, '[]'
+);
+
+INSERT OR IGNORE INTO generator_configs
+  (id, materia, label, description, version, subtipos)
+VALUES(
+  'lengua_espanola/basic', 'Lengua y Literatura', 'Lengua Española',
+  'Generador básico — usa referencias del servidor', 1, '[]'
+);
+
+-- =============================================================================
 -- VERIFICACIÓN RÁPIDA (ejecutar manualmente si se desea)
 -- SELECT 'escuelas'  AS tabla, count(*) AS filas FROM escuelas   UNION ALL
 -- SELECT 'usuarios',           count(*)           FROM usuarios   UNION ALL

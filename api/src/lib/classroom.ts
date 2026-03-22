@@ -1,4 +1,4 @@
-import { Response } from "express";
+import type { Response } from "express";
 import { isClassroomReadOnlyStatus, normalizeClassroomStatus } from "../schema/aula";
 
 export const assertClassroomWritable = (

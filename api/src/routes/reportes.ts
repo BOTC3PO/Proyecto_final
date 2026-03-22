@@ -570,7 +570,6 @@ const buildReporteData = async (
 
   const resumen = progresoResumen[0];
   const totalActividades = (resumen?.actividades as number) ?? 0;
-  const totalCompletadas = (resumen?.completadas as number) ?? 0;
   const promedioGrupo = roundNumber((resumen?.promedioScore as number) ?? 0, 2);
   const totalMiembros = scopedUsuarioIds.length;
   const asistentes = (usuariosConActividad[0]?.total as number) ?? 0;

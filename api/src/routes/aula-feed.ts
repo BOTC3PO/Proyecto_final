@@ -2,7 +2,8 @@ import { Router } from "express";
 import { requirePolicy } from "../lib/authorization";
 import { getDb } from "../lib/db";
 import { requireUser } from "../lib/user-auth";
-import { Classroom, isClassroomReadOnlyStatus } from "../schema/aula";
+import { isClassroomReadOnlyStatus } from "../schema/aula";
+import type { Classroom } from "../schema/aula";
 
 export const aulaFeed = Router();
 

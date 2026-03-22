@@ -20,13 +20,6 @@ type SurveyDoc = {
   classroomId?: string;
 };
 
-type SurveyResponseDoc = {
-  _id?: string;
-  surveyId?: string;
-  classroomId?: string;
-  usuarioId?: string;
-  optionId?: string;
-};
 
 const SurveyUpdateSchema = SurveyBaseSchema.partial().omit({ id: true, createdAt: true, createdBy: true });
 
