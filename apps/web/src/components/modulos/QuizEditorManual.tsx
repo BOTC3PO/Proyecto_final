@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
 import HerramientaPicker from "../../stubs/HerramientaPicker";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
-import type { VisualSpec } from "../../../archive/visualizadores/types";
+import type { VisualSpec } from "../../generadoresV2/core/types";
 
 const QUESTION_TYPES: Array<NonNullable<ModuleQuizQuestion["questionType"]>> = [
   "mc",
@@ -169,21 +169,42 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
               </label>
 
               <label className="text-xs font-medium text-gray-600">
-                Respuesta esperada
+                Tema / foco
                 <input
                   className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
-                  value={Array.isArray(question.answerKey) ? question.answerKey.join(", ") : question.answerKey ?? ""}
-                  onChange={(event) => updateQuestion(index, { answerKey: event.target.value })}
-                  placeholder={isTrueFalse ? "Verdadero / Falso" : "Respuesta"}
+                  placeholder="Ej: derivadas, vocabulario, ecuaciones"
+                  value={question.focus ?? ""}
+                  onChange={(e) => updateQuestion(index, { focus: e.target.value })}
                 />
               </label>
+
+              {questionType === "input" ? (
+                <label className="text-xs font-medium text-gray-600">
+                  Respuesta esperada
+                  <input
+                    className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
+                    value={Array.isArray(question.answerKey) ? question.answerKey.join(", ") : question.answerKey ?? ""}
+                    onChange={(event) => updateQuestion(index, { answerKey: event.target.value })}
+                    placeholder="Respuesta"
+                  />
+                </label>
+              ) : null}
             </div>
 
             {showOptions ? (
               <div className="space-y-2">
-                <p className="text-xs font-medium text-gray-600">Opciones</p>
+                <p className="text-xs font-medium text-gray-600">
+                  {isTrueFalse ? "Respuesta correcta" : "Opciones — seleccioná la correcta"}
+                </p>
                 {(question.options ?? []).map((option, optionIndex) => (
                   <div key={`${question.id}-option-${optionIndex}`} className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      name={`answer-${question.id}`}
+                      checked={question.answerKey === option}
+                      onChange={() => updateQuestion(index, { answerKey: option })}
+                      title="Marcar como correcta"
+                    />
                     <input
                       className="flex-1 rounded-md border border-gray-300 px-2 py-2 text-sm"
                       value={option}

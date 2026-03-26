@@ -1,5 +1,19 @@
 import { Router } from "express";
+import * as fs from "fs";
+import * as path from "path";
 import { openContentDb } from "../lib/db-open";
+
+// ── Documentación de generadores (cache en memoria) ──────────────────────────
+type GeneratorDocs = Record<string, unknown>;
+let _docsCache: GeneratorDocs | null = null;
+
+function loadGeneratorDocs(): GeneratorDocs {
+  if (_docsCache) return _docsCache;
+  const filePath = path.resolve(__dirname, "../base/documentacion_generadores.json");
+  const raw = fs.readFileSync(filePath, "utf-8");
+  _docsCache = JSON.parse(raw) as GeneratorDocs;
+  return _docsCache;
+}
 
 export const generators = Router();
 
@@ -53,6 +67,23 @@ generators.get("/api/generators", (_req, res) => {
     });
 
     res.json({ items });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "internal server error";
+    res.status(500).json({ error: message });
+  }
+});
+
+// GET /api/generators/:category/:name/docs — documentación de un generador
+// Declarada ANTES de /:category/:name para que no sea capturada por ese wildcard.
+generators.get("/api/generators/:category/:name/docs", (req, res) => {
+  const id = `${req.params.category}/${req.params.name}`;
+  try {
+    const docs = loadGeneratorDocs();
+    if (!(id in docs)) {
+      res.status(404).json({ error: "not found" });
+      return;
+    }
+    res.json(docs[id]);
   } catch (err) {
     const message = err instanceof Error ? err.message : "internal server error";
     res.status(500).json({ error: message });

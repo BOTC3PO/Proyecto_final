@@ -28,6 +28,35 @@ const mulberry32 = (seed: number) => {
   };
 };
 
+function getModulePalette(category: string) {
+  const cat = (category ?? "").toLowerCase();
+  if (cat === "evaluacion") return {
+    gradient: "from-amber-500 via-orange-500 to-red-500",
+    bg: "from-amber-50 via-white to-orange-50/30",
+    badge: "bg-amber-100 text-amber-700",
+    icon: "bg-amber-50 text-amber-600",
+    subtle: "text-amber-100/90",
+    link: "text-amber-100",
+  };
+  if (cat === "competencia") return {
+    gradient: "from-emerald-500 via-teal-500 to-cyan-600",
+    bg: "from-emerald-50 via-white to-teal-50/30",
+    badge: "bg-emerald-100 text-emerald-700",
+    icon: "bg-emerald-50 text-emerald-600",
+    subtle: "text-emerald-100/90",
+    link: "text-emerald-100",
+  };
+  // default: aprendizaje
+  return {
+    gradient: "from-indigo-600 via-indigo-500 to-purple-600",
+    bg: "from-slate-50 via-white to-indigo-50/30",
+    badge: "bg-indigo-100 text-indigo-700",
+    icon: "bg-indigo-50 text-indigo-600",
+    subtle: "text-indigo-100/90",
+    link: "text-indigo-100",
+  };
+}
+
 const VISIBILITY_LABELS: Record<ModuleVisibility, string> = {
   publico: "Público",
   privado: "Privado",
@@ -266,15 +295,16 @@ export default function ModuloDetail() {
     ? VISIBILITY_LABELS[module.visibility]
     : "Sin definir";
   const levelLabel = module.level ?? module.difficultyLevel ?? "Sin nivel";
+  const palette = getModulePalette(module.category);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 pb-12">
+    <main className={`min-h-screen bg-gradient-to-br ${palette.bg} pb-12`}>
       {/* Gradient Header */}
-      <div className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 px-6 pb-10 pt-6">
+      <div className={`bg-gradient-to-r ${palette.gradient} px-6 pb-10 pt-6`}>
         <div className="mx-auto max-w-4xl">
           <Link
             to="/modulos"
-            className="group mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-indigo-100 transition-colors hover:text-white"
+            className={`group mb-4 inline-flex items-center gap-1.5 text-sm font-medium ${palette.link} transition-colors hover:text-white`}
           >
             <svg className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
@@ -283,7 +313,7 @@ export default function ModuloDetail() {
           </Link>
           <h1 className="text-2xl font-bold text-white md:text-3xl">{module.title}</h1>
           {module.description && (
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-indigo-100/90">
+            <p className={`mt-2 max-w-2xl text-sm leading-relaxed ${palette.subtle}`}>
               {module.description}
             </p>
           )}

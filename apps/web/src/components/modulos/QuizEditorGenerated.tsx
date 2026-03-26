@@ -52,6 +52,14 @@ export default function QuizEditorGenerated({
 }: QuizEditorGeneratedProps) {
   const [catalog, setCatalog] = useState<GeneratorCatalogItem[]>([]);
   const [catalogStatus, setCatalogStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [docs, setDocs] = useState<Record<string, unknown> | null>(null);
+
+  useEffect(() => {
+    if (!generatorId) { setDocs(null); return; }
+    apiGet<Record<string, unknown>>(`/api/generators/${generatorId}/docs`)
+      .then(setDocs)
+      .catch(() => setDocs(null));
+  }, [generatorId]);
 
   useEffect(() => {
     apiGet<{ items: GeneratorCatalogItem[] }>("/api/generators")
@@ -168,6 +176,39 @@ export default function QuizEditorGenerated({
           </>
         )}
       </div>
+
+      {/* Docs panel */}
+      {docs && selectedSubtipoId && (() => {
+        const subtipoDoc = (docs.subtipos as Record<string, unknown>)?.[selectedSubtipoId];
+        if (!subtipoDoc) return null;
+        const variables = (subtipoDoc as Record<string, unknown>).variables as
+          Record<string, { descripcion: string; ejemplo: string }> | undefined;
+        return (
+          <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 space-y-2">
+            <p className="text-xs font-semibold text-amber-800">
+              Variables disponibles — {selectedSubtipo?.label}
+            </p>
+            <p className="text-xs text-amber-700">
+              {(subtipoDoc as Record<string, unknown>).descripcion as string}
+            </p>
+            {variables && (
+              <div className="grid gap-1">
+                {Object.entries(variables).map(([key, val]) => (
+                  <div key={key} className="flex items-start gap-2 text-xs">
+                    <code className="rounded bg-amber-100 px-1.5 py-0.5 font-mono text-amber-900">
+                      {"{" + key + "}"}
+                    </code>
+                    <span className="text-amber-700">
+                      {val.descripcion}
+                      {val.ejemplo ? ` — Ej: ${val.ejemplo}` : ""}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       {/* Quantity */}
       <label className="text-xs font-medium text-gray-600">

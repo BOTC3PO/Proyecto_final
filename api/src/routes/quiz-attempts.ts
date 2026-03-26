@@ -33,6 +33,8 @@ type ModuleQuiz = {
   fixedSeed?: string | number;
   generatorId?: string;
   generatorVersion?: number | string;
+  instructions?: string;
+  displayCount?: number;
 };
 
 type ModuleWithQuizzes = {
@@ -220,6 +222,64 @@ const buildFeedback = (
   return feedback;
 };
 
+type GeneratedQuestion = {
+  id: string;
+  prompt: string;
+  questionType: "mc" | "input";
+  options?: string[];
+  answerKey: string;
+  explanation?: string;
+};
+
+async function generateQuestionsFromConfig(
+  db: Awaited<ReturnType<typeof getDb>>,
+  generatorId: string,
+  params: Record<string, unknown>,
+  count: number,
+  seed: number | string
+): Promise<GeneratedQuestion[]> {
+  const config = await db
+    .collection("generator_configs")
+    .findOne({ id: generatorId });
+  if (!config) return [];
+
+  const subtipos = (() => {
+    try {
+      const all = JSON.parse(String(config.subtipos ?? "[]")) as Array<{
+        id: string; label: string; activo?: boolean;
+      }>;
+      return all.filter((s) => s.activo !== false);
+    } catch { return []; }
+  })();
+
+  if (subtipos.length === 0) return [];
+
+  // PRNG determinístico basado en el seed
+  let state = typeof seed === "number"
+    ? seed >>> 0
+    : String(seed).split("").reduce((h, c) => (Math.imul(h, 31) + c.charCodeAt(0)) | 0, 0) >>> 0;
+
+  const nextRand = () => {
+    state = (state * 1664525 + 1013904223) >>> 0;
+    return state / 0x100000000;
+  };
+
+  const subtipo = typeof params?.subtipo === "string"
+    ? params.subtipo
+    : subtipos[Math.floor(nextRand() * subtipos.length)]?.id ?? subtipos[0].id;
+
+  // Generar N preguntas placeholder con el subtipo y seed
+  // El contenido real lo genera el cliente con generadoresV2
+  // Acá solo persistimos el esqueleto para que el attempt tenga
+  // maxScore correcto y el scoring pueda recibir las preguntas del cliente
+  return Array.from({ length: count }, (_, i) => ({
+    id: `${generatorId}/${subtipo}/${seed}/${i}`,
+    prompt: `Pregunta ${i + 1}`,
+    questionType: "mc" as const,
+    answerKey: "",
+  }));
+}
+
 export const quizAttempts = Router();
 
 quizAttempts.post(
@@ -255,16 +315,29 @@ quizAttempts.post(
     if (!userId) return res.status(401).json({ error: "user not found" });
     const now = new Date();
     const resolvedModuleId = payload.moduleId ?? metadata?.moduleId ?? null;
+    const seed = buildSeed(quiz);
+    let maxScore = quiz.questions?.length ?? quiz.count ?? 0;
+    if (quiz.generatorId && (!quiz.questions || quiz.questions.length === 0)) {
+      const generatedCount = quiz.count ?? 10;
+      await generateQuestionsFromConfig(
+        db,
+        quiz.generatorId,
+        (payload as Record<string, unknown>).params as Record<string, unknown> ?? {},
+        generatedCount,
+        seed ?? 0
+      );
+      maxScore = generatedCount;
+    }
     const attempt = {
       moduleId: resolvedModuleId,
       quizId: payload.quizId,
       quizVersion,
       userId,
-      seed: buildSeed(quiz),
+      seed,
       answers: {},
       feedback: {},
       score: 0,
-      maxScore: quiz.questions?.length ?? quiz.count ?? 0,
+      maxScore,
       status: "in_progress",
       createdAt: now,
       updatedAt: now
@@ -316,7 +389,12 @@ quizAttempts.get(
     questions: quiz?.questions ?? [],
     answers: attempt.answers,
     feedback: attempt.feedback ?? {},
-    quiz: quiz ? { title: quiz.title, questions: quiz.questions ?? [] } : undefined
+    quiz: quiz ? { title: quiz.title, questions: quiz.questions ?? [] } : undefined,
+    generatorId: quiz?.generatorId ?? undefined,
+    seed: attempt.seed ?? undefined,
+    count: quiz?.count ?? undefined,
+    instructions: quiz?.instructions ?? undefined,
+    displayCount: quiz?.displayCount ?? undefined
   });
   }
 );

@@ -39,6 +39,8 @@ export type ModuleQuiz = {
   count?: number;
   seedPolicy?: ModuleQuizSeedPolicy;
   fixedSeed?: string | number;
+  instructions?: string;
+  displayCount?: number;
 };
 
 export type ModuleDependencyType = "required" | "unlocks";
