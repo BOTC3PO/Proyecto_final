@@ -3,6 +3,35 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { apiGet } from "../../lib/api";
 import type { Module, ModuleVisibility } from "../../domain/module/module.types";
+function getModulePalette(category: string) {
+  const cat = (category ?? "").toLowerCase();
+  if (cat === "evaluacion") return {
+    gradient: "from-amber-500 via-orange-500 to-red-500",
+    bg: "from-amber-50 via-white to-orange-50/30",
+    badge: "bg-amber-100 text-amber-700",
+    icon: "bg-amber-50 text-amber-600",
+    subtle: "text-amber-100/90",
+    link: "text-amber-100",
+  };
+  if (cat === "competencia") return {
+    gradient: "from-emerald-500 via-teal-500 to-cyan-600",
+    bg: "from-emerald-50 via-white to-teal-50/30",
+    badge: "bg-emerald-100 text-emerald-700",
+    icon: "bg-emerald-50 text-emerald-600",
+    subtle: "text-emerald-100/90",
+    link: "text-emerald-100",
+  };
+  // default: aprendizaje
+  return {
+    gradient: "from-indigo-600 via-indigo-500 to-purple-600",
+    bg: "from-slate-50 via-white to-indigo-50/30",
+    badge: "bg-indigo-100 text-indigo-700",
+    icon: "bg-indigo-50 text-indigo-600",
+    subtle: "text-indigo-100/90",
+    link: "text-indigo-100",
+  };
+}
+
 const VISIBILITY_LABELS: Record<ModuleVisibility, string> = {
   publico: "Público",
   privado: "Privado",
@@ -400,11 +429,14 @@ export default function ModulosList() {
                 const visibilityColor = VISIBILITY_COLORS[module.visibility ?? ""] ?? "bg-gray-100 text-gray-500 ring-gray-400/20";
                 const statusColor = STATUS_COLORS[resolveStatus(module)] ?? "bg-gray-100 text-gray-500 ring-gray-400/20";
                 const accentGradient = getAccentColor(resolveMateria(module));
+                const palette = getModulePalette(module.category);
                 return (
                   <article
                     key={module.id}
                     className="group relative overflow-hidden rounded-2xl border border-slate-200/60 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/5 hover:-translate-y-0.5"
                   >
+                    {/* Category color top strip */}
+                    <div className={`h-1 rounded-t-xl bg-gradient-to-r ${palette.gradient}`} />
                     {/* Color accent strip */}
                     <div className={`absolute inset-y-0 left-0 w-1 bg-gradient-to-b ${accentGradient}`} />
                     <div className="flex flex-col gap-3 p-5 pl-6 sm:flex-row sm:items-center sm:justify-between">

@@ -37,6 +37,8 @@ type QuizAttemptResponse = {
   generatorId?: string;
   seed?: string | number;
   count?: number;
+  instructions?: string;
+  displayCount?: number;
 };
 
 type SubmitResponse = {
@@ -184,8 +186,26 @@ export default function QuizAttempt() {
   const questions = useMemo(() => {
     if (!attempt) return [] as ModuleQuizQuestion[];
     const server = attempt.questions ?? attempt.quiz?.questions ?? [];
-    if (server.length > 0) return server;
-    return generatedQuestions;
+    const pool = server.length > 0 ? server : generatedQuestions;
+    const display = attempt.displayCount;
+    if (!display || display >= pool.length) return pool;
+    // Selección determinística basada en el seed
+    const seedVal = typeof attempt.seed === "number"
+      ? attempt.seed
+      : String(attempt.seed ?? "0").split("").reduce(
+          (h, c) => (Math.imul(h, 31) + c.charCodeAt(0)) | 0, 0
+        ) >>> 0;
+    let state = seedVal;
+    const rand = () => {
+      state = (state * 1664525 + 1013904223) >>> 0;
+      return state / 0x100000000;
+    };
+    const indices = Array.from({ length: pool.length }, (_, i) => i);
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(rand() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    return indices.slice(0, display).map((i) => pool[i]);
   }, [attempt, generatedQuestions]);
 
   const title = attempt?.quizTitle ?? attempt?.quiz?.title ?? "Quiz";
@@ -281,6 +301,12 @@ export default function QuizAttempt() {
         </header>
 
         <section className="bg-white rounded-xl shadow p-6 space-y-6">
+          {(attempt?.instructions) ? (
+            <div className="rounded-lg border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-800 leading-relaxed">
+              {attempt.instructions}
+            </div>
+          ) : null}
+
           {questions.length === 0 ? (
             <p className="text-sm text-gray-500">
               Este intento no tiene preguntas asignadas todavía.

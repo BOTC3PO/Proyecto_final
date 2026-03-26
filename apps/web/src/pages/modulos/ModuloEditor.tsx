@@ -1155,6 +1155,18 @@ export default function ModuloEditor() {
                           </div>
                         ) : null}
 
+                        <label className="text-xs font-medium text-gray-600">
+                          Instrucciones para el alumno
+                          <span className="ml-1 font-normal text-gray-400">(opcional)</span>
+                          <textarea
+                            className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
+                            rows={2}
+                            placeholder="Ej: Leé cada pregunta con atención. Tenés 30 minutos."
+                            value={quiz.instructions ?? ""}
+                            onChange={(e) => updateQuiz(quiz.id, { instructions: e.target.value })}
+                          />
+                        </label>
+
                         {quiz.mode === "generated" ? (
                           <QuizEditorGenerated
                             generatorId={quiz.generatorId ?? ""}
@@ -1165,10 +1177,32 @@ export default function ModuloEditor() {
                             showPreview={isTeacher}
                           />
                         ) : (
-                          <QuizEditorManual
-                            questions={quiz.questions ?? []}
-                            onChange={(next) => updateQuiz(quiz.id, { questions: next })}
-                          />
+                          <>
+                            <QuizEditorManual
+                              questions={quiz.questions ?? []}
+                              onChange={(next) => updateQuiz(quiz.id, { questions: next })}
+                            />
+                            {quiz.mode !== "generated" && (quiz.questions?.length ?? 0) > 0 ? (
+                              <label className="text-xs font-medium text-gray-600">
+                                Preguntas por examen
+                                <span className="ml-1 font-normal text-gray-400">
+                                  (de {quiz.questions?.length ?? 0} en el pool)
+                                </span>
+                                <input
+                                  className="mt-1 w-32 rounded-md border border-gray-300 px-2 py-2 text-sm"
+                                  type="number"
+                                  min={1}
+                                  max={quiz.questions?.length ?? 1}
+                                  value={quiz.displayCount ?? quiz.questions?.length ?? ""}
+                                  onChange={(e) => {
+                                    const val = Number(e.target.value) || undefined;
+                                    updateQuiz(quiz.id, { displayCount: val });
+                                  }}
+                                  placeholder={String(quiz.questions?.length ?? "")}
+                                />
+                              </label>
+                            ) : null}
+                          </>
                         )}
                         </div>
                       </div>
