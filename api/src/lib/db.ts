@@ -5,7 +5,7 @@
 //   Db            – type alias for SmartDb (used by routes)
 //
 // SmartDb.collection(name) routes to:
-//   SchemaCollection  – for known tables in core_schema.sqlite / modulos_quizzes.sqlite
+//   SchemaCollection  – for known tables in core_schema.sqlite (all tables live here)
 //   JsonDocCollection – fallback JSON-doc store for any unknown collection name
 
 import type { Doc } from "./db-types";
@@ -41,18 +41,18 @@ const COLLECTION_TARGETS: Record<string, CollTarget> = {
   economia_modulos:       { dbType: "core",    table: "economia_modulos" },
   economia_eventos:       { dbType: "core",    table: "economia_eventos" },
   economia_riesgo_cursos: { dbType: "core",    table: "economia_riesgo_cursos" },
-  // ── modulos_quizzes.sqlite ─────────────────────────────────────────────────
-  modulos:                { dbType: "content", table: "modulos" },
-  teoria_json:            { dbType: "content", table: "teoria_json" },
-  tuesdayjs_docs:         { dbType: "content", table: "tuesdayjs_docs" },
-  libros_json:            { dbType: "content", table: "libros_json" },
-  bloques_json:           { dbType: "content", table: "bloques_json" },
-  quizzes:                { dbType: "content", table: "quizzes" },
-  quiz_question_sets:     { dbType: "content", table: "quiz_question_sets" },
-  quiz_versions:          { dbType: "content", table: "quiz_versions" },
-  quiz_attempts:          { dbType: "content", table: "quiz_attempts" },
-  generator_configs:      { dbType: "content", table: "generator_configs" },
-  suggestions:            { dbType: "content", table: "suggestions" },
+  // ── content (now merged into core_schema.sqlite) ───────────────────────────
+  modulos:                { dbType: "core",    table: "modulos" },
+  teoria_json:            { dbType: "core",    table: "teoria_json" },
+  tuesdayjs_docs:         { dbType: "core",    table: "tuesdayjs_docs" },
+  libros_json:            { dbType: "core",    table: "libros_json" },
+  bloques_json:           { dbType: "core",    table: "bloques_json" },
+  quizzes:                { dbType: "core",    table: "quizzes" },
+  quiz_question_sets:     { dbType: "core",    table: "quiz_question_sets" },
+  quiz_versions:          { dbType: "core",    table: "quiz_versions" },
+  quiz_attempts:          { dbType: "core",    table: "quiz_attempts" },
+  generator_configs:      { dbType: "core",    table: "generator_configs" },
+  suggestions:            { dbType: "core",    table: "suggestions" },
 };
 
 // ── SmartDb ───────────────────────────────────────────────────────────────────

@@ -9,7 +9,6 @@ import type { Param } from "./db-types";
 // ── DB Singletons ─────────────────────────────────────────────────────────────
 
 let _coreDb: InstanceType<typeof Database> | null = null;
-let _contentDb: InstanceType<typeof Database> | null = null;
 
 function openDbFile(dbPath: string): InstanceType<typeof Database> {
   const abs = path.isAbsolute(dbPath) ? dbPath : path.resolve(process.cwd(), dbPath);
@@ -28,10 +27,9 @@ export function openCoreDb(): InstanceType<typeof Database> {
   return _coreDb;
 }
 
-/** Opens (or returns) the modulos_quizzes.sqlite singleton */
+/** Alias for openCoreDb() – content tables now live in core_schema.sqlite */
 export function openContentDb(): InstanceType<typeof Database> {
-  if (!_contentDb) _contentDb = openDbFile(ENV.SQLITE_CONTENT_PATH);
-  return _contentDb;
+  return openCoreDb();
 }
 
 /** Backward-compat alias – used by index.ts startup check */
