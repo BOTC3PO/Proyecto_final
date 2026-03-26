@@ -3,7 +3,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { apiGet, apiPost } from "../../lib/api";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
-import type { VisualSpec } from "../../../archive/visualizadores/types";
+import type { VisualSpec } from "../../generadoresV2/core/types";
+import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
 
 function parseVisualContext(detail: string | undefined): VisualSpec | null {
   if (!detail) return null;
@@ -33,6 +34,9 @@ type QuizAttemptResponse = {
     title?: string;
     questions?: ModuleQuizQuestion[];
   };
+  generatorId?: string;
+  seed?: string | number;
+  count?: number;
 };
 
 type SubmitResponse = {
@@ -42,6 +46,38 @@ type SubmitResponse = {
   feedback?: string;
   message?: string;
 };
+
+function ejercicioToQuestion(e: Ejercicio): ModuleQuizQuestion {
+  if (e.tipo === "quiz") {
+    return {
+      id: e.id,
+      prompt: e.enunciado,
+      questionType: "mc",
+      options: e.opciones,
+      answerKey: e.opciones[e.indiceCorrecto],
+      explanation: e.explicacion,
+      visualContext: e.visual
+        ? JSON.stringify({ spec: e.visual })
+        : undefined,
+    };
+  }
+  if (e.tipo === "completar") {
+    return {
+      id: e.id,
+      prompt: e.enunciado,
+      questionType: "input",
+      answerKey: e.respuestaCorrecta,
+      explanation: e.explicacion,
+    };
+  }
+  // numerico
+  return {
+    id: e.id,
+    prompt: e.enunciado,
+    questionType: "input",
+    answerKey: String(e.resultado),
+  };
+}
 
 const resolveAttemptId = (attempt: QuizAttemptResponse | null) =>
   attempt?.attemptId ?? attempt?.id ?? "";
@@ -78,6 +114,8 @@ export default function QuizAttempt() {
   );
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
   const [result, setResult] = useState<SubmitResponse | null>(null);
+  const [generatedQuestions, setGeneratedQuestions] =
+    useState<ModuleQuizQuestion[]>([]);
 
   useEffect(() => {
     if (!attemptId) return;
@@ -103,10 +141,52 @@ export default function QuizAttempt() {
     };
   }, [attemptId]);
 
+  useEffect(() => {
+    if (!attempt) return;
+    const genId = attempt.generatorId;
+    const seed = attempt.seed;
+    const count = attempt.count ?? 10;
+    const serverQuestions = attempt.questions ?? attempt.quiz?.questions ?? [];
+    if (!genId || serverQuestions.length > 0) return;
+
+    // Importar dinámicamente el generador según el id
+    // Formato del id: "materia/subtipo" ej "biologia/biologia"
+    const [materia] = genId.split("/");
+
+    import(`../../generadoresV2/${materia}/index`)
+      .then((mod) => {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const { DeterministicPrng } = require("../../generadoresV2/core/prng") as { DeterministicPrng: new (seed: string | number) => import("../../generadoresV2/core/prng").PRNG };
+        const prng = new DeterministicPrng(seed ?? 0);
+
+        // Obtener el generador que coincide con el id
+        const descriptores: GeneratorDescriptor[] =
+          typeof mod.getDescriptores === "function"
+            ? mod.getDescriptores(prng)
+            : typeof mod[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`] === "function"
+            ? mod[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`](prng)
+            : [];
+
+        const descriptor = descriptores.find((d) => d.id === genId);
+        if (!descriptor) return;
+
+        const ejercicios: Ejercicio[] = Array.from({ length: count }, () =>
+          descriptor.generate(undefined, prng)
+        );
+
+        setGeneratedQuestions(ejercicios.map(ejercicioToQuestion));
+      })
+      .catch(() => {
+        // El generador no está disponible en el cliente
+      });
+  }, [attempt]);
+
   const questions = useMemo(() => {
     if (!attempt) return [] as ModuleQuizQuestion[];
-    return attempt.questions ?? attempt.quiz?.questions ?? [];
-  }, [attempt]);
+    const server = attempt.questions ?? attempt.quiz?.questions ?? [];
+    if (server.length > 0) return server;
+    return generatedQuestions;
+  }, [attempt, generatedQuestions]);
 
   const title = attempt?.quizTitle ?? attempt?.quiz?.title ?? "Quiz";
 
@@ -130,9 +210,18 @@ export default function QuizAttempt() {
     setSubmitStatus("submitting");
     setSubmitMessage(null);
     try {
-      const response = await apiPost<SubmitResponse>(`/api/quiz-attempts/${attemptId}/submit`, {
-        answers
-      });
+      const response = await apiPost<SubmitResponse>(
+        `/api/quiz-attempts/${attemptId}/submit`,
+        {
+          answers,
+          ...(generatedQuestions.length > 0 && {
+            generatedQuestions: generatedQuestions.map((q) => ({
+              id: q.id,
+              answerKey: q.answerKey,
+            })),
+          }),
+        }
+      );
       setResult(response);
       setSubmitStatus("submitted");
       setSubmitMessage(response.message ?? "Respuestas enviadas para corrección.");
