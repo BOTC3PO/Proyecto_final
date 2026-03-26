@@ -1,0 +1,1 @@
+a esta carpeta le falta una migracion para quitar 1 la base de datos 2 se tiene que crear una base de datos de diccionarios automaticamente pero por ahora es prioridad 0

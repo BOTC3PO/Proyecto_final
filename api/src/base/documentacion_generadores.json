@@ -1,0 +1,2273 @@
+{
+  "biologia/biologia": {
+    "subtipos": {
+      "genetica_mendel": {
+        "descripcion": "Cruces mono híbridos y proporciones fenotípicas según cuadro de Punnett",
+        "variables": {
+          "padre1": {
+            "descripcion": "Genotipo del primer progenitor",
+            "ejemplo": "Aa"
+          },
+          "padre2": {
+            "descripcion": "Genotipo del segundo progenitor",
+            "ejemplo": "Aa"
+          },
+          "descripcion": {
+            "descripcion": "Descripción textual del tipo de cruce",
+            "ejemplo": "monohíbrido (Aa × Aa)"
+          },
+          "fenotipoDom": {
+            "descripcion": "Proporción de descendencia con fenotipo dominante",
+            "ejemplo": "3/4"
+          },
+          "fenotipoRec": {
+            "descripcion": "Proporción de descendencia con fenotipo recesivo",
+            "ejemplo": "1/4"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "piramide_biomasas": {
+        "descripcion": "Cálculo de transferencia de biomasa entre niveles tróficos aplicando la regla del 10%",
+        "variables": {
+          "productor": {
+            "descripcion": "Biomasa del nivel productor (1° nivel trófico) en kg",
+            "ejemplo": "1000"
+          },
+          "consumidor1": {
+            "descripcion": "Biomasa del nivel consumidor primario en kg",
+            "ejemplo": "100"
+          },
+          "consumidor2": {
+            "descripcion": "Biomasa del nivel consumidor secundario en kg",
+            "ejemplo": "10"
+          },
+          "consumidorTerciario": {
+            "descripcion": "Biomasa del nivel consumidor terciario en kg (modo inverso)",
+            "ejemplo": "5"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "clasificacion_seres_vivos": {
+        "descripcion": "Clasificación de organismos por reino, tipo celular y tipo de nutrición",
+        "variables": {
+          "ser.nombre": {
+            "descripcion": "Nombre científico del organismo",
+            "ejemplo": "Escherichia coli (bacteria)"
+          },
+          "ser.reino": {
+            "descripcion": "Reino al que pertenece el organismo",
+            "ejemplo": "Monera"
+          },
+          "ser.celula": {
+            "descripcion": "Tipo de organización celular",
+            "ejemplo": "procariota"
+          },
+          "ser.nutricion": {
+            "descripcion": "Modo de nutrición del organismo",
+            "ejemplo": "heterótrofo"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "informatica/informatica": {
+    "subtipos": {
+      "conversion_bases": {
+        "descripcion": "Conversión entre sistemas numéricos: binario, decimal y hexadecimal",
+        "variables": {
+          "n": {
+            "descripcion": "Número decimal a convertir",
+            "ejemplo": "42"
+          },
+          "binario": {
+            "descripcion": "Representación binaria (8 bits)",
+            "ejemplo": "00101010"
+          },
+          "hexadecimal": {
+            "descripcion": "Representación hexadecimal",
+            "ejemplo": "2A"
+          },
+          "haciaDecimal": {
+            "descripcion": "Indica si la conversión es hacia decimal",
+            "ejemplo": "true"
+          },
+          "haciaHex": {
+            "descripcion": "Indica si la conversión es hacia hexadecimal",
+            "ejemplo": "false"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "operaciones_logicas": {
+        "descripcion": "Evaluación de operaciones AND, OR, NOT sobre valores binarios",
+        "variables": {
+          "a": {
+            "descripcion": "Primer operando binario",
+            "ejemplo": "1"
+          },
+          "b": {
+            "descripcion": "Segundo operando binario",
+            "ejemplo": "0"
+          },
+          "aBin": {
+            "descripcion": "Representación binaria del operando A",
+            "ejemplo": "01001010"
+          },
+          "bBin": {
+            "descripcion": "Representación binaria del operando B",
+            "ejemplo": "00110011"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "algebra_booleana": {
+        "descripcion": "Evaluación de expresiones booleanas con variables A, B y C",
+        "variables": {
+          "expr": {
+            "descripcion": "Expresión booleana a evaluar",
+            "ejemplo": "A AND (B OR C)"
+          },
+          "regla": {
+            "descripcion": "Regla booleana aplicada (e.g. De Morgan, idempotencia)",
+            "ejemplo": "NOT(A AND B) = NOT(A) OR NOT(B)"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "fisica/cinematica": {
+    "subtipos": {
+      "MRU": {
+        "descripcion": "Movimiento Rectilíneo Uniforme: distancia = velocidad × tiempo",
+        "variables": {
+          "v": {
+            "descripcion": "Velocidad constante en m/s",
+            "ejemplo": "15"
+          },
+          "t": {
+            "descripcion": "Tiempo de desplazamiento en s",
+            "ejemplo": "8"
+          }
+        },
+        "tieneGrafico": true
+      },
+      "MRUV": {
+        "descripcion": "Movimiento Rectilíneo Uniformemente Variado: velocidad con aceleración constante",
+        "variables": {
+          "v0": {
+            "descripcion": "Velocidad inicial en m/s",
+            "ejemplo": "5"
+          },
+          "a": {
+            "descripcion": "Aceleración en m/s²",
+            "ejemplo": "2"
+          },
+          "t": {
+            "descripcion": "Tiempo en s",
+            "ejemplo": "4"
+          }
+        },
+        "tieneGrafico": true
+      },
+      "caida_libre": {
+        "descripcion": "Caída libre vertical con g=9.8 m/s², pregunta por velocidad final",
+        "variables": {
+          "t": {
+            "descripcion": "Tiempo de caída en s",
+            "ejemplo": "3"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "movimiento_vertical": {
+        "descripcion": "Lanzamiento vertical hacia arriba, cálculo de altura máxima",
+        "variables": {
+          "v0": {
+            "descripcion": "Velocidad inicial de lanzamiento en m/s",
+            "ejemplo": "20"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "movimiento_horizontal": {
+        "descripcion": "Proyectil lanzado horizontalmente: cálculo de alcance horizontal",
+        "variables": {
+          "v": {
+            "descripcion": "Velocidad horizontal en m/s",
+            "ejemplo": "12"
+          },
+          "h": {
+            "descripcion": "Altura de lanzamiento en m",
+            "ejemplo": "45"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "relacion_distancia_tiempo": {
+        "descripcion": "Interpretación de gráficos d-t y v-t de MRU y MRUV",
+        "variables": {},
+        "tieneGrafico": true
+      },
+      "conversion_unidades": {
+        "descripcion": "Conversión entre unidades de velocidad (m/s, km/h, etc.)",
+        "variables": {
+          "valor": {
+            "descripcion": "Valor numérico a convertir",
+            "ejemplo": "72"
+          },
+          "unidadOrigen": {
+            "descripcion": "Unidad de origen",
+            "ejemplo": "km/h"
+          },
+          "unidadDestino": {
+            "descripcion": "Unidad de destino",
+            "ejemplo": "m/s"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "fisica/dinamica": {
+    "subtipos": {
+      "suma_fuerzas": {
+        "descripcion": "Suma de N fuerzas colineales con signos, resultado neto y dirección",
+        "variables": {
+          "n": {
+            "descripcion": "Cantidad de fuerzas a sumar",
+            "ejemplo": "3"
+          },
+          "sign": {
+            "descripcion": "Signo de cada fuerza (+/-)",
+            "ejemplo": "+"
+          },
+          "fuerzas": {
+            "descripcion": "Magnitudes de las fuerzas en N",
+            "ejemplo": "[50, -30, 20]"
+          }
+        },
+        "tieneGrafico": true
+      },
+      "peso": {
+        "descripcion": "Cálculo del peso de un objeto: P = m × g",
+        "variables": {
+          "masa": {
+            "descripcion": "Masa del objeto en kg",
+            "ejemplo": "12"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "friccion": {
+        "descripcion": "Fuerza de fricción: Fr = μ × N",
+        "variables": {
+          "mu": {
+            "descripcion": "Coeficiente de rozamiento (μ)",
+            "ejemplo": "0.35"
+          },
+          "N": {
+            "descripcion": "Fuerza normal en N",
+            "ejemplo": "80"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "plano_inclinado": {
+        "descripcion": "Componentes de la fuerza sobre plano inclinado con ángulo dado",
+        "variables": {
+          "masa": {
+            "descripcion": "Masa del objeto en kg",
+            "ejemplo": "10"
+          },
+          "angulo": {
+            "descripcion": "Ángulo de inclinación en grados",
+            "ejemplo": "30"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "ley_hooke": {
+        "descripcion": "Ley de Hooke: F = k × x",
+        "variables": {
+          "k": {
+            "descripcion": "Constante del resorte en N/m",
+            "ejemplo": "200"
+          },
+          "x": {
+            "descripcion": "Deformación del resorte en m",
+            "ejemplo": "0.05"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "fisica/electricidad": {
+    "subtipos": {
+      "ley_ohm": {
+        "descripcion": "Ley de Ohm: V = I × R, despejando cualquiera de las tres variables",
+        "variables": {
+          "V": {
+            "descripcion": "Tensión en voltios (V)",
+            "ejemplo": "12"
+          },
+          "R": {
+            "descripcion": "Resistencia en ohmios (Ω)",
+            "ejemplo": "4"
+          },
+          "I": {
+            "descripcion": "Corriente en amperios (A)",
+            "ejemplo": "3"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "resistencia_serie": {
+        "descripcion": "Resistencia total de n resistores en serie: Rt = R1 + R2 + ...",
+        "variables": {
+          "resistencias": {
+            "descripcion": "Lista de resistencias en Ω",
+            "ejemplo": "[10, 20, 15]"
+          }
+        },
+        "tieneGrafico": true
+      },
+      "resistencia_paralelo": {
+        "descripcion": "Resistencia equivalente en paralelo: 1/Rt = 1/R1 + 1/R2 + ...",
+        "variables": {
+          "resistencias": {
+            "descripcion": "Lista de resistencias en Ω",
+            "ejemplo": "[30, 60]"
+          }
+        },
+        "tieneGrafico": true
+      },
+      "potencia_electrica": {
+        "descripcion": "Potencia eléctrica: P = V × I",
+        "variables": {
+          "V": {
+            "descripcion": "Tensión en V",
+            "ejemplo": "220"
+          },
+          "I": {
+            "descripcion": "Corriente en A",
+            "ejemplo": "2"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "consumo_electrico": {
+        "descripcion": "Consumo en kWh: E = P × t",
+        "variables": {
+          "P": {
+            "descripcion": "Potencia del aparato en W",
+            "ejemplo": "1500"
+          },
+          "t": {
+            "descripcion": "Tiempo de uso en horas",
+            "ejemplo": "6"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "fisica/energia": {
+    "subtipos": {
+      "trabajo_mecanico": {
+        "descripcion": "Trabajo mecánico: W = F × d × cos(θ)",
+        "variables": {
+          "F": {
+            "descripcion": "Fuerza aplicada en N",
+            "ejemplo": "50"
+          },
+          "dist": {
+            "descripcion": "Distancia recorrida en m",
+            "ejemplo": "10"
+          },
+          "angulo": {
+            "descripcion": "Ángulo entre fuerza y desplazamiento en grados",
+            "ejemplo": "30"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "energia_cinetica": {
+        "descripcion": "Energía cinética: Ec = ½mv²",
+        "variables": {
+          "m": {
+            "descripcion": "Masa del objeto en kg",
+            "ejemplo": "5"
+          },
+          "v": {
+            "descripcion": "Velocidad en m/s",
+            "ejemplo": "10"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "energia_potencial": {
+        "descripcion": "Energía potencial gravitatoria: Ep = m × g × h",
+        "variables": {
+          "m": {
+            "descripcion": "Masa en kg",
+            "ejemplo": "8"
+          },
+          "h": {
+            "descripcion": "Altura en m",
+            "ejemplo": "5"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "conservacion_energia": {
+        "descripcion": "Principio de conservación de energía mecánica: Ec + Ep = cte",
+        "variables": {
+          "m": {
+            "descripcion": "Masa en kg",
+            "ejemplo": "2"
+          },
+          "h": {
+            "descripcion": "Altura inicial en m",
+            "ejemplo": "10"
+          },
+          "v": {
+            "descripcion": "Velocidad en el punto de análisis en m/s",
+            "ejemplo": "8"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "potencia_mecanica": {
+        "descripcion": "Potencia mecánica: P = W / t",
+        "variables": {
+          "W": {
+            "descripcion": "Trabajo realizado en J",
+            "ejemplo": "600"
+          },
+          "t": {
+            "descripcion": "Tiempo en s",
+            "ejemplo": "12"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "fisica/fluidos": {
+    "subtipos": {
+      "densidad": {
+        "descripcion": "Densidad: ρ = masa / volumen",
+        "variables": {
+          "masa": {
+            "descripcion": "Masa del fluido en g o kg",
+            "ejemplo": "500"
+          },
+          "volL": {
+            "descripcion": "Volumen en litros",
+            "ejemplo": "0.5"
+          },
+          "volM3": {
+            "descripcion": "Volumen en m³",
+            "ejemplo": "0.0005"
+          }
+        },
+        "tieneGrafico": true
+      },
+      "presion": {
+        "descripcion": "Presión: P = F / A",
+        "variables": {
+          "F": {
+            "descripcion": "Fuerza ejercida en N",
+            "ejemplo": "200"
+          },
+          "A": {
+            "descripcion": "Área de contacto en m²",
+            "ejemplo": "0.04"
+          }
+        },
+        "tieneGrafico": true
+      },
+      "presion_hidrostatica": {
+        "descripcion": "Presión hidrostática: P = ρ × g × h",
+        "variables": {
+          "h": {
+            "descripcion": "Profundidad en m",
+            "ejemplo": "3"
+          },
+          "rho": {
+            "descripcion": "Densidad del fluido en kg/m³",
+            "ejemplo": "1000"
+          },
+          "nombre": {
+            "descripcion": "Nombre del fluido",
+            "ejemplo": "agua"
+          }
+        },
+        "tieneGrafico": true
+      },
+      "caudal": {
+        "descripcion": "Caudal volumétrico: Q = A × v",
+        "variables": {
+          "A": {
+            "descripcion": "Sección transversal del tubo en m²",
+            "ejemplo": "0.005"
+          },
+          "v": {
+            "descripcion": "Velocidad del fluido en m/s",
+            "ejemplo": "2"
+          }
+        },
+        "tieneGrafico": true
+      }
+    }
+  },
+  "fisica/ondas": {
+    "subtipos": {
+      "velocidad_ondas": {
+        "descripcion": "Velocidad de onda: v = f × λ, con medios predefinidos (aire, agua)",
+        "variables": {
+          "f": {
+            "descripcion": "Frecuencia en Hz",
+            "ejemplo": "440"
+          },
+          "lambda": {
+            "descripcion": "Longitud de onda en m",
+            "ejemplo": "0.77"
+          },
+          "medio": {
+            "descripcion": "Medio de propagación",
+            "ejemplo": "aire"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "longitud_onda": {
+        "descripcion": "Cálculo de longitud de onda: λ = v / f",
+        "variables": {
+          "v": {
+            "descripcion": "Velocidad de propagación en m/s",
+            "ejemplo": "340"
+          },
+          "f": {
+            "descripcion": "Frecuencia en Hz",
+            "ejemplo": "170"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "frecuencia_periodo": {
+        "descripcion": "Relación inversa frecuencia-período: T = 1/f",
+        "variables": {
+          "f": {
+            "descripcion": "Frecuencia en Hz",
+            "ejemplo": "50"
+          },
+          "T": {
+            "descripcion": "Período en s",
+            "ejemplo": "0.02"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "fisica/termodinamica": {
+    "subtipos": {
+      "calor": {
+        "descripcion": "Calor sensible: Q = m × c × ΔT, con sustancias reales (agua, cobre, aluminio, hierro)",
+        "variables": {
+          "masa": {
+            "descripcion": "Masa de la sustancia en g",
+            "ejemplo": "200"
+          },
+          "c": {
+            "descripcion": "Calor específico en J/g·°C",
+            "ejemplo": "4.18"
+          },
+          "deltaT": {
+            "descripcion": "Variación de temperatura en °C",
+            "ejemplo": "25"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "conversion_temperatura": {
+        "descripcion": "Conversión entre escalas Celsius, Fahrenheit y Kelvin",
+        "variables": {
+          "entrada": {
+            "descripcion": "Valor numérico de temperatura a convertir",
+            "ejemplo": "100"
+          },
+          "desde": {
+            "descripcion": "Escala de origen",
+            "ejemplo": "°C"
+          },
+          "hasta": {
+            "descripcion": "Escala de destino",
+            "ejemplo": "K"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "cambios_estado": {
+        "descripcion": "Calor latente en fusión o vaporización del agua: Q = m × L",
+        "variables": {
+          "masa": {
+            "descripcion": "Masa del agua en g",
+            "ejemplo": "150"
+          },
+          "L": {
+            "descripcion": "Calor latente en J/g (fusión 334, vaporización 2260)",
+            "ejemplo": "334"
+          },
+          "proceso": {
+            "descripcion": "Tipo de cambio de estado",
+            "ejemplo": "fusión"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "dilatacion_termica": {
+        "descripcion": "Dilatación lineal: ΔL = L₀ × α × ΔT",
+        "variables": {
+          "L0": {
+            "descripcion": "Longitud inicial en m",
+            "ejemplo": "2.5"
+          },
+          "alfa": {
+            "descripcion": "Coeficiente de dilatación lineal en 1/°C",
+            "ejemplo": "1.2e-5"
+          },
+          "deltaT": {
+            "descripcion": "Variación de temperatura en °C",
+            "ejemplo": "80"
+          },
+          "nombre": {
+            "descripcion": "Material de la barra",
+            "ejemplo": "aluminio"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "quimica/acido_base": {
+    "subtipos": {
+      "pH": {
+        "descripcion": "Cálculo de pH a partir de [H⁺]: pH = -log[H⁺]",
+        "variables": {
+          "H": {
+            "descripcion": "Concentración de iones H⁺ en mol/L (notación exponencial)",
+            "ejemplo": "1.00e-3"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "pOH": {
+        "descripcion": "Cálculo de pOH a partir de [OH⁻] y relación pH + pOH = 14",
+        "variables": {
+          "OH": {
+            "descripcion": "Concentración de iones OH⁻ en mol/L",
+            "ejemplo": "1.00e-5"
+          },
+          "pH": {
+            "descripcion": "pH resultante calculado",
+            "ejemplo": "9"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "Ka_pKa": {
+        "descripcion": "Cálculo de pKa a partir de la constante de acidez Ka de ácidos débiles reales",
+        "variables": {
+          "a.nombre": {
+            "descripcion": "Nombre del ácido débil",
+            "ejemplo": "Ácido acético"
+          },
+          "a.formula": {
+            "descripcion": "Fórmula química del ácido",
+            "ejemplo": "CH₃COOH"
+          },
+          "a.Ka": {
+            "descripcion": "Constante de acidez Ka",
+            "ejemplo": "1.76e-5"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "Kb_pKb": {
+        "descripcion": "Cálculo de pKb a partir de la constante de basicidad Kb de bases débiles reales",
+        "variables": {
+          "b.nombre": {
+            "descripcion": "Nombre de la base débil",
+            "ejemplo": "Amoniaco"
+          },
+          "b.formula": {
+            "descripcion": "Fórmula química de la base",
+            "ejemplo": "NH₃"
+          },
+          "b.Kb": {
+            "descripcion": "Constante de basicidad Kb",
+            "ejemplo": "1.8e-5"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "concentraciones_H_OH": {
+        "descripcion": "Dado el pH, calcula [H⁺] y [OH⁻] usando Kw = 1×10⁻¹⁴",
+        "variables": {
+          "pH": {
+            "descripcion": "Valor de pH dado",
+            "ejemplo": "4"
+          },
+          "OHexp": {
+            "descripcion": "Concentración de OH⁻ expresada en notación exponencial",
+            "ejemplo": "1.00e-10"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "fuerza_acidos_bases": {
+        "descripcion": "Clasificación de ácidos y bases según su grado de disociación (fuerte/débil)",
+        "variables": {
+          "a.nombre": {
+            "descripcion": "Nombre del ácido o base a clasificar",
+            "ejemplo": "Ácido clorhídrico"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "neutralizacion": {
+        "descripcion": "Neutralización ácido-base: cálculo del volumen de base necesario para neutralizar",
+        "variables": {
+          "Vacido": {
+            "descripcion": "Volumen de ácido en mL",
+            "ejemplo": "25"
+          },
+          "Cacido": {
+            "descripcion": "Concentración del ácido en mol/L",
+            "ejemplo": "0.1"
+          },
+          "Cbase": {
+            "descripcion": "Concentración de la base en mol/L",
+            "ejemplo": "0.1"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "titulaciones_simples": {
+        "descripcion": "Titulación ácido-base: cálculo de concentración desconocida por punto de equivalencia",
+        "variables": {
+          "Vacido": {
+            "descripcion": "Volumen de ácido usado en mL",
+            "ejemplo": "20"
+          },
+          "Vbase": {
+            "descripcion": "Volumen de base gastado en la titulación en mL",
+            "ejemplo": "18"
+          },
+          "Cbase": {
+            "descripcion": "Concentración conocida de la base en mol/L",
+            "ejemplo": "0.1"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "quimica/gases": {
+    "subtipos": {
+      "ley_boyle": {
+        "descripcion": "Ley de Boyle: P1V1 = P2V2 a temperatura constante",
+        "variables": {
+          "V1": {
+            "descripcion": "Volumen inicial en L",
+            "ejemplo": "5"
+          },
+          "P1": {
+            "descripcion": "Presión inicial en atm",
+            "ejemplo": "2"
+          },
+          "V2": {
+            "descripcion": "Volumen final en L",
+            "ejemplo": "10"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "ley_charles": {
+        "descripcion": "Ley de Charles: V1/T1 = V2/T2 a presión constante",
+        "variables": {
+          "V1": {
+            "descripcion": "Volumen inicial en L",
+            "ejemplo": "3"
+          },
+          "T1": {
+            "descripcion": "Temperatura inicial en K",
+            "ejemplo": "300"
+          },
+          "T2": {
+            "descripcion": "Temperatura final en K",
+            "ejemplo": "600"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "ley_gay_lussac": {
+        "descripcion": "Ley de Gay-Lussac: P1/T1 = P2/T2 a volumen constante",
+        "variables": {
+          "P1": {
+            "descripcion": "Presión inicial en atm",
+            "ejemplo": "1"
+          },
+          "T1": {
+            "descripcion": "Temperatura inicial en K",
+            "ejemplo": "273"
+          },
+          "T2": {
+            "descripcion": "Temperatura final en K",
+            "ejemplo": "546"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "ley_combinada": {
+        "descripcion": "Ley combinada de gases: P1V1/T1 = P2V2/T2",
+        "variables": {
+          "V1": {
+            "descripcion": "Volumen inicial en L",
+            "ejemplo": "4"
+          },
+          "P1": {
+            "descripcion": "Presión inicial en atm",
+            "ejemplo": "2"
+          },
+          "T1": {
+            "descripcion": "Temperatura inicial en K",
+            "ejemplo": "300"
+          },
+          "P2": {
+            "descripcion": "Presión final en atm",
+            "ejemplo": "3"
+          },
+          "T2": {
+            "descripcion": "Temperatura final en K",
+            "ejemplo": "400"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "gas_ideal": {
+        "descripcion": "Ecuación del gas ideal: PV = nRT con R = 0.08206 L·atm/mol·K",
+        "variables": {
+          "n": {
+            "descripcion": "Cantidad de sustancia en mol",
+            "ejemplo": "2"
+          },
+          "V": {
+            "descripcion": "Volumen en L",
+            "ejemplo": "10"
+          },
+          "T": {
+            "descripcion": "Temperatura en K",
+            "ejemplo": "300"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "presiones_parciales": {
+        "descripcion": "Presión parcial de un gas en mezcla: Pa = (na / nTotal) × Ptotal",
+        "variables": {
+          "nA": {
+            "descripcion": "Moles del gas A",
+            "ejemplo": "1"
+          },
+          "nB": {
+            "descripcion": "Moles del gas B",
+            "ejemplo": "3"
+          },
+          "Ptotal": {
+            "descripcion": "Presión total de la mezcla en atm",
+            "ejemplo": "4"
+          },
+          "par.a": {
+            "descripcion": "Nombre del gas A",
+            "ejemplo": "N₂"
+          },
+          "par.b": {
+            "descripcion": "Nombre del gas B",
+            "ejemplo": "O₂"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "mezcla_gases": {
+        "descripcion": "Presión total de mezcla gaseosa como suma de presiones parciales",
+        "variables": {
+          "PA": {
+            "descripcion": "Presión parcial del gas A en atm",
+            "ejemplo": "1.5"
+          },
+          "PB": {
+            "descripcion": "Presión parcial del gas B en atm",
+            "ejemplo": "0.8"
+          },
+          "gA": {
+            "descripcion": "Nombre del gas A",
+            "ejemplo": "H₂"
+          },
+          "gB": {
+            "descripcion": "Nombre del gas B",
+            "ejemplo": "He"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "quimica/estequiometria": {
+    "subtipos": {
+      "balanceo": {
+        "descripcion": "Balanceo de ecuaciones químicas, pregunta por el coeficiente de una especie",
+        "variables": {
+          "ec.texto": {
+            "descripcion": "Ecuación química sin balancear",
+            "ejemplo": "H₂ + O₂ → H₂O"
+          },
+          "ec.especies[idx]": {
+            "descripcion": "Especie química cuyo coeficiente se pregunta",
+            "ejemplo": "O₂"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "calculo_moles": {
+        "descripcion": "Conversión masa → moles: n = masa / M",
+        "variables": {
+          "masa": {
+            "descripcion": "Masa de la sustancia en g",
+            "ejemplo": "18"
+          },
+          "s.nombre": {
+            "descripcion": "Nombre de la sustancia",
+            "ejemplo": "Agua"
+          },
+          "s.formula": {
+            "descripcion": "Fórmula química",
+            "ejemplo": "H₂O"
+          },
+          "s.masaMolar": {
+            "descripcion": "Masa molar en g/mol",
+            "ejemplo": "18.02"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "calculo_masa": {
+        "descripcion": "Conversión moles → masa: m = n × M",
+        "variables": {
+          "moles": {
+            "descripcion": "Cantidad de sustancia en mol",
+            "ejemplo": "3"
+          },
+          "s.masaMolar": {
+            "descripcion": "Masa molar en g/mol",
+            "ejemplo": "58.44"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "numero_particulas": {
+        "descripcion": "Cálculo de número de partículas usando Nₐ = 6.022×10²³",
+        "variables": {
+          "masa": {
+            "descripcion": "Masa de la sustancia en g",
+            "ejemplo": "44"
+          },
+          "s.masaMolar": {
+            "descripcion": "Masa molar en g/mol",
+            "ejemplo": "44.01"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "relaciones_molares": {
+        "descripcion": "Relación estequiométrica entre reactivos y productos en una reacción",
+        "variables": {
+          "r.ecuacion": {
+            "descripcion": "Ecuación química balanceada",
+            "ejemplo": "N₂ + 3H₂ → 2NH₃"
+          },
+          "nReactivo": {
+            "descripcion": "Moles del reactivo dado",
+            "ejemplo": "4"
+          },
+          "r.reactivo": {
+            "descripcion": "Nombre del reactivo",
+            "ejemplo": "N₂"
+          },
+          "r.producto": {
+            "descripcion": "Nombre del producto",
+            "ejemplo": "NH₃"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "reactivo_limitante": {
+        "descripcion": "Identificación del reactivo limitante en N₂ + 3H₂ → 2NH₃",
+        "variables": {
+          "nN2": {
+            "descripcion": "Moles de N₂ disponibles",
+            "ejemplo": "2"
+          },
+          "nH2": {
+            "descripcion": "Moles de H₂ disponibles",
+            "ejemplo": "5"
+          },
+          "nNH3": {
+            "descripcion": "Moles de NH₃ producidos con el reactivo limitante",
+            "ejemplo": "4"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "molaridad": {
+        "descripcion": "Cálculo de molaridad: M = n / V(L)",
+        "variables": {
+          "masa": {
+            "descripcion": "Masa del soluto en g",
+            "ejemplo": "5.85"
+          },
+          "s.masaMolar": {
+            "descripcion": "Masa molar del soluto en g/mol",
+            "ejemplo": "58.44"
+          },
+          "vol": {
+            "descripcion": "Volumen de la solución en L",
+            "ejemplo": "0.5"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "quimica/termoquimica": {
+    "subtipos": {
+      "calor": {
+        "descripcion": "Calor ganado o perdido: Q = m × c × ΔT con sustancias reales",
+        "variables": {
+          "m": {
+            "descripcion": "Masa de la sustancia en g",
+            "ejemplo": "100"
+          },
+          "s.nombre": {
+            "descripcion": "Nombre de la sustancia",
+            "ejemplo": "Hierro"
+          },
+          "s.c": {
+            "descripcion": "Calor específico en J/g·°C",
+            "ejemplo": "0.45"
+          },
+          "deltaT": {
+            "descripcion": "Variación de temperatura en °C",
+            "ejemplo": "50"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "cambio_entalpia": {
+        "descripcion": "Calor de combustión: dado ΔH°molar y la masa del combustible, calcular calor liberado",
+        "variables": {
+          "c.nombre": {
+            "descripcion": "Nombre del combustible",
+            "ejemplo": "Metano"
+          },
+          "c.formula": {
+            "descripcion": "Fórmula del combustible",
+            "ejemplo": "CH₄"
+          },
+          "c.deltaHMolar": {
+            "descripcion": "Entalpía molar de combustión en kJ/mol",
+            "ejemplo": "-890"
+          },
+          "masa": {
+            "descripcion": "Masa quemada en g",
+            "ejemplo": "32"
+          },
+          "c.masaMolar": {
+            "descripcion": "Masa molar del combustible en g/mol",
+            "ejemplo": "16.04"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "ley_hess": {
+        "descripcion": "Ley de Hess: calor liberado por n moles de reacción",
+        "variables": {
+          "r.descripcion": {
+            "descripcion": "Descripción de la reacción",
+            "ejemplo": "combustión del carbono"
+          },
+          "r.deltaH": {
+            "descripcion": "Entalpía por mol en kJ/mol",
+            "ejemplo": "-394"
+          },
+          "n": {
+            "descripcion": "Número de moles en la reacción",
+            "ejemplo": "3"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "energia_reaccion": {
+        "descripcion": "Clasifica si una reacción es exotérmica o endotérmica según el signo de ΔH",
+        "variables": {
+          "r.deltaH": {
+            "descripcion": "Valor de ΔH de la reacción en kJ/mol",
+            "ejemplo": "-286"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "poder_calorifico": {
+        "descripcion": "Energía liberada al quemar una masa de combustible según su PCI (MJ/kg)",
+        "variables": {
+          "c.nombre": {
+            "descripcion": "Nombre del combustible",
+            "ejemplo": "Carbón"
+          },
+          "c.pci": {
+            "descripcion": "Poder calorífico inferior en MJ/kg",
+            "ejemplo": "29"
+          },
+          "masa": {
+            "descripcion": "Masa quemada en kg",
+            "ejemplo": "5"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "quimica/atomos_enlaces": {
+    "subtipos": {
+      "tabla_periodica_clasificacion": {
+        "descripcion": "Clasificación de un elemento (metal, no metal, metaloide, gas noble)",
+        "variables": {
+          "el.nombre": {
+            "descripcion": "Nombre del elemento",
+            "ejemplo": "Cloro"
+          },
+          "el.simbolo": {
+            "descripcion": "Símbolo del elemento",
+            "ejemplo": "Cl"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "tabla_periodica_numero_atomico": {
+        "descripcion": "Identificación del número atómico de un elemento dado su nombre o símbolo",
+        "variables": {
+          "el.nombre": {
+            "descripcion": "Nombre del elemento",
+            "ejemplo": "Sodio"
+          },
+          "el.simbolo": {
+            "descripcion": "Símbolo del elemento",
+            "ejemplo": "Na"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "electronegatividad": {
+        "descripcion": "Comparación de electronegatividad entre dos elementos",
+        "variables": {
+          "a.nombre": {
+            "descripcion": "Primer elemento",
+            "ejemplo": "Flúor"
+          },
+          "b.nombre": {
+            "descripcion": "Segundo elemento",
+            "ejemplo": "Sodio"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "configuracion_electronica": {
+        "descripcion": "Configuración electrónica de un elemento dado su número atómico Z",
+        "variables": {
+          "el.nombre": {
+            "descripcion": "Nombre del elemento",
+            "ejemplo": "Calcio"
+          },
+          "el.simbolo": {
+            "descripcion": "Símbolo del elemento",
+            "ejemplo": "Ca"
+          },
+          "el.Z": {
+            "descripcion": "Número atómico",
+            "ejemplo": "20"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "geometria_molecular": {
+        "descripcion": "Geometría molecular según VSEPR para moléculas con fórmulas conocidas",
+        "variables": {
+          "formula": {
+            "descripcion": "Fórmula de la molécula",
+            "ejemplo": "H₂O"
+          },
+          "geometria": {
+            "descripcion": "Geometría correcta según VSEPR",
+            "ejemplo": "angular"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "metodos_separacion": {
+        "descripcion": "Identificación del método de separación adecuado para una mezcla dada",
+        "variables": {
+          "mezcla": {
+            "descripcion": "Descripción de la mezcla",
+            "ejemplo": "agua y arena"
+          },
+          "metodo": {
+            "descripcion": "Método de separación correcto",
+            "ejemplo": "filtración"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "quimica/seguridad": {
+    "subtipos": {
+      "pictogramas_ghs": {
+        "descripcion": "Identificación del significado de pictogramas del sistema GHS/SGA",
+        "variables": {
+          "pictograma": {
+            "descripcion": "Nombre o código del pictograma GHS",
+            "ejemplo": "GHS02 - Llama"
+          },
+          "significado": {
+            "descripcion": "Peligro que representa el pictograma",
+            "ejemplo": "Inflamable"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "materiales_inflamables": {
+        "descripcion": "Clasificación de sustancias inflamables y sus precauciones de almacenamiento",
+        "variables": {
+          "sustancia": {
+            "descripcion": "Nombre de la sustancia inflamable",
+            "ejemplo": "Acetona"
+          },
+          "categoria": {
+            "descripcion": "Categoría de inflamabilidad",
+            "ejemplo": "líquido inflamable"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "riesgos_toxicos": {
+        "descripcion": "Identificación de riesgos tóxicos y vías de exposición",
+        "variables": {
+          "sustancia": {
+            "descripcion": "Nombre de la sustancia tóxica",
+            "ejemplo": "Ácido clorhídrico"
+          },
+          "viaExposicion": {
+            "descripcion": "Vía de exposición principal",
+            "ejemplo": "inhalación"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "equipos_proteccion": {
+        "descripcion": "Selección del equipo de protección personal (EPP) para una situación dada",
+        "variables": {
+          "tarea": {
+            "descripcion": "Descripción de la tarea a realizar",
+            "ejemplo": "manipulación de ácidos"
+          },
+          "epp": {
+            "descripcion": "EPP correcto para la situación",
+            "ejemplo": "guantes de nitrilo"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "quimica/equilibrio": {
+    "subtipos": {
+      "kc": {
+        "descripcion": "Constante de equilibrio Kc en función de concentraciones: para A + B ⇌ C",
+        "variables": {
+          "A": {
+            "descripcion": "Concentración del reactivo A en mol/L",
+            "ejemplo": "0.5"
+          },
+          "B": {
+            "descripcion": "Concentración del reactivo B en mol/L",
+            "ejemplo": "0.3"
+          },
+          "C": {
+            "descripcion": "Concentración del producto C en mol/L",
+            "ejemplo": "0.8"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "kp": {
+        "descripcion": "Constante de equilibrio Kp en función de presiones parciales",
+        "variables": {
+          "PA": {
+            "descripcion": "Presión parcial del reactivo A en atm",
+            "ejemplo": "0.4"
+          },
+          "PB": {
+            "descripcion": "Presión parcial del reactivo B en atm",
+            "ejemplo": "0.6"
+          },
+          "PC": {
+            "descripcion": "Presión parcial del producto C en atm",
+            "ejemplo": "1.2"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "semivida": {
+        "descripcion": "Cálculo del tiempo de semivida de una reacción de primer orden",
+        "variables": {
+          "constante_k": {
+            "descripcion": "Constante de velocidad de la reacción en s⁻¹",
+            "ejemplo": "0.02"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "potenciales_estandar": {
+        "descripcion": "Potencial estándar de celda electroquímica: Ecelda = Ecatodo - Eanodo",
+        "variables": {
+          "catodo": {
+            "descripcion": "Par redox del cátodo con su E° en V",
+            "ejemplo": "Cu²⁺/Cu (+0.34 V)"
+          },
+          "anodo": {
+            "descripcion": "Par redox del ánodo con su E° en V",
+            "ejemplo": "Zn²⁺/Zn (-0.76 V)"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "leyes_faraday": {
+        "descripcion": "Masa depositada en electrólisis: m = (M × I × t) / (n × F)",
+        "variables": {
+          "metal": {
+            "descripcion": "Metal depositado en el electrodo",
+            "ejemplo": "Cobre"
+          },
+          "I": {
+            "descripcion": "Corriente eléctrica en A",
+            "ejemplo": "2"
+          },
+          "t": {
+            "descripcion": "Tiempo en s",
+            "ejemplo": "3600"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "ksp": {
+        "descripcion": "Producto de solubilidad Ksp y solubilidad molar de sales poco solubles",
+        "variables": {
+          "sal": {
+            "descripcion": "Nombre de la sal poco soluble",
+            "ejemplo": "AgCl"
+          },
+          "Ksp": {
+            "descripcion": "Valor del producto de solubilidad",
+            "ejemplo": "1.8e-10"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "matematicas/aritmetica": {
+    "subtipos": {
+      "operaciones_basicas": {
+        "descripcion": "Operaciones aritméticas básicas: suma, resta, multiplicación, división",
+        "variables": {
+          "a": {
+            "descripcion": "Primer operando",
+            "ejemplo": "24"
+          },
+          "b": {
+            "descripcion": "Segundo operando",
+            "ejemplo": "6"
+          },
+          "op1": {
+            "descripcion": "Operador aritmético",
+            "ejemplo": "*"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "operaciones_combinadas": {
+        "descripcion": "Expresiones con múltiples operaciones y jerarquía (paréntesis, potencias)",
+        "variables": {
+          "a": {
+            "descripcion": "Primer operando",
+            "ejemplo": "5"
+          },
+          "b": {
+            "descripcion": "Segundo operando",
+            "ejemplo": "3"
+          },
+          "c": {
+            "descripcion": "Tercer operando",
+            "ejemplo": "2"
+          },
+          "op1": {
+            "descripcion": "Primer operador",
+            "ejemplo": "+"
+          },
+          "op2": {
+            "descripcion": "Segundo operador",
+            "ejemplo": "*"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "fracciones": {
+        "descripcion": "Suma, resta, multiplicación y división de fracciones",
+        "variables": {
+          "a": {
+            "descripcion": "Numerador de la primera fracción",
+            "ejemplo": "3"
+          },
+          "b": {
+            "descripcion": "Denominador de la primera fracción",
+            "ejemplo": "4"
+          },
+          "c": {
+            "descripcion": "Numerador de la segunda fracción",
+            "ejemplo": "1"
+          },
+          "d": {
+            "descripcion": "Denominador de la segunda fracción",
+            "ejemplo": "2"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "porcentaje": {
+        "descripcion": "Cálculos de porcentaje: % de un número, qué % representa, valor original",
+        "variables": {
+          "porcentaje": {
+            "descripcion": "Porcentaje a calcular",
+            "ejemplo": "25"
+          },
+          "base": {
+            "descripcion": "Valor base",
+            "ejemplo": "200"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "perimetro_area": {
+        "descripcion": "Perímetro y área de figuras geométricas básicas (cuadrado, rectángulo, triángulo, círculo)",
+        "variables": {
+          "lado": {
+            "descripcion": "Medida del lado o radio de la figura",
+            "ejemplo": "7"
+          },
+          "figura": {
+            "descripcion": "Tipo de figura geométrica",
+            "ejemplo": "cuadrado"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "probabilidad_simple": {
+        "descripcion": "Probabilidad clásica: casos favorables / casos totales",
+        "variables": {
+          "casos_fav": {
+            "descripcion": "Número de casos favorables",
+            "ejemplo": "3"
+          },
+          "casos_tot": {
+            "descripcion": "Número de casos totales",
+            "ejemplo": "6"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "matematicas/algebra": {
+    "subtipos": {
+      "lenguaje_algebraico": {
+        "descripcion": "Traducción de expresiones verbales al lenguaje algebraico",
+        "variables": {
+          "p.verbal": {
+            "descripcion": "Expresión en lenguaje natural",
+            "ejemplo": "el doble de un número menos tres"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "ecuaciones_lineales": {
+        "descripcion": "Resolución de ecuaciones lineales en una variable: ax + b = c",
+        "variables": {
+          "a": {
+            "descripcion": "Coeficiente de x",
+            "ejemplo": "3"
+          },
+          "b": {
+            "descripcion": "Término independiente en el lado izquierdo",
+            "ejemplo": "-5"
+          },
+          "c": {
+            "descripcion": "Término independiente en el lado derecho",
+            "ejemplo": "10"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "ecuaciones_cuadraticas": {
+        "descripcion": "Resolución de ecuaciones cuadráticas: ax² + bx + c = 0",
+        "variables": {
+          "a": {
+            "descripcion": "Coeficiente del término cuadrático",
+            "ejemplo": "1"
+          },
+          "b": {
+            "descripcion": "Coeficiente del término lineal",
+            "ejemplo": "-5"
+          },
+          "c": {
+            "descripcion": "Término independiente",
+            "ejemplo": "6"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "sistemas_2x2": {
+        "descripcion": "Sistema de dos ecuaciones con dos incógnitas",
+        "variables": {
+          "a1": {
+            "descripcion": "Coeficiente de x en la ecuación 1",
+            "ejemplo": "2"
+          },
+          "b1": {
+            "descripcion": "Coeficiente de y en la ecuación 1",
+            "ejemplo": "3"
+          },
+          "c1": {
+            "descripcion": "Término independiente en la ecuación 1",
+            "ejemplo": "12"
+          },
+          "a2": {
+            "descripcion": "Coeficiente de x en la ecuación 2",
+            "ejemplo": "1"
+          },
+          "b2": {
+            "descripcion": "Coeficiente de y en la ecuación 2",
+            "ejemplo": "-1"
+          },
+          "c2": {
+            "descripcion": "Término independiente en la ecuación 2",
+            "ejemplo": "1"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "funciones_lineales": {
+        "descripcion": "Análisis de funciones lineales: pendiente, ordenada al origen, gráfico",
+        "variables": {
+          "m": {
+            "descripcion": "Pendiente de la recta",
+            "ejemplo": "2"
+          },
+          "b": {
+            "descripcion": "Ordenada al origen",
+            "ejemplo": "-1"
+          }
+        },
+        "tieneGrafico": true
+      },
+      "estadistica_descriptiva": {
+        "descripcion": "Cálculo de media, mediana, moda y rango de un conjunto de datos",
+        "variables": {
+          "datos": {
+            "descripcion": "Lista de valores del conjunto",
+            "ejemplo": "[4, 7, 7, 9, 3]"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "probabilidad_visual": {
+        "descripcion": "Probabilidad con representación visual (ruletas, dados, bolillas)",
+        "variables": {
+          "evento": {
+            "descripcion": "Descripción del evento favorable",
+            "ejemplo": "sacar un número par"
+          },
+          "total": {
+            "descripcion": "Total de casos posibles",
+            "ejemplo": "6"
+          }
+        },
+        "tieneGrafico": true
+      }
+    }
+  },
+  "matematicas/calculo": {
+    "subtipos": {
+      "limites_funciones": {
+        "descripcion": "Cálculo de límites de funciones racionales o polinómicas",
+        "variables": {
+          "a": {
+            "descripcion": "Parámetro de la función (coeficiente o punto de evaluación)",
+            "ejemplo": "3"
+          },
+          "x0": {
+            "descripcion": "Punto donde se evalúa el límite",
+            "ejemplo": "2"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "derivadas_basicas": {
+        "descripcion": "Derivada de funciones usando la regla de la potencia: f(x) = axⁿ",
+        "variables": {
+          "a": {
+            "descripcion": "Coeficiente de la función",
+            "ejemplo": "4"
+          },
+          "n": {
+            "descripcion": "Exponente de la función",
+            "ejemplo": "3"
+          },
+          "x0": {
+            "descripcion": "Punto donde se evalúa la derivada",
+            "ejemplo": "2"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "reglas_derivacion": {
+        "descripcion": "Regla del producto: f(x) = (ax+b)(cx+d), calcula f'(x)",
+        "variables": {
+          "a": {
+            "descripcion": "Coeficiente x en primer factor",
+            "ejemplo": "2"
+          },
+          "b": {
+            "descripcion": "Término independiente primer factor",
+            "ejemplo": "3"
+          },
+          "c": {
+            "descripcion": "Coeficiente x en segundo factor",
+            "ejemplo": "1"
+          },
+          "d": {
+            "descripcion": "Término independiente segundo factor",
+            "ejemplo": "-4"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "integral_definida": {
+        "descripcion": "Integral definida de una función en un intervalo [a, b]",
+        "variables": {
+          "funcStr": {
+            "descripcion": "Expresión de la función a integrar",
+            "ejemplo": "x²"
+          },
+          "a": {
+            "descripcion": "Límite inferior de integración",
+            "ejemplo": "0"
+          },
+          "b": {
+            "descripcion": "Límite superior de integración",
+            "ejemplo": "3"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "distribuciones": {
+        "descripcion": "Probabilidad con distribución normal o binomial",
+        "variables": {
+          "mu": {
+            "descripcion": "Media de la distribución",
+            "ejemplo": "50"
+          },
+          "sigma": {
+            "descripcion": "Desviación estándar",
+            "ejemplo": "10"
+          },
+          "x": {
+            "descripcion": "Valor a evaluar en la distribución",
+            "ejemplo": "60"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "matematicas/analisis_avanzado": {
+    "subtipos": {
+      "trigonometria_basica": {
+        "descripcion": "Razones trigonométricas en triángulo rectángulo: seno, coseno, tangente",
+        "variables": {
+          "hip": {
+            "descripcion": "Longitud de la hipotenusa",
+            "ejemplo": "10"
+          },
+          "angulo": {
+            "descripcion": "Ángulo en grados",
+            "ejemplo": "30"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "funciones_exponenciales": {
+        "descripcion": "Evaluación de funciones exponenciales f(x) = baseˣ",
+        "variables": {
+          "base": {
+            "descripcion": "Base de la función exponencial",
+            "ejemplo": "2"
+          },
+          "xVal": {
+            "descripcion": "Valor de x donde se evalúa la función",
+            "ejemplo": "5"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "funciones_logaritmicas": {
+        "descripcion": "Evaluación de logaritmos en distintas bases",
+        "variables": {
+          "baseLabel": {
+            "descripcion": "Base del logaritmo (log₁₀, ln, log₂)",
+            "ejemplo": "log₂"
+          },
+          "x": {
+            "descripcion": "Argumento del logaritmo",
+            "ejemplo": "8"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "numeros_complejos": {
+        "descripcion": "Representación y módulo de números complejos a + bi",
+        "variables": {
+          "a": {
+            "descripcion": "Parte real del número complejo",
+            "ejemplo": "3"
+          },
+          "b": {
+            "descripcion": "Parte imaginaria del número complejo",
+            "ejemplo": "4"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "matrices_basico": {
+        "descripcion": "Operaciones básicas con matrices: suma, resta, multiplicación escalar",
+        "variables": {
+          "filas": {
+            "descripcion": "Número de filas de la matriz",
+            "ejemplo": "2"
+          },
+          "cols": {
+            "descripcion": "Número de columnas de la matriz",
+            "ejemplo": "2"
+          },
+          "elementos": {
+            "descripcion": "Valores de la matriz",
+            "ejemplo": "[[1,2],[3,4]]"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "conicas": {
+        "descripcion": "Identificación y análisis de secciones cónicas (parábola, elipse, hipérbola, circunferencia)",
+        "variables": {
+          "ecuacion": {
+            "descripcion": "Ecuación de la cónica en forma general o estándar",
+            "ejemplo": "x² + y² = 25"
+          },
+          "tipo": {
+            "descripcion": "Tipo de cónica identificada",
+            "ejemplo": "circunferencia"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "economia/economia_general": {
+    "subtipos": {
+      "ganancia_perdida": {
+        "descripcion": "Resultado económico: Ganancia o pérdida = IT - CT",
+        "variables": {
+          "ingresoTotal": {
+            "descripcion": "Ingreso Total (IT) en $",
+            "ejemplo": "150000"
+          },
+          "costoTotal": {
+            "descripcion": "Costo Total (CT) en $",
+            "ejemplo": "120000"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "resultado_bruto": {
+        "descripcion": "Resultado Bruto = Ventas - Costo de ventas",
+        "variables": {
+          "ventas": {
+            "descripcion": "Ingresos por ventas en $",
+            "ejemplo": "500000"
+          },
+          "costoVentas": {
+            "descripcion": "Costo de las ventas en $",
+            "ejemplo": "300000"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "resultado_neto": {
+        "descripcion": "Resultado Neto = Resultado Bruto - Gastos",
+        "variables": {
+          "resultadoBruto": {
+            "descripcion": "Resultado Bruto en $",
+            "ejemplo": "200000"
+          },
+          "gastos": {
+            "descripcion": "Gastos operativos en $",
+            "ejemplo": "80000"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "punto_equilibrio": {
+        "descripcion": "Punto de equilibrio: unidades donde ingresos = costos totales",
+        "variables": {
+          "costoFijo": {
+            "descripcion": "Costos fijos totales en $",
+            "ejemplo": "50000"
+          },
+          "precioUnitario": {
+            "descripcion": "Precio de venta por unidad en $",
+            "ejemplo": "500"
+          },
+          "costoVariableUnitario": {
+            "descripcion": "Costo variable por unidad en $",
+            "ejemplo": "300"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "capital_trabajo": {
+        "descripcion": "Capital de trabajo neto = Activo Corriente - Pasivo Corriente",
+        "variables": {
+          "activoCorriente": {
+            "descripcion": "Activo corriente en $",
+            "ejemplo": "300000"
+          },
+          "pasivoCorriente": {
+            "descripcion": "Pasivo corriente en $",
+            "ejemplo": "120000"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "politica_fiscal_monetaria": {
+        "descripcion": "Clasificación de medidas de política económica (fiscal vs. monetaria)",
+        "variables": {
+          "caso.descripcion": {
+            "descripcion": "Descripción textual de la medida económica",
+            "ejemplo": "El gobierno reduce el gasto público para bajar el déficit"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "economia/economia_ar": {
+    "subtipos": {
+      "recibo_basico": {
+        "descripcion": "Cálculo del sueldo neto a partir del bruto con descuentos típicos (11% jubilación, 3% PAMI, 3% obra social)",
+        "variables": {
+          "bruto": {
+            "descripcion": "Sueldo bruto remunerativo en $",
+            "ejemplo": "250000"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "iva": {
+        "descripcion": "Identificación de la tasa de IVA aplicable según tipo de bien en Argentina",
+        "variables": {
+          "etiqueta": {
+            "descripcion": "Tipo de bien según IVA",
+            "ejemplo": "gravado al 21%"
+          },
+          "base": {
+            "descripcion": "Precio sin IVA en $",
+            "ejemplo": "10000"
+          },
+          "tasa": {
+            "descripcion": "Tasa de IVA como decimal",
+            "ejemplo": "0.21"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "jurisdiccion_impuestos": {
+        "descripcion": "Clasificación de impuestos por jurisdicción (nacional, provincial, municipal)",
+        "variables": {
+          "imp.desc": {
+            "descripcion": "Nombre del impuesto o tasa",
+            "ejemplo": "IVA"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "formal_informal": {
+        "descripcion": "Clasificación de situaciones laborales como trabajo formal o informal en Argentina",
+        "variables": {
+          "caso.text": {
+            "descripcion": "Descripción de la situación laboral",
+            "ejemplo": "Trabaja sin contrato y cobra en negro"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "tasa_desempleo": {
+        "descripcion": "Cálculo de la tasa de desempleo: TD = (Desempleados / PEA) × 100",
+        "variables": {
+          "PEA": {
+            "descripcion": "Población Económicamente Activa",
+            "ejemplo": "500000"
+          },
+          "desempleados": {
+            "descripcion": "Cantidad de personas desempleadas",
+            "ejemplo": "40000"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "economia/finanzas": {
+    "subtipos": {
+      "presupuesto_familiar": {
+        "descripcion": "Clasificación de conceptos en el presupuesto familiar (ingreso fijo/variable, gasto fijo/variable)",
+        "variables": {
+          "item.descripcion": {
+            "descripcion": "Descripción del concepto a clasificar",
+            "ejemplo": "Alquiler mensual del departamento"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "deuda_buena_mala": {
+        "descripcion": "Clasificación de situaciones de endeudamiento como deuda buena o mala",
+        "variables": {
+          "deuda.descripcion": {
+            "descripcion": "Descripción de la situación de endeudamiento",
+            "ejemplo": "Tomé un préstamo para comprar ropa de marca"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "interes_simple": {
+        "descripcion": "Interés simple: I = C × r × t",
+        "variables": {
+          "capital": {
+            "descripcion": "Capital invertido en $",
+            "ejemplo": "10000"
+          },
+          "tasa": {
+            "descripcion": "Tasa de interés anual en %",
+            "ejemplo": "5"
+          },
+          "tiempo": {
+            "descripcion": "Plazo en años",
+            "ejemplo": "3"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "interes_compuesto": {
+        "descripcion": "Monto final con interés compuesto: M = C × (1 + r)^t",
+        "variables": {
+          "capital": {
+            "descripcion": "Capital inicial en $",
+            "ejemplo": "50000"
+          },
+          "tasa": {
+            "descripcion": "Tasa de interés anual en %",
+            "ejemplo": "10"
+          },
+          "tiempo": {
+            "descripcion": "Plazo en años",
+            "ejemplo": "2"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "cft_vs_interes": {
+        "descripcion": "Distinción entre Tasa de Interés nominal y Costo Financiero Total (CFT)",
+        "variables": {
+          "caso.descripcion": {
+            "descripcion": "Descripción del caso financiero",
+            "ejemplo": "Un banco anuncia 30% de interés pero el CFT es 42%"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "economia/contabilidad": {
+    "subtipos": {
+      "clasificacion_cuentas": {
+        "descripcion": "Clasificación de cuentas contables: activo, pasivo, patrimonio neto, resultados",
+        "variables": {
+          "cuenta.nombre": {
+            "descripcion": "Nombre de la cuenta contable",
+            "ejemplo": "Caja y Bancos"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "naturaleza_cuentas": {
+        "descripcion": "Naturaleza deudora o acreedora de una cuenta contable",
+        "variables": {
+          "cuenta.nombre": {
+            "descripcion": "Nombre de la cuenta contable",
+            "ejemplo": "Proveedores"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "saldo_normal": {
+        "descripcion": "Cálculo del saldo de una cuenta a partir de débitos y créditos",
+        "variables": {
+          "nombreCuenta": {
+            "descripcion": "Nombre de la cuenta",
+            "ejemplo": "Mercaderías"
+          },
+          "debitos": {
+            "descripcion": "Total de débitos registrados en $",
+            "ejemplo": "80000"
+          },
+          "creditos": {
+            "descripcion": "Total de créditos registrados en $",
+            "ejemplo": "50000"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "hechos_patrimonio": {
+        "descripcion": "Determinación de si un hecho económico afecta o no al patrimonio",
+        "variables": {
+          "hecho.descripcion": {
+            "descripcion": "Descripción del hecho económico",
+            "ejemplo": "La empresa compra mercadería al contado"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "variaciones_patrimoniales": {
+        "descripcion": "Clasificación de variaciones patrimoniales (modificativa, permutativa, mixta)",
+        "variables": {
+          "hecho.descripcion": {
+            "descripcion": "Descripción de la operación contable",
+            "ejemplo": "Se cobra una deuda de un cliente"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "aportes_contribuciones": {
+        "descripcion": "Clasificación de conceptos del recibo de sueldo como aporte o contribución",
+        "variables": {
+          "concepto.descripcion": {
+            "descripcion": "Descripción del concepto del recibo",
+            "ejemplo": "Jubilación (11%)"
+          }
+        },
+        "tieneGrafico": false
+      }
+    }
+  },
+  "basic/quiz_generator": {
+    "_descripcion_modulo": "Motor genérico de quizzes que consume plantillas JSON (QuizTemplate). A diferencia de los generadores paramétricos, no genera variables aleatorias — el contenido es estático y viene del campo 'pool' de la plantilla. Soporta 4 tipos de pregunta.",
+    "subtipos": {
+      "mc": {
+        "descripcion": "Opción múltiple (Multiple Choice): una pregunta con N opciones, exactamente una correcta. Las opciones se barajan con PRNG si shuffleOptions=true.",
+        "variables": {
+          "prompt": {
+            "descripcion": "Texto de la pregunta mostrada al alumno",
+            "ejemplo": "¿Cuál es la unidad del Sistema Internacional para la fuerza?"
+          },
+          "options[].text": {
+            "descripcion": "Texto de cada opción de respuesta",
+            "ejemplo": "Newton"
+          },
+          "options[].correct": {
+            "descripcion": "Si esta opción es la respuesta correcta",
+            "ejemplo": "true"
+          },
+          "options[].because": {
+            "descripcion": "Explicación de por qué esta opción es correcta o incorrecta",
+            "ejemplo": "El Newton (N) es la unidad SI de fuerza, equivale a kg·m/s²"
+          },
+          "explanation": {
+            "descripcion": "Explicación general que se muestra tras responder",
+            "ejemplo": "La fuerza se mide en Newtons según el SI"
+          },
+          "tags": {
+            "descripcion": "Etiquetas para filtrado por tema (SelectionConfig byTags)",
+            "ejemplo": [
+              "fisica",
+              "unidades"
+            ]
+          },
+          "imageSrc": {
+            "descripcion": "URL o path de imagen de contexto opcional (StaticImageSpec)",
+            "ejemplo": "/assets/diagrama_fuerzas.svg"
+          }
+        },
+        "tieneGrafico": false
+      },
+      "tf": {
+        "descripcion": "Verdadero/Falso: el alumno indica si el enunciado es verdadero o falso.",
+        "variables": {
+          "prompt": {
+            "descripcion": "Afirmación que el alumno debe evaluar como V o F",
+            "ejemplo": "La velocidad de la luz en el vacío es de 300.000 km/s"
+          },
+          "answer": {
+            "descripcion": "Respuesta correcta booleana",
+            "ejemplo": "true"
+          },
+          "becauseTrue": {
+            "descripcion": "Explicación que se muestra si la respuesta correcta es verdadero",
+            "ejemplo": "Correcto, c ≈ 3×10⁸ m/s"
+          },
+          "becauseFalse": {
+            "descripcion": "Explicación que se muestra si la respuesta correcta es falso",
+            "ejemplo": "Incorrecto, la afirmación es verdadera"
+          },
+          "tags": {
+            "descripcion": "Etiquetas para filtrado por tema",
+            "ejemplo": [
+              "fisica",
+              "luz"
+            ]
+          }
+        },
+        "tieneGrafico": false
+      },
+      "match": {
+        "descripcion": "Relacionar columnas: el alumno empareja ítems de la columna izquierda con la derecha. La columna derecha se baraja con PRNG.",
+        "variables": {
+          "prompt": {
+            "descripcion": "Instrucción de la actividad",
+            "ejemplo": "Relacioná cada científico con su aporte"
+          },
+          "pairs[].left": {
+            "descripcion": "Ítem de la columna izquierda",
+            "ejemplo": "Newton"
+          },
+          "pairs[].right": {
+            "descripcion": "Ítem correspondiente de la columna derecha",
+            "ejemplo": "Ley de gravitación universal"
+          },
+          "explanation": {
+            "descripcion": "Explicación general post-respuesta",
+            "ejemplo": "Cada científico desarrolló una teoría fundamental de la física clásica"
+          },
+          "tags": {
+            "descripcion": "Etiquetas para filtrado",
+            "ejemplo": [
+              "historia_ciencia"
+            ]
+          }
+        },
+        "tieneGrafico": false
+      },
+      "fill-blank": {
+        "descripcion": "Completar espacios en blanco: el alumno escribe texto en los blancos del template. La corrección normaliza tildes y mayúsculas.",
+        "variables": {
+          "prompt": {
+            "descripcion": "Instrucción o contexto de la actividad",
+            "ejemplo": "Completá los datos del elemento"
+          },
+          "template": {
+            "descripcion": "Texto con marcadores {{id}} donde van los blancos",
+            "ejemplo": "El {{elemento}} tiene número atómico {{Z}} y pertenece al grupo {{grupo}}"
+          },
+          "blanks[].id": {
+            "descripcion": "Identificador del blanco (coincide con {{id}} en el template)",
+            "ejemplo": "elemento"
+          },
+          "blanks[].correctAnswers": {
+            "descripcion": "Lista de respuestas aceptadas (se normalizan sin tildes/mayúsculas)",
+            "ejemplo": [
+              "oxígeno",
+              "oxigeno",
+              "O"
+            ]
+          },
+          "blanks[].hint": {
+            "descripcion": "Pista opcional visible para el alumno",
+            "ejemplo": "Gas que respiramos"
+          },
+          "explanation": {
+            "descripcion": "Explicación post-respuesta",
+            "ejemplo": "El oxígeno (O) tiene Z=8 y pertenece al grupo 16"
+          },
+          "tags": {
+            "descripcion": "Etiquetas para filtrado por tema",
+            "ejemplo": [
+              "quimica",
+              "tabla_periodica"
+            ]
+          }
+        },
+        "tieneGrafico": false
+      }
+    },
+    "_config_seleccion": {
+      "descripcion": "La selección de preguntas del pool se controla con SelectionConfig",
+      "modos": {
+        "random": "Selecciona N preguntas al azar (con seed reproducible)",
+        "fixed": "Selecciona preguntas por IDs específicos en orden",
+        "byTags": "Filtra el pool por tags antes de seleccionar aleatoriamente"
+      },
+      "ejemplo": {
+        "mode": "byTags",
+        "tags": [
+          "genetica",
+          "mendel"
+        ],
+        "seeded": true
+      }
+    }
+  }
+}
