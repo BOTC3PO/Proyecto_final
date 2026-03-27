@@ -1070,7 +1070,7 @@ export default function ModuloEditor() {
                   <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">{quizCountLabel}</span>
                 </div>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap items-start gap-3">
                   <button
                     type="button"
                     className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-violet-700 hover:shadow-md active:scale-[0.98]"
@@ -1085,18 +1085,6 @@ export default function ModuloEditor() {
                   >
                     <span className="text-base leading-none">+</span> Nuevo cuestionario
                   </button>
-                  {!isEvaluacionMode && (
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-1.5 rounded-lg border-2 border-violet-200 bg-violet-50 px-4 py-2.5 text-sm font-medium text-violet-700 shadow-sm transition-all duration-200 hover:bg-violet-100 hover:border-violet-300 active:scale-[0.98]"
-                    onClick={() => addQuiz("generated")}
-                  >
-                    <span className="text-base leading-none">+</span> Generado (público)
-                  </button>
-                  )}
-                </div>
-
-                <div className="grid gap-4 md:grid-cols-2">
                   <QuizImportJson onImportQuizzes={handleImportQuizzes} />
                 </div>
 
