@@ -9,24 +9,28 @@ import type {
   ModuleVisibility,
 } from "../../domain/module/module.types";
 import TheoryItemCard from "../../components/modulos/TheoryItemCard";
+import { DeterministicPrng } from "../../generadoresV2/core/prng";
+import type { Ejercicio, GeneratorDescriptor } from "../../generadoresV2/core/types";
 
-const hashString = (value: string) => {
-  let hash = 0;
-  for (let i = 0; i < value.length; i += 1) {
-    hash = (hash << 5) - hash + value.charCodeAt(i);
-    hash |= 0;
+const loadGeneratorModule = (materia: string) => {
+  switch (materia) {
+    case "biologia":
+      return import("../../generadoresV2/biologia/index");
+    case "informatica":
+      return import("../../generadoresV2/informatica/index");
+    case "fisica":
+      return import("../../generadoresV2/fisica/index");
+    case "matematicas":
+      return import("../../generadoresV2/matematicas/index");
+    case "quimica":
+      return import("../../generadoresV2/quimica/index");
+    case "economia":
+      return import("../../generadoresV2/economia/index");
+    default:
+      return Promise.reject(new Error(`Generador no encontrado: ${materia}`));
   }
-  return Math.abs(hash);
 };
 
-const mulberry32 = (seed: number) => {
-  return () => {
-    let t = (seed += 0x6d2b79f5);
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-};
 
 function getModulePalette(category: string) {
   const cat = (category ?? "").toLowerCase();
@@ -96,6 +100,8 @@ export default function ModuloDetail() {
     Record<string, { status: "idle" | "loading" | "error"; message?: string }>
   >({});
   const [previewOpen, setPreviewOpen] = useState<Record<string, boolean>>({});
+  const [previewQuestions, setPreviewQuestions] =
+    useState<Record<string, Array<{ id: string; label: string }>>>({});
   const [attemptsByQuiz, setAttemptsByQuiz] = useState<Record<string, QuizAttemptSummary[]>>({});
 
   const handleStartAttempt = async (quizId: string) => {
@@ -136,36 +142,68 @@ export default function ModuloDetail() {
     }
   };
 
-  const buildPreviewItems = (quiz: ModuleQuiz) => {
+  const loadPreviewForQuiz = async (quiz: ModuleQuiz) => {
     if (quiz.questions && quiz.questions.length > 0) {
-      return quiz.questions.slice(0, 3).map((question, index) => ({
-        id: question.id,
-        label: `Pregunta ${index + 1}: ${question.prompt}`,
+      setPreviewQuestions((prev) => ({
+        ...prev,
+        [quiz.id]: quiz.questions!.slice(0, 5).map((q, i) => ({
+          id: q.id,
+          label: `Pregunta ${i + 1}: ${q.prompt}`,
+        })),
+      }));
+      return;
+    }
+
+    if (!quiz.generatorId || !quiz.count) {
+      setPreviewQuestions((prev) => ({
+        ...prev,
+        [quiz.id]: [{ id: "empty", label: "Sin preguntas ni generador configurado." }],
+      }));
+      return;
+    }
+
+    try {
+      const [materia] = quiz.generatorId.split("/");
+      const mod = await loadGeneratorModule(materia);
+      const prng = new DeterministicPrng(42);
+      const descriptores: GeneratorDescriptor[] =
+        typeof mod.getDescriptores === "function"
+          ? mod.getDescriptores(prng)
+          : typeof (mod as Record<string, ((p: typeof prng) => GeneratorDescriptor[]) | undefined>)[
+              `getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`
+            ] === "function"
+          ? (mod as Record<string, (p: typeof prng) => GeneratorDescriptor[]>)[
+              `getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`
+            ](prng)
+          : [];
+
+      const descriptor = descriptores.find((d: GeneratorDescriptor) => d.id === quiz.generatorId);
+      if (!descriptor) {
+        setPreviewQuestions((prev) => ({
+          ...prev,
+          [quiz.id]: [{ id: "no-desc", label: "Generador no disponible en el cliente." }],
+        }));
+        return;
+      }
+
+      const count = Math.min(quiz.count ?? 3, 5);
+      const ejercicios: Ejercicio[] = Array.from({ length: count }, () =>
+        descriptor.generate(undefined, prng)
+      );
+
+      setPreviewQuestions((prev) => ({
+        ...prev,
+        [quiz.id]: ejercicios.map((e, i) => ({
+          id: `${quiz.id}-prev-${i}`,
+          label: `Pregunta ${i + 1}: ${"enunciado" in e ? (e as { enunciado: string }).enunciado : ""}`,
+        })),
+      }));
+    } catch {
+      setPreviewQuestions((prev) => ({
+        ...prev,
+        [quiz.id]: [{ id: "err", label: "No se pudo generar la vista previa." }],
       }));
     }
-
-    const total = quiz.count ?? 3;
-    if (!quiz.generatorId || total <= 0) {
-      return [
-        {
-          id: `${quiz.id}-empty`,
-          label: "Este quiz no tiene preguntas ni generador configurado.",
-        },
-      ];
-    }
-
-    const seedSource = String(
-      quiz.fixedSeed ?? `${quiz.id}:${quiz.generatorId}:${quiz.generatorVersion ?? 1}`
-    );
-    const random = mulberry32(hashString(seedSource));
-    const previewCount = Math.min(total, 5);
-    return Array.from({ length: previewCount }, (_, index) => {
-      const token = Math.floor(random() * 900 + 100);
-      return {
-        id: `${quiz.id}-preview-${index + 1}`,
-        label: `Pregunta ${index + 1} · semilla ${token}`,
-      };
-    });
   };
 
   useEffect(() => {
@@ -581,9 +619,13 @@ export default function ModuloDetail() {
                       <button
                         type="button"
                         className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50 active:scale-[0.98]"
-                        onClick={() =>
-                          setPreviewOpen((prev) => ({ ...prev, [quiz.id]: !prev[quiz.id] }))
-                        }
+                        onClick={() => {
+                          const next = !previewOpen[quiz.id];
+                          setPreviewOpen((prev) => ({ ...prev, [quiz.id]: next }));
+                          if (next && !previewQuestions[quiz.id]) {
+                            void loadPreviewForQuiz(quiz);
+                          }
+                        }}
                       >
                         <svg className={`h-3.5 w-3.5 transition-transform ${previewOpen[quiz.id] ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
@@ -612,12 +654,21 @@ export default function ModuloDetail() {
                           </p>
                         </div>
                         <ul className="mt-3 space-y-1.5 pl-1">
-                          {buildPreviewItems(quiz).map((item) => (
-                            <li key={item.id} className="flex items-start gap-2">
-                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-300" />
-                              <span>{item.label}</span>
+                          {!previewQuestions[quiz.id] ? (
+                            <li className="flex items-center gap-2 text-slate-400">
+                              <svg className="h-3.5 w-3.5 animate-spin" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                              </svg>
+                              Generando vista previa...
                             </li>
-                          ))}
+                          ) : (
+                            previewQuestions[quiz.id].map((item) => (
+                              <li key={item.id} className="flex items-start gap-2">
+                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-300" />
+                                <span>{item.label}</span>
+                              </li>
+                            ))
+                          )}
                         </ul>
                       </div>
                     ) : null}
