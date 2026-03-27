@@ -194,9 +194,9 @@ export default function ModulosList() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-60" />
         <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1">
-            <h1 className="text-3xl font-bold tracking-tight text-white">Modulos</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-white">Módulos</h1>
             <p className="text-sm text-indigo-100">
-              Explora el listado de modulos disponibles y gestiona su contenido.
+              Explora el listado de módulos disponibles y gestiona su contenido.
             </p>
           </div>
           {canCreate && (
@@ -207,7 +207,7 @@ export default function ModulosList() {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
               </svg>
-              Crear modulo
+              Crear módulo
             </Link>
           )}
         </div>
@@ -221,7 +221,7 @@ export default function ModulosList() {
               <div className="absolute inset-0 rounded-full border-4 border-indigo-100" />
               <div className="absolute inset-0 animate-spin rounded-full border-4 border-transparent border-t-indigo-600" />
             </div>
-            <p className="text-sm font-medium text-slate-500">Cargando modulos...</p>
+            <p className="text-sm font-medium text-slate-500">Cargando módulos...</p>
           </div>
         </div>
       )}
@@ -249,8 +249,8 @@ export default function ModulosList() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
           </div>
-          <p className="text-base font-semibold text-slate-700">No hay modulos disponibles</p>
-          <p className="mt-1 text-sm text-slate-500">Comienza creando tu primer modulo para empezar.</p>
+          <p className="text-base font-semibold text-slate-700">No hay módulos disponibles</p>
+          <p className="mt-1 text-sm text-slate-500">Comienza creando tu primer módulo para empezar.</p>
           {canCreate && (
             <Link
               to="/modulos/crear"
@@ -259,7 +259,7 @@ export default function ModulosList() {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
               </svg>
-              Crear el primer modulo
+              Crear el primer módulo
             </Link>
           )}
         </div>
@@ -271,7 +271,7 @@ export default function ModulosList() {
           {/* Tabs */}
           <div className="flex flex-wrap items-center gap-2 rounded-2xl bg-white/70 p-2 shadow-sm ring-1 ring-slate-200/60 backdrop-blur-sm">
             {[
-              { key: "mine", label: "Mis modulos", icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
+              { key: "mine", label: "Mis módulos", icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
               { key: "school", label: "Escuela", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
               { key: "public", label: "Publicos", icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
             ].map((tab) => (
@@ -388,7 +388,7 @@ export default function ModulosList() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
-                  Busqueda
+                  Búsqueda
                 </span>
                 <div className="relative">
                   <svg xmlns="http://www.w3.org/2000/svg" className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -398,7 +398,7 @@ export default function ModulosList() {
                     type="search"
                     value={searchTerm}
                     onChange={(event) => setSearchTerm(event.target.value)}
-                    placeholder="Buscar modulo..."
+                    placeholder="Buscar módulo..."
                     className="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm text-slate-700 shadow-sm transition-all duration-200 placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                   />
                 </div>
@@ -416,7 +416,7 @@ export default function ModulosList() {
               </div>
               <p className="text-base font-semibold text-slate-600">Sin resultados</p>
               <p className="mt-1 text-sm text-slate-400">
-                No encontramos modulos con los filtros seleccionados.
+                No encontramos módulos con los filtros seleccionados.
               </p>
             </div>
           ) : (
@@ -450,6 +450,44 @@ export default function ModulosList() {
                           </svg>
                           {resolveMateria(module)}
                         </p>
+                        {/* Descripción truncada */}
+                        {module.description && (
+                          <p className="text-sm text-slate-400 line-clamp-2 mt-1">
+                            {module.description}
+                          </p>
+                        )}
+                        {/* Conteo de contenido */}
+                        <div className="flex flex-wrap gap-3 mt-2">
+                          {(module.theoryBlocks?.length ?? module.theoryItems?.length ?? 0) > 0 && (
+                            <span className="inline-flex items-center gap-1 text-xs text-slate-500">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-slate-400"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                              </svg>
+                              {module.theoryBlocks?.length ?? module.theoryItems?.length ?? 0} teoría
+                            </span>
+                          )}
+                          {(module.quizzes?.length ?? 0) > 0 && (
+                            <span className="inline-flex items-center gap-1 text-xs text-slate-500">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-slate-400"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                  d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                              </svg>
+                              {module.quizzes?.length} cuestionario{module.quizzes!.length !== 1 ? "s" : ""}
+                            </span>
+                          )}
+                          {module.durationMinutes > 0 && (
+                            <span className="inline-flex items-center gap-1 text-xs text-slate-500">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-slate-400"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                              </svg>
+                              {module.durationMinutes} min
+                            </span>
+                          )}
+                        </div>
                         <div className="flex flex-wrap gap-2">
                           <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ring-inset ${visibilityColor}`}>
                             {visibilityLabel}

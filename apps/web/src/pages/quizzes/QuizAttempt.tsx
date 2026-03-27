@@ -40,6 +40,7 @@ type QuizAttemptResponse = {
   count?: number;
   instructions?: string;
   displayCount?: number;
+  quizType?: string;
 };
 
 type SubmitResponse = {
@@ -50,11 +51,23 @@ type SubmitResponse = {
   message?: string;
 };
 
+function interpolatePrompt(
+  prompt: string,
+  datos?: Record<string, unknown>
+): string {
+  if (!datos || !prompt.includes("{")) return prompt;
+  return prompt.replace(/\{(\w+)\}/g, (match, key) => {
+    const val = datos[key];
+    if (val === undefined || val === null) return match;
+    return String(val);
+  });
+}
+
 function ejercicioToQuestion(e: Ejercicio): ModuleQuizQuestion {
   if (e.tipo === "quiz") {
     return {
       id: e.id,
-      prompt: e.enunciado,
+      prompt: interpolatePrompt(e.enunciado, e.datos),
       questionType: "mc",
       options: e.opciones,
       answerKey: e.opciones[e.indiceCorrecto],
@@ -67,7 +80,7 @@ function ejercicioToQuestion(e: Ejercicio): ModuleQuizQuestion {
   if (e.tipo === "completar") {
     return {
       id: e.id,
-      prompt: e.enunciado,
+      prompt: interpolatePrompt(e.enunciado, undefined),
       questionType: "input",
       answerKey: e.respuestaCorrecta,
       explanation: e.explicacion,
@@ -76,7 +89,7 @@ function ejercicioToQuestion(e: Ejercicio): ModuleQuizQuestion {
   // numerico
   return {
     id: e.id,
-    prompt: e.enunciado,
+    prompt: interpolatePrompt(e.enunciado, e.datos),
     questionType: "input",
     answerKey: String(e.resultado),
   };
@@ -318,6 +331,16 @@ export default function QuizAttempt() {
         </header>
 
         <section className="bg-white rounded-xl shadow p-6 space-y-6">
+          {attempt?.quizType === "formal" && (
+            <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-xs font-medium text-amber-700">
+              Evaluación formal — cuenta para tu nota
+            </div>
+          )}
+          {attempt?.quizType === "practica" && (
+            <div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-medium text-slate-500">
+              Práctica — no afecta tu nota
+            </div>
+          )}
           {(attempt?.instructions) ? (
             <div className="rounded-lg border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-800 leading-relaxed">
               {attempt.instructions}
