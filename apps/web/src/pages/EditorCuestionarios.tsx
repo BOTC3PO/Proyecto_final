@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
 import type { ModuleQuizQuestion } from "../domain/module/module.types";
 import type { Ejercicio, GeneratorDescriptor } from "../generadoresV2/core/types";
@@ -115,6 +115,12 @@ function PromptWithVariables({ text }: { text: string }) {
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function EditorCuestionarios() {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const moduleId = searchParams.get("moduleId");
+  const returnTo = searchParams.get("returnTo");
+  const isEmbedded = Boolean(moduleId && returnTo);
+
   const [generatorId, setGeneratorId] = useState("");
   const [selectedSubtipo, setSelectedSubtipo] = useState("");
   const [questions, setQuestions] = useState<ModuleQuizQuestion[]>([]);
@@ -282,6 +288,22 @@ export default function EditorCuestionarios() {
     })),
   });
 
+  const handleAddToModule = () => {
+    if (questions.length === 0 || !returnTo) return;
+    const quiz = buildExportJson();
+    navigate(returnTo, {
+      state: {
+        importedQuiz: {
+          ...quiz,
+          id: `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+          status: "draft",
+          version: 1,
+          mode: "manual",
+        }
+      }
+    });
+  };
+
   const handleDownload = () => {
     if (questions.length === 0) return;
     const data = buildExportJson();
@@ -314,9 +336,9 @@ export default function EditorCuestionarios() {
         <div className="flex items-center gap-3 px-4 sm:px-6 py-3">
           <Link
             className="text-sm text-blue-600 hover:underline whitespace-nowrap"
-            to="/modulos/crear"
+            to={isEmbedded ? returnTo! : "/modulos/crear"}
           >
-            ← Volver
+            {isEmbedded ? "← Volver al módulo" : "← Volver"}
           </Link>
           <span className="hidden sm:block text-sm font-semibold text-slate-600 whitespace-nowrap">
             Editor de cuestionarios
@@ -343,13 +365,15 @@ export default function EditorCuestionarios() {
             <option value="publico">🌐 Público</option>
             <option value="escuela">🏫 Escuela</option>
           </select>
-          <button
-            onClick={handleDownload}
-            disabled={questions.length === 0}
-            className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50"
-          >
-            ⬇ Descargar JSON
-          </button>
+          {!isEmbedded && (
+            <button
+              onClick={handleDownload}
+              disabled={questions.length === 0}
+              className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50"
+            >
+              ⬇ Descargar JSON
+            </button>
+          )}
           <button
             onClick={handleCopy}
             disabled={questions.length === 0}
@@ -357,6 +381,15 @@ export default function EditorCuestionarios() {
           >
             {exportStatus === "copied" ? "✓ Copiado" : "Copiar JSON"}
           </button>
+          {isEmbedded && (
+            <button
+              onClick={handleAddToModule}
+              disabled={questions.length === 0}
+              className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50"
+            >
+              ✓ Agregar al módulo
+            </button>
+          )}
           {questions.length === 0 && (
             <p className="text-xs text-slate-400">
               Agregá al menos una pregunta para exportar.

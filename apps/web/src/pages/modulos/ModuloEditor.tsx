@@ -1,4 +1,5 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
 import { MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
@@ -33,6 +34,7 @@ const SUBJECT_OPTIONS = Object.keys(MODULE_SUBJECT_CAPABILITIES);
 export default function ModuloEditor() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth();
 
   const {
@@ -107,6 +109,14 @@ export default function ModuloEditor() {
     searchModules,
     handleSubmit,
   } = useModuloEditor(id, user, navigate);
+
+  useEffect(() => {
+    const state = location.state as
+      { importedQuiz?: Record<string, unknown> } | null;
+    if (!state?.importedQuiz) return;
+    window.history.replaceState({}, "");
+    handleImportQuizzes([state.importedQuiz as ModuleQuiz]);
+  }, []);
 
   const isTeacher = user?.role === "TEACHER";
   const isEvaluacionMode = form.category === "evaluacion";
@@ -1064,9 +1074,16 @@ export default function ModuloEditor() {
                   <button
                     type="button"
                     className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-violet-700 hover:shadow-md active:scale-[0.98]"
-                    onClick={() => addQuiz("manual")}
+                    onClick={() => {
+                      const returnTo = id
+                        ? `/modulos/${id}/editar`
+                        : `/modulos/crear`;
+                      navigate(
+                        `/profesor/editor-cuestionarios?moduleId=${id ?? "nuevo"}&returnTo=${encodeURIComponent(returnTo)}`
+                      );
+                    }}
                   >
-                    <span className="text-base leading-none">+</span> Manual
+                    <span className="text-base leading-none">+</span> Nuevo cuestionario
                   </button>
                   {!isEvaluacionMode && (
                   <button
@@ -1074,7 +1091,7 @@ export default function ModuloEditor() {
                     className="inline-flex items-center gap-1.5 rounded-lg border-2 border-violet-200 bg-violet-50 px-4 py-2.5 text-sm font-medium text-violet-700 shadow-sm transition-all duration-200 hover:bg-violet-100 hover:border-violet-300 active:scale-[0.98]"
                     onClick={() => addQuiz("generated")}
                   >
-                    <span className="text-base leading-none">+</span> Generado
+                    <span className="text-base leading-none">+</span> Generado (público)
                   </button>
                   )}
                 </div>
