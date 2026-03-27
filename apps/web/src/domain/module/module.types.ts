@@ -23,7 +23,7 @@ export type ModuleQuizSeedPolicy = "perAttempt" | "fixed";
 export type ModuleQuiz = {
   id: string;
   title: string;
-  type: "practica" | "evaluacion" | "competencia";
+  type: "practica" | "formal" | "competencia";
   status: ModuleQuizStatus;
   version: number;
   mode?: ModuleQuizMode;

@@ -141,6 +141,13 @@ export function useModuloPersistence(): UsePersistenceReturn {
           return;
         }
 
+        if (form.visibility === "escuela" && !form.visibilitySchoolId?.trim()) {
+          setStatus("error");
+          setMessage("Seleccioná una escuela para la visibilidad por escuela.");
+          setExtErrors(["Visibilidad 'Escuela' requiere seleccionar una escuela."]);
+          return;
+        }
+
         const quizErrors: string[] = [];
         quizzes.forEach((quiz, quizIndex) => {
           const quizLabel = quiz.title.trim() || `Cuestionario ${quizIndex + 1}`;

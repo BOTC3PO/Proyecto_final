@@ -394,7 +394,8 @@ quizAttempts.get(
     seed: attempt.seed ?? undefined,
     count: quiz?.count ?? undefined,
     instructions: quiz?.instructions ?? undefined,
-    displayCount: quiz?.displayCount ?? undefined
+    displayCount: quiz?.displayCount ?? undefined,
+    quizType: quiz?.type ?? undefined
   });
   }
 );

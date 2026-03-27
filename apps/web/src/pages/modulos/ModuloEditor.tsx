@@ -352,7 +352,11 @@ export default function ModuloEditor() {
                       <>
                         <div className="flex gap-2">
                           <input
-                            className="flex-1 rounded-lg border border-amber-200 bg-white px-3 py-2 text-xs shadow-sm transition-all focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-100"
+                            className={`flex-1 rounded-lg border px-3 py-2 text-xs shadow-sm transition-all focus:outline-none focus:ring-2 ${
+                              form.visibility === "escuela" && !form.visibilitySchoolId
+                                ? "border-red-300 bg-red-50/50 focus:border-red-400 focus:ring-red-100"
+                                : "border-amber-200 bg-white focus:border-amber-400 focus:ring-amber-100"
+                            }`}
                             placeholder="Buscar escuela..."
                             value={escuelaSearch}
                             onChange={(e) => {
@@ -1123,10 +1127,20 @@ export default function ModuloEditor() {
                                   })
                                 }
                               >
-                                <option value="practica">Práctica</option>
-                                <option value="evaluacion">Evaluación</option>
+                                <option value="practica">Práctica — no cuenta para la nota</option>
+                                <option value="formal">Evaluación formal — cuenta para la nota</option>
                                 <option value="competencia">Competencia</option>
                               </select>
+                              {quiz.type === "formal" && (
+                                <p className="text-xs text-amber-600 mt-1">
+                                  Este cuestionario contará para la nota final del alumno.
+                                </p>
+                              )}
+                              {quiz.type === "practica" && (
+                                <p className="text-xs text-slate-400 mt-1">
+                                  Este cuestionario es de práctica y no afecta la nota.
+                                </p>
+                              )}
                             </label>
                             <label className="text-xs font-medium text-gray-600">
                               Visibilidad
