@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail, updateClassroom } from "../services/aulas";
+import { createActivity, deleteActivity, fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 
 type FormState = {
   name: string;
@@ -30,6 +31,15 @@ export default function ProfesorAulaConfiguracion() {
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [activities, setActivities] = useState<UpcomingActivity[]>([]);
+  const [actForm, setActForm] = useState({
+    tipo: "clase" as "clase" | "evaluacion" | "evento",
+    titulo: "",
+    descripcion: "",
+    fecha: "",
+  });
+  const [actSaving, setActSaving] = useState(false);
+  const [actError, setActError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -55,10 +65,42 @@ export default function ProfesorAulaConfiguracion() {
     };
   }, [id]);
 
+  useEffect(() => {
+    if (!id) return;
+    fetchUpcomingActivities(id).then(setActivities).catch(() => {});
+  }, [id]);
+
   const classroomTitle = useMemo(() => classroom?.name ?? "Aula", [classroom?.name]);
 
   const handleFieldChange = (field: keyof FormState, value: string) => {
     setForm((prev) => (prev ? { ...prev, [field]: value } : prev));
+  };
+
+  const handleCreateActivity = async () => {
+    if (!id || !actForm.titulo.trim() || !actForm.fecha) return;
+    setActSaving(true);
+    setActError(null);
+    try {
+      await createActivity({
+        classroomId: id,
+        tipo: actForm.tipo,
+        titulo: actForm.titulo.trim(),
+        descripcion: actForm.descripcion.trim() || undefined,
+        fecha: actForm.fecha,
+      });
+      setActForm({ tipo: "clase", titulo: "", descripcion: "", fecha: "" });
+      const updated = await fetchUpcomingActivities(id);
+      setActivities(updated);
+    } catch (e) {
+      setActError(e instanceof Error ? e.message : "No se pudo crear la actividad.");
+    } finally {
+      setActSaving(false);
+    }
+  };
+
+  const handleDeleteActivity = async (actId: string) => {
+    await deleteActivity(actId);
+    setActivities((prev) => prev.filter((a) => a.id !== actId));
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -129,6 +171,7 @@ export default function ProfesorAulaConfiguracion() {
       ) : error ? (
         <div className="rounded-2xl border border-red-200 bg-red-50 p-6 text-sm text-red-700">{error}</div>
       ) : form ? (
+        <>
         <form className="grid gap-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" onSubmit={handleSubmit}>
           <div className="grid gap-4 md:grid-cols-2">
             <label className="flex flex-col gap-2 text-sm font-semibold text-slate-700">
@@ -206,6 +249,106 @@ export default function ProfesorAulaConfiguracion() {
             {error && <span className="text-sm text-red-600">{error}</span>}
           </div>
         </form>
+
+        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
+          <h2 className="text-lg font-semibold text-slate-900">
+            Próximas actividades
+          </h2>
+
+          {activities.length === 0 ? (
+            <p className="text-sm text-slate-400">Sin actividades cargadas.</p>
+          ) : (
+            <ul className="space-y-2">
+              {activities.map((act) => (
+                <li key={act.id}
+                  className="flex items-center justify-between gap-3 rounded-lg border border-slate-100 px-3 py-2 text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${
+                      act.tipo === "evaluacion"
+                        ? "bg-amber-100 text-amber-700"
+                        : act.tipo === "evento"
+                        ? "bg-violet-100 text-violet-700"
+                        : "bg-blue-100 text-blue-700"
+                    }`}>
+                      {act.tipo === "evaluacion" ? "📝 Evaluación"
+                        : act.tipo === "evento" ? "📅 Evento"
+                        : "📖 Clase"}
+                    </span>
+                    <span className="font-medium text-slate-800">{act.label}</span>
+                    <span className="text-slate-400">· {act.when}</span>
+                  </div>
+                  <button
+                    type="button"
+                    className="text-xs text-red-400 hover:text-red-600"
+                    onClick={() => handleDeleteActivity(act.id)}
+                  >
+                    Eliminar
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <label className="flex flex-col gap-1 text-xs font-medium text-slate-600">
+              Tipo
+              <select
+                value={actForm.tipo}
+                onChange={(e) => setActForm((p) => ({
+                  ...p, tipo: e.target.value as "clase" | "evaluacion" | "evento"
+                }))}
+                className="rounded-lg border border-slate-200 px-3 py-2 text-sm bg-white"
+              >
+                <option value="clase">📖 Clase</option>
+                <option value="evaluacion">📝 Evaluación</option>
+                <option value="evento">📅 Evento</option>
+              </select>
+            </label>
+            <label className="flex flex-col gap-1 text-xs font-medium text-slate-600">
+              Fecha y hora
+              <input
+                type="datetime-local"
+                value={actForm.fecha}
+                onChange={(e) => setActForm((p) => ({ ...p, fecha: e.target.value }))}
+                className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
+              />
+            </label>
+            <label className="flex flex-col gap-1 text-xs font-medium text-slate-600 sm:col-span-2">
+              Título *
+              <input
+                type="text"
+                placeholder="Ej: Clase de repaso, Evaluación parcial..."
+                value={actForm.titulo}
+                onChange={(e) => setActForm((p) => ({ ...p, titulo: e.target.value }))}
+                className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
+              />
+            </label>
+            <label className="flex flex-col gap-1 text-xs font-medium text-slate-600 sm:col-span-2">
+              Descripción (opcional)
+              <textarea
+                rows={2}
+                placeholder="Detalle adicional..."
+                value={actForm.descripcion}
+                onChange={(e) => setActForm((p) => ({ ...p, descripcion: e.target.value }))}
+                className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
+              />
+            </label>
+          </div>
+
+          {actError && (
+            <p className="text-xs text-red-600">{actError}</p>
+          )}
+
+          <button
+            type="button"
+            disabled={actSaving || !actForm.titulo.trim() || !actForm.fecha}
+            onClick={handleCreateActivity}
+            className="rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+          >
+            {actSaving ? "Guardando..." : "+ Agregar actividad"}
+          </button>
+        </section>
+        </>
       ) : (
         <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600">
           No encontramos el aula solicitada.
