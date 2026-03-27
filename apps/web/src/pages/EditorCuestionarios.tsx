@@ -1,482 +1,655 @@
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  getSubjectCapabilities,
-  type ModuleQuiz,
-  type ModuleQuizVisibility,
-} from "../domain/module/module.types";
-import QuizImportJson from "../components/modulos/QuizImportJson";
-import { MVP_GENERATOR_CATEGORIES } from "../mvp/mvpData";
+import { apiGet } from "../lib/api";
+import type { ModuleQuizQuestion } from "../domain/module/module.types";
+import type { Ejercicio, GeneratorDescriptor } from "../generadoresV2/core/types";
+import { DeterministicPrng } from "../generadoresV2/core/prng";
 
-const SUBJECTS = [
-  "Matemáticas",
-  "Lengua y Literatura",
-  "Ciencias Naturales",
-  "Ciencias Sociales",
-  "Historia",
-  "Geografía",
-  "Física",
-  "Química",
-  "Biología",
-  "Inglés",
-  "Informática / TIC",
-  "Educación Física",
-  "Arte / Plástica",
-  "Música",
-  "Formación Ética y Ciudadana",
-  "Economía",
-  "Otro",
-];
+// ── Types ─────────────────────────────────────────────────────────────────────
 
-const makeQuizId = (value: string) => {
-  const base = value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)+/g, "");
-  return `${base || "cuestionario"}-${Date.now()}`;
+type CatalogItem = {
+  id: string;
+  materia: string;
+  label: string;
+  subtipos: { id: string; label: string }[];
 };
 
+type GeneratorDocs = {
+  subtipos: Record<
+    string,
+    {
+      descripcion: string;
+      variables: Record<string, { descripcion: string; ejemplo: string }>;
+    }
+  >;
+};
+
+// ── Static generator loader (Vite-friendly) ───────────────────────────────────
+
+function loadGeneratorModule(materia: string) {
+  switch (materia) {
+    case "biologia":
+      return import("../generadoresV2/biologia/index");
+    case "informatica":
+      return import("../generadoresV2/informatica/index");
+    case "fisica":
+      return import("../generadoresV2/fisica/index");
+    case "matematicas":
+      return import("../generadoresV2/matematicas/index");
+    case "quimica":
+      return import("../generadoresV2/quimica/index");
+    case "economia":
+      return import("../generadoresV2/economia/index");
+    default:
+      return Promise.reject(new Error(`Generador no encontrado: ${materia}`));
+  }
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function ejercicioToQuestion(e: Ejercicio): ModuleQuizQuestion {
+  if (e.tipo === "quiz") {
+    return {
+      id: e.id,
+      prompt: e.enunciado,
+      questionType: "mc",
+      options: e.opciones,
+      answerKey: e.opciones[e.indiceCorrecto],
+      explanation: e.explicacion,
+    };
+  }
+  if (e.tipo === "completar") {
+    return {
+      id: e.id,
+      prompt: e.enunciado,
+      questionType: "input",
+      answerKey: e.respuestaCorrecta,
+      explanation: e.explicacion,
+    };
+  }
+  return {
+    id: e.id,
+    prompt: e.enunciado,
+    questionType: "input",
+    answerKey: String(e.resultado),
+  };
+}
+
+const createQuestion = (
+  questionType: ModuleQuizQuestion["questionType"]
+): ModuleQuizQuestion => ({
+  id: `q-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+  prompt: "",
+  questionType,
+  options:
+    questionType === "vf"
+      ? ["Verdadero", "Falso"]
+      : questionType === "mc"
+      ? ["", ""]
+      : [],
+  answerKey: "",
+  explanation: "",
+});
+
+// Renders plain text with {variable} tokens highlighted in amber.
+function PromptWithVariables({ text }: { text: string }) {
+  const parts = text.split(/(\{[^}]+\})/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        /^\{[^}]+\}$/.test(part) ? (
+          <mark
+            key={i}
+            className="bg-amber-100 text-amber-800 rounded px-1 font-mono text-xs not-italic"
+          >
+            {part}
+          </mark>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
+
+// ── Component ─────────────────────────────────────────────────────────────────
+
 export default function EditorCuestionarios() {
-  const [quizName, setQuizName] = useState("");
-  const [quizId, setQuizId] = useState("");
-  const [subject, setSubject] = useState(SUBJECTS[0]);
-  const [quizType, setQuizType] = useState<ModuleQuiz["type"]>("evaluacion");
-  const [quizVisibility, setQuizVisibility] = useState<ModuleQuizVisibility>("publico");
-  const [competitionRules, setCompetitionRules] = useState("");
-  const [competitionRulesVisibility, setCompetitionRulesVisibility] =
-    useState<ModuleQuizVisibility>("publico");
-  const [statusMessage, setStatusMessage] = useState("");
-  const subjectCapabilities = useMemo(() => getSubjectCapabilities(subject), [subject]);
+  const [generatorId, setGeneratorId] = useState("");
+  const [selectedSubtipo, setSelectedSubtipo] = useState("");
+  const [questions, setQuestions] = useState<ModuleQuizQuestion[]>([]);
+  const [previewQuestions, setPreviewQuestions] = useState<ModuleQuizQuestion[]>([]);
+  const [catalog, setCatalog] = useState<CatalogItem[]>([]);
+  const [docs, setDocs] = useState<GeneratorDocs | null>(null);
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState<number | null>(null);
+  const [quizTitle, setQuizTitle] = useState("");
+  const [instructions, setInstructions] = useState("");
 
-  const autoQuizHelperText = subjectCapabilities.supportsAutoQuizzes
-    ? "Disponible para materias con generadores. Podés crear variantes automáticas desde esta pantalla."
-    : subjectCapabilities.autoQuizDisabledReason ??
-      "Disponible solo para materias con generadores automáticos.";
-  const generatorAvailabilityMessage = subjectCapabilities.supportsGenerators
-    ? "Disponible: podés definir semillas, generar bancos y usar el generador MVP."
-    : subjectCapabilities.generatorDisabledReason ??
-      "Disponible solo para materias con generadores automáticos.";
-  const generatorInputsDisabled = !subjectCapabilities.supportsGenerators;
+  // Load catalog on mount
+  useEffect(() => {
+    apiGet<{ items: CatalogItem[] }>("/api/generators")
+      .then((data) => setCatalog(data.items ?? []))
+      .catch(() => {});
+  }, []);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const nextId = quizId.trim() || makeQuizId(quizName);
-    setQuizId(nextId);
-    setStatusMessage(`Listo. Usá el ID ${nextId} para vincular este cuestionario a un módulo.`);
+  // ── Generator preview (seed 42, 3 questions) ────────────────────────────────
+
+  const generatePreview = async (genId: string, subtipo: string) => {
+    const descriptorId = `${genId}/${subtipo}`;
+    const [materia] = descriptorId.split("/");
+    try {
+      const mod = await loadGeneratorModule(materia);
+      const prng = new DeterministicPrng(42);
+      const descriptores: GeneratorDescriptor[] =
+        typeof mod.getDescriptores === "function"
+          ? mod.getDescriptores(prng)
+          : typeof (
+              mod as Record<string, ((p: typeof prng) => GeneratorDescriptor[]) | undefined>
+            )[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`] ===
+            "function"
+          ? (
+              mod as Record<string, (p: typeof prng) => GeneratorDescriptor[]>
+            )[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`](prng)
+          : [];
+      const descriptor = descriptores.find((d) => d.id === descriptorId);
+      if (!descriptor) {
+        setPreviewQuestions([]);
+        return;
+      }
+      const ejercicios: Ejercicio[] = Array.from({ length: 3 }, () =>
+        descriptor.generate(undefined, prng)
+      );
+      setPreviewQuestions(ejercicios.map(ejercicioToQuestion));
+    } catch {
+      setPreviewQuestions([]);
+    }
   };
 
+  // ── Generator / subtipo change handlers ────────────────────────────────────
+
+  const handleGeneratorChange = async (id: string) => {
+    setGeneratorId(id);
+    setDocs(null);
+    setPreviewQuestions([]);
+    if (!id) {
+      setSelectedSubtipo("");
+      return;
+    }
+    const item = catalog.find((c) => c.id === id);
+    const firstSubtipo = item?.subtipos[0]?.id ?? "";
+    setSelectedSubtipo(firstSubtipo);
+
+    try {
+      const docsData = await apiGet<GeneratorDocs>(`/api/generators/${id}/docs`);
+      setDocs(docsData);
+    } catch {
+      // docs unavailable — not fatal
+    }
+
+    if (firstSubtipo) {
+      await generatePreview(id, firstSubtipo);
+    }
+  };
+
+  const handleSubtipoChange = (subtipoId: string) => {
+    setSelectedSubtipo(subtipoId);
+    if (generatorId && subtipoId) {
+      generatePreview(generatorId, subtipoId);
+    }
+  };
+
+  // ── Variable insertion ──────────────────────────────────────────────────────
+
+  const insertVariableInActiveQuestion = (variable: string) => {
+    if (activeQuestionIndex === null) return;
+    setQuestions((prev) => {
+      const next = [...prev];
+      const q = next[activeQuestionIndex];
+      if (!q) return prev;
+      next[activeQuestionIndex] = { ...q, prompt: q.prompt + variable };
+      return next;
+    });
+  };
+
+  // ── Question editing ────────────────────────────────────────────────────────
+
+  const updateQuestion = (index: number, patch: Partial<ModuleQuizQuestion>) => {
+    setQuestions((prev) => {
+      const next = [...prev];
+      next[index] = { ...next[index], ...patch };
+      return next;
+    });
+  };
+
+  const removeQuestion = (index: number) => {
+    setQuestions((prev) => prev.filter((_, i) => i !== index));
+    setActiveQuestionIndex((prev) => {
+      if (prev === null) return null;
+      if (prev === index) return null;
+      return prev > index ? prev - 1 : prev;
+    });
+  };
+
+  const addQuestion = (questionType: ModuleQuizQuestion["questionType"]) => {
+    setQuestions((prev) => [...prev, createQuestion(questionType)]);
+  };
+
+  const updateOption = (qIdx: number, optIdx: number, value: string) => {
+    const q = questions[qIdx];
+    const options = [...(q.options ?? [])];
+    options[optIdx] = value;
+    updateQuestion(qIdx, { options });
+  };
+
+  const addOption = (qIdx: number) => {
+    const q = questions[qIdx];
+    updateQuestion(qIdx, { options: [...(q.options ?? []), ""] });
+  };
+
+  const removeOption = (qIdx: number, optIdx: number) => {
+    const q = questions[qIdx];
+    const options = (q.options ?? []).filter((_, i) => i !== optIdx);
+    updateQuestion(qIdx, { options });
+  };
+
+  // ── Derived values ──────────────────────────────────────────────────────────
+
+  const catalogItem = catalog.find((c) => c.id === generatorId);
+  const materias = Array.from(new Set(catalog.map((c) => c.materia)));
+  const currentSubtipoVars =
+    docs && selectedSubtipo
+      ? (docs.subtipos?.[selectedSubtipo]?.variables ?? {})
+      : {};
+  // Preview panel shows generator questions when a generator is selected,
+  // otherwise shows the manually-edited questions.
+  const previewList = generatorId ? previewQuestions : questions;
+
+  const handleSave = () => {
+    console.log({ quizTitle, instructions, generatorId, selectedSubtipo, questions });
+  };
+
+  // ── Render ──────────────────────────────────────────────────────────────────
+
   return (
-    <main className="flex-1 bg-slate-50">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-        <header className="space-y-2">
-          <p className="text-sm text-blue-600 font-semibold">Editor de cuestionarios</p>
-          <h1 className="text-3xl font-semibold">Nuevo cuestionario</h1>
-          <p className="text-sm text-gray-600">
-            Configurá los datos, el contenido y la generación automática. Al final vas a obtener un ID para
-            vincular este cuestionario a un módulo.
-          </p>
-        </header>
+    <div className="min-h-screen flex flex-col bg-slate-50">
+      {/* ── Header ─────────────────────────────────────────────────── */}
+      <header className="sticky top-0 z-10 bg-white border-b border-slate-200 shadow-sm">
+        <div className="flex items-center gap-3 px-4 sm:px-6 py-3">
+          <Link
+            className="text-sm text-blue-600 hover:underline whitespace-nowrap"
+            to="/modulos/crear"
+          >
+            ← Volver
+          </Link>
+          <span className="hidden sm:block text-sm font-semibold text-slate-600 whitespace-nowrap">
+            Editor de cuestionarios
+          </span>
+          <input
+            className="flex-1 min-w-0 rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+            placeholder="Título del cuestionario..."
+            value={quizTitle}
+            onChange={(e) => setQuizTitle(e.target.value)}
+          />
+          <button
+            type="button"
+            onClick={handleSave}
+            className="whitespace-nowrap rounded-md bg-violet-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-violet-700"
+          >
+            Guardar
+          </button>
+        </div>
+      </header>
 
-        <form className="space-y-8" onSubmit={handleSubmit}>
-          <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Nombre del cuestionario <span className="text-red-500">*</span>
-              </label>
-              <input
-                required
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                placeholder="Ej: Práctica de ecuaciones lineales"
-                value={quizName}
-                onChange={(event) => setQuizName(event.target.value)}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Materia <span className="text-red-500">*</span>
-                </label>
-                <select
-                  required
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white focus:border-blue-500 focus:ring-blue-500"
-                  value={subject}
-                  onChange={(event) => setSubject(event.target.value)}
-                >
-                  {SUBJECTS.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">ID del cuestionario</label>
-                <input
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Se genera automáticamente al guardar"
-                  value={quizId}
-                  onChange={(event) => setQuizId(event.target.value)}
-                />
-                <p className="mt-1 text-xs text-gray-500">
-                  Copiá este ID para pegarlo en el módulo.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Tipo de cuestionario</label>
-                <select
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white"
-                  value={quizType}
-                  onChange={(event) => {
-                    const nextType = event.target.value as ModuleQuiz["type"];
-                    setQuizType(nextType);
-                    if (nextType !== "competencia") {
-                      setCompetitionRules("");
-                      setCompetitionRulesVisibility("publico");
-                    }
-                  }}
-                >
-                  <option value="evaluacion">Evaluación</option>
-                  <option value="practica">Práctica</option>
-                  <option value="competencia">Competencia</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Visibilidad</label>
-                <select
-                  className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white"
-                  value={quizVisibility}
-                  onChange={(event) => setQuizVisibility(event.target.value as ModuleQuizVisibility)}
-                >
-                  <option value="publico">Público</option>
-                  <option value="escuela">Solo una escuela</option>
-                </select>
-              </div>
-            </div>
-
-            {quizType === "competencia" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Reglas de competencia</label>
-                  <textarea
-                    rows={3}
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    value={competitionRules}
-                    onChange={(event) => setCompetitionRules(event.target.value)}
-                    placeholder="Describe criterios, puntajes o dinámicas para la competencia."
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Visibilidad de reglas</label>
-                  <select
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white"
-                    value={competitionRulesVisibility}
-                    onChange={(event) =>
-                      setCompetitionRulesVisibility(event.target.value as ModuleQuizVisibility)
-                    }
-                  >
-                    <option value="publico">Público</option>
-                    <option value="escuela">Solo una escuela</option>
-                  </select>
-                  <p className="mt-1 text-xs text-gray-500">
-                    Define quién puede leer las reglas del desafío.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Modo de creación</label>
-              {subjectCapabilities.supportsAutoQuizzes ? (
-                <>
-                  <select className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 bg-white">
-                    <option>Generar automáticamente</option>
-                    <option>Escribir consignas manualmente</option>
-                  </select>
-                  <p className="mt-1 text-xs text-gray-500">{autoQuizHelperText}</p>
-                </>
-              ) : (
-                <p className="mt-2 rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
-                  {autoQuizHelperText}
-                </p>
-              )}
-            </div>
-          </section>
-
-          <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-6">
-            <div>
-              <h2 className="text-lg font-semibold">Contenido del cuestionario</h2>
-              <p className="text-sm text-gray-600">
-                Podés importar un banco de preguntas, crear consignas manuales y revisar la vista del alumno.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <QuizImportJson />
-
-              <div className="border rounded-lg p-4 space-y-2">
-                <h3 className="text-sm font-semibold">Descargar JSON base</h3>
-                <p className="text-xs text-gray-600">
-                  Genera un archivo base con estructura vacía para completar offline.
-                </p>
-                <button type="button" className="rounded-md border px-3 py-2 text-sm">
-                  Descargar plantilla JSON
-                </button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Nueva pregunta (opción múltiple)</h3>
-                <input
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                  placeholder="Enunciado"
-                />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Respuesta A"
-                  />
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Respuesta B"
-                  />
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Respuesta C"
-                  />
-                  <input
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                    placeholder="Respuesta D"
-                  />
-                </div>
-                <select className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white">
-                  <option>Respuesta correcta</option>
-                  <option>A</option>
-                  <option>B</option>
-                  <option>C</option>
-                  <option>D</option>
-                </select>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <textarea
-                    rows={2}
-                    className="rounded-md border border-gray-300 px-3 py-2 text-xs"
-                    placeholder="Explicación (por qué es correcta)"
-                  />
-                  <textarea
-                    rows={2}
-                    className="rounded-md border border-gray-300 px-3 py-2 text-xs"
-                    placeholder="Ayuda / pista (sin revelar la respuesta)"
-                  />
-                </div>
-              </div>
-
-              <div className="border rounded-lg p-4 space-y-3">
-                <h3 className="text-sm font-semibold">Previsualización del alumno</h3>
-                <div className="rounded-md border border-gray-200 p-3 bg-gray-50 space-y-2">
-                  <p className="text-sm font-medium">¿Cuál es la fórmula de la velocidad media?</p>
-                  <ul className="text-sm space-y-1">
-                    <li>A) v = d / t</li>
-                    <li>B) v = t / d</li>
-                    <li>C) v = d * t</li>
-                    <li>D) v = t - d</li>
-                  </ul>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-[11px] rounded-full bg-green-100 px-2 py-1 text-green-700">
-                      Resultado esperado
-                    </span>
-                    <span className="text-[11px] rounded-full bg-yellow-100 px-2 py-1 text-yellow-700">
-                      Ayuda disponible
-                    </span>
-                  </div>
-                  <div className="text-xs text-gray-600">
-                    <p>
-                      <span className="font-semibold">Explicación:</span> La velocidad media se calcula como
-                      distancia sobre tiempo.
-                    </p>
-                    <p>
-                      <span className="font-semibold">Ayuda:</span> Recordá que las magnitudes deben estar en el
-                      mismo sistema de unidades.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              <button type="button" className="rounded-md border px-4 py-2 text-sm">
-                + Agregar pregunta opción múltiple
-              </button>
-              <button type="button" className="rounded-md border px-4 py-2 text-sm">
-                + Agregar pregunta respuesta abierta
-              </button>
-            </div>
-          </section>
-
-          <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
-            <div>
-              <h2 className="text-lg font-semibold">Generación automática</h2>
-              <p className="text-sm text-gray-600">
-                Complementá tu banco con generadores, semillas y configuraciones rápidas.
-              </p>
-            </div>
-
-            <div className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
-              <p className="font-semibold text-slate-700">Disponibilidad de generación automática</p>
-              <p>{generatorAvailabilityMessage}</p>
-            </div>
-
-            {subjectCapabilities.supportsGenerators ? (
-              <>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="border rounded-lg p-4 space-y-3">
-                    <h3 className="text-sm font-semibold">Semilla y cantidad</h3>
-                    <p className="text-xs text-gray-600">
-                      Usa la semilla provista por el backend para reproducir exámenes de forma determinística.
-                    </p>
-                    <input
-                      disabled={generatorInputsDisabled}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      placeholder="Semilla del backend"
-                    />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      <input
-                        disabled={generatorInputsDisabled}
-                        type="number"
-                        min={1}
-                        className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                        placeholder="Preguntas a responder"
-                      />
-                      <input
-                        disabled={generatorInputsDisabled}
-                        type="number"
-                        min={1}
-                        className="rounded-md border border-gray-300 px-3 py-2 text-sm"
-                        placeholder="Preguntas generadas"
-                      />
-                    </div>
-                    <p className="text-xs text-gray-500">
-                      Ejemplo: el alumno responde 100 preguntas y se generan 200 para lograr aleatoriedad.
-                    </p>
-                  </div>
-
-                  <div className="border rounded-lg p-4 space-y-3">
-                    <h3 className="text-sm font-semibold">Generar ahora y guardar</h3>
-                    <textarea
-                      disabled={generatorInputsDisabled}
-                      rows={4}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
-                      placeholder="Notas para gerencia / revisión del examen generado..."
-                    />
-                    <button
-                      disabled={generatorInputsDisabled}
-                      type="button"
-                      className="rounded-md border px-3 py-2 text-sm disabled:opacity-60"
-                    >
-                      Generar preguntas y guardar resultados
-                    </button>
-                    <p className="text-xs text-gray-500">
-                      Recomendación: generar varias veces para aumentar la aleatoriedad.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="border rounded-lg p-4 bg-gray-50 space-y-3">
-                  <h3 className="text-sm font-semibold">Generador MVP (opcional)</h3>
-                  <p className="text-xs text-gray-600">
-                    Generador rápido para crear actividades basadas en categorías MVP.
-                  </p>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">Categoría MVP</label>
-                      <select
-                        disabled={generatorInputsDisabled}
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                      >
-                        {MVP_GENERATOR_CATEGORIES.map((category) => (
-                          <option key={category} value={category}>
-                            {category}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">Nivel sugerido</label>
-                      <select
-                        disabled={generatorInputsDisabled}
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                      >
-                        <option>Básico</option>
-                        <option>Intermedio</option>
-                        <option>Avanzado</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <textarea
-                    disabled={generatorInputsDisabled}
-                    placeholder="Descripción breve del generador o configuración base..."
-                    rows={3}
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-                  />
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
-                    <input
-                      disabled={generatorInputsDisabled}
-                      placeholder="Número de muestra / versión"
-                      className="rounded-md border border-gray-300 px-3 py-2"
-                    />
-                    <button
-                      disabled={generatorInputsDisabled}
-                      type="button"
-                      className="rounded-md border border-gray-300 px-3 py-2 text-sm text-left disabled:opacity-60"
-                    >
-                      Configurar generador
-                    </button>
-                    <button
-                      disabled={generatorInputsDisabled}
-                      type="button"
-                      className="bg-green-500 hover:bg-green-600 text-white rounded-md px-3 py-2 text-sm disabled:opacity-60"
-                    >
-                      Crear preguntas desde generador
-                    </button>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <div className="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-700">
-                La materia seleccionada no permite generación automática. Podés continuar con consignas manuales o
-                importaciones.
-              </div>
-            )}
-          </section>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              type="submit"
-              className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+      {/* ── Two-panel layout ────────────────────────────────────────── */}
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 overflow-hidden">
+        {/* ════════════════════════════════════════════════════════════
+            LEFT PANEL — Editor
+        ════════════════════════════════════════════════════════════ */}
+        <div className="overflow-y-auto p-4 sm:p-6 space-y-4">
+          {/* Section 1 — Generator selector */}
+          <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 space-y-3">
+            <h2 className="text-sm font-semibold text-slate-700">Generador automático</h2>
+            <select
+              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+              value={generatorId}
+              onChange={(e) => handleGeneratorChange(e.target.value)}
             >
-              Guardar cuestionario
-            </button>
-            <Link className="text-sm text-blue-600 hover:underline" to="/modulos/crear">
-              Volver al creador de módulos
-            </Link>
+              <option value="">Elegí un generador...</option>
+              {materias.map((materia) => (
+                <optgroup key={materia} label={materia}>
+                  {catalog
+                    .filter((c) => c.materia === materia)
+                    .map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.label}
+                      </option>
+                    ))}
+                </optgroup>
+              ))}
+            </select>
+
+            {catalogItem && catalogItem.subtipos.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-1">
+                {catalogItem.subtipos.map((sub) => (
+                  <button
+                    key={sub.id}
+                    type="button"
+                    onClick={() => handleSubtipoChange(sub.id)}
+                    className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+                      selectedSubtipo === sub.id
+                        ? "bg-violet-100 border-violet-300 text-violet-700"
+                        : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+                    }`}
+                  >
+                    {sub.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          {statusMessage && (
-            <div className="rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
-              {statusMessage}
+          {/* Section 2 — Variables insertables */}
+          {Object.keys(currentSubtipoVars).length > 0 && (
+            <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <h2 className="text-sm font-semibold text-slate-700">Variables del generador</h2>
+                {activeQuestionIndex === null ? (
+                  <p className="text-xs text-slate-400">
+                    Hacé foco en una pregunta para insertar
+                  </p>
+                ) : (
+                  <p className="text-xs text-violet-500">
+                    Insertando en pregunta {activeQuestionIndex + 1}
+                  </p>
+                )}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {Object.entries(currentSubtipoVars).map(([key, val]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    title={`${val.descripcion} — Ej: ${val.ejemplo}`}
+                    onClick={() => insertVariableInActiveQuestion(`{${key}}`)}
+                    className="bg-amber-50 border border-amber-200 text-amber-800 hover:bg-amber-100 rounded px-2 py-1 text-xs font-mono transition-colors"
+                  >
+                    {"{" + key + "}"}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
-        </form>
+
+          {/* Section 3 — Instructions */}
+          <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 space-y-2">
+            <label className="text-sm font-semibold text-slate-700">
+              Instrucciones (opcional)
+            </label>
+            <textarea
+              className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+              rows={2}
+              placeholder="Instrucciones para el alumno antes de comenzar..."
+              value={instructions}
+              onChange={(e) => setInstructions(e.target.value)}
+            />
+          </div>
+
+          {/* Section 4 — Question list */}
+          <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 space-y-4">
+            <h2 className="text-sm font-semibold text-slate-700">Preguntas manuales</h2>
+
+            {questions.length === 0 && (
+              <p className="text-sm text-slate-400">
+                Todavía no hay preguntas. Usá los botones de abajo para agregar.
+              </p>
+            )}
+
+            {questions.map((question, index) => {
+              const qType = question.questionType ?? "mc";
+              const showOptions = qType !== "input";
+              const isTrueFalse = qType === "vf";
+              const isActive = activeQuestionIndex === index;
+
+              return (
+                <div
+                  key={question.id}
+                  className={`rounded-lg border p-3 space-y-3 transition-colors ${
+                    isActive
+                      ? "border-violet-300 ring-1 ring-violet-200"
+                      : "border-slate-200"
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs font-semibold text-slate-500">
+                      Pregunta {index + 1}
+                    </span>
+                    <button
+                      type="button"
+                      className="text-xs text-red-500 hover:underline"
+                      onClick={() => removeQuestion(index)}
+                    >
+                      Quitar
+                    </button>
+                  </div>
+
+                  <textarea
+                    className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    rows={2}
+                    placeholder="Enunciado de la pregunta"
+                    value={question.prompt}
+                    onFocus={() => setActiveQuestionIndex(index)}
+                    onChange={(e) => updateQuestion(index, { prompt: e.target.value })}
+                  />
+
+                  <div className="flex items-center gap-3">
+                    <label className="text-xs font-medium text-slate-600">
+                      Tipo
+                      <select
+                        className="ml-2 rounded-md border border-slate-300 px-2 py-1 text-xs bg-white"
+                        value={qType}
+                        onChange={(e) => {
+                          const nextType =
+                            e.target.value as ModuleQuizQuestion["questionType"];
+                          const options =
+                            nextType === "vf"
+                              ? ["Verdadero", "Falso"]
+                              : nextType === "input"
+                              ? []
+                              : question.options?.length
+                              ? question.options
+                              : ["", ""];
+                          updateQuestion(index, {
+                            questionType: nextType,
+                            options,
+                            answerKey: "",
+                          });
+                        }}
+                      >
+                        <option value="mc">Opción múltiple</option>
+                        <option value="vf">Verdadero/Falso</option>
+                        <option value="input">Respuesta abierta</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  {qType === "input" && (
+                    <label className="block text-xs font-medium text-slate-600">
+                      Respuesta esperada
+                      <input
+                        className="mt-1 w-full rounded-md border border-slate-300 px-2 py-1.5 text-sm"
+                        value={
+                          Array.isArray(question.answerKey)
+                            ? question.answerKey.join(", ")
+                            : (question.answerKey ?? "")
+                        }
+                        onChange={(e) =>
+                          updateQuestion(index, { answerKey: e.target.value })
+                        }
+                        placeholder="Respuesta"
+                      />
+                    </label>
+                  )}
+
+                  {showOptions && (
+                    <div className="space-y-2">
+                      <p className="text-xs font-medium text-slate-600">
+                        {isTrueFalse
+                          ? "Respuesta correcta"
+                          : "Opciones — seleccioná la correcta"}
+                      </p>
+                      {(question.options ?? []).map((opt, optIdx) => (
+                        <div
+                          key={`${question.id}-opt-${optIdx}`}
+                          className="flex items-center gap-2"
+                        >
+                          <input
+                            type="radio"
+                            name={`ans-${question.id}`}
+                            checked={question.answerKey === opt}
+                            onChange={() => updateQuestion(index, { answerKey: opt })}
+                            title="Marcar como correcta"
+                          />
+                          <input
+                            className="flex-1 rounded-md border border-slate-300 px-2 py-1.5 text-sm"
+                            value={opt}
+                            disabled={isTrueFalse}
+                            onChange={(e) => updateOption(index, optIdx, e.target.value)}
+                            placeholder={`Opción ${optIdx + 1}`}
+                          />
+                          {!isTrueFalse && (
+                            <button
+                              type="button"
+                              className="text-xs text-red-400 hover:text-red-600"
+                              onClick={() => removeOption(index, optIdx)}
+                            >
+                              ×
+                            </button>
+                          )}
+                        </div>
+                      ))}
+                      {!isTrueFalse && (
+                        <button
+                          type="button"
+                          className="text-xs text-blue-600 hover:underline"
+                          onClick={() => addOption(index)}
+                        >
+                          + Agregar opción
+                        </button>
+                      )}
+                    </div>
+                  )}
+
+                  <textarea
+                    className="w-full rounded-md border border-slate-200 px-3 py-2 text-xs text-slate-500 focus:outline-none focus:ring-1 focus:ring-violet-300"
+                    rows={1}
+                    placeholder="Explicación (opcional)"
+                    value={question.explanation ?? ""}
+                    onChange={(e) =>
+                      updateQuestion(index, { explanation: e.target.value })
+                    }
+                  />
+                </div>
+              );
+            })}
+
+            <div className="flex flex-wrap gap-2 pt-1">
+              <button
+                type="button"
+                className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs hover:bg-slate-50"
+                onClick={() => addQuestion("mc")}
+              >
+                + Opción múltiple
+              </button>
+              <button
+                type="button"
+                className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs hover:bg-slate-50"
+                onClick={() => addQuestion("vf")}
+              >
+                + Verdadero/Falso
+              </button>
+              <button
+                type="button"
+                className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs hover:bg-slate-50"
+                onClick={() => addQuestion("input")}
+              >
+                + Respuesta abierta
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* ════════════════════════════════════════════════════════════
+            RIGHT PANEL — Preview
+        ════════════════════════════════════════════════════════════ */}
+        <div className="overflow-y-auto p-4 sm:p-6 space-y-4">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 space-y-4">
+            <div className="flex items-center justify-between gap-2">
+              <h2 className="text-sm font-semibold text-slate-700">
+                {generatorId ? "Vista previa del generador" : "Vista del alumno"}
+              </h2>
+              {generatorId && (
+                <span className="text-xs text-slate-400">seed 42 · 3 ejemplos</span>
+              )}
+            </div>
+
+            {instructions && (
+              <div className="rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-sm text-blue-800 leading-relaxed">
+                {instructions}
+              </div>
+            )}
+
+            {previewList.length === 0 ? (
+              <p className="text-sm text-slate-400">
+                {generatorId
+                  ? "Cargando preguntas del generador..."
+                  : "Agregá preguntas para ver la vista del alumno."}
+              </p>
+            ) : (
+              <ol className="space-y-5">
+                {previewList.map((question, index) => {
+                  const hasOptions =
+                    Array.isArray(question.options) && question.options.length > 0;
+                  const qType =
+                    question.questionType ?? (hasOptions ? "mc" : "input");
+
+                  return (
+                    <li key={question.id} className="space-y-2">
+                      <p className="text-xs text-slate-400">Pregunta {index + 1}</p>
+                      <p className="text-sm text-slate-800 leading-relaxed">
+                        {generatorId ? (
+                          question.prompt
+                        ) : (
+                          <PromptWithVariables text={question.prompt || ""} />
+                        )}
+                      </p>
+                      {qType === "input" ? (
+                        <div className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2">
+                          <p className="text-xs text-slate-400 italic">Respuesta abierta</p>
+                        </div>
+                      ) : (
+                        <ul className="space-y-1.5">
+                          {(question.options ?? []).map((opt, optIdx) => (
+                            <li
+                              key={`prev-${question.id}-${optIdx}`}
+                              className="flex items-center gap-2 text-sm text-slate-700"
+                            >
+                              <span className="w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full border border-slate-300 text-xs text-slate-500">
+                                {String.fromCharCode(65 + optIdx)}
+                              </span>
+                              {opt || (
+                                <span className="text-slate-300 italic text-xs">opción vacía</span>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+            )}
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }
