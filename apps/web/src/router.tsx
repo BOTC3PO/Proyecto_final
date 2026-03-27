@@ -41,7 +41,6 @@ import QuizAttempt from "./pages/quizzes/QuizAttempt";
 import LaboratorioWeb3 from "./pages/LaboratorioWeb3";
 import ProfesorCalendario from "./pages/ProfesorCalendario";
 import HijosAgregar from "./pages/HijosAgregar";
-import AdminPanel from "./pages/adminPanel";
 import AdminGeneradores from "./pages/AdminGeneradores";
 import Admin from "./pages/Admin";
 import AdminUsuarios from "./pages/AdminUsuarios";
@@ -176,11 +175,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "admin/panel",
-        element: (
-          <ProtectedRoute allow={['ADMIN']}>
-            <AdminPanel />
-          </ProtectedRoute>
-        ),
+        element: <Navigate to="/admin" replace />,
       },
       {
         path: "admin/moderacion",
