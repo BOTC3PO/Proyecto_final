@@ -124,6 +124,9 @@ export default function EditorCuestionarios() {
   const [activeQuestionIndex, setActiveQuestionIndex] = useState<number | null>(null);
   const [quizTitle, setQuizTitle] = useState("");
   const [instructions, setInstructions] = useState("");
+  const [exportStatus, setExportStatus] = useState<"idle" | "copied" | "error">("idle");
+  const [quizType, setQuizType] = useState<"evaluacion" | "practica">("evaluacion");
+  const [quizVisibility, setQuizVisibility] = useState<"publico" | "escuela">("publico");
 
   // Load catalog on mount
   useEffect(() => {
@@ -264,8 +267,42 @@ export default function EditorCuestionarios() {
   // otherwise shows the manually-edited questions.
   const previewList = generatorId ? previewQuestions : questions;
 
-  const handleSave = () => {
-    console.log({ quizTitle, instructions, generatorId, selectedSubtipo, questions });
+  const buildExportJson = () => ({
+    title: quizTitle.trim() || "Cuestionario sin título",
+    type: quizType,
+    visibility: quizVisibility,
+    instructions: instructions.trim() || undefined,
+    questions: questions.map((q) => ({
+      prompt: q.prompt,
+      questionType: q.questionType,
+      options: q.options?.length ? q.options : undefined,
+      answerKey: q.answerKey,
+      explanation: q.explanation || undefined,
+      focus: (q as ModuleQuizQuestion & { focus?: string }).focus || undefined,
+    })),
+  });
+
+  const handleDownload = () => {
+    if (questions.length === 0) return;
+    const data = buildExportJson();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${data.title.replace(/\s+/g, "_").toLowerCase()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleCopy = async () => {
+    if (questions.length === 0) return;
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(buildExportJson(), null, 2));
+      setExportStatus("copied");
+      setTimeout(() => setExportStatus("idle"), 2000);
+    } catch {
+      setExportStatus("error");
+    }
   };
 
   // ── Render ──────────────────────────────────────────────────────────────────
@@ -290,13 +327,41 @@ export default function EditorCuestionarios() {
             value={quizTitle}
             onChange={(e) => setQuizTitle(e.target.value)}
           />
-          <button
-            type="button"
-            onClick={handleSave}
-            className="whitespace-nowrap rounded-md bg-violet-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-violet-700"
+          <select
+            value={quizType}
+            onChange={(e) => setQuizType(e.target.value as "evaluacion" | "practica")}
+            className="rounded-lg border border-slate-200 px-3 py-2 text-sm bg-white"
           >
-            Guardar
+            <option value="evaluacion">📝 Evaluación</option>
+            <option value="practica">✏️ Práctica</option>
+          </select>
+          <select
+            value={quizVisibility}
+            onChange={(e) => setQuizVisibility(e.target.value as "publico" | "escuela")}
+            className="rounded-lg border border-slate-200 px-3 py-2 text-sm bg-white"
+          >
+            <option value="publico">🌐 Público</option>
+            <option value="escuela">🏫 Escuela</option>
+          </select>
+          <button
+            onClick={handleDownload}
+            disabled={questions.length === 0}
+            className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50"
+          >
+            ⬇ Descargar JSON
           </button>
+          <button
+            onClick={handleCopy}
+            disabled={questions.length === 0}
+            className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+          >
+            {exportStatus === "copied" ? "✓ Copiado" : "Copiar JSON"}
+          </button>
+          {questions.length === 0 && (
+            <p className="text-xs text-slate-400">
+              Agregá al menos una pregunta para exportar.
+            </p>
+          )}
         </div>
       </header>
 
