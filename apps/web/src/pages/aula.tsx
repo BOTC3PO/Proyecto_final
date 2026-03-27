@@ -547,8 +547,25 @@ export default function aula() {
                 {!feedLoading &&
                   !feedError &&
                   upcomingActivities.map((activity) => (
-                    <li key={activity.id}>
-                      {activity.label} — <span className="text-gray-600">{activity.when}</span>
+                    <li key={activity.id}
+                      className="flex items-start gap-2 rounded-lg border border-slate-100 px-3 py-2">
+                      <span className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ${
+                        activity.tipo === "evaluacion"
+                          ? "bg-amber-100 text-amber-700"
+                          : activity.tipo === "evento"
+                          ? "bg-violet-100 text-violet-700"
+                          : "bg-blue-100 text-blue-700"
+                      }`}>
+                        {activity.tipo === "evaluacion" ? "📝"
+                          : activity.tipo === "evento" ? "📅" : "📖"}
+                      </span>
+                      <div>
+                        <p className="text-sm font-medium text-slate-800">{activity.label}</p>
+                        <p className="text-xs text-slate-400">{activity.when}</p>
+                        {activity.descripcion && (
+                          <p className="text-xs text-slate-500 mt-0.5">{activity.descripcion}</p>
+                        )}
+                      </div>
                     </li>
                   ))}
               </ul>

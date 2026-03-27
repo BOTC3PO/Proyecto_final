@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { requirePolicy } from "../lib/authorization";
 import { getDb } from "../lib/db";
+import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
 import { isClassroomReadOnlyStatus } from "../schema/aula";
 import type { Classroom } from "../schema/aula";
@@ -116,11 +117,70 @@ aulaFeed.get("/api/aula/actividades", requireUser, requirePolicy("aula-feed/read
   if (!context.success) {
     return res.status(context.error.status).json({ error: context.error.message });
   }
-  const db = await getDb();
-  const items = await db
-    .collection("actividades")
-    .find({ aulaId: context.classroomId, isDeleted: { $ne: true } })
-    .sort({ createdAt: 1 })
-    .toArray();
-  res.json({ items });
+
+  const db = openContentDb();
+  const hoy = new Date().toISOString();
+  const rows = db.prepare(`
+    SELECT id, tipo, titulo, descripcion, fecha
+    FROM actividades_aula
+    WHERE aula_id = ? AND is_deleted = 0 AND fecha >= ?
+    ORDER BY fecha ASC
+    LIMIT 10
+  `).all(context.classroomId, hoy) as Array<{ id: string; tipo: string; titulo: string; descripcion: string | null; fecha: string }>;
+
+  res.json({
+    items: rows.map((row) => ({
+      id: row.id,
+      label: row.titulo,
+      when: new Date(row.fecha).toLocaleDateString("es-AR", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+      }),
+      tipo: row.tipo,
+      descripcion: row.descripcion ?? undefined,
+      fecha: row.fecha,
+    })),
+  });
+});
+
+aulaFeed.post("/api/aula/actividades", requireUser, requirePolicy("aula-feed/write"), (req, res) => {
+  const { classroomId, tipo, titulo, descripcion, fecha } = req.body as Record<string, unknown>;
+
+  if (!classroomId || !tipo || !titulo || !fecha) {
+    return res.status(400).json({ error: "classroomId, tipo, titulo y fecha son requeridos" });
+  }
+
+  const VALID_TIPOS = new Set(["clase", "evaluacion", "evento"]);
+  if (!VALID_TIPOS.has(String(tipo))) {
+    return res.status(400).json({ error: "tipo inválido" });
+  }
+
+  const db = openContentDb();
+  const id = `act-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  const createdBy = getRequesterId(req as never) ?? "unknown";
+  const now = new Date().toISOString();
+
+  db.prepare(`
+    INSERT INTO actividades_aula
+      (id, aula_id, tipo, titulo, descripcion, fecha, created_by, created_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(
+    id,
+    String(classroomId),
+    String(tipo),
+    String(titulo),
+    descripcion != null ? String(descripcion) : null,
+    String(fecha),
+    createdBy,
+    now
+  );
+
+  res.status(201).json({ id, tipo, titulo, descripcion, fecha });
+});
+
+aulaFeed.delete("/api/aula/actividades/:id", requireUser, requirePolicy("aula-feed/write"), (req, res) => {
+  const db = openContentDb();
+  db.prepare("UPDATE actividades_aula SET is_deleted = 1 WHERE id = ?").run(req.params.id);
+  res.json({ ok: true });
 });
