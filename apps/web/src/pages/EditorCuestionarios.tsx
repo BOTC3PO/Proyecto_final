@@ -131,8 +131,10 @@ export default function EditorCuestionarios() {
   const [quizTitle, setQuizTitle] = useState("");
   const [instructions, setInstructions] = useState("");
   const [exportStatus, setExportStatus] = useState<"idle" | "copied" | "error">("idle");
-  const [quizType, setQuizType] = useState<"evaluacion" | "practica">("evaluacion");
+  const [quizType, setQuizType] = useState<"practica" | "formal">("formal");
   const [quizVisibility, setQuizVisibility] = useState<"publico" | "escuela">("publico");
+  const [previewStatus, setPreviewStatus] =
+    useState<"idle" | "loading" | "ready" | "error">("idle");
 
   // Load catalog on mount
   useEffect(() => {
@@ -146,6 +148,8 @@ export default function EditorCuestionarios() {
   const generatePreview = async (genId: string, subtipo: string) => {
     const descriptorId = `${genId}/${subtipo}`;
     const [materia] = descriptorId.split("/");
+    setPreviewStatus("loading");
+    setPreviewQuestions([]);
     try {
       const mod = await loadGeneratorModule(materia);
       const prng = new DeterministicPrng(42);
@@ -163,14 +167,16 @@ export default function EditorCuestionarios() {
       const descriptor = descriptores.find((d) => d.id === descriptorId);
       if (!descriptor) {
         setPreviewQuestions([]);
+        setPreviewStatus("idle");
         return;
       }
       const ejercicios: Ejercicio[] = Array.from({ length: 3 }, () =>
         descriptor.generate(undefined, prng)
       );
       setPreviewQuestions(ejercicios.map(ejercicioToQuestion));
+      setPreviewStatus("ready");
     } catch {
-      setPreviewQuestions([]);
+      setPreviewStatus("error");
     }
   };
 
@@ -351,10 +357,10 @@ export default function EditorCuestionarios() {
           />
           <select
             value={quizType}
-            onChange={(e) => setQuizType(e.target.value as "evaluacion" | "practica")}
+            onChange={(e) => setQuizType(e.target.value as "practica" | "formal")}
             className="rounded-lg border border-slate-200 px-3 py-2 text-sm bg-white"
           >
-            <option value="evaluacion">📝 Evaluación</option>
+            <option value="formal">📝 Evaluación formal</option>
             <option value="practica">✏️ Práctica</option>
           </select>
           <select
@@ -685,7 +691,20 @@ export default function EditorCuestionarios() {
                 {generatorId ? "Vista previa del generador" : "Vista del alumno"}
               </h2>
               {generatorId && (
-                <span className="text-xs text-slate-400">seed 42 · 3 ejemplos</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-slate-400">3 ejemplos</span>
+                  <button
+                    type="button"
+                    className="text-xs text-violet-600 hover:underline"
+                    onClick={() => {
+                      if (generatorId && selectedSubtipo) {
+                        generatePreview(generatorId, selectedSubtipo);
+                      }
+                    }}
+                  >
+                    ↺ Regenerar
+                  </button>
+                </div>
               )}
             </div>
 
@@ -695,10 +714,43 @@ export default function EditorCuestionarios() {
               </div>
             )}
 
-            {previewList.length === 0 ? (
+            {generatorId && previewQuestions.length > 0 && (
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 transition-colors"
+                onClick={() => {
+                  setQuestions((prev) => [
+                    ...prev,
+                    ...previewQuestions.map((q) => ({
+                      ...q,
+                      id: `q-${Date.now()}-${Math.random().toString(16).slice(2)}-${q.id}`,
+                    })),
+                  ]);
+                }}
+              >
+                + Agregar {previewQuestions.length} preguntas al cuestionario
+              </button>
+            )}
+
+            {previewStatus === "loading" ? (
+              <div className="flex items-center gap-2 text-sm text-slate-400">
+                <svg className="h-4 w-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10"
+                    stroke="currentColor" strokeWidth="4"/>
+                  <path className="opacity-75" fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                </svg>
+                Generando ejemplos...
+              </div>
+            ) : previewStatus === "error" ? (
+              <p className="text-sm text-red-400">
+                No se pudo cargar el generador.
+              </p>
+            ) : previewList.length === 0 ? (
               <p className="text-sm text-slate-400">
                 {generatorId
-                  ? "Cargando preguntas del generador..."
+                  ? "Seleccioná un subtipo para ver ejemplos."
                   : "Agregá preguntas para ver la vista del alumno."}
               </p>
             ) : (

@@ -144,6 +144,12 @@ export default function AdminPanel() {
           >
             Gobernanza
           </Link>
+          <Link
+            to="/admin/generadores"
+            className="rounded-full border border-violet-200 px-4 py-2 text-sm font-semibold text-violet-700 hover:bg-violet-50 transition-colors"
+          >
+            Generadores y sugerencias
+          </Link>
         </div>
       </section>
 
