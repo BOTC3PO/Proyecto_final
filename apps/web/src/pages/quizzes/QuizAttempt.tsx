@@ -5,6 +5,7 @@ import type { ModuleQuizQuestion } from "../../domain/module/module.types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
+import { DeterministicPrng } from "../../generadoresV2/core/prng";
 
 function parseVisualContext(detail: string | undefined): VisualSpec | null {
   if (!detail) return null;
@@ -155,10 +156,26 @@ export default function QuizAttempt() {
     // Formato del id: "materia/subtipo" ej "biologia/biologia"
     const [materia] = genId.split("/");
 
-    import(`../../generadoresV2/${materia}/index`)
-      .then((mod) => {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        const { DeterministicPrng } = require("../../generadoresV2/core/prng") as { DeterministicPrng: new (seed: string | number) => import("../../generadoresV2/core/prng").PRNG };
+    const loadGeneratorModule = (mat: string) => {
+      switch (mat) {
+        case "biologia":
+          return import("../../generadoresV2/biologia/index");
+        case "informatica":
+          return import("../../generadoresV2/informatica/index");
+        case "fisica":
+          return import("../../generadoresV2/fisica/index");
+        case "matematicas":
+          return import("../../generadoresV2/matematicas/index");
+        case "quimica":
+          return import("../../generadoresV2/quimica/index");
+        case "economia":
+          return import("../../generadoresV2/economia/index");
+        default:
+          return Promise.reject(new Error(`Generador no encontrado: ${mat}`));
+      }
+    };
+
+    loadGeneratorModule(materia).then((mod) => {
         const prng = new DeterministicPrng(seed ?? 0);
 
         // Obtener el generador que coincide con el id

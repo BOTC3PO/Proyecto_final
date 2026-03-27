@@ -109,6 +109,7 @@ export default function ModuloEditor() {
   } = useModuloEditor(id, user, navigate);
 
   const isTeacher = user?.role === "TEACHER";
+  const isEvaluacionMode = form.category === "evaluacion";
 
   const quizCountLabel =
     quizzes.length === 0
@@ -241,12 +242,15 @@ export default function ModuloEditor() {
                   </label>
                   <label className="block text-sm font-medium text-gray-700">
                     <span className="mb-1.5 flex items-center gap-1.5">&#128193; Categoría</span>
-                    <input
-                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    <select
                       value={form.category}
-                      onChange={(event) => updateForm("category", event.target.value)}
-                      required
-                    />
+                      onChange={(e) => updateForm("category", e.target.value)}
+                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm"
+                    >
+                      <option value="">Sin categoría</option>
+                      <option value="evaluacion">📝 Evaluación</option>
+                      <option value="competencia">🏆 Competencia</option>
+                    </select>
                   </label>
                 </div>
 
@@ -278,15 +282,16 @@ export default function ModuloEditor() {
                       ))}
                     </select>
                   </label>
+                  {!isEvaluacionMode && (
                   <label className="block text-sm font-medium text-gray-700">
                     <span className="mb-1.5 flex items-center gap-1.5">&#127942; Nivel</span>
                     <input
                       className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
                       value={form.level}
                       onChange={(event) => updateForm("level", event.target.value)}
-                      required
                     />
                   </label>
+                  )}
                   <label className="block text-sm font-medium text-gray-700">
                     <span className="mb-1.5 flex items-center gap-1.5">&#9202; Duración (min)</span>
                     <input
@@ -390,6 +395,7 @@ export default function ModuloEditor() {
                 </div>
               </section>
 
+              {!isEvaluacionMode && (<>
               {/* ── Teoría ── */}
               <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
                 <div className="h-1.5 bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500" />
@@ -902,7 +908,9 @@ export default function ModuloEditor() {
                 )}
                 </div>
               </section>
+              </>)}
 
+              {!isEvaluacionMode && (<>
               {/* ── Dependencias ── */}
               <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
                 <div className="h-1.5 bg-gradient-to-r from-slate-400 via-gray-400 to-zinc-400" />
@@ -1015,6 +1023,21 @@ export default function ModuloEditor() {
                 )}
                 </div>
               </section>
+              </>)}
+
+              {isEvaluacionMode && (
+              <div className="rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 flex items-start gap-3">
+                <span className="text-2xl">📝</span>
+                <div>
+                  <p className="text-sm font-semibold text-amber-800">Modo Evaluación</p>
+                  <p className="text-xs text-amber-700 mt-1">
+                    El módulo está configurado como evaluación. El alumno ve directamente el
+                    cuestionario sin sección de teoría. Usá las instrucciones del cuestionario
+                    para dar contexto.
+                  </p>
+                </div>
+              </div>
+              )}
 
               {/* ── Cuestionarios ── */}
               <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
@@ -1041,6 +1064,7 @@ export default function ModuloEditor() {
                   >
                     <span className="text-base leading-none">+</span> Manual
                   </button>
+                  {!isEvaluacionMode && (
                   <button
                     type="button"
                     className="inline-flex items-center gap-1.5 rounded-lg border-2 border-violet-200 bg-violet-50 px-4 py-2.5 text-sm font-medium text-violet-700 shadow-sm transition-all duration-200 hover:bg-violet-100 hover:border-violet-300 active:scale-[0.98]"
@@ -1048,6 +1072,7 @@ export default function ModuloEditor() {
                   >
                     <span className="text-base leading-none">+</span> Generado
                   </button>
+                  )}
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2">
