@@ -42,6 +42,7 @@ import LaboratorioWeb3 from "./pages/LaboratorioWeb3";
 import ProfesorCalendario from "./pages/ProfesorCalendario";
 import HijosAgregar from "./pages/HijosAgregar";
 import AdminPanel from "./pages/adminPanel";
+import AdminGeneradores from "./pages/AdminGeneradores";
 import Admin from "./pages/Admin";
 import AdminUsuarios from "./pages/AdminUsuarios";
 import AdminCursos from "./pages/AdminCursos";
@@ -186,6 +187,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['ADMIN']}>
             <AdminModeracion />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "admin/generadores",
+        element: (
+          <ProtectedRoute allow={['ADMIN']}>
+            <AdminGeneradores />
           </ProtectedRoute>
         ),
       },
