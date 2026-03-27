@@ -8,7 +8,7 @@ export const suggestions = Router();
 
 const VALID_SUGGESTION_TYPES = new Set(["ERRATA", "MEJORA", "CONTENIDO"]);
 const VALID_TARGET_TYPES = new Set(["generator", "module"]);
-const VALID_REVIEW_STATUSES = new Set(["REVIEWED", "DISCARDED"]);
+const VALID_REVIEW_STATUSES = new Set(["REVIEWED", "DISCARDED", "PINNED"]);
 
 type SuggestionRow = {
   id: string;
@@ -128,7 +128,7 @@ suggestions.patch("/api/suggestions/:id", requireAdmin, (req, res) => {
   const { status, admin_note } = req.body as Record<string, unknown>;
 
   if (!status || !VALID_REVIEW_STATUSES.has(String(status))) {
-    res.status(400).json({ error: "status inválido. Debe ser REVIEWED o DISCARDED" });
+    res.status(400).json({ error: "status inválido. Debe ser REVIEWED, DISCARDED o PINNED" });
     return;
   }
 
