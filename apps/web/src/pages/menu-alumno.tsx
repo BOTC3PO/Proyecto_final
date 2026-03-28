@@ -106,13 +106,6 @@ type EconomyState = {
   activeTheme: string;
 };
 
-const STORE_ITEMS: StoreItem[] = [
-  { id: "clasico", name: "Tema clásico", description: "Diseño limpio y familiar.", price: 0 },
-  { id: "aurora", name: "Tema aurora", description: "Paleta suave con gradientes cálidos.", price: 40 },
-  { id: "nocturno", name: "Tema nocturno", description: "Colores oscuros para modo noche.", price: 55 },
-  { id: "vibrante", name: "Tema vibrante", description: "Accentos coloridos para destacar logros.", price: 65 }
-];
-
 const ECONOMIC_SIMULATIONS: SimulationScenario[] = [
   {
     id: "sim-demanda",
@@ -837,141 +830,103 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             </div>
           </section>
           <section className="bg-white rounded-2xl shadow p-6 space-y-4">
-            <h3 className="text-lg font-semibold text-gray-800">Tienda básica</h3>
+            <h3 className="text-lg font-semibold text-gray-800">Tienda</h3>
             <p className="text-sm text-gray-500">
               Comprá temas y mejoras visuales para tu experiencia.
             </p>
             <div className="space-y-3">
-              {STORE_ITEMS.map((item) => {
+              {availableThemes.map((item) => {
                 const isOwned = economy.ownedThemes.includes(item.id);
+                const isActive = theme === item.id;
                 return (
-                  <div key={item.id} className="flex items-center justify-between rounded-xl border border-gray-200 p-3">
+                  <div key={item.id}
+                    className="flex items-center justify-between rounded-xl border border-gray-200 p-3">
                     <div>
-                      <p className="text-sm font-semibold text-gray-800">{item.name}</p>
-                      <p className="text-xs text-gray-400">{item.description}</p>
-                      <p className="text-xs text-gray-500 mt-1">Precio: {item.price} 🪙</p>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="space-y-3">
-                <h4 className="text-sm font-semibold text-gray-700">Tareas</h4>
-                {TASK_REWARDS.map((task) => {
-                  const isCompleted = completedTaskSet.has(task.id);
-                  return (
-                    <div key={task.id} className="flex items-center justify-between rounded-xl border border-gray-200 p-3">
-                      <div>
-                        <p className="text-sm font-medium text-gray-800">{task.title}</p>
-                        <p className="text-xs text-gray-400">Recompensa: {task.reward} 🪙</p>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => handleCompleteReward(task, "task")}
-                        className={`rounded-lg px-3 py-1 text-xs font-semibold ${
-                          isCompleted
-                            ? "bg-gray-100 text-gray-500"
-                            : "bg-indigo-600 text-white hover:bg-indigo-700"
-                        }`}
-                        disabled={isCompleted}
-                      >
-                        {isCompleted ? "Ganado" : "Completar"}
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-          <section className="grid gap-5 lg:grid-cols-2">
-            <div className="bg-white rounded-2xl shadow p-6 space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800">Tienda básica</h3>
-              <p className="text-sm text-gray-500">
-                Comprá temas y mejoras visuales para tu experiencia.
-              </p>
-              <div className="space-y-3">
-                {availableThemes.map((item) => {
-                  const isOwned = economy.ownedThemes.includes(item.id);
-                  const isActive = theme === item.id;
-                  return (
-                    <div key={item.id} className="flex items-center justify-between rounded-xl border border-gray-200 p-3">
-                      <div>
+                      <div className="flex items-center gap-2">
                         <p className="text-sm font-semibold text-gray-800">
                           {item.name}
-                          {item.animated && (
-                            <span className="ml-2 text-[10px] font-semibold uppercase tracking-wide text-violet-500">
-                              Animado
-                            </span>
-                          )}
                         </p>
-                        <p className="text-xs text-gray-500 mt-1">Precio: {item.price} 🪙</p>
+                        {item.animated && (
+                          <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-semibold text-violet-700">
+                            Animado
+                          </span>
+                        )}
+                        {isActive && (
+                          <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-semibold text-blue-700">
+                            Activo
+                          </span>
+                        )}
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => handlePurchaseTheme(item)}
-                        className={`rounded-lg px-3 py-1 text-xs font-semibold ${
-                          isActive
-                            ? "bg-blue-100 text-blue-700"
-                            : isOwned
-                              ? "bg-emerald-100 text-emerald-700"
-                              : economy.coins >= item.price
-                                ? "bg-emerald-600 text-white hover:bg-emerald-700"
-                                : "bg-gray-100 text-gray-500"
-                        }`}
-                        disabled={!isOwned && economy.coins < item.price}
-                      >
-                        {isActive ? "Activo" : isOwned ? "Activar" : "Comprar"}
-                      </button>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Precio: {item.price === 0 ? "Gratis" : `${item.price} 🪙`}
+                      </p>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow p-6 space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800">Intercambio entre alumnos</h3>
-              <p className="text-sm text-gray-500">Enviá monedas a compañeros de forma simple.</p>
-              <div className="space-y-3">
-                <div>
-                  <label className="text-sm text-gray-600" htmlFor="transfer-to">
-                    Destinatario
-                  </label>
-                  <input
-                    id="transfer-to"
-                    type="text"
-                    value={transferTo}
-                    onChange={(event) => setTransferTo(event.target.value)}
-                    placeholder="Ej: Juan Pérez"
-                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
-                  />
-                </div>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div>
-                    <label className="text-sm text-gray-600" htmlFor="transfer-amount">
-                      Monto
-                    </label>
-                    <input
-                      id="transfer-amount"
-                      type="number"
-                      min={1}
-                      value={transferAmount}
-                      onChange={(event) => setTransferAmount(Number(event.target.value))}
-                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm text-gray-600" htmlFor="transfer-note">
-                      Nota (opcional)
-                    </label>
-                    <input
-                      id="transfer-note"
-                      type="text"
-                      value={transferNote}
-                      onChange={(event) => setTransferNote(event.target.value)}
-                      placeholder="Gracias por ayudar"
-                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
-                    />
+                    <button
+                      type="button"
+                      onClick={() => handlePurchaseTheme(item)}
+                      className={`rounded-lg px-3 py-1 text-xs font-semibold ${
+                        isActive
+                          ? "bg-blue-100 text-blue-700"
+                          : isOwned
+                          ? "bg-emerald-100 text-emerald-700"
+                          : economy.coins >= item.price
+                          ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                          : "bg-gray-100 text-gray-400"
+                      }`}
+                      disabled={isActive || (!isOwned && economy.coins < item.price)}
+                    >
+                      {isActive ? "Activo" : isOwned ? "Activar" : "Comprar"}
+                    </button>
                   </div>
                 );
               })}
+            </div>
+          </section>
+          <section className="bg-white rounded-2xl shadow p-6 space-y-4">
+            <h3 className="text-lg font-semibold text-gray-800">Intercambio entre alumnos</h3>
+            <p className="text-sm text-gray-500">Enviá monedas a compañeros de forma simple.</p>
+            <div className="space-y-3">
+              <div>
+                <label className="text-sm text-gray-600" htmlFor="transfer-to">
+                  Destinatario
+                </label>
+                <input
+                  id="transfer-to"
+                  type="text"
+                  value={transferTo}
+                  onChange={(event) => setTransferTo(event.target.value)}
+                  placeholder="Ej: Juan Pérez"
+                  className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                />
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div>
+                  <label className="text-sm text-gray-600" htmlFor="transfer-amount">
+                    Monto
+                  </label>
+                  <input
+                    id="transfer-amount"
+                    type="number"
+                    min={1}
+                    value={transferAmount}
+                    onChange={(event) => setTransferAmount(Number(event.target.value))}
+                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="text-sm text-gray-600" htmlFor="transfer-note">
+                    Nota (opcional)
+                  </label>
+                  <input
+                    id="transfer-note"
+                    type="text"
+                    value={transferNote}
+                    onChange={(event) => setTransferNote(event.target.value)}
+                    placeholder="Gracias por ayudar"
+                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                  />
+                </div>
+              </div>
             </div>
           </section>
         </Container>
