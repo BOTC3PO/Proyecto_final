@@ -15,6 +15,33 @@ type PerfilData = {
   hijos: Array<{ id: string; nombre: string; usuario: string }>;
 };
 
+type ProgressItem = {
+  moduloId: string;
+  status: "iniciado" | "en_progreso" | "completado";
+};
+
+type ModuloBasico = {
+  id: string;
+  title: string;
+  subject?: string;
+  category?: string;
+};
+
+type FortalezaMateria = {
+  materia: string;
+  completados: number;
+  total: number;
+  porcentaje: number;
+};
+
+type Logro = {
+  id: string;
+  label: string;
+  descripcion: string;
+  icono: string;
+  obtenido: boolean;
+};
+
 const ROLE_LABELS: Record<string, string> = {
   ADMIN: "Administrador",
   USER: "Alumno",
@@ -37,6 +64,11 @@ export default function Perfil() {
   const [perfil, setPerfil] = useState<PerfilData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [fortalezas, setFortalezas] =
+    useState<FortalezaMateria[]>([]);
+  const [logros, setLogros] = useState<Logro[]>([]);
+  const [progresoStatus, setProgresoStatus] =
+    useState<"idle" | "loading" | "ready">("idle");
 
   useEffect(() => {
     let active = true;
@@ -46,6 +78,112 @@ export default function Perfil() {
       .finally(() => { if (active) setLoading(false); });
     return () => { active = false; };
   }, []);
+
+  useEffect(() => {
+    if (!perfil?.id) return;
+    let active = true;
+    setProgresoStatus("loading");
+
+    Promise.all([
+      apiGet<{ items: ModuloBasico[] }>("/api/modulos"),
+      apiGet<{ items: ProgressItem[] }>(
+        `/api/progreso?usuarioId=${perfil.id}`
+      ),
+    ])
+      .then(([modulosRes, progressRes]) => {
+        if (!active) return;
+
+        const completadosIds = new Set(
+          progressRes.items
+            .filter((p) => p.status === "completado")
+            .map((p) => p.moduloId)
+        );
+
+        // Agrupar por materia
+        const porMateria = new Map<string, { total: number; completados: number }>();
+        for (const m of modulosRes.items) {
+          const materia = m.subject ?? m.category ?? "General";
+          const entry = porMateria.get(materia) ?? { total: 0, completados: 0 };
+          entry.total += 1;
+          if (completadosIds.has(m.id)) entry.completados += 1;
+          porMateria.set(materia, entry);
+        }
+
+        const fortalezasCalc: FortalezaMateria[] = Array.from(porMateria.entries())
+          .map(([materia, { total, completados }]) => ({
+            materia,
+            completados,
+            total,
+            porcentaje: total === 0 ? 0 : Math.round((completados / total) * 100),
+          }))
+          .filter((f) => f.completados > 0)
+          .sort((a, b) => b.porcentaje - a.porcentaje);
+
+        setFortalezas(fortalezasCalc);
+
+        // Calcular logros
+        const totalCompletados = completadosIds.size;
+        const logrosCalc: Logro[] = [
+          {
+            id: "primer-modulo",
+            label: "Primer paso",
+            descripcion: "Completaste tu primer módulo.",
+            icono: "🎯",
+            obtenido: totalCompletados >= 1,
+          },
+          {
+            id: "cinco-modulos",
+            label: "En camino",
+            descripcion: "Completaste 5 módulos.",
+            icono: "📚",
+            obtenido: totalCompletados >= 5,
+          },
+          {
+            id: "diez-modulos",
+            label: "Estudioso",
+            descripcion: "Completaste 10 módulos.",
+            icono: "🏆",
+            obtenido: totalCompletados >= 10,
+          },
+          {
+            id: "veinticinco-modulos",
+            label: "Experto",
+            descripcion: "Completaste 25 módulos.",
+            icono: "⭐",
+            obtenido: totalCompletados >= 25,
+          },
+          // Logros por materia — uno por cada materia con 100%
+          ...fortalezasCalc
+            .filter((f) => f.porcentaje === 100 && f.total >= 3)
+            .map((f) => ({
+              id: `dominio-${f.materia.toLowerCase()}`,
+              label: `Dominio de ${f.materia}`,
+              descripcion: `Completaste todos los módulos de ${f.materia}.`,
+              icono: "🎓",
+              obtenido: true,
+            })),
+          // Logro por materia con más del 75%
+          ...fortalezasCalc
+            .filter((f) => f.porcentaje >= 75 && f.total >= 2)
+            .map((f) => ({
+              id: `avanzado-${f.materia.toLowerCase()}`,
+              label: `Avanzado en ${f.materia}`,
+              descripcion: `Superaste el 75% de los módulos de ${f.materia}.`,
+              icono: "💡",
+              obtenido: true,
+            })),
+        ];
+
+        setLogros(logrosCalc);
+        setProgresoStatus("ready");
+      })
+      .catch(() => {
+        if (!active) return;
+        setProgresoStatus("ready");
+      });
+
+    return () => { active = false; };
+  }, [perfil?.id]);
 
   if (loading) {
     return (
@@ -162,6 +300,98 @@ export default function Perfil() {
           </p>
         )}
       </section>
+
+      {/* Fortalezas por materia (solo para USER) */}
+      {perfil.role === "USER" && progresoStatus === "ready" &&
+        fortalezas.length > 0 && (
+        <section className="rounded-2xl border border-slate-200
+          bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-slate-900">
+            En qué sos bueno
+          </h2>
+          <p className="mt-1 text-sm text-slate-500">
+            Materias donde más avanzaste.
+          </p>
+          <div className="mt-4 space-y-3">
+            {fortalezas.slice(0, 5).map((f) => (
+              <div key={f.materia}>
+                <div className="flex items-center justify-between
+                  text-sm mb-1">
+                  <span className="font-medium text-slate-700">
+                    {f.materia}
+                  </span>
+                  <span className="text-slate-400 text-xs">
+                    {f.completados}/{f.total} módulos ·{" "}
+                    {f.porcentaje}%
+                  </span>
+                </div>
+                <div className="h-2 w-full rounded-full bg-slate-100">
+                  <div
+                    className={`h-2 rounded-full transition-all ${
+                      f.porcentaje === 100
+                        ? "bg-emerald-500"
+                        : f.porcentaje >= 75
+                        ? "bg-blue-500"
+                        : f.porcentaje >= 50
+                        ? "bg-violet-400"
+                        : "bg-amber-400"
+                    }`}
+                    style={{ width: `${f.porcentaje}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Logros (solo para USER) */}
+      {perfil.role === "USER" && progresoStatus === "ready" && (
+        <section className="rounded-2xl border border-slate-200
+          bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-slate-900">
+            Logros
+          </h2>
+          <p className="mt-1 text-sm text-slate-500">
+            Hitos alcanzados en tu recorrido.
+          </p>
+          {logros.length === 0 ? (
+            <p className="mt-3 text-sm text-slate-400">
+              Completá módulos para desbloquear logros.
+            </p>
+          ) : (
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {logros.map((logro) => (
+                <div
+                  key={logro.id}
+                  className={`flex items-center gap-3 rounded-xl
+                    border p-3 ${
+                    logro.obtenido
+                      ? "border-emerald-200 bg-emerald-50"
+                      : "border-slate-100 bg-slate-50 opacity-40"
+                  }`}
+                >
+                  <span className="text-2xl">{logro.icono}</span>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-800">
+                      {logro.label}
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      {logro.descripcion}
+                    </p>
+                  </div>
+                  {logro.obtenido && (
+                    <span className="ml-auto text-xs font-semibold
+                      text-emerald-600">
+                      ✓
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
 
       {/* Hijos vinculados (solo para PARENT) */}
       {perfil.role === "PARENT" && (

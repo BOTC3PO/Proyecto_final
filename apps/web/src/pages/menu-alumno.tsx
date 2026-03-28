@@ -5,6 +5,7 @@ import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { getSubjectColor } from "../domain/module/subjectColors";
+import { useTheme, type ThemeId } from "../theme/ThemeContext";
 
 interface Student {
   name: string;
@@ -115,6 +116,21 @@ type MissionProgress = {
   saved: number;
   startedAt: string | null;
   completed: boolean;
+};
+
+type SaldoResponse = {
+  saldo: number;
+  moneda: string;
+  updatedAt: string;
+};
+
+type TransaccionItem = {
+  id: string;
+  tipo: "credito" | "debito";
+  monto: number;
+  moneda: string;
+  motivo: string;
+  createdAt: string;
 };
 
 type EconomyState = {
@@ -313,6 +329,7 @@ const formatDelta = (value: number, suffix: string) => `${value > 0 ? "+" : ""}$
 
 export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass }) => {
   const { user } = useAuth();
+  const { theme, setTheme, availableThemes } = useTheme();
   const [completedModules, setCompletedModules] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
   const [modulesCount, setModulesCount] = useState(0);
@@ -337,6 +354,10 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     "loading"
   );
   const [benefitsError, setBenefitsError] = useState<string | null>(null);
+  const [saldoStatus, setSaldoStatus] =
+    useState<"loading" | "ready" | "error">("loading");
+  const [transacciones, setTransacciones] =
+    useState<TransaccionItem[]>([]);
 
   useEffect(() => {
     let active = true;
@@ -409,20 +430,54 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     };
   }, [user?.id]);
 
+  type ThemeState = { ownedThemes: string[]; activeTheme: string };
+  const THEME_STORAGE_KEY = "temas-alumno";
+
   useEffect(() => {
-    const stored = localStorage.getItem(ECONOMY_STORAGE_KEY);
+    const stored = localStorage.getItem(THEME_STORAGE_KEY);
     if (!stored) return;
     try {
-      const parsed = JSON.parse(stored) as EconomyState;
-      setEconomy((prev) => ({ ...prev, ...parsed }));
-    } catch {
-      setEconomy(defaultEconomyState);
-    }
+      const parsed = JSON.parse(stored) as ThemeState;
+      setEconomy((prev) => ({
+        ...prev,
+        ownedThemes: parsed.ownedThemes ?? prev.ownedThemes,
+        activeTheme: parsed.activeTheme ?? prev.activeTheme,
+      }));
+    } catch { /* ignore */ }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(ECONOMY_STORAGE_KEY, JSON.stringify(economy));
-  }, [economy]);
+    localStorage.setItem(
+      THEME_STORAGE_KEY,
+      JSON.stringify({
+        ownedThemes: economy.ownedThemes,
+        activeTheme: economy.activeTheme,
+      })
+    );
+  }, [economy.ownedThemes, economy.activeTheme]);
+
+  useEffect(() => {
+    if (!user?.id) return;
+    let active = true;
+    setSaldoStatus("loading");
+    Promise.all([
+      apiGet<SaldoResponse>(`/api/economia/saldos?usuarioId=${user.id}`),
+      apiGet<{ items: TransaccionItem[] }>(
+        `/api/economia/transacciones?usuarioId=${user.id}&limit=10`
+      ),
+    ])
+      .then(([saldoResponse, txResponse]) => {
+        if (!active) return;
+        setEconomy((prev) => ({ ...prev, coins: saldoResponse.saldo }));
+        setTransacciones(txResponse.items);
+        setSaldoStatus("ready");
+      })
+      .catch(() => {
+        if (!active) return;
+        setSaldoStatus("error");
+      });
+    return () => { active = false; };
+  }, [user?.id]);
 
   useEffect(() => {
     if (!coinFeedback) return;
@@ -504,34 +559,33 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     });
   };
 
-  const handlePurchaseTheme = (item: StoreItem) => {
-    setEconomy((prev) => {
-      if (prev.ownedThemes.includes(item.id)) {
-        pushEducationMessage({
-          title: "Tema activado",
-          body: "Cambiar el tema no cuesta monedas si ya lo tenés comprado.",
-          tone: "info"
-        });
-        return { ...prev, activeTheme: item.id };
-      }
-      if (prev.coins < item.price) return prev;
-      setCoinFeedback({
-        delta: -item.price,
-        label: `Gastaste ${item.price} 🪙 en ${item.name}.`,
-        tone: "spend"
-      });
+  const handlePurchaseTheme = (item: { id: ThemeId; name: string; price: number }) => {
+    if (economy.ownedThemes.includes(item.id)) {
       pushEducationMessage({
-        title: "Compra realizada",
-        body: "Al gastar monedas tu saldo baja. Revisá siempre si te conviene ahorrar o comprar ahora.",
-        tone: "warning"
+        title: "Tema activado",
+        body: "Cambiar el tema no cuesta monedas si ya lo tenés comprado.",
+        tone: "info"
       });
-      return {
-        ...prev,
-        coins: prev.coins - item.price,
-        ownedThemes: [...prev.ownedThemes, item.id],
-        activeTheme: item.id
-      };
+      setTheme(item.id);
+      return;
+    }
+    if (economy.coins < item.price) return;
+    setCoinFeedback({
+      delta: -item.price,
+      label: `Gastaste ${item.price} 🪙 en ${item.name}.`,
+      tone: "spend"
     });
+    pushEducationMessage({
+      title: "Compra realizada",
+      body: "Al gastar monedas tu saldo baja. Revisá siempre si te conviene ahorrar o comprar ahora.",
+      tone: "warning"
+    });
+    setEconomy((prev) => ({
+      ...prev,
+      coins: prev.coins - item.price,
+      ownedThemes: [...prev.ownedThemes, item.id],
+    }));
+    setTheme(item.id);
   };
 
   const handleExchange = () => {
@@ -590,9 +644,9 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   };
 
   const themeStatus = useMemo(() => {
-    const activeTheme = STORE_ITEMS.find((item) => item.id === economy.activeTheme);
+    const activeTheme = availableThemes.find((item) => item.id === theme);
     return activeTheme ? activeTheme.name : "Tema personalizado";
-  }, [economy.activeTheme]);
+  }, [theme, availableThemes]);
 
   const totalMissionSavings = useMemo(
     () =>
@@ -832,6 +886,11 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
                     {economy.coins} 🪙
                   </p>
                   <p className="text-xs text-gray-400 mt-1">Usalas para temas o intercambios.</p>
+                  {saldoStatus === "loading" && (
+                    <p className="text-xs text-gray-400 animate-pulse">
+                      Actualizando saldo...
+                    </p>
+                  )}
                   {coinFeedback ? (
                     <div
                       className={`mt-2 inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold ${
@@ -901,6 +960,54 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
                 Comprar FX
               </button>
             </div>
+          </section>
+          <section className="bg-white rounded-2xl shadow p-6 space-y-4">
+            <h3 className="text-lg font-semibold text-gray-800">
+              Historial de movimientos
+            </h3>
+            <p className="text-sm text-gray-500">
+              Tus últimas 10 transacciones de monedas.
+            </p>
+            {saldoStatus === "loading" ? (
+              <p className="text-sm text-gray-400 animate-pulse">
+                Cargando historial...
+              </p>
+            ) : transacciones.length === 0 ? (
+              <p className="text-sm text-gray-400">
+                Aún no tenés movimientos registrados.
+              </p>
+            ) : (
+              <ul className="space-y-2">
+                {transacciones.map((tx) => (
+                  <li
+                    key={tx.id}
+                    className="flex items-center justify-between
+                      rounded-xl border border-gray-100 px-4 py-3"
+                  >
+                    <div>
+                      <p className="text-sm font-medium text-gray-800">
+                        {tx.motivo}
+                      </p>
+                      <p className="text-xs text-gray-400">
+                        {new Date(tx.createdAt).toLocaleDateString("es-AR", {
+                          day: "numeric", month: "long", year: "numeric"
+                        })}
+                      </p>
+                    </div>
+                    <span
+                      className={`text-sm font-semibold ${
+                        tx.tipo === "credito"
+                          ? "text-emerald-600"
+                          : "text-rose-600"
+                      }`}
+                    >
+                      {tx.tipo === "credito" ? "+" : "-"}
+                      {tx.monto} 🪙
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
           <section className="grid gap-5 lg:grid-cols-3">
             <div className="lg:col-span-2 bg-white rounded-2xl shadow p-6 space-y-4">
@@ -1453,28 +1560,37 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
                 Comprá temas y mejoras visuales para tu experiencia.
               </p>
               <div className="space-y-3">
-                {STORE_ITEMS.map((item) => {
+                {availableThemes.map((item) => {
                   const isOwned = economy.ownedThemes.includes(item.id);
+                  const isActive = theme === item.id;
                   return (
                     <div key={item.id} className="flex items-center justify-between rounded-xl border border-gray-200 p-3">
                       <div>
-                        <p className="text-sm font-semibold text-gray-800">{item.name}</p>
-                        <p className="text-xs text-gray-400">{item.description}</p>
+                        <p className="text-sm font-semibold text-gray-800">
+                          {item.name}
+                          {item.animated && (
+                            <span className="ml-2 text-[10px] font-semibold uppercase tracking-wide text-violet-500">
+                              Animado
+                            </span>
+                          )}
+                        </p>
                         <p className="text-xs text-gray-500 mt-1">Precio: {item.price} 🪙</p>
                       </div>
                       <button
                         type="button"
                         onClick={() => handlePurchaseTheme(item)}
                         className={`rounded-lg px-3 py-1 text-xs font-semibold ${
-                          isOwned
-                            ? "bg-emerald-100 text-emerald-700"
-                            : economy.coins >= item.price
-                              ? "bg-emerald-600 text-white hover:bg-emerald-700"
-                              : "bg-gray-100 text-gray-500"
+                          isActive
+                            ? "bg-blue-100 text-blue-700"
+                            : isOwned
+                              ? "bg-emerald-100 text-emerald-700"
+                              : economy.coins >= item.price
+                                ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                                : "bg-gray-100 text-gray-500"
                         }`}
                         disabled={!isOwned && economy.coins < item.price}
                       >
-                        {isOwned ? "Activar" : "Comprar"}
+                        {isActive ? "Activo" : isOwned ? "Activar" : "Comprar"}
                       </button>
                     </div>
                   );
@@ -1562,13 +1678,20 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   );
 };
 
-const demoProps: DashboardProps = {
-  student: { name: "Ana García", initials: "AG", role: "Alumno" },
-  nextClass: { title: "Matemáticas 1°A", time: "10:30" },
-  completedModules: 3,
-  progressPercent: 33,
-};
-
 export default function Page() {
-  return <StudentDashboard {...demoProps} />;
+  const { user } = useAuth();
+  if (!user) return null;
+  const initials = user.name
+    .split(" ")
+    .filter(Boolean)
+    .map((p) => p[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+  return (
+    <StudentDashboard
+      student={{ name: user.name, initials, role: "Alumno" }}
+      nextClass={{ title: "—", time: "—" }}
+    />
+  );
 }

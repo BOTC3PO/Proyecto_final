@@ -1,7 +1,7 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { NAV_BY_ROLE } from './navConfig';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // Páginas que usan el navbar público
 const PUBLIC_PAGES = ['/', '/metodologia', '/explorar', '/contact', '/login', '/register'];
@@ -16,7 +16,14 @@ export default function Navbar() {
   
   const role = user?.role ?? 'GUEST';
   const items = NAV_BY_ROLE[role];
-  
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  const userInitials = user?.name
+    ? user.name.split(" ").filter(Boolean)
+        .map((p) => p[0]).join("").slice(0, 2).toUpperCase()
+    : "?";
+
   // Mostrar navbar público sólo si el usuario es GUEST (no autenticado)
   const isPublicPage = PUBLIC_PAGES.includes(location.pathname) && role === 'GUEST';
   
@@ -28,6 +35,16 @@ export default function Navbar() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Cerrar menú móvil al redimensionar ventana
   useEffect(() => {
@@ -242,9 +259,108 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           {role !== 'GUEST' ? (
-            <button onClick={logout} className="px-3 py-1 text-sm text-white bg-gray-900 rounded">
-              Salir
-            </button>
+            <div className="relative" ref={userMenuRef}>
+              {/* Avatar / botón trigger */}
+              <button
+                onClick={() => setIsUserMenuOpen((prev) => !prev)}
+                className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2 py-1.5 text-sm shadow-sm hover:bg-slate-50 transition-colors"
+                aria-label="Menú de usuario"
+                aria-expanded={isUserMenuOpen}
+              >
+                {role === 'ADMIN' ? (
+                  <div className="w-7 h-7 rounded-full bg-black flex items-center justify-center font-bold text-sm admin-avatar select-none">
+                    A
+                  </div>
+                ) : (
+                  <div className="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold select-none">
+                    {userInitials}
+                  </div>
+                )}
+                <span className="hidden sm:block text-slate-700 font-medium max-w-[120px] truncate">
+                  {user?.name ?? "Usuario"}
+                </span>
+                <svg className={`w-4 h-4 text-slate-400 transition-transform ${isUserMenuOpen ? "rotate-180" : ""}`}
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Dropdown */}
+              {isUserMenuOpen && (
+                <div className="absolute right-0 mt-2 w-52 rounded-2xl border border-slate-200 bg-white shadow-lg z-50 overflow-hidden">
+                  {/* Encabezado */}
+                  <div className="px-4 py-3 border-b border-slate-100 bg-slate-50">
+                    <p className="text-sm font-semibold text-slate-800 truncate">
+                      {user?.name ?? "Usuario"}
+                    </p>
+                    <p className="text-xs text-slate-400 capitalize">
+                      {role.toLowerCase()}
+                    </p>
+                  </div>
+
+                  {/* Links */}
+                  <div className="py-1">
+                    <Link
+                      to="/perfil"
+                      onClick={() => setIsUserMenuOpen(false)}
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
+                    >
+                      <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round"
+                          d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0" />
+                      </svg>
+                      Mi perfil
+                    </Link>
+
+                    {(role === 'USER' || role === 'TEACHER') && (
+                      <Link
+                        to="/progreso"
+                        onClick={() => setIsUserMenuOpen(false)}
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
+                      >
+                        <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round"
+                            d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75Z" />
+                        </svg>
+                        Mi progreso
+                      </Link>
+                    )}
+
+                    {role === 'USER' && (
+                      <Link
+                        to="/alumno"
+                        onClick={() => setIsUserMenuOpen(false)}
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
+                      >
+                        <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round"
+                            d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        Economía
+                      </Link>
+                    )}
+                  </div>
+
+                  {/* Separador + Salir */}
+                  <div className="border-t border-slate-100 py-1">
+                    <button
+                      onClick={() => { setIsUserMenuOpen(false); logout(); }}
+                      className="flex w-full items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round"
+                          d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                      </svg>
+                      Cerrar sesión
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           ) : null}
         </div>
       </div>
