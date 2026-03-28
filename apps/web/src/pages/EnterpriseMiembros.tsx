@@ -1,64 +1,40 @@
 import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "../auth/use-auth";
-import {
-  ENTERPRISE_FEATURES,
-  canAccessFeature
-} from "../entitlements/enterprise";
-import { useEnterpriseEntitlements } from "../hooks/use-enterprise-entitlements";
 import { fetchEnterpriseStaff, type EnterpriseStaffMember } from "../services/enterprise";
 
-const ROLE_LABELS: Record<EnterpriseStaffMember["role"], string> = {
-  ADMIN: "Administración",
-  TEACHER: "Docencia",
+const ROLE_LABELS: Record<string, string> = {
+  TEACHER: "Docentes",
+  ADMIN: "Directivos",
+};
+
+const ROLE_COLORS: Record<string, string> = {
+  TEACHER: "bg-violet-100 text-violet-700",
+  ADMIN: "bg-blue-100 text-blue-700",
 };
 
 export default function EnterpriseMiembros() {
   const { user } = useAuth();
-  const {
-    entitlements,
-    loading: entitlementsLoading,
-    error: entitlementsError
-  } = useEnterpriseEntitlements();
+  const schoolId = user?.schoolId ?? "";
   const [staff, setStaff] = useState<EnterpriseStaffMember[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const canViewStaff =
-    entitlements ? canAccessFeature(entitlements, ENTERPRISE_FEATURES.MEMBERS) : false;
 
   useEffect(() => {
-    if (entitlementsLoading) return;
-    if (!canViewStaff) {
-      setLoading(false);
-      return;
-    }
+    if (!schoolId) return;
     let active = true;
-    fetchEnterpriseStaff()
-      .then((data) => {
-        if (!active) return;
-        setStaff(data);
-        setError(null);
-      })
-      .catch((err: Error) => {
-        if (!active) return;
-        setError(err.message);
-      })
-      .finally(() => {
-        if (!active) return;
-        setLoading(false);
-      });
-    return () => {
-      active = false;
-    };
-  }, [user?.id, entitlementsLoading, canViewStaff]);
+    fetchEnterpriseStaff(schoolId)
+      .then((data) => { if (!active) return; setStaff(data); })
+      .catch((err: Error) => { if (!active) return; setError(err.message); })
+      .finally(() => { if (!active) return; setLoading(false); });
+    return () => { active = false; };
+  }, [schoolId]);
 
   const grouped = useMemo(() => {
-    return staff.reduce(
-      (acc, member) => {
-        acc[member.role].push(member);
-        return acc;
-      },
-      { ADMIN: [] as EnterpriseStaffMember[], TEACHER: [] as EnterpriseStaffMember[] }
-    );
+    const map: Record<string, EnterpriseStaffMember[]> = { TEACHER: [], ADMIN: [] };
+    staff.forEach((m) => {
+      if (map[m.role]) map[m.role].push(m);
+    });
+    return map;
   }, [staff]);
 
   return (
@@ -66,48 +42,41 @@ export default function EnterpriseMiembros() {
       <header className="space-y-2">
         <h1 className="text-3xl font-bold text-slate-900">Miembros del equipo</h1>
         <p className="text-base text-slate-600">
-          Revisa el personal administrativo y docente asignado a tu institución.
+          Personal docente y directivo de tu institución.
         </p>
-        {entitlementsError && (
-          <p className="text-sm text-red-500">Error de suscripción: {entitlementsError}</p>
-        )}
-        {!entitlementsLoading && !canViewStaff && (
-          <p className="text-sm text-amber-600">
-            Tu plan actual no incluye la gestión de miembros institucionales.
-          </p>
-        )}
       </header>
-
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-lg font-semibold text-slate-900">Equipo escolar</h2>
-          <span className="text-sm text-slate-500">{staff.length} miembros</span>
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-slate-900">
+            Equipo — {staff.length} miembros
+          </h2>
         </div>
-
-        {loading && <p className="mt-4 text-sm text-slate-500">Cargando miembros...</p>}
+        {loading && <p className="mt-4 text-sm text-slate-400 animate-pulse">Cargando miembros...</p>}
         {error && <p className="mt-4 text-sm text-red-500">Error: {error}</p>}
-
         {!loading && !error && staff.length === 0 && (
           <p className="mt-4 text-sm text-slate-500">No hay miembros registrados.</p>
         )}
-
         {!loading && !error && staff.length > 0 && (
           <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {(Object.keys(grouped) as Array<EnterpriseStaffMember["role"]>).map((role) => (
-              <div key={role} className="rounded-xl border border-slate-100 bg-slate-50 p-4">
-                <h3 className="text-sm font-semibold text-slate-700">{ROLE_LABELS[role]}</h3>
-                <ul className="mt-3 space-y-2">
-                  {grouped[role].map((member) => (
-                    <li
-                      key={member.id}
-                      className="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-3 py-2"
-                    >
-                      <span className="text-sm font-medium text-slate-900">{member.name}</span>
-                      <span className="text-xs text-slate-500">Escuela {member.schoolId}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {Object.entries(grouped).map(([role, members]) => (
+              members.length > 0 && (
+                <div key={role} className="rounded-xl border border-slate-100 bg-slate-50 p-4">
+                  <h3 className="text-sm font-semibold text-slate-700">
+                    {ROLE_LABELS[role] ?? role} ({members.length})
+                  </h3>
+                  <ul className="mt-3 space-y-2">
+                    {members.map((m) => (
+                      <li key={m.id}
+                        className="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-3 py-2">
+                        <span className="text-sm font-medium text-slate-900">{m.name}</span>
+                        <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${ROLE_COLORS[m.role] ?? "bg-slate-100 text-slate-600"}`}>
+                          {ROLE_LABELS[m.role] ?? m.role}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
             ))}
           </div>
         )}

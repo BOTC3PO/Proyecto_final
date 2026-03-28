@@ -1,7 +1,6 @@
 import { apiGet } from "../lib/api";
 import type { ClassroomListResponse } from "../domain/classroom/classroom.types";
 import type { Module } from "../domain/module/module.types";
-import type { EnterpriseEntitlements } from "../entitlements/enterprise";
 
 export type EnterpriseIndicator = {
   id: string;
@@ -19,7 +18,6 @@ export type EnterpriseStaffMember = {
 export type EnterpriseDashboardData = {
   indicadores: EnterpriseIndicator[];
   acciones: string[];
-  entitlements?: EnterpriseEntitlements;
 };
 
 export type EnterpriseContrato = {
@@ -58,34 +56,57 @@ export type EnterpriseMensaje = {
   status?: string;
 };
 
-export async function fetchEnterpriseStaff(): Promise<EnterpriseStaffMember[]> {
-  return apiGet<EnterpriseStaffMember[]>("/api/enterprise/miembros");
+export async function fetchEnterpriseStaff(
+  schoolId: string
+): Promise<EnterpriseStaffMember[]> {
+  const data = await apiGet<{ items: Array<{
+    id: string; name: string; role: string; schoolId?: string;
+  }> }>(`/api/usuarios?schoolId=${encodeURIComponent(schoolId)}&roles=TEACHER,DIRECTIVO`);
+  return (data.items ?? []).map((u) => ({
+    id: u.id,
+    name: u.name,
+    role: (u.role === "TEACHER" ? "TEACHER" : "ADMIN") as "TEACHER" | "ADMIN",
+    schoolId: u.schoolId ?? schoolId,
+  }));
 }
 
-export async function fetchEnterpriseDashboard(): Promise<EnterpriseDashboardData> {
-  return apiGet<EnterpriseDashboardData>("/api/enterprise/dashboard");
+export async function fetchEnterpriseDashboard(
+  schoolId: string
+): Promise<EnterpriseDashboardData> {
+  const [aulasData, staffData] = await Promise.all([
+    apiGet<{ items: unknown[] }>(`/api/aulas?schoolId=${encodeURIComponent(schoolId)}`),
+    apiGet<{ items: unknown[] }>(`/api/usuarios?schoolId=${encodeURIComponent(schoolId)}`),
+  ]);
+  const aulas = aulasData.items ?? [];
+  const usuarios = staffData.items ?? [];
+  const alumnos = usuarios.filter((u: any) => u.role === "USER");
+  const docentes = usuarios.filter((u: any) => u.role === "TEACHER");
+  const directivos = usuarios.filter((u: any) => u.role === "DIRECTIVO");
+
+  return {
+    indicadores: [
+      { id: "aulas", label: "Aulas activas", value: String(aulas.length) },
+      { id: "alumnos", label: "Alumnos", value: String(alumnos.length) },
+      { id: "docentes", label: "Docentes", value: String(docentes.length) },
+      { id: "directivos", label: "Directivos", value: String(directivos.length) },
+    ],
+    acciones: [],
+  };
 }
 
-export async function fetchEnterpriseEntitlements(): Promise<EnterpriseEntitlements> {
-  return apiGet<EnterpriseEntitlements>("/api/enterprise/entitlements");
+export async function fetchEnterpriseAulas(
+  schoolId: string
+): Promise<ClassroomListResponse> {
+  return apiGet<ClassroomListResponse>(
+    `/api/aulas?schoolId=${encodeURIComponent(schoolId)}`
+  );
 }
 
-export async function fetchEnterpriseContratos(): Promise<EnterpriseContrato[]> {
-  return apiGet<EnterpriseContrato[]>("/api/enterprise/contratos");
-}
-
-export async function fetchEnterpriseReportes(): Promise<EnterpriseReporte[]> {
-  return apiGet<EnterpriseReporte[]>("/api/enterprise/reportes");
-}
-
-export async function fetchEnterpriseAulas(): Promise<ClassroomListResponse> {
-  return apiGet<ClassroomListResponse>("/api/enterprise/aulas");
-}
-
-export async function fetchEnterpriseModulos(): Promise<EnterprisePagedResponse<Module>> {
-  return apiGet<EnterprisePagedResponse<Module>>("/api/enterprise/modulos");
-}
-
-export async function fetchEnterpriseMensajes(): Promise<EnterprisePagedResponse<EnterpriseMensaje>> {
-  return apiGet<EnterprisePagedResponse<EnterpriseMensaje>>("/api/enterprise/mensajes");
+export async function fetchEnterpriseModulos(
+  schoolId?: string
+): Promise<{ items: Module[] }> {
+  const qs = schoolId
+    ? `?visibility=escuela&schoolId=${encodeURIComponent(schoolId)}`
+    : "?visibility=escuela";
+  return apiGet<{ items: Module[] }>(`/api/modulos${qs}`);
 }

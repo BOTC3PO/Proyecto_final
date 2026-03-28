@@ -91,6 +91,27 @@ export const closeProposal = (proposalId: string, actorId: string) =>
 export const fetchPrompts = (targetType: string, targetId: string) =>
   apiGet<{ items: Prompt[] }>(`/api/prompts?targetType=${encodeURIComponent(targetType)}&targetId=${encodeURIComponent(targetId)}`);
 
+export type ApoyosInfo = {
+  apoyos: number;
+  noApoyos: number;
+  umbral: number;
+  miVoto: "APPROVE" | "REJECT" | null;
+  alcanzado: boolean;
+};
+
+export const fetchApoyos = (proposalId: string) =>
+  apiGet<ApoyosInfo>(`/api/proposals/${proposalId}/apoyos`);
+
+export const apoyarPropuesta = (
+  proposalId: string,
+  voterId: string,
+  voto: "APPROVE" | "REJECT"
+) =>
+  apiPost<Vote>(`/api/proposals/${proposalId}/vote`, {
+    voterId,
+    vote: voto
+  });
+
 export const PROPOSAL_TYPE_LABELS: Record<string, string> = {
   ADD_PROMPT: "Agregar enunciado",
   UPDATE_PROMPT: "Modificar enunciado",

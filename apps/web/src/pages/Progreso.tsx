@@ -36,8 +36,8 @@ export default function Progreso() {
         </p>
       </header>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        {loading && <p className="text-sm text-slate-500">Cargando avances...</p>}
+      <section className="flex flex-col gap-3">
+        {loading && <p className="text-sm text-slate-500 animate-pulse">Cargando avances...</p>}
         {error && <p className="text-sm text-red-500">Error: {error}</p>}
         {!loading &&
           !error &&
@@ -46,9 +46,20 @@ export default function Progreso() {
               key={avance.id}
               className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
             >
-              <h2 className="text-lg font-semibold text-slate-900">{avance.modulo}</h2>
-              <p className="mt-2 text-sm text-slate-500">Avance total</p>
-              <p className="mt-1 text-2xl font-semibold text-blue-600">{avance.progreso}</p>
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-sm font-semibold text-slate-900">
+                  {avance.modulo}
+                </p>
+                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                  avance.progreso === "100%"
+                    ? "bg-emerald-100 text-emerald-700"
+                    : avance.progreso === "En progreso"
+                    ? "bg-amber-100 text-amber-700"
+                    : "bg-slate-100 text-slate-500"
+                }`}>
+                  {avance.progreso}
+                </span>
+              </div>
             </article>
           ))}
         {!loading && !error && (!data || data.avances.length === 0) && (
@@ -56,16 +67,16 @@ export default function Progreso() {
         )}
       </section>
 
-      <section className="rounded-2xl border border-emerald-100 bg-emerald-50 p-6">
-        {loading && <p className="text-sm text-emerald-800">Cargando sugerencia...</p>}
-        {error && <p className="text-sm text-red-500">Error: {error}</p>}
-        {!loading && !error && data && (
-          <>
-            <h2 className="text-xl font-semibold text-emerald-900">{data.sugerencia.titulo}</h2>
-            <p className="mt-2 text-sm text-emerald-800">{data.sugerencia.mensaje}</p>
-          </>
-        )}
-      </section>
+      {!loading && !error && data?.sugerencia && (
+        <div className="rounded-2xl border border-blue-100 bg-blue-50 p-5">
+          <p className="text-sm font-semibold text-blue-800">
+            {data.sugerencia.titulo}
+          </p>
+          <p className="mt-1 text-sm text-blue-700">
+            {data.sugerencia.mensaje}
+          </p>
+        </div>
+      )}
     </main>
   );
 }

@@ -169,6 +169,78 @@ governance.post("/api/proposals/:id/vote", async (req, res) => {
   }
 });
 
+// GET /api/proposals/:id/apoyos
+governance.get("/api/proposals/:id/apoyos", async (req, res) => {
+  try {
+    const db = await getDb();
+    const proposalId = String(req.params.id ?? "").trim();
+
+    const proposal = await db.collection("proposals")
+      .findOne({ id: proposalId });
+    if (!proposal) return res.status(404).json({ error: "not found" });
+
+    const totalStaff = await db.collection("users").countDocuments({
+      role: { $in: ["TEACHER", "DIRECTIVO", "ADMIN"] },
+      isBanned: { $ne: true }
+    });
+
+    const umbral = Math.max(1, Math.ceil(totalStaff * 0.1));
+
+    const apoyos = await db.collection("votes").countDocuments({
+      proposalId, vote: "APPROVE"
+    });
+    const noApoyos = await db.collection("votes").countDocuments({
+      proposalId, vote: "REJECT"
+    });
+
+    const voterId = req.header("x-user-id") ?? "";
+    let miVoto: "APPROVE" | "REJECT" | null = null;
+    if (voterId) {
+      const voto = await db.collection("votes")
+        .findOne({ proposalId, voterId });
+      if (voto?.vote === "APPROVE") miVoto = "APPROVE";
+      else if (voto?.vote === "REJECT") miVoto = "REJECT";
+    }
+
+    const alcanzado = apoyos >= umbral;
+
+    // Si alcanzó el umbral y sigue OPEN → crear suggestion PINNED
+    if (alcanzado && proposal.status === "OPEN") {
+      const existingSuggestion = await db.collection("suggestions_pinned")
+        .findOne({ proposalId });
+
+      if (!existingSuggestion) {
+        const { openContentDb } = await import("../lib/db-open");
+        const sqliteDb = openContentDb();
+        const suggId = `sug-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+        sqliteDb.prepare(`
+          INSERT OR IGNORE INTO suggestions
+            (id, suggestion_type, target_type, target_id,
+             title, body, created_by, created_at, status)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `).run(
+          suggId,
+          "GOVERNANCE",
+          proposal.targetType ?? "MODULE_GENERATOR",
+          proposal.targetId ?? "",
+          (proposal.payload as Record<string, unknown>)?.subject ?? "Propuesta de gobernanza",
+          (proposal.payload as Record<string, unknown>)?.description ?? "",
+          proposal.createdBy ?? "system",
+          new Date().toISOString(),
+          "PINNED"
+        );
+        // Marcar para no duplicar
+        await db.collection("suggestions_pinned")
+          .insertOne({ proposalId, suggestionId: suggId });
+      }
+    }
+
+    res.json({ apoyos, noApoyos, umbral, miVoto, alcanzado });
+  } catch (error: any) {
+    res.status(500).json({ error: error?.message ?? "error" });
+  }
+});
+
 governance.post("/api/proposals/:id/close", async (req, res) => {
   try {
     const db = await getDb();
