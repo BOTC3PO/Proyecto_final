@@ -4,6 +4,9 @@ import type { Classroom } from "../domain/classroom/classroom.types";
 import { normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail, updateClassroom } from "../services/aulas";
 import { createActivity, deleteActivity, fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
+import { fetchClaseModulos, assignModulo, unassignModulo, type ClaseModuloItem } from "../services/clase-modulos";
+import { apiGet } from "../lib/api";
+import type { Module } from "../domain/module/module.types";
 
 type FormState = {
   name: string;
@@ -40,6 +43,10 @@ export default function ProfesorAulaConfiguracion() {
   });
   const [actSaving, setActSaving] = useState(false);
   const [actError, setActError] = useState<string | null>(null);
+  const [asignados, setAsignados] = useState<ClaseModuloItem[]>([]);
+  const [todosModulos, setTodosModulos] = useState<Module[]>([]);
+  const [moduloSearch, setModuloSearch] = useState("");
+  const [moduloSaving, setModuloSaving] = useState(false);
 
   useEffect(() => {
     if (!id) return;
@@ -69,6 +76,40 @@ export default function ProfesorAulaConfiguracion() {
     if (!id) return;
     fetchUpcomingActivities(id).then(setActivities).catch(() => {});
   }, [id]);
+
+  useEffect(() => {
+    if (!id) return;
+    fetchClaseModulos(id).then(setAsignados).catch(() => {});
+    apiGet<{ items: Module[] }>("/api/modulos")
+      .then((data) => setTodosModulos(data.items))
+      .catch(() => {});
+  }, [id]);
+
+  const modulosDisponibles = todosModulos.filter((m) => {
+    const yaAsignado = asignados.some((a) => a.moduloId === m.id);
+    if (yaAsignado) return false;
+    if (!moduloSearch.trim()) return true;
+    return m.title.toLowerCase().includes(moduloSearch.toLowerCase()) ||
+      (m.subject ?? "").toLowerCase().includes(moduloSearch.toLowerCase());
+  });
+
+  const handleAssign = async (moduloId: string) => {
+    if (!id) return;
+    setModuloSaving(true);
+    try {
+      await assignModulo(id, moduloId);
+      const updated = await fetchClaseModulos(id);
+      setAsignados(updated);
+    } finally {
+      setModuloSaving(false);
+    }
+  };
+
+  const handleUnassign = async (moduloId: string) => {
+    if (!id) return;
+    await unassignModulo(id, moduloId);
+    setAsignados((prev) => prev.filter((a) => a.moduloId !== moduloId));
+  };
 
   const classroomTitle = useMemo(() => classroom?.name ?? "Aula", [classroom?.name]);
 
@@ -347,6 +388,85 @@ export default function ProfesorAulaConfiguracion() {
           >
             {actSaving ? "Guardando..." : "+ Agregar actividad"}
           </button>
+        </section>
+
+        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
+          <h2 className="text-lg font-semibold text-slate-900">
+            Módulos asignados
+          </h2>
+
+          {/* Módulos ya asignados */}
+          {asignados.length === 0 ? (
+            <p className="text-sm text-slate-400">Sin módulos asignados.</p>
+          ) : (
+            <ul className="space-y-2">
+              {asignados.map((item) => {
+                const modulo = todosModulos.find((m) => m.id === item.moduloId);
+                return (
+                  <li key={item.moduloId}
+                    className="flex items-center justify-between gap-3 rounded-lg border border-slate-100 px-3 py-2 text-sm">
+                    <div>
+                      <span className="font-medium text-slate-800">
+                        {modulo?.title ?? item.moduloId}
+                      </span>
+                      {modulo?.subject && (
+                        <span className="ml-2 text-xs text-slate-400">
+                          {modulo.subject}
+                        </span>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      className="text-xs text-red-400 hover:text-red-600"
+                      onClick={() => handleUnassign(item.moduloId)}
+                    >
+                      Quitar
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+
+          {/* Buscador para asignar */}
+          <div className="space-y-2">
+            <input
+              type="search"
+              placeholder="Buscar módulo para asignar..."
+              value={moduloSearch}
+              onChange={(e) => setModuloSearch(e.target.value)}
+              className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+            {moduloSearch.trim() && (
+              <ul className="max-h-48 overflow-y-auto rounded-lg border border-slate-200 divide-y divide-slate-100">
+                {modulosDisponibles.length === 0 ? (
+                  <li className="px-3 py-2 text-sm text-slate-400">
+                    Sin resultados.
+                  </li>
+                ) : (
+                  modulosDisponibles.slice(0, 10).map((m) => (
+                    <li key={m.id}
+                      className="flex items-center justify-between gap-3 px-3 py-2 text-sm hover:bg-slate-50">
+                      <div>
+                        <span className="font-medium text-slate-800">{m.title}</span>
+                        {m.subject && (
+                          <span className="ml-2 text-xs text-slate-400">{m.subject}</span>
+                        )}
+                      </div>
+                      <button
+                        type="button"
+                        disabled={moduloSaving}
+                        className="text-xs font-semibold text-blue-600 hover:underline disabled:opacity-50"
+                        onClick={() => handleAssign(m.id)}
+                      >
+                        + Asignar
+                      </button>
+                    </li>
+                  ))
+                )}
+              </ul>
+            )}
+          </div>
         </section>
         </>
       ) : (

@@ -7,6 +7,7 @@ import { requireClassroomScope } from "../lib/classroom-scope";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
+import { openContentDb } from "../lib/db-open";
 import type { Classroom } from "../schema/aula";
 import {
   CLASSROOM_ACTIVE_STATUS_VALUES,
@@ -604,4 +605,66 @@ aulas.delete("/api/admin/aulas/:id", requireAdminAuth, async (req, res) => {
   );
   if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
+});
+
+// GET /api/aulas/:id/modulos — módulos asignados al aula
+aulas.get("/api/aulas/:id/modulos", requireUser, async (req, res) => {
+  try {
+    const db = openContentDb();
+    const rows = db.prepare(`
+      SELECT cm.modulo_id, cm.assigned_at, cm.required
+      FROM clase_modulos cm
+      WHERE cm.clase_id = ?
+      ORDER BY cm.assigned_at ASC
+    `).all(req.params.id) as Array<{
+      modulo_id: string;
+      assigned_at: string | null;
+      required: number;
+    }>;
+
+    res.json({ items: rows.map(r => ({
+      moduloId: r.modulo_id,
+      assignedAt: r.assigned_at,
+      required: r.required === 1,
+    })) });
+  } catch (err) {
+    res.status(500).json({ error: err instanceof Error ? err.message : "error" });
+  }
+});
+
+// POST /api/aulas/:id/modulos — asignar módulo al aula
+aulas.post("/api/aulas/:id/modulos", requireUser, async (req, res) => {
+  const { moduloId, required } = req.body as Record<string, unknown>;
+  if (!moduloId || typeof moduloId !== "string") {
+    return res.status(400).json({ error: "moduloId requerido" });
+  }
+  try {
+    const db = openContentDb();
+    db.prepare(`
+      INSERT OR IGNORE INTO clase_modulos (clase_id, modulo_id, assigned_at, required)
+      VALUES (?, ?, ?, ?)
+    `).run(
+      req.params.id,
+      moduloId,
+      new Date().toISOString(),
+      required === true ? 1 : 0
+    );
+    res.status(201).json({ ok: true });
+  } catch (err) {
+    res.status(500).json({ error: err instanceof Error ? err.message : "error" });
+  }
+});
+
+// DELETE /api/aulas/:id/modulos/:moduloId — desasignar módulo
+aulas.delete("/api/aulas/:id/modulos/:moduloId", requireUser, async (req, res) => {
+  try {
+    const db = openContentDb();
+    db.prepare(`
+      DELETE FROM clase_modulos
+      WHERE clase_id = ? AND modulo_id = ?
+    `).run(req.params.id, req.params.moduloId);
+    res.json({ ok: true });
+  } catch (err) {
+    res.status(500).json({ error: err instanceof Error ? err.message : "error" });
+  }
 });

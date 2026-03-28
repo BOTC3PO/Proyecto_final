@@ -5,6 +5,7 @@ import { ENV } from "../lib/env";
 import { assertClassroomWritable } from "../lib/classroom";
 import { requireUser } from "../lib/user-auth";
 import { ModuleSchema } from "../schema/modulo";
+import { openContentDb } from "../lib/db-open";
 
 export const modulos = Router();
 
@@ -107,15 +108,37 @@ modulos.get("/api/modulos", async (req, res) => {
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
-  const filter = aulaId ? { aulaId } : {};
-  const cursor = db
-    .collection("modulos")
-    .find(filter)
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ updatedAt: -1 });
-  const items = (await cursor.toArray()).map(withDefaultStatus);
-  res.json({ items, limit, offset });
+
+  let items;
+  if (aulaId) {
+    // Obtener ids de módulos asignados al aula via clase_modulos
+    const sqliteDb = openContentDb();
+    const rows = sqliteDb.prepare(
+      "SELECT modulo_id FROM clase_modulos WHERE clase_id = ? ORDER BY assigned_at ASC"
+    ).all(aulaId) as Array<{ modulo_id: string }>;
+    const moduloIds = rows.map(r => r.modulo_id);
+
+    if (moduloIds.length === 0) {
+      return res.json({ items: [], limit, offset });
+    }
+
+    // Buscar esos módulos en MongoDB
+    const cursor = db.collection("modulos")
+      .find({ id: { $in: moduloIds } })
+      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
+      .limit(limit)
+      .sort({ updatedAt: -1 });
+    items = (await cursor.toArray()).map(withDefaultStatus);
+  } else {
+    const cursor = db.collection("modulos")
+      .find({})
+      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
+      .limit(limit)
+      .sort({ updatedAt: -1 });
+    items = (await cursor.toArray()).map(withDefaultStatus);
+  }
+
+  return res.json({ items, limit, offset });
 });
 
 modulos.get("/api/modulos/:id", async (req, res) => {
