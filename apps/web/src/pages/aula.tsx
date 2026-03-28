@@ -11,6 +11,10 @@ import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard
 import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 import { fetchTeacherTools, type TeacherTool } from "../services/aula";
 import { fetchResourceLinks, type ResourceLink, type ResourceLinkType } from "../services/resource-links";
+import {
+  fetchSubastasActivas, fetchMisPujas, crearPuja,
+  type ExamenSubasta, type PujaItem
+} from "../services/subastas";
 
 type ProgressItem = {
   moduloId: string;
@@ -40,8 +44,26 @@ type ClassroomDetail = Classroom & {
   classCode?: string;
 };
 
+const AVATAR_COLORS = [
+  "bg-blue-600", "bg-violet-600", "bg-emerald-600",
+  "bg-amber-600", "bg-rose-600", "bg-cyan-600",
+  "bg-indigo-600", "bg-teal-600",
+];
+
+function getAvatarColor(initials: string): string {
+  let hash = 0;
+  for (let i = 0; i < initials.length; i++) {
+    hash = initials.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length];
+}
+
 export default function aula() {
   const { user } = useAuth();
+  const userInitials = user?.name
+    ? user.name.split(" ").filter(Boolean)
+        .map((p) => p[0]).join("").slice(0, 2).toUpperCase()
+    : "?";
   const { id: routeId } = useParams();
   const location = useLocation();
   const [classroom, setClassroom] = useState<ClassroomDetail | null>(null);
@@ -62,6 +84,12 @@ export default function aula() {
   const [resourceLinks, setResourceLinks] = useState<ResourceLink[]>([]);
   const [resourceLinksLoading, setResourceLinksLoading] = useState(true);
   const [resourceLinksError, setResourceLinksError] = useState<string | null>(null);
+  const [subastas, setSubastas] = useState<ExamenSubasta[]>([]);
+  const [misPujas, setMisPujas] = useState<Record<string, PujaItem[]>>({});
+  const [pujaForm, setPujaForm] =
+    useState<Record<string, { puntos: number; montoPorPunto: number }>>({});
+  const [pujaStatus, setPujaStatus] =
+    useState<Record<string, "idle" | "loading" | "error">>({});
   const normalizedStatus = useMemo(
     () => normalizeClassroomStatus(classroom?.status ?? null),
     [classroom?.status]
@@ -237,6 +265,27 @@ export default function aula() {
   }, [classroomId, user?.id]);
 
   useEffect(() => {
+    if (!classroomId || !user?.id) return;
+    let active = true;
+    fetchSubastasActivas(classroomId)
+      .then(async (items) => {
+        if (!active) return;
+        setSubastas(items);
+        const pujaMap: Record<string, PujaItem[]> = {};
+        await Promise.all(
+          items.map(async (e) => {
+            const pujas = await fetchMisPujas(e.id, user.id);
+            pujaMap[e.id] = pujas;
+          })
+        );
+        if (!active) return;
+        setMisPujas(pujaMap);
+      })
+      .catch(() => {});
+    return () => { active = false; };
+  }, [classroomId, user?.id]);
+
+  useEffect(() => {
     if (!classroomId) return;
     let active = true;
     setResourceLinksLoading(true);
@@ -306,6 +355,27 @@ export default function aula() {
     }
   };
 
+  const handlePujar = async (examen: ExamenSubasta) => {
+    if (!user?.id || !classroomId) return;
+    const form = pujaForm[examen.id];
+    if (!form?.puntos || !form?.montoPorPunto) return;
+    setPujaStatus((prev) => ({ ...prev, [examen.id]: "loading" }));
+    try {
+      await crearPuja(examen.id, {
+        usuarioId: user.id,
+        aulaId: classroomId,
+        schoolId: user.schoolId ?? "",
+        puntos: form.puntos,
+        montoPorPunto: form.montoPorPunto,
+      });
+      const updated = await fetchMisPujas(examen.id, user.id);
+      setMisPujas((prev) => ({ ...prev, [examen.id]: updated }));
+      setPujaStatus((prev) => ({ ...prev, [examen.id]: "idle" }));
+    } catch {
+      setPujaStatus((prev) => ({ ...prev, [examen.id]: "error" }));
+    }
+  };
+
   const getResourceDisplayUrl = (url: string) => {
     try {
       const parsed = new URL(url);
@@ -349,7 +419,9 @@ export default function aula() {
           <div className="lg:col-span-2 space-y-5">
             <div className="bg-white rounded-xl shadow p-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-600 text-white grid place-content-center">JP</div>
+                <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(userInitials)}`}>
+                  {userInitials}
+                </div>
                 <input
                   className="flex-1 rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="Escribe una novedad..."
@@ -407,8 +479,8 @@ export default function aula() {
                 publications.map((publication) => (
                   <article key={publication.id} className="bg-white rounded-xl shadow p-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-600 text-white grid place-content-center">
-                        {publication.authorInitials}
+                      <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(publication.authorInitials ?? "?")}`}>
+                        {publication.authorInitials ?? "?"}
                       </div>
                       <div className="font-semibold">{publication.title}</div>
                     </div>
@@ -570,6 +642,133 @@ export default function aula() {
                   ))}
               </ul>
             </div>
+
+            {subastas.length > 0 && (
+              <div className="bg-white rounded-xl shadow p-4 space-y-3">
+                <h3 className="text-lg font-semibold">🏷️ Subastas activas</h3>
+                {subastas.map((examen) => {
+                  const misPujasExamen = misPujas[examen.id] ?? [];
+                  const totalPujado = misPujasExamen
+                    .filter((p) => p.estado !== "rechazada")
+                    .reduce((acc, p) => acc + p.puntos, 0);
+                  const restante = examen.maxCompra - totalPujado;
+                  const form = pujaForm[examen.id] ??
+                    { puntos: 1, montoPorPunto: examen.precioPromedioAjustado ?? 100 };
+                  const status = pujaStatus[examen.id] ?? "idle";
+
+                  return (
+                    <div key={examen.id}
+                      className="rounded-lg border border-slate-200 p-3 space-y-2">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-xs font-semibold text-slate-700">
+                          Parcial
+                        </span>
+                        {examen.fechaExamen && (
+                          <span className="text-xs text-slate-400">
+                            {new Date(examen.fechaExamen).toLocaleDateString("es-AR", {
+                              day: "numeric", month: "short"
+                            })}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="text-xs text-slate-500 space-y-1">
+                        <p>Precio promedio:{" "}
+                          <span className="font-medium text-slate-700">
+                            {examen.precioPromedioAjustado ?? "—"} 🪙/punto
+                          </span>
+                        </p>
+                        <p>Podés pujar:{" "}
+                          <span className={`font-medium ${
+                            restante <= 0 ? "text-red-600" : "text-emerald-600"
+                          }`}>
+                            {restante <= 0 ? "Límite alcanzado" : `${restante} punto(s) más`}
+                          </span>
+                        </p>
+                      </div>
+
+                      {restante > 0 && (
+                        <div className="space-y-2">
+                          <div className="grid grid-cols-2 gap-2">
+                            <label className="text-xs text-slate-500">
+                              Puntos (máx {restante})
+                              <input
+                                type="number"
+                                min={1}
+                                max={restante}
+                                value={form.puntos}
+                                onChange={(e) => setPujaForm((prev) => ({
+                                  ...prev,
+                                  [examen.id]: {
+                                    ...form,
+                                    puntos: Math.min(Number(e.target.value), restante)
+                                  }
+                                }))}
+                                className="mt-1 w-full rounded border border-slate-200 px-2 py-1 text-sm"
+                              />
+                            </label>
+                            <label className="text-xs text-slate-500">
+                              Monedas/punto
+                              <input
+                                type="number"
+                                min={1}
+                                value={form.montoPorPunto}
+                                onChange={(e) => setPujaForm((prev) => ({
+                                  ...prev,
+                                  [examen.id]: {
+                                    ...form,
+                                    montoPorPunto: Number(e.target.value)
+                                  }
+                                }))}
+                                className="mt-1 w-full rounded border border-slate-200 px-2 py-1 text-sm"
+                              />
+                            </label>
+                          </div>
+                          <p className="text-xs text-slate-400">
+                            Total a gastar:{" "}
+                            <span className="font-medium text-slate-700">
+                              {form.puntos * form.montoPorPunto} 🪙
+                            </span>
+                          </p>
+                          <button
+                            type="button"
+                            disabled={status === "loading"}
+                            onClick={() => handlePujar(examen)}
+                            className="w-full rounded-lg bg-violet-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-violet-700 disabled:opacity-50 transition-colors"
+                          >
+                            {status === "loading" ? "Pujando..." : "Pujar"}
+                          </button>
+                          {status === "error" && (
+                            <p className="text-xs text-red-600">
+                              No se pudo registrar la puja.
+                            </p>
+                          )}
+                        </div>
+                      )}
+
+                      {misPujasExamen.length > 0 && (
+                        <div className="pt-1 border-t border-slate-100">
+                          <p className="text-xs text-slate-400 mb-1">Tus pujas:</p>
+                          {misPujasExamen.map((p) => (
+                            <div key={p.id}
+                              className="flex justify-between text-xs text-slate-600">
+                              <span>{p.puntos} punto(s) × {p.montoPorPunto} 🪙</span>
+                              <span className={
+                                p.estado === "aceptada" ? "text-emerald-600" :
+                                p.estado === "rechazada" ? "text-red-500" :
+                                "text-amber-600"
+                              }>
+                                {p.estado}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
 
             {user?.role === "TEACHER" && (
               <div className="bg-white rounded-xl shadow p-4">
