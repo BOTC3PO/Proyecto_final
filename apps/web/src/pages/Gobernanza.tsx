@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import {
   fetchProposals,
+  fetchApoyos,
   type Proposal,
+  type ApoyosInfo,
   PROPOSAL_TYPE_LABELS,
   STATUS_LABELS,
   LEVEL_LABELS,
@@ -42,7 +44,7 @@ function formatDate(iso: string) {
   }
 }
 
-function ProposalCard({ proposal }: { proposal: Proposal }) {
+function ProposalCard({ proposal, apoyos }: { proposal: Proposal; apoyos?: ApoyosInfo }) {
   const typeLabel = PROPOSAL_TYPE_LABELS[proposal.proposalType] ?? proposal.proposalType;
   const statusLabel = STATUS_LABELS[proposal.status] ?? proposal.status;
   const levelLabel = LEVEL_LABELS[proposal.level] ?? proposal.level;
@@ -73,6 +75,27 @@ function ProposalCard({ proposal }: { proposal: Proposal }) {
         </div>
       </div>
 
+      {apoyos && proposal.status === "OPEN" && (
+        <div className="mt-3 space-y-1">
+          <div className="flex items-center justify-between text-xs text-slate-400">
+            <span>{apoyos.apoyos} apoyan · {apoyos.noApoyos} no apoyan</span>
+            <span>{apoyos.apoyos}/{apoyos.umbral} para elevar</span>
+          </div>
+          <div className="flex h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
+            <div
+              className={`h-1.5 rounded-full transition-all ${
+                apoyos.alcanzado ? "bg-emerald-500" : "bg-blue-400"
+              }`}
+              style={{
+                width: `${Math.min(100,
+                  Math.round((apoyos.apoyos / apoyos.umbral) * 100)
+                )}%`
+              }}
+            />
+          </div>
+        </div>
+      )}
+
       <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-slate-500">
         <span>{formatDate(proposal.createdAt)}</span>
         {proposal.voteSummary && (
@@ -95,6 +118,9 @@ export default function Gobernanza() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [tab, setTab] = useState<TabKey>("abiertas");
+
+  const [apoyosPorId, setApoyosPorId] =
+    useState<Record<string, ApoyosInfo>>({});
 
   const canPropose =
     user?.role === "ADMIN" || user?.role === "DIRECTIVO" || user?.role === "TEACHER";
@@ -120,6 +146,22 @@ export default function Gobernanza() {
       active = false;
     };
   }, [tab]);
+
+  useEffect(() => {
+    const abiertas = proposals.filter((p) => p.status === "OPEN");
+    if (!abiertas.length) return;
+    Promise.allSettled(
+      abiertas.map((p) =>
+        fetchApoyos(p.id).then((info) => ({ id: p.id, info }))
+      )
+    ).then((results) => {
+      const map: Record<string, ApoyosInfo> = {};
+      for (const r of results) {
+        if (r.status === "fulfilled") map[r.value.id] = r.value.info;
+      }
+      setApoyosPorId((prev) => ({ ...prev, ...map }));
+    });
+  }, [proposals]);
 
   const tabs: { key: TabKey; label: string }[] = [
     { key: "abiertas", label: "Abiertas" },
@@ -191,7 +233,7 @@ export default function Gobernanza() {
         )}
         {!loading &&
           !error &&
-          proposals.map((p) => <ProposalCard key={p.id} proposal={p} />)}
+          proposals.map((p) => <ProposalCard key={p.id} proposal={p} apoyos={apoyosPorId[p.id]} />)}
       </section>
 
       {/* Info box */}

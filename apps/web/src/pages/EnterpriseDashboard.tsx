@@ -1,157 +1,63 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
-import {
-  BILLING_DELINQUENCY_POLICY,
-  ENTERPRISE_FEATURES,
-  type EnterpriseFeature,
-  isFeatureEnabled,
-  canAccessFeature,
-  canWriteFeature
-} from "../entitlements/enterprise";
-import { useEnterpriseEntitlements } from "../hooks/use-enterprise-entitlements";
 import { createClassroom } from "../services/aulas";
 import {
   fetchEnterpriseDashboard,
   fetchEnterpriseStaff,
   type EnterpriseDashboardData,
-  type EnterpriseStaffMember
+  type EnterpriseStaffMember,
 } from "../services/enterprise";
-
-type CreateClassForm = {
-  name: string;
-  description: string;
-  accessType: "publica" | "privada";
-  teacherId: string;
-  adminId: string;
-};
 
 export default function EnterpriseDashboard() {
   const { user } = useAuth();
-  const schoolId = user?.schoolId ?? null;
-  const {
-    entitlements,
-    loading: entitlementsLoading,
-    error: entitlementsError
-  } = useEnterpriseEntitlements();
+  const schoolId = user?.schoolId ?? "";
+  const [dashboard, setDashboard] =
+    useState<EnterpriseDashboardData | null>(null);
   const [staff, setStaff] = useState<EnterpriseStaffMember[]>([]);
-  const [dashboard, setDashboard] = useState<EnterpriseDashboardData | null>(null);
-  const [loadingDashboard, setLoadingDashboard] = useState(true);
-  const [dashboardError, setDashboardError] = useState<string | null>(null);
-  const [staffError, setStaffError] = useState<string | null>(null);
-  const [form, setForm] = useState<CreateClassForm>({
-    name: "",
-    description: "",
-    accessType: "privada",
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [form, setForm] = useState({
+    name: "", description: "",
+    accessType: "privada" as "publica" | "privada",
     teacherId: "",
-    adminId: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
-  const canManageMembers =
-    entitlements ? canAccessFeature(entitlements, ENTERPRISE_FEATURES.MEMBERS) : false;
-  const canWriteClassrooms =
-    entitlements ? canWriteFeature(entitlements, ENTERPRISE_FEATURES.CLASSROOMS) : false;
-  const featureCards = useMemo(
-    (): { feature: EnterpriseFeature; label: string }[] => [
-      { feature: ENTERPRISE_FEATURES.DASHBOARD, label: "Panel de escuela" },
-      { feature: ENTERPRISE_FEATURES.CLASSROOMS, label: "Aulas" },
-      { feature: ENTERPRISE_FEATURES.MEMBERS, label: "Miembros" },
-      { feature: ENTERPRISE_FEATURES.MODULES, label: "Módulos" },
-      { feature: ENTERPRISE_FEATURES.MESSAGES, label: "Mensajes" },
-      { feature: ENTERPRISE_FEATURES.CONTRACTS, label: "Contratos" },
-      { feature: ENTERPRISE_FEATURES.REPORTS, label: "Reportes" },
-      { feature: ENTERPRISE_FEATURES.PARENTS, label: "Padres y tutores" },
-      { feature: ENTERPRISE_FEATURES.INSTITUTIONAL_BENEFITS, label: "Beneficios institucionales" },
-      { feature: ENTERPRISE_FEATURES.AUDIT, label: "Auditoría" },
-      { feature: ENTERPRISE_FEATURES.ADVANCED_MODERATION, label: "Moderación avanzada" },
-      { feature: ENTERPRISE_FEATURES.ADMIN_TOOLS, label: "Herramientas de administración" },
-      { feature: ENTERPRISE_FEATURES.ECONOMY, label: "Economía" },
-      { feature: ENTERPRISE_FEATURES.QUIZZES, label: "Quizzes" }
-    ],
-    []
-  );
-
-  const resolveFeatureStatus = (feature: EnterpriseFeature) => {
-    if (!entitlements) {
-      return { label: "Sin datos", tone: "text-slate-500 bg-slate-100" };
-    }
-    if (!isFeatureEnabled(entitlements, feature)) {
-      return { label: "No incluido", tone: "text-slate-500 bg-slate-100" };
-    }
-    if (entitlements.accessLevel === "disabled") {
-      return { label: "Suspendido", tone: "text-red-700 bg-red-100" };
-    }
-    if (entitlements.accessLevel === "read_only") {
-      return { label: "Solo lectura", tone: "text-amber-700 bg-amber-100" };
-    }
-    return { label: "Activo", tone: "text-emerald-700 bg-emerald-100" };
-  };
 
   useEffect(() => {
-    if (entitlementsLoading) return;
-    if (!canManageMembers) {
-      setStaff([]);
-      return;
-    }
+    if (!schoolId) return;
     let active = true;
-    fetchEnterpriseStaff()
-      .then((data) => {
+    Promise.all([
+      fetchEnterpriseDashboard(schoolId),
+      fetchEnterpriseStaff(schoolId),
+    ])
+      .then(([dash, staffData]) => {
         if (!active) return;
-        setStaff(data);
-        setStaffError(null);
+        setDashboard(dash);
+        setStaff(staffData);
+        setError(null);
       })
       .catch((err: Error) => {
         if (!active) return;
-        setStaffError(err.message);
-      });
-    return () => {
-      active = false;
-    };
-  }, [user?.id, entitlementsLoading, canManageMembers]);
-
-  useEffect(() => {
-    let active = true;
-    fetchEnterpriseDashboard()
-      .then((data) => {
-        if (!active) return;
-        setDashboard(data);
-        setDashboardError(null);
-      })
-      .catch((err: Error) => {
-        if (!active) return;
-        setDashboardError(err.message);
+        setError(err.message);
       })
       .finally(() => {
         if (!active) return;
-        setLoadingDashboard(false);
+        setLoading(false);
       });
-    return () => {
-      active = false;
-    };
-  }, [user?.id]);
+    return () => { active = false; };
+  }, [schoolId]);
 
-  const teachers = useMemo(() => staff.filter((member) => member.role === "TEACHER"), [staff]);
-  const admins = useMemo(() => staff.filter((member) => member.role === "ADMIN"), [staff]);
+  const teachers = useMemo(
+    () => staff.filter((m) => m.role === "TEACHER"),
+    [staff]
+  );
 
-  const updateField = (field: keyof CreateClassForm, value: string) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!canWriteClassrooms) {
-      setMessage("Tu suscripción no permite crear nuevas aulas.");
-      return;
-    }
-    if (!form.name.trim() || !form.description.trim()) {
-      setMessage("Completa el nombre y la descripción del aula.");
-      return;
-    }
-    if (!form.teacherId || !form.adminId) {
-      setMessage("Selecciona un docente y un administrador de la misma escuela.");
-      return;
-    }
-    setIsSubmitting(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name.trim() || !schoolId) return;
+    setSubmitting(true);
     setMessage(null);
     try {
       const now = new Date().toISOString();
@@ -161,242 +67,156 @@ export default function EnterpriseDashboard() {
         description: form.description.trim(),
         accessType: form.accessType,
         status: "ACTIVE",
-        institutionId: schoolId ?? undefined,
+        institutionId: schoolId,
         category: "Escuela",
-        createdBy: form.adminId,
-        teacherIds: [form.teacherId],
+        createdBy: user?.id ?? "",
+        teacherIds: form.teacherId ? [form.teacherId] : [],
         createdAt: now,
         updatedAt: now,
       });
-      setForm((prev) => ({ ...prev, name: "", description: "" }));
-      setMessage("Aula creada y asignada al equipo seleccionado.");
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : "No se pudo crear el aula.");
+      setForm({ name: "", description: "", accessType: "privada", teacherId: "" });
+      setMessage("✓ Aula creada correctamente.");
+    } catch (err) {
+      setMessage(err instanceof Error ? err.message : "No se pudo crear el aula.");
     } finally {
-      setIsSubmitting(false);
+      setSubmitting(false);
     }
   };
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
       <header className="space-y-2">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Administración escolar</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+          Administración escolar
+        </p>
         <h1 className="text-3xl font-bold text-slate-900">Panel de la escuela</h1>
         <p className="text-base text-slate-600">
-          Supervisa el estado académico de tu institución y asigna aulas a docentes y administradores.
+          Supervisá el estado académico de tu institución.
         </p>
-        {entitlementsError && (
-          <p className="text-sm text-red-500">Error de suscripción: {entitlementsError}</p>
-        )}
-        {entitlements?.accessLevel === "read_only" && (
-          <p className="text-sm text-amber-600">
-            Tu suscripción está en mora. Puedes consultar información, pero no crear nuevas aulas.
-          </p>
-        )}
-        {entitlements?.accessLevel === "disabled" && (
-          <p className="text-sm text-red-600">
-            La suscripción está suspendida o inactiva. Las funciones premium están deshabilitadas.
-          </p>
+        {error && (
+          <p className="text-sm text-red-500">Error: {error}</p>
         )}
       </header>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <div className="space-y-2">
-          <h2 className="text-lg font-semibold text-slate-900">Política de mora</h2>
-          <p className="text-sm text-slate-500">
-            Si existen facturas impagas, el acceso se ajusta automáticamente. A partir de{" "}
-            {BILLING_DELINQUENCY_POLICY.pastDueDays} días se habilita solo lectura, y desde{" "}
-            {BILLING_DELINQUENCY_POLICY.suspendDays} días se bloquean las funciones ENTERPRISE.
-          </p>
-        </div>
-        <div className="mt-4 grid gap-3 md:grid-cols-2">
-          <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-            <h3 className="font-semibold">PAST_DUE · Solo lectura</h3>
-            <ul className="mt-2 space-y-1 text-amber-800">
-              <li>• Lectura de panel, aulas, reportes, miembros, módulos y mensajes.</li>
-              <li>• No se permiten altas o ediciones en aulas, usuarios, publicaciones, economía y quizzes.</li>
-              <li>• La iniciación de pagos permanece disponible.</li>
-            </ul>
-          </div>
-          <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900">
-            <h3 className="font-semibold">SUSPENDED/INACTIVE · Bloqueado</h3>
-            <ul className="mt-2 space-y-1 text-red-800">
-              <li>• Funciones ENTERPRISE bloqueadas (panel, miembros, módulos, mensajes, contratos, reportes).</li>
-              <li>• Escrituras bloqueadas en recursos críticos.</li>
-              <li>• Solo lectura y pagos habilitados para reactivar la cuenta.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <h2 className="text-lg font-semibold text-slate-900">Accesos del plan</h2>
-            <p className="text-sm text-slate-500">
-              Revisa las funciones disponibles según el plan y el estado de la suscripción.
-            </p>
-          </div>
-          {entitlements && (
-            <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-              Plan {entitlements.plan.replace("ENTERPRISE_", "")}
-            </span>
-          )}
-        </div>
-        <div className="mt-4 grid gap-3 md:grid-cols-2">
-          {featureCards.map(({ feature, label }) => {
-            const status = resolveFeatureStatus(feature);
-            return (
-              <div
-                key={feature}
-                className="flex items-center justify-between rounded-xl border border-slate-200 px-4 py-3"
-              >
-                <span className="text-sm font-semibold text-slate-700">{label}</span>
-                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${status.tone}`}>
-                  {status.label}
-                </span>
+      {/* Stats */}
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {loading
+          ? Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="h-24 animate-pulse rounded-2xl bg-slate-100" />
+            ))
+          : dashboard?.indicadores.map((item) => (
+              <div key={item.id}
+                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p className="text-sm text-slate-500">{item.label}</p>
+                <p className="mt-1 text-3xl font-bold text-slate-900">{item.value}</p>
               </div>
-            );
-          })}
-        </div>
+            ))}
       </section>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        {loadingDashboard && <p className="text-sm text-slate-500">Cargando indicadores...</p>}
-        {dashboardError && <p className="text-sm text-red-500">Error: {dashboardError}</p>}
-        {!loadingDashboard &&
-          !dashboardError &&
-          dashboard?.indicadores.map((item) => (
-            <article
-              key={item.id}
-              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-            >
-              <p className="text-sm text-slate-500">{item.label}</p>
-              <p className="mt-2 text-2xl font-semibold text-slate-900">{item.value}</p>
-            </article>
-          ))}
-        {!loadingDashboard && !dashboardError && dashboard?.indicadores.length === 0 && (
-          <p className="text-sm text-slate-500">No hay indicadores disponibles.</p>
-        )}
-      </section>
-
+      {/* Accesos rápidos */}
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <h2 className="text-lg font-semibold text-slate-900">Crear aula para la escuela</h2>
-            <p className="text-sm text-slate-500">
-              Selecciona un docente y un administrador que pertenezcan a la misma institución.
-            </p>
-          </div>
+        <h2 className="text-lg font-semibold text-slate-900">Accesos rápidos</h2>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link to="/enterprise/aulas"
+            className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+            Ver aulas
+          </Link>
+          <Link to="/enterprise/miembros"
+            className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+            Ver miembros
+          </Link>
+          <Link to="/enterprise/modulos"
+            className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+            Ver módulos
+          </Link>
+          <Link to="/enterprise/reportes"
+            className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+            Reportes
+          </Link>
+          <Link to="/gobernanza"
+            className="rounded-full border border-violet-200 px-4 py-2 text-sm font-semibold text-violet-700 hover:bg-violet-50 transition-colors">
+            Gobernanza
+          </Link>
         </div>
-        <form className="mt-4 grid gap-4 md:grid-cols-2" onSubmit={handleSubmit}>
-          <label className="grid gap-2 text-sm font-semibold text-slate-700 md:col-span-2">
-            Nombre del aula
+      </section>
+
+      {/* Crear aula */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-lg font-semibold text-slate-900">Crear aula</h2>
+        <form className="mt-4 grid gap-4 sm:grid-cols-2" onSubmit={handleSubmit}>
+          <label className="flex flex-col gap-1 text-sm font-medium text-slate-700 sm:col-span-2">
+            Nombre *
             <input
-              className="rounded-md border border-slate-200 px-3 py-2 text-sm"
-              value={form.name}
-              onChange={(event) => updateField("name", event.target.value)}
-              placeholder="Ej. 3° B - Primaria"
               required
-              disabled={!canWriteClassrooms}
+              value={form.name}
+              onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
+              className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+              placeholder="Ej: 3° B - Primaria"
             />
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-slate-700 md:col-span-2">
+          <label className="flex flex-col gap-1 text-sm font-medium text-slate-700 sm:col-span-2">
             Descripción
             <textarea
-              className="min-h-[110px] rounded-md border border-slate-200 px-3 py-2 text-sm"
+              rows={2}
               value={form.description}
-              onChange={(event) => updateField("description", event.target.value)}
-              placeholder="Describe objetivos o lineamientos principales."
-              required
-              disabled={!canWriteClassrooms}
+              onChange={(e) => setForm((p) => ({ ...p, description: e.target.value }))}
+              className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+              placeholder="Objetivos o lineamientos del aula"
             />
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-slate-700">
+          <label className="flex flex-col gap-1 text-sm font-medium text-slate-700">
             Tipo de acceso
             <select
-              className="rounded-md border border-slate-200 px-3 py-2 text-sm"
               value={form.accessType}
-              onChange={(event) => updateField("accessType", event.target.value)}
-              disabled={!canWriteClassrooms}
+              onChange={(e) => setForm((p) => ({ ...p, accessType: e.target.value as "publica" | "privada" }))}
+              className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
             >
               <option value="privada">Privada</option>
               <option value="publica">Pública</option>
             </select>
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-slate-700">
+          <label className="flex flex-col gap-1 text-sm font-medium text-slate-700">
             Docente responsable
             <select
-              className="rounded-md border border-slate-200 px-3 py-2 text-sm"
               value={form.teacherId}
-              onChange={(event) => updateField("teacherId", event.target.value)}
-              disabled={!canWriteClassrooms || !canManageMembers}
+              onChange={(e) => setForm((p) => ({ ...p, teacherId: e.target.value }))}
+              className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
             >
-              <option value="">Selecciona un docente</option>
-              {teachers.map((teacher) => (
-                <option key={teacher.id} value={teacher.id}>
-                  {teacher.name}
-                </option>
+              <option value="">Sin asignar</option>
+              {teachers.map((t) => (
+                <option key={t.id} value={t.id}>{t.name}</option>
               ))}
             </select>
-            {staffError && <span className="text-xs text-red-600">{staffError}</span>}
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-slate-700">
-            Administrador asignado
-            <select
-              className="rounded-md border border-slate-200 px-3 py-2 text-sm"
-              value={form.adminId}
-              onChange={(event) => updateField("adminId", event.target.value)}
-              disabled={!canWriteClassrooms || !canManageMembers}
-            >
-              <option value="">Selecciona un administrador</option>
-              {admins.map((admin) => (
-                <option key={admin.id} value={admin.id}>
-                  {admin.name}
-                </option>
-              ))}
-            </select>
-            {staffError && <span className="text-xs text-red-600">{staffError}</span>}
-          </label>
-          <div className="flex flex-wrap items-center gap-3 md:col-span-2">
+          <div className="flex items-center gap-3 sm:col-span-2">
             <button
               type="submit"
-              className="inline-flex items-center justify-center rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 disabled:opacity-60"
-              disabled={isSubmitting || !canWriteClassrooms}
+              disabled={submitting || !form.name.trim()}
+              className="rounded-xl bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
             >
-              {isSubmitting ? "Creando..." : "Crear aula"}
+              {submitting ? "Creando..." : "Crear aula"}
             </button>
-            {message && <span className="text-sm text-slate-600">{message}</span>}
+            {message && (
+              <p className={`text-sm ${message.startsWith("✓") ? "text-emerald-600" : "text-red-600"}`}>
+                {message}
+              </p>
+            )}
           </div>
         </form>
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-lg font-semibold text-slate-900">Próximas acciones</h2>
-        <ul className="mt-3 space-y-2 text-sm text-slate-600">
-          {loadingDashboard && <li>Cargando acciones...</li>}
-          {!loadingDashboard &&
-            dashboard?.acciones.map((accion) => (
-              <li key={accion}>• {accion}</li>
-            ))}
-          {!loadingDashboard && dashboard?.acciones.length === 0 && (
-            <li>No hay acciones planificadas.</li>
-          )}
-        </ul>
-      </section>
-
+      {/* Gobernanza */}
       <section className="rounded-2xl border border-violet-100 bg-violet-50 p-5">
         <h2 className="text-base font-semibold text-violet-900">Gobernanza colaborativa</h2>
         <p className="mt-1 text-sm text-violet-700">
-          Participá en propuestas de cambio para módulos, generadores de ejercicios y configuraciones.
-          Solo directivos, docentes y administradores pueden crear y votar propuestas.
+          Participá en propuestas de cambio para módulos y generadores de ejercicios.
         </p>
-        <a
-          href="/gobernanza"
+        <Link
+          to="/gobernanza"
           className="mt-3 inline-block rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 transition-colors"
         >
           Ir a gobernanza →
-        </a>
+        </Link>
       </section>
     </main>
   );

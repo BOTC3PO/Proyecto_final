@@ -42,9 +42,8 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Aulas', to: '/enterprise/aulas' },
     { label: 'Miembros', to: '/enterprise/miembros' },
     { label: 'Módulos', to: '/enterprise/modulos' },
-    { label: 'Mensajes', to: '/enterprise/mensajes' },
-    { label: 'Convenios', to: '/enterprise/contratos' },
     { label: 'Reportes', to: '/enterprise/reportes' },
+    { label: 'Gobernanza', to: '/gobernanza' },
     { label: 'Mi Perfil', to: '/perfil' },
   ],
   GUEST: [

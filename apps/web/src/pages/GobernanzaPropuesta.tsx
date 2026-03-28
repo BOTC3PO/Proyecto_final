@@ -3,10 +3,11 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import {
   fetchProposal,
-  castVote,
   closeProposal,
+  fetchApoyos,
+  apoyarPropuesta,
   type Proposal,
-  type VoteValue,
+  type ApoyosInfo,
   PROPOSAL_TYPE_LABELS,
   STATUS_LABELS,
   LEVEL_LABELS,
@@ -88,10 +89,8 @@ export default function GobernanzaPropuesta() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const [voting, setVoting] = useState(false);
-  const [voteError, setVoteError] = useState<string | null>(null);
-  const [voteSuccess, setVoteSuccess] = useState<string | null>(null);
-  const [myVote, setMyVote] = useState<VoteValue | null>(null);
+  const [apoyos, setApoyos] = useState<ApoyosInfo | null>(null);
+  const [votando, setVotando] = useState(false);
 
   const [closing, setClosing] = useState(false);
   const [closeError, setCloseError] = useState<string | null>(null);
@@ -122,27 +121,20 @@ export default function GobernanzaPropuesta() {
     };
   }, [id]);
 
-  const handleVote = async (vote: VoteValue) => {
-    if (!id || !user?.id) return;
-    setVoting(true);
-    setVoteError(null);
-    setVoteSuccess(null);
+  useEffect(() => {
+    if (!proposal || proposal.status !== "OPEN") return;
+    fetchApoyos(proposal.id).then(setApoyos).catch(() => {});
+  }, [proposal?.id]);
+
+  const handleVoto = async (voto: "APPROVE" | "REJECT") => {
+    if (!user?.id || !proposal) return;
+    setVotando(true);
     try {
-      await castVote(id, user.id, vote);
-      setMyVote(vote);
-      const voteLabels: Record<VoteValue, string> = {
-        APPROVE: "a favor",
-        REJECT: "en contra",
-        ABSTAIN: "abstención",
-      };
-      setVoteSuccess(`Voto registrado: ${voteLabels[vote]}`);
-      // Refresh proposal to get updated voteSummary if available
-      const updated = await fetchProposal(id);
-      setProposal(updated);
-    } catch (err: unknown) {
-      setVoteError(err instanceof Error ? err.message : "Error al votar");
+      await apoyarPropuesta(proposal.id, user.id, voto);
+      const updated = await fetchApoyos(proposal.id);
+      setApoyos(updated);
     } finally {
-      setVoting(false);
+      setVotando(false);
     }
   };
 
@@ -266,57 +258,91 @@ export default function GobernanzaPropuesta() {
         </section>
       )}
 
-      {/* Voting actions */}
-      {isOpen && isStaff && (
-        <section className="rounded-xl border border-blue-200 bg-blue-50 p-5 space-y-4">
-          <h2 className="text-sm font-semibold text-blue-900">Tu voto</h2>
+      {/* Apoyos */}
+      {proposal.status === "OPEN" && user && (
+        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
+          <h2 className="text-lg font-semibold text-slate-900">
+            ¿Apoyás esta propuesta?
+          </h2>
 
-          {voteSuccess && (
-            <p className="rounded-lg bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700">
-              {voteSuccess}
+          {apoyos ? (
+            <div className="space-y-4">
+              {/* Barra de progreso */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-slate-600">
+                    {apoyos.apoyos} de {apoyos.umbral} apoyos necesarios
+                  </span>
+                  {apoyos.alcanzado && (
+                    <span className="text-xs font-semibold text-emerald-600">
+                      ✓ Elevada al admin
+                    </span>
+                  )}
+                </div>
+                <div className="h-2 w-full rounded-full bg-slate-100">
+                  <div
+                    className={`h-2 rounded-full transition-all ${
+                      apoyos.alcanzado ? "bg-emerald-500" : "bg-blue-500"
+                    }`}
+                    style={{
+                      width: `${Math.min(100,
+                        Math.round((apoyos.apoyos / apoyos.umbral) * 100)
+                      )}%`
+                    }}
+                  />
+                </div>
+                <div className="flex gap-4 text-xs text-slate-400">
+                  <span className="text-emerald-600 font-medium">
+                    👍 {apoyos.apoyos} apoyan
+                  </span>
+                  <span className="text-rose-500 font-medium">
+                    👎 {apoyos.noApoyos} no apoyan
+                  </span>
+                </div>
+                {apoyos.alcanzado && (
+                  <p className="text-xs text-emerald-600">
+                    Esta propuesta fue elevada al panel de administración.
+                  </p>
+                )}
+              </div>
+
+              {/* Botones de voto — solo si no votó todavía */}
+              {!apoyos.miVoto ? (
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    disabled={votando}
+                    onClick={() => handleVoto("APPROVE")}
+                    className="flex-1 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+                  >
+                    👍 Apoyar
+                  </button>
+                  <button
+                    type="button"
+                    disabled={votando}
+                    onClick={() => handleVoto("REJECT")}
+                    className="flex-1 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50 transition-colors"
+                  >
+                    👎 No apoyar
+                  </button>
+                </div>
+              ) : (
+                <p className={`text-sm font-medium ${
+                  apoyos.miVoto === "APPROVE"
+                    ? "text-blue-600"
+                    : "text-slate-500"
+                }`}>
+                  {apoyos.miVoto === "APPROVE"
+                    ? "✓ Apoyaste esta propuesta."
+                    : "✓ Marcaste que no apoyás esta propuesta."}
+                </p>
+              )}
+            </div>
+          ) : (
+            <p className="text-sm text-slate-400 animate-pulse">
+              Cargando apoyos...
             </p>
           )}
-          {voteError && (
-            <p className="rounded-lg bg-red-100 px-4 py-2 text-sm text-red-600">{voteError}</p>
-          )}
-
-          <div className="flex flex-wrap gap-3">
-            <button
-              disabled={voting || myVote === "APPROVE"}
-              onClick={() => handleVote("APPROVE")}
-              className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition-all ${
-                myVote === "APPROVE"
-                  ? "bg-emerald-600 text-white ring-2 ring-emerald-400"
-                  : "border border-emerald-300 bg-white text-emerald-700 hover:bg-emerald-50"
-              } disabled:opacity-60 disabled:cursor-not-allowed`}
-            >
-              A favor
-            </button>
-            <button
-              disabled={voting || myVote === "REJECT"}
-              onClick={() => handleVote("REJECT")}
-              className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition-all ${
-                myVote === "REJECT"
-                  ? "bg-red-600 text-white ring-2 ring-red-400"
-                  : "border border-red-300 bg-white text-red-700 hover:bg-red-50"
-              } disabled:opacity-60 disabled:cursor-not-allowed`}
-            >
-              En contra
-            </button>
-            <button
-              disabled={voting || myVote === "ABSTAIN"}
-              onClick={() => handleVote("ABSTAIN")}
-              className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition-all ${
-                myVote === "ABSTAIN"
-                  ? "bg-slate-600 text-white ring-2 ring-slate-400"
-                  : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
-              } disabled:opacity-60 disabled:cursor-not-allowed`}
-            >
-              Abstención
-            </button>
-          </div>
-
-          {voting && <p className="text-xs text-blue-700">Registrando voto...</p>}
         </section>
       )}
 

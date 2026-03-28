@@ -18,10 +18,7 @@ import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
 import BlockEditorPage from "./blocks/v2/BlockEditorPage";
-import CrearModulo from "./pages/crearModulo";
 import EditorCuestionarios from "./pages/EditorCuestionarios";
-import EditarModulo from "./pages/editarModulo";
-import JugarModulo from "./pages/jugarModulo";
 import ProfesorAulas from "./pages/ProfesorAulas";
 import Calendario from "./pages/Calendario";
 import ProfesorConfiguracion from "./pages/ProfesorConfiguracion";
@@ -55,20 +52,15 @@ import ProfesorCursos from "./pages/ProfesorCursos";
 import ProfesorCalificaciones from "./pages/ProfesorCalificaciones";
 import ProfesorAsistencia from "./pages/ProfesorAsistencia";
 import EnterpriseDashboard from "./pages/EnterpriseDashboard";
-import EnterpriseContratos from "./pages/EnterpriseContratos";
 import EnterpriseReportes from "./pages/EnterpriseReportes";
 import EnterpriseAulas from "./pages/EnterpriseAulas";
 import EnterpriseMiembros from "./pages/EnterpriseMiembros";
 import EnterpriseModulos from "./pages/EnterpriseModulos";
-import EnterpriseMensajes from "./pages/EnterpriseMensajes";
 import MenuProfesor from "./pages/MenuProfesor";
 import ProfesorAulaConfiguracion from "./pages/ProfesorAulaConfiguracion";
 import Terminos from "./pages/Terminos";
 import Privacidad from "./pages/Privacidad";
-import DiccionarioTest from "./pages/DiccionarioTest";
 import GuestOnboarding from "./pages/GuestOnboarding";
-import GeografiaMapaSelector from "./pages/GeografiaMapaSelector";
-import MapaEditorPage from "./pages/MapaEditorPage";
 import Gobernanza from "./pages/Gobernanza";
 import GobernanzaPropuesta from "./pages/GobernanzaPropuesta";
 import GobernanzaNuevaPropuesta from "./pages/GobernanzaNuevaPropuesta";
@@ -105,7 +97,6 @@ export const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "terminos", element: <Terminos /> },
       { path: "privacidad", element: <Privacidad /> },
-      { path: "diccionarios-test", element: <DiccionarioTest /> },
       { path: "metodologia", element: <Metodologia /> },
       { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
       { path: "editor", element: <BookEditorPage /> },
@@ -113,8 +104,6 @@ export const router = createBrowserRouter([
       { path: "bloques/editor", element: <BlockEditorPage /> },
       { path: "bloques/editor/:id", element: <BlockEditorPage /> },
       { path: "onboarding-guest", element: <GuestOnboarding /> },
-      { path: "geografia/mapa", element: <GeografiaMapaSelector /> },
-      { path: "herramientas/mapa-editor", element: <MapaEditorPage /> },
 
       // Herramientas Educativas (public)
       { path: "herramientas", element: <HerramientasEducativas /> },
@@ -443,7 +432,7 @@ export const router = createBrowserRouter([
         path: "modulos/crear",
         element: (
           <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
-            <CrearModulo />
+            <Navigate to="/modulos" replace />
           </ProtectedRoute>
         ),
       },
@@ -451,7 +440,7 @@ export const router = createBrowserRouter([
         path: "modulos/:id/editar",
         element: (
           <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
-            <EditarModulo />
+            <Navigate to="/modulos" replace />
           </ProtectedRoute>
         ),
       },
@@ -467,7 +456,7 @@ export const router = createBrowserRouter([
         path: "modulos/:id/jugar",
         element: (
           <ProtectedRoute allow={["USER", "PARENT", "TEACHER"]}>
-            <JugarModulo />
+            <Navigate to="/modulos" replace />
           </ProtectedRoute>
         ),
       },
@@ -494,14 +483,6 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['DIRECTIVO']}>
             <EnterpriseDashboard />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "enterprise/contratos",
-        element: (
-          <ProtectedRoute allow={['DIRECTIVO']}>
-            <EnterpriseContratos />
           </ProtectedRoute>
         ),
       },
@@ -537,15 +518,6 @@ export const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      {
-        path: "enterprise/mensajes",
-        element: (
-          <ProtectedRoute allow={['DIRECTIVO']}>
-            <EnterpriseMensajes />
-          </ProtectedRoute>
-        ),
-      },
-
 
       // Gobernanza — solo directivos, docentes y administradores
       {
