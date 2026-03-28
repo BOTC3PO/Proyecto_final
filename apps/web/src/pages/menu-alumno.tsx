@@ -4,6 +4,8 @@ import { Award, Bell, Clock3, GraduationCap, Trophy, UserCircle2 } from "lucide-
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
+import { getSubjectColor } from "../domain/module/subjectColors";
+import { useTheme, type ThemeId } from "../theme/ThemeContext";
 
 interface Student {
   name: string;
@@ -68,6 +70,33 @@ type SimulationScenario = {
     fciRateDelta: number;
   };
   learning: string;
+};
+
+type SimulationRegistryEntry = {
+  id: string;
+  name: string;
+  completedAt: string;
+};
+
+type MissionProgress = {
+  saved: number;
+  startedAt: string | null;
+  completed: boolean;
+};
+
+type SaldoResponse = {
+  saldo: number;
+  moneda: string;
+  updatedAt: string;
+};
+
+type TransaccionItem = {
+  id: string;
+  tipo: "credito" | "debito";
+  monto: number;
+  moneda: string;
+  motivo: string;
+  createdAt: string;
 };
 
 type EconomyState = {
@@ -197,6 +226,7 @@ const formatDelta = (value: number, suffix: string) => `${value > 0 ? "+" : ""}$
 
 export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass }) => {
   const { user } = useAuth();
+  const { theme, setTheme, availableThemes } = useTheme();
   const [completedModules, setCompletedModules] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
   const [modulesCount, setModulesCount] = useState(0);
@@ -217,6 +247,10 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     "loading"
   );
   const [benefitsError, setBenefitsError] = useState<string | null>(null);
+  const [saldoStatus, setSaldoStatus] =
+    useState<"loading" | "ready" | "error">("loading");
+  const [transacciones, setTransacciones] =
+    useState<TransaccionItem[]>([]);
 
   useEffect(() => {
     let active = true;
@@ -289,20 +323,54 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     };
   }, [user?.id]);
 
+  type ThemeState = { ownedThemes: string[]; activeTheme: string };
+  const THEME_STORAGE_KEY = "temas-alumno";
+
   useEffect(() => {
-    const stored = localStorage.getItem(ECONOMY_STORAGE_KEY);
+    const stored = localStorage.getItem(THEME_STORAGE_KEY);
     if (!stored) return;
     try {
-      const parsed = JSON.parse(stored) as EconomyState;
-      setEconomy((prev) => ({ ...prev, ...parsed }));
-    } catch {
-      setEconomy(defaultEconomyState);
-    }
+      const parsed = JSON.parse(stored) as ThemeState;
+      setEconomy((prev) => ({
+        ...prev,
+        ownedThemes: parsed.ownedThemes ?? prev.ownedThemes,
+        activeTheme: parsed.activeTheme ?? prev.activeTheme,
+      }));
+    } catch { /* ignore */ }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(ECONOMY_STORAGE_KEY, JSON.stringify(economy));
-  }, [economy]);
+    localStorage.setItem(
+      THEME_STORAGE_KEY,
+      JSON.stringify({
+        ownedThemes: economy.ownedThemes,
+        activeTheme: economy.activeTheme,
+      })
+    );
+  }, [economy.ownedThemes, economy.activeTheme]);
+
+  useEffect(() => {
+    if (!user?.id) return;
+    let active = true;
+    setSaldoStatus("loading");
+    Promise.all([
+      apiGet<SaldoResponse>(`/api/economia/saldos?usuarioId=${user.id}`),
+      apiGet<{ items: TransaccionItem[] }>(
+        `/api/economia/transacciones?usuarioId=${user.id}&limit=10`
+      ),
+    ])
+      .then(([saldoResponse, txResponse]) => {
+        if (!active) return;
+        setEconomy((prev) => ({ ...prev, coins: saldoResponse.saldo }));
+        setTransacciones(txResponse.items);
+        setSaldoStatus("ready");
+      })
+      .catch(() => {
+        if (!active) return;
+        setSaldoStatus("error");
+      });
+    return () => { active = false; };
+  }, [user?.id]);
 
   useEffect(() => {
     if (!coinFeedback) return;
@@ -368,17 +436,30 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
         tone: "spend"
       });
       pushEducationMessage({
-        title: "Compra realizada",
-        body: "Al gastar monedas tu saldo baja. Revisá siempre si te conviene ahorrar o comprar ahora.",
-        tone: "warning"
+        title: "Tema activado",
+        body: "Cambiar el tema no cuesta monedas si ya lo tenés comprado.",
+        tone: "info"
       });
-      return {
-        ...prev,
-        coins: prev.coins - item.price,
-        ownedThemes: [...prev.ownedThemes, item.id],
-        activeTheme: item.id
-      };
+      setTheme(item.id);
+      return;
+    }
+    if (economy.coins < item.price) return;
+    setCoinFeedback({
+      delta: -item.price,
+      label: `Gastaste ${item.price} 🪙 en ${item.name}.`,
+      tone: "spend"
     });
+    pushEducationMessage({
+      title: "Compra realizada",
+      body: "Al gastar monedas tu saldo baja. Revisá siempre si te conviene ahorrar o comprar ahora.",
+      tone: "warning"
+    });
+    setEconomy((prev) => ({
+      ...prev,
+      coins: prev.coins - item.price,
+      ownedThemes: [...prev.ownedThemes, item.id],
+    }));
+    setTheme(item.id);
   };
 
   const handleExchange = () => {
@@ -405,9 +486,9 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   };
 
   const themeStatus = useMemo(() => {
-    const activeTheme = STORE_ITEMS.find((item) => item.id === economy.activeTheme);
+    const activeTheme = availableThemes.find((item) => item.id === theme);
     return activeTheme ? activeTheme.name : "Tema personalizado";
-  }, [economy.activeTheme]);
+  }, [theme, availableThemes]);
 
   const handleToggleSimulation = (simulationId: string) => {
     setOpenSimulationId((prev) => (prev === simulationId ? null : simulationId));
@@ -485,6 +566,11 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
                     {economy.coins} 🪙
                   </p>
                   <p className="text-xs text-gray-400 mt-1">Usalas para temas o intercambios.</p>
+                  {saldoStatus === "loading" && (
+                    <p className="text-xs text-gray-400 animate-pulse">
+                      Actualizando saldo...
+                    </p>
+                  )}
                   {coinFeedback ? (
                     <div
                       className={`mt-2 inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold ${
@@ -765,20 +851,124 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
                       <p className="text-xs text-gray-400">{item.description}</p>
                       <p className="text-xs text-gray-500 mt-1">Precio: {item.price} 🪙</p>
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => handlePurchaseTheme(item)}
-                      className={`rounded-lg px-3 py-1 text-xs font-semibold ${
-                        isOwned
-                          ? "bg-emerald-100 text-emerald-700"
-                          : economy.coins >= item.price
-                            ? "bg-emerald-600 text-white hover:bg-emerald-700"
-                            : "bg-gray-100 text-gray-500"
-                      }`}
-                      disabled={!isOwned && economy.coins < item.price}
-                    >
-                      {isOwned ? "Activar" : "Comprar"}
-                    </button>
+                  );
+                })}
+              </div>
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold text-gray-700">Tareas</h4>
+                {TASK_REWARDS.map((task) => {
+                  const isCompleted = completedTaskSet.has(task.id);
+                  return (
+                    <div key={task.id} className="flex items-center justify-between rounded-xl border border-gray-200 p-3">
+                      <div>
+                        <p className="text-sm font-medium text-gray-800">{task.title}</p>
+                        <p className="text-xs text-gray-400">Recompensa: {task.reward} 🪙</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => handleCompleteReward(task, "task")}
+                        className={`rounded-lg px-3 py-1 text-xs font-semibold ${
+                          isCompleted
+                            ? "bg-gray-100 text-gray-500"
+                            : "bg-indigo-600 text-white hover:bg-indigo-700"
+                        }`}
+                        disabled={isCompleted}
+                      >
+                        {isCompleted ? "Ganado" : "Completar"}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+          <section className="grid gap-5 lg:grid-cols-2">
+            <div className="bg-white rounded-2xl shadow p-6 space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800">Tienda básica</h3>
+              <p className="text-sm text-gray-500">
+                Comprá temas y mejoras visuales para tu experiencia.
+              </p>
+              <div className="space-y-3">
+                {availableThemes.map((item) => {
+                  const isOwned = economy.ownedThemes.includes(item.id);
+                  const isActive = theme === item.id;
+                  return (
+                    <div key={item.id} className="flex items-center justify-between rounded-xl border border-gray-200 p-3">
+                      <div>
+                        <p className="text-sm font-semibold text-gray-800">
+                          {item.name}
+                          {item.animated && (
+                            <span className="ml-2 text-[10px] font-semibold uppercase tracking-wide text-violet-500">
+                              Animado
+                            </span>
+                          )}
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">Precio: {item.price} 🪙</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => handlePurchaseTheme(item)}
+                        className={`rounded-lg px-3 py-1 text-xs font-semibold ${
+                          isActive
+                            ? "bg-blue-100 text-blue-700"
+                            : isOwned
+                              ? "bg-emerald-100 text-emerald-700"
+                              : economy.coins >= item.price
+                                ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                                : "bg-gray-100 text-gray-500"
+                        }`}
+                        disabled={!isOwned && economy.coins < item.price}
+                      >
+                        {isActive ? "Activo" : isOwned ? "Activar" : "Comprar"}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl shadow p-6 space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800">Intercambio entre alumnos</h3>
+              <p className="text-sm text-gray-500">Enviá monedas a compañeros de forma simple.</p>
+              <div className="space-y-3">
+                <div>
+                  <label className="text-sm text-gray-600" htmlFor="transfer-to">
+                    Destinatario
+                  </label>
+                  <input
+                    id="transfer-to"
+                    type="text"
+                    value={transferTo}
+                    onChange={(event) => setTransferTo(event.target.value)}
+                    placeholder="Ej: Juan Pérez"
+                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                  />
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div>
+                    <label className="text-sm text-gray-600" htmlFor="transfer-amount">
+                      Monto
+                    </label>
+                    <input
+                      id="transfer-amount"
+                      type="number"
+                      min={1}
+                      value={transferAmount}
+                      onChange={(event) => setTransferAmount(Number(event.target.value))}
+                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm text-gray-600" htmlFor="transfer-note">
+                      Nota (opcional)
+                    </label>
+                    <input
+                      id="transfer-note"
+                      type="text"
+                      value={transferNote}
+                      onChange={(event) => setTransferNote(event.target.value)}
+                      placeholder="Gracias por ayudar"
+                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm"
+                    />
                   </div>
                 );
               })}
@@ -796,5 +986,19 @@ const demoProps: DashboardProps = {
 };
 
 export default function Page() {
-  return <StudentDashboard {...demoProps} />;
+  const { user } = useAuth();
+  if (!user) return null;
+  const initials = user.name
+    .split(" ")
+    .filter(Boolean)
+    .map((p) => p[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+  return (
+    <StudentDashboard
+      student={{ name: user.name, initials, role: "Alumno" }}
+      nextClass={{ title: "—", time: "—" }}
+    />
+  );
 }
