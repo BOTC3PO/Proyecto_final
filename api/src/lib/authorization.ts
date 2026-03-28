@@ -63,6 +63,7 @@ type AuthorizationResult = {
 
 export type AuthorizationPolicy =
   | "aula-feed/read"
+  | "aula-feed/write"
   | "aulas/create"
   | "aulas/list"
   | "aulas/manage"
@@ -117,6 +118,13 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
       const accessLevel = resolveAccessLevel(user?.role);
       if (!accessLevel) return { allowed: false };
       return { allowed: true, data: { accessLevel } };
+    },
+    "aula-feed/write": (user) => {
+      if (!user) return { allowed: false, reason: "unauthenticated" };
+      if (user.role === "ADMIN" || user.role === "TEACHER" || user.role === "DIRECTIVO") {
+        return { allowed: true, data: { accessLevel: "staff" } };
+      }
+      return { allowed: false, reason: "forbidden" };
     },
     "aulas/create": (user) => ({ allowed: canCreateClass(user?.role ?? null) }),
     "aulas/list": (user) => {
