@@ -14,8 +14,6 @@ const userBase: NavItem[] = [
   { label: 'Mi Perfil', to: '/perfil' },
 ];
 
-// Padres = similar a Usuario + 1 página extra
-const parentExtra: NavItem = { label: 'Hijos', to: '/hijos' };
 
 export const NAV_BY_ROLE: NavMap = {
   ADMIN: [
@@ -28,7 +26,11 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Mi Perfil', to: '/perfil' },
   ],
   USER: userBase,
-  PARENT: [...userBase, parentExtra, { label: 'Agregar hijo', to: '/hijos/agregar' }],
+  PARENT: [
+    { label: 'Mis hijos', to: '/hijos' },
+    { label: 'Agregar hijo', to: '/hijos/agregar' },
+    { label: 'Mi Perfil', to: '/perfil' },
+  ],
   TEACHER: [
     { label: 'Panel', to: '/profesor', exact: true },
     { label: 'Cursos', to: '/profesor/cursos' },

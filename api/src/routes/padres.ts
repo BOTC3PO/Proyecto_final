@@ -3,6 +3,7 @@ import { z } from "zod";
 import { getDb } from "../lib/db";
 import { toObjectId } from "../lib/ids";
 import { requireUser } from "../lib/user-auth";
+import { openContentDb } from "../lib/db-open";
 
 export const padres = Router();
 
@@ -192,3 +193,167 @@ padres.patch("/api/padres/hijos/:id/limites", requireUser, ...bodyLimitMB(1), as
     return res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
 });
+
+// GET /api/padres/hijos/:id/actividades
+// Padre ve las próximas actividades del aula de su hijo
+padres.get("/api/padres/hijos/:id/actividades", requireUser,
+  async (req, res) => {
+    const parentId = resolveParentId(req);
+    if (!parentId) return res.status(401).json({ error: "not authenticated" });
+
+    const childId = getParamId(req.params.id);
+    if (!childId) return res.status(400).json({ error: "childId required" });
+
+    // Verificar vínculo
+    const access = await ensureParentAccess({
+      parentId,
+      childId: toObjectId(childId) ?? childId as any,
+    });
+    if (!access.ok) {
+      return res.status(access.status).json({ error: access.error });
+    }
+
+    try {
+      // Buscar aulas donde está el hijo
+      const db = await getDb();
+      const aulas = await db.collection("aulas").find({
+        "members.userId": childId,
+        isDeleted: { $ne: true },
+        status: "ACTIVE",
+      }).project({ id: 1, name: 1 }).toArray();
+
+      const aulaIds = aulas.map((a) => String(a.id ?? a._id));
+
+      if (!aulaIds.length) return res.json({ items: [] });
+
+      // Buscar actividades futuras de esas aulas
+      const sqliteDb = openContentDb();
+      const hoy = new Date().toISOString();
+      const placeholders = aulaIds.map(() => "?").join(",");
+      const actividades = sqliteDb.prepare(`
+        SELECT id, aula_id, tipo, titulo, descripcion, fecha
+        FROM actividades_aula
+        WHERE aula_id IN (${placeholders})
+          AND is_deleted = 0
+          AND fecha >= ?
+        ORDER BY fecha ASC
+        LIMIT 10
+      `).all(...aulaIds, hoy) as Array<{
+        id: string; aula_id: string; tipo: string;
+        titulo: string; descripcion: string | null; fecha: string;
+      }>;
+
+      // Enriquecer con nombre del aula
+      const aulaMap = new Map(
+        aulas.map((a) => [String(a.id ?? a._id), String(a.name ?? "")])
+      );
+
+      const items = actividades.map((act) => ({
+        id: act.id,
+        aulaId: act.aula_id,
+        aulaNombre: aulaMap.get(act.aula_id) ?? "Aula",
+        tipo: act.tipo,
+        titulo: act.titulo,
+        descripcion: act.descripcion ?? undefined,
+        fecha: act.fecha,
+        when: new Date(act.fecha).toLocaleDateString("es-AR", {
+          weekday: "long", day: "numeric", month: "long"
+        }),
+      }));
+
+      return res.json({ items });
+    } catch (err) {
+      return res.status(500).json({
+        error: err instanceof Error ? err.message : "error"
+      });
+    }
+  }
+);
+
+// GET /api/padres/hijos/:id/boletin
+// Padre ve el boletín de calificaciones de su hijo
+padres.get("/api/padres/hijos/:id/boletin", requireUser,
+  async (req, res) => {
+    const parentId = resolveParentId(req);
+    if (!parentId) return res.status(401).json({ error: "not authenticated" });
+
+    const childId = getParamId(req.params.id);
+    if (!childId) return res.status(400).json({ error: "childId required" });
+
+    const access = await ensureParentAccess({
+      parentId,
+      childId: toObjectId(childId) ?? childId as any,
+    });
+    if (!access.ok) {
+      return res.status(access.status).json({ error: access.error });
+    }
+
+    try {
+      const db = await getDb();
+
+      // Buscar quiz-attempts de tipo formal del hijo
+      const attempts = await db.collection("quiz_attempts").find({
+        userId: childId,
+        status: { $in: ["completed", "submitted"] },
+      }).sort({ createdAt: -1 }).limit(50).toArray();
+
+      // Buscar módulos para obtener materia
+      const moduleIds = [...new Set(
+        attempts.map((a) => String(a.moduleId ?? "")).filter(Boolean)
+      )];
+      const modules = moduleIds.length
+        ? await db.collection("modulos").find({
+            id: { $in: moduleIds }
+          }).project({ id: 1, title: 1, subject: 1, category: 1 })
+          .toArray()
+        : [];
+      const moduleMap = new Map(
+        modules.map((m) => [String(m.id ?? ""), m])
+      );
+
+      // Agrupar por materia
+      const porMateria = new Map<string, Array<{
+        quizId: string;
+        quizTitle?: string;
+        score: number | null;
+        maxScore: number | null;
+        fecha: string;
+      }>>();
+
+      for (const attempt of attempts) {
+        const mod = moduleMap.get(String(attempt.moduleId ?? ""));
+        const materia = String(
+          mod?.subject ?? mod?.category ?? "General"
+        );
+        if (!porMateria.has(materia)) porMateria.set(materia, []);
+        porMateria.get(materia)!.push({
+          quizId: String(attempt.quizId ?? ""),
+          quizTitle: attempt.quizTitle as string | undefined,
+          score: typeof attempt.score === "number" ? attempt.score : null,
+          maxScore: typeof attempt.maxScore === "number"
+            ? attempt.maxScore : null,
+          fecha: String(attempt.completedAt ?? attempt.createdAt ?? ""),
+        });
+      }
+
+      const materias = Array.from(porMateria.entries()).map(
+        ([materia, items]) => {
+          const conNota = items.filter((i) => i.score !== null);
+          const promedio = conNota.length
+            ? Math.round(
+                conNota.reduce((acc, i) => acc + (i.score ?? 0), 0) /
+                conNota.length
+              )
+            : null;
+          return { materia, promedio, evaluaciones: items };
+        }
+      );
+
+      return res.json({ materias, total: attempts.length });
+    } catch (err) {
+      return res.status(500).json({
+        error: err instanceof Error ? err.message : "error"
+      });
+    }
+  }
+);

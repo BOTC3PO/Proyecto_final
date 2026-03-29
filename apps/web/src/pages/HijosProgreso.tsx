@@ -1,5 +1,10 @@
 import { useEffect, useMemo, useState, type ChangeEvent } from "react";
+import { Link } from "react-router-dom";
 import { fetchProgresoHijos, type ChildProgress } from "../services/progreso";
+import {
+  fetchActividadesHijo, fetchBoletinHijo,
+  type ActividadHijo, type MateriaBoletin,
+} from "../services/padres";
 
 export default function HijosProgreso() {
   const [busqueda, setBusqueda] = useState("");
@@ -8,6 +13,11 @@ export default function HijosProgreso() {
   const [hijosData, setHijosData] = useState<ChildProgress[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [actividades, setActividades] = useState<ActividadHijo[]>([]);
+  const [boletin, setBoletin] = useState<MateriaBoletin[]>([]);
+  const [actividadesLoading, setActividadesLoading] = useState(false);
+  const [boletinLoading, setBoletinLoading] = useState(false);
+  const [tab, setTab] = useState<"modulos" | "actividades" | "boletin">("modulos");
 
   useEffect(() => {
     let active = true;
@@ -30,6 +40,26 @@ export default function HijosProgreso() {
       active = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (!seleccionado) return;
+    let active = true;
+
+    setActividadesLoading(true);
+    setBoletinLoading(true);
+
+    fetchActividadesHijo(seleccionado)
+      .then((data) => { if (!active) return; setActividades(data); })
+      .catch(() => { if (!active) return; setActividades([]); })
+      .finally(() => { if (!active) return; setActividadesLoading(false); });
+
+    fetchBoletinHijo(seleccionado)
+      .then((data) => { if (!active) return; setBoletin(data.materias ?? []); })
+      .catch(() => { if (!active) return; setBoletin([]); })
+      .finally(() => { if (!active) return; setBoletinLoading(false); });
+
+    return () => { active = false; };
+  }, [seleccionado]);
 
   const hijos = useMemo(() => {
     const byName = (c: ChildProgress) =>
@@ -156,47 +186,175 @@ export default function HijosProgreso() {
               </div>
             </div>
 
-            {/* Módulos */}
-            <div className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {modulosFiltrados.map((m) => (
-                  <div key={m.id} className="rounded-xl border border-gray-200 p-4 hover:bg-gray-50">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h3 className="font-semibold">{m.titulo}</h3>
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700">{m.area}</span>
-                          <span className={`text-xs px-2 py-0.5 rounded-full ${
-                            m.estado === "Completado" ? "bg-green-100 text-green-700"
-                            : m.estado === "En curso" ? "bg-yellow-100 text-yellow-700"
-                            : "bg-gray-200 text-gray-700"
-                          }`}>{m.estado}</span>
+            {/* Tabs */}
+            <div className="mt-5 flex gap-1 border-b border-slate-200">
+              {[
+                { key: "modulos", label: "Módulos" },
+                { key: "actividades", label: "Próximas actividades" },
+                { key: "boletin", label: "Boletín" },
+              ].map((t) => (
+                <button
+                  key={t.key}
+                  type="button"
+                  onClick={() => setTab(t.key as typeof tab)}
+                  className={`px-4 py-2 text-sm font-medium transition-colors border-b-2 -mb-px ${
+                    tab === t.key
+                      ? "border-blue-600 text-blue-600"
+                      : "border-transparent text-slate-500 hover:text-slate-700"
+                  }`}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+
+            {tab === "modulos" && (
+              <div className="mt-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {modulosFiltrados.map((m) => (
+                    <div key={m.id} className="rounded-xl border border-gray-200 p-4 hover:bg-gray-50">
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <h3 className="font-semibold">{m.titulo}</h3>
+                          <div className="flex items-center gap-2 mt-1">
+                            <span className="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700">{m.area}</span>
+                            <span className={`text-xs px-2 py-0.5 rounded-full ${
+                              m.estado === "Completado" ? "bg-green-100 text-green-700"
+                              : m.estado === "En curso" ? "bg-yellow-100 text-yellow-700"
+                              : "bg-gray-200 text-gray-700"
+                            }`}>{m.estado}</span>
+                          </div>
                         </div>
+                        <span className="text-xs text-gray-500">Última actividad: {m.ultimaActividad}</span>
                       </div>
-                      <span className="text-xs text-gray-500">Última actividad: {m.ultimaActividad}</span>
-                    </div>
 
-                    <div className="mt-3 h-2 rounded bg-gray-200">
-                      <div style={{ width: `${m.progreso}%` }} className="h-2 rounded bg-blue-600" />
-                    </div>
-                    <div className="mt-1 flex items-center justify-between text-xs text-gray-600">
-                      <span>Progreso</span>
-                      <span>{m.progreso}%</span>
-                    </div>
+                      <div className="mt-3 h-2 rounded bg-gray-200">
+                        <div style={{ width: `${m.progreso}%` }} className="h-2 rounded bg-blue-600" />
+                      </div>
+                      <div className="mt-1 flex items-center justify-between text-xs text-gray-600">
+                        <span>Progreso</span>
+                        <span>{m.progreso}%</span>
+                      </div>
 
-                    <div className="mt-3 flex items-center gap-2">
-                      <button className="text-sm rounded-md border px-3 py-1 hover:bg-white">Ver detalles</button>
-                      <button className="text-sm rounded-md border px-3 py-1 hover:bg-white">Abrir módulo</button>
-                      <button className="text-sm rounded-md border px-3 py-1 hover:bg-white">Informe</button>
+                      <div className="mt-3 flex items-center gap-2">
+                        <button className="text-sm rounded-md border px-3 py-1 hover:bg-white">Ver detalles</button>
+                        <button className="text-sm rounded-md border px-3 py-1 hover:bg-white">Abrir módulo</button>
+                        <button className="text-sm rounded-md border px-3 py-1 hover:bg-white">Informe</button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {modulosFiltrados.length === 0 && (
+                  <p className="text-sm text-gray-600 mt-4">No hay módulos para el filtro seleccionado.</p>
+                )}
+              </div>
+            )}
+
+            {tab === "actividades" && (
+              <div className="mt-5 space-y-3">
+                {actividadesLoading && (
+                  <p className="text-sm text-slate-400 animate-pulse">
+                    Cargando actividades...
+                  </p>
+                )}
+                {!actividadesLoading && actividades.length === 0 && (
+                  <p className="text-sm text-slate-500">
+                    No hay actividades próximas para este alumno.
+                  </p>
+                )}
+                {!actividadesLoading && actividades.map((act) => (
+                  <div key={act.id}
+                    className="flex items-start justify-between gap-3 rounded-xl border border-slate-100 px-4 py-3">
+                    <div className="flex items-start gap-3">
+                      <span className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ${
+                        act.tipo === "evaluacion"
+                          ? "bg-amber-100 text-amber-700"
+                          : act.tipo === "evento"
+                          ? "bg-violet-100 text-violet-700"
+                          : "bg-blue-100 text-blue-700"
+                      }`}>
+                        {act.tipo === "evaluacion" ? "📝"
+                          : act.tipo === "evento" ? "📅" : "📖"}
+                      </span>
+                      <div>
+                        <p className="text-sm font-medium text-slate-800">
+                          {act.titulo}
+                        </p>
+                        <p className="text-xs text-slate-400">
+                          {act.aulaNombre} · {act.when}
+                        </p>
+                        {act.descripcion && (
+                          <p className="text-xs text-slate-500 mt-0.5">
+                            {act.descripcion}
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
+            )}
 
-              {modulosFiltrados.length === 0 && (
-                <p className="text-sm text-gray-600 mt-4">No hay módulos para el filtro seleccionado.</p>
-              )}
-            </div>
+            {tab === "boletin" && (
+              <div className="mt-5 space-y-4">
+                {boletinLoading && (
+                  <p className="text-sm text-slate-400 animate-pulse">
+                    Cargando boletín...
+                  </p>
+                )}
+                {!boletinLoading && boletin.length === 0 && (
+                  <p className="text-sm text-slate-500">
+                    No hay evaluaciones formales registradas.
+                  </p>
+                )}
+                {!boletinLoading && boletin.map((materia) => (
+                  <div key={materia.materia}
+                    className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <div className="flex items-center justify-between gap-3">
+                      <h3 className="text-base font-semibold text-slate-900">
+                        {materia.materia}
+                      </h3>
+                      {materia.promedio !== null && (
+                        <span className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                          materia.promedio >= 7
+                            ? "bg-emerald-100 text-emerald-700"
+                            : materia.promedio >= 4
+                            ? "bg-amber-100 text-amber-700"
+                            : "bg-red-100 text-red-600"
+                        }`}>
+                          Promedio: {materia.promedio}
+                        </span>
+                      )}
+                    </div>
+                    <div className="mt-3 space-y-2">
+                      {materia.evaluaciones.slice(0, 5).map((ev, i) => (
+                        <div key={`${ev.quizId}-${i}`}
+                          className="flex items-center justify-between rounded-lg bg-slate-50 px-3 py-2 text-xs">
+                          <span className="text-slate-600">
+                            {ev.quizTitle ?? "Evaluación"}
+                          </span>
+                          <div className="flex items-center gap-3">
+                            {ev.fecha && (
+                              <span className="text-slate-400">
+                                {new Date(ev.fecha).toLocaleDateString("es-AR")}
+                              </span>
+                            )}
+                            <span className={`font-semibold ${
+                              ev.score !== null ? "text-slate-800" : "text-slate-400"
+                            }`}>
+                              {ev.score !== null
+                                ? `${ev.score}${ev.maxScore ? `/${ev.maxScore}` : ""}`
+                                : "Sin nota"}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
         )}
       </div>
