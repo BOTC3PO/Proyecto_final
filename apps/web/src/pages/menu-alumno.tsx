@@ -6,6 +6,11 @@ import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { getSubjectColor } from "../domain/module/subjectColors";
 import { useTheme, type ThemeId } from "../theme/ThemeContext";
+import {
+  fetchCatalogo, fetchMisItems, comprarItem,
+  type TiendaItem as TiendaItemAPI,
+  type UsuarioItem,
+} from "../services/tienda";
 
 interface Student {
   name: string;
@@ -244,6 +249,12 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     useState<"loading" | "ready" | "error">("loading");
   const [transacciones, setTransacciones] =
     useState<TransaccionItem[]>([]);
+  const [catalogoTienda, setCatalogoTienda] =
+    useState<TiendaItemAPI[]>([]);
+  const [misItems, setMisItems] = useState<UsuarioItem[]>([]);
+  const [tiendaLoading, setTiendaLoading] = useState(true);
+  const [comprando, setComprando] = useState<string | null>(null);
+  const [tiendaMsg, setTiendaMsg] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -373,6 +384,30 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     return () => window.clearTimeout(timeout);
   }, [coinFeedback]);
 
+  useEffect(() => {
+    if (!user?.id) return;
+    let active = true;
+    Promise.all([fetchCatalogo(), fetchMisItems()])
+      .then(([catalogo, items]) => {
+        if (!active) return;
+        setCatalogoTienda(catalogo);
+        setMisItems(items);
+        // Sincronizar ownedThemes con la BD
+        const temasComprados = items
+          .filter((i) => i.tipo === "tema")
+          .map((i) => i.asset_id ?? i.item_id);
+        setEconomy((prev) => ({
+          ...prev,
+          ownedThemes: ["clasico", "nocturno", ...temasComprados].filter(
+            (v, i, a) => a.indexOf(v) === i
+          ),
+        }));
+      })
+      .catch(() => {})
+      .finally(() => { if (!active) return; setTiendaLoading(false); });
+    return () => { active = false; };
+  }, [user?.id]);
+
   const progressLabel = useMemo(() => `${completedModules} módulos completados`, [completedModules]);
   const benefitsValue = useMemo(() => {
     switch (benefitsStatus) {
@@ -412,47 +447,90 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     setEducationMessages((prev) => [{ ...message, id: crypto.randomUUID() }, ...prev].slice(0, 4));
   };
 
-  const handlePurchaseTheme = (item: StoreItem) => {
-    setEconomy((prev) => {
-      if (prev.ownedThemes.includes(item.id)) {
-        pushEducationMessage({
-          title: "Tema activado",
-          body: "Cambiar el tema no cuesta monedas si ya lo tenés comprado.",
-          tone: "info"
-        });
-        return { ...prev, activeTheme: item.id };
-      }
-      if (prev.coins < item.price) return prev;
-      setCoinFeedback({
-        delta: -item.price,
-        label: `Gastaste ${item.price} 🪙 en ${item.name}.`,
-        tone: "spend"
-      });
+  const handlePurchaseTheme = async (item: TiendaItemAPI) => {
+    const assetId = item.asset_id ?? item.id;
+    const yaComprado = misItems.some((i) => i.item_id === item.id) ||
+      economy.ownedThemes.includes(assetId);
+
+    // Si ya lo tiene, solo activar
+    if (yaComprado) {
+      setTheme(assetId as import("../theme/ThemeContext").ThemeId);
       pushEducationMessage({
         title: "Tema activado",
-        body: "Cambiar el tema no cuesta monedas si ya lo tenés comprado.",
-        tone: "info"
+        body: "Cambiar el tema no cuesta monedas si ya lo tenés.",
+        tone: "info",
       });
-      setTheme(item.id);
       return;
     }
-    if (economy.coins < item.price) return;
-    setCoinFeedback({
-      delta: -item.price,
-      label: `Gastaste ${item.price} 🪙 en ${item.name}.`,
-      tone: "spend"
-    });
-    pushEducationMessage({
-      title: "Compra realizada",
-      body: "Al gastar monedas tu saldo baja. Revisá siempre si te conviene ahorrar o comprar ahora.",
-      tone: "warning"
-    });
-    setEconomy((prev) => ({
-      ...prev,
-      coins: prev.coins - item.price,
-      ownedThemes: [...prev.ownedThemes, item.id],
-    }));
-    setTheme(item.id);
+
+    // Si es gratis, comprar sin confirmación
+    if (item.precio === 0) {
+      try {
+        await comprarItem(item.id);
+        setMisItems((prev) => [...prev, {
+          item_id: item.id,
+          comprado_at: new Date().toISOString(),
+          origen: "inicial",
+          tipo: item.tipo,
+          nombre: item.nombre,
+          asset_id: item.asset_id,
+        }]);
+        setEconomy((prev) => ({
+          ...prev,
+          ownedThemes: [...new Set([...prev.ownedThemes, assetId])],
+        }));
+        setTheme(assetId as import("../theme/ThemeContext").ThemeId);
+      } catch { /* ignorar */ }
+      return;
+    }
+
+    // Verificar saldo
+    if (economy.coins < item.precio) {
+      setTiendaMsg(
+        `Necesitás ${item.precio} 🪙 pero tenés ${economy.coins}.`
+      );
+      return;
+    }
+
+    setComprando(item.id);
+    setTiendaMsg(null);
+    try {
+      const result = await comprarItem(item.id);
+      if (result.ok) {
+        setEconomy((prev) => ({
+          ...prev,
+          coins: result.saldoRestante ?? prev.coins - item.precio,
+          ownedThemes: [...new Set([...prev.ownedThemes, assetId])],
+        }));
+        setMisItems((prev) => [...prev, {
+          item_id: item.id,
+          comprado_at: new Date().toISOString(),
+          origen: "compra",
+          tipo: item.tipo,
+          nombre: item.nombre,
+          asset_id: item.asset_id,
+        }]);
+        setTheme(assetId as import("../theme/ThemeContext").ThemeId);
+        setCoinFeedback({
+          delta: -item.precio,
+          label: `Compraste ${item.nombre}.`,
+          tone: "spend",
+        });
+        pushEducationMessage({
+          title: "Compra realizada",
+          body: "Al gastar monedas tu saldo baja. Revisá siempre si conviene ahorrar o comprar ahora.",
+          tone: "warning",
+        });
+      } else {
+        setTiendaMsg(result.mensaje ?? "No se pudo completar la compra.");
+      }
+    } catch (err) {
+      setTiendaMsg(
+        err instanceof Error ? err.message : "Error al comprar."
+      );
+    } finally {
+      setComprando(null);
+    }
   };
 
   const handleExchange = () => {
@@ -830,57 +908,104 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             </div>
           </section>
           <section className="bg-white rounded-2xl shadow p-6 space-y-4">
-            <h3 className="text-lg font-semibold text-gray-800">Tienda</h3>
-            <p className="text-sm text-gray-500">
-              Comprá temas y mejoras visuales para tu experiencia.
-            </p>
-            <div className="space-y-3">
-              {availableThemes.map((item) => {
-                const isOwned = economy.ownedThemes.includes(item.id);
-                const isActive = theme === item.id;
-                return (
-                  <div key={item.id}
-                    className="flex items-center justify-between rounded-xl border border-gray-200 p-3">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <p className="text-sm font-semibold text-gray-800">
-                          {item.name}
-                        </p>
-                        {item.animated && (
-                          <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-semibold text-violet-700">
-                            Animado
-                          </span>
-                        )}
-                        {isActive && (
-                          <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-semibold text-blue-700">
-                            Activo
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-gray-500 mt-0.5">
-                        Precio: {item.price === 0 ? "Gratis" : `${item.price} 🪙`}
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => handlePurchaseTheme(item)}
-                      className={`rounded-lg px-3 py-1 text-xs font-semibold ${
-                        isActive
-                          ? "bg-blue-100 text-blue-700"
-                          : isOwned
-                          ? "bg-emerald-100 text-emerald-700"
-                          : economy.coins >= item.price
-                          ? "bg-emerald-600 text-white hover:bg-emerald-700"
-                          : "bg-gray-100 text-gray-400"
-                      }`}
-                      disabled={isActive || (!isOwned && economy.coins < item.price)}
-                    >
-                      {isActive ? "Activo" : isOwned ? "Activar" : "Comprar"}
-                    </button>
-                  </div>
-                );
-              })}
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold text-gray-800">Tienda</h3>
+              <span className="text-xs text-gray-400">
+                {economy.coins} 🪙 disponibles
+              </span>
             </div>
+
+            {tiendaLoading ? (
+              <div className="space-y-2">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <div key={i}
+                    className="h-16 animate-pulse rounded-xl bg-gray-100" />
+                ))}
+              </div>
+            ) : (
+              <>
+                {/* Sección temas */}
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                    Temas
+                  </p>
+                  {catalogoTienda
+                    .filter((item) => item.tipo === "tema")
+                    .map((item) => {
+                      const assetId = item.asset_id ?? item.id;
+                      const isOwned = misItems.some((i) => i.item_id === item.id)
+                        || economy.ownedThemes.includes(assetId);
+                      const isActive = theme === assetId;
+                      const isLoading = comprando === item.id;
+                      return (
+                        <div key={item.id}
+                          className="flex items-center justify-between rounded-xl border border-gray-200 p-3">
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <p className="text-sm font-semibold text-gray-800">
+                                {item.nombre}
+                              </p>
+                              {item.asset_id && (
+                                catalogoTienda.find(
+                                  (t) => t.id === item.id
+                                ) && (() => {
+                                  const themeOpt = availableThemes.find(
+                                    (t) => t.id === assetId
+                                  );
+                                  return themeOpt?.animated ? (
+                                    <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-semibold text-violet-700">
+                                      Animado
+                                    </span>
+                                  ) : null;
+                                })()
+                              )}
+                              {isActive && (
+                                <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-semibold text-blue-700">
+                                  Activo
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-xs text-gray-500 mt-0.5">
+                              {item.descripcion}
+                            </p>
+                            <p className="text-xs text-gray-400 mt-0.5">
+                              {item.precio === 0 ? "Gratis" : `${item.precio} 🪙`}
+                            </p>
+                          </div>
+                          <button
+                            type="button"
+                            disabled={isLoading || (!isOwned && economy.coins < item.precio && item.precio > 0)}
+                            onClick={() => handlePurchaseTheme(item)}
+                            className={`rounded-lg px-3 py-1 text-xs font-semibold transition-colors ${
+                              isActive
+                                ? "bg-blue-100 text-blue-700"
+                                : isOwned
+                                ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
+                                : economy.coins >= item.precio || item.precio === 0
+                                ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                                : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                            }`}
+                          >
+                            {isLoading ? "..." : isActive ? "Activo" : isOwned ? "Activar" : "Comprar"}
+                          </button>
+                        </div>
+                      );
+                    })}
+                </div>
+
+                {/* Mensaje de error/éxito */}
+                {tiendaMsg && (
+                  <p className="text-xs text-red-500">{tiendaMsg}</p>
+                )}
+
+                {/* Próximamente */}
+                <div className="rounded-xl border border-dashed border-gray-200 p-4 text-center">
+                  <p className="text-xs text-gray-400">
+                    Avatares, marcos y animaciones — próximamente
+                  </p>
+                </div>
+              </>
+            )}
           </section>
           <section className="bg-white rounded-2xl shadow p-6 space-y-4">
             <h3 className="text-lg font-semibold text-gray-800">Intercambio entre alumnos</h3>
