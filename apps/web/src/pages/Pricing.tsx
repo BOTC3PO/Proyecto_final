@@ -1,133 +1,153 @@
+import { Link } from "react-router-dom";
+
+const PLANES = {
+  gratuito: {
+    label: "Gratuito",
+    descripcion: "Para empezar sin costo.",
+    limites: [
+      "5 profesores",
+      "5 directivos",
+      "5 aulas activas",
+      "30 alumnos por aula",
+    ],
+    precio: null,
+  },
+  escuela: {
+    label: "Escuela",
+    descripcion: "Para instituciones que crecen.",
+    extras: [
+      "$300 ARS/mes por profesor o directivo adicional",
+      "$1.000 ARS/mes por alumno adicional",
+    ],
+    precio: "Desde $300 ARS/mes",
+  },
+  profesor: {
+    label: "Profesor",
+    descripcion: "Expandí tus aulas y alumnos.",
+    extras: [
+      "$150 ARS/mes por expansión",
+      "+5 aulas activas por expansión",
+      "+30 alumnos por aula por expansión",
+    ],
+    precio: "Desde $150 ARS/mes",
+  },
+  alumno: {
+    label: "Alumno",
+    descripcion: "Multiplicá tus recompensas.",
+    extras: [
+      "+15% de monedas en economía del aula",
+      "Multiplicador activo mientras dure la suscripción",
+    ],
+    precio: "$1.000 ARS/mes",
+  },
+};
+
 export default function Pricing() {
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-col gap-12 py-8">
-      <header className="flex flex-col gap-3 text-center">
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-12 px-6 py-12">
+      <header className="text-center space-y-3">
         <span className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
           Planes y precios
         </span>
-        <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
-          Elegí el plan ideal para tu institución
+        <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+          Elegí el plan para tu rol
         </h1>
-        <p className="text-base text-slate-600 sm:text-lg">
-          Accedé a experiencias educativas con reportes en tiempo real, aulas
-          colaborativas y soporte dedicado.
+        <p className="text-base text-slate-600 max-w-2xl mx-auto">
+          Todos los planes son mensuales, cancelables en cualquier momento
+          y con reembolso disponible dentro de los 7 días del pago.
         </p>
       </header>
 
-      <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-          <div className="flex flex-col gap-4">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">
-                Plan Premium
-              </p>
-              <div className="mt-2 flex items-end gap-2">
-                <span className="text-4xl font-semibold text-slate-900">
-                  $29.000
-                </span>
-                <span className="text-base text-slate-500">/ mes</span>
-              </div>
-              <p className="mt-2 text-sm text-slate-600">
-                Incluye hasta 500 estudiantes activos y actualizaciones
-                prioritarias.
-              </p>
-            </div>
+      {/* Plan gratuito */}
+      <section className="rounded-3xl border-2 border-slate-200 bg-white p-8 shadow-sm">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900">
+              {PLANES.gratuito.label}
+            </h2>
+            <p className="mt-1 text-slate-500">{PLANES.gratuito.descripcion}</p>
+          </div>
+          <span className="rounded-full bg-emerald-100 px-4 py-1.5 text-sm font-semibold text-emerald-700">
+            Sin costo
+          </span>
+        </div>
+        <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+          {PLANES.gratuito.limites.map((item) => (
+            <li key={item} className="flex items-center gap-2 text-sm text-slate-700">
+              <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
 
-            <ul className="grid gap-3 text-sm text-slate-600">
-              {[
-                "Aulas colaborativas con recursos interactivos",
-                "Reportes avanzados con métricas por curso",
-                "Soporte premium por WhatsApp y correo",
-                "Capacitaciones mensuales para docentes",
-                "Integraciones con Google Classroom",
-              ].map((benefit) => (
-                <li key={benefit} className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-500" />
-                  <span>{benefit}</span>
+      {/* Planes de pago */}
+      <div className="grid gap-6 md:grid-cols-3">
+        {[PLANES.escuela, PLANES.profesor, PLANES.alumno].map((plan) => (
+          <section
+            key={plan.label}
+            className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col gap-4"
+          >
+            <div>
+              <h2 className="text-xl font-bold text-slate-900">{plan.label}</h2>
+              <p className="mt-1 text-sm text-slate-500">{plan.descripcion}</p>
+            </div>
+            <div className="text-2xl font-bold text-blue-600">{plan.precio}</div>
+            <ul className="space-y-2 flex-1">
+              {plan.extras.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-400 shrink-0" />
+                  {item}
                 </li>
               ))}
             </ul>
+            <Link
+              to="/perfil"
+              className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+            >
+              Suscribirme →
+            </Link>
+          </section>
+        ))}
+      </div>
 
-            <button className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">
-              Solicitar demo premium
-            </button>
-          </div>
-        </div>
-
-        <div className="flex flex-col justify-between gap-6 rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-          <div className="space-y-3">
-            <h2 className="text-xl font-semibold text-slate-900">
-              Ideal para instituciones
-            </h2>
-            <p className="text-sm text-slate-600">
-              Sumá acompañamiento estratégico, implementación guiada y mejoras
-              continuas para escalar tu programa educativo.
+      {/* Métodos de pago */}
+      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h2 className="text-xl font-bold text-slate-900">Métodos de pago</h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p className="font-semibold text-slate-900">MercadoPago</p>
+            <p className="mt-1 text-sm text-slate-500">
+              Tarjeta, transferencia o dinero en cuenta. Disponible ahora.
             </p>
+            <span className="mt-2 inline-block rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">
+              Disponible
+            </span>
           </div>
-          <div className="rounded-2xl bg-white p-4 text-sm text-slate-600 shadow-sm">
-            <p className="font-semibold text-slate-900">Incluye</p>
-            <p className="mt-2">
-              Configuración inicial, onboarding docente y seguimiento trimestral.
-            </p>
-          </div>
+          {[
+            { nombre: "Bitcoin Lightning", desc: "Pagos instantáneos con comisiones bajas." },
+            { nombre: "USDC / Cryptomus", desc: "Cripto con conversión automática." },
+            { nombre: "Transferencia bancaria", desc: "CBU o alias — facturación mensual." },
+          ].map((m) => (
+            <div key={m.nombre} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="font-semibold text-slate-900">{m.nombre}</p>
+              <p className="mt-1 text-sm text-slate-500">{m.desc}</p>
+              <span className="mt-2 inline-block rounded-full bg-slate-200 px-2 py-0.5 text-xs font-semibold text-slate-500">
+                Próximamente
+              </span>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-        <div className="flex flex-col gap-4">
-          <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
-              Métodos de pago
-            </h2>
-            <p className="mt-1 text-sm text-slate-600">
-              Elegí la alternativa que mejor se adapte a tu equipo.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Mercado Pago",
-                description: "Pagá con tarjeta, transferencia o dinero en cuenta.",
-              },
-              {
-                title: "Bitcoin Lightning",
-                description: "Cobros instantáneos con comisiones bajas.",
-              },
-              {
-                title: "Cryptomus",
-                description: "Aceptá pagos cripto y conversión automática.",
-              },
-              {
-                title: "Transferencia bancaria",
-                description: "Facturación mensual con CBU o alias.",
-              },
-              {
-                title: "Tarjeta corporativa",
-                description: "Disponible para compras recurrentes del equipo.",
-              },
-            ].map((method) => (
-              <div
-                key={method.title}
-                className="flex h-full flex-col gap-2 rounded-2xl border border-slate-200 bg-slate-50 p-4"
-              >
-                <p className="text-sm font-semibold text-slate-900">
-                  {method.title}
-                </p>
-                <p className="text-sm text-slate-600">{method.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-col gap-2 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
-            <span>
-              ¿Necesitás un método personalizado? Escribinos y lo coordinamos.
-            </span>
-            <button className="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-2 font-semibold text-slate-900 transition hover:border-slate-400">
-              Hablar con ventas
-            </button>
-          </div>
-        </div>
+      {/* Política */}
+      <section className="rounded-2xl border border-blue-100 bg-blue-50 p-6 text-sm text-blue-800">
+        <p className="font-semibold">Política de cancelación y reembolso</p>
+        <ul className="mt-2 space-y-1 text-blue-700">
+          <li>• Cancelación en cualquier momento sin costo extra.</li>
+          <li>• Al cancelar, el acceso se mantiene hasta el fin del período pagado.</li>
+          <li>• Reembolso disponible si el reclamo se hace dentro de los 7 días del pago.</li>
+        </ul>
       </section>
     </div>
   );

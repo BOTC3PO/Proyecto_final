@@ -50,4 +50,14 @@ export const ENV = {
   GOV_GOVERNANCE_RULE: (process.env.GOV_GOVERNANCE_RULE ?? "SUPERMAJORITY_2_3").toUpperCase(),
   ENABLE_SEED_ENDPOINT: parseBool(process.env.ENABLE_SEED_ENDPOINT, false),
   AUTH_RATE_LIMIT_DISABLED: parseBool(process.env.AUTH_RATE_LIMIT_DISABLED, false),
+  // MercadoPago
+  MP_ACCESS_TOKEN: process.env.MP_ACCESS_TOKEN ?? "",
+  MP_PUBLIC_KEY: process.env.MP_PUBLIC_KEY ?? "",
+  MP_WEBHOOK_SECRET: process.env.MP_WEBHOOK_SECRET ?? "",
+  // Pagos habilitados (false para sistemas autogestionados)
+  PAYMENTS_ENABLED: parseBool(process.env.PAYMENTS_ENABLED, true),
+  // Precios en ARS
+  PRECIO_ALUMNO_MENSUAL: Number(process.env.PRECIO_ALUMNO_MENSUAL ?? 1000),
+  PRECIO_STAFF_MENSUAL: Number(process.env.PRECIO_STAFF_MENSUAL ?? 300),
+  PRECIO_EXPANSION_PROFESOR: Number(process.env.PRECIO_EXPANSION_PROFESOR ?? 150),
 };
