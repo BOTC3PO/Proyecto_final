@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
@@ -9,11 +9,19 @@ import {
   filterProfesorQuickLinks,
   type ProfesorMenuDashboard
 } from "../services/profesor";
-import type { ConceptMapSpec, ConceptLink } from "../../archive/visualizadores/types";
 
-const ConceptMapVisualizer = lazy(
-  () => import("../../archive/visualizadores/graficos/ConceptMapVisualizer")
-);
+type LocalConceptLink = {
+  id: string;
+  sourceId: string;
+  targetId: string;
+  relation: string;
+};
+
+type LocalConceptMapSpec = {
+  kind: "concept-map";
+  nodes: { id: string; label: string; description?: string }[];
+  links: LocalConceptLink[];
+};
 
 const getRequiredDependencyIds = (dependencies: Array<ModuleDependency | string>) =>
   dependencies
@@ -225,7 +233,7 @@ export default function menuProfesor() {
   );
 
   const dependencyLinks = useMemo(() => {
-    const links: ConceptLink[] = [];
+    const links: LocalConceptLink[] = [];
     graphModules.forEach((module) => {
       getRequiredDependencyIds(module.dependencies).forEach((dependencyId) => {
         if (!moduleById.has(dependencyId)) return;
@@ -295,7 +303,7 @@ export default function menuProfesor() {
     return new Set([...ancestors, ...descendants]);
   }, [dependencyAdjacency, moduleById, reverseAdjacency, selectedGraphModuleId, showFullPath]);
 
-  const graphSpec = useMemo<ConceptMapSpec>(() => {
+  const graphSpec = useMemo<LocalConceptMapSpec>(() => {
     const nodes = graphModules
       .filter((module) => (fullPathIds ? fullPathIds.has(module.id) : true))
       .map((module) => ({
@@ -689,18 +697,44 @@ export default function menuProfesor() {
               </div>
               <div className="mt-4 grid gap-4 lg:grid-cols-[2fr_1fr]">
                 {graphSpec.nodes.length > 0 ? (
-                  <Suspense
-                    fallback={
-                      <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
-                        Cargando mapa de dependencias...
-                      </div>
-                    }
-                  >
-                    <ConceptMapVisualizer spec={graphSpec} />
-                  </Suspense>
+                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 space-y-2 max-h-80 overflow-y-auto">
+                    <p className="text-xs font-semibold uppercase text-slate-500 mb-2">
+                      {graphSpec.nodes.length} módulos · {graphSpec.links.length} conexiones
+                    </p>
+                    {graphSpec.nodes.map((node) => {
+                      const incoming = graphSpec.links.filter((l) => l.targetId === node.id);
+                      const outgoing = graphSpec.links.filter((l) => l.sourceId === node.id);
+                      const isSelected = node.id === selectedGraphModuleId;
+                      return (
+                        <button
+                          key={node.id}
+                          type="button"
+                          onClick={() => setSelectedGraphModuleId(node.id)}
+                          className={`w-full text-left rounded-lg border px-3 py-2 text-sm transition-colors ${
+                            isSelected
+                              ? "border-blue-300 bg-blue-50"
+                              : "border-slate-200 bg-white hover:bg-slate-50"
+                          }`}
+                        >
+                          <p className="font-medium text-slate-800">{node.label}</p>
+                          {node.description && (
+                            <p className="text-xs text-slate-500">{node.description}</p>
+                          )}
+                          <div className="mt-1 flex gap-2 text-xs text-slate-400">
+                            {incoming.length > 0 && (
+                              <span>← {incoming.length} requerido(s)</span>
+                            )}
+                            {outgoing.length > 0 && (
+                              <span>→ {outgoing.length} desbloquea</span>
+                            )}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
                 ) : (
                   <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
-                    Selecciona una materia con módulos disponibles para ver el mapa.
+                    Seleccioná una materia con módulos disponibles para ver las dependencias.
                   </div>
                 )}
                 <div className="space-y-4">

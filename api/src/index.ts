@@ -48,6 +48,7 @@ import { adminGenerators } from "./routes/admin-generators";
 import { adminRouter } from "./routes/admin";
 import { tareasRouter } from "./routes/tareas";
 import { mapsRouter } from "./routes/maps";
+import { suscripciones } from "./routes/suscripciones";
 import { requireUser } from "./lib/user-auth";
 import { openSqlite } from "./lib/db";
 
@@ -139,6 +140,7 @@ app.use(suggestions);
 app.use(adminGenerators);
 app.use(adminRouter);
 app.use(tareasRouter);
+app.use(suscripciones);
 app.use(readonlyRouter);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
