@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Award, Bell, Clock3, GraduationCap, Trophy, UserCircle2 } from "lucide-react";
 import { useAuth } from "../auth/use-auth";
-import { apiGet } from "../lib/api";
+import { apiGet, apiPost } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { getSubjectColor } from "../domain/module/subjectColors";
 import { useTheme, type ThemeId } from "../theme/ThemeContext";
@@ -104,6 +104,40 @@ type EconomyState = {
   foreignCoins: number;
   ownedThemes: string[];
   activeTheme: string;
+};
+
+type CicloActivo = {
+  tipo: string;
+  tasa: number;
+  intensidad: number;
+  inicio: string;
+  fin: string;
+};
+
+type PlazoFijo = {
+  id: string;
+  monto: number;
+  tasa_anual: number;
+  dias: number;
+  interes: number;
+  total: number;
+  estado: string;
+  creado_at: string;
+  vence_at: string;
+  rescatado_at: string | null;
+};
+
+type FciPosicion = {
+  id: string;
+  monto: number;
+  tasa_mensual: number;
+  dias: number;
+  interes: number;
+  total: number;
+  estado: string;
+  creado_at: string;
+  vence_at: string;
+  rescatado_at: string | null;
 };
 
 const ECONOMIC_SIMULATIONS: SimulationScenario[] = [
@@ -244,6 +278,14 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     useState<"loading" | "ready" | "error">("loading");
   const [transacciones, setTransacciones] =
     useState<TransaccionItem[]>([]);
+  const [cicloActivo, setCicloActivo] = useState<CicloActivo | null>(null);
+  const [plazos, setPlazos] = useState<PlazoFijo[]>([]);
+  const [fcis, setFcis] = useState<FciPosicion[]>([]);
+  const [instrumentosLoading, setInstrumentosLoading] = useState(false);
+  const [pfInvirtiendo, setPfInvirtiendo] = useState(false);
+  const [fciInvirtiendo, setFciInvirtiendo] = useState(false);
+  const [rescatando, setRescatando] = useState<string | null>(null);
+  const [instrumentoMsg, setInstrumentoMsg] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -362,6 +404,21 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
         if (!active) return;
         setSaldoStatus("error");
       });
+    apiGet<{ ciclo: CicloActivo; ajuste: { recompensaFactor: number; precioFactor: number } }>(
+      "/api/economia/ciclo-activo"
+    ).then((data) => {
+      if (!active) return;
+      setCicloActivo(data.ciclo);
+      // Actualizar tasas del tablero con valores reales
+      if (data.ciclo.tasa > 0) {
+        setFixedTermRate(
+          parseFloat((data.ciclo.tasa * 100 * 365).toFixed(1))
+        );
+        setFciRate(
+          parseFloat((data.ciclo.tasa * 100 * 30).toFixed(1))
+        );
+      }
+    }).catch(() => {});
     return () => { active = false; };
   }, [user?.id]);
 
@@ -372,6 +429,24 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     }, 4000);
     return () => window.clearTimeout(timeout);
   }, [coinFeedback]);
+
+  useEffect(() => {
+    if (!user?.id) return;
+    let active = true;
+    setInstrumentosLoading(true);
+    Promise.all([
+      apiGet<{ items: PlazoFijo[] }>("/api/instrumentos/plazo-fijo"),
+      apiGet<{ items: FciPosicion[] }>("/api/instrumentos/fci"),
+    ])
+      .then(([pfData, fciData]) => {
+        if (!active) return;
+        setPlazos(pfData.items.filter((p) => p.estado === "activo"));
+        setFcis(fciData.items.filter((p) => p.estado === "activo"));
+      })
+      .catch(() => {})
+      .finally(() => { if (!active) return; setInstrumentosLoading(false); });
+    return () => { active = false; };
+  }, [user?.id]);
 
   const progressLabel = useMemo(() => `${completedModules} módulos completados`, [completedModules]);
   const benefitsValue = useMemo(() => {
@@ -453,6 +528,145 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
       ownedThemes: [...prev.ownedThemes, item.id],
     }));
     setTheme(item.id);
+  };
+
+  const handleInvertirPF = async () => {
+    if (fixedTermAmount <= 0 || fixedTermDays < 1) return;
+    if (economy.coins < fixedTermAmount) {
+      setInstrumentoMsg(
+        `Saldo insuficiente. Tenés ${economy.coins} 🪙 pero necesitás ${fixedTermAmount}.`
+      );
+      return;
+    }
+    setPfInvirtiendo(true);
+    setInstrumentoMsg(null);
+    try {
+      const result = await apiPost<{
+        id: string; interes: number; total: number;
+        venceAt: string; saldoRestante: number;
+      }>("/api/instrumentos/plazo-fijo", {
+        monto: fixedTermAmount,
+        tasaAnual: fixedTermRate,
+        dias: fixedTermDays,
+      });
+      setEconomy((prev) => ({
+        ...prev,
+        coins: result.saldoRestante,
+      }));
+      setPlazos((prev) => [...prev, {
+        id: result.id,
+        monto: fixedTermAmount,
+        tasa_anual: fixedTermRate,
+        dias: fixedTermDays,
+        interes: result.interes,
+        total: result.total,
+        estado: "activo",
+        creado_at: new Date().toISOString(),
+        vence_at: result.venceAt,
+        rescatado_at: null,
+      }]);
+      setInstrumentoMsg(
+        `✓ Plazo fijo abierto. Vence el ${new Date(result.venceAt).toLocaleDateString("es-AR")}. ` +
+        `Recibirás ${result.total.toFixed(2)} 🪙.`
+      );
+      setCoinFeedback({
+        delta: -fixedTermAmount,
+        label: `Plazo fijo: ${fixedTermDays} días`,
+        tone: "spend",
+      });
+    } catch (err) {
+      setInstrumentoMsg(
+        err instanceof Error ? err.message : "No se pudo abrir el plazo fijo."
+      );
+    } finally {
+      setPfInvirtiendo(false);
+    }
+  };
+
+  const handleInvertirFCI = async () => {
+    if (fciAmount <= 0 || fciDays < 1) return;
+    if (economy.coins < fciAmount) {
+      setInstrumentoMsg(
+        `Saldo insuficiente. Tenés ${economy.coins} 🪙 pero necesitás ${fciAmount}.`
+      );
+      return;
+    }
+    setFciInvirtiendo(true);
+    setInstrumentoMsg(null);
+    try {
+      const result = await apiPost<{
+        id: string; interes: number; total: number; tasaMensual: number;
+        venceAt: string; saldoRestante: number; cicloActual: string;
+      }>("/api/instrumentos/fci", {
+        monto: fciAmount,
+        dias: fciDays,
+      });
+      setEconomy((prev) => ({
+        ...prev,
+        coins: result.saldoRestante,
+      }));
+      setFciRate(result.tasaMensual);
+      setFcis((prev) => [...prev, {
+        id: result.id,
+        monto: fciAmount,
+        tasa_mensual: result.tasaMensual,
+        dias: fciDays,
+        interes: result.interes,
+        total: result.total,
+        estado: "activo",
+        creado_at: new Date().toISOString(),
+        vence_at: result.venceAt,
+        rescatado_at: null,
+      }]);
+      setInstrumentoMsg(
+        `✓ FCI abierto a tasa ${result.tasaMensual}% mensual ` +
+        `(ciclo: ${result.cicloActual}). Podés rescatar en cualquier momento.`
+      );
+      setCoinFeedback({
+        delta: -fciAmount,
+        label: `FCI: ${fciDays} días`,
+        tone: "spend",
+      });
+    } catch (err) {
+      setInstrumentoMsg(
+        err instanceof Error ? err.message : "No se pudo abrir el FCI."
+      );
+    } finally {
+      setFciInvirtiendo(false);
+    }
+  };
+
+  const handleRescatar = async (
+    tipo: "plazo-fijo" | "fci",
+    instrumentoId: string
+  ) => {
+    setRescatando(instrumentoId);
+    setInstrumentoMsg(null);
+    try {
+      const result = await apiPost<{
+        ok: boolean; montoRescatado: number;
+        saldoNuevo: number; mensaje: string;
+      }>(`/api/instrumentos/${tipo}/${instrumentoId}/rescatar`, {});
+
+      setEconomy((prev) => ({ ...prev, coins: result.saldoNuevo }));
+      if (tipo === "plazo-fijo") {
+        setPlazos((prev) => prev.filter((p) => p.id !== instrumentoId));
+      } else {
+        setFcis((prev) => prev.filter((p) => p.id !== instrumentoId));
+      }
+      setInstrumentoMsg(result.mensaje);
+      setCoinFeedback({
+        delta: result.montoRescatado,
+        label: `Rescate ${tipo === "plazo-fijo" ? "PF" : "FCI"}`,
+        tone: "gain",
+      });
+    } catch (err) {
+      setInstrumentoMsg(
+        err instanceof Error ? err.message : "No se pudo rescatar."
+      );
+    } finally {
+      setRescatando(null);
+    }
   };
 
   const handleExchange = () => {
@@ -585,9 +799,26 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
               </div>
               <div className="mt-4 grid gap-3 sm:grid-cols-3">
                 <div className="rounded-xl bg-gray-50 p-4">
-                  <p className="text-xs uppercase tracking-wide text-gray-400">Estado</p>
-                  <p className="text-lg font-semibold text-gray-800">{economyStatus.label}</p>
-                  <p className="text-xs text-gray-500 mt-1">{economyStatus.description}</p>
+                  <p className="text-xs uppercase tracking-wide text-gray-400">
+                    Ciclo económico
+                  </p>
+                  <p className={`text-lg font-semibold ${
+                    cicloActivo?.tipo === "hiperinflacion" ? "text-red-700"
+                    : cicloActivo?.tipo === "inflacion" ? "text-amber-700"
+                    : cicloActivo?.tipo === "deflacion" ? "text-blue-700"
+                    : "text-gray-800"
+                  }`}>
+                    {cicloActivo
+                      ? cicloActivo.tipo.charAt(0).toUpperCase() + cicloActivo.tipo.slice(1)
+                      : economyStatus.label}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {cicloActivo
+                      ? `Intensidad ${cicloActivo.intensidad}/10 · hasta ${
+                          new Date(cicloActivo.fin).toLocaleDateString("es-AR")
+                        }`
+                      : economyStatus.description}
+                  </p>
                 </div>
                 <div className="rounded-xl bg-gray-50 p-4">
                   <p className="text-xs uppercase tracking-wide text-gray-400">Tasa plazo fijo</p>
@@ -775,6 +1006,62 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
                   Total al finalizar: {formatMoney(fixedTermTotal)} 🪙. Tu dinero queda bloqueado hasta completar {fixedTermDays} días.
                 </p>
               </div>
+              <button
+                type="button"
+                onClick={handleInvertirPF}
+                disabled={pfInvirtiendo || fixedTermAmount <= 0 ||
+                  economy.coins < fixedTermAmount}
+                className="w-full rounded-xl bg-blue-600 py-2.5 text-sm
+                  font-semibold text-white hover:bg-blue-700
+                  disabled:opacity-50 transition-colors"
+              >
+                {pfInvirtiendo ? "Abriendo..." : "Invertir en plazo fijo"}
+              </button>
+              {plazos.length > 0 && (
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold uppercase text-gray-400">
+                    Mis plazos fijos activos
+                  </p>
+                  {plazos.map((pf) => {
+                    const vence = new Date(pf.vence_at);
+                    const vencio = new Date() >= vence;
+                    return (
+                      <div key={pf.id}
+                        className="rounded-xl border border-slate-200 px-4 py-3">
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="text-sm">
+                            <p className="font-medium text-slate-800">
+                              {pf.monto} 🪙 · {pf.tasa_anual}% anual · {pf.dias} días
+                            </p>
+                            <p className="text-xs text-slate-400">
+                              Vence: {vence.toLocaleDateString("es-AR")}
+                              {" · "}Total: {pf.total.toFixed(2)} 🪙
+                              {!vencio && (
+                                <span className="text-amber-600 ml-1">
+                                  (rescate anticipado: solo capital)
+                                </span>
+                              )}
+                            </p>
+                          </div>
+                          <button
+                            type="button"
+                            disabled={rescatando === pf.id}
+                            onClick={() => handleRescatar("plazo-fijo", pf.id)}
+                            className={`shrink-0 rounded-lg px-3 py-1 text-xs
+                              font-semibold transition-colors ${
+                              vencio
+                                ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                            }`}
+                          >
+                            {rescatando === pf.id ? "..." : vencio ? "Cobrar" : "Rescatar"}
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
             <div className="bg-white rounded-2xl shadow p-6 space-y-4">
               <div>
@@ -827,7 +1114,60 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
                   Total si mantenés {fciDays} días: {formatMoney(fciTotal)} 🪙. Podés pedir el rescate y el dinero vuelve rápido.
                 </p>
               </div>
+              <button
+                type="button"
+                onClick={handleInvertirFCI}
+                disabled={fciInvirtiendo || fciAmount <= 0 ||
+                  economy.coins < fciAmount}
+                className="w-full rounded-xl bg-emerald-600 py-2.5 text-sm
+                  font-semibold text-white hover:bg-emerald-700
+                  disabled:opacity-50 transition-colors"
+              >
+                {fciInvirtiendo ? "Abriendo..." : "Invertir en FCI"}
+              </button>
+              {fcis.length > 0 && (
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold uppercase text-gray-400">
+                    Mis posiciones FCI activas
+                  </p>
+                  {fcis.map((fci) => (
+                    <div key={fci.id}
+                      className="rounded-xl border border-slate-200 px-4 py-3">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="text-sm">
+                          <p className="font-medium text-slate-800">
+                            {fci.monto} 🪙 · {fci.tasa_mensual}% mensual · {fci.dias} días
+                          </p>
+                          <p className="text-xs text-slate-400">
+                            Abierto: {new Date(fci.creado_at).toLocaleDateString("es-AR")}
+                            {" · "}Proyectado: {fci.total.toFixed(2)} 🪙
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          disabled={rescatando === fci.id}
+                          onClick={() => handleRescatar("fci", fci.id)}
+                          className="shrink-0 rounded-lg bg-emerald-100 px-3 py-1
+                            text-xs font-semibold text-emerald-700
+                            hover:bg-emerald-200 transition-colors disabled:opacity-50"
+                        >
+                          {rescatando === fci.id ? "..." : "Rescatar"}
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
+            {instrumentoMsg && (
+              <p className={`text-sm col-span-2 ${
+                instrumentoMsg.startsWith("✓")
+                  ? "text-emerald-600"
+                  : "text-red-500"
+              }`}>
+                {instrumentoMsg}
+              </p>
+            )}
           </section>
           <section className="bg-white rounded-2xl shadow p-6 space-y-4">
             <h3 className="text-lg font-semibold text-gray-800">Tienda</h3>

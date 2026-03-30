@@ -21,6 +21,11 @@ import {
   TransaccionSchema
 } from "../schema/economia";
 import { requireUser } from "../lib/user-auth";
+import {
+  getCicloActivo,
+  getProximosCiclos,
+  getAjusteEconomico,
+} from "../lib/calendario-economico";
 
 export const economia = Router();
 
@@ -576,13 +581,20 @@ economia.get("/api/economia/saldos", async (req, res) => {
   }
   const db = await getDb();
   const saldo = await db.collection<SaldoDoc>("economia_saldos").findOne({ usuarioId: usuarioObjectId });
-  if (saldo) return res.json({ ...saldo, usuarioId });
+  const ajuste = getAjusteEconomico();
+  const ajustePayload = {
+    tipo: ajuste.tipo,
+    recompensaFactor: ajuste.recompensaFactor,
+    precioFactor: ajuste.precioFactor,
+  };
+  if (saldo) return res.json({ ...saldo, usuarioId, ajuste: ajustePayload });
   const config = await getEconomiaConfig(db);
   res.json({
     usuarioId,
     saldo: 0,
     moneda: config.moneda.codigo,
-    updatedAt: new Date().toISOString()
+    updatedAt: new Date().toISOString(),
+    ajuste: ajustePayload,
   });
 });
 
@@ -1986,4 +1998,29 @@ economia.get("/api/economia/metricas", async (req, res) => {
     volumenSubastas: roundMoney((volumenSubastasResult[0]?.total as number) ?? 0),
     dineroQuemado: roundMoney((dineroQuemadoResult[0]?.total as number) ?? 0)
   });
+});
+
+// GET /api/economia/ciclo-activo
+economia.get("/api/economia/ciclo-activo", (_req, res) => {
+  try {
+    const ciclo = getCicloActivo();
+    const ajuste = getAjusteEconomico();
+    return res.json({ ciclo, ajuste });
+  } catch (err) {
+    return res.status(500).json({
+      error: err instanceof Error ? err.message : "error"
+    });
+  }
+});
+
+// GET /api/economia/proximos-ciclos
+economia.get("/api/economia/proximos-ciclos", (_req, res) => {
+  try {
+    const ciclos = getProximosCiclos(10);
+    return res.json({ ciclos });
+  } catch (err) {
+    return res.status(500).json({
+      error: err instanceof Error ? err.message : "error"
+    });
+  }
 });

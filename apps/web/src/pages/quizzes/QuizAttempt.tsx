@@ -51,6 +51,15 @@ type SubmitResponse = {
   message?: string;
 };
 
+type RankingEntry = {
+  posicion: number;
+  usuarioId: string;
+  nombre: string;
+  score: number;
+  maxScore: number;
+  tiempoSeg: number;
+};
+
 function interpolatePrompt(
   prompt: string,
   datos?: Record<string, unknown>
@@ -132,6 +141,12 @@ export default function QuizAttempt() {
   const [result, setResult] = useState<SubmitResponse | null>(null);
   const [generatedQuestions, setGeneratedQuestions] =
     useState<ModuleQuizQuestion[]>([]);
+  const [tiempoRestante, setTiempoRestante] =
+    useState<number | null>(null);
+  const [tiempoInicio, setTiempoInicio] = useState<number | null>(null);
+  const [ranking, setRanking] = useState<RankingEntry[]>([]);
+  const [rankingLoading, setRankingLoading] = useState(false);
+  const [modoCompetencia, setModoCompetencia] = useState(false);
 
   useEffect(() => {
     if (!attemptId) return;
@@ -144,6 +159,13 @@ export default function QuizAttempt() {
         setAttempt(data);
         setAnswers(normalizeAnswers(data.answers));
         setStatus("ready");
+        if (data.quizType === "competencia") {
+          setModoCompetencia(true);
+          // Timer de 10 minutos por defecto
+          const duracionSeg = 10 * 60;
+          setTiempoRestante(duracionSeg);
+          setTiempoInicio(Date.now());
+        }
       })
       .catch((error) => {
         if (!active) return;
@@ -213,6 +235,28 @@ export default function QuizAttempt() {
       });
   }, [attempt]);
 
+  useEffect(() => {
+    if (!modoCompetencia || tiempoRestante === null) return;
+    if (tiempoRestante <= 0) {
+      // Auto-submit al llegar a 0
+      void handleSubmit();
+      return;
+    }
+    const interval = setInterval(() => {
+      setTiempoRestante((prev) =>
+        prev !== null ? Math.max(0, prev - 1) : null
+      );
+    }, 1000);
+    return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [modoCompetencia, tiempoRestante]);
+
+  const formatTiempo = (seg: number) => {
+    const m = Math.floor(seg / 60);
+    const s = seg % 60;
+    return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  };
+
   const questions = useMemo(() => {
     if (!attempt) return [] as ModuleQuizQuestion[];
     const server = attempt.questions ?? attempt.quiz?.questions ?? [];
@@ -275,6 +319,29 @@ export default function QuizAttempt() {
       setResult(response);
       setSubmitStatus("submitted");
       setSubmitMessage(response.message ?? "Respuestas enviadas para corrección.");
+      if (modoCompetencia && tiempoInicio) {
+        const tiempoSeg = Math.floor((Date.now() - tiempoInicio) / 1000);
+        const quizId = attempt?.quizId ?? "";
+        const moduloId = attempt?.moduleId ?? "";
+
+        // Registrar en competencia
+        void apiPost(`/api/quiz-attempts/${attemptId}/competencia`, {
+          score: response?.score ?? 0,
+          maxScore: response?.maxScore ?? 0,
+          tiempoSeg,
+          quizId,
+          moduloId,
+        });
+
+        // Cargar ranking
+        setRankingLoading(true);
+        apiGet<{ ranking: RankingEntry[] }>(
+          `/api/quiz-attempts/competencia/${quizId}/ranking`
+        )
+          .then((data) => setRanking(data.ranking ?? []))
+          .catch(() => {})
+          .finally(() => setRankingLoading(false));
+      }
     } catch (error) {
       setSubmitStatus("error");
       setSubmitMessage(
@@ -328,6 +395,17 @@ export default function QuizAttempt() {
           </Link>
           <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
           <p className="text-sm text-gray-500">Intento: {resolvedAttemptId}</p>
+          {modoCompetencia && tiempoRestante !== null && (
+            <div className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold ${
+              tiempoRestante <= 60
+                ? "bg-red-100 text-red-700 animate-pulse"
+                : tiempoRestante <= 180
+                ? "bg-amber-100 text-amber-700"
+                : "bg-emerald-100 text-emerald-700"
+            }`}>
+              ⏱ {formatTiempo(tiempoRestante)}
+            </div>
+          )}
         </header>
 
         <section className="bg-white rounded-xl shadow p-6 space-y-6">
@@ -463,6 +541,50 @@ export default function QuizAttempt() {
             ) : null}
           </div>
         </section>
+
+        {modoCompetencia && ranking.length > 0 && (
+          <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="text-lg font-semibold text-slate-900 mb-4">
+              🏆 Tabla de posiciones
+            </h2>
+            {rankingLoading ? (
+              <p className="text-sm text-slate-400 animate-pulse">
+                Cargando ranking...
+              </p>
+            ) : (
+              <div className="space-y-2">
+                {ranking.map((entry) => (
+                  <div key={entry.usuarioId}
+                    className={`flex items-center gap-3 rounded-xl px-4 py-3 ${
+                      entry.posicion === 1
+                        ? "bg-amber-50 border border-amber-200"
+                        : entry.posicion === 2
+                        ? "bg-slate-50 border border-slate-200"
+                        : entry.posicion === 3
+                        ? "bg-orange-50 border border-orange-200"
+                        : "border border-slate-100"
+                    }`}>
+                    <span className="text-lg font-bold w-8 text-center">
+                      {entry.posicion === 1 ? "🥇"
+                        : entry.posicion === 2 ? "🥈"
+                        : entry.posicion === 3 ? "🥉"
+                        : `${entry.posicion}°`}
+                    </span>
+                    <span className="flex-1 text-sm font-medium text-slate-800">
+                      {entry.nombre}
+                    </span>
+                    <span className="text-sm font-semibold text-slate-700">
+                      {entry.score}/{entry.maxScore}
+                    </span>
+                    <span className="text-xs text-slate-400">
+                      {formatTiempo(entry.tiempoSeg)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </section>
+        )}
       </div>
     </main>
   );
