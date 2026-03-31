@@ -11,6 +11,7 @@ const userBase: NavItem[] = [
   { label: 'Tareas', to: '/tareas' },
   { label: 'Encuestas', to: '/encuestas' },
   { label: 'Progreso', to: '/progreso' },
+  { label: 'Mensajes', to: '/mensajes' },
   { label: 'Mi Perfil', to: '/perfil' },
 ];
 
@@ -37,6 +38,7 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Aulas', to: '/profesor/aulas' },
     { label: 'Módulos', to: '/modulos' },
     { label: 'Evaluaciones', to: '/profesor/evaluaciones' },
+    { label: 'Mensajes', to: '/mensajes' },
     { label: 'Mi Perfil', to: '/perfil' },
   ],
   DIRECTIVO: [
@@ -46,6 +48,7 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Módulos', to: '/enterprise/modulos' },
     { label: 'Reportes', to: '/enterprise/reportes' },
     { label: 'Gobernanza', to: '/gobernanza' },
+    { label: 'Mensajes', to: '/mensajes' },
     { label: 'Mi Perfil', to: '/perfil' },
   ],
   GUEST: [
