@@ -517,7 +517,9 @@ quizAttempts.get(
   requireUser,
   async (req, res) => {
     const db = openContentDb();
-    const { quizId } = req.params;
+    const quizId = Array.isArray(req.params.quizId)
+      ? req.params.quizId[0]
+      : req.params.quizId;
     const aulaId = typeof req.query.aulaId === "string"
       ? req.query.aulaId : null;
 
