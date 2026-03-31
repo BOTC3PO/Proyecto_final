@@ -64,6 +64,8 @@ import GuestOnboarding from "./pages/GuestOnboarding";
 import Gobernanza from "./pages/Gobernanza";
 import GobernanzaPropuesta from "./pages/GobernanzaPropuesta";
 import GobernanzaNuevaPropuesta from "./pages/GobernanzaNuevaPropuesta";
+import Mensajeria from "./pages/Mensajeria";
+import PerfilPublico from "./pages/PerfilPublico";
 import { HerramientasEducativas, HerramientasEstadistica, HerramientasCienciasSociales, HerramientasFilosofia, HerramientasArte, HerramientasBiologia, HerramientasMusica, HerramientasPolitica, HerramientasCivica, HerramientasAmbiental, HerramientasInformatica, HerramientasNaturales, HerramientasCocina, HerramientasVidaPractica } from "./stubs/herramientas";
 
 
@@ -104,6 +106,7 @@ export const router = createBrowserRouter([
       { path: "bloques/editor", element: <BlockEditorPage /> },
       { path: "bloques/editor/:id", element: <BlockEditorPage /> },
       { path: "onboarding-guest", element: <GuestOnboarding /> },
+      { path: "u/:username", element: <PerfilPublico /> },
 
       // Herramientas Educativas (public)
       { path: "herramientas", element: <HerramientasEducativas /> },
@@ -179,6 +182,16 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['ADMIN']}>
             <AdminGeneradores />
+          </ProtectedRoute>
+        ),
+      },
+
+      // Mensajería — todos los roles autenticados
+      {
+        path: "mensajes",
+        element: (
+          <ProtectedRoute allow={['ADMIN', 'USER', 'PARENT', 'TEACHER', 'DIRECTIVO']}>
+            <Mensajeria />
           </ProtectedRoute>
         ),
       },

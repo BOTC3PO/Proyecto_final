@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import { openContentDb } from "../lib/db-open";
 import type { Response } from "express";
 import { Router } from "express";
 import { ZodError } from "zod";
@@ -519,4 +520,90 @@ auth.get("/api/auth/me", requireUser, (_req, res) => {
 
 auth.get("/api/me", requireUser, (_req, res) => {
   sendAuthenticatedUser(res);
+});
+
+// GET /api/perfil/:username — público, sin auth
+auth.get("/api/perfil/:username", async (req, res) => {
+  const username = Array.isArray(req.params.username)
+    ? req.params.username[0]
+    : req.params.username;
+
+  if (!username || typeof username !== "string") {
+    return res.status(400).json({ error: "username requerido" });
+  }
+
+  try {
+    const db = await getDb();
+    const usuario = await db.collection("usuarios").findOne(
+      {
+        username: { $regex: new RegExp(`^${username.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, "i") },
+        isDeleted: { $ne: true },
+        isBanned: { $ne: true },
+      },
+      {
+        projection: {
+          id: 1, _id: 1,
+          username: 1,
+          fullName: 1,
+          role: 1,
+          createdAt: 1,
+          avatarUrl: 1,
+          bio: 1,
+        }
+      }
+    );
+
+    if (!usuario) {
+      return res.status(404).json({ error: "usuario no encontrado" });
+    }
+
+    const userId = String(usuario.id ?? usuario._id ?? "");
+
+    // Obtener tema activo desde SQLite
+    const sqliteDb = openContentDb();
+    const temaItem = sqliteDb.prepare(`
+      SELECT ti.asset_id
+      FROM usuario_items ui
+      JOIN tienda_items ti ON ti.id = ui.item_id
+      WHERE ui.usuario_id = ? AND ti.tipo = 'tema'
+      ORDER BY ui.comprado_at DESC
+      LIMIT 1
+    `).get(userId) as { asset_id: string | null } | undefined;
+
+    // Obtener módulos completados (solo públicos)
+    const progreso = await db.collection("progreso_modulos").find({
+      usuarioId: userId,
+      status: "completado",
+    }).limit(50).toArray();
+
+    const moduloIds = progreso.map((p) => String(p.moduloId ?? "")).filter(Boolean);
+    const modulosPublicos = moduloIds.length
+      ? await db.collection("modulos").find({
+          id: { $in: moduloIds },
+          visibility: "publico",
+          isDeleted: { $ne: true },
+        }).project({ id: 1, title: 1, subject: 1, category: 1 })
+        .limit(6).toArray()
+      : [];
+
+    return res.json({
+      username: String(usuario.username ?? ""),
+      fullName: String(usuario.fullName ?? ""),
+      role: String(usuario.role ?? "USER"),
+      createdAt: usuario.createdAt ?? null,
+      avatarUrl: usuario.avatarUrl ?? null,
+      bio: usuario.bio ?? null,
+      tema: temaItem?.asset_id ?? "clasico",
+      modulosCompletados: modulosPublicos.map((m) => ({
+        id: String(m.id ?? ""),
+        titulo: String(m.title ?? ""),
+        materia: String(m.subject ?? m.category ?? "General"),
+      })),
+      totalCompletados: progreso.length,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      error: err instanceof Error ? err.message : "error"
+    });
+  }
 });
