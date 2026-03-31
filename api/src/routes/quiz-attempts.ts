@@ -1,5 +1,6 @@
 import express, { Router } from "express";
 import { getDb } from "../lib/db";
+import { openContentDb } from "../lib/db-open";
 import {
   ENTERPRISE_FEATURES,
   requireActiveInstitutionBenefit,
@@ -459,6 +460,147 @@ quizAttempts.post(
       });
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });
+    }
+  }
+);
+
+// POST /api/quiz-attempts/:id/competencia
+// Registrar resultado de modo competencia con tiempo
+quizAttempts.post(
+  "/api/quiz-attempts/:id/competencia",
+  requireUser,
+  async (req, res) => {
+    const userId =
+      typeof req.user?._id?.toString === "function"
+        ? req.user._id.toString()
+        : typeof req.user?.id === "string"
+          ? req.user.id : "";
+    if (!userId) return res.status(401).json({ error: "not authenticated" });
+
+    const { score, maxScore, tiempoSeg, quizId, moduloId, aulaId } =
+      req.body as Record<string, unknown>;
+
+    if (typeof score !== "number" || typeof tiempoSeg !== "number") {
+      return res.status(400).json({ error: "score y tiempoSeg requeridos" });
+    }
+
+    const db = openContentDb();
+    const id = `qc-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    const now = new Date().toISOString();
+
+    db.prepare(`
+      INSERT INTO quiz_competencia
+        (id, quiz_id, modulo_id, aula_id, usuario_id, attempt_id,
+         score, max_score, tiempo_seg, completado_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      id,
+      typeof quizId === "string" ? quizId : "",
+      typeof moduloId === "string" ? moduloId : null,
+      typeof aulaId === "string" ? aulaId : null,
+      userId,
+      req.params.id,
+      score,
+      typeof maxScore === "number" ? maxScore : score,
+      tiempoSeg,
+      now
+    );
+
+    return res.status(201).json({ id, ok: true });
+  }
+);
+
+// GET /api/quiz-attempts/competencia/:quizId/ranking
+// Tabla de posiciones para un quiz
+quizAttempts.get(
+  "/api/quiz-attempts/competencia/:quizId/ranking",
+  requireUser,
+  async (req, res) => {
+    const db = openContentDb();
+    const { quizId } = req.params;
+    const aulaId = typeof req.query.aulaId === "string"
+      ? req.query.aulaId : null;
+
+    let query = `
+      SELECT
+        qc.usuario_id,
+        qc.score,
+        qc.max_score,
+        qc.tiempo_seg,
+        qc.completado_at,
+        MIN(qc.tiempo_seg) as mejor_tiempo,
+        MAX(qc.score) as mejor_score
+      FROM quiz_competencia qc
+      WHERE qc.quiz_id = ?
+    `;
+    const params: (string | null)[] = [quizId];
+
+    if (aulaId) {
+      query += " AND qc.aula_id = ?";
+      params.push(aulaId);
+    }
+
+    query += `
+      GROUP BY qc.usuario_id
+      ORDER BY mejor_score DESC, mejor_tiempo ASC
+      LIMIT 20
+    `;
+
+    const rows = db.prepare(query).all(...params) as Array<{
+      usuario_id: string;
+      score: number;
+      max_score: number;
+      tiempo_seg: number;
+      completado_at: string;
+      mejor_tiempo: number;
+      mejor_score: number;
+    }>;
+
+    // Enriquecer con nombres de usuarios desde MongoDB
+    try {
+      const mongoDB = await getDb();
+      const userIds = rows.map((r) => r.usuario_id);
+      const usuarios = userIds.length
+        ? await mongoDB.collection("usuarios").find({
+            $or: [
+              { id: { $in: userIds } },
+              { _id: { $in: userIds } },
+            ],
+            isDeleted: { $ne: true },
+          }).project({ id: 1, _id: 1, fullName: 1, username: 1 })
+          .toArray()
+        : [];
+
+      const usuarioMap = new Map(
+        usuarios.map((u) => [
+          String(u.id ?? u._id ?? ""),
+          String(u.fullName ?? u.username ?? "Alumno"),
+        ])
+      );
+
+      const ranking = rows.map((r, index) => ({
+        posicion: index + 1,
+        usuarioId: r.usuario_id,
+        nombre: usuarioMap.get(r.usuario_id) ?? "Alumno",
+        score: r.mejor_score,
+        maxScore: r.max_score,
+        tiempoSeg: r.mejor_tiempo,
+        completadoAt: r.completado_at,
+      }));
+
+      return res.json({ quizId, aulaId, ranking });
+    } catch {
+      // Si MongoDB falla, devolver sin nombres
+      const ranking = rows.map((r, index) => ({
+        posicion: index + 1,
+        usuarioId: r.usuario_id,
+        nombre: "Alumno",
+        score: r.mejor_score,
+        maxScore: r.max_score,
+        tiempoSeg: r.mejor_tiempo,
+        completadoAt: r.completado_at,
+      }));
+      return res.json({ quizId, aulaId, ranking });
     }
   }
 );
