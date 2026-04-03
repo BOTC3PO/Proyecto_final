@@ -297,6 +297,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   const [tiendaLoading, setTiendaLoading] = useState(true);
   const [comprando, setComprando] = useState<string | null>(null);
   const [tiendaMsg, setTiendaMsg] = useState<string | null>(null);
+  const [transferTo, setTransferTo] = useState("");
 
   useEffect(() => {
     let active = true;
