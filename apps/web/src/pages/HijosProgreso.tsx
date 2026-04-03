@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState, type ChangeEvent } from "react";
-import { Link } from "react-router-dom";
 import { fetchProgresoHijos, type ChildProgress } from "../services/progreso";
 import {
   fetchActividadesHijo, fetchBoletinHijo,

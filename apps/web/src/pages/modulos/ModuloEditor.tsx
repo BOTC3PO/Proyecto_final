@@ -62,7 +62,6 @@ export default function ModuloEditor() {
     blockEditorItem,
     handleBlockDone,
     quizzes,
-    addQuiz,
     updateQuiz,
     removeQuiz,
     handleImportQuizzes,

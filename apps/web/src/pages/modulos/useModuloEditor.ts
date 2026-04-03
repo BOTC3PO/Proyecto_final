@@ -323,7 +323,7 @@ export function useModuloEditor(
     const baseQuiz: ModuleQuiz = ensureQuizDefaults({
       id: buildQuizId(),
       title: "",
-      type: "evaluacion",
+      type: "formal",
       status: "draft",
       version: 1,
       visibility: "publico",

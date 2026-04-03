@@ -167,12 +167,12 @@ export default function ModuloDetail() {
       const mod = await loadGeneratorModule(materia);
       const prng = new DeterministicPrng(42);
       const descriptores: GeneratorDescriptor[] =
-        typeof mod.getDescriptores === "function"
-          ? mod.getDescriptores(prng)
-          : typeof (mod as Record<string, ((p: typeof prng) => GeneratorDescriptor[]) | undefined>)[
+        typeof (mod as unknown as Record<string, unknown>).getDescriptores === "function"
+          ? (mod as unknown as Record<string, (p: typeof prng) => GeneratorDescriptor[]>).getDescriptores(prng)
+          : typeof (mod as unknown as Record<string, ((p: typeof prng) => GeneratorDescriptor[]) | undefined>)[
               `getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`
             ] === "function"
-          ? (mod as Record<string, (p: typeof prng) => GeneratorDescriptor[]>)[
+          ? (mod as unknown as Record<string, (p: typeof prng) => GeneratorDescriptor[]>)[
               `getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`
             ](prng)
           : [];

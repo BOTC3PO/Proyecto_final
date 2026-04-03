@@ -1,4 +1,4 @@
-import type { VisualSpec } from "../../generadoresV2/core/types";
+import type { VisualSpec } from "../generadoresV2/core/types";
 
 interface ToolEditorProps {
   spec: VisualSpec | undefined;
