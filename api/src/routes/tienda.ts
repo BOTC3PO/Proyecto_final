@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
+import { checkModoAula } from "../lib/modo-aula-middleware";
 import { requireAdmin } from "../lib/admin-auth";
 import { getDb } from "../lib/db";
 import { ENV } from "../lib/env";
@@ -69,7 +70,7 @@ tienda.get("/api/tienda/mis-items", requireUser, (req, res) => {
 
 // ── POST /api/tienda/comprar ────────────────────────────────
 // Comprar un item con monedas de la economía
-tienda.post("/api/tienda/comprar", requireUser, async (req, res) => {
+tienda.post("/api/tienda/comprar", requireUser, checkModoAula("tienda"), async (req, res) => {
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 

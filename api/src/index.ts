@@ -53,6 +53,7 @@ import { mapsRouter } from "./routes/maps";
 import { mensajeria } from "./routes/mensajeria";
 import { suscripciones } from "./routes/suscripciones";
 import { instrumentos } from "./routes/instrumentos";
+import { pedagogico } from "./routes/pedagogico";
 import { requireUser } from "./lib/user-auth";
 import { openSqlite } from "./lib/db";
 
@@ -149,6 +150,7 @@ app.use(tareasRouter);
 app.use(mensajeria);
 app.use(suscripciones);
 app.use(instrumentos);
+app.use(pedagogico);
 app.use(readonlyRouter);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {

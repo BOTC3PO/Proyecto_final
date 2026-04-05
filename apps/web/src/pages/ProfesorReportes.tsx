@@ -8,7 +8,16 @@ import {
   type ProgresoResponse,
 } from "../services/reportes-v2";
 
-type Tab = "boletin" | "asistencia" | "progreso";
+type Tab = "boletin" | "asistencia" | "progreso" | "riesgo";
+
+type AlumnoRiesgo = {
+  alumnoId: string;
+  nombre: string;
+  porcentajeProgreso: number;
+  intentosFallidos: number;
+  modulosCompletados: number;
+  modulosTotal: number;
+};
 
 export default function ProfesorReportes() {
   const { user } = useAuth();
@@ -20,6 +29,8 @@ export default function ProfesorReportes() {
   const [progreso, setProgreso] = useState<ProgresoResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [riesgo, setRiesgo] = useState<AlumnoRiesgo[]>([]);
+  const [riesgoLoading, setRiesgoLoading] = useState(false);
 
   useEffect(() => {
     if (!user?.id) return;
@@ -61,6 +72,19 @@ export default function ProfesorReportes() {
       .finally(() => { if (!active) return; setLoading(false); });
     return () => { active = false; };
   }, [aulaId]);
+
+  useEffect(() => {
+    if (tab !== "riesgo" || !aulaId) return;
+    let active = true;
+    setRiesgoLoading(true);
+    apiGet<{ items: AlumnoRiesgo[] }>(
+      `/api/pedagogico/riesgo/${aulaId}`
+    )
+      .then((data) => { if (!active) return; setRiesgo(data.items ?? []); })
+      .catch(() => {})
+      .finally(() => { if (!active) return; setRiesgoLoading(false); });
+    return () => { active = false; };
+  }, [tab, aulaId]);
 
   const handleExportar = () => {
     const data = tab === "boletin" ? boletin
@@ -119,6 +143,7 @@ export default function ProfesorReportes() {
           { key: "boletin", label: "📋 Boletín" },
           { key: "asistencia", label: "📅 Asistencia" },
           { key: "progreso", label: "📊 Progreso" },
+          { key: "riesgo", label: "⚠ En riesgo" },
         ].map((t) => (
           <button
             key={t.key}
@@ -289,6 +314,61 @@ export default function ProfesorReportes() {
                   {mod.enProgreso} en progreso
                 </span>
                 <span>{mod.sinIniciar} sin iniciar</span>
+              </div>
+            </article>
+          ))}
+        </section>
+      )}
+      {/* Tab En riesgo */}
+      {!loading && tab === "riesgo" && (
+        <section className="space-y-4">
+          {riesgoLoading && (
+            <p className="text-sm text-slate-400 animate-pulse">
+              Analizando alumnos...
+            </p>
+          )}
+          {!riesgoLoading && riesgo.length === 0 && (
+            <div className="rounded-2xl border border-emerald-200
+              bg-emerald-50 p-6 text-center">
+              <p className="text-emerald-700 font-semibold">
+                ✓ Ningún alumno en riesgo
+              </p>
+              <p className="text-sm text-emerald-600 mt-1">
+                Todos tienen buen progreso y pocos intentos fallidos.
+              </p>
+            </div>
+          )}
+          {!riesgoLoading && riesgo.map((alumno) => (
+            <article key={alumno.alumnoId}
+              className="rounded-2xl border border-amber-200
+                bg-amber-50 p-5 shadow-sm">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="font-semibold text-slate-900">
+                    {alumno.nombre}
+                  </p>
+                  <div className="mt-1 flex gap-3 text-xs text-slate-500">
+                    <span>
+                      Progreso: {alumno.porcentajeProgreso}%
+                    </span>
+                    <span>
+                      Intentos fallidos: {alumno.intentosFallidos}
+                    </span>
+                    <span>
+                      {alumno.modulosCompletados}/{alumno.modulosTotal} módulos
+                    </span>
+                  </div>
+                </div>
+                <span className="rounded-full bg-amber-200
+                  px-3 py-1 text-xs font-semibold text-amber-800">
+                  Necesita ayuda
+                </span>
+              </div>
+              <div className="mt-3 h-2 w-full rounded-full bg-amber-100">
+                <div
+                  className="h-2 rounded-full bg-amber-500 transition-all"
+                  style={{ width: `${alumno.porcentajeProgreso}%` }}
+                />
               </div>
             </article>
           ))}
