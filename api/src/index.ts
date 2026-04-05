@@ -1,4 +1,5 @@
 import express, { type NextFunction, type Request, type Response } from "express";
+import compression from "compression";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
@@ -77,6 +78,22 @@ const runStartupDataChecks = () => {
 };
 
 const app = express();
+app.use(compression());
+app.use((req, res, next) => {
+  // API responses — no cachear
+  if (req.path.startsWith("/api/")) {
+    res.setHeader("Cache-Control", "no-store");
+    return next();
+  }
+  // Assets estáticos con hash en el nombre (Vite los genera)
+  if (/\.[0-9a-f]{8}\.(js|css|woff2?)$/i.test(req.path)) {
+    res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+    return next();
+  }
+  // HTML — revalidar siempre
+  res.setHeader("Cache-Control", "no-cache");
+  next();
+});
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
 app.use(morgan("tiny"));
