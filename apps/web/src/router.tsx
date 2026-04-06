@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import { createBrowserRouter, Navigate, useParams } from "react-router-dom";
 import { ProtectedRoute } from "./routing/ProtectedRoute";
 import RootLayout from "./layouts/RootLayout";
+import { lazyWithRetry } from "./lib/lazyWithRetry";
+import { RouteErrorBoundary } from "./components/RouteErrorBoundary";
 
 // Páginas estáticas — necesarias en la carga inicial o muy pequeñas
 import Landing from "./pages/Landing";
@@ -31,68 +33,68 @@ import {
 
 // ── Lazy imports ───────────────────────────────────────────────────────────────
 
-const HomePage            = lazy(() => import("./pages/Home"));
-const About               = lazy(() => import("./pages/About"));
-const Pricing             = lazy(() => import("./pages/Pricing"));
-const Contact             = lazy(() => import("./pages/Contact"));
-const Explorar            = lazy(() => import("./pages/Explorar"));
-const Metodologia         = lazy(() => import("./pages/metodologia"));
-const MenuAlumno          = lazy(() => import("./pages/menu-alumno"));
-const Clases              = lazy(() => import("./pages/aula"));
-const BookEditorPage      = lazy(() => import("./bookEditor/BookEditorPage"));
-const BlockEditorPage     = lazy(() => import("./blocks/v2/BlockEditorPage"));
-const ProfesorAulas       = lazy(() => import("./pages/ProfesorAulas"));
-const Calendario          = lazy(() => import("./pages/Calendario"));
-const ProfesorConfiguracion = lazy(() => import("./pages/ProfesorConfiguracion"));
-const ProfesorEstadisticas  = lazy(() => import("./pages/ProfesorEstadisticas"));
-const ProfesorEvaluaciones  = lazy(() => import("./pages/ProfesorEvaluaciones"));
-const ProfesorMateriales    = lazy(() => import("./pages/ProfesorMateriales"));
-const ProfesorMensajes      = lazy(() => import("./pages/ProfesorMensajes"));
-const ModulosList           = lazy(() => import("./pages/modulos/ModulosList"));
-const ModuloDetail          = lazy(() => import("./pages/modulos/ModuloDetail"));
-const ReproductorModulos    = lazy(() => import("./pages/modulos/ReproductorModulos"));
-const ProfesorEncuestas     = lazy(() => import("./pages/ProfesorEncuestas"));
-const ProfesorCursoNuevo    = lazy(() => import("./pages/ProfesorCursoNuevo"));
-const HijosProgreso         = lazy(() => import("./pages/HijosProgreso"));
-const ProfesorReportes      = lazy(() => import("./pages/ProfesorReportes"));
-const AlumnoEncuestas       = lazy(() => import("./pages/AlumnoEncuestas"));
-const QuizAttempt           = lazy(() => import("./pages/quizzes/QuizAttempt"));
-const ProfesorCalendario    = lazy(() => import("./pages/ProfesorCalendario"));
+const HomePage            = lazyWithRetry(() => import("./pages/Home"));
+const About               = lazyWithRetry(() => import("./pages/About"));
+const Pricing             = lazyWithRetry(() => import("./pages/Pricing"));
+const Contact             = lazyWithRetry(() => import("./pages/Contact"));
+const Explorar            = lazyWithRetry(() => import("./pages/Explorar"));
+const Metodologia         = lazyWithRetry(() => import("./pages/metodologia"));
+const MenuAlumno          = lazyWithRetry(() => import("./pages/menu-alumno"));
+const Clases              = lazyWithRetry(() => import("./pages/aula"));
+const BookEditorPage      = lazyWithRetry(() => import("./bookEditor/BookEditorPage"));
+const BlockEditorPage     = lazyWithRetry(() => import("./blocks/v2/BlockEditorPage"));
+const ProfesorAulas       = lazyWithRetry(() => import("./pages/ProfesorAulas"));
+const Calendario          = lazyWithRetry(() => import("./pages/Calendario"));
+const ProfesorConfiguracion = lazyWithRetry(() => import("./pages/ProfesorConfiguracion"));
+const ProfesorEstadisticas  = lazyWithRetry(() => import("./pages/ProfesorEstadisticas"));
+const ProfesorEvaluaciones  = lazyWithRetry(() => import("./pages/ProfesorEvaluaciones"));
+const ProfesorMateriales    = lazyWithRetry(() => import("./pages/ProfesorMateriales"));
+const ProfesorMensajes      = lazyWithRetry(() => import("./pages/ProfesorMensajes"));
+const ModulosList           = lazyWithRetry(() => import("./pages/modulos/ModulosList"));
+const ModuloDetail          = lazyWithRetry(() => import("./pages/modulos/ModuloDetail"));
+const ReproductorModulos    = lazyWithRetry(() => import("./pages/modulos/ReproductorModulos"));
+const ProfesorEncuestas     = lazyWithRetry(() => import("./pages/ProfesorEncuestas"));
+const ProfesorCursoNuevo    = lazyWithRetry(() => import("./pages/ProfesorCursoNuevo"));
+const HijosProgreso         = lazyWithRetry(() => import("./pages/HijosProgreso"));
+const ProfesorReportes      = lazyWithRetry(() => import("./pages/ProfesorReportes"));
+const AlumnoEncuestas       = lazyWithRetry(() => import("./pages/AlumnoEncuestas"));
+const QuizAttempt           = lazyWithRetry(() => import("./pages/quizzes/QuizAttempt"));
+const ProfesorCalendario    = lazyWithRetry(() => import("./pages/ProfesorCalendario"));
 
 // Ya eran lazy — mantener igual
-const LaboratorioWeb3    = lazy(() => import("./pages/LaboratorioWeb3"));
-const EditorCuestionarios = lazy(() => import("./pages/EditorCuestionarios"));
-const AdminGeneradores    = lazy(() => import("./pages/AdminGeneradores"));
+const LaboratorioWeb3    = lazyWithRetry(() => import("./pages/LaboratorioWeb3"));
+const EditorCuestionarios = lazyWithRetry(() => import("./pages/EditorCuestionarios"));
+const AdminGeneradores    = lazyWithRetry(() => import("./pages/AdminGeneradores"));
 
 // Resto de páginas → lazy
-const HijosAgregar             = lazy(() => import("./pages/HijosAgregar"));
-const Admin                    = lazy(() => import("./pages/Admin"));
-const AdminUsuarios             = lazy(() => import("./pages/AdminUsuarios"));
-const AdminCursos               = lazy(() => import("./pages/AdminCursos"));
-const AdminMaterias             = lazy(() => import("./pages/AdminMaterias"));
-const AdminModeracion           = lazy(() => import("./pages/AdminModeracion"));
-const AdminReportesGlobal       = lazy(() => import("./pages/AdminReportesGlobal"));
-const Perfil                    = lazy(() => import("./pages/Perfil"));
-const Tareas                    = lazy(() => import("./pages/Tareas"));
-const Progreso                  = lazy(() => import("./pages/Progreso"));
-const ProfesorCursos            = lazy(() => import("./pages/ProfesorCursos"));
-const ProfesorCalificaciones    = lazy(() => import("./pages/ProfesorCalificaciones"));
-const ProfesorAsistencia        = lazy(() => import("./pages/ProfesorAsistencia"));
-const EnterpriseDashboard       = lazy(() => import("./pages/EnterpriseDashboard"));
-const EnterpriseReportes        = lazy(() => import("./pages/EnterpriseReportes"));
-const EnterpriseAulas           = lazy(() => import("./pages/EnterpriseAulas"));
-const EnterpriseMiembros        = lazy(() => import("./pages/EnterpriseMiembros"));
-const EnterpriseModulos         = lazy(() => import("./pages/EnterpriseModulos"));
-const MenuProfesor              = lazy(() => import("./pages/MenuProfesor"));
-const ProfesorAulaConfiguracion = lazy(() => import("./pages/ProfesorAulaConfiguracion"));
-const Terminos                  = lazy(() => import("./pages/Terminos"));
-const Privacidad                = lazy(() => import("./pages/Privacidad"));
-const GuestOnboarding           = lazy(() => import("./pages/GuestOnboarding"));
-const Gobernanza                = lazy(() => import("./pages/Gobernanza"));
-const GobernanzaPropuesta       = lazy(() => import("./pages/GobernanzaPropuesta"));
-const GobernanzaNuevaPropuesta  = lazy(() => import("./pages/GobernanzaNuevaPropuesta"));
-const Mensajeria                = lazy(() => import("./pages/Mensajeria"));
-const PerfilPublico             = lazy(() => import("./pages/PerfilPublico"));
+const HijosAgregar             = lazyWithRetry(() => import("./pages/HijosAgregar"));
+const Admin                    = lazyWithRetry(() => import("./pages/Admin"));
+const AdminUsuarios             = lazyWithRetry(() => import("./pages/AdminUsuarios"));
+const AdminCursos               = lazyWithRetry(() => import("./pages/AdminCursos"));
+const AdminMaterias             = lazyWithRetry(() => import("./pages/AdminMaterias"));
+const AdminModeracion           = lazyWithRetry(() => import("./pages/AdminModeracion"));
+const AdminReportesGlobal       = lazyWithRetry(() => import("./pages/AdminReportesGlobal"));
+const Perfil                    = lazyWithRetry(() => import("./pages/Perfil"));
+const Tareas                    = lazyWithRetry(() => import("./pages/Tareas"));
+const Progreso                  = lazyWithRetry(() => import("./pages/Progreso"));
+const ProfesorCursos            = lazyWithRetry(() => import("./pages/ProfesorCursos"));
+const ProfesorCalificaciones    = lazyWithRetry(() => import("./pages/ProfesorCalificaciones"));
+const ProfesorAsistencia        = lazyWithRetry(() => import("./pages/ProfesorAsistencia"));
+const EnterpriseDashboard       = lazyWithRetry(() => import("./pages/EnterpriseDashboard"));
+const EnterpriseReportes        = lazyWithRetry(() => import("./pages/EnterpriseReportes"));
+const EnterpriseAulas           = lazyWithRetry(() => import("./pages/EnterpriseAulas"));
+const EnterpriseMiembros        = lazyWithRetry(() => import("./pages/EnterpriseMiembros"));
+const EnterpriseModulos         = lazyWithRetry(() => import("./pages/EnterpriseModulos"));
+const MenuProfesor              = lazyWithRetry(() => import("./pages/MenuProfesor"));
+const ProfesorAulaConfiguracion = lazyWithRetry(() => import("./pages/ProfesorAulaConfiguracion"));
+const Terminos                  = lazyWithRetry(() => import("./pages/Terminos"));
+const Privacidad                = lazyWithRetry(() => import("./pages/Privacidad"));
+const GuestOnboarding           = lazyWithRetry(() => import("./pages/GuestOnboarding"));
+const Gobernanza                = lazyWithRetry(() => import("./pages/Gobernanza"));
+const GobernanzaPropuesta       = lazyWithRetry(() => import("./pages/GobernanzaPropuesta"));
+const GobernanzaNuevaPropuesta  = lazyWithRetry(() => import("./pages/GobernanzaNuevaPropuesta"));
+const Mensajeria                = lazyWithRetry(() => import("./pages/Mensajeria"));
+const PerfilPublico             = lazyWithRetry(() => import("./pages/PerfilPublico"));
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -103,7 +105,9 @@ const PageLoader = () => (
 );
 
 const withSuspense = (element: ReactNode) => (
-  <Suspense fallback={<PageLoader />}>{element}</Suspense>
+  <RouteErrorBoundary>
+    <Suspense fallback={<PageLoader />}>{element}</Suspense>
+  </RouteErrorBoundary>
 );
 
 // ── Redirect helper ────────────────────────────────────────────────────────────
