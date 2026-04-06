@@ -5,7 +5,8 @@ import React from "react";
  * Si un chunk falla al cargar, reintenta hasta 3 veces
  * con espera exponencial antes de lanzar el error.
  */
-export function lazyWithRetry<T extends React.ComponentType<unknown>>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function lazyWithRetry<T extends React.ComponentType<any>>(
   importFn: () => Promise<{ default: T }>,
   retries = 3,
   delay = 1000
