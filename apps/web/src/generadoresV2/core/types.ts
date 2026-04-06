@@ -55,11 +55,19 @@ export interface StaticImageSpec {
   width?: number;
   height?: number;
 }
+export interface TimelineSpec {
+  kind: "timeline";
+  title?: string;
+  range?: { start?: string; end?: string };
+  events: { id: string; title: string; date: string; description?: string; tags?: string[] }[];
+  markers?: { id: string; label?: string; date: string }[];
+}
 export type VisualSpec =
   | LineChartSpec
   | VectorDiagramSpec
   | CircuitSpec
-  | StaticImageSpec;
+  | StaticImageSpec
+  | TimelineSpec;
 export interface EjercicioBase {
   id: string;
   materia: Materia;

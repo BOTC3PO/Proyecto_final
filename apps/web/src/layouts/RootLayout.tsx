@@ -3,6 +3,7 @@ import { AuthProvider } from "../auth/auth-provider";
 import { ThemeProvider } from "../theme/ThemeContext";
 import Navbar from "../nav/Navbar";
 import Footer from "../components/footer";
+import { OfflineIndicator } from "../components/OfflineIndicator";
 
 export default function RootLayout() {
   return (
@@ -14,6 +15,7 @@ export default function RootLayout() {
           <Outlet />
         </main>
         <Footer />
+        <OfflineIndicator />
       </ThemeProvider>
     </AuthProvider>
     </div>
