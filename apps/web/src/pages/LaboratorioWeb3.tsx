@@ -1,3 +1,4 @@
+import React from "react";
 import { useMemo, useState } from "react";
 
 const formatNumber = (value: number, decimals = 4) =>
@@ -10,6 +11,61 @@ const formatNumber = (value: number, decimals = 4) =>
 
 const clampNumber = (value: number, min = 0) =>
   Number.isFinite(value) ? Math.max(value, min) : min;
+
+function ExplicacionCard({
+  titulo,
+  children,
+}: {
+  titulo: string;
+  children: React.ReactNode;
+}) {
+  const [abierto, setAbierto] = React.useState(false);
+  return (
+    <div className="mb-4 rounded-2xl border border-slate-700 bg-slate-900/80">
+      <button
+        type="button"
+        onClick={() => setAbierto((v) => !v)}
+        className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold text-slate-300 hover:text-white transition-colors"
+      >
+        <span>💡 {titulo}</span>
+        <span className="text-slate-500 text-xs">
+          {abierto ? "▲ cerrar" : "▼ ver explicación"}
+        </span>
+      </button>
+      {abierto && (
+        <div className="border-t border-slate-700 px-4 py-3 text-sm text-slate-400 space-y-2">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function PresetButton({
+  label,
+  onClick,
+  color = "slate",
+}: {
+  label: string;
+  onClick: () => void;
+  color?: "slate" | "amber" | "rose" | "emerald";
+}) {
+  const colors = {
+    slate: "border-slate-600 text-slate-300 hover:bg-slate-700",
+    amber: "border-amber-500/50 text-amber-300 hover:bg-amber-500/10",
+    rose: "border-rose-500/50 text-rose-300 hover:bg-rose-500/10",
+    emerald: "border-emerald-500/50 text-emerald-300 hover:bg-emerald-500/10",
+  };
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`rounded-lg border px-3 py-1 text-xs font-medium transition-colors ${colors[color]}`}
+    >
+      {label}
+    </button>
+  );
+}
 
 export default function LaboratorioWeb3() {
   const [reserveA, setReserveA] = useState(12000);
@@ -166,6 +222,65 @@ export default function LaboratorioWeb3() {
               Simulá un intercambio entre tokens de la piscina. Se aplica fee
               configurable.
             </p>
+            <div className="mt-4">
+            <ExplicacionCard titulo="¿Qué es un AMM?">
+              <p>
+                Un <strong className="text-slate-200">AMM (Automated Market Maker)</strong>{" "}
+                es un protocolo que fija el precio usando la fórmula{" "}
+                <strong className="text-slate-200">x · y = k</strong>, donde x e y
+                son las reservas de cada token y k es una constante.
+              </p>
+              <p>
+                Cuando alguien compra Token B, agrega Token A al pool y
+                retira Token B. Las reservas cambian pero k se mantiene,
+                lo que hace que el precio suba automáticamente.
+              </p>
+              <p>
+                El <strong className="text-slate-200">impacto de precio</strong>{" "}
+                es mayor cuando el monto a swapear es grande en relación
+                a las reservas — probalo con los presets de abajo.
+              </p>
+            </ExplicacionCard>
+            {/* Presets de casos */}
+            <div className="flex flex-wrap gap-2 mb-3">
+              <span className="text-xs text-slate-500 self-center">Casos:</span>
+              <PresetButton
+                label="Pool chico (alta slippage)"
+                color="amber"
+                onClick={() => {
+                  setReserveA(1000);
+                  setReserveB(10);
+                  setAmountIn(100);
+                }}
+              />
+              <PresetButton
+                label="Pool grande (baja slippage)"
+                color="emerald"
+                onClick={() => {
+                  setReserveA(1000000);
+                  setReserveB(50000);
+                  setAmountIn(100);
+                }}
+              />
+              <PresetButton
+                label="Swap extremo (90% reserva)"
+                color="rose"
+                onClick={() => {
+                  setReserveA(1000);
+                  setReserveB(1000);
+                  setAmountIn(900);
+                }}
+              />
+              <PresetButton
+                label="Fee alto (5%)"
+                color="amber"
+                onClick={() => {
+                  setFeeRate(5);
+                  setAmountIn(100);
+                }}
+              />
+            </div>
+            </div>
             <div className="mt-4 grid gap-4">
               <div className="grid gap-3 rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
                 <div className="grid gap-3 sm:grid-cols-2">
@@ -240,6 +355,13 @@ export default function LaboratorioWeb3() {
                   <span>Nueva reserva B</span>
                   <span>{formatNumber(swapOutput.newReserveB)}</span>
                 </div>
+                {swapOutput.priceImpact > 10 && (
+                  <div className="mt-2 rounded-xl border border-rose-500/40 bg-rose-500/10 px-3 py-2 text-xs text-rose-300">
+                    ⚠ Impacto de precio alto ({formatNumber(swapOutput.priceImpact, 2)}%).
+                    En un mercado real esto significaría una pérdida significativa
+                    respecto al precio spot.
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -250,6 +372,61 @@ export default function LaboratorioWeb3() {
               Agregá o retirás liquidez para ver cuántos LP tokens recibís y tu
               participación en el pool.
             </p>
+            <div className="mt-4">
+            <ExplicacionCard titulo="¿Qué son los LP tokens?">
+              <p>
+                Cuando agregás liquidez a un pool recibís{" "}
+                <strong className="text-slate-200">LP tokens</strong>{" "}
+                (Liquidity Provider) que representan tu porcentaje
+                del pool. Si el pool tiene 1000 LP tokens y recibís
+                100, tenés el 10% de todas las reservas.
+              </p>
+              <p>
+                Al retirar liquidez, quemás tus LP tokens y recibís
+                tu porción de las reservas actuales — que pueden ser
+                diferentes a las que depositaste por los swaps que
+                ocurrieron mientras tanto.
+              </p>
+              <p className="text-amber-300">
+                ⚠ Caso límite: si retirás más LP tokens de los que
+                tenés, la transacción falla. Si el pool está casi
+                vacío, recibís muy pocos tokens de vuelta.
+              </p>
+            </ExplicacionCard>
+            <div className="flex flex-wrap gap-2 mb-3">
+              <span className="text-xs text-slate-500 self-center">Casos:</span>
+              <PresetButton
+                label="Agregar liquidez desbalanceada"
+                color="amber"
+                onClick={() => {
+                  setAddAmountA(1000);
+                  setAddAmountB(1);
+                }}
+              />
+              <PresetButton
+                label="Retirar todo (pool vacío)"
+                color="rose"
+                onClick={() => {
+                  setRemoveLpAmount(totalLpSupply);
+                }}
+              />
+              <PresetButton
+                label="Retirar más de lo que tenés"
+                color="rose"
+                onClick={() => {
+                  setRemoveLpAmount(userLpBalance * 2);
+                }}
+              />
+              <PresetButton
+                label="Posición pequeña (1%)"
+                color="slate"
+                onClick={() => {
+                  setAddAmountA(reserveA * 0.01);
+                  setAddAmountB(reserveB * 0.01);
+                }}
+              />
+            </div>
+            </div>
             <div className="mt-4 grid gap-4">
               <div className="rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
                 <h3 className="text-sm font-semibold text-slate-200">
@@ -333,6 +510,13 @@ export default function LaboratorioWeb3() {
                     Token B: {formatNumber(removeLiquidityPreview.amountB)}
                   </span>
                 </div>
+                {removeLpAmount > userLpBalance && (
+                  <div className="mt-2 rounded-xl border border-rose-500/40 bg-rose-500/10 px-3 py-2 text-xs text-rose-300">
+                    ⚠ Intentás retirar {formatNumber(removeLpAmount)} LP
+                    pero solo tenés {formatNumber(userLpBalance)}.
+                    En un protocolo real esta transacción fallaría.
+                  </div>
+                )}
                 <button
                   type="button"
                   onClick={handleRemoveLiquidity}
@@ -352,6 +536,57 @@ export default function LaboratorioWeb3() {
               Ajustá cuánto cambió el precio del activo para ver la pérdida
               respecto a holdear.
             </p>
+            <div className="mt-4">
+            <ExplicacionCard titulo="¿Qué es la pérdida impermanente?">
+              <p>
+                La <strong className="text-slate-200">pérdida impermanente</strong>{" "}
+                ocurre cuando el precio de uno de los tokens en el pool
+                cambia respecto al momento en que depositaste liquidez.
+                El AMM rebalancea las reservas automáticamente, lo que
+                hace que termines con menos del token que subió de precio.
+              </p>
+              <p>
+                Se llama "impermanente" porque si el precio vuelve al
+                valor original, la pérdida desaparece. Pero si retirás
+                mientras el precio es diferente, la pérdida se realiza.
+              </p>
+              <p>
+                La fórmula es:{" "}
+                <strong className="text-slate-200">
+                  IL = 2√r/(1+r) − 1
+                </strong>{" "}
+                donde r es el multiplicador de precio.
+              </p>
+            </ExplicacionCard>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="text-xs text-slate-500 self-center">Casos:</span>
+              <PresetButton
+                label="Sin cambio (r=1)"
+                color="emerald"
+                onClick={() => setPriceMultiplier(1)}
+              />
+              <PresetButton
+                label="Doble precio (r=2)"
+                color="amber"
+                onClick={() => setPriceMultiplier(2)}
+              />
+              <PresetButton
+                label="10x precio"
+                color="rose"
+                onClick={() => setPriceMultiplier(10)}
+              />
+              <PresetButton
+                label="Precio cae a 0.1x"
+                color="rose"
+                onClick={() => setPriceMultiplier(0.1)}
+              />
+              <PresetButton
+                label="Precio casi cero (límite)"
+                color="rose"
+                onClick={() => setPriceMultiplier(0.01)}
+              />
+            </div>
+            </div>
             <div className="mt-4 grid gap-4">
               <div className="grid gap-3 sm:grid-cols-2">
                 <label className="text-sm">
@@ -385,6 +620,21 @@ export default function LaboratorioWeb3() {
                 </p>
                 <p className="mt-2 text-3xl font-semibold text-rose-300">
                   {formatNumber(impermanentLoss, 2)}%
+                </p>
+                <p className={`mt-1 text-sm font-medium ${
+                  impermanentLoss < -10
+                    ? "text-rose-400"
+                    : impermanentLoss < -2
+                    ? "text-amber-400"
+                    : "text-emerald-400"
+                }`}>
+                  {impermanentLoss >= -0.1
+                    ? "✓ Sin pérdida significativa"
+                    : impermanentLoss >= -2
+                    ? "⚠ Pérdida leve — las fees pueden compensarla"
+                    : impermanentLoss >= -10
+                    ? "⚠ Pérdida moderada — evaluá si conviene holdear"
+                    : "⛔ Pérdida severa — en este escenario holdear hubiera sido mejor"}
                 </p>
                 <p className="mt-2 text-xs text-slate-400">
                   Cuanto más tiempo ({holdingDays} días) y volatilidad, más
@@ -430,6 +680,28 @@ export default function LaboratorioWeb3() {
               <p className="mt-1 text-sm text-slate-400">
                 Simulá operaciones con alta volatilidad y revisá tu P&amp;L.
               </p>
+              <div className="mt-3">
+              <ExplicacionCard titulo="¿Cómo funciona el trading de cripto?">
+                <p>
+                  Comprás BTC cuando creés que el precio va a subir y
+                  vendés cuando creés que bajó. Tu ganancia o pérdida
+                  se calcula como:{" "}
+                  <strong className="text-slate-200">
+                    P&L = (precio actual − precio promedio de compra) × cantidad BTC
+                  </strong>
+                </p>
+                <p>
+                  La <strong className="text-slate-200">alta volatilidad</strong>{" "}
+                  significa que el precio puede cambiar mucho en poco tiempo.
+                  Usá el botón "Simular volatilidad" para ver cómo afecta
+                  tu posición un movimiento brusco del mercado.
+                </p>
+                <p className="text-amber-300">
+                  ⚠ En este sandbox no podés perder más de tu balance.
+                  En mercados reales con apalancamiento, sí podés.
+                </p>
+              </ExplicacionCard>
+              </div>
             </div>
             <button
               type="button"
