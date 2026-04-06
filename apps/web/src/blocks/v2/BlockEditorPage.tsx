@@ -22,6 +22,7 @@ import type {
   BlockDocument,
   ChartBlock,
   FlowBlock,
+  ImageBlock,
   LatexBlock,
   MathBlock,
   ShapeBlock,
@@ -84,6 +85,8 @@ function blockIcon(type: Block["type"]): string {
       return "f";
     case "shape":
       return "◈";
+    case "image":
+      return "🖼";
     default:
       return "·";
   }
@@ -105,6 +108,8 @@ function blockTypeName(type: Block["type"]): string {
       return "Función f(x)";
     case "shape":
       return "Formas";
+    case "image":
+      return "Imagen";
     default:
       return type;
   }
@@ -132,6 +137,8 @@ function blockPreview(block: Block): string {
       return block.title
         ? block.title.slice(0, 30)
         : block.collection;
+    case "image":
+      return (block as ImageBlock).alt?.slice(0, 30) || "(sin descripción)";
     default:
       return "";
   }
@@ -244,6 +251,71 @@ function CanvasBlockContent({
         );
       case "table":
         return <InlineTableEditor block={block as TableBlock} onUpdate={onUpdate} />;
+      case "image": {
+        const imgBlock = block as ImageBlock;
+        return (
+          <div className="p-4 space-y-3">
+            <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
+              URL de la imagen
+              <input
+                type="url"
+                className="rounded-md border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                placeholder="https://... o pegá una URL"
+                value={imgBlock.url}
+                onChange={(e) => onUpdate({ url: e.target.value })}
+                onClick={(e) => e.stopPropagation()}
+              />
+            </label>
+            <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
+              Descripción para accesibilidad *
+              <input
+                type="text"
+                className="rounded-md border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                placeholder="Describí la imagen para alumnos con discapacidad visual"
+                value={imgBlock.alt}
+                onChange={(e) => onUpdate({ alt: e.target.value })}
+                onClick={(e) => e.stopPropagation()}
+              />
+              <span className="text-xs text-gray-400">
+                Este texto también se lee en voz alta al usar TTS.
+              </span>
+            </label>
+            <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
+              Pie de foto (opcional)
+              <input
+                type="text"
+                className="rounded-md border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                placeholder="Texto visible debajo de la imagen"
+                value={imgBlock.caption ?? ""}
+                onChange={(e) => onUpdate({ caption: e.target.value })}
+                onClick={(e) => e.stopPropagation()}
+              />
+            </label>
+            <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
+              Tamaño
+              <select
+                className="rounded-md border border-gray-200 px-3 py-2 text-sm"
+                value={imgBlock.width ?? "medium"}
+                onChange={(e) => onUpdate({ width: e.target.value })}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <option value="small">Pequeño (33%)</option>
+                <option value="medium">Mediano (66%)</option>
+                <option value="full">Completo (100%)</option>
+              </select>
+            </label>
+            {imgBlock.url && (
+              <div className="rounded-lg overflow-hidden border border-gray-200">
+                <img
+                  src={imgBlock.url}
+                  alt={imgBlock.alt || "Preview"}
+                  className="max-h-48 object-contain w-full"
+                />
+              </div>
+            )}
+          </div>
+        );
+      }
     }
   }
   return (
@@ -263,6 +335,7 @@ const BLOCK_TYPES_MENU = [
   { type: "flow" as Block["type"], label: "Flujo", icon: "⬡" },
   { type: "math" as Block["type"], label: "Función f(x)", icon: "f" },
   { type: "shape" as Block["type"], label: "Formas", icon: "◈" },
+  { type: "image" as Block["type"], label: "Imagen", icon: "🖼" },
 ];
 
 function AddBlockBetween({ onAdd }: { onAdd: (type: Block["type"]) => void }) {
@@ -335,6 +408,35 @@ function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument 
       return <MathBlockRenderer block={block} />;
     case "shape":
       return <ShapeBlockRenderer block={block} />;
+    case "image": {
+      const imgBlock = block as ImageBlock;
+      const widthClass =
+        imgBlock.width === "small" ? "w-1/3"
+        : imgBlock.width === "full" ? "w-full"
+        : "w-2/3";
+      return (
+        <figure className="my-2">
+          {imgBlock.url ? (
+            <img
+              src={imgBlock.url}
+              alt={imgBlock.alt || ""}
+              className={`${widthClass} rounded-lg object-contain max-h-96 mx-auto block`}
+            />
+          ) : (
+            <div className="flex items-center justify-center h-32 rounded-lg bg-gray-100 border-2 border-dashed border-gray-300">
+              <span className="text-gray-400 text-sm">
+                🖼 Sin imagen
+              </span>
+            </div>
+          )}
+          {imgBlock.caption && (
+            <figcaption className="text-center text-xs text-gray-500 mt-2 italic">
+              {imgBlock.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    }
     default:
       return <div className="text-xs text-gray-400">Bloque desconocido</div>;
   }
@@ -1161,6 +1263,57 @@ export default function BlockEditorPage({
                     }
                   />
                 )}
+                {selectedBlock.type === "image" && (() => {
+                  const imgBlock = selectedBlock as ImageBlock;
+                  const onUpdate = (patch: Record<string, unknown>) =>
+                    handleBlockUpdate(selectedBlock.id, patch);
+                  return (
+                    <div className="space-y-3">
+                      <label className="flex flex-col gap-1 text-xs font-medium text-gray-600">
+                        URL de la imagen
+                        <input
+                          type="url"
+                          className={inputCls}
+                          placeholder="https://..."
+                          value={imgBlock.url}
+                          onChange={(e) => onUpdate({ url: e.target.value })}
+                        />
+                      </label>
+                      <label className="flex flex-col gap-1 text-xs font-medium text-gray-600">
+                        Descripción (alt) *
+                        <input
+                          type="text"
+                          className={inputCls}
+                          placeholder="Describí la imagen"
+                          value={imgBlock.alt}
+                          onChange={(e) => onUpdate({ alt: e.target.value })}
+                        />
+                      </label>
+                      <label className="flex flex-col gap-1 text-xs font-medium text-gray-600">
+                        Pie de foto
+                        <input
+                          type="text"
+                          className={inputCls}
+                          placeholder="Opcional"
+                          value={imgBlock.caption ?? ""}
+                          onChange={(e) => onUpdate({ caption: e.target.value })}
+                        />
+                      </label>
+                      <label className="flex flex-col gap-1 text-xs font-medium text-gray-600">
+                        Tamaño
+                        <select
+                          className={inputCls}
+                          value={imgBlock.width ?? "medium"}
+                          onChange={(e) => onUpdate({ width: e.target.value })}
+                        >
+                          <option value="small">Pequeño (33%)</option>
+                          <option value="medium">Mediano (66%)</option>
+                          <option value="full">Completo (100%)</option>
+                        </select>
+                      </label>
+                    </div>
+                  );
+                })()}
               </InspectorCard>
             ) : (
               /* ── No block selected: show document info + hint ── */

@@ -1,4 +1,4 @@
-import type { Block, BlockDocument } from "../../types";
+import type { Block, BlockDocument, ImageBlock } from "../../types";
 import { arrayMove } from "@dnd-kit/sortable";
 
 export type BlockEditorState = {
@@ -86,6 +86,15 @@ function createDefaultBlock(blockType: Block["type"]): Block {
         canvasHeight: 500,
         items: [],
       };
+    case "image":
+      return {
+        id,
+        type: "image",
+        url: "",
+        alt: "",
+        caption: "",
+        width: "medium",
+      } satisfies ImageBlock;
     default: {
       const _never: never = blockType;
       return _never;

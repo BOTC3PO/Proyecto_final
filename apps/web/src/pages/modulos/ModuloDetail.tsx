@@ -103,6 +103,77 @@ export default function ModuloDetail() {
   const [previewQuestions, setPreviewQuestions] =
     useState<Record<string, Array<{ id: string; label: string }>>>({});
   const [attemptsByQuiz, setAttemptsByQuiz] = useState<Record<string, QuizAttemptSummary[]>>({});
+  const [ttsActivo, setTtsActivo] = useState(false);
+  const [ttsIndex, setTtsIndex] = useState(0);
+
+  const leerModulo = () => {
+    if (!("speechSynthesis" in window)) {
+      alert("Tu navegador no soporta lectura en voz alta.");
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    const bloques = module?.theoryBlocks ?? module?.theoryItems ?? [];
+    const textos: string[] = [];
+
+    if (module?.title) textos.push(module.title);
+    if (module?.description) textos.push(module.description);
+
+    for (const bloque of bloques) {
+      if (bloque.type === "text" && bloque.content) {
+        textos.push(bloque.content);
+      }
+      if (bloque.type === "image") {
+        if ((bloque as { alt?: string }).alt) {
+          textos.push(
+            `Imagen: ${(bloque as { alt?: string }).alt}`
+          );
+        }
+      }
+    }
+
+    if (textos.length === 0) {
+      alert("No hay texto para leer en este módulo.");
+      return;
+    }
+
+    setTtsActivo(true);
+
+    let i = 0;
+    const leerSiguiente = () => {
+      if (i >= textos.length) {
+        setTtsActivo(false);
+        setTtsIndex(0);
+        return;
+      }
+      setTtsIndex(i);
+      const utterance = new SpeechSynthesisUtterance(textos[i]);
+      utterance.lang = "es-AR";
+      utterance.rate = 0.9;
+      utterance.onend = () => {
+        i++;
+        leerSiguiente();
+      };
+      utterance.onerror = () => {
+        setTtsActivo(false);
+      };
+      window.speechSynthesis.speak(utterance);
+      i++;
+    };
+
+    leerSiguiente();
+  };
+
+  const detenerTTS = () => {
+    window.speechSynthesis.cancel();
+    setTtsActivo(false);
+    setTtsIndex(0);
+  };
+
+  useEffect(() => {
+    return () => { window.speechSynthesis.cancel(); };
+  }, []);
 
   const handleStartAttempt = async (quizId: string) => {
     if (!module?.id) return;
@@ -349,7 +420,21 @@ export default function ModuloDetail() {
             </svg>
             Volver al listado
           </Link>
-          <h1 className="text-2xl font-bold text-white md:text-3xl">{module.title}</h1>
+          <div className="flex items-start justify-between gap-4">
+            <h1 className="text-2xl font-bold text-white md:text-3xl">{module.title}</h1>
+            <button
+              type="button"
+              onClick={ttsActivo ? detenerTTS : leerModulo}
+              title={ttsActivo ? "Detener lectura" : "Leer módulo en voz alta"}
+              className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-2 shrink-0 ${
+                ttsActivo
+                  ? "bg-red-100 text-red-700 hover:bg-red-200"
+                  : "bg-blue-100 text-blue-700 hover:bg-blue-200"
+              }`}
+            >
+              {ttsActivo ? "⏹ Detener" : "🔊 Leer en voz alta"}
+            </button>
+          </div>
           {module.description && (
             <p className={`mt-2 max-w-2xl text-sm leading-relaxed ${palette.subtle}`}>
               {module.description}
