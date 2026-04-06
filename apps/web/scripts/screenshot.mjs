@@ -102,9 +102,9 @@ async function login(page, rol) {
   await page.goto(`${BASE_URL}/login`);
   await page.waitForLoadState("networkidle");
 
-  await page.fill('input[type="email"]', email);
-  await page.fill('input[type="password"]', password);
-  await page.click('button[type="submit"]');
+  await page.fill('input[name="user"]', email);
+  await page.fill('input[name="password"]', password);
+  await page.click('input[type="submit"]');
 
   await page.waitForLoadState("networkidle");
   await sleep(1000);
