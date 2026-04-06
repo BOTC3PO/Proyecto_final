@@ -452,11 +452,63 @@ quizAttempts.post(
           }
         }
       );
+      // Obtener umbral del quiz (SQLite) o usar default 60
+      const sqliteDb = openContentDb();
+      const umbralRow = sqliteDb.prepare(
+        "SELECT umbral FROM quiz_umbrales WHERE quiz_id = ?"
+      ).get(attempt.quizId) as { umbral: number } | undefined;
+
+      const umbral = umbralRow?.umbral ?? 60;
+      const porcentaje = maxScore > 0
+        ? Math.round((score / maxScore) * 100) : 0;
+      const aprobado = porcentaje >= umbral;
+
+      // Si es quiz formal y aprobó → actualizar progreso
+      if (quiz.type === "formal" && aprobado && attempt.moduleId) {
+        try {
+          await db.collection("progreso_modulos").updateOne(
+            { usuarioId: userId, moduloId: attempt.moduleId },
+            {
+              $set: {
+                status: "completado",
+                updatedAt: new Date().toISOString(),
+              }
+            },
+            { upsert: true }
+          );
+        } catch { /* no bloquear el submit si falla */ }
+      }
+
+      // Si es formal y NO aprobó → marcar en_progreso
+      if (quiz.type === "formal" && !aprobado && attempt.moduleId) {
+        try {
+          await db.collection("progreso_modulos").updateOne(
+            {
+              usuarioId: userId,
+              moduloId: attempt.moduleId,
+              status: { $ne: "completado" }
+            },
+            {
+              $set: {
+                status: "en_progreso",
+                updatedAt: new Date().toISOString(),
+              }
+            },
+            { upsert: true }
+          );
+        } catch { /* ignorar */ }
+      }
+
       res.json({
         status: "submitted",
         score,
         maxScore,
-        message: "Respuestas enviadas para corrección."
+        porcentaje,
+        aprobado,
+        umbral,
+        message: aprobado
+          ? `¡Aprobado! ${porcentaje}% — superaste el umbral de ${umbral}%.`
+          : `${porcentaje}% — necesitás al menos ${umbral}% para aprobar.`,
       });
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });

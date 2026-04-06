@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
-import type { VisualSpec } from "../../../generadoresV2/core/types";
+import type { VisualSpec } from "../../generadoresV2/core/types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 import { useSlideEditor } from "./hooks/useSlideEditor";
 import type { Block, ChartBlock, FlowBlock, LatexBlock, TableBlock } from "../../blocks/types";

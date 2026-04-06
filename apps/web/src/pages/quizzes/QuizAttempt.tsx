@@ -215,10 +215,10 @@ export default function QuizAttempt() {
 
         // Obtener el generador que coincide con el id
         const descriptores: GeneratorDescriptor[] =
-          typeof mod.getDescriptores === "function"
-            ? mod.getDescriptores(prng)
-            : typeof mod[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`] === "function"
-            ? mod[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`](prng)
+          typeof (mod as Record<string, unknown>).getDescriptores === "function"
+            ? ((mod as Record<string, unknown>).getDescriptores as (p: typeof prng) => GeneratorDescriptor[])(prng)
+            : typeof (mod as Record<string, unknown>)[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`] === "function"
+            ? ((mod as Record<string, unknown>)[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`] as (p: typeof prng) => GeneratorDescriptor[])(prng)
             : [];
 
         const descriptor = descriptores.find((d) => d.id === genId);

@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Fuentes del sistema — sin descarga externa */
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
 /* ── Variables base ─────────────────────────────────────── */
 :root {
   --c-bg:       #f1f5f9;

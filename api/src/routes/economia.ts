@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import { checkModoAula } from "../lib/modo-aula-middleware";
 import { z } from "zod";
 import { getDb } from "../lib/db";
 import { generateId } from "../lib/ids";
@@ -570,7 +571,7 @@ economia.delete(
   }
 );
 
-economia.get("/api/economia/saldos", async (req, res) => {
+economia.get("/api/economia/saldos", checkModoAula("economia"), async (req, res) => {
   const usuarioId = normalizeUsuarioId(req.query.usuarioId);
   if (!usuarioId) {
     return res.status(400).json({ error: "usuarioId is required" });

@@ -1,4 +1,5 @@
 import express, { type NextFunction, type Request, type Response } from "express";
+import compression from "compression";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
@@ -53,6 +54,7 @@ import { mapsRouter } from "./routes/maps";
 import { mensajeria } from "./routes/mensajeria";
 import { suscripciones } from "./routes/suscripciones";
 import { instrumentos } from "./routes/instrumentos";
+import { pedagogico } from "./routes/pedagogico";
 import { requireUser } from "./lib/user-auth";
 import { openSqlite } from "./lib/db";
 
@@ -76,6 +78,22 @@ const runStartupDataChecks = () => {
 };
 
 const app = express();
+app.use(compression());
+app.use((req, res, next) => {
+  // API responses — no cachear
+  if (req.path.startsWith("/api/")) {
+    res.setHeader("Cache-Control", "no-store");
+    return next();
+  }
+  // Assets estáticos con hash en el nombre (Vite los genera)
+  if (/\.[0-9a-f]{8}\.(js|css|woff2?)$/i.test(req.path)) {
+    res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+    return next();
+  }
+  // HTML — revalidar siempre
+  res.setHeader("Cache-Control", "no-cache");
+  next();
+});
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
 app.use(morgan("tiny"));
@@ -149,6 +167,7 @@ app.use(tareasRouter);
 app.use(mensajeria);
 app.use(suscripciones);
 app.use(instrumentos);
+app.use(pedagogico);
 app.use(readonlyRouter);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {

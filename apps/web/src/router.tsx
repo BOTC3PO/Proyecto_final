@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate, useParams } from "react-router-dom";
 import { ProtectedRoute } from "./routing/ProtectedRoute";
 import RootLayout from "./layouts/RootLayout";
@@ -18,7 +19,7 @@ import MenuAlumno from "./pages/menu-alumno";
 import Clases from "./pages/aula";
 import BookEditorPage from "./bookEditor/BookEditorPage";
 import BlockEditorPage from "./blocks/v2/BlockEditorPage";
-import EditorCuestionarios from "./pages/EditorCuestionarios";
+const EditorCuestionarios = lazy(() => import("./pages/EditorCuestionarios"));
 import ProfesorAulas from "./pages/ProfesorAulas";
 import Calendario from "./pages/Calendario";
 import ProfesorConfiguracion from "./pages/ProfesorConfiguracion";
@@ -35,10 +36,10 @@ import HijosProgreso from "./pages/HijosProgreso";
 import ProfesorReportes from "./pages/ProfesorReportes";
 import AlumnoEncuestas from "./pages/AlumnoEncuestas";
 import QuizAttempt from "./pages/quizzes/QuizAttempt";
-import LaboratorioWeb3 from "./pages/LaboratorioWeb3";
+const LaboratorioWeb3 = lazy(() => import("./pages/LaboratorioWeb3"));
 import ProfesorCalendario from "./pages/ProfesorCalendario";
 import HijosAgregar from "./pages/HijosAgregar";
-import AdminGeneradores from "./pages/AdminGeneradores";
+const AdminGeneradores = lazy(() => import("./pages/AdminGeneradores"));
 import Admin from "./pages/Admin";
 import AdminUsuarios from "./pages/AdminUsuarios";
 import AdminCursos from "./pages/AdminCursos";
@@ -100,7 +101,7 @@ export const router = createBrowserRouter([
       { path: "terminos", element: <Terminos /> },
       { path: "privacidad", element: <Privacidad /> },
       { path: "metodologia", element: <Metodologia /> },
-      { path: "laboratorio-web3", element: <LaboratorioWeb3 /> },
+      { path: "laboratorio-web3", element: <Suspense fallback={<div className="p-8 text-center text-sm text-slate-400 animate-pulse">Cargando...</div>}><LaboratorioWeb3 /></Suspense> },
       { path: "editor", element: <BookEditorPage /> },
       { path: "editor/:id", element: <BookEditorPage /> },
       { path: "bloques/editor", element: <BlockEditorPage /> },
@@ -181,7 +182,9 @@ export const router = createBrowserRouter([
         path: "admin/generadores",
         element: (
           <ProtectedRoute allow={['ADMIN']}>
-            <AdminGeneradores />
+            <Suspense fallback={<div className="p-8 text-center text-sm text-slate-400 animate-pulse">Cargando...</div>}>
+              <AdminGeneradores />
+            </Suspense>
           </ProtectedRoute>
         ),
       },
@@ -421,7 +424,9 @@ export const router = createBrowserRouter([
         path: "profesor/editor-cuestionarios",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <EditorCuestionarios />
+            <Suspense fallback={<div className="p-8 text-center text-sm text-slate-400 animate-pulse">Cargando...</div>}>
+              <EditorCuestionarios />
+            </Suspense>
           </ProtectedRoute>
         ),
       },

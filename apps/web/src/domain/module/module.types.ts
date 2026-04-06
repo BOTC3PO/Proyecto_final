@@ -41,6 +41,7 @@ export type ModuleQuiz = {
   fixedSeed?: string | number;
   instructions?: string;
   displayCount?: number;
+  umbralAprobacion?: number; // 0-100, default 60
 };
 
 export type ModuleDependencyType = "required" | "unlocks";

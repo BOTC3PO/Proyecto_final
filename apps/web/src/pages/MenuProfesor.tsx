@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
-import { apiGet } from "../lib/api";
+import { apiGet, apiPost } from "../lib/api";
 import type { Module, ModuleDependency } from "../domain/module/module.types";
+import type { Classroom } from "../domain/classroom/classroom.types";
 import { getSubjectColor } from "../domain/module/subjectColors";
 import {
   fetchProfesorMenuDashboard,
@@ -79,6 +80,10 @@ export default function menuProfesor() {
     status: "loading",
     message: "Cargando el menú del profesor..."
   });
+  const [aulas, setAulas] = useState<Classroom[]>([]);
+  const [modoAulaActivo, setModoAulaActivo] = useState(false);
+  const [modoAulaAulaId, setModoAulaAulaId] = useState("");
+  const [modoAulaLoading, setModoAulaLoading] = useState(false);
 
   const categoryOptions = useMemo(() => {
     const categories = modules
@@ -190,6 +195,33 @@ export default function menuProfesor() {
       active = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (!user?.id) return;
+    apiGet<{ items: Classroom[] }>("/api/aulas")
+      .then((data) => {
+        const misAulas = (data.items ?? []).filter(
+          (a) => a.createdBy === user.id || a.teacherIds?.includes(user.id)
+        );
+        setAulas(misAulas);
+        if (misAulas[0] && !modoAulaAulaId) setModoAulaAulaId(misAulas[0].id);
+      })
+      .catch(() => {});
+  }, [user?.id]);
+
+  const handleToggleModoAula = async () => {
+    if (!modoAulaAulaId) return;
+    setModoAulaLoading(true);
+    try {
+      await apiPost("/api/pedagogico/modo-aula", {
+        aulaId: modoAulaAulaId,
+        activo: !modoAulaActivo,
+        restricciones: ["tienda", "economia"],
+      });
+      setModoAulaActivo((prev) => !prev);
+    } catch { /* ignorar */ }
+    finally { setModoAulaLoading(false); }
+  };
 
   useEffect(() => {
     if (dashboardError) {
@@ -501,6 +533,64 @@ export default function menuProfesor() {
                   <li className="py-3 text-sm text-gray-500">No hay actividades programadas.</li>
                 )}
               </ul>
+            </section>
+
+            <section className={`rounded-xl shadow p-5 ${
+              modoAulaActivo
+                ? "bg-amber-50 border border-amber-200"
+                : "bg-white"
+            }`}>
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    Modo aula
+                  </h3>
+                  <p className="text-sm text-slate-500">
+                    {modoAulaActivo
+                      ? "Tienda y economía restringidas para alumnos."
+                      : "Los alumnos tienen acceso completo."}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  {modules.length > 0 && (
+                    <select
+                      value={modoAulaAulaId}
+                      onChange={(e) => setModoAulaAulaId(e.target.value)}
+                      className="rounded-lg border border-slate-200
+                        px-3 py-2 text-sm"
+                    >
+                      <option value="">Seleccionar aula</option>
+                      {aulas.map((a) => (
+                        <option key={a.id} value={a.id}>{a.name}</option>
+                      ))}
+                    </select>
+                  )}
+                  <button
+                    type="button"
+                    onClick={handleToggleModoAula}
+                    disabled={modoAulaLoading || !modoAulaAulaId}
+                    className={`rounded-xl px-5 py-2.5 text-sm font-semibold
+                      transition-colors disabled:opacity-50 ${
+                      modoAulaActivo
+                        ? "bg-amber-500 text-white hover:bg-amber-600"
+                        : "bg-slate-900 text-white hover:bg-slate-700"
+                    }`}
+                  >
+                    {modoAulaLoading
+                      ? "..."
+                      : modoAulaActivo
+                      ? "Desactivar modo aula"
+                      : "Activar modo aula"}
+                  </button>
+                </div>
+              </div>
+              {modoAulaActivo && (
+                <div className="mt-3 rounded-lg bg-amber-100 px-4 py-2
+                  text-xs text-amber-800">
+                  🔒 Tienda y economía bloqueadas para alumnos de esta aula
+                  durante la clase.
+                </div>
+              )}
             </section>
 
             <div className="bg-white rounded-xl shadow p-5">

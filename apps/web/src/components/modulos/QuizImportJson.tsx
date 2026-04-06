@@ -295,7 +295,7 @@ export default function QuizImportJson({ onImportQuizzes }: QuizImportJsonProps)
       }
 
       const quizzes = validation.candidates.map((candidate, index) => {
-        const safeType = candidate.type === "practica" || candidate.type === "competencia" ? candidate.type : "evaluacion";
+        const safeType = candidate.type === "practica" || candidate.type === "competencia" ? candidate.type : "formal";
         const safeVisibility = candidate.visibility === "escuela" ? "escuela" : "publico";
         return {
           id: buildQuizId(),

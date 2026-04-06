@@ -4,8 +4,7 @@ import { Award, Bell, Clock3, GraduationCap, Trophy, UserCircle2 } from "lucide-
 import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
-import { getSubjectColor } from "../domain/module/subjectColors";
-import { useTheme, type ThemeId } from "../theme/ThemeContext";
+import { useTheme } from "../theme/ThemeContext";
 import {
   fetchCatalogo, fetchMisItems, comprarItem,
   type TiendaItem as TiendaItemAPI,
@@ -44,13 +43,6 @@ type ProgressResponse = {
   unlocks: ProgressUnlock[];
 };
 
-type StoreItem = {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-};
-
 type EducationMessage = {
   id: string;
   title: string;
@@ -75,18 +67,6 @@ type SimulationScenario = {
     fciRateDelta: number;
   };
   learning: string;
-};
-
-type SimulationRegistryEntry = {
-  id: string;
-  name: string;
-  completedAt: string;
-};
-
-type MissionProgress = {
-  saved: number;
-  startedAt: string | null;
-  completed: boolean;
 };
 
 type SaldoResponse = {
@@ -184,7 +164,6 @@ const ECONOMIC_SIMULATIONS: SimulationScenario[] = [
   }
 ];
 
-const ECONOMY_STORAGE_KEY = "economia-alumno";
 const FOREIGN_EXCHANGE_RATE = 100;
 
 const defaultEconomyState: EconomyState = {
@@ -281,12 +260,12 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   const [benefitsError, setBenefitsError] = useState<string | null>(null);
   const [saldoStatus, setSaldoStatus] =
     useState<"loading" | "ready" | "error">("loading");
-  const [transacciones, setTransacciones] =
+  const [_transacciones, setTransacciones] =
     useState<TransaccionItem[]>([]);
   const [cicloActivo, setCicloActivo] = useState<CicloActivo | null>(null);
   const [plazos, setPlazos] = useState<PlazoFijo[]>([]);
   const [fcis, setFcis] = useState<FciPosicion[]>([]);
-  const [instrumentosLoading, setInstrumentosLoading] = useState(false);
+  const [_instrumentosLoading, setInstrumentosLoading] = useState(false);
   const [pfInvirtiendo, setPfInvirtiendo] = useState(false);
   const [fciInvirtiendo, setFciInvirtiendo] = useState(false);
   const [rescatando, setRescatando] = useState<string | null>(null);
@@ -297,6 +276,9 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   const [tiendaLoading, setTiendaLoading] = useState(true);
   const [comprando, setComprando] = useState<string | null>(null);
   const [tiendaMsg, setTiendaMsg] = useState<string | null>(null);
+  const [transferTo, setTransferTo] = useState("");
+  const [transferAmount, setTransferAmount] = useState(0);
+  const [transferNote, setTransferNote] = useState("");
 
   useEffect(() => {
     let active = true;
@@ -1392,11 +1374,6 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
       </main>
     </div>
   );
-};
-
-const demoProps: DashboardProps = {
-  student: { name: "Ana García", initials: "AG", role: "Alumno" },
-  nextClass: { title: "Matemáticas 1°A", time: "10:30" },
 };
 
 export default function Page() {
