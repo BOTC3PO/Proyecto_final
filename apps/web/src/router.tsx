@@ -1,82 +1,119 @@
 import { lazy, Suspense } from "react";
+import type { ReactNode } from "react";
 import { createBrowserRouter, Navigate, useParams } from "react-router-dom";
 import { ProtectedRoute } from "./routing/ProtectedRoute";
 import RootLayout from "./layouts/RootLayout";
 
-// Páginas existentes
+// Páginas estáticas — necesarias en la carga inicial o muy pequeñas
 import Landing from "./pages/Landing";
-import HomePage from "./pages/Home";
-import About from "./pages/About";
-import Pricing from "./pages/Pricing";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
-import Login  from "./pages/Login";
+import Login from "./pages/Login";
 import Register from "./pages/Register";
+import NotFound from "./pages/NotFound";
 import RecuperarContrasena from "./pages/RecuperarContrasena";
-import Explorar from "./pages/Explorar";
-import Metodologia from "./pages/metodologia";
-import MenuAlumno from "./pages/menu-alumno";
-import Clases from "./pages/aula";
-import BookEditorPage from "./bookEditor/BookEditorPage";
-import BlockEditorPage from "./blocks/v2/BlockEditorPage";
+
+// Herramientas educativas (stubs pequeños, mismo módulo)
+import {
+  HerramientasEducativas,
+  HerramientasEstadistica,
+  HerramientasCienciasSociales,
+  HerramientasFilosofia,
+  HerramientasArte,
+  HerramientasBiologia,
+  HerramientasMusica,
+  HerramientasPolitica,
+  HerramientasCivica,
+  HerramientasAmbiental,
+  HerramientasInformatica,
+  HerramientasNaturales,
+  HerramientasCocina,
+  HerramientasVidaPractica,
+} from "./stubs/herramientas";
+
+// ── Lazy imports ───────────────────────────────────────────────────────────────
+
+const HomePage            = lazy(() => import("./pages/Home"));
+const About               = lazy(() => import("./pages/About"));
+const Pricing             = lazy(() => import("./pages/Pricing"));
+const Contact             = lazy(() => import("./pages/Contact"));
+const Explorar            = lazy(() => import("./pages/Explorar"));
+const Metodologia         = lazy(() => import("./pages/metodologia"));
+const MenuAlumno          = lazy(() => import("./pages/menu-alumno"));
+const Clases              = lazy(() => import("./pages/aula"));
+const BookEditorPage      = lazy(() => import("./bookEditor/BookEditorPage"));
+const BlockEditorPage     = lazy(() => import("./blocks/v2/BlockEditorPage"));
+const ProfesorAulas       = lazy(() => import("./pages/ProfesorAulas"));
+const Calendario          = lazy(() => import("./pages/Calendario"));
+const ProfesorConfiguracion = lazy(() => import("./pages/ProfesorConfiguracion"));
+const ProfesorEstadisticas  = lazy(() => import("./pages/ProfesorEstadisticas"));
+const ProfesorEvaluaciones  = lazy(() => import("./pages/ProfesorEvaluaciones"));
+const ProfesorMateriales    = lazy(() => import("./pages/ProfesorMateriales"));
+const ProfesorMensajes      = lazy(() => import("./pages/ProfesorMensajes"));
+const ModulosList           = lazy(() => import("./pages/modulos/ModulosList"));
+const ModuloDetail          = lazy(() => import("./pages/modulos/ModuloDetail"));
+const ReproductorModulos    = lazy(() => import("./pages/modulos/ReproductorModulos"));
+const ProfesorEncuestas     = lazy(() => import("./pages/ProfesorEncuestas"));
+const ProfesorCursoNuevo    = lazy(() => import("./pages/ProfesorCursoNuevo"));
+const HijosProgreso         = lazy(() => import("./pages/HijosProgreso"));
+const ProfesorReportes      = lazy(() => import("./pages/ProfesorReportes"));
+const AlumnoEncuestas       = lazy(() => import("./pages/AlumnoEncuestas"));
+const QuizAttempt           = lazy(() => import("./pages/quizzes/QuizAttempt"));
+const ProfesorCalendario    = lazy(() => import("./pages/ProfesorCalendario"));
+
+// Ya eran lazy — mantener igual
+const LaboratorioWeb3    = lazy(() => import("./pages/LaboratorioWeb3"));
 const EditorCuestionarios = lazy(() => import("./pages/EditorCuestionarios"));
-import ProfesorAulas from "./pages/ProfesorAulas";
-import Calendario from "./pages/Calendario";
-import ProfesorConfiguracion from "./pages/ProfesorConfiguracion";
-import ProfesorEstadisticas from "./pages/ProfesorEstadisticas";
-import ProfesorEvaluaciones from "./pages/ProfesorEvaluaciones";
-import ProfesorMateriales from "./pages/ProfesorMateriales";
-import ProfesorMensajes from "./pages/ProfesorMensajes";
-import ModulosList from "./pages/modulos/ModulosList";
-import ModuloDetail from "./pages/modulos/ModuloDetail";
-import ReproductorModulos from "./pages/modulos/ReproductorModulos";
-import ProfesorEncuestas from "./pages/ProfesorEncuestas";
-import ProfesorCursoNuevo from "./pages/ProfesorCursoNuevo";
-import HijosProgreso from "./pages/HijosProgreso";
-import ProfesorReportes from "./pages/ProfesorReportes";
-import AlumnoEncuestas from "./pages/AlumnoEncuestas";
-import QuizAttempt from "./pages/quizzes/QuizAttempt";
-const LaboratorioWeb3 = lazy(() => import("./pages/LaboratorioWeb3"));
-import ProfesorCalendario from "./pages/ProfesorCalendario";
-import HijosAgregar from "./pages/HijosAgregar";
-const AdminGeneradores = lazy(() => import("./pages/AdminGeneradores"));
-import Admin from "./pages/Admin";
-import AdminUsuarios from "./pages/AdminUsuarios";
-import AdminCursos from "./pages/AdminCursos";
-import AdminMaterias from "./pages/AdminMaterias";
-import AdminModeracion from "./pages/AdminModeracion";
-import AdminReportesGlobal from "./pages/AdminReportesGlobal";
-import Perfil from "./pages/Perfil";
-import Tareas from "./pages/Tareas";
-import Progreso from "./pages/Progreso";
-import ProfesorCursos from "./pages/ProfesorCursos";
-import ProfesorCalificaciones from "./pages/ProfesorCalificaciones";
-import ProfesorAsistencia from "./pages/ProfesorAsistencia";
-import EnterpriseDashboard from "./pages/EnterpriseDashboard";
-import EnterpriseReportes from "./pages/EnterpriseReportes";
-import EnterpriseAulas from "./pages/EnterpriseAulas";
-import EnterpriseMiembros from "./pages/EnterpriseMiembros";
-import EnterpriseModulos from "./pages/EnterpriseModulos";
-import MenuProfesor from "./pages/MenuProfesor";
-import ProfesorAulaConfiguracion from "./pages/ProfesorAulaConfiguracion";
-import Terminos from "./pages/Terminos";
-import Privacidad from "./pages/Privacidad";
-import GuestOnboarding from "./pages/GuestOnboarding";
-import Gobernanza from "./pages/Gobernanza";
-import GobernanzaPropuesta from "./pages/GobernanzaPropuesta";
-import GobernanzaNuevaPropuesta from "./pages/GobernanzaNuevaPropuesta";
-import Mensajeria from "./pages/Mensajeria";
-import PerfilPublico from "./pages/PerfilPublico";
-import { HerramientasEducativas, HerramientasEstadistica, HerramientasCienciasSociales, HerramientasFilosofia, HerramientasArte, HerramientasBiologia, HerramientasMusica, HerramientasPolitica, HerramientasCivica, HerramientasAmbiental, HerramientasInformatica, HerramientasNaturales, HerramientasCocina, HerramientasVidaPractica } from "./stubs/herramientas";
+const AdminGeneradores    = lazy(() => import("./pages/AdminGeneradores"));
 
+// Resto de páginas → lazy
+const HijosAgregar             = lazy(() => import("./pages/HijosAgregar"));
+const Admin                    = lazy(() => import("./pages/Admin"));
+const AdminUsuarios             = lazy(() => import("./pages/AdminUsuarios"));
+const AdminCursos               = lazy(() => import("./pages/AdminCursos"));
+const AdminMaterias             = lazy(() => import("./pages/AdminMaterias"));
+const AdminModeracion           = lazy(() => import("./pages/AdminModeracion"));
+const AdminReportesGlobal       = lazy(() => import("./pages/AdminReportesGlobal"));
+const Perfil                    = lazy(() => import("./pages/Perfil"));
+const Tareas                    = lazy(() => import("./pages/Tareas"));
+const Progreso                  = lazy(() => import("./pages/Progreso"));
+const ProfesorCursos            = lazy(() => import("./pages/ProfesorCursos"));
+const ProfesorCalificaciones    = lazy(() => import("./pages/ProfesorCalificaciones"));
+const ProfesorAsistencia        = lazy(() => import("./pages/ProfesorAsistencia"));
+const EnterpriseDashboard       = lazy(() => import("./pages/EnterpriseDashboard"));
+const EnterpriseReportes        = lazy(() => import("./pages/EnterpriseReportes"));
+const EnterpriseAulas           = lazy(() => import("./pages/EnterpriseAulas"));
+const EnterpriseMiembros        = lazy(() => import("./pages/EnterpriseMiembros"));
+const EnterpriseModulos         = lazy(() => import("./pages/EnterpriseModulos"));
+const MenuProfesor              = lazy(() => import("./pages/MenuProfesor"));
+const ProfesorAulaConfiguracion = lazy(() => import("./pages/ProfesorAulaConfiguracion"));
+const Terminos                  = lazy(() => import("./pages/Terminos"));
+const Privacidad                = lazy(() => import("./pages/Privacidad"));
+const GuestOnboarding           = lazy(() => import("./pages/GuestOnboarding"));
+const Gobernanza                = lazy(() => import("./pages/Gobernanza"));
+const GobernanzaPropuesta       = lazy(() => import("./pages/GobernanzaPropuesta"));
+const GobernanzaNuevaPropuesta  = lazy(() => import("./pages/GobernanzaNuevaPropuesta"));
+const Mensajeria                = lazy(() => import("./pages/Mensajeria"));
+const PerfilPublico             = lazy(() => import("./pages/PerfilPublico"));
 
+// ── Helpers ────────────────────────────────────────────────────────────────────
 
+const PageLoader = () => (
+  <div className="flex min-h-screen items-center justify-center">
+    <p className="text-sm text-slate-400 animate-pulse">Cargando...</p>
+  </div>
+);
+
+const withSuspense = (element: ReactNode) => (
+  <Suspense fallback={<PageLoader />}>{element}</Suspense>
+);
+
+// ── Redirect helper ────────────────────────────────────────────────────────────
 
 const ModuloEditRedirect = () => {
   const { id } = useParams();
   return <Navigate to={id ? `/modulos/${id}/editar` : "/modulos"} replace />;
 };
 
+// ── Router ─────────────────────────────────────────────────────────────────────
 
 export const router = createBrowserRouter([
   {
@@ -84,53 +121,51 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       // Rutas públicas (GUEST)
-      { index: true, element: <HomePage /> },
+      { index: true, element: withSuspense(<HomePage />) },
 
-      { path: "explorar", element: <Explorar /> },
-      { path: "precios", element: <Pricing /> },
-      { path: "pricing", element: <Navigate to="/precios" replace /> },
-      { path: "login", element: <Login /> },
-      { path: "register", element: <Register /> },
-      { path: "recuperar", element: <RecuperarContrasena /> },
-      
-      
-      // Rutas adicionales que tenías en GuestLayout
-      { path: "about", element: <About /> },
-      { path: "landing", element: <Landing /> },
-      { path: "contact", element: <Contact /> },
-      { path: "terminos", element: <Terminos /> },
-      { path: "privacidad", element: <Privacidad /> },
-      { path: "metodologia", element: <Metodologia /> },
-      { path: "laboratorio-web3", element: <Suspense fallback={<div className="p-8 text-center text-sm text-slate-400 animate-pulse">Cargando...</div>}><LaboratorioWeb3 /></Suspense> },
-      { path: "editor", element: <BookEditorPage /> },
-      { path: "editor/:id", element: <BookEditorPage /> },
-      { path: "bloques/editor", element: <BlockEditorPage /> },
-      { path: "bloques/editor/:id", element: <BlockEditorPage /> },
-      { path: "onboarding-guest", element: <GuestOnboarding /> },
-      { path: "u/:username", element: <PerfilPublico /> },
+      { path: "explorar",   element: withSuspense(<Explorar />) },
+      { path: "precios",    element: withSuspense(<Pricing />) },
+      { path: "pricing",    element: <Navigate to="/precios" replace /> },
+      { path: "login",      element: <Login /> },
+      { path: "register",   element: <Register /> },
+      { path: "recuperar",  element: <RecuperarContrasena /> },
+
+      { path: "about",         element: withSuspense(<About />) },
+      { path: "landing",       element: <Landing /> },
+      { path: "contact",       element: withSuspense(<Contact />) },
+      { path: "terminos",      element: withSuspense(<Terminos />) },
+      { path: "privacidad",    element: withSuspense(<Privacidad />) },
+      { path: "metodologia",   element: withSuspense(<Metodologia />) },
+      { path: "laboratorio-web3", element: withSuspense(<LaboratorioWeb3 />) },
+      { path: "editor",          element: withSuspense(<BookEditorPage />) },
+      { path: "editor/:id",      element: withSuspense(<BookEditorPage />) },
+      { path: "bloques/editor",      element: withSuspense(<BlockEditorPage />) },
+      { path: "bloques/editor/:id",  element: withSuspense(<BlockEditorPage />) },
+      { path: "onboarding-guest", element: withSuspense(<GuestOnboarding />) },
+      { path: "u/:username",      element: withSuspense(<PerfilPublico />) },
 
       // Herramientas Educativas (public)
-      { path: "herramientas", element: <HerramientasEducativas /> },
-      { path: "herramientas/estadistica", element: <HerramientasEstadistica /> },
-      { path: "herramientas/ciencias-sociales", element: <HerramientasCienciasSociales /> },
-      { path: "herramientas/filosofia", element: <HerramientasFilosofia /> },
-      { path: "herramientas/arte", element: <HerramientasArte /> },
-      { path: "herramientas/biologia", element: <HerramientasBiologia /> },
-      { path: "herramientas/musica", element: <HerramientasMusica /> },
-      { path: "herramientas/politica", element: <HerramientasPolitica /> },
-      { path: "herramientas/civica", element: <HerramientasCivica /> },
-      { path: "herramientas/ambiental", element: <HerramientasAmbiental /> },
-      { path: "herramientas/informatica", element: <HerramientasInformatica /> },
-      { path: "herramientas/naturales", element: <HerramientasNaturales /> },
-      { path: "herramientas/cocina", element: <HerramientasCocina /> },
-      { path: "herramientas/vida-practica", element: <HerramientasVidaPractica /> },
+      { path: "herramientas",                    element: <HerramientasEducativas /> },
+      { path: "herramientas/estadistica",        element: <HerramientasEstadistica /> },
+      { path: "herramientas/ciencias-sociales",  element: <HerramientasCienciasSociales /> },
+      { path: "herramientas/filosofia",          element: <HerramientasFilosofia /> },
+      { path: "herramientas/arte",               element: <HerramientasArte /> },
+      { path: "herramientas/biologia",           element: <HerramientasBiologia /> },
+      { path: "herramientas/musica",             element: <HerramientasMusica /> },
+      { path: "herramientas/politica",           element: <HerramientasPolitica /> },
+      { path: "herramientas/civica",             element: <HerramientasCivica /> },
+      { path: "herramientas/ambiental",          element: <HerramientasAmbiental /> },
+      { path: "herramientas/informatica",        element: <HerramientasInformatica /> },
+      { path: "herramientas/naturales",          element: <HerramientasNaturales /> },
+      { path: "herramientas/cocina",             element: <HerramientasCocina /> },
+      { path: "herramientas/vida-practica",      element: <HerramientasVidaPractica /> },
 
       // Admin
       {
         path: "admin",
         element: (
           <ProtectedRoute allow={['ADMIN']}>
-            <Admin />
+            {withSuspense(<Admin />)}
           </ProtectedRoute>
         ),
       },
@@ -138,7 +173,7 @@ export const router = createBrowserRouter([
         path: "admin/usuarios",
         element: (
           <ProtectedRoute allow={['ADMIN']}>
-            <AdminUsuarios />
+            {withSuspense(<AdminUsuarios />)}
           </ProtectedRoute>
         ),
       },
@@ -146,7 +181,7 @@ export const router = createBrowserRouter([
         path: "admin/cursos",
         element: (
           <ProtectedRoute allow={['ADMIN']}>
-            <AdminCursos />
+            {withSuspense(<AdminCursos />)}
           </ProtectedRoute>
         ),
       },
@@ -154,7 +189,7 @@ export const router = createBrowserRouter([
         path: "admin/materias",
         element: (
           <ProtectedRoute allow={['ADMIN']}>
-            <AdminMaterias />
+            {withSuspense(<AdminMaterias />)}
           </ProtectedRoute>
         ),
       },
@@ -162,7 +197,7 @@ export const router = createBrowserRouter([
         path: "admin/reportes",
         element: (
           <ProtectedRoute allow={['ADMIN']}>
-            <AdminReportesGlobal />
+            {withSuspense(<AdminReportesGlobal />)}
           </ProtectedRoute>
         ),
       },
@@ -174,7 +209,7 @@ export const router = createBrowserRouter([
         path: "admin/moderacion",
         element: (
           <ProtectedRoute allow={['ADMIN']}>
-            <AdminModeracion />
+            {withSuspense(<AdminModeracion />)}
           </ProtectedRoute>
         ),
       },
@@ -182,9 +217,7 @@ export const router = createBrowserRouter([
         path: "admin/generadores",
         element: (
           <ProtectedRoute allow={['ADMIN']}>
-            <Suspense fallback={<div className="p-8 text-center text-sm text-slate-400 animate-pulse">Cargando...</div>}>
-              <AdminGeneradores />
-            </Suspense>
+            {withSuspense(<AdminGeneradores />)}
           </ProtectedRoute>
         ),
       },
@@ -194,7 +227,7 @@ export const router = createBrowserRouter([
         path: "mensajes",
         element: (
           <ProtectedRoute allow={['ADMIN', 'USER', 'PARENT', 'TEACHER', 'DIRECTIVO']}>
-            <Mensajeria />
+            {withSuspense(<Mensajeria />)}
           </ProtectedRoute>
         ),
       },
@@ -204,17 +237,17 @@ export const router = createBrowserRouter([
         path: "perfil",
         element: (
           <ProtectedRoute allow={['ADMIN', 'USER', 'PARENT', 'TEACHER', 'DIRECTIVO']}>
-            <Perfil />
+            {withSuspense(<Perfil />)}
           </ProtectedRoute>
         ),
       },
 
-      // Usuario/Alumno + Padres (ADMIN también puede acceder como usuario)
+      // Usuario/Alumno + Padres
       {
         path: "clases",
         element: (
           <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN']}>
-            <Clases />
+            {withSuspense(<Clases />)}
           </ProtectedRoute>
         ),
       },
@@ -222,7 +255,7 @@ export const router = createBrowserRouter([
         path: "menualumno",
         element: (
           <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
-            <MenuAlumno />
+            {withSuspense(<MenuAlumno />)}
           </ProtectedRoute>
         ),
       },
@@ -230,7 +263,7 @@ export const router = createBrowserRouter([
         path: "alumno",
         element: (
           <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
-            <MenuAlumno />
+            {withSuspense(<MenuAlumno />)}
           </ProtectedRoute>
         ),
       },
@@ -238,7 +271,7 @@ export const router = createBrowserRouter([
         path: "tareas",
         element: (
           <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
-            <Tareas />
+            {withSuspense(<Tareas />)}
           </ProtectedRoute>
         ),
       },
@@ -246,7 +279,7 @@ export const router = createBrowserRouter([
         path: "encuestas",
         element: (
           <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
-            <AlumnoEncuestas />
+            {withSuspense(<AlumnoEncuestas />)}
           </ProtectedRoute>
         ),
       },
@@ -254,7 +287,7 @@ export const router = createBrowserRouter([
         path: "progreso",
         element: (
           <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
-            <Progreso />
+            {withSuspense(<Progreso />)}
           </ProtectedRoute>
         ),
       },
@@ -262,7 +295,7 @@ export const router = createBrowserRouter([
         path: "hijos",
         element: (
           <ProtectedRoute allow={['PARENT']}>
-            <HijosProgreso />
+            {withSuspense(<HijosProgreso />)}
           </ProtectedRoute>
         ),
       },
@@ -270,17 +303,17 @@ export const router = createBrowserRouter([
         path: "hijos/agregar",
         element: (
           <ProtectedRoute allow={['PARENT']}>
-            <HijosAgregar />
+            {withSuspense(<HijosAgregar />)}
           </ProtectedRoute>
         ),
       },
- 
+
       // Profesor
       {
         path: "profesor",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <MenuProfesor />
+            {withSuspense(<MenuProfesor />)}
           </ProtectedRoute>
         ),
       },
@@ -288,7 +321,7 @@ export const router = createBrowserRouter([
         path: "profesor/cursos",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorCursos />
+            {withSuspense(<ProfesorCursos />)}
           </ProtectedRoute>
         ),
       },
@@ -296,7 +329,7 @@ export const router = createBrowserRouter([
         path: "profesor/cursos/nuevo",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorCursoNuevo />
+            {withSuspense(<ProfesorCursoNuevo />)}
           </ProtectedRoute>
         ),
       },
@@ -304,7 +337,7 @@ export const router = createBrowserRouter([
         path: "profesor/calificaciones",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorCalificaciones />
+            {withSuspense(<ProfesorCalificaciones />)}
           </ProtectedRoute>
         ),
       },
@@ -312,7 +345,7 @@ export const router = createBrowserRouter([
         path: "profesor/asistencia",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorAsistencia />
+            {withSuspense(<ProfesorAsistencia />)}
           </ProtectedRoute>
         ),
       },
@@ -328,7 +361,7 @@ export const router = createBrowserRouter([
         path: "profesor/encuestas",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorEncuestas />
+            {withSuspense(<ProfesorEncuestas />)}
           </ProtectedRoute>
         ),
       },
@@ -336,7 +369,7 @@ export const router = createBrowserRouter([
         path: "profesor/aulas",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorAulas />
+            {withSuspense(<ProfesorAulas />)}
           </ProtectedRoute>
         ),
       },
@@ -344,7 +377,7 @@ export const router = createBrowserRouter([
         path: "profesor/aulas/:id/configuracion",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorAulaConfiguracion />
+            {withSuspense(<ProfesorAulaConfiguracion />)}
           </ProtectedRoute>
         ),
       },
@@ -352,7 +385,7 @@ export const router = createBrowserRouter([
         path: "profesor/materiales",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorMateriales />
+            {withSuspense(<ProfesorMateriales />)}
           </ProtectedRoute>
         ),
       },
@@ -360,7 +393,7 @@ export const router = createBrowserRouter([
         path: "profesor/evaluaciones",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorEvaluaciones />
+            {withSuspense(<ProfesorEvaluaciones />)}
           </ProtectedRoute>
         ),
       },
@@ -368,7 +401,7 @@ export const router = createBrowserRouter([
         path: "profesor/calendario",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <Calendario />
+            {withSuspense(<Calendario />)}
           </ProtectedRoute>
         ),
       },
@@ -376,7 +409,7 @@ export const router = createBrowserRouter([
         path: "profesor/calendario/detalle",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorCalendario />
+            {withSuspense(<ProfesorCalendario />)}
           </ProtectedRoute>
         ),
       },
@@ -384,7 +417,7 @@ export const router = createBrowserRouter([
         path: "profesor/estadisticas",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorEstadisticas />
+            {withSuspense(<ProfesorEstadisticas />)}
           </ProtectedRoute>
         ),
       },
@@ -392,7 +425,7 @@ export const router = createBrowserRouter([
         path: "profesor/reportes",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorReportes />
+            {withSuspense(<ProfesorReportes />)}
           </ProtectedRoute>
         ),
       },
@@ -400,7 +433,7 @@ export const router = createBrowserRouter([
         path: "profesor/mensajes",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorMensajes />
+            {withSuspense(<ProfesorMensajes />)}
           </ProtectedRoute>
         ),
       },
@@ -408,7 +441,7 @@ export const router = createBrowserRouter([
         path: "profesor/configuracion",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <ProfesorConfiguracion />
+            {withSuspense(<ProfesorConfiguracion />)}
           </ProtectedRoute>
         ),
       },
@@ -424,9 +457,7 @@ export const router = createBrowserRouter([
         path: "profesor/editor-cuestionarios",
         element: (
           <ProtectedRoute allow={['TEACHER']}>
-            <Suspense fallback={<div className="p-8 text-center text-sm text-slate-400 animate-pulse">Cargando...</div>}>
-              <EditorCuestionarios />
-            </Suspense>
+            {withSuspense(<EditorCuestionarios />)}
           </ProtectedRoute>
         ),
       },
@@ -442,7 +473,7 @@ export const router = createBrowserRouter([
         path: "modulos",
         element: (
           <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"]}>
-            <ModulosList />
+            {withSuspense(<ModulosList />)}
           </ProtectedRoute>
         ),
       },
@@ -466,7 +497,7 @@ export const router = createBrowserRouter([
         path: "modulos/:id",
         element: (
           <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"]}>
-            <ModuloDetail />
+            {withSuspense(<ModuloDetail />)}
           </ProtectedRoute>
         ),
       },
@@ -482,7 +513,7 @@ export const router = createBrowserRouter([
         path: "reproductor",
         element: (
           <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"]}>
-            <ReproductorModulos />
+            {withSuspense(<ReproductorModulos />)}
           </ProtectedRoute>
         ),
       },
@@ -490,7 +521,7 @@ export const router = createBrowserRouter([
         path: "quiz/attempt/:attemptId",
         element: (
           <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN"]}>
-            <QuizAttempt />
+            {withSuspense(<QuizAttempt />)}
           </ProtectedRoute>
         ),
       },
@@ -500,7 +531,7 @@ export const router = createBrowserRouter([
         path: "enterprise",
         element: (
           <ProtectedRoute allow={['DIRECTIVO']}>
-            <EnterpriseDashboard />
+            {withSuspense(<EnterpriseDashboard />)}
           </ProtectedRoute>
         ),
       },
@@ -508,7 +539,7 @@ export const router = createBrowserRouter([
         path: "enterprise/reportes",
         element: (
           <ProtectedRoute allow={['DIRECTIVO']}>
-            <EnterpriseReportes />
+            {withSuspense(<EnterpriseReportes />)}
           </ProtectedRoute>
         ),
       },
@@ -516,7 +547,7 @@ export const router = createBrowserRouter([
         path: "enterprise/aulas",
         element: (
           <ProtectedRoute allow={['DIRECTIVO']}>
-            <EnterpriseAulas />
+            {withSuspense(<EnterpriseAulas />)}
           </ProtectedRoute>
         ),
       },
@@ -524,7 +555,7 @@ export const router = createBrowserRouter([
         path: "enterprise/miembros",
         element: (
           <ProtectedRoute allow={['DIRECTIVO']}>
-            <EnterpriseMiembros />
+            {withSuspense(<EnterpriseMiembros />)}
           </ProtectedRoute>
         ),
       },
@@ -532,17 +563,17 @@ export const router = createBrowserRouter([
         path: "enterprise/modulos",
         element: (
           <ProtectedRoute allow={['DIRECTIVO']}>
-            <EnterpriseModulos />
+            {withSuspense(<EnterpriseModulos />)}
           </ProtectedRoute>
         ),
       },
 
-      // Gobernanza — solo directivos, docentes y administradores
+      // Gobernanza
       {
         path: "gobernanza",
         element: (
           <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
-            <Gobernanza />
+            {withSuspense(<Gobernanza />)}
           </ProtectedRoute>
         ),
       },
@@ -550,7 +581,7 @@ export const router = createBrowserRouter([
         path: "gobernanza/propuestas/nueva",
         element: (
           <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
-            <GobernanzaNuevaPropuesta />
+            {withSuspense(<GobernanzaNuevaPropuesta />)}
           </ProtectedRoute>
         ),
       },
@@ -558,7 +589,7 @@ export const router = createBrowserRouter([
         path: "gobernanza/propuestas/:id",
         element: (
           <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
-            <GobernanzaPropuesta />
+            {withSuspense(<GobernanzaPropuesta />)}
           </ProtectedRoute>
         ),
       },
