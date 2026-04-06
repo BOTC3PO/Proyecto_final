@@ -402,8 +402,8 @@ export const router = createBrowserRouter([
       {
         path: "profesor/calendario",
         element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<Calendario />)}
+          <ProtectedRoute allow={['TEACHER', 'USER', 'DIRECTIVO', 'ADMIN']}>
+            {withSuspense(<ProfesorCalendario />)}
           </ProtectedRoute>
         ),
       },
@@ -566,6 +566,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['DIRECTIVO']}>
             {withSuspense(<EnterpriseModulos />)}
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "enterprise/calendario",
+        element: (
+          <ProtectedRoute allow={['DIRECTIVO', 'ADMIN']}>
+            {withSuspense(<ProfesorCalendario />)}
           </ProtectedRoute>
         ),
       },
