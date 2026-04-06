@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "save": "tsc -b > errores_web.txt 2",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "screenshots": "node scripts/screenshot.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
