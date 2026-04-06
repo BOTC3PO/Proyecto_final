@@ -1225,7 +1225,7 @@ export default function ModuloEditor() {
                               questions={quiz.questions ?? []}
                               onChange={(next) => updateQuiz(quiz.id, { questions: next })}
                             />
-                            {quiz.mode !== "generated" && (quiz.questions?.length ?? 0) > 0 ? (
+                            {(quiz.mode === "manual" || quiz.mode === undefined) && (quiz.questions?.length ?? 0) > 0 ? (
                               <label className="text-xs font-medium text-gray-600">
                                 Preguntas por examen
                                 <span className="ml-1 font-normal text-gray-400">

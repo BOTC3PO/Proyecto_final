@@ -1,6 +1,7 @@
 import { Component } from "react";
 import type { ReactNode } from "react";
 import type { VisualSpec } from "../../../../archive/visualizadores/types";
+import type { VisualSpec as CoreVisualSpec } from "../../../generadoresV2/core/types";
 import { normalizeSpec } from "../../../../archive/visualizadores/normalizeSpec";
 import { validateSpec } from "../../../../archive/visualizadores/specValidation";
 import VisualizerRenderer from "../../../stubs/VisualizerRenderer";
@@ -60,7 +61,7 @@ export default function ToolPreview({ spec, showWarnings = false }: Props) {
     <div>
       <PreviewErrorBoundary key={boundaryKey}>
         <div className="rounded-lg overflow-hidden border border-gray-100 bg-white">
-          <VisualizerRenderer spec={normalized} />
+          <VisualizerRenderer spec={normalized as CoreVisualSpec | undefined} />
         </div>
       </PreviewErrorBoundary>
       {showWarnings && warnings.length > 0 && (
