@@ -34,7 +34,6 @@ import {
 // ── Lazy imports ───────────────────────────────────────────────────────────────
 
 const HomePage            = lazyWithRetry(() => import("./pages/Home"));
-const About               = lazyWithRetry(() => import("./pages/About"));
 const Pricing             = lazyWithRetry(() => import("./pages/Pricing"));
 const Contact             = lazyWithRetry(() => import("./pages/Contact"));
 const Explorar            = lazyWithRetry(() => import("./pages/Explorar"));
@@ -134,7 +133,6 @@ export const router = createBrowserRouter([
       { path: "register",   element: <Register /> },
       { path: "recuperar",  element: <RecuperarContrasena /> },
 
-      { path: "about",         element: withSuspense(<About />) },
       { path: "landing",       element: <Landing /> },
       { path: "contact",       element: withSuspense(<Contact />) },
       { path: "terminos",      element: withSuspense(<Terminos />) },
