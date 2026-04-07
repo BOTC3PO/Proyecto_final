@@ -1,4 +1,4 @@
-import { apiGet, apiPatch } from "../lib/api";
+import { apiGet } from "../lib/api";
 
 export type ActividadHijo = {
   id: string;
@@ -47,22 +47,10 @@ export async function fetchBoletinHijo(
   );
 }
 
-export type HijoRestricciones = {
-  permisosTareas: boolean;
-  permisosMensajes: boolean;
-  notas?: string | null;
-};
-
 export type HijoInforme = {
   generatedAt: string;
   items: Array<Record<string, unknown>>;
 };
-
-export const fetchRestriccionesHijo = (hijoId: string) =>
-  apiGet<HijoRestricciones>(`/api/padres/hijos/${hijoId}/limites`);
-
-export const updateRestriccionesHijo = (hijoId: string, payload: Partial<HijoRestricciones>) =>
-  apiPatch<HijoRestricciones>(`/api/padres/hijos/${hijoId}/limites`, payload);
 
 export const fetchReporteInformeHijo = (hijoId: string) =>
   apiGet<HijoInforme>(`/api/informes/hijos/${hijoId}`);
