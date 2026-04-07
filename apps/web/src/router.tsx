@@ -43,12 +43,10 @@ const Clases              = lazyWithRetry(() => import("./pages/aula"));
 const BookEditorPage      = lazyWithRetry(() => import("./bookEditor/BookEditorPage"));
 const BlockEditorPage     = lazyWithRetry(() => import("./blocks/v2/BlockEditorPage"));
 const ProfesorAulas       = lazyWithRetry(() => import("./pages/ProfesorAulas"));
-const Calendario          = lazyWithRetry(() => import("./pages/Calendario"));
 const ProfesorConfiguracion = lazyWithRetry(() => import("./pages/ProfesorConfiguracion"));
 const ProfesorEstadisticas  = lazyWithRetry(() => import("./pages/ProfesorEstadisticas"));
 const ProfesorEvaluaciones  = lazyWithRetry(() => import("./pages/ProfesorEvaluaciones"));
 const ProfesorMateriales    = lazyWithRetry(() => import("./pages/ProfesorMateriales"));
-const ProfesorMensajes      = lazyWithRetry(() => import("./pages/ProfesorMensajes"));
 const ModulosList           = lazyWithRetry(() => import("./pages/modulos/ModulosList"));
 const ModuloDetail          = lazyWithRetry(() => import("./pages/modulos/ModuloDetail"));
 const ReproductorModulos    = lazyWithRetry(() => import("./pages/modulos/ReproductorModulos"));
@@ -402,18 +400,14 @@ export const router = createBrowserRouter([
       {
         path: "profesor/calendario",
         element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<Calendario />)}
+          <ProtectedRoute allow={['TEACHER', 'USER', 'DIRECTIVO', 'ADMIN']}>
+            {withSuspense(<ProfesorCalendario />)}
           </ProtectedRoute>
         ),
       },
       {
         path: "profesor/calendario/detalle",
-        element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<ProfesorCalendario />)}
-          </ProtectedRoute>
-        ),
+        element: <Navigate to="/profesor/calendario" replace />,
       },
       {
         path: "profesor/estadisticas",
@@ -433,11 +427,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "profesor/mensajes",
-        element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<ProfesorMensajes />)}
-          </ProtectedRoute>
-        ),
+        element: <Navigate to="/mensajes" replace />,
       },
       {
         path: "profesor/configuracion",
@@ -566,6 +556,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allow={['DIRECTIVO']}>
             {withSuspense(<EnterpriseModulos />)}
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "enterprise/calendario",
+        element: (
+          <ProtectedRoute allow={['DIRECTIVO', 'ADMIN']}>
+            {withSuspense(<ProfesorCalendario />)}
           </ProtectedRoute>
         ),
       },

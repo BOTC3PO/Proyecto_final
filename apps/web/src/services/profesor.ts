@@ -1,24 +1,10 @@
 import { apiGet } from "../lib/api";
 
-export type ProfesorAsistenciaResumen = {
-  id: string;
-  curso: string;
-  presente: number;
-  total: number;
-};
-
 export type ProfesorCursoResumen = {
   id: string;
   nombre: string;
   alumnos: number;
   estado: string;
-};
-
-export type ProfesorCalificacionResumen = {
-  id: string;
-  grupo: string;
-  pendientes: number;
-  ultimaEntrega: string;
 };
 
 export type ProfesorKpiCard = {
@@ -128,16 +114,8 @@ export const filterProfesorQuickLinks = (quickLinks: ProfesorMenuDashboard["quic
   };
 };
 
-export async function fetchProfesorAsistencia(): Promise<ProfesorAsistenciaResumen[]> {
-  return apiGet<ProfesorAsistenciaResumen[]>("/api/profesor/asistencia");
-}
-
 export async function fetchProfesorCursos(): Promise<ProfesorCursoResumen[]> {
   return apiGet<ProfesorCursoResumen[]>("/api/profesor/cursos");
-}
-
-export async function fetchProfesorCalificaciones(): Promise<ProfesorCalificacionResumen[]> {
-  return apiGet<ProfesorCalificacionResumen[]>("/api/profesor/calificaciones");
 }
 
 export async function fetchProfesorMenuDashboard(): Promise<ProfesorMenuDashboard> {
