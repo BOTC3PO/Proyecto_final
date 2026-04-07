@@ -15,11 +15,11 @@ const VIEWPORTS = [
 
 // Credenciales de usuarios de prueba por rol
 const USUARIOS = {
-  alumno:    { email: "alumno@test.com",    password: "test1234" },
-  profesor:  { email: "profesor@test.com",  password: "test1234" },
-  directivo: { email: "directivo@test.com", password: "test1234" },
-  admin:     { email: "admin@test.com",     password: "test1234" },
-  padre:     { email: "padre@test.com",     password: "test1234" },
+  alumno:    { email: "perez.alumno@epnorte.edu.ar", password: "Password123!" },
+  profesor:  { email: "garcia@epnorte.edu.ar",       password: "Password123!" },
+  directivo: { email: "directivo@epnorte.edu.ar",    password: "Password123!" },
+  admin:     { email: "admin@plataforma.com",        password: "Password123!" },
+  padre:     { email: "perez.padre@gmail.com",       password: "Password123!" },
 };
 
 // Rutas agrupadas por rol que puede accederlas
@@ -104,7 +104,7 @@ async function login(page, rol) {
 
   await page.fill('input[name="user"]', email);
   await page.fill('input[name="password"]', password);
-  await page.click('input[type="submit"]');
+  await page.click('button[type="submit"]');
 
   await page.waitForLoadState("networkidle");
   await sleep(1000);
