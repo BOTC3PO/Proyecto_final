@@ -46,11 +46,3 @@ export async function fetchBoletinHijo(
     `/api/padres/hijos/${hijoId}/boletin`
   );
 }
-
-export type HijoInforme = {
-  generatedAt: string;
-  items: Array<Record<string, unknown>>;
-};
-
-export const fetchReporteInformeHijo = (hijoId: string) =>
-  apiGet<HijoInforme>(`/api/informes/hijos/${hijoId}`);
