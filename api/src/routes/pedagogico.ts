@@ -184,6 +184,51 @@ pedagogico.post("/api/pedagogico/desbloquear",
       });
     }
 
+    // VUL-6: verificar que el profesor tiene acceso al aula
+    try {
+      const mongoDB = await getDb();
+      const aula = await mongoDB.collection("clases").findOne({
+        id: String(aulaId),
+        isDeleted: { $ne: true },
+      }) as {
+        schoolId?: string; institutionId?: string;
+        createdBy?: string; teacherIds?: string[];
+        members?: Array<{ userId: string; role: string }>;
+      } | null;
+
+      if (!aula) {
+        return res.status(404).json({ error: "aula no encontrada" });
+      }
+
+      if (role !== "ADMIN") {
+        const userSchoolId = (req as never as { user?: { schoolId?: string } }).user?.schoolId ?? null;
+        if (role === "DIRECTIVO") {
+          const aulaSchool = aula.schoolId ?? aula.institutionId ?? null;
+          if (!aulaSchool || aulaSchool !== userSchoolId) {
+            return res.status(403).json({ error: "sin permiso sobre esta aula" });
+          }
+        } else {
+          // TEACHER: debe ser creador o estar en teacherIds
+          const isCreator = aula.createdBy === userId;
+          const isTeacher = Array.isArray(aula.teacherIds) && aula.teacherIds.includes(userId!);
+          if (!isCreator && !isTeacher) {
+            return res.status(403).json({ error: "sin permiso sobre esta aula" });
+          }
+        }
+      }
+
+      // Verificar que el alumno pertenece al aula
+      const isMember = Array.isArray(aula.members) &&
+        aula.members.some((m) => m.userId === String(alumnoId) && m.role === "USER");
+      if (!isMember) {
+        return res.status(403).json({ error: "el alumno no pertenece a esta aula" });
+      }
+    } catch (err) {
+      return res.status(500).json({
+        error: err instanceof Error ? err.message : "error verificando aula"
+      });
+    }
+
     const sqliteDb = openContentDb();
     const id = genId("desb");
     const now = new Date().toISOString();

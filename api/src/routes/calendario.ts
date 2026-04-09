@@ -237,6 +237,23 @@ calendario.delete("/api/calendario/escuela/:id",
     }
 
     const db = openContentDb();
+
+    // VUL-7: verificar que el evento pertenece a la escuela del usuario
+    const evento = db.prepare(
+      "SELECT escuela_id FROM calendario_escuela WHERE id = ? AND is_deleted = 0"
+    ).get(req.params.id) as { escuela_id: string } | undefined;
+
+    if (!evento) {
+      return res.status(404).json({ error: "evento no encontrado" });
+    }
+
+    if (role !== "ADMIN") {
+      const schoolId = getSchoolId(req as never);
+      if (!schoolId || evento.escuela_id !== schoolId) {
+        return res.status(403).json({ error: "sin permiso sobre este evento" });
+      }
+    }
+
     db.prepare(`
       UPDATE calendario_escuela
       SET is_deleted = 1
@@ -292,12 +309,27 @@ calendario.post("/api/calendario/aula", requireUser, (req, res) => {
 // ── DELETE /api/calendario/aula/:id ─────────────────────────
 calendario.delete("/api/calendario/aula/:id",
   requireUser, (req, res) => {
+    const userId = getId(req as never);
     const role = getRole(req as never);
     if (!["TEACHER", "DIRECTIVO", "ADMIN"].includes(role ?? "")) {
       return res.status(403).json({ error: "sin permiso" });
     }
 
     const db = openContentDb();
+
+    // VUL-8: verificar que el evento fue creado por este usuario
+    const actividad = db.prepare(
+      "SELECT created_by FROM actividades_aula WHERE id = ? AND is_deleted = 0"
+    ).get(req.params.id) as { created_by: string } | undefined;
+
+    if (!actividad) {
+      return res.status(404).json({ error: "actividad no encontrada" });
+    }
+
+    if (role !== "ADMIN" && actividad.created_by !== userId) {
+      return res.status(403).json({ error: "sin permiso sobre esta actividad" });
+    }
+
     db.prepare(`
       UPDATE actividades_aula SET is_deleted = 1 WHERE id = ?
     `).run(req.params.id);
