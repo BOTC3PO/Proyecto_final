@@ -11,6 +11,7 @@ export type Block =
   | FlowBlock
   | MathBlock
   | ShapeBlock
+  | ImageBlock
 
 export type TextBlock = {
   id: string
@@ -130,4 +131,13 @@ export type ShapeConnector = {
   toId: string
   label?: string
   style?: "solid" | "dashed" | "arrow"
+}
+
+export type ImageBlock = {
+  id: string
+  type: "image"
+  url: string           // URL externa o base64
+  alt: string           // descripción para TTS y accesibilidad
+  caption?: string      // pie de foto visible
+  width?: "small" | "medium" | "full"
 }

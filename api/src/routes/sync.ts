@@ -61,6 +61,14 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
     return res.status(400).json({ error: "items requeridos" });
   }
 
+  // VUL-2: límite de items por push
+  const MAX_ITEMS_PER_PUSH = 100;
+  if (items.length > MAX_ITEMS_PER_PUSH) {
+    return res.status(400).json({
+      error: `Máximo ${MAX_ITEMS_PER_PUSH} items por push`
+    });
+  }
+
   const results: Array<{
     id: string;
     ok: boolean;
@@ -71,7 +79,24 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
   const sqliteDb = openContentDb();
   const now = new Date().toISOString();
 
-  for (const item of items) {
+  // VUL-5: filtrar tipos no permitidos antes de procesar
+  const TIPOS_PERMITIDOS = new Set([
+    "progreso", "quiz_attempt", "economia",
+    "competencia", "mensajes_leidos"
+  ]);
+
+  const itemsValidos = items.filter((item) => {
+    if (!TIPOS_PERMITIDOS.has(item.tipo)) {
+      results.push({
+        id: item.id, ok: false,
+        error: `tipo no permitido: ${item.tipo}`
+      });
+      return false;
+    }
+    return true;
+  });
+
+  for (const item of itemsValidos) {
     try {
       switch (item.tipo) {
 
@@ -117,25 +142,47 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
             item.payload as Record<string, unknown>;
           if (typeof delta !== "number") throw new Error("delta requerido");
 
-          // Obtener saldo actual
-          const saldoDoc = await mongoDB
-            .collection("economia_saldos")
-            .findOne({ usuarioId: userId }) as { saldo?: number } | null;
+          // VUL-1: validar límites del delta
+          const MAX_DELTA = 10000;
+          if (Math.abs(delta as number) > MAX_DELTA) {
+            results.push({
+              id: item.id, ok: false,
+              error: "delta fuera de rango permitido"
+            });
+            break;
+          }
 
-          const saldoActual = saldoDoc?.saldo ?? 0;
-          const nuevoSaldo = Math.max(0, saldoActual + (delta as number));
+          // VUL-1: solo permitir créditos desde sync offline
+          if ((delta as number) < 0) {
+            results.push({
+              id: item.id, ok: false,
+              error: "débitos no permitidos via sync"
+            });
+            break;
+          }
 
+          // VUL-1: operación atómica $inc en vez de read-then-write
           await mongoDB.collection("economia_saldos").updateOne(
             { usuarioId: userId },
-            { $set: { saldo: nuevoSaldo, updatedAt: now } },
+            {
+              $inc: { saldo: delta as number },
+              $set: { updatedAt: now },
+            },
             { upsert: true }
+          );
+
+          // VUL-1: verificar que el saldo no supere el máximo
+          const MAX_SALDO = 1000000;
+          await mongoDB.collection("economia_saldos").updateOne(
+            { usuarioId: userId, saldo: { $gt: MAX_SALDO } },
+            { $set: { saldo: MAX_SALDO, updatedAt: now } }
           );
 
           await mongoDB.collection("economia_transacciones").insertOne({
             id: genId("tx"),
             usuarioId: userId,
-            tipo: delta > 0 ? "credito" : "debito",
-            monto: Math.abs(delta as number),
+            tipo: "credito",
+            monto: delta as number,
             moneda: moneda ?? "PF",
             motivo: motivo ?? "sync:offline",
             referenciaId: item.id,
@@ -148,11 +195,11 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
         }
 
         case "quiz_attempt": {
-          const { quizId, moduleId, answers, score, maxScore } =
+          const { quizId, moduleId, answers } =
             item.payload as Record<string, unknown>;
           if (!quizId) throw new Error("quizId requerido");
 
-          // No sobrescribir si ya existe un intento completado
+          // VUL-4: no confiar en score/maxScore del cliente
           const existing = await mongoDB
             .collection("quiz_attempts")
             .findOne({
@@ -167,9 +214,9 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
               quizId: String(quizId),
               moduleId: moduleId ? String(moduleId) : undefined,
               answers: answers ?? {},
-              score: typeof score === "number" ? score : 0,
-              maxScore: typeof maxScore === "number" ? maxScore : 0,
-              status: "submitted",
+              score: null,          // el servidor recalcula
+              maxScore: null,       // el servidor recalcula
+              status: "pending_review",
               sincronizado: true,
               createdAt: item.createdAt ?? now,
               updatedAt: now,
