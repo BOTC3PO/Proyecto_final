@@ -9,6 +9,7 @@ import type {
   ModuleVisibility,
 } from "../../domain/module/module.types";
 import TheoryItemCard from "../../components/modulos/TheoryItemCard";
+import { lookupPalabra, prefixPalabra, type EntradaDiccionario } from "../../services/diccionario";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import type { Ejercicio, GeneratorDescriptor } from "../../generadoresV2/core/types";
 
@@ -105,6 +106,12 @@ export default function ModuloDetail() {
   const [attemptsByQuiz, setAttemptsByQuiz] = useState<Record<string, QuizAttemptSummary[]>>({});
   const [ttsActivo, setTtsActivo] = useState(false);
   const [ttsIndex, setTtsIndex] = useState(0);
+  const [dictOpen, setDictOpen] = useState(false);
+  const [dictQuery, setDictQuery] = useState("");
+  const [dictEntry, setDictEntry] = useState<EntradaDiccionario | null>(null);
+  const [dictLoading, setDictLoading] = useState(false);
+  const [dictNotFound, setDictNotFound] = useState(false);
+  const [dictSuggestions, setDictSuggestions] = useState<string[]>([]);
 
   const leerModulo = () => {
     if (!("speechSynthesis" in window)) {
@@ -169,6 +176,40 @@ export default function ModuloDetail() {
     window.speechSynthesis.cancel();
     setTtsActivo(false);
     setTtsIndex(0);
+  };
+
+  const handleDictSearch = async (word: string) => {
+    if (!word.trim()) return;
+    setDictLoading(true);
+    setDictEntry(null);
+    setDictNotFound(false);
+    setDictSuggestions([]);
+    const result = await lookupPalabra(word.trim());
+    if (result?.found) {
+      setDictEntry(result.entry);
+    } else {
+      setDictNotFound(true);
+    }
+    setDictLoading(false);
+  };
+
+  const handleDictInput = async (value: string) => {
+    setDictQuery(value);
+    if (value.trim().length >= 3) {
+      const suggestions = await prefixPalabra(value.trim());
+      setDictSuggestions(suggestions);
+    } else {
+      setDictSuggestions([]);
+    }
+  };
+
+  const formatDef = (d: unknown): string[] => {
+    if (!d) return [];
+    if (typeof d === "string") {
+      try { d = JSON.parse(d); } catch { return [d as string]; }
+    }
+    if (Array.isArray(d)) return (d as unknown[]).map(String).filter(Boolean);
+    return [String(d)];
   };
 
   useEffect(() => {
@@ -422,18 +463,32 @@ export default function ModuloDetail() {
           </Link>
           <div className="flex items-start justify-between gap-4">
             <h1 className="text-2xl font-bold text-white md:text-3xl">{module.title}</h1>
-            <button
-              type="button"
-              onClick={ttsActivo ? detenerTTS : leerModulo}
-              title={ttsActivo ? "Detener lectura" : "Leer módulo en voz alta"}
-              className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-2 shrink-0 ${
-                ttsActivo
-                  ? "bg-red-100 text-red-700 hover:bg-red-200"
-                  : "bg-blue-100 text-blue-700 hover:bg-blue-200"
-              }`}
-            >
-              {ttsActivo ? "⏹ Detener" : "🔊 Leer en voz alta"}
-            </button>
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                type="button"
+                onClick={ttsActivo ? detenerTTS : leerModulo}
+                title={ttsActivo ? "Detener lectura" : "Leer módulo en voz alta"}
+                className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-2 ${
+                  ttsActivo
+                    ? "bg-red-100 text-red-700 hover:bg-red-200"
+                    : "bg-blue-100 text-blue-700 hover:bg-blue-200"
+                }`}
+              >
+                {ttsActivo ? "⏹ Detener" : "🔊 Leer en voz alta"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setDictOpen((v) => !v)}
+                title="Diccionario"
+                className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-2 ${
+                  dictOpen
+                    ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                }`}
+              >
+                📖 Diccionario
+              </button>
+            </div>
           </div>
           {module.description && (
             <p className={`mt-2 max-w-2xl text-sm leading-relaxed ${palette.subtle}`}>
@@ -764,6 +819,142 @@ export default function ModuloDetail() {
           )}
         </section>
       </div>
+
+      {/* Panel de diccionario */}
+      {dictOpen && (
+        <aside className="fixed right-4 top-24 z-40 w-80 rounded-2xl border border-slate-200 bg-white shadow-xl flex flex-col max-h-[70vh]">
+
+          {/* Header */}
+          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100">
+            <h2 className="text-sm font-semibold text-slate-800">📖 Diccionario</h2>
+            <button
+              type="button"
+              onClick={() => {
+                setDictOpen(false);
+                setDictEntry(null);
+                setDictNotFound(false);
+                setDictSuggestions([]);
+              }}
+              className="text-slate-400 hover:text-slate-600"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Buscador */}
+          <div className="px-4 py-3 border-b border-slate-100 space-y-2">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={dictQuery}
+                onChange={(e) => handleDictInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") handleDictSearch(dictQuery);
+                }}
+                placeholder="Buscar palabra..."
+                className="flex-1 rounded-lg border border-slate-200 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                autoFocus
+              />
+              <button
+                type="button"
+                onClick={() => handleDictSearch(dictQuery)}
+                disabled={dictLoading || !dictQuery.trim()}
+                className="rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-50 transition-colors"
+              >
+                {dictLoading ? "..." : "Buscar"}
+              </button>
+            </div>
+
+            {/* Sugerencias de autocompletado */}
+            {dictSuggestions.length > 0 && (
+              <div className="flex flex-wrap gap-1">
+                {dictSuggestions.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => {
+                      setDictQuery(s);
+                      setDictSuggestions([]);
+                      handleDictSearch(s);
+                    }}
+                    className="rounded-full border border-slate-200 px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-50 transition-colors"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Resultado */}
+          <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3 text-sm">
+
+            {dictLoading && (
+              <p className="text-slate-400 animate-pulse">Buscando...</p>
+            )}
+
+            {dictNotFound && !dictLoading && (
+              <div className="rounded-xl bg-slate-50 border border-slate-200 p-3 text-slate-500">
+                No se encontró "{dictQuery}".
+              </div>
+            )}
+
+            {dictEntry && !dictLoading && (
+              <div className="space-y-3">
+                {/* Palabra */}
+                <p className="text-base font-bold text-slate-900">
+                  {dictEntry.word ?? dictQuery}
+                </p>
+
+                {/* Definiciones */}
+                {formatDef(dictEntry.definitions).length > 0 && (
+                  <div>
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">
+                      Definición
+                    </p>
+                    <ol className="space-y-1 list-decimal list-inside">
+                      {formatDef(dictEntry.definitions).slice(0, 4).map((def, i) => (
+                        <li key={i} className="text-slate-700 leading-relaxed">{def}</li>
+                      ))}
+                    </ol>
+                  </div>
+                )}
+
+                {/* Sinónimos */}
+                {formatDef(dictEntry.synonyms).length > 0 && (
+                  <div>
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">
+                      Sinónimos
+                    </p>
+                    <div className="flex flex-wrap gap-1">
+                      {formatDef(dictEntry.synonyms).slice(0, 6).map((s) => (
+                        <button
+                          key={s}
+                          type="button"
+                          onClick={() => {
+                            setDictQuery(s);
+                            handleDictSearch(s);
+                          }}
+                          className="rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-xs text-emerald-700 hover:bg-emerald-100 transition-colors"
+                        >
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {!dictEntry && !dictLoading && !dictNotFound && (
+              <p className="text-xs text-slate-400">
+                Escribí una palabra para ver su definición.
+                Funciona en español, inglés, portugués y más.
+              </p>
+            )}
+          </div>
+        </aside>
+      )}
     </main>
   );
 }
