@@ -108,6 +108,25 @@ app.use(express.json({
     }
   }
 }));
+// VUL-3: rate limiters específicos para endpoints sensibles
+app.use(
+  "/api/auth/login",
+  createRateLimiter({ windowMs: 15 * 60 * 1000, limit: 10 })
+);
+app.use(
+  "/api/auth/register",
+  createRateLimiter({ windowMs: 60 * 60 * 1000, limit: 5 })
+);
+app.use(
+  "/api/sync/push",
+  createRateLimiter({ windowMs: 15 * 60 * 1000, limit: 30 })
+);
+app.use(
+  "/api/auth/forgot-password",
+  createRateLimiter({ windowMs: 60 * 60 * 1000, limit: 5 })
+);
+
+// Rate limiter global
 app.use(
   createRateLimiter({
     windowMs: 15 * 60 * 1000,
