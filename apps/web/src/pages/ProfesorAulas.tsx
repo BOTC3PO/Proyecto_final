@@ -67,7 +67,9 @@ export default function ProfesorAulas() {
       return;
     }
     let active = true;
-    fetchClassroomProgressSnapshots(classrooms.map((classroom) => classroom.id))
+    const ids = classrooms.map((c) => c.id).filter(Boolean);
+    if (ids.length === 0) return;
+    fetchClassroomProgressSnapshots(ids)
       .then((snapshots) => {
         if (!active) return;
         const mapped: Record<string, ClassroomProgressSnapshot> = {};

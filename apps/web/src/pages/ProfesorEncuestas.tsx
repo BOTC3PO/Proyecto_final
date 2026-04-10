@@ -58,7 +58,7 @@ export default function ProfesorEncuestas() {
       try {
         setIsLoading(true);
         const defaults = await fetchSurveyDefaults();
-        setOptions(defaults.defaultOptions);
+        if (defaults) setOptions(defaults.defaultOptions);
         const response = await fetchClassrooms();
         setClassrooms(response.items);
         if (response.items.length > 0) {
@@ -137,7 +137,7 @@ export default function ProfesorEncuestas() {
       setStatus("activa");
       setMaxOptions("");
       const defaults = await fetchSurveyDefaults();
-      setOptions(defaults.defaultOptions);
+      if (defaults) setOptions(defaults.defaultOptions);
       await refresh(classroomId);
     } catch (err) {
       setError(err instanceof Error ? err.message : "No se pudo crear la encuesta.");

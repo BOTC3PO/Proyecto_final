@@ -41,7 +41,7 @@ export default function AlumnoEncuestas() {
       try {
         setIsLoading(true);
         const scores = await fetchSurveyScoreValues();
-        setScoreValues(scores.values);
+        if (scores) setScoreValues(scores.values);
         const response = await fetchClassrooms();
         setClassrooms(response.items);
         if (response.items.length > 0) {
