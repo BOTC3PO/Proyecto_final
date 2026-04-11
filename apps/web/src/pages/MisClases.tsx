@@ -5,6 +5,9 @@ import type { Classroom } from "../domain/classroom/classroom.types";
 
 type AulasResponse = { items: Classroom[] };
 
+const aulaId = (a: Classroom) =>
+  (a as unknown as { _id?: string })._id ?? a.id ?? "";
+
 export default function MisClases() {
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [loading, setLoading] = useState(true);
@@ -61,7 +64,7 @@ export default function MisClases() {
         {aulas.map((aula) => (
           <Link
             key={aula.id}
-            to={`/clases/${aula.id}`}
+            to={`/clases/${aulaId(aula)}`}
             className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-blue-300 transition-all group"
           >
             <div className="flex items-start justify-between gap-3">
