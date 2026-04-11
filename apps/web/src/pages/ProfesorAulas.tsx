@@ -164,7 +164,19 @@ export default function ProfesorAulas() {
           createdBy: user?.id ?? "profesor-demo",
           teacherIds: user?.id ? [user.id] : [],
           createdAt: now,
-          updatedAt: now
+          updatedAt: now,
+          members: user?.id ? [
+            {
+              userId: user.id,
+              roleInClass: "TEACHER" as const,
+              joinedAt: now,
+            },
+            {
+              userId: user.id,
+              roleInClass: "ADMIN" as const,
+              joinedAt: now,
+            },
+          ] : [],
         };
         await createClassroom(payload);
         setClassrooms((prev) => [payload, ...prev]);
