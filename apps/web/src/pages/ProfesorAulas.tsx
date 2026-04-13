@@ -193,12 +193,12 @@ export default function ProfesorAulas() {
           updatedAt: now,
           members: user?.id ? [
             {
-              userId: user.id,
+              userId: user._id ?? user.id,
               roleInClass: "TEACHER" as const,
               schoolId: user.schoolId ?? "",
             },
             {
-              userId: user.id,
+              userId: user._id ?? user.id,
               roleInClass: "ADMIN" as const,
               schoolId: user.schoolId ?? "",
             },
