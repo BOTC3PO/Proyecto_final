@@ -283,6 +283,10 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
     });
 
     const result = await db.collection("aulas").insertOne(finalPayload);
+    console.log("[DEBUG aula inserted]", {
+      insertedId: result.insertedId,
+      mongoId: result.insertedId?.toString(),
+    });
     res.status(201).json({ id: result.insertedId, classroomId: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
