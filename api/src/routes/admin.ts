@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getDb } from "../lib/db";
 import { requireAdmin } from "../lib/admin-auth";
+import { requireUser } from "../lib/user-auth";
 
 export const adminRouter = Router();
 
@@ -241,6 +242,21 @@ adminRouter.get("/api/admin/cursos", requireAdmin, async (req, res) => {
     res.json(cursos);
   } catch {
     res.status(500).json({ error: "internal server error" });
+  }
+});
+
+adminRouter.get("/api/materias", requireUser, async (_req, res) => {
+  try {
+    const db = await getDb();
+    const items = await db.collection("materias")
+      .find({ isDeleted: { $ne: true } })
+      .sort({ nombre: 1 })
+      .toArray();
+    return res.json({ items });
+  } catch (err) {
+    return res.status(500).json({
+      error: err instanceof Error ? err.message : "error"
+    });
   }
 });
 

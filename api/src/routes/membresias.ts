@@ -13,21 +13,21 @@ membresias.get("/api/membresias/mis-escuelas", requireUser, (req, res) => {
 
   const db = openContentDb();
   const rows = db.prepare(`
-    SELECT m.escuela_id, e.nombre
+    SELECT m.escuela_id, e.name
     FROM membresias m
     LEFT JOIN escuelas e ON e.id = m.escuela_id
     WHERE m.usuario_id = ?
       AND m.estado = 'activa'
-    ORDER BY e.nombre ASC
+    ORDER BY e.name ASC
   `).all(userId) as Array<{
     escuela_id: string;
-    nombre: string | null;
+    name: string | null;
   }>;
 
   return res.json({
     items: rows.map((r) => ({
       escuelaId: r.escuela_id,
-      nombre: r.nombre ?? r.escuela_id,
+      nombre: r.name ?? r.escuela_id,
     }))
   });
 });

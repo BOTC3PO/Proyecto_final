@@ -107,7 +107,7 @@ export default function ProfesorAulas() {
   }, []);
 
   useEffect(() => {
-    apiGet<{ items: Array<{ nombre: string }> }>("/api/admin/materias")
+    apiGet<{ items: Array<{ nombre: string }> }>("/api/materias")
       .then((data) => {
         setMaterias((data.items ?? []).map((m) => m.nombre));
       })
