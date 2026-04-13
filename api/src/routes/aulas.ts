@@ -102,10 +102,12 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
     return res.status(400).json({ error: "invalid status filter" });
   }
   if (statusList) {
-    query.status = { $in: statusList };
+    // omitir — clases (SQLite) no tiene columna status
   } else if (!includeArchived) {
-    query.status = { $nin: ["ARCHIVED", "LOCKED"] };
-    query.archived = { $ne: true };
+    // Solo usar is_deleted que sí existe en la tabla clases
+    query.is_deleted = 0;
+    // query.status = { $nin: ["ARCHIVED", "LOCKED"] };  // no existe en SQLite
+    // query.archived = { $ne: true };                   // no existe en SQLite
   }
   if (accessLevel === "admin") {
     // Global access.
