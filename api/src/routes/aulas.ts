@@ -255,7 +255,21 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
       updated_at: now,
     };
 
-    const result = await db.collection("aulas").insertOne(enriched);
+    const requesterId = getRequesterId(req);
+
+    const enrichedMembers = (enriched.members ?? []).map(
+      (m: Record<string, unknown>) => ({
+        ...m,
+        userId: requesterId ?? m.userId,
+      })
+    );
+
+    const finalPayload = {
+      ...enriched,
+      members: enrichedMembers,
+    };
+
+    const result = await db.collection("aulas").insertOne(finalPayload);
     res.status(201).json({ id: result.insertedId, classroomId: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
