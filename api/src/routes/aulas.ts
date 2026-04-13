@@ -128,6 +128,13 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
   } else {
     return res.status(403).json({ error: "forbidden" });
   }
+  console.log("[DEBUG aula get]", {
+    requesterId,
+    requesterSchoolId,
+    accessLevel,
+    query: JSON.stringify(query),
+  });
+
   const cursor = db
     .collection("aulas")
     .find(query)
