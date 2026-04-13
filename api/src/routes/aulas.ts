@@ -241,7 +241,21 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
         detail: `El limite gratuito es ${FREE_CLASSROOM_LIMIT} clases activas por profesor.`
       });
     }
-    const result = await db.collection("aulas").insertOne(parsed);
+    const schoolId = (parsed as { schoolId?: string }).schoolId
+      ?? parsed.institutionId
+      ?? getRequesterSchoolId(req)
+      ?? "";
+
+    const enriched = {
+      ...parsed,
+      schoolId,
+      escuela_id: schoolId,
+      grade: parsed.category ?? (parsed as { subject?: string }).subject ?? "General",
+      created_at: now,
+      updated_at: now,
+    };
+
+    const result = await db.collection("aulas").insertOne(enriched);
     res.status(201).json({ id: result.insertedId, classroomId: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
