@@ -110,13 +110,19 @@ export default function ModulosList() {
 
   const subjectOptions = useMemo(() => {
     const values = new Set<string>();
-    modules.forEach((module) => values.add(resolveMateria(module)));
+    modules.forEach((module) => {
+      const s = resolveMateria(module);
+      if (typeof s === "string" && s) values.add(s);
+    });
     return Array.from(values).sort((a, b) => a.localeCompare(b));
   }, [modules]);
 
   const categoryOptions = useMemo(() => {
     const values = new Set<string>();
-    modules.forEach((module) => values.add(resolveCategoria(module)));
+    modules.forEach((module) => {
+      const s = resolveCategoria(module);
+      if (typeof s === "string" && s) values.add(s);
+    });
     return Array.from(values).sort((a, b) => a.localeCompare(b));
   }, [modules]);
 
@@ -131,7 +137,10 @@ export default function ModulosList() {
 
   const statusOptions = useMemo(() => {
     const values = new Set<string>();
-    modules.forEach((module) => values.add(resolveStatus(module)));
+    modules.forEach((module) => {
+      const s = resolveStatus(module);
+      if (typeof s === "string" && s) values.add(s);
+    });
     return Array.from(values).sort((a, b) => a.localeCompare(b));
   }, [modules]);
 

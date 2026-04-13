@@ -37,6 +37,7 @@ export type Classroom = {
   members?: Array<{
     userId: string;
     roleInClass: "TEACHER" | "ADMIN" | "STUDENT";
+    schoolId?: string;
     joinedAt?: string;
   }>;
 };

@@ -169,12 +169,12 @@ export default function ProfesorAulas() {
             {
               userId: user.id,
               roleInClass: "TEACHER" as const,
-              joinedAt: now,
+              schoolId: user.schoolId ?? "",
             },
             {
               userId: user.id,
               roleInClass: "ADMIN" as const,
-              joinedAt: now,
+              schoolId: user.schoolId ?? "",
             },
           ] : [],
         };
