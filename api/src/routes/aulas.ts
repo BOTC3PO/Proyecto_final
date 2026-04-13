@@ -269,6 +269,12 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
       members: enrichedMembers,
     };
 
+    console.log("[DEBUG aula create]", {
+      requesterId,
+      members: enrichedMembers,
+      schoolId: enriched.schoolId,
+    });
+
     const result = await db.collection("aulas").insertOne(finalPayload);
     res.status(201).json({ id: result.insertedId, classroomId: parsed.id });
   } catch (e: any) {
