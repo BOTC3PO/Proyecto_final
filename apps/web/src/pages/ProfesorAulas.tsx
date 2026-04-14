@@ -276,7 +276,7 @@ export default function ProfesorAulas() {
   const handleArchiveToggle = async (classroom: Classroom) => {
     setSubmitError(null);
     setIsSubmitting(true);
-    const normalizedStatus = normalizeClassroomStatus(classroom.status);
+    const normalizedStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
     if (normalizedStatus === "LOCKED") {
       setSubmitError("El aula está bloqueada y no admite cambios de estado.");
       setIsSubmitting(false);
@@ -500,7 +500,7 @@ export default function ProfesorAulas() {
                         : "bg-green-100 text-green-700"
                     }`}
                   >
-                    {getClassroomStatusLabel(classroom.status)}
+                    {getClassroomStatusLabel(classroom.status ?? "ACTIVE")}
                   </span>
                 </div>
                 <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-gray-600">

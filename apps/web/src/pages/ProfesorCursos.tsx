@@ -9,6 +9,15 @@ export default function ProfesorCursos() {
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [mostrarArchivadas, setMostrarArchivadas] = useState(false);
+
+  const aulasFiltradas = mostrarArchivadas
+    ? aulas
+    : aulas.filter((a) => {
+        const status = (a as { status?: string }).status;
+        const normalized = status?.toUpperCase();
+        return !normalized || normalized === "ACTIVE" || normalized === "ACTIVA";
+      });
 
   useEffect(() => {
     let active = true;
@@ -48,17 +57,31 @@ export default function ProfesorCursos() {
         </Link>
       </header>
 
+      <label className="flex items-center gap-2 text-sm text-slate-500 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={mostrarArchivadas}
+          onChange={(e) => setMostrarArchivadas(e.target.checked)}
+          className="rounded"
+        />
+        Mostrar archivadas
+      </label>
+
       <section className="grid gap-4 md:grid-cols-3">
         {loading && <p className="text-sm text-slate-500">Cargando cursos...</p>}
         {error && <p className="text-sm text-red-500">Error: {error}</p>}
         {!loading &&
           !error &&
-          aulas.map((aula) => {
+          aulasFiltradas.map((aula) => {
             const aulaId = (aula as { _id?: string })._id ?? aula.id ?? "";
             return (
               <article
                 key={aulaId}
-                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+                className={`rounded-2xl border border-slate-200 bg-white p-5 shadow-sm ${
+                  (aula as { status?: string }).status?.toUpperCase() === "ARCHIVED"
+                    ? "opacity-50 border-dashed"
+                    : ""
+                }`}
               >
                 <h2 className="text-lg font-semibold text-slate-900">{aula.name}</h2>
                 {aula.category && (
@@ -78,7 +101,7 @@ export default function ProfesorCursos() {
               </article>
             );
           })}
-        {!loading && !error && aulas.length === 0 && (
+        {!loading && !error && aulasFiltradas.length === 0 && (
           <p className="text-sm text-slate-500">No hay cursos asignados.</p>
         )}
       </section>
