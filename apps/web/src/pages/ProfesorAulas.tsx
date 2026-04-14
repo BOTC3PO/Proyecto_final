@@ -117,7 +117,9 @@ export default function ProfesorAulas() {
   const visibleClassrooms = useMemo(() => {
     if (!user) return [];
     if (user.role === "TEACHER") {
-      return classrooms.filter((classroom) => classroom.createdBy === user.id || classroom.teacherIds?.includes(user.id));
+      // El backend ya filtra por escuela y membresía
+      // No filtrar de nuevo en el frontend
+      return classrooms;
     }
     if (user.role === "USER" || user.role === "PARENT") {
       return classrooms.filter((classroom) => classroom.accessType === "publica");
