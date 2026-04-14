@@ -41,6 +41,7 @@ export default function ProfesorAulas() {
   );
   const [deletePromptId, setDeletePromptId] = useState<string | null>(null);
   const [downloadOnDelete, setDownloadOnDelete] = useState<Record<string, boolean>>({});
+  const [mostrarArchivadas, setMostrarArchivadas] = useState(false);
   const [escuelas, setEscuelas] = useState<Array<{ id: string; name: string }>>([]);
   const [materias, setMaterias] = useState<string[]>([]);
 
@@ -354,6 +355,12 @@ export default function ProfesorAulas() {
     URL.revokeObjectURL(url);
   };
 
+  const aulasFiltradas = mostrarArchivadas
+    ? visibleClassrooms
+    : visibleClassrooms.filter((c) =>
+        !c.status || c.status === "ACTIVE" || c.status === "activa"
+      );
+
   return (
     <main className="p-6 space-y-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -484,9 +491,19 @@ export default function ProfesorAulas() {
               : "No hay aulas disponibles para tu rol todavía."}
           </div>
         ) : (
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {visibleClassrooms.map((classroom) => (
-              <article key={classroom.id} className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+          <>
+            <label className="flex items-center gap-2 text-sm text-slate-500 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={mostrarArchivadas}
+                onChange={(e) => setMostrarArchivadas(e.target.checked)}
+                className="rounded"
+              />
+              Mostrar archivadas
+            </label>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {aulasFiltradas.map((classroom) => (
+              <article key={classroom.id} className={`rounded-xl border border-gray-200 bg-white p-5 shadow-sm ${classroom.status === "ARCHIVED" ? "opacity-50" : ""}`}>
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <h2 className="text-lg font-semibold text-gray-900">{classroom.name}</h2>
@@ -648,52 +665,12 @@ export default function ProfesorAulas() {
                     >
                       Reutilizar contenido
                     </button>
-                    <button
-                      type="button"
-                      className="rounded-md border border-red-200 px-3 py-1 text-xs text-red-600 hover:bg-red-50"
-                      onClick={() => setDeletePromptId(classroom.id)}
-                      disabled={isSubmitting}
-                    >
-                      Eliminar
-                    </button>
-                  </div>
-                )}
-                {user?.role === "TEACHER" && deletePromptId === classroom.id && (
-                  <div className="mt-3 rounded-lg border border-red-100 bg-red-50 p-3 text-xs text-red-700">
-                    <p className="font-semibold">¿Eliminar esta aula?</p>
-                    <p className="mt-1 text-red-600">Podés descargar un respaldo antes de confirmar.</p>
-                    <label className="mt-2 flex items-center gap-2 text-[11px] text-red-700">
-                      <input
-                        type="checkbox"
-                        checked={downloadOnDelete[classroom.id] ?? false}
-                        onChange={(event) =>
-                          setDownloadOnDelete((prev) => ({ ...prev, [classroom.id]: event.target.checked }))
-                        }
-                      />
-                      Descargar datos del aula
-                    </label>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      <button
-                        type="button"
-                        className="rounded-md bg-red-600 px-3 py-1 text-[11px] text-white hover:bg-red-700"
-                        onClick={() => handleDelete(classroom.id)}
-                        disabled={isSubmitting}
-                      >
-                        Confirmar eliminación
-                      </button>
-                      <button
-                        type="button"
-                        className="rounded-md border border-red-200 px-3 py-1 text-[11px] text-red-700 hover:bg-red-100"
-                        onClick={() => setDeletePromptId(null)}
-                      >
-                        Cancelar
-                      </button>
-                    </div>
                   </div>
                 )}
               </article>
             ))}
           </div>
+          </>
         )}
       </section>
     </main>
