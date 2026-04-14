@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
@@ -608,8 +609,19 @@ export default function ProfesorAulas() {
                     </button>
                   </div>
                 </div>
-                {user?.role === "TEACHER" && classroom.createdBy === user.id && (
+                {user?.role === "TEACHER" && (
                   <div className="mt-4 flex flex-wrap gap-2">
+                    <Link
+                      to={`/profesor/aulas/${
+                        (classroom as { _id?: string } & typeof classroom)
+                          ._id ?? classroom.id
+                      }/configuracion`}
+                      className="rounded-md border border-indigo-200
+                        px-3 py-1 text-xs text-indigo-700
+                        hover:bg-indigo-50"
+                    >
+                      Configurar
+                    </Link>
                     <button
                       type="button"
                       className="rounded-md border border-gray-300 px-3 py-1 text-xs text-gray-700 hover:bg-gray-50"
@@ -646,7 +658,7 @@ export default function ProfesorAulas() {
                     </button>
                   </div>
                 )}
-                {user?.role === "TEACHER" && classroom.createdBy === user.id && deletePromptId === classroom.id && (
+                {user?.role === "TEACHER" && deletePromptId === classroom.id && (
                   <div className="mt-3 rounded-lg border border-red-100 bg-red-50 p-3 text-xs text-red-700">
                     <p className="font-semibold">¿Eliminar esta aula?</p>
                     <p className="mt-1 text-red-600">Podés descargar un respaldo antes de confirmar.</p>
