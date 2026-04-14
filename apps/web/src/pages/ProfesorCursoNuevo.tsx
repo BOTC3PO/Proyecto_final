@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
+import { useAuth } from "../auth/use-auth";
 
 type AdminOption = {
   id: string;
@@ -9,7 +10,8 @@ type AdminOption = {
 };
 
 export default function ProfesorCursoNuevo() {
-  const schoolId = "escuela-demo";
+  const { user } = useAuth();
+  const schoolId = user?.schoolId ?? "";
   const [admins, setAdmins] = useState<AdminOption[]>([]);
   const [selectedAdmin, setSelectedAdmin] = useState("");
 

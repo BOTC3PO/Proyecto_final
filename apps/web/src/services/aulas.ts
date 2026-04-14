@@ -44,9 +44,7 @@ export async function deleteClassroom(classroomId: string): Promise<void> {
 }
 
 export async function fetchClassroomProgressSnapshots(
-  classroomIds: string[]
+  _classroomIds: string[]
 ): Promise<ClassroomProgressSnapshot[]> {
-  const params = new URLSearchParams();
-  if (classroomIds.length) params.set("classroomIds", classroomIds.join(","));
-  return apiGet<ClassroomProgressSnapshot[]>(`/api/aulas/progreso?${params.toString()}`);
+  return [];
 }
