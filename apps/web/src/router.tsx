@@ -40,6 +40,7 @@ const Explorar            = lazyWithRetry(() => import("./pages/Explorar"));
 const Metodologia         = lazyWithRetry(() => import("./pages/metodologia"));
 const MenuAlumno          = lazyWithRetry(() => import("./pages/menu-alumno"));
 const Clases              = lazyWithRetry(() => import("./pages/aula"));
+const MisClases           = lazyWithRetry(() => import("./pages/MisClases"));
 const BookEditorPage      = lazyWithRetry(() => import("./bookEditor/BookEditorPage"));
 const BlockEditorPage     = lazyWithRetry(() => import("./blocks/v2/BlockEditorPage"));
 const ProfesorAulas       = lazyWithRetry(() => import("./pages/ProfesorAulas"));
@@ -246,7 +247,15 @@ export const router = createBrowserRouter([
       {
         path: "clases",
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN']}>
+          <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN']}>
+            {withSuspense(<MisClases />)}
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "clases/:id",
+        element: (
+          <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN']}>
             {withSuspense(<Clases />)}
           </ProtectedRoute>
         ),

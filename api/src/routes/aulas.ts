@@ -102,10 +102,12 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
     return res.status(400).json({ error: "invalid status filter" });
   }
   if (statusList) {
-    query.status = { $in: statusList };
+    // omitir — clases (SQLite) no tiene columna status
   } else if (!includeArchived) {
-    query.status = { $nin: ["ARCHIVED", "LOCKED"] };
-    query.archived = { $ne: true };
+    // Solo usar is_deleted que sí existe en la tabla clases
+    query.is_deleted = 0;
+    // query.status = { $nin: ["ARCHIVED", "LOCKED"] };  // no existe en SQLite
+    // query.archived = { $ne: true };                   // no existe en SQLite
   }
   if (accessLevel === "admin") {
     // Global access.
@@ -128,6 +130,13 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
   } else {
     return res.status(403).json({ error: "forbidden" });
   }
+  console.log("[DEBUG aula get]", {
+    requesterId,
+    requesterSchoolId,
+    accessLevel,
+    query: JSON.stringify(query),
+  });
+
   const cursor = db
     .collection("aulas")
     .find(query)
@@ -135,7 +144,15 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
     .limit(limit)
     .sort({ updatedAt: -1 });
   const items = await cursor.toArray();
-  res.json({ items, limit, offset });
+  console.log("[DEBUG aulas result]", items.length, items[0]);
+  res.json({
+    items: items.map((item) => ({
+      ...item,
+      id: item.id ?? item._id ?? "",
+    })),
+    limit,
+    offset,
+  });
 });
 
 aulas.get(
@@ -241,7 +258,45 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
         detail: `El limite gratuito es ${FREE_CLASSROOM_LIMIT} clases activas por profesor.`
       });
     }
-    const result = await db.collection("aulas").insertOne(parsed);
+    const schoolId = (parsed as { schoolId?: string }).schoolId
+      ?? parsed.institutionId
+      ?? getRequesterSchoolId(req)
+      ?? "";
+
+    const enriched = {
+      ...parsed,
+      schoolId,
+      escuela_id: schoolId,
+      grade: parsed.category ?? (parsed as { subject?: string }).subject ?? "General",
+      created_at: now,
+      updated_at: now,
+    };
+
+    const requesterId = getRequesterId(req);
+
+    const enrichedMembers = (enriched.members ?? []).map(
+      (m: Record<string, unknown>) => ({
+        ...m,
+        userId: requesterId ?? m.userId,
+      })
+    );
+
+    const finalPayload = {
+      ...enriched,
+      members: enrichedMembers,
+    };
+
+    console.log("[DEBUG aula create]", {
+      requesterId,
+      members: enrichedMembers,
+      schoolId: enriched.schoolId,
+    });
+
+    const result = await db.collection("aulas").insertOne(finalPayload);
+    console.log("[DEBUG aula inserted]", {
+      insertedId: result.insertedId,
+      mongoId: result.insertedId?.toString(),
+    });
     res.status(201).json({ id: result.insertedId, classroomId: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });

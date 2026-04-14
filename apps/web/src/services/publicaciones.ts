@@ -22,7 +22,7 @@ type PublicationsResponse = {
 
 export async function fetchPublications(classroomId?: string): Promise<Publication[]> {
   if (!classroomId) return [];
-  const response = await apiGet<PublicationsResponse>(`/api/aulas/${encodeURIComponent(classroomId)}/publicaciones`);
+  const response = await apiGet<PublicationsResponse>(`/api/aula/publicaciones?classroomId=${encodeURIComponent(classroomId)}`);
   return response.items;
 }
 
@@ -34,5 +34,5 @@ type CreatePublicationPayload = {
 };
 
 export async function createPublication(classroomId: string, payload: CreatePublicationPayload): Promise<Publication> {
-  return apiPost<Publication>(`/api/aulas/${encodeURIComponent(classroomId)}/publicaciones`, payload);
+  return apiPost<Publication>(`/api/aula/publicaciones?classroomId=${encodeURIComponent(classroomId)}`, payload);
 }

@@ -9,7 +9,6 @@ import { fetchClassroomDetail } from "../services/aulas";
 import { createPublication, fetchPublications, type Publication } from "../services/publicaciones";
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
 import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
-import { fetchTeacherTools, type TeacherTool } from "../services/aula";
 import { fetchResourceLinks, type ResourceLink, type ResourceLinkType } from "../services/resource-links";
 import {
   fetchSubastasActivas, fetchMisPujas, crearPuja,
@@ -79,8 +78,6 @@ export default function aula() {
   const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>([]);
   const [progressLoading, setProgressLoading] = useState(true);
   const [progressError, setProgressError] = useState<string | null>(null);
-  const [teacherTools, setTeacherTools] = useState<TeacherTool[]>([]);
-  const [toolsError, setToolsError] = useState<string | null>(null);
   const [resourceLinks, setResourceLinks] = useState<ResourceLink[]>([]);
   const [resourceLinksLoading, setResourceLinksLoading] = useState(true);
   const [resourceLinksError, setResourceLinksError] = useState<string | null>(null);
@@ -118,23 +115,6 @@ export default function aula() {
       active = false;
     };
   }, [classroomId]);
-
-  useEffect(() => {
-    let active = true;
-    fetchTeacherTools()
-      .then((data) => {
-        if (!active) return;
-        setTeacherTools(data);
-        setToolsError(null);
-      })
-      .catch((err: Error) => {
-        if (!active) return;
-        setToolsError(err.message);
-      });
-    return () => {
-      active = false;
-    };
-  }, []);
 
   const loadFeed = async (active: { current: boolean }) => {
     setFeedLoading(true);
@@ -770,25 +750,6 @@ export default function aula() {
               </div>
             )}
 
-            {user?.role === "TEACHER" && (
-              <div className="bg-white rounded-xl shadow p-4">
-                <h3 className="text-lg font-semibold">Herramientas del profesor</h3>
-                <ul className="mt-3 space-y-2 text-sm">
-                  {toolsError && <li className="text-red-600">{toolsError}</li>}
-                  {!toolsError &&
-                    teacherTools.map((tool) => (
-                      <li key={tool.id}>
-                        <Link className="hover:underline" to={tool.to}>
-                          {tool.label}
-                        </Link>
-                      </li>
-                    ))}
-                  {!toolsError && teacherTools.length === 0 && (
-                    <li className="text-gray-500">No hay herramientas disponibles.</li>
-                  )}
-                </ul>
-              </div>
-            )}
           </aside>
         </div>
       </div>

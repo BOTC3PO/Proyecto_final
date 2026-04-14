@@ -415,7 +415,7 @@ const CompraCreateSchema = z.object({
   moneda: z.string().min(1).optional()
 });
 
-economia.get("/api/economia/config", async (_req, res) => {
+economia.get("/api/economia/config", requireUser, async (_req, res) => {
   const db = await getDb();
   const config = await getEconomiaConfig(db);
   res.json(config);
@@ -1599,7 +1599,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
   }
 });
 
-economia.get("/api/economia/eventos", async (_req, res) => {
+economia.get("/api/economia/eventos", requireUser, async (_req, res) => {
   const db = await getDb();
   const items = await db
     .collection("economia_eventos")

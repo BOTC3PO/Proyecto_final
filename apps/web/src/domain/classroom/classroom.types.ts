@@ -34,6 +34,12 @@ export type Classroom = {
   teacherIds?: string[];
   createdAt: string;
   updatedAt: string;
+  members?: Array<{
+    userId: string;
+    roleInClass: "TEACHER" | "ADMIN" | "STUDENT";
+    schoolId?: string;
+    joinedAt?: string;
+  }>;
 };
 
 export type ClassroomListResponse = {

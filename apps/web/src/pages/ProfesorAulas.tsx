@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { useAuth } from "../auth/use-auth";
@@ -39,6 +40,8 @@ export default function ProfesorAulas() {
   );
   const [deletePromptId, setDeletePromptId] = useState<string | null>(null);
   const [downloadOnDelete, setDownloadOnDelete] = useState<Record<string, boolean>>({});
+  const [escuelas, setEscuelas] = useState<Array<{ id: string; name: string }>>([]);
+  const [materias, setMaterias] = useState<string[]>([]);
 
   useEffect(() => {
     let active = true;
@@ -67,7 +70,9 @@ export default function ProfesorAulas() {
       return;
     }
     let active = true;
-    fetchClassroomProgressSnapshots(classrooms.map((classroom) => classroom.id))
+    const ids = classrooms.map((c) => c.id).filter(Boolean);
+    if (ids.length === 0) return;
+    fetchClassroomProgressSnapshots(ids)
       .then((snapshots) => {
         if (!active) return;
         const mapped: Record<string, ClassroomProgressSnapshot> = {};
@@ -86,10 +91,35 @@ export default function ProfesorAulas() {
     };
   }, [classrooms]);
 
+  useEffect(() => {
+    apiGet<{ items: Array<{ escuelaId: string; nombre?: string }> }>("/api/membresias/mis-escuelas")
+      .then((data) => {
+        const items = (data.items ?? []).map((m) => ({
+          id: m.escuelaId,
+          name: m.nombre ?? m.escuelaId,
+        }));
+        setEscuelas(items);
+        if (items.length === 1) {
+          setForm((f) => ({ ...f, institutionId: items[0].id }));
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    apiGet<{ items: Array<{ nombre: string }> }>("/api/materias")
+      .then((data) => {
+        setMaterias((data.items ?? []).map((m) => m.nombre));
+      })
+      .catch(() => {});
+  }, []);
+
   const visibleClassrooms = useMemo(() => {
     if (!user) return [];
     if (user.role === "TEACHER") {
-      return classrooms.filter((classroom) => classroom.createdBy === user.id || classroom.teacherIds?.includes(user.id));
+      // El backend ya filtra por escuela y membresía
+      // No filtrar de nuevo en el frontend
+      return classrooms;
     }
     if (user.role === "USER" || user.role === "PARENT") {
       return classrooms.filter((classroom) => classroom.accessType === "publica");
@@ -162,7 +192,19 @@ export default function ProfesorAulas() {
           createdBy: user?.id ?? "profesor-demo",
           teacherIds: user?.id ? [user.id] : [],
           createdAt: now,
-          updatedAt: now
+          updatedAt: now,
+          members: user?.id ? [
+            {
+              userId: user._id ?? user.id,
+              roleInClass: "TEACHER" as const,
+              schoolId: user.schoolId ?? "",
+            },
+            {
+              userId: user._id ?? user.id,
+              roleInClass: "ADMIN" as const,
+              schoolId: user.schoolId ?? "",
+            },
+          ] : [],
         };
         await createClassroom(payload);
         setClassrooms((prev) => [payload, ...prev]);
@@ -318,15 +360,7 @@ export default function ProfesorAulas() {
           <h1 className="text-2xl font-semibold">Aulas virtuales</h1>
           <p className="text-gray-600">Acceso y administración de aulas para tus cursos.</p>
         </div>
-        {user?.role === "TEACHER" ? (
-          <button
-            type="button"
-            className="rounded-md border border-blue-600 px-4 py-2 text-blue-700 hover:bg-blue-50"
-            onClick={resetForm}
-          >
-            Crear aula
-          </button>
-        ) : (
+        {user?.role !== "TEACHER" && (
           <span className="rounded-md bg-gray-100 px-4 py-2 text-sm text-gray-600">
             Solo docentes pueden crear aulas
           </span>
@@ -385,20 +419,34 @@ export default function ProfesorAulas() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Institución (opcional)</label>
-              <input
-                value={form.institutionId}
-                onChange={(event) => handleFieldChange("institutionId", event.target.value)}
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-              />
+              <label className="flex flex-col gap-1 text-sm font-medium text-slate-700">
+                Escuela
+                <select
+                  value={form.institutionId}
+                  onChange={(e) => setForm((f) => ({ ...f, institutionId: e.target.value }))}
+                  className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
+                >
+                  <option value="">Sin escuela (aula personal)</option>
+                  {escuelas.map((e) => (
+                    <option key={e.id} value={e.id}>{e.name}</option>
+                  ))}
+                </select>
+              </label>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Categoría (opcional)</label>
-              <input
-                value={form.category}
-                onChange={(event) => handleFieldChange("category", event.target.value)}
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2"
-              />
+              <label className="flex flex-col gap-1 text-sm font-medium text-slate-700">
+                Materia
+                <select
+                  value={form.category ?? ""}
+                  onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
+                  className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
+                >
+                  <option value="">General</option>
+                  {materias.map((m) => (
+                    <option key={m} value={m}>{m}</option>
+                  ))}
+                </select>
+              </label>
             </div>
             <div className="flex flex-wrap items-center gap-3 md:col-span-2">
               <button

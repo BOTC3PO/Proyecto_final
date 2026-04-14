@@ -3,6 +3,7 @@ import type { Role } from './roles';
 
 export type User = {
   id: string;
+  _id?: string;
   name: string;
   role: Role;
   guestOnboardingStatus?: 'pendiente' | 'aceptado' | 'rechazado' | null;

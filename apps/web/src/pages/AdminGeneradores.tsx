@@ -56,7 +56,7 @@ export default function AdminGeneradores() {
 
   useEffect(() => {
     setLoadingGen(true);
-    apiGet<{ items: GeneratorItem[] }>("/api/admin/generators")
+    apiGet<{ items: GeneratorItem[] }>("/api/admin/generadores")
       .then((data) => setGenerators(data.items ?? []))
       .catch(() => {})
       .finally(() => setLoadingGen(false));
@@ -76,7 +76,7 @@ export default function AdminGeneradores() {
 
   useEffect(() => {
     if (!expandedGen) return;
-    apiGet<{ items: ChangelogEntry[] }>(`/api/admin/generators/${expandedGen}/changelog`)
+    apiGet<{ items: ChangelogEntry[] }>(`/api/admin/generadores/${expandedGen}/changelog`)
       .then((data) =>
         setChangelog((prev) => ({ ...prev, [expandedGen]: data.items ?? [] }))
       )
@@ -100,7 +100,7 @@ export default function AdminGeneradores() {
     setSavingGen(true);
     try {
       const updated = await apiPatch<GeneratorItem>(
-        `/api/admin/generators/${genId}`,
+        `/api/admin/generadores/${genId}`,
         editForm
       );
       setGenerators((prev) => prev.map((g) => (g.id === genId ? updated : g)));
@@ -112,9 +112,9 @@ export default function AdminGeneradores() {
       if (editForm.description !== undefined) parts.push("description actualizada");
       const autoNote = `Editado: ${parts.join(", ")}`;
 
-      await apiPost(`/api/admin/generators/${genId}/changelog`, { note: autoNote });
+      await apiPost(`/api/admin/generadores/${genId}/changelog`, { note: autoNote });
       const freshChangelog = await apiGet<{ items: ChangelogEntry[] }>(
-        `/api/admin/generators/${genId}/changelog`
+        `/api/admin/generadores/${genId}/changelog`
       );
       setChangelog((prev) => ({ ...prev, [genId]: freshChangelog.items ?? [] }));
 
@@ -132,10 +132,10 @@ export default function AdminGeneradores() {
   const handleAddNote = async (genId: string) => {
     if (!newNote.trim()) return;
     try {
-      await apiPost(`/api/admin/generators/${genId}/changelog`, { note: newNote.trim() });
+      await apiPost(`/api/admin/generadores/${genId}/changelog`, { note: newNote.trim() });
       setNewNote("");
       const fresh = await apiGet<{ items: ChangelogEntry[] }>(
-        `/api/admin/generators/${genId}/changelog`
+        `/api/admin/generadores/${genId}/changelog`
       );
       setChangelog((prev) => ({ ...prev, [genId]: fresh.items ?? [] }));
     } catch {

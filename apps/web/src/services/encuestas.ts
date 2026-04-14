@@ -77,12 +77,20 @@ export async function fetchSurveys(aulaId: string): Promise<SurveyListResponse> 
   return apiGet<SurveyListResponse>(`/api/encuestas?aulaId=${encodeURIComponent(aulaId)}`);
 }
 
-export async function fetchSurveyDefaults(): Promise<SurveyDefaults> {
-  return apiGet<SurveyDefaults>("/api/encuestas/defaults");
+export async function fetchSurveyDefaults(): Promise<SurveyDefaults | null> {
+  try {
+    return await apiGet<SurveyDefaults>("/api/encuestas/defaults");
+  } catch {
+    return null;
+  }
 }
 
-export async function fetchSurveyScoreValues(): Promise<SurveyScoreValues> {
-  return apiGet<SurveyScoreValues>("/api/encuestas/puntuaciones");
+export async function fetchSurveyScoreValues(): Promise<SurveyScoreValues | null> {
+  try {
+    return await apiGet<SurveyScoreValues>("/api/encuestas/puntuaciones");
+  } catch {
+    return null;
+  }
 }
 
 export async function createSurvey(payload: Survey): Promise<{ id: string; surveyId: string }> {

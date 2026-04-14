@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchProfesorCursos, type ProfesorCursoResumen } from "../services/profesor";
+import { apiGet } from "../lib/api";
+import type { Classroom } from "../domain/classroom/classroom.types";
+
+type ClassroomListResponse = { items: Classroom[] };
 
 export default function ProfesorCursos() {
-  const [cursos, setCursos] = useState<ProfesorCursoResumen[]>([]);
+  const [aulas, setAulas] = useState<Classroom[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
-    fetchProfesorCursos()
+    apiGet<ClassroomListResponse>("/api/aulas")
       .then((data) => {
         if (!active) return;
-        setCursos(data);
+        setAulas(data.items ?? []);
         setError(null);
       })
       .catch((err: Error) => {
@@ -39,9 +42,9 @@ export default function ProfesorCursos() {
         </div>
         <Link
           className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
-          to="/profesor/cursos/nuevo"
+          to="/profesor/aulas"
         >
-          + Crear clase
+          + Gestionar aulas
         </Link>
       </header>
 
@@ -50,20 +53,32 @@ export default function ProfesorCursos() {
         {error && <p className="text-sm text-red-500">Error: {error}</p>}
         {!loading &&
           !error &&
-          cursos.map((curso) => (
-            <article
-              key={curso.id}
-              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-            >
-              <h2 className="text-lg font-semibold text-slate-900">{curso.nombre}</h2>
-              <p className="mt-2 text-sm text-slate-500">Alumnos: {curso.alumnos}</p>
-              <p className="mt-1 text-sm text-slate-500">Estado: {curso.estado}</p>
-              <button className="mt-4 rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-700">
-                Ir al curso
-              </button>
-            </article>
-          ))}
-        {!loading && !error && cursos.length === 0 && (
+          aulas.map((aula) => {
+            const aulaId = (aula as { _id?: string })._id ?? aula.id ?? "";
+            return (
+              <article
+                key={aulaId}
+                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+              >
+                <h2 className="text-lg font-semibold text-slate-900">{aula.name}</h2>
+                {aula.category && (
+                  <p className="mt-1 text-xs font-medium uppercase tracking-wide text-blue-600">
+                    {aula.category}
+                  </p>
+                )}
+                {aula.description && (
+                  <p className="mt-2 line-clamp-2 text-sm text-slate-500">{aula.description}</p>
+                )}
+                <Link
+                  className="mt-4 inline-block rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                  to={`/clases/${aulaId}`}
+                >
+                  Ir al curso
+                </Link>
+              </article>
+            );
+          })}
+        {!loading && !error && aulas.length === 0 && (
           <p className="text-sm text-slate-500">No hay cursos asignados.</p>
         )}
       </section>
