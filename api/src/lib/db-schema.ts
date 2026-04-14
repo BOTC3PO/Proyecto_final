@@ -107,6 +107,10 @@ export class SchemaCollection<T extends Doc = Doc> {
         };
       }
     }
+    // Agregar id como alias de _id si no existe
+    if (doc._id !== undefined && doc.id === undefined) {
+      doc.id = doc._id;
+    }
     return doc;
   }
 
