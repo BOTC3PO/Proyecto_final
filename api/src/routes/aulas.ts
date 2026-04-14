@@ -143,9 +143,16 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
     .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
     .limit(limit)
     .sort({ updatedAt: -1 });
-    const items = await cursor.toArray();
-    console.log("[DEBUG aulas result]", items.length, items[0]);
-  res.json({ items, limit, offset });
+  const items = await cursor.toArray();
+  console.log("[DEBUG aulas result]", items.length, items[0]);
+  res.json({
+    items: items.map((item) => ({
+      ...item,
+      id: item.id ?? item._id ?? "",
+    })),
+    limit,
+    offset,
+  });
 });
 
 aulas.get(
