@@ -433,12 +433,22 @@ export default function menuProfesor() {
                 <p className="text-gray-600">{dashboard?.profile.role ?? ""}</p>
               </div>
               <div className="flex items-center gap-5">
-                <button title="Notificaciones" aria-label="Notificaciones">
+                <Link
+                  to="/mensajes"
+                  title="Mensajes"
+                  className="text-gray-500 hover:text-blue-600
+                    transition-colors"
+                >
                   🔔
-                </button>
-                <span className="flex items-center gap-2 text-gray-400">
+                </Link>
+                <Link
+                  to="/perfil"
+                  className="flex items-center gap-2 text-gray-500
+                    hover:text-blue-600 transition-colors text-sm
+                    font-medium"
+                >
                   👤 Perfil
-                </span>
+                </Link>
               </div>
             </div>
 
