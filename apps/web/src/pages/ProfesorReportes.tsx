@@ -36,11 +36,13 @@ export default function ProfesorReportes() {
     if (!user?.id) return;
     apiGet<{ items: Classroom[] }>("/api/aulas")
       .then((data) => {
-        const misAulas = (data.items ?? []).filter(
-          (a) => a.createdBy === user.id || a.teacherIds?.includes(user.id)
-        );
-        setAulas(misAulas);
-        if (misAulas[0]) setAulaId(misAulas[0].id);
+        // El backend ya filtra por membresía
+        const items = data.items ?? [];
+        setAulas(items);
+        if (items[0]) {
+          const id = (items[0] as { _id?: string } & Classroom)._id ?? items[0].id ?? "";
+          setAulaId(id);
+        }
       })
       .catch(() => {});
   }, [user?.id]);
@@ -121,9 +123,10 @@ export default function ProfesorReportes() {
               onChange={(e) => setAulaId(e.target.value)}
               className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
             >
-              {aulas.map((a) => (
-                <option key={a.id} value={a.id}>{a.name}</option>
-              ))}
+              {aulas.map((a) => {
+                const id = (a as { _id?: string } & Classroom)._id ?? a.id ?? "";
+                return <option key={id} value={id}>{a.name}</option>;
+              })}
             </select>
           </div>
         )}
