@@ -3,6 +3,7 @@ import type { Survey, SurveyResults } from "../services/encuestas";
 import { fetchSurveyResults, fetchSurveys, fetchSurveyScoreValues, voteSurvey } from "../services/encuestas";
 import { fetchClassrooms } from "../services/aulas";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { getAulaId } from "../lib/aula-id";
 
 type SelectionMap = Record<string, string>;
 type ScoreSelectionMap = Record<string, Record<string, number>>;
@@ -45,7 +46,7 @@ export default function AlumnoEncuestas() {
         const response = await fetchClassrooms();
         setClassrooms(response.items);
         if (response.items.length > 0) {
-          setClassroomId((prev) => prev || response.items[0].id);
+          setClassroomId((prev) => prev || getAulaId(response.items[0]));
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : "No se pudieron cargar las aulas.");
@@ -168,7 +169,7 @@ export default function AlumnoEncuestas() {
                 Selecciona un aula
               </option>
               {classrooms.map((classroom) => (
-                <option key={classroom.id} value={classroom.id}>
+                <option key={getAulaId(classroom)} value={getAulaId(classroom)}>
                   {classroom.name}
                 </option>
               ))}

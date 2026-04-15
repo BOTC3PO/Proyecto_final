@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { getAulaId } from "../lib/aula-id";
 import {
   fetchBoletin, fetchAsistencia, fetchProgresoReporte,
   type BoletinResponse, type AsistenciaResponse,
@@ -39,10 +40,7 @@ export default function ProfesorReportes() {
         // El backend ya filtra por membresía
         const items = data.items ?? [];
         setAulas(items);
-        if (items[0]) {
-          const id = (items[0] as { _id?: string } & Classroom)._id ?? items[0].id ?? "";
-          setAulaId(id);
-        }
+        if (items[0]) setAulaId(getAulaId(items[0]));
       })
       .catch(() => {});
   }, [user?.id]);
@@ -123,10 +121,9 @@ export default function ProfesorReportes() {
               onChange={(e) => setAulaId(e.target.value)}
               className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
             >
-              {aulas.map((a) => {
-                const id = (a as { _id?: string } & Classroom)._id ?? a.id ?? "";
-                return <option key={id} value={id}>{a.name}</option>;
-              })}
+              {aulas.map((a) => (
+                <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
+              ))}
             </select>
           </div>
         )}

@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { getAulaId } from "../lib/aula-id";
 
 type AulasResponse = { items: Classroom[] };
-
-const aulaId = (a: Classroom) =>
-  (a as unknown as { _id?: string })._id ?? a.id ?? "";
 
 export default function MisClases() {
   const [aulas, setAulas] = useState<Classroom[]>([]);
@@ -63,8 +61,8 @@ export default function MisClases() {
       <div className="grid gap-4 sm:grid-cols-2">
         {aulas.map((aula) => (
           <Link
-            key={aula.id}
-            to={`/clases/${aulaId(aula)}`}
+            key={getAulaId(aula)}
+            to={`/clases/${getAulaId(aula)}`}
             className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-blue-300 transition-all group"
           >
             <div className="flex items-start justify-between gap-3">
