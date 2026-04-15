@@ -84,6 +84,9 @@ export default function menuProfesor() {
   const [modoAulaActivo, setModoAulaActivo] = useState(false);
   const [modoAulaAulaId, setModoAulaAulaId] = useState("");
   const [modoAulaLoading, setModoAulaLoading] = useState(false);
+  const [modoAulaDuracion, setModoAulaDuracion] = useState(60);
+  const [modoAulaTimer, setModoAulaTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
+  const [modoAulaExpira, setModoAulaExpira] = useState<Date | null>(null);
 
   const categoryOptions = useMemo(() => {
     const categories = modules
@@ -215,15 +218,50 @@ export default function menuProfesor() {
     if (!modoAulaAulaId) return;
     setModoAulaLoading(true);
     try {
+      const activar = !modoAulaActivo;
       await apiPost("/api/pedagogico/modo-aula", {
         aulaId: modoAulaAulaId,
-        activo: !modoAulaActivo,
+        activo: activar,
         restricciones: ["tienda", "economia"],
       });
-      setModoAulaActivo((prev) => !prev);
+      setModoAulaActivo(activar);
+
+      // Limpiar timer anterior
+      if (modoAulaTimer) clearTimeout(modoAulaTimer);
+
+      if (activar) {
+        // Calcular expiración
+        const expira = new Date(Date.now() + modoAulaDuracion * 60 * 1000);
+        setModoAulaExpira(expira);
+
+        // Timer para desactivar automáticamente
+        const timer = setTimeout(async () => {
+          try {
+            await apiPost("/api/pedagogico/modo-aula", {
+              aulaId: modoAulaAulaId,
+              activo: false,
+              restricciones: ["tienda", "economia"],
+            });
+            setModoAulaActivo(false);
+            setModoAulaExpira(null);
+          } catch { /* ignorar */ }
+        }, modoAulaDuracion * 60 * 1000);
+
+        setModoAulaTimer(timer);
+      } else {
+        setModoAulaExpira(null);
+        setModoAulaTimer(null);
+      }
     } catch { /* ignorar */ }
     finally { setModoAulaLoading(false); }
   };
+
+  // Limpiar timer al desmontar
+  useEffect(() => {
+    return () => {
+      if (modoAulaTimer) clearTimeout(modoAulaTimer);
+    };
+  }, [modoAulaTimer]);
 
   useEffect(() => {
     if (dashboardError) {
@@ -579,6 +617,33 @@ export default function menuProfesor() {
                         );
                       })}
                     </select>
+                  )}
+                  {!modoAulaActivo && (
+                    <div className="flex items-center gap-2">
+                      <label className="text-xs text-slate-500">
+                        Duración:
+                      </label>
+                      <select
+                        value={modoAulaDuracion}
+                        onChange={(e) => setModoAulaDuracion(Number(e.target.value))}
+                        className="rounded-lg border border-slate-200
+                          px-2 py-1 text-sm"
+                      >
+                        <option value={30}>30 min</option>
+                        <option value={45}>45 min</option>
+                        <option value={60}>60 min</option>
+                        <option value={90}>90 min</option>
+                        <option value={120}>120 min (máx.)</option>
+                      </select>
+                    </div>
+                  )}
+                  {modoAulaActivo && modoAulaExpira && (
+                    <p className="text-xs text-amber-600">
+                      Se desactiva a las{" "}
+                      {modoAulaExpira.toLocaleTimeString("es-AR", {
+                        hour: "2-digit", minute: "2-digit"
+                      })}
+                    </p>
                   )}
                   <button
                     type="button"
