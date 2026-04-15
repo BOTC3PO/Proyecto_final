@@ -603,6 +603,7 @@ export default function menuProfesor() {
               )}
             </section>
 
+            {modulesStatus === "error" || modules.length > 0 ? (
             <div className="bg-white rounded-xl shadow p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <h3 className="text-lg font-semibold">Módulos activos</h3>
@@ -740,6 +741,27 @@ export default function menuProfesor() {
                 </p>
               )}
             </div>
+            ) : modulesStatus === "ready" && modules.length === 0 ? (
+              <div className="bg-white rounded-xl shadow p-5
+                text-center space-y-3">
+                <p className="text-4xl">📚</p>
+                <h3 className="text-lg font-semibold text-slate-800">
+                  Todavía no tenés módulos creados
+                </h3>
+                <p className="text-sm text-slate-500">
+                  Creá tu primer módulo para empezar a enseñar.
+                </p>
+                <Link
+                  to="/modulos/crear"
+                  className="inline-flex items-center gap-2
+                    rounded-xl bg-blue-600 px-5 py-2.5
+                    text-sm font-semibold text-white
+                    hover:bg-blue-700 transition-colors"
+                >
+                  + Crear primer módulo
+                </Link>
+              </div>
+            ) : null}
 
             <section className="bg-white rounded-xl shadow p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
