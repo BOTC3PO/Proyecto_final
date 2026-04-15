@@ -200,11 +200,13 @@ export default function menuProfesor() {
     if (!user?.id) return;
     apiGet<{ items: Classroom[] }>("/api/aulas")
       .then((data) => {
-        const misAulas = (data.items ?? []).filter(
-          (a) => a.createdBy === user.id || a.teacherIds?.includes(user.id)
-        );
+        // El backend ya filtra por membresía
+        const misAulas = data.items ?? [];
         setAulas(misAulas);
-        if (misAulas[0] && !modoAulaAulaId) setModoAulaAulaId(misAulas[0].id);
+        if (misAulas[0] && !modoAulaAulaId) {
+          const aulaId = (misAulas[0] as { _id?: string } & Classroom)._id ?? misAulas[0].id ?? "";
+          setModoAulaAulaId(aulaId);
+        }
       })
       .catch(() => {});
   }, [user?.id]);
@@ -570,9 +572,12 @@ export default function menuProfesor() {
                         px-3 py-2 text-sm"
                     >
                       <option value="">Seleccionar aula</option>
-                      {aulas.map((a) => (
-                        <option key={a.id} value={a.id}>{a.name}</option>
-                      ))}
+                      {aulas.map((a) => {
+                        const id = (a as { _id?: string } & Classroom)._id ?? a.id ?? "";
+                        return (
+                          <option key={id} value={id}>{a.name}</option>
+                        );
+                      })}
                     </select>
                   )}
                   <button
