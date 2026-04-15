@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getDb } from "../lib/db";
 import { requireUser } from "../lib/user-auth";
+import { openContentDb } from "../lib/db-open";
 
 type AuthUser = {
   _id?: { toString?: () => string } | string;
@@ -208,9 +209,12 @@ profesor.get("/api/profesor/menu", async (req, res) => {
       }
     ],
     weeklyPlan: sortedAulas.slice(0, 3).map((aula, index) => {
-      const studentCount = (aula.members ?? []).filter(
-        (member) => member.roleInClass === "STUDENT"
-      ).length;
+      // Obtener conteo desde clase_miembros en SQLite
+      const sqliteDb = openContentDb();
+      const studentCount = (sqliteDb.prepare(`
+        SELECT COUNT(*) as count FROM clase_miembros
+        WHERE clase_id = ? AND rol_en_clase = 'STUDENT'
+      `).get(aula.id ?? "") as { count: number } | undefined)?.count ?? 0;
       return {
         id: aula.id ?? `aula-${index}`,
         title: aula.name ?? `Clase ${index + 1}`,

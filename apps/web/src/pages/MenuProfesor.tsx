@@ -925,8 +925,16 @@ export default function menuProfesor() {
                     })}
                   </div>
                 ) : (
-                  <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
-                    Seleccioná una materia con módulos disponibles para ver las dependencias.
+                  <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6 text-center">
+                    <p className="text-sm text-slate-400">
+                      El mapa aparece cuando tenés módulos con dependencias entre sí.
+                    </p>
+                    <Link
+                      to="/modulos/crear"
+                      className="mt-2 inline-block text-sm text-blue-600 hover:underline"
+                    >
+                      Crear módulo →
+                    </Link>
                   </div>
                 )}
                 <div className="space-y-4">
