@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { getAulaId } from "../lib/aula-id";
 import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
 import type { Module, ModuleDependency } from "../domain/module/module.types";
@@ -84,6 +85,9 @@ export default function menuProfesor() {
   const [modoAulaActivo, setModoAulaActivo] = useState(false);
   const [modoAulaAulaId, setModoAulaAulaId] = useState("");
   const [modoAulaLoading, setModoAulaLoading] = useState(false);
+  const [modoAulaDuracion, setModoAulaDuracion] = useState(60);
+  const [modoAulaTimer, setModoAulaTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
+  const [modoAulaExpira, setModoAulaExpira] = useState<Date | null>(null);
 
   const categoryOptions = useMemo(() => {
     const categories = modules
@@ -200,11 +204,12 @@ export default function menuProfesor() {
     if (!user?.id) return;
     apiGet<{ items: Classroom[] }>("/api/aulas")
       .then((data) => {
-        const misAulas = (data.items ?? []).filter(
-          (a) => a.createdBy === user.id || a.teacherIds?.includes(user.id)
-        );
+        // El backend ya filtra por membresía
+        const misAulas = data.items ?? [];
         setAulas(misAulas);
-        if (misAulas[0] && !modoAulaAulaId) setModoAulaAulaId(misAulas[0].id);
+        if (misAulas[0] && !modoAulaAulaId) {
+          setModoAulaAulaId(getAulaId(misAulas[0]));
+        }
       })
       .catch(() => {});
   }, [user?.id]);
@@ -213,15 +218,50 @@ export default function menuProfesor() {
     if (!modoAulaAulaId) return;
     setModoAulaLoading(true);
     try {
+      const activar = !modoAulaActivo;
       await apiPost("/api/pedagogico/modo-aula", {
         aulaId: modoAulaAulaId,
-        activo: !modoAulaActivo,
+        activo: activar,
         restricciones: ["tienda", "economia"],
       });
-      setModoAulaActivo((prev) => !prev);
+      setModoAulaActivo(activar);
+
+      // Limpiar timer anterior
+      if (modoAulaTimer) clearTimeout(modoAulaTimer);
+
+      if (activar) {
+        // Calcular expiración
+        const expira = new Date(Date.now() + modoAulaDuracion * 60 * 1000);
+        setModoAulaExpira(expira);
+
+        // Timer para desactivar automáticamente
+        const timer = setTimeout(async () => {
+          try {
+            await apiPost("/api/pedagogico/modo-aula", {
+              aulaId: modoAulaAulaId,
+              activo: false,
+              restricciones: ["tienda", "economia"],
+            });
+            setModoAulaActivo(false);
+            setModoAulaExpira(null);
+          } catch { /* ignorar */ }
+        }, modoAulaDuracion * 60 * 1000);
+
+        setModoAulaTimer(timer);
+      } else {
+        setModoAulaExpira(null);
+        setModoAulaTimer(null);
+      }
     } catch { /* ignorar */ }
     finally { setModoAulaLoading(false); }
   };
+
+  // Limpiar timer al desmontar
+  useEffect(() => {
+    return () => {
+      if (modoAulaTimer) clearTimeout(modoAulaTimer);
+    };
+  }, [modoAulaTimer]);
 
   useEffect(() => {
     if (dashboardError) {
@@ -433,12 +473,22 @@ export default function menuProfesor() {
                 <p className="text-gray-600">{dashboard?.profile.role ?? ""}</p>
               </div>
               <div className="flex items-center gap-5">
-                <button title="Notificaciones" aria-label="Notificaciones">
+                <Link
+                  to="/mensajes"
+                  title="Mensajes"
+                  className="text-gray-500 hover:text-blue-600
+                    transition-colors"
+                >
                   🔔
-                </button>
-                <span className="flex items-center gap-2 text-gray-400">
+                </Link>
+                <Link
+                  to="/perfil"
+                  className="flex items-center gap-2 text-gray-500
+                    hover:text-blue-600 transition-colors text-sm
+                    font-medium"
+                >
                   👤 Perfil
-                </span>
+                </Link>
               </div>
             </div>
 
@@ -561,9 +611,36 @@ export default function menuProfesor() {
                     >
                       <option value="">Seleccionar aula</option>
                       {aulas.map((a) => (
-                        <option key={a.id} value={a.id}>{a.name}</option>
+                        <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
                       ))}
                     </select>
+                  )}
+                  {!modoAulaActivo && (
+                    <div className="flex items-center gap-2">
+                      <label className="text-xs text-slate-500">
+                        Duración:
+                      </label>
+                      <select
+                        value={modoAulaDuracion}
+                        onChange={(e) => setModoAulaDuracion(Number(e.target.value))}
+                        className="rounded-lg border border-slate-200
+                          px-2 py-1 text-sm"
+                      >
+                        <option value={30}>30 min</option>
+                        <option value={45}>45 min</option>
+                        <option value={60}>60 min</option>
+                        <option value={90}>90 min</option>
+                        <option value={120}>120 min (máx.)</option>
+                      </select>
+                    </div>
+                  )}
+                  {modoAulaActivo && modoAulaExpira && (
+                    <p className="text-xs text-amber-600">
+                      Se desactiva a las{" "}
+                      {modoAulaExpira.toLocaleTimeString("es-AR", {
+                        hour: "2-digit", minute: "2-digit"
+                      })}
+                    </p>
                   )}
                   <button
                     type="button"
@@ -593,6 +670,7 @@ export default function menuProfesor() {
               )}
             </section>
 
+            {modulesStatus === "error" || modules.length > 0 ? (
             <div className="bg-white rounded-xl shadow p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <h3 className="text-lg font-semibold">Módulos activos</h3>
@@ -730,6 +808,27 @@ export default function menuProfesor() {
                 </p>
               )}
             </div>
+            ) : modulesStatus === "ready" && modules.length === 0 ? (
+              <div className="bg-white rounded-xl shadow p-5
+                text-center space-y-3">
+                <p className="text-4xl">📚</p>
+                <h3 className="text-lg font-semibold text-slate-800">
+                  Todavía no tenés módulos creados
+                </h3>
+                <p className="text-sm text-slate-500">
+                  Creá tu primer módulo para empezar a enseñar.
+                </p>
+                <Link
+                  to="/modulos/crear"
+                  className="inline-flex items-center gap-2
+                    rounded-xl bg-blue-600 px-5 py-2.5
+                    text-sm font-semibold text-white
+                    hover:bg-blue-700 transition-colors"
+                >
+                  + Crear primer módulo
+                </Link>
+              </div>
+            ) : null}
 
             <section className="bg-white rounded-xl shadow p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
@@ -823,8 +922,16 @@ export default function menuProfesor() {
                     })}
                   </div>
                 ) : (
-                  <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
-                    Seleccioná una materia con módulos disponibles para ver las dependencias.
+                  <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6 text-center">
+                    <p className="text-sm text-slate-400">
+                      El mapa aparece cuando tenés módulos con dependencias entre sí.
+                    </p>
+                    <Link
+                      to="/modulos/crear"
+                      className="mt-2 inline-block text-sm text-blue-600 hover:underline"
+                    >
+                      Crear módulo →
+                    </Link>
                   </div>
                 )}
                 <div className="space-y-4">

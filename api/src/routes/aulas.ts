@@ -315,13 +315,11 @@ aulas.put(
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
-      const parsed = ClassroomUpdateSchema.parse(req.body);
+      const parsed = ClassroomPatchSchema.parse(req.body);
       const db = await getDb();
       const classroom = res.locals.classroom;
-      const currentStatus = normalizeClassroomStatus(classroom.status);
-      if (!currentStatus) {
-        return res.status(409).json({ error: "invalid classroom status" });
-      }
+      // Si el aula no tiene status (SQLite), asumir ACTIVE
+      const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
       if (
         isClassroomReadOnlyStatus(currentStatus) &&
         (parsed.members || parsed.teacherId || parsed.teacherOfRecord)

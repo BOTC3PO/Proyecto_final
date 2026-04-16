@@ -4,6 +4,7 @@ import { useAuth } from "../auth/use-auth";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabel } from "../domain/classroom/classroom.types";
 import { fetchEnterpriseAulas } from "../services/enterprise";
+import { getAulaId } from "../lib/aula-id";
 
 const ACCESS_LABELS: Record<Classroom["accessType"], string> = {
   publica: "Pública", privada: "Privada",
@@ -53,7 +54,7 @@ export default function EnterpriseAulas() {
             <p className="text-sm text-slate-500">No hay aulas registradas.</p>
           )}
           {!loading && !error && aulas.map((aula) => (
-            <div key={aula.id}
+            <div key={getAulaId(aula)}
               className="flex flex-wrap items-start justify-between gap-3 rounded-xl border border-slate-100 px-4 py-3 hover:bg-slate-50 transition-colors">
               <div className="space-y-1">
                 <p className="text-sm font-semibold text-slate-900">{aula.name}</p>
@@ -70,7 +71,7 @@ export default function EnterpriseAulas() {
                   {getClassroomStatusLabel(aula.status)}
                 </span>
                 <Link
-                  to={`/clases?id=${aula.id}`}
+                  to={`/clases?id=${getAulaId(aula)}`}
                   className="rounded-lg border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-600 hover:bg-white transition-colors"
                 >
                   Ver →

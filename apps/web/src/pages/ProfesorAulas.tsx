@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
@@ -40,6 +41,7 @@ export default function ProfesorAulas() {
   );
   const [deletePromptId, setDeletePromptId] = useState<string | null>(null);
   const [downloadOnDelete, setDownloadOnDelete] = useState<Record<string, boolean>>({});
+  const [mostrarArchivadas, setMostrarArchivadas] = useState(false);
   const [escuelas, setEscuelas] = useState<Array<{ id: string; name: string }>>([]);
   const [materias, setMaterias] = useState<string[]>([]);
 
@@ -275,7 +277,7 @@ export default function ProfesorAulas() {
   const handleArchiveToggle = async (classroom: Classroom) => {
     setSubmitError(null);
     setIsSubmitting(true);
-    const normalizedStatus = normalizeClassroomStatus(classroom.status);
+    const normalizedStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
     if (normalizedStatus === "LOCKED") {
       setSubmitError("El aula está bloqueada y no admite cambios de estado.");
       setIsSubmitting(false);
@@ -352,6 +354,12 @@ export default function ProfesorAulas() {
     link.click();
     URL.revokeObjectURL(url);
   };
+
+  const aulasFiltradas = mostrarArchivadas
+    ? visibleClassrooms
+    : visibleClassrooms.filter((c) =>
+        !c.status || c.status === "ACTIVE" || c.status === "activa"
+      );
 
   return (
     <main className="p-6 space-y-6">
@@ -483,9 +491,19 @@ export default function ProfesorAulas() {
               : "No hay aulas disponibles para tu rol todavía."}
           </div>
         ) : (
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {visibleClassrooms.map((classroom) => (
-              <article key={classroom.id} className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+          <>
+            <label className="flex items-center gap-2 text-sm text-slate-500 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={mostrarArchivadas}
+                onChange={(e) => setMostrarArchivadas(e.target.checked)}
+                className="rounded"
+              />
+              Mostrar archivadas
+            </label>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {aulasFiltradas.map((classroom) => (
+              <article key={classroom.id} className={`rounded-xl border border-gray-200 bg-white p-5 shadow-sm ${classroom.status === "ARCHIVED" ? "opacity-50" : ""}`}>
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <h2 className="text-lg font-semibold text-gray-900">{classroom.name}</h2>
@@ -499,7 +517,7 @@ export default function ProfesorAulas() {
                         : "bg-green-100 text-green-700"
                     }`}
                   >
-                    {getClassroomStatusLabel(classroom.status)}
+                    {getClassroomStatusLabel(classroom.status ?? "ACTIVE")}
                   </span>
                 </div>
                 <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-gray-600">
@@ -608,8 +626,19 @@ export default function ProfesorAulas() {
                     </button>
                   </div>
                 </div>
-                {user?.role === "TEACHER" && classroom.createdBy === user.id && (
+                {user?.role === "TEACHER" && (
                   <div className="mt-4 flex flex-wrap gap-2">
+                    <Link
+                      to={`/profesor/aulas/${
+                        (classroom as { _id?: string } & typeof classroom)
+                          ._id ?? classroom.id
+                      }/configuracion`}
+                      className="rounded-md border border-indigo-200
+                        px-3 py-1 text-xs text-indigo-700
+                        hover:bg-indigo-50"
+                    >
+                      Configurar
+                    </Link>
                     <button
                       type="button"
                       className="rounded-md border border-gray-300 px-3 py-1 text-xs text-gray-700 hover:bg-gray-50"
@@ -636,52 +665,12 @@ export default function ProfesorAulas() {
                     >
                       Reutilizar contenido
                     </button>
-                    <button
-                      type="button"
-                      className="rounded-md border border-red-200 px-3 py-1 text-xs text-red-600 hover:bg-red-50"
-                      onClick={() => setDeletePromptId(classroom.id)}
-                      disabled={isSubmitting}
-                    >
-                      Eliminar
-                    </button>
-                  </div>
-                )}
-                {user?.role === "TEACHER" && classroom.createdBy === user.id && deletePromptId === classroom.id && (
-                  <div className="mt-3 rounded-lg border border-red-100 bg-red-50 p-3 text-xs text-red-700">
-                    <p className="font-semibold">¿Eliminar esta aula?</p>
-                    <p className="mt-1 text-red-600">Podés descargar un respaldo antes de confirmar.</p>
-                    <label className="mt-2 flex items-center gap-2 text-[11px] text-red-700">
-                      <input
-                        type="checkbox"
-                        checked={downloadOnDelete[classroom.id] ?? false}
-                        onChange={(event) =>
-                          setDownloadOnDelete((prev) => ({ ...prev, [classroom.id]: event.target.checked }))
-                        }
-                      />
-                      Descargar datos del aula
-                    </label>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      <button
-                        type="button"
-                        className="rounded-md bg-red-600 px-3 py-1 text-[11px] text-white hover:bg-red-700"
-                        onClick={() => handleDelete(classroom.id)}
-                        disabled={isSubmitting}
-                      >
-                        Confirmar eliminación
-                      </button>
-                      <button
-                        type="button"
-                        className="rounded-md border border-red-200 px-3 py-1 text-[11px] text-red-700 hover:bg-red-100"
-                        onClick={() => setDeletePromptId(null)}
-                      >
-                        Cancelar
-                      </button>
-                    </div>
                   </div>
                 )}
               </article>
             ))}
           </div>
+          </>
         )}
       </section>
     </main>

@@ -9,6 +9,7 @@ import {
 } from "../services/encuestas";
 import { fetchClassrooms } from "../services/aulas";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { getAulaId } from "../lib/aula-id";
 
 const toLocalInputValue = (date: Date) => date.toISOString().slice(0, 16);
 
@@ -62,7 +63,7 @@ export default function ProfesorEncuestas() {
         const response = await fetchClassrooms();
         setClassrooms(response.items);
         if (response.items.length > 0) {
-          setClassroomId((prev) => prev || response.items[0].id);
+          setClassroomId((prev) => prev || getAulaId(response.items[0]));
         } else {
           setItems([]);
         }
@@ -103,7 +104,7 @@ export default function ProfesorEncuestas() {
     try {
       setError(null);
       const now = new Date().toISOString();
-      const selectedClassroom = classrooms.find((item) => item.id === classroomId);
+      const selectedClassroom = classrooms.find((item) => getAulaId(item) === classroomId);
       const payload: Survey = {
         id: crypto.randomUUID(),
         title: title.trim(),
@@ -192,7 +193,7 @@ export default function ProfesorEncuestas() {
                 Selecciona un aula
               </option>
               {classrooms.map((classroom) => (
-                <option key={classroom.id} value={classroom.id}>
+                <option key={getAulaId(classroom)} value={getAulaId(classroom)}>
                   {classroom.name}
                 </option>
               ))}

@@ -291,9 +291,8 @@ export default function aula() {
 
   const isTeacherOfClass = useMemo(() => {
     if (!user || !classroom || user.role !== "TEACHER") return false;
-    if (classroom.createdBy === user.id) return true;
-    if (classroom.teacherIds?.includes(user.id)) return true;
-    return false;
+    // El backend ya filtra por membresía
+    return true;
   }, [classroom, user]);
 
   const roleLabel = useMemo(() => {

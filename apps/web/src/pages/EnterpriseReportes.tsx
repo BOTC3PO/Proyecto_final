@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { getAulaId } from "../lib/aula-id";
 import {
   fetchEscuelaReporte, fetchBoletin, fetchProgresoReporte,
   type EscuelaResponse, type BoletinResponse,
@@ -35,7 +36,7 @@ export default function EnterpriseReportes() {
         setEscuela(esc);
         const items = aulasData.items ?? [];
         setAulas(items);
-        if (items[0]) setAulaId(items[0].id);
+        if (items[0]) setAulaId(getAulaId(items[0]));
       })
       .catch((err: Error) => {
         if (!active) return;
@@ -112,7 +113,7 @@ export default function EnterpriseReportes() {
               className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
             >
               {aulas.map((a) => (
-                <option key={a.id} value={a.id}>{a.name}</option>
+                <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
               ))}
             </select>
           </div>

@@ -48,9 +48,10 @@ const ProfesorConfiguracion = lazyWithRetry(() => import("./pages/ProfesorConfig
 const ProfesorEstadisticas  = lazyWithRetry(() => import("./pages/ProfesorEstadisticas"));
 const ProfesorEvaluaciones  = lazyWithRetry(() => import("./pages/ProfesorEvaluaciones"));
 const ProfesorMateriales    = lazyWithRetry(() => import("./pages/ProfesorMateriales"));
-const ModulosList           = lazyWithRetry(() => import("./pages/modulos/ModulosList"));
-const ModuloDetail          = lazyWithRetry(() => import("./pages/modulos/ModuloDetail"));
-const ReproductorModulos    = lazyWithRetry(() => import("./pages/modulos/ReproductorModulos"));
+const ModulosList          = lazyWithRetry(() => import("./pages/modulos/ModulosList"));
+const ModuloDetail         = lazyWithRetry(() => import("./pages/modulos/ModuloDetail"));
+const ModuloEditor         = lazyWithRetry(() => import("./pages/modulos/ModuloEditor"));
+const ReproductorModulos   = lazyWithRetry(() => import("./pages/modulos/ReproductorModulos"));
 const ProfesorEncuestas     = lazyWithRetry(() => import("./pages/ProfesorEncuestas"));
 const ProfesorCursoNuevo    = lazyWithRetry(() => import("./pages/ProfesorCursoNuevo"));
 const HijosProgreso         = lazyWithRetry(() => import("./pages/HijosProgreso"));
@@ -481,16 +482,16 @@ export const router = createBrowserRouter([
       {
         path: "modulos/crear",
         element: (
-          <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
-            <Navigate to="/modulos" replace />
+          <ProtectedRoute allow={["TEACHER", "ADMIN"]}>
+            {withSuspense(<ModuloEditor />)}
           </ProtectedRoute>
         ),
       },
       {
         path: "modulos/:id/editar",
         element: (
-          <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
-            <Navigate to="/modulos" replace />
+          <ProtectedRoute allow={["TEACHER", "ADMIN"]}>
+            {withSuspense(<ModuloEditor />)}
           </ProtectedRoute>
         ),
       },
@@ -506,7 +507,7 @@ export const router = createBrowserRouter([
         path: "modulos/:id/jugar",
         element: (
           <ProtectedRoute allow={["USER", "PARENT", "TEACHER"]}>
-            <Navigate to="/modulos" replace />
+            {withSuspense(<ModuloDetail />)}
           </ProtectedRoute>
         ),
       },

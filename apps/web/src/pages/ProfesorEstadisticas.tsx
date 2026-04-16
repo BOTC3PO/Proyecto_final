@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { getAulaId } from "../lib/aula-id";
 
 type ProgressItem = {
   moduloId: string;
@@ -38,12 +39,9 @@ export default function ProfesorEstadisticas() {
     if (!user?.id) return;
     apiGet<{ items: Classroom[] }>("/api/aulas")
       .then((data) => {
-        const misAulas = (data.items ?? []).filter(
-          (a) => a.createdBy === user.id ||
-            a.teacherIds?.includes(user.id)
-        );
+        const misAulas = data.items ?? [];
         setAulas(misAulas);
-        if (misAulas[0]) setAulaId(misAulas[0].id);
+        if (misAulas[0]) setAulaId(getAulaId(misAulas[0]));
       })
       .catch(() => {});
   }, [user?.id]);
@@ -110,7 +108,7 @@ export default function ProfesorEstadisticas() {
             className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
           >
             {aulas.map((a) => (
-              <option key={a.id} value={a.id}>{a.name}</option>
+              <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
             ))}
           </select>
         </div>
