@@ -1070,21 +1070,65 @@ export default function ModuloEditor() {
                 </div>
 
                 <div className="flex flex-wrap items-start gap-3">
+                  {/* Cuestionario manual — preguntas escritas por el profesor */}
                   <button
                     type="button"
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-violet-700 hover:shadow-md active:scale-[0.98]"
+                    className="inline-flex items-center gap-1.5
+                      rounded-lg bg-violet-600 px-4 py-2.5 text-sm
+                      font-medium text-white shadow-sm hover:bg-violet-700
+                      transition-all"
                     onClick={() => {
                       const returnTo = id
                         ? `/modulos/${id}/editar`
                         : `/modulos/crear`;
                       navigate(
-                        `/profesor/editor-cuestionarios?moduleId=${id ?? "nuevo"}&returnTo=${encodeURIComponent(returnTo)}`
+                        `/profesor/editor-cuestionarios?moduleId=${
+                          id ?? "nuevo"
+                        }&mode=manual&returnTo=${encodeURIComponent(returnTo)}`
                       );
                     }}
                   >
-                    <span className="text-base leading-none">+</span> Nuevo cuestionario
+                    <span className="text-base leading-none">✏️</span>
+                    Cuestionario manual
                   </button>
+
+                  {/* Ejercicios generados — solo si la materia lo soporta */}
+                  {subjectCapabilities?.generators && (
+                    <button
+                      type="button"
+                      className="inline-flex items-center gap-1.5
+                        rounded-lg bg-emerald-600 px-4 py-2.5 text-sm
+                        font-medium text-white shadow-sm hover:bg-emerald-700
+                        transition-all"
+                      onClick={() => {
+                        const returnTo = id
+                          ? `/modulos/${id}/editar`
+                          : `/modulos/crear`;
+                        navigate(
+                          `/profesor/editor-cuestionarios?moduleId=${
+                            id ?? "nuevo"
+                          }&mode=generated&returnTo=${encodeURIComponent(returnTo)}`
+                        );
+                      }}
+                    >
+                      <span className="text-base leading-none">⚡</span>
+                      Ejercicios generados
+                    </button>
+                  )}
+
                   <QuizImportJson onImportQuizzes={handleImportQuizzes} />
+                </div>
+
+                {/* Leyenda explicativa */}
+                <div className="flex flex-wrap gap-3 text-xs text-slate-500">
+                  <span>
+                    ✏️ <strong>Manual</strong> — escribís las preguntas vos mismo
+                  </span>
+                  {subjectCapabilities?.generators && (
+                    <span>
+                      ⚡ <strong>Generados</strong> — ejercicios automáticos infinitos según la materia
+                    </span>
+                  )}
                 </div>
 
                 {quizzes.length === 0 ? (
