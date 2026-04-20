@@ -130,12 +130,12 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
   } else {
     return res.status(403).json({ error: "forbidden" });
   }
-  console.log("[DEBUG aula get]", {
+ /* console.log("[DEBUG aula get]", {
     requesterId,
     requesterSchoolId,
     accessLevel,
     query: JSON.stringify(query),
-  });
+  });*/
 
   const cursor = db
     .collection("aulas")
@@ -144,7 +144,7 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
     .limit(limit)
     .sort({ updatedAt: -1 });
   const items = await cursor.toArray();
-  console.log("[DEBUG aulas result]", items.length, items[0]);
+  //console.log("[DEBUG aulas result]", items.length, items[0]);
   res.json({
     items: items.map((item) => ({
       ...item,
@@ -286,17 +286,17 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
       members: enrichedMembers,
     };
 
-    console.log("[DEBUG aula create]", {
+    /*console.log("[DEBUG aula create]", {
       requesterId,
       members: enrichedMembers,
       schoolId: enriched.schoolId,
-    });
+    });*/
 
     const result = await db.collection("aulas").insertOne(finalPayload);
-    console.log("[DEBUG aula inserted]", {
+   /* console.log("[DEBUG aula inserted]", {
       insertedId: result.insertedId,
       mongoId: result.insertedId?.toString(),
-    });
+    });*/
     res.status(201).json({ id: result.insertedId, classroomId: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });

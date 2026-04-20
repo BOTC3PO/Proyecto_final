@@ -181,7 +181,7 @@ export class SchemaCollection<T extends Doc = Doc> {
     }
     if (limit > 0) sql += ` LIMIT ${limit}`;
     if (skip  > 0) sql += ` OFFSET ${skip}`;
-    console.log("[DEBUG SQL]", sql, where.params);
+    //console.log("[DEBUG SQL]", sql, where.params);
     return (
       this.db.prepare(sql).all(...where.params) as Record<string, unknown>[]
     ).map((r) => this.rowToDoc(r));
