@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import { recordAuditLog } from "../lib/audit-log";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { generateId } from "../lib/ids";
 import { requirePolicy } from "../lib/authorization";
 import { requireClassroomScope } from "../lib/classroom-scope";
@@ -36,7 +36,6 @@ resourceLinks.get(
   requirePolicy("resource-links/read"),
   requireClassroomScope({ paramName: "aulaId", allowMemberRoles: "any", allowSchoolMatch: true }),
   async (req, res) => {
-    const db = await getDb();
     const classroom = res.locals.classroom;
 
     const user = (req as { user?: { role?: string; schoolId?: string | null; _id?: string } }).user;
@@ -56,7 +55,10 @@ resourceLinks.get(
       filter.visibility = "publico";
     }
 
-    const items = await db.collection("resource_links").find(filter).sort({ updatedAt: -1 }).toArray();
+    const items = await prisma.resourceLink.findMany({
+      where: filter as any,
+      orderBy: { updatedAt: "desc" }
+    });
     res.json({ items });
   }
 );
@@ -68,7 +70,6 @@ resourceLinks.post(
   requireClassroomScope({ paramName: "aulaId", allowMemberRoles: ["ADMIN", "TEACHER"], allowSchoolMatch: true }),
   ...bodyLimitMB(5),
   async (req, res) => {
-    const db = await getDb();
     const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
@@ -101,7 +102,7 @@ resourceLinks.post(
         updatedAt: now
       };
       const parsed = ResourceLinkSchema.parse(payload);
-      const result = await db.collection("resource_links").insertOne(parsed);
+      const result = await prisma.resourceLink.create({ data: parsed as any });
       await recordAuditLog({
         actorId: userId,
         action: "resource_links.create",
@@ -113,7 +114,7 @@ resourceLinks.post(
           visibility: parsed.visibility ?? null
         }
       });
-      res.status(201).json({ id: result.insertedId, resourceLinkId: parsed.id });
+      res.status(201).json({ id: result.id, resourceLinkId: parsed.id });
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });
     }
@@ -127,7 +128,6 @@ resourceLinks.put(
   requireClassroomScope({ paramName: "aulaId", allowMemberRoles: ["ADMIN", "TEACHER"], allowSchoolMatch: true }),
   ...bodyLimitMB(5),
   async (req, res) => {
-    const db = await getDb();
     const resourceLinkId = getParamId(req.params.id);
     const aulaId = getParamId(req.params.aulaId);
     const classroom = res.locals.classroom;
@@ -148,10 +148,11 @@ resourceLinks.put(
     try {
       const parsed = ResourceLinkUpdateSchema.parse(req.body);
       const update = { ...parsed, updatedAt: new Date().toISOString() };
-      const result = await db
-        .collection("resource_links")
-        .updateOne({ id: resourceLinkId, aulaId }, { $set: update });
-      if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+      const result = await prisma.resourceLink.updateMany({
+        where: { id: resourceLinkId, aulaId },
+        data: update as any
+      });
+      if (result.count === 0) return res.status(404).json({ error: "not found" });
       await recordAuditLog({
         actorId: userId,
         action: "resource_links.update",
@@ -176,7 +177,6 @@ resourceLinks.patch(
   requireClassroomScope({ paramName: "aulaId", allowMemberRoles: ["ADMIN", "TEACHER"], allowSchoolMatch: true }),
   ...bodyLimitMB(5),
   async (req, res) => {
-    const db = await getDb();
     const resourceLinkId = getParamId(req.params.id);
     const aulaId = getParamId(req.params.aulaId);
     const classroom = res.locals.classroom;
@@ -197,10 +197,11 @@ resourceLinks.patch(
     try {
       const parsed = ResourceLinkUpdateSchema.partial().parse(req.body);
       const update = { ...parsed, updatedAt: new Date().toISOString() };
-      const result = await db
-        .collection("resource_links")
-        .updateOne({ id: resourceLinkId, aulaId }, { $set: update });
-      if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+      const result = await prisma.resourceLink.updateMany({
+        where: { id: resourceLinkId, aulaId },
+        data: update as any
+      });
+      if (result.count === 0) return res.status(404).json({ error: "not found" });
       await recordAuditLog({
         actorId: userId,
         action: "resource_links.patch",
@@ -224,7 +225,6 @@ resourceLinks.delete(
   requirePolicy("resource-links/write"),
   requireClassroomScope({ paramName: "aulaId", allowMemberRoles: ["ADMIN", "TEACHER"], allowSchoolMatch: true }),
   async (req, res) => {
-    const db = await getDb();
     const resourceLinkId = getParamId(req.params.id);
     const aulaId = getParamId(req.params.aulaId);
     const classroom = res.locals.classroom;
@@ -242,10 +242,10 @@ resourceLinks.delete(
     if (!schoolId || !userId) return res.status(403).json({ error: "forbidden" });
     if (!resourceLinkId || !aulaId) return res.status(400).json({ error: "invalid params" });
 
-    const result = await db
-      .collection("resource_links")
-      .deleteOne({ id: resourceLinkId, aulaId });
-    if (result.deletedCount === 0) return res.status(404).json({ error: "not found" });
+    const result = await prisma.resourceLink.deleteMany({
+      where: { id: resourceLinkId, aulaId }
+    });
+    if (result.count === 0) return res.status(404).json({ error: "not found" });
     await recordAuditLog({
       actorId: userId,
       action: "resource_links.delete",

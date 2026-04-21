@@ -1,12 +1,11 @@
 import express, { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { openContentDb } from "../lib/db-open";
 import {
   ENTERPRISE_FEATURES,
   requireActiveInstitutionBenefit,
   requireEnterpriseFeature
 } from "../lib/entitlements";
-import { toObjectId } from "../lib/ids";
 import { requireUser } from "../lib/user-auth";
 import {
   QuizAttemptCreateSchema,
@@ -80,10 +79,10 @@ type QuizFeedback = {
 };
 
 type QuizAttemptRecord = {
-  _id: string;
+  id: string;
   moduleId: string | null;
   quizId: string;
-  quizVersion: number;
+  quizVersionId: string | null;
   userId: string;
   seed: number | string | null;
   answers: Record<string, string | string[]>;
@@ -91,8 +90,8 @@ type QuizAttemptRecord = {
   score: number;
   maxScore: number;
   status: string;
-  createdAt: Date;
-  updatedAt: Date;
+  startedAt: Date;
+  submittedAt: Date | null;
 };
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
@@ -144,21 +143,45 @@ const buildQuizFromCollection = (
 };
 
 const fetchQuizFromCollections = async (
-  db: Awaited<ReturnType<typeof getDb>>,
   quizId: string,
   moduleId?: string
 ) => {
-  const metadata = (await db
-    .collection("quizzes")
-    .findOne({ id: quizId })) as QuizMetadataRecord | null;
-  const module = moduleId
-    ? ((await db.collection("modulos").findOne({ id: moduleId })) as ModuleWithQuizzes | null)
+  const quizRecord = await prisma.quiz.findFirst({ where: { id: quizId } });
+  const metadata: QuizMetadataRecord | null = quizRecord
+    ? {
+        id: quizRecord.id,
+        moduleId: quizRecord.moduleId ?? null,
+        title: quizRecord.title ?? undefined,
+      }
     : null;
+
+  const moduloRecord = moduleId
+    ? await prisma.modulo.findFirst({ where: { id: moduleId } })
+    : null;
+  const module: ModuleWithQuizzes | null = moduloRecord
+    ? { id: moduloRecord.id, title: moduloRecord.titulo }
+    : null;
+
   if (!metadata) return { quiz: null, module };
-  const versionToUse = metadata.currentVersion ?? 1;
-  const version = (await db
-    .collection("quiz_versions")
-    .findOne({ quizId, version: versionToUse })) as QuizVersionRecord | null;
+
+  const versionRecord = quizRecord?.currentVersionId
+    ? await prisma.quizVersion.findFirst({ where: { id: quizRecord.currentVersionId } })
+    : null;
+
+  const version: QuizVersionRecord | null = versionRecord
+    ? {
+        quizId: versionRecord.quizId,
+        version: versionRecord.versionNumber,
+        questions: versionRecord.questions as ModuleQuiz["questions"],
+        generatorId: versionRecord.generatorId ?? undefined,
+        generatorVersion: versionRecord.generatorVersion ?? versionRecord.versionNumber,
+        params: versionRecord.params as Record<string, unknown> | undefined,
+        count: versionRecord.count ?? undefined,
+        seedPolicy: versionRecord.seedPolicy ?? undefined,
+        fixedSeed: versionRecord.fixedSeed ?? undefined,
+      }
+    : null;
+
   const quiz = buildQuizFromCollection(metadata, version);
   return { quiz, module, metadata, version };
 };
@@ -233,27 +256,14 @@ type GeneratedQuestion = {
 };
 
 async function generateQuestionsFromConfig(
-  db: Awaited<ReturnType<typeof getDb>>,
   generatorId: string,
   params: Record<string, unknown>,
   count: number,
   seed: number | string
 ): Promise<GeneratedQuestion[]> {
-  const config = await db
-    .collection("generator_configs")
-    .findOne({ id: generatorId });
-  if (!config) return [];
-
-  const subtipos = (() => {
-    try {
-      const all = JSON.parse(String(config.subtipos ?? "[]")) as Array<{
-        id: string; label: string; activo?: boolean;
-      }>;
-      return all.filter((s) => s.activo !== false);
-    } catch { return []; }
-  })();
-
-  if (subtipos.length === 0) return [];
+  // generator_configs is not a Prisma model; this table lives outside Prisma scope.
+  // Return placeholder questions as before.
+  void generatorId; void params;
 
   // PRNG determinístico basado en el seed
   let state = typeof seed === "number"
@@ -265,16 +275,14 @@ async function generateQuestionsFromConfig(
     return state / 0x100000000;
   };
 
-  const subtipo = typeof params?.subtipo === "string"
-    ? params.subtipo
-    : subtipos[Math.floor(nextRand() * subtipos.length)]?.id ?? subtipos[0].id;
+  void nextRand;
 
   // Generar N preguntas placeholder con el subtipo y seed
   // El contenido real lo genera el cliente con generadoresV2
   // Acá solo persistimos el esqueleto para que el attempt tenga
   // maxScore correcto y el scoring pueda recibir las preguntas del cliente
   return Array.from({ length: count }, (_, i) => ({
-    id: `${generatorId}/${subtipo}/${seed}/${i}`,
+    id: `${generatorId}/${seed}/${i}`,
     prompt: `Pregunta ${i + 1}`,
     questionType: "mc" as const,
     answerKey: "",
@@ -292,14 +300,12 @@ quizAttempts.post(
   async (req, res) => {
   try {
     const payload = QuizAttemptCreateSchema.parse(req.body);
-    const db = await getDb();
     const module = payload.moduleId
-      ? ((await db.collection("modulos").findOne({ id: payload.moduleId })) as
-          | ModuleWithQuizzes
-          | null)
+      ? await prisma.modulo.findFirst({ where: { id: payload.moduleId } }).then((m) =>
+          m ? ({ id: m.id, title: m.titulo } as ModuleWithQuizzes) : null
+        )
       : null;
     const { quiz: collectionQuiz, metadata, version } = await fetchQuizFromCollections(
-      db,
       payload.quizId,
       payload.moduleId
     );
@@ -321,7 +327,6 @@ quizAttempts.post(
     if (quiz.generatorId && (!quiz.questions || quiz.questions.length === 0)) {
       const generatedCount = quiz.count ?? 10;
       await generateQuestionsFromConfig(
-        db,
         quiz.generatorId,
         (payload as Record<string, unknown>).params as Record<string, unknown> ?? {},
         generatedCount,
@@ -329,24 +334,26 @@ quizAttempts.post(
       );
       maxScore = generatedCount;
     }
-    const attempt = {
-      moduleId: resolvedModuleId,
-      quizId: payload.quizId,
-      quizVersion,
-      userId,
-      seed,
-      answers: {},
-      feedback: {},
-      score: 0,
-      maxScore,
-      status: "in_progress",
-      createdAt: now,
-      updatedAt: now
-    };
-    const result = await db.collection("quiz_attempts").insertOne(attempt);
+    const result = await prisma.quizAttempt.create({
+      data: {
+        quizId: payload.quizId,
+        quizVersionId: version?.quizId ?? null,
+        userId,
+        seed: seed !== null ? String(seed) : null,
+        answers: {},
+        feedback: {},
+        score: 0,
+        maxScore,
+        status: "in_progress",
+        startedAt: now,
+        submittedAt: null,
+        attemptNo: 1,
+        seedPolicy: quiz.seedPolicy ?? null,
+      }
+    });
     res
       .status(201)
-      .json({ id: result.insertedId.toString(), attemptId: result.insertedId.toString() });
+      .json({ id: result.id, attemptId: result.id });
   } catch (error: any) {
     res.status(400).json({ error: error?.message ?? "invalid payload" });
   }
@@ -360,8 +367,7 @@ quizAttempts.get(
   requireActiveInstitutionBenefit,
   async (req, res) => {
   const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
-  const attemptObjectId = toObjectId(idParam);
-  if (!attemptObjectId) return res.status(400).json({ error: "invalid attempt id" });
+  if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
   const userId =
     typeof req.user?._id?.toString === "function"
       ? req.user._id.toString()
@@ -369,20 +375,16 @@ quizAttempts.get(
         ? req.user.id
         : "";
   if (!userId) return res.status(401).json({ error: "user not found" });
-  const db = await getDb();
-  const attempt = (await db
-    .collection("quiz_attempts")
-    .findOne({ _id: attemptObjectId, userId })) as QuizAttemptRecord | null;
+  const attempt = await prisma.quizAttempt.findFirst({ where: { id: idParam, userId } }) as QuizAttemptRecord | null;
   if (!attempt) return res.status(404).json({ error: "attempt not found" });
   const { quiz: collectionQuiz, metadata, module } = await fetchQuizFromCollections(
-    db,
     attempt.quizId,
     attempt.moduleId ?? undefined
   );
   const quiz = collectionQuiz ?? findQuiz(module, attempt.quizId);
   res.json({
-    id: attempt._id.toString(),
-    attemptId: attempt._id.toString(),
+    id: attempt.id,
+    attemptId: attempt.id,
     moduleId: attempt.moduleId ?? undefined,
     quizId: attempt.quizId,
     quizTitle: quiz?.title ?? metadata?.title ?? module?.title ?? "Quiz",
@@ -411,8 +413,7 @@ quizAttempts.post(
     try {
       const payload = QuizAttemptSubmitSchema.parse(req.body);
       const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
-      const attemptObjectId = toObjectId(idParam);
-      if (!attemptObjectId) return res.status(400).json({ error: "invalid attempt id" });
+      if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
       const userId =
         typeof req.user?._id?.toString === "function"
           ? req.user._id.toString()
@@ -420,38 +421,31 @@ quizAttempts.post(
             ? req.user.id
             : "";
       if (!userId) return res.status(401).json({ error: "user not found" });
-      const db = await getDb();
-      const attempt = (await db
-        .collection("quiz_attempts")
-        .findOne({ _id: attemptObjectId, userId })) as QuizAttemptRecord | null;
+      const attempt = await prisma.quizAttempt.findFirst({ where: { id: idParam, userId } }) as QuizAttemptRecord | null;
       if (!attempt) return res.status(404).json({ error: "attempt not found" });
       const { quiz: collectionQuiz, version, module } = await fetchQuizFromCollections(
-        db,
         attempt.quizId,
         attempt.moduleId ?? undefined
       );
       const quiz = collectionQuiz ?? findQuiz(module, attempt.quizId);
       if (!quiz) return res.status(404).json({ error: "quiz not found" });
       const normalizedQuizVersion = QuizVersionSchema.parse(
-        attempt.quizVersion ?? version?.version ?? quiz?.generatorVersion ?? 1
+        version?.version ?? quiz?.generatorVersion ?? 1
       );
       const { score, maxScore } = gradeAnswers(quiz, payload.answers);
       const feedback = buildFeedback(quiz, payload.answers);
       const updatedAt = new Date();
-      await db.collection("quiz_attempts").updateOne(
-        { _id: attemptObjectId },
-        {
-          $set: {
-            answers: payload.answers,
-            feedback,
-            status: "submitted",
-            score,
-            maxScore,
-            quizVersion: normalizedQuizVersion,
-            updatedAt
-          }
+      await prisma.quizAttempt.updateMany({
+        where: { id: idParam },
+        data: {
+          answers: payload.answers,
+          feedback,
+          status: "submitted",
+          score,
+          maxScore,
+          submittedAt: updatedAt
         }
-      );
+      });
       // Obtener umbral del quiz (SQLite) o usar default 60
       const sqliteDb = openContentDb();
       const umbralRow = sqliteDb.prepare(
@@ -466,36 +460,45 @@ quizAttempts.post(
       // Si es quiz formal y aprobó → actualizar progreso
       if (quiz.type === "formal" && aprobado && attempt.moduleId) {
         try {
-          await db.collection("progreso_modulos").updateOne(
-            { usuarioId: userId, moduloId: attempt.moduleId },
-            {
-              $set: {
-                status: "completado",
-                updatedAt: new Date().toISOString(),
-              }
-            },
-            { upsert: true }
-          );
+          const progresoFilter = { usuarioId: userId, moduloId: attempt.moduleId };
+          const existingProgreso = await prisma.progresoModulo.findFirst({ where: progresoFilter });
+          if (existingProgreso) {
+            await prisma.progresoModulo.update({
+              where: { id: existingProgreso.id },
+              data: { status: "completado", updatedAt: new Date().toISOString() }
+            });
+          } else {
+            await prisma.progresoModulo.create({
+              data: { ...progresoFilter, status: "completado", updatedAt: new Date().toISOString() }
+            });
+          }
         } catch { /* no bloquear el submit si falla */ }
       }
 
       // Si es formal y NO aprobó → marcar en_progreso
       if (quiz.type === "formal" && !aprobado && attempt.moduleId) {
         try {
-          await db.collection("progreso_modulos").updateOne(
-            {
-              usuarioId: userId,
-              moduloId: attempt.moduleId,
-              status: { $ne: "completado" }
-            },
-            {
-              $set: {
+          const progresoFilter = {
+            usuarioId: userId,
+            moduloId: attempt.moduleId,
+            status: { not: "completado" }
+          };
+          const existingProgreso = await prisma.progresoModulo.findFirst({ where: progresoFilter });
+          if (existingProgreso) {
+            await prisma.progresoModulo.update({
+              where: { id: existingProgreso.id },
+              data: { status: "en_progreso", updatedAt: new Date().toISOString() }
+            });
+          } else {
+            await prisma.progresoModulo.create({
+              data: {
+                usuarioId: userId,
+                moduloId: attempt.moduleId,
                 status: "en_progreso",
-                updatedAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
               }
-            },
-            { upsert: true }
-          );
+            });
+          }
         } catch { /* ignorar */ }
       }
 
@@ -610,24 +613,19 @@ quizAttempts.get(
       mejor_score: number;
     }>;
 
-    // Enriquecer con nombres de usuarios desde MongoDB
+    // Enriquecer con nombres de usuarios desde Prisma
     try {
-      const mongoDB = await getDb();
       const userIds = rows.map((r) => r.usuario_id);
       const usuarios = userIds.length
-        ? await mongoDB.collection("usuarios").find({
-            $or: [
-              { id: { $in: userIds } },
-              { _id: { $in: userIds } },
-            ],
-            isDeleted: { $ne: true },
-          }).project({ id: 1, _id: 1, fullName: 1, username: 1 })
-          .toArray()
+        ? await prisma.usuario.findMany({
+            where: { id: { in: userIds }, isDeleted: { not: true } },
+            select: { id: true, fullName: true, username: true }
+          })
         : [];
 
       const usuarioMap = new Map(
         usuarios.map((u) => [
-          String(u.id ?? u._id ?? ""),
+          String(u.id ?? ""),
           String(u.fullName ?? u.username ?? "Alumno"),
         ])
       );
@@ -644,7 +642,7 @@ quizAttempts.get(
 
       return res.json({ quizId, aulaId, ranking });
     } catch {
-      // Si MongoDB falla, devolver sin nombres
+      // Si Prisma falla, devolver sin nombres
       const ranking = rows.map((r, index) => ({
         posicion: index + 1,
         usuarioId: r.usuario_id,

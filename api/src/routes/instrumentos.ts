@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
+import { generateId } from "../lib/ids";
 import { getAjusteEconomico } from "../lib/calendario-economico";
 
 export const instrumentos = Router();
@@ -12,12 +13,10 @@ const getId = (req: { user?: { id?: string; _id?: { toString?: () => string } } 
 const genId = (prefix: string) =>
   `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
-// ── Helpers de saldo MongoDB ─────────────────────────────────
+// ── Helpers de saldo Prisma ─────────────────────────────────
 
 async function getSaldo(userId: string): Promise<number> {
-  const db = await getDb();
-  const doc = await db.collection("economia_saldos")
-    .findOne({ usuarioId: userId }) as { saldo?: number } | null;
+  const doc = await (prisma as any).economiasSaldo?.findFirst({ where: { usuarioId: userId } }) as { saldo?: number } | null;
   return doc?.saldo ?? 0;
 }
 
@@ -27,22 +26,23 @@ async function updateSaldo(
   motivo: string,
   referencia: string
 ): Promise<void> {
-  const db = await getDb();
   const now = new Date().toISOString();
-  await db.collection("economia_saldos").updateOne(
-    { usuarioId: userId },
-    { $set: { usuarioId: userId, saldo: nuevoSaldo, updatedAt: now } },
-    { upsert: true }
-  );
-  await db.collection("economia_transacciones").insertOne({
-    id: genId("tx"),
-    usuarioId: userId,
-    tipo: nuevoSaldo > 0 ? "credito" : "debito",
-    monto: Math.abs(nuevoSaldo),
-    moneda: "PF",
-    motivo,
-    referenciaId: referencia,
-    createdAt: now,
+  await (prisma as any).economiaSaldo?.upsert({
+    where: { usuarioId: userId },
+    update: { saldo: nuevoSaldo, updatedAt: now },
+    create: { usuarioId: userId, saldo: nuevoSaldo, updatedAt: now }
+  });
+  await (prisma as any).economiaTransaccion?.create({
+    data: {
+      id: genId("tx"),
+      usuarioId: userId,
+      tipo: nuevoSaldo > 0 ? "credito" : "debito",
+      monto: Math.abs(nuevoSaldo),
+      moneda: "PF",
+      motivo,
+      referenciaId: referencia,
+      createdAt: now,
+    }
   });
 }
 
@@ -114,22 +114,23 @@ instrumentos.post("/api/instrumentos/plazo-fijo", requireUser,
       );
 
       // Descontar saldo
-      const mongoDB = await getDb();
       const nowStr = now.toISOString();
-      await mongoDB.collection("economia_saldos").updateOne(
-        { usuarioId: userId },
-        { $set: { usuarioId: userId, saldo: saldoActual - monto, updatedAt: nowStr } },
-        { upsert: true }
-      );
-      await mongoDB.collection("economia_transacciones").insertOne({
-        id: genId("tx"),
-        usuarioId: userId,
-        tipo: "debito",
-        monto,
-        moneda: "PF",
-        motivo: `plazo_fijo:apertura:${id}`,
-        referenciaId: id,
-        createdAt: nowStr,
+      await (prisma as any).economiaSaldo?.upsert({
+        where: { usuarioId: userId },
+        update: { saldo: saldoActual - monto, updatedAt: nowStr },
+        create: { usuarioId: userId, saldo: saldoActual - monto, updatedAt: nowStr }
+      });
+      await (prisma as any).economiaTransaccion?.create({
+        data: {
+          id: genId("tx"),
+          usuarioId: userId,
+          tipo: "debito",
+          monto,
+          moneda: "PF",
+          motivo: `plazo_fijo:apertura:${id}`,
+          referenciaId: id,
+          createdAt: nowStr,
+        }
       });
 
       return res.status(201).json({
@@ -176,21 +177,22 @@ instrumentos.post("/api/instrumentos/plazo-fijo/:id/rescatar",
       const saldoActual = await getSaldo(userId);
       const nowStr = ahora.toISOString();
 
-      const mongoDB = await getDb();
-      await mongoDB.collection("economia_saldos").updateOne(
-        { usuarioId: userId },
-        { $set: { usuarioId: userId, saldo: saldoActual + montoARescatar, updatedAt: nowStr } },
-        { upsert: true }
-      );
-      await mongoDB.collection("economia_transacciones").insertOne({
-        id: genId("tx"),
-        usuarioId: userId,
-        tipo: "credito",
-        monto: montoARescatar,
-        moneda: "PF",
-        motivo: `plazo_fijo:rescate${vencido ? "_con_interes" : "_anticipado"}:${pf.id}`,
-        referenciaId: pf.id,
-        createdAt: nowStr,
+      await (prisma as any).economiaSaldo?.upsert({
+        where: { usuarioId: userId },
+        update: { saldo: saldoActual + montoARescatar, updatedAt: nowStr },
+        create: { usuarioId: userId, saldo: saldoActual + montoARescatar, updatedAt: nowStr }
+      });
+      await (prisma as any).economiaTransaccion?.create({
+        data: {
+          id: genId("tx"),
+          usuarioId: userId,
+          tipo: "credito",
+          monto: montoARescatar,
+          moneda: "PF",
+          motivo: `plazo_fijo:rescate${vencido ? "_con_interes" : "_anticipado"}:${pf.id}`,
+          referenciaId: pf.id,
+          createdAt: nowStr,
+        }
       });
 
       sqliteDb.prepare(`
@@ -293,22 +295,23 @@ instrumentos.post("/api/instrumentos/fci", requireUser,
         vence.toISOString()
       );
 
-      const mongoDB = await getDb();
       const nowStr = now.toISOString();
-      await mongoDB.collection("economia_saldos").updateOne(
-        { usuarioId: userId },
-        { $set: { usuarioId: userId, saldo: saldoActual - monto, updatedAt: nowStr } },
-        { upsert: true }
-      );
-      await mongoDB.collection("economia_transacciones").insertOne({
-        id: genId("tx"),
-        usuarioId: userId,
-        tipo: "debito",
-        monto,
-        moneda: "PF",
-        motivo: `fci:apertura:${id}`,
-        referenciaId: id,
-        createdAt: nowStr,
+      await (prisma as any).economiaSaldo?.upsert({
+        where: { usuarioId: userId },
+        update: { saldo: saldoActual - monto, updatedAt: nowStr },
+        create: { usuarioId: userId, saldo: saldoActual - monto, updatedAt: nowStr }
+      });
+      await (prisma as any).economiaTransaccion?.create({
+        data: {
+          id: genId("tx"),
+          usuarioId: userId,
+          tipo: "debito",
+          monto,
+          moneda: "PF",
+          motivo: `fci:apertura:${id}`,
+          referenciaId: id,
+          createdAt: nowStr,
+        }
       });
 
       return res.status(201).json({
@@ -359,22 +362,23 @@ instrumentos.post("/api/instrumentos/fci/:id/rescatar",
     try {
       const saldoActual = await getSaldo(userId);
       const nowStr = ahora.toISOString();
-      const mongoDB = await getDb();
 
-      await mongoDB.collection("economia_saldos").updateOne(
-        { usuarioId: userId },
-        { $set: { usuarioId: userId, saldo: saldoActual + montoARescatar, updatedAt: nowStr } },
-        { upsert: true }
-      );
-      await mongoDB.collection("economia_transacciones").insertOne({
-        id: genId("tx"),
-        usuarioId: userId,
-        tipo: "credito",
-        monto: montoARescatar,
-        moneda: "PF",
-        motivo: `fci:rescate:${pos.id}`,
-        referenciaId: pos.id,
-        createdAt: nowStr,
+      await (prisma as any).economiaSaldo?.upsert({
+        where: { usuarioId: userId },
+        update: { saldo: saldoActual + montoARescatar, updatedAt: nowStr },
+        create: { usuarioId: userId, saldo: saldoActual + montoARescatar, updatedAt: nowStr }
+      });
+      await (prisma as any).economiaTransaccion?.create({
+        data: {
+          id: genId("tx"),
+          usuarioId: userId,
+          tipo: "credito",
+          monto: montoARescatar,
+          moneda: "PF",
+          motivo: `fci:rescate:${pos.id}`,
+          referenciaId: pos.id,
+          createdAt: nowStr,
+        }
       });
 
       sqliteDb.prepare(`

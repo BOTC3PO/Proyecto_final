@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 
 export const tareasRouter = Router();
@@ -19,23 +19,22 @@ tareasRouter.get("/api/tareas", requireUser, async (req, res) => {
       res.status(401).json({ error: "not authenticated" });
       return;
     }
-    const db = await getDb();
-    // Intentamos buscar tareas asignadas al usuario en la colección "tareas"
-    const rawTareas = await db
-      .collection("tareas")
-      .find({
-        $or: [
-          { usuarioId: userId },
-          { studentId: userId },
-          { assignedTo: userId },
-          { "assignees": userId }
-        ],
-        isDeleted: { $ne: true }
+
+    // Tarea stores full doc as JSON; fetch all and filter in code.
+    const rows = await prisma.tarea.findMany({ take: 200 });
+
+    const rawTareas = rows
+      .map((r) => {
+        try { return { ...JSON.parse(r.json), id: r.id }; } catch { return null; }
       })
-      .project({ _id: 1, id: 1, title: 1, titulo: 1, curso: 1, courseName: 1, dueDate: 1, vence: 1, status: 1 })
-      .sort({ dueDate: 1, vence: 1, createdAt: -1 })
-      .limit(50)
-      .toArray();
+      .filter((item): item is Record<string, unknown> => {
+        if (!item) return false;
+        if (item.isDeleted === true) return false;
+        const ids = [item.usuarioId, item.studentId, item.assignedTo];
+        if (Array.isArray(item.assignees)) ids.push(...item.assignees);
+        return ids.includes(userId);
+      })
+      .slice(0, 50);
 
     const tareas = rawTareas.map((item) => {
       const dueRaw = item.dueDate ?? item.vence;
@@ -49,10 +48,10 @@ tareasRouter.get("/api/tareas", requireUser, async (req, res) => {
         }
       }
       return {
-        id: (item.id ?? item._id?.toString?.()) ?? "",
-        titulo: (item.titulo ?? item.title ?? "Tarea sin nombre") as string,
-        curso: (item.curso ?? item.courseName ?? "Curso") as string,
-        vence
+        id: String(item.id ?? ""),
+        titulo: String(item.titulo ?? item.title ?? "Tarea sin nombre"),
+        curso: String(item.curso ?? item.courseName ?? "Curso"),
+        vence,
       };
     });
 

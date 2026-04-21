@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 
 export const calendario = Router();
 
@@ -81,47 +81,35 @@ calendario.get("/api/calendario/unificado", requireUser,
 
     // Aulas del usuario
     try {
-      const mongoDB = await getDb();
-      let aulaFilter: Record<string, unknown> = {
-        isDeleted: { $ne: true },
-        status: "ACTIVE",
-      };
+      type ClaseWhere = Parameters<typeof prisma.clase.findMany>[0]["where"];
+      let aulaWhere: ClaseWhere = { isDeleted: false, status: "ACTIVE" };
 
       if (role === "USER") {
-        aulaFilter = {
-          ...aulaFilter,
-          "members.userId": userId,
-          "members.role": "USER",
+        aulaWhere = {
+          ...aulaWhere,
+          miembros: { some: { usuarioId: userId!, rolEnClase: "USER" } },
         };
       } else if (role === "TEACHER") {
-        aulaFilter = {
-          ...aulaFilter,
-          $or: [
-            { createdBy: userId },
-            { teacherIds: userId },
+        aulaWhere = {
+          ...aulaWhere,
+          OR: [
+            { createdBy: userId! },
+            { teacherId: userId! },
           ],
         };
-      } else if (role === "DIRECTIVO" || role === "ADMIN") {
-        if (schoolId) {
-          aulaFilter = {
-            ...aulaFilter,
-            $or: [
-              { institutionId: schoolId },
-              { schoolId },
-            ],
-          };
-        }
+      } else if ((role === "DIRECTIVO" || role === "ADMIN") && schoolId) {
+        aulaWhere = { ...aulaWhere, escuelaId: schoolId };
       }
 
-      const aulas = await mongoDB.collection("aulas")
-        .find(aulaFilter)
-        .project({ id: 1, name: 1 })
-        .toArray();
+      const aulas = await prisma.clase.findMany({
+        where: aulaWhere,
+        select: { id: true, name: true }
+      });
 
       const aulaMap = new Map(
-        aulas.map((a) => [String(a.id ?? ""), String(a.name ?? "")])
+        aulas.map((a) => [a.id, a.name])
       );
-      const aulaIds = aulas.map((a) => String(a.id ?? "")).filter(Boolean);
+      const aulaIds = aulas.map((a) => a.id).filter(Boolean);
 
       if (aulaIds.length > 0) {
         const placeholders = aulaIds.map(() => "?").join(",");

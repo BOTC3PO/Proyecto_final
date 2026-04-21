@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 
 export const mensajeria = Router();
 
@@ -22,20 +22,19 @@ async function mismaEscuela(
   userAId: string,
   userBId: string
 ): Promise<{ ok: boolean; escuelaId?: string }> {
-  const db = await getDb();
   const [userA, userB] = await Promise.all([
-    db.collection("usuarios").findOne(
-      { $or: [{ id: userAId }, { _id: userAId }], isDeleted: { $ne: true } },
-      { projection: { schoolId: 1 } }
-    ),
-    db.collection("usuarios").findOne(
-      { $or: [{ id: userBId }, { _id: userBId }], isDeleted: { $ne: true } },
-      { projection: { schoolId: 1 } }
-    ),
+    prisma.usuario.findFirst({
+      where: { OR: [{ id: userAId }], isDeleted: { not: true } },
+      select: { escuelaId: true },
+    }),
+    prisma.usuario.findFirst({
+      where: { OR: [{ id: userBId }], isDeleted: { not: true } },
+      select: { escuelaId: true },
+    }),
   ]);
   if (!userA || !userB) return { ok: false };
-  const escA = String(userA.schoolId ?? "");
-  const escB = String(userB.schoolId ?? "");
+  const escA = String(userA.escuelaId ?? "");
+  const escB = String(userB.escuelaId ?? "");
   if (!escA || !escB || escA !== escB) return { ok: false };
   return { ok: true, escuelaId: escA };
 }
@@ -72,21 +71,19 @@ mensajeria.get("/api/mensajeria/hilos", requireUser, async (req, res) => {
   );
 
   try {
-    const mongoDB = await getDb();
     const usuarios = otroIds.length
-      ? await mongoDB.collection("usuarios").find({
-          $or: [
-            { id: { $in: otroIds } },
-            { _id: { $in: otroIds } },
-          ],
-          isDeleted: { $ne: true },
-        }).project({ id: 1, _id: 1, fullName: 1, username: 1, role: 1 })
-        .toArray()
+      ? await prisma.usuario.findMany({
+          where: {
+            id: { in: otroIds },
+            isDeleted: { not: true },
+          },
+          select: { id: true, fullName: true, username: true, role: true },
+        })
       : [];
 
     const usuarioMap = new Map(
       usuarios.map((u) => [
-        String(u.id ?? u._id ?? ""),
+        String(u.id ?? ""),
         {
           nombre: String(u.fullName ?? u.username ?? "Usuario"),
           username: String(u.username ?? ""),
@@ -388,33 +385,33 @@ mensajeria.get("/api/mensajeria/usuarios", requireUser,
       ? req.query.q.trim() : "";
 
     try {
-      const db = await getDb();
-      const filter: Record<string, unknown> = {
-        schoolId,
-        isDeleted: { $ne: true },
-        $or: [
-          { id: { $ne: userId } },
-          { _id: { $ne: userId } },
-        ],
+      const whereFilter: Record<string, unknown> = {
+        escuelaId: schoolId,
+        isDeleted: { not: true },
+        id: { not: userId },
       };
 
       if (q) {
-        filter.$or = [
-          { fullName: { $regex: q, $options: "i" } },
-          { username: { $regex: q, $options: "i" } },
+        (whereFilter as Record<string, unknown>).OR = [
+          { fullName: { contains: q } },
+          { username: { contains: q } },
+        ];
+        delete whereFilter.id;
+        (whereFilter as Record<string, unknown>).AND = [
+          { id: { not: userId } },
         ];
       }
 
-      const usuarios = await db.collection("usuarios")
-        .find(filter)
-        .project({ id: 1, _id: 1, fullName: 1, username: 1, role: 1 })
-        .limit(10)
-        .toArray();
+      const usuarios = await prisma.usuario.findMany({
+        where: whereFilter as Parameters<typeof prisma.usuario.findMany>[0]["where"],
+        select: { id: true, fullName: true, username: true, role: true },
+        take: 10,
+      });
 
       const items = usuarios
-        .filter((u) => String(u.id ?? u._id ?? "") !== userId)
+        .filter((u) => u.id !== userId)
         .map((u) => ({
-          id: String(u.id ?? u._id ?? ""),
+          id: u.id,
           nombre: String(u.fullName ?? u.username ?? ""),
           username: String(u.username ?? ""),
           role: String(u.role ?? ""),

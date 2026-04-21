@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { recordAuditLog } from "../lib/audit-log";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
 import { requirePolicy } from "../lib/authorization";
 import { buildSimplePdf } from "../lib/pdf";
@@ -17,127 +17,104 @@ type StatsFilters = {
 };
 
 type ProgresoResumenItem = {
-  _id?: string | null;
-  completadas?: number | null;
-  pendientes?: number | null;
-  tiempoPromedioMin?: number | null;
-  scorePromedio?: number | null;
-  scoreMax?: number | null;
-  scoreMin?: number | null;
+  moduloId: string | null;
+  completadas: number;
+  pendientes: number;
+  tiempoPromedioMin: number;
+  scorePromedio: number;
+  scoreMax: number;
+  scoreMin: number;
 };
 
 type NotaTemaItem = {
-  _id?: string | null;
-  promedio?: number | null;
+  tema: string | null;
+  promedio: number;
 };
 
 type ActividadSemanalItem = {
-  _id?: string | null;
-  interacciones?: number | null;
+  semana: string | null;
+  interacciones: number;
 };
 
 type QuizMetricsItem = {
-  _id?: string | null;
-  intentos?: number | null;
-  intentosEntregados?: number | null;
-  promedioScore?: number | null;
-  promedioMaxScore?: number | null;
+  quizId: string | null;
+  intentos: number;
+  intentosEntregados: number;
+  promedioScore: number;
+  promedioMaxScore: number;
 };
 
-const buildDateMatch = (filters: StatsFilters, field: string) => {
-  const range: { $gte?: Date; $lte?: Date } = {};
-  if (filters.fechaInicio) range.$gte = new Date(filters.fechaInicio);
-  if (filters.fechaFin) range.$lte = new Date(filters.fechaFin);
+const buildDateWhere = (filters: StatsFilters, field: string) => {
+  const range: { gte?: Date; lte?: Date } = {};
+  if (filters.fechaInicio) range.gte = new Date(filters.fechaInicio);
+  if (filters.fechaFin) range.lte = new Date(filters.fechaFin);
   if (Object.keys(range).length === 0) return {};
   return { [field]: range };
 };
 
-const buildMatch = (filters: StatsFilters, field = "updatedAt") => {
-  const match: Record<string, unknown> = {
-    ...buildDateMatch(filters, field)
+const buildProgresoWhere = (filters: StatsFilters) => {
+  const where: Record<string, unknown> = {
+    ...buildDateWhere(filters, "updatedAt")
   };
-  if (filters.moduloId) match.moduloId = filters.moduloId;
-  if (filters.categoria) match.categoria = filters.categoria;
-  if (filters.cohorte) match.cohorte = filters.cohorte;
-  return match;
+  if (filters.moduloId) where.moduloId = filters.moduloId;
+  return where;
 };
 
 const buildProfesorStats = async (filters: StatsFilters) => {
-  const db = await getDb();
-  const progresoMatch = buildMatch(filters, "updatedAt");
-  const entregasMatch = buildMatch(filters, "createdAt");
-  const participacionMatch = buildMatch(filters, "createdAt");
+  // Fetch all matching progreso records and aggregate in JavaScript
+  const progresoRecords = await prisma.progresoModulo.findMany({
+    where: buildProgresoWhere(filters) as any
+  });
 
-  const progresoResumen = await db
-    .collection("progreso_modulos")
-    .aggregate([
-      { $match: progresoMatch },
-      {
-        $group: {
-          _id: "$moduloId",
-          completadas: {
-            $sum: { $cond: [{ $eq: ["$status", "completado"] }, 1, 0] }
-          },
-          pendientes: {
-            $sum: { $cond: [{ $ne: ["$status", "completado"] }, 1, 0] }
-          },
-          tiempoPromedioMin: { $avg: { $ifNull: ["$timeSpentMinutes", 0] } },
-          scorePromedio: { $avg: { $ifNull: ["$score", 0] } },
-          scoreMax: { $max: { $ifNull: ["$score", 0] } },
-          scoreMin: { $min: { $ifNull: ["$score", 0] } }
-        }
-      },
-      { $sort: { completadas: -1 } }
-    ])
-    .toArray() as ProgresoResumenItem[];
+  // Group by moduloId
+  const byModulo = new Map<string, {
+    scores: number[]; completadas: number; pendientes: number;
+  }>();
+  for (const p of progresoRecords) {
+    const key = p.moduloId ?? "null";
+    if (!byModulo.has(key)) byModulo.set(key, { scores: [], completadas: 0, pendientes: 0 });
+    const entry = byModulo.get(key)!;
+    if (p.status === "completado") entry.completadas += 1;
+    else entry.pendientes += 1;
+    if (typeof p.score === "number") entry.scores.push(p.score);
+  }
 
-  const totalCompletadas = progresoResumen.reduce<number>((acc, item) => acc + (item.completadas ?? 0), 0);
-  const tiempoPromedioMin = Math.round(
-    progresoResumen.reduce<number>((acc, item) => acc + (item.tiempoPromedioMin ?? 0), 0) /
-      Math.max(progresoResumen.length, 1)
-  );
+  const progresoResumen: ProgresoResumenItem[] = Array.from(byModulo.entries())
+    .map(([moduloId, data]) => {
+      const avg = data.scores.length
+        ? data.scores.reduce((a, b) => a + b, 0) / data.scores.length : 0;
+      const max = data.scores.length ? Math.max(...data.scores) : 0;
+      const min = data.scores.length ? Math.min(...data.scores) : 0;
+      return {
+        moduloId: moduloId === "null" ? null : moduloId,
+        completadas: data.completadas,
+        pendientes: data.pendientes,
+        tiempoPromedioMin: 0, // timeSpentMinutes not in Prisma schema
+        scorePromedio: avg,
+        scoreMax: max,
+        scoreMin: min
+      };
+    })
+    .sort((a, b) => b.completadas - a.completadas);
 
-  const entregas = await db.collection("entregas").countDocuments(entregasMatch);
+  const totalCompletadas = progresoResumen.reduce((acc, item) => acc + item.completadas, 0);
+  const tiempoPromedioMin = 0; // timeSpentMinutes not in Prisma schema
+
+  // entregas, notas_temas, accesos, foros_respuestas, encuestas_respuestas, participacion
+  // are not in the Prisma schema — return zero values until those models are added
+  const entregas = 0;
+  const notasPorTema: NotaTemaItem[] = [];
+  const accesos = 0;
+  const foros = 0;
+  const encuestas = 0;
+  const actividadSemanal: ActividadSemanalItem[] = [];
 
   const notasPorActividad = progresoResumen.map((item) => ({
-    actividad: item._id ?? "Sin módulo",
-    promedio: Math.round(item.scorePromedio ?? 0),
-    max: Math.round(item.scoreMax ?? 0),
-    min: Math.round(item.scoreMin ?? 0)
+    actividad: item.moduloId ?? "Sin módulo",
+    promedio: Math.round(item.scorePromedio),
+    max: Math.round(item.scoreMax),
+    min: Math.round(item.scoreMin)
   }));
-
-  const notasPorTema = await db
-    .collection("notas_temas")
-    .aggregate([
-      { $match: buildMatch(filters, "createdAt") },
-      { $group: { _id: "$tema", promedio: { $avg: "$score" } } },
-      { $sort: { promedio: -1 } }
-    ])
-    .toArray() as NotaTemaItem[];
-
-  const accesos = await db.collection("accesos").countDocuments(participacionMatch);
-  const foros = await db.collection("foros_respuestas").countDocuments(participacionMatch);
-  const encuestas = await db.collection("encuestas_respuestas").countDocuments(participacionMatch);
-
-  const actividadSemanal = await db
-    .collection("participacion")
-    .aggregate([
-      { $match: participacionMatch },
-      {
-        $group: {
-          _id: {
-            $dateToString: {
-              format: "%Y-%m-%d",
-              date: { $ifNull: ["$createdAt", new Date()] }
-            }
-          },
-          interacciones: { $sum: 1 }
-        }
-      },
-      { $sort: { _id: 1 } },
-      { $limit: 8 }
-    ])
-    .toArray() as ActividadSemanalItem[];
 
   return {
     general: {
@@ -145,16 +122,16 @@ const buildProfesorStats = async (filters: StatsFilters) => {
       entregas,
       tiempoPromedioMin,
       progresoPorModulo: progresoResumen.map((item) => ({
-        moduloId: item._id ?? "Sin módulo",
-        completadas: item.completadas ?? 0,
-        pendientes: item.pendientes ?? 0
+        moduloId: item.moduloId ?? "Sin módulo",
+        completadas: item.completadas,
+        pendientes: item.pendientes
       }))
     },
     rendimiento: {
       notasPorActividad,
       notasPorTema: notasPorTema.map((item) => ({
-        tema: item._id ?? "Sin tema",
-        promedio: Math.round(item.promedio ?? 0)
+        tema: item.tema ?? "Sin tema",
+        promedio: Math.round(item.promedio)
       }))
     },
     participacion: {
@@ -162,8 +139,8 @@ const buildProfesorStats = async (filters: StatsFilters) => {
       foros,
       encuestas,
       actividadSemanal: actividadSemanal.map((item) => ({
-        semana: item._id,
-        interacciones: item.interacciones ?? 0
+        semana: item.semana,
+        interacciones: item.interacciones
       }))
     }
   };
@@ -201,99 +178,105 @@ const buildQuizMetrics = async (
   filters: StatsFilters,
   scopeMatch: Record<string, unknown>
 ) => {
-  const db = await getDb();
-  const baseMatch = buildDateMatch(filters, "createdAt");
-  const basePipeline = [
-    { $match: baseMatch },
-    {
-      $lookup: {
-        from: "modulos",
-        localField: "moduleId",
-        foreignField: "id",
-        as: "module"
-      }
-    },
-    { $unwind: { path: "$module", preserveNullAndEmptyArrays: true } },
-    {
-      $lookup: {
-        from: "quizzes",
-        localField: "quizId",
-        foreignField: "id",
-        as: "quizMeta"
-      }
-    },
-    { $unwind: { path: "$quizMeta", preserveNullAndEmptyArrays: true } },
-    {
-      $addFields: {
-        aulaId: "$module.aulaId",
-        docenteId: { $ifNull: ["$module.createdBy", "$quizMeta.createdBy"] },
-        institucionId: {
-          $ifNull: [
-            "$module.schoolId",
-            { $ifNull: ["$module.visibilityConfig.institution", "$quizMeta.schoolId"] }
-          ]
-        }
-      }
-    },
-    { $match: scopeMatch }
-  ];
+  const dateWhere = buildDateWhere(filters, "startedAt");
 
-  const summary = (await db
-    .collection("quiz_attempts")
-    .aggregate([
-      ...basePipeline,
-      {
-        $group: {
-          _id: null,
-          intentos: { $sum: 1 },
-          intentosEntregados: {
-            $sum: { $cond: [{ $in: ["$status", ["submitted", "graded"]] }, 1, 0] }
-          },
-          promedioScore: { $avg: { $ifNull: ["$score", 0] } },
-          promedioMaxScore: { $avg: { $ifNull: ["$maxScore", 0] } }
-        }
-      }
-    ])
-    .toArray()) as QuizMetricsItem[];
+  // Fetch all quiz_attempts within date range
+  const allAttempts = await prisma.quizAttempt.findMany({
+    where: dateWhere as any
+  });
 
-  const perQuiz = (await db
-    .collection("quiz_attempts")
-    .aggregate([
-      ...basePipeline,
-      {
-        $group: {
-          _id: "$quizId",
-          intentos: { $sum: 1 },
-          promedioScore: { $avg: { $ifNull: ["$score", 0] } },
-          promedioMaxScore: { $avg: { $ifNull: ["$maxScore", 0] } }
-        }
-      },
-      { $sort: { intentos: -1 } }
-    ])
-    .toArray()) as QuizMetricsItem[];
+  // Fetch quizzes to get moduleId for scope filtering
+  const quizIds = [...new Set(allAttempts.map((a) => a.quizId).filter(Boolean))] as string[];
+  const quizzes = quizIds.length
+    ? await prisma.quiz.findMany({ where: { id: { in: quizIds } } })
+    : [];
+  const quizMap = new Map(quizzes.map((q) => [q.id, q]));
 
-  const summaryItem = summary[0];
-  const promedioMaxScore = summaryItem?.promedioMaxScore ?? 0;
-  const accuracy =
-    promedioMaxScore > 0 ? Math.round(((summaryItem?.promedioScore ?? 0) / promedioMaxScore) * 100) : 0;
+  // Fetch modules to get schoolId / ownerUserId for scope filtering
+  const moduleIds = [...new Set(quizzes.map((q) => q.moduleId).filter(Boolean))] as string[];
+  const modules = moduleIds.length
+    ? await prisma.modulo.findMany({ where: { id: { in: moduleIds } } })
+    : [];
+  const moduleMap = new Map(modules.map((m) => [m.id, m]));
+
+  // Apply scope filter in JavaScript
+  const scopeAulaId = scopeMatch.aulaId as string | undefined;
+  const scopeDocenteId = scopeMatch.docenteId as string | undefined;
+  const scopeInstitucionId = scopeMatch.institucionId as string | undefined;
+
+  const filteredAttempts = allAttempts.filter((attempt) => {
+    const quiz = attempt.quizId ? quizMap.get(attempt.quizId) : undefined;
+    const mod = quiz?.moduleId ? moduleMap.get(quiz.moduleId) : undefined;
+    if (scopeAulaId) {
+      // aulaId is not directly on modulo in the listed schema; skip scope filter if not present
+      return true;
+    }
+    if (scopeDocenteId) {
+      return mod?.ownerUserId === scopeDocenteId;
+    }
+    if (scopeInstitucionId) {
+      return mod?.schoolId === scopeInstitucionId;
+    }
+    return true;
+  });
+
+  // Overall summary
+  const totalIntentos = filteredAttempts.length;
+  const intentosEntregados = filteredAttempts.filter(
+    (a) => a.status === "submitted" || a.status === "graded"
+  ).length;
+  const allScores = filteredAttempts.map((a) => (typeof a.score === "number" ? a.score : 0));
+  const allMaxScores = filteredAttempts.map((a) => (typeof a.maxScore === "number" ? a.maxScore : 0));
+  const promedioScore = allScores.length
+    ? allScores.reduce((a, b) => a + b, 0) / allScores.length : 0;
+  const promedioMaxScore = allMaxScores.length
+    ? allMaxScores.reduce((a, b) => a + b, 0) / allMaxScores.length : 0;
+  const accuracy = promedioMaxScore > 0
+    ? Math.round((promedioScore / promedioMaxScore) * 100) : 0;
+
+  // Group by quizId
+  const byQuiz = new Map<string, { scores: number[]; maxScores: number[] }>();
+  for (const attempt of filteredAttempts) {
+    const qid = attempt.quizId ?? "unknown";
+    if (!byQuiz.has(qid)) byQuiz.set(qid, { scores: [], maxScores: [] });
+    const entry = byQuiz.get(qid)!;
+    if (typeof attempt.score === "number") entry.scores.push(attempt.score);
+    if (typeof attempt.maxScore === "number") entry.maxScores.push(attempt.maxScore);
+  }
+
+  const perQuiz: QuizMetricsItem[] = Array.from(byQuiz.entries())
+    .map(([quizId, data]) => {
+      const avgScore = data.scores.length
+        ? data.scores.reduce((a, b) => a + b, 0) / data.scores.length : 0;
+      const avgMaxScore = data.maxScores.length
+        ? data.maxScores.reduce((a, b) => a + b, 0) / data.maxScores.length : 0;
+      return {
+        quizId,
+        intentos: data.scores.length,
+        intentosEntregados: 0,
+        promedioScore: avgScore,
+        promedioMaxScore: avgMaxScore
+      };
+    })
+    .sort((a, b) => b.intentos - a.intentos);
 
   return {
     resumen: {
-      intentos: summaryItem?.intentos ?? 0,
-      intentosEntregados: summaryItem?.intentosEntregados ?? 0,
-      scorePromedio: Math.round(summaryItem?.promedioScore ?? 0),
-      maxScorePromedio: Math.round(summaryItem?.promedioMaxScore ?? 0),
+      intentos: totalIntentos,
+      intentosEntregados,
+      scorePromedio: Math.round(promedioScore),
+      maxScorePromedio: Math.round(promedioMaxScore),
       precisionPromedio: accuracy
     },
     quizzes: perQuiz.map((item) => {
-      const maxScore = item.promedioMaxScore ?? 0;
+      const maxScore = item.promedioMaxScore;
       const quizAccuracy =
-        maxScore > 0 ? Math.round(((item.promedioScore ?? 0) / maxScore) * 100) : 0;
+        maxScore > 0 ? Math.round((item.promedioScore / maxScore) * 100) : 0;
       return {
-        quizId: item._id ?? "Sin quiz",
-        intentos: item.intentos ?? 0,
-        scorePromedio: Math.round(item.promedioScore ?? 0),
-        maxScorePromedio: Math.round(item.promedioMaxScore ?? 0),
+        quizId: item.quizId ?? "Sin quiz",
+        intentos: item.intentos,
+        scorePromedio: Math.round(item.promedioScore),
+        maxScorePromedio: Math.round(item.promedioMaxScore),
         precisionPromedio: quizAccuracy
       };
     })

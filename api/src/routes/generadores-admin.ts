@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { requireAdmin } from "../lib/admin-auth";
 import { listTopicsFromFilesystem, SUBJECTS } from "./consignas";
 import type { Subject } from "./consignas";
@@ -30,21 +30,20 @@ generadoresAdmin.get("/api/admin/generadores/:subject", requireAdmin, async (req
   }
 
   try {
-    const db = await getDb();
     const [fsTemas, overrides] = await Promise.all([
       listTopicsFromFilesystem(subject),
-      db.collection("generadores_admin").find({ subject }).toArray(),
+      prisma.generadorAdmin.findMany({ where: { subject } }),
     ]);
 
-    const overrideMap = new Map((overrides as any[]).map((o) => [o.topic, o]));
+    const overrideMap = new Map(overrides.map((o) => [o.topic, o]));
 
     const allTopics = new Set([...fsTemas]);
-    (overrides as any[]).forEach((o) => {
+    overrides.forEach((o) => {
       if (typeof o.topic === "string") allTopics.add(o.topic);
     });
 
     const items = Array.from(allTopics).map((topic) => {
-      const override = overrideMap.get(topic) as any;
+      const override = overrideMap.get(topic);
       return {
         topic,
         subject,
@@ -72,14 +71,13 @@ generadoresAdmin.get("/api/admin/generadores/:subject/:tema", requireAdmin, asyn
   }
 
   try {
-    const db = await getDb();
-    const override = await db.collection("generadores_admin").findOne({ subject, topic: tema });
+    const override = await prisma.generadorAdmin.findFirst({ where: { subject, topic: tema } });
 
     return res.json({
       topic: tema,
       subject,
       override: override ?? null,
-      status: (override as any)?.status ?? "ACTIVE",
+      status: override?.status ?? "ACTIVE",
     });
   } catch (error: any) {
     return res.status(500).json({ error: error?.message ?? "internal error" });
@@ -103,23 +101,14 @@ generadoresAdmin.patch("/api/admin/generadores/:subject/:tema/status", requireAd
   }
 
   try {
-    const db = await getDb();
     const actorId = (req as any).user?.id ?? (req as any).user?._id?.toString() ?? "";
+    const now = new Date().toISOString();
 
-    await db.collection("generadores_admin").updateOne(
-      { subject, topic: tema },
-      {
-        $set: {
-          subject,
-          topic: tema,
-          status,
-          updatedAt: new Date().toISOString(),
-          updatedBy: actorId,
-        },
-        $setOnInsert: { createdAt: new Date().toISOString() },
-      },
-      { upsert: true }
-    );
+    await prisma.generadorAdmin.upsert({
+      where: { subject_topic: { subject, topic: tema } },
+      update: { status, updatedAt: now, updatedBy: actorId },
+      create: { subject, topic: tema, status, updatedAt: now, updatedBy: actorId, createdAt: now },
+    });
 
     return res.json({ ok: true, topic: tema, subject, status });
   } catch (error: any) {
@@ -149,28 +138,25 @@ generadoresAdmin.put("/api/admin/generadores/:subject/:tema", requireAdmin, asyn
   }
 
   try {
-    const db = await getDb();
     const actorId = (req as any).user?.id ?? (req as any).user?._id?.toString() ?? "";
+    const now = new Date().toISOString();
 
-    const update: Record<string, unknown> = {
-      subject,
-      topic: tema,
-      updatedAt: new Date().toISOString(),
-      updatedBy: actorId,
-    };
-
-    if (enunciado !== undefined) update.enunciado = enunciado;
-    if (limits !== undefined) update.limits = limits;
-    if (status !== undefined) update.status = status;
-
-    await db.collection("generadores_admin").updateOne(
-      { subject, topic: tema },
-      {
-        $set: update,
-        $setOnInsert: { createdAt: new Date().toISOString(), status: status ?? "ACTIVE" },
+    await prisma.generadorAdmin.upsert({
+      where: { subject_topic: { subject, topic: tema } },
+      update: {
+        ...(status !== undefined ? { status } : {}),
+        updatedAt: now,
+        updatedBy: actorId,
       },
-      { upsert: true }
-    );
+      create: {
+        subject,
+        topic: tema,
+        status: status ?? "ACTIVE",
+        updatedAt: now,
+        updatedBy: actorId,
+        createdAt: now,
+      },
+    });
 
     return res.json({ ok: true, topic: tema, subject });
   } catch (error: any) {
@@ -189,8 +175,7 @@ generadoresAdmin.delete("/api/admin/generadores/:subject/:tema", requireAdmin, a
   }
 
   try {
-    const db = await getDb();
-    await db.collection("generadores_admin").deleteOne({ subject, topic: tema });
+    await prisma.generadorAdmin.deleteMany({ where: { subject, topic: tema } });
     return res.json({ ok: true });
   } catch (error: any) {
     return res.status(500).json({ error: error?.message ?? "internal error" });

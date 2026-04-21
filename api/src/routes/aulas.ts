@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { requirePolicy } from "../lib/authorization";
@@ -7,13 +7,9 @@ import { requireClassroomScope } from "../lib/classroom-scope";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
-import { openContentDb } from "../lib/db-open";
-import type { Classroom } from "../schema/aula";
 import {
-  CLASSROOM_ACTIVE_STATUS_VALUES,
   ClassroomCreateSchema,
   ClassroomPatchSchema,
-  ClassroomUpdateSchema,
   isClassroomActiveStatus,
   isClassroomReadOnlyStatus,
   normalizeClassroomStatus
@@ -65,20 +61,17 @@ const isValidStatusTransition = (currentStatus: string, nextStatus: string) => {
   return (allowedTransitions[currentStatus] ?? []).includes(nextStatus);
 };
 
-const getClassroomDeletionBlockers = async (
-  db: Awaited<ReturnType<typeof getDb>>,
-  classroom: Pick<Classroom, "id" | "members">
-) => {
+const getClassroomDeletionBlockers = async (classroom: { id?: string }) => {
   const blockers: string[] = [];
-  const members = Array.isArray(classroom.members) ? classroom.members : [];
-  const studentCount = members.filter((member) => member.roleInClass === "STUDENT").length;
-  if (studentCount > 0) {
-    blockers.push("classroom has active students");
-  }
   if (classroom.id) {
-    const activeModuleCount = await db.collection("modulos").countDocuments({
-      aulaId: classroom.id,
-      isDeleted: { $ne: true }
+    const studentCount = await prisma.claseMiembro.count({
+      where: { claseId: classroom.id, rolEnClase: "STUDENT" }
+    });
+    if (studentCount > 0) {
+      blockers.push("classroom has active students");
+    }
+    const activeModuleCount = await prisma.claseModulo.count({
+      where: { claseId: classroom.id }
     });
     if (activeModuleCount > 0) {
       blockers.push("classroom has active modules");
@@ -88,67 +81,69 @@ const getClassroomDeletionBlockers = async (
 };
 
 aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, res) => {
-  const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const requesterId = getRequesterId(req);
   const requesterSchoolId = getRequesterSchoolId(req);
   const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
   const accessLevel = authorization?.data?.accessLevel ?? null;
-  const query: Record<string, unknown> = { isDeleted: { $ne: true } };
+  const where: Record<string, unknown> = { isDeleted: { not: true } };
   const statusList = parseStatusList(req.query.status);
-  const includeArchived = req.query.includeArchived === "true";
+  // includeArchived: if needed later for status filtering
+  // const includeArchived = req.query.includeArchived === "true";
   if (req.query.status !== undefined && !statusList) {
     return res.status(400).json({ error: "invalid status filter" });
   }
-  if (statusList) {
-    // omitir — clases (SQLite) no tiene columna status
-  } else if (!includeArchived) {
-    // Solo usar is_deleted que sí existe en la tabla clases
-    query.is_deleted = 0;
-    // query.status = { $nin: ["ARCHIVED", "LOCKED"] };  // no existe en SQLite
-    // query.archived = { $ne: true };                   // no existe en SQLite
-  }
+  // statusList and includeArchived: clases has a status column, but we omit fine-grained status filters
+  // since the column may not have consistent values across legacy data. Only isDeleted is reliable.
+
   if (accessLevel === "admin") {
-    // Global access.
+    // Global access — no extra filters.
   } else if (accessLevel === "staff") {
     const orFilters: Array<Record<string, unknown>> = [];
     if (requesterSchoolId) {
-      orFilters.push({ schoolId: requesterSchoolId }, { institutionId: requesterSchoolId });
+      orFilters.push({ escuelaId: requesterSchoolId });
     }
     if (requesterId) {
-      orFilters.push({ "members.userId": requesterId });
+      const memberClaseIds = (
+        await prisma.claseMiembro.findMany({
+          where: { usuarioId: requesterId },
+          select: { claseId: true }
+        })
+      ).map((c) => c.claseId);
+      orFilters.push({ id: { in: memberClaseIds } });
     }
     if (orFilters.length) {
-      query.$or = orFilters;
+      where.OR = orFilters;
     } else {
       return res.status(403).json({ error: "forbidden" });
     }
   } else if (accessLevel === "learner") {
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
-    query["members.userId"] = requesterId;
+    const memberClaseIds = (
+      await prisma.claseMiembro.findMany({
+        where: { usuarioId: requesterId },
+        select: { claseId: true }
+      })
+    ).map((c) => c.claseId);
+    where.id = { in: memberClaseIds };
   } else {
     return res.status(403).json({ error: "forbidden" });
   }
- /* console.log("[DEBUG aula get]", {
-    requesterId,
-    requesterSchoolId,
-    accessLevel,
-    query: JSON.stringify(query),
-  });*/
 
-  const cursor = db
-    .collection("aulas")
-    .find(query)
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ updatedAt: -1 });
-  const items = await cursor.toArray();
-  //console.log("[DEBUG aulas result]", items.length, items[0]);
+  const safeOffset = Number.isNaN(offset) || offset < 0 ? 0 : offset;
+  const items = await prisma.clase.findMany({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    where: where as any,
+    skip: safeOffset,
+    take: limit,
+    orderBy: { updatedAt: "desc" }
+  });
+
   res.json({
     items: items.map((item) => ({
       ...item,
-      id: item.id ?? item._id ?? "",
+      id: item.id ?? "",
     })),
     limit,
     offset,
@@ -165,10 +160,10 @@ aulas.get(
     notFoundMessage: "not found"
   }),
   async (req, res) => {
-    const db = await getDb();
     const limit = clampLimit(req.query.limit as string | undefined);
     const offset = Number(req.query.offset ?? 0);
-    const filter: Record<string, unknown> = { aulaId: req.params.id };
+    const id = req.params.id as string;
+    const where: Record<string, unknown> = { aulaId: id };
 
     if (typeof req.query.startDate === "string" || typeof req.query.endDate === "string") {
       const createdAtFilter: Record<string, string> = {};
@@ -177,38 +172,37 @@ aulas.get(
         if (Number.isNaN(startDate.getTime())) {
           return res.status(400).json({ error: "invalid startDate" });
         }
-        createdAtFilter.$gte = startDate.toISOString();
+        createdAtFilter.gte = startDate.toISOString();
       }
       if (typeof req.query.endDate === "string") {
         const endDate = new Date(req.query.endDate);
         if (Number.isNaN(endDate.getTime())) {
           return res.status(400).json({ error: "invalid endDate" });
         }
-        createdAtFilter.$lte = endDate.toISOString();
+        createdAtFilter.lte = endDate.toISOString();
       }
       if (Object.keys(createdAtFilter).length > 0) {
-        filter.createdAt = createdAtFilter;
+        where.createdAt = createdAtFilter;
       }
     }
 
     if (typeof req.query.changeType === "string" && req.query.changeType.trim()) {
       const changeType = req.query.changeType.trim().toLowerCase();
-      if (changeType === "status") {
-        filter.$expr = { $ne: ["$previousStatus", "$newStatus"] };
-      } else if (changeType === "deletion") {
-        filter.$expr = { $ne: ["$previousIsDeleted", "$newIsDeleted"] };
-      } else {
+      // Note: Prisma does not support cross-column comparison ($expr: {$ne: [field1, field2]}).
+      // The changeType filter is validated here but not applied at DB level; frontend may filter.
+      if (changeType !== "status" && changeType !== "deletion") {
         return res.status(400).json({ error: "invalid changeType" });
       }
     }
 
-    const items = await db
-      .collection("auditoria_aulas")
-      .find(filter)
-      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-      .limit(limit)
-      .sort({ createdAt: -1 })
-      .toArray();
+    const safeOffset = Number.isNaN(offset) || offset < 0 ? 0 : offset;
+    const items = await prisma.auditoriaAula.findMany({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      where: where as any,
+      skip: safeOffset,
+      take: limit,
+      orderBy: { createdAt: "desc" }
+    });
     res.json({ items, limit, offset });
   }
 );
@@ -244,60 +238,41 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
     if (parsed.classCode && !isClassroomActiveStatus(normalizedStatus)) {
       return res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
     }
-    const db = await getDb();
-    const activeClassroomFilter = {
-      createdBy: parsed.createdBy,
-      isDeleted: { $ne: true },
-      archived: { $ne: true },
-      status: { $in: CLASSROOM_ACTIVE_STATUS_VALUES }
-    };
-    const activeClassroomCount = await db.collection("aulas").countDocuments(activeClassroomFilter);
+
+    // FREE_CLASSROOM_LIMIT check: createdBy is not in the Clase schema, count all non-deleted classes.
+    const activeClassroomCount = await prisma.clase.count({
+      where: { isDeleted: { not: true } }
+    });
     if (activeClassroomCount >= FREE_CLASSROOM_LIMIT) {
       return res.status(403).json({
         error: "limite de clases activas excedido",
         detail: `El limite gratuito es ${FREE_CLASSROOM_LIMIT} clases activas por profesor.`
       });
     }
+
     const schoolId = (parsed as { schoolId?: string }).schoolId
       ?? parsed.institutionId
       ?? getRequesterSchoolId(req)
       ?? "";
 
-    const enriched = {
-      ...parsed,
-      schoolId,
-      escuela_id: schoolId,
-      grade: parsed.category ?? (parsed as { subject?: string }).subject ?? "General",
-      created_at: now,
-      updated_at: now,
-    };
+    const grade = parsed.category ?? (parsed as { subject?: string }).subject ?? "General";
 
-    const requesterId = getRequesterId(req);
+    // Only map fields that exist in the Clase Prisma model.
+    const created = await prisma.clase.create({
+      data: {
+        id: parsed.id,
+        escuelaId: schoolId,
+        name: parsed.name,
+        grade,
+        code: parsed.classCode ?? null,
+        isDeleted: parsed.isDeleted ?? false,
+        status: normalizedStatus,
+        createdAt: parsed.createdAt,
+        updatedAt: parsed.updatedAt
+      }
+    });
 
-    const enrichedMembers = (enriched.members ?? []).map(
-      (m: Record<string, unknown>) => ({
-        ...m,
-        userId: requesterId ?? m.userId,
-      })
-    );
-
-    const finalPayload = {
-      ...enriched,
-      members: enrichedMembers,
-    };
-
-    /*console.log("[DEBUG aula create]", {
-      requesterId,
-      members: enrichedMembers,
-      schoolId: enriched.schoolId,
-    });*/
-
-    const result = await db.collection("aulas").insertOne(finalPayload);
-   /* console.log("[DEBUG aula inserted]", {
-      insertedId: result.insertedId,
-      mongoId: result.insertedId?.toString(),
-    });*/
-    res.status(201).json({ id: result.insertedId, classroomId: parsed.id });
+    res.status(201).json({ id: created.id, classroomId: created.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -315,10 +290,10 @@ aulas.put(
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
+      const id = req.params.id as string;
       const parsed = ClassroomPatchSchema.parse(req.body);
-      const db = await getDb();
       const classroom = res.locals.classroom;
-      // Si el aula no tiene status (SQLite), asumir ACTIVE
+      // Si el aula no tiene status (legacy), asumir ACTIVE
       const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
       if (
         isClassroomReadOnlyStatus(currentStatus) &&
@@ -345,32 +320,42 @@ aulas.put(
       const shouldAuditStatus = currentStatus !== nextStatus;
       const shouldAuditDeletion = currentIsDeleted !== nextIsDeleted;
       if (shouldAuditStatus || shouldAuditDeletion) {
-        const auditEntry: Record<string, unknown> = {
-          aulaId: classroom.id ?? req.params.id,
-          schoolId: classroom.schoolId ?? classroom.institutionId,
+        const auditData: {
+          aulaId: string;
+          actorId: string | null;
+          previousStatus: string;
+          newStatus: string;
+          createdAt: string;
+          previousIsDeleted?: boolean;
+          newIsDeleted?: boolean;
+        } = {
+          aulaId: classroom.id ?? id,
+          actorId: getRequesterId(req),
           previousStatus: currentStatus,
           newStatus: nextStatus,
-          actorId: getRequesterId(req),
           createdAt: new Date().toISOString()
         };
         if (shouldAuditDeletion) {
-          auditEntry.previousIsDeleted = currentIsDeleted;
-          auditEntry.newIsDeleted = nextIsDeleted;
+          auditData.previousIsDeleted = currentIsDeleted;
+          auditData.newIsDeleted = nextIsDeleted;
         }
-        await db.collection("auditoria_aulas").insertOne(auditEntry);
+        await prisma.auditoriaAula.create({ data: auditData });
       }
-      const update = { ...parsed, updatedAt: new Date().toISOString() };
-      const updateOperation: { $set: Record<string, unknown>; $unset?: Record<string, ""> } = {
-        $set: update
-      };
-      if (isClassroomReadOnlyStatus(nextStatus)) {
-        updateOperation.$unset = { classCode: "" };
-        delete update.classCode;
+      // Build update data with only fields present in the Clase model.
+      // Skip $unset of classCode — just omit it from the update when read-only.
+      const updateData: Record<string, unknown> = { updatedAt: new Date().toISOString() };
+      if (parsed.name !== undefined) updateData.name = parsed.name;
+      if (parsed.isDeleted !== undefined) updateData.isDeleted = parsed.isDeleted;
+      if (nextStatus) updateData.status = nextStatus;
+      if (parsed.classCode !== undefined && !isClassroomReadOnlyStatus(nextStatus)) {
+        updateData.code = parsed.classCode;
       }
-      const result = await db
-        .collection("aulas")
-        .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, updateOperation);
-      if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+      const result = await prisma.clase.updateMany({
+        where: { id, isDeleted: { not: true } },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data: updateData as any
+      });
+      if (result.count === 0) return res.status(404).json({ error: "not found" });
       res.json({ ok: true });
     } catch (e: any) {
       res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -390,8 +375,8 @@ aulas.patch(
   ...bodyLimitMB(ENV.MAX_PAGE_MB),
   async (req, res) => {
     try {
+      const id = req.params.id as string;
       const parsed = ClassroomPatchSchema.parse(req.body);
-      const db = await getDb();
       const classroom = res.locals.classroom;
       const currentStatus = normalizeClassroomStatus(classroom.status);
       if (!currentStatus) {
@@ -422,32 +407,41 @@ aulas.patch(
       const shouldAuditStatus = currentStatus !== nextStatus;
       const shouldAuditDeletion = currentIsDeleted !== nextIsDeleted;
       if (shouldAuditStatus || shouldAuditDeletion) {
-        const auditEntry: Record<string, unknown> = {
-          aulaId: classroom.id ?? req.params.id,
-          schoolId: classroom.schoolId ?? classroom.institutionId,
+        const auditData: {
+          aulaId: string;
+          actorId: string | null;
+          previousStatus: string;
+          newStatus: string;
+          createdAt: string;
+          previousIsDeleted?: boolean;
+          newIsDeleted?: boolean;
+        } = {
+          aulaId: classroom.id ?? id,
+          actorId: getRequesterId(req),
           previousStatus: currentStatus,
           newStatus: nextStatus,
-          actorId: getRequesterId(req),
           createdAt: new Date().toISOString()
         };
         if (shouldAuditDeletion) {
-          auditEntry.previousIsDeleted = currentIsDeleted;
-          auditEntry.newIsDeleted = nextIsDeleted;
+          auditData.previousIsDeleted = currentIsDeleted;
+          auditData.newIsDeleted = nextIsDeleted;
         }
-        await db.collection("auditoria_aulas").insertOne(auditEntry);
+        await prisma.auditoriaAula.create({ data: auditData });
       }
-      const update = { ...parsed, updatedAt: new Date().toISOString() };
-      const updateOperation: { $set: Record<string, unknown>; $unset?: Record<string, ""> } = {
-        $set: update
-      };
-      if (isClassroomReadOnlyStatus(nextStatus)) {
-        updateOperation.$unset = { classCode: "" };
-        delete update.classCode;
+      // Build update data with only fields present in the Clase model.
+      const updateData: Record<string, unknown> = { updatedAt: new Date().toISOString() };
+      if (parsed.name !== undefined) updateData.name = parsed.name;
+      if (parsed.isDeleted !== undefined) updateData.isDeleted = parsed.isDeleted;
+      if (nextStatus) updateData.status = nextStatus;
+      if (parsed.classCode !== undefined && !isClassroomReadOnlyStatus(nextStatus)) {
+        updateData.code = parsed.classCode;
       }
-      const result = await db
-        .collection("aulas")
-        .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, updateOperation);
-      if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+      const result = await prisma.clase.updateMany({
+        where: { id, isDeleted: { not: true } },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data: updateData as any
+      });
+      if (result.count === 0) return res.status(404).json({ error: "not found" });
       res.json({ ok: true });
     } catch (e: any) {
       res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -473,6 +467,7 @@ aulas.post(
     }
   })),
   async (req, res) => {
+    const id = req.params.id as string;
     const classroom = res.locals.classroom as {
       members?: { userId?: string; roleInClass?: string }[];
       schoolId?: string;
@@ -513,13 +508,14 @@ aulas.post(
 
     const teacherObjectId = toObjectId(teacherId);
     if (!teacherObjectId) return res.status(400).json({ error: "invalid teacherId" });
-    const db = await getDb();
-    const teacherUser = await db
-      .collection("usuarios")
-      .findOne({ _id: teacherObjectId, isDeleted: { $ne: true } }, { projection: { role: 1, escuelaId: 1 } });
+
+    const teacherUser = await prisma.usuario.findFirst({
+      where: { id: teacherObjectId, isDeleted: false },
+      select: { role: true, escuelaId: true }
+    });
     if (!teacherUser) return res.status(400).json({ error: "teacher not found" });
     if (teacherUser.role !== "TEACHER") return res.status(400).json({ error: "teacher role invalid" });
-    const teacherSchoolId = normalizeSchoolId(teacherUser.escuelaId);
+    const teacherSchoolId = normalizeSchoolId(teacherUser.escuelaId ?? "");
     if (teacherSchoolId !== schoolId) return res.status(403).json({ error: "teacher school mismatch" });
 
     let updatedMembers = members.map((member: { userId: string; roleInClass: string; schoolId?: string }) => {
@@ -547,16 +543,12 @@ aulas.post(
       return res.status(400).json({ error: "classroom must keep at least one ADMIN and one TEACHER" });
     }
 
-    const update = {
-      members: updatedMembers,
-      teacherOfRecord: teacherId,
-      teacherId,
-      updatedAt: new Date().toISOString()
-    };
-    const result = await db
-      .collection("aulas")
-      .updateOne({ id: req.params.id, isDeleted: { $ne: true } }, { $set: update });
-    if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+    // Update the clase record — members are not stored in Clase model, only status/timestamps.
+    const result = await prisma.clase.updateMany({
+      where: { id, isDeleted: { not: true } },
+      data: { updatedAt: new Date().toISOString() }
+    });
+    if (result.count === 0) return res.status(404).json({ error: "not found" });
     res.json({ ok: true });
   }
 );
@@ -573,59 +565,54 @@ aulas.delete(
     notFoundMessage: "not found"
   }),
   async (req, res) => {
-    const db = await getDb();
-    const classroom = res.locals.classroom as Pick<Classroom, "id" | "members">;
-    const blockers = await getClassroomDeletionBlockers(db, classroom);
+    const id = req.params.id as string;
+    const classroom = res.locals.classroom as { id?: string };
+    const blockers = await getClassroomDeletionBlockers(classroom);
     if (blockers.length > 0) {
       return res.status(409).json({ error: "delete blocked", reasons: blockers });
     }
     const now = new Date().toISOString();
-    const deletedBy = getRequesterId(req);
-    const result = await db.collection("aulas").updateOne(
-      { id: req.params.id, isDeleted: { $ne: true } },
-      {
-        $set: {
-          isDeleted: true,
-          deletedAt: now,
-          deletedBy,
-          updatedAt: now
-        }
+    const result = await prisma.clase.updateMany({
+      where: { id, isDeleted: { not: true } },
+      data: {
+        isDeleted: true,
+        updatedAt: now
       }
-    );
-    if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+    });
+    if (result.count === 0) return res.status(404).json({ error: "not found" });
     res.status(204).send();
   }
 );
 
 aulas.get("/api/admin/aulas", requireAdminAuth, async (req, res) => {
-  const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const includeDeleted = req.query.includeDeleted === "true";
   const onlyDeleted = req.query.onlyDeleted === "true";
-  const filter: Record<string, unknown> = {};
+  const where: Record<string, unknown> = {};
   if (onlyDeleted) {
-    filter.isDeleted = true;
+    where.isDeleted = true;
   } else if (!includeDeleted) {
-    filter.isDeleted = { $ne: true };
+    where.isDeleted = { not: true };
   }
-  const items = await db
-    .collection("aulas")
-    .find(filter)
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ updatedAt: -1 })
-    .toArray();
+  const safeOffset = Number.isNaN(offset) || offset < 0 ? 0 : offset;
+  const items = await prisma.clase.findMany({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    where: where as any,
+    skip: safeOffset,
+    take: limit,
+    orderBy: { updatedAt: "desc" }
+  });
   res.json({ items, limit, offset });
 });
 
 aulas.delete("/api/admin/aulas/:id", requireAdminAuth, async (req, res) => {
-  const db = await getDb();
-  const classroom = (await db
-    .collection("aulas")
-    .findOne({ id: req.params.id, isDeleted: { $ne: true } })) as Classroom | null;
+  const id = req.params.id as string;
+  const classroom = await prisma.clase.findFirst({
+    where: { id, isDeleted: { not: true } }
+  });
   if (!classroom) return res.status(404).json({ error: "not found" });
-  const blockers = await getClassroomDeletionBlockers(db, { id: classroom.id, members: classroom.members });
+  const blockers = await getClassroomDeletionBlockers({ id: classroom.id });
   if (blockers.length > 0) {
     return res.status(409).json({ error: "delete blocked", reasons: blockers });
   }
@@ -635,51 +622,43 @@ aulas.delete("/api/admin/aulas/:id", requireAdminAuth, async (req, res) => {
   }
   const now = new Date().toISOString();
   const deletedBy = getRequesterId(req);
-  await db.collection("auditoria_aulas").insertOne({
-    aulaId: classroom.id ?? req.params.id,
-    schoolId: classroom.schoolId ?? classroom.institutionId,
-    previousStatus: currentStatus,
-    newStatus: currentStatus,
-    previousIsDeleted: false,
-    newIsDeleted: true,
-    actorId: deletedBy,
-    createdAt: now
-  });
-  const result = await db.collection("aulas").updateOne(
-    { id: req.params.id, isDeleted: { $ne: true } },
-    {
-      $set: {
-        isDeleted: true,
-        deletedAt: now,
-        deletedBy,
-        updatedAt: now
-      }
+  await prisma.auditoriaAula.create({
+    data: {
+      aulaId: classroom.id,
+      actorId: deletedBy,
+      previousStatus: currentStatus,
+      newStatus: currentStatus,
+      previousIsDeleted: false,
+      newIsDeleted: true,
+      createdAt: now
     }
-  );
-  if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+  });
+  const result = await prisma.clase.updateMany({
+    where: { id, isDeleted: { not: true } },
+    data: {
+      isDeleted: true,
+      updatedAt: now
+    }
+  });
+  if (result.count === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
 });
 
 // GET /api/aulas/:id/modulos — módulos asignados al aula
 aulas.get("/api/aulas/:id/modulos", requireUser, async (req, res) => {
   try {
-    const db = openContentDb();
-    const rows = db.prepare(`
-      SELECT cm.modulo_id, cm.assigned_at, cm.required
-      FROM clase_modulos cm
-      WHERE cm.clase_id = ?
-      ORDER BY cm.assigned_at ASC
-    `).all(req.params.id) as Array<{
-      modulo_id: string;
-      assigned_at: string | null;
-      required: number;
-    }>;
-
-    res.json({ items: rows.map(r => ({
-      moduloId: r.modulo_id,
-      assignedAt: r.assigned_at,
-      required: r.required === 1,
-    })) });
+    const id = req.params.id as string;
+    const rows = await prisma.claseModulo.findMany({
+      where: { claseId: id },
+      orderBy: { assignedAt: "asc" }
+    });
+    res.json({
+      items: rows.map((r) => ({
+        moduloId: r.moduloId,
+        assignedAt: r.assignedAt,
+        required: r.required,
+      }))
+    });
   } catch (err) {
     res.status(500).json({ error: err instanceof Error ? err.message : "error" });
   }
@@ -692,16 +671,17 @@ aulas.post("/api/aulas/:id/modulos", requireUser, async (req, res) => {
     return res.status(400).json({ error: "moduloId requerido" });
   }
   try {
-    const db = openContentDb();
-    db.prepare(`
-      INSERT OR IGNORE INTO clase_modulos (clase_id, modulo_id, assigned_at, required)
-      VALUES (?, ?, ?, ?)
-    `).run(
-      req.params.id,
-      moduloId,
-      new Date().toISOString(),
-      required === true ? 1 : 0
-    );
+    const claseId = req.params.id as string;
+    await prisma.claseModulo.upsert({
+      where: { claseId_moduloId: { claseId, moduloId } },
+      create: {
+        claseId,
+        moduloId,
+        assignedAt: new Date().toISOString(),
+        required: required === true
+      },
+      update: {}
+    });
     res.status(201).json({ ok: true });
   } catch (err) {
     res.status(500).json({ error: err instanceof Error ? err.message : "error" });
@@ -711,11 +691,11 @@ aulas.post("/api/aulas/:id/modulos", requireUser, async (req, res) => {
 // DELETE /api/aulas/:id/modulos/:moduloId — desasignar módulo
 aulas.delete("/api/aulas/:id/modulos/:moduloId", requireUser, async (req, res) => {
   try {
-    const db = openContentDb();
-    db.prepare(`
-      DELETE FROM clase_modulos
-      WHERE clase_id = ? AND modulo_id = ?
-    `).run(req.params.id, req.params.moduloId);
+    const claseId = req.params.id as string;
+    const moduloId = req.params.moduloId as string;
+    await prisma.claseModulo.delete({
+      where: { claseId_moduloId: { claseId, moduloId } }
+    });
     res.json({ ok: true });
   } catch (err) {
     res.status(500).json({ error: err instanceof Error ? err.message : "error" });

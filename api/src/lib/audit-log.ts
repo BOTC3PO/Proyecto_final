@@ -1,4 +1,4 @@
-import { getDb } from "./db";
+import { prisma } from "./prisma";
 
 export type AuditLogEntry = {
   actorId: string;
@@ -16,7 +16,6 @@ export const recordAuditLog = async ({
   targetId,
   metadata
 }: Omit<AuditLogEntry, "timestamp">) => {
-  const db = await getDb();
   const entry: AuditLogEntry = {
     actorId,
     action,
@@ -26,7 +25,16 @@ export const recordAuditLog = async ({
     metadata: metadata ?? null
   };
   try {
-    await db.collection("audit_logs").insertOne(entry);
+    await prisma.auditLog.create({
+      data: {
+        actorId: entry.actorId,
+        action: entry.action,
+        targetType: entry.targetType,
+        targetId: entry.targetId ?? null,
+        timestamp: entry.timestamp.toISOString(),
+        metadata: entry.metadata ? JSON.stringify(entry.metadata) : null
+      }
+    });
   } catch (error) {
     console.error("Failed to write audit log entry", error);
   }

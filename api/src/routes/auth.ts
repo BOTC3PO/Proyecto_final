@@ -4,7 +4,7 @@ import type { Response } from "express";
 import { Router } from "express";
 import { ZodError } from "zod";
 import { requireAdmin } from "../lib/admin-auth";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { createAccessToken, createRefreshToken, verifyToken } from "../lib/auth-token";
@@ -28,16 +28,14 @@ import {
 export const auth = Router();
 
 type DbUser = {
-  _id: string;
-  email?: string;
-  username?: string;
-  role?: string;
+  id: string;
+  email?: string | null;
+  username?: string | null;
+  role?: string | null;
   guestOnboardingStatus?: string | null;
-  schoolId?: string | null;
   escuelaId?: string | null;
   fullName?: string | null;
-  password?: string;
-  passwordHash?: string;
+  passwordHash?: string | null;
   passwordResetRequired?: boolean;
   isDeleted?: boolean;
 };
@@ -75,25 +73,26 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
       return;
     }
     const parsed = BootstrapAdminRequestSchema.parse(req.body ?? {});
-    const db = await getDb();
-    const existingAdmin = await db.collection<DbUser>("usuarios").findOne({ role: "ADMIN" });
+    const existingAdmin = await prisma.usuario.findFirst({ where: { role: "ADMIN" } });
     if (existingAdmin) {
       res.status(409).json({ error: "Admin already exists" });
       return;
     }
-    const now = new Date();
-    const doc = {
-      username: parsed.username,
-      email: parsed.email,
-      fullName: parsed.fullName,
-      role: "ADMIN",
-      passwordHash: hashPassword(parsed.password),
-      isDeleted: false,
-      createdAt: now,
-      updatedAt: now
-    };
-    const result = await db.collection("usuarios").insertOne(doc);
-    res.status(201).json({ id: result.insertedId });
+    const now = new Date().toISOString();
+    const result = await prisma.usuario.create({
+      data: {
+        id: crypto.randomUUID(),
+        username: parsed.username,
+        email: parsed.email,
+        fullName: parsed.fullName,
+        role: "ADMIN",
+        passwordHash: hashPassword(parsed.password),
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now
+      }
+    });
+    res.status(201).json({ id: result.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -102,21 +101,21 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
 auth.post("/api/admins", requireAdmin, async (req, res) => {
   try {
     const parsed = CreateAdminSchema.parse(req.body ?? {});
-    const db = await getDb();
-    const now = new Date();
-    const doc = {
-      username: parsed.username,
-      email: parsed.email,
-      fullName: parsed.fullName,
-      role: "ADMIN",
-      passwordHash: hashPassword(parsed.password),
-      isDeleted: false,
-      createdAt: now,
-      updatedAt: now,
-      createdBy: res.locals.adminUser?._id ?? null
-    };
-    const result = await db.collection("usuarios").insertOne(doc);
-    res.status(201).json({ id: result.insertedId });
+    const now = new Date().toISOString();
+    const result = await prisma.usuario.create({
+      data: {
+        id: crypto.randomUUID(),
+        username: parsed.username,
+        email: parsed.email,
+        fullName: parsed.fullName,
+        role: "ADMIN",
+        passwordHash: hashPassword(parsed.password),
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now
+      }
+    });
+    res.status(201).json({ id: result.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -134,35 +133,36 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
       ...body,
       email: body.email.trim().toLowerCase()
     });
-    const db = await getDb();
-    const existingEmail = await db.collection<DbUser>("usuarios").findOne({
-      email: parsed.email,
-      isDeleted: { $ne: true }
+    const existingEmail = await prisma.usuario.findFirst({
+      where: {
+        email: parsed.email,
+        isDeleted: { not: true }
+      }
     });
-    if (existingEmail?._id) {
+    if (existingEmail?.id) {
       res.status(409).json({ error: "Email already exists" });
       return;
     }
 
-    const now = new Date();
+    const now = new Date().toISOString();
     const role = parsed.role ?? "USER";
-    let escuelaId = parsed.schoolId ? toObjectId(parsed.schoolId) : null;
+    let escuelaId: string | null = parsed.schoolId ?? null;
     let escuelaExists: boolean | undefined;
     if (parsed.schoolCode) {
-      const escuela = await db.collection("escuelas").findOne({ code: parsed.schoolCode });
-      if (!escuela?._id) {
+      const escuela = await prisma.escuela.findFirst({ where: { code: parsed.schoolCode } });
+      if (!escuela?.id) {
         res.status(400).json({ error: "Invalid school code" });
         return;
       }
-      escuelaId = escuela._id as string;
+      escuelaId = escuela.id;
       escuelaExists = true;
     } else if (parsed.schoolId) {
       if (!escuelaId) {
         res.status(400).json({ error: "Invalid school id" });
         return;
       }
-      const escuela = await db.collection("escuelas").findOne({ _id: escuelaId }, { projection: { _id: 1 } });
-      if (!escuela?._id) {
+      const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
+      if (!escuela?.id) {
         res.status(400).json({ error: "Invalid school id" });
         return;
       }
@@ -173,26 +173,34 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
       res.status(400).json({ error: "Role requires no school membership" });
       return;
     }
-    const doc = {
-      username: parsed.username,
-      email: parsed.email,
-      fullName: parsed.fullName,
-      role,
-      escuelaId,
-      birthdate: parsed.birthdate ? new Date(parsed.birthdate) : null,
-      passwordHash: hashPassword(parsed.password),
-      teacherProfile: role === "TEACHER" ? { type: parsed.teacherType } : undefined,
-      consents: parsed.consents
-        ? {
-            ...parsed.consents,
-            consentedAt: parsed.consents.consentedAt ? new Date(parsed.consents.consentedAt) : now
-          }
-        : undefined,
-      isDeleted: false,
-      createdAt: now,
-      updatedAt: now
-    };
-    const result = await db.collection("usuarios").insertOne(doc);
+
+    const consentsData = parsed.consents
+      ? {
+          privacyConsent: parsed.consents.privacyConsent ?? false,
+          termsAccepted: parsed.consents.termsAccepted ?? false,
+          consentedAt: parsed.consents.consentedAt
+            ? new Date(parsed.consents.consentedAt).toISOString()
+            : now
+        }
+      : {};
+
+    const newUserId = crypto.randomUUID();
+    const result = await prisma.usuario.create({
+      data: {
+        id: newUserId,
+        username: parsed.username,
+        email: parsed.email,
+        fullName: parsed.fullName,
+        role,
+        escuelaId,
+        birthdate: parsed.birthdate ? new Date(parsed.birthdate).toISOString() : null,
+        passwordHash: hashPassword(parsed.password),
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now,
+        ...consentsData
+      }
+    });
     if (escuelaId && membershipRole) {
       assertValidMembershipTransition(null, "activa");
       assertMembershipInvariants({
@@ -202,17 +210,19 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         membershipRole,
         userRole: role
       });
-      await db.collection("membresias_escuela").insertOne({
-        usuarioId: result.insertedId,
-        escuelaId,
-        rol: membershipRole,
-        estado: "activa",
-        fechaAlta: now,
-        createdAt: now,
-        updatedAt: now
+      await prisma.membresia.create({
+        data: {
+          usuarioId: result.id,
+          escuelaId,
+          rol: membershipRole,
+          estado: "activa",
+          fechaAlta: now,
+          createdAt: now,
+          updatedAt: now
+        }
       });
     }
-    res.status(201).json({ id: result.insertedId });
+    res.status(201).json({ id: result.id });
   } catch (e: any) {
     if (e instanceof ZodError) {
       res.status(400).json({ error: e.message || "invalid payload" });
@@ -229,40 +239,42 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
 auth.post("/api/auth/guest", authLimiter, async (req, res) => {
   try {
     const parsed = GuestSessionSchema.parse(req.body ?? {});
-    const db = await getDb();
-    const now = new Date();
+    const now = new Date().toISOString();
     const guestId = crypto.randomUUID();
     const username = `guest_${guestId.slice(0, 8)}`;
     const email = `guest+${guestId}@example.com`;
-    const doc = {
-      username,
+    const fullName = parsed.fullName ?? "Invitado";
+    const result = await prisma.usuario.create({
+      data: {
+        id: crypto.randomUUID(),
+        username,
+        email,
+        fullName,
+        role: "GUEST",
+        guestOnboardingStatus: "pendiente",
+        passwordHash: null,
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now
+      }
+    });
+    const accessToken = createAccessToken({
+      id: result.id.toString(),
       email,
-      fullName: parsed.fullName ?? "Invitado",
+      username,
       role: "GUEST",
       guestOnboardingStatus: "pendiente",
-      passwordHash: null,
-      isDeleted: false,
-      createdAt: now,
-      updatedAt: now
-    };
-    const result = await db.collection("usuarios").insertOne(doc);
-    const accessToken = createAccessToken({
-      id: result.insertedId.toString(),
-      email: doc.email,
-      username: doc.username,
-      role: doc.role,
-      guestOnboardingStatus: doc.guestOnboardingStatus,
       schoolId: null,
-      fullName: doc.fullName
+      fullName
     });
-    const refreshToken = createRefreshToken({ id: result.insertedId.toString() });
+    const refreshToken = createRefreshToken({ id: result.id.toString() });
     res.status(201).json({
-      id: result.insertedId,
-      username: doc.username,
-      email: doc.email,
-      fullName: doc.fullName,
-      role: doc.role,
-      guestOnboardingStatus: doc.guestOnboardingStatus,
+      id: result.id,
+      username,
+      email,
+      fullName,
+      role: "GUEST",
+      guestOnboardingStatus: "pendiente",
       schoolId: null,
       accessToken: accessToken.token,
       expiresAt: accessToken.expiresAt,
@@ -303,28 +315,29 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
       return;
     }
 
-    const db = await getDb();
-    const user = await db.collection<DbUser>("usuarios").findOne({
-      _id: objectId,
-      isDeleted: { $ne: true }
+    const user = await prisma.usuario.findFirst({
+      where: {
+        id: userId,
+        isDeleted: { not: true }
+      }
     });
 
-    if (!user?._id) {
+    if (!user?.id) {
       res.status(403).json({ error: "User not found" });
       return;
     }
 
     const accessToken = createAccessToken({
-      id: user._id.toString(),
+      id: user.id.toString(),
       email: user.email,
       username: user.username,
       role: user.role,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(user.schoolId ?? user.escuelaId),
+      schoolId: normalizeSchoolId(user.escuelaId),
       fullName: user.fullName ?? null
     });
 
-    const nextRefreshToken = createRefreshToken({ id: user._id.toString() });
+    const nextRefreshToken = createRefreshToken({ id: user.id.toString() });
 
     res.status(200).json({
       accessToken: accessToken.token,
@@ -346,6 +359,7 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
 auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
   try {
     const body = req.body ?? {};
@@ -358,27 +372,17 @@ auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
       email: body.email.trim().toLowerCase()
     });
 
-    const db = await getDb();
-    const user = await db.collection<DbUser>("usuarios").findOne(
-      {
+    const user = await prisma.usuario.findFirst({
+      where: {
         email: parsed.email,
-        isDeleted: { $ne: true }
-      },
-      {
-        projection: {
-          _id: 1,
-          role: 1,
-          email: 1,
-          username: 1,
-          fullName: 1
-        }
+        isDeleted: { not: true }
       }
-    );
+    });
 
-    if (user?._id && user.role !== "GUEST") {
+    if (user?.id && user.role !== "GUEST") {
       if (ENV.NODE_ENV !== "production") {
         console.info("[auth/forgot-password] Password reset request received", {
-          userId: user._id.toString(),
+          userId: user.id.toString(),
           email: user.email
         });
       }
@@ -410,17 +414,18 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       ...body,
       identifier: body.identifier.trim().toLowerCase()
     });
-    const db = await getDb();
     const identifier = parsed.identifier;
-    const user = await db.collection<DbUser>("usuarios").findOne({
-      $or: [{ email: identifier }, { username: identifier }],
-      isDeleted: { $ne: true }
+    const user = await prisma.usuario.findFirst({
+      where: {
+        OR: [{ email: identifier }, { username: identifier }],
+        isDeleted: { not: true }
+      }
     });
     if (user?.role === "GUEST") {
       if (ENV.NODE_ENV !== "production") {
         console.warn("[auth/login] Guest account attempted password login", {
           identifier,
-          userId: user._id?.toString?.()
+          userId: user.id
         });
       }
       res.status(403).json({
@@ -429,11 +434,11 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       return;
     }
     if (!user || typeof user.passwordHash !== "string" || !isPasswordHashUsable(user.passwordHash)) {
-      if (user?._id) {
+      if (user?.id) {
         await markUsersWithoutUsablePasswordForReset({
           actorId: "system",
           reason: "auth-login-invalid-password-hash",
-          targetUserId: user._id.toString()
+          targetUserId: user.id.toString()
         });
       }
       if (ENV.NODE_ENV !== "production") {
@@ -449,30 +454,30 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       if (ENV.NODE_ENV !== "production") {
         console.warn("[auth/login] Invalid credentials: password mismatch", {
           identifier,
-          userId: user._id?.toString?.()
+          userId: user.id
         });
       }
       res.status(401).json({ error: "Invalid credentials" });
       return;
     }
     const accessToken = createAccessToken({
-      id: user._id.toString(),
+      id: user.id.toString(),
       email: user.email,
       username: user.username,
       role: user.role,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(user.schoolId ?? user.escuelaId),
+      schoolId: normalizeSchoolId(user.escuelaId),
       fullName: user.fullName ?? null
     });
-    const refreshToken = createRefreshToken({ id: user._id.toString() });
+    const refreshToken = createRefreshToken({ id: user.id.toString() });
     res.status(200).json({
-      id: user._id,
+      id: user.id,
       username: user.username,
       email: user.email,
       fullName: user.fullName,
       role: user.role,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(user.schoolId ?? user.escuelaId),
+      schoolId: normalizeSchoolId(user.escuelaId),
       accessToken: accessToken.token,
       expiresAt: accessToken.expiresAt,
       expiresIn: accessToken.expiresIn,
@@ -495,6 +500,7 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
 
 const sendAuthenticatedUser = (res: Response) => {
   const user = res.locals.user as {
+    id?: string;
     _id?: { toString?: () => string };
     role?: string;
     guestOnboardingStatus?: string | null;
@@ -504,7 +510,7 @@ const sendAuthenticatedUser = (res: Response) => {
     fullName?: string;
   };
   res.json({
-    id: user?._id?.toString?.() ?? null,
+    id: user?.id ?? user?._id?.toString?.() ?? null,
     role: user?.role ?? null,
     guestOnboardingStatus: user?.guestOnboardingStatus ?? null,
     schoolId: user?.schoolId ?? null,
@@ -533,31 +539,19 @@ auth.get("/api/perfil/:username", async (req, res) => {
   }
 
   try {
-    const db = await getDb();
-    const usuario = await db.collection("usuarios").findOne(
-      {
-        username: { $regex: new RegExp(`^${username.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, "i") },
-        isDeleted: { $ne: true },
-        isBanned: { $ne: true },
-      },
-      {
-        projection: {
-          id: 1, _id: 1,
-          username: 1,
-          fullName: 1,
-          role: 1,
-          createdAt: 1,
-          avatarUrl: 1,
-          bio: 1,
-        }
+    const usuario = await prisma.usuario.findFirst({
+      where: {
+        username: { contains: username, mode: "insensitive" },
+        isDeleted: { not: true },
+        isBanned: { not: true }
       }
-    );
+    });
 
     if (!usuario) {
       return res.status(404).json({ error: "usuario no encontrado" });
     }
 
-    const userId = String(usuario.id ?? usuario._id ?? "");
+    const userId = String(usuario.id ?? "");
 
     // Obtener tema activo desde SQLite
     const sqliteDb = openContentDb();
@@ -571,19 +565,24 @@ auth.get("/api/perfil/:username", async (req, res) => {
     `).get(userId) as { asset_id: string | null } | undefined;
 
     // Obtener módulos completados (solo públicos)
-    const progreso = await db.collection("progreso_modulos").find({
-      usuarioId: userId,
-      status: "completado",
-    }).limit(50).toArray();
+    const progreso = await prisma.progresoModulo.findMany({
+      where: {
+        usuarioId: userId,
+        status: "completado"
+      },
+      take: 50
+    });
 
     const moduloIds = progreso.map((p) => String(p.moduloId ?? "")).filter(Boolean);
     const modulosPublicos = moduloIds.length
-      ? await db.collection("modulos").find({
-          id: { $in: moduloIds },
-          visibility: "publico",
-          isDeleted: { $ne: true },
-        }).project({ id: 1, title: 1, subject: 1, category: 1 })
-        .limit(6).toArray()
+      ? await prisma.modulo.findMany({
+          where: {
+            id: { in: moduloIds },
+            visibility: "publico",
+            isDeleted: { not: true }
+          },
+          take: 6
+        })
       : [];
 
     return res.json({
@@ -591,13 +590,13 @@ auth.get("/api/perfil/:username", async (req, res) => {
       fullName: String(usuario.fullName ?? ""),
       role: String(usuario.role ?? "USER"),
       createdAt: usuario.createdAt ?? null,
-      avatarUrl: usuario.avatarUrl ?? null,
-      bio: usuario.bio ?? null,
+      avatarUrl: (usuario as any).avatarUrl ?? null,
+      bio: (usuario as any).bio ?? null,
       tema: temaItem?.asset_id ?? "clasico",
       modulosCompletados: modulosPublicos.map((m) => ({
         id: String(m.id ?? ""),
-        titulo: String(m.title ?? ""),
-        materia: String(m.subject ?? m.category ?? "General"),
+        titulo: String((m as any).titulo ?? ""),
+        materia: String((m as any).subject ?? (m as any).category ?? "General"),
       })),
       totalCompletados: progreso.length,
     });

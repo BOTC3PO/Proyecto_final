@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { openContentDb } from "../lib/db-open";
 
@@ -76,13 +76,6 @@ const getTeacherId = (user?: AuthUser) => {
   return user._id.toString?.() ?? null;
 };
 
-const buildTeacherFilter = (teacherId: string, fields: string[]) => {
-  const values: Array<string > = [teacherId];
-  return {
-    $or: fields.map((field) => ({ [field]: { $in: values } }))
-  };
-};
-
 const getDocumentId = (doc?: { _id?: string; id?: string }) => {
   if (doc?.id) return doc.id;
   if (!doc?._id) return "";
@@ -120,38 +113,81 @@ profesor.get("/api/profesor/menu", async (req, res) => {
     return;
   }
 
-  const db = await getDb();
-  const aulas = (await db
-    .collection("aulas")
-    .find({
-      $or: [
+  // Fetch aulas where teacher is creator, primary teacher, teacher of record,
+  // or a TEACHER member via clase_miembros
+  const teacherMemberships = await prisma.claseMiembro.findMany({
+    where: { usuarioId: teacherId, rolEnClase: "TEACHER" },
+    select: { claseId: true },
+  });
+  const memberClaseIds = teacherMemberships.map((m) => m.claseId);
+
+  const clasesRaw = await prisma.clase.findMany({
+    where: {
+      OR: [
         { createdBy: teacherId },
         { teacherId: teacherId },
         { teacherOfRecord: teacherId },
-        { members: { $elemMatch: { roleInClass: "TEACHER", userId: teacherId } } }
-      ]
-    })
-    .toArray()) as AulaDocente[];
+        ...(memberClaseIds.length > 0 ? [{ id: { in: memberClaseIds } }] : []),
+      ],
+    },
+    select: {
+      id: true,
+      name: true,
+      createdBy: true,
+      teacherId: true,
+      teacherOfRecord: true,
+      updatedAt: true,
+      status: true,
+    },
+  });
+
+  // Shape into AulaDocente for compatibility with existing logic
+  const aulas: AulaDocente[] = clasesRaw.map((c) => ({
+    id: c.id,
+    name: c.name,
+    createdBy: c.createdBy ?? undefined,
+    teacherId: c.teacherId ?? undefined,
+    teacherOfRecord: c.teacherOfRecord ?? undefined,
+    updatedAt: c.updatedAt ?? undefined,
+    status: c.status,
+    members: [],
+  }));
 
   const aulaIds = aulas.map((aula) => aula.id).filter((id): id is string => Boolean(id));
-  const moduleFilters: Record<string, unknown>[] = [{ createdBy: teacherId }];
+
+  // Fetch modulos
+  const moduloFilters: Parameters<typeof prisma.modulo.findMany>[0]["where"][] = [
+    { ownerUserId: teacherId },
+  ];
   if (aulaIds.length > 0) {
-    moduleFilters.push({ aulaId: { $in: aulaIds } });
+    // Also fetch modulos assigned to teacher's classes via ClaseModulo
+    const claseModulos = await prisma.claseModulo.findMany({
+      where: { claseId: { in: aulaIds } },
+      select: { moduloId: true },
+    });
+    const assignedModuloIds = claseModulos.map((cm) => cm.moduloId);
+    if (assignedModuloIds.length > 0) {
+      moduloFilters.push({ id: { in: assignedModuloIds } });
+    }
   }
 
-  const modules = (await db
-    .collection("modulos")
-    .find({ $or: moduleFilters })
-    .toArray()) as ModuloDocente[];
-
-  const activeStudents = new Set<string>();
-  aulas.forEach((aula) => {
-    (aula.members ?? []).forEach((member) => {
-      if (member.roleInClass === "STUDENT" && member.userId) {
-        activeStudents.add(member.userId);
-      }
-    });
+  const modulosRaw = await prisma.modulo.findMany({
+    where: { OR: moduloFilters, isDeleted: { not: true } },
+    select: { id: true, titulo: true, ownerUserId: true },
   });
+
+  const modules: ModuloDocente[] = modulosRaw.map((m) => ({
+    id: m.id,
+    title: m.titulo,
+    createdBy: m.ownerUserId ?? undefined,
+  }));
+
+  // Count active students via clase_miembros
+  const allStudentMemberships = await prisma.claseMiembro.findMany({
+    where: { claseId: { in: aulaIds }, rolEnClase: "STUDENT" },
+    select: { usuarioId: true },
+  });
+  const activeStudents = new Set(allStudentMemberships.map((m) => m.usuarioId));
 
   const sortedAulas = sortByUpdatedAt(aulas);
   const nextClassroom = sortedAulas[0];
@@ -249,13 +285,8 @@ profesor.get("/api/profesor/asistencia", async (req, res) => {
     return;
   }
 
-  const db = await getDb();
-  const asistencias = (await db
-    .collection("asistencias")
-    .find(buildTeacherFilter(teacherId, ["teacherId", "createdBy"]))
-    .toArray()) as AsistenciaDocente[];
-
-  // Nota: si la colección aún no tiene datos reales, devolvemos [] para evitar errores en UI.
+  // Nota: la colección "asistencias" no existe aún en Prisma — devolvemos [] para evitar errores en UI.
+  const asistencias: AsistenciaDocente[] = [];
   const resumen = asistencias.map((item, index) => ({
     id: getDocumentId(item) || `asistencia-${index}`,
     curso: item.curso ?? item.nombreCurso ?? "Curso sin nombre",
@@ -274,13 +305,8 @@ profesor.get("/api/profesor/cursos", async (req, res) => {
     return;
   }
 
-  const db = await getDb();
-  const cursos = (await db
-    .collection("cursos")
-    .find(buildTeacherFilter(teacherId, ["teacherId", "createdBy"]))
-    .toArray()) as CursoDocente[];
-
-  // Nota: si la colección aún no tiene datos reales, devolvemos [] para evitar errores en UI.
+  // Nota: la colección "cursos" no existe aún en Prisma — devolvemos [] para evitar errores en UI.
+  const cursos: CursoDocente[] = [];
   const resumen = cursos.map((curso, index) => ({
     id: getDocumentId(curso) || `curso-${index}`,
     nombre: curso.name ?? "Curso sin nombre",
@@ -299,13 +325,8 @@ profesor.get("/api/profesor/calificaciones", async (req, res) => {
     return;
   }
 
-  const db = await getDb();
-  const calificaciones = (await db
-    .collection("calificaciones")
-    .find(buildTeacherFilter(teacherId, ["teacherId", "createdBy"]))
-    .toArray()) as CalificacionDocente[];
-
-  // Nota: si la colección aún no tiene datos reales, devolvemos [] para evitar errores en UI.
+  // Nota: la colección "calificaciones" no existe aún en Prisma — devolvemos [] para evitar errores en UI.
+  const calificaciones: CalificacionDocente[] = [];
   const resumen = calificaciones.map((item, index) => ({
     id: getDocumentId(item) || `calificacion-${index}`,
     grupo: item.grupo ?? item.curso ?? "Grupo sin nombre",

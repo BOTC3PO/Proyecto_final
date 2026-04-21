@@ -1,6 +1,5 @@
 import { recordAuditLog } from "./audit-log";
-import { getDb } from "./db";
-import { toObjectId } from "./ids";
+import { prisma } from "./prisma";
 import { isPasswordHashUsable } from "./passwords";
 
 export const markUsersWithoutUsablePasswordForReset = async (params: {
@@ -9,35 +8,27 @@ export const markUsersWithoutUsablePasswordForReset = async (params: {
   targetUserId?: string;
 }) => {
   const { actorId, reason, targetUserId } = params;
-  const db = await getDb();
-  const targetObjectId = targetUserId ? toObjectId(targetUserId) : null;
-  if (targetUserId && !targetObjectId) return;
-  const query: Record<string, unknown> = targetObjectId ? { _id: targetObjectId } : {};
-  const candidates = await db
-    .collection("usuarios")
-    .find(query)
-    .project({ _id: 1, role: 1, passwordHash: 1, passwordResetRequired: 1 })
-    .toArray();
+  if (targetUserId && !targetUserId.trim()) return;
+  const whereClause = targetUserId ? { id: targetUserId } : {};
+  const candidates = await prisma.usuario.findMany({
+    where: whereClause,
+    select: { id: true, role: true, passwordHash: true, passwordResetRequired: true }
+  });
 
   for (const user of candidates) {
     if (isPasswordHashUsable(user.passwordHash) || user.passwordResetRequired === true) continue;
-    await db.collection("usuarios").updateOne(
-      { _id: user._id },
-      {
-        $set: {
-          passwordResetRequired: true,
-          updatedAt: new Date()
-        }
-      }
-    );
+    await prisma.usuario.update({
+      where: { id: user.id },
+      data: { passwordResetRequired: true, updatedAt: new Date().toISOString() }
+    });
     await recordAuditLog({
       actorId,
       action: "usuarios.password_reset_required",
       targetType: "usuario",
-      targetId: String(user._id),
+      targetId: user.id,
       metadata: {
         reason,
-        role: typeof user.role === "string" ? user.role : null,
+        role: user.role,
         hadPasswordHash: typeof user.passwordHash === "string"
       }
     });

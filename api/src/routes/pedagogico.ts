@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 
 export const pedagogico = Router();
 
@@ -69,53 +69,62 @@ pedagogico.get("/api/pedagogico/riesgo/:aulaId",
     }
 
     try {
-      const db = await getDb();
       const { aulaId } = req.params;
 
-      // Obtener alumnos del aula
-      const aula = await db.collection("aulas").findOne({
-        id: aulaId, isDeleted: { $ne: true }
+      // Obtener alumnos del aula via clase_miembros
+      const aula = await prisma.clase.findFirst({
+        where: { id: aulaId, isDeleted: { not: true } },
+        select: { id: true },
       });
       if (!aula) return res.status(404).json({ error: "aula no encontrada" });
 
-      const members = (aula.members ?? []) as Array<{
-        userId?: string; role?: string;
-      }>;
-      const alumnoIds = members
-        .filter((m) => m.role === "USER")
-        .map((m) => m.userId)
-        .filter(Boolean) as string[];
+      const miembros = await prisma.claseMiembro.findMany({
+        where: { claseId: aulaId, rolEnClase: "USER" },
+        select: { usuarioId: true },
+      });
+      const alumnoIds = miembros.map((m) => m.usuarioId).filter(Boolean) as string[];
 
       if (!alumnoIds.length) return res.json({ items: [] });
 
       // Obtener progreso de todos los alumnos
-      const progreso = await db.collection("progreso_modulos").find({
-        usuarioId: { $in: alumnoIds },
-        aulaId,
-      }).toArray();
+      const progreso = await prisma.progresoModulo.findMany({
+        where: {
+          usuarioId: { in: alumnoIds },
+          aulaId,
+        },
+      });
 
       // Obtener intentos fallidos (formal, no completado)
-      const intentosFallidos = await db.collection("quiz_attempts").find({
-        userId: { $in: alumnoIds },
-        status: "submitted",
-        score: { $exists: true },
-      }).toArray() as Array<{
+      const intentosFallidos = await prisma.quizAttempt.findMany({
+        where: {
+          userId: { in: alumnoIds },
+          status: "submitted",
+        },
+        select: {
+          userId: true,
+          score: true,
+          maxScore: true,
+          quizId: true,
+        },
+      }) as Array<{
         userId: string;
-        score: number;
-        maxScore: number;
+        score: number | null;
+        maxScore: number | null;
         quizId: string;
-        moduleId?: string;
       }>;
 
       // Obtener nombres
-      const usuarios = await db.collection("usuarios").find({
-        $or: [{ id: { $in: alumnoIds } }, { _id: { $in: alumnoIds } }],
-        isDeleted: { $ne: true },
-      }).project({ id: 1, _id: 1, fullName: 1, username: 1 }).toArray();
+      const usuarios = await prisma.usuario.findMany({
+        where: {
+          id: { in: alumnoIds },
+          isDeleted: { not: true },
+        },
+        select: { id: true, fullName: true, username: true },
+      });
 
       const usuarioMap = new Map(
         usuarios.map((u) => [
-          String(u.id ?? u._id ?? ""),
+          u.id,
           String(u.fullName ?? u.username ?? "Alumno"),
         ])
       );
@@ -136,8 +145,8 @@ pedagogico.get("/api/pedagogico/riesgo/:aulaId",
           (a) => String(a.userId ?? "") === alumnoId
         );
         const intentosFallidosCount = misIntentos.filter((a) => {
-          const pct = a.maxScore > 0
-            ? Math.round((a.score / a.maxScore) * 100) : 0;
+          const pct = (a.maxScore ?? 0) > 0
+            ? Math.round(((a.score ?? 0) / (a.maxScore ?? 1)) * 100) : 0;
           return pct < 60;
         }).length;
 
@@ -186,15 +195,17 @@ pedagogico.post("/api/pedagogico/desbloquear",
 
     // VUL-6: verificar que el profesor tiene acceso al aula
     try {
-      const mongoDB = await getDb();
-      const aula = await mongoDB.collection("clases").findOne({
-        id: String(aulaId),
-        isDeleted: { $ne: true },
-      }) as {
-        schoolId?: string; institutionId?: string;
-        createdBy?: string; teacherIds?: string[];
-        members?: Array<{ userId: string; role: string }>;
-      } | null;
+      const aula = await prisma.clase.findFirst({
+        where: {
+          id: String(aulaId),
+          isDeleted: { not: true },
+        },
+        select: {
+          escuelaId: true,
+          createdBy: true,
+          teacherId: true,
+        },
+      });
 
       if (!aula) {
         return res.status(404).json({ error: "aula no encontrada" });
@@ -203,14 +214,14 @@ pedagogico.post("/api/pedagogico/desbloquear",
       if (role !== "ADMIN") {
         const userSchoolId = (req as never as { user?: { schoolId?: string } }).user?.schoolId ?? null;
         if (role === "DIRECTIVO") {
-          const aulaSchool = aula.schoolId ?? aula.institutionId ?? null;
+          const aulaSchool = aula.escuelaId ?? null;
           if (!aulaSchool || aulaSchool !== userSchoolId) {
             return res.status(403).json({ error: "sin permiso sobre esta aula" });
           }
         } else {
-          // TEACHER: debe ser creador o estar en teacherIds
+          // TEACHER: debe ser creador o teacherId
           const isCreator = aula.createdBy === userId;
-          const isTeacher = Array.isArray(aula.teacherIds) && aula.teacherIds.includes(userId!);
+          const isTeacher = aula.teacherId === userId;
           if (!isCreator && !isTeacher) {
             return res.status(403).json({ error: "sin permiso sobre esta aula" });
           }
@@ -218,8 +229,13 @@ pedagogico.post("/api/pedagogico/desbloquear",
       }
 
       // Verificar que el alumno pertenece al aula
-      const isMember = Array.isArray(aula.members) &&
-        aula.members.some((m) => m.userId === String(alumnoId) && m.role === "USER");
+      const isMember = await prisma.claseMiembro.findFirst({
+        where: {
+          claseId: String(aulaId),
+          usuarioId: String(alumnoId),
+          rolEnClase: "USER",
+        },
+      });
       if (!isMember) {
         return res.status(403).json({ error: "el alumno no pertenece a esta aula" });
       }
@@ -248,20 +264,18 @@ pedagogico.post("/api/pedagogico/desbloquear",
       now
     );
 
-    // También actualizar progreso en MongoDB
+    // También actualizar progreso en Prisma
     try {
-      const db = await getDb();
-      await db.collection("progreso_modulos").updateOne(
-        { usuarioId: String(alumnoId), moduloId: String(moduloId) },
-        {
-          $set: {
-            status: "iniciado",
-            desbloqueadoManualmente: true,
-            updatedAt: now,
-          }
+      await prisma.progresoModulo.updateMany({
+        where: {
+          usuarioId: String(alumnoId),
+          moduloId: String(moduloId),
         },
-        { upsert: true }
-      );
+        data: {
+          status: "iniciado",
+          updatedAt: now,
+        },
+      });
     } catch { /* ignorar */ }
 
     return res.status(201).json({ id, ok: true });

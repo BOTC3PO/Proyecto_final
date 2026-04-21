@@ -59,19 +59,18 @@ import { sync } from "./routes/sync";
 import { calendario } from "./routes/calendario";
 import { membresias } from "./routes/membresias";
 import { requireUser } from "./lib/user-auth";
-import { openSqlite } from "./lib/db";
+import { prisma } from "./lib/prisma";
 
-const runStartupDataChecks = () => {
+const runStartupDataChecks = async () => {
   try {
-    const sqlite = openSqlite();
-    const totalUsers = (sqlite.prepare("SELECT COUNT(*) AS c FROM usuarios").get() as { c: number }).c;
+    const totalUsers = await prisma.usuario.count();
     if (totalUsers === 0) {
       console.warn("[startup-check] La DB no tiene usuarios. Ejecutá 'npm run db:init' para inicializar.");
       return;
     }
-    const totalAdmins = (sqlite.prepare(
-      "SELECT COUNT(*) AS c FROM usuarios WHERE role = ? AND is_deleted = 0"
-    ).get("ADMIN") as { c: number }).c;
+    const totalAdmins = await prisma.usuario.count({
+      where: { role: "ADMIN", isDeleted: false }
+    });
     if (totalAdmins === 0) {
       console.warn("[startup-check] La DB tiene usuarios pero ningún ADMIN activo.");
     }
@@ -222,7 +221,7 @@ const bootstrap = async () => {
     console.log(`API on http://localhost:${ENV.PORT}`);
   });
   scheduleDelinquencyJob();
-  runStartupDataChecks();
+  void runStartupDataChecks();
   await markUsersWithoutUsablePasswordForReset({
     actorId: "system",
     reason: "startup-password-hash-migration"

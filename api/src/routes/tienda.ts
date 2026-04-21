@@ -3,7 +3,7 @@ import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
 import { checkModoAula } from "../lib/modo-aula-middleware";
 import { requireAdmin } from "../lib/admin-auth";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 
 export const tienda = Router();
@@ -106,13 +106,9 @@ tienda.post("/api/tienda/comprar", requireUser, checkModoAula("tienda"), async (
     return res.status(201).json({ ok: true, gratis: true });
   }
 
-  // Verificar saldo en economía (MongoDB)
+  // Verificar saldo en economía (Prisma/PostgreSQL)
   try {
-    const mongoDB = await getDb();
-    const saldoDoc = await mongoDB
-      .collection("economia_saldos")
-      .findOne({ usuarioId: userId }) as { saldo?: number } | null;
-
+    const saldoDoc = await prisma.economiaSaldo.findFirst({ where: { usuarioId: userId } });
     const saldoActual = saldoDoc?.saldo ?? 0;
 
     if (saldoActual < item.precio) {
@@ -126,29 +122,26 @@ tienda.post("/api/tienda/comprar", requireUser, checkModoAula("tienda"), async (
 
     const now = new Date().toISOString();
 
-    // Descontar saldo en MongoDB
-    await mongoDB.collection("economia_saldos").updateOne(
-      { usuarioId: userId },
-      {
-        $set: {
-          usuarioId: userId,
-          saldo: saldoActual - item.precio,
-          updatedAt: now,
-        }
-      },
-      { upsert: true }
-    );
+    // Descontar saldo en PostgreSQL
+    await prisma.economiaSaldo.upsert({
+      where: { usuarioId: userId },
+      update: { saldo: saldoActual - item.precio, updatedAt: now },
+      create: { usuarioId: userId, saldo: saldoActual - item.precio, moneda: item.moneda, updatedAt: now },
+    });
 
     // Registrar transacción
-    await mongoDB.collection("economia_transacciones").insertOne({
-      id: `tx-${Date.now()}-${Math.random().toString(16).slice(2)}`,
-      usuarioId: userId,
-      tipo: "debito",
-      monto: item.precio,
-      moneda: item.moneda,
-      motivo: `tienda:${item.tipo}:${item.nombre}`,
-      referenciaId: itemId,
-      createdAt: now,
+    await prisma.economiaTransaccion.create({
+      data: {
+        usuarioId: userId,
+        aulaId: "",
+        schoolId: "",
+        tipo: "debito",
+        monto: item.precio,
+        moneda: item.moneda,
+        motivo: `tienda:${item.tipo}:${item.nombre}`,
+        referenciaId: itemId,
+        createdAt: now,
+      },
     });
 
     // Registrar compra en SQLite

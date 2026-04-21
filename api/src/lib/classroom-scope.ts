@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
 import { canManageParents } from "./authorization";
-import { getDb } from "./db";
+import { prisma } from "./prisma";
 
 type ClassroomMember = { userId?: string; roleInClass?: string };
 
@@ -54,16 +54,25 @@ export const requireClassroomScope =
       res.status(400).json({ error: "classroom id required" });
       return;
     }
-    const db = await getDb();
-    const filter: Record<string, unknown> = { id: classroomId };
+    const whereClause: any = { id: classroomId };
     if (!options.includeDeleted) {
-      filter.isDeleted = { $ne: true };
+      whereClause.isDeleted = { not: true };
     }
-    const classroom = await db.collection<AulaDoc>("aulas").findOne(filter);
-    if (!classroom) {
+    const claseRaw = await prisma.clase.findFirst({
+      where: whereClause,
+      include: { miembros: true }
+    });
+    if (!claseRaw) {
       res.status(404).json({ error: options.notFoundMessage ?? "classroom not found" });
       return;
     }
+
+    const classroom: AulaDoc = {
+      id: claseRaw.id,
+      schoolId: claseRaw.escuelaId ?? undefined,
+      isDeleted: claseRaw.isDeleted,
+      members: claseRaw.miembros.map(m => ({ userId: m.usuarioId, roleInClass: m.rolEnClase }))
+    };
 
     const user = (req as { user?: UserIdentity }).user;
     const userId = resolveUserId(user);

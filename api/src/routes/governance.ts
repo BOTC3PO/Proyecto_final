@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { randomUUID } from "crypto";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import {
   CastVoteInputSchema,
   CreateProposalInputSchema,
@@ -39,16 +39,14 @@ governance.get("/api/prompts", async (req, res) => {
       return res.status(400).json({ error: "targetType and targetId are required" });
     }
 
-    const db = await getDb();
-    const prompts = await db
-      .collection("prompts")
-      .find({ targetType, targetId, status: "ACTIVE" })
-      .sort({ createdAt: -1 })
-      .toArray();
+    const prompts = await prisma.prompt.findMany({
+      where: { targetType, targetId, status: "ACTIVE" },
+      orderBy: { createdAt: "desc" }
+    });
 
     const items = prompts.map((prompt) =>
       PromptSchema.parse({
-        id: String(prompt.id ?? prompt._id ?? ""),
+        id: String(prompt.id ?? ""),
         targetType: String(prompt.targetType ?? ""),
         targetId: String(prompt.targetId ?? ""),
         kind: String(prompt.kind ?? "QUESTION"),
@@ -73,7 +71,6 @@ governance.get("/api/prompts", async (req, res) => {
 
 governance.get("/api/proposals", async (req, res) => {
   try {
-    const db = await getDb();
     const statusFilter = typeof req.query.status === "string" ? req.query.status.toUpperCase() : "";
     const targetType = typeof req.query.targetType === "string" ? req.query.targetType.trim() : "";
     const targetId = typeof req.query.targetId === "string" ? req.query.targetId.trim() : "";
@@ -83,12 +80,11 @@ governance.get("/api/proposals", async (req, res) => {
     if (targetType) filter.targetType = targetType;
     if (targetId) filter.targetId = targetId;
 
-    const proposals = await db
-      .collection("proposals")
-      .find(filter)
-      .sort({ createdAt: -1 })
-      .limit(100)
-      .toArray();
+    const proposals = await prisma.proposal.findMany({
+      where: filter,
+      orderBy: { createdAt: "desc" },
+      take: 100
+    });
 
     return res.json({ items: proposals });
   } catch (error: any) {
@@ -98,9 +94,8 @@ governance.get("/api/proposals", async (req, res) => {
 
 governance.get("/api/proposals/:id", async (req, res) => {
   try {
-    const db = await getDb();
     const proposalId = String(req.params.id ?? "").trim();
-    const proposal = await db.collection("proposals").findOne({ id: proposalId });
+    const proposal = await prisma.proposal.findFirst({ where: { id: proposalId } });
     if (!proposal) return res.status(404).json({ error: "proposal not found" });
     return res.json(proposal);
   } catch (error: any) {
@@ -110,10 +105,9 @@ governance.get("/api/proposals/:id", async (req, res) => {
 
 governance.post("/api/proposals", async (req, res) => {
   try {
-    const db = await getDb();
     const parsed = CreateProposalInputSchema.parse(req.body ?? {});
     const level = evaluateGovernanceLevel(parsed.targetType, parsed.proposalType);
-    const allowed = await canActorCreateProposal(db, parsed.createdBy);
+    const allowed = await canActorCreateProposal(parsed.createdBy);
 
     if (!allowed) return res.status(403).json({ error: "permission denied" });
 
@@ -130,7 +124,7 @@ governance.post("/api/proposals", async (req, res) => {
       rationale: parsed.rationale
     });
 
-    await db.collection("proposals").insertOne(proposal);
+    await prisma.proposal.create({ data: proposal });
     return res.status(201).json(proposal);
   } catch (error: any) {
     return res.status(400).json({ error: error?.message ?? "invalid proposal" });
@@ -139,14 +133,13 @@ governance.post("/api/proposals", async (req, res) => {
 
 governance.post("/api/proposals/:id/vote", async (req, res) => {
   try {
-    const db = await getDb();
     const proposalId = String(req.params.id ?? "").trim();
-    const proposal = await db.collection("proposals").findOne({ id: proposalId });
+    const proposal = await prisma.proposal.findFirst({ where: { id: proposalId } });
     if (!proposal) return res.status(404).json({ error: "proposal not found" });
     if (proposal.status !== "OPEN") return res.status(409).json({ error: "proposal is not open" });
 
     const parsed = CastVoteInputSchema.parse(req.body ?? {});
-    const canVote = await canActorVoteOnLevel(db, parsed.voterId, GovernanceLevelSchema.parse(proposal.level));
+    const canVote = await canActorVoteOnLevel(parsed.voterId, GovernanceLevelSchema.parse(proposal.level));
     if (!canVote) return res.status(403).json({ error: "permission denied" });
 
     const vote = VoteSchema.parse({
@@ -157,11 +150,12 @@ governance.post("/api/proposals/:id/vote", async (req, res) => {
       createdAt: new Date().toISOString()
     });
 
-    await db.collection("votes").updateOne(
-      { proposalId, voterId: vote.voterId },
-      { $set: vote },
-      { upsert: true }
-    );
+    const existing = await prisma.vote.findFirst({ where: { proposalId, voterId: vote.voterId } });
+    if (existing) {
+      await prisma.vote.updateMany({ where: { proposalId, voterId: vote.voterId }, data: vote });
+    } else {
+      await prisma.vote.create({ data: vote });
+    }
 
     return res.status(201).json(vote);
   } catch (error: any) {
@@ -172,42 +166,40 @@ governance.post("/api/proposals/:id/vote", async (req, res) => {
 // GET /api/proposals/:id/apoyos
 governance.get("/api/proposals/:id/apoyos", async (req, res) => {
   try {
-    const db = await getDb();
     const proposalId = String(req.params.id ?? "").trim();
 
-    const proposal = await db.collection("proposals")
-      .findOne({ id: proposalId });
+    const proposal = await prisma.proposal.findFirst({ where: { id: proposalId } });
     if (!proposal) return res.status(404).json({ error: "not found" });
 
-    const totalStaff = await db.collection("users").countDocuments({
-      role: { $in: ["TEACHER", "DIRECTIVO", "ADMIN"] },
-      isBanned: { $ne: true }
+    const totalStaff = await prisma.usuario.count({
+      where: {
+        role: { in: ["TEACHER", "DIRECTIVO", "ADMIN"] },
+        isBanned: { not: true }
+      }
     });
 
     const umbral = Math.max(1, Math.ceil(totalStaff * 0.1));
 
-    const apoyos = await db.collection("votes").countDocuments({
-      proposalId, vote: "APPROVE"
+    const apoyos = await prisma.vote.count({
+      where: { proposalId, value: "APPROVE" }
     });
-    const noApoyos = await db.collection("votes").countDocuments({
-      proposalId, vote: "REJECT"
+    const noApoyos = await prisma.vote.count({
+      where: { proposalId, value: "REJECT" }
     });
 
     const voterId = req.header("x-user-id") ?? "";
     let miVoto: "APPROVE" | "REJECT" | null = null;
     if (voterId) {
-      const voto = await db.collection("votes")
-        .findOne({ proposalId, voterId });
-      if (voto?.vote === "APPROVE") miVoto = "APPROVE";
-      else if (voto?.vote === "REJECT") miVoto = "REJECT";
+      const voto = await prisma.vote.findFirst({ where: { proposalId, voterId } });
+      if (voto?.value === "APPROVE") miVoto = "APPROVE";
+      else if (voto?.value === "REJECT") miVoto = "REJECT";
     }
 
     const alcanzado = apoyos >= umbral;
 
     // Si alcanzó el umbral y sigue OPEN → crear suggestion PINNED
     if (alcanzado && proposal.status === "OPEN") {
-      const existingSuggestion = await db.collection("suggestions_pinned")
-        .findOne({ proposalId });
+      const existingSuggestion = await prisma.suggestionPinned?.findFirst?.({ where: { proposalId } }).catch(() => null);
 
       if (!existingSuggestion) {
         const { openContentDb } = await import("../lib/db-open");
@@ -221,17 +213,16 @@ governance.get("/api/proposals/:id/apoyos", async (req, res) => {
         `).run(
           suggId,
           "GOVERNANCE",
-          proposal.targetType ?? "MODULE_GENERATOR",
-          proposal.targetId ?? "",
-          (proposal.payload as Record<string, unknown>)?.subject ?? "Propuesta de gobernanza",
-          (proposal.payload as Record<string, unknown>)?.description ?? "",
-          proposal.createdBy ?? "system",
+          (proposal as any).targetType ?? "MODULE_GENERATOR",
+          (proposal as any).targetId ?? "",
+          ((proposal as any).payload as Record<string, unknown>)?.subject ?? "Propuesta de gobernanza",
+          ((proposal as any).payload as Record<string, unknown>)?.description ?? "",
+          (proposal as any).createdBy ?? "system",
           new Date().toISOString(),
           "PINNED"
         );
         // Marcar para no duplicar
-        await db.collection("suggestions_pinned")
-          .insertOne({ proposalId, suggestionId: suggId });
+        await prisma.suggestionPinned?.create?.({ data: { proposalId, suggestionId: suggId } }).catch(() => null);
       }
     }
 
@@ -243,14 +234,13 @@ governance.get("/api/proposals/:id/apoyos", async (req, res) => {
 
 governance.post("/api/proposals/:id/close", async (req, res) => {
   try {
-    const db = await getDb();
     const proposalId = String(req.params.id ?? "").trim();
-    const proposalRaw = await db.collection("proposals").findOne({ id: proposalId });
+    const proposalRaw = await prisma.proposal.findFirst({ where: { id: proposalId } });
     if (!proposalRaw) return res.status(404).json({ error: "proposal not found" });
 
     const proposal = ProposalSchema.parse({
       ...proposalRaw,
-      id: String(proposalRaw.id ?? proposalRaw._id ?? ""),
+      id: String(proposalRaw.id ?? ""),
       createdAt: new Date(String(proposalRaw.createdAt ?? new Date())).toISOString()
     });
 
@@ -260,7 +250,6 @@ governance.post("/api/proposals/:id/close", async (req, res) => {
 
     const actorId = resolveActorId(req);
     const canClose = await validateGovernancePermissions({
-      db,
       actorId,
       level: proposal.level,
       targetType: proposal.targetType,
@@ -269,10 +258,10 @@ governance.post("/api/proposals/:id/close", async (req, res) => {
 
     if (!canClose) return res.status(403).json({ error: "permission denied" });
 
-    const votes = await db.collection("votes").find({ proposalId }).toArray();
+    const votes = await prisma.vote.findMany({ where: { proposalId } });
     const summary = votes.reduce(
       (acc: { approve: number; reject: number; abstain: number }, vote) => {
-        const value = String(vote.vote ?? "").toUpperCase();
+        const value = String((vote as any).vote ?? vote.value ?? "").toUpperCase();
         if (value === "APPROVE") acc.approve += 1;
         if (value === "REJECT") acc.reject += 1;
         if (value === "ABSTAIN") acc.abstain += 1;
@@ -290,22 +279,20 @@ governance.post("/api/proposals/:id/close", async (req, res) => {
 
     let applyResult: { applied: boolean; reason?: string } = { applied: false };
     if (outcome.approved) {
-      applyResult = await applyApprovedGovernanceChange(db, proposal);
+      applyResult = await applyApprovedGovernanceChange(proposal);
     }
 
-    await db.collection("proposals").updateOne(
-      { id: proposalId },
-      {
-        $set: {
-          status: nextStatus,
-          closedAt: new Date().toISOString(),
-          closedBy: actorId,
-          voteSummary: summary,
-          applyResult,
-          closeRule: outcome.rule
-        }
+    await prisma.proposal.updateMany({
+      where: { id: proposalId },
+      data: {
+        status: nextStatus,
+        closedAt: new Date().toISOString(),
+        closedBy: actorId,
+        voteSummary: summary as any,
+        applyResult: applyResult as any,
+        closeRule: outcome.rule
       }
-    );
+    });
 
     return res.json({
       id: proposalId,

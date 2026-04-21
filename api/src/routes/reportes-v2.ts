@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
 
@@ -25,61 +25,56 @@ reportesV2.get(
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
 
     try {
-      const db = await getDb();
-
       // Obtener alumnos del aula
-      const aula = await db.collection("aulas").findOne({
-        id: aulaId,
-        isDeleted: { $ne: true },
+      const aula = await prisma.clase.findFirst({
+        where: { id: aulaId, isDeleted: { not: true } },
+        select: { id: true, name: true }
       });
       if (!aula) return res.status(404).json({ error: "aula no encontrada" });
 
-      const members = (aula.members ?? []) as Array<{
-        userId?: string;
-        role?: string;
-      }>;
-      const alumnoIds = members
-        .filter((m) => m.role === "USER")
-        .map((m) => m.userId)
-        .filter(Boolean) as string[];
+      // Fetch classroom members with student role
+      const miembros = await prisma.claseMiembro.findMany({
+        where: { claseId: aulaId, rolEnClase: "USER" }
+      });
+      const alumnoIds = miembros.map((m) => m.usuarioId).filter(Boolean);
 
       if (!alumnoIds.length) {
         return res.json({ aulaId, aulaNombre: aula.name, alumnos: [] });
       }
 
       // Obtener nombres de alumnos
-      const usuarios = await db.collection("usuarios").find({
-        $or: [
-          { id: { $in: alumnoIds } },
-          { _id: { $in: alumnoIds } },
-        ],
-        isDeleted: { $ne: true },
-      }).project({ id: 1, _id: 1, fullName: 1, username: 1 }).toArray();
+      const usuarios = await prisma.usuario.findMany({
+        where: { id: { in: alumnoIds }, isDeleted: { not: true } },
+        select: { id: true, fullName: true, username: true }
+      });
 
       const usuarioMap = new Map(
         usuarios.map((u) => [
-          String(u.id ?? u._id ?? ""),
+          u.id,
           { nombre: String(u.fullName ?? u.username ?? "Alumno"), username: String(u.username ?? "") }
         ])
       );
 
       // Obtener quiz-attempts formales del aula
-      const attempts = await db.collection("quiz_attempts").find({
-        userId: { $in: alumnoIds },
-        status: { $in: ["completed", "submitted"] },
-      }).toArray();
+      const attempts = await prisma.quizAttempt.findMany({
+        where: {
+          userId: { in: alumnoIds },
+          status: { in: ["completed", "submitted"] }
+        }
+      });
 
       // Obtener módulos para materia
       const moduleIds = [...new Set(
-        attempts.map((a) => String(a.moduleId ?? "")).filter(Boolean)
+        attempts.map((a) => String(a.quizId ?? "")).filter(Boolean)
       )];
       const modules = moduleIds.length
-        ? await db.collection("modulos").find({
-            id: { $in: moduleIds }
-          }).project({ id: 1, title: 1, subject: 1, category: 1 }).toArray()
+        ? await prisma.modulo.findMany({
+            where: { id: { in: moduleIds } },
+            select: { id: true, titulo: true }
+          })
         : [];
       const moduleMap = new Map(
-        modules.map((m) => [String(m.id ?? ""), m])
+        modules.map((m) => [m.id, m])
       );
 
       // Agrupar por alumno
@@ -94,11 +89,11 @@ reportesV2.get(
         const info = usuarioMap.get(alumnoId) ?? { nombre: alumnoId, username: "" };
         const misAttempts = byAlumno.get(alumnoId) ?? [];
 
-        // Agrupar por materia
+        // Agrupar por materia — using modulo titulo as category
         const porMateria = new Map<string, number[]>();
         for (const attempt of misAttempts) {
-          const mod = moduleMap.get(String(attempt.moduleId ?? ""));
-          const materia = String(mod?.subject ?? mod?.category ?? "General");
+          const mod = moduleMap.get(String(attempt.quizId ?? ""));
+          const materia = String(mod?.titulo ?? "General");
           if (typeof attempt.score === "number") {
             if (!porMateria.has(materia)) porMateria.set(materia, []);
             porMateria.get(materia)!.push(attempt.score);
@@ -148,6 +143,7 @@ reportesV2.get(
     const aulaId = req.params.aulaId;
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
 
+    // Raw SQLite — kept unchanged
     const sqliteDb = openContentDb();
     const actividades = sqliteDb.prepare(`
       SELECT id, tipo, titulo, descripcion, fecha, created_at
@@ -196,9 +192,7 @@ reportesV2.get(
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
 
     try {
-      const db = await getDb();
-
-      // Módulos asignados al aula via clase_modulos
+      // Módulos asignados al aula via clase_modulos (raw SQLite — kept unchanged)
       const sqliteDb = openContentDb();
       const modulosAsignados = sqliteDb.prepare(`
         SELECT modulo_id FROM clase_modulos WHERE clase_id = ?
@@ -210,21 +204,22 @@ reportesV2.get(
       }
 
       // Datos de módulos
-      const modulos = await db.collection("modulos").find({
-        id: { $in: moduloIds }
-      }).project({ id: 1, title: 1, subject: 1, category: 1 }).toArray();
+      const modulos = await prisma.modulo.findMany({
+        where: { id: { in: moduloIds } },
+        select: { id: true, titulo: true, descripcion: true }
+      });
 
       // Progreso de todos los alumnos
-      const progreso = await db.collection("progreso_modulos").find({
-        moduloId: { $in: moduloIds },
-      }).toArray();
+      const progreso = await prisma.progresoModulo.findMany({
+        where: { moduloId: { in: moduloIds } }
+      });
 
-      const moduloMap = new Map(modulos.map((m) => [String(m.id ?? ""), m]));
+      const moduloMap = new Map(modulos.map((m) => [m.id, m]));
 
       const porModulo = moduloIds.map((moduloId) => {
         const mod = moduloMap.get(moduloId);
         const items = progreso.filter(
-          (p) => String(p.moduloId ?? "") === moduloId
+          (p) => p.moduloId === moduloId
         );
         const completados = items.filter((p) => p.status === "completado").length;
         const enProgreso = items.filter(
@@ -233,8 +228,8 @@ reportesV2.get(
         const total = items.length;
         return {
           moduloId,
-          titulo: String(mod?.title ?? moduloId),
-          materia: String(mod?.subject ?? mod?.category ?? "General"),
+          titulo: String(mod?.titulo ?? moduloId),
+          materia: "General",
           completados,
           enProgreso,
           sinIniciar: Math.max(0, total - completados - enProgreso),
@@ -270,25 +265,29 @@ reportesV2.get(
     }
 
     try {
-      const db = await getDb();
-      const filter = schoolId
-        ? { $or: [{ institutionId: schoolId }, { schoolId }], isDeleted: { $ne: true } }
-        : { isDeleted: { $ne: true } };
+      const baseWhere = schoolId
+        ? { escuelaId: schoolId, isDeleted: { not: true }, status: "ACTIVE" }
+        : { isDeleted: { not: true }, status: "ACTIVE" };
 
       const [totalAulas, totalUsuarios, aulas] = await Promise.all([
-        db.collection("aulas").countDocuments({ ...filter, status: "ACTIVE" }),
-        db.collection("usuarios").countDocuments({
-          ...(schoolId ? { schoolId } : {}),
-          isDeleted: { $ne: true },
+        prisma.clase.count({ where: baseWhere as any }),
+        prisma.usuario.count({
+          where: {
+            ...(schoolId ? { escuelaId: schoolId } : {}),
+            isDeleted: { not: true }
+          }
         }),
-        db.collection("aulas").find({ ...filter, status: "ACTIVE" })
-          .project({ id: 1, name: 1 }).limit(20).toArray(),
+        prisma.clase.findMany({
+          where: baseWhere as any,
+          select: { id: true, name: true },
+          take: 20
+        })
       ]);
 
-      const aulaIds = aulas.map((a) => String(a.id ?? ""));
-      const sqliteDb = openContentDb();
+      const aulaIds = aulas.map((a) => a.id);
 
-      // Actividades de todas las aulas
+      // Raw SQLite — kept unchanged
+      const sqliteDb = openContentDb();
       const actividadesCount = aulaIds.length
         ? (sqliteDb.prepare(`
             SELECT COUNT(*) as c FROM actividades_aula
@@ -297,13 +296,15 @@ reportesV2.get(
           `).get(...aulaIds) as { c: number }).c
         : 0;
 
-      // Progreso total
-      const progresoTotal = await db.collection("progreso_modulos").countDocuments(
-        aulaIds.length ? { aulaId: { $in: aulaIds } } : {}
+      // Progreso total using Prisma
+      const progresoTotal = await prisma.progresoModulo.count(
+        aulaIds.length ? { where: { aulaId: { in: aulaIds } } } : {}
       );
-      const progresoCompletado = await db.collection("progreso_modulos").countDocuments({
-        ...(aulaIds.length ? { aulaId: { $in: aulaIds } } : {}),
-        status: "completado",
+      const progresoCompletado = await prisma.progresoModulo.count({
+        where: {
+          ...(aulaIds.length ? { aulaId: { in: aulaIds } } : {}),
+          status: "completado"
+        }
       });
 
       return res.json({

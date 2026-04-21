@@ -1,11 +1,10 @@
 import express, { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { assertClassroomWritable } from "../lib/classroom";
 import { requireUser } from "../lib/user-auth";
 import { ModuleSchema } from "../schema/modulo";
-import { openContentDb } from "../lib/db-open";
 
 export const modulos = Router();
 
@@ -47,11 +46,9 @@ modulos.get("/api/modulos/buscar", async (req, res) => {
     });
     if (res.headersSent) return;
   }
-  const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const query = typeof req.query.query === "string" ? req.query.query.trim() : "";
-  const category = typeof req.query.category === "string" ? req.query.category.trim() : "";
   const createdBy = mine
     ? req.user?._id
       ? req.user._id.toString()
@@ -64,7 +61,7 @@ modulos.get("/api/modulos/buscar", async (req, res) => {
 
   const accessFilters: Record<string, unknown>[] = [];
   if (createdBy) {
-    accessFilters.push({ createdBy });
+    accessFilters.push({ ownerUserId: createdBy });
   }
   if (visibilityList.includes("publico")) {
     accessFilters.push({ visibility: "publico" });
@@ -75,75 +72,74 @@ modulos.get("/api/modulos/buscar", async (req, res) => {
     );
   }
   if (visibilityList.includes("privado") && createdBy) {
-    accessFilters.push({ visibility: "privado", createdBy });
+    accessFilters.push({ visibility: "privado", ownerUserId: createdBy });
   }
 
   const andFilters: Record<string, unknown>[] = [];
   if (accessFilters.length > 0) {
-    andFilters.push({ $or: accessFilters });
+    andFilters.push({ OR: accessFilters });
   }
   if (query) {
-    const regex = new RegExp(escapeRegex(query), "i");
-    andFilters.push({ $or: [{ title: regex }, { category: regex }] });
-  }
-  if (category) {
-    andFilters.push({ category });
+    andFilters.push({ OR: [{ titulo: { contains: query, mode: "insensitive" } }] });
   }
 
-  const filter =
-    andFilters.length === 0 ? {} : andFilters.length === 1 ? andFilters[0] : { $and: andFilters };
+  const safeOffset = Number.isNaN(offset) || offset < 0 ? 0 : offset;
+  const where =
+    andFilters.length === 0 ? {} : andFilters.length === 1 ? andFilters[0] : { AND: andFilters };
 
-  const cursor = db
-    .collection("modulos")
-    .find(filter)
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ updatedAt: -1 });
-  const items = (await cursor.toArray()).map(withDefaultStatus);
+  const items = (
+    await prisma.modulo.findMany({
+      where: where as any,
+      skip: safeOffset,
+      take: limit,
+      orderBy: { updatedAt: "desc" },
+    })
+  ).map(withDefaultStatus);
+
   res.json({ items, limit, offset });
 });
 
 modulos.get("/api/modulos", async (req, res) => {
-  const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
+  const safeOffset = Number.isNaN(offset) || offset < 0 ? 0 : offset;
 
   let items;
   if (aulaId) {
-    // Obtener ids de módulos asignados al aula via clase_modulos
-    const sqliteDb = openContentDb();
-    const rows = sqliteDb.prepare(
-      "SELECT modulo_id FROM clase_modulos WHERE clase_id = ? ORDER BY assigned_at ASC"
-    ).all(aulaId) as Array<{ modulo_id: string }>;
-    const moduloIds = rows.map(r => r.modulo_id);
+    const claseModulos = await prisma.claseModulo.findMany({
+      where: { claseId: aulaId },
+      select: { moduloId: true },
+    });
+    const moduloIds = claseModulos.map((r) => r.moduloId);
 
     if (moduloIds.length === 0) {
       return res.json({ items: [], limit, offset });
     }
 
-    // Buscar esos módulos en MongoDB
-    const cursor = db.collection("modulos")
-      .find({ id: { $in: moduloIds } })
-      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-      .limit(limit)
-      .sort({ updatedAt: -1 });
-    items = (await cursor.toArray()).map(withDefaultStatus);
+    items = (
+      await prisma.modulo.findMany({
+        where: { id: { in: moduloIds } },
+        skip: safeOffset,
+        take: limit,
+        orderBy: { updatedAt: "desc" },
+      })
+    ).map(withDefaultStatus);
   } else {
-    const cursor = db.collection("modulos")
-      .find({})
-      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-      .limit(limit)
-      .sort({ updatedAt: -1 });
-    items = (await cursor.toArray()).map(withDefaultStatus);
+    items = (
+      await prisma.modulo.findMany({
+        skip: safeOffset,
+        take: limit,
+        orderBy: { updatedAt: "desc" },
+      })
+    ).map(withDefaultStatus);
   }
 
   return res.json({ items, limit, offset });
 });
 
 modulos.get("/api/modulos/:id", async (req, res) => {
-  const db = await getDb();
-  const item = await db.collection("modulos").findOne({ id: req.params.id });
+  const item = await prisma.modulo.findFirst({ where: { id: req.params.id } });
   if (!item) return res.status(404).json({ error: "not found" });
   res.json(withDefaultStatus(item));
 });
@@ -163,17 +159,18 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
       updatedAt: req.body?.updatedAt ?? new Date().toISOString()
     };
     const parsed = ModuleSchema.parse(payload);
-    const db = await getDb();
     if (parsed.aulaId) {
-      const classroom = await db
-        .collection<{ status?: unknown }>("aulas")
-        .findOne({ id: parsed.aulaId }, { projection: { status: 1 } });
+      const classroom = await prisma.clase.findFirst({
+        where: { id: parsed.aulaId },
+        select: { status: true },
+      });
       if (classroom && !assertClassroomWritable(res, classroom)) {
         return;
       }
     }
-    const result = await db.collection("modulos").insertOne(withDefaultStatus(parsed));
-    res.status(201).json({ id: result.insertedId, moduleId: parsed.id });
+    const { status: _status, aulaId: _aulaId, ...moduloData } = withDefaultStatus(parsed) as any;
+    const result = await prisma.modulo.create({ data: moduloData });
+    res.status(201).json({ id: result.id, moduleId: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -182,19 +179,20 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
 modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
-    const db = await getDb();
-    const existing = await db.collection("modulos").findOne({ id: req.params.id });
+    const existing = await prisma.modulo.findFirst({ where: { id: req.params.id } });
     if (!existing) return res.status(404).json({ error: "not found" });
-    if (existing.aulaId) {
-      const classroom = await db
-        .collection<{ status?: unknown }>("aulas")
-        .findOne({ id: existing.aulaId }, { projection: { status: 1 } });
+    if ((existing as any).aulaId) {
+      const classroom = await prisma.clase.findFirst({
+        where: { id: (existing as any).aulaId },
+        select: { status: true },
+      });
       if (classroom && !assertClassroomWritable(res, classroom)) {
         return;
       }
     }
-    const update = { ...parsed, status: parsed.status ?? existing.status ?? "ACTIVE", updatedAt: new Date().toISOString() };
-    await db.collection("modulos").updateOne({ id: req.params.id }, { $set: update });
+    const { status: _status, aulaId: _aulaId, ...updateFields } = parsed as any;
+    const update = { ...updateFields, updatedAt: new Date().toISOString() };
+    await prisma.modulo.updateMany({ where: { id: req.params.id }, data: update });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -204,19 +202,20 @@ modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), as
 modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
-    const db = await getDb();
-    const existing = await db.collection("modulos").findOne({ id: req.params.id });
+    const existing = await prisma.modulo.findFirst({ where: { id: req.params.id } });
     if (!existing) return res.status(404).json({ error: "not found" });
-    if (existing.aulaId) {
-      const classroom = await db
-        .collection<{ status?: unknown }>("aulas")
-        .findOne({ id: existing.aulaId }, { projection: { status: 1 } });
+    if ((existing as any).aulaId) {
+      const classroom = await prisma.clase.findFirst({
+        where: { id: (existing as any).aulaId },
+        select: { status: true },
+      });
       if (classroom && !assertClassroomWritable(res, classroom)) {
         return;
       }
     }
-    const update = { ...parsed, status: parsed.status ?? existing.status ?? "ACTIVE", updatedAt: new Date().toISOString() };
-    await db.collection("modulos").updateOne({ id: req.params.id }, { $set: update });
+    const { status: _status, aulaId: _aulaId, ...updateFields } = parsed as any;
+    const update = { ...updateFields, updatedAt: new Date().toISOString() };
+    await prisma.modulo.updateMany({ where: { id: req.params.id }, data: update });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -224,18 +223,18 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
 });
 
 modulos.delete("/api/modulos/:id", requireUser, async (req, res) => {
-  const db = await getDb();
-  const existing = await db.collection("modulos").findOne({ id: req.params.id });
+  const existing = await prisma.modulo.findFirst({ where: { id: req.params.id } });
   if (!existing) return res.status(404).json({ error: "not found" });
-  if (existing.aulaId) {
-    const classroom = await db
-      .collection<{ status?: unknown }>("aulas")
-      .findOne({ id: existing.aulaId }, { projection: { status: 1 } });
+  if ((existing as any).aulaId) {
+    const classroom = await prisma.clase.findFirst({
+      where: { id: (existing as any).aulaId },
+      select: { status: true },
+    });
     if (classroom && !assertClassroomWritable(res, classroom)) {
       return;
     }
   }
-  const result = await db.collection("modulos").deleteOne({ id: req.params.id });
-  if (result.deletedCount === 0) return res.status(404).json({ error: "not found" });
+  const result = await prisma.modulo.deleteMany({ where: { id: req.params.id } });
+  if (result.count === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
 });
