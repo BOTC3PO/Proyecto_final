@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import { requireAdmin } from "../lib/admin-auth";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { createRateLimiter } from "../lib/rate-limit";
 import { toObjectId } from "../lib/ids";
 import { getQueryString } from "../lib/query";
@@ -26,52 +26,53 @@ const getRequesterId = (req: express.Request) =>
 escuelas.post("/api/escuelas", requireAdmin, escuelasMutationLimiter, async (req, res) => {
   try {
     const parsed = EscuelaSchema.parse(req.body);
-    const db = await getDb();
     const now = new Date();
-    const doc = {
-      ...parsed,
-      adminIds: parsed.adminIds?.map((id) => toObjectId(id)).filter(Boolean),
-      isDeleted: false,
-      createdAt: now,
-      updatedAt: now
-    };
-    const result = await db.collection("escuelas").insertOne(doc);
-    res.status(201).json({ id: result.insertedId });
+    const created = await prisma.escuela.create({
+      data: {
+        name: parsed.name,
+        code: parsed.code,
+        address: parsed.address,
+        subscriptionStatus: parsed.subscriptionStatus,
+        plan: parsed.plan,
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now
+      }
+    });
+    res.status(201).json({ id: created.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
 });
 
 escuelas.get("/api/escuelas", requireUser, async (req, res) => {
-  const db = await getDb();
   const limit = clampLimit(getQueryString(req.query.limit));
   const offset = Number(getQueryString(req.query.offset) ?? 0);
-  const cursor = db
-    .collection("escuelas")
-    .find({ isDeleted: { $ne: true } })
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ createdAt: -1 });
-  const items = await cursor.toArray();
-  res.json({ items, limit, offset });
+  const skip = Number.isNaN(offset) || offset < 0 ? 0 : offset;
+  const items = await prisma.escuela.findMany({
+    where: { isDeleted: { not: true } },
+    skip,
+    take: limit,
+    orderBy: { createdAt: "desc" }
+  });
+  res.json({ items, limit, offset: skip });
 });
 
 escuelas.get("/api/escuelas/code/:code", async (req, res) => {
-  const db = await getDb();
-  const escuela = await db.collection("escuelas").findOne(
-    { code: req.params.code, isDeleted: { $ne: true } },
-    { projection: { name: 1 } }
-  );
+  const escuela = await prisma.escuela.findFirst({
+    where: { code: req.params.code, isDeleted: { not: true } },
+    select: { id: true, name: true }
+  });
   if (!escuela) return res.status(404).json({ error: "not found" });
-  res.json({ id: escuela._id, name: escuela.name });
+  res.json({ id: escuela.id, name: escuela.name });
 });
 
 escuelas.get("/api/escuelas/:id", async (req, res) => {
-  const db = await getDb();
-  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
-  const objectId = toObjectId(id);
-  if (!objectId) return res.status(400).json({ error: "invalid id" });
-  const item = await db.collection("escuelas").findOne({ _id: objectId, isDeleted: { $ne: true } });
+  const rawId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!toObjectId(rawId)) return res.status(400).json({ error: "invalid id" });
+  const item = await prisma.escuela.findFirst({
+    where: { id: rawId, isDeleted: { not: true } }
+  });
   if (!item) return res.status(404).json({ error: "not found" });
   res.json(item);
 });
@@ -79,56 +80,42 @@ escuelas.get("/api/escuelas/:id", async (req, res) => {
 escuelas.patch("/api/escuelas/:id", requireUser, escuelasMutationLimiter, async (req, res) => {
   try {
     const parsed = EscuelaPatchSchema.parse(req.body);
-    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
-    const objectId = toObjectId(id);
-    if (!objectId) return res.status(400).json({ error: "invalid id" });
-    const db = await getDb();
-    const escuela = await db.collection("escuelas").findOne({ _id: objectId, isDeleted: { $ne: true } });
+    const rawId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    if (!toObjectId(rawId)) return res.status(400).json({ error: "invalid id" });
+    const escuela = await prisma.escuela.findFirst({
+      where: { id: rawId, isDeleted: { not: true } }
+    });
     if (!escuela) return res.status(404).json({ error: "not found" });
     const requester = (req as { user?: { _id?: { toString?: () => string }; role?: string } }).user;
-    const requesterId = requester?._id?.toString?.() ?? null;
     const isPlatformAdmin = requester?.role === "ADMIN";
-    const isSchoolAdmin =
-      !!requesterId &&
-      Array.isArray(escuela.adminIds) &&
-      escuela.adminIds.some((adminId: unknown) => {
-        if (!adminId) return false;
-        if (typeof adminId === "string") return adminId === requesterId;
-        const adminObj = adminId as { toString?: () => string };
-        return adminObj.toString?.() === requesterId;
-      });
-    if (!isPlatformAdmin && !isSchoolAdmin) {
+    if (!isPlatformAdmin) {
       return res.status(403).json({ error: "forbidden" });
     }
     const shouldAuditPlan = parsed.plan !== undefined && parsed.plan !== escuela.plan;
     const shouldAuditStatus =
       parsed.subscriptionStatus !== undefined && parsed.subscriptionStatus !== escuela.subscriptionStatus;
-    const shouldAuditPrice =
-      parsed.pricePerStudent !== undefined && parsed.pricePerStudent !== escuela.pricePerStudent;
-    if (shouldAuditPlan || shouldAuditStatus || shouldAuditPrice) {
-      await db.collection("eventos_suscripciones").insertOne({
-        schoolId: escuela._id?.toString?.() ?? id,
-        previousPlan: escuela.plan ?? null,
-        newPlan: parsed.plan ?? escuela.plan ?? null,
-        previousStatus: escuela.subscriptionStatus ?? null,
-        newStatus: parsed.subscriptionStatus ?? escuela.subscriptionStatus ?? null,
-        previousPricePerStudent:
-          typeof escuela.pricePerStudent === "number" ? escuela.pricePerStudent : null,
-        newPricePerStudent:
-          typeof parsed.pricePerStudent === "number"
-            ? parsed.pricePerStudent
-            : typeof escuela.pricePerStudent === "number"
-              ? escuela.pricePerStudent
-              : null,
-        actorId: getRequesterId(req),
-        createdAt: new Date().toISOString()
+    if (shouldAuditPlan || shouldAuditStatus) {
+      await prisma.eventoSuscripcion.create({
+        data: {
+          json: JSON.stringify({
+            schoolId: escuela.id,
+            previousPlan: escuela.plan ?? null,
+            newPlan: parsed.plan ?? escuela.plan ?? null,
+            previousStatus: escuela.subscriptionStatus ?? null,
+            newStatus: parsed.subscriptionStatus ?? escuela.subscriptionStatus ?? null,
+            actorId: getRequesterId(req)
+          }),
+          createdAt: new Date().toISOString()
+        }
       });
     }
     const update: Record<string, unknown> = { updatedAt: new Date() };
     if (parsed.plan !== undefined) update.plan = parsed.plan;
     if (parsed.subscriptionStatus !== undefined) update.subscriptionStatus = parsed.subscriptionStatus;
-    if (parsed.pricePerStudent !== undefined) update.pricePerStudent = parsed.pricePerStudent;
-    await db.collection("escuelas").updateOne({ _id: objectId }, { $set: update });
+    await prisma.escuela.update({
+      where: { id: rawId },
+      data: update as Parameters<typeof prisma.escuela.update>[0]["data"]
+    });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });

@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { BookSchema } from "../schema/libro";
 
 export const libros = Router();
@@ -7,28 +7,9 @@ export const libros = Router();
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 const DEFAULT_PAGE_SIZE = 12;
 const MAX_PAGE_SIZE = 50;
-let librosIndexesPromise: Promise<void> | null = null;
-
-async function ensureLibrosIndexes() {
-  if (!librosIndexesPromise) {
-    librosIndexesPromise = getDb()
-      .then((db) =>
-        db.collection("libros").createIndexes([
-          { key: { id: 1 }, name: "libros_id_idx", unique: true },
-          { key: { title: 1 }, name: "libros_title_idx" }
-        ])
-      )
-      .then(() => undefined)
-      .catch((error) => {
-        console.warn("No se pudieron crear los índices de libros:", error);
-      });
-  }
-  await librosIndexesPromise;
-}
 
 libros.post("/api/libros", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30)), async (req, res) => {
   try {
-    await ensureLibrosIndexes();
     const book = req.body?.book;
     if (!book || typeof book !== "object") {
       return res.status(400).json({ error: "book payload is required" });
@@ -47,12 +28,17 @@ libros.post("/api/libros", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30))
       updatedAt: req.body?.updatedAt ?? new Date().toISOString()
     };
     const parsed = BookSchema.parse(payload);
-    const db = await getDb();
-    await db.collection("libros").updateOne(
-      { id: parsed.id },
-      { $set: parsed },
-      { upsert: true }
-    );
+    const existing = await prisma.libro.findFirst({ where: { id: parsed.id } });
+    if (existing) {
+      await prisma.libro.updateMany({
+        where: { id: parsed.id },
+        data: { json: JSON.stringify(parsed), updatedAt: parsed.updatedAt }
+      });
+    } else {
+      await prisma.libro.create({
+        data: { id: parsed.id, json: JSON.stringify(parsed), updatedAt: parsed.updatedAt }
+      });
+    }
     res.status(201).json({ id: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -61,51 +47,59 @@ libros.post("/api/libros", ...bodyLimitMB(Number(process.env.MAX_PAGE_MB ?? 30))
 
 libros.get("/api/libros", async (req, res) => {
   try {
-    await ensureLibrosIndexes();
-    const db = await getDb();
     const rawQuery = typeof req.query.q === "string" ? req.query.q.trim() : "";
     const rawId = typeof req.query.id === "string" ? req.query.id.trim() : "";
     const page = Math.max(1, Number(req.query.page ?? 1));
     const pageSize = Math.max(1, Math.min(MAX_PAGE_SIZE, Number(req.query.pageSize ?? DEFAULT_PAGE_SIZE)));
 
-    const filter: Record<string, any> = {};
+    const allItems = await prisma.libro.findMany();
+    const allDocs = allItems.map((r) => {
+      try { return { ...JSON.parse(r.json), id: r.id }; } catch { return { id: r.id }; }
+    }) as Array<Record<string, unknown>>;
+
+    let filtered = allDocs;
     if (rawId) {
-      filter.id = rawId;
+      filtered = allDocs.filter((d) => d.id === rawId);
     } else if (rawQuery) {
-      filter.$or = [
-        { id: { $regex: rawQuery, $options: "i" } },
-        { title: { $regex: rawQuery, $options: "i" } }
-      ];
+      const lower = rawQuery.toLowerCase();
+      filtered = allDocs.filter(
+        (d) =>
+          (typeof d.id === "string" && d.id.toLowerCase().includes(lower)) ||
+          (typeof d.title === "string" && d.title.toLowerCase().includes(lower))
+      );
     }
 
-    const total = await db.collection("libros").countDocuments(filter);
+    // sort by updatedAt desc, then createdAt desc, then id asc
+    filtered.sort((a, b) => {
+      const ua = String(a.updatedAt ?? "");
+      const ub = String(b.updatedAt ?? "");
+      if (ub !== ua) return ub < ua ? -1 : 1;
+      const ca = String(a.createdAt ?? "");
+      const cb = String(b.createdAt ?? "");
+      if (cb !== ca) return cb < ca ? -1 : 1;
+      return String(a.id ?? "") < String(b.id ?? "") ? -1 : 1;
+    });
+
+    const total = filtered.length;
     const totalPages = Math.max(1, Math.ceil(total / pageSize));
     const currentPage = Math.min(page, totalPages);
-    const items = await db
-      .collection("libros")
-      .find(filter)
-      .project({ _id: 0, id: 1, title: 1, createdAt: 1, updatedAt: 1 })
-      .sort({ updatedAt: -1, createdAt: -1, id: 1 })
-      .skip((currentPage - 1) * pageSize)
-      .limit(pageSize)
-      .toArray();
+    const items = filtered
+      .slice((currentPage - 1) * pageSize, currentPage * pageSize)
+      .map(({ id, title, createdAt, updatedAt }) => ({ id, title, createdAt, updatedAt }));
 
-    res.json({
-      items,
-      page: currentPage,
-      pageSize,
-      total,
-      totalPages
-    });
+    res.json({ items, page: currentPage, pageSize, total, totalPages });
   } catch (e: any) {
     res.status(500).json({ error: e?.message ?? "No se pudo listar libros" });
   }
 });
 
 libros.get("/api/libros/:id", async (req, res) => {
-  await ensureLibrosIndexes();
-  const db = await getDb();
-  const book = await db.collection("libros").findOne({ id: req.params.id });
-  if (!book) return res.status(404).json({ error: "not found" });
-  res.json(book);
+  const row = await prisma.libro.findFirst({ where: { id: req.params.id } });
+  if (!row) return res.status(404).json({ error: "not found" });
+  try {
+    const doc = JSON.parse(row.json);
+    res.json({ ...doc, id: row.id });
+  } catch {
+    res.json({ id: row.id, json: row.json });
+  }
 });

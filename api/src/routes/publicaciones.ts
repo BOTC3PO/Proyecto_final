@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { recordAuditLog } from "../lib/audit-log";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { isClassroomActiveStatus, normalizeClassroomStatus } from "../schema/aula";
 import { requirePolicy } from "../lib/authorization";
 import { requireClassroomScope } from "../lib/classroom-scope";
@@ -68,12 +68,10 @@ publicaciones.get(
     if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
       return res.status(403).json({ error: "forbidden" });
     }
-    const db = await getDb();
-    const items = await db
-      .collection("publicaciones")
-      .find({ aulaId: req.params.id, isDeleted: { $ne: true } })
-      .sort({ createdAt: -1 })
-      .toArray();
+    const items = await prisma.publicacion.findMany({
+      where: { aulaId: req.params.id, isDeleted: { not: true } },
+      orderBy: { publishedAt: "desc" }
+    });
     res.json({ items });
   }
 );
@@ -92,7 +90,6 @@ publicaciones.post(
     const requester = getRequester(req as { user?: { _id?: { toString?: () => string }; role?: string } });
     const requesterId = getRequesterId(requester);
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
-    const db = await getDb();
     const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
@@ -104,28 +101,29 @@ publicaciones.post(
     const now = new Date();
     const nowIso = now.toISOString();
     const attachmentList = sanitizeAttachments(payload.archivos);
-    const publication = {
-      id: `pub-${Date.now()}`,
-      aulaId: req.params.id,
-      authorInitials: payload.authorInitials?.trim() || "AA",
-      title: payload.title?.trim() || "Nueva publicación",
-      body: payload.contenido.trim(),
-      links: [],
-      archivos: attachmentList,
-      publishedAtLabel: "Publicado recién",
-      createdAt: nowIso,
-      updatedAt: nowIso,
-      isDeleted: false,
-      deletedAt: null,
-      deletedBy: null
-    };
-    await db.collection("publicaciones").insertOne(publication);
-    await db.collection("moderacion_eventos").insertOne({
-      tipo: "publicacion_creada",
-      publicacionId: publication.id,
-      aulaId: publication.aulaId,
-      usuarioId: requesterId,
-      createdAt: now
+    const publication = await prisma.publicacion.create({
+      data: {
+        id: `pub-${Date.now()}`,
+        aulaId: req.params.id,
+        authorId: requesterId,
+        title: payload.title?.trim() || "Nueva publicación",
+        body: payload.contenido.trim(),
+        archivos: attachmentList.length > 0 ? JSON.stringify(attachmentList) : null,
+        isPinned: false,
+        isDeleted: false,
+        deletedBy: null,
+        publishedAt: nowIso,
+        updatedAt: nowIso
+      }
+    });
+    await prisma.moderacionEvento.create({
+      data: {
+        tipo: "publicacion_creada",
+        publicacionId: publication.id,
+        aulaId: publication.aulaId,
+        usuarioId: requesterId,
+        createdAt: now.toISOString()
+      }
     });
     await recordAuditLog({
       actorId: requesterId,
@@ -157,18 +155,23 @@ publicaciones.get(
     if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
       return res.status(403).json({ error: "forbidden" });
     }
-    const db = await getDb();
-    const publication = await db.collection("publicaciones").findOne({
-      id: req.params.pubId,
-      aulaId: req.params.id,
-      isDeleted: { $ne: true }
+    const publication = await prisma.publicacion.findFirst({
+      where: { id: req.params.pubId, aulaId: req.params.id, isDeleted: { not: true } }
     });
     if (!publication) return res.status(404).json({ error: "publicacion not found" });
-    const items = await db
-      .collection("comentarios")
-      .find({ aulaId: req.params.id, publicacionId: req.params.pubId, isDeleted: { $ne: true } })
-      .sort({ createdAt: 1 })
-      .toArray();
+    const rows = await prisma.comentario.findMany({
+      where: { publicacionId: req.params.pubId },
+      orderBy: { createdAt: "asc" }
+    });
+    const items = rows
+      .map((row) => {
+        try {
+          return JSON.parse(row.json);
+        } catch {
+          return null;
+        }
+      })
+      .filter(Boolean);
     res.json({ items });
   }
 );
@@ -189,7 +192,6 @@ publicaciones.post(
     });
     const requesterId = getRequesterId(requester);
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
-    const db = await getDb();
     const classroom = res.locals.classroom;
     const currentStatus = normalizeClassroomStatus(classroom.status);
     if (!currentStatus) {
@@ -198,10 +200,8 @@ publicaciones.post(
     if (!isClassroomActiveStatus(currentStatus)) {
       return res.status(403).json({ error: "classroom is read-only" });
     }
-    const publication = await db.collection("publicaciones").findOne({
-      id: req.params.pubId,
-      aulaId: req.params.id,
-      isDeleted: { $ne: true }
+    const publication = await prisma.publicacion.findFirst({
+      where: { id: req.params.pubId, aulaId: req.params.id, isDeleted: { not: true } }
     });
     if (!publication) return res.status(404).json({ error: "publicacion not found" });
     const now = new Date();
@@ -219,14 +219,22 @@ publicaciones.post(
       deletedAt: null,
       deletedBy: null
     };
-    await db.collection("comentarios").insertOne(comment);
-    await db.collection("moderacion_eventos").insertOne({
-      tipo: "comentario_creado",
-      comentarioId: comment.id,
-      publicacionId: comment.publicacionId,
-      aulaId: comment.aulaId,
-      usuarioId: requesterId,
-      createdAt: now
+    await prisma.comentario.create({
+      data: {
+        id: comment.id,
+        publicacionId: comment.publicacionId,
+        json: JSON.stringify(comment),
+        createdAt: nowIso
+      }
+    });
+    await prisma.moderacionEvento.create({
+      data: {
+        tipo: "comentario_creado",
+        publicacionId: comment.publicacionId,
+        aulaId: comment.aulaId,
+        usuarioId: requesterId,
+        createdAt: now.toISOString()
+      }
     });
     await recordAuditLog({
       actorId: requesterId,

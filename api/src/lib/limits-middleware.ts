@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { getDb } from "./db";
+import { prisma } from "./prisma";
 import {
   puedeAgregarStaff,
   puedeAgregarAula,
@@ -26,11 +26,8 @@ export async function checkStaffLimit(
   if (nuevoRol !== "TEACHER" && nuevoRol !== "DIRECTIVO") return next();
 
   try {
-    const db = await getDb();
-    const count = await db.collection("users").countDocuments({
-      schoolId,
-      role: nuevoRol,
-      isBanned: { $ne: true },
+    const count = await prisma.usuario.count({
+      where: { escuelaId: schoolId, role: nuevoRol, isBanned: { not: true } }
     });
 
     if (!puedeAgregarStaff(schoolId, nuevoRol, count)) {
@@ -57,11 +54,12 @@ export async function checkAulaLimit(
   if (!schoolId) return next();
 
   try {
-    const db = await getDb();
-    const count = await db.collection("aulas").countDocuments({
-      $or: [{ institutionId: schoolId }, { schoolId }],
-      status: "ACTIVE",
-      isDeleted: { $ne: true },
+    const count = await prisma.clase.count({
+      where: {
+        escuelaId: schoolId,
+        status: "ACTIVE",
+        isDeleted: { not: true }
+      }
     });
 
     if (!puedeAgregarAula(schoolId, role, count)) {
@@ -92,14 +90,12 @@ export async function checkAlumnoLimit(
   if (!aulaId) return next();
 
   try {
-    const db = await getDb();
-    const aula = await db.collection("aulas").findOne({ id: aulaId });
+    const aula = await prisma.clase.findFirst({ where: { id: aulaId } });
     if (!aula) return next();
 
-    const members = Array.isArray(aula.members)
-      ? (aula.members as { role?: string }[])
-      : [];
-    const alumnosCount = members.filter((m) => m.role === "USER").length;
+    const alumnosCount = await prisma.claseMiembro.count({
+      where: { claseId: aulaId, rolEnClase: "USER" }
+    });
 
     if (!puedeAgregarAlumno(schoolId, role, alumnosCount)) {
       return res.status(403).json({

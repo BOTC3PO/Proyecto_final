@@ -1,7 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
 import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from "./auth-token";
-import { getDb } from "./db";
 import { toObjectId } from "./ids";
+import { prisma } from "./prisma";
 
 export const requireAdmin = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -26,10 +26,7 @@ export const requireAdmin = async (req: Request, res: Response, next: NextFuncti
       res.status(401).json({ error: "Invalid authentication token" });
       return;
     }
-    const db = await getDb();
-    const adminUser = await db
-      .collection("usuarios")
-      .findOne({ _id: objectId, role: "ADMIN", isDeleted: { $ne: true } });
+    const adminUser = await prisma.usuario.findFirst({ where: { id: objectId, role: "ADMIN", isDeleted: { not: true } } });
     if (!adminUser) {
       res.status(403).json({ error: "Admin role required" });
       return;
@@ -37,7 +34,7 @@ export const requireAdmin = async (req: Request, res: Response, next: NextFuncti
 
     const userContext = {
       ...buildUserContextFromClaims(claims),
-      _id: adminUser._id
+      _id: adminUser.id
     };
     (req as { user?: typeof userContext }).user = userContext;
     res.locals.adminUser = userContext;

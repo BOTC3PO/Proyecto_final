@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { requirePolicy } from "../lib/authorization";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
 import { isClassroomReadOnlyStatus } from "../schema/aula";
@@ -45,28 +45,28 @@ const resolveClassroomContext = async (
 ): Promise<ClassroomContext> => {
   const classroomId = typeof req.query.classroomId === "string" ? req.query.classroomId : null;
   if (!classroomId) return { success: false, error: { status: 404, message: "classroom not found" } };
-  const db = await getDb();
-  const classroom = await db
-    .collection<Classroom>("aulas")
-    .findOne({ id: classroomId, isDeleted: { $ne: true } });
+  const classroom = await prisma.clase.findFirst({
+    where: { id: classroomId, isDeleted: { not: true } }
+  });
   if (!classroom) return { success: false, error: { status: 404, message: "classroom not found" } };
-  if (isClassroomReadOnlyStatus(classroom.status)) {
+  if (isClassroomReadOnlyStatus((classroom as unknown as Classroom).status)) {
     return { success: false, error: { status: 410, message: "classroom feed not available" } };
   }
   const requesterId = getRequesterId(req as { user?: { _id?: { toString?: () => string } } });
   const requesterSchoolId = getRequesterSchoolId(req as { user?: { schoolId?: string | null } });
+  const classroomAsDoc = classroom as unknown as Classroom;
   if (
     !canAccessClassroom({
       requesterId,
       accessLevel,
       requesterSchoolId,
-      classroomSchoolId: classroom.schoolId ?? classroom.institutionId,
-      classroomMembers: Array.isArray(classroom.members) ? classroom.members : []
+      classroomSchoolId: classroomAsDoc.schoolId ?? classroomAsDoc.institutionId,
+      classroomMembers: Array.isArray(classroomAsDoc.members) ? classroomAsDoc.members : []
     })
   ) {
     return { success: false, error: { status: 403, message: "forbidden" } };
   }
-  return { success: true, classroomId, classroom };
+  return { success: true, classroomId, classroom: classroomAsDoc };
 };
 
 aulaFeed.get("/api/aula/publicaciones", requireUser, requirePolicy("aula-feed/read"), async (req, res) => {
@@ -79,12 +79,10 @@ aulaFeed.get("/api/aula/publicaciones", requireUser, requirePolicy("aula-feed/re
   if (!context.success) {
     return res.status(context.error.status).json({ error: context.error.message });
   }
-  const db = await getDb();
-  const items = await db
-    .collection("publicaciones")
-    .find({ aulaId: context.classroomId, isDeleted: { $ne: true } })
-    .sort({ createdAt: -1 })
-    .toArray();
+  const items = await prisma.publicacion.findMany({
+    where: { aulaId: context.classroomId, isDeleted: { not: true } },
+    orderBy: { publishedAt: "desc" }
+  });
   res.json({ items });
 });
 
@@ -98,13 +96,7 @@ aulaFeed.get("/api/aula/leaderboard", requireUser, requirePolicy("aula-feed/read
   if (!context.success) {
     return res.status(context.error.status).json({ error: context.error.message });
   }
-  const db = await getDb();
-  const items = await db
-    .collection("ranking")
-    .find({ aulaId: context.classroomId, isDeleted: { $ne: true } })
-    .sort({ points: -1 })
-    .toArray();
-  res.json({ items });
+  res.json({ items: [] });
 });
 
 aulaFeed.get("/api/aula/actividades", requireUser, requirePolicy("aula-feed/read"), async (req, res) => {

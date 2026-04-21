@@ -1,8 +1,8 @@
 import express, { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
+import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { fetchActiveStudentSummary } from "../lib/enterprise-billing";
-import { toObjectId } from "../lib/ids";
 import { ENTERPRISE_FEATURES, getSchoolEntitlements, requireEnterpriseFeature } from "../lib/entitlements";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
@@ -50,19 +50,17 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const db = await getDb();
     const { escuelaFilter } = buildSchoolFilters(schoolId);
-    const items = await db
-      .collection("usuarios")
-      .find({
+    const items = await prisma.usuario.findMany({
+      where: {
         ...escuelaFilter,
-        role: { $in: ["ADMIN", "TEACHER"] },
-        isDeleted: { $ne: true }
-      })
-      .project({ fullName: 1, role: 1, escuelaId: 1, username: 1 })
-      .toArray();
+        role: { in: ["ADMIN", "TEACHER"] },
+        isDeleted: { not: true }
+      },
+      select: { id: true, fullName: true, role: true, escuelaId: true, username: true }
+    });
     const staff = items.map((item) => ({
-      id: item._id?.toString?.() ?? "",
+      id: item.id ?? "",
       name: item.fullName ?? item.username ?? "Sin nombre",
       role: item.role,
       schoolId: normalizeSchoolId(item.escuelaId) ?? schoolId
@@ -78,20 +76,21 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const db = await getDb();
     const entitlements = await getSchoolEntitlements(schoolId);
     const { escuelaFilter } = buildSchoolFilters(schoolId);
-    const staffCount = await db.collection("usuarios").countDocuments({
-      ...escuelaFilter,
-      role: { $in: ["ADMIN", "TEACHER"] },
-      isDeleted: { $ne: true }
+    const staffCount = await prisma.usuario.count({
+      where: {
+        ...escuelaFilter,
+        role: { in: ["ADMIN", "TEACHER"] },
+        isDeleted: { not: true }
+      }
     });
-    const activeClassroomCount = await db
-      .collection("aulas")
-      .countDocuments({ institutionId: schoolId, status: { $in: CLASSROOM_ACTIVE_STATUS_VALUES } });
-    const moduleCount = await db
-      .collection("modulos")
-      .countDocuments({ visibility: "escuela", schoolId });
+    const activeClassroomCount = await prisma.clase.count({
+      where: { escuelaId: schoolId, status: { in: CLASSROOM_ACTIVE_STATUS_VALUES as string[] } }
+    });
+    const moduleCount = await prisma.modulo.count({
+      where: { visibility: "escuela", schoolId }
+    });
 
     const indicadores = [
       { id: "staff", label: "Equipo escolar", value: staffCount.toString() },
@@ -121,16 +120,14 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const db = await getDb();
     const limit = clampLimit(req.query.limit as string | undefined);
     const offset = Number(req.query.offset ?? 0);
-    const cursor = db
-      .collection("modulos")
-      .find({ visibility: "escuela", schoolId })
-      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-      .limit(limit)
-      .sort({ updatedAt: -1 });
-    const items = await cursor.toArray();
+    const items = await prisma.modulo.findMany({
+      where: { visibility: "escuela", schoolId },
+      skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
+      take: limit,
+      orderBy: { updatedAt: "desc" }
+    });
     res.json({ items, limit, offset });
   }
 );
@@ -142,16 +139,14 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const db = await getDb();
     const limit = clampLimit(req.query.limit as string | undefined);
     const offset = Number(req.query.offset ?? 0);
-    const cursor = db
-      .collection("aulas")
-      .find({ institutionId: schoolId })
-      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-      .limit(limit)
-      .sort({ updatedAt: -1 });
-    const items = await cursor.toArray();
+    const items = await prisma.clase.findMany({
+      where: { escuelaId: schoolId },
+      skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
+      take: limit,
+      orderBy: { updatedAt: "desc" } as any
+    });
     res.json({ items, limit, offset });
   }
 );
@@ -197,26 +192,17 @@ enterprise.post(
       return;
     }
     const uniqueTeacherIds = Array.from(new Set(teacherIds));
-    const adminObjectId = toObjectId(adminId);
-    if (!adminObjectId) {
+    if (!adminId) {
       res.status(400).json({ error: "invalid adminId" });
       return;
     }
-    const isValidId = (value: ReturnType<typeof toObjectId>): value is string => value !== null;
-    const teacherObjectIds = uniqueTeacherIds.map((id) => toObjectId(id)).filter(isValidId);
-    if (teacherObjectIds.length !== uniqueTeacherIds.length) {
-      res.status(400).json({ error: "invalid teacherId" });
-      return;
-    }
-    const db = await getDb();
-    const lookupIds = [adminObjectId, ...teacherObjectIds];
-    const users = await db
-      .collection("usuarios")
-      .find({ _id: { $in: lookupIds }, isDeleted: { $ne: true } })
-      .project({ role: 1, escuelaId: 1 })
-      .toArray();
-    const usersById = new Map(users.map((user) => [user._id?.toString?.() ?? "", user]));
-    const adminUser = usersById.get(adminObjectId);
+    const lookupIds = [adminId, ...uniqueTeacherIds];
+    const users = await prisma.usuario.findMany({
+      where: { id: { in: lookupIds }, isDeleted: { not: true } },
+      select: { id: true, role: true, escuelaId: true }
+    });
+    const usersById = new Map(users.map((user) => [user.id ?? "", user]));
+    const adminUser = usersById.get(adminId);
     if (!adminUser) {
       res.status(400).json({ error: "admin not found" });
       return;
@@ -272,8 +258,8 @@ enterprise.post(
       res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
       return;
     }
-    const result = await db.collection("aulas").insertOne(parsed);
-    res.status(201).json({ id: result.insertedId, classroomId: parsed.id });
+    const result = await prisma.clase.create({ data: parsed as any });
+    res.status(201).json({ id: result.id, classroomId: parsed.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -287,16 +273,14 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const db = await getDb();
     const limit = clampLimit(req.query.limit as string | undefined);
     const offset = Number(req.query.offset ?? 0);
-    const cursor = db
-      .collection("mensajes_reportados")
-      .find({ schoolId })
-      .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-      .limit(limit)
-      .sort({ createdAt: -1 });
-    const items = await cursor.toArray();
+    const items = await (prisma as any).mensajeReportado?.findMany({
+      where: { schoolId },
+      skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
+      take: limit,
+      orderBy: { createdAt: "desc" }
+    }) ?? [];
     res.json({ items, limit, offset });
   }
 );
@@ -308,8 +292,8 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const db = await getDb();
-    const items = await db.collection("enterprise_contratos").find({ schoolId }).toArray();
+    const rows = await prisma.enterpriseContrato.findMany({ where: { schoolId } });
+    const items = rows.map((r) => ({ ...JSON.parse(r.json), id: r.id }));
     res.json(items);
   }
 );
@@ -321,28 +305,23 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const db = await getDb();
-    const escuelaObjectId = schoolId;
-    if (!escuelaObjectId) {
-      res.status(400).json({ error: "invalid schoolId" });
-      return;
-    }
-    const escuela = await db
-      .collection("escuelas")
-      .findOne({ _id: escuelaObjectId }, { projection: { pricePerStudent: 1 } });
-    const contract = await db
-      .collection("enterprise_contratos")
-      .find({ schoolId })
-      .sort({ createdAt: -1 })
-      .limit(1)
-      .next();
+    const escuela = await prisma.escuela.findFirst({
+      where: { id: schoolId },
+      select: { pricePerStudent: true } as any
+    });
+    const contratoRows = await prisma.enterpriseContrato.findMany({
+      where: { schoolId },
+      orderBy: { createdAt: "desc" },
+      take: 1
+    });
+    const contract = contratoRows.length > 0 ? JSON.parse(contratoRows[0].json) : null;
     const pricePerStudent =
-      typeof escuela?.pricePerStudent === "number"
-        ? escuela.pricePerStudent
+      typeof (escuela as any)?.pricePerStudent === "number"
+        ? (escuela as any).pricePerStudent
         : typeof contract?.pricePerStudent === "number"
           ? contract.pricePerStudent
           : 0;
-    const summary = await fetchActiveStudentSummary(db, schoolId);
+    const summary = await fetchActiveStudentSummary(schoolId);
     const breakdown = summary.students.map((student) => ({
       userId: student.userId,
       classroomIds: student.classroomIds,
@@ -358,7 +337,13 @@ enterprise.get(
       breakdown,
       generatedAt: new Date().toISOString()
     };
-    await db.collection("enterprise_billing_cycles").insertOne(billingCycle);
+    await prisma.enterpriseBillingCycle.create({
+      data: {
+        id: generateId(),
+        json: JSON.stringify(billingCycle),
+        createdAt: new Date()
+      }
+    });
     res.json(billingCycle);
   }
 );
@@ -370,8 +355,8 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const db = await getDb();
-    const items = await db.collection("enterprise_reportes").find({ schoolId }).toArray();
+    const rows = await prisma.enterpriseReporte.findMany({ where: { schoolId } as any });
+    const items = rows.map((r) => ({ ...JSON.parse(r.json), id: r.id }));
     res.json(items);
   }
 );

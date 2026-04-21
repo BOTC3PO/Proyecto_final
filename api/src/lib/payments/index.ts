@@ -1,6 +1,9 @@
-import type { Db } from "../db";
 import { randomUUID, createHmac, timingSafeEqual } from "crypto";
 
+// NOTE: Invoice and Receipt collections have no Prisma model yet.
+// These functions currently operate without persistence (return the
+// constructed object). Add Prisma models for invoices/receipts to
+// make the payment flow durable.
 
 export const PAYMENT_STATUSES = ["PENDING", "PAID", "FAILED"] as const;
 
@@ -56,7 +59,7 @@ export type PaymentWebhookPayload = {
   metadata?: Record<string, unknown> | null;
 };
 
-export const createInvoice = async (db: Db, input: CreateInvoiceInput) => {
+export const createInvoice = async (input: CreateInvoiceInput): Promise<Invoice> => {
   const now = new Date().toISOString();
   const invoice: Invoice = {
     invoiceId: randomUUID(),
@@ -72,16 +75,16 @@ export const createInvoice = async (db: Db, input: CreateInvoiceInput) => {
     updatedAt: now,
     metadata: input.metadata ?? null
   };
-  await db.collection<Invoice>("invoices").insertOne(invoice);
+  // TODO: persist to a Prisma Invoice model when available
+  console.warn("[payments] createInvoice: no Prisma model – invoice not persisted", invoice.invoiceId);
   return invoice;
 };
 
 export const updateInvoiceStatus = async (
-  db: Db,
   invoice: Invoice,
   status: PaymentStatus,
   updates?: Partial<Invoice>
-) => {
+): Promise<Invoice> => {
   const updatedAt = new Date().toISOString();
   const nextInvoice: Invoice = {
     ...invoice,
@@ -89,21 +92,15 @@ export const updateInvoiceStatus = async (
     status,
     updatedAt
   };
-  await db
-    .collection<Invoice>("invoices")
-    .updateOne({ invoiceId: invoice.invoiceId }, { $set: nextInvoice });
+  // TODO: persist to a Prisma Invoice model when available
+  console.warn("[payments] updateInvoiceStatus: no Prisma model – status not persisted", invoice.invoiceId);
   return nextInvoice;
 };
 
 export const createReceiptForInvoice = async (
-  db: Db,
   invoice: Invoice,
   payload: PaymentWebhookPayload
-) => {
-  const existing = await db
-    .collection<Receipt>("receipts")
-    .findOne({ invoiceId: invoice.invoiceId });
-  if (existing) return existing;
+): Promise<Receipt> => {
   const receipt: Receipt = {
     receiptId: randomUUID(),
     invoiceId: invoice.invoiceId,
@@ -117,13 +114,8 @@ export const createReceiptForInvoice = async (
     paidAt: payload.paidAt ?? new Date().toISOString(),
     metadata: payload.metadata ?? null
   };
-  await db.collection<Receipt>("receipts").insertOne(receipt);
-  await db
-    .collection<Invoice>("invoices")
-    .updateOne(
-      { invoiceId: invoice.invoiceId },
-      { $set: { receiptId: receipt.receiptId, updatedAt: new Date().toISOString() } }
-    );
+  // TODO: persist to a Prisma Receipt model when available
+  console.warn("[payments] createReceiptForInvoice: no Prisma model – receipt not persisted", receipt.receiptId);
   return receipt;
 };
 

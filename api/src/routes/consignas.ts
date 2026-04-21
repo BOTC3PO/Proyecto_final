@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 
 const router = Router();
 
@@ -83,8 +83,16 @@ const sortTopics = (a: string, b: string): number => {
 
 const getDbOverridesForSubject = async (subject: Subject): Promise<GeneradorAdminOverride[]> => {
   try {
-    const db = await getDb();
-    return (await db.collection("generadores_admin").find({ subject }).toArray()) as GeneradorAdminOverride[];
+    const rows = await prisma.generadorAdmin.findMany({ where: { subject } });
+    return rows.map((r) => ({
+      subject: r.subject as Subject,
+      topic: r.topic,
+      status: (r.status ?? "ACTIVE") as "ACTIVE" | "INACTIVE",
+      enunciado: undefined,
+      limits: undefined,
+      createdAt: r.createdAt,
+      updatedAt: r.updatedAt
+    }));
   } catch {
     return [];
   }
@@ -92,8 +100,17 @@ const getDbOverridesForSubject = async (subject: Subject): Promise<GeneradorAdmi
 
 const getDbOverrideForTopic = async (subject: Subject, topic: string): Promise<GeneradorAdminOverride | null> => {
   try {
-    const db = await getDb();
-    return (await db.collection("generadores_admin").findOne({ subject, topic })) as GeneradorAdminOverride | null;
+    const row = await prisma.generadorAdmin.findFirst({ where: { subject, topic } });
+    if (!row) return null;
+    return {
+      subject: row.subject as Subject,
+      topic: row.topic,
+      status: (row.status ?? "ACTIVE") as "ACTIVE" | "INACTIVE",
+      enunciado: undefined,
+      limits: undefined,
+      createdAt: row.createdAt,
+      updatedAt: row.updatedAt
+    };
   } catch {
     return null;
   }

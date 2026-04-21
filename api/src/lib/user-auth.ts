@@ -1,9 +1,9 @@
 import type { NextFunction, Request, Response } from "express";
 
 import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from "./auth-token";
-import { getDb } from "./db";
 import { enforceSubscriptionAccess } from "./entitlements";
 import { toObjectId } from "./ids";
+import { prisma } from "./prisma";
 import { normalizeSchoolId } from "./school-ids";
 
 type AuthenticatedUser = Record<string, unknown> & {
@@ -54,10 +54,7 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       res.status(401).json({ error: "Invalid authentication token" });
       return;
     }
-    const db = await getDb();
-    const user = (await db
-      .collection("usuarios")
-      .findOne({ _id: objectId, isDeleted: { $ne: true } })) as AuthenticatedUser | null;
+    const user = await prisma.usuario.findFirst({ where: { id: objectId, isDeleted: { not: true } } }) as AuthenticatedUser | null;
     if (!user) {
       res.status(403).json({ error: "User not found" });
       return;

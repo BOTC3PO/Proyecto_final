@@ -1,7 +1,8 @@
+import crypto from "node:crypto";
 import { Router } from "express";
 import { requirePolicy } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { toObjectId } from "../lib/ids";
 import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
 import { hashPassword } from "../lib/passwords";
@@ -48,53 +49,53 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
         return;
       }
     }
-    const db = await getDb();
-    const now = new Date();
-    const doc = {
-      ...parsed,
-      passwordHash: hashPassword(parsed.password),
-      escuelaId: parsed.escuelaId ? toObjectId(parsed.escuelaId) : null,
-      birthdate: parsed.birthdate ? new Date(parsed.birthdate) : null,
-      consents: parsed.consents
-        ? { ...parsed.consents, consentedAt: parsed.consents.consentedAt ? new Date(parsed.consents.consentedAt) : undefined }
-        : undefined,
-      parentProfile: parsed.parentProfile
-        ? {
-            ...parsed.parentProfile,
-            childrenIds: parsed.parentProfile.childrenIds?.map((id) => toObjectId(id)).filter(Boolean)
-          }
-        : undefined,
-      teacherProfile: parsed.teacherProfile
-        ? {
-            ...parsed.teacherProfile,
-            managedClassIds: parsed.teacherProfile.managedClassIds?.map((id) => toObjectId(id)).filter(Boolean)
-          }
-        : undefined,
-      isDeleted: false,
-      createdAt: now,
-      updatedAt: now
-    };
-    delete (doc as { password?: string }).password;
-    const result = await db.collection("usuarios").insertOne(doc);
+    const now = new Date().toISOString();
+
+    const consentsData = parsed.consents
+      ? {
+          privacyConsent: parsed.consents.privacyConsent ?? false,
+          termsAccepted: parsed.consents.termsAccepted ?? false,
+          consentedAt: parsed.consents.consentedAt
+            ? new Date(parsed.consents.consentedAt).toISOString()
+            : undefined
+        }
+      : {};
+
+    const result = await prisma.usuario.create({
+      data: {
+        id: crypto.randomUUID(),
+        username: parsed.username,
+        email: parsed.email,
+        fullName: parsed.fullName,
+        role: parsed.role,
+        escuelaId: parsed.escuelaId ?? null,
+        birthdate: parsed.birthdate ? new Date(parsed.birthdate).toISOString() : null,
+        passwordHash: hashPassword(parsed.password),
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now,
+        ...consentsData
+      }
+    });
     const passwordResetRequired =
-      "passwordResetRequired" in doc && doc.passwordResetRequired === true;
+      "passwordResetRequired" in parsed && (parsed as any).passwordResetRequired === true;
     await recordAuditLog({
       actorId: requester?._id?.toString?.() ?? "system",
       action: "usuarios.create",
       targetType: "usuario",
-      targetId: result.insertedId.toString(),
+      targetId: result.id.toString(),
       metadata: {
-        role: doc.role ?? null,
-        escuelaId: doc.escuelaId?.toString?.() ?? null,
+        role: result.role ?? null,
+        escuelaId: result.escuelaId?.toString?.() ?? null,
         passwordResetRequired
       }
     });
     await markUsersWithoutUsablePasswordForReset({
       actorId: requester?._id?.toString?.() ?? "system",
       reason: "post-create-validation",
-      targetUserId: result.insertedId.toString()
+      targetUserId: result.id.toString()
     });
-    res.status(201).json({ id: result.insertedId });
+    res.status(201).json({ id: result.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -102,10 +103,9 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
 
 usuarios.get("/api/usuarios", requireUser, requirePolicy("usuarios/list"), async (req, res) => {
   const user = (req as { user?: { role?: string; schoolId?: string | null } }).user;
-  const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
-  const query: Record<string, unknown> = { isDeleted: { $ne: true } };
+  const where: Record<string, unknown> = { isDeleted: { not: true } };
   const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
   const accessLevel = authorization?.data?.accessLevel;
   if (accessLevel === "admin") {
@@ -116,30 +116,22 @@ usuarios.get("/api/usuarios", requireUser, requirePolicy("usuarios/list"), async
       res.status(403).json({ error: "forbidden" });
       return;
     }
-    const escuelaObjectId = toObjectId(schoolId);
-    query.escuelaId = escuelaObjectId ?? schoolId;
+    where.escuelaId = schoolId;
   } else {
     res.status(403).json({ error: "forbidden" });
     return;
   }
-  const cursor = db
-    .collection("usuarios")
-    .find(query)
-    .project({ _id: 1, username: 1, role: 1, escuelaId: 1 })
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ createdAt: -1 });
-  const items = (await cursor.toArray()).map((item) => ({
-    id: item._id,
-    username: item.username,
-    role: item.role,
-    escuelaId: item.escuelaId
-  }));
-  res.json({ items, limit, offset });
+  const items = await prisma.usuario.findMany({
+    where: where as any,
+    select: { id: true, username: true, role: true, escuelaId: true },
+    skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
+    take: limit,
+    orderBy: { createdAt: "desc" }
+  });
+  res.json({ items: items.map((item) => ({ id: item.id, username: item.username, role: item.role, escuelaId: item.escuelaId })), limit, offset });
 });
 
 usuarios.get("/api/usuarios/:id", requireUser, requirePolicy("usuarios/read"), async (req, res) => {
-  const db = await getDb();
   const rawId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
   if (!rawId) return res.status(400).json({ error: "missing id" });
   const objectId = toObjectId(rawId);
@@ -151,77 +143,46 @@ usuarios.get("/api/usuarios/:id", requireUser, requirePolicy("usuarios/read"), a
   if (!requesterId) return res.status(403).json({ error: "forbidden" });
   const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
   const accessLevel = authorization?.data?.accessLevel;
-  const item = await db.collection("usuarios").findOne(
-    { _id: objectId, isDeleted: { $ne: true } },
-    {
-      projection: {
-        username: 1,
-        email: 1,
-        fullName: 1,
-        role: 1,
-        escuelaId: 1,
-        teacherProfile: 1
-      }
-    }
-  );
+  const item = await prisma.usuario.findFirst({
+    where: { id: rawId, isDeleted: { not: true } }
+  });
   if (!item) return res.status(404).json({ error: "not found" });
   if (accessLevel === "admin") {
     res.json(serializeUsuario(item, { access: "admin" }));
     return;
   }
-  const managedClassIds = (requester as { teacherProfile?: { managedClassIds?: unknown[] } })?.teacherProfile
-    ?.managedClassIds ?? [];
-  const adminClassCriteria: Array<Record<string, unknown>> = [{ adminIds: requesterId }];
-  if (managedClassIds.length) adminClassCriteria.push({ _id: { $in: managedClassIds } });
-  const memberUserIds = [objectId, objectId.toString()];
-  const classAccess = await db.collection("clases").findOne(
-    {
-      $and: [
-        { $or: adminClassCriteria },
-        {
-          members: {
-            $elemMatch: {
-              userId: { $in: memberUserIds },
-              roleInClass: { $in: ["TEACHER", "STUDENT"] }
-            }
-          }
-        }
-      ]
-    },
-    { projection: { _id: 1 } }
-  );
-  if (classAccess) {
-    res.json(serializeUsuario(item, { access: "member" }));
-    return;
-  }
+  // Class-based access check — the Clase model does not have `adminIds` or embedded `members` array in the Prisma schema;
+  // we skip this lookup and fall through to membership-based access.
   const hasPublicTeacherModules =
-    (item.teacherProfile as { modules?: Array<{ isPublic?: boolean }> } | undefined)?.modules?.some((module: { isPublic?: boolean }) => module.isPublic === true) ?? false;
+    (item as any).teacherProfile?.modules?.some((module: { isPublic?: boolean }) => module.isPublic === true) ?? false;
   if (!item.escuelaId && hasPublicTeacherModules) {
     res.json(serializeUsuario(item, { access: "public" }));
     return;
   }
-  const targetMemberships = await db
-    .collection("membresias_escuela")
-    .find({ usuarioId: objectId, estado: { $ne: "revocada" } })
-    .project({ escuelaId: 1 })
-    .toArray();
+  const targetMemberships = await prisma.membresia.findMany({
+    where: { usuarioId: rawId, estado: { not: "revocada" } }
+  });
   const targetEscuelaIds = targetMemberships.map((membership) => membership.escuelaId).filter(Boolean);
   if (!targetEscuelaIds.length) return res.status(403).json({ error: "forbidden" });
   const targetEscuelaIdSet = new Set(targetEscuelaIds.map((escuelaId) => String(escuelaId)));
   const escuelaIdParam = req.query.escuelaId;
-  const escuelaId = typeof escuelaIdParam === "string" ? toObjectId(escuelaIdParam) : null;
+  const escuelaId = typeof escuelaIdParam === "string" ? escuelaIdParam : null;
   if (escuelaId && !targetEscuelaIdSet.has(escuelaId.toString())) return res.status(403).json({ error: "forbidden" });
-  const requesterMembership = await db.collection("membresias_escuela").findOne({
-    usuarioId: requesterId,
-    escuelaId: escuelaId ? escuelaId : { $in: targetEscuelaIds },
-    estado: { $ne: "revocada" }
+  const requesterMembership = await prisma.membresia.findFirst({
+    where: {
+      usuarioId: requesterId,
+      escuelaId: escuelaId ? escuelaId : { in: targetEscuelaIds as string[] },
+      estado: { not: "revocada" }
+    }
   });
   if (!requesterMembership) return res.status(403).json({ error: "forbidden" });
   if (escuelaId) {
-    const membresia = await db.collection("membresias_escuela").findOne({
-      usuarioId: objectId,
-      escuelaId,
-      estado: { $ne: "revocada" }
+    const membresia = await prisma.membresia.findFirst({
+      where: {
+        usuarioId: rawId,
+        escuelaId,
+        estado: { not: "revocada" }
+      }
     });
     if (membresia) {
       res.json(
@@ -247,26 +208,24 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
     const rawId = userReq?._id ?? userReq?.id;
     const userId = rawId ? (typeof rawId === "string" ? rawId : String(rawId)) : null;
     if (!userId) return res.status(401).json({ error: "not authenticated" });
-    const db = await getDb();
-    const objectId = toObjectId(userId);
+
     // Prefer the doc already fetched by requireUser middleware to avoid a redundant DB query
     const userDoc = (res.locals.userDoc as Record<string, unknown> | null)
-      ?? await db.collection("usuarios").findOne({ _id: objectId, isDeleted: { $ne: true } });
+      ?? await prisma.usuario.findFirst({ where: { id: userId, isDeleted: { not: true } } });
     if (!userDoc) return res.status(404).json({ error: "not found" });
 
-    const progresoItems = await db
-      .collection("progreso_modulos")
-      .find({ usuarioId: userId, status: "completado" })
-      .project({ moduloId: 1 })
-      .toArray();
+    const progresoItems = await prisma.progresoModulo.findMany({
+      where: { usuarioId: userId, status: "completado" },
+      select: { moduloId: true }
+    });
     const moduloIds = progresoItems.map((p) => p.moduloId as string).filter(Boolean);
     let modulosCompletados = { publicos: 0, privados: 0, total: 0 };
     if (moduloIds.length > 0) {
-      const modulos = await db.collection("modulos")
-        .find({ $or: [{ id: { $in: moduloIds } }, { _id: { $in: moduloIds.map((id) => toObjectId(id)).filter(Boolean) } }] })
-        .project({ id: 1, _id: 1, visibility: 1 })
-        .toArray();
-      const visMap = new Map(modulos.map((m) => [(m.id ?? m._id?.toString?.()) as string, (m.visibility ?? "privado") as string]));
+      const modulos = await prisma.modulo.findMany({
+        where: { id: { in: moduloIds } },
+        select: { id: true, visibility: true }
+      });
+      const visMap = new Map(modulos.map((m) => [m.id as string, (m.visibility ?? "privado") as string]));
       let pub = 0; let priv = 0;
       for (const id of moduloIds) {
         if (visMap.get(id) === "publico") pub++; else priv++;
@@ -276,19 +235,18 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
 
     let hijos: Array<{ id: string; nombre: string; usuario: string }> = [];
     if (userDoc.role === "PARENT") {
-      const vinculos = await db
-        .collection("vinculos_padre_hijo")
-        .find({ parentId: userId, estado: "aprobado" })
-        .project({ childId: 1 })
-        .toArray();
+      const vinculos = await prisma.progresoModuloVinculo.findMany({
+        where: { parentId: userId, estado: "aprobado" },
+        select: { childId: true }
+      });
       const childIds = vinculos.map((v) => v.childId as string).filter(Boolean);
       if (childIds.length > 0) {
-        const childDocs = await db.collection("usuarios")
-          .find({ $or: [{ _id: { $in: childIds.map((id) => toObjectId(id)).filter(Boolean) } }, { _id: { $in: childIds } }] })
-          .project({ _id: 1, fullName: 1, username: 1 })
-          .toArray();
+        const childDocs = await prisma.usuario.findMany({
+          where: { id: { in: childIds } },
+          select: { id: true, fullName: true, username: true }
+        });
         hijos = childDocs.map((c) => ({
-          id: (c._id?.toString?.() ?? "") as string,
+          id: (c.id?.toString?.() ?? "") as string,
           nombre: (c.fullName ?? c.username ?? "Sin nombre") as string,
           usuario: (c.username ?? "") as string
         }));
@@ -296,7 +254,7 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
     }
 
     res.json({
-      id: userDoc._id?.toString?.() ?? userId,
+      id: (userDoc as any).id?.toString?.() ?? userId,
       username: (userDoc.username ?? "") as string,
       email: (userDoc.email ?? "") as string,
       fullName: (userDoc.fullName ?? userDoc.username ?? "Sin nombre") as string,

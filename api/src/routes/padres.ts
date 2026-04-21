@@ -1,7 +1,6 @@
 import express, { Router } from "express";
 import { z } from "zod";
-import { getDb } from "../lib/db";
-import { toObjectId } from "../lib/ids";
+import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { openContentDb } from "../lib/db-open";
 
@@ -27,42 +26,45 @@ const RestriccionesSchema = z.object({
   notas: z.string().optional().nullable()
 });
 
-const resolveParentId = (req: any) => {
+const resolveParentId = (req: any): string | null => {
   const raw = req.user?._id ?? req.user?.id;
   if (!raw) return null;
-  if (typeof raw === "string") return toObjectId(raw);
-  return raw;
+  return typeof raw === "string" ? raw : raw.toString?.() ?? null;
 };
 
 const escapeRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const normalizeUsername = (value: string) => value.trim().replace(/^@/, "");
 
-const isMinor = (birthdate?: Date | null) => {
+const isMinor = (birthdate?: Date | string | null) => {
   if (!birthdate) return false;
+  const bd = birthdate instanceof Date ? birthdate : new Date(birthdate);
+  if (isNaN(bd.getTime())) return false;
   const daysBetween = (start: Date, end: Date) => (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
-  return daysBetween(birthdate, new Date()) < 365.25 * 18;
+  return daysBetween(bd, new Date()) < 365.25 * 18;
 };
 
 const ensureParentAccess = async (params: {
-  parentId: ReturnType<typeof toObjectId>;
-  childId: ReturnType<typeof toObjectId>;
+  parentId: string;
+  childId: string;
 }) => {
   if (!params.parentId || !params.childId) {
     return { ok: false as const, status: 400, error: "parentId and childId are required" };
   }
-  const db = await getDb();
-  const child = await db
-    .collection("usuarios")
-    .findOne({ _id: params.childId, isDeleted: { $ne: true } }, { projection: { birthdate: 1 } });
+  const child = await prisma.usuario.findFirst({
+    where: { id: params.childId, isDeleted: { not: true } },
+    select: { birthdate: true },
+  });
   if (!child) return { ok: false as const, status: 404, error: "child not found" };
-  const vinculo = await db.collection("vinculos_padre_hijo").findOne({
-    parentId: params.parentId,
-    childId: params.childId,
-    estado: { $ne: "revocado" }
+  const vinculo = await prisma.progresoModuloVinculo.findFirst({
+    where: {
+      parentId: params.parentId,
+      childId: params.childId,
+      estado: { not: "revocado" },
+    },
   });
   if (!vinculo) return { ok: false as const, status: 403, error: "no link" };
-  const minor = isMinor(child.birthdate instanceof Date ? child.birthdate : null);
+  const minor = isMinor(child.birthdate ?? null);
   if (!minor && vinculo.estado !== "aprobado") {
     return { ok: false as const, status: 403, error: "approval required" };
   }
@@ -75,65 +77,70 @@ padres.post("/api/hijos", requireUser, ...bodyLimitMB(2), async (req, res) => {
   try {
     const parsed = VinculoHijoSchema.parse(req.body);
     const username = normalizeUsername(parsed.usuario);
-    const db = await getDb();
-    const child = await db.collection("usuarios").findOne({
-      username: { $regex: new RegExp(`^${escapeRegex(username)}$`, "i") },
-      isDeleted: { $ne: true }
+    const child = await prisma.usuario.findFirst({
+      where: {
+        username: { equals: username },
+        isDeleted: { not: true },
+      },
     });
-    if (!child?._id) return res.status(404).json({ error: "child not found" });
-    const childId = child._id;
-    const existing = await db.collection("vinculos_padre_hijo").findOne({ parentId, childId });
+    if (!child?.id) return res.status(404).json({ error: "child not found" });
+    const childId = child.id;
+    const existing = await prisma.progresoModuloVinculo.findFirst({
+      where: { parentId, childId },
+    });
     if (existing && existing.estado !== "revocado") {
       return res.status(409).json({ error: "child already linked" });
     }
-    const activeCount = await db.collection("vinculos_padre_hijo").countDocuments({
-      childId,
-      estado: { $ne: "revocado" },
-      ...(existing ? { _id: { $ne: existing._id } } : {})
+    const activeCount = await prisma.progresoModuloVinculo.count({
+      where: {
+        childId,
+        estado: { not: "revocado" },
+        ...(existing ? { id: { not: existing.id } } : {}),
+      },
     });
     if (activeCount >= 2) {
       return res.status(409).json({ error: "child already has max parents" });
     }
     const now = new Date();
     if (existing) {
-      await db.collection("vinculos_padre_hijo").updateOne(
-        { _id: existing._id },
-        {
-          $set: {
-            estado: existing.estado === "aprobado" ? "aprobado" : "pendiente",
-            solicitadoAt: existing.solicitadoAt ?? now,
-            updatedAt: now,
-            nombre: parsed.nombre,
-            usuario: parsed.usuario,
-            grado: parsed.grado,
-            escuela: parsed.escuela ?? null,
-            notas: parsed.notas ?? null,
-            permisos: {
-              tareas: parsed.permisosTareas,
-              mensajes: parsed.permisosMensajes
-            }
-          }
-        }
-      );
+      await prisma.progresoModuloVinculo.updateMany({
+        where: { id: existing.id },
+        data: {
+          estado: existing.estado === "aprobado" ? "aprobado" : "pendiente",
+          solicitadoAt: existing.solicitadoAt ?? now.toISOString(),
+          updatedAt: now.toISOString(),
+          nombre: parsed.nombre,
+          usuario: parsed.usuario,
+          grado: parsed.grado,
+          escuela: parsed.escuela ?? null,
+          notas: parsed.notas ?? null,
+          permisos: JSON.stringify({
+            tareas: parsed.permisosTareas,
+            mensajes: parsed.permisosMensajes,
+          }),
+        },
+      });
       return res.json({ ok: true, estado: existing.estado === "aprobado" ? "aprobado" : "pendiente" });
     }
-    const minor = isMinor(child.birthdate instanceof Date ? child.birthdate : null);
-    await db.collection("vinculos_padre_hijo").insertOne({
-      parentId,
-      childId,
-      estado: minor ? "aprobado" : "pendiente",
-      solicitadoAt: now,
-      createdAt: now,
-      updatedAt: now,
-      nombre: parsed.nombre,
-      usuario: parsed.usuario,
-      grado: parsed.grado,
-      escuela: parsed.escuela ?? null,
-      notas: parsed.notas ?? null,
-      permisos: {
-        tareas: parsed.permisosTareas,
-        mensajes: parsed.permisosMensajes
-      }
+    const minor = isMinor(child.birthdate ?? null);
+    await prisma.progresoModuloVinculo.create({
+      data: {
+        parentId,
+        childId,
+        estado: minor ? "aprobado" : "pendiente",
+        solicitadoAt: now.toISOString(),
+        createdAt: now.toISOString(),
+        updatedAt: now.toISOString(),
+        nombre: parsed.nombre,
+        usuario: parsed.usuario,
+        grado: parsed.grado,
+        escuela: parsed.escuela ?? null,
+        notas: parsed.notas ?? null,
+        permisos: JSON.stringify({
+          tareas: parsed.permisosTareas,
+          mensajes: parsed.permisosMensajes,
+        }),
+      },
     });
     return res.status(201).json({ ok: true, estado: minor ? "aprobado" : "pendiente" });
   } catch (e: any) {
@@ -144,12 +151,17 @@ padres.post("/api/hijos", requireUser, ...bodyLimitMB(2), async (req, res) => {
 padres.get("/api/padres/hijos/:id/limites", requireUser, async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
-  const childIdParam = getParamId(req.params.id);
-  const childId = childIdParam ? toObjectId(childIdParam) : null;
+  const childId = getParamId(req.params.id);
   if (!childId) return res.status(400).json({ error: "invalid child id" });
   const access = await ensureParentAccess({ parentId, childId });
   if (!access.ok) return res.status(access.status).json({ error: access.error });
-  const permisos = (access.vinculo?.permisos ?? {}) as { tareas?: boolean; mensajes?: boolean };
+  const permisos = (() => {
+    try {
+      return typeof access.vinculo?.permisos === "string"
+        ? JSON.parse(access.vinculo.permisos)
+        : (access.vinculo?.permisos ?? {});
+    } catch { return {}; }
+  })() as { tareas?: boolean; mensajes?: boolean };
   res.json({
     permisosTareas: permisos.tareas ?? true,
     permisosMensajes: permisos.mensajes ?? true,
@@ -160,29 +172,31 @@ padres.get("/api/padres/hijos/:id/limites", requireUser, async (req, res) => {
 padres.patch("/api/padres/hijos/:id/limites", requireUser, ...bodyLimitMB(1), async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
-  const childIdParam = getParamId(req.params.id);
-  const childId = childIdParam ? toObjectId(childIdParam) : null;
+  const childId = getParamId(req.params.id);
   if (!childId) return res.status(400).json({ error: "invalid child id" });
   try {
     const parsed = RestriccionesSchema.parse(req.body);
     const access = await ensureParentAccess({ parentId, childId });
     if (!access.ok) return res.status(access.status).json({ error: access.error });
-    const currentPermisos = access.vinculo?.permisos ?? {};
+    const currentPermisos = (() => {
+      try {
+        return typeof access.vinculo?.permisos === "string"
+          ? JSON.parse(access.vinculo.permisos)
+          : (access.vinculo?.permisos ?? {});
+      } catch { return {}; }
+    })() as { tareas?: boolean; mensajes?: boolean };
     const nextPermisos = {
-      tareas: parsed.permisosTareas ?? (currentPermisos as { tareas?: boolean }).tareas ?? true,
-      mensajes: parsed.permisosMensajes ?? (currentPermisos as { mensajes?: boolean }).mensajes ?? true
+      tareas: parsed.permisosTareas ?? currentPermisos.tareas ?? true,
+      mensajes: parsed.permisosMensajes ?? currentPermisos.mensajes ?? true,
     };
-    const db = await getDb();
-    await db.collection("vinculos_padre_hijo").updateOne(
-      { parentId, childId },
-      {
-        $set: {
-          permisos: nextPermisos,
-          notas: parsed.notas ?? access.vinculo?.notas ?? null,
-          updatedAt: new Date()
-        }
-      }
-    );
+    await prisma.progresoModuloVinculo.updateMany({
+      where: { parentId, childId },
+      data: {
+        permisos: JSON.stringify(nextPermisos),
+        notas: parsed.notas ?? access.vinculo?.notas ?? null,
+        updatedAt: new Date().toISOString(),
+      },
+    });
     return res.json({
       ok: true,
       permisosTareas: nextPermisos.tareas,
@@ -205,31 +219,38 @@ padres.get("/api/padres/hijos/:id/actividades", requireUser,
     if (!childId) return res.status(400).json({ error: "childId required" });
 
     // Verificar vínculo
-    const access = await ensureParentAccess({
-      parentId,
-      childId: toObjectId(childId) ?? childId as any,
-    });
+    const access = await ensureParentAccess({ parentId, childId });
     if (!access.ok) {
       return res.status(access.status).json({ error: access.error });
     }
 
     try {
-      // Buscar aulas donde está el hijo
-      const db = await getDb();
-      const aulas = await db.collection("aulas").find({
-        "members.userId": childId,
-        isDeleted: { $ne: true },
-        status: "ACTIVE",
-      }).project({ id: 1, name: 1 }).toArray();
-
-      const aulaIds = aulas.map((a) => String(a.id ?? a._id));
+      // Buscar aulas donde está el hijo via clase_miembros
+      const memberships = await prisma.claseMiembro.findMany({
+        where: { usuarioId: childId },
+        select: { claseId: true },
+      });
+      const aulaIds = memberships.map((m) => m.claseId);
 
       if (!aulaIds.length) return res.json({ items: [] });
+
+      // Buscar nombres de aulas
+      const aulas = await prisma.clase.findMany({
+        where: {
+          id: { in: aulaIds },
+          isDeleted: { not: true },
+          status: "ACTIVE",
+        },
+        select: { id: true, name: true },
+      });
+
+      const aulaIdsActivos = aulas.map((a) => a.id);
+      if (!aulaIdsActivos.length) return res.json({ items: [] });
 
       // Buscar actividades futuras de esas aulas
       const sqliteDb = openContentDb();
       const hoy = new Date().toISOString();
-      const placeholders = aulaIds.map(() => "?").join(",");
+      const placeholders = aulaIdsActivos.map(() => "?").join(",");
       const actividades = sqliteDb.prepare(`
         SELECT id, aula_id, tipo, titulo, descripcion, fecha
         FROM actividades_aula
@@ -238,15 +259,13 @@ padres.get("/api/padres/hijos/:id/actividades", requireUser,
           AND fecha >= ?
         ORDER BY fecha ASC
         LIMIT 10
-      `).all(...aulaIds, hoy) as Array<{
+      `).all(...aulaIdsActivos, hoy) as Array<{
         id: string; aula_id: string; tipo: string;
         titulo: string; descripcion: string | null; fecha: string;
       }>;
 
       // Enriquecer con nombre del aula
-      const aulaMap = new Map(
-        aulas.map((a) => [String(a.id ?? a._id), String(a.name ?? "")])
-      );
+      const aulaMap = new Map(aulas.map((a) => [a.id, a.name ?? ""]));
 
       const items = actividades.map((act) => ({
         id: act.id,
@@ -280,36 +299,33 @@ padres.get("/api/padres/hijos/:id/boletin", requireUser,
     const childId = getParamId(req.params.id);
     if (!childId) return res.status(400).json({ error: "childId required" });
 
-    const access = await ensureParentAccess({
-      parentId,
-      childId: toObjectId(childId) ?? childId as any,
-    });
+    const access = await ensureParentAccess({ parentId, childId });
     if (!access.ok) {
       return res.status(access.status).json({ error: access.error });
     }
 
     try {
-      const db = await getDb();
-
       // Buscar quiz-attempts de tipo formal del hijo
-      const attempts = await db.collection("quiz_attempts").find({
-        userId: childId,
-        status: { $in: ["completed", "submitted"] },
-      }).sort({ createdAt: -1 }).limit(50).toArray();
+      const attempts = await prisma.quizAttempt.findMany({
+        where: {
+          userId: childId,
+          status: { in: ["completed", "submitted"] },
+        },
+        orderBy: { submittedAt: "desc" },
+        take: 50,
+      });
 
       // Buscar módulos para obtener materia
       const moduleIds = [...new Set(
-        attempts.map((a) => String(a.moduleId ?? "")).filter(Boolean)
+        attempts.map((a) => String((a as any).quizId ?? "")).filter(Boolean)
       )];
       const modules = moduleIds.length
-        ? await db.collection("modulos").find({
-            id: { $in: moduleIds }
-          }).project({ id: 1, title: 1, subject: 1, category: 1 })
-          .toArray()
+        ? await prisma.modulo.findMany({
+            where: { id: { in: moduleIds } },
+            select: { id: true, titulo: true, descripcion: true },
+          })
         : [];
-      const moduleMap = new Map(
-        modules.map((m) => [String(m.id ?? ""), m])
-      );
+      const moduleMap = new Map(modules.map((m) => [m.id, m]));
 
       // Agrupar por materia
       const porMateria = new Map<string, Array<{
@@ -321,18 +337,15 @@ padres.get("/api/padres/hijos/:id/boletin", requireUser,
       }>>();
 
       for (const attempt of attempts) {
-        const mod = moduleMap.get(String(attempt.moduleId ?? ""));
-        const materia = String(
-          mod?.subject ?? mod?.category ?? "General"
-        );
+        const mod = moduleMap.get(String((attempt as any).quizId ?? ""));
+        const materia = String((mod as any)?.subject ?? (mod as any)?.category ?? "General");
         if (!porMateria.has(materia)) porMateria.set(materia, []);
         porMateria.get(materia)!.push({
           quizId: String(attempt.quizId ?? ""),
-          quizTitle: attempt.quizTitle as string | undefined,
+          quizTitle: undefined,
           score: typeof attempt.score === "number" ? attempt.score : null,
-          maxScore: typeof attempt.maxScore === "number"
-            ? attempt.maxScore : null,
-          fecha: String(attempt.completedAt ?? attempt.createdAt ?? ""),
+          maxScore: typeof attempt.maxScore === "number" ? attempt.maxScore : null,
+          fecha: String(attempt.submittedAt ?? attempt.startedAt ?? ""),
         });
       }
 

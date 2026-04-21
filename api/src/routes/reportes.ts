@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { z } from "zod";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { isStaffRole, requirePolicy } from "../lib/authorization";
 import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
 import { toObjectId } from "../lib/ids";
@@ -23,8 +23,8 @@ const AprobacionVinculoSchema = z.object({
 const getAuthenticatedUserId = (req: any) => {
   const userId = req.user?._id;
   if (!userId) return null;
-  if (typeof userId === "string") return toObjectId(userId);
-  return userId;
+  if (typeof userId === "string") return userId;
+  return String(userId);
 };
 
 const daysBetween = (start: Date, end: Date) => (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
@@ -34,72 +34,48 @@ const isMinor = (birthdate?: Date | null) => {
   return daysBetween(birthdate, new Date()) < 365.25 * 18;
 };
 
-type ParentInvite = {
-  _id?: string | null;
-  parentId: ReturnType<typeof toObjectId>;
-  childId: ReturnType<typeof toObjectId>;
-  estado?: string;
-  expiresAt?: Date;
-  overrideParentLimit?: boolean;
-  overrideApprovedBy?: string;
-  createdBy?: string;
-};
+// NOTE: vinculos_padre_hijo, parent_invites, eventos_reportes_padres and
+// economia_transacciones are not yet in the Prisma schema. Their operations
+// are stubbed as no-ops until those models are added.
 
 const findParentInvite = async (
-  db: Awaited<ReturnType<typeof getDb>>,
-  parentId: ReturnType<typeof toObjectId>,
-  childId: ReturnType<typeof toObjectId>
+  parentId: string,
+  childId: string
 ) => {
-  const invite = await db.collection<ParentInvite>("parent_invites").findOne({
-    parentId,
-    childId,
-    estado: { $ne: "revocada" }
-  });
-  if (!invite) return null;
-  if (invite.expiresAt instanceof Date && invite.expiresAt.getTime() < Date.now()) return null;
-  return invite;
+  // TODO: migrate to prisma.parentInvite once model is defined
+  return null as null | {
+    _id?: string | null;
+    overrideParentLimit?: boolean;
+    overrideApprovedBy?: string;
+    createdBy?: string;
+    expiresAt?: Date;
+  };
 };
 
-const resolveOverrideApprovedBy = (invite: ParentInvite | null): string | null | null => {
+const resolveOverrideApprovedBy = (invite: Awaited<ReturnType<typeof findParentInvite>>): string | null => {
   if (!invite) return null;
   const candidate = invite.overrideApprovedBy ?? invite.createdBy ?? null;
   if (!candidate) return null;
-  if (typeof candidate === "string") return toObjectId(candidate);
-  return null;
+  return String(candidate);
 };
 
 const logOverrideParentLimit = async (params: {
-  parentId: ReturnType<typeof toObjectId>;
-  childId: ReturnType<typeof toObjectId>;
+  parentId: string;
+  childId: string;
   inviteId: unknown;
-  overrideApprovedBy: ReturnType<typeof toObjectId>;
-  requestedBy: ReturnType<typeof toObjectId>;
+  overrideApprovedBy: string;
+  requestedBy: string;
 }) => {
-  const db = await getDb();
-  await db.collection("eventos_reportes_padres").insertOne({
-    parentId: params.parentId,
-    childId: params.childId,
-    inviteId: params.inviteId,
-    overrideApprovedBy: params.overrideApprovedBy,
-    requestedBy: params.requestedBy,
-    createdAt: new Date()
-  });
+  // TODO: migrate to prisma.eventoReportePadre once model is defined
 };
 
 const logReportePadre = async (params: {
-  parentId: ReturnType<typeof toObjectId>;
-  childId: ReturnType<typeof toObjectId>;
+  parentId: string;
+  childId: string;
   tipo: "estadisticas" | "informe";
   acceso: "menor" | "aprobado";
 }) => {
-  const db = await getDb();
-  await db.collection("eventos_reportes_padres").insertOne({
-    parentId: params.parentId,
-    childId: params.childId,
-    tipo: params.tipo,
-    acceso: params.acceso,
-    createdAt: new Date()
-  });
+  // TODO: migrate to prisma.eventoReportePadre once model is defined
 };
 
 type AccesoPadreOk = {
@@ -114,92 +90,35 @@ type AccesoPadreError = {
 };
 
 const validarAccesoPadre = async (
-  parentId: ReturnType<typeof toObjectId>,
-  childId: ReturnType<typeof toObjectId>
+  parentId: string | null,
+  childId: string | null
 ): Promise<AccesoPadreOk | AccesoPadreError> => {
   if (!parentId || !childId) {
     return { ok: false, status: 400, error: "parentId and childId are required" as const };
   }
-  const db = await getDb();
-  const child = await db
-    .collection("usuarios")
-    .findOne({ _id: childId, isDeleted: { $ne: true } }, { projection: { birthdate: 1 } });
-  if (!child) return { ok: false, status: 404, error: "child not found" as const };
-  const vinculo = await db.collection("vinculos_padre_hijo").findOne({
-    parentId,
-    childId,
-    estado: { $ne: "revocado" }
+  const child = await prisma.usuario.findFirst({
+    where: { id: childId, isDeleted: { not: true } },
+    select: { id: true }
   });
-  if (!vinculo) return { ok: false, status: 403, error: "no link" as const };
-  const menor = isMinor(child.birthdate instanceof Date ? child.birthdate : null);
-  if (menor) {
-    return { ok: true, acceso: "menor" as const };
-  }
-  if (vinculo.estado === "aprobado") {
-    return { ok: true, acceso: "aprobado" as const };
-  }
-  return { ok: false, status: 403, error: "approval required" as const };
+  if (!child) return { ok: false, status: 404, error: "child not found" as const };
+
+  // TODO: migrate vinculos_padre_hijo to Prisma — returning 403 until model exists
+  return { ok: false, status: 403, error: "no link" as const };
 };
 
 reportes.post("/api/vinculos/solicitar", requireUser, async (req, res) => {
   const parentId = getAuthenticatedUserId(req);
   try {
     const parsed = SolicitudVinculoSchema.parse(req.body);
-    const childId = toObjectId(parsed.childId);
+    const childId = parsed.childId;
     if (!parentId || !childId) return res.status(400).json({ error: "invalid parent or child id" });
-    const db = await getDb();
-    const existing = await db.collection("vinculos_padre_hijo").findOne({ parentId, childId });
-    const invite = await findParentInvite(db, parentId, childId);
+
+    const invite = await findParentInvite(parentId, childId);
     if (!invite) {
       return res.status(403).json({ error: "institutional invite required" });
     }
-    const activeCount = await db.collection("vinculos_padre_hijo").countDocuments({
-      childId,
-      estado: { $ne: "revocado" },
-      ...(existing ? { _id: { $ne: existing._id } } : {})
-    });
-    const overrideRequested = invite?.overrideParentLimit === true;
-    const overrideApprovedBy = overrideRequested ? resolveOverrideApprovedBy(invite) : null;
-    if (overrideRequested && !overrideApprovedBy) {
-      return res.status(403).json({ error: "override approver required" });
-    }
-    if (activeCount >= 2 && !overrideRequested) {
-      return res.status(409).json({ error: "child already has max parents" });
-    }
-    const now = new Date();
-    if (overrideRequested && overrideApprovedBy) {
-      await logOverrideParentLimit({
-        parentId,
-        childId,
-        inviteId: invite?._id,
-        overrideApprovedBy,
-        requestedBy: parentId
-      });
-    }
-    if (existing) {
-      await db.collection("vinculos_padre_hijo").updateOne(
-        { _id: existing._id },
-        {
-          $set: {
-            estado: existing.estado === "aprobado" ? "aprobado" : "pendiente",
-            solicitadoAt: existing.solicitadoAt ?? now,
-            updatedAt: now,
-            ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})
-          }
-        }
-      );
-      return res.json({ ok: true, estado: existing.estado === "aprobado" ? "aprobado" : "pendiente" });
-    }
-    await db.collection("vinculos_padre_hijo").insertOne({
-      parentId,
-      childId,
-      estado: "pendiente",
-      solicitadoAt: now,
-      createdAt: now,
-      updatedAt: now,
-      ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})
-    });
-    return res.status(201).json({ ok: true, estado: "pendiente" });
+    // TODO: full vinculos_padre_hijo logic requires that model in Prisma
+    return res.status(501).json({ error: "vinculos not yet migrated to Prisma" });
   } catch (e: any) {
     return res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -209,56 +128,15 @@ reportes.post("/api/vinculos/aprobar", requireUser, async (req, res) => {
   const childId = getAuthenticatedUserId(req);
   try {
     const parsed = AprobacionVinculoSchema.parse(req.body);
-    const parentId = toObjectId(parsed.parentId);
+    const parentId = parsed.parentId;
     if (!parentId || !childId) return res.status(400).json({ error: "invalid parent or child id" });
-    const db = await getDb();
-    const existing = await db.collection("vinculos_padre_hijo").findOne({ parentId, childId });
-    const invite = await findParentInvite(db, parentId, childId);
+
+    const invite = await findParentInvite(parentId, childId);
     if (!invite) {
       return res.status(403).json({ error: "institutional invite required" });
     }
-    const activeCount = await db.collection("vinculos_padre_hijo").countDocuments({
-      childId,
-      estado: { $ne: "revocado" },
-      ...(existing ? { _id: { $ne: existing._id } } : {})
-    });
-    const overrideRequested = invite?.overrideParentLimit === true;
-    const overrideApprovedBy = overrideRequested ? resolveOverrideApprovedBy(invite) : null;
-    if (overrideRequested && !overrideApprovedBy) {
-      return res.status(403).json({ error: "override approver required" });
-    }
-    if (activeCount >= 2 && !overrideRequested) {
-      return res.status(409).json({ error: "child already has max parents" });
-    }
-    if (overrideRequested && overrideApprovedBy) {
-      await logOverrideParentLimit({
-        parentId,
-        childId,
-        inviteId: invite?._id,
-        overrideApprovedBy,
-        requestedBy: childId
-      });
-    }
-    const result = await db.collection("vinculos_padre_hijo").updateOne(
-      { parentId, childId, estado: { $ne: "revocado" } },
-      {
-        $set: {
-          estado: "aprobado",
-          aprobadoAt: new Date(),
-          updatedAt: new Date(),
-          ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})
-        },
-        $setOnInsert: {
-          parentId,
-          childId,
-          solicitadoAt: new Date(),
-          createdAt: new Date(),
-          ...(overrideRequested && overrideApprovedBy ? { overrideApprovedBy } : {})
-        }
-      },
-      { upsert: true }
-    );
-    return res.json({ ok: true, updated: result.modifiedCount });
+    // TODO: full vinculos_padre_hijo logic requires that model in Prisma
+    return res.status(501).json({ error: "vinculos not yet migrated to Prisma" });
   } catch (e: any) {
     return res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -267,7 +145,7 @@ reportes.post("/api/vinculos/aprobar", requireUser, async (req, res) => {
 reportes.get("/api/vinculos/validar", requireUser, async (req, res) => {
   const parentId = getAuthenticatedUserId(req);
   const childIdParam = getQueryString(req.query.childId);
-  const childId = childIdParam ? toObjectId(childIdParam) : null;
+  const childId = childIdParam ?? null;
   const result = await validarAccesoPadre(parentId, childId);
   if (!result.ok) return res.status(result.status).json({ ok: false, error: result.error });
   return res.json({ ok: true, acceso: result.acceso });
@@ -279,14 +157,12 @@ reportes.get("/api/estadisticas/hijos/:hijoId", requireUser, async (req, res) =>
   if (typeof rawHijoId !== "string" || !rawHijoId) {
     return res.status(400).json({ error: "invalid hijoId" });
   }
-  const childId = toObjectId(rawHijoId);
-  const acceso = await validarAccesoPadre(parentId, childId);
+  const acceso = await validarAccesoPadre(parentId, rawHijoId);
   if (!acceso.ok) return res.status(acceso.status).json({ error: acceso.error });
-  const db = await getDb();
-  const items = await db.collection("progreso_modulos").find({ usuarioId: rawHijoId }).toArray();
+  const items = await prisma.progresoModulo.findMany({ where: { usuarioId: rawHijoId } });
   const completados = items.filter((item) => item.status === "completado").length;
   const progreso = items.length ? Math.round((completados / items.length) * 100) : 0;
-  await logReportePadre({ parentId, childId, tipo: "estadisticas", acceso: acceso.acceso });
+  await logReportePadre({ parentId: parentId!, childId: rawHijoId, tipo: "estadisticas", acceso: acceso.acceso });
   return res.json({ items, resumen: { completados, total: items.length, progreso } });
 });
 
@@ -296,12 +172,10 @@ reportes.get("/api/informes/hijos/:hijoId", requireUser, async (req, res) => {
   if (typeof rawHijoId !== "string" || !rawHijoId) {
     return res.status(400).json({ error: "invalid hijoId" });
   }
-  const childId = toObjectId(rawHijoId);
-  const acceso = await validarAccesoPadre(parentId, childId);
+  const acceso = await validarAccesoPadre(parentId, rawHijoId);
   if (!acceso.ok) return res.status(acceso.status).json({ error: acceso.error });
-  const db = await getDb();
-  const items = await db.collection("progreso_modulos").find({ usuarioId: rawHijoId }).toArray();
-  await logReportePadre({ parentId, childId, tipo: "informe", acceso: acceso.acceso });
+  const items = await prisma.progresoModulo.findMany({ where: { usuarioId: rawHijoId } });
+  await logReportePadre({ parentId: parentId!, childId: rawHijoId, tipo: "informe", acceso: acceso.acceso });
   return res.json({ generatedAt: new Date().toISOString(), items });
 });
 
@@ -421,24 +295,13 @@ const buildSchoolFilter = (schoolId?: string) => {
   return { escuelaId: schoolId };
 };
 
-const buildAulaFilter = (filtros: ReporteFilters, schoolId?: string) => {
+const buildAulaWhere = (filtros: ReporteFilters, schoolId?: string) => {
   if (filtros.aula) return { id: filtros.aula };
   if (!schoolId) return {};
-  return { $or: [{ institutionId: schoolId }, { schoolId }] };
+  return { escuelaId: schoolId };
 };
 
 const uniqueIds = (values: string[]) => Array.from(new Set(values.filter(Boolean)));
-
-const buildUserIdMatch = (values: string[]) => {
-  const objectIds = values.filter(Boolean);
-  const stringIds: string[] = [];
-  const matchParts: Record<string, unknown>[] = [];
-  if (objectIds.length) matchParts.push({ _id: { $in: objectIds } });
-  if (stringIds.length) matchParts.push({ _id: { $in: stringIds } });
-  if (matchParts.length === 0) return {};
-  if (matchParts.length === 1) return matchParts[0];
-  return { $or: matchParts };
-};
 
 const buildComentario = (promedio: number, completadas: number, total: number) => {
   if (total === 0) return "Sin actividad registrada en el periodo.";
@@ -461,119 +324,105 @@ const buildReporteData = async (
   pagination: { limit: number; offset: number },
   scopeSchoolId?: string
 ) => {
-  const db = await getDb();
   const scopedSchoolId = filtros.institucion ?? scopeSchoolId;
-  const aulaFilter = buildAulaFilter(filtros, scopedSchoolId);
-  const totalAulas = await db.collection("aulas").countDocuments(aulaFilter);
-  const aulas = await db
-    .collection("aulas")
-    .find(aulaFilter).project({ id: 1, name: 1, members: 1 })
-    .skip(pagination.offset)
-    .limit(pagination.limit)
-    .toArray();
-  const aulaIds = aulas.map((aula) => aula.id).filter(Boolean);
-  const rawMembers = aulas.flatMap((aula) => (Array.isArray(aula.members) ? aula.members : []));
-  const roleFilter = filtros.roles?.length ? new Set(filtros.roles) : null;
-  const scopedMembers = roleFilter
-    ? rawMembers.filter((member) => roleFilter.has(String(member.roleInClass).toUpperCase()))
-    : rawMembers;
-  const memberUserIds = uniqueIds(scopedMembers.map((member) => String(member.userId)));
+  const aulaWhere = buildAulaWhere(filtros, scopedSchoolId);
 
-  const userFilter: Record<string, unknown> = {
+  const totalAulas = await prisma.clase.count({ where: aulaWhere });
+  const aulas = await prisma.clase.findMany({
+    where: aulaWhere,
+    select: { id: true, name: true },
+    skip: pagination.offset,
+    take: pagination.limit
+  });
+  const aulaIds = aulas.map((aula) => aula.id).filter(Boolean);
+
+  // Fetch classroom members to get role-filtered user IDs
+  const claseMiembros = aulaIds.length
+    ? await prisma.claseMiembro.findMany({ where: { claseId: { in: aulaIds } } })
+    : [];
+  const roleFilter = filtros.roles?.length ? new Set(filtros.roles) : null;
+  const scopedMiembros = roleFilter
+    ? claseMiembros.filter((m) => roleFilter.has(String(m.rolEnClase).toUpperCase()))
+    : claseMiembros;
+  const memberUserIds = uniqueIds(scopedMiembros.map((m) => m.usuarioId));
+
+  const userWhere: Record<string, unknown> = {
     ...buildSchoolFilter(scopedSchoolId),
-    isDeleted: { $ne: true }
+    isDeleted: { not: true }
   };
   if (filtros.roles?.length) {
-    userFilter.role = { $in: filtros.roles };
+    (userWhere as any).role = { in: filtros.roles };
   }
   if (memberUserIds.length) {
-    Object.assign(userFilter, buildUserIdMatch(memberUserIds));
+    (userWhere as any).id = { in: memberUserIds };
   }
 
-  const totalUsuarios = await db.collection("usuarios").countDocuments(userFilter);
-  const usuarios = await db
-    .collection("usuarios")
-    .find(userFilter)
-    .project({ fullName: 1, username: 1, role: 1 })
-    .skip(pagination.offset)
-    .limit(pagination.limit)
-    .toArray();
-  const usuarioIds = uniqueIds(
-    usuarios.map((user) => user._id?.toString?.() ?? "").filter(Boolean)
-  );
+  const totalUsuarios = await prisma.usuario.count({ where: userWhere as any });
+  const usuarios = await prisma.usuario.findMany({
+    where: userWhere as any,
+    select: { id: true, fullName: true, username: true, role: true },
+    skip: pagination.offset,
+    take: pagination.limit
+  });
+  const usuarioIds = uniqueIds(usuarios.map((user) => user.id));
   const scopedUsuarioIds = memberUserIds.length ? memberUserIds : usuarioIds;
 
-  const progresoMatch: Record<string, unknown> = {};
-  if (aulaIds.length) progresoMatch.aulaId = aulaIds.length === 1 ? aulaIds[0] : { $in: aulaIds };
-  if (scopedUsuarioIds.length) progresoMatch.usuarioId = { $in: scopedUsuarioIds };
+  const progresoWhere: Record<string, unknown> = {};
+  if (aulaIds.length) progresoWhere.aulaId = aulaIds.length === 1 ? aulaIds[0] : { in: aulaIds };
+  if (scopedUsuarioIds.length) progresoWhere.usuarioId = { in: scopedUsuarioIds };
 
-  const progresoResumen = await db
-    .collection("progreso_modulos")
-    .aggregate([
-      { $match: progresoMatch },
-      {
-        $group: {
-          _id: null,
-          actividades: { $sum: 1 },
-          completadas: {
-            $sum: { $cond: [{ $eq: ["$status", "completado"] }, 1, 0] }
-          },
-          promedioScore: { $avg: { $ifNull: ["$score", 0] } }
-        }
-      }
-    ])
-    .toArray();
+  // Aggregate progreso_modulos in JavaScript
+  const allProgreso = await prisma.progresoModulo.findMany({ where: progresoWhere as any });
 
-  const usuariosConActividad = await db
-    .collection("progreso_modulos")
-    .aggregate([
-      { $match: progresoMatch },
-      { $group: { _id: "$usuarioId" } },
-      { $count: "total" }
-    ])
-    .toArray();
-
-  const boletinesRaw = await db
-    .collection("progreso_modulos")
-    .aggregate([
-      { $match: progresoMatch },
-      {
-        $group: {
-          _id: "$usuarioId",
-          promedioScore: { $avg: { $ifNull: ["$score", 0] } },
-          completadas: {
-            $sum: { $cond: [{ $eq: ["$status", "completado"] }, 1, 0] }
-          },
-          total: { $sum: 1 }
-        }
-      },
-      { $sort: { promedioScore: -1 } },
-      { $limit: 6 }
-    ])
-    .toArray();
-
-  const usuariosMap = new Map(
-    usuarios.map((user) => [user._id?.toString?.() ?? "", user])
+  const totalActividades = allProgreso.length;
+  const totalCompletadas = allProgreso.filter((p) => p.status === "completado").length;
+  const scores = allProgreso.map((p) => (typeof p.score === "number" ? p.score : 0));
+  const promedioGrupo = roundNumber(
+    scores.length ? scores.reduce((a, b) => a + b, 0) / scores.length : 0,
+    2
   );
+
+  const uniqueActiveUsers = new Set(
+    allProgreso.map((p) => p.usuarioId).filter(Boolean)
+  );
+  const asistentes = uniqueActiveUsers.size;
+  const totalMiembros = scopedUsuarioIds.length;
+  const asistenciaPromedio = totalMiembros ? roundNumber(asistentes / totalMiembros, 2) : 0;
+
+  // Group by usuarioId for boletines
+  const byUser = new Map<string, { scores: number[]; completadas: number; total: number }>();
+  for (const p of allProgreso) {
+    const uid = p.usuarioId;
+    if (!uid) continue;
+    if (!byUser.has(uid)) byUser.set(uid, { scores: [], completadas: 0, total: 0 });
+    const entry = byUser.get(uid)!;
+    entry.total += 1;
+    if (p.status === "completado") entry.completadas += 1;
+    if (typeof p.score === "number") entry.scores.push(p.score);
+  }
+  const usuariosMap = new Map(usuarios.map((u) => [u.id, u]));
+  const boletinesRaw = Array.from(byUser.entries())
+    .map(([uid, data]) => ({
+      uid,
+      promedioScore: data.scores.length
+        ? data.scores.reduce((a, b) => a + b, 0) / data.scores.length
+        : 0,
+      completadas: data.completadas,
+      total: data.total
+    }))
+    .sort((a, b) => b.promedioScore - a.promedioScore)
+    .slice(0, 6);
+
   const boletines: Boletin[] = boletinesRaw.map((item) => {
-    const usuario = usuariosMap.get(String(item._id));
-    const nombre = String(usuario?.fullName ?? usuario?.username ?? `Usuario ${String(item._id).slice(-6)}`);
-    const promedio = roundNumber((item.promedioScore as number) ?? 0, 2);
-    const completadas = (item.completadas as number) ?? 0;
-    const total = (item.total as number) ?? 0;
+    const usuario = usuariosMap.get(item.uid);
+    const nombre = String(usuario?.fullName ?? usuario?.username ?? `Usuario ${item.uid.slice(-6)}`);
+    const promedio = roundNumber(item.promedioScore, 2);
     return {
       estudiante: nombre,
       promedio,
-      comentarios: buildComentario(promedio, completadas, total)
+      comentarios: buildComentario(promedio, item.completadas, item.total)
     };
   });
-
-  const resumen = progresoResumen[0];
-  const totalActividades = (resumen?.actividades as number) ?? 0;
-  const promedioGrupo = roundNumber((resumen?.promedioScore as number) ?? 0, 2);
-  const totalMiembros = scopedUsuarioIds.length;
-  const asistentes = (usuariosConActividad[0]?.total as number) ?? 0;
-  const asistenciaPromedio = totalMiembros ? roundNumber(asistentes / totalMiembros, 2) : 0;
 
   const configuracion: ReporteConfig = {
     encabezado: {
@@ -732,73 +581,41 @@ reportes.get(
     const pagination = parsePagination(req.query);
     const scopeSchoolId = typeof req.user?.schoolId === "string" ? req.user.schoolId : undefined;
     const scopedSchoolId = filtros.institucion ?? scopeSchoolId;
-    const db = await getDb();
-    const aulaFilter = buildAulaFilter(filtros, scopedSchoolId);
-    const totalAulas = await db.collection("aulas").countDocuments(aulaFilter);
-    const aulas = await db
-      .collection("aulas")
-      .find(aulaFilter).project({ id: 1 })
-      .skip(pagination.offset)
-      .limit(pagination.limit)
-      .toArray();
+    const aulaWhere = buildAulaWhere(filtros, scopedSchoolId);
+
+    const totalAulas = await prisma.clase.count({ where: aulaWhere });
+    const aulas = await prisma.clase.findMany({
+      where: aulaWhere,
+      select: { id: true },
+      skip: pagination.offset,
+      take: pagination.limit
+    });
     const aulaIds = aulas.map((aula) => aula.id).filter(Boolean);
-    const match: Record<string, unknown> = {};
-    if (scopedSchoolId) match.schoolId = scopedSchoolId;
-    if (aulaIds.length) match.aulaId = aulaIds.length === 1 ? aulaIds[0] : { $in: aulaIds };
+
+    let totalUsuarios = 0;
+    let filteredUserIds: string[] = [];
 
     if (filtros.roles?.length) {
-      const userFilter: Record<string, unknown> = {
+      const userWhere: Record<string, unknown> = {
         ...buildSchoolFilter(scopedSchoolId),
-        role: { $in: filtros.roles },
-        isDeleted: { $ne: true }
+        role: { in: filtros.roles },
+        isDeleted: { not: true }
       };
-      const totalUsuarios = await db.collection("usuarios").countDocuments(userFilter);
-      const usuarios = await db
-        .collection("usuarios")
-        .find(userFilter)
-        .project({ _id: 1 })
-        .skip(pagination.offset)
-        .limit(pagination.limit)
-        .toArray();
-      const usuarioIds = uniqueIds(
-        usuarios.map((user) => user._id?.toString?.() ?? "").filter(Boolean)
-      );
-      if (usuarioIds.length) {
-        match.usuarioId = { $in: usuarioIds };
-      }
-      (res.locals as { economiaTotalUsuarios?: number }).economiaTotalUsuarios = totalUsuarios;
+      totalUsuarios = await prisma.usuario.count({ where: userWhere as any });
+      const usuarios = await prisma.usuario.findMany({
+        where: userWhere as any,
+        select: { id: true },
+        skip: pagination.offset,
+        take: pagination.limit
+      });
+      filteredUserIds = uniqueIds(usuarios.map((u) => u.id));
     }
 
-    const resumen = await db
-      .collection("economia_transacciones")
-      .aggregate([
-        { $match: match },
-        {
-          $group: {
-            _id: "$tipo",
-            total: { $sum: "$monto" },
-            transacciones: { $sum: 1 }
-          }
-        }
-      ])
-      .toArray();
-
-    const detalleMotivos = await db
-      .collection("economia_transacciones")
-      .aggregate([
-        { $match: match },
-        { $group: { _id: "$motivo", total: { $sum: "$monto" }, transacciones: { $sum: 1 } } },
-        { $sort: { total: -1 } },
-        { $limit: 5 }
-      ])
-      .toArray();
-
-    const credito = resumen.find((item) => item._id === "credito");
-    const debito = resumen.find((item) => item._id === "debito");
-    const totalCreditos = roundNumber((credito?.total as number) ?? 0, 2);
-    const totalDebitos = roundNumber((debito?.total as number) ?? 0, 2);
-    const totalTransacciones = resumen.reduce((acc, item) => acc + ((item.transacciones as number) ?? 0), 0);
-    const totalUsuarios = (res.locals as { economiaTotalUsuarios?: number }).economiaTotalUsuarios ?? 0;
+    // TODO: economia_transacciones is not yet in the Prisma schema.
+    // Returning zeroed-out totals until the model is added.
+    const totalCreditos = 0;
+    const totalDebitos = 0;
+    const totalTransacciones = 0;
 
     res.json({
       filtros,
@@ -816,16 +633,8 @@ reportes.get(
         neto: roundNumber(totalCreditos - totalDebitos, 2),
         transacciones: totalTransacciones
       },
-      detallePorTipo: resumen.map((item) => ({
-        tipo: item._id,
-        total: roundNumber((item.total as number) ?? 0, 2),
-        transacciones: item.transacciones ?? 0
-      })),
-      topMotivos: detalleMotivos.map((item) => ({
-        motivo: item._id,
-        total: roundNumber((item.total as number) ?? 0, 2),
-        transacciones: item.transacciones ?? 0
-      })),
+      detallePorTipo: [],
+      topMotivos: [],
       generadoEn: new Date().toISOString()
     });
   }

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { getDb } from "../lib/db";
-import { toObjectId } from "../lib/ids";
+import { prisma } from "../lib/prisma";
+import { generateId } from "../lib/ids";
 import { requireAdmin } from "../lib/admin-auth";
 
 export const moderacion = Router();
@@ -14,40 +14,35 @@ const clampLimit = (value: string | undefined) => {
 moderacion.use("/api/moderacion", requireAdmin);
 
 moderacion.get("/api/moderacion/clases-publicas", async (req, res) => {
-  const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
-  const items = await db
-    .collection("aulas")
-    .find({ accessType: "publica" })
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ updatedAt: -1 })
-    .toArray();
+  const items = await prisma.clase.findMany({
+    where: { accessType: "publica" } as any,
+    skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
+    take: limit,
+    orderBy: { updatedAt: "desc" }
+  });
   res.json({ items, limit, offset });
 });
 
 moderacion.get("/api/moderacion/mensajes-reportados", async (req, res) => {
-  const db = await getDb();
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
-  const items = await db
-    .collection("mensajes_reportados")
-    .find({})
-    .skip(Number.isNaN(offset) || offset < 0 ? 0 : offset)
-    .limit(limit)
-    .sort({ createdAt: -1 })
-    .toArray();
+  const items = await (prisma as any).mensajeReportado?.findMany({
+    where: {},
+    skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
+    take: limit,
+    orderBy: { createdAt: "desc" }
+  }) ?? [];
   res.json({ items, limit, offset });
 });
 
 moderacion.post("/api/moderacion/usuarios/:id/ban", async (req, res) => {
-  const db = await getDb();
-  const userId = toObjectId(req.params.id);
+  const userId = req.params.id;
   if (!userId) return res.status(400).json({ error: "invalid user id" });
   const now = new Date();
-  const actor = res.locals.adminUser as { _id?: unknown } | undefined;
-  const actorId = actor?._id;
+  const actor = res.locals.adminUser as { _id?: unknown; id?: unknown } | undefined;
+  const actorId = String(actor?.id ?? actor?._id ?? "");
   const actorIp = (req.header("x-forwarded-for") ?? "").split(",")[0].trim() || req.ip;
   const motivo = typeof req.body?.motivo === "string" ? req.body.motivo.trim() : "";
   const duracionDias = Number(req.body?.duracionDias ?? 0);
@@ -55,6 +50,7 @@ moderacion.post("/api/moderacion/usuarios/:id/ban", async (req, res) => {
     ? new Date(now.getTime() + duracionDias * 24 * 60 * 60 * 1000)
     : null;
   const event = {
+    id: generateId(),
     usuarioId: userId,
     tipo: "ban",
     motivo,
@@ -66,31 +62,29 @@ moderacion.post("/api/moderacion/usuarios/:id/ban", async (req, res) => {
     },
     createdAt: now
   };
-  await db.collection("moderacion_eventos").insertOne(event);
-  await db.collection("usuarios").updateOne(
-    { _id: userId },
-    {
-      $set: {
-        isBanned: true,
-        bannedAt: now,
-        bannedUntil
-      }
-    }
-  );
+  await prisma.moderacionEvento.create({ data: event as any });
+  await prisma.usuario.updateMany({
+    where: { id: userId },
+    data: {
+      isBanned: true,
+      bannedAt: now,
+      bannedUntil
+    } as any
+  });
   res.status(201).json({ ok: true, bannedUntil });
 });
 
 moderacion.post("/api/moderacion/usuarios/:id/advertencias", async (req, res) => {
-  const db = await getDb();
-  const userId = toObjectId(req.params.id);
+  const userId = req.params.id;
   if (!userId) return res.status(400).json({ error: "invalid user id" });
   const now = new Date();
-  const actor = res.locals.adminUser as { _id?: unknown } | undefined;
-  const actorId = actor?._id;
+  const actor = res.locals.adminUser as { _id?: unknown; id?: unknown } | undefined;
+  const actorId = String(actor?.id ?? actor?._id ?? "");
   const actorIp = (req.header("x-forwarded-for") ?? "").split(",")[0].trim() || req.ip;
   const motivo = typeof req.body?.motivo === "string" ? req.body.motivo.trim() : "";
   const severidad = typeof req.body?.severidad === "string" ? req.body.severidad.trim() : "";
   const event = {
+    id: generateId(),
     usuarioId: userId,
     tipo: "advertencia",
     motivo,
@@ -102,17 +96,14 @@ moderacion.post("/api/moderacion/usuarios/:id/advertencias", async (req, res) =>
     },
     createdAt: now
   };
-  await db.collection("moderacion_eventos").insertOne(event);
-  await db.collection("usuarios").updateOne(
-    { _id: userId },
-    {
-      $set: {
-        lastWarningAt: now,
-        lastWarningReason: motivo,
-        lastWarningSeverity: severidad
-      },
-      $inc: { warningCount: 1 }
-    }
-  );
+  await prisma.moderacionEvento.create({ data: event as any });
+  await prisma.usuario.updateMany({
+    where: { id: userId },
+    data: {
+      lastWarningAt: now,
+      lastWarningReason: motivo,
+      lastWarningSeverity: severidad
+    } as any
+  });
   res.status(201).json({ ok: true });
 });

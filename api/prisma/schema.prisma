@@ -1,0 +1,836 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Escuela {
+  id                 String   @id
+  name               String
+  code               String?  @unique
+  address            String?
+  subscriptionStatus String?  @map("subscription_status")
+  plan               String?
+  isDeleted          Boolean  @default(false) @map("is_deleted")
+  createdAt          String   @map("created_at")
+  updatedAt          String?  @map("updated_at")
+  usuarios           Usuario[]
+  membresias         Membresia[]
+  clases             Clase[]
+  @@map("escuelas")
+}
+
+model Usuario {
+  id                    String   @id
+  username              String   @unique
+  email                 String   @unique
+  fullName              String   @map("full_name")
+  role                  String
+  escuelaId             String?  @map("escuela_id")
+  passwordHash          String?  @map("password_hash")
+  birthdate             String?
+  guestOnboardingStatus String?  @map("guest_onboarding_status")
+  privacyConsent        Boolean? @map("privacy_consent")
+  termsAccepted         Boolean? @map("terms_accepted")
+  consentedAt           String?  @map("consented_at")
+  isDeleted             Boolean  @default(false) @map("is_deleted")
+  passwordResetRequired Boolean  @default(false) @map("password_reset_required")
+  isBanned              Boolean  @default(false) @map("is_banned")
+  warningCount          Int      @default(0) @map("warning_count")
+  createdAt             String   @map("created_at")
+  updatedAt             String   @map("updated_at")
+  escuela               Escuela? @relation(fields: [escuelaId], references: [id])
+  membresias            Membresia[]
+  @@map("usuarios")
+}
+
+model Membresia {
+  usuarioId  String   @map("usuario_id")
+  escuelaId  String   @map("escuela_id")
+  rol        String
+  estado     String
+  fechaAlta  String   @map("fecha_alta")
+  fechaBaja  String?  @map("fecha_baja")
+  createdAt  String?  @map("created_at")
+  updatedAt  String?  @map("updated_at")
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  escuela    Escuela  @relation(fields: [escuelaId], references: [id])
+  @@id([usuarioId, escuelaId])
+  @@map("membresias")
+}
+
+model Clase {
+  id              String   @id
+  escuelaId       String   @map("escuela_id")
+  name            String
+  grade           String
+  code            String?
+  classCode       String?  @map("class_code")
+  isDeleted       Boolean  @default(false) @map("is_deleted")
+  status          String   @default("ACTIVE")
+  createdBy       String?  @map("created_by")
+  teacherId       String?  @map("teacher_id")
+  teacherOfRecord String?  @map("teacher_of_record")
+  deletedAt       String?  @map("deleted_at")
+  deletedBy       String?  @map("deleted_by")
+  createdAt       String   @map("created_at")
+  updatedAt       String?  @map("updated_at")
+  escuela         Escuela  @relation(fields: [escuelaId], references: [id])
+  miembros        ClaseMiembro[]
+  modulos         ClaseModulo[]
+  publicaciones   ClasePublicacion[]
+  @@map("clases")
+}
+
+model ClaseMiembro {
+  claseId    String @map("clase_id")
+  usuarioId  String @map("usuario_id")
+  rolEnClase String @map("rol_en_clase")
+  clase      Clase  @relation(fields: [claseId], references: [id])
+  @@id([claseId, usuarioId, rolEnClase])
+  @@map("clase_miembros")
+}
+
+model ClaseModulo {
+  claseId    String  @map("clase_id")
+  moduloId   String  @map("modulo_id")
+  assignedAt String? @map("assigned_at")
+  required   Boolean @default(false)
+  clase      Clase   @relation(fields: [claseId], references: [id])
+  @@id([claseId, moduloId])
+  @@map("clase_modulos")
+}
+
+model ClasePublicacion {
+  id          String @id
+  claseId     String @map("clase_id")
+  authorId    String @map("author_id")
+  title       String
+  body        String
+  linksJson   String? @map("links_json")
+  isPinned    Boolean @default(false) @map("is_pinned")
+  publishedAt String  @map("published_at")
+  clase       Clase   @relation(fields: [claseId], references: [id])
+  @@map("clase_publicaciones")
+}
+
+model Conversacion {
+  id                 String @id
+  studentId          String @map("student_id")
+  parentId           String @map("parent_id")
+  classId            String @map("class_id")
+  lastMessageFrom    String? @map("last_message_from")
+  lastMessagePreview String? @map("last_message_preview")
+  unreadForAdmin     Boolean @default(false) @map("unread_for_admin")
+  createdAt          String  @map("created_at")
+  updatedAt          String? @map("updated_at")
+  mensajes           MensajeItem[]
+  @@map("conversaciones")
+}
+
+model MensajeItem {
+  id             String       @id
+  conversationId String       @map("conversation_id")
+  senderId       String       @map("sender_id")
+  body           String
+  sentAt         String       @map("sent_at")
+  conversacion   Conversacion @relation(fields: [conversationId], references: [id])
+  @@map("mensajes_items")
+}
+
+model Transferencia {
+  id           String @id
+  studentId    String @map("student_id")
+  fromSchoolId String @map("from_school_id")
+  toSchoolId   String @map("to_school_id")
+  status       String
+  createdAt    String @map("created_at")
+  updatedAt    String? @map("updated_at")
+  @@map("transferencias")
+}
+
+model EconomiaConfig {
+  id        String @id @default("default")
+  json      String
+  updatedAt String @map("updated_at")
+  @@map("economia_config")
+}
+
+model SaldoUsuario {
+  usuarioId String @map("usuario_id")
+  moneda    String
+  saldo     Float  @default(0)
+  updatedAt String @map("updated_at")
+  @@id([usuarioId, moneda])
+  @@map("saldos_usuario")
+}
+
+model LedgerMovimiento {
+  id             String  @id
+  usuarioId      String  @map("usuario_id")
+  tipo           String
+  monto          Float
+  moneda         String
+  motivo         String
+  origen         String?
+  referenciaId   String? @map("referencia_id")
+  referenciaTipo String? @map("referencia_tipo")
+  createdAt      String  @map("created_at")
+  @@map("ledger_movimientos")
+}
+
+model EconomiaRecompensa {
+  id           String  @id
+  tipo         String
+  referenciaId String  @map("referencia_id")
+  nombre       String
+  descripcion  String?
+  monto        Float
+  moneda       String
+  activo       Boolean @default(true)
+  isDeleted    Boolean @default(false) @map("is_deleted")
+  deletedAt    String? @map("deleted_at")
+  deletedBy    String? @map("deleted_by")
+  updatedAt    String  @map("updated_at")
+  @@map("economia_recompensas")
+}
+
+model EconomiaModulo {
+  moduloId  String  @id @map("modulo_id")
+  activo    Boolean @default(true)
+  updatedAt String  @map("updated_at")
+  @@map("economia_modulos")
+}
+
+model EconomiaEvento {
+  id          String  @id
+  nombre      String
+  tipo        String
+  descripcion String?
+  tasa        Float?
+  activo      Boolean @default(true)
+  isDeleted   Boolean @default(false) @map("is_deleted")
+  deletedAt   String? @map("deleted_at")
+  deletedBy   String? @map("deleted_by")
+  updatedAt   String  @map("updated_at")
+  @@map("economia_eventos")
+}
+
+model EconomiaRiesgoCurso {
+  aulaId        String @id @map("aula_id")
+  riesgoBase    Float  @default(0) @map("riesgo_base")
+  riesgoMercado Float  @default(0) @map("riesgo_mercado")
+  riesgoCredito Float  @default(0) @map("riesgo_credito")
+  updatedAt     String @map("updated_at")
+  @@map("economia_riesgo_cursos")
+}
+
+model TeoriaJson {
+  id            String  @id
+  schemaVersion Int     @default(1) @map("schema_version")
+  content       String
+  contentHash   String? @map("content_hash")
+  createdAt     String  @default("") @map("created_at")
+  updatedAt     String  @default("") @map("updated_at")
+  modulos       Modulo[]
+  @@map("teoria_json")
+}
+
+model TuesdayDoc {
+  id            String  @id
+  schemaVersion Int     @default(1) @map("schema_version")
+  doc           String
+  contentHash   String? @map("content_hash")
+  createdAt     String  @default("") @map("created_at")
+  updatedAt     String  @default("") @map("updated_at")
+  @@map("tuesdayjs_docs")
+}
+
+model LibroJson {
+  id            String  @id
+  schemaVersion Int     @default(1) @map("schema_version")
+  book          String
+  contentHash   String? @map("content_hash")
+  createdAt     String  @default("") @map("created_at")
+  updatedAt     String  @default("") @map("updated_at")
+  @@map("libros_json")
+}
+
+model BloqueJson {
+  id            String  @id
+  schemaVersion Int     @default(1) @map("schema_version")
+  content       String
+  contentHash   String? @map("content_hash")
+  createdAt     String  @default("") @map("created_at")
+  updatedAt     String  @default("") @map("updated_at")
+  @@map("bloques_json")
+}
+
+model Modulo {
+  id                   String   @id
+  slug                 String?  @unique
+  titulo               String
+  descripcion          String?
+  visibility           String   @default("private")
+  schoolId             String?  @map("school_id")
+  ownerUserId          String?  @map("owner_user_id")
+  teoriaId             String?  @map("teoria_id")
+  tuesdayDocId         String?  @map("tuesday_doc_id")
+  libroId              String?  @map("libro_id")
+  defaultQuestionCount Int?     @map("default_question_count")
+  isDeleted            Boolean  @default(false) @map("is_deleted")
+  createdAt            String   @default("") @map("created_at")
+  updatedAt            String   @default("") @map("updated_at")
+  teoria               TeoriaJson? @relation(fields: [teoriaId], references: [id])
+  quizzes              Quiz[]
+  @@map("modulos")
+}
+
+model QuizQuestionSet {
+  id            String  @id
+  schemaVersion Int     @default(1) @map("schema_version")
+  quizType      String? @map("quiz_type")
+  questions     String
+  contentHash   String? @unique @map("content_hash")
+  createdAt     String  @default("") @map("created_at")
+  createdBy     String? @map("created_by")
+  versions      QuizVersion[]
+  @@map("quiz_question_sets")
+}
+
+model Quiz {
+  id               String  @id
+  moduleId         String  @map("module_id")
+  title            String?
+  isActive         Boolean @default(true) @map("is_active")
+  currentVersionId String? @map("current_version_id")
+  createdAt        String  @default("") @map("created_at")
+  updatedAt        String  @default("") @map("updated_at")
+  modulo           Modulo  @relation(fields: [moduleId], references: [id])
+  versions         QuizVersion[]
+  attempts         QuizAttempt[]
+  @@map("quizzes")
+}
+
+model QuizVersion {
+  id               String  @id
+  quizId           String  @map("quiz_id")
+  versionNumber    Int     @map("version_number")
+  schemaVersion    Int     @default(1) @map("schema_version")
+  questionSetId    String? @map("question_set_id")
+  questions        String?
+  generatorId      String? @map("generator_id")
+  generatorVersion String? @map("generator_version")
+  params           String?
+  count            Int?
+  seedPolicy       Int     @default(0) @map("seed_policy")
+  fixedSeed        String? @map("fixed_seed")
+  settings         String?
+  contentHash      String? @map("content_hash")
+  createdAt        String  @default("") @map("created_at")
+  createdBy        String? @map("created_by")
+  quiz             Quiz    @relation(fields: [quizId], references: [id])
+  questionSet      QuizQuestionSet? @relation(fields: [questionSetId], references: [id])
+  attempts         QuizAttempt[]
+  @@unique([quizId, versionNumber])
+  @@map("quiz_versions")
+}
+
+model QuizAttempt {
+  id            String  @id
+  quizId        String  @map("quiz_id")
+  quizVersionId String  @map("quiz_version_id")
+  userId        String  @map("user_id")
+  status        String
+  startedAt     String  @default("") @map("started_at")
+  submittedAt   String? @map("submitted_at")
+  score         Float?
+  maxScore      Float?  @map("max_score")
+  answers       String
+  feedback      String?
+  grading       String?
+  seed          String?
+  seedPolicy    Int     @default(0) @map("seed_policy")
+  attemptNo     Int?    @map("attempt_no")
+  quiz          Quiz    @relation(fields: [quizId], references: [id])
+  version       QuizVersion @relation(fields: [quizVersionId], references: [id])
+  @@map("quiz_attempts")
+}
+
+model ActividadAula {
+  id          String  @id
+  aulaId      String  @map("aula_id")
+  tipo        String
+  titulo      String
+  descripcion String?
+  fecha       String
+  fechaFin    String? @map("fecha_fin")
+  createdBy   String  @map("created_by")
+  createdAt   String  @map("created_at")
+  isDeleted   Boolean @default(false) @map("is_deleted")
+  @@map("actividades_aula")
+}
+
+model CalendarioEscuela {
+  id           String  @id
+  escuelaId    String  @map("escuela_id")
+  tipo         String
+  titulo       String
+  descripcion  String?
+  fechaInicio  String  @map("fecha_inicio")
+  fechaFin     String  @map("fecha_fin")
+  createdBy    String  @map("created_by")
+  createdAt    String  @map("created_at")
+  isDeleted    Boolean @default(false) @map("is_deleted")
+  @@map("calendario_escuela")
+}
+
+model ModoAula {
+  aulaId        String  @id @map("aula_id")
+  activo        Boolean @default(false)
+  restricciones String  @default("tienda,economia")
+  activadoBy    String  @map("activado_by")
+  activadoAt    String  @map("activado_at")
+  desactivadoAt String? @map("desactivado_at")
+  @@map("modo_aula")
+}
+
+model QuizUmbral {
+  quizId    String @id @map("quiz_id")
+  moduloId  String @map("modulo_id")
+  umbral    Int    @default(60)
+  creadoBy  String @map("creado_by")
+  createdAt String @map("created_at")
+  @@map("quiz_umbrales")
+}
+
+model DesbloqueoManual {
+  id             String @id
+  moduloId       String @map("modulo_id")
+  usuarioId      String @map("usuario_id")
+  aulaId         String @map("aula_id")
+  desbloqueadoBy String @map("desbloqueado_by")
+  motivo         String?
+  createdAt      String @map("created_at")
+  @@unique([moduloId, usuarioId, aulaId])
+  @@map("desbloqueos_manuales")
+}
+
+model SyncQueue {
+  id          String  @id
+  usuarioId   String  @map("usuario_id")
+  tipo        String
+  payload     String
+  intento     Int     @default(0)
+  maxIntentos Int     @default(5) @map("max_intentos")
+  estado      String  @default("pendiente")
+  error       String?
+  createdAt   String  @map("created_at")
+  procesadoAt String? @map("procesado_at")
+  @@map("sync_queue")
+}
+
+model SyncSnapshot {
+  id           String  @id
+  usuarioId    String  @map("usuario_id")
+  tipo         String
+  aulaId       String? @map("aula_id")
+  version      Int     @default(1)
+  hash         String?
+  descargadoAt String  @map("descargado_at")
+  @@unique([usuarioId, tipo, aulaId])
+  @@map("sync_snapshots")
+}
+
+model SyncConflicto {
+  id            String @id
+  usuarioId     String @map("usuario_id")
+  tipo          String
+  payloadLocal  String @map("payload_local")
+  payloadServer String @map("payload_server")
+  resolucion    String @default("server_wins")
+  resueltoAt    String @map("resuelto_at")
+  @@map("sync_conflictos")
+}
+
+model GeneratorConfig {
+  id        String  @id
+  json      String
+  createdAt String  @default("") @map("created_at")
+  updatedAt String  @default("") @map("updated_at")
+  @@map("generator_configs")
+}
+
+model Suggestion {
+  id        String @id
+  json      String
+  createdAt String @default("") @map("created_at")
+  @@map("suggestions")
+}
+
+model ProgresoModulo {
+  id          String  @id @default(uuid())
+  usuarioId   String  @map("usuario_id")
+  moduloId    String  @map("modulo_id")
+  aulaId      String? @map("aula_id")
+  status      String
+  score       Float?
+  attempts    Int     @default(0)
+  completedAt String? @map("completed_at")
+  updatedAt   String  @map("updated_at")
+  @@unique([usuarioId, moduloId, aulaId])
+  @@index([usuarioId, aulaId])
+  @@map("progreso_modulos")
+}
+
+model EconomiaSaldo {
+  id        String @id @default(uuid())
+  usuarioId String @unique @map("usuario_id")
+  saldo     Float  @default(0)
+  moneda    String
+  updatedAt String @map("updated_at")
+  @@map("economia_saldos")
+}
+
+model EconomiaTransaccion {
+  id           String  @id @default(uuid())
+  usuarioId    String  @map("usuario_id")
+  aulaId       String  @map("aula_id")
+  schoolId     String  @map("school_id")
+  tipo         String
+  monto        Float
+  moneda       String
+  motivo       String
+  referenciaId String? @map("referencia_id")
+  createdAt    String  @map("created_at")
+  @@index([usuarioId])
+  @@map("economia_transacciones")
+}
+
+model Encuesta {
+  id                    String  @id
+  title                 String
+  description           String
+  classroomId           String  @map("classroom_id")
+  classroomName         String? @map("classroom_name")
+  type                  String
+  options               String
+  maxOptions            Int?    @map("max_options")
+  startAt               String  @map("start_at")
+  endAt                 String  @map("end_at")
+  showResultsBeforeClose Boolean @default(false) @map("show_results_before_close")
+  showResultsRealtime   Boolean @default(false) @map("show_results_realtime")
+  status                String
+  responsesCount        Int     @default(0) @map("responses_count")
+  createdBy             String  @map("created_by")
+  createdAt             String  @map("created_at")
+  updatedAt             String  @map("updated_at")
+  archivedAt            String? @map("archived_at")
+  respuestas            EncuestaRespuesta[]
+  @@map("encuestas")
+}
+
+model EncuestaRespuesta {
+  id          String   @id @default(uuid())
+  surveyId    String   @map("survey_id")
+  classroomId String   @map("classroom_id")
+  usuarioId   String   @map("usuario_id")
+  optionId    String?  @map("option_id")
+  scores      String?
+  ranking     String?
+  createdAt   String   @map("created_at")
+  encuesta    Encuesta @relation(fields: [surveyId], references: [id])
+  @@index([surveyId])
+  @@map("encuestas_respuestas")
+}
+
+model Publicacion {
+  id          String  @id
+  aulaId      String  @map("aula_id")
+  authorId    String  @map("author_id")
+  title       String
+  body        String
+  archivos    String?
+  isPinned    Boolean @default(false) @map("is_pinned")
+  isDeleted   Boolean @default(false) @map("is_deleted")
+  deletedBy   String? @map("deleted_by")
+  publishedAt String  @map("published_at")
+  updatedAt   String  @map("updated_at")
+  @@index([aulaId])
+  @@map("publicaciones")
+}
+
+model ProgresoModuloVinculo {
+  id           String  @id @default(uuid())
+  parentId     String  @map("parent_id")
+  childId      String  @map("child_id")
+  estado       String
+  nombre       String?
+  usuario      String?
+  grado        String?
+  escuela      String?
+  notas        String?
+  permisos     String?
+  solicitadoAt String? @map("solicitado_at")
+  createdAt    String  @map("created_at")
+  updatedAt    String  @map("updated_at")
+  @@map("vinculos_padre_hijo")
+}
+
+model Proposal {
+  id           String @id
+  targetType   String @map("target_type")
+  targetId     String @map("target_id")
+  proposalType String @map("proposal_type")
+  payload      String
+  level        String
+  createdBy    String @map("created_by")
+  createdAt    String @map("created_at")
+  status       String
+  rationale    String?
+  votes        Vote[]
+  @@map("proposals")
+}
+
+model Vote {
+  id         String   @id
+  proposalId String   @map("proposal_id")
+  voterId    String   @map("voter_id")
+  value      String
+  createdAt  String   @map("created_at")
+  proposal   Proposal @relation(fields: [proposalId], references: [id])
+  @@map("votes")
+}
+
+model Prompt {
+  id           String @id
+  targetType   String @map("target_type")
+  targetId     String @map("target_id")
+  kind         String
+  title        String
+  bodyText     String @map("body_text")
+  paramsSchema String @default("{}") @map("params_schema")
+  status       String
+  createdBy    String @map("created_by")
+  createdAt    String @map("created_at")
+  source       String
+  @@map("prompts")
+}
+
+model ResourceLink {
+  id         String @id
+  type       String
+  url        String
+  visibility String
+  createdBy  String @map("created_by")
+  schoolId   String @map("school_id")
+  aulaId     String @map("aula_id")
+  createdAt  String @map("created_at")
+  updatedAt  String @map("updated_at")
+  @@index([aulaId])
+  @@map("resource_links")
+}
+
+model AuditoriaAula {
+  id                String  @id @default(uuid())
+  aulaId            String  @map("aula_id")
+  actorId           String? @map("actor_id")
+  action            String?
+  previousStatus    String? @map("previous_status")
+  newStatus         String? @map("new_status")
+  previousIsDeleted Boolean? @map("previous_is_deleted")
+  newIsDeleted      Boolean? @map("new_is_deleted")
+  createdAt         String  @map("created_at")
+  @@map("auditoria_aulas")
+}
+
+model ModeracionEvento {
+  id            String  @id @default(uuid())
+  tipo          String
+  publicacionId String? @map("publicacion_id")
+  aulaId        String? @map("aula_id")
+  usuarioId     String? @map("usuario_id")
+  motivo        String?
+  severidad     String?
+  createdAt     String  @map("created_at")
+  @@map("moderacion_eventos")
+}
+
+model ConfigModulo {
+  id        String @id
+  items     String
+  updatedAt String @map("updated_at")
+  @@map("config_modulos")
+}
+
+model Page {
+  id        String @id
+  title     String?
+  content   String?
+  createdAt String @map("created_at")
+  updatedAt String? @map("updated_at")
+  @@map("pages")
+}
+
+model GeneradorAdmin {
+  id        String  @id @default(uuid())
+  subject   String
+  topic     String
+  status    String?
+  updatedAt String  @map("updated_at")
+  updatedBy String? @map("updated_by")
+  createdAt String  @map("created_at")
+  @@unique([subject, topic])
+  @@map("generadores_admin")
+}
+
+model Tarea {
+  id       String  @id @default(uuid())
+  aulaId   String? @map("aula_id")
+  schoolId String? @map("school_id")
+  json     String
+  @@map("tareas")
+}
+
+model EconomiaExamen {
+  id        String  @id
+  json      String
+  createdAt String  @map("created_at")
+  updatedAt String? @map("updated_at")
+  @@map("economia_examenes")
+}
+
+model EconomiaExamenPuja {
+  id        String @id @default(uuid())
+  examenId  String @map("examen_id")
+  json      String
+  createdAt String @map("created_at")
+  @@map("economia_examen_pujas")
+}
+
+model EconomiaExamenPunto {
+  id        String @id @default(uuid())
+  examenId  String @map("examen_id")
+  json      String
+  updatedAt String @map("updated_at")
+  @@map("economia_examen_puntos")
+}
+
+model EconomiaIntercambio {
+  id        String @id @default(uuid())
+  json      String
+  createdAt String @map("created_at")
+  @@map("economia_intercambios")
+}
+
+model EconomiaCompra {
+  id        String @id @default(uuid())
+  json      String
+  createdAt String @map("created_at")
+  @@map("economia_compras")
+}
+
+model EconomiaAuditoria {
+  id        String @id @default(uuid())
+  json      String
+  createdAt String @map("created_at")
+  @@map("economia_auditoria")
+}
+
+model Billetera {
+  id        String  @id @default(uuid())
+  json      String
+  updatedAt String? @map("updated_at")
+  @@map("billeteras")
+}
+
+model EnterpriseContrato {
+  id        String @id @default(uuid())
+  schoolId  String @map("school_id")
+  json      String
+  createdAt String @map("created_at")
+  @@map("enterprise_contratos")
+}
+
+model EnterpriseBillingCycle {
+  id        String @id @default(uuid())
+  json      String
+  createdAt String @map("created_at")
+  @@map("enterprise_billing_cycles")
+}
+
+model EnterpriseReporte {
+  id        String @id @default(uuid())
+  json      String
+  createdAt String @map("created_at")
+  @@map("enterprise_reportes")
+}
+
+model Entrega {
+  id        String @id @default(uuid())
+  json      String
+  createdAt String @map("created_at")
+  @@map("entregas")
+}
+
+model EventoReportePadre {
+  id        String @id @default(uuid())
+  json      String
+  createdAt String @map("created_at")
+  @@map("eventos_reportes_padres")
+}
+
+model EventoSuscripcion {
+  id        String @id @default(uuid())
+  json      String
+  createdAt String @map("created_at")
+  @@map("eventos_suscripciones")
+}
+
+model ForoRespuesta {
+  id        String @id @default(uuid())
+  json      String
+  createdAt String @map("created_at")
+  @@map("foros_respuestas")
+}
+
+model Acceso {
+  id        String @id @default(uuid())
+  json      String
+  createdAt String @map("created_at")
+  @@map("accesos")
+}
+
+model Comentario {
+  id            String @id @default(uuid())
+  publicacionId String @map("publicacion_id")
+  json          String
+  createdAt     String @map("created_at")
+  @@map("comentarios")
+}
+
+model Materia {
+  id   String @id @default(uuid())
+  json String
+  @@map("materias")
+}
+
+model Libro {
+  id        String  @id
+  json      String
+  updatedAt String? @map("updated_at")
+  @@map("libros")
+}
+
+model AuditLog {
+  id         String  @id @default(uuid())
+  actorId    String  @map("actor_id")
+  action     String
+  targetType String  @map("target_type")
+  targetId   String? @map("target_id")
+  timestamp  String
+  metadata   String?
+  @@map("audit_logs")
+}

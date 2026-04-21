@@ -1,5 +1,5 @@
 
-import { getDb } from "../db";
+import { prisma } from "../prisma";
 import { ENV } from "../env";
 
 type DelinquencyStatus = "ACTIVE" | "PAST_DUE" | "SUSPENDED";
@@ -22,52 +22,52 @@ const computeDaysPastDue = (createdAt: string, now: Date) => {
 };
 
 export const runDelinquencySweep = async () => {
-  const db = await getDb();
   const now = new Date();
-  const unpaidBySchool = await db
-    .collection("invoices")
-    .aggregate<{ _id: string; oldestInvoiceAt: string }>([
-      { $match: { status: { $ne: "PAID" } } },
-      { $group: { _id: "$schoolId", oldestInvoiceAt: { $min: "$createdAt" } } }
-    ])
-    .toArray();
 
-  const bulk = db.collection("escuelas").initializeUnorderedBulkOp();
-  let changeCount = 0;
+  // TODO: No Prisma model for "invoices" yet — returning empty list until
+  // an Invoice model is added to the schema.
+  const unpaidBySchool: Array<{ _id: string; oldestInvoiceAt: string }> = [];
+
   const unpaidSchoolIds = unpaidBySchool.map((entry) => entry._id).filter(Boolean);
+
+  // Group status updates by target status to batch the updateMany calls
+  const byStatus: Record<DelinquencyStatus, string[]> = {
+    ACTIVE: [],
+    PAST_DUE: [],
+    SUSPENDED: []
+  };
 
   for (const unpaid of unpaidBySchool) {
     if (!unpaid?._id || !unpaid.oldestInvoiceAt) continue;
     const daysPastDue = computeDaysPastDue(unpaid.oldestInvoiceAt, now);
     if (daysPastDue === null) continue;
     const nextStatus = resolveDelinquencyStatus(daysPastDue);
-    const filter = {
-      _id: unpaid._id,
-      subscriptionStatus: { $ne: "INACTIVE" }
-    };
-    bulk.find(filter).updateOne({ $set: { subscriptionStatus: nextStatus } });
-    changeCount += 1;
+    byStatus[nextStatus].push(unpaid._id);
   }
 
-  const clearedSchools = await db
-    .collection("escuelas")
-    .find({
-      subscriptionStatus: { $in: ["PAST_DUE", "SUSPENDED"] },
-      _id: {
-        $nin: unpaidSchoolIds
-      }
-    })
-    .project({ _id: 1 })
-    .toArray();
+  let changeCount = 0;
 
-  for (const school of clearedSchools) {
-    bulk.find({ _id: school._id }).updateOne({ $set: { subscriptionStatus: "ACTIVE" } });
-    changeCount += 1;
+  for (const [status, ids] of Object.entries(byStatus) as [DelinquencyStatus, string[]][]) {
+    if (ids.length === 0) continue;
+    const result = await prisma.escuela.updateMany({
+      where: {
+        id: { in: ids },
+        subscriptionStatus: { not: "INACTIVE" }
+      },
+      data: { subscriptionStatus: status }
+    });
+    changeCount += result.count;
   }
 
-  if (changeCount > 0) {
-    await bulk.execute();
-  }
+  // Clear schools that are PAST_DUE/SUSPENDED but now have no unpaid invoices
+  const clearedResult = await prisma.escuela.updateMany({
+    where: {
+      subscriptionStatus: { in: ["PAST_DUE", "SUSPENDED"] },
+      id: { notIn: unpaidSchoolIds }
+    },
+    data: { subscriptionStatus: "ACTIVE" }
+  });
+  changeCount += clearedResult.count;
 
   return {
     evaluatedSchools: unpaidBySchool.length,

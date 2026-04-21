@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { promises as fsPromises } from "fs";
 import path from "path";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { SUBJECTS, listTopicsFromFilesystem, type Subject } from "./consignas";
 
 export const readonlyRouter = Router();
@@ -81,14 +81,13 @@ const readVisualizadoresCatalog = async (): Promise<ReadonlyCatalogResponse["map
 
 readonlyRouter.get("/api/readonly/catalogo", async (_req, res) => {
   try {
-    const db = await getDb();
-
     const [modulosActivos, generadores, visualizadores, idiomasDiccionario] = await Promise.all([
-      db
-        .collection("modulos")
-        .find({ $or: [{ status: "ACTIVE" }, { status: { $exists: false } }] })
-        .sort({ updatedAt: -1 })
-        .toArray(),
+      prisma.modulo.findMany({
+        where: {
+          OR: [{ isDeleted: false }, { isDeleted: false }]
+        },
+        orderBy: { updatedAt: "desc" }
+      }),
       Promise.all(
         SUBJECTS.map(async (materia) => ({
           materia,

@@ -1,70 +1,52 @@
 import { Router } from "express";
 import { requireAdmin } from "../lib/admin-auth";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 
 export const seed = Router();
 
 seed.post("/api/seed/modulos", requireAdmin, async (_req, res) => {
-  const db = await getDb();
   const now = new Date().toISOString();
   const modulosBase = [
     {
       id: "mod-001",
-      title: "Sumas básicas",
-      description: "Resolver sumas simples con apoyo visual.",
-      subject: "Matemáticas",
-      category: "Aritmética",
-      level: "Básico",
-      durationMinutes: 15,
+      titulo: "Sumas básicas",
+      descripcion: "Resolver sumas simples con apoyo visual.",
       visibility: "publico",
-      dependencies: [],
-      generatorRef: { id: "matematicas:1", config: { dificultad: "basico" } },
-      resources: [],
-      createdBy: "seed",
+      createdAt: now,
       updatedAt: now
     },
     {
       id: "mod-002",
-      title: "Sumas avanzadas",
-      description: "Sumas con llevadas y números de dos cifras.",
-      subject: "Matemáticas",
-      category: "Aritmética",
-      level: "Intermedio",
-      durationMinutes: 25,
+      titulo: "Sumas avanzadas",
+      descripcion: "Sumas con llevadas y números de dos cifras.",
       visibility: "publico",
-      dependencies: [{ id: "mod-001", type: "required" }],
-      generatorRef: { id: "matematicas:2", config: { dificultad: "intermedio" } },
-      resources: [],
-      createdBy: "seed",
+      createdAt: now,
       updatedAt: now
     },
     {
       id: "mod-003",
-      title: "Multiplicación",
-      description: "Tablas y problemas aplicados en contexto.",
-      subject: "Matemáticas",
-      category: "Aritmética",
-      level: "Intermedio",
-      durationMinutes: 30,
+      titulo: "Multiplicación",
+      descripcion: "Tablas y problemas aplicados en contexto.",
       visibility: "publico",
-      dependencies: [{ id: "mod-002", type: "required" }],
-      generatorRef: { id: "matematicas:3", config: { dificultad: "intermedio" } },
-      resources: [],
-      createdBy: "seed",
+      createdAt: now,
       updatedAt: now
     }
   ];
 
-  const operations = modulosBase.map((modulo) => ({
-    updateOne: {
-      filter: { id: modulo.id },
-      update: { $set: modulo },
-      upsert: true
+  let upserted = 0;
+  let matched = 0;
+  for (const modulo of modulosBase) {
+    const existing = await prisma.modulo.findFirst({ where: { id: modulo.id } });
+    if (existing) {
+      await prisma.modulo.updateMany({ where: { id: modulo.id }, data: modulo });
+      matched++;
+    } else {
+      await prisma.modulo.create({ data: modulo });
+      upserted++;
     }
-  }));
+  }
 
-  const result = await db.collection("modulos").bulkWrite(operations);
-  res.status(201).json({ ok: true, upserted: result.upsertedCount, matched: result.modifiedCount });
+  res.status(201).json({ ok: true, upserted, matched });
 });
 
 const ECONOMIA_PROMPTS: Array<{ id: string; generatorId: string; label: string }> = [
@@ -127,40 +109,42 @@ const ECONOMIA_PROMPTS: Array<{ id: string; generatorId: string; label: string }
 ];
 
 seed.post("/api/seed/prompts-generadores", requireAdmin, async (_req, res) => {
-  const db = await getDb();
   const now = new Date().toISOString();
 
-  const operations = ECONOMIA_PROMPTS.map(({ id, generatorId, label }) => ({
-    updateOne: {
-      filter: { id },
-      update: {
-        $set: {
-          id,
-          targetType: "exercise_generator",
-          targetId: "generadores:economia",
-          kind: "QUESTION",
-          title: label,
-          bodyText: label,
-          paramsSchema: {
-            templateKind: "TEXT",
-            generatorId,
-            label,
-          },
-          status: "ACTIVE",
-          createdBy: "seed",
-          createdAt: now,
-          source: "seed",
-        },
-      },
-      upsert: true,
-    },
-  }));
+  let upserted = 0;
+  let matched = 0;
+  for (const { id, generatorId, label } of ECONOMIA_PROMPTS) {
+    const data = {
+      id,
+      targetType: "exercise_generator",
+      targetId: "generadores:economia",
+      kind: "QUESTION",
+      title: label,
+      bodyText: label,
+      paramsSchema: JSON.stringify({
+        templateKind: "TEXT",
+        generatorId,
+        label,
+      }),
+      status: "ACTIVE",
+      createdBy: "seed",
+      createdAt: now,
+      source: "seed",
+    };
+    const existing = await prisma.prompt.findFirst({ where: { id } });
+    if (existing) {
+      await prisma.prompt.updateMany({ where: { id }, data });
+      matched++;
+    } else {
+      await prisma.prompt.create({ data });
+      upserted++;
+    }
+  }
 
-  const result = await db.collection("prompts").bulkWrite(operations);
   res.status(201).json({
     ok: true,
-    upserted: result.upsertedCount,
-    matched: result.modifiedCount,
+    upserted,
+    matched,
     total: ECONOMIA_PROMPTS.length,
   });
 });

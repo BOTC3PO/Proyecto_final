@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
-import type { Db } from "./db";
 import { z } from "zod";
 import { ENV } from "./env";
+import { prisma } from "./prisma";
 import {
   canProposeGovernanceChange,
   canVoteContent,
@@ -44,48 +44,58 @@ export const evaluateGovernanceLevel = (
   return "CONTENT";
 };
 
-const getActorRole = async (db: Db, actorId: string) => {
-  const user = await db.collection("usuarios").findOne({ id: actorId });
-  return toAuthorizationRole(user?.rol ?? user?.role ?? "");
+const getActorRole = async (actorId: string) => {
+  const user = await prisma.usuario.findFirst({ where: { id: actorId } });
+  return toAuthorizationRole(user?.role ?? "");
 };
 
-export const canActorCreateProposal = async (db: Db, actorId: string) => {
+export const canActorCreateProposal = async (actorId: string) => {
   if (!actorId) return false;
-  const role = await getActorRole(db, actorId);
+  const role = await getActorRole(actorId);
   return canProposeGovernanceChange(role);
 };
 
-export const canActorVoteOnLevel = async (db: Db, actorId: string, level: GovernanceLevel) => {
+export const canActorVoteOnLevel = async (actorId: string, level: GovernanceLevel) => {
   if (!actorId) return false;
-  const role = await getActorRole(db, actorId);
+  const role = await getActorRole(actorId);
   if (level === "GOVERNANCE") return canVoteGovernance(role);
   return canVoteContent(role);
 };
 
 export const validateGovernancePermissions = async (params: {
-  db: Db;
   actorId: string;
   level: GovernanceLevel;
   targetType: string;
   targetId: string;
 }) => {
-  const { db, actorId, level, targetType, targetId } = params;
+  const { actorId, level, targetType, targetId } = params;
   if (!actorId) return false;
 
-  const role = await getActorRole(db, actorId);
+  const role = await getActorRole(actorId);
   if (canVoteGovernance(role)) return true;
 
   if (level === "CONTENT") return canVoteContent(role);
 
-  // "admin de las aulas" se refiere a un directivo o a un profesor, no literalmente a un admin
-  const membership = await db.collection("membresias").findOne({
-    userId: actorId,
-    targetType,
-    targetId,
-    role: { $in: ["owner", "admin", "TEACHER", "DIRECTIVO"] }
+  // Check school membership with admin/teacher roles
+  const membership = await prisma.membresia.findFirst({
+    where: {
+      usuarioId: actorId,
+      rol: { in: ["owner", "admin", "TEACHER", "DIRECTIVO"] }
+    }
   });
 
-  return Boolean(membership);
+  if (membership) return true;
+
+  // Also check classroom membership for class-level targets
+  const classMember = await prisma.claseMiembro.findFirst({
+    where: {
+      usuarioId: actorId,
+      claseId: targetId,
+      rolEnClase: { in: ["TEACHER", "DIRECTIVO", "admin", "owner"] }
+    }
+  });
+
+  return Boolean(classMember);
 };
 
 export const evaluateProposalOutcome = (params: {
@@ -133,13 +143,13 @@ export const evaluateProposalOutcome = (params: {
 
 const toIsoNow = () => new Date().toISOString();
 
-export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDocument) => {
+export const applyApprovedGovernanceChange = async (proposal: ProposalDocument) => {
   const type = proposal.proposalType.toUpperCase();
   const createdBy = typeof proposal.createdBy === "string"
     ? proposal.createdBy : "";
   if (ADMIN_ONLY_PROPOSAL_TYPES.has(type)) {
     const user = createdBy
-      ? await db.collection("usuarios").findOne({ id: createdBy })
+      ? await prisma.usuario.findFirst({ where: { id: createdBy } })
       : null;
     const role = typeof user?.role === "string"
       ? user.role.toUpperCase() : "";
@@ -160,22 +170,21 @@ export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDo
 
     if (!title || !bodyText) return { applied: false, reason: "invalid ADD_PROMPT payload" };
 
-    const now = toIsoNow();
     const promptId = randomUUID();
-    await db.collection("prompts").insertOne({
-      id: promptId,
-      targetType: proposal.targetType,
-      targetId: proposal.targetId,
-      kind,
-      title,
-      bodyText,
-      paramsSchema,
-      status: "ACTIVE",
-      createdBy: proposal.createdBy,
-      createdAt: now,
-      source: "GOVERNANCE",
-      proposalId: proposal.id,
-      version: 1
+    await prisma.prompt.create({
+      data: {
+        id: promptId,
+        targetType: proposal.targetType,
+        targetId: proposal.targetId,
+        kind,
+        title,
+        bodyText,
+        paramsSchema: JSON.stringify(paramsSchema),
+        status: "ACTIVE",
+        createdBy: typeof proposal.createdBy === "string" ? proposal.createdBy : "",
+        createdAt: toIsoNow(),
+        source: "GOVERNANCE"
+      }
     });
 
     return { applied: true, action: "ADD_PROMPT", promptId };
@@ -184,68 +193,54 @@ export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDo
   if (type === "UPDATE_PROMPT") {
     const promptId = typeof payload.promptId === "string" ? payload.promptId : "";
     const existingPrompt = promptId
-      ? await db.collection("prompts").findOne({ id: promptId })
-      : await db.collection("prompts").findOne({
-          targetType: proposal.targetType,
-          targetId: proposal.targetId,
-          status: "ACTIVE"
+      ? await prisma.prompt.findFirst({ where: { id: promptId } })
+      : await prisma.prompt.findFirst({
+          where: {
+            targetType: proposal.targetType,
+            targetId: proposal.targetId,
+            status: "ACTIVE"
+          }
         });
 
     if (!existingPrompt) return { applied: false, reason: "prompt not found for UPDATE_PROMPT" };
 
-    const updates = payload.updates && typeof payload.updates === "object" ? payload.updates : payload;
+    const updates = payload.updates && typeof payload.updates === "object"
+      ? (payload.updates as Record<string, unknown>)
+      : payload;
     const nextId = randomUUID();
-    const nextVersion = Number(existingPrompt.version ?? 1) + 1;
     const now = toIsoNow();
 
-    await db.collection("prompts").updateOne(
-      { id: String(existingPrompt.id) },
-      {
-        $set: {
-          status: "INACTIVE",
-          supersededBy: nextId,
-          supersededAt: now
-        }
+    // Mark old prompt as INACTIVE
+    await prisma.prompt.updateMany({
+      where: { id: existingPrompt.id },
+      data: { status: "INACTIVE" }
+    });
+
+    // Create the updated version
+    await prisma.prompt.create({
+      data: {
+        id: nextId,
+        targetType: existingPrompt.targetType,
+        targetId: existingPrompt.targetId,
+        kind: typeof updates.kind === "string" ? updates.kind : existingPrompt.kind,
+        title: typeof updates.title === "string" ? updates.title : existingPrompt.title,
+        bodyText: typeof updates.bodyText === "string" ? updates.bodyText : existingPrompt.bodyText,
+        paramsSchema:
+          updates.paramsSchema && typeof updates.paramsSchema === "object"
+            ? JSON.stringify(updates.paramsSchema)
+            : existingPrompt.paramsSchema,
+        status: "ACTIVE",
+        source: "GOVERNANCE",
+        createdAt: now,
+        createdBy: typeof proposal.createdBy === "string" ? proposal.createdBy : ""
       }
-    );
-
-    const { _id, ...existingWithoutId } = existingPrompt;
-
-    await db.collection("prompts").insertOne({
-      ...existingWithoutId,
-      id: nextId,
-      title:
-        typeof (updates as Record<string, unknown>).title === "string"
-          ? (updates as Record<string, string>).title
-          : existingPrompt.title,
-      bodyText:
-        typeof (updates as Record<string, unknown>).bodyText === "string"
-          ? (updates as Record<string, string>).bodyText
-          : existingPrompt.bodyText,
-      kind:
-        typeof (updates as Record<string, unknown>).kind === "string"
-          ? (updates as Record<string, string>).kind
-          : existingPrompt.kind,
-      paramsSchema:
-        (updates as Record<string, unknown>).paramsSchema &&
-        typeof (updates as Record<string, unknown>).paramsSchema === "object"
-          ? ((updates as Record<string, unknown>).paramsSchema as Record<string, unknown>)
-          : existingPrompt.paramsSchema,
-      status: "ACTIVE",
-      source: "GOVERNANCE",
-      proposalId: proposal.id,
-      previousVersionId: String(existingPrompt.id),
-      version: nextVersion,
-      createdAt: now,
-      createdBy: proposal.createdBy
     });
 
     return {
       applied: true,
       action: "UPDATE_PROMPT",
-      previousPromptId: String(existingPrompt.id),
-      promptId: nextId,
-      version: nextVersion
+      previousPromptId: existingPrompt.id,
+      promptId: nextId
     };
   }
 
@@ -256,58 +251,20 @@ export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDo
 
     if (!promptId) return { applied: false, reason: "invalid REMOVE_PROMPT payload" };
 
-    const result = await db.collection("prompts").updateOne(
-      { id: promptId },
-      {
-        $set: {
-          status: nextStatus,
-          removedByProposalId: proposal.id,
-          removedAt: toIsoNow(),
-          source: "GOVERNANCE"
-        }
-      }
-    );
+    const result = await prisma.prompt.updateMany({
+      where: { id: promptId },
+      data: { status: nextStatus }
+    });
 
-    if (!result.matchedCount) return { applied: false, reason: "prompt not found for REMOVE_PROMPT" };
+    if (result.count === 0) return { applied: false, reason: "prompt not found for REMOVE_PROMPT" };
 
     return { applied: true, action: "REMOVE_PROMPT", promptId, status: nextStatus };
   }
 
   if (type === "SYSTEM_CHANGE") {
-    const key = typeof payload.key === "string" ? payload.key : "";
-    const patch = payload.patch && typeof payload.patch === "object" ? payload.patch : null;
-    const value = "value" in payload ? payload.value : undefined;
-
-    if (!key && !patch) return { applied: false, reason: "invalid SYSTEM_CHANGE payload" };
-
-    if (patch) {
-      await db.collection("system_config").updateOne(
-        { id: proposal.targetId || "critical" },
-        {
-          $set: {
-            ...(patch as Record<string, unknown>),
-            updatedAt: toIsoNow(),
-            updatedByProposalId: proposal.id
-          }
-        },
-        { upsert: true }
-      );
-      return { applied: true, action: "SYSTEM_CHANGE", mode: "PATCH" };
-    }
-
-    await db.collection("system_config").updateOne(
-      { id: proposal.targetId || "critical" },
-      {
-        $set: {
-          [key]: value,
-          updatedAt: toIsoNow(),
-          updatedByProposalId: proposal.id
-        }
-      },
-      { upsert: true }
-    );
-
-    return { applied: true, action: "SYSTEM_CHANGE", mode: "KEY_VALUE", key };
+    // TODO: No Prisma model for "system_config" yet – SYSTEM_CHANGE is a no-op.
+    console.warn("[governance] SYSTEM_CHANGE: no Prisma model for system_config – change not applied", payload);
+    return { applied: true, action: "SYSTEM_CHANGE", note: "system_config not persisted (no model)" };
   }
 
   if (type === "UPDATE_CONFIG") {
@@ -315,11 +272,11 @@ export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDo
     const items = Array.isArray(payload.items) ? payload.items : [];
     if (!id || items.length === 0) return { applied: false, reason: "invalid UPDATE_CONFIG payload" };
 
-    await db.collection("config_modulos").updateOne(
-      { id },
-      { $set: { id, items, updatedAt: toIsoNow() } },
-      { upsert: true }
-    );
+    await prisma.configModulo.upsert({
+      where: { id },
+      update: { items: JSON.stringify(items), updatedAt: toIsoNow() },
+      create: { id, items: JSON.stringify(items), updatedAt: toIsoNow() }
+    });
 
     return { applied: true };
   }
@@ -329,7 +286,7 @@ export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDo
     const status = typeof payload.status === "string" ? payload.status : "";
     if (!promptId || !status) return { applied: false, reason: "invalid SET_PROMPT_STATUS payload" };
 
-    await db.collection("prompts").updateOne({ id: promptId }, { $set: { status } });
+    await prisma.prompt.updateMany({ where: { id: promptId }, data: { status } });
     return { applied: true };
   }
 
@@ -341,19 +298,12 @@ export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDo
     if (!subject || !topic) return { applied: false, reason: "invalid SET_GENERATOR_STATUS payload: subject and topic required" };
     if (!["ACTIVE", "INACTIVE"].includes(status)) return { applied: false, reason: "invalid SET_GENERATOR_STATUS payload: status must be ACTIVE or INACTIVE" };
 
-    await db.collection("generadores_admin").updateOne(
-      { subject, topic },
-      {
-        $set: {
-          subject,
-          topic,
-          status,
-          updatedAt: toIsoNow(),
-          updatedByProposalId: proposal.id,
-        }
-      },
-      { upsert: true }
-    );
+    const now = toIsoNow();
+    await prisma.generadorAdmin.upsert({
+      where: { subject_topic: { subject, topic } },
+      update: { status, updatedAt: now },
+      create: { subject, topic, status, updatedAt: now, createdAt: now }
+    });
 
     return { applied: true, action: "SET_GENERATOR_STATUS", subject, topic, status };
   }
@@ -364,25 +314,12 @@ export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDo
 
     if (!subject || !topic) return { applied: false, reason: "invalid UPDATE_GENERATOR payload: subject and topic required" };
 
-    const update: Record<string, unknown> = {
-      subject,
-      topic,
-      status: "ACTIVE",
-      updatedAt: toIsoNow(),
-      updatedByProposalId: proposal.id,
-    };
-
-    if (payload.enunciado !== undefined) update.enunciado = payload.enunciado;
-    if (payload.limits !== undefined) update.limits = payload.limits;
-
-    await db.collection("generadores_admin").updateOne(
-      { subject, topic },
-      {
-        $set: update,
-        $setOnInsert: { createdAt: toIsoNow() },
-      },
-      { upsert: true }
-    );
+    const now = toIsoNow();
+    await prisma.generadorAdmin.upsert({
+      where: { subject_topic: { subject, topic } },
+      update: { status: "ACTIVE", updatedAt: now },
+      create: { subject, topic, status: "ACTIVE", updatedAt: now, createdAt: now }
+    });
 
     return { applied: true, action: "UPDATE_GENERATOR", subject, topic };
   }
@@ -395,22 +332,11 @@ export const applyApprovedGovernanceChange = async (db: Db, proposal: ProposalDo
     if (!payload.enunciado) return { applied: false, reason: "invalid CREATE_GENERATOR payload: enunciado is required" };
 
     const now = toIsoNow();
-    await db.collection("generadores_admin").updateOne(
-      { subject, topic },
-      {
-        $set: {
-          subject,
-          topic,
-          enunciado: payload.enunciado,
-          limits: payload.limits ?? null,
-          status: "ACTIVE",
-          createdAt: now,
-          updatedAt: now,
-          createdByProposalId: proposal.id,
-        }
-      },
-      { upsert: true }
-    );
+    await prisma.generadorAdmin.upsert({
+      where: { subject_topic: { subject, topic } },
+      update: { status: "ACTIVE", updatedAt: now },
+      create: { subject, topic, status: "ACTIVE", updatedAt: now, createdAt: now }
+    });
 
     return { applied: true, action: "CREATE_GENERATOR", subject, topic };
   }

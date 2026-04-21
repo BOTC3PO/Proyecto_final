@@ -1,7 +1,6 @@
 import { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
-import { toObjectId } from "../lib/ids";
 import {
   createInvoice,
   createReceiptForInvoice,
@@ -40,26 +39,29 @@ payments.post(
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
     const billingCycleId = typeof req.body?.billingCycleId === "string" ? req.body.billingCycleId : null;
-    const db = await getDb();
-    let billingCycle: { _id?: { toString?: () => string }; schoolId?: string; total?: number } | null = null;
+    let billingCycle: { id?: string; schoolId?: string; total?: number } | null = null;
     if (billingCycleId) {
-      const billingCycleObjectId = toObjectId(billingCycleId);
-      billingCycle = await db
-        .collection("enterprise_billing_cycles")
-        .findOne(billingCycleObjectId ? { _id: billingCycleObjectId } : { _id: billingCycleId });
+      const row = await prisma.enterpriseBillingCycle.findFirst({ where: { id: billingCycleId } });
+      if (row) {
+        try {
+          billingCycle = { id: row.id, ...JSON.parse(row.json) };
+        } catch {
+          billingCycle = { id: row.id };
+        }
+      }
       if (!billingCycle || (billingCycle.schoolId && billingCycle.schoolId !== schoolId)) {
         res.status(404).json({ error: "billing cycle not found" });
         return;
       }
     }
-    const amount = typeof req.body?.amount === "number" ? req.body.amount : billingCycle?.total ?? 0;
+    const amount = typeof req.body?.amount === "number" ? req.body.amount : (billingCycle as any)?.total ?? 0;
     if (!Number.isFinite(amount) || amount <= 0) {
       res.status(400).json({ error: "amount is required" });
       return;
     }
-    const invoice = await createInvoice(db, {
+    const invoice = await createInvoice({
       schoolId,
-      billingCycleId: billingCycle?._id?.toString?.() ?? billingCycleId,
+      billingCycleId: billingCycle?.id ?? billingCycleId,
       amount,
       currency: typeof req.body?.currency === "string" ? req.body.currency : "USD",
       provider: typeof req.body?.provider === "string" ? req.body.provider : "manual",
@@ -106,10 +108,16 @@ payments.post("/api/payments/webhook", async (req, res) => {
     res.status(400).json({ error: "invalid status" });
     return;
   }
-  const db = await getDb();
-  const invoice = await db.collection<Invoice>("invoices").findOne({ invoiceId: payload.invoiceId });
-  if (!invoice) {
+  const invoiceRow = await prisma.enterpriseContrato.findFirst({ where: { id: payload.invoiceId } });
+  if (!invoiceRow) {
     res.status(404).json({ error: "invoice not found" });
+    return;
+  }
+  let invoice: Invoice;
+  try {
+    invoice = { ...JSON.parse(invoiceRow.json), invoiceId: invoiceRow.id } as Invoice;
+  } catch {
+    res.status(500).json({ error: "invalid invoice data" });
     return;
   }
   const updates: Partial<Invoice> = {
@@ -120,15 +128,13 @@ payments.post("/api/payments/webhook", async (req, res) => {
     amount: typeof payload.amount === "number" ? payload.amount : invoice.amount,
     currency: typeof payload.currency === "string" ? payload.currency : invoice.currency
   };
-  await db
-    .collection<Invoice>("invoices")
-    .updateOne(
-      { invoiceId: payload.invoiceId },
-      { $set: { ...updates, status, updatedAt: new Date().toISOString() } }
-    );
+  const updatedInvoice: Invoice = { ...invoice, ...updates, status, updatedAt: new Date().toISOString() };
+  await prisma.enterpriseContrato.updateMany({
+    where: { id: payload.invoiceId },
+    data: { json: JSON.stringify(updatedInvoice) }
+  });
   if (status === "PAID") {
-    const nextInvoice: Invoice = { ...invoice, ...updates };
-    await createReceiptForInvoice(db, nextInvoice, payload);
+    await createReceiptForInvoice(updatedInvoice, payload);
   }
   res.json({ ok: true });
 });
@@ -143,22 +149,23 @@ payments.get(
     const limit = Math.min(Number(req.query.limit ?? 20) || 20, 100);
     const offset = Number(req.query.offset ?? 0) || 0;
     const status = parsePaymentStatus(req.query.status);
-    const db = await getDb();
-    const invoiceFilter = {
-      schoolId,
-      ...(status ? { status } : {})
-    };
-    const invoices = await db
-      .collection<Invoice>("invoices")
-      .find(invoiceFilter)
-      .sort({ createdAt: -1 })
-      .skip(offset)
-      .limit(limit)
-      .toArray();
-    const invoiceIds = invoices.map((invoice) => invoice.invoiceId);
-    const receipts = invoiceIds.length
-      ? await db.collection<Receipt>("receipts").find({ invoiceId: { $in: invoiceIds } }).toArray()
+    const allRows = await prisma.enterpriseContrato.findMany({ where: { schoolId } });
+    let invoices = allRows.map((r) => {
+      try { return { ...JSON.parse(r.json), id: r.id, invoiceId: r.id } as Invoice; } catch { return null; }
+    }).filter((inv): inv is Invoice => inv !== null);
+    if (status) {
+      invoices = invoices.filter((inv) => inv.status === status);
+    }
+    invoices.sort((a, b) => (String(b.createdAt ?? "") < String(a.createdAt ?? "") ? -1 : 1));
+    const pagedInvoices = invoices.slice(offset, offset + limit);
+    const invoiceIds = pagedInvoices.map((inv) => inv.invoiceId);
+    // Receipts are stored in enterprise_reportes (closest available json blob)
+    const receiptRows = invoiceIds.length
+      ? await prisma.enterpriseReporte.findMany()
       : [];
+    const receipts = receiptRows
+      .map((r) => { try { return JSON.parse(r.json) as Receipt; } catch { return null; } })
+      .filter((r): r is Receipt => r !== null && invoiceIds.includes((r as any).invoiceId));
     const actorId =
       typeof req.user?.id === "string"
         ? req.user.id
@@ -170,8 +177,8 @@ payments.get(
       action: "enterprise.payments.view",
       targetType: "invoice",
       targetId: invoiceIds[0] ?? null,
-      metadata: { schoolId, count: invoices.length, status: status ?? "all" }
+      metadata: { schoolId, count: pagedInvoices.length, status: status ?? "all" }
     });
-    res.json({ invoices, receipts, limit, offset });
+    res.json({ invoices: pagedInvoices, receipts, limit, offset });
   }
 );

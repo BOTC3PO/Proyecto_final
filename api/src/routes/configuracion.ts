@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { ModuleConfigListSchema, ModuleConfigListUpdateSchema } from "../schema/configuracion";
 
@@ -53,12 +53,16 @@ const DEFAULT_CATEGORIAS = [
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 
 const getConfigList = async (id: string, defaults: string[]) => {
-  const db = await getDb();
-  const stored = await db.collection("config_modulos").findOne({ id });
+  const stored = await prisma.configModulo.findFirst({ where: { id } });
   if (stored) {
+    let parsedItems: string[] = defaults;
+    try {
+      const parsed = JSON.parse(stored.items);
+      if (Array.isArray(parsed) && parsed.length > 0) parsedItems = parsed;
+    } catch { /* use defaults */ }
     return ModuleConfigListSchema.parse({
       id,
-      items: Array.isArray(stored.items) && stored.items.length > 0 ? stored.items : defaults,
+      items: parsedItems,
       updatedAt: stored.updatedAt ?? new Date().toISOString()
     });
   }
@@ -67,20 +71,23 @@ const getConfigList = async (id: string, defaults: string[]) => {
     items: defaults,
     updatedAt: new Date().toISOString()
   };
-  await db.collection("config_modulos").insertOne(fallback);
+  await prisma.configModulo.create({
+    data: { id, items: JSON.stringify(defaults), updatedAt: fallback.updatedAt }
+  });
   return ModuleConfigListSchema.parse(fallback);
 };
 
 const updateConfigList = async (id: string, items: string[]) => {
-  const db = await getDb();
   const payload = ModuleConfigListSchema.parse({
     id,
     items,
     updatedAt: new Date().toISOString()
   });
-  await db
-    .collection("config_modulos")
-    .updateOne({ id }, { $set: payload }, { upsert: true });
+  await prisma.configModulo.upsert({
+    where: { id },
+    update: { items: JSON.stringify(payload.items), updatedAt: payload.updatedAt },
+    create: { id, items: JSON.stringify(payload.items), updatedAt: payload.updatedAt }
+  });
   return payload;
 };
 

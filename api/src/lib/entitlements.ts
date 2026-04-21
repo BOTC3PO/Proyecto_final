@@ -1,6 +1,6 @@
 import type { Request, RequestHandler, Response } from "express";
 
-import { getDb } from "./db";
+import { prisma } from "./prisma";
 
 export const ENTERPRISE_PLANS = [
   "ENTERPRISE_BASIC",
@@ -82,12 +82,6 @@ export type EnterpriseEntitlementSnapshot = {
   features: EnterpriseFeature[];
 };
 
-type SchoolDoc = {
-  _id: string;
-  plan?: unknown;
-  subscriptionStatus?: unknown;
-};
-
 const normalizePlan = (value: unknown): EnterprisePlan => {
   if (typeof value !== "string") return DEFAULT_ENTERPRISE_PLAN;
   return ENTERPRISE_PLANS.includes(value as EnterprisePlan) ? (value as EnterprisePlan) : DEFAULT_ENTERPRISE_PLAN;
@@ -139,8 +133,7 @@ export const buildEntitlementSnapshot = (
 };
 
 export const getSchoolEntitlements = async (schoolId: string): Promise<EnterpriseEntitlementSnapshot> => {
-  const db = await getDb();
-  const school = await db.collection<SchoolDoc>("escuelas").findOne({ _id: schoolId });
+  const school = await prisma.escuela.findFirst({ where: { id: schoolId }, select: { plan: true, subscriptionStatus: true } });
   const plan = normalizePlan(school?.plan);
   const subscriptionStatus = normalizeStatus(school?.subscriptionStatus);
   return buildEntitlementSnapshot(plan, subscriptionStatus);
@@ -198,21 +191,14 @@ export const enforceSubscriptionAccess = async (req: Request, res: Response): Pr
 };
 
 export const hasActiveInstitutionBenefit = async (schoolId: string, userId: string): Promise<boolean> => {
-  const db = await getDb();
-  // The SQLite schema stores classrooms in `clases` (no embedded members/status).
-  // Members live in the separate `clase_miembros` table, so we do two queries.
-  const classrooms = await db
-    .collection<{ _id: string }>("aulas")
-    .find({ escuelaId: schoolId, isDeleted: false })
-    .toArray();
-  if (!classrooms.length) return false;
-  const classroomIds = classrooms
-    .map((c) => (typeof c._id === "string" ? c._id : null))
-    .filter((id): id is string => id !== null);
+  const classroomIds = (await prisma.clase.findMany({
+    where: { escuelaId: schoolId, isDeleted: false },
+    select: { id: true }
+  })).map(c => c.id);
   if (!classroomIds.length) return false;
-  const membership = await db
-    .collection("clase_miembros")
-    .findOne({ usuarioId: userId, claseId: { $in: classroomIds } });
+  const membership = await prisma.claseMiembro.findFirst({
+    where: { usuarioId: userId, claseId: { in: classroomIds } }
+  });
   return Boolean(membership);
 };
 

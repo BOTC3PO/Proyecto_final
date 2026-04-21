@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 
 export const sync = Router();
 
@@ -75,7 +75,6 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
     error?: string;
   }> = [];
 
-  const mongoDB = await getDb();
   const sqliteDb = openContentDb();
   const now = new Date().toISOString();
 
@@ -106,11 +105,11 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
           if (!moduloId || !status) throw new Error("payload inválido");
 
           // Server wins si ya está completado
-          const existing = await mongoDB
-            .collection("progreso_modulos")
-            .findOne({ usuarioId: userId, moduloId });
+          const existing = await prisma.progresoModulo.findFirst({
+            where: { usuarioId: userId, moduloId }
+          });
 
-          if (existing?.status === "completado" && status !== "completado") {
+          if ((existing as any)?.status === "completado" && status !== "completado") {
             // Conflicto — registrar y mantener server
             sqliteDb.prepare(`
               INSERT OR IGNORE INTO sync_conflictos
@@ -128,11 +127,10 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
             break;
           }
 
-          await mongoDB.collection("progreso_modulos").updateOne(
-            { usuarioId: userId, moduloId },
-            { $set: { status, aulaId, updatedAt: now } },
-            { upsert: true }
-          );
+          await prisma.progresoModulo.updateMany({
+            where: { usuarioId: userId, moduloId },
+            data: { status, aulaId, updatedAt: now } as any
+          });
           results.push({ id: item.id, ok: true });
           break;
         }
@@ -161,33 +159,38 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
             break;
           }
 
-          // VUL-1: operación atómica $inc en vez de read-then-write
-          await mongoDB.collection("economia_saldos").updateOne(
-            { usuarioId: userId },
-            {
-              $inc: { saldo: delta as number },
-              $set: { updatedAt: now },
+          // VUL-1: operación atómica increment en vez de read-then-write
+          await (prisma as any).economiaSaldo?.upsert({
+            where: { usuarioId: userId },
+            update: {
+              saldo: { increment: delta as number },
+              updatedAt: now,
             },
-            { upsert: true }
-          );
+            create: { usuarioId: userId, saldo: delta as number, updatedAt: now }
+          });
 
           // VUL-1: verificar que el saldo no supere el máximo
           const MAX_SALDO = 1000000;
-          await mongoDB.collection("economia_saldos").updateOne(
-            { usuarioId: userId, saldo: { $gt: MAX_SALDO } },
-            { $set: { saldo: MAX_SALDO, updatedAt: now } }
-          );
+          const saldoRow = await (prisma as any).economiaSaldo?.findFirst({ where: { usuarioId: userId } });
+          if (saldoRow && saldoRow.saldo > MAX_SALDO) {
+            await (prisma as any).economiaSaldo?.updateMany({
+              where: { usuarioId: userId },
+              data: { saldo: MAX_SALDO, updatedAt: now }
+            });
+          }
 
-          await mongoDB.collection("economia_transacciones").insertOne({
-            id: genId("tx"),
-            usuarioId: userId,
-            tipo: "credito",
-            monto: delta as number,
-            moneda: moneda ?? "PF",
-            motivo: motivo ?? "sync:offline",
-            referenciaId: item.id,
-            createdAt: item.createdAt ?? now,
-            sincronizado: true,
+          await (prisma as any).economiaTransaccion?.create({
+            data: {
+              id: genId("tx"),
+              usuarioId: userId,
+              tipo: "credito",
+              monto: delta as number,
+              moneda: moneda ?? "PF",
+              motivo: motivo ?? "sync:offline",
+              referenciaId: item.id,
+              createdAt: item.createdAt ?? now,
+              sincronizado: true,
+            }
           });
 
           results.push({ id: item.id, ok: true });
@@ -200,26 +203,28 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
           if (!quizId) throw new Error("quizId requerido");
 
           // VUL-4: no confiar en score/maxScore del cliente
-          const existing = await mongoDB
-            .collection("quiz_attempts")
-            .findOne({
+          const existing = await prisma.quizAttempt.findFirst({
+            where: {
               userId,
               quizId: String(quizId),
-              status: { $in: ["submitted", "completed"] }
-            });
+              status: { in: ["submitted", "completed"] }
+            }
+          });
 
           if (!existing) {
-            await mongoDB.collection("quiz_attempts").insertOne({
-              userId,
-              quizId: String(quizId),
-              moduleId: moduleId ? String(moduleId) : undefined,
-              answers: answers ?? {},
-              score: null,          // el servidor recalcula
-              maxScore: null,       // el servidor recalcula
-              status: "pending_review",
-              sincronizado: true,
-              createdAt: item.createdAt ?? now,
-              updatedAt: now,
+            await prisma.quizAttempt.create({
+              data: {
+                userId,
+                quizId: String(quizId),
+                moduleId: moduleId ? String(moduleId) : undefined,
+                answers: answers ?? {},
+                score: null,          // el servidor recalcula
+                maxScore: null,       // el servidor recalcula
+                status: "pending_review",
+                sincronizado: true,
+                createdAt: item.createdAt ?? now,
+                updatedAt: now,
+              } as any
             });
           }
 
@@ -303,7 +308,6 @@ sync.get("/api/sync/pull/:aulaId", requireUser, async (req, res) => {
   );
 
   try {
-    const mongoDB = await getDb();
     const sqliteDb = openContentDb();
 
     // Módulos del aula
@@ -313,28 +317,25 @@ sync.get("/api/sync/pull/:aulaId", requireUser, async (req, res) => {
       .map((r) => r.modulo_id);
 
     const modulos = moduloIds.length
-      ? await mongoDB.collection("modulos").find({
-          id: { $in: moduloIds },
-          isDeleted: { $ne: true },
-        }).project({
-          id: 1, title: 1, description: 1,
-          subject: 1, category: 1,
-          theoryBlocks: 1, theoryItems: 1,
-          quizzes: 1, dependencies: 1,
-          visibility: 1, updatedAt: 1,
-        }).toArray()
+      ? await prisma.modulo.findMany({
+          where: {
+            id: { in: moduloIds },
+            isDeleted: { not: true }
+          },
+          select: {
+            id: true, titulo: true, descripcion: true,
+            visibility: true, updatedAt: true,
+          }
+        })
       : [];
 
     // Progreso actual del alumno
-    const progreso = await mongoDB
-      .collection("progreso_modulos")
-      .find({ usuarioId: userId })
-      .toArray();
+    const progreso = await prisma.progresoModulo.findMany({
+      where: { usuarioId: userId }
+    });
 
     // Saldo de economía
-    const saldo = await mongoDB
-      .collection("economia_saldos")
-      .findOne({ usuarioId: userId }) as { saldo?: number } | null;
+    const saldoRow = await (prisma as any).economiaSaldo?.findFirst({ where: { usuarioId: userId } }) as { saldo?: number } | null;
 
     // Avisos no leídos del aula
     const avisos = sqliteDb.prepare(`
@@ -367,11 +368,11 @@ sync.get("/api/sync/pull/:aulaId", requireUser, async (req, res) => {
       version: sinceVersion + 1,
       modulos,
       progreso: progreso.map((p) => ({
-        moduloId: p.moduloId,
-        status: p.status,
-        updatedAt: p.updatedAt,
+        moduloId: (p as any).moduloId,
+        status: (p as any).status,
+        updatedAt: (p as any).updatedAt,
       })),
-      saldo: saldo?.saldo ?? 0,
+      saldo: saldoRow?.saldo ?? 0,
       avisos,
       descargadoAt: snapshotNow,
     });

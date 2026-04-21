@@ -1,10 +1,9 @@
 import express, { Router } from "express";
-import { getDb } from "../lib/db";
+import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { requirePolicy, isStaffRole } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
 import { assertClassroomWritable } from "../lib/classroom";
-import { toObjectId } from "../lib/ids";
 import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
 import { ProgressSchema } from "../schema/progreso";
@@ -12,7 +11,7 @@ import { ProgressSchema } from "../schema/progreso";
 export const progreso = Router();
 
 type ProgresoDoc = {
-  _id?: string;
+  id?: string;
   usuarioId?: string;
   moduloId?: string;
   status?: string;
@@ -21,7 +20,6 @@ type ProgresoDoc = {
 };
 
 type ModuloDoc = {
-  _id?: string;
   id?: string;
   title?: string;
   subject?: string;
@@ -30,19 +28,19 @@ type ModuloDoc = {
 };
 
 type VinculoDoc = {
-  _id?: string;
+  id?: string;
   parentId?: string;
   childId?: string;
   estado?: string;
-  nombre?: string;
-  usuario?: string;
-  grado?: string;
+  nombre?: string | null;
+  usuario?: string | null;
+  grado?: string | null;
 };
 
 type ChildDoc = {
-  _id?: string;
-  fullName?: string;
-  username?: string;
+  id?: string;
+  fullName?: string | null;
+  username?: string | null;
   birthdate?: unknown;
   isDeleted?: boolean;
 };
@@ -86,8 +84,9 @@ const formatActivityDate = (value?: string | null) => {
 const resolveParentId = (req: any) => {
   const raw = req.user?._id ?? req.user?.id;
   if (!raw) return null;
-  if (typeof raw === "string") return toObjectId(raw);
-  return raw;
+  if (typeof raw === "string") return raw;
+  if (typeof raw?.toString === "function") return raw.toString();
+  return null;
 };
 
 const resolveAuthenticatedUserId = (req: any) => {
@@ -117,11 +116,8 @@ progreso.post(
       if (parsed.usuarioId !== authenticatedUserId && !isStaffRole(req.user?.role ?? null)) {
         return res.status(403).json({ error: "forbidden" });
       }
-      const db = await getDb();
       if (parsed.aulaId) {
-        const classroom = await db
-          .collection<{ status?: unknown }>("aulas")
-          .findOne({ id: parsed.aulaId }, { projection: { status: 1 } });
+        const classroom = await prisma.clase.findFirst({ where: { id: parsed.aulaId }, select: { status: true } });
         if (classroom && !assertClassroomWritable(res, classroom)) {
           return;
         }
@@ -131,19 +127,22 @@ progreso.post(
         moduloId: parsed.moduloId,
         ...(parsed.aulaId ? { aulaId: parsed.aulaId } : {})
       };
-      const result = await db.collection("progreso_modulos").updateOne(
-        filter,
-        { $set: parsed },
-        { upsert: true }
-      );
+      const existing = await prisma.progresoModulo.findFirst({ where: filter });
+      let wasCreated = false;
+      if (existing) {
+        await prisma.progresoModulo.update({ where: { id: existing.id }, data: parsed });
+      } else {
+        await prisma.progresoModulo.create({ data: { ...parsed } });
+        wasCreated = true;
+      }
       await recordAuditLog({
         actorId: authenticatedUserId,
-        action: result.upsertedId ? "progreso.create" : "progreso.update",
+        action: wasCreated ? "progreso.create" : "progreso.update",
         targetType: "progreso_modulo",
         targetId: `${parsed.usuarioId}:${parsed.moduloId}`,
         metadata: { aulaId: parsed.aulaId ?? null, status: parsed.status ?? null }
       });
-      res.status(result.upsertedId ? 201 : 200).json({ ok: true });
+      res.status(wasCreated ? 201 : 200).json({ ok: true });
     } catch (e: any) {
       res.status(400).json({ error: e?.message ?? "invalid payload" });
     }
@@ -163,13 +162,12 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
     return res.status(403).json({ error: "forbidden" });
   }
   const aulaId = getQueryString(req.query.aulaId);
-  const db = await getDb();
   const progressFilter = { usuarioId, ...(aulaId ? { aulaId } : {}) };
-  const items = await db.collection<ProgresoDoc>("progreso_modulos").find(progressFilter).toArray();
-  const modules = await db
-    .collection<ModuloDoc>("modulos")
-    .find(aulaId ? { aulaId } : {}).project({ id: 1, dependencies: 1, title: 1 })
-    .toArray();
+  const items = await prisma.progresoModulo.findMany({ where: progressFilter });
+  const modules = await prisma.modulo.findMany({
+    where: aulaId ? { aulaId } : {},
+    select: { id: true, dependencies: true, titulo: true }
+  });
   const completedIds = new Set(
     items.filter((item) => item.status === "completado").map((item) => item.moduloId)
   );
@@ -201,24 +199,20 @@ progreso.get("/api/progreso/estudiante", requireUser, async (req, res) => {
   try {
     const userId = resolveAuthenticatedUserId(req);
     if (!userId) return res.status(401).json({ error: "user not authenticated" });
-    const db = await getDb();
-    const progresoItems = await db
-      .collection<ProgresoDoc>("progreso_modulos")
-      .find({ usuarioId: userId })
-      .sort({ updatedAt: -1 })
-      .limit(20)
-      .toArray();
-    const moduloIds = progresoItems.map((p) => p.moduloId).filter(Boolean);
+    const progresoItems = await prisma.progresoModulo.findMany({
+      where: { usuarioId: userId },
+      orderBy: { updatedAt: "desc" },
+      take: 20
+    });
+    const moduloIds = progresoItems.map((p) => p.moduloId).filter(Boolean) as string[];
     const modulosMap = new Map<string, ModuloDoc>();
     if (moduloIds.length > 0) {
-      const modulosDocs = await db
-        .collection<ModuloDoc>("modulos")
-        .find({ $or: [{ id: { $in: moduloIds } }, { _id: { $in: moduloIds } }] })
-        .project({ id: 1, title: 1, subject: 1, category: 1 })
-        .toArray();
+      const modulosDocs = await prisma.modulo.findMany({
+        where: { id: { in: moduloIds } },
+        select: { id: true, titulo: true, slug: true }
+      });
       for (const m of modulosDocs) {
-        const key = (m.id ?? m._id?.toString?.()) ?? "";
-        if (key) modulosMap.set(key, m);
+        if (m.id) modulosMap.set(m.id, { id: m.id, title: m.titulo });
       }
     }
     const avances = progresoItems.map((item, index) => {
@@ -228,7 +222,7 @@ progreso.get("/api/progreso/estudiante", requireUser, async (req, res) => {
       const porcentaje =
         statusRaw === "completado" ? "100%" : statusRaw === "en-curso" ? "En progreso" : "0%";
       return {
-        id: item._id?.toString?.() ?? `avance-${index}`,
+        id: item.id ?? `avance-${index}`,
         modulo: titulo,
         progreso: porcentaje
       };
@@ -253,19 +247,16 @@ progreso.get("/api/progreso/estudiante", requireUser, async (req, res) => {
 progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
-  const db = await getDb();
-  const vinculos = await db
-    .collection("vinculos_padre_hijo")
-    .find({ parentId, estado: { $ne: "revocado" } })
-    .toArray();
+  const vinculos = await prisma.progresoModuloVinculo.findMany({
+    where: { parentId, estado: { not: "revocado" } }
+  });
   if (!vinculos.length) return res.json([]);
-  const childIds = vinculos.map((v) => v.childId).filter(Boolean);
-  const children = await db
-    .collection<ChildDoc>("usuarios")
-    .find({ _id: { $in: childIds }, isDeleted: { $ne: true } })
-    .project({ fullName: 1, username: 1, birthdate: 1 })
-    .toArray();
-  const childMap = new Map(children.map((child) => [child._id?.toString?.() ?? "", child]));
+  const childIds = vinculos.map((v) => v.childId).filter(Boolean) as string[];
+  const children = await prisma.usuario.findMany({
+    where: { id: { in: childIds }, isDeleted: { not: true } },
+    select: { id: true, fullName: true, username: true, birthdate: true }
+  });
+  const childMap = new Map(children.map((child) => [child.id ?? "", child]));
   const allowed = vinculos.filter((v) => {
     const child = childMap.get(String(v.childId ?? ""));
     if (!child) return false;
@@ -275,17 +266,15 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
   });
   if (!allowed.length) return res.json([]);
   const childIdStrings = allowed.map((v) => String(v.childId));
-  const progressItems = await db
-    .collection<ProgresoDoc>("progreso_modulos")
-    .find({ usuarioId: { $in: childIdStrings } })
-    .toArray();
-  const moduleIds = Array.from(new Set(progressItems.map((item) => item.moduloId)));
+  const progressItems = await prisma.progresoModulo.findMany({
+    where: { usuarioId: { in: childIdStrings } }
+  });
+  const moduleIds = Array.from(new Set(progressItems.map((item) => item.moduloId).filter(Boolean))) as string[];
   const modules = moduleIds.length
-    ? await db
-        .collection<ModuloDoc>("modulos")
-        .find({ id: { $in: moduleIds } })
-        .project({ id: 1, title: 1, subject: 1, category: 1, dependencies: 1 })
-        .toArray()
+    ? await prisma.modulo.findMany({
+        where: { id: { in: moduleIds } },
+        select: { id: true, titulo: true, slug: true, dependencies: true }
+      })
     : [];
   const moduleMap = new Map(modules.map((module) => [module.id ?? "", module]));
   const progressByChild = new Map<string, typeof progressItems>();
@@ -313,7 +302,7 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
     const modulos = progress.map((item) => {
       const module = moduleMap.get(item.moduloId ?? "");
       const dependencies = Array.isArray(module?.dependencies) ? module?.dependencies : [];
-      const requiredDeps = dependencies
+      const requiredDeps = (dependencies as Array<{ type?: string; id?: string }>)
         .map((dep) => (dep?.type === "required" ? dep.id : null))
         .filter((dep): dep is string => Boolean(dep));
       const missingDeps = requiredDeps.filter((dep) => !completedSet.has(dep));
@@ -327,11 +316,11 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
       const progreso = item.status === "completado" ? 100 : item.status === "en_progreso" ? 60 : 25;
       return {
         id: item.moduloId,
-        titulo: (module?.title ?? "Módulo") as string,
-        area: normalizeArea((module?.subject ?? module?.category) as string | undefined),
+        titulo: (module?.titulo ?? "Módulo") as string,
+        area: normalizeArea((module as any)?.subject ?? (module as any)?.category ?? null),
         progreso,
         estado,
-        ultimaActividad: formatActivityDate(item.updatedAt as string | undefined)
+        ultimaActividad: formatActivityDate(item.updatedAt instanceof Date ? item.updatedAt.toISOString() : (item.updatedAt as string | undefined))
       };
     });
     return {
@@ -350,34 +339,30 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
   const childIdParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
-  const childId = toObjectId(childIdParam);
-  if (!childId) return res.status(400).json({ error: "invalid child id" });
-  const db = await getDb();
-  const child = await db
-    .collection<ChildDoc>("usuarios")
-    .findOne({ _id: childId, isDeleted: { $ne: true } }, { projection: { fullName: 1, username: 1, birthdate: 1 } });
+  if (!childIdParam) return res.status(400).json({ error: "invalid child id" });
+  const childId = childIdParam;
+  const child = await prisma.usuario.findFirst({
+    where: { id: childId, isDeleted: { not: true } },
+    select: { id: true, fullName: true, username: true, birthdate: true }
+  });
   if (!child) return res.status(404).json({ error: "child not found" });
-  const vinculo = await db.collection<VinculoDoc>("vinculos_padre_hijo").findOne({
-    parentId,
-    childId,
-    estado: { $ne: "revocado" }
+  const vinculo = await prisma.progresoModuloVinculo.findFirst({
+    where: { parentId, childId, estado: { not: "revocado" } }
   });
   if (!vinculo) return res.status(403).json({ error: "no link" });
   const minor = isMinor(child.birthdate instanceof Date ? child.birthdate : null);
   if (!minor && vinculo.estado !== "aprobado") {
     return res.status(403).json({ error: "approval required" });
   }
-  const progress = await db
-    .collection<ProgresoDoc>("progreso_modulos")
-    .find({ usuarioId: childId.toString() })
-    .toArray();
-  const moduleIds = Array.from(new Set(progress.map((item) => item.moduloId)));
+  const progress = await prisma.progresoModulo.findMany({
+    where: { usuarioId: childId }
+  });
+  const moduleIds = Array.from(new Set(progress.map((item) => item.moduloId).filter(Boolean))) as string[];
   const modules = moduleIds.length
-    ? await db
-        .collection<ModuloDoc>("modulos")
-        .find({ id: { $in: moduleIds } })
-        .project({ id: 1, title: 1, subject: 1, category: 1, dependencies: 1 })
-        .toArray()
+    ? await prisma.modulo.findMany({
+        where: { id: { in: moduleIds } },
+        select: { id: true, titulo: true, slug: true, dependencies: true }
+      })
     : [];
   const moduleMap = new Map(modules.map((module) => [module.id ?? "", module]));
   const completedSet = new Set(
@@ -389,7 +374,7 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
   const modulos = progress.map((item) => {
     const module = moduleMap.get(item.moduloId ?? "");
     const dependencies = Array.isArray(module?.dependencies) ? module?.dependencies : [];
-    const requiredDeps = dependencies
+    const requiredDeps = (dependencies as Array<{ type?: string; id?: string }>)
       .map((dep) => (dep?.type === "required" ? dep.id : null))
       .filter((dep): dep is string => Boolean(dep));
     const missingDeps = requiredDeps.filter((dep) => !completedSet.has(dep));
@@ -403,15 +388,15 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
     const progreso = item.status === "completado" ? 100 : item.status === "en_progreso" ? 60 : 25;
     return {
       id: item.moduloId,
-      titulo: (module?.title ?? "Módulo") as string,
-      area: normalizeArea((module?.subject ?? module?.category) as string | undefined),
+      titulo: (module?.titulo ?? "Módulo") as string,
+      area: normalizeArea((module as any)?.subject ?? (module as any)?.category ?? null),
       progreso,
       estado,
-      ultimaActividad: formatActivityDate(item.updatedAt as string | undefined)
+      ultimaActividad: formatActivityDate(item.updatedAt instanceof Date ? item.updatedAt.toISOString() : (item.updatedAt as string | undefined))
     };
   });
   res.json({
-    id: childId.toString(),
+    id: childId,
     nombre: (child.fullName ?? vinculo.nombre ?? "Sin nombre") as string,
     usuario: normalizeUsername((child.username ?? vinculo.usuario) as string | undefined),
     grado: (vinculo.grado ?? "Sin grado") as string,
@@ -436,11 +421,8 @@ progreso.patch(
         return res.status(403).json({ error: "forbidden" });
       }
       const parsed = ProgressUpdateSchema.parse(req.body);
-      const db = await getDb();
       if (aulaId) {
-        const classroom = await db
-          .collection<{ status?: unknown }>("aulas")
-          .findOne({ id: aulaId }, { projection: { status: 1 } });
+        const classroom = await prisma.clase.findFirst({ where: { id: aulaId }, select: { status: true } });
         if (classroom && !assertClassroomWritable(res, classroom)) {
           return;
         }
@@ -451,11 +433,8 @@ progreso.patch(
         moduloId: req.params.moduloId,
         ...(aulaId ? { aulaId } : {})
       };
-      const result = await db.collection("progreso_modulos").updateOne(
-        filter,
-        { $set: update }
-      );
-      if (result.matchedCount === 0) return res.status(404).json({ error: "not found" });
+      const result = await prisma.progresoModulo.updateMany({ where: filter, data: update });
+      if (result.count === 0) return res.status(404).json({ error: "not found" });
       await recordAuditLog({
         actorId: usuarioId,
         action: "progreso.update",
