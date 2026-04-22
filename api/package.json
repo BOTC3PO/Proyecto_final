@@ -24,7 +24,7 @@
     "seed:demo": "ts-node --transpile-only scripts/seed_demo.ts"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "7.7.0",
+    "@prisma/adapter-pg": "^7.7.0",
     "@prisma/client": "7.7.0",
     "better-sqlite3": "12.6.2",
     "compression": "1.8.1",
