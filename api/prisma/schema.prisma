@@ -457,17 +457,45 @@ model SyncConflicto {
 }
 
 model GeneratorConfig {
-  id        String  @id
-  json      String
-  createdAt String  @default("") @map("created_at")
-  updatedAt String  @default("") @map("updated_at")
+  id              String  @id
+  materia         String  @default("")
+  label           String  @default("")
+  description     String?
+  version         Int     @default(1)
+  subtipos        String  @default("[]")
+  enunciados      String  @default("{}")
+  limits          String  @default("{}")
+  variablesSchema String  @default("{}") @map("variables_schema")
+  status          String  @default("ACTIVE")
+  createdAt       String  @default("") @map("created_at")
+  updatedAt       String  @default("") @map("updated_at")
+  changelog       GeneratorChangelog[]
   @@map("generator_configs")
 }
 
+model GeneratorChangelog {
+  id          String @id
+  generatorId String @map("generator_id")
+  adminId     String @map("admin_id")
+  note        String
+  changedAt   String @map("changed_at")
+  config      GeneratorConfig @relation(fields: [generatorId], references: [id])
+  @@map("generator_changelog")
+}
+
 model Suggestion {
-  id        String @id
-  json      String
-  createdAt String @default("") @map("created_at")
+  id             String  @id
+  suggestionType String  @map("suggestion_type")
+  targetType     String? @map("target_type")
+  targetId       String? @map("target_id")
+  title          String
+  body           String
+  createdBy      String  @map("created_by")
+  createdAt      String  @map("created_at")
+  status         String  @default("PENDING")
+  reviewedBy     String? @map("reviewed_by")
+  reviewedAt     String? @map("reviewed_at")
+  adminNote      String? @map("admin_note")
   @@map("suggestions")
 }
 
@@ -834,4 +862,173 @@ model AuditLog {
   timestamp  String
   metadata   String?
   @@map("audit_logs")
+}
+
+model PlazoFijo {
+  id          String  @id
+  usuarioId   String  @map("usuario_id")
+  aulaId      String? @map("aula_id")
+  monto       Float
+  tasaAnual   Float   @map("tasa_anual")
+  dias        Int
+  interes     Float
+  total       Float
+  estado      String  @default("activo")
+  creadoAt    String  @map("creado_at")
+  venceAt     String  @map("vence_at")
+  rescatadoAt String? @map("rescatado_at")
+  @@map("plazo_fijo")
+}
+
+model FciPosicion {
+  id          String  @id
+  usuarioId   String  @map("usuario_id")
+  aulaId      String? @map("aula_id")
+  monto       Float
+  tasaMensual Float   @map("tasa_mensual")
+  dias        Int
+  interes     Float
+  total       Float
+  estado      String  @default("activo")
+  creadoAt    String  @map("creado_at")
+  venceAt     String  @map("vence_at")
+  rescatadoAt String? @map("rescatado_at")
+  @@map("fci_posiciones")
+}
+
+model TiendaItem {
+  id          String       @id
+  tipo        String
+  nombre      String
+  descripcion String       @default("")
+  precio      Float        @default(0)
+  moneda      String       @default("PF")
+  assetId     String?      @map("asset_id")
+  previewCss  String?      @map("preview_css")
+  activo      Int          @default(1)
+  orden       Int          @default(99)
+  createdAt   String       @map("created_at")
+  compras     UsuarioItem[]
+  @@map("tienda_items")
+}
+
+model UsuarioItem {
+  id         String     @id
+  usuarioId  String     @map("usuario_id")
+  itemId     String     @map("item_id")
+  compradoAt String     @map("comprado_at")
+  origen     String     @default("compra")
+  item       TiendaItem @relation(fields: [itemId], references: [id])
+  @@map("usuario_items")
+}
+
+model QuizCompetencia {
+  id           String  @id
+  quizId       String  @map("quiz_id")
+  moduloId     String? @map("modulo_id")
+  aulaId       String? @map("aula_id")
+  usuarioId    String  @map("usuario_id")
+  attemptId    String  @map("attempt_id")
+  score        Float
+  maxScore     Float   @map("max_score")
+  tiempoSeg    Int     @map("tiempo_seg")
+  completadoAt String  @map("completado_at")
+  @@map("quiz_competencia")
+}
+
+model Aviso {
+  id        String       @id
+  escuelaId String       @map("escuela_id")
+  autorId   String       @map("autor_id")
+  autorRol  String       @map("autor_rol")
+  titulo    String
+  cuerpo    String
+  destino   String       @default("todos")
+  aulaId    String?      @map("aula_id")
+  createdAt String       @map("created_at")
+  leidos    AvisoLeido[]
+  @@map("avisos")
+}
+
+model AvisoLeido {
+  avisoId   String @map("aviso_id")
+  usuarioId String @map("usuario_id")
+  leidoAt   String @map("leido_at")
+  aviso     Aviso  @relation(fields: [avisoId], references: [id])
+  @@id([avisoId, usuarioId])
+  @@map("avisos_leidos")
+}
+
+model Hilo {
+  id        String           @id
+  escuelaId String           @map("escuela_id")
+  usuarioA  String           @map("usuario_a")
+  usuarioB  String           @map("usuario_b")
+  ultimoMsg String?          @map("ultimo_msg")
+  ultimoAt  String?          @map("ultimo_at")
+  noLeidosA Int              @default(0) @map("no_leidos_a")
+  noLeidosB Int              @default(0) @map("no_leidos_b")
+  createdAt String           @map("created_at")
+  mensajes  MensajeDirecto[]
+  @@map("hilos")
+}
+
+model MensajeDirecto {
+  id        String @id
+  hiloId    String @map("hilo_id")
+  senderId  String @map("sender_id")
+  body      String
+  leido     Int    @default(0)
+  createdAt String @map("created_at")
+  hilo      Hilo   @relation(fields: [hiloId], references: [id])
+  @@map("mensajes_directos")
+}
+
+model Suscripcion {
+  id                  String          @id
+  entidadTipo         String          @map("entidad_tipo")
+  entidadId           String          @map("entidad_id")
+  plan                String
+  estado              String
+  mpPreapprovalId     String?         @map("mp_preapproval_id")
+  mpPayerEmail        String?         @map("mp_payer_email")
+  periodoInicio       String          @map("periodo_inicio")
+  periodoFin          String          @map("periodo_fin")
+  montoMensual        Float           @default(0) @map("monto_mensual")
+  moneda              String          @default("ARS")
+  expansiones         Int             @default(0)
+  canceladaAt         String?         @map("cancelada_at")
+  canceladaBy         String?         @map("cancelada_by")
+  reembolsoSolicitado Int             @default(0) @map("reembolso_solicitado")
+  reembolsoAt         String?         @map("reembolso_at")
+  createdAt           String          @map("created_at")
+  updatedAt           String          @map("updated_at")
+  pagos               HistorialPago[]
+  @@map("suscripciones")
+}
+
+model HistorialPago {
+  id            String      @id
+  suscripcionId String      @map("suscripcion_id")
+  entidadTipo   String      @map("entidad_tipo")
+  entidadId     String      @map("entidad_id")
+  monto         Float
+  moneda        String      @default("ARS")
+  estado        String
+  mpPaymentId   String?     @map("mp_payment_id")
+  periodoInicio String      @map("periodo_inicio")
+  periodoFin    String      @map("periodo_fin")
+  createdAt     String      @map("created_at")
+  suscripcion   Suscripcion @relation(fields: [suscripcionId], references: [id])
+  @@map("historial_pagos")
+}
+
+model LimiteEscuela {
+  escuelaId         String @id @map("escuela_id")
+  maxProfesores     Int    @default(5) @map("max_profesores")
+  maxDirectivos     Int    @default(5) @map("max_directivos")
+  maxAulas          Int    @default(5) @map("max_aulas")
+  maxAlumnosPorAula Int    @default(30) @map("max_alumnos_por_aula")
+  updatedAt         String @map("updated_at")
+  @@map("limites_escuela")
 }

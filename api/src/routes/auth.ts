@@ -1,5 +1,4 @@
 import crypto from "node:crypto";
-import { openContentDb } from "../lib/db-open";
 import type { Response } from "express";
 import { Router } from "express";
 import { ZodError } from "zod";
@@ -553,16 +552,13 @@ auth.get("/api/perfil/:username", async (req, res) => {
 
     const userId = String(usuario.id ?? "");
 
-    // Obtener tema activo desde SQLite
-    const sqliteDb = openContentDb();
-    const temaItem = sqliteDb.prepare(`
-      SELECT ti.asset_id
-      FROM usuario_items ui
-      JOIN tienda_items ti ON ti.id = ui.item_id
-      WHERE ui.usuario_id = ? AND ti.tipo = 'tema'
-      ORDER BY ui.comprado_at DESC
-      LIMIT 1
-    `).get(userId) as { asset_id: string | null } | undefined;
+    // Obtener tema activo
+    const temaUsuarioItem = await prisma.usuarioItem.findFirst({
+      where: { usuarioId: userId, item: { tipo: "tema" } },
+      include: { item: { select: { assetId: true } } },
+      orderBy: { compradoAt: "desc" },
+    });
+    const temaItem = temaUsuarioItem ? { asset_id: temaUsuarioItem.item.assetId } : undefined;
 
     // Obtener módulos completados (solo públicos)
     const progreso = await prisma.progresoModulo.findMany({

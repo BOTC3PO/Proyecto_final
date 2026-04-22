@@ -1,6 +1,5 @@
 import type { Prisma } from "@prisma/client";
 import { Router } from "express";
-import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 
@@ -18,7 +17,6 @@ const getRole = (req: { user?: { role?: string } }) =>
 const genId = (prefix: string) =>
   `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
-// ── Verificar que dos usuarios son de la misma escuela ──────
 async function mismaEscuela(
   userAId: string,
   userBId: string
@@ -40,44 +38,27 @@ async function mismaEscuela(
   return { ok: true, escuelaId: escA };
 }
 
-// ════════════════════════════════════════════════════════════
-// MENSAJES DIRECTOS
-// ════════════════════════════════════════════════════════════
-
-// GET /api/mensajeria/hilos
-// Lista de hilos del usuario autenticado
+// ── GET /api/mensajeria/hilos ────────────────────────────────
 mensajeria.get("/api/mensajeria/hilos", requireUser, async (req, res) => {
   const userId = getId(req as never);
   const schoolId = getSchoolId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-  const db = openContentDb();
-  const hilos = db.prepare(`
-    SELECT * FROM hilos
-    WHERE (usuario_a = ? OR usuario_b = ?)
-      AND escuela_id = ?
-    ORDER BY ultimo_at DESC
-    LIMIT 30
-  `).all(userId, userId, schoolId ?? "") as Array<{
-    id: string; escuela_id: string;
-    usuario_a: string; usuario_b: string;
-    ultimo_msg: string | null; ultimo_at: string | null;
-    no_leidos_a: number; no_leidos_b: number;
-    created_at: string;
-  }>;
+  const hilos = await prisma.hilo.findMany({
+    where: {
+      escuelaId: schoolId ?? "",
+      OR: [{ usuarioA: userId }, { usuarioB: userId }],
+    },
+    orderBy: { ultimoAt: "desc" },
+    take: 30,
+  });
 
-  // Enriquecer con nombres del otro participante
-  const otroIds = hilos.map((h) =>
-    h.usuario_a === userId ? h.usuario_b : h.usuario_a
-  );
+  const otroIds = hilos.map((h) => (h.usuarioA === userId ? h.usuarioB : h.usuarioA));
 
   try {
     const usuarios = otroIds.length
       ? await prisma.usuario.findMany({
-          where: {
-            id: { in: otroIds },
-            isDeleted: { not: true },
-          },
+          where: { id: { in: otroIds }, isDeleted: { not: true } },
           select: { id: true, fullName: true, username: true, role: true },
         })
       : [];
@@ -94,18 +75,17 @@ mensajeria.get("/api/mensajeria/hilos", requireUser, async (req, res) => {
     );
 
     const items = hilos.map((h) => {
-      const otroId = h.usuario_a === userId ? h.usuario_b : h.usuario_a;
+      const otroId = h.usuarioA === userId ? h.usuarioB : h.usuarioA;
       const otro = usuarioMap.get(otroId);
-      const noLeidos = h.usuario_a === userId
-        ? h.no_leidos_a : h.no_leidos_b;
+      const noLeidos = h.usuarioA === userId ? h.noLeidosA : h.noLeidosB;
       return {
         id: h.id,
         otroId,
         otroNombre: otro?.nombre ?? otroId,
         otroUsername: otro?.username ?? "",
         otroRol: otro?.role ?? "",
-        ultimoMsg: h.ultimo_msg,
-        ultimoAt: h.ultimo_at,
+        ultimoMsg: h.ultimoMsg,
+        ultimoAt: h.ultimoAt,
         noLeidos,
       };
     });
@@ -116,311 +96,267 @@ mensajeria.get("/api/mensajeria/hilos", requireUser, async (req, res) => {
   }
 });
 
-// GET /api/mensajeria/hilos/:hiloId
-// Mensajes de un hilo con paginación
-mensajeria.get("/api/mensajeria/hilos/:hiloId",
-  requireUser, (req, res) => {
-    const userId = getId(req as never);
-    if (!userId) return res.status(401).json({ error: "no autenticado" });
-
-    const db = openContentDb();
-    const hilo = db.prepare(
-      "SELECT * FROM hilos WHERE id = ?"
-    ).get(req.params.hiloId) as {
-      id: string; usuario_a: string; usuario_b: string;
-      escuela_id: string;
-    } | undefined;
-
-    if (!hilo) return res.status(404).json({ error: "hilo no encontrado" });
-    if (hilo.usuario_a !== userId && hilo.usuario_b !== userId) {
-      return res.status(403).json({ error: "sin acceso" });
-    }
-
-    const mensajes = db.prepare(`
-      SELECT * FROM mensajes_directos
-      WHERE hilo_id = ?
-      ORDER BY created_at ASC
-      LIMIT 50
-    `).all(req.params.hiloId);
-
-    // Marcar como leídos
-    const campo = hilo.usuario_a === userId
-      ? "no_leidos_a" : "no_leidos_b";
-    db.prepare(`
-      UPDATE hilos SET ${campo} = 0 WHERE id = ?
-    `).run(req.params.hiloId);
-
-    db.prepare(`
-      UPDATE mensajes_directos
-      SET leido = 1
-      WHERE hilo_id = ? AND sender_id != ?
-    `).run(req.params.hiloId, userId);
-
-    return res.json({ hilo, mensajes });
-  }
-);
-
-// POST /api/mensajeria/hilos
-// Iniciar o continuar un hilo con otro usuario
-mensajeria.post("/api/mensajeria/hilos", requireUser,
-  async (req, res) => {
-    const userId = getId(req as never);
-    if (!userId) return res.status(401).json({ error: "no autenticado" });
-
-    const { destinatarioId, body } = req.body as Record<string, unknown>;
-    if (!destinatarioId || !body || typeof body !== "string" || !body.trim()) {
-      return res.status(400).json({ error: "destinatarioId y body requeridos" });
-    }
-
-    // Verificar misma escuela
-    const check = await mismaEscuela(userId, String(destinatarioId));
-    if (!check.ok) {
-      return res.status(403).json({
-        error: "Solo podés enviar mensajes a miembros de tu escuela."
-      });
-    }
-
-    const db = openContentDb();
-    const now = new Date().toISOString();
-    const escuelaId = check.escuelaId!;
-
-    // Buscar hilo existente (en cualquier orden)
-    let hilo = db.prepare(`
-      SELECT * FROM hilos
-      WHERE escuela_id = ?
-        AND ((usuario_a = ? AND usuario_b = ?)
-          OR (usuario_a = ? AND usuario_b = ?))
-    `).get(
-      escuelaId, userId, String(destinatarioId),
-      String(destinatarioId), userId
-    ) as { id: string; usuario_a: string } | undefined;
-
-    if (!hilo) {
-      // Crear hilo nuevo
-      const hiloId = genId("hilo");
-      db.prepare(`
-        INSERT INTO hilos
-          (id, escuela_id, usuario_a, usuario_b,
-           ultimo_msg, ultimo_at, created_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-      `).run(
-        hiloId, escuelaId, userId, String(destinatarioId),
-        body.trim().slice(0, 80), now, now
-      );
-      hilo = { id: hiloId, usuario_a: userId };
-    }
-
-    // Insertar mensaje
-    const msgId = genId("msg");
-    db.prepare(`
-      INSERT INTO mensajes_directos
-        (id, hilo_id, sender_id, body, leido, created_at)
-      VALUES (?, ?, ?, ?, 0, ?)
-    `).run(msgId, hilo.id, userId, body.trim(), now);
-
-    // Actualizar preview y no_leidos del receptor
-    const campoNoLeidos = hilo.usuario_a === userId
-      ? "no_leidos_b" : "no_leidos_a";
-    db.prepare(`
-      UPDATE hilos
-      SET ultimo_msg = ?, ultimo_at = ?,
-          ${campoNoLeidos} = ${campoNoLeidos} + 1
-      WHERE id = ?
-    `).run(body.trim().slice(0, 80), now, hilo.id);
-
-    return res.status(201).json({ hiloId: hilo.id, msgId, ok: true });
-  }
-);
-
-// GET /api/mensajeria/no-leidos
-// Total de mensajes no leídos del usuario
-mensajeria.get("/api/mensajeria/no-leidos", requireUser, (req, res) => {
+// ── GET /api/mensajeria/hilos/:hiloId ────────────────────────
+mensajeria.get("/api/mensajeria/hilos/:hiloId", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const schoolId = getSchoolId(req as never);
-  if (!userId) return res.status(401).json({ total: 0 });
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-  const db = openContentDb();
-  const rowA = db.prepare(`
-    SELECT COALESCE(SUM(no_leidos_a), 0) as total
-    FROM hilos
-    WHERE usuario_a = ? AND escuela_id = ?
-  `).get(userId, schoolId ?? "") as { total: number };
+  const hilo = await prisma.hilo.findUnique({ where: { id: String(req.params.hiloId) } });
+  if (!hilo) return res.status(404).json({ error: "hilo no encontrado" });
+  if (hilo.usuarioA !== userId && hilo.usuarioB !== userId) {
+    return res.status(403).json({ error: "sin acceso" });
+  }
 
-  const rowB = db.prepare(`
-    SELECT COALESCE(SUM(no_leidos_b), 0) as total
-    FROM hilos
-    WHERE usuario_b = ? AND escuela_id = ?
-  `).get(userId, schoolId ?? "") as { total: number };
-
-  const totalAvisos = db.prepare(`
-    SELECT COUNT(*) as total
-    FROM avisos a
-    WHERE a.escuela_id = ?
-      AND a.id NOT IN (
-        SELECT aviso_id FROM avisos_leidos WHERE usuario_id = ?
-      )
-  `).get(schoolId ?? "", userId) as { total: number };
-
-  return res.json({
-    mensajes: (rowA.total ?? 0) + (rowB.total ?? 0),
-    avisos: totalAvisos.total ?? 0,
-    total: (rowA.total ?? 0) + (rowB.total ?? 0) + (totalAvisos.total ?? 0),
+  const mensajes = await prisma.mensajeDirecto.findMany({
+    where: { hiloId: String(req.params.hiloId) },
+    orderBy: { createdAt: "asc" },
+    take: 50,
   });
+
+  // Marcar como leídos — campo dinámico según quién es el usuario
+  const noLeidosUpdate = hilo.usuarioA === userId
+    ? { noLeidosA: 0 }
+    : { noLeidosB: 0 };
+
+  await prisma.hilo.update({ where: { id: String(req.params.hiloId) }, data: noLeidosUpdate });
+  await prisma.mensajeDirecto.updateMany({
+    where: { hiloId: String(req.params.hiloId), senderId: { not: userId } },
+    data: { leido: 1 },
+  });
+
+  return res.json({ hilo, mensajes });
 });
 
-// ════════════════════════════════════════════════════════════
-// AVISOS INSTITUCIONALES
-// ════════════════════════════════════════════════════════════
+// ── POST /api/mensajeria/hilos ───────────────────────────────
+mensajeria.post("/api/mensajeria/hilos", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-// GET /api/mensajeria/avisos
-// Avisos para el usuario según su rol y escuela
-mensajeria.get("/api/mensajeria/avisos", requireUser, (req, res) => {
+  const { destinatarioId, body } = req.body as Record<string, unknown>;
+  if (!destinatarioId || !body || typeof body !== "string" || !body.trim()) {
+    return res.status(400).json({ error: "destinatarioId y body requeridos" });
+  }
+
+  const check = await mismaEscuela(userId, String(destinatarioId));
+  if (!check.ok) {
+    return res.status(403).json({ error: "Solo podés enviar mensajes a miembros de tu escuela." });
+  }
+
+  const now = new Date().toISOString();
+  const escuelaId = check.escuelaId!;
+  const destId = String(destinatarioId);
+
+  // Buscar hilo existente (en cualquier orden)
+  let hilo = await prisma.hilo.findFirst({
+    where: {
+      escuelaId,
+      OR: [
+        { usuarioA: userId, usuarioB: destId },
+        { usuarioA: destId, usuarioB: userId },
+      ],
+    },
+  });
+
+  if (!hilo) {
+    hilo = await prisma.hilo.create({
+      data: {
+        id: genId("hilo"),
+        escuelaId,
+        usuarioA: userId,
+        usuarioB: destId,
+        ultimoMsg: body.trim().slice(0, 80),
+        ultimoAt: now,
+        createdAt: now,
+      },
+    });
+  }
+
+  const msgId = genId("msg");
+  await prisma.mensajeDirecto.create({
+    data: {
+      id: msgId,
+      hiloId: hilo.id,
+      senderId: userId,
+      body: body.trim(),
+      leido: 0,
+      createdAt: now,
+    },
+  });
+
+  // Actualizar preview y no_leidos del receptor
+  const noLeidosIncrement = hilo.usuarioA === userId
+    ? { noLeidosB: { increment: 1 } }
+    : { noLeidosA: { increment: 1 } };
+
+  await prisma.hilo.update({
+    where: { id: hilo.id },
+    data: { ultimoMsg: body.trim().slice(0, 80), ultimoAt: now, ...noLeidosIncrement },
+  });
+
+  return res.status(201).json({ hiloId: hilo.id, msgId, ok: true });
+});
+
+// ── GET /api/mensajeria/no-leidos ────────────────────────────
+mensajeria.get("/api/mensajeria/no-leidos", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  const schoolId = getSchoolId(req as never);
+  if (!userId) return res.json({ total: 0 });
+
+  const [aggA, aggB] = await Promise.all([
+    prisma.hilo.aggregate({
+      where: { usuarioA: userId, escuelaId: schoolId ?? "" },
+      _sum: { noLeidosA: true },
+    }),
+    prisma.hilo.aggregate({
+      where: { usuarioB: userId, escuelaId: schoolId ?? "" },
+      _sum: { noLeidosB: true },
+    }),
+  ]);
+
+  const mensajes = (aggA._sum.noLeidosA ?? 0) + (aggB._sum.noLeidosB ?? 0);
+
+  // Contar avisos no leídos
+  let avisos = 0;
+  if (schoolId) {
+    const leidosSet = await prisma.avisoLeido.findMany({
+      where: { usuarioId: userId },
+      select: { avisoId: true },
+    });
+    const leidosIds = new Set(leidosSet.map((l) => l.avisoId));
+    const totalAvisos = await prisma.aviso.count({
+      where: { escuelaId: schoolId, id: { notIn: leidosIds.size ? [...leidosIds] : ["__none__"] } },
+    });
+    avisos = totalAvisos;
+  }
+
+  return res.json({ mensajes, avisos, total: mensajes + avisos });
+});
+
+// ── GET /api/mensajeria/avisos ───────────────────────────────
+mensajeria.get("/api/mensajeria/avisos", requireUser, async (req, res) => {
   const userId = getId(req as never);
   const schoolId = getSchoolId(req as never);
   const role = getRole(req as never);
   if (!userId || !schoolId) return res.json({ items: [] });
 
-  const db = openContentDb();
-
-  // Determinar qué destinos aplican para este usuario
   const destinosValidos: string[] = ["todos"];
   if (role === "USER") destinosValidos.push("alumnos");
   if (role === "TEACHER") destinosValidos.push("profesores");
   if (role === "PARENT") destinosValidos.push("padres");
   if (role === "DIRECTIVO") destinosValidos.push("profesores", "padres");
 
-  const placeholders = destinosValidos.map(() => "?").join(",");
-  const avisos = db.prepare(`
-    SELECT a.*,
-      CASE WHEN al.aviso_id IS NOT NULL THEN 1 ELSE 0 END as leido
-    FROM avisos a
-    LEFT JOIN avisos_leidos al
-      ON al.aviso_id = a.id AND al.usuario_id = ?
-    WHERE a.escuela_id = ?
-      AND a.destino IN (${placeholders})
-    ORDER BY a.created_at DESC
-    LIMIT 20
-  `).all(userId, schoolId, ...destinosValidos);
+  const [todosAvisos, leidosSet] = await Promise.all([
+    prisma.aviso.findMany({
+      where: { escuelaId: schoolId, destino: { in: destinosValidos } },
+      orderBy: { createdAt: "desc" },
+      take: 20,
+    }),
+    prisma.avisoLeido.findMany({
+      where: { usuarioId: userId },
+      select: { avisoId: true },
+    }),
+  ]);
 
-  return res.json({ items: avisos });
+  const leidosIds = new Set(leidosSet.map((l) => l.avisoId));
+  const items = todosAvisos.map((a) => ({ ...a, leido: leidosIds.has(a.id) ? 1 : 0 }));
+
+  return res.json({ items });
 });
 
-// POST /api/mensajeria/avisos
-// Crear aviso — solo DIRECTIVO o TEACHER
-mensajeria.post("/api/mensajeria/avisos", requireUser,
-  (req, res) => {
-    const userId = getId(req as never);
-    const schoolId = getSchoolId(req as never);
-    const role = getRole(req as never);
+// ── POST /api/mensajeria/avisos ──────────────────────────────
+mensajeria.post("/api/mensajeria/avisos", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  const schoolId = getSchoolId(req as never);
+  const role = getRole(req as never);
 
-    if (!userId || !schoolId) {
-      return res.status(401).json({ error: "no autenticado" });
-    }
-    if (role !== "DIRECTIVO" && role !== "TEACHER" && role !== "ADMIN") {
-      return res.status(403).json({
-        error: "Solo directivos y profesores pueden crear avisos."
-      });
-    }
-
-    const { titulo, cuerpo, destino, aulaId } =
-      req.body as Record<string, unknown>;
-
-    if (!titulo || !cuerpo || typeof titulo !== "string" ||
-        typeof cuerpo !== "string") {
-      return res.status(400).json({ error: "titulo y cuerpo requeridos" });
-    }
-
-    const destinosValidos = [
-      "todos", "padres", "alumnos", "profesores"
-    ];
-    const destinoFinal = typeof destino === "string" &&
-      destinosValidos.includes(destino)
-        ? destino : "todos";
-
-    const db = openContentDb();
-    const id = genId("aviso");
-    const now = new Date().toISOString();
-
-    db.prepare(`
-      INSERT INTO avisos
-        (id, escuela_id, autor_id, autor_rol, titulo, cuerpo,
-         destino, aula_id, created_at)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `).run(
-      id, schoolId, userId, role ?? "",
-      titulo.trim(), cuerpo.trim(), destinoFinal,
-      typeof aulaId === "string" ? aulaId : null,
-      now
-    );
-
-    return res.status(201).json({ id, ok: true });
+  if (!userId || !schoolId) return res.status(401).json({ error: "no autenticado" });
+  if (role !== "DIRECTIVO" && role !== "TEACHER" && role !== "ADMIN") {
+    return res.status(403).json({ error: "Solo directivos y profesores pueden crear avisos." });
   }
-);
 
-// POST /api/mensajeria/avisos/:id/leer
-// Marcar aviso como leído
-mensajeria.post("/api/mensajeria/avisos/:id/leer",
-  requireUser, (req, res) => {
-    const userId = getId(req as never);
-    if (!userId) return res.status(401).json({ error: "no autenticado" });
-
-    const db = openContentDb();
-    db.prepare(`
-      INSERT OR IGNORE INTO avisos_leidos (aviso_id, usuario_id, leido_at)
-      VALUES (?, ?, ?)
-    `).run(req.params.id, userId, new Date().toISOString());
-
-    return res.json({ ok: true });
+  const { titulo, cuerpo, destino, aulaId } = req.body as Record<string, unknown>;
+  if (!titulo || !cuerpo || typeof titulo !== "string" || typeof cuerpo !== "string") {
+    return res.status(400).json({ error: "titulo y cuerpo requeridos" });
   }
-);
 
-// GET /api/mensajeria/usuarios
-// Buscar usuarios de la misma escuela para iniciar conversación
-mensajeria.get("/api/mensajeria/usuarios", requireUser,
-  async (req, res) => {
-    const userId = getId(req as never);
-    const schoolId = getSchoolId(req as never);
-    if (!userId || !schoolId) return res.json({ items: [] });
+  const destinosValidos = ["todos", "padres", "alumnos", "profesores"];
+  const destinoFinal = typeof destino === "string" && destinosValidos.includes(destino)
+    ? destino : "todos";
 
-    const q = typeof req.query.q === "string"
-      ? req.query.q.trim() : "";
+  const id = genId("aviso");
+  const now = new Date().toISOString();
 
-    try {
-      const whereFilter: Record<string, unknown> = {
-        escuelaId: schoolId,
-        isDeleted: { not: true },
-        id: { not: userId },
-      };
+  await prisma.aviso.create({
+    data: {
+      id,
+      escuelaId: schoolId,
+      autorId: userId,
+      autorRol: role ?? "",
+      titulo: titulo.trim(),
+      cuerpo: cuerpo.trim(),
+      destino: destinoFinal,
+      aulaId: typeof aulaId === "string" ? aulaId : null,
+      createdAt: now,
+    },
+  });
 
-      if (q) {
-        (whereFilter as Record<string, unknown>).OR = [
-          { fullName: { contains: q } },
-          { username: { contains: q } },
-        ];
-        delete whereFilter.id;
-        (whereFilter as Record<string, unknown>).AND = [
-          { id: { not: userId } },
-        ];
-      }
+  return res.status(201).json({ id, ok: true });
+});
 
-      const usuarios = await prisma.usuario.findMany({
-        where: whereFilter as Prisma.UsuarioWhereInput,
-        select: { id: true, fullName: true, username: true, role: true },
-        take: 10,
-      });
+// ── POST /api/mensajeria/avisos/:id/leer ────────────────────
+mensajeria.post("/api/mensajeria/avisos/:id/leer", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-      const items = usuarios
-        .filter((u) => u.id !== userId)
-        .map((u) => ({
-          id: u.id,
-          nombre: String(u.fullName ?? u.username ?? ""),
-          username: String(u.username ?? ""),
-          role: String(u.role ?? ""),
-        }));
+  await prisma.avisoLeido.createMany({
+    data: [{ avisoId: String(req.params.id), usuarioId: userId, leidoAt: new Date().toISOString() }],
+    skipDuplicates: true,
+  });
 
-      return res.json({ items });
-    } catch {
-      return res.json({ items: [] });
+  return res.json({ ok: true });
+});
+
+// ── GET /api/mensajeria/usuarios ─────────────────────────────
+mensajeria.get("/api/mensajeria/usuarios", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  const schoolId = getSchoolId(req as never);
+  if (!userId || !schoolId) return res.json({ items: [] });
+
+  const q = typeof req.query.q === "string" ? req.query.q.trim() : "";
+
+  try {
+    const whereFilter: Record<string, unknown> = {
+      escuelaId: schoolId,
+      isDeleted: { not: true },
+      id: { not: userId },
+    };
+
+    if (q) {
+      (whereFilter as Record<string, unknown>).OR = [
+        { fullName: { contains: q } },
+        { username: { contains: q } },
+      ];
+      delete whereFilter.id;
+      (whereFilter as Record<string, unknown>).AND = [{ id: { not: userId } }];
     }
+
+    const usuarios = await prisma.usuario.findMany({
+      where: whereFilter as Prisma.UsuarioWhereInput,
+      select: { id: true, fullName: true, username: true, role: true },
+      take: 10,
+    });
+
+    const items = usuarios
+      .filter((u) => u.id !== userId)
+      .map((u) => ({
+        id: u.id,
+        nombre: String(u.fullName ?? u.username ?? ""),
+        username: String(u.username ?? ""),
+        role: String(u.role ?? ""),
+      }));
+
+    return res.json({ items });
+  } catch {
+    return res.json({ items: [] });
   }
-);
+});

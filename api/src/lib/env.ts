@@ -9,7 +9,6 @@ export const ENV = {
   PORT: Number(process.env.PORT ?? 5050),
   DB_KIND: (process.env.DB_KIND ?? "sqlite").toLowerCase(),
   SQLITE_PATH: process.env.SQLITE_PATH ?? "./src/diccionarios/Diccionario.sqlite",
-  SQLITE_CORE_PATH: process.env.SQLITE_CORE_PATH ?? "./src/base/core_schema.sqlite",
 SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   SQLITE_CACHE_KB: Number(process.env.SQLITE_CACHE_KB ?? 65536),
   CORS_ORIGIN: (process.env.CORS_ORIGIN ?? "http://localhost:5173").split(","),

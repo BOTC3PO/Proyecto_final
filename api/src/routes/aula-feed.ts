@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { requirePolicy } from "../lib/authorization";
 import { prisma } from "../lib/prisma";
-import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
 import { isClassroomReadOnlyStatus } from "../schema/aula";
 import type { Classroom } from "../schema/aula";
@@ -110,15 +109,17 @@ aulaFeed.get("/api/aula/actividades", requireUser, requirePolicy("aula-feed/read
     return res.status(context.error.status).json({ error: context.error.message });
   }
 
-  const db = openContentDb();
   const hoy = new Date().toISOString();
-  const rows = db.prepare(`
-    SELECT id, tipo, titulo, descripcion, fecha
-    FROM actividades_aula
-    WHERE aula_id = ? AND is_deleted = 0 AND fecha >= ?
-    ORDER BY fecha ASC
-    LIMIT 10
-  `).all(context.classroomId, hoy) as Array<{ id: string; tipo: string; titulo: string; descripcion: string | null; fecha: string }>;
+  const rows = await prisma.actividadAula.findMany({
+    where: {
+      aulaId: context.classroomId,
+      isDeleted: false,
+      fecha: { gte: hoy },
+    },
+    orderBy: { fecha: "asc" },
+    take: 10,
+    select: { id: true, tipo: true, titulo: true, descripcion: true, fecha: true },
+  });
 
   res.json({
     items: rows.map((row) => ({
@@ -136,7 +137,7 @@ aulaFeed.get("/api/aula/actividades", requireUser, requirePolicy("aula-feed/read
   });
 });
 
-aulaFeed.post("/api/aula/actividades", requireUser, requirePolicy("aula-feed/write"), (req, res) => {
+aulaFeed.post("/api/aula/actividades", requireUser, requirePolicy("aula-feed/write"), async (req, res) => {
   const { classroomId, tipo, titulo, descripcion, fecha } = req.body as Record<string, unknown>;
 
   if (!classroomId || !tipo || !titulo || !fecha) {
@@ -148,31 +149,30 @@ aulaFeed.post("/api/aula/actividades", requireUser, requirePolicy("aula-feed/wri
     return res.status(400).json({ error: "tipo inválido" });
   }
 
-  const db = openContentDb();
   const id = `act-${Date.now()}-${Math.random().toString(16).slice(2)}`;
   const createdBy = getRequesterId(req as never) ?? "unknown";
   const now = new Date().toISOString();
 
-  db.prepare(`
-    INSERT INTO actividades_aula
-      (id, aula_id, tipo, titulo, descripcion, fecha, created_by, created_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-  `).run(
-    id,
-    String(classroomId),
-    String(tipo),
-    String(titulo),
-    descripcion != null ? String(descripcion) : null,
-    String(fecha),
-    createdBy,
-    now
-  );
+  await prisma.actividadAula.create({
+    data: {
+      id,
+      aulaId: String(classroomId),
+      tipo: String(tipo),
+      titulo: String(titulo),
+      descripcion: descripcion != null ? String(descripcion) : null,
+      fecha: String(fecha),
+      createdBy,
+      createdAt: now,
+    },
+  });
 
   res.status(201).json({ id, tipo, titulo, descripcion, fecha });
 });
 
-aulaFeed.delete("/api/aula/actividades/:id", requireUser, requirePolicy("aula-feed/write"), (req, res) => {
-  const db = openContentDb();
-  db.prepare("UPDATE actividades_aula SET is_deleted = 1 WHERE id = ?").run(req.params.id);
+aulaFeed.delete("/api/aula/actividades/:id", requireUser, requirePolicy("aula-feed/write"), async (req, res) => {
+  await prisma.actividadAula.updateMany({
+    where: { id: String(req.params.id) },
+    data: { isDeleted: true },
+  });
   res.json({ ok: true });
 });

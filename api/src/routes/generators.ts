@@ -1,7 +1,7 @@
 import { Router } from "express";
 import * as fs from "fs";
 import * as path from "path";
-import { openContentDb } from "../lib/db-open";
+import { prisma } from "../lib/prisma";
 
 // ── Documentación de generadores (cache en memoria) ──────────────────────────
 type GeneratorDocs = Record<string, unknown>;
@@ -39,37 +39,25 @@ function parseJson<T>(raw: string, fallback: T): T {
 }
 
 // GET /api/generators — catálogo público (solo ACTIVE)
-generators.get("/api/generators", (_req, res) => {
+generators.get("/api/generators", async (_req, res) => {
   try {
-    const db = openContentDb();
-    const rows = db
-      .prepare(
-        "SELECT id, materia, label, description, subtipos FROM generator_configs WHERE status = 'ACTIVE' ORDER BY materia ASC"
-      )
-      .all() as Pick<GeneratorRow, "id" | "materia" | "label" | "description" | "subtipos">[];
+    const rows = await prisma.generatorConfig.findMany({
+      where: { status: "ACTIVE" },
+      orderBy: { materia: "asc" },
+      select: { id: true, materia: true, label: true, description: true, subtipos: true },
+    });
 
     const items = rows.map((row) => {
-      const allSubtipos = parseJson<{ id: string; label: string; activo?: boolean }[]>(
-        row.subtipos,
-        []
-      );
+      const allSubtipos = parseJson<{ id: string; label: string; activo?: boolean }[]>(row.subtipos, []);
       const subtipos = allSubtipos
         .filter((s) => s.activo !== false)
         .map((s) => ({ id: s.id, label: s.label }));
-
-      return {
-        id: row.id,
-        materia: row.materia,
-        label: row.label,
-        description: row.description ?? null,
-        subtipos,
-      };
+      return { id: row.id, materia: row.materia, label: row.label, description: row.description ?? null, subtipos };
     });
 
     res.json({ items });
   } catch (err) {
-    const message = err instanceof Error ? err.message : "internal server error";
-    res.status(500).json({ error: message });
+    res.status(500).json({ error: err instanceof Error ? err.message : "internal server error" });
   }
 });
 
@@ -91,15 +79,10 @@ generators.get("/api/generators/:category/:name/docs", (req, res) => {
 });
 
 // GET /api/generators/:category/:name — detalle por id compuesto (ej: "biologia/biologia")
-// Dos params en lugar de wildcard para compatibilidad con path-to-regexp v8 (Express 5).
-generators.get("/api/generators/:category/:name", (req, res) => {
+generators.get("/api/generators/:category/:name", async (req, res) => {
   const id = `${req.params.category}/${req.params.name}`;
-
   try {
-    const db = openContentDb();
-    const row = db
-      .prepare("SELECT * FROM generator_configs WHERE id = ?")
-      .get(id) as GeneratorRow | undefined;
+    const row = await prisma.generatorConfig.findUnique({ where: { id } });
 
     if (!row || row.status === "INACTIVE") {
       res.status(404).json({ error: "not found" });
@@ -115,11 +98,10 @@ generators.get("/api/generators/:category/:name", (req, res) => {
       subtipos: parseJson(row.subtipos, []),
       enunciados: parseJson(row.enunciados, {}),
       limits: parseJson(row.limits, {}),
-      variables_schema: parseJson(row.variables_schema, {}),
+      variables_schema: parseJson(row.variablesSchema, {}),
       status: row.status,
     });
   } catch (err) {
-    const message = err instanceof Error ? err.message : "internal server error";
-    res.status(500).json({ error: message });
+    res.status(500).json({ error: err instanceof Error ? err.message : "internal server error" });
   }
 });

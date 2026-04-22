@@ -2,7 +2,6 @@ import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
-import { openContentDb } from "../lib/db-open";
 
 type AuthUser = {
   _id?: { toString?: () => string } | string;
@@ -245,20 +244,24 @@ profesor.get("/api/profesor/menu", async (req, res) => {
         icon: "👥"
       }
     ],
-    weeklyPlan: sortedAulas.slice(0, 3).map((aula, index) => {
-      // Obtener conteo desde clase_miembros en SQLite
-      const sqliteDb = openContentDb();
-      const studentCount = (sqliteDb.prepare(`
-        SELECT COUNT(*) as count FROM clase_miembros
-        WHERE clase_id = ? AND rol_en_clase = 'STUDENT'
-      `).get(aula.id ?? "") as { count: number } | undefined)?.count ?? 0;
-      return {
+    weeklyPlan: await (async () => {
+      const top3 = sortedAulas.slice(0, 3);
+      const top3Ids = top3.map((a) => a.id ?? "").filter(Boolean);
+      const memberCounts = top3Ids.length
+        ? await prisma.claseMiembro.groupBy({
+            by: ["claseId"],
+            where: { claseId: { in: top3Ids }, rolEnClase: "STUDENT" },
+            _count: { usuarioId: true },
+          })
+        : [];
+      const countMap = new Map(memberCounts.map((m) => [m.claseId, m._count.usuarioId]));
+      return top3.map((aula, index) => ({
         id: aula.id ?? `aula-${index}`,
         title: aula.name ?? `Clase ${index + 1}`,
-        detail: `${studentCount} estudiantes en el aula`,
-        status: aula.status ?? "Programada"
-      };
-    }),
+        detail: `${countMap.get(aula.id ?? "") ?? 0} estudiantes en el aula`,
+        status: aula.status ?? "Programada",
+      }));
+    })(),
     quickLinks: {
       academico: [
         { id: "aulas", label: "Aulas", href: "/profesor/aulas" },

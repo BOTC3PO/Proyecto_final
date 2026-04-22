@@ -30,7 +30,7 @@ export async function checkStaffLimit(
       where: { escuelaId: schoolId, role: nuevoRol, isBanned: { not: true } }
     });
 
-    if (!puedeAgregarStaff(schoolId, nuevoRol, count)) {
+    if (!(await puedeAgregarStaff(schoolId, nuevoRol, count))) {
       return res.status(403).json({
         error: "límite_alcanzado",
         mensaje: `Alcanzaste el límite de ${nuevoRol === "TEACHER" ? "profesores" : "directivos"} en tu plan actual.`,
@@ -62,7 +62,7 @@ export async function checkAulaLimit(
       }
     });
 
-    if (!puedeAgregarAula(schoolId, role, count)) {
+    if (!(await puedeAgregarAula(schoolId, role, count))) {
       return res.status(403).json({
         error: "límite_alcanzado",
         mensaje: "Alcanzaste el límite de aulas activas en tu plan actual.",
@@ -97,7 +97,7 @@ export async function checkAlumnoLimit(
       where: { claseId: aulaId, rolEnClase: "USER" }
     });
 
-    if (!puedeAgregarAlumno(schoolId, role, alumnosCount)) {
+    if (!(await puedeAgregarAlumno(schoolId, role, alumnosCount))) {
       return res.status(403).json({
         error: "límite_alcanzado",
         mensaje: "Alcanzaste el límite de alumnos por aula en tu plan actual.",

@@ -2,7 +2,6 @@ import express, { Router } from "express";
 import { z } from "zod";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
-import { openContentDb } from "../lib/db-open";
 
 export const padres = Router();
 
@@ -248,29 +247,25 @@ padres.get("/api/padres/hijos/:id/actividades", requireUser,
       if (!aulaIdsActivos.length) return res.json({ items: [] });
 
       // Buscar actividades futuras de esas aulas
-      const sqliteDb = openContentDb();
       const hoy = new Date().toISOString();
-      const placeholders = aulaIdsActivos.map(() => "?").join(",");
-      const actividades = sqliteDb.prepare(`
-        SELECT id, aula_id, tipo, titulo, descripcion, fecha
-        FROM actividades_aula
-        WHERE aula_id IN (${placeholders})
-          AND is_deleted = 0
-          AND fecha >= ?
-        ORDER BY fecha ASC
-        LIMIT 10
-      `).all(...aulaIdsActivos, hoy) as Array<{
-        id: string; aula_id: string; tipo: string;
-        titulo: string; descripcion: string | null; fecha: string;
-      }>;
+      const actividades = await prisma.actividadAula.findMany({
+        where: {
+          aulaId: { in: aulaIdsActivos },
+          isDeleted: false,
+          fecha: { gte: hoy },
+        },
+        orderBy: { fecha: "asc" },
+        take: 10,
+        select: { id: true, aulaId: true, tipo: true, titulo: true, descripcion: true, fecha: true },
+      });
 
       // Enriquecer con nombre del aula
       const aulaMap = new Map(aulas.map((a) => [a.id, a.name ?? ""]));
 
       const items = actividades.map((act) => ({
         id: act.id,
-        aulaId: act.aula_id,
-        aulaNombre: aulaMap.get(act.aula_id) ?? "Aula",
+        aulaId: act.aulaId,
+        aulaNombre: aulaMap.get(act.aulaId) ?? "Aula",
         tipo: act.tipo,
         titulo: act.titulo,
         descripcion: act.descripcion ?? undefined,
