@@ -23,15 +23,6 @@ const postWebhook = async (payload, signature = signPayload(payload)) =>
   });
 
 before(async () => {
-  const dbModule = require("../../src/lib/db");
-  dbModule.getDb = async () => ({
-    collection: () => ({
-      findOne: async () => null,
-      updateOne: async () => ({ acknowledged: true }),
-      insertOne: async () => ({ acknowledged: true })
-    })
-  });
-
   const { payments } = require("../../src/routes/payments");
   const app = express();
   app.use("/api/payments/webhook", express.raw({ type: "application/json" }));
