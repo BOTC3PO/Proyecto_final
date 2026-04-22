@@ -1,40 +1,33 @@
-import { getDb } from "../src/lib/db";
+import "dotenv/config";
+import { prisma } from "../src/lib/prisma";
 import { isPasswordHashUsable } from "../src/lib/passwords";
 
-const TARGET_EMAIL = process.env.AUTH_HEALTH_EMAIL ?? "admin@escuela.com";
+const TARGET_EMAIL = process.env.AUTH_HEALTH_EMAIL ?? "admin@plataforma.com";
 
 async function main() {
-  const db = await getDb();
-  const user = await db.collection("usuarios").findOne(
-    { email: TARGET_EMAIL, isDeleted: { $ne: true } },
-    { projection: { _id: 1, role: 1, passwordHash: 1 } }
-  );
+  const user = await prisma.usuario.findFirst({
+    where: { email: TARGET_EMAIL, isDeleted: false },
+    select: { id: true, role: true, passwordHash: true }
+  });
 
   if (!user) {
-    console.error(`[auth:health] Usuario semilla no encontrado: ${TARGET_EMAIL}`);
+    console.error(`[auth:health] Usuario no encontrado: ${TARGET_EMAIL}`);
     process.exit(1);
   }
 
-  const hashOk = isPasswordHashUsable(user.passwordHash);
+  const hashOk = isPasswordHashUsable(user.passwordHash ?? "");
   if (!hashOk) {
-    console.error(
-      `[auth:health] Usuario '${TARGET_EMAIL}' existe, pero passwordHash inválido/no utilizable.`
-    );
+    console.error(`[auth:health] passwordHash inválido para ${TARGET_EMAIL}`);
     process.exit(1);
   }
 
   if (user.role !== "ADMIN") {
-    console.warn(
-      `[auth:health] Usuario '${TARGET_EMAIL}' existe con rol '${String(user.role)}' (esperado: ADMIN).`
-    );
+    console.warn(`[auth:health] Rol inesperado: ${user.role} (esperado: ADMIN)`);
   }
 
-  console.log(
-    `[auth:health] OK usuario semilla presente con hash utilizable (email=${TARGET_EMAIL}, db=core_schema.sqlite).`
-  );
+  console.log(`[auth:health] OK — ${TARGET_EMAIL} presente con hash válido en Postgres.`);
 }
 
-main().catch((error) => {
-  console.error("[auth:health] error inesperado", error);
-  process.exit(1);
-});
+main()
+  .catch(e => { console.error("[auth:health] error:", e); process.exit(1); })
+  .finally(() => prisma.$disconnect());

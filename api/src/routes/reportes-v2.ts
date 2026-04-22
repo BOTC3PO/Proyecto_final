@@ -1,7 +1,6 @@
 import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
-import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
 
 export const reportesV2 = Router();
@@ -140,22 +139,16 @@ reportesV2.get(
 reportesV2.get(
   "/api/v2/reportes/asistencia/:aulaId",
   requireUser,
-  (req, res) => {
+  async (req, res) => {
     const aulaId = req.params.aulaId as string;
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
 
-    // Raw SQLite — kept unchanged
-    const sqliteDb = openContentDb();
-    const actividades = sqliteDb.prepare(`
-      SELECT id, tipo, titulo, descripcion, fecha, created_at
-      FROM actividades_aula
-      WHERE aula_id = ? AND is_deleted = 0
-      ORDER BY fecha DESC
-      LIMIT 50
-    `).all(aulaId) as Array<{
-      id: string; tipo: string; titulo: string;
-      descripcion: string | null; fecha: string; created_at: string;
-    }>;
+    const actividades = await prisma.actividadAula.findMany({
+      where: { aulaId, isDeleted: false },
+      orderBy: { fecha: "desc" },
+      take: 50,
+      select: { id: true, tipo: true, titulo: true, descripcion: true, fecha: true },
+    });
 
     const clases = actividades.filter((a) => a.tipo === "clase");
     const evaluaciones = actividades.filter((a) => a.tipo === "evaluacion");
@@ -193,13 +186,11 @@ reportesV2.get(
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
 
     try {
-      // Módulos asignados al aula via clase_modulos (raw SQLite — kept unchanged)
-      const sqliteDb = openContentDb();
-      const modulosAsignados = sqliteDb.prepare(`
-        SELECT modulo_id FROM clase_modulos WHERE clase_id = ?
-      `).all(aulaId) as Array<{ modulo_id: string }>;
-
-      const moduloIds = modulosAsignados.map((m) => m.modulo_id);
+      const claseModulos = await prisma.claseModulo.findMany({
+        where: { claseId: aulaId },
+        select: { moduloId: true },
+      });
+      const moduloIds = claseModulos.map((m) => m.moduloId);
       if (!moduloIds.length) {
         return res.json({ aulaId, modulos: [], generadoEn: new Date().toISOString() });
       }
@@ -287,14 +278,10 @@ reportesV2.get(
 
       const aulaIds = aulas.map((a) => a.id);
 
-      // Raw SQLite — kept unchanged
-      const sqliteDb = openContentDb();
       const actividadesCount = aulaIds.length
-        ? (sqliteDb.prepare(`
-            SELECT COUNT(*) as c FROM actividades_aula
-            WHERE aula_id IN (${aulaIds.map(() => "?").join(",")})
-              AND is_deleted = 0
-          `).get(...aulaIds) as { c: number }).c
+        ? await prisma.actividadAula.count({
+            where: { aulaId: { in: aulaIds }, isDeleted: false },
+          })
         : 0;
 
       // Progreso total using Prisma

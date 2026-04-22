@@ -1,7 +1,6 @@
 import express, { Router } from "express";
 import { randomUUID } from "crypto";
 import { prisma } from "../lib/prisma";
-import { openContentDb } from "../lib/db-open";
 import {
   ENTERPRISE_FEATURES,
   requireActiveInstitutionBenefit,
@@ -448,12 +447,11 @@ quizAttempts.post(
           submittedAt: updatedAt.toISOString()
         }
       });
-      // Obtener umbral del quiz (SQLite) o usar default 60
-      const sqliteDb = openContentDb();
-      const umbralRow = sqliteDb.prepare(
-        "SELECT umbral FROM quiz_umbrales WHERE quiz_id = ?"
-      ).get(attempt.quizId) as { umbral: number } | undefined;
-
+      // Obtener umbral del quiz o usar default 60
+      const umbralRow = await prisma.quizUmbral.findUnique({
+        where: { quizId: attempt.quizId },
+        select: { umbral: true },
+      });
       const umbral = umbralRow?.umbral ?? 60;
       const porcentaje = maxScore > 0
         ? Math.round((score / maxScore) * 100) : 0;
@@ -541,27 +539,23 @@ quizAttempts.post(
       return res.status(400).json({ error: "score y tiempoSeg requeridos" });
     }
 
-    const db = openContentDb();
     const id = `qc-${Date.now()}-${Math.random().toString(16).slice(2)}`;
     const now = new Date().toISOString();
 
-    db.prepare(`
-      INSERT INTO quiz_competencia
-        (id, quiz_id, modulo_id, aula_id, usuario_id, attempt_id,
-         score, max_score, tiempo_seg, completado_at)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `).run(
-      id,
-      typeof quizId === "string" ? quizId : "",
-      typeof moduloId === "string" ? moduloId : null,
-      typeof aulaId === "string" ? aulaId : null,
-      userId,
-      req.params.id,
-      score,
-      typeof maxScore === "number" ? maxScore : score,
-      tiempoSeg,
-      now
-    );
+    await prisma.quizCompetencia.create({
+      data: {
+        id,
+        quizId: typeof quizId === "string" ? quizId : "",
+        moduloId: typeof moduloId === "string" ? moduloId : null,
+        aulaId: typeof aulaId === "string" ? aulaId : null,
+        usuarioId: userId,
+        attemptId: String(req.params.id),
+        score,
+        maxScore: typeof maxScore === "number" ? maxScore : score,
+        tiempoSeg,
+        completadoAt: now,
+      },
+    });
 
     return res.status(201).json({ id, ok: true });
   }
@@ -573,88 +567,53 @@ quizAttempts.get(
   "/api/quiz-attempts/competencia/:quizId/ranking",
   requireUser,
   async (req, res) => {
-    const db = openContentDb();
     const quizId = Array.isArray(req.params.quizId)
       ? req.params.quizId[0]
       : req.params.quizId;
     const aulaId = typeof req.query.aulaId === "string"
       ? req.query.aulaId : null;
 
-    let query = `
-      SELECT
-        qc.usuario_id,
-        qc.score,
-        qc.max_score,
-        qc.tiempo_seg,
-        qc.completado_at,
-        MIN(qc.tiempo_seg) as mejor_tiempo,
-        MAX(qc.score) as mejor_score
-      FROM quiz_competencia qc
-      WHERE qc.quiz_id = ?
-    `;
-    const params: (string | null)[] = [quizId];
+    const grouped = await prisma.quizCompetencia.groupBy({
+      by: ["usuarioId"],
+      where: {
+        quizId,
+        ...(aulaId ? { aulaId } : {}),
+      },
+      _min: { tiempoSeg: true, completadoAt: true },
+      _max: { score: true, maxScore: true },
+      orderBy: { _max: { score: "desc" } },
+      take: 20,
+    });
 
-    if (aulaId) {
-      query += " AND qc.aula_id = ?";
-      params.push(aulaId);
-    }
+    // Secondary sort by mejor_tiempo ASC
+    grouped.sort((a: (typeof grouped)[number], b: (typeof grouped)[number]) => {
+      const scoreDiff = (b._max.score ?? 0) - (a._max.score ?? 0);
+      if (scoreDiff !== 0) return scoreDiff;
+      return (a._min.tiempoSeg ?? 0) - (b._min.tiempoSeg ?? 0);
+    });
 
-    query += `
-      GROUP BY qc.usuario_id
-      ORDER BY mejor_score DESC, mejor_tiempo ASC
-      LIMIT 20
-    `;
+    const userIds = grouped.map((r) => r.usuarioId);
+    const usuarios = userIds.length
+      ? await prisma.usuario.findMany({
+          where: { id: { in: userIds }, isDeleted: { not: true } },
+          select: { id: true, fullName: true, username: true },
+        })
+      : [];
 
-    const rows = db.prepare(query).all(...params) as Array<{
-      usuario_id: string;
-      score: number;
-      max_score: number;
-      tiempo_seg: number;
-      completado_at: string;
-      mejor_tiempo: number;
-      mejor_score: number;
-    }>;
+    const usuarioMap = new Map(
+      usuarios.map((u) => [String(u.id ?? ""), String(u.fullName ?? u.username ?? "Alumno")])
+    );
 
-    // Enriquecer con nombres de usuarios desde Prisma
-    try {
-      const userIds = rows.map((r) => r.usuario_id);
-      const usuarios = userIds.length
-        ? await prisma.usuario.findMany({
-            where: { id: { in: userIds }, isDeleted: { not: true } },
-            select: { id: true, fullName: true, username: true }
-          })
-        : [];
+    const ranking = grouped.map((r, index) => ({
+      posicion: index + 1,
+      usuarioId: r.usuarioId,
+      nombre: usuarioMap.get(r.usuarioId) ?? "Alumno",
+      score: r._max.score ?? 0,
+      maxScore: r._max.maxScore ?? 0,
+      tiempoSeg: r._min.tiempoSeg ?? 0,
+      completadoAt: r._min.completadoAt ?? "",
+    }));
 
-      const usuarioMap = new Map(
-        usuarios.map((u) => [
-          String(u.id ?? ""),
-          String(u.fullName ?? u.username ?? "Alumno"),
-        ])
-      );
-
-      const ranking = rows.map((r, index) => ({
-        posicion: index + 1,
-        usuarioId: r.usuario_id,
-        nombre: usuarioMap.get(r.usuario_id) ?? "Alumno",
-        score: r.mejor_score,
-        maxScore: r.max_score,
-        tiempoSeg: r.mejor_tiempo,
-        completadoAt: r.completado_at,
-      }));
-
-      return res.json({ quizId, aulaId, ranking });
-    } catch {
-      // Si Prisma falla, devolver sin nombres
-      const ranking = rows.map((r, index) => ({
-        posicion: index + 1,
-        usuarioId: r.usuario_id,
-        nombre: "Alumno",
-        score: r.mejor_score,
-        maxScore: r.max_score,
-        tiempoSeg: r.mejor_tiempo,
-        completadoAt: r.completado_at,
-      }));
-      return res.json({ quizId, aulaId, ranking });
-    }
+    return res.json({ quizId, aulaId, ranking });
   }
 );

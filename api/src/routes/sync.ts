@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 
@@ -12,28 +11,26 @@ const genId = (prefix: string) =>
   `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
 // ── GET /api/sync/estado ────────────────────────────────────
-// El cliente consulta qué tiene pendiente de sincronizar
-sync.get("/api/sync/estado", requireUser, (req, res) => {
+sync.get("/api/sync/estado", requireUser, async (req, res) => {
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-  const db = openContentDb();
+  const [pendientesGrouped, snapshots] = await Promise.all([
+    prisma.syncQueue.groupBy({
+      by: ["tipo"],
+      where: { usuarioId: userId, estado: "pendiente" },
+      _count: { id: true },
+    }),
+    prisma.syncSnapshot.findMany({
+      where: { usuarioId: userId },
+      select: { tipo: true, aulaId: true, version: true, descargadoAt: true },
+    }),
+  ]);
 
-  const pendientes = db.prepare(`
-    SELECT tipo, COUNT(*) as total
-    FROM sync_queue
-    WHERE usuario_id = ? AND estado = 'pendiente'
-    GROUP BY tipo
-  `).all(userId) as Array<{ tipo: string; total: number }>;
-
-  const snapshots = db.prepare(`
-    SELECT tipo, aula_id, version, descargado_at
-    FROM sync_snapshots
-    WHERE usuario_id = ?
-  `).all(userId) as Array<{
-    tipo: string; aula_id: string | null;
-    version: number; descargado_at: string;
-  }>;
+  const pendientes = pendientesGrouped.map((p) => ({
+    tipo: p.tipo,
+    total: p._count.id,
+  }));
 
   return res.json({
     pendientes,
@@ -43,7 +40,6 @@ sync.get("/api/sync/estado", requireUser, (req, res) => {
 });
 
 // ── POST /api/sync/push ─────────────────────────────────────
-// El cliente envía operaciones pendientes al servidor
 sync.post("/api/sync/push", requireUser, async (req, res) => {
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
@@ -61,35 +57,21 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
     return res.status(400).json({ error: "items requeridos" });
   }
 
-  // VUL-2: límite de items por push
   const MAX_ITEMS_PER_PUSH = 100;
   if (items.length > MAX_ITEMS_PER_PUSH) {
-    return res.status(400).json({
-      error: `Máximo ${MAX_ITEMS_PER_PUSH} items por push`
-    });
+    return res.status(400).json({ error: `Máximo ${MAX_ITEMS_PER_PUSH} items por push` });
   }
 
-  const results: Array<{
-    id: string;
-    ok: boolean;
-    error?: string;
-  }> = [];
-
-  const sqliteDb = openContentDb();
+  const results: Array<{ id: string; ok: boolean; error?: string }> = [];
   const now = new Date().toISOString();
 
-  // VUL-5: filtrar tipos no permitidos antes de procesar
   const TIPOS_PERMITIDOS = new Set([
-    "progreso", "quiz_attempt", "economia",
-    "competencia", "mensajes_leidos"
+    "progreso", "quiz_attempt", "economia", "competencia", "mensajes_leidos",
   ]);
 
   const itemsValidos = items.filter((item) => {
     if (!TIPOS_PERMITIDOS.has(item.tipo)) {
-      results.push({
-        id: item.id, ok: false,
-        error: `tipo no permitido: ${item.tipo}`
-      });
+      results.push({ id: item.id, ok: false, error: `tipo no permitido: ${item.tipo}` });
       return false;
     }
     return true;
@@ -100,82 +82,64 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
       switch (item.tipo) {
 
         case "progreso": {
-          const { moduloId, status, aulaId } =
-            item.payload as Record<string, string>;
+          const { moduloId, status, aulaId } = item.payload as Record<string, string>;
           if (!moduloId || !status) throw new Error("payload inválido");
 
-          // Server wins si ya está completado
           const existing = await prisma.progresoModulo.findFirst({
-            where: { usuarioId: userId, moduloId }
+            where: { usuarioId: userId, moduloId },
           });
 
           if ((existing as any)?.status === "completado" && status !== "completado") {
             // Conflicto — registrar y mantener server
-            sqliteDb.prepare(`
-              INSERT OR IGNORE INTO sync_conflictos
-                (id, usuario_id, tipo, payload_local,
-                 payload_server, resolucion, resuelto_at)
-              VALUES (?, ?, 'progreso', ?, ?, 'server_wins', ?)
-            `).run(
-              genId("conf"),
-              userId,
-              JSON.stringify(item.payload),
-              JSON.stringify(existing),
-              now
-            );
+            await prisma.syncConflicto.create({
+              data: {
+                id: genId("conf"),
+                usuarioId: userId,
+                tipo: "progreso",
+                payloadLocal: JSON.stringify(item.payload),
+                payloadServer: JSON.stringify(existing),
+                resolucion: "server_wins",
+                resueltoAt: now,
+              },
+            });
             results.push({ id: item.id, ok: true });
             break;
           }
 
           await prisma.progresoModulo.updateMany({
             where: { usuarioId: userId, moduloId },
-            data: { status, aulaId, updatedAt: now } as any
+            data: { status, aulaId, updatedAt: now } as any,
           });
           results.push({ id: item.id, ok: true });
           break;
         }
 
         case "economia": {
-          const { delta, motivo, moneda } =
-            item.payload as Record<string, unknown>;
+          const { delta, motivo, moneda } = item.payload as Record<string, unknown>;
           if (typeof delta !== "number") throw new Error("delta requerido");
 
-          // VUL-1: validar límites del delta
           const MAX_DELTA = 10000;
-          if (Math.abs(delta as number) > MAX_DELTA) {
-            results.push({
-              id: item.id, ok: false,
-              error: "delta fuera de rango permitido"
-            });
+          if (Math.abs(delta) > MAX_DELTA) {
+            results.push({ id: item.id, ok: false, error: "delta fuera de rango permitido" });
+            break;
+          }
+          if (delta < 0) {
+            results.push({ id: item.id, ok: false, error: "débitos no permitidos via sync" });
             break;
           }
 
-          // VUL-1: solo permitir créditos desde sync offline
-          if ((delta as number) < 0) {
-            results.push({
-              id: item.id, ok: false,
-              error: "débitos no permitidos via sync"
-            });
-            break;
-          }
-
-          // VUL-1: operación atómica increment en vez de read-then-write
           await (prisma as any).economiaSaldo?.upsert({
             where: { usuarioId: userId },
-            update: {
-              saldo: { increment: delta as number },
-              updatedAt: now,
-            },
-            create: { usuarioId: userId, saldo: delta as number, updatedAt: now }
+            update: { saldo: { increment: delta }, updatedAt: now },
+            create: { usuarioId: userId, saldo: delta, updatedAt: now },
           });
 
-          // VUL-1: verificar que el saldo no supere el máximo
           const MAX_SALDO = 1000000;
           const saldoRow = await (prisma as any).economiaSaldo?.findFirst({ where: { usuarioId: userId } });
           if (saldoRow && saldoRow.saldo > MAX_SALDO) {
             await (prisma as any).economiaSaldo?.updateMany({
               where: { usuarioId: userId },
-              data: { saldo: MAX_SALDO, updatedAt: now }
+              data: { saldo: MAX_SALDO, updatedAt: now },
             });
           }
 
@@ -184,13 +148,13 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
               id: genId("tx"),
               usuarioId: userId,
               tipo: "credito",
-              monto: delta as number,
+              monto: delta,
               moneda: moneda ?? "PF",
               motivo: motivo ?? "sync:offline",
               referenciaId: item.id,
               createdAt: item.createdAt ?? now,
               sincronizado: true,
-            }
+            },
           });
 
           results.push({ id: item.id, ok: true });
@@ -198,17 +162,11 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
         }
 
         case "quiz_attempt": {
-          const { quizId, moduleId, answers } =
-            item.payload as Record<string, unknown>;
+          const { quizId, moduleId, answers } = item.payload as Record<string, unknown>;
           if (!quizId) throw new Error("quizId requerido");
 
-          // VUL-4: no confiar en score/maxScore del cliente
           const existing = await prisma.quizAttempt.findFirst({
-            where: {
-              userId,
-              quizId: String(quizId),
-              status: { in: ["submitted", "completed"] }
-            }
+            where: { userId, quizId: String(quizId), status: { in: ["submitted", "completed"] } },
           });
 
           if (!existing) {
@@ -218,16 +176,15 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
                 quizId: String(quizId),
                 moduleId: moduleId ? String(moduleId) : undefined,
                 answers: answers ?? {},
-                score: null,          // el servidor recalcula
-                maxScore: null,       // el servidor recalcula
+                score: null,
+                maxScore: null,
                 status: "pending_review",
                 sincronizado: true,
                 createdAt: item.createdAt ?? now,
                 updatedAt: now,
-              } as any
+              } as any,
             });
           }
-
           results.push({ id: item.id, ok: true });
           break;
         }
@@ -236,24 +193,20 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
           const { quizId, score, maxScore, tiempoSeg, aulaId } =
             item.payload as Record<string, unknown>;
 
-          sqliteDb.prepare(`
-            INSERT OR IGNORE INTO quiz_competencia
-              (id, quiz_id, usuario_id, attempt_id,
-               score, max_score, tiempo_seg,
-               aula_id, completado_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-          `).run(
-            item.id,
-            String(quizId ?? ""),
-            userId,
-            item.id,
-            typeof score === "number" ? score : 0,
-            typeof maxScore === "number" ? maxScore : 0,
-            typeof tiempoSeg === "number" ? tiempoSeg : 0,
-            aulaId ? String(aulaId) : null,
-            item.createdAt ?? now
-          );
-
+          await prisma.quizCompetencia.createMany({
+            data: [{
+              id: item.id,
+              quizId: String(quizId ?? ""),
+              usuarioId: userId,
+              attemptId: item.id,
+              score: typeof score === "number" ? score : 0,
+              maxScore: typeof maxScore === "number" ? maxScore : 0,
+              tiempoSeg: typeof tiempoSeg === "number" ? tiempoSeg : 0,
+              aulaId: aulaId ? String(aulaId) : null,
+              completadoAt: item.createdAt ?? now,
+            }],
+            skipDuplicates: true,
+          });
           results.push({ id: item.id, ok: true });
           break;
         }
@@ -262,107 +215,95 @@ sync.post("/api/sync/push", requireUser, async (req, res) => {
           const { avisoId } = item.payload as Record<string, string>;
           if (!avisoId) throw new Error("avisoId requerido");
 
-          sqliteDb.prepare(`
-            INSERT OR IGNORE INTO avisos_leidos
-              (aviso_id, usuario_id, leido_at)
-            VALUES (?, ?, ?)
-          `).run(avisoId, userId, item.createdAt ?? now);
-
+          await prisma.avisoLeido.createMany({
+            data: [{ avisoId, usuarioId: userId, leidoAt: item.createdAt ?? now }],
+            skipDuplicates: true,
+          });
           results.push({ id: item.id, ok: true });
           break;
         }
 
         default:
-          results.push({
-            id: item.id,
-            ok: false,
-            error: `tipo desconocido: ${item.tipo}`
-          });
+          results.push({ id: item.id, ok: false, error: `tipo desconocido: ${item.tipo}` });
       }
     } catch (err) {
-      results.push({
-        id: item.id,
-        ok: false,
-        error: err instanceof Error ? err.message : "error"
-      });
+      results.push({ id: item.id, ok: false, error: err instanceof Error ? err.message : "error" });
     }
   }
 
   const ok = results.filter((r) => r.ok).length;
   const failed = results.filter((r) => !r.ok).length;
-
   return res.json({ ok, failed, results });
 });
 
 // ── GET /api/sync/pull/:aulaId ──────────────────────────────
-// El cliente descarga lo que necesita para trabajar offline
 sync.get("/api/sync/pull/:aulaId", requireUser, async (req, res) => {
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-  const { aulaId } = req.params;
-
-  // Version que ya tiene el cliente (para delta sync)
-  const sinceVersion = parseInt(
-    String(req.query.since ?? "0"), 10
-  );
+  const aulaId = String(req.params.aulaId);
+  const sinceVersion = parseInt(String(req.query.since ?? "0"), 10);
 
   try {
-    const sqliteDb = openContentDb();
-
-    // Módulos del aula
-    const moduloIds = (sqliteDb.prepare(`
-      SELECT modulo_id FROM clase_modulos WHERE clase_id = ?
-    `).all(aulaId) as Array<{ modulo_id: string }>)
-      .map((r) => r.modulo_id);
+    // Módulos del aula via ClaseModulo
+    const claseModulos = await prisma.claseModulo.findMany({
+      where: { claseId: aulaId },
+      select: { moduloId: true },
+    });
+    const moduloIds = claseModulos.map((r) => r.moduloId);
 
     const modulos = moduloIds.length
       ? await prisma.modulo.findMany({
-          where: {
-            id: { in: moduloIds },
-            isDeleted: { not: true }
-          },
-          select: {
-            id: true, titulo: true, descripcion: true,
-            visibility: true, updatedAt: true,
-          }
+          where: { id: { in: moduloIds }, isDeleted: { not: true } },
+          select: { id: true, titulo: true, descripcion: true, visibility: true, updatedAt: true },
         })
       : [];
 
-    // Progreso actual del alumno
     const progreso = await prisma.progresoModulo.findMany({
-      where: { usuarioId: userId }
+      where: { usuarioId: userId },
     });
 
-    // Saldo de economía
-    const saldoRow = await (prisma as any).economiaSaldo?.findFirst({ where: { usuarioId: userId } }) as { saldo?: number } | null;
+    const saldoRow = await (prisma as any).economiaSaldo?.findFirst({
+      where: { usuarioId: userId },
+    }) as { saldo?: number } | null;
+
+    // Obtener escuelaId del aula para filtrar avisos
+    const aula = await prisma.clase.findFirst({
+      where: { id: aulaId },
+      select: { escuelaId: true },
+    });
 
     // Avisos no leídos del aula
-    const avisos = sqliteDb.prepare(`
-      SELECT a.* FROM avisos a
-      WHERE a.escuela_id = (
-        SELECT escuela_id FROM clases WHERE id = ? LIMIT 1
-      )
-      AND a.id NOT IN (
-        SELECT aviso_id FROM avisos_leidos WHERE usuario_id = ?
-      )
-      ORDER BY a.created_at DESC
-      LIMIT 10
-    `).all(aulaId, userId);
+    let avisos: unknown[] = [];
+    if (aula?.escuelaId) {
+      const leidosSet = await prisma.avisoLeido.findMany({
+        where: { usuarioId: userId },
+        select: { avisoId: true },
+      });
+      const leidosIds = new Set(leidosSet.map((l) => l.avisoId));
 
-    // Registrar snapshot
+      const todosAvisos = await prisma.aviso.findMany({
+        where: { escuelaId: aula.escuelaId },
+        orderBy: { createdAt: "desc" },
+        take: 20,
+      });
+      avisos = todosAvisos.filter((a) => !leidosIds.has(a.id)).slice(0, 10);
+    }
+
+    // Registrar snapshot (upsert por unique [usuarioId, tipo, aulaId])
     const snapshotNow = new Date().toISOString();
-    sqliteDb.prepare(`
-      INSERT OR REPLACE INTO sync_snapshots
-        (id, usuario_id, tipo, aula_id, version, descargado_at)
-      VALUES (?, ?, 'modulos', ?, ?, ?)
-    `).run(
-      genId("snap"),
-      userId,
-      aulaId,
-      sinceVersion + 1,
-      snapshotNow
-    );
+    await prisma.syncSnapshot.upsert({
+      where: { usuarioId_tipo_aulaId: { usuarioId: userId, tipo: "modulos", aulaId } },
+      create: {
+        id: genId("snap"),
+        usuarioId: userId,
+        tipo: "modulos",
+        aulaId,
+        version: sinceVersion + 1,
+        descargadoAt: snapshotNow,
+      },
+      update: { version: sinceVersion + 1, descargadoAt: snapshotNow },
+    });
 
     return res.json({
       version: sinceVersion + 1,
@@ -377,25 +318,20 @@ sync.get("/api/sync/pull/:aulaId", requireUser, async (req, res) => {
       descargadoAt: snapshotNow,
     });
   } catch (err) {
-    return res.status(500).json({
-      error: err instanceof Error ? err.message : "error"
-    });
+    return res.status(500).json({ error: err instanceof Error ? err.message : "error" });
   }
 });
 
 // ── GET /api/sync/conflictos ────────────────────────────────
-// Ver conflictos pendientes (para admin o profesor)
-sync.get("/api/sync/conflictos", requireUser, (req, res) => {
+sync.get("/api/sync/conflictos", requireUser, async (req, res) => {
   const userId = getId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
-  const db = openContentDb();
-  const items = db.prepare(`
-    SELECT * FROM sync_conflictos
-    WHERE usuario_id = ?
-    ORDER BY resuelto_at DESC
-    LIMIT 20
-  `).all(userId);
+  const items = await prisma.syncConflicto.findMany({
+    where: { usuarioId: userId },
+    orderBy: { resueltoAt: "desc" },
+    take: 20,
+  });
 
   return res.json({ items });
 });

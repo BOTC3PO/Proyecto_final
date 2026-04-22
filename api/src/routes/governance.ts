@@ -202,26 +202,21 @@ governance.get("/api/proposals/:id/apoyos", async (req, res) => {
       const existingSuggestion = await (prisma as any).suggestionPinned?.findFirst?.({ where: { proposalId } }).catch(() => null);
 
       if (!existingSuggestion) {
-        const { openContentDb } = await import("../lib/db-open");
-        const sqliteDb = openContentDb();
         const suggId = `sug-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-        sqliteDb.prepare(`
-          INSERT OR IGNORE INTO suggestions
-            (id, suggestion_type, target_type, target_id,
-             title, body, created_by, created_at, status)
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        `).run(
-          suggId,
-          "GOVERNANCE",
-          (proposal as any).targetType ?? "MODULE_GENERATOR",
-          (proposal as any).targetId ?? "",
-          ((proposal as any).payload as Record<string, unknown>)?.subject ?? "Propuesta de gobernanza",
-          ((proposal as any).payload as Record<string, unknown>)?.description ?? "",
-          (proposal as any).createdBy ?? "system",
-          new Date().toISOString(),
-          "PINNED"
-        );
-        // Marcar para no duplicar
+        await prisma.suggestion.createMany({
+          data: [{
+            id: suggId,
+            suggestionType: "GOVERNANCE",
+            targetType: (proposal as any).targetType ?? "MODULE_GENERATOR",
+            targetId: (proposal as any).targetId ?? "",
+            title: ((proposal as any).payload as Record<string, unknown>)?.subject as string ?? "Propuesta de gobernanza",
+            body: ((proposal as any).payload as Record<string, unknown>)?.description as string ?? "",
+            createdBy: (proposal as any).createdBy ?? "system",
+            createdAt: new Date().toISOString(),
+            status: "PINNED",
+          }],
+          skipDuplicates: true,
+        });
         await (prisma as any).suggestionPinned?.create?.({ data: { proposalId, suggestionId: suggId } }).catch(() => null);
       }
     }

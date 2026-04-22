@@ -1,4 +1,4 @@
-import { openContentDb } from "./db-open";
+import { prisma } from "./prisma";
 import { ENV } from "./env";
 
 export const LIMITES_GRATUITOS = {
@@ -41,12 +41,11 @@ export type Suscripcion = {
   updated_at: string;
 };
 
-// Obtener límites de una escuela
-// ADMIN no tiene límites — retorna Infinity en todos los campos
-export function getLimitesEscuela(
+// Obtener límites de una escuela (async)
+export async function getLimitesEscuela(
   escuelaId: string,
   role?: string
-): LimitesEscuela {
+): Promise<LimitesEscuela> {
   if (role === "ADMIN") {
     return {
       max_profesores: Infinity,
@@ -56,46 +55,52 @@ export function getLimitesEscuela(
     };
   }
 
-  const db = openContentDb();
-  const row = db
-    .prepare("SELECT * FROM limites_escuela WHERE escuela_id = ?")
-    .get(escuelaId) as LimitesEscuela & { escuela_id: string } | undefined;
+  const row = await prisma.limiteEscuela.findUnique({
+    where: { escuelaId },
+  });
 
-  return row ?? { ...LIMITES_GRATUITOS };
+  if (!row) return { ...LIMITES_GRATUITOS };
+
+  return {
+    max_profesores: row.maxProfesores,
+    max_directivos: row.maxDirectivos,
+    max_aulas: row.maxAulas,
+    max_alumnos_por_aula: row.maxAlumnosPorAula,
+  };
 }
 
-// Verificar si una escuela puede agregar más profesores/directivos
-export function puedeAgregarStaff(
+// Verificar si una escuela puede agregar más profesores/directivos (async)
+export async function puedeAgregarStaff(
   escuelaId: string,
   role: string,
   countActual: number
-): boolean {
+): Promise<boolean> {
   if (role === "ADMIN") return true;
-  const limites = getLimitesEscuela(escuelaId);
+  const limites = await getLimitesEscuela(escuelaId);
   if (role === "TEACHER") return countActual < limites.max_profesores;
   if (role === "DIRECTIVO") return countActual < limites.max_directivos;
   return true;
 }
 
-// Verificar si una escuela puede agregar más aulas
-export function puedeAgregarAula(
+// Verificar si una escuela puede agregar más aulas (async)
+export async function puedeAgregarAula(
   escuelaId: string,
   role: string,
   aulasActivasActuales: number
-): boolean {
+): Promise<boolean> {
   if (role === "ADMIN") return true;
-  const limites = getLimitesEscuela(escuelaId);
+  const limites = await getLimitesEscuela(escuelaId);
   return aulasActivasActuales < limites.max_aulas;
 }
 
-// Verificar si un aula puede agregar más alumnos
-export function puedeAgregarAlumno(
+// Verificar si un aula puede agregar más alumnos (async)
+export async function puedeAgregarAlumno(
   escuelaId: string,
   role: string,
   alumnosActuales: number
-): boolean {
+): Promise<boolean> {
   if (role === "ADMIN") return true;
-  const limites = getLimitesEscuela(escuelaId);
+  const limites = await getLimitesEscuela(escuelaId);
   return alumnosActuales < limites.max_alumnos_por_aula;
 }
 
@@ -107,14 +112,11 @@ export function calcularMontoEscuela(params: {
 }): number {
   if (!ENV.PAYMENTS_ENABLED) return 0;
 
-  const excesoProfesores = Math.max(
-    0, params.profesoresActuales - LIMITES_GRATUITOS.max_profesores
-  );
-  const excesoDirectivos = Math.max(
-    0, params.directivosActuales - LIMITES_GRATUITOS.max_directivos
-  );
+  const excesoProfesores = Math.max(0, params.profesoresActuales - LIMITES_GRATUITOS.max_profesores);
+  const excesoDirectivos = Math.max(0, params.directivosActuales - LIMITES_GRATUITOS.max_directivos);
   const excesoAlumnos = Math.max(
-    0, params.alumnosTotales - (LIMITES_GRATUITOS.max_aulas * LIMITES_GRATUITOS.max_alumnos_por_aula)
+    0,
+    params.alumnosTotales - (LIMITES_GRATUITOS.max_aulas * LIMITES_GRATUITOS.max_alumnos_por_aula)
   );
 
   return (
@@ -123,26 +125,48 @@ export function calcularMontoEscuela(params: {
   );
 }
 
-// Obtener suscripción activa de una entidad
-export function getSuscripcionActiva(
+// Obtener suscripción activa de una entidad (async)
+export async function getSuscripcionActiva(
   entidadTipo: string,
   entidadId: string
-): Suscripcion | null {
-  const db = openContentDb();
+): Promise<Suscripcion | null> {
   const now = new Date().toISOString();
-  return db.prepare(`
-    SELECT * FROM suscripciones
-    WHERE entidad_tipo = ?
-      AND entidad_id = ?
-      AND estado = 'activa'
-      AND periodo_fin >= ?
-    ORDER BY periodo_fin DESC
-    LIMIT 1
-  `).get(entidadTipo, entidadId, now) as Suscripcion | null;
+  const row = await prisma.suscripcion.findFirst({
+    where: {
+      entidadTipo,
+      entidadId,
+      estado: "activa",
+      periodoFin: { gte: now },
+    },
+    orderBy: { periodoFin: "desc" },
+  });
+
+  if (!row) return null;
+
+  return {
+    id: row.id,
+    entidad_tipo: row.entidadTipo as Suscripcion["entidad_tipo"],
+    entidad_id: row.entidadId,
+    plan: row.plan as Suscripcion["plan"],
+    estado: row.estado as Suscripcion["estado"],
+    mp_preapproval_id: row.mpPreapprovalId ?? null,
+    mp_payer_email: row.mpPayerEmail ?? null,
+    periodo_inicio: row.periodoInicio,
+    periodo_fin: row.periodoFin,
+    monto_mensual: row.montoMensual,
+    moneda: row.moneda,
+    expansiones: row.expansiones,
+    cancelada_at: row.canceladaAt ?? null,
+    cancelada_by: row.canceladaBy ?? null,
+    reembolso_solicitado: row.reembolsoSolicitado,
+    reembolso_at: row.reembolsoAt ?? null,
+    created_at: row.createdAt,
+    updated_at: row.updatedAt,
+  };
 }
 
-// Verificar si un alumno tiene multiplicador activo
-export function tieneMultiplicadorActivo(alumnoId: string): boolean {
-  const suscripcion = getSuscripcionActiva("alumno", alumnoId);
+// Verificar si un alumno tiene multiplicador activo (async)
+export async function tieneMultiplicadorActivo(alumnoId: string): Promise<boolean> {
+  const suscripcion = await getSuscripcionActiva("alumno", alumnoId);
   return suscripcion?.plan === "pago" && suscripcion?.estado === "activa";
 }
