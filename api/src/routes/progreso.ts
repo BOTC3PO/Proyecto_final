@@ -179,6 +179,10 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
   const completedIds = new Set(
     items.filter((item) => item.status === "completado").map((item) => item.moduloId)
   );
+  const parseDependencies = (raw: string | null | undefined): unknown[] => {
+    if (!raw) return [];
+    try { const parsed = JSON.parse(raw); return Array.isArray(parsed) ? parsed : []; } catch { return []; }
+  };
   const getRequiredDependencyIds = (dependencies: unknown) => {
     if (!Array.isArray(dependencies)) return [];
     return dependencies
@@ -192,7 +196,7 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
       .filter((dep): dep is string => Boolean(dep));
   };
   const unlocks = modules.map((module) => {
-    const deps = getRequiredDependencyIds(module.dependencies);
+    const deps = getRequiredDependencyIds(parseDependencies(module.dependencies));
     const missingDependencies = deps.filter((dep) => !completedIds.has(dep));
     return {
       moduloId: module.id,
@@ -309,8 +313,8 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
     const progresoGeneral = total ? Math.round((completados / total) * 100) : 0;
     const modulos = progress.map((item) => {
       const module = moduleMap.get(item.moduloId ?? "");
-      const dependencies = Array.isArray(module?.dependencies) ? module?.dependencies : [];
-      const requiredDeps = (dependencies as Array<{ type?: string; id?: string }>)
+      const rawDeps = module?.dependencies; const depsArray = rawDeps ? (() => { try { const p = JSON.parse(rawDeps); return Array.isArray(p) ? p : []; } catch { return []; } })() : []; const dependencies = depsArray as Array<{ type?: string; id?: string }>;
+      const requiredDeps = dependencies
         .map((dep) => (dep?.type === "required" ? dep.id : null))
         .filter((dep): dep is string => Boolean(dep));
       const missingDeps = requiredDeps.filter((dep) => !completedSet.has(dep));
