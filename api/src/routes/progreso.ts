@@ -164,13 +164,25 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
   const aulaId = getQueryString(req.query.aulaId);
   const progressFilter = { usuarioId, ...(aulaId ? { aulaId } : {}) };
   const items = await prisma.progresoModulo.findMany({ where: progressFilter });
+  let moduloIdFilter: string[] | undefined;
+  if (aulaId) {
+    const claseModulos = await prisma.claseModulo.findMany({
+      where: { claseId: aulaId },
+      select: { moduloId: true }
+    });
+    moduloIdFilter = claseModulos.map(cm => cm.moduloId);
+  }
   const modules = await prisma.modulo.findMany({
-    where: aulaId ? { aulaId } : {},
+    where: moduloIdFilter ? { id: { in: moduloIdFilter } } : {},
     select: { id: true, dependencies: true, titulo: true }
   });
   const completedIds = new Set(
     items.filter((item) => item.status === "completado").map((item) => item.moduloId)
   );
+  const parseDependencies = (raw: string | null | undefined): unknown[] => {
+    if (!raw) return [];
+    try { const parsed = JSON.parse(raw); return Array.isArray(parsed) ? parsed : []; } catch { return []; }
+  };
   const getRequiredDependencyIds = (dependencies: unknown) => {
     if (!Array.isArray(dependencies)) return [];
     return dependencies
@@ -184,7 +196,7 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
       .filter((dep): dep is string => Boolean(dep));
   };
   const unlocks = modules.map((module) => {
-    const deps = getRequiredDependencyIds(module.dependencies);
+    const deps = getRequiredDependencyIds(parseDependencies(module.dependencies));
     const missingDependencies = deps.filter((dep) => !completedIds.has(dep));
     return {
       moduloId: module.id,
@@ -260,7 +272,7 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
   const allowed = vinculos.filter((v) => {
     const child = childMap.get(String(v.childId ?? ""));
     if (!child) return false;
-    const minor = isMinor(child.birthdate instanceof Date ? child.birthdate : null);
+    const minor = isMinor(child.birthdate ? new Date(child.birthdate) : null);
     if (minor) return true;
     return v.estado === "aprobado";
   });
@@ -301,8 +313,8 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
     const progresoGeneral = total ? Math.round((completados / total) * 100) : 0;
     const modulos = progress.map((item) => {
       const module = moduleMap.get(item.moduloId ?? "");
-      const dependencies = Array.isArray(module?.dependencies) ? module?.dependencies : [];
-      const requiredDeps = (dependencies as Array<{ type?: string; id?: string }>)
+      const rawDeps = module?.dependencies; const depsArray = rawDeps ? (() => { try { const p = JSON.parse(rawDeps); return Array.isArray(p) ? p : []; } catch { return []; } })() : []; const dependencies = depsArray as Array<{ type?: string; id?: string }>;
+      const requiredDeps = dependencies
         .map((dep) => (dep?.type === "required" ? dep.id : null))
         .filter((dep): dep is string => Boolean(dep));
       const missingDeps = requiredDeps.filter((dep) => !completedSet.has(dep));
@@ -320,7 +332,7 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
         area: normalizeArea((module as any)?.subject ?? (module as any)?.category ?? null),
         progreso,
         estado,
-        ultimaActividad: formatActivityDate(item.updatedAt instanceof Date ? item.updatedAt.toISOString() : (item.updatedAt as string | undefined))
+        ultimaActividad: formatActivityDate(item.updatedAt ?? undefined)
       };
     });
     return {
@@ -350,7 +362,7 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
     where: { parentId, childId, estado: { not: "revocado" } }
   });
   if (!vinculo) return res.status(403).json({ error: "no link" });
-  const minor = isMinor(child.birthdate instanceof Date ? child.birthdate : null);
+  const minor = isMinor(child.birthdate ? new Date(child.birthdate) : null);
   if (!minor && vinculo.estado !== "aprobado") {
     return res.status(403).json({ error: "approval required" });
   }
@@ -392,7 +404,7 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
       area: normalizeArea((module as any)?.subject ?? (module as any)?.category ?? null),
       progreso,
       estado,
-      ultimaActividad: formatActivityDate(item.updatedAt instanceof Date ? item.updatedAt.toISOString() : (item.updatedAt as string | undefined))
+      ultimaActividad: formatActivityDate(item.updatedAt ?? undefined)
     };
   });
   res.json({
@@ -430,7 +442,7 @@ progreso.patch(
       const update = { ...parsed, updatedAt: new Date().toISOString() };
       const filter = {
         usuarioId,
-        moduloId: req.params.moduloId,
+        moduloId: req.params.moduloId as string,
         ...(aulaId ? { aulaId } : {})
       };
       const result = await prisma.progresoModulo.updateMany({ where: filter, data: update });

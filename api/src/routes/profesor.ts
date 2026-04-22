@@ -1,3 +1,4 @@
+import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
@@ -156,7 +157,7 @@ profesor.get("/api/profesor/menu", async (req, res) => {
   const aulaIds = aulas.map((aula) => aula.id).filter((id): id is string => Boolean(id));
 
   // Fetch modulos
-  const moduloFilters: Parameters<typeof prisma.modulo.findMany>[0]["where"][] = [
+  const moduloFilters: Prisma.ModuloWhereInput[] = [
     { ownerUserId: teacherId },
   ];
   if (aulaIds.length > 0) {

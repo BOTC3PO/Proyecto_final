@@ -1,4 +1,5 @@
 import { Router } from "express";
+import type { Prisma } from "@prisma/client";
 import { prisma } from "../lib/prisma";
 import { requireAdmin } from "../lib/admin-auth";
 import { requireUser } from "../lib/user-auth";
@@ -23,7 +24,7 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
     }
 
     const items = await prisma.usuario.findMany({
-      where: where as Parameters<typeof prisma.usuario.findMany>[0]["where"],
+      where: where as Prisma.UsuarioWhereInput,
       skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
       take: Number.isNaN(limit) || limit <= 0 ? 50 : limit,
       orderBy: { createdAt: "desc" },
@@ -48,7 +49,7 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
 
 adminRouter.get("/api/admin/usuarios/:id/modulos-completados", requireAdmin, async (req, res) => {
   try {
-    const userId = req.params.id;
+    const userId = req.params.id as string;
     const progresoItems = await prisma.progresoModulo.findMany({
       where: { usuarioId: userId, status: "completado" },
       select: { moduloId: true }
@@ -283,7 +284,7 @@ adminRouter.post("/api/admin/materias", requireAdmin, async (req, res) => {
 
 adminRouter.patch("/api/admin/materias/:id", requireAdmin, async (req, res) => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const { nombre, descripcion, nivel, activa } = req.body ?? {};
     if (!id) {
       res.status(400).json({ error: "invalid id" });

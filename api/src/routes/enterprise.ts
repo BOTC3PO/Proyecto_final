@@ -86,7 +86,7 @@ enterprise.get(
       }
     });
     const activeClassroomCount = await prisma.clase.count({
-      where: { escuelaId: schoolId, status: { in: CLASSROOM_ACTIVE_STATUS_VALUES as string[] } }
+      where: { escuelaId: schoolId, status: { in: Array.from(CLASSROOM_ACTIVE_STATUS_VALUES) } }
     });
     const moduleCount = await prisma.modulo.count({
       where: { visibility: "escuela", schoolId }
@@ -341,7 +341,7 @@ enterprise.get(
       data: {
         id: generateId(),
         json: JSON.stringify(billingCycle),
-        createdAt: new Date()
+        createdAt: new Date().toISOString()
       }
     });
     res.json(billingCycle);

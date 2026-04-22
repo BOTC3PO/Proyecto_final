@@ -139,7 +139,7 @@ modulos.get("/api/modulos", async (req, res) => {
 });
 
 modulos.get("/api/modulos/:id", async (req, res) => {
-  const item = await prisma.modulo.findFirst({ where: { id: req.params.id } });
+  const item = await prisma.modulo.findFirst({ where: { id: req.params.id as string } });
   if (!item) return res.status(404).json({ error: "not found" });
   res.json(withDefaultStatus(item));
 });
@@ -179,7 +179,7 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
 modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
-    const existing = await prisma.modulo.findFirst({ where: { id: req.params.id } });
+    const existing = await prisma.modulo.findFirst({ where: { id: req.params.id as string } });
     if (!existing) return res.status(404).json({ error: "not found" });
     if ((existing as any).aulaId) {
       const classroom = await prisma.clase.findFirst({
@@ -192,7 +192,7 @@ modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), as
     }
     const { status: _status, aulaId: _aulaId, ...updateFields } = parsed as any;
     const update = { ...updateFields, updatedAt: new Date().toISOString() };
-    await prisma.modulo.updateMany({ where: { id: req.params.id }, data: update });
+    await prisma.modulo.updateMany({ where: { id: req.params.id as string }, data: update });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -202,7 +202,7 @@ modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), as
 modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
-    const existing = await prisma.modulo.findFirst({ where: { id: req.params.id } });
+    const existing = await prisma.modulo.findFirst({ where: { id: req.params.id as string } });
     if (!existing) return res.status(404).json({ error: "not found" });
     if ((existing as any).aulaId) {
       const classroom = await prisma.clase.findFirst({
@@ -215,7 +215,7 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
     }
     const { status: _status, aulaId: _aulaId, ...updateFields } = parsed as any;
     const update = { ...updateFields, updatedAt: new Date().toISOString() };
-    await prisma.modulo.updateMany({ where: { id: req.params.id }, data: update });
+    await prisma.modulo.updateMany({ where: { id: req.params.id as string }, data: update });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -223,7 +223,7 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
 });
 
 modulos.delete("/api/modulos/:id", requireUser, async (req, res) => {
-  const existing = await prisma.modulo.findFirst({ where: { id: req.params.id } });
+  const existing = await prisma.modulo.findFirst({ where: { id: req.params.id as string } });
   if (!existing) return res.status(404).json({ error: "not found" });
   if ((existing as any).aulaId) {
     const classroom = await prisma.clase.findFirst({
@@ -234,7 +234,7 @@ modulos.delete("/api/modulos/:id", requireUser, async (req, res) => {
       return;
     }
   }
-  const result = await prisma.modulo.deleteMany({ where: { id: req.params.id } });
+  const result = await prisma.modulo.deleteMany({ where: { id: req.params.id as string } });
   if (result.count === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
 });

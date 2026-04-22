@@ -124,7 +124,7 @@ governance.post("/api/proposals", async (req, res) => {
       rationale: parsed.rationale
     });
 
-    await prisma.proposal.create({ data: proposal });
+    await prisma.proposal.create({ data: { ...proposal, payload: JSON.stringify(proposal.payload) } });
     return res.status(201).json(proposal);
   } catch (error: any) {
     return res.status(400).json({ error: error?.message ?? "invalid proposal" });
@@ -154,7 +154,7 @@ governance.post("/api/proposals/:id/vote", async (req, res) => {
     if (existing) {
       await prisma.vote.updateMany({ where: { proposalId, voterId: vote.voterId }, data: vote });
     } else {
-      await prisma.vote.create({ data: vote });
+      await prisma.vote.create({ data: { ...vote, value: vote.vote } });
     }
 
     return res.status(201).json(vote);
@@ -199,7 +199,7 @@ governance.get("/api/proposals/:id/apoyos", async (req, res) => {
 
     // Si alcanzó el umbral y sigue OPEN → crear suggestion PINNED
     if (alcanzado && proposal.status === "OPEN") {
-      const existingSuggestion = await prisma.suggestionPinned?.findFirst?.({ where: { proposalId } }).catch(() => null);
+      const existingSuggestion = await (prisma as any).suggestionPinned?.findFirst?.({ where: { proposalId } }).catch(() => null);
 
       if (!existingSuggestion) {
         const { openContentDb } = await import("../lib/db-open");
@@ -222,7 +222,7 @@ governance.get("/api/proposals/:id/apoyos", async (req, res) => {
           "PINNED"
         );
         // Marcar para no duplicar
-        await prisma.suggestionPinned?.create?.({ data: { proposalId, suggestionId: suggId } }).catch(() => null);
+        await (prisma as any).suggestionPinned?.create?.({ data: { proposalId, suggestionId: suggId } }).catch(() => null);
       }
     }
 
@@ -286,11 +286,7 @@ governance.post("/api/proposals/:id/close", async (req, res) => {
       where: { id: proposalId },
       data: {
         status: nextStatus,
-        closedAt: new Date().toISOString(),
-        closedBy: actorId,
-        voteSummary: summary as any,
-        applyResult: applyResult as any,
-        closeRule: outcome.rule
+        rationale: `${outcome.rule ?? ""} | closedBy:${actorId} | closedAt:${new Date().toISOString()}`
       }
     });
 

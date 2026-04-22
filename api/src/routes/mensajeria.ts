@@ -1,3 +1,4 @@
+import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
@@ -403,7 +404,7 @@ mensajeria.get("/api/mensajeria/usuarios", requireUser,
       }
 
       const usuarios = await prisma.usuario.findMany({
-        where: whereFilter as Parameters<typeof prisma.usuario.findMany>[0]["where"],
+        where: whereFilter as Prisma.UsuarioWhereInput,
         select: { id: true, fullName: true, username: true, role: true },
         take: 10,
       });

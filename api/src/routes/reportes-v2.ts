@@ -1,3 +1,4 @@
+import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { openContentDb } from "../lib/db-open";
@@ -20,7 +21,7 @@ reportesV2.get(
   "/api/v2/reportes/boletin/:aulaId",
   requireUser,
   async (req, res) => {
-    const aulaId = req.params.aulaId;
+    const aulaId = req.params.aulaId as string;
     const role = getRole(req as never);
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
 
@@ -140,7 +141,7 @@ reportesV2.get(
   "/api/v2/reportes/asistencia/:aulaId",
   requireUser,
   (req, res) => {
-    const aulaId = req.params.aulaId;
+    const aulaId = req.params.aulaId as string;
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
 
     // Raw SQLite — kept unchanged
@@ -188,7 +189,7 @@ reportesV2.get(
   "/api/v2/reportes/progreso/:aulaId",
   requireUser,
   async (req, res) => {
-    const aulaId = req.params.aulaId;
+    const aulaId = req.params.aulaId as string;
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
 
     try {
@@ -298,7 +299,7 @@ reportesV2.get(
 
       // Progreso total using Prisma
       const progresoTotal = await prisma.progresoModulo.count(
-        aulaIds.length ? { where: { aulaId: { in: aulaIds } } } : {}
+        aulaIds.length ? { where: { aulaId: { in: aulaIds } } } : undefined
       );
       const progresoCompletado = await prisma.progresoModulo.count({
         where: {

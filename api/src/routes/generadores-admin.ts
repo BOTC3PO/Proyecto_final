@@ -65,7 +65,7 @@ generadoresAdmin.get("/api/admin/generadores/:subject", requireAdmin, async (req
  * Devuelve el detalle de un tema con su override en BD si existe.
  */
 generadoresAdmin.get("/api/admin/generadores/:subject/:tema", requireAdmin, async (req, res) => {
-  const { subject, tema } = req.params;
+  const { subject: _subjectRaw, tema: _temaRaw } = req.params; const subject = _subjectRaw as string; const tema = _temaRaw as string;
   if (!isValidSubject(subject)) {
     return res.status(400).json({ error: "subject inválido" });
   }
@@ -90,7 +90,7 @@ generadoresAdmin.get("/api/admin/generadores/:subject/:tema", requireAdmin, asyn
  * Body: { status: "ACTIVE" | "INACTIVE" }
  */
 generadoresAdmin.patch("/api/admin/generadores/:subject/:tema/status", requireAdmin, async (req, res) => {
-  const { subject, tema } = req.params;
+  const { subject: _subjectRaw, tema: _temaRaw } = req.params; const subject = _subjectRaw as string; const tema = _temaRaw as string;
   if (!isValidSubject(subject)) {
     return res.status(400).json({ error: "subject inválido" });
   }
@@ -122,7 +122,7 @@ generadoresAdmin.patch("/api/admin/generadores/:subject/:tema/status", requireAd
  * Body: { enunciado?: unknown, limits?: unknown, status?: "ACTIVE" | "INACTIVE" }
  */
 generadoresAdmin.put("/api/admin/generadores/:subject/:tema", requireAdmin, async (req, res) => {
-  const { subject, tema } = req.params;
+  const { subject: _subjectRaw, tema: _temaRaw } = req.params; const subject = _subjectRaw as string; const tema = _temaRaw as string;
   if (!isValidSubject(subject)) {
     return res.status(400).json({ error: "subject inválido" });
   }
@@ -169,7 +169,7 @@ generadoresAdmin.put("/api/admin/generadores/:subject/:tema", requireAdmin, asyn
  * Elimina el override de BD para un tema (revierte al filesystem).
  */
 generadoresAdmin.delete("/api/admin/generadores/:subject/:tema", requireAdmin, async (req, res) => {
-  const { subject, tema } = req.params;
+  const { subject: _subjectRaw, tema: _temaRaw } = req.params; const subject = _subjectRaw as string; const tema = _temaRaw as string;
   if (!isValidSubject(subject)) {
     return res.status(400).json({ error: "subject inválido" });
   }
