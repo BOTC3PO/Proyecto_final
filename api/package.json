@@ -24,10 +24,10 @@
     "seed:demo": "ts-node --transpile-only scripts/seed_demo.ts"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^7.7.0",
-    "@prisma/client": "^7.7.0",
+    "@prisma/adapter-pg": "7.7.0",
+    "@prisma/client": "7.7.0",
     "better-sqlite3": "12.6.2",
-    "compression": "^1.8.1",
+    "compression": "1.8.1",
     "cors": "2.8.5",
     "dotenv": "17.2.3",
     "express": "5.2.1",
@@ -35,7 +35,7 @@
     "helmet": "8.1.0",
     "morgan": "1.10.1",
     "pg": "^8.20.0",
-    "prisma": "^7.7.0",
+    "prisma": "7.7.0",
     "zod": "4.3.5"
   },
   "devDependencies": {
@@ -43,7 +43,7 @@
     "@types/compression": "^1.8.1",
     "@types/express": "5.0.6",
     "@types/morgan": "1.9.10",
-    "@types/node": "25.0.3",
+    "@types/node": "^25.6.0",
     "@types/pg": "^8.20.0",
     "nodemon": "3.1.11",
     "ts-node": "10.9.2",
