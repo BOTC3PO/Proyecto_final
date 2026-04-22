@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import { randomUUID } from "crypto";
 import { prisma } from "../lib/prisma";
 import { openContentDb } from "../lib/db-open";
 import {
@@ -67,7 +68,7 @@ type QuizVersionRecord = {
   generatorVersion?: number | string;
   params?: Record<string, unknown>;
   count?: number;
-  seedPolicy?: string;
+  seedPolicy?: number;
   fixedSeed?: string | number;
 };
 
@@ -136,7 +137,7 @@ const buildQuizFromCollection = (
     generatorId: version?.generatorId,
     generatorVersion: version?.generatorVersion ?? version?.version,
     count: version?.count,
-    seedPolicy: version?.seedPolicy,
+    seedPolicy: version?.seedPolicy !== undefined ? String(version.seedPolicy) : undefined,
     fixedSeed: version?.fixedSeed
   };
   return quiz;
@@ -172,10 +173,10 @@ const fetchQuizFromCollections = async (
     ? {
         quizId: versionRecord.quizId,
         version: versionRecord.versionNumber,
-        questions: versionRecord.questions as ModuleQuiz["questions"],
+        questions: versionRecord.questions as unknown as ModuleQuiz["questions"],
         generatorId: versionRecord.generatorId ?? undefined,
         generatorVersion: versionRecord.generatorVersion ?? versionRecord.versionNumber,
-        params: versionRecord.params as Record<string, unknown> | undefined,
+        params: versionRecord.params as unknown as Record<string, unknown> | undefined,
         count: versionRecord.count ?? undefined,
         seedPolicy: versionRecord.seedPolicy ?? undefined,
         fixedSeed: versionRecord.fixedSeed ?? undefined,
@@ -336,19 +337,20 @@ quizAttempts.post(
     }
     const result = await prisma.quizAttempt.create({
       data: {
+        id: randomUUID(),
         quizId: payload.quizId,
-        quizVersionId: version?.quizId ?? null,
+        quizVersionId: version?.quizId ?? "",
         userId,
         seed: seed !== null ? String(seed) : null,
-        answers: {},
-        feedback: {},
+        answers: JSON.stringify({}),
+        feedback: JSON.stringify({}),
         score: 0,
         maxScore,
         status: "in_progress",
-        startedAt: now,
+        startedAt: now.toISOString(),
         submittedAt: null,
         attemptNo: 1,
-        seedPolicy: quiz.seedPolicy ?? null,
+        seedPolicy: quiz.seedPolicy !== undefined ? Number(quiz.seedPolicy) : undefined,
       }
     });
     res
@@ -443,7 +445,7 @@ quizAttempts.post(
           status: "submitted",
           score,
           maxScore,
-          submittedAt: updatedAt
+          submittedAt: updatedAt.toISOString()
         }
       });
       // Obtener umbral del quiz (SQLite) o usar default 60

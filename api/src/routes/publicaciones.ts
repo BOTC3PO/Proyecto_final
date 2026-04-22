@@ -69,7 +69,7 @@ publicaciones.get(
       return res.status(403).json({ error: "forbidden" });
     }
     const items = await prisma.publicacion.findMany({
-      where: { aulaId: req.params.id, isDeleted: { not: true } },
+      where: { aulaId: req.params.id as string as string, isDeleted: { not: true } },
       orderBy: { publishedAt: "desc" }
     });
     res.json({ items });
@@ -104,7 +104,7 @@ publicaciones.post(
     const publication = await prisma.publicacion.create({
       data: {
         id: `pub-${Date.now()}`,
-        aulaId: req.params.id,
+        aulaId: req.params.id as string as string,
         authorId: requesterId,
         title: payload.title?.trim() || "Nueva publicación",
         body: payload.contenido.trim(),
@@ -156,11 +156,11 @@ publicaciones.get(
       return res.status(403).json({ error: "forbidden" });
     }
     const publication = await prisma.publicacion.findFirst({
-      where: { id: req.params.pubId, aulaId: req.params.id, isDeleted: { not: true } }
+      where: { id: req.params.pubId as string as string, aulaId: req.params.id as string as string, isDeleted: { not: true } }
     });
     if (!publication) return res.status(404).json({ error: "publicacion not found" });
     const rows = await prisma.comentario.findMany({
-      where: { publicacionId: req.params.pubId },
+      where: { publicacionId: req.params.pubId as string },
       orderBy: { createdAt: "asc" }
     });
     const items = rows
@@ -201,15 +201,15 @@ publicaciones.post(
       return res.status(403).json({ error: "classroom is read-only" });
     }
     const publication = await prisma.publicacion.findFirst({
-      where: { id: req.params.pubId, aulaId: req.params.id, isDeleted: { not: true } }
+      where: { id: req.params.pubId as string as string, aulaId: req.params.id as string as string, isDeleted: { not: true } }
     });
     if (!publication) return res.status(404).json({ error: "publicacion not found" });
     const now = new Date();
     const nowIso = now.toISOString();
     const comment = {
       id: `com-${Date.now()}`,
-      aulaId: req.params.id,
-      publicacionId: req.params.pubId,
+      aulaId: req.params.id as string as string,
+      publicacionId: req.params.pubId as string as string,
       body: payload.contenido.trim(),
       authorId: requesterId,
       authorName: requester?.fullName ?? null,

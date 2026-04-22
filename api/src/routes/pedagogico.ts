@@ -69,7 +69,7 @@ pedagogico.get("/api/pedagogico/riesgo/:aulaId",
     }
 
     try {
-      const { aulaId } = req.params;
+      const { aulaId: _aulaIdRaw } = req.params; const aulaId = _aulaIdRaw as string;
 
       // Obtener alumnos del aula via clase_miembros
       const aula = await prisma.clase.findFirst({

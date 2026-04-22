@@ -1,4 +1,5 @@
 import { Router } from "express";
+import type { Prisma } from "@prisma/client";
 import { openContentDb } from "../lib/db-open";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
@@ -81,8 +82,7 @@ calendario.get("/api/calendario/unificado", requireUser,
 
     // Aulas del usuario
     try {
-      type ClaseWhere = Parameters<typeof prisma.clase.findMany>[0]["where"];
-      let aulaWhere: ClaseWhere = { isDeleted: false, status: "ACTIVE" };
+      let aulaWhere: Prisma.ClaseWhereInput = { isDeleted: false, status: "ACTIVE" };
 
       if (role === "USER") {
         aulaWhere = {

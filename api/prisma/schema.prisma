@@ -280,6 +280,7 @@ model Modulo {
   tuesdayDocId         String?  @map("tuesday_doc_id")
   libroId              String?  @map("libro_id")
   defaultQuestionCount Int?     @map("default_question_count")
+  dependencies         String?
   isDeleted            Boolean  @default(false) @map("is_deleted")
   createdAt            String   @default("") @map("created_at")
   updatedAt            String   @default("") @map("updated_at")

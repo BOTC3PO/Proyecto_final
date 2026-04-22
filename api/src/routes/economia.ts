@@ -165,7 +165,7 @@ const verifyEventoEducativo = async (
   }
   if (tipo === "quiz") {
     // quizzes are nested inside modulo JSON; search by raw SQL or skip deep field search
-    const modulos = await prisma.modulo.findMany({ where: { aulaId } });
+    const modulos = await prisma.modulo.findMany({ where: {} });
     const found = modulos.find((m: unknown) => {
       const modulo = m as Record<string, unknown>;
       const quizzes = Array.isArray(modulo.quizzes) ? modulo.quizzes as Array<{ id: string }> : [];
@@ -524,7 +524,7 @@ economia.put(
     try {
       const parsed = RecompensaUpdateSchema.parse(req.body ?? {});
       const result = await prisma.economiaRecompensa.updateMany({
-        where: { id: req.params.id, isDeleted: { not: true } },
+        where: { id: req.params.id as string, isDeleted: { not: true } },
         data: { ...parsed, updatedAt: new Date().toISOString() }
       });
       if (!result.count) return res.status(404).json({ error: "not found" });
@@ -543,7 +543,7 @@ economia.patch(
     try {
       const parsed = RecompensaUpdateSchema.parse(req.body ?? {});
       const result = await prisma.economiaRecompensa.updateMany({
-        where: { id: req.params.id, isDeleted: { not: true } },
+        where: { id: req.params.id as string, isDeleted: { not: true } },
         data: { ...parsed, updatedAt: new Date().toISOString() }
       });
       if (!result.count) return res.status(404).json({ error: "not found" });
@@ -562,7 +562,7 @@ economia.delete(
     const now = new Date().toISOString();
     const deletedBy = getRequesterId(req) ?? "desconocido";
     const result = await prisma.economiaRecompensa.updateMany({
-      where: { id: req.params.id, isDeleted: { not: true } },
+      where: { id: req.params.id as string, isDeleted: { not: true } },
       data: {
         isDeleted: true,
         deletedAt: now,
@@ -988,7 +988,7 @@ economia.post("/api/economia/intercambios", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
 
 economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/mint"), async (req, res) => {
   try {
-    const intercambioRow = await prisma.economiaIntercambio.findFirst({ where: { id: req.params.id } });
+    const intercambioRow = await prisma.economiaIntercambio.findFirst({ where: { id: req.params.id as string } });
     if (!intercambioRow) return res.status(404).json({ error: "intercambio not found" });
     const intercambio: IntercambioDoc = JSON.parse(intercambioRow.json);
     if (intercambio.estado !== "pendiente") {
@@ -1090,7 +1090,7 @@ economia.post("/api/economia/intercambios/:id/aceptar", requirePolicy("economia/
 
 economia.post("/api/economia/intercambios/:id/cancelar", async (req, res) => {
   try {
-    const intercambioRow = await prisma.economiaIntercambio.findFirst({ where: { id: req.params.id } });
+    const intercambioRow = await prisma.economiaIntercambio.findFirst({ where: { id: req.params.id as string } });
     if (!intercambioRow) return res.status(404).json({ error: "intercambio not found" });
     const intercambio: IntercambioDoc = JSON.parse(intercambioRow.json);
     if (intercambio.estado !== "pendiente") {
@@ -1128,7 +1128,7 @@ economia.post(
           motivo: z.string().min(1).optional()
         })
         .parse(req.body ?? {});
-      const intercambioRow = await prisma.economiaIntercambio.findFirst({ where: { id: req.params.id } });
+      const intercambioRow = await prisma.economiaIntercambio.findFirst({ where: { id: req.params.id as string } });
       if (!intercambioRow) return res.status(404).json({ error: "intercambio not found" });
       const intercambio: IntercambioDoc = JSON.parse(intercambioRow.json);
       const aula = await prisma.clase.findFirst({ where: { id: intercambio.aulaId } }) as unknown as AulaDoc | null;
@@ -1160,7 +1160,7 @@ economia.post(
         (updatedIntercambio as any).resolvedAt = now;
       }
       await prisma.economiaIntercambio.updateMany({
-        where: { id: req.params.id },
+        where: { id: req.params.id as string },
         data: { json: JSON.stringify(updatedIntercambio) }
       });
       res.json({ ok: true });
@@ -1329,7 +1329,7 @@ economia.post("/api/economia/examenes", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (
 economia.patch("/api/economia/examenes/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ExamenEconomiaUpdateSchema.parse(req.body ?? {});
-    const existingRow = await prisma.economiaExamen.findFirst({ where: { id: req.params.id } });
+    const existingRow = await prisma.economiaExamen.findFirst({ where: { id: req.params.id as string } });
     if (!existingRow) return res.status(404).json({ error: "not found" });
     const existing: ExamenDoc = JSON.parse(existingRow.json);
     if (existing.aulaId) {
@@ -1340,7 +1340,7 @@ economia.patch("/api/economia/examenes/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), as
     }
     const updatedDoc = { ...existing, ...parsed, updatedAt: new Date().toISOString() };
     await prisma.economiaExamen.updateMany({
-      where: { id: req.params.id },
+      where: { id: req.params.id as string },
       data: { json: JSON.stringify(updatedDoc) }
     });
     res.json({ ok: true });
@@ -1364,7 +1364,7 @@ economia.get("/api/economia/examenes/:id/pujas", async (req, res) => {
 economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = PujaExamenCreateSchema.parse({ ...req.body, examenId: req.params.id });
-    const examenRow = await prisma.economiaExamen.findFirst({ where: { id: req.params.id } });
+    const examenRow = await prisma.economiaExamen.findFirst({ where: { id: req.params.id as string } });
     if (!examenRow) return res.status(404).json({ error: "examen not found" });
     const examen: ExamenDoc = JSON.parse(examenRow.json);
     const aulaId = parsed.aulaId ?? examen.aulaId;
@@ -1409,7 +1409,7 @@ economia.post("/api/economia/examenes/:id/pujas", ...bodyLimitMB(ENV.MAX_PAGE_MB
     };
     const validated = PujaExamenSchema.parse(payload);
     await prisma.economiaExamenPuja.create({
-      data: { id: validated.id, json: JSON.stringify(validated), createdAt: validated.createdAt }
+      data: { id: validated.id, examenId: validated.examenId as string, json: JSON.stringify(validated), createdAt: validated.createdAt as string }
     });
     res.status(201).json({ id: validated.id });
   } catch (e: any) {
@@ -1437,7 +1437,7 @@ economia.get("/api/economia/examenes/puntos", async (req, res) => {
 
 economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"), async (req, res) => {
   try {
-    const examenRow = await prisma.economiaExamen.findFirst({ where: { id: req.params.id } });
+    const examenRow = await prisma.economiaExamen.findFirst({ where: { id: req.params.id as string } });
     if (!examenRow) return res.status(404).json({ error: "examen not found" });
     const examen: ExamenDoc = JSON.parse(examenRow.json);
     if (!examen.aulaId) return res.status(400).json({ error: "aulaId is required" });
@@ -1529,7 +1529,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
         });
       } else {
         await prisma.economiaExamenPunto.create({
-          data: { id: generateId(), json: JSON.stringify({ usuarioId: puja.usuarioId, puntos: puntosNetos, updatedAt: now }), createdAt: now }
+          data: { id: generateId(), examenId: examen.id as string, json: JSON.stringify({ usuarioId: puja.usuarioId, puntos: puntosNetos, updatedAt: now }), updatedAt: now as string }
         });
       }
       rankingPuntos.set(puja.usuarioId ?? "", (rankingPuntos.get(puja.usuarioId ?? "") ?? 0) + puntosNetos);
@@ -1608,7 +1608,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
     }
     const updatedExamen = { ...examen, estado: "cerrado", subastaActiva: false, precioPromedio: precioPromedioActual, updatedAt: now };
     await prisma.economiaExamen.updateMany({
-      where: { id: req.params.id },
+      where: { id: req.params.id as string },
       data: { json: JSON.stringify(updatedExamen) }
     });
     res.json({ ok: true });
@@ -1651,7 +1651,7 @@ economia.patch("/api/economia/eventos/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
   try {
     const parsed = EventoEconomicoUpdateSchema.parse(req.body ?? {});
     const result = await prisma.economiaEvento.updateMany({
-      where: { id: req.params.id, isDeleted: { not: true } },
+      where: { id: req.params.id as string, isDeleted: { not: true } },
       data: { ...parsed, updatedAt: new Date().toISOString() }
     });
     if (!result.count) return res.status(404).json({ error: "not found" });
@@ -1665,7 +1665,7 @@ economia.delete("/api/economia/eventos/:id", requireAdminAuth, async (req, res) 
   const now = new Date().toISOString();
   const deletedBy = getRequesterId(req) ?? "desconocido";
   const result = await prisma.economiaEvento.updateMany({
-    where: { id: req.params.id, isDeleted: { not: true } },
+    where: { id: req.params.id as string, isDeleted: { not: true } },
     data: {
       isDeleted: true,
       deletedAt: now,
@@ -1701,7 +1701,7 @@ economia.delete("/api/admin/economia/recompensas/:id", requireAdminAuth, async (
   const now = new Date().toISOString();
   const deletedBy = getRequesterId(req) ?? "desconocido";
   const result = await prisma.economiaRecompensa.updateMany({
-    where: { id: req.params.id, isDeleted: { not: true } },
+    where: { id: req.params.id as string, isDeleted: { not: true } },
     data: {
       isDeleted: true,
       deletedAt: now,
@@ -1733,7 +1733,7 @@ economia.delete("/api/admin/economia/eventos/:id", requireAdminAuth, async (req,
   const now = new Date().toISOString();
   const deletedBy = getRequesterId(req) ?? "desconocido";
   const result = await prisma.economiaEvento.updateMany({
-    where: { id: req.params.id, isDeleted: { not: true } },
+    where: { id: req.params.id as string, isDeleted: { not: true } },
     data: {
       isDeleted: true,
       deletedAt: now,

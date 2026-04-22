@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import { randomUUID } from "crypto";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
 import { createRateLimiter } from "../lib/rate-limit";
@@ -26,9 +27,10 @@ const getRequesterId = (req: express.Request) =>
 escuelas.post("/api/escuelas", requireAdmin, escuelasMutationLimiter, async (req, res) => {
   try {
     const parsed = EscuelaSchema.parse(req.body);
-    const now = new Date();
+    const now = new Date().toISOString();
     const created = await prisma.escuela.create({
       data: {
+        id: randomUUID(),
         name: parsed.name,
         code: parsed.code,
         address: parsed.address,
