@@ -461,7 +461,7 @@ model GeneratorConfig {
   materia         String  @default("")
   label           String  @default("")
   description     String?
-  version         Int     @default(1)
+  version         String?
   subtipos        String  @default("[]")
   enunciados      String  @default("{}")
   limits          String  @default("{}")
