@@ -1,7 +1,64 @@
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
-import { NAV_BY_ROLE } from './navConfig';
+import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
 import { useEffect, useRef, useState } from 'react';
+import { apiGet } from '../lib/api';
+
+function CoinBadge({ userId }: { userId: string }) {
+  const [coins, setCoins] = useState<number | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    apiGet<{ saldo: number }>(`/api/economia/saldos?usuarioId=${userId}`)
+      .then((res) => { if (active) setCoins(res.saldo); })
+      .catch(() => {});
+    return () => { active = false; };
+  }, [userId]);
+
+  if (coins === null) return null;
+
+  return (
+    <div
+      className="hidden sm:flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 select-none"
+      title="Tus monedas"
+      aria-label={`${coins} monedas`}
+    >
+      <span aria-hidden="true">🪙</span>
+      <span>{coins.toLocaleString('es-AR')}</span>
+    </div>
+  );
+}
+
+function DropdownIcon({ name }: { name: string }) {
+  if (name === 'user') {
+    return (
+      <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round"
+          d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0" />
+      </svg>
+    );
+  }
+  if (name === 'coin') {
+    return (
+      <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round"
+          d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      </svg>
+    );
+  }
+  if (name === 'palette') {
+    return (
+      <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round"
+          d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z" />
+      </svg>
+    );
+  }
+  return null;
+}
 
 // Páginas que usan el navbar público
 const PUBLIC_PAGES = ['/', '/metodologia', '/explorar', '/contact', '/login', '/register'];
@@ -258,6 +315,7 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
+          {role === 'USER' && user?.id && <CoinBadge userId={user.id} />}
           {role !== 'GUEST' ? (
             <div className="relative" ref={userMenuRef}>
               {/* Avatar / botón trigger */}
@@ -298,65 +356,40 @@ export default function Navbar() {
                     </p>
                   </div>
 
-                  {/* Links */}
+                  {/* Items dinámicos */}
                   <div className="py-1">
-                    <Link
-                      to="/perfil"
-                      onClick={() => setIsUserMenuOpen(false)}
-                      className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
-                    >
-                      <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round"
-                          d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0" />
-                      </svg>
-                      Mi perfil
-                    </Link>
-
-                    {(role === 'USER' || role === 'TEACHER') && (
-                      <Link
-                        to="/progreso"
-                        onClick={() => setIsUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
-                      >
-                        <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
-                          stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round"
-                            d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75Z" />
-                        </svg>
-                        Mi progreso
-                      </Link>
-                    )}
-
-                    {role === 'USER' && (
-                      <Link
-                        to="/alumno"
-                        onClick={() => setIsUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
-                      >
-                        <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
-                          stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round"
-                            d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                        Economía
-                      </Link>
-                    )}
-                  </div>
-
-                  {/* Separador + Salir */}
-                  <div className="border-t border-slate-100 py-1">
-                    <button
-                      onClick={() => { setIsUserMenuOpen(false); logout(); }}
-                      className="flex w-full items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round"
-                          d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
-                      </svg>
-                      Cerrar sesión
-                    </button>
+                    {DROPDOWN_BY_ROLE[role].map((item, i) => {
+                      if (item.kind === 'divider') {
+                        return <div key={i} className="border-t border-slate-100 my-1" />;
+                      }
+                      if (item.kind === 'logout') {
+                        return (
+                          <button
+                            key="logout"
+                            onClick={() => { setIsUserMenuOpen(false); logout(); }}
+                            className="flex w-full items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                          >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor" strokeWidth={1.5}>
+                              <path strokeLinecap="round" strokeLinejoin="round"
+                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                            </svg>
+                            Cerrar sesión
+                          </button>
+                        );
+                      }
+                      return (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          onClick={() => setIsUserMenuOpen(false)}
+                          className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
+                        >
+                          <DropdownIcon name={item.icon} />
+                          {item.label}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               )}

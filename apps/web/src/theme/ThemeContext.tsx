@@ -3,7 +3,8 @@ import { createContext, useContext, useEffect, useState,
 import { useAuth } from "../auth/use-auth";
 
 export type ThemeId =
-  | "clasico" | "aurora" | "nocturno" | "vibrante" | "bosque"
+  | "clasico" | "clasico-vb" | "aurora" | "nocturno" | "nocturno-vb"
+  | "vibrante" | "bosque" | "minimal"
   | "galaxy" | "sunset" | "ocean" | "candy" | "neon"
   | "admin";
 
@@ -15,25 +16,37 @@ export type ThemeOption = {
 };
 
 export const THEME_OPTIONS: ThemeOption[] = [
-  { id: "clasico",  name: "Clásico",   animated: false, price: 0  },
-  { id: "aurora",   name: "Aurora",    animated: false, price: 40 },
-  { id: "nocturno", name: "Nocturno",  animated: false, price: 0  },
-  { id: "vibrante", name: "Vibrante",  animated: false, price: 65 },
-  { id: "bosque",   name: "Bosque",    animated: false, price: 40 },
-  { id: "galaxy",   name: "Galaxy",    animated: true,  price: 80 },
-  { id: "sunset",   name: "Sunset",    animated: true,  price: 80 },
-  { id: "ocean",    name: "Ocean",     animated: true,  price: 80 },
-  { id: "candy",    name: "Candy",     animated: true,  price: 90 },
-  { id: "neon",     name: "Neon",      animated: true,  price: 100},
+  { id: "clasico",     name: "Clásico",     animated: false, price: 0   },
+  { id: "clasico-vb",  name: "Clásico VB",  animated: false, price: 0   },
+  { id: "aurora",      name: "Aurora",      animated: false, price: 40  },
+  { id: "nocturno",    name: "Nocturno",    animated: false, price: 0   },
+  { id: "nocturno-vb", name: "Nocturno VB", animated: false, price: 0   },
+  { id: "vibrante",    name: "Vibrante",    animated: false, price: 65  },
+  { id: "bosque",      name: "Bosque",      animated: false, price: 40  },
+  { id: "minimal",     name: "Minimal",     animated: false, price: 0   },
+  { id: "galaxy",      name: "Galaxy",      animated: true,  price: 80  },
+  { id: "sunset",      name: "Sunset",      animated: true,  price: 80  },
+  { id: "ocean",       name: "Ocean",       animated: true,  price: 80  },
+  { id: "candy",       name: "Candy",       animated: true,  price: 90  },
+  { id: "neon",        name: "Neon",        animated: true,  price: 100 },
 ];
 
 // Temas disponibles por rol
 export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
-  USER:      ["clasico","aurora","nocturno","vibrante","bosque",
-              "galaxy","sunset","ocean","candy","neon"],
-  TEACHER:   ["clasico","aurora","nocturno","vibrante","bosque",
-              "galaxy","sunset","ocean","candy","neon"],
-  DIRECTIVO: ["clasico","nocturno"],
+  USER: [
+    "nocturno-vb",
+    "nocturno", "galaxy", "sunset", "ocean", "candy", "neon",
+    "clasico", "clasico-vb", "aurora", "vibrante", "bosque", "minimal",
+  ],
+  TEACHER: [
+    "clasico-vb",
+    "clasico", "minimal", "aurora", "nocturno", "nocturno-vb",
+    "vibrante", "bosque", "galaxy", "sunset", "ocean", "candy", "neon",
+  ],
+  DIRECTIVO: [
+    "clasico-vb",
+    "clasico", "minimal", "nocturno",
+  ],
   ADMIN:     ["admin"],
   GUEST:     ["clasico"],
 };

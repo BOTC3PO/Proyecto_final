@@ -197,14 +197,14 @@ export default function Mensajeria() {
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-0 px-6 py-10">
       <header className="mb-6 space-y-1">
-        <h1 className="text-3xl font-bold text-slate-900">Mensajería</h1>
-        <p className="text-base text-slate-600">
+        <h1 className="text-3xl font-bold text-[var(--c-text)]">Mensajería</h1>
+        <p className="text-base text-[var(--c-muted)]">
           Mensajes y avisos de tu escuela.
         </p>
       </header>
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-slate-200 mb-6">
+      <div className="flex gap-1 border-b border-[var(--c-border)] mb-6">
         {[
           { key: "mensajes", label: "💬 Mensajes" },
           { key: "avisos", label: "📢 Avisos" },
@@ -215,8 +215,8 @@ export default function Mensajeria() {
             onClick={() => setTab(t.key as Tab)}
             className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
               tab === t.key
-                ? "border-blue-600 text-blue-600"
-                : "border-transparent text-slate-500 hover:text-slate-700"
+                ? "border-[var(--c-primary)] text-[var(--c-primary)]"
+                : "border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]"
             }`}
           >
             {t.label}
@@ -233,27 +233,27 @@ export default function Mensajeria() {
             <button
               type="button"
               onClick={() => setMostrarNuevo((v) => !v)}
-              className="rounded-xl bg-blue-600 px-4 py-2 text-sm
-                font-semibold text-white hover:bg-blue-700 transition-colors"
+              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm
+                font-semibold text-white hover:opacity-90 transition-colors"
             >
               + Nuevo mensaje
             </button>
 
             {/* Formulario nuevo mensaje */}
             {mostrarNuevo && (
-              <div className="rounded-2xl border border-slate-200
-                bg-white p-4 space-y-3 shadow-sm">
+              <div className="rounded-2xl border border-[var(--c-border)]
+                bg-[var(--c-surface)] p-4 space-y-3 shadow-sm">
                 <input
                   type="text"
                   placeholder="Buscar por nombre o @usuario..."
                   value={busqueda}
                   onChange={(e) => setBusqueda(e.target.value)}
-                  className="w-full rounded-lg border border-slate-200
+                  className="w-full rounded-lg border border-[var(--c-border)]
                     px-3 py-2 text-sm focus:outline-none
                     focus:ring-2 focus:ring-blue-300"
                 />
                 {buscando && (
-                  <p className="text-xs text-slate-400 animate-pulse">
+                  <p className="text-xs text-[var(--c-muted)] animate-pulse">
                     Buscando...
                   </p>
                 )}
@@ -269,10 +269,10 @@ export default function Mensajeria() {
                             setResultados([]);
                           }}
                           className="w-full text-left rounded-lg px-3 py-2
-                            text-sm hover:bg-slate-50 border border-slate-100"
+                            text-sm hover:bg-[var(--c-bg)] border border-[var(--c-border)]"
                         >
                           <span className="font-medium">{u.nombre}</span>
-                          <span className="ml-2 text-xs text-slate-400">
+                          <span className="ml-2 text-xs text-[var(--c-muted)]">
                             {ROLE_LABELS[u.role] ?? u.role}
                           </span>
                         </button>
@@ -290,7 +290,7 @@ export default function Mensajeria() {
                       placeholder="Escribí tu mensaje..."
                       value={nuevoMsg}
                       onChange={(e) => setNuevoMsg(e.target.value)}
-                      className="w-full rounded-lg border border-slate-200
+                      className="w-full rounded-lg border border-[var(--c-border)]
                         px-3 py-2 text-sm focus:outline-none
                         focus:ring-2 focus:ring-blue-300"
                     />
@@ -299,9 +299,9 @@ export default function Mensajeria() {
                         type="button"
                         onClick={handleNuevoMensaje}
                         disabled={enviando || !nuevoMsg.trim()}
-                        className="rounded-lg bg-blue-600 px-3 py-1.5
+                        className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5
                           text-xs font-semibold text-white
-                          hover:bg-blue-700 disabled:opacity-50"
+                          hover:opacity-90 disabled:opacity-50"
                       >
                         {enviando ? "Enviando..." : "Enviar"}
                       </button>
@@ -311,9 +311,9 @@ export default function Mensajeria() {
                           setDestinatario(null);
                           setBusqueda("");
                         }}
-                        className="rounded-lg border border-slate-200
-                          px-3 py-1.5 text-xs text-slate-500
-                          hover:bg-slate-50"
+                        className="rounded-lg border border-[var(--c-border)]
+                          px-3 py-1.5 text-xs text-[var(--c-muted)]
+                          hover:bg-[var(--c-bg)]"
                       >
                         Cancelar
                       </button>
@@ -326,12 +326,12 @@ export default function Mensajeria() {
             {/* Lista de hilos */}
             <div className="space-y-1 mt-1">
               {hilosLoading && (
-                <p className="text-sm text-slate-400 animate-pulse px-2">
+                <p className="text-sm text-[var(--c-muted)] animate-pulse px-2">
                   Cargando conversaciones...
                 </p>
               )}
               {!hilosLoading && hilos.length === 0 && (
-                <p className="text-sm text-slate-500 px-2">
+                <p className="text-sm text-[var(--c-muted)] px-2">
                   Sin conversaciones aún.
                 </p>
               )}
@@ -344,11 +344,11 @@ export default function Mensajeria() {
                     transition-colors ${
                     hiloActivo === h.id
                       ? "bg-blue-50 border border-blue-200"
-                      : "bg-white border border-slate-100 hover:bg-slate-50"
+                      : "bg-[var(--c-surface)] border border-[var(--c-border)] hover:bg-[var(--c-bg)]"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <p className="text-sm font-semibold text-slate-800 truncate">
+                    <p className="text-sm font-semibold text-[var(--c-text)] truncate">
                       {h.otroNombre}
                     </p>
                     {h.noLeidos > 0 && (
@@ -358,7 +358,7 @@ export default function Mensajeria() {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-slate-400 mt-0.5 truncate">
+                  <p className="text-xs text-[var(--c-muted)] mt-0.5 truncate">
                     {h.ultimoMsg ?? "Sin mensajes"}
                   </p>
                 </button>
@@ -367,11 +367,11 @@ export default function Mensajeria() {
           </aside>
 
           {/* Panel de mensajes */}
-          <div className="flex flex-col rounded-2xl border border-slate-200
-            bg-white shadow-sm overflow-hidden min-h-[400px]">
+          <div className="flex flex-col rounded-2xl border border-[var(--c-border)]
+            bg-[var(--c-surface)] shadow-sm overflow-hidden min-h-[400px]">
             {!hiloActivo ? (
               <div className="flex flex-1 items-center justify-center
-                text-sm text-slate-400">
+                text-sm text-[var(--c-muted)]">
                 Seleccioná una conversación o iniciá una nueva.
               </div>
             ) : (
@@ -379,7 +379,7 @@ export default function Mensajeria() {
                 <div className="flex-1 overflow-y-auto p-4 space-y-2
                   max-h-[500px]">
                   {mensajesLoading && (
-                    <p className="text-sm text-slate-400 animate-pulse">
+                    <p className="text-sm text-[var(--c-muted)] animate-pulse">
                       Cargando mensajes...
                     </p>
                   )}
@@ -410,7 +410,7 @@ export default function Mensajeria() {
                 </div>
 
                 {/* Input de respuesta */}
-                <div className="border-t border-slate-200 p-3 flex gap-2">
+                <div className="border-t border-[var(--c-border)] p-3 flex gap-2">
                   <input
                     type="text"
                     placeholder="Escribí un mensaje..."
@@ -422,7 +422,7 @@ export default function Mensajeria() {
                         void handleEnviar();
                       }
                     }}
-                    className="flex-1 rounded-xl border border-slate-200
+                    className="flex-1 rounded-xl border border-[var(--c-border)]
                       px-3 py-2 text-sm focus:outline-none
                       focus:ring-2 focus:ring-blue-300"
                   />
@@ -430,8 +430,8 @@ export default function Mensajeria() {
                     type="button"
                     onClick={handleEnviar}
                     disabled={enviando || !body.trim()}
-                    className="rounded-xl bg-blue-600 px-4 py-2 text-sm
-                      font-semibold text-white hover:bg-blue-700
+                    className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm
+                      font-semibold text-white hover:opacity-90
                       disabled:opacity-50 transition-colors"
                   >
                     {enviando ? "..." : "Enviar"}
@@ -449,45 +449,45 @@ export default function Mensajeria() {
 
           {/* Formulario para publicar aviso — solo roles autorizados */}
           {canPublish && (
-            <section className="rounded-2xl border border-slate-200
-              bg-white p-6 shadow-sm space-y-4">
-              <h2 className="text-lg font-semibold text-slate-900">
+            <section className="rounded-2xl border border-[var(--c-border)]
+              bg-[var(--c-surface)] p-6 shadow-sm space-y-4">
+              <h2 className="text-lg font-semibold text-[var(--c-text)]">
                 Publicar aviso
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <label className="flex flex-col gap-1 text-sm
-                  font-medium text-slate-700 sm:col-span-2">
+                  font-medium text-[var(--c-text)] sm:col-span-2">
                   Título
                   <input
                     type="text"
                     value={avisoTitulo}
                     onChange={(e) => setAvisoTitulo(e.target.value)}
                     placeholder="Ej: Reunión de padres el viernes"
-                    className="rounded-lg border border-slate-200 px-3 py-2
+                    className="rounded-lg border border-[var(--c-border)] px-3 py-2
                       text-sm focus:outline-none focus:ring-2
                       focus:ring-blue-300"
                   />
                 </label>
                 <label className="flex flex-col gap-1 text-sm
-                  font-medium text-slate-700 sm:col-span-2">
+                  font-medium text-[var(--c-text)] sm:col-span-2">
                   Mensaje
                   <textarea
                     rows={3}
                     value={avisoCuerpo}
                     onChange={(e) => setAvisoCuerpo(e.target.value)}
                     placeholder="Detalle del aviso..."
-                    className="rounded-lg border border-slate-200 px-3 py-2
+                    className="rounded-lg border border-[var(--c-border)] px-3 py-2
                       text-sm focus:outline-none focus:ring-2
                       focus:ring-blue-300"
                   />
                 </label>
                 <label className="flex flex-col gap-1 text-sm
-                  font-medium text-slate-700">
+                  font-medium text-[var(--c-text)]">
                   Destinatarios
                   <select
                     value={avisoDestino}
                     onChange={(e) => setAvisoDestino(e.target.value)}
-                    className="rounded-lg border border-slate-200 px-3 py-2
+                    className="rounded-lg border border-[var(--c-border)] px-3 py-2
                       text-sm"
                   >
                     {Object.entries(DESTINO_LABELS).map(([k, v]) => (
@@ -505,8 +505,8 @@ export default function Mensajeria() {
                     !avisoTitulo.trim() ||
                     !avisoCuerpo.trim()
                   }
-                  className="rounded-xl bg-blue-600 px-5 py-2.5 text-sm
-                    font-semibold text-white hover:bg-blue-700
+                  className="rounded-xl bg-[var(--c-primary)] px-5 py-2.5 text-sm
+                    font-semibold text-white hover:opacity-90
                     disabled:opacity-50 transition-colors"
                 >
                   {publicando ? "Publicando..." : "Publicar aviso"}
@@ -529,12 +529,12 @@ export default function Mensajeria() {
               <div className="space-y-2">
                 {Array.from({ length: 3 }).map((_, i) => (
                   <div key={i}
-                    className="h-20 animate-pulse rounded-2xl bg-slate-100"/>
+                    className="h-20 animate-pulse rounded-2xl bg-[var(--c-border)]"/>
                 ))}
               </div>
             )}
             {!avisosLoading && avisos.length === 0 && (
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-[var(--c-muted)]">
                 No hay avisos publicados.
               </p>
             )}
@@ -545,7 +545,7 @@ export default function Mensajeria() {
                 className={`rounded-2xl border p-5 shadow-sm cursor-pointer
                   transition-colors ${
                   aviso.leido
-                    ? "border-slate-200 bg-white"
+                    ? "border-[var(--c-border)] bg-[var(--c-surface)]"
                     : "border-blue-200 bg-blue-50"
                 }`}
               >
@@ -554,23 +554,23 @@ export default function Mensajeria() {
                     <div className="flex items-center gap-2">
                       {!aviso.leido && (
                         <span className="h-2 w-2 rounded-full
-                          bg-blue-600 shrink-0" />
+                          bg-[var(--c-primary)] shrink-0" />
                       )}
                       <h3 className="text-base font-semibold
-                        text-slate-900">
+                        text-[var(--c-text)]">
                         {aviso.titulo}
                       </h3>
                     </div>
-                    <p className="mt-1 text-sm text-slate-600">
+                    <p className="mt-1 text-sm text-[var(--c-muted)]">
                       {aviso.cuerpo}
                     </p>
                   </div>
                   <div className="text-right shrink-0 space-y-1">
-                    <span className="block rounded-full bg-slate-100
-                      px-2 py-0.5 text-xs font-medium text-slate-500">
+                    <span className="block rounded-full bg-[var(--c-bg)]
+                      px-2 py-0.5 text-xs font-medium text-[var(--c-muted)]">
                       {DESTINO_LABELS[aviso.destino] ?? aviso.destino}
                     </span>
-                    <span className="block text-xs text-slate-400">
+                    <span className="block text-xs text-[var(--c-muted)]">
                       {new Date(aviso.created_at).toLocaleDateString(
                         "es-AR", { day: "numeric", month: "short" }
                       )}

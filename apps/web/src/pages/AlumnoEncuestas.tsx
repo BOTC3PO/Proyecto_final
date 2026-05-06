@@ -150,13 +150,13 @@ export default function AlumnoEncuestas() {
     <main className="p-6 space-y-6">
       <header className="space-y-2">
         <h1 className="text-2xl font-semibold">Encuestas</h1>
-        <p className="text-gray-600">Vota en las encuestas activas de tu aula.</p>
+        <p className="text-[var(--c-muted)]">Vota en las encuestas activas de tu aula.</p>
       </header>
 
-      <section className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+      <section className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="grid gap-2">
-            <label className="text-sm font-medium text-gray-700" htmlFor="student-classroom">
+            <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="student-classroom">
               Aula
             </label>
             <select
@@ -177,20 +177,20 @@ export default function AlumnoEncuestas() {
           </div>
           <button
             type="button"
-            className="rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            className="rounded-md border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)]"
             onClick={() => refresh(classroomId)}
           >
             Actualizar
           </button>
         </div>
 
-        {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
+        {error && <p className="mt-4 text-sm text-[var(--c-danger)]">{error}</p>}
         {info && <p className="mt-4 text-sm text-green-600">{info}</p>}
 
         {isLoading ? (
-          <p className="mt-4 text-sm text-gray-500">Cargando encuestas...</p>
+          <p className="mt-4 text-sm text-[var(--c-muted)]">Cargando encuestas...</p>
         ) : surveys.length === 0 ? (
-          <p className="mt-4 text-sm text-gray-500">No hay encuestas activas para esta aula.</p>
+          <p className="mt-4 text-sm text-[var(--c-muted)]">No hay encuestas activas para esta aula.</p>
         ) : (
           <div className="mt-6 space-y-4">
             {surveys.map((survey) => {
@@ -199,11 +199,11 @@ export default function AlumnoEncuestas() {
                 isClosed || survey.showResultsBeforeClose || survey.showResultsRealtime;
               const surveyResults = results[survey.id];
               return (
-                <article key={survey.id} className="rounded-md border border-gray-200 p-4 space-y-3">
+                <article key={survey.id} className="rounded-md border border-[var(--c-border)] p-4 space-y-3">
                   <div>
-                    <h2 className="text-sm font-semibold text-gray-900">{survey.title}</h2>
-                    <p className="text-sm text-gray-600">{survey.description}</p>
-                    <p className="text-xs text-gray-500">
+                    <h2 className="text-sm font-semibold text-[var(--c-text)]">{survey.title}</h2>
+                    <p className="text-sm text-[var(--c-muted)]">{survey.description}</p>
+                    <p className="text-xs text-[var(--c-muted)]">
                       Disponible hasta {new Date(survey.endAt).toLocaleString()} · Estado: {survey.status}
                     </p>
                   </div>
@@ -212,7 +212,7 @@ export default function AlumnoEncuestas() {
                       {survey.type === "normal" && (
                         <>
                           {survey.options.map((option) => (
-                            <label key={option.id} className="flex items-center gap-2 text-sm text-gray-700">
+                            <label key={option.id} className="flex items-center gap-2 text-sm text-[var(--c-text)]">
                               <input
                                 type="radio"
                                 name={`survey-${survey.id}`}
@@ -229,12 +229,12 @@ export default function AlumnoEncuestas() {
                       )}
                       {survey.type === "puntuacion" && (
                         <div className="space-y-2">
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-[var(--c-muted)]">
                             Puntúa cada opción del 1 al 5 (5 es la mejor). Puedes dejar en blanco las que no quieras
                             calificar.
                           </p>
                           {survey.options.map((option) => (
-                            <div key={option.id} className="flex items-center justify-between gap-3 text-sm text-gray-700">
+                            <div key={option.id} className="flex items-center justify-between gap-3 text-sm text-[var(--c-text)]">
                               <span>{option.label}</span>
                               <select
                                 className="rounded-md border border-gray-300 px-2 py-1 text-sm"
@@ -263,14 +263,14 @@ export default function AlumnoEncuestas() {
                       )}
                       {survey.type === "segunda_vuelta" && (
                         <div className="space-y-2">
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-[var(--c-muted)]">
                             Ordena tus preferencias. Elige un orden único para cada opción.
                           </p>
                           {survey.options.map((option) => {
                             const maxRank = survey.options.length;
                             const currentRank = rankingSelections[survey.id]?.[option.id] ?? 0;
                             return (
-                              <div key={option.id} className="flex items-center justify-between gap-3 text-sm text-gray-700">
+                              <div key={option.id} className="flex items-center justify-between gap-3 text-sm text-[var(--c-text)]">
                                 <span>{option.label}</span>
                                 <select
                                   className="rounded-md border border-gray-300 px-2 py-1 text-sm"
@@ -297,7 +297,7 @@ export default function AlumnoEncuestas() {
                             );
                           })}
                           {survey.maxOptions && (
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-[var(--c-muted)]">
                               Máximo de preferencias permitidas: {survey.maxOptions}.
                             </p>
                           )}
@@ -323,15 +323,15 @@ export default function AlumnoEncuestas() {
                       </button>
                       {surveyResults && (
                         <div className="space-y-1">
-                          <p className="text-xs text-gray-500">Total votos: {surveyResults.totalVotes}</p>
+                          <p className="text-xs text-[var(--c-muted)]">Total votos: {surveyResults.totalVotes}</p>
                           {survey.type === "puntuacion" && (
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-[var(--c-muted)]">
                               Puntaje total acumulado:{" "}
                               {surveyResults.options.reduce((acc, option) => acc + (option.scoreTotal ?? 0), 0)}
                             </p>
                           )}
                           {surveyResults.options.map((option) => (
-                            <div key={option.id} className="flex items-center justify-between text-sm text-gray-700">
+                            <div key={option.id} className="flex items-center justify-between text-sm text-[var(--c-text)]">
                               <span>{option.label}</span>
                               <span>
                                 {survey.type === "puntuacion"
@@ -341,11 +341,11 @@ export default function AlumnoEncuestas() {
                             </div>
                           ))}
                           {survey.type === "segunda_vuelta" && surveyResults.rounds && surveyResults.rounds.length > 0 && (
-                            <div className="mt-2 space-y-2 text-xs text-gray-600">
-                              <p className="font-semibold text-gray-700">Rondas de segunda vuelta</p>
+                            <div className="mt-2 space-y-2 text-xs text-[var(--c-muted)]">
+                              <p className="font-semibold text-[var(--c-text)]">Rondas de segunda vuelta</p>
                               {surveyResults.rounds.map((round) => (
-                                <div key={`round-${survey.id}-${round.round}`} className="rounded-md bg-gray-50 p-3">
-                                  <p className="font-semibold text-gray-700">Ronda {round.round}</p>
+                                <div key={`round-${survey.id}-${round.round}`} className="rounded-md bg-[var(--c-bg)] p-3">
+                                  <p className="font-semibold text-[var(--c-text)]">Ronda {round.round}</p>
                                   <div className="mt-1 space-y-1">
                                     {round.counts.map((count) => (
                                       <div key={`${survey.id}-${round.round}-${count.id}`} className="flex justify-between">

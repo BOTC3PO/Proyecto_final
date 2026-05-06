@@ -273,9 +273,9 @@ export default function Perfil() {
     return (
       <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-10">
         <div className="space-y-4">
-          <div className="h-8 w-48 animate-pulse rounded-xl bg-slate-100" />
-          <div className="h-40 animate-pulse rounded-2xl bg-slate-100" />
-          <div className="h-32 animate-pulse rounded-2xl bg-slate-100" />
+          <div className="h-8 w-48 animate-pulse rounded-xl bg-[var(--c-border)]" />
+          <div className="h-40 animate-pulse rounded-2xl bg-[var(--c-border)]" />
+          <div className="h-32 animate-pulse rounded-2xl bg-[var(--c-border)]" />
         </div>
       </main>
     );
@@ -303,12 +303,12 @@ export default function Perfil() {
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-10">
       <header className="space-y-1">
-        <h1 className="text-3xl font-bold text-slate-900">Mi perfil</h1>
-        <p className="text-base text-slate-600">Información de tu cuenta y actividad en la plataforma.</p>
+        <h1 className="text-3xl font-bold text-[var(--c-text)]">Mi perfil</h1>
+        <p className="text-base text-[var(--c-muted)]">Información de tu cuenta y actividad en la plataforma.</p>
       </header>
 
       {/* Tarjeta de identidad */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <section className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
         <div className="flex flex-wrap items-center gap-5">
           {/* Avatar */}
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-xl font-bold text-blue-700">
@@ -316,7 +316,7 @@ export default function Perfil() {
           </div>
           <div className="flex-1">
             <div className="flex flex-wrap items-center gap-2">
-              <h2 className="text-xl font-semibold text-slate-900">{perfil.fullName}</h2>
+              <h2 className="text-xl font-semibold text-[var(--c-text)]">{perfil.fullName}</h2>
               <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${ROLE_COLORS[perfil.role] ?? "bg-slate-100 text-slate-700"}`}>
                 {ROLE_LABELS[perfil.role] ?? perfil.role}
               </span>
@@ -326,18 +326,18 @@ export default function Perfil() {
                 </span>
               )}
             </div>
-            <p className="mt-0.5 text-sm text-slate-500">@{perfil.username}</p>
+            <p className="mt-0.5 text-sm text-[var(--c-muted)]">@{perfil.username}</p>
           </div>
         </div>
 
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div>
-            <p className="text-xs text-slate-400">Correo electrónico</p>
-            <p className="text-sm font-medium text-slate-700">{perfil.email || "—"}</p>
+            <p className="text-xs text-[var(--c-muted)]">Correo electrónico</p>
+            <p className="text-sm font-medium text-[var(--c-text)]">{perfil.email || "—"}</p>
           </div>
           <div>
-            <p className="text-xs text-slate-400">Miembro desde</p>
-            <p className="text-sm font-medium text-slate-700">
+            <p className="text-xs text-[var(--c-muted)]">Miembro desde</p>
+            <p className="text-sm font-medium text-[var(--c-text)]">
               {perfil.createdAt
                 ? new Date(perfil.createdAt).toLocaleDateString("es", { year: "numeric", month: "long", day: "numeric" })
                 : "—"}
@@ -345,8 +345,8 @@ export default function Perfil() {
           </div>
           {perfil.escuelaId && (
             <div>
-              <p className="text-xs text-slate-400">Escuela</p>
-              <p className="text-sm font-medium text-slate-700">{perfil.escuelaId}</p>
+              <p className="text-xs text-[var(--c-muted)]">Escuela</p>
+              <p className="text-sm font-medium text-[var(--c-text)]">{perfil.escuelaId}</p>
             </div>
           )}
           {perfil.warningCount > 0 && (
@@ -361,8 +361,8 @@ export default function Perfil() {
       </section>
 
       {/* Actividad en módulos */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-lg font-semibold text-slate-900">Módulos completados</h2>
+      <section className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
+        <h2 className="text-lg font-semibold text-[var(--c-text)]">Módulos completados</h2>
         <div className="mt-4 grid grid-cols-3 gap-4">
           <div className="rounded-xl bg-violet-50 p-4 text-center">
             <p className="text-2xl font-bold text-violet-700">{perfil.modulosCompletados.publicos}</p>
@@ -378,9 +378,9 @@ export default function Perfil() {
           </div>
         </div>
         {perfil.modulosCompletados.total === 0 && (
-          <p className="mt-3 text-sm text-slate-400">
+          <p className="mt-3 text-sm text-[var(--c-muted)]">
             Aún no has completado ningún módulo. ¡Explora los{" "}
-            <a href="/modulos" className="text-blue-600 underline">módulos disponibles</a>!
+            <a href="/modulos" className="text-[var(--c-primary)] underline">módulos disponibles</a>!
           </p>
         )}
       </section>
@@ -388,12 +388,12 @@ export default function Perfil() {
       {/* Fortalezas por materia (solo para USER) */}
       {perfil.role === "USER" && progresoStatus === "ready" &&
         fortalezas.length > 0 && (
-        <section className="rounded-2xl border border-slate-200
-          bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-slate-900">
+        <section className="rounded-2xl border border-[var(--c-border)]
+          bg-[var(--c-surface)] p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-[var(--c-text)]">
             En qué sos bueno
           </h2>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-[var(--c-muted)]">
             Materias donde más avanzaste.
           </p>
           <div className="mt-4 space-y-3">
@@ -401,15 +401,15 @@ export default function Perfil() {
               <div key={f.materia}>
                 <div className="flex items-center justify-between
                   text-sm mb-1">
-                  <span className="font-medium text-slate-700">
+                  <span className="font-medium text-[var(--c-text)]">
                     {f.materia}
                   </span>
-                  <span className="text-slate-400 text-xs">
+                  <span className="text-[var(--c-muted)] text-xs">
                     {f.completados}/{f.total} módulos ·{" "}
                     {f.porcentaje}%
                   </span>
                 </div>
-                <div className="h-2 w-full rounded-full bg-slate-100">
+                <div className="h-2 w-full rounded-full bg-[var(--c-border)]">
                   <div
                     className={`h-2 rounded-full transition-all ${
                       f.porcentaje === 100
@@ -431,16 +431,16 @@ export default function Perfil() {
 
       {/* Logros (solo para USER) */}
       {perfil.role === "USER" && progresoStatus === "ready" && (
-        <section className="rounded-2xl border border-slate-200
-          bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-slate-900">
+        <section className="rounded-2xl border border-[var(--c-border)]
+          bg-[var(--c-surface)] p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-[var(--c-text)]">
             Logros
           </h2>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-[var(--c-muted)]">
             Hitos alcanzados en tu recorrido.
           </p>
           {logros.length === 0 ? (
-            <p className="mt-3 text-sm text-slate-400">
+            <p className="mt-3 text-sm text-[var(--c-muted)]">
               Completá módulos para desbloquear logros.
             </p>
           ) : (
@@ -452,15 +452,15 @@ export default function Perfil() {
                     border p-3 ${
                     logro.obtenido
                       ? "border-emerald-200 bg-emerald-50"
-                      : "border-slate-100 bg-slate-50 opacity-40"
+                      : "border-[var(--c-border)] bg-[var(--c-bg)] opacity-40"
                   }`}
                 >
                   <span className="text-2xl">{logro.icono}</span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-800">
+                    <p className="text-sm font-semibold text-[var(--c-text)]">
                       {logro.label}
                     </p>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-[var(--c-muted)]">
                       {logro.descripcion}
                     </p>
                   </div>
@@ -479,24 +479,24 @@ export default function Perfil() {
 
       {/* Hijos vinculados (solo para PARENT) */}
       {perfil.role === "PARENT" && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-slate-900">Hijos vinculados</h2>
+        <section className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-[var(--c-text)]">Hijos vinculados</h2>
           {perfil.hijos.length === 0 ? (
-            <p className="mt-3 text-sm text-slate-500">
+            <p className="mt-3 text-sm text-[var(--c-muted)]">
               No tienes hijos vinculados.{" "}
-              <a href="/hijos/agregar" className="text-blue-600 underline">Agregar un hijo</a>
+              <a href="/hijos/agregar" className="text-[var(--c-primary)] underline">Agregar un hijo</a>
             </p>
           ) : (
             <div className="mt-4 space-y-2">
               {perfil.hijos.map((h) => (
-                <div key={h.id} className="flex items-center justify-between rounded-xl border border-slate-100 px-4 py-3">
+                <div key={h.id} className="flex items-center justify-between rounded-xl border border-[var(--c-border)] px-4 py-3">
                   <div>
-                    <p className="text-sm font-semibold text-slate-900">{h.nombre}</p>
-                    <p className="text-xs text-slate-400">@{h.usuario}</p>
+                    <p className="text-sm font-semibold text-[var(--c-text)]">{h.nombre}</p>
+                    <p className="text-xs text-[var(--c-muted)]">@{h.usuario}</p>
                   </div>
                   <a
                     href="/hijos"
-                    className="rounded-lg border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-600 hover:bg-slate-50 transition-colors"
+                    className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
                   >
                     Ver progreso
                   </a>
@@ -508,13 +508,13 @@ export default function Perfil() {
       )}
 
       {/* Panel de suscripción */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
-        <h2 className="text-lg font-semibold text-slate-900">
+      <section className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm space-y-4">
+        <h2 className="text-lg font-semibold text-[var(--c-text)]">
           Suscripción
         </h2>
 
         {suscLoading && (
-          <p className="text-sm text-slate-400 animate-pulse">
+          <p className="text-sm text-[var(--c-muted)] animate-pulse">
             Cargando suscripción...
           </p>
         )}
@@ -524,11 +524,11 @@ export default function Perfil() {
             {/* Estado actual */}
             <div className="grid gap-3 sm:grid-cols-2">
               {suscripcion.personal && (
-                <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase text-slate-400">
+                <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
+                  <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">
                     Suscripción personal
                   </p>
-                  <p className="mt-1 text-sm font-medium text-slate-800 capitalize">
+                  <p className="mt-1 text-sm font-medium text-[var(--c-text)] capitalize">
                     {suscripcion.personal.plan} —{" "}
                     <span className={`font-semibold ${
                       suscripcion.personal.estado === "activa"
@@ -538,7 +538,7 @@ export default function Perfil() {
                       {suscripcion.personal.estado}
                     </span>
                   </p>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-[var(--c-muted)] mt-1">
                     Vence:{" "}
                     {new Date(suscripcion.personal.periodo_fin)
                       .toLocaleDateString("es-AR")}
@@ -569,11 +569,11 @@ export default function Perfil() {
               )}
 
               {suscripcion.escuela && (
-                <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase text-slate-400">
+                <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
+                  <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">
                     Suscripción escuela
                   </p>
-                  <p className="mt-1 text-sm font-medium text-slate-800 capitalize">
+                  <p className="mt-1 text-sm font-medium text-[var(--c-text)] capitalize">
                     {suscripcion.escuela.plan} —{" "}
                     <span className={`font-semibold ${
                       suscripcion.escuela.estado === "activa"
@@ -582,7 +582,7 @@ export default function Perfil() {
                       {suscripcion.escuela.estado}
                     </span>
                   </p>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-[var(--c-muted)] mt-1">
                     Vence:{" "}
                     {new Date(suscripcion.escuela.periodo_fin)
                       .toLocaleDateString("es-AR")}
@@ -604,11 +604,11 @@ export default function Perfil() {
 
             {/* Límites de escuela */}
             {limites && (
-              <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
-                <p className="text-xs font-semibold uppercase text-slate-400 mb-2">
+              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
+                <p className="text-xs font-semibold uppercase text-[var(--c-muted)] mb-2">
                   Límites actuales
                 </p>
-                <div className="grid grid-cols-2 gap-2 text-xs text-slate-600">
+                <div className="grid grid-cols-2 gap-2 text-xs text-[var(--c-muted)]">
                   <span>Profesores: hasta {limites.max_profesores}</span>
                   <span>Directivos: hasta {limites.max_directivos}</span>
                   <span>Aulas activas: hasta {limites.max_aulas}</span>
@@ -620,7 +620,7 @@ export default function Perfil() {
             {/* Formulario para suscribirse */}
             {!suscripcion.personal && suscripcion.paymentsEnabled && (
               <div className="space-y-3">
-                <p className="text-sm font-medium text-slate-700">
+                <p className="text-sm font-medium text-[var(--c-text)]">
                   Activar suscripción
                 </p>
                 <input
@@ -628,7 +628,7 @@ export default function Perfil() {
                   placeholder="Tu email de MercadoPago"
                   value={payerEmail}
                   onChange={(e) => setPayerEmail(e.target.value)}
-                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  className="w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
                 />
                 <div className="flex flex-wrap gap-2">
                   {perfil.role === "USER" && (
@@ -636,7 +636,7 @@ export default function Perfil() {
                       type="button"
                       disabled={suscAccion === "loading"}
                       onClick={() => handleSuscribir("alumno")}
-                      className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+                      className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
                     >
                       Alumno — $1.000/mes
                     </button>
@@ -646,7 +646,7 @@ export default function Perfil() {
                       type="button"
                       disabled={suscAccion === "loading"}
                       onClick={() => handleSuscribir("profesor")}
-                      className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+                      className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
                     >
                       Expandir aulas — $150/mes
                     </button>
@@ -656,7 +656,7 @@ export default function Perfil() {
                       type="button"
                       disabled={suscAccion === "loading"}
                       onClick={() => handleSuscribir("escuela")}
-                      className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+                      className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
                     >
                       Escuela — desde $300/mes
                     </button>
@@ -666,7 +666,7 @@ export default function Perfil() {
             )}
 
             {!suscripcion.paymentsEnabled && (
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-[var(--c-muted)]">
                 Los pagos están deshabilitados en este sistema.
                 Contactá al administrador para gestionar tu suscripción.
               </p>
@@ -683,12 +683,12 @@ export default function Perfil() {
             {/* Historial de pagos */}
             {historial.length > 0 && (
               <div className="space-y-2">
-                <p className="text-xs font-semibold uppercase text-slate-400">
+                <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">
                   Historial de pagos
                 </p>
                 {historial.slice(0, 5).map((pago) => (
                   <div key={pago.id}
-                    className="flex items-center justify-between rounded-lg border border-slate-100 px-3 py-2 text-xs text-slate-600">
+                    className="flex items-center justify-between rounded-lg border border-[var(--c-border)] px-3 py-2 text-xs text-[var(--c-muted)]">
                     <span>
                       {new Date(pago.created_at).toLocaleDateString("es-AR")}
                     </span>

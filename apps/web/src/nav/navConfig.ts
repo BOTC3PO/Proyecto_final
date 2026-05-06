@@ -4,6 +4,11 @@ type NavItem = { label: string; to: string; exact?: boolean };
 type NavMap = Record<Role, NavItem[]>;
 export const ROLE_HOME_PATH = '/';
 
+export type DropdownItem =
+  | { kind: 'link'; label: string; to: string; icon: string }
+  | { kind: 'divider' }
+  | { kind: 'logout' };
+
 // Base de "Usuario/Alumno"
 const userBase: NavItem[] = [
   { label: 'Inicio', to: '/alumno', exact: true },
@@ -13,7 +18,6 @@ const userBase: NavItem[] = [
   { label: 'Progreso', to: '/progreso' },
   { label: 'Calendario', to: '/profesor/calendario' },
   { label: 'Mensajes', to: '/mensajes' },
-  { label: 'Mi Perfil', to: '/perfil' },
 ];
 
 
@@ -25,13 +29,11 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Módulos', to: '/modulos' },
     { label: 'Moderación', to: '/admin/moderacion' },
     { label: 'Reportes', to: '/admin/reportes' },
-    { label: 'Mi Perfil', to: '/perfil' },
   ],
   USER: userBase,
   PARENT: [
     { label: 'Mis hijos', to: '/hijos' },
     { label: 'Agregar hijo', to: '/hijos/agregar' },
-    { label: 'Mi Perfil', to: '/perfil' },
   ],
   TEACHER: [
     { label: 'Panel', to: '/profesor', exact: true },
@@ -41,7 +43,6 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Evaluaciones', to: '/profesor/evaluaciones' },
     { label: 'Calendario', to: '/profesor/calendario' },
     { label: 'Mensajes', to: '/mensajes' },
-    { label: 'Mi Perfil', to: '/perfil' },
   ],
   DIRECTIVO: [
     { label: 'Panel escuela', to: '/enterprise' },
@@ -52,7 +53,6 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Calendario', to: '/enterprise/calendario' },
     { label: 'Gobernanza', to: '/gobernanza' },
     { label: 'Mensajes', to: '/mensajes' },
-    { label: 'Mi Perfil', to: '/perfil' },
   ],
   GUEST: [
     { label: 'Inicio', to: ROLE_HOME_PATH },
@@ -61,4 +61,35 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Iniciar sesión', to: '/login' },
     { label: 'Registrarse', to: '/register' },
   ],
+};
+
+export const DROPDOWN_BY_ROLE: Record<Role, DropdownItem[]> = {
+  USER: [
+    { kind: 'link', label: 'Mi perfil',      to: '/perfil',       icon: 'user'    },
+    { kind: 'link', label: 'Economía',        to: '/economia',     icon: 'coin'    },
+    { kind: 'link', label: 'Tienda de temas', to: '/tienda-temas', icon: 'palette' },
+    { kind: 'divider' },
+    { kind: 'logout' },
+  ],
+  TEACHER: [
+    { kind: 'link', label: 'Mi perfil', to: '/perfil', icon: 'user' },
+    { kind: 'divider' },
+    { kind: 'logout' },
+  ],
+  DIRECTIVO: [
+    { kind: 'link', label: 'Mi perfil', to: '/perfil', icon: 'user' },
+    { kind: 'divider' },
+    { kind: 'logout' },
+  ],
+  ADMIN: [
+    { kind: 'link', label: 'Mi perfil', to: '/perfil', icon: 'user' },
+    { kind: 'divider' },
+    { kind: 'logout' },
+  ],
+  PARENT: [
+    { kind: 'link', label: 'Mi perfil', to: '/perfil', icon: 'user' },
+    { kind: 'divider' },
+    { kind: 'logout' },
+  ],
+  GUEST: [],
 };
