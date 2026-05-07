@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { createBrowserRouter, Navigate, useParams } from "react-router-dom";
 import { ProtectedRoute } from "./routing/ProtectedRoute";
 import RootLayout from "./layouts/RootLayout";
+import GuestLayout from "./layouts/GuestLayout";
 import AlumnoLayout from "./layouts/AlumnoLayout";
 import StaffLayout from "./layouts/StaffLayout";
 import { lazyWithRetry } from "./lib/lazyWithRetry";
@@ -127,44 +128,51 @@ export const router = createBrowserRouter([
     path: "/",
     element: <RootLayout />,
     children: [
-      // Rutas públicas (GUEST)
-      { index: true, element: withSuspense(<HomePage />) },
+      // ── Rutas públicas (GUEST) ─────────────────────────────────────────────
+      {
+        element: <GuestLayout />,
+        children: [
+          { index: true, element: withSuspense(<HomePage />) },
 
-      { path: "explorar",   element: withSuspense(<Explorar />) },
-      { path: "precios",    element: withSuspense(<Pricing />) },
-      { path: "pricing",    element: <Navigate to="/precios" replace /> },
-      { path: "login",      element: <Login /> },
-      { path: "register",   element: <Register /> },
-      { path: "recuperar",  element: <RecuperarContrasena /> },
+          { path: "explorar",   element: withSuspense(<Explorar />) },
+          { path: "precios",    element: withSuspense(<Pricing />) },
+          { path: "pricing",    element: <Navigate to="/precios" replace /> },
+          { path: "login",      element: <Login /> },
+          { path: "register",   element: <Register /> },
+          { path: "recuperar",  element: <RecuperarContrasena /> },
 
-      { path: "landing",          element: <Landing /> },
-      { path: "contact",          element: withSuspense(<Contact />) },
-      { path: "terminos",         element: withSuspense(<Terminos />) },
-      { path: "privacidad",       element: withSuspense(<Privacidad />) },
-      { path: "metodologia",      element: withSuspense(<Metodologia />) },
-      { path: "laboratorio-web3", element: withSuspense(<LaboratorioWeb3 />) },
-      { path: "editor",           element: withSuspense(<BookEditorPage />) },
-      { path: "editor/:id",       element: withSuspense(<BookEditorPage />) },
-      { path: "bloques/editor",      element: withSuspense(<BlockEditorPage />) },
-      { path: "bloques/editor/:id",  element: withSuspense(<BlockEditorPage />) },
-      { path: "onboarding-guest",    element: withSuspense(<GuestOnboarding />) },
-      { path: "u/:username",         element: withSuspense(<PerfilPublico />) },
+          { path: "landing",          element: <Landing /> },
+          { path: "contact",          element: withSuspense(<Contact />) },
+          { path: "terminos",         element: withSuspense(<Terminos />) },
+          { path: "privacidad",       element: withSuspense(<Privacidad />) },
+          { path: "metodologia",      element: withSuspense(<Metodologia />) },
+          { path: "laboratorio-web3", element: withSuspense(<LaboratorioWeb3 />) },
+          { path: "editor",           element: withSuspense(<BookEditorPage />) },
+          { path: "editor/:id",       element: withSuspense(<BookEditorPage />) },
+          { path: "bloques/editor",      element: withSuspense(<BlockEditorPage />) },
+          { path: "bloques/editor/:id",  element: withSuspense(<BlockEditorPage />) },
+          { path: "onboarding-guest",    element: withSuspense(<GuestOnboarding />) },
+          { path: "u/:username",         element: withSuspense(<PerfilPublico />) },
 
-      // Herramientas Educativas (public)
-      { path: "herramientas",                    element: <HerramientasEducativas /> },
-      { path: "herramientas/estadistica",        element: <HerramientasEstadistica /> },
-      { path: "herramientas/ciencias-sociales",  element: <HerramientasCienciasSociales /> },
-      { path: "herramientas/filosofia",          element: <HerramientasFilosofia /> },
-      { path: "herramientas/arte",               element: <HerramientasArte /> },
-      { path: "herramientas/biologia",           element: <HerramientasBiologia /> },
-      { path: "herramientas/musica",             element: <HerramientasMusica /> },
-      { path: "herramientas/politica",           element: <HerramientasPolitica /> },
-      { path: "herramientas/civica",             element: <HerramientasCivica /> },
-      { path: "herramientas/ambiental",          element: <HerramientasAmbiental /> },
-      { path: "herramientas/informatica",        element: <HerramientasInformatica /> },
-      { path: "herramientas/naturales",          element: <HerramientasNaturales /> },
-      { path: "herramientas/cocina",             element: <HerramientasCocina /> },
-      { path: "herramientas/vida-practica",      element: <HerramientasVidaPractica /> },
+          // Herramientas Educativas (public)
+          { path: "herramientas",                    element: <HerramientasEducativas /> },
+          { path: "herramientas/estadistica",        element: <HerramientasEstadistica /> },
+          { path: "herramientas/ciencias-sociales",  element: <HerramientasCienciasSociales /> },
+          { path: "herramientas/filosofia",          element: <HerramientasFilosofia /> },
+          { path: "herramientas/arte",               element: <HerramientasArte /> },
+          { path: "herramientas/biologia",           element: <HerramientasBiologia /> },
+          { path: "herramientas/musica",             element: <HerramientasMusica /> },
+          { path: "herramientas/politica",           element: <HerramientasPolitica /> },
+          { path: "herramientas/civica",             element: <HerramientasCivica /> },
+          { path: "herramientas/ambiental",          element: <HerramientasAmbiental /> },
+          { path: "herramientas/informatica",        element: <HerramientasInformatica /> },
+          { path: "herramientas/naturales",          element: <HerramientasNaturales /> },
+          { path: "herramientas/cocina",             element: <HerramientasCocina /> },
+          { path: "herramientas/vida-practica",      element: <HerramientasVidaPractica /> },
+
+          { path: "404", element: <NotFound /> },
+        ],
+      },
 
       // ── Layout Alumno (USER) ───────────────────────────────────────────────
       {
@@ -614,8 +622,6 @@ export const router = createBrowserRouter([
         ),
       },
 
-      // 404
-      { path: "404", element: <NotFound /> },
     ],
   },
   // Captura todas las rutas no encontradas
