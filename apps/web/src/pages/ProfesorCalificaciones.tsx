@@ -68,89 +68,91 @@ export default function ProfesorCalificaciones() {
   );
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">Calificaciones</h1>
-        <p className="text-base text-slate-600">
-          Resultados de evaluaciones formales por aula.
-        </p>
-      </header>
-
-      {aulas.length > 1 && (
-        <div className="flex items-center gap-3">
-          <label className="text-sm font-medium text-slate-700">Aula:</label>
-          <select
-            value={aulaId}
-            onChange={(e) => setAulaId(e.target.value)}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
-          >
-            {aulas.map((a) => (
-              <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
-            ))}
-          </select>
-        </div>
-      )}
-
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-lg font-semibold text-slate-900">
-          Evaluaciones formales
-        </h2>
-        {loading && (
-          <p className="mt-4 text-sm text-slate-400 animate-pulse">
-            Cargando calificaciones...
+    <div className="min-h-screen bg-[var(--c-bg)]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+        <header className="space-y-2">
+          <h1 className="text-3xl font-bold text-[var(--c-text)]">Calificaciones</h1>
+          <p className="text-base text-[var(--c-muted)]">
+            Resultados de evaluaciones formales por aula.
           </p>
+        </header>
+
+        {aulas.length > 1 && (
+          <div className="flex items-center gap-3">
+            <label className="text-sm font-medium text-[var(--c-text)]">Aula:</label>
+            <select
+              value={aulaId}
+              onChange={(e) => setAulaId(e.target.value)}
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+            >
+              {aulas.map((a) => (
+                <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
+              ))}
+            </select>
+          </div>
         )}
-        {error && <p className="mt-4 text-sm text-red-500">Error: {error}</p>}
-        {!loading && !error && Object.keys(byQuiz).length === 0 && (
-          <p className="mt-4 text-sm text-slate-500">
-            No hay evaluaciones formales completadas en este aula.
-          </p>
-        )}
-        {!loading && !error && Object.entries(byQuiz).map(([quizId, lista]) => {
-          const titulo = lista[0]?.quizTitle ?? quizId;
-          const completados = lista.filter((a) => a.status === "completed" || a.status === "submitted");
-          const promedio = completados.length > 0
-            ? Math.round(completados.reduce((acc, a) => acc + (a.score ?? 0), 0) / completados.length)
-            : null;
-          return (
-            <div key={quizId}
-              className="mt-4 rounded-xl border border-slate-100 p-4">
-              <div className="flex items-center justify-between gap-3">
-                <h3 className="text-sm font-semibold text-slate-800">
-                  {titulo}
-                </h3>
-                <div className="flex items-center gap-2 text-xs text-slate-500">
-                  <span>{completados.length} entrega(s)</span>
-                  {promedio !== null && (
-                    <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-700">
-                      Promedio: {promedio}
-                    </span>
-                  )}
+
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-[var(--c-text)]">
+            Evaluaciones formales
+          </h2>
+          {loading && (
+            <p className="mt-4 text-sm text-[var(--c-muted)] animate-pulse">
+              Cargando calificaciones...
+            </p>
+          )}
+          {error && <p className="mt-4 text-sm text-[var(--c-danger)]">Error: {error}</p>}
+          {!loading && !error && Object.keys(byQuiz).length === 0 && (
+            <p className="mt-4 text-sm text-[var(--c-muted)]">
+              No hay evaluaciones formales completadas en este aula.
+            </p>
+          )}
+          {!loading && !error && Object.entries(byQuiz).map(([quizId, lista]) => {
+            const titulo = lista[0]?.quizTitle ?? quizId;
+            const completados = lista.filter((a) => a.status === "completed" || a.status === "submitted");
+            const promedio = completados.length > 0
+              ? Math.round(completados.reduce((acc, a) => acc + (a.score ?? 0), 0) / completados.length)
+              : null;
+            return (
+              <div key={quizId}
+                className="mt-4 rounded-xl border border-[var(--c-border)] p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-sm font-semibold text-[var(--c-text)]">
+                    {titulo}
+                  </h3>
+                  <div className="flex items-center gap-2 text-xs text-[var(--c-muted)]">
+                    <span>{completados.length} entrega(s)</span>
+                    {promedio !== null && (
+                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-700">
+                        Promedio: {promedio}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="mt-3 space-y-1.5">
+                  {lista.slice(0, 10).map((a) => (
+                    <div key={a.id}
+                      className="flex items-center justify-between rounded-lg bg-[var(--c-bg)] px-3 py-2 text-xs">
+                      <span className="text-[var(--c-muted)]">
+                        {a.completedAt ?? a.createdAt
+                          ? new Date(a.completedAt ?? a.createdAt ?? "").toLocaleDateString("es-AR")
+                          : "—"}
+                      </span>
+                      <span className={`font-semibold ${
+                        a.score != null ? "text-[var(--c-text)]" : "text-[var(--c-muted)]"
+                      }`}>
+                        {a.score != null
+                          ? `${a.score}${a.maxScore ? `/${a.maxScore}` : ""}`
+                          : "Sin puntaje"}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="mt-3 space-y-1.5">
-                {lista.slice(0, 10).map((a) => (
-                  <div key={a.id}
-                    className="flex items-center justify-between rounded-lg bg-slate-50 px-3 py-2 text-xs">
-                    <span className="text-slate-600">
-                      {a.completedAt ?? a.createdAt
-                        ? new Date(a.completedAt ?? a.createdAt ?? "").toLocaleDateString("es-AR")
-                        : "—"}
-                    </span>
-                    <span className={`font-semibold ${
-                      a.score != null ? "text-slate-800" : "text-slate-400"
-                    }`}>
-                      {a.score != null
-                        ? `${a.score}${a.maxScore ? `/${a.maxScore}` : ""}`
-                        : "Sin puntaje"}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          );
-        })}
-      </section>
-    </main>
+            );
+          })}
+        </section>
+      </div>
+    </div>
   );
 }

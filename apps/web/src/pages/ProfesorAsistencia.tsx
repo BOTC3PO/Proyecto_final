@@ -58,82 +58,83 @@ export default function ProfesorAsistencia() {
   }, [aulaId]);
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">Asistencia</h1>
-        <p className="text-base text-slate-600">
-          Clases registradas por aula. La lista de presentes
-          está disponible en la app mobile.
-        </p>
-      </header>
+    <div className="min-h-screen bg-[var(--c-bg)]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+        <header className="space-y-2">
+          <h1 className="text-3xl font-bold text-[var(--c-text)]">Asistencia</h1>
+          <p className="text-base text-[var(--c-muted)]">
+            Clases registradas por aula. La lista de presentes
+            está disponible en la app mobile.
+          </p>
+        </header>
 
-      {/* Selector de aula */}
-      {aulas.length > 1 && (
-        <div className="flex items-center gap-3">
-          <label className="text-sm font-medium text-slate-700">
-            Aula:
-          </label>
-          <select
-            value={aulaId}
-            onChange={(e) => setAulaId(e.target.value)}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
-          >
-            {aulas.map((a) => (
-              <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
-            ))}
-          </select>
-        </div>
-      )}
+        {aulas.length > 1 && (
+          <div className="flex items-center gap-3">
+            <label className="text-sm font-medium text-[var(--c-text)]">
+              Aula:
+            </label>
+            <select
+              value={aulaId}
+              onChange={(e) => setAulaId(e.target.value)}
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+            >
+              {aulas.map((a) => (
+                <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
+              ))}
+            </select>
+          </div>
+        )}
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-lg font-semibold text-slate-900">
-          Clases registradas
-        </h2>
-        <div className="mt-4 space-y-3">
-          {loading && (
-            <p className="text-sm text-slate-400 animate-pulse">
-              Cargando clases...
-            </p>
-          )}
-          {error && <p className="text-sm text-red-500">Error: {error}</p>}
-          {!loading && !error && actividades.length === 0 && (
-            <div className="rounded-xl border-2 border-dashed border-slate-200 py-8 text-center">
-              <p className="text-sm text-slate-500">
-                No hay clases registradas para este aula.
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-[var(--c-text)]">
+            Clases registradas
+          </h2>
+          <div className="mt-4 space-y-3">
+            {loading && (
+              <p className="text-sm text-[var(--c-muted)] animate-pulse">
+                Cargando clases...
               </p>
-              <Link
-                to="/profesor/calendario"
-                className="mt-2 inline-block text-sm font-semibold text-blue-600 hover:underline"
-              >
-                Agregar actividades →
-              </Link>
-            </div>
-          )}
-          {!loading && !error && actividades.map((act) => (
-            <div key={act.id}
-              className="flex items-center justify-between gap-3 rounded-xl border border-slate-100 px-4 py-3">
-              <div>
-                <p className="text-sm font-semibold text-slate-800">
-                  {act.titulo}
+            )}
+            {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
+            {!loading && !error && actividades.length === 0 && (
+              <div className="rounded-xl border-2 border-dashed border-[var(--c-border)] py-8 text-center">
+                <p className="text-sm text-[var(--c-muted)]">
+                  No hay clases registradas para este aula.
                 </p>
-                {act.descripcion && (
-                  <p className="text-xs text-slate-500">{act.descripcion}</p>
-                )}
+                <Link
+                  to="/profesor/calendario"
+                  className="mt-2 inline-block text-sm font-semibold text-[var(--c-primary)] hover:underline"
+                >
+                  Agregar actividades →
+                </Link>
               </div>
-              <span className="shrink-0 text-xs text-slate-400">
-                {act.when}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
+            )}
+            {!loading && !error && actividades.map((act) => (
+              <div key={act.id}
+                className="flex items-center justify-between gap-3 rounded-xl border border-[var(--c-border)] px-4 py-3">
+                <div>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">
+                    {act.titulo}
+                  </p>
+                  {act.descripcion && (
+                    <p className="text-xs text-[var(--c-muted)]">{act.descripcion}</p>
+                  )}
+                </div>
+                <span className="shrink-0 text-xs text-[var(--c-muted)]">
+                  {act.when}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3">
-        <p className="text-sm text-blue-700">
-          📱 La lista de presentes con control por alumno estará
-          disponible en la app mobile.
-        </p>
+        <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3">
+          <p className="text-sm text-blue-700">
+            📱 La lista de presentes con control por alumno estará
+            disponible en la app mobile.
+          </p>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -214,364 +214,356 @@ export default function ProfesorCalendario() {
     ? eventosPorDia(diaSeleccionado) : [];
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10">
-      <header className="space-y-1">
-        <h1 className="text-3xl font-bold text-slate-900">
-          Calendario
-        </h1>
-        <p className="text-slate-500">
-          Vista unificada de tu escuela y tus aulas.
-        </p>
-      </header>
+    <div className="min-h-screen bg-[var(--c-bg)]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+        <header className="space-y-1">
+          <h1 className="text-3xl font-bold text-[var(--c-text)]">
+            Calendario
+          </h1>
+          <p className="text-[var(--c-muted)]">
+            Vista unificada de tu escuela y tus aulas.
+          </p>
+        </header>
 
-      {/* Controles de navegación */}
-      <div className="flex flex-wrap items-center gap-4">
-        <div className="flex items-center gap-2">
-          <button type="button" onClick={prevMes}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm hover:bg-slate-50">
-            ←
-          </button>
-          <span className="w-44 text-center text-base font-semibold text-slate-800">
-            {MESES[month - 1]} {year}
-          </span>
-          <button type="button" onClick={nextMes}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm hover:bg-slate-50">
-            →
-          </button>
-        </div>
-        <button type="button"
-          onClick={() => {
-            setYear(hoy.getFullYear());
-            setMonth(hoy.getMonth() + 1);
-          }}
-          className="rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-500 hover:bg-slate-50">
-          Hoy
-        </button>
-
-        {/* Filtros */}
-        <div className="flex gap-2 ml-auto">
-          <button type="button"
-            onClick={() => setMostrarEscuela((v) => !v)}
-            className={`rounded-full px-3 py-1 text-xs font-medium border transition-colors ${
-              mostrarEscuela
-                ? "bg-teal-50 text-teal-700 border-teal-300"
-                : "bg-slate-50 text-slate-400 border-slate-200"
-            }`}>
-            🏫 Escuela
-          </button>
-          <button type="button"
-            onClick={() => setMostrarAulas((v) => !v)}
-            className={`rounded-full px-3 py-1 text-xs font-medium border transition-colors ${
-              mostrarAulas
-                ? "bg-blue-50 text-blue-700 border-blue-300"
-                : "bg-slate-50 text-slate-400 border-slate-200"
-            }`}>
-            📚 Aulas
-          </button>
-        </div>
-      </div>
-
-      {/* Leyenda */}
-      <div className="flex flex-wrap gap-2">
-        {Object.entries(TIPO_CONFIG).map(([tipo, cfg]) => (
-          <span key={tipo}
-            className={`rounded-full border px-2 py-0.5 text-xs font-medium ${cfg.bg} ${cfg.color} ${cfg.border}`}>
-            {cfg.label}
-          </span>
-        ))}
-      </div>
-
-      <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
-        {/* Grilla calendario */}
-        <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-          {/* Cabecera */}
-          <div className="grid grid-cols-7 border-b border-slate-200 bg-slate-50">
-            {DIAS.map((d) => (
-              <div key={d}
-                className="py-2 text-center text-xs font-semibold text-slate-400">
-                {d}
-              </div>
-            ))}
+        <div className="flex flex-wrap items-center gap-4">
+          <div className="flex items-center gap-2">
+            <button type="button" onClick={prevMes}
+              className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm hover:bg-[var(--c-bg)]">
+              ←
+            </button>
+            <span className="w-44 text-center text-base font-semibold text-[var(--c-text)]">
+              {MESES[month - 1]} {year}
+            </span>
+            <button type="button" onClick={nextMes}
+              className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm hover:bg-[var(--c-bg)]">
+              →
+            </button>
           </div>
-          {/* Celdas */}
-          {loading ? (
-            <div className="p-8 text-center text-sm text-slate-400 animate-pulse">
-              Cargando calendario...
-            </div>
-          ) : (
-            <div className="grid grid-cols-7">
-              {dias.map((dia, i) => {
-                if (!dia) {
-                  return (
-                    <div key={`pad-${i}`}
-                      className="min-h-[90px] border-b border-r border-slate-100 bg-slate-50/50" />
-                  );
-                }
-                const fechaStr = toISO(dia);
-                const esHoy = fechaStr === toISO(hoy);
-                const esSel = fechaStr === diaSeleccionado;
-                const evs = eventosPorDia(fechaStr);
-                const tieneGrave = evs.some(
-                  (e) => (TIPO_CONFIG[e.tipo]?.peso ?? 1) >= 3
-                );
+          <button type="button"
+            onClick={() => {
+              setYear(hoy.getFullYear());
+              setMonth(hoy.getMonth() + 1);
+            }}
+            className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-muted)] hover:bg-[var(--c-bg)]">
+            Hoy
+          </button>
 
-                return (
-                  <button
-                    key={fechaStr}
-                    type="button"
-                    onClick={() => handleDiaClick(fechaStr)}
-                    className={`min-h-[90px] border-b border-r border-slate-100 p-1.5 text-left transition-colors hover:bg-slate-50 ${
-                      esSel ? "bg-blue-50" : ""
-                    } ${
-                      tieneGrave && !esSel ? "bg-red-50/30" : ""
-                    }`}
-                  >
-                    <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium ${
-                      esHoy
-                        ? "bg-blue-600 text-white"
-                        : "text-slate-700"
-                    }`}>
-                      {dia.getDate()}
-                    </span>
-                    <div className="mt-1 space-y-0.5">
-                      {evs.slice(0, 3).map((ev) => {
-                        const cfg = TIPO_CONFIG[ev.tipo];
-                        return (
-                          <div key={ev.id}
-                            className={`truncate rounded px-1 py-0.5 text-[10px] font-medium border ${cfg?.bg ?? "bg-slate-50"} ${cfg?.color ?? "text-slate-600"} ${cfg?.border ?? "border-slate-200"}`}>
-                            {ev.origen === "escuela" ? "🏫 " : ""}
-                            {ev.titulo}
-                          </div>
-                        );
-                      })}
-                      {evs.length > 3 && (
-                        <div className="text-[10px] text-slate-400 pl-1">
-                          +{evs.length - 3} más
-                        </div>
-                      )}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          )}
+          <div className="flex gap-2 ml-auto">
+            <button type="button"
+              onClick={() => setMostrarEscuela((v) => !v)}
+              className={`rounded-full px-3 py-1 text-xs font-medium border transition-colors ${
+                mostrarEscuela
+                  ? "bg-teal-50 text-teal-700 border-teal-300"
+                  : "bg-[var(--c-bg)] text-[var(--c-muted)] border-[var(--c-border)]"
+              }`}>
+              🏫 Escuela
+            </button>
+            <button type="button"
+              onClick={() => setMostrarAulas((v) => !v)}
+              className={`rounded-full px-3 py-1 text-xs font-medium border transition-colors ${
+                mostrarAulas
+                  ? "bg-blue-50 text-blue-700 border-blue-300"
+                  : "bg-[var(--c-bg)] text-[var(--c-muted)] border-[var(--c-border)]"
+              }`}>
+              📚 Aulas
+            </button>
+          </div>
         </div>
 
-        {/* Panel lateral */}
-        <div className="flex flex-col gap-4">
-          {/* Eventos del día seleccionado */}
-          {diaSeleccionado && (
-            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-              <h2 className="text-sm font-semibold text-slate-800 mb-3">
-                {new Date(diaSeleccionado + "T12:00:00")
-                  .toLocaleDateString("es-AR", {
-                    weekday: "long", day: "numeric",
-                    month: "long"
-                  })}
-              </h2>
-              {eventosHoy.length === 0 ? (
-                <p className="text-xs text-slate-400">
-                  Sin eventos en este día.
-                </p>
-              ) : (
-                <div className="space-y-2">
-                  {eventosHoy.map((ev) => {
-                    const cfg = TIPO_CONFIG[ev.tipo];
-                    const canDelete =
-                      (ev.origen === "escuela" && canEditEscuela) ||
-                      (ev.origen === "aula" && canEditAula);
-                    return (
-                      <div key={ev.id}
-                        className={`rounded-xl border p-3 ${cfg?.bg ?? "bg-slate-50"} ${cfg?.border ?? "border-slate-200"}`}>
-                        <div className="flex items-start justify-between gap-2">
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-1.5">
-                              <span className="text-xs">
-                                {ev.origen === "escuela" ? "🏫" : "📚"}
-                              </span>
-                              <p className={`text-sm font-semibold truncate ${cfg?.color ?? "text-slate-700"}`}>
-                                {ev.titulo}
-                              </p>
-                            </div>
-                            {ev.aulaNombre && (
-                              <p className="text-xs text-slate-400 mt-0.5">
-                                {ev.aulaNombre}
-                              </p>
-                            )}
-                            {ev.descripcion && (
-                              <p className="text-xs text-slate-500 mt-0.5">
-                                {ev.descripcion}
-                              </p>
-                            )}
-                            <div className="flex items-center gap-2 mt-1">
-                              <span className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${cfg?.bg} ${cfg?.color} ${cfg?.border}`}>
-                                {cfg?.label ?? ev.tipo}
-                              </span>
-                              {ev.fechaFin !== ev.fechaInicio && (
-                                <span className="text-[10px] text-slate-400">
-                                  hasta {new Date(
-                                    ev.fechaFin + "T12:00:00"
-                                  ).toLocaleDateString("es-AR", {
-                                    day: "numeric", month: "short"
-                                  })}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                          {canDelete && (
-                            <button
-                              type="button"
-                              onClick={() => handleEliminar(ev)}
-                              className="shrink-0 text-slate-300 hover:text-red-400 transition-colors"
-                              title="Eliminar"
-                            >
-                              ✕
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
+        <div className="flex flex-wrap gap-2">
+          {Object.entries(TIPO_CONFIG).map(([tipo, cfg]) => (
+            <span key={tipo}
+              className={`rounded-full border px-2 py-0.5 text-xs font-medium ${cfg.bg} ${cfg.color} ${cfg.border}`}>
+              {cfg.label}
+            </span>
+          ))}
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
+          <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm overflow-hidden">
+            <div className="grid grid-cols-7 border-b border-[var(--c-border)] bg-[var(--c-bg)]">
+              {DIAS.map((d) => (
+                <div key={d}
+                  className="py-2 text-center text-xs font-semibold text-[var(--c-muted)]">
+                  {d}
                 </div>
-              )}
+              ))}
             </div>
-          )}
+            {loading ? (
+              <div className="p-8 text-center text-sm text-[var(--c-muted)] animate-pulse">
+                Cargando calendario...
+              </div>
+            ) : (
+              <div className="grid grid-cols-7">
+                {dias.map((dia, i) => {
+                  if (!dia) {
+                    return (
+                      <div key={`pad-${i}`}
+                        className="min-h-[90px] border-b border-r border-[var(--c-border)] bg-[var(--c-bg)]" />
+                    );
+                  }
+                  const fechaStr = toISO(dia);
+                  const esHoy = fechaStr === toISO(hoy);
+                  const esSel = fechaStr === diaSeleccionado;
+                  const evs = eventosPorDia(fechaStr);
+                  const tieneGrave = evs.some(
+                    (e) => (TIPO_CONFIG[e.tipo]?.peso ?? 1) >= 3
+                  );
 
-          {/* Formulario — solo para roles con permiso */}
-          {(canEditEscuela || canEditAula) && (
-            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-              <h2 className="text-sm font-semibold text-slate-800 mb-3">
-                Agregar evento
-              </h2>
-
-              {/* Tabs escuela/aula */}
-              {canEditEscuela && canEditAula && (
-                <div className="flex gap-1 mb-3 border-b border-slate-200">
-                  {(["escuela","aula"] as const).map((t) => (
-                    <button key={t} type="button"
-                      onClick={() => {
-                        setTab(t);
-                        setForm((f) => ({
-                          ...f,
-                          tipo: t === "escuela" ? "feriado" : "clase",
-                        }));
-                      }}
-                      className={`px-3 py-1.5 text-xs font-medium border-b-2 -mb-px transition-colors ${
-                        tab === t
-                          ? "border-blue-600 text-blue-600"
-                          : "border-transparent text-slate-400"
-                      }`}>
-                      {t === "escuela" ? "🏫 Escuela" : "📚 Aula"}
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              <form onSubmit={handleGuardar} className="space-y-3">
-                <label className="flex flex-col gap-1 text-xs font-medium text-slate-700">
-                  Tipo
-                  <select
-                    value={form.tipo}
-                    onChange={(e) => setForm((f) => ({
-                      ...f, tipo: e.target.value
-                    }))}
-                    className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
-                  >
-                    {(tab === "escuela" ? TIPOS_ESCUELA : TIPOS_AULA).map((t) => (
-                      <option key={t} value={t}>
-                        {TIPO_CONFIG[t]?.label ?? t}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-
-                {tab === "aula" && aulas.length > 0 && (
-                  <label className="flex flex-col gap-1 text-xs font-medium text-slate-700">
-                    Aula
-                    <select
-                      value={form.aulaId}
-                      onChange={(e) => setForm((f) => ({
-                        ...f, aulaId: e.target.value
-                      }))}
-                      className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
+                  return (
+                    <button
+                      key={fechaStr}
+                      type="button"
+                      onClick={() => handleDiaClick(fechaStr)}
+                      className={`min-h-[90px] border-b border-r border-[var(--c-border)] p-1.5 text-left transition-colors hover:bg-[var(--c-bg)] ${
+                        esSel ? "bg-blue-50" : ""
+                      } ${
+                        tieneGrave && !esSel ? "bg-red-50/30" : ""
+                      }`}
                     >
-                      {aulas.map((a) => (
-                        <option key={a.id} value={a.id}>
-                          {a.name}
+                      <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium ${
+                        esHoy
+                          ? "bg-blue-600 text-white"
+                          : "text-[var(--c-text)]"
+                      }`}>
+                        {dia.getDate()}
+                      </span>
+                      <div className="mt-1 space-y-0.5">
+                        {evs.slice(0, 3).map((ev) => {
+                          const cfg = TIPO_CONFIG[ev.tipo];
+                          return (
+                            <div key={ev.id}
+                              className={`truncate rounded px-1 py-0.5 text-[10px] font-medium border ${cfg?.bg ?? "bg-slate-50"} ${cfg?.color ?? "text-slate-600"} ${cfg?.border ?? "border-slate-200"}`}>
+                              {ev.origen === "escuela" ? "🏫 " : ""}
+                              {ev.titulo}
+                            </div>
+                          );
+                        })}
+                        {evs.length > 3 && (
+                          <div className="text-[10px] text-[var(--c-muted)] pl-1">
+                            +{evs.length - 3} más
+                          </div>
+                        )}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-4">
+            {diaSeleccionado && (
+              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-sm">
+                <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">
+                  {new Date(diaSeleccionado + "T12:00:00")
+                    .toLocaleDateString("es-AR", {
+                      weekday: "long", day: "numeric",
+                      month: "long"
+                    })}
+                </h2>
+                {eventosHoy.length === 0 ? (
+                  <p className="text-xs text-[var(--c-muted)]">
+                    Sin eventos en este día.
+                  </p>
+                ) : (
+                  <div className="space-y-2">
+                    {eventosHoy.map((ev) => {
+                      const cfg = TIPO_CONFIG[ev.tipo];
+                      const canDelete =
+                        (ev.origen === "escuela" && canEditEscuela) ||
+                        (ev.origen === "aula" && canEditAula);
+                      return (
+                        <div key={ev.id}
+                          className={`rounded-xl border p-3 ${cfg?.bg ?? "bg-slate-50"} ${cfg?.border ?? "border-slate-200"}`}>
+                          <div className="flex items-start justify-between gap-2">
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-xs">
+                                  {ev.origen === "escuela" ? "🏫" : "📚"}
+                                </span>
+                                <p className={`text-sm font-semibold truncate ${cfg?.color ?? "text-slate-700"}`}>
+                                  {ev.titulo}
+                                </p>
+                              </div>
+                              {ev.aulaNombre && (
+                                <p className="text-xs text-[var(--c-muted)] mt-0.5">
+                                  {ev.aulaNombre}
+                                </p>
+                              )}
+                              {ev.descripcion && (
+                                <p className="text-xs text-[var(--c-muted)] mt-0.5">
+                                  {ev.descripcion}
+                                </p>
+                              )}
+                              <div className="flex items-center gap-2 mt-1">
+                                <span className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${cfg?.bg} ${cfg?.color} ${cfg?.border}`}>
+                                  {cfg?.label ?? ev.tipo}
+                                </span>
+                                {ev.fechaFin !== ev.fechaInicio && (
+                                  <span className="text-[10px] text-[var(--c-muted)]">
+                                    hasta {new Date(
+                                      ev.fechaFin + "T12:00:00"
+                                    ).toLocaleDateString("es-AR", {
+                                      day: "numeric", month: "short"
+                                    })}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                            {canDelete && (
+                              <button
+                                type="button"
+                                onClick={() => handleEliminar(ev)}
+                                className="shrink-0 text-[var(--c-muted)] hover:text-red-400 transition-colors"
+                                title="Eliminar"
+                              >
+                                ✕
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {(canEditEscuela || canEditAula) && (
+              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-sm">
+                <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">
+                  Agregar evento
+                </h2>
+
+                {canEditEscuela && canEditAula && (
+                  <div className="flex gap-1 mb-3 border-b border-[var(--c-border)]">
+                    {(["escuela","aula"] as const).map((t) => (
+                      <button key={t} type="button"
+                        onClick={() => {
+                          setTab(t);
+                          setForm((f) => ({
+                            ...f,
+                            tipo: t === "escuela" ? "feriado" : "clase",
+                          }));
+                        }}
+                        className={`px-3 py-1.5 text-xs font-medium border-b-2 -mb-px transition-colors ${
+                          tab === t
+                            ? "border-[var(--c-primary)] text-[var(--c-primary)]"
+                            : "border-transparent text-[var(--c-muted)]"
+                        }`}>
+                        {t === "escuela" ? "🏫 Escuela" : "📚 Aula"}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                <form onSubmit={handleGuardar} className="space-y-3">
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                    Tipo
+                    <select
+                      value={form.tipo}
+                      onChange={(e) => setForm((f) => ({
+                        ...f, tipo: e.target.value
+                      }))}
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    >
+                      {(tab === "escuela" ? TIPOS_ESCUELA : TIPOS_AULA).map((t) => (
+                        <option key={t} value={t}>
+                          {TIPO_CONFIG[t]?.label ?? t}
                         </option>
                       ))}
                     </select>
                   </label>
-                )}
 
-                <label className="flex flex-col gap-1 text-xs font-medium text-slate-700">
-                  Título *
-                  <input type="text" required
-                    value={form.titulo}
-                    onChange={(e) => setForm((f) => ({
-                      ...f, titulo: e.target.value
-                    }))}
-                    placeholder="Ej: Día del maestro"
-                    className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  />
-                </label>
+                  {tab === "aula" && aulas.length > 0 && (
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                      Aula
+                      <select
+                        value={form.aulaId}
+                        onChange={(e) => setForm((f) => ({
+                          ...f, aulaId: e.target.value
+                        }))}
+                        className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                      >
+                        {aulas.map((a) => (
+                          <option key={a.id} value={a.id}>
+                            {a.name}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
 
-                <div className="grid grid-cols-2 gap-2">
-                  <label className="flex flex-col gap-1 text-xs font-medium text-slate-700">
-                    Desde *
-                    <input type="date" required
-                      value={form.fechaInicio}
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                    Título *
+                    <input type="text" required
+                      value={form.titulo}
                       onChange={(e) => setForm((f) => ({
-                        ...f, fechaInicio: e.target.value,
-                        fechaFin: f.fechaFin < e.target.value
-                          ? e.target.value : f.fechaFin,
+                        ...f, titulo: e.target.value
                       }))}
-                      className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                      placeholder="Ej: Día del maestro"
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     />
                   </label>
-                  <label className="flex flex-col gap-1 text-xs font-medium text-slate-700">
-                    Hasta
-                    <input type="date"
-                      value={form.fechaFin}
-                      min={form.fechaInicio}
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                      Desde *
+                      <input type="date" required
+                        value={form.fechaInicio}
+                        onChange={(e) => setForm((f) => ({
+                          ...f, fechaInicio: e.target.value,
+                          fechaFin: f.fechaFin < e.target.value
+                            ? e.target.value : f.fechaFin,
+                        }))}
+                        className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                      />
+                    </label>
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                      Hasta
+                      <input type="date"
+                        value={form.fechaFin}
+                        min={form.fechaInicio}
+                        onChange={(e) => setForm((f) => ({
+                          ...f, fechaFin: e.target.value
+                        }))}
+                        className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                      />
+                    </label>
+                  </div>
+
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                    Descripción
+                    <textarea rows={2}
+                      value={form.descripcion}
                       onChange={(e) => setForm((f) => ({
-                        ...f, fechaFin: e.target.value
+                        ...f, descripcion: e.target.value
                       }))}
-                      className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                      placeholder="Opcional"
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     />
                   </label>
-                </div>
 
-                <label className="flex flex-col gap-1 text-xs font-medium text-slate-700">
-                  Descripción
-                  <textarea rows={2}
-                    value={form.descripcion}
-                    onChange={(e) => setForm((f) => ({
-                      ...f, descripcion: e.target.value
-                    }))}
-                    placeholder="Opcional"
-                    className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  />
-                </label>
+                  <button type="submit"
+                    disabled={guardando || !form.titulo.trim() || !form.fechaInicio}
+                    className="w-full rounded-xl bg-[var(--c-primary)] py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors">
+                    {guardando ? "Guardando..." : "Guardar evento"}
+                  </button>
 
-                <button type="submit"
-                  disabled={guardando || !form.titulo.trim() || !form.fechaInicio}
-                  className="w-full rounded-xl bg-blue-600 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors">
-                  {guardando ? "Guardando..." : "Guardar evento"}
-                </button>
-
-                {msg && (
-                  <p className={`text-xs ${
-                    msg.startsWith("✓") ? "text-emerald-600" : "text-red-500"
-                  }`}>
-                    {msg}
-                  </p>
-                )}
-              </form>
-            </div>
-          )}
+                  {msg && (
+                    <p className={`text-xs ${
+                      msg.startsWith("✓") ? "text-emerald-600" : "text-[var(--c-danger)]"
+                    }`}>
+                      {msg}
+                    </p>
+                  )}
+                </form>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

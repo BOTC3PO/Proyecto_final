@@ -91,81 +91,83 @@ export default function ProfesorEstadisticas() {
   }, [aulaId]);
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">Estadísticas</h1>
-        <p className="text-base text-slate-600">
-          Progreso de alumnos por módulo en tu aula.
-        </p>
-      </header>
+    <div className="min-h-screen bg-[var(--c-bg)]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+        <header className="space-y-2">
+          <h1 className="text-3xl font-bold text-[var(--c-text)]">Estadísticas</h1>
+          <p className="text-base text-[var(--c-muted)]">
+            Progreso de alumnos por módulo en tu aula.
+          </p>
+        </header>
 
-      {aulas.length > 1 && (
-        <div className="flex items-center gap-3">
-          <label className="text-sm font-medium text-slate-700">Aula:</label>
-          <select
-            value={aulaId}
-            onChange={(e) => setAulaId(e.target.value)}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
-          >
-            {aulas.map((a) => (
-              <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
-            ))}
-          </select>
-        </div>
-      )}
-
-      <section className="space-y-4">
-        {loading && (
-          <div className="space-y-3">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <div key={i}
-                className="h-20 animate-pulse rounded-2xl bg-slate-100" />
-            ))}
+        {aulas.length > 1 && (
+          <div className="flex items-center gap-3">
+            <label className="text-sm font-medium text-[var(--c-text)]">Aula:</label>
+            <select
+              value={aulaId}
+              onChange={(e) => setAulaId(e.target.value)}
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+            >
+              {aulas.map((a) => (
+                <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
+              ))}
+            </select>
           </div>
         )}
-        {error && <p className="text-sm text-red-500">Error: {error}</p>}
-        {!loading && !error && estadisticas.length === 0 && (
-          <p className="text-sm text-slate-500">
-            No hay módulos asignados a este aula.
-          </p>
-        )}
-        {!loading && !error && estadisticas.map((e) => (
-          <article key={e.id}
-            className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <h2 className="text-base font-semibold text-slate-900">
-                  {e.titulo}
-                </h2>
-                <p className="text-xs text-slate-500">{e.materia}</p>
-              </div>
-              <div className="flex gap-2 text-xs">
-                <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-700">
-                  {e.completados} completados
-                </span>
-                <span className="rounded-full bg-amber-100 px-2 py-0.5 font-semibold text-amber-700">
-                  {e.enProgreso} en progreso
-                </span>
-              </div>
+
+        <section className="space-y-4">
+          {loading && (
+            <div className="space-y-3">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <div key={i}
+                  className="h-20 animate-pulse rounded-xl bg-[var(--c-border)]" />
+              ))}
             </div>
-            {e.total > 0 && (
-              <div className="mt-3">
-                <div className="h-2 w-full rounded-full bg-slate-100">
-                  <div
-                    className="h-2 rounded-full bg-emerald-500 transition-all"
-                    style={{
-                      width: `${Math.round((e.completados / e.total) * 100)}%`
-                    }}
-                  />
+          )}
+          {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
+          {!loading && !error && estadisticas.length === 0 && (
+            <p className="text-sm text-[var(--c-muted)]">
+              No hay módulos asignados a este aula.
+            </p>
+          )}
+          {!loading && !error && estadisticas.map((e) => (
+            <article key={e.id}
+              className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <h2 className="text-base font-semibold text-[var(--c-text)]">
+                    {e.titulo}
+                  </h2>
+                  <p className="text-xs text-[var(--c-muted)]">{e.materia}</p>
                 </div>
-                <p className="mt-1 text-xs text-slate-400 text-right">
-                  {Math.round((e.completados / e.total) * 100)}% completado
-                </p>
+                <div className="flex gap-2 text-xs">
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-700">
+                    {e.completados} completados
+                  </span>
+                  <span className="rounded-full bg-amber-100 px-2 py-0.5 font-semibold text-amber-700">
+                    {e.enProgreso} en progreso
+                  </span>
+                </div>
               </div>
-            )}
-          </article>
-        ))}
-      </section>
-    </main>
+              {e.total > 0 && (
+                <div className="mt-3">
+                  <div className="h-2 w-full rounded-full bg-[var(--c-border)]">
+                    <div
+                      className="h-2 rounded-full bg-emerald-500 transition-all"
+                      style={{
+                        width: `${Math.round((e.completados / e.total) * 100)}%`
+                      }}
+                    />
+                  </div>
+                  <p className="mt-1 text-xs text-[var(--c-muted)] text-right">
+                    {Math.round((e.completados / e.total) * 100)}% completado
+                  </p>
+                </div>
+              )}
+            </article>
+          ))}
+        </section>
+      </div>
+    </div>
   );
 }
