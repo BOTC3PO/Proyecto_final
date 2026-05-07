@@ -6,6 +6,7 @@ import RootLayout from "./layouts/RootLayout";
 import GuestLayout from "./layouts/GuestLayout";
 import AlumnoLayout from "./layouts/AlumnoLayout";
 import StaffLayout from "./layouts/StaffLayout";
+import SharedLayout from "./layouts/SharedLayout";
 import { lazyWithRetry } from "./lib/lazyWithRetry";
 import { RouteErrorBoundary } from "./components/RouteErrorBoundary";
 
@@ -242,6 +243,14 @@ export const router = createBrowserRouter([
             ),
           },
           {
+            path: 'profesor/cursos/nuevo',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorCursoNuevo />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
             path: 'profesor/aulas',
             element: (
               <ProtectedRoute allow={['TEACHER']}>
@@ -262,6 +271,62 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER']}>
                 {withSuspense(<ProfesorEvaluaciones />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/encuestas',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorEncuestas />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/asistencia',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorAsistencia />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/calificaciones',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorCalificaciones />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/materiales',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorMateriales />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/estadisticas',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorEstadisticas />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/configuracion',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorConfiguracion />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/editor-cuestionarios',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<EditorCuestionarios />)}
               </ProtectedRoute>
             ),
           },
@@ -298,6 +363,14 @@ export const router = createBrowserRouter([
             ),
           },
           {
+            path: 'admin/cursos',
+            element: (
+              <ProtectedRoute allow={['ADMIN']}>
+                {withSuspense(<AdminCursos />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
             path: 'admin/materias',
             element: (
               <ProtectedRoute allow={['ADMIN']}>
@@ -318,6 +391,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['ADMIN']}>
                 {withSuspense(<AdminReportesGlobal />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'admin/generadores',
+            element: (
+              <ProtectedRoute allow={['ADMIN']}>
+                {withSuspense(<AdminGeneradores />)}
               </ProtectedRoute>
             ),
           },
@@ -396,217 +477,119 @@ export const router = createBrowserRouter([
         ],
       },
 
-      // ── Rutas compartidas (sin layout específico) ──────────────────────────
-
-      // Mensajería — todos los roles autenticados
+      // ── Rutas compartidas (multi-rol) ──────────────────────────────────────
       {
-        path: "mensajes",
         element: (
           <ProtectedRoute allow={['ADMIN', 'USER', 'PARENT', 'TEACHER', 'DIRECTIVO']}>
-            {withSuspense(<Mensajeria />)}
+            <SharedLayout />
           </ProtectedRoute>
         ),
+        children: [
+          {
+            path: 'mensajes',
+            element: withSuspense(<Mensajeria />),
+          },
+          {
+            path: 'perfil',
+            element: withSuspense(<Perfil />),
+          },
+          {
+            path: 'menualumno',
+            element: (
+              <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
+                {withSuspense(<MenuAlumno />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'hijos',
+            element: (
+              <ProtectedRoute allow={['PARENT']}>
+                {withSuspense(<HijosProgreso />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'hijos/agregar',
+            element: (
+              <ProtectedRoute allow={['PARENT']}>
+                {withSuspense(<HijosAgregar />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos',
+            element: (
+              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<ModulosList />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos/crear',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
+                {withSuspense(<ModuloEditor />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos/:id',
+            element: (
+              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<ModuloDetail />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos/:id/editar',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
+                {withSuspense(<ModuloEditor />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos/:id/jugar',
+            element: (
+              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER']}>
+                {withSuspense(<ModuloDetail />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'reproductor',
+            element: (
+              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<ReproductorModulos />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'quiz/attempt/:attemptId',
+            element: (
+              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN']}>
+                {withSuspense(<QuizAttempt />)}
+              </ProtectedRoute>
+            ),
+          },
+        ],
       },
 
-      // Perfil universal
+      // ── Redirects (sin UI propia) ──────────────────────────────────────────
+      { path: 'admin/panel', element: <Navigate to="/admin" replace /> },
       {
-        path: "perfil",
-        element: (
-          <ProtectedRoute allow={['ADMIN', 'USER', 'PARENT', 'TEACHER', 'DIRECTIVO']}>
-            {withSuspense(<Perfil />)}
-          </ProtectedRoute>
-        ),
-      },
-
-      // Padres
-      {
-        path: "menualumno",
-        element: (
-          <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
-            {withSuspense(<MenuAlumno />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "hijos",
-        element: (
-          <ProtectedRoute allow={['PARENT']}>
-            {withSuspense(<HijosProgreso />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "hijos/agregar",
-        element: (
-          <ProtectedRoute allow={['PARENT']}>
-            {withSuspense(<HijosAgregar />)}
-          </ProtectedRoute>
-        ),
-      },
-
-      // Módulos (multi-rol)
-      {
-        path: "modulos",
-        element: (
-          <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"]}>
-            {withSuspense(<ModulosList />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "modulos/crear",
-        element: (
-          <ProtectedRoute allow={["TEACHER", "ADMIN"]}>
-            {withSuspense(<ModuloEditor />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "modulos/:id/editar",
-        element: (
-          <ProtectedRoute allow={["TEACHER", "ADMIN"]}>
-            {withSuspense(<ModuloEditor />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "modulos/:id",
-        element: (
-          <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"]}>
-            {withSuspense(<ModuloDetail />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "modulos/:id/jugar",
-        element: (
-          <ProtectedRoute allow={["USER", "PARENT", "TEACHER"]}>
-            {withSuspense(<ModuloDetail />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "reproductor",
-        element: (
-          <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN", "DIRECTIVO"]}>
-            {withSuspense(<ReproductorModulos />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "quiz/attempt/:attemptId",
-        element: (
-          <ProtectedRoute allow={["USER", "PARENT", "TEACHER", "ADMIN"]}>
-            {withSuspense(<QuizAttempt />)}
-          </ProtectedRoute>
-        ),
-      },
-
-      // Admin — rutas no movidas a StaffLayout
-      {
-        path: "admin/panel",
-        element: <Navigate to="/admin" replace />,
-      },
-      {
-        path: "admin/cursos",
-        element: (
-          <ProtectedRoute allow={['ADMIN']}>
-            {withSuspense(<AdminCursos />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "admin/generadores",
-        element: (
-          <ProtectedRoute allow={['ADMIN']}>
-            {withSuspense(<AdminGeneradores />)}
-          </ProtectedRoute>
-        ),
-      },
-
-      // Profesor — rutas no movidas a StaffLayout
-      {
-        path: "profesor/cursos/nuevo",
-        element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<ProfesorCursoNuevo />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "profesor/calificaciones",
-        element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<ProfesorCalificaciones />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "profesor/asistencia",
-        element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<ProfesorAsistencia />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "profesor/encuestas",
-        element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<ProfesorEncuestas />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "profesor/materiales",
-        element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<ProfesorMateriales />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "profesor/estadisticas",
-        element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<ProfesorEstadisticas />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "profesor/configuracion",
-        element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<ProfesorConfiguracion />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "profesor/editor-cuestionarios",
-        element: (
-          <ProtectedRoute allow={['TEACHER']}>
-            {withSuspense(<EditorCuestionarios />)}
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "profesor/editar-modulo/:id",
+        path: 'profesor/editar-modulo/:id',
         element: (
           <ProtectedRoute allow={['TEACHER']}>
             <ModuloEditRedirect />
           </ProtectedRoute>
         ),
       },
+      { path: 'profesor/calendario/detalle', element: <Navigate to="/profesor/calendario" replace /> },
+      { path: 'profesor/mensajes',           element: <Navigate to="/mensajes" replace /> },
       {
-        path: "profesor/calendario/detalle",
-        element: <Navigate to="/profesor/calendario" replace />,
-      },
-      {
-        path: "profesor/mensajes",
-        element: <Navigate to="/mensajes" replace />,
-      },
-      {
-        path: "profesor/crear-modulo",
+        path: 'profesor/crear-modulo',
         element: (
           <ProtectedRoute allow={['TEACHER']}>
             <Navigate to="/modulos/crear" replace />
@@ -614,14 +597,13 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "profesor/modulos",
+        path: 'profesor/modulos',
         element: (
           <ProtectedRoute allow={['TEACHER']}>
             <Navigate to="/modulos" replace />
           </ProtectedRoute>
         ),
       },
-
     ],
   },
   // Captura todas las rutas no encontradas
