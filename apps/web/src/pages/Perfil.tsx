@@ -85,6 +85,7 @@ export default function Perfil() {
   const [suscAccion, setSuscAccion] =
     useState<"idle" | "loading" | "error" | "ok">("idle");
   const [suscMsg, setSuscMsg] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<"perfil" | "progreso" | "logros" | "suscripcion">("perfil");
 
   useEffect(() => {
     let active = true;
@@ -269,448 +270,370 @@ export default function Perfil() {
     }
   };
 
-  if (loading) {
-    return (
-      <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-10">
-        <div className="space-y-4">
-          <div className="h-8 w-48 animate-pulse rounded-xl bg-[var(--c-border)]" />
-          <div className="h-40 animate-pulse rounded-2xl bg-[var(--c-border)]" />
-          <div className="h-32 animate-pulse rounded-2xl bg-[var(--c-border)]" />
-        </div>
-      </main>
-    );
-  }
-
-  if (error) {
-    return (
-      <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-10">
-        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-          Error al cargar el perfil: {error}
-        </div>
-      </main>
-    );
-  }
-
-  if (!perfil) return null;
-
-  const initials = perfil.fullName
-    .split(" ")
-    .slice(0, 2)
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase();
-
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-10">
-      <header className="space-y-1">
-        <h1 className="text-3xl font-bold text-[var(--c-text)]">Mi perfil</h1>
-        <p className="text-base text-[var(--c-muted)]">Información de tu cuenta y actividad en la plataforma.</p>
-      </header>
+    <div className="min-h-screen bg-[var(--c-bg)]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
-      {/* Tarjeta de identidad */}
-      <section className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-        <div className="flex flex-wrap items-center gap-5">
-          {/* Avatar */}
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-xl font-bold text-blue-700">
-            {initials || "?"}
+        {/* Estado de carga global */}
+        {loading && (
+          <div className="space-y-3">
+            <div className="h-24 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />
+            <div className="h-48 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />
           </div>
-          <div className="flex-1">
-            <div className="flex flex-wrap items-center gap-2">
-              <h2 className="text-xl font-semibold text-[var(--c-text)]">{perfil.fullName}</h2>
-              <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${ROLE_COLORS[perfil.role] ?? "bg-slate-100 text-slate-700"}`}>
-                {ROLE_LABELS[perfil.role] ?? perfil.role}
-              </span>
-              {perfil.isBanned && (
-                <span className="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700">
-                  Cuenta suspendida
-                </span>
-              )}
-            </div>
-            <p className="mt-0.5 text-sm text-[var(--c-muted)]">@{perfil.username}</p>
-          </div>
-        </div>
-
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          <div>
-            <p className="text-xs text-[var(--c-muted)]">Correo electrónico</p>
-            <p className="text-sm font-medium text-[var(--c-text)]">{perfil.email || "—"}</p>
-          </div>
-          <div>
-            <p className="text-xs text-[var(--c-muted)]">Miembro desde</p>
-            <p className="text-sm font-medium text-[var(--c-text)]">
-              {perfil.createdAt
-                ? new Date(perfil.createdAt).toLocaleDateString("es", { year: "numeric", month: "long", day: "numeric" })
-                : "—"}
-            </p>
-          </div>
-          {perfil.escuelaId && (
-            <div>
-              <p className="text-xs text-[var(--c-muted)]">Escuela</p>
-              <p className="text-sm font-medium text-[var(--c-text)]">{perfil.escuelaId}</p>
-            </div>
-          )}
-          {perfil.warningCount > 0 && (
-            <div>
-              <p className="text-xs text-slate-400">Advertencias</p>
-              <p className="text-sm font-medium text-amber-700">
-                {perfil.warningCount} advertencia{perfil.warningCount !== 1 ? "s" : ""}
-              </p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Actividad en módulos */}
-      <section className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-        <h2 className="text-lg font-semibold text-[var(--c-text)]">Módulos completados</h2>
-        <div className="mt-4 grid grid-cols-3 gap-4">
-          <div className="rounded-xl bg-violet-50 p-4 text-center">
-            <p className="text-2xl font-bold text-violet-700">{perfil.modulosCompletados.publicos}</p>
-            <p className="mt-1 text-xs text-violet-600">Públicos</p>
-          </div>
-          <div className="rounded-xl bg-slate-50 p-4 text-center">
-            <p className="text-2xl font-bold text-slate-700">{perfil.modulosCompletados.privados}</p>
-            <p className="mt-1 text-xs text-slate-500">Privados / Escuela</p>
-          </div>
-          <div className="rounded-xl bg-blue-50 p-4 text-center">
-            <p className="text-2xl font-bold text-blue-700">{perfil.modulosCompletados.total}</p>
-            <p className="mt-1 text-xs text-blue-600">Total</p>
-          </div>
-        </div>
-        {perfil.modulosCompletados.total === 0 && (
-          <p className="mt-3 text-sm text-[var(--c-muted)]">
-            Aún no has completado ningún módulo. ¡Explora los{" "}
-            <a href="/modulos" className="text-[var(--c-primary)] underline">módulos disponibles</a>!
-          </p>
         )}
-      </section>
+        {error && <p className="text-sm text-[var(--c-danger)]">{error}</p>}
 
-      {/* Fortalezas por materia (solo para USER) */}
-      {perfil.role === "USER" && progresoStatus === "ready" &&
-        fortalezas.length > 0 && (
-        <section className="rounded-2xl border border-[var(--c-border)]
-          bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">
-            En qué sos bueno
-          </h2>
-          <p className="mt-1 text-sm text-[var(--c-muted)]">
-            Materias donde más avanzaste.
-          </p>
-          <div className="mt-4 space-y-3">
-            {fortalezas.slice(0, 5).map((f) => (
-              <div key={f.materia}>
-                <div className="flex items-center justify-between
-                  text-sm mb-1">
-                  <span className="font-medium text-[var(--c-text)]">
-                    {f.materia}
-                  </span>
-                  <span className="text-[var(--c-muted)] text-xs">
-                    {f.completados}/{f.total} módulos ·{" "}
-                    {f.porcentaje}%
-                  </span>
-                </div>
-                <div className="h-2 w-full rounded-full bg-[var(--c-border)]">
-                  <div
-                    className={`h-2 rounded-full transition-all ${
-                      f.porcentaje === 100
-                        ? "bg-emerald-500"
-                        : f.porcentaje >= 75
-                        ? "bg-blue-500"
-                        : f.porcentaje >= 50
-                        ? "bg-violet-400"
-                        : "bg-amber-400"
-                    }`}
-                    style={{ width: `${f.porcentaje}%` }}
-                  />
-                </div>
+        {!loading && !error && perfil && (
+          <>
+            {/* Card de usuario — siempre visible */}
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 flex items-center gap-4">
+              <div className="w-14 h-14 rounded-full bg-[var(--c-primary)] flex items-center justify-center text-white text-xl font-semibold flex-shrink-0 select-none">
+                {perfil.fullName.split(" ").filter(Boolean).map((p) => p[0]).join("").slice(0, 2).toUpperCase()}
               </div>
-            ))}
-          </div>
-        </section>
-      )}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <p className="text-base font-semibold text-[var(--c-text)] truncate">{perfil.fullName}</p>
+                  <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${ROLE_COLORS[perfil.role] ?? "bg-gray-100 text-gray-600"}`}>
+                    {ROLE_LABELS[perfil.role] ?? perfil.role}
+                  </span>
+                  {perfil.isBanned && (
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]">
+                      Suspendido
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5">@{perfil.username}</p>
+                <p className="text-xs text-[var(--c-muted)]">{perfil.email}</p>
+              </div>
+            </div>
 
-      {/* Logros (solo para USER) */}
-      {perfil.role === "USER" && progresoStatus === "ready" && (
-        <section className="rounded-2xl border border-[var(--c-border)]
-          bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">
-            Logros
-          </h2>
-          <p className="mt-1 text-sm text-[var(--c-muted)]">
-            Hitos alcanzados en tu recorrido.
-          </p>
-          {logros.length === 0 ? (
-            <p className="mt-3 text-sm text-[var(--c-muted)]">
-              Completá módulos para desbloquear logros.
-            </p>
-          ) : (
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {logros.map((logro) => (
-                <div
-                  key={logro.id}
-                  className={`flex items-center gap-3 rounded-xl
-                    border p-3 ${
-                    logro.obtenido
-                      ? "border-emerald-200 bg-emerald-50"
-                      : "border-[var(--c-border)] bg-[var(--c-bg)] opacity-40"
+            {/* Tabs */}
+            <div className="flex gap-1 border-b border-[var(--c-border)]">
+              {([
+                { key: "perfil",      label: "Datos" },
+                { key: "progreso",    label: "Progreso" },
+                { key: "logros",      label: "Logros" },
+                { key: "suscripcion", label: "Suscripción" },
+              ] as const).map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => setActiveTab(key)}
+                  className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+                    activeTab === key
+                      ? "border-[var(--c-primary)] text-[var(--c-primary)]"
+                      : "border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]"
                   }`}
                 >
-                  <span className="text-2xl">{logro.icono}</span>
-                  <div>
-                    <p className="text-sm font-semibold text-[var(--c-text)]">
-                      {logro.label}
-                    </p>
-                    <p className="text-xs text-[var(--c-muted)]">
-                      {logro.descripcion}
-                    </p>
-                  </div>
-                  {logro.obtenido && (
-                    <span className="ml-auto text-xs font-semibold
-                      text-emerald-600">
-                      ✓
-                    </span>
-                  )}
-                </div>
+                  {label}
+                </button>
               ))}
             </div>
-          )}
-        </section>
-      )}
 
-      {/* Hijos vinculados (solo para PARENT) */}
-      {perfil.role === "PARENT" && (
-        <section className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">Hijos vinculados</h2>
-          {perfil.hijos.length === 0 ? (
-            <p className="mt-3 text-sm text-[var(--c-muted)]">
-              No tienes hijos vinculados.{" "}
-              <a href="/hijos/agregar" className="text-[var(--c-primary)] underline">Agregar un hijo</a>
-            </p>
-          ) : (
-            <div className="mt-4 space-y-2">
-              {perfil.hijos.map((h) => (
-                <div key={h.id} className="flex items-center justify-between rounded-xl border border-[var(--c-border)] px-4 py-3">
-                  <div>
-                    <p className="text-sm font-semibold text-[var(--c-text)]">{h.nombre}</p>
-                    <p className="text-xs text-[var(--c-muted)]">@{h.usuario}</p>
-                  </div>
-                  <a
-                    href="/hijos"
-                    className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                  >
-                    Ver progreso
-                  </a>
-                </div>
-              ))}
-            </div>
-          )}
-        </section>
-      )}
-
-      {/* Panel de suscripción */}
-      <section className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm space-y-4">
-        <h2 className="text-lg font-semibold text-[var(--c-text)]">
-          Suscripción
-        </h2>
-
-        {suscLoading && (
-          <p className="text-sm text-[var(--c-muted)] animate-pulse">
-            Cargando suscripción...
-          </p>
-        )}
-
-        {!suscLoading && suscripcion && (
-          <>
-            {/* Estado actual */}
-            <div className="grid gap-3 sm:grid-cols-2">
-              {suscripcion.personal && (
-                <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
-                  <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">
-                    Suscripción personal
-                  </p>
-                  <p className="mt-1 text-sm font-medium text-[var(--c-text)] capitalize">
-                    {suscripcion.personal.plan} —{" "}
-                    <span className={`font-semibold ${
-                      suscripcion.personal.estado === "activa"
-                        ? "text-emerald-600"
-                        : "text-slate-500"
-                    }`}>
-                      {suscripcion.personal.estado}
-                    </span>
-                  </p>
-                  <p className="text-xs text-[var(--c-muted)] mt-1">
-                    Vence:{" "}
-                    {new Date(suscripcion.personal.periodo_fin)
-                      .toLocaleDateString("es-AR")}
-                  </p>
-                  {suscripcion.personal.estado === "activa" && (
-                    <div className="mt-3 flex gap-2">
-                      <button
-                        type="button"
-                        onClick={() => handleCancelar(suscripcion.personal!.id)}
-                        disabled={suscAccion === "loading"}
-                        className="text-xs text-red-500 hover:underline disabled:opacity-50"
-                      >
-                        Cancelar
-                      </button>
-                      {!suscripcion.personal.reembolso_solicitado && (
-                        <button
-                          type="button"
-                          onClick={() => handleReembolso(suscripcion.personal!.id)}
-                          disabled={suscAccion === "loading"}
-                          className="text-xs text-slate-500 hover:underline disabled:opacity-50"
-                        >
-                          Solicitar reembolso
-                        </button>
-                      )}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {suscripcion.escuela && (
-                <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
-                  <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">
-                    Suscripción escuela
-                  </p>
-                  <p className="mt-1 text-sm font-medium text-[var(--c-text)] capitalize">
-                    {suscripcion.escuela.plan} —{" "}
-                    <span className={`font-semibold ${
-                      suscripcion.escuela.estado === "activa"
-                        ? "text-emerald-600" : "text-slate-500"
-                    }`}>
-                      {suscripcion.escuela.estado}
-                    </span>
-                  </p>
-                  <p className="text-xs text-[var(--c-muted)] mt-1">
-                    Vence:{" "}
-                    {new Date(suscripcion.escuela.periodo_fin)
-                      .toLocaleDateString("es-AR")}
-                  </p>
-                </div>
-              )}
-
-              {suscripcion.multiplicador && (
-                <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
-                  <p className="text-xs font-semibold uppercase text-emerald-600">
-                    Multiplicador activo
-                  </p>
-                  <p className="mt-1 text-sm text-emerald-700">
-                    +15% de monedas en la economía del aula
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* Límites de escuela */}
-            {limites && (
-              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
-                <p className="text-xs font-semibold uppercase text-[var(--c-muted)] mb-2">
-                  Límites actuales
-                </p>
-                <div className="grid grid-cols-2 gap-2 text-xs text-[var(--c-muted)]">
-                  <span>Profesores: hasta {limites.max_profesores}</span>
-                  <span>Directivos: hasta {limites.max_directivos}</span>
-                  <span>Aulas activas: hasta {limites.max_aulas}</span>
-                  <span>Alumnos/aula: hasta {limites.max_alumnos_por_aula}</span>
-                </div>
-              </div>
-            )}
-
-            {/* Formulario para suscribirse */}
-            {!suscripcion.personal && suscripcion.paymentsEnabled && (
+            {/* ── TAB: DATOS ── */}
+            {activeTab === "perfil" && (
               <div className="space-y-3">
-                <p className="text-sm font-medium text-[var(--c-text)]">
-                  Activar suscripción
-                </p>
-                <input
-                  type="email"
-                  placeholder="Tu email de MercadoPago"
-                  value={payerEmail}
-                  onChange={(e) => setPayerEmail(e.target.value)}
-                  className="w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
-                />
-                <div className="flex flex-wrap gap-2">
-                  {perfil.role === "USER" && (
-                    <button
-                      type="button"
-                      disabled={suscAccion === "loading"}
-                      onClick={() => handleSuscribir("alumno")}
-                      className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
-                    >
-                      Alumno — $1.000/mes
-                    </button>
-                  )}
-                  {perfil.role === "TEACHER" && (
-                    <button
-                      type="button"
-                      disabled={suscAccion === "loading"}
-                      onClick={() => handleSuscribir("profesor")}
-                      className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
-                    >
-                      Expandir aulas — $150/mes
-                    </button>
-                  )}
-                  {perfil.role === "DIRECTIVO" && (
-                    <button
-                      type="button"
-                      disabled={suscAccion === "loading"}
-                      onClick={() => handleSuscribir("escuela")}
-                      className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
-                    >
-                      Escuela — desde $300/mes
-                    </button>
-                  )}
-                </div>
+                {[
+                  { label: "Nombre completo", value: perfil.fullName },
+                  { label: "Usuario",         value: `@${perfil.username}` },
+                  { label: "Email",           value: perfil.email },
+                  { label: "Miembro desde",   value: perfil.createdAt
+                      ? new Date(perfil.createdAt).toLocaleDateString("es-AR")
+                      : "—" },
+                  { label: "Módulos completados", value: `${perfil.modulosCompletados.total} (${perfil.modulosCompletados.publicos} públicos · ${perfil.modulosCompletados.privados} privados)` },
+                ].map(({ label, value }) => (
+                  <div key={label} className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-4 py-3 flex items-center justify-between gap-3">
+                    <p className="text-xs text-[var(--c-muted)]">{label}</p>
+                    <p className="text-sm font-medium text-[var(--c-text)] text-right">{value}</p>
+                  </div>
+                ))}
+                {perfil.warningCount > 0 && (
+                  <div className="bg-[color-mix(in_srgb,var(--c-warning)_8%,transparent)] border border-[color-mix(in_srgb,var(--c-warning)_25%,transparent)] rounded-xl px-4 py-3">
+                    <p className="text-xs font-medium text-[var(--c-warning)]">
+                      {perfil.warningCount} advertencia{perfil.warningCount > 1 ? "s" : ""} registrada{perfil.warningCount > 1 ? "s" : ""}
+                    </p>
+                  </div>
+                )}
+
+                {/* Hijos vinculados (solo PARENT) */}
+                {perfil.role === "PARENT" && (
+                  <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
+                    <p className="text-sm font-medium text-[var(--c-text)] mb-3">Hijos vinculados</p>
+                    {perfil.hijos.length === 0 ? (
+                      <p className="text-xs text-[var(--c-muted)]">
+                        No tenés hijos vinculados.{" "}
+                        <a href="/hijos/agregar" className="text-[var(--c-primary)] underline">Agregar un hijo</a>
+                      </p>
+                    ) : (
+                      <div className="space-y-2">
+                        {perfil.hijos.map((h) => (
+                          <div key={h.id} className="flex items-center justify-between rounded-xl border border-[var(--c-border)] px-4 py-3">
+                            <div>
+                              <p className="text-sm font-semibold text-[var(--c-text)]">{h.nombre}</p>
+                              <p className="text-xs text-[var(--c-muted)]">@{h.usuario}</p>
+                            </div>
+                            <a
+                              href="/hijos"
+                              className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                            >
+                              Ver progreso
+                            </a>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             )}
 
-            {!suscripcion.paymentsEnabled && (
-              <p className="text-sm text-[var(--c-muted)]">
-                Los pagos están deshabilitados en este sistema.
-                Contactá al administrador para gestionar tu suscripción.
-              </p>
-            )}
-
-            {suscMsg && (
-              <p className={`text-sm ${
-                suscAccion === "error" ? "text-red-600" : "text-emerald-600"
-              }`}>
-                {suscMsg}
-              </p>
-            )}
-
-            {/* Historial de pagos */}
-            {historial.length > 0 && (
-              <div className="space-y-2">
-                <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">
-                  Historial de pagos
-                </p>
-                {historial.slice(0, 5).map((pago) => (
-                  <div key={pago.id}
-                    className="flex items-center justify-between rounded-lg border border-[var(--c-border)] px-3 py-2 text-xs text-[var(--c-muted)]">
-                    <span>
-                      {new Date(pago.created_at).toLocaleDateString("es-AR")}
-                    </span>
-                    <span className="font-medium">
-                      ${pago.monto.toLocaleString("es-AR")} {pago.moneda}
-                    </span>
-                    <span className={`rounded-full px-2 py-0.5 font-semibold ${
-                      pago.estado === "pagado"
-                        ? "bg-emerald-100 text-emerald-700"
-                        : pago.estado === "reembolsado"
-                        ? "bg-blue-100 text-blue-700"
-                        : "bg-slate-100 text-slate-500"
-                    }`}>
-                      {pago.estado}
-                    </span>
+            {/* ── TAB: PROGRESO ── */}
+            {activeTab === "progreso" && (
+              <div className="space-y-3">
+                {progresoStatus === "loading" && (
+                  <div className="space-y-2">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="h-14 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />
+                    ))}
+                  </div>
+                )}
+                {progresoStatus === "ready" && fortalezas.length === 0 && (
+                  <div className="rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
+                    <p className="text-sm text-[var(--c-muted)]">Sin datos de progreso por materia todavía.</p>
+                  </div>
+                )}
+                {fortalezas.map((f) => (
+                  <div key={f.materia} className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-sm font-medium text-[var(--c-text)]">{f.materia}</p>
+                      <span className="text-xs font-semibold text-[var(--c-primary)]">{f.porcentaje}%</span>
+                    </div>
+                    <div className="h-1.5 w-full bg-[var(--c-border)] rounded-full">
+                      <div
+                        className="h-full rounded-full"
+                        style={{
+                          width: `${f.porcentaje}%`,
+                          background: f.porcentaje === 100 ? "var(--c-success)" : "var(--c-primary)",
+                        }}
+                      />
+                    </div>
+                    <p className="text-xs text-[var(--c-muted)] mt-1.5">
+                      {f.completados} de {f.total} módulos
+                    </p>
                   </div>
                 ))}
               </div>
             )}
+
+            {/* ── TAB: LOGROS ── */}
+            {activeTab === "logros" && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {logros.length === 0 && (
+                  <div className="col-span-2 rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
+                    <p className="text-sm text-[var(--c-muted)]">Sin logros disponibles todavía.</p>
+                  </div>
+                )}
+                {logros.map((logro) => (
+                  <div
+                    key={logro.id}
+                    className={`rounded-xl border p-4 flex items-start gap-3 ${
+                      logro.obtenido
+                        ? "border-[var(--c-border)] bg-[var(--c-surface)]"
+                        : "border-[var(--c-border)] bg-[var(--c-surface)] opacity-40"
+                    }`}
+                  >
+                    <span className="text-2xl flex-shrink-0">{logro.icono}</span>
+                    <div>
+                      <p className="text-sm font-semibold text-[var(--c-text)]">{logro.label}</p>
+                      <p className="text-xs text-[var(--c-muted)] mt-0.5">{logro.descripcion}</p>
+                      {!logro.obtenido && (
+                        <p className="text-[10px] text-[var(--c-muted)] mt-1">No obtenido</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* ── TAB: SUSCRIPCIÓN ── */}
+            {activeTab === "suscripcion" && (
+              <div className="space-y-4">
+                {suscLoading && (
+                  <div className="h-24 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />
+                )}
+
+                {!suscLoading && suscripcion && (
+                  <>
+                    {/* Suscripción personal */}
+                    {suscripcion.personal && (
+                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <p className="text-sm font-semibold text-[var(--c-text)]">Suscripción personal</p>
+                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                            suscripcion.personal.estado === "activa"
+                              ? "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
+                              : "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
+                          }`}>
+                            {suscripcion.personal.estado}
+                          </span>
+                        </div>
+                        <p className="text-2xl font-semibold text-[var(--c-text)] capitalize">{suscripcion.personal.plan}</p>
+                        <p className="text-xs text-[var(--c-muted)]">
+                          Vence: {new Date(suscripcion.personal.periodo_fin).toLocaleDateString("es-AR")}
+                        </p>
+                        {suscripcion.personal.estado === "activa" && (
+                          <div className="flex gap-3 pt-1">
+                            <button
+                              disabled={suscAccion === "loading"}
+                              onClick={() => handleCancelar(suscripcion.personal!.id)}
+                              className="rounded-xl border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-muted)] hover:text-[var(--c-danger)] hover:border-[var(--c-danger)] transition-colors disabled:opacity-40"
+                            >
+                              Cancelar
+                            </button>
+                            {!suscripcion.personal.reembolso_solicitado && (
+                              <button
+                                disabled={suscAccion === "loading"}
+                                onClick={() => handleReembolso(suscripcion.personal!.id)}
+                                className="rounded-xl border border-[var(--c-border)] px-3 py-1.5 text-xs text-[var(--c-muted)] hover:bg-[var(--c-bg)] disabled:opacity-40"
+                              >
+                                Solicitar reembolso
+                              </button>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Suscripción escuela */}
+                    {suscripcion.escuela && (
+                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <p className="text-sm font-semibold text-[var(--c-text)]">Suscripción escuela</p>
+                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                            suscripcion.escuela.estado === "activa"
+                              ? "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
+                              : "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
+                          }`}>
+                            {suscripcion.escuela.estado}
+                          </span>
+                        </div>
+                        <p className="text-2xl font-semibold text-[var(--c-text)] capitalize">{suscripcion.escuela.plan}</p>
+                        <p className="text-xs text-[var(--c-muted)]">
+                          Vence: {new Date(suscripcion.escuela.periodo_fin).toLocaleDateString("es-AR")}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Multiplicador */}
+                    {suscripcion.multiplicador && (
+                      <div className="bg-[color-mix(in_srgb,var(--c-success)_8%,transparent)] border border-[color-mix(in_srgb,var(--c-success)_20%,transparent)] rounded-xl px-4 py-3">
+                        <p className="text-xs font-semibold text-[var(--c-success)]">Multiplicador activo</p>
+                        <p className="text-xs text-[var(--c-muted)] mt-0.5">+15% de monedas en la economía del aula</p>
+                      </div>
+                    )}
+
+                    {/* Límites */}
+                    {limites && (
+                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
+                        <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Límites del plan</p>
+                        <div className="grid grid-cols-2 gap-1.5 text-xs text-[var(--c-text)]">
+                          <span>Profesores: hasta {limites.max_profesores}</span>
+                          <span>Directivos: hasta {limites.max_directivos}</span>
+                          <span>Aulas activas: hasta {limites.max_aulas}</span>
+                          <span>Alumnos/aula: hasta {limites.max_alumnos_por_aula}</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Formulario suscribirse */}
+                    {!suscripcion.personal && suscripcion.paymentsEnabled && (
+                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-3">
+                        <p className="text-sm font-medium text-[var(--c-text)]">Activar suscripción</p>
+                        <input
+                          type="email"
+                          placeholder="Tu email de MercadoPago"
+                          className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
+                          value={payerEmail}
+                          onChange={(e) => setPayerEmail(e.target.value)}
+                        />
+                        <div className="flex flex-wrap gap-2">
+                          {perfil.role === "USER" && (
+                            <button
+                              disabled={suscAccion === "loading"}
+                              onClick={() => handleSuscribir("alumno")}
+                              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
+                            >
+                              Alumno — $1.000/mes
+                            </button>
+                          )}
+                          {perfil.role === "TEACHER" && (
+                            <button
+                              disabled={suscAccion === "loading"}
+                              onClick={() => handleSuscribir("profesor")}
+                              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
+                            >
+                              Expandir aulas — $150/mes
+                            </button>
+                          )}
+                          {perfil.role === "DIRECTIVO" && (
+                            <button
+                              disabled={suscAccion === "loading"}
+                              onClick={() => handleSuscribir("escuela")}
+                              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
+                            >
+                              Escuela — desde $300/mes
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {!suscripcion.paymentsEnabled && (
+                      <p className="text-sm text-[var(--c-muted)]">
+                        Los pagos están deshabilitados en este sistema. Contactá al administrador para gestionar tu suscripción.
+                      </p>
+                    )}
+
+                    {suscMsg && (
+                      <p className={`text-xs ${suscAccion === "error" ? "text-[var(--c-danger)]" : "text-[var(--c-success)]"}`}>
+                        {suscMsg}
+                      </p>
+                    )}
+
+                    {/* Historial de pagos */}
+                    {historial.length > 0 && (
+                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
+                        <p className="text-sm font-medium text-[var(--c-text)] mb-3">Historial de pagos</p>
+                        <div className="space-y-2">
+                          {historial.slice(0, 5).map((pago) => (
+                            <div key={pago.id} className="flex items-center justify-between text-xs">
+                              <span className="text-[var(--c-muted)]">
+                                {new Date(pago.created_at).toLocaleDateString("es-AR")}
+                              </span>
+                              <span className="text-[var(--c-text)] font-medium">
+                                ${pago.monto.toLocaleString("es-AR")} {pago.moneda}
+                              </span>
+                              <span className={`rounded-full px-2 py-0.5 font-semibold ${
+                                pago.estado === "pagado"
+                                  ? "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
+                                  : pago.estado === "reembolsado"
+                                  ? "bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)]"
+                                  : "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
+                              }`}>
+                                {pago.estado}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+            )}
           </>
         )}
-      </section>
-    </main>
+
+      </div>
+    </div>
   );
 }

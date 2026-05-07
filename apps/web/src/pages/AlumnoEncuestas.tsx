@@ -147,66 +147,95 @@ export default function AlumnoEncuestas() {
   const now = useMemo(() => new Date(), [surveys]);
 
   return (
-    <main className="p-6 space-y-6">
-      <header className="space-y-2">
-        <h1 className="text-2xl font-semibold">Encuestas</h1>
-        <p className="text-[var(--c-muted)]">Vota en las encuestas activas de tu aula.</p>
-      </header>
+    <div className="min-h-screen bg-[var(--c-bg)]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
-      <section className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="grid gap-2">
-            <label className="text-sm font-medium text-[var(--c-text)]" htmlFor="student-classroom">
-              Aula
-            </label>
-            <select
-              id="student-classroom"
-              className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none"
-              value={classroomId}
-              onChange={(event) => setClassroomId(event.target.value)}
-            >
-              <option value="" disabled>
-                Selecciona un aula
+        {/* Encabezado */}
+        <div>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">Encuestas</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">
+            Votá en las encuestas activas de tu aula.
+          </p>
+        </div>
+
+        {/* Selector de aula */}
+        <div className="flex items-center gap-3 flex-wrap">
+          <select
+            id="student-classroom"
+            className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+            value={classroomId}
+            onChange={(event) => setClassroomId(event.target.value)}
+          >
+            <option value="" disabled>Seleccioná un aula</option>
+            {classrooms.map((classroom) => (
+              <option key={getAulaId(classroom)} value={getAulaId(classroom)}>
+                {classroom.name}
               </option>
-              {classrooms.map((classroom) => (
-                <option key={getAulaId(classroom)} value={getAulaId(classroom)}>
-                  {classroom.name}
-                </option>
-              ))}
-            </select>
-          </div>
+            ))}
+          </select>
           <button
             type="button"
-            className="rounded-md border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)]"
+            className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2 text-sm text-[var(--c-text)] hover:border-[var(--c-primary)] transition-colors"
             onClick={() => refresh(classroomId)}
           >
             Actualizar
           </button>
         </div>
 
-        {error && <p className="mt-4 text-sm text-[var(--c-danger)]">{error}</p>}
-        {info && <p className="mt-4 text-sm text-green-600">{info}</p>}
+        {/* Mensajes globales */}
+        {error && <p className="text-sm text-[var(--c-danger)]">{error}</p>}
+        {info && (
+          <p className="text-sm text-[var(--c-success)]">{info}</p>
+        )}
 
-        {isLoading ? (
-          <p className="mt-4 text-sm text-[var(--c-muted)]">Cargando encuestas...</p>
-        ) : surveys.length === 0 ? (
-          <p className="mt-4 text-sm text-[var(--c-muted)]">No hay encuestas activas para esta aula.</p>
-        ) : (
-          <div className="mt-6 space-y-4">
+        {/* Cargando */}
+        {isLoading && (
+          <div className="space-y-3">
+            {[1, 2].map((i) => (
+              <div key={i} className="h-28 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />
+            ))}
+          </div>
+        )}
+
+        {/* Sin encuestas */}
+        {!isLoading && surveys.length === 0 && (
+          <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
+            <p className="text-sm text-[var(--c-muted)]">No hay encuestas activas para esta aula.</p>
+          </div>
+        )}
+
+        {/* Lista de encuestas */}
+        {!isLoading && surveys.length > 0 && (
+          <div className="space-y-4">
             {surveys.map((survey) => {
               const isClosed = now >= new Date(survey.endAt) || survey.status === "cerrada";
               const canShowResults =
                 isClosed || survey.showResultsBeforeClose || survey.showResultsRealtime;
               const surveyResults = results[survey.id];
               return (
-                <article key={survey.id} className="rounded-md border border-[var(--c-border)] p-4 space-y-3">
-                  <div>
-                    <h2 className="text-sm font-semibold text-[var(--c-text)]">{survey.title}</h2>
-                    <p className="text-sm text-[var(--c-muted)]">{survey.description}</p>
-                    <p className="text-xs text-[var(--c-muted)]">
-                      Disponible hasta {new Date(survey.endAt).toLocaleString()} · Estado: {survey.status}
-                    </p>
+                <article
+                  key={survey.id}
+                  className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 space-y-4"
+                >
+                  {/* Cabecera de la encuesta */}
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h2 className="text-sm font-semibold text-[var(--c-text)]">{survey.title}</h2>
+                      <p className="text-xs text-[var(--c-muted)] mt-0.5">{survey.description}</p>
+                    </div>
+                    <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full flex-shrink-0 ${
+                      isClosed
+                        ? "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
+                        : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
+                    }`}>
+                      {isClosed ? "Cerrada" : "Activa"}
+                    </span>
                   </div>
+                  <p className="text-xs text-[var(--c-muted)]">
+                    Disponible hasta {new Date(survey.endAt).toLocaleString("es-AR")}
+                  </p>
+
+                  {/* Opciones de votación */}
                   {!isClosed && (
                     <div className="space-y-2">
                       {survey.type === "normal" && (
@@ -230,31 +259,25 @@ export default function AlumnoEncuestas() {
                       {survey.type === "puntuacion" && (
                         <div className="space-y-2">
                           <p className="text-xs text-[var(--c-muted)]">
-                            Puntúa cada opción del 1 al 5 (5 es la mejor). Puedes dejar en blanco las que no quieras
-                            calificar.
+                            Puntúa cada opción. Podés dejar en blanco las que no querés calificar.
                           </p>
                           {survey.options.map((option) => (
                             <div key={option.id} className="flex items-center justify-between gap-3 text-sm text-[var(--c-text)]">
                               <span>{option.label}</span>
                               <select
-                                className="rounded-md border border-gray-300 px-2 py-1 text-sm"
+                                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-sm"
                                 value={scoreSelections[survey.id]?.[option.id] ?? 0}
                                 onChange={(event) => {
                                   const score = Number(event.target.value);
                                   setScoreSelections((prev) => ({
                                     ...prev,
-                                    [survey.id]: {
-                                      ...(prev[survey.id] ?? {}),
-                                      [option.id]: score
-                                    }
+                                    [survey.id]: { ...(prev[survey.id] ?? {}), [option.id]: score }
                                   }));
                                 }}
                               >
                                 <option value={0}>Sin puntuar</option>
                                 {scoreValues.map((value) => (
-                                  <option key={`${survey.id}-${option.id}-${value}`} value={value}>
-                                    {value}
-                                  </option>
+                                  <option key={`${survey.id}-${option.id}-${value}`} value={value}>{value}</option>
                                 ))}
                               </select>
                             </div>
@@ -263,9 +286,7 @@ export default function AlumnoEncuestas() {
                       )}
                       {survey.type === "segunda_vuelta" && (
                         <div className="space-y-2">
-                          <p className="text-xs text-[var(--c-muted)]">
-                            Ordena tus preferencias. Elige un orden único para cada opción.
-                          </p>
+                          <p className="text-xs text-[var(--c-muted)]">Ordená tus preferencias con un orden único para cada opción.</p>
                           {survey.options.map((option) => {
                             const maxRank = survey.options.length;
                             const currentRank = rankingSelections[survey.id]?.[option.id] ?? 0;
@@ -273,50 +294,45 @@ export default function AlumnoEncuestas() {
                               <div key={option.id} className="flex items-center justify-between gap-3 text-sm text-[var(--c-text)]">
                                 <span>{option.label}</span>
                                 <select
-                                  className="rounded-md border border-gray-300 px-2 py-1 text-sm"
+                                  className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-sm"
                                   value={currentRank}
                                   onChange={(event) => {
                                     const rank = Number(event.target.value);
                                     setRankingSelections((prev) => ({
                                       ...prev,
-                                      [survey.id]: {
-                                        ...(prev[survey.id] ?? {}),
-                                        [option.id]: rank
-                                      }
+                                      [survey.id]: { ...(prev[survey.id] ?? {}), [option.id]: rank }
                                     }));
                                   }}
                                 >
                                   <option value={0}>Sin preferencia</option>
                                   {Array.from({ length: maxRank }, (_, idx) => idx + 1).map((rankValue) => (
-                                    <option key={`${survey.id}-${option.id}-${rankValue}`} value={rankValue}>
-                                      {rankValue}
-                                    </option>
+                                    <option key={`${survey.id}-${option.id}-${rankValue}`} value={rankValue}>{rankValue}</option>
                                   ))}
                                 </select>
                               </div>
                             );
                           })}
                           {survey.maxOptions && (
-                            <p className="text-xs text-[var(--c-muted)]">
-                              Máximo de preferencias permitidas: {survey.maxOptions}.
-                            </p>
+                            <p className="text-xs text-[var(--c-muted)]">Máximo de preferencias: {survey.maxOptions}.</p>
                           )}
                         </div>
                       )}
                       <button
                         type="button"
-                        className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700"
+                        className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                         onClick={() => handleVote(survey)}
                       >
                         Votar
                       </button>
                     </div>
                   )}
+
+                  {/* Resultados */}
                   {canShowResults && (
-                    <div className="space-y-2">
+                    <div className="space-y-2 pt-2 border-t border-[var(--c-border)]">
                       <button
                         type="button"
-                        className="rounded-md border border-indigo-200 px-3 py-2 text-sm text-indigo-600 hover:bg-indigo-50"
+                        className="rounded-xl border border-[var(--c-border)] px-3 py-1.5 text-sm text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
                         onClick={() => handleFetchResults(survey.id)}
                       >
                         Ver resultados
@@ -326,8 +342,7 @@ export default function AlumnoEncuestas() {
                           <p className="text-xs text-[var(--c-muted)]">Total votos: {surveyResults.totalVotes}</p>
                           {survey.type === "puntuacion" && (
                             <p className="text-xs text-[var(--c-muted)]">
-                              Puntaje total acumulado:{" "}
-                              {surveyResults.options.reduce((acc, option) => acc + (option.scoreTotal ?? 0), 0)}
+                              Puntaje acumulado: {surveyResults.options.reduce((acc, o) => acc + (o.scoreTotal ?? 0), 0)}
                             </p>
                           )}
                           {surveyResults.options.map((option) => (
@@ -342,30 +357,20 @@ export default function AlumnoEncuestas() {
                           ))}
                           {survey.type === "segunda_vuelta" && surveyResults.rounds && surveyResults.rounds.length > 0 && (
                             <div className="mt-2 space-y-2 text-xs text-[var(--c-muted)]">
-                              <p className="font-semibold text-[var(--c-text)]">Rondas de segunda vuelta</p>
+                              <p className="font-semibold text-[var(--c-text)]">Rondas</p>
                               {surveyResults.rounds.map((round) => (
-                                <div key={`round-${survey.id}-${round.round}`} className="rounded-md bg-[var(--c-bg)] p-3">
+                                <div key={`round-${survey.id}-${round.round}`} className="rounded-lg bg-[var(--c-bg)] p-3">
                                   <p className="font-semibold text-[var(--c-text)]">Ronda {round.round}</p>
                                   <div className="mt-1 space-y-1">
                                     {round.counts.map((count) => (
                                       <div key={`${survey.id}-${round.round}-${count.id}`} className="flex justify-between">
                                         <span>{count.label}</span>
-                                        <span>
-                                          {count.count} votos · {count.percentage}%
-                                        </span>
+                                        <span>{count.count} votos · {count.percentage}%</span>
                                       </div>
                                     ))}
                                   </div>
-                                  {round.eliminated && (
-                                    <p className="mt-1 text-amber-600">
-                                      Eliminada: {round.eliminated.label}
-                                    </p>
-                                  )}
-                                  {round.winner && (
-                                    <p className="mt-1 text-emerald-600">
-                                      Ganador: {round.winner.label} ({round.winner.count} votos)
-                                    </p>
-                                  )}
+                                  {round.eliminated && <p className="mt-1 text-[var(--c-warning)]">Eliminada: {round.eliminated.label}</p>}
+                                  {round.winner && <p className="mt-1 text-[var(--c-success)]">Ganador: {round.winner.label} ({round.winner.count} votos)</p>}
                                 </div>
                               ))}
                             </div>
@@ -379,7 +384,8 @@ export default function AlumnoEncuestas() {
             })}
           </div>
         )}
-      </section>
-    </main>
+
+      </div>
+    </div>
   );
 }
