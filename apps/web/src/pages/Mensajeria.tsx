@@ -195,393 +195,301 @@ export default function Mensajeria() {
   };
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-col gap-0 px-6 py-10">
-      <header className="mb-6 space-y-1">
-        <h1 className="text-3xl font-bold text-[var(--c-text)]">Mensajería</h1>
-        <p className="text-base text-[var(--c-muted)]">
-          Mensajes y avisos de tu escuela.
-        </p>
-      </header>
+    <div className="min-h-screen bg-[var(--c-bg)]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
-      {/* Tabs */}
-      <div className="flex gap-1 border-b border-[var(--c-border)] mb-6">
-        {[
-          { key: "mensajes", label: "💬 Mensajes" },
-          { key: "avisos", label: "📢 Avisos" },
-        ].map((t) => (
-          <button
-            key={t.key}
-            type="button"
-            onClick={() => setTab(t.key as Tab)}
-            className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
-              tab === t.key
-                ? "border-[var(--c-primary)] text-[var(--c-primary)]"
-                : "border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]"
-            }`}
-          >
-            {t.label}
-          </button>
-        ))}
-      </div>
+        {/* Encabezado */}
+        <div>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">Mensajes</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">
+            Mensajes directos y avisos de tu escuela.
+          </p>
+        </div>
 
-      {/* ── Tab Mensajes ── */}
-      {tab === "mensajes" && (
-        <div className="grid gap-4 lg:grid-cols-[280px_1fr]">
-
-          {/* Sidebar de hilos */}
-          <aside className="flex flex-col gap-2">
+        {/* Tabs */}
+        <div className="flex gap-1 border-b border-[var(--c-border)]">
+          {(["mensajes", "avisos"] as const).map((t) => (
             <button
-              type="button"
-              onClick={() => setMostrarNuevo((v) => !v)}
-              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm
-                font-semibold text-white hover:opacity-90 transition-colors"
+              key={t}
+              onClick={() => setTab(t)}
+              className={`px-4 py-2 text-sm font-medium capitalize border-b-2 transition-colors ${
+                tab === t
+                  ? "border-[var(--c-primary)] text-[var(--c-primary)]"
+                  : "border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]"
+              }`}
             >
-              + Nuevo mensaje
+              {t === "mensajes" ? "Mensajes" : "Avisos"}
             </button>
+          ))}
+        </div>
 
-            {/* Formulario nuevo mensaje */}
-            {mostrarNuevo && (
-              <div className="rounded-2xl border border-[var(--c-border)]
-                bg-[var(--c-surface)] p-4 space-y-3 shadow-sm">
-                <input
-                  type="text"
-                  placeholder="Buscar por nombre o @usuario..."
-                  value={busqueda}
-                  onChange={(e) => setBusqueda(e.target.value)}
-                  className="w-full rounded-lg border border-[var(--c-border)]
-                    px-3 py-2 text-sm focus:outline-none
-                    focus:ring-2 focus:ring-blue-300"
-                />
-                {buscando && (
-                  <p className="text-xs text-[var(--c-muted)] animate-pulse">
-                    Buscando...
-                  </p>
-                )}
-                {resultados.length > 0 && !destinatario && (
-                  <ul className="space-y-1">
-                    {resultados.map((u) => (
-                      <li key={u.id}>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setDestinatario(u);
-                            setBusqueda(u.nombre);
-                            setResultados([]);
-                          }}
-                          className="w-full text-left rounded-lg px-3 py-2
-                            text-sm hover:bg-[var(--c-bg)] border border-[var(--c-border)]"
-                        >
-                          <span className="font-medium">{u.nombre}</span>
-                          <span className="ml-2 text-xs text-[var(--c-muted)]">
-                            {ROLE_LABELS[u.role] ?? u.role}
-                          </span>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {destinatario && (
-                  <>
-                    <p className="text-xs text-emerald-600 font-medium">
-                      Para: {destinatario.nombre}
-                    </p>
-                    <textarea
-                      rows={3}
-                      placeholder="Escribí tu mensaje..."
-                      value={nuevoMsg}
-                      onChange={(e) => setNuevoMsg(e.target.value)}
-                      className="w-full rounded-lg border border-[var(--c-border)]
-                        px-3 py-2 text-sm focus:outline-none
-                        focus:ring-2 focus:ring-blue-300"
-                    />
-                    <div className="flex gap-2">
-                      <button
-                        type="button"
-                        onClick={handleNuevoMensaje}
-                        disabled={enviando || !nuevoMsg.trim()}
-                        className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5
-                          text-xs font-semibold text-white
-                          hover:opacity-90 disabled:opacity-50"
-                      >
-                        {enviando ? "Enviando..." : "Enviar"}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setDestinatario(null);
-                          setBusqueda("");
-                        }}
-                        className="rounded-lg border border-[var(--c-border)]
-                          px-3 py-1.5 text-xs text-[var(--c-muted)]
-                          hover:bg-[var(--c-bg)]"
-                      >
-                        Cancelar
-                      </button>
-                    </div>
-                  </>
-                )}
-              </div>
-            )}
+        {/* ── TAB MENSAJES ── */}
+        {tab === "mensajes" && (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 min-h-[520px]">
 
             {/* Lista de hilos */}
-            <div className="space-y-1 mt-1">
+            <div className="lg:col-span-1 flex flex-col gap-2">
+              <div className="flex items-center justify-between mb-1">
+                <p className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Conversaciones</p>
+                <button
+                  onClick={() => setMostrarNuevo((v) => !v)}
+                  className="text-xs text-[var(--c-primary)] hover:underline"
+                >
+                  + Nuevo
+                </button>
+              </div>
+
+              {/* Formulario nuevo mensaje */}
+              {mostrarNuevo && (
+                <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-3 space-y-2 mb-2">
+                  <input
+                    type="text"
+                    placeholder="Buscar usuario..."
+                    className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
+                    value={busqueda}
+                    onChange={(e) => setBusqueda(e.target.value)}
+                  />
+                  {buscando && <p className="text-xs text-[var(--c-muted)]">Buscando...</p>}
+                  {resultados.length > 0 && !destinatario && (
+                    <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] overflow-hidden">
+                      {resultados.map((r) => (
+                        <button
+                          key={r.id}
+                          onClick={() => { setDestinatario(r); setBusqueda(r.nombre); setResultados([]); }}
+                          className="w-full text-left px-3 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-surface)] transition-colors"
+                        >
+                          {r.nombre}
+                          <span className="ml-1 text-xs text-[var(--c-muted)]">
+                            · {ROLE_LABELS[r.role] ?? r.role}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {destinatario && (
+                    <>
+                      <p className="text-xs text-[var(--c-success)] font-medium">Para: {destinatario.nombre}</p>
+                      <textarea
+                        placeholder="Escribí tu mensaje..."
+                        rows={2}
+                        className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)] resize-none"
+                        value={nuevoMsg}
+                        onChange={(e) => setNuevoMsg(e.target.value)}
+                      />
+                      <div className="flex gap-2">
+                        <button
+                          disabled={enviando || !nuevoMsg.trim()}
+                          onClick={handleNuevoMensaje}
+                          className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
+                        >
+                          {enviando ? "Enviando..." : "Enviar"}
+                        </button>
+                        <button
+                          onClick={() => { setDestinatario(null); setBusqueda(""); }}
+                          className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs text-[var(--c-muted)] hover:bg-[var(--c-bg)]"
+                        >
+                          Cancelar
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+
               {hilosLoading && (
-                <p className="text-sm text-[var(--c-muted)] animate-pulse px-2">
-                  Cargando conversaciones...
-                </p>
+                <div className="space-y-2">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="h-14 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />
+                  ))}
+                </div>
               )}
+
               {!hilosLoading && hilos.length === 0 && (
-                <p className="text-sm text-[var(--c-muted)] px-2">
-                  Sin conversaciones aún.
-                </p>
+                <div className="rounded-xl border border-dashed border-[var(--c-border)] p-8 text-center">
+                  <p className="text-xs text-[var(--c-muted)]">Sin conversaciones todavía.</p>
+                </div>
               )}
+
               {hilos.map((h) => (
                 <button
                   key={h.id}
-                  type="button"
                   onClick={() => setHiloActivo(h.id)}
-                  className={`w-full text-left rounded-xl px-4 py-3
-                    transition-colors ${
+                  className={`w-full text-left rounded-xl border px-3 py-2.5 transition-all ${
                     hiloActivo === h.id
-                      ? "bg-blue-50 border border-blue-200"
-                      : "bg-[var(--c-surface)] border border-[var(--c-border)] hover:bg-[var(--c-bg)]"
+                      ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)]"
+                      : "border-[var(--c-border)] bg-[var(--c-surface)] hover:border-[var(--c-primary)]"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <p className="text-sm font-semibold text-[var(--c-text)] truncate">
-                      {h.otroNombre}
-                    </p>
+                    <p className="text-sm font-medium text-[var(--c-text)] truncate">{h.otroNombre}</p>
                     {h.noLeidos > 0 && (
-                      <span className="shrink-0 rounded-full bg-blue-600
-                        px-2 py-0.5 text-xs font-bold text-white">
+                      <span className="text-[10px] font-bold rounded-full bg-[var(--c-primary)] text-white px-1.5 py-0.5 flex-shrink-0">
                         {h.noLeidos}
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-[var(--c-muted)] mt-0.5 truncate">
-                    {h.ultimoMsg ?? "Sin mensajes"}
-                  </p>
+                  <p className="text-xs text-[var(--c-muted)] mt-0.5 truncate">{h.ultimoMsg ?? "Sin mensajes"}</p>
                 </button>
               ))}
             </div>
-          </aside>
 
-          {/* Panel de mensajes */}
-          <div className="flex flex-col rounded-2xl border border-[var(--c-border)]
-            bg-[var(--c-surface)] shadow-sm overflow-hidden min-h-[400px]">
-            {!hiloActivo ? (
-              <div className="flex flex-1 items-center justify-center
-                text-sm text-[var(--c-muted)]">
-                Seleccioná una conversación o iniciá una nueva.
-              </div>
-            ) : (
-              <>
-                <div className="flex-1 overflow-y-auto p-4 space-y-2
-                  max-h-[500px]">
-                  {mensajesLoading && (
-                    <p className="text-sm text-[var(--c-muted)] animate-pulse">
-                      Cargando mensajes...
-                    </p>
-                  )}
-                  {mensajes.map((m) => {
-                    const esMio = m.sender_id === user?.id;
-                    return (
-                      <div key={m.id}
-                        className={`flex ${esMio ? "justify-end" : "justify-start"}`}>
-                        <div className={`max-w-[75%] rounded-2xl px-4 py-2
-                          text-sm ${
-                          esMio
-                            ? "bg-blue-600 text-white rounded-br-sm"
-                            : "bg-slate-100 text-slate-800 rounded-bl-sm"
-                        }`}>
-                          <p>{m.body}</p>
-                          <p className={`text-[10px] mt-1 ${
-                            esMio ? "text-blue-200" : "text-slate-400"
+            {/* Ventana de chat */}
+            <div className="lg:col-span-2 flex flex-col rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+              {!hiloActivo ? (
+                <div className="flex-1 flex items-center justify-center p-8">
+                  <p className="text-sm text-[var(--c-muted)]">Seleccioná una conversación</p>
+                </div>
+              ) : (
+                <>
+                  {/* Mensajes */}
+                  <div className="flex-1 overflow-y-auto p-4 space-y-3 min-h-[360px] max-h-[420px]">
+                    {mensajesLoading && <p className="text-xs text-[var(--c-muted)]">Cargando...</p>}
+                    {mensajes.map((m) => {
+                      const esMio = m.sender_id === user?.id;
+                      return (
+                        <div key={m.id} className={`flex ${esMio ? "justify-end" : "justify-start"}`}>
+                          <div className={`max-w-[75%] rounded-2xl px-3 py-2 text-sm ${
+                            esMio
+                              ? "bg-[var(--c-primary)] text-white rounded-br-sm"
+                              : "bg-[var(--c-bg)] text-[var(--c-text)] border border-[var(--c-border)] rounded-bl-sm"
                           }`}>
-                            {new Date(m.created_at).toLocaleTimeString(
-                              "es-AR", { hour: "2-digit", minute: "2-digit" }
-                            )}
-                          </p>
+                            <p>{m.body}</p>
+                            <p className={`text-[10px] mt-1 ${esMio ? "text-white/60" : "text-[var(--c-muted)]"}`}>
+                              {new Date(m.created_at).toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" })}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                  <div ref={bottomRef} />
-                </div>
+                      );
+                    })}
+                    <div ref={bottomRef} />
+                  </div>
 
-                {/* Input de respuesta */}
-                <div className="border-t border-[var(--c-border)] p-3 flex gap-2">
-                  <input
-                    type="text"
-                    placeholder="Escribí un mensaje..."
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" && !e.shiftKey) {
-                        e.preventDefault();
-                        void handleEnviar();
-                      }
-                    }}
-                    className="flex-1 rounded-xl border border-[var(--c-border)]
-                      px-3 py-2 text-sm focus:outline-none
-                      focus:ring-2 focus:ring-blue-300"
-                  />
-                  <button
-                    type="button"
-                    onClick={handleEnviar}
-                    disabled={enviando || !body.trim()}
-                    className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm
-                      font-semibold text-white hover:opacity-90
-                      disabled:opacity-50 transition-colors"
-                  >
-                    {enviando ? "..." : "Enviar"}
-                  </button>
-                </div>
-              </>
-            )}
+                  {/* Input de respuesta */}
+                  <div className="border-t border-[var(--c-border)] p-3 flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Escribí un mensaje..."
+                      className="flex-1 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
+                      value={body}
+                      onChange={(e) => setBody(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" && !e.shiftKey) {
+                          e.preventDefault();
+                          void handleEnviar();
+                        }
+                      }}
+                    />
+                    <button
+                      type="button"
+                      disabled={enviando || !body.trim()}
+                      onClick={handleEnviar}
+                      className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40 hover:opacity-90 transition-opacity"
+                    >
+                      {enviando ? "..." : "Enviar"}
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* ── Tab Avisos ── */}
-      {tab === "avisos" && (
-        <div className="space-y-6">
+        {/* ── TAB AVISOS ── */}
+        {tab === "avisos" && (
+          <div className="space-y-4">
 
-          {/* Formulario para publicar aviso — solo roles autorizados */}
-          {canPublish && (
-            <section className="rounded-2xl border border-[var(--c-border)]
-              bg-[var(--c-surface)] p-6 shadow-sm space-y-4">
-              <h2 className="text-lg font-semibold text-[var(--c-text)]">
-                Publicar aviso
-              </h2>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <label className="flex flex-col gap-1 text-sm
-                  font-medium text-[var(--c-text)] sm:col-span-2">
-                  Título
-                  <input
-                    type="text"
-                    value={avisoTitulo}
-                    onChange={(e) => setAvisoTitulo(e.target.value)}
-                    placeholder="Ej: Reunión de padres el viernes"
-                    className="rounded-lg border border-[var(--c-border)] px-3 py-2
-                      text-sm focus:outline-none focus:ring-2
-                      focus:ring-blue-300"
-                  />
-                </label>
-                <label className="flex flex-col gap-1 text-sm
-                  font-medium text-[var(--c-text)] sm:col-span-2">
-                  Mensaje
-                  <textarea
-                    rows={3}
-                    value={avisoCuerpo}
-                    onChange={(e) => setAvisoCuerpo(e.target.value)}
-                    placeholder="Detalle del aviso..."
-                    className="rounded-lg border border-[var(--c-border)] px-3 py-2
-                      text-sm focus:outline-none focus:ring-2
-                      focus:ring-blue-300"
-                  />
-                </label>
-                <label className="flex flex-col gap-1 text-sm
-                  font-medium text-[var(--c-text)]">
-                  Destinatarios
+            {/* Formulario de nuevo aviso — solo para TEACHER/DIRECTIVO/ADMIN */}
+            {canPublish && (
+              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 space-y-3">
+                <p className="text-sm font-medium text-[var(--c-text)]">Publicar aviso</p>
+                <input
+                  type="text"
+                  placeholder="Título"
+                  className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
+                  value={avisoTitulo}
+                  onChange={(e) => setAvisoTitulo(e.target.value)}
+                />
+                <textarea
+                  placeholder="Mensaje..."
+                  rows={3}
+                  className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)] resize-none"
+                  value={avisoCuerpo}
+                  onChange={(e) => setAvisoCuerpo(e.target.value)}
+                />
+                <div className="flex items-center gap-2">
                   <select
+                    className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none"
                     value={avisoDestino}
                     onChange={(e) => setAvisoDestino(e.target.value)}
-                    className="rounded-lg border border-[var(--c-border)] px-3 py-2
-                      text-sm"
                   >
                     {Object.entries(DESTINO_LABELS).map(([k, v]) => (
                       <option key={k} value={k}>{v}</option>
                     ))}
                   </select>
-                </label>
-              </div>
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={handlePublicarAviso}
-                  disabled={
-                    publicando ||
-                    !avisoTitulo.trim() ||
-                    !avisoCuerpo.trim()
-                  }
-                  className="rounded-xl bg-[var(--c-primary)] px-5 py-2.5 text-sm
-                    font-semibold text-white hover:opacity-90
-                    disabled:opacity-50 transition-colors"
-                >
-                  {publicando ? "Publicando..." : "Publicar aviso"}
-                </button>
+                  <button
+                    disabled={publicando || !avisoTitulo.trim() || !avisoCuerpo.trim()}
+                    onClick={handlePublicarAviso}
+                    className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40 hover:opacity-90 transition-opacity"
+                  >
+                    {publicando ? "Publicando..." : "Publicar"}
+                  </button>
+                </div>
                 {avisoMsg && (
-                  <p className={`text-sm ${
-                    avisoMsg.startsWith("✓")
-                      ? "text-emerald-600" : "text-red-500"
-                  }`}>
+                  <p className={`text-xs ${avisoMsg.startsWith("✓") ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
                     {avisoMsg}
                   </p>
                 )}
               </div>
-            </section>
-          )}
+            )}
 
-          {/* Lista de avisos */}
-          <section className="space-y-3">
+            {/* Lista de avisos */}
             {avisosLoading && (
               <div className="space-y-2">
-                {Array.from({ length: 3 }).map((_, i) => (
-                  <div key={i}
-                    className="h-20 animate-pulse rounded-2xl bg-[var(--c-border)]"/>
+                {[1, 2].map((i) => (
+                  <div key={i} className="h-20 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />
                 ))}
               </div>
             )}
+
             {!avisosLoading && avisos.length === 0 && (
-              <p className="text-sm text-[var(--c-muted)]">
-                No hay avisos publicados.
-              </p>
+              <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
+                <p className="text-sm text-[var(--c-muted)]">No hay avisos publicados.</p>
+              </div>
             )}
+
             {avisos.map((aviso) => (
-              <article
+              <div
                 key={aviso.id}
-                onClick={() => !aviso.leido && handleLeerAviso(aviso.id)}
-                className={`rounded-2xl border p-5 shadow-sm cursor-pointer
-                  transition-colors ${
-                  aviso.leido
-                    ? "border-[var(--c-border)] bg-[var(--c-surface)]"
-                    : "border-blue-200 bg-blue-50"
+                className={`rounded-xl border bg-[var(--c-surface)] p-4 space-y-1 ${
+                  aviso.leido ? "border-[var(--c-border)] opacity-70" : "border-[var(--c-primary)]"
                 }`}
               >
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      {!aviso.leido && (
-                        <span className="h-2 w-2 rounded-full
-                          bg-[var(--c-primary)] shrink-0" />
-                      )}
-                      <h3 className="text-base font-semibold
-                        text-[var(--c-text)]">
-                        {aviso.titulo}
-                      </h3>
-                    </div>
-                    <p className="mt-1 text-sm text-[var(--c-muted)]">
-                      {aviso.cuerpo}
-                    </p>
-                  </div>
-                  <div className="text-right shrink-0 space-y-1">
-                    <span className="block rounded-full bg-[var(--c-bg)]
-                      px-2 py-0.5 text-xs font-medium text-[var(--c-muted)]">
-                      {DESTINO_LABELS[aviso.destino] ?? aviso.destino}
-                    </span>
-                    <span className="block text-xs text-[var(--c-muted)]">
-                      {new Date(aviso.created_at).toLocaleDateString(
-                        "es-AR", { day: "numeric", month: "short" }
-                      )}
-                    </span>
-                  </div>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">{aviso.titulo}</p>
+                  <span className="text-[10px] text-[var(--c-muted)] flex-shrink-0">
+                    {DESTINO_LABELS[aviso.destino] ?? aviso.destino}
+                  </span>
                 </div>
-              </article>
+                <p className="text-xs text-[var(--c-muted)]">{aviso.cuerpo}</p>
+                <div className="flex items-center justify-between pt-1">
+                  <span className="text-[10px] text-[var(--c-muted)]">
+                    {new Date(aviso.created_at).toLocaleDateString("es-AR")}
+                  </span>
+                  {!aviso.leido && (
+                    <button
+                      onClick={() => handleLeerAviso(aviso.id)}
+                      className="text-[10px] text-[var(--c-primary)] hover:underline"
+                    >
+                      Marcar como leído
+                    </button>
+                  )}
+                </div>
+              </div>
             ))}
-          </section>
-        </div>
-      )}
-    </main>
+          </div>
+        )}
+
+      </div>
+    </div>
   );
 }

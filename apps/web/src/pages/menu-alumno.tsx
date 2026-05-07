@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { Award, Bell, Clock3, GraduationCap, Trophy, UserCircle2 } from "lucide-react";
+import { Award, Clock3, GraduationCap, Trophy } from "lucide-react";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
+import { fetchTareas, type TareaResumen } from "../services/tareas";
 
 interface Student {
   name: string;
@@ -37,59 +38,98 @@ type ProgressResponse = {
   unlocks: ProgressUnlock[];
 };
 
-const Container: React.FC<React.PropsWithChildren<{ className?: string }>> = ({ children, className = "" }) => (
-  <div className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>
-);
-
-const ProfileCard: React.FC<{ student: Student }> = ({ student }) => (
-  <div className="bg-[var(--c-surface)] rounded-2xl shadow flex flex-wrap items-center gap-4 p-6">
-    <div className="w-14 h-14 rounded-full bg-[var(--c-primary)] text-white grid place-content-center font-semibold select-none">
-      {student.initials}
-    </div>
-    <div className="flex-1 min-w-[200px]">
-      <h2 className="text-xl font-semibold">{student.name}</h2>
-      <p className="text-[var(--c-muted)]">{student.role}</p>
-    </div>
-    <div className="flex items-center gap-5 text-[var(--c-text)]">
-      <button className="p-2" title="Notificaciones" aria-label="Notificaciones">
-        <Bell className="h-6 w-6" aria-hidden="true" />
-      </button>
-      <Link className="flex items-center gap-2 hover:underline" to="/progreso">
-        <UserCircle2 className="h-6 w-6" />
-        Perfil
-      </Link>
-    </div>
-  </div>
-);
-
-const InfoCard: React.FC<{ icon: React.ReactNode; label: string; value: string | number }> = ({ icon, label, value }) => (
-  <div className="bg-[var(--c-surface)] rounded-2xl shadow p-6 flex items-center gap-4">
-    <div className="h-12 w-12 rounded-full border border-[var(--c-border)] grid place-content-center text-[var(--c-text)]">
-      {icon}
-    </div>
-    <div>
-      <p className="text-[var(--c-muted)]">{label}</p>
-      <p className="text-2xl font-bold">{value}</p>
-    </div>
-  </div>
-);
-
-const ProgressBar: React.FC<{ percent: number; label?: string }> = ({
-  percent,
-  label = "Progreso general de la próxima clase"
-}) => {
-  const clamped = Math.max(0, Math.min(100, Math.round(percent)));
+const StatCard: React.FC<{
+  icon: React.ReactNode;
+  value: string | number;
+  label: string;
+  hint?: string;
+  hintColor?: "success" | "warning" | "muted";
+}> = ({ icon, value, label, hint, hintColor = "muted" }) => {
+  const hintClass = {
+    success: "text-[var(--c-success)]",
+    warning: "text-[var(--c-warning)]",
+    muted:   "text-[var(--c-muted)]",
+  }[hintColor];
   return (
-    <div className="bg-[var(--c-surface)] rounded-2xl shadow p-6">
-      <div className="flex items-center gap-3">
-        <div className="h-12 w-12 rounded-full border border-[var(--c-border)] grid place-content-center text-[var(--c-text)]">
-          <GraduationCap className="h-6 w-6" />
+    <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
+      <div className="text-[var(--c-muted)] text-lg mb-2">{icon}</div>
+      <p className="text-2xl font-semibold text-[var(--c-text)]">{value}</p>
+      <p className="text-xs text-[var(--c-muted)] mt-1">{label}</p>
+      {hint && <p className={`text-[10px] mt-1.5 ${hintClass}`}>{hint}</p>}
+    </div>
+  );
+};
+
+const ModuloRow: React.FC<{
+  nombre: string;
+  meta: string;
+  pct: number;
+  icon: React.ReactNode;
+}> = ({ nombre, meta, pct, icon }) => {
+  const pctColor = pct === 100
+    ? "text-[var(--c-success)]"
+    : pct > 0
+    ? "text-[var(--c-accent)]"
+    : "text-[var(--c-muted)]";
+  const barColor = pct === 100
+    ? "var(--c-success)"
+    : pct > 0
+    ? "var(--c-accent)"
+    : "var(--c-border)";
+  return (
+    <div className="flex items-center gap-3 py-2.5 border-b border-[var(--c-border)] last:border-0 last:pb-0">
+      <div className="w-8 h-8 rounded-lg bg-[var(--c-bg)] flex items-center justify-center text-[var(--c-muted)] flex-shrink-0 text-sm">
+        {icon}
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium text-[var(--c-text)] truncate">{nombre}</p>
+        <p className="text-xs text-[var(--c-muted)]">{meta}</p>
+      </div>
+      <div className="text-right flex-shrink-0">
+        <p className={`text-xs font-semibold ${pctColor}`}>{pct}%</p>
+        <div className="w-14 h-0.5 bg-[var(--c-border)] rounded mt-1.5">
+          <div
+            className="h-full rounded"
+            style={{ width: `${pct}%`, background: barColor }}
+          />
         </div>
-        <p className="text-[var(--c-muted)]">{label}</p>
       </div>
-      <div className="mt-4 h-3 w-80 max-w-full bg-[var(--c-border)] rounded">
-        <div className="h-3 bg-[var(--c-muted)] rounded" style={{ width: `${clamped}%` }} />
+    </div>
+  );
+};
+
+const TareaRow: React.FC<{ tarea: TareaResumen }> = ({ tarea }) => {
+  const vence = new Date(tarea.vence);
+  const hoy = new Date();
+  hoy.setHours(23, 59, 59, 0);
+  const finSemana = new Date(hoy);
+  finSemana.setDate(finSemana.getDate() + 7);
+
+  const urgente = vence <= hoy;
+  const estaSemana = !urgente && vence <= finSemana;
+
+  const dotColor = urgente
+    ? "bg-[var(--c-danger)]"
+    : estaSemana
+    ? "bg-[var(--c-warning)]"
+    : "bg-[var(--c-success)]";
+  const badgeCls = urgente
+    ? "bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]"
+    : estaSemana
+    ? "bg-[color-mix(in_srgb,var(--c-warning)_12%,transparent)] text-[var(--c-warning)]"
+    : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]";
+  const badgeLabel = urgente ? "Urgente" : estaSemana ? "Esta semana" : "Sin urgencia";
+
+  return (
+    <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-3.5 py-2.5 flex items-center gap-2.5">
+      <div className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColor}`} />
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium text-[var(--c-text)] truncate">{tarea.titulo}</p>
+        <p className="text-xs text-[var(--c-muted)]">{tarea.curso} · Vence {tarea.vence}</p>
       </div>
+      <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full flex-shrink-0 ${badgeCls}`}>
+        {badgeLabel}
+      </span>
     </div>
   );
 };
@@ -101,8 +141,9 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
   const [modulesCount, setModulesCount] = useState(0);
   const [progressStatus, setProgressStatus] = useState<"loading" | "ready" | "error">("loading");
   const [progressError, setProgressError] = useState<string | null>(null);
-  const [benefitsStatus, setBenefitsStatus] = useState<"loading" | "active" | "inactive" | "error">("loading");
-  const [benefitsError, setBenefitsError] = useState<string | null>(null);
+  const [tareas, setTareas] = useState<TareaResumen[]>([]);
+  const [tareasLoading, setTareasLoading] = useState(true);
+  const [coins, setCoins] = useState<number | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -147,97 +188,157 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
 
   useEffect(() => {
     let active = true;
-    if (!user?.id) {
-      setBenefitsStatus("error");
-      setBenefitsError("No se encontró un alumno autenticado.");
-      return () => { active = false; };
-    }
-    setBenefitsStatus("loading");
-    setBenefitsError(null);
-    apiGet<{ active: boolean }>("/api/beneficios/estado")
-      .then((response) => {
-        if (!active) return;
-        setBenefitsStatus(response.active ? "active" : "inactive");
-      })
-      .catch((error) => {
-        if (!active) return;
-        setBenefitsStatus("error");
-        setBenefitsError(error instanceof Error ? error.message : "No se pudo validar beneficios.");
-      });
+    fetchTareas()
+      .then((data) => { if (active) setTareas(data); })
+      .catch(() => {})
+      .finally(() => { if (active) setTareasLoading(false); });
+    return () => { active = false; };
+  }, []);
+
+  useEffect(() => {
+    if (!user?.id) return;
+    let active = true;
+    apiGet<{ saldo: number }>(`/api/economia/saldos?usuarioId=${user.id}`)
+      .then((res) => { if (active) setCoins(res.saldo); })
+      .catch(() => {});
     return () => { active = false; };
   }, [user?.id]);
 
-  const progressLabel = useMemo(() => `${completedModules} módulos completados`, [completedModules]);
-
-  const benefitsValue = useMemo(() => {
-    switch (benefitsStatus) {
-      case "active":   return "Vigentes";
-      case "inactive": return "No vigentes";
-      case "error":    return "Sin información";
-      case "loading":
-      default:         return "Verificando...";
-    }
-  }, [benefitsStatus]);
+  const tareasUrgentes = useMemo(
+    () => tareas.filter((t) => {
+      const vence = new Date(t.vence);
+      const hoy = new Date();
+      hoy.setHours(23, 59, 59, 0);
+      return vence <= hoy;
+    }).length,
+    [tareas]
+  );
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--c-bg)]">
-      <main className="flex-1">
-        <Container className="py-6 space-y-5">
-          <ProfileCard student={student} />
-          <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <Link className="rounded-2xl bg-[var(--c-surface)] p-4 shadow transition hover:shadow-md" to="/clases">
-              <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">Aprendizaje</p>
-              <p className="mt-2 text-lg font-semibold text-[var(--c-text)]">Mis clases</p>
-              <p className="mt-1 text-sm text-[var(--c-muted)]">Accedé al aula y contenidos.</p>
-            </Link>
-            <Link className="rounded-2xl bg-[var(--c-surface)] p-4 shadow transition hover:shadow-md" to="/tareas">
-              <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">Actividad</p>
-              <p className="mt-2 text-lg font-semibold text-[var(--c-text)]">Tareas</p>
-              <p className="mt-1 text-sm text-[var(--c-muted)]">Revisá pendientes y entregas.</p>
-            </Link>
-            <Link className="rounded-2xl bg-[var(--c-surface)] p-4 shadow transition hover:shadow-md" to="/encuestas">
-              <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">Feedback</p>
-              <p className="mt-2 text-lg font-semibold text-[var(--c-text)]">Encuestas</p>
-              <p className="mt-1 text-sm text-[var(--c-muted)]">Respondé evaluaciones rápidas.</p>
-            </Link>
-            <Link className="rounded-2xl bg-[var(--c-surface)] p-4 shadow transition hover:shadow-md" to="/progreso">
-              <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">Seguimiento</p>
-              <p className="mt-2 text-lg font-semibold text-[var(--c-text)]">Progreso</p>
-              <p className="mt-1 text-sm text-[var(--c-muted)]">Mirá tu avance general.</p>
-            </Link>
-          </section>
-          <div className="space-y-5">
+    <div className="min-h-screen bg-[var(--c-bg)]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+
+        {/* Saludo */}
+        <div>
+          <p className="text-xs uppercase tracking-widest text-[var(--c-muted)] mb-1">
+            {new Date().toLocaleDateString("es-AR", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
+          </p>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">
+            Bienvenido, <span className="text-[var(--c-primary)]">{student.name}</span>
+          </h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">
+            Alumno · {completedModules} módulos completados
+          </p>
+        </div>
+
+        {/* Próxima clase */}
+        <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-5 py-4 flex items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-[var(--c-success)]" />
+              <span className="text-[10px] uppercase tracking-widest text-[var(--c-primary)] font-medium">
+                Próxima clase
+              </span>
+            </div>
+            <p className="text-base font-semibold text-[var(--c-text)]">{nextClass.title}</p>
+            <p className="text-xs text-[var(--c-muted)] mt-0.5">Hoy</p>
+          </div>
+          <div className="text-right flex-shrink-0">
+            <p className="text-3xl font-semibold text-[var(--c-text)] tracking-tight">{nextClass.time}</p>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <StatCard
+            icon={<Trophy className="w-5 h-5" />}
+            value={completedModules}
+            label="Módulos completados"
+            hint={progressStatus === "loading" ? "Cargando..." : `de ${modulesCount} en total`}
+            hintColor="muted"
+          />
+          <StatCard
+            icon={<GraduationCap className="w-5 h-5" />}
+            value={`${progressPercent}%`}
+            label="Progreso general"
+            hint={progressPercent >= 50 ? "En camino" : "Seguí así"}
+            hintColor={progressPercent >= 50 ? "success" : "warning"}
+          />
+          <StatCard
+            icon={<Clock3 className="w-5 h-5" />}
+            value={tareas.length}
+            label="Tareas pendientes"
+            hint={tareasUrgentes > 0 ? `${tareasUrgentes} vence${tareasUrgentes > 1 ? "n" : ""} hoy` : "Al día"}
+            hintColor={tareasUrgentes > 0 ? "warning" : "success"}
+          />
+          <StatCard
+            icon={<Award className="w-5 h-5" />}
+            value={coins !== null ? coins.toLocaleString("es-AR") : "—"}
+            label="Monedas"
+            hint="Ciclo económico activo"
+            hintColor="muted"
+          />
+        </div>
+
+        {/* Dos columnas: módulos + tareas */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+          {/* Módulos */}
+          <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-sm font-medium text-[var(--c-text)]">Mis módulos</p>
+              <Link to="/modulos" className="text-xs text-[var(--c-primary)] hover:underline">
+                Ver todos →
+              </Link>
+            </div>
             {progressStatus === "loading" && (
-              <p className="text-sm text-[var(--c-muted)]">Cargando progreso...</p>
+              <p className="text-xs text-[var(--c-muted)] py-4 text-center">Cargando...</p>
             )}
-            {progressStatus === "error" && progressError && (
-              <p className="text-sm text-[var(--c-danger)]">{progressError}</p>
-            )}
-            {benefitsStatus === "error" && benefitsError && (
-              <p className="text-sm text-[var(--c-danger)]">{benefitsError}</p>
+            {progressStatus === "error" && (
+              <p className="text-xs text-[var(--c-danger)] py-4 text-center">{progressError}</p>
             )}
             {progressStatus === "ready" && modulesCount === 0 && (
-              <p className="text-sm text-[var(--c-muted)]">Todavía no tenés módulos asignados.</p>
+              <p className="text-xs text-[var(--c-muted)] py-4 text-center">Sin módulos asignados.</p>
             )}
-            <InfoCard
-              icon={<Clock3 className="h-6 w-6" />}
-              label="Próxima Clase"
-              value={`${nextClass.title} - ${nextClass.time}`}
-            />
-            <InfoCard
-              icon={<Trophy className="h-6 w-6 text-yellow-500" />}
-              label="Módulos completos"
-              value={`${completedModules} Módulos`}
-            />
-            <InfoCard
-              icon={<Award className="h-6 w-6 text-emerald-600" />}
-              label="Beneficios vigentes"
-              value={benefitsValue}
-            />
-            <ProgressBar percent={progressPercent} label={progressLabel} />
+            {progressStatus === "ready" && modulesCount > 0 && (
+              <div>
+                <ModuloRow
+                  nombre="Módulos completados"
+                  meta={`${completedModules} de ${modulesCount}`}
+                  pct={progressPercent}
+                  icon={<Trophy className="w-4 h-4" />}
+                />
+              </div>
+            )}
           </div>
-        </Container>
-      </main>
+
+          {/* Tareas */}
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-sm font-medium text-[var(--c-text)]">Tareas pendientes</p>
+              <Link to="/tareas" className="text-xs text-[var(--c-primary)] hover:underline">
+                Ver todas →
+              </Link>
+            </div>
+            {tareasLoading && (
+              <p className="text-xs text-[var(--c-muted)]">Cargando...</p>
+            )}
+            {!tareasLoading && tareas.length === 0 && (
+              <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-4 py-6 text-center">
+                <p className="text-xs text-[var(--c-muted)]">No hay tareas pendientes.</p>
+              </div>
+            )}
+            {!tareasLoading && tareas.length > 0 && (
+              <div className="flex flex-col gap-2">
+                {tareas.slice(0, 3).map((t) => (
+                  <TareaRow key={t.id} tarea={t} />
+                ))}
+              </div>
+            )}
+          </div>
+
+        </div>
+      </div>
     </div>
   );
 };

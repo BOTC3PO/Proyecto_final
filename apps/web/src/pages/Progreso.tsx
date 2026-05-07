@@ -1,6 +1,45 @@
 import { useEffect, useState } from "react";
 import { fetchProgresoEstudiante, type ProgresoEstudianteResponse } from "../services/progreso";
 
+type AvanceModulo = {
+  id: string;
+  modulo: string;
+  progreso: string;
+};
+
+function AvanceCard({ avance }: { avance: AvanceModulo }) {
+  const completado = avance.progreso === "100%";
+  const enProgreso = avance.progreso === "En progreso" || (
+    avance.progreso.endsWith("%") && parseInt(avance.progreso) > 0 && parseInt(avance.progreso) < 100
+  );
+  const pct = avance.progreso.endsWith("%") ? parseInt(avance.progreso) : enProgreso ? 50 : 0;
+
+  const badgeCls = completado
+    ? "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
+    : enProgreso
+    ? "bg-[color-mix(in_srgb,var(--c-warning)_12%,transparent)] text-[var(--c-warning)]"
+    : "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]";
+
+  const barColor = completado ? "var(--c-success)" : enProgreso ? "var(--c-warning)" : "var(--c-border)";
+
+  return (
+    <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <p className="text-sm font-semibold text-[var(--c-text)] truncate">{avance.modulo}</p>
+        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full flex-shrink-0 ${badgeCls}`}>
+          {avance.progreso}
+        </span>
+      </div>
+      <div className="h-1.5 w-full bg-[var(--c-border)] rounded-full">
+        <div
+          className="h-full rounded-full transition-all"
+          style={{ width: `${pct}%`, background: barColor }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function Progreso() {
   const [data, setData] = useState<ProgresoEstudianteResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -28,55 +67,82 @@ export default function Progreso() {
   }, []);
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold text-[var(--c-text)]">Progreso del estudiante</h1>
-        <p className="text-base text-[var(--c-muted)]">
-          Revisa tu avance por módulos y detecta las áreas donde necesitas reforzar contenidos.
-        </p>
-      </header>
+    <div className="min-h-screen bg-[var(--c-bg)]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
-      <section className="flex flex-col gap-3">
-        {loading && <p className="text-sm text-[var(--c-muted)] animate-pulse">Cargando avances...</p>}
-        {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
-        {!loading &&
-          !error &&
-          data?.avances.map((avance) => (
-            <article
-              key={avance.id}
-              className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <p className="text-sm font-semibold text-[var(--c-text)]">
-                  {avance.modulo}
-                </p>
-                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                  avance.progreso === "100%"
-                    ? "bg-emerald-100 text-emerald-700"
-                    : avance.progreso === "En progreso"
-                    ? "bg-amber-100 text-amber-700"
-                    : "bg-slate-100 text-slate-500"
-                }`}>
-                  {avance.progreso}
-                </span>
-              </div>
-            </article>
-          ))}
-        {!loading && !error && (!data || data.avances.length === 0) && (
-          <p className="text-sm text-[var(--c-muted)]">No hay avances registrados.</p>
-        )}
-      </section>
-
-      {!loading && !error && data?.sugerencia && (
-        <div className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
-          <p className="text-sm font-semibold text-[var(--c-primary)]">
-            {data.sugerencia.titulo}
-          </p>
-          <p className="mt-1 text-sm text-[var(--c-muted)]">
-            {data.sugerencia.mensaje}
+        {/* Encabezado */}
+        <div>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">Mi progreso</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">
+            Tu avance por módulo y áreas a reforzar.
           </p>
         </div>
-      )}
-    </main>
+
+        {/* Estado de carga */}
+        {loading && (
+          <div className="space-y-3">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="h-20 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />
+            ))}
+          </div>
+        )}
+
+        {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
+
+        {/* Sin avances */}
+        {!loading && !error && (!data || data.avances.length === 0) && (
+          <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
+            <p className="text-sm font-medium text-[var(--c-muted)]">No hay avances registrados todavía.</p>
+          </div>
+        )}
+
+        {/* Resumen rápido */}
+        {!loading && !error && data && data.avances.length > 0 && (() => {
+          const total = data.avances.length;
+          const completados = data.avances.filter((a) => a.progreso === "100%").length;
+          const enProgreso = data.avances.filter((a) =>
+            a.progreso === "En progreso" || (a.progreso.endsWith("%") && parseInt(a.progreso) > 0 && parseInt(a.progreso) < 100)
+          ).length;
+          return (
+            <div className="grid grid-cols-3 gap-3">
+              <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 text-center">
+                <p className="text-2xl font-semibold text-[var(--c-success)]">{completados}</p>
+                <p className="text-xs text-[var(--c-muted)] mt-1">Completados</p>
+              </div>
+              <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 text-center">
+                <p className="text-2xl font-semibold text-[var(--c-warning)]">{enProgreso}</p>
+                <p className="text-xs text-[var(--c-muted)] mt-1">En progreso</p>
+              </div>
+              <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 text-center">
+                <p className="text-2xl font-semibold text-[var(--c-text)]">{total}</p>
+                <p className="text-xs text-[var(--c-muted)] mt-1">Total</p>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* Lista de avances */}
+        {!loading && !error && data && data.avances.length > 0 && (
+          <div className="space-y-3">
+            {data.avances.map((avance) => (
+              <AvanceCard key={avance.id} avance={avance} />
+            ))}
+          </div>
+        )}
+
+        {/* Sugerencia */}
+        {!loading && !error && data?.sugerencia && (
+          <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
+            <p className="text-sm font-semibold text-[var(--c-primary)]">
+              {data.sugerencia.titulo}
+            </p>
+            <p className="text-sm text-[var(--c-muted)] mt-1">
+              {data.sugerencia.mensaje}
+            </p>
+          </div>
+        )}
+
+      </div>
+    </div>
   );
 }
