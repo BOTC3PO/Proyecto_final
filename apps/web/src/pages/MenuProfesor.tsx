@@ -440,51 +440,51 @@ export default function menuProfesor() {
   }, [graphModules, moduleById, selectedGraphModuleId]);
 
   return (
-    <main className="flex-1">
+    <div className="min-h-screen bg-[var(--c-bg)]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
         {menuState.status !== "ready" && (
           <section
-            className={`rounded-xl border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-600 ${
+            className={`rounded-xl border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-6 text-sm text-[var(--c-muted)] ${
               menuState.status === "loading" ? "animate-pulse" : ""
             }`}
           >
-            <p className="font-semibold text-slate-700">{menuState.message}</p>
+            <p className="font-semibold text-[var(--c-text)]">{menuState.message}</p>
             <div className="mt-4 grid gap-4 md:grid-cols-3">
-              <div className="h-20 rounded-lg bg-slate-100" />
-              <div className="h-20 rounded-lg bg-slate-100" />
-              <div className="h-20 rounded-lg bg-slate-100" />
+              <div className="h-20 rounded-lg bg-[var(--c-border)]" />
+              <div className="h-20 rounded-lg bg-[var(--c-border)]" />
+              <div className="h-20 rounded-lg bg-[var(--c-border)]" />
             </div>
-            <div className="mt-4 h-40 rounded-lg bg-slate-100" />
+            <div className="mt-4 h-40 rounded-lg bg-[var(--c-border)]" />
             <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <div className="h-24 rounded-lg bg-slate-100" />
-              <div className="h-24 rounded-lg bg-slate-100" />
+              <div className="h-24 rounded-lg bg-[var(--c-border)]" />
+              <div className="h-24 rounded-lg bg-[var(--c-border)]" />
             </div>
           </section>
         )}
 
         {menuState.status === "ready" && (
           <>
-            <div className="bg-white rounded-xl shadow flex items-center gap-4 p-5">
-              <div className="w-12 h-12 rounded-full bg-blue-600 text-white grid place-content-center font-semibold">
+            <div className="bg-[var(--c-surface)] rounded-xl shadow flex items-center gap-4 p-5">
+              <div className="w-12 h-12 rounded-full bg-[var(--c-primary)] text-white grid place-content-center font-semibold">
                 {dashboard?.profile.initials ?? "--"}
               </div>
               <div className="flex-1">
                 <h2 className="font-semibold">{dashboard?.profile.name ?? "Cargando..."}</h2>
-                <p className="text-gray-600">{dashboard?.profile.role ?? ""}</p>
+                <p className="text-[var(--c-muted)]">{dashboard?.profile.role ?? ""}</p>
               </div>
               <div className="flex items-center gap-5">
                 <Link
                   to="/mensajes"
                   title="Mensajes"
-                  className="text-gray-500 hover:text-blue-600
+                  className="text-[var(--c-muted)] hover:text-[var(--c-primary)]
                     transition-colors"
                 >
                   🔔
                 </Link>
                 <Link
                   to="/perfil"
-                  className="flex items-center gap-2 text-gray-500
-                    hover:text-blue-600 transition-colors text-sm
+                  className="flex items-center gap-2 text-[var(--c-muted)]
+                    hover:text-[var(--c-primary)] transition-colors text-sm
                     font-medium"
                 >
                   👤 Perfil
@@ -493,32 +493,32 @@ export default function menuProfesor() {
             </div>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-              <div className="bg-white rounded-xl shadow p-5 flex items-center gap-4">
+              <div className="bg-[var(--c-surface)] rounded-xl shadow p-5 flex items-center gap-4">
                 <div className="text-3xl">🕒</div>
                 <div>
-                  <p className="text-gray-500">Próxima Clase</p>
+                  <p className="text-[var(--c-muted)]">Próxima Clase</p>
                   <p className="text-xl font-semibold">
                     {dashboard?.nextClass.detail ?? "--"}
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl shadow p-5 flex items-center gap-4">
+              <div className="bg-[var(--c-surface)] rounded-xl shadow p-5 flex items-center gap-4">
                 <div className="text-3xl">👪</div>
                 <div>
-                  <p className="text-gray-500">Estudiantes Activos</p>
+                  <p className="text-[var(--c-muted)]">Estudiantes Activos</p>
                   <p className="text-2xl font-bold">
                     {`${dashboard?.activeStudents ?? 0} estudiantes`}
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl shadow p-5">
+              <div className="bg-[var(--c-surface)] rounded-xl shadow p-5">
                 <div className="flex items-center gap-3">
                   <div className="text-3xl">🎓</div>
-                  <p className="text-gray-600">Progreso general de la próxima clase</p>
+                  <p className="text-[var(--c-muted)]">Progreso general de la próxima clase</p>
                 </div>
-                <div className="mt-3 h-3 w-full bg-gray-200 rounded">
+                <div className="mt-3 h-3 w-full bg-[var(--c-border)] rounded">
                   <div
                     className="h-3 bg-gray-400 rounded"
                     style={{ width: `${dashboard?.progressNextClass ?? 0}%` }}
@@ -531,56 +531,56 @@ export default function menuProfesor() {
               {dashboard?.kpiCards.map((card) => (
                 <Link
                   key={card.id}
-                  className="group rounded-xl border border-transparent bg-white p-5 shadow transition hover:border-blue-200 hover:shadow-md"
+                  className="group rounded-xl border border-transparent bg-[var(--c-surface)] p-5 shadow transition hover:border-[var(--c-primary)] hover:shadow-md"
                   to={card.href}
                 >
                   <div className="flex items-start justify-between">
                     <div>
-                      <p className="text-sm text-gray-500">{card.label}</p>
-                      <p className="mt-2 text-3xl font-semibold text-gray-900">{card.value}</p>
-                      <p className="mt-2 text-xs text-gray-400">{card.helper}</p>
+                      <p className="text-sm text-[var(--c-muted)]">{card.label}</p>
+                      <p className="mt-2 text-3xl font-semibold text-[var(--c-text)]">{card.value}</p>
+                      <p className="mt-2 text-xs text-[var(--c-muted)]">{card.helper}</p>
                     </div>
                     <span className="text-3xl">{card.icon}</span>
                   </div>
-                  <span className="mt-4 inline-flex text-xs font-semibold uppercase tracking-wide text-blue-600 group-hover:underline">
+                  <span className="mt-4 inline-flex text-xs font-semibold uppercase tracking-wide text-[var(--c-primary)] group-hover:underline">
                     Ver detalle
                   </span>
                 </Link>
               ))}
               {dashboard?.kpiCards.length === 0 && (
-                <p className="text-sm text-gray-500">No hay métricas disponibles.</p>
+                <p className="text-sm text-[var(--c-muted)]">No hay métricas disponibles.</p>
               )}
             </div>
 
-            <section className="bg-white rounded-xl shadow p-5">
+            <section className="bg-[var(--c-surface)] rounded-xl shadow p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <h3 className="text-lg font-semibold">Planificación semanal</h3>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-[var(--c-muted)]">
                     Próximas clases y actividades prioritarias.
                   </p>
                 </div>
-                <span className="inline-flex items-center gap-2 rounded-md border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-400">
+                <span className="inline-flex items-center gap-2 rounded-md border border-[var(--c-border)] px-3 py-2 text-sm font-semibold text-[var(--c-muted)]">
                   Calendario (próximamente)
                 </span>
               </div>
-              <ul className="mt-4 divide-y divide-gray-100">
+              <ul className="mt-4 divide-y divide-[var(--c-border)]">
                 {dashboard?.weeklyPlan.map((item) => (
                   <li
                     key={item.id}
                     className="flex flex-wrap items-center justify-between gap-3 py-3"
                   >
                     <div>
-                      <p className="font-semibold text-gray-900">{item.title}</p>
-                      <p className="text-sm text-gray-500">{item.detail}</p>
+                      <p className="font-semibold text-[var(--c-text)]">{item.title}</p>
+                      <p className="text-sm text-[var(--c-muted)]">{item.detail}</p>
                     </div>
-                    <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                    <span className="rounded-full bg-[var(--c-border)] px-3 py-1 text-xs font-semibold text-[var(--c-muted)]">
                       {item.status}
                     </span>
                   </li>
                 ))}
                 {dashboard?.weeklyPlan.length === 0 && (
-                  <li className="py-3 text-sm text-gray-500">No hay actividades programadas.</li>
+                  <li className="py-3 text-sm text-[var(--c-muted)]">No hay actividades programadas.</li>
                 )}
               </ul>
             </section>
@@ -588,14 +588,14 @@ export default function menuProfesor() {
             <section className={`rounded-xl shadow p-5 ${
               modoAulaActivo
                 ? "bg-amber-50 border border-amber-200"
-                : "bg-white"
+                : "bg-[var(--c-surface)]"
             }`}>
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900">
+                  <h3 className="text-lg font-semibold text-[var(--c-text)]">
                     Modo aula
                   </h3>
-                  <p className="text-sm text-slate-500">
+                  <p className="text-sm text-[var(--c-muted)]">
                     {modoAulaActivo
                       ? "Tienda y economía restringidas para alumnos."
                       : "Los alumnos tienen acceso completo."}
@@ -606,8 +606,8 @@ export default function menuProfesor() {
                     <select
                       value={modoAulaAulaId}
                       onChange={(e) => setModoAulaAulaId(e.target.value)}
-                      className="rounded-lg border border-slate-200
-                        px-3 py-2 text-sm"
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)]
+                        px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     >
                       <option value="">Seleccionar aula</option>
                       {aulas.map((a) => (
@@ -617,14 +617,14 @@ export default function menuProfesor() {
                   )}
                   {!modoAulaActivo && (
                     <div className="flex items-center gap-2">
-                      <label className="text-xs text-slate-500">
+                      <label className="text-xs text-[var(--c-muted)]">
                         Duración:
                       </label>
                       <select
                         value={modoAulaDuracion}
                         onChange={(e) => setModoAulaDuracion(Number(e.target.value))}
-                        className="rounded-lg border border-slate-200
-                          px-2 py-1 text-sm"
+                        className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)]
+                          px-2 py-1 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                       >
                         <option value={30}>30 min</option>
                         <option value={45}>45 min</option>
@@ -671,23 +671,23 @@ export default function menuProfesor() {
             </section>
 
             {modulesStatus === "error" || modules.length > 0 ? (
-            <div className="bg-white rounded-xl shadow p-5">
+            <div className="bg-[var(--c-surface)] rounded-xl shadow p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <h3 className="text-lg font-semibold">Módulos activos</h3>
                 <div className="flex items-center gap-3">
                   <Link
-                    className="inline-flex items-center gap-2 rounded-md border border-blue-200 px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50"
+                    className="inline-flex items-center gap-2 rounded-md border border-[var(--c-border)] px-3 py-2 text-sm font-semibold text-[var(--c-primary)] hover:bg-[var(--c-bg)]"
                     to="/profesor/aulas#crear"
                   >
                     + Crear aula
                   </Link>
                   <Link
-                    className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
+                    className="inline-flex items-center gap-2 rounded-md bg-[var(--c-primary)] px-3 py-2 text-sm font-semibold text-white shadow hover:opacity-90"
                     to="/profesor/cursos/nuevo"
                   >
                     + Crear clase/sección
                   </Link>
-                  <Link className="text-sm text-blue-600 hover:underline" to="/modulos/crear">
+                  <Link className="text-sm text-[var(--c-primary)] hover:underline" to="/modulos/crear">
                     Crear módulo
                   </Link>
                   <Link className="text-sm text-violet-600 hover:underline" to="/gobernanza">
@@ -696,20 +696,20 @@ export default function menuProfesor() {
                 </div>
               </div>
               <div className="mt-4 grid gap-3 lg:grid-cols-[2fr_1fr_1fr]">
-                <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+                <label className="flex flex-col gap-1 text-sm font-semibold text-[var(--c-text)]">
                   Buscar módulo
                   <input
-                    className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    className="h-10 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     placeholder="Busca por título o descripción"
                     type="search"
                     value={searchTerm}
                     onChange={(event) => setSearchTerm(event.target.value)}
                   />
                 </label>
-                <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+                <label className="flex flex-col gap-1 text-sm font-semibold text-[var(--c-text)]">
                   Categoría
                   <select
-                    className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    className="h-10 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     value={selectedCategory}
                     onChange={(event) => setSelectedCategory(event.target.value)}
                   >
@@ -721,10 +721,10 @@ export default function menuProfesor() {
                     ))}
                   </select>
                 </label>
-                <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+                <label className="flex flex-col gap-1 text-sm font-semibold text-[var(--c-text)]">
                   Visibilidad
                   <select
-                    className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    className="h-10 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     value={selectedVisibility}
                     onChange={(event) => setSelectedVisibility(event.target.value)}
                   >
@@ -736,7 +736,7 @@ export default function menuProfesor() {
               </div>
               {activeFilters.length > 0 && (
                 <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-                  <span className="text-gray-500">Filtros activos:</span>
+                  <span className="text-[var(--c-muted)]">Filtros activos:</span>
                   {activeFilters.map((filter) => (
                     <span
                       key={filter.key}
@@ -748,10 +748,10 @@ export default function menuProfesor() {
                 </div>
               )}
               {modulesStatus === "loading" && (
-                <p className="mt-4 text-sm text-gray-500">Cargando módulos...</p>
+                <p className="mt-4 text-sm text-[var(--c-muted)]">Cargando módulos...</p>
               )}
               {modulesStatus === "error" && modulesError && (
-                <p className="mt-4 text-sm text-red-600">{modulesError}</p>
+                <p className="mt-4 text-sm text-[var(--c-danger)]">{modulesError}</p>
               )}
               {modulesStatus === "ready" && (
                 <div className="mt-4 grid gap-4 md:grid-cols-3">
@@ -768,14 +768,14 @@ export default function menuProfesor() {
                           backgroundColor: subjectColor.background
                         }}
                       >
-                        <p className="text-xs uppercase text-gray-500">{module.category}</p>
+                        <p className="text-xs uppercase text-[var(--c-muted)]">{module.category}</p>
                         <h4 className="mt-2 font-semibold">{module.title}</h4>
-                        <p className="mt-2 text-sm text-gray-600">{module.description}</p>
+                        <p className="mt-2 text-sm text-[var(--c-muted)]">{module.description}</p>
                         <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                          <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
+                          <span className="rounded-full bg-[var(--c-border)] px-2 py-1 text-[var(--c-muted)]">
                             {module.visibility === "publico" ? "Publicado" : "Privado"}
                           </span>
-                          <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-600">
+                          <span className="rounded-full bg-[var(--c-border)] px-2 py-1 text-[var(--c-muted)]">
                             Dependencias: {module.dependencies.length}
                           </span>
                           {module.createdByRole === "admin" && (
@@ -784,15 +784,15 @@ export default function menuProfesor() {
                             </span>
                           )}
                         </div>
-                        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500">
+                        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--c-muted)]">
                           <span>{module.level}</span>
                           <span>{module.durationMinutes} min</span>
                         </div>
-                        <p className="mt-2 text-xs text-gray-500">
+                        <p className="mt-2 text-xs text-[var(--c-muted)]">
                           Autor: {module.authorName ?? module.createdBy ?? "--"}
                         </p>
                         <Link
-                          className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-sm"
+                          className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-[var(--c-border)] px-3 py-2 text-sm"
                           to={`/modulos/${module.id}/editar`}
                         >
                           Editar módulo
@@ -803,38 +803,38 @@ export default function menuProfesor() {
                 </div>
               )}
               {modulesStatus === "ready" && filteredModules.length === 0 && (
-                <p className="mt-4 text-sm text-gray-500">
+                <p className="mt-4 text-sm text-[var(--c-muted)]">
                   No hay módulos que coincidan con los filtros seleccionados.
                 </p>
               )}
             </div>
             ) : modulesStatus === "ready" && modules.length === 0 ? (
-              <div className="bg-white rounded-xl shadow p-5
+              <div className="bg-[var(--c-surface)] rounded-xl shadow p-5
                 text-center space-y-3">
                 <p className="text-4xl">📚</p>
-                <h3 className="text-lg font-semibold text-slate-800">
+                <h3 className="text-lg font-semibold text-[var(--c-text)]">
                   Todavía no tenés módulos creados
                 </h3>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-[var(--c-muted)]">
                   Creá tu primer módulo para empezar a enseñar.
                 </p>
                 <Link
                   to="/modulos/crear"
                   className="inline-flex items-center gap-2
-                    rounded-xl bg-blue-600 px-5 py-2.5
+                    rounded-xl bg-[var(--c-primary)] px-5 py-2.5
                     text-sm font-semibold text-white
-                    hover:bg-blue-700 transition-colors"
+                    hover:opacity-90 transition-colors"
                 >
                   + Crear primer módulo
                 </Link>
               </div>
             ) : null}
 
-            <section className="bg-white rounded-xl shadow p-5">
+            <section className="bg-[var(--c-surface)] rounded-xl shadow p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <h3 className="text-lg font-semibold">Mapa de dependencias</h3>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-[var(--c-muted)]">
                     Revisa cómo se encadenan los módulos y filtra por materia o ruta completa.
                   </p>
                 </div>
@@ -845,10 +845,10 @@ export default function menuProfesor() {
                 )}
               </div>
               <div className="mt-4 grid gap-3 md:grid-cols-3">
-                <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+                <label className="flex flex-col gap-1 text-sm font-semibold text-[var(--c-text)]">
                   Materia
                   <select
-                    className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    className="h-10 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     value={selectedSubject}
                     onChange={(event) => setSelectedSubject(event.target.value)}
                   >
@@ -860,10 +860,10 @@ export default function menuProfesor() {
                     ))}
                   </select>
                 </label>
-                <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
+                <label className="flex flex-col gap-1 text-sm font-semibold text-[var(--c-text)]">
                   Módulo base
                   <select
-                    className="h-10 rounded-md border border-gray-200 px-3 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    className="h-10 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     value={selectedGraphModuleId}
                     onChange={(event) => setSelectedGraphModuleId(event.target.value)}
                   >
@@ -874,10 +874,10 @@ export default function menuProfesor() {
                     ))}
                   </select>
                 </label>
-                <label className="flex items-center gap-3 rounded-md border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-700">
+                <label className="flex items-center gap-3 rounded-md border border-[var(--c-border)] px-3 py-2 text-sm font-semibold text-[var(--c-text)]">
                   <input
                     checked={showFullPath}
-                    className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-200"
+                    className="h-4 w-4 rounded border-[var(--c-border)] text-[var(--c-primary)]"
                     type="checkbox"
                     onChange={(event) => setShowFullPath(event.target.checked)}
                   />
@@ -886,8 +886,8 @@ export default function menuProfesor() {
               </div>
               <div className="mt-4 grid gap-4 lg:grid-cols-[2fr_1fr]">
                 {graphSpec.nodes.length > 0 ? (
-                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 space-y-2 max-h-80 overflow-y-auto">
-                    <p className="text-xs font-semibold uppercase text-slate-500 mb-2">
+                  <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-2 max-h-80 overflow-y-auto">
+                    <p className="text-xs font-semibold uppercase text-[var(--c-muted)] mb-2">
                       {graphSpec.nodes.length} módulos · {graphSpec.links.length} conexiones
                     </p>
                     {graphSpec.nodes.map((node) => {
@@ -902,14 +902,14 @@ export default function menuProfesor() {
                           className={`w-full text-left rounded-lg border px-3 py-2 text-sm transition-colors ${
                             isSelected
                               ? "border-blue-300 bg-blue-50"
-                              : "border-slate-200 bg-white hover:bg-slate-50"
+                              : "border-[var(--c-border)] bg-[var(--c-surface)] hover:bg-[var(--c-bg)]"
                           }`}
                         >
-                          <p className="font-medium text-slate-800">{node.label}</p>
+                          <p className="font-medium text-[var(--c-text)]">{node.label}</p>
                           {node.description && (
-                            <p className="text-xs text-slate-500">{node.description}</p>
+                            <p className="text-xs text-[var(--c-muted)]">{node.description}</p>
                           )}
-                          <div className="mt-1 flex gap-2 text-xs text-slate-400">
+                          <div className="mt-1 flex gap-2 text-xs text-[var(--c-muted)]">
                             {incoming.length > 0 && (
                               <span>← {incoming.length} requerido(s)</span>
                             )}
@@ -922,53 +922,53 @@ export default function menuProfesor() {
                     })}
                   </div>
                 ) : (
-                  <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6 text-center">
-                    <p className="text-sm text-slate-400">
+                  <div className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-6 text-center">
+                    <p className="text-sm text-[var(--c-muted)]">
                       El mapa aparece cuando tenés módulos con dependencias entre sí.
                     </p>
                     <Link
                       to="/modulos/crear"
-                      className="mt-2 inline-block text-sm text-blue-600 hover:underline"
+                      className="mt-2 inline-block text-sm text-[var(--c-primary)] hover:underline"
                     >
                       Crear módulo →
                     </Link>
                   </div>
                 )}
                 <div className="space-y-4">
-                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                    <p className="text-xs font-semibold uppercase text-slate-500">
+                  <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
+                    <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">
                       Vista previa compacta
                     </p>
-                    <p className="mt-2 text-sm text-slate-600">
+                    <p className="mt-2 text-sm text-[var(--c-muted)]">
                       Nodos anteriores y posteriores al módulo seleccionado.
                     </p>
                   </div>
-                  <div className="rounded-lg border border-slate-200 p-4">
-                    <p className="text-xs font-semibold uppercase text-slate-500">Anteriores</p>
+                  <div className="rounded-lg border border-[var(--c-border)] p-4">
+                    <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">Anteriores</p>
                     <ul className="mt-3 space-y-2">
                       {previewDependencies.previous.length === 0 && (
-                        <li className="text-sm text-slate-400">
+                        <li className="text-sm text-[var(--c-muted)]">
                           Sin dependencias previas.
                         </li>
                       )}
                       {previewDependencies.previous.map((module) => (
-                        <li key={module.id} className="rounded-md bg-slate-50 px-3 py-2 text-sm">
-                          <p className="font-semibold text-slate-700">{module.title}</p>
-                          <p className="text-xs text-slate-500">{module.subject}</p>
+                        <li key={module.id} className="rounded-md bg-[var(--c-bg)] px-3 py-2 text-sm">
+                          <p className="font-semibold text-[var(--c-text)]">{module.title}</p>
+                          <p className="text-xs text-[var(--c-muted)]">{module.subject}</p>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div className="rounded-lg border border-slate-200 p-4">
-                    <p className="text-xs font-semibold uppercase text-slate-500">Posteriores</p>
+                  <div className="rounded-lg border border-[var(--c-border)] p-4">
+                    <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">Posteriores</p>
                     <ul className="mt-3 space-y-2">
                       {previewDependencies.next.length === 0 && (
-                        <li className="text-sm text-slate-400">Sin módulos dependientes.</li>
+                        <li className="text-sm text-[var(--c-muted)]">Sin módulos dependientes.</li>
                       )}
                       {previewDependencies.next.map((module) => (
-                        <li key={module.id} className="rounded-md bg-slate-50 px-3 py-2 text-sm">
-                          <p className="font-semibold text-slate-700">{module.title}</p>
-                          <p className="text-xs text-slate-500">{module.subject}</p>
+                        <li key={module.id} className="rounded-md bg-[var(--c-bg)] px-3 py-2 text-sm">
+                          <p className="font-semibold text-[var(--c-text)]">{module.title}</p>
+                          <p className="text-xs text-[var(--c-muted)]">{module.subject}</p>
                         </li>
                       ))}
                     </ul>
@@ -980,7 +980,7 @@ export default function menuProfesor() {
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               {quickLinks &&
                 Object.entries(quickLinks).map(([section, links]) => (
-                  <div key={section} className="bg-white rounded-xl shadow">
+                  <div key={section} className="bg-[var(--c-surface)] rounded-xl shadow">
                     <div className="bg-sky-600 text-white font-semibold rounded-t-xl px-4 py-2">
                       {section === "academico" ? "Académico" : "Gestión"}
                     </div>
@@ -988,7 +988,7 @@ export default function menuProfesor() {
                       {links.map((link) => (
                         <Link
                           key={link.id}
-                          className="h-20 grid place-content-center hover:bg-gray-50"
+                          className="h-20 grid place-content-center hover:bg-[var(--c-bg)]"
                           to={link.href}
                         >
                           {link.label}
@@ -1000,12 +1000,12 @@ export default function menuProfesor() {
               {quickLinks &&
                 quickLinks.academico.length === 0 &&
                 quickLinks.gestion.length === 0 && (
-                <p className="text-sm text-gray-500">No hay accesos rápidos configurados.</p>
+                <p className="text-sm text-[var(--c-muted)]">No hay accesos rápidos configurados.</p>
               )}
             </div>
           </>
         )}
       </div>
-    </main>
+    </div>
   );
 }

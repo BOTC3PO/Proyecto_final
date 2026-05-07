@@ -50,12 +50,14 @@ export default function GobernanzaNuevaPropuesta() {
 
   if (!isStaff) {
     return (
-      <main className="mx-auto max-w-2xl px-6 py-16 text-center">
-        <p className="text-sm text-red-500">No tenés permiso para crear propuestas de gobernanza.</p>
-        <Link to="/gobernanza" className="mt-4 inline-block text-sm font-semibold text-blue-600 hover:underline">
-          Volver a gobernanza
-        </Link>
-      </main>
+      <div className="min-h-screen bg-[var(--c-bg)]">
+        <div className="max-w-2xl mx-auto px-6 py-16 text-center">
+          <p className="text-sm text-[var(--c-danger)]">No tenés permiso para crear propuestas de gobernanza.</p>
+          <Link to="/gobernanza" className="mt-4 inline-block text-sm font-semibold text-[var(--c-primary)] hover:underline">
+            Volver a gobernanza
+          </Link>
+        </div>
+      </div>
     );
   }
 
@@ -91,129 +93,125 @@ export default function GobernanzaNuevaPropuesta() {
   };
 
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-10">
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-slate-500">
-        <Link to="/gobernanza" className="hover:text-blue-600 hover:underline">
-          Gobernanza
-        </Link>
-        <span>/</span>
-        <span className="text-slate-700 font-medium">Nueva propuesta</span>
-      </nav>
+    <div className="min-h-screen bg-[var(--c-bg)]">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+        <nav className="flex items-center gap-2 text-sm text-[var(--c-muted)]">
+          <Link to="/gobernanza" className="hover:text-[var(--c-primary)] hover:underline">
+            Gobernanza
+          </Link>
+          <span>/</span>
+          <span className="text-[var(--c-text)] font-medium">Nueva propuesta</span>
+        </nav>
 
-      <header className="space-y-1">
-        <h1 className="text-2xl font-bold text-slate-900">Nueva propuesta</h1>
-        <p className="text-sm text-slate-600">
-          La propuesta quedará abierta para que directivos, docentes y administradores puedan votar.
-        </p>
-      </header>
+        <header className="space-y-1">
+          <h1 className="text-2xl font-bold text-[var(--c-text)]">Nueva propuesta</h1>
+          <p className="text-sm text-[var(--c-muted)]">
+            La propuesta quedará abierta para que directivos, docentes y administradores puedan votar.
+          </p>
+        </header>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-        {/* Type selector */}
-        <section className="rounded-2xl border border-slate-200 bg-white p-5">
-          <h2 className="text-sm font-semibold text-slate-700 mb-3">¿Qué querés hacer? *</h2>
-          <div className="grid gap-2 sm:grid-cols-2">
-            {FRIENDLY_TYPES.map(({ label, description }, index) => (
-              <label
-                key={index}
-                className={`flex cursor-pointer items-start gap-3 rounded-xl border p-3 transition-all ${
-                  selectedIndex === index
-                    ? "border-blue-400 bg-blue-50 ring-1 ring-blue-300"
-                    : "border-slate-200 hover:border-slate-300"
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="proposalType"
-                  checked={selectedIndex === index}
-                  onChange={() => setSelectedIndex(index)}
-                  className="mt-0.5"
-                />
-                <div>
-                  <p className="text-sm font-semibold text-slate-800">{label}</p>
-                  <p className="text-xs text-slate-500 mt-0.5">{description}</p>
-                </div>
-              </label>
-            ))}
-          </div>
-        </section>
-
-        {/* Common form fields */}
-        {selectedIndex !== null && (
-          <section className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col gap-5">
-            {/* Subject */}
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1">
-                ¿A qué materia o módulo se refiere?
-              </label>
-              <input
-                type="text"
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-                placeholder="Ej: Física — Cinemática, o el módulo de Contabilidad básica"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-              />
-            </div>
-
-            {/* Description */}
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Explicá con tus palabras qué querés cambiar o qué encontraste *
-              </label>
-              <textarea
-                rows={6}
-                required
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-                placeholder={
-                  "Ej: El ejercicio de genética de Mendel no menciona la proporción 3:1 en el\n" +
-                  "caso del cruce Aa × Aa, lo cual es incorrecto según el programa de 4to año..."
-                }
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
-
-            {/* Concrete proposal */}
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1">
-                Si tenés una versión mejorada o una propuesta específica, escribila acá
-              </label>
-              <textarea
-                rows={4}
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-                placeholder={
-                  "Ej: El enunciado podría decir: 'En un cruce monohíbrido Aa × Aa,\n" +
-                  "¿cuál es la proporción fenotípica esperada en la descendencia?'"
-                }
-                value={proposal}
-                onChange={(e) => setProposal(e.target.value)}
-              />
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
+            <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">¿Qué querés hacer? *</h2>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {FRIENDLY_TYPES.map(({ label, description: desc }, index) => (
+                <label
+                  key={index}
+                  className={`flex cursor-pointer items-start gap-3 rounded-xl border p-3 transition-all ${
+                    selectedIndex === index
+                      ? "border-blue-400 bg-blue-50 ring-1 ring-blue-300"
+                      : "border-[var(--c-border)] hover:border-[var(--c-primary)]"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="proposalType"
+                    checked={selectedIndex === index}
+                    onChange={() => setSelectedIndex(index)}
+                    className="mt-0.5"
+                  />
+                  <div>
+                    <p className="text-sm font-semibold text-[var(--c-text)]">{label}</p>
+                    <p className="text-xs text-[var(--c-muted)] mt-0.5">{desc}</p>
+                  </div>
+                </label>
+              ))}
             </div>
           </section>
-        )}
 
-        {submitError && (
-          <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
-            {submitError}
-          </p>
-        )}
+          {selectedIndex !== null && (
+            <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 flex flex-col gap-5">
+              <div>
+                <label className="block text-sm font-semibold text-[var(--c-text)] mb-1">
+                  ¿A qué materia o módulo se refiere?
+                </label>
+                <input
+                  type="text"
+                  className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  placeholder="Ej: Física — Cinemática, o el módulo de Contabilidad básica"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                />
+              </div>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <button
-            type="submit"
-            disabled={selectedIndex === null || !description.trim() || submitting}
-            className="rounded-xl bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {submitting ? "Enviando..." : "Crear propuesta"}
-          </button>
-          <Link
-            to="/gobernanza"
-            className="text-sm font-semibold text-slate-500 hover:text-slate-700 hover:underline"
-          >
-            Cancelar
-          </Link>
-        </div>
-      </form>
-    </main>
+              <div>
+                <label className="block text-sm font-semibold text-[var(--c-text)] mb-1">
+                  Explicá con tus palabras qué querés cambiar o qué encontraste *
+                </label>
+                <textarea
+                  rows={6}
+                  required
+                  className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  placeholder={
+                    "Ej: El ejercicio de genética de Mendel no menciona la proporción 3:1 en el\n" +
+                    "caso del cruce Aa × Aa, lo cual es incorrecto según el programa de 4to año..."
+                  }
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-[var(--c-text)] mb-1">
+                  Si tenés una versión mejorada o una propuesta específica, escribila acá
+                </label>
+                <textarea
+                  rows={4}
+                  className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  placeholder={
+                    "Ej: El enunciado podría decir: 'En un cruce monohíbrido Aa × Aa,\n" +
+                    "¿cuál es la proporción fenotípica esperada en la descendencia?'"
+                  }
+                  value={proposal}
+                  onChange={(e) => setProposal(e.target.value)}
+                />
+              </div>
+            </section>
+          )}
+
+          {submitError && (
+            <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+              {submitError}
+            </p>
+          )}
+
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              type="submit"
+              disabled={selectedIndex === null || !description.trim() || submitting}
+              className="rounded-xl bg-[var(--c-primary)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {submitting ? "Enviando..." : "Crear propuesta"}
+            </button>
+            <Link
+              to="/gobernanza"
+              className="text-sm font-semibold text-[var(--c-muted)] hover:text-[var(--c-text)] hover:underline"
+            >
+              Cancelar
+            </Link>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
