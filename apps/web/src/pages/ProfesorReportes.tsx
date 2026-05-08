@@ -103,7 +103,7 @@ export default function ProfesorReportes() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <header className="space-y-2">
           <h1 className="text-3xl font-bold text-[var(--c-text)]">Reportes</h1>
           <p className="text-base text-[var(--c-muted)]">
