@@ -487,7 +487,7 @@ export default function ProfesorAulas() {
           ) : visibleClassrooms.length === 0 ? (
             <div className="rounded-lg border border-dashed border-[var(--c-border)] p-6 text-[var(--c-muted)]">
               {user?.role === "TEACHER"
-                ? "Todavía no creaste aulas. Usa "Crear aula" para comenzar."
+                ? "Todavía no creaste aulas. Usa \"Crear aula\" para comenzar."
                 : "No hay aulas disponibles para tu rol todavía."}
             </div>
           ) : (
