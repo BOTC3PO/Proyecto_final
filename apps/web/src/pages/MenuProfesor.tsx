@@ -589,6 +589,53 @@ export default function menuProfesor() {
                     );
                   })}
                 </div>
+
+                {/* Módulos activos — debajo de la lista de aulas */}
+                {modules.length > 0 && (
+                  <div className="border-t border-[var(--c-border)] px-4 py-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)]">
+                        Módulos activos
+                      </p>
+                      <Link to="/modulos" className="text-[10px] text-[var(--c-primary)] hover:underline">
+                        Gestionar →
+                      </Link>
+                    </div>
+                    {modules.slice(0, 3).map((m, i) => (
+                      <div key={m.id} className="flex items-center gap-2 py-1.5">
+                        <span className="text-[10px] font-bold text-[var(--c-muted)] w-5 flex-shrink-0">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs font-medium text-[var(--c-text)] truncate">{m.title}</p>
+                          <p className="text-[10px] text-[var(--c-muted)]">
+                            {m.category} · {m.durationMinutes ?? '?'} min
+                          </p>
+                        </div>
+                        <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-full flex-shrink-0 ${
+                          m.visibility === 'publico'
+                            ? 'bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]'
+                            : 'bg-[color-mix(in_srgb,var(--c-muted)_12%,transparent)] text-[var(--c-muted)]'
+                        }`}>
+                          {m.visibility === 'publico' ? 'PUB' : 'PRIV'}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* CTA cuando no hay módulos */}
+                {modules.length === 0 && modulesStatus === 'ready' && (
+                  <div className="border-t border-[var(--c-border)] px-4 py-4 text-center">
+                    <p className="text-xs text-[var(--c-muted)] mb-2">Todavía no creaste módulos.</p>
+                    <Link
+                      to="/modulos/crear"
+                      className="inline-flex items-center gap-1 rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity"
+                    >
+                      + Crear primer módulo
+                    </Link>
+                  </div>
+                )}
               </div>
 
               {/* ── Evaluaciones + Planificación (apiladas) ──────── */}
@@ -616,9 +663,18 @@ export default function menuProfesor() {
                       </Link>
                     ))}
                     {modules.length === 0 && modulesStatus === 'ready' && (
-                      <p className="text-xs text-[var(--c-muted)] px-3 py-3 text-center">
-                        Sin módulos creados.
-                      </p>
+                      <div className="px-4 py-6 text-center space-y-3">
+                        <p className="text-2xl">📋</p>
+                        <p className="text-xs text-[var(--c-muted)]">
+                          Creá tu primer módulo para luego armar evaluaciones.
+                        </p>
+                        <Link
+                          to="/modulos/crear"
+                          className="inline-flex items-center gap-1 rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90"
+                        >
+                          + Crear módulo
+                        </Link>
+                      </div>
                     )}
                     {modulesStatus === 'loading' && (
                       <div className="space-y-2 p-3">
@@ -655,9 +711,18 @@ export default function menuProfesor() {
                       </div>
                     ))}
                     {!dashboard?.weeklyPlan.length && (
-                      <p className="text-xs text-[var(--c-muted)] px-3 py-3 text-center">
-                        No hay actividades programadas.
-                      </p>
+                      <div className="px-4 py-6 text-center space-y-3">
+                        <p className="text-2xl">📅</p>
+                        <p className="text-xs text-[var(--c-muted)]">
+                          No hay actividades programadas esta semana.
+                        </p>
+                        <Link
+                          to="/profesor/calendario"
+                          className="inline-flex items-center gap-1 rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+                        >
+                          Ir al calendario →
+                        </Link>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -666,13 +731,24 @@ export default function menuProfesor() {
 
             {/* Próxima clase + modo aula duration (fila compacta) */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-5 py-3 flex items-center justify-between gap-6 flex-wrap">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">🕒</span>
-                <div>
-                  <p className="text-xs text-[var(--c-muted)]">Próxima clase</p>
-                  <p className="text-sm font-semibold text-[var(--c-text)]">
+              <div className="flex items-center gap-4 flex-1">
+                <span className="text-2xl flex-shrink-0">🕒</span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between mb-1">
+                    <p className="text-xs text-[var(--c-muted)]">Próxima clase</p>
+                    <p className="text-xs font-semibold text-[var(--c-text)]">
+                      {dashboard?.progressNextClass ?? 0}% preparado
+                    </p>
+                  </div>
+                  <p className="text-sm font-semibold text-[var(--c-text)] truncate mb-1.5">
                     {dashboard?.nextClass.detail ?? 'Sin clases asignadas'}
                   </p>
+                  <div className="h-1.5 w-full bg-[var(--c-border)] rounded-full">
+                    <div
+                      className="h-full rounded-full bg-[var(--c-primary)] transition-all"
+                      style={{ width: `${dashboard?.progressNextClass ?? 0}%` }}
+                    />
+                  </div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -696,6 +772,59 @@ export default function menuProfesor() {
 
           {/* ── Columna derecha — Accesos rápidos ───────────────── */}
           <div className="w-56 flex-shrink-0 hidden xl:flex flex-col gap-4">
+
+            {/* Actividad reciente */}
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+              <p className="px-4 py-2.5 text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)] border-b border-[var(--c-border)]">
+                Actividad reciente
+              </p>
+              <div className="divide-y divide-[var(--c-border)]">
+                {modules.slice(0, 4).map((m) => (
+                  <div key={m.id} className="px-4 py-2.5">
+                    <p className="text-xs text-[var(--c-text)] leading-snug">
+                      Módulo <span className="font-medium">{m.title}</span>
+                    </p>
+                    <p className="text-[10px] text-[var(--c-muted)] mt-0.5">{m.category}</p>
+                  </div>
+                ))}
+                {modules.length === 0 && (
+                  <div className="px-4 py-6 text-center">
+                    <p className="text-xs text-[var(--c-muted)]">Sin actividad reciente.</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Resumen */}
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-3">
+              <p className="text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)]">
+                Resumen
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-[var(--c-muted)]">Estudiantes activos</p>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">
+                    {dashboard?.activeStudents ?? 0}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-[var(--c-muted)]">Aulas activas</p>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">
+                    {aulas.filter(a => a.status === 'ACTIVE' || a.status === 'activa').length}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-[var(--c-muted)]">Módulos creados</p>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">{modules.length}</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-[var(--c-muted)]">Preparación próx. clase</p>
+                  <p className="text-sm font-semibold text-[var(--c-primary)]">
+                    {dashboard?.progressNextClass ?? 0}%
+                  </p>
+                </div>
+              </div>
+            </div>
 
             {/* Accesos rápidos académico */}
             {quickLinks && quickLinks.academico.length > 0 && (
