@@ -64,7 +64,7 @@ export default function menuProfesor() {
   const { user } = useAuth();
   const [modules, setModules] = useState<Module[]>([]);
   const [modulesStatus, setModulesStatus] = useState<"loading" | "ready" | "error">("loading");
-  const [modulesError, setModulesError] = useState<string | null>(null);
+  const [_modulesError, setModulesError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("todas");
   const [selectedVisibility, setSelectedVisibility] = useState("todas");
@@ -89,14 +89,14 @@ export default function menuProfesor() {
   const [modoAulaTimer, setModoAulaTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
   const [modoAulaExpira, setModoAulaExpira] = useState<Date | null>(null);
 
-  const categoryOptions = useMemo(() => {
+  const _categoryOptions = useMemo(() => {
     const categories = modules
       .map((module) => module.category)
       .filter((category): category is string => Boolean(category));
     return Array.from(new Set(categories)).sort((a, b) => a.localeCompare(b));
   }, [modules]);
 
-  const filteredModules = useMemo(() => {
+  const _filteredModules = useMemo(() => {
     const normalizedSearch = searchTerm.trim().toLowerCase();
 
     return modules.filter((module) => {
@@ -115,7 +115,7 @@ export default function menuProfesor() {
     });
   }, [modules, searchTerm, selectedCategory, selectedVisibility]);
 
-  const activeFilters = [
+  const _activeFilters = [
     searchTerm.trim()
       ? { label: `Búsqueda: "${searchTerm.trim()}"`, key: "search" }
       : null,
@@ -283,7 +283,7 @@ export default function menuProfesor() {
     setMenuState({ status: "ready", message: "" });
   }, [dashboardError, dashboardLoading, modulesStatus]);
 
-  const subjectOptions = useMemo(() => {
+  const _subjectOptions = useMemo(() => {
     const subjects = modules
       .map((module) => module.subject || module.category)
       .filter((subject): subject is string => Boolean(subject));
@@ -375,7 +375,7 @@ export default function menuProfesor() {
     return new Set([...ancestors, ...descendants]);
   }, [dependencyAdjacency, moduleById, reverseAdjacency, selectedGraphModuleId, showFullPath]);
 
-  const graphSpec = useMemo<LocalConceptMapSpec>(() => {
+  const _graphSpec = useMemo<LocalConceptMapSpec>(() => {
     const nodes = graphModules
       .filter((module) => (fullPathIds ? fullPathIds.has(module.id) : true))
       .map((module) => ({
@@ -409,7 +409,7 @@ export default function menuProfesor() {
     return filterProfesorQuickLinks(dashboard.quickLinks);
   }, [dashboard]);
 
-  const previewDependencies = useMemo(() => {
+  const _previewDependencies = useMemo(() => {
     if (!graphSelection) {
       return { previous: [], next: [] } as { previous: Module[]; next: Module[] };
     }
@@ -439,529 +439,318 @@ export default function menuProfesor() {
     }
   }, [graphModules, moduleById, selectedGraphModuleId]);
 
+  const QUICK_LINK_ICONS: Record<string, string> = {
+    aulas:                '🏫',
+    cursos:               '📚',
+    calificaciones:       '📝',
+    materiales:           '📦',
+    evaluaciones:         '📋',
+    modulos:              '🎓',
+    asistencia:           '✅',
+    reportes:             '📊',
+    mensajes:             '💬',
+    configuracion:        '⚙️',
+    encuestas:            '📣',
+    estadisticas:         '📈',
+    crear_modulo:         '➕',
+    editor_cuestionarios: '✏️',
+    calendario:           '📅',
+  };
+
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        {menuState.status !== "ready" && (
-          <section
-            className={`rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 space-y-4 ${
-              menuState.status === "loading" ? "animate-pulse" : ""
-            }`}
-          >
-            <p className="text-sm font-semibold text-[var(--c-text)]">{menuState.message}</p>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="h-24 rounded-xl bg-[var(--c-border)]" />
+    <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-4">
+
+      {/* ── Estado de carga ─────────────────────────────────────── */}
+      {menuState.status !== 'ready' && (
+        <div className={`space-y-4 ${menuState.status === 'loading' ? 'animate-pulse' : ''}`}>
+          {menuState.status === 'error' && (
+            <p className="text-sm text-[var(--c-danger)] mb-4">{menuState.message}</p>
+          )}
+          <div className="grid gap-3 grid-cols-4">
+            {[1,2,3,4].map(i => <div key={i} className="h-24 rounded-xl bg-[var(--c-border)]" />)}
+          </div>
+          <div className="grid gap-4 grid-cols-3">
+            <div className="h-64 rounded-xl bg-[var(--c-border)]" />
+            <div className="h-64 rounded-xl bg-[var(--c-border)]" />
+            <div className="h-64 rounded-xl bg-[var(--c-border)]" />
+          </div>
+        </div>
+      )}
+
+      {menuState.status === 'ready' && (
+        <div className="flex gap-5">
+
+          {/* ── Contenido principal (col izquierda + centro) ─────── */}
+          <div className="flex-1 min-w-0 space-y-4">
+
+            {/* Stats KPI — 4 columnas */}
+            <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
+              {dashboard?.kpiCards.map((card) => (
+                <Link
+                  key={card.id}
+                  to={card.href}
+                  className="group bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 hover:border-[var(--c-primary)] transition-colors"
+                >
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--c-muted)] mb-2">
+                    {card.label}
+                  </p>
+                  <p className="text-3xl font-semibold text-[var(--c-text)]">{card.value}</p>
+                  <p className="text-xs text-[var(--c-muted)] mt-1">{card.helper}</p>
+                </Link>
+              ))}
+              {!dashboard?.kpiCards.length && [1,2,3,4].map(i => (
+                <div key={i} className="h-24 rounded-xl bg-[var(--c-border)] animate-pulse" />
               ))}
             </div>
-            <div className="h-40 rounded-xl bg-[var(--c-border)]" />
-          </section>
-        )}
 
-        {menuState.status === "ready" && (
-          <>
-            {dashboard?.kpiCards && dashboard.kpiCards.length > 0 && (
-              <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {dashboard.kpiCards.map((card) => (
-                  <Link
-                    key={card.id}
-                    to={card.href}
-                    className="group rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm hover:border-[var(--c-primary)] hover:shadow-md transition-all"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <p className="text-xs text-[var(--c-muted)]">{card.label}</p>
-                        <p className="mt-1 text-3xl font-bold text-[var(--c-text)]">{card.value}</p>
-                        <p className="mt-1 text-xs text-[var(--c-muted)]">{card.helper}</p>
-                      </div>
-                      <span className="text-2xl">{card.icon}</span>
-                    </div>
-                    <span className="mt-3 inline-flex text-xs font-semibold text-[var(--c-primary)] group-hover:underline">
-                      Ver detalle →
-                    </span>
-                  </Link>
-                ))}
-              </section>
-            )}
+            {/* Layout 2 columnas: Mis aulas (izq) + Evaluaciones + Planificación (der) */}
+            <div className="grid gap-4 lg:grid-cols-2">
 
-            <div className="grid gap-5 lg:grid-cols-3">
-              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
-                <div className="flex items-center justify-between mb-3">
-                  <h2 className="text-sm font-semibold text-[var(--c-text)]">Mis aulas</h2>
+              {/* ── Mis aulas ──────────────────────────────────── */}
+              <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
+                  <h3 className="text-sm font-semibold text-[var(--c-text)]">Mis aulas</h3>
                   <Link to="/profesor/aulas" className="text-xs text-[var(--c-primary)] hover:underline">
-                    Ver todas
+                    Ver todas →
                   </Link>
                 </div>
-                {aulas.length === 0 ? (
-                  <p className="text-sm text-[var(--c-muted)]">Sin aulas asignadas.</p>
-                ) : (
-                  <ul className="space-y-2">
-                    {aulas.slice(0, 5).map((a) => (
-                      <li key={getAulaId(a)}>
-                        <Link
-                          to="/profesor/aulas"
-                          className="flex items-center gap-3 rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm hover:border-[var(--c-primary)] transition-colors"
-                        >
-                          <span className="font-medium text-[var(--c-text)] truncate">{a.name}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </section>
 
-              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
-                <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">Planificación semanal</h2>
-                {!dashboard?.weeklyPlan || dashboard.weeklyPlan.length === 0 ? (
-                  <p className="text-sm text-[var(--c-muted)]">No hay actividades programadas.</p>
-                ) : (
-                  <ul className="divide-y divide-[var(--c-border)]">
-                    {dashboard.weeklyPlan.map((item) => (
-                      <li key={item.id} className="py-2.5 flex items-start justify-between gap-2">
-                        <div className="min-w-0">
-                          <p className="text-sm font-medium text-[var(--c-text)] truncate">{item.title}</p>
-                          <p className="text-xs text-[var(--c-muted)]">{item.detail}</p>
-                        </div>
-                        <span className="shrink-0 rounded-full bg-[var(--c-border)] px-2 py-0.5 text-xs text-[var(--c-muted)]">
-                          {item.status}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </section>
-
-              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 space-y-4">
-                <h2 className="text-sm font-semibold text-[var(--c-text)]">Próxima clase</h2>
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">🕒</span>
-                  <p className="text-sm text-[var(--c-text)]">{dashboard?.nextClass.detail ?? "—"}</p>
-                </div>
-                <div>
-                  <p className="text-xs text-[var(--c-muted)] mb-1">
-                    Estudiantes activos:{" "}
-                    <span className="font-semibold text-[var(--c-text)]">{dashboard?.activeStudents ?? 0}</span>
+                {/* Modo aula */}
+                <div className={`mx-4 mt-3 mb-2 rounded-xl px-4 py-3 ${
+                  modoAulaActivo
+                    ? 'bg-[var(--c-primary)]'
+                    : 'bg-[var(--c-text)]'
+                }`}>
+                  <p className="text-[9px] uppercase tracking-widest font-semibold text-white/60 mb-1">
+                    Modo Aula
                   </p>
-                  <p className="text-xs text-[var(--c-muted)] mb-1">Progreso de preparación</p>
-                  <div className="h-2 w-full rounded-full bg-[var(--c-border)]">
-                    <div
-                      className="h-2 rounded-full bg-[var(--c-primary)] transition-all"
-                      style={{ width: `${dashboard?.progressNextClass ?? 0}%` }}
-                    />
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-sm font-medium text-white">
+                      {modoAulaActivo
+                        ? 'Los alumnos tienen acceso completo'
+                        : 'Restringido · activá el modo aula'}
+                    </p>
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      {!modoAulaActivo && (
+                        <select
+                          value={modoAulaAulaId}
+                          onChange={(e) => setModoAulaAulaId(e.target.value)}
+                          className="rounded-lg text-xs px-2 py-1 bg-white/20 text-white border border-white/30 focus:outline-none"
+                        >
+                          {aulas.filter(a =>
+                            (a.status === 'ACTIVE' || a.status === 'activa')
+                          ).map(a => (
+                            <option key={getAulaId(a)} value={getAulaId(a)}>
+                              {a.name}
+                            </option>
+                          ))}
+                        </select>
+                      )}
+                      <button
+                        disabled={modoAulaLoading || !modoAulaAulaId}
+                        onClick={handleToggleModoAula}
+                        className="rounded-lg px-3 py-1 text-xs font-semibold transition-opacity disabled:opacity-40 bg-[#e85d3a] text-white hover:opacity-90"
+                      >
+                        {modoAulaLoading ? '...' : modoAulaActivo ? 'Desactivar' : 'Activar'}
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </section>
-            </div>
 
-            {quickLinks && (quickLinks.academico.length > 0 || quickLinks.gestion.length > 0) && (
-              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
-                <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">Accesos rápidos</h2>
-                <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                  {[...quickLinks.academico, ...quickLinks.gestion].map((link) => (
-                    <Link
-                      key={link.id}
-                      to={link.href}
-                      className="rounded-lg border border-[var(--c-border)] px-4 py-3 text-sm font-medium text-[var(--c-text)] hover:border-[var(--c-primary)] hover:text-[var(--c-primary)] transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            <section className={`rounded-xl border p-5 ${
-              modoAulaActivo
-                ? "bg-amber-50 border border-amber-200"
-                : "bg-[var(--c-surface)]"
-            }`}>
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <h3 className="text-lg font-semibold text-[var(--c-text)]">
-                    Modo aula
-                  </h3>
-                  <p className="text-sm text-[var(--c-muted)]">
-                    {modoAulaActivo
-                      ? "Tienda y economía restringidas para alumnos."
-                      : "Los alumnos tienen acceso completo."}
-                  </p>
-                </div>
-                <div className="flex items-center gap-3">
-                  {modules.length > 0 && (
-                    <select
-                      value={modoAulaAulaId}
-                      onChange={(e) => setModoAulaAulaId(e.target.value)}
-                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)]
-                        px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                    >
-                      <option value="">Seleccionar aula</option>
-                      {aulas.map((a) => (
-                        <option key={getAulaId(a)} value={getAulaId(a)}>{a.name}</option>
-                      ))}
-                    </select>
-                  )}
-                  {!modoAulaActivo && (
-                    <div className="flex items-center gap-2">
-                      <label className="text-xs text-[var(--c-muted)]">
-                        Duración:
-                      </label>
-                      <select
-                        value={modoAulaDuracion}
-                        onChange={(e) => setModoAulaDuracion(Number(e.target.value))}
-                        className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)]
-                          px-2 py-1 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                      >
-                        <option value={30}>30 min</option>
-                        <option value={45}>45 min</option>
-                        <option value={60}>60 min</option>
-                        <option value={90}>90 min</option>
-                        <option value={120}>120 min (máx.)</option>
-                      </select>
-                    </div>
-                  )}
-                  {modoAulaActivo && modoAulaExpira && (
-                    <p className="text-xs text-amber-600">
-                      Se desactiva a las{" "}
-                      {modoAulaExpira.toLocaleTimeString("es-AR", {
-                        hour: "2-digit", minute: "2-digit"
-                      })}
+                {/* Lista de aulas */}
+                <div className="px-2 pb-3">
+                  {aulas.length === 0 && (
+                    <p className="text-xs text-[var(--c-muted)] px-2 py-4 text-center">
+                      Sin aulas asignadas.
                     </p>
                   )}
-                  <button
-                    type="button"
-                    onClick={handleToggleModoAula}
-                    disabled={modoAulaLoading || !modoAulaAulaId}
-                    className={`rounded-xl px-5 py-2.5 text-sm font-semibold
-                      transition-colors disabled:opacity-50 ${
-                      modoAulaActivo
-                        ? "bg-amber-500 text-white hover:bg-amber-600"
-                        : "bg-slate-900 text-white hover:bg-slate-700"
-                    }`}
-                  >
-                    {modoAulaLoading
-                      ? "..."
-                      : modoAulaActivo
-                      ? "Desactivar modo aula"
-                      : "Activar modo aula"}
-                  </button>
-                </div>
-              </div>
-              {modoAulaActivo && (
-                <div className="mt-3 rounded-lg bg-amber-100 px-4 py-2
-                  text-xs text-amber-800">
-                  🔒 Tienda y economía bloqueadas para alumnos de esta aula
-                  durante la clase.
-                </div>
-              )}
-            </section>
-
-            {modulesStatus === "error" || modules.length > 0 ? (
-            <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <h3 className="text-lg font-semibold">Módulos activos</h3>
-                <div className="flex items-center gap-3">
-                  <Link
-                    className="inline-flex items-center gap-2 rounded-md border border-[var(--c-border)] px-3 py-2 text-sm font-semibold text-[var(--c-primary)] hover:bg-[var(--c-bg)]"
-                    to="/profesor/aulas#crear"
-                  >
-                    + Crear aula
-                  </Link>
-                  <Link
-                    className="inline-flex items-center gap-2 rounded-md bg-[var(--c-primary)] px-3 py-2 text-sm font-semibold text-white shadow hover:opacity-90"
-                    to="/profesor/cursos/nuevo"
-                  >
-                    + Crear clase/sección
-                  </Link>
-                  <Link className="text-sm text-[var(--c-primary)] hover:underline" to="/modulos/crear">
-                    Crear módulo
-                  </Link>
-                  <Link className="text-sm text-violet-600 hover:underline" to="/gobernanza">
-                    Gobernanza
-                  </Link>
-                </div>
-              </div>
-              <div className="mt-4 grid gap-3 lg:grid-cols-[2fr_1fr_1fr]">
-                <label className="flex flex-col gap-1 text-sm font-semibold text-[var(--c-text)]">
-                  Buscar módulo
-                  <input
-                    className="h-10 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                    placeholder="Busca por título o descripción"
-                    type="search"
-                    value={searchTerm}
-                    onChange={(event) => setSearchTerm(event.target.value)}
-                  />
-                </label>
-                <label className="flex flex-col gap-1 text-sm font-semibold text-[var(--c-text)]">
-                  Categoría
-                  <select
-                    className="h-10 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                    value={selectedCategory}
-                    onChange={(event) => setSelectedCategory(event.target.value)}
-                  >
-                    <option value="todas">Todas</option>
-                    {categoryOptions.map((category) => (
-                      <option key={category} value={category}>
-                        {category}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="flex flex-col gap-1 text-sm font-semibold text-[var(--c-text)]">
-                  Visibilidad
-                  <select
-                    className="h-10 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                    value={selectedVisibility}
-                    onChange={(event) => setSelectedVisibility(event.target.value)}
-                  >
-                    <option value="todas">Todas</option>
-                    <option value="publico">Publicado</option>
-                    <option value="privado">Privado</option>
-                  </select>
-                </label>
-              </div>
-              {activeFilters.length > 0 && (
-                <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-                  <span className="text-[var(--c-muted)]">Filtros activos:</span>
-                  {activeFilters.map((filter) => (
-                    <span
-                      key={filter.key}
-                      className="rounded-full bg-blue-50 px-3 py-1 font-semibold text-blue-700"
-                    >
-                      {filter.label}
-                    </span>
-                  ))}
-                </div>
-              )}
-              {modulesStatus === "loading" && (
-                <p className="mt-4 text-sm text-[var(--c-muted)]">Cargando módulos...</p>
-              )}
-              {modulesStatus === "error" && modulesError && (
-                <p className="mt-4 text-sm text-[var(--c-danger)]">{modulesError}</p>
-              )}
-              {modulesStatus === "ready" && (
-                <div className="mt-4 grid gap-4 md:grid-cols-3">
-                  {filteredModules.map((module) => {
-                    const subjectLabel = module.subject ?? module.category;
-                    const subjectColor = getSubjectColor(subjectLabel);
-
+                  {aulas.slice(0, 6).map((a) => {
+                    const activa = a.status === 'ACTIVE' || a.status === 'activa';
                     return (
-                      <article
-                        key={module.id}
-                        className="rounded-lg border p-4"
-                        style={{
-                          borderColor: subjectColor.border,
-                          backgroundColor: subjectColor.background
-                        }}
+                      <Link
+                        key={getAulaId(a)}
+                        to={`/profesor/aulas/${getAulaId(a)}`}
+                        className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--c-bg)] transition-colors"
                       >
-                        <p className="text-xs uppercase text-[var(--c-muted)]">{module.category}</p>
-                        <h4 className="mt-2 font-semibold">{module.title}</h4>
-                        <p className="mt-2 text-sm text-[var(--c-muted)]">{module.description}</p>
-                        <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                          <span className="rounded-full bg-[var(--c-border)] px-2 py-1 text-[var(--c-muted)]">
-                            {module.visibility === "publico" ? "Publicado" : "Privado"}
-                          </span>
-                          <span className="rounded-full bg-[var(--c-border)] px-2 py-1 text-[var(--c-muted)]">
-                            Dependencias: {module.dependencies.length}
-                          </span>
-                          {module.createdByRole === "admin" && (
-                            <span className="rounded-full bg-amber-100 px-2 py-1 text-amber-700">
-                              Creado por admin
-                            </span>
-                          )}
+                        <div className="flex items-center gap-2">
+                          <span className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                            activa ? 'bg-[var(--c-success)]' : 'bg-[var(--c-border)]'
+                          }`} />
+                          <span className="text-sm text-[var(--c-text)] truncate">{a.name}</span>
                         </div>
-                        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--c-muted)]">
-                          <span>{module.level}</span>
-                          <span>{module.durationMinutes} min</span>
-                        </div>
-                        <p className="mt-2 text-xs text-[var(--c-muted)]">
-                          Autor: {module.authorName ?? module.createdBy ?? "--"}
-                        </p>
-                        <Link
-                          className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-[var(--c-border)] px-3 py-2 text-sm"
-                          to={`/modulos/${module.id}/editar`}
-                        >
-                          Editar módulo
-                        </Link>
-                      </article>
+                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full flex-shrink-0 ${
+                          activa
+                            ? 'bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]'
+                            : 'bg-[color-mix(in_srgb,var(--c-muted)_12%,transparent)] text-[var(--c-muted)]'
+                        }`}>
+                          {activa ? 'Activa' : 'Archivada'}
+                        </span>
+                      </Link>
                     );
                   })}
                 </div>
-              )}
-              {modulesStatus === "ready" && filteredModules.length === 0 && (
-                <p className="mt-4 text-sm text-[var(--c-muted)]">
-                  No hay módulos que coincidan con los filtros seleccionados.
-                </p>
-              )}
-            </div>
-            ) : modulesStatus === "ready" && modules.length === 0 ? (
-              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 text-center space-y-3">
-                <p className="text-4xl">📚</p>
-                <h3 className="text-lg font-semibold text-[var(--c-text)]">
-                  Todavía no tenés módulos creados
-                </h3>
-                <p className="text-sm text-[var(--c-muted)]">
-                  Creá tu primer módulo para empezar a enseñar.
-                </p>
-                <Link
-                  to="/modulos/crear"
-                  className="inline-flex items-center gap-2
-                    rounded-xl bg-[var(--c-primary)] px-5 py-2.5
-                    text-sm font-semibold text-white
-                    hover:opacity-90 transition-colors"
-                >
-                  + Crear primer módulo
-                </Link>
               </div>
-            ) : null}
 
-            <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div>
-                  <h3 className="text-lg font-semibold">Mapa de dependencias</h3>
-                  <p className="text-sm text-[var(--c-muted)]">
-                    Revisa cómo se encadenan los módulos y filtra por materia o ruta completa.
-                  </p>
-                </div>
-                {graphSelection && (
-                  <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
-                    Seleccionado: {graphSelection.title}
-                  </span>
-                )}
-              </div>
-              <div className="mt-4 grid gap-3 md:grid-cols-3">
-                <label className="flex flex-col gap-1 text-sm font-semibold text-[var(--c-text)]">
-                  Materia
-                  <select
-                    className="h-10 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                    value={selectedSubject}
-                    onChange={(event) => setSelectedSubject(event.target.value)}
-                  >
-                    <option value="todas">Todas</option>
-                    {subjectOptions.map((subject) => (
-                      <option key={subject} value={subject}>
-                        {subject}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="flex flex-col gap-1 text-sm font-semibold text-[var(--c-text)]">
-                  Módulo base
-                  <select
-                    className="h-10 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                    value={selectedGraphModuleId}
-                    onChange={(event) => setSelectedGraphModuleId(event.target.value)}
-                  >
-                    {graphModules.map((module) => (
-                      <option key={module.id} value={module.id}>
-                        {module.title}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="flex items-center gap-3 rounded-md border border-[var(--c-border)] px-3 py-2 text-sm font-semibold text-[var(--c-text)]">
-                  <input
-                    checked={showFullPath}
-                    className="h-4 w-4 rounded border-[var(--c-border)] text-[var(--c-primary)]"
-                    type="checkbox"
-                    onChange={(event) => setShowFullPath(event.target.checked)}
-                  />
-                  Mostrar ruta completa
-                </label>
-              </div>
-              <div className="mt-4 grid gap-4 lg:grid-cols-[2fr_1fr]">
-                {graphSpec.nodes.length > 0 ? (
-                  <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-2 max-h-80 overflow-y-auto">
-                    <p className="text-xs font-semibold uppercase text-[var(--c-muted)] mb-2">
-                      {graphSpec.nodes.length} módulos · {graphSpec.links.length} conexiones
-                    </p>
-                    {graphSpec.nodes.map((node) => {
-                      const incoming = graphSpec.links.filter((l) => l.targetId === node.id);
-                      const outgoing = graphSpec.links.filter((l) => l.sourceId === node.id);
-                      const isSelected = node.id === selectedGraphModuleId;
-                      return (
-                        <button
-                          key={node.id}
-                          type="button"
-                          onClick={() => setSelectedGraphModuleId(node.id)}
-                          className={`w-full text-left rounded-lg border px-3 py-2 text-sm transition-colors ${
-                            isSelected
-                              ? "border-blue-300 bg-blue-50"
-                              : "border-[var(--c-border)] bg-[var(--c-surface)] hover:bg-[var(--c-bg)]"
-                          }`}
-                        >
-                          <p className="font-medium text-[var(--c-text)]">{node.label}</p>
-                          {node.description && (
-                            <p className="text-xs text-[var(--c-muted)]">{node.description}</p>
-                          )}
-                          <div className="mt-1 flex gap-2 text-xs text-[var(--c-muted)]">
-                            {incoming.length > 0 && (
-                              <span>← {incoming.length} requerido(s)</span>
-                            )}
-                            {outgoing.length > 0 && (
-                              <span>→ {outgoing.length} desbloquea</span>
-                            )}
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <div className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-6 text-center">
-                    <p className="text-sm text-[var(--c-muted)]">
-                      El mapa aparece cuando tenés módulos con dependencias entre sí.
-                    </p>
-                    <Link
-                      to="/modulos/crear"
-                      className="mt-2 inline-block text-sm text-[var(--c-primary)] hover:underline"
-                    >
-                      Crear módulo →
+              {/* ── Evaluaciones + Planificación (apiladas) ──────── */}
+              <div className="space-y-4">
+
+                {/* Evaluaciones recientes */}
+                <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+                  <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
+                    <h3 className="text-sm font-semibold text-[var(--c-text)]">Evaluaciones recientes</h3>
+                    <Link to="/profesor/evaluaciones" className="text-xs text-[var(--c-primary)] hover:underline">
+                      Ver todas →
                     </Link>
                   </div>
-                )}
-                <div className="space-y-4">
-                  <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
-                    <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">
-                      Vista previa compacta
-                    </p>
-                    <p className="mt-2 text-sm text-[var(--c-muted)]">
-                      Nodos anteriores y posteriores al módulo seleccionado.
-                    </p>
+                  <div className="px-2 py-2">
+                    {modules.slice(0, 4).map((m) => (
+                      <Link
+                        key={m.id}
+                        to={`/modulos/${m.id}/editar`}
+                        className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--c-bg)] transition-colors"
+                      >
+                        <span className="text-sm text-[var(--c-text)] truncate">{m.title}</span>
+                        <span className="text-[10px] text-[var(--c-muted)] flex-shrink-0 ml-2">
+                          {m.category}
+                        </span>
+                      </Link>
+                    ))}
+                    {modules.length === 0 && modulesStatus === 'ready' && (
+                      <p className="text-xs text-[var(--c-muted)] px-3 py-3 text-center">
+                        Sin módulos creados.
+                      </p>
+                    )}
+                    {modulesStatus === 'loading' && (
+                      <div className="space-y-2 p-3">
+                        {[1,2,3].map(i => <div key={i} className="h-6 rounded bg-[var(--c-border)] animate-pulse" />)}
+                      </div>
+                    )}
                   </div>
-                  <div className="rounded-lg border border-[var(--c-border)] p-4">
-                    <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">Anteriores</p>
-                    <ul className="mt-3 space-y-2">
-                      {previewDependencies.previous.length === 0 && (
-                        <li className="text-sm text-[var(--c-muted)]">
-                          Sin dependencias previas.
-                        </li>
-                      )}
-                      {previewDependencies.previous.map((module) => (
-                        <li key={module.id} className="rounded-md bg-[var(--c-bg)] px-3 py-2 text-sm">
-                          <p className="font-semibold text-[var(--c-text)]">{module.title}</p>
-                          <p className="text-xs text-[var(--c-muted)]">{module.subject}</p>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="px-4 pb-3">
+                    <Link
+                      to="/profesor/evaluaciones"
+                      className="block w-full text-center rounded-xl border border-[var(--c-border)] py-2 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+                    >
+                      + Nueva evaluación
+                    </Link>
                   </div>
-                  <div className="rounded-lg border border-[var(--c-border)] p-4">
-                    <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">Posteriores</p>
-                    <ul className="mt-3 space-y-2">
-                      {previewDependencies.next.length === 0 && (
-                        <li className="text-sm text-[var(--c-muted)]">Sin módulos dependientes.</li>
-                      )}
-                      {previewDependencies.next.map((module) => (
-                        <li key={module.id} className="rounded-md bg-[var(--c-bg)] px-3 py-2 text-sm">
-                          <p className="font-semibold text-[var(--c-text)]">{module.title}</p>
-                          <p className="text-xs text-[var(--c-muted)]">{module.subject}</p>
-                        </li>
-                      ))}
-                    </ul>
+                </div>
+
+                {/* Planificación semanal */}
+                <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+                  <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
+                    <h3 className="text-sm font-semibold text-[var(--c-text)]">Planificación semanal</h3>
+                    <Link to="/profesor/calendario" className="text-xs text-[var(--c-primary)] hover:underline">
+                      Ver calendario →
+                    </Link>
+                  </div>
+                  <div className="px-2 py-2">
+                    {dashboard?.weeklyPlan.slice(0, 5).map((item) => (
+                      <div key={item.id} className="flex items-start gap-3 px-3 py-2 rounded-lg">
+                        <div className="w-2 h-2 rounded-full bg-[var(--c-primary)] flex-shrink-0 mt-1.5" />
+                        <div className="min-w-0">
+                          <p className="text-sm text-[var(--c-text)] truncate">{item.title}</p>
+                          <p className="text-xs text-[var(--c-muted)]">{item.detail}</p>
+                        </div>
+                      </div>
+                    ))}
+                    {!dashboard?.weeklyPlan.length && (
+                      <p className="text-xs text-[var(--c-muted)] px-3 py-3 text-center">
+                        No hay actividades programadas.
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
 
-          </>
-        )}
-      </div>
+            {/* Próxima clase + modo aula duration (fila compacta) */}
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-5 py-3 flex items-center justify-between gap-6 flex-wrap">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">🕒</span>
+                <div>
+                  <p className="text-xs text-[var(--c-muted)]">Próxima clase</p>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">
+                    {dashboard?.nextClass.detail ?? 'Sin clases asignadas'}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <p className="text-xs text-[var(--c-muted)]">Duración modo aula</p>
+                <select
+                  value={modoAulaDuracion}
+                  onChange={(e) => setModoAulaDuracion(Number(e.target.value))}
+                  className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] text-xs px-2 py-1.5 focus:outline-none focus:border-[var(--c-primary)]"
+                >
+                  {[15,30,45,60,90,120].map(m => (
+                    <option key={m} value={m}>{m} min</option>
+                  ))}
+                </select>
+                <div className="text-xs text-[var(--c-muted)]">
+                  Estudiantes activos: <span className="font-semibold text-[var(--c-text)]">{dashboard?.activeStudents ?? 0}</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* ── Columna derecha — Accesos rápidos ───────────────── */}
+          <div className="w-56 flex-shrink-0 hidden xl:flex flex-col gap-4">
+
+            {/* Accesos rápidos académico */}
+            {quickLinks && quickLinks.academico.length > 0 && (
+              <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+                <p className="px-4 py-2.5 text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)] border-b border-[var(--c-border)]">
+                  Accesos rápidos
+                </p>
+                {quickLinks.academico.map((link) => (
+                  <Link
+                    key={link.id}
+                    to={link.href}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)] border-b border-[var(--c-border)] last:border-0 transition-colors"
+                  >
+                    <span className="text-base flex-shrink-0">
+                      {QUICK_LINK_ICONS[link.id] ?? '→'}
+                    </span>
+                    <span className="truncate">{link.label}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* Gestión */}
+            {quickLinks && quickLinks.gestion.length > 0 && (
+              <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+                <p className="px-4 py-2.5 text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)] border-b border-[var(--c-border)]">
+                  Gestión
+                </p>
+                {quickLinks.gestion.map((link) => (
+                  <Link
+                    key={link.id}
+                    to={link.href}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)] border-b border-[var(--c-border)] last:border-0 transition-colors"
+                  >
+                    <span className="text-base flex-shrink-0">
+                      {QUICK_LINK_ICONS[link.id] ?? '→'}
+                    </span>
+                    <span className="truncate">{link.label}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* Crear módulo CTA */}
+            <Link
+              to="/modulos/crear"
+              className="block w-full text-center rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+            >
+              + Crear módulo
+            </Link>
+
+          </div>
+
+        </div>
+      )}
+    </div>
   );
 }
