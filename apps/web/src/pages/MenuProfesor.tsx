@@ -440,8 +440,7 @@ export default function menuProfesor() {
   }, [graphModules, moduleById, selectedGraphModuleId]);
 
   return (
-    <div className="min-h-screen bg-[var(--c-bg)]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
         {menuState.status !== "ready" && (
           <section
             className={`rounded-xl border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-6 text-sm text-[var(--c-muted)] ${
@@ -1006,6 +1005,5 @@ export default function menuProfesor() {
           </>
         )}
       </div>
-    </div>
   );
 }

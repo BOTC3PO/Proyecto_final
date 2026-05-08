@@ -214,8 +214,7 @@ export default function ProfesorCalendario() {
     ? eventosPorDia(diaSeleccionado) : [];
 
   return (
-    <div className="min-h-screen bg-[var(--c-bg)]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
         <header className="space-y-1">
           <h1 className="text-3xl font-bold text-[var(--c-text)]">
             Calendario
@@ -564,6 +563,5 @@ export default function ProfesorCalendario() {
           </div>
         </div>
       </div>
-    </div>
   );
 }

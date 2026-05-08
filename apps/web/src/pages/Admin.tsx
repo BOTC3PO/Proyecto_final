@@ -104,8 +104,7 @@ export default function Admin() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--c-bg)]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
         <header className="space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--c-muted)]">Admin</p>
           <h1 className="text-3xl font-bold text-[var(--c-text)] md:text-4xl">Panel administrativo</h1>
@@ -324,6 +323,5 @@ export default function Admin() {
           )}
         </section>
       </div>
-    </div>
   );
 }
