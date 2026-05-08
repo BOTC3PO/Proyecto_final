@@ -100,6 +100,7 @@ const Mensajeria                = lazyWithRetry(() => import("./pages/Mensajeria
 const PerfilPublico             = lazyWithRetry(() => import("./pages/PerfilPublico"));
 const Economia                  = lazyWithRetry(() => import("./pages/Economia"));
 const TiendaTemas               = lazyWithRetry(() => import("./pages/TiendaTemas"));
+const OnboardingTema            = lazyWithRetry(() => import("./pages/OnboardingTema"));
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -153,6 +154,7 @@ export const router = createBrowserRouter([
           { path: "bloques/editor",      element: withSuspense(<BlockEditorPage />) },
           { path: "bloques/editor/:id",  element: withSuspense(<BlockEditorPage />) },
           { path: "onboarding-guest",    element: withSuspense(<GuestOnboarding />) },
+          { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
           { path: "u/:username",         element: withSuspense(<PerfilPublico />) },
 
           // Herramientas Educativas (public)

@@ -379,7 +379,14 @@ export default function RegistrationForm() {
           consentedAt: new Date().toISOString()
         }
       });
-      navigate("/login");
+      // Solo el alumno (USER) ve el onboarding de tema
+      if (formData.role === 'USER') {
+        navigate('/onboarding/tema', {
+          state: { nombre: formData.fullName.split(' ')[0] },
+        });
+      } else {
+        navigate('/login');
+      }
     } catch (error) {
       const message = error instanceof Error ? error.message : "No pudimos completar el registro.";
       setStatus({ loading: false, error: message });
