@@ -171,8 +171,7 @@ export default function Gobernanza() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--c-bg)]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
         <header className="flex flex-wrap items-start justify-between gap-4">
           <div className="space-y-1">
             <p className="text-sm font-semibold uppercase tracking-widest text-[var(--c-muted)]">Sistema</p>
@@ -253,6 +252,5 @@ export default function Gobernanza() {
           </ul>
         </section>
       </div>
-    </div>
   );
 }

@@ -50,14 +50,12 @@ export default function GobernanzaNuevaPropuesta() {
 
   if (!isStaff) {
     return (
-      <div className="min-h-screen bg-[var(--c-bg)]">
-        <div className="max-w-2xl mx-auto px-6 py-16 text-center">
+      <div className="max-w-2xl mx-auto px-6 py-16 text-center">
           <p className="text-sm text-[var(--c-danger)]">No tenés permiso para crear propuestas de gobernanza.</p>
           <Link to="/gobernanza" className="mt-4 inline-block text-sm font-semibold text-[var(--c-primary)] hover:underline">
             Volver a gobernanza
           </Link>
         </div>
-      </div>
     );
   }
 
@@ -93,8 +91,7 @@ export default function GobernanzaNuevaPropuesta() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--c-bg)]">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
         <nav className="flex items-center gap-2 text-sm text-[var(--c-muted)]">
           <Link to="/gobernanza" className="hover:text-[var(--c-primary)] hover:underline">
             Gobernanza
@@ -212,6 +209,5 @@ export default function GobernanzaNuevaPropuesta() {
           </div>
         </form>
       </div>
-    </div>
   );
 }

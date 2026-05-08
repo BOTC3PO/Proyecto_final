@@ -84,8 +84,7 @@ export default function EnterpriseDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--c-bg)]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
         <header className="space-y-2">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--c-muted)]">
             Administración escolar
@@ -216,6 +215,5 @@ export default function EnterpriseDashboard() {
           </Link>
         </section>
       </div>
-    </div>
   );
 }

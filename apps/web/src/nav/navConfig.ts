@@ -29,6 +29,7 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Módulos', to: '/modulos' },
     { label: 'Moderación', to: '/admin/moderacion' },
     { label: 'Reportes', to: '/admin/reportes' },
+    { label: 'Mensajes', to: '/mensajes' },
   ],
   USER: userBase,
   PARENT: [
