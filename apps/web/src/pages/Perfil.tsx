@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { apiGet } from "../lib/api";
+import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
 import {
   fetchEstadoSuscripcion, fetchHistorialPagos,
   fetchLimites, iniciarSuscripcion,
@@ -58,6 +59,23 @@ const ROLE_LABELS: Record<string, string> = {
   GUEST: "Invitado",
 };
 
+const THEME_SWATCH_COLORS: Record<string, string> = {
+  "clasico-vb":  "#2563eb",
+  "clasico":     "#1e40af",
+  "minimal":     "#1a1a18",
+  "aurora":      "#7c3aed",
+  "bosque":      "#15803d",
+  "nocturno":    "#1e293b",
+  "nocturno-vb": "#0f172a",
+  "vibrante":    "#e11d48",
+  "galaxy":      "#4f46e5",
+  "sunset":      "#f97316",
+  "ocean":       "#0891b2",
+  "candy":       "#ec4899",
+  "neon":        "#22d3ee",
+  "admin":       "#6b7280",
+};
+
 const ROLE_COLORS: Record<string, string> = {
   ADMIN: "bg-blue-100 text-blue-800",
   USER: "bg-emerald-100 text-emerald-800",
@@ -85,7 +103,8 @@ export default function Perfil() {
   const [suscAccion, setSuscAccion] =
     useState<"idle" | "loading" | "error" | "ok">("idle");
   const [suscMsg, setSuscMsg] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"perfil" | "progreso" | "logros" | "suscripcion">("perfil");
+  const [activeTab, setActiveTab] = useState<"perfil" | "progreso" | "logros" | "suscripcion" | "apariencia">("perfil");
+  const { theme, setTheme, availableThemes } = useTheme();
 
   useEffect(() => {
     let active = true;
@@ -314,7 +333,10 @@ export default function Perfil() {
                 { key: "progreso",    label: "Progreso" },
                 { key: "logros",      label: "Logros" },
                 { key: "suscripcion", label: "Suscripción" },
-              ] as const).map(({ key, label }) => (
+                ...(availableThemes.length > 1
+                  ? [{ key: "apariencia" as const, label: "Apariencia" }]
+                  : []),
+              ] as { key: "perfil" | "progreso" | "logros" | "suscripcion" | "apariencia"; label: string }[]).map(({ key, label }) => (
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
@@ -628,6 +650,37 @@ export default function Perfil() {
                     )}
                   </>
                 )}
+              </div>
+            )}
+            {/* ── TAB: APARIENCIA ── */}
+            {activeTab === "apariencia" && availableThemes.length > 1 && (
+              <div className="space-y-3">
+                <p className="text-sm text-[var(--c-muted)]">
+                  Elegí el tema visual de la plataforma.
+                </p>
+                <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+                  {THEME_OPTIONS.filter((opt) => availableThemes.some((t) => t.id === opt.id)).map((opt) => (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => setTheme(opt.id)}
+                      className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
+                        theme === opt.id
+                          ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] ring-1 ring-[var(--c-primary)]"
+                          : "border-[var(--c-border)] bg-[var(--c-surface)] hover:border-[var(--c-primary)]"
+                      }`}
+                    >
+                      <span
+                        className="w-6 h-6 rounded-full shrink-0 border border-black/10"
+                        style={{ backgroundColor: THEME_SWATCH_COLORS[opt.id] ?? "#888" }}
+                      />
+                      <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
+                      {theme === opt.id && (
+                        <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">Activo</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
           </>

@@ -440,151 +440,136 @@ export default function menuProfesor() {
   }, [graphModules, moduleById, selectedGraphModuleId]);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         {menuState.status !== "ready" && (
           <section
-            className={`rounded-xl border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-6 text-sm text-[var(--c-muted)] ${
+            className={`rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 space-y-4 ${
               menuState.status === "loading" ? "animate-pulse" : ""
             }`}
           >
-            <p className="font-semibold text-[var(--c-text)]">{menuState.message}</p>
-            <div className="mt-4 grid gap-4 md:grid-cols-3">
-              <div className="h-20 rounded-lg bg-[var(--c-border)]" />
-              <div className="h-20 rounded-lg bg-[var(--c-border)]" />
-              <div className="h-20 rounded-lg bg-[var(--c-border)]" />
+            <p className="text-sm font-semibold text-[var(--c-text)]">{menuState.message}</p>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="h-24 rounded-xl bg-[var(--c-border)]" />
+              ))}
             </div>
-            <div className="mt-4 h-40 rounded-lg bg-[var(--c-border)]" />
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <div className="h-24 rounded-lg bg-[var(--c-border)]" />
-              <div className="h-24 rounded-lg bg-[var(--c-border)]" />
-            </div>
+            <div className="h-40 rounded-xl bg-[var(--c-border)]" />
           </section>
         )}
 
         {menuState.status === "ready" && (
           <>
-            <div className="bg-[var(--c-surface)] rounded-xl shadow flex items-center gap-4 p-5">
-              <div className="w-12 h-12 rounded-full bg-[var(--c-primary)] text-white grid place-content-center font-semibold">
-                {dashboard?.profile.initials ?? "--"}
-              </div>
-              <div className="flex-1">
-                <h2 className="font-semibold">{dashboard?.profile.name ?? "Cargando..."}</h2>
-                <p className="text-[var(--c-muted)]">{dashboard?.profile.role ?? ""}</p>
-              </div>
-              <div className="flex items-center gap-5">
-                <Link
-                  to="/mensajes"
-                  title="Mensajes"
-                  className="text-[var(--c-muted)] hover:text-[var(--c-primary)]
-                    transition-colors"
-                >
-                  🔔
-                </Link>
-                <Link
-                  to="/perfil"
-                  className="flex items-center gap-2 text-[var(--c-muted)]
-                    hover:text-[var(--c-primary)] transition-colors text-sm
-                    font-medium"
-                >
-                  👤 Perfil
-                </Link>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-              <div className="bg-[var(--c-surface)] rounded-xl shadow p-5 flex items-center gap-4">
-                <div className="text-3xl">🕒</div>
-                <div>
-                  <p className="text-[var(--c-muted)]">Próxima Clase</p>
-                  <p className="text-xl font-semibold">
-                    {dashboard?.nextClass.detail ?? "--"}
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-[var(--c-surface)] rounded-xl shadow p-5 flex items-center gap-4">
-                <div className="text-3xl">👪</div>
-                <div>
-                  <p className="text-[var(--c-muted)]">Estudiantes Activos</p>
-                  <p className="text-2xl font-bold">
-                    {`${dashboard?.activeStudents ?? 0} estudiantes`}
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-[var(--c-surface)] rounded-xl shadow p-5">
-                <div className="flex items-center gap-3">
-                  <div className="text-3xl">🎓</div>
-                  <p className="text-[var(--c-muted)]">Progreso general de la próxima clase</p>
-                </div>
-                <div className="mt-3 h-3 w-full bg-[var(--c-border)] rounded">
-                  <div
-                    className="h-3 bg-gray-400 rounded"
-                    style={{ width: `${dashboard?.progressNextClass ?? 0}%` }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-              {dashboard?.kpiCards.map((card) => (
-                <Link
-                  key={card.id}
-                  className="group rounded-xl border border-transparent bg-[var(--c-surface)] p-5 shadow transition hover:border-[var(--c-primary)] hover:shadow-md"
-                  to={card.href}
-                >
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <p className="text-sm text-[var(--c-muted)]">{card.label}</p>
-                      <p className="mt-2 text-3xl font-semibold text-[var(--c-text)]">{card.value}</p>
-                      <p className="mt-2 text-xs text-[var(--c-muted)]">{card.helper}</p>
-                    </div>
-                    <span className="text-3xl">{card.icon}</span>
-                  </div>
-                  <span className="mt-4 inline-flex text-xs font-semibold uppercase tracking-wide text-[var(--c-primary)] group-hover:underline">
-                    Ver detalle
-                  </span>
-                </Link>
-              ))}
-              {dashboard?.kpiCards.length === 0 && (
-                <p className="text-sm text-[var(--c-muted)]">No hay métricas disponibles.</p>
-              )}
-            </div>
-
-            <section className="bg-[var(--c-surface)] rounded-xl shadow p-5">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div>
-                  <h3 className="text-lg font-semibold">Planificación semanal</h3>
-                  <p className="text-sm text-[var(--c-muted)]">
-                    Próximas clases y actividades prioritarias.
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-2 rounded-md border border-[var(--c-border)] px-3 py-2 text-sm font-semibold text-[var(--c-muted)]">
-                  Calendario (próximamente)
-                </span>
-              </div>
-              <ul className="mt-4 divide-y divide-[var(--c-border)]">
-                {dashboard?.weeklyPlan.map((item) => (
-                  <li
-                    key={item.id}
-                    className="flex flex-wrap items-center justify-between gap-3 py-3"
+            {dashboard?.kpiCards && dashboard.kpiCards.length > 0 && (
+              <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {dashboard.kpiCards.map((card) => (
+                  <Link
+                    key={card.id}
+                    to={card.href}
+                    className="group rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm hover:border-[var(--c-primary)] hover:shadow-md transition-all"
                   >
-                    <div>
-                      <p className="font-semibold text-[var(--c-text)]">{item.title}</p>
-                      <p className="text-sm text-[var(--c-muted)]">{item.detail}</p>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <p className="text-xs text-[var(--c-muted)]">{card.label}</p>
+                        <p className="mt-1 text-3xl font-bold text-[var(--c-text)]">{card.value}</p>
+                        <p className="mt-1 text-xs text-[var(--c-muted)]">{card.helper}</p>
+                      </div>
+                      <span className="text-2xl">{card.icon}</span>
                     </div>
-                    <span className="rounded-full bg-[var(--c-border)] px-3 py-1 text-xs font-semibold text-[var(--c-muted)]">
-                      {item.status}
+                    <span className="mt-3 inline-flex text-xs font-semibold text-[var(--c-primary)] group-hover:underline">
+                      Ver detalle →
                     </span>
-                  </li>
+                  </Link>
                 ))}
-                {dashboard?.weeklyPlan.length === 0 && (
-                  <li className="py-3 text-sm text-[var(--c-muted)]">No hay actividades programadas.</li>
-                )}
-              </ul>
-            </section>
+              </section>
+            )}
 
-            <section className={`rounded-xl shadow p-5 ${
+            <div className="grid gap-5 lg:grid-cols-3">
+              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <h2 className="text-sm font-semibold text-[var(--c-text)]">Mis aulas</h2>
+                  <Link to="/profesor/aulas" className="text-xs text-[var(--c-primary)] hover:underline">
+                    Ver todas
+                  </Link>
+                </div>
+                {aulas.length === 0 ? (
+                  <p className="text-sm text-[var(--c-muted)]">Sin aulas asignadas.</p>
+                ) : (
+                  <ul className="space-y-2">
+                    {aulas.slice(0, 5).map((a) => (
+                      <li key={getAulaId(a)}>
+                        <Link
+                          to="/profesor/aulas"
+                          className="flex items-center gap-3 rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm hover:border-[var(--c-primary)] transition-colors"
+                        >
+                          <span className="font-medium text-[var(--c-text)] truncate">{a.name}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+
+              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
+                <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">Planificación semanal</h2>
+                {!dashboard?.weeklyPlan || dashboard.weeklyPlan.length === 0 ? (
+                  <p className="text-sm text-[var(--c-muted)]">No hay actividades programadas.</p>
+                ) : (
+                  <ul className="divide-y divide-[var(--c-border)]">
+                    {dashboard.weeklyPlan.map((item) => (
+                      <li key={item.id} className="py-2.5 flex items-start justify-between gap-2">
+                        <div className="min-w-0">
+                          <p className="text-sm font-medium text-[var(--c-text)] truncate">{item.title}</p>
+                          <p className="text-xs text-[var(--c-muted)]">{item.detail}</p>
+                        </div>
+                        <span className="shrink-0 rounded-full bg-[var(--c-border)] px-2 py-0.5 text-xs text-[var(--c-muted)]">
+                          {item.status}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+
+              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 space-y-4">
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">Próxima clase</h2>
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">🕒</span>
+                  <p className="text-sm text-[var(--c-text)]">{dashboard?.nextClass.detail ?? "—"}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-[var(--c-muted)] mb-1">
+                    Estudiantes activos:{" "}
+                    <span className="font-semibold text-[var(--c-text)]">{dashboard?.activeStudents ?? 0}</span>
+                  </p>
+                  <p className="text-xs text-[var(--c-muted)] mb-1">Progreso de preparación</p>
+                  <div className="h-2 w-full rounded-full bg-[var(--c-border)]">
+                    <div
+                      className="h-2 rounded-full bg-[var(--c-primary)] transition-all"
+                      style={{ width: `${dashboard?.progressNextClass ?? 0}%` }}
+                    />
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            {quickLinks && (quickLinks.academico.length > 0 || quickLinks.gestion.length > 0) && (
+              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
+                <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">Accesos rápidos</h2>
+                <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                  {[...quickLinks.academico, ...quickLinks.gestion].map((link) => (
+                    <Link
+                      key={link.id}
+                      to={link.href}
+                      className="rounded-lg border border-[var(--c-border)] px-4 py-3 text-sm font-medium text-[var(--c-text)] hover:border-[var(--c-primary)] hover:text-[var(--c-primary)] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            <section className={`rounded-xl border p-5 ${
               modoAulaActivo
                 ? "bg-amber-50 border border-amber-200"
                 : "bg-[var(--c-surface)]"
@@ -670,7 +655,7 @@ export default function menuProfesor() {
             </section>
 
             {modulesStatus === "error" || modules.length > 0 ? (
-            <div className="bg-[var(--c-surface)] rounded-xl shadow p-5">
+            <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <h3 className="text-lg font-semibold">Módulos activos</h3>
                 <div className="flex items-center gap-3">
@@ -808,8 +793,7 @@ export default function menuProfesor() {
               )}
             </div>
             ) : modulesStatus === "ready" && modules.length === 0 ? (
-              <div className="bg-[var(--c-surface)] rounded-xl shadow p-5
-                text-center space-y-3">
+              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 text-center space-y-3">
                 <p className="text-4xl">📚</p>
                 <h3 className="text-lg font-semibold text-[var(--c-text)]">
                   Todavía no tenés módulos creados
@@ -829,7 +813,7 @@ export default function menuProfesor() {
               </div>
             ) : null}
 
-            <section className="bg-[var(--c-surface)] rounded-xl shadow p-5">
+            <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <h3 className="text-lg font-semibold">Mapa de dependencias</h3>
@@ -976,32 +960,6 @@ export default function menuProfesor() {
               </div>
             </section>
 
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-              {quickLinks &&
-                Object.entries(quickLinks).map(([section, links]) => (
-                  <div key={section} className="bg-[var(--c-surface)] rounded-xl shadow">
-                    <div className="bg-sky-600 text-white font-semibold rounded-t-xl px-4 py-2">
-                      {section === "academico" ? "Académico" : "Gestión"}
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x">
-                      {links.map((link) => (
-                        <Link
-                          key={link.id}
-                          className="h-20 grid place-content-center hover:bg-[var(--c-bg)]"
-                          to={link.href}
-                        >
-                          {link.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              {quickLinks &&
-                quickLinks.academico.length === 0 &&
-                quickLinks.gestion.length === 0 && (
-                <p className="text-sm text-[var(--c-muted)]">No hay accesos rápidos configurados.</p>
-              )}
-            </div>
           </>
         )}
       </div>

@@ -455,513 +455,409 @@ export default function Economia() {
 
   return (
     <div className="min-h-screen bg-[var(--c-bg)]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+
         {/* Encabezado */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-start justify-between gap-4">
           <div>
             <h1 className="text-2xl font-semibold text-[var(--c-text)]">Economía</h1>
             <p className="text-sm text-[var(--c-muted)] mt-1">Tu tablero financiero educativo</p>
           </div>
-          <div className="flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-sm font-semibold text-amber-700">
-            <span>🪙</span>
-            <span>{economy.coins.toLocaleString('es-AR')}</span>
+          <div className="flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--c-warning)_35%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] px-3 py-1.5 flex-shrink-0">
+            <span aria-hidden="true">🪙</span>
+            <span className="text-sm font-semibold text-[var(--c-warning)]">
+              {economy.coins.toLocaleString('es-AR')}
+            </span>
           </div>
         </div>
 
+        {/* Resumen rápido — siempre visible */}
+        {cicloActivo && (
+          <div className="grid grid-cols-3 gap-3">
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
+              <p className="text-xs text-[var(--c-muted)] mb-1">Ciclo económico</p>
+              <p className="text-base font-semibold text-[var(--c-text)] capitalize">{cicloActivo.tipo}</p>
+              <p className="text-xs text-[var(--c-muted)] mt-0.5">Intensidad {cicloActivo.intensidad}/10</p>
+            </div>
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
+              <p className="text-xs text-[var(--c-muted)] mb-1">Tasa plazo fijo</p>
+              <p className="text-base font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% anual</p>
+              <p className="text-xs text-[var(--c-muted)] mt-0.5">Tasa variable</p>
+            </div>
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
+              <p className="text-xs text-[var(--c-muted)] mb-1">Moneda extranjera</p>
+              <p className="text-base font-semibold text-[var(--c-text)]">{economy.foreignCoins} FX</p>
+              <p className="text-xs text-[var(--c-muted)] mt-0.5">1 FX = 100 monedas</p>
+            </div>
+          </div>
+        )}
+
+        {/* Feedback de monedas */}
+        {coinFeedback && (
+          <div className={`rounded-xl border px-4 py-3 text-sm font-medium ${
+            coinFeedback.tone === 'gain'
+              ? 'border-[color-mix(in_srgb,var(--c-success)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-success)_8%,transparent)] text-[var(--c-success)]'
+              : 'border-[color-mix(in_srgb,var(--c-danger)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] text-[var(--c-danger)]'
+          }`}>
+            {coinFeedback.tone === 'gain' ? '+' : ''}{coinFeedback.delta} — {coinFeedback.label}
+          </div>
+        )}
+
         {/* Tabs */}
-        <div className="flex gap-2 border-b border-[var(--c-border)]">
-          {(['tablero', 'invertir', 'simulador', 'intercambio'] as const).map((tab) => (
+        <div className="flex gap-1 border-b border-[var(--c-border)]">
+          {([
+            { key: 'tablero',     label: 'Tablero' },
+            { key: 'invertir',    label: 'Invertir' },
+            { key: 'simulador',   label: 'Simulador' },
+            { key: 'intercambio', label: 'Intercambio' },
+          ] as const).map(({ key, label }) => (
             <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-4 py-2 text-sm font-medium capitalize border-b-2 transition-colors ${
-                activeTab === tab
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+                activeTab === key
                   ? 'border-[var(--c-primary)] text-[var(--c-primary)]'
                   : 'border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]'
               }`}
             >
-              {tab === 'tablero' ? 'Tablero' :
-               tab === 'invertir' ? 'Invertir' :
-               tab === 'simulador' ? 'Simulador' : 'Intercambio'}
+              {label}
             </button>
           ))}
         </div>
 
-        {/* Tab: Tablero */}
+        {/* ── TAB: TABLERO ─────────────────────────────────────────── */}
         {activeTab === 'tablero' && (
-          <section className="grid gap-5 lg:grid-cols-3">
-            <div className="lg:col-span-2 bg-[var(--c-surface)] rounded-2xl shadow p-6">
-              <h3 className="text-lg font-semibold text-[var(--c-text)]">Tablero Económico</h3>
-              <p className="text-sm text-[var(--c-muted)]">Estado, tasas y ayudas simples para entender tu saldo.</p>
-              <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-xl border border-[var(--c-border)] p-4">
-                  <p className="text-sm text-[var(--c-muted)]">Monedas disponibles</p>
-                  <p
-                    className={`text-3xl font-semibold text-[var(--c-primary)] ${
-                      coinFeedback?.tone === "gain" ? "animate-pulse" : ""
-                    }`}
-                  >
-                    {economy.coins} 🪙
-                  </p>
-                  <p className="text-xs text-gray-400 mt-1">Usalas para temas o intercambios.</p>
-                  {saldoStatus === "loading" && (
-                    <p className="text-xs text-[var(--c-muted)] animate-pulse">
-                      Actualizando saldo...
-                    </p>
-                  )}
-                  {coinFeedback ? (
-                    <div
-                      className={`mt-2 inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold ${
-                        coinFeedback.tone === "gain"
-                          ? "bg-emerald-100 text-emerald-700"
-                          : "bg-rose-100 text-rose-600"
-                      }`}
-                    >
-                      {coinFeedback.delta > 0 ? "+" : ""}
-                      {coinFeedback.delta} 🪙 · {coinFeedback.label}
-                    </div>
-                  ) : null}
-                </div>
-                <div className="rounded-xl border border-[var(--c-border)] p-4">
-                  <p className="text-sm text-[var(--c-muted)]">Moneda extranjera simulada</p>
-                  <p className="text-3xl font-semibold text-[var(--c-success)]">{economy.foreignCoins} FX</p>
-                  <p className="text-xs text-[var(--c-muted)] mt-1">Comprada a razón de {FOREIGN_EXCHANGE_RATE} monedas.</p>
-                </div>
+          <div className="grid gap-4 lg:grid-cols-2">
+
+            {/* Tablero económico */}
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">Tablero Económico</h3>
+                {cicloActivo && (
+                  <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]">
+                    Ciclo {cicloActivo.tipo}
+                  </span>
+                )}
               </div>
-              <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                <div className="rounded-xl bg-[var(--c-bg)] p-4">
-                  <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">
-                    Ciclo económico
-                  </p>
-                  <p className={`text-lg font-semibold ${
-                    cicloActivo?.tipo === "hiperinflacion" ? "text-red-700"
-                    : cicloActivo?.tipo === "inflacion" ? "text-amber-700"
-                    : cicloActivo?.tipo === "deflacion" ? "text-blue-700"
-                    : "text-[var(--c-text)]"
-                  }`}>
-                    {cicloActivo
-                      ? cicloActivo.tipo.charAt(0).toUpperCase() + cicloActivo.tipo.slice(1)
-                      : economyStatus.label}
-                  </p>
-                  <p className="text-xs text-[var(--c-muted)] mt-1">
-                    {cicloActivo
-                      ? `Intensidad ${cicloActivo.intensidad}/10 · hasta ${
-                          new Date(cicloActivo.fin).toLocaleDateString("es-AR")
-                        }`
-                      : economyStatus.description}
-                  </p>
-                </div>
-                <div className="rounded-xl bg-[var(--c-bg)] p-4">
-                  <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">Tasa plazo fijo</p>
-                  <p className="text-lg font-semibold text-[var(--c-text)]">{fixedTermRate}% anual</p>
-                  <p className="text-xs text-[var(--c-muted)] mt-1">Cuanto más alta la tasa, más interés ganás.</p>
-                </div>
-                <div className="rounded-xl bg-[var(--c-bg)] p-4">
-                  <p className="text-xs uppercase tracking-wide text-[var(--c-muted)]">Tasa FCI</p>
-                  <p className="text-lg font-semibold text-[var(--c-text)]">{fciRate}% mensual</p>
-                  <p className="text-xs text-[var(--c-muted)] mt-1">Tasa variable: puede subir o bajar.</p>
-                </div>
+              <div className="flex items-center justify-between py-2 border-b border-[var(--c-border)]">
+                <span className="text-xs text-[var(--c-muted)]">Monedas disponibles</span>
+                <span className="text-sm font-semibold text-[var(--c-text)]">
+                  {economy.coins.toLocaleString('es-AR')} 🪙
+                </span>
               </div>
-              <div className="mt-4 rounded-xl bg-[var(--c-bg)] p-4">
-                <p className="text-sm text-[var(--c-muted)]">Tema activo</p>
-                <p className="text-lg font-semibold text-[var(--c-text)]">{themeStatus}</p>
+              <div className="flex items-center justify-between py-2 border-b border-[var(--c-border)]">
+                <span className="text-xs text-[var(--c-muted)]">Moneda extranjera</span>
+                <span className="text-sm font-semibold text-[var(--c-text)]">{economy.foreignCoins} FX</span>
               </div>
+              {cicloActivo && (
+                <>
+                  <div className="flex items-center justify-between py-2 border-b border-[var(--c-border)]">
+                    <span className="text-xs text-[var(--c-muted)]">Tasa plazo fijo</span>
+                    <span className="text-sm font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% anual</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-xs text-[var(--c-muted)]">Vigencia del ciclo</span>
+                    <span className="text-xs text-[var(--c-muted)]">
+                      hasta {new Date(cicloActivo.fin).toLocaleDateString('es-AR')}
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
-            <div className="bg-[var(--c-surface)] rounded-2xl shadow p-6 space-y-4">
-              <h3 className="text-lg font-semibold text-[var(--c-text)]">Compra de moneda extranjera</h3>
-              <p className="text-sm text-[var(--c-muted)]">Simulá el cambio de tus monedas a FX.</p>
-              <div className="space-y-2">
-                <label className="text-sm text-[var(--c-muted)]" htmlFor="exchange-amount">
-                  Monedas a cambiar
-                </label>
+
+            {/* Compra de moneda extranjera */}
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">Compra de moneda extranjera</h3>
+              <p className="text-xs text-[var(--c-muted)]">
+                Simulá el cambio de tus monedas a FX. Tipo de cambio: 100 monedas = 1 FX.
+              </p>
+              <div>
+                <label className="text-xs text-[var(--c-muted)] block mb-1.5">Monedas a cambiar</label>
                 <input
-                  id="exchange-amount"
                   type="number"
-                  min={FOREIGN_EXCHANGE_RATE}
-                  step={10}
+                  min={100}
+                  step={100}
                   value={exchangeAmount}
-                  onChange={(event) => setExchangeAmount(Number(event.target.value))}
-                  className="w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm"
+                  onChange={(e) => setExchangeAmount(Number(e.target.value))}
+                  className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 />
-                <p className="text-xs text-[var(--c-muted)]">
-                  Recibís {(exchangeAmount / FOREIGN_EXCHANGE_RATE).toFixed(2)} FX.
+                <p className="text-xs text-[var(--c-muted)] mt-1.5">
+                  Recibís: {Math.floor(exchangeAmount / 100)} FX
                 </p>
               </div>
               <button
-                type="button"
                 onClick={handleExchange}
-                className="w-full rounded-lg bg-[var(--c-success)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+                className="w-full rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
               >
                 Comprar FX
               </button>
             </div>
-          </section>
-        )}
-
-        {/* Tab: Invertir */}
-        {activeTab === 'invertir' && (
-          <section className="grid gap-5 lg:grid-cols-2">
-            <div className="bg-[var(--c-surface)] rounded-2xl shadow p-6 space-y-4">
-              <h3 className="text-lg font-semibold text-[var(--c-text)]">Plazo fijo educativo</h3>
-              <p className="text-sm text-[var(--c-muted)]">
-                Un plazo fijo guarda tu dinero por un tiempo. Durante esos días no se puede usar, y al final te paga intereses
-                fijos.
-              </p>
-              <div className="grid gap-3 sm:grid-cols-3">
-                <label className="text-sm text-[var(--c-muted)]" htmlFor="fixed-term-amount">
-                  Monto
-                  <input
-                    id="fixed-term-amount"
-                    type="number"
-                    min={0}
-                    value={fixedTermAmount}
-                    onChange={(event) => setFixedTermAmount(Number(event.target.value))}
-                    className="mt-1 w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm"
-                  />
-                </label>
-                <label className="text-sm text-[var(--c-muted)]" htmlFor="fixed-term-rate">
-                  Tasa anual (%)
-                  <input
-                    id="fixed-term-rate"
-                    type="number"
-                    min={0}
-                    step={0.1}
-                    value={fixedTermRate}
-                    onChange={(event) => setFixedTermRate(Number(event.target.value))}
-                    className="mt-1 w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm"
-                  />
-                </label>
-                <label className="text-sm text-[var(--c-muted)]" htmlFor="fixed-term-days">
-                  Días bloqueado
-                  <input
-                    id="fixed-term-days"
-                    type="number"
-                    min={1}
-                    value={fixedTermDays}
-                    onChange={(event) => setFixedTermDays(Number(event.target.value))}
-                    className="mt-1 w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm"
-                  />
-                </label>
-              </div>
-              <div className="rounded-xl bg-[var(--c-bg)] p-4">
-                <p className="text-sm text-[var(--c-muted)]">Interés estimado</p>
-                <p className="text-2xl font-semibold text-[var(--c-primary)]">{formatMoney(fixedTermInterest)} 🪙</p>
-                <p className="text-xs text-[var(--c-muted)] mt-1">
-                  Total al finalizar: {formatMoney(fixedTermTotal)} 🪙. Tu dinero queda bloqueado hasta completar {fixedTermDays} días.
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={handleInvertirPF}
-                disabled={pfInvirtiendo || fixedTermAmount <= 0 ||
-                  economy.coins < fixedTermAmount}
-                className="w-full rounded-xl bg-blue-600 py-2.5 text-sm
-                  font-semibold text-white hover:bg-blue-700
-                  disabled:opacity-50 transition-colors"
-              >
-                {pfInvirtiendo ? "Abriendo..." : "Invertir en plazo fijo"}
-              </button>
-              {plazos.length > 0 && (
-                <div className="space-y-2">
-                  <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">
-                    Mis plazos fijos activos
-                  </p>
-                  {plazos.map((pf) => {
-                    const vence = new Date(pf.vence_at);
-                    const vencio = new Date() >= vence;
-                    return (
-                      <div key={pf.id}
-                        className="rounded-xl border border-[var(--c-border)] px-4 py-3">
-                        <div className="flex items-center justify-between gap-3">
-                          <div className="text-sm">
-                            <p className="font-medium text-[var(--c-text)]">
-                              {pf.monto} 🪙 · {pf.tasa_anual}% anual · {pf.dias} días
-                            </p>
-                            <p className="text-xs text-[var(--c-muted)]">
-                              Vence: {vence.toLocaleDateString("es-AR")}
-                              {" · "}Total: {pf.total.toFixed(2)} 🪙
-                              {!vencio && (
-                                <span className="text-amber-600 ml-1">
-                                  (rescate anticipado: solo capital)
-                                </span>
-                              )}
-                            </p>
-                          </div>
-                          <button
-                            type="button"
-                            disabled={rescatando === pf.id}
-                            onClick={() => handleRescatar("plazo-fijo", pf.id)}
-                            className={`shrink-0 rounded-lg px-3 py-1 text-xs
-                              font-semibold transition-colors ${
-                              vencio
-                                ? "bg-emerald-600 text-white hover:bg-emerald-700"
-                                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                            }`}
-                          >
-                            {rescatando === pf.id ? "..." : vencio ? "Cobrar" : "Rescatar"}
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-            <div className="bg-[var(--c-surface)] rounded-2xl shadow p-6 space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold text-[var(--c-text)]">FCI de desbloqueo rápido</h3>
-                <p className="text-sm text-[var(--c-muted)]">
-                  Un fondo común de inversión (FCI) permite entrar y salir rápido. El rendimiento es variable, pero el rescate suele
-                  ser en 24/48 hs.
-                </p>
-              </div>
-              <div className="grid gap-3 sm:grid-cols-3">
-                <label className="text-sm text-[var(--c-muted)]" htmlFor="fci-amount">
-                  Monto
-                  <input
-                    id="fci-amount"
-                    type="number"
-                    min={0}
-                    value={fciAmount}
-                    onChange={(event) => setFciAmount(Number(event.target.value))}
-                    className="mt-1 w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm"
-                  />
-                </label>
-                <label className="text-sm text-[var(--c-muted)]" htmlFor="fci-rate">
-                  Tasa mensual (%)
-                  <input
-                    id="fci-rate"
-                    type="number"
-                    min={0}
-                    step={0.1}
-                    value={fciRate}
-                    onChange={(event) => setFciRate(Number(event.target.value))}
-                    className="mt-1 w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm"
-                  />
-                </label>
-                <label className="text-sm text-[var(--c-muted)]" htmlFor="fci-days">
-                  Días invertidos
-                  <input
-                    id="fci-days"
-                    type="number"
-                    min={1}
-                    value={fciDays}
-                    onChange={(event) => setFciDays(Number(event.target.value))}
-                    className="mt-1 w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm"
-                  />
-                </label>
-              </div>
-              <div className="rounded-xl bg-[var(--c-bg)] p-4">
-                <p className="text-sm text-[var(--c-muted)]">Ganancia estimada</p>
-                <p className="text-2xl font-semibold text-[var(--c-success)]">{formatMoney(fciInterest)} 🪙</p>
-                <p className="text-xs text-[var(--c-muted)] mt-1">
-                  Total si mantenés {fciDays} días: {formatMoney(fciTotal)} 🪙. Podés pedir el rescate y el dinero vuelve rápido.
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={handleInvertirFCI}
-                disabled={fciInvirtiendo || fciAmount <= 0 ||
-                  economy.coins < fciAmount}
-                className="w-full rounded-xl bg-emerald-600 py-2.5 text-sm
-                  font-semibold text-white hover:bg-emerald-700
-                  disabled:opacity-50 transition-colors"
-              >
-                {fciInvirtiendo ? "Abriendo..." : "Invertir en FCI"}
-              </button>
-              {fcis.length > 0 && (
-                <div className="space-y-2">
-                  <p className="text-xs font-semibold uppercase text-[var(--c-muted)]">
-                    Mis posiciones FCI activas
-                  </p>
-                  {fcis.map((fci) => (
-                    <div key={fci.id}
-                      className="rounded-xl border border-[var(--c-border)] px-4 py-3">
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="text-sm">
-                          <p className="font-medium text-[var(--c-text)]">
-                            {fci.monto} 🪙 · {fci.tasa_mensual}% mensual · {fci.dias} días
-                          </p>
-                          <p className="text-xs text-[var(--c-muted)]">
-                            Abierto: {new Date(fci.creado_at).toLocaleDateString("es-AR")}
-                            {" · "}Proyectado: {fci.total.toFixed(2)} 🪙
-                          </p>
-                        </div>
-                        <button
-                          type="button"
-                          disabled={rescatando === fci.id}
-                          onClick={() => handleRescatar("fci", fci.id)}
-                          className="shrink-0 rounded-lg bg-emerald-100 px-3 py-1
-                            text-xs font-semibold text-emerald-700
-                            hover:bg-emerald-200 transition-colors disabled:opacity-50"
-                        >
-                          {rescatando === fci.id ? "..." : "Rescatar"}
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-            {instrumentoMsg && (
-              <p className={`text-sm col-span-2 ${
-                instrumentoMsg.startsWith("✓")
-                  ? "text-emerald-600"
-                  : "text-red-500"
-              }`}>
-                {instrumentoMsg}
-              </p>
-            )}
-          </section>
-        )}
-
-        {/* Tab: Simulador */}
-        {activeTab === 'simulador' && (
-          <div className="space-y-5">
-            <section className="bg-[var(--c-surface)] rounded-2xl shadow p-6 space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold text-[var(--c-text)]">Simulador de eventos económicos</h3>
-                <p className="text-sm text-[var(--c-muted)]">
-                  Mini simulaciones "¿qué pasaría si...?" para practicar antes de activar eventos reales.
-                </p>
-              </div>
-              <div className="grid gap-4">
-                {ECONOMIC_SIMULATIONS.map((simulation) => {
-                  const isOpen = openSimulationId === simulation.id;
-                  return (
-                    <div key={simulation.id} className="rounded-xl border border-[var(--c-border)] p-4">
-                      <div className="flex flex-wrap items-start justify-between gap-3">
-                        <div>
-                          <p className="text-sm font-semibold text-[var(--c-text)]">{simulation.title}</p>
-                          <p className="text-xs text-[var(--c-muted)]">{simulation.question}</p>
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => handleToggleSimulation(simulation.id)}
-                          className="rounded-lg bg-[var(--c-bg)] px-3 py-1.5 text-xs font-semibold text-[var(--c-muted)] hover:opacity-80"
-                        >
-                          {isOpen ? "Ocultar resultado" : "Ver resultado"}
-                        </button>
-                      </div>
-                      {isOpen && (
-                        <div className="mt-3 rounded-xl bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
-                          <p className="font-semibold text-[var(--c-text)]">Impacto estimado</p>
-                          <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                            <div className="rounded-lg bg-[var(--c-surface)] p-3">
-                              <p className="text-[11px] uppercase tracking-wide text-[var(--c-muted)]">Saldo</p>
-                              <p className="text-sm font-semibold text-[var(--c-text)]">
-                                {formatDelta(simulation.impact.coinDelta, "🪙")}
-                              </p>
-                            </div>
-                            <div className="rounded-lg bg-[var(--c-surface)] p-3">
-                              <p className="text-[11px] uppercase tracking-wide text-[var(--c-muted)]">FX</p>
-                              <p className="text-sm font-semibold text-[var(--c-text)]">
-                                {formatDelta(simulation.impact.foreignCoinDelta, "FX")}
-                              </p>
-                            </div>
-                            <div className="rounded-lg bg-[var(--c-surface)] p-3">
-                              <p className="text-[11px] uppercase tracking-wide text-[var(--c-muted)]">Tasa plazo fijo</p>
-                              <p className="text-sm font-semibold text-[var(--c-text)]">
-                                {formatDelta(simulation.impact.fixedTermRateDelta, "% anual")}
-                              </p>
-                            </div>
-                            <div className="rounded-lg bg-[var(--c-surface)] p-3">
-                              <p className="text-[11px] uppercase tracking-wide text-[var(--c-muted)]">Tasa FCI</p>
-                              <p className="text-sm font-semibold text-[var(--c-text)]">
-                                {formatDelta(simulation.impact.fciRateDelta, "% mensual")}
-                              </p>
-                            </div>
-                          </div>
-                          <p className="mt-3 text-xs text-[var(--c-muted)]">{simulation.learning}</p>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-            <section className="bg-[var(--c-surface)] rounded-2xl shadow p-6 space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold text-[var(--c-text)]">Mensajes educativos</h3>
-                <p className="text-sm text-[var(--c-muted)]">
-                  Tips rápidos para entender por qué suben o bajan tus monedas.
-                </p>
-              </div>
-              {educationMessages.length === 0 ? (
-                <p className="text-sm text-[var(--c-muted)]">Realizá una acción y aparecerán mensajes para ayudarte.</p>
-              ) : (
-                <div className="grid gap-3 md:grid-cols-2">
-                  {educationMessages.map((message) => (
-                    <div
-                      key={message.id}
-                      className={`rounded-xl border p-4 ${
-                        message.tone === "success"
-                          ? "border-emerald-100 bg-emerald-50"
-                          : message.tone === "warning"
-                            ? "border-amber-100 bg-amber-50"
-                            : "border-sky-100 bg-sky-50"
-                      }`}
-                    >
-                      <p className="text-sm font-semibold text-[var(--c-text)]">{message.title}</p>
-                      <p className="text-xs text-[var(--c-muted)] mt-1">{message.body}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </section>
           </div>
         )}
 
-        {/* Tab: Intercambio */}
+        {/* ── TAB: INVERTIR ────────────────────────────────────────── */}
+        {activeTab === 'invertir' && (
+          <div className="grid gap-4 lg:grid-cols-2">
+
+            {/* Plazo fijo */}
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
+              <div>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">Plazo fijo educativo</h3>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5">
+                  Bloqueá tus monedas por un tiempo y ganá intereses.
+                </p>
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { label: 'Monto', value: fixedTermAmount, set: setFixedTermAmount, min: 100 },
+                  { label: 'Tasa % anual', value: fixedTermRate, set: setFixedTermRate, min: 1 },
+                  { label: 'Días', value: fixedTermDays, set: setFixedTermDays, min: 1 },
+                ].map(({ label, value, set, min }) => (
+                  <div key={label}>
+                    <label className="text-[10px] text-[var(--c-muted)] block mb-1">{label}</label>
+                    <input
+                      type="number" min={min} value={value}
+                      onChange={(e) => set(Number(e.target.value))}
+                      className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-xl bg-[var(--c-bg)] border border-[var(--c-border)] px-4 py-3">
+                <div className="flex justify-between text-xs mb-1">
+                  <span className="text-[var(--c-muted)]">Interés estimado</span>
+                  <span className="font-semibold text-[var(--c-success)]">
+                    🪙 {fixedTermInterest.toFixed(2)}
+                  </span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-[var(--c-muted)]">Total al vencer</span>
+                  <span className="font-semibold text-[var(--c-text)]">
+                    🪙 {fixedTermTotal.toFixed(2)}
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={handleInvertirPF}
+                disabled={pfInvirtiendo}
+                className="w-full rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
+              >
+                {pfInvirtiendo ? 'Invirtiendo...' : 'Invertir en plazo fijo'}
+              </button>
+              {plazos.length > 0 && (
+                <div className="space-y-2 pt-2 border-t border-[var(--c-border)]">
+                  <p className="text-xs font-medium text-[var(--c-muted)]">Plazos activos</p>
+                  {plazos.map((p) => (
+                    <div key={p.id} className="flex items-center justify-between text-xs">
+                      <span className="text-[var(--c-text)]">🪙 {p.monto} · {p.dias}d · {p.tasa_anual}%</span>
+                      {p.estado === 'activo' && (
+                        <button
+                          onClick={() => handleRescatar('plazo-fijo', p.id)}
+                          disabled={rescatando === p.id}
+                          className="text-[var(--c-primary)] hover:underline disabled:opacity-40"
+                        >
+                          {rescatando === p.id ? '...' : 'Rescatar'}
+                        </button>
+                      )}
+                      {p.estado !== 'activo' && (
+                        <span className="text-[var(--c-muted)]">{p.estado}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+              {instrumentoMsg && <p className="text-xs text-[var(--c-success)]">{instrumentoMsg}</p>}
+            </div>
+
+            {/* FCI */}
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
+              <div>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">FCI de desbloqueo rápido</h3>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5">
+                  Rendimiento variable. Rescate en 24hs.
+                </p>
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { label: 'Monto', value: fciAmount, set: setFciAmount, min: 100 },
+                  { label: 'Tasa % mensual', value: fciRate, set: setFciRate, min: 1 },
+                  { label: 'Días', value: fciDays, set: setFciDays, min: 1 },
+                ].map(({ label, value, set, min }) => (
+                  <div key={label}>
+                    <label className="text-[10px] text-[var(--c-muted)] block mb-1">{label}</label>
+                    <input
+                      type="number" min={min} value={value}
+                      onChange={(e) => set(Number(e.target.value))}
+                      className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-xl bg-[var(--c-bg)] border border-[var(--c-border)] px-4 py-3">
+                <div className="flex justify-between text-xs mb-1">
+                  <span className="text-[var(--c-muted)]">Ganancia estimada</span>
+                  <span className="font-semibold text-[var(--c-success)]">
+                    🪙 {fciInterest.toFixed(2)}
+                  </span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-[var(--c-muted)]">Total al vencer</span>
+                  <span className="font-semibold text-[var(--c-text)]">
+                    🪙 {fciTotal.toFixed(2)}
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={handleInvertirFCI}
+                disabled={fciInvirtiendo}
+                className="w-full rounded-xl bg-[var(--c-success)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
+              >
+                {fciInvirtiendo ? 'Invirtiendo...' : 'Invertir en FCI'}
+              </button>
+              {fcis.length > 0 && (
+                <div className="space-y-2 pt-2 border-t border-[var(--c-border)]">
+                  <p className="text-xs font-medium text-[var(--c-muted)]">Posiciones activas</p>
+                  {fcis.map((f) => (
+                    <div key={f.id} className="flex items-center justify-between text-xs">
+                      <span className="text-[var(--c-text)]">🪙 {f.monto} · {f.dias}d · {f.tasa_mensual}%m</span>
+                      {f.estado === 'activo' && (
+                        <button
+                          onClick={() => handleRescatar('fci', f.id)}
+                          disabled={rescatando === f.id}
+                          className="text-[var(--c-primary)] hover:underline disabled:opacity-40"
+                        >
+                          {rescatando === f.id ? '...' : 'Rescatar'}
+                        </button>
+                      )}
+                      {f.estado !== 'activo' && (
+                        <span className="text-[var(--c-muted)]">{f.estado}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* ── TAB: SIMULADOR ───────────────────────────────────────── */}
+        {activeTab === 'simulador' && (
+          <div className="space-y-4">
+            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-3">
+              <div>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">Simulador de eventos económicos</h3>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5">
+                  Mini-simulaciones "¿qué pasaría si...?" para practicar antes de activar eventos reales.
+                </p>
+              </div>
+              {ECONOMIC_SIMULATIONS.map((scenario) => (
+                <div key={scenario.id} className="border border-[var(--c-border)] rounded-xl overflow-hidden">
+                  <button
+                    onClick={() => handleToggleSimulation(scenario.id)}
+                    className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-[var(--c-bg)] transition-colors"
+                  >
+                    <div>
+                      <p className="text-sm font-medium text-[var(--c-text)]">{scenario.title}</p>
+                      <p className="text-xs text-[var(--c-muted)] mt-0.5">{scenario.question}</p>
+                    </div>
+                    <span className="text-xs text-[var(--c-primary)] flex-shrink-0 ml-3">
+                      {openSimulationId === scenario.id ? 'Ocultar' : 'Ver resultado'}
+                    </span>
+                  </button>
+                  {openSimulationId === scenario.id && (
+                    <div className="px-4 py-3 border-t border-[var(--c-border)] bg-[var(--c-bg)] space-y-2">
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        {scenario.impact.coinDelta !== 0 && (
+                          <div className={`rounded-lg px-3 py-2 ${scenario.impact.coinDelta > 0 ? 'bg-[color-mix(in_srgb,var(--c-success)_10%,transparent)] text-[var(--c-success)]' : 'bg-[color-mix(in_srgb,var(--c-danger)_10%,transparent)] text-[var(--c-danger)]'}`}>
+                            Monedas: {scenario.impact.coinDelta > 0 ? '+' : ''}{scenario.impact.coinDelta}
+                          </div>
+                        )}
+                        {scenario.impact.foreignCoinDelta !== 0 && (
+                          <div className="rounded-lg px-3 py-2 bg-[color-mix(in_srgb,var(--c-accent)_10%,transparent)] text-[var(--c-accent)]">
+                            FX: {scenario.impact.foreignCoinDelta > 0 ? '+' : ''}{scenario.impact.foreignCoinDelta}
+                          </div>
+                        )}
+                        {scenario.impact.fixedTermRateDelta !== 0 && (
+                          <div className="rounded-lg px-3 py-2 bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] text-[var(--c-warning)]">
+                            Tasa PF: {scenario.impact.fixedTermRateDelta > 0 ? '+' : ''}{scenario.impact.fixedTermRateDelta}%
+                          </div>
+                        )}
+                      </div>
+                      <p className="text-xs text-[var(--c-muted)] italic">{scenario.learning}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Mensajes educativos */}
+            {educationMessages.length > 0 && (
+              <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-3">
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">Mensajes educativos</h3>
+                {educationMessages.slice(-3).map((msg) => (
+                  <div
+                    key={msg.id}
+                    className={`rounded-xl px-4 py-3 text-xs ${
+                      msg.tone === 'success'
+                        ? 'bg-[color-mix(in_srgb,var(--c-success)_10%,transparent)] text-[var(--c-success)]'
+                        : msg.tone === 'warning'
+                        ? 'bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] text-[var(--c-warning)]'
+                        : 'bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] text-[var(--c-primary)]'
+                    }`}
+                  >
+                    <p className="font-semibold">{msg.title}</p>
+                    <p className="mt-0.5">{msg.body}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── TAB: INTERCAMBIO ─────────────────────────────────────── */}
         {activeTab === 'intercambio' && (
-          <section className="bg-[var(--c-surface)] rounded-2xl shadow p-6 space-y-4">
-            <h3 className="text-lg font-semibold text-[var(--c-text)]">Intercambio entre alumnos</h3>
-            <p className="text-sm text-[var(--c-muted)]">Enviá monedas a compañeros de forma simple.</p>
+          <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4 max-w-md">
+            <div>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">Intercambio entre alumnos</h3>
+              <p className="text-xs text-[var(--c-muted)] mt-0.5">
+                Enviá monedas a compañeros de forma simple.
+              </p>
+            </div>
             <div className="space-y-3">
               <div>
-                <label className="text-sm text-[var(--c-muted)]" htmlFor="transfer-to">
-                  Destinatario
-                </label>
+                <label className="text-xs text-[var(--c-muted)] block mb-1.5">Destinatario</label>
                 <input
-                  id="transfer-to"
                   type="text"
-                  value={transferTo}
-                  onChange={(event) => setTransferTo(event.target.value)}
                   placeholder="Ej: Juan Pérez"
-                  className="w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm"
+                  value={transferTo}
+                  onChange={(e) => setTransferTo(e.target.value)}
+                  className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
                 />
               </div>
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-sm text-[var(--c-muted)]" htmlFor="transfer-amount">
-                    Monto
-                  </label>
+                  <label className="text-xs text-[var(--c-muted)] block mb-1.5">Monto</label>
                   <input
-                    id="transfer-amount"
-                    type="number"
-                    min={1}
-                    value={transferAmount}
-                    onChange={(event) => setTransferAmount(Number(event.target.value))}
-                    className="w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm"
+                    type="number" min={1} value={transferAmount}
+                    onChange={(e) => setTransferAmount(Number(e.target.value))}
+                    className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-[var(--c-muted)]" htmlFor="transfer-note">
-                    Nota (opcional)
-                  </label>
+                  <label className="text-xs text-[var(--c-muted)] block mb-1.5">Nota (opcional)</label>
                   <input
-                    id="transfer-note"
                     type="text"
-                    value={transferNote}
-                    onChange={(event) => setTransferNote(event.target.value)}
                     placeholder="Gracias por ayudar"
-                    className="w-full rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm"
+                    value={transferNote}
+                    onChange={(e) => setTransferNote(e.target.value)}
+                    className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         )}
+
       </div>
     </div>
   );

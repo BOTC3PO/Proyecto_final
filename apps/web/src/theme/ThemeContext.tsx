@@ -40,12 +40,15 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
   ],
   TEACHER: [
     "clasico-vb",
-    "clasico", "minimal", "aurora", "nocturno", "nocturno-vb",
-    "vibrante", "bosque", "galaxy", "sunset", "ocean", "candy", "neon",
+    "clasico",
+    "minimal",
+    "aurora",
+    "bosque",
   ],
   DIRECTIVO: [
     "clasico-vb",
-    "clasico", "minimal", "nocturno",
+    "clasico",
+    "minimal",
   ],
   ADMIN:     ["admin"],
   GUEST:     ["clasico"],

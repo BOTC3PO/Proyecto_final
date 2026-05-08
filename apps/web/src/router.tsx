@@ -474,24 +474,81 @@ export const router = createBrowserRouter([
               </ProtectedRoute>
             ),
           },
+          // Rutas compartidas que el staff necesita con sidebar
+          {
+            path: 'mensajes',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'DIRECTIVO', 'ADMIN']}>
+                {withSuspense(<Mensajeria />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'perfil',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'DIRECTIVO', 'ADMIN']}>
+                {withSuspense(<Perfil />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'DIRECTIVO', 'ADMIN']}>
+                {withSuspense(<ModulosList />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos/crear',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
+                {withSuspense(<ModuloEditor />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos/:id',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'DIRECTIVO', 'ADMIN']}>
+                {withSuspense(<ModuloDetail />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos/:id/editar',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
+                {withSuspense(<ModuloEditor />)}
+              </ProtectedRoute>
+            ),
+          },
         ],
       },
 
       // ── Rutas compartidas (multi-rol) ──────────────────────────────────────
       {
         element: (
-          <ProtectedRoute allow={['ADMIN', 'USER', 'PARENT', 'TEACHER', 'DIRECTIVO']}>
+          <ProtectedRoute allow={['USER', 'PARENT']}>
             <SharedLayout />
           </ProtectedRoute>
         ),
         children: [
           {
             path: 'mensajes',
-            element: withSuspense(<Mensajeria />),
+            element: (
+              <ProtectedRoute allow={['USER', 'PARENT']}>
+                {withSuspense(<Mensajeria />)}
+              </ProtectedRoute>
+            ),
           },
           {
             path: 'perfil',
-            element: withSuspense(<Perfil />),
+            element: (
+              <ProtectedRoute allow={['USER', 'PARENT']}>
+                {withSuspense(<Perfil />)}
+              </ProtectedRoute>
+            ),
           },
           {
             path: 'menualumno',
@@ -520,32 +577,16 @@ export const router = createBrowserRouter([
           {
             path: 'modulos',
             element: (
-              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'DIRECTIVO']}>
+              <ProtectedRoute allow={['USER', 'PARENT']}>
                 {withSuspense(<ModulosList />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'modulos/crear',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
-                {withSuspense(<ModuloEditor />)}
               </ProtectedRoute>
             ),
           },
           {
             path: 'modulos/:id',
             element: (
-              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'DIRECTIVO']}>
+              <ProtectedRoute allow={['USER', 'PARENT']}>
                 {withSuspense(<ModuloDetail />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'modulos/:id/editar',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
-                {withSuspense(<ModuloEditor />)}
               </ProtectedRoute>
             ),
           },
