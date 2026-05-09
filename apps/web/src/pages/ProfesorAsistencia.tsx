@@ -122,7 +122,6 @@ export default function ProfesorAsistencia() {
               </div>
             ))}
           </div>
-          </div>
         </section>
 
         <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-3">
