@@ -18,7 +18,11 @@ export default function EnterpriseAulas() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!schoolId) return;
+    if (!schoolId) {
+      setError('Tu cuenta no tiene una escuela asignada. Contactá al administrador.');
+      setLoading(false);
+      return;
+    }
     let active = true;
     fetchEnterpriseAulas(schoolId)
       .then((data) => {
@@ -34,53 +38,69 @@ export default function EnterpriseAulas() {
   }, [schoolId]);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Aulas</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Aulas activas de tu institución.
-          </p>
-        </header>
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <div className="flex items-center justify-between gap-3">
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">
-              Listado — {aulas.length} aulas
-            </h2>
-          </div>
-          <div className="mt-4 space-y-3">
-            {loading && <p className="text-sm text-[var(--c-muted)] animate-pulse">Cargando aulas...</p>}
-            {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
-            {!loading && !error && aulas.length === 0 && (
-              <p className="text-sm text-[var(--c-muted)]">No hay aulas registradas.</p>
-            )}
-            {!loading && !error && aulas.map((aula) => (
-              <div key={getAulaId(aula)}
-                className="flex flex-wrap items-start justify-between gap-3 rounded-xl border border-[var(--c-border)] px-4 py-3 hover:bg-[var(--c-bg)] transition-colors">
-                <div className="space-y-1">
-                  <p className="text-sm font-semibold text-[var(--c-text)]">{aula.name}</p>
-                  {aula.description && (
-                    <p className="text-xs text-[var(--c-muted)] line-clamp-1">{aula.description}</p>
-                  )}
-                  <div className="flex flex-wrap gap-2 text-xs text-[var(--c-muted)]">
-                    <span>Acceso: {ACCESS_LABELS[aula.accessType]}</span>
-                    <span>Docentes: {aula.teacherIds?.length ?? 0}</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-semibold text-[var(--c-muted)]">
-                    {getClassroomStatusLabel(aula.status)}
-                  </span>
-                  <Link
-                    to={`/clases?id=${getAulaId(aula)}`}
-                    className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                  >
-                    Ver →
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+      <div>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">Aulas</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">Aulas activas de tu institución.</p>
       </div>
+
+      {error && (
+        <div className="rounded-xl border border-[color-mix(in_srgb,var(--c-danger)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] px-4 py-3 text-sm text-[var(--c-danger)]">
+          {error}
+        </div>
+      )}
+
+      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
+          <p className="text-sm font-semibold text-[var(--c-text)]">
+            {loading ? 'Cargando...' : `${aulas.length} aulas`}
+          </p>
+        </div>
+
+        {loading && (
+          <div className="p-4 space-y-2">
+            {[1,2,3].map(i => <div key={i} className="h-14 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
+          </div>
+        )}
+
+        {!loading && !error && aulas.length === 0 && (
+          <div className="px-4 py-10 text-center">
+            <p className="text-sm text-[var(--c-muted)]">No hay aulas registradas.</p>
+          </div>
+        )}
+
+        {!loading && !error && aulas.map((aula) => (
+          <div
+            key={getAulaId(aula)}
+            className="flex items-center justify-between gap-3 px-4 py-3 border-b border-[var(--c-border)] last:border-0 hover:bg-[var(--c-bg)] transition-colors"
+          >
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-[var(--c-text)] truncate">{aula.name}</p>
+              {aula.description && (
+                <p className="text-xs text-[var(--c-muted)] truncate mt-0.5">{aula.description}</p>
+              )}
+              <p className="text-[10px] text-[var(--c-muted)] mt-0.5">
+                {ACCESS_LABELS[aula.accessType]} · {aula.teacherIds?.length ?? 0} docente{(aula.teacherIds?.length ?? 0) !== 1 ? 's' : ''}
+              </p>
+            </div>
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                aula.status === 'ACTIVE' || aula.status === 'activa'
+                  ? 'bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]'
+                  : 'bg-[color-mix(in_srgb,var(--c-muted)_12%,transparent)] text-[var(--c-muted)]'
+              }`}>
+                {getClassroomStatusLabel(aula.status)}
+              </span>
+              <Link
+                to={`/clases?id=${getAulaId(aula)}`}
+                className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+              >
+                Ver →
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

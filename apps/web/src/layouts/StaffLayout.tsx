@@ -58,10 +58,7 @@ function Sidebar() {
   useEffect(() => { setUserMenuOpen(false); }, [location.pathname]);
 
   return (
-    <aside
-      className="w-56 flex-shrink-0 flex flex-col border-r border-[var(--c-border)] bg-[var(--c-surface)]"
-      style={{ minHeight: '100vh' }}
-    >
+    <aside className="w-56 flex-shrink-0 flex flex-col border-r border-[var(--c-border)] bg-[var(--c-surface)] h-screen sticky top-0 overflow-y-auto">
       {/* Logo */}
       <div className="h-14 flex items-center px-5 border-b border-[var(--c-border)] flex-shrink-0">
         <Link to="/" className="flex items-center gap-2.5">
@@ -214,7 +211,7 @@ function Topbar() {
 
 export default function StaffLayout() {
   return (
-    <div className="flex bg-[var(--c-bg)]" style={{ minHeight: '100vh' }}>
+    <div className="flex min-h-screen bg-[var(--c-bg)]">
       <Sidebar />
       <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
         <Topbar />

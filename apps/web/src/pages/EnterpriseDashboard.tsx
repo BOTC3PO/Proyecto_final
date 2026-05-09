@@ -12,8 +12,7 @@ import {
 export default function EnterpriseDashboard() {
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
-  const [dashboard, setDashboard] =
-    useState<EnterpriseDashboardData | null>(null);
+  const [dashboard, setDashboard] = useState<EnterpriseDashboardData | null>(null);
   const [staff, setStaff] = useState<EnterpriseStaffMember[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -26,7 +25,11 @@ export default function EnterpriseDashboard() {
   const [message, setMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!schoolId) return;
+    if (!schoolId) {
+      setError('Tu cuenta no tiene una escuela asignada. Contactá al administrador.');
+      setLoading(false);
+      return;
+    }
     let active = true;
     Promise.all([
       fetchEnterpriseDashboard(schoolId),
@@ -84,136 +87,150 @@ export default function EnterpriseDashboard() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--c-muted)]">
-            Administración escolar
-          </p>
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Panel de la escuela</h1>
-          <p className="text-base text-[var(--c-muted)]">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+
+      <div className="flex items-center justify-between gap-4 flex-wrap">
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">Panel de la escuela</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">
             Supervisá el estado académico de tu institución.
           </p>
-          {error && (
-            <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>
-          )}
-        </header>
+        </div>
+        <div className="flex gap-2">
+          <Link
+            to="/enterprise/aulas"
+            className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+          >
+            + Crear aula
+          </Link>
+        </div>
+      </div>
 
-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {loading
-            ? Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="h-24 animate-pulse rounded-xl bg-[var(--c-border)]" />
-              ))
-            : dashboard?.indicadores.map((item) => (
-                <div key={item.id}
-                  className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm">
-                  <p className="text-sm text-[var(--c-muted)]">{item.label}</p>
-                  <p className="mt-1 text-3xl font-bold text-[var(--c-text)]">{item.value}</p>
-                </div>
-              ))}
-        </section>
+      {error && (
+        <div className="rounded-xl border border-[color-mix(in_srgb,var(--c-danger)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] px-4 py-3 text-sm text-[var(--c-danger)]">
+          {error}
+        </div>
+      )}
 
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">Accesos rápidos</h2>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <Link to="/enterprise/aulas"
-              className="rounded-full border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">
-              Ver aulas
-            </Link>
-            <Link to="/enterprise/miembros"
-              className="rounded-full border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">
-              Ver miembros
-            </Link>
-            <Link to="/enterprise/modulos"
-              className="rounded-full border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">
-              Ver módulos
-            </Link>
-            <Link to="/enterprise/reportes"
-              className="rounded-full border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">
-              Reportes
-            </Link>
-            <Link to="/gobernanza"
-              className="rounded-full border border-violet-200 px-4 py-2 text-sm font-semibold text-violet-700 hover:bg-violet-50 transition-colors">
-              Gobernanza
-            </Link>
-          </div>
-        </section>
+      {/* Stats KPI */}
+      <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
+        {loading
+          ? [1,2,3,4].map(i => <div key={i} className="h-20 animate-pulse rounded-xl bg-[var(--c-border)]" />)
+          : dashboard?.indicadores.map((item) => (
+            <div key={item.id} className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
+              <p className="text-[10px] uppercase tracking-widest text-[var(--c-muted)] mb-1">{item.label}</p>
+              <p className="text-2xl font-semibold text-[var(--c-text)]">{item.value}</p>
+            </div>
+          ))
+        }
+      </div>
 
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">Crear aula</h2>
-          <form className="mt-4 grid gap-4 sm:grid-cols-2" onSubmit={handleSubmit}>
-            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)] sm:col-span-2">
-              Nombre *
+      <div className="grid gap-4 lg:grid-cols-3">
+
+        {/* Accesos rápidos */}
+        <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">
+            Accesos rápidos
+          </p>
+          {[
+            { label: 'Aulas',      to: '/enterprise/aulas',     icon: '🏫' },
+            { label: 'Miembros',   to: '/enterprise/miembros',  icon: '👥' },
+            { label: 'Módulos',    to: '/enterprise/modulos',   icon: '🎓' },
+            { label: 'Reportes',   to: '/enterprise/reportes',  icon: '📊' },
+            { label: 'Calendario', to: '/enterprise/calendario',icon: '📅' },
+            { label: 'Gobernanza', to: '/gobernanza',           icon: '⚖️' },
+            { label: 'Mensajes',   to: '/mensajes',             icon: '💬' },
+          ].map(({ label, to, icon }) => (
+            <Link
+              key={to}
+              to={to}
+              className="flex items-center gap-3 px-4 py-2.5 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)] border-b border-[var(--c-border)] last:border-0 transition-colors"
+            >
+              <span className="text-base flex-shrink-0">{icon}</span>
+              <span>{label}</span>
+            </Link>
+          ))}
+        </div>
+
+        {/* Crear aula */}
+        <div className="lg:col-span-2 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">
+            Crear aula
+          </p>
+          <form className="p-4 grid gap-3 sm:grid-cols-2" onSubmit={handleSubmit}>
+            <label className="flex flex-col gap-1 sm:col-span-2">
+              <span className="text-xs font-medium text-[var(--c-muted)]">Nombre *</span>
               <input
-                required
-                value={form.name}
-                onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
-                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                placeholder="Ej: 3° B - Primaria"
+                required value={form.name}
+                onChange={(e) => setForm(p => ({ ...p, name: e.target.value }))}
+                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                placeholder="Ej: 3° B — Primaria"
               />
             </label>
-            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)] sm:col-span-2">
-              Descripción
+            <label className="flex flex-col gap-1 sm:col-span-2">
+              <span className="text-xs font-medium text-[var(--c-muted)]">Descripción</span>
               <textarea
-                rows={2}
-                value={form.description}
-                onChange={(e) => setForm((p) => ({ ...p, description: e.target.value }))}
-                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                placeholder="Objetivos o lineamientos del aula"
+                rows={2} value={form.description}
+                onChange={(e) => setForm(p => ({ ...p, description: e.target.value }))}
+                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)] resize-none"
+                placeholder="Objetivos del aula"
               />
             </label>
-            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
-              Tipo de acceso
+            <label className="flex flex-col gap-1">
+              <span className="text-xs font-medium text-[var(--c-muted)]">Tipo de acceso</span>
               <select
                 value={form.accessType}
-                onChange={(e) => setForm((p) => ({ ...p, accessType: e.target.value as "publica" | "privada" }))}
-                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                onChange={(e) => setForm(p => ({ ...p, accessType: e.target.value as 'publica' | 'privada' }))}
+                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               >
                 <option value="privada">Privada</option>
                 <option value="publica">Pública</option>
               </select>
             </label>
-            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
-              Docente responsable
+            <label className="flex flex-col gap-1">
+              <span className="text-xs font-medium text-[var(--c-muted)]">Docente responsable</span>
               <select
                 value={form.teacherId}
-                onChange={(e) => setForm((p) => ({ ...p, teacherId: e.target.value }))}
-                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                onChange={(e) => setForm(p => ({ ...p, teacherId: e.target.value }))}
+                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               >
                 <option value="">Sin asignar</option>
-                {teachers.map((t) => (
-                  <option key={t.id} value={t.id}>{t.name}</option>
-                ))}
+                {teachers.map(t => <option key={t.id} value={t.id}>{t.name}</option>)}
               </select>
             </label>
-            <div className="flex items-center gap-3 sm:col-span-2">
+            <div className="sm:col-span-2 flex items-center gap-3">
               <button
-                type="submit"
-                disabled={submitting || !form.name.trim()}
-                className="rounded-xl bg-[var(--c-primary)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
+                type="submit" disabled={submitting || !form.name.trim()}
+                className="rounded-xl bg-[var(--c-primary)] px-5 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
               >
-                {submitting ? "Creando..." : "Crear aula"}
+                {submitting ? 'Creando...' : 'Crear aula'}
               </button>
               {message && (
-                <p className={`text-sm ${message.startsWith("✓") ? "text-emerald-600" : "text-[var(--c-danger)]"}`}>
+                <p className={`text-sm ${message.startsWith('✓') ? 'text-[var(--c-success)]' : 'text-[var(--c-danger)]'}`}>
                   {message}
                 </p>
               )}
             </div>
           </form>
-        </section>
+        </div>
+      </div>
 
-        <section className="rounded-xl border border-violet-100 bg-violet-50 p-5">
-          <h2 className="text-base font-semibold text-violet-900">Gobernanza colaborativa</h2>
-          <p className="mt-1 text-sm text-violet-700">
+      {/* Gobernanza CTA */}
+      <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-5 py-4 flex items-center justify-between gap-4">
+        <div>
+          <p className="text-sm font-semibold text-[var(--c-text)]">Gobernanza colaborativa</p>
+          <p className="text-xs text-[var(--c-muted)] mt-0.5">
             Participá en propuestas de cambio para módulos y generadores de ejercicios.
           </p>
-          <Link
-            to="/gobernanza"
-            className="mt-3 inline-block rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 transition-colors"
-          >
-            Ir a gobernanza →
-          </Link>
-        </section>
+        </div>
+        <Link
+          to="/gobernanza"
+          className="flex-shrink-0 rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+        >
+          Ir a gobernanza →
+        </Link>
       </div>
+
+    </div>
   );
 }

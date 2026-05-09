@@ -104,224 +104,157 @@ export default function Admin() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-3">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--c-muted)]">Admin</p>
-          <h1 className="text-3xl font-bold text-[var(--c-text)] md:text-4xl">Panel administrativo</h1>
-          <p className="max-w-2xl text-base text-[var(--c-muted)]">
-            Supervisión global de la plataforma: usuarios, módulos públicos, moderación y configuración.
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+
+      <div>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">Panel administrativo</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">
+          Supervisión global de la plataforma.
+        </p>
+      </div>
+
+      {error && (
+        <div className="rounded-xl border border-[color-mix(in_srgb,var(--c-danger)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] px-4 py-3 text-sm text-[var(--c-danger)]">
+          {error}
+        </div>
+      )}
+
+      {/* Stats KPI */}
+      <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
+        {loadingStats
+          ? [1,2,3,4].map(i => <div key={i} className="h-20 animate-pulse rounded-xl bg-[var(--c-border)]" />)
+          : ([
+              { label: 'Usuarios totales',  value: stats?.totalUsuarios ?? 0,      color: 'text-[var(--c-primary)]' },
+              { label: 'Escuelas activas',  value: stats?.escuelasActivas ?? 0,    color: 'text-[var(--c-success)]' },
+              { label: 'Módulos públicos',  value: stats?.modulosPublicos ?? 0,    color: 'text-[var(--c-accent)]'  },
+              { label: 'Eventos mod. (30d)',value: stats?.eventosModeracion ?? 0,  color: 'text-[var(--c-warning)]' },
+            ]).map((item) => (
+              <div key={item.label} className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
+                <p className="text-[10px] uppercase tracking-widest text-[var(--c-muted)] mb-1">{item.label}</p>
+                <p className={`text-2xl font-semibold ${item.color}`}>{item.value}</p>
+              </div>
+            ))
+        }
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-3">
+
+        {/* Secciones del admin como lista */}
+        <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">
+            Secciones
           </p>
-        </header>
-
-        {error && (
-          <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{error}</div>
-        )}
-
-        <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {adminSections.map((item) => (
             <Link
               key={item.label}
               to={item.to}
-              className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm hover:border-[var(--c-primary)] hover:shadow-md transition-all"
+              className="flex items-start gap-3 px-4 py-3 border-b border-[var(--c-border)] last:border-0 hover:bg-[var(--c-bg)] transition-colors group"
             >
-              <h2 className="text-lg font-semibold text-[var(--c-text)]">{item.label}</h2>
-              <p className="mt-2 text-sm text-[var(--c-muted)]">{item.desc}</p>
-              <span className="mt-4 inline-block text-xs font-semibold text-[var(--c-primary)]">Ver →</span>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-[var(--c-text)] group-hover:text-[var(--c-primary)] transition-colors">
+                  {item.label}
+                </p>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5 line-clamp-1">{item.desc}</p>
+              </div>
+              <span className="text-xs text-[var(--c-muted)] flex-shrink-0 mt-0.5">→</span>
             </Link>
           ))}
-        </section>
+        </div>
 
-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {loadingStats
-            ? Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="h-24 animate-pulse rounded-xl bg-[var(--c-border)]" />
-              ))
-            : ([
-                { label: "Usuarios totales", value: stats?.totalUsuarios ?? 0, color: "text-blue-700" },
-                { label: "Escuelas activas", value: stats?.escuelasActivas ?? 0, color: "text-emerald-700" },
-                { label: "Módulos públicos", value: stats?.modulosPublicos ?? 0, color: "text-violet-700" },
-                { label: "Eventos moderación (30d)", value: stats?.eventosModeracion ?? 0, color: "text-amber-700" },
-              ] as Array<{ label: string; value: number; color: string }>).map((item) => (
-                <div key={item.label} className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm">
-                  <p className="text-sm text-[var(--c-muted)]">{item.label}</p>
-                  <p className={`mt-1 text-3xl font-bold ${item.color}`}>{item.value}</p>
-                </div>
-              ))}
-        </section>
-
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">Accesos rápidos</h2>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <Link
-              to="/admin/usuarios"
-              className="rounded-full border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-            >
-              Gestionar usuarios
-            </Link>
-            <Link
-              to="/admin/materias"
-              className="rounded-full border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-            >
-              Materias
-            </Link>
-            <Link
-              to="/admin/moderacion"
-              className="rounded-full border border-red-200 px-4 py-2 text-sm font-semibold text-red-700 hover:bg-red-50 transition-colors"
-            >
-              Moderación
-            </Link>
-            <Link
-              to="/modulos/crear"
-              className="rounded-full border border-violet-200 px-4 py-2 text-sm font-semibold text-violet-700 hover:bg-violet-50 transition-colors"
-            >
-              Crear módulo público
-            </Link>
-            <Link
-              to="/admin/reportes"
-              className="rounded-full border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-            >
-              Reportes globales
-            </Link>
-            <Link
-              to="/gobernanza"
-              className="rounded-full border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-            >
-              Gobernanza
-            </Link>
-            <Link
-              to="/admin/generadores"
-              className="rounded-full border border-violet-200 px-4 py-2 text-sm font-semibold text-violet-700 hover:bg-violet-50 transition-colors"
-            >
-              Generadores y sugerencias
-            </Link>
-            <Link
-              to="/alumno"
-              className="rounded-full border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors"
-            >
-              Ver como alumno
-            </Link>
-          </div>
-        </section>
-
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">Configuración de economía global</h2>
-          {config && (
-            <p className="mt-1 text-xs text-[var(--c-muted)]">
-              Moneda: {config.moneda.nombre} ({config.moneda.simbolo}) · Última actualización:{" "}
-              {new Date(config.updatedAt).toLocaleDateString("es")}
+        {/* Configuración de economía */}
+        <div className="lg:col-span-2 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
+              Configuración de economía global
             </p>
-          )}
+            {config && (
+              <p className="text-[10px] text-[var(--c-muted)]">
+                {config.moneda.nombre} ({config.moneda.simbolo})
+              </p>
+            )}
+          </div>
 
           {loadingConfig ? (
-            <div className="mt-4 space-y-3">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="h-10 animate-pulse rounded-xl bg-[var(--c-border)]" />
-              ))}
+            <div className="p-4 space-y-2">
+              {[1,2,3,4].map(i => <div key={i} className="h-10 animate-pulse rounded-lg bg-[var(--c-border)]" />)}
             </div>
           ) : (
-            <div className="mt-5 grid gap-5 sm:grid-cols-2">
-              <div className="space-y-4">
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">Límites de emisión y recompensas</h3>
-                <label className="flex flex-col gap-1">
-                  <span className="text-xs text-[var(--c-muted)]">Emisión diaria máxima</span>
-                  <input
-                    type="number"
-                    min={0}
-                    value={emisionDiaria}
-                    onChange={(e) => setEmisionDiaria(e.target.value)}
-                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                  />
-                </label>
-                <label className="flex flex-col gap-1">
-                  <span className="text-xs text-[var(--c-muted)]">Recompensa máxima por acción</span>
-                  <input
-                    type="number"
-                    min={0}
-                    value={recompensaMaxima}
-                    onChange={(e) => setRecompensaMaxima(e.target.value)}
-                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                  />
-                </label>
-                <label className="flex flex-col gap-1">
-                  <span className="text-xs text-[var(--c-muted)]">Recompensa diaria máxima por usuario</span>
-                  <input
-                    type="number"
-                    min={0}
-                    value={recompensaDiaria}
-                    onChange={(e) => setRecompensaDiaria(e.target.value)}
-                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                  />
-                </label>
+            <div className="p-4 grid gap-4 sm:grid-cols-2">
+              <div className="space-y-3">
+                <p className="text-xs font-semibold text-[var(--c-text)]">Límites de emisión</p>
+                {[
+                  { label: 'Emisión diaria máxima',           value: emisionDiaria,    set: setEmisionDiaria },
+                  { label: 'Recompensa máxima por acción',    value: recompensaMaxima, set: setRecompensaMaxima },
+                  { label: 'Recompensa diaria máx. por user', value: recompensaDiaria, set: setRecompensaDiaria },
+                ].map(({ label, value, set }) => (
+                  <label key={label} className="flex flex-col gap-1">
+                    <span className="text-[10px] text-[var(--c-muted)]">{label}</span>
+                    <input
+                      type="number" min={0} value={value}
+                      onChange={(e) => set(e.target.value)}
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    />
+                  </label>
+                ))}
               </div>
 
-              <div className="space-y-4">
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">Inflación y deflación</h3>
-                <div className="flex items-center gap-3">
+              <div className="space-y-3">
+                <p className="text-xs font-semibold text-[var(--c-text)]">Inflación y deflación</p>
+                <div className="flex items-center gap-2">
                   <input
-                    id="inflacion-activa"
-                    type="checkbox"
+                    id="inflacion-activa" type="checkbox"
                     checked={inflacionActiva}
                     onChange={(e) => setInflacionActiva(e.target.checked)}
-                    className="h-4 w-4 rounded border-[var(--c-border)] text-[var(--c-primary)]"
+                    className="h-4 w-4 rounded border-[var(--c-border)] accent-[var(--c-primary)]"
                   />
                   <label htmlFor="inflacion-activa" className="text-sm text-[var(--c-text)]">Inflación activa</label>
                 </div>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs text-[var(--c-muted)]">Tasa de inflación (0–1)</span>
+                  <span className="text-[10px] text-[var(--c-muted)]">Tasa de inflación (0–1)</span>
                   <input
-                    type="number"
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    value={inflacionTasa}
+                    type="number" min={0} max={1} step={0.01} value={inflacionTasa}
                     onChange={(e) => setInflacionTasa(e.target.value)}
-                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <input
-                    id="deflacion-activa"
-                    type="checkbox"
+                    id="deflacion-activa" type="checkbox"
                     checked={deflacionActiva}
                     onChange={(e) => setDeflacionActiva(e.target.checked)}
-                    className="h-4 w-4 rounded border-[var(--c-border)] text-[var(--c-primary)]"
+                    className="h-4 w-4 rounded border-[var(--c-border)] accent-[var(--c-primary)]"
                   />
                   <label htmlFor="deflacion-activa" className="text-sm text-[var(--c-text)]">Deflación activa</label>
                 </div>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs text-[var(--c-muted)]">Tasa de deflación (0–1)</span>
+                  <span className="text-[10px] text-[var(--c-muted)]">Tasa de deflación (0–1)</span>
                   <input
-                    type="number"
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    value={deflacionTasa}
+                    type="number" min={0} max={1} step={0.01} value={deflacionTasa}
                     onChange={(e) => setDeflacionTasa(e.target.value)}
-                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
               </div>
+
+              <div className="sm:col-span-2 flex items-center gap-3 pt-2">
+                <button
+                  onClick={handleSaveConfig}
+                  disabled={saving}
+                  className="rounded-xl bg-[var(--c-primary)] px-5 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+                >
+                  {saving ? 'Guardando...' : 'Guardar configuración'}
+                </button>
+                {saveMsg && (
+                  <p className={`text-sm ${saveMsg.startsWith('Error') ? 'text-[var(--c-danger)]' : 'text-[var(--c-success)]'}`}>
+                    {saveMsg}
+                  </p>
+                )}
+              </div>
             </div>
           )}
-
-          {saveMsg && (
-            <p className={`mt-4 text-sm ${saveMsg.startsWith("Error") ? "text-[var(--c-danger)]" : "text-emerald-600"}`}>
-              {saveMsg}
-            </p>
-          )}
-
-          {!loadingConfig && (
-            <div className="mt-6">
-              <button
-                onClick={handleSaveConfig}
-                disabled={saving}
-                className="rounded-xl bg-[var(--c-primary)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors"
-              >
-                {saving ? "Guardando…" : "Guardar configuración"}
-              </button>
-            </div>
-          )}
-        </section>
+        </div>
       </div>
+
+    </div>
   );
 }
