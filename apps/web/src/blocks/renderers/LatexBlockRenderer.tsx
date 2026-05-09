@@ -1,6 +1,7 @@
 import { useMemo } from "react"
 import katex from "katex"
 import "katex/dist/katex.min.css"
+import DOMPurify from 'dompurify'
 import type { LatexBlock } from "../types"
 
 interface Props {
@@ -32,10 +33,10 @@ export function LatexBlockRenderer({ block }: Props) {
     return (
       <div
         className="flex justify-center py-2"
-        dangerouslySetInnerHTML={{ __html: html }}
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(html) }}
       />
     )
   }
 
-  return <span dangerouslySetInnerHTML={{ __html: html }} />
+  return <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(html) }} />
 }
