@@ -131,10 +131,11 @@ export default function EnterpriseReportes() {
             )}
 
             {!aulaLoading && progreso && progreso.modulos.length > 0 && (
-              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 space-y-3">
-                <h2 className="text-lg font-semibold text-[var(--c-text)]">
-                  Progreso por módulo
-                </h2>
+              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+                <div className="px-4 py-3 border-b border-[var(--c-border)]">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Progreso por módulo</p>
+                </div>
+                <div className="p-4 space-y-3">
                 {progreso.modulos.map((mod) => (
                   <div key={mod.moduloId}>
                     <div className="flex justify-between text-sm mb-1">
@@ -153,25 +154,28 @@ export default function EnterpriseReportes() {
                     </div>
                   </div>
                 ))}
+                </div>
               </section>
             )}
 
             {!aulaLoading && boletin && boletin.alumnos.length > 0 && (
-              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
-                <h2 className="text-lg font-semibold text-[var(--c-text)] mb-4">
-                  Boletín — {boletin.aulaNombre}
-                </h2>
+              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+                <div className="px-4 py-3 border-b border-[var(--c-border)]">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
+                    Boletín — {boletin.aulaNombre}
+                  </p>
+                </div>
                 <div className="overflow-x-auto">
                   <table className="min-w-full text-sm">
                     <thead>
                       <tr className="border-b border-[var(--c-border)]">
-                        <th className="text-left py-2 pr-4 font-semibold text-[var(--c-muted)]">
+                        <th className="px-4 py-2 text-left text-[10px] uppercase tracking-widest text-[var(--c-muted)] font-semibold">
                           Alumno
                         </th>
-                        <th className="text-center py-2 px-4 font-semibold text-[var(--c-muted)]">
+                        <th className="px-4 py-2 text-center text-[10px] uppercase tracking-widest text-[var(--c-muted)] font-semibold">
                           Promedio
                         </th>
-                        <th className="text-center py-2 pl-4 font-semibold text-[var(--c-muted)]">
+                        <th className="px-4 py-2 text-center text-[10px] uppercase tracking-widest text-[var(--c-muted)] font-semibold">
                           Evaluaciones
                         </th>
                       </tr>
@@ -179,7 +183,7 @@ export default function EnterpriseReportes() {
                     <tbody className="divide-y divide-[var(--c-border)]">
                       {boletin.alumnos.map((a) => (
                         <tr key={a.alumnoId}>
-                          <td className="py-2 pr-4 text-[var(--c-text)]">{a.nombre}</td>
+                          <td className="py-2 px-4 text-[var(--c-text)]">{a.nombre}</td>
                           <td className="py-2 px-4 text-center">
                             {a.promedioGeneral !== null ? (
                               <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
@@ -195,7 +199,7 @@ export default function EnterpriseReportes() {
                               <span className="text-[var(--c-muted)]">—</span>
                             )}
                           </td>
-                          <td className="py-2 pl-4 text-center text-[var(--c-muted)]">
+                          <td className="py-2 px-4 text-center text-[var(--c-muted)]">
                             {a.totalEvaluaciones}
                           </td>
                         </tr>

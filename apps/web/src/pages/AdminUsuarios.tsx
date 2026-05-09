@@ -133,12 +133,10 @@ export default function AdminUsuarios() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Gestión de usuarios</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Busca, modera y gestiona los usuarios de la plataforma.
-          </p>
-        </header>
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">Gestión de usuarios</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">Busca, modera y gestiona los usuarios de la plataforma.</p>
+        </div>
 
         {actionMsg && (
           <div className={`rounded-xl border px-4 py-3 text-sm ${actionMsg.startsWith("Error") ? "border-red-200 bg-red-50 text-red-700" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`}>
@@ -146,7 +144,7 @@ export default function AdminUsuarios() {
           </div>
         )}
 
-        <form onSubmit={handleSearch} className="flex gap-2">
+        <div className="flex gap-2">
           <input
             type="text"
             value={searchInput}
@@ -155,7 +153,8 @@ export default function AdminUsuarios() {
             className="flex-1 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-4 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
           />
           <button
-            type="submit"
+            type="button"
+            onClick={() => setQ(searchInput)}
             className="rounded-xl bg-[var(--c-primary)] px-5 py-2 text-sm font-semibold text-white hover:opacity-90 transition-colors"
           >
             Buscar
@@ -169,9 +168,9 @@ export default function AdminUsuarios() {
               Limpiar
             </button>
           )}
-        </form>
+        </div>
 
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm">
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
           <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--c-border)]">
             <h2 className="text-lg font-semibold text-[var(--c-text)]">
               Usuarios{q && <span className="ml-2 text-sm font-normal text-[var(--c-muted)]">"{q}"</span>}
@@ -255,7 +254,7 @@ export default function AdminUsuarios() {
 
         {modal?.type === "promote" && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-            <div className="w-full max-w-md rounded-xl bg-[var(--c-surface)] p-6 shadow-xl">
+            <div className="w-full max-w-md rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
               <h3 className="text-lg font-semibold text-[var(--c-text)]">Promover a Administrador</h3>
               {modal.requiresGovernance ? (
                 <>
@@ -310,7 +309,7 @@ export default function AdminUsuarios() {
 
         {modal?.type === "ban" && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-            <div className="w-full max-w-md rounded-xl bg-[var(--c-surface)] p-6 shadow-xl">
+            <div className="w-full max-w-md rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
               <h3 className="text-lg font-semibold text-[var(--c-text)]">Banear usuario</h3>
               <p className="mt-1 text-sm text-[var(--c-muted)]">Usuario: <strong>{modal.usuario.nombre}</strong></p>
               <div className="mt-4 space-y-4">
@@ -357,7 +356,7 @@ export default function AdminUsuarios() {
 
         {modal?.type === "warn" && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-            <div className="w-full max-w-md rounded-xl bg-[var(--c-surface)] p-6 shadow-xl">
+            <div className="w-full max-w-md rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
               <h3 className="text-lg font-semibold text-[var(--c-text)]">Enviar advertencia</h3>
               <p className="mt-1 text-sm text-[var(--c-muted)]">Usuario: <strong>{modal.usuario.nombre}</strong></p>
               <div className="mt-4 space-y-4">

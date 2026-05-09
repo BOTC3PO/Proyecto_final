@@ -365,8 +365,8 @@ export default function ProfesorAulas() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-2xl font-semibold">Aulas virtuales</h1>
-            <p className="text-[var(--c-muted)]">Acceso y administración de aulas para tus cursos.</p>
+            <h1 className="text-xl font-semibold text-[var(--c-text)]">Aulas virtuales</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">Acceso y administración de aulas para tus cursos.</p>
           </div>
           {user?.role !== "TEACHER" && (
             <span className="rounded-md bg-[var(--c-border)] px-4 py-2 text-sm text-[var(--c-muted)]">
@@ -376,14 +376,13 @@ export default function ProfesorAulas() {
         </div>
 
         {user?.role === "TEACHER" && (
-          <section id="crear" className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-            <h2 className="text-lg font-semibold">
-              {editingId ? "Editar aula" : "Crear nueva aula"}
-            </h2>
-            <p className="mt-1 text-sm text-[var(--c-muted)]">
-              Define el acceso, la institución y la categoría (opcional) antes de publicar.
-            </p>
-            <form className="mt-4 grid gap-4 md:grid-cols-2" onSubmit={handleSubmit}>
+          <section id="crear" className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
+                {editingId ? 'Editar aula' : 'Crear nueva aula'}
+              </p>
+            </div>
+            <form className="p-4 grid gap-3 md:grid-cols-2" onSubmit={handleSubmit}>
               <div className="md:col-span-1">
                 <label className="block text-sm font-medium text-[var(--c-text)]">Nombre del aula</label>
                 <input
@@ -481,7 +480,9 @@ export default function ProfesorAulas() {
 
         <section className="space-y-4">
           {isLoading ? (
-            <div className="rounded-lg border border-dashed border-[var(--c-border)] p-6 text-[var(--c-muted)]">Cargando aulas...</div>
+            <div className="space-y-2">
+              {[1,2,3].map(i => <div key={i} className="h-14 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
+            </div>
           ) : error ? (
             <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-red-700">{error}</div>
           ) : visibleClassrooms.length === 0 ? (
@@ -492,18 +493,23 @@ export default function ProfesorAulas() {
             </div>
           ) : (
             <>
-              <label className="flex items-center gap-2 text-sm text-[var(--c-muted)] cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={mostrarArchivadas}
-                  onChange={(e) => setMostrarArchivadas(e.target.checked)}
-                  className="rounded"
-                />
-                Mostrar archivadas
-              </label>
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-semibold text-[var(--c-text)]">
+                  Mis aulas ({visibleClassrooms.length})
+                </p>
+                <label className="flex items-center gap-2 text-xs text-[var(--c-muted)] cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={mostrarArchivadas}
+                    onChange={(e) => setMostrarArchivadas(e.target.checked)}
+                    className="rounded"
+                  />
+                  Mostrar archivadas
+                </label>
+              </div>
               <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {aulasFiltradas.map((classroom) => (
-                <article key={classroom.id} className={`rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm ${classroom.status === "ARCHIVED" ? "opacity-50" : ""}`}>
+                <article key={classroom.id} className={`rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 ${classroom.status === "ARCHIVED" ? "opacity-50" : ""}`}>
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <h2 className="text-lg font-semibold text-[var(--c-text)]">{classroom.name}</h2>
@@ -540,21 +546,21 @@ export default function ProfesorAulas() {
                       Última actualización: {progressByClassroom[classroom.id]?.lastUpdate ?? "--"}
                     </p>
                     <div className="mt-3 grid grid-cols-2 gap-3 text-[11px] text-[var(--c-muted)]">
-                      <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 shadow-sm">
+                      <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">{progressByClassroom[classroom.id]?.totalStudents ?? 0}</p>
                         <p>Estudiantes registrados</p>
                       </div>
-                      <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 shadow-sm">
+                      <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">{progressByClassroom[classroom.id]?.activeStudents ?? 0}</p>
                         <p>Activos esta semana</p>
                       </div>
-                      <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 shadow-sm">
+                      <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">
                           {formatPercent(progressByClassroom[classroom.id]?.avgCompletion ?? 0)}
                         </p>
                         <p>Progreso promedio</p>
                       </div>
-                      <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 shadow-sm">
+                      <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">{progressByClassroom[classroom.id]?.avgScore ?? 0}</p>
                         <p>Score promedio</p>
                       </div>

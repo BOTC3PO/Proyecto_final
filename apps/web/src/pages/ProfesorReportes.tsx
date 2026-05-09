@@ -104,12 +104,10 @@ export default function ProfesorReportes() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Reportes</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Boletín, asistencia y progreso de tu aula.
-          </p>
-        </header>
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">Reportes</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">Boletín, asistencia y progreso de tu aula.</p>
+        </div>
 
         <div className="flex flex-wrap items-center gap-4">
           {aulas.length > 1 && (
@@ -171,17 +169,20 @@ export default function ProfesorReportes() {
         )}
 
         {!loading && tab === "boletin" && boletin && (
-          <section className="space-y-4">
-            <p className="text-sm text-[var(--c-muted)]">
-              {boletin.alumnos.length} alumnos ·{" "}
-              Generado {new Date(boletin.generadoEn).toLocaleDateString("es-AR")}
-            </p>
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Boletín</p>
+              <p className="text-xs text-[var(--c-muted)] mt-0.5">
+                {boletin.alumnos.length} alumnos · Generado {new Date(boletin.generadoEn).toLocaleDateString("es-AR")}
+              </p>
+            </div>
+            <div className="p-4 space-y-3">
             {boletin.alumnos.length === 0 && (
               <p className="text-sm text-[var(--c-muted)]">Sin alumnos con evaluaciones.</p>
             )}
             {boletin.alumnos.map((alumno) => (
               <article key={alumno.alumnoId}
-                className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm">
+                className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="font-semibold text-[var(--c-text)]">{alumno.nombre}</p>
@@ -220,11 +221,16 @@ export default function ProfesorReportes() {
                 )}
               </article>
             ))}
+            </div>
           </section>
         )}
 
         {!loading && tab === "asistencia" && asistencia && (
-          <section className="space-y-4">
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Asistencia</p>
+            </div>
+            <div className="p-4 space-y-3">
             <div className="grid gap-4 sm:grid-cols-3">
               {[
                 { label: "Clases", value: asistencia.resumen.totalClases, color: "text-blue-700 bg-blue-50" },
@@ -263,19 +269,22 @@ export default function ProfesorReportes() {
                 </div>
               ))}
             </div>
+            </div>
           </section>
         )}
 
         {!loading && tab === "progreso" && progreso && (
-          <section className="space-y-4">
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Progreso</p>
+            </div>
+            <div className="p-4 space-y-3">
             {progreso.modulos.length === 0 && (
-              <p className="text-sm text-[var(--c-muted)]">
-                Sin módulos asignados al aula.
-              </p>
+              <p className="text-sm text-[var(--c-muted)]">Sin módulos asignados al aula.</p>
             )}
             {progreso.modulos.map((mod) => (
               <article key={mod.moduloId}
-                className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm">
+                className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="font-semibold text-[var(--c-text)]">{mod.titulo}</p>
@@ -312,15 +321,20 @@ export default function ProfesorReportes() {
                 </div>
               </article>
             ))}
+            </div>
           </section>
         )}
 
         {!loading && tab === "riesgo" && (
-          <section className="space-y-4">
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">En riesgo</p>
+            </div>
+            <div className="p-4 space-y-3">
             {riesgoLoading && (
-              <p className="text-sm text-[var(--c-muted)] animate-pulse">
-                Analizando alumnos...
-              </p>
+              <div className="space-y-2">
+                {[1,2,3].map(i => <div key={i} className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
+              </div>
             )}
             {!riesgoLoading && riesgo.length === 0 && (
               <div className="rounded-xl border border-emerald-200
@@ -335,8 +349,7 @@ export default function ProfesorReportes() {
             )}
             {!riesgoLoading && riesgo.map((alumno) => (
               <article key={alumno.alumnoId}
-                className="rounded-xl border border-amber-200
-                  bg-amber-50 p-5 shadow-sm">
+                className="rounded-xl border border-amber-200 bg-amber-50 p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="font-semibold text-[var(--c-text)]">
@@ -367,6 +380,7 @@ export default function ProfesorReportes() {
                 </div>
               </article>
             ))}
+            </div>
           </section>
         )}
       </div>

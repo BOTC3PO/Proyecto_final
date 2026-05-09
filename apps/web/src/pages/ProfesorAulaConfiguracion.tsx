@@ -187,33 +187,36 @@ export default function ProfesorAulaConfiguracion() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="flex flex-wrap items-start justify-between gap-3">
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-wide text-[var(--c-primary)]">Configuración del aula</p>
-            <h1 className="text-3xl font-bold text-[var(--c-text)]">{classroomTitle}</h1>
-            <p className="text-base text-[var(--c-muted)]">
-              Ajusta el nombre, la descripción y la visibilidad del aula. Los cambios se guardan en la API.
+        <div className="flex items-start justify-between gap-3 flex-wrap">
+          <div>
+            <h1 className="text-xl font-semibold text-[var(--c-text)]">{classroomTitle}</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">
+              Ajusta el nombre, descripción y visibilidad del aula.
             </p>
           </div>
           {id && (
             <Link
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)]"
+              className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
               to={`/clases?id=${encodeURIComponent(id)}`}
             >
-              Volver al aula
+              ← Volver al aula
             </Link>
           )}
-        </header>
+        </div>
 
         {isLoading ? (
-          <div className="rounded-xl border border-dashed border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-sm text-[var(--c-muted)]">
-            Cargando configuración del aula...
+          <div className="space-y-3">
+            {[1,2,3].map(i => <div key={i} className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
           </div>
         ) : error ? (
           <div className="rounded-xl border border-red-200 bg-red-50 p-6 text-sm text-red-700">{error}</div>
         ) : form ? (
           <>
-          <form className="grid gap-5 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm" onSubmit={handleSubmit}>
+          <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+          <div className="px-4 py-3 border-b border-[var(--c-border)]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Configuración general</p>
+          </div>
+          <form className="p-4 grid gap-4 md:grid-cols-2" onSubmit={handleSubmit}>
             <div className="grid gap-4 md:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">
                 Nombre del aula
@@ -280,7 +283,7 @@ export default function ProfesorAulaConfiguracion() {
 
             <div className="flex flex-wrap items-center gap-3">
               <button
-                className="inline-flex items-center justify-center rounded-full bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white shadow hover:opacity-90 disabled:opacity-60"
+                className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-60 transition-opacity"
                 type="submit"
                 disabled={isSaving}
               >
@@ -290,11 +293,13 @@ export default function ProfesorAulaConfiguracion() {
               {error && <span className="text-sm text-[var(--c-danger)]">{error}</span>}
             </div>
           </form>
+          </div>
 
-          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm space-y-4">
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">
-              Próximas actividades
-            </h2>
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Próximas actividades</p>
+            </div>
+            <div className="p-4 space-y-3">
 
             {activities.length === 0 ? (
               <p className="text-sm text-[var(--c-muted)]">Sin actividades cargadas.</p>
@@ -388,12 +393,14 @@ export default function ProfesorAulaConfiguracion() {
             >
               {actSaving ? "Guardando..." : "+ Agregar actividad"}
             </button>
+            </div>
           </section>
 
-          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm space-y-4">
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">
-              Módulos asignados
-            </h2>
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Módulos asignados</p>
+            </div>
+            <div className="p-4 space-y-3">
 
             {asignados.length === 0 ? (
               <p className="text-sm text-[var(--c-muted)]">Sin módulos asignados.</p>
@@ -464,6 +471,7 @@ export default function ProfesorAulaConfiguracion() {
                   )}
                 </ul>
               )}
+            </div>
             </div>
           </section>
           </>

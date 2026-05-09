@@ -215,14 +215,10 @@ export default function ProfesorCalendario() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-1">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">
-            Calendario
-          </h1>
-          <p className="text-[var(--c-muted)]">
-            Vista unificada de tu escuela y tus aulas.
-          </p>
-        </header>
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">Calendario</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">Vista unificada de tu escuela y tus aulas.</p>
+        </div>
 
         <div className="flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-2">
@@ -250,7 +246,7 @@ export default function ProfesorCalendario() {
           <div className="flex gap-2 ml-auto">
             <button type="button"
               onClick={() => setMostrarEscuela((v) => !v)}
-              className={`rounded-full px-3 py-1 text-xs font-medium border transition-colors ${
+              className={`rounded-lg px-3 py-1 text-xs font-medium border transition-colors ${
                 mostrarEscuela
                   ? "bg-teal-50 text-teal-700 border-teal-300"
                   : "bg-[var(--c-bg)] text-[var(--c-muted)] border-[var(--c-border)]"
@@ -259,7 +255,7 @@ export default function ProfesorCalendario() {
             </button>
             <button type="button"
               onClick={() => setMostrarAulas((v) => !v)}
-              className={`rounded-full px-3 py-1 text-xs font-medium border transition-colors ${
+              className={`rounded-lg px-3 py-1 text-xs font-medium border transition-colors ${
                 mostrarAulas
                   ? "bg-blue-50 text-blue-700 border-blue-300"
                   : "bg-[var(--c-bg)] text-[var(--c-muted)] border-[var(--c-border)]"
@@ -279,7 +275,7 @@ export default function ProfesorCalendario() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
-          <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm overflow-hidden">
+          <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="grid grid-cols-7 border-b border-[var(--c-border)] bg-[var(--c-bg)]">
               {DIAS.map((d) => (
                 <div key={d}
@@ -289,8 +285,8 @@ export default function ProfesorCalendario() {
               ))}
             </div>
             {loading ? (
-              <div className="p-8 text-center text-sm text-[var(--c-muted)] animate-pulse">
-                Cargando calendario...
+              <div className="p-4 space-y-2">
+                {[1,2,3,4].map(i => <div key={i} className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
               </div>
             ) : (
               <div className="grid grid-cols-7">
@@ -353,7 +349,7 @@ export default function ProfesorCalendario() {
 
           <div className="flex flex-col gap-4">
             {diaSeleccionado && (
-              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-sm">
+              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
                 <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">
                   {new Date(diaSeleccionado + "T12:00:00")
                     .toLocaleDateString("es-AR", {
@@ -430,7 +426,7 @@ export default function ProfesorCalendario() {
             )}
 
             {(canEditEscuela || canEditAula) && (
-              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-sm">
+              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
                 <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">
                   Agregar evento
                 </h2>
