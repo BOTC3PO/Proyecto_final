@@ -52,7 +52,7 @@ function ProposalCard({ proposal, apoyos }: { proposal: Proposal; apoyos?: Apoyo
   return (
     <Link
       to={`/gobernanza/propuestas/${proposal.id}`}
-      className="block rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-5 py-4 shadow-sm hover:border-[var(--c-primary)] hover:shadow-md transition-all"
+      className="block rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-5 py-4 hover:border-[var(--c-primary)] transition-all"
     >
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="flex-1 min-w-0">
@@ -172,34 +172,32 @@ export default function Gobernanza() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="flex flex-wrap items-start justify-between gap-4">
-          <div className="space-y-1">
-            <p className="text-sm font-semibold uppercase tracking-widest text-[var(--c-muted)]">Sistema</p>
-            <h1 className="text-3xl font-bold text-[var(--c-text)]">Gobernanza</h1>
-            <p className="max-w-2xl text-sm text-[var(--c-muted)]">
-              Propuestas de cambio para módulos, generadores de ejercicios y configuraciones de la
-              plataforma. Solo directivos, docentes y administradores pueden participar.
+        <div className="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h1 className="text-xl font-semibold text-[var(--c-text)]">Gobernanza</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">
+              Propuestas de cambio para módulos y configuraciones de la plataforma.
             </p>
           </div>
           {canPropose && (
             <Link
               to="/gobernanza/propuestas/nueva"
-              className="rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-colors"
+              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
             >
               + Nueva propuesta
             </Link>
           )}
-        </header>
+        </div>
 
-        <div className="flex gap-1 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-1">
+        <div className="flex gap-1 border-b border-[var(--c-border)]">
           {tabs.map(({ key, label }) => (
             <button
               key={key}
               onClick={() => setTab(key)}
-              className={`flex-1 rounded-lg px-3 py-1.5 text-sm font-semibold transition-colors ${
+              className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
                 tab === key
-                  ? "bg-[var(--c-surface)] text-[var(--c-text)] shadow-sm"
-                  : "text-[var(--c-muted)] hover:text-[var(--c-text)]"
+                  ? "border-[var(--c-primary)] text-[var(--c-primary)]"
+                  : "border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]"
               }`}
             >
               {label}
@@ -209,7 +207,9 @@ export default function Gobernanza() {
 
         <section className="flex flex-col gap-3">
           {loading && (
-            <p className="text-sm text-[var(--c-muted)] py-6 text-center">Cargando propuestas...</p>
+            <div className="space-y-2">
+              {[1,2,3].map(i => <div key={i} className="h-20 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
+            </div>
           )}
           {error && (
             <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
@@ -234,9 +234,9 @@ export default function Gobernanza() {
             proposals.map((p) => <ProposalCard key={p.id} proposal={p} apoyos={apoyosPorId[p.id]} />)}
         </section>
 
-        <section className="rounded-xl border border-blue-100 bg-blue-50 p-5">
-          <h2 className="text-base font-semibold text-blue-900">¿Cómo funciona la gobernanza?</h2>
-          <ul className="mt-2 space-y-1.5 text-sm text-blue-800">
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
+          <h2 className="text-sm font-semibold text-[var(--c-text)]">¿Cómo funciona la gobernanza?</h2>
+          <ul className="mt-2 space-y-1.5 text-sm text-[var(--c-muted)]">
             <li>
               <span className="font-medium">Propuestas de contenido</span> — requieren mayoría simple
               de votos positivos. Pueden modificar generadores, enunciados y configuraciones de módulos.

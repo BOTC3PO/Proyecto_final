@@ -59,18 +59,15 @@ export default function ProfesorAsistencia() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Asistencia</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Clases registradas por aula. La lista de presentes
-            está disponible en la app mobile.
-          </p>
-        </header>
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">Asistencia</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">Clases registradas por aula.</p>
+        </div>
 
         {aulas.length > 1 && (
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-[var(--c-text)]">
-              Aula:
+            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">
+              Aula
             </label>
             <select
               value={aulaId}
@@ -84,15 +81,15 @@ export default function ProfesorAsistencia() {
           </div>
         )}
 
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">
-            Clases registradas
-          </h2>
-          <div className="mt-4 space-y-3">
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+          <div className="px-4 py-3 border-b border-[var(--c-border)]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Clases registradas</p>
+          </div>
+          <div className="p-4 space-y-3">
             {loading && (
-              <p className="text-sm text-[var(--c-muted)] animate-pulse">
-                Cargando clases...
-              </p>
+              <div className="space-y-2">
+                {[1,2,3].map(i => <div key={i} className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
+              </div>
             )}
             {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
             {!loading && !error && actividades.length === 0 && (
@@ -125,12 +122,12 @@ export default function ProfesorAsistencia() {
               </div>
             ))}
           </div>
+          </div>
         </section>
 
-        <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3">
-          <p className="text-sm text-blue-700">
-            📱 La lista de presentes con control por alumno estará
-            disponible en la app mobile.
+        <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-3">
+          <p className="text-sm text-[var(--c-muted)]">
+            📱 La lista de presentes con control por alumno estará disponible en la app mobile.
           </p>
         </div>
       </div>

@@ -100,17 +100,19 @@ export default function GobernanzaNuevaPropuesta() {
           <span className="text-[var(--c-text)] font-medium">Nueva propuesta</span>
         </nav>
 
-        <header className="space-y-1">
-          <h1 className="text-2xl font-bold text-[var(--c-text)]">Nueva propuesta</h1>
-          <p className="text-sm text-[var(--c-muted)]">
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">Nueva propuesta</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">
             La propuesta quedará abierta para que directivos, docentes y administradores puedan votar.
           </p>
-        </header>
+        </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
-            <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">¿Qué querés hacer? *</h2>
-            <div className="grid gap-2 sm:grid-cols-2">
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">¿Qué querés hacer? *</p>
+            </div>
+            <div className="p-4 grid gap-2 sm:grid-cols-2">
               {FRIENDLY_TYPES.map(({ label, description: desc }, index) => (
                 <label
                   key={index}
@@ -137,7 +139,11 @@ export default function GobernanzaNuevaPropuesta() {
           </section>
 
           {selectedIndex !== null && (
-            <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 flex flex-col gap-5">
+            <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+              <div className="px-4 py-3 border-b border-[var(--c-border)]">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Detalle de la propuesta</p>
+              </div>
+              <div className="p-4 flex flex-col gap-5">
               <div>
                 <label className="block text-sm font-semibold text-[var(--c-text)] mb-1">
                   ¿A qué materia o módulo se refiere?
@@ -182,6 +188,7 @@ export default function GobernanzaNuevaPropuesta() {
                   value={proposal}
                   onChange={(e) => setProposal(e.target.value)}
                 />
+              </div>
               </div>
             </section>
           )}

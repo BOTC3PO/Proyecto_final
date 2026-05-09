@@ -69,16 +69,14 @@ export default function ProfesorCalificaciones() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Calificaciones</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Resultados de evaluaciones formales por aula.
-          </p>
-        </header>
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">Calificaciones</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">Resultados de evaluaciones formales por aula.</p>
+        </div>
 
         {aulas.length > 1 && (
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-[var(--c-text)]">Aula:</label>
+            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Aula</label>
             <select
               value={aulaId}
               onChange={(e) => setAulaId(e.target.value)}
@@ -91,18 +89,19 @@ export default function ProfesorCalificaciones() {
           </div>
         )}
 
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">
-            Evaluaciones formales
-          </h2>
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+          <div className="px-4 py-3 border-b border-[var(--c-border)]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Evaluaciones formales</p>
+          </div>
+          <div className="p-4 space-y-3">
           {loading && (
-            <p className="mt-4 text-sm text-[var(--c-muted)] animate-pulse">
-              Cargando calificaciones...
-            </p>
+            <div className="space-y-2">
+              {[1,2,3].map(i => <div key={i} className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
+            </div>
           )}
-          {error && <p className="mt-4 text-sm text-[var(--c-danger)]">Error: {error}</p>}
+          {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
           {!loading && !error && Object.keys(byQuiz).length === 0 && (
-            <p className="mt-4 text-sm text-[var(--c-muted)]">
+            <p className="text-sm text-[var(--c-muted)]">
               No hay evaluaciones formales completadas en este aula.
             </p>
           )}
@@ -150,6 +149,7 @@ export default function ProfesorCalificaciones() {
               </div>
             );
           })}
+          </div>
         </section>
       </div>
   );

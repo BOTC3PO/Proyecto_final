@@ -85,27 +85,28 @@ export default function AdminMaterias() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Gestión de materias</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Administra las materias disponibles en la plataforma educativa.
-          </p>
-        </header>
-
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">Materias registradas</h2>
-            <button
-              onClick={() => { setShowCreate(!showCreate); setCreateForm(emptyForm()); setCreateError(null); }}
-              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-colors"
-            >
-              {showCreate ? "Cancelar" : "Nueva materia"}
-            </button>
+        <div className="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h1 className="text-xl font-semibold text-[var(--c-text)]">Gestión de materias</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">Administrá las materias disponibles en la plataforma.</p>
           </div>
+          <button
+            onClick={() => { setShowCreate(!showCreate); setCreateForm(emptyForm()); setCreateError(null); }}
+            className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+          >
+            {showCreate ? 'Cancelar' : '+ Nueva materia'}
+          </button>
+        </div>
+
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+          <div className="px-4 py-3 border-b border-[var(--c-border)]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Materias registradas</p>
+          </div>
+          <div className="p-4">
 
           {showCreate && (
-            <form onSubmit={handleCreate} className="mt-5 space-y-3 rounded-xl border border-blue-100 bg-blue-50 p-4">
-              <h3 className="text-sm font-semibold text-blue-900">Nueva materia</h3>
+            <form onSubmit={handleCreate} className="mb-4 space-y-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Nueva materia</p>
               <div className="grid gap-3 sm:grid-cols-3">
                 <label className="flex flex-col gap-1">
                   <span className="text-xs text-[var(--c-muted)]">Nombre *</span>
@@ -149,8 +150,12 @@ export default function AdminMaterias() {
             </form>
           )}
 
-          <div className="mt-4 space-y-3">
-            {loading && <p className="text-sm text-[var(--c-muted)]">Cargando materias…</p>}
+          <div className="space-y-3">
+            {loading && (
+              <div className="space-y-2">
+                {[1,2,3].map(i => <div key={i} className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
+              </div>
+            )}
             {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
 
             {!loading && !error && materias.length === 0 && (
@@ -218,7 +223,7 @@ export default function AdminMaterias() {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => handleToggle(materia)}
-                        className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                        className={`rounded-xl px-3 py-1 text-xs font-semibold transition-colors ${
                           materia.activa
                             ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
                             : "bg-[var(--c-bg)] text-[var(--c-muted)] hover:bg-[var(--c-border)]"
@@ -237,6 +242,7 @@ export default function AdminMaterias() {
                 )}
               </div>
             ))}
+          </div>
           </div>
         </section>
       </div>

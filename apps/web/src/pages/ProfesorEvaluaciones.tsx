@@ -171,21 +171,18 @@ export default function ProfesorEvaluaciones() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-2xl font-semibold">Evaluaciones</h1>
-          <p className="text-[var(--c-muted)]">
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">Evaluaciones</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">
             Explora y filtra tus cuestionarios para prácticas, evaluaciones y competencias.
           </p>
-        </header>
+        </div>
 
-        <section className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm space-y-4">
-          <div>
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">Filtros</h2>
-            <p className="text-sm text-[var(--c-muted)]">
-              Ajusta los criterios para encontrar el cuestionario indicado.
-            </p>
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+          <div className="px-4 py-3 border-b border-[var(--c-border)]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Filtros</p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <div className="p-4 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
             <label className="grid gap-2 text-sm font-medium text-[var(--c-text)]">
               Escuela
               <select
@@ -257,15 +254,15 @@ export default function ProfesorEvaluaciones() {
 
         <section className="space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">Cuestionarios</h2>
+            <p className="text-sm font-semibold text-[var(--c-text)]">Cuestionarios</p>
             <span className="text-sm text-[var(--c-muted)]">
               {filteredQuizzes.length} resultados
             </span>
           </div>
 
           {isLoading ? (
-            <div className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-sm text-[var(--c-muted)]">
-              Cargando cuestionarios...
+            <div className="space-y-2">
+              {[1,2,3].map(i => <div key={i} className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
             </div>
           ) : filteredQuizzes.length === 0 ? (
             <div className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-sm text-[var(--c-muted)]">
@@ -276,7 +273,7 @@ export default function ProfesorEvaluaciones() {
               {filteredQuizzes.map((quiz) => (
                 <article
                   key={quiz.id}
-                  className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm space-y-3"
+                  className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-5 space-y-3"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="space-y-1">

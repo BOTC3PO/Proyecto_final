@@ -155,7 +155,7 @@ export default function GobernanzaPropuesta() {
 
   if (loading) {
     return (
-      <div className="max-w-3xl mx-auto px-6 py-16 text-center">
+      <div className="max-w-3xl mx-auto px-4 py-8 text-center">
           <p className="text-sm text-[var(--c-muted)]">Cargando propuesta...</p>
         </div>
     );
@@ -163,7 +163,7 @@ export default function GobernanzaPropuesta() {
 
   if (error || !proposal) {
     return (
-      <div className="max-w-3xl mx-auto px-6 py-16 text-center">
+      <div className="max-w-3xl mx-auto px-4 py-8 text-center">
           <p className="text-sm text-[var(--c-danger)]">{error ?? "Propuesta no encontrada"}</p>
           <Link to="/gobernanza" className="mt-4 inline-block text-sm font-semibold text-[var(--c-primary)] hover:underline">
             Volver a gobernanza
@@ -187,17 +187,17 @@ export default function GobernanzaPropuesta() {
           <span className="text-[var(--c-text)] font-medium truncate max-w-xs">{typeLabel}</span>
         </nav>
 
-        <header className="space-y-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className={`rounded-full px-3 py-1 text-xs font-semibold ${STATUS_COLORS[proposal.status] ?? "bg-[var(--c-bg)] text-[var(--c-muted)]"}`}>
+        <div>
+          <div className="flex flex-wrap items-center gap-2 mb-1">
+            <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${STATUS_COLORS[proposal.status] ?? "bg-[var(--c-bg)] text-[var(--c-muted)]"}`}>
               {statusLabel}
             </span>
-            <span className={`rounded-full px-3 py-1 text-xs font-semibold ${LEVEL_COLORS[proposal.level] ?? "bg-[var(--c-bg)] text-[var(--c-muted)]"}`}>
+            <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${LEVEL_COLORS[proposal.level] ?? "bg-[var(--c-bg)] text-[var(--c-muted)]"}`}>
               Nivel: {levelLabel}
             </span>
           </div>
-          <h1 className="text-2xl font-bold text-[var(--c-text)]">{typeLabel}</h1>
-          <p className="text-sm text-[var(--c-muted)]">
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{typeLabel}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">
             Objetivo: <span className="font-medium text-[var(--c-text)]">{proposal.targetType}</span>
             {proposal.targetId && (
               <>
@@ -206,11 +206,11 @@ export default function GobernanzaPropuesta() {
               </>
             )}
           </p>
-          <p className="text-xs text-[var(--c-muted)]">
+          <p className="text-xs text-[var(--c-muted)] mt-0.5">
             Creada el {formatDate(proposal.createdAt)}
             {proposal.closedAt && ` · Cerrada el ${formatDate(proposal.closedAt)}`}
           </p>
-        </header>
+        </div>
 
         {proposal.rationale && (
           <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
@@ -253,11 +253,11 @@ export default function GobernanzaPropuesta() {
         )}
 
         {proposal.status === "OPEN" && user && (
-          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm space-y-4">
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">
-              ¿Apoyás esta propuesta?
-            </h2>
-
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+            <div className="px-4 py-3 border-b border-[var(--c-border)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">¿Apoyás esta propuesta?</p>
+            </div>
+            <div className="p-4 space-y-4">
             {apoyos ? (
               <div className="space-y-4">
                 <div className="space-y-1.5">
@@ -334,6 +334,7 @@ export default function GobernanzaPropuesta() {
                 Cargando apoyos...
               </p>
             )}
+            </div>
           </section>
         )}
 

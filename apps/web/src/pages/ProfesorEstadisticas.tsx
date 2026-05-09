@@ -92,16 +92,14 @@ export default function ProfesorEstadisticas() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Estadísticas</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Progreso de alumnos por módulo en tu aula.
-          </p>
-        </header>
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">Estadísticas</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">Progreso de alumnos por módulo en tu aula.</p>
+        </div>
 
         {aulas.length > 1 && (
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-[var(--c-text)]">Aula:</label>
+            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Aula</label>
             <select
               value={aulaId}
               onChange={(e) => setAulaId(e.target.value)}
@@ -114,24 +112,25 @@ export default function ProfesorEstadisticas() {
           </div>
         )}
 
-        <section className="space-y-4">
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+          <div className="px-4 py-3 border-b border-[var(--c-border)]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Progreso por módulo</p>
+          </div>
+          <div className="p-4 space-y-3">
           {loading && (
             <div className="space-y-3">
               {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i}
-                  className="h-20 animate-pulse rounded-xl bg-[var(--c-border)]" />
+                <div key={i} className="h-20 animate-pulse rounded-xl bg-[var(--c-border)]" />
               ))}
             </div>
           )}
           {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
           {!loading && !error && estadisticas.length === 0 && (
-            <p className="text-sm text-[var(--c-muted)]">
-              No hay módulos asignados a este aula.
-            </p>
+            <p className="text-sm text-[var(--c-muted)]">No hay módulos asignados a este aula.</p>
           )}
           {!loading && !error && estadisticas.map((e) => (
             <article key={e.id}
-              className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm">
+              className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <h2 className="text-base font-semibold text-[var(--c-text)]">
@@ -165,6 +164,7 @@ export default function ProfesorEstadisticas() {
               )}
             </article>
           ))}
+          </div>
         </section>
       </div>
   );

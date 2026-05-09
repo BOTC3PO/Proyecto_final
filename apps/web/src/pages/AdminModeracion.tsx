@@ -74,12 +74,10 @@ export default function AdminModeracion() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Moderación</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Supervisa el contenido público de la plataforma y aplica acciones de moderación.
-          </p>
-        </header>
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">Moderación</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">Supervisa el contenido público de la plataforma y aplica acciones de moderación.</p>
+        </div>
 
         {error && (
           <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{error}</div>
@@ -91,7 +89,7 @@ export default function AdminModeracion() {
           </div>
         )}
 
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm">
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
           <div className="border-b border-[var(--c-border)] px-6 py-4">
             <h2 className="text-lg font-semibold text-[var(--c-text)]">Aulas públicas</h2>
             <p className="mt-0.5 text-xs text-[var(--c-muted)]">Últimas aulas con acceso público en la plataforma.</p>
@@ -125,7 +123,7 @@ export default function AdminModeracion() {
           )}
         </section>
 
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm">
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
           <div className="border-b border-[var(--c-border)] px-6 py-4">
             <h2 className="text-lg font-semibold text-[var(--c-text)]">Mensajes reportados</h2>
             <p className="mt-0.5 text-xs text-[var(--c-muted)]">Mensajes marcados como inapropiados por otros usuarios.</p>
@@ -158,13 +156,17 @@ export default function AdminModeracion() {
           )}
         </section>
 
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-[var(--c-text)]">Acción rápida por ID de usuario</h2>
-          <p className="mt-1 text-sm text-[var(--c-muted)]">
-            Aplica un ban o advertencia directamente ingresando el ID del usuario.
-            Para buscar usuarios usa <a href="/admin/usuarios" className="text-[var(--c-primary)] underline">Gestión de usuarios</a>.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-3">
+        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+          <div className="px-4 py-3 border-b border-[var(--c-border)]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
+              Acción rápida por ID de usuario
+            </p>
+            <p className="text-xs text-[var(--c-muted)] mt-0.5">
+              Aplica un ban o advertencia directamente ingresando el ID del usuario.
+              Para buscar usuarios usa <a href="/admin/usuarios" className="text-[var(--c-primary)] underline">Gestión de usuarios</a>.
+            </p>
+          </div>
+          <div className="p-4 flex flex-wrap gap-3">
             <button
               onClick={() => setBanModal({ userId: "", nombre: "usuario por ID" })}
               className="rounded-xl border border-red-200 px-4 py-2 text-sm font-semibold text-red-700 hover:bg-red-50 transition-colors"
@@ -182,7 +184,7 @@ export default function AdminModeracion() {
 
         {banModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-            <div className="w-full max-w-md rounded-xl bg-[var(--c-surface)] p-6 shadow-xl">
+            <div className="w-full max-w-md rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
               <h3 className="text-lg font-semibold text-[var(--c-text)]">Banear usuario</h3>
               <div className="mt-4 space-y-3">
                 <label className="flex flex-col gap-1">
@@ -238,7 +240,7 @@ export default function AdminModeracion() {
 
         {warnModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-            <div className="w-full max-w-md rounded-xl bg-[var(--c-surface)] p-6 shadow-xl">
+            <div className="w-full max-w-md rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
               <h3 className="text-lg font-semibold text-[var(--c-text)]">Enviar advertencia</h3>
               <div className="mt-4 space-y-3">
                 <label className="flex flex-col gap-1">
