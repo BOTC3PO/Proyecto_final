@@ -39,6 +39,8 @@ function readRuntimeOverride(): boolean | undefined {
 }
 
 export default function testmode() {
+  if (import.meta.env.PROD) return false;
+
   const runtimeOverride = readRuntimeOverride();
   if (runtimeOverride !== undefined) {
     return runtimeOverride;

@@ -12,8 +12,13 @@ export default function EnterpriseModulos() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!schoolId) {
+      setError('Tu cuenta no tiene una escuela asignada. Contactá al administrador.');
+      setLoading(false);
+      return;
+    }
     let active = true;
-    fetchEnterpriseModulos(schoolId || undefined)
+    fetchEnterpriseModulos(schoolId)
       .then((data) => { if (!active) return; setModules(data.items ?? []); })
       .catch((err: Error) => { if (!active) return; setError(err.message); })
       .finally(() => { if (!active) return; setLoading(false); });
@@ -21,22 +26,28 @@ export default function EnterpriseModulos() {
   }, [schoolId]);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Módulos escolares</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Módulos disponibles para tu institución.
-          </p>
-        </header>
-        <section className="grid gap-4 md:grid-cols-2">
-          {loading && <p className="text-sm text-[var(--c-muted)] animate-pulse">Cargando módulos...</p>}
-          {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+      <div>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">Módulos escolares</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">
+          Módulos disponibles para tu institución.
+        </p>
+      </div>
+
+      {error && (
+        <div className="rounded-xl border border-[color-mix(in_srgb,var(--c-danger)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] px-4 py-3 text-sm text-[var(--c-danger)]">
+          {error}
+        </div>
+      )}
+
+      <section className="grid gap-4 md:grid-cols-2">
+          {loading && [1,2,3,4].map(i => <div key={i} className="h-28 animate-pulse rounded-xl bg-[var(--c-border)]" />)}
           {!loading && !error && modules.length === 0 && (
             <p className="text-sm text-[var(--c-muted)]">No hay módulos disponibles.</p>
           )}
           {!loading && !error && modules.map((module) => (
             <article key={module.id}
-              className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm">
+              className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
               <div className="flex items-start justify-between gap-2">
                 <h2 className="text-base font-semibold text-[var(--c-text)]">{module.title}</h2>
                 <span className="shrink-0 rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-xs font-semibold text-[var(--c-muted)]">
@@ -62,6 +73,6 @@ export default function EnterpriseModulos() {
             </article>
           ))}
         </section>
-      </div>
+    </div>
   );
 }

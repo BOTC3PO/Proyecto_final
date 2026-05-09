@@ -20,7 +20,11 @@ export default function EnterpriseMiembros() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!schoolId) return;
+    if (!schoolId) {
+      setError('Tu cuenta no tiene una escuela asignada. Contactá al administrador.');
+      setLoading(false);
+      return;
+    }
     let active = true;
     fetchEnterpriseStaff(schoolId)
       .then((data) => { if (!active) return; setStaff(data); })
@@ -38,49 +42,58 @@ export default function EnterpriseMiembros() {
   }, [staff]);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Miembros del equipo</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Personal docente y directivo de tu institución.
-          </p>
-        </header>
-        <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
-          <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">
-              Equipo — {staff.length} miembros
-            </h2>
-          </div>
-          {loading && <p className="mt-4 text-sm text-[var(--c-muted)] animate-pulse">Cargando miembros...</p>}
-          {error && <p className="mt-4 text-sm text-[var(--c-danger)]">Error: {error}</p>}
-          {!loading && !error && staff.length === 0 && (
-            <p className="mt-4 text-sm text-[var(--c-muted)]">No hay miembros registrados.</p>
-          )}
-          {!loading && !error && staff.length > 0 && (
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              {Object.entries(grouped).map(([role, members]) => (
-                members.length > 0 && (
-                  <div key={role} className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
-                    <h3 className="text-sm font-semibold text-[var(--c-text)]">
-                      {ROLE_LABELS[role] ?? role} ({members.length})
-                    </h3>
-                    <ul className="mt-3 space-y-2">
-                      {members.map((m) => (
-                        <li key={m.id}
-                          className="flex items-center justify-between rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2">
-                          <span className="text-sm font-medium text-[var(--c-text)]">{m.name}</span>
-                          <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${ROLE_COLORS[m.role] ?? "bg-[var(--c-bg)] text-[var(--c-muted)]"}`}>
-                            {ROLE_LABELS[m.role] ?? m.role}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )
-              ))}
-            </div>
-          )}
-        </section>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+      <div>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">Miembros del equipo</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">
+          Personal docente y directivo de tu institución.
+        </p>
       </div>
+
+      {error && (
+        <div className="rounded-xl border border-[color-mix(in_srgb,var(--c-danger)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] px-4 py-3 text-sm text-[var(--c-danger)]">
+          {error}
+        </div>
+      )}
+
+      {loading && (
+        <div className="grid gap-3 md:grid-cols-2">
+          {[1,2].map(i => <div key={i} className="h-48 rounded-xl animate-pulse bg-[var(--c-border)]" />)}
+        </div>
+      )}
+
+      {!loading && !error && staff.length === 0 && (
+        <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-10 text-center">
+          <p className="text-sm text-[var(--c-muted)]">No hay miembros registrados.</p>
+        </div>
+      )}
+
+      {!loading && !error && staff.length > 0 && (
+        <div className="grid gap-4 md:grid-cols-2">
+          {Object.entries(grouped).map(([role, members]) =>
+            members.length > 0 && (
+              <div key={role} className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
+                  <p className="text-sm font-semibold text-[var(--c-text)]">
+                    {ROLE_LABELS[role] ?? role}
+                  </p>
+                  <span className="text-xs text-[var(--c-muted)]">{members.length}</span>
+                </div>
+                <div>
+                  {members.map((m) => (
+                    <div key={m.id} className="flex items-center justify-between px-4 py-2.5 border-b border-[var(--c-border)] last:border-0 hover:bg-[var(--c-bg)] transition-colors">
+                      <p className="text-sm text-[var(--c-text)]">{m.name}</p>
+                      <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${ROLE_COLORS[m.role] ?? 'bg-[var(--c-bg)] text-[var(--c-muted)]'}`}>
+                        {ROLE_LABELS[m.role] ?? m.role}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          )}
+        </div>
+      )}
+    </div>
   );
 }

@@ -22,7 +22,11 @@ export default function EnterpriseReportes() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!schoolId) return;
+    if (!schoolId) {
+      setError('Tu cuenta no tiene una escuela asignada. Contactá al administrador.');
+      setLoading(false);
+      return;
+    }
     let active = true;
     Promise.all([
       fetchEscuelaReporte(),
@@ -61,15 +65,19 @@ export default function EnterpriseReportes() {
   }, [aulaId]);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
-        <header className="space-y-2">
-          <h1 className="text-3xl font-bold text-[var(--c-text)]">Reportes</h1>
-          <p className="text-base text-[var(--c-muted)]">
-            Métricas globales e informes por aula.
-          </p>
-        </header>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+      <div>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">Reportes</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">
+          Métricas globales e informes por aula.
+        </p>
+      </div>
 
-        {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
+      {error && (
+        <div className="rounded-xl border border-[color-mix(in_srgb,var(--c-danger)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] px-4 py-3 text-sm text-[var(--c-danger)]">
+          {error}
+        </div>
+      )}
 
         {loading ? (
           <div className="grid gap-4 sm:grid-cols-3">
@@ -87,7 +95,7 @@ export default function EnterpriseReportes() {
               { label: "Progreso total", value: `${escuela.indicadores.porcentajeCompletado}%`, color: "text-[var(--c-text)]" },
             ].map((item) => (
               <div key={item.label}
-                className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 shadow-sm">
+                className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
                 <p className="text-sm text-[var(--c-muted)]">{item.label}</p>
                 <p className={`mt-1 text-3xl font-bold ${item.color}`}>
                   {item.value}
@@ -123,7 +131,7 @@ export default function EnterpriseReportes() {
             )}
 
             {!aulaLoading && progreso && progreso.modulos.length > 0 && (
-              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm space-y-3">
+              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 space-y-3">
                 <h2 className="text-lg font-semibold text-[var(--c-text)]">
                   Progreso por módulo
                 </h2>
@@ -149,7 +157,7 @@ export default function EnterpriseReportes() {
             )}
 
             {!aulaLoading && boletin && boletin.alumnos.length > 0 && (
-              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 shadow-sm">
+              <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
                 <h2 className="text-lg font-semibold text-[var(--c-text)] mb-4">
                   Boletín — {boletin.aulaNombre}
                 </h2>

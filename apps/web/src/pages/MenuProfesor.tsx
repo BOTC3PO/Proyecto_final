@@ -773,28 +773,6 @@ export default function menuProfesor() {
           {/* ── Columna derecha — Accesos rápidos ───────────────── */}
           <div className="w-56 flex-shrink-0 hidden xl:flex flex-col gap-4">
 
-            {/* Actividad reciente */}
-            <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
-              <p className="px-4 py-2.5 text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)] border-b border-[var(--c-border)]">
-                Actividad reciente
-              </p>
-              <div className="divide-y divide-[var(--c-border)]">
-                {modules.slice(0, 4).map((m) => (
-                  <div key={m.id} className="px-4 py-2.5">
-                    <p className="text-xs text-[var(--c-text)] leading-snug">
-                      Módulo <span className="font-medium">{m.title}</span>
-                    </p>
-                    <p className="text-[10px] text-[var(--c-muted)] mt-0.5">{m.category}</p>
-                  </div>
-                ))}
-                {modules.length === 0 && (
-                  <div className="px-4 py-6 text-center">
-                    <p className="text-xs text-[var(--c-muted)]">Sin actividad reciente.</p>
-                  </div>
-                )}
-              </div>
-            </div>
-
             {/* Resumen */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-3">
               <p className="text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)]">
@@ -818,10 +796,13 @@ export default function menuProfesor() {
                   <p className="text-sm font-semibold text-[var(--c-text)]">{modules.length}</p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p className="text-xs text-[var(--c-muted)]">Preparación próx. clase</p>
-                  <p className="text-sm font-semibold text-[var(--c-primary)]">
-                    {dashboard?.progressNextClass ?? 0}%
-                  </p>
+                  <p className="text-xs text-[var(--c-muted)]">Evaluaciones</p>
+                  <Link
+                    to="/profesor/evaluaciones"
+                    className="text-sm font-semibold text-[var(--c-primary)] hover:underline"
+                  >
+                    Ver →
+                  </Link>
                 </div>
               </div>
             </div>
