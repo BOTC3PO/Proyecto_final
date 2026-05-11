@@ -336,21 +336,21 @@ export default function EditorCuestionarios() {
   // ── Render ──────────────────────────────────────────────────────────────────
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-screen flex flex-col bg-[var(--c-bg)]">
       {/* ── Header ─────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-10 bg-white border-b border-slate-200 shadow-sm">
+      <header className="sticky top-0 z-10 bg-[var(--c-surface)] border-b border-[var(--c-border)]">
         <div className="flex items-center gap-3 px-4 sm:px-6 py-3">
           <Link
-            className="text-sm text-blue-600 hover:underline whitespace-nowrap"
+            className="text-sm text-[var(--c-primary)] hover:underline whitespace-nowrap"
             to={isEmbedded ? returnTo! : "/modulos/crear"}
           >
             {isEmbedded ? "← Volver al módulo" : "← Volver"}
           </Link>
-          <span className="hidden sm:block text-sm font-semibold text-slate-600 whitespace-nowrap">
+          <span className="hidden sm:block text-sm font-semibold text-[var(--c-muted)] whitespace-nowrap">
             Editor de cuestionarios
           </span>
           <input
-            className="flex-1 min-w-0 rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+            className="flex-1 min-w-0 rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
             placeholder="Título del cuestionario..."
             value={quizTitle}
             onChange={(e) => setQuizTitle(e.target.value)}
@@ -358,7 +358,7 @@ export default function EditorCuestionarios() {
           <select
             value={quizType}
             onChange={(e) => setQuizType(e.target.value as "practica" | "formal")}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm bg-white"
+            className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm bg-[var(--c-bg)] text-[var(--c-text)]"
           >
             <option value="formal">📝 Evaluación formal</option>
             <option value="practica">✏️ Práctica</option>
@@ -366,7 +366,7 @@ export default function EditorCuestionarios() {
           <select
             value={quizVisibility}
             onChange={(e) => setQuizVisibility(e.target.value as "publico" | "escuela")}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm bg-white"
+            className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm bg-[var(--c-bg)] text-[var(--c-text)]"
           >
             <option value="publico">🌐 Público</option>
             <option value="escuela">🏫 Escuela</option>
@@ -375,7 +375,7 @@ export default function EditorCuestionarios() {
             <button
               onClick={handleDownload}
               disabled={questions.length === 0}
-              className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50"
+              className="rounded-lg bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
             >
               ⬇ Descargar JSON
             </button>
@@ -383,7 +383,7 @@ export default function EditorCuestionarios() {
           <button
             onClick={handleCopy}
             disabled={questions.length === 0}
-            className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+            className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors"
           >
             {exportStatus === "copied" ? "✓ Copiado" : "Copiar JSON"}
           </button>
@@ -391,13 +391,13 @@ export default function EditorCuestionarios() {
             <button
               onClick={handleAddToModule}
               disabled={questions.length === 0}
-              className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50"
+              className="rounded-lg bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
             >
               ✓ Agregar al módulo
             </button>
           )}
           {questions.length === 0 && (
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[var(--c-muted)]">
               Agregá al menos una pregunta para exportar.
             </p>
           )}
@@ -405,16 +405,16 @@ export default function EditorCuestionarios() {
       </header>
 
       {/* ── Two-panel layout ────────────────────────────────────────── */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 overflow-hidden">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-[var(--c-border)] overflow-hidden">
         {/* ════════════════════════════════════════════════════════════
             LEFT PANEL — Editor
         ════════════════════════════════════════════════════════════ */}
         <div className="overflow-y-auto p-4 sm:p-6 space-y-4">
           {/* Section 1 — Generator selector */}
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 space-y-3">
-            <h2 className="text-sm font-semibold text-slate-700">Generador automático</h2>
+          <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-3">
+            <h2 className="text-sm font-semibold text-[var(--c-text)]">Generador automático</h2>
             <select
-              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+              className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               value={generatorId}
               onChange={(e) => handleGeneratorChange(e.target.value)}
             >
@@ -441,8 +441,8 @@ export default function EditorCuestionarios() {
                     onClick={() => handleSubtipoChange(sub.id)}
                     className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                       selectedSubtipo === sub.id
-                        ? "bg-violet-100 border-violet-300 text-violet-700"
-                        : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+                        ? "bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] border-[var(--c-primary)] text-[var(--c-primary)]"
+                        : "bg-[var(--c-surface)] border-[var(--c-border)] text-[var(--c-muted)] hover:bg-[var(--c-bg)]"
                     }`}
                   >
                     {sub.label}
@@ -454,15 +454,15 @@ export default function EditorCuestionarios() {
 
           {/* Section 2 — Variables insertables */}
           {Object.keys(currentSubtipoVars).length > 0 && (
-            <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 space-y-3">
+            <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-3">
               <div className="flex items-center justify-between gap-2">
-                <h2 className="text-sm font-semibold text-slate-700">Variables del generador</h2>
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">Variables del generador</h2>
                 {activeQuestionIndex === null ? (
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-[var(--c-muted)]">
                     Hacé foco en una pregunta para insertar
                   </p>
                 ) : (
-                  <p className="text-xs text-violet-500">
+                  <p className="text-xs text-[var(--c-primary)]">
                     Insertando en pregunta {activeQuestionIndex + 1}
                   </p>
                 )}
@@ -484,12 +484,12 @@ export default function EditorCuestionarios() {
           )}
 
           {/* Section 3 — Instructions */}
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 space-y-2">
-            <label className="text-sm font-semibold text-slate-700">
+          <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-2">
+            <label className="text-sm font-semibold text-[var(--c-text)]">
               Instrucciones (opcional)
             </label>
             <textarea
-              className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+              className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               rows={2}
               placeholder="Instrucciones para el alumno antes de comenzar..."
               value={instructions}
@@ -498,11 +498,11 @@ export default function EditorCuestionarios() {
           </div>
 
           {/* Section 4 — Question list */}
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 space-y-4">
-            <h2 className="text-sm font-semibold text-slate-700">Preguntas manuales</h2>
+          <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-4">
+            <h2 className="text-sm font-semibold text-[var(--c-text)]">Preguntas manuales</h2>
 
             {questions.length === 0 && (
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-[var(--c-muted)]">
                 Todavía no hay preguntas. Usá los botones de abajo para agregar.
               </p>
             )}
@@ -518,12 +518,12 @@ export default function EditorCuestionarios() {
                   key={question.id}
                   className={`rounded-lg border p-3 space-y-3 transition-colors ${
                     isActive
-                      ? "border-violet-300 ring-1 ring-violet-200"
-                      : "border-slate-200"
+                      ? "border-[var(--c-primary)]"
+                      : "border-[var(--c-border)]"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-semibold text-slate-500">
+                    <span className="text-xs font-semibold text-[var(--c-muted)]">
                       Pregunta {index + 1}
                     </span>
                     <button
@@ -536,7 +536,7 @@ export default function EditorCuestionarios() {
                   </div>
 
                   <textarea
-                    className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     rows={2}
                     placeholder="Enunciado de la pregunta"
                     value={question.prompt}
@@ -545,10 +545,10 @@ export default function EditorCuestionarios() {
                   />
 
                   <div className="flex items-center gap-3">
-                    <label className="text-xs font-medium text-slate-600">
+                    <label className="text-xs font-medium text-[var(--c-text)]">
                       Tipo
                       <select
-                        className="ml-2 rounded-md border border-slate-300 px-2 py-1 text-xs bg-white"
+                        className="ml-2 rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1 text-xs"
                         value={qType}
                         onChange={(e) => {
                           const nextType =
@@ -576,10 +576,10 @@ export default function EditorCuestionarios() {
                   </div>
 
                   {qType === "input" && (
-                    <label className="block text-xs font-medium text-slate-600">
+                    <label className="block text-xs font-medium text-[var(--c-text)]">
                       Respuesta esperada
                       <input
-                        className="mt-1 w-full rounded-md border border-slate-300 px-2 py-1.5 text-sm"
+                        className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                         value={
                           Array.isArray(question.answerKey)
                             ? question.answerKey.join(", ")
@@ -595,7 +595,7 @@ export default function EditorCuestionarios() {
 
                   {showOptions && (
                     <div className="space-y-2">
-                      <p className="text-xs font-medium text-slate-600">
+                      <p className="text-xs font-medium text-[var(--c-text)]">
                         {isTrueFalse
                           ? "Respuesta correcta"
                           : "Opciones — seleccioná la correcta"}
@@ -613,7 +613,7 @@ export default function EditorCuestionarios() {
                             title="Marcar como correcta"
                           />
                           <input
-                            className="flex-1 rounded-md border border-slate-300 px-2 py-1.5 text-sm"
+                            className="flex-1 rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                             value={opt}
                             disabled={isTrueFalse}
                             onChange={(e) => updateOption(index, optIdx, e.target.value)}
@@ -633,7 +633,7 @@ export default function EditorCuestionarios() {
                       {!isTrueFalse && (
                         <button
                           type="button"
-                          className="text-xs text-blue-600 hover:underline"
+                          className="text-xs text-[var(--c-primary)] hover:underline"
                           onClick={() => addOption(index)}
                         >
                           + Agregar opción
@@ -643,7 +643,7 @@ export default function EditorCuestionarios() {
                   )}
 
                   <textarea
-                    className="w-full rounded-md border border-slate-200 px-3 py-2 text-xs text-slate-500 focus:outline-none focus:ring-1 focus:ring-violet-300"
+                    className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-muted)] px-3 py-2 text-xs focus:outline-none focus:border-[var(--c-primary)]"
                     rows={1}
                     placeholder="Explicación (opcional)"
                     value={question.explanation ?? ""}
@@ -658,21 +658,21 @@ export default function EditorCuestionarios() {
             <div className="flex flex-wrap gap-2 pt-1">
               <button
                 type="button"
-                className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs hover:bg-slate-50"
+                className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)] transition-colors"
                 onClick={() => addQuestion("mc")}
               >
                 + Opción múltiple
               </button>
               <button
                 type="button"
-                className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs hover:bg-slate-50"
+                className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)] transition-colors"
                 onClick={() => addQuestion("vf")}
               >
                 + Verdadero/Falso
               </button>
               <button
                 type="button"
-                className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs hover:bg-slate-50"
+                className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)] transition-colors"
                 onClick={() => addQuestion("input")}
               >
                 + Respuesta abierta
@@ -685,17 +685,17 @@ export default function EditorCuestionarios() {
             RIGHT PANEL — Preview
         ════════════════════════════════════════════════════════════ */}
         <div className="overflow-y-auto p-4 sm:p-6 space-y-4">
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 space-y-4">
+          <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-4">
             <div className="flex items-center justify-between gap-2">
-              <h2 className="text-sm font-semibold text-slate-700">
+              <h2 className="text-sm font-semibold text-[var(--c-text)]">
                 {generatorId ? "Vista previa del generador" : "Vista del alumno"}
               </h2>
               {generatorId && (
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-slate-400">3 ejemplos</span>
+                  <span className="text-xs text-[var(--c-muted)]">3 ejemplos</span>
                   <button
                     type="button"
-                    className="text-xs text-violet-600 hover:underline"
+                    className="text-xs text-[var(--c-primary)] hover:underline"
                     onClick={() => {
                       if (generatorId && selectedSubtipo) {
                         generatePreview(generatorId, selectedSubtipo);
@@ -709,7 +709,7 @@ export default function EditorCuestionarios() {
             </div>
 
             {instructions && (
-              <div className="rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-sm text-blue-800 leading-relaxed">
+              <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-2 text-sm text-[var(--c-text)] leading-relaxed">
                 {instructions}
               </div>
             )}
@@ -717,7 +717,7 @@ export default function EditorCuestionarios() {
             {generatorId && previewQuestions.length > 0 && (
               <button
                 type="button"
-                className="inline-flex items-center gap-2 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700 transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                 onClick={() => {
                   setQuestions((prev) => [
                     ...prev,
@@ -733,7 +733,7 @@ export default function EditorCuestionarios() {
             )}
 
             {previewStatus === "loading" ? (
-              <div className="flex items-center gap-2 text-sm text-slate-400">
+              <div className="flex items-center gap-2 text-sm text-[var(--c-muted)]">
                 <svg className="h-4 w-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
                   fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10"
@@ -748,7 +748,7 @@ export default function EditorCuestionarios() {
                 No se pudo cargar el generador.
               </p>
             ) : previewList.length === 0 ? (
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-[var(--c-muted)]">
                 {generatorId
                   ? "Seleccioná un subtipo para ver ejemplos."
                   : "Agregá preguntas para ver la vista del alumno."}
@@ -763,8 +763,8 @@ export default function EditorCuestionarios() {
 
                   return (
                     <li key={question.id} className="space-y-2">
-                      <p className="text-xs text-slate-400">Pregunta {index + 1}</p>
-                      <p className="text-sm text-slate-800 leading-relaxed">
+                      <p className="text-xs text-[var(--c-muted)]">Pregunta {index + 1}</p>
+                      <p className="text-sm text-[var(--c-text)] leading-relaxed">
                         {generatorId ? (
                           question.prompt
                         ) : (
@@ -772,21 +772,21 @@ export default function EditorCuestionarios() {
                         )}
                       </p>
                       {qType === "input" ? (
-                        <div className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2">
-                          <p className="text-xs text-slate-400 italic">Respuesta abierta</p>
+                        <div className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-2">
+                          <p className="text-xs text-[var(--c-muted)] italic">Respuesta abierta</p>
                         </div>
                       ) : (
                         <ul className="space-y-1.5">
                           {(question.options ?? []).map((opt, optIdx) => (
                             <li
                               key={`prev-${question.id}-${optIdx}`}
-                              className="flex items-center gap-2 text-sm text-slate-700"
+                              className="flex items-center gap-2 text-sm text-[var(--c-text)]"
                             >
-                              <span className="w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full border border-slate-300 text-xs text-slate-500">
+                              <span className="w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full border border-[var(--c-border)] text-xs text-[var(--c-muted)]">
                                 {String.fromCharCode(65 + optIdx)}
                               </span>
                               {opt || (
-                                <span className="text-slate-300 italic text-xs">opción vacía</span>
+                                <span className="text-[var(--c-muted)] italic text-xs">opción vacía</span>
                               )}
                             </li>
                           ))}
