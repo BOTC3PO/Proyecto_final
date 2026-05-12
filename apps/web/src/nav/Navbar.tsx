@@ -82,7 +82,7 @@ export default function Navbar() {
     : "?";
 
   // Mostrar navbar público sólo si el usuario es GUEST (no autenticado)
-  const isPublicPage = PUBLIC_PAGES.includes(location.pathname) && role === 'GUEST';
+  const isPublicPage = role === 'GUEST';
   
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -190,13 +190,33 @@ export default function Navbar() {
                   </NavLink>
                 </li>
                 <li className="md:px-4 md:py-2">
-                  <NavLink 
-                    to="/contact" 
-                    className={({ isActive }) => 
+                  <NavLink
+                    to="/contact"
+                    className={({ isActive }) =>
                       isActive ? 'text-indigo-300' : 'text-white hover:text-indigo-300 transition-colors'
                     }
                   >
                     Contacto
+                  </NavLink>
+                </li>
+                <li className="md:px-4 md:py-2">
+                  <NavLink
+                    to="/terminos"
+                    className={({ isActive }) =>
+                      isActive ? 'text-indigo-300' : 'text-white hover:text-indigo-300 transition-colors'
+                    }
+                  >
+                    Términos
+                  </NavLink>
+                </li>
+                <li className="md:px-4 md:py-2">
+                  <NavLink
+                    to="/privacidad"
+                    className={({ isActive }) =>
+                      isActive ? 'text-indigo-300' : 'text-white hover:text-indigo-300 transition-colors'
+                    }
+                  >
+                    Privacidad
                   </NavLink>
                 </li>
               </ul>
@@ -260,18 +280,44 @@ export default function Navbar() {
               >
                 Juegos Educativos
               </NavLink>
-              <NavLink 
-                to="/contact" 
-                className={({ isActive }) => 
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
                   `block py-2 px-4 rounded transition-colors ${
-                    isActive 
-                      ? 'text-indigo-300 bg-blue-800' 
+                    isActive
+                      ? 'text-indigo-300 bg-blue-800'
                       : 'text-white hover:bg-blue-800'
                   }`
                 }
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contacto
+              </NavLink>
+              <NavLink
+                to="/terminos"
+                className={({ isActive }) =>
+                  `block py-2 px-4 rounded transition-colors ${
+                    isActive
+                      ? 'text-indigo-300 bg-blue-800'
+                      : 'text-white hover:bg-blue-800'
+                  }`
+                }
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Términos
+              </NavLink>
+              <NavLink
+                to="/privacidad"
+                className={({ isActive }) =>
+                  `block py-2 px-4 rounded transition-colors ${
+                    isActive
+                      ? 'text-indigo-300 bg-blue-800'
+                      : 'text-white hover:bg-blue-800'
+                  }`
+                }
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Privacidad
               </NavLink>
               <div className="pt-2">
                 <NavLink

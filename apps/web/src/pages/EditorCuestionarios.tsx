@@ -137,10 +137,22 @@ export default function EditorCuestionarios() {
     useState<"idle" | "loading" | "ready" | "error">("idle");
 
   // Load catalog on mount
+  const STATIC_CATALOG: CatalogItem[] = [
+    { id: 'matematicas', materia: 'Matemáticas', label: 'Matemáticas — General', subtipos: [] },
+    { id: 'biologia',    materia: 'Biología',    label: 'Biología — General',    subtipos: [] },
+    { id: 'fisica',      materia: 'Física',      label: 'Física — General',      subtipos: [] },
+    { id: 'quimica',     materia: 'Química',     label: 'Química — General',     subtipos: [] },
+    { id: 'economia',    materia: 'Economía',    label: 'Economía — General',    subtipos: [] },
+    { id: 'informatica', materia: 'Informática', label: 'Informática — General', subtipos: [] },
+  ];
+
   useEffect(() => {
     apiGet<{ items: CatalogItem[] }>("/api/generators")
-      .then((data) => setCatalog(data.items ?? []))
-      .catch(() => {});
+      .then((data) => {
+        const items = data.items ?? [];
+        setCatalog(items.length > 0 ? items : STATIC_CATALOG);
+      })
+      .catch(() => setCatalog(STATIC_CATALOG));
   }, []);
 
   // ── Generator preview (seed 42, 3 questions) ────────────────────────────────

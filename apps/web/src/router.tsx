@@ -217,6 +217,18 @@ export const router = createBrowserRouter([
             path: 'tienda-temas',
             element: withSuspense(<TiendaTemas />),
           },
+          {
+            path: 'mensajes',
+            element: withSuspense(<Mensajeria />),
+          },
+          {
+            path: 'perfil',
+            element: withSuspense(<Perfil />),
+          },
+          {
+            path: 'calendario',
+            element: withSuspense(<ProfesorCalendario />),
+          },
         ],
       },
 

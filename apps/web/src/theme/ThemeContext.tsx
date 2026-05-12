@@ -49,8 +49,10 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
     "clasico-vb",
     "clasico",
     "minimal",
+    "aurora",
+    "bosque",
   ],
-  ADMIN:     ["admin"],
+  ADMIN: ["admin", "clasico-vb", "clasico", "minimal"],
   GUEST:     ["clasico"],
 };
 
@@ -74,8 +76,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const allowed = THEMES_BY_ROLE[role] ?? ["clasico"];
 
-  // Admin siempre forzado
-  const forceTheme = role === "ADMIN" ? "admin" : null;
+  const forceTheme = null;
 
   const [theme, setThemeState] = useState<ThemeId>(() => {
     if (forceTheme) return forceTheme;
