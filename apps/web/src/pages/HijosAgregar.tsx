@@ -10,8 +10,8 @@ type HijoForm = {
   grado: string;
   escuela?: string;
   notas?: string;
-  permisosTareas: boolean;   // ver tareas
-  permisosMensajes: boolean; // ver mensajes del aula
+  permisosTareas: boolean;
+  permisosMensajes: boolean;
 };
 
 type FieldErrors = Partial<Record<keyof HijoForm, string>>;
@@ -76,7 +76,6 @@ export default function HijosAgregar() {
     setSaving(true);
     try {
       await apiPost<{ ok: boolean }>("/api/hijos", form);
-      // limpiar (opcional)
       setForm({
         nombre: "",
         usuario: "",
@@ -116,41 +115,45 @@ export default function HijosAgregar() {
     }
   };
 
-  return (
-    <main className="flex-1 bg-gray-100">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <section className="bg-white rounded-xl shadow">
-          <div className="p-6 sm:p-8">
-            <h1 className="text-2xl font-semibold text-gray-900 text-center">Agregar Hijo</h1>
+  const inputCls = "w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]";
+  const inputErrCls = "w-full rounded-lg border border-[var(--c-danger)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]";
 
-            <form className="mt-8 space-y-6" onSubmit={onSubmit} noValidate>
+  return (
+    <main className="flex-1 bg-[var(--c-bg)]">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+          <div className="px-6 py-4 border-b border-[var(--c-border)]">
+            <h1 className="text-xl font-semibold text-[var(--c-text)]">Agregar hijo</h1>
+          </div>
+          <div className="p-6 sm:p-8">
+            <form className="space-y-6" onSubmit={onSubmit} noValidate>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Nombre */}
                 <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-gray-700">Nombre Completo</label>
+                  <label htmlFor="nombre" className="block text-sm font-medium text-[var(--c-text)] mb-1">
+                    Nombre Completo
+                  </label>
                   <input
                     id="nombre" name="nombre" type="text" value={form.nombre} onChange={onChange}
-                    className={`mt-1 w-full rounded-md border px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
-                      errors.nombre ? "border-red-500" : "border-gray-300"
-                    }`}
+                    className={errors.nombre ? inputErrCls : inputCls}
                   />
-                  {errors.nombre && <p className="text-xs text-red-600 mt-1">{errors.nombre}</p>}
+                  {errors.nombre && <p className="text-xs text-[var(--c-danger)] mt-1">{errors.nombre}</p>}
                 </div>
 
                 {/* Usuario */}
                 <div>
-                  <label htmlFor="usuario" className="block text-sm font-medium text-gray-700">Usuario Público</label>
+                  <label htmlFor="usuario" className="block text-sm font-medium text-[var(--c-text)] mb-1">
+                    Usuario Público
+                  </label>
                   <input
                     id="usuario" name="usuario" type="text" value={form.usuario} onChange={onChange}
                     placeholder="@usuario"
-                    className={`mt-1 w-full rounded-md border px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
-                      errors.usuario ? "border-red-500" : "border-gray-300"
-                    }`}
+                    className={errors.usuario ? inputErrCls : inputCls}
                   />
-                  {errors.usuario && <p className="text-xs text-red-600 mt-1">{errors.usuario}</p>}
+                  {errors.usuario && <p className="text-xs text-[var(--c-danger)] mt-1">{errors.usuario}</p>}
                 </div>
 
-                {/* Cumpleaños (date input custom) */}
+                {/* Cumpleaños */}
                 <div className="md:col-span-1">
                   <DateInput
                     id="cumple"
@@ -160,20 +163,18 @@ export default function HijosAgregar() {
                     value={form.cumple}
                     onChange={(v) => setForm((p) => ({ ...p, cumple: v }))}
                     required
-                    // minDate={new Date(2005,0,1)} // ejemplo de límites
-                    // maxDate={new Date()}
                   />
-                  {errors.cumple && <p className="text-xs text-red-600 mt-1">{errors.cumple}</p>}
+                  {errors.cumple && <p className="text-xs text-[var(--c-danger)] mt-1">{errors.cumple}</p>}
                 </div>
 
                 {/* Grado */}
                 <div className="md:col-span-1">
-                  <label htmlFor="grado" className="block text-sm font-medium text-gray-700">Grado / Curso</label>
+                  <label htmlFor="grado" className="block text-sm font-medium text-[var(--c-text)] mb-1">
+                    Grado / Curso
+                  </label>
                   <select
                     id="grado" name="grado" value={form.grado} onChange={onChange}
-                    className={`mt-1 w-full rounded-md border px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
-                      errors.grado ? "border-red-500" : "border-gray-300"
-                    }`}
+                    className={errors.grado ? inputErrCls : inputCls}
                   >
                     <option value="">Seleccioná…</option>
                     {loadingGrados && <option value="">Cargando grados...</option>}
@@ -181,51 +182,53 @@ export default function HijosAgregar() {
                     {!loadingGrados &&
                       !gradosError &&
                       grados.map((g) => (
-                        <option key={g} value={g}>
-                          {g}
-                        </option>
+                        <option key={g} value={g}>{g}</option>
                       ))}
                   </select>
-                  {errors.grado && <p className="text-xs text-red-600 mt-1">{errors.grado}</p>}
-                  {gradosError && <p className="text-xs text-red-600 mt-1">{gradosError}</p>}
+                  {errors.grado && <p className="text-xs text-[var(--c-danger)] mt-1">{errors.grado}</p>}
+                  {gradosError && <p className="text-xs text-[var(--c-danger)] mt-1">{gradosError}</p>}
                 </div>
 
                 {/* Escuela */}
                 <div className="md:col-span-2">
-                  <label htmlFor="escuela" className="block text-sm font-medium text-gray-700">Escuela (opcional)</label>
+                  <label htmlFor="escuela" className="block text-sm font-medium text-[var(--c-text)] mb-1">
+                    Escuela (opcional)
+                  </label>
                   <input
                     id="escuela" name="escuela" type="text" value={form.escuela} onChange={onChange}
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    className={inputCls}
                   />
                 </div>
 
                 {/* Notas */}
                 <div className="md:col-span-2">
-                  <label htmlFor="notas" className="block text-sm font-medium text-gray-700">Notas (opcional)</label>
+                  <label htmlFor="notas" className="block text-sm font-medium text-[var(--c-text)] mb-1">
+                    Notas (opcional)
+                  </label>
                   <textarea
                     id="notas" name="notas" rows={3} value={form.notas} onChange={onChange}
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    className={`${inputCls} resize-none`}
                     placeholder="Observaciones, preferencias, apoyos necesarios…"
                   />
                 </div>
               </div>
 
               {/* Permisos */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-gray-50 rounded-md p-4">
-                <label className="inline-flex items-center gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[var(--c-bg)] rounded-xl p-4 border border-[var(--c-border)]">
+                <label className="inline-flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox" name="permisosTareas" checked={form.permisosTareas} onChange={onChange}
-                    className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    className="h-4 w-4 rounded border-[var(--c-border)] text-[var(--c-primary)]"
                   />
-                  <span className="text-sm text-gray-700">Permitir ver tareas y entregas</span>
+                  <span className="text-sm text-[var(--c-text)]">Permitir ver tareas y entregas</span>
                 </label>
 
-                <label className="inline-flex items-center gap-2">
+                <label className="inline-flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox" name="permisosMensajes" checked={form.permisosMensajes} onChange={onChange}
-                    className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    className="h-4 w-4 rounded border-[var(--c-border)] text-[var(--c-primary)]"
                   />
-                  <span className="text-sm text-gray-700">Permitir ver mensajes del aula</span>
+                  <span className="text-sm text-[var(--c-text)]">Permitir ver mensajes del aula</span>
                 </label>
               </div>
 
@@ -233,25 +236,28 @@ export default function HijosAgregar() {
               <div className="flex items-center justify-end gap-3 pt-2">
                 <button
                   type="reset"
-                  onClick={() => { setForm({
-                    nombre: "", usuario: "", cumple: "", grado: "", escuela: "", notas: "",
-                    permisosTareas: true, permisosMensajes: true
-                  }); setErrors({}); }}
-                  className="rounded-md border px-4 py-2 text-sm"
+                  onClick={() => {
+                    setForm({
+                      nombre: "", usuario: "", cumple: "", grado: "", escuela: "", notas: "",
+                      permisosTareas: true, permisosMensajes: true,
+                    });
+                    setErrors({});
+                  }}
+                  className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
                 >
                   Limpiar
                 </button>
                 <button
                   type="submit"
                   disabled={saving}
-                  className="rounded-md bg-blue-600 px-5 py-2 text-white text-sm font-semibold hover:bg-blue-700 disabled:opacity-60"
+                  className="rounded-xl bg-[var(--c-primary)] px-5 py-2 text-white text-sm font-semibold hover:opacity-90 disabled:opacity-60 transition-opacity"
                 >
-                  {saving ? "Guardando…" : "Agregar Hijo"}
+                  {saving ? "Guardando…" : "Agregar hijo"}
                 </button>
               </div>
             </form>
           </div>
-        </section>
+        </div>
       </div>
     </main>
   );

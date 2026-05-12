@@ -35,28 +35,22 @@ export default function HijosProgreso() {
         if (!active) return;
         setLoading(false);
       });
-    return () => {
-      active = false;
-    };
+    return () => { active = false; };
   }, []);
 
   useEffect(() => {
     if (!seleccionado) return;
     let active = true;
-
     setActividadesLoading(true);
     setBoletinLoading(true);
-
     fetchActividadesHijo(seleccionado)
       .then((data) => { if (!active) return; setActividades(data); })
       .catch(() => { if (!active) return; setActividades([]); })
       .finally(() => { if (!active) return; setActividadesLoading(false); });
-
     fetchBoletinHijo(seleccionado)
       .then((data) => { if (!active) return; setBoletin(data.materias ?? []); })
       .catch(() => { if (!active) return; setBoletin([]); })
       .finally(() => { if (!active) return; setBoletinLoading(false); });
-
     return () => { active = false; };
   }, [seleccionado]);
 
@@ -79,15 +73,17 @@ export default function HijosProgreso() {
 
   const onBuscar = (e: ChangeEvent<HTMLInputElement>) => setBusqueda(e.target.value);
 
+  const inputCls = "rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]";
+
   return (
-    <main className="flex-1 bg-gray-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {/* Título + Filtros */}
-        <div className="bg-white rounded-xl shadow p-4 sm:p-6">
+    <main className="flex-1 bg-[var(--c-bg)]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+        {/* Header + filtros */}
+        <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 sm:p-6">
           <div className="flex flex-col md:flex-row gap-4 md:items-end md:justify-between">
             <div>
-              <h1 className="text-2xl font-semibold text-gray-900">Hijos</h1>
-              <p className="text-sm text-gray-600">Seguimiento del progreso por alumno/a.</p>
+              <h1 className="text-xl font-semibold text-[var(--c-text)]">Hijos</h1>
+              <p className="text-sm text-[var(--c-muted)]">Seguimiento del progreso por alumno/a.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <input
@@ -95,12 +91,12 @@ export default function HijosProgreso() {
                 placeholder="Buscar por nombre o @usuario"
                 value={busqueda}
                 onChange={onBuscar}
-                className="w-full sm:w-64 rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className={`w-full sm:w-64 ${inputCls}`}
               />
               <select
                 value={area}
                 onChange={(e) => setArea(e.target.value as any)}
-                className="w-full sm:w-48 rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className={`w-full sm:w-48 ${inputCls}`}
               >
                 {["Todas","Matemática","Lengua","Ciencias","Historia","Geografía","Arte","Otro"].map((a) => (
                   <option key={a} value={a}>{a}</option>
@@ -110,96 +106,97 @@ export default function HijosProgreso() {
           </div>
 
           {/* Lista de hijos */}
-          <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {loading && <p className="text-sm text-gray-600">Cargando hijos...</p>}
-            {error && <p className="text-sm text-red-500">Error: {error}</p>}
-            {!loading &&
-              !error &&
-              hijos.map((h) => {
-                const initials = h.nombre
-                  .split(" ")
-                  .map((p) => p[0])
-                  .slice(0, 2)
-                  .join("")
-                  .toUpperCase();
-                return (
-                  <button
-                    key={h.id}
-                    onClick={() => setSeleccionado(h.id)}
-                    className={`text-left bg-gray-50 hover:bg-gray-100 rounded-xl p-4 border ${
-                      seleccionado === h.id ? "border-blue-500" : "border-transparent"
-                    } transition`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-blue-600 text-white grid place-content-center font-bold">
-                        {initials}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                          <h3 className="font-semibold">{h.nombre}</h3>
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">
-                            {h.grado}
-                          </span>
-                          <span className="text-xs text-gray-600">{h.usuario}</span>
-                        </div>
-                        <div className="mt-2 h-2 rounded bg-gray-200">
-                          <div
-                            style={{ width: `${h.progresoGeneral}%` }}
-                            className="h-2 rounded bg-green-500"
-                            aria-label={`Progreso general ${h.progresoGeneral}%`}
-                          />
-                        </div>
-                        <p className="mt-1 text-xs text-gray-600">
-                          Progreso general: {h.progresoGeneral}%
-                        </p>
-                      </div>
+          <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+            {loading && (
+              <>
+                <div className="h-20 rounded-xl animate-pulse bg-[var(--c-border)]" />
+                <div className="h-20 rounded-xl animate-pulse bg-[var(--c-border)]" />
+              </>
+            )}
+            {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
+            {!loading && !error && hijos.map((h) => {
+              const initials = h.nombre.split(" ").map((p) => p[0]).slice(0, 2).join("").toUpperCase();
+              const isSelected = seleccionado === h.id;
+              return (
+                <button
+                  key={h.id}
+                  onClick={() => setSeleccionado(h.id)}
+                  className={`text-left rounded-xl p-4 border transition-colors ${
+                    isSelected
+                      ? "bg-[color-mix(in_srgb,var(--c-primary)_10%,transparent)] border-[var(--c-primary)]"
+                      : "bg-[var(--c-surface)] hover:bg-[var(--c-bg)] border-[var(--c-border)]"
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[var(--c-primary)] text-white grid place-content-center font-bold text-sm select-none">
+                      {initials}
                     </div>
-                  </button>
-                );
-              })}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <h3 className="font-semibold text-sm text-[var(--c-text)]">{h.nombre}</h3>
+                        <span className="text-xs px-2 py-0.5 rounded-full bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)]">
+                          {h.grado}
+                        </span>
+                        <span className="text-xs text-[var(--c-muted)]">{h.usuario}</span>
+                      </div>
+                      <div className="mt-2 h-1.5 rounded-full bg-[var(--c-border)]">
+                        <div
+                          style={{ width: `${h.progresoGeneral}%` }}
+                          className="h-1.5 rounded-full bg-[var(--c-success)]"
+                          aria-label={`Progreso general ${h.progresoGeneral}%`}
+                        />
+                      </div>
+                      <p className="mt-1 text-xs text-[var(--c-muted)]">
+                        Progreso general: {h.progresoGeneral}%
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
             {!loading && !error && hijos.length === 0 && (
-              <p className="text-sm text-gray-600">No hay hijos registrados.</p>
+              <p className="text-sm text-[var(--c-muted)]">No hay hijos registrados.</p>
             )}
           </div>
         </div>
 
         {/* Detalle del hijo seleccionado */}
         {!loading && !error && current && (
-          <section className="mt-6 bg-white rounded-xl shadow p-4 sm:p-6">
+          <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 sm:p-6">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-blue-600 text-white grid place-content-center font-bold">
-                {current.nombre.split(" ").map(p => p[0]).slice(0,2).join("").toUpperCase()}
+              <div className="w-14 h-14 rounded-full bg-[var(--c-primary)] text-white grid place-content-center font-bold text-sm select-none">
+                {current.nombre.split(" ").map((p) => p[0]).slice(0, 2).join("").toUpperCase()}
               </div>
               <div className="flex-1">
-                <h2 className="text-xl font-semibold">{current.nombre}</h2>
-                <p className="text-sm text-gray-600">{current.usuario} · {current.grado}</p>
+                <h2 className="text-base font-semibold text-[var(--c-text)]">{current.nombre}</h2>
+                <p className="text-sm text-[var(--c-muted)]">{current.usuario} · {current.grado}</p>
               </div>
               <div className="hidden sm:block">
-                <div className="h-2 w-48 rounded bg-gray-200">
+                <div className="h-1.5 w-48 rounded-full bg-[var(--c-border)]">
                   <div
                     style={{ width: `${current.progresoGeneral}%` }}
-                    className="h-2 rounded bg-green-500"
+                    className="h-1.5 rounded-full bg-[var(--c-success)]"
                   />
                 </div>
-                <p className="mt-1 text-xs text-gray-600 text-right">{current.progresoGeneral}% general</p>
+                <p className="mt-1 text-xs text-[var(--c-muted)] text-right">{current.progresoGeneral}% general</p>
               </div>
             </div>
 
             {/* Tabs */}
-            <div className="mt-5 flex gap-1 border-b border-slate-200">
-              {[
+            <div className="mt-5 flex gap-1 border-b border-[var(--c-border)]">
+              {([
                 { key: "modulos", label: "Módulos" },
                 { key: "actividades", label: "Próximas actividades" },
                 { key: "boletin", label: "Boletín" },
-              ].map((t) => (
+              ] as const).map((t) => (
                 <button
                   key={t.key}
                   type="button"
-                  onClick={() => setTab(t.key as typeof tab)}
+                  onClick={() => setTab(t.key)}
                   className={`px-4 py-2 text-sm font-medium transition-colors border-b-2 -mb-px ${
                     tab === t.key
-                      ? "border-blue-600 text-blue-600"
-                      : "border-transparent text-slate-500 hover:text-slate-700"
+                      ? "border-[var(--c-primary)] text-[var(--c-primary)]"
+                      : "border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]"
                   }`}
                 >
                   {t.label}
@@ -208,44 +205,41 @@ export default function HijosProgreso() {
             </div>
 
             {tab === "modulos" && (
-              <div className="mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="mt-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {modulosFiltrados.map((m) => (
-                    <div key={m.id} className="rounded-xl border border-gray-200 p-4 hover:bg-gray-50">
+                    <div key={m.id} className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 hover:bg-[var(--c-bg)] transition-colors">
                       <div className="flex items-start justify-between gap-3">
                         <div>
-                          <h3 className="font-semibold">{m.titulo}</h3>
+                          <h3 className="font-semibold text-sm text-[var(--c-text)]">{m.titulo}</h3>
                           <div className="flex items-center gap-2 mt-1">
                             <span className="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700">{m.area}</span>
                             <span className={`text-xs px-2 py-0.5 rounded-full ${
                               m.estado === "Completado" ? "bg-green-100 text-green-700"
                               : m.estado === "En curso" ? "bg-yellow-100 text-yellow-700"
-                              : "bg-gray-200 text-gray-700"
+                              : "bg-[var(--c-bg)] text-[var(--c-muted)]"
                             }`}>{m.estado}</span>
                           </div>
                         </div>
-                        <span className="text-xs text-gray-500">Última actividad: {m.ultimaActividad}</span>
+                        <span className="text-xs text-[var(--c-muted)] shrink-0">Última actividad: {m.ultimaActividad}</span>
                       </div>
-
-                      <div className="mt-3 h-2 rounded bg-gray-200">
-                        <div style={{ width: `${m.progreso}%` }} className="h-2 rounded bg-blue-600" />
+                      <div className="mt-3 h-1.5 rounded-full bg-[var(--c-border)]">
+                        <div style={{ width: `${m.progreso}%` }} className="h-1.5 rounded-full bg-[var(--c-primary)]" />
                       </div>
-                      <div className="mt-1 flex items-center justify-between text-xs text-gray-600">
+                      <div className="mt-1 flex items-center justify-between text-xs text-[var(--c-muted)]">
                         <span>Progreso</span>
                         <span>{m.progreso}%</span>
                       </div>
-
                       <div className="mt-3 flex items-center gap-2">
-                        <button className="text-sm rounded-md border px-3 py-1 hover:bg-white">Ver detalles</button>
-                        <button className="text-sm rounded-md border px-3 py-1 hover:bg-white">Abrir módulo</button>
-                        <button className="text-sm rounded-md border px-3 py-1 hover:bg-white">Informe</button>
+                        <button className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">Ver detalles</button>
+                        <button className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">Abrir módulo</button>
+                        <button className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">Informe</button>
                       </div>
                     </div>
                   ))}
                 </div>
-
                 {modulosFiltrados.length === 0 && (
-                  <p className="text-sm text-gray-600 mt-4">No hay módulos para el filtro seleccionado.</p>
+                  <p className="text-sm text-[var(--c-muted)] mt-4">No hay módulos para el filtro seleccionado.</p>
                 )}
               </div>
             )}
@@ -253,18 +247,17 @@ export default function HijosProgreso() {
             {tab === "actividades" && (
               <div className="mt-5 space-y-3">
                 {actividadesLoading && (
-                  <p className="text-sm text-slate-400 animate-pulse">
-                    Cargando actividades...
-                  </p>
+                  <>
+                    <div className="h-14 rounded-xl animate-pulse bg-[var(--c-border)]" />
+                    <div className="h-14 rounded-xl animate-pulse bg-[var(--c-border)]" />
+                  </>
                 )}
                 {!actividadesLoading && actividades.length === 0 && (
-                  <p className="text-sm text-slate-500">
-                    No hay actividades próximas para este alumno.
-                  </p>
+                  <p className="text-sm text-[var(--c-muted)]">No hay actividades próximas para este alumno.</p>
                 )}
                 {!actividadesLoading && actividades.map((act) => (
                   <div key={act.id}
-                    className="flex items-start justify-between gap-3 rounded-xl border border-slate-100 px-4 py-3">
+                    className="flex items-start justify-between gap-3 rounded-xl border border-[var(--c-border)] px-4 py-3">
                     <div className="flex items-start gap-3">
                       <span className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ${
                         act.tipo === "evaluacion"
@@ -273,20 +266,13 @@ export default function HijosProgreso() {
                           ? "bg-violet-100 text-violet-700"
                           : "bg-blue-100 text-blue-700"
                       }`}>
-                        {act.tipo === "evaluacion" ? "📝"
-                          : act.tipo === "evento" ? "📅" : "📖"}
+                        {act.tipo === "evaluacion" ? "📝" : act.tipo === "evento" ? "📅" : "📖"}
                       </span>
                       <div>
-                        <p className="text-sm font-medium text-slate-800">
-                          {act.titulo}
-                        </p>
-                        <p className="text-xs text-slate-400">
-                          {act.aulaNombre} · {act.when}
-                        </p>
+                        <p className="text-sm font-medium text-[var(--c-text)]">{act.titulo}</p>
+                        <p className="text-xs text-[var(--c-muted)]">{act.aulaNombre} · {act.when}</p>
                         {act.descripcion && (
-                          <p className="text-xs text-slate-500 mt-0.5">
-                            {act.descripcion}
-                          </p>
+                          <p className="text-xs text-[var(--c-muted)] mt-0.5">{act.descripcion}</p>
                         )}
                       </div>
                     </div>
@@ -296,24 +282,21 @@ export default function HijosProgreso() {
             )}
 
             {tab === "boletin" && (
-              <div className="mt-5 space-y-4">
+              <div className="mt-5 space-y-3">
                 {boletinLoading && (
-                  <p className="text-sm text-slate-400 animate-pulse">
-                    Cargando boletín...
-                  </p>
+                  <>
+                    <div className="h-24 rounded-xl animate-pulse bg-[var(--c-border)]" />
+                    <div className="h-24 rounded-xl animate-pulse bg-[var(--c-border)]" />
+                  </>
                 )}
                 {!boletinLoading && boletin.length === 0 && (
-                  <p className="text-sm text-slate-500">
-                    No hay evaluaciones formales registradas.
-                  </p>
+                  <p className="text-sm text-[var(--c-muted)]">No hay evaluaciones formales registradas.</p>
                 )}
                 {!boletinLoading && boletin.map((materia) => (
                   <div key={materia.materia}
-                    className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
                     <div className="flex items-center justify-between gap-3">
-                      <h3 className="text-base font-semibold text-slate-900">
-                        {materia.materia}
-                      </h3>
+                      <h3 className="text-sm font-semibold text-[var(--c-text)]">{materia.materia}</h3>
                       {materia.promedio !== null && (
                         <span className={`rounded-full px-3 py-1 text-xs font-semibold ${
                           materia.promedio >= 7
@@ -329,18 +312,16 @@ export default function HijosProgreso() {
                     <div className="mt-3 space-y-2">
                       {materia.evaluaciones.slice(0, 5).map((ev, i) => (
                         <div key={`${ev.quizId}-${i}`}
-                          className="flex items-center justify-between rounded-lg bg-slate-50 px-3 py-2 text-xs">
-                          <span className="text-slate-600">
-                            {ev.quizTitle ?? "Evaluación"}
-                          </span>
+                          className="flex items-center justify-between rounded-lg bg-[var(--c-bg)] px-3 py-2 text-xs">
+                          <span className="text-[var(--c-muted)]">{ev.quizTitle ?? "Evaluación"}</span>
                           <div className="flex items-center gap-3">
                             {ev.fecha && (
-                              <span className="text-slate-400">
+                              <span className="text-[var(--c-muted)]">
                                 {new Date(ev.fecha).toLocaleDateString("es-AR")}
                               </span>
                             )}
                             <span className={`font-semibold ${
-                              ev.score !== null ? "text-slate-800" : "text-slate-400"
+                              ev.score !== null ? "text-[var(--c-text)]" : "text-[var(--c-muted)]"
                             }`}>
                               {ev.score !== null
                                 ? `${ev.score}${ev.maxScore ? `/${ev.maxScore}` : ""}`

@@ -18,6 +18,26 @@ function prettyJson(obj: unknown) {
   return JSON.stringify(obj, null, 2);
 }
 
+// Clases reutilizables para el editor
+const editorCls = {
+  headerBg:      'bg-[var(--c-text)]',
+  headerText:    'text-[var(--c-bg)]',
+  headerBtn:     'px-2 py-1 text-xs rounded bg-white/10 hover:bg-white/20 text-[var(--c-bg)] disabled:opacity-40 transition-colors',
+  headerDivider: 'w-px h-5 bg-white/20 mx-1',
+
+  sidebarBg:     'bg-[var(--c-surface)]',
+  sidebarBorder: 'border-[var(--c-border)]',
+  sidebarHeader: 'text-[10px] font-semibold text-[var(--c-muted)] uppercase tracking-widest',
+
+  itemActive:    'bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] border-l-2 border-l-[var(--c-primary)]',
+  itemInactive:  'border-l-2 border-l-transparent hover:bg-[var(--c-bg)]',
+  itemText:      'text-xs text-[var(--c-text)] truncate',
+  itemMuted:     'text-xs text-[var(--c-muted)]',
+
+  canvasBg:      'bg-[var(--c-bg)]',
+
+  input:         'w-full text-xs border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 focus:outline-none focus:border-[var(--c-primary)]',
+};
 
 // ===== FSA types =====
 interface FileSystemFileHandle {
@@ -106,20 +126,20 @@ function Modal({
 }) {
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
       onClick={onClose}
     >
       <div
         className={classNames(
-          "bg-white rounded-lg shadow-2xl flex flex-col max-h-[90vh]",
+          "bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl flex flex-col max-h-[90vh]",
           wide ? "w-[700px]" : "w-[520px]"
         )}
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-4 py-3 border-b">
-          <span className="font-semibold text-slate-800">{title}</span>
+        <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
+          <span className="text-sm font-semibold text-[var(--c-text)]">{title}</span>
           <button
-            className="text-slate-400 hover:text-slate-700 text-xl leading-none"
+            className="text-[var(--c-muted)] hover:text-[var(--c-text)] text-xl leading-none"
             onClick={onClose}
           >
             &times;
@@ -157,7 +177,7 @@ function IconBtn({
         small ? "px-1 py-0 text-xs" : "px-1.5 py-0.5 text-sm",
         danger
           ? "text-red-500 hover:bg-red-50 disabled:opacity-30"
-          : "text-slate-600 hover:bg-slate-100 disabled:opacity-30"
+          : "text-[var(--c-muted)] hover:bg-[var(--c-bg)] disabled:opacity-30"
       )}
     >
       {label}
@@ -188,8 +208,8 @@ function AlignButtons({
           className={classNames(
             "w-6 h-6 text-xs rounded font-mono",
             value === a.v
-              ? "bg-indigo-600 text-white"
-              : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+              ? "bg-[var(--c-primary)] text-white"
+              : "bg-[var(--c-bg)] text-[var(--c-muted)] hover:bg-[var(--c-border)]"
           )}
         >
           {a.label}
@@ -211,13 +231,13 @@ function InspectorCard({
 }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="border-b border-slate-100">
+    <div className="border-b border-[var(--c-border)]">
       <button
-        className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide hover:bg-slate-50"
+        className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide hover:bg-[var(--c-bg)]"
         onClick={() => setOpen((o) => !o)}
       >
         {title}
-        <span className="text-slate-400">{open ? "▲" : "▼"}</span>
+        <span className="text-[var(--c-muted)]">{open ? "▲" : "▼"}</span>
       </button>
       {open && <div className="px-3 pb-3 pt-1 space-y-2">{children}</div>}
     </div>
@@ -228,17 +248,16 @@ function InspectorCard({
 function KV({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-xs text-slate-500 w-20 shrink-0">{label}</span>
+      <span className="text-xs text-[var(--c-muted)] w-20 shrink-0">{label}</span>
       <div className="flex-1">{children}</div>
     </div>
   );
 }
 
 // ===== Small input helpers =====
-const inputCls =
-  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400";
+const inputCls = editorCls.input;
 const textareaCls =
-  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400 resize-none";
+  "w-full text-xs border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 focus:outline-none focus:border-[var(--c-primary)] resize-none";
 
 // ===== MetadataEditor =====
 function MetadataEditor({
@@ -297,7 +316,7 @@ function MetadataEditor({
       <KV label="Color papel">
         <input
           type="color"
-          className="w-full h-6 rounded border border-slate-200 cursor-pointer"
+          className="w-full h-6 rounded-lg border border-[var(--c-border)] cursor-pointer"
           value={th.paperColor ?? "#FFFFFF"}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             dispatch({ type: "UPDATE_THEME", patch: { paperColor: e.target.value } })
@@ -307,7 +326,7 @@ function MetadataEditor({
       <KV label="Color texto">
         <input
           type="color"
-          className="w-full h-6 rounded border border-slate-200 cursor-pointer"
+          className="w-full h-6 rounded-lg border border-[var(--c-border)] cursor-pointer"
           value={th.textColor ?? "#000000"}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             dispatch({ type: "UPDATE_THEME", patch: { textColor: e.target.value } })
@@ -399,13 +418,13 @@ function PageInspector({
         />
       </KV>
       <div>
-        <p className="text-xs font-medium text-slate-500 mb-1">Anclas</p>
+        <p className="text-xs font-medium text-[var(--c-muted)] mb-1">Anclas</p>
         {(page.anchors ?? []).length === 0 && (
-          <p className="text-xs text-slate-400 italic">Sin anclas</p>
+          <p className="text-xs text-[var(--c-muted)] italic">Sin anclas</p>
         )}
         {(page.anchors ?? []).map((a) => (
           <div key={a.id} className="flex items-center gap-1 mb-1">
-            <span className="text-xs font-mono text-indigo-600 truncate max-w-[60px]">{a.id}</span>
+            <span className="text-xs font-mono text-[var(--c-primary)] truncate max-w-[60px]">{a.id}</span>
             <input
               className={classNames(inputCls, "flex-1")}
               placeholder="etiqueta"
@@ -445,7 +464,7 @@ function PageInspector({
             }
           />
           <button
-            className="w-full text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded py-1"
+            className="w-full text-xs bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] hover:opacity-80 text-[var(--c-primary)] rounded-lg py-1"
             onClick={addAnchor}
           >
             + Agregar ancla
@@ -488,8 +507,8 @@ function BlockInspector({
                 className={classNames(
                   "w-7 h-6 text-xs rounded font-mono",
                   block.level === l
-                    ? "bg-indigo-600 text-white"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    ? "bg-[var(--c-primary)] text-white"
+                    : "bg-[var(--c-bg)] text-[var(--c-muted)] hover:bg-[var(--c-border)]"
                 )}
               >
                 H{l}
@@ -524,8 +543,8 @@ function BlockInspector({
               className={classNames(
                 "px-2 py-0.5 text-xs rounded font-bold",
                 block.textStyle?.bold
-                  ? "bg-indigo-600 text-white"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  ? "bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)]"
+                  : "bg-[var(--c-bg)] text-[var(--c-muted)] hover:bg-[var(--c-border)]"
               )}
             >
               N
@@ -542,8 +561,8 @@ function BlockInspector({
               className={classNames(
                 "px-2 py-0.5 text-xs rounded italic",
                 block.textStyle?.italic
-                  ? "bg-indigo-600 text-white"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  ? "bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)]"
+                  : "bg-[var(--c-bg)] text-[var(--c-muted)] hover:bg-[var(--c-border)]"
               )}
             >
               K
@@ -602,8 +621,8 @@ function BlockInspector({
               className={classNames(
                 "px-2 py-0.5 text-xs rounded font-bold",
                 run0?.style?.bold
-                  ? "bg-indigo-600 text-white"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  ? "bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)]"
+                  : "bg-[var(--c-bg)] text-[var(--c-muted)] hover:bg-[var(--c-border)]"
               )}
             >
               N
@@ -621,8 +640,8 @@ function BlockInspector({
               className={classNames(
                 "px-2 py-0.5 text-xs rounded italic",
                 run0?.style?.italic
-                  ? "bg-indigo-600 text-white"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  ? "bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)]"
+                  : "bg-[var(--c-bg)] text-[var(--c-muted)] hover:bg-[var(--c-border)]"
               )}
             >
               K
@@ -638,7 +657,7 @@ function BlockInspector({
     return (
       <div className="space-y-2">
         <KV label="Asset">
-          <span className="text-xs text-slate-500 truncate block">{asset?.name ?? block.assetId}</span>
+          <span className="text-xs text-[var(--c-muted)] truncate block">{asset?.name ?? block.assetId}</span>
         </KV>
         <KV label="Alineación">
           <AlignButtons
@@ -697,7 +716,7 @@ function BlockInspector({
         <KV label="Color línea">
           <input
             type="color"
-            className="w-full h-6 rounded border border-slate-200 cursor-pointer"
+            className="w-full h-6 rounded-lg border border-[var(--c-border)] cursor-pointer"
             value={block.color ?? "#94a3b8"}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               dispatch({
@@ -713,7 +732,7 @@ function BlockInspector({
     );
   }
 
-  return <p className="text-xs text-slate-400 italic">Sin opciones para este bloque</p>;
+  return <p className="text-xs text-[var(--c-muted)] italic">Sin opciones para este bloque</p>;
 }
 
 // ===== NotesPanel =====
@@ -744,9 +763,9 @@ function NotesPanel({
 
   return (
     <div className="space-y-3">
-      {notes.length === 0 && <p className="text-xs text-slate-400 italic">Sin notas</p>}
+      {notes.length === 0 && <p className="text-xs text-[var(--c-muted)] italic">Sin notas</p>}
       {notes.map((note) => (
-        <div key={note.id} className="border border-slate-100 rounded p-2 space-y-1">
+        <div key={note.id} className="border border-[var(--c-border)] rounded p-2 space-y-1">
           <div className="flex items-center gap-1">
             <input
               className={classNames(inputCls, "font-semibold flex-1")}
@@ -775,8 +794,8 @@ function NotesPanel({
           />
         </div>
       ))}
-      <div className="border border-dashed border-slate-200 rounded p-2 space-y-1">
-        <p className="text-xs font-medium text-slate-500">Nueva nota</p>
+      <div className="border border-dashed border-[var(--c-border)] rounded p-2 space-y-1">
+        <p className="text-xs font-medium text-[var(--c-muted)]">Nueva nota</p>
         <input
           className={inputCls}
           placeholder="Término"
@@ -790,7 +809,7 @@ function NotesPanel({
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setNewContent(e.target.value)}
         />
         <button
-          className="w-full text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded py-1"
+          className="w-full text-xs bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] hover:opacity-80 text-[var(--c-primary)] rounded-lg py-1"
           onClick={addNote}
         >
           + Agregar nota
@@ -816,7 +835,6 @@ function TocModal({
 
   const entries = book.structure?.index ?? [];
 
-  // Build datalist of all page:anchor pairs
   const anchorOptions = book.pages.flatMap((p) =>
     (p.anchors ?? []).map((a) => p.id + ":" + a.id)
   );
@@ -847,15 +865,15 @@ function TocModal({
       </datalist>
 
       {entries.length === 0 && (
-        <p className="text-sm text-slate-400 italic mb-4">Sin entradas de índice</p>
+        <p className="text-sm text-[var(--c-muted)] italic mb-4">Sin entradas de índice</p>
       )}
 
       <div className="space-y-2 mb-4">
         {entries.map((entry, idx) => (
-          <div key={entry.id} className="flex items-center gap-1 border border-slate-100 rounded p-2">
+          <div key={entry.id} className="flex items-center gap-1 border border-[var(--c-border)] rounded p-2">
             <div className="flex flex-col gap-0.5 mr-1">
               <button
-                className="text-xs text-slate-400 hover:text-slate-700 leading-none"
+                className="text-xs text-[var(--c-muted)] hover:text-[var(--c-text)] leading-none"
                 onClick={() =>
                   dispatch({ type: "MOVE_TOC_ENTRY", entryId: entry.id, direction: "up" })
                 }
@@ -864,7 +882,7 @@ function TocModal({
                 ▲
               </button>
               <button
-                className="text-xs text-slate-400 hover:text-slate-700 leading-none"
+                className="text-xs text-[var(--c-muted)] hover:text-[var(--c-text)] leading-none"
                 onClick={() =>
                   dispatch({ type: "MOVE_TOC_ENTRY", entryId: entry.id, direction: "down" })
                 }
@@ -921,8 +939,8 @@ function TocModal({
         ))}
       </div>
 
-      <div className="border border-dashed border-slate-200 rounded p-3 space-y-2">
-        <p className="text-xs font-semibold text-slate-500">Nueva entrada</p>
+      <div className="border border-dashed border-[var(--c-border)] rounded p-3 space-y-2">
+        <p className="text-xs font-semibold text-[var(--c-muted)]">Nueva entrada</p>
         <div className="flex gap-1">
           <input
             className={classNames(inputCls, "flex-1")}
@@ -948,7 +966,7 @@ function TocModal({
           />
         </div>
         <button
-          className="w-full text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded py-1"
+          className="w-full text-xs bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] hover:opacity-80 text-[var(--c-primary)] rounded-lg py-1"
           onClick={addEntry}
         >
           + Agregar entrada
@@ -958,25 +976,25 @@ function TocModal({
       {/* ── Rendered preview ── */}
       {entries.length > 0 && (
         <div className="mt-6">
-          <p className="text-xs font-semibold text-slate-500 mb-3 uppercase tracking-wide">
+          <p className="text-xs font-semibold text-[var(--c-muted)] mb-3 uppercase tracking-wide">
             Vista previa del índice
           </p>
           <div
-            className="rounded-lg border border-slate-200 bg-white p-6"
+            className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-6"
             style={{ fontFamily: book.metadata.theme?.fontFamily ?? "serif" }}
           >
-            <h2 className="text-lg font-bold mb-4 text-slate-800 border-b border-slate-200 pb-2">
+            <h2 className="text-lg font-bold mb-4 text-[var(--c-text)] border-b border-[var(--c-border)] pb-2">
               Índice
             </h2>
             <div className="space-y-2">
               {entries.map((entry) => (
                 <div key={entry.id} className="flex items-baseline gap-1">
-                  <span className="text-sm text-slate-800 shrink-0">{entry.title}</span>
+                  <span className="text-sm text-[var(--c-text)] shrink-0">{entry.title}</span>
                   <span
-                    className="flex-1 border-b border-dotted border-slate-300 mb-1"
+                    className="flex-1 border-b border-dotted border-[var(--c-border)] mb-1"
                     style={{ minWidth: 16 }}
                   />
-                  <span className="text-sm text-slate-500 shrink-0 tabular-nums">
+                  <span className="text-sm text-[var(--c-muted)] shrink-0 tabular-nums">
                     {entry.pageStart}
                   </span>
                 </div>
@@ -1031,7 +1049,7 @@ function AssetsModal({
       <div className="mb-4">
         <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFile} />
         <button
-          className="px-3 py-1.5 text-sm bg-indigo-600 text-white rounded hover:bg-indigo-700"
+          className="px-3 py-1.5 text-sm bg-[var(--c-primary)] text-white rounded-lg hover:opacity-90"
           onClick={() => fileRef.current?.click()}
         >
           + Subir imagen
@@ -1039,12 +1057,12 @@ function AssetsModal({
       </div>
 
       {assets.length === 0 && (
-        <p className="text-sm text-slate-400 italic">Sin assets</p>
+        <p className="text-sm text-[var(--c-muted)] italic">Sin assets</p>
       )}
 
       <div className="grid grid-cols-3 gap-3">
         {assets.map((a) => (
-          <div key={a.id} className="border border-slate-200 rounded overflow-hidden group relative">
+          <div key={a.id} className="border border-[var(--c-border)] rounded overflow-hidden group relative">
             {a.dataUrl.startsWith("data:image") ? (
               <img
                 src={a.dataUrl}
@@ -1052,11 +1070,11 @@ function AssetsModal({
                 className="w-full h-24 object-cover"
               />
             ) : (
-              <div className="w-full h-24 bg-slate-100 flex items-center justify-center text-xs text-slate-400">
+              <div className="w-full h-24 bg-[var(--c-bg)] flex items-center justify-center text-xs text-[var(--c-muted)]">
                 {a.mimeType}
               </div>
             )}
-            <div className="p-1 text-xs text-slate-600 truncate">{a.name}</div>
+            <div className="p-1 text-xs text-[var(--c-text)] truncate">{a.name}</div>
             <button
               className="absolute top-1 right-1 bg-red-500 text-white text-xs rounded px-1 opacity-0 group-hover:opacity-100 transition-opacity"
               onClick={() => dispatch({ type: "REMOVE_ASSET", assetId: a.id })}
@@ -1103,23 +1121,23 @@ function LibraryModal({
 
   return (
     <Modal title="Biblioteca de libros" onClose={onClose}>
-      {loading && <p className="text-sm text-slate-500">Cargando...</p>}
+      {loading && <p className="text-sm text-[var(--c-muted)]">Cargando...</p>}
       {err && <p className="text-sm text-red-500">{err}</p>}
       {!loading && !err && books.length === 0 && (
-        <p className="text-sm text-slate-400 italic">Sin libros en el servidor</p>
+        <p className="text-sm text-[var(--c-muted)] italic">Sin libros en el servidor</p>
       )}
       <div className="space-y-2">
         {books.map((b) => (
           <div
             key={b.id}
-            className="flex items-center justify-between border border-slate-100 rounded p-2"
+            className="flex items-center justify-between border border-[var(--c-border)] rounded p-2"
           >
             <div>
-              <p className="text-sm font-medium text-slate-800">{b.title}</p>
-              <p className="text-xs text-slate-400">{b.id}</p>
+              <p className="text-sm font-medium text-[var(--c-text)]">{b.title}</p>
+              <p className="text-xs text-[var(--c-muted)]">{b.id}</p>
             </div>
             <button
-              className="px-2 py-1 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded"
+              className="px-2 py-1 text-xs bg-[color-mix(in_srgb,var(--c-primary)_10%,transparent)] hover:opacity-80 text-[var(--c-primary)] rounded-lg"
               onClick={() => load(b.id)}
             >
               Abrir
@@ -1135,7 +1153,7 @@ function LibraryModal({
 function JsonModal({ book, onClose }: { book: Book; onClose: () => void }) {
   return (
     <Modal title="JSON del libro" onClose={onClose} wide>
-      <pre className="text-xs bg-slate-50 rounded p-3 overflow-auto max-h-[60vh] whitespace-pre-wrap break-all">
+      <pre className="text-xs bg-[var(--c-bg)] rounded-lg p-3 overflow-auto max-h-[60vh] whitespace-pre-wrap break-all text-[var(--c-text)]">
         {prettyJson(book)}
       </pre>
     </Modal>
@@ -1166,16 +1184,14 @@ function InlineBlock({
   const pageIdx = page.content.findIndex((b) => b.id === block.id);
   const totalBlocks = page.content.length;
 
-  // Shared style for selected block wrapper
   const wrapperCls = classNames(
     "relative group",
-    isSelected ? "ring-2 ring-indigo-400 rounded" : "hover:ring-1 hover:ring-slate-300 rounded"
+    isSelected ? "ring-2 ring-[var(--c-primary)] rounded" : "hover:ring-1 hover:ring-[var(--c-border)] rounded"
   );
 
-  // Block toolbar (visible only when selected)
   const blockToolbar = isSelected ? (
-    <div className="absolute -top-7 left-0 z-10 flex items-center gap-0.5 bg-white border border-slate-200 rounded shadow-sm px-1 py-0.5">
-      <span className="text-xs text-slate-400 mr-1 font-mono">{block.type}</span>
+    <div className="absolute -top-7 left-0 z-10 flex items-center gap-0.5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg px-1 py-0.5">
+      <span className="text-xs text-[var(--c-muted)] mr-1 font-mono">{block.type}</span>
       <IconBtn
         label="▲"
         title="Subir bloque"
@@ -1350,8 +1366,8 @@ function InlineBlock({
                 className="max-w-full max-h-64 rounded shadow"
               />
               {isSelected && (
-                <div className="absolute inset-0 bg-indigo-600/20 flex items-center justify-center rounded">
-                  <span className="bg-indigo-600 text-white text-xs px-2 py-1 rounded">
+                <div className="absolute inset-0 bg-[var(--c-primary)]/20 flex items-center justify-center rounded">
+                  <span className="bg-[var(--c-primary)] text-white text-xs px-2 py-1 rounded">
                     Cambiar imagen en Inspector
                   </span>
                 </div>
@@ -1359,9 +1375,9 @@ function InlineBlock({
             </div>
           ) : (
             <div
-              className="w-full h-32 bg-slate-100 border-2 border-dashed border-slate-300 rounded flex items-center justify-center cursor-pointer hover:bg-slate-200"
+              className="w-full h-32 bg-[var(--c-bg)] border-2 border-dashed border-[var(--c-border)] rounded-lg flex items-center justify-center cursor-pointer hover:opacity-80"
             >
-              <span className="text-slate-400 text-sm">
+              <span className="text-[var(--c-muted)] text-sm">
                 {isSelected ? "Asignar imagen en Inspector" : "Sin imagen asignada"}
               </span>
             </div>
@@ -1395,7 +1411,7 @@ function InlineBlock({
     return (
       <div className={wrapperCls} onClick={(e: React.MouseEvent) => { e.stopPropagation(); onSelect(); }}>
         {blockToolbar}
-        <div className="py-2 px-1 border border-dashed border-slate-300 rounded text-center text-xs text-slate-400">
+        <div className="py-2 px-1 border border-dashed border-[var(--c-border)] rounded text-center text-xs text-[var(--c-muted)]">
           — Salto de página —
         </div>
       </div>
@@ -1427,7 +1443,7 @@ function PageCanvas({
 
   return (
     <div
-      className="rounded-lg shadow-xl mx-auto my-6 flex flex-col"
+      className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] mx-auto my-6 flex flex-col"
       style={{
         background: paperColor,
         maxWidth: desktopView ? 1100 : 680,
@@ -1440,7 +1456,7 @@ function PageCanvas({
     >
       <div className="flex-1 space-y-2">
         {page.content.length === 0 && (
-          <p className="text-center text-slate-300 italic text-sm py-16">
+          <p className="text-center text-[var(--c-muted)] italic text-sm py-16">
             Página vacía — usa el panel inferior para agregar bloques
           </p>
         )}
@@ -1482,11 +1498,11 @@ function AddBlockBar({
   ];
   return (
     <div className="flex items-center gap-1 flex-wrap">
-      <span className="text-xs text-slate-500 mr-1">+ Bloque:</span>
+      <span className="text-xs text-[var(--c-muted)] mr-1">+ Bloque:</span>
       {types.map(({ t, label }) => (
         <button
           key={t}
-          className="px-2 py-0.5 text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 rounded"
+          className="px-2 py-0.5 text-xs bg-[var(--c-bg)] hover:bg-[var(--c-border)] text-[var(--c-text)] rounded"
           onClick={() => dispatch({ type: "ADD_BLOCK", blockType: t })}
         >
           {label}
@@ -1517,6 +1533,9 @@ export default function BookEditorPage() {
 
   // Desktop / mobile canvas view
   const [desktopView, setDesktopView] = useState(false);
+
+  // Save feedback
+  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
 
   // Import file ref
   const importRef = useRef<HTMLInputElement>(null);
@@ -1644,11 +1663,15 @@ export default function BookEditorPage() {
 
   const handleSaveServer = useCallback(async () => {
     if (!book) return;
+    setSaveStatus('saving');
     try {
       const res = await saveBook(book);
       alert(`Guardado en servidor. ID: ${res.id}`);
       dispatch({ type: "MARK_DIRTY", dirty: false });
+      setSaveStatus('saved');
+      setTimeout(() => setSaveStatus('idle'), 2000);
     } catch (e: unknown) {
+      setSaveStatus('error');
       alert("Error al guardar: " + String(e));
     }
   }, [book, dispatch]);
@@ -1674,8 +1697,8 @@ export default function BookEditorPage() {
 
   if (!book) {
     return (
-      <div className="h-screen flex items-center justify-center bg-slate-100">
-        <p className="text-slate-500 text-lg">Cargando editor…</p>
+      <div className="h-screen flex items-center justify-center bg-[var(--c-bg)]">
+        <p className="text-[var(--c-muted)] text-lg">Cargando editor…</p>
       </div>
     );
   }
@@ -1684,15 +1707,14 @@ export default function BookEditorPage() {
   const errorCount = issues.filter((i) => i.level === "error").length;
   const warnCount = issues.filter((i) => i.level === "warn").length;
 
-  // Inspector sections visibility: open by default when relevant block selected
   const hasSelectedBlock = !!selectedBlock;
   const hasSelectedPage = !!selectedPage;
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden bg-slate-100">
+    <div className="h-screen flex flex-col overflow-hidden bg-[var(--c-bg)]">
       {/* ===== HEADER ===== */}
-      <header className="flex-shrink-0 h-12 bg-slate-800 text-white flex items-center px-3 gap-2 shadow-md z-20">
-        <span className="font-bold text-base mr-2 truncate max-w-[180px]" title={book.metadata.title}>
+      <header className="flex-shrink-0 h-12 bg-[var(--c-text)] text-[var(--c-bg)] flex items-center px-3 gap-2 z-20">
+        <span className="font-semibold text-sm mr-2 truncate max-w-[180px] text-[var(--c-bg)]" title={book.metadata.title}>
           {book.metadata.title || "Sin título"}
         </span>
 
@@ -1701,8 +1723,23 @@ export default function BookEditorPage() {
             Sin guardar
           </span>
         )}
+        {saveStatus === 'saving' && (
+          <span className="text-xs bg-white/10 text-[var(--c-bg)] px-1.5 py-0.5 rounded animate-pulse">
+            Guardando...
+          </span>
+        )}
+        {saveStatus === 'saved' && (
+          <span className="text-xs bg-[var(--c-success)]/80 text-white px-1.5 py-0.5 rounded">
+            ✓ Guardado
+          </span>
+        )}
+        {saveStatus === 'error' && (
+          <span className="text-xs bg-[var(--c-danger)]/80 text-white px-1.5 py-0.5 rounded">
+            Error al guardar
+          </span>
+        )}
         {fsaFileName && (
-          <span className="text-xs text-slate-400 truncate max-w-[140px]" title={fsaFileName}>
+          <span className="text-xs text-[var(--c-bg)]/60 truncate max-w-[140px]" title={fsaFileName}>
             {fsaFileName}
           </span>
         )}
@@ -1711,7 +1748,7 @@ export default function BookEditorPage() {
 
         {/* Undo/Redo */}
         <button
-          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-40"
+          className={editorCls.headerBtn}
           onClick={undo}
           disabled={!canUndo}
           title="Deshacer (Ctrl+Z)"
@@ -1719,7 +1756,7 @@ export default function BookEditorPage() {
           ↩ Deshacer
         </button>
         <button
-          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-40"
+          className={editorCls.headerBtn}
           onClick={redo}
           disabled={!canRedo}
           title="Rehacer (Ctrl+Y)"
@@ -1727,25 +1764,25 @@ export default function BookEditorPage() {
           ↪ Rehacer
         </button>
 
-        <div className="w-px h-6 bg-slate-600 mx-1" />
+        <div className={editorCls.headerDivider} />
 
         {/* FSA buttons */}
         <button
-          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          className={editorCls.headerBtn}
           onClick={openLocalFile}
           title="Abrir archivo local (File System Access API)"
         >
           Abrir local
         </button>
         <button
-          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          className={editorCls.headerBtn}
           onClick={saveLocalFile}
           title="Guardar en archivo local (Ctrl+S)"
         >
           Guardar local
         </button>
 
-        <div className="w-px h-6 bg-slate-600 mx-1" />
+        <div className={editorCls.headerDivider} />
 
         {/* Import/Export */}
         <input
@@ -1756,14 +1793,14 @@ export default function BookEditorPage() {
           onChange={handleImportFile}
         />
         <button
-          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          className={editorCls.headerBtn}
           onClick={() => importRef.current?.click()}
           title="Importar JSON"
         >
           Importar
         </button>
         <button
-          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          className={editorCls.headerBtn}
           onClick={() =>
             exportBookToDownload(book, `${book.metadata.title || "libro"}.json`)
           }
@@ -1772,22 +1809,22 @@ export default function BookEditorPage() {
           Exportar
         </button>
         <button
-          className="px-2 py-1 text-xs bg-green-700 hover:bg-green-600 rounded"
+          className="px-2 py-1 text-xs rounded bg-[var(--c-success)]/80 hover:bg-[var(--c-success)] text-white"
           onClick={handleSaveServer}
           title="Guardar en servidor"
         >
           Guardar API
         </button>
 
-        <div className="w-px h-6 bg-slate-600 mx-1" />
+        <div className={editorCls.headerDivider} />
 
         {/* View toggle */}
         <button
           className={classNames(
             "px-2 py-1 text-xs rounded",
             desktopView
-              ? "bg-indigo-600 text-white hover:bg-indigo-500"
-              : "bg-slate-700 hover:bg-slate-600 text-white"
+              ? "bg-white/25 text-[var(--c-bg)]"
+              : editorCls.headerBtn
           )}
           onClick={() => setDesktopView((v) => !v)}
           title="Alternar vista móvil / escritorio"
@@ -1795,30 +1832,34 @@ export default function BookEditorPage() {
           {desktopView ? "🖥 PC" : "📱 Móvil"}
         </button>
 
-        <div className="w-px h-6 bg-slate-600 mx-1" />
+        <div className={editorCls.headerDivider} />
 
         {/* Feature buttons */}
         <button
-          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          className={editorCls.headerBtn}
           onClick={() => setShowToc(true)}
+          title="Editar índice"
         >
           Índice
         </button>
         <button
-          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          className={editorCls.headerBtn}
           onClick={() => setShowAssets(true)}
+          title="Gestionar imágenes"
         >
           Imágenes
         </button>
         <button
-          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          className={editorCls.headerBtn}
           onClick={() => setShowLibrary(true)}
+          title="Abrir libro del servidor"
         >
           Biblioteca
         </button>
         <button
-          className="px-2 py-1 text-xs bg-slate-700 hover:bg-slate-600 rounded"
+          className={editorCls.headerBtn}
           onClick={() => setShowJson(true)}
+          title="Ver JSON del libro"
         >
           JSON
         </button>
@@ -1843,13 +1884,13 @@ export default function BookEditorPage() {
       {/* ===== MAIN 3-PANEL LAYOUT ===== */}
       <main className="flex flex-1 overflow-hidden min-h-0">
         {/* ===== LEFT SIDEBAR: Pages ===== */}
-        <aside className="w-48 flex-shrink-0 border-r border-slate-200 bg-white flex flex-col overflow-hidden">
-          <div className="flex items-center justify-between px-2 py-2 border-b border-slate-100">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+        <aside className="w-48 flex-shrink-0 border-r border-[var(--c-border)] bg-[var(--c-surface)] flex flex-col overflow-hidden">
+          <div className="flex items-center justify-between px-2 py-2 border-b border-[var(--c-border)]">
+            <span className={editorCls.sidebarHeader}>
               Páginas
             </span>
             <button
-              className="text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded px-1.5 py-0.5"
+              className="text-xs bg-[color-mix(in_srgb,var(--c-primary)_10%,transparent)] hover:opacity-80 text-[var(--c-primary)] rounded-lg px-1.5 py-0.5"
               onClick={() => dispatch({ type: "ADD_PAGE" })}
               title="Nueva página"
             >
@@ -1863,10 +1904,10 @@ export default function BookEditorPage() {
                 <div
                   key={page.id}
                   className={classNames(
-                    "group flex items-center gap-1 px-2 py-1.5 cursor-pointer border-b border-slate-50 select-none",
+                    "group flex items-center gap-1 px-2 py-1.5 cursor-pointer border-b border-[var(--c-border)] select-none",
                     isActive
-                      ? "bg-indigo-50 border-l-2 border-l-indigo-500"
-                      : "hover:bg-slate-50"
+                      ? editorCls.itemActive
+                      : editorCls.itemInactive
                   )}
                   onClick={() => dispatch({ type: "SELECT_PAGE", pageId: page.id })}
                 >
@@ -1874,17 +1915,17 @@ export default function BookEditorPage() {
                     <p
                       className={classNames(
                         "text-xs truncate",
-                        isActive ? "text-indigo-700 font-medium" : "text-slate-700"
+                        isActive ? "text-[var(--c-primary)] font-medium" : "text-[var(--c-text)]"
                       )}
                     >
                       {page.title || `Pág. ${idx + 1}`}
                     </p>
-                    <p className="text-xs text-slate-400">{page.content.length} bloques</p>
+                    <p className="text-xs text-[var(--c-muted)]">{page.content.length} bloques</p>
                   </div>
                   {isActive && (
                     <div className="flex flex-col gap-0.5 opacity-0 group-hover:opacity-100">
                       <button
-                        className="text-slate-400 hover:text-slate-700 text-xs leading-none"
+                        className="text-[var(--c-muted)] hover:text-[var(--c-text)] text-xs leading-none"
                         title="Mover arriba"
                         onClick={(e: React.MouseEvent) => {
                           e.stopPropagation();
@@ -1894,7 +1935,7 @@ export default function BookEditorPage() {
                         ▲
                       </button>
                       <button
-                        className="text-slate-400 hover:text-slate-700 text-xs leading-none"
+                        className="text-[var(--c-muted)] hover:text-[var(--c-text)] text-xs leading-none"
                         title="Mover abajo"
                         onClick={(e: React.MouseEvent) => {
                           e.stopPropagation();
@@ -1908,7 +1949,7 @@ export default function BookEditorPage() {
                   {isActive && (
                     <div className="flex gap-0.5 opacity-0 group-hover:opacity-100">
                       <button
-                        className="text-slate-400 hover:text-indigo-600 text-xs"
+                        className="text-[var(--c-muted)] hover:text-[var(--c-primary)] text-xs"
                         title="Duplicar"
                         onClick={(e: React.MouseEvent) => {
                           e.stopPropagation();
@@ -1918,11 +1959,14 @@ export default function BookEditorPage() {
                         ⊕
                       </button>
                       <button
-                        className="text-slate-400 hover:text-red-600 text-xs"
+                        className="text-[var(--c-muted)] hover:text-[var(--c-danger)] text-xs"
                         title="Eliminar"
                         onClick={(e: React.MouseEvent) => {
                           e.stopPropagation();
-                          if (book.pages.length > 1) {
+                          if (
+                            book.pages.length > 1 &&
+                            window.confirm(`¿Eliminar "${page.title || `Pág. ${idx + 1}`}"? Esta acción no se puede deshacer.`)
+                          ) {
                             dispatch({ type: "DELETE_PAGE", pageId: page.id });
                           }
                         }}
@@ -1939,9 +1983,8 @@ export default function BookEditorPage() {
 
         {/* ===== CENTER: Canvas ===== */}
         <section className="flex-1 overflow-y-auto flex flex-col">
-          {/* Add block toolbar pinned at top of canvas area */}
           {selectedPage && (
-            <div className="flex-shrink-0 bg-white border-b border-slate-200 px-3 py-1.5 flex items-center gap-2">
+            <div className="flex-shrink-0 bg-[var(--c-surface)] border-b border-[var(--c-border)] px-3 py-1.5 flex items-center gap-2">
               <AddBlockBar dispatch={dispatch} />
             </div>
           )}
@@ -1955,16 +1998,16 @@ export default function BookEditorPage() {
               desktopView={desktopView}
             />
           ) : (
-            <div className="flex-1 flex items-center justify-center text-slate-400 text-sm">
+            <div className="flex-1 flex items-center justify-center text-[var(--c-muted)] text-sm">
               Selecciona una página
             </div>
           )}
         </section>
 
         {/* ===== RIGHT SIDEBAR: Inspector ===== */}
-        <aside className="w-72 flex-shrink-0 border-l border-slate-200 bg-white flex flex-col overflow-hidden">
-          <div className="flex-shrink-0 px-3 py-2 border-b border-slate-100">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+        <aside className="w-72 flex-shrink-0 border-l border-[var(--c-border)] bg-[var(--c-surface)] flex flex-col overflow-hidden">
+          <div className="flex-shrink-0 px-3 py-2 border-b border-[var(--c-border)]">
+            <span className={editorCls.sidebarHeader}>
               Inspector
             </span>
           </div>
@@ -1979,7 +2022,7 @@ export default function BookEditorPage() {
               {selectedPage ? (
                 <PageInspector page={selectedPage} dispatch={dispatch} />
               ) : (
-                <p className="text-xs text-slate-400 italic">Sin página seleccionada</p>
+                <p className="text-xs text-[var(--c-muted)] italic">Sin página seleccionada</p>
               )}
             </InspectorCard>
 
@@ -1993,7 +2036,7 @@ export default function BookEditorPage() {
                   dispatch={dispatch}
                 />
               ) : (
-                <p className="text-xs text-slate-400 italic">
+                <p className="text-xs text-[var(--c-muted)] italic">
                   Haz clic en un bloque para editarlo
                 </p>
               )}

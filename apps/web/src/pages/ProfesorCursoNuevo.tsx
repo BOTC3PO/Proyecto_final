@@ -40,72 +40,76 @@ export default function ProfesorCursoNuevo() {
   );
 
   return (
-    <main className="flex-1">
-      <div className="mx-auto flex max-w-3xl flex-col gap-4 px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-xl bg-white p-6 shadow">
-          <h1 className="text-2xl font-semibold text-gray-900">Crear clase o sección</h1>
-          <p className="mt-2 text-sm text-gray-600">
-            Completa la información básica para registrar una nueva clase. Puedes editar los detalles más adelante.
-          </p>
-          <form className="mt-6 grid gap-4">
-            <label className="grid gap-2 text-sm">
-              <span className="font-medium text-gray-700">Nombre de la clase</span>
-              <input
-                className="rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
-                placeholder="Ej. Matemáticas 1°A"
-                type="text"
-              />
-            </label>
-            <label className="grid gap-2 text-sm">
-              <span className="font-medium text-gray-700">Sección</span>
-              <input
-                className="rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
-                placeholder="Ej. A"
-                type="text"
-              />
-            </label>
-            <label className="grid gap-2 text-sm">
-              <span className="font-medium text-gray-700">Descripción</span>
-              <textarea
-                className="min-h-[120px] rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
-                placeholder="Agrega una descripción para la clase..."
-              />
-            </label>
-            <label className="grid gap-2 text-sm">
-              <span className="font-medium text-gray-700">Invitar administrador</span>
-              <select
-                className="rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
-                value={selectedAdmin}
-                onChange={(event) => setSelectedAdmin(event.target.value)}
-              >
-                <option value="">Sin invitación</option>
-                {availableAdmins.map((admin) => (
-                  <option key={admin.id} value={admin.id}>
-                    {admin.name}
-                  </option>
-                ))}
-              </select>
-              <span className="text-xs text-gray-500">
-                El administrador invitado debe pertenecer a la misma escuela.
-              </span>
-            </label>
-            <div className="flex flex-wrap gap-3">
-              <button
-                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
-                type="button"
-              >
-                Guardar clase
-              </button>
-              <Link
-                className="inline-flex items-center justify-center text-sm text-gray-600 hover:underline"
-                to="/profesor/cursos"
-              >
-                Cancelar
-              </Link>
-            </div>
-          </form>
-        </div>
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+      <div>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">Crear clase o sección</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">
+          Completá la información básica. Podés editar los detalles más adelante.
+        </p>
       </div>
-    </main>
+
+      <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
+        <div className="px-4 py-3 border-b border-[var(--c-border)]">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
+            Datos de la clase
+          </p>
+        </div>
+        <form className="p-4 grid gap-4">
+          <label className="grid gap-1.5 text-sm">
+            <span className="font-medium text-[var(--c-text)]">Nombre de la clase</span>
+            <input
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+              placeholder="Ej. Matemáticas 1°A"
+              type="text"
+            />
+          </label>
+          <label className="grid gap-1.5 text-sm">
+            <span className="font-medium text-[var(--c-text)]">Sección</span>
+            <input
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+              placeholder="Ej. A"
+              type="text"
+            />
+          </label>
+          <label className="grid gap-1.5 text-sm">
+            <span className="font-medium text-[var(--c-text)]">Descripción</span>
+            <textarea
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)] min-h-[80px] resize-none"
+              placeholder="Agrega una descripción para la clase..."
+            />
+          </label>
+          <label className="grid gap-1.5 text-sm">
+            <span className="font-medium text-[var(--c-text)]">Administrador responsable</span>
+            <select
+              value={selectedAdmin}
+              onChange={(e) => setSelectedAdmin(e.target.value)}
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+            >
+              <option value="">Seleccioná un administrador</option>
+              {availableAdmins.map((admin) => (
+                <option key={admin.id} value={admin.id}>{admin.name}</option>
+              ))}
+            </select>
+            <span className="text-xs text-[var(--c-muted)]">
+              El administrador invitado debe pertenecer a la misma escuela.
+            </span>
+          </label>
+          <div className="flex gap-3 pt-2">
+            <button
+              type="submit"
+              className="rounded-xl bg-[var(--c-primary)] px-5 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+            >
+              Crear clase
+            </button>
+            <Link
+              to="/profesor/cursos"
+              className="rounded-xl border border-[var(--c-border)] px-5 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+            >
+              Cancelar
+            </Link>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }

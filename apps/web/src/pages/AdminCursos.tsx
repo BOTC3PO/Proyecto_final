@@ -28,39 +28,55 @@ export default function AdminCursos() {
   }, []);
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">Gestión de cursos</h1>
-        <p className="text-base text-slate-600">
-          Revisa la calidad del contenido, activa nuevas rutas y monitorea el impacto en los
-          estudiantes.
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+      <div>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">Gestión de cursos</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">
+          Revisá la calidad del contenido y monitoreá el impacto en los estudiantes.
         </p>
-      </header>
+      </div>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        {loading && <p className="text-sm text-slate-500">Cargando cursos...</p>}
-        {error && <p className="text-sm text-red-500">Error: {error}</p>}
-        {!loading &&
-          !error &&
-          cursos.map((curso) => (
+      {error && (
+        <div className="rounded-xl border border-[color-mix(in_srgb,var(--c-danger)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] px-4 py-3 text-sm text-[var(--c-danger)]">
+          {error}
+        </div>
+      )}
+
+      {loading && (
+        <div className="grid gap-3 md:grid-cols-3">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="h-32 rounded-xl animate-pulse bg-[var(--c-border)]" />
+          ))}
+        </div>
+      )}
+
+      {!loading && !error && cursos.length === 0 && (
+        <div className="rounded-xl border border-dashed border-[var(--c-border)] px-4 py-12 text-center">
+          <p className="text-sm text-[var(--c-muted)]">No hay cursos registrados.</p>
+        </div>
+      )}
+
+      {!loading && !error && cursos.length > 0 && (
+        <div className="grid gap-3 md:grid-cols-3">
+          {cursos.map((curso) => (
             <article
               key={curso.id}
-              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+              className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 space-y-2"
             >
-              <h2 className="text-lg font-semibold text-slate-900">{curso.titulo}</h2>
-              <p className="mt-2 text-sm text-slate-500">Estado: {curso.estado}</p>
-              <p className="mt-1 text-sm text-slate-500">
-                Estudiantes activos: {curso.estudiantes}
-              </p>
-              <button className="mt-4 rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-700">
+              <h2 className="text-sm font-semibold text-[var(--c-text)]">{curso.titulo}</h2>
+              <div className="space-y-1">
+                <p className="text-xs text-[var(--c-muted)]">Estado: {curso.estado}</p>
+                <p className="text-xs text-[var(--c-muted)]">
+                  Estudiantes activos: {curso.estudiantes}
+                </p>
+              </div>
+              <button className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors">
                 Ver detalles
               </button>
             </article>
           ))}
-        {!loading && !error && cursos.length === 0 && (
-          <p className="text-sm text-slate-500">No hay cursos registrados.</p>
-        )}
-      </section>
-    </main>
+        </div>
+      )}
+    </div>
   );
 }

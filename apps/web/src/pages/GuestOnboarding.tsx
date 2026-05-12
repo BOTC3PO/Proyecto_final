@@ -11,33 +11,49 @@ export default function GuestOnboarding() {
         : "Pendiente";
 
   return (
-    <main className="flex-1 bg-gray-100">
-      <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-12">
-        <section className="rounded-2xl bg-white p-8 shadow-sm">
-          <h1 className="text-2xl font-semibold text-gray-900">Onboarding de invitado</h1>
-          <p className="mt-3 text-sm text-gray-600">
-            Tu acceso como invitado está en proceso de validación. Una vez aprobado, podrás ingresar a
-            los módulos y funcionalidades protegidas.
+    <div className="min-h-screen bg-[var(--c-bg)] flex items-center justify-center px-4 py-12">
+      <div className="w-full max-w-md space-y-4">
+        <div>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">
+            Acceso como invitado
+          </h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">
+            Tu solicitud está en proceso de validación.
           </p>
-          <div className="mt-4 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700">
-            Estado actual: <span className="font-semibold">{statusLabel}</span>
+        </div>
+
+        <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 space-y-4">
+          <div className="flex items-center justify-between">
+            <p className="text-sm text-[var(--c-muted)]">Estado actual</p>
+            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
+              user?.guestOnboardingStatus === 'aceptado'
+                ? 'bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]'
+                : user?.guestOnboardingStatus === 'rechazado'
+                ? 'bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]'
+                : 'bg-[color-mix(in_srgb,var(--c-warning)_12%,transparent)] text-[var(--c-warning)]'
+            }`}>
+              {statusLabel}
+            </span>
           </div>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <p className="text-sm text-[var(--c-muted)]">
+            Una vez aprobado podrás acceder a los módulos y funcionalidades protegidas.
+          </p>
+          <div className="flex gap-2 pt-2">
             <Link
               to="/register"
-              className="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
             >
               Completar alta
             </Link>
             <Link
               to="/contact"
-              className="rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+              className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
             >
               Contactar soporte
             </Link>
           </div>
-        </section>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

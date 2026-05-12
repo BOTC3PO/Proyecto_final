@@ -60,8 +60,7 @@ function getAvatarColor(initials: string): string {
 export default function aula() {
   const { user } = useAuth();
   const userInitials = user?.name
-    ? user.name.split(" ").filter(Boolean)
-        .map((p) => p[0]).join("").slice(0, 2).toUpperCase()
+    ? user.name.split(" ").filter(Boolean).map((p) => p[0]).join("").slice(0, 2).toUpperCase()
     : "?";
   const { id: routeId } = useParams();
   const location = useLocation();
@@ -87,6 +86,7 @@ export default function aula() {
     useState<Record<string, { puntos: number; montoPorPunto: number }>>({});
   const [pujaStatus, setPujaStatus] =
     useState<Record<string, "idle" | "loading" | "error">>({});
+
   const normalizedStatus = useMemo(
     () => normalizeClassroomStatus(classroom?.status ?? null),
     [classroom?.status]
@@ -103,17 +103,9 @@ export default function aula() {
     if (!classroomId) return;
     let active = true;
     fetchClassroomDetail(classroomId)
-      .then((data) => {
-        if (!active) return;
-        setClassroom(data);
-      })
-      .catch(() => {
-        if (!active) return;
-        setClassroom(null);
-      });
-    return () => {
-      active = false;
-    };
+      .then((data) => { if (!active) return; setClassroom(data); })
+      .catch(() => { if (!active) return; setClassroom(null); });
+    return () => { active = false; };
   }, [classroomId]);
 
   const loadFeed = async (active: { current: boolean }) => {
@@ -141,56 +133,28 @@ export default function aula() {
   useEffect(() => {
     const activeRef = { current: true };
     loadFeed(activeRef);
-    return () => {
-      activeRef.current = false;
-    };
+    return () => { activeRef.current = false; };
   }, [classroomId]);
 
   const handleFilesChange = (files: FileList | null) => {
-    if (!files) {
-      setPublicationFiles([]);
-      return;
-    }
-    setPublicationFiles(Array.from(files));
+    setPublicationFiles(files ? Array.from(files) : []);
   };
 
   const handleSubmitPublication = async () => {
-    if (!classroomId) {
-      setPublicationStatus("error");
-      setPublicationMessage("No pudimos identificar el aula.");
-      return;
-    }
-    if (!newPublication.trim()) {
-      setPublicationStatus("error");
-      setPublicationMessage("Escribe una novedad antes de publicar.");
-      return;
-    }
-    if (isClassroomReadOnly) {
-      setPublicationStatus("error");
-      setPublicationMessage("El aula está en modo solo lectura.");
-      return;
-    }
+    if (!classroomId) { setPublicationStatus("error"); setPublicationMessage("No pudimos identificar el aula."); return; }
+    if (!newPublication.trim()) { setPublicationStatus("error"); setPublicationMessage("Escribe una novedad antes de publicar."); return; }
+    if (isClassroomReadOnly) { setPublicationStatus("error"); setPublicationMessage("El aula está en modo solo lectura."); return; }
     setPublicationStatus("submitting");
     setPublicationMessage(null);
     try {
       const initials = user?.name
-        ? user.name
-            .split(" ")
-            .filter(Boolean)
-            .map((part) => part[0])
-            .join("")
-            .slice(0, 2)
-            .toUpperCase()
+        ? user.name.split(" ").filter(Boolean).map((part) => part[0]).join("").slice(0, 2).toUpperCase()
         : "AA";
       await createPublication(classroomId, {
         contenido: newPublication.trim(),
         authorInitials: initials,
         title: "Nueva publicación",
-        archivos: publicationFiles.map((file) => ({
-          name: file.name,
-          size: file.size,
-          type: file.type,
-        })),
+        archivos: publicationFiles.map((file) => ({ name: file.name, size: file.size, type: file.type })),
       });
       setNewPublication("");
       setPublicationFiles([]);
@@ -215,33 +179,22 @@ export default function aula() {
     Promise.all([apiGet<{ items: Module[] }>(modulesUrl), apiGet<ProgressResponse>(`/api/progreso?${params.toString()}`)])
       .then(([modulesResponse, progressResponse]) => {
         if (!active) return;
-        const completedSet = new Set(
-          progressResponse.items.filter((item) => item.status === "completado").map((item) => item.moduloId)
-        );
-        const inProgressSet = new Set(
-          progressResponse.items.filter((item) => item.status === "en_progreso").map((item) => item.moduloId)
-        );
-        const lockMap = new Map(progressResponse.unlocks.map((unlock) => [unlock.moduloId, unlock.isLocked]));
-        const mapped = modulesResponse.items.map((module) => ({
-          id: module.id,
-          title: module.title,
-          isLocked: lockMap.get(module.id) ?? false,
-          progressPercent: completedSet.has(module.id) ? 100 : inProgressSet.has(module.id) ? 50 : 0,
-        }));
-        setClassProgress(mapped);
+        const completedSet = new Set(progressResponse.items.filter((i) => i.status === "completado").map((i) => i.moduloId));
+        const inProgressSet = new Set(progressResponse.items.filter((i) => i.status === "en_progreso").map((i) => i.moduloId));
+        const lockMap = new Map(progressResponse.unlocks.map((u) => [u.moduloId, u.isLocked]));
+        setClassProgress(modulesResponse.items.map((m) => ({
+          id: m.id, title: m.title,
+          isLocked: lockMap.get(m.id) ?? false,
+          progressPercent: completedSet.has(m.id) ? 100 : inProgressSet.has(m.id) ? 50 : 0,
+        })));
       })
       .catch((error) => {
         if (!active) return;
         setProgressError(error instanceof Error ? error.message : "No pudimos cargar el progreso del aula.");
         setClassProgress([]);
       })
-      .finally(() => {
-        if (!active) return;
-        setProgressLoading(false);
-      });
-    return () => {
-      active = false;
-    };
+      .finally(() => { if (!active) return; setProgressLoading(false); });
+    return () => { active = false; };
   }, [classroomId, user?.id]);
 
   useEffect(() => {
@@ -252,12 +205,7 @@ export default function aula() {
         if (!active) return;
         setSubastas(items);
         const pujaMap: Record<string, PujaItem[]> = {};
-        await Promise.all(
-          items.map(async (e) => {
-            const pujas = await fetchMisPujas(e.id, user.id);
-            pujaMap[e.id] = pujas;
-          })
-        );
+        await Promise.all(items.map(async (e) => { pujaMap[e.id] = await fetchMisPujas(e.id, user.id); }));
         if (!active) return;
         setMisPujas(pujaMap);
       })
@@ -271,27 +219,18 @@ export default function aula() {
     setResourceLinksLoading(true);
     setResourceLinksError(null);
     fetchResourceLinks(classroomId)
-      .then((response) => {
-        if (!active) return;
-        setResourceLinks(response.items);
-      })
+      .then((response) => { if (!active) return; setResourceLinks(response.items); })
       .catch((error) => {
         if (!active) return;
         setResourceLinks([]);
         setResourceLinksError(error instanceof Error ? error.message : "No pudimos cargar los enlaces.");
       })
-      .finally(() => {
-        if (!active) return;
-        setResourceLinksLoading(false);
-      });
-    return () => {
-      active = false;
-    };
+      .finally(() => { if (!active) return; setResourceLinksLoading(false); });
+    return () => { active = false; };
   }, [classroomId]);
 
   const isTeacherOfClass = useMemo(() => {
     if (!user || !classroom || user.role !== "TEACHER") return false;
-    // El backend ya filtra por membresía
     return true;
   }, [classroom, user]);
 
@@ -325,12 +264,9 @@ export default function aula() {
 
   const getResourceTypeMeta = (type: ResourceLinkType) => {
     switch (type) {
-      case "drive":
-        return { label: "Drive", badge: "bg-emerald-100 text-emerald-700" };
-      case "youtube":
-        return { label: "YouTube", badge: "bg-red-100 text-red-700" };
-      default:
-        return { label: "Externo", badge: "bg-slate-100 text-slate-700" };
+      case "drive": return { label: "Drive", badge: "bg-emerald-100 text-emerald-700" };
+      case "youtube": return { label: "YouTube", badge: "bg-red-100 text-red-700" };
+      default: return { label: "Externo", badge: "bg-[var(--c-bg)] text-[var(--c-muted)]" };
     }
   };
 
@@ -341,11 +277,8 @@ export default function aula() {
     setPujaStatus((prev) => ({ ...prev, [examen.id]: "loading" }));
     try {
       await crearPuja(examen.id, {
-        usuarioId: user.id,
-        aulaId: classroomId,
-        schoolId: user.schoolId ?? "",
-        puntos: form.puntos,
-        montoPorPunto: form.montoPorPunto,
+        usuarioId: user.id, aulaId: classroomId, schoolId: user.schoolId ?? "",
+        puntos: form.puntos, montoPorPunto: form.montoPorPunto,
       });
       const updated = await fetchMisPujas(examen.id, user.id);
       setMisPujas((prev) => ({ ...prev, [examen.id]: updated }));
@@ -356,18 +289,17 @@ export default function aula() {
   };
 
   const getResourceDisplayUrl = (url: string) => {
-    try {
-      const parsed = new URL(url);
-      return parsed.hostname.replace(/^www\./, "");
-    } catch {
-      return url;
-    }
+    try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return url; }
   };
 
+  const cardCls = "bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4";
+  const inputCls = "rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]";
+
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-[var(--c-bg)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-blue-600 text-white rounded-xl h-28 relative">
+        {/* Banner */}
+        <div className="bg-[var(--c-primary)] text-white rounded-xl h-28 relative">
           <div className="absolute left-5 bottom-3 text-sm">
             {roleLabel} • {teacherName} | Código de clase: {classCode}
           </div>
@@ -377,62 +309,57 @@ export default function aula() {
           {user?.role === "TEACHER" ? (
             classroomId ? (
               <Link
-                className="absolute right-5 bottom-3 bg-white text-blue-700 px-4 py-1.5 rounded-md shadow"
+                className="absolute right-5 bottom-3 bg-[var(--c-surface)] text-[var(--c-primary)] px-4 py-1.5 rounded-lg border border-[var(--c-border)] text-sm font-medium"
                 to={`/profesor/aulas/${classroomId}/configuracion`}
               >
                 Gestionar aula
               </Link>
             ) : (
-              <span className="absolute right-5 bottom-3 rounded-md bg-blue-500/60 px-3 py-1.5 text-xs">
+              <span className="absolute right-5 bottom-3 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
                 Acceso {accessLabel}
               </span>
             )
           ) : (
-            <div className="absolute right-5 bottom-3 rounded-md bg-blue-500/60 px-3 py-1.5 text-xs">
+            <div className="absolute right-5 bottom-3 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
               Acceso {accessLabel}
             </div>
           )}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+          {/* Main column */}
           <div className="lg:col-span-2 space-y-5">
-            <div className="bg-white rounded-xl shadow p-4">
+            {/* Publication input */}
+            <div className={cardCls}>
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(userInitials)}`}>
                   {userInitials}
                 </div>
                 <input
-                  className="flex-1 rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-blue-500"
+                  className={`flex-1 ${inputCls}`}
                   placeholder="Escribe una novedad..."
                   value={newPublication}
                   onChange={(event) => setNewPublication(event.target.value)}
                   disabled={isClassroomReadOnly}
                 />
                 <button
-                  className="ml-3 bg-blue-600 text-white px-4 py-2 rounded-md disabled:opacity-60"
+                  className="ml-3 bg-[var(--c-primary)] text-white px-4 py-2 rounded-lg text-sm disabled:opacity-60"
                   onClick={handleSubmitPublication}
                   disabled={publicationStatus === "submitting" || isClassroomReadOnly}
                 >
                   {publicationStatus === "submitting" ? "Publicando..." : "Publicar"}
                 </button>
               </div>
-              <div className="flex flex-wrap items-center gap-3 mt-3 text-gray-600">
-                <label className="p-2 hover:bg-gray-100 rounded cursor-pointer" htmlFor="aula-archivos">
-                  📎
-                </label>
-                <label className="p-2 hover:bg-gray-100 rounded cursor-pointer" htmlFor="aula-archivos">
-                  🖼️
-                </label>
+              <div className="flex flex-wrap items-center gap-3 mt-3 text-[var(--c-muted)]">
+                <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">📎</label>
+                <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">🖼️</label>
                 <input
-                  id="aula-archivos"
-                  type="file"
-                  multiple
-                  className="hidden"
+                  id="aula-archivos" type="file" multiple className="hidden"
                   onChange={(event) => handleFilesChange(event.target.files)}
                   disabled={isClassroomReadOnly}
                 />
                 {publicationFiles.length > 0 && (
-                  <span className="text-xs text-gray-500">{publicationFiles.length} archivo(s) adjunto(s)</span>
+                  <span className="text-xs text-[var(--c-muted)]">{publicationFiles.length} archivo(s) adjunto(s)</span>
                 )}
               </div>
               {isClassroomReadOnly && (
@@ -441,304 +368,258 @@ export default function aula() {
                 </p>
               )}
               {publicationMessage && (
-                <p className={`mt-3 text-xs ${publicationStatus === "error" ? "text-red-600" : "text-green-600"}`}>
+                <p className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-green-600"}`}>
                   {publicationMessage}
                 </p>
               )}
             </div>
 
+            {/* Feed */}
             <div className="space-y-4">
-              {feedLoading && <div className="text-sm text-gray-500">Cargando publicaciones...</div>}
-              {feedError && !feedLoading && <div className="text-sm text-red-600">{feedError}</div>}
-              {!feedLoading && !feedError && publications.length === 0 && (
-                <div className="text-sm text-gray-500">Aún no hay publicaciones.</div>
+              {feedLoading && (
+                <>
+                  <div className="h-24 rounded-xl animate-pulse bg-[var(--c-border)]" />
+                  <div className="h-24 rounded-xl animate-pulse bg-[var(--c-border)]" />
+                </>
               )}
-              {!feedLoading &&
-                !feedError &&
-                publications.map((publication) => (
-                  <article key={publication.id} className="bg-white rounded-xl shadow p-4">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(publication.authorInitials ?? "?")}`}>
-                        {publication.authorInitials ?? "?"}
-                      </div>
-                      <div className="font-semibold">{publication.title}</div>
+              {feedError && !feedLoading && <div className="text-sm text-[var(--c-danger)]">{feedError}</div>}
+              {!feedLoading && !feedError && publications.length === 0 && (
+                <div className="text-sm text-[var(--c-muted)]">Aún no hay publicaciones.</div>
+              )}
+              {!feedLoading && !feedError && publications.map((publication) => (
+                <article key={publication.id} className={cardCls}>
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(publication.authorInitials ?? "?")}`}>
+                      {publication.authorInitials ?? "?"}
                     </div>
-                    <p className="mt-3 text-sm text-gray-800">{publication.body}</p>
-                    {publication.links && (
-                      <div className="flex gap-6 mt-3">
-                        {publication.links.map((link) => (
-                          <a key={link.label} className="text-blue-600 hover:underline" href={link.href}>
-                            {link.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                    <p className="text-xs text-gray-500 mt-2">{publication.publishedAtLabel}</p>
-                  </article>
-                ))}
+                    <div className="font-semibold text-sm text-[var(--c-text)]">{publication.title}</div>
+                  </div>
+                  <p className="mt-3 text-sm text-[var(--c-text)]">{publication.body}</p>
+                  {publication.links && (
+                    <div className="flex gap-6 mt-3">
+                      {publication.links.map((link) => (
+                        <a key={link.label} className="text-[var(--c-primary)] hover:underline text-sm" href={link.href}>
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                  <p className="text-xs text-[var(--c-muted)] mt-2">{publication.publishedAtLabel}</p>
+                </article>
+              ))}
             </div>
           </div>
 
+          {/* Sidebar */}
           <aside className="space-y-5">
-            <div className="bg-white rounded-xl shadow p-4">
-              <h3 className="text-lg font-semibold">🏆 Top Estudiantes</h3>
+            {/* Leaderboard */}
+            <div className={cardCls}>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">🏆 Top Estudiantes</h3>
               <ul className="mt-3 space-y-2 text-sm">
-                {feedLoading && <li className="text-gray-500">Cargando ranking...</li>}
-                {feedError && !feedLoading && <li className="text-red-600">{feedError}</li>}
+                {feedLoading && <li className="h-4 rounded animate-pulse bg-[var(--c-border)]" />}
+                {feedError && !feedLoading && <li className="text-[var(--c-danger)]">{feedError}</li>}
                 {!feedLoading && !feedError && leaderboard.length === 0 && (
-                  <li className="text-gray-500">Sin ranking disponible.</li>
+                  <li className="text-[var(--c-muted)]">Sin ranking disponible.</li>
                 )}
-                {!feedLoading &&
-                  !feedError &&
-                  leaderboard.map((entry, index) => (
-                    <li key={entry.id} className="flex justify-between">
-                      <span>
-                        {index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"} {entry.name}
-                      </span>
-                      <span>{entry.points} pts</span>
-                    </li>
-                  ))}
+                {!feedLoading && !feedError && leaderboard.map((entry, index) => (
+                  <li key={entry.id} className="flex justify-between text-[var(--c-text)]">
+                    <span>{index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"} {entry.name}</span>
+                    <span className="text-[var(--c-muted)]">{entry.points} pts</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl shadow p-4">
-              <h3 className="text-lg font-semibold">Progreso de la clase</h3>
+            {/* Progreso */}
+            <div className={cardCls}>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">Progreso de la clase</h3>
               <div className="mt-3 space-y-3 text-sm">
-                {progressLoading && <p className="text-gray-500">Cargando progreso...</p>}
-                {progressError && !progressLoading && <p className="text-red-600">{progressError}</p>}
+                {progressLoading && <div className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />}
+                {progressError && !progressLoading && <p className="text-[var(--c-danger)]">{progressError}</p>}
                 {!progressLoading && !progressError && classProgress.length === 0 && (
-                  <p className="text-gray-500">No hay módulos disponibles para esta aula.</p>
+                  <p className="text-[var(--c-muted)]">No hay módulos disponibles para esta aula.</p>
                 )}
-                {!progressLoading &&
-                  !progressError &&
-                  classProgress.map((module) => (
-                    <div key={module.id}>
-                      <div className="flex justify-between items-center">
-                        <span>{module.title}</span>
-                        <span
-                          className={`text-xs px-2 py-0.5 rounded-full ${
-                            module.isLocked
-                              ? "bg-gray-100 text-gray-500"
-                              : module.progressPercent >= 100
-                              ? "bg-green-100 text-green-700"
-                              : module.progressPercent > 0
-                              ? "bg-blue-100 text-blue-700"
-                              : "bg-gray-100 text-gray-500"
-                          }`}
-                        >
-                          {module.isLocked
-                            ? "Bloqueado"
-                            : module.progressPercent >= 100
-                            ? "Completado"
-                            : module.progressPercent > 0
-                            ? "En progreso"
-                            : "Sin iniciar"}
-                        </span>
-                      </div>
-                      <div className="h-2 bg-gray-200 rounded">
-                        <div
-                          className={`h-2 rounded ${
-                            module.isLocked
-                              ? "bg-gray-400"
-                              : module.progressPercent >= 100
-                              ? "bg-green-500"
-                              : module.progressPercent > 0
-                              ? "bg-blue-500"
-                              : "bg-gray-400"
-                          }`}
-                          style={{ width: `${module.progressPercent}%` }}
-                        />
-                      </div>
+                {!progressLoading && !progressError && classProgress.map((module) => (
+                  <div key={module.id}>
+                    <div className="flex justify-between items-center">
+                      <span className="text-[var(--c-text)]">{module.title}</span>
+                      <span className={`text-xs px-2 py-0.5 rounded-full ${
+                        module.isLocked
+                          ? "bg-[var(--c-bg)] text-[var(--c-muted)]"
+                          : module.progressPercent >= 100
+                          ? "bg-green-100 text-green-700"
+                          : module.progressPercent > 0
+                          ? "bg-blue-100 text-blue-700"
+                          : "bg-[var(--c-bg)] text-[var(--c-muted)]"
+                      }`}>
+                        {module.isLocked ? "Bloqueado"
+                          : module.progressPercent >= 100 ? "Completado"
+                          : module.progressPercent > 0 ? "En progreso"
+                          : "Sin iniciar"}
+                      </span>
                     </div>
-                  ))}
+                    <div className="h-1.5 bg-[var(--c-border)] rounded mt-1">
+                      <div
+                        className={`h-1.5 rounded ${
+                          module.isLocked ? "bg-[var(--c-muted)]"
+                          : module.progressPercent >= 100 ? "bg-green-500"
+                          : module.progressPercent > 0 ? "bg-blue-500"
+                          : "bg-[var(--c-muted)]"
+                        }`}
+                        style={{ width: `${module.progressPercent}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow p-4">
-              <h3 className="text-lg font-semibold">Enlaces útiles</h3>
+            {/* Enlaces útiles */}
+            <div className={cardCls}>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">Enlaces útiles</h3>
               <div className="mt-3 space-y-2 text-sm">
-                {resourceLinksLoading && <p className="text-gray-500">Cargando enlaces...</p>}
+                {resourceLinksLoading && <div className="h-8 rounded-lg animate-pulse bg-[var(--c-border)]" />}
                 {resourceLinksError && !resourceLinksLoading && (
-                  <p className="text-red-600">{resourceLinksError}</p>
+                  <p className="text-[var(--c-danger)]">{resourceLinksError}</p>
                 )}
                 {!resourceLinksLoading && !resourceLinksError && resourceLinks.length === 0 && (
-                  <p className="text-gray-500">No hay enlaces disponibles.</p>
+                  <p className="text-[var(--c-muted)]">No hay enlaces disponibles.</p>
                 )}
-                {!resourceLinksLoading &&
-                  !resourceLinksError &&
-                  resourceLinks.map((link) => {
-                    const meta = getResourceTypeMeta(link.type);
-                    return (
-                      <a
-                        key={link.id}
-                        className="flex items-center justify-between gap-3 rounded-md border border-gray-100 px-3 py-2 hover:border-blue-200 hover:bg-blue-50"
-                        href={link.url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <div className="flex flex-col">
-                          <span className="font-medium text-gray-900">{getResourceDisplayUrl(link.url)}</span>
-                          <span className="text-xs text-gray-500">{link.url}</span>
-                        </div>
-                        <span className={`text-xs px-2 py-0.5 rounded-full ${meta.badge}`}>{meta.label}</span>
-                      </a>
-                    );
-                  })}
+                {!resourceLinksLoading && !resourceLinksError && resourceLinks.map((link) => {
+                  const meta = getResourceTypeMeta(link.type);
+                  return (
+                    <a
+                      key={link.id}
+                      className="flex items-center justify-between gap-3 rounded-lg border border-[var(--c-border)] px-3 py-2 hover:border-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <div className="flex flex-col min-w-0">
+                        <span className="font-medium text-[var(--c-text)] truncate">{getResourceDisplayUrl(link.url)}</span>
+                        <span className="text-xs text-[var(--c-muted)] truncate">{link.url}</span>
+                      </div>
+                      <span className={`text-xs px-2 py-0.5 rounded-full shrink-0 ${meta.badge}`}>{meta.label}</span>
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow p-4">
-              <h3 className="text-lg font-semibold">Próximas actividades</h3>
+            {/* Próximas actividades */}
+            <div className={cardCls}>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">Próximas actividades</h3>
               <ul className="mt-3 text-sm space-y-2">
-                {feedLoading && <li className="text-gray-500">Cargando actividades...</li>}
-                {feedError && !feedLoading && <li className="text-red-600">{feedError}</li>}
+                {feedLoading && <li className="h-10 rounded-lg animate-pulse bg-[var(--c-border)]" />}
+                {feedError && !feedLoading && <li className="text-[var(--c-danger)]">{feedError}</li>}
                 {!feedLoading && !feedError && upcomingActivities.length === 0 && (
-                  <li className="text-gray-500">No hay actividades próximas.</li>
+                  <li className="text-[var(--c-muted)]">No hay actividades próximas.</li>
                 )}
-                {!feedLoading &&
-                  !feedError &&
-                  upcomingActivities.map((activity) => (
-                    <li key={activity.id}
-                      className="flex items-start gap-2 rounded-lg border border-slate-100 px-3 py-2">
-                      <span className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ${
-                        activity.tipo === "evaluacion"
-                          ? "bg-amber-100 text-amber-700"
-                          : activity.tipo === "evento"
-                          ? "bg-violet-100 text-violet-700"
-                          : "bg-blue-100 text-blue-700"
-                      }`}>
-                        {activity.tipo === "evaluacion" ? "📝"
-                          : activity.tipo === "evento" ? "📅" : "📖"}
-                      </span>
-                      <div>
-                        <p className="text-sm font-medium text-slate-800">{activity.label}</p>
-                        <p className="text-xs text-slate-400">{activity.when}</p>
-                        {activity.descripcion && (
-                          <p className="text-xs text-slate-500 mt-0.5">{activity.descripcion}</p>
-                        )}
-                      </div>
-                    </li>
-                  ))}
+                {!feedLoading && !feedError && upcomingActivities.map((activity) => (
+                  <li key={activity.id}
+                    className="flex items-start gap-2 rounded-lg border border-[var(--c-border)] px-3 py-2">
+                    <span className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ${
+                      activity.tipo === "evaluacion" ? "bg-amber-100 text-amber-700"
+                      : activity.tipo === "evento" ? "bg-violet-100 text-violet-700"
+                      : "bg-blue-100 text-blue-700"
+                    }`}>
+                      {activity.tipo === "evaluacion" ? "📝" : activity.tipo === "evento" ? "📅" : "📖"}
+                    </span>
+                    <div>
+                      <p className="text-sm font-medium text-[var(--c-text)]">{activity.label}</p>
+                      <p className="text-xs text-[var(--c-muted)]">{activity.when}</p>
+                      {activity.descripcion && (
+                        <p className="text-xs text-[var(--c-muted)] mt-0.5">{activity.descripcion}</p>
+                      )}
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
 
+            {/* Subastas */}
             {subastas.length > 0 && (
-              <div className="bg-white rounded-xl shadow p-4 space-y-3">
-                <h3 className="text-lg font-semibold">🏷️ Subastas activas</h3>
+              <div className={`${cardCls} space-y-3`}>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">🏷️ Subastas activas</h3>
                 {subastas.map((examen) => {
                   const misPujasExamen = misPujas[examen.id] ?? [];
-                  const totalPujado = misPujasExamen
-                    .filter((p) => p.estado !== "rechazada")
-                    .reduce((acc, p) => acc + p.puntos, 0);
+                  const totalPujado = misPujasExamen.filter((p) => p.estado !== "rechazada").reduce((acc, p) => acc + p.puntos, 0);
                   const restante = examen.maxCompra - totalPujado;
-                  const form = pujaForm[examen.id] ??
-                    { puntos: 1, montoPorPunto: examen.precioPromedioAjustado ?? 100 };
+                  const form = pujaForm[examen.id] ?? { puntos: 1, montoPorPunto: examen.precioPromedioAjustado ?? 100 };
                   const status = pujaStatus[examen.id] ?? "idle";
 
                   return (
-                    <div key={examen.id}
-                      className="rounded-lg border border-slate-200 p-3 space-y-2">
+                    <div key={examen.id} className="rounded-xl border border-[var(--c-border)] p-3 space-y-2">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-semibold text-slate-700">
-                          Parcial
-                        </span>
+                        <span className="text-xs font-semibold text-[var(--c-text)]">Parcial</span>
                         {examen.fechaExamen && (
-                          <span className="text-xs text-slate-400">
-                            {new Date(examen.fechaExamen).toLocaleDateString("es-AR", {
-                              day: "numeric", month: "short"
-                            })}
+                          <span className="text-xs text-[var(--c-muted)]">
+                            {new Date(examen.fechaExamen).toLocaleDateString("es-AR", { day: "numeric", month: "short" })}
                           </span>
                         )}
                       </div>
-
-                      <div className="text-xs text-slate-500 space-y-1">
+                      <div className="text-xs text-[var(--c-muted)] space-y-1">
                         <p>Precio promedio:{" "}
-                          <span className="font-medium text-slate-700">
-                            {examen.precioPromedioAjustado ?? "—"} 🪙/punto
-                          </span>
+                          <span className="font-medium text-[var(--c-text)]">{examen.precioPromedioAjustado ?? "—"} 🪙/punto</span>
                         </p>
                         <p>Podés pujar:{" "}
-                          <span className={`font-medium ${
-                            restante <= 0 ? "text-red-600" : "text-emerald-600"
-                          }`}>
+                          <span className={`font-medium ${restante <= 0 ? "text-[var(--c-danger)]" : "text-emerald-600"}`}>
                             {restante <= 0 ? "Límite alcanzado" : `${restante} punto(s) más`}
                           </span>
                         </p>
                       </div>
-
                       {restante > 0 && (
                         <div className="space-y-2">
                           <div className="grid grid-cols-2 gap-2">
-                            <label className="text-xs text-slate-500">
+                            <label className="text-xs text-[var(--c-muted)]">
                               Puntos (máx {restante})
                               <input
-                                type="number"
-                                min={1}
-                                max={restante}
-                                value={form.puntos}
+                                type="number" min={1} max={restante} value={form.puntos}
                                 onChange={(e) => setPujaForm((prev) => ({
-                                  ...prev,
-                                  [examen.id]: {
-                                    ...form,
-                                    puntos: Math.min(Number(e.target.value), restante)
-                                  }
+                                  ...prev, [examen.id]: { ...form, puntos: Math.min(Number(e.target.value), restante) }
                                 }))}
-                                className="mt-1 w-full rounded border border-slate-200 px-2 py-1 text-sm"
+                                className={`mt-1 w-full ${inputCls}`}
                               />
                             </label>
-                            <label className="text-xs text-slate-500">
+                            <label className="text-xs text-[var(--c-muted)]">
                               Monedas/punto
                               <input
-                                type="number"
-                                min={1}
-                                value={form.montoPorPunto}
+                                type="number" min={1} value={form.montoPorPunto}
                                 onChange={(e) => setPujaForm((prev) => ({
-                                  ...prev,
-                                  [examen.id]: {
-                                    ...form,
-                                    montoPorPunto: Number(e.target.value)
-                                  }
+                                  ...prev, [examen.id]: { ...form, montoPorPunto: Number(e.target.value) }
                                 }))}
-                                className="mt-1 w-full rounded border border-slate-200 px-2 py-1 text-sm"
+                                className={`mt-1 w-full ${inputCls}`}
                               />
                             </label>
                           </div>
-                          <p className="text-xs text-slate-400">
+                          <p className="text-xs text-[var(--c-muted)]">
                             Total a gastar:{" "}
-                            <span className="font-medium text-slate-700">
-                              {form.puntos * form.montoPorPunto} 🪙
-                            </span>
+                            <span className="font-medium text-[var(--c-text)]">{form.puntos * form.montoPorPunto} 🪙</span>
                           </p>
                           <button
                             type="button"
                             disabled={status === "loading"}
                             onClick={() => handlePujar(examen)}
-                            className="w-full rounded-lg bg-violet-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-violet-700 disabled:opacity-50 transition-colors"
+                            className="w-full rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
                           >
                             {status === "loading" ? "Pujando..." : "Pujar"}
                           </button>
                           {status === "error" && (
-                            <p className="text-xs text-red-600">
-                              No se pudo registrar la puja.
-                            </p>
+                            <p className="text-xs text-[var(--c-danger)]">No se pudo registrar la puja.</p>
                           )}
                         </div>
                       )}
-
                       {misPujasExamen.length > 0 && (
-                        <div className="pt-1 border-t border-slate-100">
-                          <p className="text-xs text-slate-400 mb-1">Tus pujas:</p>
+                        <div className="pt-1 border-t border-[var(--c-border)]">
+                          <p className="text-xs text-[var(--c-muted)] mb-1">Tus pujas:</p>
                           {misPujasExamen.map((p) => (
-                            <div key={p.id}
-                              className="flex justify-between text-xs text-slate-600">
+                            <div key={p.id} className="flex justify-between text-xs text-[var(--c-text)]">
                               <span>{p.puntos} punto(s) × {p.montoPorPunto} 🪙</span>
                               <span className={
-                                p.estado === "aceptada" ? "text-emerald-600" :
-                                p.estado === "rechazada" ? "text-red-500" :
-                                "text-amber-600"
-                              }>
-                                {p.estado}
-                              </span>
+                                p.estado === "aceptada" ? "text-emerald-600"
+                                : p.estado === "rechazada" ? "text-[var(--c-danger)]"
+                                : "text-amber-600"
+                              }>{p.estado}</span>
                             </div>
                           ))}
                         </div>
@@ -748,7 +629,6 @@ export default function aula() {
                 })}
               </div>
             )}
-
           </aside>
         </div>
       </div>
