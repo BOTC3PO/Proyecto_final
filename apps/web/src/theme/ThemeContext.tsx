@@ -5,7 +5,9 @@ import { useAuth } from "../auth/use-auth";
 export type ThemeId =
   | "clasico" | "clasico-vb" | "aurora" | "nocturno" | "nocturno-vb"
   | "vibrante" | "bosque" | "minimal"
+  | "obsidian" | "sakura" | "carbon" | "arctic" | "lava" | "emerald" | "dusk"
   | "galaxy" | "sunset" | "ocean" | "candy" | "neon"
+  | "aurora-boreal" | "cosmos" | "magma"
   | "admin";
 
 export type ThemeOption = {
@@ -16,27 +18,47 @@ export type ThemeOption = {
 };
 
 export const THEME_OPTIONS: ThemeOption[] = [
-  { id: "clasico",     name: "Clásico",     animated: false, price: 0   },
-  { id: "clasico-vb",  name: "Clásico VB",  animated: false, price: 0   },
-  { id: "aurora",      name: "Aurora",      animated: false, price: 40  },
-  { id: "nocturno",    name: "Nocturno",    animated: false, price: 0   },
-  { id: "nocturno-vb", name: "Nocturno VB", animated: false, price: 0   },
-  { id: "vibrante",    name: "Vibrante",    animated: false, price: 65  },
-  { id: "bosque",      name: "Bosque",      animated: false, price: 40  },
-  { id: "minimal",     name: "Minimal",     animated: false, price: 0   },
-  { id: "galaxy",      name: "Galaxy",      animated: true,  price: 80  },
-  { id: "sunset",      name: "Sunset",      animated: true,  price: 80  },
-  { id: "ocean",       name: "Ocean",       animated: true,  price: 80  },
-  { id: "candy",       name: "Candy",       animated: true,  price: 90  },
-  { id: "neon",        name: "Neon",        animated: true,  price: 100 },
+  // Gratuitos
+  { id: "clasico",       name: "Clásico",       animated: false, price: 0   },
+  { id: "clasico-vb",    name: "Clásico VB",    animated: false, price: 0   },
+  { id: "nocturno",      name: "Nocturno",      animated: false, price: 0   },
+  { id: "nocturno-vb",   name: "Nocturno VB",   animated: false, price: 0   },
+  { id: "minimal",       name: "Minimal",       animated: false, price: 0   },
+  // Estáticos de pago
+  { id: "aurora",        name: "Aurora",        animated: false, price: 40  },
+  { id: "bosque",        name: "Bosque",        animated: false, price: 40  },
+  { id: "vibrante",      name: "Vibrante",      animated: false, price: 65  },
+  { id: "obsidian",      name: "Obsidian",      animated: false, price: 50  },
+  { id: "sakura",        name: "Sakura",        animated: false, price: 55  },
+  { id: "carbon",        name: "Carbon",        animated: false, price: 50  },
+  { id: "arctic",        name: "Arctic",        animated: false, price: 45  },
+  { id: "lava",          name: "Lava",          animated: false, price: 60  },
+  { id: "emerald",       name: "Emerald",       animated: false, price: 45  },
+  { id: "dusk",          name: "Dusk",          animated: false, price: 55  },
+  // Animados
+  { id: "galaxy",        name: "Galaxy",        animated: true,  price: 80  },
+  { id: "sunset",        name: "Sunset",        animated: true,  price: 80  },
+  { id: "ocean",         name: "Ocean",         animated: true,  price: 80  },
+  { id: "candy",         name: "Candy",         animated: true,  price: 90  },
+  { id: "neon",          name: "Neon",          animated: true,  price: 100 },
+  // Legendarios
+  { id: "aurora-boreal", name: "Aurora Boreal", animated: true,  price: 250 },
+  { id: "cosmos",        name: "Cosmos",        animated: true,  price: 300 },
+  { id: "magma",         name: "Magma",         animated: true,  price: 280 },
 ];
 
 // Temas disponibles por rol
 export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
   USER: [
-    "nocturno-vb",
-    "nocturno", "galaxy", "sunset", "ocean", "candy", "neon",
-    "clasico", "clasico-vb", "aurora", "vibrante", "bosque", "minimal",
+    // Gratuitos (default: nocturno-vb)
+    "nocturno-vb", "nocturno", "clasico", "clasico-vb", "minimal",
+    // Estáticos de pago
+    "aurora", "bosque", "vibrante",
+    "obsidian", "sakura", "carbon", "arctic", "lava", "emerald", "dusk",
+    // Animados
+    "galaxy", "sunset", "ocean", "candy", "neon",
+    // Legendarios
+    "aurora-boreal", "cosmos", "magma",
   ],
   TEACHER: [
     "clasico-vb",

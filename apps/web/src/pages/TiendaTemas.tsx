@@ -9,6 +9,7 @@ import {
   type TiendaItem as TiendaItemAPI,
   type UsuarioItem,
 } from '../services/tienda';
+import type { ThemeOption } from '../theme/ThemeContext';
 
 type SaldoResponse = {
   saldo: number;
@@ -29,6 +30,106 @@ const defaultEconomyState: EconomyState = {
   ownedThemes: ['clasico'],
   activeTheme: 'clasico',
 };
+
+const FREE_THEMES = ['clasico', 'nocturno', 'clasico-vb', 'nocturno-vb', 'minimal'];
+
+const THEME_META: Record<string, {
+  bg: string; surface: string; primary: string;
+  legendary?: boolean; animated?: boolean;
+  preview?: string;
+}> = {
+  'clasico':       { bg: '#f1f5f9', surface: '#ffffff', primary: '#2563eb' },
+  'clasico-vb':    { bg: '#f8fafc', surface: '#ffffff', primary: '#2563eb' },
+  'nocturno':      { bg: '#0f172a', surface: '#1e293b', primary: '#60a5fa' },
+  'nocturno-vb':   { bg: '#0d0d18', surface: '#16162a', primary: '#7c6fcd' },
+  'minimal':       { bg: '#f2f0eb', surface: '#faf9f6', primary: '#1a1a18' },
+  'aurora':        { bg: '#fdf4ff', surface: '#ffffff', primary: '#7c3aed' },
+  'bosque':        { bg: '#f0fdf4', surface: '#ffffff', primary: '#15803d' },
+  'vibrante':      { bg: '#fff7ed', surface: '#ffffff', primary: '#ea580c' },
+  'obsidian':      { bg: '#0b0b0f', surface: '#13131a', primary: '#7b68ee' },
+  'sakura':        { bg: '#fff5f7', surface: '#ffffff', primary: '#e91e8c' },
+  'carbon':        { bg: '#1a1a1a', surface: '#242424', primary: '#ff6b35' },
+  'arctic':        { bg: '#f0f7ff', surface: '#ffffff', primary: '#0066cc' },
+  'lava':          { bg: '#0f0500', surface: '#1f0a00', primary: '#ff4500' },
+  'emerald':       { bg: '#f0fdf4', surface: '#ffffff', primary: '#059669' },
+  'dusk':          { bg: '#1a1025', surface: '#231530', primary: '#c084fc' },
+  'galaxy':        { bg: '#0a0a1a', surface: '#0f0f2a', primary: '#8b5cf6', animated: true,
+    preview: 'linear-gradient(135deg,#0a0a1a,#0f0a2a,#0a1a2a)' },
+  'sunset':        { bg: '#1a0a00', surface: '#2a1200', primary: '#ff6b35', animated: true,
+    preview: 'linear-gradient(135deg,#1a0500,#3d1500,#1a0020)' },
+  'ocean':         { bg: '#000d1a', surface: '#001a33', primary: '#0099ff', animated: true,
+    preview: 'linear-gradient(135deg,#000d1a,#001a33,#000d2a)' },
+  'candy':         { bg: '#fff0f5', surface: '#ffffff', primary: '#ff3399', animated: true,
+    preview: 'linear-gradient(90deg,#ff3399,#33ccff)' },
+  'neon':          { bg: '#05000a', surface: '#0a0014', primary: '#ff00ff', animated: true,
+    preview: 'linear-gradient(135deg,#05000a,#1a0033)' },
+  'aurora-boreal': { bg: '#030a1a', surface: '#071428', primary: '#00e5ff', animated: true, legendary: true,
+    preview: 'linear-gradient(135deg,#030a1a,#0a2a40,#071428)' },
+  'cosmos':        { bg: '#02000a', surface: '#06001a', primary: '#bf5fff', animated: true, legendary: true,
+    preview: 'linear-gradient(135deg,#02000a,#150040,#06001a)' },
+  'magma':         { bg: '#0a0200', surface: '#150400', primary: '#ff6d00', animated: true, legendary: true,
+    preview: 'linear-gradient(135deg,#0a0200,#2d0a00,#1a0300)' },
+};
+
+function ThemeCard({
+  theme: t, meta, owned, isActive, comprando, coins, onActivate, onBuy,
+}: {
+  theme: ThemeOption;
+  meta: { bg: string; surface: string; primary: string; preview?: string };
+  owned: boolean; isActive: boolean; comprando: string | null; coins: number;
+  onActivate: () => void; onBuy: () => void;
+}) {
+  const isFree = t.price === 0;
+  return (
+    <div
+      className="rounded-xl overflow-hidden border-2 transition-all"
+      style={{ borderColor: isActive ? meta.primary : 'var(--c-border)' }}
+    >
+      <div
+        className="h-16 flex items-end px-3 pb-2"
+        style={{ background: meta.preview ?? meta.bg }}
+      >
+        <div className="flex gap-1">
+          <div className="w-8 h-4 rounded" style={{ background: meta.surface }} />
+          <div className="w-4 h-4 rounded" style={{ background: meta.primary }} />
+          <div className="w-6 h-4 rounded" style={{ background: meta.surface, opacity: 0.6 }} />
+        </div>
+      </div>
+      <div
+        className="px-3 py-2.5 flex items-center justify-between gap-2"
+        style={{ background: meta.surface ?? 'var(--c-surface)' }}
+      >
+        <div className="min-w-0">
+          <p className="text-xs font-semibold truncate" style={{ color: meta.primary }}>
+            {t.name}
+          </p>
+          <p className="text-[10px]" style={{ color: 'var(--c-muted)' }}>
+            {isFree ? 'Gratis' : owned ? '✓ Tuyo' : `🪙 ${t.price}`}
+          </p>
+        </div>
+        {owned || isFree ? (
+          <button
+            onClick={onActivate}
+            disabled={isActive}
+            className="rounded-lg px-2 py-1 text-[10px] font-semibold text-white disabled:opacity-50"
+            style={{ background: meta.primary }}
+          >
+            {isActive ? 'Activo' : 'Usar'}
+          </button>
+        ) : (
+          <button
+            onClick={onBuy}
+            disabled={comprando === t.id || coins < t.price}
+            className="rounded-lg px-2 py-1 text-[10px] font-semibold text-white disabled:opacity-40"
+            style={{ background: meta.primary }}
+          >
+            {comprando === t.id ? '...' : 'Comprar'}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function TiendaTemas() {
   const { user } = useAuth();
@@ -100,69 +201,53 @@ export default function TiendaTemas() {
     return () => { active = false; };
   }, [user?.id]);
 
-  const handlePurchaseTheme = async (item: TiendaItemAPI) => {
-    const assetId = item.asset_id ?? item.id;
-    const yaComprado = misItems.some((i) => i.item_id === item.id) ||
-      economy.ownedThemes.includes(assetId);
+  const handlePurchaseTheme = async (themeId: string) => {
+    const owned = economy.ownedThemes.includes(themeId) || FREE_THEMES.includes(themeId);
 
-    if (yaComprado) {
-      setTheme(assetId as import("../theme/ThemeContext").ThemeId);
+    if (owned) {
+      setTheme(themeId as import('../theme/ThemeContext').ThemeId);
       return;
     }
 
-    if (item.precio === 0) {
-      try {
-        await comprarItem(item.id);
-        setMisItems((prev) => [...prev, {
-          item_id: item.id,
-          comprado_at: new Date().toISOString(),
-          origen: "inicial",
-          tipo: item.tipo,
-          nombre: item.nombre,
-          asset_id: item.asset_id,
-        }]);
-        setEconomy((prev) => ({
-          ...prev,
-          ownedThemes: [...new Set([...prev.ownedThemes, assetId])],
-        }));
-        setTheme(assetId as import("../theme/ThemeContext").ThemeId);
-      } catch { /* ignorar */ }
+    const themeOpt = availableThemes.find((t) => t.id === themeId);
+    if (!themeOpt) return;
+
+    if (economy.coins < themeOpt.price) {
+      setTiendaMsg(`Necesitás ${themeOpt.price} 🪙 pero tenés ${economy.coins}.`);
       return;
     }
 
-    if (economy.coins < item.precio) {
-      setTiendaMsg(
-        `Necesitás ${item.precio} 🪙 pero tenés ${economy.coins}.`
-      );
+    const catalogItem = catalogoTienda.find((i) => (i.asset_id ?? i.id) === themeId);
+    if (!catalogItem) {
+      setTiendaMsg('Este tema no está disponible en el catálogo aún.');
       return;
     }
 
-    setComprando(item.id);
+    setComprando(themeId);
     setTiendaMsg(null);
     try {
-      const result = await comprarItem(item.id);
+      const result = await comprarItem(catalogItem.id);
       if (result.ok) {
         setEconomy((prev) => ({
           ...prev,
-          coins: result.saldoRestante ?? prev.coins - item.precio,
-          ownedThemes: [...new Set([...prev.ownedThemes, assetId])],
+          coins: result.saldoRestante ?? prev.coins - themeOpt.price,
+          ownedThemes: [...new Set([...prev.ownedThemes, themeId])],
         }));
         setMisItems((prev) => [...prev, {
-          item_id: item.id,
+          item_id: catalogItem.id,
           comprado_at: new Date().toISOString(),
-          origen: "compra",
-          tipo: item.tipo,
-          nombre: item.nombre,
-          asset_id: item.asset_id,
+          origen: 'compra',
+          tipo: catalogItem.tipo,
+          nombre: catalogItem.nombre,
+          asset_id: catalogItem.asset_id,
         }]);
-        setTheme(assetId as import("../theme/ThemeContext").ThemeId);
+        setTheme(themeId as import('../theme/ThemeContext').ThemeId);
+        setTiendaMsg(`✓ ¡${themeOpt.name} desbloqueado!`);
       } else {
-        setTiendaMsg(result.mensaje ?? "No se pudo completar la compra.");
+        setTiendaMsg(result.mensaje ?? 'No se pudo completar la compra.');
       }
     } catch (err) {
-      setTiendaMsg(
-        err instanceof Error ? err.message : "Error al comprar."
-      );
+      setTiendaMsg(err instanceof Error ? err.message : 'Error al comprar.');
     } finally {
       setComprando(null);
     }
@@ -170,115 +255,177 @@ export default function TiendaTemas() {
 
   return (
     <div className="min-h-screen bg-[var(--c-bg)]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
 
         {/* Encabezado */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
             <h1 className="text-2xl font-semibold text-[var(--c-text)]">Tienda de temas</h1>
-            <p className="text-sm text-[var(--c-muted)] mt-1">Personalizá tu experiencia con monedas</p>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">
+              Personalizá tu experiencia con tus monedas.
+            </p>
           </div>
-          <div className="flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-sm font-semibold text-amber-700">
+          <div className="flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--c-warning)_35%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] px-3 py-1.5">
             <span>🪙</span>
-            <span>{economy.coins.toLocaleString('es-AR')} disponibles</span>
+            <span className="text-sm font-semibold text-[var(--c-warning)]">
+              {economy.coins.toLocaleString('es-AR')} disponibles
+            </span>
           </div>
         </div>
 
-        {/* Catálogo */}
-        <div className="bg-[var(--c-surface)] rounded-2xl shadow p-6 space-y-4">
-          {tiendaLoading ? (
-            <div className="space-y-2">
-              {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i}
-                  className="h-16 animate-pulse rounded-xl bg-[var(--c-border)]" />
-              ))}
-            </div>
-          ) : (
-            <>
-              {/* Sección temas */}
-              <div className="space-y-2">
-                <p className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]">
-                  Temas
-                </p>
-                {catalogoTienda
-                  .filter((item) => item.tipo === "tema")
-                  .map((item) => {
-                    const assetId = item.asset_id ?? item.id;
-                    const isOwned = misItems.some((i) => i.item_id === item.id)
-                      || economy.ownedThemes.includes(assetId);
-                    const isActive = theme === assetId;
-                    const isLoading = comprando === item.id;
+        {/* Mensaje de feedback */}
+        {tiendaMsg && (
+          <div className={`rounded-xl border px-4 py-3 text-sm font-medium ${
+            tiendaMsg.startsWith('✓')
+              ? 'border-[color-mix(in_srgb,var(--c-success)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-success)_8%,transparent)] text-[var(--c-success)]'
+              : 'border-[color-mix(in_srgb,var(--c-danger)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] text-[var(--c-danger)]'
+          }`}>
+            {tiendaMsg}
+          </div>
+        )}
+
+        {tiendaLoading ? (
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="h-40 rounded-2xl animate-pulse bg-[var(--c-border)]" />
+            ))}
+          </div>
+        ) : (
+          <>
+            {/* ── Temas legendarios ─────────────────────────────────── */}
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-base">⚡</span>
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">Legendarios</h2>
+                <span className="text-xs text-[var(--c-muted)]">— Animación de fondo exclusiva</span>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {availableThemes
+                  .filter((t) => THEME_META[t.id]?.legendary)
+                  .map((t) => {
+                    const meta = THEME_META[t.id]!;
+                    const owned = economy.ownedThemes.includes(t.id) || FREE_THEMES.includes(t.id);
+                    const isActive = theme === t.id;
                     return (
-                      <div key={item.id}
-                        className="flex items-center justify-between rounded-xl border border-[var(--c-border)] p-3">
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <p className="text-sm font-semibold text-[var(--c-text)]">
-                              {item.nombre}
+                      <div
+                        key={t.id}
+                        className="relative rounded-2xl overflow-hidden border-2 transition-all"
+                        style={{
+                          borderColor: isActive ? meta.primary : owned ? meta.primary + '66' : '#333',
+                          boxShadow: isActive ? `0 0 20px ${meta.primary}44` : 'none',
+                        }}
+                      >
+                        {/* Preview de fondo */}
+                        <div
+                          className="h-28 relative flex items-center justify-center"
+                          style={{ background: meta.preview ?? meta.bg }}
+                        >
+                          <div className="absolute inset-0 opacity-30" style={{
+                            backgroundImage: 'radial-gradient(1px 1px at 20% 30%, white 0%, transparent 100%), radial-gradient(1px 1px at 60% 20%, white 0%, transparent 100%), radial-gradient(1px 1px at 80% 60%, white 0%, transparent 100%), radial-gradient(1px 1px at 40% 80%, white 0%, transparent 100%)',
+                          }} />
+                          <div className="relative z-10 text-center px-3">
+                            <p className="text-sm font-bold" style={{ color: meta.primary, textShadow: `0 0 10px ${meta.primary}` }}>
+                              {t.name}
                             </p>
-                            {item.asset_id && (
-                              catalogoTienda.find(
-                                (t) => t.id === item.id
-                              ) && (() => {
-                                const themeOpt = availableThemes.find(
-                                  (t) => t.id === assetId
-                                );
-                                return themeOpt?.animated ? (
-                                  <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-semibold text-violet-700">
-                                    Animado
-                                  </span>
-                                ) : null;
-                              })()
-                            )}
-                            {isActive && (
-                              <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-semibold text-blue-700">
+                            <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                              ⚡ Legendario · Animado
+                            </p>
+                          </div>
+                          {isActive && (
+                            <div className="absolute top-2 right-2">
+                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full text-white"
+                                style={{ background: meta.primary }}>
                                 Activo
                               </span>
-                            )}
-                          </div>
-                          <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                            {item.descripcion}
-                          </p>
-                          <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                            {item.precio === 0 ? "Gratis" : `${item.precio} 🪙`}
-                          </p>
+                            </div>
+                          )}
                         </div>
-                        <button
-                          type="button"
-                          disabled={isLoading || (!isOwned && economy.coins < item.precio && item.precio > 0)}
-                          onClick={() => handlePurchaseTheme(item)}
-                          className={`rounded-lg px-3 py-1 text-xs font-semibold transition-colors ${
-                            isActive
-                              ? "bg-blue-100 text-blue-700"
-                              : isOwned
-                              ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
-                              : economy.coins >= item.precio || item.precio === 0
-                              ? "bg-[var(--c-success)] text-white hover:opacity-90"
-                              : "bg-[var(--c-border)] text-[var(--c-muted)] cursor-not-allowed"
-                          }`}
+
+                        {/* Footer de la card */}
+                        <div
+                          className="px-3 py-2.5 flex items-center justify-between gap-2"
+                          style={{ background: meta.surface }}
                         >
-                          {isLoading ? "..." : isActive ? "Activo" : isOwned ? "Activar" : "Comprar"}
-                        </button>
+                          <span className="text-xs font-semibold" style={{ color: meta.primary }}>
+                            {owned ? '✓ Desbloqueado' : `🪙 ${t.price}`}
+                          </span>
+                          {owned ? (
+                            <button
+                              onClick={() => setTheme(t.id)}
+                              disabled={isActive}
+                              className="rounded-lg px-2.5 py-1 text-xs font-semibold text-white disabled:opacity-50 transition-opacity hover:opacity-80"
+                              style={{ background: meta.primary }}
+                            >
+                              {isActive ? 'Activo' : 'Activar'}
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => handlePurchaseTheme(t.id)}
+                              disabled={comprando === t.id || economy.coins < t.price}
+                              className="rounded-lg px-2.5 py-1 text-xs font-semibold text-white disabled:opacity-40 transition-opacity hover:opacity-80"
+                              style={{ background: meta.primary }}
+                            >
+                              {comprando === t.id ? '...' : 'Comprar'}
+                            </button>
+                          )}
+                        </div>
                       </div>
                     );
                   })}
               </div>
+            </div>
 
-              {/* Mensaje de error/éxito */}
-              {tiendaMsg && (
-                <p className="text-xs text-red-500">{tiendaMsg}</p>
-              )}
-
-              {/* Próximamente */}
-              <div className="rounded-xl border border-dashed border-[var(--c-border)] p-4 text-center">
-                <p className="text-xs text-[var(--c-muted)]">
-                  Avatares, marcos y animaciones — próximamente
-                </p>
+            {/* ── Temas animados ────────────────────────────────────── */}
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-base">✨</span>
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">Animados</h2>
               </div>
-            </>
-          )}
-        </div>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {availableThemes
+                  .filter((t) => THEME_META[t.id]?.animated && !THEME_META[t.id]?.legendary)
+                  .map((t) => (
+                    <ThemeCard
+                      key={t.id}
+                      theme={t}
+                      meta={THEME_META[t.id]!}
+                      owned={economy.ownedThemes.includes(t.id)}
+                      isActive={theme === t.id}
+                      comprando={comprando}
+                      coins={economy.coins}
+                      onActivate={() => setTheme(t.id)}
+                      onBuy={() => handlePurchaseTheme(t.id)}
+                    />
+                  ))}
+              </div>
+            </div>
 
+            {/* ── Temas estáticos ───────────────────────────────────── */}
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-base">🎨</span>
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">Estáticos</h2>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {availableThemes
+                  .filter((t) => !THEME_META[t.id]?.animated && !THEME_META[t.id]?.legendary)
+                  .map((t) => (
+                    <ThemeCard
+                      key={t.id}
+                      theme={t}
+                      meta={THEME_META[t.id]!}
+                      owned={economy.ownedThemes.includes(t.id) || FREE_THEMES.includes(t.id)}
+                      isActive={theme === t.id}
+                      comprando={comprando}
+                      coins={economy.coins}
+                      onActivate={() => setTheme(t.id)}
+                      onBuy={() => handlePurchaseTheme(t.id)}
+                    />
+                  ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

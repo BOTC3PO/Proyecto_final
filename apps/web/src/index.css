@@ -110,6 +110,288 @@
 
 /* ── Temas animados ─────────────────────────────────────── */
 
+/* ── Temas estáticos nuevos ─────────────────────────────────────── */
+
+[data-theme="obsidian"] {
+  --c-bg:      #0b0b0f;
+  --c-surface: #13131a;
+  --c-border:  #22222f;
+  --c-text:    #e8e8f0;
+  --c-muted:   #6666aa;
+  --c-primary: #7b68ee;
+  --c-accent:  #9f7aea;
+  --c-success: #48bb78;
+  --c-warning: #ecc94b;
+  --c-danger:  #fc8181;
+  --c-nav-bg:  #0b0b0f;
+  --c-nav-text:#e8e8f0;
+}
+
+[data-theme="sakura"] {
+  --c-bg:      #fff5f7;
+  --c-surface: #ffffff;
+  --c-border:  #fce4ec;
+  --c-text:    #4a1942;
+  --c-muted:   #c2698f;
+  --c-primary: #e91e8c;
+  --c-accent:  #f06292;
+  --c-success: #43a047;
+  --c-warning: #fb8c00;
+  --c-danger:  #e53935;
+  --c-nav-bg:  #e91e8c;
+  --c-nav-text:#ffffff;
+}
+
+[data-theme="carbon"] {
+  --c-bg:      #1a1a1a;
+  --c-surface: #242424;
+  --c-border:  #333333;
+  --c-text:    #e0e0e0;
+  --c-muted:   #888888;
+  --c-primary: #ff6b35;
+  --c-accent:  #ffa500;
+  --c-success: #4caf50;
+  --c-warning: #ff9800;
+  --c-danger:  #f44336;
+  --c-nav-bg:  #111111;
+  --c-nav-text:#e0e0e0;
+}
+
+[data-theme="arctic"] {
+  --c-bg:      #f0f7ff;
+  --c-surface: #ffffff;
+  --c-border:  #cfe2ff;
+  --c-text:    #0d2137;
+  --c-muted:   #4a7fa5;
+  --c-primary: #0066cc;
+  --c-accent:  #00a8e8;
+  --c-success: #00897b;
+  --c-warning: #f57c00;
+  --c-danger:  #c62828;
+  --c-nav-bg:  #0066cc;
+  --c-nav-text:#ffffff;
+}
+
+[data-theme="lava"] {
+  --c-bg:      #0f0500;
+  --c-surface: #1f0a00;
+  --c-border:  #3d1500;
+  --c-text:    #ffe8d6;
+  --c-muted:   #cc6633;
+  --c-primary: #ff4500;
+  --c-accent:  #ff8c00;
+  --c-success: #76c442;
+  --c-warning: #ffcc00;
+  --c-danger:  #ff1744;
+  --c-nav-bg:  #0f0500;
+  --c-nav-text:#ffe8d6;
+}
+
+[data-theme="emerald"] {
+  --c-bg:      #f0fdf4;
+  --c-surface: #ffffff;
+  --c-border:  #bbf7d0;
+  --c-text:    #052e16;
+  --c-muted:   #166534;
+  --c-primary: #059669;
+  --c-accent:  #10b981;
+  --c-success: #16a34a;
+  --c-warning: #d97706;
+  --c-danger:  #dc2626;
+  --c-nav-bg:  #059669;
+  --c-nav-text:#ffffff;
+}
+
+[data-theme="dusk"] {
+  --c-bg:      #1a1025;
+  --c-surface: #231530;
+  --c-border:  #352050;
+  --c-text:    #e8d5f5;
+  --c-muted:   #9975b5;
+  --c-primary: #c084fc;
+  --c-accent:  #e879f9;
+  --c-success: #34d399;
+  --c-warning: #fbbf24;
+  --c-danger:  #f87171;
+  --c-nav-bg:  #1a1025;
+  --c-nav-text:#e8d5f5;
+}
+
+/* ── Temas LEGENDARIOS ──────────────────────────────────────────── */
+
+/* LEGENDARIO 1: Aurora Boreal */
+[data-theme="aurora-boreal"] {
+  --c-bg:      #030a1a;
+  --c-surface: #071428;
+  --c-border:  #0f2548;
+  --c-text:    #e0f2fe;
+  --c-muted:   #7dd3fc;
+  --c-primary: #00e5ff;
+  --c-accent:  #00ff9d;
+  --c-success: #00ff9d;
+  --c-warning: #fbbf24;
+  --c-danger:  #f87171;
+  --c-nav-bg:  #030a1a;
+  --c-nav-text:#e0f2fe;
+}
+
+[data-theme="aurora-boreal"] body,
+[data-theme="aurora-boreal"] #root {
+  position: relative;
+  background: #030a1a;
+}
+
+[data-theme="aurora-boreal"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 40% at 20% 30%, rgba(0,229,255,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 35% at 70% 20%, rgba(0,255,157,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 30% at 50% 60%, rgba(100,0,200,0.08) 0%, transparent 60%),
+    #030a1a;
+  animation: aurora-boreal-move 12s ease-in-out infinite;
+}
+
+@keyframes aurora-boreal-move {
+  0%   { background-position: 0% 0%, 100% 0%, 50% 100%; opacity: 0.8; }
+  25%  { background-position: 30% 20%, 70% 30%, 20% 80%; opacity: 1; }
+  50%  { background-position: 60% 10%, 40% 50%, 80% 30%; opacity: 0.9; }
+  75%  { background-position: 20% 40%, 80% 10%, 50% 70%; opacity: 1; }
+  100% { background-position: 0% 0%, 100% 0%, 50% 100%; opacity: 0.8; }
+}
+
+/* LEGENDARIO 2: Cosmos */
+[data-theme="cosmos"] {
+  --c-bg:      #02000a;
+  --c-surface: #06001a;
+  --c-border:  #150040;
+  --c-text:    #f0e8ff;
+  --c-muted:   #9d7fd4;
+  --c-primary: #bf5fff;
+  --c-accent:  #ff61e6;
+  --c-success: #39e07b;
+  --c-warning: #ffcc44;
+  --c-danger:  #ff4d6d;
+  --c-nav-bg:  #02000a;
+  --c-nav-text:#f0e8ff;
+}
+
+[data-theme="cosmos"] body,
+[data-theme="cosmos"] #root {
+  position: relative;
+  background: #02000a;
+}
+
+[data-theme="cosmos"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 85%, rgba(191,95,255,0.2) 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(255,97,230,0.15) 0%, transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(57,224,123,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 30% 20%, rgba(100,0,255,0.12) 0%, transparent 30%),
+    #02000a;
+  background-size: 100% 100%;
+  animation: cosmos-pulse 15s ease-in-out infinite;
+}
+
+[data-theme="cosmos"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 10%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 70%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 50%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 20% 25%, rgba(191,95,255,0.9) 0%, transparent 100%),
+    radial-gradient(2px 2px at 75% 65%, rgba(255,97,230,0.8) 0%, transparent 100%),
+    radial-gradient(2px 2px at 45% 90%, rgba(57,224,123,0.7) 0%, transparent 100%);
+  animation: cosmos-twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes cosmos-pulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.02); }
+}
+
+@keyframes cosmos-twinkle {
+  0%   { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* LEGENDARIO 3: Magma */
+[data-theme="magma"] {
+  --c-bg:      #0a0200;
+  --c-surface: #150400;
+  --c-border:  #2d0a00;
+  --c-text:    #fff3e0;
+  --c-muted:   #ff8a50;
+  --c-primary: #ff6d00;
+  --c-accent:  #ffab00;
+  --c-success: #76ff03;
+  --c-warning: #ffcc00;
+  --c-danger:  #ff1744;
+  --c-nav-bg:  #0a0200;
+  --c-nav-text:#fff3e0;
+}
+
+[data-theme="magma"] body,
+[data-theme="magma"] #root {
+  position: relative;
+  background: #0a0200;
+}
+
+[data-theme="magma"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 90%, rgba(255,60,0,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 95%, rgba(255,140,0,0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 50% 80%, rgba(200,20,0,0.2) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 20% at 30% 70%, rgba(255,80,0,0.15) 0%, transparent 40%),
+    #0a0200;
+  animation: magma-flow 8s ease-in-out infinite;
+}
+
+[data-theme="magma"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 20% at 10% 100%, rgba(255,100,0,0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 15% at 90% 100%, rgba(255,60,0,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 10% at 50% 100%, rgba(180,30,0,0.15) 0%, transparent 80%);
+  animation: magma-flow 8s ease-in-out infinite reverse;
+}
+
+@keyframes magma-flow {
+  0%   { transform: translateY(0px) scaleX(1);    opacity: 0.7; }
+  25%  { transform: translateY(-8px) scaleX(1.02);  opacity: 1;   }
+  50%  { transform: translateY(-3px) scaleX(0.98);  opacity: 0.85; }
+  75%  { transform: translateY(-12px) scaleX(1.01); opacity: 1;   }
+  100% { transform: translateY(0px) scaleX(1);    opacity: 0.7; }
+}
+
 [data-theme="galaxy"] {
   --c-bg: #0a0a1a; --c-surface: #0f0f2a; --c-border: #1e1e4a;
   --c-text: #e0e0ff; --c-muted: #9090cc;
