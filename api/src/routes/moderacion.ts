@@ -17,10 +17,13 @@ moderacion.get("/api/moderacion/clases-publicas", async (req, res) => {
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const items = await prisma.clase.findMany({
-    where: { accessType: "publica" } as any,
+    where: {
+      isDeleted: false,
+      status: "ACTIVE",
+    },
     skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
     take: limit,
-    orderBy: { updatedAt: "desc" }
+    orderBy: { updatedAt: "desc" },
   });
   res.json({ items, limit, offset });
 });

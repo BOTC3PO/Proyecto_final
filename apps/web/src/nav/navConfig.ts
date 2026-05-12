@@ -16,7 +16,7 @@ const userBase: NavItem[] = [
   { label: 'Tareas', to: '/tareas' },
   { label: 'Encuestas', to: '/encuestas' },
   { label: 'Progreso', to: '/progreso' },
-  { label: 'Calendario', to: '/profesor/calendario' },
+  { label: 'Calendario', to: '/calendario' },
   { label: 'Mensajes', to: '/mensajes' },
 ];
 
