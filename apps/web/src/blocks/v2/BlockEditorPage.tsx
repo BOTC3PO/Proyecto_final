@@ -183,13 +183,13 @@ function InspectorCard({
 }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="border-b border-slate-100">
+    <div className="border-b border-[var(--c-border)]">
       <button
-        className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide hover:bg-slate-50"
+        className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide hover:bg-[var(--c-bg)]"
         onClick={() => setOpen((o) => !o)}
       >
         {title}
-        <span className="text-slate-400">{open ? "▲" : "▼"}</span>
+        <span className="text-[var(--c-muted)]">{open ? "▲" : "▼"}</span>
       </button>
       {open && <div className="px-3 pb-3 pt-1 space-y-2">{children}</div>}
     </div>
@@ -197,7 +197,7 @@ function InspectorCard({
 }
 
 const inputCls =
-  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400";
+  "w-full text-xs border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 focus:outline-none focus:border-[var(--c-primary)]";
 
 
 function CanvasBlockContent({
@@ -255,46 +255,46 @@ function CanvasBlockContent({
         const imgBlock = block as ImageBlock;
         return (
           <div className="p-4 space-y-3">
-            <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
+            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
               URL de la imagen
               <input
                 type="url"
-                className="rounded-md border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 placeholder="https://... o pegá una URL"
                 value={imgBlock.url}
                 onChange={(e) => onUpdate({ url: e.target.value })}
                 onClick={(e) => e.stopPropagation()}
               />
             </label>
-            <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
+            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
               Descripción para accesibilidad *
               <input
                 type="text"
-                className="rounded-md border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 placeholder="Describí la imagen para alumnos con discapacidad visual"
                 value={imgBlock.alt}
                 onChange={(e) => onUpdate({ alt: e.target.value })}
                 onClick={(e) => e.stopPropagation()}
               />
-              <span className="text-xs text-gray-400">
+              <span className="text-xs text-[var(--c-muted)]">
                 Este texto también se lee en voz alta al usar TTS.
               </span>
             </label>
-            <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
+            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
               Pie de foto (opcional)
               <input
                 type="text"
-                className="rounded-md border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 placeholder="Texto visible debajo de la imagen"
                 value={imgBlock.caption ?? ""}
                 onChange={(e) => onUpdate({ caption: e.target.value })}
                 onClick={(e) => e.stopPropagation()}
               />
             </label>
-            <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
+            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
               Tamaño
               <select
-                className="rounded-md border border-gray-200 px-3 py-2 text-sm"
+                className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 value={imgBlock.width ?? "medium"}
                 onChange={(e) => onUpdate({ width: e.target.value })}
                 onClick={(e) => e.stopPropagation()}
@@ -305,7 +305,7 @@ function CanvasBlockContent({
               </select>
             </label>
             {imgBlock.url && (
-              <div className="rounded-lg overflow-hidden border border-gray-200">
+              <div className="rounded-lg overflow-hidden border border-[var(--c-border)]">
                 <img
                   src={imgBlock.url}
                   alt={imgBlock.alt || "Preview"}
@@ -355,10 +355,10 @@ function AddBlockBetween({ onAdd }: { onAdd: (type: Block["type"]) => void }) {
 
   return (
     <div className="relative flex justify-center h-7 items-center group/add z-10">
-      <div className="absolute inset-x-0 h-px bg-transparent group-hover/add:bg-indigo-200 transition-colors top-1/2" />
+      <div className="absolute inset-x-0 h-px bg-transparent group-hover/add:bg-[var(--c-primary)] transition-colors top-1/2 opacity-30" />
       <div className="relative" ref={menuRef}>
         <button
-          className="w-6 h-6 rounded-full bg-white border-2 border-indigo-300 text-indigo-500 text-sm font-bold leading-none opacity-0 group-hover/add:opacity-100 hover:bg-indigo-500 hover:text-white transition-all shadow-sm flex items-center justify-center"
+          className="w-6 h-6 rounded-full bg-[var(--c-surface)] border-2 border-[var(--c-primary)] text-[var(--c-primary)] text-sm font-bold leading-none opacity-0 group-hover/add:opacity-100 hover:bg-[var(--c-primary)] hover:text-white transition-all flex items-center justify-center"
           onClick={(e) => {
             e.stopPropagation();
             setShowMenu((v) => !v);
@@ -368,18 +368,18 @@ function AddBlockBetween({ onAdd }: { onAdd: (type: Block["type"]) => void }) {
           +
         </button>
         {showMenu && (
-          <div className="absolute top-8 left-1/2 -translate-x-1/2 z-40 bg-white border border-gray-200 rounded-lg shadow-lg py-1 w-44">
+          <div className="absolute top-8 left-1/2 -translate-x-1/2 z-40 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl py-1 w-44">
             {BLOCK_TYPES_MENU.map(({ type, label, icon }) => (
               <button
                 key={type}
-                className="w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-slate-50 flex items-center gap-2"
+                className="w-full text-left px-3 py-1.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] flex items-center gap-2"
                 onClick={(e) => {
                   e.stopPropagation();
                   onAdd(type);
                   setShowMenu(false);
                 }}
               >
-                <span className="font-mono text-indigo-500 w-4 text-center">{icon}</span>
+                <span className="font-mono text-[var(--c-primary)] w-4 text-center">{icon}</span>
                 {label}
               </button>
             ))}
@@ -423,14 +423,14 @@ function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument 
               className={`${widthClass} rounded-lg object-contain max-h-96 mx-auto block`}
             />
           ) : (
-            <div className="flex items-center justify-center h-32 rounded-lg bg-gray-100 border-2 border-dashed border-gray-300">
-              <span className="text-gray-400 text-sm">
+            <div className="flex items-center justify-center h-32 rounded-lg bg-[var(--c-bg)] border-2 border-dashed border-[var(--c-border)]">
+              <span className="text-[var(--c-muted)] text-sm">
                 🖼 Sin imagen
               </span>
             </div>
           )}
           {imgBlock.caption && (
-            <figcaption className="text-center text-xs text-gray-500 mt-2 italic">
+            <figcaption className="text-center text-xs text-[var(--c-muted)] mt-2 italic">
               {imgBlock.caption}
             </figcaption>
           )}
@@ -438,7 +438,7 @@ function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument 
       );
     }
     default:
-      return <div className="text-xs text-gray-400">Bloque desconocido</div>;
+      return <div className="text-xs text-[var(--c-muted)]">Bloque desconocido</div>;
   }
 }
 
@@ -480,15 +480,15 @@ function SortableBlockItem({
         className={cx(
           "flex-1 text-left px-2 py-2 flex items-center gap-2 border-l-2 transition-colors",
           isActive
-            ? "bg-indigo-50 border-l-indigo-500 text-indigo-700"
-            : "border-l-transparent hover:bg-slate-50 text-gray-700"
+            ? "bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] border-l-[var(--c-primary)] text-[var(--c-primary)]"
+            : "border-l-transparent hover:bg-[var(--c-bg)] text-[var(--c-text)]"
         )}
         onClick={onSelect}
       >
         <span
           className={cx(
             "font-mono text-xs w-4 text-center",
-            isActive ? "text-indigo-500" : "text-gray-400"
+            isActive ? "text-[var(--c-primary)]" : "text-[var(--c-muted)]"
           )}
         >
           {blockIcon(block.type)}
@@ -496,7 +496,7 @@ function SortableBlockItem({
         <span
           className={cx(
             "text-xs w-5 text-right shrink-0",
-            isActive ? "text-indigo-400" : "text-gray-400"
+            isActive ? "text-[var(--c-primary)]" : "text-[var(--c-muted)]"
           )}
         >
           {idx + 1}
@@ -886,13 +886,13 @@ export default function BlockEditorPage({
   ];
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden bg-gradient-to-b from-slate-50 to-white">
+    <div className="h-screen flex flex-col overflow-hidden bg-[var(--c-bg)]">
       {/* ═══ HEADER ═══════════════════════════════════════════════════════════ */}
-      <header className="flex-shrink-0 h-12 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white flex items-center px-3 gap-2 shadow-md z-20">
+      <header className="flex-shrink-0 h-12 bg-[var(--c-surface)] border-b border-[var(--c-border)] flex items-center px-3 gap-2 z-20">
         {/* Back button (overlay mode) */}
         {onDone && (
           <button
-            className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white"
+            className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
             onClick={() => onDone(doc)}
             title="Volver"
           >
@@ -904,7 +904,7 @@ export default function BlockEditorPage({
           {editingTitle ? (
             <input
               ref={titleInputRef}
-              className="text-sm font-semibold bg-white/20 text-white rounded px-2 py-0.5 focus:outline-none focus:ring-1 focus:ring-white/60 max-w-[200px]"
+              className="text-sm font-semibold bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-0.5 border border-[var(--c-border)] focus:outline-none focus:border-[var(--c-primary)] max-w-[200px]"
               value={title}
               onChange={(e) => dispatch({ type: "UPDATE_TITLE", title: e.target.value })}
               onBlur={() => setEditingTitle(false)}
@@ -914,7 +914,7 @@ export default function BlockEditorPage({
             />
           ) : (
             <button
-              className="text-sm font-semibold truncate max-w-[200px] hover:bg-white/10 rounded px-1"
+              className="text-sm font-semibold text-[var(--c-text)] truncate max-w-[200px] hover:bg-[var(--c-border)] rounded px-1"
               onClick={() => setEditingTitle(true)}
               title="Clic para editar título"
             >
@@ -931,7 +931,7 @@ export default function BlockEditorPage({
 
         {/* Center: filename */}
         {fsaFileName && (
-          <span className="text-xs text-blue-100 truncate max-w-[160px]" title={fsaFileName}>
+          <span className="text-xs text-[var(--c-muted)] truncate max-w-[160px]" title={fsaFileName}>
             {fsaFileName}
           </span>
         )}
@@ -940,7 +940,7 @@ export default function BlockEditorPage({
 
         {/* Undo / Redo */}
         <button
-          className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white disabled:opacity-40"
+          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors disabled:opacity-40"
           onClick={undo}
           disabled={!canUndo}
           title="Deshacer (Ctrl+Z)"
@@ -948,7 +948,7 @@ export default function BlockEditorPage({
           ↩ Deshacer
         </button>
         <button
-          className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white disabled:opacity-40"
+          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors disabled:opacity-40"
           onClick={redo}
           disabled={!canRedo}
           title="Rehacer (Ctrl+Y)"
@@ -956,25 +956,25 @@ export default function BlockEditorPage({
           ↪ Rehacer
         </button>
 
-        <span className="text-white/30 text-xs">|</span>
+        <span className="text-[var(--c-muted)] text-xs">|</span>
 
         {/* Local file */}
         <button
-          className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white"
+          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
           onClick={openLocalFile}
           title="Abrir archivo local"
         >
           Abrir local
         </button>
         <button
-          className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white"
+          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
           onClick={saveLocalFile}
           title="Guardar en archivo local (Ctrl+S)"
         >
           Guardar local
         </button>
 
-        <span className="text-white/30 text-xs">|</span>
+        <span className="text-[var(--c-muted)] text-xs">|</span>
 
         {/* Import / Export / API */}
         <input
@@ -985,25 +985,25 @@ export default function BlockEditorPage({
           onChange={loadFromFile}
         />
         <button
-          className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white"
+          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
           onClick={() => fileInputRef.current?.click()}
         >
           Cargar
         </button>
         <button
-          className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white"
+          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
           onClick={importFile}
         >
           Importar
         </button>
         <button
-          className="px-2 py-1 text-xs rounded bg-white/15 hover:bg-white/25 text-white"
+          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
           onClick={exportFile}
         >
           Exportar
         </button>
         <button
-          className="px-2 py-1 text-xs rounded bg-emerald-500/80 hover:bg-emerald-500 text-white"
+          className="px-2 py-1 text-xs rounded bg-[var(--c-success)] text-white hover:opacity-90 transition-opacity"
           onClick={onDone ? () => onDone(doc) : handleSaveApi}
         >
           {onDone ? "Guardar" : "Guardar API"}
@@ -1013,37 +1013,37 @@ export default function BlockEditorPage({
       {/* ═══ BODY ═════════════════════════════════════════════════════════════ */}
       <div className="flex flex-1 overflow-hidden">
         {/* ─── LEFT SIDEBAR ──────────────────────────────────────────────── */}
-        <aside className="w-56 flex-shrink-0 bg-white border-r border-slate-200 flex flex-col overflow-hidden">
+        <aside className="w-56 flex-shrink-0 bg-[var(--c-surface)] border-r border-[var(--c-border)] flex flex-col overflow-hidden">
           {/* Sidebar header */}
-          <div className="flex items-center justify-between px-3 py-2 border-b border-slate-100">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+          <div className="flex items-center justify-between px-3 py-2 border-b border-[var(--c-border)]">
+            <span className="text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide">
               Bloques
             </span>
 
             {/* Add block button */}
             <div className="relative" ref={addMenuRef}>
               <button
-                className="w-6 h-6 flex items-center justify-center rounded bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold leading-none"
+                className="w-6 h-6 flex items-center justify-center rounded bg-[var(--c-primary)] hover:opacity-90 text-white text-sm font-bold leading-none"
                 onClick={() => setShowAddMenu((v) => !v)}
                 title="Agregar bloque"
               >
                 +
               </button>
               {showAddMenu && (
-                <div className="absolute top-7 right-0 z-30 w-36 bg-white border border-gray-200 rounded-lg shadow-lg py-1">
+                <div className="absolute top-7 right-0 z-30 w-36 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl py-1">
                   {BLOCK_TYPES.map(({ type, label, icon }) => (
                     <button
                       key={type}
-                      className="w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-slate-50 flex items-center gap-2"
+                      className="w-full text-left px-3 py-1.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] flex items-center gap-2"
                       onClick={() => {
                         dispatch({ type: "ADD_BLOCK", blockType: type });
                         setShowAddMenu(false);
                       }}
                     >
                       {icon ?? (type === "math" ? (
-                        <FunctionSquare size={14} className="text-indigo-500 flex-shrink-0" />
+                        <FunctionSquare size={14} className="text-[var(--c-primary)] flex-shrink-0" />
                       ) : (
-                        <span className="font-mono text-indigo-500 w-4 text-center">
+                        <span className="font-mono text-[var(--c-primary)] w-4 text-center">
                           {blockIcon(type)}
                         </span>
                       ))}
@@ -1058,7 +1058,7 @@ export default function BlockEditorPage({
           {/* Block list */}
           <div className="flex-1 overflow-y-auto">
             {doc.blocks.length === 0 ? (
-              <p className="text-xs text-gray-400 italic px-3 py-4 text-center">
+              <p className="text-xs text-[var(--c-muted)] italic px-3 py-4 text-center">
                 Sin bloques
               </p>
             ) : (
@@ -1089,17 +1089,17 @@ export default function BlockEditorPage({
 
         {/* ─── CANVAS ────────────────────────────────────────────────────── */}
         <main
-          className="flex-1 bg-slate-100 overflow-y-auto"
+          className="flex-1 bg-[var(--c-bg)] overflow-y-auto"
           onClick={() => dispatch({ type: "SELECT_BLOCK", blockId: null })}
         >
           <div className="px-8 py-6 max-w-3xl mx-auto">
             {doc.blocks.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-64 gap-4 text-center">
-                <span className="text-5xl text-slate-300">⊕</span>
-                <p className="text-base font-medium text-slate-500">
+                <span className="text-5xl text-[var(--c-border)]">⊕</span>
+                <p className="text-base font-medium text-[var(--c-muted)]">
                   Hacé clic en + para agregar tu primer bloque
                 </p>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-[var(--c-muted)]">
                   Usá el botón + del panel izquierdo para comenzar
                 </p>
               </div>
@@ -1114,16 +1114,16 @@ export default function BlockEditorPage({
                       <div className="relative group/block mb-0">
                         {/* Block type badge – top-right corner */}
                         {isSelected && (
-                          <span className="absolute top-2 right-2 z-10 text-[10px] bg-slate-100 text-slate-400 rounded px-1 pointer-events-none select-none">
+                          <span className="absolute top-2 right-2 z-10 text-[10px] bg-[var(--c-bg)] text-[var(--c-muted)] rounded px-1 pointer-events-none select-none">
                             {blockTypeName(block.type)}
                           </span>
                         )}
 
                         {/* Floating toolbar – always visible when block is selected */}
                         {isSelected && (
-                          <div className="absolute -top-8 left-0 z-10 flex items-center gap-1 bg-white border border-gray-200 rounded-lg shadow-sm px-2 py-1">
+                          <div className="absolute -top-8 left-0 z-10 flex items-center gap-1 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg px-2 py-1">
                             <button
-                              className="w-6 h-6 text-xs rounded border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-30"
+                              className="w-6 h-6 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] disabled:opacity-30"
                               title="Mover arriba (↑)"
                               disabled={idx === 0}
                               onClick={(e) => {
@@ -1134,7 +1134,7 @@ export default function BlockEditorPage({
                               ▲
                             </button>
                             <button
-                              className="w-6 h-6 text-xs rounded border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-30"
+                              className="w-6 h-6 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] disabled:opacity-30"
                               title="Mover abajo (↓)"
                               disabled={idx === doc.blocks.length - 1}
                               onClick={(e) => {
@@ -1145,7 +1145,7 @@ export default function BlockEditorPage({
                               ▼
                             </button>
                             <button
-                              className="w-6 h-6 text-xs rounded border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                              className="w-6 h-6 text-xs rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-bg)]"
                               title="Duplicar"
                               onClick={(e) => {
                                 e.stopPropagation();
@@ -1170,10 +1170,10 @@ export default function BlockEditorPage({
                         {/* Block card */}
                         <div
                           className={cx(
-                            "rounded-lg border bg-white transition-all overflow-hidden",
+                            "rounded-lg border bg-[var(--c-surface)] transition-all overflow-hidden",
                             isSelected
-                              ? "ring-2 ring-indigo-500 shadow-lg border-indigo-200"
-                              : "border-gray-200 shadow-sm hover:shadow-md cursor-pointer"
+                              ? "ring-2 ring-[var(--c-primary)] border-[var(--c-primary)]"
+                              : "border-[var(--c-border)] cursor-pointer"
                           )}
                           onClick={(e) => {
                             e.stopPropagation();
@@ -1202,10 +1202,10 @@ export default function BlockEditorPage({
         </main>
 
         {/* ─── RIGHT INSPECTOR ────────────────────────────────────────────── */}
-        <aside className="w-72 flex-shrink-0 bg-white border-l border-slate-200 flex flex-col overflow-hidden">
+        <aside className="w-72 flex-shrink-0 bg-[var(--c-surface)] border-l border-[var(--c-border)] flex flex-col overflow-hidden">
           {/* Inspector header */}
-          <div className="px-3 py-2 border-b border-slate-100">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+          <div className="px-3 py-2 border-b border-[var(--c-border)]">
+            <span className="text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide">
               Inspector
             </span>
           </div>
@@ -1269,7 +1269,7 @@ export default function BlockEditorPage({
                     handleBlockUpdate(selectedBlock.id, patch);
                   return (
                     <div className="space-y-3">
-                      <label className="flex flex-col gap-1 text-xs font-medium text-gray-600">
+                      <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
                         URL de la imagen
                         <input
                           type="url"
@@ -1279,7 +1279,7 @@ export default function BlockEditorPage({
                           onChange={(e) => onUpdate({ url: e.target.value })}
                         />
                       </label>
-                      <label className="flex flex-col gap-1 text-xs font-medium text-gray-600">
+                      <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
                         Descripción (alt) *
                         <input
                           type="text"
@@ -1289,7 +1289,7 @@ export default function BlockEditorPage({
                           onChange={(e) => onUpdate({ alt: e.target.value })}
                         />
                       </label>
-                      <label className="flex flex-col gap-1 text-xs font-medium text-gray-600">
+                      <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
                         Pie de foto
                         <input
                           type="text"
@@ -1299,7 +1299,7 @@ export default function BlockEditorPage({
                           onChange={(e) => onUpdate({ caption: e.target.value })}
                         />
                       </label>
-                      <label className="flex flex-col gap-1 text-xs font-medium text-gray-600">
+                      <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
                         Tamaño
                         <select
                           className={inputCls}
@@ -1320,7 +1320,7 @@ export default function BlockEditorPage({
               <>
                 <InspectorCard title="Documento">
                   <div>
-                    <label className="text-xs font-medium text-gray-600 block mb-1">Título</label>
+                    <label className="text-xs font-medium text-[var(--c-muted)] block mb-1">Título</label>
                     <input
                       className={inputCls}
                       value={title}
@@ -1328,7 +1328,7 @@ export default function BlockEditorPage({
                     />
                   </div>
                 </InspectorCard>
-                <p className="text-xs text-slate-400 italic px-3 pt-4">
+                <p className="text-xs text-[var(--c-muted)] italic px-3 pt-4">
                   Hacé clic en un bloque para editarlo
                 </p>
               </>

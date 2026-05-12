@@ -187,74 +187,75 @@ export default function ModuloEditor() {
         </div>
       ) : null}
 
-      <main className="flex-1 bg-gradient-to-b from-slate-50 to-white min-h-screen">
-        <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-          <header className="mb-10 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-8 py-8 shadow-lg shadow-indigo-200/50">
-            <h1 className="text-3xl font-bold tracking-tight text-white drop-shadow-sm">
-              {isEditing ? "Editar módulo" : "Crear módulo"}
-            </h1>
-            <p className="mt-2 text-sm text-blue-100/90">
-              Cargá teoría, cuestionarios manuales o generados para construir la experiencia del módulo.
-            </p>
-          </header>
+      <main className="flex-1 bg-[var(--c-bg)] min-h-screen">
+        <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="mb-6 flex items-center justify-between gap-4">
+            <div>
+              <h1 className="text-xl font-semibold text-[var(--c-text)]">
+                {isEditing ? "Editar módulo" : "Crear módulo"}
+              </h1>
+              <p className="text-sm text-[var(--c-muted)] mt-0.5">
+                Cargá teoría, cuestionarios manuales o generados para construir el módulo.
+              </p>
+            </div>
+          </div>
 
           {status === "loading" ? (
             <div className="space-y-6">
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
                 <div className="animate-pulse space-y-4">
-                  <div className="h-5 w-48 rounded-lg bg-gray-200" />
+                  <div className="h-5 w-48 rounded-lg bg-[var(--c-border)]" />
                   <div className="grid gap-4 md:grid-cols-2">
-                    <div className="h-10 rounded-lg bg-gray-200" />
-                    <div className="h-10 rounded-lg bg-gray-200" />
+                    <div className="h-10 rounded-lg bg-[var(--c-border)]" />
+                    <div className="h-10 rounded-lg bg-[var(--c-border)]" />
                   </div>
-                  <div className="h-20 rounded-lg bg-gray-200" />
+                  <div className="h-20 rounded-lg bg-[var(--c-border)]" />
                   <div className="grid gap-4 md:grid-cols-4">
-                    <div className="h-10 rounded-lg bg-gray-200" />
-                    <div className="h-10 rounded-lg bg-gray-200" />
-                    <div className="h-10 rounded-lg bg-gray-100" />
-                    <div className="h-10 rounded-lg bg-gray-100" />
+                    <div className="h-10 rounded-lg bg-[var(--c-border)]" />
+                    <div className="h-10 rounded-lg bg-[var(--c-border)]" />
+                    <div className="h-10 rounded-lg bg-[var(--c-border)]" />
+                    <div className="h-10 rounded-lg bg-[var(--c-border)]" />
                   </div>
                 </div>
               </div>
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
                 <div className="animate-pulse space-y-3">
-                  <div className="h-5 w-32 rounded-lg bg-gray-200" />
-                  <div className="h-24 rounded-lg bg-gray-100" />
+                  <div className="h-5 w-32 rounded-lg bg-[var(--c-border)]" />
+                  <div className="h-24 rounded-lg bg-[var(--c-border)]" />
                 </div>
               </div>
-              <p className="text-center text-sm text-gray-400">Cargando módulo...</p>
+              <p className="text-center text-sm text-[var(--c-muted)]">Cargando módulo...</p>
             </div>
           ) : (
             <form className="space-y-8" onSubmit={handleSubmit}>
               {/* ── Información general ── */}
-              <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-                <div className="h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500" />
+              <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-blue-600 text-sm">&#9881;</span>
-                  <h2 className="text-lg font-bold text-gray-900 tracking-tight">Información general</h2>
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#9881;</span>
+                  <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Información general</h2>
                   {sectionStatus.generalOk ? (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">&#10003; Completo</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">&#10003; Completo</span>
                   ) : (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-200">&#9888; Incompleto</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">&#9888; Incompleto</span>
                   )}
                 </div>
                 <div className="grid gap-5 md:grid-cols-2">
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#128221; Título</span>
                     <input
-                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.title}
                       onChange={(event) => updateForm("title", event.target.value)}
                       required
                     />
                   </label>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#128193; Categoría</span>
                     <select
                       value={form.category}
                       onChange={(e) => updateForm("category", e.target.value)}
-                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm"
+                      className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                     >
                       <option value="">Sin categoría</option>
                       <option value="evaluacion">📝 Evaluación</option>
@@ -263,10 +264,10 @@ export default function ModuloEditor() {
                   </label>
                 </div>
 
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[var(--c-text)]">
                   <span className="mb-1.5 flex items-center gap-1.5">&#128196; Descripción</span>
                   <textarea
-                    className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                     rows={3}
                     value={form.description}
                     onChange={(event) => updateForm("description", event.target.value)}
@@ -275,10 +276,10 @@ export default function ModuloEditor() {
                 </label>
 
                 <div className="grid gap-5 md:grid-cols-4">
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#128218; Materia</span>
                     <select
-                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.subject}
                       onChange={(event) => handleSubjectChange(event.target.value)}
                       required
@@ -292,29 +293,29 @@ export default function ModuloEditor() {
                     </select>
                   </label>
                   {!isEvaluacionMode && (
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#127942; Nivel</span>
                     <input
-                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.level}
                       onChange={(event) => updateForm("level", event.target.value)}
                     />
                   </label>
                   )}
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#9202; Duración (min)</span>
                     <input
                       type="number"
                       min={1}
-                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.durationMinutes}
                       onChange={(event) => updateForm("durationMinutes", Number(event.target.value))}
                     />
                   </label>
-                  <div className="text-sm font-medium text-gray-700">
+                  <div className="text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#128065; Visibilidad</span>
                     <select
-                      className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50/50 px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.visibility}
                       onChange={(event) => {
                         updateForm("visibility", event.target.value as Module["visibility"]);
@@ -332,7 +333,7 @@ export default function ModuloEditor() {
 
                 {/* School picker — only shown when visibility = "escuela" */}
                 {form.visibility === "escuela" ? (
-                  <div className="rounded-xl border border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-4 space-y-3 shadow-sm">
+                  <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-3">
                     <p className="flex items-center gap-2 text-xs font-semibold text-amber-800">
                       <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-200 text-amber-700 text-[10px]">&#127979;</span>
                       ¿A qué escuela aplica esta visibilidad?
@@ -361,10 +362,10 @@ export default function ModuloEditor() {
                       <>
                         <div className="flex gap-2">
                           <input
-                            className={`flex-1 rounded-lg border px-3 py-2 text-xs shadow-sm transition-all focus:outline-none focus:ring-2 ${
+                            className={`flex-1 rounded-lg border px-3 py-2 text-xs transition-all focus:outline-none focus:ring-2 ${
                               form.visibility === "escuela" && !form.visibilitySchoolId
                                 ? "border-red-300 bg-red-50/50 focus:border-red-400 focus:ring-red-100"
-                                : "border-amber-200 bg-white focus:border-amber-400 focus:ring-amber-100"
+                                : "border-amber-200 bg-[var(--c-surface)] focus:border-amber-400 focus:ring-amber-100"
                             }`}
                             placeholder="Buscar escuela..."
                             value={escuelaSearch}
@@ -410,28 +411,27 @@ export default function ModuloEditor() {
 
               {!isEvaluacionMode && (<>
               {/* ── Teoría ── */}
-              <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-                <div className="h-1.5 bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500" />
+              <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600 text-sm">&#128214;</span>
-                    <h2 className="text-lg font-bold text-gray-900 tracking-tight">Teoría</h2>
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#128214;</span>
+                    <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Teoría</h2>
                     {sectionStatus.theoryOk ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">&#10003; Completo</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">&#10003; Completo</span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-200">&#9888; Sin recursos</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">&#9888; Sin recursos</span>
                     )}
                   </div>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">{theoryItems.length} recursos</span>
+                  <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{theoryItems.length} recursos</span>
                 </div>
 
                 {/* New theory item form */}
-                <div className="space-y-3 rounded-xl border border-gray-200 bg-gradient-to-br from-gray-50 to-slate-50 p-5 shadow-sm">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Agregar recurso</p>
+                <div className="space-y-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--c-muted)]">Agregar recurso</p>
                   <div className="grid gap-3 md:grid-cols-[1fr_180px]">
                     <input
-                      className="rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       placeholder="Título del recurso"
                       value={newTheoryItem.title}
                       onChange={(event) =>
@@ -439,7 +439,7 @@ export default function ModuloEditor() {
                       }
                     />
                     <select
-                      className="rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={newTheoryItem.type}
                       onChange={(event) => {
                         const t = event.target.value;
@@ -493,7 +493,7 @@ export default function ModuloEditor() {
                       </span>
                       <button
                         type="button"
-                        className="rounded-md border border-gray-300 px-3 py-1.5 text-xs hover:bg-gray-100"
+                        className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
                         onClick={() => setSlidesEditorFor("new")}
                       >
                         {detailToPresentation(newTheoryItem.detail).slides.length === 0
@@ -505,7 +505,7 @@ export default function ModuloEditor() {
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
-                        className="rounded-md border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
+                        className="rounded-lg border border-[var(--c-border)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:opacity-80 transition-opacity"
                         onClick={() => setBlockEditorFor("new")}
                       >
                         Abrir editor de bloques
@@ -521,7 +521,7 @@ export default function ModuloEditor() {
                   ) : isHerramientaStandaloneType(newTheoryItem.type) ? (
                     <div className="space-y-3">
                       <select
-                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-500"
+                        className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                         value={(() => {
                           const cfg = parseStandaloneConfig(newTheoryItem.detail);
                           return cfg ? cfg.tool : newTheoryItem.detail;
@@ -614,7 +614,7 @@ export default function ModuloEditor() {
                   ) : isVideoType(newTheoryItem.type) ? (
                     <div className="space-y-1">
                       <input
-                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                        className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                         placeholder="https://youtu.be/... o https://vimeo.com/..."
                         type="url"
                         value={newTheoryItem.detail}
@@ -629,7 +629,7 @@ export default function ModuloEditor() {
                   ) : isDocumentoType(newTheoryItem.type) ? (
                     <div className="space-y-1">
                       <input
-                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                        className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                         placeholder="https://... (PDF, DOC, etc.)"
                         type="url"
                         value={newTheoryItem.detail}
@@ -643,7 +643,7 @@ export default function ModuloEditor() {
                     </div>
                   ) : isLinkType(newTheoryItem.type) ? (
                     <input
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                       placeholder="https://..."
                       type="url"
                       value={newTheoryItem.detail}
@@ -653,7 +653,7 @@ export default function ModuloEditor() {
                     />
                   ) : (
                     <textarea
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+                      className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                       rows={4}
                       placeholder="Escribí el contenido del texto aquí..."
                       value={newTheoryItem.detail}
@@ -665,7 +665,7 @@ export default function ModuloEditor() {
 
                   <button
                     type="button"
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-emerald-700 hover:shadow-md active:scale-[0.98]"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-success)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                     onClick={handleAddTheoryItem}
                   >
                     <span className="text-base leading-none">+</span> Agregar recurso
@@ -681,7 +681,7 @@ export default function ModuloEditor() {
                 ) : (
                   <div className="space-y-3">
                     {theoryItems.map((item, itemIdx) => (
-                      <div key={item.id} className="group rounded-xl border border-gray-200 bg-white p-4 space-y-2 shadow-sm transition-all duration-200 hover:border-gray-300 hover:shadow-md">
+                      <div key={item.id} className="group rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 space-y-2 transition-colors hover:border-[var(--c-primary)]/30">
                         <div className="flex items-start gap-3">
                           {/* Reorder buttons */}
                           <div className="flex flex-col gap-1 pt-0.5 shrink-0">
@@ -689,7 +689,7 @@ export default function ModuloEditor() {
                               type="button"
                               title="Mover arriba"
                               disabled={itemIdx === 0}
-                              className="flex h-7 w-7 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-xs text-gray-500 transition-all hover:bg-white hover:border-gray-300 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-30"
+                              className="flex h-7 w-7 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-xs text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "up")}
                             >
                               ▲
@@ -698,21 +698,21 @@ export default function ModuloEditor() {
                               type="button"
                               title="Mover abajo"
                               disabled={itemIdx === theoryItems.length - 1}
-                              className="flex h-7 w-7 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-xs text-gray-500 transition-all hover:bg-white hover:border-gray-300 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-30"
+                              className="flex h-7 w-7 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-xs text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "down")}
                             >
                               ▼
                             </button>
                           </div>
                           {/* Position label */}
-                          <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 text-xs font-bold font-mono text-gray-600 shadow-sm">
+                          <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--c-border)] text-xs font-bold font-mono text-[var(--c-muted)]">
                             {itemIdx + 1}
                           </span>
                           <div className="flex-1 space-y-3">
                             <TheoryItemCard item={item} />
                             <div className="flex flex-col gap-2">
                               <input
-                                className="rounded-lg border border-gray-200 bg-gray-50/50 px-3 py-2 text-xs shadow-sm transition-all duration-200 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-xs transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                                 placeholder="Título"
                                 value={item.title}
                                 onChange={(event) =>
@@ -751,7 +751,7 @@ export default function ModuloEditor() {
                                   </span>
                                   <button
                                     type="button"
-                                    className="text-xs text-blue-600 hover:underline"
+                                    className="text-xs text-[var(--c-primary)] hover:underline"
                                     onClick={() => setSlidesEditorFor(item.id)}
                                   >
                                     Editar presentación
@@ -760,7 +760,7 @@ export default function ModuloEditor() {
                               ) : isVideoType(item.type) ? (
                                 <div className="space-y-1">
                                   <input
-                                    className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"
+                                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs w-full focus:border-[var(--c-primary)] focus:outline-none"
                                     placeholder="https://youtu.be/... o https://vimeo.com/..."
                                     type="url"
                                     value={item.detail}
@@ -773,7 +773,7 @@ export default function ModuloEditor() {
                               ) : isDocumentoType(item.type) ? (
                                 <div className="space-y-1">
                                   <input
-                                    className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"
+                                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs w-full focus:border-[var(--c-primary)] focus:outline-none"
                                     placeholder="https://... (PDF, DOC, etc.)"
                                     type="url"
                                     value={item.detail}
@@ -785,7 +785,7 @@ export default function ModuloEditor() {
                                 </div>
                               ) : isLinkType(item.type) ? (
                                 <input
-                                  className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"
+                                  className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs w-full focus:border-[var(--c-primary)] focus:outline-none"
                                   placeholder="https://..."
                                   value={item.detail}
                                   onChange={(event) =>
@@ -796,7 +796,7 @@ export default function ModuloEditor() {
                                 <div className="flex items-center gap-2">
                                   <button
                                     type="button"
-                                    className="rounded-md border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
+                                    className="rounded-lg border border-[var(--c-border)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:opacity-80 transition-opacity"
                                     onClick={() => setBlockEditorFor(item.id)}
                                   >
                                     Abrir editor de bloques
@@ -812,7 +812,7 @@ export default function ModuloEditor() {
                               ) : isHerramientaStandaloneType(item.type) ? (
                                 <div className="space-y-3">
                                   <select
-                                    className="w-full rounded-md border border-gray-300 px-2 py-2 text-xs text-gray-500"
+                                    className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs focus:border-[var(--c-primary)] focus:outline-none"
                                     value={(() => {
                                       const cfg = parseStandaloneConfig(item.detail === "Sin detalle adicional." ? "" : item.detail);
                                       return cfg ? cfg.tool : "";
@@ -897,7 +897,7 @@ export default function ModuloEditor() {
                                 </div>
                               ) : (
                                 <textarea
-                                  className="rounded-md border border-gray-300 px-2 py-2 text-xs w-full"
+                                  className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs w-full focus:border-[var(--c-primary)] focus:outline-none"
                                   rows={3}
                                   value={item.detail}
                                   onChange={(event) =>
@@ -925,17 +925,16 @@ export default function ModuloEditor() {
 
               {!isEvaluacionMode && (<>
               {/* ── Dependencias ── */}
-              <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-                <div className="h-1.5 bg-gradient-to-r from-slate-400 via-gray-400 to-zinc-400" />
+              <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-600 text-sm">&#128279;</span>
-                  <h2 className="text-lg font-bold text-gray-900 tracking-tight">Dependencias</h2>
-                  <span className="rounded-full bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-500 ring-1 ring-slate-200">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#128279;</span>
+                  <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Dependencias</h2>
+                  <span className="rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-xs font-medium text-[var(--c-muted)]">
                     Opcional
                   </span>
                 </div>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-[var(--c-muted)]">
                   Indicá si este módulo requiere completar otro antes, o si desbloquea módulos al terminarse.
                 </p>
 
@@ -944,12 +943,12 @@ export default function ModuloEditor() {
                     {form.dependencies.map((dep) => (
                       <li
                         key={dep.id}
-                        className="flex items-center gap-3 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-50 to-white px-4 py-3 shadow-sm transition-all hover:shadow-md hover:border-gray-300"
+                        className="flex items-center gap-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] px-4 py-3 transition-colors hover:border-[var(--c-primary)]/30"
                       >
-                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-200 text-[10px] font-bold text-slate-600">&#128279;</span>
-                        <span className="flex-1 truncate text-xs font-mono text-gray-700">{dep.id}</span>
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--c-border)] text-[10px] font-bold text-[var(--c-muted)]">&#128279;</span>
+                        <span className="flex-1 truncate text-xs font-mono text-[var(--c-text)]">{dep.id}</span>
                         <select
-                          className="rounded-lg border border-gray-200 bg-white px-2.5 py-1.5 text-xs shadow-sm transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                          className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2.5 py-1.5 text-xs focus:border-[var(--c-primary)] focus:outline-none"
                           value={dep.type}
                           onChange={(e) =>
                             updateDependencyType(dep.id, e.target.value as "required" | "unlocks")
@@ -975,9 +974,9 @@ export default function ModuloEditor() {
                 )}
 
                 {depPickerOpen ? (
-                  <div className="rounded-xl border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50 p-4 space-y-3 shadow-sm">
+                  <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-3">
                     <input
-                      className="w-full rounded-lg border border-blue-200 bg-white px-3 py-2 text-xs shadow-sm transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-xs focus:border-[var(--c-primary)] focus:outline-none"
                       placeholder="Buscar módulo por título..."
                       value={depSearch}
                       autoFocus
@@ -996,7 +995,7 @@ export default function ModuloEditor() {
                             <li key={mod.id}>
                               <button
                                 type="button"
-                                className="w-full rounded-lg px-3 py-2 text-left text-xs text-gray-700 transition-colors hover:bg-blue-100 hover:text-blue-700"
+                                className="w-full rounded-lg px-3 py-2 text-left text-xs text-[var(--c-text)] transition-colors hover:bg-[var(--c-surface)] hover:text-[var(--c-primary)]"
                                 onClick={() => addDependency(mod)}
                               >
                                 {mod.title}
@@ -1025,7 +1024,7 @@ export default function ModuloEditor() {
                 ) : (
                   <button
                     type="button"
-                    className="w-full rounded-xl border-2 border-dashed border-gray-300 px-4 py-3 text-xs font-medium text-gray-500 transition-all duration-200 hover:border-blue-400 hover:bg-blue-50/50 hover:text-blue-600"
+                    className="w-full rounded-xl border-2 border-dashed border-[var(--c-border)] px-4 py-3 text-xs font-medium text-[var(--c-muted)] transition-colors hover:border-[var(--c-primary)] hover:text-[var(--c-primary)]"
                     onClick={() => {
                       setDepPickerOpen(true);
                       searchModules("");
@@ -1053,30 +1052,26 @@ export default function ModuloEditor() {
               )}
 
               {/* ── Cuestionarios ── */}
-              <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-                <div className="h-1.5 bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500" />
+              <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-100 text-violet-600 text-sm">&#10068;</span>
-                    <h2 className="text-lg font-bold text-gray-900 tracking-tight">Cuestionarios</h2>
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#10068;</span>
+                    <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Cuestionarios</h2>
                     {quizzes.length === 0 ? null : sectionStatus.quizzesOk ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">&#10003; Completo</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">&#10003; Completo</span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-200">&#9888; Con errores</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">&#9888; Con errores</span>
                     )}
                   </div>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">{quizCountLabel}</span>
+                  <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{quizCountLabel}</span>
                 </div>
 
                 <div className="flex flex-wrap items-start gap-3">
                   {/* Cuestionario manual — preguntas escritas por el profesor */}
                   <button
                     type="button"
-                    className="inline-flex items-center gap-1.5
-                      rounded-lg bg-violet-600 px-4 py-2.5 text-sm
-                      font-medium text-white shadow-sm hover:bg-violet-700
-                      transition-all"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                     onClick={() => {
                       const returnTo = id
                         ? `/modulos/${id}/editar`
@@ -1096,10 +1091,7 @@ export default function ModuloEditor() {
                   {subjectCapabilities?.generators && (
                     <button
                       type="button"
-                      className="inline-flex items-center gap-1.5
-                        rounded-lg bg-emerald-600 px-4 py-2.5 text-sm
-                        font-medium text-white shadow-sm hover:bg-emerald-700
-                        transition-all"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-success)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                       onClick={() => {
                         const returnTo = id
                           ? `/modulos/${id}/editar`
@@ -1120,7 +1112,7 @@ export default function ModuloEditor() {
                 </div>
 
                 {/* Leyenda explicativa */}
-                <div className="flex flex-wrap gap-3 text-xs text-slate-500">
+                <div className="flex flex-wrap gap-3 text-xs text-[var(--c-muted)]">
                   <span>
                     ✏️ <strong>Manual</strong> — escribís las preguntas vos mismo
                   </span>
@@ -1139,18 +1131,17 @@ export default function ModuloEditor() {
                 ) : (
                   <div className="space-y-6">
                     {quizzes.map((quiz) => (
-                      <div key={quiz.id} className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md">
-                        <div className="h-1 bg-gradient-to-r from-violet-400 to-purple-400" />
+                      <div key={quiz.id} className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                         <div className="p-5 space-y-4">
                         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                           <div className="grid flex-1 gap-4 md:grid-cols-3">
-                            <label className="text-xs font-medium text-gray-600">
+                            <label className="text-xs font-medium text-[var(--c-muted)]">
                               Título
                               <input
-                                className={`mt-1 w-full rounded-lg border px-3 py-2.5 text-sm shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 ${
+                                className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm text-[var(--c-text)] transition-colors focus:outline-none ${
                                   quizBlurErrors[quiz.id]?.length
-                                    ? "border-red-400 bg-red-50 focus:ring-red-100"
-                                    : "border-gray-300 focus:border-violet-400 focus:ring-violet-100"
+                                    ? "border-red-400 bg-red-50"
+                                    : "border-[var(--c-border)] bg-[var(--c-bg)] focus:border-[var(--c-primary)]"
                                 }`}
                                 value={quiz.title}
                                 onChange={(event) =>
@@ -1164,10 +1155,10 @@ export default function ModuloEditor() {
                                 </span>
                               ))}
                             </label>
-                            <label className="text-xs font-medium text-gray-600">
+                            <label className="text-xs font-medium text-[var(--c-muted)]">
                               Tipo
                               <select
-                                className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
+                                className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                                 value={quiz.type}
                                 onChange={(event) =>
                                   updateQuiz(quiz.id, {
@@ -1190,10 +1181,10 @@ export default function ModuloEditor() {
                                 </p>
                               )}
                             </label>
-                            <label className="text-xs font-medium text-gray-600">
+                            <label className="text-xs font-medium text-[var(--c-muted)]">
                               Visibilidad
                               <select
-                                className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-all duration-200 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
+                                className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                                 value={quiz.visibility}
                                 onChange={(event) =>
                                   updateQuiz(quiz.id, {
@@ -1216,7 +1207,7 @@ export default function ModuloEditor() {
                             </button>
                             <button
                               type="button"
-                              className="rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-600 transition-all hover:bg-indigo-100 hover:border-indigo-300"
+                              className="rounded-lg border border-[var(--c-border)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:opacity-80 transition-opacity"
                               onClick={() =>
                                 setQuizPreviewOpen((prev) => ({
                                   ...prev,
@@ -1230,7 +1221,7 @@ export default function ModuloEditor() {
                         </div>
 
                         {quizPreviewOpen[quiz.id] ? (
-                          <div className="rounded-xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-blue-50 p-4 text-xs text-indigo-700 shadow-sm">
+                          <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
                             <p className="mb-2 font-semibold">
                               Vista previa del estudiante (semilla fija, no registra intento)
                             </p>
@@ -1242,11 +1233,11 @@ export default function ModuloEditor() {
                           </div>
                         ) : null}
 
-                        <label className="text-xs font-medium text-gray-600">
+                        <label className="text-xs font-medium text-[var(--c-muted)]">
                           Instrucciones para el alumno
                           <span className="ml-1 font-normal text-gray-400">(opcional)</span>
                           <textarea
-                            className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-100"
+                            className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                             rows={2}
                             placeholder="Ej: Leé cada pregunta con atención. Tenés 30 minutos."
                             value={quiz.instructions ?? ""}
@@ -1270,13 +1261,13 @@ export default function ModuloEditor() {
                               onChange={(next) => updateQuiz(quiz.id, { questions: next })}
                             />
                             {(quiz.mode === "manual" || quiz.mode === undefined) && (quiz.questions?.length ?? 0) > 0 ? (
-                              <label className="text-xs font-medium text-gray-600">
+                              <label className="text-xs font-medium text-[var(--c-muted)]">
                                 Preguntas por examen
                                 <span className="ml-1 font-normal text-gray-400">
                                   (de {quiz.questions?.length ?? 0} en el pool)
                                 </span>
                                 <input
-                                  className="mt-1 w-32 rounded-md border border-gray-300 px-2 py-2 text-sm"
+                                  className="mt-1 w-32 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                                   type="number"
                                   min={1}
                                   max={quiz.questions?.length ?? 1}
@@ -1303,7 +1294,7 @@ export default function ModuloEditor() {
               <div className="flex flex-wrap items-center gap-3">
                 <button
                   type="submit"
-                  className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white disabled:opacity-70"
+                  className="rounded-xl bg-[var(--c-primary)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
                   disabled={status === "saving"}
                 >
                   {status === "saving"
@@ -1319,8 +1310,8 @@ export default function ModuloEditor() {
                         status === "saved"
                           ? "text-emerald-600"
                           : status === "error"
-                            ? "text-red-600"
-                            : "text-gray-600"
+                            ? "text-[var(--c-danger)]"
+                            : "text-[var(--c-muted)]"
                       }`}
                     >
                       {message}
@@ -1378,14 +1369,14 @@ function BookPicker({
             <span className="text-xs text-gray-600">
               Libro: <strong>{selectedTitle || selectedId}</strong>
             </span>
-            <button type="button" className="text-xs text-blue-600 hover:underline" onClick={onOpenPicker}>
+            <button type="button" className="text-xs text-[var(--c-primary)] hover:underline" onClick={onOpenPicker}>
               Cambiar
             </button>
           </>
         ) : (
           <button
             type="button"
-            className="w-full rounded-md border border-dashed border-gray-300 px-3 py-2 text-sm text-gray-500 hover:border-blue-400 hover:text-blue-600 text-left"
+            className="w-full rounded-lg border border-dashed border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-muted)] hover:border-[var(--c-primary)] hover:text-[var(--c-primary)] text-left transition-colors"
             onClick={onOpenPicker}
           >
             Seleccionar libro...
@@ -1404,10 +1395,10 @@ function BookPicker({
   }
 
   return (
-    <div className="rounded-md border border-blue-200 bg-blue-50 p-3 space-y-2">
+    <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 space-y-2">
       <div className="flex gap-2">
         <input
-          className="flex-1 rounded-md border border-gray-300 px-2 py-1.5 text-xs"
+          className="flex-1 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-2 py-1.5 text-xs focus:border-[var(--c-primary)] focus:outline-none"
           placeholder="Buscar libro por título..."
           value={search}
           onChange={(e) => onSearch(e.target.value)}
@@ -1423,7 +1414,7 @@ function BookPicker({
             <li key={book.id}>
               <button
                 type="button"
-                className="w-full text-left text-xs px-2 py-1.5 rounded hover:bg-white hover:text-blue-700 text-gray-700"
+                className="w-full text-left text-xs px-2 py-1.5 rounded text-[var(--c-text)] hover:bg-[var(--c-surface)] hover:text-[var(--c-primary)]"
                 onClick={() => onSelect(book)}
               >
                 {book.title}
@@ -1435,12 +1426,12 @@ function BookPicker({
       ) : (
         <p className="text-xs text-gray-400">Sin resultados.</p>
       )}
-      <div className="flex gap-3 pt-1 border-t border-blue-100">
+      <div className="flex gap-3 pt-1 border-t border-[var(--c-border)]">
         <a
           href="/editor"
           target="_blank"
           rel="noreferrer"
-          className="text-xs text-blue-600 hover:underline"
+          className="text-xs text-[var(--c-primary)] hover:underline"
         >
           + Crear nuevo libro ↗
         </a>
@@ -1483,14 +1474,14 @@ function TuesdayPicker({
             <span className="text-xs text-gray-600">
               Documento: <strong>{selectedId}</strong>
             </span>
-            <button type="button" className="text-xs text-blue-600 hover:underline" onClick={onOpenPicker}>
+            <button type="button" className="text-xs text-[var(--c-primary)] hover:underline" onClick={onOpenPicker}>
               Cambiar
             </button>
           </>
         ) : (
           <button
             type="button"
-            className="w-full rounded-md border border-dashed border-gray-300 px-3 py-2 text-sm text-gray-500 hover:border-blue-400 hover:text-blue-600 text-left"
+            className="w-full rounded-lg border border-dashed border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-muted)] hover:border-[var(--c-primary)] hover:text-[var(--c-primary)] text-left transition-colors"
             onClick={onOpenPicker}
           >
             Seleccionar documento TuesdayJS...
@@ -1501,10 +1492,10 @@ function TuesdayPicker({
   }
 
   return (
-    <div className="rounded-md border border-blue-200 bg-blue-50 p-3 space-y-2">
+    <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 space-y-2">
       <div className="flex gap-2">
         <input
-          className="flex-1 rounded-md border border-gray-300 px-2 py-1.5 text-xs"
+          className="flex-1 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-2 py-1.5 text-xs focus:border-[var(--c-primary)] focus:outline-none"
           placeholder="Buscar documento por título..."
           value={search}
           onChange={(e) => onSearch(e.target.value)}
@@ -1520,7 +1511,7 @@ function TuesdayPicker({
             <li key={doc.id}>
               <button
                 type="button"
-                className="w-full text-left text-xs px-2 py-1.5 rounded hover:bg-white hover:text-blue-700 text-gray-700"
+                className="w-full text-left text-xs px-2 py-1.5 rounded text-[var(--c-text)] hover:bg-[var(--c-surface)] hover:text-[var(--c-primary)]"
                 onClick={() => onSelect(doc)}
               >
                 {doc.title}
@@ -1532,7 +1523,7 @@ function TuesdayPicker({
       ) : (
         <p className="text-xs text-gray-400">Sin resultados.</p>
       )}
-      <div className="pt-1 border-t border-blue-100">
+      <div className="pt-1 border-t border-[var(--c-border)]">
         <button type="button" className="text-xs text-gray-400 hover:text-gray-600" onClick={onClose}>
           Cancelar
         </button>

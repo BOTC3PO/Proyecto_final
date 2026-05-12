@@ -967,7 +967,7 @@ function SlidePreviewPane({
 
   return (
     <div className="flex flex-col gap-3 p-5 h-full">
-      <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-widest flex-shrink-0">
+      <p className="text-[11px] font-semibold text-[var(--c-muted)] uppercase tracking-widest flex-shrink-0">
         Vista previa
       </p>
       <div
@@ -1154,7 +1154,7 @@ function BlockLatexEditor({
   return (
     <div className="space-y-2">
       <textarea
-        className="w-full border border-gray-200 rounded-lg p-3 resize-none font-mono text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+        className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none font-mono text-sm outline-none focus:border-[var(--c-primary)]"
         rows={4}
         placeholder="Fórmula LaTeX, ej: \frac{a}{b}"
         value={block.content}
@@ -1163,11 +1163,11 @@ function BlockLatexEditor({
       <label className="flex items-center gap-2 cursor-pointer select-none">
         <input
           type="checkbox"
-          className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+          className="rounded border-[var(--c-border)]"
           checked={block.displayMode}
           onChange={(e) => onChange({ displayMode: e.target.checked })}
         />
-        <span className="text-xs text-gray-600">Modo bloque centrado</span>
+        <span className="text-xs text-[var(--c-text)]">Modo bloque centrado</span>
       </label>
     </div>
   );
@@ -1183,7 +1183,7 @@ function BlockTableEditor({
   return (
     <div className="space-y-2">
       <input
-        className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-blue-400"
+        className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
         placeholder="Título de la tabla (opcional)"
         value={block.title ?? ""}
         onChange={(e) => onChange({ title: e.target.value || undefined })}
@@ -1193,7 +1193,7 @@ function BlockTableEditor({
           <thead>
             <tr>
               {block.headers.map((h, ci) => (
-                <th key={ci} className="border border-gray-200 p-1 bg-gray-50">
+                <th key={ci} className="border border-[var(--c-border)] p-1 bg-[var(--c-bg)]">
                   <input
                     className="w-full bg-transparent font-semibold text-center outline-none"
                     value={h}
@@ -1211,7 +1211,7 @@ function BlockTableEditor({
             {block.rows.map((row, ri) => (
               <tr key={ri}>
                 {row.map((cell, ci) => (
-                  <td key={ci} className="border border-gray-200 p-1">
+                  <td key={ci} className="border border-[var(--c-border)] p-1">
                     <input
                       className="w-full bg-transparent outline-none"
                       value={String(cell)}
@@ -1232,14 +1232,14 @@ function BlockTableEditor({
       <div className="flex gap-2">
         <button
           type="button"
-          className="rounded border border-gray-200 px-2 py-1 text-xs hover:bg-gray-50"
+          className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs hover:bg-[var(--c-bg)]"
           onClick={() => onChange({ rows: [...block.rows, block.headers.map(() => "")] })}
         >
           + Fila
         </button>
         <button
           type="button"
-          className="rounded border border-gray-200 px-2 py-1 text-xs hover:bg-gray-50"
+          className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs hover:bg-[var(--c-bg)]"
           onClick={() =>
             onChange({
               headers: [...block.headers, `Col ${block.headers.length + 1}`],
@@ -1270,13 +1270,13 @@ function BlockChartDatasetRow({
   return (
     <div className="flex gap-1 items-center">
       <input
-        className="w-28 border border-gray-200 rounded px-2 py-1 text-xs"
+        className="w-28 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs"
         placeholder="Nombre serie"
         value={ds.label}
         onChange={(e) => onUpdate(di, "label", e.target.value)}
       />
       <input
-        className="flex-1 border border-gray-200 rounded px-2 py-1 text-xs font-mono"
+        className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs font-mono"
         placeholder="10, 20, 30"
         value={valuesInput}
         onChange={(e) => setValuesInput(e.target.value)}
@@ -1287,7 +1287,7 @@ function BlockChartDatasetRow({
       />
       <input
         type="color"
-        className="h-7 w-8 rounded border border-gray-200 p-0.5"
+        className="h-7 w-8 rounded border border-[var(--c-border)] p-0.5"
         value={ds.color ?? "#6366f1"}
         onChange={(e) => onUpdate(di, "color", e.target.value)}
       />
@@ -1333,13 +1333,13 @@ function BlockChartEditor({
     <div className="space-y-2">
       <div className="flex gap-2">
         <input
-          className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-blue-400"
+          className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
           placeholder="Título del gráfico (opcional)"
           value={block.title ?? ""}
           onChange={(e) => onChange({ title: e.target.value || undefined })}
         />
         <select
-          className="border border-gray-200 rounded-lg px-2 py-1.5 text-sm outline-none focus:border-blue-400"
+          className="border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-2 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
           value={block.chartType}
           onChange={(e) => onChange({ chartType: e.target.value as ChartBlock["chartType"] })}
         >
@@ -1355,7 +1355,7 @@ function BlockChartEditor({
         </select>
       </div>
       <input
-        className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-xs outline-none focus:border-blue-400"
+        className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-xs outline-none focus:border-[var(--c-primary)]"
         placeholder="Etiquetas separadas por coma: Ene, Feb, Mar"
         value={labelsInput}
         onChange={(e) => setLabelsInput(e.target.value)}
@@ -1374,7 +1374,7 @@ function BlockChartEditor({
       ))}
       <button
         type="button"
-        className="rounded border border-gray-200 px-2 py-1 text-xs hover:bg-gray-50"
+        className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs hover:bg-[var(--c-bg)]"
         onClick={() =>
           onChange({
             data: {
@@ -1434,22 +1434,22 @@ function BlockFlowEditor({
   return (
     <div className="space-y-2">
       <input
-        className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-blue-400"
+        className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
         placeholder="Título del diagrama (opcional)"
         value={block.title ?? ""}
         onChange={(e) => onChange({ title: e.target.value || undefined })}
       />
-      <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400">Nodos</p>
+      <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--c-muted)]">Nodos</p>
       {block.nodes.map((node) => (
         <div key={node.id} className="flex gap-1 items-center flex-wrap">
           <input
-            className="w-24 border border-gray-200 rounded px-2 py-1 text-xs"
+            className="w-24 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs"
             placeholder="Etiqueta"
             value={node.label}
             onChange={(e) => updateNode(node.id, "label", e.target.value)}
           />
           <select
-            className="border border-gray-200 rounded px-1.5 py-1 text-xs"
+            className="border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
             value={node.shape ?? "rect"}
             onChange={(e) => updateNode(node.id, "shape", e.target.value)}
           >
@@ -1459,21 +1459,21 @@ function BlockFlowEditor({
           </select>
           <input
             type="number"
-            className="w-14 border border-gray-200 rounded px-1.5 py-1 text-xs"
+            className="w-14 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
             placeholder="x"
             value={node.x}
             onChange={(e) => updateNode(node.id, "x", e.target.value)}
           />
           <input
             type="number"
-            className="w-14 border border-gray-200 rounded px-1.5 py-1 text-xs"
+            className="w-14 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
             placeholder="y"
             value={node.y}
             onChange={(e) => updateNode(node.id, "y", e.target.value)}
           />
           <input
             type="color"
-            className="h-7 w-8 rounded border border-gray-200 p-0.5"
+            className="h-7 w-8 rounded border border-[var(--c-border)] p-0.5"
             value={node.color ?? "#e0e7ff"}
             onChange={(e) => updateNode(node.id, "color", e.target.value)}
           />
@@ -1488,18 +1488,18 @@ function BlockFlowEditor({
       ))}
       <button
         type="button"
-        className="rounded border border-gray-200 px-2 py-1 text-xs hover:bg-gray-50"
+        className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs hover:bg-[var(--c-bg)]"
         onClick={addNode}
       >
         + Nodo
       </button>
       {block.nodes.length >= 2 && (
         <>
-          <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400 pt-1">Aristas</p>
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--c-muted)] pt-1">Aristas</p>
           {block.edges.map((edge) => (
             <div key={edge.id} className="flex gap-1 items-center">
               <select
-                className="flex-1 border border-gray-200 rounded px-1.5 py-1 text-xs"
+                className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
                 value={edge.fromId}
                 onChange={(e) =>
                   onChange({
@@ -1511,9 +1511,9 @@ function BlockFlowEditor({
               >
                 {block.nodes.map((n) => <option key={n.id} value={n.id}>{n.label}</option>)}
               </select>
-              <span className="text-xs text-gray-400">→</span>
+              <span className="text-xs text-[var(--c-muted)]">→</span>
               <select
-                className="flex-1 border border-gray-200 rounded px-1.5 py-1 text-xs"
+                className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
                 value={edge.toId}
                 onChange={(e) =>
                   onChange({
@@ -1526,7 +1526,7 @@ function BlockFlowEditor({
                 {block.nodes.map((n) => <option key={n.id} value={n.id}>{n.label}</option>)}
               </select>
               <input
-                className="w-20 border border-gray-200 rounded px-1.5 py-1 text-xs"
+                className="w-20 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
                 placeholder="Etiqueta"
                 value={edge.label ?? ""}
                 onChange={(e) =>
@@ -1550,7 +1550,7 @@ function BlockFlowEditor({
           ))}
           <button
             type="button"
-            className="rounded border border-gray-200 px-2 py-1 text-xs hover:bg-gray-50"
+            className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs hover:bg-[var(--c-bg)]"
             onClick={() => {
               if (block.nodes.length < 2) return;
               const id = crypto.randomUUID();
@@ -1572,7 +1572,7 @@ function BlockSpecEditor({ block, onChange }: { block: Block; onChange: (b: Bloc
     case "text":
       return (
         <textarea
-          className="w-full border border-gray-200 rounded-lg p-3 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+          className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none text-sm outline-none focus:border-[var(--c-primary)]"
           rows={8}
           placeholder="Contenido de texto..."
           value={block.content}
@@ -1606,9 +1606,9 @@ export function ToolParamControl({
     const decimals = param.step && param.step < 1 ? 1 : 0;
     return (
       <div className="flex items-center gap-3">
-        <label className="text-xs font-medium text-gray-500 w-32 flex-shrink-0">
+        <label className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">
           {param.label}
-          {param.unit && <span className="text-gray-300 ml-1">({param.unit})</span>}
+          {param.unit && <span className="text-[var(--c-border)] ml-1">({param.unit})</span>}
         </label>
         <input
           type="range"
@@ -1619,7 +1619,7 @@ export function ToolParamControl({
           onChange={(e) => onChange(Number(e.target.value))}
           className="flex-1 accent-blue-500"
         />
-        <span className="text-xs text-gray-600 w-14 text-right tabular-nums font-mono">
+        <span className="text-xs text-[var(--c-text)] w-14 text-right tabular-nums font-mono">
           {numVal.toFixed(decimals)}
         </span>
       </div>
@@ -1629,9 +1629,9 @@ export function ToolParamControl({
     const strVal = value !== undefined ? String(value) : String(param.defaultValue);
     return (
       <div className="flex items-center gap-3">
-        <label className="text-xs font-medium text-gray-500 w-32 flex-shrink-0">{param.label}</label>
+        <label className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</label>
         <select
-          className="flex-1 border border-gray-200 rounded px-2 py-1 text-xs outline-none focus:border-blue-400"
+          className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs outline-none focus:border-[var(--c-primary)]"
           value={strVal}
           onChange={(e) => onChange(e.target.value)}
         >
@@ -1645,15 +1645,15 @@ export function ToolParamControl({
   if (param.input === "boolean") {
     return (
       <div className="flex items-center gap-3">
-        <span className="text-xs font-medium text-gray-500 w-32 flex-shrink-0">{param.label}</span>
+        <span className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</span>
         <label className="flex items-center gap-2 cursor-pointer select-none">
           <input
             type="checkbox"
             checked={value !== undefined ? Boolean(value) : Boolean(param.defaultValue)}
             onChange={(e) => onChange(e.target.checked)}
-            className="rounded border-gray-300 text-blue-600"
+            className="rounded border-[var(--c-border)]"
           />
-          <span className="text-xs text-gray-500">{Boolean(value) ? "Sí" : "No"}</span>
+          <span className="text-xs text-[var(--c-muted)]">{Boolean(value) ? "Sí" : "No"}</span>
         </label>
       </div>
     );
@@ -1662,13 +1662,13 @@ export function ToolParamControl({
     return (
       <div>
         <div className="flex items-baseline justify-between mb-1">
-          <label className="text-xs font-medium text-gray-500">{param.label}</label>
+          <label className="text-xs font-medium text-[var(--c-muted)]">{param.label}</label>
           {param.description && (
-            <span className="text-[10px] text-gray-300">{param.description}</span>
+            <span className="text-[10px] text-[var(--c-border)]">{param.description}</span>
           )}
         </div>
         <input
-          className="w-full border border-gray-200 rounded px-3 py-1.5 text-sm font-mono outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+          className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-3 py-1.5 text-sm font-mono outline-none focus:border-[var(--c-primary)]"
           value={value !== undefined ? String(value) : String(param.defaultValue)}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -1679,14 +1679,14 @@ export function ToolParamControl({
     const strVal = value !== undefined ? String(value) : String(param.defaultValue);
     return (
       <div className="flex items-center gap-3">
-        <label className="text-xs font-medium text-gray-500 w-32 flex-shrink-0">{param.label}</label>
+        <label className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</label>
         <input
           type="color"
           value={strVal}
           onChange={(e) => onChange(e.target.value)}
-          className="h-7 w-12 rounded border border-gray-200 cursor-pointer bg-transparent p-0.5"
+          className="h-7 w-12 rounded border border-[var(--c-border)] cursor-pointer bg-transparent p-0.5"
         />
-        <span className="text-xs text-gray-400 font-mono">{strVal}</span>
+        <span className="text-xs text-[var(--c-muted)] font-mono">{strVal}</span>
       </div>
     );
   }
@@ -1709,15 +1709,15 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
   const headingInput = (
     <div>
       <div className="flex items-baseline justify-between mb-1.5">
-        <label className="text-xs font-medium text-gray-500">
+        <label className="text-xs font-medium text-[var(--c-muted)]">
           {isQuote ? "Texto de la cita" : "Título principal"}
         </label>
-        <span className="text-[10px] text-gray-300 font-mono">
+        <span className="text-[10px] text-[var(--c-border)] font-mono">
           {isQuote ? "text-3xl italic font-serif" : "text-4xl font-bold"}
         </span>
       </div>
       <input
-        className={`w-full border-0 border-b-2 border-gray-200 pb-2 leading-tight outline-none focus:border-blue-400 bg-transparent placeholder-gray-200 text-gray-800 ${
+        className={`w-full border-0 border-b-2 border-[var(--c-border)] pb-2 leading-tight outline-none focus:border-[var(--c-primary)] bg-transparent placeholder-[var(--c-border)] text-[var(--c-text)] ${
           isQuote ? "text-2xl italic font-serif" : "text-2xl font-bold"
         }`}
         placeholder={isQuote ? '"El conocimiento es poder..."' : "Título de la diapositiva"}
@@ -1731,17 +1731,17 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
     <div className="flex flex-col gap-7">
       {/* ── Layout picker ── */}
       <div>
-        <p className="text-xs font-medium text-gray-500 mb-2">Distribución del contenido</p>
+        <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Distribución del contenido</p>
         <div className="grid grid-cols-5 gap-2">
           {(Object.keys(LAYOUT_META) as LayoutPreset[]).map((preset) => (
             <button
               key={preset}
               type="button"
               title={LAYOUT_META[preset].description}
-              className={`flex flex-col gap-2 p-3 rounded-lg border transition-colors text-gray-600 ${
+              className={`flex flex-col gap-2 p-3 rounded-lg border transition-colors text-[var(--c-text)] ${
                 slide.layout === preset
-                  ? "border-blue-500 bg-blue-50 text-blue-700"
-                  : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
+                  ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] text-[var(--c-primary)]"
+                  : "border-[var(--c-border)] hover:border-[var(--c-primary)] hover:bg-[var(--c-bg)]"
               }`}
               style={{ height: 72 }}
               onClick={() => onChange({ layout: preset })}
@@ -1759,25 +1759,25 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
 
       {/* ── Background image ── */}
       <div>
-        <p className="text-xs font-medium text-gray-500 mb-2">Imagen de fondo (opcional)</p>
+        <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Imagen de fondo (opcional)</p>
         <input
           type="url"
-          className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+          className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-2 text-sm outline-none focus:border-[var(--c-primary)]"
           placeholder="https://ejemplo.com/imagen.jpg"
           value={slide.bgImage ?? ""}
           onChange={(e) => onChange({ bgImage: e.target.value || undefined })}
         />
         {slide.bgImage ? (
           <div className="mt-2 flex items-center gap-2">
-            <span className="text-xs text-gray-500 flex-shrink-0">Capa de color:</span>
+            <span className="text-xs text-[var(--c-muted)] flex-shrink-0">Capa de color:</span>
             {(["none", "medium", "dark"] as const).map((opt) => (
               <button
                 key={opt}
                 type="button"
                 className={`px-2.5 py-1 rounded-md text-xs border transition-colors ${
                   (slide.bgOverlay ?? "none") === opt
-                    ? "bg-blue-600 text-white border-blue-600"
-                    : "border-gray-200 text-gray-600 hover:border-blue-300"
+                    ? "bg-[var(--c-primary)] text-white border-[var(--c-primary)]"
+                    : "border-[var(--c-border)] text-[var(--c-text)] hover:border-[var(--c-primary)]"
                 }`}
                 onClick={() => onChange({ bgOverlay: opt })}
               >
@@ -1787,7 +1787,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
             <img
               src={slide.bgImage}
               alt=""
-              className="ml-auto h-8 w-14 object-cover rounded border border-gray-200 flex-shrink-0"
+              className="ml-auto h-8 w-14 object-cover rounded border border-[var(--c-border)] flex-shrink-0"
               onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
             />
           </div>
@@ -1800,9 +1800,9 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
           {headingInput}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1.5 block">Columna izquierda</label>
+              <label className="text-xs font-medium text-[var(--c-muted)] mb-1.5 block">Columna izquierda</label>
               <textarea
-                className="w-full border border-gray-200 rounded-lg p-3 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200 leading-relaxed"
+                className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none text-sm outline-none focus:border-[var(--c-primary)] leading-relaxed"
                 placeholder="Contenido de la columna izquierda..."
                 rows={12}
                 value={slide.leftColumn ?? ""}
@@ -1810,9 +1810,9 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
               />
             </div>
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1.5 block">Columna derecha</label>
+              <label className="text-xs font-medium text-[var(--c-muted)] mb-1.5 block">Columna derecha</label>
               <textarea
-                className="w-full border border-gray-200 rounded-lg p-3 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200 leading-relaxed"
+                className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none text-sm outline-none focus:border-[var(--c-primary)] leading-relaxed"
                 placeholder="Contenido de la columna derecha..."
                 rows={12}
                 value={slide.rightColumn ?? ""}
@@ -1827,13 +1827,13 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
 
           <div>
             <div className="flex items-baseline justify-between mb-1.5">
-              <label className="text-xs font-medium text-gray-500">
+              <label className="text-xs font-medium text-[var(--c-muted)]">
                 {isQuote ? "Atribución" : "Subtítulo"}
               </label>
-              <span className="text-[10px] text-gray-300 font-mono">text-xl font-medium</span>
+              <span className="text-[10px] text-[var(--c-border)] font-mono">text-xl font-medium</span>
             </div>
             <input
-              className="w-full border-0 border-b border-gray-200 pb-1.5 text-lg font-medium leading-snug outline-none focus:border-blue-400 bg-transparent placeholder-gray-200 text-slate-500"
+              className="w-full border-0 border-b border-[var(--c-border)] pb-1.5 text-lg font-medium leading-snug outline-none focus:border-[var(--c-primary)] bg-transparent placeholder-[var(--c-border)] text-[var(--c-muted)]"
               placeholder={isQuote ? "— Autor, Año (opcional)" : "Subtítulo o descripción secundaria (opcional)"}
               value={slide.subtitle ?? ""}
               onChange={(e) => onChange({ subtitle: e.target.value || undefined })}
@@ -1846,7 +1846,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                 /* ── Block mode: editor + remove button ── */
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-xs font-medium text-gray-500">
+                    <p className="text-xs font-medium text-[var(--c-muted)]">
                       Bloque gráfico — {BLOCK_TYPE_LABELS[slide.blockSpec.type]}
                     </p>
                     <button
@@ -1867,9 +1867,9 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                 <>
                   {/* ── Content mode selector ── */}
                   <div>
-                    <p className="text-xs font-medium text-gray-500 mb-2">Tipo de contenido</p>
+                    <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Tipo de contenido</p>
                     <div className="flex gap-4">
-                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-gray-700">
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-[var(--c-text)]">
                         <input
                           type="radio"
                           name={`content-mode-${slide.id}`}
@@ -1881,7 +1881,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                         />
                         Texto
                       </label>
-                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-gray-700">
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-[var(--c-text)]">
                         <input
                           type="radio"
                           name={`content-mode-${slide.id}`}
@@ -1893,7 +1893,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                         />
                         Código
                       </label>
-                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-gray-700">
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-[var(--c-text)]">
                         <input
                           type="radio"
                           name={`content-mode-${slide.id}`}
@@ -1908,13 +1908,13 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                   {showBlockPicker ? (
                     /* ── Block type picker ── */
                     <div>
-                      <p className="text-xs text-gray-500 mb-2">Seleccionar tipo de bloque:</p>
+                      <p className="text-xs text-[var(--c-muted)] mb-2">Seleccionar tipo de bloque:</p>
                       <div className="flex gap-2 flex-wrap">
                         {(["chart", "table", "latex", "flow"] as const).map((t) => (
                           <button
                             key={t}
                             type="button"
-                            className="px-3 py-1.5 rounded-lg border border-gray-200 text-xs hover:border-blue-400 hover:bg-blue-50 text-gray-700"
+                            className="px-3 py-1.5 rounded-lg border border-[var(--c-border)] text-[var(--c-text)] text-xs hover:border-[var(--c-primary)] hover:bg-[color-mix(in_srgb,var(--c-primary)_6%,transparent)]"
                             onClick={() => {
                               setShowBlockPicker(false);
                               onChange({ blockSpec: createEmptyBlock(t), body: undefined, isCode: false });
@@ -1930,14 +1930,14 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                     <>
                       <div>
                         <div className="flex items-baseline justify-between mb-1.5">
-                          <label className="text-xs font-medium text-gray-500">
+                          <label className="text-xs font-medium text-[var(--c-muted)]">
                             {slide.isCode ? "Código" : "Cuerpo de texto"}
                           </label>
-                          <span className="text-[10px] text-gray-300 font-mono">text-base leading-relaxed</span>
+                          <span className="text-[10px] text-[var(--c-border)] font-mono">text-base leading-relaxed</span>
                         </div>
                         <textarea
-                          className={`w-full border border-gray-200 rounded-lg p-4 resize-none text-sm outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200 leading-relaxed ${
-                            slide.isCode ? "font-mono bg-gray-50" : ""
+                          className={`w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-4 resize-none text-sm outline-none focus:border-[var(--c-primary)] leading-relaxed ${
+                            slide.isCode ? "font-mono" : ""
                           }`}
                           placeholder={
                             slide.isCode
@@ -1954,15 +1954,15 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                         <label className="flex items-center gap-2 cursor-pointer select-none">
                           <input
                             type="checkbox"
-                            className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                            className="rounded border-[var(--c-border)]"
                             checked={slide.isCode ?? false}
                             onChange={(e) => onChange({ isCode: e.target.checked })}
                           />
-                          <span className="text-xs text-gray-600">Mostrar como bloque de código</span>
+                          <span className="text-xs text-[var(--c-text)]">Mostrar como bloque de código</span>
                         </label>
                         {slide.isCode ? (
                           <input
-                            className="border border-gray-200 rounded px-2.5 py-1 text-xs outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-200"
+                            className="border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2.5 py-1 text-xs outline-none focus:border-[var(--c-primary)]"
                             placeholder="lenguaje (js, python...)"
                             value={slide.language ?? ""}
                             onChange={(e) => onChange({ language: e.target.value || undefined })}
@@ -2020,17 +2020,17 @@ export default function TheorySlideEditor({
   const currentSlide = slides[currentIndex] ?? null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-white flex flex-col">
+    <div className="fixed inset-0 z-50 bg-[var(--c-bg)] flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-50 flex-shrink-0 gap-3">
-        <h2 className="text-sm font-semibold text-gray-900 truncate min-w-0">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)] bg-[var(--c-surface)] flex-shrink-0 gap-3">
+        <h2 className="text-sm font-semibold text-[var(--c-text)] truncate min-w-0">
           {presentationTitle || "Presentación"}
         </h2>
 
         <div className="flex items-center gap-3 flex-shrink-0">
           {/* Theme swatches */}
           <div className="flex items-center gap-1.5">
-            <span className="text-xs text-gray-400 mr-0.5">Tema:</span>
+            <span className="text-xs text-[var(--c-muted)] mr-0.5">Tema:</span>
             {(Object.entries(THEMES) as [ThemeKey, ThemeConfig][]).map(([key, cfg]) => (
               <button
                 key={key}
@@ -2038,8 +2038,8 @@ export default function TheorySlideEditor({
                 title={cfg.label}
                 className={`w-5 h-5 rounded-full border-2 transition-all flex-shrink-0 ${
                   theme === key
-                    ? "border-blue-500 scale-125 shadow-sm"
-                    : "border-gray-300 hover:scale-110 hover:border-gray-400"
+                    ? "border-[var(--c-primary)] scale-125"
+                    : "border-[var(--c-border)] hover:scale-110 hover:border-[var(--c-muted)]"
                 }`}
                 style={{ background: cfg.swatch }}
                 onClick={() => setTheme(key)}
@@ -2049,18 +2049,18 @@ export default function TheorySlideEditor({
 
           {/* Accent color swatches */}
           <div className="flex items-center gap-1.5">
-            <span className="text-xs text-gray-400 mr-0.5">Acento:</span>
+            <span className="text-xs text-[var(--c-muted)] mr-0.5">Acento:</span>
             <button
               type="button"
               title="Sin color de acento"
-              className={`w-5 h-5 rounded-full border-2 transition-all flex-shrink-0 bg-gray-100 ${
+              className={`w-5 h-5 rounded-full border-2 transition-all flex-shrink-0 bg-[var(--c-bg)] ${
                 accentColor === undefined
-                  ? "border-blue-500 scale-125 shadow-sm"
-                  : "border-gray-300 hover:scale-110 hover:border-gray-400"
+                  ? "border-[var(--c-primary)] scale-125"
+                  : "border-[var(--c-border)] hover:scale-110 hover:border-[var(--c-muted)]"
               }`}
               onClick={() => setAccentColor(undefined)}
             >
-              <span className="text-[8px] text-gray-400 flex items-center justify-center w-full h-full">✕</span>
+              <span className="text-[8px] text-[var(--c-muted)] flex items-center justify-center w-full h-full">✕</span>
             </button>
             {(Object.entries(ACCENT_COLORS) as [AccentColor, AccentConfig][]).map(([key, cfg]) => (
               <button
@@ -2069,8 +2069,8 @@ export default function TheorySlideEditor({
                 title={cfg.label}
                 className={`w-5 h-5 rounded-full border-2 transition-all flex-shrink-0 ${
                   accentColor === key
-                    ? "border-blue-500 scale-125 shadow-sm"
-                    : "border-gray-300 hover:scale-110 hover:border-gray-400"
+                    ? "border-[var(--c-primary)] scale-125"
+                    : "border-[var(--c-border)] hover:scale-110 hover:border-[var(--c-muted)]"
                 }`}
                 style={{ background: cfg.swatch }}
                 onClick={() => setAccentColor(key)}
@@ -2080,7 +2080,7 @@ export default function TheorySlideEditor({
 
           <button
             type="button"
-            className="flex items-center gap-1 rounded-md border border-gray-300 px-3 py-1.5 text-xs hover:bg-gray-100"
+            className="flex items-center gap-1 rounded-md border border-[var(--c-border)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)]"
             onClick={addSlide}
           >
             <Plus size={12} />
@@ -2089,7 +2089,7 @@ export default function TheorySlideEditor({
 
           <button
             type="button"
-            className="rounded-md bg-blue-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-blue-700"
+            className="rounded-md bg-[var(--c-primary)] px-3 py-1.5 text-xs font-medium text-white hover:opacity-90 transition-opacity"
             onClick={() => onDone(slides, theme, accentColor)}
           >
             Listo
@@ -2097,7 +2097,7 @@ export default function TheorySlideEditor({
 
           <button
             type="button"
-            className="p-1.5 rounded-md hover:bg-gray-200 text-gray-500"
+            className="p-1.5 rounded-md hover:bg-[var(--c-bg)] text-[var(--c-muted)]"
             onClick={onClose}
             title="Cerrar sin guardar"
           >
@@ -2109,15 +2109,15 @@ export default function TheorySlideEditor({
       {/* Body */}
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar — slide thumbnails */}
-        <div className="w-52 border-r border-gray-200 overflow-y-auto bg-gray-50 flex-shrink-0 flex flex-col">
+        <div className="w-52 border-r border-[var(--c-border)] overflow-y-auto bg-[var(--c-bg)] flex-shrink-0 flex flex-col">
           <div className="flex-1">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
-                className={`group relative border-b border-gray-100 ${
+                className={`group relative border-b border-[var(--c-border)] ${
                   currentIndex === index
-                    ? "ring-2 ring-inset ring-blue-500 bg-blue-50"
-                    : "hover:bg-gray-100"
+                    ? "ring-2 ring-inset ring-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)]"
+                    : "hover:bg-[var(--c-border)]"
                 }`}
               >
                 <button
@@ -2130,23 +2130,23 @@ export default function TheorySlideEditor({
 
                   {/* Label row */}
                   <div className="px-2 py-1.5 flex items-center gap-1.5">
-                    <span className="text-[10px] text-gray-400 tabular-nums flex-shrink-0">{index + 1}</span>
-                    <span className="text-[10px] text-gray-300">·</span>
-                    <span className="text-xs text-gray-600 truncate leading-none">
-                      {slide.heading || <span className="text-gray-300 italic">Sin título</span>}
+                    <span className="text-[10px] text-[var(--c-muted)] tabular-nums flex-shrink-0">{index + 1}</span>
+                    <span className="text-[10px] text-[var(--c-border)]">·</span>
+                    <span className="text-xs text-[var(--c-text)] truncate leading-none">
+                      {slide.heading || <span className="text-[var(--c-border)] italic">Sin título</span>}
                     </span>
                     {slide.toolSpec && (
-                      <Settings size={9} className="text-gray-300 flex-shrink-0 ml-auto" />
+                      <Settings size={9} className="text-[var(--c-border)] flex-shrink-0 ml-auto" />
                     )}
                   </div>
                 </button>
 
                 {/* Action buttons on hover */}
-                <div className="absolute right-1 top-2 hidden group-hover:flex flex-col gap-0.5 bg-white/80 rounded p-0.5 backdrop-blur-sm">
+                <div className="absolute right-1 top-2 hidden group-hover:flex flex-col gap-0.5 bg-[var(--c-surface)]/80 rounded p-0.5 backdrop-blur-sm">
                   <button
                     type="button"
                     title="Mover arriba"
-                    className="p-0.5 text-gray-400 hover:text-gray-700 disabled:opacity-30"
+                    className="p-0.5 text-[var(--c-muted)] hover:text-[var(--c-text)] disabled:opacity-30"
                     disabled={index === 0}
                     onClick={() => moveSlide(index, index - 1)}
                   >
@@ -2155,7 +2155,7 @@ export default function TheorySlideEditor({
                   <button
                     type="button"
                     title="Duplicar"
-                    className="p-0.5 text-gray-400 hover:text-blue-600"
+                    className="p-0.5 text-[var(--c-muted)] hover:text-[var(--c-primary)]"
                     onClick={() => dupSlide(index)}
                   >
                     <Copy size={12} />
@@ -2163,7 +2163,7 @@ export default function TheorySlideEditor({
                   <button
                     type="button"
                     title="Mover abajo"
-                    className="p-0.5 text-gray-400 hover:text-gray-700 disabled:opacity-30"
+                    className="p-0.5 text-[var(--c-muted)] hover:text-[var(--c-text)] disabled:opacity-30"
                     disabled={index === slides.length - 1}
                     onClick={() => moveSlide(index, index + 1)}
                   >
@@ -2176,7 +2176,7 @@ export default function TheorySlideEditor({
 
           <button
             type="button"
-            className="w-full flex items-center justify-center gap-1 py-3 text-xs text-gray-400 hover:text-blue-600 hover:bg-blue-50 border-t border-gray-200 flex-shrink-0"
+            className="w-full flex items-center justify-center gap-1 py-3 text-xs text-[var(--c-muted)] hover:text-[var(--c-primary)] hover:bg-[color-mix(in_srgb,var(--c-primary)_6%,transparent)] border-t border-[var(--c-border)] flex-shrink-0"
             onClick={addSlide}
           >
             <Plus size={12} />
@@ -2187,7 +2187,7 @@ export default function TheorySlideEditor({
         {/* Editor panel (form + preview) */}
         <div className="flex-1 flex overflow-hidden">
           {/* Form — left column */}
-          <div className="flex-1 overflow-y-auto border-r border-gray-200">
+          <div className="flex-1 overflow-y-auto border-r border-[var(--c-border)]">
             <div className="max-w-2xl mx-auto w-full p-8 flex flex-col gap-8 min-h-full">
               {currentSlide ? (
                 <>
@@ -2213,7 +2213,7 @@ export default function TheorySlideEditor({
 
           {/* Preview — right column */}
           {currentSlide ? (
-            <div className="w-[420px] flex-shrink-0 overflow-y-auto bg-gray-50">
+            <div className="w-[420px] flex-shrink-0 overflow-y-auto bg-[var(--c-bg)]">
               <SlidePreviewPane
                 slide={currentSlide}
                 theme={theme}
