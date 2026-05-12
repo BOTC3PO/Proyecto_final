@@ -66,9 +66,9 @@ export default function PerfilPublico() {
     return (
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-6
         px-6 py-16 items-center">
-        <div className="h-24 w-24 animate-pulse rounded-full bg-slate-200" />
-        <div className="h-6 w-48 animate-pulse rounded-xl bg-slate-200" />
-        <div className="h-4 w-32 animate-pulse rounded-xl bg-slate-200" />
+        <div className="h-24 w-24 animate-pulse rounded-full bg-[var(--c-border)]" />
+        <div className="h-6 w-48 animate-pulse rounded-xl bg-[var(--c-border)]" />
+        <div className="h-4 w-32 animate-pulse rounded-xl bg-[var(--c-border)]" />
       </div>
     );
   }
@@ -85,8 +85,8 @@ export default function PerfilPublico() {
           @{username} no existe o su perfil no es público.
         </p>
         <Link to="/"
-          className="mt-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm
-            font-semibold text-white hover:bg-blue-700 transition-colors">
+          className="mt-2 rounded-xl bg-[var(--c-primary)] px-5 py-2.5 text-sm
+            font-semibold text-white hover:opacity-90 transition-opacity">
           Volver al inicio
         </Link>
       </div>
@@ -107,7 +107,7 @@ export default function PerfilPublico() {
           {/* Avatar */}
           <div
             className="h-24 w-24 rounded-full flex items-center
-              justify-center text-2xl font-bold text-white shadow-lg"
+              justify-center text-2xl font-bold text-white"
             style={{ backgroundColor: "var(--c-primary)" }}
           >
             {data.avatarUrl ? (
@@ -159,7 +159,7 @@ export default function PerfilPublico() {
 
         {/* Stats */}
         <section
-          className="rounded-2xl border p-6 text-center shadow-sm"
+          className="rounded-xl border p-6 text-center"
           style={{
             backgroundColor: "var(--c-surface)",
             borderColor: "var(--c-border)",
@@ -186,7 +186,7 @@ export default function PerfilPublico() {
               {data.modulosCompletados.map((mod) => (
                 <div
                   key={mod.id}
-                  className="rounded-2xl border p-4 shadow-sm"
+                  className="rounded-xl border p-4"
                   style={{
                     backgroundColor: "var(--c-surface)",
                     borderColor: "var(--c-border)",
