@@ -147,7 +147,7 @@ export default function AlumnoEncuestas() {
   const now = useMemo(() => new Date(), [surveys]);
 
   return (
-    <div className="min-h-screen bg-[var(--c-bg)]">
+    <div className="page-root min-h-screen bg-[var(--c-bg)]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
         {/* Encabezado */}

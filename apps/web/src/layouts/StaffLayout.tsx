@@ -211,7 +211,7 @@ function Topbar() {
 
 export default function StaffLayout() {
   return (
-    <div className="flex min-h-screen bg-[var(--c-bg)]">
+    <div className="layout-root flex min-h-screen bg-[var(--c-bg)]">
       <Sidebar />
       <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
         <Topbar />
