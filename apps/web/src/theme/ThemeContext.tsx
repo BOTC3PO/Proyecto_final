@@ -5,6 +5,7 @@ import { useAuth } from "../auth/use-auth";
 export type ThemeId =
   | "clasico" | "clasico-vb" | "aurora" | "nocturno" | "nocturno-vb"
   | "vibrante" | "bosque" | "minimal"
+  | "vb2"
   | "obsidian" | "sakura" | "carbon" | "arctic" | "lava" | "emerald" | "dusk"
   | "galaxy" | "sunset" | "ocean" | "candy" | "neon"
   | "aurora-boreal" | "cosmos" | "magma"
@@ -19,6 +20,7 @@ export type ThemeOption = {
 
 export const THEME_OPTIONS: ThemeOption[] = [
   // Gratuitos
+  { id: "vb2",          name: "VB2 — Oficial",  animated: true,  price: 0   },
   { id: "clasico",       name: "Clásico",       animated: false, price: 0   },
   { id: "clasico-vb",    name: "Clásico VB",    animated: false, price: 0   },
   { id: "nocturno",      name: "Nocturno",      animated: false, price: 0   },
@@ -51,7 +53,7 @@ export const THEME_OPTIONS: ThemeOption[] = [
 export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
   USER: [
     // Gratuitos (default: nocturno-vb)
-    "nocturno-vb", "nocturno", "clasico", "clasico-vb", "minimal",
+    "nocturno-vb", "vb2", "nocturno", "clasico", "clasico-vb", "minimal",
     // Estáticos de pago
     "aurora", "bosque", "vibrante",
     "obsidian", "sakura", "carbon", "arctic", "lava", "emerald", "dusk",

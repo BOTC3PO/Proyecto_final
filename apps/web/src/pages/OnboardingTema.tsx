@@ -3,6 +3,18 @@ import { useState } from 'react';
 
 const TEMAS_USER = [
   {
+    id: 'vb2',
+    name: 'VB2 — Oficial',
+    description: 'El tema ganador. Oscuro, moderno y elegante.',
+    bg: '#0d0e1a',
+    surface: '#13152a',
+    border: '#1e2140',
+    text: '#e8eaf6',
+    muted: '#8b8fa8',
+    primary: '#6c63ff',
+    preview: ['#0d0e1a', '#13152a', '#6c63ff'],
+  },
+  {
     id: 'nocturno-vb',
     name: 'Nocturno VB',
     description: 'Oscuro con acentos violeta. Ideal para estudiar de noche.',
