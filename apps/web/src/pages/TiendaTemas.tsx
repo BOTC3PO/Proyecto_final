@@ -188,7 +188,10 @@ export default function TiendaTemas() {
         setMisItems(items);
         const temasComprados = items
           .filter((i) => i.tipo === 'tema')
-          .map((i) => i.asset_id ?? i.item_id);
+          .map((i) => {
+            const raw = i.asset_id ?? i.item_id;
+            return raw.startsWith('tema-') ? raw.slice(5) : raw;
+          });
         setEconomy((prev) => ({
           ...prev,
           ownedThemes: ['clasico', 'nocturno', ...temasComprados].filter(
@@ -217,7 +220,11 @@ export default function TiendaTemas() {
       return;
     }
 
-    const catalogItem = catalogoTienda.find((i) => (i.asset_id ?? i.id) === themeId);
+    const catalogItem = catalogoTienda.find((i) =>
+      i.asset_id === themeId ||
+      i.id === themeId ||
+      i.id === `tema-${themeId}`
+    );
     if (!catalogItem) {
       setTiendaMsg('Este tema no está disponible en el catálogo aún.');
       return;
