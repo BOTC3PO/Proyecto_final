@@ -9,6 +9,7 @@ export type ThemeId =
   | "obsidian" | "sakura" | "carbon" | "arctic" | "lava" | "emerald" | "dusk"
   | "galaxy" | "sunset" | "ocean" | "candy" | "neon"
   | "aurora-boreal" | "cosmos" | "magma"
+  | "dorado"
   | "admin";
 
 export type ThemeOption = {
@@ -47,6 +48,7 @@ export const THEME_OPTIONS: ThemeOption[] = [
   { id: "aurora-boreal", name: "Aurora Boreal", animated: true,  price: 250 },
   { id: "cosmos",        name: "Cosmos",        animated: true,  price: 300 },
   { id: "magma",         name: "Magma",         animated: true,  price: 280 },
+  { id: "dorado",       name: "Dorado",        animated: true,  price: 500 },
 ];
 
 // Temas disponibles por rol
@@ -61,6 +63,7 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
     "galaxy", "sunset", "ocean", "candy", "neon",
     // Legendarios
     "aurora-boreal", "cosmos", "magma",
+    "dorado",
   ],
   TEACHER: [
     "clasico-vb",

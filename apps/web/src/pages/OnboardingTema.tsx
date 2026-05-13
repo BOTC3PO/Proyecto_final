@@ -86,6 +86,18 @@ const TEMAS_USER = [
     primary: '#1a1a18',
     preview: ['#f2f0eb', '#faf9f6', '#1a1a18'],
   },
+  {
+    id: 'dorado',
+    name: 'Dorado',
+    description: 'Metálico y exclusivo. El tema más premium.',
+    bg: '#0a0800',
+    surface: '#120f00',
+    border: '#2a2000',
+    text: '#fdf0c0',
+    muted: '#c8a84b',
+    primary: '#f5c842',
+    preview: ['#0a0800', '#241c00', '#f5c842'],
+  },
 ];
 
 const STORAGE_KEY = 'vb-theme';

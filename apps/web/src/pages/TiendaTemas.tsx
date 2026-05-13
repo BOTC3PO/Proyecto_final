@@ -71,6 +71,8 @@ const THEME_META: Record<string, {
     preview: 'linear-gradient(135deg,#02000a,#150040,#06001a)' },
   'magma':         { bg: '#0a0200', surface: '#150400', primary: '#ff6d00', animated: true, legendary: true,
     preview: 'linear-gradient(135deg,#0a0200,#2d0a00,#1a0300)' },
+  'dorado':        { bg: '#0a0800', surface: '#120f00', primary: '#f5c842', animated: true, legendary: true,
+    preview: 'linear-gradient(135deg,#0a0800,#241c00,#1a1400)' },
 };
 
 function ThemeCard({
