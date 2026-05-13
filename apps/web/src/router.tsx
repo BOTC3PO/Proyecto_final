@@ -6,7 +6,7 @@ import RootLayout from "./layouts/RootLayout";
 import GuestLayout from "./layouts/GuestLayout";
 import AlumnoLayout from "./layouts/AlumnoLayout";
 import StaffLayout from "./layouts/StaffLayout";
-import SharedLayout from "./layouts/SharedLayout";
+import RoleLayout from "./layouts/RoleLayout";
 import { lazyWithRetry } from "./lib/lazyWithRetry";
 import { RouteErrorBoundary } from "./components/RouteErrorBoundary";
 
@@ -216,14 +216,6 @@ export const router = createBrowserRouter([
           {
             path: 'tienda-temas',
             element: withSuspense(<TiendaTemas />),
-          },
-          {
-            path: 'mensajes',
-            element: withSuspense(<Mensajeria />),
-          },
-          {
-            path: 'perfil',
-            element: withSuspense(<Perfil />),
           },
           {
             path: 'calendario',
@@ -488,23 +480,6 @@ export const router = createBrowserRouter([
               </ProtectedRoute>
             ),
           },
-          // Rutas compartidas que el staff necesita con sidebar
-          {
-            path: 'mensajes',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'DIRECTIVO', 'ADMIN']}>
-                {withSuspense(<Mensajeria />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'perfil',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'DIRECTIVO', 'ADMIN']}>
-                {withSuspense(<Perfil />)}
-              </ProtectedRoute>
-            ),
-          },
           {
             path: 'modulos',
             element: (
@@ -540,14 +515,22 @@ export const router = createBrowserRouter([
         ],
       },
 
-      // ── Rutas compartidas (multi-rol) ──────────────────────────────────────
+      // ── Rutas compartidas con layout por rol ──────────────────────────────────
       {
         element: (
-          <ProtectedRoute allow={['USER', 'PARENT']}>
-            <SharedLayout />
+          <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'DIRECTIVO', 'ADMIN']}>
+            <RoleLayout />
           </ProtectedRoute>
         ),
         children: [
+          {
+            path: 'mensajes',
+            element: withSuspense(<Mensajeria />),
+          },
+          {
+            path: 'perfil',
+            element: withSuspense(<Perfil />),
+          },
           {
             path: 'menualumno',
             element: (
@@ -575,16 +558,32 @@ export const router = createBrowserRouter([
           {
             path: 'modulos',
             element: (
-              <ProtectedRoute allow={['USER', 'PARENT']}>
+              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'DIRECTIVO', 'ADMIN']}>
                 {withSuspense(<ModulosList />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos/crear',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
+                {withSuspense(<ModuloEditor />)}
               </ProtectedRoute>
             ),
           },
           {
             path: 'modulos/:id',
             element: (
-              <ProtectedRoute allow={['USER', 'PARENT']}>
+              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'DIRECTIVO', 'ADMIN']}>
                 {withSuspense(<ModuloDetail />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'modulos/:id/editar',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
+                {withSuspense(<ModuloEditor />)}
               </ProtectedRoute>
             ),
           },

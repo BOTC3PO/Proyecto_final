@@ -79,7 +79,14 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
     "aurora",
     "bosque",
   ],
-  ADMIN: ["admin", "clasico-vb", "clasico", "minimal"],
+  ADMIN: [
+    "admin",
+    "clasico-vb", "clasico", "minimal", "vb2",
+    "aurora", "bosque", "vibrante",
+    "obsidian", "sakura", "carbon", "arctic", "lava", "emerald", "dusk",
+    "galaxy", "sunset", "ocean", "candy", "neon",
+    "aurora-boreal", "cosmos", "magma", "dorado",
+  ],
   GUEST:     ["clasico"],
 };
 
