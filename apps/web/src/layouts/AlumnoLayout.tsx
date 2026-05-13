@@ -5,7 +5,7 @@ import AnimatedBackground from '../components/AnimatedBackground';
 
 export default function AlumnoLayout() {
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--c-bg)]">
+    <div className="layout-root flex flex-col min-h-screen bg-[var(--c-bg)]">
       <AnimatedBackground />
       <Navbar />
       <main className="flex-grow relative z-10">
