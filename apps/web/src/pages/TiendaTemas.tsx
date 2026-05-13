@@ -38,6 +38,8 @@ const THEME_META: Record<string, {
   legendary?: boolean; animated?: boolean;
   preview?: string;
 }> = {
+  'vb2':          { bg: '#0d0e1a', surface: '#13152a', primary: '#6c63ff', animated: true,
+    preview: 'linear-gradient(135deg,#0d0e1a,#1e1f3a,#0d0e2a)' },
   'clasico':       { bg: '#f1f5f9', surface: '#ffffff', primary: '#2563eb' },
   'clasico-vb':    { bg: '#f8fafc', surface: '#ffffff', primary: '#2563eb' },
   'nocturno':      { bg: '#0f172a', surface: '#1e293b', primary: '#60a5fa' },
@@ -300,6 +302,65 @@ export default function TiendaTemas() {
           </div>
         ) : (
           <>
+            {/* ── Tema oficial VB2 — gratuito y destacado ── */}
+            {availableThemes.find(t => t.id === 'vb2') && (() => {
+              const t = availableThemes.find(t => t.id === 'vb2')!;
+              const meta = THEME_META['vb2']!;
+              const isActive = theme === 'vb2';
+              return (
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-base">🏆</span>
+                    <h2 className="text-sm font-semibold text-[var(--c-text)]">Tema oficial</h2>
+                    <span className="text-xs text-[var(--c-muted)]">— Ganador de la encuesta · Gratis</span>
+                  </div>
+                  <div
+                    className="relative rounded-2xl overflow-hidden border-2 transition-all max-w-sm"
+                    style={{
+                      borderColor: isActive ? meta.primary : 'rgba(108,99,255,0.3)',
+                      boxShadow: isActive ? `0 0 24px rgba(108,99,255,0.4)` : 'none',
+                    }}
+                  >
+                    <div
+                      className="h-24 flex items-center justify-center relative"
+                      style={{ background: meta.preview ?? meta.bg }}
+                    >
+                      <div className="text-center z-10 px-4">
+                        <p className="text-sm font-bold" style={{ color: meta.primary }}>
+                          VB2 — Oficial
+                        </p>
+                        <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                          ✨ Animado · Gratis para siempre
+                        </p>
+                      </div>
+                      {isActive && (
+                        <div className="absolute top-2 right-2">
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white"
+                            style={{ background: meta.primary }}>
+                            Activo
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="px-4 py-3 flex items-center justify-between"
+                      style={{ background: meta.surface }}>
+                      <span className="text-xs font-semibold" style={{ color: meta.primary }}>
+                        🏆 Gratis
+                      </span>
+                      <button
+                        onClick={() => setTheme('vb2')}
+                        disabled={isActive}
+                        className="rounded-lg px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-50"
+                        style={{ background: meta.primary }}
+                      >
+                        {isActive ? 'Activo' : 'Activar'}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+
             {/* ── Temas legendarios ─────────────────────────────────── */}
             <div>
               <div className="flex items-center gap-2 mb-3">
@@ -391,7 +452,11 @@ export default function TiendaTemas() {
               </div>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {availableThemes
-                  .filter((t) => THEME_META[t.id]?.animated && !THEME_META[t.id]?.legendary)
+                  .filter((t) =>
+                    THEME_META[t.id]?.animated &&
+                    !THEME_META[t.id]?.legendary &&
+                    t.price > 0
+                  )
                   .map((t) => (
                     <ThemeCard
                       key={t.id}
