@@ -453,6 +453,48 @@ export default function Economia() {
     setOpenSimulationId((prev) => (prev === simulationId ? null : simulationId));
   };
 
+  const handleTransfer = async () => {
+    if (!transferTo.trim() || transferAmount <= 0) {
+      pushEducationMessage({
+        title: 'Datos incompletos',
+        body: 'Completá el destinatario y el monto para enviar monedas.',
+        tone: 'warning',
+      });
+      return;
+    }
+    if (economy.coins < transferAmount) {
+      pushEducationMessage({
+        title: 'Saldo insuficiente',
+        body: `Tenés ${economy.coins} 🪙 pero querés enviar ${transferAmount}.`,
+        tone: 'warning',
+      });
+      return;
+    }
+    try {
+      await apiPost('/api/economia/intercambios', {
+        receptorUsername: transferTo.trim(),
+        monto: transferAmount,
+        nota: transferNote.trim() || undefined,
+      });
+      setEconomy((prev) => ({ ...prev, coins: prev.coins - transferAmount }));
+      pushEducationMessage({
+        title: '¡Enviado!',
+        body: `Enviaste ${transferAmount} 🪙 a ${transferTo}.`,
+        tone: 'success',
+      });
+      setTransferTo('');
+      setTransferAmount(0);
+      setTransferNote('');
+      window.dispatchEvent(new CustomEvent('vb:coins-updated'));
+    } catch (err) {
+      pushEducationMessage({
+        title: 'Error al enviar',
+        body: err instanceof Error ? err.message : 'No se pudo completar el envío.',
+        tone: 'warning',
+      });
+    }
+  };
+
   return (
     <div className="page-root min-h-screen bg-[var(--c-bg)]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
@@ -855,6 +897,19 @@ export default function Economia() {
                 </div>
               </div>
             </div>
+            {/* Botón de envío */}
+            <button
+              onClick={handleTransfer}
+              disabled={!transferTo.trim() || transferAmount <= 0 || economy.coins < transferAmount}
+              className="w-full rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
+            >
+              Enviar {transferAmount > 0 ? `${transferAmount} 🪙` : 'monedas'}
+            </button>
+
+            {/* Saldo disponible */}
+            <p className="text-xs text-[var(--c-muted)] text-center">
+              Disponible: {economy.coins.toLocaleString('es-AR')} 🪙
+            </p>
           </div>
         )}
 
