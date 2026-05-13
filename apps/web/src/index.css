@@ -539,54 +539,79 @@
   75%  { transform: translateY(-12px) scaleX(1.01); opacity: 1;   }
   100% { transform: translateY(0px) scaleX(1);    opacity: 0.7; }
 }
+/* ═══════════════════════════════════════════════════════════
+   TEMAS ANIMADOS — patrón único que funciona en React
+   ═══════════════════════════════════════════════════════════ */
 
+/* ── GALAXY ─────────────────────────────────────────────── */
 [data-theme="galaxy"] {
   --c-bg: #0a0a1a; --c-surface: #0f0f2a; --c-border: #1e1e4a;
   --c-text: #e0e0ff; --c-muted: #9090cc;
   --c-primary: #8b5cf6; --c-accent: #06b6d4;
+  --c-success: #34d399; --c-warning: #fbbf24; --c-danger: #f87171;
   --c-nav-bg: #050510; --c-nav-text: #e0e0ff;
 }
 [data-theme="galaxy"] body,
 [data-theme="galaxy"] #root {
-  background: linear-gradient(135deg, #0a0a1a, #0f0a2a, #0a1a2a);
-  background-size: 400% 400%;
-  animation: galaxy-bg 12s ease infinite;
+  background: linear-gradient(
+    135deg,
+    #0a0a1a 0%, #1a0a3a 20%, #0a1a3a 40%,
+    #0f0a2a 60%, #1a1a0a 80%, #0a0a1a 100%
+  );
+  background-size: 600% 600%;
+  animation: galaxy-bg 18s ease infinite;
 }
 @keyframes galaxy-bg {
-  0%   { background-position: 0% 50%; }
+  0%   { background-position: 0% 0%; }
+  25%  { background-position: 50% 100%; }
   50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  75%  { background-position: 50% 0%; }
+  100% { background-position: 0% 0%; }
 }
 
+/* ── SUNSET ──────────────────────────────────────────────── */
 [data-theme="sunset"] {
   --c-bg: #1a0a00; --c-surface: #2a1200; --c-border: #5a2d00;
   --c-text: #ffd7aa; --c-muted: #ff9966;
   --c-primary: #ff6b35; --c-accent: #ff3366;
+  --c-success: #76c442; --c-warning: #ffcc00; --c-danger: #ff1744;
   --c-nav-bg: #3d1500; --c-nav-text: #ffd7aa;
 }
 [data-theme="sunset"] body,
 [data-theme="sunset"] #root {
-  background: linear-gradient(135deg, #1a0500, #3d1500, #1a0020);
-  background-size: 400% 400%;
-  animation: sunset-bg 8s ease infinite;
+  background: linear-gradient(
+    135deg,
+    #1a0500 0%, #4a1800 15%, #8a2800 30%,
+    #3d1500 50%, #1a0020 70%, #0a0510 85%,
+    #1a0500 100%
+  );
+  background-size: 600% 600%;
+  animation: sunset-bg 12s ease infinite;
 }
 @keyframes sunset-bg {
   0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
+  33%  { background-position: 100% 0%; }
+  66%  { background-position: 50% 100%; }
   100% { background-position: 0% 50%; }
 }
 
+/* ── OCEAN ───────────────────────────────────────────────── */
 [data-theme="ocean"] {
   --c-bg: #000d1a; --c-surface: #001a33; --c-border: #003366;
   --c-text: #cce8ff; --c-muted: #66b3ff;
   --c-primary: #0099ff; --c-accent: #00ffcc;
+  --c-success: #00e5a0; --c-warning: #ffc107; --c-danger: #ff5252;
   --c-nav-bg: #000d1a; --c-nav-text: #cce8ff;
 }
 [data-theme="ocean"] body,
 [data-theme="ocean"] #root {
-  background: linear-gradient(135deg, #000d1a, #001a33, #000d2a);
-  background-size: 400% 400%;
-  animation: ocean-bg 10s ease infinite;
+  background: linear-gradient(
+    135deg,
+    #000d1a 0%, #001a33 20%, #003366 40%,
+    #001a33 60%, #000d2a 80%, #000d1a 100%
+  );
+  background-size: 600% 600%;
+  animation: ocean-bg 14s ease infinite;
 }
 @keyframes ocean-bg {
   0%   { background-position: 0% 50%; }
@@ -594,38 +619,324 @@
   100% { background-position: 0% 50%; }
 }
 
+/* ── CANDY ───────────────────────────────────────────────── */
 [data-theme="candy"] {
   --c-bg: #fff0f5; --c-surface: #ffffff; --c-border: #ffd6e7;
   --c-text: #5a0020; --c-muted: #cc3366;
   --c-primary: #ff3399; --c-accent: #33ccff;
+  --c-success: #00cc88; --c-warning: #ff9900; --c-danger: #ff0044;
   --c-nav-bg: #ff3399; --c-nav-text: #ffffff;
 }
-[data-theme="candy"] .themed-nav {
-  background: linear-gradient(90deg, #ff3399, #33ccff, #ff3399);
-  background-size: 200% 100%;
-  animation: candy-nav 3s linear infinite;
+[data-theme="candy"] body,
+[data-theme="candy"] #root {
+  background: linear-gradient(
+    135deg,
+    #fff0f5 0%, #ffe0f0 25%, #f0f8ff 50%,
+    #fff0f5 75%, #f5e0ff 100%
+  );
+  background-size: 400% 400%;
+  animation: candy-bg 6s ease infinite;
+}
+/* Navbar arco iris */
+[data-theme="candy"] nav {
+  background: linear-gradient(90deg,
+    #ff3399, #ff9900, #ffff00, #33cc00,
+    #0099ff, #9933ff, #ff3399
+  ) !important;
+  background-size: 300% 100% !important;
+  animation: candy-nav 4s linear infinite !important;
+}
+@keyframes candy-bg {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 @keyframes candy-nav {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
 }
 
+/* ── NEON ────────────────────────────────────────────────── */
 [data-theme="neon"] {
-  --c-bg: #05000a; --c-surface: #0a0014; --c-border: #1a0033;
-  --c-text: #ffffff; --c-muted: #cc00ff;
+  --c-bg: #05000a; --c-surface: #0a0014; --c-border: #2a0050;
+  --c-text: #ffffff; --c-muted: #cc88ff;
   --c-primary: #ff00ff; --c-accent: #00ffff;
-  --c-nav-bg: #05000a; --c-nav-text: #ff00ff;
+  --c-success: #00ff88; --c-warning: #ffff00; --c-danger: #ff0040;
+  --c-nav-bg: #0a0014; --c-nav-text: #ffffff;
 }
 [data-theme="neon"] body,
 [data-theme="neon"] #root {
-  background: #05000a;
-  animation: neon-flicker 5s ease infinite;
+  background: linear-gradient(
+    135deg,
+    #05000a 0%, #1a0030 25%, #000a1a 50%,
+    #1a0030 75%, #05000a 100%
+  );
+  background-size: 400% 400%;
+  animation: neon-bg 8s ease infinite;
 }
-@keyframes neon-flicker {
-  0%, 95%, 100% { filter: brightness(1); }
-  96%           { filter: brightness(0.95); }
-  97%           { filter: brightness(1.05); }
+/* Bordes e superficies neón pulsante */
+[data-theme="neon"] .bg-\[var\(--c-surface\)\],
+[data-theme="neon"] .bg-\[var\(--c-surface\)\]:hover {
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.05);
 }
+@keyframes neon-bg {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TEMAS LEGENDARIOS — gradientes complejos misma técnica
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── AURORA BOREAL (Legendario) ──────────────────────────── */
+[data-theme="aurora-boreal"] {
+  --c-bg:      #030a1a;
+  --c-surface: #071428;
+  --c-border:  #0f2548;
+  --c-text:    #e0f2fe;
+  --c-muted:   #7dd3fc;
+  --c-primary: #00e5ff;
+  --c-accent:  #00ff9d;
+  --c-success: #00ff9d;
+  --c-warning: #fbbf24;
+  --c-danger:  #f87171;
+  --c-nav-bg:  #030a1a;
+  --c-nav-text:#e0f2fe;
+}
+[data-theme="aurora-boreal"] body,
+[data-theme="aurora-boreal"] #root {
+  background: linear-gradient(
+    125deg,
+    #030a1a  0%,
+    #0a2a15  8%,
+    #032a3a  16%,
+    #041a10  24%,
+    #0a1a30  32%,
+    #003a20  40%,
+    #021a3a  48%,
+    #0a3010  56%,
+    #030a2a  64%,
+    #002a1a  72%,
+    #0a2030  80%,
+    #030a1a  100%
+  );
+  background-size: 800% 800%;
+  animation: aurora-boreal-bg 20s ease infinite;
+}
+[data-theme="aurora-boreal"] #root {
+  position: relative;
+  overflow: hidden;
+}
+@keyframes aurora-boreal-bg {
+  0%   { background-position: 0% 20%; }
+  20%  { background-position: 80% 0%; }
+  40%  { background-position: 100% 60%; }
+  60%  { background-position: 20% 100%; }
+  80%  { background-position: 0% 40%; }
+  100% { background-position: 0% 20%; }
+}
+
+/* ── COSMOS (Legendario) ─────────────────────────────────── */
+[data-theme="cosmos"] {
+  --c-bg:      #02000a;
+  --c-surface: #06001a;
+  --c-border:  #150040;
+  --c-text:    #f0e8ff;
+  --c-muted:   #9d7fd4;
+  --c-primary: #bf5fff;
+  --c-accent:  #ff61e6;
+  --c-success: #39e07b;
+  --c-warning: #ffcc44;
+  --c-danger:  #ff4d6d;
+  --c-nav-bg:  #02000a;
+  --c-nav-text:#f0e8ff;
+}
+[data-theme="cosmos"] body,
+[data-theme="cosmos"] #root {
+  background: linear-gradient(
+    135deg,
+    #02000a  0%,
+    #150040  10%,
+    #02000a  20%,
+    #200050  30%,
+    #02000a  40%,
+    #300020  50%,
+    #02000a  60%,
+    #100060  70%,
+    #02000a  80%,
+    #250030  90%,
+    #02000a  100%
+  );
+  background-size: 1000% 1000%;
+  animation: cosmos-bg 25s ease infinite;
+}
+/* Destellos en cards */
+[data-theme="cosmos"] .bg-\[var\(--c-surface\)\] {
+  box-shadow:
+    0 0 0 1px rgba(191,95,255,0.1),
+    0 4px 20px rgba(191,95,255,0.05);
+}
+@keyframes cosmos-bg {
+  0%   { background-position: 0% 0%; }
+  20%  { background-position: 100% 20%; }
+  40%  { background-position: 50% 100%; }
+  60%  { background-position: 0% 80%; }
+  80%  { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* ── MAGMA (Legendario) ──────────────────────────────────── */
+[data-theme="magma"] {
+  --c-bg:      #0a0200;
+  --c-surface: #150400;
+  --c-border:  #2d0a00;
+  --c-text:    #fff3e0;
+  --c-muted:   #ff8a50;
+  --c-primary: #ff6d00;
+  --c-accent:  #ffab00;
+  --c-success: #76ff03;
+  --c-warning: #ffcc00;
+  --c-danger:  #ff1744;
+  --c-nav-bg:  #0a0200;
+  --c-nav-text:#fff3e0;
+}
+[data-theme="magma"] body,
+[data-theme="magma"] #root {
+  background: linear-gradient(
+    170deg,
+    #0a0200  0%,
+    #1a0500  10%,
+    #3a0800  20%,
+    #0a0200  30%,
+    #2a0600  40%,
+    #4a0a00  50%,
+    #1a0400  60%,
+    #3a0800  70%,
+    #0a0200  80%,
+    #2a0500  90%,
+    #0a0200  100%
+  );
+  background-size: 600% 600%;
+  animation: magma-bg 10s ease infinite;
+}
+/* Brillo en cards como calor radiante */
+[data-theme="magma"] .bg-\[var\(--c-surface\)\] {
+  box-shadow:
+    0 0 0 1px rgba(255,109,0,0.15),
+    0 4px 20px rgba(255,60,0,0.08);
+}
+@keyframes magma-bg {
+  0%   { background-position: 0% 100%; }
+  25%  { background-position: 100% 50%; }
+  50%  { background-position: 50% 0%; }
+  75%  { background-position: 0% 50%; }
+  100% { background-position: 0% 100%; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EFECTOS EXTRA — mejoras en interacciones por tema
+   ═══════════════════════════════════════════════════════════ */
+
+/* Botones primarios con glow en temas oscuros animados */
+[data-theme="galaxy"] .bg-\[var\(--c-primary\)\],
+[data-theme="neon"] .bg-\[var\(--c-primary\)\],
+[data-theme="cosmos"] .bg-\[var\(--c-primary\)\],
+[data-theme="aurora-boreal"] .bg-\[var\(--c-primary\)\] {
+  box-shadow: 0 0 12px var(--c-primary), 0 0 30px color-mix(in srgb, var(--c-primary) 30%, transparent);
+  transition: box-shadow 0.3s ease;
+}
+[data-theme="galaxy"] .bg-\[var\(--c-primary\)\]:hover,
+[data-theme="neon"] .bg-\[var\(--c-primary\)\]:hover,
+[data-theme="cosmos"] .bg-\[var\(--c-primary\)\]:hover,
+[data-theme="aurora-boreal"] .bg-\[var\(--c-primary\)\]:hover {
+  box-shadow: 0 0 20px var(--c-primary), 0 0 50px color-mix(in srgb, var(--c-primary) 40%, transparent);
+}
+
+/* Links con glow en neon */
+[data-theme="neon"] a:hover {
+  text-shadow: 0 0 8px var(--c-primary);
+}
+
+/* Bordes con efecto neon */
+[data-theme="neon"] .border-\[var\(--c-border\)\] {
+  border-color: rgba(255, 0, 255, 0.3) !important;
+  box-shadow: 0 0 4px rgba(255, 0, 255, 0.1);
+}
+
+/* Aurora boreal — texto shimmer en títulos */
+[data-theme="aurora-boreal"] h1,
+[data-theme="aurora-boreal"] h2 {
+  background: linear-gradient(90deg, #e0f2fe, #00e5ff, #00ff9d, #e0f2fe);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: aurora-text 6s linear infinite;
+}
+@keyframes aurora-text {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
+}
+
+/* Magma — texto con calor */
+[data-theme="magma"] h1,
+[data-theme="magma"] h2 {
+  background: linear-gradient(90deg, #fff3e0, #ff6d00, #ffab00, #fff3e0);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: magma-text 5s linear infinite;
+}
+@keyframes magma-text {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
+}
+
+/* Cosmos — texto con nebulosa */
+[data-theme="cosmos"] h1,
+[data-theme="cosmos"] h2 {
+  background: linear-gradient(90deg, #f0e8ff, #bf5fff, #ff61e6, #f0e8ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: cosmos-text 7s linear infinite;
+}
+@keyframes cosmos-text {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
+}
+
+/* Galaxy — cards con borde brillante en hover */
+[data-theme="galaxy"] .rounded-xl,
+[data-theme="galaxy"] .rounded-2xl {
+  transition: box-shadow 0.4s ease;
+}
+[data-theme="galaxy"] .rounded-xl:hover,
+[data-theme="galaxy"] .rounded-2xl:hover {
+  box-shadow: 0 0 0 1px rgba(139,92,246,0.4), 0 8px 32px rgba(139,92,246,0.15);
+}
+
+/* Scrollbar temática en temas oscuros animados */
+[data-theme="galaxy"]::-webkit-scrollbar,
+[data-theme="neon"]::-webkit-scrollbar,
+[data-theme="cosmos"]::-webkit-scrollbar,
+[data-theme="aurora-boreal"]::-webkit-scrollbar,
+[data-theme="magma"]::-webkit-scrollbar {
+  width: 6px;
+}
+[data-theme="galaxy"] ::-webkit-scrollbar-thumb       { background: var(--c-primary); border-radius: 3px; }
+[data-theme="neon"] ::-webkit-scrollbar-thumb         { background: var(--c-primary); border-radius: 3px; box-shadow: 0 0 6px var(--c-primary); }
+[data-theme="cosmos"] ::-webkit-scrollbar-thumb       { background: var(--c-primary); border-radius: 3px; }
+[data-theme="aurora-boreal"] ::-webkit-scrollbar-thumb { background: var(--c-primary); border-radius: 3px; }
+[data-theme="magma"] ::-webkit-scrollbar-thumb        { background: var(--c-primary); border-radius: 3px; }
+[data-theme="galaxy"] ::-webkit-scrollbar-track       { background: var(--c-border); }
+[data-theme="neon"] ::-webkit-scrollbar-track         { background: var(--c-border); }
+[data-theme="cosmos"] ::-webkit-scrollbar-track       { background: var(--c-border); }
+[data-theme="aurora-boreal"] ::-webkit-scrollbar-track { background: var(--c-border); }
+[data-theme="magma"] ::-webkit-scrollbar-track        { background: var(--c-border); }
 
 /* ── Tema Admin ─────────────────────────────────────────── */
 
@@ -657,4 +968,74 @@
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LAYOUTS TRANSPARENTES — dejar ver la animación de fondo
+   ═══════════════════════════════════════════════════════════ */
+
+[data-theme="galaxy"] .layout-root,
+[data-theme="sunset"] .layout-root,
+[data-theme="ocean"] .layout-root,
+[data-theme="candy"] .layout-root,
+[data-theme="neon"] .layout-root,
+[data-theme="aurora-boreal"] .layout-root,
+[data-theme="cosmos"] .layout-root,
+[data-theme="magma"] .layout-root {
+  background: transparent !important;
+}
+
+[data-theme="galaxy"] .layout-root main,
+[data-theme="sunset"] .layout-root main,
+[data-theme="ocean"] .layout-root main,
+[data-theme="candy"] .layout-root main,
+[data-theme="neon"] .layout-root main,
+[data-theme="aurora-boreal"] .layout-root main,
+[data-theme="cosmos"] .layout-root main,
+[data-theme="magma"] .layout-root main {
+  background: transparent !important;
+}
+
+[data-theme="galaxy"] .page-root,
+[data-theme="sunset"] .page-root,
+[data-theme="ocean"] .page-root,
+[data-theme="candy"] .page-root,
+[data-theme="neon"] .page-root,
+[data-theme="aurora-boreal"] .page-root,
+[data-theme="cosmos"] .page-root,
+[data-theme="magma"] .page-root {
+  background: transparent !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SURFACE/BG SEMITRANSPARENTE — cards con profundidad
+   ═══════════════════════════════════════════════════════════ */
+
+[data-theme="galaxy"] {
+  --c-surface: rgba(15, 15, 42, 0.85);
+  --c-bg:      rgba(10, 10, 26, 0.6);
+}
+[data-theme="sunset"] {
+  --c-surface: rgba(42, 18, 0, 0.85);
+  --c-bg:      rgba(26, 10, 0, 0.6);
+}
+[data-theme="ocean"] {
+  --c-surface: rgba(0, 26, 51, 0.85);
+  --c-bg:      rgba(0, 13, 26, 0.6);
+}
+[data-theme="neon"] {
+  --c-surface: rgba(10, 0, 20, 0.88);
+  --c-bg:      rgba(5, 0, 10, 0.7);
+}
+[data-theme="aurora-boreal"] {
+  --c-surface: rgba(7, 20, 40, 0.85);
+  --c-bg:      rgba(3, 10, 26, 0.6);
+}
+[data-theme="cosmos"] {
+  --c-surface: rgba(6, 0, 26, 0.88);
+  --c-bg:      rgba(2, 0, 10, 0.7);
+}
+[data-theme="magma"] {
+  --c-surface: rgba(21, 4, 0, 0.88);
+  --c-bg:      rgba(10, 2, 0, 0.7);
 }
