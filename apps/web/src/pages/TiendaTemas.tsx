@@ -250,6 +250,7 @@ export default function TiendaTemas() {
         }]);
         setTheme(themeId as import('../theme/ThemeContext').ThemeId);
         setTiendaMsg(`✓ ¡${themeOpt.name} desbloqueado!`);
+        window.dispatchEvent(new CustomEvent('vb:coins-updated'));
       } else {
         setTiendaMsg(result.mensaje ?? 'No se pudo completar la compra.');
       }

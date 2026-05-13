@@ -6,26 +6,35 @@ import { apiGet } from '../lib/api';
 
 function CoinBadge({ userId }: { userId: string }) {
   const [coins, setCoins] = useState<number | null>(null);
-
+  const fetchCoins = () => {
+    apiGet<{ saldo: number }>(`/api/economia/saldos?usuarioId=${userId}`)
+      .then((res) => setCoins(res.saldo))
+      .catch(() => {});
+  };
   useEffect(() => {
     let active = true;
     apiGet<{ saldo: number }>(`/api/economia/saldos?usuarioId=${userId}`)
       .then((res) => { if (active) setCoins(res.saldo); })
       .catch(() => {});
-    return () => { active = false; };
+    const handler = () => fetchCoins();
+    window.addEventListener('vb:coins-updated', handler);
+    return () => {
+      active = false;
+      window.removeEventListener('vb:coins-updated', handler);
+    };
   }, [userId]);
-
   if (coins === null) return null;
-
   return (
-    <div
-      className="hidden sm:flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 select-none"
-      title="Tus monedas"
-      aria-label={`${coins} monedas`}
-    >
-      <span aria-hidden="true">🪙</span>
-      <span>{coins.toLocaleString('es-AR')}</span>
-    </div>
+    <Link to="/economia">
+      <div
+        className="flex items-center gap-1 rounded-full border border-[color-mix(in_srgb,var(--c-warning)_35%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] px-2.5 py-1 text-xs font-semibold text-[var(--c-warning)] select-none cursor-pointer hover:opacity-80 transition-opacity"
+        title="Ver economía"
+        aria-label={`${coins} monedas`}
+      >
+        <span aria-hidden="true">🪙</span>
+        <span>{coins.toLocaleString('es-AR')}</span>
+      </div>
+    </Link>
   );
 }
 
@@ -340,9 +349,9 @@ export default function Navbar() {
 
   // Para el resto de páginas, mostrar navbar con roles
   return (
-    <nav className="sticky top-0 z-40 w-full border-b bg-white/70 backdrop-blur">
+    <nav className="sticky top-0 z-40 w-full border-b border-[var(--c-border)] bg-[var(--c-surface)]">
       <div className="flex items-center justify-between max-w-6xl px-4 py-3 mx-auto">
-        <div className="font-bold">Proyecto Challenger</div>
+        <div className="font-bold text-[var(--c-text)]">Virtual Book</div>
 
         <ul className="flex gap-4">
           {items.map((it) => (
@@ -350,7 +359,11 @@ export default function Navbar() {
               <NavLink
                 to={it.to}
                 className={({ isActive }) =>
-                  `px-3 py-2 rounded-full text-sm ${isActive ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'}`
+                  `px-3 py-2 rounded-full text-sm transition-colors ${
+                    isActive
+                      ? 'bg-[var(--c-primary)] text-white'
+                      : 'text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)]'
+                  }`
                 }
                 end={it.exact ?? true}
               >
@@ -367,7 +380,7 @@ export default function Navbar() {
               {/* Avatar / botón trigger */}
               <button
                 onClick={() => setIsUserMenuOpen((prev) => !prev)}
-                className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2 py-1.5 text-sm shadow-sm hover:bg-slate-50 transition-colors"
+                className="flex items-center gap-2 rounded-full border border-[var(--c-border)] bg-[var(--c-surface)] px-2 py-1.5 text-sm hover:bg-[var(--c-bg)] transition-colors"
                 aria-label="Menú de usuario"
                 aria-expanded={isUserMenuOpen}
               >
@@ -380,7 +393,7 @@ export default function Navbar() {
                     {userInitials}
                   </div>
                 )}
-                <span className="hidden sm:block text-slate-700 font-medium max-w-[120px] truncate">
+                <span className="hidden sm:block text-[var(--c-text)] font-medium max-w-[120px] truncate">
                   {user?.name ?? "Usuario"}
                 </span>
                 <svg className={`w-4 h-4 text-slate-400 transition-transform ${isUserMenuOpen ? "rotate-180" : ""}`}
@@ -391,10 +404,10 @@ export default function Navbar() {
 
               {/* Dropdown */}
               {isUserMenuOpen && (
-                <div className="absolute right-0 mt-2 w-52 rounded-2xl border border-slate-200 bg-white shadow-lg z-50 overflow-hidden">
+                <div className="absolute right-0 mt-2 w-52 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] z-50 overflow-hidden">
                   {/* Encabezado */}
-                  <div className="px-4 py-3 border-b border-slate-100 bg-slate-50">
-                    <p className="text-sm font-semibold text-slate-800 truncate">
+                  <div className="px-4 py-3 border-b border-[var(--c-border)] bg-[var(--c-bg)]">
+                    <p className="text-sm font-semibold text-[var(--c-text)] truncate">
                       {user?.name ?? "Usuario"}
                     </p>
                     <p className="text-xs text-slate-400 capitalize">
@@ -413,7 +426,7 @@ export default function Navbar() {
                           <button
                             key="logout"
                             onClick={() => { setIsUserMenuOpen(false); logout(); }}
-                            className="flex w-full items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                            className="flex w-full items-center gap-2 px-4 py-2.5 text-xs text-[var(--c-danger)] hover:bg-[color-mix(in_srgb,var(--c-danger)_8%,transparent)] transition-colors"
                           >
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24"
                               stroke="currentColor" strokeWidth={1.5}>
@@ -429,7 +442,7 @@ export default function Navbar() {
                           key={item.to}
                           to={item.to}
                           onClick={() => setIsUserMenuOpen(false)}
-                          className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
+                          className="flex items-center gap-2 px-4 py-2.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
                         >
                           <DropdownIcon name={item.icon} />
                           {item.label}
