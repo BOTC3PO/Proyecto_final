@@ -549,22 +549,6 @@ export const router = createBrowserRouter([
         ),
         children: [
           {
-            path: 'mensajes',
-            element: (
-              <ProtectedRoute allow={['USER', 'PARENT']}>
-                {withSuspense(<Mensajeria />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'perfil',
-            element: (
-              <ProtectedRoute allow={['USER', 'PARENT']}>
-                {withSuspense(<Perfil />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
             path: 'menualumno',
             element: (
               <ProtectedRoute allow={['USER', 'PARENT', 'ADMIN']}>
