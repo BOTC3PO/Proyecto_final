@@ -31,11 +31,11 @@ type ClassroomScopeOptions = {
 
 const resolveUserId = (user?: UserIdentity) => {
   if (!user) return null;
+  if (typeof user.id === "string") return user.id;
   if (typeof user._id === "string") return user._id;
   if (user._id && typeof user._id === "object" && typeof user._id.toString === "function") {
     return user._id.toString();
   }
-  if (typeof user.id === "string") return user.id;
   return null;
 };
 

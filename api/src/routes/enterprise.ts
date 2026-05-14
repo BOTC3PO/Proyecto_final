@@ -54,7 +54,6 @@ enterprise.get(
     const items = await prisma.usuario.findMany({
       where: {
         ...escuelaFilter,
-        role: { in: ["ADMIN", "TEACHER"] },
         isDeleted: { not: true }
       },
       select: { id: true, fullName: true, role: true, escuelaId: true, username: true }
@@ -62,10 +61,10 @@ enterprise.get(
     const staff = items.map((item) => ({
       id: item.id ?? "",
       name: item.fullName ?? item.username ?? "Sin nombre",
-      role: item.role,
+      role: item.role ?? "USER",
       schoolId: normalizeSchoolId(item.escuelaId) ?? schoolId
     }));
-    res.json(staff);
+    res.json({ staff });
   }
 );
 

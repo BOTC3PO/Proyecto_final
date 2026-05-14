@@ -355,7 +355,7 @@ export default function EditorCuestionarios() {
         <div className="flex items-center gap-3 px-4 sm:px-6 py-3">
           <Link
             className="text-sm text-[var(--c-primary)] hover:underline whitespace-nowrap"
-            to={isEmbedded ? returnTo! : "/modulos/crear"}
+            to={returnTo ?? "/modulos/crear"}
           >
             {isEmbedded ? "← Volver al módulo" : "← Volver"}
           </Link>
