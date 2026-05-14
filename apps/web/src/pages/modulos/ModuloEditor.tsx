@@ -125,7 +125,13 @@ export default function ModuloEditor() {
         const raw = sessionStorage.getItem('modulo-draft:new');
         if (raw) {
           const draft = JSON.parse(raw);
-          if (Date.now() - (draft.savedAt ?? 0) < 3_600_000) {
+          const hasData =
+            draft.form?.title?.trim() ||
+            draft.form?.description?.trim() ||
+            draft.form?.subject?.trim() ||
+            draft.theoryItems?.length > 0 ||
+            draft.quizzes?.length > 0;
+          if (hasData && Date.now() - (draft.savedAt ?? 0) < 3_600_000) {
             setDraftRestored(true);
           }
         }
@@ -332,6 +338,7 @@ export default function ModuloEditor() {
                     <input
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.level}
+                      placeholder="Ej: 1° año secundario"
                       onChange={(event) => updateForm("level", event.target.value)}
                     />
                   </label>

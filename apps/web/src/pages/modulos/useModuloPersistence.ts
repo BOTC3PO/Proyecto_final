@@ -141,6 +141,21 @@ export function useModuloPersistence(): UsePersistenceReturn {
           return;
         }
 
+        const fieldErrors: string[] = [];
+        if (!form.title.trim()) fieldErrors.push('El título es obligatorio.');
+        if (!form.description.trim()) fieldErrors.push('La descripción es obligatoria.');
+        if (!form.subject.trim()) fieldErrors.push('La materia es obligatoria.');
+        if (!form.category.trim()) fieldErrors.push('La categoría es obligatoria.');
+        if (!form.level.trim()) fieldErrors.push('El nivel es obligatorio.');
+
+        if (fieldErrors.length > 0) {
+          setStatus("error");
+          setMessage("Completá los campos requeridos antes de guardar.");
+          setValidationErrors(fieldErrors);
+          setExtErrors(fieldErrors);
+          return;
+        }
+
         if (form.visibility === "escuela" && !form.visibilitySchoolId?.trim()) {
           setStatus("error");
           setMessage("Seleccioná una escuela para la visibilidad por escuela.");
