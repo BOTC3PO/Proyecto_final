@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
@@ -117,6 +117,22 @@ export default function ModuloEditor() {
     handleImportQuizzes([state.importedQuiz as ModuleQuiz]);
   }, []);
 
+  const [draftRestored, setDraftRestored] = useState(false);
+
+  useEffect(() => {
+    if (!id) {
+      try {
+        const raw = sessionStorage.getItem('modulo-draft:new');
+        if (raw) {
+          const draft = JSON.parse(raw);
+          if (Date.now() - (draft.savedAt ?? 0) < 3_600_000) {
+            setDraftRestored(true);
+          }
+        }
+      } catch { /* ignorar */ }
+    }
+  }, [id]);
+
   const isTeacher = user?.role === "TEACHER";
   const isEvaluacionMode = form.category === "evaluacion";
 
@@ -228,6 +244,24 @@ export default function ModuloEditor() {
             </div>
           ) : (
             <form className="space-y-8" onSubmit={handleSubmit}>
+              {draftRestored && (
+                <div className="flex items-center justify-between gap-3 rounded-xl border border-[color-mix(in_srgb,var(--c-warning)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_8%,transparent)] px-4 py-2.5">
+                  <p className="text-xs text-[var(--c-warning)]">
+                    📋 Se restauró un borrador de tu sesión anterior.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      sessionStorage.removeItem('modulo-draft:new');
+                      setDraftRestored(false);
+                      window.location.reload();
+                    }}
+                    className="text-xs text-[var(--c-muted)] hover:text-[var(--c-danger)] transition-colors flex-shrink-0"
+                  >
+                    Descartar borrador
+                  </button>
+                </div>
+              )}
               {/* ── Información general ── */}
               <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">

@@ -247,6 +247,7 @@ export function useModuloPersistence(): UsePersistenceReturn {
           setMessage("Módulo creado correctamente.");
           setValidationErrors([]);
           setExtErrors([]);
+          try { sessionStorage.removeItem(`modulo-draft:new`); } catch { /* ignorar */ }
           navigate("/modulos", { replace: true });
         }
       } catch {
