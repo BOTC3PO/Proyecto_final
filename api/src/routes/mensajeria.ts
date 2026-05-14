@@ -124,7 +124,16 @@ mensajeria.get("/api/mensajeria/hilos/:hiloId", requireUser, async (req, res) =>
     data: { leido: 1 },
   });
 
-  return res.json({ hilo, mensajes });
+  const mensajesNormalizados = mensajes.map((m) => ({
+    id:         m.id,
+    hilo_id:    m.hiloId,
+    sender_id:  m.senderId,
+    body:       m.body,
+    leido:      m.leido,
+    created_at: m.createdAt,
+  }));
+
+  return res.json({ hilo, mensajes: mensajesNormalizados });
 });
 
 // ── POST /api/mensajeria/hilos ───────────────────────────────
@@ -258,7 +267,18 @@ mensajeria.get("/api/mensajeria/avisos", requireUser, async (req, res) => {
   ]);
 
   const leidosIds = new Set(leidosSet.map((l) => l.avisoId));
-  const items = todosAvisos.map((a) => ({ ...a, leido: leidosIds.has(a.id) ? 1 : 0 }));
+  const items = todosAvisos.map((a) => ({
+    id:         a.id,
+    escuela_id: a.escuelaId,
+    autor_id:   a.autorId,
+    autor_rol:  a.autorRol,
+    titulo:     a.titulo,
+    cuerpo:     a.cuerpo,
+    destino:    a.destino,
+    aula_id:    a.aulaId,
+    created_at: a.createdAt,
+    leido:      leidosIds.has(a.id) ? 1 : 0,
+  }));
 
   return res.json({ items });
 });
