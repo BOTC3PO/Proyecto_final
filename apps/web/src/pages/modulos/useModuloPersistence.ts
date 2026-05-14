@@ -145,7 +145,7 @@ export function useModuloPersistence(): UsePersistenceReturn {
         if (!form.title.trim()) fieldErrors.push('El título es obligatorio.');
         if (!form.description.trim()) fieldErrors.push('La descripción es obligatoria.');
         if (!form.subject.trim()) fieldErrors.push('La materia es obligatoria.');
-        if (!form.category.trim()) fieldErrors.push('La categoría es obligatoria.');
+        // category siempre tiene al menos "sin-categoria" como valor por defecto
         if (!form.level.trim()) fieldErrors.push('El nivel es obligatorio.');
 
         if (fieldErrors.length > 0) {

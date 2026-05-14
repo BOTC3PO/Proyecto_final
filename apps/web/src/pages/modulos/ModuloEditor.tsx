@@ -297,7 +297,7 @@ export default function ModuloEditor() {
                       onChange={(e) => updateForm("category", e.target.value)}
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                     >
-                      <option value="">Sin categoría</option>
+                      <option value="sin-categoria">Sin categoría</option>
                       <option value="evaluacion">📝 Evaluación</option>
                       <option value="competencia">🏆 Competencia</option>
                     </select>

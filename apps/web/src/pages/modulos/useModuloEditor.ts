@@ -76,7 +76,7 @@ export function useModuloEditor(
 
   // ── Form state ─────────────────────────────────────────────────────────────
   const defaultForm: ModuleFormState = {
-    title: "", description: "", subject: "", category: "",
+    title: "", description: "", subject: "", category: "sin-categoria",
     level: "", durationMinutes: 30, visibility: "publico",
     visibilitySchoolId: "", dependencies: [],
   };
@@ -162,7 +162,7 @@ export function useModuloEditor(
     let active = true;
     persistence.loadModule(id).then((result) => {
       if (!active || !result) return;
-      setForm(result.form);
+      setForm({ ...result.form, category: result.form.category || "sin-categoria" });
       setTheoryItems(result.theoryItems);
       setQuizzes(result.quizzes.map(ensureQuizDefaults));
       // Los datos del servidor tienen prioridad — limpiar draft
@@ -457,7 +457,6 @@ export function useModuloEditor(
       form.title.trim().length > 0 &&
       form.description.trim().length > 0 &&
       form.subject.length > 0 &&
-      form.category.trim().length > 0 &&
       form.level.trim().length > 0;
     const theoryOk = theoryItems.length > 0;
     const quizzesOk =
