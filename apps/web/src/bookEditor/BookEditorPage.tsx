@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import type { Block, Book, BookAsset, BookNote, Page } from "../domain/book/book.types";
 import { useBookEditor } from "./state/useBookEditor";
 import type { EditorAction } from "./state/bookEditor.reducer";
@@ -1616,6 +1616,7 @@ function AddBlockBar({
 // ===== MAIN COMPONENT =====
 export default function BookEditorPage() {
   const params = useParams<{ id?: string }>();
+  const navigate = useNavigate();
 
   const { state, dispatch, undo, redo, canUndo, canRedo, selectedPage, selectedBlock, runValidation } =
     useBookEditor();
@@ -1815,6 +1816,25 @@ export default function BookEditorPage() {
     <div className="h-screen flex flex-col overflow-hidden bg-[var(--c-bg)]">
       {/* ===== HEADER WORD-STYLE ===== */}
       <header className="flex-shrink-0 border-b border-[var(--c-border)] bg-[var(--c-surface)] flex items-center px-4 gap-3 h-11 z-20">
+        {/* Botón volver */}
+        <button
+          onClick={() => {
+            if (state.dirty) {
+              if (window.confirm('Tenés cambios sin guardar. ¿Salir de todas formas?')) {
+                navigate(-1);
+              }
+            } else {
+              navigate(-1);
+            }
+          }}
+          className="flex items-center gap-1 px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors flex-shrink-0"
+          title="Volver"
+        >
+          ← Volver
+        </button>
+
+        <div className="w-px h-4 bg-[var(--c-border)] flex-shrink-0" />
+
         {/* Logo / título editable */}
         <div className="flex items-center gap-2 min-w-0 max-w-[220px]">
           <div className="w-5 h-5 rounded bg-[var(--c-primary)] flex items-center justify-center flex-shrink-0">
