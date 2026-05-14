@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
 import { MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
@@ -117,6 +117,28 @@ export default function ModuloEditor() {
     handleImportQuizzes([state.importedQuiz as ModuleQuiz]);
   }, []);
 
+  const [draftRestored, setDraftRestored] = useState(false);
+
+  useEffect(() => {
+    if (!id) {
+      try {
+        const raw = sessionStorage.getItem('modulo-draft:new');
+        if (raw) {
+          const draft = JSON.parse(raw);
+          const hasData =
+            draft.form?.title?.trim() ||
+            draft.form?.description?.trim() ||
+            draft.form?.subject?.trim() ||
+            draft.theoryItems?.length > 0 ||
+            draft.quizzes?.length > 0;
+          if (hasData && Date.now() - (draft.savedAt ?? 0) < 3_600_000) {
+            setDraftRestored(true);
+          }
+        }
+      } catch { /* ignorar */ }
+    }
+  }, [id]);
+
   const isTeacher = user?.role === "TEACHER";
   const isEvaluacionMode = form.category === "evaluacion";
 
@@ -228,6 +250,24 @@ export default function ModuloEditor() {
             </div>
           ) : (
             <form className="space-y-8" onSubmit={handleSubmit}>
+              {draftRestored && (
+                <div className="flex items-center justify-between gap-3 rounded-xl border border-[color-mix(in_srgb,var(--c-warning)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_8%,transparent)] px-4 py-2.5">
+                  <p className="text-xs text-[var(--c-warning)]">
+                    📋 Se restauró un borrador de tu sesión anterior.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      sessionStorage.removeItem('modulo-draft:new');
+                      setDraftRestored(false);
+                      window.location.reload();
+                    }}
+                    className="text-xs text-[var(--c-muted)] hover:text-[var(--c-danger)] transition-colors flex-shrink-0"
+                  >
+                    Descartar borrador
+                  </button>
+                </div>
+              )}
               {/* ── Información general ── */}
               <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">
@@ -257,7 +297,7 @@ export default function ModuloEditor() {
                       onChange={(e) => updateForm("category", e.target.value)}
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                     >
-                      <option value="">Sin categoría</option>
+                      <option value="sin-categoria">Sin categoría</option>
                       <option value="evaluacion">📝 Evaluación</option>
                       <option value="competencia">🏆 Competencia</option>
                     </select>
@@ -298,6 +338,7 @@ export default function ModuloEditor() {
                     <input
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.level}
+                      placeholder="Ej: 1° año secundario"
                       onChange={(event) => updateForm("level", event.target.value)}
                     />
                   </label>
@@ -1382,14 +1423,12 @@ function BookPicker({
             Seleccionar documento...
           </button>
         )}
-        <a
-          href="/editor"
-          target="_blank"
-          rel="noreferrer"
-          className="text-xs text-blue-600 hover:underline whitespace-nowrap"
+        <Link
+          to="/editor"
+          className="text-xs text-[var(--c-primary)] hover:underline whitespace-nowrap"
         >
-          + Crear nuevo ↗
-        </a>
+          + Crear nuevo
+        </Link>
       </div>
     );
   }
@@ -1431,14 +1470,12 @@ function BookPicker({
         <p className="text-xs text-gray-400">Sin resultados.</p>
       )}
       <div className="flex gap-3 pt-1 border-t border-[var(--c-border)]">
-        <a
-          href="/editor"
-          target="_blank"
-          rel="noreferrer"
+        <Link
+          to="/editor"
           className="text-xs text-[var(--c-primary)] hover:underline"
         >
-          + Crear nuevo documento ↗
-        </a>
+          + Crear nuevo documento
+        </Link>
         <button type="button" className="text-xs text-gray-400 hover:text-gray-600" onClick={onClose}>
           Cancelar
         </button>

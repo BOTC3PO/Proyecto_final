@@ -13,6 +13,9 @@ import { serializeBlockDocument } from "../../blocks/utils";
 
 export { detailToPresentation };
 
+const DRAFT_KEY = (id: string | undefined) =>
+  `modulo-draft:${id ?? 'new'}`;
+
 export type ModuleFormState = {
   title: string;
   description: string;
@@ -72,20 +75,41 @@ export function useModuloEditor(
   const persistence = useModuloPersistence();
 
   // ── Form state ─────────────────────────────────────────────────────────────
-  const [form, setForm] = useState<ModuleFormState>({
-    title: "",
-    description: "",
-    subject: "",
-    category: "",
-    level: "",
-    durationMinutes: 30,
-    visibility: "publico",
-    visibilitySchoolId: "",
-    dependencies: [],
+  const defaultForm: ModuleFormState = {
+    title: "", description: "", subject: "", category: "sin-categoria",
+    level: "", durationMinutes: 30, visibility: "publico",
+    visibilitySchoolId: "", dependencies: [],
+  };
+
+  const [form, setForm] = useState<ModuleFormState>(() => {
+    if (!id) {
+      try {
+        const raw = sessionStorage.getItem(DRAFT_KEY(id));
+        if (raw) return JSON.parse(raw).form ?? defaultForm;
+      } catch { /* ignorar */ }
+    }
+    return defaultForm;
   });
 
-  const [theoryItems, setTheoryItems] = useState<TheoryItem[]>([]);
-  const [quizzes, setQuizzes] = useState<ModuleQuiz[]>([]);
+  const [theoryItems, setTheoryItems] = useState<TheoryItem[]>(() => {
+    if (!id) {
+      try {
+        const raw = sessionStorage.getItem(DRAFT_KEY(id));
+        if (raw) return JSON.parse(raw).theoryItems ?? [];
+      } catch { /* ignorar */ }
+    }
+    return [];
+  });
+
+  const [quizzes, setQuizzes] = useState<ModuleQuiz[]>(() => {
+    if (!id) {
+      try {
+        const raw = sessionStorage.getItem(DRAFT_KEY(id));
+        if (raw) return JSON.parse(raw).quizzes ?? [];
+      } catch { /* ignorar */ }
+    }
+    return [];
+  });
   const [newTheoryItem, setNewTheoryItem] = useState<{
     title: string;
     type: string;
@@ -121,15 +145,28 @@ export function useModuloEditor(
   const [depLoading, setDepLoading] = useState(false);
   const [depPickerOpen, setDepPickerOpen] = useState(false);
 
+  // Auto-guardar borrador en sessionStorage (solo módulos nuevos)
+  useEffect(() => {
+    if (id) return;
+    try {
+      sessionStorage.setItem(
+        DRAFT_KEY(id),
+        JSON.stringify({ form, theoryItems, quizzes, savedAt: Date.now() })
+      );
+    } catch { /* ignorar — sessionStorage lleno */ }
+  }, [form, theoryItems, quizzes, id]);
+
   // ── Load module data on mount (edit mode) ─────────────────────────────────
   useEffect(() => {
     if (!isEditing || !id) return;
     let active = true;
     persistence.loadModule(id).then((result) => {
       if (!active || !result) return;
-      setForm(result.form);
+      setForm({ ...result.form, category: result.form.category || "sin-categoria" });
       setTheoryItems(result.theoryItems);
       setQuizzes(result.quizzes.map(ensureQuizDefaults));
+      // Los datos del servidor tienen prioridad — limpiar draft
+      try { sessionStorage.removeItem(DRAFT_KEY(id)); } catch { /* ignorar */ }
     });
     return () => { active = false; };
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -420,7 +457,6 @@ export function useModuloEditor(
       form.title.trim().length > 0 &&
       form.description.trim().length > 0 &&
       form.subject.length > 0 &&
-      form.category.trim().length > 0 &&
       form.level.trim().length > 0;
     const theoryOk = theoryItems.length > 0;
     const quizzesOk =

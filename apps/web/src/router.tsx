@@ -20,6 +20,7 @@ import RecuperarContrasena from "./pages/RecuperarContrasena";
 // Herramientas educativas (stubs pequeños, mismo módulo)
 import {
   HerramientasEducativas,
+  HerramientasMapaEditor,
   HerramientasEstadistica,
   HerramientasCienciasSociales,
   HerramientasFilosofia,
@@ -157,6 +158,7 @@ export const router = createBrowserRouter([
           { path: "herramientas",                    element: <HerramientasEducativas /> },
           { path: "herramientas/estadistica",        element: <HerramientasEstadistica /> },
           { path: "herramientas/ciencias-sociales",  element: <HerramientasCienciasSociales /> },
+          { path: "herramientas/mapa-editor",        element: <HerramientasMapaEditor /> },
           { path: "herramientas/filosofia",          element: <HerramientasFilosofia /> },
           { path: "herramientas/arte",               element: <HerramientasArte /> },
           { path: "herramientas/biologia",           element: <HerramientasBiologia /> },
@@ -321,14 +323,6 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER']}>
                 {withSuspense(<ProfesorConfiguracion />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'profesor/editor-cuestionarios',
-            element: (
-              <ProtectedRoute allow={['TEACHER']}>
-                {withSuspense(<EditorCuestionarios />)}
               </ProtectedRoute>
             ),
           },
@@ -604,6 +598,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN']}>
                 {withSuspense(<QuizAttempt />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/editor-cuestionarios',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO', 'USER']}>
+                {withSuspense(<EditorCuestionarios />)}
               </ProtectedRoute>
             ),
           },
