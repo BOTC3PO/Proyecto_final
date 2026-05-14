@@ -1235,3 +1235,12 @@
   --c-surface: rgba(18, 15, 0, 0.9);
   --c-bg:      rgba(10, 8, 0, 0.65);
 }
+
+/* GPU compositing for heavy animated themes — prevents sidebar freeze */
+[data-theme="aurora-boreal"] aside,
+[data-theme="cosmos"] aside,
+[data-theme="magma"] aside {
+  will-change: transform;
+  transform: translateZ(0);
+  isolation: isolate;
+}

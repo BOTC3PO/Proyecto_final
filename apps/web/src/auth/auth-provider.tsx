@@ -65,6 +65,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setAuthToken(null);
     setRefreshToken(null);
     persistUser(null, false);
+    try {
+      localStorage.removeItem('vb-theme');
+      sessionStorage.removeItem('vb-theme');
+    } catch { /* ignorar */ }
+    window.dispatchEvent(new CustomEvent('vb:logout'));
   };
 
   useEffect(() => {

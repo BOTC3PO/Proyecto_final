@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../auth/use-auth";
+import { apiGet } from "../lib/api";
 import {
   fetchHilos, fetchHilo, enviarMensaje,
   fetchAvisos, crearAviso, marcarAvisoLeido,
@@ -7,6 +8,21 @@ import {
   type Hilo, type MensajeDirecto, type Aviso,
   type UsuarioBusqueda,
 } from "../services/mensajeria";
+
+const parseDate = (raw: unknown): Date | null => {
+  if (!raw) return null;
+  if (raw instanceof Date) return raw;
+  if (typeof raw === "number") return new Date(raw);
+  if (typeof raw === "string") {
+    const normalized =
+      raw.endsWith("Z") || raw.includes("+") || raw.includes("-", 10)
+        ? raw
+        : raw + "Z";
+    const d = new Date(normalized);
+    return isNaN(d.getTime()) ? null : d;
+  }
+  return null;
+};
 
 const ROLE_LABELS: Record<string, string> = {
   USER: "Alumno", TEACHER: "Profesor",
@@ -58,6 +74,8 @@ export default function Mensajeria() {
   const [avisoDestino, setAvisoDestino] = useState("todos");
   const [publicando, setPublicando] = useState(false);
   const [avisoMsg, setAvisoMsg] = useState<string | null>(null);
+  const [escuelas, setEscuelas] = useState<Array<{ id: string; nombre: string }>>([]);
+  const [escuelaSeleccionada, setEscuelaSeleccionada] = useState("");
 
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -68,6 +86,16 @@ export default function Mensajeria() {
       .catch(() => {})
       .finally(() => setHilosLoading(false));
   }, []);
+
+  // Cargar escuelas del usuario (para selector de aviso)
+  useEffect(() => {
+    if (!canPublish) return;
+    apiGet<{ items: Array<{ id: string; name: string }> }>('/api/escuelas')
+      .then((data) =>
+        setEscuelas((data.items ?? []).map((e) => ({ id: e.id, nombre: e.name })))
+      )
+      .catch(() => setEscuelas([]));
+  }, [canPublish]);
 
   // Cargar avisos al cambiar tab
   useEffect(() => {
@@ -355,7 +383,7 @@ export default function Mensajeria() {
                           }`}>
                             <p>{m.body}</p>
                             <p className={`text-[10px] mt-1 ${esMio ? "text-white/60" : "text-[var(--c-muted)]"}`}>
-                              {new Date(m.created_at).toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" })}
+                              {(parseDate(m.created_at) ?? new Date()).toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" })}
                             </p>
                           </div>
                         </div>
@@ -416,7 +444,19 @@ export default function Mensajeria() {
                   value={avisoCuerpo}
                   onChange={(e) => setAvisoCuerpo(e.target.value)}
                 />
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
+                  {escuelas.length > 1 && (
+                    <select
+                      value={escuelaSeleccionada}
+                      onChange={(e) => setEscuelaSeleccionada(e.target.value)}
+                      className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    >
+                      <option value="">Todas mis escuelas</option>
+                      {escuelas.map((e) => (
+                        <option key={e.id} value={e.id}>{e.nombre}</option>
+                      ))}
+                    </select>
+                  )}
                   <select
                     className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none"
                     value={avisoDestino}
@@ -473,7 +513,7 @@ export default function Mensajeria() {
                 <p className="text-xs text-[var(--c-muted)]">{aviso.cuerpo}</p>
                 <div className="flex items-center justify-between pt-1">
                   <span className="text-[10px] text-[var(--c-muted)]">
-                    {new Date(aviso.created_at).toLocaleDateString("es-AR")}
+                    {(parseDate(aviso.created_at) ?? new Date()).toLocaleDateString("es-AR")}
                   </span>
                   {!aviso.leido && (
                     <button

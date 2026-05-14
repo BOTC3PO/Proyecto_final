@@ -396,9 +396,9 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-12 px-4">
+    <div className="min-h-screen bg-[#f3f4f6] py-12 px-4">
       <div className="max-w-2xl mx-auto">
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
           <h2 className="text-3xl font-bold text-blue-600 text-center mb-8">Registro</h2>
 
           <div className="space-y-6">

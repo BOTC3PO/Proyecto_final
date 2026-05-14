@@ -4,6 +4,7 @@ import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 
 type AuthUser = {
+  id?: string;
   _id?: { toString?: () => string } | string;
   fullName?: string;
   username?: string;
@@ -71,9 +72,10 @@ export const profesor = Router();
 profesor.use(requireUser);
 
 const getTeacherId = (user?: AuthUser) => {
-  if (!user?._id) return null;
-  if (typeof user._id === "string") return user._id;
-  return user._id.toString?.() ?? null;
+  const raw = user?.id ?? user?._id;
+  if (!raw) return null;
+  if (typeof raw === "string") return raw;
+  return (raw as { toString?: () => string }).toString?.() ?? null;
 };
 
 const getDocumentId = (doc?: { _id?: string; id?: string }) => {

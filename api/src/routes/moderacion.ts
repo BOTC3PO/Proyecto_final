@@ -44,28 +44,21 @@ moderacion.post("/api/moderacion/usuarios/:id/ban", async (req, res) => {
   const userId = req.params.id;
   if (!userId) return res.status(400).json({ error: "invalid user id" });
   const now = new Date();
-  const actor = res.locals.adminUser as { _id?: unknown; id?: unknown } | undefined;
-  const actorId = String(actor?.id ?? actor?._id ?? "");
-  const actorIp = (req.header("x-forwarded-for") ?? "").split(",")[0].trim() || req.ip;
   const motivo = typeof req.body?.motivo === "string" ? req.body.motivo.trim() : "";
   const duracionDias = Number(req.body?.duracionDias ?? 0);
   const bannedUntil = Number.isFinite(duracionDias) && duracionDias > 0
     ? new Date(now.getTime() + duracionDias * 24 * 60 * 60 * 1000)
     : null;
-  const event = {
-    id: generateId(),
-    usuarioId: userId,
-    tipo: "ban",
-    motivo,
-    duracionDias: Number.isFinite(duracionDias) ? duracionDias : 0,
-    actorId,
-    metadata: {
-      ip: actorIp,
-      timestamp: now
+  await prisma.moderacionEvento.create({
+    data: {
+      id: generateId(),
+      usuarioId: userId,
+      tipo: "ban",
+      motivo: motivo || null,
+      severidad: null,
+      createdAt: now.toISOString(),
     },
-    createdAt: now
-  };
-  await prisma.moderacionEvento.create({ data: event as any });
+  });
   await prisma.usuario.updateMany({
     where: { id: userId },
     data: {
@@ -81,25 +74,18 @@ moderacion.post("/api/moderacion/usuarios/:id/advertencias", async (req, res) =>
   const userId = req.params.id;
   if (!userId) return res.status(400).json({ error: "invalid user id" });
   const now = new Date();
-  const actor = res.locals.adminUser as { _id?: unknown; id?: unknown } | undefined;
-  const actorId = String(actor?.id ?? actor?._id ?? "");
-  const actorIp = (req.header("x-forwarded-for") ?? "").split(",")[0].trim() || req.ip;
   const motivo = typeof req.body?.motivo === "string" ? req.body.motivo.trim() : "";
   const severidad = typeof req.body?.severidad === "string" ? req.body.severidad.trim() : "";
-  const event = {
-    id: generateId(),
-    usuarioId: userId,
-    tipo: "advertencia",
-    motivo,
-    severidad,
-    actorId,
-    metadata: {
-      ip: actorIp,
-      timestamp: now
+  await prisma.moderacionEvento.create({
+    data: {
+      id: generateId(),
+      usuarioId: userId,
+      tipo: "advertencia",
+      motivo: motivo || null,
+      severidad: severidad || null,
+      createdAt: now.toISOString(),
     },
-    createdAt: now
-  };
-  await prisma.moderacionEvento.create({ data: event as any });
+  });
   await prisma.usuario.updateMany({
     where: { id: userId },
     data: {

@@ -87,7 +87,7 @@ export function MathBlockRenderer({ block }: Props) {
   return (
     <div>
       {title && (
-        <h3 className="text-sm font-semibold text-gray-700 mb-2 text-center">{title}</h3>
+        <h3 className="text-sm font-semibold text-[var(--c-text)] mb-2 text-center">{title}</h3>
       )}
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={chartData} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>

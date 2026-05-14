@@ -88,10 +88,10 @@ export default function Login() {
   };
 
   return (
-    <main className="flex-1 bg-gray-100">
+    <main className="flex-1 bg-[#f3f4f6]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="py-16 flex items-center justify-center">
-          <section className="w-full max-w-xl rounded-xl bg-white shadow-lg">
+          <section className="w-full max-w-xl rounded-xl bg-white shadow-sm border border-gray-200">
             <div className="p-8 sm:p-10">
               <h1 className="text-center text-2xl font-semibold text-gray-900">
                 Iniciar Sesión

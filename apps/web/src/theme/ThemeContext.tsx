@@ -121,6 +121,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return allowed[0] ?? "clasico";
   });
 
+  useEffect(() => {
+    const handler = () => {
+      setThemeState('clasico');
+      document.documentElement.setAttribute('data-theme', 'clasico');
+    };
+    window.addEventListener('vb:logout', handler);
+    return () => window.removeEventListener('vb:logout', handler);
+  }, []);
+
   const setTheme = (id: ThemeId) => {
     if (forceTheme) return;
     if (!allowed.includes(id)) return;

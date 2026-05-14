@@ -143,20 +143,20 @@ export default function ReproductorModulos() {
         <div className="mx-auto max-w-7xl px-6 py-10">
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm space-y-3">
-                <div className="h-2.5 w-full rounded-full bg-slate-100 animate-pulse" />
+              <div key={i} className="rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 space-y-3">
+                <div className="h-2.5 w-full rounded-full bg-[var(--c-bg)] animate-pulse" />
                 <div className="flex gap-2">
-                  <div className="h-6 w-20 rounded-full bg-slate-100 animate-pulse" />
-                  <div className="h-6 w-16 rounded-full bg-slate-100 animate-pulse" />
+                  <div className="h-6 w-20 rounded-full bg-[var(--c-bg)] animate-pulse" />
+                  <div className="h-6 w-16 rounded-full bg-[var(--c-bg)] animate-pulse" />
                 </div>
-                <div className="h-5 w-3/4 rounded-lg bg-slate-100 animate-pulse" />
-                <div className="h-4 w-full rounded-lg bg-slate-100 animate-pulse" />
-                <div className="h-4 w-2/3 rounded-lg bg-slate-100 animate-pulse" />
+                <div className="h-5 w-3/4 rounded-lg bg-[var(--c-bg)] animate-pulse" />
+                <div className="h-4 w-full rounded-lg bg-[var(--c-bg)] animate-pulse" />
+                <div className="h-4 w-2/3 rounded-lg bg-[var(--c-bg)] animate-pulse" />
                 <div className="flex gap-3 pt-1">
-                  <div className="h-4 w-14 rounded bg-slate-100 animate-pulse" />
-                  <div className="h-4 w-14 rounded bg-slate-100 animate-pulse" />
+                  <div className="h-4 w-14 rounded bg-[var(--c-bg)] animate-pulse" />
+                  <div className="h-4 w-14 rounded bg-[var(--c-bg)] animate-pulse" />
                 </div>
-                <div className="h-10 w-full rounded-xl bg-slate-100 animate-pulse" />
+                <div className="h-10 w-full rounded-xl bg-[var(--c-bg)] animate-pulse" />
               </div>
             ))}
           </div>
@@ -185,8 +185,8 @@ export default function ReproductorModulos() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
               </svg>
             </div>
-            <p className="text-base font-medium text-slate-600">No hay modulos disponibles para reproducir.</p>
-            <p className="mt-1 text-sm text-slate-400">Los modulos publicados apareceran aqui.</p>
+            <p className="text-base font-medium text-[var(--c-muted)]">No hay modulos disponibles para reproducir.</p>
+            <p className="mt-1 text-sm text-[var(--c-muted)]">Los modulos publicados apareceran aqui.</p>
           </div>
         </div>
       )}
@@ -195,7 +195,7 @@ export default function ReproductorModulos() {
         <div className="mx-auto max-w-7xl px-6 py-6 flex gap-6">
           {/* Sidebar -- subjects */}
           <aside className="hidden lg:flex flex-col w-56 shrink-0 gap-1">
-            <p className="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+            <p className="px-3 py-2 text-xs font-bold uppercase tracking-wider text-[var(--c-muted)]">
               Materias
             </p>
             <button
@@ -204,14 +204,14 @@ export default function ReproductorModulos() {
               className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 text-left ${
                 selectedSubject === "all"
                   ? "bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 ring-1 ring-indigo-200 shadow-sm"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900 hover:translate-x-0.5"
+                  : "text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] hover:translate-x-0.5"
               }`}
             >
               <span>Todas</span>
               <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-semibold ${
                 selectedSubject === "all"
                   ? "bg-indigo-100 text-indigo-600"
-                  : "bg-slate-100 text-slate-500"
+                  : "bg-[var(--c-bg)] text-[var(--c-muted)]"
               }`}>
                 {searchedModules.length}
               </span>
@@ -227,7 +227,7 @@ export default function ReproductorModulos() {
                   className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 text-left ${
                     selectedSubject === subj
                       ? "ring-1 shadow-sm"
-                      : "hover:bg-slate-100 hover:translate-x-0.5"
+                      : "hover:bg-[var(--c-bg)] hover:translate-x-0.5"
                   }`}
                   style={
                     selectedSubject === subj
@@ -262,7 +262,7 @@ export default function ReproductorModulos() {
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 shadow-sm ${
                   selectedSubject === "all"
                     ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-indigo-200"
-                    : "bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900 hover:shadow-md"
+                    : "bg-[var(--c-surface)] text-[var(--c-muted)] ring-1 ring-[var(--c-border)] hover:text-[var(--c-text)] hover:shadow-md"
                 }`}
               >
                 Todas ({searchedModules.length})
@@ -277,7 +277,7 @@ export default function ReproductorModulos() {
                     className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 shadow-sm ${
                       selectedSubject === subj
                         ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-indigo-200"
-                        : "bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900 hover:shadow-md"
+                        : "bg-[var(--c-surface)] text-[var(--c-muted)] ring-1 ring-[var(--c-border)] hover:text-[var(--c-text)] hover:shadow-md"
                     }`}
                   >
                     {subj} ({count})
@@ -295,7 +295,7 @@ export default function ReproductorModulos() {
                   className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 ${
                     selectedCategory === "all"
                       ? "bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 ring-1 ring-indigo-300 shadow-sm"
-                      : "bg-white text-slate-500 ring-1 ring-slate-200 hover:text-slate-700 hover:shadow-sm"
+                      : "bg-[var(--c-surface)] text-[var(--c-muted)] ring-1 ring-[var(--c-border)] hover:text-[var(--c-text)] hover:shadow-sm"
                   }`}
                 >
                   Todas las categorias
@@ -308,7 +308,7 @@ export default function ReproductorModulos() {
                     className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 ${
                       selectedCategory === cat
                         ? "bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 ring-1 ring-indigo-300 shadow-sm"
-                        : "bg-white text-slate-500 ring-1 ring-slate-200 hover:text-slate-700 hover:shadow-sm"
+                        : "bg-[var(--c-surface)] text-[var(--c-muted)] ring-1 ring-[var(--c-border)] hover:text-[var(--c-text)] hover:shadow-sm"
                     }`}
                   >
                     {cat}
@@ -319,13 +319,13 @@ export default function ReproductorModulos() {
 
             {/* Module grid */}
             {filteredModules.length === 0 ? (
-              <div className="rounded-2xl border-2 border-dashed border-slate-200 bg-gradient-to-br from-white to-slate-50 p-16 text-center">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-slate-100">
-                  <svg className="h-7 w-7 text-slate-400" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              <div className="rounded-2xl border-2 border-dashed border-[var(--c-border)] bg-[var(--c-surface)] p-16 text-center">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--c-bg)]">
+                  <svg className="h-7 w-7 text-[var(--c-muted)]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                   </svg>
                 </div>
-                <p className="text-sm font-medium text-slate-500">
+                <p className="text-sm font-medium text-[var(--c-muted)]">
                   No hay modulos para los filtros seleccionados.
                 </p>
                 <button
@@ -353,7 +353,7 @@ export default function ReproductorModulos() {
                   return (
                     <article
                       key={m.id}
-                      className="group flex flex-col rounded-2xl border border-slate-200/80 bg-white shadow-sm hover:shadow-xl hover:shadow-indigo-100/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                      className="group flex flex-col rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm hover:shadow-xl hover:shadow-indigo-100/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                     >
                       {/* Color strip -- gradient and thicker */}
                       <div
@@ -376,7 +376,7 @@ export default function ReproductorModulos() {
                             {resolveSubject(m)}
                           </span>
                           {m.category && m.category !== m.subject && (
-                            <span className="rounded-full bg-gradient-to-r from-slate-100 to-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-200/60">
+                            <span className="rounded-full bg-[var(--c-bg)] px-2.5 py-1 text-xs font-medium text-[var(--c-muted)] ring-1 ring-[var(--c-border)]">
                               {resolveCategory(m)}
                             </span>
                           )}
@@ -388,19 +388,19 @@ export default function ReproductorModulos() {
                         </div>
 
                         {/* Title */}
-                        <h2 className="text-base font-bold text-slate-900 leading-snug group-hover:text-indigo-700 transition-colors duration-200">
+                        <h2 className="text-base font-bold text-[var(--c-text)] leading-snug group-hover:text-indigo-700 transition-colors duration-200">
                           {m.title}
                         </h2>
 
                         {/* Description */}
                         {m.description && (
-                          <p className="text-sm text-slate-500 leading-relaxed">
+                          <p className="text-sm text-[var(--c-muted)] leading-relaxed">
                             {truncate(m.description, 120)}
                           </p>
                         )}
 
                         {/* Meta row */}
-                        <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 mt-auto pt-2 border-t border-slate-100">
+                        <div className="flex flex-wrap items-center gap-3 text-xs text-[var(--c-muted)] mt-auto pt-2 border-t border-[var(--c-border)]">
                           {m.durationMinutes > 0 && (
                             <span className="flex items-center gap-1">
                               <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">

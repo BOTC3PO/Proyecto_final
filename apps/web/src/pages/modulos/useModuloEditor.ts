@@ -101,15 +101,24 @@ export function useModuloEditor(
     return [];
   });
 
-  const [quizzes, setQuizzes] = useState<ModuleQuiz[]>(() => {
-    if (!id) {
-      try {
-        const raw = sessionStorage.getItem(DRAFT_KEY(id));
-        if (raw) return JSON.parse(raw).quizzes ?? [];
-      } catch { /* ignorar */ }
-    }
-    return [];
-  });
+  const [quizzes, setQuizzes] = useState<ModuleQuiz[]>([]);
+
+  const FALLBACK_SUBJECTS = [
+    'Matemáticas', 'Lengua', 'Historia', 'Geografía',
+    'Física', 'Química', 'Biología', 'Informática',
+    'Economía', 'Filosofía', 'Arte', 'Educación Física',
+  ];
+  const [materias, setMaterias] = useState<string[]>([]);
+  useEffect(() => {
+    apiGet<{ items: Array<{ nombre: string }> }>('/api/materias')
+      .then((data) => {
+        const nombres = (data.items ?? []).map((m) => m.nombre).filter(Boolean);
+        setMaterias(nombres.length > 0 ? nombres : FALLBACK_SUBJECTS);
+      })
+      .catch(() => setMaterias(FALLBACK_SUBJECTS));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const [newTheoryItem, setNewTheoryItem] = useState<{
     title: string;
     type: string;
@@ -151,10 +160,10 @@ export function useModuloEditor(
     try {
       sessionStorage.setItem(
         DRAFT_KEY(id),
-        JSON.stringify({ form, theoryItems, quizzes, savedAt: Date.now() })
+        JSON.stringify({ form, theoryItems, savedAt: Date.now() })
       );
     } catch { /* ignorar — sessionStorage lleno */ }
-  }, [form, theoryItems, quizzes, id]);
+  }, [form, theoryItems, id]);
 
   // ── Load module data on mount (edit mode) ─────────────────────────────────
   useEffect(() => {
@@ -465,7 +474,7 @@ export function useModuloEditor(
         if (!quiz.title.trim()) return false;
         if (quiz.mode === "manual") {
           return (quiz.questions ?? []).every(
-            (q) => q.questionType && (q.options?.length ?? 0) > 0 && q.answerKey,
+            (q) => q.questionType && (q.questionType === "input" || ((q.options?.length ?? 0) > 0 && q.answerKey)),
           );
         }
         if (quiz.mode === "generated") {
@@ -505,6 +514,7 @@ export function useModuloEditor(
     updateForm,
     handleSubjectChange,
     subjectCapabilities,
+    materias,
     isEditing,
     // Theory items
     theoryItems,

@@ -23,7 +23,7 @@ export function ShapeBlockRenderer({ block }: Props) {
         style={{ width, height, border: "1px solid #d1d5db", background: "white", overflow: "hidden" }}
         className="flex items-center justify-center"
       >
-        <span className="text-sm text-gray-400">Sin formas agregadas</span>
+        <span className="text-sm text-[var(--c-muted)]">Sin formas agregadas</span>
       </div>
     )
   }
@@ -123,7 +123,7 @@ export function ShapeBlockRenderer({ block }: Props) {
               dangerouslySetInnerHTML={{ __html: shape.svg }}
             />
             {item.label && (
-              <div className="text-xs text-gray-600 text-center mt-1 max-w-[60px]">
+              <div className="text-xs text-[var(--c-muted)] text-center mt-1 max-w-[60px]">
                 {item.label}
               </div>
             )}

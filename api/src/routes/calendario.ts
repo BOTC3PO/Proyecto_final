@@ -158,8 +158,8 @@ calendario.post("/api/calendario/escuela", requireUser, async (req, res) => {
   const schoolId = getSchoolId(req as never);
   const role = getRole(req as never);
 
-  if (!["DIRECTIVO", "ADMIN"].includes(role ?? "")) {
-    return res.status(403).json({ error: "Solo directivos pueden crear eventos institucionales." });
+  if (!["DIRECTIVO", "ADMIN", "TEACHER"].includes(role ?? "")) {
+    return res.status(403).json({ error: "forbidden" });
   }
   if (!schoolId) return res.status(400).json({ error: "escuela requerida" });
 
