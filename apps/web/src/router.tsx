@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import type { ReactNode } from "react";
-import { createBrowserRouter, Navigate, useParams } from "react-router-dom";
+import { createBrowserRouter, Navigate, Outlet, useParams } from "react-router-dom";
 import { ProtectedRoute } from "./routing/ProtectedRoute";
 import RootLayout from "./layouts/RootLayout";
 import GuestLayout from "./layouts/GuestLayout";
@@ -149,10 +149,6 @@ export const router = createBrowserRouter([
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
           { path: "metodologia",      element: withSuspense(<Metodologia />) },
           { path: "laboratorio-web3", element: withSuspense(<LaboratorioWeb3 />) },
-          { path: "editor",           element: withSuspense(<BookEditorPage />) },
-          { path: "editor/:id",       element: withSuspense(<BookEditorPage />) },
-          { path: "bloques/editor",      element: withSuspense(<BlockEditorPage />) },
-          { path: "bloques/editor/:id",  element: withSuspense(<BlockEditorPage />) },
           { path: "onboarding-guest",    element: withSuspense(<GuestOnboarding />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
           { path: "u/:username",         element: withSuspense(<PerfilPublico />) },
@@ -611,6 +607,21 @@ export const router = createBrowserRouter([
               </ProtectedRoute>
             ),
           },
+        ],
+      },
+
+      // ── Editors (protegidos, sin layout de shell) ────────────────────────────
+      {
+        element: (
+          <ProtectedRoute allow={['USER', 'TEACHER', 'ADMIN', 'DIRECTIVO']}>
+            <Outlet />
+          </ProtectedRoute>
+        ),
+        children: [
+          { path: "editor",             element: withSuspense(<BookEditorPage />) },
+          { path: "editor/:id",         element: withSuspense(<BookEditorPage />) },
+          { path: "bloques/editor",     element: withSuspense(<BlockEditorPage />) },
+          { path: "bloques/editor/:id", element: withSuspense(<BlockEditorPage />) },
         ],
       },
 

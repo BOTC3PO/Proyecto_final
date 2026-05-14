@@ -39,6 +39,20 @@ const editorCls = {
   input:         'w-full text-xs border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 focus:outline-none focus:border-[var(--c-primary)]',
 };
 
+// ===== Font options =====
+const FONT_OPTIONS = [
+  { label: 'Serif',      value: 'Georgia, "Times New Roman", serif' },
+  { label: 'Sans-serif', value: '"Helvetica Neue", Arial, sans-serif' },
+  { label: 'Mono',       value: '"Courier New", Courier, monospace' },
+  { label: 'Georgia',    value: 'Georgia, serif' },
+  { label: 'Palatino',   value: '"Palatino Linotype", "Book Antiqua", Palatino, serif' },
+  { label: 'Garamond',   value: 'Garamond, "EB Garamond", serif' },
+  { label: 'Verdana',    value: 'Verdana, Geneva, sans-serif' },
+  { label: 'Trebuchet',  value: '"Trebuchet MS", sans-serif' },
+  { label: 'Geist',      value: '"Geist", system-ui, sans-serif' },
+  { label: 'Courier',    value: '"Courier New", monospace' },
+] as const;
+
 // ===== FSA types =====
 interface FileSystemFileHandle {
   getFile(): Promise<File>;
@@ -181,6 +195,34 @@ function IconBtn({
       )}
     >
       {label}
+    </button>
+  );
+}
+
+// ===== ToolbarButton =====
+function ToolbarButton({
+  children,
+  active,
+  title,
+  onClick,
+}: {
+  children: React.ReactNode;
+  active?: boolean;
+  title?: string;
+  onClick?: () => void;
+}) {
+  return (
+    <button
+      title={title}
+      onClick={onClick}
+      className={classNames(
+        "min-w-[24px] h-6 px-1.5 text-xs rounded flex items-center justify-center transition-colors",
+        active
+          ? "bg-[color-mix(in_srgb,var(--c-primary)_15%,transparent)] text-[var(--c-primary)]"
+          : "text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)]"
+      )}
+    >
+      {children}
     </button>
   );
 }
@@ -336,16 +378,16 @@ function MetadataEditor({
       <KV label="Tipografía">
         <select
           className={inputCls}
-          value={th.fontFamily ?? "serif"}
+          value={th.fontFamily ?? 'Georgia, "Times New Roman", serif'}
           onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
             dispatch({ type: "UPDATE_THEME", patch: { fontFamily: e.target.value } })
           }
         >
-          <option value="serif">Serif</option>
-          <option value="sans-serif">Sans-serif</option>
-          <option value="monospace">Mono</option>
-          <option value="Georgia, serif">Georgia</option>
-          <option value="'Palatino Linotype', serif">Palatino</option>
+          {FONT_OPTIONS.map((f) => (
+            <option key={f.value} value={f.value} style={{ fontFamily: f.value }}>
+              {f.label}
+            </option>
+          ))}
         </select>
       </KV>
       <KV label="Tamaño px">
@@ -569,6 +611,27 @@ function BlockInspector({
             </button>
           </div>
         </KV>
+        <div className="mt-1">
+          <p className={editorCls.sidebarHeader + " mb-1"}>Fuente del bloque</p>
+          <select
+            className={inputCls}
+            value={block.textStyle?.fontFamily ?? ''}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              const val = e.target.value;
+              dispatch({
+                type: "UPDATE_HEADING",
+                pageId: page.id,
+                blockId: block.id,
+                patch: { textStyle: { fontFamily: val || undefined } },
+              });
+            }}
+          >
+            <option value="">Heredar del libro</option>
+            {FONT_OPTIONS.map((f) => (
+              <option key={f.value} value={f.value}>{f.label}</option>
+            ))}
+          </select>
+        </div>
       </div>
     );
   }
@@ -648,6 +711,28 @@ function BlockInspector({
             </button>
           </div>
         </KV>
+        <div className="mt-1">
+          <p className={editorCls.sidebarHeader + " mb-1"}>Fuente del bloque</p>
+          <select
+            className={inputCls}
+            value={run0?.style?.fontFamily ?? ''}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              const val = e.target.value;
+              dispatch({
+                type: "UPDATE_RUN_STYLE",
+                pageId: page.id,
+                blockId: block.id,
+                runIndex: 0,
+                patch: { fontFamily: val || undefined },
+              });
+            }}
+          >
+            <option value="">Heredar del libro</option>
+            {FONT_OPTIONS.map((f) => (
+              <option key={f.value} value={f.value}>{f.label}</option>
+            ))}
+          </select>
+        </div>
       </div>
     );
   }
@@ -1239,8 +1324,9 @@ function InlineBlock({
     const factor = tagFontSizes[block.level] ?? 1;
     const fontSize = basePx * factor;
     const align = block.blockStyle?.align ?? "left";
+    const blockFontFamily = block.textStyle?.fontFamily ?? fontFamily;
     const style: React.CSSProperties = {
-      fontFamily,
+      fontFamily: blockFontFamily,
       fontSize,
       color: textColor,
       textAlign: align,
@@ -1292,9 +1378,12 @@ function InlineBlock({
       (block.runs ?? []).map((r) => r.text).join("");
     const align = block.blockStyle?.align ?? "left";
     const indentPx = block.blockStyle?.indentFirstLinePx ?? 0;
+    const run0 = block.runs?.[0];
+    const blockFontFamily = run0?.style?.fontFamily ?? fontFamily;
+    const blockFontSize = run0?.style?.fontSizePx ?? basePx;
     const style: React.CSSProperties = {
-      fontFamily,
-      fontSize: basePx,
+      fontFamily: blockFontFamily,
+      fontSize: blockFontSize,
       color: textColor,
       textAlign: align,
       textIndent: indentPx ? `${indentPx}px` : undefined,
@@ -1314,8 +1403,20 @@ function InlineBlock({
           {isSelected ? (
             <textarea
               autoFocus
-              rows={Math.max(3, Math.ceil(text.length / 60))}
-              style={style}
+              rows={1}
+              style={{
+                ...style,
+                overflow: 'hidden',
+                resize: 'none',
+                minHeight: '1.5em',
+                height: 'auto',
+                fieldSizing: 'content',
+              } as React.CSSProperties}
+              onInput={(e: React.FormEvent<HTMLTextAreaElement>) => {
+                const el = e.currentTarget;
+                el.style.height = 'auto';
+                el.style.height = el.scrollHeight + 'px';
+              }}
               value={text}
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                 dispatch({
@@ -1712,174 +1813,339 @@ export default function BookEditorPage() {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-[var(--c-bg)]">
-      {/* ===== HEADER ===== */}
-      <header className="flex-shrink-0 h-12 bg-[var(--c-text)] text-[var(--c-bg)] flex items-center px-3 gap-2 z-20">
-        <span className="font-semibold text-sm mr-2 truncate max-w-[180px] text-[var(--c-bg)]" title={book.metadata.title}>
-          {book.metadata.title || "Sin título"}
-        </span>
+      {/* ===== HEADER WORD-STYLE ===== */}
+      <header className="flex-shrink-0 border-b border-[var(--c-border)] bg-[var(--c-surface)] flex items-center px-4 gap-3 h-11 z-20">
+        {/* Logo / título editable */}
+        <div className="flex items-center gap-2 min-w-0 max-w-[220px]">
+          <div className="w-5 h-5 rounded bg-[var(--c-primary)] flex items-center justify-center flex-shrink-0">
+            <span className="text-white text-[9px] font-bold">VB</span>
+          </div>
+          <input
+            className="text-sm font-medium bg-transparent text-[var(--c-text)] focus:outline-none focus:border-b focus:border-[var(--c-primary)] truncate min-w-0 w-full"
+            value={book.metadata.title || ''}
+            placeholder="Sin título"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              dispatch({ type: "UPDATE_METADATA", patch: { title: e.target.value } })
+            }
+          />
+        </div>
 
-        {state.dirty && (
-          <span className="text-xs bg-amber-500 text-white px-1.5 py-0.5 rounded">
-            Sin guardar
-          </span>
-        )}
-        {saveStatus === 'saving' && (
-          <span className="text-xs bg-white/10 text-[var(--c-bg)] px-1.5 py-0.5 rounded animate-pulse">
-            Guardando...
-          </span>
-        )}
-        {saveStatus === 'saved' && (
-          <span className="text-xs bg-[var(--c-success)]/80 text-white px-1.5 py-0.5 rounded">
-            ✓ Guardado
-          </span>
-        )}
-        {saveStatus === 'error' && (
-          <span className="text-xs bg-[var(--c-danger)]/80 text-white px-1.5 py-0.5 rounded">
-            Error al guardar
-          </span>
-        )}
-        {fsaFileName && (
-          <span className="text-xs text-[var(--c-bg)]/60 truncate max-w-[140px]" title={fsaFileName}>
-            {fsaFileName}
-          </span>
-        )}
+        {/* Estado de guardado */}
+        <div className="flex items-center gap-1.5 flex-shrink-0">
+          {state.dirty && saveStatus === 'idle' && (
+            <span className="text-[10px] text-[var(--c-muted)]">Sin guardar</span>
+          )}
+          {saveStatus === 'saving' && (
+            <span className="text-[10px] text-[var(--c-muted)] animate-pulse">Guardando...</span>
+          )}
+          {saveStatus === 'saved' && (
+            <span className="text-[10px] text-[var(--c-success)]">✓ Guardado</span>
+          )}
+          {saveStatus === 'error' && (
+            <span className="text-[10px] text-[var(--c-danger)]">Error al guardar</span>
+          )}
+          {fsaFileName && !saveStatus && (
+            <span className="text-[10px] text-[var(--c-muted)] truncate max-w-[120px]" title={fsaFileName}>
+              {fsaFileName}
+            </span>
+          )}
+        </div>
 
         <div className="flex-1" />
 
-        {/* Undo/Redo */}
-        <button
-          className={editorCls.headerBtn}
-          onClick={undo}
-          disabled={!canUndo}
-          title="Deshacer (Ctrl+Z)"
-        >
-          ↩ Deshacer
+        {/* Undo / Redo */}
+        <button onClick={undo} disabled={!canUndo} title="Deshacer (Ctrl+Z)"
+          className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] disabled:opacity-30 transition-colors">
+          ↩
         </button>
-        <button
-          className={editorCls.headerBtn}
-          onClick={redo}
-          disabled={!canRedo}
-          title="Rehacer (Ctrl+Y)"
-        >
-          ↪ Rehacer
+        <button onClick={redo} disabled={!canRedo} title="Rehacer (Ctrl+Y)"
+          className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] disabled:opacity-30 transition-colors">
+          ↪
         </button>
 
-        <div className={editorCls.headerDivider} />
+        <div className="w-px h-4 bg-[var(--c-border)]" />
 
-        {/* FSA buttons */}
-        <button
-          className={editorCls.headerBtn}
-          onClick={openLocalFile}
-          title="Abrir archivo local (File System Access API)"
-        >
-          Abrir local
-        </button>
-        <button
-          className={editorCls.headerBtn}
-          onClick={saveLocalFile}
-          title="Guardar en archivo local (Ctrl+S)"
-        >
-          Guardar local
+        {/* Guardar en servidor */}
+        <button onClick={handleSaveServer}
+          className="px-3 py-1 text-xs rounded-lg bg-[var(--c-primary)] text-white hover:opacity-90 transition-opacity font-medium">
+          Guardar
         </button>
 
-        <div className={editorCls.headerDivider} />
+        {/* Guardar local */}
+        <button onClick={saveLocalFile} title="Guardar archivo local (Ctrl+S)"
+          className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
+          Local
+        </button>
 
-        {/* Import/Export */}
-        <input
-          ref={importRef}
-          type="file"
-          accept=".json"
-          className="hidden"
-          onChange={handleImportFile}
-        />
-        <button
-          className={editorCls.headerBtn}
-          onClick={() => importRef.current?.click()}
-          title="Importar JSON"
-        >
+        <div className="w-px h-4 bg-[var(--c-border)]" />
+
+        {/* Archivos */}
+        <button onClick={openLocalFile} title="Abrir archivo local"
+          className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
+          Abrir
+        </button>
+        <input ref={importRef} type="file" accept=".json" className="hidden" onChange={handleImportFile} />
+        <button onClick={() => importRef.current?.click()} title="Importar JSON"
+          className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
           Importar
         </button>
-        <button
-          className={editorCls.headerBtn}
-          onClick={() =>
-            exportBookToDownload(book, `${book.metadata.title || "libro"}.json`)
-          }
-          title="Exportar JSON"
-        >
-          Exportar
-        </button>
-        <button
-          className="px-2 py-1 text-xs rounded bg-[var(--c-success)]/80 hover:bg-[var(--c-success)] text-white"
-          onClick={handleSaveServer}
-          title="Guardar en servidor"
-        >
-          Guardar API
+        <button onClick={() => exportBookToDownload(book, `${book.metadata.title || "libro"}.json`)} title="Exportar JSON"
+          className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
+          ↓ JSON
         </button>
 
-        <div className={editorCls.headerDivider} />
+        <div className="w-px h-4 bg-[var(--c-border)]" />
 
-        {/* View toggle */}
-        <button
+        {/* Vista */}
+        <button onClick={() => setDesktopView((v) => !v)} title="Alternar vista móvil/escritorio"
           className={classNames(
-            "px-2 py-1 text-xs rounded",
+            "px-2 py-1 text-xs rounded transition-colors",
             desktopView
-              ? "bg-white/25 text-[var(--c-bg)]"
-              : editorCls.headerBtn
-          )}
-          onClick={() => setDesktopView((v) => !v)}
-          title="Alternar vista móvil / escritorio"
-        >
-          {desktopView ? "🖥 PC" : "📱 Móvil"}
+              ? "bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)]"
+              : "text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)]"
+          )}>
+          {desktopView ? "PC" : "Móvil"}
         </button>
 
-        <div className={editorCls.headerDivider} />
+        <div className="w-px h-4 bg-[var(--c-border)]" />
 
-        {/* Feature buttons */}
-        <button
-          className={editorCls.headerBtn}
-          onClick={() => setShowToc(true)}
-          title="Editar índice"
-        >
+        {/* Herramientas */}
+        <button onClick={() => setShowToc(true)} title="Índice"
+          className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
           Índice
         </button>
-        <button
-          className={editorCls.headerBtn}
-          onClick={() => setShowAssets(true)}
-          title="Gestionar imágenes"
-        >
+        <button onClick={() => setShowAssets(true)} title="Imágenes"
+          className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
           Imágenes
         </button>
-        <button
-          className={editorCls.headerBtn}
-          onClick={() => setShowLibrary(true)}
-          title="Abrir libro del servidor"
-        >
+        <button onClick={() => setShowLibrary(true)} title="Biblioteca"
+          className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
           Biblioteca
         </button>
-        <button
-          className={editorCls.headerBtn}
-          onClick={() => setShowJson(true)}
-          title="Ver JSON del libro"
-        >
-          JSON
+        <button onClick={() => setShowJson(true)} title="Ver JSON"
+          className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors font-mono">
+          {'{ }'}
         </button>
 
         {/* Issues badge */}
         {(errorCount > 0 || warnCount > 0) && (
-          <div className="flex gap-1 ml-1">
+          <div className="flex gap-1">
             {errorCount > 0 && (
-              <span className="text-xs bg-red-600 text-white px-1.5 py-0.5 rounded">
-                {errorCount} error{errorCount > 1 ? "es" : ""}
+              <span className="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded">
+                {errorCount}E
               </span>
             )}
             {warnCount > 0 && (
-              <span className="text-xs bg-amber-500 text-white px-1.5 py-0.5 rounded">
-                {warnCount} aviso{warnCount > 1 ? "s" : ""}
+              <span className="text-[10px] bg-amber-500 text-white px-1.5 py-0.5 rounded">
+                {warnCount}W
               </span>
             )}
           </div>
         )}
       </header>
+
+      {/* ===== TOOLBAR WORD-STYLE ===== */}
+      {hasSelectedBlock && selectedBlock && selectedPage && (
+        <div className="flex-shrink-0 border-b border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 flex items-center gap-1 flex-wrap">
+
+          {/* Fuente */}
+          <select
+            className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 focus:outline-none focus:border-[var(--c-primary)]"
+            style={{
+              width: 110,
+              fontFamily:
+                selectedBlock.type === 'paragraph'
+                  ? (selectedBlock.runs?.[0]?.style?.fontFamily ?? book.metadata.theme?.fontFamily ?? '')
+                  : selectedBlock.type === 'heading'
+                  ? (selectedBlock.textStyle?.fontFamily ?? '')
+                  : '',
+            }}
+            value={
+              selectedBlock.type === 'paragraph'
+                ? (selectedBlock.runs?.[0]?.style?.fontFamily ?? '')
+                : selectedBlock.type === 'heading'
+                ? (selectedBlock.textStyle?.fontFamily ?? '')
+                : ''
+            }
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              const val = e.target.value;
+              if (selectedBlock.type === 'paragraph') {
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { fontFamily: val || undefined } });
+              } else if (selectedBlock.type === 'heading') {
+                dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { fontFamily: val || undefined } } });
+              }
+            }}
+          >
+            <option value="">Fuente</option>
+            {FONT_OPTIONS.map((f) => (
+              <option key={f.value} value={f.value} style={{ fontFamily: f.value }}>{f.label}</option>
+            ))}
+          </select>
+
+          <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
+
+          {/* Tamaño (solo párrafo) */}
+          {selectedBlock.type === 'paragraph' && (
+            <select
+              className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 w-14 focus:outline-none focus:border-[var(--c-primary)]"
+              value={selectedBlock.runs?.[0]?.style?.fontSizePx ?? ''}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                const val = Number(e.target.value);
+                if (!val) return;
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { fontSizePx: val } });
+              }}
+            >
+              <option value="">px</option>
+              {[8,9,10,11,12,14,16,18,20,22,24,28,32,36,40,48,60,72].map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+          )}
+
+          <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
+
+          {/* Bold */}
+          <ToolbarButton
+            active={
+              selectedBlock.type === 'paragraph'
+                ? !!selectedBlock.runs?.[0]?.style?.bold
+                : selectedBlock.type === 'heading'
+                ? !!selectedBlock.textStyle?.bold
+                : false
+            }
+            title="Negrita (Ctrl+B)"
+            onClick={() => {
+              if (selectedBlock.type === 'paragraph') {
+                const cur = !!selectedBlock.runs?.[0]?.style?.bold;
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { bold: !cur } });
+              } else if (selectedBlock.type === 'heading') {
+                dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { bold: !selectedBlock.textStyle?.bold } } });
+              }
+            }}
+          >
+            <strong>B</strong>
+          </ToolbarButton>
+
+          {/* Italic */}
+          <ToolbarButton
+            active={
+              selectedBlock.type === 'paragraph'
+                ? !!selectedBlock.runs?.[0]?.style?.italic
+                : selectedBlock.type === 'heading'
+                ? !!selectedBlock.textStyle?.italic
+                : false
+            }
+            title="Cursiva (Ctrl+I)"
+            onClick={() => {
+              if (selectedBlock.type === 'paragraph') {
+                const cur = !!selectedBlock.runs?.[0]?.style?.italic;
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { italic: !cur } });
+              } else if (selectedBlock.type === 'heading') {
+                dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { italic: !selectedBlock.textStyle?.italic } } });
+              }
+            }}
+          >
+            <em>I</em>
+          </ToolbarButton>
+
+          {/* Underline (solo párrafo) */}
+          {selectedBlock.type === 'paragraph' && (
+            <ToolbarButton
+              active={!!selectedBlock.runs?.[0]?.style?.underline}
+              title="Subrayado (Ctrl+U)"
+              onClick={() => {
+                if (selectedBlock.type !== 'paragraph') return;
+                const cur = !!selectedBlock.runs?.[0]?.style?.underline;
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { underline: !cur } });
+              }}
+            >
+              <span style={{ textDecoration: 'underline' }}>U</span>
+            </ToolbarButton>
+          )}
+
+          <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
+
+          {/* Alineación */}
+          {(['left','center','right','justify'] as const).map((align) => (
+            <ToolbarButton
+              key={align}
+              title={align}
+              active={
+                (selectedBlock.type === 'paragraph' || selectedBlock.type === 'heading')
+                  ? selectedBlock.blockStyle?.align === align
+                  : false
+              }
+              onClick={() => {
+                if (selectedBlock.type === 'paragraph') {
+                  dispatch({ type: "UPDATE_PARAGRAPH_BLOCKSTYLE", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { align } });
+                } else if (selectedBlock.type === 'heading') {
+                  dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { blockStyle: { align } } });
+                }
+              }}
+            >
+              {align === 'left'    && '⬅'}
+              {align === 'center'  && '↔'}
+              {align === 'right'   && '➡'}
+              {align === 'justify' && '☰'}
+            </ToolbarButton>
+          ))}
+
+          <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
+
+          {/* Color de texto */}
+          <label className="flex items-center gap-1 cursor-pointer" title="Color de texto">
+            <span className="text-xs text-[var(--c-muted)]">A</span>
+            <input
+              type="color"
+              className="w-5 h-5 rounded cursor-pointer border border-[var(--c-border)]"
+              value={
+                selectedBlock.type === 'paragraph'
+                  ? (selectedBlock.runs?.[0]?.style?.color ?? '#000000')
+                  : selectedBlock.type === 'heading'
+                  ? (selectedBlock.textStyle?.color ?? '#000000')
+                  : '#000000'
+              }
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                const color = e.target.value;
+                if (selectedBlock.type === 'paragraph') {
+                  dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { color } });
+                } else if (selectedBlock.type === 'heading') {
+                  dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { color } } });
+                }
+              }}
+            />
+          </label>
+
+          {/* Nivel de heading */}
+          {selectedBlock.type === 'heading' && (
+            <>
+              <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
+              <select
+                className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 w-16 focus:outline-none"
+                value={selectedBlock.level}
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                  dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { level: Number(e.target.value) as 1|2|3|4|5|6 } });
+                }}
+              >
+                {[1,2,3,4,5,6].map((l) => <option key={l} value={l}>H{l}</option>)}
+              </select>
+            </>
+          )}
+
+          {/* Spacer */}
+          <div className="flex-1" />
+
+          {/* Tipo de bloque */}
+          <span className="text-xs text-[var(--c-muted)] px-2 py-1 rounded bg-[var(--c-bg)]">
+            {selectedBlock.type === 'paragraph' ? '¶ Párrafo'
+              : selectedBlock.type === 'heading' ? `H${(selectedBlock as { level: number }).level} Título`
+              : selectedBlock.type === 'image' ? 'Imagen'
+              : selectedBlock.type === 'divider' ? '─ Separador'
+              : selectedBlock.type === 'pageBreak' ? 'Salto de página'
+              : selectedBlock.type}
+          </span>
+        </div>
+      )}
 
       {/* ===== MAIN 3-PANEL LAYOUT ===== */}
       <main className="flex flex-1 overflow-hidden min-h-0">
