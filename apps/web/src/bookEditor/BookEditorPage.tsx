@@ -83,7 +83,7 @@ const EMPTY_BOOK: Book = {
   schema: "book.pages@1.1",
   metadata: {
     id: "book-draft",
-    title: "Nuevo libro",
+    title: "Nuevo documento",
     language: "es",
     difficulty: 3,
     theme: {
@@ -117,7 +117,7 @@ const EMPTY_BOOK: Book = {
         {
           type: "paragraph",
           id: "p001_p_001",
-          runs: [{ text: "Escribe aquí el contenido de tu libro." }],
+          runs: [{ text: "Escribe aquí tu contenido..." }],
           blockStyle: { align: "left" },
         },
       ],
@@ -1205,11 +1205,11 @@ function LibraryModal({
   };
 
   return (
-    <Modal title="Biblioteca de libros" onClose={onClose}>
+    <Modal title="Mis documentos" onClose={onClose}>
       {loading && <p className="text-sm text-[var(--c-muted)]">Cargando...</p>}
       {err && <p className="text-sm text-red-500">{err}</p>}
       {!loading && !err && books.length === 0 && (
-        <p className="text-sm text-[var(--c-muted)] italic">Sin libros en el servidor</p>
+        <p className="text-sm text-[var(--c-muted)] italic">Sin documentos guardados</p>
       )}
       <div className="space-y-2">
         {books.map((b) => (
@@ -1237,7 +1237,7 @@ function LibraryModal({
 // ===== JsonModal =====
 function JsonModal({ book, onClose }: { book: Book; onClose: () => void }) {
   return (
-    <Modal title="JSON del libro" onClose={onClose} wide>
+    <Modal title="JSON del documento" onClose={onClose} wide>
       <pre className="text-xs bg-[var(--c-bg)] rounded-lg p-3 overflow-auto max-h-[60vh] whitespace-pre-wrap break-all text-[var(--c-text)]">
         {prettyJson(book)}
       </pre>
@@ -1677,7 +1677,7 @@ export default function BookEditorPage() {
       const [handle] = await window.showOpenFilePicker({
         types: [
           {
-            description: "Libro JSON",
+            description: "Documento JSON",
             accept: { "application/json": [".json"] },
           },
         ],
@@ -1719,10 +1719,10 @@ export default function BookEditorPage() {
     if (window.showSaveFilePicker) {
       try {
         const handle = await window.showSaveFilePicker({
-          suggestedName: fsaFileName ?? `${book.metadata.title ?? "libro"}.json`,
+          suggestedName: fsaFileName ?? `${book.metadata.title ?? "documento"}.json`,
           types: [
             {
-              description: "Libro JSON",
+              description: "Documento JSON",
               accept: { "application/json": [".json"] },
             },
           ],
@@ -1740,7 +1740,7 @@ export default function BookEditorPage() {
     }
 
     // Fallback: download
-    exportBookToDownload(book, fsaFileName ?? `${book.metadata.title ?? "libro"}.json`);
+    exportBookToDownload(book, fsaFileName ?? `${book.metadata.title ?? "documento"}.json`);
     dispatch({ type: "MARK_DIRTY", dirty: false });
   }, [book, dispatch, fsaHandle, fsaFileName]);
 
@@ -1820,6 +1820,10 @@ export default function BookEditorPage() {
           <div className="w-5 h-5 rounded bg-[var(--c-primary)] flex items-center justify-center flex-shrink-0">
             <span className="text-white text-[9px] font-bold">VB</span>
           </div>
+          <span className="text-[10px] text-[var(--c-muted)] hidden sm:block flex-shrink-0">
+            Editor de texto
+          </span>
+          <span className="text-[var(--c-muted)] hidden sm:block">·</span>
           <input
             className="text-sm font-medium bg-transparent text-[var(--c-text)] focus:outline-none focus:border-b focus:border-[var(--c-primary)] truncate min-w-0 w-full"
             value={book.metadata.title || ''}
@@ -1889,7 +1893,7 @@ export default function BookEditorPage() {
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
           Importar
         </button>
-        <button onClick={() => exportBookToDownload(book, `${book.metadata.title || "libro"}.json`)} title="Exportar JSON"
+        <button onClick={() => exportBookToDownload(book, `${book.metadata.title || "documento"}.json`)} title="Exportar JSON"
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
           ↓ JSON
         </button>

@@ -1379,7 +1379,7 @@ function BookPicker({
             className="w-full rounded-lg border border-dashed border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-muted)] hover:border-[var(--c-primary)] hover:text-[var(--c-primary)] text-left transition-colors"
             onClick={onOpenPicker}
           >
-            Seleccionar libro...
+            Seleccionar documento...
           </button>
         )}
         <a
@@ -1396,6 +1396,10 @@ function BookPicker({
 
   return (
     <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 space-y-2">
+      <p className="text-xs text-[var(--c-muted)] mt-0.5 mb-3">
+        Para contenido simple usá los bloques de arriba. El editor de texto
+        es para documentos más extensos o con formato avanzado.
+      </p>
       <div className="flex gap-2">
         <input
           className="flex-1 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-2 py-1.5 text-xs focus:border-[var(--c-primary)] focus:outline-none"
@@ -1433,7 +1437,7 @@ function BookPicker({
           rel="noreferrer"
           className="text-xs text-[var(--c-primary)] hover:underline"
         >
-          + Crear nuevo libro ↗
+          + Crear nuevo documento ↗
         </a>
         <button type="button" className="text-xs text-gray-400 hover:text-gray-600" onClick={onClose}>
           Cancelar
