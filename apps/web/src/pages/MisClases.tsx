@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { apiGet } from "../lib/api";
+import { apiGet, apiPost } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import {
   normalizeClassroomStatus,
@@ -31,20 +31,37 @@ export default function MisClases() {
   const [error, setError] = useState<string | null>(null);
   const [filtro, setFiltro] = useState<"todas" | "activas" | "archivadas">("todas");
 
-  useEffect(() => {
-    let active = true;
+  const [codigo, setCodigo] = useState("");
+  const [joinMsg, setJoinMsg] = useState<string | null>(null);
+  const [joining, setJoining] = useState(false);
+
+  const fetchAulas = useCallback(() => {
+    setLoading(true);
     apiGet<AulasResponse>("/api/aulas")
-      .then((data) => {
-        if (!active) return;
-        setAulas(data.items ?? []);
-      })
-      .catch(() => {
-        if (!active) return;
-        setError("No se pudieron cargar tus aulas.");
-      })
-      .finally(() => { if (!active) return; setLoading(false); });
-    return () => { active = false; };
+      .then((data) => { setAulas(data.items ?? []); })
+      .catch(() => { setError("No se pudieron cargar tus aulas."); })
+      .finally(() => { setLoading(false); });
   }, []);
+
+  useEffect(() => {
+    fetchAulas();
+  }, [fetchAulas]);
+
+  const handleJoin = async () => {
+    if (!codigo.trim()) return;
+    setJoining(true);
+    setJoinMsg(null);
+    try {
+      await apiPost("/api/aulas/unirse", { codigo: codigo.trim() });
+      setJoinMsg("✓ Te uniste al aula correctamente.");
+      setCodigo("");
+      fetchAulas();
+    } catch (err) {
+      setJoinMsg(err instanceof Error ? err.message : "Código inválido o aula no encontrada.");
+    } finally {
+      setJoining(false);
+    }
+  };
 
   const aulasFiltradas = useMemo(() => {
     if (filtro === "todas") return aulas;
@@ -63,6 +80,33 @@ export default function MisClases() {
           <p className="text-sm text-[var(--c-muted)] mt-1">
             Seleccioná un aula para ver su contenido.
           </p>
+        </div>
+
+        {/* Unirse con código */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <input
+            type="text"
+            placeholder="Código de aula"
+            value={codigo}
+            onChange={(e) => setCodigo(e.target.value.toUpperCase())}
+            onKeyDown={(e) => { if (e.key === "Enter") void handleJoin(); }}
+            className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)] uppercase tracking-widest w-36"
+            maxLength={8}
+          />
+          <button
+            onClick={() => void handleJoin()}
+            disabled={joining || !codigo.trim()}
+            className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+          >
+            {joining ? "Uniéndose..." : "Unirse"}
+          </button>
+          {joinMsg && (
+            <p className={`text-xs ${
+              joinMsg.startsWith("✓") ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"
+            }`}>
+              {joinMsg}
+            </p>
+          )}
         </div>
 
         {/* Tabs de filtro */}

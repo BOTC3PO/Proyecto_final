@@ -246,6 +246,14 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}, 
 }
 
 export const apiGet = <T>(path: string, options?: RequestOptions) => apiRequest<T>(path, options);
+
+export async function apiGetPublic<T>(path: string): Promise<T> {
+  const res = await fetch(buildUrl(path), {
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+  });
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+  return res.json() as Promise<T>;
+}
 export const apiPost = <T>(path: string, body: unknown, options?: RequestOptions) =>
   apiRequest<T>(path, { ...options, method: "POST", body: JSON.stringify(body) });
 export const apiPatch = <T>(path: string, body: unknown, options?: RequestOptions) =>

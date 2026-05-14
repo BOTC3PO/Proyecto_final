@@ -638,7 +638,7 @@ export default function ProfesorAulas() {
                         to={`/profesor/aulas/${
                           (classroom as { _id?: string } & typeof classroom)
                             ._id ?? classroom.id
-                        }/configuracion`}
+                        }`}
                         className="rounded-md border border-[var(--c-border)]
                           px-3 py-1 text-xs text-[var(--c-primary)]
                           hover:bg-[var(--c-bg)]"

@@ -4,12 +4,12 @@ import { fetchEnterpriseStaff, type EnterpriseStaffMember } from "../services/en
 
 const ROLE_LABELS: Record<string, string> = {
   TEACHER: "Docentes",
-  ADMIN: "Directivos",
+  DIRECTIVO: "Directivos",
 };
 
 const ROLE_COLORS: Record<string, string> = {
   TEACHER: "bg-violet-100 text-violet-700",
-  ADMIN: "bg-blue-100 text-blue-700",
+  DIRECTIVO: "bg-blue-100 text-blue-700",
 };
 
 export default function EnterpriseMiembros() {
@@ -34,9 +34,10 @@ export default function EnterpriseMiembros() {
   }, [schoolId]);
 
   const grouped = useMemo(() => {
-    const map: Record<string, EnterpriseStaffMember[]> = { TEACHER: [], ADMIN: [] };
+    const map: Record<string, EnterpriseStaffMember[]> = { TEACHER: [], DIRECTIVO: [] };
     staff.forEach((m) => {
-      if (map[m.role]) map[m.role].push(m);
+      const key = m.role === "TEACHER" ? "TEACHER" : "DIRECTIVO";
+      map[key].push(m);
     });
     return map;
   }, [staff]);

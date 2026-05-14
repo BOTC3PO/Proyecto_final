@@ -25,7 +25,7 @@ export function FlowBlockRenderer({ block }: Props) {
   return (
     <div>
       {block.title && (
-        <p className="mb-1 text-sm font-semibold text-gray-700">{block.title}</p>
+        <p className="mb-1 text-sm font-semibold text-[var(--c-text)]">{block.title}</p>
       )}
       <svg
         width="100%"

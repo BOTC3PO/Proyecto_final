@@ -85,14 +85,16 @@ export default function Admin() {
     setSaving(true);
     setSaveMsg(null);
     try {
+      const inflacionLimitada = Math.min(parseFloat(inflacionTasa) || 0, 0.1);
+      const deflacionLimitada = Math.min(parseFloat(deflacionTasa) || 0, 0.1);
       const updated = await updateEconomiaConfig({
         limites: {
           emisionDiaria: Number(emisionDiaria),
           recompensaMaxima: Number(recompensaMaxima),
           recompensaDiaria: Number(recompensaDiaria),
         },
-        inflacion: { tasa: Number(inflacionTasa), activa: inflacionActiva },
-        deflacion: { tasa: Number(deflacionTasa), activa: deflacionActiva },
+        inflacion: { tasa: inflacionLimitada, activa: inflacionActiva },
+        deflacion: { tasa: deflacionLimitada, activa: deflacionActiva },
       });
       setConfig(updated);
       setSaveMsg("Configuración guardada correctamente.");
@@ -210,9 +212,9 @@ export default function Admin() {
                   <label htmlFor="inflacion-activa" className="text-sm text-[var(--c-text)]">Inflación activa</label>
                 </div>
                 <label className="flex flex-col gap-1">
-                  <span className="text-[10px] text-[var(--c-muted)]">Tasa de inflación (0–1)</span>
+                  <span className="text-[10px] text-[var(--c-muted)]">Tasa de inflación (0–0.1, máx 10%)</span>
                   <input
-                    type="number" min={0} max={1} step={0.01} value={inflacionTasa}
+                    type="number" min={0} max={0.1} step={0.01} value={inflacionTasa}
                     onChange={(e) => setInflacionTasa(e.target.value)}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
@@ -227,9 +229,9 @@ export default function Admin() {
                   <label htmlFor="deflacion-activa" className="text-sm text-[var(--c-text)]">Deflación activa</label>
                 </div>
                 <label className="flex flex-col gap-1">
-                  <span className="text-[10px] text-[var(--c-muted)]">Tasa de deflación (0–1)</span>
+                  <span className="text-[10px] text-[var(--c-muted)]">Tasa de deflación (0–0.1, máx 10%)</span>
                   <input
-                    type="number" min={0} max={1} step={0.01} value={deflacionTasa}
+                    type="number" min={0} max={0.1} step={0.01} value={deflacionTasa}
                     onChange={(e) => setDeflacionTasa(e.target.value)}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />

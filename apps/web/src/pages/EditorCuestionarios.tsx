@@ -77,19 +77,20 @@ function ejercicioToQuestion(e: Ejercicio): ModuleQuizQuestion {
 
 const createQuestion = (
   questionType: ModuleQuizQuestion["questionType"]
-): ModuleQuizQuestion => ({
-  id: `q-${Date.now()}-${Math.random().toString(16).slice(2)}`,
-  prompt: "",
-  questionType,
-  options:
-    questionType === "vf"
-      ? ["Verdadero", "Falso"]
-      : questionType === "mc"
-      ? ["", ""]
-      : [],
-  answerKey: "",
-  explanation: "",
-});
+): ModuleQuizQuestion => {
+  const base = {
+    id: `q-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    prompt: "",
+    questionType,
+    explanation: "",
+  };
+  if (questionType === "input") return base as ModuleQuizQuestion;
+  return {
+    ...base,
+    options: questionType === "vf" ? ["Verdadero", "Falso"] : ["", ""],
+    answerKey: "",
+  };
+};
 
 // Renders plain text with {variable} tokens highlighted in amber.
 function PromptWithVariables({ text }: { text: string }) {
@@ -299,8 +300,8 @@ export default function EditorCuestionarios() {
     questions: questions.map((q) => ({
       prompt: q.prompt,
       questionType: q.questionType,
-      options: q.options?.length ? q.options : undefined,
-      answerKey: q.answerKey,
+      options: q.questionType === "input" ? undefined : (q.options?.length ? q.options : undefined),
+      answerKey: q.questionType === "input" ? undefined : (q.answerKey || undefined),
       explanation: q.explanation || undefined,
       focus: (q as ModuleQuizQuestion & { focus?: string }).focus || undefined,
     })),

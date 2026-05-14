@@ -247,7 +247,7 @@ export default function Gobernanza() {
             </li>
             <li>Solo directivos, docentes y administradores pueden crear propuestas y votar.</li>
             <li>
-              Una propuesta aprobada aplica el cambio automáticamente al cerrarse.
+              Las propuestas aprobadas son revisadas por el administrador, quien puede aplicar, modificar o rechazar el cambio.
             </li>
           </ul>
         </section>

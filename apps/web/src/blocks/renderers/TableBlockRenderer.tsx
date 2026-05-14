@@ -15,19 +15,19 @@ function ScriptProcessPanel({ steps }: { steps: string[] }) {
   const [open, setOpen] = useState(false)
   if (steps.length === 0) return null
   return (
-    <div className="mt-2 rounded border border-slate-200">
+    <div className="mt-2 rounded border border-[var(--c-border)]">
       <button
         type="button"
-        className="flex w-full items-center justify-between px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+        className="flex w-full items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--c-muted)] hover:bg-[var(--c-bg)]"
         onClick={() => setOpen((v) => !v)}
       >
         <span>Proceso del script</span>
         <span>{open ? "▲" : "▼"}</span>
       </button>
       {open && (
-        <div className="border-t border-slate-100 px-3 py-2 space-y-0.5">
+        <div className="border-t border-[var(--c-border)] px-3 py-2 space-y-0.5">
           {steps.map((step, i) => (
-            <p key={i} className="font-mono text-xs text-slate-600">
+            <p key={i} className="font-mono text-xs text-[var(--c-muted)]">
               {step}
             </p>
           ))}
@@ -43,18 +43,18 @@ export function TableBlockRenderer({ block }: Props) {
 
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full border border-gray-300 text-sm">
+      <table className="min-w-full border border-[var(--c-border)] text-sm">
         {block.title && (
-          <caption className="mb-1 text-left font-semibold text-gray-700">
+          <caption className="mb-1 text-left font-semibold text-[var(--c-text)]">
             {block.title}
           </caption>
         )}
-        <thead className="bg-gray-100">
+        <thead className="bg-[var(--c-bg)]">
           <tr>
             {block.headers.map((header, i) => (
               <th
                 key={i}
-                className="border border-gray-300 px-3 py-2 text-left font-semibold text-gray-800"
+                className="border border-[var(--c-border)] px-3 py-2 text-left font-semibold text-[var(--c-text)]"
               >
                 {header}
               </th>
@@ -65,7 +65,7 @@ export function TableBlockRenderer({ block }: Props) {
           {block.rows.map((row, rowIdx) => (
             <tr
               key={rowIdx}
-              className={rowIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+              className={rowIdx % 2 === 0 ? "bg-[var(--c-surface)]" : "bg-[var(--c-bg)]"}
             >
               {row.map((cell, colIdx) => {
                 const key = getCellKey(rowIdx, colIdx)
@@ -75,7 +75,7 @@ export function TableBlockRenderer({ block }: Props) {
                   return (
                     <td
                       key={colIdx}
-                      className="border border-gray-300 px-3 py-2 text-gray-700"
+                      className="border border-[var(--c-border)] px-3 py-2 text-[var(--c-text)]"
                     >
                       <span className="font-medium text-violet-700">
                         {updatedCells[key]}
@@ -91,7 +91,7 @@ export function TableBlockRenderer({ block }: Props) {
                   return (
                     <td
                       key={colIdx}
-                      className="border border-gray-300 px-3 py-2 text-gray-700"
+                      className="border border-[var(--c-border)] px-3 py-2 text-[var(--c-text)]"
                     >
                       <span className={isError ? "text-red-500" : "font-medium text-indigo-700"}>
                         {result}
@@ -103,7 +103,7 @@ export function TableBlockRenderer({ block }: Props) {
                 return (
                   <td
                     key={colIdx}
-                    className="border border-gray-300 px-3 py-2 text-gray-700"
+                    className="border border-[var(--c-border)] px-3 py-2 text-[var(--c-text)]"
                   >
                     {cell}
                   </td>

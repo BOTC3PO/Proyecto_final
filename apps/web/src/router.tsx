@@ -175,10 +175,10 @@ export const router = createBrowserRouter([
         ],
       },
 
-      // ── Layout Alumno (USER) ───────────────────────────────────────────────
+      // ── Layout Alumno (USER + vista alumno para staff) ────────────────────
       {
         element: (
-          <ProtectedRoute allow={['USER']}>
+          <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'PARENT']}>
             <AlumnoLayout />
           </ProtectedRoute>
         ),
@@ -473,7 +473,7 @@ export const router = createBrowserRouter([
           {
             path: 'modulos',
             element: (
-              <ProtectedRoute allow={['TEACHER', 'DIRECTIVO', 'ADMIN']}>
+              <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'PARENT']}>
                 {withSuspense(<ModulosList />)}
               </ProtectedRoute>
             ),
@@ -481,7 +481,7 @@ export const router = createBrowserRouter([
           {
             path: 'modulos/crear',
             element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
                 {withSuspense(<ModuloEditor />)}
               </ProtectedRoute>
             ),
@@ -489,7 +489,7 @@ export const router = createBrowserRouter([
           {
             path: 'modulos/:id',
             element: (
-              <ProtectedRoute allow={['TEACHER', 'DIRECTIVO', 'ADMIN']}>
+              <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'PARENT']}>
                 {withSuspense(<ModuloDetail />)}
               </ProtectedRoute>
             ),
@@ -497,7 +497,7 @@ export const router = createBrowserRouter([
           {
             path: 'modulos/:id/editar',
             element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
                 {withSuspense(<ModuloEditor />)}
               </ProtectedRoute>
             ),
@@ -556,7 +556,7 @@ export const router = createBrowserRouter([
           {
             path: 'modulos/crear',
             element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
                 {withSuspense(<ModuloEditor />)}
               </ProtectedRoute>
             ),
@@ -572,7 +572,7 @@ export const router = createBrowserRouter([
           {
             path: 'modulos/:id/editar',
             element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN']}>
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
                 {withSuspense(<ModuloEditor />)}
               </ProtectedRoute>
             ),

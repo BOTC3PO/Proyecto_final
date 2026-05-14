@@ -332,7 +332,9 @@ export default function Perfil() {
                 { key: "perfil",      label: "Datos" },
                 { key: "progreso",    label: "Progreso" },
                 { key: "logros",      label: "Logros" },
-                { key: "suscripcion", label: "Suscripción" },
+                ...(perfil?.role !== 'ADMIN'
+                  ? [{ key: "suscripcion" as const, label: "Suscripción" }]
+                  : []),
                 ...(availableThemes.length > 1
                   ? [{ key: "apariencia" as const, label: "Apariencia" }]
                   : []),
@@ -477,7 +479,7 @@ export default function Perfil() {
             )}
 
             {/* ── TAB: SUSCRIPCIÓN ── */}
-            {activeTab === "suscripcion" && (
+            {activeTab === "suscripcion" && perfil?.role !== 'ADMIN' && (
               <div className="space-y-4">
                 {suscLoading && (
                   <div className="h-24 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />

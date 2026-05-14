@@ -688,6 +688,40 @@ aulas.post("/api/aulas/:id/modulos", requireUser, async (req, res) => {
   }
 });
 
+// POST /api/aulas/unirse — alumno se une por código de aula
+aulas.post("/api/aulas/unirse", requireUser, async (req, res) => {
+  const userId =
+    (req as { user?: { id?: string; _id?: { toString?: () => string } | string } }).user?.id ??
+    ((req as { user?: { _id?: { toString?: () => string } | string } }).user?._id as { toString?: () => string })?.toString?.() ??
+    null;
+  const { codigo } = req.body as { codigo?: string };
+  if (!codigo?.trim()) return res.status(400).json({ error: "código requerido" });
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  const aula = await prisma.clase.findFirst({
+    where: {
+      OR: [
+        { classCode: codigo.trim().toUpperCase() },
+        { code: codigo.trim().toUpperCase() },
+      ],
+      isDeleted: false,
+      status: "ACTIVE",
+    },
+  });
+  if (!aula) return res.status(404).json({ error: "Aula no encontrada" });
+
+  const existing = await prisma.claseMiembro.findFirst({
+    where: { claseId: aula.id, usuarioId: userId },
+  });
+  if (existing) return res.status(409).json({ error: "Ya sos miembro de esta aula" });
+
+  await prisma.claseMiembro.create({
+    data: { claseId: aula.id, usuarioId: userId, rolEnClase: "STUDENT" },
+  });
+
+  return res.status(201).json({ ok: true, aulaId: aula.id, nombre: aula.name });
+});
+
 // DELETE /api/aulas/:id/modulos/:moduloId — desasignar módulo
 aulas.delete("/api/aulas/:id/modulos/:moduloId", requireUser, async (req, res) => {
   try {

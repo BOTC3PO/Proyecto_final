@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
-import { MODULE_SUBJECT_CAPABILITIES } from "../../domain/module/module.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
@@ -28,9 +27,6 @@ import { STANDALONE_TOOLS, parseStandaloneConfig, type RecetaConfig, type LineaT
 import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
 
-const SUBJECT_OPTIONS = Object.keys(MODULE_SUBJECT_CAPABILITIES);
-
-
 export default function ModuloEditor() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -45,6 +41,7 @@ export default function ModuloEditor() {
     updateForm,
     handleSubjectChange,
     subjectCapabilities,
+    materias,
     isEditing,
     theoryItems,
     newTheoryItem,
@@ -324,10 +321,10 @@ export default function ModuloEditor() {
                       onChange={(event) => handleSubjectChange(event.target.value)}
                       required
                     >
-                      <option value="">-- Seleccionar --</option>
-                      {SUBJECT_OPTIONS.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
+                      <option value="">-- Seleccionar materia --</option>
+                      {materias.map((m) => (
+                        <option key={m} value={m.toLowerCase().replace(/\s+/g, '')}>
+                          {m}
                         </option>
                       ))}
                     </select>

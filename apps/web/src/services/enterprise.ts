@@ -11,7 +11,7 @@ export type EnterpriseIndicator = {
 export type EnterpriseStaffMember = {
   id: string;
   name: string;
-  role: "ADMIN" | "TEACHER";
+  role: "DIRECTIVO" | "TEACHER";
   schoolId: string;
 };
 
@@ -65,7 +65,7 @@ export async function fetchEnterpriseStaff(
   return (data.items ?? []).map((u) => ({
     id: u.id,
     name: u.name,
-    role: (u.role === "TEACHER" ? "TEACHER" : "ADMIN") as "TEACHER" | "ADMIN",
+    role: (u.role === "TEACHER" ? "TEACHER" : "DIRECTIVO") as "TEACHER" | "DIRECTIVO",
     schoolId: u.schoolId ?? schoolId,
   }));
 }

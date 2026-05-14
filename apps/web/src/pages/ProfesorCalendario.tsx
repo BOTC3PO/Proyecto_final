@@ -170,8 +170,9 @@ export default function ProfesorCalendario() {
     if (!form.titulo.trim() || !form.fechaInicio) return;
     setGuardando(true);
     setMsg(null);
+    const tabEfectivo = canEditEscuela ? tab : "aula";
     try {
-      if (tab === "escuela") {
+      if (tabEfectivo === "escuela") {
         await crearEventoEscuela({
           tipo: form.tipo as TipoEventoEscuela,
           titulo: form.titulo.trim(),

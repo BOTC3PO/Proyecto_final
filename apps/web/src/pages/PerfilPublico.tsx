@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { apiGet } from "../lib/api";
+import { apiGetPublic } from "../lib/api";
 import type { ThemeId } from "../theme/ThemeContext";
 
 const ROLE_LABELS: Record<string, string> = {
@@ -46,7 +46,7 @@ export default function PerfilPublico() {
     if (!username) return;
     setLoading(true);
     setError(null);
-    apiGet<PerfilPublicoData>(`/api/perfil/${encodeURIComponent(username)}`)
+    apiGetPublic<PerfilPublicoData>(`/api/perfil/${encodeURIComponent(username)}`)
       .then(setData)
       .catch((err: Error) => setError(err.message))
       .finally(() => setLoading(false));

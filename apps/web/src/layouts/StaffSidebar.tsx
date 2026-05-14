@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 
 const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
-    { label: 'Académico', items: ['Panel', 'Aulas', 'Cursos', 'Materiales', 'Módulos', 'Evaluaciones'] },
+    { label: 'Académico', items: ['Panel', 'Aulas', 'Materiales', 'Módulos', 'Evaluaciones'] },
     { label: 'Gestión',   items: ['Asistencia', 'Calificaciones', 'Reportes', 'Encuestas'] },
     { label: 'Escuela',   items: ['Calendario', 'Mensajes', 'Gobernanza'] },
   ],
@@ -56,7 +56,7 @@ function Sidebar() {
   useEffect(() => { setUserMenuOpen(false); }, [location.pathname]);
 
   return (
-    <aside className="w-56 flex-shrink-0 flex flex-col border-r border-[var(--c-border)] bg-[var(--c-surface)] h-screen sticky top-0 overflow-y-auto">
+    <aside className="w-56 flex-shrink-0 flex flex-col border-r border-[var(--c-border)] bg-[var(--c-surface)] h-screen sticky top-0 overflow-y-auto will-change-transform">
       {/* Logo */}
       <div className="h-14 flex items-center px-5 border-b border-[var(--c-border)] flex-shrink-0">
         <Link to="/" className="flex items-center gap-2.5">
@@ -90,7 +90,7 @@ function Sidebar() {
                 <NavLink
                   key={item.to}
                   to={item.to}
-                  end={item.exact}
+                  end={item.exact ?? true}
                   className={({ isActive }) =>
                     `flex items-center px-5 py-2 text-sm transition-colors border-l-2 ${
                       isActive

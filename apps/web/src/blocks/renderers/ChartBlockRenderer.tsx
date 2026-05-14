@@ -247,11 +247,11 @@ function StatsPanel({ values }: { values: number[] }) {
     <div className="mt-2 overflow-x-auto">
       <table className="w-full border-collapse text-xs">
         <thead>
-          <tr className="bg-slate-50">
+          <tr className="bg-[var(--c-bg)]">
             {rows.map(([label]) => (
               <th
                 key={label}
-                className="border border-slate-100 px-2 py-1 text-left font-semibold text-slate-600"
+                className="border border-[var(--c-border)] px-2 py-1 text-left font-semibold text-[var(--c-muted)]"
               >
                 {label}
               </th>
@@ -263,7 +263,7 @@ function StatsPanel({ values }: { values: number[] }) {
             {rows.map(([label, val]) => (
               <td
                 key={label}
-                className="border border-slate-100 px-2 py-1 text-slate-700"
+                className="border border-[var(--c-border)] px-2 py-1 text-[var(--c-text)]"
               >
                 {val}
               </td>
@@ -279,19 +279,19 @@ function ProcessPanel({ steps }: { steps: string[] }) {
   const [open, setOpen] = useState(false)
   if (steps.length === 0) return null
   return (
-    <div className="mt-2 rounded border border-slate-200">
+    <div className="mt-2 rounded border border-[var(--c-border)]">
       <button
         type="button"
-        className="flex w-full items-center justify-between px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+        className="flex w-full items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--c-muted)] hover:bg-[var(--c-bg)]"
         onClick={() => setOpen((v) => !v)}
       >
         <span>Proceso de cálculo</span>
         <span>{open ? "▲" : "▼"}</span>
       </button>
       {open && (
-        <div className="border-t border-slate-100 px-3 py-2 space-y-0.5">
+        <div className="border-t border-[var(--c-border)] px-3 py-2 space-y-0.5">
           {steps.map((step, i) => (
-            <p key={i} className="text-xs font-mono text-slate-600">
+            <p key={i} className="text-xs font-mono text-[var(--c-muted)]">
               {step}
             </p>
           ))}
@@ -325,7 +325,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
   }, [block, doc])
 
   const title = block.title && (
-    <p className="mb-1 text-sm font-semibold text-gray-700">{block.title}</p>
+    <p className="mb-1 text-sm font-semibold text-[var(--c-text)]">{block.title}</p>
   )
 
   // ── Scatter ──────────────────────────────────────────────────────────────
@@ -345,7 +345,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
 
     if (hasNoData) {
       return (
-        <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+        <div className="flex h-[300px] items-center justify-center rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-muted)]">
           Sin datos
         </div>
       )
@@ -382,19 +382,19 @@ export function ChartBlockRenderer({ block, doc }: Props) {
             <div className="mt-2 overflow-x-auto">
               <table className="w-full border-collapse text-xs">
                 <thead>
-                  <tr className="bg-slate-50">
-                    <th className="border border-slate-100 px-2 py-1 text-left font-semibold text-slate-600">Correlación (r)</th>
-                    <th className="border border-slate-100 px-2 py-1 text-left font-semibold text-slate-600">Pendiente</th>
-                    <th className="border border-slate-100 px-2 py-1 text-left font-semibold text-slate-600">Intercepto</th>
-                    <th className="border border-slate-100 px-2 py-1 text-left font-semibold text-slate-600">R²</th>
+                  <tr className="bg-[var(--c-bg)]">
+                    <th className="border border-[var(--c-border)] px-2 py-1 text-left font-semibold text-[var(--c-muted)]">Correlación (r)</th>
+                    <th className="border border-[var(--c-border)] px-2 py-1 text-left font-semibold text-[var(--c-muted)]">Pendiente</th>
+                    <th className="border border-[var(--c-border)] px-2 py-1 text-left font-semibold text-[var(--c-muted)]">Intercepto</th>
+                    <th className="border border-[var(--c-border)] px-2 py-1 text-left font-semibold text-[var(--c-muted)]">R²</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-slate-100 px-2 py-1 text-slate-700">{fmt(corrResult.result)}</td>
-                    <td className="border border-slate-100 px-2 py-1 text-slate-700">{fmt(regResult.slope)}</td>
-                    <td className="border border-slate-100 px-2 py-1 text-slate-700">{fmt(regResult.intercept)}</td>
-                    <td className="border border-slate-100 px-2 py-1 text-slate-700">{fmt(regResult.r2)}</td>
+                    <td className="border border-[var(--c-border)] px-2 py-1 text-[var(--c-text)]">{fmt(corrResult.result)}</td>
+                    <td className="border border-[var(--c-border)] px-2 py-1 text-[var(--c-text)]">{fmt(regResult.slope)}</td>
+                    <td className="border border-[var(--c-border)] px-2 py-1 text-[var(--c-text)]">{fmt(regResult.intercept)}</td>
+                    <td className="border border-[var(--c-border)] px-2 py-1 text-[var(--c-text)]">{fmt(regResult.r2)}</td>
                   </tr>
                 </tbody>
               </table>
@@ -416,7 +416,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
 
     if (values.length === 0) {
       return (
-        <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+        <div className="flex h-[300px] items-center justify-center rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-muted)]">
           Sin datos
         </div>
       )
@@ -447,14 +447,14 @@ export function ChartBlockRenderer({ block, doc }: Props) {
           <div className="mt-2 overflow-x-auto">
             <table className="w-full border-collapse text-xs">
               <thead>
-                <tr className="bg-slate-50">
-                  <th className="border border-slate-100 px-2 py-1 text-left font-semibold text-slate-600">
+                <tr className="bg-[var(--c-bg)]">
+                  <th className="border border-[var(--c-border)] px-2 py-1 text-left font-semibold text-[var(--c-muted)]">
                     Intervalo
                   </th>
-                  <th className="border border-slate-100 px-2 py-1 text-left font-semibold text-slate-600">
+                  <th className="border border-[var(--c-border)] px-2 py-1 text-left font-semibold text-[var(--c-muted)]">
                     Frecuencia
                   </th>
-                  <th className="border border-slate-100 px-2 py-1 text-left font-semibold text-slate-600">
+                  <th className="border border-[var(--c-border)] px-2 py-1 text-left font-semibold text-[var(--c-muted)]">
                     Frecuencia relativa
                   </th>
                 </tr>
@@ -462,13 +462,13 @@ export function ChartBlockRenderer({ block, doc }: Props) {
               <tbody>
                 {bins.map((b, i) => (
                   <tr key={i}>
-                    <td className="border border-slate-100 px-2 py-1 font-mono text-slate-700">
+                    <td className="border border-[var(--c-border)] px-2 py-1 font-mono text-[var(--c-text)]">
                       {b.range}
                     </td>
-                    <td className="border border-slate-100 px-2 py-1 text-slate-700">
+                    <td className="border border-[var(--c-border)] px-2 py-1 text-[var(--c-text)]">
                       {b.frequency}
                     </td>
-                    <td className="border border-slate-100 px-2 py-1 text-slate-700">
+                    <td className="border border-[var(--c-border)] px-2 py-1 text-[var(--c-text)]">
                       {(b.relativeFreq * 100).toFixed(2)}%
                     </td>
                   </tr>
@@ -501,7 +501,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
       const sliceColors = ds.color ? [ds.color] : DEFAULT_COLORS
       return (
         <div key={dsIndex}>
-          <p className="mb-1 text-xs font-semibold text-center text-gray-600">
+          <p className="mb-1 text-xs font-semibold text-center text-[var(--c-muted)]">
             {ds.label}
           </p>
           <ResponsiveContainer width="100%" height={260}>
@@ -539,7 +539,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
 
     if (datasets.length === 0) {
       return (
-        <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+        <div className="flex h-[300px] items-center justify-center rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-muted)]">
           Sin datos
         </div>
       )
@@ -590,13 +590,13 @@ export function ChartBlockRenderer({ block, doc }: Props) {
                 if (!tp || tp.length === 0) return null
                 const d = tp[0].payload as BoxEntry
                 return (
-                  <div className="rounded border border-slate-200 bg-white p-2 text-xs shadow">
-                    <p className="mb-1 font-semibold text-slate-700">{d.name}</p>
-                    <p className="text-slate-600">Máx: {fmt(d.max)}</p>
-                    <p className="text-slate-600">Q3: {fmt(d.q3)}</p>
-                    <p className="font-medium text-slate-700">Mediana: {fmt(d.q2)}</p>
-                    <p className="text-slate-600">Q1: {fmt(d.q1)}</p>
-                    <p className="text-slate-600">Mín: {fmt(d.min)}</p>
+                  <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-2 text-xs">
+                    <p className="mb-1 font-semibold text-[var(--c-text)]">{d.name}</p>
+                    <p className="text-[var(--c-muted)]">Máx: {fmt(d.max)}</p>
+                    <p className="text-[var(--c-muted)]">Q3: {fmt(d.q3)}</p>
+                    <p className="font-medium text-[var(--c-text)]">Mediana: {fmt(d.q2)}</p>
+                    <p className="text-[var(--c-muted)]">Q1: {fmt(d.q1)}</p>
+                    <p className="text-[var(--c-muted)]">Mín: {fmt(d.min)}</p>
                   </div>
                 )
               }}
@@ -628,7 +628,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
     block.chartType !== "pyramid"
   ) {
     return (
-      <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+      <div className="flex h-[300px] items-center justify-center rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-muted)]">
         Sin datos
       </div>
     )
@@ -912,7 +912,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
 
     if (treemapData.length === 0) {
       return (
-        <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+        <div className="flex h-[300px] items-center justify-center rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-muted)]">
           Sin datos
         </div>
       )
@@ -964,7 +964,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
       return (
         <div>
           {title}
-          <div className="flex h-[400px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+          <div className="flex h-[400px] items-center justify-center rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-muted)]">
             Sin datos de jerarquía
           </div>
         </div>
@@ -1103,7 +1103,7 @@ export function ChartBlockRenderer({ block, doc }: Props) {
     const values = block.data?.datasets[0]?.values ?? []
     if (labels.length === 0 || values.length === 0) {
       return (
-        <div className="flex h-[300px] items-center justify-center rounded border border-gray-200 bg-gray-50 text-gray-400">
+        <div className="flex h-[300px] items-center justify-center rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-muted)]">
           Sin datos
         </div>
       )
