@@ -55,7 +55,7 @@ export default function ProfesorMateriales() {
           </p>
         </div>
         <Link
-          to="/profesor/editor-cuestionarios"
+          to="/profesor/editor-cuestionarios?returnTo=/profesor/materiales"
           className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
         >
           + Crear cuestionario

@@ -470,38 +470,6 @@ export const router = createBrowserRouter([
               </ProtectedRoute>
             ),
           },
-          {
-            path: 'modulos',
-            element: (
-              <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'PARENT']}>
-                {withSuspense(<ModulosList />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'modulos/crear',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
-                {withSuspense(<ModuloEditor />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'modulos/:id',
-            element: (
-              <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'PARENT']}>
-                {withSuspense(<ModuloDetail />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'modulos/:id/editar',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
-                {withSuspense(<ModuloEditor />)}
-              </ProtectedRoute>
-            ),
-          },
         ],
       },
 
@@ -580,7 +548,7 @@ export const router = createBrowserRouter([
           {
             path: 'modulos/:id/jugar',
             element: (
-              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER']}>
+              <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'PARENT']}>
                 {withSuspense(<ModuloDetail />)}
               </ProtectedRoute>
             ),
