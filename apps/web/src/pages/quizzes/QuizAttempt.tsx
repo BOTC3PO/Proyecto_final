@@ -6,6 +6,7 @@ import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
+import { ejercicioToQuestion } from "../../domain/quiz/ejercicioToQuestion";
 
 function parseVisualContext(detail: string | undefined): VisualSpec | null {
   if (!detail) return null;
@@ -60,50 +61,6 @@ type RankingEntry = {
   tiempoSeg: number;
 };
 
-function interpolatePrompt(
-  prompt: string,
-  datos?: Record<string, unknown>
-): string {
-  if (!datos || !prompt.includes("{")) return prompt;
-  return prompt.replace(/\{(\w+)\}/g, (match, key) => {
-    const val = datos[key];
-    if (val === undefined || val === null) return match;
-    return String(val);
-  });
-}
-
-function ejercicioToQuestion(e: Ejercicio): ModuleQuizQuestion {
-  if (e.tipo === "quiz") {
-    return {
-      id: e.id,
-      prompt: interpolatePrompt(e.enunciado, e.datos),
-      questionType: "mc",
-      options: e.opciones,
-      answerKey: e.opciones[e.indiceCorrecto],
-      explanation: e.explicacion,
-      visualContext: e.visual
-        ? JSON.stringify({ spec: e.visual })
-        : undefined,
-    };
-  }
-  if (e.tipo === "completar") {
-    return {
-      id: e.id,
-      prompt: interpolatePrompt(e.enunciado, undefined),
-      questionType: "input",
-      answerKey: e.respuestaCorrecta,
-      explanation: e.explicacion,
-    };
-  }
-  // numerico
-  return {
-    id: e.id,
-    prompt: interpolatePrompt(e.enunciado, e.datos),
-    questionType: "input",
-    answerKey: String(e.resultado),
-  };
-}
-
 const resolveAttemptId = (attempt: QuizAttemptResponse | null) =>
   attempt?.attemptId ?? attempt?.id ?? "";
 
@@ -139,6 +96,7 @@ export default function QuizAttempt() {
   );
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
   const [result, setResult] = useState<SubmitResponse | null>(null);
+  const [openPasos, setOpenPasos] = useState<Record<string, boolean>>({});
   const [generatedQuestions, setGeneratedQuestions] =
     useState<ModuleQuizQuestion[]>([]);
   const [tiempoRestante, setTiempoRestante] =
@@ -508,6 +466,26 @@ export default function QuizAttempt() {
                         onChange={(event) => handleAnswerChange(question.id, event.target.value)}
                         placeholder="Escribí tu respuesta"
                       />
+                    )}
+                    {submitStatus === "submitted" && question.pasos && question.pasos.length > 0 && (
+                      <div className="mt-2">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setOpenPasos((prev) => ({ ...prev, [question.id]: !prev[question.id] }))
+                          }
+                          className="text-xs font-medium text-blue-600 hover:underline"
+                        >
+                          {openPasos[question.id] ? "Ocultar resolución" : "Ver resolución"}
+                        </button>
+                        {openPasos[question.id] && (
+                          <ol className="mt-2 list-decimal space-y-1 pl-5 text-xs text-gray-600 bg-blue-50 rounded-lg p-3 border border-blue-100">
+                            {question.pasos.map((paso, pi) => (
+                              <li key={pi}>{paso}</li>
+                            ))}
+                          </ol>
+                        )}
+                      </div>
                     )}
                   </li>
                 );

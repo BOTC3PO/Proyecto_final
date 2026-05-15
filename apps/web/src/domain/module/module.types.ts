@@ -197,8 +197,8 @@ export const MODULE_SUBJECT_CAPABILITIES: Record<string, ModuleSubjectCapabiliti
     theoryTypes: buildTheoryTypes(true, DEFAULT_DISABLED_REASONS.tuesdayJs),
   },
   Biología: {
-    supportsGenerators: false,
-    supportsAutoQuizzes: false,
+    supportsGenerators: true,
+    supportsAutoQuizzes: true,
     supportsSpecialResources: true,
     supportsTuesdayJs: true,
     theoryTypes: buildTheoryTypes(true, DEFAULT_DISABLED_REASONS.tuesdayJs),
@@ -260,8 +260,8 @@ export const MODULE_SUBJECT_CAPABILITIES: Record<string, ModuleSubjectCapabiliti
     theoryTypes: buildTheoryTypes(true, DEFAULT_DISABLED_REASONS.tuesdayJs),
   },
   Informática: {
-    supportsGenerators: false,
-    supportsAutoQuizzes: false,
+    supportsGenerators: true,
+    supportsAutoQuizzes: true,
     supportsSpecialResources: false,
     supportsTuesdayJs: true,
     theoryTypes: buildTheoryTypes(true, DEFAULT_DISABLED_REASONS.tuesdayJs),

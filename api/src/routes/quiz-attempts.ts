@@ -27,6 +27,7 @@ type ModuleQuiz = {
     id: string;
     answerKey?: string | string[];
     explanation?: string;
+    toleranciaRelativa?: number;
   }>;
   count?: number;
   seedPolicy?: string;
@@ -186,6 +187,18 @@ const fetchQuizFromCollections = async (
   return { quiz, module, metadata, version };
 };
 
+const gradeNumeric = (
+  response: string,
+  expected: string,
+  toleranciaRelativa: number
+): boolean => {
+  const r = parseFloat(response.replace(",", "."));
+  const e = parseFloat(expected.replace(",", "."));
+  if (Number.isNaN(r) || Number.isNaN(e)) return false;
+  if (e === 0) return r === 0;
+  return Math.abs(r - e) <= Math.abs(e) * toleranciaRelativa;
+};
+
 const gradeAnswers = (
   quiz: ModuleQuiz | null,
   answers: Record<string, string | string[]>
@@ -207,8 +220,12 @@ const gradeAnswers = (
       if (matches) score += 1;
       continue;
     }
-    if (typeof response === "string" && response === expected) {
-      score += 1;
+    if (typeof response === "string") {
+      const tol = question.toleranciaRelativa;
+      const correct = tol !== undefined && tol > 0
+        ? gradeNumeric(response, expected, tol)
+        : response === expected;
+      if (correct) score += 1;
     }
   }
   return { score, maxScore };
@@ -234,7 +251,10 @@ const buildFeedback = (
           Array.from(expectedSet).every((value) => responseSet.has(value));
       }
     } else if (typeof response === "string") {
-      correct = response === expected;
+      const tol = question.toleranciaRelativa;
+      correct = tol !== undefined && tol > 0
+        ? gradeNumeric(response, expected, tol)
+        : response === expected;
     }
     feedback[question.id] = {
       correct,

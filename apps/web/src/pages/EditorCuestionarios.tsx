@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
 import type { ModuleQuizQuestion } from "../domain/module/module.types";
-import type { Ejercicio, GeneratorDescriptor } from "../generadoresV2/core/types";
+import type { GeneratorDescriptor } from "../generadoresV2/core/types";
 import { DeterministicPrng } from "../generadoresV2/core/prng";
 import { getStaticCatalog, getDescriptoresFromModule } from "../generadoresV2/catalog";
 import type { CatalogItem } from "../generadoresV2/catalog";
@@ -10,6 +10,7 @@ import GeneradorSelector from "../components/modulos/GeneradorSelector";
 import type { GeneradorConfig } from "../components/modulos/GeneradorSelector";
 import VisualizerRenderer from "../components/modulos/VisualizerRenderer";
 import BancoCuestionarios from "../components/modulos/BancoCuestionarios";
+import { ejercicioToQuestion } from "../domain/quiz/ejercicioToQuestion";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -54,45 +55,6 @@ function hashString(value: string): number {
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
-
-function ejercicioToQuestion(e: Ejercicio): ModuleQuizQuestion {
-  const base = {
-    id: e.id,
-    focus: e.subtipo,
-    visualSpec: e.visual,
-  };
-  if (e.tipo === "quiz") {
-    return {
-      ...base,
-      prompt: e.enunciado,
-      questionType: "mc",
-      options: e.opciones,
-      answerKey: e.opciones[e.indiceCorrecto],
-      explanation: e.explicacion,
-      pasos: e.pasos,
-      datos: e.datos as Record<string, unknown> | undefined,
-    };
-  }
-  if (e.tipo === "completar") {
-    return {
-      ...base,
-      prompt: e.enunciado,
-      questionType: "completar",
-      answerKey: e.respuestaCorrecta,
-      explanation: e.explicacion,
-    };
-  }
-  return {
-    ...base,
-    prompt: e.enunciado,
-    questionType: "input",
-    answerKey: String(e.resultado),
-    toleranciaRelativa: e.toleranciaRelativa,
-    unidades: e.unidades,
-    datos: e.datos as Record<string, unknown>,
-    pasos: e.pasos,
-  };
-}
 
 const createQuestion = (
   questionType: ModuleQuizQuestion["questionType"]
@@ -140,8 +102,11 @@ export default function EditorCuestionarios() {
   const returnTo = searchParams.get("returnTo");
   const isEmbedded = Boolean(moduleId && returnTo);
 
-  // Tab state
-  const [modoEditor, setModoEditor] = useState<"manual" | "automatico" | "banco">("manual");
+  // Tab state — honor ?mode=generated URL param
+  const modeParam = searchParams.get("mode");
+  const [modoEditor, setModoEditor] = useState<"manual" | "automatico" | "banco">(
+    modeParam === "generated" ? "automatico" : "manual"
+  );
 
   // Generator state (for variables panel)
   const [generatorId, setGeneratorId] = useState("");
