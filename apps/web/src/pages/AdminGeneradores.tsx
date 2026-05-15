@@ -11,6 +11,7 @@ type GeneratorItem = {
   description: string | null;
   version: number;
   subtipos: { id: string; label: string; activo?: boolean }[];
+  enunciados: Record<string, string>;
   status: "ACTIVE" | "INACTIVE";
 };
 
@@ -59,7 +60,7 @@ export default function AdminGeneradores() {
 
   useEffect(() => {
     setLoadingGen(true);
-    apiGet<{ items: GeneratorItem[] }>("/api/admin/generadores")
+    apiGet<{ items: GeneratorItem[] }>("/api/admin/generators")
       .then((data) => setGenerators(data.items ?? []))
       .catch(() => {})
       .finally(() => setLoadingGen(false));
@@ -75,7 +76,7 @@ export default function AdminGeneradores() {
 
   useEffect(() => {
     if (!expandedGen) return;
-    apiGet<{ items: ChangelogEntry[] }>(`/api/admin/generadores/${expandedGen}/changelog`)
+    apiGet<{ items: ChangelogEntry[] }>(`/api/admin/generators/${expandedGen}/changelog`)
       .then((data) =>
         setChangelog((prev) => ({ ...prev, [expandedGen]: data.items ?? [] }))
       )
@@ -89,16 +90,23 @@ export default function AdminGeneradores() {
 
   const handleStartEdit = (gen: GeneratorItem) => {
     setEditingGen(gen.id);
-    setEditForm({ label: gen.label, description: gen.description, status: gen.status });
+    setEditForm({ label: gen.label, description: gen.description, status: gen.status, enunciados: gen.enunciados ?? {} });
     setExpandedGen(gen.id);
   };
 
   const handleSaveGen = async (genId: string) => {
     setSavingGen(true);
     try {
+      // Strip empty templates before saving
+      const enunciados = editForm.enunciados as Record<string, string> | undefined;
+      const cleanedEnunciados = enunciados
+        ? Object.fromEntries(Object.entries(enunciados).filter(([, v]) => v.trim()))
+        : undefined;
+
+      const payload = { ...editForm, enunciados: cleanedEnunciados };
       const updated = await apiPatch<GeneratorItem>(
-        `/api/admin/generadores/${genId}`,
-        editForm
+        `/api/admin/generators/${genId}`,
+        payload
       );
       setGenerators((prev) => prev.map((g) => (g.id === genId ? updated : g)));
 
@@ -106,11 +114,12 @@ export default function AdminGeneradores() {
       if (editForm.label) parts.push(`label: "${editForm.label}"`);
       if (editForm.status) parts.push(`status: ${editForm.status}`);
       if (editForm.description !== undefined) parts.push("description actualizada");
+      if (cleanedEnunciados && Object.keys(cleanedEnunciados).length > 0) parts.push("enunciados personalizados");
       const autoNote = `Editado: ${parts.join(", ")}`;
 
-      await apiPost(`/api/admin/generadores/${genId}/changelog`, { note: autoNote });
+      await apiPost(`/api/admin/generators/${genId}/changelog`, { note: autoNote });
       const freshChangelog = await apiGet<{ items: ChangelogEntry[] }>(
-        `/api/admin/generadores/${genId}/changelog`
+        `/api/admin/generators/${genId}/changelog`
       );
       setChangelog((prev) => ({ ...prev, [genId]: freshChangelog.items ?? [] }));
 
@@ -128,10 +137,10 @@ export default function AdminGeneradores() {
   const handleAddNote = async (genId: string) => {
     if (!newNote.trim()) return;
     try {
-      await apiPost(`/api/admin/generadores/${genId}/changelog`, { note: newNote.trim() });
+      await apiPost(`/api/admin/generators/${genId}/changelog`, { note: newNote.trim() });
       setNewNote("");
       const fresh = await apiGet<{ items: ChangelogEntry[] }>(
-        `/api/admin/generadores/${genId}/changelog`
+        `/api/admin/generators/${genId}/changelog`
       );
       setChangelog((prev) => ({ ...prev, [genId]: fresh.items ?? [] }));
     } catch {
@@ -308,6 +317,40 @@ export default function AdminGeneradores() {
                                     <option value="INACTIVE">INACTIVE</option>
                                   </select>
                                 </div>
+                                <details className="border border-[var(--c-border)] rounded-lg p-3">
+                                  <summary className="text-xs font-semibold text-[var(--c-text)] cursor-pointer">
+                                    Enunciados personalizados ({gen.subtipos.length} subtipos)
+                                  </summary>
+                                  <p className="text-xs text-[var(--c-muted)] mt-2 mb-3">
+                                    Dejar en blanco para usar el enunciado por defecto del generador.
+                                    Variables disponibles por subtipo en la documentación.
+                                  </p>
+                                  <div className="space-y-3">
+                                    {gen.subtipos.map((sub) => (
+                                      <div key={sub.id}>
+                                        <label className="text-xs font-medium text-[var(--c-text)] flex items-center gap-2">
+                                          <code className="bg-[var(--c-bg)] px-1.5 py-0.5 rounded text-xs">{sub.id}</code>
+                                          <span className="text-[var(--c-muted)] font-normal">{sub.label}</span>
+                                        </label>
+                                        <textarea
+                                          className={`${inputCls} mt-1 font-mono text-xs resize-none`}
+                                          rows={2}
+                                          placeholder={`Ej: Un {objeto} viaja a {velocidad} m/s durante {tiempo} s. ¿Qué distancia?`}
+                                          value={(editForm.enunciados as Record<string, string> | undefined)?.[sub.id] ?? ""}
+                                          onChange={(e) =>
+                                            setEditForm((f) => ({
+                                              ...f,
+                                              enunciados: {
+                                                ...(f.enunciados as Record<string, string> | undefined),
+                                                [sub.id]: e.target.value,
+                                              },
+                                            }))
+                                          }
+                                        />
+                                      </div>
+                                    ))}
+                                  </div>
+                                </details>
                                 <div className="flex gap-2">
                                   <button
                                     type="button"

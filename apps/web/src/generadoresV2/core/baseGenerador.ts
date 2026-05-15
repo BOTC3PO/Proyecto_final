@@ -1,6 +1,7 @@
 import type { PRNG } from "./prng";
 import type { Dificultad, Ejercicio, Calculator, GeneratorDescriptor, Materia } from "./types";
 import * as S from "./shared";
+import { applyEnunciadoTemplate } from "./shared";
 
 export abstract class BaseGenerador {
   abstract readonly id: string;
@@ -28,13 +29,20 @@ export abstract class BaseGenerador {
       version: this.version,
       materia: this.materia,
       subtipos: this.subtipos,
-      generate: (dificultad = "basico", prng, subtipo) => {
+      generate: (dificultad = "basico", prng, subtipo, enunciadoTemplate) => {
         const st = subtipo ?? S.pickOne(prng ?? this.prng, this.subtipos);
-        return this.generarEjercicio(
+        const ejercicio = this.generarEjercicio(
           st,
           dificultad,
           { calcular: () => ({ resultado: 0, pasos: [] }) }
         );
+        if (enunciadoTemplate && ejercicio.datos) {
+          return {
+            ...ejercicio,
+            enunciado: applyEnunciadoTemplate(enunciadoTemplate, ejercicio.datos as Record<string, unknown>),
+          };
+        }
+        return ejercicio;
       },
     };
   }

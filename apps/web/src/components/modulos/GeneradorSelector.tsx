@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { CatalogItem } from "../../generadoresV2/catalog";
+import { apiGet } from "../../lib/api";
 
 export type GeneradorConfig = {
   generatorId: string;
@@ -7,6 +8,16 @@ export type GeneradorConfig = {
   dificultad: "basico" | "intermedio" | "avanzado";
   cantidad: number;
   semilla?: string;
+  enunciadosPersonalizados?: Record<string, string>;
+};
+
+type SubtipoDoc = {
+  descripcion: string;
+  variables: Record<string, { descripcion: string; ejemplo: string }>;
+};
+
+type GeneratorDocs = {
+  subtipos: Record<string, SubtipoDoc>;
 };
 
 type GeneradorSelectorProps = {
@@ -22,6 +33,25 @@ const DIFICULTAD_OPTS: Array<{ value: GeneradorConfig["dificultad"]; label: stri
   { value: "avanzado", label: "Avanzado" },
 ];
 
+function renderPreview(
+  template: string,
+  vars: Record<string, { descripcion: string; ejemplo: string }>
+): string {
+  return template.replace(/\{([^|} .]+)[^}]*\}/g, (match, key: string) => {
+    const base = key.split(".")[0];
+    return vars[base]?.ejemplo ?? match;
+  });
+}
+
+function validateTemplate(
+  template: string,
+  knownVars: Record<string, { descripcion: string; ejemplo: string }>
+): { unknown: string[] } {
+  const tokens = [...template.matchAll(/\{([^|} .]+)/g)].map((m) => m[1]);
+  const unknown = tokens.filter((t) => !(t in knownVars));
+  return { unknown };
+}
+
 export default function GeneradorSelector({
   catalog,
   onGenerate,
@@ -34,6 +64,8 @@ export default function GeneradorSelector({
   const [dificultad, setDificultad] = useState<GeneradorConfig["dificultad"]>("intermedio");
   const [cantidad, setCantidad] = useState(5);
   const [semilla, setSemilla] = useState("");
+  const [localTemplates, setLocalTemplates] = useState<Record<string, string>>({});
+  const [generatorDocs, setGeneratorDocs] = useState<Record<string, SubtipoDoc> | null>(null);
 
   const materias = Array.from(new Set(catalog.map((c) => c.materia))).sort();
   const generatorsForMateria = selectedMateria
@@ -41,19 +73,59 @@ export default function GeneradorSelector({
     : [];
   const selectedGenerator = catalog.find((c) => c.id === selectedGeneratorId) ?? null;
 
+  // Fetch docs when generator changes
+  useEffect(() => {
+    if (!selectedGeneratorId) {
+      setGeneratorDocs(null);
+      return;
+    }
+    const [category, name] = selectedGeneratorId.split("/");
+    apiGet<GeneratorDocs>(`/api/generators/${category}/${name}/docs`)
+      .then((data) => setGeneratorDocs(data.subtipos ?? null))
+      .catch(() => setGeneratorDocs(null));
+  }, [selectedGeneratorId]);
+
   const toggleSubtipo = (subId: string) => {
     setSelectedSubtipos((prev) =>
       prev.includes(subId) ? prev.filter((s) => s !== subId) : [...prev, subId]
     );
   };
 
-  const buildConfig = (): GeneradorConfig => ({
-    generatorId: selectedGeneratorId!,
-    subtipos: selectedSubtipos,
-    dificultad,
-    cantidad,
-    semilla: semilla.trim() || undefined,
-  });
+  const toggleCustomize = (st: string) => {
+    if (localTemplates[st] !== undefined) {
+      setLocalTemplates((prev) => {
+        const next = { ...prev };
+        delete next[st];
+        return next;
+      });
+    } else {
+      const adminTemplate = selectedGenerator?.enunciadosPersonalizados?.[st] ?? "";
+      setLocalTemplates((prev) => ({ ...prev, [st]: adminTemplate }));
+    }
+  };
+
+  const insertIntoTemplate = (st: string, token: string) => {
+    setLocalTemplates((prev) => ({ ...prev, [st]: (prev[st] ?? "") + token }));
+  };
+
+  const buildConfig = (): GeneradorConfig => {
+    const merged: Record<string, string> = {};
+    // Apply admin templates for selected subtipos that weren't locally overridden
+    for (const st of selectedSubtipos) {
+      const adminTpl = selectedGenerator?.enunciadosPersonalizados?.[st];
+      const localTpl = localTemplates[st];
+      const tpl = localTpl !== undefined ? localTpl : adminTpl;
+      if (tpl && tpl.trim()) merged[st] = tpl.trim();
+    }
+    return {
+      generatorId: selectedGeneratorId!,
+      subtipos: selectedSubtipos,
+      dificultad,
+      cantidad,
+      semilla: semilla.trim() || undefined,
+      enunciadosPersonalizados: Object.keys(merged).length > 0 ? merged : undefined,
+    };
+  };
 
   const canGenerate = Boolean(selectedGeneratorId);
 
@@ -73,6 +145,7 @@ export default function GeneradorSelector({
                 setSelectedMateria(m);
                 setSelectedGeneratorId(null);
                 setSelectedSubtipos([]);
+                setLocalTemplates({});
               }}
               className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                 selectedMateria === m
@@ -100,6 +173,7 @@ export default function GeneradorSelector({
                 onClick={() => {
                   setSelectedGeneratorId(g.id);
                   setSelectedSubtipos([]);
+                  setLocalTemplates({});
                 }}
                 className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                   selectedGeneratorId === g.id
@@ -125,7 +199,7 @@ export default function GeneradorSelector({
             {selectedSubtipos.length > 0 && (
               <button
                 type="button"
-                onClick={() => setSelectedSubtipos([])}
+                onClick={() => { setSelectedSubtipos([]); setLocalTemplates({}); }}
                 className="rounded-full border border-dashed border-[var(--c-border)] px-3 py-1 text-xs text-[var(--c-muted)] hover:bg-[var(--c-bg)] transition-colors"
               >
                 ✕ Limpiar selección
@@ -157,6 +231,82 @@ export default function GeneradorSelector({
               );
             })}
           </div>
+        </div>
+      )}
+
+      {/* Per-subtipo enunciado customization (14e) */}
+      {selectedGenerator && selectedSubtipos.length > 0 && (
+        <div className="space-y-2">
+          <p className="text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide">
+            Enunciados <span className="normal-case font-normal text-[var(--c-muted)]">(opcional — avanzado)</span>
+          </p>
+          {selectedSubtipos.map((st) => {
+            const adminTemplate = selectedGenerator.enunciadosPersonalizados?.[st] ?? "";
+            const docsVars = generatorDocs?.[st]?.variables ?? {};
+            const isCustomized = localTemplates[st] !== undefined;
+            const currentTemplate = localTemplates[st] ?? "";
+            const { unknown } = isCustomized && currentTemplate
+              ? validateTemplate(currentTemplate, docsVars)
+              : { unknown: [] };
+
+            return (
+              <div key={st} className="border border-[var(--c-border)] rounded-lg p-3 space-y-2">
+                <div className="flex items-center justify-between">
+                  <code className="text-xs text-[var(--c-primary)]">{st}</code>
+                  <button
+                    type="button"
+                    className="text-xs text-[var(--c-muted)] hover:text-[var(--c-text)] transition-colors"
+                    onClick={() => toggleCustomize(st)}
+                  >
+                    {isCustomized ? "Restaurar por defecto" : "Personalizar enunciado"}
+                  </button>
+                </div>
+                {!isCustomized && adminTemplate && (
+                  <p className="text-xs text-[var(--c-muted)] italic">
+                    Template del sistema: <span className="font-mono">{adminTemplate}</span>
+                  </p>
+                )}
+                {isCustomized && (
+                  <>
+                    <textarea
+                      className="w-full rounded border border-[var(--c-border)] bg-[var(--c-bg)] px-2 py-1.5 text-xs font-mono text-[var(--c-text)] focus:outline-none focus:border-[var(--c-primary)] resize-none"
+                      rows={2}
+                      placeholder={adminTemplate || "Escribí el enunciado usando {variable}..."}
+                      value={currentTemplate}
+                      onChange={(e) =>
+                        setLocalTemplates((prev) => ({ ...prev, [st]: e.target.value }))
+                      }
+                    />
+                    {Object.keys(docsVars).length > 0 && (
+                      <div className="flex flex-wrap gap-1">
+                        {Object.entries(docsVars).map(([key, info]) => (
+                          <button
+                            key={key}
+                            type="button"
+                            title={`${info.descripcion} — ej: ${info.ejemplo}`}
+                            className="bg-amber-50 border border-amber-200 text-amber-800 rounded px-1.5 py-0.5 text-xs font-mono hover:bg-amber-100 transition-colors"
+                            onClick={() => insertIntoTemplate(st, `{${key}}`)}
+                          >
+                            {`{${key}}`}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    {unknown.length > 0 && (
+                      <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded px-2 py-1">
+                        Variable desconocida: {unknown.map((u) => `{${u}}`).join(", ")} — no existe en los datos de este subtipo. Se mostrará tal cual.
+                      </p>
+                    )}
+                    {currentTemplate && (
+                      <p className="text-xs text-[var(--c-muted)] italic border-t border-[var(--c-border)] pt-2">
+                        Vista previa: {renderPreview(currentTemplate, docsVars)}
+                      </p>
+                    )}
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
       )}
 

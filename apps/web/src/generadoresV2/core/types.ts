@@ -124,7 +124,8 @@ export interface Calculator {
 export type GeneratorFn = (
   dificultad?: Dificultad,
   prng?: PRNG,
-  subtipo?: string
+  subtipo?: string,
+  enunciadoTemplate?: string
 ) => Ejercicio;
 export interface GeneratorDescriptor {
   id: string;
