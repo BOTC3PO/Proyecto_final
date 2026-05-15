@@ -41,6 +41,7 @@ function parseJson<T>(raw: string, fallback: T): T {
 // GET /api/generators — catálogo público (solo ACTIVE)
 generators.get("/api/generators", async (_req, res) => {
   try {
+    const docs = loadGeneratorDocs();
     const rows = await prisma.generatorConfig.findMany({
       where: { status: "ACTIVE" },
       orderBy: { materia: "asc" },
@@ -48,10 +49,15 @@ generators.get("/api/generators", async (_req, res) => {
     });
 
     const items = rows.map((row) => {
-      const allSubtipos = parseJson<{ id: string; label: string; activo?: boolean }[]>(row.subtipos, []);
+      const allSubtipos = parseJson<{ id: string; label: string; activo?: boolean; tieneGrafico?: boolean }[]>(row.subtipos, []);
+      const docEntry = docs[row.id] as { subtipos?: Record<string, { tieneGrafico?: boolean }> } | undefined;
       const subtipos = allSubtipos
         .filter((s) => s.activo !== false)
-        .map((s) => ({ id: s.id, label: s.label }));
+        .map((s) => ({
+          id: s.id,
+          label: s.label,
+          tieneGrafico: s.tieneGrafico ?? docEntry?.subtipos?.[s.id]?.tieneGrafico ?? false,
+        }));
       return { id: row.id, materia: row.materia, label: row.label, description: row.description ?? null, subtipos };
     });
 

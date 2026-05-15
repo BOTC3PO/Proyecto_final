@@ -4,15 +4,14 @@ import { apiGet } from "../lib/api";
 import type { ModuleQuizQuestion } from "../domain/module/module.types";
 import type { Ejercicio, GeneratorDescriptor } from "../generadoresV2/core/types";
 import { DeterministicPrng } from "../generadoresV2/core/prng";
+import { getStaticCatalog, getDescriptoresFromModule } from "../generadoresV2/catalog";
+import type { CatalogItem } from "../generadoresV2/catalog";
+import GeneradorSelector from "../components/modulos/GeneradorSelector";
+import type { GeneradorConfig } from "../components/modulos/GeneradorSelector";
+import VisualizerRenderer from "../components/modulos/VisualizerRenderer";
+import BancoCuestionarios from "../components/modulos/BancoCuestionarios";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
-
-type CatalogItem = {
-  id: string;
-  materia: string;
-  label: string;
-  subtipos: { id: string; label: string }[];
-};
 
 type GeneratorDocs = {
   subtipos: Record<
@@ -45,33 +44,53 @@ function loadGeneratorModule(materia: string) {
   }
 }
 
+function hashString(value: string): number {
+  let hash = 0;
+  for (let i = 0; i < value.length; i++) {
+    hash = (hash << 5) - hash + value.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function ejercicioToQuestion(e: Ejercicio): ModuleQuizQuestion {
+  const base = {
+    id: e.id,
+    focus: e.subtipo,
+    visualSpec: e.visual,
+  };
   if (e.tipo === "quiz") {
     return {
-      id: e.id,
+      ...base,
       prompt: e.enunciado,
       questionType: "mc",
       options: e.opciones,
       answerKey: e.opciones[e.indiceCorrecto],
       explanation: e.explicacion,
+      pasos: e.pasos,
+      datos: e.datos as Record<string, unknown> | undefined,
     };
   }
   if (e.tipo === "completar") {
     return {
-      id: e.id,
+      ...base,
       prompt: e.enunciado,
-      questionType: "input",
+      questionType: "completar",
       answerKey: e.respuestaCorrecta,
       explanation: e.explicacion,
     };
   }
   return {
-    id: e.id,
+    ...base,
     prompt: e.enunciado,
     questionType: "input",
     answerKey: String(e.resultado),
+    toleranciaRelativa: e.toleranciaRelativa,
+    unidades: e.unidades,
+    datos: e.datos as Record<string, unknown>,
+    pasos: e.pasos,
   };
 }
 
@@ -92,7 +111,6 @@ const createQuestion = (
   };
 };
 
-// Renders plain text with {variable} tokens highlighted in amber.
 function PromptWithVariables({ text }: { text: string }) {
   const parts = text.split(/(\{[^}]+\})/g);
   return (
@@ -122,12 +140,19 @@ export default function EditorCuestionarios() {
   const returnTo = searchParams.get("returnTo");
   const isEmbedded = Boolean(moduleId && returnTo);
 
+  // Tab state
+  const [modoEditor, setModoEditor] = useState<"manual" | "automatico" | "banco">("manual");
+
+  // Generator state (for variables panel)
   const [generatorId, setGeneratorId] = useState("");
   const [selectedSubtipo, setSelectedSubtipo] = useState("");
+  const [docs, setDocs] = useState<GeneratorDocs | null>(null);
+
+  // Questions and preview
   const [questions, setQuestions] = useState<ModuleQuizQuestion[]>([]);
   const [previewQuestions, setPreviewQuestions] = useState<ModuleQuizQuestion[]>([]);
   const [catalog, setCatalog] = useState<CatalogItem[]>([]);
-  const [docs, setDocs] = useState<GeneratorDocs | null>(null);
+
   const [activeQuestionIndex, setActiveQuestionIndex] = useState<number | null>(null);
   const [quizTitle, setQuizTitle] = useState("");
   const [instructions, setInstructions] = useState("");
@@ -136,55 +161,101 @@ export default function EditorCuestionarios() {
   const [quizVisibility, setQuizVisibility] = useState<"publico" | "escuela">("publico");
   const [previewStatus, setPreviewStatus] =
     useState<"idle" | "loading" | "ready" | "error">("idle");
+  const [isGenerating, setIsGenerating] = useState(false);
 
   // Load catalog on mount
-  const STATIC_CATALOG: CatalogItem[] = [
-    { id: 'matematicas', materia: 'Matemáticas', label: 'Matemáticas — General', subtipos: [] },
-    { id: 'biologia',    materia: 'Biología',    label: 'Biología — General',    subtipos: [] },
-    { id: 'fisica',      materia: 'Física',      label: 'Física — General',      subtipos: [] },
-    { id: 'quimica',     materia: 'Química',     label: 'Química — General',     subtipos: [] },
-    { id: 'economia',    materia: 'Economía',    label: 'Economía — General',    subtipos: [] },
-    { id: 'informatica', materia: 'Informática', label: 'Informática — General', subtipos: [] },
-  ];
-
   useEffect(() => {
     apiGet<{ items: CatalogItem[] }>("/api/generators")
       .then((data) => {
         const items = data.items ?? [];
-        setCatalog(items.length > 0 ? items : STATIC_CATALOG);
+        setCatalog(items.length > 0 ? items : getStaticCatalog());
       })
-      .catch(() => setCatalog(STATIC_CATALOG));
+      .catch(() => setCatalog(getStaticCatalog()));
   }, []);
 
-  // ── Generator preview (seed 42, 3 questions) ────────────────────────────────
+  // ── Generate from config (2b) ───────────────────────────────────────────────
+
+  const generateFromConfig = async (
+    config: GeneradorConfig,
+    mode: "preview" | "add"
+  ): Promise<ModuleQuizQuestion[]> => {
+    const [materia] = config.generatorId.split("/");
+    const mod = await loadGeneratorModule(materia);
+    const prng = config.semilla
+      ? new DeterministicPrng(hashString(config.semilla))
+      : new DeterministicPrng(Date.now());
+    const descriptores: GeneratorDescriptor[] = getDescriptoresFromModule(mod, prng);
+    const descriptor = descriptores.find((d) => d.id === config.generatorId);
+    if (!descriptor) throw new Error(`Generador no encontrado: ${config.generatorId}`);
+
+    const subtiposToUse =
+      config.subtipos.length > 0 ? config.subtipos : descriptor.subtipos;
+
+    const ejercicios: Ejercicio[] = Array.from({ length: config.cantidad }, (_, i) => {
+      const subtipo = subtiposToUse[i % subtiposToUse.length];
+      return descriptor.generate(config.dificultad, prng, subtipo);
+    });
+
+    const qs = ejercicios.map((e) => ({
+      ...ejercicioToQuestion(e),
+      id: `q-${Date.now()}-${Math.random().toString(16).slice(2)}-${e.id}`,
+    }));
+
+    if (mode === "add") {
+      setQuestions((prev) => [...prev, ...qs]);
+    }
+    return qs;
+  };
+
+  const handleGenerate = async (config: GeneradorConfig) => {
+    setIsGenerating(true);
+    setPreviewStatus("loading");
+    setPreviewQuestions([]);
+    try {
+      const qs = await generateFromConfig(config, "add");
+      setPreviewQuestions(qs);
+      setPreviewStatus("ready");
+      // Update variable docs panel
+      setGeneratorId(config.generatorId);
+      setSelectedSubtipo(config.subtipos[0] ?? "");
+    } catch {
+      setPreviewStatus("error");
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  const handlePreview = async (config: GeneradorConfig) => {
+    setPreviewStatus("loading");
+    setPreviewQuestions([]);
+    try {
+      const qs = await generateFromConfig(config, "preview");
+      setPreviewQuestions(qs);
+      setPreviewStatus("ready");
+      setGeneratorId(config.generatorId);
+      setSelectedSubtipo(config.subtipos[0] ?? "");
+    } catch {
+      setPreviewStatus("error");
+    }
+  };
+
+  // ── Legacy preview (kept for backward compat with variables panel) ──────────
 
   const generatePreview = async (genId: string, subtipo: string) => {
-    const descriptorId = `${genId}/${subtipo}`;
-    const [materia] = descriptorId.split("/");
+    const [materia] = genId.split("/");
     setPreviewStatus("loading");
     setPreviewQuestions([]);
     try {
       const mod = await loadGeneratorModule(materia);
       const prng = new DeterministicPrng(42);
-      const descriptores: GeneratorDescriptor[] =
-        typeof (mod as unknown as Record<string, unknown>).getDescriptores === "function"
-          ? (mod as unknown as Record<string, (p: typeof prng) => GeneratorDescriptor[]>).getDescriptores(prng)
-          : typeof (
-              mod as unknown as Record<string, ((p: typeof prng) => GeneratorDescriptor[]) | undefined>
-            )[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`] ===
-            "function"
-          ? (
-              mod as unknown as Record<string, (p: typeof prng) => GeneratorDescriptor[]>
-            )[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`](prng)
-          : [];
-      const descriptor = descriptores.find((d) => d.id === descriptorId);
+      const descriptores: GeneratorDescriptor[] = getDescriptoresFromModule(mod, prng);
+      const descriptor = descriptores.find((d) => d.id === genId);
       if (!descriptor) {
-        setPreviewQuestions([]);
         setPreviewStatus("idle");
         return;
       }
       const ejercicios: Ejercicio[] = Array.from({ length: 3 }, () =>
-        descriptor.generate(undefined, prng)
+        descriptor.generate("basico", prng, subtipo || undefined)
       );
       setPreviewQuestions(ejercicios.map(ejercicioToQuestion));
       setPreviewStatus("ready");
@@ -192,8 +263,6 @@ export default function EditorCuestionarios() {
       setPreviewStatus("error");
     }
   };
-
-  // ── Generator / subtipo change handlers ────────────────────────────────────
 
   const handleGeneratorChange = async (id: string) => {
     setGeneratorId(id);
@@ -206,23 +275,14 @@ export default function EditorCuestionarios() {
     const item = catalog.find((c) => c.id === id);
     const firstSubtipo = item?.subtipos[0]?.id ?? "";
     setSelectedSubtipo(firstSubtipo);
-
     try {
       const docsData = await apiGet<GeneratorDocs>(`/api/generators/${id}/docs`);
       setDocs(docsData);
     } catch {
       // docs unavailable — not fatal
     }
-
     if (firstSubtipo) {
       await generatePreview(id, firstSubtipo);
-    }
-  };
-
-  const handleSubtipoChange = (subtipoId: string) => {
-    setSelectedSubtipo(subtipoId);
-    if (generatorId && subtipoId) {
-      generatePreview(generatorId, subtipoId);
     }
   };
 
@@ -288,9 +348,11 @@ export default function EditorCuestionarios() {
     docs && selectedSubtipo
       ? (docs.subtipos?.[selectedSubtipo]?.variables ?? {})
       : {};
-  // Preview panel shows generator questions when a generator is selected,
-  // otherwise shows the manually-edited questions.
-  const previewList = generatorId ? previewQuestions : questions;
+
+  // Preview panel shows generated preview questions when available, else manual questions
+  const previewList = previewQuestions.length > 0 ? previewQuestions : questions;
+
+  // ── Export ──────────────────────────────────────────────────────────────────
 
   const buildExportJson = () => ({
     title: quizTitle.trim() || "Cuestionario sin título",
@@ -300,10 +362,22 @@ export default function EditorCuestionarios() {
     questions: questions.map((q) => ({
       prompt: q.prompt,
       questionType: q.questionType,
-      options: q.questionType === "input" ? undefined : (q.options?.length ? q.options : undefined),
-      answerKey: q.questionType === "input" ? undefined : (q.answerKey || undefined),
+      options:
+        q.questionType === "input" || q.questionType === "completar"
+          ? undefined
+          : q.options?.length
+          ? q.options
+          : undefined,
+      answerKey: q.answerKey || undefined,
       explanation: q.explanation || undefined,
-      focus: (q as ModuleQuizQuestion & { focus?: string }).focus || undefined,
+      focus: q.focus || undefined,
+      toleranciaRelativa: q.toleranciaRelativa,
+      unidades: q.unidades,
+      datos: q.datos,
+      pasos: q.pasos?.length ? q.pasos : undefined,
+      visualContext:
+        q.visualContext ||
+        (q.visualSpec ? JSON.stringify({ spec: q.visualSpec }) : undefined),
     })),
   });
 
@@ -318,8 +392,8 @@ export default function EditorCuestionarios() {
           status: "draft",
           version: 1,
           mode: "manual",
-        }
-      }
+        },
+      },
     });
   };
 
@@ -373,16 +447,16 @@ export default function EditorCuestionarios() {
             onChange={(e) => setQuizType(e.target.value as "practica" | "formal")}
             className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm bg-[var(--c-bg)] text-[var(--c-text)]"
           >
-            <option value="formal">📝 Evaluación formal</option>
-            <option value="practica">✏️ Práctica</option>
+            <option value="formal">Evaluación formal</option>
+            <option value="practica">Práctica</option>
           </select>
           <select
             value={quizVisibility}
             onChange={(e) => setQuizVisibility(e.target.value as "publico" | "escuela")}
             className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm bg-[var(--c-bg)] text-[var(--c-text)]"
           >
-            <option value="publico">🌐 Público</option>
-            <option value="escuela">🏫 Escuela</option>
+            <option value="publico">Público</option>
+            <option value="escuela">Escuela</option>
           </select>
           {!isEmbedded && (
             <button
@@ -390,7 +464,7 @@ export default function EditorCuestionarios() {
               disabled={questions.length === 0}
               className="rounded-lg bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
             >
-              ⬇ Descargar JSON
+              Descargar JSON
             </button>
           )}
           <button
@@ -406,13 +480,8 @@ export default function EditorCuestionarios() {
               disabled={questions.length === 0}
               className="rounded-lg bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
             >
-              ✓ Agregar al módulo
+              Agregar al módulo
             </button>
-          )}
-          {questions.length === 0 && (
-            <p className="text-xs text-[var(--c-muted)]">
-              Agregá al menos una pregunta para exportar.
-            </p>
           )}
         </div>
       </header>
@@ -423,275 +492,376 @@ export default function EditorCuestionarios() {
             LEFT PANEL — Editor
         ════════════════════════════════════════════════════════════ */}
         <div className="overflow-y-auto p-4 sm:p-6 space-y-4">
-          {/* Section 1 — Generator selector */}
-          <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-3">
-            <h2 className="text-sm font-semibold text-[var(--c-text)]">Generador automático</h2>
-            <select
-              className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-              value={generatorId}
-              onChange={(e) => handleGeneratorChange(e.target.value)}
-            >
-              <option value="">Elegí un generador...</option>
-              {materias.map((materia) => (
-                <optgroup key={materia} label={materia}>
-                  {catalog
-                    .filter((c) => c.materia === materia)
-                    .map((item) => (
-                      <option key={item.id} value={item.id}>
-                        {item.label}
-                      </option>
-                    ))}
-                </optgroup>
-              ))}
-            </select>
-
-            {catalogItem && catalogItem.subtipos.length > 0 && (
-              <div className="flex flex-wrap gap-2 pt-1">
-                {catalogItem.subtipos.map((sub) => (
-                  <button
-                    key={sub.id}
-                    type="button"
-                    onClick={() => handleSubtipoChange(sub.id)}
-                    className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
-                      selectedSubtipo === sub.id
-                        ? "bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] border-[var(--c-primary)] text-[var(--c-primary)]"
-                        : "bg-[var(--c-surface)] border-[var(--c-border)] text-[var(--c-muted)] hover:bg-[var(--c-bg)]"
-                    }`}
-                  >
-                    {sub.label}
-                  </button>
-                ))}
-              </div>
-            )}
+          {/* Mode tab bar (6a) */}
+          <div className="flex gap-1 border-b border-[var(--c-border)] pb-2 mb-4">
+            {(["manual", "automatico", "banco"] as const).map((modo) => (
+              <button
+                key={modo}
+                onClick={() => setModoEditor(modo)}
+                className={`px-3 py-1.5 text-xs rounded-md font-medium transition-colors ${
+                  modoEditor === modo
+                    ? "bg-[var(--c-primary)] text-white"
+                    : "text-[var(--c-muted)] hover:bg-[var(--c-bg)]"
+                }`}
+              >
+                {modo === "manual"
+                  ? "Manual"
+                  : modo === "automatico"
+                  ? "Automático"
+                  : "Banco"}
+              </button>
+            ))}
           </div>
 
-          {/* Section 2 — Variables insertables */}
-          {Object.keys(currentSubtipoVars).length > 0 && (
-            <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-3">
-              <div className="flex items-center justify-between gap-2">
-                <h2 className="text-sm font-semibold text-[var(--c-text)]">Variables del generador</h2>
-                {activeQuestionIndex === null ? (
-                  <p className="text-xs text-[var(--c-muted)]">
-                    Hacé foco en una pregunta para insertar
-                  </p>
-                ) : (
-                  <p className="text-xs text-[var(--c-primary)]">
-                    Insertando en pregunta {activeQuestionIndex + 1}
+          {/* ── Manual mode ────────────────────────────────────────── */}
+          {modoEditor === "manual" && (
+            <>
+              {/* Variables panel (shown when a generator is active) */}
+              {generatorId && (
+                <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <h2 className="text-sm font-semibold text-[var(--c-text)]">Generador activo</h2>
+                    <div className="flex items-center gap-2">
+                      <select
+                        className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1 text-xs focus:outline-none focus:border-[var(--c-primary)]"
+                        value={generatorId}
+                        onChange={(e) => handleGeneratorChange(e.target.value)}
+                      >
+                        <option value="">Sin generador</option>
+                        {materias.map((materia) => (
+                          <optgroup key={materia} label={materia}>
+                            {catalog
+                              .filter((c) => c.materia === materia)
+                              .map((item) => (
+                                <option key={item.id} value={item.id}>
+                                  {item.label}
+                                </option>
+                              ))}
+                          </optgroup>
+                        ))}
+                      </select>
+                      {catalogItem && catalogItem.subtipos.length > 0 && (
+                        <select
+                          className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1 text-xs focus:outline-none focus:border-[var(--c-primary)]"
+                          value={selectedSubtipo}
+                          onChange={(e) => {
+                            setSelectedSubtipo(e.target.value);
+                            if (generatorId && e.target.value)
+                              generatePreview(generatorId, e.target.value);
+                          }}
+                        >
+                          {catalogItem.subtipos.map((sub) => (
+                            <option key={sub.id} value={sub.id}>
+                              {sub.label}
+                            </option>
+                          ))}
+                        </select>
+                      )}
+                    </div>
+                  </div>
+
+                  {Object.keys(currentSubtipoVars).length > 0 && (
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-xs text-[var(--c-text)]">Variables insertables</p>
+                        {activeQuestionIndex === null ? (
+                          <p className="text-xs text-[var(--c-muted)]">
+                            Hacé foco en una pregunta para insertar
+                          </p>
+                        ) : (
+                          <p className="text-xs text-[var(--c-primary)]">
+                            Insertando en pregunta {activeQuestionIndex + 1}
+                          </p>
+                        )}
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {Object.entries(currentSubtipoVars).map(([key, val]) => (
+                          <button
+                            key={key}
+                            type="button"
+                            title={`${val.descripcion} — Ej: ${val.ejemplo}`}
+                            onClick={() => insertVariableInActiveQuestion(`{${key}}`)}
+                            className="bg-amber-50 border border-amber-200 text-amber-800 hover:bg-amber-100 rounded px-2 py-1 text-xs font-mono transition-colors"
+                          >
+                            {"{" + key + "}"}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Instructions */}
+              <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-2">
+                <label className="text-sm font-semibold text-[var(--c-text)]">
+                  Instrucciones (opcional)
+                </label>
+                <textarea
+                  className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  rows={2}
+                  placeholder="Instrucciones para el alumno antes de comenzar..."
+                  value={instructions}
+                  onChange={(e) => setInstructions(e.target.value)}
+                />
+              </div>
+
+              {/* Question list */}
+              <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-4">
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">
+                  Preguntas ({questions.length})
+                </h2>
+
+                {questions.length === 0 && (
+                  <p className="text-sm text-[var(--c-muted)]">
+                    Todavía no hay preguntas. Usá los botones de abajo para agregar.
                   </p>
                 )}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {Object.entries(currentSubtipoVars).map(([key, val]) => (
-                  <button
-                    key={key}
-                    type="button"
-                    title={`${val.descripcion} — Ej: ${val.ejemplo}`}
-                    onClick={() => insertVariableInActiveQuestion(`{${key}}`)}
-                    className="bg-amber-50 border border-amber-200 text-amber-800 hover:bg-amber-100 rounded px-2 py-1 text-xs font-mono transition-colors"
-                  >
-                    {"{" + key + "}"}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
 
-          {/* Section 3 — Instructions */}
-          <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-2">
-            <label className="text-sm font-semibold text-[var(--c-text)]">
-              Instrucciones (opcional)
-            </label>
-            <textarea
-              className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-              rows={2}
-              placeholder="Instrucciones para el alumno antes de comenzar..."
-              value={instructions}
-              onChange={(e) => setInstructions(e.target.value)}
-            />
-          </div>
+                {questions.map((question, index) => {
+                  const qType = question.questionType ?? "mc";
+                  const showOptions = qType !== "input" && qType !== "completar";
+                  const isTrueFalse = qType === "vf";
+                  const isActive = activeQuestionIndex === index;
 
-          {/* Section 4 — Question list */}
-          <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-4">
-            <h2 className="text-sm font-semibold text-[var(--c-text)]">Preguntas manuales</h2>
+                  // Origin badge (6b)
+                  const origen = question.focus?.startsWith("banco:")
+                    ? "banco"
+                    : question.datos !== undefined
+                    ? "auto"
+                    : "manual";
+                  const origenBadge = {
+                    banco: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                    auto: "bg-blue-100 text-blue-800 border-blue-200",
+                    manual: "bg-gray-100 text-gray-600 border-gray-200",
+                  }[origen];
+                  const origenLabel = { banco: "Banco", auto: "Auto", manual: "Manual" }[origen];
 
-            {questions.length === 0 && (
-              <p className="text-sm text-[var(--c-muted)]">
-                Todavía no hay preguntas. Usá los botones de abajo para agregar.
-              </p>
-            )}
-
-            {questions.map((question, index) => {
-              const qType = question.questionType ?? "mc";
-              const showOptions = qType !== "input";
-              const isTrueFalse = qType === "vf";
-              const isActive = activeQuestionIndex === index;
-
-              return (
-                <div
-                  key={question.id}
-                  className={`rounded-lg border p-3 space-y-3 transition-colors ${
-                    isActive
-                      ? "border-[var(--c-primary)]"
-                      : "border-[var(--c-border)]"
-                  }`}
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-semibold text-[var(--c-muted)]">
-                      Pregunta {index + 1}
-                    </span>
-                    <button
-                      type="button"
-                      className="text-xs text-red-500 hover:underline"
-                      onClick={() => removeQuestion(index)}
+                  return (
+                    <div
+                      key={question.id}
+                      className={`rounded-lg border p-3 space-y-3 transition-colors ${
+                        isActive ? "border-[var(--c-primary)]" : "border-[var(--c-border)]"
+                      }`}
                     >
-                      Quitar
-                    </button>
-                  </div>
-
-                  <textarea
-                    className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                    rows={2}
-                    placeholder="Enunciado de la pregunta"
-                    value={question.prompt}
-                    onFocus={() => setActiveQuestionIndex(index)}
-                    onChange={(e) => updateQuestion(index, { prompt: e.target.value })}
-                  />
-
-                  <div className="flex items-center gap-3">
-                    <label className="text-xs font-medium text-[var(--c-text)]">
-                      Tipo
-                      <select
-                        className="ml-2 rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1 text-xs"
-                        value={qType}
-                        onChange={(e) => {
-                          const nextType =
-                            e.target.value as ModuleQuizQuestion["questionType"];
-                          const options =
-                            nextType === "vf"
-                              ? ["Verdadero", "Falso"]
-                              : nextType === "input"
-                              ? []
-                              : question.options?.length
-                              ? question.options
-                              : ["", ""];
-                          updateQuestion(index, {
-                            questionType: nextType,
-                            options,
-                            answerKey: "",
-                          });
-                        }}
-                      >
-                        <option value="mc">Opción múltiple</option>
-                        <option value="vf">Verdadero/Falso</option>
-                        <option value="input">Respuesta abierta</option>
-                      </select>
-                    </label>
-                  </div>
-
-                  {qType === "input" && (
-                    <label className="block text-xs font-medium text-[var(--c-text)]">
-                      Respuesta esperada
-                      <input
-                        className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                        value={
-                          Array.isArray(question.answerKey)
-                            ? question.answerKey.join(", ")
-                            : (question.answerKey ?? "")
-                        }
-                        onChange={(e) =>
-                          updateQuestion(index, { answerKey: e.target.value })
-                        }
-                        placeholder="Respuesta"
-                      />
-                    </label>
-                  )}
-
-                  {showOptions && (
-                    <div className="space-y-2">
-                      <p className="text-xs font-medium text-[var(--c-text)]">
-                        {isTrueFalse
-                          ? "Respuesta correcta"
-                          : "Opciones — seleccioná la correcta"}
-                      </p>
-                      {(question.options ?? []).map((opt, optIdx) => (
-                        <div
-                          key={`${question.id}-opt-${optIdx}`}
-                          className="flex items-center gap-2"
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-semibold text-[var(--c-muted)]">
+                            Pregunta {index + 1}
+                          </span>
+                          <span
+                            className={`text-[10px] font-medium border rounded px-1.5 py-0.5 ${origenBadge}`}
+                          >
+                            {origenLabel}
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          className="text-xs text-red-500 hover:underline"
+                          onClick={() => removeQuestion(index)}
                         >
+                          Quitar
+                        </button>
+                      </div>
+
+                      <textarea
+                        className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                        rows={2}
+                        placeholder="Enunciado de la pregunta"
+                        value={question.prompt}
+                        onFocus={() => setActiveQuestionIndex(index)}
+                        onChange={(e) => updateQuestion(index, { prompt: e.target.value })}
+                      />
+
+                      <div className="flex items-center gap-3">
+                        <label className="text-xs font-medium text-[var(--c-text)]">
+                          Tipo
+                          <select
+                            className="ml-2 rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1 text-xs"
+                            value={qType}
+                            onChange={(e) => {
+                              const nextType =
+                                e.target.value as ModuleQuizQuestion["questionType"];
+                              const options =
+                                nextType === "vf"
+                                  ? ["Verdadero", "Falso"]
+                                  : nextType === "input" || nextType === "completar"
+                                  ? []
+                                  : question.options?.length
+                                  ? question.options
+                                  : ["", ""];
+                              updateQuestion(index, {
+                                questionType: nextType,
+                                options,
+                                answerKey: "",
+                              });
+                            }}
+                          >
+                            <option value="mc">Opción múltiple</option>
+                            <option value="vf">Verdadero/Falso</option>
+                            <option value="input">Respuesta abierta</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      {/* Numeric tolerance info (3c) */}
+                      {qType === "input" && question.toleranciaRelativa !== undefined && (
+                        <div className="flex items-center gap-3 text-xs text-[var(--c-muted)]">
+                          <span>
+                            Tolerancia: ±{Math.round(question.toleranciaRelativa * 100)}%
+                          </span>
+                          {question.unidades && (
+                            <span>
+                              Unidades:{" "}
+                              {Object.entries(question.unidades)
+                                .map(([k, v]) => `${k}: ${v}`)
+                                .join(" · ")}
+                            </span>
+                          )}
+                        </div>
+                      )}
+
+                      {qType === "input" && (
+                        <label className="block text-xs font-medium text-[var(--c-text)]">
+                          Respuesta esperada
                           <input
-                            type="radio"
-                            name={`ans-${question.id}`}
-                            checked={question.answerKey === opt}
-                            onChange={() => updateQuestion(index, { answerKey: opt })}
-                            title="Marcar como correcta"
+                            className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                            value={
+                              Array.isArray(question.answerKey)
+                                ? question.answerKey.join(", ")
+                                : (question.answerKey ?? "")
+                            }
+                            onChange={(e) =>
+                              updateQuestion(index, { answerKey: e.target.value })
+                            }
+                            placeholder="Respuesta"
                           />
-                          <input
-                            className="flex-1 rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                            value={opt}
-                            disabled={isTrueFalse}
-                            onChange={(e) => updateOption(index, optIdx, e.target.value)}
-                            placeholder={`Opción ${optIdx + 1}`}
-                          />
+                        </label>
+                      )}
+
+                      {showOptions && (
+                        <div className="space-y-2">
+                          <p className="text-xs font-medium text-[var(--c-text)]">
+                            {isTrueFalse
+                              ? "Respuesta correcta"
+                              : "Opciones — seleccioná la correcta"}
+                          </p>
+                          {(question.options ?? []).map((opt, optIdx) => (
+                            <div
+                              key={`${question.id}-opt-${optIdx}`}
+                              className="flex items-center gap-2"
+                            >
+                              <input
+                                type="radio"
+                                name={`ans-${question.id}`}
+                                checked={question.answerKey === opt}
+                                onChange={() => updateQuestion(index, { answerKey: opt })}
+                                title="Marcar como correcta"
+                              />
+                              <input
+                                className="flex-1 rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                                value={opt}
+                                disabled={isTrueFalse}
+                                onChange={(e) => updateOption(index, optIdx, e.target.value)}
+                                placeholder={`Opción ${optIdx + 1}`}
+                              />
+                              {!isTrueFalse && (
+                                <button
+                                  type="button"
+                                  className="text-xs text-red-400 hover:text-red-600"
+                                  onClick={() => removeOption(index, optIdx)}
+                                >
+                                  ×
+                                </button>
+                              )}
+                            </div>
+                          ))}
                           {!isTrueFalse && (
                             <button
                               type="button"
-                              className="text-xs text-red-400 hover:text-red-600"
-                              onClick={() => removeOption(index, optIdx)}
+                              className="text-xs text-[var(--c-primary)] hover:underline"
+                              onClick={() => addOption(index)}
                             >
-                              ×
+                              + Agregar opción
                             </button>
                           )}
                         </div>
-                      ))}
-                      {!isTrueFalse && (
-                        <button
-                          type="button"
-                          className="text-xs text-[var(--c-primary)] hover:underline"
-                          onClick={() => addOption(index)}
-                        >
-                          + Agregar opción
-                        </button>
                       )}
+
+                      <textarea
+                        className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-muted)] px-3 py-2 text-xs focus:outline-none focus:border-[var(--c-primary)]"
+                        rows={1}
+                        placeholder="Explicación (opcional)"
+                        value={question.explanation ?? ""}
+                        onChange={(e) =>
+                          updateQuestion(index, { explanation: e.target.value })
+                        }
+                      />
                     </div>
-                  )}
+                  );
+                })}
 
-                  <textarea
-                    className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-muted)] px-3 py-2 text-xs focus:outline-none focus:border-[var(--c-primary)]"
-                    rows={1}
-                    placeholder="Explicación (opcional)"
-                    value={question.explanation ?? ""}
-                    onChange={(e) =>
-                      updateQuestion(index, { explanation: e.target.value })
-                    }
-                  />
+                <div className="flex flex-wrap gap-2 pt-1">
+                  <button
+                    type="button"
+                    className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)] transition-colors"
+                    onClick={() => addQuestion("mc")}
+                  >
+                    + Opción múltiple
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)] transition-colors"
+                    onClick={() => addQuestion("vf")}
+                  >
+                    + Verdadero/Falso
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)] transition-colors"
+                    onClick={() => addQuestion("input")}
+                  >
+                    + Respuesta abierta
+                  </button>
                 </div>
-              );
-            })}
+              </div>
+            </>
+          )}
 
-            <div className="flex flex-wrap gap-2 pt-1">
-              <button
-                type="button"
-                className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)] transition-colors"
-                onClick={() => addQuestion("mc")}
-              >
-                + Opción múltiple
-              </button>
-              <button
-                type="button"
-                className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)] transition-colors"
-                onClick={() => addQuestion("vf")}
-              >
-                + Verdadero/Falso
-              </button>
-              <button
-                type="button"
-                className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)] transition-colors"
-                onClick={() => addQuestion("input")}
-              >
-                + Respuesta abierta
-              </button>
+          {/* ── Automático mode ─────────────────────────────────────── */}
+          {modoEditor === "automatico" && (
+            <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-4">
+              <h2 className="text-sm font-semibold text-[var(--c-text)]">Generador automático</h2>
+              <GeneradorSelector
+                catalog={catalog}
+                onGenerate={handleGenerate}
+                onPreview={handlePreview}
+                isGenerating={isGenerating}
+              />
+              {previewStatus === "ready" && previewQuestions.length > 0 && (
+                <p className="text-xs text-[var(--c-primary)]">
+                  {previewQuestions.length} preguntas generadas y agregadas al cuestionario.
+                </p>
+              )}
             </div>
-          </div>
+          )}
+
+          {/* ── Banco mode ───────────────────────────────────────────── */}
+          {modoEditor === "banco" && (
+            <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-4">
+              <h2 className="text-sm font-semibold text-[var(--c-text)]">
+                Banco de cuestionarios
+              </h2>
+              <BancoCuestionarios
+                onImport={(imported, source) => {
+                  setQuestions((prev) => [
+                    ...prev,
+                    ...imported.map((q) => ({ ...q, focus: `banco:${source}` })),
+                  ]);
+                }}
+              />
+            </div>
+          )}
         </div>
 
         {/* ════════════════════════════════════════════════════════════
@@ -701,23 +871,21 @@ export default function EditorCuestionarios() {
           <div className="bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)] p-4 space-y-4">
             <div className="flex items-center justify-between gap-2">
               <h2 className="text-sm font-semibold text-[var(--c-text)]">
-                {generatorId ? "Vista previa del generador" : "Vista del alumno"}
+                Vista del alumno
+                {questions.length > 0 && (
+                  <span className="ml-2 text-xs font-normal text-[var(--c-muted)]">
+                    ({questions.length} preguntas)
+                  </span>
+                )}
               </h2>
-              {generatorId && (
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-[var(--c-muted)]">3 ejemplos</span>
-                  <button
-                    type="button"
-                    className="text-xs text-[var(--c-primary)] hover:underline"
-                    onClick={() => {
-                      if (generatorId && selectedSubtipo) {
-                        generatePreview(generatorId, selectedSubtipo);
-                      }
-                    }}
-                  >
-                    ↺ Regenerar
-                  </button>
-                </div>
+              {previewQuestions.length > 0 && modoEditor === "automatico" && (
+                <button
+                  type="button"
+                  className="text-xs text-[var(--c-muted)] hover:underline"
+                  onClick={() => setPreviewQuestions([])}
+                >
+                  Limpiar preview
+                </button>
               )}
             </div>
 
@@ -727,44 +895,33 @@ export default function EditorCuestionarios() {
               </div>
             )}
 
-            {generatorId && previewQuestions.length > 0 && (
-              <button
-                type="button"
-                className="inline-flex items-center gap-2 rounded-lg bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-                onClick={() => {
-                  setQuestions((prev) => [
-                    ...prev,
-                    ...previewQuestions.map((q) => ({
-                      ...q,
-                      id: `q-${Date.now()}-${Math.random().toString(16).slice(2)}-${q.id}`,
-                    })),
-                  ]);
-                }}
-              >
-                + Agregar {previewQuestions.length} preguntas al cuestionario
-              </button>
-            )}
-
             {previewStatus === "loading" ? (
               <div className="flex items-center gap-2 text-sm text-[var(--c-muted)]">
-                <svg className="h-4 w-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                  fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10"
-                    stroke="currentColor" strokeWidth="4"/>
-                  <path className="opacity-75" fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                <svg
+                  className="h-4 w-4 animate-spin"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                  />
                 </svg>
                 Generando ejemplos...
               </div>
-            ) : previewStatus === "error" ? (
-              <p className="text-sm text-red-400">
-                No se pudo cargar el generador.
-              </p>
             ) : previewList.length === 0 ? (
               <p className="text-sm text-[var(--c-muted)]">
-                {generatorId
-                  ? "Seleccioná un subtipo para ver ejemplos."
-                  : "Agregá preguntas para ver la vista del alumno."}
+                Agregá preguntas o generá con el modo Automático para ver la vista del alumno.
               </p>
             ) : (
               <ol className="space-y-5">
@@ -777,16 +934,23 @@ export default function EditorCuestionarios() {
                   return (
                     <li key={question.id} className="space-y-2">
                       <p className="text-xs text-[var(--c-muted)]">Pregunta {index + 1}</p>
+
+                      {/* VisualSpec (3d) */}
+                      {question.visualSpec && (
+                        <div className="rounded-lg border border-[var(--c-border)] overflow-hidden">
+                          <VisualizerRenderer spec={question.visualSpec} />
+                        </div>
+                      )}
+
                       <p className="text-sm text-[var(--c-text)] leading-relaxed">
-                        {generatorId ? (
-                          question.prompt
-                        ) : (
-                          <PromptWithVariables text={question.prompt || ""} />
-                        )}
+                        <PromptWithVariables text={question.prompt || ""} />
                       </p>
-                      {qType === "input" ? (
+
+                      {qType === "input" || qType === "completar" ? (
                         <div className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-2">
-                          <p className="text-xs text-[var(--c-muted)] italic">Respuesta abierta</p>
+                          <p className="text-xs text-[var(--c-muted)] italic">
+                            {qType === "completar" ? "Completar la respuesta" : "Respuesta abierta"}
+                          </p>
                         </div>
                       ) : (
                         <ul className="space-y-1.5">
@@ -799,11 +963,29 @@ export default function EditorCuestionarios() {
                                 {String.fromCharCode(65 + optIdx)}
                               </span>
                               {opt || (
-                                <span className="text-[var(--c-muted)] italic text-xs">opción vacía</span>
+                                <span className="text-[var(--c-muted)] italic text-xs">
+                                  opción vacía
+                                </span>
                               )}
                             </li>
                           ))}
                         </ul>
+                      )}
+
+                      {/* Steps collapsible (3c) */}
+                      {question.pasos && question.pasos.length > 0 && (
+                        <details className="text-xs">
+                          <summary className="cursor-pointer text-[var(--c-primary)] hover:underline">
+                            Ver resolución
+                          </summary>
+                          <ol className="mt-2 pl-4 space-y-1 text-[var(--c-muted)]">
+                            {question.pasos.map((paso, pi) => (
+                              <li key={pi} className="list-decimal">
+                                {paso}
+                              </li>
+                            ))}
+                          </ol>
+                        </details>
                       )}
                     </li>
                   );

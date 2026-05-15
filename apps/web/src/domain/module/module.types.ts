@@ -61,12 +61,19 @@ export type ModuleLevel = {
 export type ModuleQuizQuestion = {
   id: string;
   prompt: string;
-  questionType?: "mc" | "vf" | "input";
+  questionType?: "mc" | "vf" | "input" | "completar" | "match" | "fill-blank";
   options?: string[];
   answerKey?: string | string[];
   explanation?: string;
   focus?: string | null;
   visualContext?: string;
+  // Numeric exercise fields
+  toleranciaRelativa?: number;
+  unidades?: Record<string, string>;
+  datos?: Record<string, unknown>;
+  pasos?: string[];
+  // Visual attached by generator
+  visualSpec?: import("../../generadoresV2/core/types").VisualSpec;
 };
 
 export type ModuleGeneratorRef = {

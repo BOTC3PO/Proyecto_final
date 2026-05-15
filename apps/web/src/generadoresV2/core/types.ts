@@ -62,12 +62,18 @@ export interface TimelineSpec {
   events: { id: string; title: string; date: string; description?: string; tags?: string[] }[];
   markers?: { id: string; label?: string; date: string }[];
 }
+export interface LatexSpec {
+  kind: "latex";
+  content: string;
+  displayMode?: boolean;
+}
 export type VisualSpec =
   | LineChartSpec
   | VectorDiagramSpec
   | CircuitSpec
   | StaticImageSpec
-  | TimelineSpec;
+  | TimelineSpec
+  | LatexSpec;
 export interface EjercicioBase {
   id: string;
   materia: Materia;
@@ -117,7 +123,8 @@ export interface Calculator {
 // ── Generador ─────────────────────────────────────────────────────
 export type GeneratorFn = (
   dificultad?: Dificultad,
-  prng?: PRNG
+  prng?: PRNG,
+  subtipo?: string
 ) => Ejercicio;
 export interface GeneratorDescriptor {
   id: string;

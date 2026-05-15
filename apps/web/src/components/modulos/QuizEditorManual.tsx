@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
-import HerramientaPicker from "../../stubs/HerramientaPicker";
-import VisualizerRenderer from "../../stubs/VisualizerRenderer";
+import HerramientaPicker from "./HerramientaPicker";
+import VisualizerRenderer from "./VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 
 const QUESTION_TYPES: Array<NonNullable<ModuleQuizQuestion["questionType"]>> = [
@@ -24,7 +24,9 @@ const createQuestion = (questionType: ModuleQuizQuestion["questionType"]): Modul
   explanation: "",
 });
 
-function parseVisualContext(detail: string | undefined): { spec: VisualSpec; subject?: string; title?: string } | null {
+function parseVisualContext(
+  detail: string | undefined
+): { spec: VisualSpec; subject?: string; title?: string } | null {
   if (!detail) return null;
   try {
     const parsed = JSON.parse(detail) as { spec?: VisualSpec; subject?: string; title?: string };
@@ -39,6 +41,7 @@ function parseVisualContext(detail: string | undefined): { spec: VisualSpec; sub
 
 export default function QuizEditorManual({ questions, onChange }: QuizEditorManualProps) {
   const [herramientaPickerFor, setHerramientaPickerFor] = useState<number | null>(null);
+  const [expandedSteps, setExpandedSteps] = useState<Set<string>>(new Set());
 
   const updateQuestion = (index: number, patch: Partial<ModuleQuizQuestion>) => {
     const next = [...questions];
@@ -47,8 +50,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
   };
 
   const removeQuestion = (index: number) => {
-    const next = questions.filter((_, itemIndex) => itemIndex !== index);
-    onChange(next);
+    onChange(questions.filter((_, i) => i !== index));
   };
 
   const addQuestion = (questionType: ModuleQuizQuestion["questionType"]) => {
@@ -64,14 +66,22 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
 
   const addOption = (questionIndex: number) => {
     const question = questions[questionIndex];
-    const options = [...(question.options ?? []), ""];
-    updateQuestion(questionIndex, { options });
+    updateQuestion(questionIndex, { options: [...(question.options ?? []), ""] });
   };
 
   const removeOption = (questionIndex: number, optionIndex: number) => {
     const question = questions[questionIndex];
     const options = (question.options ?? []).filter((_, idx) => idx !== optionIndex);
     updateQuestion(questionIndex, { options });
+  };
+
+  const toggleSteps = (id: string) => {
+    setExpandedSteps((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
   };
 
   return (
@@ -82,14 +92,34 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
 
       {questions.map((question, index) => {
         const questionType = question.questionType ?? "mc";
-        const showOptions = questionType !== "input";
+        const showOptions = questionType !== "input" && questionType !== "completar";
         const isTrueFalse = questionType === "vf";
         const visualContext = parseVisualContext(question.visualContext);
+
+        // Origin badge (6b)
+        const origen = question.focus?.startsWith("banco:")
+          ? "banco"
+          : question.datos !== undefined
+          ? "auto"
+          : "manual";
+        const ORIGEN_BADGE: Record<string, string> = {
+          banco:  "bg-emerald-100 text-emerald-800 border-emerald-200",
+          auto:   "bg-blue-100 text-blue-800 border-blue-200",
+          manual: "bg-gray-100 text-gray-600 border-gray-200",
+        };
+        const ORIGEN_LABEL: Record<string, string> = { banco: "Banco", auto: "Auto", manual: "Manual" };
 
         return (
           <div key={question.id} className="rounded-lg border border-gray-200 p-4 space-y-3">
             <div className="flex items-center justify-between gap-3">
-              <h4 className="text-sm font-semibold">Pregunta {index + 1}</h4>
+              <div className="flex items-center gap-2">
+                <h4 className="text-sm font-semibold">Pregunta {index + 1}</h4>
+                <span
+                  className={`text-[10px] font-medium border rounded px-1.5 py-0.5 ${ORIGEN_BADGE[origen]}`}
+                >
+                  {ORIGEN_LABEL[origen]}
+                </span>
+              </div>
               <button
                 type="button"
                 className="text-xs text-red-500 hover:underline"
@@ -152,7 +182,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                     const options =
                       nextType === "vf"
                         ? ["Verdadero", "Falso"]
-                        : nextType === "input"
+                        : nextType === "input" || nextType === "completar"
                           ? []
                           : question.options?.length
                             ? question.options
@@ -172,7 +202,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                 Tema / foco
                 <input
                   className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
-                  placeholder="Ej: derivadas, vocabulario, ecuaciones"
+                  placeholder="Ej: derivadas, vocabulario"
                   value={question.focus ?? ""}
                   onChange={(e) => updateQuestion(index, { focus: e.target.value })}
                 />
@@ -183,13 +213,32 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                   Respuesta esperada
                   <input
                     className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm"
-                    value={Array.isArray(question.answerKey) ? question.answerKey.join(", ") : question.answerKey ?? ""}
+                    value={
+                      Array.isArray(question.answerKey)
+                        ? question.answerKey.join(", ")
+                        : (question.answerKey ?? "")
+                    }
                     onChange={(event) => updateQuestion(index, { answerKey: event.target.value })}
                     placeholder="Respuesta"
                   />
                 </label>
               ) : null}
             </div>
+
+            {/* Numeric tolerance info (3c) */}
+            {questionType === "input" && question.toleranciaRelativa !== undefined && (
+              <div className="flex items-center gap-3 text-xs text-gray-500 bg-gray-50 rounded px-2 py-1.5">
+                <span>Tolerancia: ±{Math.round(question.toleranciaRelativa * 100)}%</span>
+                {question.unidades && (
+                  <span>
+                    Unidades:{" "}
+                    {Object.entries(question.unidades)
+                      .map(([k, v]) => `${k}: ${v}`)
+                      .join(" · ")}
+                  </span>
+                )}
+              </div>
+            )}
 
             {showOptions ? (
               <div className="space-y-2">
@@ -242,6 +291,26 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
               value={question.explanation ?? ""}
               onChange={(event) => updateQuestion(index, { explanation: event.target.value })}
             />
+
+            {/* Steps collapsible (3c) */}
+            {question.pasos && question.pasos.length > 0 && (
+              <div>
+                <button
+                  type="button"
+                  className="text-xs text-blue-600 hover:underline"
+                  onClick={() => toggleSteps(question.id)}
+                >
+                  {expandedSteps.has(question.id) ? "Ocultar resolución" : "Ver resolución"}
+                </button>
+                {expandedSteps.has(question.id) && (
+                  <ol className="mt-2 pl-4 space-y-1 text-xs text-gray-500 list-decimal">
+                    {question.pasos.map((paso, pi) => (
+                      <li key={pi}>{paso}</li>
+                    ))}
+                  </ol>
+                )}
+              </div>
+            )}
           </div>
         );
       })}
