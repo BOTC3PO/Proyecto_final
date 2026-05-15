@@ -1126,7 +1126,7 @@ export default function ModuloEditor() {
                   </button>
 
                   {/* Ejercicios generados — solo si la materia lo soporta */}
-                  {subjectCapabilities?.generators && (
+                  {subjectCapabilities?.supportsGenerators && (
                     <button
                       type="button"
                       className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-success)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
@@ -1154,7 +1154,7 @@ export default function ModuloEditor() {
                   <span>
                     ✏️ <strong>Manual</strong> — escribís las preguntas vos mismo
                   </span>
-                  {subjectCapabilities?.generators && (
+                  {subjectCapabilities?.supportsGenerators && (
                     <span>
                       ⚡ <strong>Generados</strong> — ejercicios automáticos infinitos según la materia
                     </span>

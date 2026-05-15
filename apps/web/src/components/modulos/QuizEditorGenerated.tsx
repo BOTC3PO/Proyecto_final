@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { apiGet } from "../../lib/api";
+import { getStaticCatalog } from "../../generadoresV2/catalog";
 
 const hashString = (value: string) => {
   let hash = 0;
@@ -28,6 +29,8 @@ type GeneratorCatalogItem = {
   subtipos: GeneratorSubtipo[];
 };
 
+type Dificultad = "basico" | "intermedio" | "avanzado";
+
 type QuizEditorGeneratedProps = {
   generatorId: string;
   generatorVersion: number;
@@ -42,6 +45,12 @@ type QuizEditorGeneratedProps = {
   showPreview?: boolean;
 };
 
+const DIFICULTAD_OPTS: Array<{ value: Dificultad; label: string }> = [
+  { value: "basico", label: "Básico" },
+  { value: "intermedio", label: "Intermedio" },
+  { value: "avanzado", label: "Avanzado" },
+];
+
 export default function QuizEditorGenerated({
   generatorId,
   generatorVersion,
@@ -50,8 +59,7 @@ export default function QuizEditorGenerated({
   onChange,
   showPreview = false,
 }: QuizEditorGeneratedProps) {
-  const [catalog, setCatalog] = useState<GeneratorCatalogItem[]>([]);
-  const [catalogStatus, setCatalogStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [catalog, setCatalog] = useState<GeneratorCatalogItem[]>(() => getStaticCatalog());
   const [docs, setDocs] = useState<Record<string, unknown> | null>(null);
 
   useEffect(() => {
@@ -64,13 +72,20 @@ export default function QuizEditorGenerated({
   useEffect(() => {
     apiGet<{ items: GeneratorCatalogItem[] }>("/api/generators")
       .then((data) => {
-        setCatalog(data.items);
-        setCatalogStatus("ready");
+        if (data.items && data.items.length > 0) {
+          setCatalog(data.items);
+        }
       })
       .catch(() => {
-        setCatalogStatus("error");
+        // already using static catalog as initial state — keep it
       });
   }, []);
+
+  const dificultad: Dificultad =
+    typeof params?.dificultad === "string" &&
+    ["basico", "intermedio", "avanzado"].includes(params.dificultad)
+      ? (params.dificultad as Dificultad)
+      : "intermedio";
 
   const previewItems = useMemo(() => {
     if (!showPreview || !generatorId || !count || count <= 0) return [];
@@ -92,7 +107,7 @@ export default function QuizEditorGenerated({
     onChange({
       generatorId: item.id,
       generatorVersion: 1,
-      params: subtipo ? { subtipo: subtipo.id } : {},
+      params: subtipo ? { subtipo: subtipo.id, dificultad } : { dificultad },
       count,
     });
   };
@@ -129,51 +144,41 @@ export default function QuizEditorGenerated({
             </button>
           </div>
         ) : (
-          <>
-            {catalogStatus === "loading" && (
-              <p className="text-xs text-gray-500 py-2">Cargando generadores...</p>
-            )}
-            {catalogStatus === "error" && (
-              <p className="text-xs text-red-500 py-2">No se pudo cargar el catálogo de generadores.</p>
-            )}
-            {catalogStatus === "ready" && (
-              <div className="max-h-72 overflow-y-auto rounded-lg border border-gray-200 p-2 space-y-3">
-                {Object.entries(grouped).map(([materia, items]) => (
-                  <div key={materia}>
-                    <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-gray-500">
-                      {materia}
-                    </p>
-                    <div className="space-y-1">
-                      {items.map((item) => (
-                        <div key={item.id} className="rounded-md border border-gray-200 bg-white p-2">
-                          <p className="text-xs font-semibold text-gray-800 mb-1">{item.label}</p>
-                          <div className="flex flex-wrap gap-1">
-                            <button
-                              type="button"
-                              className="rounded border border-gray-300 bg-gray-50 px-2 py-0.5 text-[11px] text-gray-700 hover:border-blue-400 hover:bg-blue-50 transition-colors"
-                              onClick={() => handleSelect(item)}
-                            >
-                              Aleatorio
-                            </button>
-                            {item.subtipos.map((subtipo) => (
-                              <button
-                                key={subtipo.id}
-                                type="button"
-                                className="rounded border border-gray-300 bg-gray-50 px-2 py-0.5 text-[11px] text-gray-700 hover:border-blue-400 hover:bg-blue-50 transition-colors"
-                                onClick={() => handleSelect(item, subtipo)}
-                              >
-                                {subtipo.label}
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
+          <div className="max-h-72 overflow-y-auto rounded-lg border border-gray-200 p-2 space-y-3">
+            {Object.entries(grouped).map(([materia, items]) => (
+              <div key={materia}>
+                <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-gray-500">
+                  {materia}
+                </p>
+                <div className="space-y-1">
+                  {items.map((item) => (
+                    <div key={item.id} className="rounded-md border border-gray-200 bg-white p-2">
+                      <p className="text-xs font-semibold text-gray-800 mb-1">{item.label}</p>
+                      <div className="flex flex-wrap gap-1">
+                        <button
+                          type="button"
+                          className="rounded border border-gray-300 bg-gray-50 px-2 py-0.5 text-[11px] text-gray-700 hover:border-blue-400 hover:bg-blue-50 transition-colors"
+                          onClick={() => handleSelect(item)}
+                        >
+                          Aleatorio
+                        </button>
+                        {item.subtipos.map((subtipo) => (
+                          <button
+                            key={subtipo.id}
+                            type="button"
+                            className="rounded border border-gray-300 bg-gray-50 px-2 py-0.5 text-[11px] text-gray-700 hover:border-blue-400 hover:bg-blue-50 transition-colors"
+                            onClick={() => handleSelect(item, subtipo)}
+                          >
+                            {subtipo.label}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            )}
-          </>
+            ))}
+          </div>
         )}
       </div>
 
@@ -210,23 +215,61 @@ export default function QuizEditorGenerated({
         );
       })()}
 
-      {/* Quantity */}
+      {/* Dificultad (7b) */}
+      <label className="block text-xs font-medium text-gray-600">
+        Dificultad
+        <div className="flex gap-1 mt-1">
+          {DIFICULTAD_OPTS.map((opt) => (
+            <button
+              key={opt.value}
+              type="button"
+              onClick={() =>
+                onChange({ params: { ...params, dificultad: opt.value } })
+              }
+              className={`rounded-md border px-2 py-1 text-xs transition-colors ${
+                dificultad === opt.value
+                  ? "bg-blue-600 border-blue-600 text-white"
+                  : "bg-gray-50 border-gray-300 text-gray-700 hover:bg-blue-50 hover:border-blue-400"
+              }`}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </label>
+
+      {/* Quantity (7b) */}
       <label className="text-xs font-medium text-gray-600">
         Cantidad de preguntas
-        <input
-          className="mt-1 w-32 rounded-md border border-gray-300 px-2 py-2 text-sm"
-          type="number"
-          min={1}
-          value={Number.isNaN(count) ? "" : count}
-          onChange={(event) => onChange({ count: Number(event.target.value) || 0 })}
-        />
+        <div className="flex items-center gap-3 mt-1">
+          <input
+            className="w-32 rounded-md border border-gray-300 px-2 py-2 text-sm"
+            type="number"
+            min={1}
+            max={30}
+            value={Number.isNaN(count) ? "" : count}
+            onChange={(event) => onChange({ count: Number(event.target.value) || 0 })}
+          />
+          <input
+            type="range"
+            min={1}
+            max={30}
+            value={Number.isNaN(count) ? 5 : count}
+            onChange={(event) => onChange({ count: Number(event.target.value) })}
+            className="flex-1"
+          />
+        </div>
       </label>
 
       {showPreview ? (
         <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-          <p className="text-xs font-semibold text-gray-700">Vista previa determinística (semilla fija)</p>
+          <p className="text-xs font-semibold text-gray-700">
+            Vista previa determinística (semilla fija)
+          </p>
           {previewItems.length === 0 ? (
-            <p className="mt-2 text-xs text-gray-500">Seleccioná un generador y la cantidad para ver ejemplos.</p>
+            <p className="mt-2 text-xs text-gray-500">
+              Seleccioná un generador y la cantidad para ver ejemplos.
+            </p>
           ) : (
             <ul className="mt-2 list-disc space-y-1 pl-4 text-xs text-gray-600">
               {previewItems.map((item) => (

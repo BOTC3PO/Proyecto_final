@@ -28,10 +28,10 @@ export abstract class BaseGenerador {
       version: this.version,
       materia: this.materia,
       subtipos: this.subtipos,
-      generate: (dificultad = "basico", prng) => {
-        const subtipo = S.pickOne(prng ?? this.prng, this.subtipos);
+      generate: (dificultad = "basico", prng, subtipo) => {
+        const st = subtipo ?? S.pickOne(prng ?? this.prng, this.subtipos);
         return this.generarEjercicio(
-          subtipo,
+          st,
           dificultad,
           { calcular: () => ({ resultado: 0, pasos: [] }) }
         );

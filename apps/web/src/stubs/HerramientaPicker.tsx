@@ -1,9 +1,2 @@
-interface HerramientaPickerProps {
-  isOpen: boolean;
-  onSelect: (detail: string | undefined) => void;
-  onClose: () => void;
-}
-
-export default function HerramientaPicker(_props: HerramientaPickerProps) {
-  return null;
-}
+// Re-exported from components/modulos/ — use that path for new imports.
+export { default } from "../components/modulos/HerramientaPicker";
