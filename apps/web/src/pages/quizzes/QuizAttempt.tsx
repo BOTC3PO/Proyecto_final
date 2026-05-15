@@ -39,6 +39,7 @@ type QuizAttemptResponse = {
   generatorId?: string;
   seed?: string | number;
   count?: number;
+  params?: Record<string, unknown>;
   instructions?: string;
   displayCount?: number;
   quizType?: string;
@@ -182,9 +183,13 @@ export default function QuizAttempt() {
         const descriptor = descriptores.find((d) => d.id === genId);
         if (!descriptor) return;
 
-        const ejercicios: Ejercicio[] = Array.from({ length: count }, () =>
-          descriptor.generate(undefined, prng)
-        );
+        const params = attempt.params ?? {};
+        const enunciadosPersonalizados = params.enunciadosPersonalizados as Record<string, string> | undefined;
+        const ejercicios: Ejercicio[] = Array.from({ length: count }, () => {
+          const st = descriptor.subtipos[Math.floor(Math.random() * descriptor.subtipos.length)];
+          const template = enunciadosPersonalizados?.[st];
+          return descriptor.generate(undefined, prng, st, template);
+        });
 
         setGeneratedQuestions(ejercicios.map(ejercicioToQuestion));
       })

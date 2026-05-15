@@ -45,7 +45,7 @@ generators.get("/api/generators", async (_req, res) => {
     const rows = await prisma.generatorConfig.findMany({
       where: { status: "ACTIVE" },
       orderBy: { materia: "asc" },
-      select: { id: true, materia: true, label: true, description: true, subtipos: true },
+      select: { id: true, materia: true, label: true, description: true, subtipos: true, enunciados: true },
     });
 
     const items = rows.map((row) => {
@@ -58,7 +58,15 @@ generators.get("/api/generators", async (_req, res) => {
           label: s.label,
           tieneGrafico: s.tieneGrafico ?? docEntry?.subtipos?.[s.id]?.tieneGrafico ?? false,
         }));
-      return { id: row.id, materia: row.materia, label: row.label, description: row.description ?? null, subtipos };
+      const enunciadosPersonalizados = parseJson<Record<string, string>>(row.enunciados, {});
+      return {
+        id: row.id,
+        materia: row.materia,
+        label: row.label,
+        description: row.description ?? null,
+        subtipos,
+        enunciadosPersonalizados: Object.keys(enunciadosPersonalizados).length > 0 ? enunciadosPersonalizados : undefined,
+      };
     });
 
     res.json({ items });

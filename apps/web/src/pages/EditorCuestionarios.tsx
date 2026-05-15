@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
 import type { ModuleQuizQuestion } from "../domain/module/module.types";
-import type { GeneratorDescriptor } from "../generadoresV2/core/types";
+import type { GeneratorDescriptor, Ejercicio } from "../generadoresV2/core/types";
 import { DeterministicPrng } from "../generadoresV2/core/prng";
 import { getStaticCatalog, getDescriptoresFromModule } from "../generadoresV2/catalog";
 import type { CatalogItem } from "../generadoresV2/catalog";
@@ -112,6 +112,7 @@ export default function EditorCuestionarios() {
   const [generatorId, setGeneratorId] = useState("");
   const [selectedSubtipo, setSelectedSubtipo] = useState("");
   const [docs, setDocs] = useState<GeneratorDocs | null>(null);
+  const [lastGeneratorConfig, setLastGeneratorConfig] = useState<GeneradorConfig | null>(null);
 
   // Questions and preview
   const [questions, setQuestions] = useState<ModuleQuizQuestion[]>([]);
@@ -158,7 +159,8 @@ export default function EditorCuestionarios() {
 
     const ejercicios: Ejercicio[] = Array.from({ length: config.cantidad }, (_, i) => {
       const subtipo = subtiposToUse[i % subtiposToUse.length];
-      return descriptor.generate(config.dificultad, prng, subtipo);
+      const template = config.enunciadosPersonalizados?.[subtipo];
+      return descriptor.generate(config.dificultad, prng, subtipo, template);
     });
 
     const qs = ejercicios.map((e) => ({
@@ -180,9 +182,10 @@ export default function EditorCuestionarios() {
       const qs = await generateFromConfig(config, "add");
       setPreviewQuestions(qs);
       setPreviewStatus("ready");
-      // Update variable docs panel
+      // Update variable docs panel and save config for export
       setGeneratorId(config.generatorId);
       setSelectedSubtipo(config.subtipos[0] ?? "");
+      setLastGeneratorConfig(config);
     } catch {
       setPreviewStatus("error");
     } finally {
@@ -199,6 +202,7 @@ export default function EditorCuestionarios() {
       setPreviewStatus("ready");
       setGeneratorId(config.generatorId);
       setSelectedSubtipo(config.subtipos[0] ?? "");
+      setLastGeneratorConfig(config);
     } catch {
       setPreviewStatus("error");
     }
@@ -324,6 +328,13 @@ export default function EditorCuestionarios() {
     type: quizType,
     visibility: quizVisibility,
     instructions: instructions.trim() || undefined,
+    ...(lastGeneratorConfig?.enunciadosPersonalizados && {
+      params: {
+        enunciadosPersonalizados: lastGeneratorConfig.enunciadosPersonalizados,
+        dificultad: lastGeneratorConfig.dificultad,
+        subtipos: lastGeneratorConfig.subtipos,
+      },
+    }),
     questions: questions.map((q) => ({
       prompt: q.prompt,
       questionType: q.questionType,

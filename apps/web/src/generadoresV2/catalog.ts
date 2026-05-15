@@ -13,6 +13,7 @@ export type CatalogItem = {
   materia: string;
   label: string;
   subtipos: { id: string; label: string; tieneGrafico?: boolean }[];
+  enunciadosPersonalizados?: Record<string, string>;
 };
 
 const GENERATOR_LABELS: Record<string, string> = {

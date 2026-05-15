@@ -13,13 +13,14 @@ adminGenerators.get("/api/admin/generators", requireAdmin, async (_req, res) => 
   try {
     const rows = await prisma.generatorConfig.findMany({
       orderBy: [{ materia: "asc" }, { id: "asc" }],
-      select: { id: true, materia: true, label: true, description: true, version: true, subtipos: true, status: true },
+      select: { id: true, materia: true, label: true, description: true, version: true, subtipos: true, enunciados: true, status: true },
     });
 
     res.json({
       items: rows.map((row) => ({
         ...row,
         subtipos: parseJson(row.subtipos, []),
+        enunciados: parseJson(row.enunciados, {}),
       })),
     });
   } catch (err) {
@@ -30,7 +31,7 @@ adminGenerators.get("/api/admin/generators", requireAdmin, async (_req, res) => 
 // PATCH /api/admin/generators/:id — editar generador
 adminGenerators.patch("/api/admin/generators/:id", requireAdmin, async (req, res) => {
   const id = `${req.params.id}`;
-  const { label, description, status, subtipos } = req.body as Record<string, unknown>;
+  const { label, description, status, subtipos, enunciados } = req.body as Record<string, unknown>;
   const VALID_STATUSES = new Set(["ACTIVE", "INACTIVE"]);
 
   try {
@@ -43,16 +44,32 @@ adminGenerators.patch("/api/admin/generators/:id", requireAdmin, async (req, res
       data.description = typeof description === "string" ? description.trim() || null : null;
     if (typeof status === "string" && VALID_STATUSES.has(status)) data.status = status;
     if (Array.isArray(subtipos)) data.subtipos = JSON.stringify(subtipos);
+    if (enunciados !== undefined) {
+      if (typeof enunciados !== "object" || Array.isArray(enunciados) || enunciados === null) {
+        res.status(400).json({ error: "enunciados debe ser un objeto { subtipo: template }" });
+        return;
+      }
+      const entries = Object.entries(enunciados as Record<string, unknown>);
+      if (entries.some(([, v]) => typeof v !== "string")) {
+        res.status(400).json({ error: "cada template en enunciados debe ser un string" });
+        return;
+      }
+      data.enunciados = JSON.stringify(enunciados);
+    }
 
     if (!Object.keys(data).length) { res.status(400).json({ error: "nada que actualizar" }); return; }
 
     const updated = await prisma.generatorConfig.update({
       where: { id },
       data,
-      select: { id: true, materia: true, label: true, description: true, version: true, subtipos: true, status: true },
+      select: { id: true, materia: true, label: true, description: true, version: true, subtipos: true, enunciados: true, status: true },
     });
 
-    res.json({ ...updated, subtipos: parseJson(updated.subtipos, []) });
+    res.json({
+      ...updated,
+      subtipos: parseJson(updated.subtipos, []),
+      enunciados: parseJson(updated.enunciados, {}),
+    });
   } catch (err) {
     res.status(500).json({ error: err instanceof Error ? err.message : "error" });
   }
