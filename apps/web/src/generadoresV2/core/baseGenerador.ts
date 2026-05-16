@@ -43,7 +43,6 @@ export abstract class BaseGenerador {
             dificultad: ejercicio.dificultad,
             ...(ejercicio.tipo === "quiz" ? {
               respuesta: ejercicio.opciones[ejercicio.indiceCorrecto],
-              opciones: ejercicio.opciones,
             } : {}),
             ...(ejercicio.tipo === "numerico" ? { resultado: ejercicio.resultado } : {}),
             ...(ejercicio.tipo === "completar" ? { respuesta: ejercicio.respuestaCorrecta } : {}),
