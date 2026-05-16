@@ -105,6 +105,34 @@ export function applyEnunciadoTemplate(
   });
 }
 
+/**
+ * Like applyEnunciadoTemplate but receives the full enriched context (datos + ejercicio fields).
+ */
+export function applyEnunciadoTemplateExt(
+  template: string,
+  ctx: Record<string, unknown>
+): string {
+  return template.replace(/\{([^}]+)\}/g, (match, expr: string) => {
+    const parts = expr.split("|");
+    const keyPath = parts[0].trim();
+    const modifier = parts[1]?.trim();
+    const value = keyPath.split(".").reduce<unknown>((obj, key) => {
+      if (obj !== null && typeof obj === "object") {
+        return (obj as Record<string, unknown>)[key];
+      }
+      return undefined;
+    }, ctx as unknown) ?? ctx[keyPath];
+    if (value === undefined || value === null) return match;
+    const str = String(value);
+    if (!modifier) return str;
+    if (isNaN(Number(modifier))) return `${str} ${modifier}`;
+    const n = parseInt(modifier, 10);
+    const num = parseFloat(str);
+    if (!isNaN(num)) return num.toFixed(n);
+    return str;
+  });
+}
+
 // ── Placeholder para subtipos no implementados ─────────────────────
 export function placeholder(
   subtipo: string,
