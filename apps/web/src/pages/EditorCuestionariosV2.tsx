@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import {
   DndContext,
@@ -619,7 +619,9 @@ function QuestionCard({
         <div className="flex items-center gap-1 shrink-0">
           <span className="text-xs text-[var(--c-muted)]">{isActive ? "▲" : "▼"}</span>
           <button type="button" onClick={(e) => { e.stopPropagation(); onRemove(); }}
-            className="text-xs text-red-400 hover:text-red-600 px-1">×</button>
+            disabled={origen !== "manual"}
+            title={origen !== "manual" ? "Quitá la fuente completa para eliminar esta pregunta" : "Quitar pregunta"}
+            className="text-xs text-red-400 hover:text-red-600 px-1 disabled:opacity-30 disabled:cursor-not-allowed">×</button>
         </div>
       </button>
 
@@ -702,7 +704,7 @@ function QuestionCard({
 
 // ─── Sortable wrapper ─────────────────────────────────────────────────────────
 
-function SortableQuestion({ id, children }: { id: string; children: React.ReactNode }) {
+function SortableQuestion({ id, children }: { id: string; children: ReactNode }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
   return (
     <div ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.5 : 1 }}>
@@ -1060,7 +1062,11 @@ function RecetaBar({
   if (fuentes.length === 0) return null;
 
   const labelFor = (f: FuenteReceta) => {
-    if (f.kind === "manual") return `Manual`;
+    if (f.kind === "manual") {
+      const qOrigen = f.question.focus?.startsWith("banco:") ? "banco"
+        : f.question.datos !== undefined ? "auto" : "manual";
+      return qOrigen === "manual" ? "Manual" : `Ex-${qOrigen}`;
+    }
     if (f.kind === "generador") {
       const sub = f.config.subtipos[0] ?? "varios";
       return `${f.label.split("—")[1]?.trim() ?? f.label} × ${f.config.cantidad}`;
@@ -1091,8 +1097,9 @@ function RecetaBar({
           className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1 text-[10px] font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">
           Aplanar para editar
         </button>
-        <button type="button" onClick={onSaveBank}
-          className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1 text-[10px] font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">
+        <button type="button" disabled
+          title="Próximamente — requiere endpoint de guardado"
+          className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1 text-[10px] font-medium text-[var(--c-text)] opacity-40 cursor-not-allowed">
           Guardar en banco escuela
         </button>
       </div>
@@ -1247,7 +1254,14 @@ export default function EditorCuestionariosV2() {
     else if (fuente.kind === "banco") ids = fuente.preguntasImportadas.map((q) => q.id);
     setFuentes((f) => f.filter((x) => x.id !== fid));
     setQuestions((qs) => qs.filter((q) => !ids.includes(q.id)));
-    setActiveQIdx(null);
+    const removedSet = new Set(ids);
+    setActiveQIdx((prev) => {
+      if (prev === null) return null;
+      const currentQs = questions;
+      if (currentQs[prev] && removedSet.has(currentQs[prev].id)) return null;
+      const removedBefore = currentQs.slice(0, prev).filter((q) => removedSet.has(q.id)).length;
+      return prev - removedBefore;
+    });
   };
 
   const flattenReceta = () => {
