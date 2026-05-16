@@ -46,22 +46,35 @@ test("applyEnunciadoTemplateExt applies template even when generator emits no da
 
 test("template substitution exposes respuesta for quiz exercises", () => {
   const descriptors = allDescriptors();
-  const quizDescriptors = descriptors.filter(d =>
-    d.subtipos.some(st => {
-      const prng = new DeterministicPrng(`check:${d.id}:${st}`);
-      const ej = d.generate("basico", prng, st);
-      return ej.tipo === "quiz";
-    })
-  );
+  let checkedQuiz = false;
 
-  for (const descriptor of quizDescriptors) {
-    const subtipo = descriptor.subtipos[0];
-    const prng = new DeterministicPrng(`${descriptor.id}:${subtipo}:respuesta`);
-    const ejercicio = descriptor.generate("basico", prng, subtipo, "R:{respuesta}");
-
-    assert.ok(
-      ejercicio.enunciado.startsWith("R:"),
-      `${descriptor.id}/${subtipo}: {respuesta} template not applied, got: "${ejercicio.enunciado}"`
-    );
+  for (const descriptor of descriptors) {
+    for (const subtipo of descriptor.subtipos) {
+      const prng = new DeterministicPrng(`${descriptor.id}:${subtipo}:respuesta`);
+      const ej = descriptor.generate("basico", prng, subtipo, "R:{respuesta}");
+      if (ej.tipo !== "quiz") continue;
+      checkedQuiz = true;
+      assert.ok(
+        ej.enunciado.startsWith("R:"),
+        `${descriptor.id}/${subtipo}: {respuesta} template not applied, got: "${ej.enunciado}"`
+      );
+    }
   }
+
+  assert.ok(checkedQuiz, "expected at least one quiz-typed exercise to verify {respuesta}");
+});
+
+test("template leaves unknown tokens literal instead of throwing", () => {
+  const descriptors = allDescriptors();
+  assert.ok(descriptors.length > 0);
+
+  const d = descriptors[0];
+  const subtipo = d.subtipos[0];
+  const prng = new DeterministicPrng("unknown-token-test");
+  const ej = d.generate("basico", prng, subtipo, "X:{noExiste}");
+
+  assert.ok(
+    ej.enunciado.includes("{noExiste}"),
+    `unknown token should be left literal, got: "${ej.enunciado}"`
+  );
 });
