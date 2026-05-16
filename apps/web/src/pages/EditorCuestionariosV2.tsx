@@ -608,7 +608,7 @@ function QuestionCard({
       >
         <div className="flex items-center gap-2 min-w-0">
           <span className="text-xs text-[var(--c-muted)] shrink-0">#{index + 1}</span>
-          <span className={`text-[9px] font-medium border rounded px-1.5 py-0.5 shrink-0 ${badgeCls}`}>{badgeLabel}</span>
+          <span data-testid="origin-badge" className={`text-[9px] font-medium border rounded px-1.5 py-0.5 shrink-0 ${badgeCls}`}>{badgeLabel}</span>
           {subtipoLabel && (
             <span className="text-[9px] text-[var(--c-muted)] bg-gray-50 rounded px-1 truncate">{subtipoLabel}</span>
           )}

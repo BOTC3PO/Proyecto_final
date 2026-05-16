@@ -111,8 +111,7 @@ describe("EditorCuestionariosV2", () => {
     await clickBtn(container, /Opción múltiple/);
 
     await waitFor(() => expect(screen.getByText("#1")).toBeInTheDocument());
-    // "Manual" appears twice: accordion section label + question origin badge
-    expect(screen.getAllByText("Manual").length).toBeGreaterThanOrEqual(2);
+    expect(screen.getByTestId("origin-badge")).toHaveTextContent("Manual");
   });
 
   it("adds a V/F question", async () => {
@@ -149,6 +148,9 @@ describe("EditorCuestionariosV2", () => {
       expect(q.prompt).toBeTruthy();
       expect(q.questionType).toBeDefined();
     });
+    // With DeterministicPrng(42) the generator must produce at least 2 distinct prompts
+    const prompts = questions.map((q) => q.prompt);
+    expect(new Set(prompts).size).toBeGreaterThan(1);
   });
 
   // ── 3.1.4 — Banco mock → focus banco: ──────────────────────────────────────
@@ -251,6 +253,25 @@ describe("EditorCuestionariosV2", () => {
     await waitFor(() => {
       expect(screen.getByText(/Agregar serie/i)).toBeInTheDocument();
     });
+  });
+
+  // ── 3.1.8 — saveToBank button is disabled (no endpoint yet) ────────────────
+
+  it("'Guardar en banco escuela' button is disabled until backend is ready", async () => {
+    const { container } = await renderEditor();
+
+    // Add a question so RecetaBar renders (it only shows when fuentes.length > 0)
+    await clickBtn(container, /Opción múltiple/);
+    await waitFor(() => expect(screen.getByText("#1")).toBeInTheDocument());
+
+    const saveBtn = await waitFor(() => {
+      const btn = findBtnByText(container, /Guardar en banco escuela/);
+      if (!btn) throw new Error("saveToBank button not found");
+      return btn;
+    });
+
+    expect(saveBtn).toBeDisabled();
+    expect(saveBtn.title).toMatch(/Próximamente|endpoint/i);
   });
 
   // ── 3.1.7 — Tolerance toggle ───────────────────────────────────────────────
