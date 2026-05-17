@@ -76,6 +76,7 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
         OR: visibilityFilter,
       },
       select: { id: true, titulo: true, visibility: true, schoolId: true },
+      take: 500,
     });
 
     const moduloIds = modulos.map((m) => m.id);
@@ -85,7 +86,11 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
     }
 
     const quizzes = await prisma.quiz.findMany({
-      where: { moduleId: { in: moduloIds }, isActive: true },
+      where: {
+        moduleId: { in: moduloIds },
+        isActive: true,
+        ...(q ? { title: { contains: q, mode: "insensitive" as const } } : {}),
+      },
       include: {
         versions: {
           orderBy: { versionNumber: "desc" },
@@ -93,6 +98,7 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
         },
         modulo: { select: { visibility: true, schoolId: true } },
       },
+      take: 1000,
     });
 
     const moduloMap = new Map(modulos.map((m) => [m.id, m]));
