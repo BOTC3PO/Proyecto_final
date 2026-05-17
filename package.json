@@ -4,5 +4,10 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.19"
+  },
+    "scripts": {
+    "test": "pnpm --filter ./apps/web test",
+    "test:web": "pnpm --filter ./apps/web test",
+    "test:api": "pnpm --filter ./api test"
   }
 }
