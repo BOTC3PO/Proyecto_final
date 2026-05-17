@@ -114,6 +114,27 @@ describe("EditorCuestionariosV2", () => {
     expect(screen.getByTestId("origin-badge")).toHaveTextContent("Manual");
   });
 
+  // Bug 3: remove button is enabled for manual, disabled for banco/auto.
+  // The disabled={origen !== "manual"} prop lives in QuestionCard (EditorCuestionariosV2.tsx:622).
+  // We verify the manual (enabled) path here; the banco/auto (disabled) path requires
+  // extracting QuestionCard to its own file for isolated rendering — tracked as tech debt.
+  it("remove button (×) is enabled for a manual question", async () => {
+    const { container } = await renderEditor();
+
+    await clickBtn(container, /Opción múltiple/);
+    await waitFor(() => expect(screen.getByText("#1")).toBeInTheDocument());
+
+    const removeBtn = await waitFor(() => {
+      const btn = Array.from(container.querySelectorAll("button")).find(
+        (b) => b.textContent?.trim() === "×"
+      );
+      if (!btn) throw new Error("× button not found");
+      return btn as HTMLButtonElement;
+    });
+
+    expect(removeBtn).not.toBeDisabled();
+  });
+
   it("adds a V/F question", async () => {
     const { container } = await renderEditor();
 
@@ -148,9 +169,9 @@ describe("EditorCuestionariosV2", () => {
       expect(q.prompt).toBeTruthy();
       expect(q.questionType).toBeDefined();
     });
-    // With DeterministicPrng(42) the generator must produce at least 2 distinct prompts
+    // Each subtipo produces a distinct prompt — expect as many unique prompts as subtipos used
     const prompts = questions.map((q) => q.prompt);
-    expect(new Set(prompts).size).toBeGreaterThan(1);
+    expect(new Set(prompts).size).toBe(Math.min(count, descriptor!.subtipos.length));
   });
 
   // ── 3.1.4 — Banco mock → focus banco: ──────────────────────────────────────
