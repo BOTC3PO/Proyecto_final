@@ -61,6 +61,7 @@ type QuizMetadataRecord = {
 };
 
 type QuizVersionRecord = {
+  id?: string;
   quizId?: string;
   version?: number;
   questions?: ModuleQuiz["questions"];
@@ -171,6 +172,7 @@ const fetchQuizFromCollections = async (
 
   const version: QuizVersionRecord | null = versionRecord
     ? {
+        id: versionRecord.id,
         quizId: versionRecord.quizId,
         version: versionRecord.versionNumber,
         questions: versionRecord.questions as unknown as ModuleQuiz["questions"],
@@ -192,8 +194,8 @@ const gradeNumeric = (
   expected: string,
   toleranciaRelativa: number
 ): boolean => {
-  const r = parseFloat(response.replace(",", "."));
-  const e = parseFloat(expected.replace(",", "."));
+  const r = parseFloat(response.replace(/,/g, "."));
+  const e = parseFloat(expected.replace(/,/g, "."));
   if (Number.isNaN(r) || Number.isNaN(e)) return false;
   if (e === 0) return r === 0;
   return Math.abs(r - e) <= Math.abs(e) * toleranciaRelativa;
@@ -358,7 +360,7 @@ quizAttempts.post(
       data: {
         id: randomUUID(),
         quizId: payload.quizId,
-        quizVersionId: version?.quizId ?? "",
+        quizVersionId: version?.id ?? "",
         userId,
         seed: seed !== null ? String(seed) : null,
         answers: JSON.stringify({}),
@@ -459,8 +461,8 @@ quizAttempts.post(
       await prisma.quizAttempt.updateMany({
         where: { id: idParam },
         data: {
-          answers: payload.answers,
-          feedback,
+          answers: JSON.stringify(payload.answers),
+          feedback: JSON.stringify(feedback),
           status: "submitted",
           score,
           maxScore,
