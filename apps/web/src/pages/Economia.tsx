@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../auth/use-auth';
-import { useTheme } from '../theme/ThemeContext';
 import { apiGet, apiPost } from '../lib/api';
 
 type EducationMessage = {
@@ -133,15 +132,8 @@ const defaultEconomyState: EconomyState = {
   activeTheme: "clasico",
 };
 
-const formatMoney = (value: number) =>
-  value.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-const formatDelta = (value: number, suffix: string) =>
-  `${value > 0 ? '+' : ''}${value} ${suffix}`;
-
 export default function Economia() {
   const { user } = useAuth();
-  const { theme, availableThemes } = useTheme();
 
   const [activeTab, setActiveTab] = useState<'tablero' | 'invertir' | 'simulador' | 'intercambio'>('tablero');
 
@@ -156,7 +148,7 @@ export default function Economia() {
   const [educationMessages, setEducationMessages] = useState<EducationMessage[]>([]);
   const [coinFeedback, setCoinFeedback] = useState<CoinFeedback | null>(null);
   const [openSimulationId, setOpenSimulationId] = useState<string | null>(null);
-  const [saldoStatus, setSaldoStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  const [, setSaldoStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [cicloActivo, setCicloActivo] = useState<CicloActivo | null>(null);
   const [plazos, setPlazos] = useState<PlazoFijo[]>([]);
   const [fcis, setFcis] = useState<FciPosicion[]>([]);
@@ -254,12 +246,6 @@ export default function Economia() {
     return () => { active = false; };
   }, [user?.id]);
 
-  const economyStatus = useMemo(() => {
-    if (economy.coins >= 200) return { label: "Súper sólida", description: "Tenés un ahorro alto para gastar sin apuro." };
-    if (economy.coins >= 100) return { label: "Estable", description: "Podés gastar un poco y seguir ahorrando." };
-    return { label: "En recuperación", description: "Conviene ganar monedas antes de comprar." };
-  }, [economy.coins]);
-
   const fixedTermInterest = useMemo(() => {
     const amount = Math.max(0, fixedTermAmount);
     const rate = Math.max(0, fixedTermRate);
@@ -277,11 +263,6 @@ export default function Economia() {
   }, [fciAmount, fciRate, fciDays]);
 
   const fciTotal = useMemo(() => fciAmount + fciInterest, [fciAmount, fciInterest]);
-
-  const themeStatus = useMemo(() => {
-    const activeTheme = availableThemes.find((item) => item.id === theme);
-    return activeTheme ? activeTheme.name : "Tema personalizado";
-  }, [theme, availableThemes]);
 
   const pushEducationMessage = (message: Omit<EducationMessage, "id">) => {
     setEducationMessages((prev) => [{ ...message, id: crypto.randomUUID() }, ...prev].slice(0, 4));

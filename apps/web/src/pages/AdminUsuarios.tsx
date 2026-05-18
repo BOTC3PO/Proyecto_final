@@ -70,11 +70,6 @@ export default function AdminUsuarios() {
     loadUsuarios(q);
   }, [q, loadUsuarios]);
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    setQ(searchInput);
-  };
-
   const handlePromote = async () => {
     if (!modal || modal.type !== "promote") return;
     setSubmitting(true);

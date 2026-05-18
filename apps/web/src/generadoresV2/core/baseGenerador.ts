@@ -38,7 +38,7 @@ export abstract class BaseGenerador {
         );
         if (enunciadoTemplate) {
           const ctx: Record<string, unknown> = {
-            ...(ejercicio.datos ?? {}),
+            ...("datos" in ejercicio ? ejercicio.datos ?? {} : {}),
             subtipo: ejercicio.subtipo,
             dificultad: ejercicio.dificultad,
             ...(ejercicio.tipo === "quiz" ? {

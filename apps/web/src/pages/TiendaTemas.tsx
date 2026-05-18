@@ -141,7 +141,7 @@ export default function TiendaTemas() {
 
   const [economy, setEconomy] = useState<EconomyState>(defaultEconomyState);
   const [catalogoTienda, setCatalogoTienda] = useState<TiendaItemAPI[]>([]);
-  const [misItems, setMisItems] = useState<UsuarioItem[]>([]);
+  const [, setMisItems] = useState<UsuarioItem[]>([]);
   const [tiendaLoading, setTiendaLoading] = useState(true);
   const [comprando, setComprando] = useState<string | null>(null);
   const [tiendaMsg, setTiendaMsg] = useState<string | null>(null);
@@ -306,7 +306,6 @@ export default function TiendaTemas() {
           <>
             {/* ── Tema oficial VB2 — gratuito y destacado ── */}
             {availableThemes.find(t => t.id === 'vb2') && (() => {
-              const t = availableThemes.find(t => t.id === 'vb2')!;
               const meta = THEME_META['vb2']!;
               const isActive = theme === 'vb2';
               return (

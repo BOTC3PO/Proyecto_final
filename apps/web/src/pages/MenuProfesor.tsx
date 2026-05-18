@@ -5,7 +5,6 @@ import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
 import type { Module, ModuleDependency } from "../domain/module/module.types";
 import type { Classroom } from "../domain/classroom/classroom.types";
-import { getSubjectColor } from "../domain/module/subjectColors";
 import {
   fetchProfesorMenuDashboard,
   filterProfesorQuickLinks,
@@ -65,12 +64,12 @@ export default function menuProfesor() {
   const [modules, setModules] = useState<Module[]>([]);
   const [modulesStatus, setModulesStatus] = useState<"loading" | "ready" | "error">("loading");
   const [_modulesError, setModulesError] = useState<string | null>(null);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("todas");
-  const [selectedVisibility, setSelectedVisibility] = useState("todas");
-  const [selectedSubject, setSelectedSubject] = useState("todas");
+  const [searchTerm] = useState("");
+  const [selectedCategory] = useState("todas");
+  const [selectedVisibility] = useState("todas");
+  const [selectedSubject] = useState("todas");
   const [selectedGraphModuleId, setSelectedGraphModuleId] = useState("");
-  const [showFullPath, setShowFullPath] = useState(false);
+  const [showFullPath] = useState(false);
   const [dashboard, setDashboard] = useState<ProfesorMenuDashboard | null>(null);
   const [dashboardLoading, setDashboardLoading] = useState(true);
   const [dashboardError, setDashboardError] = useState<string | null>(null);
@@ -87,7 +86,7 @@ export default function menuProfesor() {
   const [modoAulaLoading, setModoAulaLoading] = useState(false);
   const [modoAulaDuracion, setModoAulaDuracion] = useState(60);
   const [modoAulaTimer, setModoAulaTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
-  const [modoAulaExpira, setModoAulaExpira] = useState<Date | null>(null);
+  const [, setModoAulaExpira] = useState<Date | null>(null);
 
   const _categoryOptions = useMemo(() => {
     const categories = modules
@@ -95,6 +94,7 @@ export default function menuProfesor() {
       .filter((category): category is string => Boolean(category));
     return Array.from(new Set(categories)).sort((a, b) => a.localeCompare(b));
   }, [modules]);
+  void _categoryOptions;
 
   const _filteredModules = useMemo(() => {
     const normalizedSearch = searchTerm.trim().toLowerCase();
@@ -132,6 +132,8 @@ export default function menuProfesor() {
         }
       : null
   ].filter(Boolean) as Array<{ label: string; key: string }>;
+  void _filteredModules;
+  void _activeFilters;
 
   useEffect(() => {
     let active = true;
@@ -289,6 +291,7 @@ export default function menuProfesor() {
       .filter((subject): subject is string => Boolean(subject));
     return Array.from(new Set(subjects)).sort((a, b) => a.localeCompare(b));
   }, [modules]);
+  void _subjectOptions;
 
   const graphModules = useMemo(() => {
     if (selectedSubject === "todas") {
@@ -394,6 +397,7 @@ export default function menuProfesor() {
       links
     };
   }, [dependencyLinks, fullPathIds, graphModules]);
+  void _graphSpec;
 
   const graphSelection = useMemo(() => {
     if (!selectedGraphModuleId) {
@@ -427,6 +431,7 @@ export default function menuProfesor() {
 
     return { previous, next };
   }, [dependencyAdjacency, graphSelection, moduleById, reverseAdjacency, unlocksAdjacency]);
+  void _previewDependencies;
 
   useEffect(() => {
     if (graphModules.length === 0) {

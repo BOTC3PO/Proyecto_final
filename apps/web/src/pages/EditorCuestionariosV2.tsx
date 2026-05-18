@@ -17,7 +17,7 @@ import {
   sortableKeyboardCoordinates,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { apiGet, apiPost } from "../lib/api";
+import { apiGet } from "../lib/api";
 import type { ModuleQuizQuestion } from "../domain/module/module.types";
 import type { GeneratorDescriptor, Ejercicio, VisualSpec, LineChartSpec, VectorDiagramSpec, TimelineSpec, LatexSpec, StaticImageSpec } from "../generadoresV2/core/types";
 import { DeterministicPrng } from "../generadoresV2/core/prng";
@@ -1054,12 +1054,10 @@ function RecetaBar({
   fuentes,
   onRemove,
   onFlatten,
-  onSaveBank,
 }: {
   fuentes: FuenteReceta[];
   onRemove: (id: string) => void;
   onFlatten: () => void;
-  onSaveBank: () => void;
 }) {
   if (fuentes.length === 0) return null;
 
@@ -1070,7 +1068,6 @@ function RecetaBar({
       return qOrigen === "manual" ? "Manual" : `Ex-${qOrigen}`;
     }
     if (f.kind === "generador") {
-      const sub = f.config.subtipos[0] ?? "varios";
       return `${f.label.split("—")[1]?.trim() ?? f.label} × ${f.config.cantidad}`;
     }
     return `${f.quizTitle.slice(0, 20)} × ${f.cantidad === f.preguntasImportadas.length ? "todas" : f.cantidad}`;
@@ -1270,34 +1267,6 @@ export default function EditorCuestionariosV2() {
     setFuentes(questions.map((q) => ({ kind: "manual" as const, id: uid(), question: q })));
   };
 
-  const saveToBank = async () => {
-    if (questions.length === 0) return;
-    setExportStatus("saving");
-    try {
-      await apiPost("/api/quizzes", {
-        title: quizTitle.trim() || "Cuestionario sin título",
-        type: quizType,
-        visibility: "escuela",
-        instructions: instructions.trim() || undefined,
-        questions: questions.map((q) => ({
-          prompt: q.prompt,
-          questionType: q.questionType,
-          options: q.options?.length ? q.options : undefined,
-          answerKey: q.answerKey || undefined,
-          explanation: q.explanation || undefined,
-          toleranciaRelativa: q.toleranciaRelativa,
-          unidades: q.unidades,
-          pasos: q.pasos?.length ? q.pasos : undefined,
-        })),
-        recipe: { fuentes: fuentes.map((f) => ({ kind: f.kind })) },
-      });
-      setExportStatus("saved");
-      setTimeout(() => setExportStatus("idle"), 2500);
-    } catch {
-      setExportStatus("error");
-      setTimeout(() => setExportStatus("idle"), 2500);
-    }
-  };
 
   const buildExportJson = () => ({
     title: quizTitle.trim() || "Cuestionario sin título",
@@ -1446,7 +1415,7 @@ export default function EditorCuestionariosV2() {
       </div>
 
       {/* ── Recipe bar ──────────────────────────────────────────── */}
-      <RecetaBar fuentes={fuentes} onRemove={removeFuente} onFlatten={flattenReceta} onSaveBank={saveToBank} />
+      <RecetaBar fuentes={fuentes} onRemove={removeFuente} onFlatten={flattenReceta} />
 
       {/* ── 3-column layout ─────────────────────────────────────── */}
       <div className="flex-1 flex overflow-hidden">

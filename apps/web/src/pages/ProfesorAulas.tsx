@@ -6,7 +6,6 @@ import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/cla
 import { useAuth } from "../auth/use-auth";
 import {
   createClassroom,
-  deleteClassroom,
   fetchClassrooms,
   fetchClassroomProgressSnapshots,
   updateClassroom,
@@ -39,8 +38,6 @@ export default function ProfesorAulas() {
   const [reportSelections, setReportSelections] = useState<Record<string, { format: "pdf" | "xlsx"; studentId: string }>>(
     {}
   );
-  const [deletePromptId, setDeletePromptId] = useState<string | null>(null);
-  const [downloadOnDelete, setDownloadOnDelete] = useState<Record<string, boolean>>({});
   const [mostrarArchivadas, setMostrarArchivadas] = useState(false);
   const [escuelas, setEscuelas] = useState<Array<{ id: string; name: string }>>([]);
   const [materias, setMaterias] = useState<string[]>([]);
@@ -233,45 +230,6 @@ export default function ProfesorAulas() {
       institutionId: classroom.institutionId ?? "",
       category: classroom.category ?? ""
     });
-  };
-
-  const handleDelete = async (classroomId: string) => {
-    setSubmitError(null);
-    setIsSubmitting(true);
-    try {
-      if (downloadOnDelete[classroomId]) {
-        const classroom = classrooms.find((item) => item.id === classroomId);
-        const progress = progressByClassroom[classroomId];
-        if (classroom && progress) {
-          const exportPayload = {
-            classroom,
-            progreso: progress,
-            exportadoEn: new Date().toISOString()
-          };
-          const blob = new Blob([JSON.stringify(exportPayload, null, 2)], { type: "application/json" });
-          const url = URL.createObjectURL(blob);
-          const link = document.createElement("a");
-          link.href = url;
-          link.download = `aula-${classroom.name.replace(/\s+/g, "-").toLowerCase()}-respaldo.json`;
-          link.click();
-          URL.revokeObjectURL(url);
-        }
-      }
-      await deleteClassroom(classroomId);
-      setClassrooms((prev) => prev.filter((classroom) => classroom.id !== classroomId));
-      if (editingId === classroomId) {
-        resetForm();
-      }
-      setDeletePromptId(null);
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setSubmitError(err.message);
-      } else {
-        setSubmitError("No se pudo eliminar el aula.");
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   const handleArchiveToggle = async (classroom: Classroom) => {
