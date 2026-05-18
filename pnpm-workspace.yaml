@@ -2,7 +2,7 @@ packages:
   - 'apps/*'
   - 'api'
 allowBuilds:
-  '@prisma/engines': set this to true or false
+  '@prisma/engines': false
   better-sqlite3: true
   esbuild: true
   prisma: true
