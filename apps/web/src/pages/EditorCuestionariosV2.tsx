@@ -601,10 +601,12 @@ function QuestionCard({
 
   return (
     <div className={`rounded-lg border transition-colors ${isActive ? "border-[var(--c-primary)]" : "border-[var(--c-border)]"}`}>
-      <button
-        type="button"
-        className="w-full flex items-center justify-between gap-2 px-3 py-2 text-left hover:bg-[var(--c-bg)] rounded-lg transition-colors"
+      <div
+        role="button"
+        tabIndex={0}
+        className="w-full flex items-center justify-between gap-2 px-3 py-2 text-left hover:bg-[var(--c-bg)] rounded-lg transition-colors cursor-pointer"
         onClick={onActivate}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onActivate(); } }}
       >
         <div className="flex items-center gap-2 min-w-0">
           <span className="text-xs text-[var(--c-muted)] shrink-0">#{index + 1}</span>
@@ -623,7 +625,7 @@ function QuestionCard({
             title={origen !== "manual" ? "Quitá la fuente completa para eliminar esta pregunta" : "Quitar pregunta"}
             className="text-xs text-red-400 hover:text-red-600 px-1 disabled:opacity-30 disabled:cursor-not-allowed">×</button>
         </div>
-      </button>
+      </div>
 
       {isActive && (
         <div className="px-3 pb-3 space-y-2 border-t border-[var(--c-border)]">
