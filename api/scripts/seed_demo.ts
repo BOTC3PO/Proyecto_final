@@ -569,9 +569,13 @@ async function main() {
   console.log("Saldos:  Juan Pérez 340 PF, Ana López 120 PF");
 }
 
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(() => prisma.$disconnect());
+export { main as runSeedDemo };
+
+if (require.main === module) {
+  main()
+    .catch((e) => {
+      console.error(e);
+      process.exit(1);
+    })
+    .finally(() => prisma.$disconnect());
+}

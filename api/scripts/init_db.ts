@@ -59,6 +59,10 @@ async function main() {
   console.log("[init_db] Contraseña para todos: Password123!");
 }
 
-main()
-  .catch(e => { console.error("[init_db] Error:", e); process.exit(1); })
-  .finally(() => prisma.$disconnect());
+export { main as runInitDb };
+
+if (require.main === module) {
+  main()
+    .catch(e => { console.error("[init_db] Error:", e); process.exit(1); })
+    .finally(() => prisma.$disconnect());
+}
