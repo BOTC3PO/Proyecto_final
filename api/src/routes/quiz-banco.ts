@@ -156,7 +156,7 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
 // GET /api/quizzes/banco/:quizId/questions
 quizBanco.get("/api/quizzes/banco/:quizId/questions", requireUser, async (req, res) => {
   try {
-    const { quizId } = req.params;
+    const quizId = Array.isArray(req.params.quizId) ? req.params.quizId[0] : req.params.quizId;
     const user = req.user as { schoolId?: string | null } | undefined;
     const userSchoolId = typeof user?.schoolId === "string" ? user.schoolId : null;
 
