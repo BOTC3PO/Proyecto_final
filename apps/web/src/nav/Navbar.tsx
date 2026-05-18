@@ -69,8 +69,6 @@ function DropdownIcon({ name }: { name: string }) {
   return null;
 }
 
-// Páginas que usan el navbar público
-const PUBLIC_PAGES = ['/', '/metodologia', '/explorar', '/contact', '/login', '/register'];
 const publicHomePath = '/';
 
 
@@ -375,7 +373,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           {role === 'USER' && user?.id && <CoinBadge userId={user.id} />}
-          {role !== 'GUEST' ? (
+          {user ? (
             <div className="relative" ref={userMenuRef}>
               {/* Avatar / botón trigger */}
               <button

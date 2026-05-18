@@ -1,7 +1,7 @@
 import type { PRNG } from "./prng";
 import type { Dificultad, Ejercicio, Calculator, GeneratorDescriptor, Materia } from "./types";
 import * as S from "./shared";
-import { applyEnunciadoTemplate } from "./shared";
+import { applyEnunciadoTemplateExt } from "./shared";
 
 export abstract class BaseGenerador {
   abstract readonly id: string;
@@ -36,10 +36,20 @@ export abstract class BaseGenerador {
           dificultad,
           { calcular: () => ({ resultado: 0, pasos: [] }) }
         );
-        if (enunciadoTemplate && ejercicio.datos) {
+        if (enunciadoTemplate) {
+          const ctx: Record<string, unknown> = {
+            ...("datos" in ejercicio ? ejercicio.datos ?? {} : {}),
+            subtipo: ejercicio.subtipo,
+            dificultad: ejercicio.dificultad,
+            ...(ejercicio.tipo === "quiz" ? {
+              respuesta: ejercicio.opciones[ejercicio.indiceCorrecto],
+            } : {}),
+            ...(ejercicio.tipo === "numerico" ? { resultado: ejercicio.resultado } : {}),
+            ...(ejercicio.tipo === "completar" ? { respuesta: ejercicio.respuestaCorrecta } : {}),
+          };
           return {
             ...ejercicio,
-            enunciado: applyEnunciadoTemplate(enunciadoTemplate, ejercicio.datos as Record<string, unknown>),
+            enunciado: applyEnunciadoTemplateExt(enunciadoTemplate, ctx),
           };
         }
         return ejercicio;

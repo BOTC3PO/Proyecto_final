@@ -462,6 +462,17 @@ export default function EditorCuestionarios() {
         </div>
       </header>
 
+      {/* ── Banner nuevo editor ─────────────────────────────────────── */}
+      <div className="flex items-center justify-center gap-2 px-4 py-1.5 bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] border-b border-[var(--c-border)] text-xs text-[var(--c-primary)]">
+        <span>Hay un editor nuevo disponible.</span>
+        <Link
+          to="/profesor/editor-cuestionarios-v2"
+          className="font-semibold underline hover:opacity-80"
+        >
+          ✨ Probar el nuevo editor
+        </Link>
+      </div>
+
       {/* ── Two-panel layout ────────────────────────────────────────── */}
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-[var(--c-border)] overflow-hidden">
         {/* ════════════════════════════════════════════════════════════

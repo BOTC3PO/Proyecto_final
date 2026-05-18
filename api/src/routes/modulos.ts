@@ -145,6 +145,7 @@ modulos.get("/api/modulos/:id", async (req, res) => {
 });
 
 modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+  let parsed: ReturnType<typeof ModuleSchema.parse>;
   try {
     const moduleId =
       typeof req.body?.id === "string" && req.body.id.trim()
@@ -158,7 +159,12 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
       createdAt: req.body?.createdAt ?? new Date().toISOString(),
       updatedAt: req.body?.updatedAt ?? new Date().toISOString()
     };
-    const parsed = ModuleSchema.parse(payload);
+    parsed = ModuleSchema.parse(payload);
+  } catch (e: any) {
+    return res.status(400).json({ error: e?.message ?? "invalid payload" });
+  }
+
+  try {
     if (parsed.aulaId) {
       const classroom = await prisma.clase.findFirst({
         where: { id: parsed.aulaId },
@@ -168,11 +174,58 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
         return;
       }
     }
-    const { status: _status, aulaId: _aulaId, ...moduloData } = withDefaultStatus(parsed) as any;
-    const result = await prisma.modulo.create({ data: moduloData });
-    res.status(201).json({ id: result.id, moduleId: parsed.id });
+    const moduloData = {
+      id: parsed.id,
+      titulo: parsed.title,
+      descripcion: parsed.description,
+      visibility: parsed.visibility,
+      schoolId: parsed.schoolId ?? null,
+      ownerUserId: parsed.createdBy,
+      dependencies: parsed.dependencies.length ? JSON.stringify(parsed.dependencies) : null,
+      createdAt: parsed.createdAt,
+      updatedAt: parsed.updatedAt,
+    };
+    let result: { id: string };
+    await prisma.$transaction(async (tx) => {
+      result = await tx.modulo.create({ data: moduloData });
+      for (const quiz of parsed.quizzes ?? []) {
+        const versionId = generateId();
+        await tx.quiz.create({
+          data: {
+            id: quiz.id,
+            moduleId: parsed.id,
+            title: quiz.title,
+            createdAt: parsed.createdAt,
+            updatedAt: parsed.updatedAt,
+          },
+        });
+        await tx.quizVersion.create({
+          data: {
+            id: versionId,
+            quizId: quiz.id,
+            versionNumber: 1,
+            questions: JSON.stringify(quiz.questions ?? []),
+            generatorId: quiz.generatorId ?? null,
+            generatorVersion: quiz.generatorVersion?.toString() ?? null,
+            params: quiz.params ? JSON.stringify(quiz.params) : null,
+            count: quiz.count ?? null,
+            seedPolicy: quiz.seedPolicy ? parseInt(quiz.seedPolicy, 10) : 0,
+            fixedSeed: quiz.fixedSeed !== undefined ? String(quiz.fixedSeed) : null,
+            settings: JSON.stringify({ type: quiz.type, mode: quiz.mode, visibility: quiz.visibility, materia: parsed.subject }),
+            createdAt: parsed.createdAt,
+            createdBy: parsed.createdBy,
+          },
+        });
+        await tx.quiz.update({
+          where: { id: quiz.id },
+          data: { currentVersionId: versionId },
+        });
+      }
+    });
+    res.status(201).json({ id: result!.id, moduleId: parsed.id });
   } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
+    console.error("[POST /api/modulos]", e);
+    res.status(500).json({ error: "internal server error" });
   }
 });
 
@@ -190,12 +243,18 @@ modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), as
         return;
       }
     }
-    const { status: _status, aulaId: _aulaId, ...updateFields } = parsed as any;
-    const update = { ...updateFields, updatedAt: new Date().toISOString() };
-    await prisma.modulo.updateMany({ where: { id: req.params.id as string }, data: update });
+    const updateData: Record<string, unknown> = { updatedAt: new Date().toISOString() };
+    if ((parsed as any).title !== undefined) updateData.titulo = (parsed as any).title;
+    if ((parsed as any).description !== undefined) updateData.descripcion = (parsed as any).description;
+    if ((parsed as any).visibility !== undefined) updateData.visibility = (parsed as any).visibility;
+    if ((parsed as any).schoolId !== undefined) updateData.schoolId = (parsed as any).schoolId ?? null;
+    if ((parsed as any).createdBy !== undefined) updateData.ownerUserId = (parsed as any).createdBy;
+    if ((parsed as any).dependencies !== undefined) updateData.dependencies = JSON.stringify((parsed as any).dependencies);
+    await prisma.modulo.updateMany({ where: { id: req.params.id as string }, data: updateData });
     res.json({ ok: true });
   } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
+    console.error("[PUT /api/modulos/:id]", e);
+    res.status(500).json({ error: "internal server error" });
   }
 });
 
@@ -213,12 +272,18 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
         return;
       }
     }
-    const { status: _status, aulaId: _aulaId, ...updateFields } = parsed as any;
-    const update = { ...updateFields, updatedAt: new Date().toISOString() };
-    await prisma.modulo.updateMany({ where: { id: req.params.id as string }, data: update });
+    const updateData: Record<string, unknown> = { updatedAt: new Date().toISOString() };
+    if ((parsed as any).title !== undefined) updateData.titulo = (parsed as any).title;
+    if ((parsed as any).description !== undefined) updateData.descripcion = (parsed as any).description;
+    if ((parsed as any).visibility !== undefined) updateData.visibility = (parsed as any).visibility;
+    if ((parsed as any).schoolId !== undefined) updateData.schoolId = (parsed as any).schoolId ?? null;
+    if ((parsed as any).createdBy !== undefined) updateData.ownerUserId = (parsed as any).createdBy;
+    if ((parsed as any).dependencies !== undefined) updateData.dependencies = JSON.stringify((parsed as any).dependencies);
+    await prisma.modulo.updateMany({ where: { id: req.params.id as string }, data: updateData });
     res.json({ ok: true });
   } catch (e: any) {
-    res.status(400).json({ error: e?.message ?? "invalid payload" });
+    console.error("[PATCH /api/modulos/:id]", e);
+    res.status(500).json({ error: "internal server error" });
   }
 });
 

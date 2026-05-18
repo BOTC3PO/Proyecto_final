@@ -12,7 +12,7 @@ export type CatalogItem = {
   id: string;
   materia: string;
   label: string;
-  subtipos: { id: string; label: string; tieneGrafico?: boolean }[];
+  subtipos: { id: string; label: string; tieneGrafico?: boolean; variablesDisponibles?: string[] }[];
   enunciadosPersonalizados?: Record<string, string>;
 };
 

@@ -105,7 +105,7 @@ export default function ModuloDetail() {
     useState<Record<string, Array<{ id: string; label: string }>>>({});
   const [attemptsByQuiz, setAttemptsByQuiz] = useState<Record<string, QuizAttemptSummary[]>>({});
   const [ttsActivo, setTtsActivo] = useState(false);
-  const [ttsIndex, setTtsIndex] = useState(0);
+  const [, setTtsIndex] = useState(0);
   const [dictOpen, setDictOpen] = useState(false);
   const [dictQuery, setDictQuery] = useState("");
   const [dictEntry, setDictEntry] = useState<EntradaDiccionario | null>(null);
@@ -128,8 +128,8 @@ export default function ModuloDetail() {
     if (module?.description) textos.push(module.description);
 
     for (const bloque of bloques) {
-      if (bloque.type === "text" && bloque.content) {
-        textos.push(bloque.content);
+      if (bloque.type === "text" && bloque.detail) {
+        textos.push(bloque.detail);
       }
       if (bloque.type === "image") {
         if ((bloque as { alt?: string }).alt) {

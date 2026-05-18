@@ -15,6 +15,21 @@ type BancoItem = {
   previewQuestions: { prompt: string; questionType: string }[];
 };
 
+type ModuleQuizQuestion = {
+  id: string;
+  prompt: string;
+  questionType?: string;
+  options?: string[];
+  answerKey?: string | string[];
+  explanation?: string;
+  focus?: string | null;
+  visualContext?: string;
+  toleranciaRelativa?: number;
+  unidades?: Record<string, string>;
+  datos?: Record<string, unknown>;
+  pasos?: string[];
+};
+
 function parseJsonSafe<T>(raw: string | null | undefined, fallback: T): T {
   if (!raw) return fallback;
   try {
@@ -61,6 +76,7 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
         OR: visibilityFilter,
       },
       select: { id: true, titulo: true, visibility: true, schoolId: true },
+      take: 500,
     });
 
     const moduloIds = modulos.map((m) => m.id);
@@ -70,7 +86,11 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
     }
 
     const quizzes = await prisma.quiz.findMany({
-      where: { moduleId: { in: moduloIds }, isActive: true },
+      where: {
+        moduleId: { in: moduloIds },
+        isActive: true,
+        ...(q ? { title: { contains: q, mode: "insensitive" as const } } : {}),
+      },
       include: {
         versions: {
           orderBy: { versionNumber: "desc" },
@@ -78,6 +98,7 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
         },
         modulo: { select: { visibility: true, schoolId: true } },
       },
+      take: 1000,
     });
 
     const moduloMap = new Map(modulos.map((m) => [m.id, m]));
@@ -127,6 +148,68 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
     const paginated = items.slice(offsetNum, offsetNum + limitNum);
 
     res.json({ items: paginated, total });
+  } catch (err) {
+    res.status(500).json({ error: err instanceof Error ? err.message : "internal server error" });
+  }
+});
+
+// GET /api/quizzes/banco/:quizId/questions
+quizBanco.get("/api/quizzes/banco/:quizId/questions", requireUser, async (req, res) => {
+  try {
+    const quizId = Array.isArray(req.params.quizId) ? req.params.quizId[0] : req.params.quizId;
+    const user = req.user as { schoolId?: string | null } | undefined;
+    const userSchoolId = typeof user?.schoolId === "string" ? user.schoolId : null;
+
+    const quiz = await prisma.quiz.findUnique({
+      where: { id: quizId },
+      include: {
+        versions: {
+          orderBy: { versionNumber: "desc" },
+          take: 1,
+        },
+        modulo: {
+          select: { visibility: true, schoolId: true },
+        },
+      },
+    });
+
+    if (!quiz) {
+      res.status(404).json({ error: "Quiz not found" });
+      return;
+    }
+
+    const version = quiz.versions[0];
+    if (!version) {
+      res.status(404).json({ error: "No version found" });
+      return;
+    }
+
+    const { visibility, schoolId: moduleSchoolId } = quiz.modulo;
+    const isAdmin = visibility === "publico" && moduleSchoolId === null;
+    const isEscuela =
+      visibility === "escuela" &&
+      moduleSchoolId !== null &&
+      moduleSchoolId === userSchoolId;
+
+    if (!isAdmin && !isEscuela) {
+      res.status(403).json({ error: "Access denied" });
+      return;
+    }
+
+    const questions = parseJsonSafe<ModuleQuizQuestion[]>(version.questions ?? null, []);
+    const title = quiz.title ?? "";
+
+    const response: Record<string, unknown> = { quizId: quiz.id, title, questions };
+
+    if (version.generatorId && version.generatorVersion && version.count != null) {
+      const params = parseJsonSafe<Record<string, unknown>>(version.params ?? null, {});
+      response.generatorId = version.generatorId;
+      response.generatorVersion = version.generatorVersion;
+      response.params = params;
+      response.count = version.count;
+    }
+
+    res.json(response);
   } catch (err) {
     res.status(500).json({ error: err instanceof Error ? err.message : "internal server error" });
   }

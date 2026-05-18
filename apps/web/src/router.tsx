@@ -68,6 +68,7 @@ const ProfesorCalendario    = lazyWithRetry(() => import("./pages/ProfesorCalend
 // Ya eran lazy — mantener igual
 const LaboratorioWeb3    = lazyWithRetry(() => import("./pages/LaboratorioWeb3"));
 const EditorCuestionarios = lazyWithRetry(() => import("./pages/EditorCuestionarios"));
+const EditorCuestionariosV2 = lazyWithRetry(() => import("./pages/EditorCuestionariosV2"));
 const AdminGeneradores    = lazyWithRetry(() => import("./pages/AdminGeneradores"));
 
 // Resto de páginas → lazy
@@ -574,6 +575,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO', 'USER']}>
                 {withSuspense(<EditorCuestionarios />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/editor-cuestionarios-v2',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO', 'USER']}>
+                {withSuspense(<EditorCuestionariosV2 />)}
               </ProtectedRoute>
             ),
           },

@@ -1117,6 +1117,7 @@ const BLOCK_TYPE_LABELS: Record<Block["type"], string> = {
   flow:  "Diagrama de flujo",
   math:  "Función matemática",
   shape: "Diagrama de formas",
+  image: "Imagen",
 };
 
 function createEmptyBlock(type: "chart" | "table" | "latex" | "flow"): Block {

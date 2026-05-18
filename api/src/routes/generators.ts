@@ -50,14 +50,22 @@ generators.get("/api/generators", async (_req, res) => {
 
     const items = rows.map((row) => {
       const allSubtipos = parseJson<{ id: string; label: string; activo?: boolean; tieneGrafico?: boolean }[]>(row.subtipos, []);
-      const docEntry = docs[row.id] as { subtipos?: Record<string, { tieneGrafico?: boolean }> } | undefined;
+      type DocSubtipo = { tieneGrafico?: boolean; variables?: Record<string, unknown> };
+      const docEntry = docs[row.id] as { subtipos?: Record<string, DocSubtipo> } | undefined;
+      const docSubtipos = docEntry?.subtipos ?? {};
+      const BASE_VARS = ["respuesta", "subtipo", "dificultad"];
       const subtipos = allSubtipos
         .filter((s) => s.activo !== false)
-        .map((s) => ({
-          id: s.id,
-          label: s.label,
-          tieneGrafico: s.tieneGrafico ?? docEntry?.subtipos?.[s.id]?.tieneGrafico ?? false,
-        }));
+        .map((s) => {
+          const docSub = docSubtipos[s.id];
+          const extraVars = Object.keys(docSub?.variables ?? {});
+          return {
+            id: s.id,
+            label: s.label,
+            tieneGrafico: s.tieneGrafico ?? docSub?.tieneGrafico ?? false,
+            variablesDisponibles: [...new Set([...extraVars, ...BASE_VARS])],
+          };
+        });
       const enunciadosPersonalizados = parseJson<Record<string, string>>(row.enunciados, {});
       return {
         id: row.id,

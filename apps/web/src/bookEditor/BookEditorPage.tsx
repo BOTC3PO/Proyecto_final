@@ -2166,7 +2166,7 @@ export default function BookEditorPage() {
               : selectedBlock.type === 'image' ? 'Imagen'
               : selectedBlock.type === 'divider' ? '─ Separador'
               : selectedBlock.type === 'pageBreak' ? 'Salto de página'
-              : selectedBlock.type}
+              : (selectedBlock as { type: string }).type}
           </span>
         </div>
       )}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { LineChartSpec, VectorDiagramSpec, StaticImageSpec, TimelineSpec, LatexSpec } from "../../generadoresV2/core/types";
+import type { LineChartSpec, VectorDiagramSpec, StaticImageSpec, LatexSpec } from "../../generadoresV2/core/types";
 
 interface HerramientaPickerProps {
   isOpen: boolean;
