@@ -98,6 +98,15 @@ type QuizAttemptRecord = {
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 
+function safeJsonParse<T>(value: string | null | undefined, fallback: T): T {
+  if (!value) return fallback;
+  try {
+    return JSON.parse(value) as T;
+  } catch {
+    return fallback;
+  }
+}
+
 const findQuiz = (module: ModuleWithQuizzes | null, quizId: string) => {
   if (!module) return null;
   const direct = module.quizzes?.find((quiz) => quiz.id === quizId);
@@ -356,11 +365,16 @@ quizAttempts.post(
       );
       maxScore = generatedCount;
     }
+    if (!version?.id) {
+      return res.status(400).json({
+        error: "Este quiz no tiene una versión válida. Pedile al profesor que regenere el módulo.",
+      });
+    }
     const result = await prisma.quizAttempt.create({
       data: {
         id: randomUUID(),
         quizId: payload.quizId,
-        quizVersionId: version?.id ?? "",
+        quizVersionId: version.id,
         userId,
         seed: seed !== null ? String(seed) : null,
         answers: JSON.stringify({}),
@@ -413,8 +427,12 @@ quizAttempts.get(
     quizTitle: quiz?.title ?? metadata?.title ?? module?.title ?? "Quiz",
     status: attempt.status,
     questions: quiz?.questions ?? [],
-    answers: attempt.answers,
-    feedback: attempt.feedback ?? {},
+    answers: attempt.answers
+      ? safeJsonParse(attempt.answers as unknown as string, {} as Record<string, unknown>)
+      : {},
+    feedback: attempt.feedback
+      ? safeJsonParse(attempt.feedback as unknown as string, {} as Record<string, unknown>)
+      : {},
     quiz: quiz ? { title: quiz.title, questions: quiz.questions ?? [] } : undefined,
     generatorId: quiz?.generatorId ?? undefined,
     seed: attempt.seed ?? undefined,

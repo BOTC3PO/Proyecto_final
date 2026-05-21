@@ -28,6 +28,15 @@ const clampLimit = (value: string | undefined) => {
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 
+function safeJsonParse<T>(value: string | null | undefined, fallback: T): T {
+  if (!value) return fallback;
+  try {
+    return JSON.parse(value) as T;
+  } catch {
+    return fallback;
+  }
+}
+
 const escapeRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const parseVisibilityList = (value: unknown) => {
@@ -139,9 +148,65 @@ modulos.get("/api/modulos", async (req, res) => {
 });
 
 modulos.get("/api/modulos/:id", async (req, res) => {
-  const item = await prisma.modulo.findFirst({ where: { id: req.params.id as string } });
-  if (!item) return res.status(404).json({ error: "not found" });
-  res.json(withDefaultStatus(item));
+  try {
+    const item = await prisma.modulo.findFirst({
+      where: { id: req.params.id as string },
+      include: {
+        quizzes: {
+          where: { isActive: true },
+          include: {
+            versions: {
+              orderBy: { versionNumber: "desc" },
+              take: 1,
+            },
+          },
+        },
+      },
+    });
+
+    if (!item) return res.status(404).json({ error: "not found" });
+
+    const moduleDto: Record<string, unknown> = {
+      id: item.id,
+      slug: item.slug ?? undefined,
+      title: item.titulo,
+      description: item.descripcion ?? "",
+      visibility: item.visibility,
+      schoolId: item.schoolId ?? undefined,
+      dependencies: item.dependencies
+        ? safeJsonParse(item.dependencies, [] as unknown[])
+        : [],
+      createdBy: item.ownerUserId ?? "",
+      createdAt: item.createdAt,
+      updatedAt: item.updatedAt,
+      teoriaId: item.teoriaId ?? undefined,
+      quizzes: item.quizzes.map((q) => {
+        const v = q.versions[0];
+        const settings = v?.settings ? safeJsonParse(v.settings, {} as Record<string, unknown>) : {};
+        return {
+          id: q.id,
+          title: q.title ?? "",
+          type: (settings as any).type ?? "practica",
+          mode: (settings as any).mode,
+          visibility: (settings as any).visibility ?? "publico",
+          questions: v?.questions ? safeJsonParse(v.questions, [] as unknown[]) : [],
+          generatorId: v?.generatorId ?? undefined,
+          generatorVersion: v?.generatorVersion
+            ? Number(v.generatorVersion)
+            : undefined,
+          params: v?.params ? safeJsonParse(v.params, undefined as unknown) : undefined,
+          count: v?.count ?? undefined,
+          seedPolicy: v?.seedPolicy ?? undefined,
+          fixedSeed: v?.fixedSeed ?? undefined,
+        };
+      }),
+    };
+
+    res.json(withDefaultStatus(moduleDto));
+  } catch (e: any) {
+    console.error("[modulos GET :id]", e);
+    res.status(500).json({ error: e.message ?? "internal" });
+  }
 });
 
 modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
@@ -229,6 +294,131 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
   }
 });
 
+async function applyModuleUpdate(
+  moduleId: string,
+  parsed: Record<string, any>,
+  existing: { visibility: string; schoolId: string | null; dependencies: string | null },
+) {
+  const now = new Date().toISOString();
+
+  await prisma.$transaction(async (tx) => {
+    const updateData: Record<string, unknown> = { updatedAt: now };
+    if (parsed.title !== undefined) updateData.titulo = parsed.title;
+    if (parsed.description !== undefined) updateData.descripcion = parsed.description;
+    if (parsed.slug !== undefined) updateData.slug = parsed.slug;
+    if (parsed.visibility !== undefined) updateData.visibility = parsed.visibility;
+    if (parsed.schoolId !== undefined) updateData.schoolId = parsed.schoolId ?? null;
+    if (parsed.createdBy !== undefined) updateData.ownerUserId = parsed.createdBy;
+    if (parsed.dependencies !== undefined) {
+      updateData.dependencies = parsed.dependencies && parsed.dependencies.length
+        ? JSON.stringify(parsed.dependencies)
+        : null;
+    }
+    await tx.modulo.update({ where: { id: moduleId }, data: updateData });
+
+    if (parsed.quizzes === undefined) return;
+
+    const existingQuizzes = await tx.quiz.findMany({
+      where: { moduleId, isActive: true },
+      include: { versions: { orderBy: { versionNumber: "desc" }, take: 1 } },
+    });
+
+    const payloadQuizIds = new Set<string>(
+      (parsed.quizzes as any[]).filter((q) => q?.id).map((q) => q.id as string),
+    );
+
+    for (const oldQuiz of existingQuizzes) {
+      if (!payloadQuizIds.has(oldQuiz.id)) {
+        await tx.quiz.update({
+          where: { id: oldQuiz.id },
+          data: { isActive: false, updatedAt: now },
+        });
+      }
+    }
+
+    for (const q of parsed.quizzes as any[]) {
+      const settings = {
+        type: q.type ?? "practica",
+        mode: q.mode,
+        visibility: q.visibility ?? "publico",
+      };
+      const seedPolicyInt = q.seedPolicy ? parseInt(String(q.seedPolicy), 10) : 0;
+
+      const matched = q.id ? existingQuizzes.find((eq) => eq.id === q.id) : undefined;
+
+      if (matched) {
+        const latestVersion = matched.versions[0];
+        const newVersionNum = (latestVersion?.versionNumber ?? 0) + 1;
+        const newVersionId = `qv-${matched.id}-${newVersionNum}-${Date.now()}`;
+
+        await tx.quizVersion.create({
+          data: {
+            id: newVersionId,
+            quizId: matched.id,
+            versionNumber: newVersionNum,
+            questions: q.questions ? JSON.stringify(q.questions) : null,
+            generatorId: q.generatorId ?? null,
+            generatorVersion: q.generatorVersion ? String(q.generatorVersion) : null,
+            params: q.params ? JSON.stringify(q.params) : null,
+            count: q.count ?? null,
+            seedPolicy: seedPolicyInt,
+            fixedSeed: q.fixedSeed !== undefined ? String(q.fixedSeed) : null,
+            settings: JSON.stringify(settings),
+            createdAt: now,
+          },
+        });
+
+        await tx.quiz.update({
+          where: { id: matched.id },
+          data: {
+            title: q.title ?? "",
+            isActive: true,
+            currentVersionId: newVersionId,
+            updatedAt: now,
+          },
+        });
+      } else {
+        const newQuizId =
+          q.id ?? `qz-${moduleId}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+        const newVersionId = `qv-${newQuizId}-1`;
+
+        await tx.quiz.create({
+          data: {
+            id: newQuizId,
+            moduleId,
+            title: q.title ?? "",
+            isActive: true,
+            createdAt: now,
+            updatedAt: now,
+          },
+        });
+
+        await tx.quizVersion.create({
+          data: {
+            id: newVersionId,
+            quizId: newQuizId,
+            versionNumber: 1,
+            questions: q.questions ? JSON.stringify(q.questions) : null,
+            generatorId: q.generatorId ?? null,
+            generatorVersion: q.generatorVersion ? String(q.generatorVersion) : null,
+            params: q.params ? JSON.stringify(q.params) : null,
+            count: q.count ?? null,
+            seedPolicy: seedPolicyInt,
+            fixedSeed: q.fixedSeed !== undefined ? String(q.fixedSeed) : null,
+            settings: JSON.stringify(settings),
+            createdAt: now,
+          },
+        });
+
+        await tx.quiz.update({
+          where: { id: newQuizId },
+          data: { currentVersionId: newVersionId },
+        });
+      }
+    }
+  });
+}
+
 modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleUpdateSchema.parse(req.body);
@@ -243,17 +433,11 @@ modulos.put("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), as
         return;
       }
     }
-    const updateData: Record<string, unknown> = { updatedAt: new Date().toISOString() };
-    if ((parsed as any).title !== undefined) updateData.titulo = (parsed as any).title;
-    if ((parsed as any).description !== undefined) updateData.descripcion = (parsed as any).description;
-    if ((parsed as any).visibility !== undefined) updateData.visibility = (parsed as any).visibility;
-    if ((parsed as any).schoolId !== undefined) updateData.schoolId = (parsed as any).schoolId ?? null;
-    if ((parsed as any).createdBy !== undefined) updateData.ownerUserId = (parsed as any).createdBy;
-    if ((parsed as any).dependencies !== undefined) updateData.dependencies = JSON.stringify((parsed as any).dependencies);
-    await prisma.modulo.updateMany({ where: { id: req.params.id as string }, data: updateData });
+    await applyModuleUpdate(req.params.id as string, parsed as Record<string, any>, existing);
     res.json({ ok: true });
   } catch (e: any) {
     console.error("[PUT /api/modulos/:id]", e);
+    if (e?.issues) return res.status(400).json({ error: "validation", issues: e.issues });
     res.status(500).json({ error: "internal server error" });
   }
 });
@@ -272,17 +456,11 @@ modulos.patch("/api/modulos/:id", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), 
         return;
       }
     }
-    const updateData: Record<string, unknown> = { updatedAt: new Date().toISOString() };
-    if ((parsed as any).title !== undefined) updateData.titulo = (parsed as any).title;
-    if ((parsed as any).description !== undefined) updateData.descripcion = (parsed as any).description;
-    if ((parsed as any).visibility !== undefined) updateData.visibility = (parsed as any).visibility;
-    if ((parsed as any).schoolId !== undefined) updateData.schoolId = (parsed as any).schoolId ?? null;
-    if ((parsed as any).createdBy !== undefined) updateData.ownerUserId = (parsed as any).createdBy;
-    if ((parsed as any).dependencies !== undefined) updateData.dependencies = JSON.stringify((parsed as any).dependencies);
-    await prisma.modulo.updateMany({ where: { id: req.params.id as string }, data: updateData });
+    await applyModuleUpdate(req.params.id as string, parsed as Record<string, any>, existing);
     res.json({ ok: true });
   } catch (e: any) {
     console.error("[PATCH /api/modulos/:id]", e);
+    if (e?.issues) return res.status(400).json({ error: "validation", issues: e.issues });
     res.status(500).json({ error: "internal server error" });
   }
 });

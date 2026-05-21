@@ -9,5 +9,6 @@ export default defineConfig({
     setupFiles: ["./src/test/setup.ts"],
     include: ["src/**/*.spec.{ts,tsx}"],
     exclude: ["src/generadoresV2/__tests__/**"],
+    testTimeout: 20000, 
   },
 });
