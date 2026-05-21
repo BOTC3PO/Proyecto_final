@@ -1,0 +1,8 @@
+texto_analizar: "El gato come pescado fresco."
+
+etiquetas_pedidas:
+  - { id: "sujeto", nombre: "Sujeto", tipo: "nominal" }
+  - { id: "verbo", nombre: "Verbo", tipo: "verbal" }
+  - { id: "od", nombre: "Objeto directo", tipo: "nominal" }
+
+enunciado: "Identifica las funciones sintacticas."

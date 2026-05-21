@@ -1,0 +1,7 @@
+variables:
+  eventos: ["Revolucion de Mayo", "Cruce de los Andes", "Batalla de Caseros"]
+
+enunciado: "Ordena cronologicamente los siguientes eventos."
+
+respuesta_orden: [1, 2, 3]
+opciones_explicitas: eventos
