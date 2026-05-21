@@ -3,6 +3,9 @@ variables:
   b: random(-10, 10)
   c: random(-10, 10)
 
+restricciones:
+  - b^2 - 4*a*c >= 0
+
 enunciado: "Resolve {a}x^2 + {b}x + {c} = 0"
 
 respuestas_validas:

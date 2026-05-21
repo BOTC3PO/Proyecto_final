@@ -1,6 +1,21 @@
 export { parse } from "./parser/parser.js";
+export { compile } from "./runtime/compile.js";
+export { generate } from "./runtime/generate.js";
+export { createPrng } from "./runtime/prng.js";
 export { ParseError } from "./parser/errors.js";
 export { LexError } from "./lexer/errors.js";
+export {
+  EvalError,
+  RestriccionesNoSatisfechasError,
+} from "./evaluator/errors.js";
+
+export type { PRNG } from "./runtime/prng.js";
+export type {
+  CompiledPlantilla,
+  GenerationOptions,
+  GenerationResult,
+  OpcionGenerada,
+} from "./runtime/types.js";
 
 export type {
   Bloque,
@@ -41,17 +56,6 @@ export type {
   VariablesBloque,
   VisualBloque,
 } from "./parser/ast.js";
-
-export function compile(ast: unknown): never {
-  void ast;
-  throw new Error("not implemented: compile");
-}
-
-export function generate(compiled: unknown, opts?: unknown): never {
-  void compiled;
-  void opts;
-  throw new Error("not implemented: generate");
-}
 
 export function validate(compiled: unknown, opts?: unknown): never {
   void compiled;
