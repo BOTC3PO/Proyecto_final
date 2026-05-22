@@ -1,4 +1,3 @@
-import { levenshtein } from "../lexer/suggestions.js";
 import type {
   BinOp,
   Expr,
@@ -7,6 +6,7 @@ import type {
   Loc,
 } from "../parser/ast.js";
 import type { PRNG } from "../runtime/prng.js";
+import { suggestFromList } from "../util/suggest.js";
 import type { BuiltinFn } from "./builtins.js";
 import { EvalError } from "./errors.js";
 import type { IsolatedMath } from "./math-setup.js";
@@ -344,19 +344,6 @@ function evalFunCall(
       : `función desconocida: ${expr.name}`,
     locOf(expr),
   );
-}
-
-function suggestFromList(input: string, options: string[]): string | null {
-  let best: string | null = null;
-  let bestDist = Infinity;
-  for (const opt of options) {
-    const d = levenshtein(input, opt);
-    if (d < bestDist) {
-      bestDist = d;
-      best = opt;
-    }
-  }
-  return bestDist <= 2 ? best : null;
 }
 
 function evalForComp(

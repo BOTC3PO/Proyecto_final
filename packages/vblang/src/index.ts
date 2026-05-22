@@ -8,6 +8,14 @@ export {
   EvalError,
   RestriccionesNoSatisfechasError,
 } from "./evaluator/errors.js";
+export { lint } from "./validator/linter.js";
+export { validate } from "./validator/validator.js";
+export {
+  T,
+  isAssignable,
+  simplifyUnion,
+  typeToString,
+} from "./validator/types.js";
 
 export type { PRNG } from "./runtime/prng.js";
 export type {
@@ -16,6 +24,16 @@ export type {
   GenerationResult,
   OpcionGenerada,
 } from "./runtime/types.js";
+export type {
+  LintIssue,
+  LintReport,
+  VBType,
+} from "./validator/types.js";
+export type {
+  ValidationError,
+  ValidationReport,
+  ValidateOptions,
+} from "./validator/validator.js";
 
 export type {
   Bloque,
@@ -56,9 +74,3 @@ export type {
   VariablesBloque,
   VisualBloque,
 } from "./parser/ast.js";
-
-export function validate(compiled: unknown, opts?: unknown): never {
-  void compiled;
-  void opts;
-  throw new Error("not implemented: validate");
-}
