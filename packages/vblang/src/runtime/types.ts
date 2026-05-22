@@ -8,6 +8,7 @@ import type {
   TipoPregunta,
   VariableDecl,
 } from "../parser/ast.js";
+import type { GeneradorAsistidoProvider } from "./provider.js";
 
 export interface CompiledPlantilla {
   plantilla: Plantilla;
@@ -38,6 +39,12 @@ export interface CompiledPlantilla {
 export interface GenerationOptions {
   seed: string;
   maxRetries?: number;
+  /**
+   * Provider para resolver `generador: <id>`. Si la plantilla NO usa
+   * `generador:`, el provider se ignora. Si la plantilla SÍ lo usa y no se
+   * pasa provider, `generate()` lanza EvalError.
+   */
+  provider?: GeneradorAsistidoProvider;
 }
 
 export interface OpcionGenerada {

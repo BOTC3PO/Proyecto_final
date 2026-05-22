@@ -17,6 +17,18 @@ export {
   typeToString,
 } from "./validator/types.js";
 
+export { toModuleQuizQuestion } from "./adapters/to-module-quiz-question.js";
+export { AdapterError } from "./adapters/errors.js";
+export type {
+  AdapterOptions,
+  ModuleQuizQuestion,
+  ModuleQuizQuestionType,
+} from "./adapters/module-quiz-question.js";
+export type {
+  GeneradorAsistidoEjercicio,
+  GeneradorAsistidoProvider,
+} from "./runtime/provider.js";
+
 export type { PRNG } from "./runtime/prng.js";
 export type {
   CompiledPlantilla,

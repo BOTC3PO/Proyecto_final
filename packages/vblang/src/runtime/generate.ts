@@ -16,6 +16,7 @@ import {
 import { createIsolatedMath } from "../evaluator/math-setup.js";
 import { Scope } from "../evaluator/scope.js";
 import { createPrng, type PRNG } from "./prng.js";
+import type { GeneradorAsistidoEjercicio } from "./provider.js";
 import type {
   CompiledPlantilla,
   GenerationOptions,
@@ -23,10 +24,149 @@ import type {
   OpcionGenerada,
 } from "./types.js";
 
+function normalizarDificultad(raw: unknown): string {
+  if (raw === 1 || raw === "1") return "basico";
+  if (raw === 2 || raw === "2") return "intermedio";
+  if (raw === 3 || raw === "3") return "avanzado";
+  if (typeof raw === "string") return raw;
+  return "intermedio";
+}
+
+function generateAssisted(
+  compiled: CompiledPlantilla,
+  options: GenerationOptions,
+): GenerationResult {
+  const generadorId = compiled.generadorId!;
+  const provider = options.provider!;
+  const dificultad = normalizarDificultad(compiled.metadata.dificultad);
+
+  const ejercicio = provider.generar(generadorId, options.seed, dificultad);
+  if (!ejercicio) {
+    throw new EvalError(
+      `generador "${generadorId}" no existe en el provider`,
+    );
+  }
+
+  // Setup eval context para interpolar overrides de enunciado/pasos.
+  const prng = createPrng(options.seed);
+  const math = createIsolatedMath();
+  const builtins = createBuiltins(prng, math);
+  const ctx: EvalContext = { prng, math, builtins };
+
+  const datos = ejercicio.datos ?? {};
+  const scope = new Scope({ ...CONSTANTES_GLOBALES, ...datos });
+
+  // Si la plantilla declara enunciado: propio, gana sobre el del generador.
+  const enunciado =
+    compiled.enunciado.length > 0
+      ? interpolar(compiled.enunciado, scope, ctx)
+      : ejercicio.enunciado;
+
+  // Idem pasos.
+  let pasos: string[] | undefined;
+  if (compiled.pasos && compiled.pasos.length > 0) {
+    pasos = compiled.pasos.map((p) => interpolar(p.partes, scope, ctx));
+  } else if (ejercicio.pasos && ejercicio.pasos.length > 0) {
+    pasos = ejercicio.pasos;
+  }
+
+  return buildAssistedResult(
+    compiled,
+    ejercicio,
+    options.seed,
+    enunciado,
+    pasos,
+    datos,
+  );
+}
+
+function buildAssistedResult(
+  compiled: CompiledPlantilla,
+  ejercicio: GeneradorAsistidoEjercicio,
+  seed: string,
+  enunciado: string,
+  pasos: string[] | undefined,
+  datos: Record<string, unknown>,
+): GenerationResult {
+  // Generador tipo quiz (mc).
+  if (ejercicio.opciones !== undefined) {
+    if (typeof ejercicio.indiceCorrecto !== "number") {
+      throw new EvalError(
+        `generador "${compiled.generadorId}" devolvió opciones sin indiceCorrecto`,
+      );
+    }
+    const opciones: OpcionGenerada[] = ejercicio.opciones.map((texto, i) => ({
+      texto,
+      correcta: i === ejercicio.indiceCorrecto,
+    }));
+    return {
+      tipo: "mc",
+      enunciado,
+      pasos,
+      opciones,
+      variables: datos,
+      seed,
+      intentos: 1,
+    };
+  }
+
+  // Generador tipo numerico (input).
+  if (typeof ejercicio.resultado === "number") {
+    const unidad = ejercicio.unidades?.resultado;
+    // `toleranciaRelativa` del provider ya es ratio (relativo). Para preservar
+    // semántica al pasar por el adapter (que divide tolerancias absolutas por
+    // |respuesta|), la guardamos como porcentaje: valor*100, esPorcentaje:true.
+    // El adapter hará valor/100 y recuperará el ratio original.
+    const tolerancia =
+      typeof ejercicio.toleranciaRelativa === "number"
+        ? {
+            valor: ejercicio.toleranciaRelativa * 100,
+            esPorcentaje: true,
+          }
+        : undefined;
+    return {
+      tipo: "input",
+      enunciado,
+      pasos,
+      respuesta: ejercicio.resultado,
+      unidad,
+      tolerancia,
+      variables: datos,
+      seed,
+      intentos: 1,
+    };
+  }
+
+  // Generador tipo completar.
+  if (ejercicio.respuestaCorrecta !== undefined) {
+    return {
+      tipo: "completar",
+      enunciado,
+      pasos,
+      respuesta: ejercicio.respuestaCorrecta,
+      variables: datos,
+      seed,
+      intentos: 1,
+    };
+  }
+
+  throw new EvalError(
+    `generador "${compiled.generadorId}" devolvió ejercicio sin opciones, resultado ni respuestaCorrecta`,
+  );
+}
+
 export function generate(
   compiled: CompiledPlantilla,
   options: GenerationOptions,
 ): GenerationResult {
+  if (compiled.generadorId) {
+    if (!options.provider) {
+      throw new EvalError(
+        `plantilla usa generador asistido "${compiled.generadorId}" pero no se proveyó provider`,
+      );
+    }
+    return generateAssisted(compiled, options);
+  }
   const maxRetries = options.maxRetries ?? 100;
   const prng = createPrng(options.seed);
   const math = createIsolatedMath();
