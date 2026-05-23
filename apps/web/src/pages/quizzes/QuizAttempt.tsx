@@ -7,6 +7,8 @@ import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import { ejercicioToQuestion } from "../../domain/quiz/ejercicioToQuestion";
+import { runPlantilla } from "../../vblang/runPlantilla";
+import { getPlantilla } from "../../domain/vblang/plantillaApi";
 
 function parseVisualContext(detail: string | undefined): VisualSpec | null {
   if (!detail) return null;
@@ -145,6 +147,43 @@ export default function QuizAttempt() {
     const count = attempt.count ?? 10;
     const serverQuestions = attempt.questions ?? attempt.quiz?.questions ?? [];
     if (!genId || serverQuestions.length > 0) return;
+
+    // ── Plantilla VBLang ───────────────────────────────────────────────────
+    // Convención: generatorId === "plantilla:<plantillaId>". Levantamos el
+    // codigoDsl desde la API y materializamos las N preguntas con seeds
+    // derivados de `seed-<i>` para mantener determinismo por intento.
+    if (genId.startsWith("plantilla:")) {
+      const plantillaId = genId.slice("plantilla:".length);
+      let cancelled = false;
+      void getPlantilla(plantillaId)
+        .then((p) => {
+          if (cancelled) return;
+          const baseSeed = seed !== undefined && seed !== null ? String(seed) : "0";
+          const out: ModuleQuizQuestion[] = [];
+          for (let i = 0; i < count; i++) {
+            try {
+              // El tipo ModuleQuizQuestion del paquete @vb/vblang difiere en
+              // `visualSpec: unknown` vs el de apps/web. Son estructuralmente
+              // compatibles, así que casteamos a través de unknown.
+              const q = runPlantilla(p.codigoDsl, {
+                seed: `${baseSeed}-${i}`,
+              }) as unknown as ModuleQuizQuestion;
+              out.push(q);
+            } catch {
+              // Si una seed concreta falla, salteamos esa pregunta — el resto
+              // del quiz sigue siendo jugable.
+            }
+          }
+          setGeneratedQuestions(out);
+        })
+        .catch(() => {
+          // Plantilla no accesible o no existe — sin questions, el quiz
+          // mostrará el mensaje "Sin preguntas asignadas".
+        });
+      return () => {
+        cancelled = true;
+      };
+    }
 
     // Importar dinámicamente el generador según el id
     // Formato del id: "materia/subtipo" ej "biologia/biologia"

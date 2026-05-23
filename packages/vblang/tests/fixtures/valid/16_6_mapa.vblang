@@ -1,0 +1,8 @@
+mapa: world_countries
+
+variables:
+  pais: uno_de(mapa)
+
+enunciado: "Marca {pais.nombre} en el mapa."
+
+respuesta_iso: pais.iso

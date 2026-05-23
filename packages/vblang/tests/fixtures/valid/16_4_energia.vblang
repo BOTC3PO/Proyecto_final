@@ -1,0 +1,16 @@
+variables:
+  m: random(1, 10)
+  v: random(5, 20)
+
+enunciado: |
+  Un cuerpo de masa {m} kg se mueve a {v} m/s.
+  Cuanta energia cinetica tiene?
+
+pasos:
+  - "Datos: m={m} kg, v={v} m/s"
+  - "Formula: E = (1/2) m v^2"
+  - "Calculo: E = {0.5 * m * v^2 | 0} J"
+
+respuesta: 0.5 * m * v^2
+unidad: "J"
+tolerancia: 5%

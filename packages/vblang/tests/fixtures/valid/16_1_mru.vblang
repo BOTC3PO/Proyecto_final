@@ -1,0 +1,19 @@
+metadata:
+  tema: "fisica/cinematica/MRU"
+  dificultad: 2
+
+variables:
+  v: random(50, 200)
+  t: random(2, 10)
+
+restricciones:
+  - v > 0
+  - t > 0
+
+enunciado: |
+  Un auto va a {v} km/h durante {t} h.
+  Que distancia recorre?
+
+respuesta: v * t
+unidad: "km"
+tolerancia: 1

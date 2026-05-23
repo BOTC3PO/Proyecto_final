@@ -60,6 +60,8 @@ import { calendario } from "./routes/calendario";
 import { quizBanco } from "./routes/quiz-banco";
 import { membresias } from "./routes/membresias";
 import { materiales } from "./routes/materiales";
+import { plantillas } from "./routes/plantillas";
+import { vblangDatasets } from "./routes/vblang-datasets";
 import { requireUser } from "./lib/user-auth";
 import { prisma } from "./lib/prisma";
 
@@ -196,6 +198,8 @@ app.use(sync);
 app.use(calendario);
 app.use(membresias);
 app.use(materiales);
+app.use(plantillas);
+app.use(vblangDatasets);
 app.use(readonlyRouter);
 app.use((_req, res) => res.status(404).json({ error: "not found" }));
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {

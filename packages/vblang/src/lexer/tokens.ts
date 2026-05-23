@@ -1,0 +1,114 @@
+export enum TokenKind {
+  NUMBER = "NUMBER",
+  STRING = "STRING",
+  MULTILINE_STRING = "MULTILINE_STRING",
+  IDENT = "IDENT",
+
+  VERDADERO = "VERDADERO",
+  FALSO = "FALSO",
+  NULO = "NULO",
+
+  PLUS = "PLUS",
+  MINUS = "MINUS",
+  STAR = "STAR",
+  SLASH = "SLASH",
+  PERCENT = "PERCENT",
+  CARET = "CARET",
+
+  EQ = "EQ",
+  NEQ = "NEQ",
+  LT = "LT",
+  GT = "GT",
+  LTE = "LTE",
+  GTE = "GTE",
+
+  Y = "Y",
+  O = "O",
+  NO = "NO",
+
+  COLON = "COLON",
+  COMMA = "COMMA",
+  DOT = "DOT",
+  PIPE = "PIPE",
+  LPAREN = "LPAREN",
+  RPAREN = "RPAREN",
+  LBRACKET = "LBRACKET",
+  RBRACKET = "RBRACKET",
+  LBRACE = "LBRACE",
+  RBRACE = "RBRACE",
+
+  RANGE = "RANGE",
+  DASH = "DASH",
+
+  KW_METADATA = "KW_METADATA",
+  KW_VARIABLES = "KW_VARIABLES",
+  KW_RESTRICCIONES = "KW_RESTRICCIONES",
+  KW_RESPUESTA = "KW_RESPUESTA",
+  KW_RESPUESTAS_VALIDAS = "KW_RESPUESTAS_VALIDAS",
+  KW_UNIDAD = "KW_UNIDAD",
+  KW_TOLERANCIA = "KW_TOLERANCIA",
+  KW_OPCIONES = "KW_OPCIONES",
+  KW_TIPO = "KW_TIPO",
+  KW_ENUNCIADO = "KW_ENUNCIADO",
+  KW_PASOS = "KW_PASOS",
+  KW_VISUAL = "KW_VISUAL",
+  KW_GENERADOR = "KW_GENERADOR",
+  KW_DATASET = "KW_DATASET",
+  KW_MAPA = "KW_MAPA",
+  KW_RESPUESTA_ISO = "KW_RESPUESTA_ISO",
+  KW_RESPUESTA_NOMBRE = "KW_RESPUESTA_NOMBRE",
+  KW_RESPUESTA_ORDEN = "KW_RESPUESTA_ORDEN",
+  KW_TEXTO_ANALIZAR = "KW_TEXTO_ANALIZAR",
+  KW_ETIQUETAS_PEDIDAS = "KW_ETIQUETAS_PEDIDAS",
+  KW_OPCIONES_EXPLICITAS = "KW_OPCIONES_EXPLICITAS",
+
+  FOR = "FOR",
+  IN = "IN",
+
+  NEWLINE = "NEWLINE",
+  INDENT = "INDENT",
+  DEDENT = "DEDENT",
+  EOF = "EOF",
+}
+
+export interface Token {
+  kind: TokenKind;
+  value: string;
+  line: number;
+  col: number;
+}
+
+export const BLOCK_KEYWORDS: Record<string, TokenKind> = {
+  metadata: TokenKind.KW_METADATA,
+  variables: TokenKind.KW_VARIABLES,
+  restricciones: TokenKind.KW_RESTRICCIONES,
+  respuesta: TokenKind.KW_RESPUESTA,
+  respuestas_validas: TokenKind.KW_RESPUESTAS_VALIDAS,
+  unidad: TokenKind.KW_UNIDAD,
+  tolerancia: TokenKind.KW_TOLERANCIA,
+  opciones: TokenKind.KW_OPCIONES,
+  tipo: TokenKind.KW_TIPO,
+  enunciado: TokenKind.KW_ENUNCIADO,
+  pasos: TokenKind.KW_PASOS,
+  visual: TokenKind.KW_VISUAL,
+  generador: TokenKind.KW_GENERADOR,
+  dataset: TokenKind.KW_DATASET,
+  mapa: TokenKind.KW_MAPA,
+  respuesta_iso: TokenKind.KW_RESPUESTA_ISO,
+  respuesta_nombre: TokenKind.KW_RESPUESTA_NOMBRE,
+  respuesta_orden: TokenKind.KW_RESPUESTA_ORDEN,
+  texto_analizar: TokenKind.KW_TEXTO_ANALIZAR,
+  etiquetas_pedidas: TokenKind.KW_ETIQUETAS_PEDIDAS,
+  opciones_explicitas: TokenKind.KW_OPCIONES_EXPLICITAS,
+};
+
+export const ALWAYS_KEYWORDS: Record<string, TokenKind> = {
+  y: TokenKind.Y,
+  o: TokenKind.O,
+  no: TokenKind.NO,
+  verdadero: TokenKind.VERDADERO,
+  falso: TokenKind.FALSO,
+  nulo: TokenKind.NULO,
+  for: TokenKind.FOR,
+  in: TokenKind.IN,
+};

@@ -1,0 +1,10 @@
+dataset: capitales_mundo
+
+variables:
+  pais: uno_de(dataset)
+
+enunciado: "Cual es la capital de {pais.nombre}?"
+
+tipo: mc
+opciones: 4
+respuesta: pais.capital

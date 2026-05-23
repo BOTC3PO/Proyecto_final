@@ -69,6 +69,9 @@ const ProfesorCalendario    = lazyWithRetry(() => import("./pages/ProfesorCalend
 const LaboratorioWeb3    = lazyWithRetry(() => import("./pages/LaboratorioWeb3"));
 const EditorCuestionarios = lazyWithRetry(() => import("./pages/EditorCuestionarios"));
 const EditorCuestionariosV2 = lazyWithRetry(() => import("./pages/EditorCuestionariosV2"));
+const PlantillasIndex      = lazyWithRetry(() => import("./pages/PlantillasIndex"));
+const PlantillasBiblioteca = lazyWithRetry(() => import("./pages/PlantillasBiblioteca"));
+const PlantillaEditor      = lazyWithRetry(() => import("./pages/PlantillaEditor"));
 const AdminGeneradores    = lazyWithRetry(() => import("./pages/AdminGeneradores"));
 
 // Resto de páginas → lazy
@@ -583,6 +586,38 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO', 'USER']}>
                 {withSuspense(<EditorCuestionariosV2 />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'plantillas',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<PlantillasIndex />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'plantillas/biblioteca',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<PlantillasBiblioteca />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'plantillas/nueva',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<PlantillaEditor />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'plantillas/:id',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<PlantillaEditor />)}
               </ProtectedRoute>
             ),
           },

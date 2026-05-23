@@ -1106,10 +1106,50 @@ export default function ModuloEditor() {
                 </div>
 
                 <div className="flex flex-wrap items-start gap-3">
-                  {/* Cuestionario manual — preguntas escritas por el profesor */}
+                  {/* Crear con plantilla VBLang — default desde Sprint 8 */}
                   <button
                     type="button"
                     className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                    onClick={() => {
+                      const returnTo = id
+                        ? `/modulos/${id}/editar`
+                        : `/modulos/crear`;
+                      navigate(
+                        `/plantillas/nueva?moduleId=${
+                          id ?? "nuevo"
+                        }&returnTo=${encodeURIComponent(returnTo)}`
+                      );
+                    }}
+                  >
+                    <span className="text-base leading-none">🧩</span>
+                    Crear con plantilla VBLang
+                  </button>
+
+                  <QuizImportJson onImportQuizzes={handleImportQuizzes} />
+                </div>
+
+                {/* Editores clásicos — V1 y V2 quedan accesibles como legacy */}
+                <div className="flex flex-wrap items-center gap-3 text-xs">
+                  <span className="text-[var(--c-muted)]">Abrir editor clásico:</span>
+                  <button
+                    type="button"
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                    onClick={() => {
+                      const returnTo = id
+                        ? `/modulos/${id}/editar`
+                        : `/modulos/crear`;
+                      navigate(
+                        `/profesor/editor-cuestionarios-v2?moduleId=${
+                          id ?? "nuevo"
+                        }&mode=manual&returnTo=${encodeURIComponent(returnTo)}`
+                      );
+                    }}
+                  >
+                    ✏️ Editor V2 (manual)
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
                     onClick={() => {
                       const returnTo = id
                         ? `/modulos/${id}/editar`
@@ -1121,15 +1161,12 @@ export default function ModuloEditor() {
                       );
                     }}
                   >
-                    <span className="text-base leading-none">✏️</span>
-                    Cuestionario manual
+                    ✏️ Editor V1
                   </button>
-
-                  {/* Ejercicios generados — solo si la materia lo soporta */}
                   {subjectCapabilities?.supportsGenerators && (
                     <button
                       type="button"
-                      className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-success)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
                       onClick={() => {
                         const returnTo = id
                           ? `/modulos/${id}/editar`
@@ -1141,24 +1178,16 @@ export default function ModuloEditor() {
                         );
                       }}
                     >
-                      <span className="text-base leading-none">⚡</span>
-                      Ejercicios generados
+                      ⚡ Generados (legacy)
                     </button>
                   )}
-
-                  <QuizImportJson onImportQuizzes={handleImportQuizzes} />
                 </div>
 
                 {/* Leyenda explicativa */}
                 <div className="flex flex-wrap gap-3 text-xs text-[var(--c-muted)]">
                   <span>
-                    ✏️ <strong>Manual</strong> — escribís las preguntas vos mismo
+                    🧩 <strong>Plantilla VBLang</strong> — código DSL con preview en vivo y validación
                   </span>
-                  {subjectCapabilities?.supportsGenerators && (
-                    <span>
-                      ⚡ <strong>Generados</strong> — ejercicios automáticos infinitos según la materia
-                    </span>
-                  )}
                 </div>
 
                 {quizzes.length === 0 ? (
