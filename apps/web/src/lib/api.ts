@@ -140,11 +140,13 @@ export const setRefreshToken = (token: string | null, options?: { remember?: boo
 
 export class ApiError extends Error {
   status: number;
+  payload?: unknown;
 
-  constructor(message: string, status: number) {
+  constructor(message: string, status: number, payload?: unknown) {
     super(message);
     this.name = "ApiError";
     this.status = status;
+    if (payload !== undefined) this.payload = payload;
   }
 }
 
@@ -218,6 +220,7 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}, 
   if (!response.ok) {
     const retryAfterHeader = response.headers.get("Retry-After");
     let message = response.statusText;
+    let errorPayload: unknown = undefined;
 
     const contentType = response.headers.get("content-type") ?? "";
     if (contentType.includes("application/json")) {
@@ -227,6 +230,7 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}, 
       if (payload?.error) {
         message = payload.error;
       }
+      if (payload) errorPayload = payload;
       if (response.status === 429) {
         const headerRetryAfter = Number(retryAfterHeader ?? 0);
         const retryAfterSeconds = payload?.retryAfterSeconds ?? (Number.isFinite(headerRetryAfter) && headerRetryAfter > 0 ? headerRetryAfter : null);
@@ -239,7 +243,7 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}, 
       message = text || message;
     }
 
-    throw new ApiError(message || "Request failed", response.status);
+    throw new ApiError(message || "Request failed", response.status, errorPayload);
   }
   if (response.status === 204) return undefined as T;
   return response.json() as Promise<T>;

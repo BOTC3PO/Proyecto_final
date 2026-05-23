@@ -1,0 +1,310 @@
+/**
+ * Editor de código con syntax highlighting básico (regex + overlay).
+ *
+ * Implementación: textarea transparente sobre un <pre> con spans coloreados.
+ * Sincroniza scroll entre los dos. Resalta línea de error con fondo rojo
+ * translúcido. Tab inserta 2 espacios.
+ *
+ * Limitaciones conocidas (aceptables para v1): no maneja escapes dentro de
+ * strings perfectamente ni multiline strings. Cuando deje de alcanzar,
+ * reemplazar por Monaco/CodeMirror.
+ */
+
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  type KeyboardEvent,
+  type ChangeEvent,
+  type UIEvent,
+} from "react";
+
+export interface CodeEditorHandle {
+  focusAt: (line: number, col: number) => void;
+}
+
+interface CodeEditorProps {
+  value: string;
+  onChange: (v: string) => void;
+  errorLine?: number;
+  errorCol?: number;
+  onCursorChange?: (line: number, col: number) => void;
+  ariaLabel?: string;
+}
+
+const KEYWORDS_BLOQUE = new Set([
+  "variables",
+  "enunciado",
+  "respuesta",
+  "respuesta_iso",
+  "respuesta_nombre",
+  "respuesta_orden",
+  "respuestas_validas",
+  "opciones",
+  "opciones_explicitas",
+  "pasos",
+  "tipo",
+  "metadata",
+  "restricciones",
+  "generador",
+  "dataset",
+  "mapa",
+  "etiquetas_pedidas",
+  "texto_a_analizar",
+]);
+
+const BUILTINS = new Set([
+  "random",
+  "uno_de",
+  "sqrt",
+  "abs",
+  "floor",
+  "ceil",
+  "round",
+  "min",
+  "max",
+  "pow",
+  "log",
+  "sin",
+  "cos",
+  "tan",
+  "len",
+  "rango",
+  "sum",
+  "avg",
+  "filtrar",
+  "mapear",
+  "concat",
+  "string",
+  "numero",
+]);
+
+const LITERALS = new Set(["verdadero", "falso", "nulo", "true", "false", "null"]);
+
+type Tok = { kind: string; text: string };
+
+function tokenizeLine(line: string): Tok[] {
+  const toks: Tok[] = [];
+  // Pattern order matters — comentarios primero, luego strings, números, ids.
+  const re =
+    /(#.*$)|("(?:\\.|[^"\\])*")|(-?\d+(?:\.\d+)?)|([a-zA-Z_][a-zA-Z0-9_]*)|(\s+)|(.)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(line))) {
+    if (m[1] !== undefined) {
+      toks.push({ kind: "comment", text: m[1] });
+    } else if (m[2] !== undefined) {
+      toks.push({ kind: "string", text: m[2] });
+    } else if (m[3] !== undefined) {
+      toks.push({ kind: "number", text: m[3] });
+    } else if (m[4] !== undefined) {
+      const w = m[4];
+      if (KEYWORDS_BLOQUE.has(w)) toks.push({ kind: "keyword", text: w });
+      else if (LITERALS.has(w)) toks.push({ kind: "literal", text: w });
+      else if (BUILTINS.has(w)) toks.push({ kind: "builtin", text: w });
+      else toks.push({ kind: "ident", text: w });
+    } else if (m[5] !== undefined) {
+      toks.push({ kind: "ws", text: m[5] });
+    } else if (m[6] !== undefined) {
+      toks.push({ kind: "punct", text: m[6] });
+    }
+  }
+  return toks;
+}
+
+function classFor(kind: string): string {
+  switch (kind) {
+    case "comment":
+      return "vbe-tk-comment";
+    case "string":
+      return "vbe-tk-string";
+    case "number":
+      return "vbe-tk-number";
+    case "keyword":
+      return "vbe-tk-keyword";
+    case "literal":
+      return "vbe-tk-literal";
+    case "builtin":
+      return "vbe-tk-builtin";
+    default:
+      return "";
+  }
+}
+
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function renderHighlighted(
+  src: string,
+  errorLine?: number,
+): { html: string; lineCount: number } {
+  const lines = src.split("\n");
+  const parts: string[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const isErr = errorLine !== undefined && i + 1 === errorLine;
+    const toks = tokenizeLine(line);
+    const inner = toks
+      .map((t) => {
+        const c = classFor(t.kind);
+        const text = escapeHtml(t.text);
+        return c ? `<span class="${c}">${text}</span>` : text;
+      })
+      .join("");
+    parts.push(
+      `<div class="vbe-line${isErr ? " vbe-line-error" : ""}">${inner || "&nbsp;"}</div>`,
+    );
+  }
+  return { html: parts.join(""), lineCount: lines.length };
+}
+
+function cursorLineCol(value: string, caretPos: number): { line: number; col: number } {
+  let line = 1;
+  let col = 1;
+  for (let i = 0; i < caretPos; i++) {
+    if (value[i] === "\n") {
+      line++;
+      col = 1;
+    } else {
+      col++;
+    }
+  }
+  return { line, col };
+}
+
+function posFromLineCol(value: string, line: number, col: number): number {
+  let l = 1;
+  let i = 0;
+  while (i < value.length && l < line) {
+    if (value[i] === "\n") l++;
+    i++;
+  }
+  return Math.min(i + Math.max(0, col - 1), value.length);
+}
+
+const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEditor(
+  { value, onChange, errorLine, onCursorChange, ariaLabel = "Editor de código VBLang" },
+  ref,
+) {
+  const taRef = useRef<HTMLTextAreaElement | null>(null);
+  const preRef = useRef<HTMLPreElement | null>(null);
+  const gutterRef = useRef<HTMLDivElement | null>(null);
+
+  const { html, lineCount } = renderHighlighted(value, errorLine);
+
+  useImperativeHandle(ref, () => ({
+    focusAt(line, col) {
+      const ta = taRef.current;
+      if (!ta) return;
+      const pos = posFromLineCol(value, line, col);
+      ta.focus();
+      ta.setSelectionRange(pos, pos);
+    },
+  }));
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Tab") {
+      e.preventDefault();
+      const ta = e.currentTarget;
+      const start = ta.selectionStart;
+      const end = ta.selectionEnd;
+      const next = value.slice(0, start) + "  " + value.slice(end);
+      onChange(next);
+      // Restablecer caret luego del render
+      requestAnimationFrame(() => {
+        if (taRef.current) {
+          taRef.current.selectionStart = start + 2;
+          taRef.current.selectionEnd = start + 2;
+        }
+      });
+    }
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    onChange(e.target.value);
+  };
+
+  const handleSelect = () => {
+    if (!taRef.current || !onCursorChange) return;
+    const { line, col } = cursorLineCol(value, taRef.current.selectionStart);
+    onCursorChange(line, col);
+  };
+
+  const handleScroll = (e: UIEvent<HTMLTextAreaElement>) => {
+    const top = e.currentTarget.scrollTop;
+    const left = e.currentTarget.scrollLeft;
+    if (preRef.current) {
+      preRef.current.scrollTop = top;
+      preRef.current.scrollLeft = left;
+    }
+    if (gutterRef.current) {
+      gutterRef.current.scrollTop = top;
+    }
+  };
+
+  useEffect(() => {
+    // CSS inline para el highlighting + dark-mode-friendly. Usa CSS vars del
+    // tema cuando están disponibles, sino cae a colores razonables.
+    if (typeof document === "undefined") return;
+    const id = "vbe-syntax-style";
+    if (document.getElementById(id)) return;
+    const style = document.createElement("style");
+    style.id = id;
+    style.textContent = `
+      .vbe-root { display: grid; grid-template-columns: 40px 1fr; height: 100%; min-height: 0; position: relative; background: var(--c-surface, #0b1220); color: var(--c-text, #e2e8f0); font-family: ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.45; }
+      .vbe-gutter { overflow: hidden; text-align: right; padding: 8px 6px 8px 0; color: var(--c-muted, #64748b); user-select: none; border-right: 1px solid var(--c-border, #1e293b); }
+      .vbe-gutter > div { padding-right: 4px; }
+      .vbe-pane { position: relative; overflow: hidden; }
+      .vbe-pre, .vbe-ta { position: absolute; inset: 0; margin: 0; padding: 8px 12px; white-space: pre; overflow: auto; font: inherit; line-height: inherit; }
+      .vbe-pre { color: inherit; pointer-events: none; }
+      .vbe-ta { color: transparent; background: transparent; caret-color: var(--c-text, #e2e8f0); border: 0; outline: 0; resize: none; }
+      .vbe-line { min-height: 1.45em; }
+      .vbe-line-error { background: color-mix(in srgb, #ef4444 22%, transparent); }
+      .vbe-tk-keyword { color: #60a5fa; font-weight: 600; }
+      .vbe-tk-string { color: #34d399; }
+      .vbe-tk-number { color: #f59e0b; }
+      .vbe-tk-comment { color: #94a3b8; font-style: italic; }
+      .vbe-tk-builtin { color: #a78bfa; }
+      .vbe-tk-literal { color: #22d3ee; }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
+  return (
+    <div className="vbe-root" data-testid="vblang-code-editor">
+      <div className="vbe-gutter" ref={gutterRef} aria-hidden>
+        {Array.from({ length: Math.max(lineCount, 1) }, (_, i) => (
+          <div key={i}>{i + 1}</div>
+        ))}
+      </div>
+      <div className="vbe-pane">
+        <pre
+          ref={preRef}
+          className="vbe-pre"
+          aria-hidden
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+        <textarea
+          ref={taRef}
+          className="vbe-ta"
+          value={value}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          onSelect={handleSelect}
+          onScroll={handleScroll}
+          spellCheck={false}
+          autoCorrect="off"
+          autoCapitalize="off"
+          aria-label={ariaLabel}
+        />
+      </div>
+    </div>
+  );
+});
+
+export default CodeEditor;
