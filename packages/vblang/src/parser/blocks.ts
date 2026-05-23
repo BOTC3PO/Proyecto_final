@@ -605,14 +605,17 @@ export function parseEtiquetasPedidasBloque(
       );
     }
     const idEntry = expr.entries.find((e) => e.key === "id");
-    if (!idEntry || idEntry.value.kind !== "str") {
-      throw new ParseError(
-        `Cada etiqueta requiere un campo \`id\` con string`,
-        expr.loc.line,
-        expr.loc.col,
-      );
+    let id = "";
+    if (idEntry) {
+      if (idEntry.value.kind !== "str") {
+        throw new ParseError(
+          `El campo \`id\` de una etiqueta debe ser un string`,
+          expr.loc.line,
+          expr.loc.col,
+        );
+      }
+      id = idEntry.value.value;
     }
-    const id = idEntry.value.value;
     const campos = expr.entries
       .filter((e) => e.key !== "id")
       .map((e) => ({ key: e.key, value: e.value }));

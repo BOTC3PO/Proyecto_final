@@ -17,6 +17,12 @@ import { createIsolatedMath } from "../evaluator/math-setup.js";
 import { Scope } from "../evaluator/scope.js";
 import { createPrng, type PRNG } from "./prng.js";
 import type { GeneradorAsistidoEjercicio } from "./provider.js";
+import {
+  generateAnalisisSintactico,
+  generateIdentificarPalabras,
+  generateMarcarMapa,
+  generateOrdenar,
+} from "./generate-special.js";
 import type {
   CompiledPlantilla,
   GenerationOptions,
@@ -256,6 +262,54 @@ export function generate(
       ? compiled.pasos.map((p) => interpolar(p.partes, scope, ctx))
       : undefined;
 
+    // Dispatch a generadores especiales (Sprint 9A). Respetan el mismo loop de
+    // retry por restricciones que los tipos básicos.
+    if (compiled.tipoInferido === "ordenar") {
+      return generateOrdenar(
+        compiled,
+        scope,
+        ctx,
+        options.seed,
+        intento,
+        enunciadoTexto,
+        pasosTexto,
+      );
+    }
+    if (compiled.tipoInferido === "marcar_mapa") {
+      return generateMarcarMapa(
+        compiled,
+        scope,
+        ctx,
+        options.seed,
+        intento,
+        enunciadoTexto,
+        pasosTexto,
+      );
+    }
+    if (compiled.tipoInferido === "analisis_sintactico") {
+      return generateAnalisisSintactico(
+        compiled,
+        scope,
+        ctx,
+        options.seed,
+        intento,
+        enunciadoTexto,
+        pasosTexto,
+      );
+    }
+    if (compiled.tipoInferido === "identificar_palabras") {
+      return generateIdentificarPalabras(
+        compiled,
+        scope,
+        ctx,
+        options.seed,
+        intento,
+        enunciadoTexto,
+        pasosTexto,
+      );
+    }
+
+    // Tipos básicos: mc, vf, input, completar.
     // Opciones para mc/vf.
     const opciones = construirOpciones(compiled, respuestaVal, scope, ctx);
 

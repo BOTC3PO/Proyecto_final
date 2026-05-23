@@ -12,7 +12,11 @@ export type ModuleQuizQuestionType =
   | "input"
   | "completar"
   | "match"
-  | "fill-blank";
+  | "fill-blank"
+  | "ordenar"
+  | "marcar_mapa"
+  | "analisis_sintactico"
+  | "identificar_palabras";
 
 export interface ModuleQuizQuestion {
   /** ID estable de la pregunta. */
@@ -50,6 +54,18 @@ export interface ModuleQuizQuestion {
    * en apps/web lo tipa correctamente contra `VisualSpec` de generadoresV2.
    */
   visualSpec?: unknown;
+
+  /* ----- Sprint 9A — tipos especiales ----- */
+  /** ordenar: items presentados al alumno (mezclados o no). */
+  items?: string[];
+  /** marcar_mapa: identificador del mapa a cargar. */
+  mapaId?: string;
+  /** marcar_mapa: ISO correcto (también copiado a `answerKey` por conveniencia). */
+  respuestaIsoCorrecta?: string;
+  /** analisis_sintactico / identificar_palabras: texto completo a presentar. */
+  textoAnalizar?: string;
+  /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */
+  etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
 }
 
 export interface AdapterOptions {

@@ -218,6 +218,9 @@ export function lint(plantilla: Plantilla): LintReport {
   // 7) Patrones extra
   detectPatterns(plantilla, declaraciones, issues);
 
+  // 8) Chequeos por tipo especial (Sprint 9A)
+  lintTiposEspeciales(plantilla, issues);
+
   const errors = issues.filter((i) => i.severity === "error");
   const warnings = issues.filter((i) => i.severity === "warning");
   return { issues, errors, warnings, variableTypes };
@@ -317,6 +320,237 @@ function* allBlockExpressions(plantilla: Plantilla): Iterable<Expr> {
         break;
     }
   }
+}
+
+/* ---------- Tipos especiales (Sprint 9A) ---------- */
+
+function lintTiposEspeciales(
+  plantilla: Plantilla,
+  issues: LintIssue[],
+): void {
+  const tipo = plantilla.tipoInferido;
+  const ploc = { line: plantilla.loc.line, col: plantilla.loc.col };
+  const has = (k: string) => plantilla.bloques.some((b) => b.kind === k);
+  const find = (k: string) => plantilla.bloques.find((b) => b.kind === k);
+
+  if (tipo === "ordenar") {
+    if (!has("opciones_explicitas")) {
+      issues.push({
+        severity: "error",
+        code: "ordenar-requires-opciones-explicitas",
+        message:
+          "tipo `ordenar` requiere `opciones_explicitas:` con los items a presentar",
+        line: ploc.line,
+        col: ploc.col,
+      });
+    }
+    if (!has("respuesta_orden")) {
+      issues.push({
+        severity: "error",
+        code: "ordenar-requires-respuesta-orden",
+        message: "tipo `ordenar` requiere `respuesta_orden:` con el orden correcto",
+        line: ploc.line,
+        col: ploc.col,
+      });
+    }
+
+    // Same-set check si ambos son literales array-de-string.
+    const opc = find("opciones_explicitas");
+    const ord = find("respuesta_orden");
+    if (
+      opc &&
+      opc.kind === "opciones_explicitas" &&
+      ord &&
+      ord.kind === "respuesta_orden"
+    ) {
+      const opcItems = literalStringArrayFromOpciones(opc.items);
+      const ordItems = literalStringArrayFromExpr(ord.expr);
+      if (opcItems && ordItems) {
+        if (!sameSetStr(opcItems, ordItems)) {
+          issues.push({
+            severity: "warning",
+            code: "ordenar-sets-diferentes",
+            message:
+              "los conjuntos de `opciones_explicitas` y `respuesta_orden` parecen diferentes",
+            line: ord.loc.line,
+            col: ord.loc.col,
+          });
+        }
+      }
+    }
+  }
+
+  if (tipo === "marcar_mapa") {
+    if (!has("mapa")) {
+      issues.push({
+        severity: "error",
+        code: "marcar-mapa-requires-mapa",
+        message: "tipo `marcar_mapa` requiere `mapa:` con el identificador del mapa",
+        line: ploc.line,
+        col: ploc.col,
+      });
+    }
+    if (!has("respuesta_iso")) {
+      issues.push({
+        severity: "error",
+        code: "marcar-mapa-requires-respuesta-iso",
+        message: "tipo `marcar_mapa` requiere `respuesta_iso:` con el código ISO correcto",
+        line: ploc.line,
+        col: ploc.col,
+      });
+    }
+  }
+
+  if (tipo === "analisis_sintactico") {
+    if (!has("texto_analizar")) {
+      issues.push({
+        severity: "error",
+        code: "analisis-sintactico-requires-texto-analizar",
+        message: "tipo `analisis_sintactico` requiere `texto_analizar:`",
+        line: ploc.line,
+        col: ploc.col,
+      });
+    }
+    if (!has("etiquetas_pedidas")) {
+      issues.push({
+        severity: "error",
+        code: "analisis-sintactico-requires-etiquetas-pedidas",
+        message: "tipo `analisis_sintactico` requiere `etiquetas_pedidas:`",
+        line: ploc.line,
+        col: ploc.col,
+      });
+    }
+
+    // Si texto_analizar es literal string y etiquetas_pedidas son literales:
+    // verificar que cada palabra aparece en el texto.
+    const txt = find("texto_analizar");
+    const ets = find("etiquetas_pedidas");
+    if (
+      txt &&
+      txt.kind === "texto_analizar" &&
+      txt.expr.kind === "str" &&
+      ets &&
+      ets.kind === "etiquetas_pedidas"
+    ) {
+      const textoLit = txt.expr.value;
+      for (const et of ets.etiquetas) {
+        const palabraCampo = et.campos.find((c) => c.key === "palabra");
+        if (palabraCampo && palabraCampo.value.kind === "str") {
+          if (!textoLit.includes(palabraCampo.value.value)) {
+            issues.push({
+              severity: "warning",
+              code: "palabra-no-en-texto",
+              message: `la palabra "${palabraCampo.value.value}" no aparece en \`texto_analizar\``,
+              line: palabraCampo.value.loc.line,
+              col: palabraCampo.value.loc.col,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  if (tipo === "identificar_palabras") {
+    if (!has("texto_analizar")) {
+      issues.push({
+        severity: "error",
+        code: "identificar-palabras-requires-texto-analizar",
+        message: "tipo `identificar_palabras` requiere `texto_analizar:`",
+        line: ploc.line,
+        col: ploc.col,
+      });
+    }
+    if (!has("respuestas_validas")) {
+      issues.push({
+        severity: "error",
+        code: "identificar-palabras-requires-respuestas-validas",
+        message:
+          "tipo `identificar_palabras` requiere `respuestas_validas:` con las palabras correctas",
+        line: ploc.line,
+        col: ploc.col,
+      });
+    }
+
+    const txt = find("texto_analizar");
+    const resp = find("respuestas_validas");
+    if (
+      txt &&
+      txt.kind === "texto_analizar" &&
+      txt.expr.kind === "str" &&
+      resp &&
+      resp.kind === "respuestas_validas"
+    ) {
+      const textoLit = txt.expr.value;
+      // Si todas las items son strings literales:
+      if (resp.items.every((i) => i.kind === "str")) {
+        for (const item of resp.items) {
+          if (item.kind !== "str") continue;
+          if (!textoLit.includes(item.value)) {
+            issues.push({
+              severity: "warning",
+              code: "palabra-no-en-texto",
+              message: `la palabra "${item.value}" no aparece en \`texto_analizar\``,
+              line: item.loc.line,
+              col: item.loc.col,
+            });
+          }
+        }
+      }
+      // O si es 1 sola expr que es array literal de strings:
+      else if (
+        resp.items.length === 1 &&
+        resp.items[0].kind === "array" &&
+        resp.items[0].items.every((i) => i.kind === "str")
+      ) {
+        for (const item of resp.items[0].items) {
+          if (item.kind !== "str") continue;
+          if (!textoLit.includes(item.value)) {
+            issues.push({
+              severity: "warning",
+              code: "palabra-no-en-texto",
+              message: `la palabra "${item.value}" no aparece en \`texto_analizar\``,
+              line: item.loc.line,
+              col: item.loc.col,
+            });
+          }
+        }
+      }
+    }
+  }
+}
+
+function literalStringArrayFromOpciones(items: Expr[]): string[] | null {
+  // 1 expr que es array literal
+  if (items.length === 1 && items[0].kind === "array") {
+    const arr = items[0];
+    if (arr.items.every((i) => i.kind === "str")) {
+      return arr.items.map((i) => (i as Extract<Expr, { kind: "str" }>).value);
+    }
+    return null;
+  }
+  // varias exprs strings
+  if (items.length > 1 && items.every((i) => i.kind === "str")) {
+    return items.map((i) => (i as Extract<Expr, { kind: "str" }>).value);
+  }
+  return null;
+}
+
+function literalStringArrayFromExpr(expr: Expr): string[] | null {
+  if (expr.kind !== "array") return null;
+  if (!expr.items.every((i) => i.kind === "str")) return null;
+  return expr.items.map((i) => (i as Extract<Expr, { kind: "str" }>).value);
+}
+
+function sameSetStr(a: string[], b: string[]): boolean {
+  if (a.length !== b.length) return false;
+  const counts = new Map<string, number>();
+  for (const s of a) counts.set(s, (counts.get(s) ?? 0) + 1);
+  for (const s of b) {
+    const n = counts.get(s);
+    if (n === undefined || n === 0) return false;
+    counts.set(s, n - 1);
+  }
+  return true;
 }
 
 /* ---------- Patrones ---------- */

@@ -112,8 +112,10 @@ opciones_explicitas:
   });
 });
 
-describe("adapter / tipos no soportados", () => {
-  it("ordenar → AdapterError code tipo-no-soportado", () => {
+describe("adapter / tipos especiales sin campos requeridos", () => {
+  // Sprint 9A: estos tipos ahora SÍ están soportados, pero requieren los
+  // campos específicos del shape. Si faltan, falla con `respuesta-inconsistente`.
+  it("ordenar sin items/ordenCorrecto → respuesta-inconsistente", () => {
     const g: GenerationResult = {
       tipo: "ordenar",
       enunciado: "x",
@@ -125,11 +127,11 @@ describe("adapter / tipos no soportados", () => {
     try {
       toModuleQuizQuestion(g);
     } catch (e) {
-      expect((e as AdapterError).code).toBe("tipo-no-soportado");
+      expect((e as AdapterError).code).toBe("respuesta-inconsistente");
     }
   });
 
-  it("marcar_mapa → AdapterError", () => {
+  it("marcar_mapa sin mapaId/respuestaIso → respuesta-inconsistente", () => {
     const g: GenerationResult = {
       tipo: "marcar_mapa",
       enunciado: "x",

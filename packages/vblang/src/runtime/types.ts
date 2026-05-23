@@ -64,4 +64,20 @@ export interface GenerationResult {
   variables: Record<string, unknown>;
   seed: string;
   intentos: number;
+
+  // Sprint 9A — tipos especiales
+  /** ordenar: items presentados al alumno (resultado de evaluar opciones_explicitas). */
+  items?: string[];
+  /** ordenar: orden correcto (resultado de evaluar respuesta_orden). */
+  ordenCorrecto?: string[];
+  /** marcar_mapa: identificador del mapa a cargar. */
+  mapaId?: string;
+  /** marcar_mapa: código ISO correcto (ISO 3166-1 alpha-3). */
+  respuestaIso?: string;
+  /** marcar_mapa: nombre humano-legible del país correcto, opcional. */
+  respuestaNombre?: string;
+  /** analisis_sintactico / identificar_palabras: texto completo a analizar. */
+  textoAnalizar?: string;
+  /** analisis_sintactico: pares (palabra, etiqueta correcta). */
+  etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
 }

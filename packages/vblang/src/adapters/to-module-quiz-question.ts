@@ -31,15 +31,11 @@ function mapTipo(tipo: GenerationResult["tipo"]): ModuleQuizQuestionType {
     case "mc":
     case "vf":
     case "completar":
-      return tipo;
     case "ordenar":
     case "marcar_mapa":
     case "analisis_sintactico":
     case "identificar_palabras":
-      throw new AdapterError(
-        `tipo de pregunta "${tipo}" no está soportado por el adaptador v1; requiere Sprint 9`,
-        "tipo-no-soportado",
-      );
+      return tipo;
     default:
       throw new AdapterError(
         `tipo de pregunta desconocido "${String(tipo)}"`,
@@ -127,7 +123,53 @@ export function toModuleQuizQuestion(
   if (opciones !== undefined) result.options = opciones;
   if (answerKey !== undefined) result.answerKey = answerKey;
 
-  const explanation = options.explanation ?? buildExplanation(gen.pasos);
+  // Sprint 9A — tipos especiales: campos específicos del shape.
+  if (gen.tipo === "ordenar") {
+    if (!gen.items || !gen.ordenCorrecto) {
+      throw new AdapterError(
+        "ordenar requiere `items` y `ordenCorrecto` en GenerationResult",
+        "respuesta-inconsistente",
+      );
+    }
+    result.items = gen.items;
+    result.answerKey = gen.ordenCorrecto;
+  } else if (gen.tipo === "marcar_mapa") {
+    if (!gen.mapaId || !gen.respuestaIso) {
+      throw new AdapterError(
+        "marcar_mapa requiere `mapaId` y `respuestaIso` en GenerationResult",
+        "respuesta-inconsistente",
+      );
+    }
+    result.mapaId = gen.mapaId;
+    result.respuestaIsoCorrecta = gen.respuestaIso;
+    result.answerKey = gen.respuestaIso;
+  } else if (gen.tipo === "analisis_sintactico") {
+    if (!gen.textoAnalizar || !gen.etiquetasPedidas) {
+      throw new AdapterError(
+        "analisis_sintactico requiere `textoAnalizar` y `etiquetasPedidas` en GenerationResult",
+        "respuesta-inconsistente",
+      );
+    }
+    result.textoAnalizar = gen.textoAnalizar;
+    result.etiquetasPedidas = gen.etiquetasPedidas;
+    // No answerKey: las respuestas correctas están embebidas en etiquetasPedidas.
+  } else if (gen.tipo === "identificar_palabras") {
+    if (!gen.textoAnalizar || !gen.respuestasValidas) {
+      throw new AdapterError(
+        "identificar_palabras requiere `textoAnalizar` y `respuestasValidas` en GenerationResult",
+        "respuesta-inconsistente",
+      );
+    }
+    result.textoAnalizar = gen.textoAnalizar;
+    result.answerKey = gen.respuestasValidas.map((v) => String(v));
+  }
+
+  const explanation =
+    options.explanation ??
+    buildExplanation(gen.pasos) ??
+    (gen.tipo === "marcar_mapa" && gen.respuestaNombre
+      ? `País correcto: ${gen.respuestaNombre}`
+      : undefined);
   if (explanation !== undefined) result.explanation = explanation;
 
   const tolRel = mapTolerancia(gen);
