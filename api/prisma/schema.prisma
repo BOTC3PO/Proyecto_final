@@ -335,7 +335,10 @@ model QuizVersion {
   quiz             Quiz    @relation(fields: [quizId], references: [id])
   questionSet      QuizQuestionSet? @relation(fields: [questionSetId], references: [id])
   attempts         QuizAttempt[]
+  plantillaId      String? @map("plantilla_id")
+  plantilla        PlantillaEjercicio? @relation("PlantillaQuiz", fields: [plantillaId], references: [id])
   @@unique([quizId, versionNumber])
+  @@index([plantillaId])
   @@map("quiz_versions")
 }
 
@@ -1031,4 +1034,86 @@ model LimiteEscuela {
   maxAlumnosPorAula Int    @default(30) @map("max_alumnos_por_aula")
   updatedAt         String @map("updated_at")
   @@map("limites_escuela")
+}
+
+// ───────────────────────────────────────────────────────────────
+// VBLang — Plantillas de ejercicios paramétricos
+// ───────────────────────────────────────────────────────────────
+
+model PlantillaEjercicio {
+  id              String   @id
+  ownerUserId     String   @map("owner_user_id")
+  schoolId        String?  @map("school_id")
+  visibility      String   // "privada" | "escuela" | "publica"
+  nombre          String
+  descripcion     String?
+  materia         String?
+  tags            String?  // JSON array de strings
+  codigoDsl       String   @map("codigo_dsl")
+  version         Int      @default(1)
+  basadoEn        String?  @map("basado_en")
+  publicAprobado  Boolean  @default(false) @map("public_aprobado")
+  isDeleted       Boolean  @default(false) @map("is_deleted")
+  createdAt       String   @map("created_at")
+  updatedAt       String   @map("updated_at")
+
+  versiones       PlantillaEjercicioVersion[]
+  basadaEn        PlantillaEjercicio?  @relation("Fork", fields: [basadoEn], references: [id])
+  forks           PlantillaEjercicio[] @relation("Fork")
+  quizVersions    QuizVersion[]        @relation("PlantillaQuiz")
+
+  @@map("plantillas_ejercicio")
+  @@index([ownerUserId])
+  @@index([schoolId, visibility])
+  @@index([materia, visibility])
+  @@index([visibility, publicAprobado])
+}
+
+model PlantillaEjercicioVersion {
+  id           String @id
+  plantillaId  String @map("plantilla_id")
+  version      Int
+  codigoDsl    String @map("codigo_dsl")
+  changelog    String?
+  createdAt    String @map("created_at")
+  createdBy    String @map("created_by")
+
+  plantilla    PlantillaEjercicio @relation(fields: [plantillaId], references: [id])
+
+  @@map("plantillas_ejercicio_versiones")
+  @@unique([plantillaId, version])
+  @@index([plantillaId])
+}
+
+model VblangDataset {
+  id            String   @id
+  ownerUserId   String   @map("owner_user_id")
+  schoolId      String?  @map("school_id")
+  visibility    String   // "privada" | "escuela" | "publica"
+  nombre        String   // identificador único por owner
+  descripcion   String?
+  columnas      String   // JSON: { nombre: "string", capital: "string", ... }
+  isDeleted     Boolean  @default(false) @map("is_deleted")
+  createdAt     String   @map("created_at")
+  updatedAt     String   @map("updated_at")
+
+  filas         VblangDatasetFila[]
+
+  @@map("vblang_datasets")
+  @@index([ownerUserId])
+  @@index([schoolId, visibility])
+  @@unique([ownerUserId, nombre])
+}
+
+model VblangDatasetFila {
+  id          String @id
+  datasetId   String @map("dataset_id")
+  orden       Int
+  datos       String              // JSON con los valores de cada columna
+  createdAt   String @map("created_at")
+
+  dataset     VblangDataset @relation(fields: [datasetId], references: [id])
+
+  @@map("vblang_dataset_filas")
+  @@index([datasetId, orden])
 }
