@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
+import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorModal";
+import { getPlantilla } from "../../domain/vblang/plantillaApi";
+import type { PlantillaListItem } from "../../domain/vblang/plantilla.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
@@ -139,6 +142,74 @@ export default function ModuloEditor() {
   const isTeacher = user?.role === "TEACHER";
   const isEvaluacionMode = form.category === "evaluacion";
 
+  // ─── Plantilla selector (Sprint 10A · Bloque B) ─────────────────────────
+  const [plantillaModalOpen, setPlantillaModalOpen] = useState(false);
+  const plantillaIdsEnUso = useMemo(() => {
+    const ids: string[] = [];
+    for (const quiz of quizzes) {
+      const genId = quiz.generatorId ?? "";
+      if (genId.startsWith("plantilla:")) {
+        ids.push(genId.slice("plantilla:".length));
+      }
+    }
+    return ids;
+  }, [quizzes]);
+  const [plantillaNombres, setPlantillaNombres] = useState<
+    Record<string, string>
+  >({});
+  useEffect(() => {
+    if (plantillaIdsEnUso.length === 0) return;
+    const faltantes = plantillaIdsEnUso.filter(
+      (pid) => !(pid in plantillaNombres),
+    );
+    if (faltantes.length === 0) return;
+    let cancelled = false;
+    void Promise.allSettled(faltantes.map((pid) => getPlantilla(pid))).then(
+      (results) => {
+        if (cancelled) return;
+        const next: Record<string, string> = {};
+        results.forEach((r, i) => {
+          if (r.status === "fulfilled") {
+            next[faltantes[i]] = r.value.nombre;
+          }
+        });
+        if (Object.keys(next).length > 0) {
+          setPlantillaNombres((prev) => ({ ...prev, ...next }));
+        }
+      },
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [plantillaIdsEnUso, plantillaNombres]);
+
+  const handleSelectPlantilla = (plantilla: PlantillaListItem) => {
+    const baseQuiz: ModuleQuiz = {
+      id: `quiz-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      title: plantilla.nombre,
+      type: "formal",
+      status: "draft",
+      version: 1,
+      visibility: "publico",
+      mode: "generated",
+      generatorId: `plantilla:${plantilla.id}`,
+      generatorVersion: plantilla.version,
+      count: 5,
+      seedPolicy: "perAttempt",
+      params: {},
+    };
+    handleImportQuizzes([baseQuiz]);
+    setPlantillaNombres((prev) => ({
+      ...prev,
+      [plantilla.id]: plantilla.nombre,
+    }));
+    setPlantillaModalOpen(false);
+  };
+
+  const moduloReturnTo = id
+    ? `/modulos/${id}/editar`
+    : `/modulos/crear`;
+
   const quizCountLabel =
     quizzes.length === 0
       ? "Sin cuestionarios"
@@ -193,6 +264,16 @@ export default function ModuloEditor() {
           initialAccentColor={slidesEditorItem.accentColor}
           onDone={handleSlidesDone}
           onClose={() => setSlidesEditorFor(null)}
+        />
+      ) : null}
+
+      {/* Sprint 10A — modal de selección de plantilla VBLang. */}
+      {plantillaModalOpen ? (
+        <PlantillaSelectorModal
+          onClose={() => setPlantillaModalOpen(false)}
+          onSelect={handleSelectPlantilla}
+          materiaHint={form.subject || undefined}
+          createReturnTo={moduloReturnTo}
         />
       ) : null}
 
@@ -1106,23 +1187,16 @@ export default function ModuloEditor() {
                 </div>
 
                 <div className="flex flex-wrap items-start gap-3">
-                  {/* Crear con plantilla VBLang — default desde Sprint 8 */}
+                  {/* Sprint 10A: abrir selector de plantilla en lugar de
+                      redirigir directamente a crear una nueva. */}
                   <button
                     type="button"
                     className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-                    onClick={() => {
-                      const returnTo = id
-                        ? `/modulos/${id}/editar`
-                        : `/modulos/crear`;
-                      navigate(
-                        `/plantillas/nueva?moduleId=${
-                          id ?? "nuevo"
-                        }&returnTo=${encodeURIComponent(returnTo)}`
-                      );
-                    }}
+                    data-testid="open-plantilla-selector"
+                    onClick={() => setPlantillaModalOpen(true)}
                   >
                     <span className="text-base leading-none">🧩</span>
-                    Crear con plantilla VBLang
+                    Usar plantilla VBLang
                   </button>
 
                   <QuizImportJson onImportQuizzes={handleImportQuizzes} />
@@ -1197,9 +1271,54 @@ export default function ModuloEditor() {
                   </div>
                 ) : (
                   <div className="space-y-6">
-                    {quizzes.map((quiz) => (
+                    {quizzes.map((quiz) => {
+                      const quizGenId = quiz.generatorId ?? "";
+                      const esPlantilla = quizGenId.startsWith("plantilla:");
+                      const plantillaId = esPlantilla
+                        ? quizGenId.slice("plantilla:".length)
+                        : null;
+                      const plantillaNombre = plantillaId
+                        ? plantillaNombres[plantillaId]
+                        : undefined;
+                      return (
                       <div key={quiz.id} className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                         <div className="p-5 space-y-4">
+                        {/* Sprint 10A — badge según origen del cuestionario */}
+                        <div className="flex flex-wrap items-center gap-2">
+                          {esPlantilla ? (
+                            <>
+                              <span
+                                className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-700"
+                                data-testid="quiz-badge-plantilla"
+                              >
+                                🧩 Plantilla VBLang
+                              </span>
+                              {plantillaNombre && (
+                                <span className="text-xs text-[var(--c-muted)]">
+                                  {plantillaNombre}
+                                </span>
+                              )}
+                              {plantillaId && (
+                                <Link
+                                  to={`/plantillas/${plantillaId}?returnTo=${encodeURIComponent(moduloReturnTo)}`}
+                                  className="text-xs text-[var(--c-primary)] hover:underline"
+                                  data-testid="quiz-plantilla-edit-link"
+                                >
+                                  Editar plantilla →
+                                </Link>
+                              )}
+                            </>
+                          ) : quiz.mode === "generated" ? (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-2 py-0.5 text-[11px] font-semibold text-blue-700">
+                              ⚡ Generado
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-700">
+                              ✏️ Manual
+                            </span>
+                          )}
+                        </div>
+
                         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                           <div className="grid flex-1 gap-4 md:grid-cols-3">
                             <label className="text-xs font-medium text-[var(--c-muted)]">
@@ -1351,7 +1470,8 @@ export default function ModuloEditor() {
                         )}
                         </div>
                       </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 )}
                 </div>

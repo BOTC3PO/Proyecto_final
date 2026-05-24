@@ -184,9 +184,19 @@ export function generate(
   for (let intento = 1; intento <= maxRetries; intento++) {
     const scope = new Scope({ ...CONSTANTES_GLOBALES });
 
-    // Placeholders para dataset/mapa (Sprint 9 los cablea con datos reales).
-    if (compiled.dataset) scope.set("dataset", []);
-    if (compiled.mapa) scope.set("mapa", []);
+    // Sprint 10A — datasets reales vía provider.
+    if (compiled.dataset) {
+      const nombre = compiled.dataset;
+      const filas = options.provider?.obtenerDataset?.(nombre) ?? null;
+      if (filas === null) {
+        throw new EvalError(
+          `dataset "${nombre}" no encontrado (¿está creado? ¿el provider lo expone?)`,
+        );
+      }
+      scope.set(nombre, filas);
+    }
+    // 'mapa' sigue siendo un identificador simbólico (no necesita datos en
+    // scope; el adapter lo pasa como `mapaId` directamente).
 
     // Declarar variables en orden, con loc para errores.
     for (const decl of compiled.declaracionesVariables) {

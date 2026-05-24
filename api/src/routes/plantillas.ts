@@ -471,6 +471,146 @@ plantillas.post("/api/plantillas/:id/fork", requireUser, async (req, res) => {
   }
 });
 
+// ─── Sprint 10A — Aprobación admin de plantillas públicas ─────────────────
+
+// GET /api/admin/plantillas/pendientes — solo ADMIN.
+plantillas.get(
+  "/api/admin/plantillas/pendientes",
+  requireUser,
+  async (req, res) => {
+    try {
+      const user = (req as { user?: AuthUser }).user ?? {};
+      if (user.role !== "ADMIN") {
+        res.status(403).json({ error: "Solo ADMIN" });
+        return;
+      }
+      const { limit = "50", offset = "0" } = req.query as Record<
+        string,
+        string | undefined
+      >;
+      const limitNum = Math.min(parseInt(limit ?? "50", 10) || 50, 200);
+      const offsetNum = Math.max(parseInt(offset ?? "0", 10) || 0, 0);
+      const where = {
+        isDeleted: false,
+        visibility: "publica",
+        publicAprobado: false,
+      };
+      const [rows, total] = await Promise.all([
+        prisma.plantillaEjercicio.findMany({
+          where,
+          orderBy: { updatedAt: "desc" },
+          take: limitNum,
+          skip: offsetNum,
+        }),
+        prisma.plantillaEjercicio.count({ where }),
+      ]);
+      const ownerIds = Array.from(new Set(rows.map((r) => r.ownerUserId)));
+      const owners = ownerIds.length
+        ? await prisma.usuario.findMany({
+            where: { id: { in: ownerIds } },
+            select: { id: true, fullName: true },
+          })
+        : [];
+      const ownerMap = new Map(owners.map((o) => [o.id, o.fullName]));
+      res.json({
+        items: rows.map((r) =>
+          toListItem(r as PlantillaRow, ownerMap.get(r.ownerUserId)),
+        ),
+        total,
+      });
+    } catch (err) {
+      res
+        .status(500)
+        .json({ error: err instanceof Error ? err.message : "internal server error" });
+    }
+  },
+);
+
+// POST /api/admin/plantillas/:id/aprobar — solo ADMIN.
+plantillas.post(
+  "/api/admin/plantillas/:id/aprobar",
+  requireUser,
+  async (req, res) => {
+    try {
+      const user = (req as { user?: AuthUser }).user ?? {};
+      if (user.role !== "ADMIN") {
+        res.status(403).json({ error: "Solo ADMIN" });
+        return;
+      }
+      const id = String(req.params.id);
+      const row = await prisma.plantillaEjercicio.findUnique({ where: { id } });
+      if (!row || row.isDeleted) {
+        res.status(404).json({ error: "Plantilla no encontrada" });
+        return;
+      }
+      if (row.visibility !== "publica") {
+        res.status(400).json({
+          error: "solo se pueden aprobar plantillas públicas",
+        });
+        return;
+      }
+      if (row.publicAprobado) {
+        res.status(400).json({ error: "ya está aprobada" });
+        return;
+      }
+      const updated = await prisma.plantillaEjercicio.update({
+        where: { id },
+        data: {
+          publicAprobado: true,
+          updatedAt: new Date().toISOString(),
+        },
+      });
+      res.json(toDetail(updated as PlantillaRow));
+    } catch (err) {
+      res
+        .status(500)
+        .json({ error: err instanceof Error ? err.message : "internal server error" });
+    }
+  },
+);
+
+// POST /api/admin/plantillas/:id/rechazar — solo ADMIN.
+// Decisión: baja a visibility="escuela" (no "privada") para que la plantilla
+// siga siendo accesible al creador y a su escuela, pero deje de ser pública.
+plantillas.post(
+  "/api/admin/plantillas/:id/rechazar",
+  requireUser,
+  async (req, res) => {
+    try {
+      const user = (req as { user?: AuthUser }).user ?? {};
+      if (user.role !== "ADMIN") {
+        res.status(403).json({ error: "Solo ADMIN" });
+        return;
+      }
+      const id = String(req.params.id);
+      const row = await prisma.plantillaEjercicio.findUnique({ where: { id } });
+      if (!row || row.isDeleted) {
+        res.status(404).json({ error: "Plantilla no encontrada" });
+        return;
+      }
+      if (row.visibility !== "publica") {
+        res.status(400).json({
+          error: "solo se pueden rechazar plantillas públicas",
+        });
+        return;
+      }
+      const updated = await prisma.plantillaEjercicio.update({
+        where: { id },
+        data: {
+          visibility: "escuela",
+          publicAprobado: false,
+          updatedAt: new Date().toISOString(),
+        },
+      });
+      res.json(toDetail(updated as PlantillaRow));
+    } catch (err) {
+      res
+        .status(500)
+        .json({ error: err instanceof Error ? err.message : "internal server error" });
+    }
+  },
+);
+
 // GET /api/plantillas/:id/versions
 plantillas.get("/api/plantillas/:id/versions", requireUser, async (req, res) => {
   try {

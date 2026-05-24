@@ -83,6 +83,7 @@ const AdminUsuarios             = lazyWithRetry(() => import("./pages/AdminUsuar
 const AdminCursos               = lazyWithRetry(() => import("./pages/AdminCursos"));
 const AdminMaterias             = lazyWithRetry(() => import("./pages/AdminMaterias"));
 const AdminModeracion           = lazyWithRetry(() => import("./pages/AdminModeracion"));
+const PlantillasModeracion      = lazyWithRetry(() => import("./pages/admin/PlantillasModeracion"));
 const AdminReportesGlobal       = lazyWithRetry(() => import("./pages/AdminReportesGlobal"));
 const Perfil                    = lazyWithRetry(() => import("./pages/Perfil"));
 const Tareas                    = lazyWithRetry(() => import("./pages/Tareas"));
@@ -385,6 +386,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['ADMIN']}>
                 {withSuspense(<AdminModeracion />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'admin/plantillas-moderacion',
+            element: (
+              <ProtectedRoute allow={['ADMIN']}>
+                {withSuspense(<PlantillasModeracion />)}
               </ProtectedRoute>
             ),
           },

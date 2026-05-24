@@ -41,4 +41,17 @@ export interface GeneradorAsistidoProvider {
     seed: string,
     dificultad?: string,
   ): GeneradorAsistidoEjercicio | null;
+
+  /**
+   * Sprint 10A: devuelve las filas de un dataset por nombre, o null si no
+   * existe / el provider no soporta datasets.
+   *
+   * Cada fila es un Record plano con los valores. El provider es responsable
+   * de elegir el dataset visible al usuario actual (alcance: mías + escuela
+   * + públicas aprobadas).
+   *
+   * Es opcional: si el provider no implementa este método, plantillas con
+   * `dataset: <nombre>` fallarán con error claro en evaluación.
+   */
+  obtenerDataset?(nombre: string): Array<Record<string, unknown>> | null;
 }

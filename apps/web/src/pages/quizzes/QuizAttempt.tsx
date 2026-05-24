@@ -8,6 +8,9 @@ import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/ty
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import { ejercicioToQuestion } from "../../domain/quiz/ejercicioToQuestion";
 import { runPlantilla } from "../../vblang/runPlantilla";
+import { precargarDataset } from "../../vblang/datasetCache";
+import { extractDatasetName } from "../../vblang/utils";
+import { parse as parsePlantilla } from "@vb/vblang";
 import { getPlantilla } from "../../domain/vblang/plantillaApi";
 import OrdenarRenderer from "../../components/quiz-renderers/OrdenarRenderer";
 import MarcarMapaRenderer from "../../components/quiz-renderers/MarcarMapaRenderer";
@@ -167,7 +170,18 @@ export default function QuizAttempt() {
       const plantillaId = genId.slice("plantilla:".length);
       let cancelled = false;
       void getPlantilla(plantillaId)
-        .then((p) => {
+        .then(async (p) => {
+          if (cancelled) return;
+          // Sprint 10A: precargar dataset si la plantilla lo necesita.
+          // Si el parse falla acá, seguimos sin precargar: runPlantilla
+          // va a tirar el error real en el catch de abajo.
+          try {
+            const ast = parsePlantilla(p.codigoDsl);
+            const ds = extractDatasetName(ast);
+            if (ds) await precargarDataset(ds);
+          } catch {
+            // ignorar — runPlantilla reportará el error real por pregunta.
+          }
           if (cancelled) return;
           const baseSeed = seed !== undefined && seed !== null ? String(seed) : "0";
           const out: ModuleQuizQuestion[] = [];
