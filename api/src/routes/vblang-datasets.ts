@@ -172,6 +172,57 @@ vblangDatasets.get("/api/vblang/datasets", requireUser, async (req, res) => {
   }
 });
 
+// GET /api/vblang/datasets/by-name/:nombre
+// Sprint 10A — el runtime de plantillas resuelve `dataset: <nombre>` con
+// este endpoint. Cualquier usuario logueado puede consumir; el alcance lo
+// controla el query (mías + escuela + públicas aprobadas).
+vblangDatasets.get(
+  "/api/vblang/datasets/by-name/:nombre",
+  requireUser,
+  async (req, res) => {
+    try {
+      const user = (req as { user?: AuthUser }).user ?? {};
+      const nombre = String(req.params.nombre);
+      const userId = user._id ?? "";
+      const userSchoolId = user.schoolId ?? null;
+
+      const orBranches: Array<Record<string, unknown>> = [
+        { ownerUserId: userId },
+        { visibility: "publica" },
+      ];
+      if (userSchoolId) {
+        orBranches.push({
+          visibility: "escuela",
+          schoolId: userSchoolId,
+        });
+      }
+
+      const row = await prisma.vblangDataset.findFirst({
+        where: {
+          nombre,
+          isDeleted: false,
+          OR: orBranches,
+        },
+      });
+      if (!row) {
+        res.status(404).json({ error: `Dataset "${nombre}" no encontrado` });
+        return;
+      }
+      const filas = await prisma.vblangDatasetFila.findMany({
+        where: { datasetId: row.id },
+        orderBy: { orden: "asc" },
+      });
+      res.json({
+        filas: filas.map((f) => ({ datos: parseDatos(f.datos) })),
+      });
+    } catch (err) {
+      res
+        .status(500)
+        .json({ error: err instanceof Error ? err.message : "internal server error" });
+    }
+  },
+);
+
 // GET /api/vblang/datasets/:id
 vblangDatasets.get("/api/vblang/datasets/:id", requireUser, async (req, res) => {
   try {

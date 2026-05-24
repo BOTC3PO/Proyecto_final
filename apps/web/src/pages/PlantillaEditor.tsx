@@ -11,7 +11,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import CodeEditor, {
   type CodeEditorHandle,
 } from "../components/vblang/CodeEditor";
@@ -53,6 +53,8 @@ type SaveStatus = "idle" | "saving" | "saved" | "error";
 export default function PlantillaEditor() {
   const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const returnTo = searchParams.get("returnTo");
   const isNew = !id;
 
   const [codigoDsl, setCodigoDsl] = useState<string>(INITIAL_TEMPLATE);
@@ -123,7 +125,12 @@ export default function PlantillaEditor() {
         const created = await createPlantilla(payload);
         setSaveStatus("saved");
         setSaveMessage("Plantilla creada.");
-        navigate(`/plantillas/${created.id}`);
+        // Sprint 10A: si veníamos de un módulo (returnTo), ofrecer volver.
+        if (returnTo && window.confirm("Plantilla guardada. ¿Volver al módulo?")) {
+          navigate(returnTo);
+        } else {
+          navigate(`/plantillas/${created.id}${returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : ""}`);
+        }
       } else if (id) {
         await updatePlantilla(id, {
           ...payload,
@@ -131,6 +138,9 @@ export default function PlantillaEditor() {
         });
         setSaveStatus("saved");
         setSaveMessage("Cambios guardados.");
+        if (returnTo && window.confirm("Cambios guardados. ¿Volver al módulo?")) {
+          navigate(returnTo);
+        }
       }
     } catch (err) {
       if (err instanceof DslApiError) {

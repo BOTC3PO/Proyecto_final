@@ -15,6 +15,8 @@ import {
   type LintReport,
   type Plantilla,
 } from "@vb/vblang";
+import { precargarDataset } from "../vblang/datasetCache";
+import { extractDatasetName } from "../vblang/utils";
 
 export interface ParseErrorState {
   message: string;
@@ -43,38 +45,52 @@ export function usePlantillaCompilation(
       setState(EMPTY);
       return;
     }
+    let cancelled = false;
     const handle = window.setTimeout(() => {
-      try {
-        const plantilla = parse(codigoDsl);
-        const compiled = compile(plantilla);
-        const lintReport = lint(plantilla);
-        setState({
-          plantilla,
-          compiled,
-          lintReport,
-          status: "ok",
-        });
-      } catch (err) {
-        if (err instanceof ParseError) {
+      void (async () => {
+        try {
+          const plantilla = parse(codigoDsl);
+          // Sprint 10A: precargar dataset si la plantilla lo usa antes de
+          // compile() — el evaluador lo necesita en scope sincrónicamente.
+          const datasetNombre = extractDatasetName(plantilla);
+          if (datasetNombre) {
+            await precargarDataset(datasetNombre);
+          }
+          if (cancelled) return;
+          const compiled = compile(plantilla);
+          const lintReport = lint(plantilla);
           setState({
-            status: "parse-error",
-            parseError: {
-              message: err.message,
-              line: err.line,
-              col: err.col,
-            },
+            plantilla,
+            compiled,
+            lintReport,
+            status: "ok",
           });
-        } else {
-          setState({
-            status: "parse-error",
-            parseError: {
-              message: err instanceof Error ? err.message : String(err),
-            },
-          });
+        } catch (err) {
+          if (cancelled) return;
+          if (err instanceof ParseError) {
+            setState({
+              status: "parse-error",
+              parseError: {
+                message: err.message,
+                line: err.line,
+                col: err.col,
+              },
+            });
+          } else {
+            setState({
+              status: "parse-error",
+              parseError: {
+                message: err instanceof Error ? err.message : String(err),
+              },
+            });
+          }
         }
-      }
+      })();
     }, debounceMs);
-    return () => window.clearTimeout(handle);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(handle);
+    };
   }, [codigoDsl, debounceMs]);
 
   return state;

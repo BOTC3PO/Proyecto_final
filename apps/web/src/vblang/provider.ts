@@ -2,6 +2,7 @@ import type {
   GeneradorAsistidoEjercicio,
   GeneradorAsistidoProvider,
 } from "@vb/vblang";
+import { obtenerDatasetSync } from "./datasetCache";
 import { DeterministicPrng } from "../generadoresV2/core/prng";
 import type { Dificultad, Ejercicio } from "../generadoresV2/core/types";
 import { getDescriptoresBiologia } from "../generadoresV2/biologia/index";
@@ -47,6 +48,9 @@ export const generadorAsistidoProvider: GeneradorAsistidoProvider = {
     // GeneratorFn firma: (dificultad?, prng?, subtipo?, enunciadoTemplate?) → Ejercicio
     const ejercicio = descriptor.generate(dif, prng);
     return ejercicioToVblangShape(ejercicio);
+  },
+  obtenerDataset(nombre) {
+    return obtenerDatasetSync(nombre);
   },
 };
 
