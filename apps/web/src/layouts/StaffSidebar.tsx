@@ -6,16 +6,16 @@ import { useState, useEffect, useRef } from 'react';
 
 const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
-    { label: 'Académico', items: ['Panel', 'Aulas', 'Materiales', 'Módulos', 'Evaluaciones'] },
+    { label: 'Académico', items: ['Panel', 'Aulas', 'Materiales', 'Módulos', 'Plantillas', 'Datasets', 'Evaluaciones'] },
     { label: 'Gestión',   items: ['Asistencia', 'Calificaciones', 'Reportes', 'Encuestas'] },
     { label: 'Escuela',   items: ['Calendario', 'Mensajes', 'Gobernanza'] },
   ],
   DIRECTIVO: [
-    { label: 'Escuela',        items: ['Panel escuela', 'Aulas', 'Miembros', 'Módulos'] },
+    { label: 'Escuela',        items: ['Panel escuela', 'Aulas', 'Miembros', 'Módulos', 'Plantillas', 'Datasets'] },
     { label: 'Administración', items: ['Reportes', 'Calendario', 'Gobernanza', 'Mensajes'] },
   ],
   ADMIN: [
-    { label: 'Sistema',  items: ['Panel', 'Usuarios', 'Materias', 'Módulos'] },
+    { label: 'Sistema',  items: ['Panel', 'Usuarios', 'Materias', 'Módulos', 'Plantillas', 'Datasets'] },
     { label: 'Control',  items: ['Moderación', 'Reportes', 'Mensajes'] },
   ],
 };

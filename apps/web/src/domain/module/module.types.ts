@@ -61,7 +61,17 @@ export type ModuleLevel = {
 export type ModuleQuizQuestion = {
   id: string;
   prompt: string;
-  questionType?: "mc" | "vf" | "input" | "completar" | "match" | "fill-blank";
+  questionType?:
+    | "mc"
+    | "vf"
+    | "input"
+    | "completar"
+    | "match"
+    | "fill-blank"
+    | "ordenar"
+    | "marcar_mapa"
+    | "analisis_sintactico"
+    | "identificar_palabras";
   options?: string[];
   answerKey?: string | string[];
   explanation?: string;
@@ -74,6 +84,18 @@ export type ModuleQuizQuestion = {
   pasos?: string[];
   // Visual attached by generator
   visualSpec?: import("../../generadoresV2/core/types").VisualSpec;
+
+  // Sprint 9B — tipos especiales
+  /** ordenar: items presentados al alumno (orden inicial, posiblemente mezclado). */
+  items?: string[];
+  /** marcar_mapa: identificador del mapa a cargar (ej. "politico_mundo"). */
+  mapaId?: string;
+  /** marcar_mapa: ISO correcto (también copiado a `answerKey` por conveniencia). */
+  respuestaIsoCorrecta?: string;
+  /** analisis_sintactico / identificar_palabras: texto a presentar al alumno. */
+  textoAnalizar?: string;
+  /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */
+  etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
 };
 
 export type ModuleGeneratorRef = {

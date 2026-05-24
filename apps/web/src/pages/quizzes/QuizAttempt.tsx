@@ -9,6 +9,11 @@ import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import { ejercicioToQuestion } from "../../domain/quiz/ejercicioToQuestion";
 import { runPlantilla } from "../../vblang/runPlantilla";
 import { getPlantilla } from "../../domain/vblang/plantillaApi";
+import OrdenarRenderer from "../../components/quiz-renderers/OrdenarRenderer";
+import MarcarMapaRenderer from "../../components/quiz-renderers/MarcarMapaRenderer";
+import AnalisisSintacticoRenderer from "../../components/quiz-renderers/AnalisisSintacticoRenderer";
+import IdentificarPalabrasRenderer from "../../components/quiz-renderers/IdentificarPalabrasRenderer";
+import { buildCorrectasFromEtiquetas } from "../../domain/quiz/checkAnswerSpecial";
 
 function parseVisualContext(detail: string | undefined): VisualSpec | null {
   if (!detail) return null;
@@ -23,7 +28,9 @@ function parseVisualContext(detail: string | undefined): VisualSpec | null {
   return null;
 }
 
-type AttemptAnswerValue = string | string[];
+// Sprint 9B: las respuestas pueden ser strings, listas (mc-multi, identificar_palabras,
+// ordenar) o records (analisis_sintactico → { palabra: etiqueta }).
+type AttemptAnswerValue = string | string[] | Record<string, string>;
 
 type QuizAttemptResponse = {
   id?: string;
@@ -80,7 +87,11 @@ const normalizeAnswers = (
     const key = typeof record.questionId === "string" ? record.questionId : record.id;
     if (!key) return acc;
     const value = record.answer ?? record.value;
-    if (typeof value === "string" || Array.isArray(value)) {
+    if (
+      typeof value === "string" ||
+      Array.isArray(value) ||
+      (value !== null && typeof value === "object")
+    ) {
       acc[key] = value as AttemptAnswerValue;
     }
     return acc;
@@ -454,7 +465,60 @@ export default function QuizAttempt() {
                       <p className="text-sm text-gray-500">Pregunta {index + 1}</p>
                       <p className="text-base text-gray-800">{question.prompt}</p>
                     </div>
-                    {questionType === "input" ? (
+                    {questionType === "ordenar" ? (
+                      <OrdenarRenderer
+                        items={question.items ?? []}
+                        value={Array.isArray(selected) ? (selected as string[]) : undefined}
+                        onChange={(orden) => handleAnswerChange(question.id, orden)}
+                        disabled={submitStatus === "submitted"}
+                        correctOrder={
+                          submitStatus === "submitted" && Array.isArray(question.answerKey)
+                            ? (question.answerKey as string[])
+                            : undefined
+                        }
+                      />
+                    ) : questionType === "marcar_mapa" ? (
+                      <MarcarMapaRenderer
+                        mapaId={question.mapaId ?? ""}
+                        selectedIso={typeof selected === "string" ? selected : undefined}
+                        correctIso={
+                          submitStatus === "submitted"
+                            ? question.respuestaIsoCorrecta
+                            : undefined
+                        }
+                        onSelect={(iso) => handleAnswerChange(question.id, iso)}
+                        disabled={submitStatus === "submitted"}
+                      />
+                    ) : questionType === "analisis_sintactico" ? (
+                      <AnalisisSintacticoRenderer
+                        textoAnalizar={question.textoAnalizar ?? ""}
+                        etiquetasPedidas={question.etiquetasPedidas ?? []}
+                        asignaciones={
+                          selected && typeof selected === "object" && !Array.isArray(selected)
+                            ? (selected as Record<string, string>)
+                            : undefined
+                        }
+                        onChange={(asign) => handleAnswerChange(question.id, asign)}
+                        disabled={submitStatus === "submitted"}
+                        correctas={
+                          submitStatus === "submitted"
+                            ? buildCorrectasFromEtiquetas(question.etiquetasPedidas)
+                            : undefined
+                        }
+                      />
+                    ) : questionType === "identificar_palabras" ? (
+                      <IdentificarPalabrasRenderer
+                        textoAnalizar={question.textoAnalizar ?? ""}
+                        marcadas={Array.isArray(selected) ? (selected as string[]) : undefined}
+                        onChange={(marcadas) => handleAnswerChange(question.id, marcadas)}
+                        disabled={submitStatus === "submitted"}
+                        correctas={
+                          submitStatus === "submitted" && Array.isArray(question.answerKey)
+                            ? (question.answerKey as string[])
+                            : undefined
+                        }
+                      />
+                    ) : questionType === "input" ? (
                       <textarea
                         className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                         rows={3}

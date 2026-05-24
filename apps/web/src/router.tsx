@@ -72,6 +72,8 @@ const EditorCuestionariosV2 = lazyWithRetry(() => import("./pages/EditorCuestion
 const PlantillasIndex      = lazyWithRetry(() => import("./pages/PlantillasIndex"));
 const PlantillasBiblioteca = lazyWithRetry(() => import("./pages/PlantillasBiblioteca"));
 const PlantillaEditor      = lazyWithRetry(() => import("./pages/PlantillaEditor"));
+const VblangDatasetsIndex  = lazyWithRetry(() => import("./pages/VblangDatasetsIndex"));
+const DatasetEditor        = lazyWithRetry(() => import("./pages/DatasetEditor"));
 const AdminGeneradores    = lazyWithRetry(() => import("./pages/AdminGeneradores"));
 
 // Resto de páginas → lazy
@@ -618,6 +620,38 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
                 {withSuspense(<PlantillaEditor />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'datasets',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<VblangDatasetsIndex />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'datasets/biblioteca',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<VblangDatasetsIndex mode="biblioteca" />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'datasets/nuevo',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<DatasetEditor />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'datasets/:id',
+            element: (
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<DatasetEditor />)}
               </ProtectedRoute>
             ),
           },

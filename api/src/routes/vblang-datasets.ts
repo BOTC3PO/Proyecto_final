@@ -198,7 +198,10 @@ vblangDatasets.get("/api/vblang/datasets/:id", requireUser, async (req, res) => 
       ownerUserId: row.ownerUserId,
       schoolId: row.schoolId ?? undefined,
       columnas: parseColumnas(row.columnas),
-      filas: filas.map((f) => parseDatos(f.datos)),
+      // Sprint 9B: incluimos el id de cada fila para que el editor pueda
+      // direccionar PUT/DELETE por filaId. Mantenemos `datos` como Record
+      // para compatibilidad con el preview del DSL (uno_de(dataset)).
+      filas: filas.map((f) => ({ id: f.id, datos: parseDatos(f.datos) })),
       createdAt: row.createdAt,
       updatedAt: row.updatedAt,
     });
@@ -289,7 +292,7 @@ vblangDatasets.post("/api/vblang/datasets", requireUser, async (req, res) => {
       ownerUserId: created!.ownerUserId,
       schoolId: created!.schoolId ?? undefined,
       columnas: parseColumnas(created!.columnas),
-      filas: filas.map((f) => parseDatos(f.datos)),
+      filas: filas.map((f) => ({ id: f.id, datos: parseDatos(f.datos) })),
       createdAt: created!.createdAt,
       updatedAt: created!.updatedAt,
     });
