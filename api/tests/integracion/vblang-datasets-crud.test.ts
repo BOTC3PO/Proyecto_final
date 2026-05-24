@@ -133,10 +133,15 @@ test("GET /api/vblang/datasets/:id → detalle con filas parseadas", async () =>
     token: t1(),
   });
   assert.equal(r.status, 200);
-  const body = r.body as { filas: Array<Record<string, unknown>> };
+  // Sprint 9B: el GET devuelve `filas: [{ id, datos: {...} }]` para que el
+  // editor pueda direccionar PUT/DELETE por filaId.
+  const body = r.body as {
+    filas: Array<{ id: string; datos: Record<string, unknown> }>;
+  };
   assert.equal(body.filas.length, 1);
-  assert.equal(body.filas[0].pais, "Argentina");
-  assert.equal(body.filas[0].poblacion, 47);
+  assert.equal(typeof body.filas[0].id, "string");
+  assert.equal(body.filas[0].datos.pais, "Argentina");
+  assert.equal(body.filas[0].datos.poblacion, 47);
 });
 
 test("POST /:id/filas → agrega filas, COUNT subió", async () => {
