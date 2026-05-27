@@ -78,10 +78,79 @@ tipo: input
       fireEvent.change(ta, { target: { value: newCode } });
       vi.advanceTimersByTime(700);
     });
-    // El panel de preview muestra al menos una card con "seed:" después del re-compute
-    const seedLabels = result.container.querySelectorAll(
-      '[data-testid="vblang-preview-panel"]',
+    // El preview debe reflejar el nuevo enunciado ya interpolado (no sólo que
+    // el panel exista — el aserto anterior pasaba aunque la recompilación no
+    // hubiera disparado). Si el debounce no avanzó, el contenido no contiene
+    // el literal del enunciado.
+    expect(result.container.textContent).toMatch(/valor de a:/);
+  });
+
+  it("toggle visual/código alterna entre el CodeEditor y el formulario", async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    // Por default arranca en modo "codigo": el CodeEditor está montado.
+    expect(result.queryByTestId("vblang-code-editor")).not.toBeNull();
+    expect(result.queryByTestId("vblang-form-tipo")).toBeNull();
+
+    // Click en el toggle a "Formulario": se desmonta el CodeEditor y aparece el form.
+    fireEvent.click(result.getByTestId("vblang-modo-visual"));
+    expect(result.queryByTestId("vblang-code-editor")).toBeNull();
+    expect(result.queryByTestId("vblang-form-tipo")).not.toBeNull();
+
+    // Vuelta a "Código": el CodeEditor reaparece.
+    fireEvent.click(result.getByTestId("vblang-modo-codigo"));
+    expect(result.queryByTestId("vblang-code-editor")).not.toBeNull();
+  });
+
+  it("cambio en el form actualiza el código DSL", async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    // Cambiamos a modo visual.
+    fireEvent.click(result.getByTestId("vblang-modo-visual"));
+    const tipoSelect = result.getByTestId(
+      "vblang-form-tipo",
+    ) as HTMLSelectElement;
+    expect(tipoSelect.value).toBe("input");
+    // Cambiamos el tipo a "mc".
+    await act(async () => {
+      fireEvent.change(tipoSelect, { target: { value: "mc" } });
+      vi.advanceTimersByTime(700);
+    });
+    // Volvemos al modo código y verificamos que el textarea del CodeEditor
+    // (no el de MetadataPanel) ahora contiene `tipo: mc`.
+    fireEvent.click(result.getByTestId("vblang-modo-codigo"));
+    const codeEditor = result.getByTestId("vblang-code-editor");
+    const ta = codeEditor.querySelector("textarea") as HTMLTextAreaElement;
+    expect(ta).toBeTruthy();
+    expect(ta.value).toMatch(/tipo:\s*mc/);
+  });
+
+  it("con código inválido, modo visual muestra mensaje y botón para volver", async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    // Rompemos el código vía el textarea del CodeEditor (no el de MetadataPanel).
+    const codeEditor = result.getByTestId("vblang-code-editor");
+    const ta = codeEditor.querySelector("textarea") as HTMLTextAreaElement;
+    await act(async () => {
+      fireEvent.change(ta, { target: { value: "variables:\n  a: random(" } });
+      vi.advanceTimersByTime(700);
+    });
+    fireEvent.click(result.getByTestId("vblang-modo-visual"));
+    // El formulario no debe rendizarse; en su lugar, mensaje de error.
+    expect(result.queryByTestId("vblang-form-tipo")).toBeNull();
+    expect(
+      result.getByTestId("vblang-form-no-disponible"),
+    ).toBeInTheDocument();
+    // Click en "Volver a Código" lleva al modo código sin tocar el código.
+    fireEvent.click(
+      screen.getByRole("button", { name: /Volver a Código/i }),
     );
-    expect(seedLabels.length).toBeGreaterThan(0);
+    expect(result.queryByTestId("vblang-code-editor")).not.toBeNull();
   });
 });

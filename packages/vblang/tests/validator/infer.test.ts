@@ -90,12 +90,12 @@ describe("infer / binops", () => {
     expect(infer("v + 1", { v: T.number }).type).toEqual(T.number);
   });
 
-  it("v + 1 con v:string → reporta error", () => {
-    const { issues } = infer("v + 1", { v: T.string });
-    // string + number → string per runtime, but linter reports for mismatched types
-    // Our linter actually returns T.string in this case (concat-style)
-    // Check that there's NO error since '+' permite string mix
+  it("v + 1 con v:string → infiere string sin error (concat permitida)", () => {
+    const { type, issues } = infer("v + 1", { v: T.string });
+    // '+' admite string + number como concatenación, así que el linter NO debe
+    // reportar type-mismatch y el tipo inferido debe ser string.
     expect(issues.filter((i) => i.code === "type-mismatch")).toHaveLength(0);
+    expect(type).toEqual(T.string);
   });
 
   it("v * 2 con v:string → error", () => {

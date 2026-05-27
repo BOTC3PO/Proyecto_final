@@ -30,7 +30,7 @@ export const NAV_BY_ROLE: NavMap = {
     { label: 'Plantillas',  to: '/plantillas',        exact: true },
     { label: 'Datasets',    to: '/datasets',          exact: true },
     { label: 'Moderación',  to: '/admin/moderacion',  exact: true },
-    { label: 'Plantillas mod.', to: '/admin/plantillas-moderacion', exact: true },
+    { label: 'Moderar plantillas', to: '/admin/plantillas-moderacion', exact: true },
     { label: 'Reportes',    to: '/admin/reportes',    exact: true },
     { label: 'Mensajes',    to: '/mensajes',          exact: true },
   ],

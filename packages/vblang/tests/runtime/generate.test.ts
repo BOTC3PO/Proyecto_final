@@ -19,8 +19,11 @@ describe("generate / 16.1 MRU", () => {
 
   it("genera enunciado con km/h y h", () => {
     const result = generate(compiled, { seed: "test-1" });
-    expect(result.enunciado).toMatch(/km\/h/);
-    expect(result.enunciado).toMatch(/h\b/);
+    // El enunciado del fixture es "Un auto va a {v} km/h durante {t} h.\nQue distancia recorre?".
+    // Chequeamos que ambas unidades quedan interpoladas explícitamente, no
+    // sólo que la letra 'h' existe en el texto.
+    expect(result.enunciado).toMatch(/\d+ km\/h/);
+    expect(result.enunciado).toMatch(/durante \d+ h\b/);
   });
 
   it("respuesta es número finito positivo", () => {

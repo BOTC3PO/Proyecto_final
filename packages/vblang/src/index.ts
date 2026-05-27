@@ -1,4 +1,5 @@
 export { parse } from "./parser/parser.js";
+export { emitExpr, serialize } from "./serializer/serialize.js";
 export { compile } from "./runtime/compile.js";
 export { generate } from "./runtime/generate.js";
 export { createPrng } from "./runtime/prng.js";
@@ -19,6 +20,16 @@ export {
 
 export { toModuleQuizQuestion } from "./adapters/to-module-quiz-question.js";
 export { AdapterError } from "./adapters/errors.js";
+
+export type {
+  CircuitSpec,
+  LatexSpec,
+  LineChartSpec,
+  StaticImageSpec,
+  TimelineSpec,
+  VectorDiagramSpec,
+  VisualSpec,
+} from "./types/visual.js";
 export type {
   AdapterOptions,
   ModuleQuizQuestion,

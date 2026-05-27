@@ -39,3 +39,11 @@ export function obtenerDatasetSync(
 export function limpiarCacheDatasets(): void {
   cache.clear();
 }
+
+/**
+ * Invalida una sola entrada del cache. Útil cuando se edita un dataset
+ * en el editor: la próxima `precargarDataset(nombre)` va a refetch.
+ */
+export function invalidarDataset(nombre: string): void {
+  cache.delete(nombre);
+}

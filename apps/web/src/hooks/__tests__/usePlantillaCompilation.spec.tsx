@@ -9,6 +9,7 @@
 import { describe, expect, it, vi, beforeEach, afterEach } from "vitest";
 import { act, render } from "@testing-library/react";
 import { useState } from "react";
+import * as vblang from "@vb/vblang";
 import {
   usePlantillaCompilation,
   type CompilationState,
@@ -68,11 +69,21 @@ describe("usePlantillaCompilation", () => {
     expect(captured?.compiled).toBeUndefined();
   });
 
-  it("debounce: cambios rápidos no disparan compile múltiples veces", async () => {
+  it("debounce: cambios rápidos solo disparan parse una vez tras el último", async () => {
+    const parseSpy = vi.spyOn(vblang, "parse");
+    parseSpy.mockClear();
     render(<Harness initial={VALID_DSL} />);
+    // Esperamos al primer debounce — eso cuenta UN parse del render inicial.
+    await act(async () => {
+      vi.advanceTimersByTime(600);
+    });
+    const baseline = parseSpy.mock.calls.length;
+    expect(baseline).toBeGreaterThanOrEqual(1);
+
     const setCode = (window as unknown as { __setCode: (v: string) => void })
       .__setCode;
-    // Cambiamos varias veces antes de que se cumpla el debounce
+    // Tres cambios separados por 100ms cada uno (< 500ms de debounce). Cada uno
+    // cancela el timer anterior, así que NO debería parsearse nada todavía.
     await act(async () => {
       setCode(VALID_DSL + "\n# c1");
       vi.advanceTimersByTime(100);
@@ -81,12 +92,15 @@ describe("usePlantillaCompilation", () => {
       setCode(VALID_DSL + "\n# c3");
       vi.advanceTimersByTime(100);
     });
-    // Antes de los 500ms desde el último cambio, status sigue idle/anterior
-    expect(captured?.status).not.toBe("ok-pending-final");
-    // Después de superar el debounce final
+    expect(parseSpy.mock.calls.length).toBe(baseline);
+
+    // Después de superar el debounce del último cambio, parse se invoca UNA
+    // sola vez más (no tres) — esto es el punto del debounce.
     await act(async () => {
       vi.advanceTimersByTime(600);
     });
+    expect(parseSpy.mock.calls.length).toBe(baseline + 1);
     expect(captured?.status).toBe("ok");
+    parseSpy.mockRestore();
   });
 });
