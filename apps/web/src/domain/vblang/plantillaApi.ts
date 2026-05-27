@@ -68,6 +68,29 @@ export async function getPlantilla(id: string): Promise<PlantillaDetail> {
   return apiGet<PlantillaDetail>(`/api/plantillas/${encodeURIComponent(id)}`);
 }
 
+export interface PlantillaBatchItem {
+  id: string;
+  nombre: string;
+  materia?: string;
+  version: number;
+}
+
+/**
+ * Batch lookup para evitar N round-trips cuando solo necesitamos los nombres
+ * (Sprint 10B · B8). El backend aplica los mismos filtros de visibilidad que
+ * GET /api/plantillas y omite las que el usuario no puede ver.
+ */
+export async function batchGetPlantillas(
+  ids: string[],
+): Promise<PlantillaBatchItem[]> {
+  if (ids.length === 0) return [];
+  const res = await apiPost<{ items: PlantillaBatchItem[] }>(
+    "/api/plantillas/batch",
+    { ids },
+  );
+  return res.items;
+}
+
 export async function createPlantilla(
   input: PlantillaCreateInput,
 ): Promise<PlantillaDetail> {

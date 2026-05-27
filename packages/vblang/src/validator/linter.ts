@@ -432,11 +432,11 @@ function lintTiposEspeciales(
       ets &&
       ets.kind === "etiquetas_pedidas"
     ) {
-      const textoLit = txt.expr.value;
+      const tokens = tokenizarPalabras(txt.expr.value);
       for (const et of ets.etiquetas) {
         const palabraCampo = et.campos.find((c) => c.key === "palabra");
         if (palabraCampo && palabraCampo.value.kind === "str") {
-          if (!textoLit.includes(palabraCampo.value.value)) {
+          if (!tokens.has(palabraCampo.value.value)) {
             issues.push({
               severity: "warning",
               code: "palabra-no-en-texto",
@@ -480,12 +480,12 @@ function lintTiposEspeciales(
       resp &&
       resp.kind === "respuestas_validas"
     ) {
-      const textoLit = txt.expr.value;
+      const tokens = tokenizarPalabras(txt.expr.value);
       // Si todas las items son strings literales:
       if (resp.items.every((i) => i.kind === "str")) {
         for (const item of resp.items) {
           if (item.kind !== "str") continue;
-          if (!textoLit.includes(item.value)) {
+          if (!tokens.has(item.value)) {
             issues.push({
               severity: "warning",
               code: "palabra-no-en-texto",
@@ -504,7 +504,7 @@ function lintTiposEspeciales(
       ) {
         for (const item of resp.items[0].items) {
           if (item.kind !== "str") continue;
-          if (!textoLit.includes(item.value)) {
+          if (!tokens.has(item.value)) {
             issues.push({
               severity: "warning",
               code: "palabra-no-en-texto",
@@ -517,6 +517,21 @@ function lintTiposEspeciales(
       }
     }
   }
+}
+
+/**
+ * Tokeniza un texto en palabras (Unicode-aware) para hacer match por palabra
+ * entera en vez de substring. Misma regex que usan los renderers especiales,
+ * para mantener consistencia entre el linter y el reproductor.
+ */
+function tokenizarPalabras(texto: string): Set<string> {
+  const re = /[\p{L}\p{N}]+(?:['’\-_][\p{L}\p{N}]+)*/gu;
+  const tokens = new Set<string>();
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(texto)) !== null) {
+    tokens.add(m[0]);
+  }
+  return tokens;
 }
 
 function literalStringArrayFromOpciones(items: Expr[]): string[] | null {

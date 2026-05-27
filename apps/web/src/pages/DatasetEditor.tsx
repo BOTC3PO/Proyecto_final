@@ -17,6 +17,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { invalidarDataset } from "../vblang/datasetCache";
 import {
   addRows,
   deleteRow,
@@ -169,6 +170,12 @@ export default function DatasetEditor() {
       });
       // El PUT del backend no devuelve `filas`; preservamos las locales.
       setDataset((prev) => (prev ? { ...prev, ...updated, filas: prev.filas } : prev));
+      // Si cambió el nombre, invalidamos ambas entradas del cache para que
+      // las plantillas que lo referenciaban recarguen al próximo run.
+      invalidarDataset(dataset.nombre);
+      if (updated.nombre && updated.nombre !== dataset.nombre) {
+        invalidarDataset(updated.nombre);
+      }
       setMetaMessage("Metadata guardada.");
       setTimeout(() => setMetaMessage(null), 2000);
     } catch (err) {
@@ -233,6 +240,7 @@ export default function DatasetEditor() {
               : r,
           ),
         );
+        invalidarDataset(dataset.nombre);
       } catch (err) {
         setRows((prev) =>
           prev.map((r) =>
@@ -264,6 +272,7 @@ export default function DatasetEditor() {
       const fresh = await getDataset(id);
       setDataset(fresh);
       setRows(fresh.filas.map((f) => buildRowDraft(f, columnasOrden)));
+      invalidarDataset(dataset.nombre);
     } catch (err) {
       window.alert(
         err instanceof Error ? err.message : "No se pudo agregar la fila.",
@@ -277,6 +286,7 @@ export default function DatasetEditor() {
     try {
       await deleteRow(id, rowId);
       setRows((prev) => prev.filter((r) => r.id !== rowId));
+      if (dataset) invalidarDataset(dataset.nombre);
     } catch (err) {
       window.alert(
         err instanceof Error ? err.message : "No se pudo eliminar la fila.",

@@ -85,6 +85,45 @@ function canRead(row: PlantillaRow, user: AuthUser): boolean {
   return false;
 }
 
+// POST /api/plantillas/batch
+// Devuelve solo {id, nombre, materia, version} de cada plantilla pedida que el
+// usuario puede ver. Sustituye múltiples GET /api/plantillas/:id en flujos como
+// ModuloEditor donde solo se necesita el nombre para mostrar al docente.
+plantillas.post("/api/plantillas/batch", requireUser, async (req, res) => {
+  try {
+    const user = (req as { user?: AuthUser }).user ?? {};
+    const body = req.body as { ids?: unknown } | undefined;
+    const idsRaw = body?.ids;
+    if (!Array.isArray(idsRaw)) {
+      res.status(400).json({ error: "Body debe ser { ids: string[] }" });
+      return;
+    }
+    const ids = idsRaw
+      .filter((v): v is string => typeof v === "string" && v.length > 0)
+      .slice(0, 200); // cap defensivo
+    if (ids.length === 0) {
+      res.json({ items: [] });
+      return;
+    }
+    const rows = await prisma.plantillaEjercicio.findMany({
+      where: { id: { in: ids }, isDeleted: false },
+    });
+    const visible = (rows as PlantillaRow[]).filter((r) => canRead(r, user));
+    res.json({
+      items: visible.map((r) => ({
+        id: r.id,
+        nombre: r.nombre,
+        materia: r.materia ?? undefined,
+        version: r.version,
+      })),
+    });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ error: err instanceof Error ? err.message : "internal server error" });
+  }
+});
+
 // GET /api/plantillas
 plantillas.get("/api/plantillas", requireUser, async (req, res) => {
   try {

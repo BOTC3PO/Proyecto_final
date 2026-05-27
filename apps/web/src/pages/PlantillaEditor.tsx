@@ -12,9 +12,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { serialize } from "@vb/vblang";
 import CodeEditor, {
   type CodeEditorHandle,
 } from "../components/vblang/CodeEditor";
+import PlantillaFormularioVisual from "../components/vblang/PlantillaFormularioVisual";
+import Toast, { type ToastAction } from "../components/Toast";
 import ErrorPanel from "../components/vblang/ErrorPanel";
 import PreviewPanel from "../components/vblang/PreviewPanel";
 import ValidationReport from "../components/vblang/ValidationReport";
@@ -67,6 +70,11 @@ export default function PlantillaEditor() {
   const [loadStatus, setLoadStatus] = useState<"idle" | "loading" | "ready" | "error">(
     isNew ? "ready" : "loading",
   );
+  const [toastState, setToastState] = useState<{
+    message: string;
+    actions?: ToastAction[];
+  } | null>(null);
+  const [modo, setModo] = useState<"codigo" | "visual">("codigo");
   const editorRef = useRef<CodeEditorHandle | null>(null);
 
   useEffect(() => {
@@ -125,11 +133,25 @@ export default function PlantillaEditor() {
         const created = await createPlantilla(payload);
         setSaveStatus("saved");
         setSaveMessage("Plantilla creada.");
-        // Sprint 10A: si veníamos de un módulo (returnTo), ofrecer volver.
-        if (returnTo && window.confirm("Plantilla guardada. ¿Volver al módulo?")) {
-          navigate(returnTo);
+        const editUrl = `/plantillas/${created.id}${returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : ""}`;
+        if (returnTo) {
+          // Mostramos toast con acciones — no bloquea como window.confirm.
+          setToastState({
+            message: "Plantilla guardada.",
+            actions: [
+              {
+                label: "Volver al módulo",
+                primary: true,
+                onClick: () => navigate(returnTo),
+              },
+              {
+                label: "Seguir editando",
+                onClick: () => navigate(editUrl),
+              },
+            ],
+          });
         } else {
-          navigate(`/plantillas/${created.id}${returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : ""}`);
+          navigate(editUrl);
         }
       } else if (id) {
         await updatePlantilla(id, {
@@ -138,8 +160,18 @@ export default function PlantillaEditor() {
         });
         setSaveStatus("saved");
         setSaveMessage("Cambios guardados.");
-        if (returnTo && window.confirm("Cambios guardados. ¿Volver al módulo?")) {
-          navigate(returnTo);
+        if (returnTo) {
+          setToastState({
+            message: "Cambios guardados.",
+            actions: [
+              {
+                label: "Volver al módulo",
+                primary: true,
+                onClick: () => navigate(returnTo),
+              },
+              { label: "Seguir editando", onClick: () => setToastState(null) },
+            ],
+          });
         }
       }
     } catch (err) {
@@ -188,6 +220,40 @@ export default function PlantillaEditor() {
             {isNew ? "Nueva plantilla" : metadata.nombre || "Plantilla"}
           </h1>
           <div className="flex items-center gap-2">
+            <div
+              role="tablist"
+              aria-label="Modo del editor"
+              className="flex rounded-md border border-[var(--c-border,#e2e8f0)] text-xs"
+            >
+              <button
+                type="button"
+                role="tab"
+                aria-selected={modo === "codigo"}
+                onClick={() => setModo("codigo")}
+                data-testid="vblang-modo-codigo"
+                className={`px-3 py-1 ${
+                  modo === "codigo"
+                    ? "bg-[var(--c-primary,#3b82f6)] text-white"
+                    : "text-[var(--c-text,#1e293b)]"
+                }`}
+              >
+                Código
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={modo === "visual"}
+                onClick={() => setModo("visual")}
+                data-testid="vblang-modo-visual"
+                className={`px-3 py-1 ${
+                  modo === "visual"
+                    ? "bg-[var(--c-primary,#3b82f6)] text-white"
+                    : "text-[var(--c-text,#1e293b)]"
+                }`}
+              >
+                Formulario
+              </button>
+            </div>
             {saveMessage && (
               <span
                 className={`text-xs ${
@@ -209,13 +275,37 @@ export default function PlantillaEditor() {
         </header>
 
         <div className="flex-1 min-h-0">
-          <CodeEditor
-            ref={editorRef}
-            value={codigoDsl}
-            onChange={setCodigoDsl}
-            errorLine={compilation.parseError?.line ?? dslApiError?.line}
-            errorCol={compilation.parseError?.col ?? dslApiError?.col}
-          />
+          {modo === "codigo" ? (
+            <CodeEditor
+              ref={editorRef}
+              value={codigoDsl}
+              onChange={setCodigoDsl}
+              errorLine={compilation.parseError?.line ?? dslApiError?.line}
+              errorCol={compilation.parseError?.col ?? dslApiError?.col}
+            />
+          ) : compilation.plantilla ? (
+            <PlantillaFormularioVisual
+              plantilla={compilation.plantilla}
+              onChange={(next) => setCodigoDsl(serialize(next))}
+            />
+          ) : (
+            <div
+              className="h-full flex flex-col items-center justify-center gap-3 p-6 text-center text-sm text-[var(--c-muted,#64748b)]"
+              data-testid="vblang-form-no-disponible"
+            >
+              <p>
+                El código tiene errores. Arreglalos en modo Código para usar el
+                formulario.
+              </p>
+              <button
+                type="button"
+                onClick={() => setModo("codigo")}
+                className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
+              >
+                Volver a Código
+              </button>
+            </div>
+          )}
         </div>
         <footer className="h-48 border-t border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)]">
           <ErrorPanel
@@ -232,6 +322,14 @@ export default function PlantillaEditor() {
         </div>
         <ValidationReport state={validation} disabled={!compilation.compiled} />
       </aside>
+
+      {toastState && (
+        <Toast
+          message={toastState.message}
+          actions={toastState.actions}
+          onClose={() => setToastState(null)}
+        />
+      )}
     </div>
   );
 }

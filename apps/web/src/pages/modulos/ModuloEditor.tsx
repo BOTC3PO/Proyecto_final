@@ -3,7 +3,7 @@ import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
 import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorModal";
-import { getPlantilla } from "../../domain/vblang/plantillaApi";
+import { batchGetPlantillas } from "../../domain/vblang/plantillaApi";
 import type { PlantillaListItem } from "../../domain/vblang/plantilla.types";
 import TheoryItemCard, { type TheoryItem } from "../../components/modulos/TheoryItemCard";
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
@@ -164,20 +164,19 @@ export default function ModuloEditor() {
     );
     if (faltantes.length === 0) return;
     let cancelled = false;
-    void Promise.allSettled(faltantes.map((pid) => getPlantilla(pid))).then(
-      (results) => {
+    void batchGetPlantillas(faltantes)
+      .then((items) => {
         if (cancelled) return;
         const next: Record<string, string> = {};
-        results.forEach((r, i) => {
-          if (r.status === "fulfilled") {
-            next[faltantes[i]] = r.value.nombre;
-          }
-        });
+        for (const item of items) next[item.id] = item.nombre;
         if (Object.keys(next).length > 0) {
           setPlantillaNombres((prev) => ({ ...prev, ...next }));
         }
-      },
-    );
+      })
+      .catch(() => {
+        // Si el batch falla, dejamos los nombres pendientes; el UI muestra
+        // el ID y el usuario puede volver a abrir el módulo.
+      });
     return () => {
       cancelled = true;
     };

@@ -59,12 +59,27 @@ describe("DatasetEditor (smoke)", () => {
     ).toBe("Argentina");
   });
 
-  it("agregar fila dispara addRows + recarga", async () => {
+  it("agregar fila dispara addRows + recarga + muestra la nueva fila en la tabla", async () => {
+    // Segunda llamada a getDataset (la recarga) devuelve la fila nueva.
+    const datasetConFilaNueva = {
+      ...fakeDataset,
+      filas: [
+        ...fakeDataset.filas,
+        { id: "f3", datos: { nombre: "", capital: "" } },
+      ],
+    };
+    getDataset.mockResolvedValueOnce(fakeDataset);
+    getDataset.mockResolvedValueOnce(datasetConFilaNueva);
+
     await renderEditor();
     await waitFor(() => screen.getByTestId("dataset-add-row"));
     fireEvent.click(screen.getByTestId("dataset-add-row"));
     await waitFor(() => expect(addRows).toHaveBeenCalledTimes(1));
-    // Tras addRows, hace getDataset de nuevo (recarga).
     expect(getDataset).toHaveBeenCalledTimes(2);
+
+    // La nueva fila debe quedar visible en el DOM tras la recarga.
+    await waitFor(() => {
+      expect(screen.getByTestId("dataset-row-f3")).toBeTruthy();
+    });
   });
 });

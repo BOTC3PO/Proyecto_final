@@ -3,9 +3,9 @@ import { classifyIndent } from "./indentation.js";
 import {
   ALWAYS_KEYWORDS,
   BLOCK_KEYWORDS,
-  Token,
   TokenKind,
 } from "./tokens.js";
+import type { Token } from "./tokens.js";
 
 const IDENT_START_RE = /[a-záéíóúñA-ZÁÉÍÓÚÑ_]/;
 const IDENT_CONT_RE = /[a-záéíóúñA-ZÁÉÍÓÚÑ_0-9]/;

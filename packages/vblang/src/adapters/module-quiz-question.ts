@@ -6,6 +6,7 @@
  * compatibilidad estructural con apps/web/src/domain/module/module.types.ts
  * se verifica con un test en apps/web/src/vblang/__tests__/compat.test.ts.
  */
+import type { VisualSpec } from "../types/visual.js";
 export type ModuleQuizQuestionType =
   | "mc"
   | "vf"
@@ -50,10 +51,9 @@ export interface ModuleQuizQuestion {
   /** Pasos de resolución (uno por línea). */
   pasos?: string[];
   /**
-   * Visual armado por el caller (el paquete no construye visuales). El bridge
-   * en apps/web lo tipa correctamente contra `VisualSpec` de generadoresV2.
+   * Visual armado por el caller (el paquete no construye visuales).
    */
-  visualSpec?: unknown;
+  visualSpec?: VisualSpec;
 
   /* ----- Sprint 9A — tipos especiales ----- */
   /** ordenar: items presentados al alumno (mezclados o no). */
@@ -76,5 +76,5 @@ export interface AdapterOptions {
   /** Focus (subcategoría) opcional, ej. "fisica/cinematica/MRU". */
   focus?: string | null;
   /** Visual spec ya armado por el caller. El paquete no construye visuales. */
-  visualSpec?: unknown;
+  visualSpec?: VisualSpec;
 }

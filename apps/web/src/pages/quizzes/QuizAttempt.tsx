@@ -185,19 +185,29 @@ export default function QuizAttempt() {
           if (cancelled) return;
           const baseSeed = seed !== undefined && seed !== null ? String(seed) : "0";
           const out: ModuleQuizQuestion[] = [];
-          for (let i = 0; i < count; i++) {
+          const errores: string[] = [];
+          const maxIntentos = count * 3;
+          let intentos = 0;
+          // Reintentamos hasta 3×count seeds derivados. Esto cubre plantillas
+          // con restricciones difíciles que fallan en algunas seeds: el resto
+          // del quiz sigue siendo jugable mientras logremos generar `count`
+          // preguntas distintas.
+          while (out.length < count && intentos < maxIntentos) {
             try {
-              // El tipo ModuleQuizQuestion del paquete @vb/vblang difiere en
-              // `visualSpec: unknown` vs el de apps/web. Son estructuralmente
-              // compatibles, así que casteamos a través de unknown.
               const q = runPlantilla(p.codigoDsl, {
-                seed: `${baseSeed}-${i}`,
-              }) as unknown as ModuleQuizQuestion;
+                seed: `${baseSeed}-${intentos}`,
+              });
               out.push(q);
-            } catch {
-              // Si una seed concreta falla, salteamos esa pregunta — el resto
-              // del quiz sigue siendo jugable.
+            } catch (err) {
+              errores.push(err instanceof Error ? err.message : String(err));
             }
+            intentos++;
+          }
+          if (out.length < count) {
+            console.warn(
+              `Plantilla ${plantillaId} generó solo ${out.length}/${count} preguntas tras ${intentos} intentos. Errores:`,
+              errores.slice(0, 5),
+            );
           }
           setGeneratedQuestions(out);
         })
