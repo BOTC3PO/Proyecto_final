@@ -26,6 +26,34 @@
   --c-nav-text: #ffffff;
 }
 
+/* ── Tokens derivados de a11y (mismo en todos los temas) ── */
+:root {
+  /* Texto terciario para hints, no usar para texto crítico */
+  --c-text-3: color-mix(in srgb, var(--c-muted) 75%, transparent);
+
+  /* Hover suave sobre superficies */
+  --c-hover: color-mix(in srgb, var(--c-text) 6%, transparent);
+
+  /* Borde fuerte para inputs y separadores prominentes */
+  --c-border-strong: color-mix(in srgb, var(--c-border) 60%, var(--c-text) 20%);
+
+  /* Color del anillo de foco visible — usa el texto principal para máximo contraste */
+  --c-focus-ring: var(--c-text);
+
+  /* Radii (alineados con el rediseño) */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+
+  /* Sombras suaves */
+  --shadow-1: 0 1px 0 color-mix(in srgb, var(--c-text) 4%, transparent);
+  --shadow-2: 0 1px 2px color-mix(in srgb, var(--c-text) 6%, transparent),
+              0 8px 24px color-mix(in srgb, var(--c-text) 6%, transparent);
+  --shadow-pop: 0 10px 30px color-mix(in srgb, var(--c-text) 12%, transparent),
+                0 2px 6px color-mix(in srgb, var(--c-text) 8%, transparent);
+}
+
 /* ── Temas normales ─────────────────────────────────────── */
 
 [data-theme="clasico"] {
@@ -1243,4 +1271,256 @@
   will-change: transform;
   transform: translateZ(0);
   isolation: isolate;
+}
+
+/* ============================================================
+   Accesibilidad global — VB editores
+   Aplica a TODOS los temas. Usa solo variables --c-* existentes.
+   ============================================================ */
+
+/* Focus ring visible AA en cualquier elemento interactivo enfocado por teclado. */
+:where(button, input, select, textarea, a, [tabindex], [role="button"], [role="tab"], [role="option"], [role="menuitem"], [role="radio"], [role="checkbox"]):focus-visible {
+  outline: 2px solid var(--c-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* Quitar el focus ring nativo cuando NO es por teclado (al click) */
+:where(button, input, select, textarea, a, [tabindex]):focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Clase para contenido visible solo para lectores de pantalla */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip-link: oculta hasta que recibe foco con tab */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 8px;
+  z-index: 100;
+  padding: 8px 14px;
+  background: var(--c-surface);
+  color: var(--c-text);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.15s;
+}
+.skip-link:focus {
+  top: 8px;
+}
+
+/* Hit targets mínimos 40x40 para todo botón "icon-only" */
+button[aria-label]:not([class*="px-"]):not([class*="py-"]):not([class*="p-"]),
+button.icon-btn,
+[role="button"][aria-label]:not([class*="px-"]):not([class*="py-"]):not([class*="p-"]) {
+  min-width: 40px;
+  min-height: 40px;
+}
+
+/* Mostrar atajos de teclado como kbd visual */
+.kbd, kbd {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  padding: 2px 6px;
+  background: var(--c-bg);
+  color: var(--c-text);
+  border: 1px solid var(--c-border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  line-height: 1.4;
+  font-weight: 600;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Barra sticky de página con backdrop blur (page-bar del rediseño) */
+.vb-page-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: color-mix(in srgb, var(--c-bg) 85%, transparent);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--c-border);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.vb-page-bar .crumb {
+  font-size: 12.5px;
+  color: var(--c-muted);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.vb-page-bar h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--c-text);
+}
+.vb-page-bar .save-state {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--c-muted);
+}
+.vb-page-bar .save-state .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-success);
+}
+.vb-page-bar .save-state.is-saving .dot {
+  background: var(--c-warning);
+}
+.vb-page-bar .save-state.is-error .dot {
+  background: var(--c-danger);
+}
+
+/* Notice/aviso con icono — usado en inspectores */
+.vb-notice {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--c-primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-primary) 20%, transparent);
+  border-radius: var(--r-md);
+  font-size: 13px;
+  color: var(--c-text);
+  line-height: 1.45;
+}
+.vb-notice .ico {
+  flex-shrink: 0;
+  color: var(--c-primary);
+}
+
+/* Status bar del editor de mapa */
+.vb-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--c-border);
+  background: var(--c-surface);
+  font-size: 12px;
+  color: var(--c-muted);
+  font-weight: 500;
+}
+.vb-status-bar .stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.vb-status-bar .stat strong {
+  color: var(--c-text);
+  font-weight: 600;
+}
+.vb-status-bar .spacer {
+  flex: 1;
+}
+
+/* Toolbar lateral (editor de mapa) */
+.vb-tool-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+.vb-tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  min-height: 56px;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--c-muted);
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+.vb-tool:hover {
+  background: var(--c-hover);
+  color: var(--c-text);
+}
+.vb-tool[aria-pressed="true"] {
+  background: var(--c-text);
+  color: var(--c-surface);
+  border-color: var(--c-text);
+}
+.vb-tool .kbd {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  font-size: 9.5px;
+  padding: 1px 4px;
+  min-width: 0;
+  background: transparent;
+  border-color: color-mix(in srgb, currentColor 30%, transparent);
+  color: inherit;
+  opacity: 0.6;
+}
+
+/* Layer chip (panel de capas del editor de mapa) */
+.vb-layer {
+  display: grid;
+  grid-template-columns: 14px 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--c-text);
+}
+.vb-layer:hover {
+  background: var(--c-hover);
+}
+.vb-layer[aria-selected="true"] {
+  background: var(--c-hover);
+  outline: 1px solid var(--c-border-strong);
+}
+.vb-layer .sw {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--c-text) 30%, transparent);
+}
+.vb-layer .count {
+  font-size: 11px;
+  color: var(--c-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Reduced motion: respetar preferencia del sistema */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

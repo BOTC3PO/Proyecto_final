@@ -20,7 +20,12 @@ export default function ValidationReport({
       : 0;
 
   return (
-    <div className="border-t border-[var(--c-border,#e2e8f0)] p-3" data-testid="vblang-validation-report">
+    <div
+      role="region"
+      aria-label="Reporte de validación"
+      className="border-t border-[var(--c-border,#e2e8f0)] p-3"
+      data-testid="vblang-validation-report"
+    >
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-sm font-semibold">Validación</h3>
         <button
@@ -42,43 +47,53 @@ export default function ValidationReport({
       {status === "done" && report && (
         <>
           {report.pass ? (
-            <p className="text-xs text-emerald-600 font-medium">
+            <p className="text-xs text-[var(--c-success)] font-medium">
               ✓ Pasó {report.passedSimulations}/{report.totalSimulations} simulaciones
               ({avgMs.toFixed(2)} ms promedio)
             </p>
           ) : (
             <div className="text-xs space-y-1">
-              <p className="text-red-600 font-medium">
+              <p className="text-[var(--c-danger)] font-medium">
                 ✕ Pasó {report.passedSimulations}/{report.totalSimulations} simulaciones
               </p>
-              <ul className="space-y-1">
+              <ul role="list" className="space-y-1">
                 {report.errors.map((e) => (
                   <li
                     key={`${e.code}-${e.sampleSeed}`}
-                    className="rounded border border-red-200 bg-red-50 p-2 text-red-700"
+                    className="rounded border p-2"
+                    style={{
+                      borderColor: "color-mix(in srgb, var(--c-danger) 30%, transparent)",
+                      background: "color-mix(in srgb, var(--c-danger) 8%, transparent)",
+                      color: "var(--c-danger)",
+                    }}
                   >
                     <div>
                       <span className="font-semibold mr-1">{e.code}</span>
                       <span>{e.message}</span>
                     </div>
-                    <div className="text-[10px] text-red-500">
+                    <div className="text-[10px] opacity-80">
                       ×{e.count} (reproducir con seed: {e.sampleSeed})
                     </div>
                   </li>
                 ))}
               </ul>
               {report.warnings.length > 0 && (
-                <ul className="space-y-1 mt-2">
+                <ul role="list" className="space-y-1 mt-2">
                   {report.warnings.map((w) => (
                     <li
                       key={`${w.code}-${w.sampleSeed}`}
-                      className="rounded border border-amber-200 bg-amber-50 p-2 text-amber-700"
+                      className="rounded border p-2"
+                      style={{
+                        borderColor: "color-mix(in srgb, var(--c-warning) 30%, transparent)",
+                        background: "color-mix(in srgb, var(--c-warning) 8%, transparent)",
+                        color: "var(--c-warning)",
+                      }}
                     >
                       <div>
                         <span className="font-semibold mr-1">{w.code}</span>
                         <span>{w.message}</span>
                       </div>
-                      <div className="text-[10px] text-amber-500">
+                      <div className="text-[10px] opacity-80">
                         ×{w.count} (seed: {w.sampleSeed})
                       </div>
                     </li>

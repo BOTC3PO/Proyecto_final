@@ -1207,7 +1207,7 @@ function LibraryModal({
   return (
     <Modal title="Mis documentos" onClose={onClose}>
       {loading && <p className="text-sm text-[var(--c-muted)]">Cargando...</p>}
-      {err && <p className="text-sm text-red-500">{err}</p>}
+      {err && <p role="alert" className="text-sm text-[var(--c-danger)]">{err}</p>}
       {!loading && !err && books.length === 0 && (
         <p className="text-sm text-[var(--c-muted)] italic">Sin documentos guardados</p>
       )}
@@ -1814,8 +1814,13 @@ export default function BookEditorPage() {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-[var(--c-bg)]">
+      <a href="#book-canvas" className="skip-link">Saltar al editor</a>
       {/* ===== HEADER WORD-STYLE ===== */}
-      <header className="flex-shrink-0 border-b border-[var(--c-border)] bg-[var(--c-surface)] flex items-center px-4 gap-3 h-11 z-20">
+      <header
+        role="banner"
+        aria-label="Acciones del editor"
+        className="flex-shrink-0 border-b border-[var(--c-border)] bg-[var(--c-surface)] flex items-center px-4 gap-3 h-11 z-20"
+      >
         {/* Botón volver */}
         <button
           onClick={() => {
@@ -1878,13 +1883,13 @@ export default function BookEditorPage() {
         <div className="flex-1" />
 
         {/* Undo / Redo */}
-        <button onClick={undo} disabled={!canUndo} title="Deshacer (Ctrl+Z)"
+        <button onClick={undo} disabled={!canUndo} title="Deshacer (Ctrl+Z)" aria-label="Deshacer"
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] disabled:opacity-30 transition-colors">
-          ↩
+          <span aria-hidden="true">↩</span>
         </button>
-        <button onClick={redo} disabled={!canRedo} title="Rehacer (Ctrl+Y)"
+        <button onClick={redo} disabled={!canRedo} title="Rehacer (Ctrl+Y)" aria-label="Rehacer"
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] disabled:opacity-30 transition-colors">
-          ↪
+          <span aria-hidden="true">↪</span>
         </button>
 
         <div className="w-px h-4 bg-[var(--c-border)]" />
@@ -1946,9 +1951,9 @@ export default function BookEditorPage() {
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
           Biblioteca
         </button>
-        <button onClick={() => setShowJson(true)} title="Ver JSON"
+        <button onClick={() => setShowJson(true)} title="Ver JSON" aria-label="Ver JSON"
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors font-mono">
-          {'{ }'}
+          <span aria-hidden="true">{'{ }'}</span>
         </button>
 
         {/* Issues badge */}
@@ -2174,7 +2179,11 @@ export default function BookEditorPage() {
       {/* ===== MAIN 3-PANEL LAYOUT ===== */}
       <main className="flex flex-1 overflow-hidden min-h-0">
         {/* ===== LEFT SIDEBAR: Pages ===== */}
-        <aside className="w-48 flex-shrink-0 border-r border-[var(--c-border)] bg-[var(--c-surface)] flex flex-col overflow-hidden">
+        <nav
+          role="navigation"
+          aria-label="Estructura del libro"
+          className="w-48 flex-shrink-0 border-r border-[var(--c-border)] bg-[var(--c-surface)] flex flex-col overflow-hidden"
+        >
           <div className="flex items-center justify-between px-2 py-2 border-b border-[var(--c-border)]">
             <span className={editorCls.sidebarHeader}>
               Páginas
@@ -2183,8 +2192,9 @@ export default function BookEditorPage() {
               className="text-xs bg-[color-mix(in_srgb,var(--c-primary)_10%,transparent)] hover:opacity-80 text-[var(--c-primary)] rounded-lg px-1.5 py-0.5"
               onClick={() => dispatch({ type: "ADD_PAGE" })}
               title="Nueva página"
+              aria-label="Nueva página"
             >
-              +
+              <span aria-hidden="true">+</span>
             </button>
           </div>
           <div className="flex-1 overflow-y-auto">
@@ -2193,6 +2203,7 @@ export default function BookEditorPage() {
               return (
                 <div
                   key={page.id}
+                  aria-current={isActive ? "true" : undefined}
                   className={classNames(
                     "group flex items-center gap-1 px-2 py-1.5 cursor-pointer border-b border-[var(--c-border)] select-none",
                     isActive
@@ -2217,22 +2228,24 @@ export default function BookEditorPage() {
                       <button
                         className="text-[var(--c-muted)] hover:text-[var(--c-text)] text-xs leading-none"
                         title="Mover arriba"
+                        aria-label="Mover página hacia arriba"
                         onClick={(e: React.MouseEvent) => {
                           e.stopPropagation();
                           dispatch({ type: "MOVE_PAGE", pageId: page.id, direction: "up" });
                         }}
                       >
-                        ▲
+                        <span aria-hidden="true">▲</span>
                       </button>
                       <button
                         className="text-[var(--c-muted)] hover:text-[var(--c-text)] text-xs leading-none"
                         title="Mover abajo"
+                        aria-label="Mover página hacia abajo"
                         onClick={(e: React.MouseEvent) => {
                           e.stopPropagation();
                           dispatch({ type: "MOVE_PAGE", pageId: page.id, direction: "down" });
                         }}
                       >
-                        ▼
+                        <span aria-hidden="true">▼</span>
                       </button>
                     </div>
                   )}
@@ -2241,16 +2254,18 @@ export default function BookEditorPage() {
                       <button
                         className="text-[var(--c-muted)] hover:text-[var(--c-primary)] text-xs"
                         title="Duplicar"
+                        aria-label="Duplicar página"
                         onClick={(e: React.MouseEvent) => {
                           e.stopPropagation();
                           dispatch({ type: "DUPLICATE_PAGE", pageId: page.id });
                         }}
                       >
-                        ⊕
+                        <span aria-hidden="true">⊕</span>
                       </button>
                       <button
                         className="text-[var(--c-muted)] hover:text-[var(--c-danger)] text-xs"
                         title="Eliminar"
+                        aria-label="Eliminar página"
                         onClick={(e: React.MouseEvent) => {
                           e.stopPropagation();
                           if (
@@ -2261,7 +2276,7 @@ export default function BookEditorPage() {
                           }
                         }}
                       >
-                        ✕
+                        <span aria-hidden="true">✕</span>
                       </button>
                     </div>
                   )}
@@ -2269,10 +2284,15 @@ export default function BookEditorPage() {
               );
             })}
           </div>
-        </aside>
+        </nav>
 
         {/* ===== CENTER: Canvas ===== */}
-        <section className="flex-1 overflow-y-auto flex flex-col">
+        <section
+          id="book-canvas"
+          tabIndex={-1}
+          aria-label="Lienzo del libro"
+          className="flex-1 overflow-y-auto flex flex-col outline-none"
+        >
           {selectedPage && (
             <div className="flex-shrink-0 bg-[var(--c-surface)] border-b border-[var(--c-border)] px-3 py-1.5 flex items-center gap-2">
               <AddBlockBar dispatch={dispatch} />
@@ -2295,7 +2315,11 @@ export default function BookEditorPage() {
         </section>
 
         {/* ===== RIGHT SIDEBAR: Inspector ===== */}
-        <aside className="w-72 flex-shrink-0 border-l border-[var(--c-border)] bg-[var(--c-surface)] flex flex-col overflow-hidden">
+        <aside
+          role="complementary"
+          aria-label="Propiedades del elemento seleccionado"
+          className="w-72 flex-shrink-0 border-l border-[var(--c-border)] bg-[var(--c-surface)] flex flex-col overflow-hidden"
+        >
           <div className="flex-shrink-0 px-3 py-2 border-b border-[var(--c-border)]">
             <span className={editorCls.sidebarHeader}>
               Inspector

@@ -1,3 +1,4 @@
+/** @deprecated Reemplazado por MapaEditorFull en pages/herramientas/. */
 type MapEditorProps = {
   subjectLabel?: string;
 };

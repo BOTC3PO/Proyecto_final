@@ -26,7 +26,15 @@ import {
   type BookResult,
   type TuesdayResult,
 } from "./useModuloEditor";
-import { STANDALONE_TOOLS, parseStandaloneConfig, type RecetaConfig, type LineaTiempoConfig, type MapaConfig } from "../../components/modulos/standalone/types";
+import {
+  STANDALONE_TOOLS,
+  parseStandaloneConfig,
+  makeEmptyMapaConfig,
+  type RecetaConfig,
+  type LineaTiempoConfig,
+  type MapaConfig,
+  type MapaDataset,
+} from "../../components/modulos/standalone/types";
 import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
 
@@ -287,16 +295,39 @@ export default function ModuloEditor() {
       ) : null}
 
       <main className="flex-1 bg-[var(--c-bg)] min-h-screen">
-        <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
-          <div className="mb-6 flex items-center justify-between gap-4">
-            <div>
-              <h1 className="text-xl font-semibold text-[var(--c-text)]">
-                {isEditing ? "Editar módulo" : "Crear módulo"}
-              </h1>
-              <p className="text-sm text-[var(--c-muted)] mt-0.5">
-                Cargá teoría, cuestionarios manuales o generados para construir el módulo.
-              </p>
-            </div>
+        <header className="vb-page-bar" role="banner">
+          <nav className="crumb" aria-label="Migas de pan">
+            <Link to="/modulos" className="hover:text-[var(--c-text)]">Módulos</Link>
+            <svg className="w-3 h-3" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6"/>
+            </svg>
+            <span className="text-[var(--c-text)]">
+              {isEditing ? (form.title || "Editar módulo") : "Nuevo módulo"}
+            </span>
+          </nav>
+          <div
+            className={`save-state${status === "saving" ? " is-saving" : ""}${status === "error" ? " is-error" : ""}`}
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <span className="dot" aria-hidden="true"></span>
+            <span>
+              {status === "saving"
+                ? "Guardando…"
+                : status === "saved"
+                  ? "Guardado"
+                  : status === "error"
+                    ? "Error"
+                    : "Borrador local"}
+            </span>
+          </div>
+        </header>
+        <a href="#main-content" className="skip-link">Saltar al contenido</a>
+        <div id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 outline-none">
+          <div className="mb-6">
+            <p className="text-sm text-[var(--c-muted)]">
+              Cargá teoría, cuestionarios manuales o generados para construir el módulo.
+            </p>
           </div>
 
           {status === "loading" ? (
@@ -328,9 +359,13 @@ export default function ModuloEditor() {
           ) : (
             <form className="space-y-8" onSubmit={handleSubmit}>
               {draftRestored && (
-                <div className="flex items-center justify-between gap-3 rounded-xl border border-[color-mix(in_srgb,var(--c-warning)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_8%,transparent)] px-4 py-2.5">
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="flex items-center justify-between gap-3 rounded-xl border border-[color-mix(in_srgb,var(--c-warning)_25%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_8%,transparent)] px-4 py-2.5"
+                >
                   <p className="text-xs text-[var(--c-warning)]">
-                    📋 Se restauró un borrador de tu sesión anterior.
+                    <span aria-hidden="true">📋 </span>Se restauró un borrador de tu sesión anterior.
                   </p>
                   <button
                     type="button"
@@ -661,7 +696,7 @@ export default function ModuloEditor() {
                           } else if (val === "mapa") {
                             setNewTheoryItem((prev) => ({
                               ...prev,
-                              detail: JSON.stringify({ tool: "mapa", titulo: "", modo: "political", escala: "110m", anotaciones: [] } satisfies MapaConfig),
+                              detail: JSON.stringify(makeEmptyMapaConfig()),
                             }));
                           } else {
                             setNewTheoryItem((prev) => ({ ...prev, detail: val }));
@@ -702,9 +737,14 @@ export default function ModuloEditor() {
                               <span className="text-xs text-teal-700 flex-1">Mapa configurado ({cfg.anotaciones.length} anotaciones)</span>
                               <button
                                 type="button"
+                                aria-label="Abrir editor de mapa en ventana nueva"
                                 className="rounded-md border border-teal-400 bg-white px-3 py-1.5 text-xs font-medium text-teal-700 hover:bg-teal-50"
                                 onClick={() => {
                                   sessionStorage.setItem(`mapa-doc:${ssKey}`, JSON.stringify(cfg));
+                                  // Pasar datasets disponibles del módulo (placeholder: vacío
+                                  // hasta que el módulo soporte declarar datasets).
+                                  const datasetsDisponibles: MapaDataset[] = [];
+                                  sessionStorage.setItem(`mapa-doc:${ssKey}:datasets`, JSON.stringify(datasetsDisponibles));
                                   const win = window.open(`/herramientas/mapa-editor?sskey=${ssKey}`, "_blank");
                                   if (!win) return;
                                   const timer = setInterval(() => {
@@ -717,10 +757,14 @@ export default function ModuloEditor() {
                                           setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) }));
                                         }
                                       } catch { /* ignore */ }
+                                      sessionStorage.removeItem(`mapa-doc:${ssKey}:datasets`);
                                     }
                                   }, 500);
                                 }}
                               >
+                                <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
+                                  <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16"/>
+                                </svg>
                                 Abrir editor de mapa
                               </button>
                             </div>
@@ -792,9 +836,9 @@ export default function ModuloEditor() {
 
                 {/* Existing theory items */}
                 {theoryItems.length === 0 ? (
-                  <div className="rounded-xl border-2 border-dashed border-gray-200 py-8 text-center">
-                    <p className="text-sm text-gray-400">No hay elementos teóricos cargados.</p>
-                    <p className="mt-1 text-xs text-gray-300">Usá el formulario de arriba para agregar recursos.</p>
+                  <div role="status" className="rounded-xl border-2 border-dashed border-[var(--c-border)] py-8 text-center">
+                    <p className="text-sm text-[var(--c-muted)]">No hay elementos teóricos cargados.</p>
+                    <p className="mt-1 text-xs text-[var(--c-muted)]">Usá el formulario de arriba para agregar recursos.</p>
                   </div>
                 ) : (
                   <div className="space-y-3">
@@ -806,20 +850,22 @@ export default function ModuloEditor() {
                             <button
                               type="button"
                               title="Mover arriba"
+                              aria-label="Mover recurso hacia arriba"
                               disabled={itemIdx === 0}
                               className="flex h-7 w-7 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-xs text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "up")}
                             >
-                              ▲
+                              <span aria-hidden="true">▲</span>
                             </button>
                             <button
                               type="button"
                               title="Mover abajo"
+                              aria-label="Mover recurso hacia abajo"
                               disabled={itemIdx === theoryItems.length - 1}
                               className="flex h-7 w-7 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-xs text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "down")}
                             >
-                              ▼
+                              <span aria-hidden="true">▼</span>
                             </button>
                           </div>
                           {/* Position label */}
@@ -944,7 +990,7 @@ export default function ModuloEditor() {
                                       } else if (val === "linea-tiempo") {
                                         updateTheoryItem(item.id, { detail: JSON.stringify({ tool: "linea-tiempo", titulo: "", eventos: [] } satisfies LineaTiempoConfig) });
                                       } else if (val === "mapa") {
-                                        updateTheoryItem(item.id, { detail: JSON.stringify({ tool: "mapa", titulo: "", modo: "political", escala: "110m", anotaciones: [] } satisfies MapaConfig) });
+                                        updateTheoryItem(item.id, { detail: JSON.stringify(makeEmptyMapaConfig()) });
                                       } else {
                                         updateTheoryItem(item.id, { detail: val });
                                       }
@@ -986,9 +1032,13 @@ export default function ModuloEditor() {
                                           </span>
                                           <button
                                             type="button"
+                                            aria-label="Abrir editor de mapa en ventana nueva"
                                             className="rounded-md border border-teal-400 bg-white px-3 py-1.5 text-xs font-medium text-teal-700 hover:bg-teal-50"
                                             onClick={() => {
                                               sessionStorage.setItem(`mapa-doc:${ssKey}`, JSON.stringify(cfg));
+                                              // Pasar datasets disponibles del módulo (placeholder: vacío).
+                                              const datasetsDisponibles: MapaDataset[] = [];
+                                              sessionStorage.setItem(`mapa-doc:${ssKey}:datasets`, JSON.stringify(datasetsDisponibles));
                                               const win = window.open(`/herramientas/mapa-editor?sskey=${ssKey}`, "_blank");
                                               if (!win) return;
                                               const timer = setInterval(() => {
@@ -1001,10 +1051,14 @@ export default function ModuloEditor() {
                                                       updateTheoryItem(item.id, { detail: JSON.stringify(updated) });
                                                     }
                                                   } catch { /* ignore */ }
+                                                  sessionStorage.removeItem(`mapa-doc:${ssKey}:datasets`);
                                                 }
                                               }, 500);
                                             }}
                                           >
+                                            <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
+                                              <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16"/>
+                                            </svg>
                                             Abrir editor de mapa
                                           </button>
                                         </div>
@@ -1086,8 +1140,8 @@ export default function ModuloEditor() {
                     ))}
                   </ul>
                 ) : (
-                  <div className="rounded-xl border-2 border-dashed border-gray-200 py-6 text-center">
-                    <p className="text-sm text-gray-400">Sin dependencias configuradas.</p>
+                  <div role="status" className="rounded-xl border-2 border-dashed border-[var(--c-border)] py-6 text-center">
+                    <p className="text-sm text-[var(--c-muted)]">Sin dependencias configuradas.</p>
                   </div>
                 )}
 
@@ -1264,9 +1318,9 @@ export default function ModuloEditor() {
                 </div>
 
                 {quizzes.length === 0 ? (
-                  <div className="rounded-xl border-2 border-dashed border-gray-200 py-8 text-center">
-                    <p className="text-sm text-gray-400">No hay cuestionarios configurados.</p>
-                    <p className="mt-1 text-xs text-gray-300">Usá los botones de arriba para agregar cuestionarios.</p>
+                  <div role="status" className="rounded-xl border-2 border-dashed border-[var(--c-border)] py-8 text-center">
+                    <p className="text-sm text-[var(--c-muted)]">No hay cuestionarios configurados.</p>
+                    <p className="mt-1 text-xs text-[var(--c-muted)]">Usá los botones de arriba para agregar cuestionarios.</p>
                   </div>
                 ) : (
                   <div className="space-y-6">
@@ -1504,7 +1558,7 @@ export default function ModuloEditor() {
                     </span>
                   ) : null}
                   {validationErrors.length > 0 ? (
-                    <ul className="list-disc space-y-1 pl-5 text-sm text-red-600">
+                    <ul role="alert" aria-live="assertive" className="list-disc space-y-1 pl-5 text-sm text-[var(--c-danger)]">
                       {validationErrors.map((error) => (
                         <li key={error}>{error}</li>
                       ))}

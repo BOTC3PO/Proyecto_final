@@ -465,7 +465,11 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
   const allVarNames = useMemo(() => variables.map((v) => v.nombre), [variables]);
 
   return (
-    <div className="h-full overflow-auto p-6 space-y-6 text-sm bg-[var(--c-bg,#f8fafc)]">
+    <div
+      role="region"
+      aria-label="Formulario visual"
+      className="h-full overflow-auto p-6 space-y-6 text-sm bg-[var(--c-bg,#f8fafc)]"
+    >
       {/* 1. Tipo de pregunta */}
       <Section title="Tipo de pregunta">
         <select
