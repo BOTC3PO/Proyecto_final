@@ -64,6 +64,8 @@ export default function ErrorPanel({
   if (!parseError && !lintReport) {
     return (
       <div
+        role="region"
+        aria-label="Errores y advertencias"
         data-testid="vblang-error-panel"
         className="h-full overflow-auto p-3 text-xs text-[var(--c-muted,#64748b)]"
       >
@@ -75,29 +77,33 @@ export default function ErrorPanel({
   if (issues.length === 0) {
     return (
       <div
+        role="region"
+        aria-label="Errores y advertencias"
         data-testid="vblang-error-panel"
         className="h-full overflow-auto p-3 text-xs"
       >
-        <p className="text-emerald-600 font-medium">Sin errores ✓</p>
+        <p className="text-[var(--c-success)] font-medium">Sin errores ✓</p>
       </div>
     );
   }
 
   return (
     <div
+      role="region"
+      aria-label="Errores y advertencias"
       data-testid="vblang-error-panel"
       className="h-full overflow-auto p-3 text-xs space-y-2"
     >
       <header className="flex items-center gap-3 text-[var(--c-text)]">
-        <span className="text-red-600 font-medium">{errorCount} errores</span>
+        <span className="text-[var(--c-danger)] font-medium">{errorCount} errores</span>
         <span className="text-[var(--c-muted,#64748b)]">·</span>
-        <span className="text-amber-600 font-medium">{warningCount} warnings</span>
+        <span className="text-[var(--c-warning)] font-medium">{warningCount} warnings</span>
       </header>
-      <ul className="space-y-1.5">
+      <ul role="list" className="space-y-1.5">
         {issues.map((it, idx) => {
           const icon = it.severity === "error" ? "✕" : "⚠";
           const color =
-            it.severity === "error" ? "text-red-600" : "text-amber-600";
+            it.severity === "error" ? "text-[var(--c-danger)]" : "text-[var(--c-warning)]";
           return (
             <li
               key={`${it.code}-${idx}`}

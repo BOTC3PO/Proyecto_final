@@ -11,7 +11,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { serialize } from "@vb/vblang";
 import CodeEditor, {
   type CodeEditorHandle,
@@ -200,7 +200,7 @@ export default function PlantillaEditor() {
   if (loadStatus === "error") {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <p className="text-sm text-red-600">No se pudo cargar la plantilla.</p>
+        <p role="alert" className="text-sm text-[var(--c-danger)]">No se pudo cargar la plantilla.</p>
       </main>
     );
   }
@@ -215,66 +215,90 @@ export default function PlantillaEditor() {
       </aside>
 
       <main className="flex-1 flex flex-col min-h-0">
-        <header className="flex items-center justify-between border-b border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-4 py-2">
-          <h1 className="text-base font-semibold truncate">
-            {isNew ? "Nueva plantilla" : metadata.nombre || "Plantilla"}
-          </h1>
-          <div className="flex items-center gap-2">
-            <div
-              role="tablist"
-              aria-label="Modo del editor"
-              className="flex rounded-md border border-[var(--c-border,#e2e8f0)] text-xs"
-            >
-              <button
-                type="button"
-                role="tab"
-                aria-selected={modo === "codigo"}
-                onClick={() => setModo("codigo")}
-                data-testid="vblang-modo-codigo"
-                className={`px-3 py-1 ${
-                  modo === "codigo"
-                    ? "bg-[var(--c-primary,#3b82f6)] text-white"
-                    : "text-[var(--c-text,#1e293b)]"
-                }`}
-              >
-                Código
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={modo === "visual"}
-                onClick={() => setModo("visual")}
-                data-testid="vblang-modo-visual"
-                className={`px-3 py-1 ${
-                  modo === "visual"
-                    ? "bg-[var(--c-primary,#3b82f6)] text-white"
-                    : "text-[var(--c-text,#1e293b)]"
-                }`}
-              >
-                Formulario
-              </button>
-            </div>
-            {saveMessage && (
-              <span
-                className={`text-xs ${
-                  saveStatus === "error" ? "text-red-600" : "text-emerald-600"
-                }`}
-              >
-                {saveMessage}
-              </span>
-            )}
+        <header className="vb-page-bar" role="banner">
+          <nav className="crumb" aria-label="Migas de pan">
+            <Link to="/plantillas" className="hover:text-[var(--c-text)]">Plantillas</Link>
+            <svg className="w-3 h-3" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6"/>
+            </svg>
+            <span className="text-[var(--c-text)]">
+              {isNew ? "Nueva plantilla" : metadata.nombre || "Plantilla"}
+            </span>
+          </nav>
+          <div
+            role="tablist"
+            aria-label="Modo del editor"
+            className="flex rounded-md border border-[var(--c-border)] text-xs"
+          >
             <button
               type="button"
-              onClick={() => void handleSave()}
-              disabled={saveStatus === "saving"}
-              className="rounded-md bg-[var(--c-primary,#3b82f6)] px-4 py-1.5 text-sm font-semibold text-white disabled:opacity-50"
+              role="tab"
+              id="vblang-tab-codigo"
+              aria-selected={modo === "codigo"}
+              aria-controls="vblang-panel"
+              tabIndex={modo === "codigo" ? 0 : -1}
+              onClick={() => setModo("codigo")}
+              data-testid="vblang-modo-codigo"
+              className={`px-3 py-1 ${
+                modo === "codigo"
+                  ? "bg-[var(--c-primary)] text-white"
+                  : "text-[var(--c-text)]"
+              }`}
             >
-              {saveStatus === "saving" ? "Guardando…" : "Guardar"}
+              Código
+            </button>
+            <button
+              type="button"
+              role="tab"
+              id="vblang-tab-visual"
+              aria-selected={modo === "visual"}
+              aria-controls="vblang-panel"
+              tabIndex={modo === "visual" ? 0 : -1}
+              onClick={() => setModo("visual")}
+              data-testid="vblang-modo-visual"
+              className={`px-3 py-1 ${
+                modo === "visual"
+                  ? "bg-[var(--c-primary)] text-white"
+                  : "text-[var(--c-text)]"
+              }`}
+            >
+              Formulario
             </button>
           </div>
+          <div
+            className={`save-state${saveStatus === "saving" ? " is-saving" : ""}${saveStatus === "error" ? " is-error" : ""}`}
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <span className="dot" aria-hidden="true"></span>
+            <span>
+              {saveStatus === "saving"
+                ? "Guardando…"
+                : saveStatus === "saved"
+                  ? saveMessage ?? "Guardado"
+                  : saveStatus === "error"
+                    ? saveMessage ?? "Error"
+                    : "Borrador local"}
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={() => void handleSave()}
+            disabled={saveStatus === "saving"}
+            className="rounded-md bg-[var(--c-primary)] px-4 py-1.5 text-sm font-semibold text-white disabled:opacity-50"
+          >
+            {saveStatus === "saving" ? "Guardando…" : "Guardar"}
+          </button>
         </header>
 
-        <div className="flex-1 min-h-0">
+        <a href="#vblang-panel" className="skip-link">Saltar al editor</a>
+        <div
+          id="vblang-panel"
+          tabIndex={-1}
+          role="tabpanel"
+          aria-labelledby={modo === "codigo" ? "vblang-tab-codigo" : "vblang-tab-visual"}
+          className="flex-1 min-h-0 outline-none"
+        >
           {modo === "codigo" ? (
             <CodeEditor
               ref={editorRef}

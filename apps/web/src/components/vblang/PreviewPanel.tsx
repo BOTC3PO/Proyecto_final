@@ -20,7 +20,12 @@ export default function PreviewPanel({
   onRegenerate,
 }: PreviewPanelProps) {
   return (
-    <div className="flex flex-col h-full" data-testid="vblang-preview-panel">
+    <div
+      role="region"
+      aria-label="Vista previa de la plantilla"
+      className="flex flex-col h-full"
+      data-testid="vblang-preview-panel"
+    >
       <header className="flex items-center justify-between border-b border-[var(--c-border,#e2e8f0)] px-3 py-2">
         <h3 className="text-sm font-semibold">Vista previa</h3>
         <button
@@ -46,8 +51,8 @@ export default function PreviewPanel({
                 seed: {item.seed}
               </div>
               {item.error ? (
-                <div className="text-red-600">
-                  <span className="font-bold mr-1">✕</span>
+                <div role="alert" className="text-[var(--c-danger)]">
+                  <span className="font-bold mr-1" aria-hidden="true">✕</span>
                   {item.error.message}
                 </div>
               ) : item.question ? (

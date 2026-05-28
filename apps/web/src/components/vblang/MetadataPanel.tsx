@@ -44,6 +44,8 @@ export default function MetadataPanel({
 
   return (
     <div
+      role="region"
+      aria-label="Metadatos de la plantilla"
       data-testid="vblang-metadata-panel"
       className="h-full overflow-auto p-4 space-y-4 text-sm"
     >
