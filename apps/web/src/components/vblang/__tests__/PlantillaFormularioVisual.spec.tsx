@@ -9,7 +9,13 @@
 import { describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { parse } from "@vb/vblang";
-import type { Plantilla, VariablesBloque, TipoBloque } from "@vb/vblang";
+import type {
+  Plantilla,
+  VariablesBloque,
+  TipoBloque,
+  OpcionesBloque,
+  GeneradorBloque,
+} from "@vb/vblang";
 import PlantillaFormularioVisual from "../PlantillaFormularioVisual";
 
 const BASIC_DSL = `variables:
@@ -32,6 +38,12 @@ function findVariables(p: Plantilla): VariablesBloque | undefined {
 }
 function findTipo(p: Plantilla): TipoBloque | undefined {
   return p.bloques.find((b) => b.kind === "tipo") as TipoBloque | undefined;
+}
+function findOpciones(p: Plantilla): OpcionesBloque | undefined {
+  return p.bloques.find((b) => b.kind === "opciones") as OpcionesBloque | undefined;
+}
+function findGenerador(p: Plantilla): GeneradorBloque | undefined {
+  return p.bloques.find((b) => b.kind === "generador") as GeneradorBloque | undefined;
 }
 
 describe("PlantillaFormularioVisual", () => {
@@ -103,5 +115,226 @@ describe("PlantillaFormularioVisual", () => {
     if (declA?.expr.kind === "fun_call" && declA.expr.args[0].kind === "num") {
       expect(declA.expr.args[0].value).toBe(5);
     }
+  });
+
+  /* ---------- Bug 1: mínimo negativo ---------- */
+
+  it("tipear -5 en min via change+blur emite onChange con random(-5, 10)", () => {
+    const plantilla = parsePlantilla(BASIC_DSL);
+    const onChange = vi.fn();
+    render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    const minInputs = screen.getAllByDisplayValue("1") as HTMLInputElement[];
+    const minNumInput = minInputs.find(
+      (el) => el.tagName === "INPUT" && el.type === "number",
+    )!;
+    fireEvent.change(minNumInput, { target: { value: "-5" } });
+    fireEvent.blur(minNumInput);
+    expect(onChange).toHaveBeenCalled();
+    const last = onChange.mock.calls[onChange.mock.calls.length - 1][0] as Plantilla;
+    const declA = findVariables(last)!.declaraciones.find((d) => d.nombre === "a")!;
+    expect(declA.expr.kind).toBe("fun_call");
+    if (declA.expr.kind === "fun_call") {
+      expect(declA.expr.args[0]).toMatchObject({ kind: "num", value: -5 });
+    }
+  });
+
+  it("tipear solo '-' no dispara onChange (estado intermedio)", () => {
+    const plantilla = parsePlantilla(BASIC_DSL);
+    const onChange = vi.fn();
+    render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    const minInputs = screen.getAllByDisplayValue("1") as HTMLInputElement[];
+    const minNumInput = minInputs.find(
+      (el) => el.tagName === "INPUT" && el.type === "number",
+    )!;
+    // Empty string is what the browser sends for invalid number input content
+    fireEvent.change(minNumInput, { target: { value: "" } });
+    // onChange should NOT have been called because "" is not a valid number
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it("min > max muestra warning visible", () => {
+    const plantilla = parsePlantilla(BASIC_DSL);
+    const onChange = vi.fn();
+    const { rerender } = render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    const minInputs = screen.getAllByDisplayValue("1") as HTMLInputElement[];
+    const minNumInput = minInputs.find(
+      (el) => el.tagName === "INPUT" && el.type === "number",
+    )!;
+    fireEvent.change(minNumInput, { target: { value: "15" } });
+    expect(onChange).toHaveBeenCalled();
+    // Re-render with the updated plantilla to see the warning
+    const next = onChange.mock.calls[onChange.mock.calls.length - 1][0] as Plantilla;
+    rerender(
+      <PlantillaFormularioVisual plantilla={next} onChange={onChange} />,
+    );
+    expect(screen.getByText(/min > max/i)).toBeTruthy();
+  });
+
+  /* ---------- Bug 2: tipo migration ---------- */
+
+  it("cambiar tipo input→mc agrega bloque opciones con cantidad 4", () => {
+    const plantilla = parsePlantilla(BASIC_DSL);
+    const onChange = vi.fn();
+    render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    fireEvent.change(screen.getByTestId("vblang-form-tipo"), {
+      target: { value: "mc" },
+    });
+    expect(onChange).toHaveBeenCalledTimes(1);
+    const next = onChange.mock.calls[0][0] as Plantilla;
+    expect(findTipo(next)?.valor).toBe("mc");
+    expect(findOpciones(next)?.cantidad).toBe(4);
+  });
+
+  it("cambiar mc→vf con opciones muestra confirmación, confirmar borra opciones", () => {
+    const MC_DSL = `variables:
+  a: random(1, 10)
+enunciado: "Pregunta {a}"
+respuesta: a
+tipo: mc
+opciones: 4
+opciones_explicitas: ["uno", "dos", "tres", "cuatro"]
+`;
+    const plantilla = parsePlantilla(MC_DSL);
+    const onChange = vi.fn();
+    render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    fireEvent.change(screen.getByTestId("vblang-form-tipo"), {
+      target: { value: "vf" },
+    });
+    // onChange should NOT have been called yet — confirmation dialog should appear
+    expect(onChange).not.toHaveBeenCalled();
+    const dialog = screen.getByTestId("vblang-form-confirm-tipo-change");
+    expect(dialog).toBeTruthy();
+    // Click Continuar
+    const continuar = screen.getByText("Continuar");
+    fireEvent.click(continuar);
+    expect(onChange).toHaveBeenCalledTimes(1);
+    const next = onChange.mock.calls[0][0] as Plantilla;
+    expect(findTipo(next)?.valor).toBe("vf");
+    expect(findOpciones(next)).toBeUndefined();
+    expect(
+      next.bloques.find((b) => b.kind === "opciones_explicitas"),
+    ).toBeUndefined();
+  });
+
+  it("cancelar la confirmación de cambio destructivo NO modifica el AST", () => {
+    const MC_DSL = `variables:
+  a: random(1, 10)
+enunciado: "Pregunta {a}"
+respuesta: a
+tipo: mc
+opciones: 4
+opciones_explicitas: ["uno", "dos", "tres", "cuatro"]
+`;
+    const plantilla = parsePlantilla(MC_DSL);
+    const onChange = vi.fn();
+    render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    fireEvent.change(screen.getByTestId("vblang-form-tipo"), {
+      target: { value: "vf" },
+    });
+    expect(screen.getByTestId("vblang-form-confirm-tipo-change")).toBeTruthy();
+    fireEvent.click(screen.getByText("Cancelar"));
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  /* ---------- Bug 3: generador ---------- */
+
+  it("encender toggle de generador y elegir uno agrega GeneradorBloque", () => {
+    const plantilla = parsePlantilla(BASIC_DSL);
+    const onChange = vi.fn();
+    const { rerender } = render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    const toggle = screen.getByTestId("vblang-form-generador-toggle");
+    fireEvent.click(toggle);
+    expect(onChange).toHaveBeenCalledTimes(1);
+    let next = onChange.mock.calls[0][0] as Plantilla;
+    expect(findGenerador(next)).toBeDefined();
+    expect(findGenerador(next)!.id).toBe("");
+
+    // Re-render with generador enabled, pick one from the dropdown
+    rerender(
+      <PlantillaFormularioVisual plantilla={next} onChange={onChange} />,
+    );
+    const picker = screen.getByTestId("vblang-form-generador-picker") as HTMLSelectElement;
+    // Pick the first non-empty option available
+    const firstOption = Array.from(picker.options).find(
+      (o) => o.value !== "",
+    );
+    if (firstOption) {
+      fireEvent.change(picker, { target: { value: firstOption.value } });
+      expect(onChange).toHaveBeenCalledTimes(2);
+      next = onChange.mock.calls[1][0] as Plantilla;
+      expect(findGenerador(next)!.id).toBe(firstOption.value);
+    }
+  });
+
+  /* ---------- Bug 4: cambiar shape de variable ---------- */
+
+  it("cambiar shape de literal-num a random produce random(1,10)", () => {
+    const LITERAL_DSL = `variables:
+  a: 5
+enunciado: "Valor de a: {a}"
+respuesta: a
+tipo: input
+`;
+    const plantilla = parsePlantilla(LITERAL_DSL);
+    const onChange = vi.fn();
+    render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    const shapeSelect = screen.getByTestId("vblang-form-variable-shape-0") as HTMLSelectElement;
+    expect(shapeSelect.value).toBe("literal-num");
+    fireEvent.change(shapeSelect, { target: { value: "random" } });
+    expect(onChange).toHaveBeenCalledTimes(1);
+    const next = onChange.mock.calls[0][0] as Plantilla;
+    const declA = findVariables(next)!.declaraciones.find((d) => d.nombre === "a")!;
+    expect(declA.expr.kind).toBe("fun_call");
+    if (declA.expr.kind === "fun_call") {
+      expect(declA.expr.name).toBe("random");
+      expect(declA.expr.args).toHaveLength(2);
+      expect(declA.expr.args[0]).toMatchObject({ kind: "num", value: 1 });
+      expect(declA.expr.args[1]).toMatchObject({ kind: "num", value: 10 });
+    }
+  });
+
+  /* ---------- Bug 5: rename validation ---------- */
+
+  it("renombrar a nombre inválido (1a) muestra error y NO cambia AST", () => {
+    const plantilla = parsePlantilla(BASIC_DSL);
+    const onChange = vi.fn();
+    render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    const nameInput = screen.getByDisplayValue("a") as HTMLInputElement;
+    fireEvent.change(nameInput, { target: { value: "1a" } });
+    // Should show error text
+    expect(screen.getByText(/Nombre inválido/i)).toBeTruthy();
+    // onChange should NOT have been called
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it("renombrar a nombre duplicado muestra error y NO cambia AST", () => {
+    const plantilla = parsePlantilla(BASIC_DSL);
+    const onChange = vi.fn();
+    render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    // Rename b to a (duplicate)
+    const nameInputB = screen.getByDisplayValue("b") as HTMLInputElement;
+    fireEvent.change(nameInputB, { target: { value: "a" } });
+    expect(screen.getByText(/Nombre duplicado/i)).toBeTruthy();
+    expect(onChange).not.toHaveBeenCalled();
   });
 });

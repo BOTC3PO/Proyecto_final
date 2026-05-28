@@ -1,20 +1,11 @@
-/**
- * Editor visual de plantillas VBLang (Sprint 10B · A2).
- *
- * Recibe el AST `Plantilla` y emite mutaciones via `onChange`. Para campos que
- * el formulario no sabe cómo editar (expresiones complejas), muestra el código
- * serializado y lo marca como "avanzado / editable sólo en modo Código".
- *
- * El AST es la única fuente de verdad: el form NO mantiene un estado paralelo
- * sino que deriva todo del `plantilla` recibido. El parent (`PlantillaEditor`)
- * se encarga de serializar a DSL en cada `onChange`.
- */
-
-import { useMemo } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { emitExpr, serialize } from "@vb/vblang";
 import type {
   Bloque,
   Expr,
+  GeneradorBloque,
+  OpcionesBloque,
+  OpcionesExplicitasBloque,
   Plantilla,
   TipoBloque,
   TipoPregunta,
@@ -23,6 +14,8 @@ import type {
   EnunciadoBloque,
   TextoOInterpolacion,
 } from "@vb/vblang";
+import GeneradorPicker from "./GeneradorPicker";
+import OpcionesEditor from "./OpcionesEditor";
 
 interface Props {
   plantilla: Plantilla;
@@ -41,6 +34,9 @@ const TIPOS: { value: TipoPregunta; label: string }[] = [
 ];
 
 const DUMMY_LOC = { line: 0, col: 0, endLine: 0, endCol: 0 } as const;
+
+const VALID_IDENTIFIER_RE = /^[a-záéíóúñ_][a-záéíóúñ_0-9]*$/i;
+const FINITE_NUMBER_RE = /^-?\d+(\.\d+)?$/;
 
 /* ---------- AST helpers ---------- */
 
@@ -78,6 +74,55 @@ function boolLit(value: boolean): Expr {
 function varRef(name: string): Expr {
   return { kind: "var", name, loc: DUMMY_LOC };
 }
+function funCall(name: string, args: Expr[]): Expr {
+  return { kind: "fun_call", name, args, loc: DUMMY_LOC };
+}
+
+/* ---------- useBufferedInput ---------- */
+
+function useBufferedInput<T>(args: {
+  external: T;
+  serialize: (v: T) => string;
+  parse: (s: string) => { ok: true; value: T } | { ok: false; reason: string };
+  onCommit: (v: T) => void;
+}) {
+  const { external, serialize: ser, parse: par, onCommit } = args;
+  const [buf, setBuf] = useState(() => ser(external));
+  const [error, setError] = useState<string | null>(null);
+  const lastExtRef = useRef(external);
+
+  useEffect(() => {
+    if (lastExtRef.current !== external) {
+      lastExtRef.current = external;
+      setBuf(ser(external));
+      setError(null);
+    }
+  }, [external, ser]);
+
+  const handleChange = useCallback(
+    (raw: string) => {
+      setBuf(raw);
+      const result = par(raw);
+      if (result.ok) {
+        setError(null);
+        onCommit(result.value);
+      } else {
+        setError(result.reason);
+      }
+    },
+    [par, onCommit],
+  );
+
+  const handleBlur = useCallback(() => {
+    const result = par(buf);
+    if (!result.ok) {
+      setBuf(ser(external));
+      setError(null);
+    }
+  }, [buf, par, ser, external]);
+
+  return { buf, error, handleChange, handleBlur };
+}
 
 /* ---------- Variable widget classification ---------- */
 
@@ -86,8 +131,21 @@ type VarShape =
   | { kind: "literal-str"; value: string }
   | { kind: "literal-bool"; value: boolean }
   | { kind: "random"; min: number; max: number }
+  | { kind: "random_float"; min: number; max: number; decimals: number }
   | { kind: "uno_de-strings"; items: string[] }
   | { kind: "advanced" };
+
+type ShapeKind = VarShape["kind"];
+
+const SHAPE_LABELS: { value: ShapeKind; label: string }[] = [
+  { value: "literal-num", label: "Literal número" },
+  { value: "literal-str", label: "Literal texto" },
+  { value: "literal-bool", label: "Literal booleano" },
+  { value: "random", label: "Aleatorio entero" },
+  { value: "random_float", label: "Aleatorio decimal" },
+  { value: "uno_de-strings", label: "Uno de..." },
+  { value: "advanced", label: "Expresión avanzada" },
+];
 
 function classifyVarExpr(expr: Expr): VarShape {
   if (expr.kind === "num") return { kind: "literal-num", value: expr.value };
@@ -101,6 +159,21 @@ function classifyVarExpr(expr: Expr): VarShape {
     expr.args[1].kind === "num"
   ) {
     return { kind: "random", min: expr.args[0].value, max: expr.args[1].value };
+  }
+  if (
+    expr.kind === "fun_call" &&
+    expr.name === "random_float" &&
+    expr.args.length === 3 &&
+    expr.args[0].kind === "num" &&
+    expr.args[1].kind === "num" &&
+    expr.args[2].kind === "num"
+  ) {
+    return {
+      kind: "random_float",
+      min: expr.args[0].value,
+      max: expr.args[1].value,
+      decimals: expr.args[2].value,
+    };
   }
   if (
     expr.kind === "fun_call" &&
@@ -119,24 +192,187 @@ function classifyVarExpr(expr: Expr): VarShape {
   return { kind: "advanced" };
 }
 
+function defaultExprForShape(kind: ShapeKind): Expr {
+  switch (kind) {
+    case "literal-num":
+      return numLit(0);
+    case "literal-str":
+      return strLit("");
+    case "literal-bool":
+      return boolLit(true);
+    case "random":
+      return funCall("random", [numLit(1), numLit(10)]);
+    case "random_float":
+      return funCall("random_float", [numLit(0), numLit(1), numLit(2)]);
+    case "uno_de-strings":
+      return funCall("uno_de", [
+        { kind: "array", items: [strLit("a"), strLit("b")], loc: DUMMY_LOC },
+      ]);
+    case "advanced":
+      return numLit(0);
+  }
+}
+
+/* ---------- Tipo migration (Bug 2) ---------- */
+
+function migrateOnTipoChange(
+  plantilla: Plantilla,
+  from: TipoPregunta,
+  to: TipoPregunta,
+): Plantilla {
+  let p: Plantilla = { ...plantilla, bloques: [...plantilla.bloques] };
+
+  const tipoBloque: TipoBloque = { kind: "tipo", valor: to, loc: DUMMY_LOC };
+  p = withBlock(p, tipoBloque);
+
+  if (from === "input" && to === "mc") {
+    if (!findBlock(p, "opciones")) {
+      const opBlock: OpcionesBloque = { kind: "opciones", cantidad: 4, loc: DUMMY_LOC };
+      p = withBlock(p, opBlock);
+    }
+  } else if (from === "input" && to === "vf") {
+    const resp = findBlock(p, "respuesta");
+    if (resp) {
+      const isZeroOrNull =
+        (resp.expr.kind === "num" && resp.expr.value === 0) ||
+        resp.expr.kind === "null";
+      p = withBlock(p, {
+        kind: "respuesta",
+        expr: boolLit(!isZeroOrNull),
+        loc: DUMMY_LOC,
+      });
+    }
+    p = withoutBlock(p, "opciones");
+    p = withoutBlock(p, "opciones_explicitas");
+    p = withoutBlock(p, "tolerancia");
+    p = withoutBlock(p, "unidad");
+  } else if (from === "mc" && to === "input") {
+    p = withoutBlock(p, "opciones");
+    p = withoutBlock(p, "opciones_explicitas");
+  } else if (from === "mc" && to === "vf") {
+    p = withoutBlock(p, "opciones");
+    p = withoutBlock(p, "opciones_explicitas");
+    const resp = findBlock(p, "respuesta");
+    if (resp) {
+      if (resp.expr.kind === "bool") {
+        // keep it
+      } else {
+        const isZeroOrNull =
+          (resp.expr.kind === "num" && resp.expr.value === 0) ||
+          resp.expr.kind === "null";
+        p = withBlock(p, {
+          kind: "respuesta",
+          expr: boolLit(!isZeroOrNull),
+          loc: DUMMY_LOC,
+        });
+      }
+    }
+  } else if (from === "vf") {
+    const resp = findBlock(p, "respuesta");
+    if (resp && resp.expr.kind === "bool") {
+      if (to === "input" || to === "mc" || to === "completar") {
+        p = withBlock(p, {
+          kind: "respuesta",
+          expr: numLit(0),
+          loc: DUMMY_LOC,
+        });
+      }
+    }
+    if (to === "mc" && !findBlock(p, "opciones")) {
+      p = withBlock(p, { kind: "opciones", cantidad: 4, loc: DUMMY_LOC });
+    }
+  } else if (to === "ordenar") {
+    if (!findBlock(p, "respuesta_orden")) {
+      p = withBlock(p, {
+        kind: "respuesta_orden",
+        expr: { kind: "array", items: [], loc: DUMMY_LOC },
+        loc: DUMMY_LOC,
+      });
+    }
+    p = withoutBlock(p, "respuesta");
+    p = withoutBlock(p, "opciones");
+    p = withoutBlock(p, "opciones_explicitas");
+  } else if (to === "mc") {
+    if (!findBlock(p, "opciones")) {
+      p = withBlock(p, { kind: "opciones", cantidad: 4, loc: DUMMY_LOC });
+    }
+  }
+
+  if (
+    to === "marcar_mapa" ||
+    to === "analisis_sintactico" ||
+    to === "identificar_palabras"
+  ) {
+    p = withoutBlock(p, "respuesta");
+    p = withoutBlock(p, "opciones");
+    p = withoutBlock(p, "opciones_explicitas");
+  }
+
+  return p;
+}
+
+function isDestructiveTipoChange(
+  plantilla: Plantilla,
+  _from: TipoPregunta,
+  to: TipoPregunta,
+): string | null {
+  const hasOpciones = !!findBlock(plantilla, "opciones");
+  const hasOpcionesExplicitas = !!findBlock(plantilla, "opciones_explicitas");
+  const opExpl = findBlock(plantilla, "opciones_explicitas");
+  const hasNonEmptyOpExpl =
+    opExpl && opExpl.items.length > 0;
+
+  if (
+    (hasOpciones || hasOpcionesExplicitas) &&
+    (to === "vf" || to === "input" || to === "ordenar" ||
+     to === "marcar_mapa" || to === "analisis_sintactico" || to === "identificar_palabras")
+  ) {
+    if (hasNonEmptyOpExpl) {
+      return `Cambiar a ${TIPOS.find((t) => t.value === to)?.label ?? to} eliminará el bloque de opciones. ¿Continuar?`;
+    }
+    if (hasOpciones && (to === "vf" || to === "input")) {
+      return `Cambiar a ${TIPOS.find((t) => t.value === to)?.label ?? to} eliminará el bloque de opciones. ¿Continuar?`;
+    }
+  }
+
+  return null;
+}
+
 /* ---------- Componente principal ---------- */
 
 export default function PlantillaFormularioVisual({ plantilla, onChange }: Props) {
   const enunciado = findBlock(plantilla, "enunciado");
   const variablesBlock = findBlock(plantilla, "variables");
   const variables = variablesBlock?.declaraciones ?? [];
+  const generadorBlock = findBlock(plantilla, "generador");
 
   const enunciadoText = useMemo(() => enunciadoToText(enunciado), [enunciado]);
 
+  const [confirmDialog, setConfirmDialog] = useState<{
+    message: string;
+    onConfirm: () => void;
+  } | null>(null);
+
   /* ---------- handlers ---------- */
 
+  const tipoActual: TipoPregunta = plantilla.tipoInferido;
+
   const setTipo = (next: TipoPregunta) => {
-    const tipoBloque: TipoBloque = {
-      kind: "tipo",
-      valor: next,
-      loc: DUMMY_LOC,
-    };
-    onChange(withBlock(plantilla, tipoBloque));
+    if (next === tipoActual) return;
+
+    const destructiveMsg = isDestructiveTipoChange(plantilla, tipoActual, next);
+    if (destructiveMsg) {
+      setConfirmDialog({
+        message: destructiveMsg,
+        onConfirm: () => {
+          onChange(migrateOnTipoChange(plantilla, tipoActual, next));
+          setConfirmDialog(null);
+        },
+      });
+      return;
+    }
+
+    onChange(migrateOnTipoChange(plantilla, tipoActual, next));
   };
 
   const updateVariableExpr = (idx: number, expr: Expr) => {
@@ -150,7 +386,6 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
   };
 
   const renameVariable = (idx: number, nombre: string) => {
-    if (!nombre || /\s/.test(nombre)) return;
     const decls = variables.map((d, i) => (i === idx ? { ...d, nombre } : d));
     const block: VariablesBloque = {
       kind: "variables",
@@ -158,6 +393,10 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
       loc: variablesBlock?.loc ?? DUMMY_LOC,
     };
     onChange(withBlock(plantilla, block));
+  };
+
+  const changeVariableShape = (idx: number, newKind: ShapeKind) => {
+    updateVariableExpr(idx, defaultExprForShape(newKind));
   };
 
   const addVariable = () => {
@@ -201,12 +440,33 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
     onChange(withBlock(plantilla, next));
   };
 
-  /* ---------- respuesta UI por tipo ---------- */
+  const toggleGenerador = (enabled: boolean) => {
+    if (enabled) {
+      const gen: GeneradorBloque = {
+        kind: "generador",
+        id: "",
+        loc: DUMMY_LOC,
+      };
+      onChange(withBlock(plantilla, gen));
+    } else {
+      onChange(withoutBlock(plantilla, "generador"));
+    }
+  };
 
-  const tipoActual: TipoPregunta = plantilla.tipoInferido;
+  const setGeneradorId = (id: string) => {
+    const gen: GeneradorBloque = {
+      kind: "generador",
+      id,
+      loc: DUMMY_LOC,
+    };
+    onChange(withBlock(plantilla, gen));
+  };
+
+  const allVarNames = useMemo(() => variables.map((v) => v.nombre), [variables]);
 
   return (
     <div className="h-full overflow-auto p-6 space-y-6 text-sm bg-[var(--c-bg,#f8fafc)]">
+      {/* 1. Tipo de pregunta */}
       <Section title="Tipo de pregunta">
         <select
           value={tipoActual}
@@ -222,6 +482,34 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
         </select>
       </Section>
 
+      {/* 2. Generador asistido */}
+      <Section title="Generador asistido">
+        <label className="flex items-center gap-2 text-xs">
+          <input
+            type="checkbox"
+            checked={!!generadorBlock}
+            onChange={(e) => toggleGenerador(e.target.checked)}
+            data-testid="vblang-form-generador-toggle"
+          />
+          Usar generador hardcoded de generadoresV2
+        </label>
+        {generadorBlock && (
+          <>
+            <div className="mt-2">
+              <GeneradorPicker
+                value={generadorBlock.id}
+                onChange={setGeneradorId}
+              />
+            </div>
+            <p className="mt-1 text-xs text-[var(--c-muted,#64748b)]">
+              Si usás un generador, los bloques variables, enunciado y respuesta se
+              ignoran y vienen del generador hardcoded.
+            </p>
+          </>
+        )}
+      </Section>
+
+      {/* 3. Variables */}
       <Section title="Variables">
         <div className="space-y-2">
           {variables.length === 0 && (
@@ -232,9 +520,12 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
           {variables.map((decl, i) => (
             <VariableRow
               key={i}
+              idx={i}
               decl={decl}
+              allNames={allVarNames}
               onRename={(name) => renameVariable(i, name)}
               onChangeExpr={(expr) => updateVariableExpr(i, expr)}
+              onChangeShape={(kind) => changeVariableShape(i, kind)}
               onRemove={() => removeVariable(i)}
             />
           ))}
@@ -249,6 +540,7 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
         </div>
       </Section>
 
+      {/* 4. Enunciado */}
       <Section title="Enunciado">
         <textarea
           value={enunciadoText}
@@ -263,10 +555,19 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
         </p>
       </Section>
 
+      {/* 5. Opciones (sólo MC) */}
+      {tipoActual === "mc" && (
+        <Section title="Opciones">
+          <OpcionesEditor plantilla={plantilla} onChange={onChange} />
+        </Section>
+      )}
+
+      {/* 6. Respuesta */}
       <Section title="Respuesta">
         <RespuestaEditor plantilla={plantilla} onChange={onChange} />
       </Section>
 
+      {/* 7. Avanzado (sólo lectura) */}
       <Section title="Avanzado (sólo lectura)">
         <p className="text-xs text-[var(--c-muted,#64748b)]">
           Estos bloques requieren editar el código DSL directamente.
@@ -275,6 +576,54 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
           {serialize(plantilla)}
         </pre>
       </Section>
+
+      {/* Confirm dialog */}
+      {confirmDialog && (
+        <ConfirmDialog
+          message={confirmDialog.message}
+          onConfirm={confirmDialog.onConfirm}
+          onCancel={() => setConfirmDialog(null)}
+        />
+      )}
+    </div>
+  );
+}
+
+/* ---------- ConfirmDialog ---------- */
+
+function ConfirmDialog({
+  message,
+  onConfirm,
+  onCancel,
+}: {
+  message: string;
+  onConfirm: () => void;
+  onCancel: () => void;
+}) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30"
+      data-testid="vblang-form-confirm-tipo-change"
+    >
+      <div className="rounded-lg border border-[var(--c-border,#e2e8f0)] bg-white p-4 shadow-lg max-w-sm">
+        <p className="text-sm mb-4">{message}</p>
+        <div className="flex justify-end gap-2">
+          <button
+            type="button"
+            onClick={onCancel}
+            className="rounded border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            onClick={onConfirm}
+            className="rounded bg-[var(--c-primary,#3b82f6)] px-3 py-1 text-xs text-white font-semibold"
+          >
+            Continuar
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -298,27 +647,77 @@ function Section({
   );
 }
 
+/* ---------- VariableRow (Bug 5: buffered rename) ---------- */
+
 function VariableRow({
+  idx,
   decl,
+  allNames,
   onRename,
   onChangeExpr,
+  onChangeShape,
   onRemove,
 }: {
+  idx: number;
   decl: VariableDecl;
+  allNames: string[];
   onRename: (name: string) => void;
   onChangeExpr: (expr: Expr) => void;
+  onChangeShape: (kind: ShapeKind) => void;
   onRemove: () => void;
 }) {
   const shape = classifyVarExpr(decl.expr);
+
+  const validateName = useCallback(
+    (s: string): { ok: true; value: string } | { ok: false; reason: string } => {
+      if (!s) return { ok: false, reason: "Nombre vacío" };
+      if (!VALID_IDENTIFIER_RE.test(s)) return { ok: false, reason: "Nombre inválido" };
+      const isDuplicate = allNames.some(
+        (n, i) => i !== idx && n === s,
+      );
+      if (isDuplicate) return { ok: false, reason: "Nombre duplicado" };
+      return { ok: true, value: s };
+    },
+    [allNames, idx],
+  );
+
+  const nameBuf = useBufferedInput({
+    external: decl.nombre,
+    serialize: (v) => v,
+    parse: validateName,
+    onCommit: onRename,
+  });
+
   return (
     <div className="rounded border border-[var(--c-border,#e2e8f0)] bg-white px-2 py-2 space-y-1">
       <div className="flex items-center gap-2">
-        <input
-          value={decl.nombre}
-          onChange={(e) => onRename(e.target.value)}
-          className="w-32 rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-xs font-semibold"
-        />
-        <span className="text-xs text-[var(--c-muted,#64748b)]">{shape.kind}</span>
+        <div>
+          <input
+            value={nameBuf.buf}
+            onChange={(e) => nameBuf.handleChange(e.target.value)}
+            onBlur={nameBuf.handleBlur}
+            className={`w-32 rounded border px-2 py-0.5 text-xs font-semibold ${
+              nameBuf.error
+                ? "border-red-500"
+                : "border-[var(--c-border,#e2e8f0)]"
+            }`}
+          />
+          {nameBuf.error && (
+            <p className="text-[10px] text-red-600 mt-0.5">{nameBuf.error}</p>
+          )}
+        </div>
+        <select
+          value={shape.kind}
+          onChange={(e) => onChangeShape(e.target.value as ShapeKind)}
+          className="text-xs rounded border border-[var(--c-border,#e2e8f0)] px-1 py-0.5"
+          data-testid={`vblang-form-variable-shape-${idx}`}
+        >
+          {SHAPE_LABELS.map((s) => (
+            <option key={s.value} value={s.value}>
+              {s.label}
+            </option>
+          ))}
+        </select>
         <button
           type="button"
           onClick={onRemove}
@@ -328,24 +727,72 @@ function VariableRow({
           eliminar
         </button>
       </div>
-      <VariableExprWidget shape={shape} onChange={onChangeExpr} />
+      <VariableExprWidget shape={shape} onChange={onChangeExpr} decl={decl} />
     </div>
   );
+}
+
+/* ---------- VariableExprWidget (Bug 1 + Bug 4) ---------- */
+
+function BufferedNumberInput({
+  value,
+  onCommit,
+  label,
+  className,
+}: {
+  value: number;
+  onCommit: (v: number) => void;
+  label?: string;
+  className?: string;
+}) {
+  const input = useBufferedInput({
+    external: value,
+    serialize: (v) => String(v),
+    parse: (s) => {
+      if (FINITE_NUMBER_RE.test(s)) {
+        const n = Number(s);
+        if (Number.isFinite(n)) return { ok: true, value: n };
+      }
+      return { ok: false, reason: "Número inválido" };
+    },
+    onCommit,
+  });
+
+  const el = (
+    <input
+      type="number"
+      value={input.buf}
+      onChange={(e) => input.handleChange(e.target.value)}
+      onBlur={input.handleBlur}
+      className={className ?? "w-20 rounded border border-[var(--c-border,#e2e8f0)] px-1 text-xs"}
+    />
+  );
+
+  if (label) {
+    return (
+      <label className="flex items-center gap-1 text-xs">
+        {label}
+        {el}
+      </label>
+    );
+  }
+  return el;
 }
 
 function VariableExprWidget({
   shape,
   onChange,
+  decl,
 }: {
   shape: VarShape;
   onChange: (expr: Expr) => void;
+  decl: VariableDecl;
 }) {
   if (shape.kind === "literal-num") {
     return (
-      <input
-        type="number"
+      <BufferedNumberInput
         value={shape.value}
-        onChange={(e) => onChange(numLit(Number(e.target.value)))}
+        onCommit={(v) => onChange(numLit(v))}
         className="w-full rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-xs"
       />
     );
@@ -372,31 +819,16 @@ function VariableExprWidget({
     );
   }
   if (shape.kind === "random") {
+    return <RandomIntWidget min={shape.min} max={shape.max} onChange={onChange} />;
+  }
+  if (shape.kind === "random_float") {
     return (
-      <div className="flex gap-2">
-        <label className="flex items-center gap-1 text-xs">
-          min
-          <input
-            type="number"
-            value={shape.min}
-            onChange={(e) =>
-              onChange(funCall("random", [numLit(Number(e.target.value)), numLit(shape.max)]))
-            }
-            className="w-20 rounded border border-[var(--c-border,#e2e8f0)] px-1 text-xs"
-          />
-        </label>
-        <label className="flex items-center gap-1 text-xs">
-          max
-          <input
-            type="number"
-            value={shape.max}
-            onChange={(e) =>
-              onChange(funCall("random", [numLit(shape.min), numLit(Number(e.target.value))]))
-            }
-            className="w-20 rounded border border-[var(--c-border,#e2e8f0)] px-1 text-xs"
-          />
-        </label>
-      </div>
+      <RandomFloatWidget
+        min={shape.min}
+        max={shape.max}
+        decimals={shape.decimals}
+        onChange={onChange}
+      />
     );
   }
   if (shape.kind === "uno_de-strings") {
@@ -421,16 +853,120 @@ function VariableExprWidget({
       />
     );
   }
+  // advanced
   return (
-    <span className="text-xs italic text-[var(--c-muted,#64748b)]">
-      Expresión avanzada — editá desde el código DSL.
-    </span>
+    <div className="space-y-1">
+      <code className="block text-xs font-mono text-[var(--c-muted,#64748b)] bg-[#f1f5f9] rounded px-2 py-1">
+        {emitExpr(decl.expr)}
+      </code>
+      <button
+        type="button"
+        onClick={() => onChange(numLit(0))}
+        className="text-[10px] text-[var(--c-primary,#3b82f6)] hover:underline"
+      >
+        Resetear a literal número
+      </button>
+    </div>
   );
 }
 
-function funCall(name: string, args: Expr[]): Expr {
-  return { kind: "fun_call", name, args, loc: DUMMY_LOC };
+function RandomIntWidget({
+  min,
+  max,
+  onChange,
+}: {
+  min: number;
+  max: number;
+  onChange: (expr: Expr) => void;
+}) {
+  const [lastMin, setLastMin] = useState(min);
+  const [lastMax, setLastMax] = useState(max);
+
+  useEffect(() => { setLastMin(min); }, [min]);
+  useEffect(() => { setLastMax(max); }, [max]);
+
+  const handleMinCommit = useCallback(
+    (v: number) => {
+      setLastMin(v);
+      onChange(funCall("random", [numLit(v), numLit(lastMax)]));
+    },
+    [onChange, lastMax],
+  );
+
+  const handleMaxCommit = useCallback(
+    (v: number) => {
+      setLastMax(v);
+      onChange(funCall("random", [numLit(lastMin), numLit(v)]));
+    },
+    [onChange, lastMin],
+  );
+
+  return (
+    <div className="space-y-1">
+      <div className="flex gap-2">
+        <BufferedNumberInput value={min} onCommit={handleMinCommit} label="min" />
+        <BufferedNumberInput value={max} onCommit={handleMaxCommit} label="max" />
+      </div>
+      {lastMin > lastMax && (
+        <p className="text-[10px] text-amber-600">⚠ min &gt; max</p>
+      )}
+    </div>
+  );
 }
+
+function RandomFloatWidget({
+  min,
+  max,
+  decimals,
+  onChange,
+}: {
+  min: number;
+  max: number;
+  decimals: number;
+  onChange: (expr: Expr) => void;
+}) {
+  const [lastMin, setLastMin] = useState(min);
+  const [lastMax, setLastMax] = useState(max);
+  const [lastDec, setLastDec] = useState(decimals);
+
+  useEffect(() => { setLastMin(min); }, [min]);
+  useEffect(() => { setLastMax(max); }, [max]);
+  useEffect(() => { setLastDec(decimals); }, [decimals]);
+
+  const emit = useCallback(
+    (m: number, x: number, d: number) => {
+      onChange(funCall("random_float", [numLit(m), numLit(x), numLit(d)]));
+    },
+    [onChange],
+  );
+
+  return (
+    <div className="space-y-1">
+      <div className="flex gap-2">
+        <BufferedNumberInput
+          value={min}
+          onCommit={(v) => { setLastMin(v); emit(v, lastMax, lastDec); }}
+          label="min"
+        />
+        <BufferedNumberInput
+          value={max}
+          onCommit={(v) => { setLastMax(v); emit(lastMin, v, lastDec); }}
+          label="max"
+        />
+        <BufferedNumberInput
+          value={decimals}
+          onCommit={(v) => { setLastDec(v); emit(lastMin, lastMax, v); }}
+          label="decimales"
+        />
+      </div>
+      {lastMin > lastMax && (
+        <p className="text-[10px] text-amber-600">⚠ min &gt; max</p>
+      )}
+    </div>
+  );
+}
+
+/* ---------- RespuestaEditor ---------- */
 
 function RespuestaEditor({
   plantilla,
@@ -472,14 +1008,11 @@ function RespuestaExprInput({
           onChange(withoutBlock(plantilla, "respuesta"));
           return;
         }
-        // Si es un número, guardar como num literal; si es identificador simple,
-        // como var ref; sino como string literal. Para expresiones complejas el
-        // docente tiene que ir al editor DSL.
         const asNum = Number(value);
         let expr: Expr;
-        if (!Number.isNaN(asNum) && /^-?\d+(\.\d+)?$/.test(value)) {
+        if (!Number.isNaN(asNum) && FINITE_NUMBER_RE.test(value)) {
           expr = numLit(asNum);
-        } else if (/^[a-záéíóúñ_][a-záéíóúñ_0-9]*$/i.test(value)) {
+        } else if (VALID_IDENTIFIER_RE.test(value)) {
           expr = varRef(value);
         } else {
           expr = strLit(value);
@@ -536,7 +1069,6 @@ function enunciadoToText(b: EnunciadoBloque | undefined): string {
   let out = "";
   for (const p of b.partes) {
     if (p.kind === "texto") {
-      // Re-escapar { y } literales para mantener consistencia con el DSL.
       out += p.value.replace(/{/g, "{{").replace(/}/g, "}}");
     } else {
       const exprStr = exprToText(p.expr);
@@ -549,9 +1081,6 @@ function enunciadoToText(b: EnunciadoBloque | undefined): string {
 }
 
 function textToEnunciadoPartes(text: string): TextoOInterpolacion[] {
-  // Mismo algoritmo que el parser de interpolación pero sin lanzar errores
-  // por interpolaciones inválidas: si encontramos `{` sin cierre, lo dejamos
-  // como texto literal.
   const partes: TextoOInterpolacion[] = [];
   let buf = "";
   let i = 0;
@@ -576,7 +1105,6 @@ function textToEnunciadoPartes(text: string): TextoOInterpolacion[] {
     if (ch === "{") {
       const close = text.indexOf("}", i + 1);
       if (close === -1) {
-        // sin cierre — tratamos el resto como texto literal
         buf += text.slice(i);
         break;
       }
@@ -587,13 +1115,10 @@ function textToEnunciadoPartes(text: string): TextoOInterpolacion[] {
       const modificador =
         pipeIdx === -1 ? undefined : inner.slice(pipeIdx + 1).trim();
       if (exprStr.length === 0) {
-        // {} vacío — interpretar como texto literal
         buf += text.slice(i, close + 1);
         i = close + 1;
         continue;
       }
-      // Identificador simple → var; acceso a campo → field chain; resto → var.
-      // Para expresiones complejas, el usuario debe ir al modo Código.
       flush();
       partes.push({
         kind: "interp",
@@ -611,11 +1136,10 @@ function textToEnunciadoPartes(text: string): TextoOInterpolacion[] {
 }
 
 function parseSimpleExpr(text: string): Expr {
-  // Soporta identificador simple o cadena `a.b.c`.
   const parts = text.split(".").map((s) => s.trim());
   if (
     parts.length >= 1 &&
-    parts.every((p) => /^[a-záéíóúñ_][a-záéíóúñ_0-9]*$/i.test(p))
+    parts.every((p) => VALID_IDENTIFIER_RE.test(p))
   ) {
     let expr: Expr = varRef(parts[0]);
     for (let i = 1; i < parts.length; i++) {
@@ -623,15 +1147,10 @@ function parseSimpleExpr(text: string): Expr {
     }
     return expr;
   }
-  // Fallback — si no parece un acceso simple, lo guardamos como string para no
-  // perder el contenido; el modo código lo va a mostrar al docente.
   return strLit(text);
 }
 
 function exprToText(expr: Expr): string {
-  // Para acceso simple, emitimos sin comillas para que el usuario pueda editar
-  // como texto plano. Para todo lo demás delegamos al serializer del paquete,
-  // que produce DSL válido.
   if (expr.kind === "var") return expr.name;
   if (expr.kind === "field") {
     if (
