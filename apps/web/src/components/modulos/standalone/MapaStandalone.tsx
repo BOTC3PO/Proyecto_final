@@ -6,7 +6,13 @@ import {
   createProjector,
   createInverseProjector,
 } from "../../../lib/maps/svg-geo-lite";
-import type { MapaConfig, MapaAnotacion } from "./types";
+import {
+  MAPA_CAPA_DEFAULT_ID,
+  type MapaConfig,
+  type MapaAnotacion,
+  type MapaDataset,
+} from "./types";
+import { migrateMapaConfig } from "./mapa.migrate";
 
 const MAP_WIDTH = 960;
 const MAP_HEIGHT = 520;
@@ -186,7 +192,9 @@ function EditPanel({ anotacion, onChange, onDelete, onClose }: EditPanelProps) {
         <span className="font-semibold text-slate-700 capitalize">
           {anotacion.tipo === "marcador" ? "Marcador" : anotacion.tipo === "zona" ? "Zona" : "Flecha"}
         </span>
-        <button onClick={onClose} className="text-slate-400 hover:text-slate-600 text-xs">✕</button>
+        <button onClick={onClose} aria-label="Cerrar panel de edición" className="text-slate-400 hover:text-slate-600 text-xs">
+          <span aria-hidden="true">✕</span>
+        </button>
       </div>
 
       <label className="block space-y-1">
@@ -228,11 +236,15 @@ type Props = {
   config: MapaConfig;
   editable?: boolean;
   onChange?: (config: MapaConfig) => void;
+  /** Datasets disponibles a nivel módulo; capas con datasetId se rellenan desde acá. */
+  datasets?: MapaDataset[];
+  /** Override del aria-label del SVG raíz. */
+  ariaLabel?: string;
 };
 
 type ActiveTool = "marcador" | "zona" | "flecha";
 
-export default function MapaStandalone({ config, editable = false, onChange }: Props) {
+export default function MapaStandalone({ config, editable = false, onChange, datasets, ariaLabel }: Props) {
   const [features, setFeatures] = useState<CountryFeature[]>([]);
   const [loading, setLoading] = useState(true);
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
@@ -242,10 +254,10 @@ export default function MapaStandalone({ config, editable = false, onChange }: P
   const [pendingFlecha, setPendingFlecha] = useState<[number, number] | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
-  const [localConfig, setLocalConfig] = useState<MapaConfig>(config);
+  const [localConfig, setLocalConfig] = useState<MapaConfig>(() => migrateMapaConfig(config));
 
   useEffect(() => {
-    setLocalConfig(config);
+    setLocalConfig(migrateMapaConfig(config));
   }, [config]);
 
   const update = useCallback((next: MapaConfig) => {
@@ -344,6 +356,57 @@ export default function MapaStandalone({ config, editable = false, onChange }: P
     setSelectedId(newZona.id);
   }, [editable, activeTool, pendingZona, localConfig, update]);
 
+  // ─── Capas: visibilidad y color heredado ────────────────────────────────
+  const capas = useMemo(() => localConfig.capas ?? [], [localConfig.capas]);
+  const capaById = useMemo(() => new Map(capas.map((c) => [c.id, c])), [capas]);
+
+  const visibleAnotaciones = useMemo(
+    () =>
+      localConfig.anotaciones.filter((a) => {
+        const capa = capaById.get(a.capaId ?? MAPA_CAPA_DEFAULT_ID);
+        return capa ? capa.visible : true;
+      }),
+    [localConfig.anotaciones, capaById],
+  );
+
+  // Marcadores virtuales generados desde datasets de capas conectadas.
+  const datasetMarkers = useMemo(() => {
+    if (!datasets || datasets.length === 0) return [];
+    const out: MapaAnotacion[] = [];
+    capas.forEach((capa) => {
+      if (!capa.visible || !capa.datasetId) return;
+      const ds = datasets.find((d) => d.id === capa.datasetId);
+      if (!ds) return;
+      ds.entries.forEach((entry) => {
+        out.push({
+          id: `ds:${capa.id}:${entry.id}`,
+          tipo: "marcador",
+          lat: entry.lat,
+          lon: entry.lon,
+          etiqueta: entry.etiqueta,
+          color: capa.color,
+          capaId: capa.id,
+        });
+      });
+    });
+    return out;
+  }, [datasets, capas]);
+
+  // Anotaciones con color resuelto: explícito > capa > undefined (default del render).
+  const anotacionesParaRender = useMemo<MapaAnotacion[]>(() => {
+    const merged = [...visibleAnotaciones, ...datasetMarkers];
+    return merged.map((a) => {
+      if (a.color) return a;
+      const capa = capaById.get(a.capaId ?? MAPA_CAPA_DEFAULT_ID);
+      return capa?.color ? ({ ...a, color: capa.color } as MapaAnotacion) : a;
+    });
+  }, [visibleAnotaciones, datasetMarkers, capaById]);
+
+  const handleSelectAnnotation = useCallback((id: string) => {
+    if (id.startsWith("ds:")) return; // dataset markers no se seleccionan
+    setSelectedId(id);
+  }, []);
+
   const selectedAnnotation = localConfig.anotaciones.find((a) => a.id === selectedId) ?? null;
 
   const updateAnnotation = useCallback((updated: MapaAnotacion) => {
@@ -373,9 +436,18 @@ export default function MapaStandalone({ config, editable = false, onChange }: P
 
   return (
     <div className="flex flex-col gap-3">
+      {/* Live region para país hovereado (lector de pantalla) */}
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {hoveredCountry ? `País: ${hoveredCountry}` : ""}
+      </div>
+
       {/* Toolbar — editor only */}
       {editable && (
-        <div className="flex flex-wrap items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
+        <div
+          role="toolbar"
+          aria-label="Herramientas del mapa"
+          className="flex flex-wrap items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"
+        >
           {/* Modo */}
           <label className="flex items-center gap-1.5 text-xs text-slate-600">
             Modo
@@ -409,6 +481,8 @@ export default function MapaStandalone({ config, editable = false, onChange }: P
             <button
               key={tool}
               type="button"
+              aria-pressed={activeTool === tool}
+              aria-label={tool === "marcador" ? "Herramienta marcador" : tool === "zona" ? "Herramienta zona" : "Herramienta flecha"}
               className={`rounded-lg border px-3 py-1 text-xs font-medium transition-colors ${
                 activeTool === tool
                   ? "border-blue-500 bg-blue-500 text-white"
@@ -475,10 +549,17 @@ export default function MapaStandalone({ config, editable = false, onChange }: P
             <svg
               ref={svgRef}
               viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
+              role="img"
+              aria-label={ariaLabel ?? localConfig.titulo ?? "Mapa interactivo"}
+              aria-describedby="mapa-desc"
               style={{ display: "block", width: "100%", cursor: svgCursor }}
               onClick={handleSvgClick}
               onDoubleClick={handleSvgDoubleClick}
             >
+              <title>{localConfig.titulo ?? "Mapa interactivo"}</title>
+              <desc id="mapa-desc">
+                Mapa {localConfig.modo === "physical" ? "físico" : "político"} con {anotacionesParaRender.length} anotaciones.
+              </desc>
               {/* Ocean background */}
               <rect width={MAP_WIDTH} height={MAP_HEIGHT} fill="#e8eef7" />
 
@@ -516,13 +597,13 @@ export default function MapaStandalone({ config, editable = false, onChange }: P
                 </text>
               )}
 
-              {/* Annotations */}
+              {/* Annotations (filtered by visible capas + dataset markers) */}
               {project && (
                 <AnnotationLayer
-                  anotaciones={localConfig.anotaciones}
+                  anotaciones={anotacionesParaRender}
                   project={project}
                   selectedId={selectedId}
-                  onSelect={setSelectedId}
+                  onSelect={handleSelectAnnotation}
                   editable={editable}
                 />
               )}

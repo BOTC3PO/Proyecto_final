@@ -26,7 +26,15 @@ import {
   type BookResult,
   type TuesdayResult,
 } from "./useModuloEditor";
-import { STANDALONE_TOOLS, parseStandaloneConfig, type RecetaConfig, type LineaTiempoConfig, type MapaConfig } from "../../components/modulos/standalone/types";
+import {
+  STANDALONE_TOOLS,
+  parseStandaloneConfig,
+  makeEmptyMapaConfig,
+  type RecetaConfig,
+  type LineaTiempoConfig,
+  type MapaConfig,
+  type MapaDataset,
+} from "../../components/modulos/standalone/types";
 import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
 
@@ -688,7 +696,7 @@ export default function ModuloEditor() {
                           } else if (val === "mapa") {
                             setNewTheoryItem((prev) => ({
                               ...prev,
-                              detail: JSON.stringify({ tool: "mapa", titulo: "", modo: "political", escala: "110m", anotaciones: [] } satisfies MapaConfig),
+                              detail: JSON.stringify(makeEmptyMapaConfig()),
                             }));
                           } else {
                             setNewTheoryItem((prev) => ({ ...prev, detail: val }));
@@ -729,9 +737,14 @@ export default function ModuloEditor() {
                               <span className="text-xs text-teal-700 flex-1">Mapa configurado ({cfg.anotaciones.length} anotaciones)</span>
                               <button
                                 type="button"
+                                aria-label="Abrir editor de mapa en ventana nueva"
                                 className="rounded-md border border-teal-400 bg-white px-3 py-1.5 text-xs font-medium text-teal-700 hover:bg-teal-50"
                                 onClick={() => {
                                   sessionStorage.setItem(`mapa-doc:${ssKey}`, JSON.stringify(cfg));
+                                  // Pasar datasets disponibles del módulo (placeholder: vacío
+                                  // hasta que el módulo soporte declarar datasets).
+                                  const datasetsDisponibles: MapaDataset[] = [];
+                                  sessionStorage.setItem(`mapa-doc:${ssKey}:datasets`, JSON.stringify(datasetsDisponibles));
                                   const win = window.open(`/herramientas/mapa-editor?sskey=${ssKey}`, "_blank");
                                   if (!win) return;
                                   const timer = setInterval(() => {
@@ -744,10 +757,14 @@ export default function ModuloEditor() {
                                           setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) }));
                                         }
                                       } catch { /* ignore */ }
+                                      sessionStorage.removeItem(`mapa-doc:${ssKey}:datasets`);
                                     }
                                   }, 500);
                                 }}
                               >
+                                <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
+                                  <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16"/>
+                                </svg>
                                 Abrir editor de mapa
                               </button>
                             </div>
@@ -973,7 +990,7 @@ export default function ModuloEditor() {
                                       } else if (val === "linea-tiempo") {
                                         updateTheoryItem(item.id, { detail: JSON.stringify({ tool: "linea-tiempo", titulo: "", eventos: [] } satisfies LineaTiempoConfig) });
                                       } else if (val === "mapa") {
-                                        updateTheoryItem(item.id, { detail: JSON.stringify({ tool: "mapa", titulo: "", modo: "political", escala: "110m", anotaciones: [] } satisfies MapaConfig) });
+                                        updateTheoryItem(item.id, { detail: JSON.stringify(makeEmptyMapaConfig()) });
                                       } else {
                                         updateTheoryItem(item.id, { detail: val });
                                       }
@@ -1015,9 +1032,13 @@ export default function ModuloEditor() {
                                           </span>
                                           <button
                                             type="button"
+                                            aria-label="Abrir editor de mapa en ventana nueva"
                                             className="rounded-md border border-teal-400 bg-white px-3 py-1.5 text-xs font-medium text-teal-700 hover:bg-teal-50"
                                             onClick={() => {
                                               sessionStorage.setItem(`mapa-doc:${ssKey}`, JSON.stringify(cfg));
+                                              // Pasar datasets disponibles del módulo (placeholder: vacío).
+                                              const datasetsDisponibles: MapaDataset[] = [];
+                                              sessionStorage.setItem(`mapa-doc:${ssKey}:datasets`, JSON.stringify(datasetsDisponibles));
                                               const win = window.open(`/herramientas/mapa-editor?sskey=${ssKey}`, "_blank");
                                               if (!win) return;
                                               const timer = setInterval(() => {
@@ -1030,10 +1051,14 @@ export default function ModuloEditor() {
                                                       updateTheoryItem(item.id, { detail: JSON.stringify(updated) });
                                                     }
                                                   } catch { /* ignore */ }
+                                                  sessionStorage.removeItem(`mapa-doc:${ssKey}:datasets`);
                                                 }
                                               }, 500);
                                             }}
                                           >
+                                            <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
+                                              <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16"/>
+                                            </svg>
                                             Abrir editor de mapa
                                           </button>
                                         </div>
