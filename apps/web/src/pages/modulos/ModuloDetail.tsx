@@ -11,7 +11,7 @@ import type {
 import TheoryItemCard from "../../components/modulos/TheoryItemCard";
 import { lookupPalabra, prefixPalabra, type EntradaDiccionario } from "../../services/diccionario";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
-import type { Ejercicio, GeneratorDescriptor } from "../../generadoresV2/core/types";
+import type { Ejercicio, GeneratorDescriptor, Dificultad } from "../../generadoresV2/core/types";
 
 const loadGeneratorModule = (materia: string) => {
   switch (materia) {
@@ -166,7 +166,6 @@ export default function ModuloDetail() {
         setTtsActivo(false);
       };
       window.speechSynthesis.speak(utterance);
-      i++;
     };
 
     leerSiguiente();
@@ -177,6 +176,20 @@ export default function ModuloDetail() {
     setTtsActivo(false);
     setTtsIndex(0);
   };
+
+  useEffect(() => {
+    if (!dictOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setDictOpen(false);
+        setDictEntry(null);
+        setDictNotFound(false);
+        setDictSuggestions([]);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [dictOpen]);
 
   const handleDictSearch = async (word: string) => {
     if (!word.trim()) return;
@@ -275,7 +288,14 @@ export default function ModuloDetail() {
     }
 
     try {
-      const [materia] = quiz.generatorId.split("/");
+      const segs = quiz.generatorId.split("/");
+      const materia = segs[0];
+      const subtipo = segs[2]; // 3er segmento (ej. "MRU"); puede ser undefined
+      const difRaw = quiz.params?.dificultad;
+      const dificultad: Dificultad | undefined =
+        difRaw === "basico" || difRaw === "intermedio" || difRaw === "avanzado"
+          ? difRaw
+          : undefined;
       const mod = await loadGeneratorModule(materia);
       const prng = new DeterministicPrng(42);
       const descriptores: GeneratorDescriptor[] =
@@ -300,7 +320,7 @@ export default function ModuloDetail() {
 
       const count = Math.min(quiz.count ?? 3, 5);
       const ejercicios: Ejercicio[] = Array.from({ length: count }, () =>
-        descriptor.generate(undefined, prng)
+        descriptor.generate(dificultad, prng, subtipo)
       );
 
       setPreviewQuestions((prev) => ({
@@ -571,7 +591,9 @@ export default function ModuloDetail() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Última actualización</p>
               <p className="mt-0.5 text-sm font-medium text-slate-800">
-                {new Date(module.updatedAt).toLocaleDateString()}
+                {module.updatedAt
+                  ? new Date(module.updatedAt).toLocaleDateString()
+                  : "—"}
               </p>
             </div>
           </div>
@@ -822,13 +844,19 @@ export default function ModuloDetail() {
 
       {/* Panel de diccionario */}
       {dictOpen && (
-        <aside className="fixed right-4 top-24 z-40 w-80 rounded-2xl border border-slate-200 bg-white shadow-xl flex flex-col max-h-[70vh]">
+        <aside
+          role="dialog"
+          aria-modal="true"
+          aria-label="Panel de diccionario"
+          className="fixed right-4 top-24 z-40 w-80 rounded-2xl border border-slate-200 bg-white shadow-xl flex flex-col max-h-[70vh]"
+        >
 
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100">
             <h2 className="text-sm font-semibold text-slate-800">📖 Diccionario</h2>
             <button
               type="button"
+              aria-label="Cerrar diccionario"
               onClick={() => {
                 setDictOpen(false);
                 setDictEntry(null);
