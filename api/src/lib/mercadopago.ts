@@ -102,15 +102,28 @@ export function verificarWebhookMP(
   xRequestId: string,
   dataId: string
 ): boolean {
-  if (!ENV.MP_WEBHOOK_SECRET) return true; // sin secret = dev mode
+  if (!ENV.MP_WEBHOOK_SECRET) {
+    if (ENV.NODE_ENV === "production") {
+      throw new Error("MP_WEBHOOK_SECRET not configured");
+    }
+    return true; // solo dev
+  }
   try {
-    const { createHmac } = require("crypto") as typeof import("crypto");
-    const manifest = `id:${dataId};request-id:${xRequestId};ts:${xSignature.split(";")[0]?.split("=")[1] ?? ""};`;
+    const { createHmac, timingSafeEqual } =
+      require("crypto") as typeof import("crypto");
+    // x-signature real de MP: "ts=1704908010,v1=abc123..."  (coma)
+    const parts = xSignature.split(",");
+    const ts = parts.find((p) => p.trim().startsWith("ts="))
+      ?.split("=")[1] ?? "";
+    const v1 = parts.find((p) => p.trim().startsWith("v1="))
+      ?.slice(3) ?? "";
+    const manifest = `id:${dataId};request-id:${xRequestId};ts:${ts};`;
     const hash = createHmac("sha256", ENV.MP_WEBHOOK_SECRET)
       .update(manifest)
       .digest("hex");
-    const v1 = xSignature.split(",").find((p) => p.startsWith("v1="))?.slice(3) ?? "";
-    return hash === v1;
+    const a = Buffer.from(hash);
+    const b = Buffer.from(v1);
+    return a.length === b.length && timingSafeEqual(a, b);
   } catch {
     return false;
   }

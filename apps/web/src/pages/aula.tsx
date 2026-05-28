@@ -57,7 +57,7 @@ function getAvatarColor(initials: string): string {
   return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length];
 }
 
-export default function aula() {
+export default function Aula() {
   const { user } = useAuth();
   const userInitials = user?.name
     ? user.name.split(" ").filter(Boolean).map((p) => p[0]).join("").slice(0, 2).toUpperCase()
@@ -337,6 +337,7 @@ export default function aula() {
                 </div>
                 <input
                   className={`flex-1 ${inputCls}`}
+                  aria-label="Escribí una novedad"
                   placeholder="Escribe una novedad..."
                   value={newPublication}
                   onChange={(event) => setNewPublication(event.target.value)}
@@ -351,8 +352,14 @@ export default function aula() {
                 </button>
               </div>
               <div className="flex flex-wrap items-center gap-3 mt-3 text-[var(--c-muted)]">
-                <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">📎</label>
-                <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">🖼️</label>
+                <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
+                  <span aria-hidden="true">📎</span>
+                  <span className="sr-only">Adjuntar archivo</span>
+                </label>
+                <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
+                  <span aria-hidden="true">🖼️</span>
+                  <span className="sr-only">Adjuntar imagen</span>
+                </label>
                 <input
                   id="aula-archivos" type="file" multiple className="hidden"
                   onChange={(event) => handleFilesChange(event.target.files)}

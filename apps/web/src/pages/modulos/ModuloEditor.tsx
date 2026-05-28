@@ -1080,7 +1080,11 @@ export default function ModuloEditor() {
                               <button
                                 type="button"
                                 className="self-start rounded-md border border-red-200 bg-red-50 px-2.5 py-1 text-xs font-medium text-red-600 transition-all hover:bg-red-100 hover:border-red-300"
-                                onClick={() => removeTheoryItem(item.id)}
+                                onClick={() => {
+                                  if (window.confirm("¿Eliminar este recurso de teoría? Esta acción no se puede deshacer.")) {
+                                    removeTheoryItem(item.id);
+                                  }
+                                }}
                               >
                                 Eliminar
                               </button>
@@ -1440,7 +1444,11 @@ export default function ModuloEditor() {
                             <button
                               type="button"
                               className="rounded-md border border-red-200 bg-red-50 px-2.5 py-1 text-xs font-medium text-red-600 transition-all hover:bg-red-100 hover:border-red-300"
-                              onClick={() => removeQuiz(quiz.id)}
+                              onClick={() => {
+                                if (window.confirm("¿Eliminar este cuestionario y todas sus preguntas? Esta acción no se puede deshacer.")) {
+                                  removeQuiz(quiz.id);
+                                }
+                              }}
                             >
                               Eliminar cuestionario
                             </button>
