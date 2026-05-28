@@ -52,6 +52,31 @@
               0 8px 24px color-mix(in srgb, var(--c-text) 6%, transparent);
   --shadow-pop: 0 10px 30px color-mix(in srgb, var(--c-text) 12%, transparent),
                 0 2px 6px color-mix(in srgb, var(--c-text) 8%, transparent);
+
+  /* Superficies extra (sub-superficies / slots) */
+  --c-surface-2: var(--c-surface);
+  --c-surface-3: color-mix(in srgb, var(--c-text) 5%, var(--c-surface));
+
+  /* Sidebar (fallback = tokens de nav existentes) */
+  --c-sidebar-bg:  var(--c-nav-bg);
+  --c-sidebar-fg:  var(--c-nav-text);
+  --c-sidebar-dim: color-mix(in srgb, var(--c-nav-text) 55%, transparent);
+
+  /* Texto sobre superficie oscura */
+  --c-text-on-dark: #faf9f6;
+
+  /* Estado informativo (la app solo tenía success/warning/danger) */
+  --c-info: #2c4c8a;
+
+  /* Variantes "soft" de los estados (para pills/badges/banners) */
+  --c-success-soft: color-mix(in srgb, var(--c-success) 16%, var(--c-surface));
+  --c-warning-soft: color-mix(in srgb, var(--c-warning) 16%, var(--c-surface));
+  --c-danger-soft:  color-mix(in srgb, var(--c-danger) 16%, var(--c-surface));
+  --c-info-soft:    color-mix(in srgb, var(--c-info) 16%, var(--c-surface));
+
+  /* Acento suave + texto sobre acento */
+  --c-accent-soft: color-mix(in srgb, var(--c-accent) 12%, var(--c-surface));
+  --c-accent-fg:   var(--c-surface);
 }
 
 /* ── Temas normales ─────────────────────────────────────── */
@@ -119,6 +144,48 @@
   --c-danger:   #9b1c1c;
   --c-nav-bg:   #faf9f6;
   --c-nav-text: #1a1a18;
+}
+
+[data-theme="minimal-v2"] {
+  /* ── base (mismas 12 que el resto de temas) ── */
+  --c-bg:       #f6f5f1;
+  --c-surface:  #ffffff;
+  --c-border:   #e3dfd6;
+  --c-text:     #1a1a1a;
+  --c-muted:    #4a4a47;
+  --c-primary:  #1a1a1a;   /* acento neutro: los "temas por documento" recolorean */
+  --c-accent:   #1a1a1a;
+  --c-success:  #2e6e3a;
+  --c-warning:  #8a5a08;
+  --c-danger:   #9a2a2a;
+  --c-nav-bg:   #1a1a1a;   /* sidebar oscuro del prototipo */
+  --c-nav-text: #faf9f6;
+
+  /* ── superficies extra ── */
+  --c-surface-2: #faf9f6;
+  --c-surface-3: #f1efe9;
+
+  /* ── sidebar ── */
+  --c-sidebar-bg:  #1a1a1a;
+  --c-sidebar-fg:  #e9e6df;
+  --c-sidebar-dim: #8c887e;
+
+  /* ── texto / bordes / foco ── */
+  --c-text-3:       #767369;
+  --c-text-on-dark: #faf9f6;
+  --c-border-strong:#c9c4b8;
+  --c-focus-ring:   #1a1a1a;
+
+  /* ── acento suave ── */
+  --c-accent-soft: #ecebe5;
+  --c-accent-fg:   #faf9f6;
+
+  /* ── estados + soft + info ── */
+  --c-info:         #2c4c8a;
+  --c-success-soft: #e1ecdf;
+  --c-warning-soft: #f4ecd6;
+  --c-danger-soft:  #f1dcd9;
+  --c-info-soft:    #dde4f0;
 }
 
 [data-theme="clasico-vb"] {

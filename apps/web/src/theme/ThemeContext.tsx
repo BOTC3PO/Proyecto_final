@@ -4,7 +4,7 @@ import { useAuth } from "../auth/use-auth";
 
 export type ThemeId =
   | "clasico" | "clasico-vb" | "aurora" | "nocturno" | "nocturno-vb"
-  | "vibrante" | "bosque" | "minimal"
+  | "vibrante" | "bosque" | "minimal" | "minimal-v2"
   | "vb2"
   | "obsidian" | "sakura" | "carbon" | "arctic" | "lava" | "emerald" | "dusk"
   | "galaxy" | "sunset" | "ocean" | "candy" | "neon"
@@ -27,6 +27,7 @@ export const THEME_OPTIONS: ThemeOption[] = [
   { id: "nocturno",      name: "Nocturno",      animated: false, price: 0   },
   { id: "nocturno-vb",   name: "Nocturno VB",   animated: false, price: 0   },
   { id: "minimal",       name: "Minimal",       animated: false, price: 0   },
+  { id: "minimal-v2",    name: "Minimal V2",    animated: false, price: 0   },
   // Estáticos de pago
   { id: "aurora",        name: "Aurora",        animated: false, price: 40  },
   { id: "bosque",        name: "Bosque",        animated: false, price: 40  },
@@ -55,7 +56,7 @@ export const THEME_OPTIONS: ThemeOption[] = [
 export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
   USER: [
     // Gratuitos (default: nocturno-vb)
-    "nocturno-vb", "vb2", "nocturno", "clasico", "clasico-vb", "minimal",
+    "nocturno-vb", "vb2", "nocturno", "clasico", "clasico-vb", "minimal", "minimal-v2",
     // Estáticos de pago
     "aurora", "bosque", "vibrante",
     "obsidian", "sakura", "carbon", "arctic", "lava", "emerald", "dusk",
@@ -69,6 +70,7 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
     "clasico-vb",
     "clasico",
     "minimal",
+    "minimal-v2",
     "aurora",
     "bosque",
   ],
@@ -76,12 +78,13 @@ export const THEMES_BY_ROLE: Record<string, ThemeId[]> = {
     "clasico-vb",
     "clasico",
     "minimal",
+    "minimal-v2",
     "aurora",
     "bosque",
   ],
   ADMIN: [
     "admin",
-    "clasico-vb", "clasico", "minimal", "vb2",
+    "clasico-vb", "clasico", "minimal", "minimal-v2", "vb2",
     "aurora", "bosque", "vibrante",
     "obsidian", "sakura", "carbon", "arctic", "lava", "emerald", "dusk",
     "galaxy", "sunset", "ocean", "candy", "neon",
