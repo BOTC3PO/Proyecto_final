@@ -1,24 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { apiGet } from "../../lib/api";
 import { getStaticCatalog } from "../../generadoresV2/catalog";
-
-const hashString = (value: string) => {
-  let hash = 0;
-  for (let i = 0; i < value.length; i += 1) {
-    hash = (hash << 5) - hash + value.charCodeAt(i);
-    hash |= 0;
-  }
-  return Math.abs(hash);
-};
-
-const mulberry32 = (seed: number) => {
-  return () => {
-    let t = (seed += 0x6d2b79f5);
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-};
+import QuizGeneratedPreview from "./QuizGeneratedPreview";
 
 type GeneratorSubtipo = { id: string; label: string };
 type GeneratorCatalogItem = {
@@ -53,7 +36,6 @@ const DIFICULTAD_OPTS: Array<{ value: Dificultad; label: string }> = [
 
 export default function QuizEditorGenerated({
   generatorId,
-  generatorVersion,
   params,
   count,
   onChange,
@@ -87,18 +69,6 @@ export default function QuizEditorGenerated({
     ["basico", "intermedio", "avanzado"].includes(params.dificultad)
       ? (params.dificultad as Dificultad)
       : "intermedio";
-
-  const previewItems = useMemo(() => {
-    if (!showPreview || !generatorId || !count || count <= 0) return [];
-    const seed = hashString(
-      `preview:${generatorId}:${generatorVersion}:${JSON.stringify(params ?? {})}`
-    );
-    const random = mulberry32(seed);
-    return Array.from({ length: count }, (_, index) => {
-      const token = Math.floor(random() * 900 + 100);
-      return `Pregunta ${index + 1} · semilla ${token}`;
-    });
-  }, [count, generatorId, generatorVersion, params, showPreview]);
 
   const selectedItem = catalog.find((c) => c.id === generatorId);
   const selectedSubtipoId = typeof params?.subtipo === "string" ? params.subtipo : null;
@@ -297,20 +267,16 @@ export default function QuizEditorGenerated({
 
       {showPreview ? (
         <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-          <p className="text-xs font-semibold text-gray-700">
-            Vista previa determinística (semilla fija)
-          </p>
-          {previewItems.length === 0 ? (
-            <p className="mt-2 text-xs text-gray-500">
-              Seleccioná un generador y la cantidad para ver ejemplos.
-            </p>
-          ) : (
-            <ul className="mt-2 list-disc space-y-1 pl-4 text-xs text-gray-600">
-              {previewItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          )}
+          <p className="text-xs font-semibold text-gray-700">Vista previa</p>
+          <div className="mt-2">
+            {!generatorId || !count || count <= 0 ? (
+              <p className="text-xs text-gray-500">
+                Seleccioná un generador y la cantidad para ver ejemplos.
+              </p>
+            ) : (
+              <QuizGeneratedPreview generatorId={generatorId} count={count} />
+            )}
+          </div>
         </div>
       ) : null}
     </div>

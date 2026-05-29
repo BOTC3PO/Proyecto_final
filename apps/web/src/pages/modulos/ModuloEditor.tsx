@@ -9,6 +9,7 @@ import TheoryItemCard, { type TheoryItem } from "../../components/modulos/Theory
 import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
+import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
 import BlockEditorPage from "../../blocks/v2/BlockEditorPage";
 import { deserializeBlockDocument } from "../../blocks/utils";
@@ -117,6 +118,18 @@ export default function ModuloEditor() {
     handleSubmit,
   } = useModuloEditor(id, user, navigate);
 
+  // UX-02: asociar cada error de validación de campo con su control vía
+  // aria-describedby/aria-invalid. Los mensajes son deterministas (ver
+  // useModuloPersistence), así que el mapeo string→campo es estable.
+  const FIELD_ERROR_MSG = {
+    title: "El título es obligatorio.",
+    description: "La descripción es obligatoria.",
+    subject: "La materia es obligatoria.",
+    level: "El nivel es obligatorio.",
+  } as const;
+  const fieldErr = (f: keyof typeof FIELD_ERROR_MSG) =>
+    validationErrors.includes(FIELD_ERROR_MSG[f]);
+
   useEffect(() => {
     const state = location.state as
       { importedQuiz?: Record<string, unknown> } | null;
@@ -222,6 +235,9 @@ export default function ModuloEditor() {
       ? "Sin cuestionarios"
       : `${quizzes.length} cuestionario${quizzes.length === 1 ? "" : "s"}`;
 
+  // Preview de cuestionarios MANUALES: muestra los enunciados reales del pool.
+  // Para los GENERADOS se usa <QuizGeneratedPreview /> (UX-04), que corre el
+  // generador real en vez de inventar "semillas".
   const buildQuizPreviewItems = (quiz: ModuleQuiz) => {
     if (quiz.questions && quiz.questions.length > 0) {
       return quiz.questions.slice(0, 3).map((q, i) => ({
@@ -229,33 +245,7 @@ export default function ModuloEditor() {
         label: `P${i + 1}: ${q.prompt}`,
       }));
     }
-    const total = quiz.count ?? 3;
-    if (!quiz.generatorId || total <= 0) {
-      return [{ id: `${quiz.id}-empty`, label: "Sin preguntas ni generador configurado." }];
-    }
-    const hashStr = (value: string) => {
-      let hash = 0;
-      for (let i = 0; i < value.length; i += 1) {
-        hash = (hash << 5) - hash + value.charCodeAt(i);
-        hash |= 0;
-      }
-      return Math.abs(hash);
-    };
-    const mulberry32 = (seed: number) => () => {
-      let t = (seed += 0x6d2b79f5);
-      t = Math.imul(t ^ (t >>> 15), t | 1);
-      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
-    const seedSource = String(
-      quiz.fixedSeed ?? `${quiz.id}:${quiz.generatorId}:${quiz.generatorVersion ?? 1}`,
-    );
-    const random = mulberry32(hashStr(seedSource));
-    const previewCount = Math.min(total, 5);
-    return Array.from({ length: previewCount }, (_, i) => {
-      const token = Math.floor(random() * 900 + 100);
-      return { id: `${quiz.id}-prev-${i + 1}`, label: `Pregunta ${i + 1} · semilla ${token}` };
-    });
+    return [{ id: `${quiz.id}-empty`, label: "Sin preguntas configuradas." }];
   };
 
   // ─── Render ───────────────────────────────────────────────────────────────
@@ -396,11 +386,19 @@ export default function ModuloEditor() {
                   <label className="block text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#128221; Título</span>
                     <input
+                      id="modulo-field-title"
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.title}
                       onChange={(event) => updateForm("title", event.target.value)}
                       required
+                      aria-invalid={fieldErr("title") || undefined}
+                      aria-describedby={fieldErr("title") ? "modulo-err-title" : undefined}
                     />
+                    {fieldErr("title") && (
+                      <p id="modulo-err-title" className="mt-1 text-xs text-[var(--c-danger)]">
+                        {FIELD_ERROR_MSG.title}
+                      </p>
+                    )}
                   </label>
                   <label className="block text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#128193; Categoría</span>
@@ -419,22 +417,33 @@ export default function ModuloEditor() {
                 <label className="block text-sm font-medium text-[var(--c-text)]">
                   <span className="mb-1.5 flex items-center gap-1.5">&#128196; Descripción</span>
                   <textarea
+                    id="modulo-field-description"
                     className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                     rows={3}
                     value={form.description}
                     onChange={(event) => updateForm("description", event.target.value)}
                     required
+                    aria-invalid={fieldErr("description") || undefined}
+                    aria-describedby={fieldErr("description") ? "modulo-err-description" : undefined}
                   />
+                  {fieldErr("description") && (
+                    <p id="modulo-err-description" className="mt-1 text-xs text-[var(--c-danger)]">
+                      {FIELD_ERROR_MSG.description}
+                    </p>
+                  )}
                 </label>
 
                 <div className="grid gap-5 md:grid-cols-4">
                   <label className="block text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#128218; Materia</span>
                     <select
+                      id="modulo-field-subject"
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.subject}
                       onChange={(event) => handleSubjectChange(event.target.value)}
                       required
+                      aria-invalid={fieldErr("subject") || undefined}
+                      aria-describedby={fieldErr("subject") ? "modulo-err-subject" : undefined}
                     >
                       <option value="">-- Seleccionar materia --</option>
                       {materias.map((m) => (
@@ -443,16 +452,29 @@ export default function ModuloEditor() {
                         </option>
                       ))}
                     </select>
+                    {fieldErr("subject") && (
+                      <p id="modulo-err-subject" className="mt-1 text-xs text-[var(--c-danger)]">
+                        {FIELD_ERROR_MSG.subject}
+                      </p>
+                    )}
                   </label>
                   {!isEvaluacionMode && (
                   <label className="block text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#127942; Nivel</span>
                     <input
+                      id="modulo-field-level"
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.level}
                       placeholder="Ej: 1° año secundario"
                       onChange={(event) => updateForm("level", event.target.value)}
+                      aria-invalid={fieldErr("level") || undefined}
+                      aria-describedby={fieldErr("level") ? "modulo-err-level" : undefined}
                     />
+                    {fieldErr("level") && (
+                      <p id="modulo-err-level" className="mt-1 text-xs text-[var(--c-danger)]">
+                        {FIELD_ERROR_MSG.level}
+                      </p>
+                    )}
                   </label>
                   )}
                   <label className="block text-sm font-medium text-[var(--c-text)]">
@@ -1492,13 +1514,20 @@ export default function ModuloEditor() {
                         {quizPreviewOpen[quiz.id] ? (
                           <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
                             <p className="mb-2 font-semibold">
-                              Vista previa del estudiante (semilla fija, no registra intento)
+                              Vista previa del estudiante (no registra intento)
                             </p>
-                            <ul className="list-disc space-y-1 pl-4">
-                              {buildQuizPreviewItems(quiz).map((item) => (
-                                <li key={item.id}>{item.label}</li>
-                              ))}
-                            </ul>
+                            {quiz.mode === "generated" ? (
+                              <QuizGeneratedPreview
+                                generatorId={quiz.generatorId ?? ""}
+                                count={quiz.count ?? 3}
+                              />
+                            ) : (
+                              <ul className="list-disc space-y-1 pl-4">
+                                {buildQuizPreviewItems(quiz).map((item) => (
+                                  <li key={item.id}>{item.label}</li>
+                                ))}
+                              </ul>
+                            )}
                           </div>
                         ) : null}
 

@@ -293,7 +293,12 @@ export default function ModulosList() {
                 type="button"
                 role="tab"
                 aria-selected={activeTab === tab.key}
-                onClick={() => setActiveTab(tab.key as "mine" | "school" | "public")}
+                onClick={() => {
+                  // UX-08: resetear la búsqueda al cambiar de pestaña para no
+                  // arrastrar un filtro que oculta resultados del nuevo tab.
+                  setActiveTab(tab.key as "mine" | "school" | "public");
+                  setSearchTerm("");
+                }}
                 className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
                   activeTab === tab.key
                     ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/25"

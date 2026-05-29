@@ -341,7 +341,15 @@ export default function Aula() {
                   aria-label="Escribí una novedad"
                   placeholder="Escribe una novedad..."
                   value={newPublication}
-                  onChange={(event) => setNewPublication(event.target.value)}
+                  onChange={(event) => {
+                    setNewPublication(event.target.value);
+                    // UX-03: limpiar el error de publicación apenas el usuario
+                    // corrige (vuelve a escribir).
+                    if (publicationStatus === "error") {
+                      setPublicationStatus("idle");
+                      setPublicationMessage("");
+                    }
+                  }}
                   disabled={isClassroomReadOnly}
                 />
                 <button
@@ -376,7 +384,11 @@ export default function Aula() {
                 </p>
               )}
               {publicationMessage && (
-                <p className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-green-600"}`}>
+                <p
+                  role={publicationStatus === "error" ? "alert" : "status"}
+                  aria-live={publicationStatus === "error" ? "assertive" : "polite"}
+                  className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-green-600"}`}
+                >
                   {publicationMessage}
                 </p>
               )}

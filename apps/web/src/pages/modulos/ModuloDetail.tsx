@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { apiGet, apiPost } from "../../lib/api";
 import type {
@@ -93,7 +93,16 @@ type QuizAttemptSummary = {
 export default function ModuloDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { user } = useAuth();
+
+  // UX-01: "Volver" contextual. Si el alumno llegó desde un aula u otra
+  // pantalla, respetar `?returnTo=`; si no, retroceder en el historial.
+  const returnTo = searchParams.get("returnTo");
+  const handleBack = () => {
+    if (returnTo) navigate(returnTo);
+    else navigate(-1);
+  };
   const [module, setModule] = useState<ModuloDetailResponse | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -472,15 +481,16 @@ export default function ModuloDetail() {
       {/* Gradient Header */}
       <div className={`bg-gradient-to-r ${palette.gradient} px-6 pb-10 pt-6`}>
         <div className="mx-auto max-w-4xl">
-          <Link
-            to="/modulos"
+          <button
+            type="button"
+            onClick={handleBack}
             className={`group mb-4 inline-flex items-center gap-1.5 text-sm font-medium ${palette.link} transition-colors hover:text-white`}
           >
             <svg className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
             </svg>
-            Volver al listado
-          </Link>
+            Volver
+          </button>
           <div className="flex items-start justify-between gap-4">
             <h1 className="text-2xl font-bold text-white md:text-3xl">{module.title}</h1>
             <div className="flex items-center gap-2 shrink-0">
