@@ -18,6 +18,7 @@ import CodeEditor, {
 } from "../components/vblang/CodeEditor";
 import DatasetExplorer from "../components/vblang/DatasetExplorer";
 import EjemplosMenu from "../components/vblang/EjemplosMenu";
+import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
 import PlantillaFormularioVisual from "../components/vblang/PlantillaFormularioVisual";
 import Toast, { type ToastAction } from "../components/Toast";
 import ErrorPanel from "../components/vblang/ErrorPanel";
@@ -79,6 +80,7 @@ export default function PlantillaEditor() {
     actions?: ToastAction[];
   } | null>(null);
   const [modo, setModo] = useState<"codigo" | "visual">("codigo");
+  const [referenciaOpen, setReferenciaOpen] = useState(false);
   const editorRef = useRef<CodeEditorHandle | null>(null);
 
   useEffect(() => {
@@ -292,6 +294,13 @@ export default function PlantillaEditor() {
             onLoad={setCodigoDsl}
             hasUnsavedChanges={codigoDsl !== savedCodigo}
           />
+          <button
+            type="button"
+            onClick={() => setReferenciaOpen(true)}
+            className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1.5 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg,#f1f5f9)]"
+          >
+            Referencia
+          </button>
           <DatasetExplorer />
           <button
             type="button"
@@ -358,6 +367,11 @@ export default function PlantillaEditor() {
         </div>
         <ValidationReport state={validation} disabled={!compilation.compiled} />
       </aside>
+
+      <ReferenciaRapida
+        open={referenciaOpen}
+        onClose={() => setReferenciaOpen(false)}
+      />
 
       {toastState && (
         <Toast
