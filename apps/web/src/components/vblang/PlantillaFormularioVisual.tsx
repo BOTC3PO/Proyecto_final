@@ -30,6 +30,8 @@ interface Props {
   onChange: (next: Plantilla) => void;
   /** Valores que tomó cada variable en el primer preview (indicador "ahora: X"). */
   valoresActuales?: Record<string, unknown>;
+  /** Estado de validación (alimenta el pill del Resumen). */
+  tieneErrores?: boolean;
 }
 
 function formatValorActual(v: unknown): string {
@@ -358,7 +360,7 @@ function isDestructiveTipoChange(
 
 /* ---------- Componente principal ---------- */
 
-export default function PlantillaFormularioVisual({ plantilla, onChange, valoresActuales }: Props) {
+export default function PlantillaFormularioVisual({ plantilla, onChange, valoresActuales, tieneErrores }: Props) {
   const enunciado = findBlock(plantilla, "enunciado");
   const variablesBlock = findBlock(plantilla, "variables");
   const variables = variablesBlock?.declaraciones ?? [];
@@ -481,6 +483,22 @@ export default function PlantillaFormularioVisual({ plantilla, onChange, valores
   };
 
   const allVarNames = useMemo(() => variables.map((v) => v.nombre), [variables]);
+
+  const combinaciones = useMemo(() => {
+    let total = 1;
+    let continuo = false;
+    for (const v of variables) {
+      const s = classifyVarExpr(v.expr);
+      if (s.kind === "random") {
+        total *= Math.max(1, Math.floor(s.max - s.min + 1));
+      } else if (s.kind === "uno_de-strings") {
+        total *= Math.max(1, s.items.length);
+      } else if (s.kind === "random_float") {
+        continuo = true;
+      }
+    }
+    return { total, continuo };
+  }, [variables]);
 
   const enunciadoRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -662,6 +680,41 @@ export default function PlantillaFormularioVisual({ plantilla, onChange, valores
         <pre className="mt-2 max-h-64 overflow-auto rounded border border-[var(--c-border,#e2e8f0)] bg-[#0f172a] p-2 text-xs text-emerald-200">
           {serialize(plantilla)}
         </pre>
+      </Section>
+
+      {/* 12. Resumen */}
+      <Section title="Resumen">
+        <div className="rounded border border-[var(--c-border,#e2e8f0)] bg-white p-3 text-xs space-y-1.5">
+          <div className="flex items-center justify-between">
+            <span className="text-[var(--c-muted,#64748b)]">Variables</span>
+            <span className="font-semibold text-[var(--c-text)]">{variables.length}</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-[var(--c-muted,#64748b)]">Tipo</span>
+            <span className="font-semibold text-[var(--c-text)]">
+              {TIPOS.find((t) => t.value === tipoActual)?.label ?? tipoActual}
+            </span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-[var(--c-muted,#64748b)]">Combinaciones posibles</span>
+            <span className="font-semibold text-[var(--c-text)]">
+              {combinaciones.continuo
+                ? "muchas (incluye decimales)"
+                : combinaciones.total.toLocaleString("es-AR")}
+            </span>
+          </div>
+          <div className="pt-1">
+            <span
+              className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+                tieneErrores
+                  ? "bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]"
+                  : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
+              }`}
+            >
+              {tieneErrores ? "Con errores" : "Sin errores"}
+            </span>
+          </div>
+        </div>
       </Section>
 
       {/* Confirm dialog */}

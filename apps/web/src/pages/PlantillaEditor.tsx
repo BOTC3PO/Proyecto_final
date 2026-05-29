@@ -333,6 +333,10 @@ export default function PlantillaEditor() {
               plantilla={compilation.plantilla}
               onChange={(next) => setCodigoDsl(serialize(next))}
               valoresActuales={preview.variables0}
+              tieneErrores={
+                !!compilation.parseError ||
+                (compilation.lintReport?.errors.length ?? 0) > 0
+              }
             />
           ) : (
             <div
