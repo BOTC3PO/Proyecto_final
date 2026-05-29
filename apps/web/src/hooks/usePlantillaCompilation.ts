@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import {
   compile,
   lint,
+  LexError,
   parse,
   ParseError,
   type CompiledPlantilla,
@@ -22,6 +23,7 @@ export interface ParseErrorState {
   message: string;
   line?: number;
   col?: number;
+  suggestion?: string;
 }
 
 export interface CompilationState {
@@ -67,13 +69,14 @@ export function usePlantillaCompilation(
           });
         } catch (err) {
           if (cancelled) return;
-          if (err instanceof ParseError) {
+          if (err instanceof ParseError || err instanceof LexError) {
             setState({
               status: "parse-error",
               parseError: {
                 message: err.message,
                 line: err.line,
                 col: err.col,
+                suggestion: err.suggestion,
               },
             });
           } else {

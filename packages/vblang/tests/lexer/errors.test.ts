@@ -54,4 +54,16 @@ describe("lexer / errors and suggestions", () => {
   it("unknown character throws LexError", () => {
     expect(() => lex("a @ b")).toThrow(/inesperado/);
   });
+
+  it("comillas simples sugieren comillas dobles", () => {
+    try {
+      lex("enunciado: 'hola'");
+      expect.fail("should have thrown");
+    } catch (e) {
+      expect(e).toBeInstanceOf(LexError);
+      const err = e as LexError;
+      expect(err.message).toMatch(/comillas dobles/i);
+      expect(err.suggestion).toMatch(/"/);
+    }
+  });
 });
