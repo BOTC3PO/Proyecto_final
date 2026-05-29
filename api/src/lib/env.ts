@@ -7,6 +7,8 @@ const parseBool = (value: string | undefined, fallback: boolean) => {
 export const ENV = {
   NODE_ENV: process.env.NODE_ENV ?? "development",
   PORT: Number(process.env.PORT ?? 5050),
+  // URL pública del front; back_url de MercadoPago cae acá si no se pasa una explícita.
+  APP_URL: process.env.APP_URL ?? "http://localhost:5173",
   DB_KIND: (process.env.DB_KIND ?? "sqlite").toLowerCase(),
   SQLITE_PATH: process.env.SQLITE_PATH ?? "./src/diccionarios/Diccionario.sqlite",
 SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
