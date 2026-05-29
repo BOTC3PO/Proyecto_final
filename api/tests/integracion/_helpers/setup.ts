@@ -50,6 +50,9 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.usuario.rows = [];
   prisma.vblangDataset.rows = [];
   prisma.vblangDatasetFila.rows = [];
+  prisma.suscripcion.rows = [];
+  prisma.historialPago.rows = [];
+  prisma.limiteEscuela.rows = [];
   return prisma;
 }
 

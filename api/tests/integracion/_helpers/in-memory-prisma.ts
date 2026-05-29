@@ -157,6 +157,22 @@ class Table<TRow extends Row> {
     return { ...removed };
   }
 
+  async upsert(args: {
+    where: Record<string, unknown>;
+    create: TRow;
+    update: Partial<TRow>;
+  }): Promise<TRow> {
+    const idx = this.rows.findIndex((r) => rowMatches(r, args.where));
+    if (idx === -1) {
+      const copy = { ...args.create } as TRow;
+      this.rows.push(copy);
+      return { ...copy };
+    }
+    const merged = { ...this.rows[idx], ...args.update } as TRow;
+    this.rows[idx] = merged;
+    return { ...merged };
+  }
+
   async count(args?: { where?: WhereClause }): Promise<number> {
     return this.rows.filter((r) => rowMatches(r, args?.where)).length;
   }
@@ -250,6 +266,9 @@ export class InMemoryPrisma {
   usuario = new Table<UsuarioRow>("usuario");
   vblangDataset = new Table<DatasetRow>("vblangDataset");
   vblangDatasetFila = new Table<FilaRow>("vblangDatasetFila");
+  suscripcion = new Table<Row>("suscripcion");
+  historialPago = new Table<Row>("historialPago");
+  limiteEscuela = new Table<Row>("limiteEscuela");
 
   // override findMany on vblangDataset to support _count include.
   constructor() {
