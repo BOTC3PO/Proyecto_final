@@ -56,6 +56,10 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   MP_WEBHOOK_SECRET: process.env.MP_WEBHOOK_SECRET ?? "",
   // Pagos habilitados (false para sistemas autogestionados)
   PAYMENTS_ENABLED: parseBool(process.env.PAYMENTS_ENABLED, true),
+  // Pagos enterprise (invoices/receipts). Deshabilitado por default: el modelo
+  // de persistencia (Invoice/Receipt en Prisma) todavía no existe, así que
+  // iniciar un cobro no quedaría registrado. Ver api/src/lib/payments/index.ts.
+  ENABLE_ENTERPRISE_PAYMENTS: parseBool(process.env.ENABLE_ENTERPRISE_PAYMENTS, false),
   // Precios en ARS
   PRECIO_ALUMNO_MENSUAL: Number(process.env.PRECIO_ALUMNO_MENSUAL ?? 1000),
   PRECIO_STAFF_MENSUAL: Number(process.env.PRECIO_STAFF_MENSUAL ?? 300),

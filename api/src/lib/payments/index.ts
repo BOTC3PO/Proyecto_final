@@ -4,6 +4,12 @@ import { randomUUID, createHmac, timingSafeEqual } from "crypto";
 // These functions currently operate without persistence (return the
 // constructed object). Add Prisma models for invoices/receipts to
 // make the payment flow durable.
+//
+// PREREQUISITO para habilitar pagos enterprise: mientras no exista esa
+// persistencia, POST /api/payments/initiate queda gateado detrás del flag
+// ENV.ENABLE_ENTERPRISE_PAYMENTS (default false). Recién al persistir
+// Invoice/Receipt en Prisma tiene sentido prender el flag. Ver
+// api/src/routes/payments.ts y docs/pagos/enterprise.md.
 
 export const PAYMENT_STATUSES = ["PENDING", "PAID", "FAILED"] as const;
 
