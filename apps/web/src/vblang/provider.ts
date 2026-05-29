@@ -33,6 +33,16 @@ function getAllDescriptors(prng: DeterministicPrng): GeneratorDescriptor[] {
     ...getDescriptoresEconomia(prng),
     ...getDescriptoresInformatica(prng),
   ];
+  // NOTA (Fase 3.5 — diferido): `basic/QuizGenerator` NO se incluye acá a
+  // propósito. No implementa `GeneratorDescriptor` (no es paramétrico):
+  //   - su constructor requiere un `QuizTemplate` (banco de preguntas) que hoy
+  //     no existe como dato estático ni se instancia en ningún lado;
+  //   - su `generate({ seed })` devuelve un `QuizInstance` multi-pregunta con
+  //     tipos mc/tf/match/fill-blank, no el `GeneradorAsistidoEjercicio` de un
+  //     solo ejercicio que espera el provider (match/fill-blank no mapean).
+  // Registrarlo sin un origen de templates + un adapter multi→single haría que
+  // el picker ofrezca algo que al generarse falla ("pool vacío"). Ver
+  // docs/vblang/roadmap-basic-generators.md para el plan de implementación.
 }
 
 /**
