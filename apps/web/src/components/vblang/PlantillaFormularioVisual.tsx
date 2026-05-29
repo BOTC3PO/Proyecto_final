@@ -464,6 +464,29 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
 
   const allVarNames = useMemo(() => variables.map((v) => v.nombre), [variables]);
 
+  const enunciadoRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const insertarVariableEnEnunciado = (nombre: string) => {
+    const token = `{${nombre}}`;
+    const ta = enunciadoRef.current;
+    if (!ta) {
+      setEnunciadoText(enunciadoText + token);
+      return;
+    }
+    const start = ta.selectionStart ?? enunciadoText.length;
+    const end = ta.selectionEnd ?? enunciadoText.length;
+    const next = enunciadoText.slice(0, start) + token + enunciadoText.slice(end);
+    setEnunciadoText(next);
+    requestAnimationFrame(() => {
+      const el = enunciadoRef.current;
+      if (el) {
+        const pos = start + token.length;
+        el.focus();
+        el.setSelectionRange(pos, pos);
+      }
+    });
+  };
+
   return (
     <div
       role="region"
@@ -547,6 +570,7 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
       {/* 4. Enunciado */}
       <Section title="Enunciado">
         <textarea
+          ref={enunciadoRef}
           value={enunciadoText}
           onChange={(e) => setEnunciadoText(e.target.value)}
           rows={3}
@@ -554,6 +578,22 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
           placeholder="Ej.: ¿Cuánto es {a} + {b}?"
           data-testid="vblang-form-enunciado"
         />
+        {allVarNames.length > 0 && (
+          <div className="mt-1.5 flex flex-wrap items-center gap-1">
+            <span className="text-[10px] text-[var(--c-muted,#64748b)]">Insertar:</span>
+            {allVarNames.map((nombre) => (
+              <button
+                key={nombre}
+                type="button"
+                onClick={() => insertarVariableEnEnunciado(nombre)}
+                className="rounded-full border border-[var(--c-border,#e2e8f0)] bg-white px-2 py-0.5 font-mono text-[10px] text-[var(--c-primary,#3b82f6)] hover:bg-[var(--c-bg,#f1f5f9)]"
+                aria-label={`Insertar variable ${nombre} en el enunciado`}
+              >
+                {`{${nombre}}`}
+              </button>
+            ))}
+          </div>
+        )}
         <p className="mt-1 text-xs text-[var(--c-muted,#64748b)]">
           Usá <code>{`{nombreVariable}`}</code> para insertar el valor.
         </p>
