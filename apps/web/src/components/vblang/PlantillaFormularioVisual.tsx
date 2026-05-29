@@ -42,15 +42,15 @@ function formatValorActual(v: unknown): string {
   return String(v);
 }
 
-const TIPOS: { value: TipoPregunta; label: string }[] = [
-  { value: "input", label: "Input numérico/texto" },
-  { value: "mc", label: "Multiple choice" },
-  { value: "vf", label: "Verdadero / Falso" },
-  { value: "completar", label: "Completar" },
-  { value: "ordenar", label: "Ordenar" },
-  { value: "marcar_mapa", label: "Marcar mapa" },
-  { value: "analisis_sintactico", label: "Análisis sintáctico" },
-  { value: "identificar_palabras", label: "Identificar palabras" },
+const TIPOS: { value: TipoPregunta; label: string; desc: string }[] = [
+  { value: "input", label: "Input numérico/texto", desc: "El alumno escribe la respuesta (número o texto)." },
+  { value: "mc", label: "Multiple choice", desc: "Una opción correcta entre varias." },
+  { value: "vf", label: "Verdadero / Falso", desc: "La respuesta es verdadero o falso." },
+  { value: "completar", label: "Completar", desc: "El alumno completa un valor faltante." },
+  { value: "ordenar", label: "Ordenar", desc: "Reordenar una lista de ítems." },
+  { value: "marcar_mapa", label: "Marcar mapa", desc: "Hacer click en un país/región del mapa." },
+  { value: "analisis_sintactico", label: "Análisis sintáctico", desc: "Etiquetar gramaticalmente cada palabra." },
+  { value: "identificar_palabras", label: "Identificar palabras", desc: "Marcar las palabras que cumplen un criterio." },
 ];
 
 const DUMMY_LOC = { line: 0, col: 0, endLine: 0, endCol: 0 } as const;
@@ -594,6 +594,9 @@ export default function PlantillaFormularioVisual({ plantilla, onChange, valores
             </option>
           ))}
         </select>
+        <p className="mt-1 text-xs text-[var(--c-muted,#64748b)]">
+          {TIPOS.find((t) => t.value === tipoActual)?.desc}
+        </p>
       </Section>
 
       {/* 2. Generador asistido */}
