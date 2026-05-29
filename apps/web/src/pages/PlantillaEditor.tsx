@@ -17,6 +17,7 @@ import CodeEditor, {
   type CodeEditorHandle,
 } from "../components/vblang/CodeEditor";
 import DatasetExplorer from "../components/vblang/DatasetExplorer";
+import EjemplosMenu from "../components/vblang/EjemplosMenu";
 import PlantillaFormularioVisual from "../components/vblang/PlantillaFormularioVisual";
 import Toast, { type ToastAction } from "../components/Toast";
 import ErrorPanel from "../components/vblang/ErrorPanel";
@@ -62,6 +63,8 @@ export default function PlantillaEditor() {
   const isNew = !id;
 
   const [codigoDsl, setCodigoDsl] = useState<string>(INITIAL_TEMPLATE);
+  // Última versión persistida (o cargada): sirve para detectar cambios sin guardar.
+  const [savedCodigo, setSavedCodigo] = useState<string>(INITIAL_TEMPLATE);
   const [metadata, setMetadata] = useState<PlantillaMetadata>(EMPTY_META);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
@@ -86,6 +89,7 @@ export default function PlantillaEditor() {
       .then((p) => {
         if (!active) return;
         setCodigoDsl(p.codigoDsl);
+        setSavedCodigo(p.codigoDsl);
         setMetadata({
           nombre: p.nombre,
           descripcion: p.descripcion ?? "",
@@ -134,6 +138,7 @@ export default function PlantillaEditor() {
         const created = await createPlantilla(payload);
         setSaveStatus("saved");
         setSaveMessage("Plantilla creada.");
+        setSavedCodigo(codigoDsl);
         const editUrl = `/plantillas/${created.id}${returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : ""}`;
         if (returnTo) {
           // Mostramos toast con acciones — no bloquea como window.confirm.
@@ -161,6 +166,7 @@ export default function PlantillaEditor() {
         });
         setSaveStatus("saved");
         setSaveMessage("Cambios guardados.");
+        setSavedCodigo(codigoDsl);
         if (returnTo) {
           setToastState({
             message: "Cambios guardados.",
@@ -282,6 +288,10 @@ export default function PlantillaEditor() {
                     : "Borrador local"}
             </span>
           </div>
+          <EjemplosMenu
+            onLoad={setCodigoDsl}
+            hasUnsavedChanges={codigoDsl !== savedCodigo}
+          />
           <DatasetExplorer />
           <button
             type="button"
