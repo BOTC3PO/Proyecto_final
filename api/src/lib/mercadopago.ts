@@ -8,7 +8,7 @@ const mpHeaders = () => ({
 });
 
 export type MPPreapprovalStatus =
-  | "pending" | "authorized" | "paused" | "cancelled";
+  | "pending" | "authorized" | "paused" | "cancelled" | "expired";
 
 export type MPPreapprovalPlan = {
   id: string;
@@ -52,7 +52,10 @@ export async function crearPreapproval(params: {
 
   const response = await fetch(`${MP_BASE}/preapproval`, {
     method: "POST",
-    headers: mpHeaders(),
+    // X-Idempotency-Key estable: dos POST idénticos (mismo external_reference)
+    // no generan dos preapprovals en MP. No se toca mpHeaders() porque lo
+    // comparten get/cancel, que no deben llevar idempotency key.
+    headers: { ...mpHeaders(), "X-Idempotency-Key": params.externalReference },
     body: JSON.stringify(body),
   });
 
