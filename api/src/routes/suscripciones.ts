@@ -132,6 +132,12 @@ suscripciones.post("/api/suscripciones/cancelar", requireUser, async (req, res) 
 });
 
 // ── POST /api/suscripciones/reembolso ───────────────────────
+// REEMBOLSO MANUAL (decisión de diseño, ver docs/pagos/reembolsos.md):
+// este endpoint NO reembolsa por la API de MercadoPago. Solo registra la
+// solicitud (reembolsoSolicitado=1) dentro de la ventana de 7 días; un admin
+// la procesa manualmente desde el panel de MP y luego marca el pago. La
+// automatización (refund vía API de MP + corte de renovación con
+// cancelarPreapproval) queda como roadmap, no implementada acá.
 suscripciones.post("/api/suscripciones/reembolso", requireUser, async (req, res) => {
   const userId = getId(req as never);
   const { suscripcionId } = req.body as { suscripcionId?: string };
