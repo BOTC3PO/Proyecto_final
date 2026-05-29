@@ -332,6 +332,7 @@ export default function PlantillaEditor() {
             <PlantillaFormularioVisual
               plantilla={compilation.plantilla}
               onChange={(next) => setCodigoDsl(serialize(next))}
+              valoresActuales={preview.variables0}
             />
           ) : (
             <div

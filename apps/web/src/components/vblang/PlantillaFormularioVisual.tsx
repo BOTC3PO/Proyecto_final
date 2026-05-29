@@ -20,6 +20,16 @@ import OpcionesEditor from "./OpcionesEditor";
 interface Props {
   plantilla: Plantilla;
   onChange: (next: Plantilla) => void;
+  /** Valores que tomó cada variable en el primer preview (indicador "ahora: X"). */
+  valoresActuales?: Record<string, unknown>;
+}
+
+function formatValorActual(v: unknown): string {
+  if (v === null || v === undefined) return "—";
+  if (Array.isArray(v)) return `[${v.map(formatValorActual).join(", ")}]`;
+  if (typeof v === "object") return JSON.stringify(v);
+  if (typeof v === "number") return String(Math.round(v * 1000) / 1000);
+  return String(v);
 }
 
 const TIPOS: { value: TipoPregunta; label: string }[] = [
@@ -340,7 +350,7 @@ function isDestructiveTipoChange(
 
 /* ---------- Componente principal ---------- */
 
-export default function PlantillaFormularioVisual({ plantilla, onChange }: Props) {
+export default function PlantillaFormularioVisual({ plantilla, onChange, valoresActuales }: Props) {
   const enunciado = findBlock(plantilla, "enunciado");
   const variablesBlock = findBlock(plantilla, "variables");
   const variables = variablesBlock?.declaraciones ?? [];
@@ -550,6 +560,8 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
               idx={i}
               decl={decl}
               allNames={allVarNames}
+              valorActual={valoresActuales?.[decl.nombre]}
+              tieneValor={!!valoresActuales && decl.nombre in valoresActuales}
               onRename={(name) => renameVariable(i, name)}
               onChangeExpr={(expr) => updateVariableExpr(i, expr)}
               onChangeShape={(kind) => changeVariableShape(i, kind)}
@@ -697,6 +709,8 @@ function VariableRow({
   idx,
   decl,
   allNames,
+  valorActual,
+  tieneValor,
   onRename,
   onChangeExpr,
   onChangeShape,
@@ -705,6 +719,8 @@ function VariableRow({
   idx: number;
   decl: VariableDecl;
   allNames: string[];
+  valorActual?: unknown;
+  tieneValor?: boolean;
   onRename: (name: string) => void;
   onChangeExpr: (expr: Expr) => void;
   onChangeShape: (kind: ShapeKind) => void;
@@ -772,6 +788,14 @@ function VariableRow({
         </button>
       </div>
       <VariableExprWidget shape={shape} onChange={onChangeExpr} decl={decl} />
+      {tieneValor && (
+        <p className="text-[10px] text-[var(--c-muted,#64748b)]">
+          ahora:{" "}
+          <span className="font-mono font-semibold text-[var(--c-text)]">
+            {formatValorActual(valorActual)}
+          </span>
+        </p>
+      )}
     </div>
   );
 }

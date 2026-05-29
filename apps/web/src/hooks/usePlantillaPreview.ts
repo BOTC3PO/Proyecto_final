@@ -21,11 +21,15 @@ export interface PreviewItem {
   question?: ModuleQuizQuestion;
   error?: { message: string; line?: number; col?: number };
   seed: string;
+  /** Valores que tomaron las variables en este seed (para el indicador "ahora: X"). */
+  variables?: Record<string, unknown>;
 }
 
 export interface UsePlantillaPreview {
   items: PreviewItem[];
   regenerate: () => void;
+  /** Valores del primer preview exitoso; alimenta el indicador "ahora: X" del formulario. */
+  variables0?: Record<string, unknown>;
 }
 
 const PREVIEW_COUNT = 3;
@@ -37,7 +41,7 @@ function runOne(compiled: CompiledPlantilla, seed: string): PreviewItem {
       provider: generadorAsistidoProvider,
     });
     const question = toModuleQuizQuestion(gen, { focus: null });
-    return { question, seed };
+    return { question, seed, variables: gen.variables };
   } catch (err) {
     const e = err as { message?: string; line?: number; col?: number };
     return {
@@ -73,5 +77,7 @@ export function usePlantillaPreview(
     setPrefix(`preview-${Date.now()}`);
   }, []);
 
-  return { items, regenerate };
+  const variables0 = items.find((it) => !it.error && it.variables)?.variables;
+
+  return { items, regenerate, variables0 };
 }
