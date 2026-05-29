@@ -16,6 +16,7 @@ import { serialize } from "@vb/vblang";
 import CodeEditor, {
   type CodeEditorHandle,
 } from "../components/vblang/CodeEditor";
+import DatasetExplorer from "../components/vblang/DatasetExplorer";
 import PlantillaFormularioVisual from "../components/vblang/PlantillaFormularioVisual";
 import Toast, { type ToastAction } from "../components/Toast";
 import ErrorPanel from "../components/vblang/ErrorPanel";
@@ -281,6 +282,7 @@ export default function PlantillaEditor() {
                     : "Borrador local"}
             </span>
           </div>
+          <DatasetExplorer />
           <button
             type="button"
             onClick={() => void handleSave()}
