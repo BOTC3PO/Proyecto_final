@@ -7,7 +7,6 @@ import type {
   GeneradorBloque,
   MetadataBloque,
   OpcionesBloque,
-  OpcionesExplicitasBloque,
   PasoItem,
   PasosBloque,
   Plantilla,

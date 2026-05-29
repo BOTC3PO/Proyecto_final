@@ -109,6 +109,7 @@ const PerfilPublico             = lazyWithRetry(() => import("./pages/PerfilPubl
 const Economia                  = lazyWithRetry(() => import("./pages/Economia"));
 const TiendaTemas               = lazyWithRetry(() => import("./pages/TiendaTemas"));
 const OnboardingTema            = lazyWithRetry(() => import("./pages/OnboardingTema"));
+const UiShowcase                = lazyWithRetry(() => import("./pages/dev/UiShowcase"));
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -179,6 +180,11 @@ export const router = createBrowserRouter([
           { path: "herramientas/vida-practica",      element: <HerramientasVidaPractica /> },
 
           { path: "404", element: <NotFound /> },
+
+          // Showcase del sistema de diseño (Fase D.2) — solo en desarrollo.
+          ...(import.meta.env.DEV
+            ? [{ path: "dev/ui", element: withSuspense(<UiShowcase />) }]
+            : []),
         ],
       },
 
