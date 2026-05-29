@@ -146,6 +146,8 @@ function useBufferedInput<T>(args: {
 
 /* ---------- Variable widget classification ---------- */
 
+type ObjectLitExpr = Extract<Expr, { kind: "object" }>;
+
 type VarShape =
   | { kind: "literal-num"; value: number }
   | { kind: "literal-str"; value: string }
@@ -153,6 +155,8 @@ type VarShape =
   | { kind: "random"; min: number; max: number }
   | { kind: "random_float"; min: number; max: number; decimals: number }
   | { kind: "uno_de-strings"; items: string[] }
+  | { kind: "uno_de-objects"; objects: ObjectLitExpr[]; keys: string[] }
+  | { kind: "num-array"; items: number[] }
   | { kind: "advanced" };
 
 type ShapeKind = VarShape["kind"];
@@ -163,8 +167,10 @@ const SHAPE_LABELS: { value: ShapeKind; label: string }[] = [
   { value: "literal-bool", label: "Literal booleano" },
   { value: "random", label: "Aleatorio entero" },
   { value: "random_float", label: "Aleatorio decimal" },
-  { value: "uno_de-strings", label: "Uno de..." },
-  { value: "advanced", label: "Expresión avanzada" },
+  { value: "uno_de-strings", label: "Uno de... (texto)" },
+  { value: "uno_de-objects", label: "Uno de... (objetos)" },
+  { value: "num-array", label: "Array de números" },
+  { value: "advanced", label: "Expresión derivada" },
 ];
 
 function classifyVarExpr(expr: Expr): VarShape {
@@ -200,6 +206,7 @@ function classifyVarExpr(expr: Expr): VarShape {
     expr.name === "uno_de" &&
     expr.args.length === 1 &&
     expr.args[0].kind === "array" &&
+    expr.args[0].items.length > 0 &&
     expr.args[0].items.every((i) => i.kind === "str")
   ) {
     return {
@@ -207,6 +214,31 @@ function classifyVarExpr(expr: Expr): VarShape {
       items: expr.args[0].items.map(
         (i) => (i as Extract<Expr, { kind: "str" }>).value,
       ),
+    };
+  }
+  if (
+    expr.kind === "fun_call" &&
+    expr.name === "uno_de" &&
+    expr.args.length === 1 &&
+    expr.args[0].kind === "array" &&
+    expr.args[0].items.length > 0 &&
+    expr.args[0].items.every((i) => i.kind === "object")
+  ) {
+    const objects = expr.args[0].items as ObjectLitExpr[];
+    const keys: string[] = [];
+    for (const o of objects) {
+      for (const e of o.entries) if (!keys.includes(e.key)) keys.push(e.key);
+    }
+    return { kind: "uno_de-objects", objects, keys };
+  }
+  if (
+    expr.kind === "array" &&
+    expr.items.length > 0 &&
+    expr.items.every((i) => i.kind === "num")
+  ) {
+    return {
+      kind: "num-array",
+      items: expr.items.map((i) => (i as Extract<Expr, { kind: "num" }>).value),
     };
   }
   return { kind: "advanced" };
@@ -228,6 +260,25 @@ function defaultExprForShape(kind: ShapeKind): Expr {
       return funCall("uno_de", [
         { kind: "array", items: [strLit("a"), strLit("b")], loc: DUMMY_LOC },
       ]);
+    case "uno_de-objects":
+      return funCall("uno_de", [
+        {
+          kind: "array",
+          items: [
+            {
+              kind: "object",
+              entries: [
+                { key: "nombre", value: strLit("a"), loc: DUMMY_LOC },
+                { key: "valor", value: numLit(1), loc: DUMMY_LOC },
+              ],
+              loc: DUMMY_LOC,
+            },
+          ],
+          loc: DUMMY_LOC,
+        },
+      ]);
+    case "num-array":
+      return { kind: "array", items: [numLit(1), numLit(2), numLit(3)], loc: DUMMY_LOC };
     case "advanced":
       return numLit(0);
   }
@@ -1005,19 +1056,250 @@ function VariableExprWidget({
       />
     );
   }
-  // advanced
+  if (shape.kind === "num-array") {
+    return <NumArrayWidget items={shape.items} onChange={onChange} />;
+  }
+  if (shape.kind === "uno_de-objects") {
+    return (
+      <UnoDeObjectsWidget objects={shape.objects} keys={shape.keys} onChange={onChange} />
+    );
+  }
+  // advanced / derivada: fórmula editable parseada con el parser real.
+  return <DerivedExprWidget expr={decl.expr} onChange={onChange} />;
+}
+
+/* ---------- 2D: Array de números ---------- */
+
+function NumArrayWidget({
+  items,
+  onChange,
+}: {
+  items: number[];
+  onChange: (expr: Expr) => void;
+}) {
+  const buf = useBufferedInput<number[]>({
+    external: items,
+    serialize: (arr) => arr.join(", "),
+    parse: (s) => {
+      const parts = s
+        .split(/[,\s]+/)
+        .map((x) => x.trim())
+        .filter((x) => x.length > 0);
+      const nums: number[] = [];
+      for (const p of parts) {
+        if (!FINITE_NUMBER_RE.test(p)) {
+          return { ok: false, reason: `"${p}" no es un número` };
+        }
+        nums.push(Number(p));
+      }
+      if (nums.length === 0) return { ok: false, reason: "Lista vacía" };
+      return { ok: true, value: nums };
+    },
+    onCommit: (nums) =>
+      onChange({ kind: "array", items: nums.map(numLit), loc: DUMMY_LOC }),
+  });
   return (
-    <div className="space-y-1">
-      <code className="block text-xs font-mono text-[var(--c-muted,#64748b)] bg-[#f1f5f9] rounded px-2 py-1">
-        {emitExpr(decl.expr)}
-      </code>
-      <button
-        type="button"
-        onClick={() => onChange(numLit(0))}
-        className="text-[10px] text-[var(--c-primary,#3b82f6)] hover:underline"
-      >
-        Resetear a literal número
-      </button>
+    <div>
+      <input
+        value={buf.buf}
+        onChange={(e) => buf.handleChange(e.target.value)}
+        onBlur={buf.handleBlur}
+        placeholder="Números separados por coma (ej. 1, 2, 3)"
+        className={`w-full rounded border px-2 py-0.5 text-xs font-mono ${
+          buf.error ? "border-red-500" : "border-[var(--c-border,#e2e8f0)]"
+        }`}
+      />
+      {buf.error && <p className="text-[10px] text-red-600 mt-0.5">{buf.error}</p>}
+    </div>
+  );
+}
+
+/* ---------- 2D: uno_de con objetos (tabla) ---------- */
+
+function cellToText(value: Expr): string {
+  if (value.kind === "str") return value.value;
+  if (value.kind === "num") return String(value.value);
+  if (value.kind === "bool") return value.value ? "verdadero" : "falso";
+  return emitExpr(value);
+}
+
+function textToCell(text: string): Expr {
+  const t = text.trim();
+  if (FINITE_NUMBER_RE.test(t)) return numLit(Number(t));
+  if (t === "verdadero") return boolLit(true);
+  if (t === "falso") return boolLit(false);
+  return strLit(text);
+}
+
+function UnoDeObjectsWidget({
+  objects,
+  keys,
+  onChange,
+}: {
+  objects: ObjectLitExpr[];
+  keys: string[];
+  onChange: (expr: Expr) => void;
+}) {
+  const [nuevoCampo, setNuevoCampo] = useState("");
+
+  const emit = (objs: ObjectLitExpr[]) => {
+    onChange(
+      funCall("uno_de", [{ kind: "array", items: objs, loc: DUMMY_LOC }]),
+    );
+  };
+
+  const setCell = (rowIdx: number, key: string, text: string) => {
+    const next = objects.map((o, i) => {
+      if (i !== rowIdx) return o;
+      const entries = [...o.entries];
+      const ei = entries.findIndex((e) => e.key === key);
+      const value = textToCell(text);
+      if (ei >= 0) entries[ei] = { key, value, loc: DUMMY_LOC };
+      else entries.push({ key, value, loc: DUMMY_LOC });
+      return { kind: "object", entries, loc: DUMMY_LOC } as ObjectLitExpr;
+    });
+    emit(next);
+  };
+
+  const addRow = () => {
+    const entries = keys.map((k) => ({ key: k, value: strLit(""), loc: DUMMY_LOC }));
+    emit([...objects, { kind: "object", entries, loc: DUMMY_LOC } as ObjectLitExpr]);
+  };
+  const removeRow = (rowIdx: number) => {
+    const next = objects.filter((_, i) => i !== rowIdx);
+    if (next.length === 0) return;
+    emit(next);
+  };
+  const addColumn = () => {
+    const k = nuevoCampo.trim();
+    if (k === "" || keys.includes(k)) {
+      setNuevoCampo("");
+      return;
+    }
+    const next = objects.map(
+      (o) =>
+        ({
+          kind: "object",
+          entries: [...o.entries, { key: k, value: strLit(""), loc: DUMMY_LOC }],
+          loc: DUMMY_LOC,
+        }) as ObjectLitExpr,
+    );
+    setNuevoCampo("");
+    emit(next);
+  };
+
+  const cellValue = (o: ObjectLitExpr, key: string): string => {
+    const e = o.entries.find((x) => x.key === key);
+    return e ? cellToText(e.value) : "";
+  };
+
+  return (
+    <div className="space-y-1 overflow-x-auto">
+      <table className="w-full border-collapse text-[11px]">
+        <thead>
+          <tr>
+            {keys.map((k) => (
+              <th
+                key={k}
+                className="border border-[var(--c-border,#e2e8f0)] bg-[#f1f5f9] px-1 py-0.5 text-left font-semibold"
+              >
+                {k}
+              </th>
+            ))}
+            <th className="w-6" />
+          </tr>
+        </thead>
+        <tbody>
+          {objects.map((o, ri) => (
+            <tr key={ri}>
+              {keys.map((k) => (
+                <td key={k} className="border border-[var(--c-border,#e2e8f0)] p-0">
+                  <input
+                    value={cellValue(o, k)}
+                    onChange={(e) => setCell(ri, k, e.target.value)}
+                    className="w-full bg-transparent px-1 py-0.5 text-[11px] focus:outline-none"
+                  />
+                </td>
+              ))}
+              <td className="text-center">
+                <button
+                  type="button"
+                  onClick={() => removeRow(ri)}
+                  disabled={objects.length <= 1}
+                  aria-label="Quitar fila"
+                  className="text-red-600 disabled:opacity-30"
+                >
+                  −
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          onClick={addRow}
+          className="text-[10px] text-[var(--c-primary,#3b82f6)] hover:underline"
+        >
+          + Fila
+        </button>
+        <span className="flex items-center gap-1">
+          <input
+            value={nuevoCampo}
+            onChange={(e) => setNuevoCampo(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                addColumn();
+              }
+            }}
+            placeholder="nuevo campo"
+            className="w-24 rounded border border-[var(--c-border,#e2e8f0)] px-1 py-0.5 text-[10px]"
+          />
+          <button
+            type="button"
+            onClick={addColumn}
+            className="text-[10px] text-[var(--c-primary,#3b82f6)] hover:underline"
+          >
+            + Campo
+          </button>
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- 2D: expresión derivada (editable) ---------- */
+
+function DerivedExprWidget({
+  expr,
+  onChange,
+}: {
+  expr: Expr;
+  onChange: (expr: Expr) => void;
+}) {
+  const buf = useBufferedInput<Expr>({
+    external: expr,
+    serialize: (e) => emitExpr(e),
+    parse: (s) => {
+      const r = parseExprText(s);
+      return r.ok ? { ok: true, value: r.expr } : { ok: false, reason: r.reason };
+    },
+    onCommit: onChange,
+  });
+  return (
+    <div>
+      <input
+        value={buf.buf}
+        onChange={(e) => buf.handleChange(e.target.value)}
+        onBlur={buf.handleBlur}
+        placeholder="Fórmula (ej. a + b * 2)"
+        className={`w-full rounded border px-2 py-0.5 text-xs font-mono ${
+          buf.error ? "border-red-500" : "border-[var(--c-border,#e2e8f0)]"
+        }`}
+      />
+      {buf.error && <p className="text-[10px] text-red-600 mt-0.5">{buf.error}</p>}
     </div>
   );
 }
