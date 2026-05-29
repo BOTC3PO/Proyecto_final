@@ -27,6 +27,7 @@ import ValidationReport from "../components/vblang/ValidationReport";
 import MetadataPanel, {
   type PlantillaMetadata,
 } from "../components/vblang/MetadataPanel";
+import { Button, Pill } from "../components/ui";
 import { usePlantillaCompilation } from "../hooks/usePlantillaCompilation";
 import { usePlantillaPreview } from "../hooks/usePlantillaPreview";
 import { usePlantillaValidation } from "../hooks/usePlantillaValidation";
@@ -173,6 +174,12 @@ export default function PlantillaEditor() {
   const compilation = usePlantillaCompilation(codigoDsl);
   const preview = usePlantillaPreview(compilation.compiled);
   const validation = usePlantillaValidation(compilation.compiled);
+
+  // Estado del footer: cantidad de errores + líneas del código.
+  const numLineas = codigoDsl.split("\n").length;
+  const numErrores =
+    (compilation.parseError ? 1 : 0) +
+    (compilation.lintReport?.errors.length ?? 0);
 
   const handleGoToLocation = (line: number, col: number) => {
     editorRef.current?.focusAt(line, col);
@@ -390,34 +397,34 @@ export default function PlantillaEditor() {
             </span>
           </div>
           <div className="flex items-center gap-0.5">
-            <button
-              type="button"
+            <Button
+              variant="icon"
+              size="sm"
               onClick={undo}
               disabled={!canUndo}
               aria-label="Deshacer"
               title="Deshacer"
-              className="rounded-md border border-[var(--c-border,#e2e8f0)] px-2 py-1.5 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg,#f1f5f9)] disabled:opacity-40"
             >
               ↶
-            </button>
-            <button
-              type="button"
+            </Button>
+            <Button
+              variant="icon"
+              size="sm"
               onClick={redo}
               disabled={!canRedo}
               aria-label="Rehacer"
               title="Rehacer"
-              className="rounded-md border border-[var(--c-border,#e2e8f0)] px-2 py-1.5 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg,#f1f5f9)] disabled:opacity-40"
             >
               ↷
-            </button>
+            </Button>
           </div>
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={() => fileInputRef.current?.click()}
-            className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1.5 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg,#f1f5f9)]"
           >
             Importar JSON
-          </button>
+          </Button>
           <input
             ref={fileInputRef}
             type="file"
@@ -429,22 +436,18 @@ export default function PlantillaEditor() {
             onLoad={setCodigo}
             hasUnsavedChanges={codigoDsl !== savedCodigo}
           />
-          <button
-            type="button"
-            onClick={() => setReferenciaOpen(true)}
-            className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1.5 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg,#f1f5f9)]"
-          >
+          <Button variant="ghost" size="sm" onClick={() => setReferenciaOpen(true)}>
             Referencia
-          </button>
+          </Button>
           <DatasetExplorer />
-          <button
-            type="button"
+          <Button
+            variant="primary"
+            size="sm"
             onClick={() => void handleSave()}
             disabled={saveStatus === "saving"}
-            className="rounded-md bg-[var(--c-primary)] px-4 py-1.5 text-sm font-semibold text-white disabled:opacity-50"
           >
             {saveStatus === "saving" ? "Guardando…" : "Guardar"}
-          </button>
+          </Button>
         </header>
 
         <a href="#vblang-panel" className="skip-link">Saltar al editor</a>
@@ -491,6 +494,24 @@ export default function PlantillaEditor() {
               </button>
             </div>
           )}
+        </div>
+        <div
+          role="status"
+          aria-live="polite"
+          data-testid="vblang-status-footer"
+          className="flex items-center gap-2 border-t border-[var(--c-border)] bg-[var(--c-surface-2)] px-3 py-1 text-xs text-[var(--c-text-3)]"
+        >
+          {numErrores === 0 ? (
+            <Pill tone="ok">Sin errores</Pill>
+          ) : (
+            <Pill tone="danger">
+              {numErrores} {numErrores === 1 ? "error" : "errores"}
+            </Pill>
+          )}
+          <span aria-hidden="true">·</span>
+          <span>
+            {numLineas} {numLineas === 1 ? "línea" : "líneas"}
+          </span>
         </div>
         <footer className="h-48 border-t border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)]">
           <ErrorPanel
