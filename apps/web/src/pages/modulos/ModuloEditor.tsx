@@ -387,9 +387,9 @@ export default function ModuloEditor() {
                   <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#9881;</span>
                   <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Información general</h2>
                   {sectionStatus.generalOk ? (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">&#10003; Completo</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700"><span aria-hidden="true">&#10003;</span> Completo</span>
                   ) : (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">&#9888; Incompleto</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700"><span aria-hidden="true">&#9888;</span> Incompleto</span>
                   )}
                 </div>
                 <div className="grid gap-5 md:grid-cols-2">
@@ -555,6 +555,9 @@ export default function ModuloEditor() {
                             {escuelaSearch ? "Sin resultados." : "Escribí para buscar."}
                           </p>
                         )}
+                        <p role="status" aria-live="polite" className="sr-only">
+                          {escuelaSearch ? `${escuelaResults.length} resultados` : ""}
+                        </p>
                       </>
                     )}
                   </div>
@@ -571,9 +574,9 @@ export default function ModuloEditor() {
                     <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#128214;</span>
                     <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Teoría</h2>
                     {sectionStatus.theoryOk ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">&#10003; Completo</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700"><span aria-hidden="true">&#10003;</span> Completo</span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">&#9888; Sin recursos</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700"><span aria-hidden="true">&#9888;</span> Sin recursos</span>
                     )}
                   </div>
                   <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{theoryItems.length} recursos</span>
@@ -778,6 +781,7 @@ export default function ModuloEditor() {
                       <input
                         className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                         placeholder="https://youtu.be/... o https://vimeo.com/..."
+                        aria-label="URL del video"
                         type="url"
                         value={newTheoryItem.detail}
                         onChange={(event) =>
@@ -793,6 +797,7 @@ export default function ModuloEditor() {
                       <input
                         className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                         placeholder="https://... (PDF, DOC, etc.)"
+                        aria-label="URL del documento"
                         type="url"
                         value={newTheoryItem.detail}
                         onChange={(event) =>
@@ -807,6 +812,7 @@ export default function ModuloEditor() {
                     <input
                       className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                       placeholder="https://..."
+                      aria-label="URL del enlace"
                       type="url"
                       value={newTheoryItem.detail}
                       onChange={(event) =>
@@ -878,6 +884,7 @@ export default function ModuloEditor() {
                               <input
                                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-xs transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                                 placeholder="Título"
+                                aria-label="Título del recurso"
                                 value={item.title}
                                 onChange={(event) =>
                                   updateTheoryItem(item.id, { title: event.target.value })
@@ -926,6 +933,7 @@ export default function ModuloEditor() {
                                   <input
                                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs w-full focus:border-[var(--c-primary)] focus:outline-none"
                                     placeholder="https://youtu.be/... o https://vimeo.com/..."
+                                    aria-label="URL del video"
                                     type="url"
                                     value={item.detail}
                                     onChange={(event) =>
@@ -939,6 +947,7 @@ export default function ModuloEditor() {
                                   <input
                                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs w-full focus:border-[var(--c-primary)] focus:outline-none"
                                     placeholder="https://... (PDF, DOC, etc.)"
+                                    aria-label="URL del documento"
                                     type="url"
                                     value={item.detail}
                                     onChange={(event) =>
@@ -951,6 +960,7 @@ export default function ModuloEditor() {
                                 <input
                                   className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-2 text-xs w-full focus:border-[var(--c-primary)] focus:outline-none"
                                   placeholder="https://..."
+                                  aria-label="URL del enlace"
                                   value={item.detail}
                                   onChange={(event) =>
                                     updateTheoryItem(item.id, { detail: event.target.value })
@@ -1185,6 +1195,9 @@ export default function ModuloEditor() {
                         {depSearch.length > 0 ? "Sin resultados." : "Escribí para buscar."}
                       </p>
                     )}
+                    <p role="status" aria-live="polite" className="sr-only">
+                      {depResults.length > 0 ? `${depResults.length} resultados` : ""}
+                    </p>
                     <button
                       type="button"
                       className="rounded-md bg-gray-100 px-3 py-1.5 text-xs text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-700"
@@ -1235,9 +1248,9 @@ export default function ModuloEditor() {
                     <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#10068;</span>
                     <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Cuestionarios</h2>
                     {quizzes.length === 0 ? null : sectionStatus.quizzesOk ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">&#10003; Completo</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700"><span aria-hidden="true">&#10003;</span> Completo</span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">&#9888; Con errores</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700"><span aria-hidden="true">&#9888;</span> Con errores</span>
                     )}
                   </div>
                   <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{quizCountLabel}</span>

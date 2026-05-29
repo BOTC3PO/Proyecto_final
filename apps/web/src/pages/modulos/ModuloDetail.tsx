@@ -415,7 +415,7 @@ export default function ModuloDetail() {
       <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 p-6">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center gap-3 rounded-xl border border-slate-200/60 bg-white/80 p-8 shadow-sm backdrop-blur-sm">
-            <svg className="h-5 w-5 animate-spin text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <svg className="h-5 w-5 animate-spin text-indigo-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
@@ -487,6 +487,7 @@ export default function ModuloDetail() {
               <button
                 type="button"
                 onClick={ttsActivo ? detenerTTS : leerModulo}
+                aria-pressed={ttsActivo}
                 title={ttsActivo ? "Detener lectura" : "Leer módulo en voz alta"}
                 className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-2 ${
                   ttsActivo

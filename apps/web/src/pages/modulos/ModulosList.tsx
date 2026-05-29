@@ -278,7 +278,11 @@ export default function ModulosList() {
       {status === "ready" && modules.length > 0 && (
         <section className="space-y-6">
           {/* Tabs */}
-          <div className="flex flex-wrap items-center gap-2 rounded-2xl bg-white/70 p-2 shadow-sm ring-1 ring-slate-200/60 backdrop-blur-sm">
+          <div
+            className="flex flex-wrap items-center gap-2 rounded-2xl bg-white/70 p-2 shadow-sm ring-1 ring-slate-200/60 backdrop-blur-sm"
+            role="tablist"
+            aria-label="Filtrar módulos"
+          >
             {[
               { key: "mine", label: "Mis módulos", icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
               { key: "school", label: "Escuela", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
@@ -287,6 +291,8 @@ export default function ModulosList() {
               <button
                 key={tab.key}
                 type="button"
+                role="tab"
+                aria-selected={activeTab === tab.key}
                 onClick={() => setActiveTab(tab.key as "mine" | "school" | "public")}
                 className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
                   activeTab === tab.key

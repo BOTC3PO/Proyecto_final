@@ -252,7 +252,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                       name={`answer-${question.id}`}
                       checked={question.answerKey === option}
                       onChange={() => updateQuestion(index, { answerKey: option })}
-                      title="Marcar como correcta"
+                      aria-label={`Marcar "${option}" como correcta`}
                     />
                     <input
                       className="flex-1 rounded-md border border-gray-300 px-2 py-2 text-sm"
@@ -299,6 +299,7 @@ export default function QuizEditorManual({ questions, onChange }: QuizEditorManu
                   type="button"
                   className="text-xs text-blue-600 hover:underline"
                   onClick={() => toggleSteps(question.id)}
+                  aria-expanded={expandedSteps.has(question.id)}
                 >
                   {expandedSteps.has(question.id) ? "Ocultar resolución" : "Ver resolución"}
                 </button>
