@@ -759,8 +759,13 @@ export default function ModuloEditor() {
                                           const updated = JSON.parse(raw) as MapaConfig;
                                           setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) }));
                                         }
-                                      } catch { /* ignore */ }
-                                      sessionStorage.removeItem(`mapa-doc:${ssKey}:datasets`);
+                                      } catch { /* ignore */ } finally {
+                                        // BUG-04: limpiar TODAS las claves del editor (doc + datasets + result),
+                                        // no solo datasets, para no dejar basura en sessionStorage.
+                                        sessionStorage.removeItem(`mapa-doc:${ssKey}`);
+                                        sessionStorage.removeItem(`mapa-doc:${ssKey}:datasets`);
+                                        sessionStorage.removeItem(`mapa-doc:${ssKey}:result`);
+                                      }
                                     }
                                   }, 500);
                                 }}
@@ -1060,8 +1065,12 @@ export default function ModuloEditor() {
                                                       const updated = JSON.parse(raw) as MapaConfig;
                                                       updateTheoryItem(item.id, { detail: JSON.stringify(updated) });
                                                     }
-                                                  } catch { /* ignore */ }
-                                                  sessionStorage.removeItem(`mapa-doc:${ssKey}:datasets`);
+                                                  } catch { /* ignore */ } finally {
+                                                    // BUG-04: limpiar TODAS las claves del editor (doc + datasets + result).
+                                                    sessionStorage.removeItem(`mapa-doc:${ssKey}`);
+                                                    sessionStorage.removeItem(`mapa-doc:${ssKey}:datasets`);
+                                                    sessionStorage.removeItem(`mapa-doc:${ssKey}:result`);
+                                                  }
                                                 }
                                               }, 500);
                                             }}

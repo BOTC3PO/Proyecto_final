@@ -101,7 +101,18 @@ export function useModuloEditor(
     return [];
   });
 
-  const [quizzes, setQuizzes] = useState<ModuleQuiz[]>([]);
+  const [quizzes, setQuizzes] = useState<ModuleQuiz[]>(() => {
+    if (!id) {
+      try {
+        const raw = sessionStorage.getItem(DRAFT_KEY(id));
+        if (raw) {
+          const arr = JSON.parse(raw).quizzes;
+          if (Array.isArray(arr)) return arr.map(ensureQuizDefaults);
+        }
+      } catch { /* ignorar */ }
+    }
+    return [];
+  });
 
   const FALLBACK_SUBJECTS = [
     'Matemáticas', 'Lengua', 'Historia', 'Geografía',
@@ -154,16 +165,19 @@ export function useModuloEditor(
   const [depLoading, setDepLoading] = useState(false);
   const [depPickerOpen, setDepPickerOpen] = useState(false);
 
-  // Auto-guardar borrador en sessionStorage (solo módulos nuevos)
+  // Auto-guardar borrador en sessionStorage (solo módulos nuevos).
+  // BUG-08: incluir `quizzes` además de form/theoryItems para que el borrador
+  // sea coherente con la detección del banner (que ya chequea draft.quizzes) y
+  // se restauren los cuestionarios al volver.
   useEffect(() => {
     if (id) return;
     try {
       sessionStorage.setItem(
         DRAFT_KEY(id),
-        JSON.stringify({ form, theoryItems, savedAt: Date.now() })
+        JSON.stringify({ form, theoryItems, quizzes, savedAt: Date.now() })
       );
     } catch { /* ignorar — sessionStorage lleno */ }
-  }, [form, theoryItems, id]);
+  }, [form, theoryItems, quizzes, id]);
 
   // ── Load module data on mount (edit mode) ─────────────────────────────────
   useEffect(() => {
