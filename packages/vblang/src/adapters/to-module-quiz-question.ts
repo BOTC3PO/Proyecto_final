@@ -184,7 +184,10 @@ export function toModuleQuizQuestion(
 
   if (gen.pasos && gen.pasos.length > 0) result.pasos = gen.pasos;
 
+  // El visual explícito del caller gana; si no hay, usamos el que aportó el
+  // generador asistido (propagado en GenerationResult.visual).
   if (options.visualSpec !== undefined) result.visualSpec = options.visualSpec;
+  else if (gen.visual !== undefined) result.visualSpec = gen.visual;
 
   return result;
 }

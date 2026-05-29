@@ -35,18 +35,47 @@ function getAllDescriptors(prng: DeterministicPrng): GeneratorDescriptor[] {
   ];
 }
 
+/**
+ * Resuelve un id de generador contra los descriptores disponibles.
+ *
+ * El id puede venir como:
+ *   - `<descriptorId>`            ej. "fisica/cinematica"  → subtipo aleatorio
+ *   - `<descriptorId>/<subtipo>`  ej. "fisica/cinematica/MRU" → subtipo fijo
+ *
+ * Como los `descriptorId` ya contienen "/", buscamos primero el match exacto y,
+ * si no hay, el descriptor cuyo id sea el prefijo más largo del id pedido; el
+ * resto del path es el subtipo.
+ */
+function resolverDescriptor(
+  all: GeneratorDescriptor[],
+  id: string,
+): { descriptor: GeneratorDescriptor; subtipo?: string } | null {
+  const exact = all.find((d) => d.id === id);
+  if (exact) return { descriptor: exact };
+
+  const prefijo = all
+    .filter((d) => id.startsWith(`${d.id}/`))
+    .sort((a, b) => b.id.length - a.id.length)[0];
+  if (!prefijo) return null;
+
+  return { descriptor: prefijo, subtipo: id.slice(prefijo.id.length + 1) };
+}
+
 export const generadorAsistidoProvider: GeneradorAsistidoProvider = {
   generar(id, seed, dificultad) {
     const prng = new DeterministicPrng(seed);
-    const descriptor = getAllDescriptors(prng).find((d) => d.id === id);
-    if (!descriptor) return null;
+    const resuelto = resolverDescriptor(getAllDescriptors(prng), id);
+    if (!resuelto) return null;
+    const { descriptor, subtipo } = resuelto;
 
+    // La dificultad llega desde el metadata de la plantilla (la resuelve
+    // `generate()` del paquete); sólo caemos a "intermedio" si es inválida.
     const dif: Dificultad = isValidDificultad(dificultad)
       ? dificultad
       : "intermedio";
 
     // GeneratorFn firma: (dificultad?, prng?, subtipo?, enunciadoTemplate?) → Ejercicio
-    const ejercicio = descriptor.generate(dif, prng);
+    const ejercicio = descriptor.generate(dif, prng, subtipo);
     return ejercicioToVblangShape(ejercicio);
   },
   obtenerDataset(nombre) {

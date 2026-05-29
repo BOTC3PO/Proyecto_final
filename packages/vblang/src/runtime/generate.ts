@@ -94,6 +94,10 @@ function buildAssistedResult(
   pasos: string[] | undefined,
   datos: Record<string, unknown>,
 ): GenerationResult {
+  // El generador puede aportar un visual (gráfico, circuito, etc.); lo
+  // propagamos para que el adapter lo copie a ModuleQuizQuestion.
+  const visual = ejercicio.visual as GenerationResult["visual"];
+
   // Generador tipo quiz (mc).
   if (ejercicio.opciones !== undefined) {
     if (typeof ejercicio.indiceCorrecto !== "number") {
@@ -113,6 +117,7 @@ function buildAssistedResult(
       variables: datos,
       seed,
       intentos: 1,
+      visual,
     };
   }
 
@@ -140,6 +145,7 @@ function buildAssistedResult(
       variables: datos,
       seed,
       intentos: 1,
+      visual,
     };
   }
 
@@ -153,6 +159,7 @@ function buildAssistedResult(
       variables: datos,
       seed,
       intentos: 1,
+      visual,
     };
   }
 

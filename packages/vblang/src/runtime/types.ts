@@ -8,6 +8,7 @@ import type {
   TipoPregunta,
   VariableDecl,
 } from "../parser/ast.js";
+import type { VisualSpec } from "../types/visual.js";
 import type { GeneradorAsistidoProvider } from "./provider.js";
 
 export interface CompiledPlantilla {
@@ -64,6 +65,12 @@ export interface GenerationResult {
   variables: Record<string, unknown>;
   seed: string;
   intentos: number;
+
+  /**
+   * Visual asociado al ejercicio. Hoy lo aporta el generador asistido
+   * (`generador:`); el adapter lo copia a `ModuleQuizQuestion.visualSpec`.
+   */
+  visual?: VisualSpec;
 
   // Sprint 9A — tipos especiales
   /** ordenar: items presentados al alumno (resultado de evaluar opciones_explicitas). */
