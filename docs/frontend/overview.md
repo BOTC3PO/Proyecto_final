@@ -377,7 +377,7 @@ compartido `lib/api.ts`.
 > | `GET /api/encuestas/defaults` | `services/encuestas.ts` `fetchSurveyDefaults` | `ProfesorEncuestas` | Degrada a `null` (try/catch); se pierden los defaults. |
 > | `GET /api/encuestas/puntuaciones` | `services/encuestas.ts` `fetchSurveyScoreValues` | `AlumnoEncuestas` | Degrada a `null` (try/catch); se pierden las escalas. |
 >
-> Seguimiento en el issue de divergencias cliente↔servidor (ver checklist en el repo).
+> Seguimiento y checklist en el issue [#661](https://github.com/BOTC3PO/Proyecto_final/issues/661).
 
 ## Capa de dominio (`domain/`)
 
