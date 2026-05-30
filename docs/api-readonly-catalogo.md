@@ -1,5 +1,9 @@
 # API Readonly: Catálogo agregado
 
+> **Nota de reconciliación.** Este endpoint está incluido en la referencia de la API en
+> [`docs/backend/api-reference.md`](./backend/api-reference.md#readonlyts). Este archivo conserva
+> el contrato JSON detallado y las notas de estabilidad.
+
 ## Endpoint
 
 - **Método:** `GET`

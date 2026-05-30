@@ -1,3 +1,7 @@
+> **ARCHIVO HISTÓRICO — NO USAR.** Inventario de la era MongoDB. La persistencia
+> actual es **PostgreSQL vía Prisma**. La documentación vigente del modelo de datos
+> está en [`docs/backend/modelo-de-datos.md`](../backend/modelo-de-datos.md).
+
 # Inventario MongoDB (API)
 
 Generado: 2026-02-22T05:51:30.807Z
