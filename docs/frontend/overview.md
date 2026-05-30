@@ -45,6 +45,31 @@ dominio del cliente vive en `domain/`.
 | `SharedLayout` | Genérico | `Navbar` + `OfflineIndicator`. (No referenciado por `router.tsx` actualmente — `POR CONFIRMAR (layouts/SharedLayout.tsx)`.) |
 | `StaffSidebar` | Componente de navegación | Barra lateral usada por `StaffLayout` y `RoleLayout` (ítems de `nav/navConfig.ts`). |
 
+### Árbol de layouts
+
+`RootLayout` envuelve todo en los providers y delega en un layout por sección; cada sección protegida
+aplica `ProtectedRoute` con su lista de roles permitidos.
+
+```mermaid
+graph TD
+    Root["RootLayout<br/>AuthProvider + ThemeProvider"]
+    Root --> Guest["GuestLayout<br/>(público) · Navbar + Footer"]
+    Root --> Alumno["ProtectedRoute<br/>[USER,TEACHER,DIRECTIVO,ADMIN,PARENT]<br/>→ AlumnoLayout"]
+    Root --> Staff["ProtectedRoute<br/>[TEACHER,DIRECTIVO,ADMIN]<br/>→ StaffLayout (+ guardas por ruta)"]
+    Root --> Role["ProtectedRoute<br/>[USER,PARENT,TEACHER,DIRECTIVO,ADMIN]<br/>→ RoleLayout"]
+    Root --> Editors["ProtectedRoute<br/>[USER,TEACHER,ADMIN,DIRECTIVO]<br/>→ Outlet (sin shell)"]
+
+    Guest --> G1["/, /login, /register,<br/>/explorar, /precios, /u/:username,<br/>/herramientas/*, /404"]
+    Alumno --> A1["/alumno, /clases[/:aulaId],<br/>/tareas, /encuestas, /progreso,<br/>/economia, /tienda-temas, /calendario"]
+    Staff --> S1["/profesor/* [TEACHER]<br/>/admin/* [ADMIN]<br/>/enterprise/* [DIRECTIVO]<br/>/gobernanza/* [ADMIN,DIRECTIVO,TEACHER]"]
+    Role --> R1["/mensajes, /perfil, /modulos/*,<br/>/reproductor, /quiz/attempt/:id,<br/>/plantillas/*, /datasets/*, /hijos/*"]
+    Editors --> E1["/editor[/:id] → BookEditorPage<br/>/bloques/editor[/:id] → BlockEditorPage"]
+```
+
+> `RoleLayout` decide en runtime el shell: si el rol es staff (TEACHER/DIRECTIVO/ADMIN) renderiza
+> `StaffSidebar`; si no, `Navbar`. Dentro de `StaffLayout` y `RoleLayout` varias rutas vuelven a
+> envolver con `ProtectedRoute` para restringir más (p. ej. `/admin/*` exige `ADMIN`).
+
 ### Control de acceso — `ProtectedRoute`
 
 `routing/ProtectedRoute.tsx`: recibe `allow: Role[]`; si `user?.role` no está en `allow`, redirige a
@@ -341,10 +366,18 @@ compartido `lib/api.ts`.
 | `tareas.ts` | `fetchTareas` | `GET /api/tareas` |
 | `tienda.ts` | `fetchCatalogo`, `fetchMisItems`, `comprarItem` | `GET /api/tienda`, `GET /api/tienda/mis-items`, `POST /api/tienda/comprar` |
 
-> ¹ Endpoints consumidos por el cliente que **no** aparecen en el catálogo actual del backend
-> ([`../backend/api-reference.md`](../backend/api-reference.md)): `GET /api/admin/panel`,
-> `GET /api/encuestas/defaults`, `GET /api/encuestas/puntuaciones`, `GET /api/modulos/opciones`.
-> Posible deriva cliente↔servidor — `POR CONFIRMAR` contra el router de la API.
+> ¹ **Deriva cliente↔servidor** — endpoints que el cliente invoca pero que **no existen** en el
+> backend actual (verificado contra `api/src/routes/*`, ver
+> [`../backend/api-reference.md`](../backend/api-reference.md)):
+>
+> | Endpoint que llama el cliente | Origen | Consumido por | Impacto |
+> |---|---|---|---|
+> | `GET /api/admin/panel` | `services/admin.ts` `fetchAdminPanelData` | — (sin consumidores) | Código muerto. |
+> | `GET /api/modulos/opciones` | `services/modulos.ts` `fetchModuleCreatorOptions` | — (sin consumidores) | Código muerto. |
+> | `GET /api/encuestas/defaults` | `services/encuestas.ts` `fetchSurveyDefaults` | `ProfesorEncuestas` | Degrada a `null` (try/catch); se pierden los defaults. |
+> | `GET /api/encuestas/puntuaciones` | `services/encuestas.ts` `fetchSurveyScoreValues` | `AlumnoEncuestas` | Degrada a `null` (try/catch); se pierden las escalas. |
+>
+> Seguimiento en el issue de divergencias cliente↔servidor (ver checklist en el repo).
 
 ## Capa de dominio (`domain/`)
 
