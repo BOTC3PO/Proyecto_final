@@ -16,10 +16,45 @@ model Escuela {
   isDeleted          Boolean  @default(false) @map("is_deleted")
   createdAt          String   @map("created_at")
   updatedAt          String?  @map("updated_at")
+  // Fase 5.1 — modelo de comisión (demostrable; el split real con OAuth de MP
+  // queda como roadmap v2). modoGestion: "centralizado" | "autogestionado".
+  modoGestion        String?  @default("centralizado") @map("modo_gestion")
+  comisionPct        Float?   @map("comision_pct")
   usuarios           Usuario[]
   membresias         Membresia[]
   clases             Clase[]
+  transacciones      TransaccionEscuela[]
+  liquidaciones      LiquidacionEscuela[]
   @@map("escuelas")
+}
+
+/// Fase 5.1 — registro contable de cada cobro de una escuela autogestionada.
+model TransaccionEscuela {
+  id          String   @id
+  escuelaId   String   @map("escuela_id")
+  montoTotal  Float    @map("monto_total")
+  comisionVB  Float    @map("comision_vb")
+  montoNeto   Float    @map("monto_neto")
+  estado      String   @default("registrada")
+  mpPaymentId String?  @map("mp_payment_id")
+  createdAt   String   @map("created_at")
+  escuela     Escuela  @relation(fields: [escuelaId], references: [id])
+  @@index([escuelaId])
+  @@map("transacciones_escuela")
+}
+
+/// Fase 5.1 — liquidación periódica del saldo neto hacia la escuela.
+model LiquidacionEscuela {
+  id             String   @id
+  escuelaId      String   @map("escuela_id")
+  periodo        String
+  montoLiquidado Float    @map("monto_liquidado")
+  cantTransacc   Int      @map("cant_transacc")
+  metodo         String
+  createdAt      String   @map("created_at")
+  escuela        Escuela  @relation(fields: [escuelaId], references: [id])
+  @@index([escuelaId])
+  @@map("liquidaciones_escuela")
 }
 
 model Usuario {

@@ -96,6 +96,8 @@ const EnterpriseReportes        = lazyWithRetry(() => import("./pages/Enterprise
 const EnterpriseAulas           = lazyWithRetry(() => import("./pages/EnterpriseAulas"));
 const EnterpriseMiembros        = lazyWithRetry(() => import("./pages/EnterpriseMiembros"));
 const EnterpriseModulos         = lazyWithRetry(() => import("./pages/EnterpriseModulos"));
+const EnterpriseComisiones      = lazyWithRetry(() => import("./pages/EnterpriseComisiones"));
+const AdminComisiones           = lazyWithRetry(() => import("./pages/AdminComisiones"));
 const MenuProfesor              = lazyWithRetry(() => import("./pages/MenuProfesor"));
 const ProfesorAulaConfiguracion = lazyWithRetry(() => import("./pages/ProfesorAulaConfiguracion"));
 const Terminos                  = lazyWithRetry(() => import("./pages/Terminos"));
@@ -420,6 +422,14 @@ export const router = createBrowserRouter([
             ),
           },
           {
+            path: 'admin/comisiones',
+            element: (
+              <ProtectedRoute allow={['ADMIN']}>
+                {withSuspense(<AdminComisiones />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
             path: 'enterprise',
             element: (
               <ProtectedRoute allow={['DIRECTIVO']}>
@@ -456,6 +466,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['DIRECTIVO']}>
                 {withSuspense(<EnterpriseModulos />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'enterprise/comisiones',
+            element: (
+              <ProtectedRoute allow={['DIRECTIVO']}>
+                {withSuspense(<EnterpriseComisiones />)}
               </ProtectedRoute>
             ),
           },

@@ -269,6 +269,9 @@ export class InMemoryPrisma {
   suscripcion = new Table<Row>("suscripcion");
   historialPago = new Table<Row>("historialPago");
   limiteEscuela = new Table<Row>("limiteEscuela");
+  escuela = new Table<Row>("escuela");
+  transaccionEscuela = new Table<Row>("transaccionEscuela");
+  liquidacionEscuela = new Table<Row>("liquidacionEscuela");
 
   // override findMany on vblangDataset to support _count include.
   constructor() {

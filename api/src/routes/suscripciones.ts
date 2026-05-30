@@ -17,6 +17,7 @@ import {
   EXPANSION_UNIDADES,
 } from "../lib/suscripciones";
 import { prisma } from "../lib/prisma";
+import { registrarTransaccionEscuela } from "../lib/comisiones";
 
 export const suscripciones = Router();
 
@@ -400,6 +401,16 @@ suscripciones.post("/api/suscripciones/webhook", async (req, res) => {
           createdAt: now,
         },
       });
+
+      // Fase 5.1 — asiento contable de comisión para escuelas autogestionadas.
+      // Defensivo: no bloquea la acreditación si falla (devuelve null).
+      if (sub.entidadTipo === "escuela") {
+        await registrarTransaccionEscuela({
+          escuelaId: sub.entidadId,
+          montoTotal: sub.montoMensual,
+          mpPaymentId: data.id,
+        });
+      }
 
       if (sub.entidadTipo === "escuela" && sub.expansiones > 0) {
         await prisma.limiteEscuela.upsert({

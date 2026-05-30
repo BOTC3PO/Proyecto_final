@@ -251,6 +251,22 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}, 
 
 export const apiGet = <T>(path: string, options?: RequestOptions) => apiRequest<T>(path, options);
 
+/** GET autenticado que devuelve el cuerpo como texto (ej. export CSV). */
+export async function apiGetText(path: string, options?: RequestOptions): Promise<string> {
+  const token = getAuthToken();
+  const res = await fetch(buildUrl(path), {
+    ...options,
+    headers: {
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...options?.headers,
+    },
+  });
+  if (!res.ok) {
+    throw new ApiError(res.statusText || "Request failed", res.status);
+  }
+  return res.text();
+}
+
 export async function apiGetPublic<T>(path: string): Promise<T> {
   const res = await fetch(buildUrl(path), {
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
