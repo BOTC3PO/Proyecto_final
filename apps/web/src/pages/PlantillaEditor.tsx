@@ -10,12 +10,15 @@
  * - Guardar dispara create/update y maneja DslApiError mostrándolo en el panel.
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { serialize } from "@vb/vblang";
 import CodeEditor, {
   type CodeEditorHandle,
 } from "../components/vblang/CodeEditor";
+import DatasetExplorer from "../components/vblang/DatasetExplorer";
+import EjemplosMenu from "../components/vblang/EjemplosMenu";
+import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
 import PlantillaFormularioVisual from "../components/vblang/PlantillaFormularioVisual";
 import Toast, { type ToastAction } from "../components/Toast";
 import ErrorPanel from "../components/vblang/ErrorPanel";
@@ -24,6 +27,7 @@ import ValidationReport from "../components/vblang/ValidationReport";
 import MetadataPanel, {
   type PlantillaMetadata,
 } from "../components/vblang/MetadataPanel";
+import { Button, Pill } from "../components/ui";
 import { usePlantillaCompilation } from "../hooks/usePlantillaCompilation";
 import { usePlantillaPreview } from "../hooks/usePlantillaPreview";
 import { usePlantillaValidation } from "../hooks/usePlantillaValidation";
@@ -53,6 +57,48 @@ const EMPTY_META: PlantillaMetadata = {
 
 type SaveStatus = "idle" | "saving" | "saved" | "error";
 
+/* ---------- Historial de código (undo/redo) ---------- */
+interface CodigoHist {
+  past: string[];
+  present: string;
+  future: string[];
+}
+type CodigoAction =
+  | { type: "set"; value: string }
+  | { type: "reset"; value: string }
+  | { type: "undo" }
+  | { type: "redo" };
+
+const MAX_HIST = 200;
+
+function codigoHistReducer(s: CodigoHist, a: CodigoAction): CodigoHist {
+  switch (a.type) {
+    case "set":
+      if (a.value === s.present) return s;
+      return {
+        past: [...s.past.slice(-(MAX_HIST - 1)), s.present],
+        present: a.value,
+        future: [],
+      };
+    case "reset":
+      return { past: [], present: a.value, future: [] };
+    case "undo":
+      if (s.past.length === 0) return s;
+      return {
+        past: s.past.slice(0, -1),
+        present: s.past[s.past.length - 1],
+        future: [s.present, ...s.future],
+      };
+    case "redo":
+      if (s.future.length === 0) return s;
+      return {
+        past: [...s.past, s.present],
+        present: s.future[0],
+        future: s.future.slice(1),
+      };
+  }
+}
+
 export default function PlantillaEditor() {
   const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
@@ -60,8 +106,28 @@ export default function PlantillaEditor() {
   const returnTo = searchParams.get("returnTo");
   const isNew = !id;
 
-  const [codigoDsl, setCodigoDsl] = useState<string>(INITIAL_TEMPLATE);
+  const [hist, dispatchCodigo] = useReducer(codigoHistReducer, {
+    past: [],
+    present: INITIAL_TEMPLATE,
+    future: [],
+  });
+  const codigoDsl = hist.present;
+  const setCodigo = useCallback(
+    (v: string) => dispatchCodigo({ type: "set", value: v }),
+    [],
+  );
+  const resetCodigo = useCallback(
+    (v: string) => dispatchCodigo({ type: "reset", value: v }),
+    [],
+  );
+  const undo = useCallback(() => dispatchCodigo({ type: "undo" }), []);
+  const redo = useCallback(() => dispatchCodigo({ type: "redo" }), []);
+  const canUndo = hist.past.length > 0;
+  const canRedo = hist.future.length > 0;
+  // Última versión persistida (o cargada): sirve para detectar cambios sin guardar.
+  const [savedCodigo, setSavedCodigo] = useState<string>(INITIAL_TEMPLATE);
   const [metadata, setMetadata] = useState<PlantillaMetadata>(EMPTY_META);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [dslApiError, setDslApiError] = useState<
@@ -75,6 +141,7 @@ export default function PlantillaEditor() {
     actions?: ToastAction[];
   } | null>(null);
   const [modo, setModo] = useState<"codigo" | "visual">("codigo");
+  const [referenciaOpen, setReferenciaOpen] = useState(false);
   const editorRef = useRef<CodeEditorHandle | null>(null);
 
   useEffect(() => {
@@ -84,7 +151,8 @@ export default function PlantillaEditor() {
     getPlantilla(id)
       .then((p) => {
         if (!active) return;
-        setCodigoDsl(p.codigoDsl);
+        resetCodigo(p.codigoDsl);
+        setSavedCodigo(p.codigoDsl);
         setMetadata({
           nombre: p.nombre,
           descripcion: p.descripcion ?? "",
@@ -107,8 +175,44 @@ export default function PlantillaEditor() {
   const preview = usePlantillaPreview(compilation.compiled);
   const validation = usePlantillaValidation(compilation.compiled);
 
+  // Estado del footer: cantidad de errores + líneas del código.
+  const numLineas = codigoDsl.split("\n").length;
+  const numErrores =
+    (compilation.parseError ? 1 : 0) +
+    (compilation.lintReport?.errors.length ?? 0);
+
   const handleGoToLocation = (line: number, col: number) => {
     editorRef.current?.focusAt(line, col);
+  };
+
+  const handleImportFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    try {
+      const data = JSON.parse(await file.text()) as Record<string, unknown>;
+      if (typeof data.codigoDsl !== "string") {
+        setSaveStatus("error");
+        setSaveMessage("El JSON debe tener un campo \"codigoDsl\".");
+        return;
+      }
+      resetCodigo(data.codigoDsl);
+      setMetadata((m) => ({
+        nombre: typeof data.nombre === "string" ? data.nombre : m.nombre,
+        descripcion:
+          typeof data.descripcion === "string" ? data.descripcion : m.descripcion,
+        materia: typeof data.materia === "string" ? data.materia : m.materia,
+        tags: Array.isArray(data.tags)
+          ? data.tags.filter((t): t is string => typeof t === "string")
+          : m.tags,
+        visibility: m.visibility,
+      }));
+      setSaveStatus("idle");
+      setSaveMessage("Plantilla importada (revisá y guardá).");
+    } catch {
+      setSaveStatus("error");
+      setSaveMessage("No se pudo leer el archivo JSON.");
+    }
   };
 
   const handleSave = async () => {
@@ -133,6 +237,7 @@ export default function PlantillaEditor() {
         const created = await createPlantilla(payload);
         setSaveStatus("saved");
         setSaveMessage("Plantilla creada.");
+        setSavedCodigo(codigoDsl);
         const editUrl = `/plantillas/${created.id}${returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : ""}`;
         if (returnTo) {
           // Mostramos toast con acciones — no bloquea como window.confirm.
@@ -160,6 +265,7 @@ export default function PlantillaEditor() {
         });
         setSaveStatus("saved");
         setSaveMessage("Cambios guardados.");
+        setSavedCodigo(codigoDsl);
         if (returnTo) {
           setToastState({
             message: "Cambios guardados.",
@@ -225,6 +331,13 @@ export default function PlantillaEditor() {
               {isNew ? "Nueva plantilla" : metadata.nombre || "Plantilla"}
             </span>
           </nav>
+          <input
+            aria-label="Nombre de la plantilla"
+            value={metadata.nombre}
+            onChange={(e) => setMetadata((m) => ({ ...m, nombre: e.target.value }))}
+            placeholder="Nombre de la plantilla…"
+            className="w-48 rounded-md border border-transparent bg-transparent px-2 py-1 text-sm font-medium text-[var(--c-text)] hover:border-[var(--c-border)] focus:border-[var(--c-primary)] focus:outline-none"
+          />
           <div
             role="tablist"
             aria-label="Modo del editor"
@@ -278,17 +391,63 @@ export default function PlantillaEditor() {
                   ? saveMessage ?? "Guardado"
                   : saveStatus === "error"
                     ? saveMessage ?? "Error"
-                    : "Borrador local"}
+                    : codigoDsl !== savedCodigo
+                      ? "Cambios sin guardar"
+                      : "Sin cambios"}
             </span>
           </div>
-          <button
-            type="button"
+          <div className="flex items-center gap-0.5">
+            <Button
+              variant="icon"
+              size="sm"
+              onClick={undo}
+              disabled={!canUndo}
+              aria-label="Deshacer"
+              title="Deshacer"
+            >
+              ↶
+            </Button>
+            <Button
+              variant="icon"
+              size="sm"
+              onClick={redo}
+              disabled={!canRedo}
+              aria-label="Rehacer"
+              title="Rehacer"
+            >
+              ↷
+            </Button>
+          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => fileInputRef.current?.click()}
+          >
+            Importar JSON
+          </Button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="application/json,.json"
+            onChange={handleImportFile}
+            className="hidden"
+          />
+          <EjemplosMenu
+            onLoad={setCodigo}
+            hasUnsavedChanges={codigoDsl !== savedCodigo}
+          />
+          <Button variant="ghost" size="sm" onClick={() => setReferenciaOpen(true)}>
+            Referencia
+          </Button>
+          <DatasetExplorer />
+          <Button
+            variant="primary"
+            size="sm"
             onClick={() => void handleSave()}
             disabled={saveStatus === "saving"}
-            className="rounded-md bg-[var(--c-primary)] px-4 py-1.5 text-sm font-semibold text-white disabled:opacity-50"
           >
             {saveStatus === "saving" ? "Guardando…" : "Guardar"}
-          </button>
+          </Button>
         </header>
 
         <a href="#vblang-panel" className="skip-link">Saltar al editor</a>
@@ -303,14 +462,19 @@ export default function PlantillaEditor() {
             <CodeEditor
               ref={editorRef}
               value={codigoDsl}
-              onChange={setCodigoDsl}
+              onChange={setCodigo}
               errorLine={compilation.parseError?.line ?? dslApiError?.line}
               errorCol={compilation.parseError?.col ?? dslApiError?.col}
             />
           ) : compilation.plantilla ? (
             <PlantillaFormularioVisual
               plantilla={compilation.plantilla}
-              onChange={(next) => setCodigoDsl(serialize(next))}
+              onChange={(next) => setCodigo(serialize(next))}
+              valoresActuales={preview.variables0}
+              tieneErrores={
+                !!compilation.parseError ||
+                (compilation.lintReport?.errors.length ?? 0) > 0
+              }
             />
           ) : (
             <div
@@ -331,6 +495,24 @@ export default function PlantillaEditor() {
             </div>
           )}
         </div>
+        <div
+          role="status"
+          aria-live="polite"
+          data-testid="vblang-status-footer"
+          className="flex items-center gap-2 border-t border-[var(--c-border)] bg-[var(--c-surface-2)] px-3 py-1 text-xs text-[var(--c-text-3)]"
+        >
+          {numErrores === 0 ? (
+            <Pill tone="ok">Sin errores</Pill>
+          ) : (
+            <Pill tone="danger">
+              {numErrores} {numErrores === 1 ? "error" : "errores"}
+            </Pill>
+          )}
+          <span aria-hidden="true">·</span>
+          <span>
+            {numLineas} {numLineas === 1 ? "línea" : "líneas"}
+          </span>
+        </div>
         <footer className="h-48 border-t border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)]">
           <ErrorPanel
             parseError={compilation.parseError ?? dslApiError}
@@ -346,6 +528,11 @@ export default function PlantillaEditor() {
         </div>
         <ValidationReport state={validation} disabled={!compilation.compiled} />
       </aside>
+
+      <ReferenciaRapida
+        open={referenciaOpen}
+        onClose={() => setReferenciaOpen(false)}
+      />
 
       {toastState && (
         <Toast

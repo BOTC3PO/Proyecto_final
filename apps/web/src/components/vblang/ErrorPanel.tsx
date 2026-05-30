@@ -6,7 +6,7 @@
 import type { LintReport } from "@vb/vblang";
 
 interface ErrorPanelProps {
-  parseError?: { message: string; line?: number; col?: number };
+  parseError?: { message: string; line?: number; col?: number; suggestion?: string };
   lintReport?: LintReport;
   onGoToLocation?: (line: number, col: number) => void;
 }
@@ -33,6 +33,7 @@ export default function ErrorPanel({
       message: parseError.message,
       line: parseError.line,
       col: parseError.col,
+      suggestion: parseError.suggestion,
     });
   }
   if (lintReport) {

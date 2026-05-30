@@ -36,6 +36,18 @@ payments.post(
   requireUser,
   requireEnterpriseFeature(ENTERPRISE_FEATURES.CONTRACTS),
   async (req, res) => {
+    // Gateado: sin un modelo de persistencia (Invoice/Receipt en Prisma), iniciar
+    // un cobro no quedaría registrado → riesgo de cobrar sin rastro. Hasta que
+    // exista esa persistencia el endpoint queda deshabilitado por flag.
+    // Ver docs/pagos/enterprise.md y api/src/lib/payments/index.ts.
+    if (!ENV.ENABLE_ENTERPRISE_PAYMENTS) {
+      res.status(501).json({
+        error: "enterprise_payments_no_disponible",
+        mensaje:
+          "Los pagos enterprise no están disponibles aún (falta persistencia de invoices/receipts).",
+      });
+      return;
+    }
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
     const billingCycleId = typeof req.body?.billingCycleId === "string" ? req.body.billingCycleId : null;

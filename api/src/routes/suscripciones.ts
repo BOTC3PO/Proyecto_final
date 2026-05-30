@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   crearPreapproval,
   cancelarPreapproval,
+  getPreapproval,
   verificarWebhookMP,
 } from "../lib/mercadopago";
 import { requireUser } from "../lib/user-auth";
@@ -16,6 +17,7 @@ import {
   EXPANSION_UNIDADES,
 } from "../lib/suscripciones";
 import { prisma } from "../lib/prisma";
+import { registrarTransaccionEscuela } from "../lib/comisiones";
 
 export const suscripciones = Router();
 
@@ -131,6 +133,12 @@ suscripciones.post("/api/suscripciones/cancelar", requireUser, async (req, res) 
 });
 
 // ── POST /api/suscripciones/reembolso ───────────────────────
+// REEMBOLSO MANUAL (decisión de diseño, ver docs/pagos/reembolsos.md):
+// este endpoint NO reembolsa por la API de MercadoPago. Solo registra la
+// solicitud (reembolsoSolicitado=1) dentro de la ventana de 7 días; un admin
+// la procesa manualmente desde el panel de MP y luego marca el pago. La
+// automatización (refund vía API de MP + corte de renovación con
+// cancelarPreapproval) queda como roadmap, no implementada acá.
 suscripciones.post("/api/suscripciones/reembolso", requireUser, async (req, res) => {
   const userId = getId(req as never);
   const { suscripcionId } = req.body as { suscripcionId?: string };
@@ -298,11 +306,12 @@ suscripciones.post("/api/suscripciones/iniciar", requireUser, async (req, res) =
       externalReference: externalRef,
       titulo,
       montoMensual: monto,
-      backUrl: typeof backUrl === "string" ? backUrl : "https://virtualbook.app/perfil",
+      backUrl: typeof backUrl === "string" ? backUrl : `${ENV.APP_URL}/perfil`,
     });
 
     const now = new Date().toISOString();
-    const periodoFin = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString();
+    // Al crear todavía no hay next_payment_date de MP: usamos +1 mes calendario.
+    const periodoFin = (() => { const d = new Date(); d.setMonth(d.getMonth() + 1); return d.toISOString(); })();
     const id = genId();
 
     await prisma.suscripcion.create({
@@ -360,48 +369,79 @@ suscripciones.post("/api/suscripciones/webhook", async (req, res) => {
   const now = new Date().toISOString();
 
   if (action === "updated") {
-    const periodoInicio = now;
-    const periodoFin = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString();
+    // Consultar el estado REAL del preapproval en MP antes de acreditar.
+    // No alcanza con que MP nos avise "updated": hay que verificar que esté
+    // authorized, si no podríamos acreditar pagos que MP rechazó/pausó.
+    const pre = await getPreapproval(data.id);
 
-    await prisma.suscripcion.update({
-      where: { id: sub.id },
-      data: { estado: "activa", periodoInicio, periodoFin, updatedAt: now },
-    });
+    if (pre.status === "authorized") {
+      const periodoInicio = now;
+      // Período = próximo cobro real que informa MP; si no viene, +1 mes calendario.
+      const periodoFin = pre.next_payment_date
+        ? new Date(pre.next_payment_date).toISOString()
+        : (() => { const d = new Date(); d.setMonth(d.getMonth() + 1); return d.toISOString(); })();
 
-    await prisma.historialPago.create({
-      data: {
-        id: genPayId(),
-        suscripcionId: sub.id,
-        entidadTipo: sub.entidadTipo,
-        entidadId: sub.entidadId,
-        monto: sub.montoMensual,
-        moneda: "ARS",
-        estado: "pagado",
-        mpPaymentId: data.id,
-        periodoInicio,
-        periodoFin,
-        createdAt: now,
-      },
-    });
+      await prisma.suscripcion.update({
+        where: { id: sub.id },
+        data: { estado: "activa", periodoInicio, periodoFin, updatedAt: now },
+      });
 
-    if (sub.entidadTipo === "escuela" && sub.expansiones > 0) {
-      await prisma.limiteEscuela.upsert({
-        where: { escuelaId: sub.entidadId },
-        create: {
+      await prisma.historialPago.create({
+        data: {
+          id: genPayId(),
+          suscripcionId: sub.id,
+          entidadTipo: sub.entidadTipo,
+          entidadId: sub.entidadId,
+          monto: sub.montoMensual,
+          moneda: "ARS",
+          estado: "pagado",
+          mpPaymentId: data.id,
+          periodoInicio,
+          periodoFin,
+          createdAt: now,
+        },
+      });
+
+      // Fase 5.1 — asiento contable de comisión para escuelas autogestionadas.
+      // Defensivo: no bloquea la acreditación si falla (devuelve null).
+      if (sub.entidadTipo === "escuela") {
+        await registrarTransaccionEscuela({
           escuelaId: sub.entidadId,
-          maxProfesores: LIMITES_GRATUITOS.max_profesores,
-          maxDirectivos: LIMITES_GRATUITOS.max_directivos,
-          maxAulas: LIMITES_GRATUITOS.max_aulas + sub.expansiones * EXPANSION_UNIDADES.aulas,
-          maxAlumnosPorAula: LIMITES_GRATUITOS.max_alumnos_por_aula +
-            sub.expansiones * EXPANSION_UNIDADES.alumnos_por_aula,
-          updatedAt: now,
-        },
-        update: {
-          maxAulas: LIMITES_GRATUITOS.max_aulas + sub.expansiones * EXPANSION_UNIDADES.aulas,
-          maxAlumnosPorAula: LIMITES_GRATUITOS.max_alumnos_por_aula +
-            sub.expansiones * EXPANSION_UNIDADES.alumnos_por_aula,
-          updatedAt: now,
-        },
+          montoTotal: sub.montoMensual,
+          mpPaymentId: data.id,
+        });
+      }
+
+      if (sub.entidadTipo === "escuela" && sub.expansiones > 0) {
+        await prisma.limiteEscuela.upsert({
+          where: { escuelaId: sub.entidadId },
+          create: {
+            escuelaId: sub.entidadId,
+            maxProfesores: LIMITES_GRATUITOS.max_profesores,
+            maxDirectivos: LIMITES_GRATUITOS.max_directivos,
+            maxAulas: LIMITES_GRATUITOS.max_aulas + sub.expansiones * EXPANSION_UNIDADES.aulas,
+            maxAlumnosPorAula: LIMITES_GRATUITOS.max_alumnos_por_aula +
+              sub.expansiones * EXPANSION_UNIDADES.alumnos_por_aula,
+            updatedAt: now,
+          },
+          update: {
+            maxAulas: LIMITES_GRATUITOS.max_aulas + sub.expansiones * EXPANSION_UNIDADES.aulas,
+            maxAlumnosPorAula: LIMITES_GRATUITOS.max_alumnos_por_aula +
+              sub.expansiones * EXPANSION_UNIDADES.alumnos_por_aula,
+            updatedAt: now,
+          },
+        });
+      }
+    } else if (pre.status === "paused" || pre.status === "pending") {
+      // No acreditar: reflejar el estado real sin registrar pago.
+      await prisma.suscripcion.update({
+        where: { id: sub.id },
+        data: { estado: pre.status === "paused" ? "pausada" : "pendiente", updatedAt: now },
+      });
+    } else if (pre.status === "cancelled" || pre.status === "expired") {
+      await prisma.suscripcion.update({
+        where: { id: sub.id },
+        data: { estado: "cancelada", canceladaAt: now, updatedAt: now },
       });
     }
   } else if (action === "deleted" || action === "cancelled") {

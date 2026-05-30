@@ -458,6 +458,15 @@ export function lex(rawSource: string): Token[] {
       continue;
     }
 
+    if (ch === "'") {
+      throw new LexError(
+        "Los textos van entre comillas dobles, no simples.",
+        line,
+        col,
+        'Usá comillas dobles: "texto" en lugar de \'texto\'.',
+      );
+    }
+
     throw new LexError(`Carácter inesperado '${ch}'`, line, col);
   }
 

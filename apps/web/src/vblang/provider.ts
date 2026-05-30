@@ -33,20 +33,59 @@ function getAllDescriptors(prng: DeterministicPrng): GeneratorDescriptor[] {
     ...getDescriptoresEconomia(prng),
     ...getDescriptoresInformatica(prng),
   ];
+  // NOTA (Fase 3.5 — diferido): `basic/QuizGenerator` NO se incluye acá a
+  // propósito. No implementa `GeneratorDescriptor` (no es paramétrico):
+  //   - su constructor requiere un `QuizTemplate` (banco de preguntas) que hoy
+  //     no existe como dato estático ni se instancia en ningún lado;
+  //   - su `generate({ seed })` devuelve un `QuizInstance` multi-pregunta con
+  //     tipos mc/tf/match/fill-blank, no el `GeneradorAsistidoEjercicio` de un
+  //     solo ejercicio que espera el provider (match/fill-blank no mapean).
+  // Registrarlo sin un origen de templates + un adapter multi→single haría que
+  // el picker ofrezca algo que al generarse falla ("pool vacío"). Ver
+  // docs/vblang/roadmap-basic-generators.md para el plan de implementación.
+}
+
+/**
+ * Resuelve un id de generador contra los descriptores disponibles.
+ *
+ * El id puede venir como:
+ *   - `<descriptorId>`            ej. "fisica/cinematica"  → subtipo aleatorio
+ *   - `<descriptorId>/<subtipo>`  ej. "fisica/cinematica/MRU" → subtipo fijo
+ *
+ * Como los `descriptorId` ya contienen "/", buscamos primero el match exacto y,
+ * si no hay, el descriptor cuyo id sea el prefijo más largo del id pedido; el
+ * resto del path es el subtipo.
+ */
+function resolverDescriptor(
+  all: GeneratorDescriptor[],
+  id: string,
+): { descriptor: GeneratorDescriptor; subtipo?: string } | null {
+  const exact = all.find((d) => d.id === id);
+  if (exact) return { descriptor: exact };
+
+  const prefijo = all
+    .filter((d) => id.startsWith(`${d.id}/`))
+    .sort((a, b) => b.id.length - a.id.length)[0];
+  if (!prefijo) return null;
+
+  return { descriptor: prefijo, subtipo: id.slice(prefijo.id.length + 1) };
 }
 
 export const generadorAsistidoProvider: GeneradorAsistidoProvider = {
   generar(id, seed, dificultad) {
     const prng = new DeterministicPrng(seed);
-    const descriptor = getAllDescriptors(prng).find((d) => d.id === id);
-    if (!descriptor) return null;
+    const resuelto = resolverDescriptor(getAllDescriptors(prng), id);
+    if (!resuelto) return null;
+    const { descriptor, subtipo } = resuelto;
 
+    // La dificultad llega desde el metadata de la plantilla (la resuelve
+    // `generate()` del paquete); sólo caemos a "intermedio" si es inválida.
     const dif: Dificultad = isValidDificultad(dificultad)
       ? dificultad
       : "intermedio";
 
     // GeneratorFn firma: (dificultad?, prng?, subtipo?, enunciadoTemplate?) → Ejercicio
-    const ejercicio = descriptor.generate(dif, prng);
+    const ejercicio = descriptor.generate(dif, prng, subtipo);
     return ejercicioToVblangShape(ejercicio);
   },
   obtenerDataset(nombre) {

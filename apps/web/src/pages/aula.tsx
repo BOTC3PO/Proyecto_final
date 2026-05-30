@@ -299,7 +299,8 @@ export default function Aula() {
     <main className="flex-1 bg-[var(--c-bg)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Banner */}
-        <div className="bg-[var(--c-primary)] text-white rounded-xl h-28 relative">
+        <header className="bg-[var(--c-primary)] text-white rounded-xl h-28 relative">
+          <h1 className="sr-only">{classroom?.name ?? "Aula"}</h1>
           <div className="absolute left-5 bottom-3 text-sm">
             {roleLabel} • {teacherName} | Código de clase: {classCode}
           </div>
@@ -324,7 +325,7 @@ export default function Aula() {
               Acceso {accessLabel}
             </div>
           )}
-        </div>
+        </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
           {/* Main column */}
@@ -340,7 +341,15 @@ export default function Aula() {
                   aria-label="Escribí una novedad"
                   placeholder="Escribe una novedad..."
                   value={newPublication}
-                  onChange={(event) => setNewPublication(event.target.value)}
+                  onChange={(event) => {
+                    setNewPublication(event.target.value);
+                    // UX-03: limpiar el error de publicación apenas el usuario
+                    // corrige (vuelve a escribir).
+                    if (publicationStatus === "error") {
+                      setPublicationStatus("idle");
+                      setPublicationMessage("");
+                    }
+                  }}
                   disabled={isClassroomReadOnly}
                 />
                 <button
@@ -375,7 +384,11 @@ export default function Aula() {
                 </p>
               )}
               {publicationMessage && (
-                <p className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-green-600"}`}>
+                <p
+                  role={publicationStatus === "error" ? "alert" : "status"}
+                  aria-live={publicationStatus === "error" ? "assertive" : "polite"}
+                  className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-green-600"}`}
+                >
                   {publicationMessage}
                 </p>
               )}
@@ -394,7 +407,7 @@ export default function Aula() {
                 <div className="text-sm text-[var(--c-muted)]">Aún no hay publicaciones.</div>
               )}
               {!feedLoading && !feedError && publications.map((publication) => (
-                <article key={publication.id} className={cardCls}>
+                <article key={publication.id} className={cardCls} aria-label={publication.title}>
                   <div className="flex items-center gap-3">
                     <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(publication.authorInitials ?? "?")}`}>
                       {publication.authorInitials ?? "?"}
@@ -465,7 +478,14 @@ export default function Aula() {
                           : "Sin iniciar"}
                       </span>
                     </div>
-                    <div className="h-1.5 bg-[var(--c-border)] rounded mt-1">
+                    <div
+                      className="h-1.5 bg-[var(--c-border)] rounded mt-1"
+                      role="progressbar"
+                      aria-valuenow={module.progressPercent}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                      aria-label={`Progreso de ${module.title}`}
+                    >
                       <div
                         className={`h-1.5 rounded ${
                           module.isLocked ? "bg-[var(--c-muted)]"

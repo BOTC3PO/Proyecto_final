@@ -52,6 +52,39 @@ describe("bridge / provider con generadoresV2", () => {
     const e = generadorAsistidoProvider.generar("no/existe", "s", "basico");
     expect(e).toBeNull();
   });
+
+  it("respeta el subtipo del id (materia/tema/SUBTIPO)", () => {
+    const mru = generadorAsistidoProvider.generar(
+      "fisica/cinematica/MRU",
+      "subtipo-seed",
+      "intermedio",
+    );
+    const mruv = generadorAsistidoProvider.generar(
+      "fisica/cinematica/MRUV",
+      "subtipo-seed",
+      "intermedio",
+    );
+    expect(mru).not.toBeNull();
+    expect(mruv).not.toBeNull();
+    // Mismo seed pero distinto subtipo → ejercicios distintos.
+    expect(mru!.enunciado).not.toBe(mruv!.enunciado);
+  });
+
+  it("es determinista: mismo id + seed → mismo ejercicio", () => {
+    const a = generadorAsistidoProvider.generar(
+      "fisica/cinematica/MRU",
+      "det-seed",
+      "intermedio",
+    );
+    const b = generadorAsistidoProvider.generar(
+      "fisica/cinematica/MRU",
+      "det-seed",
+      "intermedio",
+    );
+    expect(a).not.toBeNull();
+    expect(a!.enunciado).toBe(b!.enunciado);
+    expect(a!.opciones).toEqual(b!.opciones);
+  });
 });
 
 describe("bridge / runPlantilla con generador asistido", () => {
@@ -71,5 +104,31 @@ enunciado: "X"
     // El enunciado de la plantilla gana sobre el del generador → debería ser "X".
     expect(q.prompt).toBe("X");
     expect(q.questionType).toBeDefined();
+  });
+
+  it("interpola variables del generador en el enunciado custom (G-03)", () => {
+    // MRU expone datos { velocidad, tiempo }. Un enunciado propio que use
+    // {velocidad}/{tiempo} debe interpolar los valores reales del ejercicio.
+    const src = `
+generador: fisica/cinematica/MRU
+enunciado: "Va a {velocidad} m/s durante {tiempo} s"
+`;
+    const q = runPlantilla(src, { seed: "scope-seed" });
+    expect(q.prompt).toMatch(/^Va a \d+ m\/s durante \d+ s$/);
+    // Los valores deben coincidir con los datos crudos propagados.
+    expect(q.datos?.velocidad).toBeDefined;
+    expect(q.prompt).toContain(`Va a ${q.datos!.velocidad} m/s`);
+    expect(q.prompt).toContain(`durante ${q.datos!.tiempo} s`);
+  });
+
+  it("propaga el visual del generador a la pregunta (G-04)", () => {
+    // El subtipo MRU produce un visual line-chart; no debe descartarse.
+    const src = `
+generador: fisica/cinematica/MRU
+enunciado: "X"
+`;
+    const q = runPlantilla(src, { seed: "visual-seed" });
+    expect(q.visualSpec).toBeDefined();
+    expect((q.visualSpec as { kind?: string }).kind).toBe("line-chart");
   });
 });

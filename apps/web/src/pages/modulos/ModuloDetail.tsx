@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { apiGet, apiPost } from "../../lib/api";
 import type {
@@ -93,7 +93,16 @@ type QuizAttemptSummary = {
 export default function ModuloDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { user } = useAuth();
+
+  // UX-01: "Volver" contextual. Si el alumno llegó desde un aula u otra
+  // pantalla, respetar `?returnTo=`; si no, retroceder en el historial.
+  const returnTo = searchParams.get("returnTo");
+  const handleBack = () => {
+    if (returnTo) navigate(returnTo);
+    else navigate(-1);
+  };
   const [module, setModule] = useState<ModuloDetailResponse | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -415,7 +424,7 @@ export default function ModuloDetail() {
       <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 p-6">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center gap-3 rounded-xl border border-slate-200/60 bg-white/80 p-8 shadow-sm backdrop-blur-sm">
-            <svg className="h-5 w-5 animate-spin text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <svg className="h-5 w-5 animate-spin text-indigo-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
@@ -472,21 +481,23 @@ export default function ModuloDetail() {
       {/* Gradient Header */}
       <div className={`bg-gradient-to-r ${palette.gradient} px-6 pb-10 pt-6`}>
         <div className="mx-auto max-w-4xl">
-          <Link
-            to="/modulos"
+          <button
+            type="button"
+            onClick={handleBack}
             className={`group mb-4 inline-flex items-center gap-1.5 text-sm font-medium ${palette.link} transition-colors hover:text-white`}
           >
             <svg className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
             </svg>
-            Volver al listado
-          </Link>
+            Volver
+          </button>
           <div className="flex items-start justify-between gap-4">
             <h1 className="text-2xl font-bold text-white md:text-3xl">{module.title}</h1>
             <div className="flex items-center gap-2 shrink-0">
               <button
                 type="button"
                 onClick={ttsActivo ? detenerTTS : leerModulo}
+                aria-pressed={ttsActivo}
                 title={ttsActivo ? "Detener lectura" : "Leer módulo en voz alta"}
                 className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-2 ${
                   ttsActivo

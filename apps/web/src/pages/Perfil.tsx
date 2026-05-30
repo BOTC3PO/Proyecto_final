@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { apiGet } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
+import EsperandoPago from "../components/EsperandoPago";
 import {
   fetchEstadoSuscripcion, fetchHistorialPagos,
   fetchLimites, iniciarSuscripcion,
@@ -487,6 +488,25 @@ export default function Perfil() {
 
                 {!suscLoading && suscripcion && (
                   <>
+                    {/* Esperando confirmación de un pago recién iniciado.
+                        Al volver de MercadoPago la suscripción queda "pendiente";
+                        la acreditación real llega por webhook → polleamos hasta activa. */}
+                    {(suscripcion.personal?.estado === "pendiente" ||
+                      suscripcion.escuela?.estado === "pendiente") && (
+                      <EsperandoPago
+                        estaConfirmado={(e) =>
+                          e.personal?.estado === "activa" ||
+                          e.escuela?.estado === "activa"
+                        }
+                        onConfirmado={(e) => {
+                          setSuscripcion(e);
+                          setSuscAccion("ok");
+                          setSuscMsg(null);
+                          fetchHistorialPagos().then(setHistorial).catch(() => {});
+                        }}
+                      />
+                    )}
+
                     {/* Suscripción personal */}
                     {suscripcion.personal && (
                       <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-3">

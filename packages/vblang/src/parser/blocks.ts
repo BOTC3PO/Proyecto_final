@@ -398,9 +398,11 @@ export function parseOpcionesBloque(c: TokenCursor): OpcionesBloque {
   const numTok = c.peek();
   if (numTok.kind !== TokenKind.NUMBER) {
     throw new ParseError(
-      `\`opciones:\` debe ser un entero`,
+      "`opciones:` espera un número entero: la cantidad de alternativas a generar (ej. `opciones: 4`). " +
+        "Si lo que tenés es una lista de valores propios (por ejemplo una variable de array), usá `opciones_explicitas:`.",
       numTok.line,
       numTok.col,
+      "`opciones: 4` genera 4 alternativas. Para una lista propia: `opciones_explicitas: mis_opciones`.",
     );
   }
   c.consume();
@@ -515,17 +517,19 @@ export function parseMapaBloque(c: TokenCursor): MapaBloque {
   const tok = c.peek();
   if (tok.kind !== TokenKind.IDENT && tok.kind !== TokenKind.STRING) {
     throw new ParseError(
-      `\`mapa:\` espera un identificador de mapa`,
+      'Falta poner el nombre del mapa entre comillas dobles, ej. `mapa: "world_countries"`.',
       tok.line,
       tok.col,
+      `Mapas válidos: ${[...VALID_MAPAS].join(", ")}.`,
     );
   }
   c.consume();
   if (!VALID_MAPAS.has(tok.value)) {
     throw new ParseError(
-      `Mapa desconocido \`${tok.value}\`. Válidos: ${[...VALID_MAPAS].join(", ")}`,
+      `Mapa desconocido \`${tok.value}\`. Mapas válidos: ${[...VALID_MAPAS].join(", ")}.`,
       tok.line,
       tok.col,
+      `Escribí el nombre entre comillas dobles, ej. \`mapa: "${[...VALID_MAPAS][0]}"\`.`,
     );
   }
   return {

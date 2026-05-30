@@ -96,6 +96,8 @@ const EnterpriseReportes        = lazyWithRetry(() => import("./pages/Enterprise
 const EnterpriseAulas           = lazyWithRetry(() => import("./pages/EnterpriseAulas"));
 const EnterpriseMiembros        = lazyWithRetry(() => import("./pages/EnterpriseMiembros"));
 const EnterpriseModulos         = lazyWithRetry(() => import("./pages/EnterpriseModulos"));
+const EnterpriseComisiones      = lazyWithRetry(() => import("./pages/EnterpriseComisiones"));
+const AdminComisiones           = lazyWithRetry(() => import("./pages/AdminComisiones"));
 const MenuProfesor              = lazyWithRetry(() => import("./pages/MenuProfesor"));
 const ProfesorAulaConfiguracion = lazyWithRetry(() => import("./pages/ProfesorAulaConfiguracion"));
 const Terminos                  = lazyWithRetry(() => import("./pages/Terminos"));
@@ -109,6 +111,7 @@ const PerfilPublico             = lazyWithRetry(() => import("./pages/PerfilPubl
 const Economia                  = lazyWithRetry(() => import("./pages/Economia"));
 const TiendaTemas               = lazyWithRetry(() => import("./pages/TiendaTemas"));
 const OnboardingTema            = lazyWithRetry(() => import("./pages/OnboardingTema"));
+const UiShowcase                = lazyWithRetry(() => import("./pages/dev/UiShowcase"));
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -179,6 +182,11 @@ export const router = createBrowserRouter([
           { path: "herramientas/vida-practica",      element: <HerramientasVidaPractica /> },
 
           { path: "404", element: <NotFound /> },
+
+          // Showcase del sistema de diseño (Fase D.2) — solo en desarrollo.
+          ...(import.meta.env.DEV
+            ? [{ path: "dev/ui", element: withSuspense(<UiShowcase />) }]
+            : []),
         ],
       },
 
@@ -414,6 +422,14 @@ export const router = createBrowserRouter([
             ),
           },
           {
+            path: 'admin/comisiones',
+            element: (
+              <ProtectedRoute allow={['ADMIN']}>
+                {withSuspense(<AdminComisiones />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
             path: 'enterprise',
             element: (
               <ProtectedRoute allow={['DIRECTIVO']}>
@@ -450,6 +466,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['DIRECTIVO']}>
                 {withSuspense(<EnterpriseModulos />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'enterprise/comisiones',
+            element: (
+              <ProtectedRoute allow={['DIRECTIVO']}>
+                {withSuspense(<EnterpriseComisiones />)}
               </ProtectedRoute>
             ),
           },

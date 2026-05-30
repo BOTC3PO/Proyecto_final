@@ -67,4 +67,30 @@ describe("parse / errores semánticos", () => {
     const src = `enunciado: "x"\nrespuesta: 1\ntipo: ordenar\n`;
     expect(() => parse(src)).toThrow(/ordenar/);
   });
+
+  it("opciones con identificador (no número) explica opciones_explicitas", () => {
+    const src = `enunciado: "x"\nrespuesta: 1\ntipo: mc\nopciones: mi_lista\n`;
+    try {
+      parse(src);
+      expect.fail("debió tirar ParseError");
+    } catch (e) {
+      expect(e).toBeInstanceOf(ParseError);
+      const err = e as ParseError;
+      expect(err.message).toMatch(/opciones_explicitas/);
+      expect(err.suggestion).toBeDefined();
+    }
+  });
+
+  it("mapa desconocido sugiere usar comillas con un nombre válido", () => {
+    const src = `enunciado: "x"\nrespuesta: 1\nmapa: world_pizza\n`;
+    try {
+      parse(src);
+      expect.fail("debió tirar ParseError");
+    } catch (e) {
+      expect(e).toBeInstanceOf(ParseError);
+      const err = e as ParseError;
+      expect(err.message).toMatch(/Mapa desconocido/);
+      expect(err.suggestion).toMatch(/comillas/);
+    }
+  });
 });

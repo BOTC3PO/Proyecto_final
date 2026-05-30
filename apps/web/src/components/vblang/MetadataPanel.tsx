@@ -2,7 +2,22 @@
  * Panel lateral con metadata editable de la plantilla.
  */
 
+import { useState } from "react";
 import type { Visibility } from "../../domain/vblang/plantilla.types";
+
+const MATERIAS = [
+  "Matemática",
+  "Física",
+  "Química",
+  "Biología",
+  "Economía",
+  "Informática",
+  "Historia",
+  "Geografía",
+  "Lengua",
+] as const;
+
+const OTRA = "__otra__";
 
 export interface PlantillaMetadata {
   nombre: string;
@@ -33,14 +48,25 @@ export default function MetadataPanel({
     onChange({ ...value, [key]: v });
   };
 
-  const tagsString = value.tags.join(", ");
-  const onTagsChange = (raw: string) => {
-    const parts = raw
-      .split(",")
-      .map((s) => s.trim())
-      .filter((s) => s.length > 0);
-    update("tags", parts);
+  // Materia: select predefinido + opción "Otra…" que revela un input libre.
+  const materiaEnLista = (MATERIAS as readonly string[]).includes(value.materia);
+  const [materiaLibre, setMateriaLibre] = useState(
+    value.materia !== "" && !materiaEnLista,
+  );
+
+  // Tags como chips: Enter agrega, X quita.
+  const [tagDraft, setTagDraft] = useState("");
+  const addTag = (raw: string) => {
+    const t = raw.trim();
+    if (t === "" || value.tags.includes(t)) {
+      setTagDraft("");
+      return;
+    }
+    update("tags", [...value.tags, t]);
+    setTagDraft("");
   };
+  const removeTag = (t: string) =>
+    update("tags", value.tags.filter((x) => x !== t));
 
   return (
     <div
@@ -80,34 +106,88 @@ export default function MetadataPanel({
         />
       </label>
 
-      <label className="block">
+      <div className="block">
         <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">
           Materia
         </span>
-        <input
-          type="text"
+        <select
           className="w-full rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-bg,white)] px-3 py-1.5 text-sm"
-          value={value.materia}
-          onChange={(e) => update("materia", e.target.value)}
-          maxLength={100}
+          value={materiaLibre ? OTRA : value.materia}
+          onChange={(e) => {
+            if (e.target.value === OTRA) {
+              setMateriaLibre(true);
+              update("materia", "");
+            } else {
+              setMateriaLibre(false);
+              update("materia", e.target.value);
+            }
+          }}
           disabled={disabled}
-          placeholder="Ej: Física"
-        />
-      </label>
+        >
+          <option value="">(sin materia)</option>
+          {MATERIAS.map((m) => (
+            <option key={m} value={m}>
+              {m}
+            </option>
+          ))}
+          <option value={OTRA}>Otra…</option>
+        </select>
+        {materiaLibre && (
+          <input
+            type="text"
+            className="mt-1.5 w-full rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-bg,white)] px-3 py-1.5 text-sm"
+            value={value.materia}
+            onChange={(e) => update("materia", e.target.value)}
+            maxLength={100}
+            disabled={disabled}
+            placeholder="Escribí la materia"
+          />
+        )}
+      </div>
 
-      <label className="block">
+      <div className="block">
         <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">
-          Tags (separados por coma)
+          Tags
         </span>
+        {value.tags.length > 0 && (
+          <div className="mb-1.5 flex flex-wrap gap-1">
+            {value.tags.map((t) => (
+              <span
+                key={t}
+                className="inline-flex items-center gap-1 rounded-full bg-[var(--c-bg,#f1f5f9)] px-2 py-0.5 text-xs text-[var(--c-text)]"
+              >
+                {t}
+                <button
+                  type="button"
+                  onClick={() => removeTag(t)}
+                  disabled={disabled}
+                  aria-label={`Quitar tag ${t}`}
+                  className="text-[var(--c-muted,#64748b)] hover:text-[var(--c-danger)]"
+                >
+                  ×
+                </button>
+              </span>
+            ))}
+          </div>
+        )}
         <input
           type="text"
           className="w-full rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-bg,white)] px-3 py-1.5 text-sm"
-          value={tagsString}
-          onChange={(e) => onTagsChange(e.target.value)}
+          value={tagDraft}
+          onChange={(e) => setTagDraft(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              addTag(tagDraft);
+            } else if (e.key === "Backspace" && tagDraft === "" && value.tags.length > 0) {
+              removeTag(value.tags[value.tags.length - 1]);
+            }
+          }}
+          onBlur={() => addTag(tagDraft)}
           disabled={disabled}
-          placeholder="cinemática, random, 1ro"
+          placeholder="Escribí y Enter (ej. cinemática)"
         />
-      </label>
+      </div>
 
       <label className="block">
         <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">

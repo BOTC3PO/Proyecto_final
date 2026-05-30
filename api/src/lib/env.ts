@@ -7,6 +7,8 @@ const parseBool = (value: string | undefined, fallback: boolean) => {
 export const ENV = {
   NODE_ENV: process.env.NODE_ENV ?? "development",
   PORT: Number(process.env.PORT ?? 5050),
+  // URL pública del front; back_url de MercadoPago cae acá si no se pasa una explícita.
+  APP_URL: process.env.APP_URL ?? "http://localhost:5173",
   DB_KIND: (process.env.DB_KIND ?? "sqlite").toLowerCase(),
   SQLITE_PATH: process.env.SQLITE_PATH ?? "./src/diccionarios/Diccionario.sqlite",
 SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
@@ -54,6 +56,10 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   MP_WEBHOOK_SECRET: process.env.MP_WEBHOOK_SECRET ?? "",
   // Pagos habilitados (false para sistemas autogestionados)
   PAYMENTS_ENABLED: parseBool(process.env.PAYMENTS_ENABLED, true),
+  // Pagos enterprise (invoices/receipts). Deshabilitado por default: el modelo
+  // de persistencia (Invoice/Receipt en Prisma) todavía no existe, así que
+  // iniciar un cobro no quedaría registrado. Ver api/src/lib/payments/index.ts.
+  ENABLE_ENTERPRISE_PAYMENTS: parseBool(process.env.ENABLE_ENTERPRISE_PAYMENTS, false),
   // Precios en ARS
   PRECIO_ALUMNO_MENSUAL: Number(process.env.PRECIO_ALUMNO_MENSUAL ?? 1000),
   PRECIO_STAFF_MENSUAL: Number(process.env.PRECIO_STAFF_MENSUAL ?? 300),

@@ -1,24 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { apiGet } from "../../lib/api";
 import { getStaticCatalog } from "../../generadoresV2/catalog";
-
-const hashString = (value: string) => {
-  let hash = 0;
-  for (let i = 0; i < value.length; i += 1) {
-    hash = (hash << 5) - hash + value.charCodeAt(i);
-    hash |= 0;
-  }
-  return Math.abs(hash);
-};
-
-const mulberry32 = (seed: number) => {
-  return () => {
-    let t = (seed += 0x6d2b79f5);
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-};
+import QuizGeneratedPreview from "./QuizGeneratedPreview";
 
 type GeneratorSubtipo = { id: string; label: string };
 type GeneratorCatalogItem = {
@@ -53,7 +36,6 @@ const DIFICULTAD_OPTS: Array<{ value: Dificultad; label: string }> = [
 
 export default function QuizEditorGenerated({
   generatorId,
-  generatorVersion,
   params,
   count,
   onChange,
@@ -61,6 +43,7 @@ export default function QuizEditorGenerated({
 }: QuizEditorGeneratedProps) {
   const [catalog, setCatalog] = useState<GeneratorCatalogItem[]>(() => getStaticCatalog());
   const [docs, setDocs] = useState<Record<string, unknown> | null>(null);
+  const [filtro, setFiltro] = useState("");
 
   useEffect(() => {
     if (!generatorId) { setDocs(null); return; }
@@ -87,18 +70,6 @@ export default function QuizEditorGenerated({
       ? (params.dificultad as Dificultad)
       : "intermedio";
 
-  const previewItems = useMemo(() => {
-    if (!showPreview || !generatorId || !count || count <= 0) return [];
-    const seed = hashString(
-      `preview:${generatorId}:${generatorVersion}:${JSON.stringify(params ?? {})}`
-    );
-    const random = mulberry32(seed);
-    return Array.from({ length: count }, (_, index) => {
-      const token = Math.floor(random() * 900 + 100);
-      return `Pregunta ${index + 1} · semilla ${token}`;
-    });
-  }, [count, generatorId, generatorVersion, params, showPreview]);
-
   const selectedItem = catalog.find((c) => c.id === generatorId);
   const selectedSubtipoId = typeof params?.subtipo === "string" ? params.subtipo : null;
   const selectedSubtipo = selectedItem?.subtipos.find((s) => s.id === selectedSubtipoId);
@@ -112,8 +83,24 @@ export default function QuizEditorGenerated({
     });
   };
 
+  // Filtro por materia / nombre del generador / subtipo.
+  const filteredCatalog = useMemo(() => {
+    const q = filtro.trim().toLowerCase();
+    if (!q) return catalog;
+    return catalog.filter((item) => {
+      const haystack = [
+        item.materia,
+        item.label,
+        ...item.subtipos.map((s) => s.label),
+      ]
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(q);
+    });
+  }, [catalog, filtro]);
+
   // Group catalog by materia
-  const grouped = catalog.reduce<Record<string, GeneratorCatalogItem[]>>((acc, item) => {
+  const grouped = filteredCatalog.reduce<Record<string, GeneratorCatalogItem[]>>((acc, item) => {
     if (!acc[item.materia]) acc[item.materia] = [];
     acc[item.materia].push(item);
     return acc;
@@ -144,7 +131,21 @@ export default function QuizEditorGenerated({
             </button>
           </div>
         ) : (
-          <div className="max-h-72 overflow-y-auto rounded-lg border border-gray-200 p-2 space-y-3">
+          <div className="space-y-2">
+            <input
+              type="search"
+              value={filtro}
+              onChange={(e) => setFiltro(e.target.value)}
+              placeholder="Filtrar por materia o generador…"
+              aria-label="Filtrar generadores"
+              className="w-full rounded-md border border-gray-300 px-2 py-1.5 text-xs focus:border-blue-400 focus:outline-none"
+            />
+            <div className="max-h-72 overflow-y-auto rounded-lg border border-gray-200 p-2 space-y-3">
+            {Object.keys(grouped).length === 0 && (
+              <p className="px-1 py-2 text-xs text-gray-500">
+                Sin generadores que coincidan con “{filtro}”.
+              </p>
+            )}
             {Object.entries(grouped).map(([materia, items]) => (
               <div key={materia}>
                 <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-gray-500">
@@ -159,6 +160,7 @@ export default function QuizEditorGenerated({
                           type="button"
                           className="rounded border border-gray-300 bg-gray-50 px-2 py-0.5 text-[11px] text-gray-700 hover:border-blue-400 hover:bg-blue-50 transition-colors"
                           onClick={() => handleSelect(item)}
+                          aria-pressed={selectedSubtipoId === null}
                         >
                           Aleatorio
                         </button>
@@ -168,6 +170,7 @@ export default function QuizEditorGenerated({
                             type="button"
                             className="rounded border border-gray-300 bg-gray-50 px-2 py-0.5 text-[11px] text-gray-700 hover:border-blue-400 hover:bg-blue-50 transition-colors"
                             onClick={() => handleSelect(item, subtipo)}
+                            aria-pressed={selectedSubtipoId === subtipo.id}
                           >
                             {subtipo.label}
                           </button>
@@ -178,6 +181,7 @@ export default function QuizEditorGenerated({
                 </div>
               </div>
             ))}
+            </div>
           </div>
         )}
       </div>
@@ -263,20 +267,16 @@ export default function QuizEditorGenerated({
 
       {showPreview ? (
         <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-          <p className="text-xs font-semibold text-gray-700">
-            Vista previa determinística (semilla fija)
-          </p>
-          {previewItems.length === 0 ? (
-            <p className="mt-2 text-xs text-gray-500">
-              Seleccioná un generador y la cantidad para ver ejemplos.
-            </p>
-          ) : (
-            <ul className="mt-2 list-disc space-y-1 pl-4 text-xs text-gray-600">
-              {previewItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          )}
+          <p className="text-xs font-semibold text-gray-700">Vista previa</p>
+          <div className="mt-2">
+            {!generatorId || !count || count <= 0 ? (
+              <p className="text-xs text-gray-500">
+                Seleccioná un generador y la cantidad para ver ejemplos.
+              </p>
+            ) : (
+              <QuizGeneratedPreview generatorId={generatorId} count={count} />
+            )}
+          </div>
         </div>
       ) : null}
     </div>

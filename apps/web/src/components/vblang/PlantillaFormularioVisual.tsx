@@ -2,13 +2,19 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { emitExpr, serialize } from "@vb/vblang";
 import type {
   Bloque,
+  CampoKV,
   Expr,
   GeneradorBloque,
+  MetadataBloque,
   OpcionesBloque,
-  OpcionesExplicitasBloque,
+  PasoItem,
+  PasosBloque,
   Plantilla,
+  RestriccionesBloque,
   TipoBloque,
   TipoPregunta,
+  ToleranciaBloque,
+  UnidadBloque,
   VariableDecl,
   VariablesBloque,
   EnunciadoBloque,
@@ -16,21 +22,34 @@ import type {
 } from "@vb/vblang";
 import GeneradorPicker from "./GeneradorPicker";
 import OpcionesEditor from "./OpcionesEditor";
+import { parseExprText } from "./exprParse";
 
 interface Props {
   plantilla: Plantilla;
   onChange: (next: Plantilla) => void;
+  /** Valores que tomó cada variable en el primer preview (indicador "ahora: X"). */
+  valoresActuales?: Record<string, unknown>;
+  /** Estado de validación (alimenta el pill del Resumen). */
+  tieneErrores?: boolean;
 }
 
-const TIPOS: { value: TipoPregunta; label: string }[] = [
-  { value: "input", label: "Input numérico/texto" },
-  { value: "mc", label: "Multiple choice" },
-  { value: "vf", label: "Verdadero / Falso" },
-  { value: "completar", label: "Completar" },
-  { value: "ordenar", label: "Ordenar" },
-  { value: "marcar_mapa", label: "Marcar mapa" },
-  { value: "analisis_sintactico", label: "Análisis sintáctico" },
-  { value: "identificar_palabras", label: "Identificar palabras" },
+function formatValorActual(v: unknown): string {
+  if (v === null || v === undefined) return "—";
+  if (Array.isArray(v)) return `[${v.map(formatValorActual).join(", ")}]`;
+  if (typeof v === "object") return JSON.stringify(v);
+  if (typeof v === "number") return String(Math.round(v * 1000) / 1000);
+  return String(v);
+}
+
+const TIPOS: { value: TipoPregunta; label: string; desc: string }[] = [
+  { value: "input", label: "Input numérico/texto", desc: "El alumno escribe la respuesta (número o texto)." },
+  { value: "mc", label: "Multiple choice", desc: "Una opción correcta entre varias." },
+  { value: "vf", label: "Verdadero / Falso", desc: "La respuesta es verdadero o falso." },
+  { value: "completar", label: "Completar", desc: "El alumno completa un valor faltante." },
+  { value: "ordenar", label: "Ordenar", desc: "Reordenar una lista de ítems." },
+  { value: "marcar_mapa", label: "Marcar mapa", desc: "Hacer click en un país/región del mapa." },
+  { value: "analisis_sintactico", label: "Análisis sintáctico", desc: "Etiquetar gramaticalmente cada palabra." },
+  { value: "identificar_palabras", label: "Identificar palabras", desc: "Marcar las palabras que cumplen un criterio." },
 ];
 
 const DUMMY_LOC = { line: 0, col: 0, endLine: 0, endCol: 0 } as const;
@@ -126,6 +145,8 @@ function useBufferedInput<T>(args: {
 
 /* ---------- Variable widget classification ---------- */
 
+type ObjectLitExpr = Extract<Expr, { kind: "object" }>;
+
 type VarShape =
   | { kind: "literal-num"; value: number }
   | { kind: "literal-str"; value: string }
@@ -133,6 +154,8 @@ type VarShape =
   | { kind: "random"; min: number; max: number }
   | { kind: "random_float"; min: number; max: number; decimals: number }
   | { kind: "uno_de-strings"; items: string[] }
+  | { kind: "uno_de-objects"; objects: ObjectLitExpr[]; keys: string[] }
+  | { kind: "num-array"; items: number[] }
   | { kind: "advanced" };
 
 type ShapeKind = VarShape["kind"];
@@ -143,8 +166,10 @@ const SHAPE_LABELS: { value: ShapeKind; label: string }[] = [
   { value: "literal-bool", label: "Literal booleano" },
   { value: "random", label: "Aleatorio entero" },
   { value: "random_float", label: "Aleatorio decimal" },
-  { value: "uno_de-strings", label: "Uno de..." },
-  { value: "advanced", label: "Expresión avanzada" },
+  { value: "uno_de-strings", label: "Uno de... (texto)" },
+  { value: "uno_de-objects", label: "Uno de... (objetos)" },
+  { value: "num-array", label: "Array de números" },
+  { value: "advanced", label: "Expresión derivada" },
 ];
 
 function classifyVarExpr(expr: Expr): VarShape {
@@ -180,6 +205,7 @@ function classifyVarExpr(expr: Expr): VarShape {
     expr.name === "uno_de" &&
     expr.args.length === 1 &&
     expr.args[0].kind === "array" &&
+    expr.args[0].items.length > 0 &&
     expr.args[0].items.every((i) => i.kind === "str")
   ) {
     return {
@@ -187,6 +213,31 @@ function classifyVarExpr(expr: Expr): VarShape {
       items: expr.args[0].items.map(
         (i) => (i as Extract<Expr, { kind: "str" }>).value,
       ),
+    };
+  }
+  if (
+    expr.kind === "fun_call" &&
+    expr.name === "uno_de" &&
+    expr.args.length === 1 &&
+    expr.args[0].kind === "array" &&
+    expr.args[0].items.length > 0 &&
+    expr.args[0].items.every((i) => i.kind === "object")
+  ) {
+    const objects = expr.args[0].items as ObjectLitExpr[];
+    const keys: string[] = [];
+    for (const o of objects) {
+      for (const e of o.entries) if (!keys.includes(e.key)) keys.push(e.key);
+    }
+    return { kind: "uno_de-objects", objects, keys };
+  }
+  if (
+    expr.kind === "array" &&
+    expr.items.length > 0 &&
+    expr.items.every((i) => i.kind === "num")
+  ) {
+    return {
+      kind: "num-array",
+      items: expr.items.map((i) => (i as Extract<Expr, { kind: "num" }>).value),
     };
   }
   return { kind: "advanced" };
@@ -208,6 +259,25 @@ function defaultExprForShape(kind: ShapeKind): Expr {
       return funCall("uno_de", [
         { kind: "array", items: [strLit("a"), strLit("b")], loc: DUMMY_LOC },
       ]);
+    case "uno_de-objects":
+      return funCall("uno_de", [
+        {
+          kind: "array",
+          items: [
+            {
+              kind: "object",
+              entries: [
+                { key: "nombre", value: strLit("a"), loc: DUMMY_LOC },
+                { key: "valor", value: numLit(1), loc: DUMMY_LOC },
+              ],
+              loc: DUMMY_LOC,
+            },
+          ],
+          loc: DUMMY_LOC,
+        },
+      ]);
+    case "num-array":
+      return { kind: "array", items: [numLit(1), numLit(2), numLit(3)], loc: DUMMY_LOC };
     case "advanced":
       return numLit(0);
   }
@@ -340,7 +410,7 @@ function isDestructiveTipoChange(
 
 /* ---------- Componente principal ---------- */
 
-export default function PlantillaFormularioVisual({ plantilla, onChange }: Props) {
+export default function PlantillaFormularioVisual({ plantilla, onChange, valoresActuales, tieneErrores }: Props) {
   const enunciado = findBlock(plantilla, "enunciado");
   const variablesBlock = findBlock(plantilla, "variables");
   const variables = variablesBlock?.declaraciones ?? [];
@@ -464,6 +534,45 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
 
   const allVarNames = useMemo(() => variables.map((v) => v.nombre), [variables]);
 
+  const combinaciones = useMemo(() => {
+    let total = 1;
+    let continuo = false;
+    for (const v of variables) {
+      const s = classifyVarExpr(v.expr);
+      if (s.kind === "random") {
+        total *= Math.max(1, Math.floor(s.max - s.min + 1));
+      } else if (s.kind === "uno_de-strings") {
+        total *= Math.max(1, s.items.length);
+      } else if (s.kind === "random_float") {
+        continuo = true;
+      }
+    }
+    return { total, continuo };
+  }, [variables]);
+
+  const enunciadoRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const insertarVariableEnEnunciado = (nombre: string) => {
+    const token = `{${nombre}}`;
+    const ta = enunciadoRef.current;
+    if (!ta) {
+      setEnunciadoText(enunciadoText + token);
+      return;
+    }
+    const start = ta.selectionStart ?? enunciadoText.length;
+    const end = ta.selectionEnd ?? enunciadoText.length;
+    const next = enunciadoText.slice(0, start) + token + enunciadoText.slice(end);
+    setEnunciadoText(next);
+    requestAnimationFrame(() => {
+      const el = enunciadoRef.current;
+      if (el) {
+        const pos = start + token.length;
+        el.focus();
+        el.setSelectionRange(pos, pos);
+      }
+    });
+  };
+
   return (
     <div
       role="region"
@@ -484,6 +593,9 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
             </option>
           ))}
         </select>
+        <p className="mt-1 text-xs text-[var(--c-muted,#64748b)]">
+          {TIPOS.find((t) => t.value === tipoActual)?.desc}
+        </p>
       </Section>
 
       {/* 2. Generador asistido */}
@@ -527,6 +639,8 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
               idx={i}
               decl={decl}
               allNames={allVarNames}
+              valorActual={valoresActuales?.[decl.nombre]}
+              tieneValor={!!valoresActuales && decl.nombre in valoresActuales}
               onRename={(name) => renameVariable(i, name)}
               onChangeExpr={(expr) => updateVariableExpr(i, expr)}
               onChangeShape={(kind) => changeVariableShape(i, kind)}
@@ -547,6 +661,7 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
       {/* 4. Enunciado */}
       <Section title="Enunciado">
         <textarea
+          ref={enunciadoRef}
           value={enunciadoText}
           onChange={(e) => setEnunciadoText(e.target.value)}
           rows={3}
@@ -554,6 +669,22 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
           placeholder="Ej.: ¿Cuánto es {a} + {b}?"
           data-testid="vblang-form-enunciado"
         />
+        {allVarNames.length > 0 && (
+          <div className="mt-1.5 flex flex-wrap items-center gap-1">
+            <span className="text-[10px] text-[var(--c-muted,#64748b)]">Insertar:</span>
+            {allVarNames.map((nombre) => (
+              <button
+                key={nombre}
+                type="button"
+                onClick={() => insertarVariableEnEnunciado(nombre)}
+                className="rounded-full border border-[var(--c-border,#e2e8f0)] bg-white px-2 py-0.5 font-mono text-[10px] text-[var(--c-primary,#3b82f6)] hover:bg-[var(--c-bg,#f1f5f9)]"
+                aria-label={`Insertar variable ${nombre} en el enunciado`}
+              >
+                {`{${nombre}}`}
+              </button>
+            ))}
+          </div>
+        )}
         <p className="mt-1 text-xs text-[var(--c-muted,#64748b)]">
           Usá <code>{`{nombreVariable}`}</code> para insertar el valor.
         </p>
@@ -571,14 +702,72 @@ export default function PlantillaFormularioVisual({ plantilla, onChange }: Props
         <RespuestaEditor plantilla={plantilla} onChange={onChange} />
       </Section>
 
-      {/* 7. Avanzado (sólo lectura) */}
-      <Section title="Avanzado (sólo lectura)">
+      {/* 7. Tolerancia y unidad (numéricas) */}
+      {(tipoActual === "input" || tipoActual === "completar") && (
+        <Section title="Tolerancia y unidad">
+          <ToleranciaUnidadEditor plantilla={plantilla} onChange={onChange} />
+        </Section>
+      )}
+
+      {/* 8. Puntaje y pista */}
+      <Section title="Puntaje y pista">
+        <PuntajePistaEditor plantilla={plantilla} onChange={onChange} />
+      </Section>
+
+      {/* 9. Restricciones */}
+      <Section title="Restricciones">
+        <RestriccionesEditor plantilla={plantilla} onChange={onChange} />
+      </Section>
+
+      {/* 10. Pasos de resolución */}
+      <Section title="Pasos de resolución">
+        <PasosEditor plantilla={plantilla} onChange={onChange} />
+      </Section>
+
+      {/* 11. Código DSL (sólo lectura) */}
+      <Section title="Código DSL (sólo lectura)">
         <p className="text-xs text-[var(--c-muted,#64748b)]">
-          Estos bloques requieren editar el código DSL directamente.
+          Bloques no cubiertos por el formulario (visual, dataset, mapa…) se
+          editan desde el modo Código.
         </p>
         <pre className="mt-2 max-h-64 overflow-auto rounded border border-[var(--c-border,#e2e8f0)] bg-[#0f172a] p-2 text-xs text-emerald-200">
           {serialize(plantilla)}
         </pre>
+      </Section>
+
+      {/* 12. Resumen */}
+      <Section title="Resumen">
+        <div className="rounded border border-[var(--c-border,#e2e8f0)] bg-white p-3 text-xs space-y-1.5">
+          <div className="flex items-center justify-between">
+            <span className="text-[var(--c-muted,#64748b)]">Variables</span>
+            <span className="font-semibold text-[var(--c-text)]">{variables.length}</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-[var(--c-muted,#64748b)]">Tipo</span>
+            <span className="font-semibold text-[var(--c-text)]">
+              {TIPOS.find((t) => t.value === tipoActual)?.label ?? tipoActual}
+            </span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-[var(--c-muted,#64748b)]">Combinaciones posibles</span>
+            <span className="font-semibold text-[var(--c-text)]">
+              {combinaciones.continuo
+                ? "muchas (incluye decimales)"
+                : combinaciones.total.toLocaleString("es-AR")}
+            </span>
+          </div>
+          <div className="pt-1">
+            <span
+              className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+                tieneErrores
+                  ? "bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]"
+                  : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
+              }`}
+            >
+              {tieneErrores ? "Con errores" : "Sin errores"}
+            </span>
+          </div>
+        </div>
       </Section>
 
       {/* Confirm dialog */}
@@ -657,6 +846,8 @@ function VariableRow({
   idx,
   decl,
   allNames,
+  valorActual,
+  tieneValor,
   onRename,
   onChangeExpr,
   onChangeShape,
@@ -665,6 +856,8 @@ function VariableRow({
   idx: number;
   decl: VariableDecl;
   allNames: string[];
+  valorActual?: unknown;
+  tieneValor?: boolean;
   onRename: (name: string) => void;
   onChangeExpr: (expr: Expr) => void;
   onChangeShape: (kind: ShapeKind) => void;
@@ -732,6 +925,14 @@ function VariableRow({
         </button>
       </div>
       <VariableExprWidget shape={shape} onChange={onChangeExpr} decl={decl} />
+      {tieneValor && (
+        <p className="text-[10px] text-[var(--c-muted,#64748b)]">
+          ahora:{" "}
+          <span className="font-mono font-semibold text-[var(--c-text)]">
+            {formatValorActual(valorActual)}
+          </span>
+        </p>
+      )}
     </div>
   );
 }
@@ -857,19 +1058,250 @@ function VariableExprWidget({
       />
     );
   }
-  // advanced
+  if (shape.kind === "num-array") {
+    return <NumArrayWidget items={shape.items} onChange={onChange} />;
+  }
+  if (shape.kind === "uno_de-objects") {
+    return (
+      <UnoDeObjectsWidget objects={shape.objects} keys={shape.keys} onChange={onChange} />
+    );
+  }
+  // advanced / derivada: fórmula editable parseada con el parser real.
+  return <DerivedExprWidget expr={decl.expr} onChange={onChange} />;
+}
+
+/* ---------- 2D: Array de números ---------- */
+
+function NumArrayWidget({
+  items,
+  onChange,
+}: {
+  items: number[];
+  onChange: (expr: Expr) => void;
+}) {
+  const buf = useBufferedInput<number[]>({
+    external: items,
+    serialize: (arr) => arr.join(", "),
+    parse: (s) => {
+      const parts = s
+        .split(/[,\s]+/)
+        .map((x) => x.trim())
+        .filter((x) => x.length > 0);
+      const nums: number[] = [];
+      for (const p of parts) {
+        if (!FINITE_NUMBER_RE.test(p)) {
+          return { ok: false, reason: `"${p}" no es un número` };
+        }
+        nums.push(Number(p));
+      }
+      if (nums.length === 0) return { ok: false, reason: "Lista vacía" };
+      return { ok: true, value: nums };
+    },
+    onCommit: (nums) =>
+      onChange({ kind: "array", items: nums.map(numLit), loc: DUMMY_LOC }),
+  });
   return (
-    <div className="space-y-1">
-      <code className="block text-xs font-mono text-[var(--c-muted,#64748b)] bg-[#f1f5f9] rounded px-2 py-1">
-        {emitExpr(decl.expr)}
-      </code>
-      <button
-        type="button"
-        onClick={() => onChange(numLit(0))}
-        className="text-[10px] text-[var(--c-primary,#3b82f6)] hover:underline"
-      >
-        Resetear a literal número
-      </button>
+    <div>
+      <input
+        value={buf.buf}
+        onChange={(e) => buf.handleChange(e.target.value)}
+        onBlur={buf.handleBlur}
+        placeholder="Números separados por coma (ej. 1, 2, 3)"
+        className={`w-full rounded border px-2 py-0.5 text-xs font-mono ${
+          buf.error ? "border-red-500" : "border-[var(--c-border,#e2e8f0)]"
+        }`}
+      />
+      {buf.error && <p className="text-[10px] text-red-600 mt-0.5">{buf.error}</p>}
+    </div>
+  );
+}
+
+/* ---------- 2D: uno_de con objetos (tabla) ---------- */
+
+function cellToText(value: Expr): string {
+  if (value.kind === "str") return value.value;
+  if (value.kind === "num") return String(value.value);
+  if (value.kind === "bool") return value.value ? "verdadero" : "falso";
+  return emitExpr(value);
+}
+
+function textToCell(text: string): Expr {
+  const t = text.trim();
+  if (FINITE_NUMBER_RE.test(t)) return numLit(Number(t));
+  if (t === "verdadero") return boolLit(true);
+  if (t === "falso") return boolLit(false);
+  return strLit(text);
+}
+
+function UnoDeObjectsWidget({
+  objects,
+  keys,
+  onChange,
+}: {
+  objects: ObjectLitExpr[];
+  keys: string[];
+  onChange: (expr: Expr) => void;
+}) {
+  const [nuevoCampo, setNuevoCampo] = useState("");
+
+  const emit = (objs: ObjectLitExpr[]) => {
+    onChange(
+      funCall("uno_de", [{ kind: "array", items: objs, loc: DUMMY_LOC }]),
+    );
+  };
+
+  const setCell = (rowIdx: number, key: string, text: string) => {
+    const next = objects.map((o, i) => {
+      if (i !== rowIdx) return o;
+      const entries = [...o.entries];
+      const ei = entries.findIndex((e) => e.key === key);
+      const value = textToCell(text);
+      if (ei >= 0) entries[ei] = { key, value, loc: DUMMY_LOC };
+      else entries.push({ key, value, loc: DUMMY_LOC });
+      return { kind: "object", entries, loc: DUMMY_LOC } as ObjectLitExpr;
+    });
+    emit(next);
+  };
+
+  const addRow = () => {
+    const entries = keys.map((k) => ({ key: k, value: strLit(""), loc: DUMMY_LOC }));
+    emit([...objects, { kind: "object", entries, loc: DUMMY_LOC } as ObjectLitExpr]);
+  };
+  const removeRow = (rowIdx: number) => {
+    const next = objects.filter((_, i) => i !== rowIdx);
+    if (next.length === 0) return;
+    emit(next);
+  };
+  const addColumn = () => {
+    const k = nuevoCampo.trim();
+    if (k === "" || keys.includes(k)) {
+      setNuevoCampo("");
+      return;
+    }
+    const next = objects.map(
+      (o) =>
+        ({
+          kind: "object",
+          entries: [...o.entries, { key: k, value: strLit(""), loc: DUMMY_LOC }],
+          loc: DUMMY_LOC,
+        }) as ObjectLitExpr,
+    );
+    setNuevoCampo("");
+    emit(next);
+  };
+
+  const cellValue = (o: ObjectLitExpr, key: string): string => {
+    const e = o.entries.find((x) => x.key === key);
+    return e ? cellToText(e.value) : "";
+  };
+
+  return (
+    <div className="space-y-1 overflow-x-auto">
+      <table className="w-full border-collapse text-[11px]">
+        <thead>
+          <tr>
+            {keys.map((k) => (
+              <th
+                key={k}
+                className="border border-[var(--c-border,#e2e8f0)] bg-[#f1f5f9] px-1 py-0.5 text-left font-semibold"
+              >
+                {k}
+              </th>
+            ))}
+            <th className="w-6" />
+          </tr>
+        </thead>
+        <tbody>
+          {objects.map((o, ri) => (
+            <tr key={ri}>
+              {keys.map((k) => (
+                <td key={k} className="border border-[var(--c-border,#e2e8f0)] p-0">
+                  <input
+                    value={cellValue(o, k)}
+                    onChange={(e) => setCell(ri, k, e.target.value)}
+                    className="w-full bg-transparent px-1 py-0.5 text-[11px] focus:outline-none"
+                  />
+                </td>
+              ))}
+              <td className="text-center">
+                <button
+                  type="button"
+                  onClick={() => removeRow(ri)}
+                  disabled={objects.length <= 1}
+                  aria-label="Quitar fila"
+                  className="text-red-600 disabled:opacity-30"
+                >
+                  −
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          onClick={addRow}
+          className="text-[10px] text-[var(--c-primary,#3b82f6)] hover:underline"
+        >
+          + Fila
+        </button>
+        <span className="flex items-center gap-1">
+          <input
+            value={nuevoCampo}
+            onChange={(e) => setNuevoCampo(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                addColumn();
+              }
+            }}
+            placeholder="nuevo campo"
+            className="w-24 rounded border border-[var(--c-border,#e2e8f0)] px-1 py-0.5 text-[10px]"
+          />
+          <button
+            type="button"
+            onClick={addColumn}
+            className="text-[10px] text-[var(--c-primary,#3b82f6)] hover:underline"
+          >
+            + Campo
+          </button>
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- 2D: expresión derivada (editable) ---------- */
+
+function DerivedExprWidget({
+  expr,
+  onChange,
+}: {
+  expr: Expr;
+  onChange: (expr: Expr) => void;
+}) {
+  const buf = useBufferedInput<Expr>({
+    external: expr,
+    serialize: (e) => emitExpr(e),
+    parse: (s) => {
+      const r = parseExprText(s);
+      return r.ok ? { ok: true, value: r.expr } : { ok: false, reason: r.reason };
+    },
+    onCommit: onChange,
+  });
+  return (
+    <div>
+      <input
+        value={buf.buf}
+        onChange={(e) => buf.handleChange(e.target.value)}
+        onBlur={buf.handleBlur}
+        placeholder="Fórmula (ej. a + b * 2)"
+        className={`w-full rounded border px-2 py-0.5 text-xs font-mono ${
+          buf.error ? "border-red-500" : "border-[var(--c-border,#e2e8f0)]"
+        }`}
+      />
+      {buf.error && <p className="text-[10px] text-red-600 mt-0.5">{buf.error}</p>}
     </div>
   );
 }
@@ -1066,12 +1498,397 @@ function RespuestaBoolean({
   );
 }
 
+/* ---------- 2B: Tolerancia + unidad ---------- */
+
+function ToleranciaUnidadEditor({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const tol = findBlock(plantilla, "tolerancia");
+  const uni = findBlock(plantilla, "unidad");
+
+  const setTol = (valor: number, esPorcentaje: boolean) => {
+    const block: ToleranciaBloque = {
+      kind: "tolerancia",
+      valor,
+      esPorcentaje,
+      loc: tol?.loc ?? DUMMY_LOC,
+    };
+    onChange(withBlock(plantilla, block));
+  };
+  const setUni = (valor: string) => {
+    if (valor.trim() === "") {
+      onChange(withoutBlock(plantilla, "unidad"));
+      return;
+    }
+    const block: UnidadBloque = { kind: "unidad", valor, loc: uni?.loc ?? DUMMY_LOC };
+    onChange(withBlock(plantilla, block));
+  };
+
+  return (
+    <div className="space-y-2">
+      <div className="flex flex-wrap items-center gap-2">
+        <label className="flex items-center gap-1 text-xs">
+          <input
+            type="checkbox"
+            checked={!!tol}
+            onChange={(e) =>
+              e.target.checked
+                ? setTol(0, false)
+                : onChange(withoutBlock(plantilla, "tolerancia"))
+            }
+          />
+          Tolerancia
+        </label>
+        {tol && (
+          <>
+            <BufferedNumberInput
+              value={tol.valor}
+              onCommit={(v) => setTol(v, tol.esPorcentaje)}
+            />
+            <select
+              value={tol.esPorcentaje ? "pct" : "abs"}
+              onChange={(e) => setTol(tol.valor, e.target.value === "pct")}
+              className="rounded border border-[var(--c-border,#e2e8f0)] px-1 py-0.5 text-xs"
+            >
+              <option value="abs">absoluto</option>
+              <option value="pct">%</option>
+            </select>
+          </>
+        )}
+      </div>
+      <label className="flex items-center gap-2 text-xs">
+        <span className="w-14">Unidad</span>
+        <input
+          value={uni?.valor ?? ""}
+          onChange={(e) => setUni(e.target.value)}
+          placeholder="ej. m/s"
+          className="flex-1 rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-xs"
+        />
+      </label>
+    </div>
+  );
+}
+
+/* ---------- 2B: Puntaje + pista (via metadata) ---------- */
+
+function getMetaCampo(plantilla: Plantilla, key: string): Expr | undefined {
+  return findBlock(plantilla, "metadata")?.campos.find((c) => c.key === key)?.value;
+}
+
+function setMetaCampo(
+  plantilla: Plantilla,
+  key: string,
+  value: Expr | undefined,
+): Plantilla {
+  const m = findBlock(plantilla, "metadata");
+  const campos: CampoKV[] = m ? [...m.campos] : [];
+  const idx = campos.findIndex((c) => c.key === key);
+  if (value === undefined) {
+    if (idx >= 0) campos.splice(idx, 1);
+  } else {
+    const campo: CampoKV = { key, value, loc: DUMMY_LOC };
+    if (idx >= 0) campos[idx] = campo;
+    else campos.push(campo);
+  }
+  if (campos.length === 0) return withoutBlock(plantilla, "metadata");
+  const block: MetadataBloque = {
+    kind: "metadata",
+    campos,
+    loc: m?.loc ?? DUMMY_LOC,
+  };
+  return withBlock(plantilla, block);
+}
+
+function PuntajePistaEditor({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const puntajeExpr = getMetaCampo(plantilla, "puntaje");
+  const puntaje =
+    puntajeExpr && puntajeExpr.kind === "num" ? puntajeExpr.value : undefined;
+  const pistaExpr = getMetaCampo(plantilla, "pista");
+  const pista =
+    pistaExpr && pistaExpr.kind === "str" ? pistaExpr.value : "";
+
+  return (
+    <div className="space-y-2">
+      <label className="flex items-center gap-2 text-xs">
+        <span className="w-14">Puntaje</span>
+        <input
+          type="number"
+          step={0.5}
+          value={puntaje ?? ""}
+          onChange={(e) => {
+            const raw = e.target.value;
+            if (raw.trim() === "") {
+              onChange(setMetaCampo(plantilla, "puntaje", undefined));
+              return;
+            }
+            const n = Number(raw);
+            if (Number.isFinite(n)) {
+              onChange(setMetaCampo(plantilla, "puntaje", numLit(n)));
+            }
+          }}
+          className="w-24 rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-xs"
+        />
+      </label>
+      <label className="flex items-center gap-2 text-xs">
+        <span className="w-14">Pista</span>
+        <input
+          value={pista}
+          onChange={(e) => {
+            const v = e.target.value;
+            onChange(
+              setMetaCampo(plantilla, "pista", v === "" ? undefined : strLit(v)),
+            );
+          }}
+          placeholder="Pista opcional para el estudiante"
+          className="flex-1 rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-xs"
+        />
+      </label>
+    </div>
+  );
+}
+
+/* ---------- 2B: Restricciones ---------- */
+
+function RestriccionRow({
+  expr,
+  onCommit,
+  onRemove,
+}: {
+  expr: Expr;
+  onCommit: (expr: Expr) => void;
+  onRemove: () => void;
+}) {
+  const buf = useBufferedInput<Expr>({
+    external: expr,
+    serialize: (e) => emitExpr(e),
+    parse: (s) => {
+      const r = parseExprText(s);
+      return r.ok ? { ok: true, value: r.expr } : { ok: false, reason: r.reason };
+    },
+    onCommit,
+  });
+  return (
+    <div>
+      <div className="flex items-center gap-1">
+        <input
+          value={buf.buf}
+          onChange={(e) => buf.handleChange(e.target.value)}
+          onBlur={buf.handleBlur}
+          placeholder="ej. a != 0"
+          className={`flex-1 rounded border px-2 py-0.5 text-xs font-mono ${
+            buf.error ? "border-red-500" : "border-[var(--c-border,#e2e8f0)]"
+          }`}
+        />
+        <button
+          type="button"
+          onClick={onRemove}
+          aria-label="Quitar restricción"
+          className="text-xs text-red-600 hover:underline"
+        >
+          −
+        </button>
+      </div>
+      {buf.error && <p className="text-[10px] text-red-600 mt-0.5">{buf.error}</p>}
+    </div>
+  );
+}
+
+function RestriccionesEditor({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const block = findBlock(plantilla, "restricciones");
+  const condiciones = block?.condiciones ?? [];
+  const [nueva, setNueva] = useState("");
+  const [nuevaError, setNuevaError] = useState<string | null>(null);
+
+  const setCondiciones = (next: Expr[]) => {
+    if (next.length === 0) {
+      onChange(withoutBlock(plantilla, "restricciones"));
+      return;
+    }
+    const newBlock: RestriccionesBloque = {
+      kind: "restricciones",
+      condiciones: next,
+      loc: block?.loc ?? DUMMY_LOC,
+    };
+    onChange(withBlock(plantilla, newBlock));
+  };
+
+  const agregar = () => {
+    const r = parseExprText(nueva);
+    if (!r.ok) {
+      setNuevaError(r.reason);
+      return;
+    }
+    setCondiciones([...condiciones, r.expr]);
+    setNueva("");
+    setNuevaError(null);
+  };
+
+  return (
+    <div className="space-y-1">
+      {condiciones.length === 0 && (
+        <p className="text-xs text-[var(--c-muted,#64748b)]">Sin restricciones.</p>
+      )}
+      {condiciones.map((c, i) => (
+        <RestriccionRow
+          key={i}
+          expr={c}
+          onCommit={(e) => setCondiciones(condiciones.map((x, j) => (j === i ? e : x)))}
+          onRemove={() => setCondiciones(condiciones.filter((_, j) => j !== i))}
+        />
+      ))}
+      <div className="flex items-center gap-1 pt-1">
+        <input
+          value={nueva}
+          onChange={(e) => {
+            setNueva(e.target.value);
+            setNuevaError(null);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              agregar();
+            }
+          }}
+          placeholder="Nueva restricción (ej. b > 0)"
+          className={`flex-1 rounded border px-2 py-0.5 text-xs font-mono ${
+            nuevaError ? "border-red-500" : "border-[var(--c-border,#e2e8f0)]"
+          }`}
+        />
+        <button
+          type="button"
+          onClick={agregar}
+          className="rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-xs text-[var(--c-primary,#3b82f6)]"
+        >
+          + Agregar
+        </button>
+      </div>
+      {nuevaError && <p className="text-[10px] text-red-600">{nuevaError}</p>}
+    </div>
+  );
+}
+
+/* ---------- 2B: Pasos ---------- */
+
+function PasosEditor({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const block = findBlock(plantilla, "pasos");
+  const pasos = block?.pasos ?? [];
+
+  const setPasos = (next: PasoItem[]) => {
+    if (next.length === 0) {
+      onChange(withoutBlock(plantilla, "pasos"));
+      return;
+    }
+    const newBlock: PasosBloque = {
+      kind: "pasos",
+      pasos: next,
+      loc: block?.loc ?? DUMMY_LOC,
+    };
+    onChange(withBlock(plantilla, newBlock));
+  };
+
+  const updatePaso = (idx: number, text: string) => {
+    setPasos(
+      pasos.map((p, j) =>
+        j === idx ? { partes: textToEnunciadoPartes(text), loc: p.loc ?? DUMMY_LOC } : p,
+      ),
+    );
+  };
+  const addPaso = () =>
+    setPasos([...pasos, { partes: [{ kind: "texto", value: "" }], loc: DUMMY_LOC }]);
+  const removePaso = (idx: number) => setPasos(pasos.filter((_, j) => j !== idx));
+  const move = (idx: number, dir: -1 | 1) => {
+    const j = idx + dir;
+    if (j < 0 || j >= pasos.length) return;
+    const next = [...pasos];
+    [next[idx], next[j]] = [next[j], next[idx]];
+    setPasos(next);
+  };
+
+  return (
+    <div className="space-y-2">
+      {pasos.length === 0 && (
+        <p className="text-xs text-[var(--c-muted,#64748b)]">Sin pasos.</p>
+      )}
+      {pasos.map((p, i) => (
+        <div key={i} className="flex items-start gap-1">
+          <span className="mt-1 w-5 text-right text-[10px] text-[var(--c-muted,#64748b)]">
+            {i + 1}.
+          </span>
+          <textarea
+            value={partesToText(p.partes)}
+            onChange={(e) => updatePaso(i, e.target.value)}
+            rows={2}
+            className="flex-1 rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-xs font-mono"
+            placeholder="Paso de la resolución; podés usar {variable}"
+          />
+          <div className="flex flex-col gap-0.5">
+            <button
+              type="button"
+              onClick={() => move(i, -1)}
+              disabled={i === 0}
+              aria-label="Subir paso"
+              className="text-xs text-[var(--c-muted,#64748b)] disabled:opacity-30"
+            >
+              ↑
+            </button>
+            <button
+              type="button"
+              onClick={() => move(i, 1)}
+              disabled={i === pasos.length - 1}
+              aria-label="Bajar paso"
+              className="text-xs text-[var(--c-muted,#64748b)] disabled:opacity-30"
+            >
+              ↓
+            </button>
+            <button
+              type="button"
+              onClick={() => removePaso(i)}
+              aria-label="Eliminar paso"
+              className="text-xs text-red-600"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      ))}
+      <button
+        type="button"
+        onClick={addPaso}
+        className="rounded border border-dashed border-[var(--c-border,#cbd5e1)] px-3 py-1 text-xs text-[var(--c-muted,#64748b)] hover:bg-white"
+      >
+        + Agregar paso
+      </button>
+    </div>
+  );
+}
+
 /* ---------- enunciado <-> text ---------- */
 
-function enunciadoToText(b: EnunciadoBloque | undefined): string {
-  if (!b) return "";
+function partesToText(partes: TextoOInterpolacion[]): string {
   let out = "";
-  for (const p of b.partes) {
+  for (const p of partes) {
     if (p.kind === "texto") {
       out += p.value.replace(/{/g, "{{").replace(/}/g, "}}");
     } else {
@@ -1082,6 +1899,11 @@ function enunciadoToText(b: EnunciadoBloque | undefined): string {
     }
   }
   return out;
+}
+
+function enunciadoToText(b: EnunciadoBloque | undefined): string {
+  if (!b) return "";
+  return partesToText(b.partes);
 }
 
 function textToEnunciadoPartes(text: string): TextoOInterpolacion[] {
