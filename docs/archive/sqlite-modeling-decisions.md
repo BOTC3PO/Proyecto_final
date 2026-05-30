@@ -1,3 +1,8 @@
+> **ARCHIVO HISTÓRICO — NO USAR.** Decisiones de modelado de la era SQLite. La
+> persistencia principal actual es **PostgreSQL vía Prisma** (SQLite solo persiste
+> como base de solo lectura para diccionario y mapas). La documentación vigente del
+> modelo de datos está en [`docs/backend/modelo-de-datos.md`](../backend/modelo-de-datos.md).
+
 # Decisiones de Modelado SQLite — Plataforma Educativa
 
 > **Fecha:** 2026-02-22

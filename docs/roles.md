@@ -1,5 +1,10 @@
 # Roles y membresías
 
+> **Nota de reconciliación.** La documentación técnica completa de autenticación y autorización
+> (flujo JWT, middlewares, políticas, gating enterprise y acceso por suscripción) vive ahora en
+> [`docs/backend/auth-y-roles.md`](./backend/auth-y-roles.md). Este archivo se mantiene como
+> referencia conceptual de roles y membresías.
+
 > Referencias de términos clave en el [glosario](glosario.md).
 
 ## Roles globales
