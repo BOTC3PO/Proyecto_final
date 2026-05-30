@@ -115,6 +115,33 @@ pnpm --filter web dev
 - El puerto **5173** es el default de Vite; `apps/web/vite.config.ts` no lo sobreescribe y
   define un proxy de `/api` hacia `http://localhost:5050`.
 
+## Quickstart mobile (en desarrollo)
+
+La app mobile (`apps/mobile/`) es un proyecto **Expo / React Native** con NativeWind.
+Está en etapa temprana: por ahora es un scaffold de Expo y **aún no consume la API**
+(no hay base de API ni `.env` detectados en el código).
+
+```bash
+# Desde apps/mobile/ — la app trae su propio package-lock.json (npm)
+cd apps/mobile
+npm install
+
+# Levantar el dev server de Expo
+npm run start      # equivalente a `expo start`
+```
+
+Otros scripts disponibles en `apps/mobile/package.json`:
+
+- `npm run android` → `expo run:android`
+- `npm run ios` → `expo run:ios`
+- `npm run web` → `expo start --web`
+
+> Notas:
+> - `apps/mobile` es miembro del workspace pnpm (`apps/*`), pero mantiene su propio
+>   `package-lock.json`; instalá sus dependencias con `npm` dentro de esa carpeta.
+> - Integración con la API: `POR CONFIRMAR` (todavía no hay variable de API base ni
+>   llamadas al backend en `apps/mobile/`).
+
 ## Cómo orientarse en el repo
 
 - **Backend / API:** `api/src/` — `index.ts` monta las rutas bajo `/api/*`; `routes/`, `lib/`,
