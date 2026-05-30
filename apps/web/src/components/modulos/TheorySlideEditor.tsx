@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
+import { Button } from "../ui";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 import { useSlideEditor } from "./hooks/useSlideEditor";
@@ -1155,6 +1156,7 @@ function BlockLatexEditor({
   return (
     <div className="space-y-2">
       <textarea
+        aria-label="Fórmula LaTeX"
         className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none font-mono text-sm outline-none focus:border-[var(--c-primary)]"
         rows={4}
         placeholder="Fórmula LaTeX, ej: \frac{a}{b}"
@@ -1184,6 +1186,7 @@ function BlockTableEditor({
   return (
     <div className="space-y-2">
       <input
+        aria-label="Título de la tabla"
         className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
         placeholder="Título de la tabla (opcional)"
         value={block.title ?? ""}
@@ -1231,16 +1234,16 @@ function BlockTableEditor({
         </table>
       </div>
       <div className="flex gap-2">
-        <button
-          type="button"
-          className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs hover:bg-[var(--c-bg)]"
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={() => onChange({ rows: [...block.rows, block.headers.map(() => "")] })}
         >
           + Fila
-        </button>
-        <button
-          type="button"
-          className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs hover:bg-[var(--c-bg)]"
+        </Button>
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={() =>
             onChange({
               headers: [...block.headers, `Col ${block.headers.length + 1}`],
@@ -1249,7 +1252,7 @@ function BlockTableEditor({
           }
         >
           + Columna
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -1271,12 +1274,14 @@ function BlockChartDatasetRow({
   return (
     <div className="flex gap-1 items-center">
       <input
+        aria-label={`Nombre de la serie ${di + 1}`}
         className="w-28 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs"
         placeholder="Nombre serie"
         value={ds.label}
         onChange={(e) => onUpdate(di, "label", e.target.value)}
       />
       <input
+        aria-label={`Valores de la serie ${di + 1}`}
         className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs font-mono"
         placeholder="10, 20, 30"
         value={valuesInput}
@@ -1288,17 +1293,20 @@ function BlockChartDatasetRow({
       />
       <input
         type="color"
+        aria-label={`Color de la serie ${di + 1}`}
         className="h-7 w-8 rounded border border-[var(--c-border)] p-0.5"
         value={ds.color ?? "#6366f1"}
         onChange={(e) => onUpdate(di, "color", e.target.value)}
       />
-      <button
-        type="button"
-        className="rounded border border-red-200 bg-red-50 px-1.5 py-1 text-xs text-red-600 hover:bg-red-100"
+      <Button
+        variant="ghost"
+        size="sm"
+        className="text-[var(--c-danger)]"
+        aria-label={`Eliminar serie ${di + 1}`}
         onClick={() => onRemove(di)}
       >
         ✕
-      </button>
+      </Button>
     </div>
   );
 }
@@ -1334,12 +1342,14 @@ function BlockChartEditor({
     <div className="space-y-2">
       <div className="flex gap-2">
         <input
+          aria-label="Título del gráfico"
           className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
           placeholder="Título del gráfico (opcional)"
           value={block.title ?? ""}
           onChange={(e) => onChange({ title: e.target.value || undefined })}
         />
         <select
+          aria-label="Tipo de gráfico"
           className="border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-2 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
           value={block.chartType}
           onChange={(e) => onChange({ chartType: e.target.value as ChartBlock["chartType"] })}
@@ -1356,6 +1366,7 @@ function BlockChartEditor({
         </select>
       </div>
       <input
+        aria-label="Etiquetas del eje"
         className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-xs outline-none focus:border-[var(--c-primary)]"
         placeholder="Etiquetas separadas por coma: Ene, Feb, Mar"
         value={labelsInput}
@@ -1373,9 +1384,9 @@ function BlockChartEditor({
           }
         />
       ))}
-      <button
-        type="button"
-        className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs hover:bg-[var(--c-bg)]"
+      <Button
+        variant="ghost"
+        size="sm"
         onClick={() =>
           onChange({
             data: {
@@ -1389,7 +1400,7 @@ function BlockChartEditor({
         }
       >
         + Serie
-      </button>
+      </Button>
     </div>
   );
 }
@@ -1435,6 +1446,7 @@ function BlockFlowEditor({
   return (
     <div className="space-y-2">
       <input
+        aria-label="Título del diagrama"
         className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
         placeholder="Título del diagrama (opcional)"
         value={block.title ?? ""}
@@ -1444,12 +1456,14 @@ function BlockFlowEditor({
       {block.nodes.map((node) => (
         <div key={node.id} className="flex gap-1 items-center flex-wrap">
           <input
+            aria-label="Etiqueta del nodo"
             className="w-24 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs"
             placeholder="Etiqueta"
             value={node.label}
             onChange={(e) => updateNode(node.id, "label", e.target.value)}
           />
           <select
+            aria-label="Forma del nodo"
             className="border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
             value={node.shape ?? "rect"}
             onChange={(e) => updateNode(node.id, "shape", e.target.value)}
@@ -1460,6 +1474,7 @@ function BlockFlowEditor({
           </select>
           <input
             type="number"
+            aria-label="Posición X del nodo"
             className="w-14 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
             placeholder="x"
             value={node.x}
@@ -1467,6 +1482,7 @@ function BlockFlowEditor({
           />
           <input
             type="number"
+            aria-label="Posición Y del nodo"
             className="w-14 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
             placeholder="y"
             value={node.y}
@@ -1474,32 +1490,32 @@ function BlockFlowEditor({
           />
           <input
             type="color"
+            aria-label="Color del nodo"
             className="h-7 w-8 rounded border border-[var(--c-border)] p-0.5"
             value={node.color ?? "#e0e7ff"}
             onChange={(e) => updateNode(node.id, "color", e.target.value)}
           />
-          <button
-            type="button"
-            className="rounded border border-red-200 bg-red-50 px-1.5 py-1 text-xs text-red-600 hover:bg-red-100"
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-[var(--c-danger)]"
+            aria-label="Eliminar nodo"
             onClick={() => removeNode(node.id)}
           >
             ✕
-          </button>
+          </Button>
         </div>
       ))}
-      <button
-        type="button"
-        className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs hover:bg-[var(--c-bg)]"
-        onClick={addNode}
-      >
+      <Button variant="ghost" size="sm" onClick={addNode}>
         + Nodo
-      </button>
+      </Button>
       {block.nodes.length >= 2 && (
         <>
           <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--c-muted)] pt-1">Aristas</p>
           {block.edges.map((edge) => (
             <div key={edge.id} className="flex gap-1 items-center">
               <select
+                aria-label="Nodo de origen"
                 className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
                 value={edge.fromId}
                 onChange={(e) =>
@@ -1512,8 +1528,9 @@ function BlockFlowEditor({
               >
                 {block.nodes.map((n) => <option key={n.id} value={n.id}>{n.label}</option>)}
               </select>
-              <span className="text-xs text-[var(--c-muted)]">→</span>
+              <span className="text-xs text-[var(--c-muted)]" aria-hidden="true">→</span>
               <select
+                aria-label="Nodo de destino"
                 className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
                 value={edge.toId}
                 onChange={(e) =>
@@ -1527,6 +1544,7 @@ function BlockFlowEditor({
                 {block.nodes.map((n) => <option key={n.id} value={n.id}>{n.label}</option>)}
               </select>
               <input
+                aria-label="Etiqueta de la arista"
                 className="w-20 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
                 placeholder="Etiqueta"
                 value={edge.label ?? ""}
@@ -1538,20 +1556,22 @@ function BlockFlowEditor({
                   })
                 }
               />
-              <button
-                type="button"
-                className="rounded border border-red-200 bg-red-50 px-1.5 py-1 text-xs text-red-600 hover:bg-red-100"
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-[var(--c-danger)]"
+                aria-label="Eliminar arista"
                 onClick={() =>
                   onChange({ edges: block.edges.filter((e) => e.id !== edge.id) })
                 }
               >
                 ✕
-              </button>
+              </Button>
             </div>
           ))}
-          <button
-            type="button"
-            className="rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs hover:bg-[var(--c-bg)]"
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={() => {
               if (block.nodes.length < 2) return;
               const id = crypto.randomUUID();
@@ -1561,7 +1581,7 @@ function BlockFlowEditor({
             }}
           >
             + Arista
-          </button>
+          </Button>
         </>
       )}
     </div>
@@ -1573,6 +1593,7 @@ function BlockSpecEditor({ block, onChange }: { block: Block; onChange: (b: Bloc
     case "text":
       return (
         <textarea
+          aria-label="Contenido de texto"
           className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none text-sm outline-none focus:border-[var(--c-primary)]"
           rows={8}
           placeholder="Contenido de texto..."
@@ -1613,6 +1634,7 @@ export function ToolParamControl({
         </label>
         <input
           type="range"
+          aria-label={param.label}
           min={param.min ?? 0}
           max={param.max ?? 100}
           step={param.step ?? 1}
@@ -1632,6 +1654,7 @@ export function ToolParamControl({
       <div className="flex items-center gap-3">
         <label className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</label>
         <select
+          aria-label={param.label}
           className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs outline-none focus:border-[var(--c-primary)]"
           value={strVal}
           onChange={(e) => onChange(e.target.value)}
@@ -1650,6 +1673,7 @@ export function ToolParamControl({
         <label className="flex items-center gap-2 cursor-pointer select-none">
           <input
             type="checkbox"
+            aria-label={param.label}
             checked={value !== undefined ? Boolean(value) : Boolean(param.defaultValue)}
             onChange={(e) => onChange(e.target.checked)}
             className="rounded border-[var(--c-border)]"
@@ -1669,6 +1693,7 @@ export function ToolParamControl({
           )}
         </div>
         <input
+          aria-label={param.label}
           className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-3 py-1.5 text-sm font-mono outline-none focus:border-[var(--c-primary)]"
           value={value !== undefined ? String(value) : String(param.defaultValue)}
           onChange={(e) => onChange(e.target.value)}
@@ -1683,6 +1708,7 @@ export function ToolParamControl({
         <label className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</label>
         <input
           type="color"
+          aria-label={param.label}
           value={strVal}
           onChange={(e) => onChange(e.target.value)}
           className="h-7 w-12 rounded border border-[var(--c-border)] cursor-pointer bg-transparent p-0.5"
@@ -1718,6 +1744,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
         </span>
       </div>
       <input
+        aria-label={isQuote ? "Texto de la cita" : "Título principal"}
         className={`w-full border-0 border-b-2 border-[var(--c-border)] pb-2 leading-tight outline-none focus:border-[var(--c-primary)] bg-transparent placeholder-[var(--c-border)] text-[var(--c-text)] ${
           isQuote ? "text-2xl italic font-serif" : "text-2xl font-bold"
         }`}
@@ -1739,7 +1766,9 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
               key={preset}
               type="button"
               title={LAYOUT_META[preset].description}
-              className={`flex flex-col gap-2 p-3 rounded-lg border transition-colors text-[var(--c-text)] ${
+              aria-label={`Distribución ${LAYOUT_META[preset].label}`}
+              aria-pressed={slide.layout === preset}
+              className={`flex flex-col gap-2 p-3 rounded-lg border transition-colors motion-reduce:transition-none text-[var(--c-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
                 slide.layout === preset
                   ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] text-[var(--c-primary)]"
                   : "border-[var(--c-border)] hover:border-[var(--c-primary)] hover:bg-[var(--c-bg)]"
@@ -1763,6 +1792,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
         <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Imagen de fondo (opcional)</p>
         <input
           type="url"
+          aria-label="URL de imagen de fondo"
           className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-2 text-sm outline-none focus:border-[var(--c-primary)]"
           placeholder="https://ejemplo.com/imagen.jpg"
           value={slide.bgImage ?? ""}
@@ -1772,18 +1802,16 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
           <div className="mt-2 flex items-center gap-2">
             <span className="text-xs text-[var(--c-muted)] flex-shrink-0">Capa de color:</span>
             {(["none", "medium", "dark"] as const).map((opt) => (
-              <button
+              <Button
                 key={opt}
-                type="button"
-                className={`px-2.5 py-1 rounded-md text-xs border transition-colors ${
-                  (slide.bgOverlay ?? "none") === opt
-                    ? "bg-[var(--c-primary)] text-white border-[var(--c-primary)]"
-                    : "border-[var(--c-border)] text-[var(--c-text)] hover:border-[var(--c-primary)]"
-                }`}
+                variant="ghost"
+                size="sm"
+                pressed={(slide.bgOverlay ?? "none") === opt}
+                aria-label={`Capa de color: ${{ none: "Ninguna", medium: "Suave", dark: "Oscura" }[opt]}`}
                 onClick={() => onChange({ bgOverlay: opt })}
               >
                 {{ none: "Ninguna", medium: "Suave", dark: "Oscura" }[opt]}
-              </button>
+              </Button>
             ))}
             <img
               src={slide.bgImage}
@@ -1803,6 +1831,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
             <div>
               <label className="text-xs font-medium text-[var(--c-muted)] mb-1.5 block">Columna izquierda</label>
               <textarea
+                aria-label="Columna izquierda"
                 className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none text-sm outline-none focus:border-[var(--c-primary)] leading-relaxed"
                 placeholder="Contenido de la columna izquierda..."
                 rows={12}
@@ -1813,6 +1842,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
             <div>
               <label className="text-xs font-medium text-[var(--c-muted)] mb-1.5 block">Columna derecha</label>
               <textarea
+                aria-label="Columna derecha"
                 className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none text-sm outline-none focus:border-[var(--c-primary)] leading-relaxed"
                 placeholder="Contenido de la columna derecha..."
                 rows={12}
@@ -1834,6 +1864,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
               <span className="text-[10px] text-[var(--c-border)] font-mono">text-xl font-medium</span>
             </div>
             <input
+              aria-label={isQuote ? "Atribución" : "Subtítulo"}
               className="w-full border-0 border-b border-[var(--c-border)] pb-1.5 text-lg font-medium leading-snug outline-none focus:border-[var(--c-primary)] bg-transparent placeholder-[var(--c-border)] text-[var(--c-muted)]"
               placeholder={isQuote ? "— Autor, Año (opcional)" : "Subtítulo o descripción secundaria (opcional)"}
               value={slide.subtitle ?? ""}
@@ -1850,14 +1881,15 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                     <p className="text-xs font-medium text-[var(--c-muted)]">
                       Bloque gráfico — {BLOCK_TYPE_LABELS[slide.blockSpec.type]}
                     </p>
-                    <button
-                      type="button"
-                      className="flex items-center gap-1 text-xs text-red-500 hover:underline"
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-[var(--c-danger)]"
                       onClick={() => onChange({ blockSpec: undefined })}
                     >
                       <X size={12} />
                       Quitar bloque
-                    </button>
+                    </Button>
                   </div>
                   <BlockSpecEditor
                     block={slide.blockSpec}
@@ -1912,17 +1944,17 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                       <p className="text-xs text-[var(--c-muted)] mb-2">Seleccionar tipo de bloque:</p>
                       <div className="flex gap-2 flex-wrap">
                         {(["chart", "table", "latex", "flow"] as const).map((t) => (
-                          <button
+                          <Button
                             key={t}
-                            type="button"
-                            className="px-3 py-1.5 rounded-lg border border-[var(--c-border)] text-[var(--c-text)] text-xs hover:border-[var(--c-primary)] hover:bg-[color-mix(in_srgb,var(--c-primary)_6%,transparent)]"
+                            variant="ghost"
+                            size="sm"
                             onClick={() => {
                               setShowBlockPicker(false);
                               onChange({ blockSpec: createEmptyBlock(t), body: undefined, isCode: false });
                             }}
                           >
                             {BLOCK_TYPE_LABELS[t]}
-                          </button>
+                          </Button>
                         ))}
                       </div>
                     </div>
@@ -1937,6 +1969,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                           <span className="text-[10px] text-[var(--c-border)] font-mono">text-base leading-relaxed</span>
                         </div>
                         <textarea
+                          aria-label={slide.isCode ? "Código" : "Cuerpo de texto"}
                           className={`w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-4 resize-none text-sm outline-none focus:border-[var(--c-primary)] leading-relaxed ${
                             slide.isCode ? "font-mono" : ""
                           }`}
@@ -1963,6 +1996,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                         </label>
                         {slide.isCode ? (
                           <input
+                            aria-label="Lenguaje del código"
                             className="border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2.5 py-1 text-xs outline-none focus:border-[var(--c-primary)]"
                             placeholder="lenguaje (js, python...)"
                             value={slide.language ?? ""}
@@ -2037,7 +2071,9 @@ export default function TheorySlideEditor({
                 key={key}
                 type="button"
                 title={cfg.label}
-                className={`w-5 h-5 rounded-full border-2 transition-all flex-shrink-0 ${
+                aria-label={`Tema ${cfg.label}`}
+                aria-pressed={theme === key}
+                className={`w-5 h-5 rounded-full border-2 transition-all motion-reduce:transition-none flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
                   theme === key
                     ? "border-[var(--c-primary)] scale-125"
                     : "border-[var(--c-border)] hover:scale-110 hover:border-[var(--c-muted)]"
@@ -2054,7 +2090,9 @@ export default function TheorySlideEditor({
             <button
               type="button"
               title="Sin color de acento"
-              className={`w-5 h-5 rounded-full border-2 transition-all flex-shrink-0 bg-[var(--c-bg)] ${
+              aria-label="Sin color de acento"
+              aria-pressed={accentColor === undefined}
+              className={`w-5 h-5 rounded-full border-2 transition-all motion-reduce:transition-none flex-shrink-0 bg-[var(--c-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
                 accentColor === undefined
                   ? "border-[var(--c-primary)] scale-125"
                   : "border-[var(--c-border)] hover:scale-110 hover:border-[var(--c-muted)]"
@@ -2068,7 +2106,9 @@ export default function TheorySlideEditor({
                 key={key}
                 type="button"
                 title={cfg.label}
-                className={`w-5 h-5 rounded-full border-2 transition-all flex-shrink-0 ${
+                aria-label={`Acento ${cfg.label}`}
+                aria-pressed={accentColor === key}
+                className={`w-5 h-5 rounded-full border-2 transition-all motion-reduce:transition-none flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
                   accentColor === key
                     ? "border-[var(--c-primary)] scale-125"
                     : "border-[var(--c-border)] hover:scale-110 hover:border-[var(--c-muted)]"
@@ -2079,31 +2119,28 @@ export default function TheorySlideEditor({
             ))}
           </div>
 
-          <button
-            type="button"
-            className="flex items-center gap-1 rounded-md border border-[var(--c-border)] text-[var(--c-text)] px-3 py-1.5 text-xs hover:bg-[var(--c-bg)]"
-            onClick={addSlide}
-          >
+          <Button variant="ghost" size="sm" onClick={addSlide}>
             <Plus size={12} />
             Diapositiva
-          </button>
+          </Button>
 
-          <button
-            type="button"
-            className="rounded-md bg-[var(--c-primary)] px-3 py-1.5 text-xs font-medium text-white hover:opacity-90 transition-opacity"
+          <Button
+            variant="primary"
+            size="sm"
             onClick={() => onDone(slides, theme, accentColor)}
           >
             Listo
-          </button>
+          </Button>
 
-          <button
-            type="button"
-            className="p-1.5 rounded-md hover:bg-[var(--c-bg)] text-[var(--c-muted)]"
+          <Button
+            variant="icon"
+            size="sm"
             onClick={onClose}
             title="Cerrar sin guardar"
+            aria-label="Cerrar sin guardar"
           >
             <X size={16} />
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -2144,45 +2181,49 @@ export default function TheorySlideEditor({
 
                 {/* Action buttons on hover */}
                 <div className="absolute right-1 top-2 hidden group-hover:flex flex-col gap-0.5 bg-[var(--c-surface)]/80 rounded p-0.5 backdrop-blur-sm">
-                  <button
-                    type="button"
+                  <Button
+                    variant="icon"
+                    size="sm"
                     title="Mover arriba"
-                    className="p-0.5 text-[var(--c-muted)] hover:text-[var(--c-text)] disabled:opacity-30"
+                    aria-label={`Mover diapositiva ${index + 1} arriba`}
                     disabled={index === 0}
                     onClick={() => moveSlide(index, index - 1)}
                   >
                     <ChevronUp size={12} />
-                  </button>
-                  <button
-                    type="button"
+                  </Button>
+                  <Button
+                    variant="icon"
+                    size="sm"
                     title="Duplicar"
-                    className="p-0.5 text-[var(--c-muted)] hover:text-[var(--c-primary)]"
+                    aria-label={`Duplicar diapositiva ${index + 1}`}
                     onClick={() => dupSlide(index)}
                   >
                     <Copy size={12} />
-                  </button>
-                  <button
-                    type="button"
+                  </Button>
+                  <Button
+                    variant="icon"
+                    size="sm"
                     title="Mover abajo"
-                    className="p-0.5 text-[var(--c-muted)] hover:text-[var(--c-text)] disabled:opacity-30"
+                    aria-label={`Mover diapositiva ${index + 1} abajo`}
                     disabled={index === slides.length - 1}
                     onClick={() => moveSlide(index, index + 1)}
                   >
                     <ChevronDown size={12} />
-                  </button>
+                  </Button>
                 </div>
               </div>
             ))}
           </div>
 
-          <button
-            type="button"
-            className="w-full flex items-center justify-center gap-1 py-3 text-xs text-[var(--c-muted)] hover:text-[var(--c-primary)] hover:bg-[color-mix(in_srgb,var(--c-primary)_6%,transparent)] border-t border-[var(--c-border)] flex-shrink-0"
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full justify-center rounded-none border-x-0 border-b-0 flex-shrink-0 py-3"
             onClick={addSlide}
           >
             <Plus size={12} />
             Agregar diapositiva
-          </button>
+          </Button>
         </div>
 
         {/* Editor panel (form + preview) */}
@@ -2198,14 +2239,15 @@ export default function TheorySlideEditor({
                   />
 
                   {slides.length > 1 ? (
-                    <button
-                      type="button"
-                      className="self-start flex items-center gap-1 text-xs text-red-500 hover:underline"
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="self-start text-[var(--c-danger)]"
                       onClick={() => removeSlide(currentSlide.id)}
                     >
                       <Trash2 size={12} />
                       Eliminar diapositiva
-                    </button>
+                    </Button>
                   ) : null}
                 </>
               ) : null}
