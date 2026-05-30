@@ -53,6 +53,7 @@ import { FunctionSquare, Shapes } from "lucide-react";
 
 import { useBlockEditor } from "./state/useBlockEditor";
 import { fetchBlockDocument, saveBlockDocument } from "./services/blocksApi";
+import { Button, Pill } from "../../components/ui";
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -185,11 +186,13 @@ function InspectorCard({
   return (
     <div className="border-b border-[var(--c-border)]">
       <button
-        className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide hover:bg-[var(--c-bg)]"
+        type="button"
+        aria-expanded={open}
+        className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide hover:bg-[var(--c-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
         onClick={() => setOpen((o) => !o)}
       >
         {title}
-        <span className="text-[var(--c-muted)]">{open ? "▲" : "▼"}</span>
+        <span className="text-[var(--c-muted)]" aria-hidden="true">{open ? "▲" : "▼"}</span>
       </button>
       {open && <div className="px-3 pb-3 pt-1 space-y-2">{children}</div>}
     </div>
@@ -217,6 +220,7 @@ function CanvasBlockContent({
         return (
           <div className="p-4">
             <textarea
+              aria-label="Contenido del bloque de texto"
               className="w-full text-base leading-relaxed font-normal resize-none focus:outline-none bg-transparent border-none p-0"
               style={{ fontFamily: "inherit", minHeight: "3em" }}
               rows={Math.max(3, (block as TextBlock).content.split("\n").length + 1)}
@@ -358,7 +362,10 @@ function AddBlockBetween({ onAdd }: { onAdd: (type: Block["type"]) => void }) {
       <div className="absolute inset-x-0 h-px bg-transparent group-hover/add:bg-[var(--c-primary)] transition-colors top-1/2 opacity-30" />
       <div className="relative" ref={menuRef}>
         <button
-          className="w-6 h-6 rounded-full bg-[var(--c-surface)] border-2 border-[var(--c-primary)] text-[var(--c-primary)] text-sm font-bold leading-none opacity-0 group-hover/add:opacity-100 hover:bg-[var(--c-primary)] hover:text-white transition-all flex items-center justify-center"
+          type="button"
+          aria-label="Agregar bloque aquí"
+          aria-expanded={showMenu}
+          className="w-6 h-6 rounded-full bg-[var(--c-surface)] border-2 border-[var(--c-primary)] text-[var(--c-primary)] text-sm font-bold leading-none opacity-0 group-hover/add:opacity-100 hover:bg-[var(--c-primary)] hover:text-white transition-all motion-reduce:transition-none flex items-center justify-center focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
           onClick={(e) => {
             e.stopPropagation();
             setShowMenu((v) => !v);
@@ -477,8 +484,10 @@ function SortableBlockItem({
         ⠿
       </span>
       <button
+        type="button"
+        aria-pressed={isActive}
         className={cx(
-          "flex-1 text-left px-2 py-2 flex items-center gap-2 border-l-2 transition-colors",
+          "flex-1 text-left px-2 py-2 flex items-center gap-2 border-l-2 transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--c-focus-ring)]",
           isActive
             ? "bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] border-l-[var(--c-primary)] text-[var(--c-primary)]"
             : "border-l-transparent hover:bg-[var(--c-bg)] text-[var(--c-text)]"
@@ -891,19 +900,16 @@ export default function BlockEditorPage({
       <header className="flex-shrink-0 h-12 bg-[var(--c-surface)] border-b border-[var(--c-border)] flex items-center px-3 gap-2 z-20">
         {/* Back button (overlay mode) */}
         {onDone && (
-          <button
-            className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
-            onClick={() => onDone(doc)}
-            title="Volver"
-          >
+          <Button variant="ghost" size="sm" onClick={() => onDone(doc)} title="Volver">
             ← Volver
-          </button>
+          </Button>
         )}
         {/* Title */}
         <div className="flex items-center gap-2 min-w-0">
           {editingTitle ? (
             <input
               ref={titleInputRef}
+              aria-label="Título del documento"
               className="text-sm font-semibold bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-0.5 border border-[var(--c-border)] focus:outline-none focus:border-[var(--c-primary)] max-w-[200px]"
               value={title}
               onChange={(e) => dispatch({ type: "UPDATE_TITLE", title: e.target.value })}
@@ -913,20 +919,18 @@ export default function BlockEditorPage({
               }}
             />
           ) : (
-            <button
-              className="text-sm font-semibold text-[var(--c-text)] truncate max-w-[200px] hover:bg-[var(--c-border)] rounded px-1"
+            <Button
+              variant="ghost"
+              size="sm"
+              className="font-semibold truncate max-w-[200px]"
               onClick={() => setEditingTitle(true)}
               title="Clic para editar título"
             >
               {title || "Sin título"}
-            </button>
+            </Button>
           )}
 
-          {dirty && (
-            <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs bg-amber-50 text-amber-700 ring-1 ring-amber-200">
-              Sin guardar
-            </span>
-          )}
+          {dirty && <Pill tone="warn">Sin guardar</Pill>}
         </div>
 
         {/* Center: filename */}
@@ -939,42 +943,24 @@ export default function BlockEditorPage({
         <div className="flex-1" />
 
         {/* Undo / Redo */}
-        <button
-          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors disabled:opacity-40"
-          onClick={undo}
-          disabled={!canUndo}
-          title="Deshacer (Ctrl+Z)"
-        >
+        <Button variant="ghost" size="sm" onClick={undo} disabled={!canUndo} title="Deshacer (Ctrl+Z)">
           ↩ Deshacer
-        </button>
-        <button
-          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors disabled:opacity-40"
-          onClick={redo}
-          disabled={!canRedo}
-          title="Rehacer (Ctrl+Y)"
-        >
+        </Button>
+        <Button variant="ghost" size="sm" onClick={redo} disabled={!canRedo} title="Rehacer (Ctrl+Y)">
           ↪ Rehacer
-        </button>
+        </Button>
 
-        <span className="text-[var(--c-muted)] text-xs">|</span>
+        <span className="text-[var(--c-muted)] text-xs" aria-hidden="true">|</span>
 
         {/* Local file */}
-        <button
-          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
-          onClick={openLocalFile}
-          title="Abrir archivo local"
-        >
+        <Button variant="ghost" size="sm" onClick={openLocalFile} title="Abrir archivo local">
           Abrir local
-        </button>
-        <button
-          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
-          onClick={saveLocalFile}
-          title="Guardar en archivo local (Ctrl+S)"
-        >
+        </Button>
+        <Button variant="ghost" size="sm" onClick={saveLocalFile} title="Guardar en archivo local (Ctrl+S)">
           Guardar local
-        </button>
+        </Button>
 
-        <span className="text-[var(--c-muted)] text-xs">|</span>
+        <span className="text-[var(--c-muted)] text-xs" aria-hidden="true">|</span>
 
         {/* Import / Export / API */}
         <input
@@ -984,30 +970,18 @@ export default function BlockEditorPage({
           className="hidden"
           onChange={loadFromFile}
         />
-        <button
-          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
-          onClick={() => fileInputRef.current?.click()}
-        >
+        <Button variant="ghost" size="sm" onClick={() => fileInputRef.current?.click()}>
           Cargar
-        </button>
-        <button
-          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
-          onClick={importFile}
-        >
+        </Button>
+        <Button variant="ghost" size="sm" onClick={importFile}>
           Importar
-        </button>
-        <button
-          className="px-2 py-1 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] transition-colors"
-          onClick={exportFile}
-        >
+        </Button>
+        <Button variant="ghost" size="sm" onClick={exportFile}>
           Exportar
-        </button>
-        <button
-          className="px-2 py-1 text-xs rounded bg-[var(--c-success)] text-white hover:opacity-90 transition-opacity"
-          onClick={onDone ? () => onDone(doc) : handleSaveApi}
-        >
+        </Button>
+        <Button variant="primary" size="sm" onClick={onDone ? () => onDone(doc) : handleSaveApi}>
           {onDone ? "Guardar" : "Guardar API"}
-        </button>
+        </Button>
       </header>
 
       {/* ═══ BODY ═════════════════════════════════════════════════════════════ */}
@@ -1023,7 +997,10 @@ export default function BlockEditorPage({
             {/* Add block button */}
             <div className="relative" ref={addMenuRef}>
               <button
-                className="w-6 h-6 flex items-center justify-center rounded bg-[var(--c-primary)] hover:opacity-90 text-white text-sm font-bold leading-none"
+                type="button"
+                aria-label="Agregar bloque"
+                aria-expanded={showAddMenu}
+                className="w-6 h-6 flex items-center justify-center rounded bg-[var(--c-primary)] hover:opacity-90 text-white text-sm font-bold leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
                 onClick={() => setShowAddMenu((v) => !v)}
                 title="Agregar bloque"
               >
@@ -1122,9 +1099,11 @@ export default function BlockEditorPage({
                         {/* Floating toolbar – always visible when block is selected */}
                         {isSelected && (
                           <div className="absolute -top-8 left-0 z-10 flex items-center gap-1 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg px-2 py-1">
-                            <button
-                              className="w-6 h-6 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] disabled:opacity-30"
+                            <Button
+                              variant="icon"
+                              size="sm"
                               title="Mover arriba (↑)"
+                              aria-label="Mover bloque arriba"
                               disabled={idx === 0}
                               onClick={(e) => {
                                 e.stopPropagation();
@@ -1132,10 +1111,12 @@ export default function BlockEditorPage({
                               }}
                             >
                               ▲
-                            </button>
-                            <button
-                              className="w-6 h-6 text-xs rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] hover:bg-[var(--c-border)] disabled:opacity-30"
+                            </Button>
+                            <Button
+                              variant="icon"
+                              size="sm"
                               title="Mover abajo (↓)"
+                              aria-label="Mover bloque abajo"
                               disabled={idx === doc.blocks.length - 1}
                               onClick={(e) => {
                                 e.stopPropagation();
@@ -1143,27 +1124,32 @@ export default function BlockEditorPage({
                               }}
                             >
                               ▼
-                            </button>
-                            <button
-                              className="w-6 h-6 text-xs rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-bg)]"
+                            </Button>
+                            <Button
+                              variant="icon"
+                              size="sm"
                               title="Duplicar"
+                              aria-label="Duplicar bloque"
                               onClick={(e) => {
                                 e.stopPropagation();
                                 dispatch({ type: "DUPLICATE_BLOCK", blockId: block.id });
                               }}
                             >
                               ⊕
-                            </button>
-                            <button
-                              className="w-6 h-6 text-xs rounded border border-red-200 bg-red-50 text-red-600 hover:bg-red-100"
+                            </Button>
+                            <Button
+                              variant="icon"
+                              size="sm"
+                              className="text-[var(--c-danger)]"
                               title="Eliminar (Delete)"
+                              aria-label="Eliminar bloque"
                               onClick={(e) => {
                                 e.stopPropagation();
                                 dispatch({ type: "DELETE_BLOCK", blockId: block.id });
                               }}
                             >
                               ✕
-                            </button>
+                            </Button>
                           </div>
                         )}
 
@@ -1322,6 +1308,7 @@ export default function BlockEditorPage({
                   <div>
                     <label className="text-xs font-medium text-[var(--c-muted)] block mb-1">Título</label>
                     <input
+                      aria-label="Título del documento"
                       className={inputCls}
                       value={title}
                       onChange={(e) => dispatch({ type: "UPDATE_TITLE", title: e.target.value })}
