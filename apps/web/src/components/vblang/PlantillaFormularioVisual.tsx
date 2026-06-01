@@ -23,6 +23,7 @@ import type {
 import GeneradorPicker from "./GeneradorPicker";
 import OpcionesEditor from "./OpcionesEditor";
 import { parseExprText } from "./exprParse";
+import { listGeneradores } from "../../vblang/listGeneradores";
 
 interface Props {
   plantilla: Plantilla;
@@ -56,6 +57,36 @@ const DUMMY_LOC = { line: 0, col: 0, endLine: 0, endCol: 0 } as const;
 
 const VALID_IDENTIFIER_RE = /^[a-záéíóúñ_][a-záéíóúñ_0-9]*$/i;
 const FINITE_NUMBER_RE = /^-?\d+(\.\d+)?$/;
+
+/**
+ * Bloques que el generador asistido ignora y que, si coexisten con
+ * `generador:`, hacen fallar la generación (ej. el enunciado interpola
+ * variables que el generador no define → "variable indefinida"). Al activar
+ * el generador se remueven para dejar el AST válido.
+ */
+const GENERADOR_CONFLICT_KINDS: Bloque["kind"][] = [
+  "variables",
+  "respuesta",
+  "respuestas_validas",
+  "respuesta_iso",
+  "respuesta_nombre",
+  "respuesta_orden",
+  "etiquetas_pedidas",
+  "opciones",
+  "opciones_explicitas",
+  "tolerancia",
+  "unidad",
+  "restricciones",
+];
+
+const RESPUESTA_KINDS: Bloque["kind"][] = [
+  "respuesta",
+  "respuestas_validas",
+  "respuesta_iso",
+  "respuesta_nombre",
+  "respuesta_orden",
+  "etiquetas_pedidas",
+];
 
 /* ---------- AST helpers ---------- */
 
@@ -99,10 +130,24 @@ function funCall(name: string, args: Expr[]): Expr {
 
 /* ---------- useBufferedInput ---------- */
 
+/**
+ * Resultado de parsear el buffer de un input.
+ *
+ * - `{ ok: true }`   → valor completo y válido: se commitea al AST.
+ * - `{ ok: "pending" }` → estado intermedio de tipeo (ej. `"-"`, `""`, `"5."`):
+ *   ni se commitea ni se marca error; el buffer queda editable. Esto evita que
+ *   tipear un negativo dispare "Número inválido" antes de terminar.
+ * - `{ ok: false }`  → valor inválido de verdad: se muestra el error.
+ */
+type ParseOutcome<T> =
+  | { ok: true; value: T }
+  | { ok: "pending" }
+  | { ok: false; reason: string };
+
 function useBufferedInput<T>(args: {
   external: T;
   serialize: (v: T) => string;
-  parse: (s: string) => { ok: true; value: T } | { ok: false; reason: string };
+  parse: (s: string) => ParseOutcome<T>;
   onCommit: (v: T) => void;
 }) {
   const { external, serialize: ser, parse: par, onCommit } = args;
@@ -122,9 +167,12 @@ function useBufferedInput<T>(args: {
     (raw: string) => {
       setBuf(raw);
       const result = par(raw);
-      if (result.ok) {
+      if (result.ok === true) {
         setError(null);
         onCommit(result.value);
+      } else if (result.ok === "pending") {
+        // estado intermedio: mantenemos el buffer editable, sin error.
+        setError(null);
       } else {
         setError(result.reason);
       }
@@ -134,7 +182,9 @@ function useBufferedInput<T>(args: {
 
   const handleBlur = useCallback(() => {
     const result = par(buf);
-    if (!result.ok) {
+    // Al perder foco, cualquier cosa que no sea un valor completo y válido
+    // (incluido un intermedio como `"-"`) vuelve al último valor confirmado.
+    if (result.ok !== true) {
       setBuf(ser(external));
       setError(null);
     }
@@ -417,6 +467,7 @@ export default function PlantillaFormularioVisual({ plantilla, onChange, valores
   const generadorBlock = findBlock(plantilla, "generador");
 
   const enunciadoText = useMemo(() => enunciadoToText(enunciado), [enunciado]);
+  const generadorActivo = !!generadorBlock;
 
   const [confirmDialog, setConfirmDialog] = useState<{
     message: string;
@@ -510,16 +561,55 @@ export default function PlantillaFormularioVisual({ plantilla, onChange, valores
     onChange(withBlock(plantilla, next));
   };
 
+  const enableGeneradorClean = (p: Plantilla): Plantilla => {
+    let next = p;
+    for (const k of GENERADOR_CONFLICT_KINDS) next = withoutBlock(next, k);
+    // El parser exige `enunciado:` siempre, pero el generador lo ignora si no
+    // tiene contenido. Lo vaciamos (en vez de removerlo) para no dejar
+    // interpolaciones a variables ya eliminadas.
+    next = withBlock(next, {
+      kind: "enunciado",
+      partes: [],
+      loc: enunciado?.loc ?? DUMMY_LOC,
+    });
+    // Elegimos un generador real por defecto para que la plantilla quede
+    // válida de entrada; el picker permite cambiarlo.
+    const defaultId = listGeneradores()[0]?.id ?? "";
+    const gen: GeneradorBloque = { kind: "generador", id: defaultId, loc: DUMMY_LOC };
+    return withBlock(next, gen);
+  };
+
   const toggleGenerador = (enabled: boolean) => {
     if (enabled) {
-      const gen: GeneradorBloque = {
-        kind: "generador",
-        id: "",
-        loc: DUMMY_LOC,
+      const hasConflicts =
+        GENERADOR_CONFLICT_KINDS.some((k) => !!findBlock(plantilla, k)) ||
+        (enunciado?.partes.length ?? 0) > 0;
+      const apply = () => {
+        onChange(enableGeneradorClean(plantilla));
+        setConfirmDialog(null);
       };
-      onChange(withBlock(plantilla, gen));
+      if (hasConflicts) {
+        setConfirmDialog({
+          message:
+            "Al usar un generador, los bloques de variables, enunciado y respuesta se ignoran y se quitarán del código. Podés revertirlo con Deshacer (↶). ¿Continuar?",
+          onConfirm: apply,
+        });
+      } else {
+        apply();
+      }
     } else {
-      onChange(withoutBlock(plantilla, "generador"));
+      // Desactivar: quitar el generador y garantizar un estado editable válido.
+      // El parser exige al menos un campo de respuesta cuando no hay generador.
+      let next = withoutBlock(plantilla, "generador");
+      const hasResp = RESPUESTA_KINDS.some((k) => !!findBlock(next, k));
+      if (!hasResp) {
+        next = withBlock(next, {
+          kind: "respuesta",
+          expr: numLit(0),
+          loc: DUMMY_LOC,
+        });
+      }
+      onChange(next);
     }
   };
 
@@ -625,6 +715,20 @@ export default function PlantillaFormularioVisual({ plantilla, onChange, valores
         )}
       </Section>
 
+      {/* 3b. Generador activo: variables/enunciado/respuesta los provee el generador */}
+      {generadorActivo && (
+        <Section title="Variables · Enunciado · Respuesta">
+          <ReadOnlyPlaceholder>
+            Con un generador activo, las variables, el enunciado y la respuesta
+            los provee el generador hardcoded y no se editan acá. Para
+            editarlos a mano, desactivá el generador. El resto del código DSL se
+            preserva intacto.
+          </ReadOnlyPlaceholder>
+        </Section>
+      )}
+
+      {!generadorActivo && (
+      <>
       {/* 3. Variables */}
       <Section title="Variables">
         <div className="space-y-2">
@@ -708,6 +812,8 @@ export default function PlantillaFormularioVisual({ plantilla, onChange, valores
           <ToleranciaUnidadEditor plantilla={plantilla} onChange={onChange} />
         </Section>
       )}
+      </>
+      )}
 
       {/* 8. Puntaje y pista */}
       <Section title="Puntaje y pista">
@@ -715,9 +821,11 @@ export default function PlantillaFormularioVisual({ plantilla, onChange, valores
       </Section>
 
       {/* 9. Restricciones */}
-      <Section title="Restricciones">
-        <RestriccionesEditor plantilla={plantilla} onChange={onChange} />
-      </Section>
+      {!generadorActivo && (
+        <Section title="Restricciones">
+          <RestriccionesEditor plantilla={plantilla} onChange={onChange} />
+        </Section>
+      )}
 
       {/* 10. Pasos de resolución */}
       <Section title="Pasos de resolución">
@@ -822,6 +930,23 @@ function ConfirmDialog({
 }
 
 /* ---------- subcomponentes ---------- */
+
+/**
+ * Placeholder read-only para estados del DSL que el form todavía no sabe
+ * editar. Regla "nunca forzar a código": en vez de un error bloqueante,
+ * mostramos un aviso y dejamos el código intacto (se sigue serializando tal
+ * cual desde el AST, sin que el form lo toque).
+ */
+function ReadOnlyPlaceholder({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      data-testid="vblang-form-readonly-placeholder"
+      className="rounded border border-dashed border-[var(--c-border,#cbd5e1)] bg-white px-3 py-2 text-xs italic text-[var(--c-muted,#64748b)]"
+    >
+      {children}
+    </div>
+  );
+}
 
 function Section({
   title,
@@ -939,37 +1064,64 @@ function VariableRow({
 
 /* ---------- VariableExprWidget (Bug 1 + Bug 4) ---------- */
 
+/**
+ * Decide si un buffer numérico está en un estado intermedio de tipeo
+ * (todavía no es un número completo, pero podría llegar a serlo).
+ * Ej.: `""`, `"-"`, `"."`, `"-."`, `"5."`, `"-5."`.
+ */
+function isPendingNumber(s: string): boolean {
+  const t = s.trim();
+  return t === "" || t === "-" || t === "." || t === "-." || t.endsWith(".");
+}
+
+/** Acepta `5`, `-5`, `5.5`, `-5.5`, `.5`, `-.5`. */
+const COMPLETE_NUMBER_RE = /^-?\d*\.?\d+$/;
+
+function parseNumberBuffer(s: string): ParseOutcome<number> {
+  if (isPendingNumber(s)) return { ok: "pending" };
+  const t = s.trim();
+  const n = Number(t);
+  if (COMPLETE_NUMBER_RE.test(t) && Number.isFinite(n)) {
+    return { ok: true, value: n };
+  }
+  return { ok: false, reason: "Número inválido" };
+}
+
 function BufferedNumberInput({
   value,
   onCommit,
   label,
   className,
+  testId,
 }: {
   value: number;
   onCommit: (v: number) => void;
   label?: string;
   className?: string;
+  testId?: string;
 }) {
   const input = useBufferedInput({
     external: value,
     serialize: (v) => String(v),
-    parse: (s) => {
-      if (FINITE_NUMBER_RE.test(s)) {
-        const n = Number(s);
-        if (Number.isFinite(n)) return { ok: true, value: n };
-      }
-      return { ok: false, reason: "Número inválido" };
-    },
+    parse: parseNumberBuffer,
     onCommit,
   });
 
+  // type="text" + inputMode="decimal": a diferencia de type="number", deja que
+  // el buffer retenga estados intermedios como `"-"` mientras se tipea un
+  // negativo, sin que el navegador los descarte. La validación la hace el
+  // buffer (parseNumberBuffer), no el <input>.
   const el = (
     <input
-      type="number"
+      type="text"
+      inputMode="decimal"
       value={input.buf}
       onChange={(e) => input.handleChange(e.target.value)}
       onBlur={input.handleBlur}
-      className={className ?? "w-20 rounded border border-[var(--c-border,#e2e8f0)] px-1 text-xs"}
+      data-testid={testId}
+      className={`${
+        className ?? "w-20 rounded border border-[var(--c-border,#e2e8f0)] px-1 text-xs"
+      }${input.error ? " border-red-500" : ""}`}
     />
   );
 
@@ -1420,9 +1572,11 @@ function RespuestaEditor({
     return <RespuestaBoolean plantilla={plantilla} onChange={onChange} />;
   }
   return (
-    <p className="text-xs italic text-[var(--c-muted,#64748b)]">
-      La respuesta de tipo <code>{tipo}</code> se edita desde el código DSL.
-    </p>
+    <ReadOnlyPlaceholder>
+      Este bloque de respuesta (<code>{tipo}</code>) no se edita acá todavía. Se
+      preserva tal cual está en el código y podés ajustarlo desde el modo
+      Código.
+    </ReadOnlyPlaceholder>
   );
 }
 
@@ -1617,26 +1771,40 @@ function PuntajePistaEditor({
   const pista =
     pistaExpr && pistaExpr.kind === "str" ? pistaExpr.value : "";
 
+  // Buffer que admite vacío (→ sin puntaje) y estados intermedios de tipeo
+  // como "-", igual que BufferedNumberInput, para no romper al escribir.
+  const puntajeBuf = useBufferedInput<number | null>({
+    external: puntaje ?? null,
+    serialize: (v) => (v === null ? "" : String(v)),
+    parse: (s) => {
+      if (s.trim() === "") return { ok: true, value: null };
+      if (isPendingNumber(s)) return { ok: "pending" };
+      const t = s.trim();
+      const n = Number(t);
+      if (COMPLETE_NUMBER_RE.test(t) && Number.isFinite(n)) {
+        return { ok: true, value: n };
+      }
+      return { ok: false, reason: "Número inválido" };
+    },
+    onCommit: (v) =>
+      onChange(
+        setMetaCampo(plantilla, "puntaje", v === null ? undefined : numLit(v)),
+      ),
+  });
+
   return (
     <div className="space-y-2">
       <label className="flex items-center gap-2 text-xs">
         <span className="w-14">Puntaje</span>
         <input
-          type="number"
-          step={0.5}
-          value={puntaje ?? ""}
-          onChange={(e) => {
-            const raw = e.target.value;
-            if (raw.trim() === "") {
-              onChange(setMetaCampo(plantilla, "puntaje", undefined));
-              return;
-            }
-            const n = Number(raw);
-            if (Number.isFinite(n)) {
-              onChange(setMetaCampo(plantilla, "puntaje", numLit(n)));
-            }
-          }}
-          className="w-24 rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-xs"
+          type="text"
+          inputMode="decimal"
+          value={puntajeBuf.buf}
+          onChange={(e) => puntajeBuf.handleChange(e.target.value)}
+          onBlur={puntajeBuf.handleBlur}
+          className={`w-24 rounded border px-2 py-0.5 text-xs ${
+            puntajeBuf.error ? "border-red-500" : "border-[var(--c-border,#e2e8f0)]"
+          }`}
         />
       </label>
       <label className="flex items-center gap-2 text-xs">
