@@ -96,7 +96,13 @@ function validarBloquesObligatorios(bloques: Bloque[]): TipoPregunta {
     has("respuesta_orden") ||
     has("etiquetas_pedidas");
 
-  if (!hasGenerador && !hasAlgunaRespuesta) {
+  const tipoBloqueTmp = get("tipo") as TipoBloque | undefined;
+  // WO07: `abierta` es el ÚNICO tipo sin clave de respuesta (informativa o de
+  // corrección manual). Sólo se infiere por `tipo: abierta` explícito, ya que
+  // no tiene ningún bloque de respuesta del que deducirlo.
+  const declaraAbierta = tipoBloqueTmp?.valor === "abierta";
+
+  if (!hasGenerador && !hasAlgunaRespuesta && !declaraAbierta) {
     throw new ParseError(
       "Si no hay `generador:`, debe haber al menos un campo de respuesta (`respuesta:`, `respuestas_validas:`, etc.)",
       1,
@@ -112,12 +118,21 @@ function validarBloquesObligatorios(bloques: Bloque[]): TipoPregunta {
   else if (has("etiquetas_pedidas")) tipoInferido = "analisis_sintactico";
   else tipoInferido = "input";
 
-  const tipoBloque = get("tipo") as TipoBloque | undefined;
+  const tipoBloque = tipoBloqueTmp;
 
   if (tipoBloque) {
     const declarado = tipoBloque.valor;
 
-    if (declarado === "marcar_mapa") {
+    if (declarado === "abierta") {
+      if (hasAlgunaRespuesta) {
+        throw new ParseError(
+          "`tipo: abierta` no lleva clave de respuesta (`respuesta:`, `respuestas_validas:`, etc.): es informativa o de corrección manual.",
+          tipoBloque.loc.line,
+          tipoBloque.loc.col,
+        );
+      }
+      tipoInferido = "abierta";
+    } else if (declarado === "marcar_mapa") {
       if (!has("respuesta_iso") && !(has("respuesta_nombre") && has("mapa"))) {
         throw new ParseError(
           "`tipo: marcar_mapa` requiere `respuesta_iso:`, o bien `respuesta_nombre:` con `mapa:`",

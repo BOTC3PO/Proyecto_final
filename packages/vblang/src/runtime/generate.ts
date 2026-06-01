@@ -326,6 +326,20 @@ export function generate(
       );
     }
 
+    // WO07 — abierta: sin clave de respuesta. Sólo enunciado + modo de
+    // corrección. `ninguna` no puntúa; `manual` la corrige el profe.
+    if (compiled.tipoInferido === "abierta") {
+      return {
+        tipo: "abierta",
+        enunciado: enunciadoTexto,
+        pasos: pasosTexto,
+        variables: scope.toRecord(),
+        seed: options.seed,
+        intentos: intento,
+        correccion: compiled.correccion ?? "ninguna",
+      };
+    }
+
     // Tipos básicos: mc, vf, input, completar.
     // Opciones para mc/vf.
     const opciones = construirOpciones(compiled, respuestaVal, scope, ctx);

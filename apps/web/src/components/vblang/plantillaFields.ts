@@ -47,6 +47,7 @@ const ANSWER_BLOCKS: Bloque["kind"][] = [
   "texto_analizar",
   "unidad",
   "tolerancia",
+  "correccion",
 ];
 
 /* ---------------- lecturas ---------------- */
@@ -103,6 +104,10 @@ export function readEnumField(p: Plantilla, field: Field): string {
   if (field.block === "mapa") {
     const b = getBlock(p, "mapa");
     return b ? b.nombre : "";
+  }
+  if (field.block === "correccion") {
+    const b = getBlock(p, "correccion");
+    return b ? b.modo : "";
   }
   return "";
 }
@@ -209,12 +214,21 @@ export function writeBoolField(p: Plantilla, field: Field, value: boolean): Plan
 }
 
 export function writeEnumField(p: Plantilla, field: Field, value: string): Plantilla {
-  if (field.block !== "mapa") return p;
-  return withBlock(p, {
-    kind: "mapa",
-    nombre: value as MapaBloque["nombre"],
-    loc: DUMMY_LOC,
-  });
+  if (field.block === "mapa") {
+    return withBlock(p, {
+      kind: "mapa",
+      nombre: value as MapaBloque["nombre"],
+      loc: DUMMY_LOC,
+    });
+  }
+  if (field.block === "correccion") {
+    return withBlock(p, {
+      kind: "correccion",
+      modo: value === "manual" ? "manual" : "ninguna",
+      loc: DUMMY_LOC,
+    });
+  }
+  return p;
 }
 
 export function writeListStrings(
@@ -334,6 +348,10 @@ function seedBlocks(tipo: TipoPregunta): Bloque[] {
         loc: DUMMY_LOC,
       });
       break;
+    case "abierta":
+      // WO07 — abierta no lleva clave de respuesta; sólo el modo de corrección.
+      blocks.push({ kind: "correccion", modo: "ninguna", loc: DUMMY_LOC });
+      break;
   }
   return blocks;
 }
@@ -386,6 +404,7 @@ const HANDLED_BLOCKS = new Set<Bloque["kind"]>([
   "texto_analizar",
   "unidad",
   "tolerancia",
+  "correccion",
   "generador",
   "variables",
   "visual",

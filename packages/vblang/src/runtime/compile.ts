@@ -91,6 +91,9 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
       case "opciones_explicitas":
         compiled.opcionesExplicitas = b.items;
         break;
+      case "correccion":
+        compiled.correccion = b.modo;
+        break;
     }
   }
 

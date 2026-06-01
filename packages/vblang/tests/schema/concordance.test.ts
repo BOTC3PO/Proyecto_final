@@ -47,6 +47,7 @@ const KNOWN_BLOCK_KINDS = [
   "texto_analizar",
   "etiquetas_pedidas",
   "opciones_explicitas",
+  "correccion",
 ] as const satisfies readonly BloqueKind[];
 const KNOWN_BLOCK_SET = new Set<string>(KNOWN_BLOCK_KINDS);
 
@@ -73,6 +74,7 @@ const ALL_TIPOS: TipoPregunta[] = [
   "marcar_mapa",
   "analisis_sintactico",
   "identificar_palabras",
+  "abierta",
 ];
 
 describe("schema ↔ parser · cobertura", () => {

@@ -76,7 +76,8 @@ export type ModuleQuizQuestion = {
     | "ordenar"
     | "marcar_mapa"
     | "analisis_sintactico"
-    | "identificar_palabras";
+    | "identificar_palabras"
+    | "abierta";
   options?: string[];
   answerKey?: string | string[];
   explanation?: string;
@@ -106,6 +107,12 @@ export type ModuleQuizQuestion = {
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */
   etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
+
+  // WO07 — pregunta abierta (sin clave de respuesta).
+  /** abierta: `ninguna` no puntúa; `manual` la corrige el profe. */
+  correccion?: "ninguna" | "manual";
+  /** abierta + `manual`: el ítem queda pendiente de corrección al enviar. */
+  manualGrading?: boolean;
 };
 
 export type ModuleGeneratorRef = {

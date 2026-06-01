@@ -17,7 +17,8 @@ export type ModuleQuizQuestionType =
   | "ordenar"
   | "marcar_mapa"
   | "analisis_sintactico"
-  | "identificar_palabras";
+  | "identificar_palabras"
+  | "abierta";
 
 export interface ModuleQuizQuestion {
   /** ID estable de la pregunta. */
@@ -72,6 +73,18 @@ export interface ModuleQuizQuestion {
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */
   etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
+
+  /* ----- WO07 — pregunta abierta ----- */
+  /**
+   * abierta: modo de corrección. `ninguna` no puntúa (se excluye del maxScore);
+   * `manual` la corrige el profe (queda pendiente de corrección al enviar).
+   */
+  correccion?: "ninguna" | "manual";
+  /**
+   * abierta + `manual`: marca que el ítem necesita corrección humana. El
+   * reproductor no la auto-corrige y la deja "pendiente".
+   */
+  manualGrading?: boolean;
 }
 
 export interface AdapterOptions {

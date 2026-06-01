@@ -35,6 +35,7 @@ function mapTipo(tipo: GenerationResult["tipo"]): ModuleQuizQuestionType {
     case "marcar_mapa":
     case "analisis_sintactico":
     case "identificar_palabras":
+    case "abierta":
       return tipo;
     default:
       throw new AdapterError(
@@ -164,6 +165,11 @@ export function toModuleQuizQuestion(
     }
     result.textoAnalizar = gen.textoAnalizar;
     result.answerKey = gen.respuestasValidas.map((v) => String(v));
+  } else if (gen.tipo === "abierta") {
+    // Sin answerKey: la pregunta abierta no tiene clave de respuesta.
+    const modo = gen.correccion ?? "ninguna";
+    result.correccion = modo;
+    if (modo === "manual") result.manualGrading = true;
   }
 
   const explanation =
