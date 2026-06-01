@@ -7,6 +7,13 @@
 
 import { describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
+
+// El picker embebe GeneradorDocsPanel, que pide la doc por apiGet al elegir un
+// generador. Lo mockeamos para que el test no toque la red.
+vi.mock("../../../lib/api", () => ({
+  apiGet: vi.fn().mockRejectedValue(new Error("offline")),
+}));
+
 import GeneradorPicker from "../GeneradorPicker";
 
 describe("GeneradorPicker — accesibilidad", () => {

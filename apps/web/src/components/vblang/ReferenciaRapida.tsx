@@ -52,6 +52,17 @@ const FUNCIONES: string[] = [
 
 const CONSTANTES = ["pi", "e", "g", "c", "G", "h_planck", "k_B", "N_A", "R"];
 
+// Receta de cableado de generadores asistidos. El detalle de qué variables
+// expone cada generador aparece contextualmente al elegirlo en el formulario
+// visual (GeneradorDocsPanel); acá queda la receta general siempre a mano.
+const GENERADOR_RECETA: { paso: string; code?: string }[] = [
+  { paso: "Declarás el generador con su id:", code: "generador: fisica/cinematica/MRU" },
+  { paso: "Interpolás sus variables en el enunciado con llaves:", code: 'enunciado: "Si va a {v} m/s durante {t} s…"' },
+  { paso: "Con generador NO declarás variables ni respuesta: los provee el generador." },
+  { paso: "Dejá el id sin subtipo (generador: fisica/cinematica) para un subtipo al azar, o fijalo con /<subtipo>." },
+  { paso: "Ajustás la dificultad desde metadata:", code: 'dificultad: "intermedio"' },
+];
+
 const TIPOS: { nombre: string; desc: string }[] = [
   { nombre: "input", desc: "Respuesta numérica o de texto libre." },
   { nombre: "mc", desc: "Multiple choice (una correcta)." },
@@ -149,6 +160,28 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
                 </code>
               ))}
             </div>
+          </section>
+
+          <section>
+            <h3 className="mb-1.5 font-bold uppercase tracking-wide text-[var(--c-muted,#64748b)]">
+              Generadores asistidos
+            </h3>
+            <p className="mb-1.5 text-[var(--c-muted,#64748b)]">
+              Al elegir un generador en el formulario visual vas a ver qué
+              variables expone y sus ejemplos. La receta para cablearlo:
+            </p>
+            <ol className="list-decimal space-y-1 pl-4 text-[var(--c-text)]">
+              {GENERADOR_RECETA.map((r) => (
+                <li key={r.paso}>
+                  {r.paso}
+                  {r.code && (
+                    <code className="mt-0.5 block rounded bg-[var(--c-bg,#f1f5f9)] px-1.5 py-0.5 font-mono text-[var(--c-primary,#3b82f6)]">
+                      {r.code}
+                    </code>
+                  )}
+                </li>
+              ))}
+            </ol>
           </section>
 
           <section>

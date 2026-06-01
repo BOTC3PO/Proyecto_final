@@ -1,5 +1,6 @@
 import { useId, useMemo, useState } from "react";
 import { listGeneradores } from "../../vblang/listGeneradores";
+import GeneradorDocsPanel from "./GeneradorDocsPanel";
 
 interface Props {
   value: string;
@@ -94,6 +95,7 @@ export default function GeneradorPicker({ value, onChange }: Props) {
           {selected.subtipos.length} subtipo(s): {selected.subtipos.join(", ")}
         </p>
       )}
+      {value !== "" && <GeneradorDocsPanel generadorId={value} />}
     </div>
   );
 }
