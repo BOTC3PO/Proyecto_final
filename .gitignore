@@ -60,3 +60,5 @@ coverage/
 # === Git merge conflict backups ===
 *.orig
 CLAUDE.MD
+# === Media uploads (WO06, ephemeral) ===
+api/media/
