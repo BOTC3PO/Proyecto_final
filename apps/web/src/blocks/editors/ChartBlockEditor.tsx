@@ -1,9 +1,6 @@
 import type { ChartBlock, TableBlock, BlockDocument } from "../types"
 import { ChartBlockRenderer } from "../renderers/ChartBlockRenderer"
-
-function cx(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ")
-}
+import { Button } from "../../components/ui"
 
 const inputCls =
   "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400"
@@ -28,27 +25,27 @@ export function InlineChartTypeToolbar({
 }) {
   return (
     <div
-      className="flex flex-wrap gap-1 p-2 border-b border-slate-100 bg-slate-50 rounded-t-lg"
+      role="toolbar"
+      aria-label="Tipo de gráfico"
+      className="flex flex-wrap gap-1 p-2 border-b border-[var(--c-border)] bg-[var(--c-bg)] rounded-t-lg"
       onClick={(e) => e.stopPropagation()}
     >
       {CHART_TYPE_OPTIONS.map(({ value, label, icon }) => (
-        <button
+        <Button
           key={value}
+          variant="ghost"
+          size="sm"
+          pressed={chartType === value}
+          aria-label={`Tipo de gráfico: ${label}`}
+          title={label}
           onClick={(e) => {
             e.stopPropagation()
             onUpdate({ chartType: value })
           }}
-          className={cx(
-            "flex items-center gap-1 px-2 py-1 rounded text-xs transition-colors border",
-            chartType === value
-              ? "bg-indigo-600 text-white border-indigo-600"
-              : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
-          )}
-          title={label}
         >
-          <span className="font-mono">{icon}</span>
+          <span className="font-mono" aria-hidden="true">{icon}</span>
           <span>{label}</span>
-        </button>
+        </Button>
       ))}
     </div>
   )
