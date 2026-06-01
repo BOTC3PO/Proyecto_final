@@ -34,15 +34,36 @@ import {
   makeEmptyMapaConfig,
   type RecetaConfig,
   type LineaTiempoConfig,
-  type MapaDataset,
+  type MapaConfig,
 } from "../../components/modulos/standalone/types";
 import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
-import MapaStandalone from "../../components/modulos/standalone/MapaStandalone";
 
-// Datasets a nivel módulo todavía no se declaran (TODO post-expo). Referencia
-// estable para no recrear el array en cada render del editor de mapa.
-const EMPTY_MAPA_DATASETS: MapaDataset[] = [];
+// Abre el editor de mapa completo (MapaEditorFull) en una ventana nueva,
+// pasándole la config por sessionStorage y recuperando el resultado al cerrarse.
+// Los datasets ya no se pasan por sessionStorage: el editor los trae de la API.
+function launchMapaEditor(
+  ssKey: string,
+  cfg: MapaConfig,
+  onResult: (updated: MapaConfig) => void,
+) {
+  sessionStorage.setItem(`mapa-doc:${ssKey}`, JSON.stringify(cfg));
+  const win = window.open(`/herramientas/mapa-editor?sskey=${ssKey}`, "_blank");
+  if (!win) return;
+  const timer = setInterval(() => {
+    if (!win.closed) return;
+    clearInterval(timer);
+    try {
+      const raw = sessionStorage.getItem(`mapa-doc:${ssKey}:result`);
+      if (raw) onResult(JSON.parse(raw) as MapaConfig);
+    } catch {
+      /* ignore */
+    } finally {
+      sessionStorage.removeItem(`mapa-doc:${ssKey}`);
+      sessionStorage.removeItem(`mapa-doc:${ssKey}:result`);
+    }
+  }, 500);
+}
 
 export default function ModuloEditor() {
   const { id } = useParams();
@@ -761,19 +782,27 @@ export default function ModuloEditor() {
                           );
                         }
                         if (cfg?.tool === "mapa") {
-                          // TODO post-expo: reconectar el editor completo
-                          // (MapaEditorFull: datasets desde la API del módulo,
-                          // zoom/pan, export a imagen). Hasta entonces usamos el
-                          // editor standalone, que sí funciona, inline.
                           return (
-                            <MapaStandalone
-                              config={cfg}
-                              editable
-                              datasets={EMPTY_MAPA_DATASETS}
-                              onChange={(updated) =>
-                                setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) }))
-                              }
-                            />
+                            <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 flex items-center gap-3">
+                              <span className="text-xs text-[var(--c-muted)] flex-1">
+                                Mapa {cfg.modo === "political" ? "político" : "físico"} · {cfg.anotaciones.length} anotaciones
+                              </span>
+                              <button
+                                type="button"
+                                aria-label="Abrir editor de mapa en ventana nueva"
+                                className="rounded-md border border-[var(--c-primary)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-hover)]"
+                                onClick={() =>
+                                  launchMapaEditor(`new-mapa-${Date.now()}`, cfg, (updated) =>
+                                    setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) })),
+                                  )
+                                }
+                              >
+                                <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
+                                  <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16"/>
+                                </svg>
+                                Abrir editor de mapa
+                              </button>
+                            </div>
                           );
                         }
                         return null;
@@ -1037,18 +1066,27 @@ export default function ModuloEditor() {
                                       );
                                     }
                                     if (cfg?.tool === "mapa") {
-                                      // TODO post-expo: reconectar el editor
-                                      // completo (MapaEditorFull). Por ahora, el
-                                      // editor standalone funcional, inline.
                                       return (
-                                        <MapaStandalone
-                                          config={cfg}
-                                          editable
-                                          datasets={EMPTY_MAPA_DATASETS}
-                                          onChange={(updated) =>
-                                            updateTheoryItem(item.id, { detail: JSON.stringify(updated) })
-                                          }
-                                        />
+                                        <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 flex items-center gap-3">
+                                          <span className="text-xs text-[var(--c-muted)] flex-1">
+                                            Mapa {cfg.modo === "political" ? "político" : "físico"} · {cfg.anotaciones.length} anotaciones
+                                          </span>
+                                          <button
+                                            type="button"
+                                            aria-label="Abrir editor de mapa en ventana nueva"
+                                            className="rounded-md border border-[var(--c-primary)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-hover)]"
+                                            onClick={() =>
+                                              launchMapaEditor(`mapa-${item.id}`, cfg, (updated) =>
+                                                updateTheoryItem(item.id, { detail: JSON.stringify(updated) }),
+                                              )
+                                            }
+                                          >
+                                            <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
+                                              <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16"/>
+                                            </svg>
+                                            Abrir editor de mapa
+                                          </button>
+                                        </div>
                                       );
                                     }
                                     return null;
