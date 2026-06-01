@@ -322,6 +322,36 @@ respuestas_validas:
 `,
 };
 
+const abiertaSchema: QuestionTypeSchema = {
+  tipo: "abierta",
+  label: "Pregunta abierta",
+  descripcion:
+    "El alumno escribe libremente. No lleva clave de respuesta: es informativa " +
+    "(no puntúa) o la corrige el profe a mano (crédito parcial).",
+  declaraTipo: true,
+  fields: [
+    enunciadoField(),
+    {
+      kind: "enum",
+      key: "correccion",
+      label: "Corrección",
+      help:
+        "ninguna: informativa, no afecta la nota. manual: la corrige el profe " +
+        "asignando puntaje parcial.",
+      required: true,
+      block: "correccion",
+      options: [
+        { value: "ninguna", label: "Ninguna (informativa, no puntúa)" },
+        { value: "manual", label: "Manual (la corrige el profe)" },
+      ],
+    },
+  ],
+  sampleDsl: `enunciado: "Explicá con tus palabras qué es la fotosíntesis."
+tipo: abierta
+correccion: manual
+`,
+};
+
 /** Schemas de los tipos genéricos, indexados por `tipo`. */
 export const QUESTION_TYPE_SCHEMAS: Record<TipoPregunta, QuestionTypeSchema> = {
   input: inputSchema,
@@ -332,6 +362,7 @@ export const QUESTION_TYPE_SCHEMAS: Record<TipoPregunta, QuestionTypeSchema> = {
   marcar_mapa: marcarMapaSchema,
   analisis_sintactico: analisisSintacticoSchema,
   identificar_palabras: identificarPalabrasSchema,
+  abierta: abiertaSchema,
 };
 
 /** Lista ordenada de tipos soportados por la base "tipo genérico". */
@@ -344,6 +375,7 @@ export const ALL_QUESTION_TYPES: TipoPregunta[] = [
   "marcar_mapa",
   "analisis_sintactico",
   "identificar_palabras",
+  "abierta",
 ];
 
 /** Lookup por tipo (helper para el renderer). */

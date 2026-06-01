@@ -3,6 +3,7 @@ import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
+import CorreccionesPendientes from "../components/profesor/CorreccionesPendientes";
 
 type QuizAttemptResult = {
   id: string;
@@ -88,6 +89,8 @@ export default function ProfesorCalificaciones() {
             </select>
           </div>
         )}
+
+        <CorreccionesPendientes aulaId={aulaId || undefined} />
 
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
           <div className="px-4 py-3 border-b border-[var(--c-border)]">

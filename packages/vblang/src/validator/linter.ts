@@ -450,6 +450,40 @@ function lintTiposEspeciales(
     }
   }
 
+  if (tipo === "abierta") {
+    // `abierta` no requiere ningún bloque de respuesta (es su razón de ser).
+    // Sólo avisamos si declara un modo de corrección inválido — el parser ya
+    // restringe a ninguna|manual, así que esto es defensivo.
+    const corr = find("correccion");
+    if (
+      corr &&
+      corr.kind === "correccion" &&
+      corr.modo !== "ninguna" &&
+      corr.modo !== "manual"
+    ) {
+      issues.push({
+        severity: "error",
+        code: "abierta-correccion-invalida",
+        message: "tipo `abierta` requiere `correccion:` en `ninguna` o `manual`",
+        line: corr.loc.line,
+        col: corr.loc.col,
+      });
+    }
+  } else {
+    // `correccion:` sólo tiene sentido en `abierta`.
+    const corr = find("correccion");
+    if (corr && corr.kind === "correccion") {
+      issues.push({
+        severity: "warning",
+        code: "correccion-fuera-de-abierta",
+        message:
+          "`correccion:` sólo aplica a `tipo: abierta`; en otros tipos se ignora",
+        line: corr.loc.line,
+        col: corr.loc.col,
+      });
+    }
+  }
+
   if (tipo === "identificar_palabras") {
     if (!has("texto_analizar")) {
       issues.push({

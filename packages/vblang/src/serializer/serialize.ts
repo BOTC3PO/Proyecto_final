@@ -340,6 +340,8 @@ function emitBloque(b: Bloque): string {
         .join("\n");
       return `etiquetas_pedidas:\n${body}`;
     }
+    case "correccion":
+      return `correccion: ${b.modo}`;
     case "opciones_explicitas": {
       if (b.items.length === 0) return "opciones_explicitas:";
       // Si hay una sola expresión y NO es un literal-array multi-elemento,

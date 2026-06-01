@@ -1,5 +1,6 @@
 import type {
   CampoKV,
+  CorreccionModo,
   EtiquetaPedida,
   Expr,
   PasoItem,
@@ -35,6 +36,8 @@ export interface CompiledPlantilla {
   mapa?: string;
   dataset?: string;
   visual?: CampoKV[];
+  /** WO07 — modo de corrección de una pregunta `abierta`. */
+  correccion?: CorreccionModo;
 }
 
 export interface GenerationOptions {
@@ -87,4 +90,10 @@ export interface GenerationResult {
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta). */
   etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
+
+  /**
+   * WO07 — abierta: modo de corrección. `ninguna` (no puntúa) o `manual` (la
+   * corrige el profe). Las preguntas `abierta` no tienen `respuesta`.
+   */
+  correccion?: CorreccionModo;
 }

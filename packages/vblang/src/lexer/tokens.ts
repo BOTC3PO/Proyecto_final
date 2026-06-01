@@ -61,6 +61,7 @@ export enum TokenKind {
   KW_TEXTO_ANALIZAR = "KW_TEXTO_ANALIZAR",
   KW_ETIQUETAS_PEDIDAS = "KW_ETIQUETAS_PEDIDAS",
   KW_OPCIONES_EXPLICITAS = "KW_OPCIONES_EXPLICITAS",
+  KW_CORRECCION = "KW_CORRECCION",
 
   FOR = "FOR",
   IN = "IN",
@@ -100,6 +101,7 @@ export const BLOCK_KEYWORDS: Record<string, TokenKind> = {
   texto_analizar: TokenKind.KW_TEXTO_ANALIZAR,
   etiquetas_pedidas: TokenKind.KW_ETIQUETAS_PEDIDAS,
   opciones_explicitas: TokenKind.KW_OPCIONES_EXPLICITAS,
+  correccion: TokenKind.KW_CORRECCION,
 };
 
 export const ALWAYS_KEYWORDS: Record<string, TokenKind> = {

@@ -2,6 +2,8 @@ import { Token, TokenKind } from "../lexer/tokens.js";
 import type {
   Bloque,
   CampoKV,
+  CorreccionBloque,
+  CorreccionModo,
   DatasetBloque,
   EnunciadoBloque,
   EtiquetaPedida,
@@ -67,7 +69,10 @@ const VALID_TIPOS: TipoPregunta[] = [
   "marcar_mapa",
   "analisis_sintactico",
   "identificar_palabras",
+  "abierta",
 ];
+
+const VALID_CORRECCION = new Set(["ninguna", "manual"]);
 
 const VALID_MAPAS = new Set([
   "world_countries",
@@ -447,6 +452,32 @@ export function parseTipoBloque(c: TokenCursor): TipoBloque {
   };
 }
 
+export function parseCorreccionBloque(c: TokenCursor): CorreccionBloque {
+  const kwTok = c.consumeKind(TokenKind.KW_CORRECCION, "'correccion'");
+  consumeColon(c);
+  const tok = c.peek();
+  if (tok.kind !== TokenKind.IDENT && tok.kind !== TokenKind.STRING) {
+    throw new ParseError(
+      "`correccion:` debe ser `ninguna` o `manual`",
+      tok.line,
+      tok.col,
+    );
+  }
+  c.consume();
+  if (!VALID_CORRECCION.has(tok.value)) {
+    throw new ParseError(
+      `Modo de corrección desconocido \`${tok.value}\`. Modos válidos: ninguna, manual.`,
+      tok.line,
+      tok.col,
+    );
+  }
+  return {
+    kind: "correccion",
+    modo: tok.value as CorreccionModo,
+    loc: spanLoc(tokLoc(kwTok), tokLoc(tok)),
+  };
+}
+
 export function parseGeneradorBloque(c: TokenCursor): GeneradorBloque {
   const kwTok = c.consumeKind(TokenKind.KW_GENERADOR, "'generador'");
   consumeColon(c);
@@ -707,6 +738,8 @@ export function parseBloque(c: TokenCursor): Bloque {
       return parseEtiquetasPedidasBloque(c);
     case TokenKind.KW_OPCIONES_EXPLICITAS:
       return parseOpcionesExplicitasBloque(c);
+    case TokenKind.KW_CORRECCION:
+      return parseCorreccionBloque(c);
     default:
       // Fall through to caller for typo handling
       throw new ParseError(

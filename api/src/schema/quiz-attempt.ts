@@ -30,7 +30,14 @@ export const QuizAttemptSubmitSchema = z.object({
         id: z.string().min(1),
         answerKey: z.union([z.string(), z.array(z.string())]).optional(),
         points: z.number().positive().optional(),
-        toleranciaRelativa: z.number().optional()
+        toleranciaRelativa: z.number().optional(),
+        // WO07 — pregunta abierta: sin clave de respuesta.
+        //  - "ninguna": informativa, no puntúa (se excluye del maxScore).
+        //  - "manual": la corrige el profe; el ítem queda pendiente al enviar.
+        correccion: z.enum(["ninguna", "manual"]).optional(),
+        manualGrading: z.boolean().optional(),
+        // Enunciado para que el profe lo vea en la pantalla de corrección.
+        prompt: z.string().optional()
       })
     )
     .optional(),
@@ -41,5 +48,14 @@ export const QuizAttemptSubmitSchema = z.object({
   presentedIds: z.array(z.string()).optional()
 });
 
+// WO07 — corrección manual de UN ítem abierto por parte del profe.
+export const QuizAttemptGradeSchema = z.object({
+  questionId: z.string().min(1),
+  // Puntaje parcial 0..points (el server lo recorta al peso del ítem).
+  score: z.number().min(0),
+  feedback: z.string().optional()
+});
+
 export type QuizAttemptCreate = z.infer<typeof QuizAttemptCreateSchema>;
 export type QuizAttemptSubmit = z.infer<typeof QuizAttemptSubmitSchema>;
+export type QuizAttemptGrade = z.infer<typeof QuizAttemptGradeSchema>;

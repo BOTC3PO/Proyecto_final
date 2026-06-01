@@ -83,6 +83,8 @@ export type {
   BloqueKind,
   BinOpKind,
   CampoKV,
+  CorreccionBloque,
+  CorreccionModo,
   DatasetBloque,
   EnunciadoBloque,
   EtiquetaPedida,

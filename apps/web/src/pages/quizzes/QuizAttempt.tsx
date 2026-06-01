@@ -71,6 +71,8 @@ type SubmitResponse = {
   maxScore?: number;
   feedback?: string;
   message?: string;
+  /** WO07 — cantidad de preguntas abiertas que quedaron pendientes de corrección. */
+  pendingManual?: number;
 };
 
 type RankingEntry = {
@@ -399,6 +401,12 @@ export default function QuizAttempt() {
                 answerKey: q.answerKey,
                 points: q.points,
                 toleranciaRelativa: q.toleranciaRelativa,
+                // WO07 — abierta: el server necesita el modo para no auto-corregir
+                // (manual queda pendiente; ninguna no puntúa) y el enunciado para
+                // mostrarlo en la pantalla de corrección.
+                ...(q.correccion ? { correccion: q.correccion } : {}),
+                ...(q.manualGrading ? { manualGrading: q.manualGrading } : {}),
+                ...(q.questionType === "abierta" ? { prompt: q.prompt } : {}),
               }))
           : undefined;
       const response = await apiPost<SubmitResponse>(
@@ -626,6 +634,28 @@ export default function QuizAttempt() {
                             : undefined
                         }
                       />
+                    ) : questionType === "abierta" ? (
+                      <div className="space-y-1.5">
+                        <textarea
+                          className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
+                          rows={4}
+                          value={typeof selected === "string" ? selected : ""}
+                          onChange={(event) => handleAnswerChange(question.id, event.target.value)}
+                          placeholder="Escribí tu respuesta"
+                          disabled={submitStatus === "submitted"}
+                        />
+                        {question.correccion === "manual" ? (
+                          <p className="text-xs font-medium text-amber-600">
+                            {submitStatus === "submitted"
+                              ? "⏳ Pendiente de corrección por el profesor."
+                              : "Esta pregunta la corrige tu profesor (puntaje parcial)."}
+                          </p>
+                        ) : (
+                          <p className="text-xs text-slate-500">
+                            Pregunta informativa: no afecta tu nota.
+                          </p>
+                        )}
+                      </div>
                     ) : questionType === "input" ? (
                       <textarea
                         className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"

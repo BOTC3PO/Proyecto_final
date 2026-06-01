@@ -9,9 +9,11 @@ import {
 import { requireUser } from "../lib/user-auth";
 import {
   QuizAttemptCreateSchema,
+  QuizAttemptGradeSchema,
   QuizAttemptSubmitSchema,
   QuizVersionSchema
 } from "../schema/quiz-attempt";
+import { isStaffRole } from "../lib/authorization";
 
 type ModuleQuiz = {
   id?: string;
@@ -30,6 +32,12 @@ type ModuleQuiz = {
     toleranciaRelativa?: number;
     /** Peso de la pregunta en el puntaje (default 1). Composición a nivel quiz. */
     points?: number;
+    /** WO07 — abierta: modo de corrección (`ninguna` no puntúa, `manual` la corrige el profe). */
+    correccion?: "ninguna" | "manual";
+    /** WO07 — abierta+manual: el ítem queda pendiente de corrección al enviar. */
+    manualGrading?: boolean;
+    /** Enunciado (para mostrar en la pantalla de corrección del profe). */
+    prompt?: string;
   }>;
   count?: number;
   seedPolicy?: string;
@@ -88,7 +96,37 @@ type QuizFeedback = {
   expected?: string | string[];
   response?: string | string[];
   explanation?: string;
+  /** WO07 — ítem de corrección manual aún sin nota. */
+  pending?: boolean;
 };
+
+// WO07 — estado de corrección manual de un intento. Vive en `QuizAttempt.grading`
+// (JSON). Guardamos el puntaje auto-corregido por separado para poder recomputar
+// la nota a medida que el profe corrige cada ítem `manual`.
+type GradingItem = {
+  prompt?: string;
+  points: number; // peso máximo del ítem
+  response?: string | string[];
+  score: number | null; // null = pendiente de corrección
+  feedback?: string;
+  gradedAt?: string;
+  gradedBy?: string;
+};
+type AttemptGrading = {
+  autoScore: number; // puntaje de las preguntas auto-corregidas
+  items: Record<string, GradingItem>; // ítems manuales, por questionId
+};
+
+type GradableQuestion = NonNullable<ModuleQuiz["questions"]>[number];
+
+// Una pregunta es de corrección manual si es `abierta` con `correccion: manual`
+// (el flag `manualGrading` viaja como atajo desde el adapter/reproductor).
+const isManualQuestion = (q: GradableQuestion): boolean =>
+  q.manualGrading === true || q.correccion === "manual";
+
+// Una pregunta `abierta` informativa (`ninguna`) no puntúa: se excluye del maxScore.
+const isInformativeQuestion = (q: GradableQuestion): boolean =>
+  q.correccion === "ninguna" && q.manualGrading !== true;
 
 type QuizAttemptRecord = {
   id: string;
@@ -99,6 +137,7 @@ type QuizAttemptRecord = {
   seed: number | string | null;
   answers: Record<string, string | string[]>;
   feedback?: Record<string, QuizFeedback>;
+  grading?: string | null;
   score: number;
   maxScore: number;
   status: string;
@@ -243,16 +282,31 @@ const gradeAnswers = (
   answers: Record<string, string | string[]>
 ) => {
   const questions = quiz?.questions ?? [];
-  if (questions.length === 0) return { score: 0, maxScore: 0 };
+  if (questions.length === 0) {
+    return {
+      score: 0,
+      maxScore: 0,
+      manual: [] as Array<{ question: GradableQuestion; weight: number }>
+    };
+  }
   const defaultWeight =
     typeof quiz?.composition?.pesoPorDefecto === "number" && quiz.composition.pesoPorDefecto > 0
       ? quiz.composition.pesoPorDefecto
       : 1;
   let score = 0;
   let maxScore = 0;
+  const manual: Array<{ question: GradableQuestion; weight: number }> = [];
   for (const question of questions) {
+    // WO07 — abierta informativa: no puntúa, se excluye del maxScore.
+    if (isInformativeQuestion(question)) continue;
     const weight = questionWeight(question, defaultWeight);
     maxScore += weight;
+    // WO07 — abierta manual: cuenta en el maxScore pero la nota la pone el
+    // profe. Queda pendiente; el auto-score suma 0 hasta corregirla.
+    if (isManualQuestion(question)) {
+      manual.push({ question, weight });
+      continue;
+    }
     const expected = question.answerKey;
     if (!expected) continue;
     const response = answers[question.id];
@@ -273,7 +327,7 @@ const gradeAnswers = (
       if (correct) score += weight;
     }
   }
-  return { score, maxScore };
+  return { score, maxScore, manual };
 };
 
 const buildFeedback = (
@@ -283,6 +337,18 @@ const buildFeedback = (
   const feedback: Record<string, QuizFeedback> = {};
   const questions = quiz?.questions ?? [];
   for (const question of questions) {
+    // WO07 — abierta manual: el feedback queda pendiente hasta que el profe corrija.
+    if (isManualQuestion(question)) {
+      feedback[question.id] = {
+        correct: false,
+        pending: true,
+        response: answers[question.id],
+        explanation: question.explanation
+      };
+      continue;
+    }
+    // WO07 — abierta informativa: no afecta la nota; sin feedback de corrección.
+    if (isInformativeQuestion(question)) continue;
     const expected = question.answerKey;
     if (!expected) continue;
     const response = answers[question.id];
@@ -431,6 +497,99 @@ quizAttempts.post(
   }
 );
 
+// GET /api/quiz-attempts/pending-grading
+// WO07 — lista de intentos con preguntas abiertas pendientes de corrección, para
+// que el profe (staff) las corrija desde ProfesorCalificaciones.
+//
+// IMPORTANTE: se registra ANTES de `/:id` para que Express no lo capture como
+// un attempt con id="pending-grading". Tampoco lleva el gate de enterprise: es
+// una vista de corrección del docente, no un intento de alumno.
+quizAttempts.get(
+  "/api/quiz-attempts/pending-grading",
+  requireUser,
+  async (req, res) => {
+    if (!isStaffRole(req.user?.role)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+    const requesterId =
+      typeof req.user?._id?.toString === "function"
+        ? req.user._id.toString()
+        : typeof req.user?.id === "string"
+          ? req.user.id
+          : "";
+    const requesterSchoolId =
+      typeof req.user?.schoolId === "string" ? req.user.schoolId : null;
+    const limit = Math.min(
+      Number.parseInt(String(req.query.limit ?? "50"), 10) || 50,
+      200
+    );
+
+    const pending = (await prisma.quizAttempt.findMany({
+      where: { status: "pending_review" },
+      orderBy: { submittedAt: "desc" },
+      take: limit
+    })) as unknown as QuizAttemptRecord[];
+
+    const items: Array<Record<string, unknown>> = [];
+    const studentIds = new Set<string>();
+
+    for (const attempt of pending) {
+      const quizRecord = await prisma.quiz.findFirst({ where: { id: attempt.quizId } });
+      if (!quizRecord) continue;
+      const modulo = quizRecord.moduleId
+        ? await prisma.modulo.findFirst({ where: { id: quizRecord.moduleId } })
+        : null;
+      // Alcance: módulos del profe o de su misma escuela.
+      const owns = modulo?.ownerUserId && modulo.ownerUserId === requesterId;
+      const sameSchool =
+        requesterSchoolId && modulo?.schoolId && modulo.schoolId === requesterSchoolId;
+      if (!owns && !sameSchool) continue;
+
+      const grading = safeJsonParse<AttemptGrading>(
+        attempt.grading as unknown as string,
+        { autoScore: 0, items: {} }
+      );
+      const gradingItems = Object.entries(grading.items)
+        .filter(([, it]) => it.score === null)
+        .map(([questionId, it]) => ({
+          questionId,
+          prompt: it.prompt ?? "",
+          response: it.response ?? "",
+          points: it.points
+        }));
+      if (gradingItems.length === 0) continue;
+
+      studentIds.add(attempt.userId);
+      items.push({
+        id: attempt.id,
+        quizId: attempt.quizId,
+        quizTitle: quizRecord.title ?? modulo?.titulo ?? "Quiz",
+        moduleId: quizRecord.moduleId ?? null,
+        userId: attempt.userId,
+        submittedAt: attempt.submittedAt,
+        score: attempt.score,
+        maxScore: attempt.maxScore,
+        items: gradingItems
+      });
+    }
+
+    const usuarios = studentIds.size
+      ? await prisma.usuario.findMany({
+          where: { id: { in: [...studentIds] }, isDeleted: { not: true } },
+          select: { id: true, fullName: true, username: true }
+        })
+      : [];
+    const nameMap = new Map(
+      usuarios.map((u) => [String(u.id ?? ""), String(u.fullName ?? u.username ?? "Alumno")])
+    );
+    for (const it of items) {
+      it.studentName = nameMap.get(String(it.userId)) ?? "Alumno";
+    }
+
+    return res.json({ items });
+  }
+);
+
 quizAttempts.get(
   "/api/quiz-attempts/:id",
   requireUser,
@@ -467,6 +626,13 @@ quizAttempts.get(
     feedback: attempt.feedback
       ? safeJsonParse(attempt.feedback as unknown as string, {} as Record<string, unknown>)
       : {},
+    // WO07 — estado de corrección manual (auto-score + ítems pendientes/corregidos).
+    grading: attempt.grading
+      ? safeJsonParse(attempt.grading as unknown as string, {
+          autoScore: 0,
+          items: {}
+        })
+      : undefined,
     quiz: quiz ? { title: quiz.title, questions: quiz.questions ?? [] } : undefined,
     generatorId: quiz?.generatorId ?? undefined,
     seed: attempt.seed ?? undefined,
@@ -528,15 +694,32 @@ quizAttempts.post(
         gradingQuestions = quiz.questions;
       }
       const gradingQuiz: ModuleQuiz = { ...quiz, questions: gradingQuestions };
-      const { score, maxScore } = gradeAnswers(gradingQuiz, payload.answers);
+      const { score, maxScore, manual } = gradeAnswers(gradingQuiz, payload.answers);
       const feedback = buildFeedback(gradingQuiz, payload.answers);
+
+      // WO07 — máquina de estados: si hay ítems `manual`, el intento queda
+      // "pendiente de corrección" (pending_review) y no es nota final hasta que
+      // el profe corrija. Sin manuales, sigue siendo "submitted".
+      const grading: AttemptGrading = { autoScore: score, items: {} };
+      for (const { question, weight } of manual) {
+        grading.items[question.id] = {
+          prompt: question.prompt,
+          points: weight,
+          response: payload.answers[question.id],
+          score: null
+        };
+      }
+      const hasPendingManual = manual.length > 0;
+      const status = hasPendingManual ? "pending_review" : "submitted";
+
       const updatedAt = new Date();
       await prisma.quizAttempt.updateMany({
         where: { id: idParam },
         data: {
           answers: JSON.stringify(payload.answers),
           feedback: JSON.stringify(feedback),
-          status: "submitted",
+          grading: JSON.stringify(grading),
+          status,
           score,
           maxScore,
           submittedAt: updatedAt.toISOString()
@@ -551,6 +734,18 @@ quizAttempts.post(
       const porcentaje = maxScore > 0
         ? Math.round((score / maxScore) * 100) : 0;
       const aprobado = porcentaje >= umbral;
+
+      // WO07 — con ítems pendientes la nota aún no es final: no tocamos el
+      // progreso formal hasta que el profe termine de corregir.
+      if (hasPendingManual) {
+        return res.json({
+          status,
+          score,
+          maxScore,
+          pendingManual: manual.length,
+          message: `Respuestas enviadas. ${manual.length} pregunta(s) abierta(s) quedan pendientes de corrección por el profesor.`
+        });
+      }
 
       // Si es quiz formal y aprobó → actualizar progreso
       if (quiz.type === "formal" && aprobado && attempt.moduleId) {
@@ -607,6 +802,177 @@ quizAttempts.post(
         message: aprobado
           ? `¡Aprobado! ${porcentaje}% — superaste el umbral de ${umbral}%.`
           : `${porcentaje}% — necesitás al menos ${umbral}% para aprobar.`,
+      });
+    } catch (error: any) {
+      res.status(400).json({ error: error?.message ?? "invalid payload" });
+    }
+  }
+);
+
+// WO07 — recomputa la nota a partir del estado de corrección: auto-score más
+// el puntaje que el profe asignó a cada ítem manual. `allGraded` indica si ya
+// no quedan ítems pendientes (el intento pasa a "corregido").
+const recomputeFromGrading = (grading: AttemptGrading) => {
+  let score = grading.autoScore;
+  let allGraded = true;
+  for (const item of Object.values(grading.items)) {
+    if (item.score === null) {
+      allGraded = false;
+      continue;
+    }
+    score += item.score;
+  }
+  return { score, allGraded };
+};
+
+// Progreso de un módulo cuando un quiz formal queda con nota final.
+const updateFormalProgress = async (
+  userId: string,
+  moduloId: string,
+  aprobado: boolean
+) => {
+  try {
+    if (aprobado) {
+      const existing = await prisma.progresoModulo.findFirst({
+        where: { usuarioId: userId, moduloId }
+      });
+      if (existing) {
+        await prisma.progresoModulo.update({
+          where: { id: existing.id },
+          data: { status: "completado", updatedAt: new Date().toISOString() }
+        });
+      } else {
+        await prisma.progresoModulo.create({
+          data: {
+            usuarioId: userId,
+            moduloId,
+            status: "completado",
+            updatedAt: new Date().toISOString()
+          }
+        });
+      }
+    } else {
+      const existing = await prisma.progresoModulo.findFirst({
+        where: { usuarioId: userId, moduloId, status: { not: "completado" } }
+      });
+      if (existing) {
+        await prisma.progresoModulo.update({
+          where: { id: existing.id },
+          data: { status: "en_progreso", updatedAt: new Date().toISOString() }
+        });
+      } else {
+        await prisma.progresoModulo.create({
+          data: {
+            usuarioId: userId,
+            moduloId,
+            status: "en_progreso",
+            updatedAt: new Date().toISOString()
+          }
+        });
+      }
+    }
+  } catch {
+    /* no bloquear la corrección si falla el progreso */
+  }
+};
+
+// POST /api/quiz-attempts/:id/grade
+// WO07 — el profe (staff) corrige UN ítem `manual` asignando puntaje parcial
+// (0..points) y feedback opcional. Recalcula la nota; cuando ya no quedan ítems
+// pendientes, el intento pasa a "corregido" (status "graded").
+quizAttempts.post(
+  "/api/quiz-attempts/:id/grade",
+  ...bodyLimitMB(1),
+  requireUser,
+  async (req, res) => {
+    try {
+      if (!isStaffRole(req.user?.role)) {
+        return res.status(403).json({ error: "forbidden" });
+      }
+      const graderId =
+        typeof req.user?._id?.toString === "function"
+          ? req.user._id.toString()
+          : typeof req.user?.id === "string"
+            ? req.user.id
+            : "";
+      const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+      if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
+      const payload = QuizAttemptGradeSchema.parse(req.body);
+
+      const attempt = (await prisma.quizAttempt.findFirst({
+        where: { id: idParam }
+      })) as QuizAttemptRecord | null;
+      if (!attempt) return res.status(404).json({ error: "attempt not found" });
+
+      const grading = safeJsonParse<AttemptGrading>(
+        attempt.grading as unknown as string,
+        { autoScore: typeof attempt.score === "number" ? attempt.score : 0, items: {} }
+      );
+      const item = grading.items[payload.questionId];
+      if (!item) {
+        return res.status(404).json({ error: "question not pending grading" });
+      }
+
+      // Puntaje parcial acotado a [0, points].
+      const clamped = Math.max(0, Math.min(payload.score, item.points));
+      item.score = clamped;
+      if (payload.feedback !== undefined) item.feedback = payload.feedback;
+      item.gradedAt = new Date().toISOString();
+      item.gradedBy = graderId;
+
+      const { score, allGraded } = recomputeFromGrading(grading);
+      const status = allGraded ? "graded" : "pending_review";
+
+      // Reflejar la corrección en el feedback que ve el alumno.
+      const feedback = safeJsonParse<Record<string, QuizFeedback>>(
+        attempt.feedback as unknown as string,
+        {}
+      );
+      feedback[payload.questionId] = {
+        correct: clamped >= item.points && item.points > 0,
+        pending: false,
+        response: item.response,
+        explanation: item.feedback
+      };
+
+      await prisma.quizAttempt.updateMany({
+        where: { id: idParam },
+        data: {
+          grading: JSON.stringify(grading),
+          feedback: JSON.stringify(feedback),
+          score,
+          status
+        }
+      });
+
+      const maxScore = typeof attempt.maxScore === "number" ? attempt.maxScore : 0;
+      const porcentaje = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
+
+      // Al quedar "corregido", si es formal recién ahí impacta el progreso.
+      if (allGraded) {
+        const quizRecord = await prisma.quiz.findFirst({ where: { id: attempt.quizId } });
+        if (quizRecord?.moduleId) {
+          const umbralRow = await prisma.quizUmbral.findUnique({
+            where: { quizId: attempt.quizId },
+            select: { umbral: true }
+          });
+          const umbral = umbralRow?.umbral ?? 60;
+          const aprobado = porcentaje >= umbral;
+          // El tipo del quiz vive en la colección Quiz/QuizVersion; corregimos
+          // sólo módulos formales. Si no hay manera de saber el tipo, igual
+          // recalculamos la nota (lo importante para WO07).
+          await updateFormalProgress(attempt.userId, quizRecord.moduleId, aprobado);
+        }
+      }
+
+      return res.json({
+        status,
+        score,
+        maxScore,
+        porcentaje,
+        questionId: payload.questionId,
+        itemScore: clamped,
+        allGraded
       });
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });

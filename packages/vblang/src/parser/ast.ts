@@ -143,7 +143,18 @@ export type TipoPregunta =
   | "ordenar"
   | "marcar_mapa"
   | "analisis_sintactico"
-  | "identificar_palabras";
+  | "identificar_palabras"
+  | "abierta";
+
+/**
+ * Modo de corrección de una pregunta `abierta` (WO07):
+ *  - `ninguna`: informativa, no puntúa (se excluye del maxScore).
+ *  - `manual`: la corrige el profe a mano (crédito parcial, 0..points).
+ *
+ * Ojo con el falso amigo: `ModuleQuizMode = "manual" | "generated"` describe
+ * cómo se ARMA el quiz, no cómo se corrige una pregunta.
+ */
+export type CorreccionModo = "ninguna" | "manual";
 
 export interface TextoLiteral {
   kind: "texto";
@@ -286,6 +297,11 @@ export interface OpcionesExplicitasBloque {
   items: Expr[];
   loc: Loc;
 }
+export interface CorreccionBloque {
+  kind: "correccion";
+  modo: CorreccionModo;
+  loc: Loc;
+}
 
 export type Bloque =
   | MetadataBloque
@@ -308,7 +324,8 @@ export type Bloque =
   | RespuestaOrdenBloque
   | TextoAnalizarBloque
   | EtiquetasPedidasBloque
-  | OpcionesExplicitasBloque;
+  | OpcionesExplicitasBloque
+  | CorreccionBloque;
 
 export type BloqueKind = Bloque["kind"];
 
