@@ -10,6 +10,7 @@ import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
+import QuizComposicionEditor from "../../components/modulos/QuizComposicionEditor";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
 import BlockEditorPage from "../../blocks/v2/BlockEditorPage";
 import { deserializeBlockDocument } from "../../blocks/utils";
@@ -33,11 +34,15 @@ import {
   makeEmptyMapaConfig,
   type RecetaConfig,
   type LineaTiempoConfig,
-  type MapaConfig,
   type MapaDataset,
 } from "../../components/modulos/standalone/types";
 import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
+import MapaStandalone from "../../components/modulos/standalone/MapaStandalone";
+
+// Datasets a nivel módulo todavía no se declaran (TODO post-expo). Referencia
+// estable para no recrear el array en cada render del editor de mapa.
+const EMPTY_MAPA_DATASETS: MapaDataset[] = [];
 
 export default function ModuloEditor() {
   const { id } = useParams();
@@ -756,48 +761,19 @@ export default function ModuloEditor() {
                           );
                         }
                         if (cfg?.tool === "mapa") {
-                          const ssKey = `new-mapa-${Date.now()}`;
+                          // TODO post-expo: reconectar el editor completo
+                          // (MapaEditorFull: datasets desde la API del módulo,
+                          // zoom/pan, export a imagen). Hasta entonces usamos el
+                          // editor standalone, que sí funciona, inline.
                           return (
-                            <div className="rounded-lg border border-teal-200 bg-teal-50 p-3 flex items-center gap-3">
-                              <span className="text-xs text-teal-700 flex-1">Mapa configurado ({cfg.anotaciones.length} anotaciones)</span>
-                              <button
-                                type="button"
-                                aria-label="Abrir editor de mapa en ventana nueva"
-                                className="rounded-md border border-teal-400 bg-white px-3 py-1.5 text-xs font-medium text-teal-700 hover:bg-teal-50"
-                                onClick={() => {
-                                  sessionStorage.setItem(`mapa-doc:${ssKey}`, JSON.stringify(cfg));
-                                  // Pasar datasets disponibles del módulo (placeholder: vacío
-                                  // hasta que el módulo soporte declarar datasets).
-                                  const datasetsDisponibles: MapaDataset[] = [];
-                                  sessionStorage.setItem(`mapa-doc:${ssKey}:datasets`, JSON.stringify(datasetsDisponibles));
-                                  const win = window.open(`/herramientas/mapa-editor?sskey=${ssKey}`, "_blank");
-                                  if (!win) return;
-                                  const timer = setInterval(() => {
-                                    if (win.closed) {
-                                      clearInterval(timer);
-                                      try {
-                                        const raw = sessionStorage.getItem(`mapa-doc:${ssKey}:result`);
-                                        if (raw) {
-                                          const updated = JSON.parse(raw) as MapaConfig;
-                                          setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) }));
-                                        }
-                                      } catch { /* ignore */ } finally {
-                                        // BUG-04: limpiar TODAS las claves del editor (doc + datasets + result),
-                                        // no solo datasets, para no dejar basura en sessionStorage.
-                                        sessionStorage.removeItem(`mapa-doc:${ssKey}`);
-                                        sessionStorage.removeItem(`mapa-doc:${ssKey}:datasets`);
-                                        sessionStorage.removeItem(`mapa-doc:${ssKey}:result`);
-                                      }
-                                    }
-                                  }, 500);
-                                }}
-                              >
-                                <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
-                                  <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16"/>
-                                </svg>
-                                Abrir editor de mapa
-                              </button>
-                            </div>
+                            <MapaStandalone
+                              config={cfg}
+                              editable
+                              datasets={EMPTY_MAPA_DATASETS}
+                              onChange={(updated) =>
+                                setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) }))
+                              }
+                            />
                           );
                         }
                         return null;
@@ -1061,48 +1037,18 @@ export default function ModuloEditor() {
                                       );
                                     }
                                     if (cfg?.tool === "mapa") {
-                                      const ssKey = `mapa-${item.id}`;
+                                      // TODO post-expo: reconectar el editor
+                                      // completo (MapaEditorFull). Por ahora, el
+                                      // editor standalone funcional, inline.
                                       return (
-                                        <div className="rounded-lg border border-teal-200 bg-teal-50 p-3 flex items-center gap-3">
-                                          <span className="text-xs text-teal-700 flex-1">
-                                            Mapa {cfg.modo === "political" ? "político" : "físico"} ({cfg.anotaciones.length} anotaciones)
-                                          </span>
-                                          <button
-                                            type="button"
-                                            aria-label="Abrir editor de mapa en ventana nueva"
-                                            className="rounded-md border border-teal-400 bg-white px-3 py-1.5 text-xs font-medium text-teal-700 hover:bg-teal-50"
-                                            onClick={() => {
-                                              sessionStorage.setItem(`mapa-doc:${ssKey}`, JSON.stringify(cfg));
-                                              // Pasar datasets disponibles del módulo (placeholder: vacío).
-                                              const datasetsDisponibles: MapaDataset[] = [];
-                                              sessionStorage.setItem(`mapa-doc:${ssKey}:datasets`, JSON.stringify(datasetsDisponibles));
-                                              const win = window.open(`/herramientas/mapa-editor?sskey=${ssKey}`, "_blank");
-                                              if (!win) return;
-                                              const timer = setInterval(() => {
-                                                if (win.closed) {
-                                                  clearInterval(timer);
-                                                  try {
-                                                    const raw = sessionStorage.getItem(`mapa-doc:${ssKey}:result`);
-                                                    if (raw) {
-                                                      const updated = JSON.parse(raw) as MapaConfig;
-                                                      updateTheoryItem(item.id, { detail: JSON.stringify(updated) });
-                                                    }
-                                                  } catch { /* ignore */ } finally {
-                                                    // BUG-04: limpiar TODAS las claves del editor (doc + datasets + result).
-                                                    sessionStorage.removeItem(`mapa-doc:${ssKey}`);
-                                                    sessionStorage.removeItem(`mapa-doc:${ssKey}:datasets`);
-                                                    sessionStorage.removeItem(`mapa-doc:${ssKey}:result`);
-                                                  }
-                                                }
-                                              }, 500);
-                                            }}
-                                          >
-                                            <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
-                                              <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v16M15 6v16"/>
-                                            </svg>
-                                            Abrir editor de mapa
-                                          </button>
-                                        </div>
+                                        <MapaStandalone
+                                          config={cfg}
+                                          editable
+                                          datasets={EMPTY_MAPA_DATASETS}
+                                          onChange={(updated) =>
+                                            updateTheoryItem(item.id, { detail: JSON.stringify(updated) })
+                                          }
+                                        />
                                       );
                                     }
                                     return null;
@@ -1580,6 +1526,20 @@ export default function ModuloEditor() {
                             ) : null}
                           </>
                         )}
+
+                        {/* Composición del quiz: pool, selección, variantes y peso.
+                            Nivel quiz (no DSL). Se persiste en settings. */}
+                        <QuizComposicionEditor
+                          value={quiz.composition}
+                          total={
+                            quiz.mode === "generated"
+                              ? quiz.count ?? 0
+                              : quiz.questions?.length ?? 0
+                          }
+                          onChange={(composition) =>
+                            updateQuiz(quiz.id, { composition })
+                          }
+                        />
                         </div>
                       </div>
                       );

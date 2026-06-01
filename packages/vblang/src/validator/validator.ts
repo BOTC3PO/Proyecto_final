@@ -8,6 +8,7 @@ import type {
   CompiledPlantilla,
   GenerationResult,
 } from "../runtime/types.js";
+import type { GeneradorAsistidoProvider } from "../runtime/provider.js";
 
 export interface ValidationError {
   severity: "error" | "warning";
@@ -33,6 +34,12 @@ export interface ValidateOptions {
   iterations?: number;
   seedPrefix?: string;
   threshold?: number;
+  /**
+   * Provider de generadores asistidos. Obligatorio para validar plantillas que
+   * usan `generador:` — sin él, `generate()` lanza y todas las simulaciones
+   * fallan. Para plantillas sin generador es irrelevante.
+   */
+  provider?: GeneradorAsistidoProvider;
 }
 
 export function validate(
@@ -52,7 +59,7 @@ export function validate(
     const seed = `${prefix}-${i}`;
     const t0 = performance.now();
     try {
-      const result = generate(compiled, { seed });
+      const result = generate(compiled, { seed, provider: opts?.provider });
       verifyResultIntegrity(result, compiled, seed, warningBucket);
       passed++;
     } catch (e) {

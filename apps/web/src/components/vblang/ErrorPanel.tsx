@@ -68,7 +68,7 @@ export default function ErrorPanel({
         role="region"
         aria-label="Errores y advertencias"
         data-testid="vblang-error-panel"
-        className="h-full overflow-auto p-3 text-xs text-[var(--c-muted,#64748b)]"
+        className="h-full overflow-auto p-3 text-xs text-[var(--c-hint)]"
       >
         Escribí código para validar.
       </div>
@@ -97,7 +97,7 @@ export default function ErrorPanel({
     >
       <header className="flex items-center gap-3 text-[var(--c-text)]">
         <span className="text-[var(--c-danger)] font-medium">{errorCount} errores</span>
-        <span className="text-[var(--c-muted,#64748b)]">·</span>
+        <span className="text-[var(--c-hint)]" aria-hidden="true">·</span>
         <span className="text-[var(--c-warning)] font-medium">{warningCount} warnings</span>
       </header>
       <ul role="list" className="space-y-1.5">
@@ -118,7 +118,7 @@ export default function ErrorPanel({
                     <span>{it.message}</span>
                   </div>
                   {it.suggestion && (
-                    <div className="mt-1 text-[var(--c-muted,#64748b)]">
+                    <div className="mt-1 text-[var(--c-hint)]">
                       Sugerencia: {it.suggestion}
                     </div>
                   )}

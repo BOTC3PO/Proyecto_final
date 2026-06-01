@@ -38,6 +38,12 @@ export interface ModuleQuizQuestion {
   answerKey?: string | string[];
   /** Texto explicativo opcional. Si no se pasa, se construye desde `pasos`. */
   explanation?: string;
+  /**
+   * Peso de la pregunta en el puntaje del quiz. Default 1. Es composición a
+   * nivel quiz (no es parte del DSL de la plantilla): el adaptador solo lo
+   * propaga si el caller lo pasa en `AdapterOptions`.
+   */
+  points?: number;
   /** Subcategoría dentro del tema (ej. "fisica/cinematica/MRU"). */
   focus?: string | null;
   /** Contexto visual textual (no es el VisualSpec). */
@@ -73,6 +79,8 @@ export interface AdapterOptions {
   id?: string;
   /** Explicación opcional. Si no se pasa, se construye desde `pasos` si existen. */
   explanation?: string;
+  /** Peso de la pregunta en el puntaje del quiz (default 1 en el reproductor). */
+  points?: number;
   /** Focus (subcategoría) opcional, ej. "fisica/cinematica/MRU". */
   focus?: string | null;
   /** Visual spec ya armado por el caller. El paquete no construye visuales. */

@@ -120,6 +120,8 @@ export function toModuleQuizQuestion(
     focus: options.focus ?? null,
   };
 
+  if (options.points !== undefined) result.points = options.points;
+
   if (opciones !== undefined) result.options = opciones;
   if (answerKey !== undefined) result.answerKey = answerKey;
 

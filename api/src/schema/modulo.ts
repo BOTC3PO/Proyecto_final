@@ -61,7 +61,9 @@ export const ModuleQuizSchema = z.object({
         questionType: z.string().min(1).optional(),
         options: z.array(z.string().min(1)).optional(),
         answerKey: z.union([z.string().min(1), z.array(z.string().min(1))]).optional(),
-        explanation: z.string().min(1).optional()
+        explanation: z.string().min(1).optional(),
+        // Peso de la pregunta en el puntaje (composición a nivel quiz, no DSL).
+        points: z.number().positive().optional()
       })
     )
     .optional(),
@@ -70,7 +72,17 @@ export const ModuleQuizSchema = z.object({
   params: z.record(z.string(), z.unknown()).optional(),
   count: z.number().int().positive().optional(),
   seedPolicy: z.string().min(1).optional(),
-  fixedSeed: z.union([z.string().min(1), z.number().int()]).optional()
+  fixedSeed: z.union([z.string().min(1), z.number().int()]).optional(),
+  // Composición del quiz: pool, selección, variantes y peso por defecto. Se
+  // guarda en QuizVersion.settings; NO forma parte del DSL de la plantilla.
+  composition: z
+    .object({
+      tomar: z.union([z.literal("todas"), z.number().int().positive()]).optional(),
+      seleccion: z.enum(["fijo", "azar", "elige_alumno"]).optional(),
+      variantes: z.array(z.string()).optional(),
+      pesoPorDefecto: z.number().positive().optional()
+    })
+    .optional()
 }).superRefine((value, ctx) => {
   if (value.mode === "generated") {
     if (value.questions !== undefined) {

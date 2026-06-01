@@ -28,6 +28,8 @@ type ModuleQuiz = {
     answerKey?: string | string[];
     explanation?: string;
     toleranciaRelativa?: number;
+    /** Peso de la pregunta en el puntaje (default 1). Composición a nivel quiz. */
+    points?: number;
   }>;
   count?: number;
   seedPolicy?: string;
@@ -36,6 +38,13 @@ type ModuleQuiz = {
   generatorVersion?: number | string;
   instructions?: string;
   displayCount?: number;
+  /** Composición a nivel quiz (pool/selección/variantes/peso). No DSL. */
+  composition?: {
+    tomar?: "todas" | number;
+    seleccion?: "fijo" | "azar" | "elige_alumno";
+    variantes?: string[];
+    pesoPorDefecto?: number;
+  };
 };
 
 type ModuleWithQuizzes = {
@@ -71,6 +80,7 @@ type QuizVersionRecord = {
   count?: number;
   seedPolicy?: number;
   fixedSeed?: string | number;
+  settings?: string;
 };
 
 type QuizFeedback = {
@@ -150,6 +160,12 @@ const buildQuizFromCollection = (
     seedPolicy: version?.seedPolicy !== undefined ? String(version.seedPolicy) : undefined,
     fixedSeed: version?.fixedSeed
   };
+  const settings = version?.settings
+    ? safeJsonParse<Record<string, unknown>>(version.settings, {})
+    : {};
+  if (settings && typeof settings === "object" && (settings as any).composition) {
+    quiz.composition = (settings as any).composition;
+  }
   return quiz;
 };
 
@@ -191,6 +207,7 @@ const fetchQuizFromCollections = async (
         count: versionRecord.count ?? undefined,
         seedPolicy: versionRecord.seedPolicy ?? undefined,
         fixedSeed: versionRecord.fixedSeed ?? undefined,
+        settings: versionRecord.settings ?? undefined,
       }
     : null;
 
@@ -210,15 +227,32 @@ const gradeNumeric = (
   return Math.abs(r - e) <= Math.abs(e) * toleranciaRelativa;
 };
 
+// Peso (puntaje) de una pregunta: su `points` propio, o el peso por defecto de
+// la composición del quiz, o 1. Si nada lo declara, el grading es idéntico al
+// histórico (maxScore = cantidad de preguntas).
+const questionWeight = (
+  question: { points?: number },
+  defaultWeight: number
+): number => {
+  if (typeof question.points === "number" && question.points > 0) return question.points;
+  return defaultWeight > 0 ? defaultWeight : 1;
+};
+
 const gradeAnswers = (
   quiz: ModuleQuiz | null,
   answers: Record<string, string | string[]>
 ) => {
   const questions = quiz?.questions ?? [];
-  const maxScore = questions.length;
-  if (maxScore === 0) return { score: 0, maxScore };
+  if (questions.length === 0) return { score: 0, maxScore: 0 };
+  const defaultWeight =
+    typeof quiz?.composition?.pesoPorDefecto === "number" && quiz.composition.pesoPorDefecto > 0
+      ? quiz.composition.pesoPorDefecto
+      : 1;
   let score = 0;
+  let maxScore = 0;
   for (const question of questions) {
+    const weight = questionWeight(question, defaultWeight);
+    maxScore += weight;
     const expected = question.answerKey;
     if (!expected) continue;
     const response = answers[question.id];
@@ -228,7 +262,7 @@ const gradeAnswers = (
       const responseSet = new Set(response);
       if (expectedSet.size !== responseSet.size) continue;
       const matches = Array.from(expectedSet).every((value) => responseSet.has(value));
-      if (matches) score += 1;
+      if (matches) score += weight;
       continue;
     }
     if (typeof response === "string") {
@@ -236,7 +270,7 @@ const gradeAnswers = (
       const correct = tol !== undefined && tol > 0
         ? gradeNumeric(response, expected, tol)
         : response === expected;
-      if (correct) score += 1;
+      if (correct) score += weight;
     }
   }
   return { score, maxScore };
@@ -439,6 +473,7 @@ quizAttempts.get(
     count: quiz?.count ?? undefined,
     instructions: quiz?.instructions ?? undefined,
     displayCount: quiz?.displayCount ?? undefined,
+    composition: quiz?.composition ?? undefined,
     quizType: quiz?.type ?? undefined
   });
   }
@@ -473,8 +508,28 @@ quizAttempts.post(
       const normalizedQuizVersion = QuizVersionSchema.parse(
         version?.version ?? quiz?.generatorVersion ?? 1
       );
-      const { score, maxScore } = gradeAnswers(quiz, payload.answers);
-      const feedback = buildFeedback(quiz, payload.answers);
+      // Construir el set de preguntas a corregir:
+      //  - Generado / plantilla VBLang: no hay preguntas persistidas; las
+      //    materializa el cliente y las manda en `generatedQuestions`.
+      //  - Manual / banco: están en quiz.questions; si el reproductor presentó
+      //    un subconjunto (pool/azar/elige_alumno), `presentedIds` lo acota.
+      // Se conserva la composición para el peso por defecto.
+      const hasStoredQuestions = (quiz.questions?.length ?? 0) > 0;
+      const presentedSet =
+        payload.presentedIds && payload.presentedIds.length > 0
+          ? new Set(payload.presentedIds)
+          : null;
+      let gradingQuestions: ModuleQuiz["questions"];
+      if (!hasStoredQuestions && payload.generatedQuestions && payload.generatedQuestions.length > 0) {
+        gradingQuestions = payload.generatedQuestions;
+      } else if (presentedSet) {
+        gradingQuestions = (quiz.questions ?? []).filter((q) => presentedSet.has(q.id));
+      } else {
+        gradingQuestions = quiz.questions;
+      }
+      const gradingQuiz: ModuleQuiz = { ...quiz, questions: gradingQuestions };
+      const { score, maxScore } = gradeAnswers(gradingQuiz, payload.answers);
+      const feedback = buildFeedback(gradingQuiz, payload.answers);
       const updatedAt = new Date();
       await prisma.quizAttempt.updateMany({
         where: { id: idParam },

@@ -104,7 +104,7 @@ describe("PlantillaFormularioVisual", () => {
     const minInputs = screen.getAllByDisplayValue("1") as HTMLInputElement[];
     // El primero que tiene type="number" corresponde al min de un random.
     const minNumInput = minInputs.find(
-      (el) => el.tagName === "INPUT" && el.type === "number",
+      (el) => el.tagName === "INPUT" && el.getAttribute("inputmode") === "decimal",
     );
     expect(minNumInput).toBeTruthy();
     fireEvent.change(minNumInput!, { target: { value: "5" } });
@@ -127,7 +127,7 @@ describe("PlantillaFormularioVisual", () => {
     );
     const minInputs = screen.getAllByDisplayValue("1") as HTMLInputElement[];
     const minNumInput = minInputs.find(
-      (el) => el.tagName === "INPUT" && el.type === "number",
+      (el) => el.tagName === "INPUT" && el.getAttribute("inputmode") === "decimal",
     )!;
     fireEvent.change(minNumInput, { target: { value: "-5" } });
     fireEvent.blur(minNumInput);
@@ -148,12 +148,37 @@ describe("PlantillaFormularioVisual", () => {
     );
     const minInputs = screen.getAllByDisplayValue("1") as HTMLInputElement[];
     const minNumInput = minInputs.find(
-      (el) => el.tagName === "INPUT" && el.type === "number",
+      (el) => el.tagName === "INPUT" && el.getAttribute("inputmode") === "decimal",
     )!;
-    // Empty string is what the browser sends for invalid number input content
-    fireEvent.change(minNumInput, { target: { value: "" } });
-    // onChange should NOT have been called because "" is not a valid number
+    // "-" es un estado intermedio de tipeo: ni error ni commit.
+    fireEvent.change(minNumInput, { target: { value: "-" } });
+    // onChange should NOT have been called because "-" is not yet a number
     expect(onChange).not.toHaveBeenCalled();
+    // Tampoco debe aparecer un error visible (regla "nunca forzar a código").
+    expect(screen.queryByText(/Número inválido/i)).toBeNull();
+    // El buffer mantiene el "-" para que el usuario siga tipeando.
+    expect(minNumInput.value).toBe("-");
+  });
+
+  it("tipear '-' y luego '-5' commitea random(-5, 10) (negativo char-a-char)", () => {
+    const plantilla = parsePlantilla(BASIC_DSL);
+    const onChange = vi.fn();
+    render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    const minInputs = screen.getAllByDisplayValue("1") as HTMLInputElement[];
+    const minNumInput = minInputs.find(
+      (el) => el.tagName === "INPUT" && el.getAttribute("inputmode") === "decimal",
+    )!;
+    fireEvent.change(minNumInput, { target: { value: "-" } });
+    expect(onChange).not.toHaveBeenCalled();
+    fireEvent.change(minNumInput, { target: { value: "-5" } });
+    expect(onChange).toHaveBeenCalled();
+    const last = onChange.mock.calls[onChange.mock.calls.length - 1][0] as Plantilla;
+    const declA = findVariables(last)!.declaraciones.find((d) => d.nombre === "a")!;
+    if (declA.expr.kind === "fun_call") {
+      expect(declA.expr.args[0]).toMatchObject({ kind: "num", value: -5 });
+    }
   });
 
   it("min > max muestra warning visible", () => {
@@ -164,7 +189,7 @@ describe("PlantillaFormularioVisual", () => {
     );
     const minInputs = screen.getAllByDisplayValue("1") as HTMLInputElement[];
     const minNumInput = minInputs.find(
-      (el) => el.tagName === "INPUT" && el.type === "number",
+      (el) => el.tagName === "INPUT" && el.getAttribute("inputmode") === "decimal",
     )!;
     fireEvent.change(minNumInput, { target: { value: "15" } });
     expect(onChange).toHaveBeenCalled();
@@ -250,7 +275,7 @@ opciones_explicitas: ["uno", "dos", "tres", "cuatro"]
 
   /* ---------- Bug 3: generador ---------- */
 
-  it("encender toggle de generador y elegir uno agrega GeneradorBloque", () => {
+  it("encender generador pide confirmación, limpia bloques en conflicto y deja AST válido", () => {
     const plantilla = parsePlantilla(BASIC_DSL);
     const onChange = vi.fn();
     const { rerender } = render(
@@ -258,26 +283,52 @@ opciones_explicitas: ["uno", "dos", "tres", "cuatro"]
     );
     const toggle = screen.getByTestId("vblang-form-generador-toggle");
     fireEvent.click(toggle);
+    // BASIC_DSL tiene variables/enunciado/respuesta → debe confirmar antes de borrar.
+    expect(onChange).not.toHaveBeenCalled();
+    expect(screen.getByTestId("vblang-form-confirm-tipo-change")).toBeTruthy();
+    fireEvent.click(screen.getByText("Continuar"));
+
     expect(onChange).toHaveBeenCalledTimes(1);
     let next = onChange.mock.calls[0][0] as Plantilla;
-    expect(findGenerador(next)).toBeDefined();
-    expect(findGenerador(next)!.id).toBe("");
+    const gen = findGenerador(next);
+    expect(gen).toBeDefined();
+    // Se elige un generador real por defecto (no queda vacío e inválido).
+    expect(gen!.id).not.toBe("");
+    // Los bloques en conflicto se removieron; el enunciado queda vacío.
+    expect(findVariables(next)).toBeUndefined();
+    expect(next.bloques.find((b) => b.kind === "respuesta")).toBeUndefined();
+    const enun = next.bloques.find((b) => b.kind === "enunciado");
+    expect(enun).toBeDefined();
 
-    // Re-render with generador enabled, pick one from the dropdown
+    // Re-render con generador activo: se puede cambiar el id desde el picker.
     rerender(
       <PlantillaFormularioVisual plantilla={next} onChange={onChange} />,
     );
     const picker = screen.getByTestId("vblang-form-generador-picker") as HTMLSelectElement;
-    // Pick the first non-empty option available
-    const firstOption = Array.from(picker.options).find(
-      (o) => o.value !== "",
+    const otherOption = Array.from(picker.options).find(
+      (o) => o.value !== "" && o.value !== gen!.id,
     );
-    if (firstOption) {
-      fireEvent.change(picker, { target: { value: firstOption.value } });
+    if (otherOption) {
+      fireEvent.change(picker, { target: { value: otherOption.value } });
       expect(onChange).toHaveBeenCalledTimes(2);
       next = onChange.mock.calls[1][0] as Plantilla;
-      expect(findGenerador(next)!.id).toBe(firstOption.value);
+      expect(findGenerador(next)!.id).toBe(otherOption.value);
     }
+  });
+
+  it("apagar el generador re-agrega una respuesta para mantener el AST parseable", () => {
+    const GEN_DSL = `generador: fisica/cinematica/MRU\nenunciado: ""\n`;
+    const plantilla = parsePlantilla(GEN_DSL);
+    const onChange = vi.fn();
+    render(
+      <PlantillaFormularioVisual plantilla={plantilla} onChange={onChange} />,
+    );
+    fireEvent.click(screen.getByTestId("vblang-form-generador-toggle"));
+    expect(onChange).toHaveBeenCalledTimes(1);
+    const next = onChange.mock.calls[0][0] as Plantilla;
+    expect(findGenerador(next)).toBeUndefined();
+    // Sin generador, el parser exige un campo de respuesta: debe estar presente.
+    expect(next.bloques.find((b) => b.kind === "respuesta")).toBeDefined();
   });
 
   /* ---------- Bug 4: cambiar shape de variable ---------- */

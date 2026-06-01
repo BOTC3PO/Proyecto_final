@@ -42,6 +42,11 @@ export type ModuleQuiz = {
   instructions?: string;
   displayCount?: number;
   umbralAprobacion?: number; // 0-100, default 60
+  /**
+   * Composición a nivel quiz (pool, selección, variantes, peso por defecto).
+   * Se persiste en `QuizVersion.settings.composition`. NO es parte del DSL.
+   */
+  composition?: import("../quiz/composition").QuizComposition;
 };
 
 export type ModuleDependencyType = "required" | "unlocks";
@@ -75,6 +80,11 @@ export type ModuleQuizQuestion = {
   options?: string[];
   answerKey?: string | string[];
   explanation?: string;
+  /**
+   * Peso de la pregunta en el puntaje del quiz (default 1). Es composición a
+   * nivel quiz; NO forma parte del DSL de una plantilla.
+   */
+  points?: number;
   focus?: string | null;
   visualContext?: string;
   // Numeric exercise fields

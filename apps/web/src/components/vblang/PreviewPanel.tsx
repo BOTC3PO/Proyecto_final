@@ -38,7 +38,7 @@ export default function PreviewPanel({
       </header>
       <div className="flex-1 overflow-auto p-3 space-y-3">
         {preview.length === 0 ? (
-          <p className="text-xs text-[var(--c-muted,#64748b)]">
+          <p className="text-xs text-[var(--c-hint)]">
             Sin preview todavía.
           </p>
         ) : (
@@ -47,7 +47,7 @@ export default function PreviewPanel({
               key={`${item.seed}-${idx}`}
               className="rounded-lg border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-3 text-sm"
             >
-              <div className="text-[10px] uppercase tracking-wider text-[var(--c-muted,#64748b)] mb-1">
+              <div className="text-xs uppercase tracking-wider text-[var(--c-hint)] mb-1">
                 seed: {item.seed}
               </div>
               {item.error ? (
@@ -61,13 +61,13 @@ export default function PreviewPanel({
                     {item.question.prompt}
                   </p>
                   {item.question.options && item.question.options.length > 0 && (
-                    <ul className="mt-2 list-disc pl-5 text-[var(--c-muted,#64748b)]">
+                    <ul className="mt-2 list-disc pl-5 text-[var(--c-hint)]">
                       {item.question.options.map((opt, i) => (
                         <li key={i}>{opt}</li>
                       ))}
                     </ul>
                   )}
-                  <p className="mt-2 text-xs text-[var(--c-muted,#64748b)]">
+                  <p className="mt-2 text-xs text-[var(--c-hint)]">
                     Respuesta: {answerKeyString(item.question.answerKey)}
                   </p>
                 </>

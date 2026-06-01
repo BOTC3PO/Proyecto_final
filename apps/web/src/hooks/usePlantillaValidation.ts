@@ -10,6 +10,7 @@
 
 import { useCallback, useState } from "react";
 import { validate, type CompiledPlantilla, type ValidationReport } from "@vb/vblang";
+import { generadorAsistidoProvider } from "../vblang/provider";
 
 export type ValidationStatus = "idle" | "running" | "done";
 
@@ -34,7 +35,10 @@ export function usePlantillaValidation(
     // antes de que el bucle síncrono de validate() bloquee el thread.
     await new Promise<void>((resolve) => setTimeout(resolve, 0));
     try {
-      const result = validate(compiled, { iterations: 100 });
+      const result = validate(compiled, {
+        iterations: 100,
+        provider: generadorAsistidoProvider,
+      });
       setReport(result);
       setStatus("done");
     } catch (err) {

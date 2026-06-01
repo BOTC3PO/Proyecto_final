@@ -10,7 +10,7 @@
  * - Guardar dispara create/update y maneja DslApiError mostrándolo en el panel.
  */
 
-import { useCallback, useEffect, useReducer, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { serialize } from "@vb/vblang";
 import CodeEditor, {
@@ -184,6 +184,23 @@ export default function PlantillaEditor() {
   const handleGoToLocation = (line: number, col: number) => {
     editorRef.current?.focusAt(line, col);
   };
+
+  // Resumen textual de errores para asociar al textarea (aria-describedby) y
+  // que el lector de pantalla lo anuncie al editar.
+  const errorSummary = useMemo(() => {
+    const parts: string[] = [];
+    const pe = compilation.parseError ?? dslApiError;
+    if (pe) parts.push(pe.line ? `Línea ${pe.line}: ${pe.message}` : pe.message);
+    for (const e of compilation.lintReport?.errors ?? []) {
+      parts.push(e.line ? `Línea ${e.line}: ${e.message}` : e.message);
+    }
+    if (parts.length === 0) return undefined;
+    const head =
+      parts.length === 1
+        ? "1 error de validación."
+        : `${parts.length} errores de validación.`;
+    return `${head} ${parts.join(". ")}`;
+  }, [compilation.parseError, compilation.lintReport, dslApiError]);
 
   const handleImportFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -465,6 +482,7 @@ export default function PlantillaEditor() {
               onChange={setCodigo}
               errorLine={compilation.parseError?.line ?? dslApiError?.line}
               errorCol={compilation.parseError?.col ?? dslApiError?.col}
+              errorSummary={errorSummary}
             />
           ) : compilation.plantilla ? (
             <PlantillaFormularioVisual
