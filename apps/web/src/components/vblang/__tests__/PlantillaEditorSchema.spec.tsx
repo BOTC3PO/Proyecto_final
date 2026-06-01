@@ -127,4 +127,34 @@ describe("PlantillaEditorSchema", () => {
     expect(dsl()).toContain("generador:");
     expect(dsl()).toContain("Consigna");
   });
+
+  it("analisis_sintactico: la palabra usa un combobox del diccionario", async () => {
+    render(
+      <Harness
+        initial={
+          'enunciado: "Analizá"\ntipo: analisis_sintactico\ntexto_analizar: "el gato duerme"\netiquetas_pedidas:\n  - { palabra: "gato", etiqueta: "sustantivo" }\n'
+        }
+      />,
+    );
+    // El campo palabra ahora es un combobox accesible por su label.
+    const palabra = screen.getByRole("combobox", { name: "Palabra 1" });
+    expect(palabra).toHaveAttribute("aria-autocomplete", "list");
+    // La etiqueta sigue editable y referencia el datalist de categorías.
+    const etiqueta = screen.getByLabelText("Etiqueta 1") as HTMLInputElement;
+    expect(etiqueta.getAttribute("list")).toBe("vblang-categorias-gramaticales");
+    expect(etiqueta.value).toBe("sustantivo");
+  });
+
+  it("identificar_palabras: las palabras correctas usan combobox", () => {
+    render(
+      <Harness
+        initial={
+          'enunciado: "Identificá"\ntipo: identificar_palabras\ntexto_analizar: "el gato come pescado"\nrespuestas_validas:\n  - "gato"\n'
+        }
+      />,
+    );
+    expect(
+      screen.getByRole("combobox", { name: "Palabras correctas 1" }),
+    ).toBeInTheDocument();
+  });
 });

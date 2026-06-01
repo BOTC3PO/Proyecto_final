@@ -20,7 +20,13 @@ import type { Field, ListField, TextField } from "@vb/vblang";
 import GeneradorPicker from "./GeneradorPicker";
 import { listGeneradores } from "../../vblang/listGeneradores";
 import { AccessibleList } from "./AccessibleList";
+import PalabraCombobox from "./PalabraCombobox";
 import { uploadPng } from "./mediaApi";
+import {
+  CATEGORIAS_GRAMATICALES,
+  sugerirCategoriaGramatical,
+  type EntradaDiccionario,
+} from "../../services/diccionario";
 import {
   applyGenerador,
   applyTipo,
@@ -234,35 +240,33 @@ function FieldControl({
   if (lf.itemShape === "etiqueta") {
     const rows = readEtiquetas(plantilla);
     return (
-      <AccessibleList<EtiquetaRow>
-        items={rows}
-        onChange={(next) => onChange(writeEtiquetas(plantilla, next))}
-        createItem={() => ({ palabra: "", etiqueta: "" })}
-        label={field.label}
-        addLabel="Agregar etiqueta"
-        itemNoun="etiqueta"
-        minItems={lf.minItems ?? 0}
-        renderItem={(item, index, onItem) => (
-          <div className="flex gap-1">
-            <input
-              aria-label={`Palabra ${index + 1}`}
-              value={item.palabra}
-              placeholder="palabra"
-              onChange={(e) => onItem({ ...item, palabra: e.target.value })}
-              className="min-w-0 flex-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
-            />
-            <input
-              aria-label={`Etiqueta ${index + 1}`}
-              value={item.etiqueta}
-              placeholder="etiqueta"
-              onChange={(e) => onItem({ ...item, etiqueta: e.target.value })}
-              className="min-w-0 flex-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
-            />
-          </div>
-        )}
-      />
+      <>
+        <datalist id={CATEGORIAS_DATALIST_ID}>
+          {CATEGORIAS_GRAMATICALES.map((c) => (
+            <option key={c} value={c} />
+          ))}
+        </datalist>
+        <AccessibleList<EtiquetaRow>
+          items={rows}
+          onChange={(next) => onChange(writeEtiquetas(plantilla, next))}
+          createItem={() => ({ palabra: "", etiqueta: "" })}
+          label={field.label}
+          addLabel="Agregar etiqueta"
+          itemNoun="etiqueta"
+          minItems={lf.minItems ?? 0}
+          renderItem={(item, index, onItem) => (
+            <EtiquetaRowEditor item={item} index={index} onItem={onItem} />
+          )}
+        />
+      </>
     );
   }
+
+  // identificar_palabras: las respuestas válidas son palabras → autocompletado
+  // y validación contra el diccionario. Otros tipos (completar) usan texto plano.
+  const esPalabras =
+    lf.block === "respuestas_validas" &&
+    plantilla.tipoInferido === "identificar_palabras";
 
   const items = readListStrings(plantilla, lf);
   return (
@@ -274,15 +278,92 @@ function FieldControl({
       addLabel="Agregar ítem"
       itemNoun="ítem"
       minItems={lf.minItems ?? 0}
-      renderItem={(item, index, onItem) => (
-        <input
-          aria-label={`${field.label} ${index + 1}`}
-          value={item}
-          onChange={(e) => onItem(e.target.value)}
-          className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
-        />
-      )}
+      renderItem={(item, index, onItem) =>
+        esPalabras ? (
+          <PalabraCombobox
+            label={`${field.label} ${index + 1}`}
+            value={item}
+            onChange={onItem}
+            placeholder="palabra"
+          />
+        ) : (
+          <input
+            aria-label={`${field.label} ${index + 1}`}
+            value={item}
+            onChange={(e) => onItem(e.target.value)}
+            className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+          />
+        )
+      }
     />
+  );
+}
+
+const CATEGORIAS_DATALIST_ID = "vblang-categorias-gramaticales";
+
+/**
+ * Fila de etiqueta para analisis_sintactico: la palabra usa el combobox del
+ * diccionario (autocompletado + validación) y, al resolverse, propone la
+ * categoría gramatical. Si la etiqueta está vacía se completa sola; el autor
+ * siempre puede sobrescribirla (datalist con las categorías estándar).
+ */
+function EtiquetaRowEditor({
+  item,
+  index,
+  onItem,
+}: {
+  item: EtiquetaRow;
+  index: number;
+  onItem: (next: EtiquetaRow) => void;
+}) {
+  const [sugerida, setSugerida] = useState<string | null>(null);
+  const etiquetaId = useId();
+
+  const handleLookup = (_word: string, entry: EntradaDiccionario | null) => {
+    const cat = sugerirCategoriaGramatical(entry);
+    setSugerida(cat);
+    // Autocompleta la etiqueta sólo si está vacía, para no pisar lo que el
+    // autor ya escribió.
+    if (cat && item.etiqueta.trim() === "") {
+      onItem({ ...item, etiqueta: cat });
+    }
+  };
+
+  const mostrarSugerencia =
+    sugerida !== null && sugerida !== item.etiqueta.trim();
+
+  return (
+    <div className="flex flex-col gap-0.5">
+      <div className="flex gap-1">
+        <div className="min-w-0 flex-1">
+          <PalabraCombobox
+            label={`Palabra ${index + 1}`}
+            value={item.palabra}
+            onChange={(palabra) => onItem({ ...item, palabra })}
+            onLookup={handleLookup}
+            placeholder="palabra"
+          />
+        </div>
+        <input
+          id={etiquetaId}
+          list={CATEGORIAS_DATALIST_ID}
+          aria-label={`Etiqueta ${index + 1}`}
+          value={item.etiqueta}
+          placeholder="etiqueta"
+          onChange={(e) => onItem({ ...item, etiqueta: e.target.value })}
+          className="min-w-0 flex-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+        />
+      </div>
+      {mostrarSugerencia && (
+        <button
+          type="button"
+          onClick={() => onItem({ ...item, etiqueta: sugerida! })}
+          className="self-start text-[10px] text-[var(--c-primary,#3b82f6)] hover:underline"
+        >
+          Sugerencia del diccionario: usar «{sugerida}»
+        </button>
+      )}
+    </div>
   );
 }
 
