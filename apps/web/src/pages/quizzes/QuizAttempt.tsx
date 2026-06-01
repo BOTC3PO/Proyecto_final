@@ -7,6 +7,12 @@ import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import { ejercicioToQuestion } from "../../domain/quiz/ejercicioToQuestion";
+import {
+  parseComposition,
+  selectPoolIndices,
+  pickVariante,
+  type QuizComposition,
+} from "../../domain/quiz/composition";
 import { runPlantilla } from "../../vblang/runPlantilla";
 import { precargarDataset } from "../../vblang/datasetCache";
 import { extractDatasetName } from "../../vblang/utils";
@@ -55,6 +61,7 @@ type QuizAttemptResponse = {
   instructions?: string;
   displayCount?: number;
   quizType?: string;
+  composition?: QuizComposition;
 };
 
 type SubmitResponse = {
@@ -294,13 +301,36 @@ export default function QuizAttempt() {
     return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
   };
 
-  const questions = useMemo(() => {
+  const composition: QuizComposition | null = useMemo(
+    () => (attempt?.composition ? parseComposition(attempt.composition) : null),
+    [attempt?.composition],
+  );
+
+  // Preguntas que el reproductor PRESENTA (aplica pool, selección y variantes).
+  const presentedQuestions = useMemo(() => {
     if (!attempt) return [] as ModuleQuizQuestion[];
     const server = attempt.questions ?? attempt.quiz?.questions ?? [];
     const pool = server.length > 0 ? server : generatedQuestions;
+    const seed = attempt.seed ?? "0";
+
+    let presented: ModuleQuizQuestion[];
+    if (composition) {
+      // Política de pool configurable (Decisión 1): fijo/azar/elige_alumno.
+      const indices = selectPoolIndices(pool.length, composition, seed);
+      presented = indices.map((i) => pool[i]);
+      // Variantes de consigna: la serie elige una por seed/posición.
+      if (composition.variantes && composition.variantes.length > 0) {
+        presented = presented.map((q, i) => {
+          const variante = pickVariante(composition.variantes, seed, i);
+          return variante ? { ...q, prompt: variante } : q;
+        });
+      }
+      return presented;
+    }
+
+    // Fallback histórico: displayCount + barajado determinístico por seed.
     const display = attempt.displayCount;
     if (!display || display >= pool.length) return pool;
-    // Selección determinística basada en el seed
     const seedVal = typeof attempt.seed === "number"
       ? attempt.seed
       : String(attempt.seed ?? "0").split("").reduce(
@@ -317,7 +347,18 @@ export default function QuizAttempt() {
       [indices[i], indices[j]] = [indices[j], indices[i]];
     }
     return indices.slice(0, display).map((i) => pool[i]);
-  }, [attempt, generatedQuestions]);
+  }, [attempt, generatedQuestions, composition]);
+
+  // Para `elige_alumno`: el alumno elige cuál responder; solo esa puntúa.
+  const eligeAlumno = composition?.seleccion === "elige_alumno";
+  const [chosenQuestionId, setChosenQuestionId] = useState<string | null>(null);
+
+  // Preguntas efectivamente respondibles. En elige_alumno, solo la elegida.
+  const questions = useMemo(() => {
+    if (!eligeAlumno) return presentedQuestions;
+    if (!chosenQuestionId) return [] as ModuleQuizQuestion[];
+    return presentedQuestions.filter((q) => q.id === chosenQuestionId);
+  }, [eligeAlumno, chosenQuestionId, presentedQuestions]);
 
   const title = attempt?.quizTitle ?? attempt?.quiz?.title ?? "Quiz";
 
@@ -341,16 +382,29 @@ export default function QuizAttempt() {
     setSubmitStatus("submitting");
     setSubmitMessage(null);
     try {
+      // Con composición, solo cuentan las preguntas efectivamente respondibles
+      // (en elige_alumno, únicamente la elegida).
+      const submitAnswers: Record<string, AttemptAnswerValue> = composition
+        ? Object.fromEntries(
+            questions
+              .map((q) => [q.id, answers[q.id]] as const)
+              .filter(([, v]) => v !== undefined),
+          )
+        : answers;
+      const submitGenerated =
+        generatedQuestions.length > 0
+          ? (composition
+              ? generatedQuestions.filter((q) =>
+                  questions.some((a) => a.id === q.id),
+                )
+              : generatedQuestions
+            ).map((q) => ({ id: q.id, answerKey: q.answerKey }))
+          : undefined;
       const response = await apiPost<SubmitResponse>(
         `/api/quiz-attempts/${attemptId}/submit`,
         {
-          answers,
-          ...(generatedQuestions.length > 0 && {
-            generatedQuestions: generatedQuestions.map((q) => ({
-              id: q.id,
-              answerKey: q.answerKey,
-            })),
-          }),
+          answers: submitAnswers,
+          ...(submitGenerated ? { generatedQuestions: submitGenerated } : {}),
         }
       );
       setResult(response);
@@ -462,9 +516,37 @@ export default function QuizAttempt() {
             </div>
           ) : null}
 
+          {/* elige_alumno: el alumno elige cuál ejercicio responder. */}
+          {eligeAlumno && presentedQuestions.length > 0 && (
+            <fieldset className="rounded-xl border border-gray-200 bg-white p-4">
+              <legend className="px-1 text-sm font-semibold text-gray-800">
+                Elegí qué ejercicio querés responder
+              </legend>
+              <p className="mb-2 text-xs text-gray-500">
+                Solo el ejercicio que elijas cuenta para tu nota.
+              </p>
+              <div className="space-y-2">
+                {presentedQuestions.map((q) => (
+                  <label key={q.id} className="flex items-start gap-2 text-sm text-gray-700">
+                    <input
+                      type="radio"
+                      name="elige-alumno-choice"
+                      checked={chosenQuestionId === q.id}
+                      onChange={() => setChosenQuestionId(q.id)}
+                      className="mt-1"
+                    />
+                    <span>{q.prompt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          )}
+
           {questions.length === 0 ? (
             <p className="text-sm text-gray-500">
-              Este intento no tiene preguntas asignadas todavía.
+              {eligeAlumno && presentedQuestions.length > 0
+                ? "Elegí un ejercicio de la lista para empezar a responder."
+                : "Este intento no tiene preguntas asignadas todavía."}
             </p>
           ) : (
             <ol className="space-y-6">

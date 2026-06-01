@@ -198,6 +198,7 @@ modulos.get("/api/modulos/:id", async (req, res) => {
           count: v?.count ?? undefined,
           seedPolicy: v?.seedPolicy ?? undefined,
           fixedSeed: v?.fixedSeed ?? undefined,
+          composition: (settings as any).composition ?? undefined,
         };
       }),
     };
@@ -276,7 +277,7 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
             count: quiz.count ?? null,
             seedPolicy: quiz.seedPolicy ? parseInt(quiz.seedPolicy, 10) : 0,
             fixedSeed: quiz.fixedSeed !== undefined ? String(quiz.fixedSeed) : null,
-            settings: JSON.stringify({ type: quiz.type, mode: quiz.mode, visibility: quiz.visibility, materia: parsed.subject }),
+            settings: JSON.stringify({ type: quiz.type, mode: quiz.mode, visibility: quiz.visibility, materia: parsed.subject, composition: quiz.composition }),
             createdAt: parsed.createdAt,
             createdBy: parsed.createdBy,
           },
@@ -341,6 +342,8 @@ async function applyModuleUpdate(
         type: q.type ?? "practica",
         mode: q.mode,
         visibility: q.visibility ?? "publico",
+        // Composición a nivel quiz (pool/selección/variantes/peso). No DSL.
+        composition: q.composition,
       };
       const seedPolicyInt = q.seedPolicy ? parseInt(String(q.seedPolicy), 10) : 0;
 

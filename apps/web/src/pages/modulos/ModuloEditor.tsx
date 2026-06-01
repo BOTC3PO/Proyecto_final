@@ -10,6 +10,7 @@ import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
+import QuizComposicionEditor from "../../components/modulos/QuizComposicionEditor";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
 import BlockEditorPage from "../../blocks/v2/BlockEditorPage";
 import { deserializeBlockDocument } from "../../blocks/utils";
@@ -1525,6 +1526,20 @@ export default function ModuloEditor() {
                             ) : null}
                           </>
                         )}
+
+                        {/* Composición del quiz: pool, selección, variantes y peso.
+                            Nivel quiz (no DSL). Se persiste en settings. */}
+                        <QuizComposicionEditor
+                          value={quiz.composition}
+                          total={
+                            quiz.mode === "generated"
+                              ? quiz.count ?? 0
+                              : quiz.questions?.length ?? 0
+                          }
+                          onChange={(composition) =>
+                            updateQuiz(quiz.id, { composition })
+                          }
+                        />
                         </div>
                       </div>
                       );
