@@ -217,9 +217,20 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   }
 
   if (spec.kind === "circuit") {
+    // TODO post-expo: implementar el render del diagrama de circuito. Hasta
+    // entonces mostramos un placeholder explícito (no un hueco roto) para que
+    // no aparezca como una herramienta fallida en la demo.
     return (
-      <div className="flex items-center justify-center rounded border border-gray-200 bg-gray-50 p-6 text-sm text-gray-500">
-        Circuito — visualización pendiente
+      <div
+        role="note"
+        className="flex flex-col items-center justify-center gap-1 rounded border border-dashed border-gray-300 bg-gray-50 p-6 text-center"
+      >
+        <span className="text-sm font-medium text-gray-600">
+          Visualización de circuito
+        </span>
+        <span className="text-xs text-gray-500">
+          Próximamente — este tipo de visual todavía no se renderiza.
+        </span>
       </div>
     );
   }

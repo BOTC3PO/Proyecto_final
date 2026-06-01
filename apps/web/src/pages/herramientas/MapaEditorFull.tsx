@@ -1,3 +1,11 @@
+// TODO post-expo: editor de mapa completo INCOMPLETO. Está fuera de circulación
+// para la demo (ModuloEditor usa MapaStandalone inline, que sí funciona). No
+// borrar: este componente es la base para retomarlo. Pendiente antes de
+// reconectarlo al picker/flujo de módulos:
+//   - Conectar datasets a la API del módulo (hoy llegan vacíos por sessionStorage).
+//   - Implementar click/render de zona y flecha.
+//   - Zoom/pan, export a imagen, reorder de capas por teclado.
+// Ver work order 03 (degradación a standalone) para el contexto.
 import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { topologyToFeatures } from "../../lib/maps/topojson-lite";
