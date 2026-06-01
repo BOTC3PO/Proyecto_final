@@ -115,7 +115,6 @@ const mcSchema: QuestionTypeSchema = {
       help: "Texto exacto de la opción correcta.",
       required: true,
       block: "respuesta",
-      expression: true,
     },
   ],
   sampleDsl: `enunciado: "¿Cuál es un número primo?"
@@ -242,7 +241,6 @@ const marcarMapaSchema: QuestionTypeSchema = {
       help: "Código ISO de la región correcta (ej.: AR).",
       required: true,
       block: "respuesta_iso",
-      expression: true,
     },
   ],
   sampleDsl: `enunciado: "Marcá Argentina en el mapa."
@@ -266,7 +264,6 @@ const analisisSintacticoSchema: QuestionTypeSchema = {
       help: "La oración que el alumno debe analizar.",
       required: true,
       block: "texto_analizar",
-      expression: true,
     },
     {
       kind: "list",
@@ -303,7 +300,6 @@ const identificarPalabrasSchema: QuestionTypeSchema = {
       help: "El texto del que el alumno marca palabras.",
       required: true,
       block: "texto_analizar",
-      expression: true,
     },
     {
       kind: "list",

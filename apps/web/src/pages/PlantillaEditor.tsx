@@ -19,7 +19,7 @@ import CodeEditor, {
 import DatasetExplorer from "../components/vblang/DatasetExplorer";
 import EjemplosMenu from "../components/vblang/EjemplosMenu";
 import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
-import PlantillaFormularioVisual from "../components/vblang/PlantillaFormularioVisual";
+import PlantillaEditorSchema from "../components/vblang/PlantillaEditorSchema";
 import Toast, { type ToastAction } from "../components/Toast";
 import ErrorPanel from "../components/vblang/ErrorPanel";
 import PreviewPanel from "../components/vblang/PreviewPanel";
@@ -485,7 +485,7 @@ export default function PlantillaEditor() {
               errorSummary={errorSummary}
             />
           ) : compilation.plantilla ? (
-            <PlantillaFormularioVisual
+            <PlantillaEditorSchema
               plantilla={compilation.plantilla}
               onChange={(next) => setCodigo(serialize(next))}
               valoresActuales={preview.variables0}
