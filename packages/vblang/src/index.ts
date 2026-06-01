@@ -21,6 +21,26 @@ export {
 export { toModuleQuizQuestion } from "./adapters/to-module-quiz-question.js";
 export { AdapterError } from "./adapters/errors.js";
 
+export {
+  ALL_QUESTION_TYPES,
+  DASH_LIST_BLOCKS,
+  getQuestionSchema,
+  QUESTION_TYPE_SCHEMAS,
+} from "./schema/index.js";
+export type {
+  BoolField,
+  DashListBlock,
+  EnumField,
+  EnumOption,
+  Field,
+  FieldKind,
+  ListField,
+  ListItemShape,
+  NumberField,
+  QuestionTypeSchema,
+  TextField,
+} from "./schema/index.js";
+
 export type {
   CircuitSpec,
   LatexSpec,
