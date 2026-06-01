@@ -7,6 +7,7 @@ import { getDescriptoresMatematicas } from "./matematicas/index";
 import { getDescriptoresQuimica } from "./quimica/index";
 import { getDescriptoresEconomia } from "./economia/index";
 import { getDescriptoresInformatica } from "./informatica/index";
+import { getDescriptoresBasic } from "./basic/banco";
 
 export type CatalogItem = {
   id: string;
@@ -67,6 +68,8 @@ export function getStaticCatalog(): CatalogItem[] {
     ...getDescriptoresQuimica(prng),
     ...getDescriptoresEconomia(prng),
     ...getDescriptoresInformatica(prng),
+    // WO08: bancos hand-authored registrados (vacío si no hay ninguno).
+    ...getDescriptoresBasic(prng),
   ];
   return all.map((d) => ({
     id: d.id,
