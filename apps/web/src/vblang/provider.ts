@@ -11,6 +11,7 @@ import { getDescriptoresFisica } from "../generadoresV2/fisica/index";
 import { getDescriptoresInformatica } from "../generadoresV2/informatica/index";
 import { getDescriptoresMatematicas } from "../generadoresV2/matematicas/index";
 import { getDescriptoresQuimica } from "../generadoresV2/quimica/index";
+import { getDescriptoresBasic } from "../generadoresV2/basic/banco";
 import type { GeneratorDescriptor } from "../generadoresV2/core/types";
 
 /**
@@ -32,17 +33,13 @@ function getAllDescriptors(prng: DeterministicPrng): GeneratorDescriptor[] {
     ...getDescriptoresQuimica(prng),
     ...getDescriptoresEconomia(prng),
     ...getDescriptoresInformatica(prng),
+    // WO08: `basic/QuizGenerator` ya NO está excluido. Cada banco de preguntas
+    // hand-authored registrado (`registerBancoTemplate`) se expone como un
+    // descriptor cuyo `generate` elige una pregunta del banco (adapter
+    // multi→single). Con el registro vacío esto devuelve `[]`. Para el flujo
+    // multi-pregunta con política de pool, ver `runBanco` en basic/banco.ts.
+    ...getDescriptoresBasic(prng),
   ];
-  // NOTA (Fase 3.5 — diferido): `basic/QuizGenerator` NO se incluye acá a
-  // propósito. No implementa `GeneratorDescriptor` (no es paramétrico):
-  //   - su constructor requiere un `QuizTemplate` (banco de preguntas) que hoy
-  //     no existe como dato estático ni se instancia en ningún lado;
-  //   - su `generate({ seed })` devuelve un `QuizInstance` multi-pregunta con
-  //     tipos mc/tf/match/fill-blank, no el `GeneradorAsistidoEjercicio` de un
-  //     solo ejercicio que espera el provider (match/fill-blank no mapean).
-  // Registrarlo sin un origen de templates + un adapter multi→single haría que
-  // el picker ofrezca algo que al generarse falla ("pool vacío"). Ver
-  // docs/vblang/roadmap-basic-generators.md para el plan de implementación.
 }
 
 /**
