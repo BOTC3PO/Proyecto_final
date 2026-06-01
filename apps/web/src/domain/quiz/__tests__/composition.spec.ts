@@ -7,9 +7,33 @@ import {
   pickVariante,
   pointsFor,
   weightedScore,
+  resolveSubtipoPool,
   DEFAULT_COMPOSITION,
   type QuizComposition,
 } from "../composition";
+
+describe("resolveSubtipoPool", () => {
+  const all = ["MRU", "MRUV", "caida_libre"];
+
+  it("sin params elegidos → todos", () => {
+    expect(resolveSubtipoPool(all, undefined)).toEqual(all);
+    expect(resolveSubtipoPool(all, {})).toEqual(all);
+  });
+
+  it("subtipos elegidos se filtran a los válidos", () => {
+    expect(resolveSubtipoPool(all, { subtipos: ["MRU", "MRUV"] })).toEqual(["MRU", "MRUV"]);
+    expect(resolveSubtipoPool(all, { subtipos: ["MRU", "inexistente"] })).toEqual(["MRU"]);
+  });
+
+  it("ninguno válido → todos (degradación)", () => {
+    expect(resolveSubtipoPool(all, { subtipos: ["xx"] })).toEqual(all);
+    expect(resolveSubtipoPool(all, { subtipos: [] })).toEqual(all);
+  });
+
+  it("compatibilidad con el `subtipo` único legacy", () => {
+    expect(resolveSubtipoPool(all, { subtipo: "MRUV" })).toEqual(["MRUV"]);
+  });
+});
 
 describe("parseComposition", () => {
   it("default cuando el input es vacío o inválido", () => {

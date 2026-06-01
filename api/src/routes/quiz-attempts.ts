@@ -508,8 +508,28 @@ quizAttempts.post(
       const normalizedQuizVersion = QuizVersionSchema.parse(
         version?.version ?? quiz?.generatorVersion ?? 1
       );
-      const { score, maxScore } = gradeAnswers(quiz, payload.answers);
-      const feedback = buildFeedback(quiz, payload.answers);
+      // Construir el set de preguntas a corregir:
+      //  - Generado / plantilla VBLang: no hay preguntas persistidas; las
+      //    materializa el cliente y las manda en `generatedQuestions`.
+      //  - Manual / banco: están en quiz.questions; si el reproductor presentó
+      //    un subconjunto (pool/azar/elige_alumno), `presentedIds` lo acota.
+      // Se conserva la composición para el peso por defecto.
+      const hasStoredQuestions = (quiz.questions?.length ?? 0) > 0;
+      const presentedSet =
+        payload.presentedIds && payload.presentedIds.length > 0
+          ? new Set(payload.presentedIds)
+          : null;
+      let gradingQuestions: ModuleQuiz["questions"];
+      if (!hasStoredQuestions && payload.generatedQuestions && payload.generatedQuestions.length > 0) {
+        gradingQuestions = payload.generatedQuestions;
+      } else if (presentedSet) {
+        gradingQuestions = (quiz.questions ?? []).filter((q) => presentedSet.has(q.id));
+      } else {
+        gradingQuestions = quiz.questions;
+      }
+      const gradingQuiz: ModuleQuiz = { ...quiz, questions: gradingQuestions };
+      const { score, maxScore } = gradeAnswers(gradingQuiz, payload.answers);
+      const feedback = buildFeedback(gradingQuiz, payload.answers);
       const updatedAt = new Date();
       await prisma.quizAttempt.updateMany({
         where: { id: idParam },

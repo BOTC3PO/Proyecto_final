@@ -20,7 +20,25 @@ export const QuizAttemptSubmitSchema = z.object({
   answers: z
     .record(z.string(), z.union([z.string(), z.array(z.string())]))
     .optional()
-    .default({})
+    .default({}),
+  // Preguntas materializadas en el cliente (quizzes generados / plantilla
+  // VBLang): el cliente envía id + answerKey (+ peso y tolerancia) para que el
+  // servidor pueda corregir ponderado, ya que no las tiene persistidas.
+  generatedQuestions: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        answerKey: z.union([z.string(), z.array(z.string())]).optional(),
+        points: z.number().positive().optional(),
+        toleranciaRelativa: z.number().optional()
+      })
+    )
+    .optional(),
+  // Ids de las preguntas efectivamente presentadas al alumno (tras aplicar la
+  // política de pool/selección o elige_alumno en el reproductor). El servidor
+  // corrige solo estas, así el puntaje refleja lo realmente respondido tanto
+  // para quizzes generados como para un banco hand-authored.
+  presentedIds: z.array(z.string()).optional()
 });
 
 export type QuizAttemptCreate = z.infer<typeof QuizAttemptCreateSchema>;

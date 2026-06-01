@@ -71,16 +71,31 @@ export default function QuizEditorGenerated({
       : "intermedio";
 
   const selectedItem = catalog.find((c) => c.id === generatorId);
-  const selectedSubtipoId = typeof params?.subtipo === "string" ? params.subtipo : null;
-  const selectedSubtipo = selectedItem?.subtipos.find((s) => s.id === selectedSubtipoId);
+  // Pool de subtipos (task 4): array de ids. Vacío = todos al azar.
+  // Compatibilidad con el `subtipo` único anterior.
+  const selectedSubtipos: string[] = Array.isArray(params?.subtipos)
+    ? (params.subtipos as string[])
+    : typeof params?.subtipo === "string"
+      ? [params.subtipo as string]
+      : [];
 
-  const handleSelect = (item: GeneratorCatalogItem, subtipo?: GeneratorSubtipo) => {
+  const handleSelect = (item: GeneratorCatalogItem) => {
     onChange({
       generatorId: item.id,
       generatorVersion: 1,
-      params: subtipo ? { subtipo: subtipo.id, dificultad } : { dificultad },
+      params: { dificultad },
       count,
     });
+  };
+
+  // Alterna un subtipo en el pool. Quita la clave `subtipo` (single) legacy.
+  const toggleSubtipo = (subtipoId: string) => {
+    const next = selectedSubtipos.includes(subtipoId)
+      ? selectedSubtipos.filter((s) => s !== subtipoId)
+      : [...selectedSubtipos, subtipoId];
+    const { subtipo: _legacy, ...restParams } = params as Record<string, unknown>;
+    void _legacy;
+    onChange({ params: { ...restParams, subtipos: next } });
   };
 
   // Filtro por materia / nombre del generador / subtipo.
@@ -113,22 +128,55 @@ export default function QuizEditorGenerated({
         <p className="mb-2 text-xs font-semibold text-gray-700">Configuración del generador</p>
 
         {generatorId && selectedItem ? (
-          <div className="flex items-start gap-3 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2">
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-blue-900">{selectedItem.label}</p>
-              {selectedSubtipo ? (
-                <p className="mt-0.5 text-xs text-blue-700">{selectedSubtipo.label}</p>
-              ) : selectedItem.description ? (
-                <p className="mt-0.5 text-xs text-blue-700">{selectedItem.description}</p>
-              ) : null}
+          <div className="rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 space-y-2">
+            <div className="flex items-start gap-3">
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-blue-900">{selectedItem.label}</p>
+                {selectedItem.description ? (
+                  <p className="mt-0.5 text-xs text-blue-700">{selectedItem.description}</p>
+                ) : null}
+              </div>
+              <button
+                type="button"
+                className="shrink-0 text-xs text-blue-600 hover:underline"
+                onClick={() => onChange({ generatorId: "", generatorVersion: 1, params: {} })}
+              >
+                Cambiar
+              </button>
             </div>
-            <button
-              type="button"
-              className="shrink-0 text-xs text-blue-600 hover:underline"
-              onClick={() => onChange({ generatorId: "", generatorVersion: 1, params: {} })}
-            >
-              Cambiar
-            </button>
+            {/* Pool de subtipos (task 4): vacío = todos al azar. */}
+            {selectedItem.subtipos.length > 0 && (
+              <div>
+                <p className="mb-1 text-[11px] font-medium text-blue-800">
+                  Subtipos del pool
+                  <span className="ml-1 font-normal text-blue-600">
+                    {selectedSubtipos.length === 0
+                      ? "(ninguno elegido = todos al azar)"
+                      : `(${selectedSubtipos.length} elegido${selectedSubtipos.length === 1 ? "" : "s"})`}
+                  </span>
+                </p>
+                <div className="flex flex-wrap gap-1">
+                  {selectedItem.subtipos.map((subtipo) => {
+                    const active = selectedSubtipos.includes(subtipo.id);
+                    return (
+                      <button
+                        key={subtipo.id}
+                        type="button"
+                        aria-pressed={active}
+                        onClick={() => toggleSubtipo(subtipo.id)}
+                        className={`rounded-full border px-2 py-0.5 text-[11px] transition-colors ${
+                          active
+                            ? "border-blue-500 bg-blue-600 text-white"
+                            : "border-blue-300 bg-white text-blue-700 hover:bg-blue-100"
+                        }`}
+                      >
+                        {subtipo.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <div className="space-y-2">
@@ -160,17 +208,24 @@ export default function QuizEditorGenerated({
                           type="button"
                           className="rounded border border-gray-300 bg-gray-50 px-2 py-0.5 text-[11px] text-gray-700 hover:border-blue-400 hover:bg-blue-50 transition-colors"
                           onClick={() => handleSelect(item)}
-                          aria-pressed={selectedSubtipoId === null}
+                          aria-pressed={generatorId === item.id && selectedSubtipos.length === 0}
                         >
-                          Aleatorio
+                          Aleatorio (todos)
                         </button>
                         {item.subtipos.map((subtipo) => (
                           <button
                             key={subtipo.id}
                             type="button"
                             className="rounded border border-gray-300 bg-gray-50 px-2 py-0.5 text-[11px] text-gray-700 hover:border-blue-400 hover:bg-blue-50 transition-colors"
-                            onClick={() => handleSelect(item, subtipo)}
-                            aria-pressed={selectedSubtipoId === subtipo.id}
+                            onClick={() =>
+                              onChange({
+                                generatorId: item.id,
+                                generatorVersion: 1,
+                                params: { dificultad, subtipos: [subtipo.id] },
+                                count,
+                              })
+                            }
+                            aria-pressed={generatorId === item.id && selectedSubtipos.includes(subtipo.id)}
                           >
                             {subtipo.label}
                           </button>
@@ -186,38 +241,50 @@ export default function QuizEditorGenerated({
         )}
       </div>
 
-      {/* Docs panel */}
-      {docs && selectedSubtipoId && (() => {
-        const subtipoDoc = (docs.subtipos as Record<string, unknown>)?.[selectedSubtipoId];
-        if (!subtipoDoc) return null;
-        const variables = (subtipoDoc as Record<string, unknown>).variables as
-          Record<string, { descripcion: string; ejemplo: string }> | undefined;
-        return (
-          <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 space-y-2">
-            <p className="text-xs font-semibold text-amber-800">
-              Variables disponibles — {selectedSubtipo?.label}
-            </p>
-            <p className="text-xs text-amber-700">
-              {(subtipoDoc as Record<string, unknown>).descripcion as string}
-            </p>
-            {variables && (
-              <div className="grid gap-1">
-                {Object.entries(variables).map(([key, val]) => (
-                  <div key={key} className="flex items-start gap-2 text-xs">
-                    <code className="rounded bg-amber-100 px-1.5 py-0.5 font-mono text-amber-900">
-                      {"{" + key + "}"}
-                    </code>
-                    <span className="text-amber-700">
-                      {val.descripcion}
-                      {val.ejemplo ? ` — Ej: ${val.ejemplo}` : ""}
-                    </span>
+      {/* Docs panel — variables de cada subtipo elegido en el pool. */}
+      {docs && selectedSubtipos.length > 0 && (
+        <div className="space-y-2">
+          {selectedSubtipos.map((subtipoId) => {
+            const subtipoDoc = (docs.subtipos as Record<string, unknown>)?.[subtipoId] as
+              | Record<string, unknown>
+              | undefined;
+            if (!subtipoDoc) return null;
+            const label =
+              selectedItem?.subtipos.find((s) => s.id === subtipoId)?.label ?? subtipoId;
+            const variables = subtipoDoc.variables as
+              | Record<string, { descripcion: string; ejemplo: string }>
+              | undefined;
+            return (
+              <div
+                key={subtipoId}
+                className="rounded-lg border border-amber-200 bg-amber-50 p-3 space-y-2"
+              >
+                <p className="text-xs font-semibold text-amber-800">
+                  Variables disponibles — {label}
+                </p>
+                <p className="text-xs text-amber-700">
+                  {subtipoDoc.descripcion as string}
+                </p>
+                {variables && (
+                  <div className="grid gap-1">
+                    {Object.entries(variables).map(([key, val]) => (
+                      <div key={key} className="flex items-start gap-2 text-xs">
+                        <code className="rounded bg-amber-100 px-1.5 py-0.5 font-mono text-amber-900">
+                          {"{" + key + "}"}
+                        </code>
+                        <span className="text-amber-700">
+                          {val.descripcion}
+                          {val.ejemplo ? ` — Ej: ${val.ejemplo}` : ""}
+                        </span>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
-            )}
-          </div>
-        );
-      })()}
+            );
+          })}
+        </div>
+      )}
 
       {/* Dificultad (7b) */}
       <label className="block text-xs font-medium text-gray-600">

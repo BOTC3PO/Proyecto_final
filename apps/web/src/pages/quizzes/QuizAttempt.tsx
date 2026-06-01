@@ -11,6 +11,7 @@ import {
   parseComposition,
   selectPoolIndices,
   pickVariante,
+  resolveSubtipoPool,
   type QuizComposition,
 } from "../../domain/quiz/composition";
 import { runPlantilla } from "../../vblang/runPlantilla";
@@ -266,8 +267,11 @@ export default function QuizAttempt() {
 
         const params = attempt.params ?? {};
         const enunciadosPersonalizados = params.enunciadosPersonalizados as Record<string, string> | undefined;
+        // Pool de subtipos (task 4): se sortea entre los elegidos por el profe;
+        // vacío = todos al azar. Determinístico por seed.
+        const pool = resolveSubtipoPool(descriptor.subtipos, params);
         const ejercicios: Ejercicio[] = Array.from({ length: count }, () => {
-          const st = descriptor.subtipos[Math.floor(Math.random() * descriptor.subtipos.length)];
+          const st = pool[prng.int(0, pool.length - 1)];
           const template = enunciadosPersonalizados?.[st];
           return descriptor.generate(undefined, prng, st, template);
         });
@@ -382,28 +386,26 @@ export default function QuizAttempt() {
     setSubmitStatus("submitting");
     setSubmitMessage(null);
     try {
-      // Con composición, solo cuentan las preguntas efectivamente respondibles
-      // (en elige_alumno, únicamente la elegida).
-      const submitAnswers: Record<string, AttemptAnswerValue> = composition
-        ? Object.fromEntries(
-            questions
-              .map((q) => [q.id, answers[q.id]] as const)
-              .filter(([, v]) => v !== undefined),
-          )
-        : answers;
+      // Ids efectivamente presentados/respondibles (tras pool/selección o, en
+      // elige_alumno, solo la elegida). El servidor corrige exactamente estos.
+      const presentedIds = questions.map((q) => q.id);
+      const presentedSet = new Set(presentedIds);
       const submitGenerated =
         generatedQuestions.length > 0
-          ? (composition
-              ? generatedQuestions.filter((q) =>
-                  questions.some((a) => a.id === q.id),
-                )
-              : generatedQuestions
-            ).map((q) => ({ id: q.id, answerKey: q.answerKey }))
+          ? generatedQuestions
+              .filter((q) => presentedSet.has(q.id))
+              .map((q) => ({
+                id: q.id,
+                answerKey: q.answerKey,
+                points: q.points,
+                toleranciaRelativa: q.toleranciaRelativa,
+              }))
           : undefined;
       const response = await apiPost<SubmitResponse>(
         `/api/quiz-attempts/${attemptId}/submit`,
         {
-          answers: submitAnswers,
+          answers,
+          presentedIds,
           ...(submitGenerated ? { generatedQuestions: submitGenerated } : {}),
         }
       );

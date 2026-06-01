@@ -112,6 +112,24 @@ export function answerCount(comp: QuizComposition, total: number): number {
 }
 
 /**
+ * Pool de subtipos efectivo de un generador (task 4): los subtipos elegidos por
+ * el profe (`params.subtipos`, o el legacy `params.subtipo`), filtrados a los
+ * que el generador realmente expone. Vacío/ninguno válido = todos al azar.
+ */
+export function resolveSubtipoPool(
+  allSubtipos: string[],
+  params: { subtipos?: unknown; subtipo?: unknown } | undefined | null,
+): string[] {
+  const requested = Array.isArray(params?.subtipos)
+    ? (params!.subtipos as unknown[]).filter((s): s is string => typeof s === "string")
+    : typeof params?.subtipo === "string"
+      ? [params.subtipo]
+      : [];
+  const filtered = requested.filter((s) => allSubtipos.includes(s));
+  return filtered.length > 0 ? filtered : allSubtipos;
+}
+
+/**
  * Elige una variante de consigna determinística por seed (y opcionalmente por
  * índice de pregunta, para que distintas preguntas de la serie no usen siempre
  * la misma). Devuelve undefined si no hay variantes.
