@@ -1,5 +1,20 @@
-import { useState } from "react";
+/**
+ * Picker de herramientas interactivas para diapositivas/preguntas (Módulos).
+ *
+ * Migrado al sistema de diseño D.2 (WO10 · sub-sesión A):
+ *  - Controles de formulario vía `Input` / `Textarea` / `Select` / `Button` de
+ *    `components/ui` → cada campo lleva **nombre accesible real** (label visible
+ *    o `aria-label`), nunca solo `placeholder` (WCAG 3.3.2 / 4.1.2).
+ *  - La entrada de datos cruda (CSV en `<textarea>`) se reemplazó por **listas
+ *    repetibles editables** reusando `AccessibleList` (WO06): reordenar/agregar/
+ *    eliminar por teclado, con validación inline de cada valor numérico.
+ *  - El modal expone `role="dialog"` + `aria-modal`, se etiqueta con su título,
+ *    cierra con `Escape` y mueve el foco al panel al abrir.
+ */
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { LineChartSpec, VectorDiagramSpec, StaticImageSpec, LatexSpec } from "../../generadoresV2/core/types";
+import { Button, Input, Textarea } from "../ui";
+import { AccessibleList } from "../vblang/AccessibleList";
 
 interface HerramientaPickerProps {
   isOpen: boolean;
@@ -17,86 +32,100 @@ const TOOLS: Array<{ type: ToolType; label: string; description: string }> = [
   { type: "timeline",        label: "Línea de tiempo",    description: "Historia, biología" },
 ];
 
+// ── Helpers de validación ──────────────────────────────────────────────────────
+
+/** ¿La cadena representa un número válido (no vacía, no NaN)? */
+function isNumeric(s: string): boolean {
+  return s.trim() !== "" && !Number.isNaN(Number(s));
+}
+
 // ── Sub-forms ─────────────────────────────────────────────────────────────────
+
+type PointRow = { x: string; y: string };
 
 function LineChartForm({ onConfirm }: { onConfirm: (spec: LineChartSpec) => void }) {
   const [title, setTitle] = useState("");
   const [xLabel, setXLabel] = useState("");
   const [yLabel, setYLabel] = useState("");
-  const [csvData, setCsvData] = useState("0,0\n1,1\n2,4\n3,9");
+  const [points, setPoints] = useState<PointRow[]>([
+    { x: "0", y: "0" },
+    { x: "1", y: "1" },
+    { x: "2", y: "4" },
+    { x: "3", y: "9" },
+  ]);
+
+  const hasErrors = points.some((p) => !isNumeric(p.x) || !isNumeric(p.y));
 
   const handleConfirm = () => {
-    const points = csvData
-      .split("\n")
-      .map((line) => line.trim())
-      .filter(Boolean)
-      .map((line) => {
-        const [x, y] = line.split(",").map(Number);
-        return { x: x ?? 0, y: y ?? 0 };
-      });
-
     onConfirm({
       kind: "line-chart",
       title: title || undefined,
       xLabel: xLabel || undefined,
       yLabel: yLabel || undefined,
-      series: [{ id: "s1", label: yLabel || "Serie 1", points }],
+      series: [
+        {
+          id: "s1",
+          label: yLabel || "Serie 1",
+          points: points.map((p) => ({ x: Number(p.x), y: Number(p.y) })),
+        },
+      ],
     });
   };
 
   return (
-    <div className="space-y-3">
-      <input
-        className="input-field"
-        placeholder="Título (opcional)"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
+    <div className="flex flex-col gap-3">
+      <Input label="Título" hint="Opcional" value={title} onChange={(e) => setTitle(e.target.value)} />
       <div className="grid grid-cols-2 gap-2">
-        <input
-          className="input-field"
-          placeholder="Eje X (ej: tiempo)"
-          value={xLabel}
-          onChange={(e) => setXLabel(e.target.value)}
-        />
-        <input
-          className="input-field"
-          placeholder="Eje Y (ej: posición)"
-          value={yLabel}
-          onChange={(e) => setYLabel(e.target.value)}
-        />
+        <Input label="Eje X" placeholder="ej: tiempo" value={xLabel} onChange={(e) => setXLabel(e.target.value)} />
+        <Input label="Eje Y" placeholder="ej: posición" value={yLabel} onChange={(e) => setYLabel(e.target.value)} />
       </div>
-      <div>
-        <p className="text-xs text-gray-500 mb-1">Datos (x,y — una por línea)</p>
-        <textarea
-          className="input-field font-mono text-xs"
-          rows={5}
-          value={csvData}
-          onChange={(e) => setCsvData(e.target.value)}
-        />
-      </div>
-      <button type="button" onClick={handleConfirm} className="btn-primary w-full">
+
+      <AccessibleList<PointRow>
+        label="Puntos (x, y)"
+        addLabel="Agregar punto"
+        itemNoun="punto"
+        minItems={1}
+        items={points}
+        onChange={setPoints}
+        createItem={() => ({ x: "", y: "" })}
+        renderItem={(point, index, onItemChange) => (
+          <div className="grid grid-cols-2 gap-2">
+            <Input
+              aria-label={`X del punto ${index + 1}`}
+              inputMode="decimal"
+              placeholder="x"
+              value={point.x}
+              error={isNumeric(point.x) ? undefined : "Número inválido"}
+              onChange={(e) => onItemChange({ ...point, x: e.target.value })}
+            />
+            <Input
+              aria-label={`Y del punto ${index + 1}`}
+              inputMode="decimal"
+              placeholder="y"
+              value={point.y}
+              error={isNumeric(point.y) ? undefined : "Número inválido"}
+              onChange={(e) => onItemChange({ ...point, y: e.target.value })}
+            />
+          </div>
+        )}
+      />
+
+      <Button type="button" onClick={handleConfirm} disabled={hasErrors} className="w-full">
         Confirmar gráfico
-      </button>
+      </Button>
     </div>
   );
 }
 
+type VectorRow = { id: string; label: string; dx: string; dy: string };
+
 function VectorForm({ onConfirm }: { onConfirm: (spec: VectorDiagramSpec) => void }) {
-  const [rows, setRows] = useState([
+  const [rows, setRows] = useState<VectorRow[]>([
     { id: "v1", label: "F1", dx: "1", dy: "0" },
     { id: "v2", label: "F2", dx: "0", dy: "1" },
   ]);
 
-  const addRow = () =>
-    setRows((prev) => [
-      ...prev,
-      { id: `v${prev.length + 1}`, label: `F${prev.length + 1}`, dx: "0", dy: "0" },
-    ]);
-
-  const updateRow = (i: number, field: string, value: string) => {
-    setRows((prev) => prev.map((r, idx) => (idx === i ? { ...r, [field]: value } : r)));
-  };
+  const hasErrors = rows.some((r) => !isNumeric(r.dx) || !isNumeric(r.dy));
 
   const handleConfirm = () => {
     onConfirm({
@@ -111,41 +140,47 @@ function VectorForm({ onConfirm }: { onConfirm: (spec: VectorDiagramSpec) => voi
   };
 
   return (
-    <div className="space-y-3">
-      {rows.map((row, i) => (
-        <div key={row.id} className="grid grid-cols-4 gap-2 items-center">
-          <input
-            className="input-field col-span-2"
-            placeholder="Etiqueta"
-            value={row.label}
-            onChange={(e) => updateRow(i, "label", e.target.value)}
-          />
-          <input
-            className="input-field"
-            placeholder="dx"
-            type="number"
-            value={row.dx}
-            onChange={(e) => updateRow(i, "dx", e.target.value)}
-          />
-          <input
-            className="input-field"
-            placeholder="dy"
-            type="number"
-            value={row.dy}
-            onChange={(e) => updateRow(i, "dy", e.target.value)}
-          />
-        </div>
-      ))}
-      <button
-        type="button"
-        onClick={addRow}
-        className="text-xs text-blue-600 hover:underline"
-      >
-        + Agregar vector
-      </button>
-      <button type="button" onClick={handleConfirm} className="btn-primary w-full">
+    <div className="flex flex-col gap-3">
+      <AccessibleList<VectorRow>
+        label="Vectores"
+        addLabel="Agregar vector"
+        itemNoun="vector"
+        minItems={1}
+        items={rows}
+        onChange={setRows}
+        createItem={() => ({ id: crypto.randomUUID(), label: "", dx: "0", dy: "0" })}
+        renderItem={(row, index, onItemChange) => (
+          <div className="grid grid-cols-4 gap-2">
+            <Input
+              className="col-span-2"
+              aria-label={`Etiqueta del vector ${index + 1}`}
+              placeholder="Etiqueta"
+              value={row.label}
+              onChange={(e) => onItemChange({ ...row, label: e.target.value })}
+            />
+            <Input
+              aria-label={`dx del vector ${index + 1}`}
+              inputMode="decimal"
+              placeholder="dx"
+              value={row.dx}
+              error={isNumeric(row.dx) ? undefined : "Inválido"}
+              onChange={(e) => onItemChange({ ...row, dx: e.target.value })}
+            />
+            <Input
+              aria-label={`dy del vector ${index + 1}`}
+              inputMode="decimal"
+              placeholder="dy"
+              value={row.dy}
+              error={isNumeric(row.dy) ? undefined : "Inválido"}
+              onChange={(e) => onItemChange({ ...row, dy: e.target.value })}
+            />
+          </div>
+        )}
+      />
+
+      <Button type="button" onClick={handleConfirm} disabled={hasErrors} className="w-full">
         Confirmar diagrama
-      </button>
+      </Button>
     </div>
   );
 }
@@ -153,31 +188,35 @@ function VectorForm({ onConfirm }: { onConfirm: (spec: VectorDiagramSpec) => voi
 function LatexForm({ onConfirm }: { onConfirm: (spec: LatexSpec) => void }) {
   const [content, setContent] = useState("E = mc^2");
   const [displayMode, setDisplayMode] = useState(true);
+  const checkboxId = useId();
 
   return (
-    <div className="space-y-3">
-      <textarea
-        className="input-field font-mono text-sm"
+    <div className="flex flex-col gap-3">
+      <Textarea
+        label="Código LaTeX"
+        className="font-mono"
         rows={4}
-        placeholder="LaTeX source, ej: E = mc^2"
+        placeholder="ej: E = mc^2"
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <label className="flex items-center gap-2 text-xs text-gray-600">
+      <label htmlFor={checkboxId} className="flex items-center gap-2 text-xs text-[var(--c-text-3)]">
         <input
+          id={checkboxId}
           type="checkbox"
           checked={displayMode}
           onChange={(e) => setDisplayMode(e.target.checked)}
         />
         Modo bloque (displayMode)
       </label>
-      <button
+      <Button
         type="button"
         onClick={() => onConfirm({ kind: "latex", content, displayMode })}
-        className="btn-primary w-full"
+        disabled={content.trim() === ""}
+        className="w-full"
       >
         Confirmar fórmula
-      </button>
+      </Button>
     </div>
   );
 }
@@ -186,47 +225,53 @@ function StaticImageForm({ onConfirm }: { onConfirm: (spec: StaticImageSpec) => 
   const [src, setSrc] = useState("");
   const [alt, setAlt] = useState("");
 
+  const srcError = src.trim() !== "" && !/^https?:\/\/|^\//.test(src.trim())
+    ? "Debe ser una URL válida (http(s):// o ruta absoluta)"
+    : undefined;
+
   return (
-    <div className="space-y-3">
-      <input
-        className="input-field"
-        placeholder="URL de la imagen"
+    <div className="flex flex-col gap-3">
+      <Input
+        label="URL de la imagen"
+        type="url"
+        required
+        placeholder="https://ejemplo.com/imagen.jpg"
         value={src}
+        error={srcError}
         onChange={(e) => setSrc(e.target.value)}
       />
-      <input
-        className="input-field"
-        placeholder="Texto alternativo"
+      <Input
+        label="Texto alternativo"
+        hint="Describe la imagen para lectores de pantalla"
         value={alt}
         onChange={(e) => setAlt(e.target.value)}
       />
-      <button
+      <Button
         type="button"
-        disabled={!src}
+        disabled={!src.trim() || !!srcError}
         onClick={() => onConfirm({ kind: "static-image", src, alt })}
-        className="btn-primary w-full disabled:opacity-50"
+        className="w-full"
       >
         Confirmar imagen
-      </button>
+      </Button>
     </div>
   );
 }
 
-function TimelineForm({ onConfirm }: { onConfirm: (spec: { kind: "timeline"; title?: string; events: { id: string; title: string; date: string; description?: string }[] }) => void }) {
+type TimelineEventRow = { id: string; date: string; title: string; description: string };
+type TimelineSpecLite = {
+  kind: "timeline";
+  title?: string;
+  events: { id: string; title: string; date: string; description?: string }[];
+};
+
+function TimelineForm({ onConfirm }: { onConfirm: (spec: TimelineSpecLite) => void }) {
   const [title, setTitle] = useState("");
-  const [events, setEvents] = useState([
+  const [events, setEvents] = useState<TimelineEventRow[]>([
     { id: "e1", date: "1900", title: "Evento 1", description: "" },
   ]);
 
-  const addEvent = () =>
-    setEvents((prev) => [
-      ...prev,
-      { id: `e${prev.length + 1}`, date: "", title: "", description: "" },
-    ]);
-
-  const updateEvent = (i: number, field: string, value: string) => {
-    setEvents((prev) => prev.map((e, idx) => (idx === i ? { ...e, [field]: value } : e)));
-  };
+  const hasErrors = events.some((e) => e.title.trim() === "" || e.date.trim() === "");
 
   const handleConfirm = () => {
     onConfirm({
@@ -242,47 +287,50 @@ function TimelineForm({ onConfirm }: { onConfirm: (spec: { kind: "timeline"; tit
   };
 
   return (
-    <div className="space-y-3">
-      <input
-        className="input-field"
-        placeholder="Título (opcional)"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      {events.map((ev, i) => (
-        <div key={ev.id} className="space-y-1 rounded border border-gray-200 p-2">
-          <div className="grid grid-cols-2 gap-2">
-            <input
-              className="input-field"
-              placeholder="Fecha / año"
-              value={ev.date}
-              onChange={(e) => updateEvent(i, "date", e.target.value)}
-            />
-            <input
-              className="input-field"
-              placeholder="Título del evento"
-              value={ev.title}
-              onChange={(e) => updateEvent(i, "title", e.target.value)}
+    <div className="flex flex-col gap-3">
+      <Input label="Título" hint="Opcional" value={title} onChange={(e) => setTitle(e.target.value)} />
+
+      <AccessibleList<TimelineEventRow>
+        label="Eventos"
+        addLabel="Agregar evento"
+        itemNoun="evento"
+        minItems={1}
+        items={events}
+        onChange={setEvents}
+        createItem={() => ({ id: crypto.randomUUID(), date: "", title: "", description: "" })}
+        renderItem={(ev, index, onItemChange) => (
+          <div className="flex flex-col gap-2">
+            <div className="grid grid-cols-2 gap-2">
+              <Input
+                aria-label={`Fecha o año del evento ${index + 1}`}
+                required
+                placeholder="Fecha / año"
+                value={ev.date}
+                error={ev.date.trim() === "" ? "Requerido" : undefined}
+                onChange={(e) => onItemChange({ ...ev, date: e.target.value })}
+              />
+              <Input
+                aria-label={`Título del evento ${index + 1}`}
+                required
+                placeholder="Título del evento"
+                value={ev.title}
+                error={ev.title.trim() === "" ? "Requerido" : undefined}
+                onChange={(e) => onItemChange({ ...ev, title: e.target.value })}
+              />
+            </div>
+            <Input
+              aria-label={`Descripción del evento ${index + 1}`}
+              placeholder="Descripción (opcional)"
+              value={ev.description}
+              onChange={(e) => onItemChange({ ...ev, description: e.target.value })}
             />
           </div>
-          <input
-            className="input-field"
-            placeholder="Descripción (opcional)"
-            value={ev.description}
-            onChange={(e) => updateEvent(i, "description", e.target.value)}
-          />
-        </div>
-      ))}
-      <button
-        type="button"
-        onClick={addEvent}
-        className="text-xs text-blue-600 hover:underline"
-      >
-        + Agregar evento
-      </button>
-      <button type="button" onClick={handleConfirm} className="btn-primary w-full">
+        )}
+      />
+
+      <Button type="button" onClick={handleConfirm} disabled={hasErrors} className="w-full">
         Confirmar línea de tiempo
-      </button>
+      </Button>
     </div>
   );
 }
@@ -291,6 +339,31 @@ function TimelineForm({ onConfirm }: { onConfirm: (spec: { kind: "timeline"; tit
 
 export default function HerramientaPicker({ isOpen, onSelect, onClose }: HerramientaPickerProps) {
   const [selectedTool, setSelectedTool] = useState<ToolType | null>(null);
+  const titleId = useId();
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  // Cerrar con Escape y mover el foco al panel al abrir.
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.stopPropagation();
+        if (selectedTool) setSelectedTool(null);
+        else onClose();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    panelRef.current?.focus();
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, selectedTool, onClose]);
+
+  const heading = useMemo(
+    () =>
+      selectedTool
+        ? TOOLS.find((t) => t.type === selectedTool)?.label ?? "Herramienta"
+        : "Agregar herramienta interactiva",
+    [selectedTool],
+  );
 
   if (!isOpen) return null;
 
@@ -306,83 +379,52 @@ export default function HerramientaPicker({ isOpen, onSelect, onClose }: Herrami
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between gap-3 px-5 py-4 border-b border-gray-200">
-          <h2 className="text-sm font-semibold text-gray-800">
-            {selectedTool
-              ? TOOLS.find((t) => t.type === selectedTool)?.label ?? "Herramienta"
-              : "Agregar herramienta interactiva"}
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        tabIndex={-1}
+        className="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-[var(--r-lg)] border border-[var(--c-border)] bg-[var(--c-surface)] shadow-[var(--shadow-2,0_10px_40px_rgba(0,0,0,0.2))] outline-none"
+      >
+        <div className="flex items-center justify-between gap-3 border-b border-[var(--c-border)] px-5 py-4">
+          <h2 id={titleId} className="text-sm font-semibold text-[var(--c-text)]">
+            {heading}
           </h2>
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={() => (selectedTool ? setSelectedTool(null) : onClose())}
-            className="text-xs text-gray-500 hover:text-gray-800"
           >
             {selectedTool ? "← Volver" : "Cerrar"}
-          </button>
+          </Button>
         </div>
 
         <div className="p-5">
           {!selectedTool ? (
-            <div className="grid grid-cols-1 gap-2">
+            <ul role="list" className="grid grid-cols-1 gap-2">
               {TOOLS.map((tool) => (
-                <button
-                  key={tool.type}
-                  type="button"
-                  onClick={() => setSelectedTool(tool.type)}
-                  className="flex items-start gap-3 rounded-lg border border-gray-200 p-3 text-left hover:border-blue-400 hover:bg-blue-50 transition-colors"
-                >
-                  <div>
-                    <p className="text-sm font-medium text-gray-800">{tool.label}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{tool.description}</p>
-                  </div>
-                </button>
+                <li key={tool.type}>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedTool(tool.type)}
+                    className="flex w-full items-start gap-3 rounded-[var(--r-md)] border border-[var(--c-border)] p-3 text-left transition-colors motion-reduce:transition-none hover:border-[var(--c-primary)] hover:bg-[var(--c-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+                  >
+                    <div>
+                      <p className="text-sm font-medium text-[var(--c-text)]">{tool.label}</p>
+                      <p className="mt-0.5 text-xs text-[var(--c-text-3)]">{tool.description}</p>
+                    </div>
+                  </button>
+                </li>
               ))}
-            </div>
+            </ul>
           ) : (
             <div>
-              <style>{`
-                .input-field {
-                  width: 100%;
-                  border: 1px solid #d1d5db;
-                  border-radius: 6px;
-                  padding: 6px 10px;
-                  font-size: 13px;
-                  outline: none;
-                }
-                .input-field:focus {
-                  border-color: #3b82f6;
-                }
-                .btn-primary {
-                  background: #3b82f6;
-                  color: white;
-                  border: none;
-                  border-radius: 8px;
-                  padding: 8px 16px;
-                  font-size: 13px;
-                  font-weight: 600;
-                  cursor: pointer;
-                }
-                .btn-primary:hover {
-                  opacity: 0.9;
-                }
-              `}</style>
-
-              {selectedTool === "line-chart" && (
-                <LineChartForm onConfirm={handleSpec} />
-              )}
-              {selectedTool === "vector-diagram" && (
-                <VectorForm onConfirm={handleSpec} />
-              )}
-              {selectedTool === "latex" && (
-                <LatexForm onConfirm={handleSpec} />
-              )}
-              {selectedTool === "static-image" && (
-                <StaticImageForm onConfirm={handleSpec} />
-              )}
-              {selectedTool === "timeline" && (
-                <TimelineForm onConfirm={handleSpec} />
-              )}
+              {selectedTool === "line-chart" && <LineChartForm onConfirm={handleSpec} />}
+              {selectedTool === "vector-diagram" && <VectorForm onConfirm={handleSpec} />}
+              {selectedTool === "latex" && <LatexForm onConfirm={handleSpec} />}
+              {selectedTool === "static-image" && <StaticImageForm onConfirm={handleSpec} />}
+              {selectedTool === "timeline" && <TimelineForm onConfirm={handleSpec} />}
             </div>
           )}
         </div>
