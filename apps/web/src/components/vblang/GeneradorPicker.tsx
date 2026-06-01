@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { listGeneradores } from "../../vblang/listGeneradores";
 
 interface Props {
@@ -9,6 +9,7 @@ interface Props {
 export default function GeneradorPicker({ value, onChange }: Props) {
   const generadores = useMemo(() => listGeneradores(), []);
   const [filtro, setFiltro] = useState("");
+  const selectId = useId();
 
   const filtered = useMemo(() => {
     const q = filtro.trim().toLowerCase();
@@ -55,9 +56,21 @@ export default function GeneradorPicker({ value, onChange }: Props) {
         onChange={(e) => setFiltro(e.target.value)}
         placeholder="Filtrar por materia o generador..."
         aria-label="Filtrar generadores"
+        aria-controls={selectId}
         className="w-full rounded border border-[var(--c-border,#e2e8f0)] bg-white px-2 py-1 text-xs"
       />
+      {/* Anuncia a lectores de pantalla cuántos generadores quedaron tras filtrar. */}
+      <p role="status" aria-live="polite" className="sr-only">
+        {ordered.length} {ordered.length === 1 ? "generador" : "generadores"}
+      </p>
+      <label
+        htmlFor={selectId}
+        className="block text-xs font-medium text-[var(--c-text)]"
+      >
+        Generador
+      </label>
       <select
+        id={selectId}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full rounded border border-[var(--c-border,#e2e8f0)] bg-white px-2 py-1 text-xs"
@@ -77,7 +90,7 @@ export default function GeneradorPicker({ value, onChange }: Props) {
         ))}
       </select>
       {selected && selected.subtipos.length > 0 && (
-        <p className="text-[11px] text-[var(--c-muted,#64748b)]">
+        <p className="text-xs text-[var(--c-hint)]">
           {selected.subtipos.length} subtipo(s): {selected.subtipos.join(", ")}
         </p>
       )}

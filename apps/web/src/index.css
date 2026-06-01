@@ -31,6 +31,11 @@
   /* Texto terciario para hints, no usar para texto crítico */
   --c-text-3: color-mix(in srgb, var(--c-muted) 75%, transparent);
 
+  /* Hint accesible (WCAG AA): muted oscurecido hacia el texto principal para
+     garantizar ≥4.5:1 sobre cualquier superficie clara del tema. Pensado para
+     textos de ayuda chicos donde --c-muted queda borderline. */
+  --c-hint: color-mix(in srgb, var(--c-muted) 55%, var(--c-text));
+
   /* Hover suave sobre superficies */
   --c-hover: color-mix(in srgb, var(--c-text) 6%, transparent);
 

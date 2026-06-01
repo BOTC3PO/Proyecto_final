@@ -13,6 +13,7 @@
 import {
   forwardRef,
   useEffect,
+  useId,
   useImperativeHandle,
   useRef,
   type KeyboardEvent,
@@ -31,6 +32,12 @@ interface CodeEditorProps {
   errorCol?: number;
   onCursorChange?: (line: number, col: number) => void;
   ariaLabel?: string;
+  /**
+   * Resumen textual de los errores actuales (parse + lint), para que el lector
+   * de pantalla lo anuncie al editar y quede asociado al textarea vía
+   * `aria-describedby`. Vacío/undefined = sin errores.
+   */
+  errorSummary?: string;
 }
 
 const KEYWORDS_BLOQUE = new Set([
@@ -187,12 +194,28 @@ function posFromLineCol(value: string, line: number, col: number): number {
 }
 
 const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEditor(
-  { value, onChange, errorLine, onCursorChange, ariaLabel = "Editor de código VBLang" },
+  {
+    value,
+    onChange,
+    errorLine,
+    onCursorChange,
+    ariaLabel = "Editor de código VBLang",
+    errorSummary,
+  },
   ref,
 ) {
   const taRef = useRef<HTMLTextAreaElement | null>(null);
   const preRef = useRef<HTMLPreElement | null>(null);
   const gutterRef = useRef<HTMLDivElement | null>(null);
+  // Cuando es true, el próximo Tab mueve el foco en vez de indentar (ver
+  // handleKeyDown). Se activa con Escape.
+  const tabEscapesRef = useRef(false);
+  const summaryId = useId();
+  const instructionsId = useId();
+  const hasErrors = !!errorSummary && errorSummary.trim().length > 0;
+  const describedBy = [hasErrors ? summaryId : null, instructionsId]
+    .filter(Boolean)
+    .join(" ");
 
   const { html, lineCount } = renderHighlighted(value, errorLine);
 
@@ -207,7 +230,19 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
   }));
 
   const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+    // WCAG 2.1.2 (sin trampa de teclado): por defecto Tab indenta, pero tras
+    // pulsar Escape el siguiente Tab/Shift+Tab mueve el foco normalmente para
+    // poder salir del editor solo con teclado.
+    if (e.key === "Escape") {
+      tabEscapesRef.current = true;
+      return;
+    }
     if (e.key === "Tab") {
+      if (tabEscapesRef.current) {
+        // Dejamos el comportamiento nativo: el foco sale del textarea.
+        tabEscapesRef.current = false;
+        return;
+      }
       e.preventDefault();
       const ta = e.currentTarget;
       const start = ta.selectionStart;
@@ -221,7 +256,10 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
           taRef.current.selectionEnd = start + 2;
         }
       });
+      return;
     }
+    // Cualquier otra tecla (escribir) cancela el modo "Tab sale del editor".
+    if (e.key !== "Shift") tabEscapesRef.current = false;
   };
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -301,7 +339,19 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
           autoCorrect="off"
           autoCapitalize="off"
           aria-label={ariaLabel}
+          aria-invalid={hasErrors || undefined}
+          aria-describedby={describedBy || undefined}
         />
+      </div>
+      {/* Resumen de errores asociado al textarea. role=status + aria-live para
+          que el lector lo anuncie al cambiar mientras se edita. */}
+      <div id={summaryId} role="status" aria-live="polite" className="sr-only">
+        {hasErrors ? errorSummary : "Sin errores de validación."}
+      </div>
+      {/* Instrucción de teclado: cómo salir del editor sin trampa de foco. */}
+      <div id={instructionsId} className="sr-only">
+        Tab indenta dos espacios. Para mover el foco fuera del editor, pulsá
+        Escape y luego Tab.
       </div>
     </div>
   );

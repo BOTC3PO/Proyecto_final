@@ -37,4 +37,63 @@ describe("CodeEditor", () => {
     fireEvent.keyDown(ta, { key: "Tab" });
     expect(onChange).toHaveBeenCalledWith("x  y");
   });
+
+  it("Escape seguido de Tab NO indenta (deja salir el foco; sin trampa de teclado)", () => {
+    const { ta, onChange } = renderCE("xy");
+    ta.setSelectionRange(1, 1);
+    fireEvent.keyDown(ta, { key: "Escape" });
+    const tabEvent = fireEvent.keyDown(ta, { key: "Tab" });
+    // No se insertó indentación...
+    expect(onChange).not.toHaveBeenCalled();
+    // ...y no se previno el default, así el foco puede moverse nativamente.
+    expect(tabEvent).toBe(true);
+  });
+
+  it("tras Escape, escribir cancela el modo de escape (Tab vuelve a indentar)", () => {
+    const { ta, onChange } = renderCE("xy");
+    ta.setSelectionRange(1, 1);
+    fireEvent.keyDown(ta, { key: "Escape" });
+    // Escribir una letra cancela el modo "Tab sale".
+    fireEvent.keyDown(ta, { key: "a" });
+    fireEvent.keyDown(ta, { key: "Tab" });
+    expect(onChange).toHaveBeenCalledWith("x  y");
+  });
+
+  /* ---------- A11Y-V2: errores asociados ---------- */
+
+  function describedElements(
+    ta: HTMLTextAreaElement,
+    container: HTMLElement,
+  ): HTMLElement[] {
+    const ids = (ta.getAttribute("aria-describedby") ?? "").split(/\s+/).filter(Boolean);
+    return ids
+      .map((id) => container.querySelector(`#${CSS.escape(id)}`))
+      .filter((el): el is HTMLElement => el !== null);
+  }
+
+  it("sin errorSummary no marca aria-invalid, pero describe la instrucción de teclado", () => {
+    const { ta, container } = renderCE("a");
+    expect(ta.getAttribute("aria-invalid")).toBeNull();
+    const desc = describedElements(ta, container);
+    // Sigue describiendo el editor con la instrucción para salir del foco.
+    expect(desc.some((el) => /escape/i.test(el.textContent ?? ""))).toBe(true);
+  });
+
+  it("con errorSummary asocia el textarea al resumen vía aria-describedby + aria-invalid", () => {
+    const onChange = vi.fn();
+    const { container } = render(
+      <CodeEditor
+        value="variables:"
+        onChange={onChange}
+        errorSummary="1 error de validación. Línea 2: falta respuesta"
+      />,
+    );
+    const ta = container.querySelector("textarea") as HTMLTextAreaElement;
+    expect(ta.getAttribute("aria-invalid")).toBe("true");
+    const desc = describedElements(ta, container);
+    const summary = desc.find((el) => el.getAttribute("role") === "status");
+    expect(summary).toBeTruthy();
+    expect(summary?.getAttribute("aria-live")).toBe("polite");
+    expect(summary?.textContent).toContain("Línea 2: falta respuesta");
+  });
 });
