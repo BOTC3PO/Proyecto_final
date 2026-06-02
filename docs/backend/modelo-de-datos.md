@@ -13,6 +13,11 @@
 > [`docs/archive/db-inventory.md`](../archive/db-inventory.md) y
 > [`docs/archive/sqlite-modeling-decisions.md`](../archive/sqlite-modeling-decisions.md).
 
+> **Diagramas de comportamiento.** Este doc cubre la estructura (ER). La máquina de estados del
+> intento de quiz (con la corrección manual de WO07), el pipeline de generación de ejercicios
+> VBLang/generadoresV2, el desbloqueo de módulos y la votación de governance están en
+> [`diagramas-comportamiento.md`](./diagramas-comportamiento.md).
+
 ## Conceptos generales
 
 - **Motor:** PostgreSQL. El cliente Prisma usa el driver adapter `@prisma/adapter-pg`
@@ -213,6 +218,43 @@ erDiagram
         string visibility
     }
 ```
+
+### 3.1 Tareas y entregas (dominio sin FK)
+
+`Tarea` y `Entrega` se guardan como blobs `json` (herencia de la migración desde Mongo): el
+documento completo vive en la columna `json String`. `Tarea` expone además las columnas reales
+`aulaId`/`schoolId` (sin FK declarada); `Entrega` sólo lleva `id`, `json` y `createdAt`
+(`api/prisma/schema.prisma`, modelos `Tarea` y `Entrega`). Las relaciones son **lógicas** (por
+id dentro del JSON), no FK de Prisma. El handler `api/src/routes/tareas.ts` filtra por
+`usuarioId`/`studentId`/`assignedTo`/`assignees` y lee `titulo`/`title`, `dueDate`/`vence`,
+`curso`/`courseName`, `isDeleted` del blob.
+
+```mermaid
+erDiagram
+    Escuela ||..o{ Tarea   : "schoolId (col., sin FK)"
+    Clase   ||..o{ Tarea   : "aulaId (col., sin FK)"
+    Usuario ||..o{ Tarea   : "crea (usuarioId en json)"
+    Usuario ||..o{ Tarea   : "asignada a (assignees en json)"
+    Tarea   ||..o{ Entrega : "tareaId en json"
+    Usuario ||..o{ Entrega : "entrega (studentId en json)"
+    Modulo  ||..o{ Tarea   : "vínculo esperado (E.1)"
+    Tarea {
+        string id PK
+        string aulaId "columna real, sin FK"
+        string schoolId "columna real, sin FK"
+        string json "blob: titulo,dueDate,curso,assignees,isDeleted"
+    }
+    Entrega {
+        string id PK
+        string createdAt
+        string json "blob esperado: tareaId,studentId,grade,estado,submittedAt"
+    }
+```
+
+> El blob de `Entrega` no tiene aún un handler que valide su forma (las estadísticas devuelven
+> `entregas = 0` hasta tener el modelo, `api/src/routes/estadisticas.ts`). El gap de tipar
+> `Tarea`/`Entrega` (hoy `{ id, json }`) está registrado en el apéndice E.1 del plan; el ER de
+> arriba documenta la relación **esperada** entre los dominios mientras tanto.
 
 ---
 
