@@ -53,7 +53,7 @@ import { FunctionSquare, Shapes } from "lucide-react";
 
 import { useBlockEditor } from "./state/useBlockEditor";
 import { fetchBlockDocument, saveBlockDocument } from "./services/blocksApi";
-import { Button, Pill } from "../../components/ui";
+import { Button, Pill, Input, Select } from "../../components/ui";
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -259,55 +259,43 @@ function CanvasBlockContent({
         const imgBlock = block as ImageBlock;
         return (
           <div className="p-4 space-y-3">
-            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
-              URL de la imagen
-              <input
-                type="url"
-                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                placeholder="https://... o pegá una URL"
-                value={imgBlock.url}
-                onChange={(e) => onUpdate({ url: e.target.value })}
-                onClick={(e) => e.stopPropagation()}
-              />
-            </label>
-            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
-              Descripción para accesibilidad *
-              <input
-                type="text"
-                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                placeholder="Describí la imagen para alumnos con discapacidad visual"
-                value={imgBlock.alt}
-                onChange={(e) => onUpdate({ alt: e.target.value })}
-                onClick={(e) => e.stopPropagation()}
-              />
-              <span className="text-xs text-[var(--c-muted)]">
-                Este texto también se lee en voz alta al usar TTS.
-              </span>
-            </label>
-            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
-              Pie de foto (opcional)
-              <input
-                type="text"
-                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                placeholder="Texto visible debajo de la imagen"
-                value={imgBlock.caption ?? ""}
-                onChange={(e) => onUpdate({ caption: e.target.value })}
-                onClick={(e) => e.stopPropagation()}
-              />
-            </label>
-            <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
-              Tamaño
-              <select
-                className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                value={imgBlock.width ?? "medium"}
-                onChange={(e) => onUpdate({ width: e.target.value })}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <option value="small">Pequeño (33%)</option>
-                <option value="medium">Mediano (66%)</option>
-                <option value="full">Completo (100%)</option>
-              </select>
-            </label>
+            <Input
+              type="url"
+              label="URL de la imagen"
+              placeholder="https://... o pegá una URL"
+              value={imgBlock.url}
+              onChange={(e) => onUpdate({ url: e.target.value })}
+              onClick={(e) => e.stopPropagation()}
+            />
+            <Input
+              type="text"
+              label="Descripción para accesibilidad"
+              required
+              hint="Este texto también se lee en voz alta al usar TTS."
+              placeholder="Describí la imagen para alumnos con discapacidad visual"
+              value={imgBlock.alt}
+              onChange={(e) => onUpdate({ alt: e.target.value })}
+              onClick={(e) => e.stopPropagation()}
+            />
+            <Input
+              type="text"
+              label="Pie de foto"
+              hint="Opcional"
+              placeholder="Texto visible debajo de la imagen"
+              value={imgBlock.caption ?? ""}
+              onChange={(e) => onUpdate({ caption: e.target.value })}
+              onClick={(e) => e.stopPropagation()}
+            />
+            <Select
+              label="Tamaño"
+              value={imgBlock.width ?? "medium"}
+              onChange={(e) => onUpdate({ width: e.target.value })}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <option value="small">Pequeño (33%)</option>
+              <option value="medium">Mediano (66%)</option>
+              <option value="full">Completo (100%)</option>
+            </Select>
             {imgBlock.url && (
               <div className="rounded-lg overflow-hidden border border-[var(--c-border)]">
                 <img
@@ -364,6 +352,7 @@ function AddBlockBetween({ onAdd }: { onAdd: (type: Block["type"]) => void }) {
         <button
           type="button"
           aria-label="Agregar bloque aquí"
+          aria-haspopup="menu"
           aria-expanded={showMenu}
           className="w-6 h-6 rounded-full bg-[var(--c-surface)] border-2 border-[var(--c-primary)] text-[var(--c-primary)] text-sm font-bold leading-none opacity-0 group-hover/add:opacity-100 hover:bg-[var(--c-primary)] hover:text-white transition-all motion-reduce:transition-none flex items-center justify-center focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
           onClick={(e) => {
@@ -375,18 +364,24 @@ function AddBlockBetween({ onAdd }: { onAdd: (type: Block["type"]) => void }) {
           +
         </button>
         {showMenu && (
-          <div className="absolute top-8 left-1/2 -translate-x-1/2 z-40 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl py-1 w-44">
+          <div
+            role="menu"
+            aria-label="Tipo de bloque a agregar"
+            className="absolute top-8 left-1/2 -translate-x-1/2 z-40 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl py-1 w-44"
+          >
             {BLOCK_TYPES_MENU.map(({ type, label, icon }) => (
               <button
                 key={type}
-                className="w-full text-left px-3 py-1.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] flex items-center gap-2"
+                type="button"
+                role="menuitem"
+                className="w-full text-left px-3 py-1.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--c-focus-ring)]"
                 onClick={(e) => {
                   e.stopPropagation();
                   onAdd(type);
                   setShowMenu(false);
                 }}
               >
-                <span className="font-mono text-[var(--c-primary)] w-4 text-center">{icon}</span>
+                <span className="font-mono text-[var(--c-primary)] w-4 text-center" aria-hidden="true">{icon}</span>
                 {label}
               </button>
             ))}
@@ -454,13 +449,19 @@ function SingleBlockRenderer({ block, doc }: { block: Block; doc: BlockDocument 
 function SortableBlockItem({
   block,
   idx,
+  total,
   isActive,
   onSelect,
+  onMoveUp,
+  onMoveDown,
 }: {
   block: Block;
   idx: number;
+  total: number;
   isActive: boolean;
   onSelect: () => void;
+  onMoveUp: () => void;
+  onMoveDown: () => void;
 }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: block.id,
@@ -472,13 +473,17 @@ function SortableBlockItem({
     opacity: isDragging ? 0.5 : 1,
   };
 
+  const preview = blockPreview(block);
+  const blockName = `${blockTypeName(block.type)} ${idx + 1}: ${preview}`;
+
   return (
-    <div ref={setNodeRef} style={style} className="flex items-center group/item">
-      {/* Drag handle */}
+    <div ref={setNodeRef} style={style} className="flex items-center group/item" role="listitem">
+      {/* Drag handle — apuntador. El reordenado por teclado va por los botones ↑/↓. */}
       <span
         {...attributes}
         {...listeners}
-        className="pl-1 pr-0.5 text-slate-300 opacity-0 group-hover/item:opacity-100 cursor-grab active:cursor-grabbing select-none text-xs"
+        aria-label={`Arrastrar para reordenar: ${blockName}`}
+        className="pl-1 pr-0.5 text-slate-300 opacity-0 group-hover/item:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded cursor-grab active:cursor-grabbing select-none text-xs"
         title="Arrastrar para reordenar"
       >
         ⠿
@@ -499,6 +504,7 @@ function SortableBlockItem({
             "font-mono text-xs w-4 text-center",
             isActive ? "text-[var(--c-primary)]" : "text-[var(--c-muted)]"
           )}
+          aria-hidden="true"
         >
           {blockIcon(block.type)}
         </span>
@@ -507,11 +513,43 @@ function SortableBlockItem({
             "text-xs w-5 text-right shrink-0",
             isActive ? "text-[var(--c-primary)]" : "text-[var(--c-muted)]"
           )}
+          aria-hidden="true"
         >
           {idx + 1}
         </span>
-        <span className="text-xs truncate flex-1">{blockPreview(block)}</span>
+        <span className="text-xs truncate flex-1">{preview}</span>
       </button>
+      {/* Reordenado accesible por teclado (no depende del drag-and-drop). */}
+      <div className="flex flex-col opacity-0 group-hover/item:opacity-100 focus-within:opacity-100">
+        <Button
+          variant="icon"
+          size="sm"
+          className="h-4 w-5 text-xs"
+          title="Mover arriba"
+          aria-label={`Mover arriba: ${blockName}`}
+          disabled={idx === 0}
+          onClick={(e) => {
+            e.stopPropagation();
+            onMoveUp();
+          }}
+        >
+          ↑
+        </Button>
+        <Button
+          variant="icon"
+          size="sm"
+          className="h-4 w-5 text-xs"
+          title="Mover abajo"
+          aria-label={`Mover abajo: ${blockName}`}
+          disabled={idx === total - 1}
+          onClick={(e) => {
+            e.stopPropagation();
+            onMoveDown();
+          }}
+        >
+          ↓
+        </Button>
+      </div>
     </div>
   );
 }
@@ -999,6 +1037,7 @@ export default function BlockEditorPage({
               <button
                 type="button"
                 aria-label="Agregar bloque"
+                aria-haspopup="menu"
                 aria-expanded={showAddMenu}
                 className="w-6 h-6 flex items-center justify-center rounded bg-[var(--c-primary)] hover:opacity-90 text-white text-sm font-bold leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
                 onClick={() => setShowAddMenu((v) => !v)}
@@ -1007,20 +1046,26 @@ export default function BlockEditorPage({
                 +
               </button>
               {showAddMenu && (
-                <div className="absolute top-7 right-0 z-30 w-36 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl py-1">
+                <div
+                  role="menu"
+                  aria-label="Tipo de bloque a agregar"
+                  className="absolute top-7 right-0 z-30 w-36 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl py-1"
+                >
                   {BLOCK_TYPES.map(({ type, label, icon }) => (
                     <button
                       key={type}
-                      className="w-full text-left px-3 py-1.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] flex items-center gap-2"
+                      type="button"
+                      role="menuitem"
+                      className="w-full text-left px-3 py-1.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--c-focus-ring)]"
                       onClick={() => {
                         dispatch({ type: "ADD_BLOCK", blockType: type });
                         setShowAddMenu(false);
                       }}
                     >
                       {icon ?? (type === "math" ? (
-                        <FunctionSquare size={14} className="text-[var(--c-primary)] flex-shrink-0" />
+                        <FunctionSquare size={14} className="text-[var(--c-primary)] flex-shrink-0" aria-hidden="true" />
                       ) : (
-                        <span className="font-mono text-[var(--c-primary)] w-4 text-center">
+                        <span className="font-mono text-[var(--c-primary)] w-4 text-center" aria-hidden="true">
                           {blockIcon(type)}
                         </span>
                       ))}
@@ -1044,20 +1089,29 @@ export default function BlockEditorPage({
                   items={doc.blocks.map((b) => b.id)}
                   strategy={verticalListSortingStrategy}
                 >
-                  {doc.blocks.map((block, idx) => (
-                    <SortableBlockItem
-                      key={block.id}
-                      block={block}
-                      idx={idx}
-                      isActive={block.id === selectedBlockId}
-                      onSelect={() =>
-                        dispatch({
-                          type: "SELECT_BLOCK",
-                          blockId: block.id === selectedBlockId ? null : block.id,
-                        })
-                      }
-                    />
-                  ))}
+                  <div role="list" aria-label="Bloques del documento">
+                    {doc.blocks.map((block, idx) => (
+                      <SortableBlockItem
+                        key={block.id}
+                        block={block}
+                        idx={idx}
+                        total={doc.blocks.length}
+                        isActive={block.id === selectedBlockId}
+                        onSelect={() =>
+                          dispatch({
+                            type: "SELECT_BLOCK",
+                            blockId: block.id === selectedBlockId ? null : block.id,
+                          })
+                        }
+                        onMoveUp={() =>
+                          dispatch({ type: "MOVE_BLOCK", blockId: block.id, direction: "up" })
+                        }
+                        onMoveDown={() =>
+                          dispatch({ type: "MOVE_BLOCK", blockId: block.id, direction: "down" })
+                        }
+                      />
+                    ))}
+                  </div>
                 </SortableContext>
               </DndContext>
             )}

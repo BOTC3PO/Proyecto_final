@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
-import { Button } from "../ui";
+import { Button, Input, Textarea, Select } from "../ui";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 import { useSlideEditor } from "./hooks/useSlideEditor";
@@ -1155,11 +1155,11 @@ function BlockLatexEditor({
 }) {
   return (
     <div className="space-y-2">
-      <textarea
-        aria-label="Fórmula LaTeX"
-        className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none font-mono text-sm outline-none focus:border-[var(--c-primary)]"
+      <Textarea
+        label="Fórmula LaTeX"
+        className="font-mono"
         rows={4}
-        placeholder="Fórmula LaTeX, ej: \frac{a}{b}"
+        placeholder="ej: \frac{a}{b}"
         value={block.content}
         onChange={(e) => onChange({ content: e.target.value })}
       />
@@ -1185,10 +1185,10 @@ function BlockTableEditor({
 }) {
   return (
     <div className="space-y-2">
-      <input
-        aria-label="Título de la tabla"
-        className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
-        placeholder="Título de la tabla (opcional)"
+      <Input
+        label="Título de la tabla"
+        hint="Opcional"
+        placeholder="ej: Resultados del experimento"
         value={block.title ?? ""}
         onChange={(e) => onChange({ title: e.target.value || undefined })}
       />
@@ -1199,7 +1199,8 @@ function BlockTableEditor({
               {block.headers.map((h, ci) => (
                 <th key={ci} className="border border-[var(--c-border)] p-1 bg-[var(--c-bg)]">
                   <input
-                    className="w-full bg-transparent font-semibold text-center outline-none"
+                    aria-label={`Encabezado de la columna ${ci + 1}`}
+                    className="w-full bg-transparent font-semibold text-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded"
                     value={h}
                     onChange={(e) => {
                       const headers = [...block.headers];
@@ -1217,7 +1218,8 @@ function BlockTableEditor({
                 {row.map((cell, ci) => (
                   <td key={ci} className="border border-[var(--c-border)] p-1">
                     <input
-                      className="w-full bg-transparent outline-none"
+                      aria-label={`Fila ${ri + 1}, ${block.headers[ci] || `columna ${ci + 1}`}`}
+                      className="w-full bg-transparent outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded"
                       value={String(cell)}
                       onChange={(e) => {
                         const rows = block.rows.map((r, i) =>
@@ -1272,17 +1274,17 @@ function BlockChartDatasetRow({
   const [valuesInput, setValuesInput] = useState(ds.values.join(", "));
   useEffect(() => { setValuesInput(ds.values.join(", ")); }, [ds.values]);
   return (
-    <div className="flex gap-1 items-center">
-      <input
+    <div className="flex gap-1 items-end">
+      <Input
+        className="w-28"
         aria-label={`Nombre de la serie ${di + 1}`}
-        className="w-28 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs"
         placeholder="Nombre serie"
         value={ds.label}
         onChange={(e) => onUpdate(di, "label", e.target.value)}
       />
-      <input
-        aria-label={`Valores de la serie ${di + 1}`}
-        className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs font-mono"
+      <Input
+        className="flex-1 font-mono"
+        aria-label={`Valores de la serie ${di + 1}, separados por coma`}
         placeholder="10, 20, 30"
         value={valuesInput}
         onChange={(e) => setValuesInput(e.target.value)}
@@ -1340,17 +1342,18 @@ function BlockChartEditor({
 
   return (
     <div className="space-y-2">
-      <div className="flex gap-2">
-        <input
-          aria-label="Título del gráfico"
-          className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
-          placeholder="Título del gráfico (opcional)"
+      <div className="flex gap-2 items-end">
+        <Input
+          className="flex-1"
+          label="Título del gráfico"
+          hint="Opcional"
+          placeholder="ej: Ventas por mes"
           value={block.title ?? ""}
           onChange={(e) => onChange({ title: e.target.value || undefined })}
         />
-        <select
-          aria-label="Tipo de gráfico"
-          className="border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-2 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
+        <Select
+          className="w-40"
+          label="Tipo de gráfico"
           value={block.chartType}
           onChange={(e) => onChange({ chartType: e.target.value as ChartBlock["chartType"] })}
         >
@@ -1363,12 +1366,12 @@ function BlockChartEditor({
           <option value="bar-grouped">Barras agrupadas</option>
           <option value="area-stacked">Área apilada</option>
           <option value="histogram">Histograma</option>
-        </select>
+        </Select>
       </div>
-      <input
-        aria-label="Etiquetas del eje"
-        className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-xs outline-none focus:border-[var(--c-primary)]"
-        placeholder="Etiquetas separadas por coma: Ene, Feb, Mar"
+      <Input
+        label="Etiquetas del eje"
+        hint="Separadas por coma"
+        placeholder="Ene, Feb, Mar"
         value={labelsInput}
         onChange={(e) => setLabelsInput(e.target.value)}
         onBlur={handleLabelsBlur}
@@ -1445,45 +1448,45 @@ function BlockFlowEditor({
 
   return (
     <div className="space-y-2">
-      <input
-        aria-label="Título del diagrama"
-        className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-1.5 text-sm outline-none focus:border-[var(--c-primary)]"
-        placeholder="Título del diagrama (opcional)"
+      <Input
+        label="Título del diagrama"
+        hint="Opcional"
+        placeholder="ej: Flujo del proceso"
         value={block.title ?? ""}
         onChange={(e) => onChange({ title: e.target.value || undefined })}
       />
       <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--c-muted)]">Nodos</p>
-      {block.nodes.map((node) => (
-        <div key={node.id} className="flex gap-1 items-center flex-wrap">
-          <input
-            aria-label="Etiqueta del nodo"
-            className="w-24 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs"
+      {block.nodes.map((node, ni) => (
+        <div key={node.id} className="flex gap-1 items-end flex-wrap">
+          <Input
+            className="w-24"
+            aria-label={`Etiqueta del nodo ${ni + 1}`}
             placeholder="Etiqueta"
             value={node.label}
             onChange={(e) => updateNode(node.id, "label", e.target.value)}
           />
-          <select
-            aria-label="Forma del nodo"
-            className="border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
+          <Select
+            className="w-24"
+            aria-label={`Forma del nodo ${ni + 1}`}
             value={node.shape ?? "rect"}
             onChange={(e) => updateNode(node.id, "shape", e.target.value)}
           >
             <option value="rect">Rect</option>
             <option value="diamond">Rombo</option>
             <option value="circle">Círculo</option>
-          </select>
-          <input
+          </Select>
+          <Input
+            className="w-16"
             type="number"
-            aria-label="Posición X del nodo"
-            className="w-14 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
+            aria-label={`Posición X del nodo ${ni + 1}`}
             placeholder="x"
             value={node.x}
             onChange={(e) => updateNode(node.id, "x", e.target.value)}
           />
-          <input
+          <Input
+            className="w-16"
             type="number"
-            aria-label="Posición Y del nodo"
-            className="w-14 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
+            aria-label={`Posición Y del nodo ${ni + 1}`}
             placeholder="y"
             value={node.y}
             onChange={(e) => updateNode(node.id, "y", e.target.value)}
@@ -1512,11 +1515,11 @@ function BlockFlowEditor({
       {block.nodes.length >= 2 && (
         <>
           <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--c-muted)] pt-1">Aristas</p>
-          {block.edges.map((edge) => (
-            <div key={edge.id} className="flex gap-1 items-center">
-              <select
-                aria-label="Nodo de origen"
-                className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
+          {block.edges.map((edge, ei) => (
+            <div key={edge.id} className="flex gap-1 items-end">
+              <Select
+                className="flex-1"
+                aria-label={`Nodo de origen de la arista ${ei + 1}`}
                 value={edge.fromId}
                 onChange={(e) =>
                   onChange({
@@ -1527,11 +1530,11 @@ function BlockFlowEditor({
                 }
               >
                 {block.nodes.map((n) => <option key={n.id} value={n.id}>{n.label}</option>)}
-              </select>
-              <span className="text-xs text-[var(--c-muted)]" aria-hidden="true">→</span>
-              <select
-                aria-label="Nodo de destino"
-                className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
+              </Select>
+              <span className="text-xs text-[var(--c-muted)] pb-1.5" aria-hidden="true">→</span>
+              <Select
+                className="flex-1"
+                aria-label={`Nodo de destino de la arista ${ei + 1}`}
                 value={edge.toId}
                 onChange={(e) =>
                   onChange({
@@ -1542,10 +1545,10 @@ function BlockFlowEditor({
                 }
               >
                 {block.nodes.map((n) => <option key={n.id} value={n.id}>{n.label}</option>)}
-              </select>
-              <input
-                aria-label="Etiqueta de la arista"
-                className="w-20 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-1.5 py-1 text-xs"
+              </Select>
+              <Input
+                className="w-20"
+                aria-label={`Etiqueta de la arista ${ei + 1}`}
                 placeholder="Etiqueta"
                 value={edge.label ?? ""}
                 onChange={(e) =>
@@ -1592,9 +1595,8 @@ function BlockSpecEditor({ block, onChange }: { block: Block; onChange: (b: Bloc
   switch (block.type) {
     case "text":
       return (
-        <textarea
-          aria-label="Contenido de texto"
-          className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none text-sm outline-none focus:border-[var(--c-primary)]"
+        <Textarea
+          label="Contenido de texto"
           rows={8}
           placeholder="Contenido de texto..."
           value={block.content}
@@ -1623,24 +1625,28 @@ export function ToolParamControl({
   value: unknown;
   onChange: (v: number | boolean | string) => void;
 }) {
+  // Un id estable por control para asociar `label`/`htmlFor` (WCAG 1.3.1 / 4.1.2):
+  // así la etiqueta visible es el nombre accesible real, sin `aria-label` redundante.
+  const controlId = useId();
+
   if (param.input === "number") {
     const numVal = value !== undefined ? Number(value) : Number(param.defaultValue);
     const decimals = param.step && param.step < 1 ? 1 : 0;
     return (
       <div className="flex items-center gap-3">
-        <label className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">
+        <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">
           {param.label}
           {param.unit && <span className="text-[var(--c-border)] ml-1">({param.unit})</span>}
         </label>
         <input
+          id={controlId}
           type="range"
-          aria-label={param.label}
           min={param.min ?? 0}
           max={param.max ?? 100}
           step={param.step ?? 1}
           value={numVal}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="flex-1 accent-blue-500"
+          className="flex-1 accent-[var(--c-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded"
         />
         <span className="text-xs text-[var(--c-text)] w-14 text-right tabular-nums font-mono">
           {numVal.toFixed(decimals)}
@@ -1652,10 +1658,10 @@ export function ToolParamControl({
     const strVal = value !== undefined ? String(value) : String(param.defaultValue);
     return (
       <div className="flex items-center gap-3">
-        <label className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</label>
+        <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</label>
         <select
-          aria-label={param.label}
-          className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs outline-none focus:border-[var(--c-primary)]"
+          id={controlId}
+          className="flex-1 border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2 py-1 text-xs outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
           value={strVal}
           onChange={(e) => onChange(e.target.value)}
         >
@@ -1670,13 +1676,13 @@ export function ToolParamControl({
     return (
       <div className="flex items-center gap-3">
         <span className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</span>
-        <label className="flex items-center gap-2 cursor-pointer select-none">
+        <label htmlFor={controlId} className="flex items-center gap-2 cursor-pointer select-none">
           <input
+            id={controlId}
             type="checkbox"
-            aria-label={param.label}
             checked={value !== undefined ? Boolean(value) : Boolean(param.defaultValue)}
             onChange={(e) => onChange(e.target.checked)}
-            className="rounded border-[var(--c-border)]"
+            className="rounded border-[var(--c-border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
           />
           <span className="text-xs text-[var(--c-muted)]">{Boolean(value) ? "Sí" : "No"}</span>
         </label>
@@ -1687,14 +1693,14 @@ export function ToolParamControl({
     return (
       <div>
         <div className="flex items-baseline justify-between mb-1">
-          <label className="text-xs font-medium text-[var(--c-muted)]">{param.label}</label>
+          <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)]">{param.label}</label>
           {param.description && (
             <span className="text-[10px] text-[var(--c-border)]">{param.description}</span>
           )}
         </div>
         <input
-          aria-label={param.label}
-          className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-3 py-1.5 text-sm font-mono outline-none focus:border-[var(--c-primary)]"
+          id={controlId}
+          className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-3 py-1.5 text-sm font-mono outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
           value={value !== undefined ? String(value) : String(param.defaultValue)}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -1705,13 +1711,13 @@ export function ToolParamControl({
     const strVal = value !== undefined ? String(value) : String(param.defaultValue);
     return (
       <div className="flex items-center gap-3">
-        <label className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</label>
+        <label htmlFor={controlId} className="text-xs font-medium text-[var(--c-muted)] w-32 flex-shrink-0">{param.label}</label>
         <input
+          id={controlId}
           type="color"
-          aria-label={param.label}
           value={strVal}
           onChange={(e) => onChange(e.target.value)}
-          className="h-7 w-12 rounded border border-[var(--c-border)] cursor-pointer bg-transparent p-0.5"
+          className="h-7 w-12 rounded border border-[var(--c-border)] cursor-pointer bg-transparent p-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
         />
         <span className="text-xs text-[var(--c-muted)] font-mono">{strVal}</span>
       </div>
@@ -1733,10 +1739,16 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
   const [showBlockPicker, setShowBlockPicker] = useState(false);
   useEffect(() => { setShowBlockPicker(false); }, [slide.id]);
 
+  // Ids para asociar las etiquetas visibles de los campos con diseño propio
+  // (título/subtítulo conservan el estilo "edición in situ" sin borde).
+  const headingId = useId();
+  const subtitleId = useId();
+  const bodyId = useId();
+
   const headingInput = (
     <div>
       <div className="flex items-baseline justify-between mb-1.5">
-        <label className="text-xs font-medium text-[var(--c-muted)]">
+        <label htmlFor={headingId} className="text-xs font-medium text-[var(--c-muted)]">
           {isQuote ? "Texto de la cita" : "Título principal"}
         </label>
         <span className="text-[10px] text-[var(--c-border)] font-mono">
@@ -1744,7 +1756,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
         </span>
       </div>
       <input
-        aria-label={isQuote ? "Texto de la cita" : "Título principal"}
+        id={headingId}
         className={`w-full border-0 border-b-2 border-[var(--c-border)] pb-2 leading-tight outline-none focus:border-[var(--c-primary)] bg-transparent placeholder-[var(--c-border)] text-[var(--c-text)] ${
           isQuote ? "text-2xl italic font-serif" : "text-2xl font-bold"
         }`}
@@ -1789,11 +1801,10 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
 
       {/* ── Background image ── */}
       <div>
-        <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Imagen de fondo (opcional)</p>
-        <input
+        <Input
           type="url"
-          aria-label="URL de imagen de fondo"
-          className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg px-3 py-2 text-sm outline-none focus:border-[var(--c-primary)]"
+          label="Imagen de fondo"
+          hint="Opcional — URL de la imagen"
           placeholder="https://ejemplo.com/imagen.jpg"
           value={slide.bgImage ?? ""}
           onChange={(e) => onChange({ bgImage: e.target.value || undefined })}
@@ -1828,28 +1839,22 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
         <>
           {headingInput}
           <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="text-xs font-medium text-[var(--c-muted)] mb-1.5 block">Columna izquierda</label>
-              <textarea
-                aria-label="Columna izquierda"
-                className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none text-sm outline-none focus:border-[var(--c-primary)] leading-relaxed"
-                placeholder="Contenido de la columna izquierda..."
-                rows={12}
-                value={slide.leftColumn ?? ""}
-                onChange={(e) => onChange({ leftColumn: e.target.value || undefined })}
-              />
-            </div>
-            <div>
-              <label className="text-xs font-medium text-[var(--c-muted)] mb-1.5 block">Columna derecha</label>
-              <textarea
-                aria-label="Columna derecha"
-                className="w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-3 resize-none text-sm outline-none focus:border-[var(--c-primary)] leading-relaxed"
-                placeholder="Contenido de la columna derecha..."
-                rows={12}
-                value={slide.rightColumn ?? ""}
-                onChange={(e) => onChange({ rightColumn: e.target.value || undefined })}
-              />
-            </div>
+            <Textarea
+              label="Columna izquierda"
+              className="leading-relaxed"
+              placeholder="Contenido de la columna izquierda..."
+              rows={12}
+              value={slide.leftColumn ?? ""}
+              onChange={(e) => onChange({ leftColumn: e.target.value || undefined })}
+            />
+            <Textarea
+              label="Columna derecha"
+              className="leading-relaxed"
+              placeholder="Contenido de la columna derecha..."
+              rows={12}
+              value={slide.rightColumn ?? ""}
+              onChange={(e) => onChange({ rightColumn: e.target.value || undefined })}
+            />
           </div>
         </>
       ) : (
@@ -1858,13 +1863,13 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
 
           <div>
             <div className="flex items-baseline justify-between mb-1.5">
-              <label className="text-xs font-medium text-[var(--c-muted)]">
+              <label htmlFor={subtitleId} className="text-xs font-medium text-[var(--c-muted)]">
                 {isQuote ? "Atribución" : "Subtítulo"}
               </label>
               <span className="text-[10px] text-[var(--c-border)] font-mono">text-xl font-medium</span>
             </div>
             <input
-              aria-label={isQuote ? "Atribución" : "Subtítulo"}
+              id={subtitleId}
               className="w-full border-0 border-b border-[var(--c-border)] pb-1.5 text-lg font-medium leading-snug outline-none focus:border-[var(--c-primary)] bg-transparent placeholder-[var(--c-border)] text-[var(--c-muted)]"
               placeholder={isQuote ? "— Autor, Año (opcional)" : "Subtítulo o descripción secundaria (opcional)"}
               value={slide.subtitle ?? ""}
@@ -1899,7 +1904,7 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
               ) : (
                 <>
                   {/* ── Content mode selector ── */}
-                  <div>
+                  <div role="radiogroup" aria-label="Tipo de contenido">
                     <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Tipo de contenido</p>
                     <div className="flex gap-4">
                       <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-[var(--c-text)]">
@@ -1963,14 +1968,14 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                     <>
                       <div>
                         <div className="flex items-baseline justify-between mb-1.5">
-                          <label className="text-xs font-medium text-[var(--c-muted)]">
+                          <label htmlFor={bodyId} className="text-xs font-medium text-[var(--c-muted)]">
                             {slide.isCode ? "Código" : "Cuerpo de texto"}
                           </label>
                           <span className="text-[10px] text-[var(--c-border)] font-mono">text-base leading-relaxed</span>
                         </div>
                         <textarea
-                          aria-label={slide.isCode ? "Código" : "Cuerpo de texto"}
-                          className={`w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-4 resize-none text-sm outline-none focus:border-[var(--c-primary)] leading-relaxed ${
+                          id={bodyId}
+                          className={`w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-4 resize-none text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)] leading-relaxed ${
                             slide.isCode ? "font-mono" : ""
                           }`}
                           placeholder={
@@ -1995,9 +2000,8 @@ function SlideEditorForm({ slide, onChange }: EditorFormProps) {
                           <span className="text-xs text-[var(--c-text)]">Mostrar como bloque de código</span>
                         </label>
                         {slide.isCode ? (
-                          <input
+                          <Input
                             aria-label="Lenguaje del código"
-                            className="border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded px-2.5 py-1 text-xs outline-none focus:border-[var(--c-primary)]"
                             placeholder="lenguaje (js, python...)"
                             value={slide.language ?? ""}
                             onChange={(e) => onChange({ language: e.target.value || undefined })}

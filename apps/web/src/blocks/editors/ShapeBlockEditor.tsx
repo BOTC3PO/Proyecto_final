@@ -208,12 +208,13 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
           {paletteOpen && (
             <div className="px-3 pb-3">
               {/* Collection tabs */}
-              <div className="flex gap-1 mb-2 flex-wrap">
+              <div className="flex gap-1 mb-2 flex-wrap" role="toolbar" aria-label="Colección de formas">
                 {COLLECTIONS_ORDER.map((col) => (
                   <button
                     key={col}
                     type="button"
-                    className={`text-xs px-2 py-1 rounded border transition-colors ${
+                    aria-pressed={activeCollection === col}
+                    className={`text-xs px-2 py-1 rounded border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
                       activeCollection === col
                         ? "bg-blue-600 text-white border-blue-600"
                         : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
@@ -251,14 +252,17 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
         {/* Toolbar */}
         <div className="flex items-center gap-2 flex-wrap">
           <input
-            className="text-xs border border-gray-200 rounded px-2 py-1 flex-1 min-w-0 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            aria-label="Título del canvas"
+            className="text-xs border border-gray-200 rounded px-2 py-1 flex-1 min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:ring-blue-400"
             placeholder="Título del canvas"
             value={block.title ?? ""}
             onChange={(e) => onChange({ ...block, title: e.target.value || undefined })}
           />
           <button
             type="button"
-            className={`text-xs px-2 py-1 border rounded shrink-0 transition-colors ${
+            aria-pressed={connectMode}
+            aria-label="Modo conectar formas"
+            className={`text-xs px-2 py-1 border rounded shrink-0 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
               connectMode
                 ? "bg-indigo-600 text-white border-indigo-600"
                 : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"

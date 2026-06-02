@@ -217,23 +217,170 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
   }
 
   if (spec.kind === "circuit") {
-    // TODO post-expo: implementar el render del diagrama de circuito. Hasta
-    // entonces mostramos un placeholder explícito (no un hueco roto) para que
-    // no aparezca como una herramienta fallida en la demo.
-    return (
-      <div
-        role="note"
-        className="flex flex-col items-center justify-center gap-1 rounded border border-dashed border-gray-300 bg-gray-50 p-6 text-center"
-      >
-        <span className="text-sm font-medium text-gray-600">
-          Visualización de circuito
-        </span>
-        <span className="text-xs text-gray-500">
-          Próximamente — este tipo de visual todavía no se renderiza.
-        </span>
-      </div>
-    );
+    return <CircuitDiagram elements={spec.elements} />;
   }
 
   return null;
+}
+
+// ─── Circuit diagram ──────────────────────────────────────────────────────────
+
+type CircuitElement = { id: string; type: string; value?: number; unit?: string };
+
+/** Normaliza el tipo de elemento a una de las familias de símbolo que dibujamos. */
+function circuitSymbolKind(
+  type: string,
+): "resistor" | "battery" | "lamp" | "capacitor" | "switch" | "generic" {
+  const t = type
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+  if (/(resist|\br\b|ohm)/.test(t)) return "resistor";
+  if (/(bater|battery|pila|fuente|fem|\bv\b|volt)/.test(t)) return "battery";
+  if (/(lamp|bombill|luz|led|foco)/.test(t)) return "lamp";
+  if (/(capacit|condens|\bc\b|farad)/.test(t)) return "capacitor";
+  if (/(interrupt|switch|llave)/.test(t)) return "switch";
+  return "generic";
+}
+
+/**
+ * Diagrama esquemático de un circuito en serie. Dibuja un lazo rectangular de
+ * cable y coloca cada elemento sobre el borde superior con su símbolo y la
+ * etiqueta (valor + unidad). Es deliberadamente sencillo pero suficiente para
+ * representar circuitos en serie de física básica.
+ */
+function CircuitDiagram({ elements }: { elements: CircuitElement[] }) {
+  const W = 360;
+  const H = 220;
+  const margin = 40;
+  const top = 50;
+  const bottom = H - 40;
+  const left = margin;
+  const right = W - margin;
+  const stroke = "#334155";
+
+  const label = (el: CircuitElement) => {
+    const v = el.value != null ? `${el.value}${el.unit ? ` ${el.unit}` : ""}` : "";
+    return v ? `${el.type} (${v})` : el.type;
+  };
+
+  const ariaLabel =
+    elements.length > 0
+      ? `Circuito en serie con ${elements.length} elementos: ${elements.map(label).join(", ")}.`
+      : "Circuito sin elementos.";
+
+  // Posiciones equiespaciadas sobre el borde superior.
+  const slotW = (right - left) / Math.max(1, elements.length);
+  const symbolHalf = 26;
+
+  const drawSymbol = (kind: ReturnType<typeof circuitSymbolKind>, cx: number) => {
+    const y = top;
+    const a = cx - symbolHalf;
+    const b = cx + symbolHalf;
+    switch (kind) {
+      case "resistor":
+        return (
+          <polyline
+            points={`${a},${y} ${a + 6},${y - 8} ${a + 16},${y + 8} ${a + 26},${y - 8} ${a + 36},${y + 8} ${a + 46},${y - 8} ${b},${y}`}
+            fill="none"
+            stroke={stroke}
+            strokeWidth={2}
+          />
+        );
+      case "battery":
+        return (
+          <g stroke={stroke} strokeWidth={2}>
+            <line x1={cx - 6} y1={y - 12} x2={cx - 6} y2={y + 12} />
+            <line x1={cx + 4} y1={y - 6} x2={cx + 4} y2={y + 6} />
+          </g>
+        );
+      case "lamp":
+        return (
+          <g fill="none" stroke={stroke} strokeWidth={2}>
+            <circle cx={cx} cy={y} r={12} />
+            <line x1={cx - 8} y1={y - 8} x2={cx + 8} y2={y + 8} />
+            <line x1={cx - 8} y1={y + 8} x2={cx + 8} y2={y - 8} />
+          </g>
+        );
+      case "capacitor":
+        return (
+          <g stroke={stroke} strokeWidth={2}>
+            <line x1={cx - 5} y1={y - 12} x2={cx - 5} y2={y + 12} />
+            <line x1={cx + 5} y1={y - 12} x2={cx + 5} y2={y + 12} />
+          </g>
+        );
+      case "switch":
+        return (
+          <g stroke={stroke} strokeWidth={2} fill={stroke}>
+            <circle cx={a} cy={y} r={2.5} />
+            <circle cx={b} cy={y} r={2.5} />
+            <line x1={a} y1={y} x2={b - 4} y2={y - 12} />
+          </g>
+        );
+      default:
+        return (
+          <rect x={cx - 18} y={y - 10} width={36} height={20} fill="none" stroke={stroke} strokeWidth={2} rx={2} />
+        );
+    }
+  };
+
+  return (
+    <svg
+      width={W}
+      height={H}
+      viewBox={`0 0 ${W} ${H}`}
+      role="img"
+      aria-label={ariaLabel}
+      className="rounded border border-gray-200 bg-white"
+    >
+      {/* Lazo de cable */}
+      <g stroke={stroke} strokeWidth={2} fill="none">
+        <line x1={left} y1={top} x2={left} y2={bottom} />
+        <line x1={left} y1={bottom} x2={right} y2={bottom} />
+        <line x1={right} y1={bottom} x2={right} y2={top} />
+        {/* Tramos del borde superior entre elementos */}
+        {elements.length === 0 && <line x1={left} y1={top} x2={right} y2={top} />}
+        {elements.map((el, i) => {
+          const cx = left + slotW * (i + 0.5);
+          const prevEnd = i === 0 ? left : left + slotW * (i - 0.5) + symbolHalf;
+          return (
+            <line key={`wire-${el.id}`} x1={prevEnd} y1={top} x2={cx - symbolHalf} y2={top} />
+          );
+        })}
+        {elements.length > 0 && (
+          <line
+            x1={left + slotW * (elements.length - 0.5) + symbolHalf}
+            y1={top}
+            x2={right}
+            y2={top}
+          />
+        )}
+      </g>
+
+      {/* Símbolos + etiquetas */}
+      {elements.map((el, i) => {
+        const cx = left + slotW * (i + 0.5);
+        return (
+          <g key={el.id}>
+            {drawSymbol(circuitSymbolKind(el.type), cx)}
+            <text x={cx} y={top - 18} textAnchor="middle" fontSize={10} fill="#475569" fontWeight="600">
+              {el.type}
+            </text>
+            {el.value != null && (
+              <text x={cx} y={top + 24} textAnchor="middle" fontSize={10} fill="#64748b">
+                {el.value}
+                {el.unit ? ` ${el.unit}` : ""}
+              </text>
+            )}
+          </g>
+        );
+      })}
+
+      {elements.length === 0 && (
+        <text x={W / 2} y={H / 2} textAnchor="middle" fontSize={12} fill="#94a3b8">
+          Circuito vacío
+        </text>
+      )}
+    </svg>
+  );
 }

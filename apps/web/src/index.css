@@ -1559,21 +1559,46 @@ button.icon-btn,
 /* Layer chip (panel de capas del editor de mapa) */
 .vb-layer {
   display: grid;
-  grid-template-columns: 14px 1fr auto auto;
-  gap: 10px;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 4px;
   align-items: center;
-  padding: 8px 10px;
+  padding: 6px 8px;
   border-radius: var(--r-md);
-  cursor: pointer;
   font-size: 13px;
   color: var(--c-text);
 }
 .vb-layer:hover {
   background: var(--c-hover);
 }
-.vb-layer[aria-selected="true"] {
+.vb-layer.is-active {
   background: var(--c-hover);
   outline: 1px solid var(--c-border-strong);
+}
+/* Botón de selección de capa: layout interno swatch · nombre · contador. */
+.vb-layer-select {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  padding: 2px;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  border-radius: var(--r-sm);
+}
+.vb-layer-select:focus-visible {
+  outline: 2px solid var(--c-focus-ring);
+  outline-offset: 1px;
+}
+.vb-layer-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .vb-layer .sw {
   width: 12px;
