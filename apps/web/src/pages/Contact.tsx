@@ -1,4 +1,10 @@
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
+
 export default function Contact() {
+  useDocumentMeta({
+    title: 'Contacto — Virtual Book',
+    description: 'Nuestro equipo responde consultas sobre implementación, soporte técnico y acompañamiento pedagógico. Estamos para ayudarte.',
+  });
   return (
     <main className="flex-1 bg-gray-100">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16">

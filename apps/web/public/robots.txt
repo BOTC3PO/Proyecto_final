@@ -1,0 +1,43 @@
+User-agent: *
+
+# Public pages — indexable
+Allow: /$
+Allow: /explorar
+Allow: /precios
+Allow: /contact
+Allow: /metodologia
+Allow: /landing
+Allow: /terminos
+Allow: /privacidad
+Allow: /herramientas
+Allow: /herramientas/
+
+# Auth-gated routes — block from indexation
+Disallow: /alumno
+Disallow: /profesor
+Disallow: /admin
+Disallow: /enterprise
+Disallow: /gobernanza
+Disallow: /modulos
+Disallow: /mensajes
+Disallow: /perfil
+Disallow: /hijos
+Disallow: /tareas
+Disallow: /progreso
+Disallow: /economia
+Disallow: /tienda-temas
+Disallow: /calendario
+Disallow: /plantillas
+Disallow: /datasets
+Disallow: /editor
+Disallow: /bloques
+Disallow: /quiz
+Disallow: /reproductor
+Disallow: /dev
+Disallow: /onboarding-guest
+Disallow: /onboarding
+Disallow: /login
+Disallow: /register
+Disallow: /recuperar
+
+Sitemap: /sitemap.xml

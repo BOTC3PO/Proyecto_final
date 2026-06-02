@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 const PLANES = {
   gratuito: {
@@ -43,6 +44,10 @@ const PLANES = {
 };
 
 export default function Pricing() {
+  useDocumentMeta({
+    title: 'Planes y Precios — Virtual Book',
+    description: 'Planes gratuitos e institucionales para escuelas y profesores. Sin costo de inicio; expansión flexible según tus necesidades.',
+  });
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-12 px-6 py-12">
       <header className="text-center space-y-3">
