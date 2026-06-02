@@ -1,9 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  // Pass ANALYZE=true to emit stats.html with chunk sizes: ANALYZE=true pnpm build
+  plugins: [react(), tailwindcss(), ...(process.env.ANALYZE ? [visualizer({ open: false, gzipSize: true, brotliSize: true, filename: "dist/stats.html" })] : [])],
 
   optimizeDeps: {
     exclude: ["archive"],
