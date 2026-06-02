@@ -1,5 +1,26 @@
 export { parse } from "./parser/parser.js";
 export { emitExpr, serialize } from "./serializer/serialize.js";
+
+// WO14 — Catálogo de escalas de nota + conversión.
+export {
+  SCORING_SYSTEMS,
+  DEFAULT_SCORING_SYSTEM_ID,
+  getScoringSystem,
+  pctToCanonical10,
+  passingCutoffPct,
+  resolveGrade,
+  gradeFromConfig,
+} from "./scoring/index.js";
+export type {
+  ScoringKind,
+  ScoringConfig,
+  ScoringSystem,
+  NumericScoringSystem,
+  BandedScoringSystem,
+  BinaryScoringSystem,
+  GradeBand,
+  ResolvedGrade,
+} from "./scoring/index.js";
 export { compile } from "./runtime/compile.js";
 export { generate } from "./runtime/generate.js";
 export { createPrng } from "./runtime/prng.js";
