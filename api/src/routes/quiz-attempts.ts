@@ -14,6 +14,7 @@ import {
   QuizVersionSchema
 } from "../schema/quiz-attempt";
 import { isStaffRole } from "../lib/authorization";
+import { gradeFromConfig, getScoringSystem, type ScoringConfig } from "@vb/vblang";
 
 type ModuleQuiz = {
   id?: string;
@@ -60,6 +61,9 @@ type ModuleWithQuizzes = {
   title?: string;
   quizzes?: ModuleQuiz[];
   levels?: Array<{ quizzes?: ModuleQuiz[] }>;
+  // WO14 — config de escala del módulo (cuando esté persistida). Hoy no es columna
+  // del modelo Modulo; se lee defensivamente y, si falta, se reconcilia con el umbral.
+  scoringConfig?: ScoringConfig;
 };
 
 type QuizMetadataRecord = {
@@ -224,8 +228,12 @@ const fetchQuizFromCollections = async (
   const moduloRecord = moduleId
     ? await prisma.modulo.findFirst({ where: { id: moduleId } })
     : null;
+  // WO14 — `scoringConfig` no es columna del modelo Modulo; se lee defensivamente
+  // por si una versión futura lo persiste. Si falta, el wiring reconcilia con el umbral.
+  const moduloScoringConfig = (moduloRecord as { scoringConfig?: ScoringConfig } | null)
+    ?.scoringConfig;
   const module: ModuleWithQuizzes | null = moduloRecord
-    ? { id: moduloRecord.id, title: moduloRecord.titulo }
+    ? { id: moduloRecord.id, title: moduloRecord.titulo, scoringConfig: moduloScoringConfig }
     : null;
 
   if (!metadata) return { quiz: null, module };
@@ -731,9 +739,13 @@ quizAttempts.post(
         select: { umbral: true },
       });
       const umbral = umbralRow?.umbral ?? 60;
-      const porcentaje = maxScore > 0
-        ? Math.round((score / maxScore) * 100) : 0;
-      const aprobado = porcentaje >= umbral;
+      // WO14 — convertir desde el ratio crudo (no desde el % redondeado) a la nota
+      // de la escala. `aprobado` = passing de la escala (fuente de verdad del corte).
+      const rawRatio = maxScore > 0 ? score / maxScore : null;
+      const scoringConfig = resolveScoringConfig(module?.scoringConfig, umbral);
+      const nota = gradeFromConfig(rawRatio, scoringConfig);
+      const porcentaje = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
+      const aprobado = nota.passing === true;
 
       // WO07 — con ítems pendientes la nota aún no es final: no tocamos el
       // progreso formal hasta que el profe termine de corregir.
@@ -792,6 +804,13 @@ quizAttempts.post(
         } catch { /* ignorar */ }
       }
 
+      // WO14 — maxScore = 0: no hay nota (no forzar "Desaprobado").
+      const message =
+        nota.passing === null
+          ? "Respuestas enviadas. Este quiz no tiene ítems puntuables, no hay nota."
+          : aprobado
+            ? `¡Aprobado! Nota: ${nota.display} (${porcentaje}%).`
+            : `Nota: ${nota.display} (${porcentaje}%) — no alcanza para aprobar.`;
       res.json({
         status: "submitted",
         score,
@@ -799,9 +818,9 @@ quizAttempts.post(
         porcentaje,
         aprobado,
         umbral,
-        message: aprobado
-          ? `¡Aprobado! ${porcentaje}% — superaste el umbral de ${umbral}%.`
-          : `${porcentaje}% — necesitás al menos ${umbral}% para aprobar.`,
+        notaDisplay: nota.display,
+        notaCanonical10: nota.canonical10,
+        message,
       });
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });
@@ -823,6 +842,21 @@ const recomputeFromGrading = (grading: AttemptGrading) => {
     score += item.score;
   }
   return { score, allGraded };
+};
+
+// WO14 — Reconciliación de umbral. `config.minPassingScore` (en la escala) es la
+// única fuente de verdad del corte. Cuando el módulo trae un `scoringConfig` con
+// un systemId del catálogo, ese gana. Si no (caso actual: no se persiste), se cae
+// a `scale-0-100` con `minPassingScore` = QuizUmbral.umbral, preservando exactamente
+// el comportamiento previo (aprobado ⇔ % ≥ umbral) pero ahora desde el ratio crudo.
+const resolveScoringConfig = (
+  scoringConfig: ScoringConfig | undefined,
+  umbral: number
+): ScoringConfig => {
+  if (scoringConfig?.systemId && getScoringSystem(scoringConfig.systemId)) {
+    return scoringConfig;
+  }
+  return { systemId: "scale-0-100", minPassingScore: String(umbral) };
 };
 
 // Progreso de un módulo cuando un quiz formal queda con nota final.
@@ -948,16 +982,32 @@ quizAttempts.post(
       const maxScore = typeof attempt.maxScore === "number" ? attempt.maxScore : 0;
       const porcentaje = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
 
+      // WO14 — la nota final sólo se emite cuando el intento queda "corregido"
+      // (allGraded). Mientras siga `pending_review` no hay nota final (provisional).
+      let notaDisplay: string | null = null;
+      let notaCanonical10: number | null = null;
+      let aprobado: boolean | null = null;
+
       // Al quedar "corregido", si es formal recién ahí impacta el progreso.
       if (allGraded) {
+        const umbralRow = await prisma.quizUmbral.findUnique({
+          where: { quizId: attempt.quizId },
+          select: { umbral: true }
+        });
+        const umbral = umbralRow?.umbral ?? 60;
         const quizRecord = await prisma.quiz.findFirst({ where: { id: attempt.quizId } });
+        // WO14 — misma conversión que en submit, sobre el score recalculado.
+        const moduloRecord = quizRecord?.moduleId
+          ? await prisma.modulo.findFirst({ where: { id: quizRecord.moduleId } })
+          : null;
+        const moduloScoringConfig = (moduloRecord as { scoringConfig?: ScoringConfig } | null)
+          ?.scoringConfig;
+        const rawRatio = maxScore > 0 ? score / maxScore : null;
+        const nota = gradeFromConfig(rawRatio, resolveScoringConfig(moduloScoringConfig, umbral));
+        notaDisplay = nota.display;
+        notaCanonical10 = nota.canonical10;
+        aprobado = nota.passing === true;
         if (quizRecord?.moduleId) {
-          const umbralRow = await prisma.quizUmbral.findUnique({
-            where: { quizId: attempt.quizId },
-            select: { umbral: true }
-          });
-          const umbral = umbralRow?.umbral ?? 60;
-          const aprobado = porcentaje >= umbral;
           // El tipo del quiz vive en la colección Quiz/QuizVersion; corregimos
           // sólo módulos formales. Si no hay manera de saber el tipo, igual
           // recalculamos la nota (lo importante para WO07).
@@ -972,7 +1022,10 @@ quizAttempts.post(
         porcentaje,
         questionId: payload.questionId,
         itemScore: clamped,
-        allGraded
+        allGraded,
+        notaDisplay,
+        notaCanonical10,
+        aprobado
       });
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });
