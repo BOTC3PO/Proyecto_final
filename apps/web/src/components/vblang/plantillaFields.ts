@@ -6,15 +6,18 @@
  */
 import type {
   Bloque,
+  CampoKV,
   EtiquetaPedida,
+  Expr,
   Field,
   ListField,
   MapaBloque,
+  MetadataBloque,
   Plantilla,
   TextField,
   TipoPregunta,
 } from "@vb/vblang";
-import { QUESTION_TYPE_SCHEMAS } from "@vb/vblang";
+import { CONSTANTES_GLOBALES, QUESTION_TYPE_SCHEMAS } from "@vb/vblang";
 import {
   arrayLit,
   boolLit,
@@ -376,18 +379,148 @@ export function applyTipo(p: Plantilla, tipo: TipoPregunta): Plantilla {
   return next;
 }
 
-/** Activa la base generador con `id`, barriendo los bloques de respuesta. */
+const PLACEHOLDER_ENUNCIADO = "Escribí el enunciado…";
+
+/**
+ * Bloques que `generate()` ignora cuando hay un `generador:` activo (los provee
+ * el generador). Se barren al activar/cambiar la base generador para que el AST
+ * quede limpio y no arrastre `variables:`/`respuesta:` de otra base — que el
+ * generador no usa y descolocan al lint respecto del preview.
+ */
+const GENERADOR_STRIP_BLOCKS: Bloque["kind"][] = [
+  ...ANSWER_BLOCKS,
+  "variables",
+  "restricciones",
+];
+
+/** Activa la base generador con `id`, barriendo los bloques que el generador provee. */
 export function applyGenerador(p: Plantilla, id: string): Plantilla {
   let next: Plantilla = p;
-  for (const k of ANSWER_BLOCKS) next = withoutBlock(next, k);
+  for (const k of GENERADOR_STRIP_BLOCKS) next = withoutBlock(next, k);
   if (!hasBlock(next, "enunciado")) {
     next = withBlock(next, {
       kind: "enunciado",
-      partes: [{ kind: "texto", value: "Escribí el enunciado…" }],
+      partes: [{ kind: "texto", value: PLACEHOLDER_ENUNCIADO }],
       loc: DUMMY_LOC,
     });
   }
   return withBlock(next, { kind: "generador", id, loc: DUMMY_LOC });
+}
+
+/** Resetea el enunciado al texto de ejemplo (placeholder), sin tocar el resto. */
+export function resetEnunciadoPlaceholder(p: Plantilla): Plantilla {
+  return withBlock(p, {
+    kind: "enunciado",
+    partes: [{ kind: "texto", value: PLACEHOLDER_ENUNCIADO }],
+    loc: DUMMY_LOC,
+  });
+}
+
+/** Recolecta los nombres de variables referenciadas en una expresión. */
+function collectVarNames(expr: Expr, out: (name: string) => void): void {
+  switch (expr.kind) {
+    case "var":
+      out(expr.name);
+      return;
+    case "binop":
+      collectVarNames(expr.left, out);
+      collectVarNames(expr.right, out);
+      return;
+    case "unary":
+      collectVarNames(expr.arg, out);
+      return;
+    case "fun_call":
+      for (const a of expr.args) collectVarNames(a, out);
+      return;
+    case "field":
+      collectVarNames(expr.target, out);
+      return;
+    case "index":
+      collectVarNames(expr.target, out);
+      collectVarNames(expr.key, out);
+      return;
+    case "array":
+      for (const i of expr.items) collectVarNames(i, out);
+      return;
+    case "object":
+      for (const e of expr.entries) collectVarNames(e.value, out);
+      return;
+    case "for_comp":
+      if (expr.iterable.kind === "range") {
+        collectVarNames(expr.iterable.from, out);
+        collectVarNames(expr.iterable.to, out);
+      } else {
+        collectVarNames(expr.iterable, out);
+      }
+      collectVarNames(expr.body, out);
+      return;
+    // num / str / bool / null: sin variables
+  }
+}
+
+/**
+ * Variables interpoladas en el enunciado que el generador NO provee (ni son
+ * constantes globales). Si devuelve algo, el enunciado quedó incompatible con
+ * el generador (típico al venir de otra base) y el preview tiraría "variable
+ * indefinida". Mismo criterio que el lint generador-aware.
+ */
+export function enunciadoUndefinedVars(
+  p: Plantilla,
+  provided: Iterable<string>,
+): string[] {
+  const enun = getBlock(p, "enunciado");
+  if (!enun) return [];
+  const allowed = new Set<string>([
+    ...provided,
+    ...Object.keys(CONSTANTES_GLOBALES),
+  ]);
+  const undef = new Set<string>();
+  for (const parte of enun.partes) {
+    if (parte.kind !== "interp") continue;
+    collectVarNames(parte.expr, (name) => {
+      if (!allowed.has(name)) undef.add(name);
+    });
+  }
+  return [...undef];
+}
+
+/* ---------------- metadata (dificultad) ---------------- */
+
+function setMetaCampo(
+  p: Plantilla,
+  key: string,
+  value: Expr | undefined,
+): Plantilla {
+  const m = getBlock(p, "metadata");
+  const campos: CampoKV[] = m ? [...m.campos] : [];
+  const idx = campos.findIndex((c) => c.key === key);
+  if (value === undefined) {
+    if (idx >= 0) campos.splice(idx, 1);
+  } else {
+    const campo: CampoKV = { key, value, loc: DUMMY_LOC };
+    if (idx >= 0) campos[idx] = campo;
+    else campos.push(campo);
+  }
+  if (campos.length === 0) return withoutBlock(p, "metadata");
+  const block: MetadataBloque = {
+    kind: "metadata",
+    campos,
+    loc: m?.loc ?? DUMMY_LOC,
+  };
+  return withBlock(p, block);
+}
+
+/** Dificultad declarada en `metadata`, o "" si no hay (= al azar). */
+export function readDificultad(p: Plantilla): string {
+  const campo = getBlock(p, "metadata")?.campos.find(
+    (c) => c.key === "dificultad",
+  )?.value;
+  return campo?.kind === "str" ? campo.value : "";
+}
+
+/** Fija (o quita, con "") la dificultad en `metadata`. */
+export function writeDificultad(p: Plantilla, value: string): Plantilla {
+  return setMetaCampo(p, "dificultad", value === "" ? undefined : strLit(value));
 }
 
 /** Bloques no cubiertos por la UI schema-driven (se preservan read-only). */

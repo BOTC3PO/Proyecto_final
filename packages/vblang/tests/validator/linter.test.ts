@@ -252,4 +252,40 @@ respuesta: a + b + c + d + e + f + g_var + h
   });
 });
 
+describe("lint / base generador (generador-aware)", () => {
+  it("marca indefinida la variable del enunciado que el generador no provee", () => {
+    const report = lint(
+      parse(`generador: fisica/cinematica\nenunciado: "Cuanto es {a}"\n`),
+      { generadorVars: ["v", "t"] },
+    );
+    expect(report.errors.some((i) => i.code === "var-undef")).toBe(true);
+  });
+
+  it("no marca las variables que el generador sí provee", () => {
+    const report = lint(
+      parse(`generador: fisica/cinematica\nenunciado: "Va a {v} durante {t}"\n`),
+      { generadorVars: ["v", "t"] },
+    );
+    expect(report.errors).toHaveLength(0);
+  });
+
+  it("ignora el bloque variables: heredado (vale el set del generador)", () => {
+    const report = lint(
+      parse(
+        `variables:\n  a: random(1, 10)\ngenerador: fisica/cinematica\nenunciado: "{a}"\n`,
+      ),
+      { generadorVars: ["v"] },
+    );
+    // `a` está declarada pero el generador la ignora → indefinida en el enunciado.
+    expect(report.errors.some((i) => i.code === "var-undef")).toBe(true);
+  });
+
+  it("sin generadorVars, cualquier interpolación queda indefinida", () => {
+    const report = lint(
+      parse(`generador: fisica/cinematica\nenunciado: "{v}"\n`),
+    );
+    expect(report.errors.some((i) => i.code === "var-undef")).toBe(true);
+  });
+});
+
 void BASE;

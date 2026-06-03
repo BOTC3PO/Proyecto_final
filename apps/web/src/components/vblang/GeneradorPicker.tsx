@@ -1,13 +1,24 @@
 import { useId, useMemo, useState } from "react";
 import { listGeneradores } from "../../vblang/listGeneradores";
-import GeneradorDocsPanel from "./GeneradorDocsPanel";
+import GeneradorDocsPanel, {
+  type GeneradorDocsVariant,
+} from "./GeneradorDocsPanel";
 
 interface Props {
   value: string;
   onChange: (id: string) => void;
+  /** Cómo presenta la doc del generador. Por defecto "referencia" (receta DSL). */
+  docsVariant?: GeneradorDocsVariant;
+  /** En modo formulario: insertar `{var}` al tocar el nombre de una variable. */
+  onInsertVariable?: (token: string) => void;
 }
 
-export default function GeneradorPicker({ value, onChange }: Props) {
+export default function GeneradorPicker({
+  value,
+  onChange,
+  docsVariant = "referencia",
+  onInsertVariable,
+}: Props) {
   const generadores = useMemo(() => listGeneradores(), []);
   const [filtro, setFiltro] = useState("");
   const selectId = useId();
@@ -95,7 +106,13 @@ export default function GeneradorPicker({ value, onChange }: Props) {
           {selected.subtipos.length} subtipo(s): {selected.subtipos.join(", ")}
         </p>
       )}
-      {value !== "" && <GeneradorDocsPanel generadorId={value} />}
+      {value !== "" && (
+        <GeneradorDocsPanel
+          generadorId={value}
+          variant={docsVariant}
+          onInsertVariable={onInsertVariable}
+        />
+      )}
     </div>
   );
 }

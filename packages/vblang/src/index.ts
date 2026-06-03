@@ -31,6 +31,8 @@ export {
   RestriccionesNoSatisfechasError,
 } from "./evaluator/errors.js";
 export { lint } from "./validator/linter.js";
+export type { LintOptions } from "./validator/linter.js";
+export { CONSTANTES_GLOBALES } from "./evaluator/constants.js";
 export { validate } from "./validator/validator.js";
 export {
   T,

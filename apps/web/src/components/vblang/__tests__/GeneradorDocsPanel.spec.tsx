@@ -8,6 +8,7 @@
 
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 const apiGet = vi.fn();
 vi.mock("../../../lib/api", () => ({
@@ -15,6 +16,7 @@ vi.mock("../../../lib/api", () => ({
 }));
 
 import GeneradorDocsPanel from "../GeneradorDocsPanel";
+import { __clearGeneradorDocsCache } from "../generadorDocsCache";
 
 const DOCS = {
   subtipos: {
@@ -37,13 +39,54 @@ const DOCS = {
 describe("GeneradorDocsPanel", () => {
   beforeEach(() => {
     apiGet.mockReset();
+    __clearGeneradorDocsCache();
   });
 
   it("pide la doc al endpoint correcto (cat/name) ignorando el subtipo", async () => {
     apiGet.mockResolvedValue(DOCS);
     render(<GeneradorDocsPanel generadorId="fisica/cinematica/MRU" />);
     await waitFor(() => expect(apiGet).toHaveBeenCalled());
-    expect(apiGet).toHaveBeenCalledWith("/api/generators/fisica/cinematica/docs");
+    expect(apiGet).toHaveBeenCalledWith(
+      "/api/generators/fisica/cinematica/docs",
+      expect.objectContaining({ signal: expect.any(AbortSignal) }),
+    );
+  });
+
+  it("cachea la doc: dos paneles con el mismo cat/name la piden una sola vez", async () => {
+    apiGet.mockResolvedValue(DOCS);
+    const { unmount } = render(
+      <GeneradorDocsPanel generadorId="fisica/cinematica/MRU" />,
+    );
+    await waitFor(() => expect(apiGet).toHaveBeenCalledTimes(1));
+    unmount();
+    // Segundo panel del mismo generador: sale del cache, sin refetch.
+    render(<GeneradorDocsPanel generadorId="fisica/cinematica/MRUV" />);
+    await waitFor(() =>
+      expect(screen.getByText(/Movimiento variado/)).toBeInTheDocument(),
+    );
+    expect(apiGet).toHaveBeenCalledTimes(1);
+  });
+
+  it("variant formulario: muestra la guía del profe (sin sintaxis DSL)", async () => {
+    apiGet.mockResolvedValue(DOCS);
+    const onInsertVariable = vi.fn();
+    render(
+      <GeneradorDocsPanel
+        generadorId="fisica/cinematica/MRU"
+        variant="formulario"
+        onInsertVariable={onInsertVariable}
+      />,
+    );
+    await waitFor(() =>
+      expect(screen.getByText(/Cómo armar este ejercicio/)).toBeInTheDocument(),
+    );
+    // No aparece la receta DSL.
+    expect(screen.queryByText(/Cómo cablearlo en VBLang/)).toBeNull();
+    // Tocar una variable la inserta como {token}.
+    await userEvent.click(
+      screen.getByRole("button", { name: /insertar variable v en el enunciado/i }),
+    );
+    expect(onInsertVariable).toHaveBeenCalledWith("{v}");
   });
 
   it("con subtipo fijo muestra solo ese subtipo, sus variables y ejemplos", async () => {

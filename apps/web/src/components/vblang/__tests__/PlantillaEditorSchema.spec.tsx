@@ -128,6 +128,29 @@ describe("PlantillaEditorSchema", () => {
     expect(dsl()).toContain("Consigna");
   });
 
+  it("al pasar a generador con enunciado incompatible, ofrece resetear el enunciado", async () => {
+    const user = userEvent.setup();
+    // Enunciado heredado de otra base que interpola {a}: el generador no provee
+    // esa variable, así que el editor debe ofrecer resetear (no romper en silencio).
+    render(
+      <Harness
+        initial={'variables:\n  a: random(1, 10)\nenunciado: "Cuanto es {a}"\nrespuesta: a\n'}
+      />,
+    );
+
+    await user.click(screen.getByRole("radio", { name: /generador asistido/i }));
+
+    const dialog = await screen.findByTestId("vblang-schema-confirm");
+    expect(dialog).toHaveTextContent(/no provee/i);
+    expect(dialog).toHaveTextContent(/\ba\b/);
+
+    await user.click(screen.getByRole("button", { name: /resetear enunciado/i }));
+
+    // El enunciado ya no interpola {a}; el generador sigue activo.
+    expect(dsl()).not.toContain("{a}");
+    expect(dsl()).toContain("generador:");
+  });
+
   it("analisis_sintactico: la palabra usa un combobox del diccionario", async () => {
     render(
       <Harness
