@@ -164,6 +164,29 @@ describe("PlantillaEditorSchema", () => {
     expect(parse(dsl()).tipoInferido).toBe("input");
   });
 
+  it("DIFF-09: el enunciado del generador ofrece chips 'Insertar:' que insertan variables", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "Consigna"\nrespuesta: 1\n'} />);
+
+    await user.click(screen.getByRole("radio", { name: /generador asistido/i }));
+    // Elegimos un generador que expone variables interpolables (cinematica:
+    // valor/factor); otros — como los de tipo quiz — no exponen ninguna.
+    await user.selectOptions(
+      screen.getByTestId("vblang-form-generador-picker"),
+      "fisica/cinematica",
+    );
+
+    expect(await screen.findByText("Insertar:")).toBeInTheDocument();
+    const chips = screen.getAllByRole("button", {
+      name: /insertar variable .* en el enunciado/i,
+    });
+    expect(chips.length).toBeGreaterThan(0);
+
+    await user.click(chips[0]);
+    const enun = screen.getByLabelText("Enunciado") as HTMLTextAreaElement;
+    expect(enun.value).toContain("{");
+  });
+
   it("DIFF-02: el panel Resumen muestra el tipo y las combinaciones posibles", () => {
     render(
       <Harness

@@ -608,6 +608,7 @@ export default function PlantillaEditorSchema({
             ref={enunciadoFieldRef}
             plantilla={plantilla}
             onChange={onChange}
+            variables={getGeneradorProvidedVars(generadorId)}
           />
           <ReadOnlyPlaceholder>
             Con un generador activo, los datos y la respuesta los provee el
@@ -878,8 +879,13 @@ export interface EnunciadoFieldHandle {
  */
 const EnunciadoGeneradorField = forwardRef<
   EnunciadoFieldHandle,
-  { plantilla: Plantilla; onChange: (next: Plantilla) => void }
->(function EnunciadoGeneradorField({ plantilla, onChange }, ref) {
+  {
+    plantilla: Plantilla;
+    onChange: (next: Plantilla) => void;
+    /** Variables que provee el generador, para los chips "Insertar:". */
+    variables?: string[];
+  }
+>(function EnunciadoGeneradorField({ plantilla, onChange, variables = [] }, ref) {
   const id = useId();
   const astValue = readTextField(plantilla, schemaEnunciado);
   const [text, setText] = useState(astValue);
@@ -892,36 +898,32 @@ const EnunciadoGeneradorField = forwardRef<
     if (!focused.current) setText(astValue);
   }, [astValue]);
 
-  const commit = (t: string) => {
-    const next = writeTextField(plantilla, schemaEnunciado, t);
+  const insert = (token: string) => {
+    const ta = taRef.current;
+    const base = focused.current ? text : astValue;
+    const start = ta?.selectionStart ?? base.length;
+    const end = ta?.selectionEnd ?? base.length;
+    const combinado = base.slice(0, start) + token + base.slice(end);
+    setText(combinado);
+    const next = writeTextField(plantilla, schemaEnunciado, combinado);
     if (next) onChange(next);
+    requestAnimationFrame(() => {
+      const el = taRef.current;
+      if (el) {
+        const pos = start + token.length;
+        el.focus();
+        el.setSelectionRange(pos, pos);
+      }
+    });
   };
 
   useImperativeHandle(
     ref,
-    () => ({
-      insert(token: string) {
-        const ta = taRef.current;
-        const base = text;
-        const start = ta?.selectionStart ?? base.length;
-        const end = ta?.selectionEnd ?? base.length;
-        const combinado = base.slice(0, start) + token + base.slice(end);
-        setText(combinado);
-        commit(combinado);
-        requestAnimationFrame(() => {
-          const el = taRef.current;
-          if (el) {
-            const pos = start + token.length;
-            el.focus();
-            el.setSelectionRange(pos, pos);
-          }
-        });
-      },
-    }),
+    () => ({ insert }),
     // `text`/`plantilla` cambian el closure de insert; las incluimos para
     // insertar siempre sobre el valor actual.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [text, plantilla],
+    [text, astValue, plantilla],
   );
 
   return (
@@ -943,14 +945,28 @@ const EnunciadoGeneradorField = forwardRef<
         }}
         onChange={(e) => {
           setText(e.target.value);
-          commit(e.target.value);
+          const next = writeTextField(plantilla, schemaEnunciado, e.target.value);
+          if (next) onChange(next);
         }}
         placeholder="Escribí la consigna como se la mostrarías al alumno."
         className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
       />
-      <span className="text-[10px] text-[var(--c-muted,#64748b)]">
-        Tocá una variable de la lista de arriba para insertarla en el enunciado.
-      </span>
+      {variables.length > 0 && (
+        <div className="mt-1 flex flex-wrap items-center gap-1">
+          <span className="text-[10px] text-[var(--c-muted,#64748b)]">Insertar:</span>
+          {variables.map((v) => (
+            <button
+              key={v}
+              type="button"
+              onClick={() => insert(`{${v}}`)}
+              aria-label={`Insertar variable ${v} en el enunciado`}
+              className="rounded-full border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-2 py-0.5 font-mono text-[10px] text-[var(--c-primary,#3b82f6)] hover:bg-[var(--c-bg,#f1f5f9)]"
+            >
+              {`{${v}}`}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 });
