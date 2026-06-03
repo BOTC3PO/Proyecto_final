@@ -37,6 +37,8 @@ import {
 import {
   applyGenerador,
   applyTipo,
+  combinacionesPosibles,
+  contarVariables,
   enunciadoUndefinedVars,
   hasNonImageVisual,
   isGeneradorBase,
@@ -46,6 +48,8 @@ import {
   readEtiquetas,
   readListStrings,
   readNumberField,
+  readPista,
+  readPuntaje,
   readStaticImage,
   readTextField,
   removeVisual,
@@ -57,6 +61,8 @@ import {
   writeEtiquetas,
   writeListStrings,
   writeNumberField,
+  writePista,
+  writePuntaje,
   writeStaticImage,
   writeTextField,
   type EtiquetaRow,
@@ -644,6 +650,10 @@ export default function PlantillaEditorSchema({
         </Section>
       )}
 
+      <Section title="Puntaje y pista">
+        <PuntajePistaField plantilla={plantilla} onChange={onChange} />
+      </Section>
+
       <Section title="Imagen (PNG) — opcional">
         <VisualPngField
           plantilla={plantilla}
@@ -661,6 +671,15 @@ export default function PlantillaEditorSchema({
           </ReadOnlyPlaceholder>
         </Section>
       )}
+
+      <Section title="Resumen">
+        <ResumenPanel
+          plantilla={plantilla}
+          baseGenerador={baseGenerador}
+          tipo={tipo}
+          tieneErrores={!!tieneErrores}
+        />
+      </Section>
 
       {confirmDialog && (
         <ConfirmDialog
@@ -709,6 +728,140 @@ function DificultadControl({
           </option>
         ))}
       </select>
+    </div>
+  );
+}
+
+/* ---------------- puntaje + pista (metadata) ---------------- */
+
+/**
+ * Puntaje y pista, persistidos en `metadata`. Antes caían en el placeholder
+ * read-only (DIFF-06): ahora son inputs reales con label asociado. Vacío =
+ * quitar el campo del metadata (round-trip sin basura).
+ */
+function PuntajePistaField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const puntajeId = useId();
+  const pistaId = useId();
+  const puntaje = readPuntaje(plantilla);
+  const pista = readPista(plantilla);
+
+  // Buffer local con foco para el puntaje: evita que el round-trip del padre
+  // (debounced) pise lo que se está tipeando (ej. un decimal a medio escribir).
+  const [puntajeBuf, setPuntajeBuf] = useState(puntaje === null ? "" : String(puntaje));
+  const puntajeFocused = useRef(false);
+  useEffect(() => {
+    if (!puntajeFocused.current) {
+      setPuntajeBuf(puntaje === null ? "" : String(puntaje));
+    }
+  }, [puntaje]);
+
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-0.5">
+        <label htmlFor={puntajeId} className="text-xs font-medium text-[var(--c-text,#0f172a)]">
+          Puntaje
+        </label>
+        <input
+          id={puntajeId}
+          type="number"
+          step={0.5}
+          min={0}
+          value={puntajeBuf}
+          onFocus={() => {
+            puntajeFocused.current = true;
+          }}
+          onBlur={() => {
+            puntajeFocused.current = false;
+            setPuntajeBuf(puntaje === null ? "" : String(puntaje));
+          }}
+          onChange={(e) => {
+            const raw = e.target.value;
+            setPuntajeBuf(raw);
+            if (raw.trim() === "") {
+              onChange(writePuntaje(plantilla, null));
+              return;
+            }
+            const n = Number(raw);
+            if (Number.isFinite(n)) onChange(writePuntaje(plantilla, n));
+          }}
+          placeholder="Sin puntaje"
+          className="w-28 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+        />
+      </div>
+      <BufferedText
+        id={pistaId}
+        label="Pista"
+        help="Pista opcional para el estudiante."
+        value={pista}
+        commit={(text) => {
+          onChange(writePista(plantilla, text));
+          return true;
+        }}
+      />
+    </div>
+  );
+}
+
+/* ---------------- resumen (DIFF-02) ---------------- */
+
+/**
+ * Panel de resumen: cantidad de variables, tipo actual, combinaciones posibles
+ * y un pill de estado (ok/error). El estado refleja `tieneErrores`, que el
+ * padre alimenta con el lint inline generador-aware (coincide con el preview).
+ */
+function ResumenPanel({
+  plantilla,
+  baseGenerador,
+  tipo,
+  tieneErrores,
+}: {
+  plantilla: Plantilla;
+  baseGenerador: boolean;
+  tipo: TipoPregunta;
+  tieneErrores: boolean;
+}) {
+  const nVars = contarVariables(plantilla);
+  const { total, continuo } = combinacionesPosibles(plantilla);
+  const tipoLabel = baseGenerador
+    ? "Generador asistido"
+    : (QUESTION_TYPE_SCHEMAS[tipo]?.label ?? tipo);
+  const combinaciones = baseGenerador
+    ? "las define el generador"
+    : continuo
+      ? "muchas (incluye decimales)"
+      : total.toLocaleString("es-AR");
+
+  return (
+    <div className="flex flex-col gap-1.5 rounded border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-3 text-xs">
+      <ResumenRow label="Variables" value={String(baseGenerador ? 0 : nVars)} />
+      <ResumenRow label="Tipo" value={tipoLabel} />
+      <ResumenRow label="Combinaciones posibles" value={combinaciones} />
+      <div className="pt-1">
+        <span
+          className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+            tieneErrores
+              ? "bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]"
+              : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
+          }`}
+        >
+          {tieneErrores ? "Con errores" : "Sin errores"}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function ResumenRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-center justify-between">
+      <span className="text-[var(--c-muted,#64748b)]">{label}</span>
+      <span className="font-semibold text-[var(--c-text)]">{value}</span>
     </div>
   );
 }

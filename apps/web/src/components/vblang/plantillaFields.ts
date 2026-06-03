@@ -523,6 +523,72 @@ export function writeDificultad(p: Plantilla, value: string): Plantilla {
   return setMetaCampo(p, "dificultad", value === "" ? undefined : strLit(value));
 }
 
+/** Puntaje (`metadata: puntaje`) como número, o `null` si no hay. */
+export function readPuntaje(p: Plantilla): number | null {
+  const campo = getBlock(p, "metadata")?.campos.find(
+    (c) => c.key === "puntaje",
+  )?.value;
+  return campo?.kind === "num" ? campo.value : null;
+}
+
+/** Fija (o quita, con `null`) el puntaje en `metadata`. */
+export function writePuntaje(p: Plantilla, value: number | null): Plantilla {
+  return setMetaCampo(p, "puntaje", value === null ? undefined : numLit(value));
+}
+
+/** Pista (`metadata: pista`), o "" si no hay. */
+export function readPista(p: Plantilla): string {
+  const campo = getBlock(p, "metadata")?.campos.find(
+    (c) => c.key === "pista",
+  )?.value;
+  return campo?.kind === "str" ? campo.value : "";
+}
+
+/** Fija (o quita, con "") la pista en `metadata`. */
+export function writePista(p: Plantilla, value: string): Plantilla {
+  return setMetaCampo(p, "pista", value === "" ? undefined : strLit(value));
+}
+
+/* ---------------- resumen ---------------- */
+
+/** Cantidad de variables declaradas en el bloque `variables:`. */
+export function contarVariables(p: Plantilla): number {
+  return getBlock(p, "variables")?.declaraciones.length ?? 0;
+}
+
+/**
+ * Estima cuántas combinaciones distintas puede generar la plantilla a partir de
+ * sus variables: producto de los rangos `random(min,max)` y los `uno_de([...])`.
+ * `continuo` indica que hay valores continuos (`random_float`) → "muchas".
+ */
+export function combinacionesPosibles(p: Plantilla): {
+  total: number;
+  continuo: boolean;
+} {
+  const decls = getBlock(p, "variables")?.declaraciones ?? [];
+  let total = 1;
+  let continuo = false;
+  for (const d of decls) {
+    const e = d.expr;
+    if (e.kind === "fun_call" && e.name === "random" && e.args.length === 2) {
+      const lo = e.args[0];
+      const hi = e.args[1];
+      if (lo.kind === "num" && hi.kind === "num") {
+        total *= Math.max(1, Math.floor(hi.value - lo.value + 1));
+      }
+    } else if (
+      e.kind === "fun_call" &&
+      e.name === "uno_de" &&
+      e.args[0]?.kind === "array"
+    ) {
+      total *= Math.max(1, e.args[0].items.length);
+    } else if (e.kind === "fun_call" && e.name === "random_float") {
+      continuo = true;
+    }
+  }
+  return { total, continuo };
+}
+
 /** Bloques no cubiertos por la UI schema-driven (se preservan read-only). */
 const HANDLED_BLOCKS = new Set<Bloque["kind"]>([
   "enunciado",

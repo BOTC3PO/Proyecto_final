@@ -151,6 +151,31 @@ describe("PlantillaEditorSchema", () => {
     expect(dsl()).toContain("generador:");
   });
 
+  it("DIFF-06: puntaje y pista se editan y persisten en el metadata del DSL", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "x"\nrespuesta: 1\n'} />);
+
+    await user.type(screen.getByLabelText("Puntaje"), "3");
+    await user.type(screen.getByLabelText("Pista"), "Pensá en sumar");
+
+    expect(dsl()).toMatch(/puntaje:\s*3/);
+    expect(dsl()).toContain("Pensá en sumar");
+    // Round-trip: el DSL sigue parseando con el metadata.
+    expect(parse(dsl()).tipoInferido).toBe("input");
+  });
+
+  it("DIFF-02: el panel Resumen muestra el tipo y las combinaciones posibles", () => {
+    render(
+      <Harness
+        initial={'variables:\n  a: random(1, 10)\n  b: uno_de(["x", "y"])\nenunciado: "{a} {b}"\nrespuesta: a\n'}
+      />,
+    );
+    expect(screen.getByText("Resumen")).toBeInTheDocument();
+    expect(screen.getByText("Combinaciones posibles")).toBeInTheDocument();
+    // 10 (random 1..10) × 2 (uno_de) = 20
+    expect(screen.getByText("20")).toBeInTheDocument();
+  });
+
   it("analisis_sintactico: la palabra usa un combobox del diccionario", async () => {
     render(
       <Harness
