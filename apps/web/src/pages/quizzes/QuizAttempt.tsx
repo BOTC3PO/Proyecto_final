@@ -73,6 +73,12 @@ type SubmitResponse = {
   message?: string;
   /** WO07 — cantidad de preguntas abiertas que quedaron pendientes de corrección. */
   pendingManual?: number;
+  /** WO14 — nota en la escala de la escuela ("—" si no hay nota). */
+  notaDisplay?: string | null;
+  /** WO14 — equivalente 1–10 de la nota; null si no hay nota. */
+  notaCanonical10?: number | null;
+  porcentaje?: number;
+  aprobado?: boolean;
 };
 
 type RankingEntry = {
@@ -758,6 +764,14 @@ export default function QuizAttempt() {
             {result && (result.score !== undefined || result.maxScore !== undefined) ? (
               <p className="text-sm text-gray-600">
                 Puntaje: {result.score ?? "-"} / {result.maxScore ?? "-"}
+              </p>
+            ) : null}
+            {result?.notaDisplay && result.notaDisplay !== "—" ? (
+              <p className="text-sm font-semibold text-gray-800">
+                Nota: {result.notaDisplay}
+                {typeof result.notaCanonical10 === "number"
+                  ? ` (${result.notaCanonical10}/10)`
+                  : ""}
               </p>
             ) : null}
             {result?.feedback ? (
