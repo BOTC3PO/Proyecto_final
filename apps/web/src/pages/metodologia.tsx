@@ -1,4 +1,11 @@
-export default function metodologia(){return(
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
+
+export default function metodologia(){
+  useDocumentMeta({
+    title: 'Metodología de Enseñanza — Virtual Book',
+    description: 'Conoce nuestra metodología inspirada en Montessori: aprendizaje personalizado, progresión por competencias y pensamiento crítico.',
+  });
+  return(
 <>
   <section className="bg-sky-500 text-white">
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">

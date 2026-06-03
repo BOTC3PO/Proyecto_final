@@ -1,4 +1,10 @@
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
+
 export default function Explorar() {
+  useDocumentMeta({
+    title: 'Explorar Rutas de Aprendizaje — Virtual Book',
+    description: 'Descubre módulos recomendados, profesores destacados y experiencias interactivas para reforzar tus habilidades desde un solo lugar.',
+  });
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-10">
       <header className="space-y-3">

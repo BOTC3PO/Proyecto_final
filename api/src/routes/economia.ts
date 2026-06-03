@@ -1463,25 +1463,39 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
     const rankingPuntos = new Map<string, number>();
     let precioTotal = 0;
     let precioCount = 0;
+
+    // ── batch-fetch to avoid N+1 per puja ────────────────────────────────────
+    const batchUsuarioIds = pujas
+      .map(p => buildUsuarioObjectId(p.usuarioId ?? ""))
+      .filter((id): id is string => Boolean(id));
+    const [batchSaldoRows, batchPuntosRows] = await Promise.all([
+      prisma.economiaSaldo.findMany({ where: { usuarioId: { in: batchUsuarioIds } } }),
+      prisma.economiaExamenPunto.findMany({ where: {} }),
+    ]);
+    // saldo map: usuarioId → { saldo, exists } — kept fresh inside the loop
+    const saldoByUser = new Map(
+      batchSaldoRows.map(s => [s.usuarioId, { saldo: s.saldo as number, exists: true as boolean }])
+    );
+    // puntos map: usuarioId → DB row (json blob updated in-memory as we go)
+    const puntosRowByUser = new Map<string, (typeof batchPuntosRows)[0]>();
+    for (const row of batchPuntosRows) {
+      try { const doc = JSON.parse(row.json) as { usuarioId?: string }; if (doc.usuarioId) puntosRowByUser.set(doc.usuarioId, row); } catch { /* skip */ }
+    }
+    // ─────────────────────────────────────────────────────────────────────────
+
     for (const puja of pujas) {
       const usuarioObjectId = buildUsuarioObjectId(puja.usuarioId ?? "");
       if (!usuarioObjectId) {
         return res.status(400).json({ error: "usuarioId is required" });
       }
-      const saldoDoc = await prisma.economiaSaldo.findFirst({
-        where: { usuarioId: usuarioObjectId }
-      });
-      const saldoActual = saldoDoc?.saldo ?? 0;
+      const userSaldo = saldoByUser.get(usuarioObjectId) ?? { saldo: 0, exists: false };
+      const saldoActual = userSaldo.saldo;
       const costoTotal = (puja.puntos ?? 0) * (puja.montoPorPunto ?? 0);
       if (saldoActual < costoTotal) {
-        const pujaRow = await prisma.economiaExamenPuja.findFirst({ where: { id: puja.id } });
-        if (pujaRow) {
-          const updatedPuja = { ...puja, estado: "rechazada", resolvedAt: now };
-          await prisma.economiaExamenPuja.updateMany({
-            where: { id: puja.id },
-            data: { json: JSON.stringify(updatedPuja) }
-          });
-        }
+        await prisma.economiaExamenPuja.updateMany({
+          where: { id: puja.id },
+          data: { json: JSON.stringify({ ...puja, estado: "rechazada", resolvedAt: now }) }
+        });
         continue;
       }
       const nuevoSaldo = saldoActual - costoTotal;
@@ -1498,8 +1512,8 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
         createdAt: now
       });
       await prisma.economiaTransaccion.create({ data: transaccion });
-      const existingSaldo = await prisma.economiaSaldo.findFirst({ where: { usuarioId: usuarioObjectId } });
-      if (existingSaldo) {
+      // Upsert saldo — existence already known from batch fetch, no re-query needed
+      if (userSaldo.exists) {
         await prisma.economiaSaldo.updateMany({
           where: { usuarioId: usuarioObjectId },
           data: { usuarioId: usuarioObjectId, saldo: nuevoSaldo, moneda: transaccion.moneda, updatedAt: now }
@@ -1509,17 +1523,16 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
           data: { id: generateId(), usuarioId: usuarioObjectId, saldo: nuevoSaldo, moneda: transaccion.moneda, updatedAt: now }
         });
       }
+      // Keep in-memory balance fresh for any subsequent puja from the same user
+      saldoByUser.set(usuarioObjectId, { saldo: nuevoSaldo, exists: true });
       const puntosNetos = Math.max(0, (puja.puntos ?? 0) * (1 - (examen.impuestoTasa ?? 0)));
       PuntosExamenSchema.parse({
         usuarioId: puja.usuarioId,
         puntos: puntosNetos,
         updatedAt: now
       });
-      // Update puntos for this user (JSON blob)
-      const puntosRows = await prisma.economiaExamenPunto.findMany({ where: {} });
-      const puntosRow = puntosRows.find((row) => {
-        try { const doc = JSON.parse(row.json); return doc.usuarioId === puja.usuarioId; } catch { return false; }
-      });
+      // Update puntos using pre-fetched map — no full-table scan per iteration
+      const puntosRow = puntosRowByUser.get(puja.usuarioId ?? "");
       if (puntosRow) {
         const puntosDoc = JSON.parse(puntosRow.json);
         const updatedPuntos = { ...puntosDoc, puntos: (puntosDoc.puntos ?? 0) + puntosNetos, updatedAt: now };
@@ -1527,22 +1540,21 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
           where: { id: puntosRow.id },
           data: { json: JSON.stringify(updatedPuntos) }
         });
+        puntosRowByUser.set(puja.usuarioId ?? "", { ...puntosRow, json: JSON.stringify(updatedPuntos) });
       } else {
-        await prisma.economiaExamenPunto.create({
-          data: { id: generateId(), examenId: examen.id as string, json: JSON.stringify({ usuarioId: puja.usuarioId, puntos: puntosNetos, updatedAt: now }), updatedAt: now as string }
-        });
+        const newJson = JSON.stringify({ usuarioId: puja.usuarioId, puntos: puntosNetos, updatedAt: now });
+        const newRow = { id: generateId(), examenId: examen.id as string, json: newJson, updatedAt: now as string };
+        await prisma.economiaExamenPunto.create({ data: newRow });
+        puntosRowByUser.set(puja.usuarioId ?? "", newRow);
       }
       rankingPuntos.set(puja.usuarioId ?? "", (rankingPuntos.get(puja.usuarioId ?? "") ?? 0) + puntosNetos);
       precioTotal += (puja.montoPorPunto ?? 0);
       precioCount += 1;
-      const pujaRow = await prisma.economiaExamenPuja.findFirst({ where: { id: puja.id } });
-      if (pujaRow) {
-        const updatedPuja = { ...puja, estado: "aceptada", resolvedAt: now };
-        await prisma.economiaExamenPuja.updateMany({
-          where: { id: puja.id },
-          data: { json: JSON.stringify(updatedPuja) }
-        });
-      }
+      // Update puja state — no re-fetch needed, updateMany targets by id directly
+      await prisma.economiaExamenPuja.updateMany({
+        where: { id: puja.id },
+        data: { json: JSON.stringify({ ...puja, estado: "aceptada", resolvedAt: now }) }
+      });
     }
     const precioPromedioActual = precioCount ? precioTotal / precioCount : 0;
     const preciosPreviosRows = await prisma.economiaExamen.findMany({ orderBy: { createdAt: "desc" }, take: 5 });
@@ -1580,10 +1592,10 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
       if (!usuarioObjectId) {
         return res.status(400).json({ error: "usuarioId is required" });
       }
-      const saldoDoc = await prisma.economiaSaldo.findFirst({ where: { usuarioId: usuarioObjectId } });
-      const saldoActual = saldoDoc?.saldo ?? 0;
-      const existingSaldo = await prisma.economiaSaldo.findFirst({ where: { usuarioId: usuarioObjectId } });
-      if (existingSaldo) {
+      // Reuse saldoByUser populated above — ranking winners were already processed in the pujas loop
+      const rankingSaldo = saldoByUser.get(usuarioObjectId) ?? { saldo: 0, exists: false };
+      const saldoActual = rankingSaldo.saldo;
+      if (rankingSaldo.exists) {
         await prisma.economiaSaldo.updateMany({
           where: { usuarioId: usuarioObjectId },
           data: { usuarioId: usuarioObjectId, saldo: saldoActual + premio, moneda: transaccion.moneda, updatedAt: now }
@@ -1593,6 +1605,7 @@ economia.post("/api/economia/examenes/:id/cerrar", requirePolicy("economia/mint"
           data: { id: generateId(), usuarioId: usuarioObjectId, saldo: saldoActual + premio, moneda: transaccion.moneda, updatedAt: now }
         });
       }
+      saldoByUser.set(usuarioObjectId, { saldo: saldoActual + premio, exists: true });
       await registerEconomiaAuditoria({
         actor: actorId,
         motivo: transaccion.motivo,

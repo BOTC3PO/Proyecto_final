@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 const ROLE_DASHBOARD: Record<string, string> = {
   ADMIN: '/admin',
@@ -13,6 +14,10 @@ const ROLE_DASHBOARD: Record<string, string> = {
 export default function HomePage() {
   const { user } = useAuth();
   const navigate = useNavigate();
+  useDocumentMeta({
+    title: 'Virtual Book — Plataforma Educativa Interactiva',
+    description: 'Aprende a tu ritmo con módulos interactivos, juegos educativos y herramientas para profesores. La plataforma educativa que revoluciona el aprendizaje.',
+  });
 
   useEffect(() => {
     const dashboard = user?.role ? ROLE_DASHBOARD[user.role] : null;

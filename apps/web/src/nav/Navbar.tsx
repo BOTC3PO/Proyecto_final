@@ -3,6 +3,7 @@ import { useAuth } from '../auth/use-auth';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
 import { useEffect, useRef, useState } from 'react';
 import { apiGet } from '../lib/api';
+import { prefetchRoute } from '../routing/prefetch';
 
 function CoinBadge({ userId }: { userId: string }) {
   const [coins, setCoins] = useState<number | null>(null);
@@ -177,9 +178,10 @@ export default function Navbar() {
                   </NavLink>
                 </li>
                 <li className="md:px-4 md:py-2">
-                  <NavLink 
-                    to="/metodologia" 
-                    className={({ isActive }) => 
+                  <NavLink
+                    to="/metodologia"
+                    onMouseEnter={() => void prefetchRoute.metodologia()}
+                    className={({ isActive }) =>
                       isActive ? 'text-indigo-300' : 'text-white hover:text-indigo-300 transition-colors'
                     }
                   >
@@ -187,9 +189,10 @@ export default function Navbar() {
                   </NavLink>
                 </li>
                 <li className="md:px-4 md:py-2">
-                  <NavLink 
-                    to="/explorar" 
-                    className={({ isActive }) => 
+                  <NavLink
+                    to="/explorar"
+                    onMouseEnter={() => void prefetchRoute.explorar()}
+                    className={({ isActive }) =>
                       isActive ? 'text-indigo-300' : 'text-white hover:text-indigo-300 transition-colors'
                     }
                   >
@@ -199,6 +202,7 @@ export default function Navbar() {
                 <li className="md:px-4 md:py-2">
                   <NavLink
                     to="/contact"
+                    onMouseEnter={() => void prefetchRoute.contact()}
                     className={({ isActive }) =>
                       isActive ? 'text-indigo-300' : 'text-white hover:text-indigo-300 transition-colors'
                     }
