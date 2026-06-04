@@ -32,7 +32,7 @@ const BLOQUES: { nombre: string; desc: string }[] = [
   { nombre: "opciones_explicitas", desc: "Lista explícita de opciones." },
   { nombre: "tipo", desc: "Tipo de pregunta (ver lista abajo)." },
   { nombre: "pasos", desc: "Pasos de la resolución, con interpolación." },
-  { nombre: "generador", desc: "Usa un generador hardcoded de generadoresV2." },
+  { nombre: "generador", desc: "Usa un generador del sistema." },
   { nombre: "dataset", desc: "Carga filas de un dataset precargado." },
   { nombre: "metadata", desc: "Datos extra de la plantilla (clave: valor)." },
   { nombre: "visual", desc: "Especifica un visual (gráfico, diagrama, etc.)." },
