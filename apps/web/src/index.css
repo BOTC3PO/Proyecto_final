@@ -1375,6 +1375,58 @@
   border: 0;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+ * EditorShell — layout de 3 columnas (patrón reusable del prototipo VB).
+ * Grid con tracks explícitos: las laterales son fijas y el centro es
+ * minmax(0, 1fr) → el centro se encoge en vez de empujar (mata min-width:auto).
+ * Cada columna scrollea sola; en <lg colapsa a una columna.
+ * ────────────────────────────────────────────────────────────────────────── */
+.editor-shell {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: calc(100vh - 3.5rem);
+  min-height: 0;
+  background: var(--c-bg);
+}
+@media (min-width: 1024px) {
+  .editor-shell {
+    grid-template-columns: var(--editor-meta, 260px) minmax(0, 1fr) var(--editor-aux, 320px);
+    grid-template-rows: 1fr;
+  }
+}
+.editor-shell__col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* el centro se encoge, no empuja */
+  min-height: 0; /* habilita scroll independiente por columna */
+  overflow: hidden; /* el scroll lo maneja el cuerpo de cada columna */
+}
+.editor-shell__col--meta {
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
+}
+.editor-shell__col--aux {
+  background: var(--c-surface);
+  border-top: 1px solid var(--c-border);
+}
+@media (min-width: 1024px) {
+  .editor-shell__col--meta {
+    border-bottom: 0;
+    border-right: 1px solid var(--c-border);
+  }
+  .editor-shell__col--aux {
+    border-top: 0;
+    border-left: 1px solid var(--c-border);
+  }
+}
+/* Cuerpo scrollable reusable (≡ `.panel-section .body` del prototipo). */
+.editor-shell__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
 /* Skip-link: oculta hasta que recibe foco con tab */
 .skip-link {
   position: absolute;

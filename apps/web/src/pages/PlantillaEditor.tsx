@@ -20,6 +20,7 @@ import DatasetExplorer from "../components/vblang/DatasetExplorer";
 import EjemplosMenu from "../components/vblang/EjemplosMenu";
 import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
 import PlantillaEditorSchema from "../components/vblang/PlantillaEditorSchema";
+import EditorShell from "../components/layout/EditorShell";
 import Toast, { type ToastAction } from "../components/Toast";
 import ErrorPanel from "../components/vblang/ErrorPanel";
 import PreviewPanel from "../components/vblang/PreviewPanel";
@@ -329,15 +330,21 @@ export default function PlantillaEditor() {
   }
 
   return (
-    <div
-      data-testid="plantilla-editor"
-      className="flex h-[calc(100vh-3.5rem)] flex-col lg:flex-row bg-[var(--c-bg,#f8fafc)]"
-    >
-      <aside className="lg:w-80 border-b lg:border-b-0 lg:border-r border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)]">
+    <>
+    <EditorShell
+      dataTestid="plantilla-editor"
+      meta={
         <MetadataPanel value={metadata} onChange={setMetadata} disabled={saveStatus === "saving"} />
-      </aside>
-
-      <main className="flex-1 flex flex-col min-h-0">
+      }
+      aux={
+        <>
+          <div className="flex-1 min-h-0">
+            <PreviewPanel preview={preview.items} onRegenerate={preview.regenerate} />
+          </div>
+          <ValidationReport state={validation} disabled={!compilation.compiled} />
+        </>
+      }
+    >
         <header className="vb-page-bar" role="banner">
           <nav className="crumb" aria-label="Migas de pan">
             <Link to="/plantillas" className="hover:text-[var(--c-text)]">Plantillas</Link>
@@ -473,7 +480,7 @@ export default function PlantillaEditor() {
           tabIndex={-1}
           role="tabpanel"
           aria-labelledby={modo === "codigo" ? "vblang-tab-codigo" : "vblang-tab-visual"}
-          className="flex-1 min-h-0 outline-none"
+          className="editor-shell__scroll outline-none"
         >
           {modo === "codigo" ? (
             <CodeEditor
@@ -538,14 +545,7 @@ export default function PlantillaEditor() {
             onGoToLocation={handleGoToLocation}
           />
         </footer>
-      </main>
-
-      <aside className="lg:w-96 border-t lg:border-t-0 lg:border-l border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] flex flex-col min-h-0">
-        <div className="flex-1 min-h-0">
-          <PreviewPanel preview={preview.items} onRegenerate={preview.regenerate} />
-        </div>
-        <ValidationReport state={validation} disabled={!compilation.compiled} />
-      </aside>
+    </EditorShell>
 
       <ReferenciaRapida
         open={referenciaOpen}
@@ -559,6 +559,6 @@ export default function PlantillaEditor() {
           onClose={() => setToastState(null)}
         />
       )}
-    </div>
+    </>
   );
 }
