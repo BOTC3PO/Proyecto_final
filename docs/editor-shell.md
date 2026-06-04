@@ -70,6 +70,32 @@ import EditorShell from "../components/layout/EditorShell";
 - La page-bar y los footers van como hijos directos del centro (flex-none); el
   cuerpo scrollable lleva `editor-shell__scroll` (flex:1).
 
+## Secciones de panel (`.panel-section`)
+
+Dentro de cada columna, el contenido se agrupa en **secciones** con el mismo
+chrome que el prototipo: borde inferior entre secciones, título en versalitas y
+padding de cuerpo consistente (`4px 12px 14px`). Clases reusables en `index.css`:
+
+```html
+<div class="panel-section flex">          <!-- `flex` → el cuerpo scrollea -->
+  <div class="panel-section__head">         <!-- título + acción opcional -->
+    <h2 class="panel-section__title">Vista previa</h2>
+    <button>Regenerar</button>
+  </div>
+  <div class="panel-section__body">…</div>   <!-- padding 4px 12px 14px -->
+</div>
+```
+
+- `.panel-section` → `border-bottom` (separador entre secciones).
+- `.panel-section--last` → sin borde inferior (última sección de la columna).
+- `.panel-section--top` → borde superior en vez de inferior.
+- `.panel-section.flex .panel-section__body` → `overflow-y:auto; min-height:0; flex:1`
+  (header fijo, cuerpo scrollea).
+- `.panel-section__title` → título en versalitas (`--c-text-3`); sin acción usá un
+  `<h2 class="panel-section__title">` directo, con acción usá `.panel-section__head`.
+
+Consumidores actuales: `MetadataPanel`, `PreviewPanel`, `ValidationReport`.
+
 ## Primer consumidor
 
 `apps/web/src/pages/PlantillaEditor.tsx` (editor de plantillas VBLang). Las

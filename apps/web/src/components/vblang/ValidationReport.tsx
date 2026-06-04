@@ -23,11 +23,11 @@ export default function ValidationReport({
     <div
       role="region"
       aria-label="Reporte de validación"
-      className="border-t border-[var(--c-border,#e2e8f0)] p-3"
+      className="panel-section panel-section--last"
       data-testid="vblang-validation-report"
     >
-      <div className="flex items-center justify-between mb-2">
-        <h3 className="text-sm font-semibold">Validación</h3>
+      <div className="panel-section__head">
+        <h3 className="panel-section__title">Validación</h3>
         <button
           type="button"
           onClick={() => void run()}
@@ -38,6 +38,7 @@ export default function ValidationReport({
         </button>
       </div>
 
+      <div className="panel-section__body">
       {status === "running" && (
         <p className="text-xs text-[var(--c-muted,#64748b)] animate-pulse">
           Generando 100 ejercicios…
@@ -111,6 +112,7 @@ export default function ValidationReport({
           )}
         </>
       )}
+      </div>
     </div>
   );
 }

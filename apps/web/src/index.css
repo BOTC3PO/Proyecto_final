@@ -1427,6 +1427,55 @@
   overflow-y: auto;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+ * panel-section — sección de panel (encabezado + cuerpo) del prototipo VB.
+ * Reusable en las columnas de cualquier editor: borde inferior entre
+ * secciones, título en versalitas y padding de cuerpo consistente.
+ * ────────────────────────────────────────────────────────────────────────── */
+.panel-section {
+  border-bottom: 1px solid var(--c-border);
+}
+.panel-section--top {
+  border-bottom: 0;
+  border-top: 1px solid var(--c-border);
+}
+.panel-section--last {
+  border-bottom: 0;
+}
+.panel-section__title {
+  margin: 0;
+  padding: 14px 18px 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+  font-weight: 700;
+}
+/* Encabezado con una acción a la derecha (título + botón). */
+.panel-section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px 8px;
+}
+.panel-section__head .panel-section__title {
+  padding: 0;
+}
+.panel-section__body {
+  padding: 4px 12px 14px;
+}
+/* Sección flex: el cuerpo scrollea solo, el encabezado queda fijo arriba. */
+.panel-section.flex {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.panel-section.flex .panel-section__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
 /* Skip-link: oculta hasta que recibe foco con tab */
 .skip-link {
   position: absolute;

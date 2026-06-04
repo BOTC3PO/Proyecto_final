@@ -60,11 +60,11 @@ export default function PreviewPanel({
     <div
       role="region"
       aria-label="Vista previa de la plantilla"
-      className="flex flex-col h-full"
+      className="panel-section flex h-full"
       data-testid="vblang-preview-panel"
     >
-      <header className="flex items-center justify-between border-b border-[var(--c-border,#e2e8f0)] px-3 py-2">
-        <h3 className="text-sm font-semibold">Vista previa</h3>
+      <div className="panel-section__head">
+        <h3 className="panel-section__title">Vista previa</h3>
         <button
           type="button"
           onClick={onRegenerate}
@@ -72,8 +72,8 @@ export default function PreviewPanel({
         >
           Regenerar
         </button>
-      </header>
-      <div className="flex-1 overflow-auto p-3 space-y-3">
+      </div>
+      <div className="panel-section__body space-y-3">
         {preview.length === 0 ? (
           <p className="text-xs text-[var(--c-hint)]">Sin preview todavía.</p>
         ) : (
