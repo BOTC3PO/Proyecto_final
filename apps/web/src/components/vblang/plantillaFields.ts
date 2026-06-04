@@ -16,8 +16,6 @@ import type {
   Plantilla,
   TextField,
   TipoPregunta,
-  VariableDecl,
-  VariablesBloque,
 } from "@vb/vblang";
 import { CONSTANTES_GLOBALES, QUESTION_TYPE_SCHEMAS } from "@vb/vblang";
 import {
@@ -549,60 +547,6 @@ export function readPista(p: Plantilla): string {
 /** Fija (o quita, con "") la pista en `metadata`. */
 export function writePista(p: Plantilla, value: string): Plantilla {
   return setMetaCampo(p, "pista", value === "" ? undefined : strLit(value));
-}
-
-/* ---------------- variables (sugerencias IA) ---------------- */
-
-/** Nombres de las variables ya declaradas. */
-export function readVariableNames(p: Plantilla): string[] {
-  return getBlock(p, "variables")?.declaraciones.map((d) => d.nombre) ?? [];
-}
-
-export interface VariableSugeridaInput {
-  nombre: string;
-  expr: string;
-}
-
-/**
- * Inserta variables sugeridas (por IA) en el bloque `variables:`, parseando
- * cada `expr` con el parser real. Las que no parsean o cuyo nombre ya existe se
- * saltan (no se pisan declaraciones del profe). Devuelve la plantilla nueva y
- * qué nombres se aplicaron / saltaron, para poder avisar.
- */
-export function addVariablesFromSuggestions(
-  p: Plantilla,
-  sugeridas: VariableSugeridaInput[],
-): { plantilla: Plantilla; applied: string[]; skipped: string[] } {
-  const existentes = getBlock(p, "variables")?.declaraciones ?? [];
-  const usados = new Set(existentes.map((d) => d.nombre));
-  const nuevas: VariableDecl[] = [];
-  const applied: string[] = [];
-  const skipped: string[] = [];
-
-  for (const s of sugeridas) {
-    const nombre = s.nombre.trim();
-    if (nombre === "" || usados.has(nombre)) {
-      skipped.push(nombre || "(sin nombre)");
-      continue;
-    }
-    const expr = textToExpr(s.expr);
-    if (!expr) {
-      skipped.push(nombre);
-      continue;
-    }
-    usados.add(nombre);
-    nuevas.push({ nombre, expr, loc: DUMMY_LOC });
-    applied.push(nombre);
-  }
-
-  if (nuevas.length === 0) return { plantilla: p, applied, skipped };
-
-  const block: VariablesBloque = {
-    kind: "variables",
-    declaraciones: [...existentes, ...nuevas],
-    loc: getBlock(p, "variables")?.loc ?? DUMMY_LOC,
-  };
-  return { plantilla: withBlock(p, block), applied, skipped };
 }
 
 /* ---------------- resumen ---------------- */

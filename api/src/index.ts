@@ -63,7 +63,6 @@ import { quizBanco } from "./routes/quiz-banco";
 import { membresias } from "./routes/membresias";
 import { materiales } from "./routes/materiales";
 import { plantillas } from "./routes/plantillas";
-import { vblang } from "./routes/vblang";
 import { vblangDatasets } from "./routes/vblang-datasets";
 import { requireUser } from "./lib/user-auth";
 import { prisma } from "./lib/prisma";
@@ -161,7 +160,6 @@ app.use(progreso);
 app.use(libros);
 app.use(blockDocuments);
 app.use(estadisticas);
-app.use(vblang);
 if (ENV.ENABLE_SEED_ENDPOINT) {
   app.use(seed);
 } else {

@@ -35,7 +35,6 @@ import {
   type EntradaDiccionario,
 } from "../../services/diccionario";
 import {
-  addVariablesFromSuggestions,
   applyGenerador,
   applyTipo,
   combinacionesPosibles,
@@ -53,7 +52,6 @@ import {
   readPuntaje,
   readStaticImage,
   readTextField,
-  readVariableNames,
   removeVisual,
   resetEnunciadoPlaceholder,
   unhandledBlocks,
@@ -70,11 +68,6 @@ import {
   type EtiquetaRow,
 } from "./plantillaFields";
 import { getGeneradorProvidedVars } from "../../vblang/generadorVars";
-import {
-  suggestVariablesIA,
-  type VariableSugerida,
-} from "../../domain/vblang/aiSuggest";
-import { ApiError } from "../../lib/api";
 
 interface Props {
   plantilla: Plantilla;
@@ -658,12 +651,6 @@ export default function PlantillaEditorSchema({
         </Section>
       )}
 
-      {!baseGenerador && (
-        <Section title="Variables">
-          <VariablesIASection plantilla={plantilla} tipo={tipo} onChange={onChange} />
-        </Section>
-      )}
-
       <Section title="Puntaje y pista">
         <PuntajePistaField plantilla={plantilla} onChange={onChange} />
       </Section>
@@ -742,155 +729,6 @@ function DificultadControl({
           </option>
         ))}
       </select>
-    </div>
-  );
-}
-
-/* ---------------- variables + Sugerir con IA (DIFF-05) ---------------- */
-
-/**
- * Lista las variables declaradas y ofrece "Sugerir con IA": le pide al backend
- * (que llama a Claude) variables para el enunciado actual, las muestra y deja
- * insertar las elegidas. Las expresiones se validan con el parser real al
- * aplicarlas (`addVariablesFromSuggestions`), así nada inválido entra al DSL.
- */
-function VariablesIASection({
-  plantilla,
-  tipo,
-  onChange,
-}: {
-  plantilla: Plantilla;
-  tipo: TipoPregunta;
-  onChange: (next: Plantilla) => void;
-}) {
-  const enunciado = readTextField(plantilla, schemaEnunciado);
-  const declaradas = readVariableNames(plantilla);
-  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
-  const [error, setError] = useState<string | null>(null);
-  const [sugeridas, setSugeridas] = useState<VariableSugerida[]>([]);
-  const [sel, setSel] = useState<Record<string, boolean>>({});
-
-  const pedir = async () => {
-    setStatus("loading");
-    setError(null);
-    try {
-      const vars = await suggestVariablesIA(enunciado, tipo);
-      setSugeridas(vars);
-      setSel(Object.fromEntries(vars.map((v) => [v.nombre, true])));
-      setStatus("done");
-    } catch (e) {
-      setStatus("error");
-      if (e instanceof ApiError && e.status === 503) {
-        setError("La sugerencia con IA no está configurada en el servidor.");
-      } else {
-        setError(e instanceof Error ? e.message : "No se pudo sugerir.");
-      }
-    }
-  };
-
-  const aplicar = () => {
-    const elegidas = sugeridas
-      .filter((v) => sel[v.nombre])
-      .map((v) => ({ nombre: v.nombre, expr: v.expr }));
-    const { plantilla: next } = addVariablesFromSuggestions(plantilla, elegidas);
-    onChange(next);
-    setSugeridas([]);
-    setStatus("idle");
-  };
-
-  const descartar = () => {
-    setSugeridas([]);
-    setStatus("idle");
-  };
-
-  const algunaElegida = sugeridas.some((v) => sel[v.nombre]);
-
-  return (
-    <div className="flex flex-col gap-2">
-      {declaradas.length > 0 ? (
-        <div className="flex flex-wrap items-center gap-1">
-          {declaradas.map((n) => (
-            <span
-              key={n}
-              className="rounded-full border border-[var(--c-border,#e2e8f0)] bg-[var(--c-bg,#f8fafc)] px-2 py-0.5 font-mono text-[10px] text-[var(--c-text)]"
-            >
-              {n}
-            </span>
-          ))}
-        </div>
-      ) : (
-        <p className="text-[10px] text-[var(--c-muted,#64748b)]">
-          No hay variables declaradas. Editalas en modo Código, o pedí una
-          sugerencia con IA.
-        </p>
-      )}
-
-      <button
-        type="button"
-        onClick={() => void pedir()}
-        disabled={status === "loading" || enunciado.trim() === ""}
-        className="self-start rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs font-medium text-[var(--c-primary,#3b82f6)] disabled:opacity-40"
-      >
-        {status === "loading" ? "Pensando…" : "✨ Sugerir con IA"}
-      </button>
-      {enunciado.trim() === "" && (
-        <span className="text-[10px] text-[var(--c-muted,#64748b)]">
-          Escribí primero el enunciado para sugerir variables.
-        </span>
-      )}
-
-      {status === "error" && error && (
-        <span role="alert" className="text-[10px] text-red-600">
-          {error}
-        </span>
-      )}
-
-      {status === "done" && sugeridas.length > 0 && (
-        <div className="flex flex-col gap-1.5 rounded border border-[var(--c-border,#e2e8f0)] p-2">
-          <ul className="flex flex-col gap-1">
-            {sugeridas.map((v) => (
-              <li key={v.nombre} className="flex items-start gap-2 text-xs">
-                <input
-                  type="checkbox"
-                  checked={!!sel[v.nombre]}
-                  onChange={(e) =>
-                    setSel((s) => ({ ...s, [v.nombre]: e.target.checked }))
-                  }
-                  aria-label={`Incluir variable ${v.nombre}`}
-                  className="mt-0.5"
-                />
-                <span className="min-w-0">
-                  <code className="font-mono text-[var(--c-text)]">
-                    {v.nombre}: {v.expr}
-                  </code>
-                  {v.descripcion && (
-                    <span className="block text-[10px] text-[var(--c-muted,#64748b)]">
-                      {v.descripcion}
-                    </span>
-                  )}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={aplicar}
-              disabled={!algunaElegida}
-              className="rounded bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-xs font-semibold text-white disabled:opacity-40"
-            >
-              Aplicar seleccionadas
-            </button>
-            <button
-              type="button"
-              onClick={descartar}
-              className="rounded border border-[var(--c-border,#e2e8f0)] px-2 py-1 text-xs"
-            >
-              Descartar
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
