@@ -2,12 +2,20 @@
  * Tests del editor schema-driven (WO06): armar tipos de punta a punta, editar
  * listas accesibles, add-on PNG con alt obligatorio, y preservación read-only.
  */
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import { parse, serialize, type Plantilla } from "@vb/vblang";
 import PlantillaEditorSchema from "../PlantillaEditorSchema";
+
+// Sugerencias de variables con IA: mockeamos el cliente para no pegarle a la red.
+vi.mock("../../../domain/vblang/aiSuggest", () => ({
+  suggestVariablesIA: vi.fn(async () => [
+    { nombre: "a", expr: "random(1, 10)", descripcion: "Primer sumando" },
+    { nombre: "b", expr: "random(1, 10)" },
+  ]),
+}));
 
 /** Harness controlado que expone el DSL serializado para asserts. */
 function Harness({
@@ -185,6 +193,28 @@ describe("PlantillaEditorSchema", () => {
     await user.click(chips[0]);
     const enun = screen.getByLabelText("Enunciado") as HTMLTextAreaElement;
     expect(enun.value).toContain("{");
+  });
+
+  it("DIFF-05: 'Sugerir con IA' propone variables y las aplica al DSL", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "Cuanto es a mas b"\nrespuesta: 1\n'} />);
+
+    await user.click(screen.getByRole("button", { name: /sugerir con ia/i }));
+
+    // Aparecen las sugerencias del mock.
+    expect(await screen.findByText(/a: random\(1, 10\)/)).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /aplicar seleccionadas/i }));
+
+    // El DSL ahora declara las variables sugeridas.
+    const out = parse(dsl());
+    const vars = out.bloques.find((b) => b.kind === "variables");
+    expect(vars && vars.kind === "variables").toBeTruthy();
+    const nombres =
+      vars && vars.kind === "variables"
+        ? vars.declaraciones.map((d) => d.nombre)
+        : [];
+    expect(nombres).toEqual(expect.arrayContaining(["a", "b"]));
   });
 
   it("DIFF-02: el panel Resumen muestra el tipo y las combinaciones posibles", () => {
