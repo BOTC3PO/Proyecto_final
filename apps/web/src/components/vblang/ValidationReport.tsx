@@ -23,11 +23,11 @@ export default function ValidationReport({
     <div
       role="region"
       aria-label="Reporte de validación"
-      className="border-t border-[var(--c-border,#e2e8f0)] p-3"
+      className="panel-section panel-section--last"
       data-testid="vblang-validation-report"
     >
-      <div className="flex items-center justify-between mb-2">
-        <h3 className="text-sm font-semibold">Validación</h3>
+      <div className="panel-section__head">
+        <h3 className="panel-section__title">Validación</h3>
         <button
           type="button"
           onClick={() => void run()}
@@ -38,6 +38,7 @@ export default function ValidationReport({
         </button>
       </div>
 
+      <div className="panel-section__body">
       {status === "running" && (
         <p className="text-xs text-[var(--c-muted,#64748b)] animate-pulse">
           Generando 100 ejercicios…
@@ -46,6 +47,13 @@ export default function ValidationReport({
 
       {status === "done" && report && (
         <>
+          {/* Barra de progreso: proporción de simulaciones OK + stats. */}
+          <ValidationProgress
+            passed={report.passedSimulations}
+            total={report.totalSimulations}
+            pass={report.pass}
+            avgMs={avgMs}
+          />
           {report.pass ? (
             <p className="text-xs text-[var(--c-success)] font-medium">
               ✓ Pasó {report.passedSimulations}/{report.totalSimulations} simulaciones
@@ -104,6 +112,46 @@ export default function ValidationReport({
           )}
         </>
       )}
+      </div>
+    </div>
+  );
+}
+
+/** Barra de progreso de validación: % de simulaciones OK + stats. */
+function ValidationProgress({
+  passed,
+  total,
+  pass,
+  avgMs,
+}: {
+  passed: number;
+  total: number;
+  pass: boolean;
+  avgMs: number;
+}) {
+  const pct = total > 0 ? Math.round((passed / total) * 100) : 0;
+  const tone = pass ? "var(--c-success)" : "var(--c-danger)";
+  return (
+    <div className="mb-2">
+      <div className="mb-1 flex items-center justify-between text-[10px] text-[var(--c-muted,#64748b)]">
+        <span>
+          {passed}/{total} OK ({pct}%)
+        </span>
+        <span>{avgMs.toFixed(2)} ms/simulación</span>
+      </div>
+      <div
+        role="progressbar"
+        aria-label="Progreso de validación"
+        aria-valuenow={pct}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        className="h-2 w-full overflow-hidden rounded-full bg-[var(--c-border,#e2e8f0)]"
+      >
+        <div
+          className="h-full rounded-full transition-[width]"
+          style={{ width: `${pct}%`, background: tone }}
+        />
+      </div>
     </div>
   );
 }

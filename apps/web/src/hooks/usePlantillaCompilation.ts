@@ -18,6 +18,7 @@ import {
 } from "@vb/vblang";
 import { precargarDataset } from "../vblang/datasetCache";
 import { extractDatasetName } from "../vblang/utils";
+import { getGeneradorProvidedVars } from "../vblang/generadorVars";
 
 export interface ParseErrorState {
   message: string;
@@ -60,7 +61,19 @@ export function usePlantillaCompilation(
           }
           if (cancelled) return;
           const compiled = compile(plantilla);
-          const lintReport = lint(plantilla);
+          // Lint generador-aware: si la plantilla usa `generador:`, validamos el
+          // enunciado contra las variables que ese generador provee (no contra
+          // el bloque `variables:`, que el generador ignora). Así el badge de
+          // errores coincide con lo que hará el preview.
+          const generadorBloque = plantilla.bloques.find(
+            (b) => b.kind === "generador",
+          );
+          const lintReport =
+            generadorBloque && generadorBloque.kind === "generador"
+              ? lint(plantilla, {
+                  generadorVars: getGeneradorProvidedVars(generadorBloque.id),
+                })
+              : lint(plantilla);
           setState({
             plantilla,
             compiled,

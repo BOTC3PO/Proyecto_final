@@ -293,7 +293,7 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
     const style = document.createElement("style");
     style.id = id;
     style.textContent = `
-      .vbe-root { display: grid; grid-template-columns: 40px 1fr; height: 100%; min-height: 0; position: relative; background: var(--c-surface, #0b1220); color: var(--c-text, #e2e8f0); font-family: ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.45; }
+      .vbe-root { display: grid; grid-template-columns: 40px 1fr; height: 100%; min-height: 0; position: relative; background: var(--c-surface, #0b1220); color: var(--c-text, #e2e8f0); font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace); font-size: 14px; line-height: 1.45; }
       .vbe-gutter { overflow: hidden; text-align: right; padding: 8px 6px 8px 0; color: var(--c-muted, #64748b); user-select: none; border-right: 1px solid var(--c-border, #1e293b); }
       .vbe-gutter > div { padding-right: 4px; }
       .vbe-pane { position: relative; overflow: hidden; }

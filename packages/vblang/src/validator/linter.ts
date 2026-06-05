@@ -17,7 +17,20 @@ import {
 
 export type { LintIssue, LintReport } from "./types.js";
 
-export function lint(plantilla: Plantilla): LintReport {
+export interface LintOptions {
+  /**
+   * Nombres de las variables que provee el generador asistido para la
+   * interpolación del enunciado/pasos (las claves de `datos` del ejercicio que
+   * devuelve el provider). Sólo se usan cuando la plantilla declara
+   * `generador:`. Permiten que el lint inline sea "generador-aware": chequea el
+   * enunciado contra lo que el generador realmente expone, en vez de contra el
+   * bloque `variables:` (que `generate()` ignora con un generador activo). Así
+   * el badge de errores refleja lo que hará el preview.
+   */
+  generadorVars?: string[];
+}
+
+export function lint(plantilla: Plantilla, opts?: LintOptions): LintReport {
   const issues: LintIssue[] = [];
   const env = new TypeEnv();
   const variableTypes: Record<string, VBType> = {};
@@ -47,6 +60,24 @@ export function lint(plantilla: Plantilla): LintReport {
 
   const report = (issue: LintIssue) => issues.push(issue);
   const ctx: InferContext = { report };
+
+  // Base "generador asistido": con un `generador:` activo, `generate()` ignora
+  // los bloques `variables:` / `respuesta:` / `restricciones:` (los provee el
+  // generador) e interpola el enunciado contra las variables que expone ese
+  // generador. El único chequeo estático que refleja lo que hará el preview es
+  // validar las interpolaciones del enunciado/pasos contra ese set. Validar el
+  // resto daría falsos "Sin errores" (variables heredadas de otra base) o
+  // falsos positivos (variables del generador que el DSL no declara).
+  const generadorBloque = plantilla.bloques.find((b) => b.kind === "generador");
+  if (generadorBloque) {
+    for (const name of opts?.generadorVars ?? []) {
+      if (env.get(name) === undefined) env.set(name, T.unknown);
+    }
+    lintInterpolaciones(plantilla, env, ctx, issues);
+    const errors = issues.filter((i) => i.severity === "error");
+    const warnings = issues.filter((i) => i.severity === "warning");
+    return { issues, errors, warnings, variableTypes };
+  }
 
   // 1) Variables — primero, sin importar el orden en el source.
   const varsBlock = plantilla.bloques.find((b) => b.kind === "variables");
@@ -227,6 +258,52 @@ export function lint(plantilla: Plantilla): LintReport {
 }
 
 /* ---------- Helpers ---------- */
+
+/**
+ * Chequea sólo las interpolaciones del enunciado y los pasos contra `env`
+ * (inferencia de tipos) y marca `random()` inline. Se usa en la base generador
+ * asistido, donde el resto de bloques los provee el generador.
+ */
+function lintInterpolaciones(
+  plantilla: Plantilla,
+  env: TypeEnv,
+  ctx: InferContext,
+  issues: LintIssue[],
+): void {
+  for (const b of plantilla.bloques) {
+    if (b.kind === "enunciado") {
+      for (const p of b.partes) {
+        if (p.kind !== "interp") continue;
+        inferExprType(p.expr, env, ctx);
+        checkRandomInline(p.expr, issues);
+      }
+    } else if (b.kind === "pasos") {
+      for (const paso of b.pasos) {
+        for (const p of paso.partes) {
+          if (p.kind !== "interp") continue;
+          inferExprType(p.expr, env, ctx);
+          checkRandomInline(p.expr, issues);
+        }
+      }
+    }
+  }
+}
+
+/** Marca `random()` usado dentro de una interpolación (genera valores volátiles). */
+function checkRandomInline(expr: Expr, issues: LintIssue[]): void {
+  walkExpr(expr, (e) => {
+    if (e.kind === "fun_call" && e.name === "random") {
+      issues.push({
+        severity: "warning",
+        code: "random-inline",
+        message:
+          "random() en interpolación genera valores distintos en cada uso. Declaralo como variable.",
+        line: e.loc.line,
+        col: e.loc.col,
+      });
+    }
+  });
+}
 
 /**
  * Resuelve un Expr a un número literal si es `NumLit` o `UnaryOp(±, NumLit)`.

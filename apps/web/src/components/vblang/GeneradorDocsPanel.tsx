@@ -3,28 +3,34 @@
  * VBLang. Al elegir un `generador: <id>`, muestra:
  *
  *  - La descripción de cada subtipo y las variables que expone (con ejemplo).
- *  - Una "receta de cableado" mínima: cómo se escribe el bloque, cómo se
- *    interpola una variable en el enunciado y cuándo conviene fijar subtipo.
+ *  - Según `variant`:
+ *      · "formulario" → guía orientada a la acción para el profe (sin sintaxis
+ *        DSL); las variables se insertan al tocar su nombre.
+ *      · "referencia" → la "receta de cableado" DSL (`generador:`, `{var}`,
+ *        `metadata`), para el modo Código / la Referencia.
  *
- * La doc se sirve desde `/api/generators/:cat/:name/docs` (la misma que ya
- * consume GeneradorSelector). Si el generador no tiene entrada, degrada
- * elegante: solo el id + recordatorio de enunciado libre, sin romper.
+ * La doc se sirve desde `/api/generators/:cat/:name/docs` con cache a nivel
+ * módulo (ver `generadorDocsCache`): una vez traída, cambiar entre generadores
+ * ya vistos es instantáneo. Si el generador no tiene entrada, degrada elegante.
  */
 
 import { useEffect, useState } from "react";
-import { apiGet } from "../../lib/api";
+import {
+  fetchGeneradorDocs,
+  getCachedGeneradorDocs,
+  type GeneratorDocs,
+} from "./generadorDocsCache";
 
-type VariableDoc = { descripcion: string; ejemplo: string };
-type SubtipoDoc = {
-  descripcion: string;
-  variables: Record<string, VariableDoc>;
-};
-type GeneratorDocs = { subtipos: Record<string, SubtipoDoc> };
+export type GeneradorDocsVariant = "formulario" | "referencia";
 
 interface Props {
   /** Id del generador tal como va en `generador:` (ej. `fisica/cinematica` o
    *  `fisica/cinematica/MRU`). */
   generadorId: string;
+  /** Modo de presentación. Por defecto "referencia" (receta DSL). */
+  variant?: GeneradorDocsVariant;
+  /** En "formulario": insertar `{var}` al tocar el nombre de una variable. */
+  onInsertVariable?: (token: string) => void;
 }
 
 type FetchState =
@@ -43,7 +49,11 @@ function parseGeneradorId(id: string): {
   return { cat: parts[0], name: parts[1], subtipo: parts[2] };
 }
 
-export default function GeneradorDocsPanel({ generadorId }: Props) {
+export default function GeneradorDocsPanel({
+  generadorId,
+  variant = "referencia",
+  onInsertVariable,
+}: Props) {
   const { cat, name, subtipo } = parseGeneradorId(generadorId);
   const [state, setState] = useState<FetchState>({ status: "idle" });
 
@@ -52,22 +62,37 @@ export default function GeneradorDocsPanel({ generadorId }: Props) {
       setState({ status: "idle" });
       return;
     }
+    // Cache hit: instantáneo, sin spinner ni refetch.
+    const cached = getCachedGeneradorDocs(cat, name);
+    if (cached) {
+      setState(
+        cached.status === "ok"
+          ? { status: "ok", docs: cached.docs }
+          : { status: "missing" },
+      );
+      return;
+    }
     let cancelled = false;
+    const controller = new AbortController();
     setState({ status: "loading" });
-    apiGet<GeneratorDocs>(`/api/generators/${cat}/${name}/docs`)
-      .then((docs) => {
+    fetchGeneradorDocs(cat, name, controller.signal)
+      .then((entry) => {
         if (cancelled) return;
-        if (docs && docs.subtipos && Object.keys(docs.subtipos).length > 0) {
-          setState({ status: "ok", docs });
-        } else {
-          setState({ status: "missing" });
-        }
+        setState(
+          entry.status === "ok"
+            ? { status: "ok", docs: entry.docs }
+            : { status: "missing" },
+        );
       })
-      .catch(() => {
-        if (!cancelled) setState({ status: "missing" });
+      .catch((err: unknown) => {
+        if (cancelled) return;
+        if (err instanceof DOMException && err.name === "AbortError") return;
+        setState({ status: "missing" });
       });
     return () => {
+      // Cancelamos para que una respuesta vieja no pise a la del nuevo generador.
       cancelled = true;
+      controller.abort();
     };
   }, [cat, name]);
 
@@ -83,7 +108,7 @@ export default function GeneradorDocsPanel({ generadorId }: Props) {
       )}
 
       {state.status === "missing" && (
-        <DegradedHelp generadorId={generadorId} />
+        <DegradedHelp generadorId={generadorId} variant={variant} />
       )}
 
       {state.status === "ok" && (
@@ -91,6 +116,8 @@ export default function GeneradorDocsPanel({ generadorId }: Props) {
           docs={state.docs}
           generadorId={generadorId}
           subtipoFijo={subtipo}
+          variant={variant}
+          onInsertVariable={onInsertVariable}
         />
       )}
     </section>
@@ -98,13 +125,23 @@ export default function GeneradorDocsPanel({ generadorId }: Props) {
 }
 
 /** Degradación elegante: el generador no tiene doc de variables. */
-function DegradedHelp({ generadorId }: { generadorId: string }) {
+function DegradedHelp({
+  generadorId,
+  variant,
+}: {
+  generadorId: string;
+  variant: GeneradorDocsVariant;
+}) {
   return (
     <div className="space-y-2">
       <p className="text-[var(--c-text)]">
         Este generador no tiene documentación de variables. Igual podés usarlo:
       </p>
-      <WiringRecipe generadorId={generadorId} variables={[]} />
+      {variant === "formulario" ? (
+        <FormularioGuia variables={[]} onInsertVariable={undefined} />
+      ) : (
+        <WiringRecipe generadorId={generadorId} variables={[]} />
+      )}
     </div>
   );
 }
@@ -113,10 +150,14 @@ function VariablesDoc({
   docs,
   generadorId,
   subtipoFijo,
+  variant,
+  onInsertVariable,
 }: {
   docs: GeneratorDocs;
   generadorId: string;
   subtipoFijo?: string;
+  variant: GeneradorDocsVariant;
+  onInsertVariable?: (token: string) => void;
 }) {
   const entries = Object.entries(docs.subtipos);
   // Si el id fija un subtipo y existe en la doc, mostramos solo ese; si no,
@@ -132,6 +173,8 @@ function VariablesDoc({
       visibles[0]?.[1].variables ||
       {},
   );
+
+  const insertable = variant === "formulario" && !!onInsertVariable;
 
   return (
     <div className="space-y-3">
@@ -160,7 +203,18 @@ function VariablesDoc({
                     {vars.map(([key, info]) => (
                       <tr key={key} className="align-top">
                         <td className="py-0.5 pr-2">
-                          <code className="font-mono text-[var(--c-text)]">{`{${key}}`}</code>
+                          {insertable ? (
+                            <button
+                              type="button"
+                              onClick={() => onInsertVariable!(`{${key}}`)}
+                              aria-label={`Insertar variable ${key} en el enunciado`}
+                              className="rounded border border-[var(--c-border,#e2e8f0)] bg-[var(--c-bg,#f8fafc)] px-1 font-mono text-[var(--c-primary,#3b82f6)] hover:bg-[var(--c-primary,#3b82f6)] hover:text-white"
+                            >
+                              {`{${key}}`}
+                            </button>
+                          ) : (
+                            <code className="font-mono text-[var(--c-text)]">{`{${key}}`}</code>
+                          )}
                         </td>
                         <td className="py-0.5 pr-2 text-[var(--c-text)]">{info.descripcion}</td>
                         <td className="py-0.5">
@@ -180,12 +234,67 @@ function VariablesDoc({
         })}
       </div>
 
-      <WiringRecipe generadorId={generadorId} variables={recetaVars} />
+      {variant === "formulario" ? (
+        <FormularioGuia
+          variables={recetaVars}
+          onInsertVariable={onInsertVariable}
+        />
+      ) : (
+        <WiringRecipe generadorId={generadorId} variables={recetaVars} />
+      )}
     </div>
   );
 }
 
-/** Receta de cableado: cómo escribir el bloque e interpolar variables. */
+/**
+ * Guía orientada a la acción para el modo Formulario: el profe arma el ejercicio
+ * sin ver sintaxis DSL. Las variables se insertan al tocar su nombre (arriba),
+ * y subtipo/dificultad son controles del formulario, no texto a tipear.
+ */
+function FormularioGuia({
+  variables,
+  onInsertVariable,
+}: {
+  variables: string[];
+  onInsertVariable?: (token: string) => void;
+}) {
+  const ejemploVar = variables[0];
+  return (
+    <div className="rounded border border-dashed border-[var(--c-border,#cbd5e1)] bg-[var(--c-bg,#f8fafc)] p-2">
+      <p className="font-semibold text-[var(--c-text)]">Cómo armar este ejercicio</p>
+      <ol className="mt-1.5 list-decimal space-y-1 pl-4 text-[var(--c-text)]">
+        <li>Escribí la consigna como se la mostrarías al alumno.</li>
+        <li>
+          Donde quieras que aparezca un dato que cambia en cada intento, insertá
+          una variable de la lista de arriba — tocá su nombre para agregarla.
+          {ejemploVar && onInsertVariable && (
+            <>
+              {" "}
+              Ej.:{" "}
+              <em className="text-[var(--c-hint)]">
+                «Si cruzamos {`{${ejemploVar}}`} con … ¿qué se espera?»
+              </em>
+            </>
+          )}
+        </li>
+        <li>
+          No cargues los datos ni la respuesta: el sistema los genera y los
+          corrige solo.
+        </li>
+        <li>
+          <strong>Subtipo:</strong> elegí uno de la lista, o dejá «al azar» para
+          que varíe en cada intento.
+        </li>
+        <li>
+          <strong>Dificultad:</strong> seleccionala con el control (no hace falta
+          escribir nada).
+        </li>
+      </ol>
+    </div>
+  );
+}
+
+/** Receta de cableado DSL: cómo escribir el bloque e interpolar variables. */
 function WiringRecipe({
   generadorId,
   variables,

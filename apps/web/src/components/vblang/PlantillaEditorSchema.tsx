@@ -10,7 +10,14 @@
  * Mismo contrato de props que el formulario anterior, para que el padre
  * (PlantillaEditor) lo use sin cambios en su lógica de serialización.
  */
-import { useEffect, useId, useRef, useState } from "react";
+import {
+  forwardRef,
+  useEffect,
+  useId,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 import type { Plantilla, TipoPregunta } from "@vb/vblang";
 import {
   ALL_QUESTION_TYPES,
@@ -30,26 +37,37 @@ import {
 import {
   applyGenerador,
   applyTipo,
+  combinacionesPosibles,
+  contarVariables,
+  enunciadoUndefinedVars,
   hasNonImageVisual,
   isGeneradorBase,
   readBoolField,
+  readDificultad,
   readEnumField,
   readEtiquetas,
   readListStrings,
   readNumberField,
+  readPista,
+  readPuntaje,
   readStaticImage,
   readTextField,
   removeVisual,
+  resetEnunciadoPlaceholder,
   unhandledBlocks,
   writeBoolField,
+  writeDificultad,
   writeEnumField,
   writeEtiquetas,
   writeListStrings,
   writeNumberField,
+  writePista,
+  writePuntaje,
   writeStaticImage,
   writeTextField,
   type EtiquetaRow,
 } from "./plantillaFields";
+import { getGeneradorProvidedVars } from "../../vblang/generadorVars";
 
 interface Props {
   plantilla: Plantilla;
@@ -511,6 +529,39 @@ export default function PlantillaEditorSchema({
   /** Default razonable al activar la base generador (primer generador). */
   const defaultGeneradorId = listGeneradores()[0]?.id ?? "";
 
+  const [confirmDialog, setConfirmDialog] = useState<{
+    message: string;
+    onConfirm: () => void;
+  } | null>(null);
+  const enunciadoFieldRef = useRef<EnunciadoFieldHandle | null>(null);
+
+  /**
+   * Activa/cambia la base generador. Si el enunciado heredado interpola
+   * variables que el nuevo generador no provee, ofrece resetearlo al texto de
+   * ejemplo (confirm + Deshacer), en vez de dejarlo roto en silencio.
+   */
+  const applyGeneradorWithCheck = (prev: Plantilla, id: string) => {
+    const next = applyGenerador(prev, id);
+    onChange(next);
+    const undef = enunciadoUndefinedVars(next, getGeneradorProvidedVars(id));
+    if (undef.length === 0) return;
+    const reset = resetEnunciadoPlaceholder(next);
+    setConfirmDialog({
+      message:
+        `El enunciado usa ${undef.length === 1 ? "una variable que" : "variables que"} ` +
+        `este generador no provee (${undef.join(", ")}). ` +
+        "¿Resetear el enunciado al texto de ejemplo? Podés revertirlo con Deshacer (↶).",
+      onConfirm: () => {
+        onChange(reset);
+        setConfirmDialog(null);
+      },
+    });
+  };
+
+  const insertarVariableEnEnunciado = (token: string) => {
+    enunciadoFieldRef.current?.insert(token);
+  };
+
   return (
     <div className="flex flex-col gap-3" data-testid="vblang-schema-editor">
       {tieneErrores && (
@@ -536,7 +587,7 @@ export default function PlantillaEditorSchema({
               name="base"
               checked={baseGenerador}
               onChange={() =>
-                onChange(applyGenerador(plantilla, generadorId || defaultGeneradorId))
+                applyGeneradorWithCheck(plantilla, generadorId || defaultGeneradorId)
               }
             />
             Generador asistido
@@ -548,16 +599,21 @@ export default function PlantillaEditorSchema({
         <Section title="Generador asistido">
           <GeneradorPicker
             value={generadorId}
-            onChange={(id) => onChange(applyGenerador(plantilla, id))}
+            onChange={(id) => applyGeneradorWithCheck(plantilla, id)}
+            docsVariant="formulario"
+            onInsertVariable={insertarVariableEnEnunciado}
           />
-          <FieldControl
-            field={schemaEnunciado}
+          <DificultadControl plantilla={plantilla} onChange={onChange} />
+          <EnunciadoGeneradorField
+            ref={enunciadoFieldRef}
             plantilla={plantilla}
             onChange={onChange}
+            variables={getGeneradorProvidedVars(generadorId)}
           />
           <ReadOnlyPlaceholder>
-            Con un generador activo, las variables y la respuesta las provee el
-            generador. El enunciado de arriba se mantiene en el DSL.
+            Con un generador activo, los datos y la respuesta los provee el
+            generador. Escribí la consigna acá e insertá las variables tocándolas
+            en la lista de arriba.
           </ReadOnlyPlaceholder>
         </Section>
       ) : (
@@ -595,6 +651,10 @@ export default function PlantillaEditorSchema({
         </Section>
       )}
 
+      <Section title="Puntaje y pista">
+        <PuntajePistaField plantilla={plantilla} onChange={onChange} />
+      </Section>
+
       <Section title="Imagen (PNG) — opcional">
         <VisualPngField
           plantilla={plantilla}
@@ -612,6 +672,340 @@ export default function PlantillaEditorSchema({
           </ReadOnlyPlaceholder>
         </Section>
       )}
+
+      <Section title="Resumen">
+        <ResumenPanel
+          plantilla={plantilla}
+          baseGenerador={baseGenerador}
+          tipo={tipo}
+          tieneErrores={!!tieneErrores}
+        />
+      </Section>
+
+      {confirmDialog && (
+        <ConfirmDialog
+          message={confirmDialog.message}
+          onConfirm={confirmDialog.onConfirm}
+          onCancel={() => setConfirmDialog(null)}
+        />
+      )}
+    </div>
+  );
+}
+
+/* ---------------- base generador: dificultad + enunciado ---------------- */
+
+const DIFICULTADES: { value: string; label: string }[] = [
+  { value: "", label: "Al azar" },
+  { value: "basico", label: "Básico" },
+  { value: "intermedio", label: "Intermedio" },
+  { value: "avanzado", label: "Avanzado" },
+];
+
+/** Control de dificultad (escribe `metadata: dificultad`) para el formulario. */
+function DificultadControl({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const id = useId();
+  const value = readDificultad(plantilla);
+  return (
+    <div className="flex flex-col gap-0.5">
+      <label htmlFor={id} className="text-xs font-medium text-[var(--c-text,#0f172a)]">
+        Dificultad
+      </label>
+      <select
+        id={id}
+        value={value}
+        onChange={(e) => onChange(writeDificultad(plantilla, e.target.value))}
+        className="rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+      >
+        {DIFICULTADES.map((d) => (
+          <option key={d.value} value={d.value}>
+            {d.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+/* ---------------- puntaje + pista (metadata) ---------------- */
+
+/**
+ * Puntaje y pista, persistidos en `metadata`. Antes caían en el placeholder
+ * read-only (DIFF-06): ahora son inputs reales con label asociado. Vacío =
+ * quitar el campo del metadata (round-trip sin basura).
+ */
+function PuntajePistaField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const puntajeId = useId();
+  const pistaId = useId();
+  const puntaje = readPuntaje(plantilla);
+  const pista = readPista(plantilla);
+
+  // Buffer local con foco para el puntaje: evita que el round-trip del padre
+  // (debounced) pise lo que se está tipeando (ej. un decimal a medio escribir).
+  const [puntajeBuf, setPuntajeBuf] = useState(puntaje === null ? "" : String(puntaje));
+  const puntajeFocused = useRef(false);
+  useEffect(() => {
+    if (!puntajeFocused.current) {
+      setPuntajeBuf(puntaje === null ? "" : String(puntaje));
+    }
+  }, [puntaje]);
+
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-0.5">
+        <label htmlFor={puntajeId} className="text-xs font-medium text-[var(--c-text,#0f172a)]">
+          Puntaje
+        </label>
+        <input
+          id={puntajeId}
+          type="number"
+          step={0.5}
+          min={0}
+          value={puntajeBuf}
+          onFocus={() => {
+            puntajeFocused.current = true;
+          }}
+          onBlur={() => {
+            puntajeFocused.current = false;
+            setPuntajeBuf(puntaje === null ? "" : String(puntaje));
+          }}
+          onChange={(e) => {
+            const raw = e.target.value;
+            setPuntajeBuf(raw);
+            if (raw.trim() === "") {
+              onChange(writePuntaje(plantilla, null));
+              return;
+            }
+            const n = Number(raw);
+            if (Number.isFinite(n)) onChange(writePuntaje(plantilla, n));
+          }}
+          placeholder="Sin puntaje"
+          className="w-28 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+        />
+      </div>
+      <BufferedText
+        id={pistaId}
+        label="Pista"
+        help="Pista opcional para el estudiante."
+        value={pista}
+        commit={(text) => {
+          onChange(writePista(plantilla, text));
+          return true;
+        }}
+      />
+    </div>
+  );
+}
+
+/* ---------------- resumen (DIFF-02) ---------------- */
+
+/**
+ * Panel de resumen: cantidad de variables, tipo actual, combinaciones posibles
+ * y un pill de estado (ok/error). El estado refleja `tieneErrores`, que el
+ * padre alimenta con el lint inline generador-aware (coincide con el preview).
+ */
+function ResumenPanel({
+  plantilla,
+  baseGenerador,
+  tipo,
+  tieneErrores,
+}: {
+  plantilla: Plantilla;
+  baseGenerador: boolean;
+  tipo: TipoPregunta;
+  tieneErrores: boolean;
+}) {
+  const nVars = contarVariables(plantilla);
+  const { total, continuo } = combinacionesPosibles(plantilla);
+  const tipoLabel = baseGenerador
+    ? "Generador asistido"
+    : (QUESTION_TYPE_SCHEMAS[tipo]?.label ?? tipo);
+  const combinaciones = baseGenerador
+    ? "las define el generador"
+    : continuo
+      ? "muchas (incluye decimales)"
+      : total.toLocaleString("es-AR");
+
+  return (
+    <div className="flex flex-col gap-1.5 rounded border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-3 text-xs">
+      <ResumenRow label="Variables" value={String(baseGenerador ? 0 : nVars)} />
+      <ResumenRow label="Tipo" value={tipoLabel} />
+      <ResumenRow label="Combinaciones posibles" value={combinaciones} />
+      <div className="pt-1">
+        <span
+          className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+            tieneErrores
+              ? "bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]"
+              : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
+          }`}
+        >
+          {tieneErrores ? "Con errores" : "Sin errores"}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function ResumenRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-center justify-between">
+      <span className="text-[var(--c-muted,#64748b)]">{label}</span>
+      <span className="font-semibold text-[var(--c-text)]">{value}</span>
+    </div>
+  );
+}
+
+export interface EnunciadoFieldHandle {
+  /** Inserta `token` en la posición del cursor (o al final). */
+  insert: (token: string) => void;
+}
+
+/**
+ * Enunciado para la base generador. Usa un buffer local con foco (igual que
+ * BufferedText) para no pelear con el `plantilla` debounced del padre mientras
+ * se tipea, y expone `insert()` para el insert-on-click de variables.
+ */
+const EnunciadoGeneradorField = forwardRef<
+  EnunciadoFieldHandle,
+  {
+    plantilla: Plantilla;
+    onChange: (next: Plantilla) => void;
+    /** Variables que provee el generador, para los chips "Insertar:". */
+    variables?: string[];
+  }
+>(function EnunciadoGeneradorField({ plantilla, onChange, variables = [] }, ref) {
+  const id = useId();
+  const astValue = readTextField(plantilla, schemaEnunciado);
+  const [text, setText] = useState(astValue);
+  const focused = useRef(false);
+  const taRef = useRef<HTMLTextAreaElement | null>(null);
+
+  // Mientras no tiene foco, se sincroniza con el AST (cambios externos:
+  // reset de enunciado, cambio de generador, etc.).
+  useEffect(() => {
+    if (!focused.current) setText(astValue);
+  }, [astValue]);
+
+  const insert = (token: string) => {
+    const ta = taRef.current;
+    const base = focused.current ? text : astValue;
+    const start = ta?.selectionStart ?? base.length;
+    const end = ta?.selectionEnd ?? base.length;
+    const combinado = base.slice(0, start) + token + base.slice(end);
+    setText(combinado);
+    const next = writeTextField(plantilla, schemaEnunciado, combinado);
+    if (next) onChange(next);
+    requestAnimationFrame(() => {
+      const el = taRef.current;
+      if (el) {
+        const pos = start + token.length;
+        el.focus();
+        el.setSelectionRange(pos, pos);
+      }
+    });
+  };
+
+  useImperativeHandle(
+    ref,
+    () => ({ insert }),
+    // `text`/`plantilla` cambian el closure de insert; las incluimos para
+    // insertar siempre sobre el valor actual.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [text, astValue, plantilla],
+  );
+
+  return (
+    <div className="flex flex-col gap-0.5">
+      <label htmlFor={id} className="text-xs font-medium text-[var(--c-text,#0f172a)]">
+        Enunciado
+      </label>
+      <textarea
+        id={id}
+        ref={taRef}
+        value={text}
+        rows={3}
+        onFocus={() => {
+          focused.current = true;
+        }}
+        onBlur={() => {
+          focused.current = false;
+          setText(astValue);
+        }}
+        onChange={(e) => {
+          setText(e.target.value);
+          const next = writeTextField(plantilla, schemaEnunciado, e.target.value);
+          if (next) onChange(next);
+        }}
+        placeholder="Escribí la consigna como se la mostrarías al alumno."
+        className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+      />
+      {variables.length > 0 && (
+        <div className="mt-1 flex flex-wrap items-center gap-1">
+          <span className="text-[10px] text-[var(--c-muted,#64748b)]">Insertar:</span>
+          {variables.map((v) => (
+            <button
+              key={v}
+              type="button"
+              onClick={() => insert(`{${v}}`)}
+              aria-label={`Insertar variable ${v} en el enunciado`}
+              className="rounded-full border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-2 py-0.5 font-mono text-[10px] text-[var(--c-primary,#3b82f6)] hover:bg-[var(--c-bg,#f1f5f9)]"
+            >
+              {`{${v}}`}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+});
+
+/* ---------------- confirm dialog ---------------- */
+
+function ConfirmDialog({
+  message,
+  onConfirm,
+  onCancel,
+}: {
+  message: string;
+  onConfirm: () => void;
+  onCancel: () => void;
+}) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30"
+      data-testid="vblang-schema-confirm"
+    >
+      <div className="max-w-sm rounded-lg border border-[var(--c-border,#e2e8f0)] bg-white p-4 shadow-lg">
+        <p className="mb-4 text-sm">{message}</p>
+        <div className="flex justify-end gap-2">
+          <button
+            type="button"
+            onClick={onCancel}
+            className="rounded border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            onClick={onConfirm}
+            className="rounded bg-[var(--c-primary,#3b82f6)] px-3 py-1 text-xs font-semibold text-white"
+          >
+            Resetear enunciado
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

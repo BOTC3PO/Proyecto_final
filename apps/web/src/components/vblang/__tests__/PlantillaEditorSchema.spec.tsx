@@ -128,6 +128,77 @@ describe("PlantillaEditorSchema", () => {
     expect(dsl()).toContain("Consigna");
   });
 
+  it("al pasar a generador con enunciado incompatible, ofrece resetear el enunciado", async () => {
+    const user = userEvent.setup();
+    // Enunciado heredado de otra base que interpola {a}: el generador no provee
+    // esa variable, así que el editor debe ofrecer resetear (no romper en silencio).
+    render(
+      <Harness
+        initial={'variables:\n  a: random(1, 10)\nenunciado: "Cuanto es {a}"\nrespuesta: a\n'}
+      />,
+    );
+
+    await user.click(screen.getByRole("radio", { name: /generador asistido/i }));
+
+    const dialog = await screen.findByTestId("vblang-schema-confirm");
+    expect(dialog).toHaveTextContent(/no provee/i);
+    expect(dialog).toHaveTextContent(/\ba\b/);
+
+    await user.click(screen.getByRole("button", { name: /resetear enunciado/i }));
+
+    // El enunciado ya no interpola {a}; el generador sigue activo.
+    expect(dsl()).not.toContain("{a}");
+    expect(dsl()).toContain("generador:");
+  });
+
+  it("DIFF-06: puntaje y pista se editan y persisten en el metadata del DSL", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "x"\nrespuesta: 1\n'} />);
+
+    await user.type(screen.getByLabelText("Puntaje"), "3");
+    await user.type(screen.getByLabelText("Pista"), "Pensá en sumar");
+
+    expect(dsl()).toMatch(/puntaje:\s*3/);
+    expect(dsl()).toContain("Pensá en sumar");
+    // Round-trip: el DSL sigue parseando con el metadata.
+    expect(parse(dsl()).tipoInferido).toBe("input");
+  });
+
+  it("DIFF-09: el enunciado del generador ofrece chips 'Insertar:' que insertan variables", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "Consigna"\nrespuesta: 1\n'} />);
+
+    await user.click(screen.getByRole("radio", { name: /generador asistido/i }));
+    // Elegimos un generador que expone variables interpolables (cinematica:
+    // valor/factor); otros — como los de tipo quiz — no exponen ninguna.
+    await user.selectOptions(
+      screen.getByTestId("vblang-form-generador-picker"),
+      "fisica/cinematica",
+    );
+
+    expect(await screen.findByText("Insertar:")).toBeInTheDocument();
+    const chips = screen.getAllByRole("button", {
+      name: /insertar variable .* en el enunciado/i,
+    });
+    expect(chips.length).toBeGreaterThan(0);
+
+    await user.click(chips[0]);
+    const enun = screen.getByLabelText("Enunciado") as HTMLTextAreaElement;
+    expect(enun.value).toContain("{");
+  });
+
+  it("DIFF-02: el panel Resumen muestra el tipo y las combinaciones posibles", () => {
+    render(
+      <Harness
+        initial={'variables:\n  a: random(1, 10)\n  b: uno_de(["x", "y"])\nenunciado: "{a} {b}"\nrespuesta: a\n'}
+      />,
+    );
+    expect(screen.getByText("Resumen")).toBeInTheDocument();
+    expect(screen.getByText("Combinaciones posibles")).toBeInTheDocument();
+    // 10 (random 1..10) × 2 (uno_de) = 20
+    expect(screen.getByText("20")).toBeInTheDocument();
+  });
+
   it("analisis_sintactico: la palabra usa un combobox del diccionario", async () => {
     render(
       <Harness

@@ -73,10 +73,11 @@ export default function MetadataPanel({
       role="region"
       aria-label="Metadatos de la plantilla"
       data-testid="vblang-metadata-panel"
-      className="h-full overflow-auto p-4 space-y-4 text-sm"
+      className="panel-section panel-section--last flex h-full text-sm"
     >
-      <h2 className="text-base font-bold">Metadatos</h2>
+      <h2 className="panel-section__title">Metadatos</h2>
 
+      <div className="panel-section__body space-y-4">
       <label className="block">
         <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">
           Nombre *
@@ -206,6 +207,7 @@ export default function MetadataPanel({
           ))}
         </select>
       </label>
+      </div>
     </div>
   );
 }

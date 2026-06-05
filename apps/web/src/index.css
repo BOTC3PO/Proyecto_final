@@ -1,10 +1,24 @@
 @import "tailwindcss";
 
-/* Fuentes del sistema — sin descarga externa */
+/* ── Tipografía del rediseño ───────────────────────────────────────────────
+ * Las fuentes se cargan self-hosted en main.tsx (@fontsource). Acá definimos
+ * las variables de fuente como theme de Tailwind v4, así también alimentan las
+ * utilidades `font-sans` / `font-serif` / `font-mono`.
+ *   --font-sans  → Manrope         (UI / chrome)
+ *   --font-serif → Spectral        (lectura / paper / encabezados)
+ *   --font-mono  → JetBrains Mono  (código / DSL / ids)
+ * Esto NO toca el color: los temas `--c-*` quedan intactos.
+ * ────────────────────────────────────────────────────────────────────────── */
+@theme {
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Spectral", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+}
+
 :root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    sans-serif;
+  font-family: var(--font-sans);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -331,7 +345,7 @@
   --c-danger:  #ff6b6b;
   --c-nav-bg:  #0a0b18;
   --c-nav-text:#e8eaf6;
-  font-family: 'Geist', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
 }
 
 [data-theme="vb2"] body,
@@ -351,10 +365,6 @@
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
-
-[data-theme="vb2"] * {
-  font-family: 'Geist', system-ui, -apple-system, sans-serif;
 }
 
 [data-theme="vb2"] .text-2xl,
@@ -1375,6 +1385,107 @@
   border: 0;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+ * EditorShell — layout de 3 columnas (patrón reusable del prototipo VB).
+ * Grid con tracks explícitos: las laterales son fijas y el centro es
+ * minmax(0, 1fr) → el centro se encoge en vez de empujar (mata min-width:auto).
+ * Cada columna scrollea sola; en <lg colapsa a una columna.
+ * ────────────────────────────────────────────────────────────────────────── */
+.editor-shell {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: calc(100vh - 3.5rem);
+  min-height: 0;
+  background: var(--c-bg);
+}
+@media (min-width: 1024px) {
+  .editor-shell {
+    grid-template-columns: var(--editor-meta, 260px) minmax(0, 1fr) var(--editor-aux, 320px);
+    grid-template-rows: 1fr;
+  }
+}
+.editor-shell__col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* el centro se encoge, no empuja */
+  min-height: 0; /* habilita scroll independiente por columna */
+  overflow: hidden; /* el scroll lo maneja el cuerpo de cada columna */
+}
+.editor-shell__col--meta {
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
+}
+.editor-shell__col--aux {
+  background: var(--c-surface);
+  border-top: 1px solid var(--c-border);
+}
+@media (min-width: 1024px) {
+  .editor-shell__col--meta {
+    border-bottom: 0;
+    border-right: 1px solid var(--c-border);
+  }
+  .editor-shell__col--aux {
+    border-top: 0;
+    border-left: 1px solid var(--c-border);
+  }
+}
+/* Cuerpo scrollable reusable (≡ `.panel-section .body` del prototipo). */
+.editor-shell__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * panel-section — sección de panel (encabezado + cuerpo) del prototipo VB.
+ * Reusable en las columnas de cualquier editor: borde inferior entre
+ * secciones, título en versalitas y padding de cuerpo consistente.
+ * ────────────────────────────────────────────────────────────────────────── */
+.panel-section {
+  border-bottom: 1px solid var(--c-border);
+}
+.panel-section--top {
+  border-bottom: 0;
+  border-top: 1px solid var(--c-border);
+}
+.panel-section--last {
+  border-bottom: 0;
+}
+.panel-section__title {
+  margin: 0;
+  padding: 14px 18px 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+  font-weight: 700;
+}
+/* Encabezado con una acción a la derecha (título + botón). */
+.panel-section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px 8px;
+}
+.panel-section__head .panel-section__title {
+  padding: 0;
+}
+.panel-section__body {
+  padding: 4px 12px 14px;
+}
+/* Sección flex: el cuerpo scrollea solo, el encabezado queda fijo arriba. */
+.panel-section.flex {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.panel-section.flex .panel-section__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
 /* Skip-link: oculta hasta que recibe foco con tab */
 .skip-link {
   position: absolute;
@@ -1406,7 +1517,7 @@ button.icon-btn,
 /* Mostrar atajos de teclado como kbd visual */
 .kbd, kbd {
   display: inline-block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   padding: 2px 6px;
   background: var(--c-bg);
