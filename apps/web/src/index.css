@@ -1871,3 +1871,381 @@ button.icon-btn,
     scroll-behavior: auto !important;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Editor de diapositivas (TheorySlideEditor) — lienzo WYSIWYG + inspector.
+ * El lienzo usa --slide-bg/--slide-fg/--slide-accent (paleta del tema de la
+ * presentación, no del tema de la app); el chrome usa los tokens --c-*.
+ * ────────────────────────────────────────────────────────────────────────── */
+
+/* Texto editable in-situ (contenteditable) + placeholder accesible */
+.vb-editable {
+  outline: none;
+  border-radius: var(--r-sm);
+  transition: box-shadow 0.12s, background 0.12s;
+}
+.vb-editable:hover {
+  background: color-mix(in srgb, var(--slide-fg, #000) 5%, transparent);
+}
+.vb-editable:focus-visible,
+.vb-editable:focus {
+  box-shadow: 0 0 0 2px var(--slide-accent, var(--slide-fg, #000));
+  background: color-mix(in srgb, var(--slide-fg, #000) 4%, transparent);
+}
+.vb-editable[data-placeholder]:empty::before {
+  content: attr(data-placeholder);
+  color: color-mix(in srgb, var(--slide-fg, #64748b) 42%, transparent);
+  pointer-events: none;
+}
+
+/* Stage (centro) */
+.vb-stage {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100%;
+  min-height: 0;
+  background: var(--c-bg);
+}
+.vb-stage-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--c-border);
+  background: var(--c-surface);
+  font-size: 12.5px;
+  color: var(--c-muted);
+}
+.vb-stage-toolbar .info strong {
+  color: var(--c-text);
+}
+.vb-stage-toolbar .end {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.vb-stage-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--c-border);
+  color: var(--c-text-3);
+}
+.vb-stage-area {
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+.vb-canvas-wrap {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Lienzo 16:9 con profundidad */
+.vb-slide-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--slide-bg);
+  color: var(--slide-fg);
+  border-radius: var(--r-lg);
+  box-shadow: 0 18px 50px color-mix(in srgb, var(--c-text) 22%, transparent),
+              0 4px 12px color-mix(in srgb, var(--c-text) 14%, transparent);
+  overflow: hidden;
+  padding: clamp(20px, 4.4%, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.6%, 18px);
+}
+.vb-accent-stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--slide-accent);
+  z-index: 2;
+}
+.vb-slide-bgimg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.vb-slide-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.vb-slide-overlay.is-dark { background: rgba(0, 0, 0, 0.5); }
+.vb-slide-overlay.is-medium { background: rgba(0, 0, 0, 0.25); }
+.vb-quote-mark {
+  font-family: Spectral, Georgia, serif;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: 0.6;
+  color: var(--slide-accent);
+  opacity: 0.25;
+}
+/* El contenido editable va por encima de fondo/overlay */
+.vb-slide-canvas .vb-s-title,
+.vb-slide-canvas .vb-s-subtitle,
+.vb-slide-canvas .vb-s-body,
+.vb-slide-canvas .vb-s-cols,
+.vb-slide-canvas .vb-s-embed,
+.vb-slide-canvas .vb-quote-mark {
+  position: relative;
+  z-index: 1;
+}
+.vb-s-title {
+  font-size: clamp(22px, 4.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.vb-s-title.is-quote {
+  font-family: Spectral, Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+}
+.vb-s-subtitle {
+  font-size: clamp(14px, 2.1vw, 22px);
+  font-weight: 500;
+  opacity: 0.72;
+}
+.vb-s-body {
+  font-size: clamp(12px, 1.7vw, 18px);
+  line-height: 1.6;
+  opacity: 0.9;
+  white-space: pre-wrap;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.vb-s-body.is-code {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 1.4vw, 15px);
+  background: color-mix(in srgb, var(--slide-fg) 8%, transparent);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+}
+.vb-s-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 3%, 36px);
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.vb-s-embed {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  border-radius: var(--r-md);
+}
+
+/* Reflow por layout (data-layout = LayoutPreset) */
+.vb-slide-canvas[data-layout="centered"],
+.vb-slide-canvas[data-layout="quote"] {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.vb-slide-canvas[data-layout="top"],
+.vb-slide-canvas[data-layout="split"] {
+  justify-content: flex-start;
+}
+.vb-slide-canvas[data-layout="bottom-text"] {
+  justify-content: flex-end;
+}
+
+/* Pie del stage */
+.vb-stage-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--c-border);
+  background: var(--c-surface);
+  font-size: 12px;
+  color: var(--c-text-3);
+}
+.vb-stage-foot .pos {
+  font-family: var(--font-mono);
+  color: var(--c-text);
+}
+.vb-stage-foot .info strong { color: var(--c-text); }
+.vb-stage-hints {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Inspector (derecha) */
+.vb-slide-insp {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 14px;
+}
+.vb-insp-tabs {
+  display: flex;
+  gap: 4px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 3px;
+  background: var(--c-surface-3);
+}
+.vb-insp-tabs button {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: var(--r-sm);
+  background: transparent;
+  border: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--c-muted);
+  cursor: pointer;
+}
+.vb-insp-tabs button[aria-selected="true"] {
+  background: var(--c-surface);
+  color: var(--c-text);
+  box-shadow: var(--shadow-1);
+}
+.vb-insp-tabs button:focus-visible {
+  outline: 2px solid var(--c-focus-ring);
+  outline-offset: 1px;
+}
+.vb-insp-pane {
+  display: grid;
+  gap: 18px;
+}
+.vb-insp-eyebrow {
+  margin: 0 0 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+  font-weight: 700;
+}
+
+/* Layout cards (inspector) */
+.vb-layout-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface);
+  color: var(--c-text);
+  cursor: pointer;
+}
+.vb-layout-card:hover {
+  border-color: var(--c-primary);
+}
+.vb-layout-card.is-active {
+  border-color: var(--c-primary);
+  background: color-mix(in srgb, var(--c-primary) 8%, transparent);
+}
+.vb-layout-card__preview {
+  display: block;
+  height: 40px;
+}
+.vb-layout-card__nm {
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+}
+.vb-layout-card:focus-visible {
+  outline: 2px solid var(--c-focus-ring);
+  outline-offset: 1px;
+}
+
+/* Campos del inspector */
+.vb-field {
+  display: grid;
+  gap: 4px;
+}
+.vb-field-label {
+  font-size: 11.5px;
+  color: var(--c-muted);
+  font-weight: 600;
+}
+.vb-field-input {
+  width: 100%;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  color: var(--c-text);
+  padding: 6px 8px;
+  border-radius: var(--r-sm);
+  font-size: 13px;
+}
+.vb-field-textarea {
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.5;
+}
+.vb-field-input:focus {
+  border-color: var(--c-primary);
+  outline: none;
+}
+
+/* Tipo de contenido (ctype) */
+.vb-ctype-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.vb-ctype {
+  padding: 8px 6px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface);
+  color: var(--c-muted);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.vb-ctype:hover { border-color: var(--c-primary); }
+.vb-ctype[aria-pressed="true"] {
+  background: var(--c-text);
+  color: var(--c-surface);
+  border-color: var(--c-text);
+}
+.vb-ctype:focus-visible {
+  outline: 2px solid var(--c-focus-ring);
+  outline-offset: 1px;
+}
+
+/* Grilla de bloques del motor gráfico */
+.vb-blocks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.vb-block-card {
+  padding: 10px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface);
+  color: var(--c-text);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+.vb-block-card:hover {
+  border-color: var(--c-primary);
+  background: color-mix(in srgb, var(--c-primary) 6%, transparent);
+}
+.vb-block-card:focus-visible {
+  outline: 2px solid var(--c-focus-ring);
+  outline-offset: 1px;
+}
