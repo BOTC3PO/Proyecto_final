@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
@@ -38,6 +38,71 @@ import {
 } from "../../components/modulos/standalone/types";
 import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
+
+// ─── Pills de estado (prototipo `.pill`) ───────────────────────────────────
+// Mismas tonalidades que el componente de diseño `ui/Pill`, pero con
+// `role="status"` para que los lectores de pantalla anuncien el estado de cada
+// tarjeta (Incompleto / N recursos / Opcional / Con errores…). Theme-driven:
+// solo tokens `--c-*`, así el color lo manda el tema activo.
+const PILL_TONES = {
+  ok: "bg-[var(--c-success-soft)] text-[var(--c-success)]",
+  warn: "bg-[var(--c-warning-soft)] text-[var(--c-warning)]",
+  danger: "bg-[var(--c-danger-soft)] text-[var(--c-danger)]",
+  info: "bg-[var(--c-info-soft)] text-[var(--c-info)]",
+  neutral: "bg-[var(--c-bg)] text-[var(--c-muted)]",
+} as const;
+
+function StatusPill({
+  tone,
+  children,
+}: {
+  tone: keyof typeof PILL_TONES;
+  children: ReactNode;
+}) {
+  return (
+    <span
+      role="status"
+      className={
+        "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold " +
+        PILL_TONES[tone]
+      }
+    >
+      {children}
+    </span>
+  );
+}
+
+// Cabecera de tarjeta reutilizable (prototipo `.card-head`): icono + título +
+// subtítulo de ayuda (`.sub`) + slot a la derecha para el pill de estado / chip.
+function CardHeader({
+  icon,
+  title,
+  subtitle,
+  right,
+}: {
+  icon: ReactNode;
+  title: string;
+  subtitle: string;
+  right?: ReactNode;
+}) {
+  return (
+    <div className="flex items-start justify-between gap-3">
+      <div className="flex items-start gap-3">
+        <span
+          aria-hidden="true"
+          className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm"
+        >
+          {icon}
+        </span>
+        <div className="min-w-0">
+          <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">{title}</h2>
+          <p className="mt-0.5 text-xs text-[var(--c-muted)]">{subtitle}</p>
+        </div>
+      </div>
+      {right ? <div className="flex shrink-0 items-center gap-2">{right}</div> : null}
+    </div>
+  );
+}
 
 // Abre el editor de mapa completo (MapaEditorFull) en una ventana nueva,
 // pasándole la config por sessionStorage y recuperando el resultado al cerrarse.
@@ -399,15 +464,18 @@ export default function ModuloEditor() {
               {/* ── Información general ── */}
               <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#9881;</span>
-                  <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Información general</h2>
-                  {sectionStatus.generalOk ? (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700"><span aria-hidden="true">&#10003;</span> Completo</span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700"><span aria-hidden="true">&#9888;</span> Incompleto</span>
-                  )}
-                </div>
+                <CardHeader
+                  icon={<span>&#9881;</span>}
+                  title="Información general"
+                  subtitle="Título, materia y nivel del módulo."
+                  right={
+                    sectionStatus.generalOk ? (
+                      <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
+                    ) : (
+                      <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Incompleto</StatusPill>
+                    )
+                  }
+                />
                 <div className="grid gap-5 md:grid-cols-2">
                   <label className="block text-sm font-medium text-[var(--c-text)]">
                     <span className="mb-1.5 flex items-center gap-1.5">&#128221; Título</span>
@@ -535,13 +603,13 @@ export default function ModuloEditor() {
                 {/* School picker — only shown when visibility = "escuela" */}
                 {form.visibility === "escuela" ? (
                   <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-3">
-                    <p className="flex items-center gap-2 text-xs font-semibold text-amber-800">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-200 text-amber-700 text-[10px]">&#127979;</span>
+                    <p className="flex items-center gap-2 text-xs font-semibold text-[var(--c-text)]">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--c-warning-soft)] text-[var(--c-warning)] text-[10px]">&#127979;</span>
                       ¿A qué escuela aplica esta visibilidad?
                     </p>
                     {form.visibilitySchoolId ? (
-                      <div className="flex items-center gap-3 rounded-lg bg-white/60 px-3 py-2">
-                        <span className="text-xs text-amber-900">
+                      <div className="flex items-center gap-3 rounded-lg bg-[var(--c-surface)] px-3 py-2">
+                        <span className="text-xs text-[var(--c-text)]">
                           Escuela seleccionada:{" "}
                           <strong>
                             {escuelaResults.find((e) => e.id === form.visibilitySchoolId)?.name ??
@@ -550,7 +618,7 @@ export default function ModuloEditor() {
                         </span>
                         <button
                           type="button"
-                          className="rounded-md bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-700 transition-colors hover:bg-amber-200"
+                          className="rounded-md bg-[var(--c-warning-soft)] px-2.5 py-1 text-xs font-medium text-[var(--c-warning)] transition-colors hover:bg-[color-mix(in_srgb,var(--c-warning)_22%,var(--c-surface))]"
                           onClick={() => {
                             updateForm("visibilitySchoolId", "");
                             searchEscuelas("");
@@ -565,8 +633,8 @@ export default function ModuloEditor() {
                           <input
                             className={`flex-1 rounded-lg border px-3 py-2 text-xs transition-all focus:outline-none focus:ring-2 ${
                               form.visibility === "escuela" && !form.visibilitySchoolId
-                                ? "border-red-300 bg-red-50/50 focus:border-red-400 focus:ring-red-100"
-                                : "border-amber-200 bg-[var(--c-surface)] focus:border-amber-400 focus:ring-amber-100"
+                                ? "border-[color-mix(in_srgb,var(--c-danger)_40%,transparent)] bg-[var(--c-danger-soft)] focus:border-[var(--c-danger)] focus:ring-[color-mix(in_srgb,var(--c-danger)_25%,transparent)]"
+                                : "border-[var(--c-border)] bg-[var(--c-surface)] focus:border-[var(--c-primary)] focus:ring-[color-mix(in_srgb,var(--c-primary)_22%,transparent)]"
                             }`}
                             placeholder="Buscar escuela..."
                             value={escuelaSearch}
@@ -580,14 +648,14 @@ export default function ModuloEditor() {
                           />
                         </div>
                         {escuelaLoading ? (
-                          <p className="text-xs text-gray-500 animate-pulse">Buscando...</p>
+                          <p className="text-xs text-[var(--c-muted)] animate-pulse">Buscando...</p>
                         ) : escuelaResults.length > 0 ? (
-                          <ul className="max-h-36 overflow-y-auto space-y-1 rounded-lg bg-white/60 p-1">
+                          <ul className="max-h-36 overflow-y-auto space-y-1 rounded-lg bg-[var(--c-surface)] p-1">
                             {escuelaResults.map((escuela) => (
                               <li key={escuela.id}>
                                 <button
                                   type="button"
-                                  className="w-full rounded-lg px-3 py-2 text-left text-xs text-gray-700 transition-colors hover:bg-amber-100 hover:text-amber-900"
+                                  className="w-full rounded-lg px-3 py-2 text-left text-xs text-[var(--c-text)] transition-colors hover:bg-[var(--c-hover)] hover:text-[var(--c-text)]"
                                   onClick={() => {
                                     updateForm("visibilitySchoolId", escuela.id);
                                     setEscuelaSearch("");
@@ -599,7 +667,7 @@ export default function ModuloEditor() {
                             ))}
                           </ul>
                         ) : (
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-[var(--c-muted)]">
                             {escuelaSearch ? "Sin resultados." : "Escribí para buscar."}
                           </p>
                         )}
@@ -617,18 +685,21 @@ export default function ModuloEditor() {
               {/* ── Teoría ── */}
               <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#128214;</span>
-                    <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Teoría</h2>
-                    {sectionStatus.theoryOk ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700"><span aria-hidden="true">&#10003;</span> Completo</span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700"><span aria-hidden="true">&#9888;</span> Sin recursos</span>
-                    )}
-                  </div>
-                  <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{theoryItems.length} recursos</span>
-                </div>
+                <CardHeader
+                  icon={<span>&#128214;</span>}
+                  title="Teoría"
+                  subtitle="Recursos de estudio: textos, videos, libros y herramientas."
+                  right={
+                    <>
+                      {sectionStatus.theoryOk ? (
+                        <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
+                      ) : (
+                        <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Sin recursos</StatusPill>
+                      )}
+                      <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{theoryItems.length} recursos</span>
+                    </>
+                  }
+                />
 
                 {/* New theory item form */}
                 <div className="space-y-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4">
@@ -690,7 +761,7 @@ export default function ModuloEditor() {
                     />
                   ) : isPresentationType(newTheoryItem.type) ? (
                     <div className="flex items-center gap-3">
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-[var(--c-muted)]">
                         {detailToPresentation(newTheoryItem.detail).slides.length === 0
                           ? "Sin diapositivas"
                           : `${detailToPresentation(newTheoryItem.detail).slides.length} diapositiva(s)`}
@@ -715,7 +786,7 @@ export default function ModuloEditor() {
                         Abrir editor de bloques
                       </button>
                       {newTheoryItem.detail && (
-                        <span className="text-xs text-gray-400">
+                        <span className="text-xs text-[var(--c-muted)]">
                           {newTheoryItem.detail.startsWith("{")
                             ? "Documento local"
                             : `ID: ${newTheoryItem.detail.slice(0, 8)}…`}
@@ -820,7 +891,7 @@ export default function ModuloEditor() {
                           setNewTheoryItem((prev) => ({ ...prev, detail: event.target.value }))
                         }
                       />
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-[var(--c-muted)]">
                         Soporta YouTube, Vimeo o un enlace directo a archivo de video.
                       </p>
                     </div>
@@ -836,7 +907,7 @@ export default function ModuloEditor() {
                           setNewTheoryItem((prev) => ({ ...prev, detail: event.target.value }))
                         }
                       />
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-[var(--c-muted)]">
                         Enlace a un documento externo. Si es PDF, se mostrará como visor; otros tipos se ofrecen como descarga.
                       </p>
                     </div>
@@ -865,7 +936,7 @@ export default function ModuloEditor() {
 
                   <button
                     type="button"
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-success)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-success)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 transition-opacity"
                     onClick={handleAddTheoryItem}
                   >
                     <span className="text-base leading-none">+</span> Agregar recurso
@@ -890,7 +961,7 @@ export default function ModuloEditor() {
                               title="Mover arriba"
                               aria-label="Mover recurso hacia arriba"
                               disabled={itemIdx === 0}
-                              className="flex h-7 w-7 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-xs text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] disabled:cursor-not-allowed disabled:opacity-30"
+                              className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-sm text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "up")}
                             >
                               <span aria-hidden="true">▲</span>
@@ -900,7 +971,7 @@ export default function ModuloEditor() {
                               title="Mover abajo"
                               aria-label="Mover recurso hacia abajo"
                               disabled={itemIdx === theoryItems.length - 1}
-                              className="flex h-7 w-7 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-xs text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] disabled:cursor-not-allowed disabled:opacity-30"
+                              className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-sm text-[var(--c-muted)] transition-colors hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] disabled:cursor-not-allowed disabled:opacity-30"
                               onClick={() => moveTheoryItem(item.id, "down")}
                             >
                               <span aria-hidden="true">▼</span>
@@ -949,7 +1020,7 @@ export default function ModuloEditor() {
                                 />
                               ) : isPresentationType(item.type) ? (
                                 <div className="flex items-center gap-3">
-                                  <span className="text-xs text-gray-500">
+                                  <span className="text-xs text-[var(--c-muted)]">
                                     {detailToPresentation(item.detail).slides.length} diapositiva(s)
                                   </span>
                                   <button
@@ -972,7 +1043,7 @@ export default function ModuloEditor() {
                                       updateTheoryItem(item.id, { detail: event.target.value })
                                     }
                                   />
-                                  <p className="text-[11px] text-gray-400">YouTube, Vimeo o enlace directo a video.</p>
+                                  <p className="text-[11px] text-[var(--c-muted)]">YouTube, Vimeo o enlace directo a video.</p>
                                 </div>
                               ) : isDocumentoType(item.type) ? (
                                 <div className="space-y-1">
@@ -986,7 +1057,7 @@ export default function ModuloEditor() {
                                       updateTheoryItem(item.id, { detail: event.target.value })
                                     }
                                   />
-                                  <p className="text-[11px] text-gray-400">PDF → visor integrado · otros formatos → descarga.</p>
+                                  <p className="text-[11px] text-[var(--c-muted)]">PDF → visor integrado · otros formatos → descarga.</p>
                                 </div>
                               ) : isLinkType(item.type) ? (
                                 <input
@@ -1008,7 +1079,7 @@ export default function ModuloEditor() {
                                     Abrir editor de bloques
                                   </button>
                                   {item.detail && (
-                                    <span className="text-xs text-gray-400">
+                                    <span className="text-xs text-[var(--c-muted)]">
                                       {item.detail.startsWith("{")
                                         ? "Documento local"
                                         : `ID: ${item.detail.slice(0, 8)}…`}
@@ -1104,7 +1175,7 @@ export default function ModuloEditor() {
                               )}
                               <button
                                 type="button"
-                                className="self-start rounded-md border border-red-200 bg-red-50 px-2.5 py-1 text-xs font-medium text-red-600 transition-all hover:bg-red-100 hover:border-red-300"
+                                className="self-start rounded-md border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-danger-soft)] px-2.5 py-1 text-xs font-medium text-[var(--c-danger)] transition-all hover:bg-[color-mix(in_srgb,var(--c-danger)_18%,var(--c-surface))] hover:border-[color-mix(in_srgb,var(--c-danger)_45%,transparent)]"
                                 onClick={() => {
                                   if (window.confirm("¿Eliminar este recurso de teoría? Esta acción no se puede deshacer.")) {
                                     removeTheoryItem(item.id);
@@ -1128,16 +1199,12 @@ export default function ModuloEditor() {
               {/* ── Dependencias ── */}
               <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-4">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#128279;</span>
-                  <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Dependencias</h2>
-                  <span className="rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-xs font-medium text-[var(--c-muted)]">
-                    Opcional
-                  </span>
-                </div>
-                <p className="text-xs text-[var(--c-muted)]">
-                  Indicá si este módulo requiere completar otro antes, o si desbloquea módulos al terminarse.
-                </p>
+                <CardHeader
+                  icon={<span>&#128279;</span>}
+                  title="Dependencias"
+                  subtitle="Indicá si este módulo requiere completar otro antes, o si desbloquea módulos al terminarse."
+                  right={<StatusPill tone="neutral">Opcional</StatusPill>}
+                />
 
                 {form.dependencies.length > 0 ? (
                   <ul className="space-y-2">
@@ -1160,7 +1227,7 @@ export default function ModuloEditor() {
                         </select>
                         <button
                           type="button"
-                          className="rounded-md border border-red-200 bg-red-50 px-2 py-1 text-xs font-medium text-red-600 transition-all hover:bg-red-100 hover:border-red-300"
+                          className="rounded-md border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-danger-soft)] px-2 py-1 text-xs font-medium text-[var(--c-danger)] transition-all hover:bg-[color-mix(in_srgb,var(--c-danger)_18%,var(--c-surface))] hover:border-[color-mix(in_srgb,var(--c-danger)_45%,transparent)]"
                           onClick={() => removeDependency(dep.id)}
                         >
                           Quitar
@@ -1187,9 +1254,9 @@ export default function ModuloEditor() {
                       }}
                     />
                     {depLoading ? (
-                      <p className="text-xs text-gray-500 animate-pulse">Buscando...</p>
+                      <p className="text-xs text-[var(--c-muted)] animate-pulse">Buscando...</p>
                     ) : depResults.length > 0 ? (
-                      <ul className="max-h-40 overflow-y-auto space-y-1 rounded-lg bg-white/60 p-1">
+                      <ul className="max-h-40 overflow-y-auto space-y-1 rounded-lg bg-[var(--c-surface)] p-1">
                         {depResults
                           .filter((r) => r.id !== id)
                           .map((mod) => (
@@ -1200,13 +1267,13 @@ export default function ModuloEditor() {
                                 onClick={() => addDependency(mod)}
                               >
                                 {mod.title}
-                                <span className="ml-1 text-gray-400">({mod.id})</span>
+                                <span className="ml-1 text-[var(--c-muted)]">({mod.id})</span>
                               </button>
                             </li>
                           ))}
                       </ul>
                     ) : (
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-[var(--c-muted)]">
                         {depSearch.length > 0 ? "Sin resultados." : "Escribí para buscar."}
                       </p>
                     )}
@@ -1215,7 +1282,7 @@ export default function ModuloEditor() {
                     </p>
                     <button
                       type="button"
-                      className="rounded-md bg-gray-100 px-3 py-1.5 text-xs text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-700"
+                      className="rounded-md bg-[var(--c-bg)] px-3 py-1.5 text-xs text-[var(--c-muted)] transition-colors hover:bg-[var(--c-hover)] hover:text-[var(--c-text)]"
                       onClick={() => {
                         setDepPickerOpen(false);
                         setDepSearch("");
@@ -1242,11 +1309,11 @@ export default function ModuloEditor() {
               </>)}
 
               {isEvaluacionMode && (
-              <div className="rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 flex items-start gap-3">
-                <span className="text-2xl">📝</span>
+              <div className="rounded-xl border border-[color-mix(in_srgb,var(--c-warning)_30%,transparent)] bg-[var(--c-warning-soft)] px-5 py-4 flex items-start gap-3">
+                <span className="text-2xl" aria-hidden="true">📝</span>
                 <div>
-                  <p className="text-sm font-semibold text-amber-800">Modo Evaluación</p>
-                  <p className="text-xs text-amber-700 mt-1">
+                  <p className="text-sm font-semibold text-[var(--c-text)]">Modo Evaluación</p>
+                  <p className="text-xs text-[var(--c-muted)] mt-1">
                     El módulo está configurado como evaluación. El alumno ve directamente el
                     cuestionario sin sección de teoría. Usá las instrucciones del cuestionario
                     para dar contexto.
@@ -1258,25 +1325,30 @@ export default function ModuloEditor() {
               {/* ── Cuestionarios ── */}
               <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)] text-sm">&#10068;</span>
-                    <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">Cuestionarios</h2>
-                    {quizzes.length === 0 ? null : sectionStatus.quizzesOk ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700"><span aria-hidden="true">&#10003;</span> Completo</span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700"><span aria-hidden="true">&#9888;</span> Con errores</span>
-                    )}
-                  </div>
-                  <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{quizCountLabel}</span>
-                </div>
+                <CardHeader
+                  icon={<span>&#10068;</span>}
+                  title="Cuestionarios"
+                  subtitle="Evaluaciones manuales, generadas o desde plantillas VBLang."
+                  right={
+                    <>
+                      {quizzes.length === 0 ? (
+                        <StatusPill tone="neutral">Sin cuestionarios</StatusPill>
+                      ) : sectionStatus.quizzesOk ? (
+                        <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
+                      ) : (
+                        <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Con errores</StatusPill>
+                      )}
+                      <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">{quizCountLabel}</span>
+                    </>
+                  }
+                />
 
                 <div className="flex flex-wrap items-start gap-3">
                   {/* Sprint 10A: abrir selector de plantilla en lugar de
                       redirigir directamente a crear una nueva. */}
                   <button
                     type="button"
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 transition-opacity"
                     data-testid="open-plantilla-selector"
                     onClick={() => setPlantillaModalOpen(true)}
                   >
@@ -1373,7 +1445,7 @@ export default function ModuloEditor() {
                           {esPlantilla ? (
                             <>
                               <span
-                                className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-700"
+                                className="inline-flex items-center gap-1 rounded-full bg-[var(--c-success-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-success)]"
                                 data-testid="quiz-badge-plantilla"
                               >
                                 🧩 Plantilla VBLang
@@ -1394,11 +1466,11 @@ export default function ModuloEditor() {
                               )}
                             </>
                           ) : quiz.mode === "generated" ? (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-2 py-0.5 text-[11px] font-semibold text-blue-700">
+                            <span className="inline-flex items-center gap-1 rounded-full bg-[var(--c-info-soft)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-info)]">
                               ⚡ Generado
                             </span>
                           ) : (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-700">
+                            <span className="inline-flex items-center gap-1 rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-[11px] font-semibold text-[var(--c-muted)]">
                               ✏️ Manual
                             </span>
                           )}
@@ -1411,7 +1483,7 @@ export default function ModuloEditor() {
                               <input
                                 className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm text-[var(--c-text)] transition-colors focus:outline-none ${
                                   quizBlurErrors[quiz.id]?.length
-                                    ? "border-red-400 bg-red-50"
+                                    ? "border-[var(--c-danger)] bg-[var(--c-danger-soft)]"
                                     : "border-[var(--c-border)] bg-[var(--c-bg)] focus:border-[var(--c-primary)]"
                                 }`}
                                 value={quiz.title}
@@ -1421,7 +1493,7 @@ export default function ModuloEditor() {
                                 onBlur={() => validateQuizTitle(quiz.id, quiz.title)}
                               />
                               {quizBlurErrors[quiz.id]?.map((err) => (
-                                <span key={err} className="mt-1 block text-xs text-red-600">
+                                <span key={err} className="mt-1 block text-xs text-[var(--c-danger)]">
                                   {err}
                                 </span>
                               ))}
@@ -1442,12 +1514,12 @@ export default function ModuloEditor() {
                                 <option value="competencia">Competencia</option>
                               </select>
                               {quiz.type === "formal" && (
-                                <p className="text-xs text-amber-600 mt-1">
+                                <p className="text-xs text-[var(--c-warning)] mt-1">
                                   Este cuestionario contará para la nota final del alumno.
                                 </p>
                               )}
                               {quiz.type === "practica" && (
-                                <p className="text-xs text-slate-400 mt-1">
+                                <p className="text-xs text-[var(--c-muted)] mt-1">
                                   Este cuestionario es de práctica y no afecta la nota.
                                 </p>
                               )}
@@ -1471,7 +1543,7 @@ export default function ModuloEditor() {
                           <div className="flex flex-col items-end gap-2">
                             <button
                               type="button"
-                              className="rounded-md border border-red-200 bg-red-50 px-2.5 py-1 text-xs font-medium text-red-600 transition-all hover:bg-red-100 hover:border-red-300"
+                              className="rounded-md border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-danger-soft)] px-2.5 py-1 text-xs font-medium text-[var(--c-danger)] transition-all hover:bg-[color-mix(in_srgb,var(--c-danger)_18%,var(--c-surface))] hover:border-[color-mix(in_srgb,var(--c-danger)_45%,transparent)]"
                               onClick={() => {
                                 if (window.confirm("¿Eliminar este cuestionario y todas sus preguntas? Esta acción no se puede deshacer.")) {
                                   removeQuiz(quiz.id);
@@ -1517,7 +1589,7 @@ export default function ModuloEditor() {
 
                         <label className="text-xs font-medium text-[var(--c-muted)]">
                           Instrucciones para el alumno
-                          <span className="ml-1 font-normal text-gray-400">(opcional)</span>
+                          <span className="ml-1 font-normal text-[var(--c-muted)]">(opcional)</span>
                           <textarea
                             className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
                             rows={2}
@@ -1545,7 +1617,7 @@ export default function ModuloEditor() {
                             {(quiz.mode === "manual" || quiz.mode === undefined) && (quiz.questions?.length ?? 0) > 0 ? (
                               <label className="text-xs font-medium text-[var(--c-muted)]">
                                 Preguntas por examen
-                                <span className="ml-1 font-normal text-gray-400">
+                                <span className="ml-1 font-normal text-[var(--c-muted)]">
                                   (de {quiz.questions?.length ?? 0} en el pool)
                                 </span>
                                 <input
@@ -1587,40 +1659,59 @@ export default function ModuloEditor() {
                 </div>
               </section>
 
-              {/* ── Submit ── */}
-              <div className="flex flex-wrap items-center gap-3">
-                <button
-                  type="submit"
-                  className="rounded-xl bg-[var(--c-primary)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
-                  disabled={status === "saving"}
-                >
-                  {status === "saving"
-                    ? "Guardando..."
-                    : isEditing
-                      ? "Guardar cambios"
-                      : "Crear módulo"}
-                </button>
-                <div className="flex flex-col gap-2">
-                  {message ? (
-                    <span
-                      className={`text-sm ${
-                        status === "saved"
-                          ? "text-emerald-600"
-                          : status === "error"
-                            ? "text-[var(--c-danger)]"
-                            : "text-[var(--c-muted)]"
-                      }`}
-                    >
-                      {message}
+              {/* ── Barra inferior sticky: resumen + acción global ── */}
+              {validationErrors.length > 0 ? (
+                <ul role="alert" aria-live="assertive" className="list-disc space-y-1 rounded-xl border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-danger-soft)] py-3 pl-9 pr-4 text-sm text-[var(--c-danger)]">
+                  {validationErrors.map((error) => (
+                    <li key={error}>{error}</li>
+                  ))}
+                </ul>
+              ) : null}
+              <div className="sticky bottom-0 -mx-4 mt-2 border-t border-[var(--c-border)] bg-[color-mix(in_srgb,var(--c-surface)_92%,transparent)] px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-4 gap-y-2">
+                  {/* Resumen de estado del módulo */}
+                  <div className="flex flex-wrap items-center gap-2" aria-live="polite">
+                    {sectionStatus.generalOk ? (
+                      <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Listo para guardar</StatusPill>
+                    ) : (
+                      <StatusPill tone="warn"><span aria-hidden="true">&#9888;</span> Falta completar información general</StatusPill>
+                    )}
+                    {!isEvaluacionMode && (
+                      <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">
+                        {theoryItems.length} recurso{theoryItems.length === 1 ? "" : "s"}
+                      </span>
+                    )}
+                    <span className="rounded-full bg-[var(--c-bg)] px-3 py-1 text-xs font-medium text-[var(--c-muted)]">
+                      {quizCountLabel}
                     </span>
-                  ) : null}
-                  {validationErrors.length > 0 ? (
-                    <ul role="alert" aria-live="assertive" className="list-disc space-y-1 pl-5 text-sm text-[var(--c-danger)]">
-                      {validationErrors.map((error) => (
-                        <li key={error}>{error}</li>
-                      ))}
-                    </ul>
-                  ) : null}
+                  </div>
+
+                  <div className="ml-auto flex items-center gap-3">
+                    {message ? (
+                      <span
+                        className={`text-sm ${
+                          status === "saved"
+                            ? "text-[var(--c-success)]"
+                            : status === "error"
+                              ? "text-[var(--c-danger)]"
+                              : "text-[var(--c-muted)]"
+                        }`}
+                      >
+                        {message}
+                      </span>
+                    ) : null}
+                    <button
+                      type="submit"
+                      className="rounded-xl bg-[var(--c-primary)] px-6 py-2.5 text-sm font-semibold text-[var(--c-text-on-dark)] hover:opacity-90 disabled:opacity-50 transition-opacity"
+                      disabled={status === "saving"}
+                    >
+                      {status === "saving"
+                        ? "Guardando..."
+                        : isEditing
+                          ? "Guardar cambios"
+                          : "Crear módulo"}
+                    </button>
+                  </div>
                 </div>
               </div>
             </form>
@@ -1663,7 +1754,7 @@ function BookPicker({
       <div className="flex items-center gap-3">
         {selectedId ? (
           <>
-            <span className="text-xs text-gray-600">
+            <span className="text-xs text-[var(--c-muted)]">
               Libro: <strong>{selectedTitle || selectedId}</strong>
             </span>
             <button type="button" className="text-xs text-[var(--c-primary)] hover:underline" onClick={onOpenPicker}>
@@ -1706,7 +1797,7 @@ function BookPicker({
         />
       </div>
       {loading ? (
-        <p className="text-xs text-gray-500">Buscando...</p>
+        <p className="text-xs text-[var(--c-muted)]">Buscando...</p>
       ) : results.length > 0 ? (
         <ul className="space-y-0.5 max-h-40 overflow-y-auto">
           {results.map((book) => (
@@ -1717,13 +1808,13 @@ function BookPicker({
                 onClick={() => onSelect(book)}
               >
                 {book.title}
-                <span className="text-gray-400 ml-1">({book.id})</span>
+                <span className="text-[var(--c-muted)] ml-1">({book.id})</span>
               </button>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="text-xs text-gray-400">Sin resultados.</p>
+        <p className="text-xs text-[var(--c-muted)]">Sin resultados.</p>
       )}
       <div className="flex gap-3 pt-1 border-t border-[var(--c-border)]">
         <Link
@@ -1732,7 +1823,7 @@ function BookPicker({
         >
           + Crear nuevo documento
         </Link>
-        <button type="button" className="text-xs text-gray-400 hover:text-gray-600" onClick={onClose}>
+        <button type="button" className="text-xs text-[var(--c-muted)] hover:text-[var(--c-muted)]" onClick={onClose}>
           Cancelar
         </button>
       </div>
@@ -1768,7 +1859,7 @@ function TuesdayPicker({
       <div className="flex items-center gap-3">
         {selectedId ? (
           <>
-            <span className="text-xs text-gray-600">
+            <span className="text-xs text-[var(--c-muted)]">
               Documento: <strong>{selectedId}</strong>
             </span>
             <button type="button" className="text-xs text-[var(--c-primary)] hover:underline" onClick={onOpenPicker}>
@@ -1801,7 +1892,7 @@ function TuesdayPicker({
         />
       </div>
       {loading ? (
-        <p className="text-xs text-gray-500">Buscando...</p>
+        <p className="text-xs text-[var(--c-muted)]">Buscando...</p>
       ) : results.length > 0 ? (
         <ul className="space-y-0.5 max-h-40 overflow-y-auto">
           {results.map((doc) => (
@@ -1812,16 +1903,16 @@ function TuesdayPicker({
                 onClick={() => onSelect(doc)}
               >
                 {doc.title}
-                <span className="text-gray-400 ml-1">({doc.id})</span>
+                <span className="text-[var(--c-muted)] ml-1">({doc.id})</span>
               </button>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="text-xs text-gray-400">Sin resultados.</p>
+        <p className="text-xs text-[var(--c-muted)]">Sin resultados.</p>
       )}
       <div className="pt-1 border-t border-[var(--c-border)]">
-        <button type="button" className="text-xs text-gray-400 hover:text-gray-600" onClick={onClose}>
+        <button type="button" className="text-xs text-[var(--c-muted)] hover:text-[var(--c-muted)]" onClick={onClose}>
           Cancelar
         </button>
       </div>
