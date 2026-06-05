@@ -91,6 +91,52 @@ const LITERALS = new Set(["verdadero", "falso", "nulo", "true", "false", "null"]
 
 type Tok = { kind: string; text: string };
 
+/** Chip de interpolación `{var}` dentro de un string ("… {a} …"). */
+const VAR_CHIP = /\{[a-zA-Z_][a-zA-Z0-9_]*\}/g;
+
+/**
+ * Empuja un literal de string partiéndolo en sus chips `{var}`: cada `{a}` se
+ * emite como token `var` (resaltado tipo chip) y el resto como `string`. Así el
+ * highlighting marca las variables interpoladas aun dentro del enunciado.
+ */
+function pushString(toks: Tok[], str: string): void {
+  let last = 0;
+  let m: RegExpExecArray | null;
+  VAR_CHIP.lastIndex = 0;
+  while ((m = VAR_CHIP.exec(str))) {
+    if (m.index > last) toks.push({ kind: "string", text: str.slice(last, m.index) });
+    toks.push({ kind: "var", text: m[0] });
+    last = m.index + m[0].length;
+  }
+  if (last < str.length) toks.push({ kind: "string", text: str.slice(last) });
+}
+
+/**
+ * Fusiona la secuencia `{` + ident + `}` (fuera de strings) en un único token
+ * `var`, para que los chips de variable también se resalten en expresiones.
+ */
+function mergeBraceVars(toks: Tok[]): Tok[] {
+  const out: Tok[] = [];
+  for (let i = 0; i < toks.length; i++) {
+    const a = toks[i];
+    const b = toks[i + 1];
+    const c = toks[i + 2];
+    if (
+      a.kind === "punct" &&
+      a.text === "{" &&
+      b?.kind === "ident" &&
+      c?.kind === "punct" &&
+      c.text === "}"
+    ) {
+      out.push({ kind: "var", text: `{${b.text}}` });
+      i += 2;
+    } else {
+      out.push(a);
+    }
+  }
+  return out;
+}
+
 function tokenizeLine(line: string): Tok[] {
   const toks: Tok[] = [];
   // Pattern order matters — comentarios primero, luego strings, números, ids.
@@ -101,7 +147,7 @@ function tokenizeLine(line: string): Tok[] {
     if (m[1] !== undefined) {
       toks.push({ kind: "comment", text: m[1] });
     } else if (m[2] !== undefined) {
-      toks.push({ kind: "string", text: m[2] });
+      pushString(toks, m[2]);
     } else if (m[3] !== undefined) {
       toks.push({ kind: "number", text: m[3] });
     } else if (m[4] !== undefined) {
@@ -116,7 +162,7 @@ function tokenizeLine(line: string): Tok[] {
       toks.push({ kind: "punct", text: m[6] });
     }
   }
-  return toks;
+  return mergeBraceVars(toks);
 }
 
 function classFor(kind: string): string {
@@ -133,6 +179,8 @@ function classFor(kind: string): string {
       return "vbe-tk-literal";
     case "builtin":
       return "vbe-tk-builtin";
+    case "var":
+      return "vbe-tk-var";
     default:
       return "";
   }
@@ -285,29 +333,34 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
   };
 
   useEffect(() => {
-    // CSS inline para el highlighting + dark-mode-friendly. Usa CSS vars del
-    // tema cuando están disponibles, sino cae a colores razonables.
+    // CSS del highlighting 100% theme-driven: cada token usa los tokens de color
+    // (--c-*) del tema activo, sin hex sueltos. Así el resaltado acompaña a
+    // cualquier tema (claro/oscuro) y cumple el spec de "cero colores hardcodeados".
     if (typeof document === "undefined") return;
     const id = "vbe-syntax-style";
     if (document.getElementById(id)) return;
     const style = document.createElement("style");
     style.id = id;
     style.textContent = `
-      .vbe-root { display: grid; grid-template-columns: 40px 1fr; height: 100%; min-height: 0; position: relative; background: var(--c-surface, #0b1220); color: var(--c-text, #e2e8f0); font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace); font-size: 14px; line-height: 1.45; }
-      .vbe-gutter { overflow: hidden; text-align: right; padding: 8px 6px 8px 0; color: var(--c-muted, #64748b); user-select: none; border-right: 1px solid var(--c-border, #1e293b); }
+      .vbe-root { display: grid; grid-template-columns: 40px 1fr; height: 100%; min-height: 0; position: relative; background: var(--c-surface); color: var(--c-text); font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace); font-size: 14px; line-height: 1.45; }
+      .vbe-gutter { overflow: hidden; text-align: right; padding: 8px 6px 8px 0; color: var(--c-text-3); user-select: none; border-right: 1px solid var(--c-border); }
       .vbe-gutter > div { padding-right: 4px; }
       .vbe-pane { position: relative; overflow: hidden; }
       .vbe-pre, .vbe-ta { position: absolute; inset: 0; margin: 0; padding: 8px 12px; white-space: pre; overflow: auto; font: inherit; line-height: inherit; }
       .vbe-pre { color: inherit; pointer-events: none; }
-      .vbe-ta { color: transparent; background: transparent; caret-color: var(--c-text, #e2e8f0); border: 0; outline: 0; resize: none; }
+      .vbe-ta { color: transparent; background: transparent; caret-color: var(--c-text); border: 0; outline: 0; resize: none; }
       .vbe-line { min-height: 1.45em; }
-      .vbe-line-error { background: color-mix(in srgb, #ef4444 22%, transparent); }
-      .vbe-tk-keyword { color: #60a5fa; font-weight: 600; }
-      .vbe-tk-string { color: #34d399; }
-      .vbe-tk-number { color: #f59e0b; }
-      .vbe-tk-comment { color: #94a3b8; font-style: italic; }
-      .vbe-tk-builtin { color: #a78bfa; }
-      .vbe-tk-literal { color: #22d3ee; }
+      .vbe-line-error { background: color-mix(in srgb, var(--c-danger) 18%, transparent); }
+      .vbe-tk-keyword { color: var(--c-info); font-weight: 600; }
+      .vbe-tk-string { color: var(--c-warning); }
+      .vbe-tk-number { color: var(--c-success); }
+      .vbe-tk-comment { color: var(--c-text-3); font-style: italic; }
+      .vbe-tk-builtin { color: var(--c-accent); font-weight: 600; }
+      .vbe-tk-literal { color: var(--c-info); }
+      /* Chip de variable interpolada: sin padding horizontal para no romper la
+         alineación monoespaciada con el textarea transparente (el caret no se
+         corre). El fondo resalta el glifo, el color lo distingue del string. */
+      .vbe-tk-var { color: var(--c-danger); background: color-mix(in srgb, var(--c-danger) 12%, transparent); border-radius: 3px; }
     `;
     document.head.appendChild(style);
   }, []);

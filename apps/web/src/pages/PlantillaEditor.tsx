@@ -355,13 +355,16 @@ export default function PlantillaEditor() {
               {isNew ? "Nueva plantilla" : metadata.nombre || "Plantilla"}
             </span>
           </nav>
-          <input
-            aria-label="Nombre de la plantilla"
-            value={metadata.nombre}
-            onChange={(e) => setMetadata((m) => ({ ...m, nombre: e.target.value }))}
-            placeholder="Nombre de la plantilla…"
-            className="w-48 rounded-md border border-transparent bg-transparent px-2 py-1 text-sm font-medium text-[var(--c-text)] hover:border-[var(--c-border)] focus:border-[var(--c-primary)] focus:outline-none"
-          />
+          <div className="vb-name">
+            <span className="vb-name-eyebrow">VBLang · Plantilla</span>
+            <input
+              aria-label="Nombre de la plantilla"
+              value={metadata.nombre}
+              onChange={(e) => setMetadata((m) => ({ ...m, nombre: e.target.value }))}
+              placeholder="Nombre de la plantilla…"
+              className="vb-name-title"
+            />
+          </div>
           <div
             role="tablist"
             aria-label="Modo del editor"
@@ -524,10 +527,10 @@ export default function PlantillaEditor() {
           role="status"
           aria-live="polite"
           data-testid="vblang-status-footer"
-          className="flex items-center gap-2 border-t border-[var(--c-border)] bg-[var(--c-surface-2)] px-3 py-1 text-xs text-[var(--c-text-3)]"
+          className="vb-console"
         >
           {numErrores === 0 ? (
-            <Pill tone="ok">Sin errores</Pill>
+            <Pill tone="ok">Sin errores ✓</Pill>
           ) : (
             <Pill tone="danger">
               {numErrores} {numErrores === 1 ? "error" : "errores"}
@@ -537,6 +540,20 @@ export default function PlantillaEditor() {
           <span>
             {numLineas} {numLineas === 1 ? "línea" : "líneas"}
           </span>
+          {numErrores === 0 && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>listo para validar</span>
+            </>
+          )}
+          <span className="vb-console__spacer" aria-hidden="true" />
+          <button
+            type="button"
+            className="vb-console__link"
+            onClick={() => setReferenciaOpen(true)}
+          >
+            Ver referencia VBLang →
+          </button>
         </div>
         <footer className="h-48 border-t border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)]">
           <ErrorPanel

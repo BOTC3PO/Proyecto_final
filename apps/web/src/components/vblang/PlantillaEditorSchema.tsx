@@ -18,12 +18,13 @@ import {
   useRef,
   useState,
 } from "react";
-import type { Plantilla, TipoPregunta } from "@vb/vblang";
+import type { Expr, Plantilla, TipoPregunta, VariableDecl } from "@vb/vblang";
 import {
   ALL_QUESTION_TYPES,
   QUESTION_TYPE_SCHEMAS,
 } from "@vb/vblang";
 import type { Field, ListField, TextField } from "@vb/vblang";
+import { exprToText, getBlock } from "./plantillaAst";
 import GeneradorPicker from "./GeneradorPicker";
 import { listGeneradores } from "../../vblang/listGeneradores";
 import { AccessibleList } from "./AccessibleList";
@@ -516,6 +517,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 export default function PlantillaEditorSchema({
   plantilla,
   onChange,
+  valoresActuales,
   tieneErrores,
   uploadImage = uploadPng,
 }: Props) {
@@ -523,6 +525,7 @@ export default function PlantillaEditorSchema({
   const tipo: TipoPregunta = plantilla.tipoInferido;
   const schema = QUESTION_TYPE_SCHEMAS[tipo];
   const extras = unhandledBlocks(plantilla);
+  const variables = getBlock(plantilla, "variables")?.declaraciones ?? [];
   const generadorBloque = plantilla.bloques.find((b) => b.kind === "generador");
   const generadorId =
     generadorBloque?.kind === "generador" ? generadorBloque.id : "";
@@ -648,6 +651,12 @@ export default function PlantillaEditorSchema({
               onChange={onChange}
             />
           ))}
+        </Section>
+      )}
+
+      {!baseGenerador && variables.length > 0 && (
+        <Section title="Variables detectadas">
+          <VariablesCards variables={variables} valores={valoresActuales} />
         </Section>
       )}
 
@@ -805,6 +814,99 @@ function PuntajePistaField({
           return true;
         }}
       />
+    </div>
+  );
+}
+
+/* ---------------- variables como cards (solo lectura) ---------------- */
+
+type VarTone = "success" | "info" | "warning" | "accent";
+
+/**
+ * Infiere la "pill de tipo" de una variable a partir de su expresión: random →
+ * Aleatorio entero, random_float → Aleatorio decimal, uno_de/choice → Lista,
+ * etc. Cada tono mapea a un token de color del tema (el punto de color).
+ */
+function inferTipoVar(expr: Expr): { label: string; tone: VarTone } {
+  if (expr.kind === "fun_call") {
+    switch (expr.name) {
+      case "random":
+        return { label: "Aleatorio entero", tone: "success" };
+      case "random_float":
+        return { label: "Aleatorio decimal", tone: "success" };
+      case "uno_de":
+      case "choice":
+        return { label: "Lista", tone: "info" };
+      case "rango":
+      case "range":
+        return { label: "Rango", tone: "info" };
+      default:
+        return { label: "Función", tone: "accent" };
+    }
+  }
+  if (expr.kind === "num") return { label: "Número", tone: "warning" };
+  if (expr.kind === "str") return { label: "Texto", tone: "warning" };
+  if (expr.kind === "array") return { label: "Lista", tone: "info" };
+  return { label: "Expresión", tone: "accent" };
+}
+
+/** Formatea el valor actual del preview ("ahora: X") para mostrarlo en la card. */
+function formatValor(v: unknown): string {
+  if (v === null || v === undefined) return "—";
+  if (typeof v === "string") return v;
+  if (typeof v === "number" || typeof v === "boolean") return String(v);
+  if (Array.isArray(v)) return `[${v.map((x) => String(x)).join(", ")}]`;
+  return String(v);
+}
+
+/**
+ * Variables del bloque `variables:` como cards (delta #1 del rediseño): grip
+ * decorativo, nombre con prefijo `{}`, pill de tipo con punto de color, la
+ * definición monoespaciada y el valor del último preview ("ahora: X").
+ *
+ * Es presentacional: las variables se editan desde el modo Código (la edición
+ * estructurada no entra en este paso visual). Por eso no hay inputs muertos.
+ */
+function VariablesCards({
+  variables,
+  valores,
+}: {
+  variables: VariableDecl[];
+  valores?: Record<string, unknown>;
+}) {
+  return (
+    <div className="flex flex-col gap-2">
+      <ul className="vb-var-cards" aria-label="Variables de la plantilla">
+        {variables.map((d) => {
+          const t = inferTipoVar(d.expr);
+          const tieneValor = valores ? d.nombre in valores : false;
+          return (
+            <li className="vb-var-card" key={d.nombre}>
+              <span className="vb-var-card__grip" aria-hidden="true">
+                ⠿
+              </span>
+              <span className="vb-var-card__name">{`{${d.nombre}}`}</span>
+              <span className="vb-var-card__pill">
+                <span
+                  className="vb-var-card__dot"
+                  style={{ background: `var(--c-${t.tone})` }}
+                  aria-hidden="true"
+                />
+                {t.label}
+              </span>
+              <code className="vb-var-card__def">{exprToText(d.expr)}</code>
+              {tieneValor && (
+                <span className="vb-var-card__now">
+                  ahora: <strong>{formatValor(valores![d.nombre])}</strong>
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+      <p className="text-[10px] text-[var(--c-hint)]">
+        Las variables se editan desde el modo Código.
+      </p>
     </div>
   );
 }
