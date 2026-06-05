@@ -190,9 +190,38 @@
   flex-shrink: 0;
 }
 
+/* Barra de escala (abajo a la derecha del lienzo) */
+.canvasScale {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+  padding: 4px 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--c-muted);
+  pointer-events: none;
+}
+.scaleBar {
+  display: inline-block;
+  height: 6px;
+  background: linear-gradient(90deg, var(--c-text) 50%, transparent 50%) 0 / 12px 100% repeat-x;
+  border: 1px solid var(--c-text);
+}
+
 .field {
   display: grid;
   gap: 4px;
+}
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 .fieldLabel {
   font-size: 11.5px;

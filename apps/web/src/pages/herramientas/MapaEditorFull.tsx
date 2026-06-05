@@ -47,11 +47,36 @@ const PALETTE = [
   "#1a1a1a", "#c47a35", "#5a8ec2", "#2f8c4f", "#9a2a2a", "#7a3ec8", "#d6b673",
 ];
 
+/**
+ * Nombres legibles para cada color de la paleta (el prototipo etiqueta los
+ * chips «Negro», «Naranja», … en vez del hex). Evita jerga técnica en los
+ * `aria-label` de los swatches (a11y + spec: sin ids/hex internos en la UI).
+ */
+const COLOR_NOMBRES: Record<string, string> = {
+  "#1a1a1a": "Negro",
+  "#c47a35": "Naranja",
+  "#5a8ec2": "Azul",
+  "#2f8c4f": "Verde",
+  "#9a2a2a": "Rojo",
+  "#7a3ec8": "Violeta",
+  "#d6b673": "Arena",
+};
+
 type ViewBox = { x: number; y: number; w: number; h: number };
 
 /** Id corto para una anotación nueva. */
 function genAnnoId(): string {
   return `a-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+/** Redondea a un valor "lindo" (1/2/5 × 10ⁿ) ≤ x, para la barra de escala. */
+function niceNumber(x: number): number {
+  if (x <= 0) return 0;
+  const exp = Math.floor(Math.log10(x));
+  const base = 10 ** exp;
+  const frac = x / base;
+  const niceFrac = frac >= 5 ? 5 : frac >= 2 ? 2 : 1;
+  return niceFrac * base;
 }
 
 // Distancia great-circle en km (haversine) para la herramienta «Medir».
@@ -91,6 +116,8 @@ export default function MapaEditorFull() {
   const [selectedAnnoId, setSelectedAnnoId] = useState<string | null>(null);
   const [inspectorTab, setInspectorTab] = useState<"datos" | "estilo" | "avanzado">("datos");
   const [cursorCoords, setCursorCoords] = useState<{ lat: number; lon: number } | null>(null);
+  // Barra de escala: km que representa `px` píxeles en el encuadre actual.
+  const [scale, setScale] = useState<{ km: number; px: number } | null>(null);
   const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [announce, setAnnounce] = useState("");
 
@@ -315,6 +342,43 @@ export default function MapaEditorFull() {
   }, []);
 
   const resetZoom = useCallback(() => setViewBox({ x: 0, y: 0, w: MAP_WIDTH, h: MAP_HEIGHT }), []);
+
+  // ─── Barra de escala (km reales según proyección + encuadre) ─────
+  // Mide los km que abarca el ancho del lienzo en el centro vertical del
+  // encuadre y deriva una barra de ~110px con un valor redondeado "lindo".
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg || !inverseProject) {
+      setScale(null);
+      return;
+    }
+    const compute = () => {
+      const rect = svg.getBoundingClientRect();
+      if (!rect.width) return;
+      const midY = viewBox.y + viewBox.h / 2;
+      const a = inverseProject(viewBox.x, midY);
+      const b = inverseProject(viewBox.x + viewBox.w, midY);
+      if (!a || !b) {
+        setScale(null);
+        return;
+      }
+      const totalKm = haversineKm([a[0], a[1]], [b[0], b[1]]);
+      if (!Number.isFinite(totalKm) || totalKm <= 0) {
+        setScale(null);
+        return;
+      }
+      const kmPerPx = totalKm / rect.width;
+      const km = niceNumber(kmPerPx * 110);
+      if (km <= 0) {
+        setScale(null);
+        return;
+      }
+      setScale({ km, px: km / kmPerPx });
+    };
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
+  }, [viewBox, inverseProject]);
 
   const handleWheel = useCallback((e: WheelEvent<SVGSVGElement>) => {
     const svg = clientToSvg(e.clientX, e.clientY);
@@ -758,8 +822,19 @@ export default function MapaEditorFull() {
               onPointerUp={handlePointerUp}
               onPointerLeave={handlePointerUp}
             >
-              {/* fondo */}
+              {/* fondo + cuadrícula de atlas (decorativa, theme-driven) */}
+              <defs>
+                <pattern id="map-grid" width={40} height={40} patternUnits="userSpaceOnUse">
+                  <path
+                    d="M40 0H0V40"
+                    fill="none"
+                    stroke="color-mix(in srgb, var(--c-text) 7%, transparent)"
+                    strokeWidth={1}
+                  />
+                </pattern>
+              </defs>
               <rect x={0} y={0} width={MAP_WIDTH} height={MAP_HEIGHT} style={{ fill: "var(--c-bg)" }} />
+              <rect x={0} y={0} width={MAP_WIDTH} height={MAP_HEIGHT} fill="url(#map-grid)" aria-hidden="true" />
 
               {/* países */}
               <g style={{ color: "var(--c-muted)" }}>
@@ -798,7 +873,7 @@ export default function MapaEditorFull() {
                 <polyline
                   points={pointsToPolyline(pendingArea, project)}
                   fill="none"
-                  stroke="#3b82f6"
+                  stroke="var(--c-primary)"
                   strokeWidth={1.5}
                   strokeDasharray="4 2"
                   opacity={0.8}
@@ -806,11 +881,11 @@ export default function MapaEditorFull() {
               )}
               {/* preview de origen de ruta */}
               {project && pendingRuta && (
-                <circle cx={project(pendingRuta[0], pendingRuta[1])[0]} cy={project(pendingRuta[0], pendingRuta[1])[1]} r={5} fill="#f59e0b" stroke="white" strokeWidth={1.5} />
+                <circle cx={project(pendingRuta[0], pendingRuta[1])[0]} cy={project(pendingRuta[0], pendingRuta[1])[1]} r={5} fill="var(--c-warning)" stroke="var(--c-surface)" strokeWidth={1.5} />
               )}
               {/* preview de origen de medición */}
               {project && pendingMedir && (
-                <circle cx={project(pendingMedir[0], pendingMedir[1])[0]} cy={project(pendingMedir[0], pendingMedir[1])[1]} r={5} fill="#16a34a" stroke="white" strokeWidth={1.5} />
+                <circle cx={project(pendingMedir[0], pendingMedir[1])[0]} cy={project(pendingMedir[0], pendingMedir[1])[1]} r={5} fill="var(--c-success)" stroke="var(--c-surface)" strokeWidth={1.5} />
               )}
             </svg>
           )}
@@ -854,6 +929,14 @@ export default function MapaEditorFull() {
                 : "lat — · lon —"}
             </div>
           </div>
+
+          {/* Barra de escala (decorativa; la lectura precisa vive en el readout) */}
+          {scale && (
+            <div className={styles.canvasScale} aria-hidden="true">
+              <span className={styles.scaleBar} style={{ width: `${Math.round(scale.px)}px` }} />
+              {scale.km.toLocaleString("es-AR")} km
+            </div>
+          )}
 
           {/* Leyenda automática (capas visibles con anotaciones) */}
           {capas.some((c) => c.visible && (annoCountByCapa.get(c.id) ?? 0) > 0) && (
@@ -902,22 +985,57 @@ export default function MapaEditorFull() {
                 {inspectorTab === "datos" && (
                   <div className="space-y-3">
                     <div className={styles.field}>
-                      <label className={styles.fieldLabel} htmlFor="anno-etiqueta">Etiqueta</label>
+                      <label className={styles.fieldLabel} htmlFor="anno-etiqueta">Nombre</label>
                       <input
                         id="anno-etiqueta"
                         className={styles.fieldInput}
                         value={"etiqueta" in selectedAnno ? (selectedAnno.etiqueta ?? "") : ""}
-                        placeholder="Etiqueta de la anotación"
+                        placeholder="Nombre de la anotación"
                         onChange={(e) => updateSelectedAnno({ etiqueta: e.target.value })}
                       />
                     </div>
-                    <p className="text-xs text-[var(--c-muted)]">
-                      {selectedAnno.tipo === "marcador"
-                        ? `Posición: ${selectedAnno.lat.toFixed(2)}°, ${selectedAnno.lon.toFixed(2)}°`
-                        : selectedAnno.tipo === "zona"
-                        ? `${selectedAnno.puntos.length} puntos`
-                        : `De ${selectedAnno.desde[1].toFixed(1)}°,${selectedAnno.desde[0].toFixed(1)}° a ${selectedAnno.hasta[1].toFixed(1)}°,${selectedAnno.hasta[0].toFixed(1)}°`}
-                    </p>
+                    {selectedAnno.tipo === "marcador" ? (
+                      // Lat/lon editables (commit al salir del campo, para no pelear
+                      // con valores parciales como "-" o "13." mientras se tipea).
+                      <div className={styles.fieldRow}>
+                        <div className={styles.field}>
+                          <label className={styles.fieldLabel} htmlFor="anno-lat">Latitud</label>
+                          <input
+                            id="anno-lat"
+                            type="number"
+                            step="0.0001"
+                            className={styles.fieldInput}
+                            key={`lat-${selectedAnno.id}`}
+                            defaultValue={selectedAnno.lat}
+                            onBlur={(e) => {
+                              const n = parseFloat(e.target.value);
+                              if (Number.isFinite(n)) updateSelectedAnno({ lat: n });
+                            }}
+                          />
+                        </div>
+                        <div className={styles.field}>
+                          <label className={styles.fieldLabel} htmlFor="anno-lon">Longitud</label>
+                          <input
+                            id="anno-lon"
+                            type="number"
+                            step="0.0001"
+                            className={styles.fieldInput}
+                            key={`lon-${selectedAnno.id}`}
+                            defaultValue={selectedAnno.lon}
+                            onBlur={(e) => {
+                              const n = parseFloat(e.target.value);
+                              if (Number.isFinite(n)) updateSelectedAnno({ lon: n });
+                            }}
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <p className="text-xs text-[var(--c-muted)]">
+                        {selectedAnno.tipo === "zona"
+                          ? `${selectedAnno.puntos.length} puntos`
+                          : `De ${selectedAnno.desde[1].toFixed(1)}°,${selectedAnno.desde[0].toFixed(1)}° a ${selectedAnno.hasta[1].toFixed(1)}°,${selectedAnno.hasta[0].toFixed(1)}°`}
+                      </p>
+                    )}
                   </div>
                 )}
                 {inspectorTab === "estilo" && (
@@ -932,7 +1050,7 @@ export default function MapaEditorFull() {
                             className={styles.swatch}
                             style={{ background: c }}
                             aria-pressed={selectedAnno.color === c}
-                            aria-label={`Color ${c}`}
+                            aria-label={`Color ${COLOR_NOMBRES[c] ?? c}`}
                             onClick={() => updateSelectedAnno({ color: c })}
                           />
                         ))}
@@ -997,7 +1115,7 @@ export default function MapaEditorFull() {
               )}
               {config.anotaciones.map((a) => {
                 const capa = capas.find((c) => c.id === a.capaId);
-                const color = a.color ?? capa?.color ?? "#1a1a1a";
+                const color = a.color ?? capa?.color ?? "var(--c-text)";
                 return (
                   <div
                     key={a.id}
