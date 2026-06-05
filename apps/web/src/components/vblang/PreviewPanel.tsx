@@ -99,7 +99,7 @@ function PreviewCard({ item }: { item: PreviewItem }) {
         </div>
       ) : item.question ? (
         <>
-          <p className="text-[var(--c-text)] leading-relaxed">
+          <p className="font-serif text-[var(--c-text)] leading-relaxed">
             {item.question.prompt}
           </p>
           <InteractiveAnswer question={item.question} />
