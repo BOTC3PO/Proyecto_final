@@ -1,8 +1,16 @@
+import { useId } from "react"
 import type { FlowBlock } from "../types"
 import { FlowBlockRenderer } from "../renderers/FlowBlockRenderer"
 
 const inputCls =
-  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400"
+  "w-full text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
+const labelCls = "text-xs font-medium text-[var(--c-muted)] block mb-1"
+const rowInputCls =
+  "border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1 py-0.5 outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)] text-xs"
+const addBtnCls =
+  "text-xs px-1.5 py-0.5 border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-hover)] rounded disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+const removeBtnCls =
+  "text-[var(--c-danger)] hover:opacity-80 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
 
 export function FlowBlockEditor({
   block,
@@ -11,6 +19,8 @@ export function FlowBlockEditor({
   block: FlowBlock
   onUpdate: (patch: Record<string, unknown>) => void
 }) {
+  const titleId = useId()
+
   const updateNode = (id: string, patch: Partial<FlowBlock["nodes"][number]>) => {
     const nodes = block.nodes.map((n) => (n.id === id ? { ...n, ...patch } : n))
     onUpdate({ nodes })
@@ -54,8 +64,9 @@ export function FlowBlockEditor({
   return (
     <div className="space-y-2">
       <div>
-        <label className="text-xs font-medium text-gray-600 block mb-1">Título</label>
+        <label htmlFor={titleId} className={labelCls}>Título</label>
         <input
+          id={titleId}
           className={inputCls}
           value={block.title ?? ""}
           onChange={(e) => onUpdate({ title: e.target.value })}
@@ -64,24 +75,23 @@ export function FlowBlockEditor({
 
       <div>
         <div className="flex items-center justify-between mb-1">
-          <label className="text-xs font-medium text-gray-600">Nodos</label>
-          <button
-            onClick={addNode}
-            className="text-xs px-1.5 py-0.5 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded"
-          >
+          <span className="text-xs font-medium text-[var(--c-muted)]">Nodos</span>
+          <button type="button" onClick={addNode} className={addBtnCls}>
             + Nodo
           </button>
         </div>
         <div className="space-y-1 max-h-40 overflow-y-auto">
-          {block.nodes.map((node) => (
+          {block.nodes.map((node, i) => (
             <div key={node.id} className="flex items-center gap-1 text-xs">
               <input
-                className="flex-1 border border-slate-200 rounded px-1 py-0.5 focus:outline-none"
+                className={`flex-1 ${rowInputCls}`}
+                aria-label={`Etiqueta del nodo ${i + 1}`}
                 value={node.label}
                 onChange={(e) => updateNode(node.id, { label: e.target.value })}
               />
               <select
-                className="border border-slate-200 rounded px-1 py-0.5 focus:outline-none text-xs"
+                className={rowInputCls}
+                aria-label={`Forma del nodo ${i + 1}`}
                 value={node.shape ?? "rect"}
                 onChange={(e) =>
                   updateNode(node.id, {
@@ -89,13 +99,15 @@ export function FlowBlockEditor({
                   })
                 }
               >
-                <option value="rect">■</option>
-                <option value="diamond">◆</option>
-                <option value="circle">●</option>
+                <option value="rect">■ Rectángulo</option>
+                <option value="diamond">◆ Rombo</option>
+                <option value="circle">● Círculo</option>
               </select>
               <button
+                type="button"
                 onClick={() => removeNode(node.id)}
-                className="text-red-400 hover:text-red-600 px-1"
+                className={removeBtnCls}
+                aria-label={`Eliminar nodo ${i + 1}`}
               >
                 ✕
               </button>
@@ -106,20 +118,22 @@ export function FlowBlockEditor({
 
       <div>
         <div className="flex items-center justify-between mb-1">
-          <label className="text-xs font-medium text-gray-600">Conexiones</label>
+          <span className="text-xs font-medium text-[var(--c-muted)]">Conexiones</span>
           <button
+            type="button"
             onClick={addEdge}
-            className="text-xs px-1.5 py-0.5 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded"
+            className={addBtnCls}
             disabled={block.nodes.length < 2}
           >
             + Conexión
           </button>
         </div>
         <div className="space-y-1 max-h-32 overflow-y-auto">
-          {block.edges.map((edge) => (
+          {block.edges.map((edge, i) => (
             <div key={edge.id} className="flex items-center gap-1 text-xs">
               <select
-                className="flex-1 border border-slate-200 rounded px-1 py-0.5 focus:outline-none text-xs"
+                className={`flex-1 ${rowInputCls}`}
+                aria-label={`Origen de la conexión ${i + 1}`}
                 value={edge.fromId}
                 onChange={(e) => updateEdge(edge.id, { fromId: e.target.value })}
               >
@@ -129,9 +143,10 @@ export function FlowBlockEditor({
                   </option>
                 ))}
               </select>
-              <span className="text-gray-400">→</span>
+              <span className="text-[var(--c-text-3)]" aria-hidden="true">→</span>
               <select
-                className="flex-1 border border-slate-200 rounded px-1 py-0.5 focus:outline-none text-xs"
+                className={`flex-1 ${rowInputCls}`}
+                aria-label={`Destino de la conexión ${i + 1}`}
                 value={edge.toId}
                 onChange={(e) => updateEdge(edge.id, { toId: e.target.value })}
               >
@@ -142,8 +157,10 @@ export function FlowBlockEditor({
                 ))}
               </select>
               <button
+                type="button"
                 onClick={() => removeEdge(edge.id)}
-                className="text-red-400 hover:text-red-600 px-1"
+                className={removeBtnCls}
+                aria-label={`Eliminar conexión ${i + 1}`}
               >
                 ✕
               </button>
@@ -152,7 +169,7 @@ export function FlowBlockEditor({
         </div>
       </div>
 
-      <div className="rounded-lg border border-slate-100 bg-slate-50 p-2">
+      <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface-3)] p-2">
         <FlowBlockRenderer block={block} />
       </div>
     </div>
