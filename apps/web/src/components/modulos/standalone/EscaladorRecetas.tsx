@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { type RecetaConfig } from "./types";
 
 // ── Alumno (readonly) ────────────────────────────────────────────────
@@ -22,21 +22,21 @@ function EscaladorAlumno({ config }: AlumnoProps) {
     <div className="space-y-4">
       {/* Header */}
       <div>
-        <h3 className="text-xl font-bold text-slate-800">{config.titulo}</h3>
+        <h3 className="text-xl font-bold text-[var(--c-text)]">{config.titulo}</h3>
         {config.descripcion && (
-          <p className="text-sm text-slate-500 mt-1">{config.descripcion}</p>
+          <p className="text-sm text-[var(--c-muted)] mt-1">{config.descripcion}</p>
         )}
         {config.porcionesBase > 0 && (
-          <span className="inline-block mt-2 text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full">
+          <span className="inline-block mt-2 text-xs bg-[var(--c-surface-3)] text-[var(--c-muted)] px-2.5 py-1 rounded-full">
             Para {config.porcionesBase} porciones
           </span>
         )}
       </div>
 
       {/* Multiplicador */}
-      <div className="bg-indigo-50 rounded-xl p-4 space-y-3">
+      <div className="bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] rounded-xl p-4 space-y-3">
         <div className="text-center">
-          <span className="text-5xl font-black text-indigo-700">×{multiplier}</span>
+          <span className="text-5xl font-black text-[var(--c-primary)]">×{multiplier}</span>
         </div>
         <input
           type="range"
@@ -44,19 +44,22 @@ function EscaladorAlumno({ config }: AlumnoProps) {
           max={20}
           step={0.5}
           value={multiplier}
+          aria-label="Multiplicador de la receta"
           onChange={(e) => setMultiplier(Number(e.target.value))}
-          className="w-full accent-indigo-600"
+          className="w-full accent-[var(--c-primary)]"
         />
         <div className="flex gap-2 justify-center">
           {[0.5, 1, 2, 4].map((v) => (
             <button
               key={v}
               type="button"
+              aria-pressed={multiplier === v}
+              aria-label={`Multiplicar por ${v}`}
               onClick={() => setMultiplier(v)}
-              className={`px-3 py-1 rounded-lg text-sm font-medium border transition-colors ${
+              className={`px-3 py-1 rounded-lg text-sm font-medium border transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
                 multiplier === v
-                  ? "bg-indigo-600 text-white border-indigo-600"
-                  : "bg-white text-indigo-700 border-indigo-200 hover:bg-indigo-100"
+                  ? "bg-[var(--c-primary)] text-[var(--c-accent-fg)] border-[var(--c-primary)]"
+                  : "bg-[var(--c-surface)] text-[var(--c-primary)] border-[color-mix(in_srgb,var(--c-primary)_30%,transparent)] hover:bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)]"
               }`}
             >
               ×{v}
@@ -64,14 +67,14 @@ function EscaladorAlumno({ config }: AlumnoProps) {
           ))}
         </div>
         {config.porcionesBase > 0 && (
-          <p className="text-center text-xs text-slate-500">= {porciones} porciones</p>
+          <p className="text-center text-xs text-[var(--c-muted)]" aria-live="polite">= {porciones} porciones</p>
         )}
       </div>
 
       {/* Ingredientes */}
       {config.ingredientes.length > 0 && (
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
+          <h4 className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)] mb-2">
             Ingredientes
           </h4>
           <div className="grid grid-cols-2 gap-2">
@@ -81,17 +84,17 @@ function EscaladorAlumno({ config }: AlumnoProps) {
               return (
                 <div
                   key={ing.id}
-                  className="bg-white border border-slate-100 rounded-lg p-3"
+                  className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg p-3"
                 >
-                  <p className="text-xs text-slate-500">{ing.nombre}</p>
+                  <p className="text-xs text-[var(--c-muted)]">{ing.nombre}</p>
                   {multiplier !== 1 && (
-                    <p className="text-xs text-slate-300 line-through">
+                    <p className="text-xs text-[var(--c-text-3)] line-through">
                       {base} {ing.unidad}
                     </p>
                   )}
-                  <p className="text-2xl font-bold text-slate-800 leading-tight">
+                  <p className="text-2xl font-bold text-[var(--c-text)] leading-tight">
                     {scaled}
-                    <span className="text-sm text-slate-400 ml-1">{ing.unidad}</span>
+                    <span className="text-sm text-[var(--c-text-3)] ml-1">{ing.unidad}</span>
                   </p>
                 </div>
               );
@@ -106,19 +109,20 @@ function EscaladorAlumno({ config }: AlumnoProps) {
           <button
             type="button"
             onClick={() => setPasosOpen((o) => !o)}
-            className="flex items-center justify-between w-full text-left text-sm font-semibold text-slate-700 py-2 border-b border-slate-100"
+            aria-expanded={pasosOpen}
+            className="flex items-center justify-between w-full text-left text-sm font-semibold text-[var(--c-text)] py-2 border-b border-[var(--c-border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
           >
             <span>Preparación ({config.pasos.length} pasos)</span>
-            <span className="text-slate-400 text-xs">{pasosOpen ? "▲" : "▼"}</span>
+            <span className="text-[var(--c-text-3)] text-xs" aria-hidden="true">{pasosOpen ? "▲" : "▼"}</span>
           </button>
           {pasosOpen && (
             <ol className="mt-3 space-y-2">
               {config.pasos.map((paso, i) => (
                 <li key={i} className="flex gap-3 items-start">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[color-mix(in_srgb,var(--c-primary)_14%,transparent)] text-[var(--c-primary)] text-xs font-bold flex items-center justify-center">
                     {i + 1}
                   </span>
-                  <span className="text-sm text-slate-700 pt-0.5">{paso}</span>
+                  <span className="text-sm text-[var(--c-text)] pt-0.5">{paso}</span>
                 </li>
               ))}
             </ol>
@@ -151,8 +155,14 @@ function emptyConfig(): RecetaConfig {
   };
 }
 
+const INPUT_CLS =
+  "w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]";
+
 function EscaladorEditor({ config, onChange }: EditorProps) {
   const cfg = config ?? emptyConfig();
+  const tituloId = useId();
+  const descId = useId();
+  const porcionesId = useId();
 
   const update = (partial: Partial<RecetaConfig>) => onChange({ ...cfg, ...partial });
 
@@ -182,29 +192,32 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
     <div className="space-y-4">
       <div className="space-y-2">
         <div>
-          <label className="block text-xs font-medium text-slate-600 mb-1">Título</label>
+          <label htmlFor={tituloId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">Título</label>
           <input
-            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            id={tituloId}
+            className={INPUT_CLS}
             value={cfg.titulo}
             placeholder="Nombre de la receta"
             onChange={(e) => update({ titulo: e.target.value })}
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-slate-600 mb-1">Descripción (opcional)</label>
+          <label htmlFor={descId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">Descripción (opcional)</label>
           <input
-            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            id={descId}
+            className={INPUT_CLS}
             value={cfg.descripcion ?? ""}
             placeholder="Descripción breve"
             onChange={(e) => update({ descripcion: e.target.value })}
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-slate-600 mb-1">Porciones base</label>
+          <label htmlFor={porcionesId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">Porciones base</label>
           <input
+            id={porcionesId}
             type="number"
             min={1}
-            className="w-32 rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className={`${INPUT_CLS} w-32`}
             value={cfg.porcionesBase}
             onChange={(e) => update({ porcionesBase: Number(e.target.value) })}
           />
@@ -213,20 +226,21 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
 
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Ingredientes</span>
+          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]">Ingredientes</span>
           <button
             type="button"
-            className="text-xs text-indigo-600 hover:underline"
+            className="text-xs text-[var(--c-primary)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm px-1"
             onClick={addIngrediente}
           >
             + Agregar
           </button>
         </div>
         <div className="space-y-2">
-          {cfg.ingredientes.map((ing) => (
+          {cfg.ingredientes.map((ing, idx) => (
             <div key={ing.id} className="flex gap-2 items-center">
               <input
-                className="flex-1 rounded-md border border-slate-300 px-2 py-1.5 text-sm"
+                className={`${INPUT_CLS} flex-1`}
+                aria-label={`Nombre del ingrediente ${idx + 1}`}
                 placeholder="Nombre"
                 value={ing.nombre}
                 onChange={(e) => updateIngrediente(ing.id, { nombre: e.target.value })}
@@ -235,20 +249,23 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
                 type="number"
                 min={0}
                 step={0.01}
-                className="w-20 rounded-md border border-slate-300 px-2 py-1.5 text-sm"
+                className={`${INPUT_CLS} w-20`}
+                aria-label={`Cantidad del ingrediente ${idx + 1}`}
                 placeholder="Cant."
                 value={ing.cantidadBase}
                 onChange={(e) => updateIngrediente(ing.id, { cantidadBase: Number(e.target.value) })}
               />
               <input
-                className="w-20 rounded-md border border-slate-300 px-2 py-1.5 text-sm"
+                className={`${INPUT_CLS} w-20`}
+                aria-label={`Unidad del ingrediente ${idx + 1}`}
                 placeholder="Unidad"
                 value={ing.unidad}
                 onChange={(e) => updateIngrediente(ing.id, { unidad: e.target.value })}
               />
               <button
                 type="button"
-                className="text-red-400 hover:text-red-600 text-xs"
+                className="text-[var(--c-danger)] hover:opacity-80 text-xs px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
+                aria-label={`Eliminar ingrediente ${ing.nombre || idx + 1}`}
                 onClick={() => removeIngrediente(ing.id)}
               >
                 ✕
@@ -256,32 +273,40 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
             </div>
           ))}
           {cfg.ingredientes.length === 0 && (
-            <p className="text-xs text-slate-400 italic">Sin ingredientes</p>
+            <p className="text-xs text-[var(--c-text-3)] italic">
+              Todavía no hay ingredientes. Usá «+ Agregar» para sumar el primero.
+            </p>
           )}
         </div>
       </div>
 
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Pasos</span>
-          <button type="button" className="text-xs text-indigo-600 hover:underline" onClick={addPaso}>
+          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]">Pasos</span>
+          <button
+            type="button"
+            className="text-xs text-[var(--c-primary)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm px-1"
+            onClick={addPaso}
+          >
             + Agregar
           </button>
         </div>
         <div className="space-y-2">
           {cfg.pasos.map((paso, i) => (
             <div key={i} className="flex gap-2 items-start">
-              <span className="text-xs text-slate-400 mt-2 w-5 text-right shrink-0">{i + 1}.</span>
+              <span className="text-xs text-[var(--c-text-3)] mt-2 w-5 text-right shrink-0" aria-hidden="true">{i + 1}.</span>
               <textarea
-                className="flex-1 rounded-md border border-slate-300 px-2 py-1.5 text-sm resize-none"
+                className={`${INPUT_CLS} flex-1 resize-none`}
                 rows={2}
+                aria-label={`Descripción del paso ${i + 1}`}
                 value={paso}
                 placeholder="Descripción del paso"
                 onChange={(e) => updatePaso(i, e.target.value)}
               />
               <button
                 type="button"
-                className="text-red-400 hover:text-red-600 text-xs mt-2"
+                className="text-[var(--c-danger)] hover:opacity-80 text-xs mt-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
+                aria-label={`Eliminar paso ${i + 1}`}
                 onClick={() => removePaso(i)}
               >
                 ✕
@@ -289,7 +314,9 @@ function EscaladorEditor({ config, onChange }: EditorProps) {
             </div>
           ))}
           {cfg.pasos.length === 0 && (
-            <p className="text-xs text-slate-400 italic">Sin pasos</p>
+            <p className="text-xs text-[var(--c-text-3)] italic">
+              Todavía no hay pasos. Usá «+ Agregar» para escribir el primero.
+            </p>
           )}
         </div>
       </div>

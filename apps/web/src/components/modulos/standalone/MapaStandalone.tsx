@@ -18,6 +18,14 @@ import { AnnotationLayer, pointsToPolyline } from "./AnnotationLayer";
 const MAP_WIDTH = 960;
 const MAP_HEIGHT = 520;
 
+// Colores por defecto de cada anotación = dato (no chrome): el color picker
+// arranca en estos valores cuando la anotación todavía no tiene color propio.
+const DEFAULT_ANOTACION_COLOR: Record<MapaAnotacion["tipo"], string> = {
+  marcador: "#ef4444",
+  zona: "#3b82f6",
+  flecha: "#f59e0b",
+};
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function genId() {
@@ -34,21 +42,30 @@ type EditPanelProps = {
 };
 
 function EditPanel({ anotacion, onChange, onDelete, onClose }: EditPanelProps) {
+  const tipoLabel =
+    anotacion.tipo === "marcador" ? "Marcador" : anotacion.tipo === "zona" ? "Zona" : "Flecha";
   return (
-    <div className="w-56 shrink-0 rounded-xl border border-slate-200 bg-white p-4 shadow-md space-y-3 text-sm">
+    <div
+      role="group"
+      aria-label={`Editar ${tipoLabel.toLowerCase()}`}
+      className="w-56 shrink-0 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 shadow-md space-y-3 text-sm"
+    >
       <div className="flex items-center justify-between">
-        <span className="font-semibold text-slate-700 capitalize">
-          {anotacion.tipo === "marcador" ? "Marcador" : anotacion.tipo === "zona" ? "Zona" : "Flecha"}
-        </span>
-        <button onClick={onClose} aria-label="Cerrar panel de edición" className="text-slate-400 hover:text-slate-600 text-xs">
+        <span className="font-semibold text-[var(--c-text)]">{tipoLabel}</span>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Cerrar panel de edición"
+          className="text-[var(--c-text-3)] hover:text-[var(--c-text)] text-xs px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
+        >
           <span aria-hidden="true">✕</span>
         </button>
       </div>
 
       <label className="block space-y-1">
-        <span className="text-xs text-slate-500">Etiqueta</span>
+        <span className="text-xs text-[var(--c-muted)]">Etiqueta</span>
         <input
-          className="w-full rounded border border-slate-300 px-2 py-1 text-xs focus:outline-none focus:ring-1 focus:ring-blue-400"
+          className="w-full rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
           value={"etiqueta" in anotacion ? (anotacion.etiqueta ?? "") : ""}
           onChange={(e) => {
             if (anotacion.tipo === "marcador") onChange({ ...anotacion, etiqueta: e.target.value });
@@ -59,18 +76,19 @@ function EditPanel({ anotacion, onChange, onDelete, onClose }: EditPanelProps) {
       </label>
 
       <label className="block space-y-1">
-        <span className="text-xs text-slate-500">Color</span>
+        <span className="text-xs text-[var(--c-muted)]">Color</span>
         <input
           type="color"
-          className="h-8 w-full cursor-pointer rounded border border-slate-300"
-          value={anotacion.color ?? (anotacion.tipo === "marcador" ? "#ef4444" : anotacion.tipo === "zona" ? "#3b82f6" : "#f59e0b")}
+          className="h-8 w-full cursor-pointer rounded border border-[var(--c-border)] bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+          value={anotacion.color ?? DEFAULT_ANOTACION_COLOR[anotacion.tipo]}
           onChange={(e) => onChange({ ...anotacion, color: e.target.value })}
         />
       </label>
 
       <button
+        type="button"
         onClick={onDelete}
-        className="w-full rounded border border-red-200 bg-red-50 py-1 text-xs font-medium text-red-600 hover:bg-red-100"
+        className="w-full rounded border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-danger-soft)] py-1 text-xs font-medium text-[var(--c-danger)] hover:bg-[color-mix(in_srgb,var(--c-danger)_20%,var(--c-surface))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
       >
         Eliminar
       </button>
@@ -280,7 +298,10 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
   }, [localConfig, update]);
 
   // Cursor style based on active tool
-  const svgCursor = !editable ? "default" : activeTool === "marcador" ? "crosshair" : "crosshair";
+  const svgCursor = !editable ? "default" : "crosshair";
+
+  const selectCls =
+    "rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]";
 
   return (
     <div className="flex flex-col gap-3">
@@ -294,13 +315,13 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
         <div
           role="toolbar"
           aria-label="Herramientas del mapa"
-          className="flex flex-wrap items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"
+          className="flex flex-wrap items-center gap-2 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface-3)] px-3 py-2"
         >
           {/* Modo */}
-          <label className="flex items-center gap-1.5 text-xs text-slate-600">
+          <label className="flex items-center gap-1.5 text-xs text-[var(--c-muted)]">
             Modo
             <select
-              className="rounded border border-slate-300 bg-white px-2 py-1 text-xs focus:outline-none"
+              className={selectCls}
               value={localConfig.modo}
               onChange={(e) => update({ ...localConfig, modo: e.target.value as MapaConfig["modo"] })}
             >
@@ -310,10 +331,10 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
           </label>
 
           {/* Escala */}
-          <label className="flex items-center gap-1.5 text-xs text-slate-600">
+          <label className="flex items-center gap-1.5 text-xs text-[var(--c-muted)]">
             Escala
             <select
-              className="rounded border border-slate-300 bg-white px-2 py-1 text-xs focus:outline-none"
+              className={selectCls}
               value={localConfig.escala}
               onChange={(e) => update({ ...localConfig, escala: e.target.value as MapaConfig["escala"] })}
             >
@@ -322,7 +343,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
             </select>
           </label>
 
-          <div className="h-5 w-px bg-slate-300" />
+          <div className="h-5 w-px bg-[var(--c-border)]" aria-hidden="true" />
 
           {/* Tool buttons */}
           {(["marcador", "zona", "flecha"] as ActiveTool[]).map((tool) => (
@@ -331,10 +352,10 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
               type="button"
               aria-pressed={activeTool === tool}
               aria-label={tool === "marcador" ? "Herramienta marcador" : tool === "zona" ? "Herramienta zona" : "Herramienta flecha"}
-              className={`rounded-lg border px-3 py-1 text-xs font-medium transition-colors ${
+              className={`rounded-lg border px-3 py-1 text-xs font-medium transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
                 activeTool === tool
-                  ? "border-blue-500 bg-blue-500 text-white"
-                  : "border-slate-300 bg-white text-slate-600 hover:bg-slate-100"
+                  ? "border-[var(--c-primary)] bg-[var(--c-primary)] text-[var(--c-accent-fg)]"
+                  : "border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-muted)] hover:bg-[var(--c-hover)]"
               }`}
               onClick={() => {
                 setActiveTool(tool);
@@ -349,7 +370,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
           {activeTool === "zona" && pendingZona && pendingZona.length >= 3 && (
             <button
               type="button"
-              className="rounded-lg border border-emerald-500 bg-emerald-500 px-3 py-1 text-xs font-medium text-white"
+              className="rounded-lg border border-[var(--c-success)] bg-[var(--c-success)] px-3 py-1 text-xs font-medium text-[var(--c-accent-fg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
               onClick={() => {
                 const newZona: MapaAnotacion = {
                   id: genId(),
@@ -368,13 +389,13 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
           )}
 
           {activeTool === "flecha" && pendingFlecha && (
-            <span className="text-xs text-amber-600 font-medium">Click para definir destino…</span>
+            <span className="text-xs text-[var(--c-warning)] font-medium" aria-live="polite">Click para definir destino…</span>
           )}
 
           <div className="ml-auto">
             <button
               type="button"
-              className="rounded-lg border border-red-200 bg-white px-3 py-1 text-xs font-medium text-red-500 hover:bg-red-50"
+              className="rounded-lg border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-surface)] px-3 py-1 text-xs font-medium text-[var(--c-danger)] hover:bg-[var(--c-danger-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
               onClick={clearAll}
             >
               Limpiar todo
@@ -385,11 +406,12 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
 
       {/* Map + side panel */}
       <div className="flex gap-3 items-start">
-        <div className="flex-1 min-w-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+        <div className="flex-1 min-w-0 rounded-xl overflow-hidden border border-[var(--c-border)] shadow-sm">
           {loading ? (
             <div
-              className="flex items-center justify-center bg-slate-100 text-slate-400 text-sm"
+              className="flex items-center justify-center bg-[var(--c-surface-3)] text-[var(--c-muted)] text-sm"
               style={{ width: "100%", aspectRatio: `${MAP_WIDTH}/${MAP_HEIGHT}` }}
+              role="status"
             >
               Cargando mapa…
             </div>
@@ -409,24 +431,28 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
                 Mapa {localConfig.modo === "physical" ? "físico" : "político"} con {anotacionesParaRender.length} anotaciones.
               </desc>
               {/* Ocean background */}
-              <rect width={MAP_WIDTH} height={MAP_HEIGHT} fill="#e8eef7" />
+              <rect width={MAP_WIDTH} height={MAP_HEIGHT} style={{ fill: "var(--c-bg)" }} />
 
               {/* Countries */}
-              {pathGenerator && features.map((feature, idx) => {
-                const name = feature.properties?.NAME as string | undefined;
-                const isHovered = hoveredCountry === name;
-                return (
-                  <path
-                    key={idx}
-                    d={pathGenerator(feature)}
-                    fill={isHovered ? "#fde68a" : "#d1d5db"}
-                    stroke="#475569"
-                    strokeWidth={0.4}
-                    onMouseEnter={() => setHoveredCountry(name ?? null)}
-                    onMouseLeave={() => setHoveredCountry(null)}
-                  />
-                );
-              })}
+              <g style={{ color: "var(--c-muted)" }}>
+                {pathGenerator && features.map((feature, idx) => {
+                  const name = feature.properties?.NAME as string | undefined;
+                  const isHovered = hoveredCountry === name;
+                  return (
+                    <path
+                      key={idx}
+                      d={pathGenerator(feature)}
+                      fill="currentColor"
+                      fillOpacity={isHovered ? 0.55 : 0.28}
+                      stroke="currentColor"
+                      strokeOpacity={0.6}
+                      strokeWidth={0.4}
+                      onMouseEnter={() => setHoveredCountry(name ?? null)}
+                      onMouseLeave={() => setHoveredCountry(null)}
+                    />
+                  );
+                })}
+              </g>
 
               {/* Country name tooltip */}
               {hoveredCountry && (
@@ -434,8 +460,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
                   x={10}
                   y={MAP_HEIGHT - 10}
                   fontSize={12}
-                  fill="#1e293b"
-                  stroke="white"
+                  style={{ fill: "var(--c-text)", stroke: "var(--c-surface)" }}
                   strokeWidth={3}
                   paintOrder="stroke"
                   fontWeight="600"
@@ -461,7 +486,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
                 <polyline
                   points={pointsToPolyline(pendingZona, project)}
                   fill="none"
-                  stroke="#3b82f6"
+                  stroke="var(--c-primary)"
                   strokeWidth={1.5}
                   strokeDasharray="4 2"
                   opacity={0.7}
@@ -474,8 +499,8 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
                   cx={project(pendingFlecha[0], pendingFlecha[1])[0]}
                   cy={project(pendingFlecha[0], pendingFlecha[1])[1]}
                   r={5}
-                  fill="#f59e0b"
-                  stroke="white"
+                  fill="var(--c-warning)"
+                  stroke="var(--c-surface)"
                   strokeWidth={1.5}
                 />
               )}
@@ -496,7 +521,7 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
 
       {/* Hint */}
       {editable && (
-        <p className="text-xs text-slate-400">
+        <p className="text-xs text-[var(--c-text-3)]">
           {activeTool === "marcador" && "Click en el mapa para colocar un marcador. Click sobre un marcador para editarlo."}
           {activeTool === "zona" && "Clicks sucesivos para agregar puntos. Doble-click o botón «Cerrar zona» para terminar."}
           {activeTool === "flecha" && "Primer click = origen, segundo click = destino."}

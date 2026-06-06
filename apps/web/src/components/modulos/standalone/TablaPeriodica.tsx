@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 type Element = {
   name: string;
@@ -14,6 +14,8 @@ type Element = {
   period: number;
 };
 
+// Colores de categoría = codificación de contenido de la tabla (no es chrome de
+// la app); la leyenda los explica con texto para no depender sólo del color.
 const CATEGORY_COLORS: Record<string, string> = {
   "diatomic nonmetal": "#4ade80",
   "noble gas": "#818cf8",
@@ -102,33 +104,62 @@ function getColor(category: string): string {
   return CATEGORY_COLORS[category] ?? "#cbd5e1";
 }
 
+/** Nombre accesible de una celda: «Hidrógeno, número 1, No metal diatómico». */
+function cellLabel(el: Element): string {
+  const nombre = NAME_ES[el.name] ?? el.name;
+  const cat = CATEGORY_ES[el.category] ?? el.category;
+  return `${nombre}, número ${el.number}, ${cat}`;
+}
+
+// La glifo de cada celda va en texto oscuro fijo para contrastar sobre el color
+// de categoría (contenido, no chrome) en cualquier tema de la app.
+const CELL_INK = "#1a1a1a";
+
 type DetailPanelProps = {
   el: Element;
   onClose: () => void;
 };
 
 function DetailPanel({ el, onClose }: DetailPanelProps) {
+  const titleId = useId();
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[color-mix(in_srgb,var(--c-text)_45%,transparent)]"
+      onClick={onClose}
+    >
       <div
-        className="bg-white rounded-xl shadow-2xl p-6 max-w-sm w-full mx-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="bg-[var(--c-surface)] rounded-xl shadow-2xl p-6 max-w-sm w-full mx-4"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <div
-              className="w-14 h-14 rounded-lg flex items-center justify-center text-2xl font-bold text-slate-800"
-              style={{ backgroundColor: getColor(el.category) }}
+              className="w-14 h-14 rounded-lg flex items-center justify-center text-2xl font-bold"
+              style={{ backgroundColor: getColor(el.category), color: CELL_INK }}
             >
               {el.symbol}
             </div>
             <div>
-              <div className="text-xl font-bold text-slate-900">{NAME_ES[el.name] ?? el.name}</div>
-              <div className="text-sm text-slate-500">#{el.number}</div>
+              <div id={titleId} className="text-xl font-bold text-[var(--c-text)]">{NAME_ES[el.name] ?? el.name}</div>
+              <div className="text-sm text-[var(--c-muted)]">#{el.number}</div>
             </div>
           </div>
           <button
-            className="text-slate-400 hover:text-slate-700 text-lg leading-none"
+            type="button"
+            aria-label="Cerrar detalle del elemento"
+            className="text-[var(--c-text-3)] hover:text-[var(--c-text)] text-lg leading-none px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
             onClick={onClose}
           >
             ×
@@ -136,24 +167,24 @@ function DetailPanel({ el, onClose }: DetailPanelProps) {
         </div>
         <dl className="space-y-1.5 text-sm">
           <div className="flex justify-between">
-            <dt className="text-slate-500">Masa atómica</dt>
-            <dd className="font-medium">{el.atomic_mass}</dd>
+            <dt className="text-[var(--c-muted)]">Masa atómica</dt>
+            <dd className="font-medium text-[var(--c-text)]">{el.atomic_mass}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-slate-500">Categoría</dt>
-            <dd className="font-medium">{CATEGORY_ES[el.category] ?? el.category}</dd>
+            <dt className="text-[var(--c-muted)]">Categoría</dt>
+            <dd className="font-medium text-[var(--c-text)]">{CATEGORY_ES[el.category] ?? el.category}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-slate-500">Fase</dt>
-            <dd className="font-medium">{PHASE_ES[el.phase] ?? el.phase}</dd>
+            <dt className="text-[var(--c-muted)]">Fase</dt>
+            <dd className="font-medium text-[var(--c-text)]">{PHASE_ES[el.phase] ?? el.phase}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-slate-500">Electronegatividad</dt>
-            <dd className="font-medium">{el.electronegativity_pauling ?? "—"}</dd>
+            <dt className="text-[var(--c-muted)]">Electronegatividad</dt>
+            <dd className="font-medium text-[var(--c-text)]">{el.electronegativity_pauling ?? "—"}</dd>
           </div>
           <div>
-            <dt className="text-slate-500 mb-0.5">Configuración electrónica</dt>
-            <dd className="font-mono text-xs bg-slate-50 px-2 py-1 rounded break-all">
+            <dt className="text-[var(--c-muted)] mb-0.5">Configuración electrónica</dt>
+            <dd className="font-mono text-xs bg-[var(--c-surface-3)] text-[var(--c-text)] px-2 py-1 rounded break-all">
               {el.electron_configuration}
             </dd>
           </div>
@@ -186,10 +217,10 @@ export default function TablaPeriodica() {
   }, []);
 
   if (loading) {
-    return <div className="py-8 text-center text-sm text-slate-400">Cargando tabla periódica…</div>;
+    return <div className="py-8 text-center text-sm text-[var(--c-muted)]" role="status">Cargando tabla periódica…</div>;
   }
   if (error) {
-    return <div className="py-8 text-center text-sm text-red-400">Error al cargar la tabla periódica.</div>;
+    return <div className="py-8 text-center text-sm text-[var(--c-danger)]" role="alert">Error al cargar la tabla periódica.</div>;
   }
 
   // Main table: ypos 1–7, lanthanides at ypos 8, actinides at ypos 9
@@ -205,23 +236,32 @@ export default function TablaPeriodica() {
     gridRow: el.ypos,
   });
 
+  // Categorías únicas presentes (para la leyenda, sin duplicar "Desconocido").
+  const legendCats = Array.from(
+    new Map(
+      Object.entries(CATEGORY_COLORS).map(([cat, color]) => [CATEGORY_ES[cat] ?? cat, color]),
+    ).entries(),
+  ).slice(0, 10);
+
   return (
     <div className="max-w-full overflow-x-auto">
       {selected && <DetailPanel el={selected} onClose={() => setSelected(null)} />}
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-1.5 mb-3">
-        {Object.entries(CATEGORY_COLORS).slice(0, 10).map(([cat, color]) => (
-          <span key={cat} className="flex items-center gap-1 text-[10px] text-slate-600">
-            <span className="inline-block w-2.5 h-2.5 rounded-sm flex-shrink-0" style={{ backgroundColor: color }} />
-            <span>{CATEGORY_ES[cat] ?? cat}</span>
-          </span>
+      <ul className="flex flex-wrap gap-x-3 gap-y-1.5 mb-3 list-none p-0 m-0" aria-label="Leyenda de categorías">
+        {legendCats.map(([label, color]) => (
+          <li key={label} className="flex items-center gap-1 text-[10px] text-[var(--c-muted)]">
+            <span className="inline-block w-2.5 h-2.5 rounded-sm flex-shrink-0 border border-[var(--c-border)]" style={{ backgroundColor: color }} aria-hidden="true" />
+            <span>{label}</span>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {/* Main grid */}
       <div
         className="inline-grid"
+        role="grid"
+        aria-label="Tabla periódica de los elementos"
         style={{
           gridTemplateColumns: `repeat(18, ${CELL_SIZE}px)`,
           gridTemplateRows: `repeat(7, ${CELL_SIZE}px)`,
@@ -233,52 +273,53 @@ export default function TablaPeriodica() {
           <button
             key={el.number}
             type="button"
-            title={NAME_ES[el.name] ?? el.name}
+            aria-label={cellLabel(el)}
             style={{
               ...cellStyle(el),
               backgroundColor: getColor(el.category),
+              color: CELL_INK,
             }}
-            className="rounded flex flex-col items-center justify-center cursor-pointer hover:opacity-80 transition-opacity border border-white/40"
+            className="rounded flex flex-col items-center justify-center cursor-pointer hover:opacity-80 transition-opacity motion-reduce:transition-none border border-[var(--c-border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
             onClick={() => setSelected(el)}
           >
-            <span className="text-[8px] text-slate-700 leading-none">{el.number}</span>
-            <span className="text-xs font-bold text-slate-800 leading-tight">{el.symbol}</span>
+            <span className="text-[8px] leading-none opacity-70">{el.number}</span>
+            <span className="text-xs font-bold leading-tight">{el.symbol}</span>
           </button>
         ))}
       </div>
 
       {/* Lanthanides row */}
       <div className="flex gap-0.5 mb-1 ml-2">
-        <span className="text-[10px] text-slate-400 w-14 self-center">Lantánidos</span>
+        <span className="text-[10px] text-[var(--c-muted)] w-14 self-center">Lantánidos</span>
         {lanthanides.map((el) => (
           <button
             key={el.number}
             type="button"
-            title={NAME_ES[el.name] ?? el.name}
-            style={{ width: CELL_SIZE, height: CELL_SIZE, backgroundColor: getColor(el.category) }}
-            className="rounded flex flex-col items-center justify-center cursor-pointer hover:opacity-80 transition-opacity border border-white/40"
+            aria-label={cellLabel(el)}
+            style={{ width: CELL_SIZE, height: CELL_SIZE, backgroundColor: getColor(el.category), color: CELL_INK }}
+            className="rounded flex flex-col items-center justify-center cursor-pointer hover:opacity-80 transition-opacity motion-reduce:transition-none border border-[var(--c-border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
             onClick={() => setSelected(el)}
           >
-            <span className="text-[8px] text-slate-700 leading-none">{el.number}</span>
-            <span className="text-xs font-bold text-slate-800 leading-tight">{el.symbol}</span>
+            <span className="text-[8px] leading-none opacity-70">{el.number}</span>
+            <span className="text-xs font-bold leading-tight">{el.symbol}</span>
           </button>
         ))}
       </div>
 
       {/* Actinides row */}
       <div className="flex gap-0.5 ml-2">
-        <span className="text-[10px] text-slate-400 w-14 self-center">Actínidos</span>
+        <span className="text-[10px] text-[var(--c-muted)] w-14 self-center">Actínidos</span>
         {actinides.map((el) => (
           <button
             key={el.number}
             type="button"
-            title={NAME_ES[el.name] ?? el.name}
-            style={{ width: CELL_SIZE, height: CELL_SIZE, backgroundColor: getColor(el.category) }}
-            className="rounded flex flex-col items-center justify-center cursor-pointer hover:opacity-80 transition-opacity border border-white/40"
+            aria-label={cellLabel(el)}
+            style={{ width: CELL_SIZE, height: CELL_SIZE, backgroundColor: getColor(el.category), color: CELL_INK }}
+            className="rounded flex flex-col items-center justify-center cursor-pointer hover:opacity-80 transition-opacity motion-reduce:transition-none border border-[var(--c-border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
             onClick={() => setSelected(el)}
           >
-            <span className="text-[8px] text-slate-700 leading-none">{el.number}</span>
-            <span className="text-xs font-bold text-slate-800 leading-tight">{el.symbol}</span>
+            <span className="text-[8px] leading-none opacity-70">{el.number}</span>
+            <span className="text-xs font-bold leading-tight">{el.symbol}</span>
           </button>
         ))}
       </div>
