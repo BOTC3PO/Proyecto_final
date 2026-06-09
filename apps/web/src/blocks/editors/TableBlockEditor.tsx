@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useId, useState } from "react"
 import type { TableBlock } from "../types"
 
 function cx(...classes: Array<string | false | null | undefined>) {
@@ -6,7 +6,9 @@ function cx(...classes: Array<string | false | null | undefined>) {
 }
 
 const inputCls =
-  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400"
+  "w-full text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
+const addBtnCls =
+  "text-xs px-2 py-1 border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-hover)] rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
 
 export function TableBlockEditor({
   block,
@@ -15,6 +17,8 @@ export function TableBlockEditor({
   block: TableBlock
   onUpdate: (patch: Record<string, unknown>) => void
 }) {
+  const titleId = useId()
+
   const addRow = () => {
     const newRow = new Array(block.headers.length).fill("")
     onUpdate({ rows: [...block.rows, newRow] })
@@ -29,27 +33,22 @@ export function TableBlockEditor({
   return (
     <div className="space-y-2">
       <div>
-        <label className="text-xs font-medium text-gray-600 block mb-1">Título</label>
+        <label htmlFor={titleId} className="text-xs font-medium text-[var(--c-muted)] block mb-1">Título</label>
         <input
+          id={titleId}
           className={inputCls}
           value={block.title ?? ""}
           onChange={(e) => onUpdate({ title: e.target.value })}
         />
       </div>
-      <p className="text-xs text-slate-400 italic">
+      <p className="text-xs text-[var(--c-text-3)] italic">
         Editá las celdas directamente en el bloque del canvas. La barra de fórmulas (fx) aparece al seleccionar una celda.
       </p>
       <div className="flex gap-2">
-        <button
-          onClick={addRow}
-          className="text-xs px-2 py-1 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded"
-        >
+        <button type="button" onClick={addRow} className={addBtnCls}>
           + Fila
         </button>
-        <button
-          onClick={addCol}
-          className="text-xs px-2 py-1 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded"
-        >
+        <button type="button" onClick={addCol} className={addBtnCls}>
           + Columna
         </button>
       </div>
@@ -95,17 +94,18 @@ export function InlineTableEditor({
   return (
     <div className="space-y-0" onClick={(e) => e.stopPropagation()}>
       {block.title && (
-        <p className="text-sm font-semibold text-slate-700 px-4 pt-3 pb-1">{block.title}</p>
+        <p className="text-sm font-semibold text-[var(--c-text)] px-4 pt-3 pb-1">{block.title}</p>
       )}
       <div className="overflow-x-auto px-4 pt-3">
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr>
               {block.headers.map((h, ci) => (
-                <th key={ci} className="border border-slate-200 bg-slate-50 p-1.5">
+                <th key={ci} className="border border-[var(--c-border)] bg-[var(--c-surface-3)] p-1.5">
                   <input
-                    className="w-full bg-transparent font-semibold text-sm focus:outline-none text-center"
+                    className="w-full bg-transparent text-[var(--c-text)] font-semibold text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm text-center"
                     value={h}
+                    aria-label={`Encabezado de la columna ${ci + 1}`}
                     onChange={(e) => {
                       const headers = [...block.headers]
                       headers[ci] = e.target.value
@@ -119,7 +119,7 @@ export function InlineTableEditor({
           </thead>
           <tbody>
             {block.rows.map((row, ri) => (
-              <tr key={ri} className={ri % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+              <tr key={ri} className={ri % 2 === 0 ? "bg-[var(--c-surface)]" : "bg-[var(--c-surface-3)]"}>
                 {row.map((cell, ci) => {
                   const key = getCellKey(ri, ci)
                   const hasFormula = !!block.formulas?.[key]
@@ -128,19 +128,20 @@ export function InlineTableEditor({
                     <td
                       key={ci}
                       className={cx(
-                        "border border-slate-200 p-1",
-                        hasFormula ? "bg-indigo-50" : "",
-                        isSelected ? "ring-2 ring-inset ring-indigo-400" : ""
+                        "border border-[var(--c-border)] p-1",
+                        hasFormula ? "bg-[color-mix(in_srgb,var(--c-primary)_10%,transparent)]" : "",
+                        isSelected ? "ring-2 ring-inset ring-[var(--c-primary)]" : ""
                       )}
                       onClick={(e) => handleCellClick(e, ri, ci)}
                     >
                       <input
                         className={cx(
-                          "w-full bg-transparent text-sm focus:outline-none px-1",
-                          hasFormula ? "text-indigo-700 cursor-pointer" : ""
+                          "w-full bg-transparent text-[var(--c-text)] text-sm outline-none px-1",
+                          hasFormula ? "text-[var(--c-primary)] cursor-pointer" : ""
                         )}
                         value={hasFormula ? String(block.formulas![key]) : String(cell)}
                         readOnly={hasFormula}
+                        aria-label={`Celda ${key}`}
                         onChange={(e) => {
                           if (!hasFormula) {
                             const rows = block.rows.map((r, i) =>
@@ -164,14 +165,15 @@ export function InlineTableEditor({
       </div>
       {/* Formula bar at bottom of block */}
       {selectedCell && (
-        <div className="flex items-center gap-2 border-t border-slate-200 bg-slate-50 px-4 py-1.5 mt-2">
-          <span className="shrink-0 text-xs font-semibold italic text-slate-500 select-none">fx</span>
-          <span className="shrink-0 text-xs text-slate-400 font-mono">
+        <div className="flex items-center gap-2 border-t border-[var(--c-border)] bg-[var(--c-surface-3)] px-4 py-1.5 mt-2">
+          <span className="shrink-0 text-xs font-semibold italic text-[var(--c-muted)] select-none" aria-hidden="true">fx</span>
+          <span className="shrink-0 text-xs text-[var(--c-text-3)] font-mono">
             {getCellKey(selectedCell.ri, selectedCell.ci)}
           </span>
           <input
             autoFocus
-            className="flex-1 bg-transparent font-mono text-xs outline-none"
+            className="flex-1 bg-transparent text-[var(--c-text)] font-mono text-xs outline-none"
+            aria-label={`Fórmula de la celda ${getCellKey(selectedCell.ri, selectedCell.ci)}`}
             value={formulaBarValue}
             onChange={(e) => setFormulaBarValue(e.target.value)}
             onKeyDown={(e) => {
@@ -190,23 +192,25 @@ export function InlineTableEditor({
       )}
       <div className="flex gap-2 px-4 pb-3 pt-2" onClick={(e) => e.stopPropagation()}>
         <button
+          type="button"
           onClick={(e) => {
             e.stopPropagation()
             const newRow = new Array(block.headers.length).fill("")
             onUpdate({ rows: [...block.rows, newRow] })
           }}
-          className="text-xs px-2 py-1 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded"
+          className={addBtnCls}
         >
           + Fila
         </button>
         <button
+          type="button"
           onClick={(e) => {
             e.stopPropagation()
             const newHeaders = [...block.headers, `Col ${block.headers.length + 1}`]
             const newRows = block.rows.map((r) => [...r, ""])
             onUpdate({ headers: newHeaders, rows: newRows })
           }}
-          className="text-xs px-2 py-1 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded"
+          className={addBtnCls}
         >
           + Columna
         </button>

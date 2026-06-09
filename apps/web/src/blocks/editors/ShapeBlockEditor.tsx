@@ -17,6 +17,16 @@ type CanvasDragState = {
 
 const COLLECTIONS_ORDER: ShapeBlock["collection"][] = ["basica", "fisica", "electrica", "logica", "matematica"]
 
+// Color de acento por defecto de una forma/conector = dato del diagrama (no chrome).
+const DEFAULT_SHAPE_COLOR = "#2563eb"
+
+const inputCls =
+  "text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-2 py-1 outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
+const rotateBtnCls =
+  "flex-1 text-xs px-2 py-1 border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-hover)] rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+const deleteBtnCls =
+  "text-xs px-2 py-1 border border-[color-mix(in_srgb,var(--c-danger)_30%,transparent)] bg-[var(--c-danger-soft)] text-[var(--c-danger)] hover:bg-[color-mix(in_srgb,var(--c-danger)_20%,var(--c-surface))] rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+
 export function ShapeBlockEditor({ block, onChange }: Props) {
   const [activeCollection, setActiveCollection] = useState<ShapeBlock["collection"]>(
     block.collection
@@ -39,6 +49,15 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
 
   const handleCollectionChange = (col: ShapeBlock["collection"]) => {
     setActiveCollection(col)
+  }
+
+  // ─── Agregar forma (teclado: click; mouse: drag) ─────────────────────────
+
+  const addShapeToCanvas = (shapeId: string) => {
+    const x = 20 + block.items.length * 70
+    const y = 20 + (block.items.length % 3) * 70
+    const newItem: ShapeItem = { id: crypto.randomUUID(), shapeId, x, y }
+    onChange({ ...block, items: [...block.items, newItem] })
   }
 
   // ─── Palette → canvas drag-and-drop ──────────────────────────────────────
@@ -196,14 +215,15 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
       <div className="flex flex-col gap-2 flex-1 min-w-0 overflow-y-auto">
 
         {/* Collapsible palette */}
-        <div className="border border-gray-200 rounded">
+        <div className="border border-[var(--c-border)] rounded">
           <button
             type="button"
-            className="w-full flex items-center justify-between px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50"
+            aria-expanded={paletteOpen}
+            className="w-full flex items-center justify-between px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded"
             onClick={() => setPaletteOpen((v) => !v)}
           >
             <span>Paleta de formas</span>
-            <span>{paletteOpen ? "▲" : "▼"}</span>
+            <span aria-hidden="true">{paletteOpen ? "▲" : "▼"}</span>
           </button>
           {paletteOpen && (
             <div className="px-3 pb-3">
@@ -214,10 +234,10 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
                     key={col}
                     type="button"
                     aria-pressed={activeCollection === col}
-                    className={`text-xs px-2 py-1 rounded border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
+                    className={`text-xs px-2 py-1 rounded border transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
                       activeCollection === col
-                        ? "bg-blue-600 text-white border-blue-600"
-                        : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
+                        ? "bg-[var(--c-primary)] text-[var(--c-accent-fg)] border-[var(--c-primary)]"
+                        : "bg-[var(--c-surface)] text-[var(--c-text)] border-[var(--c-border)] hover:bg-[var(--c-hover)]"
                     }`}
                     onClick={() => handleCollectionChange(col)}
                   >
@@ -228,21 +248,24 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
               {/* Shape grid */}
               <div className="grid grid-cols-4 gap-1.5 overflow-hidden">
                 {paletteCollection.shapes.map((shape) => (
-                  <div
+                  <button
                     key={shape.id}
-                    className="flex flex-col items-center gap-1 cursor-grab hover:bg-indigo-50 rounded p-1.5 border border-transparent hover:border-indigo-200 transition-colors"
+                    type="button"
                     draggable
+                    aria-label={`Agregar forma ${shape.label}`}
+                    className="flex flex-col items-center gap-1 cursor-grab hover:bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] rounded p-1.5 border border-transparent hover:border-[color-mix(in_srgb,var(--c-primary)_30%,transparent)] transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
                     onDragStart={(e) => e.dataTransfer.setData("text/plain", shape.id)}
-                    title="Arrastrá al canvas"
+                    onClick={() => addShapeToCanvas(shape.id)}
+                    title="Arrastrá al canvas o clic para agregar"
                   >
                     <div
                       style={{ width: 48, height: 48, pointerEvents: "none", overflow: "hidden" }}
                       dangerouslySetInnerHTML={{ __html: shape.svg }}
                     />
-                    <span className="text-[10px] text-gray-600 text-center leading-tight w-full truncate">
+                    <span className="text-[10px] text-[var(--c-muted)] text-center leading-tight w-full truncate">
                       {shape.label}
                     </span>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -253,7 +276,7 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
         <div className="flex items-center gap-2 flex-wrap">
           <input
             aria-label="Título del canvas"
-            className="text-xs border border-gray-200 rounded px-2 py-1 flex-1 min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:ring-blue-400"
+            className={`${inputCls} flex-1 min-w-0`}
             placeholder="Título del canvas"
             value={block.title ?? ""}
             onChange={(e) => onChange({ ...block, title: e.target.value || undefined })}
@@ -262,10 +285,10 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
             type="button"
             aria-pressed={connectMode}
             aria-label="Modo conectar formas"
-            className={`text-xs px-2 py-1 border rounded shrink-0 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
+            className={`text-xs px-2 py-1 border rounded shrink-0 transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
               connectMode
-                ? "bg-indigo-600 text-white border-indigo-600"
-                : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
+                ? "bg-[var(--c-primary)] text-[var(--c-accent-fg)] border-[var(--c-primary)]"
+                : "bg-[var(--c-surface)] text-[var(--c-text)] border-[var(--c-border)] hover:bg-[var(--c-hover)]"
             }`}
             onClick={() => {
               setConnectMode((v) => !v)
@@ -286,15 +309,17 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
         <div className="overflow-x-auto">
         <div
           ref={canvasRef}
+          role="application"
+          aria-label="Lienzo de formas"
           style={{
             position: "relative",
             width,
             height,
-            background: "white",
+            background: "var(--c-surface)",
             backgroundImage:
-              "linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)",
+              "linear-gradient(to right, color-mix(in srgb, var(--c-text) 8%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in srgb, var(--c-text) 8%, transparent) 1px, transparent 1px)",
             backgroundSize: "20px 20px",
-            border: "1px solid #d1d5db",
+            border: "1px solid var(--c-border)",
             overflow: "hidden",
             flexShrink: 0,
             cursor: connectMode ? "crosshair" : "default",
@@ -328,7 +353,7 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
                 markerHeight="6"
                 orient="auto-start-reverse"
               >
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--c-muted)" />
               </marker>
             </defs>
             {connectors.map((connector) => {
@@ -337,7 +362,7 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
               const mx = (from.x + to.x) / 2
               const my = (from.y + to.y) / 2
               const isSelConn = connector.id === selectedConnectorId
-              const strokeColor = isSelConn ? "#2563eb" : "#475569"
+              const strokeColor = isSelConn ? "var(--c-primary)" : "var(--c-muted)"
               return (
                 <g key={connector.id}>
                   {/* Wide transparent click target */}
@@ -394,9 +419,9 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
             const isSelected = item.id === selectedItemId
             const isConnectingFrom = item.id === connectingFromId
             const outlineColor = isConnectingFrom
-              ? "#f59e0b"
+              ? "var(--c-warning)"
               : isSelected
-              ? (item.color ?? "#2563eb")
+              ? (item.color ?? "var(--c-primary)")
               : "transparent"
 
             return (
@@ -425,7 +450,7 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
                   dangerouslySetInnerHTML={{ __html: shape.svg }}
                 />
                 {item.label && (
-                  <div className="text-xs text-gray-600 text-center mt-1 max-w-[60px] truncate">
+                  <div className="text-xs text-[var(--c-muted)] text-center mt-1 max-w-[60px] truncate">
                     {item.label}
                   </div>
                 )}
@@ -439,19 +464,19 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
       {/* ── Right column: inspector ───────────────────────────────────────── */}
       <div
         style={{ width: 224, flexShrink: 0 }}
-        className="border border-gray-200 rounded p-3 flex flex-col gap-3 overflow-y-auto relative"
+        className="border border-[var(--c-border)] rounded p-3 flex flex-col gap-3 overflow-y-auto relative"
       >
         {selectedItem ? (
           <>
-            <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--c-text-3)]">
               Inspector · forma
             </p>
 
             {/* Label */}
             <label className="flex flex-col gap-1">
-              <span className="text-xs text-gray-600">Etiqueta</span>
+              <span className="text-xs text-[var(--c-muted)]">Etiqueta</span>
               <input
-                className="text-xs border border-gray-200 rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                className={inputCls}
                 placeholder="Sin etiqueta"
                 value={selectedItem.label ?? ""}
                 onChange={(e) => updateItem({ label: e.target.value || undefined })}
@@ -460,18 +485,18 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
 
             {/* Color */}
             <label className="flex flex-col gap-1">
-              <span className="text-xs text-gray-600">Color de acento</span>
+              <span className="text-xs text-[var(--c-muted)]">Color de acento</span>
               <div className="flex items-center gap-2">
                 <input
                   type="color"
-                  className="w-8 h-7 rounded border border-gray-200 cursor-pointer"
-                  value={selectedItem.color ?? "#2563eb"}
+                  className="w-8 h-7 rounded border border-[var(--c-border)] cursor-pointer bg-transparent"
+                  value={selectedItem.color ?? DEFAULT_SHAPE_COLOR}
                   onChange={(e) => updateItem({ color: e.target.value })}
                 />
                 {selectedItem.color && (
                   <button
                     type="button"
-                    className="text-xs text-gray-400 hover:text-gray-600"
+                    className="text-xs text-[var(--c-muted)] hover:text-[var(--c-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm px-1"
                     onClick={() => updateItem({ color: undefined })}
                   >
                     Quitar
@@ -482,11 +507,11 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
 
             {/* Rotation */}
             <div className="flex flex-col gap-1">
-              <span className="text-xs text-gray-600">Rotar</span>
+              <span className="text-xs text-[var(--c-muted)]">Rotar</span>
               <div className="flex gap-1">
                 <button
                   type="button"
-                  className="flex-1 text-xs px-2 py-1 border border-gray-200 bg-white hover:bg-gray-50 rounded"
+                  className={rotateBtnCls}
                   onClick={() =>
                     updateItem({ rotation: ((selectedItem.rotation ?? 0) - 90 + 360) % 360 })
                   }
@@ -495,7 +520,7 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
                 </button>
                 <button
                   type="button"
-                  className="flex-1 text-xs px-2 py-1 border border-gray-200 bg-white hover:bg-gray-50 rounded"
+                  className={rotateBtnCls}
                   onClick={() =>
                     updateItem({ rotation: ((selectedItem.rotation ?? 0) + 90) % 360 })
                   }
@@ -506,25 +531,21 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
             </div>
 
             {/* Delete */}
-            <button
-              type="button"
-              className="text-xs px-2 py-1 border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 rounded"
-              onClick={handleDeleteItem}
-            >
+            <button type="button" className={deleteBtnCls} onClick={handleDeleteItem}>
               Eliminar forma
             </button>
           </>
         ) : selectedConnector ? (
           <>
-            <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-400">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--c-text-3)]">
               Inspector · conector
             </p>
 
             {/* Connector label */}
             <label className="flex flex-col gap-1">
-              <span className="text-xs text-gray-600">Etiqueta</span>
+              <span className="text-xs text-[var(--c-muted)]">Etiqueta</span>
               <input
-                className="text-xs border border-gray-200 rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                className={inputCls}
                 placeholder="Sin etiqueta"
                 value={selectedConnector.label ?? ""}
                 onChange={(e) =>
@@ -535,9 +556,9 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
 
             {/* Connector style */}
             <label className="flex flex-col gap-1">
-              <span className="text-xs text-gray-600">Estilo</span>
+              <span className="text-xs text-[var(--c-muted)]">Estilo</span>
               <select
-                className="text-xs border border-gray-200 rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                className={inputCls}
                 value={selectedConnector.style ?? "arrow"}
                 onChange={(e) =>
                   updateConnector({
@@ -552,16 +573,12 @@ export function ShapeBlockEditor({ block, onChange }: Props) {
             </label>
 
             {/* Delete connector */}
-            <button
-              type="button"
-              className="text-xs px-2 py-1 border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 rounded"
-              onClick={handleDeleteConnector}
-            >
+            <button type="button" className={deleteBtnCls} onClick={handleDeleteConnector}>
               Eliminar conector
             </button>
           </>
         ) : (
-          <p className="text-xs text-slate-400 italic">
+          <p className="text-xs text-[var(--c-text-3)] italic">
             Seleccioná una forma para editarla
           </p>
         )}

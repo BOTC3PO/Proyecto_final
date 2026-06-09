@@ -1,8 +1,10 @@
+import { useId } from "react"
 import type { MathBlock } from "../types"
 import { MathBlockRenderer } from "../renderers/MathBlockRenderer"
 
 const inputCls =
-  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400"
+  "w-full text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
+const labelCls = "text-xs font-medium text-[var(--c-muted)] block mb-1"
 
 export function MathBlockEditor({
   block,
@@ -11,6 +13,13 @@ export function MathBlockEditor({
   block: MathBlock
   onUpdate: (patch: Record<string, unknown>) => void
 }) {
+  const titleId = useId()
+  const xMinId = useId()
+  const xMaxId = useId()
+  const yMinId = useId()
+  const yMaxId = useId()
+  const samplesId = useId()
+
   const addFunction = () => {
     onUpdate({
       functions: [
@@ -33,8 +42,9 @@ export function MathBlockEditor({
   return (
     <div className="space-y-2">
       <div>
-        <label className="text-xs font-medium text-gray-600 block mb-1">Título</label>
+        <label htmlFor={titleId} className={labelCls}>Título</label>
         <input
+          id={titleId}
           className={inputCls}
           value={block.title ?? ""}
           onChange={(e) => onUpdate({ title: e.target.value || undefined })}
@@ -44,8 +54,9 @@ export function MathBlockEditor({
 
       <div className="grid grid-cols-2 gap-1">
         <div>
-          <label className="text-xs font-medium text-gray-600 block mb-1">x mín</label>
+          <label htmlFor={xMinId} className={labelCls}>x mín</label>
           <input
+            id={xMinId}
             type="number"
             className={inputCls}
             value={block.xMin}
@@ -53,8 +64,9 @@ export function MathBlockEditor({
           />
         </div>
         <div>
-          <label className="text-xs font-medium text-gray-600 block mb-1">x máx</label>
+          <label htmlFor={xMaxId} className={labelCls}>x máx</label>
           <input
+            id={xMaxId}
             type="number"
             className={inputCls}
             value={block.xMax}
@@ -62,8 +74,9 @@ export function MathBlockEditor({
           />
         </div>
         <div>
-          <label className="text-xs font-medium text-gray-600 block mb-1">y mín</label>
+          <label htmlFor={yMinId} className={labelCls}>y mín</label>
           <input
+            id={yMinId}
             type="number"
             className={inputCls}
             placeholder="auto"
@@ -74,8 +87,9 @@ export function MathBlockEditor({
           />
         </div>
         <div>
-          <label className="text-xs font-medium text-gray-600 block mb-1">y máx</label>
+          <label htmlFor={yMaxId} className={labelCls}>y máx</label>
           <input
+            id={yMaxId}
             type="number"
             className={inputCls}
             placeholder="auto"
@@ -88,8 +102,9 @@ export function MathBlockEditor({
       </div>
 
       <div>
-        <label className="text-xs font-medium text-gray-600 block mb-1">Muestras</label>
+        <label htmlFor={samplesId} className={labelCls}>Muestras</label>
         <input
+          id={samplesId}
           type="number"
           className={inputCls}
           min={10}
@@ -99,7 +114,7 @@ export function MathBlockEditor({
         />
       </div>
 
-      <label className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
+      <label className="flex items-center gap-2 text-xs text-[var(--c-muted)] cursor-pointer">
         <input
           type="checkbox"
           checked={block.showGrid ?? true}
@@ -107,7 +122,7 @@ export function MathBlockEditor({
         />
         Cuadrícula
       </label>
-      <label className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
+      <label className="flex items-center gap-2 text-xs text-[var(--c-muted)] cursor-pointer">
         <input
           type="checkbox"
           checked={block.showLegend ?? true}
@@ -118,32 +133,37 @@ export function MathBlockEditor({
 
       <div>
         <div className="flex items-center justify-between mb-1">
-          <label className="text-xs font-medium text-gray-600">Funciones</label>
+          <span className="text-xs font-medium text-[var(--c-muted)]">Funciones</span>
           <button
+            type="button"
             onClick={addFunction}
-            className="text-xs px-1.5 py-0.5 border border-gray-200 bg-white text-gray-700 hover:bg-slate-50 rounded"
+            className="text-xs px-1.5 py-0.5 border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-hover)] rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
           >
             + Agregar
           </button>
         </div>
         <div className="space-y-1 max-h-48 overflow-y-auto">
-          {block.functions.map((fn) => (
+          {block.functions.map((fn, i) => (
             <div key={fn.id} className="flex items-center gap-1 text-xs">
               <input
-                className="flex-1 border border-slate-200 rounded px-1 py-0.5 focus:outline-none text-xs"
+                className="flex-1 border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1 py-0.5 outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)] text-xs"
                 placeholder="sin(x)"
+                aria-label={`Expresión de la función ${i + 1}`}
                 value={fn.expression}
                 onChange={(e) => updateFunction(fn.id, { expression: e.target.value })}
               />
               <input
                 type="color"
-                className="h-5 w-6 rounded border border-slate-200 cursor-pointer"
+                className="h-5 w-6 rounded border border-[var(--c-border)] cursor-pointer bg-transparent"
                 value={fn.color ?? "#2563eb"}
+                aria-label={`Color de la función ${i + 1}`}
                 onChange={(e) => updateFunction(fn.id, { color: e.target.value })}
               />
               <button
+                type="button"
                 onClick={() => removeFunction(fn.id)}
-                className="text-red-400 hover:text-red-600 px-1"
+                className="text-[var(--c-danger)] hover:opacity-80 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
+                aria-label={`Eliminar función ${i + 1}`}
               >
                 ✕
               </button>
@@ -152,7 +172,7 @@ export function MathBlockEditor({
         </div>
       </div>
 
-      <div className="rounded-lg border border-slate-100 bg-slate-50 p-2">
+      <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface-3)] p-2">
         <MathBlockRenderer block={block} />
       </div>
     </div>

@@ -1,5 +1,13 @@
-import { useState, useEffect, useId } from "react";
-import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, Settings } from "lucide-react";
+import {
+  useState,
+  useEffect,
+  useId,
+  useRef,
+  useCallback,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
+import { X, Plus, Trash2, Copy, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Settings } from "lucide-react";
 import { Button, Input, Textarea, Select } from "../ui";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
@@ -42,6 +50,10 @@ export type PresentationTheme = ThemeKey;
 export type ThemeConfig = {
   label: string;
   swatch: string;
+  /** Hex del fondo del slide (para el lienzo WYSIWYG vía --slide-bg). */
+  bg: string;
+  /** Hex del texto base del slide (para el lienzo WYSIWYG vía --slide-fg). */
+  fg: string;
   /** Outer slide container — bg color + base text color */
   slide: string;
   /** Big title: text-4xl font-bold */
@@ -70,6 +82,8 @@ export const THEMES: Record<ThemeKey, ThemeConfig> = {
   minimal: {
     label: "Minimal",
     swatch: "#f8fafc",
+    bg: "#ffffff",
+    fg: "#0f172a",
     slide: "bg-white text-slate-900",
     heading: "text-4xl font-bold leading-tight text-slate-900",
     subtitle: "text-xl font-medium text-slate-500",
@@ -85,6 +99,8 @@ export const THEMES: Record<ThemeKey, ThemeConfig> = {
   dark: {
     label: "Oscuro",
     swatch: "#0f172a",
+    bg: "#0f172a",
+    fg: "#f8fafc",
     slide: "bg-slate-900 text-white",
     heading: "text-4xl font-bold leading-tight text-white",
     subtitle: "text-xl font-medium text-slate-400",
@@ -100,6 +116,8 @@ export const THEMES: Record<ThemeKey, ThemeConfig> = {
   warm: {
     label: "Cálido",
     swatch: "#fef3c7",
+    bg: "#fffbeb",
+    fg: "#1c1917",
     slide: "bg-amber-50 text-stone-900",
     heading: "text-4xl font-bold leading-tight text-stone-900",
     subtitle: "text-xl font-medium text-amber-700",
@@ -115,6 +133,8 @@ export const THEMES: Record<ThemeKey, ThemeConfig> = {
   ocean: {
     label: "Océano",
     swatch: "#0c4a6e",
+    bg: "#082f49",
+    fg: "#f0f9ff",
     slide: "bg-sky-950 text-sky-50",
     heading: "text-4xl font-bold leading-tight text-sky-50",
     subtitle: "text-xl font-medium text-sky-300",
@@ -130,6 +150,8 @@ export const THEMES: Record<ThemeKey, ThemeConfig> = {
   contrast: {
     label: "Alto contraste",
     swatch: "#ffffff",
+    bg: "#ffffff",
+    fg: "#000000",
     slide: "bg-white text-black border-4 border-black",
     heading: "text-4xl font-black leading-tight text-black",
     subtitle: "text-xl font-bold text-black",
@@ -195,6 +217,8 @@ export type Slide = {
   toolSpec?: VisualSpec;
   /** Embedded v2 block — replaces body content in the slide */
   blockSpec?: Block;
+  /** Speaker notes (no se muestran en la presentación) */
+  notes?: string;
 };
 
 // ─── Tool parameter schema ────────────────────────────────────────────────────
@@ -679,6 +703,7 @@ function normalizeSlide(raw: Record<string, any>): Slide {
       : "none") as Slide["bgOverlay"],
     isCode: Boolean(raw.isCode) || String(raw.layout) === "code",
     language: raw.language ? String(raw.language) : undefined,
+    notes: raw.notes ? String(raw.notes) : undefined,
     toolSpec: raw.toolSpec && typeof raw.toolSpec === "object"
       ? (raw.toolSpec as VisualSpec)
       : undefined,
@@ -942,169 +967,163 @@ function SlideThumbnail({ slide, theme, accentColor }: ThumbnailProps) {
   );
 }
 
-// ─── Slide preview pane ───────────────────────────────────────────────────────
+// ─── WYSIWYG canvas (lienzo editable de la diapositiva) ──────────────────────
 
-function SlidePreviewPane({
-  slide,
-  theme,
-  accentColor,
+/**
+ * Texto editable in-situ (contenteditable) **no controlado**: fija su contenido
+ * sólo al montar — cada slide+campo remonta vía `key`, así React no reescribe el
+ * DOM en cada tecla y el cursor no salta. Commitea texto plano en `onInput`
+ * (el modelo `heading`/`subtitle`/`body` siguen siendo strings).
+ */
+function EditableText({
+  value,
+  onChange,
+  className,
+  placeholder,
+  ariaLabel,
+  multiline,
 }: {
+  value: string;
+  onChange: (text: string) => void;
+  className: string;
+  placeholder: string;
+  ariaLabel: string;
+  multiline?: boolean;
+}) {
+  const initial = useRef(value);
+  const setRef = useCallback((node: HTMLDivElement | null) => {
+    if (node && node.textContent !== initial.current) {
+      node.textContent = initial.current;
+    }
+  }, []);
+  return (
+    <div
+      ref={setRef}
+      contentEditable
+      suppressContentEditableWarning
+      role="textbox"
+      aria-multiline={multiline || undefined}
+      aria-label={ariaLabel}
+      spellCheck={false}
+      data-placeholder={placeholder}
+      onInput={(e) => onChange(e.currentTarget.textContent ?? "")}
+      className={`vb-editable ${className}`}
+    />
+  );
+}
+
+type StageProps = {
   slide: Slide;
+  index: number;
+  total: number;
   theme: ThemeKey;
   accentColor?: AccentColor;
-}) {
+  onChange: (patch: Partial<Omit<Slide, "id">>) => void;
+  onPrev: () => void;
+  onNext: () => void;
+};
+
+/** Lienzo WYSIWYG 16:9: título/subtítulo/cuerpo editables sobre la slide real. */
+function SlideStage({ slide, index, total, theme, accentColor, onChange, onPrev, onNext }: StageProps) {
   const cfg = THEMES[theme] ?? THEMES.minimal;
   const accentCfg = accentColor ? ACCENT_COLORS[accentColor] : null;
+  const isQuote = slide.layout === "quote";
+  const isSplit = slide.layout === "split";
   const hasBg = Boolean(slide.bgImage);
-  const hasBgOverlay = hasBg && slide.bgOverlay !== "none";
-  const headingAccentStyle =
-    accentCfg && !hasBgOverlay ? { color: accentCfg.swatch } : undefined;
-  const headingCls = hasBgOverlay
-    ? "text-2xl font-bold leading-tight text-white drop-shadow"
-    : cfg.heading.replace("text-4xl", "text-2xl");
-  const subtitleCls = hasBgOverlay
-    ? "text-base font-medium text-white/80 drop-shadow"
-    : cfg.subtitle.replace("text-xl", "text-base");
+  const hasOverlay = hasBg && slide.bgOverlay !== "none";
+
+  // El tema/acento activos se inyectan como CSS vars del lienzo (cambian en vivo).
+  const canvasStyle = {
+    "--slide-bg": cfg.bg,
+    "--slide-fg": cfg.fg,
+    "--slide-accent": accentCfg?.swatch ?? cfg.fg,
+  } as CSSProperties;
+
+  let body: ReactNode = null;
+  if (slide.blockSpec) {
+    body = <div className="vb-s-embed"><BlockSpecRenderer block={slide.blockSpec} /></div>;
+  } else if (slide.toolSpec) {
+    body = <div className="vb-s-embed"><VisualizerRenderer spec={slide.toolSpec} /></div>;
+  } else if (isSplit) {
+    body = (
+      <div className="vb-s-cols">
+        <EditableText key={`${slide.id}-l`} value={slide.leftColumn ?? slide.body ?? ""} onChange={(t) => onChange({ leftColumn: t || undefined })} className="vb-s-body" placeholder="Columna izquierda…" ariaLabel="Columna izquierda" multiline />
+        <EditableText key={`${slide.id}-r`} value={slide.rightColumn ?? ""} onChange={(t) => onChange({ rightColumn: t || undefined })} className="vb-s-body" placeholder="Columna derecha…" ariaLabel="Columna derecha" multiline />
+      </div>
+    );
+  } else if (!isQuote) {
+    body = (
+      <EditableText
+        key={`${slide.id}-b`}
+        value={slide.body ?? ""}
+        onChange={(t) => onChange({ body: t || undefined })}
+        className={`vb-s-body${slide.isCode ? " is-code" : ""}`}
+        placeholder={slide.isCode ? "// Escribí tu código…" : "Cuerpo de la diapositiva — texto libre, listas con guiones (-) o numeradas."}
+        ariaLabel={slide.isCode ? "Código" : "Cuerpo de texto"}
+        multiline
+      />
+    );
+  }
 
   return (
-    <div className="flex flex-col gap-3 p-5 h-full">
-      <p className="text-[11px] font-semibold text-[var(--c-muted)] uppercase tracking-widest flex-shrink-0">
-        Vista previa
-      </p>
-      <div
-        className={`relative w-full rounded-xl overflow-hidden shadow-lg flex-shrink-0 ${cfg.slide}`}
-        style={{ aspectRatio: "16/9" }}
-      >
-        {hasBg && (
-          <img
-            src={slide.bgImage}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).style.display = "none";
-            }}
-          />
-        )}
-        {hasBgOverlay && (
-          <div
-            className={`absolute inset-0 ${
-              slide.bgOverlay === "dark" ? cfg.overlayDark : cfg.overlayMedium
-            }`}
-          />
-        )}
-
-        <div className="relative z-10 h-full flex flex-col p-5 gap-3">
-          {slide.layout === "quote" ? (
-            <div className="flex flex-col items-center justify-center h-full gap-2 text-center">
-              <div className="text-4xl opacity-20 font-serif leading-none">&ldquo;</div>
-              {slide.heading && (
-                <h2
-                  className="text-xl italic font-serif leading-snug"
-                  style={headingAccentStyle}
-                >
-                  {slide.heading}
-                </h2>
-              )}
-              {slide.subtitle && (
-                <p className="text-xs opacity-60">— {slide.subtitle}</p>
-              )}
-            </div>
-          ) : slide.toolSpec ? (
-            <>
-              {slide.heading && (
-                <h2 className={headingCls} style={headingAccentStyle}>
-                  {slide.heading}
-                </h2>
-              )}
-              {slide.subtitle && (
-                <p className={subtitleCls}>{slide.subtitle}</p>
-              )}
-              <div className="flex-1 min-h-0 overflow-hidden rounded-lg">
-                <VisualizerRenderer spec={slide.toolSpec} />
-              </div>
-            </>
-          ) : slide.blockSpec ? (
-            <>
-              {slide.heading && (
-                <h2 className={headingCls} style={headingAccentStyle}>
-                  {slide.heading}
-                </h2>
-              )}
-              {slide.subtitle && (
-                <p className={subtitleCls}>{slide.subtitle}</p>
-              )}
-              <div className="flex-1 min-h-0 overflow-auto rounded-lg">
-                <BlockSpecRenderer block={slide.blockSpec} />
-              </div>
-            </>
-          ) : slide.layout === "split" ? (
-            <>
-              {slide.heading && (
-                <h2 className={headingCls} style={headingAccentStyle}>
-                  {slide.heading}
-                </h2>
-              )}
-              <div className="grid grid-cols-[1fr_1px_1fr] gap-3 flex-1 min-h-0">
-                <div className={`text-xs overflow-auto ${cfg.body}`}>
-                  {slide.leftColumn ?? slide.body ?? ""}
-                </div>
-                <div className="opacity-15 bg-current" />
-                <div className={`text-xs overflow-auto ${cfg.body}`}>
-                  {slide.rightColumn ?? ""}
-                </div>
-              </div>
-            </>
-          ) : slide.layout === "centered" ? (
-            <div className="flex flex-col items-center justify-center h-full gap-2 text-center">
-              {slide.heading && (
-                <h2 className={headingCls} style={headingAccentStyle}>
-                  {slide.heading}
-                </h2>
-              )}
-              {slide.subtitle && <p className={subtitleCls}>{slide.subtitle}</p>}
-              {slide.body && (
-                <p className={`text-xs overflow-auto ${cfg.body}`}>{slide.body}</p>
-              )}
-            </div>
-          ) : slide.layout === "bottom-text" ? (
-            <div className="flex flex-col justify-end h-full gap-2">
-              {slide.heading && (
-                <h2 className={headingCls} style={headingAccentStyle}>
-                  {slide.heading}
-                </h2>
-              )}
-              {slide.subtitle && <p className={subtitleCls}>{slide.subtitle}</p>}
-            </div>
-          ) : (
-            /* top (default) */
-            <>
-              {slide.heading && (
-                <h2 className={headingCls} style={headingAccentStyle}>
-                  {slide.heading}
-                </h2>
-              )}
-              {slide.subtitle && <p className={subtitleCls}>{slide.subtitle}</p>}
-              {slide.isCode && slide.body ? (
-                <pre
-                  className={`text-xs overflow-auto rounded p-3 flex-1 min-h-0 ${cfg.code}`}
-                >
-                  {slide.body}
-                </pre>
-              ) : slide.body ? (
-                <p className={`text-xs overflow-auto ${cfg.body}`}>{slide.body}</p>
-              ) : null}
-            </>
-          )}
+    <section className="vb-stage" aria-label="Lienzo de la diapositiva">
+      <div className="vb-stage-toolbar">
+        <span className="info">
+          Diapositiva <strong>{index + 1}</strong> de {total}
+        </span>
+        <span className="vb-stage-badge" aria-hidden="true">16 : 9</span>
+        <div className="end">
+          <Button variant="icon" size="sm" aria-label="Diapositiva anterior" title="Anterior (←)" disabled={index === 0} onClick={onPrev}>
+            <ChevronLeft size={16} />
+          </Button>
+          <Button variant="icon" size="sm" aria-label="Siguiente diapositiva" title="Siguiente (→)" disabled={index === total - 1} onClick={onNext}>
+            <ChevronRight size={16} />
+          </Button>
         </div>
-
-        {accentCfg && (
-          <div
-            className="absolute bottom-0 left-0 right-0 h-[3px]"
-            style={{ background: accentCfg.swatch }}
-          />
-        )}
       </div>
-    </div>
+
+      <div className="vb-stage-area">
+        <div className="vb-canvas-wrap">
+          <div className="vb-slide-canvas" data-layout={slide.layout} style={canvasStyle}>
+            {accentCfg && <span className="vb-accent-stripe" aria-hidden="true" />}
+            {hasBg && (
+              <img src={slide.bgImage} alt="" className="vb-slide-bgimg" onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }} />
+            )}
+            {hasOverlay && <div className={`vb-slide-overlay${slide.bgOverlay === "dark" ? " is-dark" : " is-medium"}`} aria-hidden="true" />}
+            {isQuote && <span className="vb-quote-mark" aria-hidden="true">&ldquo;</span>}
+
+            <EditableText
+              key={`${slide.id}-h`}
+              value={slide.heading}
+              onChange={(t) => onChange({ heading: t })}
+              className={`vb-s-title${isQuote ? " is-quote" : ""}`}
+              placeholder={isQuote ? "Texto de la cita…" : "Título de la diapositiva"}
+              ariaLabel="Título de la diapositiva"
+            />
+            {!isSplit && (
+              <EditableText
+                key={`${slide.id}-sub`}
+                value={slide.subtitle ?? ""}
+                onChange={(t) => onChange({ subtitle: t || undefined })}
+                className="vb-s-subtitle"
+                placeholder={isQuote ? "— Autor, Año (opcional)" : "Subtítulo o descripción secundaria (opcional)"}
+                ariaLabel="Subtítulo"
+              />
+            )}
+            {body}
+          </div>
+        </div>
+      </div>
+
+      <footer className="vb-stage-foot">
+        <span className="pos" aria-live="polite">{index + 1} / {total}</span>
+        <span aria-hidden="true" className="vb-stage-dot">·</span>
+        <span className="info">Layout: <strong>{LAYOUT_META[slide.layout].label}</strong></span>
+        <div className="vb-stage-hints">
+          <kbd>←→</kbd> cambiar · <kbd>⌫</kbd> eliminar
+        </div>
+      </footer>
+    </section>
   );
 }
 
@@ -1726,295 +1745,145 @@ export function ToolParamControl({
   return null;
 }
 
-// ─── Editor form ──────────────────────────────────────────────────────────────
+// ─── Inspector (Diseño / Contenido / Notas) ─────────────────────────────────
 
-type EditorFormProps = {
+type InspectorProps = {
   slide: Slide;
   onChange: (patch: Partial<Omit<Slide, "id">>) => void;
 };
 
-function SlideEditorForm({ slide, onChange }: EditorFormProps) {
-  const isSplit = slide.layout === "split";
-  const isQuote = slide.layout === "quote";
+type InspectorTab = "diseno" | "contenido" | "notas";
+
+const OVERLAY_LABELS: Record<"none" | "medium" | "dark", string> = {
+  none: "Ninguna",
+  medium: "Suave",
+  dark: "Oscura",
+};
+
+function SlideInspector({ slide, onChange }: InspectorProps) {
+  const [tab, setTab] = useState<InspectorTab>("diseno");
   const [showBlockPicker, setShowBlockPicker] = useState(false);
   useEffect(() => { setShowBlockPicker(false); }, [slide.id]);
 
-  // Ids para asociar las etiquetas visibles de los campos con diseño propio
-  // (título/subtítulo conservan el estilo "edición in situ" sin borde).
-  const headingId = useId();
-  const subtitleId = useId();
-  const bodyId = useId();
+  const bgId = useId();
+  const langId = useId();
+  const notesId = useId();
 
-  const headingInput = (
-    <div>
-      <div className="flex items-baseline justify-between mb-1.5">
-        <label htmlFor={headingId} className="text-xs font-medium text-[var(--c-muted)]">
-          {isQuote ? "Texto de la cita" : "Título principal"}
-        </label>
-        <span className="text-[10px] text-[var(--c-border)] font-mono">
-          {isQuote ? "text-3xl italic font-serif" : "text-4xl font-bold"}
-        </span>
-      </div>
-      <input
-        id={headingId}
-        className={`w-full border-0 border-b-2 border-[var(--c-border)] pb-2 leading-tight outline-none focus:border-[var(--c-primary)] bg-transparent placeholder-[var(--c-border)] text-[var(--c-text)] ${
-          isQuote ? "text-2xl italic font-serif" : "text-2xl font-bold"
-        }`}
-        placeholder={isQuote ? '"El conocimiento es poder..."' : "Título de la diapositiva"}
-        value={slide.heading}
-        onChange={(e) => onChange({ heading: e.target.value })}
-      />
-    </div>
-  );
+  const notes = slide.notes ?? "";
+  const wordCount = notes.trim() ? notes.trim().split(/\s+/).length : 0;
+  const minutes = Math.max(1, Math.round(wordCount / 130));
+
+  const ctype: "texto" | "codigo" | "bloque" = slide.blockSpec
+    ? "bloque"
+    : slide.isCode
+    ? "codigo"
+    : "texto";
 
   return (
-    <div className="flex flex-col gap-7">
-      {/* ── Layout picker ── */}
-      <div>
-        <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Distribución del contenido</p>
-        <div className="grid grid-cols-5 gap-2">
-          {(Object.keys(LAYOUT_META) as LayoutPreset[]).map((preset) => (
-            <button
-              key={preset}
-              type="button"
-              title={LAYOUT_META[preset].description}
-              aria-label={`Distribución ${LAYOUT_META[preset].label}`}
-              aria-pressed={slide.layout === preset}
-              className={`flex flex-col gap-2 p-3 rounded-lg border transition-colors motion-reduce:transition-none text-[var(--c-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] ${
-                slide.layout === preset
-                  ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] text-[var(--c-primary)]"
-                  : "border-[var(--c-border)] hover:border-[var(--c-primary)] hover:bg-[var(--c-bg)]"
-              }`}
-              style={{ height: 72 }}
-              onClick={() => onChange({ layout: preset })}
-            >
-              <div className="flex-1 min-h-0 w-full">
-                <LayoutIcon preset={preset} />
-              </div>
-              <span className="text-[10px] font-medium leading-none text-center">
-                {LAYOUT_META[preset].label}
-              </span>
-            </button>
-          ))}
-        </div>
+    <div className="vb-slide-insp">
+      <div className="vb-insp-tabs" role="tablist" aria-label="Inspector de diapositiva">
+        {(([["diseno", "Diseño"], ["contenido", "Contenido"], ["notas", "Notas"]]) as [InspectorTab, string][]).map(([key, label]) => (
+          <button key={key} type="button" role="tab" aria-selected={tab === key} tabIndex={tab === key ? 0 : -1} onClick={() => setTab(key)}>
+            {label}
+          </button>
+        ))}
       </div>
 
-      {/* ── Background image ── */}
-      <div>
-        <Input
-          type="url"
-          label="Imagen de fondo"
-          hint="Opcional — URL de la imagen"
-          placeholder="https://ejemplo.com/imagen.jpg"
-          value={slide.bgImage ?? ""}
-          onChange={(e) => onChange({ bgImage: e.target.value || undefined })}
-        />
-        {slide.bgImage ? (
-          <div className="mt-2 flex items-center gap-2">
-            <span className="text-xs text-[var(--c-muted)] flex-shrink-0">Capa de color:</span>
-            {(["none", "medium", "dark"] as const).map((opt) => (
-              <Button
-                key={opt}
-                variant="ghost"
-                size="sm"
-                pressed={(slide.bgOverlay ?? "none") === opt}
-                aria-label={`Capa de color: ${{ none: "Ninguna", medium: "Suave", dark: "Oscura" }[opt]}`}
-                onClick={() => onChange({ bgOverlay: opt })}
-              >
-                {{ none: "Ninguna", medium: "Suave", dark: "Oscura" }[opt]}
-              </Button>
-            ))}
-            <img
-              src={slide.bgImage}
-              alt=""
-              className="ml-auto h-8 w-14 object-cover rounded border border-[var(--c-border)] flex-shrink-0"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-            />
-          </div>
-        ) : null}
-      </div>
-
-      {/* ── Content fields ── */}
-      {isSplit ? (
-        <>
-          {headingInput}
-          <div className="grid grid-cols-2 gap-4">
-            <Textarea
-              label="Columna izquierda"
-              className="leading-relaxed"
-              placeholder="Contenido de la columna izquierda..."
-              rows={12}
-              value={slide.leftColumn ?? ""}
-              onChange={(e) => onChange({ leftColumn: e.target.value || undefined })}
-            />
-            <Textarea
-              label="Columna derecha"
-              className="leading-relaxed"
-              placeholder="Contenido de la columna derecha..."
-              rows={12}
-              value={slide.rightColumn ?? ""}
-              onChange={(e) => onChange({ rightColumn: e.target.value || undefined })}
-            />
-          </div>
-        </>
-      ) : (
-        <>
-          {headingInput}
-
+      {tab === "diseno" && (
+        <div className="vb-insp-pane">
           <div>
-            <div className="flex items-baseline justify-between mb-1.5">
-              <label htmlFor={subtitleId} className="text-xs font-medium text-[var(--c-muted)]">
-                {isQuote ? "Atribución" : "Subtítulo"}
-              </label>
-              <span className="text-[10px] text-[var(--c-border)] font-mono">text-xl font-medium</span>
+            <p className="vb-insp-eyebrow">Distribución del contenido</p>
+            <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Distribución del contenido">
+              {(Object.keys(LAYOUT_META) as LayoutPreset[]).map((preset) => (
+                <button
+                  key={preset}
+                  type="button"
+                  title={LAYOUT_META[preset].description}
+                  aria-label={`Distribución ${LAYOUT_META[preset].label}`}
+                  aria-pressed={slide.layout === preset}
+                  className={`vb-layout-card${slide.layout === preset ? " is-active" : ""}`}
+                  onClick={() => onChange({ layout: preset })}
+                >
+                  <span className="vb-layout-card__preview"><LayoutIcon preset={preset} /></span>
+                  <span className="vb-layout-card__nm">{LAYOUT_META[preset].label}</span>
+                </button>
+              ))}
             </div>
-            <input
-              id={subtitleId}
-              className="w-full border-0 border-b border-[var(--c-border)] pb-1.5 text-lg font-medium leading-snug outline-none focus:border-[var(--c-primary)] bg-transparent placeholder-[var(--c-border)] text-[var(--c-muted)]"
-              placeholder={isQuote ? "— Autor, Año (opcional)" : "Subtítulo o descripción secundaria (opcional)"}
-              value={slide.subtitle ?? ""}
-              onChange={(e) => onChange({ subtitle: e.target.value || undefined })}
-            />
           </div>
 
-          {!isQuote ? (
-            <>
-              {slide.blockSpec ? (
-                /* ── Block mode: editor + remove button ── */
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-xs font-medium text-[var(--c-muted)]">
-                      Bloque gráfico — {BLOCK_TYPE_LABELS[slide.blockSpec.type]}
-                    </p>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="text-[var(--c-danger)]"
-                      onClick={() => onChange({ blockSpec: undefined })}
-                    >
-                      <X size={12} />
-                      Quitar bloque
-                    </Button>
-                  </div>
-                  <BlockSpecEditor
-                    block={slide.blockSpec}
-                    onChange={(b) => onChange({ blockSpec: b })}
-                  />
-                </div>
-              ) : (
-                <>
-                  {/* ── Content mode selector ── */}
-                  <div role="radiogroup" aria-label="Tipo de contenido">
-                    <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Tipo de contenido</p>
-                    <div className="flex gap-4">
-                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-[var(--c-text)]">
-                        <input
-                          type="radio"
-                          name={`content-mode-${slide.id}`}
-                          checked={!slide.isCode && !showBlockPicker}
-                          onChange={() => {
-                            setShowBlockPicker(false);
-                            if (slide.isCode) onChange({ isCode: false });
-                          }}
-                        />
-                        Texto
-                      </label>
-                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-[var(--c-text)]">
-                        <input
-                          type="radio"
-                          name={`content-mode-${slide.id}`}
-                          checked={!!slide.isCode && !showBlockPicker}
-                          onChange={() => {
-                            setShowBlockPicker(false);
-                            onChange({ isCode: true });
-                          }}
-                        />
-                        Código
-                      </label>
-                      <label className="flex items-center gap-1.5 cursor-pointer select-none text-sm text-[var(--c-text)]">
-                        <input
-                          type="radio"
-                          name={`content-mode-${slide.id}`}
-                          checked={showBlockPicker}
-                          onChange={() => setShowBlockPicker(true)}
-                        />
-                        Bloque gráfico
-                      </label>
-                    </div>
-                  </div>
+          <div className="vb-field">
+            <label className="vb-field-label" htmlFor={bgId}>Imagen de fondo (opcional)</label>
+            <input id={bgId} type="url" className="vb-field-input" placeholder="https://ejemplo.com/imagen.jpg" value={slide.bgImage ?? ""} onChange={(e) => onChange({ bgImage: e.target.value || undefined })} />
+            {slide.bgImage && (
+              <div className="mt-2 flex items-center gap-2 flex-wrap">
+                <span className="text-xs text-[var(--c-muted)]">Capa de color:</span>
+                {(["none", "medium", "dark"] as const).map((opt) => (
+                  <Button key={opt} variant="ghost" size="sm" pressed={(slide.bgOverlay ?? "none") === opt} aria-label={`Capa de color: ${OVERLAY_LABELS[opt]}`} onClick={() => onChange({ bgOverlay: opt })}>
+                    {OVERLAY_LABELS[opt]}
+                  </Button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
-                  {showBlockPicker ? (
-                    /* ── Block type picker ── */
-                    <div>
-                      <p className="text-xs text-[var(--c-muted)] mb-2">Seleccionar tipo de bloque:</p>
-                      <div className="flex gap-2 flex-wrap">
-                        {(["chart", "table", "latex", "flow"] as const).map((t) => (
-                          <Button
-                            key={t}
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => {
-                              setShowBlockPicker(false);
-                              onChange({ blockSpec: createEmptyBlock(t), body: undefined, isCode: false });
-                            }}
-                          >
-                            {BLOCK_TYPE_LABELS[t]}
-                          </Button>
-                        ))}
-                      </div>
-                    </div>
-                  ) : (
-                    /* ── Body / code ── */
-                    <>
-                      <div>
-                        <div className="flex items-baseline justify-between mb-1.5">
-                          <label htmlFor={bodyId} className="text-xs font-medium text-[var(--c-muted)]">
-                            {slide.isCode ? "Código" : "Cuerpo de texto"}
-                          </label>
-                          <span className="text-[10px] text-[var(--c-border)] font-mono">text-base leading-relaxed</span>
-                        </div>
-                        <textarea
-                          id={bodyId}
-                          className={`w-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] rounded-lg p-4 resize-none text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)] leading-relaxed ${
-                            slide.isCode ? "font-mono" : ""
-                          }`}
-                          placeholder={
-                            slide.isCode
-                              ? "// Escribí tu código aquí..."
-                              : "Contenido de la diapositiva...\n\nPodés usar texto libre, listas con guiones (-) o numeradas."
-                          }
-                          rows={10}
-                          value={slide.body ?? ""}
-                          onChange={(e) => onChange({ body: e.target.value || undefined })}
-                        />
-                      </div>
+      {tab === "contenido" && (
+        <div className="vb-insp-pane">
+          <div>
+            <p className="vb-insp-eyebrow">Tipo de contenido</p>
+            <div className="vb-ctype-row" role="radiogroup" aria-label="Tipo de contenido">
+              <button type="button" className="vb-ctype" aria-pressed={ctype === "texto"} onClick={() => { setShowBlockPicker(false); onChange({ isCode: false, blockSpec: undefined }); }}>Texto</button>
+              <button type="button" className="vb-ctype" aria-pressed={ctype === "codigo"} onClick={() => { setShowBlockPicker(false); onChange({ isCode: true, blockSpec: undefined }); }}>Código</button>
+              <button type="button" className="vb-ctype" aria-pressed={ctype === "bloque"} onClick={() => { setShowBlockPicker(!slide.blockSpec); }}>Bloque</button>
+            </div>
+          </div>
 
-                      <div className="flex items-center gap-3 flex-wrap">
-                        <label className="flex items-center gap-2 cursor-pointer select-none">
-                          <input
-                            type="checkbox"
-                            className="rounded border-[var(--c-border)]"
-                            checked={slide.isCode ?? false}
-                            onChange={(e) => onChange({ isCode: e.target.checked })}
-                          />
-                          <span className="text-xs text-[var(--c-text)]">Mostrar como bloque de código</span>
-                        </label>
-                        {slide.isCode ? (
-                          <Input
-                            aria-label="Lenguaje del código"
-                            placeholder="lenguaje (js, python...)"
-                            value={slide.language ?? ""}
-                            onChange={(e) => onChange({ language: e.target.value || undefined })}
-                          />
-                        ) : null}
-                      </div>
-                    </>
-                  )}
-                </>
-              )}
-            </>
+          {ctype === "codigo" && (
+            <div className="vb-field">
+              <label className="vb-field-label" htmlFor={langId}>Lenguaje del código</label>
+              <input id={langId} className="vb-field-input" placeholder="js, python, …" value={slide.language ?? ""} onChange={(e) => onChange({ language: e.target.value || undefined })} />
+              <p className="text-xs text-[var(--c-muted)] mt-1">Editá el código directamente en el lienzo.</p>
+            </div>
+          )}
+
+          {slide.blockSpec ? (
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <p className="vb-insp-eyebrow" style={{ marginBottom: 0 }}>Bloque gráfico — {BLOCK_TYPE_LABELS[slide.blockSpec.type]}</p>
+                <Button variant="ghost" size="sm" className="text-[var(--c-danger)]" onClick={() => onChange({ blockSpec: undefined })}>
+                  <X size={12} /> Quitar
+                </Button>
+              </div>
+              <BlockSpecEditor block={slide.blockSpec} onChange={(b) => onChange({ blockSpec: b })} />
+            </div>
+          ) : showBlockPicker ? (
+            <div>
+              <p className="vb-insp-eyebrow">Insertar bloque del motor gráfico</p>
+              <div className="vb-blocks-grid">
+                {(["chart", "table", "latex", "flow"] as const).map((t) => (
+                  <button key={t} type="button" className="vb-block-card" onClick={() => { setShowBlockPicker(false); onChange({ blockSpec: createEmptyBlock(t), body: undefined, isCode: false }); }}>
+                    {BLOCK_TYPE_LABELS[t]}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : ctype === "texto" ? (
+            <p className="text-xs text-[var(--c-muted)]">Editá el cuerpo directamente en el lienzo. Usá guiones (-) para listas.</p>
           ) : null}
-        </>
+        </div>
+      )}
+
+      {tab === "notas" && (
+        <div className="vb-insp-pane">
+          <div className="vb-field">
+            <label className="vb-field-label" htmlFor={notesId}>Notas del orador</label>
+            <textarea id={notesId} className="vb-field-input vb-field-textarea" rows={8} placeholder="Notas para quien presenta (no se muestran en la diapositiva)…" value={notes} onChange={(e) => onChange({ notes: e.target.value || undefined })} />
+            <p className="text-xs text-[var(--c-muted)] mt-1" aria-live="polite">
+              {wordCount} {wordCount === 1 ? "palabra" : "palabras"} · ~{minutes} min de lectura
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );
@@ -2230,43 +2099,42 @@ export default function TheorySlideEditor({
           </Button>
         </div>
 
-        {/* Editor panel (form + preview) */}
-        <div className="flex-1 flex overflow-hidden">
-          {/* Form — left column */}
-          <div className="flex-1 overflow-y-auto border-r border-[var(--c-border)]">
-            <div className="max-w-2xl mx-auto w-full p-8 flex flex-col gap-8 min-h-full">
-              {currentSlide ? (
-                <>
-                  <SlideEditorForm
-                    slide={currentSlide}
-                    onChange={(patch) => updateSlide(currentSlide.id, patch)}
-                  />
-
-                  {slides.length > 1 ? (
+        {/* Editor: lienzo WYSIWYG (centro) + inspector con tabs (derecha) */}
+        <div className="flex-1 flex overflow-hidden min-w-0">
+          {currentSlide ? (
+            <>
+              <div className="flex-1 min-w-0 overflow-hidden">
+                <SlideStage
+                  slide={currentSlide}
+                  index={currentIndex}
+                  total={slides.length}
+                  theme={theme}
+                  accentColor={accentColor}
+                  onChange={(patch) => updateSlide(currentSlide.id, patch)}
+                  onPrev={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
+                  onNext={() => setCurrentIndex(Math.min(slides.length - 1, currentIndex + 1))}
+                />
+              </div>
+              <div className="w-[320px] flex-shrink-0 overflow-y-auto bg-[var(--c-surface)] border-l border-[var(--c-border)]">
+                <SlideInspector
+                  slide={currentSlide}
+                  onChange={(patch) => updateSlide(currentSlide.id, patch)}
+                />
+                {slides.length > 1 ? (
+                  <div className="p-4 border-t border-[var(--c-border)]">
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="self-start text-[var(--c-danger)]"
+                      className="text-[var(--c-danger)]"
                       onClick={() => removeSlide(currentSlide.id)}
                     >
                       <Trash2 size={12} />
                       Eliminar diapositiva
                     </Button>
-                  ) : null}
-                </>
-              ) : null}
-            </div>
-          </div>
-
-          {/* Preview — right column */}
-          {currentSlide ? (
-            <div className="w-[420px] flex-shrink-0 overflow-y-auto bg-[var(--c-bg)]">
-              <SlidePreviewPane
-                slide={currentSlide}
-                theme={theme}
-                accentColor={accentColor}
-              />
-            </div>
+                  </div>
+                ) : null}
+              </div>
+            </>
           ) : null}
         </div>
       </div>

@@ -1,9 +1,11 @@
+import { useId, useState } from "react";
 import { type LineaTiempoConfig } from "./types";
 
 // ── Alumno (readonly) ────────────────────────────────────────────────
 
 type AlumnoProps = { config: LineaTiempoConfig };
 
+// Paleta por evento = codificación de contenido de la línea de tiempo (no chrome).
 const EVENT_COLORS = [
   { bg: "#dbeafe", dot: "#2563eb", text: "#1d4ed8" }, // azul
   { bg: "#dcfce7", dot: "#16a34a", text: "#15803d" }, // verde
@@ -23,63 +25,70 @@ function LineaTiempoAlumno({ config }: AlumnoProps) {
   return (
     <div className="space-y-3">
       {config.titulo && (
-        <h3 className="text-base font-semibold text-slate-800">{config.titulo}</h3>
+        <h3 className="text-base font-semibold text-[var(--c-text)]">{config.titulo}</h3>
       )}
-      <div className="relative pl-16">
-        {/* Vertical line */}
-        <div className="absolute left-5 top-2 bottom-2 w-0.5 bg-gradient-to-b from-slate-200 via-slate-300 to-slate-200" />
-        <div className="space-y-6">
-          {config.eventos.map((ev, idx) => {
-            const color = EVENT_COLORS[idx % EVENT_COLORS.length];
-            return (
-              <div key={ev.id} className="relative">
-                {/* Dot con fecha */}
-                <div
-                  className="absolute -left-11 top-2 w-10 h-10 rounded-full flex items-center justify-center shadow-sm border-2 border-white"
-                  style={{ backgroundColor: color.dot }}
-                >
-                  {isYear(ev.fecha) ? (
-                    <span className="text-xs font-bold text-white leading-tight text-center px-0.5">
-                      {ev.fecha.trim()}
-                    </span>
-                  ) : (
-                    <span className="text-white text-sm">●</span>
-                  )}
-                </div>
-                {/* Tarjeta */}
-                <div
-                  className="rounded-lg p-3 shadow-sm"
-                  style={{
-                    backgroundColor: color.bg,
-                    borderLeft: `3px solid ${color.dot}`,
-                  }}
-                >
-                  <p className="font-semibold text-slate-800">{ev.titulo}</p>
-                  {ev.descripcion && (
-                    <p className="text-sm text-slate-600 mt-0.5">{ev.descripcion}</p>
-                  )}
-                  {ev.tags && ev.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {ev.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs px-2 py-0.5 rounded-full font-medium"
-                          style={{ color: color.text, backgroundColor: "rgba(255,255,255,0.6)" }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-          {config.eventos.length === 0 && (
-            <p className="text-sm text-slate-400 italic">Sin eventos</p>
-          )}
+      {config.eventos.length === 0 ? (
+        <p className="text-sm text-[var(--c-muted)] italic py-4 text-center">
+          Esta línea de tiempo todavía no tiene eventos.
+        </p>
+      ) : (
+        <div className="relative pl-16">
+          {/* Vertical line */}
+          <div className="absolute left-5 top-2 bottom-2 w-0.5 bg-[var(--c-border)]" aria-hidden="true" />
+          <ol className="space-y-6 list-none p-0 m-0">
+            {config.eventos.map((ev, idx) => {
+              const color = EVENT_COLORS[idx % EVENT_COLORS.length];
+              return (
+                <li key={ev.id} className="relative">
+                  {/* Dot con fecha */}
+                  <div
+                    className="absolute -left-11 top-2 w-10 h-10 rounded-full flex items-center justify-center shadow-sm border-2 border-[var(--c-surface)]"
+                    style={{ backgroundColor: color.dot }}
+                    aria-hidden="true"
+                  >
+                    {isYear(ev.fecha) ? (
+                      <span className="text-xs font-bold text-[var(--c-text-on-dark)] leading-tight text-center px-0.5">
+                        {ev.fecha.trim()}
+                      </span>
+                    ) : (
+                      <span className="text-[var(--c-text-on-dark)] text-sm">●</span>
+                    )}
+                  </div>
+                  {/* Tarjeta */}
+                  <div
+                    className="rounded-lg p-3 shadow-sm"
+                    style={{
+                      backgroundColor: color.bg,
+                      borderLeft: `3px solid ${color.dot}`,
+                    }}
+                  >
+                    {!isYear(ev.fecha) && ev.fecha.trim() && (
+                      <p className="text-xs font-semibold mb-0.5" style={{ color: color.text }}>{ev.fecha}</p>
+                    )}
+                    <p className="font-semibold" style={{ color: color.text }}>{ev.titulo}</p>
+                    {ev.descripcion && (
+                      <p className="text-sm mt-0.5 opacity-90" style={{ color: color.text }}>{ev.descripcion}</p>
+                    )}
+                    {ev.tags && ev.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-1 mt-2">
+                        {ev.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs px-2 py-0.5 rounded-full font-medium"
+                            style={{ color: color.text, backgroundColor: "rgba(255,255,255,0.6)" }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -101,8 +110,15 @@ function emptyConfig(): LineaTiempoConfig {
 
 type Evento = LineaTiempoConfig["eventos"][0];
 
+const FIELD_CLS =
+  "w-full rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1.5 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]";
+const MOVE_BTN_CLS =
+  "text-xs text-[var(--c-text-3)] hover:text-[var(--c-text)] px-1 disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm";
+
 function LineaTiempoEditor({ config, onChange }: EditorProps) {
   const cfg = config ?? emptyConfig();
+  const tituloId = useId();
+  const [announce, setAnnounce] = useState("");
 
   const update = (partial: Partial<LineaTiempoConfig>) => onChange({ ...cfg, ...partial });
 
@@ -125,6 +141,7 @@ function LineaTiempoEditor({ config, onChange }: EditorProps) {
     const arr = [...cfg.eventos];
     [arr[idx - 1], arr[idx]] = [arr[idx], arr[idx - 1]];
     update({ eventos: arr });
+    setAnnounce(`Evento movido a la posición ${idx} de ${arr.length}.`);
   };
 
   const moveDown = (idx: number) => {
@@ -132,14 +149,17 @@ function LineaTiempoEditor({ config, onChange }: EditorProps) {
     const arr = [...cfg.eventos];
     [arr[idx], arr[idx + 1]] = [arr[idx + 1], arr[idx]];
     update({ eventos: arr });
+    setAnnounce(`Evento movido a la posición ${idx + 2} de ${arr.length}.`);
   };
 
   return (
     <div className="space-y-4">
+      <div role="status" aria-live="polite" className="sr-only">{announce}</div>
       <div>
-        <label className="block text-xs font-medium text-slate-600 mb-1">Título (opcional)</label>
+        <label htmlFor={tituloId} className="block text-xs font-medium text-[var(--c-muted)] mb-1">Título (opcional)</label>
         <input
-          className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+          id={tituloId}
+          className={`${FIELD_CLS} px-3 py-2`}
           value={cfg.titulo ?? ""}
           placeholder="Título de la línea de tiempo"
           onChange={(e) => update({ titulo: e.target.value })}
@@ -148,20 +168,25 @@ function LineaTiempoEditor({ config, onChange }: EditorProps) {
 
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">Eventos</span>
-          <button type="button" className="text-xs text-indigo-600 hover:underline" onClick={addEvento}>
+          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--c-muted)]">Eventos</span>
+          <button
+            type="button"
+            className="text-xs text-[var(--c-primary)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm px-1"
+            onClick={addEvento}
+          >
             + Agregar
           </button>
         </div>
         <div className="space-y-3">
           {cfg.eventos.map((ev, idx) => (
-            <div key={ev.id} className="rounded-lg border border-slate-200 p-3 space-y-2 bg-slate-50">
+            <div key={ev.id} className="rounded-lg border border-[var(--c-border)] p-3 space-y-2 bg-[var(--c-surface-3)]">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-slate-400">Evento {idx + 1}</span>
+                <span className="text-xs text-[var(--c-muted)] font-medium">Evento {idx + 1}</span>
                 <div className="flex items-center gap-1">
                   <button
                     type="button"
-                    className="text-xs text-slate-400 hover:text-slate-700 px-1"
+                    className={MOVE_BTN_CLS}
+                    aria-label={`Subir evento ${idx + 1}`}
                     onClick={() => moveUp(idx)}
                     disabled={idx === 0}
                   >
@@ -169,7 +194,8 @@ function LineaTiempoEditor({ config, onChange }: EditorProps) {
                   </button>
                   <button
                     type="button"
-                    className="text-xs text-slate-400 hover:text-slate-700 px-1"
+                    className={MOVE_BTN_CLS}
+                    aria-label={`Bajar evento ${idx + 1}`}
                     onClick={() => moveDown(idx)}
                     disabled={idx === cfg.eventos.length - 1}
                   >
@@ -177,7 +203,8 @@ function LineaTiempoEditor({ config, onChange }: EditorProps) {
                   </button>
                   <button
                     type="button"
-                    className="text-xs text-red-400 hover:text-red-600 px-1"
+                    className="text-xs text-[var(--c-danger)] hover:opacity-80 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
+                    aria-label={`Eliminar evento ${idx + 1}`}
                     onClick={() => removeEvento(ev.id)}
                   >
                     ✕
@@ -186,18 +213,20 @@ function LineaTiempoEditor({ config, onChange }: EditorProps) {
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-xs text-slate-500 mb-0.5">Título</label>
+                  <label htmlFor={`${ev.id}-titulo`} className="block text-xs text-[var(--c-muted)] mb-0.5">Título</label>
                   <input
-                    className="w-full rounded border border-slate-300 px-2 py-1.5 text-sm"
+                    id={`${ev.id}-titulo`}
+                    className={FIELD_CLS}
                     value={ev.titulo}
                     placeholder="Ej: Revolución Francesa"
                     onChange={(e) => updateEvento(ev.id, { titulo: e.target.value })}
                   />
                 </div>
                 <div>
-                  <label className="block text-xs text-slate-500 mb-0.5">Fecha</label>
+                  <label htmlFor={`${ev.id}-fecha`} className="block text-xs text-[var(--c-muted)] mb-0.5">Fecha</label>
                   <input
-                    className="w-full rounded border border-slate-300 px-2 py-1.5 text-sm"
+                    id={`${ev.id}-fecha`}
+                    className={FIELD_CLS}
                     value={ev.fecha}
                     placeholder="Ej: 1789, Siglo XVIII"
                     onChange={(e) => updateEvento(ev.id, { fecha: e.target.value })}
@@ -205,19 +234,21 @@ function LineaTiempoEditor({ config, onChange }: EditorProps) {
                 </div>
               </div>
               <div>
-                <label className="block text-xs text-slate-500 mb-0.5">Descripción (opcional)</label>
+                <label htmlFor={`${ev.id}-desc`} className="block text-xs text-[var(--c-muted)] mb-0.5">Descripción (opcional)</label>
                 <input
-                  className="w-full rounded border border-slate-300 px-2 py-1.5 text-sm"
+                  id={`${ev.id}-desc`}
+                  className={FIELD_CLS}
                   value={ev.descripcion ?? ""}
                   onChange={(e) => updateEvento(ev.id, { descripcion: e.target.value })}
                 />
               </div>
               <div>
-                <label className="block text-xs text-slate-500 mb-0.5">
+                <label htmlFor={`${ev.id}-tags`} className="block text-xs text-[var(--c-muted)] mb-0.5">
                   Tags (separados por coma)
                 </label>
                 <input
-                  className="w-full rounded border border-slate-300 px-2 py-1.5 text-sm"
+                  id={`${ev.id}-tags`}
+                  className={FIELD_CLS}
                   value={(ev.tags ?? []).join(", ")}
                   placeholder="Ej: política, guerra"
                   onChange={(e) =>
@@ -233,7 +264,9 @@ function LineaTiempoEditor({ config, onChange }: EditorProps) {
             </div>
           ))}
           {cfg.eventos.length === 0 && (
-            <p className="text-xs text-slate-400 italic">Sin eventos</p>
+            <p className="text-xs text-[var(--c-text-3)] italic">
+              Todavía no hay eventos. Usá «+ Agregar» para crear el primero.
+            </p>
           )}
         </div>
       </div>

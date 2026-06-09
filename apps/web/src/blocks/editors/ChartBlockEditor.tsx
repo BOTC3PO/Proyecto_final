@@ -1,9 +1,11 @@
+import { useId } from "react"
 import type { ChartBlock, TableBlock, BlockDocument } from "../types"
 import { ChartBlockRenderer } from "../renderers/ChartBlockRenderer"
 import { Button } from "../../components/ui"
 
 const inputCls =
-  "w-full text-xs border border-slate-200 rounded px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-400"
+  "w-full text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
+const labelCls = "text-xs font-medium text-[var(--c-muted)] block mb-1"
 
 export const CHART_TYPE_OPTIONS: Array<{ value: ChartBlock["chartType"]; label: string; icon: string }> = [
   { value: "bar", label: "Barras", icon: "▦" },
@@ -60,6 +62,10 @@ export function ChartBlockEditor({
   doc: BlockDocument
   onUpdate: (patch: Record<string, unknown>) => void
 }) {
+  const titleId = useId()
+  const sourceTableId = useId()
+  const xColId = useId()
+  const labelsId = useId()
   const tableBlocks = doc.blocks.filter((b) => b.type === "table") as TableBlock[]
   const source = block.sourceTableId ? "table" : "manual"
   const isMultiSeries =
@@ -113,20 +119,21 @@ export function ChartBlockEditor({
   return (
     <div className="space-y-2">
       <div>
-        <label className="text-xs font-medium text-gray-600 block mb-1">Título</label>
+        <label htmlFor={titleId} className={labelCls}>Título</label>
         <input
+          id={titleId}
           className={inputCls}
           value={block.title ?? ""}
           onChange={(e) => onUpdate({ title: e.target.value })}
         />
       </div>
-      <p className="text-xs text-slate-400 italic">
+      <p className="text-xs text-[var(--c-text-3)] italic">
         Cambiá el tipo de gráfico desde la toolbar del bloque en el canvas.
       </p>
       <div>
-        <label className="text-xs font-medium text-gray-600 block mb-1">Fuente</label>
-        <div className="flex gap-3">
-          <label className="flex items-center gap-1 text-xs text-gray-600 cursor-pointer">
+        <span className={labelCls}>Fuente</span>
+        <div className="flex gap-3" role="radiogroup" aria-label="Fuente de datos del gráfico">
+          <label className="flex items-center gap-1 text-xs text-[var(--c-muted)] cursor-pointer">
             <input
               type="radio"
               checked={source === "manual"}
@@ -134,7 +141,7 @@ export function ChartBlockEditor({
             />
             Manual
           </label>
-          <label className="flex items-center gap-1 text-xs text-gray-600 cursor-pointer">
+          <label className="flex items-center gap-1 text-xs text-[var(--c-muted)] cursor-pointer">
             <input
               type="radio"
               checked={source === "table"}
@@ -152,8 +159,9 @@ export function ChartBlockEditor({
       {source === "table" && tableBlocks.length > 0 ? (
         <>
           <div>
-            <label className="text-xs font-medium text-gray-600 block mb-1">Tabla fuente</label>
+            <label htmlFor={sourceTableId} className={labelCls}>Tabla fuente</label>
             <select
+              id={sourceTableId}
               className={inputCls}
               value={block.sourceTableId ?? ""}
               onChange={(e) => onUpdate({ sourceTableId: e.target.value })}
@@ -166,10 +174,11 @@ export function ChartBlockEditor({
             </select>
           </div>
           <div>
-            <label className="text-xs font-medium text-gray-600 block mb-1">
+            <label htmlFor={xColId} className={labelCls}>
               Col. eje X (índice)
             </label>
             <input
+              id={xColId}
               type="number"
               className={inputCls}
               min={0}
@@ -181,10 +190,11 @@ export function ChartBlockEditor({
       ) : (
         <>
           <div>
-            <label className="text-xs font-medium text-gray-600 block mb-1">
+            <label htmlFor={labelsId} className={labelCls}>
               Etiquetas (separadas por coma)
             </label>
             <input
+              id={labelsId}
               className={inputCls}
               value={block.data?.labels.join(", ") ?? ""}
               onChange={(e) => updateLabels(e.target.value)}
@@ -192,27 +202,31 @@ export function ChartBlockEditor({
             />
           </div>
           {(block.data?.datasets ?? []).map((ds, i) => (
-            <div key={i} className="space-y-1 border border-slate-100 rounded p-2">
+            <div key={i} className="space-y-1 border border-[var(--c-border)] rounded p-2">
               <div className="flex items-center gap-1">
                 <input
                   className={inputCls + " flex-1"}
                   value={ds.label}
+                  aria-label={`Nombre de la serie ${i + 1}`}
                   onChange={(e) => updateDatasetLabel(i, e.target.value)}
                   placeholder="Nombre de serie"
                 />
                 {isMultiSeries && (
                   <input
                     type="color"
-                    className="w-6 h-6 rounded border border-slate-200 cursor-pointer p-0.5 shrink-0"
+                    className="w-6 h-6 rounded border border-[var(--c-border)] cursor-pointer p-0.5 shrink-0 bg-transparent"
                     value={ds.color ?? "#6366f1"}
+                    aria-label={`Color de la serie ${i + 1}`}
                     onChange={(e) => updateDatasetColor(i, e.target.value)}
                     title="Color de serie"
                   />
                 )}
                 {isMultiSeries && (block.data?.datasets ?? []).length > 1 && (
                   <button
+                    type="button"
                     onClick={() => removeDataset(i)}
-                    className="text-red-400 hover:text-red-600 px-1 text-sm shrink-0"
+                    className="text-[var(--c-danger)] hover:opacity-80 px-1 text-sm shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
+                    aria-label={`Eliminar serie ${i + 1}`}
                     title="Eliminar serie"
                   >
                     ×
@@ -222,6 +236,7 @@ export function ChartBlockEditor({
               <input
                 className={inputCls}
                 defaultValue={ds.values.join(", ")}
+                aria-label={`Valores de la serie ${i + 1} (separados por coma)`}
                 onBlur={(e) => updateDatasetValues(i, e.target.value)}
                 placeholder="0, 0, 0"
               />
@@ -229,8 +244,9 @@ export function ChartBlockEditor({
           ))}
           {isMultiSeries && (
             <button
+              type="button"
               onClick={addDataset}
-              className="text-xs px-2 py-1 border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 rounded w-full"
+              className="text-xs px-2 py-1 border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-hover)] rounded w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
             >
               + Agregar serie
             </button>
@@ -238,7 +254,7 @@ export function ChartBlockEditor({
         </>
       )}
 
-      <div className="rounded-lg border border-slate-100 bg-slate-50 p-2">
+      <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface-3)] p-2">
         <ChartBlockRenderer block={block} doc={doc} />
       </div>
     </div>
