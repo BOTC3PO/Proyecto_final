@@ -79,9 +79,19 @@ function validarBloquesObligatorios(bloques: Bloque[]): TipoPregunta {
   const get = <K extends BloqueKind>(k: K) =>
     bloques.find((b) => b.kind === k) as Extract<Bloque, { kind: K }> | undefined;
 
-  if (!has("enunciado")) {
+  // Tarea 05: `enunciado:` y `enunciados:` son mutuamente excluyentes.
+  if (has("enunciado") && has("enunciados")) {
+    const enunc = get("enunciado")!;
     throw new ParseError(
-      "Falta el bloque obligatorio `enunciado:`",
+      "Usá `enunciado:` o `enunciados:`, no ambos",
+      enunc.loc.line,
+      enunc.loc.col,
+    );
+  }
+
+  if (!has("enunciado") && !has("enunciados")) {
+    throw new ParseError(
+      "Falta el bloque obligatorio `enunciado:` (o `enunciados:` con una lista de variantes)",
       1,
       1,
     );

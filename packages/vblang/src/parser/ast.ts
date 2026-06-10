@@ -242,6 +242,11 @@ export interface EnunciadoBloque {
   partes: TextoOInterpolacion[];
   loc: Loc;
 }
+export interface EnunciadosBloque {
+  kind: "enunciados";
+  items: PasoItem[];
+  loc: Loc;
+}
 export interface PasosBloque {
   kind: "pasos";
   pasos: PasoItem[];
@@ -314,6 +319,7 @@ export type Bloque =
   | OpcionesBloque
   | TipoBloque
   | EnunciadoBloque
+  | EnunciadosBloque
   | PasosBloque
   | VisualBloque
   | GeneradorBloque

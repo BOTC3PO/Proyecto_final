@@ -6,6 +6,7 @@ import type {
   CorreccionModo,
   DatasetBloque,
   EnunciadoBloque,
+  EnunciadosBloque,
   EtiquetaPedida,
   EtiquetasPedidasBloque,
   Expr,
@@ -595,6 +596,64 @@ export function parseEnunciadoBloque(c: TokenCursor): EnunciadoBloque {
   };
 }
 
+export function parseEnunciadosBloque(c: TokenCursor): EnunciadosBloque {
+  const kwTok = c.consumeKind(TokenKind.KW_ENUNCIADOS, "'enunciados'");
+  consumeColon(c);
+  // Detectar lista vacia ANTES de parseDashedStringList: si el siguiente
+  // token no inicia un bloque indentado (es EOF, NEWLINE solo, o un block
+  // keyword hermano) lanzamos un mensaje claro de "falta variante".
+  skipNewlines(c);
+  const next = c.peek();
+  if (next.kind === TokenKind.EOF || isBlockKeyword(next.kind)) {
+    throw new ParseError(
+      `\`enunciados:\` requiere al menos una variante (mínimo 1 ítem con '- "..."')`,
+      kwTok.line,
+      kwTok.col,
+    );
+  }
+  const { items, endTok } = parseDashedStringList(c, "enunciados");
+  if (items.length === 0) {
+    throw new ParseError(
+      `\`enunciados:\` requiere al menos una variante (mínimo 1 ítem con '- "..."')`,
+      kwTok.line,
+      kwTok.col,
+    );
+  }
+  return {
+    kind: "enunciados",
+    items,
+    loc: spanLoc(tokLoc(kwTok), tokLoc(endTok)),
+  };
+}
+
+function isBlockKeyword(k: TokenKind): boolean {
+  return (
+    k === TokenKind.KW_METADATA ||
+    k === TokenKind.KW_VARIABLES ||
+    k === TokenKind.KW_RESTRICCIONES ||
+    k === TokenKind.KW_RESPUESTA ||
+    k === TokenKind.KW_RESPUESTAS_VALIDAS ||
+    k === TokenKind.KW_UNIDAD ||
+    k === TokenKind.KW_TOLERANCIA ||
+    k === TokenKind.KW_OPCIONES ||
+    k === TokenKind.KW_TIPO ||
+    k === TokenKind.KW_ENUNCIADO ||
+    k === TokenKind.KW_ENUNCIADOS ||
+    k === TokenKind.KW_PASOS ||
+    k === TokenKind.KW_VISUAL ||
+    k === TokenKind.KW_GENERADOR ||
+    k === TokenKind.KW_DATASET ||
+    k === TokenKind.KW_MAPA ||
+    k === TokenKind.KW_RESPUESTA_ISO ||
+    k === TokenKind.KW_RESPUESTA_NOMBRE ||
+    k === TokenKind.KW_RESPUESTA_ORDEN ||
+    k === TokenKind.KW_TEXTO_ANALIZAR ||
+    k === TokenKind.KW_ETIQUETAS_PEDIDAS ||
+    k === TokenKind.KW_OPCIONES_EXPLICITAS ||
+    k === TokenKind.KW_CORRECCION
+  );
+}
+
 export function parsePasosBloque(c: TokenCursor): PasosBloque {
   const kwTok = c.consumeKind(TokenKind.KW_PASOS, "'pasos'");
   consumeColon(c);
@@ -716,6 +775,8 @@ export function parseBloque(c: TokenCursor): Bloque {
       return parseTipoBloque(c);
     case TokenKind.KW_ENUNCIADO:
       return parseEnunciadoBloque(c);
+    case TokenKind.KW_ENUNCIADOS:
+      return parseEnunciadosBloque(c);
     case TokenKind.KW_PASOS:
       return parsePasosBloque(c);
     case TokenKind.KW_VISUAL:
