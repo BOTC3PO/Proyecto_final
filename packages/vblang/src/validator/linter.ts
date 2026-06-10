@@ -2,6 +2,7 @@ import { CONSTANTES_GLOBALES } from "../evaluator/constants.js";
 import type {
   Expr,
   Plantilla,
+  TextoOInterpolacion,
   VariableDecl,
 } from "../parser/ast.js";
 import { inferExprType, type InferContext } from "./infer.js";
@@ -243,6 +244,51 @@ export function lint(plantilla: Plantilla, opts?: LintOptions): LintReport {
           if (p.kind === "interp") inferExprType(p.expr, env, ctx);
         }
       }
+    } else if (b.kind === "enunciados") {
+      // Tarea 07: por cada variante, inferir tipos de las interpolaciones
+      // (que ya emite var-undef) y emitir un warning contextual con el
+      // indice de la variante para que el docente ubique el error rapido.
+      for (let i = 0; i < b.items.length; i += 1) {
+        const item = b.items[i];
+        for (const p of item.partes) {
+          if (p.kind !== "interp") continue;
+          inferExprType(p.expr, env, ctx);
+          // Walk profundo para encontrar cualquier `var` no declarada en la
+          // expresion (cubre binop, fun_call, field, etc.).
+          walkExpr(p.expr, (e) => {
+            if (e.kind === "var" && env.get(e.name) === undefined) {
+              issues.push({
+                severity: "warning",
+                code: "enunciados-var-undef",
+                message: `enunciados[${i}]: variable "${e.name}" no declarada`,
+                line: e.loc.line,
+                col: e.loc.col,
+              });
+            }
+          });
+        }
+      }
+
+      // Tarea 07: warning por variantes duplicadas exactas. Comparamos una
+      // firma canonica del item (concatenacion de partes + expr canonica
+      // para interp) para que dos variantes identicas reporten una sola
+      // vez, sobre el primer indice duplicado.
+      const canon = new Map<string, number>();
+      for (let i = 0; i < b.items.length; i += 1) {
+        const sig = canonFirmaItem(b.items[i].partes);
+        const first = canon.get(sig);
+        if (first !== undefined) {
+          issues.push({
+            severity: "warning",
+            code: "enunciados-duplicado",
+            message: `enunciados[${i}] es duplicado exacto de enunciados[${first}]`,
+            line: b.items[i].loc.line,
+            col: b.items[i].loc.col,
+          });
+        } else {
+          canon.set(sig, i);
+        }
+      }
     }
   }
 
@@ -285,6 +331,30 @@ function lintInterpolaciones(
           checkRandomInline(p.expr, issues);
         }
       }
+    } else if (b.kind === "enunciados") {
+      // Tarea 07: en modo generador asistido, las variables validas vienen
+      // del provider (opts.generadorVars). Mismo tratamiento que el path
+      // normal: inferir, check random, y emitir warning con indice por
+      // variable no declarada.
+      for (let i = 0; i < b.items.length; i += 1) {
+        const item = b.items[i];
+        for (const p of item.partes) {
+          if (p.kind !== "interp") continue;
+          inferExprType(p.expr, env, ctx);
+          checkRandomInline(p.expr, issues);
+          walkExpr(p.expr, (e) => {
+            if (e.kind === "var" && env.get(e.name) === undefined) {
+              issues.push({
+                severity: "warning",
+                code: "enunciados-var-undef",
+                message: `enunciados[${i}]: variable "${e.name}" no declarada`,
+                line: e.loc.line,
+                col: e.loc.col,
+              });
+            }
+          });
+        }
+      }
     }
   }
 }
@@ -316,6 +386,64 @@ function asLiteralNumber(e: Expr): number | null {
     if (e.op === "+") return e.arg.value;
   }
   return null;
+}
+
+/**
+ * Tarea 07: firma canonica para detectar variantes de `enunciados:`
+ * duplicadas exactas. Dos items son "duplicados" si tienen el mismo
+ * contenido textual y las mismas interpolaciones (mismas exprs en el mismo
+ * orden con los mismos modificadores).
+ */
+function canonFirmaItem(partes: TextoOInterpolacion[]): string {
+  const out: string[] = [];
+  for (const p of partes) {
+    if (p.kind === "texto") {
+      out.push(`T:${p.value}`);
+    } else {
+      out.push(`I:${canonExpr(p.expr)}|${p.modificador ?? ""}`);
+    }
+  }
+  return out.join("|");
+}
+
+/** Firma canonica de una Expr: kind + campos relevantes. Recursivo. */
+function canonExpr(e: Expr): string {
+  switch (e.kind) {
+    case "num":
+      return `num:${e.value}`;
+    case "str":
+      return `str:${e.value}`;
+    case "bool":
+      return `bool:${e.value}`;
+    case "null":
+      return `null`;
+    case "var":
+      return `var:${e.name}`;
+    case "field":
+      return `field:${canonExpr(e.target)}.${e.field}`;
+    case "index":
+      return `index:${canonExpr(e.target)}[${canonExpr(e.key)}]`;
+    case "fun_call":
+      return `call:${e.name}(${e.args.map(canonExpr).join(",")})`;
+    case "binop":
+      return `binop:${e.op}(${canonExpr(e.left)},${canonExpr(e.right)})`;
+    case "unary":
+      return `unary:${e.op}(${canonExpr(e.arg)})`;
+    case "array":
+      return `array:[${e.items.map(canonExpr).join(",")}]`;
+    case "object":
+      return `object:{${e.entries
+        .map((en) => `${en.key}:${canonExpr(en.value)}`)
+        .join(",")}}`;
+    case "for_comp":
+      return `for:${e.variable}<-${canonExpr(e.iterable as Expr)}:${canonExpr(e.body)}`;
+    case "range":
+      return `range:${canonExpr(e.from)}..${canonExpr(e.to)}`;
+    default: {
+      const _exhaustive: never = e;
+      return `unknown:${JSON.stringify(_exhaustive)}`;
+    }
+  }
 }
 
 /* ---------- Walkers ---------- */
@@ -380,6 +508,11 @@ function* allBlockExpressions(plantilla: Plantilla): Iterable<Expr> {
       case "pasos":
         for (const paso of b.pasos) {
           for (const p of paso.partes) if (p.kind === "interp") yield p.expr;
+        }
+        break;
+      case "enunciados":
+        for (const it of b.items) {
+          for (const p of it.partes) if (p.kind === "interp") yield p.expr;
         }
         break;
       case "respuesta_iso":
@@ -705,9 +838,9 @@ function detectPatterns(
     }
   }
 
-  // ----- random-inline en enunciado / pasos
+  // ----- random-inline en enunciado / pasos / enunciados
   const inlineCheckBlocks = plantilla.bloques.filter(
-    (b) => b.kind === "enunciado" || b.kind === "pasos",
+    (b) => b.kind === "enunciado" || b.kind === "pasos" || b.kind === "enunciados",
   );
   for (const b of inlineCheckBlocks) {
     if (b.kind === "enunciado") {
@@ -729,6 +862,24 @@ function detectPatterns(
     } else if (b.kind === "pasos") {
       for (const paso of b.pasos) {
         for (const p of paso.partes) {
+          if (p.kind !== "interp") continue;
+          walkExpr(p.expr, (e) => {
+            if (e.kind === "fun_call" && e.name === "random") {
+              issues.push({
+                severity: "warning",
+                code: "random-inline",
+                message:
+                  "random() en interpolación genera valores distintos en cada uso. Declaralo como variable.",
+                line: e.loc.line,
+                col: e.loc.col,
+              });
+            }
+          });
+        }
+      }
+    } else if (b.kind === "enunciados") {
+      for (const item of b.items) {
+        for (const p of item.partes) {
           if (p.kind !== "interp") continue;
           walkExpr(p.expr, (e) => {
             if (e.kind === "fun_call" && e.name === "random") {

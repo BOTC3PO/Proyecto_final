@@ -322,6 +322,16 @@ function emitBloque(b: Bloque): string {
       return `tipo: ${b.valor}`;
     case "enunciado":
       return `enunciado: ${emitInterpolatedString(b.partes)}`;
+    case "enunciados": {
+      // Mismo formato que `pasos:`: bloque multilinea con `- "..."` por
+      // variante, escapando strings via emitInterpolatedString (que ya
+      // maneja { } literales y caracteres especiales).
+      if (b.items.length === 0) return "enunciados:";
+      const body = b.items
+        .map((it) => `${INDENT}- ${emitInterpolatedString(it.partes)}`)
+        .join("\n");
+      return `enunciados:\n${body}`;
+    }
     case "pasos": {
       if (b.pasos.length === 0) return "pasos:";
       const body = b.pasos.map((p) => emitPaso(p, INDENT)).join("\n");
