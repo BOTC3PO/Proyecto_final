@@ -113,6 +113,62 @@ export function partesToText(partes: TextoOInterpolacion[]): string {
   return out;
 }
 
+/* ---------------- enunciados (lista de variantes) ---------------- */
+
+/**
+ * Lee el bloque `enunciados:` como un array de strings (cada variante ya
+ * pasada por `partesToText` para que sea editable como texto). Si el bloque
+ * no existe, devuelve `[]`. Si el bloque `enunciado:` (singular) está
+ * presente, devuelve `[]` también — son mutuamente excluyentes.
+ */
+export function readEnunciados(p: Plantilla): string[] {
+  const b = getBlock(p, "enunciados");
+  if (!b) return [];
+  return b.items.map((it) => partesToText(it.partes));
+}
+
+/**
+ * Escribe el bloque `enunciados:` a partir de un array de strings. Cada
+ * string se parsea con `textToPartes` para preservar las interpolaciones.
+ * Si el array queda vacío, elimina el bloque (round-trip sin basura).
+ */
+export function writeEnunciados(p: Plantilla, items: string[]): Plantilla {
+  if (items.length === 0) {
+    return withoutBlock(p, "enunciados");
+  }
+  const variantes = items.map((text) => ({
+    partes: textToPartes(text),
+    loc: DUMMY_LOC,
+  }));
+  return withBlock(p, { kind: "enunciados", items: variantes, loc: DUMMY_LOC });
+}
+
+/**
+ * Migra el bloque `enunciado:` a `enunciados:` con una sola variante. Usado
+ * por el botón "Convertir en variantes" en el editor visual.
+ */
+export function enunciadoToVariantes(p: Plantilla): Plantilla {
+  const single = getBlock(p, "enunciado");
+  if (!single) return p;
+  const text = partesToText(single.partes);
+  let next = withoutBlock(p, "enunciado");
+  next = writeEnunciados(next, [text]);
+  return next;
+}
+
+/**
+ * Migra el bloque `enunciados:` a `enunciado:` tomando la primera variante
+ * como el nuevo enunciado único. Si la lista está vacía no hace nada.
+ */
+export function variantesToEnunciado(p: Plantilla): Plantilla {
+  const variantes = getBlock(p, "enunciados");
+  if (!variantes || variantes.items.length === 0) return p;
+  const first = variantes.items[0].partes;
+  let next = withoutBlock(p, "enunciados");
+  next = withBlock(next, { kind: "enunciado", partes: first, loc: DUMMY_LOC });
+  return next;
+}
+
 /**
  * Convierte texto con `{expr}` / `{{` / `}}` a partes. Si una interpolación no
  * parsea como expresión, se conserva como texto literal (no se rompe).

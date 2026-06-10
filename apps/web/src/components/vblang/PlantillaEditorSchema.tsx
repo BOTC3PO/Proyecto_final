@@ -24,7 +24,7 @@ import {
   QUESTION_TYPE_SCHEMAS,
 } from "@vb/vblang";
 import type { Field, ListField, TextField } from "@vb/vblang";
-import { exprToText, getBlock } from "./plantillaAst";
+import { exprToText, getBlock, readEnunciados, writeEnunciados, enunciadoToVariantes, variantesToEnunciado } from "./plantillaAst";
 import GeneradorPicker from "./GeneradorPicker";
 import { listGeneradores } from "../../vblang/listGeneradores";
 import { AccessibleList } from "./AccessibleList";
@@ -643,14 +643,22 @@ export default function PlantillaEditorSchema({
             </span>
           </div>
 
-          {schema.fields.map((field) => (
-            <FieldControl
-              key={field.key}
-              field={field}
-              plantilla={plantilla}
-              onChange={onChange}
-            />
-          ))}
+          {schema.fields.map((field) =>
+            field.block === "enunciado" ? (
+              <EnunciadoField
+                key={field.key}
+                plantilla={plantilla}
+                onChange={onChange}
+              />
+            ) : (
+              <FieldControl
+                key={field.key}
+                field={field}
+                plantilla={plantilla}
+                onChange={onChange}
+              />
+            ),
+          )}
         </Section>
       )}
 
@@ -1072,6 +1080,145 @@ const EnunciadoGeneradorField = forwardRef<
     </div>
   );
 });
+
+/* ---------------- enunciado / enunciados: lista de variantes ---------------- */
+
+/**
+ * Campo enunciado del editor visual: si el AST trae `enunciado:` (singular)
+ * muestra el input único actual más un botón "Convertir en variantes". Si
+ * trae `enunciados:` muestra una lista editable (input por variante,
+ * eliminar por fila, "+ Agregar variante", mínimo 1) más el botón inverso
+ * "Convertir a enunciado simple". Se preservan los bloques no soportados
+ * (regla de WO01).
+ */
+function EnunciadoField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const id = useId();
+  const enunciadosActive = getBlock(plantilla, "enunciados") !== undefined;
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      {enunciadosActive ? (
+        <EnunciadosListField plantilla={plantilla} onChange={onChange} />
+      ) : (
+        <>
+          <BufferedText
+            id={id}
+            label="Enunciado"
+            help="Texto de la consigna. Podés interpolar variables con {var}."
+            multiline
+            value={readEnunciadoRaw(plantilla)}
+            commit={(text) => {
+              const next = writeTextField(plantilla, schemaEnunciado, text);
+              if (next === null) return false;
+              onChange(next);
+              return true;
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => onChange(enunciadoToVariantes(plantilla))}
+            className="self-start rounded border border-dashed border-[var(--c-border,#cbd5e1)] px-2 py-0.5 text-[10px] text-[var(--c-muted,#64748b)] hover:border-[var(--c-primary,#3b82f6)] hover:text-[var(--c-primary,#3b82f6)]"
+          >
+            Convertir en variantes
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
+
+/** Lee el texto crudo del bloque `enunciado:` (no a través del TextField). */
+function readEnunciadoRaw(p: Plantilla): string {
+  const b = getBlock(p, "enunciado");
+  if (!b) return "";
+  let out = "";
+  for (const part of b.partes) {
+    if (part.kind === "texto") {
+      out += part.value.replace(/{/g, "{{").replace(/}/g, "}}");
+    } else {
+      const exprStr = exprToText(part.expr);
+      out += part.modificador ? `{${exprStr} | ${part.modificador}}` : `{${exprStr}}`;
+    }
+  }
+  return out;
+}
+
+function EnunciadosListField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const items = readEnunciados(plantilla);
+
+  const update = (next: string[]) => onChange(writeEnunciados(plantilla, next));
+
+  return (
+    <div className="flex flex-col gap-1.5" data-testid="vblang-enunciados-list">
+      <div className="flex items-center justify-between">
+        <span className="text-xs font-medium text-[var(--c-text,#0f172a)]">
+          Enunciados (variantes)
+        </span>
+        <span className="text-[10px] text-[var(--c-muted,#64748b)]">
+          {items.length} {items.length === 1 ? "variante" : "variantes"}
+        </span>
+      </div>
+      <ul className="flex flex-col gap-1">
+        {items.map((tmpl, idx) => (
+          <li key={idx} className="flex items-start gap-1">
+            <input
+              type="text"
+              aria-label={`Variante de enunciado ${idx + 1}`}
+              value={tmpl}
+              onChange={(e) => {
+                const next = items.slice();
+                next[idx] = e.target.value;
+                update(next);
+              }}
+              placeholder="Texto de la variante (acepta {variable})"
+              className="flex-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+            />
+            <button
+              type="button"
+              aria-label={`Eliminar variante ${idx + 1}`}
+              disabled={items.length <= 1}
+              onClick={() => {
+                if (items.length <= 1) return;
+                update(items.filter((_, i) => i !== idx));
+              }}
+              className="shrink-0 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs text-red-600 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Eliminar
+            </button>
+          </li>
+        ))}
+      </ul>
+      <div className="flex gap-1">
+        <button
+          type="button"
+          onClick={() => update([...items, ""])}
+          className="rounded border border-dashed border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs text-[var(--c-muted,#64748b)] hover:border-[var(--c-primary,#3b82f6)] hover:text-[var(--c-primary,#3b82f6)]"
+        >
+          + Agregar variante
+        </button>
+        <button
+          type="button"
+          onClick={() => onChange(variantesToEnunciado(plantilla))}
+          className="rounded border border-dashed border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs text-[var(--c-muted,#64748b)] hover:border-[var(--c-primary,#3b82f6)] hover:text-[var(--c-primary,#3b82f6)]"
+        >
+          Convertir a enunciado simple
+        </button>
+      </div>
+    </div>
+  );
+}
 
 /* ---------------- confirm dialog ---------------- */
 

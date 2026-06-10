@@ -3,7 +3,7 @@
  * listas accesibles, add-on PNG con alt obligatorio, y preservación read-only.
  */
 import { describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import { parse, serialize, type Plantilla } from "@vb/vblang";
@@ -227,5 +227,94 @@ describe("PlantillaEditorSchema", () => {
     expect(
       screen.getByRole("combobox", { name: "Palabras correctas 1" }),
     ).toBeInTheDocument();
+  });
+
+  it("Tarea 09: con enunciados: en el AST, el editor visual muestra 2 inputs de variantes", () => {
+    render(
+      <Harness
+        initial={
+          'enunciados:\n  - "Cuanto es {a} + {b}?"\n  - "Calcula la suma de {a} y {b}."\nrespuesta: a + b\n'
+        }
+      />,
+    );
+    expect(screen.getByLabelText("Variante de enunciado 1")).toBeInTheDocument();
+    expect(screen.getByLabelText("Variante de enunciado 2")).toBeInTheDocument();
+    // Y NO debe estar el input unico del enunciado simple.
+    expect(screen.queryByLabelText("Enunciado")).toBeNull();
+  });
+
+  it("Tarea 09: editar una variante se refleja en el DSL serializado", async () => {
+    const user = userEvent.setup();
+    render(
+      <Harness
+        initial={
+          'enunciados:\n  - "Variante A original"\n  - "Variante B"\nrespuesta: 1\n'
+        }
+      />,
+    );
+    const input1 = screen.getByLabelText("Variante de enunciado 1");
+    // fireEvent.change (no user.type) porque user.type interpreta {x} como keys.
+    fireEvent.change(input1, { target: { value: "Variante A editada" } });
+    expect(dsl()).toContain('"Variante A editada"');
+    expect(dsl()).toContain('"Variante B"');
+    // Y la original ya no esta.
+    expect(dsl()).not.toContain("Variante A original");
+  });
+
+  it("Tarea 09: agregar variante pasa de 2 a 3 items en el DSL", async () => {
+    const user = userEvent.setup();
+    render(
+      <Harness
+        initial={
+          'enunciados:\n  - "Variante uno"\n  - "Variante dos"\nrespuesta: 1\n'
+        }
+      />,
+    );
+    await user.click(screen.getByRole("button", { name: /agregar variante/i }));
+    expect(dsl().match(/^\s*- "/gm)?.length).toBe(3);
+  });
+
+  it("Tarea 09: eliminar variante (de 2 a 1) funciona; el boton Eliminar se deshabilita en 1", async () => {
+    const user = userEvent.setup();
+    render(
+      <Harness
+        initial={
+          'enunciados:\n  - "Variante uno"\n  - "Variante dos"\nrespuesta: 1\n'
+        }
+      />,
+    );
+    // De 2 a 1: eliminar la segunda.
+    await user.click(screen.getByRole("button", { name: /eliminar variante 2/i }));
+    expect(dsl().match(/^\s*- "/gm)?.length).toBe(1);
+    // El unico boton Eliminar queda deshabilitado (minimo 1 variante).
+    expect(
+      screen.getByRole("button", { name: /eliminar variante 1/i }),
+    ).toBeDisabled();
+  });
+
+  it("Tarea 09: 'Convertir en variantes' migra enunciado: a enunciados: con 1 item", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "Hola {x}"\nrespuesta: 1\n'} />);
+    await user.click(
+      screen.getByRole("button", { name: /convertir en variantes/i }),
+    );
+    expect(dsl()).toMatch(/enunciados:\n\s*- "[^"]*Hola \{x\}/);
+  });
+
+  it("Tarea 09: 'Convertir a enunciado simple' colapsa la lista al primer item", async () => {
+    const user = userEvent.setup();
+    render(
+      <Harness
+        initial={
+          'enunciados:\n  - "Primera variante"\n  - "Segunda variante"\nrespuesta: 1\n'
+        }
+      />,
+    );
+    await user.click(
+      screen.getByRole("button", { name: /convertir a enunciado simple/i }),
+    );
+    expect(dsl()).toContain("enunciado: \"Primera variante\"");
+    expect(dsl()).not.toContain("Segunda variante");
+    expect(dsl()).not.toContain("enunciados:");
   });
 });
