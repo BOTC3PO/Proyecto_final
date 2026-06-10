@@ -13,6 +13,9 @@ import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview"
 import QuizComposicionEditor from "../../components/modulos/QuizComposicionEditor";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
 import VistaAlumnoOverlay from "../../components/modulos/VistaAlumnoOverlay";
+import EditorSectionNav, {
+  type EditorSectionDef,
+} from "../../components/modulos/EditorSectionNav";
 import BlockEditorPage from "../../blocks/v2/BlockEditorPage";
 import { deserializeBlockDocument } from "../../blocks/utils";
 import {
@@ -80,11 +83,15 @@ function CardHeader({
   title,
   subtitle,
   right,
+  headingId,
 }: {
   icon: ReactNode;
   title: string;
   subtitle: string;
   right?: ReactNode;
+  /** Tarea 15: id + tabIndex=-1 en el h2 para que el nav pueda enfocar el
+   *  heading de la seccion al hacer scroll-to-anchor. */
+  headingId?: string;
 }) {
   return (
     <div className="flex items-start justify-between gap-3">
@@ -96,7 +103,13 @@ function CardHeader({
           {icon}
         </span>
         <div className="min-w-0">
-          <h2 className="text-lg font-bold text-[var(--c-text)] tracking-tight">{title}</h2>
+          <h2
+            id={headingId}
+            tabIndex={headingId ? -1 : undefined}
+            className="text-lg font-bold text-[var(--c-text)] tracking-tight outline-none"
+          >
+            {title}
+          </h2>
           <p className="mt-0.5 text-xs text-[var(--c-muted)]">{subtitle}</p>
         </div>
       </div>
@@ -254,6 +267,62 @@ export default function ModuloEditor() {
 
   const isTeacher = user?.role === "TEACHER";
   const isEvaluacionMode = form.category === "evaluacion";
+
+  // Tarea 15: lista de secciones que se muestra en el nav sticky. El id
+  // matchea el `id` del <section> correspondiente. El status se deriva de
+  // `sectionStatus` (generalOk / theoryOk / quizzesOk) y, para las secciones
+  // que no tienen flag propio (herramientas, dependencias), se infiere de
+  // longitud > 0 o se considera opcional.
+  const sectionNavItems: EditorSectionDef[] = [
+    {
+      id: "sec-general",
+      label: "General",
+      status: {
+        status: sectionStatus.generalOk ? "ok" : "incomplete",
+        label: sectionStatus.generalOk ? "Completa" : "Incompleta",
+      },
+    },
+    {
+      id: "sec-teoria",
+      label: "Teoría",
+      status: {
+        status: sectionStatus.theoryOk ? "ok" : "incomplete",
+        label: sectionStatus.theoryOk ? "Completa" : "Incompleta",
+      },
+    },
+    {
+      id: "sec-herramientas",
+      label: "Herramientas",
+      status: {
+        status: theoryItems.some(
+          (t) => t.type === "Herramienta" || t.type === "HerramientaStandalone",
+        )
+          ? "ok"
+          : "incomplete",
+        label: theoryItems.some(
+          (t) => t.type === "Herramienta" || t.type === "HerramientaStandalone",
+        )
+          ? "Con herramientas"
+          : "Opcional",
+      },
+    },
+    {
+      id: "sec-cuestionarios",
+      label: "Cuestionarios",
+      status: {
+        status: sectionStatus.quizzesOk ? "ok" : "incomplete",
+        label: sectionStatus.quizzesOk ? "Completa" : "Incompleta",
+      },
+    },
+    {
+      id: "sec-dependencias",
+      label: "Dependencias",
+      status: {
+        status: "incomplete", // no hay flag propio: siempre se muestra como opcional
+        label: "Opcional",
+      },
+    },
+  ];
 
   // ─── Plantilla selector (Sprint 10A · Bloque B) ─────────────────────────
   const [plantillaModalOpen, setPlantillaModalOpen] = useState(false);
@@ -426,6 +495,9 @@ export default function ModuloEditor() {
         </header>
         <a href="#main-content" className="skip-link">Saltar al contenido</a>
         <div id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 outline-none">
+          <div className="lg:grid lg:grid-cols-[180px_1fr] lg:gap-6">
+            <EditorSectionNav sections={sectionNavItems} />
+            <div className="min-w-0">
           <div className="mb-6">
             <p className="text-sm text-[var(--c-muted)]">
               Cargá teoría, cuestionarios manuales o generados para construir el módulo.
@@ -483,12 +555,13 @@ export default function ModuloEditor() {
                 </div>
               )}
               {/* ── Información general ── */}
-              <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
+              <section id="sec-general" className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">
                 <CardHeader
                   icon={<span>&#9881;</span>}
                   title="Información general"
                   subtitle="Título, materia y nivel del módulo."
+                  headingId="sec-general-heading"
                   right={
                     sectionStatus.generalOk ? (
                       <StatusPill tone="ok"><span aria-hidden="true">&#10003;</span> Completo</StatusPill>
@@ -704,12 +777,13 @@ export default function ModuloEditor() {
 
               {!isEvaluacionMode && (<>
               {/* ── Teoría ── */}
-              <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
+              <section id="sec-teoria" className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">
                 <CardHeader
                   icon={<span>&#128214;</span>}
                   title="Teoría"
                   subtitle="Recursos de estudio: textos, videos, libros y herramientas."
+                  headingId="sec-teoria-heading"
                   right={
                     <>
                       {sectionStatus.theoryOk ? (
@@ -1207,22 +1281,28 @@ export default function ModuloEditor() {
                               </button>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-                </div>
-              </section>
-              </>)}
+                         </div>
+                       </div>
+                     ))}
+                   </div>
+                 )}
+                 </div>
+                 {/* Tarea 15: ancla para el item "Herramientas" del nav.
+                     Las herramientas viven dentro de Teoría como items
+                     isHerramientaType; este marker garantiza que el link
+                     del nav siempre tenga un target. */}
+                 <div id="sec-herramientas" className="scroll-mt-32" />
+               </section>
+               </>)}
 
               {!isEvaluacionMode && (<>
               {/* ── Dependencias ── */}
-              <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
+              <section id="sec-dependencias" className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-4">
                 <CardHeader
                   icon={<span>&#128279;</span>}
                   title="Dependencias"
+                  headingId="sec-dependencias-heading"
                   subtitle="Indicá si este módulo requiere completar otro antes, o si desbloquea módulos al terminarse."
                   right={<StatusPill tone="neutral">Opcional</StatusPill>}
                 />
@@ -1344,11 +1424,12 @@ export default function ModuloEditor() {
               )}
 
               {/* ── Cuestionarios ── */}
-              <section className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
+              <section id="sec-cuestionarios" className="overflow-hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                 <div className="p-6 space-y-5">
                 <CardHeader
                   icon={<span>&#10068;</span>}
                   title="Cuestionarios"
+                  headingId="sec-cuestionarios-heading"
                   subtitle="Evaluaciones manuales, generadas o desde plantillas VBLang."
                   right={
                     <>
@@ -1737,6 +1818,8 @@ export default function ModuloEditor() {
               </div>
             </form>
           )}
+            </div>
+          </div>
         </div>
       </main>
     </>
