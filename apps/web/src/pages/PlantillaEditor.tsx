@@ -208,6 +208,15 @@ export default function PlantillaEditor() {
     editorRef.current?.focusAt(line, col);
   };
 
+  // Quick-fix del ErrorPanel: reemplaza el codigo actual y deja que el
+  // debounce de usePlantillaCompilation revalide solo.
+  const handleApplyFix = useCallback(
+    (newCode: string) => {
+      dispatchCodigo({ type: "set", value: newCode });
+    },
+    [],
+  );
+
   // Resumen textual de errores para asociar al textarea (aria-describedby) y
   // que el lector de pantalla lo anuncie al editar.
   const errorSummary = useMemo(() => {
@@ -604,6 +613,8 @@ export default function PlantillaEditor() {
             parseError={compilation.parseError ?? dslApiError}
             lintReport={compilation.lintReport}
             onGoToLocation={handleGoToLocation}
+            currentCode={codigoDsl}
+            onApplyFix={handleApplyFix}
           />
         </footer>
     </EditorShell>

@@ -1,14 +1,22 @@
 /**
- * Lista de errores y warnings agrupados. Click en la ubicación dispara
- * `onGoToLocation(line, col)`.
+ * Lista de errores y warnings agrupados. Cada error con posición ofrece
+ * un botón "Ir a línea N" que llama a `onGoToLocation(line, col)`. Los
+ * errores que matchean un quick-fix conocido ofrecen un botón "Aplicar
+ * fix" que llama a `onApplyFix(newCode)`.
  */
 
 import type { LintReport } from "@vb/vblang";
+import { quickFixFor } from "./quickFixes";
 
 interface ErrorPanelProps {
   parseError?: { message: string; line?: number; col?: number; suggestion?: string };
   lintReport?: LintReport;
   onGoToLocation?: (line: number, col: number) => void;
+  /** Código DSL actual: necesario para que los quick-fixes propongan un patch
+   *  sincrónico con el editor. Si no se pasa, no se ofrecen fixes. */
+  currentCode?: string;
+  /** Aplica un quick-fix. Reemplaza el código del editor. */
+  onApplyFix?: (newCode: string) => void;
 }
 
 interface UIIssue {
@@ -24,6 +32,8 @@ export default function ErrorPanel({
   parseError,
   lintReport,
   onGoToLocation,
+  currentCode,
+  onApplyFix,
 }: ErrorPanelProps) {
   const issues: UIIssue[] = [];
   if (parseError) {
@@ -105,6 +115,10 @@ export default function ErrorPanel({
           const icon = it.severity === "error" ? "✕" : "⚠";
           const color =
             it.severity === "error" ? "text-[var(--c-danger)]" : "text-[var(--c-warning)]";
+          const fix =
+            currentCode !== undefined && onApplyFix
+              ? quickFixFor(it.code, it.message, currentCode)
+              : null;
           return (
             <li
               key={`${it.code}-${idx}`}
@@ -126,16 +140,30 @@ export default function ErrorPanel({
                 {it.line !== undefined && (
                   <button
                     type="button"
-                    className="text-[var(--c-primary,#3b82f6)] hover:underline tabular-nums"
+                    className="shrink-0 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-0.5 text-[10px] text-[var(--c-primary,#3b82f6)] hover:bg-[var(--c-surface-2,#f1f5f9)] tabular-nums"
                     onClick={() =>
                       onGoToLocation?.(it.line ?? 1, it.col ?? 1)
                     }
                     aria-label={`Ir a línea ${it.line}, columna ${it.col ?? 1}`}
+                    data-testid={`vblang-error-goto-${it.code}-${idx}`}
                   >
-                    L{it.line}:C{it.col ?? 1}
+                    Ir a L{it.line}
                   </button>
                 )}
               </div>
+              {fix && (
+                <div className="mt-1 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => onApplyFix?.(fix.newCode)}
+                    className="rounded border border-[var(--c-primary,#3b82f6)] px-2 py-0.5 text-[10px] text-[var(--c-primary,#3b82f6)] hover:bg-[var(--c-primary,#3b82f6)] hover:text-white"
+                    data-testid={`vblang-error-fix-${it.code}-${idx}`}
+                    aria-label={fix.label}
+                  >
+                    {fix.label}
+                  </button>
+                </div>
+              )}
             </li>
           );
         })}

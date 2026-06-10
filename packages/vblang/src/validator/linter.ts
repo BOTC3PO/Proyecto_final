@@ -124,6 +124,19 @@ export function lint(plantilla: Plantilla, opts?: LintOptions): LintReport {
     variableTypes[decl.nombre] = t;
   }
 
+  // 1.5) Avisar si falta el bloque `tipo:` explícito. El parser lo infiere
+  // (default: "input"), pero es buena práctica declararlo — y el editor
+  // ofrece un quick-fix para hacerlo. Tarea 13.
+  if (!plantilla.bloques.some((b) => b.kind === "tipo")) {
+    issues.push({
+      severity: "warning",
+      code: "tipo-missing",
+      message: "Falta el bloque `tipo:` (el parser lo infiere; conviene declararlo)",
+      line: 1,
+      col: 1,
+    });
+  }
+
   // 2) Restricciones
   for (const b of plantilla.bloques) {
     if (b.kind !== "restricciones") continue;
