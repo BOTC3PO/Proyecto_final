@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
@@ -29,6 +30,8 @@ type EstadisticaModulo = {
 
 export default function ProfesorEstadisticas() {
   const { user } = useAuth();
+  const [searchParams] = useSearchParams();
+  const presetAulaId = searchParams.get("aulaId") ?? "";
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
   const [estadisticas, setEstadisticas] = useState<EstadisticaModulo[]>([]);
@@ -41,10 +44,17 @@ export default function ProfesorEstadisticas() {
       .then((data) => {
         const misAulas = data.items ?? [];
         setAulas(misAulas);
+        if (presetAulaId) {
+          const match = misAulas.find((a) => getAulaId(a) === presetAulaId);
+          if (match) {
+            setAulaId(presetAulaId);
+            return;
+          }
+        }
         if (misAulas[0]) setAulaId(getAulaId(misAulas[0]));
       })
       .catch(() => {});
-  }, [user?.id]);
+  }, [user?.id, presetAulaId]);
 
   useEffect(() => {
     if (!aulaId) return;

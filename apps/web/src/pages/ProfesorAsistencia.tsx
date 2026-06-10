@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
@@ -16,6 +16,8 @@ type ActividadAula = {
 
 export default function ProfesorAsistencia() {
   const { user } = useAuth();
+  const [searchParams] = useSearchParams();
+  const presetAulaId = searchParams.get("aulaId") ?? "";
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
   const [actividades, setActividades] = useState<ActividadAula[]>([]);
@@ -29,10 +31,18 @@ export default function ProfesorAsistencia() {
       .then((data) => {
         const items = data.items ?? [];
         setAulas(items);
+        // Si viene ?aulaId= y el docente tiene acceso, preseleccionamos esa.
+        if (presetAulaId) {
+          const match = items.find((a) => getAulaId(a) === presetAulaId);
+          if (match) {
+            setAulaId(presetAulaId);
+            return;
+          }
+        }
         if (items[0]) setAulaId(getAulaId(items[0]));
       })
       .catch(() => {});
-  }, [user?.id]);
+  }, [user?.id, presetAulaId]);
 
   // Cargar actividades tipo "clase" del aula seleccionada
   useEffect(() => {

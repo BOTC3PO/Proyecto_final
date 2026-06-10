@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
@@ -14,6 +14,7 @@ import {
   fetchSubastasActivas, fetchMisPujas, crearPuja,
   type ExamenSubasta, type PujaItem
 } from "../services/subastas";
+import AulaActionsBar from "../components/aula/AulaActionsBar";
 
 type ProgressItem = {
   moduloId: string;
@@ -86,6 +87,7 @@ export default function Aula() {
     useState<Record<string, { puntos: number; montoPorPunto: number }>>({});
   const [pujaStatus, setPujaStatus] =
     useState<Record<string, "idle" | "loading" | "error">>({});
+  const publicationFormRef = useRef<HTMLDivElement | null>(null);
 
   const normalizedStatus = useMemo(
     () => normalizeClassroomStatus(classroom?.status ?? null),
@@ -138,6 +140,17 @@ export default function Aula() {
 
   const handleFilesChange = (files: FileList | null) => {
     setPublicationFiles(files ? Array.from(files) : []);
+  };
+
+  const handlePublicarClick = () => {
+    const target = publicationFormRef.current;
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    // Foco el input de texto (primer input dentro del form) tras el scroll.
+    const input = target.querySelector<HTMLInputElement>('input[type="text"], input:not([type])');
+    window.setTimeout(() => {
+      input?.focus();
+    }, 300);
   };
 
   const handleSubmitPublication = async () => {
@@ -330,8 +343,14 @@ export default function Aula() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
           {/* Main column */}
           <div className="lg:col-span-2 space-y-5">
+            {isTeacherOfClass && classroomId && (
+              <AulaActionsBar
+                classroomId={classroomId}
+                onPublicarClick={handlePublicarClick}
+              />
+            )}
             {/* Publication input */}
-            <div className={cardCls}>
+            <div ref={publicationFormRef} className={cardCls} data-testid="aula-publication-form">
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(userInitials)}`}>
                   {userInitials}
