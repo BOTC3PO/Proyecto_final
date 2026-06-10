@@ -20,6 +20,7 @@ import DatasetExplorer from "../components/vblang/DatasetExplorer";
 import EjemplosMenu from "../components/vblang/EjemplosMenu";
 import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
 import SnippetBar from "../components/vblang/SnippetBar";
+import NuevaPlantillaWizard from "../components/vblang/NuevaPlantillaWizard";
 import PlantillaEditorSchema from "../components/vblang/PlantillaEditorSchema";
 import { extractDeclaredVariables } from "../components/vblang/plantillaAst";
 import EditorShell from "../components/layout/EditorShell";
@@ -145,6 +146,10 @@ export default function PlantillaEditor() {
   } | null>(null);
   const [modo, setModo] = useState<"codigo" | "visual">("codigo");
   const [referenciaOpen, setReferenciaOpen] = useState(false);
+  // Wizard de nueva plantilla: se muestra una vez al crear (isNew=true) y se
+  // cierra cuando el usuario elige algo (o lo descarta). No persistimos el
+  // estado en storage: si recarga la página, vuelve a aparecer (es creación).
+  const [wizardDismissed, setWizardDismissed] = useState(!isNew);
   const editorRef = useRef<CodeEditorHandle | null>(null);
   // Última lista de variables declaradas que pudimos parsear — si el código
   // rompe, conservamos la última válida para no vaciar el autocompletado.
@@ -348,6 +353,20 @@ export default function PlantillaEditor() {
 
   return (
     <>
+    {isNew && !wizardDismissed && (
+      <NuevaPlantillaWizard
+        onPick={(dsl) => {
+          dispatchCodigo({ type: "reset", value: dsl });
+          setWizardDismissed(true);
+        }}
+        onBlank={() => {
+          setWizardDismissed(true);
+        }}
+        onClose={() => {
+          setWizardDismissed(true);
+        }}
+      />
+    )}
     <EditorShell
       dataTestid="plantilla-editor"
       meta={
