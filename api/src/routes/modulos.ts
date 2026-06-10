@@ -4,6 +4,8 @@ import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { assertClassroomWritable } from "../lib/classroom";
 import { requireUser } from "../lib/user-auth";
+import { isStaffRole } from "../lib/authorization";
+import { recordAuditLog } from "../lib/audit-log";
 import { ModuleSchema } from "../schema/modulo";
 
 export const modulos = Router();
@@ -209,6 +211,169 @@ modulos.get("/api/modulos/:id", async (req, res) => {
     res.status(500).json({ error: e.message ?? "internal" });
   }
 });
+
+/**
+ * POST /api/modulos/:id/duplicar — Tarea 19.
+ *
+ * Clona un módulo existente y devuelve el nuevo id. Solo el dueño
+ * del módulo o staff pueden duplicarlo. La copia:
+ *  - tiene un id nuevo (UUID)
+ *  - mantiene titulo + " (copia)"
+ *  - mantiene visibilidad, schoolId, descripcion, teoriaId, tuesdayDocId,
+ *    libroId, defaultQuestionCount, isDeleted (false)
+ *  - arranca con `dependencies: []` (la consigna pide "sin dependencias")
+ *  - NO se asigna a ninguna aula (no se crea fila en clase_modulos)
+ *  - ownerUserId = solicitante
+ *  - clona tambien sus quizzes activos y la ultima quizVersion de cada
+ *    uno, con ids regenerados pero conservando la config (type, mode,
+ *    visibility, questions, generatorId, params, count, seedPolicy,
+ *    fixedSeed, settings, composition).
+ */
+modulos.post(
+  "/api/modulos/:id/duplicar",
+  requireUser,
+  async (req, res) => {
+    try {
+      const requesterRaw = (req as { user?: { _id?: { toString?: () => string } | string; id?: string; role?: string | null } }).user;
+      const requesterId =
+        (typeof requesterRaw?.id === "string" && requesterRaw.id) ||
+        (typeof requesterRaw?._id === "string" && (requesterRaw._id as string)) ||
+        (requesterRaw?._id && typeof (requesterRaw._id as { toString?: () => string }).toString === "function"
+          ? (requesterRaw._id as { toString: () => string }).toString()
+          : null);
+      if (!requesterId) {
+        return res.status(401).json({ error: "user not authenticated" });
+      }
+      const requesterRole = requesterRaw?.role ?? null;
+
+      const sourceId = req.params.id as string;
+      const source = await prisma.modulo.findFirst({
+        where: { id: sourceId, isDeleted: { not: true } },
+      });
+      if (!source) {
+        return res.status(404).json({ error: "modulo no encontrado" });
+      }
+      // Traemos quizzes y quizVersion por separado. En el InMemoryPrisma
+      // usado por tests no tenemos `include` anidado, asi que este patron
+      // funciona tanto en runtime real como en el stub.
+      const sourceQuizzes = await prisma.quiz.findMany({
+        where: { moduleId: sourceId, isActive: true },
+      });
+      const sourceVersionsByQuiz: Record<string, Array<{
+        id: string;
+        versionNumber: number;
+        questions: string;
+        generatorId: string | null;
+        generatorVersion: string | null;
+        params: string | null;
+        count: number | null;
+        seedPolicy: number;
+        fixedSeed: string | null;
+        settings: string;
+        createdAt: string;
+        createdBy: string;
+      }>> = {};
+      for (const q of sourceQuizzes) {
+        // findMany ordenado descendente, take 1
+        const versions = await prisma.quizVersion.findMany({
+          where: { quizId: q.id },
+        });
+        versions.sort((a: any, b: any) => (b.versionNumber ?? 0) - (a.versionNumber ?? 0));
+        sourceVersionsByQuiz[q.id] = versions.slice(0, 1) as any;
+      }
+
+      // Solo el dueño del modulo o staff.
+      if (source.ownerUserId !== requesterId && !isStaffRole(requesterRole)) {
+        return res.status(403).json({ error: "forbidden" });
+      }
+
+      const newId = generateId();
+      const now = new Date().toISOString();
+      const nowDate = new Date();
+
+      await prisma.$transaction(async (tx) => {
+        // Clonar el modulo sin dependencias y sin slug (el slug es
+        // @unique y se conserva el original solo si no se setea nuevo).
+        await tx.modulo.create({
+          data: {
+            id: newId,
+            slug: null,
+            titulo: `${source.titulo} (copia)`,
+            descripcion: source.descripcion ?? null,
+            visibility: source.visibility,
+            schoolId: source.schoolId,
+            ownerUserId: requesterId,
+            teoriaId: source.teoriaId,
+            tuesdayDocId: source.tuesdayDocId,
+            libroId: source.libroId,
+            defaultQuestionCount: source.defaultQuestionCount,
+            dependencies: null, // explicitamente vacias (consigna).
+            isDeleted: false,
+            createdAt: now,
+            updatedAt: now,
+          },
+        });
+
+        // Clonar quizzes activos y su ultima version.
+        for (const quiz of sourceQuizzes) {
+          const newQuizId = generateId();
+          await tx.quiz.create({
+            data: {
+              id: newQuizId,
+              moduleId: newId,
+              title: quiz.title,
+              createdAt: now,
+              updatedAt: now,
+            },
+          });
+          const lastVersion = sourceVersionsByQuiz[quiz.id]?.[0];
+          if (!lastVersion) continue;
+          const newVersionId = generateId();
+          await tx.quizVersion.create({
+            data: {
+              id: newVersionId,
+              quizId: newQuizId,
+              versionNumber: 1,
+              questions: lastVersion.questions,
+              generatorId: lastVersion.generatorId,
+              generatorVersion: lastVersion.generatorVersion,
+              params: lastVersion.params,
+              count: lastVersion.count,
+              seedPolicy: lastVersion.seedPolicy,
+              fixedSeed: lastVersion.fixedSeed,
+              settings: lastVersion.settings,
+              createdAt: now,
+              createdBy: requesterId,
+            },
+          });
+          await tx.quiz.update({
+            where: { id: newQuizId },
+            data: { currentVersionId: newVersionId },
+          });
+        }
+      });
+
+      // Auditoria fuera de la transaccion (no bloquea si falla).
+      await recordAuditLog({
+        actorId: requesterId,
+        action: "modulo.duplicate",
+        targetType: "modulo",
+        targetId: newId,
+        metadata: { sourceId, sourceOwner: source.ownerUserId ?? null },
+      });
+
+      res.status(201).json({
+        id: newId,
+        moduleId: newId,
+        sourceId,
+        createdAt: nowDate.toISOString(),
+      });
+    } catch (e: any) {
+      console.error("[POST /api/modulos/:id/duplicar]", e);
+      res.status(500).json({ error: e?.message ?? "internal server error" });
+    }
+  }
+);
 
 modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   let parsed: ReturnType<typeof ModuleSchema.parse>;

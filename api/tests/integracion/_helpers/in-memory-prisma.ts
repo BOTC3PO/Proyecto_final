@@ -309,6 +309,7 @@ export type QuizRow = {
   moduleId: string;
   title?: string | null;
   currentVersionId?: string | null;
+  isActive?: boolean;
   createdAt: string;
   updatedAt: string;
 };
