@@ -16,6 +16,7 @@ import {
 } from "../services/subastas";
 import AulaActionsBar from "../components/aula/AulaActionsBar";
 import AsignarModulosModal from "../components/profesor/AsignarModulosModal";
+import MatrizProgreso from "../components/profesor/MatrizProgreso";
 
 type ProgressItem = {
   moduloId: string;
@@ -355,6 +356,23 @@ export default function Aula() {
                 onPublicarClick={handlePublicarClick}
                 onAsignarModulosClick={handleAsignarModulosClick}
               />
+            )}
+            {isTeacherOfClass && classroomId && (
+              <details
+                className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4"
+                data-testid="progreso-curso-details"
+              >
+                <summary className="cursor-pointer text-sm font-semibold text-[var(--c-text)] select-none list-none flex items-center gap-2">
+                  <span aria-hidden="true">📈</span>
+                  <span>Progreso del curso</span>
+                  <span className="ml-auto text-xs text-[var(--c-muted)]">
+                    (matriz de avance)
+                  </span>
+                </summary>
+                <div className="mt-3">
+                  <MatrizProgreso classroomId={classroomId} />
+                </div>
+              </details>
             )}
             {/* Publication input */}
             <div ref={publicationFormRef} className={cardCls} data-testid="aula-publication-form">

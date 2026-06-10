@@ -154,6 +154,8 @@ describe("aula.tsx — barra de acciones del docente (Tarea 16)", () => {
       ).toBeInTheDocument();
     });
     expect(screen.queryByTestId("aula-actions-bar")).not.toBeInTheDocument();
+    // Tarea 18: la matriz de progreso tampoco debe verse para alumnos.
+    expect(screen.queryByTestId("progreso-curso-details")).not.toBeInTheDocument();
   });
 
   it("no muestra la barra cuando no hay usuario logueado", () => {
