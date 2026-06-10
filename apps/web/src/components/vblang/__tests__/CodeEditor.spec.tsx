@@ -96,4 +96,33 @@ describe("CodeEditor", () => {
     expect(summary?.getAttribute("aria-live")).toBe("polite");
     expect(summary?.textContent).toContain("Línea 2: falta respuesta");
   });
+
+  /* ---------- Tarea 10: insertAtCursor + SnippetBar ---------- */
+
+  it("insertAtCursor: inserta texto en el caret y notifica onChange", () => {
+    const onChange = vi.fn();
+    const ref = { current: null as null | { insertAtCursor: (t: string) => void } };
+    const { container } = render(
+      <CodeEditor value="abc" onChange={onChange} ref={ref as never} />,
+    );
+    const ta = container.querySelector("textarea") as HTMLTextAreaElement;
+    // Caret entre 'a' y 'bc'.
+    ta.setSelectionRange(1, 1);
+    ref.current?.insertAtCursor("XYZ");
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith("aXYZbc");
+  });
+
+  it("insertAtCursor: si hay selección, reemplaza esa selección", () => {
+    const onChange = vi.fn();
+    const ref = { current: null as null | { insertAtCursor: (t: string) => void } };
+    const { container } = render(
+      <CodeEditor value="abc" onChange={onChange} ref={ref as never} />,
+    );
+    const ta = container.querySelector("textarea") as HTMLTextAreaElement;
+    // Selección sobre 'bc' (índices 1..3).
+    ta.setSelectionRange(1, 3);
+    ref.current?.insertAtCursor("ZZ");
+    expect(onChange).toHaveBeenCalledWith("aZZ");
+  });
 });

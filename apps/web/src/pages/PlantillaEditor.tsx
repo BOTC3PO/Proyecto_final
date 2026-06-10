@@ -19,6 +19,7 @@ import CodeEditor, {
 import DatasetExplorer from "../components/vblang/DatasetExplorer";
 import EjemplosMenu from "../components/vblang/EjemplosMenu";
 import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
+import SnippetBar from "../components/vblang/SnippetBar";
 import PlantillaEditorSchema from "../components/vblang/PlantillaEditorSchema";
 import EditorShell from "../components/layout/EditorShell";
 import Toast, { type ToastAction } from "../components/Toast";
@@ -486,14 +487,21 @@ export default function PlantillaEditor() {
           className="editor-shell__scroll outline-none"
         >
           {modo === "codigo" ? (
-            <CodeEditor
-              ref={editorRef}
-              value={codigoDsl}
-              onChange={setCodigo}
-              errorLine={compilation.parseError?.line ?? dslApiError?.line}
-              errorCol={compilation.parseError?.col ?? dslApiError?.col}
-              errorSummary={errorSummary}
-            />
+            <>
+              <SnippetBar
+                onInsert={(text) => editorRef.current?.insertAtCursor(text)}
+              />
+              <div className="flex-1 min-h-0">
+                <CodeEditor
+                  ref={editorRef}
+                  value={codigoDsl}
+                  onChange={setCodigo}
+                  errorLine={compilation.parseError?.line ?? dslApiError?.line}
+                  errorCol={compilation.parseError?.col ?? dslApiError?.col}
+                  errorSummary={errorSummary}
+                />
+              </div>
+            </>
           ) : compilation.plantilla ? (
             <PlantillaEditorSchema
               plantilla={compilation.plantilla}

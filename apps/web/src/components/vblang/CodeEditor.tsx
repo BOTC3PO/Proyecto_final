@@ -23,6 +23,12 @@ import {
 
 export interface CodeEditorHandle {
   focusAt: (line: number, col: number) => void;
+  /**
+   * Inserta texto en la posición actual del caret (o reemplaza la selección
+   * actual), notifica `onChange` con el valor nuevo y devuelve el foco al
+   * editor. Pensado para las barras de snippets.
+   */
+  insertAtCursor: (text: string) => void;
 }
 
 interface CodeEditorProps {
@@ -258,6 +264,18 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
   // Cuando es true, el próximo Tab mueve el foco en vez de indentar (ver
   // handleKeyDown). Se activa con Escape.
   const tabEscapesRef = useRef(false);
+  // Ref estable de `onChange` para que `useImperativeHandle` (deps: []) siempre
+  // vea el callback actualizado al llamar `insertAtCursor` desde afuera.
+  const onChangeRef = useRef(onChange);
+  useEffect(() => {
+    onChangeRef.current = onChange;
+  }, [onChange]);
+  // Idem para `value`: `insertAtCursor` lo lee en el momento del click, no en
+  // render, así que necesitamos la versión vigente en una ref.
+  const valueRef = useRef(value);
+  useEffect(() => {
+    valueRef.current = value;
+  }, [value]);
   const summaryId = useId();
   const instructionsId = useId();
   const hasErrors = !!errorSummary && errorSummary.trim().length > 0;
@@ -271,9 +289,26 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
     focusAt(line, col) {
       const ta = taRef.current;
       if (!ta) return;
-      const pos = posFromLineCol(value, line, col);
+      const pos = posFromLineCol(valueRef.current, line, col);
       ta.focus();
       ta.setSelectionRange(pos, pos);
+    },
+    insertAtCursor(text) {
+      const ta = taRef.current;
+      if (!ta) return;
+      const cur = valueRef.current;
+      const start = ta.selectionStart ?? cur.length;
+      const end = ta.selectionEnd ?? start;
+      const next = cur.slice(0, start) + text + cur.slice(end);
+      const newCaret = start + text.length;
+      onChangeRef.current(next);
+      // Restaurar caret DESPUÉS de que React vuelva a pintar el textarea.
+      requestAnimationFrame(() => {
+        if (taRef.current) {
+          taRef.current.focus();
+          taRef.current.setSelectionRange(newCaret, newCaret);
+        }
+      });
     },
   }));
 
