@@ -38,6 +38,12 @@ export interface AccessibleListProps<T> {
   minItems?: number;
   /** id de un elemento que describe el grupo (aria-describedby). */
   describedById?: string;
+  /**
+   * Si retorna true, el item se renderiza con el atributo HTML `hidden`
+   * (no se quita del state ni se reordena). Usado por la barra del banco
+   * de preguntas (Tarea 20) para el buscador: el filtro es solo visual.
+   */
+  isItemHidden?: (item: T, index: number) => boolean;
 }
 
 export function AccessibleList<T>({
@@ -50,6 +56,7 @@ export function AccessibleList<T>({
   itemNoun = "ítem",
   minItems = 0,
   describedById,
+  isItemHidden,
 }: AccessibleListProps<T>) {
   const baseId = useId();
   const [announce, setAnnounce] = useState("");
@@ -117,10 +124,12 @@ export function AccessibleList<T>({
       <ul role="list" className="flex flex-col gap-1">
         {items.map((item, index) => {
           const rowId = `${baseId}-row-${index}`;
+          const hidden = isItemHidden?.(item, index) ?? false;
           return (
             <li
               key={index}
               className="flex items-start gap-1 rounded border border-[var(--c-border,#cbd5e1)] bg-white p-1"
+              hidden={hidden}
             >
               <span
                 id={rowId}
