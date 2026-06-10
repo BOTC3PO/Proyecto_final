@@ -328,8 +328,12 @@ export default function ModuloDetail() {
       }
 
       const count = Math.min(quiz.count ?? 3, 5);
+      const templatesRaw = (quiz.params as Record<string, unknown> | undefined)?.enunciadoTemplates;
+      const enunciadoTemplates: string[] | undefined = Array.isArray(templatesRaw)
+        ? (templatesRaw.filter((s): s is string => typeof s === "string") as string[])
+        : undefined;
       const ejercicios: Ejercicio[] = Array.from({ length: count }, () =>
-        descriptor.generate(dificultad, prng, subtipo)
+        descriptor.generate(dificultad, prng, subtipo, enunciadoTemplates)
       );
 
       setPreviewQuestions((prev) => ({

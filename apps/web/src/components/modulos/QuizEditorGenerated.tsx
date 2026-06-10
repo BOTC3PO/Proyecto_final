@@ -45,6 +45,28 @@ export default function QuizEditorGenerated({
   const [docs, setDocs] = useState<Record<string, unknown> | null>(null);
   const [filtro, setFiltro] = useState("");
 
+  // Enunciados personalizados (Tarea 04): array opcional de plantillas.
+  // Se persiste en params.enunciadoTemplates; si queda vacio, se omite la clave.
+  const enunciadoTemplatesRaw: unknown = (params as Record<string, unknown>)?.enunciadoTemplates;
+  const enunciadoTemplates: string[] = Array.isArray(enunciadoTemplatesRaw)
+    ? enunciadoTemplatesRaw.filter((s): s is string => typeof s === "string")
+    : [];
+  const [enunciadosOpen, setEnunciadosOpen] = useState<boolean>(false);
+
+  const setEnunciadoTemplates = (next: string[]) => {
+    // Si el profe borra todos los inputs (longitud 0), omitimos la clave.
+    // En cualquier otro caso, persistimos el array tal cual para que la UI
+    // pueda mantener filas vacias que el usuario aun esta editando. Los
+    // vacios se descartan al consumir el parametro (ModuloDetail).
+    if (next.length === 0) {
+      const { enunciadoTemplates: _omit, ...restParams } = params as Record<string, unknown>;
+      void _omit;
+      onChange({ params: restParams });
+      return;
+    }
+    onChange({ params: { ...params, enunciadoTemplates: next } });
+  };
+
   useEffect(() => {
     if (!generatorId) { setDocs(null); return; }
     apiGet<Record<string, unknown>>(`/api/generators/${generatorId}/docs`)
@@ -285,6 +307,94 @@ export default function QuizEditorGenerated({
           })}
         </div>
       )}
+
+      {/* Enunciados personalizados (Tarea 04): opcional y colapsable. */}
+      <div className="rounded-lg border border-gray-200">
+        <button
+          type="button"
+          className="flex w-full items-center justify-between px-3 py-2 text-left"
+          aria-expanded={enunciadosOpen}
+          aria-controls="enunciados-personalizados-panel"
+          onClick={() => setEnunciadosOpen((v) => !v)}
+        >
+          <span className="text-xs font-semibold text-gray-700">
+            Enunciados personalizados (opcional)
+          </span>
+          <span className="text-xs text-gray-500">{enunciadosOpen ? "▾" : "▸"}</span>
+        </button>
+        {enunciadosOpen && (
+          <div
+            id="enunciados-personalizados-panel"
+            className="space-y-2 border-t border-gray-200 px-3 py-2"
+          >
+            <p className="text-[11px] text-gray-600">
+              Usá {"{variable}"} para interpolar valores del ejercicio. Ej: {"{masa|kg}"}, {"{resultado|2}"}.
+            </p>
+            {(() => {
+              // Chips de variables del primer subtipo elegido, si docs las provee.
+              const firstSubtipo = selectedSubtipos[0];
+              if (!firstSubtipo) return null;
+              const subtipoDoc = (docs?.subtipos as Record<string, unknown> | undefined)?.[
+                firstSubtipo
+              ] as Record<string, unknown> | undefined;
+              const variables = subtipoDoc?.variables as
+                | Record<string, { descripcion: string; ejemplo: string }>
+                | undefined;
+              if (!variables) return null;
+              const keys = Object.keys(variables);
+              if (keys.length === 0) return null;
+              return (
+                <div className="flex flex-wrap gap-1">
+                  {keys.map((k) => (
+                    <code
+                      key={k}
+                      className="rounded bg-gray-100 px-1.5 py-0.5 text-[10px] font-mono text-gray-700"
+                    >
+                      {"{" + k + "}"}
+                    </code>
+                  ))}
+                </div>
+              );
+            })()}
+            <div className="space-y-1">
+              {enunciadoTemplates.map((tmpl, idx) => (
+                <div key={idx} className="flex items-start gap-2">
+                  <input
+                    type="text"
+                    value={tmpl}
+                    aria-label={`Variante de enunciado ${idx + 1}`}
+                    onChange={(e) => {
+                      const next = enunciadoTemplates.slice();
+                      next[idx] = e.target.value;
+                      setEnunciadoTemplates(next);
+                    }}
+                    className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-xs focus:border-blue-400 focus:outline-none"
+                    placeholder="Ej: Calculá la {operacion|suma} de los siguientes numeros…"
+                  />
+                  <button
+                    type="button"
+                    aria-label={`Eliminar variante ${idx + 1}`}
+                    onClick={() => {
+                      const next = enunciadoTemplates.filter((_, i) => i !== idx);
+                      setEnunciadoTemplates(next);
+                    }}
+                    className="shrink-0 rounded-md border border-gray-300 px-2 py-1 text-xs text-gray-600 hover:border-red-400 hover:bg-red-50 hover:text-red-700"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => setEnunciadoTemplates([...enunciadoTemplates, ""])}
+              className="rounded-md border border-dashed border-gray-300 px-2 py-1 text-xs text-gray-600 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-700"
+            >
+              + Agregar variante
+            </button>
+          </div>
+        )}
+      </div>
 
       {/* Dificultad (7b) */}
       <label className="block text-xs font-medium text-gray-600">
