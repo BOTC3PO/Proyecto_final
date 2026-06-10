@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
+import ContinuarCard from "../components/aula/ContinuarCard";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
@@ -34,7 +35,7 @@ type ProgressResponse = {
   unlocks: ProgressUnlock[];
 };
 
-type ClassModuleProgress = {
+export type ClassModuleProgress = {
   id: string;
   title: string;
   progressPercent: number;
@@ -374,6 +375,10 @@ export default function Aula() {
                 </div>
               </details>
             )}
+            {/* Tarea 21: tarjeta 'Continuar donde dejaste' solo para el alumno. */}
+            {user?.role === "USER" && classProgress.length > 0 && (
+              <ContinuarCard modules={classProgress} />
+            )}
             {/* Publication input */}
             <div ref={publicationFormRef} className={cardCls} data-testid="aula-publication-form">
               <div className="flex items-center gap-3">
@@ -448,7 +453,23 @@ export default function Aula() {
               )}
               {feedError && !feedLoading && <div className="text-sm text-[var(--c-danger)]">{feedError}</div>}
               {!feedLoading && !feedError && publications.length === 0 && (
-                <div className="text-sm text-[var(--c-muted)]">Aún no hay publicaciones.</div>
+                <div
+                  className="rounded-xl border border-dashed border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-center"
+                  data-testid="feed-empty"
+                >
+                  <p className="text-sm text-[var(--c-muted)]">
+                    Todavía no hay publicaciones en este aula.
+                  </p>
+                  {isTeacherOfClass && (
+                    <button
+                      type="button"
+                      onClick={handlePublicarClick}
+                      className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-sm font-medium text-[var(--c-primary)] hover:bg-[var(--c-primary-soft,#dbeafe)]"
+                    >
+                      📢 Escribir la primera publicación
+                    </button>
+                  )}
+                </div>
               )}
               {!feedLoading && !feedError && publications.map((publication) => (
                 <article key={publication.id} className={cardCls} aria-label={publication.title}>
@@ -483,7 +504,12 @@ export default function Aula() {
                 {feedLoading && <li className="h-4 rounded animate-pulse bg-[var(--c-border)]" />}
                 {feedError && !feedLoading && <li className="text-[var(--c-danger)]">{feedError}</li>}
                 {!feedLoading && !feedError && leaderboard.length === 0 && (
-                  <li className="text-[var(--c-muted)]">Sin ranking disponible.</li>
+                  <li
+                    className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-3 text-center text-xs text-[var(--c-muted)]"
+                    data-testid="leaderboard-empty"
+                  >
+                    El ranking aparece cuando hay actividad.
+                  </li>
                 )}
                 {!feedLoading && !feedError && leaderboard.map((entry, index) => (
                   <li key={entry.id} className="flex justify-between text-[var(--c-text)]">
@@ -584,7 +610,12 @@ export default function Aula() {
                 {feedLoading && <li className="h-10 rounded-lg animate-pulse bg-[var(--c-border)]" />}
                 {feedError && !feedLoading && <li className="text-[var(--c-danger)]">{feedError}</li>}
                 {!feedLoading && !feedError && upcomingActivities.length === 0 && (
-                  <li className="text-[var(--c-muted)]">No hay actividades próximas.</li>
+                  <li
+                    className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-3 text-center text-xs text-[var(--c-muted)]"
+                    data-testid="upcoming-empty"
+                  >
+                    No hay actividades programadas.
+                  </li>
                 )}
                 {!feedLoading && !feedError && upcomingActivities.map((activity) => (
                   <li key={activity.id}

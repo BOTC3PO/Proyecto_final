@@ -53,18 +53,17 @@ vi.mock("../../services/subastas", () => ({
 }));
 
 vi.mock("../../lib/api", () => ({
-  apiGet: vi.fn().mockImplementation((url: string) => {
-    if (url.includes("/progreso")) {
-      return Promise.resolve({ items: [], unlocks: [] });
-    }
-    return Promise.resolve({ items: [] });
-  }),
-  apiPost: vi.fn().mockResolvedValue({}),
+  apiGet: vi.fn(),
+  apiPost: vi.fn(),
 }));
+
+const mockedApiGet = apiGet as unknown as ReturnType<typeof vi.fn>;
+const mockedApiPost = apiPost as unknown as ReturnType<typeof vi.fn>;
 
 import Aula from "../aula";
 import { useAuth } from "../../auth/use-auth";
 import { fetchClassroomDetail } from "../../services/aulas";
+import { apiGet, apiPost } from "../../lib/api";
 
 const TEACHER_USER = {
   id: "u-1",
@@ -122,6 +121,22 @@ function renderAula() {
 
 beforeEach(() => {
   vi.clearAllMocks();
+  // Re-configuramos los mocks porque `vi.clearAllMocks` borra las
+  // implementaciones, y aula.tsx hace `apiGet(...).then(...)` que
+  // fallaria si apiGet devolviera undefined.
+  mockedApiGet.mockImplementation((url: string) => {
+    // El endpoint de la matriz vive bajo /api/progreso/aula-matriz, asi
+    // que hay que chequear la URL mas especifica primero (si no, el
+    // fallback "/progreso" matchea antes).
+    if (url.includes("/aula-matriz")) {
+      return Promise.resolve({ modulos: [], alumnos: [] });
+    }
+    if (url.includes("/progreso")) {
+      return Promise.resolve({ items: [], unlocks: [] });
+    }
+    return Promise.resolve({ items: [] });
+  });
+  mockedApiPost.mockResolvedValue({});
 });
 
 describe("aula.tsx — barra de acciones del docente (Tarea 16)", () => {
@@ -156,6 +171,59 @@ describe("aula.tsx — barra de acciones del docente (Tarea 16)", () => {
     expect(screen.queryByTestId("aula-actions-bar")).not.toBeInTheDocument();
     // Tarea 18: la matriz de progreso tampoco debe verse para alumnos.
     expect(screen.queryByTestId("progreso-curso-details")).not.toBeInTheDocument();
+  });
+
+  it("Tarea 21: feed sin publicaciones muestra el mensaje 'aún no hay publicaciones'", async () => {
+    setupUser(STUDENT_USER);
+    setupClassroom();
+    // El mock de publicaciones (in-memory) devuelve [] por defecto, eso
+    // ya dispara el render del estado vacio.
+    renderAula();
+    await waitFor(() => {
+      expect(screen.getByTestId("aula-publication-form")).toBeInTheDocument();
+    });
+    // El feed vacio aparece una vez que deja de estar en loading.
+    await waitFor(() => {
+      expect(screen.getByTestId("feed-empty")).toBeInTheDocument();
+    });
+    expect(screen.getByTestId("feed-empty").textContent).toMatch(
+      /todav\u00eda no hay publicaciones/i,
+    );
+    // Para un alumno, el boton "escribir la primera publicacion" NO aparece.
+    expect(
+      screen.queryByText(/escribir la primera publicaci\u00f3n/i),
+    ).not.toBeInTheDocument();
+  });
+
+  it("Tarea 21: como docente, el feed vacio ofrece el boton 'escribir la primera publicacion'", async () => {
+    setupUser(TEACHER_USER);
+    setupClassroom();
+    renderAula();
+    // Esperamos a que la clase este cargada (la barra de acciones
+    // del docente solo aparece con isTeacherOfClass=true, que requiere
+    // `classroom` resuelto).
+    await screen.findByTestId("aula-actions-bar", {}, { timeout: 5000 });
+    await screen.findByTestId("feed-empty", {}, { timeout: 5000 });
+    expect(
+      await screen.findByRole(
+        "button",
+        { name: /escribir la primera publicaci\u00f3n/i },
+        { timeout: 5000 },
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it("Tarea 21: leaderboard y actividades vacias muestran sus mensajes", async () => {
+    setupUser(STUDENT_USER);
+    setupClassroom();
+    renderAula();
+    await waitFor(() => {
+      expect(screen.getByTestId("feed-empty")).toBeInTheDocument();
+    });
+    // El mock por defecto de leaderboard/actividades es [], asi que
+    // aparecen los placeholders con data-testid.
+    expect(screen.getByTestId("leaderboard-empty")).toBeInTheDocument();
+    expect(screen.getByTestId("upcoming-empty")).toBeInTheDocument();
   });
 
   it("no muestra la barra cuando no hay usuario logueado", () => {
