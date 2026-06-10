@@ -90,7 +90,7 @@ export type GeneratorFn = (
   dificultad?: Dificultad,
   prng?: PRNG,
   subtipo?: string,
-  enunciadoTemplate?: string
+  enunciadoTemplate?: string | string[]
 ) => Ejercicio;
 export interface GeneratorDescriptor {
   id: string;

@@ -1,5 +1,5 @@
-import test from "node:test";
-import assert from "node:assert/strict";
+// @vitest-environment node
+import { describe, test, expect } from "vitest";
 
 import { DeterministicPrng } from "../core/prng";
 import { getDescriptoresBiologia } from "../biologia/index";
@@ -23,58 +23,57 @@ function allDescriptors() {
   ];
 }
 
-test("applyEnunciadoTemplateExt applies template even when generator emits no datos", () => {
-  const descriptors = allDescriptors();
-  assert.ok(descriptors.length > 0, "catalog should not be empty");
+describe("applyEnunciadoTemplateExt", () => {
+  test("applies template even when generator emits no datos", () => {
+    const descriptors = allDescriptors();
+    expect(descriptors.length).toBeGreaterThan(0);
 
-  for (const descriptor of descriptors) {
-    for (const subtipo of descriptor.subtipos) {
-      const prng = new DeterministicPrng(`${descriptor.id}:${subtipo}`);
-      const ejercicio = descriptor.generate("basico", prng, subtipo, TEMPLATE);
+    for (const descriptor of descriptors) {
+      for (const subtipo of descriptor.subtipos) {
+        const prng = new DeterministicPrng(`${descriptor.id}:${subtipo}`);
+        const ejercicio = descriptor.generate("basico", prng, subtipo, TEMPLATE);
 
-      assert.ok(
-        ejercicio.enunciado.startsWith("TMPL:"),
-        `${descriptor.id}/${subtipo}: expected template to be applied, got: "${ejercicio.enunciado}"`
-      );
-      assert.ok(
-        !ejercicio.enunciado.includes("{subtipo}"),
-        `${descriptor.id}/${subtipo}: {subtipo} token was not substituted in: "${ejercicio.enunciado}"`
-      );
+        expect(
+          ejercicio.enunciado.startsWith("TMPL:"),
+          `${descriptor.id}/${subtipo}: expected template to be applied, got: "${ejercicio.enunciado}"`
+        ).toBe(true);
+        expect(
+          ejercicio.enunciado.includes("{subtipo}"),
+          `${descriptor.id}/${subtipo}: {subtipo} token was not substituted in: "${ejercicio.enunciado}"`
+        ).toBe(false);
+      }
     }
-  }
-});
+  });
 
-test("template substitution exposes respuesta for quiz exercises", () => {
-  const descriptors = allDescriptors();
-  let checkedQuiz = false;
+  test("template substitution exposes respuesta for quiz exercises", () => {
+    const descriptors = allDescriptors();
+    let checkedQuiz = false;
 
-  for (const descriptor of descriptors) {
-    for (const subtipo of descriptor.subtipos) {
-      const prng = new DeterministicPrng(`${descriptor.id}:${subtipo}:respuesta`);
-      const ej = descriptor.generate("basico", prng, subtipo, "R:{respuesta}");
-      if (ej.tipo !== "quiz") continue;
-      checkedQuiz = true;
-      assert.ok(
-        ej.enunciado.startsWith("R:"),
-        `${descriptor.id}/${subtipo}: {respuesta} template not applied, got: "${ej.enunciado}"`
-      );
+    for (const descriptor of descriptors) {
+      for (const subtipo of descriptor.subtipos) {
+        const prng = new DeterministicPrng(`${descriptor.id}:${subtipo}:respuesta`);
+        const ej = descriptor.generate("basico", prng, subtipo, "R:{respuesta}");
+        if (ej.tipo !== "quiz") continue;
+        checkedQuiz = true;
+        expect(
+          ej.enunciado.startsWith("R:"),
+          `${descriptor.id}/${subtipo}: {respuesta} template not applied, got: "${ej.enunciado}"`
+        ).toBe(true);
+      }
     }
-  }
 
-  assert.ok(checkedQuiz, "expected at least one quiz-typed exercise to verify {respuesta}");
-});
+    expect(checkedQuiz).toBe(true);
+  });
 
-test("template leaves unknown tokens literal instead of throwing", () => {
-  const descriptors = allDescriptors();
-  assert.ok(descriptors.length > 0);
+  test("template leaves unknown tokens literal instead of throwing", () => {
+    const descriptors = allDescriptors();
+    expect(descriptors.length).toBeGreaterThan(0);
 
-  const d = descriptors[0];
-  const subtipo = d.subtipos[0];
-  const prng = new DeterministicPrng("unknown-token-test");
-  const ej = d.generate("basico", prng, subtipo, "X:{noExiste}");
+    const d = descriptors[0];
+    const subtipo = d.subtipos[0];
+    const prng = new DeterministicPrng("unknown-token-test");
+    const ej = d.generate("basico", prng, subtipo, "X:{noExiste}");
 
-  assert.ok(
-    ej.enunciado.includes("{noExiste}"),
-    `unknown token should be left literal, got: "${ej.enunciado}"`
-  );
+    expect(ej.enunciado.includes("{noExiste}")).toBe(true);
+  });
 });
