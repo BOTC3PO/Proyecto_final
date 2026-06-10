@@ -55,11 +55,24 @@ export function validate(
   let passed = 0;
   let totalTime = 0;
 
+  // Tarea 06: si la plantilla declara `enunciados:`, garantizar cobertura de
+  // TODAS las variantes. En las primeras `min(items.length, iterations)`
+  // simulaciones forzamos la variante i % items.length (determinista) para
+  // que una interpolacion rota en cualquier variante falle. El resto
+  // mantiene la seleccion aleatoria.
+  const varianteCount = compiled.enunciados?.length ?? 0;
+  const forceWindow = Math.min(varianteCount, iterations);
+
   for (let i = 0; i < iterations; i++) {
     const seed = `${prefix}-${i}`;
+    const forceVariant = i < forceWindow ? i % varianteCount : undefined;
     const t0 = performance.now();
     try {
-      const result = generate(compiled, { seed, provider: opts?.provider });
+      const result = generate(compiled, {
+        seed,
+        provider: opts?.provider,
+        ...(forceVariant !== undefined ? { forceVariant } : {}),
+      });
       verifyResultIntegrity(result, compiled, seed, warningBucket);
       passed++;
     } catch (e) {

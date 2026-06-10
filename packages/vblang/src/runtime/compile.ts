@@ -58,6 +58,9 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
       case "enunciado":
         compiled.enunciado = b.partes;
         break;
+      case "enunciados":
+        compiled.enunciados = b.items;
+        break;
       case "pasos":
         compiled.pasos = b.pasos;
         break;

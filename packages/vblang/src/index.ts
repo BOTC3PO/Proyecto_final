@@ -110,6 +110,7 @@ export type {
   CorreccionModo,
   DatasetBloque,
   EnunciadoBloque,
+  EnunciadosBloque,
   EtiquetaPedida,
   EtiquetasPedidasBloque,
   Expr,

@@ -24,6 +24,14 @@ export interface CompiledPlantilla {
   opciones?: number;
   opcionesExplicitas?: Expr[];
   enunciado: TextoOInterpolacion[];
+  /**
+   * Tarea 05/06: lista de variantes para el bloque `enunciados:`. Cuando está
+   * presente, el runtime elige UNA variante con el PRNG de la simulación
+   * ANTES de interpolar. Mutanmente excluyente con `enunciado` (validado en
+   * el parser); si ambos faltan, el parse falla. Si está presente, gana
+   * sobre el enunciado del generador asistido.
+   */
+  enunciados?: PasoItem[];
   pasos?: PasoItem[];
   tipoInferido: TipoPregunta;
   generadorId?: string;
@@ -49,6 +57,14 @@ export interface GenerationOptions {
    * pasa provider, `generate()` lanza EvalError.
    */
   provider?: GeneradorAsistidoProvider;
+  /**
+   * Tarea 06: fuerza el índice de variante a usar para el bloque
+   * `enunciados:` (0-based). Solo lo usa el validator para garantizar
+   * cobertura de variantes. Si no se provee, la variante se elige con el
+   * PRNG de la simulación (consumiendo 1 valor). Si la plantilla NO
+   * declara `enunciados:`, este campo se ignora.
+   */
+  forceVariant?: number;
 }
 
 export interface OpcionGenerada {

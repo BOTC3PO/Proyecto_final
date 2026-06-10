@@ -23,12 +23,47 @@ import {
   generateMarcarMapa,
   generateOrdenar,
 } from "./generate-special.js";
+import type { PasoItem, TextoOInterpolacion } from "../parser/ast.js";
 import type {
   CompiledPlantilla,
   GenerationOptions,
   GenerationResult,
   OpcionGenerada,
 } from "./types.js";
+
+/**
+ * Tarea 06: si la plantilla declara `enunciados:`, selecciona UNA variante
+ * con el PRNG de la simulación y devuelve sus `partes` para interpolar.
+ *
+ * Comportamiento:
+ * - Si `compiled.enunciados` está ausente, retorna `undefined` y NO consume
+ *   el PRNG. Esto preserva la secuencia del PRNG para plantillas
+ *   existentes que usan `enunciado:` simple.
+ * - Si está presente, consume `prng.next()` SIEMPRE (una vez) y luego elige
+ *   el índice: `Math.floor(next() * length)` por defecto, o
+ *   `options.forceVariant` si está definido (modo validator).
+ * - Devuelve las `partes` a interpolar.
+ */
+function resolverVarianteEnunciado(
+  compiled: CompiledPlantilla,
+  prng: PRNG,
+  options: GenerationOptions,
+): TextoOInterpolacion[] | undefined {
+  const variantes = compiled.enunciados;
+  if (!variantes || variantes.length === 0) return undefined;
+  // Consumir el PRNG SIEMPRE (una sola vez) para que la secuencia sea
+  // estable aunque haya una sola variante. Luego, segun el modo:
+  // - forceVariant: usar el indice forzado (modo validator).
+  // - por defecto: Math.floor(next() * length) (que es lo que produjo el
+  //   valor que acabamos de consumir).
+  const r = prng.next();
+  const idx =
+    typeof options.forceVariant === "number"
+      ? options.forceVariant % variantes.length
+      : Math.floor(r * variantes.length);
+  const item: PasoItem = variantes[Math.max(0, Math.min(variantes.length - 1, idx))];
+  return item.partes;
+}
 
 function normalizarDificultad(raw: unknown): string {
   if (raw === 1 || raw === "1") return "basico";
@@ -62,9 +97,16 @@ function generateAssisted(
   const datos = ejercicio.datos ?? {};
   const scope = new Scope({ ...CONSTANTES_GLOBALES, ...datos });
 
+  // Tarea 06: si la plantilla declara `enunciados:`, elegir una variante con
+  // el PRNG y usar esas partes para interpolar. Gana sobre el del generador
+  // y sobre `enunciado:` propio (mutuamente excluyente ya validado en parser).
+  const variantesPartes = resolverVarianteEnunciado(compiled, prng, options);
+
   // Si la plantilla declara enunciado: propio, gana sobre el del generador.
   const enunciado =
-    compiled.enunciado.length > 0
+    variantesPartes
+      ? interpolar(variantesPartes, scope, ctx)
+      : compiled.enunciado.length > 0
       ? interpolar(compiled.enunciado, scope, ctx)
       : ejercicio.enunciado;
 
@@ -274,7 +316,15 @@ export function generate(
     }
 
     // Interpolación.
-    const enunciadoTexto = interpolar(compiled.enunciado, scope, ctx);
+    // Tarea 06: si la plantilla declara `enunciados:`, elegir una variante
+    // con el PRNG y usar esas partes. resolverVarianteEnunciado consume el
+    // PRNG una sola vez (o no lo toca si la plantilla no usa `enunciados:`).
+    const variantesPartes = resolverVarianteEnunciado(compiled, prng, options);
+    const enunciadoTexto = interpolar(
+      variantesPartes ?? compiled.enunciado,
+      scope,
+      ctx,
+    );
     const pasosTexto = compiled.pasos
       ? compiled.pasos.map((p) => interpolar(p.partes, scope, ctx))
       : undefined;
