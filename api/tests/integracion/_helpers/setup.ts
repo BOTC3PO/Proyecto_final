@@ -62,6 +62,7 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.modulo.rows = [];
   prisma.quiz.rows = [];
   prisma.quizVersion.rows = [];
+  prisma.progresoModulo.rows = [];
   return prisma;
 }
 

@@ -329,6 +329,18 @@ export type QuizVersionRow = {
   createdBy: string;
 };
 
+export type ProgresoModuloRow = {
+  id: string;
+  usuarioId: string;
+  moduloId: string;
+  aulaId: string | null;
+  status: string;
+  score?: number | null;
+  attempts: number;
+  completedAt?: string | null;
+  updatedAt: string;
+};
+
 export class InMemoryPrisma {
   plantillaEjercicio = new Table<PlantillaRow>("plantillaEjercicio");
   plantillaEjercicioVersion = new Table<PlantillaVersionRow>("plantillaEjercicioVersion");
@@ -347,6 +359,7 @@ export class InMemoryPrisma {
   modulo = new Table<ModuloRow>("modulo");
   quiz = new Table<QuizRow>("quiz");
   quizVersion = new Table<QuizVersionRow>("quizVersion");
+  progresoModulo = new Table<ProgresoModuloRow>("progresoModulo");
 
   // override findMany on vblangDataset to support _count include.
   constructor() {

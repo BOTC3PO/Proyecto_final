@@ -256,6 +256,128 @@ progreso.get("/api/progreso/estudiante", requireUser, async (req, res) => {
   }
 });
 
+/**
+ * GET /api/progreso/aula-matriz?aulaId=...
+ *
+ * Devuelve la matriz alumno × módulo para el aula. Pensado para que el
+ * docente del aula vea de un vistazo quién avanzó en cada módulo asignado.
+ *
+ * Auth: el solicitante debe ser staff (`isStaffRole`) O miembro del aula con
+ * rol TEACHER. Mismo patrón que usan las rutas vecinas de aulas.ts.
+ *
+ * Implementación en una sola pasada: cuatro `findMany` (alumnos del aula,
+ * módulos asignados, progresos del aula, lookup de módulos) y un Map
+ * indexado por `usuarioId:moduloId` para resolver el status sin N+1.
+ */
+progreso.get("/api/progreso/aula-matriz", requireUser, async (req, res) => {
+  try {
+    const authenticatedUserId = resolveAuthenticatedUserId(req);
+    if (!authenticatedUserId) {
+      return res.status(401).json({ error: "user not authenticated" });
+    }
+    const userRole = req.user?.role ?? null;
+
+    const aulaId = getQueryString(req.query.aulaId);
+    if (!aulaId || !aulaId.trim()) {
+      return res.status(400).json({ error: "aulaId is required" });
+    }
+
+    // El aula tiene que existir.
+    const clase = await prisma.clase.findFirst({ where: { id: aulaId } });
+    if (!clase) {
+      return res.status(404).json({ error: "classroom not found" });
+    }
+
+    // Authz: staff pasa siempre; si no, tiene que ser TEACHER del aula.
+    if (!isStaffRole(userRole)) {
+      const membership = await prisma.claseMiembro.findFirst({
+        where: { claseId: aulaId, usuarioId: authenticatedUserId, rolEnClase: "TEACHER" },
+        select: { claseId: true }
+      });
+      if (!membership) {
+        return res.status(403).json({ error: "forbidden" });
+      }
+    }
+
+    // Alumnos del aula (rolEnClase = STUDENT).
+    const miembros = await prisma.claseMiembro.findMany({
+      where: { claseId: aulaId, rolEnClase: "STUDENT" },
+      select: { usuarioId: true }
+    });
+    const alumnoIds = miembros.map((m) => m.usuarioId).filter((id): id is string => Boolean(id));
+
+    // Módulos asignados al aula.
+    const claseModulos = await prisma.claseModulo.findMany({
+      where: { claseId: aulaId },
+      select: { moduloId: true }
+    });
+    const moduloIds = claseModulos
+      .map((cm) => cm.moduloId)
+      .filter((id): id is string => Boolean(id));
+
+    // Una sola query: progresos de la combinación (alumnos × aula).
+    // (El índice @@index([usuarioId, aulaId]) cubre este patrón.)
+    const progresos = alumnoIds.length
+      ? await prisma.progresoModulo.findMany({
+          where: { aulaId, usuarioId: { in: alumnoIds } },
+          select: { usuarioId: true, moduloId: true, status: true }
+        })
+      : [];
+
+    // Map<"usuarioId:moduloId", status> para lookup O(1).
+    const statusByKey = new Map<string, string>();
+    for (const p of progresos) {
+      if (!p.usuarioId || !p.moduloId || !p.status) continue;
+      statusByKey.set(`${p.usuarioId}:${p.moduloId}`, p.status);
+    }
+
+    // Títulos de los módulos asignados (pueden ser 0).
+    const modulosAsignados = moduloIds.length
+      ? await prisma.modulo.findMany({
+          where: { id: { in: moduloIds } },
+          select: { id: true, titulo: true }
+        })
+      : [];
+
+    // Nombres de los alumnos (pueden no existir todos en `usuario`).
+    const alumnos = alumnoIds.length
+      ? await prisma.usuario.findMany({
+          where: { id: { in: alumnoIds }, isDeleted: { not: true } },
+          select: { id: true, fullName: true, username: true }
+        })
+      : [];
+
+    // Orden estable: por nombre del módulo y nombre del alumno.
+    const modulosOrdenados = [...modulosAsignados].sort((a, b) => {
+      const at = a.titulo ?? a.id ?? "";
+      const bt = b.titulo ?? b.id ?? "";
+      return at.localeCompare(bt, "es");
+    });
+    const alumnosOrdenados = [...alumnos].sort((a, b) => {
+      const an = a.fullName ?? a.username ?? a.id ?? "";
+      const bn = b.fullName ?? b.username ?? b.id ?? "";
+      return an.localeCompare(bn, "es");
+    });
+
+    res.json({
+      modulos: modulosOrdenados.map((m) => ({ id: m.id, title: m.titulo })),
+      alumnos: alumnosOrdenados.map((a) => {
+        const progresos: Record<string, string | null> = {};
+        for (const moduloId of moduloIds) {
+          progresos[moduloId] = statusByKey.get(`${a.id}:${moduloId}`) ?? null;
+        }
+        return {
+          id: a.id,
+          name: a.fullName ?? a.username ?? a.id ?? "",
+          progresos
+        };
+      })
+    });
+  } catch (e) {
+    res.status(500).json({ error: e instanceof Error ? e.message : "internal server error" });
+  }
+});
+
 progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
