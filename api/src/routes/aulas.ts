@@ -2,7 +2,7 @@ import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
-import { requirePolicy } from "../lib/authorization";
+import { canManageClassroom, requirePolicy } from "../lib/authorization";
 import { requireClassroomScope } from "../lib/classroom-scope";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
@@ -664,25 +664,109 @@ aulas.get("/api/aulas/:id/modulos", requireUser, async (req, res) => {
   }
 });
 
-// POST /api/aulas/:id/modulos — asignar módulo al aula
+/**
+ * Helper de auth para los endpoints de asignación/desasignación de módulos.
+ * Reutiliza la misma regla que usan las rutas vecinas de aulas:
+ *  - ADMIN (cualquiera)
+ *  - DIRECTIVO de la misma escuela
+ *  - Miembro del aula con rol TEACHER / DIRECTIVO / ADMIN
+ *
+ * Si pasa, devuelve la clase en `res.locals.classroom` para no re-pegarle a la BD.
+ */
+async function authorizeDocenteOAula(
+  req: express.Request,
+  res: express.Response,
+  claseId: string,
+): Promise<{ id: string; escuelaId: string | null; miembros: Array<{ userId: string; roleInClass: string }> } | null> {
+  const user = (req as { user?: { id?: string; _id?: { toString?: () => string } | string; role?: string; schoolId?: string | null } }).user;
+  const requesterId =
+    (typeof user?.id === "string" && user.id) ||
+    (typeof user?._id === "string" && (user._id as string)) ||
+    (user?._id && typeof (user._id as { toString?: () => string }).toString === "function"
+      ? (user._id as { toString: () => string }).toString()
+      : null);
+  const requesterRole = user?.role ?? null;
+  const requesterSchoolId = user?.schoolId ?? null;
+
+  if (requesterRole === "ADMIN") {
+    const clase = await prisma.clase.findFirst({ where: { id: claseId } });
+    if (!clase) {
+      res.status(404).json({ error: "classroom not found" });
+      return null;
+    }
+    return { id: clase.id, escuelaId: clase.escuelaId ?? null, miembros: [] };
+  }
+
+  const clase = await prisma.clase.findFirst({
+    where: { id: claseId },
+    include: { miembros: true },
+  });
+  if (!clase) {
+    res.status(404).json({ error: "classroom not found" });
+    return null;
+  }
+
+  const miembros = (clase.miembros ?? []).map((m) => ({
+    userId: m.usuarioId,
+    roleInClass: m.rolEnClase,
+  }));
+  const canManage = canManageClassroom({
+    requesterId,
+    requesterRole,
+    requesterSchoolId,
+    classroomSchoolId: clase.escuelaId ?? null,
+    classroomMembers: miembros,
+  });
+  if (!canManage) {
+    res.status(403).json({ error: "forbidden" });
+    return null;
+  }
+  return { id: clase.id, escuelaId: clase.escuelaId ?? null, miembros };
+}
+
+// POST /api/aulas/:id/modulos — asignar módulo al aula (idempotente)
 aulas.post("/api/aulas/:id/modulos", requireUser, async (req, res) => {
   const { moduloId, required } = req.body as Record<string, unknown>;
   if (!moduloId || typeof moduloId !== "string") {
     return res.status(400).json({ error: "moduloId requerido" });
   }
+  const claseId = req.params.id as string;
   try {
-    const claseId = req.params.id as string;
-    await prisma.claseModulo.upsert({
-      where: { claseId_moduloId: { claseId, moduloId } },
-      create: {
+    const auth = await authorizeDocenteOAula(req, res, claseId);
+    if (!auth) return; // respuesta ya enviada por el helper
+
+    // Validar que el módulo exista.
+    const modulo = await prisma.modulo.findFirst({ where: { id: moduloId } });
+    if (!modulo) {
+      return res.status(404).json({ error: "modulo no encontrado" });
+    }
+
+    // No asignar a aula read-only.
+    const classroomStatus = normalizeClassroomStatus((await prisma.clase.findFirst({
+      where: { id: claseId },
+      select: { status: true },
+    }))?.status);
+    if (isClassroomReadOnlyStatus(classroomStatus)) {
+      return res.status(403).json({ error: "classroom is read-only" });
+    }
+
+    // Idempotencia: si ya existe, devolvemos 200 (no 201).
+    const existing = await prisma.claseModulo.findFirst({
+      where: { claseId, moduloId },
+    });
+    if (existing) {
+      return res.status(200).json({ ok: true, moduloId, alreadyAssigned: true });
+    }
+
+    await prisma.claseModulo.create({
+      data: {
         claseId,
         moduloId,
         assignedAt: new Date().toISOString(),
-        required: required === true
+        required: required === true,
       },
-      update: {}
     });
-    res.status(201).json({ ok: true });
+    res.status(201).json({ ok: true, moduloId });
   } catch (err) {
     res.status(500).json({ error: err instanceof Error ? err.message : "error" });
   }
@@ -722,15 +806,23 @@ aulas.post("/api/aulas/unirse", requireUser, async (req, res) => {
   return res.status(201).json({ ok: true, aulaId: aula.id, nombre: aula.name });
 });
 
-// DELETE /api/aulas/:id/modulos/:moduloId — desasignar módulo
+// DELETE /api/aulas/:id/modulos/:moduloId — desasignar módulo (sin tocar el módulo ni el progreso)
 aulas.delete("/api/aulas/:id/modulos/:moduloId", requireUser, async (req, res) => {
   try {
     const claseId = req.params.id as string;
     const moduloId = req.params.moduloId as string;
+    const auth = await authorizeDocenteOAula(req, res, claseId);
+    if (!auth) return;
+    const existing = await prisma.claseModulo.findFirst({
+      where: { claseId, moduloId },
+    });
+    if (!existing) {
+      return res.status(404).json({ error: "asignacion no encontrada" });
+    }
     await prisma.claseModulo.delete({
       where: { claseId_moduloId: { claseId, moduloId } }
     });
-    res.json({ ok: true });
+    res.json({ ok: true, moduloId });
   } catch (err) {
     res.status(500).json({ error: err instanceof Error ? err.message : "error" });
   }

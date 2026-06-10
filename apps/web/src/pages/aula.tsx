@@ -15,6 +15,7 @@ import {
   type ExamenSubasta, type PujaItem
 } from "../services/subastas";
 import AulaActionsBar from "../components/aula/AulaActionsBar";
+import AsignarModulosModal from "../components/profesor/AsignarModulosModal";
 
 type ProgressItem = {
   moduloId: string;
@@ -88,6 +89,7 @@ export default function Aula() {
   const [pujaStatus, setPujaStatus] =
     useState<Record<string, "idle" | "loading" | "error">>({});
   const publicationFormRef = useRef<HTMLDivElement | null>(null);
+  const [asignarModulosOpen, setAsignarModulosOpen] = useState(false);
 
   const normalizedStatus = useMemo(
     () => normalizeClassroomStatus(classroom?.status ?? null),
@@ -151,6 +153,10 @@ export default function Aula() {
     window.setTimeout(() => {
       input?.focus();
     }, 300);
+  };
+
+  const handleAsignarModulosClick = () => {
+    setAsignarModulosOpen(true);
   };
 
   const handleSubmitPublication = async () => {
@@ -347,6 +353,7 @@ export default function Aula() {
               <AulaActionsBar
                 classroomId={classroomId}
                 onPublicarClick={handlePublicarClick}
+                onAsignarModulosClick={handleAsignarModulosClick}
               />
             )}
             {/* Publication input */}
@@ -678,6 +685,13 @@ export default function Aula() {
           </aside>
         </div>
       </div>
+      {asignarModulosOpen && classroomId && classroom && (
+        <AsignarModulosModal
+          classroomId={classroomId}
+          classroomName={classroom.name}
+          onClose={() => setAsignarModulosOpen(false)}
+        />
+      )}
     </main>
   );
 }

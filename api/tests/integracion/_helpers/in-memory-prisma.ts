@@ -260,6 +260,75 @@ export type FilaRow = {
   createdAt: string;
 };
 
+export type ClaseRow = {
+  id: string;
+  escuelaId: string;
+  name: string;
+  grade: string;
+  code?: string | null;
+  classCode?: string | null;
+  isDeleted: boolean;
+  status: string;
+  createdBy?: string | null;
+  teacherId?: string | null;
+  teacherOfRecord?: string | null;
+  deletedAt?: string | null;
+  deletedBy?: string | null;
+  createdAt: string;
+  updatedAt?: string | null;
+};
+
+export type ClaseMiembroRow = {
+  claseId: string;
+  usuarioId: string;
+  rolEnClase: string;
+};
+
+export type ClaseModuloRow = {
+  claseId: string;
+  moduloId: string;
+  assignedAt?: string | null;
+  required: boolean;
+};
+
+export type ModuloRow = {
+  id: string;
+  slug?: string | null;
+  titulo: string;
+  descripcion?: string | null;
+  visibility: string;
+  schoolId?: string | null;
+  ownerUserId: string;
+  dependencies?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type QuizRow = {
+  id: string;
+  moduleId: string;
+  title?: string | null;
+  currentVersionId?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type QuizVersionRow = {
+  id: string;
+  quizId: string;
+  versionNumber: number;
+  questions: string;
+  generatorId?: string | null;
+  generatorVersion?: string | null;
+  params?: string | null;
+  count?: number | null;
+  seedPolicy: number;
+  fixedSeed?: string | null;
+  settings: string;
+  createdAt: string;
+  createdBy: string;
+};
+
 export class InMemoryPrisma {
   plantillaEjercicio = new Table<PlantillaRow>("plantillaEjercicio");
   plantillaEjercicioVersion = new Table<PlantillaVersionRow>("plantillaEjercicioVersion");
@@ -272,6 +341,12 @@ export class InMemoryPrisma {
   escuela = new Table<Row>("escuela");
   transaccionEscuela = new Table<Row>("transaccionEscuela");
   liquidacionEscuela = new Table<Row>("liquidacionEscuela");
+  clase = new Table<ClaseRow>("clase");
+  claseMiembro = new Table<ClaseMiembroRow>("claseMiembro");
+  claseModulo = new Table<ClaseModuloRow>("claseModulo");
+  modulo = new Table<ModuloRow>("modulo");
+  quiz = new Table<QuizRow>("quiz");
+  quizVersion = new Table<QuizVersionRow>("quizVersion");
 
   // override findMany on vblangDataset to support _count include.
   constructor() {
@@ -284,6 +359,31 @@ export class InMemoryPrisma {
           const count = filas.rows.filter((f) => f.datasetId === r.id).length;
           (r as Record<string, unknown>)._count = { filas: count };
         }
+      }
+      return rows;
+    };
+
+    // Tarea 16b: findFirst/findMany on `clase` with `include: { miembros: true }`
+    // (usado por authorizeDocenteOAula en routes/aulas.ts).
+    const applyClaseInclude = (row: Record<string, unknown>) => {
+      const miembros = this.claseMiembro.rows
+        .filter((m) => m.claseId === row.id)
+        .map((m) => ({ ...m }));
+      row.miembros = miembros;
+    };
+    const claseFindFirst = this.clase.findFirst.bind(this.clase);
+    this.clase.findFirst = async (args) => {
+      const row = await claseFindFirst(args);
+      if (row && (args as { include?: Record<string, unknown> } | undefined)?.include) {
+        applyClaseInclude(row as Record<string, unknown>);
+      }
+      return row;
+    };
+    const claseFindMany = this.clase.findMany.bind(this.clase);
+    this.clase.findMany = async (args) => {
+      const rows = await claseFindMany(args);
+      if ((args as { include?: Record<string, unknown> } | undefined)?.include) {
+        for (const r of rows) applyClaseInclude(r as Record<string, unknown>);
       }
       return rows;
     };

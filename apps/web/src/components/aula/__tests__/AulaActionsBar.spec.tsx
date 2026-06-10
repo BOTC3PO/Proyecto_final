@@ -22,16 +22,23 @@ function renderBar(props: React.ComponentProps<typeof AulaActionsBar>) {
   );
 }
 
+const DEFAULT_PROPS: React.ComponentProps<typeof AulaActionsBar> = {
+  classroomId: "aula-1",
+  onPublicarClick: vi.fn(),
+  onAsignarModulosClick: vi.fn(),
+};
+
 describe("AulaActionsBar", () => {
-  it("muestra las 3 acciones esperadas", () => {
-    renderBar({ classroomId: "aula-1", onPublicarClick: vi.fn() });
+  it("muestra las 4 acciones esperadas", () => {
+    renderBar(DEFAULT_PROPS);
     expect(screen.getByTestId("aula-action-asistencia")).toBeInTheDocument();
     expect(screen.getByTestId("aula-action-publicar")).toBeInTheDocument();
+    expect(screen.getByTestId("aula-action-asignar-modulo")).toBeInTheDocument();
     expect(screen.getByTestId("aula-action-estadisticas")).toBeInTheDocument();
   });
 
   it("los href de Asistencia y Estadísticas llevan aulaId en query", () => {
-    renderBar({ classroomId: "aula-xyz", onPublicarClick: vi.fn() });
+    renderBar({ ...DEFAULT_PROPS, classroomId: "aula-xyz" });
     const asistencia = screen.getByTestId("aula-action-asistencia");
     const estadisticas = screen.getByTestId("aula-action-estadisticas");
     expect(asistencia.getAttribute("href")).toBe(
@@ -43,10 +50,7 @@ describe("AulaActionsBar", () => {
   });
 
   it("escapa caracteres especiales en el aulaId", () => {
-    renderBar({
-      classroomId: "aula/with spaces+&",
-      onPublicarClick: vi.fn(),
-    });
+    renderBar({ ...DEFAULT_PROPS, classroomId: "aula/with spaces+&" });
     const asistencia = screen.getByTestId("aula-action-asistencia");
     expect(asistencia.getAttribute("href")).toBe(
       "/profesor/asistencia?aulaId=aula%2Fwith%20spaces%2B%26",
@@ -55,21 +59,28 @@ describe("AulaActionsBar", () => {
 
   it("el botón Publicar invoca onPublicarClick", () => {
     const onClick = vi.fn();
-    renderBar({ classroomId: "aula-1", onPublicarClick: onClick });
+    renderBar({ ...DEFAULT_PROPS, onPublicarClick: onClick });
     fireEvent.click(screen.getByTestId("aula-action-publicar"));
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it("el botón Asignar módulo invoca onAsignarModulosClick", () => {
+    const onClick = vi.fn();
+    renderBar({ ...DEFAULT_PROPS, onAsignarModulosClick: onClick });
+    fireEvent.click(screen.getByTestId("aula-action-asignar-modulo"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it("si no hay classroomId, no renderiza nada", () => {
     const { container } = renderBar({
+      ...DEFAULT_PROPS,
       classroomId: "",
-      onPublicarClick: vi.fn(),
     });
     expect(container).toBeEmptyDOMElement();
   });
 
   it("la región tiene aria-label accesible", () => {
-    renderBar({ classroomId: "aula-1", onPublicarClick: vi.fn() });
+    renderBar(DEFAULT_PROPS);
     expect(
       screen.getByRole("region", { name: "Acciones del aula" }),
     ).toBeInTheDocument();

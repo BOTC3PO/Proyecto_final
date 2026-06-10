@@ -287,6 +287,18 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
           data: { currentVersionId: versionId },
         });
       }
+      // Tarea 16b: si vino aulaId y la validación pasó, cerrar el lazo creando
+      // la fila clase_modulos para que el módulo quede asignado al aula.
+      if (parsed.aulaId) {
+        await tx.claseModulo.create({
+          data: {
+            claseId: parsed.aulaId,
+            moduloId: parsed.id,
+            assignedAt: new Date().toISOString(),
+            required: false,
+          },
+        });
+      }
     });
     res.status(201).json({ id: result!.id, moduleId: parsed.id });
   } catch (e: any) {

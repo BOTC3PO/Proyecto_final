@@ -1,5 +1,5 @@
 /**
- * AulaActionsBar (Tarea 16).
+ * AulaActionsBar (Tarea 16 + 16b).
  *
  * Barra de acciones rápidas para el docente dueño de un aula, renderizada
  * arriba del feed en `pages/aula.tsx`. Solo se monta si `isTeacherOfClass`
@@ -9,7 +9,9 @@
  *  1. Tomar asistencia → navega a `/profesor/asistencia?aulaId=...`
  *  2. Publicar anuncio → scroll + focus al form de publicación de la misma
  *     página (no es un <Link>, es un <button> que invoca `onPublicarClick`)
- *  3. Estadísticas → navega a `/profesor/estadisticas?aulaId=...`
+ *  3. Asignar módulo → abre `AsignarModulosModal` (no es un <Link>:
+ *     invoca `onAsignarModulosClick`)
+ *  4. Estadísticas → navega a `/profesor/estadisticas?aulaId=...`
  *
  * No se renderiza para alumnos, familias ni docentes invitados.
  */
@@ -19,12 +21,14 @@ import { Link } from "react-router-dom";
 export type AulaActionsBarProps = {
   classroomId: string;
   onPublicarClick: () => void;
+  onAsignarModulosClick: () => void;
   className?: string;
 };
 
 export default function AulaActionsBar({
   classroomId,
   onPublicarClick,
+  onAsignarModulosClick,
   className = "",
 }: AulaActionsBarProps) {
   if (!classroomId) return null;
@@ -58,6 +62,15 @@ export default function AulaActionsBar({
           <span aria-hidden="true">📢</span>
           Publicar anuncio
         </button>
+        <button
+          type="button"
+          onClick={onAsignarModulosClick}
+          data-testid="aula-action-asignar-modulo"
+          className={linkCls}
+        >
+          <span aria-hidden="true">📚</span>
+          Asignar módulo
+        </button>
         <Link
           to={`/profesor/estadisticas?aulaId=${encodeURIComponent(classroomId)}`}
           data-testid="aula-action-estadisticas"
@@ -70,3 +83,4 @@ export default function AulaActionsBar({
     </div>
   );
 }
+
