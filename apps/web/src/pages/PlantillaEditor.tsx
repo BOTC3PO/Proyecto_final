@@ -21,6 +21,7 @@ import EjemplosMenu from "../components/vblang/EjemplosMenu";
 import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
 import SnippetBar from "../components/vblang/SnippetBar";
 import PlantillaEditorSchema from "../components/vblang/PlantillaEditorSchema";
+import { extractDeclaredVariables } from "../components/vblang/plantillaAst";
 import EditorShell from "../components/layout/EditorShell";
 import Toast, { type ToastAction } from "../components/Toast";
 import ErrorPanel from "../components/vblang/ErrorPanel";
@@ -145,6 +146,9 @@ export default function PlantillaEditor() {
   const [modo, setModo] = useState<"codigo" | "visual">("codigo");
   const [referenciaOpen, setReferenciaOpen] = useState(false);
   const editorRef = useRef<CodeEditorHandle | null>(null);
+  // Última lista de variables declaradas que pudimos parsear — si el código
+  // rompe, conservamos la última válida para no vaciar el autocompletado.
+  const lastDeclaredRef = useRef<string[]>([]);
 
   useEffect(() => {
     if (isNew || !id) return;
@@ -176,6 +180,18 @@ export default function PlantillaEditor() {
   const compilation = usePlantillaCompilation(codigoDsl);
   const preview = usePlantillaPreview(compilation.compiled);
   const validation = usePlantillaValidation(compilation.compiled);
+
+  // Mantenemos la última lista válida de variables declaradas para que el
+  // autocompletado del editor no se vacíe entre cambios de tipeo que rompen
+  // el parseo momentáneamente.
+  const declaredVariables = useMemo(() => {
+    if (compilation.plantilla) {
+      const list = extractDeclaredVariables(compilation.plantilla);
+      lastDeclaredRef.current = list;
+      return list;
+    }
+    return lastDeclaredRef.current;
+  }, [compilation.plantilla]);
 
   // Estado del footer: cantidad de errores + líneas del código.
   const numLineas = codigoDsl.split("\n").length;
@@ -496,6 +512,7 @@ export default function PlantillaEditor() {
                   ref={editorRef}
                   value={codigoDsl}
                   onChange={setCodigo}
+                  declaredVariables={declaredVariables}
                   errorLine={compilation.parseError?.line ?? dslApiError?.line}
                   errorCol={compilation.parseError?.col ?? dslApiError?.col}
                   errorSummary={errorSummary}

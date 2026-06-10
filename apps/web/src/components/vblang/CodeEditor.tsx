@@ -16,10 +16,12 @@ import {
   useId,
   useImperativeHandle,
   useRef,
+  useState,
   type KeyboardEvent,
   type ChangeEvent,
   type UIEvent,
 } from "react";
+import { BUILTIN_NAMES, GLOBAL_CONSTANTS } from "@vb/vblang";
 
 export interface CodeEditorHandle {
   focusAt: (line: number, col: number) => void;
@@ -44,6 +46,12 @@ interface CodeEditorProps {
    * `aria-describedby`. Vacío/undefined = sin errores.
    */
   errorSummary?: string;
+  /**
+   * Variables declaradas en el bloque `variables:` de la plantilla. Se usan
+   * como sugerencias prioritarias en el autocompletado. Si la compilación
+   * falló, mantener la última lista válida (responsabilidad del consumidor).
+   */
+  declaredVariables?: readonly string[];
 }
 
 const KEYWORDS_BLOQUE = new Set([
@@ -247,6 +255,126 @@ function posFromLineCol(value: string, line: number, col: number): number {
   return Math.min(i + Math.max(0, col - 1), value.length);
 }
 
+/**
+ * Devuelve el [A-Za-z_][A-Za-z0-9_]* inmediatamente anterior a la posición
+ * `caret` dentro de `value`, junto con el índice donde empieza ese prefijo.
+ * Si no hay identificador precedente, devuelve `{ prefix: "", start: caret }`.
+ */
+function prefixAtCaret(
+  value: string,
+  caret: number,
+): { prefix: string; start: number } {
+  let i = caret;
+  while (i > 0) {
+    const ch = value[i - 1];
+    if (!/[A-Za-z0-9_]/.test(ch)) break;
+    i--;
+  }
+  return { prefix: value.slice(i, caret), start: i };
+}
+
+/** Coincidencias por prefijo. Si el prefijo está vacío devuelve `[]`. */
+function filterByPrefix(items: readonly string[], prefix: string): string[] {
+  if (prefix.length === 0) return [];
+  const lower = prefix.toLowerCase();
+  return items.filter((s) => s.toLowerCase().startsWith(lower));
+}
+
+/** Construye la lista de sugerencias (top `max`) ordenada por prioridad:
+ *  1. variables declaradas, 2. builtins, 3. constantes globales. */
+function buildSuggestions(
+  declared: readonly string[],
+  prefix: string,
+  max = 8,
+): { name: string; kind: "var" | "builtin" | "const" }[] {
+  if (prefix.length < 2) return [];
+  const vars = filterByPrefix(declared, prefix);
+  const builtins = filterByPrefix(BUILTIN_NAMES, prefix);
+  const constants = filterByPrefix(GLOBAL_CONSTANTS, prefix);
+  // Dedupe preservando prioridad (no debería haber colisión real, pero por
+  // si un builtin se llama igual que una variable declarada).
+  const seen = new Set<string>();
+  const out: { name: string; kind: "var" | "builtin" | "const" }[] = [];
+  for (const v of vars) {
+    if (seen.has(v)) continue;
+    seen.add(v);
+    out.push({ name: v, kind: "var" });
+    if (out.length >= max) return out;
+  }
+  for (const b of builtins) {
+    if (seen.has(b)) continue;
+    seen.add(b);
+    out.push({ name: b, kind: "builtin" });
+    if (out.length >= max) return out;
+  }
+  for (const c of constants) {
+    if (seen.has(c)) continue;
+    seen.add(c);
+    out.push({ name: c, kind: "const" });
+    if (out.length >= max) return out;
+  }
+  return out;
+}
+
+/**
+ * Lista de sugerencias flotante anclada al caret. Sólo se renderiza cuando el
+ * padre (CodeEditor) tiene un prefijo válido y al menos un candidato.
+ * Accesibilidad: role=listbox, role=option, aria-selected por item.
+ */
+function Suggestions({
+  items,
+  activeIndex,
+  pos,
+  listboxId,
+  onHover,
+  onPick,
+}: {
+  items: { name: string; kind: "var" | "builtin" | "const" }[];
+  activeIndex: number;
+  pos: { left: number; top: number };
+  listboxId: string;
+  onHover: (i: number) => void;
+  onPick: (i: number) => void;
+}) {
+  return (
+    <ul
+      role="listbox"
+      id={listboxId}
+      data-testid="vblang-suggestions"
+      aria-label="Sugerencias de autocompletado"
+      // Posición dinámica: left/top son píxeles medidos; el resto va por CSS.
+      style={{ left: pos.left, top: pos.top + 20 }}
+      className="vbe-suggest"
+    >
+      {items.map((item, i) => (
+        <li
+          key={`${item.kind}:${item.name}`}
+          id={`${listboxId}-${i}`}
+          role="option"
+          aria-selected={i === activeIndex}
+          data-testid={`vblang-suggestion-${item.name}`}
+          onMouseDown={(e) => {
+            // onMouseDown (no onClick) para que el textarea no pierda el foco.
+            e.preventDefault();
+            onPick(i);
+          }}
+          onMouseEnter={() => onHover(i)}
+          className="vbe-suggest__item"
+        >
+          <span>{item.name}</span>
+          <span className="vbe-suggest__kind">
+            {item.kind === "var"
+              ? "var"
+              : item.kind === "builtin"
+                ? "fn"
+                : "const"}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEditor(
   {
     value,
@@ -255,12 +383,15 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
     onCursorChange,
     ariaLabel = "Editor de código VBLang",
     errorSummary,
+    declaredVariables,
   },
   ref,
 ) {
   const taRef = useRef<HTMLTextAreaElement | null>(null);
   const preRef = useRef<HTMLPreElement | null>(null);
   const gutterRef = useRef<HTMLDivElement | null>(null);
+  const mirrorRef = useRef<HTMLDivElement | null>(null);
+  const caretMarkerRef = useRef<HTMLSpanElement | null>(null);
   // Cuando es true, el próximo Tab mueve el foco en vez de indentar (ver
   // handleKeyDown). Se activa con Escape.
   const tabEscapesRef = useRef(false);
@@ -278,12 +409,93 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
   }, [value]);
   const summaryId = useId();
   const instructionsId = useId();
+  const listboxId = useId();
   const hasErrors = !!errorSummary && errorSummary.trim().length > 0;
   const describedBy = [hasErrors ? summaryId : null, instructionsId]
     .filter(Boolean)
     .join(" ");
 
   const { html, lineCount } = renderHighlighted(value, errorLine);
+
+  /* ---------------- autocompletado (Tarea 11) ---------------- */
+  const [suggestionState, setSuggestionState] = useState<{
+    prefix: string;
+    prefixStart: number;
+    items: { name: string; kind: "var" | "builtin" | "const" }[];
+    active: number;
+    pos: { left: number; top: number } | null;
+  }>({ prefix: "", prefixStart: 0, items: [], active: 0, pos: null });
+  const suggestionOpen = suggestionState.items.length > 0;
+
+  // Mide la posición del caret en píxeles usando un div "espejo" con la misma
+  // tipografía que el textarea. El truco es copiar `value` hasta el caret
+  // dentro de un <span> invisible + un span-marcador: las dimensiones del
+  // marcador coinciden con la posición de la línea del caret en X e Y.
+  const measureCaret = (
+    valueAtCaret: string,
+    caret: number,
+  ): { left: number; top: number } | null => {
+    const m = mirrorRef.current;
+    const marker = caretMarkerRef.current;
+    if (!m || !marker) return null;
+    const before = valueAtCaret.slice(0, caret);
+    m.textContent = before;
+    // El span-marcador se renderiza al final para que su offsetLeft/Top
+    // representen la posición del caret (al final de la subcadena `before`).
+    const span = document.createElement("span");
+    span.textContent = "\u200b"; // zero-width space
+    m.appendChild(span);
+    const left = span.offsetLeft - m.scrollLeft;
+    const top = span.offsetTop - m.scrollTop;
+    m.removeChild(span);
+    return { left, top };
+  };
+
+  const recomputeSuggestions = (caret: number) => {
+    // Usamos valueRef.current (no el `value` de closure) porque el rAF puede
+    // correr antes de que el próximo render propague la prop `value`.
+    const cur = valueRef.current;
+    recomputeSuggestionsFromValue(cur, caret);
+  };
+
+  const recomputeSuggestionsFromValue = (cur: string, caret: number) => {
+    const { prefix, start } = prefixAtCaret(cur, caret);
+    const items = buildSuggestions(declaredVariables ?? [], prefix);
+    const pos = items.length > 0 ? measureCaret(cur, caret) : null;
+    setSuggestionState((s) => ({
+      prefix,
+      prefixStart: start,
+      items,
+      // Mantener `active` dentro del rango nuevo (o resetear a 0 si cambió).
+      active: items.length > 0 ? Math.min(s.active, items.length - 1) : 0,
+      pos,
+    }));
+  };
+
+  // Acepta una sugerencia: la inserta en la posición del prefijo, dispara
+  // onChange, devuelve el foco y actualiza el caret. Reutilizable desde
+  // teclado y desde clicks.
+  const acceptSuggestion = (idx: number) => {
+    const item = suggestionState.items[idx];
+    if (!item) return;
+    const ta = taRef.current;
+    if (!ta) return;
+    const cur = valueRef.current;
+    const start = suggestionState.prefixStart;
+    const caret = ta.selectionStart ?? cur.length;
+    const next = cur.slice(0, start) + item.name + cur.slice(caret);
+    onChangeRef.current(next);
+    requestAnimationFrame(() => {
+      if (!taRef.current) return;
+      const newCaret = start + item.name.length;
+      taRef.current.focus();
+      taRef.current.setSelectionRange(newCaret, newCaret);
+    });
+    setSuggestionState({ prefix: "", prefixStart: 0, items: [], active: 0, pos: null });
+  };
+
+  const closeSuggestions = () =>
+    setSuggestionState({ prefix: "", prefixStart: 0, items: [], active: 0, pos: null });
 
   useImperativeHandle(ref, () => ({
     focusAt(line, col) {
@@ -317,8 +529,40 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
     // pulsar Escape el siguiente Tab/Shift+Tab mueve el foco normalmente para
     // poder salir del editor solo con teclado.
     if (e.key === "Escape") {
+      if (suggestionOpen) {
+        // Cerrar el popup sin afectar el modo "Tab sale del editor".
+        e.preventDefault();
+        e.stopPropagation();
+        closeSuggestions();
+        return;
+      }
       tabEscapesRef.current = true;
       return;
+    }
+    // Si el popup está abierto, las flechas y Enter lo gestionan, no el editor.
+    if (suggestionOpen) {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setSuggestionState((s) => ({
+          ...s,
+          active: (s.active + 1) % Math.max(s.items.length, 1),
+        }));
+        return;
+      }
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setSuggestionState((s) => ({
+          ...s,
+          active:
+            (s.active - 1 + s.items.length) % Math.max(s.items.length, 1),
+        }));
+        return;
+      }
+      if (e.key === "Enter" || e.key === "Tab") {
+        e.preventDefault();
+        acceptSuggestion(suggestionState.active);
+        return;
+      }
     }
     if (e.key === "Tab") {
       if (tabEscapesRef.current) {
@@ -347,12 +591,23 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     onChange(e.target.value);
+    // El popup se actualiza después del render (requestAnimationFrame) para
+    // que el textarea ya tenga el nuevo valor.
+    const caret = e.target.selectionStart ?? 0;
+    const latest = e.target.value;
+    requestAnimationFrame(() => recomputeSuggestionsFromValue(latest, caret));
   };
 
   const handleSelect = () => {
-    if (!taRef.current || !onCursorChange) return;
-    const { line, col } = cursorLineCol(value, taRef.current.selectionStart);
-    onCursorChange(line, col);
+    if (!taRef.current) return;
+    if (onCursorChange) {
+      const { line, col } = cursorLineCol(value, taRef.current.selectionStart);
+      onCursorChange(line, col);
+    }
+    // Mover el popup junto con el caret cuando el usuario navega con flechas.
+    requestAnimationFrame(() =>
+      recomputeSuggestions(taRef.current?.selectionStart ?? 0),
+    );
   };
 
   const handleScroll = (e: UIEvent<HTMLTextAreaElement>) => {
@@ -396,6 +651,17 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
          alineación monoespaciada con el textarea transparente (el caret no se
          corre). El fondo resalta el glifo, el color lo distingue del string. */
       .vbe-tk-var { color: var(--c-danger); background: color-mix(in srgb, var(--c-danger) 12%, transparent); border-radius: 3px; }
+      /* Mirror invisible para medir la posición del caret. Misma tipografía y
+         padding que el textarea. Lo copiamos caracter por caracter y medimos
+         el offsetLeft/Top del span-marcador al final. */
+      .vbe-mirror { position: absolute; visibility: hidden; pointer-events: none; inset: 0; margin: 0; padding: 8px 12px; white-space: pre; overflow: hidden; font: inherit; line-height: inherit; }
+      .vbe-caret-marker { display: inline-block; width: 0; }
+      /* Popup de sugerencias anclado al caret. */
+      .vbe-suggest { position: absolute; z-index: 20; min-width: 160px; max-height: 200px; overflow-y: auto; background: var(--c-surface); color: var(--c-text); border: 1px solid var(--c-border); border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.12); font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace); font-size: 13px; line-height: 1.4; }
+      .vbe-suggest__item { padding: 4px 10px; cursor: pointer; display: flex; align-items: baseline; gap: 6px; }
+      .vbe-suggest__item[aria-selected="true"] { background: var(--c-primary); color: white; }
+      .vbe-suggest__kind { font-size: 10px; text-transform: uppercase; color: var(--c-muted, #64748b); }
+      .vbe-suggest__item[aria-selected="true"] .vbe-suggest__kind { color: rgba(255,255,255,0.7); }
     `;
     document.head.appendChild(style);
   }, []);
@@ -415,6 +681,29 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        {/* Mirror invisible: misma tipografía y padding que el textarea, lo
+            usamos para medir la posición X/Y del caret. El span-marcador
+            colapsa a la línea-base del caret (al final de la subcadena
+            copiada). */}
+        <div
+          ref={mirrorRef}
+          className="vbe-mirror"
+          aria-hidden
+        >
+          <span ref={caretMarkerRef} className="vbe-caret-marker"></span>
+        </div>
+        {suggestionOpen && suggestionState.pos && (
+          <Suggestions
+            listboxId={listboxId}
+            items={suggestionState.items}
+            activeIndex={suggestionState.active}
+            pos={suggestionState.pos}
+            onHover={(i) =>
+              setSuggestionState((s) => ({ ...s, active: i }))
+            }
+            onPick={acceptSuggestion}
+          />
+        )}
         <textarea
           ref={taRef}
           className="vbe-ta"
@@ -429,6 +718,13 @@ const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEd
           aria-label={ariaLabel}
           aria-invalid={hasErrors || undefined}
           aria-describedby={describedBy || undefined}
+          aria-autocomplete="list"
+          aria-controls={suggestionOpen ? listboxId : undefined}
+          aria-activedescendant={
+            suggestionOpen
+              ? `${listboxId}-${suggestionState.active}`
+              : undefined
+          }
         />
       </div>
       {/* Resumen de errores asociado al textarea. role=status + aria-live para

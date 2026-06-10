@@ -132,3 +132,53 @@ export function createBuiltins(
 export function builtinNames(builtins: Record<string, BuiltinFn>): string[] {
   return Object.keys(builtins);
 }
+
+/**
+ * Lista derivada de las claves de `createBuiltins`. Se usa para que el
+ * autocompletado del editor de código pueda sugerir builtins sin acoplarse
+ * a una lista hardcodeada: si se agrega uno nuevo a `createBuiltins` hay que
+ * agregarlo acá (test de drift en `builtins-registry.test.ts` lo verifica).
+ */
+export const BUILTIN_NAMES: readonly string[] = [
+  // Aleatoriedad
+  "random",
+  "random_float",
+  "uno_de",
+  "n_de",
+  "mezclar",
+  // Strings
+  "capitalizar",
+  "mayusculas",
+  "minusculas",
+  "concatenar",
+  "longitud",
+  // Aritmética
+  "sqrt",
+  "raiz",
+  "redondear",
+  "signo",
+  // Arrays
+  "largo",
+  "primero",
+  "ultimo",
+  "sumar",
+  "promedio",
+  "ordenar",
+  "ordenar_por",
+  "unico",
+  // Predicados
+  "es_numero",
+  "es_positivo",
+  "es_entero",
+  // Trigonometría
+  "sin_deg",
+  "cos_deg",
+  "tan_deg",
+  "asin_deg",
+  "acos_deg",
+  "atan_deg",
+  // Unidades
+  "unidad",
+  // Error invocable
+  "error",
+];

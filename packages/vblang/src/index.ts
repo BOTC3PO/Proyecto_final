@@ -32,7 +32,12 @@ export {
 } from "./evaluator/errors.js";
 export { lint } from "./validator/linter.js";
 export type { LintOptions } from "./validator/linter.js";
-export { CONSTANTES_GLOBALES } from "./evaluator/constants.js";
+import { CONSTANTES_GLOBALES } from "./evaluator/constants.js";
+export { CONSTANTES_GLOBALES };
+export { BUILTIN_NAMES, builtinNames } from "./evaluator/builtins.js";
+export const GLOBAL_CONSTANTS: readonly string[] = Object.keys(
+  CONSTANTES_GLOBALES,
+).sort();
 export { validate } from "./validator/validator.js";
 export {
   T,

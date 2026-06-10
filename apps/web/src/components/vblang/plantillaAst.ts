@@ -170,6 +170,17 @@ export function variantesToEnunciado(p: Plantilla): Plantilla {
 }
 
 /**
+ * Devuelve los nombres de las variables declaradas en el bloque `variables:`
+ * en el orden en que aparecen. Si el bloque no existe, devuelve `[]`. Pensado
+ * para alimentar el autocompletado del editor de código.
+ */
+export function extractDeclaredVariables(p: Plantilla): string[] {
+  const b = getBlock(p, "variables");
+  if (!b) return [];
+  return b.declaraciones.map((d) => d.nombre);
+}
+
+/**
  * Convierte texto con `{expr}` / `{{` / `}}` a partes. Si una interpolación no
  * parsea como expresión, se conserva como texto literal (no se rompe).
  */
