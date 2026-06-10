@@ -134,6 +134,7 @@ Una plantilla VBLang es un archivo de texto con **bloques con nombre**. Cada blo
 | `opciones:` | No | Cantidad de opciones múltiple-choice. |
 | `tipo:` | No | Tipo de pregunta (`mc`, `input`, `vf`, `ordenar`, etc.). Default: `input`. |
 | `enunciado:` | Sí | Texto del ejercicio mostrado al alumno. |
+| `enunciados:` | Sí (en lugar de `enunciado:`) | Lista de variantes de enunciado; se elige una al azar por ejercicio, de forma estable por seed. Mutanmente excluyente con `enunciado:`. |
 | `pasos:` | No | Resolución paso a paso (visible al alumno post-respuesta). |
 | `visual:` | No | Visual adjunto (chart, mapa, timeline, imagen). |
 | `generador:` | No | Generador hardcoded de Virtual Book a usar. |
@@ -709,6 +710,42 @@ enunciado: |
 ```
 
 Esto renderiza como: *"La expresión matemática {a + b} significa 'a más b'."*
+
+### 7.8 Enunciados con variantes
+
+A veces el docente quiere que el mismo ejercicio aparezca con redacciones distintas: por contexto narrativo, por edad del curso, o simplemente para reducir la copia entre alumnos. El bloque `enunciados:` declara una **lista de variantes** del enunciado; en cada generación el sistema elige una sola.
+
+#### Sintaxis
+
+```vblang
+variables:
+  a: random(1, 100)
+  b: random(1, 100)
+
+enunciados:
+  - "Cuanto es {a} + {b}?"
+  - "Calcula la suma de {a} y {b}."
+  - "Resolvé el ejercicio: cuanto suman {a} y {b}?"
+
+tipo: input
+respuesta: a + b
+```
+
+Cada ítem es un string entre comillas precedido por `- `, igual que el bloque `pasos:`. Las interpolaciones `{variable}` y los modificadores (`{v|2}`, `{v|mayusculas}`) funcionan igual que en `enunciado:`.
+
+#### Semántica
+
+- **Mutanmente excluyente con `enunciado:`**. Una plantilla debe declarar exactamente uno de los dos. Si aparecen ambos, el parser rechaza con *"Usá `enunciado:` o `enunciados:`, no ambos"*. Si falta el bloque obligatorio, el mensaje menciona las dos opciones.
+- **Mínimo 1 variante**. Una lista vacía se rechaza con un error que indica cómo agregar al menos un ítem.
+- **Selección por PRNG**. La variante a usar se elige con el PRNG de la simulación, consumiendo un valor antes de interpolar. Esto preserva el determinismo: con la misma semilla, la misma variante.
+- **Determinismo por seed**. Mismo seed + misma plantilla → misma variante. Mismos valores de variables. Mismo enunciado final.
+- **Cobertura en validación**. La validación de 100 simulaciones (sección 13.1) fuerza cada variante al menos una vez en la ventana inicial, para que un error de interpolación en cualquier variante (ej. una variable mal escrita) haga fallar la validación, no que pase desapercibido con probabilidad 1/N.
+- **Linter contextual**. El linter emite un warning por cada variable no declarada con el formato `enunciados[i]: variable "x" no declarada` para que el docente ubique el error en la variante correcta. También avisa si hay variantes duplicadas exactas.
+
+#### Cuándo usar `enunciados:` y cuándo no
+
+- **Sí**: cuando el mismo ejercicio admite varias redacciones equivalentes (tono formal vs. informal, con o sin contexto, distintos verbos de consigna). Sirve también para diversidad entre alumnos.
+- **No**: si las variantes cambian la dificultad o los datos, son ejercicios distintos y deberían ser plantillas separadas.
 
 ---
 

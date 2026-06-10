@@ -20,10 +20,18 @@ const REGLAS: string[] = [
   "tipo: mc requiere opciones: o opciones_explicitas:",
 ];
 
-const BLOQUES: { nombre: string; desc: string }[] = [
+const BLOQUES: { nombre: string; desc: string; code?: string; nota?: string }[] = [
   { nombre: "variables", desc: "Declara los valores paramétricos del ejercicio." },
   { nombre: "restricciones", desc: "Condiciones que deben cumplir las variables (ej. a != 0)." },
   { nombre: "enunciado", desc: "Texto de la pregunta; interpola {variable}." },
+  {
+    nombre: "enunciados",
+    desc: "Lista de variantes de enunciado (alternativa a enunciado:, mutuamente excluyente).",
+    code: `enunciados:
+  - "Cuanto es {a} + {b}?"
+  - "Calcula la suma de {a} y {b}."`,
+    nota: "Se elige una al azar por ejercicio (estable por seed).",
+  },
   { nombre: "respuesta", desc: "Fórmula con la respuesta correcta." },
   { nombre: "respuestas_validas", desc: "Lista de respuestas aceptadas (varias correctas)." },
   { nombre: "unidad", desc: "Unidad de la respuesta numérica (ej. \"m/s\")." },
@@ -125,6 +133,16 @@ export default function ReferenciaRapida({ open, onClose }: ReferenciaRapidaProp
                     {b.nombre}
                   </dt>
                   <dd className="text-[var(--c-muted,#64748b)]">{b.desc}</dd>
+                  {b.code && (
+                    <pre className="mt-0.5 overflow-x-auto rounded bg-[var(--c-bg,#f1f5f9)] px-1.5 py-1 font-mono text-[10px] text-[var(--c-primary,#3b82f6)]">
+                      {b.code}
+                    </pre>
+                  )}
+                  {b.nota && (
+                    <p className="mt-0.5 text-[10px] italic text-[var(--c-muted,#64748b)]">
+                      {b.nota}
+                    </p>
+                  )}
                 </div>
               ))}
             </dl>
