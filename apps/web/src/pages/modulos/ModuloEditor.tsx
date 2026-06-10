@@ -12,6 +12,7 @@ import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
 import QuizComposicionEditor from "../../components/modulos/QuizComposicionEditor";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
+import VistaAlumnoOverlay from "../../components/modulos/VistaAlumnoOverlay";
 import BlockEditorPage from "../../blocks/v2/BlockEditorPage";
 import { deserializeBlockDocument } from "../../blocks/utils";
 import {
@@ -256,6 +257,8 @@ export default function ModuloEditor() {
 
   // ─── Plantilla selector (Sprint 10A · Bloque B) ─────────────────────────
   const [plantillaModalOpen, setPlantillaModalOpen] = useState(false);
+  // ─── Vista alumno (Tarea 14): overlay de previsualizacion local ──────────
+  const [vistaAlumnoOpen, setVistaAlumnoOpen] = useState(false);
   const plantillaIdsEnUso = useMemo(() => {
     const ids: string[] = [];
     for (const quiz of quizzes) {
@@ -365,6 +368,15 @@ export default function ModuloEditor() {
         />
       ) : null}
 
+      {/* Tarea 14 — vista alumno (overlay de previsualizacion local). */}
+      <VistaAlumnoOverlay
+        open={vistaAlumnoOpen}
+        onClose={() => setVistaAlumnoOpen(false)}
+        title={form.title || "Vista previa del módulo"}
+        theoryItems={theoryItems}
+        quizzes={quizzes}
+      />
+
       {/* Block editor overlay — fullscreen, rendered outside the form */}
       {blockEditorFor && blockEditorItem ? (
         <div style={{ position: "fixed", inset: 0, zIndex: 50 }}>
@@ -402,6 +414,15 @@ export default function ModuloEditor() {
                     : "Borrador local"}
             </span>
           </div>
+          <button
+            type="button"
+            onClick={() => setVistaAlumnoOpen(true)}
+            aria-label="Abrir vista alumno"
+            data-testid="vista-alumno-open"
+            className="rounded-md border border-[var(--c-primary)] px-3 py-1 text-xs font-semibold text-[var(--c-primary)] hover:bg-[var(--c-primary)] hover:text-white"
+          >
+            👁 Vista alumno
+          </button>
         </header>
         <a href="#main-content" className="skip-link">Saltar al contenido</a>
         <div id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 outline-none">
