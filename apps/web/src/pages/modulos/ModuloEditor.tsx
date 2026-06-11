@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
@@ -42,6 +43,7 @@ import {
 } from "../../components/modulos/standalone/types";
 import { EscaladorRecetas } from "../../components/modulos/standalone/EscaladorRecetas";
 import { LineaTiempo } from "../../components/modulos/standalone/LineaTiempo";
+import MapaEditorFull from "../herramientas/MapaEditorFull";
 
 // ─── Pills de estado (prototipo `.pill`) ───────────────────────────────────
 // Mismas tonalidades que el componente de diseño `ui/Pill`, pero con
@@ -116,32 +118,6 @@ function CardHeader({
       {right ? <div className="flex shrink-0 items-center gap-2">{right}</div> : null}
     </div>
   );
-}
-
-// Abre el editor de mapa completo (MapaEditorFull) en una ventana nueva,
-// pasándole la config por sessionStorage y recuperando el resultado al cerrarse.
-// Los datasets ya no se pasan por sessionStorage: el editor los trae de la API.
-function launchMapaEditor(
-  ssKey: string,
-  cfg: MapaConfig,
-  onResult: (updated: MapaConfig) => void,
-) {
-  sessionStorage.setItem(`mapa-doc:${ssKey}`, JSON.stringify(cfg));
-  const win = window.open(`/herramientas/mapa-editor?sskey=${ssKey}`, "_blank");
-  if (!win) return;
-  const timer = setInterval(() => {
-    if (!win.closed) return;
-    clearInterval(timer);
-    try {
-      const raw = sessionStorage.getItem(`mapa-doc:${ssKey}:result`);
-      if (raw) onResult(JSON.parse(raw) as MapaConfig);
-    } catch {
-      /* ignore */
-    } finally {
-      sessionStorage.removeItem(`mapa-doc:${ssKey}`);
-      sessionStorage.removeItem(`mapa-doc:${ssKey}:result`);
-    }
-  }, 500);
 }
 
 export default function ModuloEditor() {
@@ -328,6 +304,23 @@ export default function ModuloEditor() {
   const [plantillaModalOpen, setPlantillaModalOpen] = useState(false);
   // ─── Vista alumno (Tarea 14): overlay de previsualizacion local ──────────
   const [vistaAlumnoOpen, setVistaAlumnoOpen] = useState(false);
+  // ─── Editor de mapa (M8v2): overlay full-screen en la misma pestaña ──────
+  // `herramientaId` identifica a qué herramienta del módulo vuelve el
+  // resultado: "new" = formulario de recurso nuevo, otro valor = item.id.
+  const [mapaEditing, setMapaEditing] = useState<
+    { herramientaId: "new" | string; config: MapaConfig } | null
+  >(null);
+
+  const handleMapaSave = (updated: MapaConfig) => {
+    if (!mapaEditing) return;
+    const detail = JSON.stringify(updated);
+    if (mapaEditing.herramientaId === "new") {
+      setNewTheoryItem((prev) => ({ ...prev, detail }));
+    } else {
+      updateTheoryItem(mapaEditing.herramientaId, { detail });
+    }
+    setMapaEditing(null);
+  };
   const plantillaIdsEnUso = useMemo(() => {
     const ids: string[] = [];
     for (const quiz of quizzes) {
@@ -445,6 +438,30 @@ export default function ModuloEditor() {
         theoryItems={theoryItems}
         quizzes={quizzes}
       />
+
+      {/* M8v2 — editor de mapa en overlay full-screen (portal, mismo patrón
+          que VistaAlumnoOverlay). Sin pestañas nuevas ni sessionStorage: la
+          config viaja en memoria por initialConfig/onSave. El overlay solo se
+          cierra con Guardar/Volver — Esc queda para el editor (cancelar
+          pendientes), así un Esc de más no tira el trabajo. */}
+      {mapaEditing
+        ? createPortal(
+            <div
+              data-testid="mapa-editor-overlay"
+              className="fixed inset-0 z-[100] bg-[var(--c-bg)]"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Editor de mapa"
+            >
+              <MapaEditorFull
+                initialConfig={mapaEditing.config}
+                onSave={handleMapaSave}
+                onCancel={() => setMapaEditing(null)}
+              />
+            </div>,
+            document.body,
+          )
+        : null}
 
       {/* Block editor overlay — fullscreen, rendered outside the form */}
       {blockEditorFor && blockEditorItem ? (
@@ -955,12 +972,10 @@ export default function ModuloEditor() {
                               </span>
                               <button
                                 type="button"
-                                aria-label="Abrir editor de mapa en ventana nueva"
+                                aria-label="Abrir editor de mapa"
                                 className="rounded-md border border-[var(--c-primary)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-hover)]"
                                 onClick={() =>
-                                  launchMapaEditor(`new-mapa-${Date.now()}`, cfg, (updated) =>
-                                    setNewTheoryItem((prev) => ({ ...prev, detail: JSON.stringify(updated) })),
-                                  )
+                                  setMapaEditing({ herramientaId: "new", config: cfg })
                                 }
                               >
                                 <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">
@@ -1239,12 +1254,10 @@ export default function ModuloEditor() {
                                           </span>
                                           <button
                                             type="button"
-                                            aria-label="Abrir editor de mapa en ventana nueva"
+                                            aria-label="Abrir editor de mapa"
                                             className="rounded-md border border-[var(--c-primary)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-hover)]"
                                             onClick={() =>
-                                              launchMapaEditor(`mapa-${item.id}`, cfg, (updated) =>
-                                                updateTheoryItem(item.id, { detail: JSON.stringify(updated) }),
-                                              )
+                                              setMapaEditing({ herramientaId: item.id, config: cfg })
                                             }
                                           >
                                             <svg className="inline-block w-4 h-4 mr-1.5 align-text-bottom" viewBox="0 0 24 24" aria-hidden="true">

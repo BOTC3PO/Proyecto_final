@@ -26,7 +26,8 @@ vi.mock("../../../domain/vblang/datasetApi", () => ({
   getDataset: vi.fn().mockResolvedValue({ id: "x", nombre: "x", columnas: [] }),
 }));
 
-import MapaEditorFull from "../MapaEditorFull";
+// M8v2: la carga por ?sskey= + sessionStorage vive en el wrapper de ruta.
+import MapaEditorPage from "../MapaEditorPage";
 
 // ─── Fixtures inline ───────────────────────────────────────────────────────
 
@@ -68,7 +69,7 @@ function cfgVacio() {
 function renderEditor(ssKey = "gj-test") {
   return render(
     <MemoryRouter initialEntries={[`/herramientas/mapa-editor?sskey=${ssKey}`]}>
-      <MapaEditorFull />
+      <MapaEditorPage />
     </MemoryRouter>,
   );
 }

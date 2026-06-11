@@ -1,6 +1,6 @@
 // Stubs for archived Herramientas pages
 import { Link } from 'react-router-dom';
-import MapaEditorFull from '../pages/herramientas/MapaEditorFull';
+import MapaEditorPage from '../pages/herramientas/MapaEditorPage';
 
 export function HerramientasEducativas() { return null; }
 export function HerramientasCienciasSociales() {
@@ -29,7 +29,7 @@ export function HerramientasCienciasSociales() {
   );
 }
 export function HerramientasMapaEditor() {
-  return <MapaEditorFull />;
+  return <MapaEditorPage />;
 }
 export function HerramientasEstadistica() { return null; }
 export function HerramientasFilosofia() { return null; }
