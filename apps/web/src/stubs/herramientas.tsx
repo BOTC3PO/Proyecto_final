@@ -1,5 +1,5 @@
 // Stubs for archived Herramientas pages
-import MapEditor from '../components/MapEditor';
+import { Link } from 'react-router-dom';
 import MapaEditorFull from '../pages/herramientas/MapaEditorFull';
 
 export function HerramientasEducativas() { return null; }
@@ -15,7 +15,15 @@ export function HerramientasCienciasSociales() {
             Geografía e Historia
           </p>
         </div>
-        <MapEditor subjectLabel="Geografía e Historia" />
+        <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-4 text-sm text-[var(--c-text)] space-y-2">
+          <p>El editor visual de mapas ya está disponible.</p>
+          <Link
+            to="/herramientas/mapa-editor"
+            className="inline-flex items-center rounded-lg border border-[var(--c-primary)] bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-[var(--c-accent-fg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+          >
+            Abrir editor de mapas
+          </Link>
+        </div>
       </div>
     </div>
   );

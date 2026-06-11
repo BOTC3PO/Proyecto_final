@@ -15,10 +15,15 @@
  * mensaje claro (no rompe el quiz).
  */
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
 import { topologyToFeatures } from "../../lib/maps/topojson-lite";
 import type { CountryFeature, TopologyLike } from "../../lib/maps/topojson-lite";
 import { createMercatorPathGenerator } from "../../lib/maps/svg-geo-lite";
+import { useViewBoxZoom } from "../../lib/maps/useViewBoxZoom";
+
+/** Umbral en píxeles: si el mouse se movió más de esto entre pointerdown y
+ *  click, se considera pan y NO se dispara `onSelect`. */
+const PAN_THRESHOLD_PX = 4;
 
 const MAP_WIDTH = 960;
 const MAP_HEIGHT = 520;
@@ -76,6 +81,56 @@ export default function MarcarMapaRenderer({
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [hovered, setHovered] = useState<string | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+  // Punto de partida del pointerdown; si el pointerup se aleja más de
+  // PAN_THRESHOLD_PX, marcamos `wasPan = true` para que el `onClick` del
+  // path no se considere selección de país.
+  const downAt = useRef<{ x: number; y: number } | null>(null);
+  const wasPan = useRef(false);
+
+  // M7: zoom + pan vía hook compartido. El pan es siempre activo (no hay
+  // herramienta "select" en el renderer del alumno).
+  const {
+    viewBox,
+    handlePointerDown: hookPanDown,
+    handlePointerMove: hookPanMove,
+    handlePointerUp: hookPanUp,
+    zoomIn,
+    zoomOut,
+    reset: resetZoom,
+  } = useViewBoxZoom({
+    width: MAP_WIDTH,
+    height: MAP_HEIGHT,
+    minVb: 40,
+    svgRef,
+    active: true,
+  });
+
+  // Wrappers que también registran `downAt` y `wasPan` para distinguir
+  // click de pan.
+  const handlePanDown = useCallback(
+    (e: PointerEvent<SVGSVGElement>) => {
+      downAt.current = { x: e.clientX, y: e.clientY };
+      wasPan.current = false;
+      hookPanDown(e);
+    },
+    [hookPanDown],
+  );
+  const handlePanUp = useCallback(
+    (e: PointerEvent<SVGSVGElement>) => {
+      const d = downAt.current;
+      downAt.current = null;
+      if (d) {
+        const dx = e.clientX - d.x;
+        const dy = e.clientY - d.y;
+        if (Math.hypot(dx, dy) > PAN_THRESHOLD_PX) {
+          wasPan.current = true;
+        }
+      }
+      hookPanUp(e);
+    },
+    [hookPanUp],
+  );
+  const handlePanMove = hookPanMove;
 
   const url = useMemo(() => mapaIdToUrl(mapaId), [mapaId]);
 
@@ -146,12 +201,22 @@ export default function MarcarMapaRenderer({
   }
 
   return (
-    <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+    <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white relative">
       <svg
         ref={svgRef}
-        viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
-        style={{ display: "block", width: "100%", cursor: disabled ? "default" : "pointer" }}
+        viewBox={`${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`}
+        style={{
+          display: "block",
+          width: "100%",
+          cursor: disabled ? "default" : "pointer",
+          touchAction: "none",
+          overscrollBehavior: "contain",
+        }}
         data-testid="marcar-mapa-svg"
+        onPointerDown={handlePanDown}
+        onPointerMove={handlePanMove}
+        onPointerUp={handlePanUp}
+        onPointerCancel={(e) => { hookPanUp(e); downAt.current = null; wasPan.current = false; }}
       >
         <rect width={MAP_WIDTH} height={MAP_HEIGHT} fill="#e8eef7" />
         {pathGenerator &&
@@ -191,12 +256,19 @@ export default function MarcarMapaRenderer({
                 fill={fill}
                 stroke={stroke}
                 strokeWidth={strokeWidth}
+                vectorEffect="non-scaling-stroke"
                 data-iso={iso ?? ""}
                 data-testid={iso ? `marcar-mapa-country-${iso}` : undefined}
                 onMouseEnter={() => setHovered(iso)}
                 onMouseLeave={() => setHovered(null)}
                 onClick={() => {
                   if (disabled || !iso) return;
+                  // Si veníamos de un pan (umbral >4px), no contamos
+                  // el click como selección de país.
+                  if (wasPan.current) {
+                    wasPan.current = false;
+                    return;
+                  }
                   onSelect?.(iso);
                 }}
               >
@@ -224,6 +296,50 @@ export default function MarcarMapaRenderer({
           </text>
         )}
       </svg>
+
+      {/* Botones de zoom (M7) — overlay esquina superior derecha. */}
+      <div
+        className="pointer-events-auto absolute right-2 top-2 flex flex-col gap-0.5 rounded-lg border border-slate-200 bg-white shadow-sm"
+        role="group"
+        aria-label="Zoom del mapa"
+        data-testid="marcar-mapa-zoom-controls"
+      >
+        <button
+          type="button"
+          onClick={zoomIn}
+          aria-label="Acercar"
+          title="Acercar (rueda hacia arriba)"
+          className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" d="M12 6v12M6 12h12" />
+          </svg>
+        </button>
+        <span className="mx-2 h-px bg-slate-200" aria-hidden="true" />
+        <button
+          type="button"
+          onClick={zoomOut}
+          aria-label="Alejar"
+          title="Alejar (rueda hacia abajo)"
+          className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" d="M6 12h12" />
+          </svg>
+        </button>
+        <span className="mx-2 h-px bg-slate-200" aria-hidden="true" />
+        <button
+          type="button"
+          onClick={resetZoom}
+          aria-label="Restablecer zoom"
+          title="Restablecer zoom (Inicio)"
+          className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-7 3.3M3 4v4h4" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }

@@ -567,6 +567,120 @@ async function main() {
   console.log("\nAulas:   cls-demo-mat-3a (3° A — Matemática), cls-demo-eco-4b (4° B — Economía)");
   console.log("Módulos: mod-demo-enteros, mod-demo-fracciones, mod-demo-presupuesto");
   console.log("Saldos:  Juan Pérez 340 PF, Ana López 120 PF");
+
+  // ── 10. Datasets VBLang con coordenadas (M6) ────────────────────────────────
+  // Columnas lat/lon/nombre: el editor las detecta con
+  // `datasetTieneCoordenadas` (filtra por `lat`, `latitud`, `latitude`, `y`
+  // combinado con `lon`, `lng`, `long`, `longitud`, `longitude`, `x`).
+  // Etiqueta usa `nombre` (matchea con la lista de label keys del editor).
+  // Visibilidad "publica" para que cualquier usuario las pueda conectar.
+  console.log("🗺️  Creando datasets de mapas con coordenadas...");
+  await seedDatasetsMapa();
+  console.log("  ✓ 2 datasets de mapas (Capitales de América, Ciudades de Argentina)");
+}
+
+/**
+ * Crea dos datasets demo de mapas con columnas `lat`, `lon` y `nombre`.
+ * Idempotente: si ya existe un dataset con el mismo `nombre` para el owner,
+ * lo borra y lo reemplaza (así también es seguro re-sembrar si cambian las
+ * filas). Usa `usr-teach-001` como owner para mantener consistencia con el
+ * resto del seed.
+ */
+async function seedDatasetsMapa() {
+  // Borrar versiones previas de los datasets demo (idempotencia "limpia"):
+  // si el docente re-corre el seed, queremos las coordenadas actualizadas.
+  const datasetsViejos = await prisma.vblangDataset.findMany({
+    where: { ownerUserId: "usr-teach-001", nombre: { in: ["Capitales de América", "Ciudades de Argentina"] } },
+    select: { id: true },
+  });
+  if (datasetsViejos.length > 0) {
+    const idsViejos = datasetsViejos.map((d) => d.id);
+    await prisma.vblangDatasetFila.deleteMany({ where: { datasetId: { in: idsViejos } } });
+    await prisma.vblangDataset.deleteMany({ where: { id: { in: idsViejos } } });
+  }
+
+  const datasets = [
+    {
+      id: "ds-demo-capitales-america",
+      nombre: "Capitales de América",
+      descripcion: "Capitales de los países de América con coordenadas geográficas.",
+      filas: [
+        { nombre: "Buenos Aires", lat: -34.61, lon: -58.38 },
+        { nombre: "Brasilia", lat: -15.79, lon: -47.88 },
+        { nombre: "Santiago", lat: -33.45, lon: -70.66 },
+        { nombre: "Lima", lat: -12.05, lon: -77.04 },
+        { nombre: "Bogotá", lat: 4.71, lon: -74.07 },
+        { nombre: "Quito", lat: -0.18, lon: -78.47 },
+        { nombre: "Caracas", lat: 10.5, lon: -66.92 },
+        { nombre: "Georgetown", lat: 6.8, lon: -58.16 },
+        { nombre: "Paramaribo", lat: 5.85, lon: -55.2 },
+        { nombre: "Cayena", lat: 4.93, lon: -52.33 },
+        { nombre: "La Paz", lat: -16.49, lon: -68.15 },
+        { nombre: "Asunción", lat: -25.27, lon: -57.63 },
+        { nombre: "Montevideo", lat: -34.9, lon: -56.16 },
+        { nombre: "Ciudad de México", lat: 19.43, lon: -99.13 },
+        { nombre: "Washington D. C.", lat: 38.9, lon: -77.04 },
+        { nombre: "Ottawa", lat: 45.42, lon: -75.7 },
+        { nombre: "La Habana", lat: 23.13, lon: -82.38 },
+        { nombre: "Kingston", lat: 17.98, lon: -76.79 },
+        { nombre: "Santo Domingo", lat: 18.49, lon: -69.93 },
+        { nombre: "San Salvador", lat: 13.69, lon: -89.22 },
+      ],
+    },
+    {
+      id: "ds-demo-ciudades-argentina",
+      nombre: "Ciudades de Argentina",
+      descripcion: "Ciudades principales de Argentina con coordenadas geográficas.",
+      filas: [
+        { nombre: "Ciudad Autónoma de Buenos Aires", lat: -34.61, lon: -58.38 },
+        { nombre: "Córdoba", lat: -31.42, lon: -64.18 },
+        { nombre: "Rosario", lat: -32.95, lon: -60.66 },
+        { nombre: "Mendoza", lat: -32.89, lon: -68.84 },
+        { nombre: "La Plata", lat: -34.92, lon: -57.95 },
+        { nombre: "San Miguel de Tucumán", lat: -26.82, lon: -65.22 },
+        { nombre: "Mar del Plata", lat: -38.0, lon: -57.55 },
+        { nombre: "Salta", lat: -24.79, lon: -65.41 },
+        { nombre: "Santa Fe", lat: -31.63, lon: -60.7 },
+        { nombre: "San Juan", lat: -31.54, lon: -68.53 },
+        { nombre: "Resistencia", lat: -27.45, lon: -59.0 },
+        { nombre: "Neuquén", lat: -38.95, lon: -68.06 },
+        { nombre: "Bahía Blanca", lat: -38.71, lon: -62.27 },
+        { nombre: "Posadas", lat: -27.37, lon: -55.9 },
+        { nombre: "Bariloche", lat: -41.13, lon: -71.31 },
+      ],
+    },
+  ];
+
+  for (const ds of datasets) {
+    await prisma.vblangDataset.create({
+      data: {
+        id: ds.id,
+        ownerUserId: "usr-teach-001",
+        schoolId: "esc-0001",
+        visibility: "publica",
+        nombre: ds.nombre,
+        descripcion: ds.descripcion,
+        // El formato de `columnas` y `datos` es JSON string (ver vblang-datasets.ts).
+        columnas: JSON.stringify({
+          lat: "number",
+          lon: "number",
+          nombre: "string",
+        }),
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now,
+      },
+    });
+    await prisma.vblangDatasetFila.createMany({
+      data: ds.filas.map((datos, i) => ({
+        id: `${ds.id}-fila-${i}`,
+        datasetId: ds.id,
+        orden: i,
+        datos: JSON.stringify(datos),
+        createdAt: now,
+      })),
+    });
+  }
 }
 
 export { main as runSeedDemo };

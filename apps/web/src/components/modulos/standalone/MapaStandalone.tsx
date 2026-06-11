@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { topologyToFeatures } from "../../../lib/maps/topojson-lite";
 import type { CountryFeature, TopologyLike } from "../../../lib/maps/topojson-lite";
+import { mapaBaseUrl } from "../../../lib/maps/base-url";
 import {
   createMercatorPathGenerator,
   createProjector,
@@ -14,6 +15,8 @@ import {
 } from "./types";
 import { migrateMapaConfig } from "./mapa.migrate";
 import { AnnotationLayer, pointsToPolyline } from "./AnnotationLayer";
+import { GeoJsonLayer } from "../../../lib/maps/GeoJsonLayer";
+import { useViewBoxZoom } from "../../../lib/maps/useViewBoxZoom";
 
 const MAP_WIDTH = 960;
 const MAP_HEIGHT = 520;
@@ -24,6 +27,8 @@ const DEFAULT_ANOTACION_COLOR: Record<MapaAnotacion["tipo"], string> = {
   marcador: "#ef4444",
   zona: "#3b82f6",
   flecha: "#f59e0b",
+  ruta: "#f59e0b",
+  texto: "#1a1a1a",
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -63,14 +68,13 @@ function EditPanel({ anotacion, onChange, onDelete, onClose }: EditPanelProps) {
       </div>
 
       <label className="block space-y-1">
-        <span className="text-xs text-[var(--c-muted)]">Etiqueta</span>
+        <span className="text-xs text-[var(--c-muted)]">{anotacion.tipo === "texto" ? "Contenido" : "Etiqueta"}</span>
         <input
           className="w-full rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-xs outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
-          value={"etiqueta" in anotacion ? (anotacion.etiqueta ?? "") : ""}
+          value={anotacion.tipo === "texto" ? anotacion.contenido : ("etiqueta" in anotacion ? (anotacion.etiqueta ?? "") : "")}
           onChange={(e) => {
-            if (anotacion.tipo === "marcador") onChange({ ...anotacion, etiqueta: e.target.value });
-            else if (anotacion.tipo === "zona") onChange({ ...anotacion, etiqueta: e.target.value });
-            else onChange({ ...anotacion, etiqueta: e.target.value });
+            if (anotacion.tipo === "texto") onChange({ ...anotacion, contenido: e.target.value });
+            else if ("etiqueta" in anotacion) onChange({ ...anotacion, etiqueta: e.target.value });
           }}
         />
       </label>
@@ -112,13 +116,33 @@ type ActiveTool = "marcador" | "zona" | "flecha";
 
 export default function MapaStandalone({ config, editable = false, onChange, datasets, ariaLabel }: Props) {
   const [features, setFeatures] = useState<CountryFeature[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [mapStatus, setMapStatus] = useState<"idle" | "loading" | "ready" | "error">("loading");
+  // Contador que se incrementa para re-disparar el fetch desde el botón «Reintentar».
+  const [retryNonce, setRetryNonce] = useState(0);
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
   const [activeTool, setActiveTool] = useState<ActiveTool>("marcador");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [pendingZona, setPendingZona] = useState<[number, number][] | null>(null);
   const [pendingFlecha, setPendingFlecha] = useState<[number, number] | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+
+  // M7: zoom + pan con el hook compartido. El standalone siempre permite
+  // pan (no hay herramienta "select" — es un visor).
+  const {
+    viewBox,
+    handlePointerDown: handlePanDown,
+    handlePointerMove: handlePanMove,
+    handlePointerUp: handlePanUp,
+    zoomIn,
+    zoomOut,
+    reset: resetZoom,
+  } = useViewBoxZoom({
+    width: MAP_WIDTH,
+    height: MAP_HEIGHT,
+    minVb: 40,
+    svgRef,
+    active: true,
+  });
 
   const [localConfig, setLocalConfig] = useState<MapaConfig>(() => migrateMapaConfig(config));
 
@@ -133,16 +157,31 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
 
   // Load TopoJSON
   useEffect(() => {
-    setLoading(true);
-    const url = `/api/maps/${localConfig.modo}/earth/countries_${localConfig.escala}.topo.json`;
+    let cancelled = false;
+    setMapStatus("loading");
+    const url = mapaBaseUrl(localConfig.modo, localConfig.escala);
     fetch(url)
-      .then((r) => r.json())
-      .then((topo: TopologyLike) => {
-        setFeatures(topologyToFeatures(topo));
-        setLoading(false);
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
       })
-      .catch(() => setLoading(false));
-  }, [localConfig.modo, localConfig.escala]);
+      .then((topo: TopologyLike) => {
+        if (cancelled) return;
+        setFeatures(topologyToFeatures(topo));
+        setMapStatus("ready");
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setMapStatus("error");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [localConfig.modo, localConfig.escala, retryNonce]);
+
+  const handleRetry = useCallback(() => {
+    setRetryNonce((n) => n + 1);
+  }, []);
 
   const pathGenerator = useMemo(
     () => features.length ? createMercatorPathGenerator(features, MAP_WIDTH, MAP_HEIGHT) : null,
@@ -406,8 +445,11 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
 
       {/* Map + side panel */}
       <div className="flex gap-3 items-start">
-        <div className="flex-1 min-w-0 rounded-xl overflow-hidden border border-[var(--c-border)] shadow-sm">
-          {loading ? (
+        <div
+          className="flex-1 min-w-0 rounded-xl overflow-hidden border border-[var(--c-border)] shadow-sm"
+          style={{ overscrollBehavior: "contain" }}
+        >
+          {mapStatus === "loading" ? (
             <div
               className="flex items-center justify-center bg-[var(--c-surface-3)] text-[var(--c-muted)] text-sm"
               style={{ width: "100%", aspectRatio: `${MAP_WIDTH}/${MAP_HEIGHT}` }}
@@ -415,16 +457,41 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
             >
               Cargando mapa…
             </div>
+          ) : mapStatus === "error" ? (
+            <div
+              className="flex items-center justify-center p-6 text-sm"
+              style={{ width: "100%", aspectRatio: `${MAP_WIDTH}/${MAP_HEIGHT}` }}
+              role="alert"
+              data-testid="mapa-error"
+            >
+              <div className="max-w-xs rounded-lg border border-[color-mix(in_srgb,var(--c-danger)_35%,transparent)] bg-[var(--c-surface)] p-4 text-center space-y-3">
+                <p className="font-semibold text-[var(--c-text)]">No se pudo cargar el mapa base.</p>
+                <p className="text-xs text-[var(--c-muted)]">
+                  Verificá la conexión con el servidor o cambiá el modo/escala.
+                </p>
+                <button
+                  type="button"
+                  className="rounded-lg border border-[var(--c-primary)] bg-[var(--c-primary)] px-3 py-1 text-xs font-semibold text-[var(--c-accent-fg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+                  onClick={handleRetry}
+                >
+                  Reintentar
+                </button>
+              </div>
+            </div>
           ) : (
             <svg
               ref={svgRef}
-              viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
+              viewBox={`${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`}
               role="img"
               aria-label={ariaLabel ?? localConfig.titulo ?? "Mapa interactivo"}
               aria-describedby="mapa-desc"
-              style={{ display: "block", width: "100%", cursor: svgCursor }}
+              style={{ display: "block", width: "100%", cursor: svgCursor, touchAction: "none", overscrollBehavior: "contain" }}
               onClick={handleSvgClick}
               onDoubleClick={handleSvgDoubleClick}
+              onPointerDown={handlePanDown}
+              onPointerMove={handlePanMove}
+              onPointerUp={handlePanUp}
+              onPointerCancel={handlePanUp}
             >
               <title>{localConfig.titulo ?? "Mapa interactivo"}</title>
               <desc id="mapa-desc">
@@ -470,6 +537,17 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
                 </text>
               )}
 
+              {/* Capas GeoJSON importadas (M5) — debajo de las anotaciones. */}
+              {project && localConfig.capas?.filter((c) => c.geojson).map((c) => (
+                <GeoJsonLayer
+                  key={`gj-${c.id}`}
+                  data={c.geojson!.data}
+                  color={c.color}
+                  project={project}
+                  visible={c.visible}
+                />
+              ))}
+
               {/* Annotations (filtered by visible capas + dataset markers) */}
               {project && (
                 <AnnotationLayer
@@ -506,6 +584,51 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
               )}
             </svg>
           )}
+
+          {/* Botones de zoom (M7) — siempre disponibles, en la esquina
+              superior derecha del lienzo. */}
+          <div
+            className="pointer-events-auto absolute right-2 top-2 flex flex-col gap-0.5 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] shadow-sm"
+            role="group"
+            aria-label="Zoom del mapa"
+            data-testid="mapa-zoom-controls"
+          >
+            <button
+              type="button"
+              onClick={zoomIn}
+              aria-label="Acercar"
+              title="Acercar (rueda hacia arriba)"
+              className="grid h-8 w-8 place-items-center text-[var(--c-text)] hover:bg-[var(--c-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" d="M12 6v12M6 12h12" />
+              </svg>
+            </button>
+            <span className="mx-2 h-px bg-[var(--c-border)]" aria-hidden="true" />
+            <button
+              type="button"
+              onClick={zoomOut}
+              aria-label="Alejar"
+              title="Alejar (rueda hacia abajo)"
+              className="grid h-8 w-8 place-items-center text-[var(--c-text)] hover:bg-[var(--c-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" d="M6 12h12" />
+              </svg>
+            </button>
+            <span className="mx-2 h-px bg-[var(--c-border)]" aria-hidden="true" />
+            <button
+              type="button"
+              onClick={resetZoom}
+              aria-label="Restablecer zoom"
+              title="Restablecer zoom (Inicio)"
+              className="grid h-8 w-8 place-items-center text-[var(--c-text)] hover:bg-[var(--c-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-7 3.3M3 4v4h4" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Edit panel */}
