@@ -3,8 +3,13 @@
 // dataset opcional), zoom/pan, export a imagen y reordenado de capas por
 // teclado. Reusa `AnnotationLayer` (el render que ya funciona en
 // `MapaStandalone`) y los datasets de la API VBLang.
+//
+// M8v2: componente CONTROLADO. No lee ni escribe storage: recibe la config
+// por `initialConfig` y devuelve el resultado por `onSave`/`onCancel`. Quien
+// lo monta decide qué hacer con el resultado (la ruta standalone persiste a
+// sessionStorage — ver MapaEditorPage; ModuloEditor lo monta en un overlay y
+// actualiza la herramienta en memoria).
 import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent, type MouseEvent } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
 import { topologyToFeatures } from "../../lib/maps/topojson-lite";
 import type { CountryFeature, TopologyLike } from "../../lib/maps/topojson-lite";
 import { mapaBaseUrl } from "../../lib/maps/base-url";
@@ -15,7 +20,6 @@ import {
 } from "../../lib/maps/svg-geo-lite";
 import {
   MAPA_CAPA_DEFAULT_ID,
-  makeEmptyMapaConfig,
   type MapaConfig,
   type MapaAnotacion,
   type MapaCapa,
@@ -133,21 +137,18 @@ function haversineKm(a: [number, number], b: [number, number]): number {
   return 2 * R * Math.asin(Math.min(1, Math.sqrt(s)));
 }
 
-export default function MapaEditorFull() {
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const ssKey = searchParams.get("sskey") ?? "new-mapa";
+export interface MapaEditorFullProps {
+  /** Config con la que arranca el editor (se pasa por migrateMapaConfig al montar). */
+  initialConfig: MapaConfig;
+  /** Llamado al tocar «Guardar» con la config vigente. */
+  onSave: (config: MapaConfig) => void;
+  /** Llamado al tocar «Volver» (tras confirmar el descarte si hubo cambios). */
+  onCancel: () => void;
+}
 
-  // ─── Cargar config desde sessionStorage o crear vacía ──────────
-  const [config, setConfig] = useState<MapaConfig>(() => {
-    try {
-      const raw = sessionStorage.getItem(`mapa-doc:${ssKey}`);
-      if (raw) return migrateMapaConfig(JSON.parse(raw) as MapaConfig);
-    } catch {
-      // ignore
-    }
-    return makeEmptyMapaConfig();
-  });
+export default function MapaEditorFull({ initialConfig, onSave, onCancel }: MapaEditorFullProps) {
+  // ─── Config inicial (migrada) ───────────────────────────────────
+  const [config, setConfig] = useState<MapaConfig>(() => migrateMapaConfig(initialConfig));
 
   const [activeTool, setActiveTool] = useState<Tool>("select");
   const [activeCapaId, setActiveCapaId] = useState<string>(
@@ -158,7 +159,6 @@ export default function MapaEditorFull() {
   const [cursorCoords, setCursorCoords] = useState<{ lat: number; lon: number } | null>(null);
   // Barra de escala: km que representa `px` píxeles en el encuadre actual.
   const [scale, setScale] = useState<{ km: number; px: number } | null>(null);
-  const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [announce, setAnnounce] = useState("");
   const [geoJsonError, setGeoJsonError] = useState<string | null>(null);
   const [geoJsonWarning, setGeoJsonWarning] = useState<string | null>(null);
@@ -738,17 +738,18 @@ export default function MapaEditorFull() {
     },
   });
 
-  // ─── Persistir + cerrar ─────────────────────────────────────────
-  const saveAndClose = useCallback(() => {
-    setSaveStatus("saving");
-    try {
-      sessionStorage.setItem(`mapa-doc:${ssKey}:result`, JSON.stringify(config));
-      setSaveStatus("saved");
-      window.close();
-    } catch {
-      setSaveStatus("error");
-    }
-  }, [config, ssKey]);
+  // ─── Guardar / cancelar (el cierre lo decide quien monta el editor) ─
+  const handleSave = useCallback(() => {
+    onSave(config);
+  }, [config, onSave]);
+
+  const handleCancel = useCallback(() => {
+    // `history[0]` es el snapshot inicial (la config migrada del mount):
+    // comparar contra él detecta cambios sin guardar.
+    const dirty = JSON.stringify(config) !== JSON.stringify(history[0]);
+    if (dirty && !window.confirm("¿Descartar los cambios del mapa?")) return;
+    onCancel();
+  }, [config, history, onCancel]);
 
   // ─── Anotaciones a renderizar (capa visible + color + datasets) ──
   const capaById = useMemo(() => new Map(capas.map((c) => [c.id, c])), [capas]);
@@ -830,13 +831,8 @@ export default function MapaEditorFull() {
         <button
           type="button"
           className={`${styles.btn} ${styles.btnGhost}`}
-          onClick={() => {
-            if (window.confirm("¿Descartar cambios y volver?")) {
-              window.close();
-              navigate(-1);
-            }
-          }}
-          aria-label="Volver al módulo"
+          onClick={handleCancel}
+          aria-label="Volver sin guardar"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12l6-6M5 12l6 6"/>
@@ -860,12 +856,7 @@ export default function MapaEditorFull() {
           <button type="button" className={styles.iconBtn} onClick={exportarImagen} aria-label="Exportar como imagen PNG" title="Exportar imagen">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg>
           </button>
-          <span aria-live="polite" className="text-xs text-[var(--c-muted)] mx-2">
-            {saveStatus === "saving" ? "Guardando…" :
-             saveStatus === "saved"  ? "Guardado" :
-             saveStatus === "error"  ? "Error al guardar" : ""}
-          </span>
-          <button type="button" className={`${styles.btn} ${styles.btnPrimary}`} onClick={saveAndClose}>
+          <button type="button" className={`${styles.btn} ${styles.btnPrimary}`} onClick={handleSave}>
             Guardar
           </button>
         </div>

@@ -35,7 +35,10 @@ vi.mock("../../../domain/vblang/datasetApi", () => ({
   getDataset: vi.fn().mockResolvedValue({ id: "x", nombre: "x", columnas: [] }),
 }));
 
-import MapaEditorFull from "../MapaEditorFull";
+// M8v2: el editor es un componente controlado; la carga por ?sskey= +
+// sessionStorage vive en el wrapper de ruta (MapaEditorPage), que es lo que
+// estos tests montan.
+import MapaEditorPage from "../MapaEditorPage";
 
 beforeEach(() => {
   globalThis.fetch = vi.fn().mockResolvedValue({
@@ -64,7 +67,7 @@ afterEach(() => {
 function renderEditor() {
   return render(
     <MemoryRouter initialEntries={["/herramientas/mapa-editor?sskey=test"]}>
-      <MapaEditorFull />
+      <MapaEditorPage />
     </MemoryRouter>,
   );
 }
