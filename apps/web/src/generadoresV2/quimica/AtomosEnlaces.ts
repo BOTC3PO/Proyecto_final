@@ -263,7 +263,7 @@ export class AtomosEnlacesGenerator extends BaseGenerador {
 
   private genConfigElectronica(_d: Dificultad): Ejercicio {
     const el = this.pickOne(ELEMENTOS);
-    const alts = ELEMENTOS.filter(e => e !== el).slice(0, 3).map(e => e.config);
+    const alts = this.shuffle(ELEMENTOS.filter(e => e !== el)).slice(0, 3).map(e => e.config);
     return this.crearQuiz({
       id: `${this.id}/configuracion_electronica/${this.randInt(1e5, 9e5)}`,
       materia: this.materia, subtipo: "configuracion_electronica", dificultad: _d,
