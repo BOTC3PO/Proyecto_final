@@ -6,6 +6,7 @@ import { assertClassroomWritable } from "../lib/classroom";
 import { requireUser } from "../lib/user-auth";
 import { isStaffRole } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
+import { sanitizeQuestionsForStudent } from "../lib/sanitize-questions";
 import { ModuleSchema } from "../schema/modulo";
 
 export const modulos = Router();
@@ -149,24 +150,43 @@ modulos.get("/api/modulos", async (req, res) => {
   return res.json({ items, limit, offset });
 });
 
-modulos.get("/api/modulos/:id", async (req, res) => {
+modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
   try {
-    const item = await prisma.modulo.findFirst({
-      where: { id: req.params.id as string },
-      include: {
-        quizzes: {
-          where: { isActive: true },
-          include: {
-            versions: {
-              orderBy: { versionNumber: "desc" },
-              take: 1,
-            },
-          },
-        },
-      },
-    });
+    const id = req.params.id as string;
+    const item = await prisma.modulo.findFirst({ where: { id } });
 
     if (!item) return res.status(404).json({ error: "not found" });
+
+    // V2-04 — si el solicitante NO es staff ni dueño del módulo, las
+    // preguntas de cada quiz se sanitizan: el `answerKey` se reemplaza por
+    // un canario estable y se elimina la `explanation`. El docente/owner
+    // sigue viendo el JSON intacto para poder editarlo.
+    const requesterRaw = req.user as
+      | { _id?: { toString?: () => string } | string; id?: string; role?: string | null }
+      | undefined;
+    const requesterId =
+      (typeof requesterRaw?.id === "string" && requesterRaw.id) ||
+      (typeof requesterRaw?._id === "string" && (requesterRaw._id as string)) ||
+      (requesterRaw?._id && typeof (requesterRaw._id as { toString?: () => string }).toString === "function"
+        ? (requesterRaw._id as { toString: () => string }).toString()
+        : null);
+    const requesterRole = requesterRaw?.role ?? null;
+    const canSeeAnswers =
+      !!requesterId &&
+      (item.ownerUserId === requesterId || isStaffRole(requesterRole));
+
+    // Traemos quizzes y quizVersion por separado (mismo patrón que
+    // /duplicar): el InMemoryPrisma usado en tests no soporta `include`
+    // anidado.
+    const quizzes = await prisma.quiz.findMany({
+      where: { moduleId: id, isActive: true },
+    });
+    const versionByQuiz: Record<string, unknown> = {};
+    for (const q of quizzes) {
+      const versions = await prisma.quizVersion.findMany({ where: { quizId: q.id } });
+      versions.sort((a: any, b: any) => (b.versionNumber ?? 0) - (a.versionNumber ?? 0));
+      versionByQuiz[q.id] = versions[0];
+    }
 
     const moduleDto: Record<string, unknown> = {
       id: item.id,
@@ -182,16 +202,40 @@ modulos.get("/api/modulos/:id", async (req, res) => {
       createdAt: item.createdAt,
       updatedAt: item.updatedAt,
       teoriaId: item.teoriaId ?? undefined,
-      quizzes: item.quizzes.map((q) => {
-        const v = q.versions[0];
-        const settings = v?.settings ? safeJsonParse(v.settings, {} as Record<string, unknown>) : {};
+      quizzes: quizzes.map((q) => {
+        const v = versionByQuiz[q.id] as
+          | {
+              id: string;
+              questions?: string | unknown[];
+              settings?: string | Record<string, unknown>;
+              generatorId?: string | null;
+              generatorVersion?: string | null;
+              params?: string | null;
+              count?: number | null;
+              seedPolicy?: number | null;
+              fixedSeed?: string | null;
+            }
+          | undefined;
+        const settings = v?.settings
+          ? (typeof v.settings === "string" ? safeJsonParse(v.settings, {} as Record<string, unknown>) : v.settings)
+          : {};
+        const rawQuestions: Array<Record<string, unknown> & { id: string }> = v?.questions
+          ? (
+              typeof v.questions === "string"
+                ? safeJsonParse(v.questions, [] as Array<Record<string, unknown> & { id: string }>)
+                : (v.questions as Array<Record<string, unknown> & { id: string }>)
+            )
+          : [];
+        const questions = canSeeAnswers
+          ? (rawQuestions as unknown[])
+          : (sanitizeQuestionsForStudent(rawQuestions, v?.id ?? q.id) as unknown[]);
         return {
           id: q.id,
           title: q.title ?? "",
           type: (settings as any).type ?? "practica",
           mode: (settings as any).mode,
           visibility: (settings as any).visibility ?? "publico",
-          questions: v?.questions ? safeJsonParse(v.questions, [] as unknown[]) : [],
+          questions,
           generatorId: v?.generatorId ?? undefined,
           generatorVersion: v?.generatorVersion
             ? Number(v.generatorVersion)
