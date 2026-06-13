@@ -150,6 +150,20 @@ class Table<TRow extends Row> {
     return { ...merged };
   }
 
+  async updateMany(args: {
+    where: Record<string, unknown>;
+    data: Partial<TRow>;
+  }): Promise<{ count: number }> {
+    let count = 0;
+    for (let i = 0; i < this.rows.length; i++) {
+      if (rowMatches(this.rows[i], args.where)) {
+        this.rows[i] = { ...this.rows[i], ...args.data } as TRow;
+        count++;
+      }
+    }
+    return { count };
+  }
+
   async delete(args: { where: Record<string, unknown> }): Promise<TRow> {
     const idx = this.rows.findIndex((r) => rowMatches(r, args.where));
     if (idx === -1) throw new Error(`Record not found in ${this.name}`);
@@ -318,14 +332,14 @@ export type QuizVersionRow = {
   id: string;
   quizId: string;
   versionNumber: number;
-  questions: string;
+  questions: string | unknown[];
   generatorId?: string | null;
   generatorVersion?: string | null;
   params?: string | null;
   count?: number | null;
   seedPolicy: number;
   fixedSeed?: string | null;
-  settings: string;
+  settings: string | Record<string, unknown>;
   createdAt: string;
   createdBy: string;
 };
@@ -340,6 +354,32 @@ export type ProgresoModuloRow = {
   attempts: number;
   completedAt?: string | null;
   updatedAt: string;
+};
+
+export type QuizAttemptRow = {
+  id: string;
+  quizId: string;
+  quizVersionId: string;
+  userId: string;
+  status: string;
+  startedAt: string;
+  submittedAt: string | null;
+  score: number | null;
+  maxScore: number | null;
+  answers: string;
+  feedback?: string | null;
+  grading?: string | null;
+  seed?: string | null;
+  seedPolicy: number;
+  attemptNo?: number | null;
+};
+
+export type QuizUmbralRow = {
+  quizId: string;
+  moduloId: string;
+  umbral: number;
+  creadoBy: string;
+  createdAt: string;
 };
 
 export class InMemoryPrisma {
@@ -360,6 +400,8 @@ export class InMemoryPrisma {
   modulo = new Table<ModuloRow>("modulo");
   quiz = new Table<QuizRow>("quiz");
   quizVersion = new Table<QuizVersionRow>("quizVersion");
+  quizAttempt = new Table<QuizAttemptRow>("quizAttempt");
+  quizUmbral = new Table<QuizUmbralRow>("quizUmbral");
   progresoModulo = new Table<ProgresoModuloRow>("progresoModulo");
 
   // override findMany on vblangDataset to support _count include.

@@ -214,7 +214,8 @@ const buildQuizFromCollection = (
 
 const fetchQuizFromCollections = async (
   quizId: string,
-  moduleId?: string
+  moduleId?: string,
+  versionId?: string
 ) => {
   const quizRecord = await prisma.quiz.findFirst({ where: { id: quizId } });
   const metadata: QuizMetadataRecord | null = quizRecord
@@ -238,9 +239,20 @@ const fetchQuizFromCollections = async (
 
   if (!metadata) return { quiz: null, module };
 
-  const versionRecord = quizRecord?.currentVersionId
-    ? await prisma.quizVersion.findFirst({ where: { id: quizRecord.currentVersionId } })
-    : null;
+  // V2-03 — si se pasa `versionId` explícito, cargar ESA versión; si no, la
+  // versión actual del quiz. Esto garantiza que un intento se corrija contra
+  // la versión con la que el alumno lo inició, no contra la publicada
+  // actualmente. `versionMissing` se usa aguas arriba para responder 409
+  // cuando la versión del intento ya no existe (en lugar de degradar a
+  // currentVersionId).
+  let versionMissing = false;
+  let versionRecord: Awaited<ReturnType<typeof prisma.quizVersion.findFirst>> = null;
+  if (versionId) {
+    versionRecord = await prisma.quizVersion.findFirst({ where: { id: versionId } });
+    if (!versionRecord) versionMissing = true;
+  } else if (quizRecord?.currentVersionId) {
+    versionRecord = await prisma.quizVersion.findFirst({ where: { id: quizRecord.currentVersionId } });
+  }
 
   const version: QuizVersionRecord | null = versionRecord
     ? {
@@ -259,7 +271,7 @@ const fetchQuizFromCollections = async (
     : null;
 
   const quiz = buildQuizFromCollection(metadata, version);
-  return { quiz, module, metadata, version };
+  return { quiz, module, metadata, version, versionMissing };
 };
 
 const gradeNumeric = (
@@ -615,10 +627,16 @@ quizAttempts.get(
   if (!userId) return res.status(401).json({ error: "user not found" });
   const attempt = await prisma.quizAttempt.findFirst({ where: { id: idParam, userId } }) as QuizAttemptRecord | null;
   if (!attempt) return res.status(404).json({ error: "attempt not found" });
-  const { quiz: collectionQuiz, metadata, module } = await fetchQuizFromCollections(
+  const { quiz: collectionQuiz, metadata, module, versionMissing } = await fetchQuizFromCollections(
     attempt.quizId,
-    attempt.moduleId ?? undefined
+    attempt.moduleId ?? undefined,
+    attempt.quizVersionId ?? undefined
   );
+  if (versionMissing) {
+    return res.status(409).json({
+      error: "la versión del quiz de este intento ya no está disponible"
+    });
+  }
   const quiz = collectionQuiz ?? findQuiz(module, attempt.quizId);
   res.json({
     id: attempt.id,
@@ -673,10 +691,16 @@ quizAttempts.post(
       if (!userId) return res.status(401).json({ error: "user not found" });
       const attempt = await prisma.quizAttempt.findFirst({ where: { id: idParam, userId } }) as QuizAttemptRecord | null;
       if (!attempt) return res.status(404).json({ error: "attempt not found" });
-      const { quiz: collectionQuiz, version, module } = await fetchQuizFromCollections(
+      const { quiz: collectionQuiz, version, module, versionMissing } = await fetchQuizFromCollections(
         attempt.quizId,
-        attempt.moduleId ?? undefined
+        attempt.moduleId ?? undefined,
+        attempt.quizVersionId ?? undefined
       );
+      if (versionMissing) {
+        return res.status(409).json({
+          error: "la versión del quiz de este intento ya no está disponible"
+        });
+      }
       const quiz = collectionQuiz ?? findQuiz(module, attempt.quizId);
       if (!quiz) return res.status(404).json({ error: "quiz not found" });
       const normalizedQuizVersion = QuizVersionSchema.parse(

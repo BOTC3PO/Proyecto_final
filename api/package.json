@@ -6,7 +6,7 @@
     "dev": "nodemon",
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "node --test --import tsx tests/integracion/vblang-plantillas-crud.test.ts tests/integracion/vblang-datasets-crud.test.ts tests/integracion/vblang-datasets-by-name.test.ts tests/integracion/plantillas-aprobacion.test.ts tests/integracion/suscripciones-webhook.test.ts tests/integracion/media-upload.test.ts tests/integracion/clase-modulo-asignacion.test.ts tests/integracion/progreso-aula-matriz.test.ts tests/integracion/modulos-duplicar.test.ts",
+    "test": "node --test --import tsx tests/integracion/vblang-plantillas-crud.test.ts tests/integracion/vblang-datasets-crud.test.ts tests/integracion/vblang-datasets-by-name.test.ts tests/integracion/plantillas-aprobacion.test.ts tests/integracion/suscripciones-webhook.test.ts tests/integracion/media-upload.test.ts tests/integracion/clase-modulo-asignacion.test.ts tests/integracion/progreso-aula-matriz.test.ts tests/integracion/modulos-duplicar.test.ts tests/integracion/quiz-attempts-version-integrity.test.ts",
     "start": "node dist/index.js",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate deploy",
