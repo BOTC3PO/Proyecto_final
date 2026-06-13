@@ -351,6 +351,37 @@ const gradingQuestionsFromPayload = (
   return quiz.questions;
 };
 
+// F-2c — preguntas almacenadas: deriva el subconjunto presentado server-side.
+// Replica EXACTO `presentedQuestions` del reproductor para preguntas del banco:
+//  - composición fijo/azar → `selectPoolIndices(total, comp, seed)` (las
+//    primeras K, o K barajadas determinísticamente por seed). Se IGNORA
+//    `payload.presentedIds`: es afirmación del cliente.
+//  - elige_alumno → el alumno elige cuál responder (no derivable por seed); se
+//    honra su elección (`presentedIds`) acotada a ids de preguntas reales.
+//  - sin composición → todas las almacenadas. (El path legacy de `displayCount`
+//    está dormido para quizzes de colección: `buildQuizFromCollection` no lo
+//    puebla, así que cliente y servidor presentan todas — consistente.)
+const resolveStoredPresented = (
+  quiz: ModuleQuiz,
+  attempt: QuizAttemptRecord,
+  payload: SubmitPayload
+): ModuleQuiz["questions"] => {
+  const stored = quiz.questions ?? [];
+  const composition = quiz.composition ? parseComposition(quiz.composition) : null;
+  if (!composition) return stored;
+  if (composition.seleccion === "elige_alumno") {
+    const presentedSet =
+      payload.presentedIds && payload.presentedIds.length > 0
+        ? new Set(payload.presentedIds)
+        : null;
+    return presentedSet ? stored.filter((q) => presentedSet.has(q.id)) : stored;
+  }
+  // fijo / azar: subconjunto determinístico por seed (mismo seed que usó el
+  // reproductor: `attempt.seed ?? "0"`).
+  const indices = selectPoolIndices(stored.length, composition, attempt.seed ?? "0");
+  return indices.map((i) => stored[i]);
+};
+
 // Convierte una pregunta materializada por el SERVIDOR al shape que corrigen
 // `gradeAnswers`/`buildFeedback`. Conserva answerKey/tolerancia/peso/modo del
 // servidor pero usa el id del CLIENTE para que `answers[id]` resuelva (el id del
@@ -930,9 +961,12 @@ quizAttempts.post(
         serverAuthoritative = false;
         gradingQuestions = gradingQuestionsFromPayload(quiz, payload);
       } else {
-        // Preguntas almacenadas. La derivación server-side de `presentedIds`
-        // (pool/azar) es el paso 3; por ahora se conserva el comportamiento previo.
-        gradingQuestions = gradingQuestionsFromPayload(quiz, payload);
+        // F-2c — preguntas almacenadas. El subconjunto presentado se DERIVA
+        // server-side desde `attempt.seed` + composición con el mismo algoritmo
+        // del reproductor (`selectPoolIndices`, replicado en quiz-composition),
+        // en vez de creerle a `payload.presentedIds`. Así un alumno no puede
+        // declarar que sólo vio las preguntas que respondió bien.
+        gradingQuestions = resolveStoredPresented(quiz, attempt, payload);
       }
       if (!serverAuthoritative || mismatchQuestions.length > 0) {
         // "loguear discrepancia" (mismo espíritu que el canario V2-04): visibilidad
