@@ -154,6 +154,9 @@ export default function PlantillaEditor() {
   // Última lista de variables declaradas que pudimos parsear — si el código
   // rompe, conservamos la última válida para no vaciar el autocompletado.
   const lastDeclaredRef = useRef<string[]>([]);
+  // Última plantilla (AST) válida parseada. La conservamos al romper el código
+  // para que el modo formulario siga siendo editable y rescate el código.
+  const lastValidPlantillaRef = useRef<NonNullable<typeof compilation.plantilla> | null>(null);
 
   useEffect(() => {
     if (isNew || !id) return;
@@ -196,6 +199,16 @@ export default function PlantillaEditor() {
       return list;
     }
     return lastDeclaredRef.current;
+  }, [compilation.plantilla]);
+
+  // Misma idea para el AST: retenemos la última versión parseable para que
+  // el modo formulario no desaparezca cuando el código se rompe. La
+  // actualización del ref es un side-effect del render, no un cálculo, así
+  // que va en un effect aparte.
+  useEffect(() => {
+    if (compilation.plantilla) {
+      lastValidPlantillaRef.current = compilation.plantilla;
+    }
   }, [compilation.plantilla]);
 
   // Estado del footer: cantidad de errores + líneas del código.
@@ -547,34 +560,81 @@ export default function PlantillaEditor() {
                 />
               </div>
             </>
-          ) : compilation.plantilla ? (
-            <PlantillaEditorSchema
-              plantilla={compilation.plantilla}
-              onChange={(next) => setCodigo(serialize(next))}
-              valoresActuales={preview.variables0}
-              tieneErrores={
-                !!compilation.parseError ||
-                (compilation.lintReport?.errors.length ?? 0) > 0
-              }
-            />
-          ) : (
-            <div
-              className="h-full flex flex-col items-center justify-center gap-3 p-6 text-center text-sm text-[var(--c-muted,#64748b)]"
-              data-testid="vblang-form-no-disponible"
-            >
-              <p>
-                El código tiene errores. Arreglalos en modo Código para usar el
-                formulario.
-              </p>
-              <button
-                type="button"
-                onClick={() => setModo("codigo")}
-                className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
-              >
-                Volver a Código
-              </button>
-            </div>
-          )}
+          ) : (() => {
+            // Si el código compila, usamos el AST fresco. Si está roto pero
+            // hubo una versión válida antes, retenemos esa para que el form
+            // siga siendo editable. Sólo si nunca compiló nada válido caemos
+            // al fallback de "no disponible".
+            const astParaRenderizar =
+              compilation.plantilla ?? lastValidPlantillaRef.current;
+            if (!astParaRenderizar) {
+              return (
+                <div
+                  className="h-full flex flex-col items-center justify-center gap-3 p-6 text-center text-sm text-[var(--c-muted,#64748b)]"
+                  data-testid="vblang-form-no-disponible"
+                >
+                  <p>
+                    El código tiene errores. Arreglalos en modo Código para usar el
+                    formulario.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setModo("codigo")}
+                    className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
+                  >
+                    Volver a Código
+                  </button>
+                </div>
+              );
+            }
+            const mostrandoRetenida = !compilation.plantilla;
+            return (
+              <div className="flex flex-col h-full min-h-0">
+                {mostrandoRetenida && (
+                  <div
+                    role="status"
+                    data-testid="vblang-form-retenido-banner"
+                    className="flex items-start gap-3 border-b border-[var(--c-border)] bg-[var(--c-warning-soft,#fef3c7)] text-[var(--c-text)] px-3 py-2 text-xs"
+                  >
+                    <span className="flex-1">
+                      El código tiene errores — estás viendo la última versión
+                      válida. Si editás desde el formulario, el código con
+                      errores se reemplaza.
+                    </span>
+                    <button
+                      type="button"
+                      data-testid="vblang-form-ver-errores"
+                      onClick={() => {
+                        setModo("codigo");
+                        // Damos un tick para que el panel de errores monte y
+                        // reciba el foco.
+                        requestAnimationFrame(() => {
+                          const el = document.querySelector(
+                            "[data-testid='vblang-error-panel']",
+                          );
+                          if (el instanceof HTMLElement) el.focus();
+                        });
+                      }}
+                      className="shrink-0 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] px-2 py-1 text-xs font-medium"
+                    >
+                      Ver errores
+                    </button>
+                  </div>
+                )}
+                <div className="flex-1 min-h-0">
+                  <PlantillaEditorSchema
+                    plantilla={astParaRenderizar}
+                    onChange={(next) => setCodigo(serialize(next))}
+                    valoresActuales={preview.variables0}
+                    tieneErrores={
+                      !!compilation.parseError ||
+                      (compilation.lintReport?.errors.length ?? 0) > 0
+                    }
+                  />
+                </div>
+              </div>
+            );
+          })()}
         </div>
         <div
           role="status"

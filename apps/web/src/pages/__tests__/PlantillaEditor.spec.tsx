@@ -129,11 +129,13 @@ tipo: input
     expect(ta.value).toMatch(/tipo:\s*mc/);
   });
 
-  it("con código inválido, modo visual muestra mensaje y botón para volver", async () => {
+  it("con código inválido tras una versión válida, modo visual retiene el form y muestra banner", async () => {
     const result = await renderEditor();
     await act(async () => {
       vi.advanceTimersByTime(700);
     });
+    // La plantilla inicial es válida, así que el ref lastValidPlantillaRef
+    // ya está poblado tras el primer debounce.
     // Rompemos el código vía el textarea del CodeEditor (no el de MetadataPanel).
     const codeEditor = result.getByTestId("vblang-code-editor");
     const ta = codeEditor.querySelector("textarea") as HTMLTextAreaElement;
@@ -142,15 +144,84 @@ tipo: input
       vi.advanceTimersByTime(700);
     });
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
-    // El formulario no debe rendizarse; en su lugar, mensaje de error.
+    // El formulario DEBE seguir rendizándose (retenido) con un banner visible.
+    expect(result.queryByTestId("vblang-form-tipo")).not.toBeNull();
+    expect(
+      result.getByTestId("vblang-form-retenido-banner"),
+    ).toBeInTheDocument();
+    // Y el fallback "no disponible" NO debe estar presente.
+    expect(result.queryByTestId("vblang-form-no-disponible")).toBeNull();
+  });
+
+  it("editar el form retenido rescata el código y elimina el banner", async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    // Rompemos el código para entrar al estado "retenido".
+    const codeEditor = result.getByTestId("vblang-code-editor");
+    const ta = codeEditor.querySelector("textarea") as HTMLTextAreaElement;
+    await act(async () => {
+      fireEvent.change(ta, { target: { value: "variables:\n  a: random(" } });
+      vi.advanceTimersByTime(700);
+    });
+    fireEvent.click(result.getByTestId("vblang-modo-visual"));
+    expect(
+      result.getByTestId("vblang-form-retenido-banner"),
+    ).toBeInTheDocument();
+
+    // Cambiamos el `tipo` desde el form retenido. Esto serializa y pisa el
+    // código, reemplazando la versión rota por una válida.
+    const tipoSelect = result.getByTestId(
+      "vblang-form-tipo",
+    ) as HTMLSelectElement;
+    await act(async () => {
+      fireEvent.change(tipoSelect, { target: { value: "mc" } });
+      vi.advanceTimersByTime(700);
+    });
+    // El banner debe haber desaparecido.
+    expect(result.queryByTestId("vblang-form-retenido-banner")).toBeNull();
+    // El form sigue presente.
+    expect(result.queryByTestId("vblang-form-tipo")).not.toBeNull();
+
+    // Volvemos al modo código y verificamos que el código quedó válido
+    // (contiene `tipo: mc` y ya no tiene la apertura de paréntesis rota).
+    fireEvent.click(result.getByTestId("vblang-modo-codigo"));
+    const codeEditor2 = result.getByTestId("vblang-code-editor");
+    const ta2 = codeEditor2.querySelector("textarea") as HTMLTextAreaElement;
+    expect(ta2.value).toMatch(/tipo:\s*mc/);
+    expect(ta2.value).not.toMatch(/random\(\s*$/m);
+  });
+
+  it("plantilla nueva con código inválido desde el primer render muestra el fallback", async () => {
+    // Sin avanzar timers, escribimos código inválido en el textarea ANTES
+    // de que el debounce inicial se dispare. Así, la primera compilación
+    // ve código roto y `lastValidPlantillaRef` nunca se puebla.
+    const result = await renderEditor();
+    const codeEditor = result.getByTestId("vblang-code-editor");
+    const ta = codeEditor.querySelector("textarea") as HTMLTextAreaElement;
+    await act(async () => {
+      fireEvent.change(ta, { target: { value: "variables:\n  a: random(" } });
+      vi.advanceTimersByTime(700);
+    });
+    fireEvent.click(result.getByTestId("vblang-modo-visual"));
+    // Como nunca hubo una versión válida, debe verse el fallback.
     expect(result.queryByTestId("vblang-form-tipo")).toBeNull();
     expect(
       result.getByTestId("vblang-form-no-disponible"),
     ).toBeInTheDocument();
-    // Click en "Volver a Código" lleva al modo código sin tocar el código.
-    fireEvent.click(
-      screen.getByRole("button", { name: /Volver a Código/i }),
-    );
-    expect(result.queryByTestId("vblang-code-editor")).not.toBeNull();
+    // Y NO debe haber banner de retención.
+    expect(result.queryByTestId("vblang-form-retenido-banner")).toBeNull();
+  });
+
+  it("con código válido, el form se rendiza sin banner", async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    fireEvent.click(result.getByTestId("vblang-modo-visual"));
+    // Form presente, banner ausente.
+    expect(result.queryByTestId("vblang-form-tipo")).not.toBeNull();
+    expect(result.queryByTestId("vblang-form-retenido-banner")).toBeNull();
   });
 });
