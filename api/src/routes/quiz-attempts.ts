@@ -18,7 +18,18 @@ import {
   isCanaryAnswer,
   sanitizeQuestionsForStudent
 } from "../lib/sanitize-questions";
-import { gradeFromConfig, getScoringSystem, type ScoringConfig } from "@vb/vblang";
+import {
+  gradeFromConfig,
+  getScoringSystem,
+  type ModuleQuizQuestion,
+  type ScoringConfig
+} from "@vb/vblang";
+import {
+  getCompiledPlantilla,
+  materializeVblangPool,
+  questionHashPrefix
+} from "../lib/vblang-materialize";
+import { parseComposition, selectPoolIndices } from "../lib/quiz-composition";
 
 type ModuleQuiz = {
   id?: string;
@@ -129,6 +140,18 @@ type AttemptGrading = {
   canaryTriggered?: boolean;
   // Ids de las preguntas cuyas respuestas eran canarios.
   canaryQuestions?: string[];
+  // I-2 — true si la corrección se hizo contra la materialización del SERVIDOR
+  // (plantilla VBLang regenerada server-side o preguntas almacenadas). false si
+  // el quiz no se puede materializar server-side (generadoresV2 o plantilla con
+  // generador asistido/dataset): la nota depende del cliente. La UI del docente
+  // lo usa para distinguir notas server-autoritativas de las que no lo son.
+  serverAuthoritative?: boolean;
+  // I-2 — true si el cliente mandó `generatedQuestions` con answerKeys que NO
+  // coinciden con lo regenerado por el servidor (indicador de manipulación;
+  // mismo canal que el canario de V2-04). No bloquea: es info para el docente.
+  materializationMismatch?: boolean;
+  // Ids (del cliente) de las preguntas con answerKey manipulada.
+  mismatchQuestions?: string[];
 };
 
 type GradableQuestion = NonNullable<ModuleQuiz["questions"]>[number];
@@ -282,6 +305,187 @@ const fetchQuizFromCollections = async (
 
   const quiz = buildQuizFromCollection(metadata, version);
   return { quiz, module, metadata, version, versionMissing };
+};
+
+// Shape del body del submit (espejo de QuizAttemptSubmitSchema). El cliente
+// materializa las preguntas para MOSTRAR, pero `generatedQuestions`/`presentedIds`
+// son afirmaciones suyas: el servidor las usa sólo cuando NO puede materializar.
+type SubmitPayload = {
+  answers: Record<string, string | string[]>;
+  generatedQuestions?: Array<{
+    id: string;
+    answerKey?: string | string[];
+    points?: number;
+    toleranciaRelativa?: number;
+    correccion?: "ninguna" | "manual";
+    manualGrading?: boolean;
+    prompt?: string;
+  }>;
+  presentedIds?: string[];
+};
+
+type GradingResolution = {
+  gradingQuestions: ModuleQuiz["questions"];
+  // I-2 — true si se corrigió contra la materialización del servidor.
+  serverAuthoritative: boolean;
+  // I-2 — ids cuya answerKey del payload no coincide con lo regenerado.
+  mismatchQuestions: string[];
+};
+
+// Comportamiento PREVIO (le cree al payload): preguntas generadas del cliente, o
+// subconjunto de las almacenadas según `presentedIds`. Se usa para generadoresV2
+// y como fallback cuando una plantilla no se puede materializar server-side.
+const gradingQuestionsFromPayload = (
+  quiz: ModuleQuiz,
+  payload: SubmitPayload
+): ModuleQuiz["questions"] => {
+  const hasStored = (quiz.questions?.length ?? 0) > 0;
+  const presentedSet =
+    payload.presentedIds && payload.presentedIds.length > 0
+      ? new Set(payload.presentedIds)
+      : null;
+  if (!hasStored && payload.generatedQuestions && payload.generatedQuestions.length > 0) {
+    return payload.generatedQuestions;
+  }
+  if (presentedSet) return (quiz.questions ?? []).filter((q) => presentedSet.has(q.id));
+  return quiz.questions;
+};
+
+// F-2c — preguntas almacenadas: deriva el subconjunto presentado server-side.
+// Replica EXACTO `presentedQuestions` del reproductor para preguntas del banco:
+//  - composición fijo/azar → `selectPoolIndices(total, comp, seed)` (las
+//    primeras K, o K barajadas determinísticamente por seed). Se IGNORA
+//    `payload.presentedIds`: es afirmación del cliente.
+//  - elige_alumno → el alumno elige cuál responder (no derivable por seed); se
+//    honra su elección (`presentedIds`) acotada a ids de preguntas reales.
+//  - sin composición → todas las almacenadas. (El path legacy de `displayCount`
+//    está dormido para quizzes de colección: `buildQuizFromCollection` no lo
+//    puebla, así que cliente y servidor presentan todas — consistente.)
+const resolveStoredPresented = (
+  quiz: ModuleQuiz,
+  attempt: QuizAttemptRecord,
+  payload: SubmitPayload
+): ModuleQuiz["questions"] => {
+  const stored = quiz.questions ?? [];
+  const composition = quiz.composition ? parseComposition(quiz.composition) : null;
+  if (!composition) return stored;
+  if (composition.seleccion === "elige_alumno") {
+    const presentedSet =
+      payload.presentedIds && payload.presentedIds.length > 0
+        ? new Set(payload.presentedIds)
+        : null;
+    return presentedSet ? stored.filter((q) => presentedSet.has(q.id)) : stored;
+  }
+  // fijo / azar: subconjunto determinístico por seed (mismo seed que usó el
+  // reproductor: `attempt.seed ?? "0"`).
+  const indices = selectPoolIndices(stored.length, composition, attempt.seed ?? "0");
+  return indices.map((i) => stored[i]);
+};
+
+// Convierte una pregunta materializada por el SERVIDOR al shape que corrigen
+// `gradeAnswers`/`buildFeedback`. Conserva answerKey/tolerancia/peso/modo del
+// servidor pero usa el id del CLIENTE para que `answers[id]` resuelva (el id del
+// cliente trae un contador de módulo no reproducible; ver questionHashPrefix).
+const serverQuestionToGradable = (
+  sq: ModuleQuizQuestion,
+  id: string
+): GradableQuestion => {
+  const q: GradableQuestion = { id };
+  if (sq.answerKey !== undefined) q.answerKey = sq.answerKey;
+  if (sq.explanation !== undefined) q.explanation = sq.explanation;
+  if (sq.toleranciaRelativa !== undefined) q.toleranciaRelativa = sq.toleranciaRelativa;
+  if (sq.points !== undefined) q.points = sq.points;
+  if (sq.correccion !== undefined) q.correccion = sq.correccion;
+  if (sq.manualGrading !== undefined) q.manualGrading = sq.manualGrading;
+  if (sq.prompt !== undefined) q.prompt = sq.prompt;
+  return q;
+};
+
+// I-2 — camino VBLang. Recompila el DSL de la plantilla (cacheado por versión),
+// regenera el pool con `attempt.seed` replicando EXACTO el reproductor, deriva
+// el subconjunto presentado y arma las preguntas a corregir contra la
+// materialización del SERVIDOR. `payload.generatedQuestions` se ignora para
+// corregir (sólo se compara para detectar manipulación). Si la plantilla no es
+// materializable server-side (generador asistido/dataset/plantilla ausente),
+// cae al comportamiento previo marcando serverAuthoritative=false.
+const resolveVblangGrading = async (
+  quiz: ModuleQuiz,
+  attempt: QuizAttemptRecord,
+  payload: SubmitPayload,
+  generatorId: string
+): Promise<GradingResolution> => {
+  const fallback = (): GradingResolution => ({
+    gradingQuestions: gradingQuestionsFromPayload(quiz, payload),
+    serverAuthoritative: false,
+    mismatchQuestions: []
+  });
+
+  const plantillaId = generatorId.slice("plantilla:".length);
+  const plantilla = await prisma.plantillaEjercicio.findFirst({
+    where: { id: plantillaId }
+  });
+  const codigoDsl = (plantilla as { codigoDsl?: string } | null)?.codigoDsl;
+  if (!codigoDsl) return fallback();
+
+  let pool: ReturnType<typeof materializeVblangPool>;
+  try {
+    const compiled = getCompiledPlantilla(
+      attempt.quizVersionId ?? plantillaId,
+      codigoDsl
+    );
+    pool = materializeVblangPool(compiled, attempt.seed, quiz.count ?? 10);
+  } catch {
+    return fallback();
+  }
+  // Pool vacío = plantilla con generador asistido/dataset (necesita un provider
+  // que vive en apps/web): no materializable server-side → no-autoritativo.
+  if (!pool.ok) return fallback();
+
+  // Reverse map prefijo-hash → id del cliente, para resolver `answers[clientId]`.
+  const clientIdByPrefix = new Map<string, string>();
+  const registerClientId = (id: string) => {
+    const p = questionHashPrefix(id);
+    if (!clientIdByPrefix.has(p)) clientIdByPrefix.set(p, id);
+  };
+  for (const id of payload.presentedIds ?? []) registerClientId(id);
+  for (const id of Object.keys(payload.answers ?? {})) registerClientId(id);
+  for (const q of payload.generatedQuestions ?? []) registerClientId(q.id);
+
+  // answerKeys que AFIRMÓ el cliente, por prefijo (para detectar manipulación).
+  const claimedKeyByPrefix = new Map<string, unknown>();
+  for (const q of payload.generatedQuestions ?? []) {
+    claimedKeyByPrefix.set(questionHashPrefix(q.id), q.answerKey);
+  }
+
+  // Subconjunto PRESENTADO derivado server-side desde el pool regenerado. Para
+  // elige_alumno el alumno elige cuál responder (no derivable por seed): se
+  // honra su elección pero la clave de corrección sigue siendo la del servidor.
+  const composition = quiz.composition ? parseComposition(quiz.composition) : null;
+  const seedForPool = attempt.seed ?? "0";
+  let presented: ModuleQuizQuestion[];
+  if (composition && composition.seleccion === "elige_alumno") {
+    const chosen = new Set((payload.presentedIds ?? []).map(questionHashPrefix));
+    presented = pool.questions.filter((q) => chosen.has(questionHashPrefix(q.id)));
+  } else if (composition) {
+    const indices = selectPoolIndices(pool.questions.length, composition, seedForPool);
+    presented = indices.map((i) => pool.questions[i]);
+  } else {
+    presented = pool.questions;
+  }
+
+  const mismatchQuestions: string[] = [];
+  const gradingQuestions = presented.map((sq) => {
+    const prefix = questionHashPrefix(sq.id);
+    const clientId = clientIdByPrefix.get(prefix) ?? sq.id;
+    if (claimedKeyByPrefix.has(prefix)) {
+      const claimed = JSON.stringify(claimedKeyByPrefix.get(prefix) ?? null);
+      const real = JSON.stringify(sq.answerKey ?? null);
+      if (claimed !== real) mismatchQuestions.push(clientId);
+    }
+    return serverQuestionToGradable(sq, clientId);
+  });
+
+  return { gradingQuestions, serverAuthoritative: true, mismatchQuestions };
 };
 
 const gradeNumeric = (
@@ -725,24 +929,53 @@ quizAttempts.post(
       const normalizedQuizVersion = QuizVersionSchema.parse(
         version?.version ?? quiz?.generatorVersion ?? 1
       );
-      // Construir el set de preguntas a corregir:
-      //  - Generado / plantilla VBLang: no hay preguntas persistidas; las
-      //    materializa el cliente y las manda en `generatedQuestions`.
-      //  - Manual / banco: están en quiz.questions; si el reproductor presentó
-      //    un subconjunto (pool/azar/elige_alumno), `presentedIds` lo acota.
+      // I-2 — construir el set de preguntas a corregir según el tipo de quiz:
+      //  - Plantilla VBLang (`generatorId` = "plantilla:<id>"): el servidor
+      //    REGENERA las preguntas desde el seed del intento y corrige contra SU
+      //    materialización. `payload.generatedQuestions` deja de ser fuente de
+      //    verdad (cierra el ataque de devtools).
+      //  - generadoresV2 (otros `generatorId`): no materializable server-side
+      //    (los generadores viven en apps/web); se mantiene el comportamiento
+      //    previo pero el intento se marca serverAuthoritative=false.
+      //  - Manual / banco (`quiz.questions`): están persistidas; si hubo pool/
+      //    selección, el subconjunto presentado se acota (paso 3).
       // Se conserva la composición para el peso por defecto.
       const hasStoredQuestions = (quiz.questions?.length ?? 0) > 0;
-      const presentedSet =
-        payload.presentedIds && payload.presentedIds.length > 0
-          ? new Set(payload.presentedIds)
-          : null;
+      const generatorId = typeof quiz.generatorId === "string" ? quiz.generatorId : null;
+      const isVblangTemplate =
+        !hasStoredQuestions && generatorId !== null && generatorId.startsWith("plantilla:");
+      const isGeneradorV2 =
+        !hasStoredQuestions && generatorId !== null && !generatorId.startsWith("plantilla:");
+
       let gradingQuestions: ModuleQuiz["questions"];
-      if (!hasStoredQuestions && payload.generatedQuestions && payload.generatedQuestions.length > 0) {
-        gradingQuestions = payload.generatedQuestions;
-      } else if (presentedSet) {
-        gradingQuestions = (quiz.questions ?? []).filter((q) => presentedSet.has(q.id));
+      let serverAuthoritative = true;
+      let mismatchQuestions: string[] = [];
+      if (isVblangTemplate) {
+        const resolved = await resolveVblangGrading(quiz, attempt, payload, generatorId!);
+        gradingQuestions = resolved.gradingQuestions;
+        serverAuthoritative = resolved.serverAuthoritative;
+        mismatchQuestions = resolved.mismatchQuestions;
+      } else if (isGeneradorV2) {
+        // generadoresV2: la nota depende del cliente. No se bloquea (política de
+        // producto para la tanda 2), sólo se marca para la UI del docente.
+        serverAuthoritative = false;
+        gradingQuestions = gradingQuestionsFromPayload(quiz, payload);
       } else {
-        gradingQuestions = quiz.questions;
+        // F-2c — preguntas almacenadas. El subconjunto presentado se DERIVA
+        // server-side desde `attempt.seed` + composición con el mismo algoritmo
+        // del reproductor (`selectPoolIndices`, replicado en quiz-composition),
+        // en vez de creerle a `payload.presentedIds`. Así un alumno no puede
+        // declarar que sólo vio las preguntas que respondió bien.
+        gradingQuestions = resolveStoredPresented(quiz, attempt, payload);
+      }
+      if (!serverAuthoritative || mismatchQuestions.length > 0) {
+        // "loguear discrepancia" (mismo espíritu que el canario V2-04): visibilidad
+        // de ops. El registro durable para el docente va en el `grading` JSON.
+        console.warn(
+          `[quiz-attempts] submit no server-autoritativo o con discrepancia: attempt=${idParam} ` +
+            `quiz=${attempt.quizId} serverAuthoritative=${serverAuthoritative} ` +
+            `mismatch=${mismatchQuestions.length}`
+        );
       }
       const gradingQuiz: ModuleQuiz = { ...quiz, questions: gradingQuestions };
       const { score, maxScore, manual } = gradeAnswers(gradingQuiz, payload.answers);
@@ -771,10 +1004,19 @@ quizAttempts.post(
       const grading: AttemptGrading = {
         autoScore: score,
         items: {},
+        // I-2 — la nota es server-autoritativa salvo generadoresV2 / plantilla
+        // no materializable server-side (ver arriba).
+        serverAuthoritative,
       };
       if (canaryTriggered) {
         grading.canaryTriggered = true;
         grading.canaryQuestions = canaryQuestions;
+      }
+      if (mismatchQuestions.length > 0) {
+        // I-2 — el cliente afirmó answerKeys que no coinciden con lo regenerado:
+        // indicador de manipulación (mismo canal que el canario). No bloquea.
+        grading.materializationMismatch = true;
+        grading.mismatchQuestions = mismatchQuestions;
       }
       for (const { question, weight } of manual) {
         grading.items[question.id] = {
