@@ -14,6 +14,10 @@ import {
   QuizVersionSchema
 } from "../schema/quiz-attempt";
 import { isStaffRole } from "../lib/authorization";
+import {
+  isCanaryAnswer,
+  sanitizeQuestionsForStudent
+} from "../lib/sanitize-questions";
 import { gradeFromConfig, getScoringSystem, type ScoringConfig } from "@vb/vblang";
 
 type ModuleQuiz = {
@@ -119,6 +123,12 @@ type GradingItem = {
 type AttemptGrading = {
   autoScore: number; // puntaje de las preguntas auto-corregidas
   items: Record<string, GradingItem>; // ítems manuales, por questionId
+  // V2-04 — true si el alumno envío un canario (`VB-CANARY-...`) como
+  // respuesta. El docente ve el flag en la pantalla de corrección para
+  // distinguir intentos legítimos de accesos indebidos al payload.
+  canaryTriggered?: boolean;
+  // Ids de las preguntas cuyas respuestas eran canarios.
+  canaryQuestions?: string[];
 };
 
 type GradableQuestion = NonNullable<ModuleQuiz["questions"]>[number];
@@ -214,7 +224,8 @@ const buildQuizFromCollection = (
 
 const fetchQuizFromCollections = async (
   quizId: string,
-  moduleId?: string
+  moduleId?: string,
+  versionId?: string
 ) => {
   const quizRecord = await prisma.quiz.findFirst({ where: { id: quizId } });
   const metadata: QuizMetadataRecord | null = quizRecord
@@ -238,9 +249,20 @@ const fetchQuizFromCollections = async (
 
   if (!metadata) return { quiz: null, module };
 
-  const versionRecord = quizRecord?.currentVersionId
-    ? await prisma.quizVersion.findFirst({ where: { id: quizRecord.currentVersionId } })
-    : null;
+  // V2-03 — si se pasa `versionId` explícito, cargar ESA versión; si no, la
+  // versión actual del quiz. Esto garantiza que un intento se corrija contra
+  // la versión con la que el alumno lo inició, no contra la publicada
+  // actualmente. `versionMissing` se usa aguas arriba para responder 409
+  // cuando la versión del intento ya no existe (en lugar de degradar a
+  // currentVersionId).
+  let versionMissing = false;
+  let versionRecord: Awaited<ReturnType<typeof prisma.quizVersion.findFirst>> = null;
+  if (versionId) {
+    versionRecord = await prisma.quizVersion.findFirst({ where: { id: versionId } });
+    if (!versionRecord) versionMissing = true;
+  } else if (quizRecord?.currentVersionId) {
+    versionRecord = await prisma.quizVersion.findFirst({ where: { id: quizRecord.currentVersionId } });
+  }
 
   const version: QuizVersionRecord | null = versionRecord
     ? {
@@ -259,7 +281,7 @@ const fetchQuizFromCollections = async (
     : null;
 
   const quiz = buildQuizFromCollection(metadata, version);
-  return { quiz, module, metadata, version };
+  return { quiz, module, metadata, version, versionMissing };
 };
 
 const gradeNumeric = (
@@ -615,11 +637,26 @@ quizAttempts.get(
   if (!userId) return res.status(401).json({ error: "user not found" });
   const attempt = await prisma.quizAttempt.findFirst({ where: { id: idParam, userId } }) as QuizAttemptRecord | null;
   if (!attempt) return res.status(404).json({ error: "attempt not found" });
-  const { quiz: collectionQuiz, metadata, module } = await fetchQuizFromCollections(
+  const { quiz: collectionQuiz, metadata, module, versionMissing } = await fetchQuizFromCollections(
     attempt.quizId,
-    attempt.moduleId ?? undefined
+    attempt.moduleId ?? undefined,
+    attempt.quizVersionId ?? undefined
   );
+  if (versionMissing) {
+    return res.status(409).json({
+      error: "la versión del quiz de este intento ya no está disponible"
+    });
+  }
   const quiz = collectionQuiz ?? findQuiz(module, attempt.quizId);
+  // V2-04 — el alumno es el único que llega hasta acá con el handler actual
+  // (el filtro es `id + userId`). Sanitizamos por defecto; si en el futuro
+  // el handler se abre al staff, debería saltarse la sanitización.
+  const requesterRole =
+    (req.user as { role?: string | null } | undefined)?.role ?? null;
+  const questionsForResponse =
+    isStaffRole(requesterRole)
+      ? (quiz?.questions ?? [])
+      : sanitizeQuestionsForStudent(quiz?.questions, attempt.quizVersionId ?? attempt.quizId);
   res.json({
     id: attempt.id,
     attemptId: attempt.id,
@@ -627,7 +664,7 @@ quizAttempts.get(
     quizId: attempt.quizId,
     quizTitle: quiz?.title ?? metadata?.title ?? module?.title ?? "Quiz",
     status: attempt.status,
-    questions: quiz?.questions ?? [],
+    questions: questionsForResponse,
     answers: attempt.answers
       ? safeJsonParse(attempt.answers as unknown as string, {} as Record<string, unknown>)
       : {},
@@ -641,7 +678,7 @@ quizAttempts.get(
           items: {}
         })
       : undefined,
-    quiz: quiz ? { title: quiz.title, questions: quiz.questions ?? [] } : undefined,
+    quiz: quiz ? { title: quiz.title, questions: questionsForResponse } : undefined,
     generatorId: quiz?.generatorId ?? undefined,
     seed: attempt.seed ?? undefined,
     count: quiz?.count ?? undefined,
@@ -673,10 +710,16 @@ quizAttempts.post(
       if (!userId) return res.status(401).json({ error: "user not found" });
       const attempt = await prisma.quizAttempt.findFirst({ where: { id: idParam, userId } }) as QuizAttemptRecord | null;
       if (!attempt) return res.status(404).json({ error: "attempt not found" });
-      const { quiz: collectionQuiz, version, module } = await fetchQuizFromCollections(
+      const { quiz: collectionQuiz, version, module, versionMissing } = await fetchQuizFromCollections(
         attempt.quizId,
-        attempt.moduleId ?? undefined
+        attempt.moduleId ?? undefined,
+        attempt.quizVersionId ?? undefined
       );
+      if (versionMissing) {
+        return res.status(409).json({
+          error: "la versión del quiz de este intento ya no está disponible"
+        });
+      }
       const quiz = collectionQuiz ?? findQuiz(module, attempt.quizId);
       if (!quiz) return res.status(404).json({ error: "quiz not found" });
       const normalizedQuizVersion = QuizVersionSchema.parse(
@@ -705,10 +748,34 @@ quizAttempts.post(
       const { score, maxScore, manual } = gradeAnswers(gradingQuiz, payload.answers);
       const feedback = buildFeedback(gradingQuiz, payload.answers);
 
+      // V2-04 — detección de canario. Si el alumno envío un canario
+      // (answerKey del payload sanitizado que se filtró al frontend) como
+      // respuesta, registramos el flag en `grading` y contamos la pregunta
+      // como incorrecta (el canario nunca coincide con la respuesta real).
+      // NO acusamos automáticamente: es info para el docente.
+      const canaryQuestions: string[] = [];
+      for (const [questionId, response] of Object.entries(payload.answers ?? {})) {
+        if (Array.isArray(response)) {
+          if (response.some((v) => isCanaryAnswer(v))) {
+            canaryQuestions.push(questionId);
+          }
+        } else if (isCanaryAnswer(response)) {
+          canaryQuestions.push(questionId);
+        }
+      }
+      const canaryTriggered = canaryQuestions.length > 0;
+
       // WO07 — máquina de estados: si hay ítems `manual`, el intento queda
       // "pendiente de corrección" (pending_review) y no es nota final hasta que
-      // el profe corrija. Sin manuales, sigue siendo "submitted".
-      const grading: AttemptGrading = { autoScore: score, items: {} };
+      // el profe la corrija. Sin manuales, sigue siendo "submitted".
+      const grading: AttemptGrading = {
+        autoScore: score,
+        items: {},
+      };
+      if (canaryTriggered) {
+        grading.canaryTriggered = true;
+        grading.canaryQuestions = canaryQuestions;
+      }
       for (const { question, weight } of manual) {
         grading.items[question.id] = {
           prompt: question.prompt,

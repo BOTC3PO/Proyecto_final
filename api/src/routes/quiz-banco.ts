@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
+import { isStaffRole } from "../lib/authorization";
+import { sanitizeQuestionsForStudent } from "../lib/sanitize-questions";
 
 export const quizBanco = Router();
 
@@ -160,31 +162,28 @@ quizBanco.get("/api/quizzes/banco/:quizId/questions", requireUser, async (req, r
     const user = req.user as { schoolId?: string | null } | undefined;
     const userSchoolId = typeof user?.schoolId === "string" ? user.schoolId : null;
 
-    const quiz = await prisma.quiz.findUnique({
-      where: { id: quizId },
-      include: {
-        versions: {
-          orderBy: { versionNumber: "desc" },
-          take: 1,
-        },
-        modulo: {
-          select: { visibility: true, schoolId: true },
-        },
-      },
-    });
-
+    const quiz = await prisma.quiz.findUnique({ where: { id: quizId } });
     if (!quiz) {
       res.status(404).json({ error: "Quiz not found" });
       return;
     }
 
-    const version = quiz.versions[0];
+    // Traemos version y modulo por separado (mismo patrón que en modulos.ts):
+    // el InMemoryPrisma usado por tests no soporta `include` anidado.
+    const versions = await prisma.quizVersion.findMany({ where: { quizId } });
+    versions.sort((a, b) => (b.versionNumber ?? 0) - (a.versionNumber ?? 0));
+    const version = versions[0];
     if (!version) {
       res.status(404).json({ error: "No version found" });
       return;
     }
+    const modulo = quiz.moduleId
+      ? await prisma.modulo.findFirst({ where: { id: quiz.moduleId } })
+      : null;
 
-    const { visibility, schoolId: moduleSchoolId } = quiz.modulo;
+    const visibility = modulo?.visibility ?? null;
+    const moduleSchoolId = modulo?.schoolId ?? null;
+    const moduleOwnerId = modulo?.ownerUserId ?? null;
     const isAdmin = visibility === "publico" && moduleSchoolId === null;
     const isEscuela =
       visibility === "escuela" &&
@@ -196,7 +195,22 @@ quizBanco.get("/api/quizzes/banco/:quizId/questions", requireUser, async (req, r
       return;
     }
 
-    const questions = parseJsonSafe<ModuleQuizQuestion[]>(version.questions ?? null, []);
+    // V2-04 — staff y dueño del módulo ven las preguntas intactas; un alumno
+    // o parent del mismo colegio recibe la versión sanitizada (canario).
+    const userWithRole = user as { role?: string | null; id?: string } | undefined;
+    const requesterRole = userWithRole?.role ?? null;
+    const requesterId =
+      (typeof userWithRole?.id === "string" && userWithRole.id) || null;
+    const canSeeAnswers =
+      isStaffRole(requesterRole) || (!!requesterId && requesterId === moduleOwnerId);
+
+    const rawQuestions = parseJsonSafe<ModuleQuizQuestion[]>(
+      version.questions ?? null,
+      []
+    );
+    const questions = canSeeAnswers
+      ? rawQuestions
+      : sanitizeQuestionsForStudent(rawQuestions, version.id);
     const title = quiz.title ?? "";
 
     const response: Record<string, unknown> = { quizId: quiz.id, title, questions };

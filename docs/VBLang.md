@@ -134,7 +134,7 @@ Una plantilla VBLang es un archivo de texto con **bloques con nombre**. Cada blo
 | `opciones:` | No | Cantidad de opciones múltiple-choice. |
 | `tipo:` | No | Tipo de pregunta (`mc`, `input`, `vf`, `ordenar`, etc.). Default: `input`. |
 | `enunciado:` | Sí | Texto del ejercicio mostrado al alumno. |
-| `enunciados:` | Sí (en lugar de `enunciado:`) | Lista de variantes de enunciado; se elige una al azar por ejercicio, de forma estable por seed. Mutanmente excluyente con `enunciado:`. |
+| `enunciados:` | Sí (en lugar de `enunciado:`) | Lista de variantes de enunciado; se elige una al azar por ejercicio, de forma estable por seed. Mutuamente excluyente con `enunciado:`. |
 | `pasos:` | No | Resolución paso a paso (visible al alumno post-respuesta). |
 | `visual:` | No | Visual adjunto (chart, mapa, timeline, imagen). |
 | `generador:` | No | Generador hardcoded de Virtual Book a usar. |
@@ -735,7 +735,7 @@ Cada ítem es un string entre comillas precedido por `- `, igual que el bloque `
 
 #### Semántica
 
-- **Mutanmente excluyente con `enunciado:`**. Una plantilla debe declarar exactamente uno de los dos. Si aparecen ambos, el parser rechaza con *"Usá `enunciado:` o `enunciados:`, no ambos"*. Si falta el bloque obligatorio, el mensaje menciona las dos opciones.
+- **Mutuamente excluyente con `enunciado:`**. Una plantilla debe declarar exactamente uno de los dos. Si aparecen ambos, el parser rechaza con *"Usá `enunciado:` o `enunciados:`, no ambos"*. Si falta el bloque obligatorio, el mensaje menciona las dos opciones.
 - **Mínimo 1 variante**. Una lista vacía se rechaza con un error que indica cómo agregar al menos un ítem.
 - **Selección por PRNG**. La variante a usar se elige con el PRNG de la simulación, consumiendo un valor antes de interpolar. Esto preserva el determinismo: con la misma semilla, la misma variante.
 - **Determinismo por seed**. Mismo seed + misma plantilla → misma variante. Mismos valores de variables. Mismo enunciado final.

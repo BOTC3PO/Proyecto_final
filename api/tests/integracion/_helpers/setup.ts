@@ -41,6 +41,24 @@ installModule(prismaPath, { prisma });
 const entitlementsPath = path.join(apiSrc, "lib", "entitlements.ts");
 installModule(entitlementsPath, {
   enforceSubscriptionAccess: async () => true,
+  ENTERPRISE_FEATURES: {
+    DASHBOARD: "enterprise_dashboard",
+    CLASSROOMS: "enterprise_classrooms",
+    MEMBERS: "enterprise_members",
+    MODULES: "enterprise_modules",
+    MESSAGES: "enterprise_messages",
+    CONTRACTS: "enterprise_contracts",
+    REPORTS: "enterprise_reports",
+    PARENTS: "enterprise_parents",
+    INSTITUTIONAL_BENEFITS: "enterprise_institutional_benefits",
+    AUDIT: "enterprise_audit",
+    ADVANCED_MODERATION: "enterprise_advanced_moderation",
+    ADMIN_TOOLS: "enterprise_admin_tools",
+    ECONOMY: "economy",
+    QUIZZES: "quizzes",
+  },
+  requireEnterpriseFeature: () => (_req: unknown, _res: unknown, next: () => void) => next(),
+  requireActiveInstitutionBenefit: (_req: unknown, _res: unknown, next: () => void) => next(),
 });
 
 // 3. Resetters in case the test suite re-imports.
@@ -62,6 +80,8 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.modulo.rows = [];
   prisma.quiz.rows = [];
   prisma.quizVersion.rows = [];
+  prisma.quizAttempt.rows = [];
+  prisma.quizUmbral.rows = [];
   prisma.progresoModulo.rows = [];
   return prisma;
 }

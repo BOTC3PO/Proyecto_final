@@ -27,7 +27,7 @@ export interface CompiledPlantilla {
   /**
    * Tarea 05/06: lista de variantes para el bloque `enunciados:`. Cuando está
    * presente, el runtime elige UNA variante con el PRNG de la simulación
-   * ANTES de interpolar. Mutanmente excluyente con `enunciado` (validado en
+   * ANTES de interpolar. Mutuamente excluyente con `enunciado` (validado en
    * el parser); si ambos faltan, el parse falla. Si está presente, gana
    * sobre el enunciado del generador asistido.
    */
