@@ -10,14 +10,25 @@ import { requireUser } from "../lib/user-auth";
 import {
   QuizAttemptCreateSchema,
   QuizAttemptGradeSchema,
+  QuizAttemptListQuerySchema,
   QuizAttemptSubmitSchema,
+  QuizAttemptSummaryQuerySchema,
   QuizVersionSchema
 } from "../schema/quiz-attempt";
-import { isStaffRole } from "../lib/authorization";
+import { isStaffRole, canManageClassroom } from "../lib/authorization";
 import {
   isCanaryAnswer,
   sanitizeQuestionsForStudent
 } from "../lib/sanitize-questions";
+import {
+  aplicarPolitica,
+  calcularNotas,
+  contarIntentosPrevios,
+  parseIntentoPolicy,
+  validarLimiteIntentos,
+  type IntentoPolicy,
+  type PoliticaNota
+} from "../lib/quiz-intentos";
 import {
   gradeFromConfig,
   getScoringSystem,
@@ -746,6 +757,34 @@ quizAttempts.post(
         error: "Este quiz no tiene una versión válida. Pedile al profesor que regenere el módulo.",
       });
     }
+    // F3-04 — política de intentos (maxIntentos, defaults por tipo).
+    // `settings.type` se persiste dentro de `QuizVersion.settings` (JSON);
+    // `parseIntentoPolicy` resuelve los defaults si los campos faltan.
+    const quizTipoLectura = (() => {
+      if (!version.settings) return "practica";
+      try {
+        const parsed = JSON.parse(version.settings) as { type?: string };
+        return parsed.type ?? "practica";
+      } catch {
+        return "practica";
+      }
+    })();
+    const intentoPolicy: IntentoPolicy = parseIntentoPolicy(version.settings, quizTipoLectura);
+    const intentosPrevios = await prisma.quizAttempt.findMany({
+      where: { quizId: payload.quizId, userId }
+    });
+    const limite = validarLimiteIntentos(
+      contarIntentosPrevios(intentosPrevios, userId, payload.quizId),
+      intentoPolicy.maxIntentos
+    );
+    if (!limite.allowed) {
+      return res.status(403).json({
+        error: limite.reason,
+        code: limite.code,
+        maxIntentos: limite.maxIntentos,
+        intentosPrevios: limite.intentosPrevios
+      });
+    }
     const result = await prisma.quizAttempt.create({
       data: {
         id: randomUUID(),
@@ -766,14 +805,264 @@ quizAttempts.post(
     });
     res
       .status(201)
-      .json({ id: result.id, attemptId: result.id });
+      .json({
+        id: result.id,
+        attemptId: result.id,
+        // F3-04 — contexto de intentos para que el front pueda mostrar
+        // "Te quedan N intentos" sin pedir el summary.
+        intentosPrevios: contarIntentosPrevios(intentosPrevios, userId, payload.quizId),
+        maxIntentos: intentoPolicy.maxIntentos,
+        intentosRestantes:
+          intentoPolicy.maxIntentos === null
+            ? null
+            : Math.max(0, intentoPolicy.maxIntentos - contarIntentosPrevios(intentosPrevios, userId, payload.quizId) - 1),
+        politicaNota: intentoPolicy.politicaNota
+      });
   } catch (error: any) {
     res.status(400).json({ error: error?.message ?? "invalid payload" });
   }
   }
 );
 
-// GET /api/quiz-attempts/pending-grading
+// F3-04 — GET /api/quiz-attempts
+// Lista intentos. Tres modos:
+//   1) Alumno (rol STUDENT/PARENT) sin aulaId: devuelve SUS intentos sobre el
+//      quiz o módulo pedido. userId forzado al del token.
+//   2) Staff (rol TEACHER/DIRECTIVO/ADMIN) sin aulaId: igual que alumno (sólo
+//      los propios). Para ver intentos de otros, DEBE pasar aulaId.
+//   3) Staff con aulaId: devuelve los intentos de los alumnos miembros del
+//      aula, sobre el quiz/módulo pedido. El server valida que el requester
+//      sea miembro del aula o directivo de la escuela.
+//
+// El front consume hoy dos endpoints fantasma:
+//   - ModuloDetail.tsx:386 → GET /api/quiz-attempts?moduleId=...&userId=...
+//   - ProfesorCalificaciones.tsx:47 → GET /api/quiz-attempts?moduleId=...&aulaId=...&quizType=formal
+// Este endpoint los cubre a ambos con un único handler.
+quizAttempts.get(
+  "/api/quiz-attempts",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requireActiveInstitutionBenefit,
+  async (req, res) => {
+    try {
+      const query = QuizAttemptListQuerySchema.parse(req.query);
+      const requesterId =
+        typeof req.user?._id?.toString === "function"
+          ? req.user._id.toString()
+          : typeof req.user?.id === "string"
+            ? req.user.id
+            : "";
+      if (!requesterId) return res.status(401).json({ error: "user not found" });
+
+      // (1) Determinar el set de userIds a buscar.
+      let targetUserIds: string[];
+      if (query.aulaId) {
+        // Modo staff-de-aula: validar membresía y devolver los intentos de
+        // los alumnos miembros del aula.
+        if (!isStaffRole(req.user?.role ?? null)) {
+          return res.status(403).json({ error: "forbidden" });
+        }
+        const clase = await prisma.clase.findFirst({
+          where: { id: query.aulaId, isDeleted: { not: true } },
+          include: { miembros: true }
+        });
+        if (!clase) {
+          return res.status(404).json({ error: "classroom not found" });
+        }
+        const classroom = {
+          id: clase.id,
+          schoolId: clase.escuelaId ?? undefined,
+          members: clase.miembros.map((m) => ({ userId: m.usuarioId, roleInClass: m.rolEnClase }))
+        };
+        const allowed = canManageClassroom({
+          requesterId,
+          requesterRole: req.user?.role ?? null,
+          requesterSchoolId: req.user?.schoolId ?? null,
+          classroomSchoolId: classroom.schoolId ?? null,
+          classroomMembers: classroom.members
+        });
+        if (!allowed) {
+          return res.status(403).json({ error: "forbidden" });
+        }
+        // Alumnos miembros del aula (rolEnClase ∈ {STUDENT, USER legacy}).
+        const alumnosAula = clase.miembros
+          .filter((m) => m.rolEnClase === "STUDENT" || m.rolEnClase === "USER")
+          .map((m) => m.usuarioId);
+        if (alumnosAula.length === 0) {
+          return res.json({ items: [], total: 0 });
+        }
+        targetUserIds = query.userId ? [query.userId] : alumnosAula;
+      } else {
+        // Modo "yo": siempre es el requester, sin importar `userId` del query.
+        targetUserIds = [requesterId];
+      }
+
+      // (2) Resolver el conjunto de quizIds sobre los que buscar.
+      let targetQuizIds: string[];
+      if (query.quizId) {
+        targetQuizIds = [query.quizId];
+      } else if (query.moduleId) {
+        const quizzes = await prisma.quiz.findMany({ where: { moduleId: query.moduleId } });
+        if (quizzes.length === 0) return res.json({ items: [], total: 0 });
+        targetQuizIds = quizzes.map((q) => q.id);
+      } else {
+        return res.json({ items: [], total: 0 });
+      }
+
+      // (3) Buscar intentos y devolver resumen.
+      const attempts = await prisma.quizAttempt.findMany({
+        where: {
+          userId: { in: targetUserIds },
+          quizId: { in: targetQuizIds }
+        }
+      });
+      // Ordenar por startedAt desc estable (createdAt no existe en el modelo).
+      const sorted = [...attempts].sort((a, b) =>
+        String(b.startedAt ?? "").localeCompare(String(a.startedAt ?? ""))
+      );
+      const items = sorted.slice(0, query.limit).map((a) => ({
+        id: a.id,
+        quizId: a.quizId,
+        quizVersionId: a.quizVersionId,
+        userId: a.userId,
+        status: a.status,
+        startedAt: a.startedAt,
+        submittedAt: a.submittedAt ?? null,
+        score: a.score,
+        maxScore: a.maxScore,
+        attemptNo: a.attemptNo ?? null,
+        seed: a.seed ?? null
+      }));
+      res.json({ items, total: attempts.length });
+    } catch (error: any) {
+      if (error?.name === "ZodError") {
+        return res.status(400).json({ error: error.message });
+      }
+      res.status(400).json({ error: error?.message ?? "invalid query" });
+    }
+  }
+);
+
+// F3-04 — GET /api/quiz-attempts/summary
+// Resumen del alumno sobre un quiz: {intentosPrevios, intentosRestantes,
+// maxIntentos, politicaNota, notaActual, mejorNota, ultimaNota, primeraNota,
+// promedioNota, historial[ultimosN]}. El alumno SIEMPRE ve SUYO; el staff con
+// userId explícito puede pedir el de un alumno, pero requiere aulaId para
+// validar membresía (modo "docente del aula").
+quizAttempts.get(
+  "/api/quiz-attempts/summary",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requireActiveInstitutionBenefit,
+  async (req, res) => {
+    try {
+      const query = QuizAttemptSummaryQuerySchema.parse(req.query);
+      const requesterId =
+        typeof req.user?._id?.toString === "function"
+          ? req.user._id.toString()
+          : typeof req.user?.id === "string"
+            ? req.user.id
+            : "";
+      if (!requesterId) return res.status(401).json({ error: "user not found" });
+
+      const queryAny = req.query as { userId?: string; aulaId?: string };
+      let targetUserId = requesterId;
+      if (queryAny.userId && queryAny.userId !== requesterId) {
+        if (!isStaffRole(req.user?.role ?? null)) {
+          return res.status(403).json({ error: "forbidden" });
+        }
+        if (!queryAny.aulaId) {
+          return res.status(400).json({
+            error: "Para consultar el resumen de otro usuario se requiere `aulaId`."
+          });
+        }
+        const clase = await prisma.clase.findFirst({
+          where: { id: queryAny.aulaId, isDeleted: { not: true } },
+          include: { miembros: true }
+        });
+        if (!clase) return res.status(404).json({ error: "classroom not found" });
+        const classroom = {
+          id: clase.id,
+          schoolId: clase.escuelaId ?? undefined,
+          members: clase.miembros.map((m) => ({ userId: m.usuarioId, roleInClass: m.rolEnClase }))
+        };
+        const allowed = canManageClassroom({
+          requesterId,
+          requesterRole: req.user?.role ?? null,
+          requesterSchoolId: req.user?.schoolId ?? null,
+          classroomSchoolId: classroom.schoolId ?? null,
+          classroomMembers: classroom.members
+        });
+        if (!allowed) {
+          return res.status(403).json({ error: "forbidden" });
+        }
+        targetUserId = queryAny.userId;
+      }
+
+      // Política del quiz.
+      const version = await prisma.quizVersion.findFirst({
+        where: { quizId: query.quizId }
+      });
+      const settings = version?.settings ?? null;
+      const quizTipoLectura = (() => {
+        if (!settings) return "practica";
+        try {
+          const parsed = JSON.parse(settings) as { type?: string };
+          return parsed.type ?? "practica";
+        } catch {
+          return "practica";
+        }
+      })();
+      const policy = parseIntentoPolicy(settings, quizTipoLectura);
+
+      const attempts = await prisma.quizAttempt.findMany({
+        where: { quizId: query.quizId, userId: targetUserId }
+      });
+      const finalizados = attempts.filter((a) => a.status !== "aborted");
+      const intentosPrevios = finalizados.length;
+      const notas = calcularNotas(finalizados);
+      const notaActual = aplicarPolitica(finalizados, policy.politicaNota);
+
+      res.json({
+        quizId: query.quizId,
+        userId: targetUserId,
+        maxIntentos: policy.maxIntentos,
+        intentosPrevios,
+        intentosRestantes:
+          policy.maxIntentos === null
+            ? null
+            : Math.max(0, policy.maxIntentos - intentosPrevios),
+        politicaNota: policy.politicaNota,
+        notaActual,
+        mejorNota: notas.mejor,
+        ultimaNota: notas.ultima,
+        primeraNota: notas.primera,
+        promedioNota: notas.promedio,
+        historial: finalizados
+          .sort((a, b) =>
+            String(b.startedAt ?? "").localeCompare(String(a.startedAt ?? ""))
+          )
+          .slice(0, 20)
+          .map((a) => ({
+            id: a.id,
+            status: a.status,
+            startedAt: a.startedAt,
+            submittedAt: a.submittedAt ?? null,
+            score: a.score,
+            maxScore: a.maxScore,
+            attemptNo: a.attemptNo ?? null
+          }))
+      });
+    } catch (error: any) {
+      if (error?.name === "ZodError") {
+        return res.status(400).json({ error: error.message });
+      }
+      res.status(400).json({ error: error?.message ?? "invalid query" });
+    }
+  }
+);
+
+
 // WO07 — lista de intentos con preguntas abiertas pendientes de corrección, para
 // que el profe (staff) las corrija desde ProfesorCalificaciones.
 //

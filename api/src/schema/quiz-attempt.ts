@@ -56,6 +56,26 @@ export const QuizAttemptGradeSchema = z.object({
   feedback: z.string().optional()
 });
 
+// F3-04 — query params para listar intentos / pedir resumen del alumno.
+// Al menos uno de `quizId` o `moduleId` es requerido. `aulaId` es opcional y,
+// si está, indica que el requester es staff pidiendo los intentos de los
+// alumnos del aula (el server valida membresía).
+export const QuizAttemptListQuerySchema = z.object({
+  quizId: z.string().min(1).optional(),
+  moduleId: z.string().min(1).optional(),
+  aulaId: z.string().min(1).optional(),
+  userId: z.string().min(1).optional(),
+  limit: z.coerce.number().int().min(1).max(200).optional().default(50)
+}).refine((v) => v.quizId || v.moduleId, {
+  message: "Se requiere al menos `quizId` o `moduleId`."
+});
+
+export const QuizAttemptSummaryQuerySchema = z.object({
+  quizId: z.string().min(1)
+});
+
 export type QuizAttemptCreate = z.infer<typeof QuizAttemptCreateSchema>;
 export type QuizAttemptSubmit = z.infer<typeof QuizAttemptSubmitSchema>;
 export type QuizAttemptGrade = z.infer<typeof QuizAttemptGradeSchema>;
+export type QuizAttemptListQuery = z.infer<typeof QuizAttemptListQuerySchema>;
+export type QuizAttemptSummaryQuery = z.infer<typeof QuizAttemptSummaryQuerySchema>;
