@@ -80,6 +80,14 @@ export type ModuleQuizQuestion = {
     | "abierta";
   options?: string[];
   answerKey?: string | string[];
+  /**
+   * Explicación que se muestra al alumno tras responder. Provista por:
+   *  - `explicacion:` en el DSL VBLang (F2-03, gana sobre el fallback).
+   *  - `ejercicio.explicacion` de los generadores nativos.
+   *  - Fallback: `pasos.join("\n")` si hay `pasos:`.
+   *  - Fallback final: `País correcto: <nombre>` para `marcar_mapa`.
+   * El renderer decide CUÁNDO mostrarla (siempre, sólo tras mal, etc.).
+   */
   explanation?: string;
   /**
    * Peso de la pregunta en el puntaje del quiz (default 1). Es composición a

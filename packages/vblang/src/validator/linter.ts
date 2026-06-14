@@ -278,6 +278,25 @@ export function lint(plantilla: Plantilla, opts?: LintOptions): LintReport {
           });
         }
       }
+    } else if (b.kind === "explicacion") {
+      // F2-03: un solo string, sin índice. Inferir tipos de las
+      // interpolaciones y emitir warning explícito si referencia variable
+      // no declarada (la base `inferExprType` ya emite `var-undef`).
+      for (const p of b.partes) {
+        if (p.kind !== "interp") continue;
+        inferExprType(p.expr, env, ctx);
+        walkExpr(p.expr, (e) => {
+          if (e.kind === "var" && env.get(e.name) === undefined) {
+            issues.push({
+              severity: "warning",
+              code: "explicacion-var-undef",
+              message: `explicacion: variable "${e.name}" no declarada`,
+              line: e.loc.line,
+              col: e.loc.col,
+            });
+          }
+        });
+      }
     } else if (b.kind === "enunciados") {
       // Tarea 07: por cada variante, inferir tipos de las interpolaciones
       // (que ya emite var-undef) y emitir un warning contextual con el
@@ -409,6 +428,26 @@ function lintInterpolaciones(
             }
           });
         }
+      }
+    } else if (b.kind === "explicacion") {
+      // F2-03: mismo tratamiento que enunciado/path-asistido. La
+      // interpolación referencia variables que el generador debe proveer
+      // (opts.generadorVars); si no están, warning contextual.
+      for (const p of b.partes) {
+        if (p.kind !== "interp") continue;
+        inferExprType(p.expr, env, ctx);
+        checkRandomInline(p.expr, issues);
+        walkExpr(p.expr, (e) => {
+          if (e.kind === "var" && env.get(e.name) === undefined) {
+            issues.push({
+              severity: "warning",
+              code: "explicacion-var-undef",
+              message: `explicacion: variable "${e.name}" no declarada`,
+              line: e.loc.line,
+              col: e.loc.col,
+            });
+          }
+        });
       }
     }
   }
@@ -574,6 +613,9 @@ function* allBlockExpressions(plantilla: Plantilla): Iterable<Expr> {
         for (const it of b.items) {
           for (const p of it.partes) if (p.kind === "interp") yield p.expr;
         }
+        break;
+      case "explicacion":
+        for (const p of b.partes) if (p.kind === "interp") yield p.expr;
         break;
       case "respuesta_iso":
       case "respuesta_nombre":
@@ -904,7 +946,8 @@ function detectPatterns(
       b.kind === "enunciado" ||
       b.kind === "pasos" ||
       b.kind === "enunciados" ||
-      b.kind === "pistas",
+      b.kind === "pistas" ||
+      b.kind === "explicacion",
   );
   for (const b of inlineCheckBlocks) {
     if (b.kind === "enunciado") {
@@ -958,6 +1001,22 @@ function detectPatterns(
             }
           });
         }
+      }
+    } else if (b.kind === "explicacion") {
+      for (const p of b.partes) {
+        if (p.kind !== "interp") continue;
+        walkExpr(p.expr, (e) => {
+          if (e.kind === "fun_call" && e.name === "random") {
+            issues.push({
+              severity: "warning",
+              code: "random-inline",
+              message:
+                "random() en interpolación genera valores distintos en cada uso. Declaralo como variable.",
+              line: e.loc.line,
+              col: e.loc.col,
+            });
+          }
+        });
       }
     }
   }

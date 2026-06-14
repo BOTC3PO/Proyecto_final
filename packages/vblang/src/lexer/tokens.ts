@@ -53,6 +53,10 @@ export enum TokenKind {
   KW_ENUNCIADOS = "KW_ENUNCIADOS",
   KW_PISTAS = "KW_PISTAS",
   KW_PASOS = "KW_PASOS",
+  // F2-03: bloque opcional `explicacion:` (string único interpolable, mostrado
+  // al alumno tras responder; paridad con el campo `explanation` que ya tienen
+  // los quizzes manuales/banco). Gana sobre el fallback `pasos` en el adapter.
+  KW_EXPLICACION = "KW_EXPLICACION",
   KW_VISUAL = "KW_VISUAL",
   KW_GENERADOR = "KW_GENERADOR",
   KW_DATASET = "KW_DATASET",
@@ -95,6 +99,7 @@ export const BLOCK_KEYWORDS: Record<string, TokenKind> = {
   enunciados: TokenKind.KW_ENUNCIADOS,
   pistas: TokenKind.KW_PISTAS,
   pasos: TokenKind.KW_PASOS,
+  explicacion: TokenKind.KW_EXPLICACION,
   visual: TokenKind.KW_VISUAL,
   generador: TokenKind.KW_GENERADOR,
   dataset: TokenKind.KW_DATASET,

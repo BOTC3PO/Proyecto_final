@@ -67,6 +67,9 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
       case "pistas":
         compiled.pistas = b.items;
         break;
+      case "explicacion":
+        compiled.explicacion = b.partes;
+        break;
       case "visual":
         compiled.visual = b.campos;
         break;

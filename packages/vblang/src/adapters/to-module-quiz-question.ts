@@ -174,6 +174,13 @@ export function toModuleQuizQuestion(
 
   const explanation =
     options.explanation ??
+    // F2-03: `explicacion:` de la plantilla gana sobre el fallback
+    // `buildExplanation(pasos)`. El orden de precedencia queda:
+    //   1. `options.explanation` (caller override).
+    //   2. `gen.explicacion` (F2-03, explícita en el DSL).
+    //   3. `buildExplanation(gen.pasos)` (fallback legacy).
+    //   4. `País correcto: <nombre>` para `marcar_mapa` (fallback final).
+    gen.explicacion ??
     buildExplanation(gen.pasos) ??
     (gen.tipo === "marcar_mapa" && gen.respuestaNombre
       ? `País correcto: ${gen.respuestaNombre}`

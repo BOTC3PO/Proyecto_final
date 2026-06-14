@@ -80,6 +80,23 @@ function materializarPistas(
   return compiled.pistas.map((p) => interpolar(p.partes, scope, ctx));
 }
 
+/**
+ * F2-03: materializa la `explicacion:` interpolándola con los valores de la
+ * simulación. Devuelve `undefined` si la plantilla no declara `explicacion:` —
+ * clave para la no-regresión: si no hay explicación, no se interpola ni se
+ * toca el PRNG, así las plantillas existentes producen exactamente lo mismo.
+ */
+function materializarExplicacion(
+  compiled: CompiledPlantilla,
+  scope: Scope,
+  ctx: EvalContext,
+): string | undefined {
+  if (!compiled.explicacion || compiled.explicacion.length === 0) {
+    return undefined;
+  }
+  return interpolar(compiled.explicacion, scope, ctx);
+}
+
 function normalizarDificultad(raw: unknown): string {
   if (raw === 1 || raw === "1") return "basico";
   if (raw === 2 || raw === "2") return "intermedio";
@@ -137,6 +154,11 @@ function generateAssisted(
   // expone el generador (igual que enunciado/pasos override).
   const pistas = materializarPistas(compiled, scope, ctx);
 
+  // F2-03: idem para la `explicacion:` de la plantilla. Si la plantilla la
+  // declara, gana sobre la `explicacion` que el generador asistido pudiera
+  // aportar (futuro).
+  const explicacion = materializarExplicacion(compiled, scope, ctx);
+
   return buildAssistedResult(
     compiled,
     ejercicio,
@@ -144,6 +166,7 @@ function generateAssisted(
     enunciado,
     pasos,
     pistas,
+    explicacion,
     datos,
   );
 }
@@ -155,6 +178,7 @@ function buildAssistedResult(
   enunciado: string,
   pasos: string[] | undefined,
   pistas: string[] | undefined,
+  explicacion: string | undefined,
   datos: Record<string, unknown>,
 ): GenerationResult {
   // El generador puede aportar un visual (gráfico, circuito, etc.); lo
@@ -177,6 +201,7 @@ function buildAssistedResult(
       enunciado,
       pasos,
       pistas,
+      explicacion,
       opciones,
       variables: datos,
       seed,
@@ -204,6 +229,7 @@ function buildAssistedResult(
       enunciado,
       pasos,
       pistas,
+      explicacion,
       respuesta: ejercicio.resultado,
       unidad,
       tolerancia,
@@ -221,6 +247,7 @@ function buildAssistedResult(
       enunciado,
       pasos,
       pistas,
+      explicacion,
       respuesta: ejercicio.respuestaCorrecta,
       variables: datos,
       seed,
@@ -354,6 +381,8 @@ export function generate(
       : undefined;
     // F2-02: pistas escalonadas materializadas (undefined si no hay `pistas:`).
     const pistasTexto = materializarPistas(compiled, scope, ctx);
+    // F2-03: explicación materializada (undefined si no hay `explicacion:`).
+    const explicacionTexto = materializarExplicacion(compiled, scope, ctx);
 
     // Dispatch a generadores especiales (Sprint 9A). Respetan el mismo loop de
     // retry por restricciones que los tipos básicos.
@@ -367,6 +396,7 @@ export function generate(
         enunciadoTexto,
         pasosTexto,
         pistasTexto,
+        explicacionTexto,
       );
     }
     if (compiled.tipoInferido === "marcar_mapa") {
@@ -379,6 +409,7 @@ export function generate(
         enunciadoTexto,
         pasosTexto,
         pistasTexto,
+        explicacionTexto,
       );
     }
     if (compiled.tipoInferido === "analisis_sintactico") {
@@ -391,6 +422,7 @@ export function generate(
         enunciadoTexto,
         pasosTexto,
         pistasTexto,
+        explicacionTexto,
       );
     }
     if (compiled.tipoInferido === "identificar_palabras") {
@@ -403,6 +435,7 @@ export function generate(
         enunciadoTexto,
         pasosTexto,
         pistasTexto,
+        explicacionTexto,
       );
     }
 
@@ -414,6 +447,7 @@ export function generate(
         enunciado: enunciadoTexto,
         pasos: pasosTexto,
         pistas: pistasTexto,
+        explicacion: explicacionTexto,
         variables: scope.toRecord(),
         seed: options.seed,
         intentos: intento,
@@ -430,6 +464,7 @@ export function generate(
       enunciado: enunciadoTexto,
       pasos: pasosTexto,
       pistas: pistasTexto,
+      explicacion: explicacionTexto,
       respuesta: respuestaVal,
       respuestasValidas: respuestasValidasVals,
       unidad: compiled.unidad,

@@ -7,6 +7,7 @@ import type {
   DatasetBloque,
   EnunciadoBloque,
   EnunciadosBloque,
+  ExplicacionBloque,
   EtiquetaPedida,
   EtiquetasPedidasBloque,
   Expr,
@@ -642,6 +643,7 @@ function isBlockKeyword(k: TokenKind): boolean {
     k === TokenKind.KW_ENUNCIADOS ||
     k === TokenKind.KW_PISTAS ||
     k === TokenKind.KW_PASOS ||
+    k === TokenKind.KW_EXPLICACION ||
     k === TokenKind.KW_VISUAL ||
     k === TokenKind.KW_GENERADOR ||
     k === TokenKind.KW_DATASET ||
@@ -664,6 +666,34 @@ export function parsePasosBloque(c: TokenCursor): PasosBloque {
     kind: "pasos",
     pasos: items,
     loc: spanLoc(tokLoc(kwTok), tokLoc(endTok)),
+  };
+}
+
+/**
+ * F2-03: bloque `explicacion:`. Un único string interpolable (mismo patrón de
+ * superficie que `enunciado:` y `unidad:`). Se acepta string inline o
+ * multilínea (`|`). NO es lista: la explicación es una sola.
+ */
+export function parseExplicacionBloque(c: TokenCursor): ExplicacionBloque {
+  const kwTok = c.consumeKind(TokenKind.KW_EXPLICACION, "'explicacion'");
+  consumeColon(c);
+  const tok = c.peek();
+  if (tok.kind !== TokenKind.STRING && tok.kind !== TokenKind.MULTILINE_STRING) {
+    throw new ParseError(
+      `\`explicacion:\` debe ir seguido de un string ("...") o de un bloque multilínea con |`,
+      tok.line,
+      tok.col,
+    );
+  }
+  c.consume();
+  const partes: TextoOInterpolacion[] = parseEnunciadoString(
+    tok.value,
+    tokLoc(tok),
+  );
+  return {
+    kind: "explicacion",
+    partes,
+    loc: spanLoc(tokLoc(kwTok), tokLoc(tok)),
   };
 }
 
@@ -833,6 +863,8 @@ export function parseBloque(c: TokenCursor): Bloque {
       return parsePistasBloque(c);
     case TokenKind.KW_PASOS:
       return parsePasosBloque(c);
+    case TokenKind.KW_EXPLICACION:
+      return parseExplicacionBloque(c);
     case TokenKind.KW_VISUAL:
       return parseVisualBloque(c);
     case TokenKind.KW_GENERADOR:

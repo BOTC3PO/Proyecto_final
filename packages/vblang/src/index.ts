@@ -117,6 +117,7 @@ export type {
   EnunciadoBloque,
   EnunciadosBloque,
   EtiquetaPedida,
+  ExplicacionBloque,
   EtiquetasPedidasBloque,
   Expr,
   GeneradorBloque,

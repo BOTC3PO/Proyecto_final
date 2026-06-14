@@ -337,6 +337,12 @@ function emitBloque(b: Bloque): string {
       const body = b.pasos.map((p) => emitPaso(p, INDENT)).join("\n");
       return `pasos:\n${body}`;
     }
+    case "explicacion":
+      // F2-03: string único interpolable. Mismo patrón que `enunciado:` y
+      // `unidad:`. El bloque `explicacion:` (a diferencia de `enunciado:`)
+      // no soporta multilínea con `|` (siempre es una sola frase por
+      // semántica del modelo: una sola explicación por pregunta).
+      return `explicacion: ${emitInterpolatedString(b.partes)}`;
     case "pistas": {
       // F2-02: una sola pista se emite inline (round-trip con la forma
       // inline); varias, como lista `- "..."`. El parser acepta ambas.

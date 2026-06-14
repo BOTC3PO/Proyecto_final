@@ -253,6 +253,20 @@ export interface PasosBloque {
   loc: Loc;
 }
 /**
+ * F2-03: explicación que se muestra al alumno tras responder. Bloque opcional
+ * con un único string interpolable (mismo patrón de superficie que `enunciado:`,
+ * `unidad:`, etc.). El DSL sólo declara el texto; la decisión de "cuándo
+ * mostrar" (siempre, sólo tras mal, sólo a partir de N intentos) queda fuera
+ * del scope del DSL — es del renderer. Si la plantilla lo declara, el adapter
+ * propaga `gen.explicacion` a `ModuleQuizQuestion.explanation` con precedencia
+ * sobre el fallback `pasos`.
+ */
+export interface ExplicacionBloque {
+  kind: "explicacion";
+  partes: TextoOInterpolacion[];
+  loc: Loc;
+}
+/**
  * F2-02: pistas escalonadas. Una sola keyword `pistas:` que acepta forma inline
  * (un string → lista de 1) o lista (`- "..."`). A diferencia de `enunciados:`,
  * NO son variantes: son una secuencia ordenada que el alumno pide de a una.
@@ -334,6 +348,7 @@ export type Bloque =
   | EnunciadosBloque
   | PistasBloque
   | PasosBloque
+  | ExplicacionBloque
   | VisualBloque
   | GeneradorBloque
   | DatasetBloque

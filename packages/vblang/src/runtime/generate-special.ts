@@ -56,6 +56,7 @@ export function generateOrdenar(
   enunciado: string,
   pasos: string[] | undefined,
   pistas: string[] | undefined,
+  explicacion: string | undefined,
 ): GenerationResult {
   if (!compiled.opcionesExplicitas || compiled.opcionesExplicitas.length === 0) {
     throw new EvalError(
@@ -98,6 +99,7 @@ export function generateOrdenar(
     enunciado,
     pasos,
     pistas,
+    explicacion,
     variables: scope.toRecord(),
     seed,
     intentos: intento,
@@ -119,6 +121,7 @@ export function generateMarcarMapa(
   enunciado: string,
   pasos: string[] | undefined,
   pistas: string[] | undefined,
+  explicacion: string | undefined,
 ): GenerationResult {
   if (!compiled.mapa) {
     throw new EvalError(
@@ -168,6 +171,7 @@ export function generateMarcarMapa(
     enunciado,
     pasos,
     pistas,
+    explicacion,
     variables: scope.toRecord(),
     seed,
     intentos: intento,
@@ -191,6 +195,7 @@ export function generateAnalisisSintactico(
   enunciado: string,
   pasos: string[] | undefined,
   pistas: string[] | undefined,
+  explicacion: string | undefined,
 ): GenerationResult {
   if (!compiled.textoAnalizar) {
     throw new EvalError(
@@ -248,6 +253,7 @@ export function generateAnalisisSintactico(
     enunciado,
     pasos,
     pistas,
+    explicacion,
     variables: scope.toRecord(),
     seed,
     intentos: intento,
@@ -269,6 +275,7 @@ export function generateIdentificarPalabras(
   enunciado: string,
   pasos: string[] | undefined,
   pistas: string[] | undefined,
+  explicacion: string | undefined,
 ): GenerationResult {
   if (!compiled.textoAnalizar) {
     throw new EvalError(
@@ -320,6 +327,7 @@ export function generateIdentificarPalabras(
     enunciado,
     pasos,
     pistas,
+    explicacion,
     variables: scope.toRecord(),
     seed,
     intentos: intento,

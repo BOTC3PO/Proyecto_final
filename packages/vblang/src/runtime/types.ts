@@ -39,6 +39,14 @@ export interface CompiledPlantilla {
    * acá (es composición de quiz, igual que `points`).
    */
   pistas?: PasoItem[];
+  /**
+   * F2-03: explicación mostrada al alumno tras responder. Un único string
+   * interpolable (mismo patrón que `enunciado:`). Si está presente, el adapter
+   * la propaga a `ModuleQuizQuestion.explanation` con precedencia sobre el
+   * fallback `pasos`. La decisión de CUÁNDO mostrarla (siempre, sólo tras mal)
+   * queda fuera del DSL — es del renderer.
+   */
+  explicacion?: TextoOInterpolacion[];
   tipoInferido: TipoPregunta;
   generadorId?: string;
   /* Soporte parcial / no usado todavía en Sprint 4 */
@@ -88,6 +96,13 @@ export interface GenerationResult {
    * puntos (el costo se decide en la composición del quiz, no acá).
    */
   pistas?: string[];
+  /**
+   * F2-03: explicación ya interpolada. `undefined` si la plantilla no
+   * declara `explicacion:`. El adapter la propaga a
+   * `ModuleQuizQuestion.explanation` con precedencia sobre el fallback
+   * construido desde `pasos`.
+   */
+  explicacion?: string;
   respuesta?: unknown;
   respuestasValidas?: unknown[];
   unidad?: string;
