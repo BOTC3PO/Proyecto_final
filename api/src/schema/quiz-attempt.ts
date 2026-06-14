@@ -48,6 +48,17 @@ export const QuizAttemptSubmitSchema = z.object({
   presentedIds: z.array(z.string()).optional()
 });
 
+// F5-01 — guardado incremental de UNA respuesta (entrega por pregunta).
+// La idempotencia es por (intento, questionId): el endpoint hace upsert de
+// `answers[questionId]`, así que reenviar la misma respuesta (reintento de la
+// cola offline) no duplica — sólo actualiza. `clientTs` es opcional (marca de
+// tiempo del cliente, para depurar la cola; no afecta el resultado).
+export const QuizAttemptAnswerSchema = z.object({
+  questionId: z.string().min(1),
+  response: z.union([z.string(), z.array(z.string())]),
+  clientTs: z.number().int().nonnegative().optional()
+});
+
 // WO07 — corrección manual de UN ítem abierto por parte del profe.
 export const QuizAttemptGradeSchema = z.object({
   questionId: z.string().min(1),
@@ -76,6 +87,7 @@ export const QuizAttemptSummaryQuerySchema = z.object({
 
 export type QuizAttemptCreate = z.infer<typeof QuizAttemptCreateSchema>;
 export type QuizAttemptSubmit = z.infer<typeof QuizAttemptSubmitSchema>;
+export type QuizAttemptAnswer = z.infer<typeof QuizAttemptAnswerSchema>;
 export type QuizAttemptGrade = z.infer<typeof QuizAttemptGradeSchema>;
 export type QuizAttemptListQuery = z.infer<typeof QuizAttemptListQuerySchema>;
 export type QuizAttemptSummaryQuery = z.infer<typeof QuizAttemptSummaryQuerySchema>;

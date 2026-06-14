@@ -8,6 +8,7 @@ import {
 } from "../lib/entitlements";
 import { requireUser } from "../lib/user-auth";
 import {
+  QuizAttemptAnswerSchema,
   QuizAttemptCreateSchema,
   QuizAttemptGradeSchema,
   QuizAttemptListQuerySchema,
@@ -1225,6 +1226,67 @@ quizAttempts.get(
   }
 );
 
+// F5-01 — Guardado incremental e idempotente de UNA respuesta.
+//
+// Regla del plan (ronda 6 K4): "es problema de la conexión de la escuela, no del
+// alumno". El reproductor envía cada respuesta apenas se contesta; si la red está
+// caída encola en localStorage y reintenta. Este endpoint hace UPSERT de
+// `answers[questionId]` en el intento: la idempotencia es por (intento,
+// questionId), así que reenviar la misma clave (reintento de la cola) NO duplica,
+// sólo actualiza. No corrige nada — la corrección sigue en /submit, que ahora
+// fusiona estas respuestas parciales con las del payload final.
+quizAttempts.post(
+  "/api/quiz-attempts/:id/answer",
+  ...bodyLimitMB(1),
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requireActiveInstitutionBenefit,
+  async (req, res) => {
+    try {
+      const payload = QuizAttemptAnswerSchema.parse(req.body);
+      const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+      if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
+      const userId =
+        typeof req.user?._id?.toString === "function"
+          ? req.user._id.toString()
+          : typeof req.user?.id === "string"
+            ? req.user.id
+            : "";
+      if (!userId) return res.status(401).json({ error: "user not found" });
+
+      const attempt = (await prisma.quizAttempt.findFirst({
+        where: { id: idParam, userId }
+      })) as QuizAttemptRecord | null;
+      if (!attempt) return res.status(404).json({ error: "attempt not found" });
+
+      // Un intento ya entregado/corregido no acepta más respuestas parciales: la
+      // cola debe descartar este ítem (error terminal, no reintentable).
+      if (attempt.submittedAt || attempt.status === "submitted" || attempt.status === "pending_review") {
+        return res.status(409).json({ error: "attempt already submitted" });
+      }
+
+      const stored = safeJsonParse<Record<string, string | string[]>>(
+        attempt.answers as unknown as string,
+        {}
+      );
+      // Upsert idempotente por questionId.
+      stored[payload.questionId] = payload.response;
+      await prisma.quizAttempt.updateMany({
+        where: { id: idParam },
+        data: { answers: JSON.stringify(stored) }
+      });
+
+      return res.json({
+        ok: true,
+        questionId: payload.questionId,
+        answeredCount: Object.keys(stored).length
+      });
+    } catch (error: any) {
+      res.status(400).json({ error: error?.message ?? "invalid payload" });
+    }
+  }
+);
+
 quizAttempts.post(
   "/api/quiz-attempts/:id/submit",
   ...bodyLimitMB(2),
@@ -1308,6 +1370,19 @@ quizAttempts.post(
             `mismatch=${mismatchQuestions.length}`
         );
       }
+      // F5-01 — fusionar las respuestas YA guardadas incrementalmente (cola
+      // offline / envío por pregunta) con las del payload final. Si la red se
+      // cayó a mitad del quiz, las parciales persistidas en `attempt.answers`
+      // siguen contando aunque el payload de /submit llegue incompleto. El
+      // payload pisa al stored ante conflicto (es la versión más reciente que el
+      // alumno vio). Mutamos `payload.answers` para que todo el flujo de
+      // corrección y persistencia use la unión.
+      const storedAnswers = safeJsonParse<Record<string, string | string[]>>(
+        attempt.answers as unknown as string,
+        {}
+      );
+      payload.answers = { ...storedAnswers, ...payload.answers };
+
       const gradingQuiz: ModuleQuiz = { ...quiz, questions: gradingQuestions };
       const { score, maxScore, manual } = gradeAnswers(gradingQuiz, payload.answers);
       const feedback = buildFeedback(gradingQuiz, payload.answers);

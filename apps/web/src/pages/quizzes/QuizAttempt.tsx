@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { apiGet, apiPost } from "../../lib/api";
+import { apiGet, apiPost, ApiError } from "../../lib/api";
+import {
+  recordAnswer,
+  flush as flushOutbox,
+  clearAttempt as clearOutbox,
+  type OutboxItem,
+} from "../../lib/attemptOutbox";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
@@ -337,6 +343,27 @@ export default function QuizAttempt() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modoCompetencia, tiempoRestante]);
 
+  useEffect(() => {
+    const id = resolveAttemptId(attempt);
+    if (!id || submitStatus === "submitted") return;
+    const onOnline = () => {
+      void flushOutbox(async (item: OutboxItem) => {
+        try {
+          await apiPost(`/api/quiz-attempts/${id}/answer`, {
+            questionId: item.questionId,
+            response: item.response,
+          });
+          return { ok: true };
+        } catch (err) {
+          if (err instanceof ApiError && err.status === 409) return { ok: false, terminal: true };
+          return { ok: false };
+        }
+      }, id);
+    };
+    window.addEventListener("online", onOnline);
+    return () => window.removeEventListener("online", onOnline);
+  }, [attempt, submitStatus]);
+
   const formatTiempo = (seg: number) => {
     const m = Math.floor(seg / 60);
     const s = seg % 60;
@@ -406,17 +433,34 @@ export default function QuizAttempt() {
 
   const handleAnswerChange = (questionId: string, value: AttemptAnswerValue) => {
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
+    const id = resolveAttemptId(attempt);
+    if (id && (typeof value === "string" || Array.isArray(value))) {
+      recordAnswer(id, questionId, value);
+      apiPost(`/api/quiz-attempts/${id}/answer`, {
+        questionId,
+        response: value,
+      }).catch(() => {});
+    }
   };
 
   const handleToggleCheckbox = (questionId: string, option: string, checked: boolean) => {
+    let next: string[] = [];
     setAnswers((prev) => {
       const current = prev[questionId];
       const currentList = Array.isArray(current) ? current : [];
-      const next = checked
+      next = checked
         ? Array.from(new Set([...currentList, option]))
         : currentList.filter((item) => item !== option);
       return { ...prev, [questionId]: next };
     });
+    const id = resolveAttemptId(attempt);
+    if (id) {
+      recordAnswer(id, questionId, next);
+      apiPost(`/api/quiz-attempts/${id}/answer`, {
+        questionId,
+        response: next,
+      }).catch(() => {});
+    }
   };
 
   const handleSubmit = async () => {
@@ -424,6 +468,21 @@ export default function QuizAttempt() {
     setSubmitStatus("submitting");
     setSubmitMessage(null);
     try {
+      const id = resolveAttemptId(attempt);
+      if (id) {
+        await flushOutbox(async (item: OutboxItem) => {
+          try {
+            await apiPost(`/api/quiz-attempts/${id}/answer`, {
+              questionId: item.questionId,
+              response: item.response,
+            });
+            return { ok: true };
+          } catch (err) {
+            if (err instanceof ApiError && err.status === 409) return { ok: false, terminal: true };
+            return { ok: false };
+          }
+        }, id);
+      }
       // Ids efectivamente presentados/respondibles (tras pool/selección o, en
       // elige_alumno, solo la elegida). El servidor corrige exactamente estos.
       const presentedIds = questions.map((q) => q.id);
@@ -459,6 +518,7 @@ export default function QuizAttempt() {
       setResult(response);
       setSubmitStatus("submitted");
       setSubmitMessage(response.message ?? "Respuestas enviadas para corrección.");
+      if (id) clearOutbox(id);
       if (modoCompetencia && tiempoInicio) {
         const tiempoSeg = Math.floor((Date.now() - tiempoInicio) / 1000);
         const quizId = attempt?.quizId ?? "";
