@@ -23,6 +23,12 @@ export type {
 } from "./scoring/index.js";
 export { compile } from "./runtime/compile.js";
 export { generate } from "./runtime/generate.js";
+export {
+  generateConResorteo,
+  ResorteoAgotadoError,
+  RESORTEO_TOPE_DEFAULT,
+} from "./runtime/resorteo.js";
+export type { ResorteoOptions } from "./runtime/resorteo.js";
 export { createPrng } from "./runtime/prng.js";
 export { ParseError } from "./parser/errors.js";
 export { LexError } from "./lexer/errors.js";

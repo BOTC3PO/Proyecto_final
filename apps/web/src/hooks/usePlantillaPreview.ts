@@ -10,7 +10,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import {
-  generate,
+  generateConResorteo,
   toModuleQuizQuestion,
   type CompiledPlantilla,
   type ModuleQuizQuestion,
@@ -36,7 +36,11 @@ const PREVIEW_COUNT = 3;
 
 function runOne(compiled: CompiledPlantilla, seed: string): PreviewItem {
   try {
-    const gen = generate(compiled, {
+    // F5-05 — re-sorteo: si una seed falla (p. ej. denominador 0 en un
+    // ejercicio de límites), reintentamos con seeds derivadas antes de mostrar
+    // un error en la card. El preview no está atado al contrato de determinismo
+    // cliente↔servidor, así que el re-sorteo acá es seguro.
+    const gen = generateConResorteo(compiled, {
       seed,
       provider: generadorAsistidoProvider,
     });

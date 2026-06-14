@@ -470,6 +470,35 @@ function checkRandomInline(expr: Expr, issues: LintIssue[]): void {
 }
 
 /**
+ * F5-05 — Lee un flag booleano del bloque `metadata:`. Acepta el literal
+ * booleano `true` o strings afirmativos ("true"/"si"/"sí"/"intencional"). Se usa
+ * para suprimir advertencias que en cierto contenido son intencionales (p. ej.
+ * en un ejercicio de límites el denominador que tiende a 0 ES la consigna, no un
+ * bug): el docente declara `metadata: { division_intencional: true }` y el lint
+ * deja de marcar `division-zero-risk`. La advertencia es por diseño SUPRIMIBLE
+ * (warning, nunca error duro): el análisis estático no puede probar que la
+ * división a 0 sea un error, así que jamás bloquea el guardado.
+ */
+function metadataFlag(plantilla: Plantilla, key: string): boolean {
+  const meta = plantilla.bloques.find((b) => b.kind === "metadata");
+  if (!meta || meta.kind !== "metadata") return false;
+  const campo = meta.campos.find((c) => c.key === key);
+  if (!campo) return false;
+  // Forma idiomática del DSL: el booleano `verdadero` (parsea a kind "bool").
+  if (campo.value.kind === "bool") return campo.value.value === true;
+  // Tolerante a otras formas que un docente puede escribir: el string
+  // "intencional"/"si"/"true", o el identificador suelto `true`/`si`/`intencional`
+  // (el DSL no conoce `true`, así que lo lexea como `var` con ese nombre).
+  const afirmativo = (s: string) => {
+    const v = s.trim().toLowerCase();
+    return v === "true" || v === "si" || v === "sí" || v === "intencional";
+  };
+  if (campo.value.kind === "str") return afirmativo(campo.value.value);
+  if (campo.value.kind === "var") return afirmativo(campo.value.name);
+  return false;
+}
+
+/**
  * Resuelve un Expr a un número literal si es `NumLit` o `UnaryOp(±, NumLit)`.
  * Devuelve null si no se puede determinar estáticamente.
  */
@@ -1022,6 +1051,9 @@ function detectPatterns(
   }
 
   // ----- division-zero-risk y sqrt-negative-risk
+  // F5-05 — flag por plantilla para silenciar el aviso de división por cero
+  // cuando es intencional (límites). No afecta sqrt-negative-risk.
+  const divisionIntencional = metadataFlag(plantilla, "division_intencional");
   const declByName = new Map(declaraciones.map((d) => [d.nombre, d]));
   const isRandomDecl = (name: string) => {
     const d = declByName.get(name);
@@ -1044,7 +1076,7 @@ function detectPatterns(
         node.right.kind === "var"
       ) {
         const range = isRandomDecl(node.right.name);
-        if (range && range.min <= 0 && range.max >= 0) {
+        if (range && range.min <= 0 && range.max >= 0 && !divisionIntencional) {
           issues.push({
             severity: "warning",
             code: "division-zero-risk",
