@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import OrdenarRenderer from "../OrdenarRenderer";
 
 describe("OrdenarRenderer", () => {
@@ -56,5 +56,79 @@ describe("OrdenarRenderer", () => {
     expect(cardA.className).toMatch(/emerald/);
     // c en posición 1 (correcta es b) → rojo
     expect(cardC.className).toMatch(/red/);
+  });
+
+  it("muestra botones ↑/↓ en cada card con aria-label descriptivo", () => {
+    render(<OrdenarRenderer items={["a", "b", "c"]} />);
+    expect(screen.getByTestId("ordenar-up-a")).toBeTruthy();
+    expect(screen.getByTestId("ordenar-down-a")).toBeTruthy();
+    expect(screen.getByLabelText("Subir a")).toBeTruthy();
+    expect(screen.getByLabelText("Bajar c")).toBeTruthy();
+  });
+
+  it("el primer item tiene el botón ↑ deshabilitado", () => {
+    render(<OrdenarRenderer items={["a", "b", "c"]} />);
+    expect(screen.getByTestId("ordenar-up-a").hasAttribute("disabled")).toBe(true);
+  });
+
+  it("el último item tiene el botón ↓ deshabilitado", () => {
+    render(<OrdenarRenderer items={["a", "b", "c"]} />);
+    expect(screen.getByTestId("ordenar-down-c").hasAttribute("disabled")).toBe(true);
+  });
+
+  it("items intermedios tienen ↑ y ↓ habilitados", () => {
+    render(<OrdenarRenderer items={["a", "b", "c"]} />);
+    expect(screen.getByTestId("ordenar-up-b").hasAttribute("disabled")).toBe(false);
+    expect(screen.getByTestId("ordenar-down-b").hasAttribute("disabled")).toBe(false);
+  });
+
+  it("click en ↓ del primer item lo baja y llama onChange", () => {
+    const onChange = vi.fn();
+    render(<OrdenarRenderer items={["a", "b", "c"]} onChange={onChange} />);
+    fireEvent.click(screen.getByTestId("ordenar-down-a"));
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(["b", "a", "c"]);
+  });
+
+  it("click en ↑ del segundo item lo sube y llama onChange", () => {
+    const onChange = vi.fn();
+    render(<OrdenarRenderer items={["a", "b", "c"]} onChange={onChange} />);
+    fireEvent.click(screen.getByTestId("ordenar-up-b"));
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(["b", "a", "c"]);
+  });
+
+  it("click en ↑ del último item lo sube y llama onChange", () => {
+    const onChange = vi.fn();
+    render(<OrdenarRenderer items={["a", "b", "c"]} onChange={onChange} />);
+    fireEvent.click(screen.getByTestId("ordenar-up-c"));
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(["a", "c", "b"]);
+  });
+
+  it("los botones ↑/↓ no se muestran cuando disabled=true (post-submit)", () => {
+    render(
+      <OrdenarRenderer items={["a", "b", "c"]} disabled value={["a", "b", "c"]} />,
+    );
+    expect(screen.queryByTestId("ordenar-up-a")).toBeNull();
+    expect(screen.queryByTestId("ordenar-down-a")).toBeNull();
+    expect(screen.queryByTestId("ordenar-up-c")).toBeNull();
+    expect(screen.queryByTestId("ordenar-down-c")).toBeNull();
+  });
+
+  it("las cards cumplen target táctil mínimo de 44px (min-h-[44px])", () => {
+    render(<OrdenarRenderer items={["a", "b", "c"]} />);
+    const cardA = screen.getByTestId("ordenar-card-a");
+    expect(cardA.className).toMatch(/min-h-\[44px\]/);
+  });
+
+  it("los botones ↑/↓ cumplen target táctil mínimo de 44×44px", () => {
+    render(<OrdenarRenderer items={["a", "b", "c"]} />);
+    const upBtn = screen.getByTestId("ordenar-up-b");
+    expect(upBtn.className).toMatch(/min-h-\[44px\]/);
+    expect(upBtn.className).toMatch(/min-w-\[44px\]/);
+    const downBtn = screen.getByTestId("ordenar-down-b");
+    expect(downBtn.className).toMatch(/min-h-\[44px\]/);
+    expect(downBtn.className).toMatch(/min-w-\[44px\]/);
   });
 });

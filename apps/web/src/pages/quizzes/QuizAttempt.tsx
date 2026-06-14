@@ -917,7 +917,10 @@ export default function QuizAttempt() {
                     ) : questionType === "vf" ? (
                       <div className="flex flex-col gap-2">
                         {["Verdadero", "Falso"].map((option) => (
-                          <label key={option} className="flex items-center gap-2 text-sm text-gray-700">
+                          <label
+                            key={option}
+                            className="flex items-center gap-2 min-h-[44px] px-2 rounded text-sm text-gray-700 cursor-pointer hover:bg-slate-50"
+                          >
                             <input
                               type="radio"
                               name={question.id}
@@ -933,7 +936,10 @@ export default function QuizAttempt() {
                     ) : hasOptions ? (
                       <div className="flex flex-col gap-2">
                         {question.options?.map((option) => (
-                          <label key={option} className="flex items-start gap-2 text-sm text-gray-700">
+                          <label
+                            key={option}
+                            className="flex items-center gap-2 min-h-[44px] px-2 py-1 rounded text-sm text-gray-700 cursor-pointer hover:bg-slate-50"
+                          >
                             <input
                               type={isMulti ? "checkbox" : "radio"}
                               name={question.id}

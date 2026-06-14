@@ -6,7 +6,17 @@
  * `disabled` (post-submit), se desactiva el drag y se pintan los items
  * verdes/rojos según `correctOrder`.
  *
- * Mobile-friendly: PointerSensor (mouse + touch) + KeyboardSensor (accesibilidad).
+ * Touch/mobile (F5-06):
+ *   - dnd-kit PointerSensor: mouse + touch + pen unificados.
+ *   - dnd-kit KeyboardSensor: Tab para enfocar, Space para pick up, flechas
+ *     para mover, Space para soltar, Esc para cancelar.
+ *   - Botones ↑/↓ visibles como fallback accesible (F5-06, plan L1
+ *     responder-desde-teléfono). Siempre visibles durante la respuesta,
+ *     ocultos en post-submit. Tamaño mínimo 44×44px (Apple HIG).
+ *
+ * La lógica de reordenamiento vive en `domain/quiz/reorder.ts` (pura,
+ * testeable sin DOM) y se reutiliza tanto para el drag como para los
+ * botones ↑/↓.
  */
 
 import {
@@ -26,6 +36,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useEffect, useState } from "react";
+import { canMoveDown, canMoveUp, moveItemBy } from "../../domain/quiz/reorder";
 
 interface OrdenarRendererProps {
   /** Items disponibles. Si el padre quiere mezclarlos, debe hacerlo antes. */
@@ -46,9 +57,23 @@ interface SortableCardProps {
   position: number;
   feedback?: "correct" | "wrong" | null;
   disabled: boolean;
+  canUp: boolean;
+  canDown: boolean;
+  onMoveUp: () => void;
+  onMoveDown: () => void;
 }
 
-function SortableCard({ id, label, position, feedback, disabled }: SortableCardProps) {
+function SortableCard({
+  id,
+  label,
+  position,
+  feedback,
+  disabled,
+  canUp,
+  canDown,
+  onMoveUp,
+  onMoveDown,
+}: SortableCardProps) {
   const {
     attributes,
     listeners,
@@ -65,7 +90,7 @@ function SortableCard({ id, label, position, feedback, disabled }: SortableCardP
   };
 
   const baseClasses =
-    "flex items-center gap-3 rounded-lg border px-3 py-2 text-sm bg-white select-none";
+    "flex items-center gap-2 sm:gap-3 rounded-lg border px-3 py-2 min-h-[44px] text-sm bg-white select-none";
   const cursor = disabled ? "cursor-default" : "cursor-grab active:cursor-grabbing";
   const feedbackClasses =
     feedback === "correct"
@@ -74,6 +99,13 @@ function SortableCard({ id, label, position, feedback, disabled }: SortableCardP
         ? "border-red-400 bg-red-50 text-red-800"
         : "border-slate-300 text-slate-800 hover:border-slate-400";
 
+  // Importante: stopPropagation en pointerdown evita que dnd-kit
+  // setPointerCapture sobre el <li> robe el click del botón.
+  // (En happy-dom no se nota, pero en navegadores reales sí.)
+  const stopDnd = (e: React.PointerEvent | React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
     <li
       ref={setNodeRef}
@@ -81,7 +113,6 @@ function SortableCard({ id, label, position, feedback, disabled }: SortableCardP
       className={`${baseClasses} ${cursor} ${feedbackClasses}`}
       data-testid={`ordenar-card-${id}`}
       {...attributes}
-      {...listeners}
     >
       <span
         className="w-6 h-6 shrink-0 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold flex items-center justify-center"
@@ -91,7 +122,45 @@ function SortableCard({ id, label, position, feedback, disabled }: SortableCardP
       </span>
       <span className="flex-1">{label}</span>
       {!disabled && (
-        <span className="text-slate-300 text-lg leading-none" aria-hidden>
+        <>
+          <button
+            type="button"
+            onPointerDown={stopDnd}
+            onMouseDown={stopDnd}
+            onClick={(e) => {
+              e.stopPropagation();
+              onMoveUp();
+            }}
+            disabled={!canUp}
+            aria-label={`Subir ${label}`}
+            data-testid={`ordenar-up-${id}`}
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded text-slate-500 hover:bg-slate-100 active:bg-slate-200 disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          >
+            <span aria-hidden>↑</span>
+          </button>
+          <button
+            type="button"
+            onPointerDown={stopDnd}
+            onMouseDown={stopDnd}
+            onClick={(e) => {
+              e.stopPropagation();
+              onMoveDown();
+            }}
+            disabled={!canDown}
+            aria-label={`Bajar ${label}`}
+            data-testid={`ordenar-down-${id}`}
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded text-slate-500 hover:bg-slate-100 active:bg-slate-200 disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          >
+            <span aria-hidden>↓</span>
+          </button>
+        </>
+      )}
+      {!disabled && (
+        <span
+          className="text-slate-300 text-lg leading-none touch-none cursor-grab active:cursor-grabbing"
+          aria-hidden
+          {...listeners}
+        >
           ⋮⋮
         </span>
       )}
@@ -130,10 +199,16 @@ export default function OrdenarRenderer({
     setOrder((prev) => {
       const oldIndex = prev.indexOf(String(active.id));
       const newIndex = prev.indexOf(String(over.id));
-      if (oldIndex < 0 || newIndex < 0) return prev;
-      const next = prev.slice();
-      const [moved] = next.splice(oldIndex, 1);
-      next.splice(newIndex, 0, moved);
+      const next = moveItemBy(prev, oldIndex, newIndex);
+      onChange?.(next);
+      return next;
+    });
+  };
+
+  const handleMove = (from: number, to: number) => {
+    if (disabled) return;
+    setOrder((prev) => {
+      const next = moveItemBy(prev, from, to);
       onChange?.(next);
       return next;
     });
@@ -156,6 +231,10 @@ export default function OrdenarRenderer({
                 position={idx + 1}
                 feedback={feedback}
                 disabled={disabled}
+                canUp={canMoveUp(order, idx)}
+                canDown={canMoveDown(order, idx)}
+                onMoveUp={() => handleMove(idx, idx - 1)}
+                onMoveDown={() => handleMove(idx, idx + 1)}
               />
             );
           })}
