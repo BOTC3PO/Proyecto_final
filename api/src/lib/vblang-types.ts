@@ -3,6 +3,18 @@ import { z } from "zod";
 export const VISIBILITY = ["privada", "escuela", "publica"] as const;
 export type Visibility = (typeof VISIBILITY)[number];
 
+/**
+ * F6-01 — Owner de las "plantillas oficiales": plantillas públicas pre-sembradas
+ * que cualquier docente puede CLONAR para editar, pero que nadie (salvo ADMIN)
+ * puede modificar. No es un nuevo `visibility`: una oficial es simplemente una
+ * plantilla `visibility: "publica"` + `publicAprobado: true` cuyo dueño es esta
+ * cuenta de sistema. La inmutabilidad para el docente ya la garantiza el gate de
+ * PUT/DELETE (sólo owner o ADMIN); la visibilidad para todos ya la garantiza
+ * `canRead` (publica + aprobada). El flag `esOficial` que devuelve la API se
+ * deriva de este owner; no se persiste.
+ */
+export const SYSTEM_OWNER_ID = "system";
+
 export const PlantillaCreateSchema = z.object({
   nombre: z.string().min(1).max(200),
   descripcion: z.string().max(1000).optional(),

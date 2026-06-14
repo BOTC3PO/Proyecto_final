@@ -1,5 +1,6 @@
 import { randomUUID } from "crypto";
-import { Router } from "express";
+import { Router, type Request, type Response } from "express";
+import { ZodError } from "zod";
 import { isStaffRole } from "../lib/authorization";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
@@ -7,6 +8,7 @@ import {
   PlantillaCreateSchema,
   PlantillaForkSchema,
   PlantillaUpdateSchema,
+  SYSTEM_OWNER_ID,
   type Visibility,
 } from "../lib/vblang-types";
 import { validateDslSyntax } from "../lib/vblang-validation";
@@ -33,6 +35,11 @@ type PlantillaRow = {
   updatedAt: string;
 };
 
+/** F6-01 — una plantilla es "oficial" si su dueño es la cuenta de sistema. */
+function esPlantillaOficial(row: PlantillaRow): boolean {
+  return row.ownerUserId === SYSTEM_OWNER_ID;
+}
+
 function parseTags(raw: string | null | undefined): string[] | undefined {
   if (!raw) return undefined;
   try {
@@ -52,6 +59,7 @@ function toListItem(row: PlantillaRow, ownerName?: string) {
     tags: parseTags(row.tags),
     visibility: row.visibility as Visibility,
     publicAprobado: row.publicAprobado,
+    esOficial: esPlantillaOficial(row),
     ownerUserId: row.ownerUserId,
     ownerName,
     schoolId: row.schoolId ?? undefined,
@@ -440,12 +448,78 @@ plantillas.delete("/api/plantillas/:id", requireUser, async (req, res) => {
   }
 });
 
-// POST /api/plantillas/:id/fork
-plantillas.post("/api/plantillas/:id/fork", requireUser, async (req, res) => {
+/**
+ * Núcleo compartido de "clonar para editar" (F6-01) y "fork": crea una copia
+ * EDITABLE de `original` cuyo dueño es el solicitante, `basadoEn` apunta al
+ * original (procedencia) y arranca en version 1 con visibility privada por
+ * defecto. El original queda INTACTO. Sirve para clonar plantillas oficiales
+ * (públicas, dueño = sistema) sin tocar la fuente. Sigue el patrón de
+ * `POST /api/modulos/:id/duplicar`: id nuevo, owner = solicitante, copia la
+ * config, no hereda aprobación pública.
+ */
+async function clonarParaEditar(
+  original: PlantillaRow,
+  user: AuthUser,
+  body: unknown,
+  changelogLabel: string,
+): Promise<PlantillaRow> {
+  const parsed = PlantillaForkSchema.parse(body ?? {});
+  const nombre = parsed.nombre ?? `Copia de ${original.nombre}`;
+  const visibility = parsed.visibility ?? "privada";
+  const newId = randomUUID();
+  const now = new Date().toISOString();
+  const userId = user._id ?? "";
+
+  return prisma.$transaction(async (tx) => {
+    const row = await tx.plantillaEjercicio.create({
+      data: {
+        id: newId,
+        ownerUserId: userId,
+        schoolId: user.schoolId ?? null,
+        visibility,
+        nombre,
+        descripcion: original.descripcion,
+        materia: original.materia,
+        tags: original.tags,
+        codigoDsl: original.codigoDsl,
+        version: 1,
+        basadoEn: original.id,
+        publicAprobado: false,
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now,
+      },
+    });
+    await tx.plantillaEjercicioVersion.create({
+      data: {
+        id: randomUUID(),
+        plantillaId: newId,
+        version: 1,
+        codigoDsl: original.codigoDsl,
+        changelog: `${changelogLabel} ${original.id}`,
+        createdAt: now,
+        createdBy: userId,
+      },
+    });
+    return row as PlantillaRow;
+  });
+}
+
+/**
+ * Handler común para `/fork` y `/clonar`. Requiere rol staff y permiso de
+ * lectura sobre el original (las oficiales son públicas → cualquier staff las
+ * puede clonar; jamás permite editar la original). `changelogLabel` distingue la
+ * procedencia en el historial de versiones del clon.
+ */
+async function handleClonado(
+  req: Request,
+  res: Response,
+  changelogLabel: string,
+): Promise<void> {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
     if (!isStaffRole(user.role)) {
-      res.status(403).json({ error: "Solo creadores de contenido pueden hacer fork" });
+      res.status(403).json({ error: "Solo creadores de contenido pueden clonar" });
       return;
     }
     const id = String(req.params.id);
@@ -458,57 +532,28 @@ plantillas.post("/api/plantillas/:id/fork", requireUser, async (req, res) => {
       res.status(403).json({ error: "Sin permisos para ver esta plantilla" });
       return;
     }
-    const parsed = PlantillaForkSchema.safeParse(req.body ?? {});
-    if (!parsed.success) {
-      res.status(400).json({ error: "Datos inválidos", issues: parsed.error.issues });
+    const clon = await clonarParaEditar(original as PlantillaRow, user, req.body, changelogLabel);
+    res.status(201).json(toDetail(clon));
+  } catch (err) {
+    if (err instanceof ZodError) {
+      res.status(400).json({ error: "Datos inválidos", issues: err.issues });
       return;
     }
-    const nombre = parsed.data.nombre ?? `Copia de ${original.nombre}`;
-    const visibility = parsed.data.visibility ?? "privada";
-    const newId = randomUUID();
-    const now = new Date().toISOString();
-    const userId = user._id ?? "";
-
-    const fork = await prisma.$transaction(async (tx) => {
-      const row = await tx.plantillaEjercicio.create({
-        data: {
-          id: newId,
-          ownerUserId: userId,
-          schoolId: user.schoolId ?? null,
-          visibility,
-          nombre,
-          descripcion: original.descripcion,
-          materia: original.materia,
-          tags: original.tags,
-          codigoDsl: original.codigoDsl,
-          version: 1,
-          basadoEn: original.id,
-          publicAprobado: false,
-          isDeleted: false,
-          createdAt: now,
-          updatedAt: now,
-        },
-      });
-      await tx.plantillaEjercicioVersion.create({
-        data: {
-          id: randomUUID(),
-          plantillaId: newId,
-          version: 1,
-          codigoDsl: original.codigoDsl,
-          changelog: `Fork de ${original.id}`,
-          createdAt: now,
-          createdBy: userId,
-        },
-      });
-      return row;
-    });
-    res.status(201).json(toDetail(fork as PlantillaRow));
-  } catch (err) {
     res
       .status(500)
       .json({ error: err instanceof Error ? err.message : "internal server error" });
   }
-});
+}
+
+// POST /api/plantillas/:id/clonar — F6-01 "Usar como base / Clonar para editar".
+plantillas.post("/api/plantillas/:id/clonar", requireUser, (req, res) =>
+  handleClonado(req, res, "Clonado de"),
+);
+
+// POST /api/plantillas/:id/fork — alias histórico de clonar-para-editar.
+plantillas.post("/api/plantillas/:id/fork", requireUser, (req, res) =>
+  handleClonado(req, res, "Fork de"),
+);
 
 // ─── Sprint 10A — Aprobación admin de plantillas públicas ─────────────────
 

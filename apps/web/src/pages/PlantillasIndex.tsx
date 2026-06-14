@@ -8,6 +8,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
+  clonarPlantilla,
   deletePlantilla,
   forkPlantilla,
   listPlantillas,
@@ -34,11 +35,13 @@ function PlantillaCard({
   mode,
   onDelete,
   onFork,
+  onClonar,
 }: {
   item: PlantillaListItem;
   mode: PlantillasIndexMode;
   onDelete: (id: string) => void;
   onFork: (id: string) => void;
+  onClonar: (id: string) => void;
 }) {
   const updated = new Date(item.updatedAt);
   return (
@@ -56,13 +59,23 @@ function PlantillaCard({
             <p className="text-xs text-[var(--c-muted,#64748b)]">{item.materia}</p>
           )}
         </Link>
-        <span
-          className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium ${
-            VISIBILITY_BADGE[item.visibility] ?? "bg-slate-100 text-slate-700"
-          }`}
-        >
-          {item.visibility}
-        </span>
+        <div className="flex shrink-0 flex-col items-end gap-1">
+          {item.esOficial && (
+            <span
+              className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-700"
+              data-testid="plantilla-oficial-badge"
+            >
+              ★ Oficial
+            </span>
+          )}
+          <span
+            className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${
+              VISIBILITY_BADGE[item.visibility] ?? "bg-slate-100 text-slate-700"
+            }`}
+          >
+            {item.visibility}
+          </span>
+        </div>
       </header>
       {item.descripcion && (
         <p className="mt-2 text-xs text-[var(--c-muted,#64748b)] line-clamp-2">
@@ -85,13 +98,24 @@ function PlantillaCard({
         <span>Actualizada {updated.toLocaleDateString()}</span>
         <div className="flex gap-2">
           {mode === "biblioteca" ? (
-            <button
-              type="button"
-              onClick={() => onFork(item.id)}
-              className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-[10px] font-medium text-white hover:opacity-90"
-            >
-              Fork
-            </button>
+            item.esOficial ? (
+              <button
+                type="button"
+                onClick={() => onClonar(item.id)}
+                className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-[10px] font-medium text-white hover:opacity-90"
+                data-testid="plantilla-usar-como-base"
+              >
+                Usar como base
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => onFork(item.id)}
+                className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-[10px] font-medium text-white hover:opacity-90"
+              >
+                Fork
+              </button>
+            )
           ) : (
             <button
               type="button"
@@ -162,6 +186,19 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
     } catch (err) {
       window.alert(
         err instanceof Error ? err.message : "No se pudo hacer fork.",
+      );
+    }
+  };
+
+  // F6-01 — "Usar como base": clona una oficial a una copia editable propia y
+  // abre el editor sobre la copia (la original queda intacta).
+  const handleClonar = async (id: string) => {
+    try {
+      const created = await clonarPlantilla(id);
+      navigate(`/plantillas/${created.id}`);
+    } catch (err) {
+      window.alert(
+        err instanceof Error ? err.message : "No se pudo clonar la plantilla.",
       );
     }
   };
@@ -272,6 +309,7 @@ export default function PlantillasIndex({ mode = "mias" }: PlantillasIndexProps)
                 mode={mode}
                 onDelete={handleDelete}
                 onFork={handleFork}
+                onClonar={handleClonar}
               />
             ))}
           </div>

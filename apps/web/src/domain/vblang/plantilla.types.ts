@@ -14,6 +14,8 @@ export interface PlantillaListItem {
   tags?: string[];
   visibility: Visibility;
   publicAprobado: boolean;
+  /** F6-01 — true si es una plantilla oficial (dueño = sistema). Derivado por la API. */
+  esOficial?: boolean;
   ownerUserId: string;
   ownerName?: string;
   schoolId?: string;

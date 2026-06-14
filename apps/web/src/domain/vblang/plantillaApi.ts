@@ -130,6 +130,21 @@ export async function forkPlantilla(
   );
 }
 
+/**
+ * F6-01 — "Usar como base / Clonar para editar". Crea una copia editable de la
+ * plantilla (típicamente una oficial) cuyo dueño es el solicitante; la original
+ * queda intacta. Mismo contrato que `forkPlantilla` (alias semántico).
+ */
+export async function clonarPlantilla(
+  id: string,
+  input: PlantillaForkInput = {},
+): Promise<PlantillaDetail> {
+  return apiPost<PlantillaDetail>(
+    `/api/plantillas/${encodeURIComponent(id)}/clonar`,
+    input,
+  );
+}
+
 export async function getPlantillaVersions(
   id: string,
 ): Promise<PlantillaVersion[]> {
