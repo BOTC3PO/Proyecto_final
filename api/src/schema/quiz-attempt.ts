@@ -85,9 +85,32 @@ export const QuizAttemptSummaryQuerySchema = z.object({
   quizId: z.string().min(1)
 });
 
+// F5-03 — eventos informativos del intento (informativo, no penaliza).
+// El runner del alumno envía periódicamente el contador de salidas de pestaña
+// (visibilitychange→hidden) mientras el intento está en curso. El servidor
+// hace MERGE en el JSON `grading` del intento (mismo canal que el canario de
+// V2-04), preservando flags previos.
+//
+// PRIVACIDAD: el cliente NUNCA envía QUÉ pestaña/app se abrió, sólo el
+// contador agregado. La Fullscreen API del navegador no expone esa
+// información (sólo emite el evento de foco perdido) y F5-03 mantiene esa
+// garantía. El docente ve un número ("salió N veces") y nada más.
+export const QuizAttemptEventsPatchSchema = z.object({
+  // Cantidad de veces que la pestaña perdió visibilidad durante la
+  // evaluación. El cliente lo incrementa con cada visibilitychange→hidden.
+  // Es un counter monotónico: cada PATCH trae el valor más reciente visto
+  // por el cliente, no un delta. Esto garantiza idempotencia: si el server
+  // recibe un valor menor (por orden de red) lo descarta silenciosamente.
+  tabSwitchCount: z.number().int().nonnegative().optional()
+}).refine(
+  (v) => Object.keys(v).length > 0,
+  { message: "Debe incluir al menos un evento." }
+);
+
 export type QuizAttemptCreate = z.infer<typeof QuizAttemptCreateSchema>;
 export type QuizAttemptSubmit = z.infer<typeof QuizAttemptSubmitSchema>;
 export type QuizAttemptAnswer = z.infer<typeof QuizAttemptAnswerSchema>;
 export type QuizAttemptGrade = z.infer<typeof QuizAttemptGradeSchema>;
 export type QuizAttemptListQuery = z.infer<typeof QuizAttemptListQuerySchema>;
 export type QuizAttemptSummaryQuery = z.infer<typeof QuizAttemptSummaryQuerySchema>;
+export type QuizAttemptEventsPatch = z.infer<typeof QuizAttemptEventsPatchSchema>;

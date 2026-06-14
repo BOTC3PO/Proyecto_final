@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
@@ -139,12 +140,21 @@ export default function ProfesorCalificaciones() {
                           ? new Date(a.completedAt ?? a.createdAt ?? "").toLocaleDateString("es-AR")
                           : "—"}
                       </span>
-                      <span className={`font-semibold ${
-                        a.score != null ? "text-[var(--c-text)]" : "text-[var(--c-muted)]"
-                      }`}>
-                        {a.score != null
-                          ? `${a.score}${a.maxScore ? `/${a.maxScore}` : ""}`
-                          : "Sin puntaje"}
+                      <span className="flex items-center gap-2">
+                        <span className={`font-semibold ${
+                          a.score != null ? "text-[var(--c-text)]" : "text-[var(--c-muted)]"
+                        }`}>
+                          {a.score != null
+                            ? `${a.score}${a.maxScore ? `/${a.maxScore}` : ""}`
+                            : "Sin puntaje"}
+                        </span>
+                        <Link
+                          to={`/profesor/intentos/${a.id}`}
+                          className="text-blue-600 hover:underline"
+                          data-testid="ver-detalle-intento"
+                        >
+                          Ver detalle
+                        </Link>
                       </span>
                     </div>
                   ))}

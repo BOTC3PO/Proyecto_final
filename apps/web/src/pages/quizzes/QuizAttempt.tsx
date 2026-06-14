@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { apiGet, apiPost, ApiError } from "../../lib/api";
+import { apiGet, apiPost, apiPatch, ApiError } from "../../lib/api";
 import {
   recordAnswer,
   flush as flushOutbox,
@@ -10,6 +10,7 @@ import {
 import { useCountdown } from "../../hooks/useCountdown";
 import { useFlushOnHidden } from "../../hooks/useFlushOnHidden";
 import { useFullscreen } from "../../hooks/useFullscreen";
+import { useFlushCounter } from "../../hooks/useFlushCounter";
 import Cronometro from "../../components/quizzes/Cronometro";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
@@ -607,6 +608,32 @@ export default function QuizAttempt() {
     enabled: fullscreenEnabled,
     onFallback: () => setFullscreenWarning(true),
   });
+
+  // F5-03 — contador de salidas de pestaña. Sólo cuenta
+  // `visibilitychange→hidden` (no blur ni beforeunload: esos son eventos
+  // de foco, no de "mirar a otro lado"). Se activa sólo cuando el
+  // intento está en curso (post-gate de fullscreen, pre-submit).
+  const tabSwitchCounter = useFlushCounter({
+    enabled: hasStarted && submitStatus !== "submitted",
+  });
+
+  // F5-03 — PATCH del counter al backend. Fire-and-forget: si la red
+  // está caída, el próximo PATCH o el submit finalizará el guardado.
+  // El server hace merge monotónico (nunca decrementa) y rechaza
+  // intentos en estado terminal, así que es seguro PATCHear en
+  // cualquier momento del intento.
+  useEffect(() => {
+    if (!hasStarted || submitStatus === "submitted") return;
+    const id = resolveAttemptId(attempt);
+    if (!id || tabSwitchCounter.count === 0) return;
+    void apiPatch(`/api/quiz-attempts/${id}`, {
+      tabSwitchCount: tabSwitchCounter.count
+    }).catch(() => {
+      // Best-effort: si la red está caída, el próximo PATCH o el
+      // /submit (con el counter ya viajando en el estado del cliente)
+      // cerrará la cuenta.
+    });
+  }, [tabSwitchCounter.count, hasStarted, submitStatus, attempt]);
 
   if (status === "loading") {
     return (

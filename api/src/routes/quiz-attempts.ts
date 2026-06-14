@@ -10,6 +10,7 @@ import { requireUser } from "../lib/user-auth";
 import {
   QuizAttemptAnswerSchema,
   QuizAttemptCreateSchema,
+  QuizAttemptEventsPatchSchema,
   QuizAttemptGradeSchema,
   QuizAttemptListQuerySchema,
   QuizAttemptSubmitSchema,
@@ -30,6 +31,10 @@ import {
   type IntentoPolicy,
   type PoliticaNota
 } from "../lib/quiz-intentos";
+import {
+  mergeAttemptEvents,
+  summarizeAttemptEvents
+} from "../lib/attemptEvents";
 import {
   gradeFromConfig,
   getScoringSystem,
@@ -1226,6 +1231,65 @@ quizAttempts.get(
   }
 );
 
+// F5-03 — Vista docente de un intento: devuelve el attempt + el JSON
+// `grading` COMPLETO (incluyendo `events` con el counter de salidas y
+// cualquier flag que V2-04 / I-2 haya seteado). Sólo accesible para
+// staff (TEACHER/ADMIN/etc.) de la MISMO escuela que el alumno.
+//
+// Razón: el handler general `GET /api/quiz-attempts/:id` está filtrado
+// por `userId` (sólo el alumno dueño). Para la vista del docente, abrir
+// ese handler a staff implicaría revisar muchas invariantes (sanitización
+// de canarios, etc.). Crear un endpoint dedicado es más seguro y deja el
+// handler del alumno intacto.
+quizAttempts.get(
+  "/api/quiz-attempts/:id/staff",
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requireActiveInstitutionBenefit,
+  async (req, res) => {
+    const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
+    const requesterRole =
+      (req.user as { role?: string | null } | undefined)?.role ?? null;
+    if (!isStaffRole(requesterRole)) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+    const requesterSchool =
+      (req.user as { schoolId?: string | null } | undefined)?.schoolId ?? null;
+    const attempt = (await prisma.quizAttempt.findFirst({
+      where: { id: idParam }
+    })) as QuizAttemptRecord | null;
+    if (!attempt) return res.status(404).json({ error: "attempt not found" });
+
+    // Mismo escuela: el docente sólo ve intentos de su escuela.
+    if (requesterSchool && attempt.schoolId && requesterSchool !== attempt.schoolId) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+
+    const grading = attempt.grading
+      ? safeJsonParse<Record<string, unknown>>(
+          attempt.grading as unknown as string,
+          {}
+        )
+      : {};
+
+    res.json({
+      id: attempt.id,
+      moduleId: attempt.moduleId ?? undefined,
+      quizId: attempt.quizId,
+      userId: attempt.userId,
+      status: attempt.status,
+      score: attempt.score,
+      maxScore: attempt.maxScore,
+      submittedAt: attempt.submittedAt ?? undefined,
+      startedAt: attempt.startedAt ?? undefined,
+      grading,
+      // Resumen ya procesado: el front sólo lee `events` con esto.
+      events: summarizeAttemptEvents(grading)
+    });
+  }
+);
+
 // F5-01 — Guardado incremental e idempotente de UNA respuesta.
 //
 // Regla del plan (ronda 6 K4): "es problema de la conexión de la escuela, no del
@@ -1276,10 +1340,88 @@ quizAttempts.post(
         data: { answers: JSON.stringify(stored) }
       });
 
-      return res.json({
+      return       res.json({
         ok: true,
         questionId: payload.questionId,
         answeredCount: Object.keys(stored).length
+      });
+    } catch (error: any) {
+      res.status(400).json({ error: error?.message ?? "invalid payload" });
+    }
+  }
+);
+
+// F5-03 — Eventos informativos del intento (PATCH de flags en `grading`).
+//
+// Plan K5/L2: el docente debe VER qué pasó durante el intento, pero el
+// sistema NO debe penalizar automáticamente. Este endpoint acepta un patch
+// monotónico del contador de salidas de pestaña y lo fusiona en el JSON
+// `grading` del intento (mismo canal que el canario de V2-04). NO toca
+// score, status, ni items.
+//
+// PRIVACIDAD: el cliente NUNCA envía QUÉ pestaña/app se abrió, sólo el
+// contador numérico. El navegador no expone esa información y F5-03
+// mantiene esa garantía (ver `useFlushCounter` en el front).
+//
+// Idempotencia: el server hace merge monotónico (nunca decrementa). Si
+// llegan PATCHes fuera de orden, gana el valor más alto visto. Esto
+// elimina la necesidad de locks cliente y simplifica reintentos.
+quizAttempts.patch(
+  "/api/quiz-attempts/:id",
+  ...bodyLimitMB(1),
+  requireUser,
+  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
+  requireActiveInstitutionBenefit,
+  async (req, res) => {
+    try {
+      const payload = QuizAttemptEventsPatchSchema.parse(req.body);
+      const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+      if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
+      const userId =
+        typeof req.user?._id?.toString === "function"
+          ? req.user._id.toString()
+          : typeof req.user?.id === "string"
+            ? req.user.id
+            : "";
+      if (!userId) return res.status(401).json({ error: "user not found" });
+
+      const attempt = (await prisma.quizAttempt.findFirst({
+        where: { id: idParam, userId }
+      })) as QuizAttemptRecord | null;
+      if (!attempt) return res.status(404).json({ error: "attempt not found" });
+
+      // Un intento ya entregado/corregido no acepta nuevos eventos: la
+      // semántica es "registrar lo que pasó en el intento EN CURSO", no
+      // modificar algo ya cerrado. El submit (que se ejecuta antes) puede
+      // hacer su propio guardado del contador en el payload si lo necesita
+      // en el futuro.
+      if (
+        attempt.submittedAt ||
+        attempt.status === "submitted" ||
+        attempt.status === "pending_review" ||
+        attempt.status === "graded"
+      ) {
+        return res.status(409).json({ error: "attempt already closed" });
+      }
+
+      const currentGrading = safeJsonParse<Record<string, unknown>>(
+        attempt.grading as unknown as string,
+        {}
+      );
+      const nextGrading = mergeAttemptEvents(currentGrading, payload);
+      const summary = summarizeAttemptEvents(nextGrading);
+
+      await prisma.quizAttempt.updateMany({
+        where: { id: idParam },
+        data: { grading: JSON.stringify(nextGrading) }
+      });
+
+      // Devolvemos el resumen; el front lo usa para mostrar el panel
+      // actualizado en la vista del docente (si está abierta) o sólo para
+      // confirmar que el server lo guardó.
+      res.json({
+        ok: true,
+        events: summary
       });
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });
@@ -1387,6 +1529,22 @@ quizAttempts.post(
       const { score, maxScore, manual } = gradeAnswers(gradingQuiz, payload.answers);
       const feedback = buildFeedback(gradingQuiz, payload.answers);
 
+      // F5-03 — preservar los eventos informativos (counter de salidas de
+      // pestaña) que el cliente PATCHeó durante la evaluación. El submit
+      // construye el `grading` desde cero (canary, mismatch, items) y
+      // sobrescribiría esos events. Leemos el `grading` previo y
+      // arrastramos sólo la sub-llave `events` — preservando la garantía
+      // de que el submit no inventa datos y los events PATCHeados
+      // siguen visibles para el docente.
+      const priorGrading = safeJsonParse<Record<string, unknown>>(
+        attempt.grading as unknown as string,
+        {}
+      );
+      const priorEvents =
+        typeof priorGrading.events === "object" && priorGrading.events !== null
+          ? (priorGrading.events as Record<string, unknown>)
+          : null;
+
       // V2-04 — detección de canario. Si el alumno envío un canario
       // (answerKey del payload sanitizado que se filtró al frontend) como
       // respuesta, registramos el flag en `grading` y contamos la pregunta
@@ -1431,6 +1589,12 @@ quizAttempts.post(
           response: payload.answers[question.id],
           score: null
         };
+      }
+      // F5-03 — arrastrar los events (counter de salidas) si los había
+      // PATCHeados. `grading` se serializa a JSON.stringify en la línea
+      // siguiente, así que el sub-objeto pasa tal cual.
+      if (priorEvents) {
+        (grading as Record<string, unknown>).events = priorEvents;
       }
       const hasPendingManual = manual.length > 0;
       const status = hasPendingManual ? "pending_review" : "submitted";

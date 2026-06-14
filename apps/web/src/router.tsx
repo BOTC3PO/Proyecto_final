@@ -90,6 +90,7 @@ const Tareas                    = lazyWithRetry(() => import("./pages/Tareas"));
 const Progreso                  = lazyWithRetry(() => import("./pages/Progreso"));
 const ProfesorCursos            = lazyWithRetry(() => import("./pages/ProfesorCursos"));
 const ProfesorCalificaciones    = lazyWithRetry(() => import("./pages/ProfesorCalificaciones"));
+const ProfesorIntentoDetalle    = lazyWithRetry(() => import("./pages/profesor/IntentoDetalle"));
 const ProfesorAsistencia        = lazyWithRetry(() => import("./pages/ProfesorAsistencia"));
 const EnterpriseDashboard       = lazyWithRetry(() => import("./pages/EnterpriseDashboard"));
 const EnterpriseReportes        = lazyWithRetry(() => import("./pages/EnterpriseReportes"));
@@ -314,6 +315,16 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER']}>
                 {withSuspense(<ProfesorCalificaciones />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            // F5-03 — detalle de un intento para el docente: muestra el
+            // panel de eventos informativos (salidas de pestaña, canario).
+            path: 'profesor/intentos/:attemptId',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorIntentoDetalle />)}
               </ProtectedRoute>
             ),
           },
