@@ -1,25 +1,13 @@
 /**
- * F3-04 — Política de intentos (límite y nota agregada).
+ * F3-04 + F4-04 — Política de intentos y configuración del modo evaluación.
  *
- * El docente configura por cuestionario:
- *   - `maxIntentos`: número entero ≥ 1, o `0`/`null` para ilimitados.
- *   - `politicaNota`: "mejor" | "ultima" | "primera" | "promedio".
+ * Mirror byte-a-byte de `api/src/lib/quiz-intentos.ts`. Cualquier cambio
+ * en uno DEBE reflejarse en el otro. La función principal para el front
+ * es `parseEvaluacionConfig(settingsRaw, tipo)` que devuelve el
+ * `EvaluacionConfig` resuelto (con defaults por tipo aplicados).
  *
- * El default por tipo de quiz (del campo embebido en `QuizVersion.settings.type`):
- *   - `practica`   → `politicaNota = "mejor"`
- *   - `formal`     → `politicaNota = "ultima"`
- *   - `competencia`→ `politicaNota = "mejor"` (de todas formas no se aplica: el
- *                    modo competencia se puntúa por tiempo, no por nota agregada)
- *
- * La configuración vive en `QuizVersion.settings` (JSON) — patrón F3-01: sin
- * tabla nueva, sin migration. Si no está presente en `settings`, se usa el
- * default por tipo. Si el `type` tampoco está, default a `practica`.
- *
- * `maxIntentos = 0` significa ILIMITADO (es el default histórico, preserva
- * el comportamiento previo a F3-04). El backend NO rechaza intentos cuando
- * `maxIntentos === 0` o `null`/`undefined`.
+ * Lógica pura y SIN imports.
  */
-
 export type PoliticaNota = "mejor" | "ultima" | "primera" | "promedio";
 
 export const POLITICAS_VALIDAS: PoliticaNota[] = ["mejor", "ultima", "primera", "promedio"];

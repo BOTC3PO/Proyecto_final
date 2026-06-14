@@ -50,6 +50,15 @@ export type ModuleQuiz = {
    * `false` (mostrar todo) — preserva el comportamiento previo.
    */
   ocultarPuntos?: boolean;
+  // F4-04 — Config del modo evaluación (F3-04 + F4-04), persistida en
+  // `settings`. El host compone con `parseEvaluacionConfig` para resolver
+  // defaults por tipo. Si están ausentes, el front usa el default.
+  /** `null` = ilimitado. Entero ≥ 1 = tope. `0` se coerce a null (alias). */
+  maxIntentos?: number | null;
+  politicaNota?: "mejor" | "ultima" | "primera" | "promedio";
+  /** `null` = sin timer. Entero ≥ 1 = segundos. */
+  timerSegundos?: number | null;
+  fullscreenOnStart?: boolean;
   /**
    * Composición a nivel quiz (pool, selección, variantes, peso por defecto).
    * Se persiste en `QuizVersion.settings.composition`. NO es parte del DSL.

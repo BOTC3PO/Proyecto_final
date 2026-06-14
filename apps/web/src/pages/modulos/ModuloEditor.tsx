@@ -13,6 +13,8 @@ import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
 import QuizComposicionEditor from "../../components/modulos/QuizComposicionEditor";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
+import EvaluacionConfig from "../../components/modulos/EvaluacionConfig";
+import { parseEvaluacionConfig } from "../../domain/quiz/intentos";
 import VistaAlumnoOverlay from "../../components/modulos/VistaAlumnoOverlay";
 import EditorSectionNav, {
   type EditorSectionDef,
@@ -1714,6 +1716,14 @@ export default function ModuloEditor() {
                           />
                         </label>
 
+                        {/* F4-04 — panel de configuración de evaluación (timer,
+                            intentos, política, fullscreen, ocultarPuntos).
+                            Se renderiza para todos los tipos; el componente
+                            hace gating por tipo (sin timer para práctica).
+                            El componente lee los campos del quiz y dispara
+                            los callbacks con el valor nuevo. */}
+                        <EvaluacionConfigEditor quiz={quiz} updateQuiz={updateQuiz} />
+
                         {quiz.mode === "generated" ? (
                           <QuizEditorGenerated
                             generatorId={quiz.generatorId ?? ""}
@@ -2112,6 +2122,52 @@ function ExistingTuesdayField({
       onSearch={onSearch}
       onSelect={onSelect}
       onClose={onClose}
+    />
+  );
+}
+
+/**
+ * F4-04 — Sub-componente que monta `<EvaluacionConfig>` dentro de la tarjeta
+ * del quiz en el editor. Resuelve la config desde los campos del quiz
+ * (con `parseEvaluacionConfig` para aplicar defaults del tipo) y conecta
+ * cada callback con `updateQuiz`.
+ *
+ * El campo `settings` JSON no se persiste en el form state (es derivado):
+ * los campos viven top-level en el quiz (`quiz.maxIntentos`, etc.) y el
+ * PUT de `modulos.ts` los agrupa en `settings`. La separación es
+ * intencional: el form es plano, el storage es JSON.
+ */
+function EvaluacionConfigEditor({
+  quiz,
+  updateQuiz
+}: {
+  quiz: ModuleQuiz;
+  updateQuiz: (quizId: string, patch: Partial<ModuleQuiz>) => void;
+}) {
+  // `parseEvaluacionConfig` espera un JSON, pero como los campos viven
+  // top-level en el form, sintetizamos un "settings" virtual para
+  // delegar la resolución de defaults en una sola función.
+  const virtualSettings = JSON.stringify({
+    type: quiz.type,
+    maxIntentos: quiz.maxIntentos,
+    politicaNota: quiz.politicaNota,
+    timerSegundos: quiz.timerSegundos,
+    fullscreenOnStart: quiz.fullscreenOnStart,
+    ocultarPuntos: quiz.ocultarPuntos
+  });
+  const config = parseEvaluacionConfig(virtualSettings, quiz.type);
+
+  return (
+    <EvaluacionConfig
+      tipo={quiz.type}
+      config={config}
+      onChangeTimerSegundos={(next) => updateQuiz(quiz.id, { timerSegundos: next })}
+      onChangeMaxIntentos={(next) => updateQuiz(quiz.id, { maxIntentos: next })}
+      onChangePoliticaNota={(next) => updateQuiz(quiz.id, { politicaNota: next })}
+      onChangeFullscreenOnStart={(next) =>
+        updateQuiz(quiz.id, { fullscreenOnStart: next })
+      }
+      onChangeOcultarPuntos={(next) => updateQuiz(quiz.id, { ocultarPuntos: next })}
     />
   );
 }

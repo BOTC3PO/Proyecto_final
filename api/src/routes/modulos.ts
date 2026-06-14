@@ -247,6 +247,15 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
           composition: (settings as any).composition ?? undefined,
           // F4-03 — exponer el toggle "ocultar puntos al alumno". Default false.
           ocultarPuntos: (settings as any).ocultarPuntos === true,
+          // F3-04 + F4-04 — config del modo evaluación. Se exponen
+          // "crudos" (tal cual están en `settings`); la UI los compone
+          // con `parseEvaluacionConfig` para resolver los defaults.
+          // Pasamos `undefined` si están ausentes, para que el front
+          // sepa aplicar el default del tipo.
+          maxIntentos: (settings as any).maxIntentos ?? undefined,
+          politicaNota: (settings as any).politicaNota,
+          timerSegundos: (settings as any).timerSegundos ?? null,
+          fullscreenOnStart: (settings as any).fullscreenOnStart === true,
         };
       }),
     };
@@ -488,7 +497,22 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
             count: quiz.count ?? null,
             seedPolicy: quiz.seedPolicy ? parseInt(quiz.seedPolicy, 10) : 0,
             fixedSeed: quiz.fixedSeed !== undefined ? String(quiz.fixedSeed) : null,
-            settings: JSON.stringify({ type: quiz.type, mode: quiz.mode, visibility: quiz.visibility, materia: parsed.subject, composition: quiz.composition, ocultarPuntos: quiz.ocultarPuntos === true }),
+            settings: JSON.stringify({
+              type: quiz.type,
+              mode: quiz.mode,
+              visibility: quiz.visibility,
+              materia: parsed.subject,
+              composition: quiz.composition,
+              ocultarPuntos: quiz.ocultarPuntos === true,
+              // F4-04 — campos de modo evaluación. Se persisten en
+              // `settings.maxIntentos`/`politicaNota`/`timerSegundos`/
+              // `fullscreenOnStart`. Cierra el gap de F3-04 (que sólo los
+              // leía pero no los escribía). Default del tipo si no vienen.
+              maxIntentos: quiz.maxIntentos === undefined ? undefined : quiz.maxIntentos,
+              politicaNota: quiz.politicaNota,
+              timerSegundos: quiz.timerSegundos === undefined ? null : quiz.timerSegundos,
+              fullscreenOnStart: quiz.fullscreenOnStart === true
+            }),
             createdAt: parsed.createdAt,
             createdBy: parsed.createdBy,
           },
@@ -567,9 +591,22 @@ async function applyModuleUpdate(
         visibility: q.visibility ?? "publico",
         // Composición a nivel quiz (pool/selección/variantes/peso). No DSL.
         composition: q.composition,
+        // F3-04 + F4-04 — config del modo evaluación, persistida en
+        // `settings.maxIntentos`/`politicaNota`/`timerSegundos`/
+        // `fullscreenOnStart`. Cierra el gap de F3-04 (que sólo los leía
+        // pero no los escribía). F4-04 agrega timer y fullscreen.
+        // Si los campos están ausentes en el payload, el parser server-side
+        // (parseEvaluacionConfig) usa el default del tipo. Acá respetamos
+        // lo que el docente setea, incluido `0` (ilimitado explícito).
+        maxIntentos: q.maxIntentos === undefined ? undefined : q.maxIntentos,
+        politicaNota: q.politicaNota,
         // F4-03 — toggle "ocultar puntos al alumno". Se persiste en
         // `settings.ocultarPuntos`. Default false.
         ocultarPuntos: q.ocultarPuntos === true,
+        // F4-04 — timer per-cuestionario (segundos). null = sin timer.
+        timerSegundos: q.timerSegundos === undefined ? null : q.timerSegundos,
+        // F4-04 — activar pantalla completa al iniciar el intento.
+        fullscreenOnStart: q.fullscreenOnStart === true,
       };
       const seedPolicyInt = q.seedPolicy ? parseInt(String(q.seedPolicy), 10) : 0;
 

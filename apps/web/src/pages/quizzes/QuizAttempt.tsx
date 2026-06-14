@@ -70,6 +70,19 @@ type QuizAttemptResponse = {
    * sólo la nota. Default `false` (mostrar).
    */
   ocultarPuntos?: boolean;
+  /**
+   * F4-04 — Timer per-cuestionario (segundos). Si está presente y > 0,
+   * el runner inicia un cronómetro que auto-envía al llegar a 0.
+   * `null`/`undefined` = sin timer. Antes de F4-04 era hardcodeado a
+   * 10 min exclusivo del modo competencia.
+   */
+  timerSegundos?: number | null;
+  /**
+   * F4-04 — Si es `true`, el botón "Iniciar evaluación" llama a
+   * `document.documentElement.requestFullscreen()` antes de cargar el
+   * quiz. Default `false`.
+   */
+  fullscreenOnStart?: boolean;
 };
 
 type SubmitResponse = {
@@ -157,12 +170,22 @@ export default function QuizAttempt() {
         setAttempt(data);
         setAnswers(normalizeAnswers(data.answers));
         setStatus("ready");
-        if (data.quizType === "competencia") {
+        // F4-04 — timer per-cuestionario. Antes era hardcodeado a 10 min
+        // exclusivo de `competencia`. Ahora se lee de
+        // `data.timerSegundos` (resuelto por el backend con
+        // `parseEvaluacionConfig`). Si es null, no se inicia cronómetro
+        // (ni en `competencia` ni en `formal`). Default del tipo
+        // competencia es 600s (10 min), preserva el comportamiento previo.
+        const timerSeg = typeof data.timerSegundos === "number" && data.timerSegundos > 0
+          ? data.timerSegundos
+          : null;
+        if (timerSeg !== null) {
           setModoCompetencia(true);
-          // Timer de 10 minutos por defecto
-          const duracionSeg = 10 * 60;
-          setTiempoRestante(duracionSeg);
+          setTiempoRestante(timerSeg);
           setTiempoInicio(Date.now());
+        } else {
+          setModoCompetencia(false);
+          setTiempoRestante(null);
         }
       })
       .catch((error) => {

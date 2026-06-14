@@ -82,7 +82,21 @@ export const ModuleQuizSchema = z.object({
       variantes: z.array(z.string()).optional(),
       pesoPorDefecto: z.number().positive().optional()
     })
-    .optional()
+    .optional(),
+  // F3-04 — política de intentos, persistida en `settings.maxIntentos` y
+  // `settings.politicaNota` por el PUT del route. Ver `api/src/routes/modulos.ts`
+  // y `api/src/lib/quiz-intentos.ts`.
+  maxIntentos: z.union([z.number().int().nonnegative(), z.null()]).optional(),
+  politicaNota: z.enum(["mejor", "ultima", "primera", "promedio"]).optional(),
+  // F4-03 — toggle "ocultar puntos al alumno", persistido en
+  // `settings.ocultarPuntos`. El cliente gate del `Puntaje: X / Y`; el
+  // backend gate del `(NN%)` en el `message` del submit.
+  ocultarPuntos: z.boolean().optional(),
+  // F4-04 — timer (segundos) per-cuestionario; null = sin timer. Sólo
+  // se gate para `type === "formal"` en la UI; el runner siempre lo lee.
+  timerSegundos: z.union([z.number().int().positive(), z.null()]).optional(),
+  // F4-04 — fullscreen al iniciar el intento (user-gesture button).
+  fullscreenOnStart: z.boolean().optional()
 }).superRefine((value, ctx) => {
   if (value.mode === "generated") {
     if (value.questions !== undefined) {
