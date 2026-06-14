@@ -43,6 +43,14 @@ export type ModuleQuiz = {
   displayCount?: number;
   umbralAprobacion?: number; // 0-100, default 60
   /**
+   * F4-03 — Toggle "ocultar puntos al alumno". Si es `true`, el reproductor
+   * del alumno (post-submit) NO muestra el `Puntaje: X / Y` ni el
+   * porcentaje en el `message` del backend; sólo la nota (escala del
+   * profesor). Persistido en `QuizVersion.settings.ocultarPuntos`. Default
+   * `false` (mostrar todo) — preserva el comportamiento previo.
+   */
+  ocultarPuntos?: boolean;
+  /**
    * Composición a nivel quiz (pool, selección, variantes, peso por defecto).
    * Se persiste en `QuizVersion.settings.composition`. NO es parte del DSL.
    */

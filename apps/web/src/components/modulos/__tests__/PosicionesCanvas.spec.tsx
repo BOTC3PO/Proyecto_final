@@ -9,7 +9,7 @@
  */
 
 import { describe, expect, it, vi } from "vitest";
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import PosicionesCanvas from "../PosicionesCanvas";
 import { parseCuestionario } from "../../../domain/quiz/posiciones";
@@ -346,5 +346,124 @@ describe("PosicionesCanvas — F4-02 añadir contextual", () => {
     expect(screen.queryByRole("button", { name: /Añadir una posición al final/ })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /Añadir variante/ })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /Insertar contenido relativo/ })).not.toBeInTheDocument();
+  });
+});
+
+/**
+ * F4-03 — Edición de puntaje por posición y tipo de slot.
+ *
+ * Cubre los criterios de la tarea:
+ *  - Cambiar puntaje de una posición invoca onChangePuntaje(numero, nuevoPuntaje).
+ *  - El input está disponible si y solo si onChangePuntaje se pasa.
+ *  - Cambiar tipo invoca onChangeTipo(numero, nuevoTipo).
+ *  - Sin los callbacks, no hay input/select (no-regresión).
+ */
+describe("PosicionesCanvas — F4-03 puntaje por sección", () => {
+  it("sin onChangePuntaje, NO renderiza el input de puntaje (no-regresión)", () => {
+    render(<PosicionesCanvas cuestionario={cuestionarioMixto()} />);
+    expect(screen.queryByLabelText(/Puntaje de la posición/)).not.toBeInTheDocument();
+    // En cambio, sigue mostrando el "1 punto" / "2 puntos" como texto.
+    expect(screen.getByText("1 punto")).toBeInTheDocument();
+    // Hay 2 posiciones con 2 puntos (pos 2 y pos 3). Verificamos que aparece
+    // al menos una.
+    expect(screen.getAllByText("2 puntos").length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("con onChangePuntaje, renderiza un input por posición con su puntaje actual", () => {
+    render(
+      <PosicionesCanvas
+        cuestionario={cuestionarioMixto()}
+        onChangePuntaje={() => {}}
+      />,
+    );
+    const input1 = screen.getByLabelText("Puntaje de la posición 1") as HTMLInputElement;
+    const input2 = screen.getByLabelText("Puntaje de la posición 2") as HTMLInputElement;
+    const input3 = screen.getByLabelText("Puntaje de la posición 3") as HTMLInputElement;
+    expect(input1.value).toBe("1");
+    expect(input2.value).toBe("2");
+    expect(input3.value).toBe("2");
+  });
+
+  it("cambiar el puntaje invoca onChangePuntaje(numero, nuevoPuntaje)", async () => {
+    const user = userEvent.setup();
+    const onChangePuntaje = vi.fn();
+    render(
+      <PosicionesCanvas
+        cuestionario={cuestionarioMixto()}
+        onChangePuntaje={onChangePuntaje}
+      />,
+    );
+
+    const input2 = screen.getByLabelText("Puntaje de la posición 2");
+    // Forzamos el value y disparamos onChange (happy-dom requiere el set).
+    await user.click(input2);
+    // Limpia y tipea "5".
+    fireEvent.change(input2, { target: { value: "5" } });
+    expect(onChangePuntaje).toHaveBeenCalledWith(2, 5);
+  });
+
+  it("cambiar el puntaje de la posición 1 NO afecta el input de la posición 2", async () => {
+    const user = userEvent.setup();
+    const onChangePuntaje = vi.fn();
+    render(
+      <PosicionesCanvas
+        cuestionario={cuestionarioMixto()}
+        onChangePuntaje={onChangePuntaje}
+      />,
+    );
+
+    const input1 = screen.getByLabelText("Puntaje de la posición 1");
+    fireEvent.change(input1, { target: { value: "10" } });
+    expect(onChangePuntaje).toHaveBeenLastCalledWith(1, 10);
+    expect(onChangePuntaje).not.toHaveBeenCalledWith(2, expect.anything());
+  });
+
+  it("input vacío no invoca onChangePuntaje (commit al perder foco o Enter)", () => {
+    const onChangePuntaje = vi.fn();
+    render(
+      <PosicionesCanvas
+        cuestionario={cuestionarioMixto()}
+        onChangePuntaje={onChangePuntaje}
+      />,
+    );
+    const input1 = screen.getByLabelText("Puntaje de la posición 1");
+    fireEvent.change(input1, { target: { value: "" } });
+    expect(onChangePuntaje).not.toHaveBeenCalled();
+  });
+
+  it("input con valor negativo no invoca onChangePuntaje (rechazo)", () => {
+    const onChangePuntaje = vi.fn();
+    render(
+      <PosicionesCanvas
+        cuestionario={cuestionarioMixto()}
+        onChangePuntaje={onChangePuntaje}
+      />,
+    );
+    const input1 = screen.getByLabelText("Puntaje de la posición 1");
+    fireEvent.change(input1, { target: { value: "-3" } });
+    expect(onChangePuntaje).not.toHaveBeenCalled();
+  });
+
+  it("cambiar el tipo en el select de la posición 2 invoca onChangeTipo(2, 'relleno')", async () => {
+    const user = userEvent.setup();
+    const onChangeTipo = vi.fn();
+    render(
+      <PosicionesCanvas
+        cuestionario={cuestionarioMixto()}
+        onChangeTipo={onChangeTipo}
+      />,
+    );
+    const select2 = screen.getByLabelText("Tipo de la posición 2") as HTMLSelectElement;
+    expect(select2.value).toBe("obligatorio");
+    fireEvent.change(select2, { target: { value: "relleno" } });
+    expect(onChangeTipo).toHaveBeenCalledWith(2, "relleno");
+  });
+
+  it("sin onChangeTipo, sigue mostrando el Pill (no-regresión)", () => {
+    render(<PosicionesCanvas cuestionario={cuestionarioMixto()} />);
+    expect(screen.getByText("Fija")).toBeInTheDocument();
+    expect(screen.getByText("Pool")).toBeInTheDocument();
+    expect(screen.getByText("Relleno")).toBeInTheDocument();
+    expect(screen.queryByLabelText(/Tipo de la posición/)).not.toBeInTheDocument();
   });
 });

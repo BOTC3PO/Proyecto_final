@@ -112,6 +112,14 @@ interface Props {
   /** F4-02 — quitar una variante concreta. Si está presente, cada fila
    *  expandida muestra un botón "Quitar variante". */
   onRemoveVariante?: (numero: number, letra: string) => void;
+  /** F4-03 — cambiar el puntaje de una posición. Si está presente, se
+   *  renderiza un input numérico en la cabecera. El host decide cómo
+   *  persistirlo (en `Posicion.puntaje` del cuestionario). Default 1 si
+   *  no se setea. */
+  onChangePuntaje?: (numero: number, puntaje: number) => void;
+  /** F4-03 — cambiar el tipo de slot de una posición. Si está presente,
+   *  se renderiza un selector con los 3 tipos (fijo / pool / relleno). */
+  onChangeTipo?: (numero: number, tipo: PosicionTipo) => void;
 }
 
 /** Etiqueta humana del tipo para los botones del menú. */
@@ -130,6 +138,8 @@ export default function PosicionesCanvas({
   onAddVariante,
   onRemovePosicion,
   onRemoveVariante,
+  onChangePuntaje,
+  onChangeTipo,
 }: Props) {
   const { temas, posiciones } = cuestionario;
   const temaIndex = new Map(temas.map((t, i) => [t.id, i]));
@@ -230,7 +240,23 @@ export default function PosicionesCanvas({
                       {pos.numero}
                     </span>
                     <span className="sr-only">Posición {pos.numero}.</span>
-                    <Pill tone={tipo.tone}>{tipo.label}</Pill>
+                    {onChangeTipo ? (
+                      <select
+                        aria-label={`Tipo de la posición ${pos.numero}`}
+                        className="rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-0.5 text-xs"
+                        value={pos.tipo}
+                        onChange={(e) =>
+                          onChangeTipo(pos.numero, e.target.value as PosicionTipo)
+                        }
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <option value="fijo">Fija</option>
+                        <option value="obligatorio">Pool</option>
+                        <option value="relleno">Relleno</option>
+                      </select>
+                    ) : (
+                      <Pill tone={tipo.tone}>{tipo.label}</Pill>
+                    )}
                     <span
                       className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium"
                       style={{ backgroundColor: `${color}22`, color }}
@@ -242,9 +268,36 @@ export default function PosicionesCanvas({
                         + {temaById.get(pos.temaSecundario)?.nombre ?? pos.temaSecundario}
                       </span>
                     )}
-                    <span className="ml-auto text-xs text-[var(--c-text-3)]">
-                      {pos.puntaje} {pos.puntaje === 1 ? "punto" : "puntos"}
-                    </span>
+                    {onChangePuntaje ? (
+                      <label className="ml-auto flex items-center gap-1 text-xs text-[var(--c-text-3)]">
+                        <span className="sr-only">Puntaje de la posición {pos.numero}.</span>
+                        <input
+                          type="number"
+                          inputMode="numeric"
+                          min={0}
+                          step={1}
+                          aria-label={`Puntaje de la posición ${pos.numero}`}
+                          className="w-14 rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-0.5 text-right text-xs tabular-nums"
+                          defaultValue={pos.puntaje}
+                          onClick={(e) => e.stopPropagation()}
+                          onChange={(e) => {
+                            const raw = e.target.value;
+                            // Permite string vacío mientras se tipea; commit al
+                            // perder foco o al Enter (manejado por `onBlur`).
+                            if (raw === "") return;
+                            const n = Number(raw);
+                            if (Number.isFinite(n) && n >= 0) {
+                              onChangePuntaje(pos.numero, n);
+                            }
+                          }}
+                        />
+                        <span>{pos.puntaje === 1 ? "punto" : "puntos"}</span>
+                      </label>
+                    ) : (
+                      <span className="ml-auto text-xs text-[var(--c-text-3)]">
+                        {pos.puntaje} {pos.puntaje === 1 ? "punto" : "puntos"}
+                      </span>
+                    )}
                     <span className="text-xs text-[var(--c-text-3)]">
                       {pos.variantes.length} {pos.variantes.length === 1 ? "variante" : "variantes"}
                     </span>

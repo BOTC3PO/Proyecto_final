@@ -1445,13 +1445,31 @@ quizAttempts.post(
       }
 
       // WO14 — maxScore = 0: no hay nota (no forzar "Desaprobado").
+      // F4-03 — si `ocultarPuntos` está activo en `settings`, el `message` no
+      // incluye el `(NN%)` para no leakear el puntaje crudo al alumno. El
+      // cliente también gate del `Puntaje: X / Y` con el mismo flag, pero
+      // acá lo limpiamos como defensa en profundidad (un alumno que vea el
+      // `message` JSON directamente no debe ver el porcentaje).
+      const ocultarPuntos = (() => {
+        if (!version?.settings) return false;
+        try {
+          const parsed = JSON.parse(version.settings) as { ocultarPuntos?: unknown };
+          return parsed.ocultarPuntos === true;
+        } catch {
+          return false;
+        }
+      })();
       const message =
         nota.passing === null
           ? "Respuestas enviadas. Este quiz no tiene ítems puntuables, no hay nota."
-          : aprobado
-            ? `¡Aprobado! Nota: ${nota.display} (${porcentaje}%).`
-            : `Nota: ${nota.display} (${porcentaje}%) — no alcanza para aprobar.`;
-      res.json({
+          : ocultarPuntos
+            ? aprobado
+              ? `¡Aprobado! Nota: ${nota.display}.`
+              : `Nota: ${nota.display} — no alcanza para aprobar.`
+            : aprobado
+              ? `¡Aprobado! Nota: ${nota.display} (${porcentaje}%).`
+              : `Nota: ${nota.display} (${porcentaje}%) — no alcanza para aprobar.`;
+      const responseBody: Record<string, unknown> = {
         status: "submitted",
         score,
         maxScore,
@@ -1460,8 +1478,11 @@ quizAttempts.post(
         umbral,
         notaDisplay: nota.display,
         notaCanonical10: nota.canonical10,
-        message,
-      });
+        // F4-03 — propagar el flag al cliente. Default false.
+        ocultarPuntos,
+        message
+      };
+      res.json(responseBody);
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });
     }

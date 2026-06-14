@@ -245,6 +245,8 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
           seedPolicy: v?.seedPolicy ?? undefined,
           fixedSeed: v?.fixedSeed ?? undefined,
           composition: (settings as any).composition ?? undefined,
+          // F4-03 — exponer el toggle "ocultar puntos al alumno". Default false.
+          ocultarPuntos: (settings as any).ocultarPuntos === true,
         };
       }),
     };
@@ -486,7 +488,7 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
             count: quiz.count ?? null,
             seedPolicy: quiz.seedPolicy ? parseInt(quiz.seedPolicy, 10) : 0,
             fixedSeed: quiz.fixedSeed !== undefined ? String(quiz.fixedSeed) : null,
-            settings: JSON.stringify({ type: quiz.type, mode: quiz.mode, visibility: quiz.visibility, materia: parsed.subject, composition: quiz.composition }),
+            settings: JSON.stringify({ type: quiz.type, mode: quiz.mode, visibility: quiz.visibility, materia: parsed.subject, composition: quiz.composition, ocultarPuntos: quiz.ocultarPuntos === true }),
             createdAt: parsed.createdAt,
             createdBy: parsed.createdBy,
           },
@@ -565,6 +567,9 @@ async function applyModuleUpdate(
         visibility: q.visibility ?? "publico",
         // Composición a nivel quiz (pool/selección/variantes/peso). No DSL.
         composition: q.composition,
+        // F4-03 — toggle "ocultar puntos al alumno". Se persiste en
+        // `settings.ocultarPuntos`. Default false.
+        ocultarPuntos: q.ocultarPuntos === true,
       };
       const seedPolicyInt = q.seedPolicy ? parseInt(String(q.seedPolicy), 10) : 0;
 

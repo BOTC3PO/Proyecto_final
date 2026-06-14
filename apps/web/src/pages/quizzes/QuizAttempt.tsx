@@ -5,6 +5,7 @@ import type { ModuleQuizQuestion } from "../../domain/module/module.types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
+import PostSubmitResult from "../../components/quizzes/PostSubmitResult";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import { ejercicioToQuestion } from "../../domain/quiz/ejercicioToQuestion";
 import {
@@ -63,6 +64,12 @@ type QuizAttemptResponse = {
   displayCount?: number;
   quizType?: string;
   composition?: QuizComposition;
+  /**
+   * F4-03 — Si es `true`, el render post-submit del alumno NO muestra
+   * el `Puntaje: X / Y` ni el porcentaje en el `message` del backend;
+   * sólo la nota. Default `false` (mostrar).
+   */
+  ocultarPuntos?: boolean;
 };
 
 type SubmitResponse = {
@@ -764,22 +771,10 @@ export default function QuizAttempt() {
                 {submitMessage}
               </p>
             ) : null}
-            {result && (result.score !== undefined || result.maxScore !== undefined) ? (
-              <p className="text-sm text-gray-600">
-                Puntaje: {result.score ?? "-"} / {result.maxScore ?? "-"}
-              </p>
-            ) : null}
-            {result?.notaDisplay && result.notaDisplay !== "—" ? (
-              <p className="text-sm font-semibold text-gray-800">
-                Nota: {result.notaDisplay}
-                {typeof result.notaCanonical10 === "number"
-                  ? ` (${result.notaCanonical10}/10)`
-                  : ""}
-              </p>
-            ) : null}
-            {result?.feedback ? (
-              <p className="text-sm text-gray-600">{result.feedback}</p>
-            ) : null}
+            <PostSubmitResult
+              result={result}
+              {...(attempt?.ocultarPuntos ? { ocultarPuntos: true } : {})}
+            />
           </div>
         </section>
 

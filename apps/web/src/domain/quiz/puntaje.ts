@@ -65,3 +65,113 @@ export function maxScoreCuestionario(posiciones: readonly PosicionPuntuable[]): 
   for (const pos of posiciones) maxScore += pos.puntaje > 0 ? pos.puntaje : 0;
   return maxScore;
 }
+
+/**
+ * F4-03 — Reparto del puntaje por tema (sección).
+ *
+ * Dado un cuestionario con posiciones que tienen `temaPrincipal` y `puntaje`,
+ * agrupa los puntos por tema. La "sección" que ve el docente en el editor es
+ * un tema del modelo F3-01: una posición con `temaPrincipal = "algebra"`
+ * pertenece a la sección "Álgebra". Si la posición tiene `temaSecundario`, se
+ * reparte 50/50 entre principal y secundario (regla documentada; consistente
+ * con el hecho de que `temaSecundario` no aumenta el total — el tema principal
+ * sigue siendo el "dueño" de la posición).
+ *
+ * Devuelve un objeto { temaId -> { score, maxScore, ratio } } donde:
+ *   - `maxScore` = suma del puntaje de las posiciones del tema (con `puntaje > 0`).
+ *   - `score`    = suma del puntaje de las posiciones del tema en `acertadas`.
+ *   - `ratio`    = `score/maxScore` o `null` si `maxScore = 0`.
+ *
+ * Los temas SIN posiciones se omiten del resultado (no se infieren temas vacíos).
+ *
+ * Importante: si dos posiciones del mismo tema suman 10 puntos, pero el alumno
+ * acertó una sola de 3 puntos, `score = 3, maxScore = 10, ratio = 0.3` — igual
+ * que `puntajePorPosiciones` para ese subconjunto.
+ */
+export interface PosicionConTema extends PosicionPuntuable {
+  temaPrincipal: string;
+  temaSecundario?: string;
+}
+
+export interface RepartoPorTema {
+  score: number;
+  maxScore: number;
+  ratio: number | null;
+}
+
+export function puntajePorTema(
+  cuestionario: { posiciones: readonly PosicionConTema[] },
+  acertadas: ReadonlySet<number>
+): Record<string, RepartoPorTema> {
+  const out: Record<string, RepartoPorTema> = {};
+  const ensure = (id: string): RepartoPorTema => {
+    if (!out[id]) out[id] = { score: 0, maxScore: 0, ratio: null };
+    return out[id];
+  };
+  for (const pos of cuestionario.posiciones) {
+    const w = pos.puntaje > 0 ? pos.puntaje : 0;
+    if (w === 0) continue; // las posiciones con puntaje 0 no entran ni al total
+                           // ni a la distribución por tema.
+    const acertada = acertadas.has(pos.numero);
+    if (pos.temaSecundario && pos.temaSecundario !== pos.temaPrincipal) {
+      // Split 50/50 entre principal y secundario: cada uno carga w/2 de maxScore,
+      // y si la posición fue acertada, también w/2 de score. La suma de las
+      // contribuciones es exactamente `w` (masa conservada).
+      const mitad = w / 2;
+      const principal = ensure(pos.temaPrincipal);
+      principal.maxScore += mitad;
+      if (acertada) principal.score += mitad;
+      const secundario = ensure(pos.temaSecundario);
+      secundario.maxScore += mitad;
+      if (acertada) secundario.score += mitad;
+    } else {
+      const principal = ensure(pos.temaPrincipal);
+      principal.maxScore += w;
+      if (acertada) principal.score += w;
+    }
+  }
+  // Calculamos ratios.
+  for (const id of Object.keys(out)) {
+    const r = out[id];
+    r.ratio = r.maxScore > 0 ? r.score / r.maxScore : null;
+  }
+  return out;
+}
+
+/**
+ * F4-03 — Total del cuestionario (suma de `puntaje` de todas las posiciones
+ * con `puntaje > 0`). Es un alias semántico de `maxScoreCuestionario` para
+ * la UI ("total" se ve más natural en el panel de reparto que "maxScore").
+ */
+export function puntajeTotalCuestionario(
+  cuestionario: { posiciones: readonly PosicionPuntuable[] }
+): number {
+  return maxScoreCuestionario(cuestionario.posiciones);
+}
+
+/**
+ * F4-03 — Versión del reparto que también devuelve el total (en un solo
+ * recorrido, para evitar doble pasada en el render). Pensado para alimentar
+ * al panel "Reparto por sección" en una sola llamada.
+ */
+export function resumenPuntaje(cuestionario: {
+  posiciones: readonly PosicionConTema[];
+  temas: ReadonlyArray<{ id: string; nombre: string }>;
+  acertadas?: ReadonlySet<number>;
+}): {
+  total: number;
+  porTema: Record<string, RepartoPorTema & { nombre: string }>;
+} {
+  const acertadas = cuestionario.acertadas ?? new Set<number>();
+  const distribucion = puntajePorTema({ posiciones: cuestionario.posiciones }, acertadas);
+  const nombres = new Map(cuestionario.temas.map((t) => [t.id, t.nombre] as const));
+  const porTema: Record<string, RepartoPorTema & { nombre: string }> = {};
+  for (const id of Object.keys(distribucion)) {
+    const r = distribucion[id];
+    porTema[id] = { ...r, nombre: nombres.get(id) ?? id };
+  }
+  return {
+    total: puntajeTotalCuestionario({ posiciones: cuestionario.posiciones }),
+    porTema
+  };
+}
