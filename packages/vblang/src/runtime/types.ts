@@ -33,6 +33,12 @@ export interface CompiledPlantilla {
    */
   enunciados?: PasoItem[];
   pasos?: PasoItem[];
+  /**
+   * F2-02: pistas escalonadas (texto interpolable, en orden). El runtime las
+   * materializa con los valores de la simulación. Costo/visibilidad NO viven
+   * acá (es composición de quiz, igual que `points`).
+   */
+  pistas?: PasoItem[];
   tipoInferido: TipoPregunta;
   generadorId?: string;
   /* Soporte parcial / no usado todavía en Sprint 4 */
@@ -76,6 +82,12 @@ export interface GenerationResult {
   tipo: TipoPregunta;
   enunciado: string;
   pasos?: string[];
+  /**
+   * F2-02: pistas escalonadas ya interpoladas, en orden. `undefined` si la
+   * plantilla no declara `pistas:`. El alumno las pide de a una a cambio de
+   * puntos (el costo se decide en la composición del quiz, no acá).
+   */
+  pistas?: string[];
   respuesta?: unknown;
   respuestasValidas?: unknown[];
   unidad?: string;

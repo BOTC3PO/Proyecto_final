@@ -337,6 +337,16 @@ function emitBloque(b: Bloque): string {
       const body = b.pasos.map((p) => emitPaso(p, INDENT)).join("\n");
       return `pasos:\n${body}`;
     }
+    case "pistas": {
+      // F2-02: una sola pista se emite inline (round-trip con la forma
+      // inline); varias, como lista `- "..."`. El parser acepta ambas.
+      if (b.items.length === 0) return "pistas:";
+      if (b.items.length === 1) {
+        return `pistas: ${emitInterpolatedString(b.items[0].partes)}`;
+      }
+      const body = b.items.map((p) => emitPaso(p, INDENT)).join("\n");
+      return `pistas:\n${body}`;
+    }
     case "generador":
       return `generador: ${b.id}`;
     case "dataset":

@@ -65,6 +65,21 @@ function resolverVarianteEnunciado(
   return item.partes;
 }
 
+/**
+ * F2-02: materializa las pistas escalonadas interpolándolas con los valores de
+ * la simulación, en orden. Devuelve `undefined` si la plantilla no declara
+ * `pistas:` — clave para la no-regresión: si no hay pistas, no se interpola ni
+ * se toca el PRNG, así las plantillas existentes producen exactamente lo mismo.
+ */
+function materializarPistas(
+  compiled: CompiledPlantilla,
+  scope: Scope,
+  ctx: EvalContext,
+): string[] | undefined {
+  if (!compiled.pistas || compiled.pistas.length === 0) return undefined;
+  return compiled.pistas.map((p) => interpolar(p.partes, scope, ctx));
+}
+
 function normalizarDificultad(raw: unknown): string {
   if (raw === 1 || raw === "1") return "basico";
   if (raw === 2 || raw === "2") return "intermedio";
@@ -118,12 +133,17 @@ function generateAssisted(
     pasos = ejercicio.pasos;
   }
 
+  // F2-02: las pistas de la plantilla se interpolan contra las variables que
+  // expone el generador (igual que enunciado/pasos override).
+  const pistas = materializarPistas(compiled, scope, ctx);
+
   return buildAssistedResult(
     compiled,
     ejercicio,
     options.seed,
     enunciado,
     pasos,
+    pistas,
     datos,
   );
 }
@@ -134,6 +154,7 @@ function buildAssistedResult(
   seed: string,
   enunciado: string,
   pasos: string[] | undefined,
+  pistas: string[] | undefined,
   datos: Record<string, unknown>,
 ): GenerationResult {
   // El generador puede aportar un visual (gráfico, circuito, etc.); lo
@@ -155,6 +176,7 @@ function buildAssistedResult(
       tipo: "mc",
       enunciado,
       pasos,
+      pistas,
       opciones,
       variables: datos,
       seed,
@@ -181,6 +203,7 @@ function buildAssistedResult(
       tipo: "input",
       enunciado,
       pasos,
+      pistas,
       respuesta: ejercicio.resultado,
       unidad,
       tolerancia,
@@ -197,6 +220,7 @@ function buildAssistedResult(
       tipo: "completar",
       enunciado,
       pasos,
+      pistas,
       respuesta: ejercicio.respuestaCorrecta,
       variables: datos,
       seed,
@@ -328,6 +352,8 @@ export function generate(
     const pasosTexto = compiled.pasos
       ? compiled.pasos.map((p) => interpolar(p.partes, scope, ctx))
       : undefined;
+    // F2-02: pistas escalonadas materializadas (undefined si no hay `pistas:`).
+    const pistasTexto = materializarPistas(compiled, scope, ctx);
 
     // Dispatch a generadores especiales (Sprint 9A). Respetan el mismo loop de
     // retry por restricciones que los tipos básicos.
@@ -340,6 +366,7 @@ export function generate(
         intento,
         enunciadoTexto,
         pasosTexto,
+        pistasTexto,
       );
     }
     if (compiled.tipoInferido === "marcar_mapa") {
@@ -351,6 +378,7 @@ export function generate(
         intento,
         enunciadoTexto,
         pasosTexto,
+        pistasTexto,
       );
     }
     if (compiled.tipoInferido === "analisis_sintactico") {
@@ -362,6 +390,7 @@ export function generate(
         intento,
         enunciadoTexto,
         pasosTexto,
+        pistasTexto,
       );
     }
     if (compiled.tipoInferido === "identificar_palabras") {
@@ -373,6 +402,7 @@ export function generate(
         intento,
         enunciadoTexto,
         pasosTexto,
+        pistasTexto,
       );
     }
 
@@ -383,6 +413,7 @@ export function generate(
         tipo: "abierta",
         enunciado: enunciadoTexto,
         pasos: pasosTexto,
+        pistas: pistasTexto,
         variables: scope.toRecord(),
         seed: options.seed,
         intentos: intento,
@@ -398,6 +429,7 @@ export function generate(
       tipo: compiled.tipoInferido,
       enunciado: enunciadoTexto,
       pasos: pasosTexto,
+      pistas: pistasTexto,
       respuesta: respuestaVal,
       respuestasValidas: respuestasValidasVals,
       unidad: compiled.unidad,

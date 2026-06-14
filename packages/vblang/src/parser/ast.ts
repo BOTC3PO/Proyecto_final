@@ -252,6 +252,18 @@ export interface PasosBloque {
   pasos: PasoItem[];
   loc: Loc;
 }
+/**
+ * F2-02: pistas escalonadas. Una sola keyword `pistas:` que acepta forma inline
+ * (un string → lista de 1) o lista (`- "..."`). A diferencia de `enunciados:`,
+ * NO son variantes: son una secuencia ordenada que el alumno pide de a una.
+ * `items.length >= 1` siempre. El costo en puntos NO vive acá (es composición
+ * de quiz, igual que `points`).
+ */
+export interface PistasBloque {
+  kind: "pistas";
+  items: PasoItem[];
+  loc: Loc;
+}
 export interface VisualBloque {
   kind: "visual";
   campos: CampoKV[];
@@ -320,6 +332,7 @@ export type Bloque =
   | TipoBloque
   | EnunciadoBloque
   | EnunciadosBloque
+  | PistasBloque
   | PasosBloque
   | VisualBloque
   | GeneradorBloque

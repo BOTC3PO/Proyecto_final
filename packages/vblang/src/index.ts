@@ -129,6 +129,7 @@ export type {
   OpcionesExplicitasBloque,
   PasoItem,
   PasosBloque,
+  PistasBloque,
   Plantilla,
   RangeIter,
   RespuestaBloque,

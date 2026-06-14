@@ -93,6 +93,12 @@ export type ModuleQuizQuestion = {
   unidades?: Record<string, string>;
   datos?: Record<string, unknown>;
   pasos?: string[];
+  /**
+   * F2-02: pistas escalonadas (texto ya interpolado, en orden). El alumno las
+   * pide de a una a cambio de puntos. El costo/visibilidad es composición de
+   * quiz; NO forma parte del DSL de la plantilla.
+   */
+  pistas?: string[];
   // Visual attached by generator
   visualSpec?: import("../../generadoresV2/core/types").VisualSpec;
 

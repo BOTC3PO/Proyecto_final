@@ -7,7 +7,8 @@
  *
  * Cada función recibe el `CompiledPlantilla`, el `Scope` con variables ya
  * declaradas, el `EvalContext`, el `seed`, el número de intento y los textos
- * de enunciado/pasos ya interpolados. Devuelve un `GenerationResult` ya armado.
+ * de enunciado/pasos/pistas ya interpolados. Devuelve un `GenerationResult`
+ * ya armado.
  */
 import { EvalError } from "../evaluator/errors.js";
 import {
@@ -54,6 +55,7 @@ export function generateOrdenar(
   intento: number,
   enunciado: string,
   pasos: string[] | undefined,
+  pistas: string[] | undefined,
 ): GenerationResult {
   if (!compiled.opcionesExplicitas || compiled.opcionesExplicitas.length === 0) {
     throw new EvalError(
@@ -95,6 +97,7 @@ export function generateOrdenar(
     tipo: "ordenar",
     enunciado,
     pasos,
+    pistas,
     variables: scope.toRecord(),
     seed,
     intentos: intento,
@@ -115,6 +118,7 @@ export function generateMarcarMapa(
   intento: number,
   enunciado: string,
   pasos: string[] | undefined,
+  pistas: string[] | undefined,
 ): GenerationResult {
   if (!compiled.mapa) {
     throw new EvalError(
@@ -163,6 +167,7 @@ export function generateMarcarMapa(
     tipo: "marcar_mapa",
     enunciado,
     pasos,
+    pistas,
     variables: scope.toRecord(),
     seed,
     intentos: intento,
@@ -185,6 +190,7 @@ export function generateAnalisisSintactico(
   intento: number,
   enunciado: string,
   pasos: string[] | undefined,
+  pistas: string[] | undefined,
 ): GenerationResult {
   if (!compiled.textoAnalizar) {
     throw new EvalError(
@@ -241,6 +247,7 @@ export function generateAnalisisSintactico(
     tipo: "analisis_sintactico",
     enunciado,
     pasos,
+    pistas,
     variables: scope.toRecord(),
     seed,
     intentos: intento,
@@ -261,6 +268,7 @@ export function generateIdentificarPalabras(
   intento: number,
   enunciado: string,
   pasos: string[] | undefined,
+  pistas: string[] | undefined,
 ): GenerationResult {
   if (!compiled.textoAnalizar) {
     throw new EvalError(
@@ -311,6 +319,7 @@ export function generateIdentificarPalabras(
     tipo: "identificar_palabras",
     enunciado,
     pasos,
+    pistas,
     variables: scope.toRecord(),
     seed,
     intentos: intento,

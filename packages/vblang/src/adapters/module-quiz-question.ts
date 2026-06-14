@@ -58,6 +58,12 @@ export interface ModuleQuizQuestion {
   /** Pasos de resolución (uno por línea). */
   pasos?: string[];
   /**
+   * F2-02: pistas escalonadas ya interpoladas, en orden. El alumno las pide de
+   * a una a cambio de puntos. El costo/visibilidad es composición de quiz (no
+   * vive en el DSL, igual que `points`): el adaptador sólo propaga el texto.
+   */
+  pistas?: string[];
+  /**
    * Visual armado por el caller (el paquete no construye visuales).
    */
   visualSpec?: VisualSpec;

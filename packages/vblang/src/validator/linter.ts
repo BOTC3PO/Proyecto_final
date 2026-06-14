@@ -257,6 +257,27 @@ export function lint(plantilla: Plantilla, opts?: LintOptions): LintReport {
           if (p.kind === "interp") inferExprType(p.expr, env, ctx);
         }
       }
+    } else if (b.kind === "pistas") {
+      // F2-02: por cada pista, inferir tipos (emite var-undef base) y emitir
+      // un warning contextual con el índice de la pista para ubicar el error.
+      for (let i = 0; i < b.items.length; i += 1) {
+        const item = b.items[i];
+        for (const p of item.partes) {
+          if (p.kind !== "interp") continue;
+          inferExprType(p.expr, env, ctx);
+          walkExpr(p.expr, (e) => {
+            if (e.kind === "var" && env.get(e.name) === undefined) {
+              issues.push({
+                severity: "warning",
+                code: "pistas-var-undef",
+                message: `pistas[${i}]: variable "${e.name}" no declarada`,
+                line: e.loc.line,
+                col: e.loc.col,
+              });
+            }
+          });
+        }
+      }
     } else if (b.kind === "enunciados") {
       // Tarea 07: por cada variante, inferir tipos de las interpolaciones
       // (que ya emite var-undef) y emitir un warning contextual con el
@@ -361,6 +382,27 @@ function lintInterpolaciones(
                 severity: "warning",
                 code: "enunciados-var-undef",
                 message: `enunciados[${i}]: variable "${e.name}" no declarada`,
+                line: e.loc.line,
+                col: e.loc.col,
+              });
+            }
+          });
+        }
+      }
+    } else if (b.kind === "pistas") {
+      // F2-02: mismo tratamiento que enunciados en el path asistido.
+      for (let i = 0; i < b.items.length; i += 1) {
+        const item = b.items[i];
+        for (const p of item.partes) {
+          if (p.kind !== "interp") continue;
+          inferExprType(p.expr, env, ctx);
+          checkRandomInline(p.expr, issues);
+          walkExpr(p.expr, (e) => {
+            if (e.kind === "var" && env.get(e.name) === undefined) {
+              issues.push({
+                severity: "warning",
+                code: "pistas-var-undef",
+                message: `pistas[${i}]: variable "${e.name}" no declarada`,
                 line: e.loc.line,
                 col: e.loc.col,
               });
@@ -524,6 +566,11 @@ function* allBlockExpressions(plantilla: Plantilla): Iterable<Expr> {
         }
         break;
       case "enunciados":
+        for (const it of b.items) {
+          for (const p of it.partes) if (p.kind === "interp") yield p.expr;
+        }
+        break;
+      case "pistas":
         for (const it of b.items) {
           for (const p of it.partes) if (p.kind === "interp") yield p.expr;
         }
@@ -853,7 +900,11 @@ function detectPatterns(
 
   // ----- random-inline en enunciado / pasos / enunciados
   const inlineCheckBlocks = plantilla.bloques.filter(
-    (b) => b.kind === "enunciado" || b.kind === "pasos" || b.kind === "enunciados",
+    (b) =>
+      b.kind === "enunciado" ||
+      b.kind === "pasos" ||
+      b.kind === "enunciados" ||
+      b.kind === "pistas",
   );
   for (const b of inlineCheckBlocks) {
     if (b.kind === "enunciado") {
@@ -890,7 +941,7 @@ function detectPatterns(
           });
         }
       }
-    } else if (b.kind === "enunciados") {
+    } else if (b.kind === "enunciados" || b.kind === "pistas") {
       for (const item of b.items) {
         for (const p of item.partes) {
           if (p.kind !== "interp") continue;

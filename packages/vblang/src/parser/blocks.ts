@@ -18,6 +18,7 @@ import type {
   OpcionesExplicitasBloque,
   PasoItem,
   PasosBloque,
+  PistasBloque,
   RespuestaBloque,
   RespuestaIsoBloque,
   RespuestaNombreBloque,
@@ -639,6 +640,7 @@ function isBlockKeyword(k: TokenKind): boolean {
     k === TokenKind.KW_TIPO ||
     k === TokenKind.KW_ENUNCIADO ||
     k === TokenKind.KW_ENUNCIADOS ||
+    k === TokenKind.KW_PISTAS ||
     k === TokenKind.KW_PASOS ||
     k === TokenKind.KW_VISUAL ||
     k === TokenKind.KW_GENERADOR ||
@@ -661,6 +663,56 @@ export function parsePasosBloque(c: TokenCursor): PasosBloque {
   return {
     kind: "pasos",
     pasos: items,
+    loc: spanLoc(tokLoc(kwTok), tokLoc(endTok)),
+  };
+}
+
+/**
+ * F2-02: bloque `pistas:`. Una sola keyword con dos formas de superficie
+ * (mismo patrón que `opciones_explicitas:`):
+ *  - inline: `pistas: "una pista"` → lista de 1.
+ *  - lista:  `pistas:\n  - "a"\n  - "b"` → lista escalonada.
+ * Internamente siempre es una lista (`items: PasoItem[]`, longitud >= 1).
+ */
+export function parsePistasBloque(c: TokenCursor): PistasBloque {
+  const kwTok = c.consumeKind(TokenKind.KW_PISTAS, "'pistas'");
+  consumeColon(c);
+  const tok = c.peek();
+  // Forma inline: un string justo después de los dos puntos.
+  if (
+    tok.kind === TokenKind.STRING ||
+    tok.kind === TokenKind.MULTILINE_STRING
+  ) {
+    c.consume();
+    const partes = parseEnunciadoString(tok.value, tokLoc(tok));
+    return {
+      kind: "pistas",
+      items: [{ partes, loc: tokLoc(tok) }],
+      loc: spanLoc(tokLoc(kwTok), tokLoc(tok)),
+    };
+  }
+  // Forma lista: bloque indentado con `- "..."`. Detectar lista vacía antes de
+  // parseDashedStringList para dar un mensaje claro (igual que `enunciados:`).
+  skipNewlines(c);
+  const next = c.peek();
+  if (next.kind === TokenKind.EOF || isBlockKeyword(next.kind)) {
+    throw new ParseError(
+      `\`pistas:\` requiere al menos una pista (un string inline o '- "..."')`,
+      kwTok.line,
+      kwTok.col,
+    );
+  }
+  const { items, endTok } = parseDashedStringList(c, "pistas");
+  if (items.length === 0) {
+    throw new ParseError(
+      `\`pistas:\` requiere al menos una pista (un string inline o '- "..."')`,
+      kwTok.line,
+      kwTok.col,
+    );
+  }
+  return {
+    kind: "pistas",
+    items,
     loc: spanLoc(tokLoc(kwTok), tokLoc(endTok)),
   };
 }
@@ -777,6 +829,8 @@ export function parseBloque(c: TokenCursor): Bloque {
       return parseEnunciadoBloque(c);
     case TokenKind.KW_ENUNCIADOS:
       return parseEnunciadosBloque(c);
+    case TokenKind.KW_PISTAS:
+      return parsePistasBloque(c);
     case TokenKind.KW_PASOS:
       return parsePasosBloque(c);
     case TokenKind.KW_VISUAL:

@@ -192,6 +192,10 @@ export function toModuleQuizQuestion(
 
   if (gen.pasos && gen.pasos.length > 0) result.pasos = gen.pasos;
 
+  // F2-02: pistas escalonadas (texto interpolado). Se propagan tal cual; el
+  // costo en puntos lo decide la composición del quiz, no el adaptador.
+  if (gen.pistas && gen.pistas.length > 0) result.pistas = gen.pistas;
+
   // El visual explícito del caller gana; si no hay, usamos el que aportó el
   // generador asistido (propagado en GenerationResult.visual).
   if (options.visualSpec !== undefined) result.visualSpec = options.visualSpec;
