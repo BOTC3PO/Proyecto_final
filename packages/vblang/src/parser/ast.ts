@@ -227,6 +227,18 @@ export interface ToleranciaBloque {
   esPorcentaje: boolean;
   loc: Loc;
 }
+/**
+ * F2-04: tolerancia absoluta (número, sin `%`). Complementaria a
+ * `tolerancia:`. Resuelve el caso `e=0` (donde `tolerancia:` exige
+ * exactitud) y respuestas muy chicas donde la tolerancia relativa falla
+ * por su propio producto. El criterio de corrección pasa a ser
+ * `|r-e| ≤ max(|e|·tol_rel, tol_abs)`. Default ausente = 0.
+ */
+export interface ToleranciaAbsBloque {
+  kind: "tolerancia_abs";
+  valor: number;
+  loc: Loc;
+}
 export interface OpcionesBloque {
   kind: "opciones";
   cantidad: number;
@@ -342,6 +354,7 @@ export type Bloque =
   | RespuestasValidasBloque
   | UnidadBloque
   | ToleranciaBloque
+  | ToleranciaAbsBloque
   | OpcionesBloque
   | TipoBloque
   | EnunciadoBloque

@@ -47,6 +47,11 @@ export enum TokenKind {
   KW_RESPUESTAS_VALIDAS = "KW_RESPUESTAS_VALIDAS",
   KW_UNIDAD = "KW_UNIDAD",
   KW_TOLERANCIA = "KW_TOLERANCIA",
+  // F2-04: tolerancia absoluta complementaria a `tolerancia:`. Resuelve el
+  // caso donde la respuesta esperada puede ser 0 o muy chica (donde la
+  // tolerancia relativa exige exactitud o falla). El criterio nuevo es
+  // `|r-e| ≤ max(|e|·tol_rel, tol_abs)`. Sin `%` (es siempre absoluta).
+  KW_TOLERANCIA_ABS = "KW_TOLERANCIA_ABS",
   KW_OPCIONES = "KW_OPCIONES",
   KW_TIPO = "KW_TIPO",
   KW_ENUNCIADO = "KW_ENUNCIADO",
@@ -93,6 +98,7 @@ export const BLOCK_KEYWORDS: Record<string, TokenKind> = {
   respuestas_validas: TokenKind.KW_RESPUESTAS_VALIDAS,
   unidad: TokenKind.KW_UNIDAD,
   tolerancia: TokenKind.KW_TOLERANCIA,
+  tolerancia_abs: TokenKind.KW_TOLERANCIA_ABS,
   opciones: TokenKind.KW_OPCIONES,
   tipo: TokenKind.KW_TIPO,
   enunciado: TokenKind.KW_ENUNCIADO,

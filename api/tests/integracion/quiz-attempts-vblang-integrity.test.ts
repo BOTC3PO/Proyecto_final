@@ -412,3 +412,271 @@ test("(c) generadoresV2: serverAuthoritative=false (comportamiento actual, marca
   const grading = JSON.parse(String(row.grading ?? "{}"));
   assert.equal(grading.serverAuthoritative, false, "generadoresV2 → serverAuthoritative=false");
 });
+
+// ── Paso 6 — F2-04: tolerancia_abs + criterio combinado ────────────────────
+// Cubre el bug del plan K3 / debilidad #5: la tolerancia relativa exige
+// exactitud cuando la respuesta esperada es 0 (`|e|·tol = 0`), y falla con
+// respuestas muy chicas. El nuevo criterio es
+// `|r - e| ≤ max(|e|·tol_rel, tol_abs)`.
+const QUIZ_ABS = "quiz-abs";
+const QV_ABS = "qv-abs";
+const PLANTILLA_ABS = "plantilla-abs";
+const DSL_ABS = `variables:
+  e: random(1, 5)
+
+enunciado: "Responde {e} con tolerancia absoluta"
+
+respuesta: e
+tolerancia: 5%
+tolerancia_abs: 0.5
+`;
+
+function seedAbsQuiz() {
+  prisma.quiz.rows.push({
+    id: QUIZ_ABS,
+    moduleId: MOD_ID,
+    title: "Quiz Tol Abs",
+    currentVersionId: QV_ABS,
+    isActive: true,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  });
+  prisma.quizVersion.rows.push({
+    id: QV_ABS,
+    quizId: QUIZ_ABS,
+    versionNumber: 1,
+    questions: null,
+    generatorId: `plantilla:${PLANTILLA_ABS}`,
+    generatorVersion: "1",
+    params: null,
+    count: 1,
+    seedPolicy: 0,
+    fixedSeed: FIXED_SEED,
+    settings: null,
+    createdAt: new Date().toISOString(),
+    createdBy: DOCENTE_ID,
+  });
+  prisma.plantillaEjercicio.rows.push({
+    id: PLANTILLA_ABS,
+    ownerUserId: DOCENTE_ID,
+    schoolId: ESCUELA_ID,
+    visibility: "escuela",
+    nombre: "Tol Abs",
+    descripcion: null,
+    materia: "matematicas",
+    tags: null,
+    codigoDsl: DSL_ABS,
+    version: 1,
+    basadoEn: null,
+    publicAprobado: false,
+    isDeleted: false,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  });
+}
+
+async function submitAbs(
+  token: string,
+  answer: string,
+): Promise<{ score: number; maxScore: number }> {
+  const createRes = await jsonRequest(baseUrl, "POST", "/api/quiz-attempts", {
+    token,
+    body: { quizId: QUIZ_ABS, moduleId: MOD_ID },
+  });
+  assert.equal(createRes.status, 201, JSON.stringify(createRes.body));
+  const { id } = createRes.body as { id: string };
+  const [q] = clientMaterialize(DSL_ABS, FIXED_SEED, 1);
+  const res = await jsonRequest(baseUrl, "POST", `/api/quiz-attempts/${id}/submit`, {
+    token,
+    body: {
+      answers: { [q.id]: answer },
+      presentedIds: [q.id],
+      // El cliente propaga toleranciaAbsoluta al server.
+      generatedQuestions: [
+        {
+          id: q.id,
+          answerKey: q.answerKey,
+          toleranciaRelativa: q.toleranciaRelativa,
+          toleranciaAbsoluta: q.toleranciaAbsoluta,
+        },
+      ],
+    },
+  });
+  assert.equal(res.status, 200, JSON.stringify(res.body));
+  return res.body as { score: number; maxScore: number };
+}
+
+test("(step6) F2-04: el server acepta respuestas dentro de max(|e|·tol_rel, tol_abs)", async () => {
+  seedAbsQuiz();
+  const token = tokenFor({ id: ALUMNO_ID, role: "STUDENT", schoolId: ESCUELA_ID });
+
+  // Materializamos para conocer e, tol_rel y tol_abs que el server va a usar.
+  const [q] = clientMaterialize(DSL_ABS, FIXED_SEED, 1);
+  const e = parseFloat(String(q.answerKey));
+  const tolRel = q.toleranciaRelativa ?? 0;
+  const tolAbs = q.toleranciaAbsoluta ?? 0;
+  assert.equal(tolAbs, 0.5, "la plantilla define tolerancia_abs 0.5");
+  assert.ok(tolRel > 0, "la plantilla define tolerancia relativa > 0");
+  const allowed = Math.max(Math.abs(e) * tolRel, tolAbs);
+
+  // Respuesta exacta → correcto.
+  const exact = await submitAbs(token, String(e));
+  assert.equal(exact.score, 1, "respuesta exacta se acepta");
+
+  // Respuesta dentro del max(tol_rel, tol_abs) → correcto.
+  const within = await submitAbs(token, (e + allowed / 2).toString());
+  assert.equal(within.score, 1, `respuesta dentro de max(tol_rel, tol_abs)=${allowed} se acepta`);
+
+  // Respuesta fuera → incorrecto.
+  const off = e + allowed * 2;
+  const outside = await submitAbs(token, off.toString());
+  assert.equal(outside.score, 0, `respuesta fuera del umbral (${off} vs e=${e}, tol=${allowed}) se rechaza`);
+});
+
+test("(step6) F2-04: e=0 se beneficia de tol_abs (antes era exacto obligatorio)", async () => {
+  // Variante del paso 6 con e forzado a 0. Usamos una plantilla ad-hoc
+  // porque el random(1, 5) nunca da 0. Plantilla explícita: respuesta 0.
+  const QUIZ_ZERO = "quiz-abs-zero";
+  const QV_ZERO = "qv-abs-zero";
+  const PLANTILLA_ZERO = "plantilla-abs-zero";
+  const DSL_ZERO = `enunciado: "Cuanto es 0 con tol_abs"
+respuesta: 0
+tolerancia: 5%
+tolerancia_abs: 0.001
+`;
+  prisma.quiz.rows.push({
+    id: QUIZ_ZERO, moduleId: MOD_ID, title: "Quiz Abs Zero",
+    currentVersionId: QV_ZERO, isActive: true,
+    createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+  });
+  prisma.quizVersion.rows.push({
+    id: QV_ZERO, quizId: QUIZ_ZERO, versionNumber: 1, questions: null,
+    generatorId: `plantilla:${PLANTILLA_ZERO}`, generatorVersion: "1",
+    params: null, count: 1, seedPolicy: 0, fixedSeed: FIXED_SEED, settings: null,
+    createdAt: new Date().toISOString(), createdBy: DOCENTE_ID,
+  });
+  prisma.plantillaEjercicio.rows.push({
+    id: PLANTILLA_ZERO, ownerUserId: DOCENTE_ID, schoolId: ESCUELA_ID,
+    visibility: "escuela", nombre: "Abs Zero", descripcion: null,
+    materia: "matematicas", tags: null, codigoDsl: DSL_ZERO, version: 1,
+    basadoEn: null, publicAprobado: false, isDeleted: false,
+    createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+  });
+
+  const token = tokenFor({ id: ALUMNO_ID, role: "STUDENT", schoolId: ESCUELA_ID });
+  const createRes = await jsonRequest(baseUrl, "POST", "/api/quiz-attempts", {
+    token, body: { quizId: QUIZ_ZERO, moduleId: MOD_ID },
+  });
+  assert.equal(createRes.status, 201, JSON.stringify(createRes.body));
+  const { id } = createRes.body as { id: string };
+  const [q] = clientMaterialize(DSL_ZERO, FIXED_SEED, 1);
+
+  // r=0.0005 → |0.0005 - 0| = 0.0005 ≤ max(0, 0.001) = 0.001 → correcto.
+  const within = await jsonRequest(
+    baseUrl,
+    "POST",
+    `/api/quiz-attempts/${id}/submit`,
+    {
+      token,
+      body: {
+        answers: { [q.id]: "0.0005" },
+        presentedIds: [q.id],
+        generatedQuestions: [{
+          id: q.id, answerKey: q.answerKey,
+          toleranciaRelativa: q.toleranciaRelativa,
+          toleranciaAbsoluta: q.toleranciaAbsoluta,
+        }],
+      },
+    },
+  );
+  assert.equal(within.status, 200, JSON.stringify(within.body));
+  assert.equal((within.body as { score: number }).score, 1, "e=0 con tol_abs acepta r=0.0005");
+
+  // r=0.01 → 0.01 > 0.001 → incorrecto.
+  const create2 = await jsonRequest(baseUrl, "POST", "/api/quiz-attempts", {
+    token, body: { quizId: QUIZ_ZERO, moduleId: MOD_ID },
+  });
+  const { id: id2 } = create2.body as { id: string };
+  const [q2] = clientMaterialize(DSL_ZERO, FIXED_SEED, 1);
+  const outside = await jsonRequest(
+    baseUrl,
+    "POST",
+    `/api/quiz-attempts/${id2}/submit`,
+    {
+      token,
+      body: {
+        answers: { [q2.id]: "0.01" },
+        presentedIds: [q2.id],
+        generatedQuestions: [{
+          id: q2.id, answerKey: q2.answerKey,
+          toleranciaRelativa: q2.toleranciaRelativa,
+          toleranciaAbsoluta: q2.toleranciaAbsoluta,
+        }],
+      },
+    },
+  );
+  assert.equal(outside.status, 200, JSON.stringify(outside.body));
+  assert.equal((outside.body as { score: number }).score, 0, "e=0 con tol_abs rechaza r=0.01");
+});
+
+test("(step6) F2-04: NO-regresión — plantilla sin tol_abs colapsa al criterio previo", async () => {
+  // Misma idea que el step 4 pero sin tolerancia_abs: el server debe
+  // seguir rechazando lo que rechazaba antes.
+  const QUIZ_NOREL = "quiz-norel";
+  const QV_NOREL = "qv-norel";
+  const PLANTILLA_NOREL = "plantilla-norel";
+  const DSL_NOREL = `enunciado: "Aproxima 10/3"
+respuesta: 10 / 3
+tolerancia: 0.05
+`;
+  prisma.quiz.rows.push({
+    id: QUIZ_NOREL, moduleId: MOD_ID, title: "Quiz NoRel",
+    currentVersionId: QV_NOREL, isActive: true,
+    createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+  });
+  prisma.quizVersion.rows.push({
+    id: QV_NOREL, quizId: QUIZ_NOREL, versionNumber: 1, questions: null,
+    generatorId: `plantilla:${PLANTILLA_NOREL}`, generatorVersion: "1",
+    params: null, count: 1, seedPolicy: 0, fixedSeed: FIXED_SEED, settings: null,
+    createdAt: new Date().toISOString(), createdBy: DOCENTE_ID,
+  });
+  prisma.plantillaEjercicio.rows.push({
+    id: PLANTILLA_NOREL, ownerUserId: DOCENTE_ID, schoolId: ESCUELA_ID,
+    visibility: "escuela", nombre: "NoRel", descripcion: null,
+    materia: "matematicas", tags: null, codigoDsl: DSL_NOREL, version: 1,
+    basadoEn: null, publicAprobado: false, isDeleted: false,
+    createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+  });
+
+  const token = tokenFor({ id: ALUMNO_ID, role: "STUDENT", schoolId: ESCUELA_ID });
+  const createRes = await jsonRequest(baseUrl, "POST", "/api/quiz-attempts", {
+    token, body: { quizId: QUIZ_NOREL, moduleId: MOD_ID },
+  });
+  const { id } = createRes.body as { id: string };
+  const [q] = clientMaterialize(DSL_NOREL, FIXED_SEED, 1);
+  const e = parseFloat(String(q.answerKey));
+  const tolRel = q.toleranciaRelativa ?? 0;
+  const tolAbs = q.toleranciaAbsoluta; // debe ser undefined
+  assert.equal(tolAbs, undefined, "sin tolerancia_abs: el consumer no la trae");
+
+  // Respuesta fuera del tol_rel → se rechaza (idéntico al step 4).
+  const off = e + Math.abs(e) * tolRel * 4;
+  const res = await jsonRequest(
+    baseUrl,
+    "POST",
+    `/api/quiz-attempts/${id}/submit`,
+    {
+      token,
+      body: {
+        answers: { [q.id]: off.toString() },
+        presentedIds: [q.id],
+        generatedQuestions: [{
+          id: q.id, answerKey: q.answerKey,
+          toleranciaRelativa: q.toleranciaRelativa,
+        }],
+      },
+    },
+  );
+  assert.equal(res.status, 200, JSON.stringify(res.body));
+  assert.equal((res.body as { score: number }).score, 0, "sin tol_abs el criterio previo se preserva");
+});

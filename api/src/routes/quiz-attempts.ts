@@ -46,6 +46,11 @@ type ModuleQuiz = {
     answerKey?: string | string[];
     explanation?: string;
     toleranciaRelativa?: number;
+    /**
+     * F2-04: tolerancia absoluta. Si está presente, el criterio combinado
+     * es `|r-e| ≤ max(|e|·tol_rel, tol_abs)`. Default ausente = 0.
+     */
+    toleranciaAbsoluta?: number;
     /** Peso de la pregunta en el puntaje (default 1). Composición a nivel quiz. */
     points?: number;
     /** WO07 — abierta: modo de corrección (`ninguna` no puntúa, `manual` la corrige el profe). */
@@ -317,6 +322,11 @@ type SubmitPayload = {
     answerKey?: string | string[];
     points?: number;
     toleranciaRelativa?: number;
+    /**
+     * F2-04: tolerancia absoluta (enviada por el cliente cuando el
+     * template la declara). El server la usa con el criterio combinado.
+     */
+    toleranciaAbsoluta?: number;
     correccion?: "ninguna" | "manual";
     manualGrading?: boolean;
     prompt?: string;
@@ -394,6 +404,9 @@ const serverQuestionToGradable = (
   if (sq.answerKey !== undefined) q.answerKey = sq.answerKey;
   if (sq.explanation !== undefined) q.explanation = sq.explanation;
   if (sq.toleranciaRelativa !== undefined) q.toleranciaRelativa = sq.toleranciaRelativa;
+  // F2-04: el server debe propagar la tolerancia absoluta al grader cuando
+  // materializa la pregunta (autoridad server-side desde V2-06).
+  if (sq.toleranciaAbsoluta !== undefined) q.toleranciaAbsoluta = sq.toleranciaAbsoluta;
   if (sq.points !== undefined) q.points = sq.points;
   if (sq.correccion !== undefined) q.correccion = sq.correccion;
   if (sq.manualGrading !== undefined) q.manualGrading = sq.manualGrading;
@@ -488,16 +501,36 @@ const resolveVblangGrading = async (
   return { gradingQuestions, serverAuthoritative: true, mismatchQuestions };
 };
 
+/**
+ * F2-04: criterio numérico combinado. Acepta respuesta dentro del MÁXIMO
+ * entre la tolerancia relativa (ratio × |esperado|) y la tolerancia
+ * absoluta (unidades crudas).
+ *
+ *   |r - e| ≤ max(|e| · tol_rel, tol_abs)
+ *
+ * Comportamiento previo preservado:
+ *  - tol_abs ausente o 0 → colapsa a `|r - e| ≤ |e| · tol_rel`.
+ *  - e = 0 + tol_abs = 0 → exige `r = 0` (exacto).
+ *  - e = 0 + tol_abs > 0 → tol_abs es la única holgura.
+ *  - tol_rel = 0 + tol_abs > 0 → tol_abs es la única holgura.
+ */
 const gradeNumeric = (
   response: string,
   expected: string,
-  toleranciaRelativa: number
+  toleranciaRelativa: number,
+  toleranciaAbsoluta: number = 0
 ): boolean => {
   const r = parseFloat(response.replace(/,/g, "."));
   const e = parseFloat(expected.replace(/,/g, "."));
   if (Number.isNaN(r) || Number.isNaN(e)) return false;
-  if (e === 0) return r === 0;
-  return Math.abs(r - e) <= Math.abs(e) * toleranciaRelativa;
+  const diff = Math.abs(r - e);
+  if (e === 0) {
+    // Antes: `return r === 0` (exacto). Ahora: tol_abs es la holgura.
+    return diff <= toleranciaAbsoluta;
+  }
+  const tolRel = Math.abs(e) * toleranciaRelativa;
+  const tol = Math.max(tolRel, toleranciaAbsoluta);
+  return diff <= tol;
 };
 
 // Peso (puntaje) de una pregunta: su `points` propio, o el peso por defecto de
@@ -555,9 +588,14 @@ const gradeAnswers = (
     }
     if (typeof response === "string") {
       const tol = question.toleranciaRelativa;
+      // F2-04: si tol_abs está presente, el criterio combinado aplica
+      // aunque tol_rel sea 0 (ej. tol_abs 0.001, tol_rel undefined).
+      const tolAbs = question.toleranciaAbsoluta ?? 0;
       const correct = tol !== undefined && tol > 0
-        ? gradeNumeric(response, expected, tol)
-        : response === expected;
+        ? gradeNumeric(response, expected, tol, tolAbs)
+        : tolAbs > 0
+          ? gradeNumeric(response, expected, 0, tolAbs)
+          : response === expected;
       if (correct) score += weight;
     }
   }
@@ -597,9 +635,13 @@ const buildFeedback = (
       }
     } else if (typeof response === "string") {
       const tol = question.toleranciaRelativa;
+      // F2-04: idem gradeAnswers — criterio combinado tol_rel/tol_abs.
+      const tolAbs = question.toleranciaAbsoluta ?? 0;
       correct = tol !== undefined && tol > 0
-        ? gradeNumeric(response, expected, tol)
-        : response === expected;
+        ? gradeNumeric(response, expected, tol, tolAbs)
+        : tolAbs > 0
+          ? gradeNumeric(response, expected, 0, tolAbs)
+          : response === expected;
     }
     feedback[question.id] = {
       correct,

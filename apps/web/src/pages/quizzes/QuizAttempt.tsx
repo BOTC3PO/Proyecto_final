@@ -407,6 +407,9 @@ export default function QuizAttempt() {
                 answerKey: q.answerKey,
                 points: q.points,
                 toleranciaRelativa: q.toleranciaRelativa,
+                // F2-04: enviar también la tolerancia absoluta para que el
+                // server aplique el criterio combinado.
+                toleranciaAbsoluta: q.toleranciaAbsoluta,
                 // WO07 — abierta: el server necesita el modo para no auto-corregir
                 // (manual queda pendiente; ninguna no puntúa) y el enunciado para
                 // mostrarlo en la pantalla de corrección.

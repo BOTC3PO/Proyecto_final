@@ -31,6 +31,7 @@ import type {
   TipoBloque,
   TipoPregunta,
   ToleranciaBloque,
+  ToleranciaAbsBloque,
   UnidadBloque,
   VariableDecl,
   VariablesBloque,
@@ -400,6 +401,45 @@ export function parseToleranciaBloque(c: TokenCursor): ToleranciaBloque {
   };
 }
 
+/**
+ * F2-04: bloque `tolerancia_abs:`. Igual que `tolerancia:` pero SIEMPRE
+ * absoluta (sin `%`): un número crudo que representa la diferencia
+ * máxima admisible en la misma unidad que la respuesta esperada. Útil
+ * cuando `e` puede ser 0 o muy chico, donde la tolerancia relativa
+ * exige exactitud (`|e|·tol = 0`). El criterio de corrección combinado
+ * es `|r-e| ≤ max(|e|·tol_rel, tol_abs)`.
+ */
+export function parseToleranciaAbsBloque(c: TokenCursor): ToleranciaAbsBloque {
+  const kwTok = c.consumeKind(TokenKind.KW_TOLERANCIA_ABS, "'tolerancia_abs'");
+  consumeColon(c);
+  const numTok = c.peek();
+  if (numTok.kind !== TokenKind.NUMBER) {
+    throw new ParseError(
+      `\`tolerancia_abs:\` debe ser un número (sin %)`,
+      numTok.line,
+      numTok.col,
+    );
+  }
+  c.consume();
+  const after = c.peek();
+  if (
+    after.kind !== TokenKind.NEWLINE &&
+    after.kind !== TokenKind.EOF &&
+    after.kind !== TokenKind.DEDENT
+  ) {
+    throw new ParseError(
+      `\`tolerancia_abs:\` debe ser un número válido, se encontró '${after.value || after.kind}'`,
+      after.line,
+      after.col,
+    );
+  }
+  return {
+    kind: "tolerancia_abs",
+    valor: Number(numTok.value),
+    loc: spanLoc(tokLoc(kwTok), tokLoc(numTok)),
+  };
+}
+
 export function parseOpcionesBloque(c: TokenCursor): OpcionesBloque {
   const kwTok = c.consumeKind(TokenKind.KW_OPCIONES, "'opciones'");
   consumeColon(c);
@@ -637,6 +677,7 @@ function isBlockKeyword(k: TokenKind): boolean {
     k === TokenKind.KW_RESPUESTAS_VALIDAS ||
     k === TokenKind.KW_UNIDAD ||
     k === TokenKind.KW_TOLERANCIA ||
+    k === TokenKind.KW_TOLERANCIA_ABS ||
     k === TokenKind.KW_OPCIONES ||
     k === TokenKind.KW_TIPO ||
     k === TokenKind.KW_ENUNCIADO ||
@@ -851,6 +892,8 @@ export function parseBloque(c: TokenCursor): Bloque {
       return parseUnidadBloque(c);
     case TokenKind.KW_TOLERANCIA:
       return parseToleranciaBloque(c);
+    case TokenKind.KW_TOLERANCIA_ABS:
+      return parseToleranciaAbsBloque(c);
     case TokenKind.KW_OPCIONES:
       return parseOpcionesBloque(c);
     case TokenKind.KW_TIPO:

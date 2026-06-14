@@ -233,6 +233,9 @@ function buildAssistedResult(
       respuesta: ejercicio.resultado,
       unidad,
       tolerancia,
+      // F2-04: el template puede sumar `tolerancia_abs:` al provider de
+      // generador asistido. Default ausente = 0 (comportamiento previo).
+      toleranciaAbs: compiled.toleranciaAbs,
       variables: datos,
       seed,
       intentos: 1,
@@ -469,6 +472,7 @@ export function generate(
       respuestasValidas: respuestasValidasVals,
       unidad: compiled.unidad,
       tolerancia: compiled.tolerancia,
+      toleranciaAbs: compiled.toleranciaAbs,
       opciones,
       variables: scope.toRecord(),
       seed: options.seed,

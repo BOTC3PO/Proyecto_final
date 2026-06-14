@@ -51,6 +51,12 @@ export interface ModuleQuizQuestion {
   visualContext?: string;
   /** Tolerancia siempre RELATIVA (ratio). El adaptador la calcula. */
   toleranciaRelativa?: number;
+  /**
+   * F2-04: tolerancia absoluta. Número crudo en la misma unidad que la
+   * respuesta. Si está presente, se usa `max(|e|·tol_rel, tol_abs)` como
+   * umbral de aceptación. Default ausente = 0 (comportamiento previo).
+   */
+  toleranciaAbsoluta?: number;
   /** Mapa de unidades. Convención: `{ resultado: "<unidad>" }`. */
   unidades?: Record<string, string>;
   /** Variables crudas que el reproductor puede mostrar/usar. */

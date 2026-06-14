@@ -316,6 +316,10 @@ function emitBloque(b: Bloque): string {
       return `unidad: ${quoteDslString(b.valor)}`;
     case "tolerancia":
       return `tolerancia: ${formatNumber(b.valor)}${b.esPorcentaje ? "%" : ""}`;
+    case "tolerancia_abs":
+      // F2-04: número crudo, sin `%` (siempre absoluto). Mismo formato que
+      // `tolerancia:` sin el sufijo de porcentaje.
+      return `tolerancia_abs: ${formatNumber(b.valor)}`;
     case "opciones":
       return `opciones: ${b.cantidad}`;
     case "tipo":

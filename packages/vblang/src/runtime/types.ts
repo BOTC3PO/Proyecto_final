@@ -21,6 +21,13 @@ export interface CompiledPlantilla {
   respuestasValidas?: Expr[];
   unidad?: string;
   tolerancia?: { valor: number; esPorcentaje: boolean };
+  /**
+   * F2-04: tolerancia absoluta complementaria. Número crudo en la misma
+   * unidad que la respuesta. Default ausente = 0 (comportamiento previo
+   * preservado). Criterio de corrección combinado:
+   * `|r-e| ≤ max(|e|·tol_rel, tol_abs)`.
+   */
+  toleranciaAbs?: number;
   opciones?: number;
   opcionesExplicitas?: Expr[];
   enunciado: TextoOInterpolacion[];
@@ -107,6 +114,13 @@ export interface GenerationResult {
   respuestasValidas?: unknown[];
   unidad?: string;
   tolerancia?: { valor: number; esPorcentaje: boolean };
+  /**
+   * F2-04: tolerancia absoluta materializada. `undefined` si la plantilla
+   * no declara `tolerancia_abs:`. El adapter la propaga a
+   * `ModuleQuizQuestion.toleranciaAbsoluta` con precedencia sobre el
+   * fallback (0).
+   */
+  toleranciaAbs?: number;
   opciones?: OpcionGenerada[];
   variables: Record<string, unknown>;
   seed: string;

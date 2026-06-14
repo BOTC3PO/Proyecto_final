@@ -98,6 +98,13 @@ export type ModuleQuizQuestion = {
   visualContext?: string;
   // Numeric exercise fields
   toleranciaRelativa?: number;
+  /**
+   * F2-04: tolerancia absoluta. Número crudo en la misma unidad que la
+   * respuesta. Si está presente, el criterio de corrección combinado es
+   * `|r-e| ≤ max(|e|·tol_rel, tol_abs)`. Default ausente = 0
+   * (comportamiento previo preservado).
+   */
+  toleranciaAbsoluta?: number;
   unidades?: Record<string, string>;
   datos?: Record<string, unknown>;
   pasos?: string[];

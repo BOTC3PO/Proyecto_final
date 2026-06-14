@@ -145,6 +145,7 @@ export type {
   TipoBloque,
   TipoPregunta,
   ToleranciaBloque,
+  ToleranciaAbsBloque,
   UnidadBloque,
   VariableDecl,
   VariablesBloque,

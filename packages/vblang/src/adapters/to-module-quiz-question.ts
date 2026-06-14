@@ -190,6 +190,13 @@ export function toModuleQuizQuestion(
   const tolRel = mapTolerancia(gen);
   if (tolRel !== undefined) result.toleranciaRelativa = tolRel;
 
+  // F2-04: tolerancia absoluta. Si la plantilla la declara, se propaga tal
+  // cual (siempre es absoluta, sin esPorcentaje). Default ausente = 0,
+  // que colapsa el criterio al `|r-e| ≤ |e|·tol_rel` previo.
+  if (gen.toleranciaAbs !== undefined && gen.toleranciaAbs > 0) {
+    result.toleranciaAbsoluta = gen.toleranciaAbs;
+  }
+
   const unidades = mapUnidades(gen);
   if (unidades !== undefined) result.unidades = unidades;
 

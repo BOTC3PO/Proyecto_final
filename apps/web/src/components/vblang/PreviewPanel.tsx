@@ -41,9 +41,19 @@ function isCorrect(q: ModuleQuizQuestion, user: string): boolean {
     if (norm(k) === norm(u)) return true;
     const kNum = Number(k.replace(",", "."));
     if (Number.isFinite(uNum) && Number.isFinite(kNum)) {
-      const tol = q.toleranciaRelativa ?? 0;
-      const denom = Math.abs(kNum) > 1e-9 ? Math.abs(kNum) : 1;
-      if (Math.abs(uNum - kNum) / denom <= tol + 1e-9) return true;
+      // F2-04: criterio combinado `max(|e|·tol_rel, tol_abs)`. Mantiene el
+      // comportamiento previo cuando tol_abs está ausente (= 0). El epsilon
+      // 1e-9 absorbe errores de punto flotante.
+      const tolRel = q.toleranciaRelativa ?? 0;
+      const tolAbs = q.toleranciaAbsoluta ?? 0;
+      const diff = Math.abs(uNum - kNum);
+      if (kNum === 0) {
+        // Antes: exigía `r === 0`. Ahora: tol_abs es la única holgura.
+        if (diff <= tolAbs + 1e-9) return true;
+        continue;
+      }
+      const allowed = Math.max(Math.abs(kNum) * tolRel, tolAbs);
+      if (diff <= allowed + 1e-9) return true;
     }
   }
   return false;

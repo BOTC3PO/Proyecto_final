@@ -177,6 +177,18 @@ function verifyResultIntegrity(
     });
   }
 
+  // F2-04: tolerancia_abs inválida. Default ausente = 0 (preserva el
+  // comportamiento previo). Si está presente, debe ser ≥ 0.
+  if (result.toleranciaAbs !== undefined && result.toleranciaAbs < 0) {
+    addWarning(warnings, {
+      severity: "warning",
+      code: "tolerancia-abs-invalida",
+      message: "tolerancia_abs debe ser ≥ 0",
+      count: 1,
+      sampleSeed: seed,
+    });
+  }
+
   // Intentos altos (usamos un umbral implícito de 50 sin tener acceso a maxRetries)
   if (result.intentos >= 50) {
     addWarning(warnings, {

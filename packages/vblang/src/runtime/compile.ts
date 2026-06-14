@@ -49,6 +49,9 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
           esPorcentaje: b.esPorcentaje,
         };
         break;
+      case "tolerancia_abs":
+        compiled.toleranciaAbs = b.valor;
+        break;
       case "opciones":
         compiled.opciones = b.cantidad;
         break;
