@@ -7,6 +7,10 @@ import {
   clearAttempt as clearOutbox,
   type OutboxItem,
 } from "../../lib/attemptOutbox";
+import { useCountdown } from "../../hooks/useCountdown";
+import { useFlushOnHidden } from "../../hooks/useFlushOnHidden";
+import { useFullscreen } from "../../hooks/useFullscreen";
+import Cronometro from "../../components/quizzes/Cronometro";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
@@ -158,12 +162,19 @@ export default function QuizAttempt() {
   const [openPasos, setOpenPasos] = useState<Record<string, boolean>>({});
   const [generatedQuestions, setGeneratedQuestions] =
     useState<ModuleQuizQuestion[]>([]);
-  const [tiempoRestante, setTiempoRestante] =
-    useState<number | null>(null);
+  // F5-02 — sólo guardamos el timestamp de inicio del intento. El valor
+  // restante lo maneja internamente el hook `useCountdown`. `esCompetencia`
+  // se deriva de `quizType` (es una decisión del docente), no de si hay
+  // timer (F4-04 lo había mezclado: `modoCompetencia` significaba
+  // "hay timer" pero se usaba también para el ranking de competencia).
   const [tiempoInicio, setTiempoInicio] = useState<number | null>(null);
   const [ranking, setRanking] = useState<RankingEntry[]>([]);
   const [rankingLoading, setRankingLoading] = useState(false);
-  const [modoCompetencia, setModoCompetencia] = useState(false);
+  // F5-02 — gate para el botón "Empezar evaluación". Si `fullscreenOnStart`
+  // es true, el alumno debe hacer click antes de ver el quiz (la Fullscreen
+  // API exige user-gesture). Si es false, arranca directo.
+  const [hasStarted, setHasStarted] = useState(false);
+  const [fullscreenWarning, setFullscreenWarning] = useState(false);
 
   useEffect(() => {
     if (!attemptId) return;
@@ -176,23 +187,32 @@ export default function QuizAttempt() {
         setAttempt(data);
         setAnswers(normalizeAnswers(data.answers));
         setStatus("ready");
-        // F4-04 — timer per-cuestionario. Antes era hardcodeado a 10 min
-        // exclusivo de `competencia`. Ahora se lee de
+        // F4-04 + F5-02 — timer per-cuestionario. Antes era hardcodeado
+        // a 10 min exclusivo de `competencia`. Ahora se lee de
         // `data.timerSegundos` (resuelto por el backend con
         // `parseEvaluacionConfig`). Si es null, no se inicia cronómetro
         // (ni en `competencia` ni en `formal`). Default del tipo
         // competencia es 600s (10 min), preserva el comportamiento previo.
+        // F5-02: el countdown en sí lo maneja `useCountdown`; acá sólo
+        // registramos el timestamp de inicio (para la métrica de
+        // tiempo total en el ranking de competencia).
         const timerSeg = typeof data.timerSegundos === "number" && data.timerSegundos > 0
           ? data.timerSegundos
           : null;
         if (timerSeg !== null) {
-          setModoCompetencia(true);
-          setTiempoRestante(timerSeg);
           setTiempoInicio(Date.now());
         } else {
-          setModoCompetencia(false);
-          setTiempoRestante(null);
+          setTiempoInicio(null);
         }
+        // F5-02 — gate del fullscreen. Si la config lo pide, NO
+        // arrancamos el quiz directamente: el alumno debe hacer click
+        // en "Empezar evaluación" para que la Fullscreen API acepte.
+        if (data.fullscreenOnStart === true) {
+          setHasStarted(false);
+        } else {
+          setHasStarted(true);
+        }
+        setFullscreenWarning(false);
       })
       .catch((error) => {
         if (!active) return;
@@ -326,22 +346,6 @@ export default function QuizAttempt() {
         // El generador no está disponible en el cliente
       });
   }, [attempt]);
-
-  useEffect(() => {
-    if (!modoCompetencia || tiempoRestante === null) return;
-    if (tiempoRestante <= 0) {
-      // Auto-submit al llegar a 0
-      void handleSubmit();
-      return;
-    }
-    const interval = setInterval(() => {
-      setTiempoRestante((prev) =>
-        prev !== null ? Math.max(0, prev - 1) : null
-      );
-    }, 1000);
-    return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [modoCompetencia, tiempoRestante]);
 
   useEffect(() => {
     const id = resolveAttemptId(attempt);
@@ -519,7 +523,11 @@ export default function QuizAttempt() {
       setSubmitStatus("submitted");
       setSubmitMessage(response.message ?? "Respuestas enviadas para corrección.");
       if (id) clearOutbox(id);
-      if (modoCompetencia && tiempoInicio) {
+      // F5-02 — el ranking de competencia se guarda SÓLO si el tipo de
+      // quiz es `competencia` (no `formal` con timer). F4-04 mezclaba
+      // esto con `modoCompetencia` que significaba "hay timer".
+      const esCompetenciaParaRanking = attempt?.quizType === "competencia";
+      if (esCompetenciaParaRanking && tiempoInicio) {
         const tiempoSeg = Math.floor((Date.now() - tiempoInicio) / 1000);
         const quizId = attempt?.quizId ?? "";
         const moduloId = attempt?.moduleId ?? "";
@@ -549,6 +557,56 @@ export default function QuizAttempt() {
       );
     }
   };
+
+  // F5-02 — hooks de runtime de evaluación. Se llaman siempre (incluso
+  // cuando no hay timer / fullscreen) para mantener la API del componente
+  // estable; cada hook es no-op si su `enabled`/`initialSeconds` es null.
+  // IMPORTANTE: van DESPUÉS de `handleSubmit` para que la referencia al
+  // callback en `useCountdown.onExpire` no caiga en TDZ (TS2448).
+  const timerSegundosValue =
+    typeof attempt?.timerSegundos === "number" && attempt.timerSegundos > 0
+      ? attempt.timerSegundos
+      : null;
+  const fullscreenEnabled = attempt?.fullscreenOnStart === true;
+
+  const countdown = useCountdown({
+    initialSeconds: timerSegundosValue,
+    onExpire: () => {
+      // El guard evita doble submit si el componente se re-renderiza
+      // exactamente en el momento de la expiración.
+      if (submitStatus !== "submitted" && submitStatus !== "submitting") {
+        void handleSubmit();
+      }
+    },
+  });
+
+  // F5-02 — flush del outbox al perder foco/cambiar pestaña/cerrar.
+  // La función de envío es la misma que usa `handleSubmit` (F5-01),
+  // garantizando que el comportamiento es idéntico.
+  useFlushOnHidden(() => {
+    const id = resolveAttemptId(attempt);
+    if (!id || submitStatus === "submitted") return;
+    void flushOutbox(async (item: OutboxItem) => {
+      try {
+        await apiPost(`/api/quiz-attempts/${id}/answer`, {
+          questionId: item.questionId,
+          response: item.response,
+        });
+        return { ok: true };
+      } catch (err) {
+        if (err instanceof ApiError && err.status === 409) return { ok: false, terminal: true };
+        return { ok: false };
+      }
+    }, id);
+  });
+
+  // F5-02 — fullscreen opt-in. Si `fullscreenOnStart=true`, se solicita al
+  // hacer click en "Empezar evaluación". Si la API no está disponible o
+  // el usuario la deniega, el quiz continúa con un banner de fallback.
+  const fullscreen = useFullscreen({
+    enabled: fullscreenEnabled,
+    onFallback: () => setFullscreenWarning(true),
+  });
 
   if (status === "loading") {
     return (
@@ -585,6 +643,68 @@ export default function QuizAttempt() {
   }
 
   const resolvedAttemptId = resolveAttemptId(attempt);
+  // F5-02 — `esCompetencia` se deriva del `quizType`, no de si hay timer.
+  // F4-04 mezclaba ambas cosas en `modoCompetencia` (lo renombramos en F5-02
+  // para que el ranking no se guarde/cargue para `formal` con timer).
+  const esCompetencia = attempt?.quizType === "competencia";
+  const inputsDisabled =
+    countdown.isExpired || submitStatus === "submitting" || submitStatus === "submitted";
+
+  // F5-02 — gate de "Empezar evaluación". Si `fullscreenOnStart=true`, el
+  // alumno debe hacer click en el botón para que la Fullscreen API acepte.
+  // Si la API no está disponible o el usuario la deniega, el quiz
+  // continúa igual (banner amarillo de fallback).
+  if (!hasStarted) {
+    return (
+      <main className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full space-y-4">
+          <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
+          <p className="text-sm text-gray-600">
+            Esta evaluación requiere pantalla completa. Al hacer click en
+            "Empezar evaluación" tu navegador entrará en modo pantalla
+            completa.
+          </p>
+          <ul className="text-xs text-gray-500 list-disc pl-5 space-y-1">
+            <li>El tiempo corre desde el momento en que empezás.</li>
+            <li>Si cambiás de pestaña, tus respuestas se guardan
+              automáticamente.</li>
+            <li>Al agotarse el tiempo, el intento se envía solo.</li>
+          </ul>
+          {fullscreenWarning && (
+            <div
+              role="status"
+              data-testid="fullscreen-fallback"
+              className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700"
+            >
+              No se pudo entrar a pantalla completa. La evaluación continúa
+              igual, pero te recomendamos no cambiar de pestaña.
+            </div>
+          )}
+          <div className="flex gap-3">
+            <button
+              type="button"
+              data-testid="empezar-evaluacion"
+              className="flex-1 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+              onClick={async () => {
+                if (fullscreenEnabled) {
+                  await fullscreen.request();
+                }
+                setHasStarted(true);
+              }}
+            >
+              Empezar evaluación
+            </button>
+            <Link
+              to="/modulos"
+              className="rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+            >
+              Cancelar
+            </Link>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-gray-100">
@@ -595,17 +715,20 @@ export default function QuizAttempt() {
           </Link>
           <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
           <p className="text-sm text-gray-500">Intento: {resolvedAttemptId}</p>
-          {modoCompetencia && tiempoRestante !== null && (
-            <div className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold ${
-              tiempoRestante <= 60
-                ? "bg-red-100 text-red-700 animate-pulse"
-                : tiempoRestante <= 180
-                ? "bg-amber-100 text-amber-700"
-                : "bg-emerald-100 text-emerald-700"
-            }`}>
-              ⏱ {formatTiempo(tiempoRestante)}
+          {fullscreenWarning && (
+            <div
+              role="status"
+              data-testid="fullscreen-fallback-banner"
+              className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700"
+            >
+              ⚠ Pantalla completa no disponible. Tus respuestas se guardan
+              automáticamente al cambiar de pestaña.
             </div>
           )}
+          <Cronometro
+            remaining={countdown.remaining}
+            expired={countdown.isExpired}
+          />
         </header>
 
         <section className="bg-white rounded-xl shadow p-6 space-y-6">
@@ -685,7 +808,7 @@ export default function QuizAttempt() {
                         items={question.items ?? []}
                         value={Array.isArray(selected) ? (selected as string[]) : undefined}
                         onChange={(orden) => handleAnswerChange(question.id, orden)}
-                        disabled={submitStatus === "submitted"}
+                        disabled={inputsDisabled}
                         correctOrder={
                           submitStatus === "submitted" && Array.isArray(question.answerKey)
                             ? (question.answerKey as string[])
@@ -702,7 +825,7 @@ export default function QuizAttempt() {
                             : undefined
                         }
                         onSelect={(iso) => handleAnswerChange(question.id, iso)}
-                        disabled={submitStatus === "submitted"}
+                        disabled={inputsDisabled}
                       />
                     ) : questionType === "analisis_sintactico" ? (
                       <AnalisisSintacticoRenderer
@@ -714,7 +837,7 @@ export default function QuizAttempt() {
                             : undefined
                         }
                         onChange={(asign) => handleAnswerChange(question.id, asign)}
-                        disabled={submitStatus === "submitted"}
+                        disabled={inputsDisabled}
                         correctas={
                           submitStatus === "submitted"
                             ? buildCorrectasFromEtiquetas(question.etiquetasPedidas)
@@ -726,7 +849,7 @@ export default function QuizAttempt() {
                         textoAnalizar={question.textoAnalizar ?? ""}
                         marcadas={Array.isArray(selected) ? (selected as string[]) : undefined}
                         onChange={(marcadas) => handleAnswerChange(question.id, marcadas)}
-                        disabled={submitStatus === "submitted"}
+                        disabled={inputsDisabled}
                         correctas={
                           submitStatus === "submitted" && Array.isArray(question.answerKey)
                             ? (question.answerKey as string[])
@@ -741,7 +864,7 @@ export default function QuizAttempt() {
                           value={typeof selected === "string" ? selected : ""}
                           onChange={(event) => handleAnswerChange(question.id, event.target.value)}
                           placeholder="Escribí tu respuesta"
-                          disabled={submitStatus === "submitted"}
+                          disabled={inputsDisabled}
                         />
                         {question.correccion === "manual" ? (
                           <p className="text-xs font-medium text-amber-600">
@@ -757,11 +880,12 @@ export default function QuizAttempt() {
                       </div>
                     ) : questionType === "input" ? (
                       <textarea
-                        className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
                         rows={3}
                         value={typeof selected === "string" ? selected : ""}
                         onChange={(event) => handleAnswerChange(question.id, event.target.value)}
                         placeholder="Escribí tu respuesta"
+                        disabled={inputsDisabled}
                       />
                     ) : questionType === "vf" ? (
                       <div className="flex flex-col gap-2">
@@ -773,6 +897,7 @@ export default function QuizAttempt() {
                               value={option}
                               checked={selected === option}
                               onChange={() => handleAnswerChange(question.id, option)}
+                              disabled={inputsDisabled}
                             />
                             {option}
                           </label>
@@ -781,7 +906,7 @@ export default function QuizAttempt() {
                     ) : hasOptions ? (
                       <div className="flex flex-col gap-2">
                         {question.options?.map((option) => (
-                          <label key={option} className="flex items-center gap-2 text-sm text-gray-700">
+                          <label key={option} className="flex items-start gap-2 text-sm text-gray-700">
                             <input
                               type={isMulti ? "checkbox" : "radio"}
                               name={question.id}
@@ -798,6 +923,7 @@ export default function QuizAttempt() {
                                   handleAnswerChange(question.id, option);
                                 }
                               }}
+                              disabled={inputsDisabled}
                             />
                             {option}
                           </label>
@@ -805,11 +931,12 @@ export default function QuizAttempt() {
                       </div>
                     ) : (
                       <input
-                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
                         type="text"
                         value={typeof selected === "string" ? selected : ""}
                         onChange={(event) => handleAnswerChange(question.id, event.target.value)}
                         placeholder="Escribí tu respuesta"
+                        disabled={inputsDisabled}
                       />
                     )}
                     {submitStatus === "submitted" && question.pasos && question.pasos.length > 0 && (
@@ -841,11 +968,16 @@ export default function QuizAttempt() {
           <div className="flex flex-col gap-3 border-t border-gray-100 pt-4">
             <button
               type="button"
+              data-testid="enviar-respuestas"
               className="self-start rounded-md bg-green-600 px-4 py-2 text-sm text-white disabled:bg-gray-300"
               onClick={handleSubmit}
-              disabled={submitStatus === "submitting" || questions.length === 0}
+              disabled={inputsDisabled || questions.length === 0}
             >
-              {submitStatus === "submitting" ? "Enviando..." : "Enviar respuestas"}
+              {submitStatus === "submitting"
+                ? "Enviando..."
+                : countdown.isExpired
+                  ? "Tiempo agotado — enviar"
+                  : "Enviar respuestas"}
             </button>
             {submitMessage ? (
               <p
@@ -861,7 +993,7 @@ export default function QuizAttempt() {
           </div>
         </section>
 
-        {modoCompetencia && ranking.length > 0 && (
+        {esCompetencia && ranking.length > 0 && (
           <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-lg font-semibold text-slate-900 mb-4">
               🏆 Tabla de posiciones
