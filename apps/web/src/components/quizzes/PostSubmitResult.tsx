@@ -3,7 +3,10 @@
  *
  * Componente presentacional que muestra:
  *   - El `Puntaje: X / Y` — GATEADO por `ocultarPuntos` (F4-03).
- *   - La `Nota: <display> (<canonical10>/10)` — siempre se muestra.
+ *   - La `Nota: <display> (<canonical10>/10)` — siempre se muestra
+ *     cuando NO hay pendientes manuales. Si hay pendientes (F5-04), se
+ *     muestra un RANGO honesto: "Tu nota está entre X e Y" + el
+ *     conteo de pendientes.
  *   - El `message` del backend (puede contener el porcentaje si
  *     `ocultarPuntos=false`; el backend lo limpia cuando es true).
  *
@@ -13,6 +16,20 @@
  * directamente, el backend ya le ocultó el porcentaje. Si el alumno
  * ve el render DOM, el componente le oculta el `Puntaje:`.
  *
+ * F5-04 — rama de "rango de nota provisoria":
+ *   - Se activa cuando `pendingManual > 0` (campo devuelto por el
+ *     submit/grade server-side).
+ *   - Muestra el rango calculado honestamente (mín = pendientes=0,
+ *     máx = pendientes=full).
+ *   - NO se mezcla con la nota única: si hay rango, NO se muestra
+ *     `Nota: X` (sería confuso, podrían ser números diferentes).
+ *   - El `ocultarPuntos` (F4-03) sigue ocultando el `Puntaje:`. El
+ *     rango SÍ se muestra (es info sobre la escala, no el puntaje
+ *     crudo).
+ *   - `aprobado` queda ausente del response con pendientes (gate
+ *     server-side: informar, no castigar). El componente no intenta
+ *     mostrar un aprobado cuando hay rango.
+ *
  * Props:
  *  - `result`: el response del submit (puede ser undefined mientras no
  *    se haya enviado el intento).
@@ -20,6 +37,7 @@
  *    `message` ya viene saneado del backend.
  */
 import type { ReactNode } from "react";
+import { formatGradeRangeLabel, hasGradeRange } from "../../domain/quiz/gradeRange";
 
 export type PostSubmitResultValue = {
   score?: number;
@@ -30,6 +48,13 @@ export type PostSubmitResultValue = {
   notaCanonical10?: number | null;
   porcentaje?: number;
   aprobado?: boolean;
+  // F5-04 — campos del rango de nota provisoria. Ausentes cuando el
+  // intento ya está graded.
+  pendingManual?: number;
+  notaMinDisplay?: string | null;
+  notaMaxDisplay?: string | null;
+  notaMinCanonical10?: number | null;
+  notaMaxCanonical10?: number | null;
 };
 
 interface Props {
@@ -48,6 +73,7 @@ export default function PostSubmitResult({
   if (!result) return null;
   const tieneScore =
     result.score !== undefined || result.maxScore !== undefined;
+  const conRango = hasGradeRange(result);
   return (
     <div className="space-y-1" data-testid="post-submit-result">
       {tieneScore && !ocultarPuntos && (
@@ -55,16 +81,29 @@ export default function PostSubmitResult({
           Puntaje: {result.score ?? "-"} / {result.maxScore ?? "-"}
         </p>
       )}
-      {result.notaDisplay && result.notaDisplay !== "—" && (
+      {conRango ? (
+        // F5-04 — rama rango. NO mostramos `Nota:` única porque podría
+        // contradecir el rango. Mostramos sólo el rango + el mensaje
+        // del backend.
         <p
-          className="text-sm font-semibold text-gray-800"
-          data-testid="post-submit-grade"
+          className="text-sm font-semibold text-amber-700"
+          data-testid="post-submit-grade-range"
         >
-          Nota: {result.notaDisplay}
-          {typeof result.notaCanonical10 === "number"
-            ? ` (${result.notaCanonical10}/10)`
-            : ""}
+          {formatGradeRangeLabel(result)}
         </p>
+      ) : (
+        result.notaDisplay &&
+        result.notaDisplay !== "—" && (
+          <p
+            className="text-sm font-semibold text-gray-800"
+            data-testid="post-submit-grade"
+          >
+            Nota: {result.notaDisplay}
+            {typeof result.notaCanonical10 === "number"
+              ? ` (${result.notaCanonical10}/10)`
+              : ""}
+          </p>
+        )
       )}
       {result.message && (
         <p className="text-sm text-gray-600" data-testid="post-submit-message">

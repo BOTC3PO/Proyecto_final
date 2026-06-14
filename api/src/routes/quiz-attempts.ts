@@ -35,6 +35,7 @@ import {
   mergeAttemptEvents,
   summarizeAttemptEvents
 } from "../lib/attemptEvents";
+import { computeGradeRange } from "../lib/gradeRange";
 import {
   gradeFromConfig,
   getScoringSystem,
@@ -1626,6 +1627,19 @@ quizAttempts.post(
       const porcentaje = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
       const aprobado = nota.passing === true;
 
+      // F5-04 — si hay ítems manuales pendientes, la nota ÚNICA no existe
+      // todavía (las preguntas abiertas todavía no se corrigieron). En lugar
+      // de un número único, el server calcula un RANGO honesto:
+      //  - mín = la nota que tendría si las pendientes valen 0.
+      //  - máx = la nota que tendría si las pendientes valen su peso pleno.
+      // El rango se devuelve como `notaMin/MaxDisplay` + `notaMin/MaxCanonical10`.
+      // `notaDisplay` y `aprobado` siguen ausentes/null: el sistema NO
+      // presenta un valor único mientras haya pendientes (informar, no castigar).
+      const pendingPoints = manual.map((m) => (typeof m.weight === "number" ? m.weight : 0));
+      const gradeRange = hasPendingManual
+        ? computeGradeRange(score, maxScore, pendingPoints, scoringConfig)
+        : null;
+
       // WO07 — con ítems pendientes la nota aún no es final: no tocamos el
       // progreso formal hasta que el profe termine de corregir.
       if (hasPendingManual) {
@@ -1634,6 +1648,14 @@ quizAttempts.post(
           score,
           maxScore,
           pendingManual: manual.length,
+          // F5-04 — rango honesto: "tu nota está entre X e Y".
+          notaMinDisplay: gradeRange?.minDisplay ?? null,
+          notaMinCanonical10: gradeRange?.minCanonical10 ?? null,
+          notaMaxDisplay: gradeRange?.maxDisplay ?? null,
+          notaMaxCanonical10: gradeRange?.maxCanonical10 ?? null,
+          // `notaDisplay` y `aprobado` quedan ausentes: el cliente sabe que
+          // está en estado "pendiente" por la presencia de `pendingManual`
+          // y por la ausencia de `notaDisplay`.
           message: `Respuestas enviadas. ${manual.length} pregunta(s) abierta(s) quedan pendientes de corrección por el profesor.`
         });
       }
@@ -1887,6 +1909,13 @@ quizAttempts.post(
       let notaDisplay: string | null = null;
       let notaCanonical10: number | null = null;
       let aprobado: boolean | null = null;
+      // F5-04 — rango honesto cuando SIGUE habiendo pendientes (allGraded=false).
+      // Si el docente acaba de corregir el ÚLTIMO item, allGraded=true y
+      // computamos la nota única como antes; no se muestra rango.
+      let notaMinDisplay: string | null = null;
+      let notaMinCanonical10: number | null = null;
+      let notaMaxDisplay: string | null = null;
+      let notaMaxCanonical10: number | null = null;
 
       // Al quedar "corregido", si es formal recién ahí impacta el progreso.
       if (allGraded) {
@@ -1913,6 +1942,39 @@ quizAttempts.post(
           // recalculamos la nota (lo importante para WO07).
           await updateFormalProgress(attempt.userId, quizRecord.moduleId, aprobado);
         }
+      } else {
+        // F5-04 — calcular el rango de los ítems manuales que SIGUEN
+        // pendientes. Recorremos `grading.items` y filtramos los que
+        // tienen `score === null`.
+        const pendingPoints: number[] = [];
+        for (const item of Object.values(grading.items)) {
+          if (item && item.score === null && typeof item.points === "number") {
+            pendingPoints.push(item.points);
+          }
+        }
+        if (pendingPoints.length > 0) {
+          const umbralRow = await prisma.quizUmbral.findUnique({
+            where: { quizId: attempt.quizId },
+            select: { umbral: true }
+          });
+          const umbral = umbralRow?.umbral ?? 60;
+          const quizRecord = await prisma.quiz.findFirst({ where: { id: attempt.quizId } });
+          const moduloRecord = quizRecord?.moduleId
+            ? await prisma.modulo.findFirst({ where: { id: quizRecord.moduleId } })
+            : null;
+          const moduloScoringConfig = (moduloRecord as { scoringConfig?: ScoringConfig } | null)
+            ?.scoringConfig;
+          const range = computeGradeRange(
+            score,
+            maxScore,
+            pendingPoints,
+            resolveScoringConfig(moduloScoringConfig, umbral)
+          );
+          notaMinDisplay = range.minDisplay;
+          notaMinCanonical10 = range.minCanonical10;
+          notaMaxDisplay = range.maxDisplay;
+          notaMaxCanonical10 = range.maxCanonical10;
+        }
       }
 
       return res.json({
@@ -1925,7 +1987,14 @@ quizAttempts.post(
         allGraded,
         notaDisplay,
         notaCanonical10,
-        aprobado
+        aprobado,
+        // F5-04 — campos de rango. Cuando allGraded=true, los 4 quedan null
+        // (la nota única ya está en `notaDisplay`). El cliente los renderiza
+        // condicionalmente por la presencia de `notaMinDisplay` no-null.
+        notaMinDisplay,
+        notaMinCanonical10,
+        notaMaxDisplay,
+        notaMaxCanonical10
       });
     } catch (error: any) {
       res.status(400).json({ error: error?.message ?? "invalid payload" });

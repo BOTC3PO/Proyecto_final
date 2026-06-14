@@ -95,3 +95,82 @@ describe("PostSubmitResult — F4-03 ocultarPuntos", () => {
     expect(screen.queryByTestId("post-submit-grade")).not.toBeInTheDocument();
   });
 });
+
+describe("PostSubmitResult — F5-04 rango de nota provisoria", () => {
+  it("con pendingManual>0: muestra el rango en lugar de la nota única", () => {
+    const result = {
+      score: 1,
+      maxScore: 4,
+      pendingManual: 1,
+      notaMinDisplay: "2",
+      notaMinCanonical10: 3.7,
+      notaMaxDisplay: "8",
+      notaMaxCanonical10: 8.2,
+      message: "Respuestas enviadas. 1 pregunta(s) abierta(s) quedan pendientes de corrección por el profesor."
+    };
+    render(<PostSubmitResult result={result} />);
+    expect(screen.getByTestId("post-submit-grade-range")).toBeInTheDocument();
+    expect(screen.getByTestId("post-submit-grade-range").textContent).toContain(
+      "Tu nota está entre 2 y 8."
+    );
+    expect(screen.getByTestId("post-submit-grade-range").textContent).toContain(
+      "1 pregunta pendiente de corrección por el profesor."
+    );
+    // NO debe mostrar la nota única: sería contradictorio con el rango.
+    expect(screen.queryByTestId("post-submit-grade")).not.toBeInTheDocument();
+  });
+
+  it("con pendingManual>0 y ocultarPuntos=true: NO muestra Puntaje pero SÍ el rango", () => {
+    const result = {
+      score: 5,
+      maxScore: 10,
+      pendingManual: 2,
+      notaMinDisplay: "50",
+      notaMaxDisplay: "100",
+      message: "Respuestas enviadas."
+    };
+    render(<PostSubmitResult result={result} ocultarPuntos={true} />);
+    expect(screen.queryByTestId("post-submit-score")).not.toBeInTheDocument();
+    expect(screen.getByTestId("post-submit-grade-range")).toBeInTheDocument();
+  });
+
+  it("con pendingManual>0 y singular: 1 pregunta pendiente", () => {
+    const result = {
+      score: 7,
+      maxScore: 10,
+      pendingManual: 1,
+      notaMinDisplay: "70",
+      notaMaxDisplay: "100"
+    };
+    render(<PostSubmitResult result={result} />);
+    const range = screen.getByTestId("post-submit-grade-range");
+    expect(range.textContent).toMatch(/1 pregunta pendiente(?!s)/);
+  });
+
+  it("con pendingManual>0 y plural: N preguntas pendientes", () => {
+    const result = {
+      score: 5,
+      maxScore: 12,
+      pendingManual: 3,
+      notaMinDisplay: "40",
+      notaMaxDisplay: "100"
+    };
+    render(<PostSubmitResult result={result} />);
+    const range = screen.getByTestId("post-submit-grade-range");
+    expect(range.textContent).toContain("3 preguntas pendientes");
+  });
+
+  it("con pendingManual=0 (graded): vuelve a mostrar la nota única, NO el rango", () => {
+    // Cuando el docente corrigió el último item, el server pasa allGraded=true
+    // y el cliente recibe notaDisplay única + pendingManual=undefined/0.
+    const result = {
+      score: 3,
+      maxScore: 4,
+      notaDisplay: "Aprobado",
+      notaCanonical10: 7.8
+    };
+    render(<PostSubmitResult result={result} />);
+    expect(screen.getByTestId("post-submit-grade")).toHaveTextContent("Nota: Aprobado");
+    expect(screen.queryByTestId("post-submit-grade-range")).not.toBeInTheDocument();
+  });
+});
