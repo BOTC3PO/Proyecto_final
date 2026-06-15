@@ -55,6 +55,17 @@ export {
 export { toModuleQuizQuestion } from "./adapters/to-module-quiz-question.js";
 export { AdapterError } from "./adapters/errors.js";
 
+// F6-04 — Plantillas oficiales VBLang (EconomiaAR).
+export { ECONOMIA_AR_OFICIALES } from "./templates/economia-ar-oficiales.js";
+export type { PlantillaOficialEconomiaAR } from "./templates/economia-ar-oficiales.js";
+
+// F6-05 — Plantillas oficiales VBLang (Biología, Química, Informática, Matemáticas).
+export type { PlantillaOficial } from "./templates/types.js";
+export { BIOLOGIA_OFICIALES } from "./templates/biologia-oficiales.js";
+export { QUIMICA_OFICIALES } from "./templates/quimica-oficiales.js";
+export { INFORMATICA_OFICIALES } from "./templates/informatica-oficiales.js";
+export { MATEMATICAS_OFICIALES } from "./templates/matematicas-oficiales.js";
+
 export {
   ALL_QUESTION_TYPES,
   DASH_LIST_BLOCKS,
@@ -111,6 +122,26 @@ export type {
   ValidationReport,
   ValidateOptions,
 } from "./validator/validator.js";
+
+// F7-01 — Referencia DSL auto-generada (base del generador de prompts F7-02).
+export {
+  diffBloques,
+  diffBuiltins,
+  generarReferenciaDsl,
+  listaBloques,
+  listaBuiltins,
+  listaConstantesGlobales,
+  listaEjemplos,
+  nombresBuiltinsDisponibles,
+  nombresBuiltinsRuntime,
+  RESUMENES_BLOQUES,
+  BLOCK_NAMES as REFERENCIA_BLOCK_NAMES,
+} from "./reference/index.js";
+export type {
+  BloqueReferencia,
+  BuiltinReferencia,
+  EjemploTipoPregunta,
+} from "./reference/index.js";
 
 export type {
   Bloque,

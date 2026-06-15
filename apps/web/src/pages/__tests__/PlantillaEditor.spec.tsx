@@ -224,4 +224,14 @@ tipo: input
     expect(result.queryByTestId("vblang-form-tipo")).not.toBeNull();
     expect(result.queryByTestId("vblang-form-retenido-banner")).toBeNull();
   });
+
+  it('botón "Copiar prompt para IA" abre el drawer correspondiente', async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    expect(result.queryByRole("dialog", { name: "Copiar prompt para IA" })).toBeNull();
+    fireEvent.click(result.getByRole("button", { name: "Copiar prompt para IA" }));
+    expect(result.getByRole("dialog", { name: "Copiar prompt para IA" })).toBeInTheDocument();
+  });
 });

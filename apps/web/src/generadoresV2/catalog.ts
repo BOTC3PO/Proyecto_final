@@ -59,6 +59,31 @@ function labelFromId(subtipoId: string): string {
   return subtipoId.replace(/_/g, " ").replace(/^./, (c) => c.toUpperCase());
 }
 
+/**
+ * F6-06 — subtipos retirados del catálogo de CREACIÓN.
+ *
+ * Estos 6 subtipos (los upgrades PARAMETRIZABLE de F6-05) ahora tienen un
+ * reemplazo cableado como plantilla VBLang OFICIAL (F6-01,
+ * `PlantillaEjercicio` con `ownerUserId: SYSTEM_OWNER_ID`), por lo que ya no
+ * se ofrecen como "generador" para cuestionarios nuevos. El `.ts` original
+ * NO se modifica: `generarEjercicio(subtipo, ...)` sigue funcionando para
+ * quizzes legacy que ya referencian estos subtipos (ver
+ * `BaseGenerador.toDescriptor()` — `generate()` con `subtipo` explícito no
+ * pasa por `this.subtipos`).
+ *
+ * Los ~55 subtipos BANCO de F6-02/F6-03 NO se retiran todavía: sus bancos
+ * (`BANCOS_*`) no están cableados en ningún catálogo/UI de creación
+ * (`registerBancosXxx()` solo se llama desde sus propios `__tests__`), así
+ * que retirarlos dejaría ese contenido sin forma de crearse. Ese wiring es
+ * un prerrequisito para su retiro futuro.
+ */
+const SUBTIPOS_RETIRADOS: Record<string, string[]> = {
+  "biologia/biologia": ["genetica_mendel", "piramide_biomasas"],
+  "informatica/informatica": ["algebra_booleana"],
+  "quimica/atomos_enlaces": ["particulas_subatomicas", "configuracion_electronica"],
+  "matematicas/aritmetica": ["probabilidad_simple"],
+};
+
 export function getStaticCatalog(): CatalogItem[] {
   const prng = new DeterministicPrng(0);
   const all: GeneratorDescriptor[] = [
@@ -71,12 +96,17 @@ export function getStaticCatalog(): CatalogItem[] {
     // WO08: bancos hand-authored registrados (vacío si no hay ninguno).
     ...getDescriptoresBasic(prng),
   ];
-  return all.map((d) => ({
-    id: d.id,
-    materia: MATERIA_LABELS[d.materia as string] ?? d.materia,
-    label: GENERATOR_LABELS[d.id] ?? d.id,
-    subtipos: d.subtipos.map((s) => ({ id: s, label: labelFromId(s) })),
-  }));
+  return all.map((d) => {
+    const retirados = SUBTIPOS_RETIRADOS[d.id] ?? [];
+    return {
+      id: d.id,
+      materia: MATERIA_LABELS[d.materia as string] ?? d.materia,
+      label: GENERATOR_LABELS[d.id] ?? d.id,
+      subtipos: d.subtipos
+        .filter((s) => !retirados.includes(s))
+        .map((s) => ({ id: s, label: labelFromId(s) })),
+    };
+  });
 }
 
 export function getDescriptoresFromModule(

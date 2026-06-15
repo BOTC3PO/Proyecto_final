@@ -18,6 +18,7 @@ import CodeEditor, {
 } from "../components/vblang/CodeEditor";
 import DatasetExplorer from "../components/vblang/DatasetExplorer";
 import EjemplosMenu from "../components/vblang/EjemplosMenu";
+import PromptIAPanel from "../components/vblang/PromptIAPanel";
 import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
 import SnippetBar from "../components/vblang/SnippetBar";
 import NuevaPlantillaWizard from "../components/vblang/NuevaPlantillaWizard";
@@ -146,6 +147,7 @@ export default function PlantillaEditor() {
   } | null>(null);
   const [modo, setModo] = useState<"codigo" | "visual">("codigo");
   const [referenciaOpen, setReferenciaOpen] = useState(false);
+  const [promptIAOpen, setPromptIAOpen] = useState(false);
   // Wizard de nueva plantilla: se muestra una vez al crear (isNew=true) y se
   // cierra cuando el usuario elige algo (o lo descarta). No persistimos el
   // estado en storage: si recarga la página, vuelve a aparecer (es creación).
@@ -524,6 +526,9 @@ export default function PlantillaEditor() {
           <Button variant="ghost" size="sm" onClick={() => setReferenciaOpen(true)}>
             Referencia
           </Button>
+          <Button variant="ghost" size="sm" onClick={() => setPromptIAOpen(true)}>
+            Copiar prompt para IA
+          </Button>
           <DatasetExplorer />
           <Button
             variant="primary"
@@ -682,6 +687,15 @@ export default function PlantillaEditor() {
       <ReferenciaRapida
         open={referenciaOpen}
         onClose={() => setReferenciaOpen(false)}
+      />
+
+      <PromptIAPanel
+        open={promptIAOpen}
+        onClose={() => setPromptIAOpen(false)}
+        onInsert={(codigo) => {
+          dispatchCodigo({ type: "set", value: codigo });
+          setPromptIAOpen(false);
+        }}
       />
 
       {toastState && (
