@@ -233,3 +233,24 @@ describe("aula.tsx — barra de acciones del docente (Tarea 16)", () => {
     expect(screen.queryByTestId("aula-actions-bar")).not.toBeInTheDocument();
   });
 });
+
+/**
+ * FIX-NAV-01 — el botón "Gestionar aula" del banner del docente debe
+ * apuntar a una ruta que existe en el router (FIX-NAV-01 antes
+ * apuntaba a `/profesor/aulas/${id}/configuracion`, que cae al
+ * catch-all 404 porque la ruta es `profesor/aulas/:aulaId` pelada —
+ * ya valida FIX-NAV-01 al confirmar que `to` coincide con una ruta
+ * declarada en router.tsx).
+ */
+describe("FIX-NAV-01: link 'Gestionar aula' del banner del docente", () => {
+  it("apunta a /profesor/aulas/<id> pelada (no al /configuracion que cae al 404)", async () => {
+    setupUser(TEACHER_USER);
+    setupClassroom();
+    renderAula();
+    await screen.findByTestId("aula-actions-bar", {}, { timeout: 5000 });
+    const link = await screen.findByRole("link", { name: /gestionar aula/i });
+    expect(link.getAttribute("href")).toBe("/profesor/aulas/aula-1");
+    // Candado: el sufijo /configuracion NO debe estar presente.
+    expect(link.getAttribute("href") ?? "").not.toMatch(/\/configuracion$/);
+  });
+});

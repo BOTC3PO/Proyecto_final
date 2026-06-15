@@ -332,7 +332,7 @@ export default function Aula() {
             classroomId ? (
               <Link
                 className="absolute right-5 bottom-3 bg-[var(--c-surface)] text-[var(--c-primary)] px-4 py-1.5 rounded-lg border border-[var(--c-border)] text-sm font-medium"
-                to={`/profesor/aulas/${classroomId}/configuracion`}
+                to={`/profesor/aulas/${classroomId}`}
               >
                 Gestionar aula
               </Link>
