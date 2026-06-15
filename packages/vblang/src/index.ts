@@ -123,6 +123,26 @@ export type {
   ValidateOptions,
 } from "./validator/validator.js";
 
+// F7-01 — Referencia DSL auto-generada (base del generador de prompts F7-02).
+export {
+  diffBloques,
+  diffBuiltins,
+  generarReferenciaDsl,
+  listaBloques,
+  listaBuiltins,
+  listaConstantesGlobales,
+  listaEjemplos,
+  nombresBuiltinsDisponibles,
+  nombresBuiltinsRuntime,
+  RESUMENES_BLOQUES,
+  BLOCK_NAMES as REFERENCIA_BLOCK_NAMES,
+} from "./reference/index.js";
+export type {
+  BloqueReferencia,
+  BuiltinReferencia,
+  EjemploTipoPregunta,
+} from "./reference/index.js";
+
 export type {
   Bloque,
   BloqueKind,
