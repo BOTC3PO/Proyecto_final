@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
-import { apiGet, apiPost } from '../lib/api';
+import { apiGet, apiPost, getAuthToken } from '../lib/api';
 
 type MaterialItem = {
   id: string;
@@ -39,6 +39,37 @@ export default function ProfesorMateriales() {
       fetchItems();
     } catch {
       setMsg('Error al compartir.');
+    }
+  };
+
+  // Q7 — la descarga se hace via fetch autenticado + blob. Un <a href download>
+  // no lleva el header Authorization → 401. El back setea Content-Disposition
+  // con el filename sanitizado, pero el front igual lee la respuesta y la
+  // ofrece como blob para tener control del nombre de archivo.
+  const handleDescargar = async (item: MaterialItem) => {
+    try {
+      const token = getAuthToken();
+      const response = await fetch(`/api/materiales/${item.id}/download`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
+      if (!response.ok) {
+        setMsg('Error al descargar el material.');
+        return;
+      }
+      const blob = await response.blob();
+      const cd = response.headers.get("Content-Disposition") ?? "";
+      const match = /filename="?([^";]+)"?/.exec(cd);
+      const filename = match?.[1] ?? `${item.titulo}.json`;
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch {
+      setMsg('Error al descargar el material.');
     }
   };
 
@@ -129,13 +160,13 @@ export default function ProfesorMateriales() {
                   Compartir
                 </button>
               )}
-              <a
-                href={`/api/materiales/${item.id}/download`}
-                download
+              <button
+                type="button"
+                onClick={() => handleDescargar(item)}
                 className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
               >
                 ↓ Descargar
-              </a>
+              </button>
             </div>
           </div>
         ))}
