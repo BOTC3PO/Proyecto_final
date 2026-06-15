@@ -55,6 +55,10 @@ export {
 export { toModuleQuizQuestion } from "./adapters/to-module-quiz-question.js";
 export { AdapterError } from "./adapters/errors.js";
 
+// F6-04 — Plantillas oficiales VBLang (EconomiaAR).
+export { ECONOMIA_AR_OFICIALES } from "./templates/economia-ar-oficiales.js";
+export type { PlantillaOficialEconomiaAR } from "./templates/economia-ar-oficiales.js";
+
 export {
   ALL_QUESTION_TYPES,
   DASH_LIST_BLOCKS,
