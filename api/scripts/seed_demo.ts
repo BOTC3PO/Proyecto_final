@@ -21,6 +21,12 @@ import "dotenv/config";
 import { prisma } from "../src/lib/prisma";
 import bcrypt from "bcryptjs";
 import { createHash } from "crypto";
+import { SYSTEM_OWNER_ID } from "../src/lib/vblang-types";
+import {
+  TABLA_PERIODICA_COLUMNAS,
+  TABLA_PERIODICA_FILAS,
+  TABLA_PERIODICA_NOMBRE,
+} from "../src/lib/tabla-periodica-dataset";
 
 const hash = (pw: string) => bcrypt.hashSync(pw, 10);
 const sha256 = (s: string) => createHash("sha256").update(s).digest("hex");
@@ -577,6 +583,11 @@ async function main() {
   console.log("🗺️  Creando datasets de mapas con coordenadas...");
   await seedDatasetsMapa();
   console.log("  ✓ 2 datasets de mapas (Capitales de América, Ciudades de Argentina)");
+
+  // ── 11. Dataset oficial "tabla periódica" (F6-06) ───────────────────────────
+  console.log("🧪 Creando dataset oficial 'tabla_periodica'...");
+  await seedDatasetTablaPeriodica();
+  console.log(`  ✓ dataset "${TABLA_PERIODICA_NOMBRE}" (${TABLA_PERIODICA_FILAS.length} elementos)`);
 }
 
 /**
@@ -681,6 +692,44 @@ async function seedDatasetsMapa() {
       })),
     });
   }
+}
+
+/**
+ * Crea el dataset oficial "tabla_periodica" (F6-06): 16 elementos con Z,
+ * símbolo, config electrónica, electronegatividad y radio atómico (pm).
+ * Owner `SYSTEM_OWNER_ID`, `visibility: "publica"` — mismo patrón que las
+ * plantillas oficiales de F6-01. Idempotente: borra la versión previa antes
+ * de re-sembrar.
+ */
+async function seedDatasetTablaPeriodica() {
+  const id = "ds-oficial-tabla-periodica";
+
+  await prisma.vblangDatasetFila.deleteMany({ where: { datasetId: id } });
+  await prisma.vblangDataset.deleteMany({ where: { id } });
+
+  await prisma.vblangDataset.create({
+    data: {
+      id,
+      ownerUserId: SYSTEM_OWNER_ID,
+      schoolId: null,
+      visibility: "publica",
+      nombre: TABLA_PERIODICA_NOMBRE,
+      descripcion: "Tabla periódica (Z, símbolo, configuración electrónica, electronegatividad, radio atómico).",
+      columnas: JSON.stringify(TABLA_PERIODICA_COLUMNAS),
+      isDeleted: false,
+      createdAt: now,
+      updatedAt: now,
+    },
+  });
+  await prisma.vblangDatasetFila.createMany({
+    data: TABLA_PERIODICA_FILAS.map((datos, i) => ({
+      id: `${id}-fila-${i}`,
+      datasetId: id,
+      orden: i,
+      datos: JSON.stringify(datos),
+      createdAt: now,
+    })),
+  });
 }
 
 export { main as runSeedDemo };
