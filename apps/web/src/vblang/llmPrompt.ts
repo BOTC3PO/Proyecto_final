@@ -1,29 +1,49 @@
-export const VBLANG_LLM_SYSTEM_PROMPT = `Sos un asistente que ayuda a escribir plantillas VBLang.
-VBLang es un DSL para ejercicios paramétricos educativos.
+/**
+ * F7-02 — Prompt portable para IA externa.
+ *
+ * Reemplazo del asistente IA eliminado (sin servidor, sin keys): se arma un
+ * prompt con la referencia DSL de F7-01 (`generarReferenciaDsl()`, derivada
+ * del parser/evaluador reales — nunca queda obsoleta) + la descripción del
+ * docente + un contrato de salida estricto, para pegar en cualquier IA
+ * externa. El validador del editor es el guardián: lo que se pega de vuelta
+ * se compila al instante.
+ */
+import { generarReferenciaDsl } from "@vb/vblang";
 
-REGLAS CRÍTICAS (no las violes):
-- Strings SIEMPRE entre comillas dobles, nunca simples.
-- Booleans: verdadero / falso (no true/false).
-- Lógicos: y / o / no (no and/or/not).
-- Variables se declaran con : (no con =).
-- Indentación: exactamente 2 espacios. Nunca tabs.
-- Strings multilínea en enunciado: usar | después del :.
-- random(min, max) devuelve ENTERO. Para decimal: random_float.
-- El bloque respuesta: contiene una FÓRMULA, no un string.
-- tipo: mc requiere opciones: o opciones_explicitas:
+/** Contrato de salida: la IA debe responder solo con código VBLang. */
+export const CONTRATO_SALIDA_IA = `Respondé SOLO con código VBLang válido, listo para pegar en el editor.
+No incluyas explicaciones ni bloques de markdown (sin \`\`\`): la respuesta
+completa debe ser el código de la plantilla, nada más. Si necesitás aclarar
+algo, usá comentarios \`#\` dentro del propio código.`;
 
-BLOQUES DISPONIBLES:
-variables, restricciones, respuesta, respuestas_validas, unidad,
-tolerancia, opciones, opciones_explicitas, tipo, enunciado, pasos,
-generador, dataset, metadata, visual, mapa, respuesta_iso,
-respuesta_orden, texto_analizar, etiquetas_pedidas
+/**
+ * Arma el prompt completo: referencia DSL + descripción del docente +
+ * contrato de salida. `descripcion` es el pedido en lenguaje natural (ej.:
+ * "Un ejercicio de opción múltiple sobre la tabla periódica").
+ */
+export function buildPromptIA(descripcion: string): string {
+  const partes = [
+    generarReferenciaDsl(),
+    "## Pedido del docente",
+    "",
+    descripcion.trim() || "(sin descripción)",
+    "",
+    "## Formato de respuesta",
+    "",
+    CONTRATO_SALIDA_IA,
+  ];
+  return partes.join("\n");
+}
 
-FUNCIONES:
-random(min,max), random_float(min,max,dec), uno_de(array),
-n_de(array,n), mezclar(array), filtrar(array,cond), sqrt, abs, floor,
-ceil, round, redondear(x,n), min, max, sumar, promedio, largo,
-ordenar, ordenar_por(arr,campo), capitalizar, mayusculas, minusculas,
-concatenar
-
-CONSTANTES: pi, e, g, c, G, h_planck, k_B, N_A, R
-`;
+/**
+ * Limpia la respuesta pegada de una IA externa: quita los fences de
+ * markdown (```` ``` ```` o ```` ```vblang ````) que suelen envolver el
+ * código, si están presentes. Si no hay fences, devuelve el texto recortado
+ * tal cual.
+ */
+export function limpiarRespuestaIA(respuesta: string): string {
+  const texto = respuesta.trim();
+  const match = texto.match(/^```[^\n]*\n([\s\S]*?)\n?```$/);
+  if (match) return match[1].trim();
+  return texto;
+}
