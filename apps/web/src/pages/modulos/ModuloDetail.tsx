@@ -12,6 +12,18 @@ import TheoryItemCard from "../../components/modulos/TheoryItemCard";
 import { lookupPalabra, prefixPalabra, type EntradaDiccionario } from "../../services/diccionario";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import type { Ejercicio, GeneratorDescriptor, Dificultad } from "../../generadoresV2/core/types";
+import { getDescriptoresBasic } from "../../generadoresV2/basic/banco";
+
+// F6-07: synthetic module para resolver `basic/<bank_id>` en runtime.
+// Ver `EditorCuestionarios.tsx` para el rationale.
+async function loadBasicGeneratorModule(): Promise<unknown> {
+  await import("../../generadoresV2/bancos-init");
+  return {
+    getDescriptores: (
+      prng: Parameters<typeof getDescriptoresBasic>[0],
+    ) => getDescriptoresBasic(prng),
+  };
+}
 
 const loadGeneratorModule = (materia: string) => {
   switch (materia) {
@@ -27,6 +39,8 @@ const loadGeneratorModule = (materia: string) => {
       return import("../../generadoresV2/quimica/index");
     case "economia":
       return import("../../generadoresV2/economia/index");
+    case "basic":
+      return loadBasicGeneratorModule();
     default:
       return Promise.reject(new Error(`Generador no encontrado: ${materia}`));
   }

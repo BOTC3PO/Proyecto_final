@@ -5,6 +5,7 @@ import type { ModuleQuizQuestion } from "../domain/module/module.types";
 import type { GeneratorDescriptor, Ejercicio } from "../generadoresV2/core/types";
 import { DeterministicPrng } from "../generadoresV2/core/prng";
 import { getStaticCatalog, getDescriptoresFromModule } from "../generadoresV2/catalog";
+import { getDescriptoresBasic } from "../generadoresV2/basic/banco";
 import type { CatalogItem } from "../generadoresV2/catalog";
 import GeneradorSelector from "../components/modulos/GeneradorSelector";
 import type { GeneradorConfig } from "../components/modulos/GeneradorSelector";
@@ -26,6 +27,20 @@ type GeneratorDocs = {
 
 // ── Static generator loader (Vite-friendly) ───────────────────────────────────
 
+// F6-07: synthetic module para resolver `basic/<bank_id>` en runtime.
+// El import ejecuta el side-effect que registra los 25 bancos en
+// TEMPLATE_REGISTRY (idempotente). El módulo expone `getDescriptores`
+// que el caller (getDescriptoresFromModule / ModuloDetail) ya sabe
+// consumir.
+async function loadBasicGeneratorModule(): Promise<unknown> {
+  await import("../generadoresV2/bancos-init");
+  return {
+    getDescriptores: (
+      prng: Parameters<typeof getDescriptoresBasic>[0],
+    ) => getDescriptoresBasic(prng),
+  };
+}
+
 function loadGeneratorModule(materia: string) {
   switch (materia) {
     case "biologia":
@@ -40,6 +55,8 @@ function loadGeneratorModule(materia: string) {
       return import("../generadoresV2/quimica/index");
     case "economia":
       return import("../generadoresV2/economia/index");
+    case "basic":
+      return loadBasicGeneratorModule();
     default:
       return Promise.reject(new Error(`Generador no encontrado: ${materia}`));
   }

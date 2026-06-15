@@ -22,6 +22,7 @@ import type { ModuleQuizQuestion } from "../domain/module/module.types";
 import type { GeneratorDescriptor, Ejercicio, VisualSpec, LineChartSpec, VectorDiagramSpec, TimelineSpec, LatexSpec, StaticImageSpec } from "../generadoresV2/core/types";
 import { DeterministicPrng } from "../generadoresV2/core/prng";
 import { getStaticCatalog, getDescriptoresFromModule } from "../generadoresV2/catalog";
+import { getDescriptoresBasic } from "../generadoresV2/basic/banco";
 import type { CatalogItem } from "../generadoresV2/catalog";
 import VisualizerRenderer from "../components/modulos/VisualizerRenderer";
 import BancoCuestionariosMulti, { fetchBancoQuestions, mulberry32 } from "../components/modulos/BancoCuestionariosMulti";
@@ -63,6 +64,17 @@ function createManualQuestion(qType: ModuleQuizQuestion["questionType"]): Module
   };
 }
 
+// F6-07: synthetic module para resolver `basic/<bank_id>` en runtime.
+// Ver `EditorCuestionarios.tsx` para el rationale.
+async function loadBasicGeneratorModule(): Promise<unknown> {
+  await import("../generadoresV2/bancos-init");
+  return {
+    getDescriptores: (
+      prng: Parameters<typeof getDescriptoresBasic>[0],
+    ) => getDescriptoresBasic(prng),
+  };
+}
+
 function loadGeneratorModule(materia: string) {
   switch (materia) {
     case "biologia":    return import("../generadoresV2/biologia/index");
@@ -71,6 +83,7 @@ function loadGeneratorModule(materia: string) {
     case "matematicas": return import("../generadoresV2/matematicas/index");
     case "quimica":     return import("../generadoresV2/quimica/index");
     case "economia":    return import("../generadoresV2/economia/index");
+    case "basic":       return loadBasicGeneratorModule();
     default:            return Promise.reject(new Error(`Materia no encontrada: ${materia}`));
   }
 }
