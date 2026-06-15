@@ -235,3 +235,87 @@ tipo: input
     expect(result.getByRole("dialog", { name: "Copiar prompt para IA" })).toBeInTheDocument();
   });
 });
+
+/**
+ * QA-FIX-04 — botón "Volver" en el header del editor.
+ *
+ * Síntoma: el editor guardaba y editaba bien pero no tenía un botón
+ * "atrás" visible. El header tenía sólo la breadcrumb `Plantillas › {nombre}`,
+ * que es un link pero ambiguo (no comunica "salir del editor"). El
+ * usuario esperaba un botón explícito como en MapaEditorFull.
+ *
+ * Implementación: botón "Volver" como primer hijo del `<header className="vb-page-bar">`,
+ * mismo patrón que MapaEditorFull (ghost button con SVG arrow + texto).
+ * Destino: `returnTo` del query si existe (flujo módulo→plantilla), si
+ * no `/plantillas`.
+ */
+describe("PlantillaEditor — botón Volver (QA-FIX-04)", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it("se renderiza en el header con aria-label 'Volver'", async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    const btn = result.getByRole("button", { name: "Volver" });
+    expect(btn).toBeInTheDocument();
+    // El data-testid es un candado para tests de integración futuros.
+    expect(result.getByTestId("plantilla-volver")).toBe(btn);
+    // Candado: bug original era header sin botón "Volver". Si vuelve a
+    // faltar, el test rompe antes de cualquier otra aserción.
+    expect(btn).toHaveTextContent(/volver/i);
+  });
+
+  it("click sin returnTo navega a /plantillas", async () => {
+    const { default: PlantillaEditor } = await import("../PlantillaEditor");
+    // Render con una entrada explícita sin returnTo.
+    const result = render(
+      <MemoryRouter initialEntries={["/plantillas/nueva"]}>
+        <Routes>
+          <Route path="/plantillas/nueva" element={<PlantillaEditor />} />
+          <Route path="/plantillas" element={<div data-testid="plantillas-list">lista</div>} />
+        </Routes>
+      </MemoryRouter>,
+    );
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    const btn = result.getByTestId("plantilla-volver");
+    fireEvent.click(btn);
+    expect(result.getByTestId("plantillas-list")).toBeInTheDocument();
+  });
+
+  it("click con returnTo navega al destino del returnTo (flujo módulo→plantilla)", async () => {
+    const { default: PlantillaEditor } = await import("../PlantillaEditor");
+    // Render con returnTo apuntando a /modulos/abc/editar.
+    const result = render(
+      <MemoryRouter initialEntries={["/plantillas/nueva?returnTo=%2Fmodulos%2Fabc%2Feditar"]}>
+        <Routes>
+          <Route
+            path="/plantillas/nueva"
+            element={<PlantillaEditor />}
+          />
+          <Route
+            path="/modulos/abc/editar"
+            element={<div data-testid="modulo-editor">modulo</div>}
+          />
+          <Route path="/plantillas" element={<div data-testid="plantillas-list">lista</div>} />
+        </Routes>
+      </MemoryRouter>,
+    );
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    const btn = result.getByTestId("plantilla-volver");
+    fireEvent.click(btn);
+    // Si el botón respeta returnTo, vamos a /modulos/abc/editar.
+    // Si NO lo respeta, vamos a /plantillas (default).
+    expect(result.getByTestId("modulo-editor")).toBeInTheDocument();
+    expect(result.queryByTestId("plantillas-list")).toBeNull();
+  });
+});

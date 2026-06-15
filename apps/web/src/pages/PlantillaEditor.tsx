@@ -406,6 +406,23 @@ export default function PlantillaEditor() {
       }
     >
         <header className="vb-page-bar" role="banner">
+          {/* QA-FIX-04: botón "Volver" en el header. Replica el patrón
+              de MapaEditorFull (línea 831) y ModuloDetail (línea 513):
+              ghost button con flecha izquierda, mismo shape y tokens
+              --c-*. Destino: `returnTo` si el editor se abrió desde
+              un módulo (flujo módulo→plantilla), si no, /plantillas. */}
+          <button
+            type="button"
+            data-testid="plantilla-volver"
+            onClick={() => navigate(returnTo || "/plantillas")}
+            aria-label="Volver"
+            className="inline-flex items-center gap-1.5 rounded-md border border-[var(--c-border)] px-2.5 py-1 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12l6-6M5 12l6 6"/>
+            </svg>
+            Volver
+          </button>
           <nav className="crumb" aria-label="Migas de pan">
             <Link to="/plantillas" className="hover:text-[var(--c-text)]">Plantillas</Link>
             <svg className="w-3 h-3" viewBox="0 0 24 24" aria-hidden="true">
