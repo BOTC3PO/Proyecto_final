@@ -59,6 +59,13 @@ export { AdapterError } from "./adapters/errors.js";
 export { ECONOMIA_AR_OFICIALES } from "./templates/economia-ar-oficiales.js";
 export type { PlantillaOficialEconomiaAR } from "./templates/economia-ar-oficiales.js";
 
+// F6-05 — Plantillas oficiales VBLang (Biología, Química, Informática, Matemáticas).
+export type { PlantillaOficial } from "./templates/types.js";
+export { BIOLOGIA_OFICIALES } from "./templates/biologia-oficiales.js";
+export { QUIMICA_OFICIALES } from "./templates/quimica-oficiales.js";
+export { INFORMATICA_OFICIALES } from "./templates/informatica-oficiales.js";
+export { MATEMATICAS_OFICIALES } from "./templates/matematicas-oficiales.js";
+
 export {
   ALL_QUESTION_TYPES,
   DASH_LIST_BLOCKS,
