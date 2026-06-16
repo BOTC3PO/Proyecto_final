@@ -1,11 +1,6 @@
 import express, { Router } from "express";
 import { randomUUID } from "crypto";
 import { prisma } from "../lib/prisma";
-import {
-  ENTERPRISE_FEATURES,
-  requireActiveInstitutionBenefit,
-  requireEnterpriseFeature
-} from "../lib/entitlements";
 import { requireUser } from "../lib/user-auth";
 import {
   QuizAttemptAnswerSchema,
@@ -716,12 +711,19 @@ async function generateQuestionsFromConfig(
 
 export const quizAttempts = Router();
 
+// QA-FIX-06 — Operar intentos de quiz (iniciar/ver/responder/entregar) es
+// funcionalidad BASE de un módulo con quiz, no una feature enterprise. Crear y
+// editar módulos con quiz (`modulos.ts`) y armar quizzes (`quiz-banco.ts`) solo
+// exigen `requireUser`; gatear únicamente la operación de los intentos detrás de
+// `requireEnterpriseFeature(QUIZZES)` + `requireActiveInstitutionBenefit` era una
+// asimetría accidental (se podía crear pero no usar). Cada handler ya aplica su
+// propia autorización por dueño/staff, así que estos endpoints solo requieren
+// usuario autenticado. El gating premium real de quizzes vive en las MÉTRICAS
+// agregadas (`estadisticas.ts` -> ENTERPRISE_FEATURES.QUIZZES), que se conserva.
 quizAttempts.post(
   "/api/quiz-attempts",
   ...bodyLimitMB(2),
   requireUser,
-  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
-  requireActiveInstitutionBenefit,
   async (req, res) => {
   try {
     const payload = QuizAttemptCreateSchema.parse(req.body);
@@ -848,8 +850,6 @@ quizAttempts.post(
 quizAttempts.get(
   "/api/quiz-attempts",
   requireUser,
-  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
-  requireActiveInstitutionBenefit,
   async (req, res) => {
     try {
       const query = QuizAttemptListQuerySchema.parse(req.query);
@@ -959,8 +959,6 @@ quizAttempts.get(
 quizAttempts.get(
   "/api/quiz-attempts/summary",
   requireUser,
-  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
-  requireActiveInstitutionBenefit,
   async (req, res) => {
     try {
       const query = QuizAttemptSummaryQuerySchema.parse(req.query);
@@ -1165,8 +1163,6 @@ quizAttempts.get(
 quizAttempts.get(
   "/api/quiz-attempts/:id",
   requireUser,
-  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
-  requireActiveInstitutionBenefit,
   async (req, res) => {
   const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
   if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
@@ -1245,8 +1241,6 @@ quizAttempts.get(
 quizAttempts.get(
   "/api/quiz-attempts/:id/staff",
   requireUser,
-  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
-  requireActiveInstitutionBenefit,
   async (req, res) => {
     const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
     if (!idParam) return res.status(400).json({ error: "invalid attempt id" });
@@ -1304,8 +1298,6 @@ quizAttempts.post(
   "/api/quiz-attempts/:id/answer",
   ...bodyLimitMB(1),
   requireUser,
-  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
-  requireActiveInstitutionBenefit,
   async (req, res) => {
     try {
       const payload = QuizAttemptAnswerSchema.parse(req.body);
@@ -1371,8 +1363,6 @@ quizAttempts.patch(
   "/api/quiz-attempts/:id",
   ...bodyLimitMB(1),
   requireUser,
-  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
-  requireActiveInstitutionBenefit,
   async (req, res) => {
     try {
       const payload = QuizAttemptEventsPatchSchema.parse(req.body);
@@ -1434,8 +1424,6 @@ quizAttempts.post(
   "/api/quiz-attempts/:id/submit",
   ...bodyLimitMB(2),
   requireUser,
-  requireEnterpriseFeature(ENTERPRISE_FEATURES.QUIZZES),
-  requireActiveInstitutionBenefit,
   async (req, res) => {
     try {
       const payload = QuizAttemptSubmitSchema.parse(req.body);

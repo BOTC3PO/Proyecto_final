@@ -15,8 +15,55 @@ type AulaDoc = {
   id?: string;
   schoolId?: string;
   institutionId?: string;
+  createdBy?: string | null;
+  teacherId?: string | null;
+  teacherOfRecord?: string | null;
   members?: ClassroomMember[];
   isDeleted?: boolean;
+};
+
+/**
+ * Criterio canónico "es dueño del aula".
+ *
+ * El modelo `Clase` expresa la autoría docente por TRES vías independientes
+ * (`createdBy`, `teacherId`, `teacherOfRecord`). Un usuario es dueño si su id
+ * coincide con cualquiera de ellas. Es el bloque base de `isClassroomTeacher`.
+ */
+const isClassroomOwner = (
+  classroom: Pick<AulaDoc, "createdBy" | "teacherId" | "teacherOfRecord">,
+  userId: string | null
+): boolean => {
+  if (!userId) return false;
+  return (
+    classroom.createdBy === userId ||
+    classroom.teacherId === userId ||
+    classroom.teacherOfRecord === userId
+  );
+};
+
+/**
+ * Criterio CANÓNICO "es docente del aula".
+ *
+ * Devuelve true cuando el usuario tiene autoridad de docente sobre la clase por
+ * cualquiera de estos caminos:
+ *  - es ADMIN global;
+ *  - es miembro con rol TEACHER en `clase_miembros`;
+ *  - es DUEÑO de la clase por `createdBy`, `teacherId` o `teacherOfRecord`.
+ *
+ * ESTE es el único criterio válido de "docente/dueño del aula". Cualquier ruta
+ * o middleware que necesite decidir si un usuario es docente del aula debe usar
+ * este helper en lugar de reimplementar la combinación ad-hoc de campos.
+ */
+export const isClassroomTeacher = (
+  classroom: Pick<AulaDoc, "createdBy" | "teacherId" | "teacherOfRecord" | "members">,
+  userId: string | null,
+  userRole?: string | null
+): boolean => {
+  if (userRole === "ADMIN") return true;
+  if (isClassroomOwner(classroom, userId)) return true;
+  if (!userId) return false;
+  const members = Array.isArray(classroom.members) ? classroom.members : [];
+  return members.some((entry) => entry.userId === userId && entry.roleInClass === "TEACHER");
 };
 
 type ClassroomScopeOptions = {
@@ -70,8 +117,14 @@ export const requireClassroomScope =
     const classroom: AulaDoc = {
       id: claseRaw.id,
       schoolId: claseRaw.escuelaId ?? undefined,
+      createdBy: claseRaw.createdBy ?? null,
+      teacherId: claseRaw.teacherId ?? null,
+      teacherOfRecord: claseRaw.teacherOfRecord ?? null,
       isDeleted: claseRaw.isDeleted,
-      members: claseRaw.miembros.map(m => ({ userId: m.usuarioId, roleInClass: m.rolEnClase }))
+      members: claseRaw.miembros.map((m: { usuarioId: string; rolEnClase: string }) => ({
+        userId: m.usuarioId,
+        roleInClass: m.rolEnClase
+      }))
     };
 
     const user = (req as { user?: UserIdentity }).user;
@@ -103,7 +156,19 @@ export const requireClassroomScope =
       !!classroomSchoolId &&
       userSchoolId === classroomSchoolId;
 
-    if (!isAdmin && !isAllowedMember && !isSchoolMatch) {
+    // Criterio canónico "es docente del aula" (isClassroomTeacher): admin,
+    // miembro TEACHER o dueño por createdBy/teacherId/teacherOfRecord. Aquí lo
+    // usamos para AMPLIAR el acceso al dueño legítimo aunque no figure en
+    // `clase_miembros` ni comparta escuela. Respeta `allowMemberRoles`: el dueño
+    // cuenta como TEACHER, de modo que si la ruta restringe a roles que no
+    // incluyen TEACHER (p.ej. ["STUDENT"] o ["ADMIN"]) no entra por esta vía. No
+    // relaja los caminos admin/miembro/escuela existentes (admin y miembro
+    // TEACHER ya quedan cubiertos por isAdmin/isAllowedMember).
+    const isTeacherAuthority = isClassroomTeacher(classroom, userId, userRole);
+    const teacherAuthorityAllowed =
+      isTeacherAuthority && (allowMemberRoles === "any" || allowMemberRoles.includes("TEACHER"));
+
+    if (!isAdmin && !isAllowedMember && !isSchoolMatch && !teacherAuthorityAllowed) {
       res.status(403).json({ error: "forbidden" });
       return;
     }
