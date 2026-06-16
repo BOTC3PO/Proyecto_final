@@ -34,14 +34,35 @@ const parseLimit = (value: unknown) => {
   return Math.min(2000, Math.max(1, num));
 };
 
-const getSqliteServiceIfEnabled = async () => {
-  if (ENV.DB_KIND !== "sqlite") return { disabled: true as const };
+type ServiceResult =
+  | { disabled: true }
+  | { service: ReturnType<typeof import("../db/sqliteDictionary")["getSqliteDictionaryService"]> }
+  | { schemaError: { code: string; message: string; path: string } }
+  | { error: string };
+
+const getSqliteServiceIfEnabled = async (): Promise<ServiceResult> => {
+  if (ENV.DB_KIND !== "sqlite") return { disabled: true };
   try {
     const sqliteModule = await import("../db/sqliteDictionary");
-    return { service: sqliteModule.getSqliteDictionaryService() } as const;
+    return { service: sqliteModule.getSqliteDictionaryService() };
   } catch (error) {
+    // QA-FIX-09: schema validation failures (RAW_WIKTIONARY, UNKNOWN_SCHEMA,
+    // NO_TABLES, FILE_MISSING) are surfaced as 503 with the actionable
+    // message. The dictionary module also logs a warning once at init,
+    // so the operator sees the cause both in the server log and in the
+    // HTTP response.
+    if (error && typeof error === "object" && (error as { name?: string }).name === "DictionarySchemaError") {
+      const err = error as { code: string; message: string; path: string };
+      return {
+        schemaError: {
+          code: err.code,
+          message: err.message,
+          path: err.path
+        }
+      };
+    }
     const message = ENV.NODE_ENV === "production" ? "sqlite unavailable" : String(error);
-    return { error: message } as const;
+    return { error: message };
   }
 };
 
@@ -67,14 +88,30 @@ function safeOperation<T>(fn: () => T): { ok: true; value: T } | { ok: false; er
 dictionary.get("/api/dictionary/health", async (_req, res) => {
   const result = await getSqliteServiceIfEnabled();
   if ("disabled" in result) return res.status(503).json({ ok: false, error: "dictionary disabled" });
+  if ("schemaError" in result) {
+    const se = result.schemaError;
+    return res.status(503).json({
+      ok: false,
+      code: se.code,
+      error: se.message
+    });
+  }
   if ("error" in result) return res.status(500).json({ ok: false, error: result.error });
   return res.json(result.service.getHealth());
 });
 
 dictionary.get("/api/dictionary/lookup", async (req, res) => {
   const result = await getSqliteServiceIfEnabled();
-  if ("disabled" in result) return res.status(503).json({ ok: false, error: "dictionary disabled" });
-  if ("error" in result) return res.status(500).json({ ok: false, error: result.error });
+  if ("disabled" in result) return res.status(503).json({ found: false, error: "dictionary disabled" });
+  if ("schemaError" in result) {
+    const se = result.schemaError;
+    return res.status(503).json({
+      found: false,
+      code: se.code,
+      error: se.message
+    });
+  }
+  if ("error" in result) return res.status(500).json({ found: false, error: result.error });
   const service = result.service;
 
   const lang = parseLang(req.query.lang);
@@ -106,8 +143,17 @@ dictionary.get("/api/dictionary/lookup", async (req, res) => {
 
 dictionary.get("/api/dictionary/prefix", async (req, res) => {
   const result = await getSqliteServiceIfEnabled();
-  if ("disabled" in result) return res.status(503).json({ ok: false, error: "dictionary disabled" });
-  if ("error" in result) return res.status(500).json({ ok: false, error: result.error });
+  if ("disabled" in result) return res.status(503).json({ count: 0, entries: [], error: "dictionary disabled" });
+  if ("schemaError" in result) {
+    const se = result.schemaError;
+    return res.status(503).json({
+      count: 0,
+      entries: [],
+      code: se.code,
+      error: se.message
+    });
+  }
+  if ("error" in result) return res.status(500).json({ count: 0, entries: [], error: result.error });
   const service = result.service;
 
   const lang = parseLang(req.query.lang);

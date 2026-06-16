@@ -35,6 +35,34 @@ const TABLE_BLACKLIST = new Set(["sqlite_sequence", "sqlite_stat1", "sqlite_stat
 
 const toAbsolutePath = (value: string) => (path.isAbsolute(value) ? value : path.resolve(process.cwd(), value));
 
+/**
+ * QA-FIX-09: typed error for dictionary schema validation failures.
+ *
+ * `code` distinguishes the four known failure modes so the route can
+ * map them to a 503 with a stable, actionable message instead of a
+ * 500 with a stack trace. The full message is logged once at init
+ * (with `path` and `code`) and surfaced to the operator via
+ * `GET /api/dictionary/health` → 503, so a misconfigured `SQLITE_PATH`
+ * is diagnosable without reading server logs.
+ */
+export type DictionarySchemaErrorCode =
+  | "RAW_WIKTIONARY"
+  | "UNKNOWN_SCHEMA"
+  | "NO_TABLES"
+  | "FILE_MISSING";
+
+export class DictionarySchemaError extends Error {
+  readonly code: DictionarySchemaErrorCode;
+  readonly path: string;
+
+  constructor(code: DictionarySchemaErrorCode, path: string, message: string) {
+    super(message);
+    this.name = "DictionarySchemaError";
+    this.code = code;
+    this.path = path;
+  }
+}
+
 const scoreColumn = (name: string, candidates: string[]) => {
   const lc = name.toLowerCase();
   if (candidates.includes(lc)) return 4;
@@ -82,7 +110,11 @@ class SqliteDictionaryService {
   constructor() {
     const sqlitePath = toAbsolutePath(ENV.SQLITE_PATH);
     if (!fs.existsSync(sqlitePath)) {
-      throw new Error(`SQLITE_PATH does not exist: ${sqlitePath}`);
+      throw new DictionarySchemaError(
+        "FILE_MISSING",
+        sqlitePath,
+        `SQLITE_PATH does not exist: ${sqlitePath}`
+      );
     }
 
     const BetterSqlite3 = getBetterSqlite3();
@@ -92,7 +124,7 @@ class SqliteDictionaryService {
     });
 
     this.configurePragmas();
-    this.schema = this.detectSchema();
+    this.schema = this.detectSchema(sqlitePath);
     this.logSelection(sqlitePath);
     this.lookupStmt = this.prepareLookup();
     this.prefixStmt = this.preparePrefix();
@@ -105,12 +137,13 @@ class SqliteDictionaryService {
     this.db.pragma("query_only = ON");
   }
 
-  private detectSchema(): DictionarySchema {
+  private detectSchema(sqlitePath: string): DictionarySchema {
     const tables = this.db
       .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")
       .all() as Array<{ name: string }>;
 
     let best: { schema: DictionarySchema; score: number; rows: number } | null = null;
+    let rawTable: { name: string; cols: string[] } | null = null;
 
     for (const tableRow of tables) {
       if (TABLE_BLACKLIST.has(tableRow.name)) continue;
@@ -123,26 +156,62 @@ class SqliteDictionaryService {
       const langCol = pickColumn(colNames, ["lang", "language", "locale"]);
       const wordCol = pickColumn(colNames, ["word", "term", "lemma", "headword"]);
 
-      if (!langCol || !wordCol) continue;
+      if (langCol && wordCol) {
+        const payloadCols = colNames.filter((col) => col !== langCol && col !== wordCol).slice(0, 6);
+        const rows = (this.db.prepare(`SELECT COUNT(1) as count FROM ${quoteIdent(tableRow.name)}`).get() as { count: number }).count;
+        const score = scoreColumn(langCol, ["lang", "language", "locale"]) + scoreColumn(wordCol, ["word", "term", "lemma", "headword"]);
 
-      const payloadCols = colNames.filter((col) => col !== langCol && col !== wordCol).slice(0, 6);
-      const rows = (this.db.prepare(`SELECT COUNT(1) as count FROM ${quoteIdent(tableRow.name)}`).get() as { count: number }).count;
-      const score = scoreColumn(langCol, ["lang", "language", "locale"]) + scoreColumn(wordCol, ["word", "term", "lemma", "headword"]);
-
-      if (!best || score > best.score || (score === best.score && rows > best.rows)) {
-        best = {
-          schema: { table: tableRow.name, langCol, wordCol, payloadCols },
-          score,
-          rows
-        };
+        if (!best || score > best.score || (score === best.score && rows > best.rows)) {
+          best = {
+            schema: { table: tableRow.name, langCol, wordCol, payloadCols },
+            score,
+            rows
+          };
+        }
+      } else {
+        // QA-FIX-09: detect RAW Wiktionary dump signature so the operator
+        // gets an actionable message ("run build_dictionary_final.py to
+        // produce the 'words' table") instead of a generic "no lang+word"
+        // error. The RAW dump table comes from build_wiktionary_sqlite.py:309
+        // (PRIMARY KEY (source, title), columns include text BLOB).
+        if (
+          !rawTable &&
+          tableRow.name === "entries" &&
+          colNames.includes("source") &&
+          colNames.includes("title") &&
+          (colNames.includes("text") || colNames.includes("page_id"))
+        ) {
+          rawTable = { name: tableRow.name, cols: colNames };
+        }
       }
     }
 
-    if (!best) {
-      throw new Error("Unable to detect dictionary table/columns containing lang + word");
+    if (best) return best.schema;
+
+    if (rawTable) {
+      throw new DictionarySchemaError(
+        "RAW_WIKTIONARY",
+        sqlitePath,
+        `Dictionary sqlite has RAW Wiktionary schema (table 'entries' with source/title/text); ` +
+          `run install/build_dictionary_final.py to produce the 'words' table. ` +
+          `Path: ${sqlitePath}, columns: [${rawTable.cols.join(", ")}]`
+      );
     }
 
-    return best.schema;
+    if (tables.length === 0) {
+      throw new DictionarySchemaError(
+        "NO_TABLES",
+        sqlitePath,
+        `Dictionary sqlite has no user tables. Path: ${sqlitePath}`
+      );
+    }
+
+    const tableList = tables.map((t) => t.name).join(", ");
+    throw new DictionarySchemaError(
+      "UNKNOWN_SCHEMA",
+      sqlitePath,
+      `Dictionary sqlite has no table with lang+word columns; got tables: [${tableList}]. Path: ${sqlitePath}`
+    );
   }
 
   private prepareLookup() {
@@ -221,6 +290,7 @@ class SqliteDictionaryService {
 }
 
 let singleton: SqliteDictionaryService | null = null;
+let lastInitError: DictionarySchemaError | null = null;
 
 export const isSqliteDictionaryEnabled = () => ENV.DB_KIND === "sqlite";
 
@@ -228,6 +298,33 @@ export const getSqliteDictionaryService = () => {
   if (!isSqliteDictionaryEnabled()) {
     throw new Error("dictionary disabled");
   }
-  if (!singleton) singleton = new SqliteDictionaryService();
-  return singleton;
+  if (singleton) return singleton;
+  // QA-FIX-09: if the previous init failed with a schema error, don't
+  // retry on every request — surface the same error each time so the
+  // 503 response is stable. The operator must restart the server
+  // after fixing SQLITE_PATH. Reset only via resetSqliteDictionaryService
+  // (used by tests).
+  if (lastInitError) throw lastInitError;
+  try {
+    singleton = new SqliteDictionaryService();
+    return singleton;
+  } catch (error) {
+    if (error instanceof DictionarySchemaError) {
+      lastInitError = error;
+      // Log once at init: code + path + full message. The route will
+      // also surface this in /api/dictionary/health → 503.
+      console.warn(`[dictionary/sqlite] schema validation failed (${error.code}): ${error.message}`);
+    }
+    throw error;
+  }
+};
+
+/**
+ * QA-FIX-09: test-only. Clears the singleton and the cached init
+ * error so the next call to `getSqliteDictionaryService()` re-runs
+ * detection against the (possibly new) `ENV.SQLITE_PATH`.
+ */
+export const resetSqliteDictionaryService = () => {
+  singleton = null;
+  lastInitError = null;
 };
