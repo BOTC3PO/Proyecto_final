@@ -115,7 +115,32 @@ modulos.get("/api/modulos", async (req, res) => {
   const limit = clampLimit(req.query.limit as string | undefined);
   const offset = Number(req.query.offset ?? 0);
   const aulaId = typeof req.query.aulaId === "string" ? req.query.aulaId : undefined;
+  // QA-FIX-07 — `?mine=true` exige autenticación y filtra por
+  // `ownerUserId`. Sin esto, `MenuProfesor` (que llama
+  // `?mine=true` en apps/web/src/pages/MenuProfesor.tsx:150)
+  // mostraba en el panel "Módulos activos" módulos de
+  // CUALQUIER profesor (handler ignoraba el param). Patrón
+  // espejo del filtro equivalente en `/api/modulos/buscar`
+  // (línea 54-70 de este mismo archivo).
+  const mine = req.query.mine === "true";
   const safeOffset = Number.isNaN(offset) || offset < 0 ? 0 : offset;
+
+  if (mine) {
+    await new Promise<void>((resolve) => {
+      requireUser(req, res, () => resolve());
+    });
+    if (res.headersSent) return;
+  }
+
+  // `req.user._id` viene de `toObjectId(...)` en
+  // src/lib/user-auth.ts:67 → siempre string. `.toString()`
+  // funciona sobre string también (idempotente).
+  const requesterId =
+    mine && req.user
+      ? (typeof req.user._id === "string"
+          ? req.user._id
+          : (req.user._id as { toString?: () => string })?.toString?.() ?? null)
+      : null;
 
   let items;
   if (aulaId) {
@@ -131,7 +156,10 @@ modulos.get("/api/modulos", async (req, res) => {
 
     items = (
       await prisma.modulo.findMany({
-        where: { id: { in: moduloIds } },
+        where: {
+          id: { in: moduloIds },
+          ...(mine && requesterId ? { ownerUserId: requesterId } : {}),
+        },
         skip: safeOffset,
         take: limit,
         orderBy: { updatedAt: "desc" },
@@ -140,6 +168,7 @@ modulos.get("/api/modulos", async (req, res) => {
   } else {
     items = (
       await prisma.modulo.findMany({
+        where: mine && requesterId ? { ownerUserId: requesterId } : {},
         skip: safeOffset,
         take: limit,
         orderBy: { updatedAt: "desc" },
