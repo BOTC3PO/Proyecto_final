@@ -12,11 +12,13 @@
  */
 import {
   forwardRef,
+  useContext,
   useEffect,
   useId,
   useImperativeHandle,
   useRef,
   useState,
+  createContext,
 } from "react";
 import type { Expr, Plantilla, TipoPregunta, VariableDecl } from "@vb/vblang";
 import {
@@ -29,6 +31,7 @@ import GeneradorPicker from "./GeneradorPicker";
 import { listGeneradores } from "../../vblang/listGeneradores";
 import { AccessibleList } from "./AccessibleList";
 import PalabraCombobox from "./PalabraCombobox";
+import LangSelector from "./LangSelector";
 import { uploadPng } from "./mediaApi";
 import {
   CATEGORIAS_GRAMATICALES,
@@ -161,6 +164,12 @@ function BufferedText({
 
 /* ---------------- renderer de un campo ---------------- */
 
+// QA-FIX-10: idioma del diccionario, compartido por todos los
+// PalabraCombobox del template (no tendría sentido mezclar es y fr
+// en el mismo ejercicio). El LangSelector vive en
+// PlantillaEditorSchema; los hijos leen el valor por Context.
+const LangContext = createContext<string>("es");
+
 function FieldControl({
   field,
   plantilla,
@@ -288,6 +297,7 @@ function FieldControl({
     plantilla.tipoInferido === "identificar_palabras";
 
   const items = readListStrings(plantilla, lf);
+  const lang = useContext(LangContext);
   return (
     <AccessibleList<string>
       items={items}
@@ -304,6 +314,7 @@ function FieldControl({
             value={item}
             onChange={onItem}
             placeholder="palabra"
+            lang={lang}
           />
         ) : (
           <input
@@ -337,6 +348,7 @@ function EtiquetaRowEditor({
 }) {
   const [sugerida, setSugerida] = useState<string | null>(null);
   const etiquetaId = useId();
+  const lang = useContext(LangContext);
 
   const handleLookup = (_word: string, entry: EntradaDiccionario | null) => {
     const cat = sugerirCategoriaGramatical(entry);
@@ -361,6 +373,7 @@ function EtiquetaRowEditor({
             onChange={(palabra) => onItem({ ...item, palabra })}
             onLookup={handleLookup}
             placeholder="palabra"
+            lang={lang}
           />
         </div>
         <input
@@ -538,6 +551,12 @@ export default function PlantillaEditorSchema({
   } | null>(null);
   const enunciadoFieldRef = useRef<EnunciadoFieldHandle | null>(null);
 
+  // QA-FIX-10: idioma del diccionario. Compartido por todos los
+  // PalabraCombobox del template vía LangContext. El LangSelector
+  // hace el fetch inicial y aplica el default (es si está, si no
+  // el primero). Aquí sólo almacenamos el valor.
+  const [lang, setLang] = useState<string>("es");
+
   /**
    * Activa/cambia la base generador. Si el enunciado heredado interpola
    * variables que el nuevo generador no provee, ofrece resetearlo al texto de
@@ -566,14 +585,23 @@ export default function PlantillaEditorSchema({
   };
 
   return (
-    <div className="flex flex-col gap-3" data-testid="vblang-schema-editor">
-      {tieneErrores && (
-        <div role="alert" className="rounded bg-red-50 px-3 py-2 text-xs text-red-700">
-          El código tiene errores; corregilos para que el preview funcione.
-        </div>
-      )}
+    <LangContext.Provider value={lang}>
+      <div className="flex flex-col gap-3" data-testid="vblang-schema-editor">
+        {tieneErrores && (
+          <div role="alert" className="rounded bg-red-50 px-3 py-2 text-xs text-red-700">
+            El código tiene errores; corregilos para que el preview funcione.
+          </div>
+        )}
 
-      <Section title="Base de la pregunta">
+        {/* QA-FIX-10: selector de idioma del diccionario, poblado con
+            los idiomas REALES del archivo (no lista fija). Vive al
+            tope del editor porque el lang es transversal a todos los
+            PalabraCombobox del template. */}
+        <div className="flex items-center justify-between gap-2">
+          <LangSelector value={lang} onChange={setLang} />
+        </div>
+
+        <Section title="Base de la pregunta">
         <div role="radiogroup" aria-label="Base de la pregunta" className="flex gap-3">
           <label className="flex items-center gap-1 text-xs">
             <input
@@ -706,7 +734,8 @@ export default function PlantillaEditorSchema({
           onCancel={() => setConfirmDialog(null)}
         />
       )}
-    </div>
+      </div>
+    </LangContext.Provider>
   );
 }
 

@@ -45,6 +45,81 @@ export async function prefixPalabra(
   }
 }
 
+// ─── QA-FIX-10: selector de idioma del diccionario ────────────────────────────
+
+/**
+ * Tabla estática de códigos de idioma → nombre legible. NO es una
+ * lista exhaustiva — es solo PRESENTACIÓN. Los códigos que el
+ * selector OFRECE vienen del endpoint (los idiomas REALES del
+ * archivo), nunca de esta tabla. Si un código no está acá, el
+ * componente cae al fallback (muestra el código tal cual, ej. "oc").
+ *
+ * Lista curada: cubre los idiomas presentes en el modelo real
+ * (`es, en, pt, fr, it, la`, ver install/build_dictionary_final.py)
+ * más algunos comunes para evitar caer al fallback en el uso normal.
+ */
+export const LANG_NAMES: Record<string, string> = {
+  es: "Español",
+  en: "English",
+  pt: "Português",
+  fr: "Français",
+  it: "Italiano",
+  de: "Deutsch",
+  la: "Latín",
+  ca: "Català",
+  gl: "Galego",
+  eu: "Euskara",
+  nl: "Nederlands",
+  ru: "Русский",
+  zh: "中文",
+  ja: "日本語",
+  ar: "العربية",
+};
+
+/**
+ * Devuelve el nombre legible de un código de idioma, o el código
+ * tal cual si no está en la tabla. NUNCA rompe — la UI siempre
+ * muestra algo identificable.
+ */
+export function displayLangName(code: string): string {
+  return LANG_NAMES[code] ?? code;
+}
+
+export type LanguagesResult = {
+  languages: string[];
+};
+
+/**
+ * Pide al back los códigos de idioma REALES del diccionario
+ * (`SELECT DISTINCT lang`). Devuelve `null` si el endpoint no
+ * responde OK (diccionario deshabilitado, schema inválido, 500).
+ *
+ * El consumidor (LangSelector) usa esto para:
+ *  - si devuelve `[]` o `null` → mostrar "diccionario no disponible"
+ *  - si devuelve varios → poblar el `<select>` con nombres legibles
+ *  - default: prefiere "es" si está presente, si no el primero
+ */
+export async function fetchLanguages(): Promise<string[] | null> {
+  try {
+    const data = await apiGet<LanguagesResult>(`/api/dictionary/languages`);
+    return Array.isArray(data.languages) ? data.languages : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Default preferido: "es" si está presente, si no el primero de la
+ * lista. Si la lista está vacía, devuelve "es" como último recurso
+ * (asume el default histórico y deja que el lookup falle en silencio
+ * si el archivo no lo tiene).
+ */
+export function pickDefaultLang(languages: string[]): string {
+  if (languages.length === 0) return "es";
+  if (languages.includes("es")) return "es";
+  return languages[0];
+}
+
 /**
  * Normaliza el campo `definitions` (que el backend puede devolver como string,
  * JSON serializado o array) a un array de strings. Mismo criterio tolerante que

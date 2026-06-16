@@ -13,10 +13,12 @@ function Harness({
   fetchPrefix,
   fetchLookup,
   onLookup,
+  lang,
 }: {
-  fetchPrefix?: (q: string) => Promise<string[]>;
-  fetchLookup?: (w: string) => Promise<LookupResult | null>;
+  fetchPrefix?: (q: string, lang: string) => Promise<string[]>;
+  fetchLookup?: (w: string, lang: string) => Promise<LookupResult | null>;
   onLookup?: (w: string, e: unknown) => void;
+  lang?: string;
 }) {
   const [value, setValue] = useState("");
   return (
@@ -27,6 +29,7 @@ function Harness({
       fetchPrefix={fetchPrefix ?? (async () => [])}
       fetchLookup={fetchLookup ?? (async () => null)}
       onLookup={onLookup}
+      lang={lang}
     />
   );
 }
@@ -103,5 +106,56 @@ describe("PalabraCombobox", () => {
         definitions: ["m. Mamífero."],
       }),
     );
+  });
+
+  // QA-FIX-10: el lang se pasa a fetchPrefix/fetchLookup. Cambiar el
+  // lang re-dispara la consulta con el nuevo idioma.
+  it("QA-FIX-10: pasa el lang a fetchPrefix y fetchLookup", async () => {
+    const user = userEvent.setup();
+    const fetchPrefix = vi.fn(async (_q: string, _lang: string) => ["gato"]);
+    const fetchLookup = vi.fn(async (_w: string, _lang: string) => ({ found: true, entry: { word: "gato" } }));
+    render(
+      <Harness
+        fetchPrefix={fetchPrefix}
+        fetchLookup={fetchLookup}
+        lang="fr"
+      />,
+    );
+    const input = screen.getByRole("combobox", { name: "Palabra 1" });
+    await user.type(input, "gat");
+    await waitFor(() => {
+      expect(fetchPrefix).toHaveBeenCalled();
+      expect(fetchLookup).toHaveBeenCalled();
+    });
+    // El lang "fr" llegó al servicio.
+    expect(fetchPrefix.mock.calls.some(([, lang]) => lang === "fr")).toBe(true);
+    expect(fetchLookup.mock.calls.some(([, lang]) => lang === "fr")).toBe(true);
+  });
+
+  it("QA-FIX-10: cambiar el lang re-dispara la consulta con el nuevo idioma", async () => {
+    const user = userEvent.setup();
+    const fetchPrefix = vi.fn(async (_q: string, lang: string) =>
+      lang === "fr" ? ["chien"] : ["perro"]
+    );
+    const { rerender } = render(
+      <Harness fetchPrefix={fetchPrefix} lang="es" />
+    );
+    const input = screen.getByRole("combobox", { name: "Palabra 1" });
+    await user.type(input, "per");
+    await waitFor(() => {
+      expect(fetchPrefix).toHaveBeenCalled();
+    });
+    // La última llamada con "es" trajo ["perro"].
+    const lastEsCall = [...fetchPrefix.mock.calls].reverse().find(([, l]) => l === "es");
+    expect(lastEsCall?.[1]).toBe("es");
+
+    // Cambio de idioma → la consulta se re-dispara con "fr".
+    fetchPrefix.mockClear();
+    rerender(<Harness fetchPrefix={fetchPrefix} lang="fr" />);
+    await user.type(input, "chi");
+    await waitFor(() => {
+      const frCalls = fetchPrefix.mock.calls.filter(([, l]) => l === "fr");
+      expect(frCalls.length).toBeGreaterThan(0);
+    });
   });
 });

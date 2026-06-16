@@ -105,7 +105,13 @@ class SqliteDictionaryService {
   private schema: DictionarySchema;
   private lookupStmt;
   private prefixStmt;
+  private languagesStmt;
   private healthStmt;
+  // QA-FIX-10: cache de idiomas (los idiomas no cambian en runtime,
+  // el sqlite es readonly — `languages()` no necesita re-pegar al
+  // SQLite cada vez que el front pide el selector). Se invalida sólo
+  // si se reinstancia el singleton (p.ej. el test reset).
+  private languagesCache: string[] | null = null;
 
   constructor() {
     const sqlitePath = toAbsolutePath(ENV.SQLITE_PATH);
@@ -128,6 +134,7 @@ class SqliteDictionaryService {
     this.logSelection(sqlitePath);
     this.lookupStmt = this.prepareLookup();
     this.prefixStmt = this.preparePrefix();
+    this.languagesStmt = this.prepareLanguages();
     this.healthStmt = this.db.prepare("SELECT 1 as ok");
   }
 
@@ -230,6 +237,16 @@ class SqliteDictionaryService {
     );
   }
 
+  private prepareLanguages() {
+    // QA-FIX-10: SELECT DISTINCT lang ORDER BY lang. La columna lang
+    // ya viene del `detectSchema` (validada como `lang` ∈ {lang, language,
+    // locale}). quoteIdent defensivo.
+    const { table, langCol } = this.schema;
+    return this.db.prepare(
+      `SELECT DISTINCT ${quoteIdent(langCol)} AS lang FROM ${quoteIdent(table)} ORDER BY ${quoteIdent(langCol)} ASC`
+    );
+  }
+
   private logSelection(sqlitePath: string) {
     console.info("[dictionary/sqlite] loaded", {
       path: sqlitePath,
@@ -255,6 +272,25 @@ class SqliteDictionaryService {
 
   prefix(lang: string, q: string, limit: number) {
     return this.prefixStmt.all(lang, q, nextPrefixEnd(q), limit) as Array<Record<string, unknown>>;
+  }
+
+  /**
+   * QA-FIX-10: devuelve los códigos de idioma REALES del diccionario
+   * (`SELECT DISTINCT lang`), ordenados alfabéticamente. El front usa
+   * esto para poblar el selector — NUNCA una lista fija — así el
+   * selector nunca ofrece un idioma que el archivo no tiene.
+   *
+   * El resultado se cachea: los idiomas no cambian en runtime (sqlite
+   * readonly). El cache se invalida sólo si el singleton se reinstancia
+   * (p.ej. vía `resetSqliteDictionaryService()` en tests).
+   */
+  languages(): string[] {
+    if (this.languagesCache) return this.languagesCache;
+    const rows = this.languagesStmt.all() as Array<{ lang: string | null }>;
+    this.languagesCache = rows
+      .map((r) => r.lang)
+      .filter((c): c is string => typeof c === "string" && c.length > 0);
+    return this.languagesCache;
   }
 
   getSchema() {

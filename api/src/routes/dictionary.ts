@@ -175,3 +175,25 @@ dictionary.get("/api/dictionary/prefix", async (req, res) => {
   const entries = looked.value;
   return res.json({ count: entries.length, entries });
 });
+
+// QA-FIX-10: selector de idioma del diccionario. Devuelve los códigos
+// de idioma REALES del archivo (`SELECT DISTINCT lang`), NUNCA una
+// lista fija — así el front puede ofrecer un dropdown que no mienta.
+// Mismo trato de errores que /health/lookup/prefix: 503 con causa si
+// el diccionario no es servible (QA-FIX-09).
+dictionary.get("/api/dictionary/languages", async (_req, res) => {
+  const result = await getSqliteServiceIfEnabled();
+  if ("disabled" in result) return res.status(503).json({ languages: [], error: "dictionary disabled" });
+  if ("schemaError" in result) {
+    const se = result.schemaError;
+    return res.status(503).json({ languages: [], code: se.code, error: se.message });
+  }
+  if ("error" in result) return res.status(500).json({ languages: [], error: result.error });
+  const service = result.service;
+
+  const looked = safeOperation(() => service.languages());
+  if (!looked.ok) {
+    return res.status(500).json({ languages: [], error: looked.error });
+  }
+  return res.json({ languages: looked.value });
+});

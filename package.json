@@ -8,6 +8,7 @@
     "scripts": {
     "test": "pnpm --filter ./apps/web test",
     "test:web": "pnpm --filter ./apps/web test",
-    "test:api": "pnpm --filter ./api test"
+    "test:api": "pnpm --filter ./api test",
+    "dev": "pnpm --filter api --filter web --parallel run dev"
   }
 }
