@@ -38,7 +38,17 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   JWT_ISSUER: process.env.JWT_ISSUER ?? "",
   JWT_AUDIENCE: process.env.JWT_AUDIENCE ?? "",
   JWT_ACCESS_TTL_SECONDS: Number(process.env.JWT_ACCESS_TTL_SECONDS ?? 60 * 60),
-  JWT_REFRESH_TTL_SECONDS: Number(process.env.JWT_REFRESH_TTL_SECONDS ?? 0),
+  // QA-FIX-11: refresh token TTL. Con 0 (default previo) el servicio
+  // NUNCA emitía refresh tokens (createRefreshToken en auth-token.ts:148
+  // retornaba null), así que a la 1h el access vencía y el front
+  // expulsaba al usuario sin poder renovar. 7 días (604800s) es el
+  // balance estándar: acceso corto (1h) + refresh largo con rotación
+  // (cada uso emite un nuevo refresh — ver auth.ts:339). El front
+  // (api.ts:187-189) guarda el nuevo refresh si viene en la respuesta.
+  // Si el refresh se roba, la rotación reduce la ventana de exposición
+  // (el refresh viejo sigue válido hasta su exp, pero el próximo uso
+  // legítimo emite otro). No logueamos tokens ni emitimos tokens eternos.
+  JWT_REFRESH_TTL_SECONDS: Number(process.env.JWT_REFRESH_TTL_SECONDS ?? 7 * 24 * 60 * 60),
   BILLING_PAST_DUE_DAYS: Number(process.env.BILLING_PAST_DUE_DAYS ?? 7),
   BILLING_SUSPEND_DAYS: Number(process.env.BILLING_SUSPEND_DAYS ?? 30),
   BILLING_DELINQUENCY_JOB_INTERVAL_MINUTES: Number(
