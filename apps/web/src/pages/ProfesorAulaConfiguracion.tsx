@@ -27,7 +27,12 @@ const buildInitialState = (classroom: Classroom): FormState => ({
 });
 
 export default function ProfesorAulaConfiguracion() {
-  const { id } = useParams();
+  // FIX-CONFIG: la ruta es `profesor/aulas/:aulaId` (router.tsx:282),
+  // no `:id`. Antes se leía `id` (siempre undefined) y el `if (!id) return`
+  // en el useEffect corría ANTES del `.finally(() => setIsLoading(false))`,
+  // así que el spinner quedaba para siempre sin request a la red.
+  const { aulaId } = useParams();
+  const id = aulaId;
   const [classroom, setClassroom] = useState<Classroom | null>(null);
   const [form, setForm] = useState<FormState | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +54,13 @@ export default function ProfesorAulaConfiguracion() {
   const [moduloSaving, setModuloSaving] = useState(false);
 
   useEffect(() => {
-    if (!id) return;
+    if (!id) {
+      // FIX-CONFIG: si el param falta, mostrar error claro y salir del
+      // loading (si no, el spinner queda eterno).
+      setIsLoading(false);
+      setError("Falta el identificador del aula en la URL.");
+      return;
+    }
     let active = true;
     setIsLoading(true);
     setError(null);
