@@ -171,6 +171,12 @@ class Table<TRow extends Row> {
     return { ...removed };
   }
 
+  async deleteMany(args: { where: Record<string, unknown> }): Promise<{ count: number }> {
+    const before = this.rows.length;
+    this.rows = this.rows.filter((r) => !rowMatches(r, args.where)) as TRow[];
+    return { count: before - this.rows.length };
+  }
+
   async upsert(args: {
     where: Record<string, unknown>;
     create: TRow;
@@ -382,10 +388,61 @@ export type QuizUmbralRow = {
   createdAt: string;
 };
 
+export type EncuestaRow = {
+  id: string;
+  classroomId: string;
+  title: string;
+  description: string;
+  type: string;
+  status: string;
+  options: string;
+  maxOptions?: number | null;
+  startAt: string;
+  endAt: string;
+  showResultsBeforeClose?: boolean | null;
+  showResultsRealtime?: boolean | null;
+  responsesCount?: number | null;
+  createdBy: string;
+  createdAt: string;
+  updatedAt: string;
+  archivedAt?: string | null;
+  classroomName?: string | null;
+};
+
+export type EncuestaRespuestaRow = {
+  id?: string;
+  surveyId: string;
+  classroomId: string;
+  usuarioId: string;
+  optionId?: string | null;
+  scores?: string | null;
+  ranking?: string | null;
+  createdAt: string;
+};
+
+export type BloqueJsonRow = {
+  id: string;
+  schemaVersion: number;
+  content: string;
+  contentHash?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ConfigModuloRow = {
+  id: string;
+  items: string;
+  updatedAt: string;
+};
+
 export class InMemoryPrisma {
   plantillaEjercicio = new Table<PlantillaRow>("plantillaEjercicio");
   plantillaEjercicioVersion = new Table<PlantillaVersionRow>("plantillaEjercicioVersion");
   usuario = new Table<UsuarioRow>("usuario");
+  encuesta = new Table<EncuestaRow>("encuesta");
+  encuestaRespuesta = new Table<EncuestaRespuestaRow>("encuestaRespuesta");
+  bloqueJson = new Table<BloqueJsonRow>("bloqueJson");
+  configModulo = new Table<ConfigModuloRow>("configModulo");
   vblangDataset = new Table<DatasetRow>("vblangDataset");
   vblangDatasetFila = new Table<FilaRow>("vblangDatasetFila");
   suscripcion = new Table<Row>("suscripcion");

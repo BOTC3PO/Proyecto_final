@@ -3,8 +3,19 @@ import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { assertClassroomWritable } from "../lib/classroom";
 import { SurveyBaseSchema, SurveySchema } from "../schema/encuesta";
+import { requireUser } from "../lib/user-auth";
+import { isStaffRole } from "../lib/authorization";
 
 export const encuestas = Router();
+
+const requireStaff = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  const user = (req as { user?: { role?: string } }).user;
+  if (!isStaffRole(user?.role)) {
+    res.status(403).json({ error: "Staff role required" });
+    return;
+  }
+  next();
+};
 
 type SurveyDoc = {
   _id?: string;
@@ -40,7 +51,7 @@ const requireAulaId = (req: express.Request, res: express.Response) => {
   return aulaId;
 };
 
-encuestas.get("/api/encuestas", async (req, res) => {
+encuestas.get("/api/encuestas", requireUser, async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
   const limit = clampLimit(req.query.limit as string | undefined);
@@ -54,7 +65,7 @@ encuestas.get("/api/encuestas", async (req, res) => {
   res.json({ items, limit, offset });
 });
 
-encuestas.get("/api/encuestas/:id", async (req, res) => {
+encuestas.get("/api/encuestas/:id", requireUser, async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
   const item = await prisma.encuesta.findFirst({ where: { id: req.params.id, classroomId: aulaId } });
@@ -62,11 +73,13 @@ encuestas.get("/api/encuestas/:id", async (req, res) => {
   res.json(item);
 });
 
-encuestas.post("/api/encuestas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+encuestas.post("/api/encuestas", requireUser, requireStaff, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const now = new Date().toISOString();
+    const userId = (req as { user?: { _id?: string } }).user?._id ?? "";
     const payload = {
       ...req.body,
+      createdBy: userId,
       status: req.body?.status ?? "activa",
       createdAt: req.body?.createdAt ?? now,
       updatedAt: req.body?.updatedAt ?? now
@@ -89,7 +102,7 @@ encuestas.post("/api/encuestas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, re
   }
 });
 
-encuestas.put("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+encuestas.put("/api/encuestas/:id", requireUser, requireStaff, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = SurveyUpdateSchema.parse(req.body);
     const survey = await prisma.encuesta.findFirst({ where: { id: req.params.id } });
@@ -115,7 +128,7 @@ encuestas.put("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req,
   }
 });
 
-encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+encuestas.patch("/api/encuestas/:id", requireUser, requireStaff, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = SurveyUpdateSchema.parse(req.body);
     const survey = await prisma.encuesta.findFirst({ where: { id: req.params.id } });
@@ -141,7 +154,7 @@ encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (re
   }
 });
 
-encuestas.delete("/api/encuestas/:id", async (req, res) => {
+encuestas.delete("/api/encuestas/:id", requireUser, requireStaff, async (req, res) => {
   const survey = await prisma.encuesta.findFirst({ where: { id: req.params.id } });
   if (!survey) return res.status(404).json({ error: "not found" });
   const classroom = await prisma.clase.findFirst({
@@ -157,14 +170,14 @@ encuestas.delete("/api/encuestas/:id", async (req, res) => {
   res.status(204).send();
 });
 
-encuestas.post("/api/encuestas/:id/votos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+encuestas.post("/api/encuestas/:id/votos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   const aulaId = req.body?.aulaId;
   if (typeof aulaId !== "string" || !aulaId.trim()) {
     return res.status(400).json({ error: "aulaId is required" });
   }
-  const usuarioId = req.header("x-usuario-id");
-  if (typeof usuarioId !== "string" || !usuarioId.trim()) {
-    return res.status(400).json({ error: "x-usuario-id header is required" });
+  const usuarioId = (req as { user?: { _id?: string } }).user?._id;
+  if (!usuarioId) {
+    return res.status(401).json({ error: "Missing authentication" });
   }
   try {
     const classroom = await prisma.clase.findFirst({
@@ -284,7 +297,7 @@ encuestas.post("/api/encuestas/:id/votos", ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
   }
 });
 
-encuestas.get("/api/encuestas/:id/resultados", async (req, res) => {
+encuestas.get("/api/encuestas/:id/resultados", requireUser, async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
   const survey = await prisma.encuesta.findFirst({ where: { id: req.params.id, classroomId: aulaId } });

@@ -1,18 +1,29 @@
 import { createHash, randomUUID } from "crypto";
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
+import { requireUser } from "../lib/user-auth";
+import { isStaffRole } from "../lib/authorization";
 
 export const blockDocuments = Router();
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 const MAX_BODY_MB = Number(process.env.MAX_PAGE_MB ?? 30);
 
+const requireStaff = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  const user = (req as { user?: { role?: string } }).user;
+  if (!isStaffRole(user?.role)) {
+    res.status(403).json({ error: "Staff role required" });
+    return;
+  }
+  next();
+};
+
 function computeHash(document: unknown): string {
   const str = typeof document === "string" ? document : JSON.stringify(document);
   return createHash("sha256").update(str).digest("hex");
 }
 
-blockDocuments.get("/api/block-documents/:id", async (req, res) => {
+blockDocuments.get("/api/block-documents/:id", requireUser, async (req, res) => {
   try {
     const row = await prisma.bloqueJson.findFirst({ where: { id: req.params.id } });
     if (!row) return res.status(404).json({ error: "not found" });
@@ -33,7 +44,7 @@ blockDocuments.get("/api/block-documents/:id", async (req, res) => {
   }
 });
 
-blockDocuments.post("/api/block-documents", ...bodyLimitMB(MAX_BODY_MB), async (req, res) => {
+blockDocuments.post("/api/block-documents", requireUser, requireStaff, ...bodyLimitMB(MAX_BODY_MB), async (req, res) => {
   try {
     const document = req.body?.document;
     if (document === undefined) {
@@ -60,7 +71,7 @@ blockDocuments.post("/api/block-documents", ...bodyLimitMB(MAX_BODY_MB), async (
   }
 });
 
-blockDocuments.patch("/api/block-documents/:id", ...bodyLimitMB(MAX_BODY_MB), async (req, res) => {
+blockDocuments.patch("/api/block-documents/:id", requireUser, requireStaff, ...bodyLimitMB(MAX_BODY_MB), async (req, res) => {
   try {
     const existing = await prisma.bloqueJson.findFirst({ where: { id: req.params.id } });
     if (!existing) return res.status(404).json({ error: "not found" });
