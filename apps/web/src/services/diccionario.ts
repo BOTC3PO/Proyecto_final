@@ -1,4 +1,5 @@
 import { apiGet } from "../lib/api";
+import wiktionaryEditions from "../data/wiktionary-editions.json";
 
 export type EntradaDiccionario = {
   word?: string;
@@ -45,36 +46,39 @@ export async function prefixPalabra(
   }
 }
 
-// ─── QA-FIX-10: selector de idioma del diccionario ────────────────────────────
+// ─── QA-FIX-10 + FIX-DICT-SELECTOR: selector de idioma del diccionario ────────
 
 /**
- * Tabla estática de códigos de idioma → nombre legible. NO es una
- * lista exhaustiva — es solo PRESENTACIÓN. Los códigos que el
- * selector OFRECE vienen del endpoint (los idiomas REALES del
- * archivo), nunca de esta tabla. Si un código no está acá, el
- * componente cae al fallback (muestra el código tal cual, ej. "oc").
+ * FIX-DICT-SELECTOR: catálogo de las 198 ediciones de Wiktionary, usado
+ * SOLO para PRESENTACIÓN (código → nombre legible). El selector NO
+ * ofrece los 198 — ofrece solo los idiomas REALES del diccionario
+ * (`/api/dictionary/languages`, SELECT DISTINCT del archivo).
  *
- * Lista curada: cubre los idiomas presentes en el modelo real
- * (`es, en, pt, fr, it, la`, ver install/build_dictionary_final.py)
- * más algunos comunes para evitar caer al fallback en el uso normal.
+ * El JSON tiene dos campos por edición:
+ *  - `english`: nombre nativo/local del idioma (ej. `fr` → "français")
+ *  - `local`: nombre en inglés del idioma (ej. `fr` → "French")
+ *
+ * Usamos `english` (nombre nativo) porque es lo que el usuario ve en
+ * la UI de su propio idioma — ej. un hispanohablante prefiere "français"
+ * sobre "French" para el francés.
  */
-export const LANG_NAMES: Record<string, string> = {
-  es: "Español",
-  en: "English",
-  pt: "Português",
-  fr: "Français",
-  it: "Italiano",
-  de: "Deutsch",
-  la: "Latín",
-  ca: "Català",
-  gl: "Galego",
-  eu: "Euskara",
-  nl: "Nederlands",
-  ru: "Русский",
-  zh: "中文",
-  ja: "日本語",
-  ar: "العربية",
+type WiktionaryEdition = {
+  english: string;
+  local: string;
+  url: string;
 };
+
+const EDITIONS = wiktionaryEditions as Record<string, WiktionaryEdition>;
+
+/**
+ * Tabla de códigos de idioma → nombre legible nativo. Construida desde
+ * las 198 ediciones de Wiktionary al cargar el módulo. Si un código
+ * no está en el JSON, `displayLangName` cae al fallback (muestra el
+ * código tal cual, ej. "oc").
+ */
+export const LANG_NAMES: Record<string, string> = Object.fromEntries(
+  Object.entries(EDITIONS).map(([code, edition]) => [code, edition.english])
+);
 
 /**
  * Devuelve el nombre legible de un código de idioma, o el código

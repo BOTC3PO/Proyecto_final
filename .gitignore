@@ -46,6 +46,9 @@ log/
 dump/
 *.lock
 mongod.pid
+# FIX-DICT-SELECTOR: el front usa apps/web/src/data/ para assets
+# (ej. wiktionary-editions.json). No ignorar.
+!apps/web/src/data/
 
 # === Coverage / Testing ===
 coverage/

@@ -33,26 +33,32 @@ describe("LangSelector — QA-FIX-10", () => {
     // El select tiene 3 opciones, en el orden que devolvió el endpoint.
     const options = Array.from(select.options).map((o) => o.value);
     expect(options).toEqual(["fr", "la", "pt"]);
-    // El option de "fr" muestra el nombre legible (Français), no el código crudo.
+    // FIX-DICT-SELECTOR: el nombre viene del JSON de 198 ediciones de
+    // Wiktionary (apps/web/src/data/wiktionary-editions.json). Para `fr`,
+    // el campo `english` del JSON es "français" (nombre nativo, no "Français"
+    // con capital como en el hardcode anterior). Usamos match case-insensitive
+    // para ser tolerantes a cómo el JSON lo escriba.
     const frOption = Array.from(select.options).find((o) => o.value === "fr");
-    expect(frOption?.textContent).toMatch(/Français/);
-    // El option de "la" muestra "Latín".
+    expect(frOption?.textContent?.toLowerCase()).toMatch(/français/);
+    // Para `la`, el JSON dice "Latina" (forma latinizada del nombre).
     const laOption = Array.from(select.options).find((o) => o.value === "la");
-    expect(laOption?.textContent).toMatch(/Latín/);
+    expect(laOption?.textContent?.toLowerCase()).toMatch(/latina/);
   });
 
-  it("si el código no está en LANG_NAMES, muestra el código tal cual (fallback, nunca rompe)", async () => {
-    // "oc" (occitano) NO está en LANG_NAMES — el option debe mostrar "oc (oc)".
-    const fetchLanguages = vi.fn(async () => ["oc"]);
+  it("si el código no está en LANG_NAMES (ni en el JSON de 198 ediciones), muestra el código tal cual (fallback, nunca rompe)", async () => {
+    // FIX-DICT-SELECTOR: con el JSON de 198 ediciones, "oc" SÍ está
+    // (occitano). Usamos un código ficticio "xx" que NO está en ninguna
+    // tabla — el option debe mostrar "xx (xx)" (fallback).
+    const fetchLanguages = vi.fn(async () => ["xx"]);
     render(
-      <LangSelector value="oc" onChange={() => {}} fetchLanguagesFn={fetchLanguages} />
+      <LangSelector value="xx" onChange={() => {}} fetchLanguagesFn={fetchLanguages} />
     );
     await waitFor(() => {
       expect(screen.getByTestId("lang-selector")).toBeInTheDocument();
     });
     const select = screen.getByTestId("lang-selector") as HTMLSelectElement;
-    const ocOption = Array.from(select.options).find((o) => o.value === "oc");
-    expect(ocOption?.textContent).toMatch(/oc/);
+    const xxOption = Array.from(select.options).find((o) => o.value === "xx");
+    expect(xxOption?.textContent).toMatch(/xx/);
   });
 
   it("cambiar el <select> notifica onChange con el nuevo código", async () => {
@@ -114,5 +120,54 @@ describe("LangSelector — QA-FIX-10", () => {
     await waitFor(() => {
       expect(screen.getByRole("status")).toHaveTextContent(/Diccionario no disponible/i);
     });
+  });
+});
+
+// ─── FIX-DICT-SELECTOR: catálogo de 198 ediciones ─────────────────────────────
+
+describe("FIX-DICT-SELECTOR: catálogo de 198 ediciones de Wiktionary", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it("displayLangName devuelve el nombre nativo para idiomas del JSON", async () => {
+    const { displayLangName } = await import("../../../services/diccionario");
+    // `fr` → "français" (nombre nativo, del JSON campo `english`).
+    // Comparamos lowercase para ser tolerantes a cómo el JSON lo escribe.
+    expect(displayLangName("fr").toLowerCase()).toBe("français");
+    expect(displayLangName("la").toLowerCase()).toBe("latina");
+    expect(displayLangName("es").toLowerCase()).toBe("español");
+    expect(displayLangName("pt").toLowerCase()).toBe("português");
+  });
+
+  it("displayLangName cae al código para idiomas no en el JSON (fallback)", async () => {
+    const { displayLangName } = await import("../../../services/diccionario");
+    // "xx" no está en las 198 ediciones → fallback al código tal cual.
+    expect(displayLangName("xx")).toBe("xx");
+    expect(displayLangName("zz")).toBe("zz");
+  });
+
+  it("LANG_NAMES tiene 198 entradas (las ediciones de Wiktionary)", async () => {
+    const { LANG_NAMES } = await import("../../../services/diccionario");
+    expect(Object.keys(LANG_NAMES).length).toBe(198);
+  });
+
+  it("el selector ofrece SOLO los idiomas del endpoint, NO los 198 del catálogo", async () => {
+    // Candado crítico del diseño de 3 capas:
+    //  - El endpoint dice QUÉ hay (3 idiomas en este caso).
+    //  - El JSON dice CÓMO se muestra (198 nombres legibles).
+    //  - El selector ofrece los 3 del endpoint, no los 198.
+    const fetchLanguages = vi.fn(async () => ["fr", "la", "pt"]);
+    render(
+      <LangSelector value="fr" onChange={() => {}} fetchLanguagesFn={fetchLanguages} />
+    );
+    await waitFor(() => {
+      expect(screen.getByTestId("lang-selector")).toBeInTheDocument();
+    });
+    const select = screen.getByTestId("lang-selector") as HTMLSelectElement;
+    const optionValues = Array.from(select.options).map((o) => o.value);
+    expect(optionValues).toEqual(["fr", "la", "pt"]);
+    // NO debe haber 198 opciones — sólo 3.
+    expect(optionValues.length).toBe(3);
   });
 });

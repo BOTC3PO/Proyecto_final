@@ -1,0 +1,992 @@
+{
+  "aa": {
+    "english": "Qafár af",
+    "local": "Afar",
+    "url": "https://aa.wiktionary.org"
+  },
+  "ab": {
+    "english": "аԥсшәа",
+    "local": "Abkhazian",
+    "url": "https://ab.wiktionary.org"
+  },
+  "af": {
+    "english": "Afrikaans",
+    "local": "Afrikaans",
+    "url": "https://af.wiktionary.org"
+  },
+  "ak": {
+    "english": "Akan",
+    "local": "Akan",
+    "url": "https://ak.wiktionary.org"
+  },
+  "am": {
+    "english": "አማርኛ",
+    "local": "Amharic",
+    "url": "https://am.wiktionary.org"
+  },
+  "an": {
+    "english": "aragonés",
+    "local": "Aragonese",
+    "url": "https://an.wiktionary.org"
+  },
+  "ang": {
+    "english": "Ænglisc",
+    "local": "Old English",
+    "url": "https://ang.wiktionary.org"
+  },
+  "ar": {
+    "english": "العربية",
+    "local": "Arabic",
+    "url": "https://ar.wiktionary.org"
+  },
+  "as": {
+    "english": "অসমীয়া",
+    "local": "Assamese",
+    "url": "https://as.wiktionary.org"
+  },
+  "ast": {
+    "english": "asturianu",
+    "local": "Asturian",
+    "url": "https://ast.wiktionary.org"
+  },
+  "av": {
+    "english": "авар",
+    "local": "Avaric",
+    "url": "https://av.wiktionary.org"
+  },
+  "ay": {
+    "english": "Aymar aru",
+    "local": "Aymara",
+    "url": "https://ay.wiktionary.org"
+  },
+  "az": {
+    "english": "azərbaycanca",
+    "local": "Azerbaijani",
+    "url": "https://az.wiktionary.org"
+  },
+  "bcl": {
+    "english": "Bikol Central",
+    "local": "Central Bikol",
+    "url": "https://bcl.wiktionary.org"
+  },
+  "be": {
+    "english": "беларуская",
+    "local": "Belarusian",
+    "url": "https://be.wiktionary.org"
+  },
+  "bew": {
+    "english": "Betawi",
+    "local": "Betawi",
+    "url": "https://bew.wiktionary.org"
+  },
+  "bg": {
+    "english": "български",
+    "local": "Bulgarian",
+    "url": "https://bg.wiktionary.org"
+  },
+  "bh": {
+    "english": "भोजपुरी",
+    "local": "Bhojpuri",
+    "url": "https://bh.wiktionary.org"
+  },
+  "bi": {
+    "english": "Bislama",
+    "local": "Bislama",
+    "url": "https://bi.wiktionary.org"
+  },
+  "bjn": {
+    "english": "Banjar",
+    "local": "Banjar",
+    "url": "https://bjn.wiktionary.org"
+  },
+  "blk": {
+    "english": "ပအိုဝ်ႏဘာႏသာႏ",
+    "local": "Pa'O",
+    "url": "https://blk.wiktionary.org"
+  },
+  "bm": {
+    "english": "bamanankan",
+    "local": "Bambara",
+    "url": "https://bm.wiktionary.org"
+  },
+  "bn": {
+    "english": "বাংলা",
+    "local": "Bangla",
+    "url": "https://bn.wiktionary.org"
+  },
+  "bo": {
+    "english": "བོད་ཡིག",
+    "local": "Tibetan",
+    "url": "https://bo.wiktionary.org"
+  },
+  "br": {
+    "english": "brezhoneg",
+    "local": "Breton",
+    "url": "https://br.wiktionary.org"
+  },
+  "bs": {
+    "english": "bosanski",
+    "local": "Bosnian",
+    "url": "https://bs.wiktionary.org"
+  },
+  "btm": {
+    "english": "Batak Mandailing",
+    "local": "Batak Mandailing",
+    "url": "https://btm.wiktionary.org"
+  },
+  "ca": {
+    "english": "català",
+    "local": "Catalan",
+    "url": "https://ca.wiktionary.org"
+  },
+  "ch": {
+    "english": "Chamoru",
+    "local": "Chamorro",
+    "url": "https://ch.wiktionary.org"
+  },
+  "chr": {
+    "english": "ᏣᎳᎩ",
+    "local": "Cherokee",
+    "url": "https://chr.wiktionary.org"
+  },
+  "ckb": {
+    "english": "کوردی",
+    "local": "Central Kurdish",
+    "url": "https://ckb.wiktionary.org"
+  },
+  "co": {
+    "english": "corsu",
+    "local": "Corsican",
+    "url": "https://co.wiktionary.org"
+  },
+  "cr": {
+    "english": "Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ",
+    "local": "Cree",
+    "url": "https://cr.wiktionary.org"
+  },
+  "cs": {
+    "english": "čeština",
+    "local": "Czech",
+    "url": "https://cs.wiktionary.org"
+  },
+  "csb": {
+    "english": "kaszëbsczi",
+    "local": "Kashubian",
+    "url": "https://csb.wiktionary.org"
+  },
+  "cy": {
+    "english": "Cymraeg",
+    "local": "Welsh",
+    "url": "https://cy.wiktionary.org"
+  },
+  "da": {
+    "english": "dansk",
+    "local": "Danish",
+    "url": "https://da.wiktionary.org"
+  },
+  "de": {
+    "english": "Deutsch",
+    "local": "German",
+    "url": "https://de.wiktionary.org"
+  },
+  "diq": {
+    "english": "Zazaki",
+    "local": "Dimli",
+    "url": "https://diq.wiktionary.org"
+  },
+  "dv": {
+    "english": "ދިވެހިބަސް",
+    "local": "Divehi",
+    "url": "https://dv.wiktionary.org"
+  },
+  "dz": {
+    "english": "ཇོང་ཁ",
+    "local": "Dzongkha",
+    "url": "https://dz.wiktionary.org"
+  },
+  "el": {
+    "english": "Ελληνικά",
+    "local": "Greek",
+    "url": "https://el.wiktionary.org"
+  },
+  "en": {
+    "english": "English",
+    "local": "English",
+    "url": "https://en.wiktionary.org"
+  },
+  "eo": {
+    "english": "Esperanto",
+    "local": "Esperanto",
+    "url": "https://eo.wiktionary.org"
+  },
+  "es": {
+    "english": "español",
+    "local": "Spanish",
+    "url": "https://es.wiktionary.org"
+  },
+  "et": {
+    "english": "eesti",
+    "local": "Estonian",
+    "url": "https://et.wiktionary.org"
+  },
+  "eu": {
+    "english": "euskara",
+    "local": "Basque",
+    "url": "https://eu.wiktionary.org"
+  },
+  "fa": {
+    "english": "فارسی",
+    "local": "Persian",
+    "url": "https://fa.wiktionary.org"
+  },
+  "fi": {
+    "english": "suomi",
+    "local": "Finnish",
+    "url": "https://fi.wiktionary.org"
+  },
+  "fj": {
+    "english": "Na Vosa Vakaviti",
+    "local": "Fijian",
+    "url": "https://fj.wiktionary.org"
+  },
+  "fo": {
+    "english": "føroyskt",
+    "local": "Faroese",
+    "url": "https://fo.wiktionary.org"
+  },
+  "fr": {
+    "english": "français",
+    "local": "French",
+    "url": "https://fr.wiktionary.org"
+  },
+  "fy": {
+    "english": "Frysk",
+    "local": "Western Frisian",
+    "url": "https://fy.wiktionary.org"
+  },
+  "ga": {
+    "english": "Gaeilge",
+    "local": "Irish",
+    "url": "https://ga.wiktionary.org"
+  },
+  "gd": {
+    "english": "Gàidhlig",
+    "local": "Scottish Gaelic",
+    "url": "https://gd.wiktionary.org"
+  },
+  "gl": {
+    "english": "galego",
+    "local": "Galician",
+    "url": "https://gl.wiktionary.org"
+  },
+  "gn": {
+    "english": "Avañe'ẽ",
+    "local": "Guarani",
+    "url": "https://gn.wiktionary.org"
+  },
+  "gom": {
+    "english": "गोंयची कोंकणी / Gõychi Konknni",
+    "local": "Goan Konkani",
+    "url": "https://gom.wiktionary.org"
+  },
+  "gor": {
+    "english": "Bahasa Hulontalo",
+    "local": "Gorontalo",
+    "url": "https://gor.wiktionary.org"
+  },
+  "gu": {
+    "english": "ગુજરાતી",
+    "local": "Gujarati",
+    "url": "https://gu.wiktionary.org"
+  },
+  "guw": {
+    "english": "gungbe",
+    "local": "Gun",
+    "url": "https://guw.wiktionary.org"
+  },
+  "gv": {
+    "english": "Gaelg",
+    "local": "Manx",
+    "url": "https://gv.wiktionary.org"
+  },
+  "ha": {
+    "english": "Hausa",
+    "local": "Hausa",
+    "url": "https://ha.wiktionary.org"
+  },
+  "he": {
+    "english": "עברית",
+    "local": "Hebrew",
+    "url": "https://he.wiktionary.org"
+  },
+  "hi": {
+    "english": "हिन्दी",
+    "local": "Hindi",
+    "url": "https://hi.wiktionary.org"
+  },
+  "hif": {
+    "english": "Fiji Hindi",
+    "local": "Fiji Hindi",
+    "url": "https://hif.wiktionary.org"
+  },
+  "hr": {
+    "english": "hrvatski",
+    "local": "Croatian",
+    "url": "https://hr.wiktionary.org"
+  },
+  "hsb": {
+    "english": "hornjoserbsce",
+    "local": "Upper Sorbian",
+    "url": "https://hsb.wiktionary.org"
+  },
+  "hu": {
+    "english": "magyar",
+    "local": "Hungarian",
+    "url": "https://hu.wiktionary.org"
+  },
+  "hy": {
+    "english": "հայերեն",
+    "local": "Armenian",
+    "url": "https://hy.wiktionary.org"
+  },
+  "ia": {
+    "english": "interlingua",
+    "local": "Interlingua",
+    "url": "https://ia.wiktionary.org"
+  },
+  "id": {
+    "english": "Bahasa Indonesia",
+    "local": "Indonesian",
+    "url": "https://id.wiktionary.org"
+  },
+  "ie": {
+    "english": "Interlingue",
+    "local": "Interlingue",
+    "url": "https://ie.wiktionary.org"
+  },
+  "ig": {
+    "english": "Igbo",
+    "local": "Igbo",
+    "url": "https://ig.wiktionary.org"
+  },
+  "ik": {
+    "english": "Iñupiatun",
+    "local": "Inupiaq",
+    "url": "https://ik.wiktionary.org"
+  },
+  "io": {
+    "english": "Ido",
+    "local": "Ido",
+    "url": "https://io.wiktionary.org"
+  },
+  "is": {
+    "english": "íslenska",
+    "local": "Icelandic",
+    "url": "https://is.wiktionary.org"
+  },
+  "it": {
+    "english": "italiano",
+    "local": "Italian",
+    "url": "https://it.wiktionary.org"
+  },
+  "iu": {
+    "english": "ᐃᓄᒃᑎᑐᑦ / inuktitut",
+    "local": "Inuktitut",
+    "url": "https://iu.wiktionary.org"
+  },
+  "ja": {
+    "english": "日本語",
+    "local": "Japanese",
+    "url": "https://ja.wiktionary.org"
+  },
+  "jbo": {
+    "english": "la .lojban.",
+    "local": "Lojban",
+    "url": "https://jbo.wiktionary.org"
+  },
+  "jv": {
+    "english": "Jawa",
+    "local": "Javanese",
+    "url": "https://jv.wiktionary.org"
+  },
+  "ka": {
+    "english": "ქართული",
+    "local": "Georgian",
+    "url": "https://ka.wiktionary.org"
+  },
+  "kaa": {
+    "english": "Qaraqalpaqsha",
+    "local": "Kara-Kalpak",
+    "url": "https://kaa.wiktionary.org"
+  },
+  "kbd": {
+    "english": "адыгэбзэ",
+    "local": "Kabardian",
+    "url": "https://kbd.wiktionary.org"
+  },
+  "kcg": {
+    "english": "Tyap",
+    "local": "Tyap",
+    "url": "https://kcg.wiktionary.org"
+  },
+  "kk": {
+    "english": "қазақша",
+    "local": "Kazakh",
+    "url": "https://kk.wiktionary.org"
+  },
+  "kl": {
+    "english": "kalaallisut",
+    "local": "Kalaallisut",
+    "url": "https://kl.wiktionary.org"
+  },
+  "km": {
+    "english": "ភាសាខ្មែរ",
+    "local": "Khmer",
+    "url": "https://km.wiktionary.org"
+  },
+  "kn": {
+    "english": "ಕನ್ನಡ",
+    "local": "Kannada",
+    "url": "https://kn.wiktionary.org"
+  },
+  "ko": {
+    "english": "한국어",
+    "local": "Korean",
+    "url": "https://ko.wiktionary.org"
+  },
+  "ks": {
+    "english": "کٲشُر",
+    "local": "Kashmiri",
+    "url": "https://ks.wiktionary.org"
+  },
+  "ku": {
+    "english": "kurdî",
+    "local": "Kurdish",
+    "url": "https://ku.wiktionary.org"
+  },
+  "kw": {
+    "english": "kernowek",
+    "local": "Cornish",
+    "url": "https://kw.wiktionary.org"
+  },
+  "ky": {
+    "english": "кыргызча",
+    "local": "Kyrgyz",
+    "url": "https://ky.wiktionary.org"
+  },
+  "la": {
+    "english": "Latina",
+    "local": "Latin",
+    "url": "https://la.wiktionary.org"
+  },
+  "lb": {
+    "english": "Lëtzebuergesch",
+    "local": "Luxembourgish",
+    "url": "https://lb.wiktionary.org"
+  },
+  "li": {
+    "english": "Limburgs",
+    "local": "Limburgish",
+    "url": "https://li.wiktionary.org"
+  },
+  "lmo": {
+    "english": "lombard",
+    "local": "Lombard",
+    "url": "https://lmo.wiktionary.org"
+  },
+  "ln": {
+    "english": "lingála",
+    "local": "Lingala",
+    "url": "https://ln.wiktionary.org"
+  },
+  "lo": {
+    "english": "ລາວ",
+    "local": "Lao",
+    "url": "https://lo.wiktionary.org"
+  },
+  "lt": {
+    "english": "lietuvių",
+    "local": "Lithuanian",
+    "url": "https://lt.wiktionary.org"
+  },
+  "lv": {
+    "english": "latviešu",
+    "local": "Latvian",
+    "url": "https://lv.wiktionary.org"
+  },
+  "mad": {
+    "english": "Madhurâ",
+    "local": "Madurese",
+    "url": "https://mad.wiktionary.org"
+  },
+  "mg": {
+    "english": "Malagasy",
+    "local": "Malagasy",
+    "url": "https://mg.wiktionary.org"
+  },
+  "mh": {
+    "english": "Ebon",
+    "local": "Marshallese",
+    "url": "https://mh.wiktionary.org"
+  },
+  "mi": {
+    "english": "Māori",
+    "local": "Māori",
+    "url": "https://mi.wiktionary.org"
+  },
+  "min": {
+    "english": "Minangkabau",
+    "local": "Minangkabau",
+    "url": "https://min.wiktionary.org"
+  },
+  "mk": {
+    "english": "македонски",
+    "local": "Macedonian",
+    "url": "https://mk.wiktionary.org"
+  },
+  "ml": {
+    "english": "മലയാളം",
+    "local": "Malayalam",
+    "url": "https://ml.wiktionary.org"
+  },
+  "mn": {
+    "english": "монгол",
+    "local": "Mongolian",
+    "url": "https://mn.wiktionary.org"
+  },
+  "mni": {
+    "english": "ꯃꯤꯇꯩ ꯂꯣꯟ",
+    "local": "Manipuri",
+    "url": "https://mni.wiktionary.org"
+  },
+  "mnw": {
+    "english": "ဘာသာမန်",
+    "local": "Mon",
+    "url": "https://mnw.wiktionary.org"
+  },
+  "mr": {
+    "english": "मराठी",
+    "local": "Marathi",
+    "url": "https://mr.wiktionary.org"
+  },
+  "ms": {
+    "english": "Bahasa Melayu",
+    "local": "Malay",
+    "url": "https://ms.wiktionary.org"
+  },
+  "mt": {
+    "english": "Malti",
+    "local": "Maltese",
+    "url": "https://mt.wiktionary.org"
+  },
+  "my": {
+    "english": "မြန်မာဘာသာ",
+    "local": "Burmese",
+    "url": "https://my.wiktionary.org"
+  },
+  "na": {
+    "english": "Dorerin Naoero",
+    "local": "Nauru",
+    "url": "https://na.wiktionary.org"
+  },
+  "nah": {
+    "english": "Nāhuatl",
+    "local": "Nahuatl",
+    "url": "https://nah.wiktionary.org"
+  },
+  "nan": {
+    "english": "閩南語 / Bân-lâm-gí",
+    "local": "Minnan",
+    "url": "https://nan.wiktionary.org"
+  },
+  "nds": {
+    "english": "Plattdüütsch",
+    "local": "Low German",
+    "url": "https://nds.wiktionary.org"
+  },
+  "ne": {
+    "english": "नेपाली",
+    "local": "Nepali",
+    "url": "https://ne.wiktionary.org"
+  },
+  "nia": {
+    "english": "Li Niha",
+    "local": "Nias",
+    "url": "https://nia.wiktionary.org"
+  },
+  "nl": {
+    "english": "Nederlands",
+    "local": "Dutch",
+    "url": "https://nl.wiktionary.org"
+  },
+  "nn": {
+    "english": "norsk nynorsk",
+    "local": "Norwegian Nynorsk",
+    "url": "https://nn.wiktionary.org"
+  },
+  "no": {
+    "english": "norsk",
+    "local": "Norwegian",
+    "url": "https://no.wiktionary.org"
+  },
+  "oc": {
+    "english": "occitan",
+    "local": "Occitan",
+    "url": "https://oc.wiktionary.org"
+  },
+  "om": {
+    "english": "Oromoo",
+    "local": "Oromo",
+    "url": "https://om.wiktionary.org"
+  },
+  "or": {
+    "english": "ଓଡ଼ିଆ",
+    "local": "Odia",
+    "url": "https://or.wiktionary.org"
+  },
+  "pa": {
+    "english": "ਪੰਜਾਬੀ",
+    "local": "Punjabi",
+    "url": "https://pa.wiktionary.org"
+  },
+  "pi": {
+    "english": "पालि",
+    "local": "Pali",
+    "url": "https://pi.wiktionary.org"
+  },
+  "pl": {
+    "english": "polski",
+    "local": "Polish",
+    "url": "https://pl.wiktionary.org"
+  },
+  "pnb": {
+    "english": "پنجابی",
+    "local": "Western Punjabi",
+    "url": "https://pnb.wiktionary.org"
+  },
+  "ps": {
+    "english": "پښتو",
+    "local": "Pashto",
+    "url": "https://ps.wiktionary.org"
+  },
+  "pt": {
+    "english": "português",
+    "local": "Portuguese",
+    "url": "https://pt.wiktionary.org"
+  },
+  "qu": {
+    "english": "Runa Simi",
+    "local": "Quechua",
+    "url": "https://qu.wiktionary.org"
+  },
+  "rm": {
+    "english": "rumantsch",
+    "local": "Romansh",
+    "url": "https://rm.wiktionary.org"
+  },
+  "rn": {
+    "english": "ikirundi",
+    "local": "Rundi",
+    "url": "https://rn.wiktionary.org"
+  },
+  "ro": {
+    "english": "română",
+    "local": "Romanian",
+    "url": "https://ro.wiktionary.org"
+  },
+  "ru": {
+    "english": "русский",
+    "local": "Russian",
+    "url": "https://ru.wiktionary.org"
+  },
+  "rup": {
+    "english": "armãneashti",
+    "local": "Aromanian",
+    "url": "https://rup.wiktionary.org"
+  },
+  "rw": {
+    "english": "Ikinyarwanda",
+    "local": "Kinyarwanda",
+    "url": "https://rw.wiktionary.org"
+  },
+  "sa": {
+    "english": "संस्कृतम्",
+    "local": "Sanskrit",
+    "url": "https://sa.wiktionary.org"
+  },
+  "sat": {
+    "english": "ᱥᱟᱱᱛᱟᱲᱤ",
+    "local": "Santali",
+    "url": "https://sat.wiktionary.org"
+  },
+  "sc": {
+    "english": "sardu",
+    "local": "Sardinian",
+    "url": "https://sc.wiktionary.org"
+  },
+  "scn": {
+    "english": "sicilianu",
+    "local": "Sicilian",
+    "url": "https://scn.wiktionary.org"
+  },
+  "sd": {
+    "english": "سنڌي",
+    "local": "Sindhi",
+    "url": "https://sd.wiktionary.org"
+  },
+  "sg": {
+    "english": "Sängö",
+    "local": "Sango",
+    "url": "https://sg.wiktionary.org"
+  },
+  "sh": {
+    "english": "srpskohrvatski / српскохрватски",
+    "local": "Serbo-Croatian",
+    "url": "https://sh.wiktionary.org"
+  },
+  "shn": {
+    "english": "တႆး",
+    "local": "Shan",
+    "url": "https://shn.wiktionary.org"
+  },
+  "shy": {
+    "english": "tacawit",
+    "local": "Shawiya",
+    "url": "https://shy.wiktionary.org"
+  },
+  "si": {
+    "english": "සිංහල",
+    "local": "Sinhala",
+    "url": "https://si.wiktionary.org"
+  },
+  "simple": {
+    "english": "Simple English",
+    "local": "Simple English",
+    "url": "https://simple.wiktionary.org"
+  },
+  "sk": {
+    "english": "slovenčina",
+    "local": "Slovak",
+    "url": "https://sk.wiktionary.org"
+  },
+  "skr": {
+    "english": "سرائیکی",
+    "local": "Saraiki",
+    "url": "https://skr.wiktionary.org"
+  },
+  "sl": {
+    "english": "slovenščina",
+    "local": "Slovenian",
+    "url": "https://sl.wiktionary.org"
+  },
+  "sm": {
+    "english": "Gagana Samoa",
+    "local": "Samoan",
+    "url": "https://sm.wiktionary.org"
+  },
+  "sn": {
+    "english": "chiShona",
+    "local": "Shona",
+    "url": "https://sn.wiktionary.org"
+  },
+  "so": {
+    "english": "Soomaaliga",
+    "local": "Somali",
+    "url": "https://so.wiktionary.org"
+  },
+  "sq": {
+    "english": "shqip",
+    "local": "Albanian",
+    "url": "https://sq.wiktionary.org"
+  },
+  "sr": {
+    "english": "српски / srpski",
+    "local": "Serbian",
+    "url": "https://sr.wiktionary.org"
+  },
+  "ss": {
+    "english": "SiSwati",
+    "local": "Swati",
+    "url": "https://ss.wiktionary.org"
+  },
+  "st": {
+    "english": "Sesotho",
+    "local": "Southern Sotho",
+    "url": "https://st.wiktionary.org"
+  },
+  "su": {
+    "english": "Sunda",
+    "local": "Sundanese",
+    "url": "https://su.wiktionary.org"
+  },
+  "sv": {
+    "english": "svenska",
+    "local": "Swedish",
+    "url": "https://sv.wiktionary.org"
+  },
+  "sw": {
+    "english": "Kiswahili",
+    "local": "Swahili",
+    "url": "https://sw.wiktionary.org"
+  },
+  "ta": {
+    "english": "தமிழ்",
+    "local": "Tamil",
+    "url": "https://ta.wiktionary.org"
+  },
+  "tcy": {
+    "english": "ತುಳು",
+    "local": "Tulu",
+    "url": "https://tcy.wiktionary.org"
+  },
+  "te": {
+    "english": "తెలుగు",
+    "local": "Telugu",
+    "url": "https://te.wiktionary.org"
+  },
+  "tg": {
+    "english": "тоҷикӣ",
+    "local": "Tajik",
+    "url": "https://tg.wiktionary.org"
+  },
+  "th": {
+    "english": "ไทย",
+    "local": "Thai",
+    "url": "https://th.wiktionary.org"
+  },
+  "ti": {
+    "english": "ትግርኛ",
+    "local": "Tigrinya",
+    "url": "https://ti.wiktionary.org"
+  },
+  "tk": {
+    "english": "Türkmençe",
+    "local": "Turkmen",
+    "url": "https://tk.wiktionary.org"
+  },
+  "tl": {
+    "english": "Tagalog",
+    "local": "Tagalog",
+    "url": "https://tl.wiktionary.org"
+  },
+  "tn": {
+    "english": "Setswana",
+    "local": "Tswana",
+    "url": "https://tn.wiktionary.org"
+  },
+  "to": {
+    "english": "lea faka-Tonga",
+    "local": "Tongan",
+    "url": "https://to.wiktionary.org"
+  },
+  "tpi": {
+    "english": "Tok Pisin",
+    "local": "Tok Pisin",
+    "url": "https://tpi.wiktionary.org"
+  },
+  "tr": {
+    "english": "Türkçe",
+    "local": "Turkish",
+    "url": "https://tr.wiktionary.org"
+  },
+  "ts": {
+    "english": "Xitsonga",
+    "local": "Tsonga",
+    "url": "https://ts.wiktionary.org"
+  },
+  "tt": {
+    "english": "татарча / tatarça",
+    "local": "Tatar",
+    "url": "https://tt.wiktionary.org"
+  },
+  "tw": {
+    "english": "Twi",
+    "local": "Twi",
+    "url": "https://tw.wiktionary.org"
+  },
+  "ug": {
+    "english": "ئۇيغۇرچە / Uyghurche",
+    "local": "Uyghur",
+    "url": "https://ug.wiktionary.org"
+  },
+  "uk": {
+    "english": "українська",
+    "local": "Ukrainian",
+    "url": "https://uk.wiktionary.org"
+  },
+  "ur": {
+    "english": "اردو",
+    "local": "Urdu",
+    "url": "https://ur.wiktionary.org"
+  },
+  "uz": {
+    "english": "oʻzbekcha / ўзбекча",
+    "local": "Uzbek",
+    "url": "https://uz.wiktionary.org"
+  },
+  "vec": {
+    "english": "vèneto",
+    "local": "Venetian",
+    "url": "https://vec.wiktionary.org"
+  },
+  "vi": {
+    "english": "Tiếng Việt",
+    "local": "Vietnamese",
+    "url": "https://vi.wiktionary.org"
+  },
+  "vo": {
+    "english": "Volapük",
+    "local": "Volapük",
+    "url": "https://vo.wiktionary.org"
+  },
+  "wa": {
+    "english": "walon",
+    "local": "Walloon",
+    "url": "https://wa.wiktionary.org"
+  },
+  "wo": {
+    "english": "Wolof",
+    "local": "Wolof",
+    "url": "https://wo.wiktionary.org"
+  },
+  "xh": {
+    "english": "isiXhosa",
+    "local": "Xhosa",
+    "url": "https://xh.wiktionary.org"
+  },
+  "yi": {
+    "english": "ייִדיש",
+    "local": "Yiddish",
+    "url": "https://yi.wiktionary.org"
+  },
+  "yo": {
+    "english": "Yorùbá",
+    "local": "Yoruba",
+    "url": "https://yo.wiktionary.org"
+  },
+  "yue": {
+    "english": "粵語",
+    "local": "Cantonese",
+    "url": "https://yue.wiktionary.org"
+  },
+  "za": {
+    "english": "Vahcuengh",
+    "local": "Zhuang",
+    "url": "https://za.wiktionary.org"
+  },
+  "zgh": {
+    "english": "ⵜⴰⵎⴰⵣⵉⵖⵜ ⵜⴰⵏⴰⵡⴰⵢⵜ",
+    "local": "Standard Moroccan Tamazight",
+    "url": "https://zgh.wiktionary.org"
+  },
+  "zh": {
+    "english": "中文",
+    "local": "Chinese",
+    "url": "https://zh.wiktionary.org"
+  },
+  "zu": {
+    "english": "isiZulu",
+    "local": "Zulu",
+    "url": "https://zu.wiktionary.org"
+  }
+}
