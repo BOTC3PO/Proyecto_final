@@ -10,6 +10,7 @@ import type {
 } from "../../domain/module/module.types";
 import TheoryItemCard from "../../components/modulos/TheoryItemCard";
 import { lookupPalabra, prefixPalabra, type EntradaDiccionario } from "../../services/diccionario";
+import LangSelector from "../../components/vblang/LangSelector";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import type { Ejercicio, GeneratorDescriptor, Dificultad } from "../../generadoresV2/core/types";
 import { getDescriptoresBasic } from "../../generadoresV2/basic/banco";
@@ -135,6 +136,11 @@ export default function ModuloDetail() {
   const [dictLoading, setDictLoading] = useState(false);
   const [dictNotFound, setDictNotFound] = useState(false);
   const [dictSuggestions, setDictSuggestions] = useState<string[]>([]);
+  // FIX-DICT-SELECTOR: idioma del diccionario, alimentado por el
+  // LangSelector dentro del panel. Default "es" (compatibilidad con
+  // el comportamiento anterior). pickDefaultLang lo aplica el
+  // selector al primer fetch.
+  const [dictLang, setDictLang] = useState("es");
 
   const leerModulo = () => {
     if (!("speechSynthesis" in window)) {
@@ -220,7 +226,7 @@ export default function ModuloDetail() {
     setDictEntry(null);
     setDictNotFound(false);
     setDictSuggestions([]);
-    const result = await lookupPalabra(word.trim());
+    const result = await lookupPalabra(word.trim(), dictLang);
     if (result?.found) {
       setDictEntry(result.entry);
     } else {
@@ -232,7 +238,7 @@ export default function ModuloDetail() {
   const handleDictInput = async (value: string) => {
     setDictQuery(value);
     if (value.trim().length >= 3) {
-      const suggestions = await prefixPalabra(value.trim());
+      const suggestions = await prefixPalabra(value.trim(), dictLang);
       setDictSuggestions(suggestions);
     } else {
       setDictSuggestions([]);
@@ -884,8 +890,16 @@ export default function ModuloDetail() {
         >
 
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100">
-            <h2 className="text-sm font-semibold text-slate-800">📖 Diccionario</h2>
+          <div className="flex items-center justify-between gap-2 px-4 py-3 border-b border-slate-100">
+            <div className="flex items-center gap-2 min-w-0">
+              <h2 className="text-sm font-semibold text-slate-800 shrink-0">📖 Diccionario</h2>
+              {/* FIX-DICT-SELECTOR: selector de idioma, poblado con los idiomas
+                  REALES del diccionario (no lista fija). Su valor controla
+                  el lang que se pasa a lookupPalabra/prefixPalabra. */}
+              <div className="min-w-0">
+                <LangSelector value={dictLang} onChange={setDictLang} />
+              </div>
+            </div>
             <button
               type="button"
               aria-label="Cerrar diccionario"
@@ -895,7 +909,7 @@ export default function ModuloDetail() {
                 setDictNotFound(false);
                 setDictSuggestions([]);
               }}
-              className="text-slate-400 hover:text-slate-600"
+              className="text-slate-400 hover:text-slate-600 shrink-0"
             >
               ✕
             </button>
