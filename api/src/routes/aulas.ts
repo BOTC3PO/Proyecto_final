@@ -3,7 +3,7 @@ import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { canManageClassroom, requirePolicy } from "../lib/authorization";
-import { requireClassroomScope } from "../lib/classroom-scope";
+import { requireClassroomScope, isClassroomTeacher } from "../lib/classroom-scope";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
@@ -132,19 +132,54 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
   }
 
   const safeOffset = Number.isNaN(offset) || offset < 0 ? 0 : offset;
+  // QA-FIX-08 — incluimos `miembros` para poder derivar
+  // `viewerIsTeacher` (criterio canónico de QA-FIX-05: admin,
+  // owner por `createdBy`/`teacherId`/`teacherOfRecord`, o
+  // miembro con `rolEnClase === "TEACHER"`). Sin este include,
+  // el front solo veía `createdBy` (phantom fields `teacherIds`
+  // y `members` del Classroom type NUNCA llegan del back) y un
+  // TEACHER-miembro quedaba fuera del dropdown de aulas
+  // (ProfesorCalendario.tsx:110-114) → form.aulaId = "" → POST
+  // → 400.
   const items = await prisma.clase.findMany({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     where: where as any,
+    include: { miembros: true },
     skip: safeOffset,
     take: limit,
     orderBy: { updatedAt: "desc" }
   });
 
+  // `isClassroomTeacher` espera `members: { userId, roleInClass }[]`.
+  // Mapeamos `miembros: { usuarioId, rolEnClase }[]` (forma Prisma)
+  // → forma `classroom-scope.ts`. El `requesterRole` se toma del
+  // JWT (poblado en user-auth.ts vía buildUserContextFromClaims).
+  const requesterRole =
+    (req as { user?: { role?: string | null } }).user?.role ?? null;
+
   res.json({
-    items: items.map((item) => ({
-      ...item,
-      id: item.id ?? "",
-    })),
+    items: items.map((item) => {
+      // `miembros` viene del `include`, no es un campo del modelo
+      // Clase. Lo separamos del spread para no exponerlo crudo en
+      // el response (front espera `members` mapeado, no el shape
+      // de Prisma).
+      const { miembros, ...rest } = item;
+      const doc = {
+        id: rest.id ?? "",
+        createdBy: rest.createdBy ?? null,
+        teacherId: rest.teacherId ?? null,
+        teacherOfRecord: rest.teacherOfRecord ?? null,
+        members: (miembros ?? []).map((m) => ({
+          userId: m.usuarioId,
+          roleInClass: m.rolEnClase
+        }))
+      };
+      return {
+        ...rest,
+        id: doc.id,
+        viewerIsTeacher: isClassroomTeacher(doc, requesterId, requesterRole)
+      };
+    }),
     limit,
     offset,
   });

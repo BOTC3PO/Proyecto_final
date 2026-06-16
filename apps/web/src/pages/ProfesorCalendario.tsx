@@ -107,12 +107,15 @@ export default function ProfesorCalendario() {
     apiGet<{ items: Classroom[] }>("/api/aulas")
       .then((data) => {
         const items = data.items ?? [];
-        const misAulas = role === "TEACHER"
-          ? items.filter((a) =>
-              a.createdBy === user.id ||
-              a.teacherIds?.includes(user.id)
-            )
-          : items;
+        // QA-FIX-08 — el filtro "docente del aula" lo calcula el
+        // back (criterio canónico de QA-FIX-05: admin, owner por
+        // createdBy/teacherId/teacherOfRecord, o miembro con
+        // rolEnClase === "TEACHER"). Antes se intentaba filtrar
+        // acá con `a.teacherIds?.includes(user.id)`, pero ese
+        // campo es phantom (el back usa teacherId/teacherOfRecord
+        // singulares y nunca poblaba teacherIds), así que un
+        // TEACHER-miembro quedaba fuera del dropdown.
+        const misAulas = items.filter((a) => a.viewerIsTeacher === true);
         setAulas(misAulas);
         if (misAulas[0]) {
           setForm((f) => ({ ...f, aulaId: misAulas[0].id }));
@@ -542,8 +545,13 @@ export default function ProfesorCalendario() {
                   </label>
 
                   <button type="submit"
-                    disabled={guardando || !form.titulo.trim() || !form.fechaInicio}
-                    className="w-full rounded-xl bg-[var(--c-primary)] py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors">
+                    disabled={
+                      guardando ||
+                      !form.titulo.trim() ||
+                      !form.fechaInicio ||
+                      (tab === "aula" && !form.aulaId)
+                    }
+                    className="w-full rounded-xl bg-[var(--c-primary)] py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
                     {guardando ? "Guardando..." : "Guardar evento"}
                   </button>
 

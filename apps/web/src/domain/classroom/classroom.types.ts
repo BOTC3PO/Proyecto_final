@@ -32,6 +32,16 @@ export type Classroom = {
   classCode?: string;
   createdBy: string;
   teacherIds?: string[];
+  /**
+   * QA-FIX-08 — flag derivado en el back (`isClassroomTeacher`,
+   * criterio canónico de QA-FIX-05). true cuando el viewer es
+   * admin, owner por `createdBy`/`teacherId`/`teacherOfRecord`,
+   * o miembro con `rolEnClase === "TEACHER"`. El front usa esto
+   * para el dropdown de aulas en ProfesorCalendario (en lugar
+   * de los phantom `teacherIds`/`members` que el back nunca
+   * poblaba).
+   */
+  viewerIsTeacher?: boolean;
   createdAt: string;
   updatedAt: string;
   members?: Array<{
