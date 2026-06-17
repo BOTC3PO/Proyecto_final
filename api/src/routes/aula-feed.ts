@@ -43,7 +43,11 @@ const resolveClassroomContext = async (
   accessLevel: "admin" | "staff" | "learner"
 ): Promise<ClassroomContext> => {
   const classroomId = typeof req.query.classroomId === "string" ? req.query.classroomId : null;
-  if (!classroomId) return { success: false, error: { status: 404, message: "classroom not found" } };
+  // FIX-AULA-PARAM — 400 en vez de 404 cuando falta `classroomId`. Un 404
+  // hace pensar que la ruta no existe y despista el diagnóstico (ver
+  // `docs/qa/diagnostico_aula_feed.md`). El 404 sí corresponde a la
+  // línea siguiente, donde el id viene pero el aula no se encuentra.
+  if (!classroomId) return { success: false, error: { status: 400, message: "classroomId requerido" } };
   const classroom = await prisma.clase.findFirst({
     where: { id: classroomId, isDeleted: { not: true } }
   });

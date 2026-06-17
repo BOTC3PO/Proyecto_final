@@ -63,6 +63,8 @@ const mockedApiPost = apiPost as unknown as ReturnType<typeof vi.fn>;
 import Aula from "../aula";
 import { useAuth } from "../../auth/use-auth";
 import { fetchClassroomDetail } from "../../services/aulas";
+import { fetchLeaderboard } from "../../services/leaderboard";
+import { fetchUpcomingActivities } from "../../services/actividades";
 import { apiGet, apiPost } from "../../lib/api";
 
 const TEACHER_USER = {
@@ -252,5 +254,69 @@ describe("FIX-NAV-01: link 'Gestionar aula' del banner del docente", () => {
     expect(link.getAttribute("href")).toBe("/profesor/aulas/aula-1");
     // Candado: el sufijo /configuracion NO debe estar presente.
     expect(link.getAttribute("href") ?? "").not.toMatch(/\/configuracion$/);
+  });
+});
+
+/**
+ * FIX-AULA-PARAM — `aula.tsx:69` leía `useParams().id` cuando la ruta
+ * es `clases/:aulaId` (router.tsx:211), así que `routeId` era siempre
+ * `undefined`. Sin query string, todos los fallbacks de la cadena
+ * (`aula.tsx:105`) eran `null` → `classroomId = null` → los servicios
+ * de leaderboard/actividades/publicaciones hacían request SIN
+ * classroomId → el back respondía 404 con `classroom not found`, lo
+ * cual despistaba el diagnóstico (parecía que la ruta no existía).
+ *
+ * El renderAula() de arriba navega a `/clases/aula-1?id=aula-1` y
+ * enmascara el bug porque la query string rescataba el id. Estos
+ * tests navegan SIN query string para forzar el camino del param.
+ */
+describe("FIX-AULA-PARAM: leaderboard/actividades se llaman CON el aulaId del param", () => {
+  function renderAulaSinQuery() {
+    return render(
+      <MemoryRouter initialEntries={["/clases/aula-1"]}>
+        <Routes>
+          <Route path="/clases/:aulaId" element={<Aula />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+  }
+
+  it("fetchLeaderboard se llama con 'aula-1' (no con undefined)", async () => {
+    setupUser(STUDENT_USER);
+    setupClassroom();
+    renderAulaSinQuery();
+    await waitFor(() => {
+      expect(
+        screen.getByTestId("aula-publication-form"),
+      ).toBeInTheDocument();
+    });
+    // Candado: el bug original hacía que se llamara con undefined.
+    await waitFor(() => {
+      expect(fetchLeaderboard).toHaveBeenCalledWith("aula-1");
+    });
+    const calls = (fetchLeaderboard as unknown as ReturnType<typeof vi.fn>).mock.calls;
+    for (const call of calls) {
+      expect(call[0]).toBe("aula-1");
+      expect(call[0]).not.toBeUndefined();
+    }
+  });
+
+  it("fetchUpcomingActivities se llama con 'aula-1' (no con undefined)", async () => {
+    setupUser(STUDENT_USER);
+    setupClassroom();
+    renderAulaSinQuery();
+    await waitFor(() => {
+      expect(
+        screen.getByTestId("aula-publication-form"),
+      ).toBeInTheDocument();
+    });
+    await waitFor(() => {
+      expect(fetchUpcomingActivities).toHaveBeenCalledWith("aula-1");
+    });
+    const calls = (fetchUpcomingActivities as unknown as ReturnType<typeof vi.fn>).mock.calls;
+    for (const call of calls) {
+      expect(call[0]).toBe("aula-1");
+      expect(call[0]).not.toBeUndefined();
+    }
   });
 });

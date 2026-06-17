@@ -66,7 +66,12 @@ export default function Aula() {
   const userInitials = user?.name
     ? user.name.split(" ").filter(Boolean).map((p) => p[0]).join("").slice(0, 2).toUpperCase()
     : "?";
-  const { id: routeId } = useParams();
+  // FIX-AULA-PARAM — la ruta registrada es `clases/:aulaId` (router.tsx:211).
+  // Antes se leía `useParams().id`, que era siempre `undefined`, así que
+  // `classroomId` quedaba `null` y los fetch de leaderboard / actividades /
+  // publicaciones hacían request sin `classroomId` → el back respondía 404.
+  // (Ver `docs/qa/diagnostico_aula_feed.md`.)
+  const { aulaId: routeId } = useParams();
   const location = useLocation();
   const [classroom, setClassroom] = useState<ClassroomDetail | null>(null);
   const [publications, setPublications] = useState<Publication[]>([]);
