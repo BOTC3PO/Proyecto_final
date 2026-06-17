@@ -313,6 +313,12 @@ model Modulo {
   // fix solo agrega la columna y la expone en el GET para que el
   // editor pueda leerla. Eventos viejos quedan con subject = null.
   subject              String?  @map("subject")
+  // FIX-GUARDADO — teoría como contenido embebido (JSON serializado).
+  // El front envía `theoryItems: [{ id, title, type, detail }]` y el
+  // back lo persiste acá. Nullable aditiva: módulos viejos quedan con
+  // theoryItems = null. No confundir con `teoriaId` (referencia a
+  // TeoriaJson) que es el modelo viejo de referencias.
+  theoryItems          String?  @map("theory_items")
   visibility           String   @default("private")
   schoolId             String?  @map("school_id")
   ownerUserId          String?  @map("owner_user_id")

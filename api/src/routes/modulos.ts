@@ -230,6 +230,14 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
       // vienen con `subject: null`. El editor trata `null` como
       // string vacío (ver `useModuloPersistence.ts:101`).
       subject: item.subject ?? null,
+      // FIX-GUARDADO — devolver `theoryItems` (teoría como contenido
+      // embebido) en el GET. La columna se agregó con la migración
+      // 20260617020000_modulo_theory_items. Se persiste como JSON
+      // serializado; acá se deserializa con `safeJsonParse`. Módulos
+      // viejos (pre-migración o sin teoría) vienen con `theoryItems: []`.
+      theoryItems: item.theoryItems
+        ? safeJsonParse(item.theoryItems, [] as unknown[])
+        : [],
       visibility: item.visibility,
       schoolId: item.schoolId ?? undefined,
       dependencies: item.dependencies
@@ -501,6 +509,15 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
       id: parsed.id,
       titulo: parsed.title,
       descripcion: parsed.description,
+      // FIX-GUARDADO — persistir `subject` (materia) y `theoryItems`
+      // (teoría como contenido embebido). El front los envía (ver
+      // useModuloPersistence.ts:209-225) y el ModuleSchema los acepta
+      // (modulo.ts:208,227). Antes del fix, el handler no los incluía
+      // en moduloData, así que se perdían.
+      subject: parsed.subject ?? null,
+      theoryItems: parsed.theoryItems?.length
+        ? JSON.stringify(parsed.theoryItems)
+        : null,
       visibility: parsed.visibility,
       schoolId: parsed.schoolId ?? null,
       ownerUserId: parsed.createdBy,
@@ -518,6 +535,10 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
             id: quiz.id,
             moduleId: parsed.id,
             title: quiz.title,
+            // FIX-GUARDADO — el schema Prisma tiene `@default(true)` para
+            // `isActive`, pero el in-memory prisma usado en tests no aplica
+            // defaults. Seteamos explícitamente para que el GET lo encuentre.
+            isActive: true,
             createdAt: parsed.createdAt,
             updatedAt: parsed.updatedAt,
           },
@@ -591,6 +612,16 @@ async function applyModuleUpdate(
     if (parsed.title !== undefined) updateData.titulo = parsed.title;
     if (parsed.description !== undefined) updateData.descripcion = parsed.description;
     if (parsed.slug !== undefined) updateData.slug = parsed.slug;
+    // FIX-GUARDADO — persistir `subject` (materia) y `theoryItems`
+    // (teoría como contenido embebido). Mismo patrón que los demás
+    // campos: si vienen en el payload, se actualizan; si no, se dejan
+    // intactos.
+    if (parsed.subject !== undefined) updateData.subject = parsed.subject ?? null;
+    if (parsed.theoryItems !== undefined) {
+      updateData.theoryItems = parsed.theoryItems && parsed.theoryItems.length
+        ? JSON.stringify(parsed.theoryItems)
+        : null;
+    }
     if (parsed.visibility !== undefined) updateData.visibility = parsed.visibility;
     if (parsed.schoolId !== undefined) updateData.schoolId = parsed.schoolId ?? null;
     if (parsed.createdBy !== undefined) updateData.ownerUserId = parsed.createdBy;

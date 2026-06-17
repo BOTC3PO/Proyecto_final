@@ -395,6 +395,10 @@ export type ModuloRow = {
   // FIX-MODULO-CRASH: materia. Nullable en la columna real; el
   // helper del test no fuerza la presencia.
   subject?: string | null;
+  // FIX-GUARDADO: teoría como contenido embebido (JSON serializado).
+  // Nullable en la columna real; el helper del test no fuerza la
+  // presencia.
+  theoryItems?: string | null;
   visibility: string;
   schoolId?: string | null;
   ownerUserId: string;
