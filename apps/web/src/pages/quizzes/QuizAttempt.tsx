@@ -383,7 +383,28 @@ export default function QuizAttempt() {
   // Preguntas que el reproductor PRESENTA (aplica pool, selección y variantes).
   const presentedQuestions = useMemo(() => {
     if (!attempt) return [] as ModuleQuizQuestion[];
-    const server = attempt.questions ?? attempt.quiz?.questions ?? [];
+    // FIX-QUIZATTEMPT — el back persiste `QuizVersion.questions` como
+    // columna `String?` (JSON serializado). `fetchQuizFromCollections`
+    // ya lo parsea (`api/src/routes/quiz-attempts.ts:313` después del
+    // fix), pero el front debe ser defensivo: si por cualquier motivo
+    // llega como string (build viejo, mock, proxy que no deserializa),
+    // intentamos parsearlo; si no es array, caemos a `[]`. Sin esta
+    // guarda, `questions.map` reventaba con `TypeError: questions.map
+    // is not a function` al abrir un quiz.
+    const raw = attempt.questions ?? attempt.quiz?.questions ?? [];
+    let server: ModuleQuizQuestion[];
+    if (Array.isArray(raw)) {
+      server = raw as ModuleQuizQuestion[];
+    } else if (typeof raw === "string") {
+      try {
+        const parsed = JSON.parse(raw);
+        server = Array.isArray(parsed) ? (parsed as ModuleQuizQuestion[]) : [];
+      } catch {
+        server = [];
+      }
+    } else {
+      server = [];
+    }
     const pool = server.length > 0 ? server : generatedQuestions;
     const seed = attempt.seed ?? "0";
 

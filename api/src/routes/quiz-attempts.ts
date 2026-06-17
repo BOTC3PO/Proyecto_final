@@ -305,12 +305,29 @@ const fetchQuizFromCollections = async (
     versionRecord = await prisma.quizVersion.findFirst({ where: { id: quizRecord.currentVersionId } });
   }
 
+  // FIX-QUIZATTEMPT — `QuizVersion.questions` es una columna `String?`
+  // serializada con JSON en la DB. El cast previo
+  // (`as unknown as ModuleQuiz["questions"]`) no parseaba: el front
+  // recibía el string crudo, hacía `questions.map(...)` y reventaba con
+  // `TypeError: questions.map is not a function`. La rama "el back lo
+  // entrega como array" es la del in-memory prisma de los tests, que
+  // no refleja el shape real de la DB. Mantenemos compatibilidad con
+  // ambas formas (string serializado o array ya parseado) y caemos a
+  // `[]` si el JSON está malformado, igual que `modulos.ts:270` y
+  // `quiz-banco.ts:115,207`.
   const version: QuizVersionRecord | null = versionRecord
     ? {
         id: versionRecord.id,
         quizId: versionRecord.quizId,
         version: versionRecord.versionNumber,
-        questions: versionRecord.questions as unknown as ModuleQuiz["questions"],
+        questions: versionRecord.questions
+          ? (typeof versionRecord.questions === "string"
+              ? safeJsonParse<ModuleQuiz["questions"]>(
+                  versionRecord.questions,
+                  [] as ModuleQuiz["questions"]
+                )
+              : (versionRecord.questions as ModuleQuiz["questions"]))
+          : undefined,
         generatorId: versionRecord.generatorId ?? undefined,
         generatorVersion: versionRecord.generatorVersion ?? versionRecord.versionNumber,
         params: versionRecord.params as unknown as Record<string, unknown> | undefined,
@@ -905,22 +922,35 @@ quizAttempts.get(
       }
 
       // (2) Resolver el conjunto de quizIds sobre los que buscar.
-      let targetQuizIds: string[];
+      // FIX-CALIFICACIONES — nuevo modo "aulaId solo": el requester es
+      // staff del aula y pide "todas las calificaciones del aula" sin
+      // filtrar por módulo/quiz específico. `targetUserIds` ya está
+      // acotado a los miembros del aula, así que pasamos `targetQuizIds
+      // = []` (sin filtro de quiz) y el `findMany` devuelve todos los
+      // intentos de esos usuarios.
+      let targetQuizIds: string[] | null;
       if (query.quizId) {
         targetQuizIds = [query.quizId];
       } else if (query.moduleId) {
         const quizzes = await prisma.quiz.findMany({ where: { moduleId: query.moduleId } });
         if (quizzes.length === 0) return res.json({ items: [], total: 0 });
         targetQuizIds = quizzes.map((q) => q.id);
+      } else if (query.aulaId) {
+        // Modo "todas las calificaciones del aula" — sin filtro de quiz.
+        targetQuizIds = null;
       } else {
         return res.json({ items: [], total: 0 });
       }
 
       // (3) Buscar intentos y devolver resumen.
+      // FIX-CALIFICACIONES — `targetQuizIds = null` significa "sin
+      // filtro de quiz" (modo aulaId solo); en ese caso NO pasamos el
+      // `quizId.in` para que el findMany traiga todos los intentos de
+      // los usuarios del aula.
       const attempts = await prisma.quizAttempt.findMany({
         where: {
           userId: { in: targetUserIds },
-          quizId: { in: targetQuizIds }
+          ...(targetQuizIds ? { quizId: { in: targetQuizIds } } : {})
         }
       });
       // Ordenar por startedAt desc estable (createdAt no existe en el modelo).
