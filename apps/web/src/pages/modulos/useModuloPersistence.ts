@@ -104,7 +104,11 @@ export function useModuloPersistence(): UsePersistenceReturn {
         // (`useModuloEditor.ts:482` lee `form.subject.length`).
         subject: module.subject ?? "",
         category: module.category,
-        level: module.level,
+        // FIX-MODULO-CRASH-LEVEL — `level` puede venir `undefined`
+        // o `null` para módulos viejos / no migrados / sin nivel
+        // persistido. Default a "" para no romper el editor
+        // (`useModuloEditor.ts:487` lee `form.level.trim()`).
+        level: module.level ?? "",
         durationMinutes: module.durationMinutes,
         visibility: module.visibility,
         visibilitySchoolId: module.schoolId ?? "",

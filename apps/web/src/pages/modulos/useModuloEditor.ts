@@ -484,7 +484,12 @@ export function useModuloEditor(
       // (p.ej. modo creación, donde se inicializa con `defaultForm`
       // sin subject). Default a "" para no crashear.
       (form.subject ?? "").length > 0 &&
-      form.level.trim().length > 0;
+      // FIX-MODULO-CRASH-LEVEL — `form.level` puede ser `undefined`
+      // cuando se edita un módulo cuyo `level` no está persistido en
+      // el back (mismo riesgo que `subject`, ya fixeado). Default a ""
+      // para no crashear al cambiar la materia (cualquier setForm
+      // re-evalúa este useMemo y dispara el `.trim()`).
+      (form.level ?? "").trim().length > 0;
     const theoryOk = theoryItems.length > 0;
     const quizzesOk =
       quizzes.length === 0 ||
