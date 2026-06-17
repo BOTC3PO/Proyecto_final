@@ -415,6 +415,11 @@ model ActividadAula {
 model CalendarioEscuela {
   id           String  @id
   escuelaId    String  @map("escuela_id")
+  // FIX-CALENDARIO-B: nullable. null = evento global (comportamiento
+  // histórico intacto). Con valor = evento acotado a UN aula
+  // específica (decisión B del diagnóstico: global-o-un-aula, no
+  // M:N). Migración: 20260617000000_calendario_escuela_aula_id.
+  aulaId       String? @map("aula_id")
   tipo         String
   titulo       String
   descripcion  String?

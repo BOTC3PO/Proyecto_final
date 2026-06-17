@@ -373,6 +373,10 @@ export type ActividadAulaRow = {
 export type CalendarioEscuelaRow = {
   id: string;
   escuelaId: string;
+  // FIX-CALENDARIO-B: nullable. null = global; con valor = acotado a
+  // un aula específica. Ver migración
+  // 20260617000000_calendario_escuela_aula_id.
+  aulaId?: string | null;
   tipo: string;
   titulo: string;
   descripcion?: string | null;

@@ -47,8 +47,33 @@ calendario.get("/api/calendario/unificado", requireUser,
       escuelaId?: string;
     }> = [];
 
+    // FIX-CALENDARIO-B: aulas a las que el usuario tiene acceso. Se
+    // llena dentro del bloque try (silencioso) más abajo y se usa
+    // para filtrar la visibilidad de los eventos escuela acotados a
+    // un aula. Si el try falla, queda como Set vacío y los acotados
+    // solo los ven los staff (más restrictivo, pero los globales
+    // siguen funcionando).
+    //
+    // FIX-CALENDARIO-B: el procesamiento de los eventos escuela
+    // (incluyendo el filtro de visibilidad de los acotados) se hace
+    // DESPUÉS del try block, no antes, para que `userAulaIds` ya
+    // esté populado.
+    const userAulaIds = new Set<string>();
+    const aulaMap = new Map<string, string>();
+    let escuelaEventos: Array<{
+      id: string;
+      escuelaId: string;
+      aulaId?: string | null;
+      tipo: string;
+      titulo: string;
+      descripcion: string | null;
+      fechaInicio: string;
+      fechaFin: string;
+    }> = [];
+    let aulasAcotadasMap = new Map<string, { id: string; name: string; escuelaId: string }>();
+
     if (schoolId) {
-      const escuelaEventos = await prisma.calendarioEscuela.findMany({
+      escuelaEventos = (await prisma.calendarioEscuela.findMany({
         where: {
           escuelaId: schoolId,
           isDeleted: false,
@@ -56,20 +81,30 @@ calendario.get("/api/calendario/unificado", requireUser,
           fechaFin: { gte: desde },
         },
         orderBy: { fechaInicio: "asc" },
-      });
+      })) as typeof escuelaEventos;
 
-      for (const e of escuelaEventos) {
-        eventos.push({
-          id: e.id,
-          tipo: e.tipo,
-          titulo: e.titulo,
-          descripcion: e.descripcion,
-          fechaInicio: e.fechaInicio,
-          fechaFin: e.fechaFin,
-          origen: "escuela",
-          escuelaId: e.escuelaId,
-        });
-      }
+      // FIX-CALENDARIO-B: para los eventos escuela con `aulaId`
+      // (acotados a un aula), necesitamos resolver el `aulaNombre` y
+      // validar que el aula referenciada pertenece a la escuela del
+      // evento (defensa contra datos corruptos). Pre-fetchamos solo
+      // las aulas referenciadas para no pagar un findMany del total
+      // de aulas de la escuela.
+      const aulasAcotadasIds = [
+        ...new Set(
+          escuelaEventos
+            .map((e) => e.aulaId)
+            .filter((id): id is string => typeof id === "string" && id.length > 0)
+        ),
+      ];
+      const aulasAcotadas = aulasAcotadasIds.length > 0
+        ? await prisma.clase.findMany({
+            where: { id: { in: aulasAcotadasIds } },
+            select: { id: true, name: true, escuelaId: true },
+          })
+        : [];
+      aulasAcotadasMap = new Map(
+        aulasAcotadas.map((a) => [a.id, a])
+      );
     }
 
     try {
@@ -113,7 +148,15 @@ calendario.get("/api/calendario/unificado", requireUser,
         select: { id: true, name: true }
       });
 
-      const aulaMap = new Map(aulas.map((a) => [a.id, a.name]));
+      // FIX-CALENDARIO-B: poplar `userAulaIds` y `aulaMap` para que
+      // el filtro de visibilidad de los eventos escuela acotados
+      // (más arriba) pueda usar la misma info.
+      for (const a of aulas) {
+        if (a.id) {
+          userAulaIds.add(a.id);
+          if (a.name) aulaMap.set(a.id, a.name);
+        }
+      }
       const aulaIds = aulas.map((a) => a.id).filter(Boolean);
 
       if (aulaIds.length > 0) {
@@ -141,6 +184,49 @@ calendario.get("/api/calendario/unificado", requireUser,
         }
       }
     } catch { /* si Prisma falla devolver solo escuela */ }
+
+    // FIX-CALENDARIO-B: procesar los eventos escuela AHORA que
+    // `userAulaIds` y `aulaMap` ya están populados (o quedaron
+    // vacíos si el try falló). Si el try falló, los acotados solo
+    // los ven los staff, los globales se muestran a todos los de
+    // la escuela.
+    if (schoolId) {
+      const isStaff = role === "DIRECTIVO" || role === "ADMIN";
+      for (const e of escuelaEventos) {
+        if (e.aulaId) {
+          const aulaRef = aulasAcotadasMap.get(e.aulaId);
+          if (!aulaRef || aulaRef.escuelaId !== e.escuelaId) continue;
+          // Visibilidad acotada: solo staff o usuarios con acceso a
+          // esa aula ven el evento.
+          if (!isStaff && !userAulaIds.has(e.aulaId)) continue;
+          eventos.push({
+            id: e.id,
+            tipo: e.tipo,
+            titulo: e.titulo,
+            descripcion: e.descripcion,
+            fechaInicio: e.fechaInicio,
+            fechaFin: e.fechaFin,
+            origen: "escuela",
+            escuelaId: e.escuelaId,
+            aulaId: e.aulaId,
+            aulaNombre: aulaMap.get(e.aulaId) ?? aulaRef.name,
+          });
+          continue;
+        }
+        // Evento global (aulaId null): visible para todos los de la
+        // escuela (comportamiento histórico).
+        eventos.push({
+          id: e.id,
+          tipo: e.tipo,
+          titulo: e.titulo,
+          descripcion: e.descripcion,
+          fechaInicio: e.fechaInicio,
+          fechaFin: e.fechaFin,
+          origen: "escuela",
+          escuelaId: e.escuelaId,
+        });
+      }
+    }
 
     return res.json({ eventos, desde, hasta });
   }
@@ -179,11 +265,30 @@ calendario.post("/api/calendario/escuela", requireUser, async (req, res) => {
   }
   if (!schoolId) return res.status(400).json({ error: "escuela requerida" });
 
-  const { tipo, titulo, descripcion, fechaInicio, fechaFin } =
+  const { tipo, titulo, descripcion, fechaInicio, fechaFin, aulaId } =
     req.body as Record<string, unknown>;
 
   if (!tipo || !titulo || !fechaInicio) {
     return res.status(400).json({ error: "tipo, titulo y fechaInicio requeridos" });
+  }
+
+  // FIX-CALENDARIO-B: `aulaId` opcional. Si viene, validar que el
+  // aula exista y pertenezca a la escuela del usuario. Si no
+  // viene o viene vacío, el evento es global (comportamiento
+  // histórico intacto).
+  let aulaIdPersist: string | null = null;
+  if (typeof aulaId === "string" && aulaId.length > 0) {
+    const aula = await prisma.clase.findFirst({
+      where: { id: aulaId, isDeleted: { not: true } },
+      select: { id: true, escuelaId: true },
+    });
+    if (!aula) {
+      return res.status(400).json({ error: "aulaId no existe" });
+    }
+    if (aula.escuelaId !== schoolId) {
+      return res.status(400).json({ error: "aulaId no pertenece a la escuela" });
+    }
+    aulaIdPersist = aula.id;
   }
 
   const id = genId("cal");
@@ -193,6 +298,9 @@ calendario.post("/api/calendario/escuela", requireUser, async (req, res) => {
     data: {
       id,
       escuelaId: schoolId,
+      // FIX-CALENDARIO-B: persistir aulaId (nullable). null =
+      // global. Decisión B del diagnóstico (no M:N).
+      aulaId: aulaIdPersist,
       tipo: String(tipo),
       titulo: String(titulo),
       descripcion: typeof descripcion === "string" ? descripcion : null,
@@ -203,7 +311,7 @@ calendario.post("/api/calendario/escuela", requireUser, async (req, res) => {
     },
   });
 
-  return res.status(201).json({ id, ok: true });
+  return res.status(201).json({ id, ok: true, aulaId: aulaIdPersist });
 });
 
 // ── DELETE /api/calendario/escuela/:id ──────────────────────

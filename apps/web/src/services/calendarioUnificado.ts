@@ -41,7 +41,11 @@ export async function crearEventoEscuela(params: {
   descripcion?: string;
   fechaInicio: string;
   fechaFin: string;
-}): Promise<{ id: string }> {
+  // FIX-CALENDARIO-B: opcional. Si viene, el evento queda acotado
+  // a ese aula. Si se omite o viene vacío, el evento es global
+  // (comportamiento histórico).
+  aulaId?: string;
+}): Promise<{ id: string; aulaId: string | null }> {
   return apiPost("/api/calendario/escuela", params);
 }
 

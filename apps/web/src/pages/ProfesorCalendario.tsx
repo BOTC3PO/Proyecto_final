@@ -117,7 +117,12 @@ export default function ProfesorCalendario() {
         // TEACHER-miembro quedaba fuera del dropdown.
         const misAulas = items.filter((a) => a.viewerIsTeacher === true);
         setAulas(misAulas);
-        if (misAulas[0]) {
+        // FIX-CALENDARIO-B: solo autoseccionar la primera aula si
+        // el usuario está en el tab "aula" (TEACHER por default).
+        // DIRECTIVO/ADMIN arrancan en el tab "escuela" y ahí el
+        // default debe ser "Global" (aulaId vacío) — sino el
+        // directivo crea eventos escuela acotados sin querer.
+        if (misAulas[0] && !canEditEscuela) {
           setForm((f) => ({ ...f, aulaId: misAulas[0].id }));
         }
       })
@@ -176,12 +181,16 @@ export default function ProfesorCalendario() {
     const tabEfectivo = canEditEscuela ? tab : "aula";
     try {
       if (tabEfectivo === "escuela") {
+        // FIX-CALENDARIO-B: si el usuario eligió un aula en el
+        // tab escuela, mandar `aulaId` para acotar el evento.
+        // Si está vacío, se omite (evento global).
         await crearEventoEscuela({
           tipo: form.tipo as TipoEventoEscuela,
           titulo: form.titulo.trim(),
           descripcion: form.descripcion.trim() || undefined,
           fechaInicio: form.fechaInicio,
           fechaFin: form.fechaFin || form.fechaInicio,
+          aulaId: form.aulaId || undefined,
         });
       } else {
         await crearEventoAula({
@@ -444,6 +453,10 @@ export default function ProfesorCalendario() {
                           setForm((f) => ({
                             ...f,
                             tipo: t === "escuela" ? "feriado" : "clase",
+                            // FIX-CALENDARIO-B: resetear el aulaId al
+                            // cambiar de tab para que el dropdown
+                            // escuela arranque en "Global".
+                            aulaId: t === "aula" && aulas[0] ? aulas[0].id : "",
                           }));
                         }}
                         className={`px-3 py-1.5 text-xs font-medium border-b-2 -mb-px transition-colors ${
@@ -485,6 +498,30 @@ export default function ProfesorCalendario() {
                         }))}
                         className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                       >
+                        {aulas.map((a) => (
+                          <option key={a.id} value={a.id}>
+                            {a.name}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+
+                  {/* FIX-CALENDARIO-B: dropdown opcional de aula en
+                      el tab escuela. Vacío = global; con valor =
+                      acotado a esa aula. El directivo/admin ve
+                      todas las aulas de la escuela. */}
+                  {tab === "escuela" && aulas.length > 0 && (
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                      Aplicar a
+                      <select
+                        value={form.aulaId}
+                        onChange={(e) => setForm((f) => ({
+                          ...f, aulaId: e.target.value
+                        }))}
+                        className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                      >
+                        <option value="">Toda la escuela (global)</option>
                         {aulas.map((a) => (
                           <option key={a.id} value={a.id}>
                             {a.name}

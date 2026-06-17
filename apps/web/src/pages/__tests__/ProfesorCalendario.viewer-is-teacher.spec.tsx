@@ -30,7 +30,7 @@
  *     sin aulaId, aún si el usuario llena el resto del form.
  */
 
-import { describe, expect, it, vi, beforeEach } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
@@ -57,6 +57,10 @@ vi.mock("../../services/calendarioUnificado", () => ({
   eliminarEventoEscuela: vi.fn().mockResolvedValue(undefined),
   eliminarEventoAula: vi.fn().mockResolvedValue(undefined),
 }));
+
+import {
+  crearEventoEscuela,
+} from "../../services/calendarioUnificado";
 
 import ProfesorCalendario from "../ProfesorCalendario";
 
@@ -170,5 +174,110 @@ describe("QA-FIX-08: ProfesorCalendario dropdown de aulas (Q8)", () => {
     fireEvent.change(tituloInput, { target: { value: "Clase A" } });
     const submit = screen.getByRole("button", { name: /guardar evento/i });
     expect(submit).toBeDisabled();
+  });
+});
+
+/**
+ * FIX-CALENDARIO-B — Mejora B: el tab escuela (visible solo para
+ * DIRECTIVO/ADMIN) tiene un dropdown "Aplicar a" con la opción
+ * "Toda la escuela (global)" + las aulas de la escuela. Elegir un
+ * aula → el POST manda `aulaId`; elegir "Global" → el POST omite
+ * `aulaId` (evento global).
+ */
+describe("FIX-CALENDARIO-B: ProfesorCalendario dropdown 'Aplicar a' en tab escuela", () => {
+  const DIRECTIVO_USER = {
+    id: "directivo-1",
+    name: "Directivo Demo",
+    role: "DIRECTIVO" as const,
+    schoolId: "escuela-1",
+  };
+
+  function setupDirectivo(aulas: Array<{ id: string; name: string; viewerIsTeacher: boolean }>) {
+    mockGet.mockImplementation((path: string) => {
+      if (typeof path === "string" && path.startsWith("/api/aulas")) {
+        return Promise.resolve({ items: aulas });
+      }
+      return Promise.resolve({ items: [] });
+    });
+    mockPost.mockResolvedValue({ id: "ev-1" });
+    (useAuth as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+      user: DIRECTIVO_USER,
+      loginAs: vi.fn(),
+      login: vi.fn(),
+      logout: vi.fn(),
+    });
+    return render(
+      <MemoryRouter>
+        <ProfesorCalendario />
+      </MemoryRouter>,
+    );
+  }
+
+  async function selectEscuelaTab() {
+    // Para DIRECTIVO, el default es "escuela" (ProfesorCalendario.tsx:93).
+    // Pero el form sólo se muestra si hay un día seleccionado. Click
+    // en el primer día.
+    const days = await screen.findAllByRole("button", { name: /^\d+$/ });
+    fireEvent.click(days[0]);
+    await screen.findByText(/agregar evento/i);
+  }
+
+  it("DIRECTIVO con aulas en la escuela → dropdown 'Aplicar a' muestra 'Toda la escuela (global)' + aulas", async () => {
+    setupDirectivo([
+      { id: "aula-1", name: "5° A", viewerIsTeacher: true },
+      { id: "aula-2", name: "5° B", viewerIsTeacher: true },
+    ]);
+    await selectEscuelaTab();
+    // El tab default es "escuela" para DIRECTIVO (línea 93).
+    const aplicarA = await screen.findByRole("combobox", { name: /aplicar a/i });
+    const options = Array.from(aplicarA.querySelectorAll("option")).map((o) => o.textContent);
+    expect(options[0]).toMatch(/toda la escuela \(global\)/i);
+    expect(options).toContain("5° A");
+    expect(options).toContain("5° B");
+  });
+
+  it("DIRECTIVO elige 'Global' → POST sin aulaId (evento global)", async () => {
+    (crearEventoEscuela as unknown as ReturnType<typeof vi.fn>).mockClear();
+    setupDirectivo([
+      { id: "aula-1", name: "5° A", viewerIsTeacher: true },
+    ]);
+    await selectEscuelaTab();
+    const aplicarA = screen.getByRole("combobox", { name: /aplicar a/i });
+    // El default es "Global" (value="").
+    expect((aplicarA as HTMLSelectElement).value).toBe("");
+    // Llenar el form y submit.
+    fireEvent.change(screen.getByPlaceholderText(/día del maestro/i), {
+      target: { value: "Feriado" },
+    });
+    const submit = screen.getByRole("button", { name: /guardar evento/i });
+    fireEvent.click(submit);
+    await waitFor(() => {
+      expect(crearEventoEscuela).toHaveBeenCalled();
+    });
+    const call = (crearEventoEscuela as unknown as ReturnType<typeof vi.fn>).mock.calls[0];
+    const args = call[0] as { aulaId?: string };
+    expect(args.aulaId).toBeUndefined();
+  });
+
+  it("DIRECTIVO elige un aula → POST con aulaId (evento acotado)", async () => {
+    (crearEventoEscuela as unknown as ReturnType<typeof vi.fn>).mockClear();
+    setupDirectivo([
+      { id: "aula-1", name: "5° A", viewerIsTeacher: true },
+      { id: "aula-2", name: "5° B", viewerIsTeacher: true },
+    ]);
+    await selectEscuelaTab();
+    const aplicarA = screen.getByRole("combobox", { name: /aplicar a/i });
+    fireEvent.change(aplicarA, { target: { value: "aula-2" } });
+    fireEvent.change(screen.getByPlaceholderText(/día del maestro/i), {
+      target: { value: "Acto 5B" },
+    });
+    const submit = screen.getByRole("button", { name: /guardar evento/i });
+    fireEvent.click(submit);
+    await waitFor(() => {
+      expect(crearEventoEscuela).toHaveBeenCalled();
+    });
+    const call = (crearEventoEscuela as unknown as ReturnType<typeof vi.fn>).mock.calls[0];
+    const args = call[0] as { aulaId?: string };
+    expect(args.aulaId).toBe("aula-2");
   });
 });
