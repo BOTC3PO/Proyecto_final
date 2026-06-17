@@ -1,13 +1,16 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import type { Block, Book, BookAsset, BookNote, Page } from "../domain/book/book.types";
+import { useAuth } from "../auth/use-auth";
+import BookReader from "./BookReader";
 import { useBookEditor } from "./state/useBookEditor";
 import type { EditorAction } from "./state/bookEditor.reducer";
 import { ensureUniqueIds } from "./services/ids";
 import { exportBookToDownload, importBookFromFile } from "./services/importExport";
 import { migrateToV11ForEditor } from "./services/migrate";
-import { fetchBook, fetchBooks, saveBook } from "./services/booksApi";
-import type { BookListItem } from "./services/booksApi";
+import { canEditLibro, fetchBook, fetchBookWithMeta, fetchBooks, saveBook } from "./services/booksApi";
+import type { BookListItem, BookMeta } from "./services/booksApi";
+import { makeEmptyBook } from "./services/newBook";
 
 // ===== Helpers =====
 function classNames(...xs: Array<string | false | null | undefined>) {
@@ -79,52 +82,14 @@ declare global {
 }
 
 // ===== EMPTY_BOOK =====
-const EMPTY_BOOK: Book = {
-  schema: "book.pages@1.1",
-  metadata: {
-    id: "book-draft",
-    title: "Nuevo documento",
-    language: "es",
-    difficulty: 3,
-    theme: {
-      paperColor: "#E0C9A6",
-      textColor: "#2B2B2B",
-      fontFamily: "serif",
-      baseFontSizePx: 18,
-      lineHeight: 1.6,
-    },
-  },
-  structure: {
-    pageNumbering: { startAt: 1 },
-    index: [],
-  },
-  assets: [],
-  pages: [
-    {
-      id: "p001",
-      number: 1,
-      title: "Página 1",
-      anchors: [{ id: "a1", label: "Inicio" }],
-      content: [
-        {
-          type: "heading",
-          id: "p001_h1_001",
-          level: 1,
-          text: "Título",
-          blockStyle: { align: "left" },
-          textStyle: { bold: true },
-        },
-        {
-          type: "paragraph",
-          id: "p001_p_001",
-          runs: [{ text: "Escribe aquí tu contenido..." }],
-          blockStyle: { align: "left" },
-        },
-      ],
-    },
-  ],
-  notes: [],
-};
+// SEC-LIBRO — antes había acá una constante `EMPTY_BOOK` con
+// `metadata.id = "book-draft"` fijo. Cada usuario que abría
+// `/editor` (sin id) levantaba el MISMO id; el primero lo creaba,
+// y los siguientes al guardar pegaban un POST con el mismo id →
+// el back lo trataba como SOBRESCRITURA y rechazaba con 403 a
+// cualquiera que no fuera dueño o ADMIN (por canEditLibro).
+// Movido a `services/newBook.ts` como factory `makeEmptyBook()`
+// que genera un id único por libro nuevo.
 
 // ===== Modal =====
 function Modal({
@@ -1639,6 +1604,15 @@ export default function BookEditorPage() {
   // Save feedback
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
 
+  // SEC-LIBRO — metadata de ownership del libro cargado (solo
+  // cuando viene de un id existente). Si el viewer no puede editar
+  // (no es dueño, ni staff de la escuela dueña en libros escuela,
+  // ni admin), montamos `BookReader` en vez del editor. Defensa en
+  // profundidad: aun si esto se evita en el front, el back rechaza
+  // el POST con 403.
+  const [bookMeta, setBookMeta] = useState<BookMeta | null>(null);
+  const { user } = useAuth();
+
   // Import file ref
   const importRef = useRef<HTMLInputElement>(null);
 
@@ -1647,16 +1621,34 @@ export default function BookEditorPage() {
     const loadInitial = async () => {
       if (params.id) {
         try {
-          const b = await fetchBook(params.id);
+          // SEC-LIBRO — usamos fetchBookWithMeta para conocer
+          // ownerUserId/visibility/schoolId y decidir editor vs
+          // lector. El editor seguía abriendo aunque el back
+          // fuera a rechazar el guardado.
+          const { book: b, meta } = await fetchBookWithMeta(params.id);
           const migrated = migrateToV11ForEditor(b);
           const { book: uniq } = ensureUniqueIds(migrated);
           dispatch({ type: "LOAD_BOOK", book: uniq });
+          setBookMeta(meta);
           runValidation(uniq);
         } catch {
-          dispatch({ type: "LOAD_BOOK", book: EMPTY_BOOK });
+          // SEC-LIBRO — al fallar la carga creamos un libro nuevo
+          // con id fresco (ver makeEmptyBook). Antes usábamos un
+          // EMPTY_BOOK constante con id "book-draft" fijo que
+          // colisionaba con cualquier libro huérfano existente al
+          // intentar guardar.
+          dispatch({ type: "LOAD_BOOK", book: makeEmptyBook() });
+          setBookMeta(null);
         }
       } else {
-        dispatch({ type: "LOAD_BOOK", book: EMPTY_BOOK });
+        // /editor sin id → libro nuevo, el viewer es el creador
+        // potencial. No hay meta hasta que se guarde. Cada
+        // apertura genera un id distinto para que el POST de
+        // guardado caiga en el camino de CREACIÓN (no de
+        // sobrescritura) y queden los owner/visibility/schoolId
+        // del usuario actual.
+        dispatch({ type: "LOAD_BOOK", book: makeEmptyBook() });
+        setBookMeta(null);
       }
     };
     loadInitial();
@@ -1801,6 +1793,46 @@ export default function BookEditorPage() {
     return (
       <div className="h-screen flex items-center justify-center bg-[var(--c-bg)]">
         <p className="text-[var(--c-muted)] text-lg">Cargando editor…</p>
+      </div>
+    );
+  }
+
+  // SEC-LIBRO — si el viewer no puede editar este libro
+  // (alumno, profe ajeno, o staff de otra escuela cuando el libro
+  // es escuela), mostramos el lector read-only. Replica el
+  // criterio del back (`canEditLibro` en
+  // `api/src/routes/libros.ts`); el back es la autoridad pero
+  // queremos UX correcta. Solo aplica cuando hay un libro
+  // cargado por id (params.id presente). Sin id (libro nuevo),
+  // el viewer es el creador potencial: lo dejamos editar y el
+  // back decidirá en el guardado (solo staff puede crear).
+  const viewerForLibro = user
+    ? { id: user.id, role: user.role ?? null, schoolId: user.schoolId ?? null }
+    : null;
+  const isReadOnlyMode = !!params.id && !!bookMeta && !canEditLibro(bookMeta, viewerForLibro);
+
+  if (isReadOnlyMode) {
+    return (
+      <div className="h-screen flex flex-col overflow-hidden bg-[var(--c-bg)]">
+        <header
+          role="banner"
+          className="flex-shrink-0 border-b border-[var(--c-border)] bg-[var(--c-surface)] flex items-center px-4 gap-3 h-11"
+        >
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-1 px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)]"
+            title="Volver"
+          >
+            ← Volver
+          </button>
+          <div className="w-px h-4 bg-[var(--c-border)]" />
+          <span className="text-xs text-[var(--c-muted)]">Lector de libro</span>
+          <div className="flex-1" />
+          <span className="text-[10px] text-[var(--c-muted)]">Solo lectura</span>
+        </header>
+        <main className="flex-1 overflow-y-auto">
+          <BookReader book={book} />
+        </main>
       </div>
     );
   }

@@ -106,7 +106,25 @@ app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ENV.CORS_ORIGIN, credentials: true }));
 app.use(morgan("tiny"));
 app.use("/api/payments/webhook", express.raw({ type: "application/json" }));
+// FIX-BODY-LIMIT — el `express.json()` sin `limit` usa el default
+// de body-parser (100kb). Como este parser corre ANTES de los
+// routers, era el límite efectivo de TODOS los endpoints: cuando
+// un libro/módulo/bloque crecía (típicamente por imágenes en
+// base64), el global devolvía 413 ("request entity too large")
+// antes de que llegara al handler, y los `bodyLimitMB(30)` que
+// tienen rutas como `routes/libros.ts:68`, `routes/modulos.ts:478`,
+// `routes/block-documents.ts:47`, etc. eran código muerto (la
+// segunda llamada a `express.json()` no re-parsea si `req.body`
+// ya está poblado).
+//
+// Ahora alineamos el global con `ENV.MAX_PAGE_MB` (30 por
+// default, configurable via .env). Trade-off: las rutas que
+// declaran un límite MÁS RESTRICTIVO (p.ej. quiz-attempts con
+// `bodyLimitMB(1)`) pierden la capacidad de cap a nivel parser;
+// esos endpoints siguen validando shape vía Zod, que es lo que
+// efectivamente contiene payloads abusivos.
 app.use(express.json({
+  limit: `${ENV.MAX_PAGE_MB}mb`,
   verify: (req, _res, buf) => {
     const request = req as Request;
     if (request.originalUrl === "/api/payments/webhook") {

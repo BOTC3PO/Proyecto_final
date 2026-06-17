@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Play, Wrench } from "lucide-react";
 import { detailToPresentation } from "./TheorySlideEditor";
 import SlidePresenter from "./SlidePresenter";
+import BookReaderOverlay from "../../bookEditor/BookReaderOverlay";
 import { BlockRenderer } from "../../blocks/BlockRenderer";
 import { deserializeBlockDocument } from "../../blocks/utils";
 import { parseStandaloneConfig } from "./standalone/types";
@@ -65,6 +66,12 @@ const isInternalLink = (v: string) => v.startsWith("/");
 export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProps) {
   const typeLabel = getTypeLabel(item.type);
   const [presenterOpen, setPresenterOpen] = useState(false);
+  // SEC-LIBRO — overlay del lector. Cuando el item es un libro
+  // (referenciado por id), el alumno lo abre acá SIN salir de
+  // `/modulos/{id_modulo}`. La vista de módulo solo permite leer
+  // o jugar; para editar el staff usa /editor/:id desde otro
+  // lugar (no desde dentro del módulo).
+  const [bookReaderOpen, setBookReaderOpen] = useState(false);
 
   // --- Herramienta standalone ---
   if (isHerramientaStandaloneType(item.type)) {
@@ -159,39 +166,65 @@ export default function TheoryItemCard({ item, actionLabel }: TheoryItemCardProp
 
   // --- Book type ---
   if (isBookType(item.type)) {
-    // detail is a book ID → internal link to /editor/:id
     const bookId = item.detail;
-    const hasBookId = Boolean(bookId && !isExternalUrl(bookId) && !isInternalLink(bookId));
-    const href = hasBookId ? `/editor/${bookId}` : isInternalLink(bookId) ? bookId : undefined;
-    const externalHref = isExternalUrl(bookId) ? bookId : undefined;
-    const label = actionLabel ?? "Abrir libro";
+    // Distinguimos 3 casos del `detail`:
+    //   - URL externa (http/https) → abrimos en pestaña nueva.
+    //   - Ruta interna (empieza con /) → Link normal (compat con
+    //     usos legacy donde `detail` apuntaba a una página propia).
+    //   - ID de libro (caso esperado hoy) → abrimos el lector en
+    //     overlay encima del módulo, sin navegar.
+    const externalHref = bookId && isExternalUrl(bookId) ? bookId : undefined;
+    const internalHref =
+      bookId && !externalHref && isInternalLink(bookId) ? bookId : undefined;
+    const hasBookId = Boolean(bookId && !externalHref && !internalHref);
+    const label = actionLabel ?? "Leer libro";
 
     return (
-      <article className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <p className="text-xs uppercase tracking-wide text-gray-400">{typeLabel}</p>
-            <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
-          </div>
-          {href ? (
-            <Link className="text-xs font-medium text-blue-600 hover:underline" to={href}>
-              {label}
-            </Link>
-          ) : externalHref ? (
-            <a
-              className="text-xs font-medium text-blue-600 hover:underline"
-              href={externalHref}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {label}
-            </a>
-          ) : null}
-        </div>
-        {bookId ? (
-          <p className="mt-2 text-xs text-gray-400 break-all">{bookId}</p>
+      <>
+        {bookReaderOpen && hasBookId ? (
+          <BookReaderOverlay
+            bookId={bookId}
+            title={item.title}
+            onClose={() => setBookReaderOpen(false)}
+          />
         ) : null}
-      </article>
+        <article className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-xs uppercase tracking-wide text-gray-400">{typeLabel}</p>
+              <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
+            </div>
+            {hasBookId ? (
+              <button
+                type="button"
+                className="text-xs font-medium text-blue-600 hover:underline"
+                onClick={() => setBookReaderOpen(true)}
+              >
+                {label}
+              </button>
+            ) : internalHref ? (
+              <Link
+                className="text-xs font-medium text-blue-600 hover:underline"
+                to={internalHref}
+              >
+                {label}
+              </Link>
+            ) : externalHref ? (
+              <a
+                className="text-xs font-medium text-blue-600 hover:underline"
+                href={externalHref}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {label}
+              </a>
+            ) : null}
+          </div>
+          {bookId ? (
+            <p className="mt-2 text-xs text-gray-400 break-all">{bookId}</p>
+          ) : null}
+        </article>
+      </>
     );
   }
 

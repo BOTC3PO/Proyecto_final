@@ -89,6 +89,8 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.encuestaRespuesta.rows = [];
   prisma.bloqueJson.rows = [];
   prisma.configModulo.rows = [];
+  // SEC-LIBRO — tabla de libros con dueño/ámbito.
+  prisma.libro.rows = [];
   return prisma;
 }
 

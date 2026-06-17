@@ -512,6 +512,19 @@ export type BloqueJsonRow = {
   updatedAt: string;
 };
 
+// SEC-LIBRO — fila de `libros` para el rig de tests. Tiene los
+// campos de ownership que agregó la migración
+// 20260617030000_sec_libro_ownership. Nullable para reflejar libros
+// "huérfanos" (sin dueño) que el handler trata como solo-admin.
+export type LibroRow = {
+  id: string;
+  json: string;
+  ownerUserId: string | null;
+  schoolId: string | null;
+  visibility: string;
+  updatedAt: string | null;
+};
+
 export type ConfigModuloRow = {
   id: string;
   items: string;
@@ -526,6 +539,9 @@ export class InMemoryPrisma {
   encuestaRespuesta = new Table<EncuestaRespuestaRow>("encuestaRespuesta");
   bloqueJson = new Table<BloqueJsonRow>("bloqueJson");
   configModulo = new Table<ConfigModuloRow>("configModulo");
+  // SEC-LIBRO — modelo `libro` (tabla `libros`). El handler usa
+  // `prisma.libro.findFirst`, `findMany`, `create`, `updateMany`.
+  libro = new Table<LibroRow>("libro");
   vblangDataset = new Table<DatasetRow>("vblangDataset");
   vblangDatasetFila = new Table<FilaRow>("vblangDatasetFila");
   suscripcion = new Table<Row>("suscripcion");

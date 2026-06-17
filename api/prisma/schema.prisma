@@ -904,6 +904,20 @@ model Libro {
   id        String  @id
   json      String
   updatedAt String? @map("updated_at")
+  // SEC-LIBRO — dueño y ámbito de visibilidad para `libros`.
+  // Nullable aditiva: libros viejos quedan con
+  // ownerUserId/schoolId = null y visibility = 'privado'
+  // (default). Sin dueño solo ADMIN edita; el resto recibe 403.
+  // Replica el modelo de `vblangDataset` (ver `canReadDataset`
+  // en api/src/routes/vblang-datasets.ts:54-68) aplicado a la
+  // EDICIÓN de libros. Migración:
+  // 20260617030000_sec_libro_ownership.
+  ownerUserId String? @map("owner_user_id")
+  visibility  String  @default("privado")
+  schoolId    String? @map("school_id")
+
+  @@index([ownerUserId])
+  @@index([schoolId, visibility])
   @@map("libros")
 }
 
