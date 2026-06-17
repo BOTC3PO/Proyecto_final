@@ -134,6 +134,15 @@ export default function PlantillaEditor() {
   const [metadata, setMetadata] = useState<PlantillaMetadata>(EMPTY_META);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
+  // FIX-PLANTILLA-DUP — ref sincrónico para bloquear clicks múltiples
+  // en "Guardar". El `disabled={saveStatus === "saving"}` del botón
+  // (línea 554) no es suficiente: React re-renderiza DESPUÉS del click
+  // y entre el primer click y el re-render pueden disparse 1-2 clicks
+  // más. Si el front entra al camino `isNew` (línea 300) con clicks
+  // repetidos, cada click llama `createPlantilla` → N copias de la
+  // plantilla. La ref es síncrona y se chequea antes de cualquier
+  // estado de React.
+  const isSavingRef = useRef(false);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [dslApiError, setDslApiError] = useState<
     { message: string; line?: number; col?: number } | undefined
@@ -280,6 +289,11 @@ export default function PlantillaEditor() {
   };
 
   const handleSave = async () => {
+    // FIX-PLANTILLA-DUP — guard sincrónico. Si ya hay un save en
+    // vuelo, descartar el click extra (sea por doble-click del usuario
+    // o por el botón que todavía no se re-renderizó como `disabled`).
+    if (isSavingRef.current) return;
+    isSavingRef.current = true;
     setSaveStatus("saving");
     setSaveMessage(null);
     setDslApiError(undefined);
@@ -355,6 +369,12 @@ export default function PlantillaEditor() {
           err instanceof Error ? err.message : "No se pudo guardar.",
         );
       }
+    } finally {
+      // FIX-PLANTILLA-DUP — siempre liberar el guard, incluso si la
+      // promesa rejected. Sin esto, un save fallido dejaría el botón
+      // bloqueado para siempre (estado en `error` pero `isSavingRef`
+      // en true).
+      isSavingRef.current = false;
     }
   };
 
