@@ -67,18 +67,32 @@ export const QuizAttemptGradeSchema = z.object({
   feedback: z.string().optional()
 });
 
+// FIX-CALIFICACIONES — helper: preprocesa un campo string del query.
+// Convierte "" (string vacío) o whitespace-only a `undefined` para que
+// el `.min(1)` no lo rechace con un 400 críptico. El front
+// (`ProfesorCalificaciones.tsx`) hardcodeaba `?moduleId=&` y eso rompía
+// la pantalla de calificaciones; ahora el back tolera el string vacío
+// como "no provisto".
+const emptyStringToUndefined = z.preprocess(
+  (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
+  z.string().min(1).optional()
+);
+
 // F3-04 — query params para listar intentos / pedir resumen del alumno.
-// Al menos uno de `quizId` o `moduleId` es requerido. `aulaId` es opcional y,
-// si está, indica que el requester es staff pidiendo los intentos de los
-// alumnos del aula (el server valida membresía).
+// FIX-CALIFICACIONES — el refine ahora acepta `aulaId` solo (no sólo
+// `quizId || moduleId`). La pantalla de calificaciones del aula pide
+// "todos los intentos del aula" y no fuerza un módulo específico, así
+// que `aulaId` solo es un modo válido (el handler igual valida que el
+// requester sea staff del aula). Al menos uno de los tres
+// (`quizId`, `moduleId`, `aulaId`) tiene que estar.
 export const QuizAttemptListQuerySchema = z.object({
-  quizId: z.string().min(1).optional(),
-  moduleId: z.string().min(1).optional(),
-  aulaId: z.string().min(1).optional(),
-  userId: z.string().min(1).optional(),
+  quizId: emptyStringToUndefined,
+  moduleId: emptyStringToUndefined,
+  aulaId: emptyStringToUndefined,
+  userId: emptyStringToUndefined,
   limit: z.coerce.number().int().min(1).max(200).optional().default(50)
-}).refine((v) => v.quizId || v.moduleId, {
-  message: "Se requiere al menos `quizId` o `moduleId`."
+}).refine((v) => v.quizId || v.moduleId || v.aulaId, {
+  message: "Se requiere al menos `quizId`, `moduleId` o `aulaId`."
 });
 
 export const QuizAttemptSummaryQuerySchema = z.object({

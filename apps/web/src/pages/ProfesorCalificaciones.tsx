@@ -44,8 +44,14 @@ export default function ProfesorCalificaciones() {
     let active = true;
     setLoading(true);
     setError(null);
+    // FIX-CALIFICACIONES — antes mandaba `moduleId=&` literal (hardcoded
+    // vacío), que el back rechazaba con 400 por el `z.string().min(1)` del
+    // schema. La intención de esta pantalla es "todas las calificaciones
+    // del aula", así que omitimos `moduleId` (y `quizType` server-side: el
+    // back no lo filtra; la página agrupa por quiz y muestra el promedio
+    // — el front puede refinar con quizType en una iteración futura).
     apiGet<{ items: QuizAttemptResult[] }>(
-      `/api/quiz-attempts?moduleId=&aulaId=${encodeURIComponent(aulaId)}&quizType=formal&limit=50`
+      `/api/quiz-attempts?aulaId=${encodeURIComponent(aulaId)}&limit=50`
     )
       .then((data) => {
         if (!active) return;
