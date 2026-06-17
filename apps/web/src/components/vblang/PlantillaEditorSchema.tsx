@@ -72,14 +72,67 @@ import {
   type EtiquetaRow,
 } from "./plantillaFields";
 import { getGeneradorProvidedVars } from "../../vblang/generadorVars";
+// VB-B5 — errores de lint a nivel campo. El panel general sigue
+// mostrándose; este módulo solo agrega el badge inline en el campo
+// culpable cuando el código del issue mapea a un `fieldId`.
+import {
+  buildFieldErrors,
+  fieldHasError,
+  FieldErrorBadge,
+  type FieldErrors,
+} from "./FieldErrorBadge";
+import VariablesEditor from "./VariablesEditor";
+import type { LintIssue } from "@vb/vblang";
 
 interface Props {
   plantilla: Plantilla;
   onChange: (next: Plantilla) => void;
   valoresActuales?: Record<string, unknown>;
   tieneErrores?: boolean;
+  /**
+   * VB-B5 — issues del linter para pintar a nivel campo. Si no se
+   * pasa, el form se renderiza sin badges inline (sólo el panel
+   * general). Default: `[]`.
+   */
+  lintIssues?: readonly LintIssue[];
   /** Inyectable para tests; por defecto sube a /api/media/upload. */
   uploadImage?: (file: Blob) => Promise<string>;
+}
+
+/* ---------------- VB-B5: wrapper de campo con error inline ---------------- */
+
+/**
+ * Envuelve un campo del form y le aplica el badge de error del lint
+ * cuando hay issues atribuibles a `fieldId`. Pinta un borde rojo
+ * (vía `data-error="true"`) si hay error, para que el form pueda
+ * estilarlo.
+ *
+ * Es un wrapper genérico para campos que renderizan UN SOLO input
+ * (text, number, enum, list, etc.). El `EnunciadoField` y la lista
+ * de variantes son casos especiales: ellos mismos se auto-markan
+ * con `data-field-id` por variante y muestran el badge — no usan
+ * este wrapper.
+ */
+function FieldErrorWrapper({
+  fieldId,
+  fieldErrors,
+  children,
+}: {
+  fieldId: string;
+  fieldErrors: FieldErrors;
+  children: React.ReactNode;
+}) {
+  const hasError = fieldHasError(fieldId, fieldErrors);
+  return (
+    <div
+      className="flex flex-col gap-0.5"
+      data-field-id={fieldId}
+      data-error={hasError || undefined}
+    >
+      {children}
+      <FieldErrorBadge fieldId={fieldId} errors={fieldErrors} />
+    </div>
+  );
 }
 
 /* ---------------- inputs con buffer ---------------- */
@@ -516,9 +569,23 @@ function ReadOnlyPlaceholder({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+  ...rest
+}: {
+  title: string;
+  children: React.ReactNode;
+  // VB-B5 — aceptamos props extra (data-field-id, data-error) para
+  // que el Section de variables pueda identificarse sin tener que
+  // agregar un wrapper extra.
+  [key: string]: unknown;
+}) {
   return (
-    <section className="flex flex-col gap-2 rounded border border-[var(--c-border,#e2e8f0)] p-3">
+    <section
+      className="flex flex-col gap-2 rounded border border-[var(--c-border,#e2e8f0)] p-3"
+      {...rest}
+    >
       <h3 className="text-sm font-semibold text-[var(--c-text,#0f172a)]">{title}</h3>
       {children}
     </section>
@@ -532,6 +599,7 @@ export default function PlantillaEditorSchema({
   onChange,
   valoresActuales,
   tieneErrores,
+  lintIssues = [],
   uploadImage = uploadPng,
 }: Props) {
   const baseGenerador = isGeneradorBase(plantilla);
@@ -542,6 +610,11 @@ export default function PlantillaEditorSchema({
   const generadorBloque = plantilla.bloques.find((b) => b.kind === "generador");
   const generadorId =
     generadorBloque?.kind === "generador" ? generadorBloque.id : "";
+  // VB-B5 — calculamos los errores por campo UNA vez por render.
+  // Es un memo implícito (no usamos useMemo porque el map es barato
+  // y queremos que se recalcule cuando cambian los issues — la
+  // firma `lintIssueToFieldId` se llama por issue y no se cachea).
+  const fieldErrors: FieldErrors = buildFieldErrors(lintIssues);
   /** Default razonable al activar la base generador (primer generador). */
   const defaultGeneradorId = listGeneradores()[0]?.id ?? "";
 
@@ -677,22 +750,47 @@ export default function PlantillaEditorSchema({
                 key={field.key}
                 plantilla={plantilla}
                 onChange={onChange}
+                fieldErrors={fieldErrors}
               />
             ) : (
-              <FieldControl
+              <FieldErrorWrapper
                 key={field.key}
-                field={field}
-                plantilla={plantilla}
-                onChange={onChange}
-              />
+                fieldId={field.key}
+                fieldErrors={fieldErrors}
+              >
+                <FieldControl
+                  field={field}
+                  plantilla={plantilla}
+                  onChange={onChange}
+                />
+              </FieldErrorWrapper>
             ),
           )}
         </Section>
       )}
 
-      {!baseGenerador && variables.length > 0 && (
-        <Section title="Variables detectadas">
-          <VariablesCards variables={variables} valores={valoresActuales} />
+      {!baseGenerador && (
+        <Section
+          title="Variables"
+          // VB-B5 — el bloque variables no está en `schema.fields`
+          // (es un Section aparte), así que lo marcamos a mano para
+          // que `lintIssueToFieldId("var-duplicada" | "range-invalid")`
+          // pueda pintarlo.
+          data-field-id="variables"
+          data-error={fieldHasError("variables", fieldErrors) || undefined}
+        >
+          {/* VB-B6 — editor de variables (reemplaza al
+              VariablesCards presentacional). Las cards son
+              editables; el "+Añadir" al final de la lista y la
+              mini-toolbar al costado de la card activa insertan
+              nuevas variables en la posición del seleccionado. */}
+          <VariablesEditor
+            plantilla={plantilla}
+            variables={variables}
+            valores={valoresActuales}
+            onChange={onChange}
+          />
+          <FieldErrorBadge fieldId="variables" errors={fieldErrors} />
         </Section>
       )}
 
@@ -864,7 +962,7 @@ type VarTone = "success" | "info" | "warning" | "accent";
  * Aleatorio entero, random_float → Aleatorio decimal, uno_de/choice → Lista,
  * etc. Cada tono mapea a un token de color del tema (el punto de color).
  */
-function inferTipoVar(expr: Expr): { label: string; tone: VarTone } {
+export function inferTipoVar(expr: Expr): { label: string; tone: VarTone } {
   if (expr.kind === "fun_call") {
     switch (expr.name) {
       case "random":
@@ -888,7 +986,7 @@ function inferTipoVar(expr: Expr): { label: string; tone: VarTone } {
 }
 
 /** Formatea el valor actual del preview ("ahora: X") para mostrarlo en la card. */
-function formatValor(v: unknown): string {
+export function formatValor(v: unknown): string {
   if (v === null || v === undefined) return "—";
   if (typeof v === "string") return v;
   if (typeof v === "number" || typeof v === "boolean") return String(v);
@@ -1123,17 +1221,28 @@ const EnunciadoGeneradorField = forwardRef<
 function EnunciadoField({
   plantilla,
   onChange,
+  fieldErrors = {},
 }: {
   plantilla: Plantilla;
   onChange: (next: Plantilla) => void;
+  fieldErrors?: FieldErrors;
 }) {
   const id = useId();
   const enunciadosActive = getBlock(plantilla, "enunciados") !== undefined;
 
   return (
-    <div className="flex flex-col gap-1.5">
+    <div
+      className="flex flex-col gap-1.5"
+      data-field-id="enunciado"
+      data-error={fieldHasError("enunciado", fieldErrors) || undefined}
+    >
+      <FieldErrorBadge fieldId="enunciado" errors={fieldErrors} />
       {enunciadosActive ? (
-        <EnunciadosListField plantilla={plantilla} onChange={onChange} />
+        <EnunciadosListField
+          plantilla={plantilla}
+          onChange={onChange}
+          fieldErrors={fieldErrors}
+        />
       ) : (
         <>
           <BufferedText
@@ -1181,9 +1290,11 @@ function readEnunciadoRaw(p: Plantilla): string {
 function EnunciadosListField({
   plantilla,
   onChange,
+  fieldErrors = {},
 }: {
   plantilla: Plantilla;
   onChange: (next: Plantilla) => void;
+  fieldErrors?: FieldErrors;
 }) {
   const items = readEnunciados(plantilla);
 
@@ -1200,34 +1311,55 @@ function EnunciadosListField({
         </span>
       </div>
       <ul className="flex flex-col gap-1">
-        {items.map((tmpl, idx) => (
-          <li key={idx} className="flex items-start gap-1">
-            <input
-              type="text"
-              aria-label={`Variante de enunciado ${idx + 1}`}
-              value={tmpl}
-              onChange={(e) => {
-                const next = items.slice();
-                next[idx] = e.target.value;
-                update(next);
-              }}
-              placeholder="Texto de la variante (acepta {variable})"
-              className="flex-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
-            />
-            <button
-              type="button"
-              aria-label={`Eliminar variante ${idx + 1}`}
-              disabled={items.length <= 1}
-              onClick={() => {
-                if (items.length <= 1) return;
-                update(items.filter((_, i) => i !== idx));
-              }}
-              className="shrink-0 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs text-red-600 disabled:cursor-not-allowed disabled:opacity-40"
+        {items.map((tmpl, idx) => {
+          // VB-B5 — cada variante tiene su propio fieldId
+          // (`enunciados.${idx}`) para errores de lint a nivel item.
+          // El badge va al PIE del input (no arriba, para no romper
+          // el layout horizontal de la fila con el botón Eliminar).
+          const variantId = `enunciados.${idx}`;
+          const hasError = fieldHasError(variantId, fieldErrors);
+          return (
+            <li
+              key={idx}
+              className="flex flex-col gap-0.5"
+              data-field-id={variantId}
+              data-error={hasError || undefined}
             >
-              Eliminar
-            </button>
-          </li>
-        ))}
+              <div className="flex items-start gap-1">
+                <input
+                  type="text"
+                  aria-label={`Variante de enunciado ${idx + 1}`}
+                  value={tmpl}
+                  onChange={(e) => {
+                    const next = items.slice();
+                    next[idx] = e.target.value;
+                    update(next);
+                  }}
+                  placeholder="Texto de la variante (acepta {variable})"
+                  className={
+                    "flex-1 rounded border px-2 py-1 text-sm " +
+                    (hasError
+                      ? "border-red-500"
+                      : "border-[var(--c-border,#cbd5e1)]")
+                  }
+                />
+                <button
+                  type="button"
+                  aria-label={`Eliminar variante ${idx + 1}`}
+                  disabled={items.length <= 1}
+                  onClick={() => {
+                    if (items.length <= 1) return;
+                    update(items.filter((_, i) => i !== idx));
+                  }}
+                  className="shrink-0 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs text-red-600 disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  Eliminar
+                </button>
+              </div>
+              <FieldErrorBadge fieldId={variantId} errors={fieldErrors} />
+            </li>
+          );
+        })}
       </ul>
       <div className="flex gap-1">
         <button
