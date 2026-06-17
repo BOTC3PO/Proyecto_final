@@ -399,6 +399,9 @@ export type ModuloRow = {
   // Nullable en la columna real; el helper del test no fuerza la
   // presencia.
   theoryItems?: string | null;
+  // FIX-MODULO-CRASH-LEVEL: nivel educativo. Nullable en la columna
+  // real; el helper del test no fuerza la presencia.
+  level?: string | null;
   visibility: string;
   schoolId?: string | null;
   ownerUserId: string;

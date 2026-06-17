@@ -230,6 +230,13 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
       // vienen con `subject: null`. El editor trata `null` como
       // string vacío (ver `useModuloPersistence.ts:101`).
       subject: item.subject ?? null,
+      // FIX-MODULO-CRASH-LEVEL — devolver `level` (nivel educativo) en
+      // el GET. Mismo patrón que `subject`: la columna se agregó con
+      // la migración `20260617040000_modulo_level`. El editor lo lee
+      // en `useModuloEditor.ts:492` (con `?? ""` defensivo) y lo
+      // muestra en el input `modulo-field-level` (ModuloEditor.tsx:672).
+      // Módulos viejos o sin nivel vienen con `level: null`.
+      level: item.level ?? null,
       // FIX-GUARDADO — devolver `theoryItems` (teoría como contenido
       // embebido) en el GET. La columna se agregó con la migración
       // 20260617020000_modulo_theory_items. Se persiste como JSON
@@ -518,6 +525,13 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
       theoryItems: parsed.theoryItems?.length
         ? JSON.stringify(parsed.theoryItems)
         : null,
+      // FIX-MODULO-CRASH-LEVEL — persistir `level` (nivel educativo).
+      // Mismo patrón que `subject`: el front lo envía
+      // (useModuloPersistence.ts:218) y el ModuleSchema lo acepta
+      // (modulo.ts:210), pero la columna `level` no existía en el
+      // modelo `Modulo`. Migración `20260617040000_modulo_level` la
+      // agregó; el editor trata `null` como string vacío.
+      level: parsed.level ?? null,
       visibility: parsed.visibility,
       schoolId: parsed.schoolId ?? null,
       ownerUserId: parsed.createdBy,
@@ -622,6 +636,10 @@ async function applyModuleUpdate(
         ? JSON.stringify(parsed.theoryItems)
         : null;
     }
+    // FIX-MODULO-CRASH-LEVEL — persistir `level` (nivel educativo).
+    // Misma semántica que los demás: si viene en el payload, se
+    // actualiza; si no, queda intacto.
+    if (parsed.level !== undefined) updateData.level = parsed.level ?? null;
     if (parsed.visibility !== undefined) updateData.visibility = parsed.visibility;
     if (parsed.schoolId !== undefined) updateData.schoolId = parsed.schoolId ?? null;
     if (parsed.createdBy !== undefined) updateData.ownerUserId = parsed.createdBy;

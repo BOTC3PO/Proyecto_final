@@ -319,6 +319,11 @@ model Modulo {
   // theoryItems = null. No confundir con `teoriaId` (referencia a
   // TeoriaJson) que es el modelo viejo de referencias.
   theoryItems          String?  @map("theory_items")
+  // FIX-MODULO-CRASH-LEVEL — nivel educativo. Nullable aditivo: módulos
+  // viejos quedan con `level = null` (sin nivel persistido). El editor
+  // trata `null` como string vacío. Mismo patrón que `subject` (migración
+  // separada `20260617040000_modulo_level`).
+  level                String?  @map("level")
   visibility           String   @default("private")
   schoolId             String?  @map("school_id")
   ownerUserId          String?  @map("owner_user_id")
