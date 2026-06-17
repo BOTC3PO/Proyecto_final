@@ -16,6 +16,7 @@ import type {
   Plantilla,
   TextField,
   TipoPregunta,
+  VariableDecl,
 } from "@vb/vblang";
 import { CONSTANTES_GLOBALES, QUESTION_TYPE_SCHEMAS } from "@vb/vblang";
 import {
@@ -554,6 +555,154 @@ export function writePista(p: Plantilla, value: string): Plantilla {
 /** Cantidad de variables declaradas en el bloque `variables:`. */
 export function contarVariables(p: Plantilla): number {
   return getBlock(p, "variables")?.declaraciones.length ?? 0;
+}
+
+/* ---------------- VB-B6: lectura/escritura de variables ---------------- */
+
+/**
+ * VB-B6 — `readVariable`: lee una variable del bloque `variables:`.
+ * Devuelve `null` si el índice está fuera de rango. La localización
+ * es del AST original (no se usa para editar; sirve sólo para
+ * preservar identidad en round-trips).
+ */
+export function readVariable(p: Plantilla, index: number): VariableDecl | null {
+  const decls = getBlock(p, "variables")?.declaraciones ?? [];
+  return index >= 0 && index < decls.length ? decls[index]! : null;
+}
+
+/**
+ * VB-B6 — `addVariable`: agrega una `VariableDecl` al final del
+ * bloque `variables:` (o en la posición `atIndex` si se pasa).
+ * Si el bloque no existe, lo crea. Crea la variable con un nombre
+ * único derivado de `baseName` (sufijos `_2`, `_3`…) si ya existe.
+ */
+export function addVariable(
+  p: Plantilla,
+  decl: VariableDecl,
+  atIndex?: number,
+): Plantilla {
+  const existing = getBlock(p, "variables");
+  const current = existing?.declaraciones ?? [];
+  // Si la decl que entra tiene un nombre duplicado, generamos uno
+  // único para no chocar con el linter (`var-duplicada`).
+  const taken = new Set(current.map((d) => d.nombre));
+  if (taken.has(decl.nombre)) {
+    let i = 2;
+    while (taken.has(`${decl.nombre}_${i}`)) i++;
+    decl = { ...decl, nombre: `${decl.nombre}_${i}` };
+  }
+  const idx = atIndex === undefined ? current.length : Math.max(0, Math.min(atIndex, current.length));
+  const next = [...current.slice(0, idx), decl, ...current.slice(idx)];
+  const newBlock: Bloque = existing
+    ? { ...existing, declaraciones: next }
+    : { kind: "variables", declaraciones: next, loc: DUMMY_LOC };
+  return withBlock(p, newBlock);
+}
+
+/**
+ * VB-B6 — `updateVariable`: reemplaza la variable en `index` con la
+ * `VariableDecl` provista. Mantiene la posición original y el orden
+ * de las demás. Si el índice está fuera de rango, devuelve la
+ * plantilla sin cambios.
+ */
+export function updateVariable(
+  p: Plantilla,
+  index: number,
+  decl: VariableDecl,
+): Plantilla {
+  const existing = getBlock(p, "variables");
+  if (!existing) return p;
+  const current = existing.declaraciones;
+  if (index < 0 || index >= current.length) return p;
+  const next = current.map((d, i) => (i === index ? decl : d));
+  return withBlock(p, { ...existing, declaraciones: next });
+}
+
+/**
+ * VB-B6 — `removeVariable`: elimina la variable en `index`. Si el
+ * bloque queda vacío, lo elimina también. Si el índice está fuera
+ * de rango, devuelve la plantilla sin cambios.
+ */
+export function removeVariable(p: Plantilla, index: number): Plantilla {
+  const existing = getBlock(p, "variables");
+  if (!existing) return p;
+  const current = existing.declaraciones;
+  if (index < 0 || index >= current.length) return p;
+  const next = current.filter((_, i) => i !== index);
+  if (next.length === 0) return withoutBlock(p, "variables");
+  return withBlock(p, { ...existing, declaraciones: next });
+}
+
+/**
+ * VB-B6 — factories de expresiones para los tipos más comunes
+ * de variable. El form las usa al "+Añadir" para arrancar con un
+ * seed razonable según el tipo elegido.
+ */
+export function makeRandomIntExpr(lo: number, hi: number): Expr {
+  return {
+    kind: "fun_call",
+    name: "random",
+    args: [numLit(lo), numLit(hi)],
+    loc: DUMMY_LOC,
+  };
+}
+
+export function makeRandomFloatExpr(lo: number, hi: number): Expr {
+  return {
+    kind: "fun_call",
+    name: "random_float",
+    args: [numLit(lo), numLit(hi)],
+    loc: DUMMY_LOC,
+  };
+}
+
+export function makeListExpr(items: string[]): Expr {
+  return arrayLit(
+    items.map((s) => {
+      // Intentamos como número si parece un número, si no como string.
+      const n = Number(s);
+      if (s.trim() !== "" && Number.isFinite(n)) return numLit(n);
+      return strLit(s);
+    }),
+  );
+}
+
+export function makeRangeExpr(lo: number, hi: number): Expr {
+  return {
+    kind: "fun_call",
+    name: "rango",
+    args: [numLit(lo), numLit(hi)],
+    loc: DUMMY_LOC,
+  };
+}
+
+/** VB-B6 — clasifica la `Expr` de una variable en uno de los tipos
+ *  editables del form. Usado para inicializar los inputs cuando el
+ *  usuario edita una variable existente (no asumimos un tipo
+ *  hardcodeado). */
+export type VariableKind = "random-int" | "random-float" | "list" | "range" | "expr";
+
+export function classifyVariable(expr: Expr): VariableKind {
+  if (expr.kind === "fun_call") {
+    switch (expr.name) {
+      case "random":
+        return "random-int";
+      case "random_float":
+        return "random-float";
+      case "uno_de":
+      case "choice":
+        return "list";
+      case "rango":
+      case "range":
+        return "range";
+      default:
+        return "expr";
+    }
+  }
+  if (expr.kind === "array") {
+    return "list";
+  }
+  return "expr";
 }
 
 /**
