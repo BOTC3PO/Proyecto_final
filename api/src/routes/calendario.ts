@@ -81,11 +81,27 @@ calendario.get("/api/calendario/unificado", requireUser,
           miembros: { some: { usuarioId: userId!, rolEnClase: "USER" } },
         };
       } else if (role === "TEACHER") {
+        // FIX-CALENDARIO — usar el criterio canónico de "docente del aula"
+        // (QA-FIX-05, `isClassroomTeacher` en `classroom-scope.ts:57-67`):
+        // admin, owner por `createdBy`/`teacherId`/`teacherOfRecord`, o
+        // miembro con `rolEnClase === "TEACHER"`. Antes el OR solo tenía
+        // `createdBy`/`teacherId`, así que un TEACHER-miembro veía sus
+        // aulas en el dropdown de `ProfesorCalendario` (post-QA-FIX-08)
+        // pero el feed unificado las descartaba y sus eventos no
+        // aparecían. (Ver `docs/qa/diagnostico_calendario.md`.)
+        //
+        // NOTA: este OR es la traducción del helper `isClassroomTeacher`
+        // a Prisma `where`. Si en el futuro el helper cambia, hay que
+        // actualizar este OR en consecuencia — o mejor aún, refactorizar
+        // el helper para devolver también un `where` de Prisma y reusarlo
+        // desde acá y desde `aulas.ts:135-160`.
         aulaWhere = {
           ...aulaWhere,
           OR: [
             { createdBy: userId! },
             { teacherId: userId! },
+            { teacherOfRecord: userId! },
+            { miembros: { some: { usuarioId: userId!, rolEnClase: "TEACHER" } } },
           ],
         };
       } else if ((role === "DIRECTIVO" || role === "ADMIN") && schoolId) {

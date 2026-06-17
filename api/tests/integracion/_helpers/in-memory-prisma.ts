@@ -50,6 +50,52 @@ function matchScalar(value: unknown, condition: unknown): boolean {
   return true;
 }
 
+/**
+ * FIX-CALENDARIO: walker de `where` con soporte para el filtro de
+ * relación `miembros: { some: { ... } }` (criterio canónico de
+ * "docente del aula" — QA-FIX-05). El stub genérico trata `some`
+ * como no-op y rompe el OR del feed unificado de calendario. Esta
+ * función es el reemplazo que usa el override de `clase.findMany`.
+ */
+function matchesClaseWhere(
+  row: Row,
+  where: Record<string, unknown> | undefined,
+  self: InMemoryPrisma
+): boolean {
+  if (!where) return true;
+  for (const [k, v] of Object.entries(where)) {
+    if (k === "AND") {
+      const arr = (Array.isArray(v) ? v : [v]) as WhereClause[];
+      if (!arr.every((w) => matchesClaseWhere(row, w as Record<string, unknown>, self))) return false;
+      continue;
+    }
+    if (k === "OR") {
+      const arr = (Array.isArray(v) ? v : [v]) as WhereClause[];
+      if (!arr.some((w) => matchesClaseWhere(row, w as Record<string, unknown>, self))) return false;
+      continue;
+    }
+    if (k === "NOT") {
+      if (matchesClaseWhere(row, v as Record<string, unknown>, self)) return false;
+      continue;
+    }
+    if (k === "miembros") {
+      const cond = v as { some?: Record<string, unknown> } | null | undefined;
+      if (!cond || typeof cond !== "object" || !("some" in cond) || !cond.some) {
+        // Sin `some`, el genérico debería haber filtrado. Si llegamos
+        // acá, devolvemos false para no incluir la fila.
+        return false;
+      }
+      const matches = self.claseMiembro.rows.some(
+        (m) => m.claseId === row.id && rowMatches(m as Row, cond.some as WhereClause)
+      );
+      if (!matches) return false;
+      continue;
+    }
+    if (!rowMatches(row, { [k]: v })) return false;
+  }
+  return true;
+}
+
 function rowMatches(row: Row, where: WhereClause): boolean {
   if (!where) return true;
   for (const [key, val] of Object.entries(where)) {
@@ -311,6 +357,32 @@ export type ClaseModuloRow = {
   required: boolean;
 };
 
+export type ActividadAulaRow = {
+  id: string;
+  aulaId: string;
+  tipo: string;
+  titulo: string;
+  descripcion?: string | null;
+  fecha: string;
+  fechaFin?: string | null;
+  createdBy: string;
+  createdAt: string;
+  isDeleted: boolean;
+};
+
+export type CalendarioEscuelaRow = {
+  id: string;
+  escuelaId: string;
+  tipo: string;
+  titulo: string;
+  descripcion?: string | null;
+  fechaInicio: string;
+  fechaFin: string;
+  createdBy: string;
+  createdAt: string;
+  isDeleted: boolean;
+};
+
 export type ModuloRow = {
   id: string;
   slug?: string | null;
@@ -454,6 +526,8 @@ export class InMemoryPrisma {
   clase = new Table<ClaseRow>("clase");
   claseMiembro = new Table<ClaseMiembroRow>("claseMiembro");
   claseModulo = new Table<ClaseModuloRow>("claseModulo");
+  actividadAula = new Table<ActividadAulaRow>("actividadAula");
+  calendarioEscuela = new Table<CalendarioEscuelaRow>("calendarioEscuela");
   modulo = new Table<ModuloRow>("modulo");
   quiz = new Table<QuizRow>("quiz");
   quizVersion = new Table<QuizVersionRow>("quizVersion");
@@ -476,7 +550,7 @@ export class InMemoryPrisma {
       return rows;
     };
 
-    // Tarea 16b: findFirst/findMany on `clase` with `include: { miembros: true }`
+    // Tarea 16b: findFirst/findMany on `clase` con `include: { miembros: true }`
     // (usado por authorizeDocenteOAula en routes/aulas.ts).
     const applyClaseInclude = (row: Record<string, unknown>) => {
       const miembros = this.claseMiembro.rows
@@ -494,7 +568,20 @@ export class InMemoryPrisma {
     };
     const claseFindMany = this.clase.findMany.bind(this.clase);
     this.clase.findMany = async (args) => {
-      const rows = await claseFindMany(args);
+      // FIX-CALENDARIO: soporte de `where: { miembros: { some: { ... } } }`
+      // (criterio canónico de "docente del aula" — QA-FIX-05). Sin esto,
+      // el OR con `miembros.some` se ignora y el filtro de TEACHER en
+      // `routes/calendario.ts:83-100` no descarta los aulas donde el
+      // usuario no es miembro.
+      //
+      // Estrategia: post-procesamos el resultado del `findMany`
+      // genérico re-evaluando el `where` con un walker que conoce el
+      // filtro de relación. El genérico ya filtra correctamente por
+      // las claves escalares; nosotros sobreescribimos solo el manejo
+      // de `miembros.some` (y devolvemos false si no hay match).
+      const genericRows = await claseFindMany(args);
+      const where = (args as { where?: Record<string, unknown> } | undefined)?.where;
+      const rows = where ? genericRows.filter((r) => matchesClaseWhere(r, where, this)) : genericRows;
       if ((args as { include?: Record<string, unknown> } | undefined)?.include) {
         for (const r of rows) applyClaseInclude(r as Record<string, unknown>);
       }
