@@ -157,6 +157,12 @@ export default function PlantillaEditor() {
   const [modo, setModo] = useState<"codigo" | "visual">("codigo");
   const [referenciaOpen, setReferenciaOpen] = useState(false);
   const [promptIAOpen, setPromptIAOpen] = useState(false);
+  // VB-B2 — panel colapsable "Código generado" en modo visual.
+  // Muestra el DSL que produce el formulario en vivo. Read-only: el
+  // editor de código vive en `modo === "codigo"`; acá sólo reflejamos
+  // lo que el form va serializando (la fuente de verdad sigue siendo
+  // `codigoDsl`, que el form actualiza vía `setCodigo(serialize(next))`).
+  const [showGeneratedCode, setShowGeneratedCode] = useState(false);
   // Wizard de nueva plantilla: se muestra una vez al crear (isNew=true) y se
   // cierra cuando el usuario elige algo (o lo descarta). No persistimos el
   // estado en storage: si recarga la página, vuelve a aparecer (es creación).
@@ -672,8 +678,55 @@ export default function PlantillaEditor() {
                       !!compilation.parseError ||
                       (compilation.lintReport?.errors.length ?? 0) > 0
                     }
+                    // VB-B5 — pasamos los issues del lint al form para
+                    // que cada campo culpable muestre su propio badge.
+                    // El panel general (ErrorPanel) sigue mostrándolos
+                    // todos; este es un complemento visual por campo.
+                    lintIssues={compilation.lintReport?.issues ?? []}
                   />
                 </div>
+                {/* VB-B2 — panel "Código generado" (read-only) que refleja
+                    en vivo lo que va produciendo el formulario. Aparece
+                    sólo en modo visual; en modo código el CodeEditor
+                    ocupa ese lugar y el form no participa. La fuente
+                    es `codigoDsl`, ya actualizada por la línea de arriba
+                    (`setCodigo(serialize(next))`) — no recalculamos nada
+                    acá para no duplicar lógica. */}
+                <section
+                  className="border-t border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)]"
+                  data-testid="vblang-generated-code-section"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setShowGeneratedCode((v) => !v)}
+                    aria-expanded={showGeneratedCode}
+                    aria-controls="vblang-generated-code-panel"
+                    data-testid="vblang-generated-code-toggle"
+                    className="flex w-full items-center justify-between px-3 py-2 text-xs font-medium text-[var(--c-muted,#64748b)] hover:text-[var(--c-text)]"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span aria-hidden="true">{showGeneratedCode ? "▾" : "▸"}</span>
+                      <span>Código generado</span>
+                    </span>
+                    <span className="text-[10px] text-[var(--c-muted,#94a3b8)]">
+                      read-only · sincronizado con el formulario
+                    </span>
+                  </button>
+                  {showGeneratedCode && (
+                    <pre
+                      id="vblang-generated-code-panel"
+                      data-testid="vblang-generated-code"
+                      // NO es un <textarea>: nunca se edita desde acá.
+                      // Cualquier edición pasa por el CodeEditor (modo
+                      // código) o por el formulario. Evita el conflicto
+                      // "dos editores de texto que pisan el mismo state".
+                      className="max-h-48 overflow-auto px-3 pb-3 pt-1 text-[11px] font-mono leading-snug text-[var(--c-text)] whitespace-pre-wrap break-words"
+                      aria-label="DSL generado por el formulario (read-only)"
+                    >
+                      {codigoDsl || "(vacío)"}
+                    </pre>
+                  )}
+                </section>
               </div>
             );
           })()}
