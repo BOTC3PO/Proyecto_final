@@ -479,7 +479,11 @@ export function useModuloEditor(
     const generalOk =
       form.title.trim().length > 0 &&
       form.description.trim().length > 0 &&
-      form.subject.length > 0 &&
+      // FIX-MODULO-CRASH — `form.subject` puede ser `undefined` si
+      // el form se construyó sin pasar por `useModuloPersistence`
+      // (p.ej. modo creación, donde se inicializa con `defaultForm`
+      // sin subject). Default a "" para no crashear.
+      (form.subject ?? "").length > 0 &&
       form.level.trim().length > 0;
     const theoryOk = theoryItems.length > 0;
     const quizzesOk =

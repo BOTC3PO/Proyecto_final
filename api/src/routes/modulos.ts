@@ -222,6 +222,14 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
       slug: item.slug ?? undefined,
       title: item.titulo,
       description: item.descripcion ?? "",
+      // FIX-MODULO-CRASH — devolver `subject` (materia) en el GET.
+      // La columna se agregó con la migración
+      // 20260617010000_modulo_subject. La persistencia (POST/PUT
+      // que escriben este campo) la agrega FIX-GUARDADO; por ahora
+      // los módulos viejos (y los nuevos hasta que se persista)
+      // vienen con `subject: null`. El editor trata `null` como
+      // string vacío (ver `useModuloPersistence.ts:101`).
+      subject: item.subject ?? null,
       visibility: item.visibility,
       schoolId: item.schoolId ?? undefined,
       dependencies: item.dependencies

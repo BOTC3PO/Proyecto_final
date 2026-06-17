@@ -98,7 +98,11 @@ export function useModuloPersistence(): UsePersistenceReturn {
       const form: ModuleFormState = {
         title: module.title,
         description: module.description,
-        subject: module.subject,
+        // FIX-MODULO-CRASH — `subject` puede venir `undefined` o
+        // `null` cuando el back todavía no persiste la materia (antes
+        // de FIX-GUARDADO). Default a "" para no romper el editor
+        // (`useModuloEditor.ts:482` lee `form.subject.length`).
+        subject: module.subject ?? "",
         category: module.category,
         level: module.level,
         durationMinutes: module.durationMinutes,

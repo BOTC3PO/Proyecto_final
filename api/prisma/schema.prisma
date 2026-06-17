@@ -308,6 +308,11 @@ model Modulo {
   slug                 String?  @unique
   titulo               String
   descripcion          String?
+  // FIX-MODULO-CRASH — materia. Nullable aditiva. La PERSISTENCIA
+  // (POST/PUT que escriben este campo) la agrega FIX-GUARDADO; este
+  // fix solo agrega la columna y la expone en el GET para que el
+  // editor pueda leerla. Eventos viejos quedan con subject = null.
+  subject              String?  @map("subject")
   visibility           String   @default("private")
   schoolId             String?  @map("school_id")
   ownerUserId          String?  @map("owner_user_id")

@@ -392,6 +392,9 @@ export type ModuloRow = {
   slug?: string | null;
   titulo: string;
   descripcion?: string | null;
+  // FIX-MODULO-CRASH: materia. Nullable en la columna real; el
+  // helper del test no fuerza la presencia.
+  subject?: string | null;
   visibility: string;
   schoolId?: string | null;
   ownerUserId: string;
