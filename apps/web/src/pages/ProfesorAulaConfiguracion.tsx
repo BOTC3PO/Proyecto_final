@@ -15,6 +15,16 @@ type FormState = {
   status: Classroom["status"];
   institutionId: string;
   category: string;
+  // FIX-CONFIG-CODIGO — el `classCode` es el código que el alumno
+  // tipea para sumarse al aula. Antes el form no lo incluía (ni en
+  // el GET, ni en el render, ni en el PUT), así que:
+  //   - el docente no lo veía (bug 2.4 del informe de QA),
+  //   - al guardar cambios, el `classCode` se borraba accidentalmente
+  //     si el back interpretaba los campos no enviados como `null`
+  //     (bug 2.1, hidratación parcial).
+  // Ahora se muestra y se preserva en el round-trip.
+  classCode: string;
+  grade: string;
 };
 
 const buildInitialState = (classroom: Classroom): FormState => ({
@@ -24,6 +34,8 @@ const buildInitialState = (classroom: Classroom): FormState => ({
   status: normalizeClassroomStatus(classroom.status) ?? "ACTIVE",
   institutionId: classroom.institutionId ?? "",
   category: classroom.category ?? "",
+  classCode: classroom.classCode ?? "",
+  grade: (classroom as { grade?: string }).grade ?? "",
 });
 
 export default function ProfesorAulaConfiguracion() {
@@ -169,6 +181,13 @@ export default function ProfesorAulaConfiguracion() {
         status: form.status,
         institutionId: form.institutionId || undefined,
         category: form.category || undefined,
+        // FIX-CONFIG-CODIGO — preservamos el classCode en el round-trip.
+        // Antes el form no lo incluía y un PUT sin `classCode` podía
+        // borrarlo accidentalmente si el back interpretaba el campo
+        // ausente como null. Ahora va explícito (incluso si está
+        // vacío, para que el back lo persista como `""` y no como
+        // null en un round-trip).
+        classCode: form.classCode || undefined,
       });
       setClassroom((prev) =>
         prev
@@ -180,6 +199,7 @@ export default function ProfesorAulaConfiguracion() {
               status: form.status,
               institutionId: form.institutionId || undefined,
               category: form.category || undefined,
+              classCode: form.classCode || undefined,
               updatedAt: new Date().toISOString(),
             }
           : prev
@@ -208,7 +228,7 @@ export default function ProfesorAulaConfiguracion() {
           {id && (
             <Link
               className="rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-              to={`/clases?id=${encodeURIComponent(id)}`}
+              to={`/clases/${encodeURIComponent(id)}`}
             >
               ← Volver al aula
             </Link>
@@ -290,6 +310,46 @@ export default function ProfesorAulaConfiguracion() {
                   onChange={(event) => handleFieldChange("category", event.target.value)}
                 />
               </label>
+              <label className="flex flex-col gap-2 text-sm font-semibold text-[var(--c-text)]">
+                Curso / grado
+                <input
+                  className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  value={form.grade}
+                  onChange={(event) => handleFieldChange("grade", event.target.value)}
+                  placeholder="Ej: 5°"
+                />
+              </label>
+            </div>
+
+            {/* FIX-CONFIG-CODIGO — bloque destacado con el classCode
+                y botón de copiar. Los alumnos tipean este código para
+                sumarse al aula desde /unirse. */}
+            <div className="rounded-xl border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-4 flex flex-wrap items-center gap-3 md:col-span-2"
+                 data-testid="config-classcode">
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
+                  Código de clase (para que se sumen los alumnos)
+                </p>
+                <p className="text-2xl font-mono font-semibold text-[var(--c-text)] mt-1 select-all" data-testid="config-classcode-value">
+                  {form.classCode || "Sin código asignado"}
+                </p>
+              </div>
+              <button
+                type="button"
+                disabled={!form.classCode}
+                data-testid="config-classcode-copy"
+                onClick={async () => {
+                  if (!form.classCode) return;
+                  try {
+                    await navigator.clipboard.writeText(form.classCode);
+                  } catch {
+                    /* fallback: el usuario puede seleccionar a mano */
+                  }
+                }}
+                className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-primary-soft,#dbeafe)] disabled:opacity-50 transition-colors"
+              >
+                📋 Copiar código
+              </button>
             </div>
 
             <div className="flex flex-wrap items-center gap-3">

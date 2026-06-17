@@ -18,6 +18,12 @@ type AulaDoc = {
   createdBy?: string | null;
   teacherId?: string | null;
   teacherOfRecord?: string | null;
+  // FIX-CONFIG-CODIGO — códigos de clase que la UI usa para que los
+  // alumnos se sumen al aula (`classCode`) y para trazabilidad
+  // interna (`code`). Se propagan desde el modelo Prisma `Clase`
+  // (columnas `class_code` y `code`).
+  code?: string | null;
+  classCode?: string | null;
   members?: ClassroomMember[];
   isDeleted?: boolean;
 };
@@ -68,6 +74,22 @@ export const isClassroomTeacher = (
 
 type ClassroomScopeOptions = {
   paramName?: string;
+  /**
+   * FIX-TABLON-403 — algunas rutas (ej. `/api/aula/leaderboard`,
+   * `/api/aula/actividades`) reciben el `classroomId` por QUERY
+   * STRING y no por path param. Por defecto el middleware lee
+   * `req.params[paramName]`, pero se puede optar por `query` para
+   * mantener la URL pública intacta sin cambiar el handler.
+   */
+  paramSource?: "params" | "query";
+  /**
+   * FIX-TABLON-403 — mensaje del 400 cuando falta el id. Por
+   * defecto se mantiene el genérico `classroom id required` para
+   * no romper consumidores existentes; las rutas que quieran un
+   * mensaje específico (ej. `classroomId requerido` para
+   * mantener compat con FIX-AULA-PARAM) lo pasan explícito.
+   */
+  badRequestMessage?: string;
   allowMemberRoles?: "any" | string[];
   allowSchoolMatch?: boolean;
   schoolMatchRoles?: string[];
@@ -96,9 +118,15 @@ export const requireClassroomScope =
   (options: ClassroomScopeOptions = {}): RequestHandler =>
   async (req, res, next) => {
     const paramName = options.paramName ?? "id";
-    const classroomId = req.params[paramName];
+    const paramSource = options.paramSource ?? "params";
+    const rawId =
+      paramSource === "query"
+        ? (req.query as Record<string, unknown>)[paramName]
+        : req.params[paramName];
+    const classroomId =
+      typeof rawId === "string" && rawId.length > 0 ? rawId : null;
     if (!classroomId) {
-      res.status(400).json({ error: "classroom id required" });
+      res.status(400).json({ error: options.badRequestMessage ?? "classroom id required" });
       return;
     }
     const whereClause: any = { id: classroomId };
@@ -121,6 +149,13 @@ export const requireClassroomScope =
       teacherId: claseRaw.teacherId ?? null,
       teacherOfRecord: claseRaw.teacherOfRecord ?? null,
       isDeleted: claseRaw.isDeleted,
+      // FIX-CONFIG-CODIGO — el modelo Prisma `Clase` expone `code` y
+      // `classCode` (códigos legacy y de join, ver `schema.prisma:104`).
+      // Antes no se propagaban al `res.locals.classroom`, así que el
+      // front (`aula.tsx`, `ProfesorAulaConfiguracion.tsx`) los veía
+      // como `undefined` aunque la fila los tuviera poblados.
+      code: claseRaw.code ?? null,
+      classCode: claseRaw.classCode ?? null,
       members: claseRaw.miembros.map((m: { usuarioId: string; rolEnClase: string }) => ({
         userId: m.usuarioId,
         roleInClass: m.rolEnClase

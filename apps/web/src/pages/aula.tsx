@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import ContinuarCard from "../components/aula/ContinuarCard";
-import { apiGet } from "../lib/api";
+import { apiGet, apiPost } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
 import type { Classroom } from "../domain/classroom/classroom.types";
@@ -97,6 +97,16 @@ export default function Aula() {
     useState<Record<string, "idle" | "loading" | "error">>({});
   const publicationFormRef = useRef<HTMLDivElement | null>(null);
   const [asignarModulosOpen, setAsignarModulosOpen] = useState(false);
+  // FIX-MODO-AULA-INLINE — bug 2.7 de `docs/qa/test-parte-3-profesor.md`:
+  // el "Modo Aula" se activaba SOLO desde el menú del profesor
+  // (toggle global), no desde el aula misma. El docente tenía
+  // que abrir otra pestaña para restringir a sus alumnos durante
+  // la clase. Ahora el aula expone su propio toggle, que actúa
+  // SOLO sobre esta clase (scope = `aulaId`), no sobre toda la
+  // escuela. Esto acerca el control al momento pedagógico y
+  // permite que la escuela sea laxa por default.
+  const [modoAulaActivo, setModoAulaActivo] = useState(false);
+  const [modoAulaLoading, setModoAulaLoading] = useState(false);
 
   const normalizedStatus = useMemo(
     () => normalizeClassroomStatus(classroom?.status ?? null),
@@ -164,6 +174,24 @@ export default function Aula() {
 
   const handleAsignarModulosClick = () => {
     setAsignarModulosOpen(true);
+  };
+
+  const handleToggleModoAula = async () => {
+    if (!classroomId) return;
+    setModoAulaLoading(true);
+    try {
+      const activar = !modoAulaActivo;
+      await apiPost("/api/pedagogico/modo-aula", {
+        aulaId: classroomId,
+        activo: activar,
+        restricciones: ["tienda", "economia"],
+      });
+      setModoAulaActivo(activar);
+    } catch {
+      /* mantener el estado anterior si el back falla */
+    } finally {
+      setModoAulaLoading(false);
+    }
   };
 
   const handleSubmitPublication = async () => {
@@ -255,9 +283,46 @@ export default function Aula() {
     return () => { active = false; };
   }, [classroomId]);
 
+  // FIX-ACCIONES-AULA — el chequeo original (`user.role === "TEACHER"`)
+  // mostraba la barra de acciones del aula para CUALQUIER docente
+  // logueado, incluso si no era miembro del aula. Eso era privilegio
+  // inflado: el doc podía ver (y disparar) "Tomar asistencia",
+  // "Asignar módulo" y "Estadísticas" en clases donde no tenía
+  // autoridad (criterio canónico `isClassroomTeacher` del back,
+  // `api/src/lib/classroom-scope.ts:57`).
+  //
+  // Criterio canónico (alineado con el back):
+  //   - ADMIN global: sí.
+  //   - Miembro con `roleInClass === "TEACHER"` en `classroom.members`:
+  //     sí.
+  //   - Owner del aula (`classroom.createdBy` o `classroom.teacherId`
+  //     o `classroom.teacherOfRecord`): sí.
+  //   - Resto: no.
+  //
+  // Si el back no alcanzó a popular `members` (ej. mock antiguo o
+  // fallo parcial del GET), caemos al `viewerIsTeacher` que la API
+  // ya calcula para aulas listadas y/o al owner heurístico para no
+  // romper la UX del docente dueño. Bug 2.8 de
+  // `docs/qa/test-parte-3-profesor.md`.
   const isTeacherOfClass = useMemo(() => {
-    if (!user || !classroom || user.role !== "TEACHER") return false;
-    return true;
+    if (!user || !classroom) return false;
+    if (user.role === "ADMIN") return true;
+    if (user.role !== "TEACHER") return false;
+    if (classroom.viewerIsTeacher === true) return true;
+    if (classroom.viewerIsTeacher === false) return false;
+    const members = Array.isArray(classroom.members) ? classroom.members : [];
+    const memberMatch = members.some(
+      (m) => m.userId === user.id && (m.roleInClass === "TEACHER" || m.roleInClass === "ADMIN"),
+    );
+    if (memberMatch) return true;
+    if (
+      classroom.createdBy === user.id ||
+      classroom.teacherId === user.id ||
+      classroom.teacherOfRecord === user.id
+    ) {
+      return true;
+    }
+    return false;
   }, [classroom, user]);
 
   const roleLabel = useMemo(() => {
@@ -362,6 +427,40 @@ export default function Aula() {
                 onPublicarClick={handlePublicarClick}
                 onAsignarModulosClick={handleAsignarModulosClick}
               />
+            )}
+            {/* FIX-MODO-AULA-INLINE — toggle inline para activar
+                "Modo Aula" SOLO sobre esta clase. El toggle global del
+                menú del profesor sigue existiendo como atajo
+                institucional, pero el docente ahora puede entrar al
+                aula y activar el modo en el momento sin abrir otra
+                pestaña. Bug 2.7 de `docs/qa/test-parte-3-profesor.md`. */}
+            {isTeacherOfClass && classroomId && (
+              <div
+                className={`rounded-xl border p-3 flex items-center justify-between gap-3 ${
+                  modoAulaActivo
+                    ? "border-[var(--c-primary)] bg-[var(--c-primary-soft,#dbeafe)]/40"
+                    : "border-[var(--c-border)] bg-[var(--c-surface)]"
+                }`}
+                data-testid="modo-aula-inline"
+              >
+                <div>
+                  <p className="text-sm font-medium text-[var(--c-text)]">
+                    {modoAulaActivo ? "Modo Aula activo" : "Modo Aula"}
+                  </p>
+                  <p className="text-xs text-[var(--c-muted)]">
+                    Restringe tienda y economía para los alumnos de esta clase.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleToggleModoAula}
+                  disabled={modoAulaLoading}
+                  data-testid="modo-aula-inline-toggle"
+                  className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+                >
+                  {modoAulaLoading ? "..." : modoAulaActivo ? "Desactivar" : "Activar"}
+                </button>
+              </div>
             )}
             {isTeacherOfClass && classroomId && (
               <details

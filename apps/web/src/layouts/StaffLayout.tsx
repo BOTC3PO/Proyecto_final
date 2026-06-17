@@ -5,6 +5,12 @@ import { NAV_BY_ROLE } from '../nav/navConfig';
 import { OfflineIndicator } from '../components/OfflineIndicator';
 import StaffSidebar from './StaffSidebar';
 
+const ROLE_LABEL: Record<string, string> = {
+  TEACHER: 'Docente',
+  DIRECTIVO: 'Directivo',
+  ADMIN: 'Administrador',
+};
+
 function Topbar() {
   const location = useLocation();
   const { user } = useAuth();
@@ -22,6 +28,19 @@ function Topbar() {
       <p className="text-sm font-semibold text-[var(--c-text)]">
         {active?.label ?? 'Panel'}
       </p>
+      {/* FIX-NAVBAR-MODE — un badge de rol explícito para que el
+          docente/directivo/admin siempre sepa que está en el "modo
+          staff" y NO en el modo alumno (vista /clases/:id). Antes el
+          layout solo tenía un sidebar izquierdo sin un indicador de
+          rol visible arriba, lo que llevaba a confundir /profesor/*
+          con la vista /clases/* (que usa `AlumnoNavbar`). Bug 2.5 del
+          informe `test-parte-3-profesor.md`. */}
+      <span
+        data-testid="staff-mode-badge"
+        className="inline-flex items-center gap-1.5 rounded-full bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-[var(--c-primary)]"
+      >
+        Modo {ROLE_LABEL[role] ?? role}
+      </span>
     </header>
   );
 }

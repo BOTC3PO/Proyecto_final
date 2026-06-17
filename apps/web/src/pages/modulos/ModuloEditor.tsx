@@ -213,13 +213,37 @@ export default function ModuloEditor() {
   const fieldErr = (f: keyof typeof FIELD_ERROR_MSG) =>
     validationErrors.includes(FIELD_ERROR_MSG[f]);
 
+  // FIX-MODULO-QUIZ-IMPORT — el `useEffect` original tenía deps `[]`
+  // y solo corría en mount. Cuando el docente ya estaba en el editor
+  // de módulo, iba a "Editor V2", creaba un cuestionario, y volvía
+  // con `navigate(returnTo, { state: { importedQuiz } })`, el state
+  // llegaba a `location.state` pero el effect NO se re-disparaba
+  // (deps `[]` y el componente ya estaba montado). Resultado: el
+  // cuestionario "no se cargaba en el módulo" — bug 7.9 de
+  // `docs/qa/test-parte-3-profesor.md`.
+  //
+  // Fix: depender de `location.state` para re-correr el effect cada
+  // vez que llega un nuevo `importedQuiz`. Se reemplaza el state
+  // apenas se consume para que navegaciones sucesivas (ej. ir y
+  // volver) sigan funcionando, sin que el efecto quede "pegado" en
+  // el primer quiz si el docente entra y sale varias veces del V2.
+  const importedQuizState = (location.state as
+    | { importedQuiz?: Record<string, unknown> }
+    | null)?.importedQuiz;
   useEffect(() => {
-    const state = location.state as
-      { importedQuiz?: Record<string, unknown> } | null;
-    if (!state?.importedQuiz) return;
-    window.history.replaceState({}, "");
-    handleImportQuizzes([state.importedQuiz as ModuleQuiz]);
-  }, []);
+    if (!importedQuizState) return;
+    window.history.replaceState(
+      window.history.state ?? {},
+      "",
+      window.location.pathname + window.location.search,
+    );
+    handleImportQuizzes([importedQuizState as ModuleQuiz]);
+    // handleImportQuizzes viene de useModuloEditor (estable entre
+    // renders para un mismo id). `location.state` se reemplaza
+    // arriba así que la próxima vez que no haya importedQuiz el
+    // effect no hace nada.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [importedQuizState]);
 
   const [draftRestored, setDraftRestored] = useState(false);
 

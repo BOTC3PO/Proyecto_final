@@ -89,6 +89,38 @@ const QUIZ_TYPE_LABELS: Record<ModuleQuiz["type"], string> = {
   competencia: "Competencia",
 };
 
+// FIX-LEER-VOZ-ALTA — la lógica que junta los textos a leer en voz
+// alta estaba inline dentro de `leerModulo`, con un check
+// `bloque.type === "text"` que no matcheaba con el "Texto" canónico
+// que emite el editor. La extraemos como helper puro para poder
+// testearla sin levantar el componente ni tocar `window.speechSynthesis`.
+export const extractTextForTts = (
+  module: Partial<Module> & {
+    theoryBlocks?: ModuleTheoryBlock[];
+    theoryItems?: ModuleTheoryBlock[];
+  }
+): string[] => {
+  const bloques = module.theoryBlocks ?? module.theoryItems ?? [];
+  const textos: string[] = [];
+  if (module.title) textos.push(module.title);
+  if (module.description) textos.push(module.description);
+
+  const isTextType = (t: string) =>
+    t === "Texto" || t.toLowerCase() === "text";
+
+  for (const bloque of bloques) {
+    if (isTextType(bloque.type) && bloque.detail) {
+      if (bloque.title) textos.push(bloque.title);
+      textos.push(bloque.detail);
+    }
+    if (bloque.type === "image") {
+      const alt = (bloque as { alt?: string }).alt;
+      if (alt) textos.push(`Imagen: ${alt}`);
+    }
+  }
+  return textos;
+};
+
 type ModuloDetailResponse = Module & {
   theoryItems?: ModuleTheoryBlock[];
   quizzes?: ModuleQuiz[];
@@ -150,24 +182,10 @@ export default function ModuloDetail() {
 
     window.speechSynthesis.cancel();
 
-    const bloques = module?.theoryBlocks ?? module?.theoryItems ?? [];
-    const textos: string[] = [];
-
-    if (module?.title) textos.push(module.title);
-    if (module?.description) textos.push(module.description);
-
-    for (const bloque of bloques) {
-      if (bloque.type === "text" && bloque.detail) {
-        textos.push(bloque.detail);
-      }
-      if (bloque.type === "image") {
-        if ((bloque as { alt?: string }).alt) {
-          textos.push(
-            `Imagen: ${(bloque as { alt?: string }).alt}`
-          );
-        }
-      }
-    }
+    // FIX-LEER-VOZ-ALTA — la lógica de extracción de textos vive en
+    // `extractTextForTts` (exportada para tests) y maneja el match
+    // case-sensitive + tolerante a minúsculas para "Texto"/"text".
+    const textos = extractTextForTts(module ?? {});
 
     if (textos.length === 0) {
       alert("No hay texto para leer en este módulo.");

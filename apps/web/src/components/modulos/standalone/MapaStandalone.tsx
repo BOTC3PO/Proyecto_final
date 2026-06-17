@@ -446,7 +446,15 @@ export default function MapaStandalone({ config, editable = false, onChange, dat
       {/* Map + side panel */}
       <div className="flex gap-3 items-start">
         <div
-          className="flex-1 min-w-0 rounded-xl overflow-hidden border border-[var(--c-border)] shadow-sm"
+          // FIX-MAPA-LEAFLET-OVERLAY — agregamos `position: relative`
+          // explícito al contenedor del lienzo. Sin él, los botones
+          // de zoom (position: absolute, `right-2 top-2`) se anclaban
+          // al primer ancestro posicionado (body o layout) y se
+          // renderizaban ARRIBA del mapa en lugar de flotar sobre
+          // el canvas. Bug 6.1 de `docs/qa/test-parte-3-profesor.md`.
+          // El `aspectRatio` se conserva y la barra de zoom queda
+          // dentro del rectángulo del mapa.
+          className="relative flex-1 min-w-0 rounded-xl overflow-hidden border border-[var(--c-border)] shadow-sm"
           style={{ overscrollBehavior: "contain" }}
         >
           {mapStatus === "loading" ? (

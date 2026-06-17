@@ -25,7 +25,8 @@ function computeHash(document: unknown): string {
 
 blockDocuments.get("/api/block-documents/:id", requireUser, async (req, res) => {
   try {
-    const row = await prisma.bloqueJson.findFirst({ where: { id: req.params.id } });
+    const id = String(req.params.id ?? "");
+    const row = await prisma.bloqueJson.findFirst({ where: { id } });
     if (!row) return res.status(404).json({ error: "not found" });
     let document: unknown = row.content;
     if (typeof document === "string") {
@@ -73,7 +74,8 @@ blockDocuments.post("/api/block-documents", requireUser, requireStaff, ...bodyLi
 
 blockDocuments.patch("/api/block-documents/:id", requireUser, requireStaff, ...bodyLimitMB(MAX_BODY_MB), async (req, res) => {
   try {
-    const existing = await prisma.bloqueJson.findFirst({ where: { id: req.params.id } });
+    const id = String(req.params.id ?? "");
+    const existing = await prisma.bloqueJson.findFirst({ where: { id } });
     if (!existing) return res.status(404).json({ error: "not found" });
     const now = new Date().toISOString();
     const update: Record<string, unknown> = { updatedAt: now };
@@ -83,8 +85,8 @@ blockDocuments.patch("/api/block-documents/:id", requireUser, requireStaff, ...b
       update.content = documentStr;
       update.contentHash = computeHash(documentStr);
     }
-    await prisma.bloqueJson.updateMany({ where: { id: req.params.id }, data: update });
-    res.json({ id: req.params.id, updated_at: now });
+    await prisma.bloqueJson.updateMany({ where: { id }, data: update });
+    res.json({ id, updated_at: now });
   } catch (e: unknown) {
     const message = e instanceof Error ? e.message : "invalid payload";
     res.status(400).json({ error: message });

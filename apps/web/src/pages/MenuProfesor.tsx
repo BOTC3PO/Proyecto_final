@@ -646,32 +646,37 @@ export default function menuProfesor() {
               {/* ── Evaluaciones + Planificación (apiladas) ──────── */}
               <div className="space-y-4">
 
-                {/* Evaluaciones recientes */}
+                {/* Evaluaciones recientes — FIX-PANEL-EVALUACIONES */}
                 <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
                   <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
                     <h3 className="text-sm font-semibold text-[var(--c-text)]">Evaluaciones recientes</h3>
-                    <Link to="/profesor/evaluaciones" className="text-xs text-[var(--c-primary)] hover:underline">
+                    <Link to="/profesor/calificaciones" className="text-xs text-[var(--c-primary)] hover:underline">
                       Ver todas →
                     </Link>
                   </div>
                   <div className="px-2 py-2">
-                    {modules.slice(0, 4).map((m) => (
+                    {dashboard?.recentEvaluations?.map((evaluation) => (
                       <Link
-                        key={m.id}
-                        to={`/modulos/${m.id}/editar`}
+                        key={evaluation.id}
+                        to={`/profesor/intentos/${evaluation.id}`}
+                        data-testid="panel-evaluacion-reciente"
                         className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--c-bg)] transition-colors"
                       >
-                        <span className="text-sm text-[var(--c-text)] truncate">{m.title}</span>
-                        <span className="text-[10px] text-[var(--c-muted)] flex-shrink-0 ml-2">
-                          {m.category}
+                        <span className="text-sm text-[var(--c-text)] truncate">{evaluation.title}</span>
+                        <span
+                          className="text-[10px] text-[var(--c-muted)] flex-shrink-0 ml-2"
+                          data-testid="panel-evaluacion-categoria"
+                        >
+                          {evaluation.category}
                         </span>
                       </Link>
                     ))}
-                    {modules.length === 0 && modulesStatus === 'ready' && (
+                    {dashboard?.recentEvaluations?.length === 0 && (
                       <div className="px-4 py-6 text-center space-y-3">
                         <p className="text-2xl">📋</p>
                         <p className="text-xs text-[var(--c-muted)]">
-                          Creá tu primer módulo para luego armar evaluaciones.
+                          Todavía no hay evaluaciones recientes. Cuando un alumno
+                          empiece un cuestionario, lo vas a ver acá.
                         </p>
                         <Link
                           to="/modulos/crear"
@@ -681,7 +686,7 @@ export default function menuProfesor() {
                         </Link>
                       </div>
                     )}
-                    {modulesStatus === 'loading' && (
+                    {dashboardLoading && (
                       <div className="space-y-2 p-3">
                         {[1,2,3].map(i => <div key={i} className="h-6 rounded bg-[var(--c-border)] animate-pulse" />)}
                       </div>
@@ -689,10 +694,10 @@ export default function menuProfesor() {
                   </div>
                   <div className="px-4 pb-3">
                     <Link
-                      to="/profesor/evaluaciones"
+                      to="/profesor/calificaciones"
                       className="block w-full text-center rounded-xl border border-[var(--c-border)] py-2 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
                     >
-                      + Nueva evaluación
+                      + Ver calificaciones
                     </Link>
                   </div>
                 </div>

@@ -184,6 +184,73 @@ profesor.get("/api/profesor/menu", async (req, res) => {
     createdBy: m.ownerUserId ?? undefined,
   }));
 
+  // FIX-PANEL-EVALUACIONES — la sección "Evaluaciones recientes" del
+  // panel del profesor mostraba módulos (no evaluaciones) y no tenía
+  // materia asociada. El docente veía títulos sin contexto y la UX
+  // quedaba inconsistente. Ahora consultamos los QuizAttempt reales
+  // del modelo nuevo (no la colección legacy "ejercicios" que ya no
+  // existe) y devolvemos el `title` del quiz + el `subject` (materia)
+  // del módulo dueño. Esto cubre simultáneamente:
+  //   - bug 1.1: el título es ahora siempre visible (viene del Quiz).
+  //   - bug 1.2: la materia/categoría se incluye como campo
+  //     `category` derivado del módulo (módulo.subject ?? módulo.titulo).
+  // Los intentos se ordenan por `startedAt desc` (campo canónico del
+  // modelo) y se limitan a 4 para mantener paridad visual con la
+  // sección anterior.
+  type RecentEvaluation = {
+    id: string;
+    title: string;
+    category: string;
+    moduleId: string;
+    quizId: string;
+    status: string;
+    startedAt: string;
+  };
+  const recentEvaluations: RecentEvaluation[] = [];
+  if (aulaIds.length > 0 || moduloFilters.length > 0) {
+    // 1) Traemos los módulos del docente (dueño o asignado a un aula
+    //    suya) — los mismos que ya usamos arriba.
+    const teacherModuloIds = modulosRaw.map((m) => m.id);
+    if (teacherModuloIds.length > 0) {
+      // 2) Buscamos los quizzes de esos módulos.
+      const quizzes = await prisma.quiz.findMany({
+        where: { moduleId: { in: teacherModuloIds } },
+        select: { id: true, moduleId: true, title: true },
+      });
+      const quizById = new Map(quizzes.map((q) => [q.id, q]));
+      const moduleSubject = new Map(
+        (await prisma.modulo.findMany({
+          where: { id: { in: teacherModuloIds } },
+          select: { id: true, subject: true, titulo: true },
+        })).map((m) => [m.id, m]),
+      );
+      const quizIds = quizzes.map((q) => q.id);
+      if (quizIds.length > 0) {
+        const attempts = await prisma.quizAttempt.findMany({
+          where: { quizId: { in: quizIds } },
+          select: { id: true, quizId: true, status: true, startedAt: true },
+        });
+        const sorted = [...attempts].sort((a, b) =>
+          String(b.startedAt ?? "").localeCompare(String(a.startedAt ?? ""))
+        );
+        for (const attempt of sorted.slice(0, 4)) {
+          const quiz = quizById.get(attempt.quizId);
+          if (!quiz) continue;
+          const mod = moduleSubject.get(quiz.moduleId);
+          recentEvaluations.push({
+            id: attempt.id,
+            title: quiz.title ?? "(sin título)",
+            category: mod?.subject ?? mod?.titulo ?? "Sin materia",
+            moduleId: quiz.moduleId,
+            quizId: quiz.id,
+            status: attempt.status,
+            startedAt: attempt.startedAt,
+          });
+        }
+      }
+    }
+  }
+
   // Count active students via clase_miembros
   const allStudentMemberships = await prisma.claseMiembro.findMany({
     where: { claseId: { in: aulaIds }, rolEnClase: "STUDENT" },
@@ -220,6 +287,7 @@ profesor.get("/api/profesor/menu", async (req, res) => {
     },
     activeStudents: activeStudents.size,
     progressNextClass,
+    recentEvaluations,
     kpiCards: [
       {
         id: "aulas",

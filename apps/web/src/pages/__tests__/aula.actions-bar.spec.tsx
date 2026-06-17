@@ -21,11 +21,20 @@ vi.mock("../../services/aulas", () => ({
     name: "5°B",
     status: "activa",
     teacherId: "u-1",
+    createdBy: "u-1",
     inviteCode: "ABC123",
     grade: "5°",
     section: "B",
     schoolId: "s-1",
-    members: ["u-1", "u-2"],
+    // FIX-ACCIONES-AULA — el front (`aula.tsx`) ahora chequea membresía
+    // con `members: { userId, roleInClass }[]` (forma canónica que ya
+    // viene del back vía `requireClassroomScope`). Los tests anteriores
+    // mockeaban `members: string[]`, que rompía el chequeo: actualizar a
+    // la forma correcta.
+    members: [
+      { userId: "u-1", roleInClass: "TEACHER" },
+      { userId: "u-2", roleInClass: "STUDENT" },
+    ],
   }),
 }));
 
@@ -87,11 +96,15 @@ const MOCK_CLASSROOM = {
   name: "5°B",
   status: "activa",
   teacherId: "u-1",
+  createdBy: "u-1",
   inviteCode: "ABC123",
   grade: "5°",
   section: "B",
   schoolId: "s-1",
-  members: ["u-1", "u-2"],
+  members: [
+    { userId: "u-1", roleInClass: "TEACHER" },
+    { userId: "u-2", roleInClass: "STUDENT" },
+  ],
 };
 
 function setupUser(user: typeof TEACHER_USER | typeof STUDENT_USER | null) {
@@ -233,6 +246,52 @@ describe("aula.tsx — barra de acciones del docente (Tarea 16)", () => {
     setupClassroom();
     renderAula();
     expect(screen.queryByTestId("aula-actions-bar")).not.toBeInTheDocument();
+  });
+
+  it("FIX-ACCIONES-AULA: TEACHER que NO es miembro del aula no ve la barra (privilegio correcto)", async () => {
+    // El chequeo original `user.role === "TEACHER"` hacía que CUALQUIER
+    // docente logueado viera la barra de acciones, aunque no fuera
+    // miembro del aula (privilegio inflado: podían ver "Tomar
+    // asistencia", "Asignar módulo" y "Estadísticas" en aulas donde
+    // no tenían autoridad). El fix alinea el front con el criterio
+    // canónico del back (`isClassroomTeacher`): miembro TEACHER, dueño
+    // (createdBy/teacherId/teacherOfRecord) o admin. Si no se cumple
+    // ninguno, la barra no se renderiza.
+    const OUTSIDER_TEACHER = {
+      id: "u-99",
+      name: "Docente Ajeno",
+      role: "TEACHER" as const,
+      schoolId: "s-1",
+    };
+    setupUser(OUTSIDER_TEACHER);
+    setupClassroom();
+    renderAula();
+    // Esperamos a que cargue el aula, luego chequeamos la barra.
+    await waitFor(() => {
+      expect(
+        screen.getByTestId("aula-publication-form"),
+      ).toBeInTheDocument();
+    });
+    expect(screen.queryByTestId("aula-actions-bar")).not.toBeInTheDocument();
+    // Candado: el form de publicación sigue visible para el visitante
+    // (la barra es la única pieza que dependía del rol del aula).
+    expect(
+      screen.getByTestId("aula-publication-form"),
+    ).toBeInTheDocument();
+  });
+
+  it("FIX-ACCIONES-AULA: viewerIsTeacher=true fuerza la barra aunque el mock no traiga members", async () => {
+    // Camino de fallback: si el back ya calculó `viewerIsTeacher`
+    // (lo hace en `GET /api/aulas` con la lista), el front debe
+    // aceptarlo sin mirar `members` ni heurísticas de owner.
+    (fetchClassroomDetail as unknown as ReturnType<typeof vi.fn>).mockResolvedValueOnce(
+      { ...MOCK_CLASSROOM, members: [], viewerIsTeacher: true },
+    );
+    setupUser(TEACHER_USER);
+    renderAula();
+    expect(
+      await screen.findByTestId("aula-actions-bar", {}, { timeout: 5000 }),
+    ).toBeInTheDocument();
   });
 });
 

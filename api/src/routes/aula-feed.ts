@@ -1,46 +1,39 @@
 import { Router } from "express";
 import { requirePolicy } from "../lib/authorization";
+import { requireClassroomScope } from "../lib/classroom-scope";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { isClassroomReadOnlyStatus } from "../schema/aula";
-import type { Classroom } from "../schema/aula";
 
 export const aulaFeed = Router();
 
 const getRequesterId = (req: { user?: { _id?: { toString?: () => string } } }) =>
   req.user?._id?.toString?.() ?? null;
 
-const getRequesterSchoolId = (req: { user?: { schoolId?: string | null } }) => req.user?.schoolId ?? null;
-
-const canAccessClassroom = ({
-  requesterId,
-  accessLevel,
-  requesterSchoolId,
-  classroomSchoolId,
-  classroomMembers
-}: {
-  requesterId: string | null;
-  accessLevel: "admin" | "staff" | "learner";
-  requesterSchoolId?: string | null;
-  classroomSchoolId?: string | null;
-  classroomMembers?: Array<{ userId?: string }> | null;
-}) => {
-  if (accessLevel === "admin") return true;
-  const isMember = !!requesterId && (classroomMembers ?? []).some((member) => member.userId === requesterId);
-  if (isMember) return true;
-  if (accessLevel === "staff") {
-    return !!requesterSchoolId && !!classroomSchoolId && requesterSchoolId === classroomSchoolId;
-  }
-  return false;
-};
-
 type ClassroomContext =
   | { success: false; error: { status: number; message: string } }
-  | { success: true; classroomId: string; classroom: Classroom };
+  | { success: true; classroomId: string };
 
+/**
+ * FIX-TABLON-403 — la policy de acceso al feed reimplementaba la
+ * autorización leyendo `classroom.schoolId ?? classroom.institutionId`
+ * (campos legacy del Zod schema de Mongo) cuando el modelo Prisma
+ * expone `escuelaId`. Resultado: para un TEACHER-miembro del aula,
+ * `canAccessClassroom` veía `classroomSchoolId = undefined`,
+ * `classroomMembers = []` (porque tampoco se hacía `include` de
+ * `miembros`), y caía en `return false` → 403 "forbidden" para
+ * `/api/aula/leaderboard` y `/api/aula/actividades` (los dos widgets
+ * que rompía el bug 2.3 del informe `test-parte-3-profesor.md`).
+ *
+ * La policy canónica vive en `requireClassroomScope`
+ * (`api/src/lib/classroom-scope.ts`), que ya carga los `miembros`,
+ * valida dueño/miembro/school-match, y deja `res.locals.classroom`
+ * con la forma `{ id, members, schoolId: escuelaId, createdBy,
+ * teacherId, teacherOfRecord, isDeleted }`. Reusamos ese middleware
+ * para no reimplementar la matriz de acceso ad-hoc.
+ */
 const resolveClassroomContext = async (
-  req: { query: { classroomId?: unknown }; user?: Record<string, unknown> },
-  accessLevel: "admin" | "staff" | "learner"
+  req: { query: { classroomId?: unknown } }
 ): Promise<ClassroomContext> => {
   const classroomId = typeof req.query.classroomId === "string" ? req.query.classroomId : null;
   // FIX-AULA-PARAM — 400 en vez de 404 cuando falta `classroomId`. Un 404
@@ -52,94 +45,101 @@ const resolveClassroomContext = async (
     where: { id: classroomId, isDeleted: { not: true } }
   });
   if (!classroom) return { success: false, error: { status: 404, message: "classroom not found" } };
-  if (isClassroomReadOnlyStatus((classroom as unknown as Classroom).status)) {
+  if (isClassroomReadOnlyStatus(classroom.status)) {
     return { success: false, error: { status: 410, message: "classroom feed not available" } };
   }
-  const requesterId = getRequesterId(req as { user?: { _id?: { toString?: () => string } } });
-  const requesterSchoolId = getRequesterSchoolId(req as { user?: { schoolId?: string | null } });
-  const classroomAsDoc = classroom as unknown as Classroom;
-  if (
-    !canAccessClassroom({
-      requesterId,
-      accessLevel,
-      requesterSchoolId,
-      classroomSchoolId: classroomAsDoc.schoolId ?? classroomAsDoc.institutionId,
-      classroomMembers: Array.isArray(classroomAsDoc.members) ? classroomAsDoc.members : []
-    })
-  ) {
-    return { success: false, error: { status: 403, message: "forbidden" } };
-  }
-  return { success: true, classroomId, classroom: classroomAsDoc };
+  return { success: true, classroomId };
 };
 
-aulaFeed.get("/api/aula/publicaciones", requireUser, requirePolicy("aula-feed/read"), async (req, res) => {
-  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
-  const accessLevel = authorization?.data?.accessLevel;
-  if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
-    return res.status(403).json({ error: "forbidden" });
+aulaFeed.get(
+  "/api/aula/publicaciones",
+  requireUser,
+  requireClassroomScope({
+    paramName: "classroomId",
+    paramSource: "query",
+    badRequestMessage: "classroomId requerido",
+    allowMemberRoles: "any",
+    allowSchoolMatch: true,
+    notFoundMessage: "classroom not found"
+  }),
+  async (req, res) => {
+    const context = await resolveClassroomContext(req);
+    if (!context.success) {
+      return res.status(context.error.status).json({ error: context.error.message });
+    }
+    const items = await prisma.publicacion.findMany({
+      where: { aulaId: context.classroomId, isDeleted: { not: true } },
+      orderBy: { publishedAt: "desc" }
+    });
+    res.json({ items });
   }
-  const context = await resolveClassroomContext(req, accessLevel);
-  if (!context.success) {
-    return res.status(context.error.status).json({ error: context.error.message });
-  }
-  const items = await prisma.publicacion.findMany({
-    where: { aulaId: context.classroomId, isDeleted: { not: true } },
-    orderBy: { publishedAt: "desc" }
-  });
-  res.json({ items });
-});
+);
 
-aulaFeed.get("/api/aula/leaderboard", requireUser, requirePolicy("aula-feed/read"), async (req, res) => {
-  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
-  const accessLevel = authorization?.data?.accessLevel;
-  if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
-    return res.status(403).json({ error: "forbidden" });
+aulaFeed.get(
+  "/api/aula/leaderboard",
+  requireUser,
+  requireClassroomScope({
+    paramName: "classroomId",
+    paramSource: "query",
+    badRequestMessage: "classroomId requerido",
+    allowMemberRoles: "any",
+    allowSchoolMatch: true,
+    notFoundMessage: "classroom not found"
+  }),
+  async (req, res) => {
+    const context = await resolveClassroomContext(req);
+    if (!context.success) {
+      return res.status(context.error.status).json({ error: context.error.message });
+    }
+    res.json({ items: [] });
   }
-  const context = await resolveClassroomContext(req, accessLevel);
-  if (!context.success) {
-    return res.status(context.error.status).json({ error: context.error.message });
-  }
-  res.json({ items: [] });
-});
+);
 
-aulaFeed.get("/api/aula/actividades", requireUser, requirePolicy("aula-feed/read"), async (req, res) => {
-  const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
-  const accessLevel = authorization?.data?.accessLevel;
-  if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
-    return res.status(403).json({ error: "forbidden" });
-  }
-  const context = await resolveClassroomContext(req, accessLevel);
-  if (!context.success) {
-    return res.status(context.error.status).json({ error: context.error.message });
-  }
+aulaFeed.get(
+  "/api/aula/actividades",
+  requireUser,
+  requireClassroomScope({
+    paramName: "classroomId",
+    paramSource: "query",
+    badRequestMessage: "classroomId requerido",
+    allowMemberRoles: "any",
+    allowSchoolMatch: true,
+    notFoundMessage: "classroom not found"
+  }),
+  async (req, res) => {
+    const context = await resolveClassroomContext(req);
+    if (!context.success) {
+      return res.status(context.error.status).json({ error: context.error.message });
+    }
 
-  const hoy = new Date().toISOString();
-  const rows = await prisma.actividadAula.findMany({
-    where: {
-      aulaId: context.classroomId,
-      isDeleted: false,
-      fecha: { gte: hoy },
-    },
-    orderBy: { fecha: "asc" },
-    take: 10,
-    select: { id: true, tipo: true, titulo: true, descripcion: true, fecha: true },
-  });
+    const hoy = new Date().toISOString();
+    const rows = await prisma.actividadAula.findMany({
+      where: {
+        aulaId: context.classroomId,
+        isDeleted: false,
+        fecha: { gte: hoy },
+      },
+      orderBy: { fecha: "asc" },
+      take: 10,
+      select: { id: true, tipo: true, titulo: true, descripcion: true, fecha: true },
+    });
 
-  res.json({
-    items: rows.map((row) => ({
-      id: row.id,
-      label: row.titulo,
-      when: new Date(row.fecha).toLocaleDateString("es-AR", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-      }),
-      tipo: row.tipo,
-      descripcion: row.descripcion ?? undefined,
-      fecha: row.fecha,
-    })),
-  });
-});
+    res.json({
+      items: rows.map((row) => ({
+        id: row.id,
+        label: row.titulo,
+        when: new Date(row.fecha).toLocaleDateString("es-AR", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+        }),
+        tipo: row.tipo,
+        descripcion: row.descripcion ?? undefined,
+        fecha: row.fecha,
+      })),
+    });
+  }
+);
 
 aulaFeed.post("/api/aula/actividades", requireUser, requirePolicy("aula-feed/write"), async (req, res) => {
   const { classroomId, tipo, titulo, descripcion, fecha } = req.body as Record<string, unknown>;

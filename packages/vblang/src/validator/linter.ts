@@ -560,8 +560,6 @@ function canonExpr(e: Expr): string {
         .join(",")}}`;
     case "for_comp":
       return `for:${e.variable}<-${canonExpr(e.iterable as Expr)}:${canonExpr(e.body)}`;
-    case "range":
-      return `range:${canonExpr(e.from)}..${canonExpr(e.to)}`;
     default: {
       const _exhaustive: never = e;
       return `unknown:${JSON.stringify(_exhaustive)}`;

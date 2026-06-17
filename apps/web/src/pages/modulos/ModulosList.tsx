@@ -101,7 +101,6 @@ export default function ModulosList() {
   const [activeTab, setActiveTab] = useState<"mine" | "school" | "public">("public");
   const [selectedSubject, setSelectedSubject] = useState("all");
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedVisibility, setSelectedVisibility] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [searchParams] = useSearchParams();
@@ -153,7 +152,6 @@ export default function ModulosList() {
       if (activeTab === "public" && module.visibility !== "publico") return false;
       if (selectedSubject !== "all" && resolveMateria(module) !== selectedSubject) return false;
       if (selectedCategory !== "all" && resolveCategoria(module) !== selectedCategory) return false;
-      if (selectedVisibility !== "all" && module.visibility !== selectedVisibility) return false;
       if (selectedStatus !== "all" && resolveStatus(module) !== selectedStatus) return false;
       if (normalizedSearch) {
         const haystack = `${module.title} ${module.description} ${resolveMateria(
@@ -170,7 +168,6 @@ export default function ModulosList() {
     selectedCategory,
     selectedStatus,
     selectedSubject,
-    selectedVisibility,
     user?.id,
   ]);
 
@@ -348,7 +345,7 @@ export default function ModulosList() {
               </svg>
               Filtros
             </div>
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               <label className="space-y-1.5 text-sm">
                 <span className="flex items-center gap-1.5 font-medium text-slate-600">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -389,27 +386,17 @@ export default function ModulosList() {
                   ))}
                 </select>
               </label>
-              <label className="space-y-1.5 text-sm">
-                <span className="flex items-center gap-1.5 font-medium text-slate-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                  Visibilidad
-                </span>
-                <select
-                  value={selectedVisibility}
-                  onChange={(event) => setSelectedVisibility(event.target.value)}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 shadow-sm transition-all duration-200 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
-                >
-                  <option value="all">Todas</option>
-                  {Object.entries(VISIBILITY_LABELS).map(([value, label]) => (
-                    <option key={value} value={value}>
-                      {label}
-                    </option>
-                  ))}
-                </select>
-              </label>
+              {/* FIX-FILTROS-REDUNDANTES — el filtro de "Visibilidad"
+                  está duplicado con las pestañas "Mis módulos /
+                  Escuela / Públicos" (cada una ya restringe por
+                  `visibility`). Dejarlo creaba una doble entrada para
+                  el mismo concepto y dejaba los filtros de materia /
+                  categoría casi inútiles cuando la pestaña ya había
+                  recortado el set. Bug 5.1 de
+                  `docs/qa/test-parte-3-profesor.md`. Ahora la
+                  visibilidad se elige con la pestaña y los filtros
+                  restantes son ortogonales (materia, categoría,
+                  estado, búsqueda). */}
               <label className="space-y-1.5 text-sm">
                 <span className="flex items-center gap-1.5 font-medium text-slate-600">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

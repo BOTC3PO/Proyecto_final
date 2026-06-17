@@ -29,6 +29,16 @@ export type ProfesorQuickLink = {
   href: string;
 };
 
+export type ProfesorRecentEvaluation = {
+  id: string;
+  title: string;
+  category: string;
+  moduleId: string;
+  quizId: string;
+  status: string;
+  startedAt: string;
+};
+
 export type ProfesorMenuDashboard = {
   profile: {
     name: string;
@@ -41,6 +51,7 @@ export type ProfesorMenuDashboard = {
   };
   activeStudents: number;
   progressNextClass: number;
+  recentEvaluations: ProfesorRecentEvaluation[];
   kpiCards: ProfesorKpiCard[];
   weeklyPlan: ProfesorWeeklyPlanItem[];
   quickLinks: {
@@ -122,6 +133,10 @@ export async function fetchProfesorMenuDashboard(): Promise<ProfesorMenuDashboar
   const data = await apiGet<ProfesorMenuDashboard>("/api/profesor/menu");
   return {
     ...data,
+    // FIX-PANEL-EVALUACIONES — compat con deployments donde el back
+    // todavía no incluye `recentEvaluations` (sprint anterior al fix).
+    // El panel lo trata como lista vacía en lugar de fallar.
+    recentEvaluations: data.recentEvaluations ?? [],
     quickLinks: filterProfesorQuickLinks(data.quickLinks)
   };
 }

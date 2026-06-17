@@ -43,9 +43,11 @@ type AuthUser = { _id?: string; role?: string; schoolId?: string | null };
 // migración 20260617030000_sec_libro_ownership).
 type LibroRow = {
   id: string;
+  json: string;
   ownerUserId: string | null;
   schoolId: string | null;
   visibility: string;
+  updatedAt: string | null;
 };
 
 /**

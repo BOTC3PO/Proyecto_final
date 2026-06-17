@@ -71,20 +71,58 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
   return res.json({ items });
 });
 
-// POST /api/materiales/:id/compartir — cambia visibility a 'escuela'
+// POST /api/materiales/:id/compartir — cambia visibility según el
+// alcance que elija el docente. FIX-COMPARTIR-SCOPE — antes siempre
+// pasaba a 'escuela' (sin selector); ahora acepta un body con `scope`
+// ∈ {'privado', 'escuela', 'publico'} y opcionalmente `targetIds`
+// (array de aulas/docentes/alumnos) que se persiste como `compartirCon`
+// para mantener el contrato original mientras se suma el nuevo
+// alcance. Backward compat: si el body está vacío o `scope` no
+// viene, se mantiene el comportamiento legacy (escuela) para no
+// romper integraciones existentes.
 materiales.post('/api/materiales/:id/compartir', requireUser, async (req, res) => {
   const user = (req as { user?: AuthUser }).user;
   const userId = getUserId(user);
-  const { id } = req.params;
+  const id = String(req.params.id ?? "");
 
   if (!userId) return res.status(403).json({ error: 'forbidden' });
 
+  const body = (req.body ?? {}) as {
+    scope?: 'privado' | 'escuela' | 'publico';
+    targetIds?: string[];
+  };
+  const scope = body.scope ?? 'escuela';
+  if (scope !== 'privado' && scope !== 'escuela' && scope !== 'publico') {
+    return res.status(400).json({
+      error: "scope inválido (debe ser 'privado', 'escuela' o 'publico')",
+    });
+  }
+  const userSchoolId =
+    typeof user?.schoolId === 'string' ? user.schoolId : null;
+  if (scope === 'escuela' && !userSchoolId) {
+    return res.status(400).json({
+      error: 'Para compartir con la escuela, el usuario debe tener una escuela asignada',
+    });
+  }
+  const updateData: Record<string, unknown> = { visibility: scope };
+  if (scope === 'escuela' && userSchoolId) {
+    updateData.schoolId = userSchoolId;
+  }
+  if (scope === 'privado') {
+    // Volver a privado limpia la schoolId del material para que no
+    // quede heredando la visibilidad anterior.
+    updateData.schoolId = null;
+  }
+  if (Array.isArray(body.targetIds)) {
+    updateData.compartirCon = JSON.stringify(body.targetIds);
+  }
+
   await prisma.modulo.updateMany({
     where: { id, ownerUserId: userId },
-    data: { visibility: 'escuela' },
+    data: updateData,
   });
 
-  return res.json({ ok: true });
+  return res.json({ ok: true, scope });
 });
 
 // GET /api/materiales/:id/download — descarga el material como JSON.

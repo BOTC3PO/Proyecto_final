@@ -189,6 +189,7 @@ type QuizAttemptRecord = {
   quizId: string;
   quizVersionId: string | null;
   userId: string;
+  schoolId: string | null;
   seed: number | string | null;
   answers: Record<string, string | string[]>;
   feedback?: Record<string, QuizFeedback>;

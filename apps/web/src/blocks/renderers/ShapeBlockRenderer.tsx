@@ -8,7 +8,6 @@ interface Props {
 export function ShapeBlockRenderer({ block }: Props) {
   const width = block.canvasWidth ?? 800
   const height = block.canvasHeight ?? 500
-  const collection = COLLECTIONS[block.collection]
   const connectors = block.connectors ?? []
 
   const itemCenter = (itemId: string) => {
@@ -100,7 +99,22 @@ export function ShapeBlockRenderer({ block }: Props) {
 
       {/* Shape items */}
       {block.items.map((item) => {
-        const shape = collection.shapes.find((s) => s.id === item.shapeId)
+        // FIX-FORMAS-RENDERER — antes el renderer buscaba el shape
+        // SOLO dentro de `block.collection` (la colección "activa"
+        // del bloque). Si el docente agregaba una forma desde la
+        // pestaña "Física" y luego cambiaba la colección activa a
+        // "Básica" (o el bloque se guardaba con `collection` des-
+        // sincronizada del shape), el `find` devolvía undefined y la
+        // forma desaparecía. La herramienta "Formas" quedaba
+        // inutilizable: las formas agregadas no se renderizaban —
+        // bug 7.7 de `docs/qa/test-parte-3-profesor.md`.
+        //
+        // El editor (`ShapeBlockEditor`) ya hacía la búsqueda
+        // correcta con `Object.values(COLLECTIONS).flatMap(...)`.
+        // Alineamos el renderer con ese patrón.
+        const shape = Object.values(COLLECTIONS)
+          .flatMap((col) => col.shapes)
+          .find((s) => s.id === item.shapeId)
         if (!shape) return null
         return (
           <div

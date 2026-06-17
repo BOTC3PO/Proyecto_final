@@ -263,6 +263,52 @@ class Table<TRow extends Row> {
     }
     return { _max: max };
   }
+
+  // FIX-PANEL-EVALUACIONES — soporte mínimo de `groupBy` para el
+  // endpoint `/api/profesor/menu`, que llama
+  // `prisma.claseMiembro.groupBy({ by: ["claseId"], _count: { ... } })`
+  // dentro del cálculo de `weeklyPlan`. Sin este stub el endpoint
+  // tira 500 en tests aunque la lógica de recentEvaluaciones esté
+  // bien. La implementación es suficiente para los casos de uso
+  // actuales: agrupar por 1+ campos y devolver `_count` de un campo
+  // (o todas las filas si se omite el `_count`).
+  async groupBy(args: {
+    by: string | string[];
+    where?: WhereClause;
+    _count?: { _all?: true } | Record<string, true>;
+  }): Promise<Array<Record<string, unknown>>> {
+    const by = Array.isArray(args.by) ? args.by : [args.by];
+    const subset = this.rows.filter((r) => rowMatches(r, args?.where));
+    const groups = new Map<string, Record<string, unknown>>();
+    for (const row of subset) {
+      const key = by.map((field) => String((row as Record<string, unknown>)[field] ?? "")).join("|");
+      if (!groups.has(key)) {
+        const entry: Record<string, unknown> = {};
+        for (const field of by) entry[field] = (row as Record<string, unknown>)[field];
+        // _count pedido por el route: o `_count.usuarioId` o `_all`.
+        if (args._count && "_all" in args._count) {
+          entry._count = { _all: 0, ...(Object.keys(args._count).filter((k) => k !== "_all").reduce((acc, k) => ({ ...acc, [k]: 0 }), {})) };
+        } else if (args._count) {
+          entry._count = Object.fromEntries(Object.keys(args._count).map((k) => [k, 0]));
+        } else {
+          entry._count = { _all: 0 };
+        }
+        groups.set(key, entry);
+      }
+      const entry = groups.get(key)!;
+      const cnt = entry._count as Record<string, number>;
+      if ("_all" in cnt) cnt._all = (cnt._all ?? 0) + 1;
+      // El route usa `_count: { usuarioId: true }` — sumamos sobre
+      // cada campo pedido (que no sea `_all`).
+      if (args._count) {
+        for (const field of Object.keys(args._count)) {
+          if (field === "_all") continue;
+          cnt[field] = (cnt[field] ?? 0) + 1;
+        }
+      }
+    }
+    return Array.from(groups.values());
+  }
 }
 
 export type PlantillaRow = {
