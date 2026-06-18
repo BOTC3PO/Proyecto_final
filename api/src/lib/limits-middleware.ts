@@ -5,9 +5,12 @@ import {
   puedeAgregarAula,
   puedeAgregarAlumno,
 } from "./suscripciones";
+import { hasRole, resolveRoles } from "./roles";
 
-const getRole = (req: Request) =>
-  (req as unknown as { user?: { role?: string } }).user?.role ?? "";
+const getUser = (req: Request) =>
+  (req as unknown as { user?: { role?: string; roles?: string[] } }).user;
+
+const getRole = (req: Request) => getUser(req)?.role ?? "";
 
 const getSchoolId = (req: Request) =>
   (req as unknown as { user?: { schoolId?: string | null } }).user?.schoolId ?? null;
@@ -16,8 +19,8 @@ const getSchoolId = (req: Request) =>
 export async function checkStaffLimit(
   req: Request, res: Response, next: NextFunction
 ) {
-  const role = getRole(req);
-  if (role === "ADMIN") return next();
+  const user = getUser(req);
+  if (hasRole(user, "ADMIN")) return next();
 
   const schoolId = getSchoolId(req);
   if (!schoolId) return next();
@@ -47,8 +50,8 @@ export async function checkStaffLimit(
 export async function checkAulaLimit(
   req: Request, res: Response, next: NextFunction
 ) {
-  const role = getRole(req);
-  if (role === "ADMIN") return next();
+  const user = getUser(req);
+  if (hasRole(user, "ADMIN")) return next();
 
   const schoolId = getSchoolId(req);
   if (!schoolId) return next();
@@ -62,7 +65,7 @@ export async function checkAulaLimit(
       }
     });
 
-    if (!(await puedeAgregarAula(schoolId, role, count))) {
+    if (!(await puedeAgregarAula(schoolId, getRole(req), count))) {
       return res.status(403).json({
         error: "límite_alcanzado",
         mensaje: "Alcanzaste el límite de aulas activas en tu plan actual.",
@@ -79,8 +82,8 @@ export async function checkAulaLimit(
 export async function checkAlumnoLimit(
   req: Request, res: Response, next: NextFunction
 ) {
-  const role = getRole(req);
-  if (role === "ADMIN") return next();
+  const user = getUser(req);
+  if (hasRole(user, "ADMIN")) return next();
 
   const schoolId = getSchoolId(req);
   if (!schoolId) return next();
@@ -97,7 +100,7 @@ export async function checkAlumnoLimit(
       where: { claseId: aulaId, rolEnClase: "USER" }
     });
 
-    if (!(await puedeAgregarAlumno(schoolId, role, alumnosCount))) {
+    if (!(await puedeAgregarAlumno(schoolId, getRole(req), alumnosCount))) {
       return res.status(403).json({
         error: "límite_alcanzado",
         mensaje: "Alcanzaste el límite de alumnos por aula en tu plan actual.",

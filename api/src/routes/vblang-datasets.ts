@@ -3,6 +3,7 @@ import { Router } from "express";
 import { isStaffRole } from "../lib/authorization";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
+import { hasRole } from "../lib/roles";
 import {
   DatasetCreateSchema,
   DatasetFilaUpdateSchema,
@@ -14,7 +15,15 @@ import { validateDatasetFilas } from "../lib/vblang-validation";
 
 export const vblangDatasets = Router();
 
-type AuthUser = { _id?: string; role?: string; schoolId?: string | null };
+// MULTIROL-01 (Fase 1): `roles[]` opcional. Los chequeos `user.role
+// === "ADMIN"` se migran a `hasRole(user, "ADMIN")` que mira el
+// array primero.
+type AuthUser = {
+  _id?: string;
+  role?: string;
+  roles?: string[];
+  schoolId?: string | null;
+};
 
 type DatasetRow = {
   id: string;
@@ -53,7 +62,7 @@ function parseDatos(raw: string): Record<string, unknown> {
 
 function canReadDataset(row: DatasetRow, user: AuthUser): boolean {
   if (row.isDeleted) return false;
-  if (user.role === "ADMIN") return true;
+  if (hasRole(user, "ADMIN")) return true;
   if (row.ownerUserId === user._id) return true;
   if (
     row.visibility === "escuela" &&
@@ -71,7 +80,7 @@ function canReadDataset(row: DatasetRow, user: AuthUser): boolean {
 vblangDatasets.get("/api/vblang/datasets", requireUser, async (req, res) => {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
-    if (!isStaffRole(user.role)) {
+    if (!isStaffRole(user)) {
       res.json({ items: [], total: 0 });
       return;
     }
@@ -267,7 +276,7 @@ vblangDatasets.get("/api/vblang/datasets/:id", requireUser, async (req, res) => 
 vblangDatasets.post("/api/vblang/datasets", requireUser, async (req, res) => {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
-    if (!isStaffRole(user.role)) {
+    if (!isStaffRole(user)) {
       res.status(403).json({ error: "Solo creadores de contenido pueden crear datasets" });
       return;
     }
@@ -364,7 +373,7 @@ vblangDatasets.put("/api/vblang/datasets/:id", requireUser, async (req, res) => 
       res.status(404).json({ error: "Dataset no encontrado" });
       return;
     }
-    if (row.ownerUserId !== user._id && user.role !== "ADMIN") {
+    if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
       res.status(403).json({ error: "Solo el owner o ADMIN puede modificar" });
       return;
     }
@@ -416,7 +425,7 @@ vblangDatasets.post(
         res.status(404).json({ error: "Dataset no encontrado" });
         return;
       }
-      if (row.ownerUserId !== user._id && user.role !== "ADMIN") {
+      if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo el owner o ADMIN puede agregar filas" });
         return;
       }
@@ -477,7 +486,7 @@ vblangDatasets.put(
         res.status(404).json({ error: "Dataset no encontrado" });
         return;
       }
-      if (row.ownerUserId !== user._id && user.role !== "ADMIN") {
+      if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo el owner o ADMIN puede modificar filas" });
         return;
       }
@@ -534,7 +543,7 @@ vblangDatasets.delete(
         res.status(404).json({ error: "Dataset no encontrado" });
         return;
       }
-      if (row.ownerUserId !== user._id && user.role !== "ADMIN") {
+      if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo el owner o ADMIN puede eliminar filas" });
         return;
       }
@@ -569,7 +578,7 @@ vblangDatasets.delete("/api/vblang/datasets/:id", requireUser, async (req, res) 
       res.status(404).json({ error: "Dataset no encontrado" });
       return;
     }
-    if (row.ownerUserId !== user._id && user.role !== "ADMIN") {
+    if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
       res.status(403).json({ error: "Solo el owner o ADMIN puede eliminar" });
       return;
     }

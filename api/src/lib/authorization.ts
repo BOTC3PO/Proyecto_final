@@ -1,51 +1,101 @@
 import type { NextFunction, Request, Response } from "express";
 import { getCanonicalMembershipRole } from "./membership-roles";
+import { hasRole, isStaffInRoles, resolveRoles, type RoleUser } from "./roles";
 
+// MULTIROL-01 (Fase 1): `STAFF_ROLES` se mantiene como Set (legado)
+// pero los helpers públicos ahora aceptan un `RoleUser` (con `role`
+// y/o `roles`). El check interno mira primero `roles` y cae al
+// singular para compat. La equivalencia funcional con la versión
+// anterior (rol singular) se valida en los tests de Fase 1.
 const STAFF_ROLES = new Set(["ADMIN", "DIRECTIVO", "TEACHER"]);
 
-export const canCreateClass = (role?: string | null) => !!role && STAFF_ROLES.has(role);
-
-export const canPostInClass = (role?: string | null) => !!role && STAFF_ROLES.has(role);
-
-export const canModerateContent = (role?: string | null) => !!role && STAFF_ROLES.has(role);
-
-export const canMintCurrency = (role?: string | null) => !!role && STAFF_ROLES.has(role);
-
-export const canManageParents = (role?: string | null) => !!role && STAFF_ROLES.has(role);
-
-export const canPostAsStudent = (role?: string | null) =>
-  getCanonicalMembershipRole(role ?? undefined) === "STUDENT";
-
-export const canModerateIntercambios = (role?: string | null) => canModerateContent(role);
-
-export const canViewAllUsers = (role?: string | null) => role === "ADMIN";
-
-export const isStaffRole = (role?: string | null) => {
-  if (role === "ADMIN") return true;
-  const membership = getCanonicalMembershipRole(role ?? undefined);
-  return membership === "DIRECTIVO" || membership === "TEACHER";
+const toRoleUser = (input?: string | null | RoleUser): RoleUser => {
+  if (input == null) return {};
+  if (typeof input === "string") return { role: input };
+  return input;
 };
 
-export const canReadAsLearner = (role?: string | null) => {
-  const membership = getCanonicalMembershipRole(role ?? undefined);
-  return membership === "STUDENT" || membership === "PARENT";
+const staffFromInput = (input?: string | null | RoleUser): boolean => {
+  if (input == null) return false;
+  if (typeof input === "string") return STAFF_ROLES.has(input);
+  const roles = resolveRoles(input);
+  if (roles.length === 0) return false;
+  // Compat: si solo trae `role` y no `roles`, la lógica vieja
+  // aplicaba `STAFF_ROLES.has(role)` directamente. Si trae `roles`
+  // miramos el array.
+  return isStaffInRoles(roles);
 };
 
-export const canProposeGovernanceChange = (role?: string | null) => isStaffRole(role);
+// `canCreateClass` — antes `canCreateClass(role: string)`.
+// Ahora acepta `role: string | RoleUser`. Una `RoleUser` con
+// `roles: ["TEACHER"]` (sin role singular) debe seguir dando `true`.
+export const canCreateClass = (input?: string | null | RoleUser) => staffFromInput(input);
 
-export const canVoteContent = (role?: string | null) => {
-  if (role === "ADMIN") return true;
-  const membership = getCanonicalMembershipRole(role ?? undefined);
-  return membership === "DIRECTIVO" || membership === "TEACHER" || membership === "STUDENT";
+export const canPostInClass = (input?: string | null | RoleUser) => staffFromInput(input);
+
+export const canModerateContent = (input?: string | null | RoleUser) => staffFromInput(input);
+
+export const canMintCurrency = (input?: string | null | RoleUser) => staffFromInput(input);
+
+export const canManageParents = (input?: string | null | RoleUser) => staffFromInput(input);
+
+export const canPostAsStudent = (input?: string | null | RoleUser) => {
+  const ru = toRoleUser(input);
+  // Cualquiera de los roles del usuario que mapee a STUDENT habilita
+  // la acción. Un TEACHER+USER (multi-rol) puede actuar como learner
+  // si USER está en su array.
+  const roles = resolveRoles(ru);
+  return roles.some((r) => getCanonicalMembershipRole(r) === "STUDENT");
 };
 
-export const canVoteGovernance = (role?: string | null) => !!role && STAFF_ROLES.has(role);
+export const canModerateIntercambios = (input?: string | null | RoleUser) =>
+  canModerateContent(input);
+
+export const canViewAllUsers = (input?: string | null | RoleUser) => {
+  const ru = toRoleUser(input);
+  // ADMIN sigue siendo el único con acceso a "ver todos los usuarios"
+  // globalmente. Miramos `roles` primero, `role` después.
+  return hasRole(ru, "ADMIN");
+};
+
+export const isStaffRole = (input?: string | null | RoleUser) => {
+  const ru = toRoleUser(input);
+  const roles = resolveRoles(ru);
+  if (roles.length === 0) return false;
+  // MULTIROL-01: un usuario es staff si AL MENOS UNO de sus roles es
+  // staff. Ej. un TEACHER+USER es staff (TEACHER lo es) y además puede
+  // actuar como learner. Un USER puro no es staff.
+  return isStaffInRoles(roles);
+};
+
+export const canReadAsLearner = (input?: string | null | RoleUser) => {
+  const ru = toRoleUser(input);
+  const roles = resolveRoles(ru);
+  return roles.some((r) => {
+    const membership = getCanonicalMembershipRole(r);
+    return membership === "STUDENT" || membership === "PARENT";
+  });
+};
+
+export const canProposeGovernanceChange = (input?: string | null | RoleUser) =>
+  isStaffRole(input);
+
+export const canVoteContent = (input?: string | null | RoleUser) => {
+  const ru = toRoleUser(input);
+  if (hasRole(ru, "ADMIN")) return true;
+  const roles = resolveRoles(ru);
+  return roles.some((r) => {
+    const membership = getCanonicalMembershipRole(r);
+    return membership === "DIRECTIVO" || membership === "TEACHER" || membership === "STUDENT";
+  });
+};
+
+export const canVoteGovernance = (input?: string | null | RoleUser) => staffFromInput(input);
 
 type ClassroomMember = { userId?: string; roleInClass?: string };
-type AuthorizationUser = {
+type AuthorizationUser = RoleUser & {
   _id?: { toString?: () => string } | string;
   id?: string;
-  role?: string | null;
   schoolId?: string | null;
 };
 
@@ -97,10 +147,12 @@ const getUserId = (user?: AuthorizationUser) => {
   return null;
 };
 
-const resolveAccessLevel = (role?: string | null) => {
-  if (role === "ADMIN") return "admin" as const;
-  if (canManageParents(role) || isStaffRole(role)) return "staff" as const;
-  if (canReadAsLearner(role)) return "learner" as const;
+const resolveAccessLevel = (input?: string | null | RoleUser) => {
+  if (hasRole(typeof input === "object" ? input : null, "ADMIN") || (typeof input === "string" && input === "ADMIN")) {
+    return "admin" as const;
+  }
+  if (canManageParents(input) || isStaffRole(input)) return "staff" as const;
+  if (canReadAsLearner(input)) return "learner" as const;
   return null;
 };
 
@@ -115,24 +167,25 @@ const resolveTargetUsuarioId = (req: Request) => {
 const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined, context: AuthorizationContext) => AuthorizationResult> =
   {
     "aula-feed/read": (user) => {
-      const accessLevel = resolveAccessLevel(user?.role);
+      const accessLevel = resolveAccessLevel(user);
       if (!accessLevel) return { allowed: false };
       return { allowed: true, data: { accessLevel } };
     },
     "aula-feed/write": (user) => {
       if (!user) return { allowed: false, reason: "unauthenticated" };
-      if (user.role === "ADMIN" || user.role === "TEACHER" || user.role === "DIRECTIVO") {
+      // MULTIROL-01: si alguno de los roles del usuario es staff, pasa.
+      if (isStaffRole(user)) {
         return { allowed: true, data: { accessLevel: "staff" } };
       }
       return { allowed: false, reason: "forbidden" };
     },
-    "aulas/create": (user) => ({ allowed: canCreateClass(user?.role ?? null) }),
+    "aulas/create": (user) => ({ allowed: canCreateClass(user) }),
     "aulas/list": (user) => {
-      const accessLevel = resolveAccessLevel(user?.role);
+      const accessLevel = resolveAccessLevel(user);
       if (!accessLevel) return { allowed: false };
       return { allowed: true, data: { accessLevel } };
     },
-    "aulas/manage": (user) => ({ allowed: canManageParents(user?.role ?? null) }),
+    "aulas/manage": (user) => ({ allowed: canManageParents(user) }),
     "aulas/manage-classroom": (user, context) => {
       const classroom = context.classroom;
       if (!classroom) return { allowed: false };
@@ -140,6 +193,7 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
         allowed: canManageClassroom({
           requesterId: getUserId(user),
           requesterRole: user?.role ?? null,
+          requesterRoles: user?.roles ?? null,
           requesterSchoolId: user?.schoolId ?? null,
           classroomSchoolId: classroom.schoolId ?? classroom.institutionId ?? null,
           classroomMembers: classroom.members ?? null
@@ -147,7 +201,7 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
       };
     },
     "aulas/read": (user) => {
-      const accessLevel = resolveAccessLevel(user?.role);
+      const accessLevel = resolveAccessLevel(user);
       if (!accessLevel) return { allowed: false };
       return { allowed: true, data: { accessLevel } };
     },
@@ -157,19 +211,19 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
       if (!requesterId || !usuarioId) return { allowed: false };
       const isOwner = requesterId === usuarioId;
       if (isOwner) return { allowed: true };
-      return { allowed: canModerateIntercambios(user?.role ?? null) };
+      return { allowed: canModerateIntercambios(user) };
     },
-    "economia/mint": (user) => ({ allowed: canMintCurrency(user?.role ?? null) }),
+    "economia/mint": (user) => ({ allowed: canMintCurrency(user) }),
     "economia/moderate-intercambios": (user) => ({
-      allowed: canModerateIntercambios(user?.role ?? null),
-      data: { isAdmin: user?.role === "ADMIN" }
+      allowed: canModerateIntercambios(user),
+      data: { isAdmin: hasRole(user ?? null, "ADMIN") }
     }),
-    "estadisticas/export": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),
-    "estadisticas/read": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),
-    "publicaciones/comment": (user) => ({ allowed: canPostAsStudent(user?.role ?? null) }),
-    "publicaciones/create": (user) => ({ allowed: canPostInClass(user?.role ?? null) }),
+    "estadisticas/export": (user) => ({ allowed: isStaffRole(user) }),
+    "estadisticas/read": (user) => ({ allowed: isStaffRole(user) }),
+    "publicaciones/comment": (user) => ({ allowed: canPostAsStudent(user) }),
+    "publicaciones/create": (user) => ({ allowed: canPostInClass(user) }),
     "publicaciones/read": (user) => {
-      const accessLevel = resolveAccessLevel(user?.role);
+      const accessLevel = resolveAccessLevel(user);
       if (!accessLevel) return { allowed: false };
       return { allowed: true, data: { accessLevel } };
     },
@@ -178,7 +232,8 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
       if (!requesterId) return { allowed: false };
       const targetUsuarioId = resolveTargetUsuarioId(context.req);
       if (targetUsuarioId && requesterId === targetUsuarioId) return { allowed: true };
-      return { allowed: isStaffRole(user?.role ?? null), data: { isStaff: isStaffRole(user?.role ?? null) } };
+      const isStaff = isStaffRole(user);
+      return { allowed: isStaff, data: { isStaff } };
     },
     "progreso/write": (user, context) => {
       const requesterId = getUserId(user);
@@ -186,29 +241,30 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
       const targetUsuarioId =
         resolveTargetUsuarioId(context.req) ?? (context.req.method === "PATCH" ? requesterId : null);
       if (targetUsuarioId && requesterId === targetUsuarioId) return { allowed: true };
-      return { allowed: isStaffRole(user?.role ?? null), data: { isStaff: isStaffRole(user?.role ?? null) } };
+      const isStaff = isStaffRole(user);
+      return { allowed: isStaff, data: { isStaff } };
     },
-    "reportes/export": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),
-    "reportes/read": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),
+    "reportes/export": (user) => ({ allowed: isStaffRole(user) }),
+    "reportes/read": (user) => ({ allowed: isStaffRole(user) }),
     "resource-links/read": (user) => {
-      const isStaff = isStaffRole(user?.role ?? null);
-      const canRead = isStaff || canReadAsLearner(user?.role ?? null);
+      const isStaff = isStaffRole(user);
+      const canRead = isStaff || canReadAsLearner(user);
       return canRead ? { allowed: true, data: { isStaff } } : { allowed: false };
     },
-    "resource-links/write": (user) => ({ allowed: isStaffRole(user?.role ?? null) }),
+    "resource-links/write": (user) => ({ allowed: isStaffRole(user) }),
     "usuarios/create": (user) => {
-      if (canViewAllUsers(user?.role ?? null)) return { allowed: true, data: { accessLevel: "admin" } };
-      if (canManageParents(user?.role ?? null)) return { allowed: true, data: { accessLevel: "school" } };
+      if (canViewAllUsers(user)) return { allowed: true, data: { accessLevel: "admin" } };
+      if (canManageParents(user)) return { allowed: true, data: { accessLevel: "school" } };
       return { allowed: false };
     },
     "usuarios/list": (user) => {
-      if (canViewAllUsers(user?.role ?? null)) return { allowed: true, data: { accessLevel: "admin" } };
-      if (canManageParents(user?.role ?? null)) return { allowed: true, data: { accessLevel: "school" } };
+      if (canViewAllUsers(user)) return { allowed: true, data: { accessLevel: "admin" } };
+      if (canManageParents(user)) return { allowed: true, data: { accessLevel: "school" } };
       return { allowed: false };
     },
     "usuarios/read": (user) => {
-      if (canViewAllUsers(user?.role ?? null)) return { allowed: true, data: { accessLevel: "admin" } };
-      if (canManageParents(user?.role ?? null) || canReadAsLearner(user?.role ?? null)) {
+      if (canViewAllUsers(user)) return { allowed: true, data: { accessLevel: "admin" } };
+      if (canManageParents(user) || canReadAsLearner(user)) {
         return { allowed: true, data: { accessLevel: "member" } };
       }
       return { allowed: false };
@@ -218,18 +274,24 @@ const policies: Record<AuthorizationPolicy, (user: AuthorizationUser | undefined
 export const canManageClassroom = ({
   requesterId,
   requesterRole,
+  requesterRoles,
   requesterSchoolId,
   classroomSchoolId,
   classroomMembers
 }: {
   requesterId: string | null;
   requesterRole?: string | null;
+  // MULTIROL-01: nuevo. Si el requester tiene DIRECTIVO en su array,
+  // sigue contando como directivo de su escuela aunque su `role`
+  // principal sea TEACHER (caso multi-rol).
+  requesterRoles?: readonly string[] | null;
   requesterSchoolId?: string | null;
   classroomSchoolId?: string | null;
   classroomMembers?: ClassroomMember[] | null;
 }) => {
+  const roles = resolveRoles({ role: requesterRole, roles: requesterRoles });
   const hasInstitutionRole =
-    requesterRole === "DIRECTIVO" &&
+    roles.includes("DIRECTIVO") &&
     !!requesterSchoolId &&
     !!classroomSchoolId &&
     requesterSchoolId === classroomSchoolId;

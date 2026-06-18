@@ -105,15 +105,20 @@ export type Role = "ADMIN" | "TEACHER" | "DIRECTIVO" | "STUDENT" | "PARENT";
 export function seedUser(opts: {
   id: string;
   role: Role;
+  roles?: string[];
   schoolId?: string | null;
   fullName?: string;
 }): void {
+  // MULTIROL-01: si no se pasa `roles`, se promueve `role` a
+  // array de un elemento (compat con los seeds preexistentes).
+  const roles = opts.roles ?? [opts.role];
   prisma.usuario.rows.push({
     id: opts.id,
     username: opts.id,
     email: `${opts.id}@test.local`,
     fullName: opts.fullName ?? opts.id,
     role: opts.role,
+    roles,
     escuelaId: opts.schoolId ?? null,
     isDeleted: false,
     createdAt: new Date().toISOString(),
@@ -124,11 +129,17 @@ export function seedUser(opts: {
 export function tokenFor(opts: {
   id: string;
   role: Role;
+  roles?: string[];
   schoolId?: string | null;
 }): string {
+  // MULTIROL-01: si el test pasa `roles`, se propagan al JWT para
+  // ejercitar el camino multi-rol end-to-end. Si no, se usa el
+  // `role` singular (compat).
+  const roles = opts.roles ?? [opts.role];
   return createAccessToken({
     id: opts.id,
     role: opts.role,
+    roles,
     schoolId: opts.schoolId ?? null,
   }).token;
 }

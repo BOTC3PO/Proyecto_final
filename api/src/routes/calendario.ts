@@ -2,6 +2,9 @@ import { Router } from "express";
 import type { Prisma } from "@prisma/client";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
+import { hasRole, resolveRoles } from "../lib/roles";
+// `hasRole` se usa en los guards específicos (chequeo de un rol
+// puntual: ADMIN). `resolveRoles` y `hasAnyRole` cubren el resto.
 
 export const calendario = Router();
 
@@ -14,6 +17,17 @@ const getSchoolId = (req: { user?: { schoolId?: string | null } }) =>
 const getRole = (req: { user?: { role?: string } }) =>
   req.user?.role ?? null;
 
+// MULTIROL-01: helper local para chequear pertenencia a un set de
+// roles (mira primero el array `roles`, después el singular `role`).
+const hasAnyRole = (user: unknown, allowed: string[]) => {
+  if (!user || typeof user !== "object") return false;
+  const u = user as { role?: string; roles?: string[] };
+  const roles = resolveRoles({ role: u.role, roles: u.roles });
+  return roles.some((r) => allowed.includes(r));
+};
+
+const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
+
 const genId = (prefix: string) =>
   `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
@@ -22,7 +36,6 @@ calendario.get("/api/calendario/unificado", requireUser,
   async (req, res) => {
     const userId = getId(req as never);
     const schoolId = getSchoolId(req as never);
-    const role = getRole(req as never);
     if (!userId) return res.status(401).json({ error: "no autenticado" });
 
     const desde = typeof req.query.desde === "string"
@@ -110,12 +123,13 @@ calendario.get("/api/calendario/unificado", requireUser,
     try {
       let aulaWhere: Prisma.ClaseWhereInput = { isDeleted: false, status: "ACTIVE" };
 
-      if (role === "USER") {
+      if (hasRole(getUserFromReq(req as never), "USER")
+        && !hasAnyRole(getUserFromReq(req as never), ["TEACHER", "DIRECTIVO", "ADMIN"])) {
         aulaWhere = {
           ...aulaWhere,
           miembros: { some: { usuarioId: userId!, rolEnClase: "USER" } },
         };
-      } else if (role === "TEACHER") {
+      } else if (hasRole(getUserFromReq(req as never), "TEACHER")) {
         // FIX-CALENDARIO — usar el criterio canónico de "docente del aula"
         // (QA-FIX-05, `isClassroomTeacher` en `classroom-scope.ts:57-67`):
         // admin, owner por `createdBy`/`teacherId`/`teacherOfRecord`, o
@@ -139,7 +153,7 @@ calendario.get("/api/calendario/unificado", requireUser,
             { miembros: { some: { usuarioId: userId!, rolEnClase: "TEACHER" } } },
           ],
         };
-      } else if ((role === "DIRECTIVO" || role === "ADMIN") && schoolId) {
+      } else if (hasAnyRole(getUserFromReq(req as never), ["DIRECTIVO", "ADMIN"]) && schoolId) {
         aulaWhere = { ...aulaWhere, escuelaId: schoolId };
       }
 
@@ -191,7 +205,7 @@ calendario.get("/api/calendario/unificado", requireUser,
     // los ven los staff, los globales se muestran a todos los de
     // la escuela.
     if (schoolId) {
-      const isStaff = role === "DIRECTIVO" || role === "ADMIN";
+      const isStaff = hasAnyRole(getUserFromReq(req as never), ["DIRECTIVO", "ADMIN"]);
       for (const e of escuelaEventos) {
         if (e.aulaId) {
           const aulaRef = aulasAcotadasMap.get(e.aulaId);
@@ -258,9 +272,8 @@ calendario.get("/api/calendario/escuela", requireUser, async (req, res) => {
 calendario.post("/api/calendario/escuela", requireUser, async (req, res) => {
   const userId = getId(req as never);
   const schoolId = getSchoolId(req as never);
-  const role = getRole(req as never);
 
-  if (!["DIRECTIVO", "ADMIN", "TEACHER"].includes(role ?? "")) {
+  if (!hasAnyRole(getUserFromReq(req as never), ["DIRECTIVO", "ADMIN", "TEACHER"])) {
     return res.status(403).json({ error: "forbidden" });
   }
   if (!schoolId) return res.status(400).json({ error: "escuela requerida" });
@@ -316,8 +329,7 @@ calendario.post("/api/calendario/escuela", requireUser, async (req, res) => {
 
 // ── DELETE /api/calendario/escuela/:id ──────────────────────
 calendario.delete("/api/calendario/escuela/:id", requireUser, async (req, res) => {
-  const role = getRole(req as never);
-  if (!["DIRECTIVO", "ADMIN"].includes(role ?? "")) {
+  if (!hasAnyRole(getUserFromReq(req as never), ["DIRECTIVO", "ADMIN"])) {
     return res.status(403).json({ error: "sin permiso" });
   }
 
@@ -330,7 +342,7 @@ calendario.delete("/api/calendario/escuela/:id", requireUser, async (req, res) =
     return res.status(404).json({ error: "evento no encontrado" });
   }
 
-  if (role !== "ADMIN") {
+  if (!hasRole(getUserFromReq(req as never), "ADMIN")) {
     const schoolId = getSchoolId(req as never);
     if (!schoolId || evento.escuelaId !== schoolId) {
       return res.status(403).json({ error: "sin permiso sobre este evento" });
@@ -348,9 +360,8 @@ calendario.delete("/api/calendario/escuela/:id", requireUser, async (req, res) =
 // ── POST /api/calendario/aula ───────────────────────────────
 calendario.post("/api/calendario/aula", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
 
-  if (!["TEACHER", "DIRECTIVO", "ADMIN"].includes(role ?? "")) {
+  if (!hasAnyRole(getUserFromReq(req as never), ["TEACHER", "DIRECTIVO", "ADMIN"])) {
     return res.status(403).json({ error: "sin permiso" });
   }
 
@@ -384,8 +395,7 @@ calendario.post("/api/calendario/aula", requireUser, async (req, res) => {
 // ── DELETE /api/calendario/aula/:id ─────────────────────────
 calendario.delete("/api/calendario/aula/:id", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
-  if (!["TEACHER", "DIRECTIVO", "ADMIN"].includes(role ?? "")) {
+  if (!hasAnyRole(getUserFromReq(req as never), ["TEACHER", "DIRECTIVO", "ADMIN"])) {
     return res.status(403).json({ error: "sin permiso" });
   }
 
@@ -398,7 +408,7 @@ calendario.delete("/api/calendario/aula/:id", requireUser, async (req, res) => {
     return res.status(404).json({ error: "actividad no encontrada" });
   }
 
-  if (role !== "ADMIN" && actividad.createdBy !== userId) {
+  if (!hasRole(getUserFromReq(req as never), "ADMIN") && actividad.createdBy !== userId) {
     return res.status(403).json({ error: "sin permiso sobre esta actividad" });
   }
 

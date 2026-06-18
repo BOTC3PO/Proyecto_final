@@ -4,6 +4,7 @@ import { ZodError } from "zod";
 import { isStaffRole } from "../lib/authorization";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
+import { hasRole } from "../lib/roles";
 import {
   PlantillaCreateSchema,
   PlantillaForkSchema,
@@ -15,7 +16,16 @@ import { validateDslSyntax } from "../lib/vblang-validation";
 
 export const plantillas = Router();
 
-type AuthUser = { _id?: string; role?: string; schoolId?: string | null };
+// MULTIROL-01 (Fase 1): el shape del user ahora puede traer `roles`
+// además de `role` (legacy). `hasRole` mira primero el array y cae
+// al singular. El chequeo `user.role === "ADMIN"` se reemplaza por
+// `hasRole(user, "ADMIN")` en este archivo.
+type AuthUser = {
+  _id?: string;
+  role?: string;
+  roles?: string[];
+  schoolId?: string | null;
+};
 
 type PlantillaRow = {
   id: string;
@@ -79,7 +89,7 @@ function toDetail(row: PlantillaRow, ownerName?: string) {
 
 function canRead(row: PlantillaRow, user: AuthUser): boolean {
   if (row.isDeleted) return false;
-  if (user.role === "ADMIN") return true;
+  if (hasRole(user, "ADMIN")) return true;
   if (row.ownerUserId === user._id) return true;
   if (
     row.visibility === "escuela" &&
@@ -136,7 +146,7 @@ plantillas.post("/api/plantillas/batch", requireUser, async (req, res) => {
 plantillas.get("/api/plantillas", requireUser, async (req, res) => {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
-    if (!isStaffRole(user.role)) {
+    if (!isStaffRole(user)) {
       res.json({ items: [], total: 0 });
       return;
     }
@@ -275,7 +285,7 @@ plantillas.get("/api/plantillas/:id", requireUser, async (req, res) => {
 plantillas.post("/api/plantillas", requireUser, async (req, res) => {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
-    if (!isStaffRole(user.role)) {
+    if (!isStaffRole(user)) {
       res.status(403).json({ error: "Solo creadores de contenido pueden crear plantillas" });
       return;
     }
@@ -296,7 +306,7 @@ plantillas.post("/api/plantillas", requireUser, async (req, res) => {
     const id = randomUUID();
     const now = new Date().toISOString();
     const publicAprobado =
-      data.visibility === "publica" && user.role === "ADMIN" ? true : false;
+      data.visibility === "publica" && hasRole(user, "ADMIN") ? true : false;
     const userId = user._id ?? "";
 
     const created = await prisma.$transaction(async (tx) => {
@@ -352,7 +362,7 @@ plantillas.put("/api/plantillas/:id", requireUser, async (req, res) => {
       return;
     }
     const isOwner = row.ownerUserId === user._id;
-    if (!isOwner && user.role !== "ADMIN") {
+    if (!isOwner && !hasRole(user, "ADMIN")) {
       res.status(403).json({ error: "Solo el owner o ADMIN puede modificar" });
       return;
     }
@@ -387,7 +397,7 @@ plantillas.put("/api/plantillas/:id", requireUser, async (req, res) => {
     }
     if (data.visibility !== undefined) {
       update.visibility = data.visibility;
-      if (data.visibility === "publica" && user.role !== "ADMIN") {
+      if (data.visibility === "publica" && !hasRole(user, "ADMIN")) {
         update.publicAprobado = false;
       }
     }
@@ -432,7 +442,7 @@ plantillas.delete("/api/plantillas/:id", requireUser, async (req, res) => {
       return;
     }
     const isOwner = row.ownerUserId === user._id;
-    if (!isOwner && user.role !== "ADMIN") {
+    if (!isOwner && !hasRole(user, "ADMIN")) {
       res.status(403).json({ error: "Solo el owner o ADMIN puede eliminar" });
       return;
     }
@@ -518,7 +528,7 @@ async function handleClonado(
 ): Promise<void> {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
-    if (!isStaffRole(user.role)) {
+    if (!isStaffRole(user)) {
       res.status(403).json({ error: "Solo creadores de contenido pueden clonar" });
       return;
     }
@@ -564,7 +574,7 @@ plantillas.get(
   async (req, res) => {
     try {
       const user = (req as { user?: AuthUser }).user ?? {};
-      if (user.role !== "ADMIN") {
+      if (!hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo ADMIN" });
         return;
       }
@@ -617,7 +627,7 @@ plantillas.post(
   async (req, res) => {
     try {
       const user = (req as { user?: AuthUser }).user ?? {};
-      if (user.role !== "ADMIN") {
+      if (!hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo ADMIN" });
         return;
       }
@@ -662,7 +672,7 @@ plantillas.post(
   async (req, res) => {
     try {
       const user = (req as { user?: AuthUser }).user ?? {};
-      if (user.role !== "ADMIN") {
+      if (!hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo ADMIN" });
         return;
       }

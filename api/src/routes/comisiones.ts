@@ -10,12 +10,14 @@ import { Router } from "express";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
 import { DEFAULT_COMISION_PCT } from "../lib/comisiones";
+import { hasRole } from "../lib/roles";
 
 export const comisiones = Router();
 
-const getRole = (req: { user?: { role?: string } }) => req.user?.role ?? null;
 const getSchoolId = (req: { user?: { schoolId?: string | null } }) =>
   req.user?.schoolId ?? null;
+
+const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
 const periodoActual = () => new Date().toISOString().slice(0, 7); // "YYYY-MM"
 const genId = (p: string) => `${p}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -30,8 +32,8 @@ comisiones.get(
   "/api/comisiones/escuela/:escuelaId/resumen",
   async (req, res) => {
     const { escuelaId } = req.params;
-    const role = getRole(req as never);
-    if (role !== "ADMIN" && getSchoolId(req as never) !== escuelaId) {
+    const user = getUserFromReq(req as never);
+    if (!hasRole(user, "ADMIN") && getSchoolId(req as never) !== escuelaId) {
       return res.status(403).json({ error: "Sin acceso a esta escuela" });
     }
     const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
@@ -80,10 +82,10 @@ comisiones.post(
   "/api/comisiones/escuela/:escuelaId/modo",
   async (req, res) => {
     const { escuelaId } = req.params;
-    const role = getRole(req as never);
+    const user = getUserFromReq(req as never);
     const esDirectivoDeEscuela =
-      role === "DIRECTIVO" && getSchoolId(req as never) === escuelaId;
-    if (role !== "ADMIN" && !esDirectivoDeEscuela) {
+      hasRole(user, "DIRECTIVO") && getSchoolId(req as never) === escuelaId;
+    if (!hasRole(user, "ADMIN") && !esDirectivoDeEscuela) {
       return res.status(403).json({ error: "Sin permiso" });
     }
     const body = req.body as { modoGestion?: unknown; comisionPct?: unknown };

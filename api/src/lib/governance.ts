@@ -8,6 +8,7 @@ import {
   canVoteGovernance
 } from "./authorization";
 import { GovernanceLevelSchema, ProposalSchema } from "../schema/governance";
+import { hasRole } from "./roles";
 
 type GovernanceLevel = z.infer<typeof GovernanceLevelSchema>;
 type ProposalDocument = z.infer<typeof ProposalSchema>;
@@ -46,7 +47,20 @@ export const evaluateGovernanceLevel = (
 
 const getActorRole = async (actorId: string) => {
   const user = await prisma.usuario.findFirst({ where: { id: actorId } });
-  return toAuthorizationRole(user?.role ?? "");
+  // MULTIROL-01: devolvemos un shape `RoleUser` con `roles` preferido
+  // y `role` como fallback. Los helpers de authorization.ts aceptan
+  // este shape y miran primero el array.
+  const userRoles = Array.isArray((user as { roles?: string[] } | null)?.roles)
+    ? ((user as { roles: string[] }).roles as string[])
+    : [];
+  const role = typeof user?.role === "string" ? toAuthorizationRole(user.role) : "";
+  if (userRoles.length > 0) {
+    return {
+      roles: userRoles.map((r) => toAuthorizationRole(r)),
+      role: role || undefined
+    };
+  }
+  return { role: role || undefined };
 };
 
 export const canActorCreateProposal = async (actorId: string) => {
@@ -148,12 +162,12 @@ export const applyApprovedGovernanceChange = async (proposal: ProposalDocument) 
   const createdBy = typeof proposal.createdBy === "string"
     ? proposal.createdBy : "";
   if (ADMIN_ONLY_PROPOSAL_TYPES.has(type)) {
-    const user = createdBy
-      ? await prisma.usuario.findFirst({ where: { id: createdBy } })
-      : null;
-    const role = typeof user?.role === "string"
-      ? user.role.toUpperCase() : "";
-    if (role !== "ADMIN") {
+    // MULTIROL-01: leemos roles desde la DB y caemos a `role` para
+    // compat. Un admin puro (`roles: ["ADMIN"]`) sigue aplicando
+    // exactamente como antes; un multi-rol `["ADMIN", "TEACHER"]`
+    // también puede aplicar cambios de governance.
+    const actorRole = createdBy ? await getActorRole(createdBy) : { role: undefined };
+    if (!hasRole(actorRole, "ADMIN")) {
       return { applied: false, reason: "proposal type restricted to admin" };
     }
   }

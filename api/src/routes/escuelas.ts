@@ -5,6 +5,7 @@ import { prisma } from "../lib/prisma";
 import { createRateLimiter } from "../lib/rate-limit";
 import { toObjectId } from "../lib/ids";
 import { getQueryString } from "../lib/query";
+import { hasRole } from "../lib/roles";
 import { requireUser } from "../lib/user-auth";
 import { EscuelaPatchSchema, EscuelaSchema } from "../schema/escuela";
 
@@ -88,8 +89,8 @@ escuelas.patch("/api/escuelas/:id", requireUser, escuelasMutationLimiter, async 
       where: { id: rawId, isDeleted: { not: true } }
     });
     if (!escuela) return res.status(404).json({ error: "not found" });
-    const requester = (req as { user?: { _id?: { toString?: () => string }; role?: string } }).user;
-    const isPlatformAdmin = requester?.role === "ADMIN";
+    const requester = (req as { user?: { _id?: { toString?: () => string }; role?: string; roles?: string[] } }).user;
+    const isPlatformAdmin = hasRole(requester, "ADMIN");
     if (!isPlatformAdmin) {
       return res.status(403).json({ error: "forbidden" });
     }

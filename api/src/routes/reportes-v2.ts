@@ -2,6 +2,7 @@ import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
+import { hasRole } from "../lib/roles";
 
 export const reportesV2 = Router();
 
@@ -11,8 +12,7 @@ const getId = (req: { user?: { id?: string; _id?: { toString?: () => string } } 
 const getSchoolId = (req: { user?: { schoolId?: string | null } }) =>
   req.user?.schoolId ?? null;
 
-const getRole = (req: { user?: { role?: string } }) =>
-  req.user?.role ?? null;
+const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
 // ── GET /api/v2/reportes/boletin/:aulaId ────────────────────
 // Boletín de calificaciones por aula — para profesor y directivo
@@ -21,7 +21,6 @@ reportesV2.get(
   requireUser,
   async (req, res) => {
     const aulaId = req.params.aulaId as string;
-    const role = getRole(req as never);
     if (!aulaId) return res.status(400).json({ error: "aulaId requerido" });
 
     try {
@@ -251,8 +250,8 @@ reportesV2.get(
   requireUser,
   async (req, res) => {
     const schoolId = getSchoolId(req as never);
-    const role = getRole(req as never);
-    if (!schoolId && role !== "ADMIN") {
+    const user = getUserFromReq(req as never);
+    if (!schoolId && !hasRole(user, "ADMIN")) {
       return res.status(400).json({ error: "schoolId requerido" });
     }
 

@@ -47,6 +47,28 @@ function matchScalar(value: unknown, condition: unknown): boolean {
       if (!value.toLowerCase().includes(needle.toLowerCase())) return false;
     } else if (!value.includes(needle)) return false;
   }
+  // MULTIROL-01: operador `has` para `String[]` (Prisma 5+). Lo
+  // usamos en `requireAdmin` para chequear pertenencia a `roles`.
+  if ("has" in cond) {
+    if (!Array.isArray(value)) return false;
+    if (!value.includes(cond.has)) return false;
+  }
+  if ("hasEvery" in cond) {
+    if (!Array.isArray(value)) return false;
+    const needles = Array.isArray(cond.hasEvery) ? cond.hasEvery : [cond.hasEvery];
+    for (const n of needles) {
+      if (!value.includes(n)) return false;
+    }
+  }
+  if ("hasSome" in cond) {
+    if (!Array.isArray(value)) return false;
+    const needles = Array.isArray(cond.hasSome) ? cond.hasSome : [cond.hasSome];
+    let any = false;
+    for (const n of needles) {
+      if (value.includes(n)) { any = true; break; }
+    }
+    if (!any) return false;
+  }
   return true;
 }
 
@@ -345,6 +367,9 @@ export type UsuarioRow = {
   email: string;
   fullName: string;
   role: string;
+  // MULTIROL-01: la fila tiene `roles` además de `role`. Los seeds
+  // preexistentres lo promueven a `[role]` (ver setup.ts).
+  roles: string[];
   escuelaId: string | null;
   isDeleted: boolean;
   createdAt: string;

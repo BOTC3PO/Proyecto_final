@@ -1,14 +1,17 @@
 import { Router } from 'express';
 import { prisma } from '../lib/prisma';
 import { requireUser } from '../lib/user-auth';
+import { hasRole } from '../lib/roles';
 
 export const materiales = Router();
 
+// MULTIROL-01: `roles[]` opcional para chequeos multi-rol.
 type AuthUser = {
   id?: string;
   _id?: { toString?: () => string } | string;
   schoolId?: string | null;
   role?: string | null;
+  roles?: string[] | null;
 };
 
 const getUserId = (user?: AuthUser): string | null => {
@@ -149,7 +152,7 @@ materiales.get('/api/materiales/:id/download', requireUser, async (req, res) => 
   // escuela NO debe poder descargar un material con visibility=private
   // de otro profesor.
   const isOwner = modulo.ownerUserId === userId;
-  const isAdmin = user?.role === 'ADMIN';
+  const isAdmin = hasRole(user ?? null, "ADMIN");
   const userSchoolId = typeof user?.schoolId === 'string' ? user.schoolId : null;
   const sameSchoolShared =
     userSchoolId !== null &&

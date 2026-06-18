@@ -2,6 +2,7 @@ import express, { Router } from "express";
 import { isStaffRole } from "../lib/authorization";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
+import { hasRole } from "../lib/roles";
 import { BookSchema, BookVisibilitySchema, type BookVisibility } from "../schema/libro";
 
 export const libros = Router();
@@ -36,7 +37,13 @@ function safeParseLibroJson(
 }
 
 // SEC-LIBRO — usuario autenticado tal como lo arma `requireUser`.
-type AuthUser = { _id?: string; role?: string; schoolId?: string | null };
+// MULTIROL-01: `roles[]` opcional para chequeos multi-rol.
+type AuthUser = {
+  _id?: string;
+  role?: string;
+  roles?: string[];
+  schoolId?: string | null;
+};
 
 // SEC-LIBRO — fila tal como sale de Prisma. `ownerUserId`/`schoolId`
 // son nullable porque los libros viejos no tienen dueño (ver
@@ -74,7 +81,7 @@ type LibroRow = {
  * fijando `ownerUserId` a mano.
  */
 function canEditLibro(libro: LibroRow, user: AuthUser): boolean {
-  if (user.role === "ADMIN") return true;
+  if (hasRole(user, "ADMIN")) return true;
   const userId = user._id ?? null;
   if (libro.ownerUserId && userId && libro.ownerUserId === userId) return true;
   if (
@@ -82,7 +89,7 @@ function canEditLibro(libro: LibroRow, user: AuthUser): boolean {
     libro.schoolId &&
     user.schoolId &&
     libro.schoolId === user.schoolId &&
-    isStaffRole(user.role)
+    isStaffRole(user)
   ) {
     return true;
   }
@@ -111,7 +118,7 @@ function canEditLibro(libro: LibroRow, user: AuthUser): boolean {
  * descuido del listado.
  */
 function canReadLibro(libro: LibroRow, user: AuthUser): boolean {
-  if (user.role === "ADMIN") return true;
+  if (hasRole(user, "ADMIN")) return true;
   const userId = user._id ?? null;
   if (libro.ownerUserId && userId && libro.ownerUserId === userId) return true;
   if (
@@ -197,7 +204,7 @@ libros.post(
       // SEC-LIBRO — crear un libro nuevo es una acción de staff.
       // Los alumnos no escriben libros bajo ningún ámbito. ADMIN
       // también puede (cae por isStaffRole).
-      if (!isStaffRole(user.role)) {
+      if (!isStaffRole(user)) {
         return res
           .status(403)
           .json({ error: "Solo el staff puede crear libros" });
@@ -475,7 +482,7 @@ libros.patch(
       const userId = user._id ?? null;
       const isOwner =
         row.ownerUserId != null && userId != null && row.ownerUserId === userId;
-      const isAdmin = user.role === "ADMIN";
+      const isAdmin = hasRole(user, "ADMIN");
       if (!isAdmin && !isOwner) {
         return res
           .status(403)

@@ -1,11 +1,16 @@
 import type { RequestHandler } from "express";
 import { canManageParents } from "./authorization";
 import { prisma } from "./prisma";
+import { hasRole, resolveRoles } from "./roles";
 
 type ClassroomMember = { userId?: string; roleInClass?: string };
 
 type UserIdentity = {
   role?: string;
+  // MULTIROL-01 (Fase 1): el scope de aula mira el array de roles
+  // cuando está presente. Si solo hay `role` singular (código legacy),
+  // caemos al singular para mantener compat exacta.
+  roles?: readonly string[] | null;
   schoolId?: string | null;
   _id?: { toString?: () => string } | string;
   id?: string;
@@ -65,7 +70,12 @@ export const isClassroomTeacher = (
   userId: string | null,
   userRole?: string | null
 ): boolean => {
-  if (userRole === "ADMIN") return true;
+  // MULTIROL-01: compatibilidad con la firma anterior que recibe
+  // `userRole: string`. El caller puede pasar el array de roles en
+  // un objeto si quiere activar el chequeo multi-rol. Mantenemos la
+  // forma "string" porque la usan muchas rutas y un cambio de
+  // signature cascada por todo el back.
+  if (typeof userRole === "string" && userRole === "ADMIN") return true;
   if (isClassroomOwner(classroom, userId)) return true;
   if (!userId) return false;
   const members = Array.isArray(classroom.members) ? classroom.members : [];
@@ -165,6 +175,7 @@ export const requireClassroomScope =
     const user = (req as { user?: UserIdentity }).user;
     const userId = resolveUserId(user);
     const userRole = user?.role ?? null;
+    const userRoles = resolveRoles(user);
     const userSchoolId = resolveUserSchoolId(user);
     const classroomSchoolId = resolveClassroomSchoolId(classroom);
     const members: ClassroomMember[] = Array.isArray(classroom.members) ? classroom.members : [];
@@ -172,7 +183,10 @@ export const requireClassroomScope =
     const memberRole = member?.roleInClass ?? null;
 
     const allowAdmin = options.allowAdmin ?? true;
-    const isAdmin = allowAdmin && userRole === "ADMIN";
+    // MULTIROL-01: ADMIN se chequea contra el array de roles (no solo
+    // el singular). Un usuario con `roles: ["TEACHER", "ADMIN"]` sigue
+    // siendo admin global.
+    const isAdmin = allowAdmin && hasRole(user ?? null, "ADMIN");
 
     const allowMemberRoles = options.allowMemberRoles ?? "any";
     const isAllowedMember =
@@ -181,9 +195,12 @@ export const requireClassroomScope =
         : !!member && allowMemberRoles.includes(memberRole ?? "");
 
     const allowSchoolMatch = options.allowSchoolMatch ?? true;
+    // MULTIROL-01: el school-match debe aceptar cualquier rol que sea
+    // staff/manager de la escuela, no solo el `role` singular. Mantenemos
+    // compat: si solo llega `userRole` (legacy), funciona como antes.
     const canMatchByRole = options.schoolMatchRoles
-      ? options.schoolMatchRoles.includes(userRole ?? "")
-      : canManageParents(userRole ?? null);
+      ? userRoles.some((r) => options.schoolMatchRoles!.includes(r))
+      : canManageParents(user ?? null);
     const isSchoolMatch =
       allowSchoolMatch &&
       canMatchByRole &&

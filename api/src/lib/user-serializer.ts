@@ -1,4 +1,5 @@
 import { normalizeSchoolId } from "./school-ids";
+import { resolveRoles } from "./roles";
 
 type UserAccessLevel = "admin" | "member" | "public";
 
@@ -20,6 +21,9 @@ type UserRecord = {
   email?: string | null;
   fullName?: string | null;
   role?: string | null;
+  // MULTIROL-01: el serializer propaga `roles` cuando está presente.
+  // Si solo llega `role`, lo promueve a array de un elemento.
+  roles?: readonly string[] | null;
   escuelaId?: unknown;
 };
 
@@ -28,7 +32,10 @@ export const serializeUsuario = (user: UserRecord, options: SerializeUserOptions
     id: typeof user?._id === "string" ? user._id : user?._id?.toString?.() ?? null,
     username: user?.username ?? null,
     fullName: user?.fullName ?? null,
-    role: user?.role ?? null
+    role: user?.role ?? null,
+    // MULTIROL-01: exponemos `roles` aditivamente. El front actual
+    // que solo lee `role` lo sigue viendo.
+    roles: resolveRoles(user)
   } as Record<string, unknown>;
 
   if (options.access !== "public") {

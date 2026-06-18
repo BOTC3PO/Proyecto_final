@@ -2,6 +2,7 @@ import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
+import { hasRole } from "../lib/roles";
 
 export const mensajeria = Router();
 
@@ -13,6 +14,8 @@ const getSchoolId = (req: { user?: { schoolId?: string | null } }) =>
 
 const getRole = (req: { user?: { role?: string } }) =>
   req.user?.role ?? null;
+
+const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
 const genId = (prefix: string) =>
   `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -245,14 +248,14 @@ mensajeria.get("/api/mensajeria/no-leidos", requireUser, async (req, res) => {
 mensajeria.get("/api/mensajeria/avisos", requireUser, async (req, res) => {
   const userId = getId(req as never);
   const schoolId = getSchoolId(req as never);
-  const role = getRole(req as never);
+  const user = getUserFromReq(req as never);
   if (!userId || !schoolId) return res.json({ items: [] });
 
   const destinosValidos: string[] = ["todos"];
-  if (role === "USER") destinosValidos.push("alumnos");
-  if (role === "TEACHER") destinosValidos.push("profesores");
-  if (role === "PARENT") destinosValidos.push("padres");
-  if (role === "DIRECTIVO") destinosValidos.push("profesores", "padres");
+  if (hasRole(user, "USER")) destinosValidos.push("alumnos");
+  if (hasRole(user, "TEACHER")) destinosValidos.push("profesores");
+  if (hasRole(user, "PARENT")) destinosValidos.push("padres");
+  if (hasRole(user, "DIRECTIVO")) destinosValidos.push("profesores", "padres");
 
   const [todosAvisos, leidosSet] = await Promise.all([
     prisma.aviso.findMany({
@@ -287,10 +290,11 @@ mensajeria.get("/api/mensajeria/avisos", requireUser, async (req, res) => {
 mensajeria.post("/api/mensajeria/avisos", requireUser, async (req, res) => {
   const userId = getId(req as never);
   const schoolId = getSchoolId(req as never);
+  const user = getUserFromReq(req as never);
   const role = getRole(req as never);
 
   if (!userId || !schoolId) return res.status(401).json({ error: "no autenticado" });
-  if (role !== "DIRECTIVO" && role !== "TEACHER" && role !== "ADMIN") {
+  if (!hasRole(user, "DIRECTIVO") && !hasRole(user, "TEACHER") && !hasRole(user, "ADMIN")) {
     return res.status(403).json({ error: "Solo directivos y profesores pueden crear avisos." });
   }
 

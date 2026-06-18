@@ -17,6 +17,7 @@ import {
   EXPANSION_UNIDADES,
 } from "../lib/suscripciones";
 import { prisma } from "../lib/prisma";
+import { hasRole } from "../lib/roles";
 import { registrarTransaccionEscuela } from "../lib/comisiones";
 
 export const suscripciones = Router();
@@ -30,6 +31,8 @@ const getSchoolId = (req: { user?: { schoolId?: string | null } }) =>
 const getRole = (req: { user?: { role?: string } }) =>
   req.user?.role ?? null;
 
+const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
+
 const genId = () => `sub-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 const genPayId = () => `pay-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
@@ -37,21 +40,22 @@ const genPayId = () => `pay-${Date.now()}-${Math.random().toString(16).slice(2)}
 suscripciones.get("/api/suscripciones/limites", requireUser, async (req, res) => {
   const schoolId = getSchoolId(req as never);
   const role = getRole(req as never);
+  const user = getUserFromReq(req as never);
   if (!schoolId) return res.json({ limites: LIMITES_GRATUITOS, esAdmin: false });
   const limites = await getLimitesEscuela(schoolId, role ?? undefined);
-  return res.json({ limites, esAdmin: role === "ADMIN" });
+  return res.json({ limites, esAdmin: hasRole(user, "ADMIN") });
 });
 
 // ── GET /api/suscripciones/estado ───────────────────────────
 suscripciones.get("/api/suscripciones/estado", requireUser, async (req, res) => {
   const userId = getId(req as never);
   const schoolId = getSchoolId(req as never);
-  const role = getRole(req as never);
+  const user = getUserFromReq(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
   const entidadTipo =
-    role === "USER" ? "alumno"
-    : role === "TEACHER" ? "profesor"
+    hasRole(user, "USER") ? "alumno"
+    : hasRole(user, "TEACHER") ? "profesor"
     : null;
 
   const [suscripcionPersonal, suscripcionEscuela, multiplicador] = await Promise.all([
@@ -71,13 +75,13 @@ suscripciones.get("/api/suscripciones/estado", requireUser, async (req, res) => 
 // ── GET /api/suscripciones/historial ────────────────────────
 suscripciones.get("/api/suscripciones/historial", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
+  const user = getUserFromReq(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 
   const entidadTipo =
-    role === "USER" ? "alumno"
-    : role === "TEACHER" ? "profesor"
-    : role === "DIRECTIVO" ? "escuela"
+    hasRole(user, "USER") ? "alumno"
+    : hasRole(user, "TEACHER") ? "profesor"
+    : hasRole(user, "DIRECTIVO") ? "escuela"
     : null;
 
   if (!entidadTipo) return res.json({ items: [] });
@@ -99,7 +103,7 @@ suscripciones.get("/api/suscripciones/historial", requireUser, async (req, res) 
 // ── POST /api/suscripciones/cancelar ────────────────────────
 suscripciones.post("/api/suscripciones/cancelar", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
+  const user = getUserFromReq(req as never);
   const { suscripcionId } = req.body as { suscripcionId?: string };
   if (!userId) return res.status(401).json({ error: "no autenticado" });
   if (!suscripcionId) return res.status(400).json({ error: "suscripcionId requerido" });
@@ -108,7 +112,7 @@ suscripciones.post("/api/suscripciones/cancelar", requireUser, async (req, res) 
   if (!sub) return res.status(404).json({ error: "suscripción no encontrada" });
   if (sub.estado !== "activa") return res.status(400).json({ error: "la suscripción no está activa" });
 
-  const esAdmin = role === "ADMIN";
+  const esAdmin = hasRole(user, "ADMIN");
   const esDueno =
     sub.entidadId === userId ||
     (sub.entidadTipo === "escuela" && sub.entidadId === getSchoolId(req as never));
@@ -273,7 +277,6 @@ suscripciones.post("/api/suscripciones/iniciar", requireUser, async (req, res) =
   }
 
   const userId = getId(req as never);
-  const role = getRole(req as never);
   const schoolId = getSchoolId(req as never);
   if (!userId) return res.status(401).json({ error: "no autenticado" });
 

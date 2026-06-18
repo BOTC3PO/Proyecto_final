@@ -1,17 +1,14 @@
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
+import { hasRole } from "../lib/roles";
 
 export const pedagogico = Router();
 
 const getId = (req: { user?: { id?: string; _id?: { toString?: () => string } } }) =>
   req.user?.id ?? req.user?._id?.toString?.() ?? null;
 
-const getRole = (req: { user?: { role?: string } }) =>
-  req.user?.role ?? null;
-
-const isStaff = (role: string | null) =>
-  ["TEACHER", "DIRECTIVO", "ADMIN"].includes(role ?? "");
+const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
 const genId = (prefix: string) =>
   `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -28,8 +25,8 @@ pedagogico.get("/api/pedagogico/umbral/:quizId", requireUser, async (req, res) =
 // ── POST /api/pedagogico/umbral ─────────────────────────────
 pedagogico.post("/api/pedagogico/umbral", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
-  if (!isStaff(role)) {
+  const user = getUserFromReq(req as never);
+  if (!hasRole(user, "TEACHER") && !hasRole(user, "DIRECTIVO") && !hasRole(user, "ADMIN")) {
     return res.status(403).json({ error: "solo profesores" });
   }
 
@@ -59,8 +56,8 @@ pedagogico.post("/api/pedagogico/umbral", requireUser, async (req, res) => {
 
 // ── GET /api/pedagogico/riesgo/:aulaId ──────────────────────
 pedagogico.get("/api/pedagogico/riesgo/:aulaId", requireUser, async (req, res) => {
-  const role = getRole(req as never);
-  if (!isStaff(role)) {
+  const user = getUserFromReq(req as never);
+  if (!hasRole(user, "TEACHER") && !hasRole(user, "DIRECTIVO") && !hasRole(user, "ADMIN")) {
     return res.status(403).json({ error: "solo profesores" });
   }
 
@@ -135,8 +132,8 @@ pedagogico.get("/api/pedagogico/riesgo/:aulaId", requireUser, async (req, res) =
 // ── POST /api/pedagogico/desbloquear ────────────────────────
 pedagogico.post("/api/pedagogico/desbloquear", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
-  if (!isStaff(role)) {
+  const user = getUserFromReq(req as never);
+  if (!hasRole(user, "TEACHER") && !hasRole(user, "DIRECTIVO") && !hasRole(user, "ADMIN")) {
     return res.status(403).json({ error: "solo profesores" });
   }
 
@@ -156,9 +153,9 @@ pedagogico.post("/api/pedagogico/desbloquear", requireUser, async (req, res) => 
       return res.status(404).json({ error: "aula no encontrada" });
     }
 
-    if (role !== "ADMIN") {
+    if (!hasRole(user, "ADMIN")) {
       const userSchoolId = (req as never as { user?: { schoolId?: string } }).user?.schoolId ?? null;
-      if (role === "DIRECTIVO") {
+      if (hasRole(user, "DIRECTIVO")) {
         const aulaSchool = aula.escuelaId ?? null;
         if (!aulaSchool || aulaSchool !== userSchoolId) {
           return res.status(403).json({ error: "sin permiso sobre esta aula" });
@@ -242,8 +239,8 @@ pedagogico.get("/api/pedagogico/modo-aula/:aulaId", requireUser, async (req, res
 // ── POST /api/pedagogico/modo-aula ──────────────────────────
 pedagogico.post("/api/pedagogico/modo-aula", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
-  if (!isStaff(role)) {
+  const user = getUserFromReq(req as never);
+  if (!hasRole(user, "TEACHER") && !hasRole(user, "DIRECTIVO") && !hasRole(user, "ADMIN")) {
     return res.status(403).json({ error: "solo profesores" });
   }
 

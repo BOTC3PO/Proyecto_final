@@ -191,6 +191,11 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         email: parsed.email,
         fullName: parsed.fullName,
         role,
+        // MULTIROL-01: poblar `roles` al registrar. Por ahora, el
+        // registro es single-rol (mismo `role` que viene del
+        // payload). El endpoint para agregar un segundo rol
+        // (multi-rol explícito) se diseña en Fase 2.
+        roles: [role],
         escuelaId,
         birthdate: parsed.birthdate ? new Date(parsed.birthdate).toISOString() : null,
         passwordHash: hashPassword(parsed.password),
@@ -331,6 +336,14 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
       email: user.email,
       username: user.username,
       role: user.role,
+      // MULTIROL-01: leer `roles` desde la DB y caer a `role` para
+      // compat. Si la fila no tiene `roles` poblado (migración
+      // pendiente), `resolveRoles` lo promueve a `[role]`.
+      roles: Array.isArray((user as { roles?: string[] }).roles)
+        ? (user as { roles: string[] }).roles
+        : user.role
+          ? [user.role]
+          : undefined,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
       schoolId: normalizeSchoolId(user.escuelaId),
       fullName: user.fullName ?? null
@@ -379,6 +392,14 @@ auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
     });
 
     if (user?.id && user.role !== "GUEST") {
+      // MULTIROL-01: con multi-rol, un usuario puede haber sido guest
+      // y haber agregado otro rol (ej. TEACHER). El chequeo original
+      // sobre `role` singular sigue siendo correcto para Fase 1 —
+      // un usuario multi-rol cuyo `role` principal ya no es GUEST
+      // entra en la rama de logging. Cuando agreguemos el endpoint
+      // para mutar roles (Fase 2), este chequeo se puede migrar a
+      // `!hasRole(user, "GUEST")` para que un `roles: ["GUEST",
+      // "TEACHER"]` también caiga en esta rama.
       if (ENV.NODE_ENV !== "production") {
         console.info("[auth/forgot-password] Password reset request received", {
           userId: user.id.toString(),
@@ -464,6 +485,13 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       email: user.email,
       username: user.username,
       role: user.role,
+      // MULTIROL-01: leer `roles` desde la DB y caer a `role` para
+      // compat (ver bloque equivalente en `/api/auth/refresh`).
+      roles: Array.isArray((user as { roles?: string[] }).roles)
+        ? (user as { roles: string[] }).roles
+        : user.role
+          ? [user.role]
+          : undefined,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
       schoolId: normalizeSchoolId(user.escuelaId),
       fullName: user.fullName ?? null
@@ -475,6 +503,14 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       email: user.email,
       fullName: user.fullName,
       role: user.role,
+      // MULTIROL-01: exponer `roles` en la respuesta de login. El
+      // front lo consume en Fase 2. Por ahora es aditivo — el front
+      // que solo lee `role` lo sigue viendo.
+      roles: Array.isArray((user as { roles?: string[] }).roles)
+        ? (user as { roles: string[] }).roles
+        : user.role
+          ? [user.role]
+          : undefined,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
       schoolId: normalizeSchoolId(user.escuelaId),
       accessToken: accessToken.token,
