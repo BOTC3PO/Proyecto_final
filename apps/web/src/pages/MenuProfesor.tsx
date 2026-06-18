@@ -488,6 +488,79 @@ export default function menuProfesor() {
           {/* ── Contenido principal (col izquierda + centro) ─────── */}
           <div className="flex-1 min-w-0 space-y-4">
 
+            {/* FIX-TEST4-X-04 — Modo Aula como tarjeta PROMINENTE
+                arriba de los KPI. Antes estaba anidada dentro de
+                "Mis aulas" (línea ~523 del código viejo) y era fácil
+                de pasar por alto. Ahora tiene borde grueso,
+                indicador de estado (verde/rojo) y un selector de
+                aula inline. El countdown del timer se mantiene
+                abajo, en la fila compacta. */}
+            <div
+              data-testid="panel-modo-aula-prominente"
+              className={`rounded-xl border-2 p-4 flex flex-wrap items-center gap-4 ${
+                modoAulaActivo
+                  ? 'border-emerald-500 bg-emerald-50'
+                  : 'border-amber-300 bg-amber-50'
+              }`}
+            >
+              <div className="flex items-center gap-3 flex-1 min-w-0">
+                <div
+                  className={`w-3 h-3 rounded-full flex-shrink-0 ${
+                    modoAulaActivo ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'
+                  }`}
+                />
+                <div className="min-w-0">
+                  <p className="text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)] mb-0.5">
+                    Modo Aula
+                  </p>
+                  <p className="text-sm font-medium text-[var(--c-text)] truncate">
+                    {modoAulaActivo
+                      ? '🟢 Los alumnos tienen acceso completo'
+                      : '🟡 Restringido · activá el modo aula'}
+                  </p>
+                  {modoAulaActivo && (
+                    <p className="text-xs text-emerald-700 mt-0.5">
+                      Tienda y economía deshabilitadas para los alumnos del aula activa.
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 flex-shrink-0">
+                {!modoAulaActivo && (
+                  <select
+                    value={modoAulaAulaId}
+                    onChange={(e) => setModoAulaAulaId(e.target.value)}
+                    className="rounded-lg text-xs px-2 py-1.5 bg-white border border-amber-300 text-[var(--c-text)] focus:outline-none"
+                    aria-label="Aula para modo aula"
+                  >
+                    {aulas.filter(a =>
+                      (a.status === 'ACTIVE' || a.status === 'activa')
+                    ).map(a => (
+                      <option key={getAulaId(a)} value={getAulaId(a)}>
+                        {a.name}
+                      </option>
+                    ))}
+                  </select>
+                )}
+                <button
+                  disabled={modoAulaLoading || !modoAulaAulaId}
+                  onClick={handleToggleModoAula}
+                  className={`rounded-lg px-4 py-1.5 text-xs font-semibold transition-opacity disabled:opacity-40 ${
+                    modoAulaActivo
+                      ? 'bg-emerald-600 text-white hover:opacity-90'
+                      : 'bg-amber-600 text-white hover:opacity-90'
+                  }`}
+                >
+                  {modoAulaLoading
+                    ? '...'
+                    : modoAulaActivo
+                      ? 'Desactivar'
+                      : 'Activar modo aula'}
+                </button>
+              </div>
+            </div>
+
             {/* Stats KPI — 4 columnas */}
             <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
               {dashboard?.kpiCards.map((card) => (
@@ -520,47 +593,9 @@ export default function menuProfesor() {
                   </Link>
                 </div>
 
-                {/* Modo aula */}
-                <div className={`mx-4 mt-3 mb-2 rounded-xl px-4 py-3 ${
-                  modoAulaActivo
-                    ? 'bg-[var(--c-primary)]'
-                    : 'bg-[var(--c-text)]'
-                }`}>
-                  <p className="text-[9px] uppercase tracking-widest font-semibold text-white/60 mb-1">
-                    Modo Aula
-                  </p>
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="text-sm font-medium text-white">
-                      {modoAulaActivo
-                        ? 'Los alumnos tienen acceso completo'
-                        : 'Restringido · activá el modo aula'}
-                    </p>
-                    <div className="flex items-center gap-2 flex-shrink-0">
-                      {!modoAulaActivo && (
-                        <select
-                          value={modoAulaAulaId}
-                          onChange={(e) => setModoAulaAulaId(e.target.value)}
-                          className="rounded-lg text-xs px-2 py-1 bg-white/20 text-white border border-white/30 focus:outline-none"
-                        >
-                          {aulas.filter(a =>
-                            (a.status === 'ACTIVE' || a.status === 'activa')
-                          ).map(a => (
-                            <option key={getAulaId(a)} value={getAulaId(a)}>
-                              {a.name}
-                            </option>
-                          ))}
-                        </select>
-                      )}
-                      <button
-                        disabled={modoAulaLoading || !modoAulaAulaId}
-                        onClick={handleToggleModoAula}
-                        className="rounded-lg px-3 py-1 text-xs font-semibold transition-opacity disabled:opacity-40 bg-[#e85d3a] text-white hover:opacity-90"
-                      >
-                        {modoAulaLoading ? '...' : modoAulaActivo ? 'Desactivar' : 'Activar'}
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                {/* FIX-TEST4-X-04 — la tarjeta de "Modo Aula" se
+                    movió ARRIBA del panel (panel-modo-aula-prominente).
+                    Acá solo queda la lista de aulas. */}
 
                 {/* Lista de aulas */}
                 <div className="px-2 pb-3">

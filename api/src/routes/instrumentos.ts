@@ -3,6 +3,7 @@ import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 import { generateId } from "../lib/ids";
 import { getAjusteEconomico } from "../lib/calendario-economico";
+import { getOverrideActivo } from "./economia";
 
 export const instrumentos = Router();
 
@@ -188,7 +189,16 @@ instrumentos.get("/api/instrumentos/fci", requireUser, async (req, res) => {
     take: 20,
   });
 
-  const ajuste = getAjusteEconomico();
+  // FIX-TEST4-ADMIN-01 — respetar el override del panel admin
+  // (mismo criterio que en `economia.ts`).
+  const macro = await getOverrideActivo();
+  const override = macro.modo !== "normal" ? {
+    modo: macro.modo,
+    precioFactor: macro.precioFactor,
+    recompensaFactor: macro.recompensaFactor,
+    tasa: macro.tasaAplicada,
+  } : null;
+  const ajuste = getAjusteEconomico(undefined, override);
   return res.json({ items, ajusteActual: ajuste });
 });
 
@@ -204,7 +214,15 @@ instrumentos.post("/api/instrumentos/fci", requireUser, async (req, res) => {
   if (typeof dias !== "number" || dias < 1 || dias > 90)
     return res.status(400).json({ error: "días inválidos (1-90)" });
 
-  const ajuste = getAjusteEconomico();
+  // FIX-TEST4-ADMIN-01 — idem, override del panel antes del JSON.
+  const macro = await getOverrideActivo();
+  const override = macro.modo !== "normal" ? {
+    modo: macro.modo,
+    precioFactor: macro.precioFactor,
+    recompensaFactor: macro.recompensaFactor,
+    tasa: macro.tasaAplicada,
+  } : null;
+  const ajuste = getAjusteEconomico(undefined, override);
   let tasaMensual = 4;
   if (ajuste.tipo === "deflacion") tasaMensual = 4 + ajuste.tasa * 100;
   else if (ajuste.tipo === "inflacion") tasaMensual = Math.max(1, 4 - ajuste.tasa * 50);

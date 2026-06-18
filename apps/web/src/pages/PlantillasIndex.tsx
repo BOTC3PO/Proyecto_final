@@ -85,9 +85,11 @@ function PlantillaCard({
       {item.tags && item.tags.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-1">
           {item.tags.map((t) => (
+            // FIX-TEST4-X-03 — antes `bg-slate-100 text-slate-600`
+            // (hardcoded). Ahora tokens del tema.
             <span
               key={t}
-              className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-600"
+              className="rounded-full bg-[var(--c-bg)] px-2 py-0.5 text-[10px] text-[var(--c-muted)]"
             >
               {t}
             </span>

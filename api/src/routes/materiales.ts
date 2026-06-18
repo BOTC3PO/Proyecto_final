@@ -53,20 +53,41 @@ materiales.get('/api/materiales', requireUser, async (req, res) => {
     select: {
       id: true,
       titulo: true,
+      subject: true,
       visibility: true,
+      schoolId: true,
       ownerUserId: true,
       createdAt: true,
     },
     orderBy: { createdAt: 'desc' },
   });
 
+  // FIX-TEST4-PROF-04 — replicar patrón VblangDataset: incluir
+  // `visibility` (string) y `ownerName` (resuelto) en el response
+  // para que la UI pueda mostrar el alcance y el nombre del
+  // docente que creó el material, no el ID.
+  const ownerIds = Array.from(
+    new Set(modulos.map((m) => m.ownerUserId).filter((v): v is string => !!v))
+  );
+  const owners = ownerIds.length
+    ? await prisma.usuario.findMany({
+        where: { id: { in: ownerIds } },
+        select: { id: true, fullName: true, username: true },
+      })
+    : [];
+  const ownerMap = new Map(
+    owners.map((u) => [u.id, u.fullName || u.username || u.id])
+  );
+
   const items = modulos.map((m) => ({
     id: m.id,
     titulo: m.titulo,
-    materia: 'Sin materia',
+    materia: m.subject ?? 'Sin materia',
     tipo: 'cuestionario',
-    autor: m.ownerUserId ?? 'Desconocido',
-    escuelaId: schoolId,
+    autor: ownerMap.get(m.ownerUserId ?? '') ?? m.ownerUserId ?? 'Desconocido',
+    ownerUserId: m.ownerUserId ?? null,
+    escuelaId: m.schoolId ?? null,
+    visibility: m.visibility ?? 'privado',
     compartido: m.visibility === 'escuela' || m.visibility === 'publico',
     createdAt: m.createdAt,
   }));

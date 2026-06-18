@@ -1,12 +1,5 @@
 import { apiGet } from "../lib/api";
 
-export type ProfesorCursoResumen = {
-  id: string;
-  nombre: string;
-  alumnos: number;
-  estado: string;
-};
-
 export type ProfesorKpiCard = {
   id: string;
   label: string;
@@ -60,13 +53,14 @@ export type ProfesorMenuDashboard = {
   };
 };
 
+// FIX-TEST4-PROF-01 — eliminados los quick-links `cursos` y
+// `crear_curso` (redirigen a `/profesor/aulas`). Las páginas
+// ProfesorCursos/ProfesorCursoNuevo fueron borradas.
 const PROFESOR_QUICK_LINK_ROUTES = new Set([
   "/profesor",
   "/profesor/aulas",
   "/profesor/calendario",
   "/profesor/calendario/detalle",
-  "/profesor/cursos",
-  "/profesor/cursos/nuevo",
   "/profesor/calificaciones",
   "/profesor/asistencia",
   "/profesor/materiales",
@@ -85,8 +79,6 @@ const PROFESOR_QUICK_LINK_ROUTES = new Set([
 const PROFESOR_QUICK_LINK_BY_ID: Record<string, string> = {
   aulas: "/profesor/aulas",
   calendario: "/profesor/calendario",
-  cursos: "/profesor/cursos",
-  crear_curso: "/profesor/cursos/nuevo",
   calificaciones: "/profesor/calificaciones",
   asistencia: "/profesor/asistencia",
   materiales: "/profesor/materiales",
@@ -125,9 +117,8 @@ export const filterProfesorQuickLinks = (quickLinks: ProfesorMenuDashboard["quic
   };
 };
 
-export async function fetchProfesorCursos(): Promise<ProfesorCursoResumen[]> {
-  return apiGet<ProfesorCursoResumen[]>("/api/profesor/cursos");
-}
+// FIX-TEST4-PROF-01 — `fetchProfesorCursos` eliminado. Las aulas
+// se listan con `fetchClassrooms()` (servicio `aulas.ts`).
 
 export async function fetchProfesorMenuDashboard(): Promise<ProfesorMenuDashboard> {
   const data = await apiGet<ProfesorMenuDashboard>("/api/profesor/menu");

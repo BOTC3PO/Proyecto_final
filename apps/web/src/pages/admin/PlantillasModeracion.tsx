@@ -92,7 +92,11 @@ export default function PlantillasModeracion() {
                       {p.materia ? ` · ${p.materia}` : ""}
                     </p>
                     {p.descripcion && (
-                      <p className="text-xs text-slate-600 mt-2 line-clamp-2">
+                      // FIX-TEST4-X-03 — antes usaba `text-slate-600`
+                      // que es hardcoded y no respeta el tema
+                      // activo (modo nocturno, etc.). Ahora usa
+                      // tokens del tema.
+                      <p className="text-xs text-[var(--c-muted)] mt-2 line-clamp-2">
                         {p.descripcion}
                       </p>
                     )}
@@ -102,7 +106,9 @@ export default function PlantillasModeracion() {
                       to={`/plantillas/${p.id}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="rounded-md border border-slate-300 px-3 py-1.5 text-xs font-medium hover:bg-slate-50"
+                      // FIX-TEST4-X-03 — idem: `border-slate-300`
+                      // y `hover:bg-slate-50` → tokens del tema.
+                      className="rounded-md border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
                     >
                       Ver
                     </Link>

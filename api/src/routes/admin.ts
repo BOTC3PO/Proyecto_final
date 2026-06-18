@@ -218,7 +218,7 @@ adminRouter.get("/api/admin/cursos", requireAdmin, async (_req, res) => {
 adminRouter.get("/api/materias", requireUser, async (_req, res) => {
   try {
     const rows = await prisma.materia.findMany();
-    const items = rows
+    const fromDb = rows
       .map((r) => {
         try { return JSON.parse(r.json); } catch { return null; }
       })
@@ -227,6 +227,28 @@ adminRouter.get("/api/materias", requireUser, async (_req, res) => {
       .sort((a: Record<string, unknown>, b: Record<string, unknown>) =>
         String(a.nombre ?? "").localeCompare(String(b.nombre ?? ""))
       );
+    // FIX-TEST4-ADMIN-02 — antes si la tabla `materias` estaba
+    // vacía (seed no corrido, o admin nunca creó nada), el
+    // editor de módulos caía al `FALLBACK_SUBJECTS` hardcodeado
+    // y nunca mostraba las materias del admin. Ahora: si la
+    // tabla tiene items, esos ganan. Si está vacía, el endpoint
+    // devuelve la lista canónica (la misma que el
+    // FALLBACK_SUBJECTS del front) para que la UI tenga
+    // opciones. El admin puede agregar más, y esas se sumarán
+    // sin duplicar (el front deduplica con `new Set`).
+    const FALLBACK = [
+      "Matemáticas", "Lengua", "Historia", "Geografía",
+      "Física", "Química", "Biología", "Informática",
+      "Economía", "Filosofía", "Arte", "Educación Física",
+    ];
+    const seen = new Set<string>();
+    const items: Array<{ nombre: string }> = [];
+    for (const m of [...fromDb, ...FALLBACK.map((nombre) => ({ nombre }))]) {
+      const nombre = String((m as { nombre?: string }).nombre ?? "").trim();
+      if (!nombre || seen.has(nombre.toLowerCase())) continue;
+      seen.add(nombre.toLowerCase());
+      items.push({ nombre });
+    }
     return res.json({ items });
   } catch (err) {
     return res.status(500).json({

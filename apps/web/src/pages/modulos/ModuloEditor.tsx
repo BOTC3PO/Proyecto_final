@@ -200,6 +200,10 @@ export default function ModuloEditor() {
     updateDependencyType,
     searchModules,
     handleSubmit,
+    // FIX-TEST4-MOD-02 — flag de carga inicial. Mientras es
+    // true, mostramos un skeleton en lugar del form vacío (que
+    // mostraba los datos del servidor con un frame de delay).
+    isModuleLoading,
   } = useModuloEditor(id, user, navigate);
 
   // UX-02: asociar cada error de validación de campo con su control vía
@@ -550,7 +554,12 @@ export default function ModuloEditor() {
             </p>
           </div>
 
-          {status === "loading" ? (
+          {/* FIX-TEST4-MOD-02 — usar `isModuleLoading` en vez de
+              `status === "loading"`. `status` solo es "loading"
+              durante la llamada al API, pero el flag persiste
+              hasta que los datos están listos, evitando el
+              flash del form vacío en el primer render. */}
+          {isModuleLoading ? (
             <div className="space-y-6">
               <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5">
                 <div className="animate-pulse space-y-4">

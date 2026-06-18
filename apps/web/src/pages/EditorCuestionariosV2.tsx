@@ -903,8 +903,25 @@ function GeneradoresPanel({
   const [activeMat, setActiveMat] = useState<string | null>(null);
   const [expandedGen, setExpandedGen] = useState<string | null>(null);
   const [miniPanel, setMiniPanel] = useState<{ genId: string; subtipoId: string } | null>(null);
+  // FIX-TEST4-ADMIN-02b — antes el dropdown de materias se
+  // construía solo del `catalog` (estático). Si el admin
+  // creaba "Programación" en /admin/materias, no aparecía
+  // acá. Ahora: union del catalog con la lista del admin.
+  // La lista combinada se deduplica y se ordena.
+  const [materiasAdmin, setMateriasAdmin] = useState<string[]>([]);
+  useEffect(() => {
+    apiGet<{ items: Array<{ nombre: string }> }>("/api/materias")
+      .then((data) => {
+        const nombres = (data.items ?? []).map((m) => m.nombre).filter(Boolean);
+        setMateriasAdmin(nombres);
+      })
+      .catch(() => { /* ignorar — el catalog es fallback */ });
+  }, []);
 
-  const materias = Array.from(new Set(catalog.map((c) => c.materia))).sort();
+  const materias = Array.from(new Set([
+    ...catalog.map((c) => c.materia),
+    ...materiasAdmin,
+  ])).sort();
 
   const filtered = catalog.filter((c) => {
     if (activeMat && c.materia !== activeMat) return false;

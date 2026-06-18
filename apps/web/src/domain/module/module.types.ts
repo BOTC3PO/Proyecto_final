@@ -405,10 +405,16 @@ export type Module = {
   schoolId?: string;
   title: string;
   description: string;
-  subject: string;
-  category: string;
-  level: string;
-  durationMinutes: number;
+  // FIX-TEST4-MOD-01 — el back ahora persiste `subject`,
+  // `level`, `category` y `duration_minutes` como columnas
+  // reales (migración 20260618000000_modulo_category_duration).
+  // Módulos viejos de la beta 0.0.4 vienen con `null` en estos
+  // campos. La UI los muestra como "Sin categoría" / "Sin
+  // nivel" / "—" según corresponda.
+  subject?: string | null;
+  category?: string | null;
+  level?: string | null;
+  durationMinutes?: number | null;
   recommendedCourse?: string;
   visibility: ModuleVisibility;
   visibilityConfig?: ModuleVisibilityConfig | null;

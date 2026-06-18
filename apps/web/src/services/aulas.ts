@@ -25,6 +25,10 @@ export async function fetchClassrooms(): Promise<ClassroomListResponse> {
 }
 
 export async function fetchClassroomDetail(classroomId: string): Promise<Classroom> {
+  // FIX-TEST4-X05B-NOMBRES — el back ahora devuelve
+  // `createdByName`, `teacherName`, `teacherOfRecordName` además
+  // de los IDs. El tipo `Classroom` ya declara esos campos
+  // opcionales, así que no hace falta extender la firma.
   return apiGet<Classroom>(`/api/aulas/${classroomId}`);
 }
 

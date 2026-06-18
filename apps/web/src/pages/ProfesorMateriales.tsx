@@ -9,7 +9,9 @@ type MaterialItem = {
   materia: string;
   tipo: 'cuestionario' | 'documento' | 'otro';
   autor: string;
+  ownerUserId?: string | null;
   escuelaId: string | null;
+  visibility?: 'privado' | 'escuela' | 'publico' | string;
   compartido: boolean;
   createdAt: string;
   questions?: number;
@@ -106,7 +108,12 @@ export default function ProfesorMateriales() {
     }
   };
 
-  const propios = items.filter((i) => i.autor === user?.id || i.autor === (user as { name?: string })?.name);
+  // FIX-TEST4-PROF-04 — antes el filtro de "Mis materiales" comparaba
+  // `i.autor === user.id`, pero ahora el back resuelve el ID a nombre
+  // y devuelve `ownerUserId` por separado. Comparamos por
+  // `ownerUserId` que es estable y no se rompe si el usuario cambia
+  // su nombre.
+  const propios = items.filter((i) => i.ownerUserId === user?.id);
   const escuela = items.filter((i) => i.compartido);
 
   return (

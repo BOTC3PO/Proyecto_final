@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
@@ -11,6 +11,7 @@ type QuizAttemptResult = {
   quizId: string;
   quizTitle?: string;
   moduleId?: string;
+  moduleTitle?: string;
   status: string;
   score?: number;
   maxScore?: number;
@@ -24,6 +25,11 @@ export default function ProfesorCalificaciones() {
   const { user } = useAuth();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
+  // FIX-TEST4-PROF-02 — filtro por módulo. "" = "todos los módulos
+  // del aula". El back ya aceptaba `moduleId=` en el query, pero el
+  // front no lo exponía. Ahora el docente puede ver "solo las
+  // calificaciones del módulo X dentro del aula Y".
+  const [moduleId, setModuleId] = useState("");
   const [attempts, setAttempts] = useState<QuizAttemptResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -44,15 +50,14 @@ export default function ProfesorCalificaciones() {
     let active = true;
     setLoading(true);
     setError(null);
-    // FIX-CALIFICACIONES — antes mandaba `moduleId=&` literal (hardcoded
-    // vacío), que el back rechazaba con 400 por el `z.string().min(1)` del
-    // schema. La intención de esta pantalla es "todas las calificaciones
-    // del aula", así que omitimos `moduleId` (y `quizType` server-side: el
-    // back no lo filtra; la página agrupa por quiz y muestra el promedio
-    // — el front puede refinar con quizType en una iteración futura).
-    apiGet<{ items: QuizAttemptResult[] }>(
-      `/api/quiz-attempts?aulaId=${encodeURIComponent(aulaId)}&limit=50`
-    )
+    // FIX-TEST4-PROF-02 — si hay `moduleId`, se manda al back para
+    // filtrar por módulo específico. Si no, todas las del aula
+    // (comportamiento histórico de FIX-CALIFICACIONES).
+    const params = new URLSearchParams();
+    params.set("aulaId", aulaId);
+    params.set("limit", "50");
+    if (moduleId) params.set("moduleId", moduleId);
+    apiGet<{ items: QuizAttemptResult[] }>(`/api/quiz-attempts?${params.toString()}`)
       .then((data) => {
         if (!active) return;
         setAttempts(data.items ?? []);
@@ -63,7 +68,22 @@ export default function ProfesorCalificaciones() {
       })
       .finally(() => { if (!active) return; setLoading(false); });
     return () => { active = false; };
-  }, [aulaId]);
+  }, [aulaId, moduleId]);
+
+  // FIX-TEST4-PROF-02 — el dropdown de módulos se llena con los
+  // módulos únicos que aparecen en los attempts cargados. Si el
+  // docente todavía no terminó ningún attempt de un módulo, ese
+  // módulo no aparece. Para mejorar: fetchear los módulos del aula
+  // por separado y combinarlos.
+  const moduleOptions = useMemo(() => {
+    const seen = new Map<string, string>();
+    for (const a of attempts) {
+      if (a.moduleId && !seen.has(a.moduleId)) {
+        seen.set(a.moduleId, a.moduleTitle ?? a.moduleId);
+      }
+    }
+    return Array.from(seen.entries()).map(([id, title]) => ({ id, title }));
+  }, [attempts]);
 
   // Agrupar por quizId
   const byQuiz = attempts.reduce<Record<string, QuizAttemptResult[]>>(
@@ -97,6 +117,26 @@ export default function ProfesorCalificaciones() {
           </div>
         )}
 
+        {/* FIX-TEST4-PROF-02 — filtro por módulo. Vacío = "todos
+            los módulos del aula". El listado se llena con los
+            módulos que aparecieron en los attempts cargados
+            (mejorable: fetchear los módulos del aula por
+            separado). */}
+        <div className="flex items-center gap-3">
+          <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Módulo</label>
+          <select
+            value={moduleId}
+            onChange={(e) => setModuleId(e.target.value)}
+            data-testid="calificaciones-filtro-modulo"
+            className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+          >
+            <option value="">Todos los módulos</option>
+            {moduleOptions.map((m) => (
+              <option key={m.id} value={m.id}>{m.title}</option>
+            ))}
+          </select>
+        </div>
+
         <CorreccionesPendientes aulaId={aulaId || undefined} />
 
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
@@ -117,7 +157,15 @@ export default function ProfesorCalificaciones() {
           )}
           {!loading && !error && Object.entries(byQuiz).map(([quizId, lista]) => {
             const titulo = lista[0]?.quizTitle ?? quizId;
-            const completados = lista.filter((a) => a.status === "completed" || a.status === "submitted");
+            // FIX-TEST4-ALU-04 — solo contar attempts finalizados
+            // (`completed` / `submitted`). `aborted` y `in_progress`
+            // NO cuentan como "entrega" para no inflar el promedio
+            // ni el contador. El back ya hace un sweep periódico
+            // (6h) que pasa los `in_progress` viejos a `aborted`,
+            // pero por las dudas filtramos ambos acá también.
+            const completados = lista.filter(
+              (a) => a.status === "completed" || a.status === "submitted"
+            );
             const promedio = completados.length > 0
               ? Math.round(completados.reduce((acc, a) => acc + (a.score ?? 0), 0) / completados.length)
               : null;

@@ -1,4 +1,4 @@
-import { apiGet, apiPost } from "../lib/api";
+import { apiGet, apiPost, apiPut, apiDelete } from "../lib/api";
 
 export type Hilo = {
   id: string;
@@ -80,6 +80,20 @@ export async function crearAviso(params: {
 
 export async function marcarAvisoLeido(avisoId: string): Promise<void> {
   await apiPost(`/api/mensajeria/avisos/${avisoId}/leer`, {});
+}
+
+// FIX-TEST4-AVISOS-EDIT — antes el back no tenía PUT/DELETE para
+// avisos. Ahora se pueden editar y borrar. Mismas reglas de
+// ownership que el back: solo el autor o ADMIN.
+export async function editarAviso(
+  avisoId: string,
+  params: { titulo?: string; cuerpo?: string; destino?: string; aulaId?: string },
+): Promise<void> {
+  await apiPut(`/api/mensajeria/avisos/${avisoId}`, params);
+}
+
+export async function eliminarAviso(avisoId: string): Promise<void> {
+  await apiDelete(`/api/mensajeria/avisos/${avisoId}`);
 }
 
 export async function buscarUsuarios(q: string): Promise<UsuarioBusqueda[]> {

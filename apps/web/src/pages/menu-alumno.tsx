@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Award, Clock3, GraduationCap, Trophy } from "lucide-react";
 import { useAuth } from "../auth/use-auth";
+import { usePrimaryRole } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { fetchTareas, type TareaResumen } from "../services/tareas";
@@ -345,6 +346,14 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
 
 export default function Page() {
   const { user } = useAuth();
+  // FIX-BUG-ALU-02 — antes el role se hardcodeaba a "Alumno"
+  // y el dashboard mostraba módulos completados del staff
+  // (no del alumno). Ahora detectamos el rol real y, si es
+  // staff en vista alumno, mostramos un banner "Vista previa"
+  // para que el docente entienda que está viendo SU propio
+  // progreso, no el de un alumno.
+  const primary = usePrimaryRole();
+  const isStaffView = primary !== null && primary !== "USER" && primary !== "PARENT";
   if (!user) return null;
   const initials = user.name
     .split(" ")
@@ -353,10 +362,33 @@ export default function Page() {
     .join("")
     .slice(0, 2)
     .toUpperCase();
+  // Para USER real, mostramos "Alumno". Para staff en preview,
+  // mostramos el rol real para que entienda que está viendo
+  // SU cuenta.
+  const roleLabel = isStaffView ? (primary ?? "Staff") : "Alumno";
   return (
-    <StudentDashboard
-      student={{ name: user.name, initials, role: "Alumno" }}
-      nextClass={{ title: "—", time: "—" }}
-    />
+    <>
+      {isStaffView && (
+        <div
+          data-testid="menu-alumno-preview-banner"
+          className="sticky top-0 z-30 bg-amber-50 border-b border-amber-200 px-4 py-2 text-center text-xs text-amber-800"
+          role="status"
+        >
+          👀 Estás viendo la vista previa de alumno. Los datos
+          que ves son tuyos como {roleLabel.toLowerCase()}, no
+          los de un alumno real.{" "}
+          <Link
+            to={primary === "TEACHER" ? "/profesor" : primary === "DIRECTIVO" ? "/enterprise" : "/admin"}
+            className="font-semibold underline"
+          >
+            Volver a tu panel
+          </Link>
+        </div>
+      )}
+      <StudentDashboard
+        student={{ name: user.name, initials, role: roleLabel }}
+        nextClass={{ title: "—", time: "—" }}
+      />
+    </>
   );
 }

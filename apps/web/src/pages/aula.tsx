@@ -43,10 +43,11 @@ export type ClassModuleProgress = {
   isLocked: boolean;
 };
 
-type ClassroomDetail = Classroom & {
-  teacherName?: string;
-  classCode?: string;
-};
+// FIX-TEST4-X05B-NOMBRES — antes había un alias local que sumaba
+// teacherName/teacherOfRecordName/createdByName. Ahora esos
+// campos viven en `Classroom` directamente (el back los devuelve
+// desde FIX-TEST4-X05B-NOMBRES). El alias quedó redundante.
+type ClassroomDetail = Classroom;
 
 const AVATAR_COLORS = [
   "bg-blue-600", "bg-violet-600", "bg-emerald-600",
@@ -333,20 +334,35 @@ export default function Aula() {
     return false;
   }, [classroom, user, isAdmin, isTeacher]);
 
+  // FIX-BUG-ALU-03 — antes un TEACHER global que era
+  // STUDENT-miembro en el aula de un colega veía "Docente
+  // invitado" en el header. La membresía contextual vale
+  // más que el rol global. El back ya devuelve
+  // `viewerRoleInClass` desde la ronda 2 (BUG-X-05b). Si
+  // esa membresía es STUDENT, mostramos "Estudiante" aunque
+  // el rol global del user sea TEACHER.
   const roleLabel = useMemo(() => {
     if (!user) return "Invitado";
+    const ctxRole = (classroom as { viewerRoleInClass?: string | null } | null)?.viewerRoleInClass;
+    if (ctxRole === "STUDENT") return "Estudiante";
     if (isTeacher) return isTeacherOfClass ? "Docente" : "Docente invitado";
     if (canActAsLearner) return "Estudiante";
     if (isParent) return "Familia";
     return "Invitado";
-  }, [isTeacherOfClass, user, isTeacher, canActAsLearner, isParent]);
+  }, [isTeacherOfClass, user, isTeacher, canActAsLearner, isParent, classroom]);
 
+  // FIX-BUG-ALU-03 — idem: si la membresía contextual es
+  // STUDENT, mostrar "estudiante · pública" aunque el rol
+  // global sea staff. Antes decía "visitante · pública" para
+  // un TEACHER+USER que era STUDENT-miembro.
   const accessLabel = useMemo(() => {
     const accessTypeLabel = classroom?.accessType === "privada" ? "privada" : "pública";
+    const ctxRole = (classroom as { viewerRoleInClass?: string | null } | null)?.viewerRoleInClass;
+    if (ctxRole === "STUDENT") return `estudiante · ${accessTypeLabel}`;
     if (canActAsLearner) return `estudiante · ${accessTypeLabel}`;
     if (isParent) return `familiar · ${accessTypeLabel}`;
     return `visitante · ${accessTypeLabel}`;
-  }, [classroom?.accessType, user, canActAsLearner, isParent]);
+  }, [classroom?.accessType, user, canActAsLearner, isParent, classroom]);
 
   const teacherName = useMemo(() => {
     if (classroom?.teacherName) return classroom.teacherName;

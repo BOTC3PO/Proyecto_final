@@ -357,6 +357,119 @@ calendario.delete("/api/calendario/escuela/:id", requireUser, async (req, res) =
   return res.json({ ok: true });
 });
 
+// ── PATCH /api/calendario/escuela/:id ────────────────────────
+// FIX-TEST4-CALENDARIO-EDIT — antes no había endpoint para editar
+// eventos. El docente creaba un evento y no podía cambiarle la
+// hora o el título sin borrarlo y volver a crearlo. Ahora PATCH
+// parcial: solo se actualizan los campos presentes en el body.
+calendario.patch("/api/calendario/escuela/:id", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  const evento = await prisma.calendarioEscuela.findFirst({
+    where: { id: String(req.params.id), isDeleted: false },
+    select: { escuelaId: true, createdBy: true },
+  });
+  if (!evento) return res.status(404).json({ error: "evento no encontrado" });
+
+  // Ownership: ADMIN puede todo; DIRECTIVO de la escuela o autor
+  // original pueden editar; TEACHER solo si es el autor.
+  const user = getUserFromReq(req as never);
+  const isAdmin = hasRole(user, "ADMIN");
+  const schoolId = getSchoolId(req as never);
+  const isDirectivoOfSchool = hasRole(user, "DIRECTIVO") && evento.escuelaId === schoolId;
+  const isAuthor = evento.createdBy === userId;
+  if (!isAdmin && !isDirectivoOfSchool && !isAuthor) {
+    return res.status(403).json({ error: "sin permiso sobre este evento" });
+  }
+
+  const { tipo, titulo, descripcion, fechaInicio, fechaFin, aulaId } =
+    req.body as Record<string, unknown>;
+
+  const data: Record<string, unknown> = {};
+  if (typeof tipo === "string" && tipo.trim()) data.tipo = tipo.trim();
+  if (typeof titulo === "string" && titulo.trim()) data.titulo = titulo.trim();
+  if (typeof descripcion === "string") data.descripcion = descripcion;
+  if (typeof fechaInicio === "string" && fechaInicio.trim()) {
+    data.fechaInicio = fechaInicio;
+  }
+  if (typeof fechaFin === "string" && fechaFin.trim()) {
+    data.fechaFin = fechaFin;
+  }
+  if (typeof aulaId === "string") {
+    // Validar que el aula pertenezca a la escuela si viene un aulaId
+    if (aulaId.length > 0) {
+      const aula = await prisma.clase.findFirst({
+        where: { id: aulaId, isDeleted: { not: true } },
+        select: { escuelaId: true },
+      });
+      if (!aula) return res.status(400).json({ error: "aulaId no existe" });
+      if (aula.escuelaId !== evento.escuelaId) {
+        return res.status(400).json({ error: "aulaId no pertenece a la escuela" });
+      }
+      data.aulaId = aulaId;
+    } else {
+      data.aulaId = null;
+    }
+  }
+
+  if (Object.keys(data).length === 0) {
+    return res.status(400).json({ error: "nada que actualizar" });
+  }
+
+  await prisma.calendarioEscuela.update({
+    where: { id: String(req.params.id) },
+    data,
+  });
+
+  return res.json({ ok: true });
+});
+
+// ── PATCH /api/calendario/aula/:id ──────────────────────────
+// FIX-TEST4-CALENDARIO-EDIT — paralelo al de escuela, edita una
+// actividad_aula existente. Mismas reglas de ownership.
+calendario.patch("/api/calendario/aula/:id", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  const actividad = await prisma.actividadAula.findFirst({
+    where: { id: String(req.params.id), isDeleted: false },
+    select: { aulaId: true, createdBy: true },
+  });
+  if (!actividad) return res.status(404).json({ error: "actividad no encontrada" });
+
+  const user = getUserFromReq(req as never);
+  const isAdmin = hasRole(user, "ADMIN");
+  if (!isAdmin && actividad.createdBy !== userId) {
+    return res.status(403).json({ error: "sin permiso sobre esta actividad" });
+  }
+
+  const { tipo, titulo, descripcion, fechaInicio, fechaFin } =
+    req.body as Record<string, unknown>;
+
+  const data: Record<string, unknown> = {};
+  if (typeof tipo === "string" && tipo.trim()) data.tipo = tipo.trim();
+  if (typeof titulo === "string" && titulo.trim()) data.titulo = titulo.trim();
+  if (typeof descripcion === "string") data.descripcion = descripcion;
+  if (typeof fechaInicio === "string" && fechaInicio.trim()) {
+    data.fecha = fechaInicio;
+  }
+  if (typeof fechaFin === "string" && fechaFin.trim()) {
+    data.fechaFin = fechaFin;
+  }
+
+  if (Object.keys(data).length === 0) {
+    return res.status(400).json({ error: "nada que actualizar" });
+  }
+
+  await prisma.actividadAula.update({
+    where: { id: String(req.params.id) },
+    data,
+  });
+
+  return res.json({ ok: true });
+});
+
 // ── POST /api/calendario/aula ───────────────────────────────
 calendario.post("/api/calendario/aula", requireUser, async (req, res) => {
   const userId = getId(req as never);

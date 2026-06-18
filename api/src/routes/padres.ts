@@ -84,6 +84,40 @@ padres.post("/api/hijos", requireUser, ...bodyLimitMB(2), async (req, res) => {
     });
     if (!child?.id) return res.status(404).json({ error: "child not found" });
     const childId = child.id;
+
+    // FIX-BUG-ROLE-03 — antes no había validación de roles
+    // en este endpoint. Un USER/TEACHER/DIRECTIVO sin rol
+    // PARENT podía agregarse como padre de alguien. También
+    // podía agregarse a sí mismo como su propio hijo
+    // (circular). Ahora:
+    //   - El solicitante debe tener rol PARENT (o ser ADMIN
+    //     para casos de testing/soporte).
+    //   - El child no puede ser el mismo user.
+    //   - El child debe tener un rol compatible con "ser
+    //     hijo" (USER/TEACHER). No tiene sentido tener
+    //     un PARENT/DIRECTIVO/ADMIN como hijo de otro padre.
+    const requester = await prisma.usuario.findFirst({
+      where: { id: parentId, isDeleted: { not: true } },
+      select: { role: true },
+    });
+    if (!requester) {
+      return res.status(401).json({ error: "parent no encontrado" });
+    }
+    if (requester.role !== "PARENT" && requester.role !== "ADMIN") {
+      return res.status(403).json({
+        error: "Solo usuarios con rol padre/madre (o admin) pueden vincular hijos."
+      });
+    }
+    if (childId === parentId) {
+      return res.status(400).json({
+        error: "No podés vincularte a vos mismo como tu propio hijo."
+      });
+    }
+    if (child.role === "PARENT" || child.role === "DIRECTIVO" || child.role === "ADMIN") {
+      return res.status(400).json({
+        error: `Un usuario con rol ${child.role} no puede ser hijo de un padre.`
+      });
+    }
     const existing = await prisma.progresoModuloVinculo.findFirst({
       where: { parentId, childId },
     });

@@ -82,11 +82,31 @@ export function useModuloPersistence(): UsePersistenceReturn {
           detail: r.id,
         }));
 
+      // FIX-TEST4-MOD-02 — antes si el módulo viejo tenía
+      // `type: "book" / "link" / "note" / "article"` (inglés
+      // legacy), la UI lo mostraba crudo porque `TheoryItemCard`
+      // solo traduce los tipos que conoce. Normalizamos al
+      // español canónico acá, así la card muestra "Libro",
+      // "Enlace", "Nota", "Artículo" en vez de strings en inglés.
+      const LEGACY_TYPE_MAP: Record<string, string> = {
+        book: "Libro",
+        link: "Enlace",
+        note: "Nota",
+        article: "Artículo",
+        text: "Texto",
+        video: "Video",
+        document: "Documento",
+      };
+      const normalizeType = (raw: string | undefined): string => {
+        if (!raw) return "Texto";
+        return LEGACY_TYPE_MAP[raw.toLowerCase()] ?? raw;
+      };
+
       const theoryItems: TheoryItem[] = [
         ...rawItems.map((item: TheoryItem) => ({
           id: item.id,
           title: item.title,
-          type: item.type ?? "Texto",
+          type: normalizeType(item.type),
           detail: item.detail,
         })),
         ...bookResourceItems,
@@ -103,13 +123,21 @@ export function useModuloPersistence(): UsePersistenceReturn {
         // de FIX-GUARDADO). Default a "" para no romper el editor
         // (`useModuloEditor.ts:482` lee `form.subject.length`).
         subject: module.subject ?? "",
-        category: module.category,
+        // FIX-TEST4-MOD-01 — `category` puede venir `null` para
+        // módulos viejos de la beta 0.0.4 (la columna se agregó
+        // en 20260618000000_modulo_category_duration). Default
+        // a "sin-categoria" para que el dropdown muestre esa
+        // opción y el form no rompa.
+        category: module.category ?? "sin-categoria",
         // FIX-MODULO-CRASH-LEVEL — `level` puede venir `undefined`
         // o `null` para módulos viejos / no migrados / sin nivel
         // persistido. Default a "" para no romper el editor
         // (`useModuloEditor.ts:487` lee `form.level.trim()`).
         level: module.level ?? "",
-        durationMinutes: module.durationMinutes,
+        // FIX-TEST4-MOD-01 — `durationMinutes` puede ser null
+        // para módulos viejos. Default a 30 (mismo default que
+        // `defaultForm`).
+        durationMinutes: module.durationMinutes ?? 30,
         visibility: module.visibility,
         visibilitySchoolId: module.schoolId ?? "",
         dependencies: module.dependencies ?? [],

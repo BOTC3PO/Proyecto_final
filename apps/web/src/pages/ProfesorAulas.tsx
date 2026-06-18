@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
@@ -499,7 +499,11 @@ export default function ProfesorAulas() {
                     {classroom.institutionId && <span>Institución: {classroom.institutionId}</span>}
                   </div>
                   <div className="mt-4 flex items-center justify-between text-xs text-[var(--c-muted)]">
-                    <span>Creada por {classroom.createdBy}</span>
+                    <span>
+                      {/* FIX-TEST4-X05B-NOMBRES — mostrar nombre del
+                          docente en lugar del ID crudo. */}
+                      Creada por {classroom.createdByName ?? classroom.createdBy}
+                    </span>
                     <span>{new Date(classroom.updatedAt).toLocaleDateString()}</span>
                   </div>
                   <div className="mt-4 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
@@ -598,52 +602,139 @@ export default function ProfesorAulas() {
                     </div>
                   </div>
         {isTeacher && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <Link
-                        to={`/profesor/aulas/${
-                          (classroom as { _id?: string } & typeof classroom)
-                            ._id ?? classroom.id
-                        }`}
-                        className="rounded-md border border-[var(--c-border)]
-                          px-3 py-1 text-xs text-[var(--c-primary)]
-                          hover:bg-[var(--c-bg)]"
-                      >
-                        Configurar
-                      </Link>
-                      <button
-                        type="button"
-                        className="rounded-md border border-[var(--c-border)] px-3 py-1 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)]"
-                        onClick={() => startEdit(classroom)}
-                      >
-                        Editar
-                      </button>
-                      <button
-                        type="button"
-                        className="rounded-md border border-amber-200 px-3 py-1 text-xs text-amber-700 hover:bg-amber-50"
-                        onClick={() => handleArchiveToggle(classroom)}
-                        disabled={isSubmitting || normalizeClassroomStatus(classroom.status) === "LOCKED"}
-                      >
-                        {normalizeClassroomStatus(classroom.status) === "LOCKED"
-                          ? "Bloqueada"
-                          : normalizeClassroomStatus(classroom.status) === "ARCHIVED"
-                          ? "Reactivar"
-                          : "Archivar"}
-                      </button>
-                      <button
-                        type="button"
-                        className="rounded-md border border-[var(--c-border)] px-3 py-1 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)]"
-                        onClick={() => handleReuseContent(classroom)}
-                      >
-                        Reutilizar contenido
-                      </button>
-                    </div>
+                    // FIX-BUG-NEW-01 — antes había 4 botones de
+                    // acción visibles (Configurar, Editar,
+                    // Archivar, Reutilizar) que saturaban la
+                    // card. Ahora: dos botones primarios
+                    // prominentes ("Entrar" y "Configurar") y un
+                    // menú kebab con el resto. "Entrar" lleva a
+                    // la vista del aula (`/clases/:aulaId`) que
+                    // es la misma URL que usa el alumno, así el
+                    // docente entra al aula con un click desde
+                    // el listado.
+                    <AulaCardActions
+                      classroomId={(classroom as { _id?: string } & typeof classroom)._id ?? classroom.id}
+                      isSubmitting={isSubmitting}
+                      isLocked={normalizeClassroomStatus(classroom.status) === "LOCKED"}
+                      isArchived={normalizeClassroomStatus(classroom.status) === "ARCHIVED"}
+                      onEdit={() => startEdit(classroom)}
+                      onArchive={() => handleArchiveToggle(classroom)}
+                      onReuse={() => handleReuseContent(classroom)}
+                    />
                   )}
-                </article>
-              ))}
-            </div>
-            </>
-          )}
-        </section>
+                 </article>
+               ))}
+             </div>
+             </>
+           )}
+         </section>
+       </div>
+   );
+}
+
+/**
+ * FIX-BUG-NEW-01 — Componente de acciones de la card de aula.
+ * Dos botones primarios ("Entrar" y "Configurar") + menú kebab
+ * con el resto de acciones. "Entrar" navega a la vista del aula
+ * (`/clases/:aulaId`) que es la MISMA URL que el alumno usa;
+ * el docente entra con un click desde el listado sin tener que
+ * configurar primero.
+ */
+function AulaCardActions({
+  classroomId,
+  isSubmitting,
+  isLocked,
+  isArchived,
+  onEdit,
+  onArchive,
+  onReuse,
+}: {
+  classroomId: string;
+  isSubmitting: boolean;
+  isLocked: boolean;
+  isArchived: boolean;
+  onEdit: () => void;
+  onArchive: () => void;
+  onReuse: () => void;
+}) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div className="mt-4 flex flex-wrap items-center gap-2">
+      <Link
+        to={`/clases/${encodeURIComponent(classroomId)}`}
+        data-testid={`aula-card-entrar-${classroomId}`}
+        // FIX-BUG-NEW-01 — botón primario "Entrar" siempre
+        // visible. La card es para teachers; el docente entra
+        // al aula con un click sin pasar por Configurar.
+        className="inline-flex items-center gap-1.5 rounded-md bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity"
+      >
+        Entrar →
+      </Link>
+      <Link
+        to={`/profesor/aulas/${encodeURIComponent(classroomId)}`}
+        data-testid={`aula-card-configurar-${classroomId}`}
+        className="inline-flex items-center gap-1.5 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+      >
+        Configurar
+      </Link>
+
+      {/* Menú kebab con el resto de acciones */}
+      <div className="relative" ref={ref}>
+        <button
+          type="button"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Más opciones"
+          data-testid={`aula-card-menu-${classroomId}`}
+          className="inline-flex items-center justify-center rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] w-7 h-7 text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors"
+        >
+          ⋯
+        </button>
+        {menuOpen && (
+          <div
+            role="menu"
+            className="absolute right-0 mt-1 w-44 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] shadow-lg z-20 overflow-hidden"
+          >
+            <button
+              type="button"
+              onClick={() => { onEdit(); setMenuOpen(false); }}
+              className="block w-full text-left px-3 py-2 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+            >
+              Editar datos
+            </button>
+            <button
+              type="button"
+              onClick={() => { onArchive(); setMenuOpen(false); }}
+              disabled={isSubmitting || isLocked}
+              className="block w-full text-left px-3 py-2 text-xs text-amber-700 hover:bg-amber-50 disabled:opacity-50 transition-colors"
+            >
+              {isLocked
+                ? "Bloqueada"
+                : isArchived
+                ? "Reactivar"
+                : "Archivar"}
+            </button>
+            <button
+              type="button"
+              onClick={() => { onReuse(); setMenuOpen(false); }}
+              className="block w-full text-left px-3 py-2 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+            >
+              Reutilizar contenido
+            </button>
+          </div>
+        )}
       </div>
+    </div>
   );
 }

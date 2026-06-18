@@ -1,4 +1,4 @@
-import { apiGet, apiPost, apiDelete } from "../lib/api";
+import { apiGet, apiPost, apiPatch, apiDelete } from "../lib/api";
 
 export type OrigenEvento = "escuela" | "aula";
 
@@ -66,4 +66,34 @@ export async function crearEventoAula(params: {
 
 export async function eliminarEventoAula(id: string): Promise<void> {
   await apiDelete(`/api/calendario/aula/${id}`);
+}
+
+// FIX-TEST4-CALENDARIO-EDIT — antes el back no tenía PATCH. Ahora
+// se editan eventos de escuela o de aula con los mismos campos
+// parciales (PATCH, no PUT). Solo se actualizan los campos presentes.
+export async function editarEventoEscuela(
+  id: string,
+  params: {
+    tipo?: TipoEventoEscuela;
+    titulo?: string;
+    descripcion?: string;
+    fechaInicio?: string;
+    fechaFin?: string;
+    aulaId?: string;
+  },
+): Promise<void> {
+  await apiPatch(`/api/calendario/escuela/${id}`, params);
+}
+
+export async function editarEventoAula(
+  id: string,
+  params: {
+    tipo?: TipoEventoAula;
+    titulo?: string;
+    descripcion?: string;
+    fechaInicio?: string;
+    fechaFin?: string;
+  },
+): Promise<void> {
+  await apiPatch(`/api/calendario/aula/${id}`, params);
 }

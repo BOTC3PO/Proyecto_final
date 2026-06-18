@@ -257,9 +257,22 @@ mensajeria.get("/api/mensajeria/avisos", requireUser, async (req, res) => {
   if (hasRole(user, "PARENT")) destinosValidos.push("padres");
   if (hasRole(user, "DIRECTIVO")) destinosValidos.push("profesores", "padres");
 
+  // FIX-TEST4-AVISOS-AUTOR — antes el filtro era solo
+  // `destino: { in: destinosValidos }`. Si un DIRECTIVO creaba un
+  // aviso con destino="alumnos", su propio filtro (que NO incluye
+  // "alumnos" para staff) lo dejaba afuera. El autor debe ver
+  // siempre sus propios avisos. Para no romper la semántica de
+  // "destinos visibles" cuando el aviso es ajeno, el OR combina
+  // destino-ok con autorId=userId.
   const [todosAvisos, leidosSet] = await Promise.all([
     prisma.aviso.findMany({
-      where: { escuelaId: schoolId, destino: { in: destinosValidos } },
+      where: {
+        escuelaId: schoolId,
+        OR: [
+          { destino: { in: destinosValidos } },
+          { autorId: userId },
+        ],
+      },
       orderBy: { createdAt: "desc" },
       take: 20,
     }),
@@ -337,6 +350,63 @@ mensajeria.post("/api/mensajeria/avisos/:id/leer", requireUser, async (req, res)
     skipDuplicates: true,
   });
 
+  return res.json({ ok: true });
+});
+
+// ── PUT /api/mensajeria/avisos/:id ────────────────────────────
+// FIX-TEST4-AVISOS-EDIT — antes no había forma de editar ni borrar
+// un aviso después de crearlo. Ahora PUT parcial (mismo shape que
+// POST) y DELETE con validación de ownership: solo el autor o
+// ADMIN pueden modificar.
+mensajeria.put("/api/mensajeria/avisos/:id", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  const aviso = await prisma.aviso.findFirst({ where: { id: String(req.params.id) } });
+  if (!aviso) return res.status(404).json({ error: "aviso no encontrado" });
+
+  const user = getUserFromReq(req as never);
+  if (!hasRole(user, "ADMIN") && aviso.autorId !== userId) {
+    return res.status(403).json({ error: "sin permiso sobre este aviso" });
+  }
+
+  const { titulo, cuerpo, destino, aulaId } = req.body as Record<string, unknown>;
+  const data: Record<string, unknown> = {};
+  if (typeof titulo === "string" && titulo.trim()) data.titulo = titulo.trim();
+  if (typeof cuerpo === "string" && cuerpo.trim()) data.cuerpo = cuerpo.trim();
+  if (typeof destino === "string" && ["todos", "padres", "alumnos", "profesores"].includes(destino)) {
+    data.destino = destino;
+  }
+  if (typeof aulaId === "string") {
+    data.aulaId = aulaId.length > 0 ? aulaId : null;
+  }
+
+  if (Object.keys(data).length === 0) {
+    return res.status(400).json({ error: "nada que actualizar" });
+  }
+
+  await prisma.aviso.update({
+    where: { id: String(req.params.id) },
+    data,
+  });
+
+  return res.json({ ok: true });
+});
+
+// ── DELETE /api/mensajeria/avisos/:id ─────────────────────────
+mensajeria.delete("/api/mensajeria/avisos/:id", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  const aviso = await prisma.aviso.findFirst({ where: { id: String(req.params.id) } });
+  if (!aviso) return res.status(404).json({ error: "aviso no encontrado" });
+
+  const user = getUserFromReq(req as never);
+  if (!hasRole(user, "ADMIN") && aviso.autorId !== userId) {
+    return res.status(403).json({ error: "sin permiso sobre este aviso" });
+  }
+
+  await prisma.aviso.delete({ where: { id: String(req.params.id) } });
   return res.json({ ok: true });
 });
 

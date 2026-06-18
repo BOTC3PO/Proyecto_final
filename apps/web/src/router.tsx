@@ -58,7 +58,6 @@ const ModuloDetail         = lazyWithRetry(() => import("./pages/modulos/ModuloD
 const ModuloEditor         = lazyWithRetry(() => import("./pages/modulos/ModuloEditor"));
 const ReproductorModulos   = lazyWithRetry(() => import("./pages/modulos/ReproductorModulos"));
 const ProfesorEncuestas     = lazyWithRetry(() => import("./pages/ProfesorEncuestas"));
-const ProfesorCursoNuevo    = lazyWithRetry(() => import("./pages/ProfesorCursoNuevo"));
 const HijosProgreso         = lazyWithRetry(() => import("./pages/HijosProgreso"));
 const ProfesorReportes      = lazyWithRetry(() => import("./pages/ProfesorReportes"));
 const AlumnoEncuestas       = lazyWithRetry(() => import("./pages/AlumnoEncuestas"));
@@ -84,11 +83,19 @@ const AdminCursos               = lazyWithRetry(() => import("./pages/AdminCurso
 const AdminMaterias             = lazyWithRetry(() => import("./pages/AdminMaterias"));
 const AdminModeracion           = lazyWithRetry(() => import("./pages/AdminModeracion"));
 const PlantillasModeracion      = lazyWithRetry(() => import("./pages/admin/PlantillasModeracion"));
+// FIX-BUG-ROLE-01 — antes no había UI para listar/gestionar
+// `Page` (TuesdayJS docs). Ahora hay un panel en
+// `/admin/pages` accesible solo a ADMIN.
+const AdminPages                = lazyWithRetry(() => import("./pages/admin/AdminPages"));
 const AdminReportesGlobal       = lazyWithRetry(() => import("./pages/AdminReportesGlobal"));
 const Perfil                    = lazyWithRetry(() => import("./pages/Perfil"));
 const Tareas                    = lazyWithRetry(() => import("./pages/Tareas"));
 const Progreso                  = lazyWithRetry(() => import("./pages/Progreso"));
-const ProfesorCursos            = lazyWithRetry(() => import("./pages/ProfesorCursos"));
+// FIX-TEST4-PROF-01 — antes había `ProfesorCursos` y
+// `ProfesorCursoNuevo` como páginas separadas. Leían el mismo
+// endpoint `/api/aulas` que `ProfesorAulas` y eran visualmente
+// distintas pero mostraban los mismos datos. Eliminadas: la
+// fuente canónica es ahora `ProfesorAulas` (ruta `/profesor/aulas`).
 const ProfesorCalificaciones    = lazyWithRetry(() => import("./pages/ProfesorCalificaciones"));
 const ProfesorIntentoDetalle    = lazyWithRetry(() => import("./pages/profesor/IntentoDetalle"));
 const ProfesorAsistencia        = lazyWithRetry(() => import("./pages/ProfesorAsistencia"));
@@ -260,21 +267,18 @@ export const router = createBrowserRouter([
               </ProtectedRoute>
             ),
           },
+          // FIX-TEST4-PROF-01 — antes `/profesor/cursos` y
+          // `/profesor/cursos/nuevo` mostraban los mismos datos
+          // que `/profesor/aulas` con distinto layout. Ahora
+          // redirigen a la página canónica de aulas. El enlace
+          // canónico es `/profesor/aulas`.
           {
             path: 'profesor/cursos',
-            element: (
-              <ProtectedRoute allow={['TEACHER']}>
-                {withSuspense(<ProfesorCursos />)}
-              </ProtectedRoute>
-            ),
+            element: <Navigate to="/profesor/aulas" replace />,
           },
           {
             path: 'profesor/cursos/nuevo',
-            element: (
-              <ProtectedRoute allow={['TEACHER']}>
-                {withSuspense(<ProfesorCursoNuevo />)}
-              </ProtectedRoute>
-            ),
+            element: <Navigate to="/profesor/aulas" replace />,
           },
           {
             path: 'profesor/aulas',
@@ -427,6 +431,17 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['ADMIN']}>
                 {withSuspense(<AdminReportesGlobal />)}
+              </ProtectedRoute>
+            ),
+          },
+          // FIX-BUG-ROLE-01 — UI para listar/gestionar `Page`
+          // (TuesdayJS docs). Antes solo existía el endpoint
+          // (`GET /api/pages`) sin página admin.
+          {
+            path: 'admin/pages',
+            element: (
+              <ProtectedRoute allow={['ADMIN']}>
+                {withSuspense(<AdminPages />)}
               </ProtectedRoute>
             ),
           },

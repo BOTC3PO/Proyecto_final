@@ -12,8 +12,24 @@ export default function AlumnoNavbar() {
   // el dropdown USER, igual que antes). La nav de alumno siempre es
   // la de USER, así que el default ya estaba bien.
   const primary = user?.roles?.[0] ?? user?.role ?? 'USER';
-  const dropdownItems = DROPDOWN_BY_ROLE[primary as keyof typeof DROPDOWN_BY_ROLE]
+  const baseDropdown = DROPDOWN_BY_ROLE[primary as keyof typeof DROPDOWN_BY_ROLE]
     ?? DROPDOWN_BY_ROLE['USER'];
+  // FIX-TEST4-X-02 — antes si un TEACHER entraba a `/alumno`, el
+  // dropdown mostraba solo opciones de staff (Mi perfil / Ver
+  // como alumno) y NO los links a Economía / Tienda / Encuestas.
+  // El usuario tenía que tipear la URL a mano. Ahora: si el staff
+  // también tiene rol USER, le mostramos sus opciones de alumno
+  // (Economía, Tienda de temas, Encuestas) arriba del dropdown.
+  const hasUser = useHasRole('USER');
+  const isStaffRole = primary !== 'USER' && primary !== 'PARENT';
+  const userOnlyDropdown = hasUser && isStaffRole
+    ? DROPDOWN_BY_ROLE['USER']
+    : [];
+  const dropdownItems = [
+    ...userOnlyDropdown.filter((i) => i.kind === 'link' && i.to !== '/perfil'),
+    { kind: 'divider' as const },
+    ...baseDropdown,
+  ];
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 

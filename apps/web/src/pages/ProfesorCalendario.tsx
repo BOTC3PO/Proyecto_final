@@ -6,7 +6,7 @@ import type { Classroom } from "../domain/classroom/classroom.types";
 import {
   fetchCalendarioUnificado, crearEventoEscuela,
   crearEventoAula, eliminarEventoEscuela,
-  eliminarEventoAula,
+  eliminarEventoAula, editarEventoEscuela, editarEventoAula,
   type EventoCalendario, type TipoEventoAula,
   type TipoEventoEscuela,
 } from "../services/calendarioUnificado";
@@ -106,6 +106,19 @@ export default function ProfesorCalendario() {
   });
   const [guardando, setGuardando] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+  // FIX-TEST4-CALENDARIO-EDIT — modal de edición. Cuando es null,
+  // no se muestra. Cuando tiene un evento, se renderiza el form
+  // prellenado con los datos del evento.
+  const [editando, setEditando] = useState<EventoCalendario | null>(null);
+  const [editForm, setEditForm] = useState({
+    tipo: "" as TipoEventoEscuela | TipoEventoAula,
+    titulo: "",
+    descripcion: "",
+    fechaInicio: "",
+    fechaFin: "",
+    aulaId: "",
+  });
+  const [editGuardando, setEditGuardando] = useState(false);
 
   useEffect(() => {
     if (!user?.id) return;
@@ -226,6 +239,55 @@ export default function ProfesorCalendario() {
       }
       setEventos((prev) => prev.filter((e) => e.id !== ev.id));
     } catch { /* ignorar */ }
+  };
+
+  // FIX-TEST4-CALENDARIO-EDIT — abrir el modal con los datos del
+  // evento prellenados. Para escuela, el aulaId es opcional.
+  const handleAbrirEditar = (ev: EventoCalendario) => {
+    setEditando(ev);
+    setEditForm({
+      tipo: ev.tipo,
+      titulo: ev.titulo,
+      descripcion: ev.descripcion ?? "",
+      fechaInicio: ev.fechaInicio,
+      fechaFin: ev.fechaFin,
+      aulaId: ev.aulaId ?? "",
+    });
+  };
+
+  const handleCerrarEditar = () => {
+    setEditando(null);
+    setEditGuardando(false);
+  };
+
+  const handleGuardarEdicion = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editando) return;
+    if (!editForm.titulo.trim() || !editForm.fechaInicio) return;
+    setEditGuardando(true);
+    try {
+      if (editando.origen === "escuela") {
+        await editarEventoEscuela(editando.id, {
+          tipo: editForm.tipo as TipoEventoEscuela,
+          titulo: editForm.titulo.trim(),
+          descripcion: editForm.descripcion.trim(),
+          fechaInicio: editForm.fechaInicio,
+          fechaFin: editForm.fechaFin || editForm.fechaInicio,
+          aulaId: editForm.aulaId || undefined,
+        });
+      } else {
+        await editarEventoAula(editando.id, {
+          tipo: editForm.tipo as TipoEventoAula,
+          titulo: editForm.titulo.trim(),
+          descripcion: editForm.descripcion.trim(),
+          fechaInicio: editForm.fechaInicio,
+          fechaFin: editForm.fechaFin || undefined,
+        });
+      }
+      cargarEventos();
+      handleCerrarEditar();
+    } catch { /* ignorar */ }
+    finally { setEditGuardando(false); }
   };
 
   const eventosHoy = diaSeleccionado
@@ -425,14 +487,27 @@ export default function ProfesorCalendario() {
                               </div>
                             </div>
                             {canDelete && (
-                              <button
-                                type="button"
-                                onClick={() => handleEliminar(ev)}
-                                className="shrink-0 text-[var(--c-muted)] hover:text-red-400 transition-colors"
-                                title="Eliminar"
-                              >
-                                ✕
-                              </button>
+                              <div className="shrink-0 flex items-center gap-1">
+                                {/* FIX-TEST4-CALENDARIO-EDIT — botón Editar
+                                    junto a Eliminar. Mismas reglas de
+                                    ownership que el delete. */}
+                                <button
+                                  type="button"
+                                  onClick={() => handleAbrirEditar(ev)}
+                                  className="rounded-md px-2 py-1 text-[11px] font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+                                  title="Editar"
+                                >
+                                  Editar
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => handleEliminar(ev)}
+                                  className="text-[var(--c-muted)] hover:text-red-400 transition-colors px-1"
+                                  title="Eliminar"
+                                >
+                                  ✕
+                                </button>
+                              </div>
                             )}
                           </div>
                         </div>
@@ -609,6 +684,128 @@ export default function ProfesorCalendario() {
             )}
           </div>
         </div>
+
+        {/* FIX-TEST4-CALENDARIO-EDIT — modal de edición. Reutiliza el
+            mismo shape que el form de creación. Se monta solo cuando
+            `editando` no es null. */}
+        {editando && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="calendario-editar-titulo"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+            onClick={handleCerrarEditar}
+          >
+            <div
+              className="w-full max-w-md rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] p-5 shadow-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3
+                id="calendario-editar-titulo"
+                className="text-base font-semibold text-[var(--c-text)]"
+              >
+                Editar evento {editando.origen === "escuela" ? "de escuela" : "del aula"}
+              </h3>
+              <form onSubmit={handleGuardarEdicion} className="mt-3 space-y-3">
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                  Tipo
+                  <select
+                    value={editForm.tipo}
+                    onChange={(e) => setEditForm((f) => ({
+                      ...f, tipo: e.target.value as TipoEventoEscuela | TipoEventoAula,
+                    }))}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  >
+                    {(editando.origen === "escuela" ? TIPOS_ESCUELA : TIPOS_AULA).map((t) => (
+                      <option key={t} value={t}>
+                        {TIPO_CONFIG[t]?.label ?? t}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                {editando.origen === "escuela" && aulas.length > 0 && (
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                    Aplicar a
+                    <select
+                      value={editForm.aulaId}
+                      onChange={(e) => setEditForm((f) => ({
+                        ...f, aulaId: e.target.value
+                      }))}
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    >
+                      <option value="">Toda la escuela (global)</option>
+                      {aulas.map((a) => (
+                        <option key={a.id} value={a.id}>
+                          {a.name}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
+
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                  Título *
+                  <input type="text" required
+                    value={editForm.titulo}
+                    onChange={(e) => setEditForm((f) => ({
+                      ...f, titulo: e.target.value
+                    }))}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                    Desde *
+                    <input type="date" required
+                      value={editForm.fechaInicio}
+                      onChange={(e) => setEditForm((f) => ({
+                        ...f, fechaInicio: e.target.value
+                      }))}
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    />
+                  </label>
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                    Hasta
+                    <input type="date"
+                      value={editForm.fechaFin}
+                      onChange={(e) => setEditForm((f) => ({
+                        ...f, fechaFin: e.target.value
+                      }))}
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    />
+                  </label>
+                </div>
+
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                  Descripción
+                  <textarea rows={2}
+                    value={editForm.descripcion}
+                    onChange={(e) => setEditForm((f) => ({
+                      ...f, descripcion: e.target.value
+                    }))}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+
+                <div className="flex justify-end gap-2 pt-2">
+                  <button type="button"
+                    onClick={handleCerrarEditar}
+                    disabled={editGuardando}
+                    className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors">
+                    Cancelar
+                  </button>
+                  <button type="submit"
+                    disabled={editGuardando || !editForm.titulo.trim() || !editForm.fechaInicio}
+                    className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity">
+                    {editGuardando ? "Guardando..." : "Guardar cambios"}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </div>
   );
 }

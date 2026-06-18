@@ -82,8 +82,21 @@ export default function MisClases() {
           </p>
         </div>
 
-        {/* Unirse con código */}
-        <div className="flex items-center gap-2 flex-wrap">
+        {/* Unirse con código — FIX-TEST4-ALU-01 — antes el input
+            estaba arriba pero no se resaltaba cuando el usuario
+            no tenía aulas. Ahora: si aulas.length === 0, el
+            bloque se vuelve un callout prominente con borde
+            primario y foco automático. */}
+        <div className={`rounded-xl border-2 p-4 flex flex-wrap items-center gap-2 ${
+          aulas.length === 0
+            ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_5%,transparent)]"
+            : "border-[var(--c-border)] bg-[var(--c-surface)]"
+        }`}>
+          <label className="text-xs font-medium text-[var(--c-text)] flex-1 min-w-[180px]">
+            {aulas.length === 0
+              ? "¿Tenés un código de clase? Uníte ahora:"
+              : "Unirse a otra aula con código:"}
+          </label>
           <input
             type="text"
             placeholder="Código de aula"
@@ -92,6 +105,8 @@ export default function MisClases() {
             onKeyDown={(e) => { if (e.key === "Enter") void handleJoin(); }}
             className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)] uppercase tracking-widest w-36"
             maxLength={8}
+            autoFocus={aulas.length === 0}
+            aria-label="Código de aula"
           />
           <button
             onClick={() => void handleJoin()}
@@ -101,7 +116,7 @@ export default function MisClases() {
             {joining ? "Uniéndose..." : "Unirse"}
           </button>
           {joinMsg && (
-            <p className={`text-xs ${
+            <p className={`text-xs w-full ${
               joinMsg.startsWith("✓") ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"
             }`}>
               {joinMsg}

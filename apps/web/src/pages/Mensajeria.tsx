@@ -5,6 +5,7 @@ import { apiGet } from "../lib/api";
 import {
   fetchHilos, fetchHilo, enviarMensaje,
   fetchAvisos, crearAviso, marcarAvisoLeido,
+  editarAviso, eliminarAviso,
   buscarUsuarios,
   type Hilo, type MensajeDirecto, type Aviso,
   type UsuarioBusqueda,
@@ -23,6 +24,50 @@ const parseDate = (raw: unknown): Date | null => {
     return isNaN(d.getTime()) ? null : d;
   }
   return null;
+};
+
+// FIX-TEST4-MSG-FECHA — antes los mensajes del chat solo mostraban
+// hora ("14:32"). Para mensajes de hace 3 días no se sabía qué día
+// era. Ahora: si es hoy, solo hora; si fue ayer, "ayer"; si es de
+// esta semana, día corto; si es más viejo, fecha completa.
+const formatMensajeTime = (raw: unknown): string => {
+  const d = parseDate(raw);
+  if (!d) return "";
+  const ahora = new Date();
+  const mismoDia =
+    d.getFullYear() === ahora.getFullYear() &&
+    d.getMonth() === ahora.getMonth() &&
+    d.getDate() === ahora.getDate();
+  if (mismoDia) {
+    return d.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" });
+  }
+  const ayer = new Date(ahora);
+  ayer.setDate(ayer.getDate() - 1);
+  const fueAyer =
+    d.getFullYear() === ayer.getFullYear() &&
+    d.getMonth() === ayer.getMonth() &&
+    d.getDate() === ayer.getDate();
+  if (fueAyer) {
+    const hora = d.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" });
+    return `ayer · ${hora}`;
+  }
+  const diffMs = ahora.getTime() - d.getTime();
+  const diffDias = diffMs / (1000 * 60 * 60 * 24);
+  if (diffDias < 7) {
+    const dia = d.toLocaleDateString("es-AR", { weekday: "short" });
+    const hora = d.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" });
+    return `${dia} · ${hora}`;
+  }
+  return d.toLocaleDateString("es-AR", { day: "2-digit", month: "2-digit", year: "2-digit" });
+};
+
+// FIX-TEST4-MSG-FECHA — los avisos antes solo mostraban fecha
+// (`toLocaleDateString`). Ahora incluyen la hora para que se sepa el
+// orden cronológico entre avisos del mismo día.
+const formatAvisoTime = (raw: unknown): string => {
+  const d = parseDate(raw);
+  if (!d) return "";
+  return d.toLocaleString("es-AR", { dateStyle: "short", timeStyle: "short" });
 };
 
 const ROLE_LABELS: Record<string, string> = {
@@ -223,6 +268,58 @@ export default function Mensajeria() {
     );
   };
 
+  // FIX-TEST4-AVISOS-EDIT — handlers de edición y borrado. El modal
+  // se abre con el aviso seleccionado; el form de edición se
+  // prellena con los datos del aviso.
+  const [avisoEdit, setAvisoEdit] = useState<Aviso | null>(null);
+  const [avisoEditTitulo, setAvisoEditTitulo] = useState("");
+  const [avisoEditCuerpo, setAvisoEditCuerpo] = useState("");
+  const [avisoEditDestino, setAvisoEditDestino] = useState("todos");
+  const [avisoEditSaving, setAvisoEditSaving] = useState(false);
+
+  const abrirEditarAviso = (aviso: Aviso) => {
+    setAvisoEdit(aviso);
+    setAvisoEditTitulo(aviso.titulo);
+    setAvisoEditCuerpo(aviso.cuerpo);
+    setAvisoEditDestino(aviso.destino);
+  };
+
+  const cerrarEditarAviso = () => {
+    setAvisoEdit(null);
+    setAvisoEditSaving(false);
+  };
+
+  const handleEditarAviso = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!avisoEdit) return;
+    if (!avisoEditTitulo.trim() || !avisoEditCuerpo.trim()) return;
+    setAvisoEditSaving(true);
+    try {
+      await editarAviso(avisoEdit.id, {
+        titulo: avisoEditTitulo.trim(),
+        cuerpo: avisoEditCuerpo.trim(),
+        destino: avisoEditDestino,
+      });
+      const updated = await fetchAvisos();
+      setAvisos(updated);
+      cerrarEditarAviso();
+    } catch (err) {
+      setAvisoMsg(err instanceof Error ? err.message : "No se pudo editar.");
+    } finally {
+      setAvisoEditSaving(false);
+    }
+  };
+
+  const handleEliminarAviso = async (avisoId: string) => {
+    if (!window.confirm("¿Eliminar este aviso? Esta acción no se puede deshacer.")) return;
+    try {
+      await eliminarAviso(avisoId);
+      setAvisos((prev) => prev.filter((a) => a.id !== avisoId));
+    } catch (err) {
+      setAvisoMsg(err instanceof Error ? err.message : "No se pudo eliminar.");
+    }
+  };
+
   return (
     <div className="page-root min-h-screen bg-[var(--c-bg)]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
@@ -384,7 +481,7 @@ export default function Mensajeria() {
                           }`}>
                             <p>{m.body}</p>
                             <p className={`text-[10px] mt-1 ${esMio ? "text-white/60" : "text-[var(--c-muted)]"}`}>
-                              {(parseDate(m.created_at) ?? new Date()).toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" })}
+                              {formatMensajeTime(m.created_at)}
                             </p>
                           </div>
                         </div>
@@ -514,19 +611,113 @@ export default function Mensajeria() {
                 <p className="text-xs text-[var(--c-muted)]">{aviso.cuerpo}</p>
                 <div className="flex items-center justify-between pt-1">
                   <span className="text-[10px] text-[var(--c-muted)]">
-                    {(parseDate(aviso.created_at) ?? new Date()).toLocaleDateString("es-AR")}
+                    {formatAvisoTime(aviso.created_at)}
                   </span>
-                  {!aviso.leido && (
+                  <div className="flex items-center gap-2">
+                    {!aviso.leido && (
+                      <button
+                        onClick={() => handleLeerAviso(aviso.id)}
+                        className="text-[10px] text-[var(--c-primary)] hover:underline"
+                      >
+                        Marcar como leído
+                      </button>
+                    )}
+                    {/* FIX-TEST4-AVISOS-EDIT — botones Editar/Eliminar
+                        visibles para todos los avisos visibles. El
+                        back valida que solo el autor o ADMIN
+                        efectivamente pueda mutar. */}
                     <button
-                      onClick={() => handleLeerAviso(aviso.id)}
+                      onClick={() => abrirEditarAviso(aviso)}
                       className="text-[10px] text-[var(--c-primary)] hover:underline"
                     >
-                      Marcar como leído
+                      Editar
                     </button>
-                  )}
+                    <button
+                      onClick={() => handleEliminarAviso(aviso.id)}
+                      className="text-[10px] text-red-500 hover:underline"
+                    >
+                      Eliminar
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
+          </div>
+        )}
+
+        {/* FIX-TEST4-AVISOS-EDIT — modal de edición. Se monta solo
+            cuando `avisoEdit` no es null. */}
+        {avisoEdit && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="aviso-editar-titulo"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+            onClick={cerrarEditarAviso}
+          >
+            <div
+              className="w-full max-w-md rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] p-5 shadow-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3
+                id="aviso-editar-titulo"
+                className="text-base font-semibold text-[var(--c-text)]"
+              >
+                Editar aviso
+              </h3>
+              <form onSubmit={handleEditarAviso} className="mt-3 space-y-3">
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                  Título *
+                  <input
+                    type="text"
+                    required
+                    value={avisoEditTitulo}
+                    onChange={(e) => setAvisoEditTitulo(e.target.value)}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                  Cuerpo *
+                  <textarea
+                    required
+                    rows={3}
+                    value={avisoEditCuerpo}
+                    onChange={(e) => setAvisoEditCuerpo(e.target.value)}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
+                  Destino
+                  <select
+                    value={avisoEditDestino}
+                    onChange={(e) => setAvisoEditDestino(e.target.value)}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  >
+                    <option value="todos">Toda la escuela</option>
+                    <option value="alumnos">Alumnos</option>
+                    <option value="profesores">Profesores</option>
+                    <option value="padres">Padres</option>
+                  </select>
+                </label>
+                <div className="flex justify-end gap-2 pt-2">
+                  <button
+                    type="button"
+                    onClick={cerrarEditarAviso}
+                    disabled={avisoEditSaving}
+                    className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={avisoEditSaving || !avisoEditTitulo.trim() || !avisoEditCuerpo.trim()}
+                    className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+                  >
+                    {avisoEditSaving ? "Guardando..." : "Guardar cambios"}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         )}
 

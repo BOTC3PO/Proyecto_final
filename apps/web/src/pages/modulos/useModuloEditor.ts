@@ -180,14 +180,30 @@ export function useModuloEditor(
   }, [form, theoryItems, quizzes, id]);
 
   // ── Load module data on mount (edit mode) ─────────────────────────────────
+  // FIX-TEST4-MOD-02 — antes el form se inicializaba con
+  // `defaultForm` (vacío) y se rehidrataba en este useEffect
+  // post-mount, causando un "flash" donde el usuario veía el form
+  // vacío durante un frame antes de que aparezcan los datos del
+  // servidor. Ahora exponemos `isModuleLoading` para que la UI
+  // pueda mostrar un skeleton mientras carga.
+  const [isModuleLoading, setIsModuleLoading] = useState(isEditing);
   useEffect(() => {
-    if (!isEditing || !id) return;
+    if (!isEditing || !id) {
+      setIsModuleLoading(false);
+      return;
+    }
+    setIsModuleLoading(true);
     let active = true;
     persistence.loadModule(id).then((result) => {
-      if (!active || !result) return;
+      if (!active || !result) {
+        if (!active) return;
+        setIsModuleLoading(false);
+        return;
+      }
       setForm({ ...result.form, category: result.form.category || "sin-categoria" });
       setTheoryItems(result.theoryItems);
       setQuizzes(result.quizzes.map(ensureQuizDefaults));
+      setIsModuleLoading(false);
       // Los datos del servidor tienen prioridad — limpiar draft
       try { sessionStorage.removeItem(DRAFT_KEY(id)); } catch { /* ignorar */ }
     });
@@ -559,6 +575,7 @@ export function useModuloEditor(
     handleBlockDone,
     // Quizzes
     quizzes,
+    setQuizzes,
     addQuiz,
     updateQuiz,
     removeQuiz,
@@ -613,5 +630,9 @@ export function useModuloEditor(
     searchModules,
     // Submit
     handleSubmit,
+    // FIX-TEST4-MOD-02 — flag de carga inicial del módulo. La UI
+    // lo usa para mostrar un skeleton en vez del form vacío
+    // durante el primer render en modo edición.
+    isModuleLoading,
   };
 }

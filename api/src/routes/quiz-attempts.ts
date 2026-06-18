@@ -99,6 +99,27 @@ type ModuleWithQuizzes = {
   scoringConfig?: ScoringConfig;
 };
 
+// FIX-TEST4-ALU-04 — antes los attempts `in_progress` con más de 6
+// horas seguían apareciendo en las listas del profesor y se
+// contaban como "1 entrega" con score 0. La causa típica es que el
+// alumno cerró la pestaña sin responder. Este helper marca esos
+// attempts viejos como `aborted` para que el back los filtre de
+// los promedios y el front los muestre con un label claro.
+// Se ejecuta perezosamente antes del GET (no hace falta un cron
+// separado: el primer GET del día limpia lo viejo).
+const IN_PROGRESS_TIMEOUT_MS = 6 * 60 * 60 * 1000; // 6 horas
+const staleInProgressSweep = async (): Promise<number> => {
+  const cutoff = new Date(Date.now() - IN_PROGRESS_TIMEOUT_MS).toISOString();
+  const result = await prisma.quizAttempt.updateMany({
+    where: {
+      status: "in_progress",
+      startedAt: { lt: cutoff },
+    },
+    data: { status: "aborted" },
+  });
+  return result.count;
+};
+
 type QuizMetadataRecord = {
   id?: string;
   moduleId?: string | null;
@@ -870,6 +891,11 @@ quizAttempts.get(
   requireUser,
   async (req, res) => {
     try {
+      // FIX-TEST4-ALU-04 — limpiar attempts in_progress viejos antes
+      // de devolver la lista. Fire-and-forget (no esperamos a la
+      // query porque la UI no depende de cuándo termine el sweep).
+      void staleInProgressSweep().catch(() => { /* ignorar */ });
+
       const query = QuizAttemptListQuerySchema.parse(req.query);
       const requesterId =
         typeof req.user?._id?.toString === "function"

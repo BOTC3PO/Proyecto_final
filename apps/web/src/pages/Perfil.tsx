@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { solicitarCambioRol } from "../services/roles";
 import { apiGet } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
 import EsperandoPago from "../components/EsperandoPago";
@@ -357,6 +358,15 @@ export default function Perfil() {
             {/* ── TAB: DATOS ── */}
             {activeTab === "perfil" && (
               <div className="space-y-3">
+                {/* FIX-TEST4-ROLE-02 — antes un USER adulto no
+                    tenía forma de auto-solicitar un cambio de rol.
+                    Ahora hay un banner arriba de los datos
+                    personales con un selector y un botón. El
+                    back valida que sea mayor de 18 años y que
+                    el rol no sea el actual. */}
+                <RoleSolicitudBanner
+                  currentRole={perfil.role}
+                />
                 {[
                   { label: "Nombre completo", value: perfil.fullName },
                   { label: "Usuario",         value: `@${perfil.username}` },
@@ -709,6 +719,122 @@ export default function Perfil() {
         )}
 
       </div>
+    </div>
+  );
+}
+
+// FIX-TEST4-ROLE-02 — banner que permite a un USER adulto
+// solicitar un cambio de rol. El back valida la edad y la
+// idempotencia (no duplica solicitudes pendientes).
+function RoleSolicitudBanner({ currentRole }: { currentRole: string }) {
+  const [open, setOpen] = useState(false);
+  const [targetRole, setTargetRole] = useState<"TEACHER" | "PARENT" | "DIRECTIVO" | "ADMIN">("TEACHER");
+  const [motivo, setMotivo] = useState("");
+  const [sending, setSending] = useState(false);
+  const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
+
+  // Solo USER puede pedir (los demás roles no necesitan pedir).
+  if (currentRole !== "USER") return null;
+
+  const handleSubmit = async () => {
+    setSending(true);
+    setMsg(null);
+    try {
+      const res = await solicitarCambioRol({ targetRole, motivo });
+      setMsg({
+        kind: "ok",
+        text: res.alreadyPending
+          ? "Ya tenés una solicitud pendiente. El admin la revisará pronto."
+          : "✓ Solicitud enviada. El admin la revisará pronto."
+      });
+      setOpen(false);
+      setMotivo("");
+    } catch (err) {
+      setMsg({
+        kind: "err",
+        text: err instanceof Error ? err.message : "No se pudo enviar la solicitud."
+      });
+    } finally {
+      setSending(false);
+    }
+  };
+
+  return (
+    <div className="rounded-xl border-2 border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_5%,transparent)] p-4 space-y-3">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="text-sm font-semibold text-[var(--c-text)]">
+            ¿Querés cambiar tu rol?
+          </p>
+          <p className="text-xs text-[var(--c-muted)] mt-1">
+            Si tenés más de 18 años y querés ser docente, padre/madre o directivo,
+            podés solicitarlo acá. El admin revisará tu pedido.
+          </p>
+        </div>
+        {!open && (
+          <button
+            onClick={() => setOpen(true)}
+            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity shrink-0"
+            data-testid="perfil-solicitar-rol"
+          >
+            Solicitar
+          </button>
+        )}
+      </div>
+
+      {open && (
+        <div className="space-y-2">
+          <label className="grid gap-1 text-xs font-medium text-[var(--c-text)]">
+            Rol deseado
+            <select
+              value={targetRole}
+              onChange={(e) => setTargetRole(e.target.value as "TEACHER" | "PARENT" | "DIRECTIVO" | "ADMIN")}
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+            >
+              <option value="TEACHER">Docente</option>
+              <option value="PARENT">Padre/Madre</option>
+              <option value="DIRECTIVO">Directivo de escuela</option>
+              <option value="ADMIN">Administrador</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-medium text-[var(--c-text)]">
+            Motivo (opcional)
+            <textarea
+              rows={2}
+              value={motivo}
+              onChange={(e) => setMotivo(e.target.value)}
+              placeholder="Contale al admin por qué querés este rol."
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+            />
+          </label>
+          <div className="flex gap-2 justify-end">
+            <button
+              onClick={() => { setOpen(false); setMsg(null); }}
+              disabled={sending}
+              className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors"
+            >
+              Cancelar
+            </button>
+            <button
+              onClick={handleSubmit}
+              disabled={sending}
+              className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+            >
+              {sending ? "Enviando..." : "Enviar solicitud"}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {msg && (
+        <p
+          className={`text-xs ${
+            msg.kind === "ok" ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"
+          }`}
+        >
+          {msg.text}
+        </p>
+      )}
     </div>
   );
 }

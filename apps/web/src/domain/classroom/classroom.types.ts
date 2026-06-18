@@ -31,6 +31,18 @@ export type Classroom = {
   status: ClassroomStatus;
   classCode?: string;
   createdBy: string;
+  // IDs del esquema Prisma (devueltos por el back). El front los
+  // usa para chequeos de ownership. Los `*Name` equivalentes son
+  // los nombres resueltos que ahora también devuelve el back.
+  teacherId?: string | null;
+  teacherOfRecord?: string | null;
+  // FIX-TEST4-X05B-NOMBRES — el back ahora devuelve el nombre
+  // resuelto del `createdBy` para mostrarlo en la UI en vez del
+  // ID crudo. Si el user ya no existe o el back no lo devolvió,
+  // cae al ID como fallback.
+  createdByName?: string | null;
+  teacherName?: string | null;
+  teacherOfRecordName?: string | null;
   teacherIds?: string[];
   /**
    * QA-FIX-08 — flag derivado en el back (`isClassroomTeacher`,

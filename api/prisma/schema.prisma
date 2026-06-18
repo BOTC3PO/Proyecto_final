@@ -331,6 +331,13 @@ model Modulo {
   // trata `null` como string vacío. Mismo patrón que `subject` (migración
   // separada `20260617040000_modulo_level`).
   level                String?  @map("level")
+  // FIX-TEST4-MOD-01 — categoría y duración en minutos. Nullable
+  // aditiva: módulos viejos (beta 0.0.4 y anteriores) quedan con
+  // ambos campos en `null`. El editor los muestra como "Sin
+  // categoría" / "Sin duración" si están vacíos. Ver
+  // `20260618000000_modulo_category_duration` para la migración.
+  category             String?  @map("category")
+  durationMinutes      Int?     @map("duration_minutes")
   visibility           String   @default("private")
   schoolId             String?  @map("school_id")
   ownerUserId          String?  @map("owner_user_id")

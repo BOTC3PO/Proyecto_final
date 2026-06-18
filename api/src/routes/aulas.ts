@@ -23,6 +23,50 @@ export const aulas = Router();
 
 const FREE_CLASSROOM_LIMIT = 10;
 
+// FIX-TEST4-CLASSCODE — antes `code` quedaba `null` cuando el front
+// no mandaba `classCode`, y el alumno no podía unirse. Generamos un
+// código alfanumérico de 6 chars (sin 0/O/1/l/I para evitar
+// confusión al tipear) y verificamos unicidad contra `clase.code`.
+const CLASSCODE_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+const generateClassCode = (): string => {
+  let out = "";
+  for (let i = 0; i < 6; i++) {
+    out += CLASSCODE_ALPHABET[Math.floor(Math.random() * CLASSCODE_ALPHABET.length)];
+  }
+  return out;
+};
+
+const ensureUniqueClassCode = async (maxAttempts = 6): Promise<string> => {
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    const candidate = generateClassCode();
+    const taken = await prisma.clase.findFirst({ where: { code: candidate } });
+    if (!taken) return candidate;
+  }
+  // Si la lotería falla 6 veces seguidas, generamos uno con timestamp
+  // mezclado (caso degenerado con MUCHAS aulas simultáneas).
+  return generateClassCode() + Date.now().toString(36).slice(-2).toUpperCase();
+};
+
+// FIX-TEST4-X05B-NOMBRES — antes el GET devolvía los IDs
+// `createdBy`, `teacherId`, `teacherOfRecord` como strings crudos.
+// El front los mostraba como "user-abc123". Ahora resolvemos esos
+// IDs a `fullName` (cae a `username` si no hay nombre, o al ID si
+// no se encuentra el user). Devuelve los nombres como campos
+// adicionales (`createdByName`, etc.) sin romper los IDs existentes.
+const resolveUserNames = async (userIds: Array<string | null | undefined>) => {
+  const unique = Array.from(new Set(userIds.filter((v): v is string => !!v && typeof v === "string")));
+  if (unique.length === 0) return new Map<string, string>();
+  const users = await prisma.usuario.findMany({
+    where: { id: { in: unique } },
+    select: { id: true, fullName: true, username: true },
+  });
+  const map = new Map<string, string>();
+  for (const u of users) {
+    map.set(u.id, u.fullName || u.username || u.id);
+  }
+  return map;
+};
+
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
   if (Number.isNaN(parsed) || parsed <= 0) return 20;
@@ -161,6 +205,15 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
   const requesterRole =
     (req as { user?: { role?: string | null } }).user?.role ?? null;
 
+  // FIX-TEST4-X05B-NOMBRES — resolver los IDs de docentes a nombres
+  // humanos. Una sola query para todos los items de la página.
+  const allUserIds = items.flatMap((item) => [
+    item.createdBy,
+    item.teacherId,
+    item.teacherOfRecord,
+  ]);
+  const nameMap = await resolveUserNames(allUserIds);
+
   res.json({
     items: items.map((item) => {
       // `miembros` viene del `include`, no es un campo del modelo
@@ -182,6 +235,12 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
       return {
         ...rest,
         id: doc.id,
+        // FIX-TEST4-X05B-NOMBRES — además del ID, devolvemos el
+        // nombre resuelto. El front usa `…Name` cuando está y
+        // cae al ID como fallback.
+        createdByName: rest.createdBy ? (nameMap.get(rest.createdBy) ?? null) : null,
+        teacherName: rest.teacherId ? (nameMap.get(rest.teacherId) ?? null) : null,
+        teacherOfRecordName: rest.teacherOfRecord ? (nameMap.get(rest.teacherOfRecord) ?? null) : null,
         // MULTIROL-03: el rol del viewer EN ESTA clase (no el global
         // de la cuenta). Resuelve bug 7 del reporte rol-dual:
         // MisClases puede mostrar "Estudiante" / "Docente" por aula.
@@ -290,7 +349,26 @@ aulas.get(
       classroom.members,
       requesterId ?? null
     );
-    res.json({ ...classroom, viewerRoleInClass });
+    // FIX-TEST4-X05B-NOMBRES — resolver IDs de docentes a nombres
+    // humanos en el detail también.
+    const nameMap = await resolveUserNames([
+      classroom.createdBy as string | undefined,
+      classroom.teacherId as string | undefined,
+      classroom.teacherOfRecord as string | undefined,
+    ]);
+    res.json({
+      ...classroom,
+      viewerRoleInClass,
+      createdByName: classroom.createdBy
+        ? (nameMap.get(classroom.createdBy as string) ?? null)
+        : null,
+      teacherName: classroom.teacherId
+        ? (nameMap.get(classroom.teacherId as string) ?? null)
+        : null,
+      teacherOfRecordName: classroom.teacherOfRecord
+        ? (nameMap.get(classroom.teacherOfRecord as string) ?? null)
+        : null,
+    });
   }
 );
 
@@ -330,6 +408,10 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
 
     const grade = parsed.category ?? (parsed as { subject?: string }).subject ?? "General";
 
+    // FIX-TEST4-CLASSCODE — generar código único si el front no lo
+    // mandó. Antes esto quedaba en null y el alumno no podía unirse.
+    const finalClassCode = parsed.classCode ?? (await ensureUniqueClassCode());
+
     // Only map fields that exist in the Clase Prisma model.
     const created = await prisma.clase.create({
       data: {
@@ -337,7 +419,8 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
         escuelaId: schoolId,
         name: parsed.name,
         grade,
-        code: parsed.classCode ?? null,
+        code: finalClassCode,
+        classCode: finalClassCode,
         isDeleted: parsed.isDeleted ?? false,
         status: normalizedStatus,
         createdAt: parsed.createdAt,
@@ -345,7 +428,7 @@ aulas.post("/api/aulas", requireUser, requirePolicy("aulas/create"), ...bodyLimi
       }
     });
 
-    res.status(201).json({ id: created.id, classroomId: created.id });
+    res.status(201).json({ id: created.id, classroomId: created.id, classCode: finalClassCode });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }

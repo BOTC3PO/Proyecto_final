@@ -308,12 +308,12 @@ const buildIntercambioScore = (params: {
   const montoScore = Math.min(params.monto / INTERCAMBIO_LIMITS.montoAlto, 1);
   return clampScore(diarioScore * 0.4 + cancelScore * 0.4 + montoScore * 0.2);
 };
-
 const getMacroAjuste = async () => {
   const config = await getEconomiaConfig();
   const macroIds = Object.values(MACRO_MODULOS);
   const modulos = await prisma.economiaModulo.findMany({ where: { moduloId: { in: macroIds } } });
   const activos = new Set(modulos.filter((modulo) => modulo.activo).map((modulo) => modulo.moduloId));
+
   const hiperinflacionActiva =
     config.hiperinflacion.activa && activos.has(MACRO_MODULOS.hiperinflacion);
   const inflacionActiva = config.inflacion.activa && activos.has(MACRO_MODULOS.inflacion);
@@ -349,6 +349,11 @@ const getMacroAjuste = async () => {
     aceleracionAplicada
   };
 };
+
+// FIX-TEST4-ADMIN-01 — alias exportable de `getMacroAjuste` para
+// usarlo como override de `getAjusteEconomico` en las rutas
+// donde el panel admin debe ganar sobre el JSON hardcodeado.
+export const getOverrideActivo = getMacroAjuste;
 
 const defaultConfig = () => ({
   id: "general" as const,
@@ -585,7 +590,17 @@ economia.get("/api/economia/saldos", checkModoAula("economia"), async (req, res)
     return res.status(400).json({ error: "usuarioId is required" });
   }
   const saldo = await prisma.economiaSaldo.findFirst({ where: { usuarioId: usuarioObjectId } });
-  const ajuste = getAjusteEconomico();
+  // FIX-TEST4-ADMIN-01 — leer el override del panel admin
+  // primero. Si no hay override (modo "normal"), cae al JSON
+  // del calendario económico.
+  const macro = await getOverrideActivo();
+  const override = macro.modo !== "normal" ? {
+    modo: macro.modo,
+    precioFactor: macro.precioFactor,
+    recompensaFactor: macro.recompensaFactor,
+    tasa: macro.tasaAplicada,
+  } : null;
+  const ajuste = getAjusteEconomico(undefined, override);
   const ajustePayload = {
     tipo: ajuste.tipo,
     recompensaFactor: ajuste.recompensaFactor,
@@ -2021,10 +2036,21 @@ economia.get("/api/economia/metricas", async (req, res) => {
 });
 
 // GET /api/economia/ciclo-activo
-economia.get("/api/economia/ciclo-activo", (_req, res) => {
+// FIX-TEST4-ADMIN-01 — leer el override del panel admin primero.
+// Si el panel no tiene inflación/deflación/hiperinflación activa,
+// el `override` queda en `null` y caemos al JSON del calendario
+// económico (comportamiento histórico).
+economia.get("/api/economia/ciclo-activo", async (_req, res) => {
   try {
     const ciclo = getCicloActivo();
-    const ajuste = getAjusteEconomico();
+    const macro = await getOverrideActivo();
+    const override = macro.modo !== "normal" ? {
+      modo: macro.modo,
+      precioFactor: macro.precioFactor,
+      recompensaFactor: macro.recompensaFactor,
+      tasa: macro.tasaAplicada,
+    } : null;
+    const ajuste = getAjusteEconomico(undefined, override);
     return res.json({ ciclo, ajuste });
   } catch (err) {
     return res.status(500).json({
