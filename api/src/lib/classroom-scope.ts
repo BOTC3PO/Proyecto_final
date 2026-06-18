@@ -53,6 +53,44 @@ const isClassroomOwner = (
 };
 
 /**
+ * MULTIROL-03 (Fase 3) — rol CONTEXTUAL del viewer en una clase.
+ *
+ * A diferencia de `user.role` (rol global de la cuenta) o de
+ * `isClassroomTeacher` (boolean: "tiene autoridad de docente sobre
+ * esta clase"), este helper devuelve el ROL que el viewer TIENE
+ * DENTRO de la clase: "TEACHER", "STUDENT" o `null` si no es miembro.
+ *
+ * Reglas:
+ *   - Si el viewer es miembro con `rolEnClase === "TEACHER"` o
+ *     `"ADMIN"`, devolvemos `"TEACHER"` (un admin en la membresía
+ *     actúa como staff de la clase).
+ *   - Si es miembro con `rolEnClase === "STUDENT"`, devolvemos
+ *     `"STUDENT"`.
+ *   - Si NO es miembro (es dueño, admin global, o un visitante con
+ *     school-match), devolvemos `null`. La autoridad de docente se
+ *     chequea por separado con `isClassroomTeacher` (que SÍ incluye
+ *     dueño y admin).
+ *
+ * Esto resuelve los bugs 2/3/4/7 del reporte rol-dual: el label
+ * que ve el viewer en una clase es el de SU rol EN esa clase, no el
+ * de su cuenta. Un profesor que es alumno en el aula de un colega
+ * ve "Estudiante", no "Docente".
+ */
+export const computeViewerRoleInClass = (
+  members: ClassroomMember[] | null | undefined,
+  userId: string | null
+): "TEACHER" | "STUDENT" | null => {
+  if (!userId) return null;
+  if (!Array.isArray(members) || members.length === 0) return null;
+  const member = members.find((m) => m.userId === userId);
+  if (!member) return null;
+  const role = (member.roleInClass ?? "").toString().toUpperCase();
+  if (role === "TEACHER" || role === "ADMIN") return "TEACHER";
+  if (role === "STUDENT") return "STUDENT";
+  return null;
+};
+
+/**
  * Criterio CANÓNICO "es docente del aula".
  *
  * Devuelve true cuando el usuario tiene autoridad de docente sobre la clase por

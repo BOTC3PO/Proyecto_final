@@ -42,6 +42,16 @@ export type Classroom = {
    * poblaba).
    */
   viewerIsTeacher?: boolean;
+  /**
+   * MULTIROL-03 (Fase 3) — rol CONTEXTUAL del viewer en esta aula.
+   * Distinto de `viewerIsTeacher` (boolean) y del rol global de la
+   * cuenta: es el `rolEnClase` del viewer en `clase_miembros`,
+   * mapeado a `"TEACHER" | "STUDENT" | null`. Un profesor que es
+   * alumno en el aula de un colega recibe `"STUDENT"` aunque su
+   * rol global sea `"TEACHER"`. `null` si no es miembro (la
+   * autoridad de docente la cubre `viewerIsTeacher` por separado).
+   */
+  viewerRoleInClass?: "TEACHER" | "STUDENT" | null;
   createdAt: string;
   updatedAt: string;
   members?: Array<{

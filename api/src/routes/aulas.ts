@@ -3,7 +3,11 @@ import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { toObjectId } from "../lib/ids";
 import { canManageClassroom, requirePolicy } from "../lib/authorization";
-import { requireClassroomScope, isClassroomTeacher } from "../lib/classroom-scope";
+import {
+  requireClassroomScope,
+  isClassroomTeacher,
+  computeViewerRoleInClass,
+} from "../lib/classroom-scope";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
@@ -164,20 +168,25 @@ aulas.get("/api/aulas", requireUser, requirePolicy("aulas/list"), async (req, re
       // el response (front espera `members` mapeado, no el shape
       // de Prisma).
       const { miembros, ...rest } = item;
+      const members = (miembros ?? []).map((m) => ({
+        userId: m.usuarioId,
+        roleInClass: m.rolEnClase
+      }));
       const doc = {
         id: rest.id ?? "",
         createdBy: rest.createdBy ?? null,
         teacherId: rest.teacherId ?? null,
         teacherOfRecord: rest.teacherOfRecord ?? null,
-        members: (miembros ?? []).map((m) => ({
-          userId: m.usuarioId,
-          roleInClass: m.rolEnClase
-        }))
+        members
       };
       return {
         ...rest,
         id: doc.id,
-        viewerIsTeacher: isClassroomTeacher(doc, requesterId, requesterRole)
+        // MULTIROL-03: el rol del viewer EN ESTA clase (no el global
+        // de la cuenta). Resuelve bug 7 del reporte rol-dual:
+        // MisClases puede mostrar "Estudiante" / "Docente" por aula.
+        viewerIsTeacher: isClassroomTeacher(doc, requesterId, requesterRole),
+        viewerRoleInClass: computeViewerRoleInClass(members, requesterId)
       };
     }),
     limit,
@@ -251,8 +260,37 @@ aulas.get(
     allowSchoolMatch: true,
     notFoundMessage: "not found"
   }),
-  async (_req, res) => {
-    res.json(res.locals.classroom);
+  async (req, res) => {
+    // MULTIROL-03: el detail ahora devuelve el rol del viewer EN
+    // esta clase. El middleware `requireClassroomScope` ya calculó
+    // `memberRole` y lo guardó en `res.locals.classroomScope`. Lo
+    // proyectamos al shape del Classroom type del front, con
+    // "ADMIN" mapeado a "TEACHER" (un admin en la membresía actúa
+    // como staff). Esto resuelve bugs 2, 3 y 4 del reporte rol-dual:
+    // aula.tsx puede mostrar "Estudiante" al viewer STUDENT y ocultar
+    // "Gestionar aula" si no tiene autoridad.
+    const classroom = res.locals.classroom as
+      | {
+          members?: Array<{ userId: string; roleInClass: string }>;
+          [k: string]: unknown;
+        }
+      | undefined;
+    if (!classroom) {
+      res.json({});
+      return;
+    }
+    const requesterId =
+      (req as { user?: { id?: string; _id?: string | { toString?: () => string } } }).user?.id ??
+      ((req as { user?: { _id?: string | { toString?: () => string } } }).user?._id as
+        | string
+        | { toString?: () => string }
+        | undefined)?.toString?.() ??
+      null;
+    const viewerRoleInClass = computeViewerRoleInClass(
+      classroom.members,
+      requesterId ?? null
+    );
+    res.json({ ...classroom, viewerRoleInClass });
   }
 );
 
