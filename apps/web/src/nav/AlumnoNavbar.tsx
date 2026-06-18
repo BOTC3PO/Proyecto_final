@@ -1,12 +1,18 @@
 import { NavLink, Link } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
+import { useHasRole } from '../auth/use-roles';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
 import { useState, useRef, useEffect } from 'react';
 
 export default function AlumnoNavbar() {
   const { user, logout } = useAuth();
   const items = NAV_BY_ROLE['USER'];
-  const dropdownItems = DROPDOWN_BY_ROLE[user?.role as keyof typeof DROPDOWN_BY_ROLE]
+  // MULTIROL-02: el dropdown se elige por el rol principal del user
+  // (USER por default; un TEACHER+USER en vista de alumno sigue viendo
+  // el dropdown USER, igual que antes). La nav de alumno siempre es
+  // la de USER, así que el default ya estaba bien.
+  const primary = user?.roles?.[0] ?? user?.role ?? 'USER';
+  const dropdownItems = DROPDOWN_BY_ROLE[primary as keyof typeof DROPDOWN_BY_ROLE]
     ?? DROPDOWN_BY_ROLE['USER'];
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -23,10 +29,16 @@ export default function AlumnoNavbar() {
     ? user.name.split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase()
     : '?';
 
+  // MULTIROL-02: el "Volver a mi panel" se muestra si el user tiene
+  // CUALQUIERA de los roles staff en su array. Un TEACHER+USER que
+  // está viendo la vista de alumno sí ve el botón.
+  const hasTeacher = useHasRole('TEACHER');
+  const hasAdmin = useHasRole('ADMIN');
+  const hasDirectivo = useHasRole('DIRECTIVO');
   const roleHome =
-    user?.role === 'TEACHER' ? '/profesor' :
-    user?.role === 'ADMIN' ? '/admin' :
-    user?.role === 'DIRECTIVO' ? '/enterprise' : null;
+    hasTeacher ? '/profesor' :
+    hasAdmin ? '/admin' :
+    hasDirectivo ? '/enterprise' : null;
 
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-[var(--c-border)] bg-[var(--c-surface)]">

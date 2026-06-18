@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
+import { useHasAnyRole, useIsStaff } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import {
@@ -73,9 +74,13 @@ function eventoEnDia(ev: EventoCalendario, dia: string): boolean {
 
 export default function ProfesorCalendario() {
   const { user } = useAuth();
-  const role = user?.role ?? "";
-  const canEditEscuela = ["DIRECTIVO","ADMIN"].includes(role);
-  const canEditAula = ["TEACHER","DIRECTIVO","ADMIN"].includes(role);
+  // MULTIROL-02: canEditEscuela = directivo o admin. canEditAula = staff.
+  // Migrado a helpers centralizados (multi-rol friendly): un TEACHER+USER
+  // puede editar aulas (TEACHER en su array), un DIRECTIVO+USER puede
+  // editar escuela (DIRECTIVO).
+  const isStaff = useIsStaff();
+  const canEditEscuela = useHasAnyRole(["DIRECTIVO", "ADMIN"]);
+  const canEditAula = isStaff;
 
   const hoy = new Date();
   const [year, setYear] = useState(hoy.getFullYear());
@@ -127,7 +132,7 @@ export default function ProfesorCalendario() {
         }
       })
       .catch(() => {});
-  }, [user?.id, role]);
+  }, [user?.id, canEditEscuela]);
 
   const cargarEventos = () => {
     const { desde, hasta } = rangoMes(year, month);

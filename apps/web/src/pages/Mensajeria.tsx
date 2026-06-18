@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../auth/use-auth";
+import { useIsStaff } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
 import {
   fetchHilos, fetchHilo, enviarMensaje,
@@ -41,9 +42,9 @@ type Tab = "mensajes" | "avisos";
 
 export default function Mensajeria() {
   const { user } = useAuth();
-  const canPublish = ["DIRECTIVO", "TEACHER", "ADMIN"].includes(
-    user?.role ?? ""
-  );
+  // MULTIROL-02: canPublish = staff (DIRECTIVO/TEACHER/ADMIN en
+  // cualquier slot de roles[]).
+  const canPublish = useIsStaff();
 
   // Tabs
   const [tab, setTab] = useState<Tab>("mensajes");

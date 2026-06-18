@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
+import { useIsStaff } from "../auth/use-roles";
 import {
   fetchProposal,
   closeProposal,
@@ -95,8 +96,7 @@ export default function GobernanzaPropuesta() {
   const [closing, setClosing] = useState(false);
   const [closeError, setCloseError] = useState<string | null>(null);
 
-  const isStaff =
-    user?.role === "ADMIN" || user?.role === "DIRECTIVO" || user?.role === "TEACHER";
+  const isStaff = useIsStaff();
 
   useEffect(() => {
     if (!id) return;

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
+import { usePrimaryRole } from '../auth/use-roles';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 const ROLE_DASHBOARD: Record<string, string> = {
@@ -13,6 +14,11 @@ const ROLE_DASHBOARD: Record<string, string> = {
 
 export default function HomePage() {
   const { user } = useAuth();
+  // MULTIROL-02: el redirect inicial sigue siendo por "rol principal"
+  // (mayor jerarquía), igual que antes. Un TEACHER+USER cae en
+  // /profesor. El roleLabel POR AULA (con qué rol "actuar" en una
+  // vista específica) es Fase 3.
+  const primary = usePrimaryRole();
   const navigate = useNavigate();
   useDocumentMeta({
     title: 'Virtual Book — Plataforma Educativa Interactiva',
@@ -20,11 +26,11 @@ export default function HomePage() {
   });
 
   useEffect(() => {
-    const dashboard = user?.role ? ROLE_DASHBOARD[user.role] : null;
+    const dashboard = primary ? ROLE_DASHBOARD[primary] : null;
     if (dashboard) {
       navigate(dashboard, { replace: true });
     }
-  }, [user, navigate]);
+  }, [user, navigate, primary]);
 
   return (
     <main className="flex-grow">

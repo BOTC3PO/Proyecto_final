@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
+import { useIsTeacher } from "../../auth/use-roles";
 import type { ModuleQuiz, Module } from "../../domain/module/module.types";
 import PlantillaSelectorModal from "../../components/vblang/PlantillaSelectorModal";
 import { batchGetPlantillas } from "../../domain/vblang/plantillaApi";
@@ -267,7 +268,9 @@ export default function ModuloEditor() {
     }
   }, [id]);
 
-  const isTeacher = user?.role === "TEACHER";
+  // MULTIROL-02: usar helper centralizado (rol principal o
+  // membership de "TEACHER" en roles[]).
+  const isTeacher = useIsTeacher();
   const isEvaluacionMode = form.category === "evaluacion";
 
   // Tarea 15: lista de secciones que se muestra en el nav sticky. El id

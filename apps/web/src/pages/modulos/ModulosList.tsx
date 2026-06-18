@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
+import { useHasAnyRole } from "../../auth/use-roles";
 import { apiGet, apiPost } from "../../lib/api";
 import Toast from "../../components/Toast";
 import type { Module, ModuleVisibility } from "../../domain/module/module.types";
@@ -94,7 +95,11 @@ function getAccentColor(subject: string): string {
 
 export default function ModulosList() {
   const { user } = useAuth();
-  const role = user?.role ?? "GUEST";
+  // MULTIROL-02: `canCreate`/`canEdit` migran al helper centralizado
+  // (multi-rol friendly): alcanza con que el user TENGA TEACHER o
+  // ADMIN en su array `roles[]`. Antes leía el singular `user.role`.
+  const canCreate = useHasAnyRole(["TEACHER", "ADMIN"]);
+  const canEdit = useHasAnyRole(["TEACHER", "ADMIN"]);
   const [modules, setModules] = useState<Module[]>([]);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -104,9 +109,6 @@ export default function ModulosList() {
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [searchParams] = useSearchParams();
-
-  const canCreate = useMemo(() => ["TEACHER", "ADMIN"].includes(role), [role]);
-  const canEdit = useMemo(() => ["TEACHER", "ADMIN"].includes(role), [role]);
 
   const subjectOptions = useMemo(() => {
     const values = new Set<string>();

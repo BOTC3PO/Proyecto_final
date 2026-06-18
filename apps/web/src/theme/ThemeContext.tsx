@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState,
   type ReactNode } from "react";
 import { useAuth } from "../auth/use-auth";
+import { usePrimaryRole } from "../auth/use-roles";
 
 export type ThemeId =
   | "clasico" | "clasico-vb" | "aurora" | "nocturno" | "nocturno-vb"
@@ -109,7 +110,10 @@ const ThemeContext = createContext<ThemeContextValue>({
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
-  const role = user?.role ?? "GUEST";
+  // MULTIROL-02: el set de temas se elige por rol principal. Un
+  // ADMIN+TEACHER ve el set de ADMIN (que es super-set del de TEACHER).
+  const primary = usePrimaryRole();
+  const role = primary ?? (user?.role ?? "GUEST");
 
   const allowed = THEMES_BY_ROLE[role] ?? ["clasico"];
 

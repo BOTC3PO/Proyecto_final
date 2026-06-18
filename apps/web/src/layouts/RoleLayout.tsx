@@ -1,14 +1,13 @@
 import { Outlet } from 'react-router-dom';
-import { useAuth } from '../auth/use-auth';
+import { useIsStaff } from '../auth/use-roles';
 import Navbar from '../nav/Navbar';
 import { OfflineIndicator } from '../components/OfflineIndicator';
 import StaffSidebar from './StaffSidebar';
 
-const STAFF_ROLES = ['TEACHER', 'DIRECTIVO', 'ADMIN'];
-
 export default function RoleLayout() {
-  const { user } = useAuth();
-  const isStaff = STAFF_ROLES.includes(user?.role ?? '');
+  // MULTIROL-02: usar helper centralizado en vez de chequear
+  // `user.role` suelto. Acepta multi-rol: un TEACHER+USER es staff.
+  const isStaff = useIsStaff();
 
   if (isStaff) {
     return (

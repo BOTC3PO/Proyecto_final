@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../auth/use-auth";
+import { useIsStaff } from "../auth/use-roles";
 import {
   fetchProposals,
   fetchApoyos,
@@ -113,7 +113,6 @@ function ProposalCard({ proposal, apoyos }: { proposal: Proposal; apoyos?: Apoyo
 }
 
 export default function Gobernanza() {
-  const { user } = useAuth();
   const [proposals, setProposals] = useState<Proposal[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -122,8 +121,7 @@ export default function Gobernanza() {
   const [apoyosPorId, setApoyosPorId] =
     useState<Record<string, ApoyosInfo>>({});
 
-  const canPropose =
-    user?.role === "ADMIN" || user?.role === "DIRECTIVO" || user?.role === "TEACHER";
+  const canPropose = useIsStaff();
 
   useEffect(() => {
     let active = true;

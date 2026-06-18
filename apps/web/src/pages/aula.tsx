@@ -4,6 +4,7 @@ import ContinuarCard from "../components/aula/ContinuarCard";
 import { apiGet, apiPost } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
+import { useCanActAsLearner, useHasRole } from "../auth/use-roles";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail } from "../services/aulas";
@@ -63,6 +64,13 @@ function getAvatarColor(initials: string): string {
 
 export default function Aula() {
   const { user } = useAuth();
+  // MULTIROL-02: leer cada rol por helper centralizado (mirando
+  // `roles[]` con fallback al singular). El `user.role` se mantiene
+  // solo para `useMemo` que mira además otras cosas del aula.
+  const isAdmin = useHasRole("ADMIN");
+  const isTeacher = useHasRole("TEACHER");
+  const canActAsLearner = useCanActAsLearner();
+  const isParent = useHasRole("PARENT");
   const userInitials = user?.name
     ? user.name.split(" ").filter(Boolean).map((p) => p[0]).join("").slice(0, 2).toUpperCase()
     : "?";
@@ -306,8 +314,8 @@ export default function Aula() {
   // `docs/qa/test-parte-3-profesor.md`.
   const isTeacherOfClass = useMemo(() => {
     if (!user || !classroom) return false;
-    if (user.role === "ADMIN") return true;
-    if (user.role !== "TEACHER") return false;
+    if (isAdmin) return true;
+    if (!isTeacher) return false;
     if (classroom.viewerIsTeacher === true) return true;
     if (classroom.viewerIsTeacher === false) return false;
     const members = Array.isArray(classroom.members) ? classroom.members : [];
@@ -323,22 +331,22 @@ export default function Aula() {
       return true;
     }
     return false;
-  }, [classroom, user]);
+  }, [classroom, user, isAdmin, isTeacher]);
 
   const roleLabel = useMemo(() => {
     if (!user) return "Invitado";
-    if (user.role === "TEACHER") return isTeacherOfClass ? "Docente" : "Docente invitado";
-    if (user.role === "USER") return "Estudiante";
-    if (user.role === "PARENT") return "Familia";
+    if (isTeacher) return isTeacherOfClass ? "Docente" : "Docente invitado";
+    if (canActAsLearner) return "Estudiante";
+    if (isParent) return "Familia";
     return "Invitado";
-  }, [isTeacherOfClass, user]);
+  }, [isTeacherOfClass, user, isTeacher, canActAsLearner, isParent]);
 
   const accessLabel = useMemo(() => {
     const accessTypeLabel = classroom?.accessType === "privada" ? "privada" : "pública";
-    if (user?.role === "USER") return `estudiante · ${accessTypeLabel}`;
-    if (user?.role === "PARENT") return `familiar · ${accessTypeLabel}`;
+    if (canActAsLearner) return `estudiante · ${accessTypeLabel}`;
+    if (isParent) return `familiar · ${accessTypeLabel}`;
     return `visitante · ${accessTypeLabel}`;
-  }, [classroom?.accessType, user]);
+  }, [classroom?.accessType, user, canActAsLearner, isParent]);
 
   const teacherName = useMemo(() => {
     if (classroom?.teacherName) return classroom.teacherName;
@@ -398,7 +406,7 @@ export default function Aula() {
           <span className="absolute left-5 top-3 rounded-full bg-white/20 px-3 py-1 text-xs uppercase tracking-wide">
             {getClassroomStatusLabel(classroom?.status)}
           </span>
-          {user?.role === "TEACHER" ? (
+          {isTeacher ? (
             classroomId ? (
               <Link
                 className="absolute right-5 bottom-3 bg-[var(--c-surface)] text-[var(--c-primary)] px-4 py-1.5 rounded-lg border border-[var(--c-border)] text-sm font-medium"
@@ -480,7 +488,7 @@ export default function Aula() {
               </details>
             )}
             {/* Tarea 21: tarjeta 'Continuar donde dejaste' solo para el alumno. */}
-            {user?.role === "USER" && classProgress.length > 0 && (
+            {canActAsLearner && classProgress.length > 0 && (
               <ContinuarCard modules={classProgress} />
             )}
             {/* Publication input */}

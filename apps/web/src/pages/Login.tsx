@@ -53,16 +53,24 @@ export default function Login() {
         email: string;
         fullName?: string;
         role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST";
+        /** MULTIROL-02: el back emite `roles[]` desde Fase 1. El front
+         *  lo consume acá. Si el back no lo manda (token viejo), el
+         *  provider lo promueve a `[role]` (ver `auth-provider.tsx`). */
+        roles?: ReadonlyArray<"ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST">;
         guestOnboardingStatus?: "pendiente" | "aceptado" | "rechazado" | null;
         schoolId?: string | null;
         accessToken: string;
         refreshToken?: string;
       }>("/api/auth/login", { identifier: form.user, password: form.password });
+      const roles = Array.isArray(payload.roles) && payload.roles.length > 0
+        ? payload.roles
+        : [payload.role];
       login(
         {
           id: payload.id,
           name: payload.fullName?.trim() || payload.username,
           role: payload.role,
+          roles,
           guestOnboardingStatus: payload.guestOnboardingStatus ?? null,
           schoolId: payload.schoolId ?? null,
         },

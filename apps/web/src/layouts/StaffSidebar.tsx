@@ -1,5 +1,6 @@
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
+import { usePrimaryRole } from '../auth/use-roles';
 import { useTheme } from '../theme/ThemeContext';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from '../nav/navConfig';
 import { useState, useEffect, useRef } from 'react';
@@ -33,7 +34,10 @@ function Sidebar() {
   const { user, logout } = useAuth();
   const { theme, setTheme, availableThemes } = useTheme();
   const location = useLocation();
-  const role = user?.role ?? 'TEACHER';
+  // MULTIROL-02: el sidebar secciona por "rol principal" (mayor
+  // jerarquía). Un ADMIN+TEACHER sigue viendo el sidebar de ADMIN.
+  const primary = usePrimaryRole();
+  const role = primary ?? 'TEACHER';
   const navItems = NAV_BY_ROLE[role as keyof typeof NAV_BY_ROLE] ?? [];
   const dropdownItems = DROPDOWN_BY_ROLE[role as keyof typeof DROPDOWN_BY_ROLE] ?? [];
   const sections = SIDEBAR_SECTIONS[role] ?? [{ label: '', items: navItems.map(i => i.label) }];

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
+import { useIsStaff } from "../auth/use-roles";
 import { createProposal } from "../services/governance";
 
 type ProposalType = "SET_GENERATOR_STATUS" | "UPDATE_GENERATOR" | "CREATE_GENERATOR";
@@ -45,8 +46,7 @@ export default function GobernanzaNuevaPropuesta() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const isStaff =
-    user?.role === "ADMIN" || user?.role === "DIRECTIVO" || user?.role === "TEACHER";
+  const isStaff = useIsStaff();
 
   if (!isStaff) {
     return (

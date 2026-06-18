@@ -4,6 +4,7 @@ import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { useAuth } from "../auth/use-auth";
+import { useCanActAsLearner, useHasRole, useIsTeacher } from "../auth/use-roles";
 import {
   createClassroom,
   fetchClassrooms,
@@ -26,6 +27,12 @@ const emptyForm = {
 
 export default function ProfesorAulas() {
   const { user } = useAuth();
+  // MULTIROL-02: leer cada rol por helper centralizado. Un USER
+  // también cuenta como teacher-of-classroom si su rol principal es
+  // distinto pero la lógica de visibilidad sigue siendo "es staff".
+  const isTeacher = useIsTeacher();
+  const canActAsLearner = useCanActAsLearner();
+  const isParent = useHasRole("PARENT");
   const [classrooms, setClassrooms] = useState<Classroom[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -115,16 +122,16 @@ export default function ProfesorAulas() {
 
   const visibleClassrooms = useMemo(() => {
     if (!user) return [];
-    if (user.role === "TEACHER") {
+    if (isTeacher) {
       // El backend ya filtra por escuela y membresía
       // No filtrar de nuevo en el frontend
       return classrooms;
     }
-    if (user.role === "USER" || user.role === "PARENT") {
+    if (canActAsLearner || isParent) {
       return classrooms.filter((classroom) => classroom.accessType === "publica");
     }
     return classrooms;
-  }, [classrooms, user]);
+  }, [classrooms, user, isTeacher, canActAsLearner, isParent]);
 
   useEffect(() => {
     setReportSelections((prev) => {
@@ -326,14 +333,14 @@ export default function ProfesorAulas() {
             <h1 className="text-xl font-semibold text-[var(--c-text)]">Aulas virtuales</h1>
             <p className="text-sm text-[var(--c-muted)] mt-0.5">Acceso y administración de aulas para tus cursos.</p>
           </div>
-          {user?.role !== "TEACHER" && (
+          {!isTeacher && (
             <span className="rounded-md bg-[var(--c-border)] px-4 py-2 text-sm text-[var(--c-muted)]">
               Solo docentes pueden crear aulas
             </span>
           )}
         </div>
 
-        {user?.role === "TEACHER" && (
+        {isTeacher && (
           <section id="crear" className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
               <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
@@ -445,7 +452,7 @@ export default function ProfesorAulas() {
             <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-red-700">{error}</div>
           ) : visibleClassrooms.length === 0 ? (
             <div className="rounded-lg border border-dashed border-[var(--c-border)] p-6 text-[var(--c-muted)]">
-              {user?.role === "TEACHER"
+              {isTeacher
                 ? "Todavía no creaste aulas. Usa \"Crear aula\" para comenzar."
                 : "No hay aulas disponibles para tu rol todavía."}
             </div>
@@ -590,7 +597,7 @@ export default function ProfesorAulas() {
                       </button>
                     </div>
                   </div>
-                  {user?.role === "TEACHER" && (
+        {isTeacher && (
                     <div className="mt-4 flex flex-wrap gap-2">
                       <Link
                         to={`/profesor/aulas/${

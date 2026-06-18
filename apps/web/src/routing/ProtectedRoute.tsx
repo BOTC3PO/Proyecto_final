@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useAuth } from '../auth/use-auth';
 import type { Role } from '../auth/roles';
+import { hasAnyRole } from '../auth/roleHelpers';
+import { useAuth } from '../auth/use-auth';
 
 export function ProtectedRoute({
   children,
@@ -14,7 +15,10 @@ export function ProtectedRoute({
 }) {
   const { user } = useAuth();
 
-  if (!user?.role || !allow.includes(user.role)) {
+  // MULTIROL-02: multi-rol friendly. Un user pasa si AL MENOS UNO de
+  // sus `roles[]` está en `allow`. Mantiene compat: si `roles` está
+  // vacío, `hasAnyRole` cae a `[role]` (ver `resolveRoles`).
+  if (!user || !hasAnyRole(user, allow)) {
     return <Navigate to={redirectTo} replace />;
   }
 

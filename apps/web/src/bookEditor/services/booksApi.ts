@@ -1,5 +1,6 @@
 import type { Book } from "../../domain/book/book.types";
 import { apiGet, apiPost } from "../../lib/api";
+import { hasRole, isStaff, type RoleUser } from "../../auth/roleHelpers";
 
 // SEC-LIBRO — metadatos de ownership expuestos por el GET. Vienen
 // inyectados por el back desde la fila Prisma (no están dentro del
@@ -104,17 +105,21 @@ export async function saveBook(book: Book): Promise<{ id: string }> {
 //   - visibility='escuela' + staff de la MISMA escuela: sí.
 //   - Resto (incluidos los alumnos): NO.
 //   - Libros sin dueño (`ownerUserId = null`): solo ADMIN.
+//
+// MULTIROL-02: el viewer acepta `roles[]` (multi-rol). Si no viene,
+// cae a `[role]` para compat con código viejo. Los checks usan los
+// helpers centralizados (`hasRole`, `isStaff`) en vez de un Set local.
 export type ViewerForLibro = {
   id?: string;
   role?: string | null;
+  roles?: readonly string[] | null;
   schoolId?: string | null;
 };
 
-const STAFF_ROLES = new Set(["ADMIN", "TEACHER", "DIRECTIVO"]);
-
 export function canEditLibro(meta: BookMeta, viewer: ViewerForLibro | null | undefined): boolean {
   if (!viewer) return false;
-  if (viewer.role === "ADMIN") return true;
+  const ru: RoleUser = { role: viewer.role, roles: viewer.roles };
+  if (hasRole(ru, "ADMIN")) return true;
   const viewerId = viewer.id ?? null;
   if (meta.ownerUserId && viewerId && meta.ownerUserId === viewerId) return true;
   if (
@@ -122,8 +127,7 @@ export function canEditLibro(meta: BookMeta, viewer: ViewerForLibro | null | und
     meta.schoolId &&
     viewer.schoolId &&
     meta.schoolId === viewer.schoolId &&
-    viewer.role &&
-    STAFF_ROLES.has(viewer.role)
+    isStaff(ru)
   ) {
     return true;
   }

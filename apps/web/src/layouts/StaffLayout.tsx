@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
-import { useAuth } from '../auth/use-auth';
+import { usePrimaryRole } from '../auth/use-roles';
 import { NAV_BY_ROLE } from '../nav/navConfig';
 import { OfflineIndicator } from '../components/OfflineIndicator';
 import StaffSidebar from './StaffSidebar';
@@ -13,8 +13,12 @@ const ROLE_LABEL: Record<string, string> = {
 
 function Topbar() {
   const location = useLocation();
-  const { user } = useAuth();
-  const role = user?.role ?? 'TEACHER';
+  // MULTIROL-02: el "rol principal" (mayor jerarquía) sigue siendo
+  // la llave del NAV_BY_ROLE / ROLE_LABEL, así que seguimos
+  // necesitando el singular. Usamos el helper para que un
+  // TEACHER+USER siga mostrando "Docente".
+  const primary = usePrimaryRole();
+  const role = primary ?? 'TEACHER';
   const navItems = NAV_BY_ROLE[role as keyof typeof NAV_BY_ROLE] ?? [];
 
   const active = navItems.find(item =>

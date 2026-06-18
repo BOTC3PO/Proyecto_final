@@ -1807,7 +1807,7 @@ export default function BookEditorPage() {
   // el viewer es el creador potencial: lo dejamos editar y el
   // back decidirá en el guardado (solo staff puede crear).
   const viewerForLibro = user
-    ? { id: user.id, role: user.role ?? null, schoolId: user.schoolId ?? null }
+    ? { id: user.id, role: user.role ?? null, roles: user.roles, schoolId: user.schoolId ?? null }
     : null;
   const isReadOnlyMode = !!params.id && !!bookMeta && !canEditLibro(bookMeta, viewerForLibro);
 

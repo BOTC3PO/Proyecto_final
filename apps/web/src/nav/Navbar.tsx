@@ -1,5 +1,6 @@
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
+import { useCanActAsLearner, usePrimaryRole } from '../auth/use-roles';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
 import { useEffect, useRef, useState } from 'react';
 import { apiGet } from '../lib/api';
@@ -78,9 +79,17 @@ export default function Navbar() {
   const { user, logout } = useAuth();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  const role = user?.role ?? 'GUEST';
-  const items = NAV_BY_ROLE[role];
+
+  // MULTIROL-02: el rol principal maneja NAV_BY_ROLE / DROPDOWN_BY_ROLE
+  // (la nav sigue siendo del rol de mayor jerarquía, igual que antes).
+  // El CoinBadge, en cambio, se muestra si el user PUEDE actuar como
+  // alumno (roles[] incluye "USER") — un TEACHER+USER también ve
+  // monedas aunque su rol principal sea staff. Esto es el fix del bug
+  // 1 del reporte rol-dual ("vista previa de alumno" no aparecía).
+  const primary = usePrimaryRole();
+  const canActAsLearner = useCanActAsLearner();
+  const role = primary ?? (user?.role ?? 'GUEST');
+  const items = NAV_BY_ROLE[role as keyof typeof NAV_BY_ROLE];
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
@@ -376,7 +385,7 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          {role === 'USER' && user?.id && <CoinBadge userId={user.id} />}
+          {canActAsLearner && user?.id && <CoinBadge userId={user.id} />}
           {user ? (
             <div className="relative" ref={userMenuRef}>
               {/* Avatar / botón trigger */}
@@ -419,7 +428,7 @@ export default function Navbar() {
 
                   {/* Items dinámicos */}
                   <div className="py-1">
-                    {DROPDOWN_BY_ROLE[role].map((item, i) => {
+                    {DROPDOWN_BY_ROLE[role as keyof typeof DROPDOWN_BY_ROLE].map((item, i) => {
                       if (item.kind === 'divider') {
                         return <div key={i} className="border-t border-slate-100 my-1" />;
                       }
