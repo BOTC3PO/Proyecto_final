@@ -130,7 +130,12 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
 
     const parsed = RegisterSchema.parse({
       ...body,
-      email: body.email.trim().toLowerCase()
+      // Normalizamos email y username a minúsculas para que el login
+      // (que lowercases el identifier) encuentre siempre la fila.
+      // Antes, registrar `JuanP` y después intentar entrar con
+      // `juanp` no matcheaba porque la búsqueda era case-sensitive.
+      email: body.email.trim().toLowerCase(),
+      username: typeof body.username === "string" ? body.username.trim().toLowerCase() : body.username
     });
     const existingEmail = await prisma.usuario.findFirst({
       where: {

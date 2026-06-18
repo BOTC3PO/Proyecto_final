@@ -19,7 +19,7 @@
 
 import "dotenv/config";
 import { prisma } from "../src/lib/prisma";
-import bcrypt from "bcryptjs";
+import { hashPassword } from "../src/lib/passwords";
 import { createHash } from "crypto";
 import { SYSTEM_OWNER_ID } from "../src/lib/vblang-types";
 import {
@@ -28,7 +28,12 @@ import {
   TABLA_PERIODICA_NOMBRE,
 } from "../src/lib/tabla-periodica-dataset";
 
-const hash = (pw: string) => bcrypt.hashSync(pw, 10);
+// FIX: alinear el hash con el verificador de la app (PBKDF2 via
+// `hashPassword`). Antes usaba `bcrypt.hashSync` y producía un hash
+// que `isPasswordHashUsable` rechaza, dejando el login roto en DBs
+// pobladas solo por este script. `init_db.ts` ya usaba `hashPassword`
+// — este cambio deja una sola fuente de verdad.
+const hash = (pw: string) => hashPassword(pw);
 const sha256 = (s: string) => createHash("sha256").update(s).digest("hex");
 const now = new Date().toISOString();
 
