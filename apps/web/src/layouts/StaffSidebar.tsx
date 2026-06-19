@@ -184,9 +184,8 @@ function Sidebar() {
                     Cerrar sesión
                   </button>
                 );
-              // FASE 3 — si hay cuenta espejo vinculada, "Ver como alumno"
-              // dispara el switch en lugar de navegar con la misma sesión.
-              if (tieneEspejo && item.label === 'Ver como alumno') {
+              if (item.label === 'Ver como alumno') {
+                if (!tieneEspejo) return null;
                 return (
                   <button
                     key="entrar-como-alumno"
