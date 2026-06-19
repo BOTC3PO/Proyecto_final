@@ -59,6 +59,7 @@ export default function Login() {
         roles?: ReadonlyArray<"ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST">;
         guestOnboardingStatus?: "pendiente" | "aceptado" | "rechazado" | null;
         schoolId?: string | null;
+        cuentaVinculada?: { destinoUsuarioId: string; tipoDestino: string } | null;
         accessToken: string;
         refreshToken?: string;
       }>("/api/auth/login", { identifier: form.user, password: form.password });
@@ -73,6 +74,7 @@ export default function Login() {
           roles,
           guestOnboardingStatus: payload.guestOnboardingStatus ?? null,
           schoolId: payload.schoolId ?? null,
+          cuentaVinculada: payload.cuentaVinculada ?? null,
         },
         payload.accessToken,
         payload.refreshToken ?? null,
