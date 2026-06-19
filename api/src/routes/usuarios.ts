@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { Router } from "express";
+import { z } from "zod";
 import { requirePolicy } from "../lib/authorization";
 import { recordAuditLog } from "../lib/audit-log";
 import { prisma } from "../lib/prisma";
@@ -7,9 +8,30 @@ import { toObjectId } from "../lib/ids";
 import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
 import { hashPassword } from "../lib/passwords";
 import { normalizeSchoolId } from "../lib/school-ids";
+import { tryProvisionarEspejoParaNuevoStaff } from "../lib/provisionar-espejo";
+import {
+  provisionarEspejoPadreParaAlumno,
+  PadreNoProvisionableError
+} from "../lib/provisionar-padre";
+import { resolveCuentaVinculada } from "../lib/cuenta-vinculada";
+import { isParentInRoles, isStaffInRoles, resolveRoles } from "../lib/roles";
+import { vincularHijoCore } from "../lib/vinculo-padre-hijo";
 import { requireUser } from "../lib/user-auth";
 import { serializeUsuario } from "../lib/user-serializer";
 import { UsuarioWriteSchema } from "../schema/usuario";
+
+const VincularHijoDirectivoSchema = z
+  .object({
+    childId: z.string().min(1).optional(),
+    childUsername: z.string().min(1).optional(),
+    grado: z.string().optional().nullable(),
+    notas: z.string().optional().nullable(),
+    permisosTareas: z.boolean().optional(),
+    permisosMensajes: z.boolean().optional()
+  })
+  .refine((b) => Boolean(b.childId || b.childUsername), {
+    message: "childId o childUsername es requerido"
+  });
 
 export const usuarios = Router();
 
@@ -77,6 +99,12 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
         ...consentsData
       }
     });
+    // FASE 1 — enganche de provisión. Mismo criterio que en
+    // /api/auth/register: solo si el rol resuelto es staff. Best-
+    // effort: un fallo se loguea y no rompe el alta.
+    if (isStaffInRoles(resolveRoles(result))) {
+      await tryProvisionarEspejoParaNuevoStaff(result.id);
+    }
     const passwordResetRequired =
       "passwordResetRequired" in parsed && (parsed as any).passwordResetRequired === true;
     await recordAuditLog({
@@ -100,6 +128,98 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
 });
+
+// ─── FASE 5 — alta de padre por directivo: vincular hijo ────────────────
+// POST /api/usuarios/:parentId/hijos
+// Un directivo/admin, al dar de alta a un padre, lo vincula con uno o
+// más hijos en el momento. Crea `ProgresoModuloVinculo` (padre↔hijo,
+// solo monitoreo) en estado "aprobado" para que la clase del hijo
+// aparezca de inmediato. Respeta las validaciones de `/api/hijos`
+// (rol del hijo compatible, máx 2 padres, no auto-vínculo) vía el
+// núcleo compartido `vincularHijoCore`.
+const normalizeUsername = (value: string) => value.trim().replace(/^@/, "");
+
+usuarios.post(
+  "/api/usuarios/:parentId/hijos",
+  requireUser,
+  requirePolicy("usuarios/create"),
+  async (req, res) => {
+    try {
+      const requester =
+        (res.locals as { user?: { _id?: { toString?: () => string }; schoolId?: string | null } }).user ??
+        (req as { user?: { _id?: { toString?: () => string }; schoolId?: string | null } }).user;
+      const authorization = res.locals.authorization as { data?: { accessLevel?: string } } | undefined;
+      const accessLevel = authorization?.data?.accessLevel;
+      if (accessLevel !== "admin" && accessLevel !== "school") {
+        return res.status(403).json({ error: "forbidden" });
+      }
+
+      const parentId = Array.isArray(req.params.parentId)
+        ? req.params.parentId[0]
+        : req.params.parentId;
+      if (!parentId) return res.status(400).json({ error: "parentId required" });
+      const parent = await prisma.usuario.findFirst({
+        where: { id: parentId, isDeleted: { not: true } }
+      });
+      if (!parent) return res.status(404).json({ error: "parent not found" });
+      if (!isParentInRoles(resolveRoles(parent))) {
+        return res.status(400).json({ error: "El usuario destino no tiene rol padre/madre." });
+      }
+      // Un directivo (no-admin) solo puede operar dentro de su escuela.
+      if (accessLevel !== "admin") {
+        const requesterSchoolId = typeof requester?.schoolId === "string" ? requester.schoolId : null;
+        const parentSchoolId = normalizeSchoolId(parent.escuelaId);
+        if (!requesterSchoolId || !parentSchoolId || requesterSchoolId !== parentSchoolId) {
+          return res.status(403).json({ error: "forbidden" });
+        }
+      }
+
+      const parsed = VincularHijoDirectivoSchema.parse(req.body ?? {});
+      const child = parsed.childId
+        ? await prisma.usuario.findFirst({ where: { id: parsed.childId, isDeleted: { not: true } } })
+        : await prisma.usuario.findFirst({
+            where: { username: { equals: normalizeUsername(parsed.childUsername!) }, isDeleted: { not: true } }
+          });
+      if (!child?.id) return res.status(404).json({ error: "child not found" });
+
+      const result = await vincularHijoCore({
+        parentId,
+        childId: child.id,
+        // El alta por directivo es autoritativa: el vínculo queda
+        // aprobado tanto al crearlo como al revivir uno revocado.
+        estadoSiNuevo: "aprobado",
+        forzarAprobado: true,
+        datos: {
+          nombre: child.fullName ?? child.username ?? "Hijo",
+          usuario: child.username ?? "",
+          grado: parsed.grado ?? "",
+          escuela: normalizeSchoolId(child.escuelaId),
+          notas: parsed.notas ?? null,
+          permisosTareas: parsed.permisosTareas ?? true,
+          permisosMensajes: parsed.permisosMensajes ?? true
+        }
+      });
+      if (!result.ok) return res.status(result.status).json({ error: result.error });
+
+      await recordAuditLog({
+        actorId: requester?._id?.toString?.() ?? "system",
+        action: "usuarios.vincular_hijo",
+        targetType: "usuario",
+        targetId: parentId,
+        metadata: { childId: child.id, estado: result.estado, created: result.created }
+      });
+
+      return res.status(result.status).json({
+        ok: true,
+        estado: result.estado,
+        parentId,
+        childId: child.id
+      });
+    } catch (e: any) {
+      return res.status(400).json({ error: e?.message ?? "invalid payload" });
+    }
+  }
+);
 
 usuarios.get("/api/usuarios", requireUser, requirePolicy("usuarios/list"), async (req, res) => {
   const user = (req as { user?: { role?: string; schoolId?: string | null } }).user;
@@ -253,6 +373,11 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
       }
     }
 
+    // FASE 5 — exponemos el vínculo de cuentas (si lo hay) para que el
+    // perfil del padre sepa si ya tiene su cuenta de alumno y ofrezca
+    // "Entrar como alumno" en vez de "Crear mi cuenta de alumno".
+    const cuentaVinculada = await resolveCuentaVinculada(userId);
+
     res.json({
       id: (userDoc as any).id?.toString?.() ?? userId,
       username: (userDoc.username ?? "") as string,
@@ -264,9 +389,58 @@ usuarios.get("/api/perfil", requireUser, async (req, res) => {
       isBanned: userDoc.isBanned === true,
       warningCount: typeof userDoc.warningCount === "number" ? userDoc.warningCount : 0,
       modulosCompletados,
-      hijos
+      hijos,
+      cuentaVinculada
     });
   } catch {
     res.status(500).json({ error: "internal server error" });
+  }
+});
+
+// ─── FASE 6 — autoservicio alumno → cuenta de padre ─────────────────────
+// POST /api/alumnos/crear-cuenta-padre
+// Un alumno adulto (USER, 18+) puede crear su propia cuenta de padre
+// (PARENT) y conservarla junto a la de alumno. La cuenta nueva queda
+// apuntada por un `CuentaVinculada` simétrico y es switchable con el
+// mismo mecanismo que Fases 2/3 (el switch del back ya emite el
+// `landing` correcto desde los roles del destino: alumno→padre
+// aterriza en `/padre`).
+//
+// Esto es ADITIVO: NO se reemplaza el rol del alumno (que sigue
+// siendo USER), y NO se toca `POST /api/solicitar-rol` (que sigue
+// reemplazando el rol y se usa para TEACHER/DIRECTIVO/ADMIN).
+// El alumno conserva ambas cuentas y switcha entre ellas.
+usuarios.post("/api/alumnos/crear-cuenta-padre", requireUser, async (req, res) => {
+  const userReq = (req as { user?: { _id?: unknown; id?: unknown; role?: string } }).user;
+  const rawId = userReq?._id ?? userReq?.id;
+  const alumnoId = rawId ? (typeof rawId === "string" ? rawId : String(rawId)) : null;
+  if (!alumnoId) return res.status(401).json({ error: "not authenticated" });
+
+  try {
+    const prov = await provisionarEspejoPadreParaAlumno(alumnoId);
+    const cuentaVinculada = await resolveCuentaVinculada(alumnoId);
+    return res.status(prov.created ? 201 : 200).json({
+      ok: true,
+      created: prov.created,
+      padre: {
+        id: prov.padre.id,
+        username: prov.padre.username,
+        fullName: prov.padre.fullName
+      },
+      cuentaVinculada
+    });
+  } catch (err) {
+    if (err instanceof PadreNoProvisionableError) {
+      // Códigos de elegibilidad → 403; el resto (id inválido, no
+      // encontrado) → 400. Mismo patrón que la Fase 5.
+      const status =
+        err.code === "ALUMNO_NOT_USER" ||
+        err.code === "ALUMNO_IS_ESPEJO" ||
+        err.code === "ALUMNO_IS_MINOR"
+          ? 403
+          : 400;
+      return res.status(status).json({ error: err.message, code: err.code });
+    }
+    return res.status(500).json({ error: err instanceof Error ? err.message : "error" });
   }
 });

@@ -6,6 +6,7 @@ import {
   puedeAgregarAlumno,
 } from "./suscripciones";
 import { hasRole, resolveRoles } from "./roles";
+import { whereExcluirEspejos } from "./espejo-filtro";
 
 const getUser = (req: Request) =>
   (req as unknown as { user?: { role?: string; roles?: string[] } }).user;
@@ -96,8 +97,10 @@ export async function checkAlumnoLimit(
     const aula = await prisma.clase.findFirst({ where: { id: aulaId } });
     if (!aula) return next();
 
+    // FASE 4 — el espejo-alumno no cuenta contra el límite de alumnos
+    // del plan (no es un alumno facturable).
     const alumnosCount = await prisma.claseMiembro.count({
-      where: { claseId: aulaId, rolEnClase: "USER" }
+      where: { claseId: aulaId, rolEnClase: "USER", ...(await whereExcluirEspejos()) }
     });
 
     if (!(await puedeAgregarAlumno(schoolId, getRole(req), alumnosCount))) {

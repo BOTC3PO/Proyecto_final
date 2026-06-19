@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { randomUUID } from "crypto";
+import { isMinor } from "../lib/age";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 
@@ -25,14 +26,11 @@ const VALID_TARGET_ROLES = new Set([
  *  - Un usuario no puede pedir el mismo rol que ya tiene.
  *  - Si ya tiene una solicitud pendiente del mismo tipo, la
  *    reutilizamos (idempotente — no spamea al admin).
+ *
+ * NOTA: la validación de edad usa el helper canónico `lib/age.ts`
+ * para que FASE 6 (autoservicio alumno→padre) reuse la MISMA
+ * semántica: sin birthdate ⇒ menor (rechazo).
  */
-const isMinor = (birthdate?: string | null): boolean => {
-  if (!birthdate) return true; // sin birthdate, asumimos menor
-  const bd = new Date(birthdate);
-  if (isNaN(bd.getTime())) return true;
-  const days = (Date.now() - bd.getTime()) / (1000 * 60 * 60 * 24);
-  return days < 365.25 * 18;
-};
 
 // POST /api/solicitar-rol — pedir cambio de rol
 roles.post("/api/solicitar-rol", requireUser, async (req, res) => {

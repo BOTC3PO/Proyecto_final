@@ -81,10 +81,25 @@ model Usuario {
   passwordResetRequired Boolean  @default(false) @map("password_reset_required")
   isBanned              Boolean  @default(false) @map("is_banned")
   warningCount          Int      @default(0) @map("warning_count")
+  // FASE 1 — marcador de cuenta espejo. Solo se popula en espejos
+  // alumno (valor "ESPEJO_ALUMNO"). Nullable aditivo: cuentas reales
+  // quedan con `tipoCuenta = NULL`. La Fase 4 lo usa para excluir el
+  // espejo de rosters y analíticas de alumnos. No confundir con
+  // `roles` (lo que el usuario PUEDE hacer): `tipoCuenta` describe la
+  // NATURALEZA de la cuenta. Migración:
+  // 20260619000000_cuenta_espejo_vinculada.
+  tipoCuenta            String?  @map("tipo_cuenta")
   createdAt             String   @map("created_at")
   updatedAt             String   @map("updated_at")
   escuela               Escuela? @relation(fields: [escuelaId], references: [id])
   membresias            Membresia[]
+  // FASE 1 — dos puntas de la tabla puente `CuentaVinculada`. La
+  // relación es SIMÉTRICA: cualquiera de las dos puntas puede ser
+  // "la otra" cuenta. La unicidad la garantiza el par (a, b) ordenado
+  // (min, max) en el momento del insert — ver notas de la migración.
+  vinculacionesA        CuentaVinculada[] @relation("VinculadaA")
+  vinculacionesB        CuentaVinculada[] @relation("VinculadaB")
+  @@index([tipoCuenta])
   @@map("usuarios")
 }
 
@@ -101,6 +116,39 @@ model Membresia {
   escuela    Escuela  @relation(fields: [escuelaId], references: [id])
   @@id([usuarioId, escuelaId])
   @@map("membresias")
+}
+
+/// FASE 1 — puente SIMÉTRICO entre dos cuentas de la MISMA persona.
+/// Usado para que un staff (ADMIN/DIRECTIVO/TEACHER) tenga su cuenta
+/// espejo de alumno y pueda entrar a la app como estudiante sin perder
+/// su identidad de staff. La misma tabla se reutiliza en Fase 6 para
+/// que un alumno pueda generar su cuenta de padre.
+///
+/// Diseño:
+///   * `usuarioAId` y `usuarioBId` son equivalentes (no hay principal
+///     ni espejo codificados en columnas). La aplicación inserta
+///     siempre con `min(a, b), max(a, b)` para que la unicidad del
+///     par funcione sin importar el orden de las puntas.
+///   * El espejo se identifica por la columna `tipoCuenta =
+///     "ESPEJO_ALUMNO"` en `Usuario` (no por una columna acá). Eso
+///     deja la tabla libre para Fase 6 sin nueva migración.
+///   * CASCADE en ambas FKs: si se borra una cuenta, el vínculo se va
+///     con ella. La regeneración del espejo es responsabilidad del
+///     caller.
+///
+/// NO usar para padre↔hijo (esa relación es `ProgresoModuloVinculo`,
+/// personas distintas, sin switch). Migración:
+/// 20260619000000_cuenta_espejo_vinculada.
+model CuentaVinculada {
+  id         String   @id @default(uuid())
+  usuarioAId String   @map("usuario_a_id")
+  usuarioBId String   @map("usuario_b_id")
+  createdAt  String   @map("created_at")
+  usuarioA   Usuario  @relation("VinculadaA", fields: [usuarioAId], references: [id], onDelete: Cascade)
+  usuarioB   Usuario  @relation("VinculadaB", fields: [usuarioBId], references: [id], onDelete: Cascade)
+  @@unique([usuarioAId, usuarioBId])
+  @@index([usuarioBId])
+  @@map("cuentas_vinculadas")
 }
 
 model Clase {

@@ -3,6 +3,7 @@ import { prisma } from "../lib/prisma";
 import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { fetchActiveStudentSummary } from "../lib/enterprise-billing";
+import { ESPEJO_TIPO_CUENTA } from "../lib/espejo-filtro";
 import { ENTERPRISE_FEATURES, getSchoolEntitlements, requireEnterpriseFeature } from "../lib/entitlements";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
@@ -56,9 +57,14 @@ enterprise.get(
         ...escuelaFilter,
         isDeleted: { not: true }
       },
-      select: { id: true, fullName: true, role: true, escuelaId: true, username: true }
+      select: { id: true, fullName: true, role: true, escuelaId: true, username: true, tipoCuenta: true }
     });
-    const staff = items.map((item) => ({
+    // FASE 4 — el espejo-alumno no aparece en el roster de miembros de
+    // la escuela. Filtro por IGUALDAD en JS (nunca `tipoCuenta: { not }`
+    // en SQL: con la columna nullable descartaría las cuentas reales).
+    const staff = items
+      .filter((item) => item.tipoCuenta !== ESPEJO_TIPO_CUENTA)
+      .map((item) => ({
       id: item.id ?? "",
       name: item.fullName ?? item.username ?? "Sin nombre",
       role: item.role ?? "USER",

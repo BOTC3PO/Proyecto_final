@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import type { Role } from './roles';
-import { AuthContext, type User } from './AuthContex';
-import { setAuthToken, setRefreshToken } from '../lib/api';
+import { AuthContext, type User, type CuentaVinculada } from './AuthContex';
+import { setAuthToken, setRefreshToken, getAuthToken } from '../lib/api';
 
 const STORAGE_KEY = 'auth.user';
 
@@ -87,6 +87,52 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     window.dispatchEvent(new CustomEvent('vb:logout'));
   };
 
+  const switchCuenta = async (): Promise<{ landing: string }> => {
+    const token = getAuthToken();
+    if (!token) throw new Error('No hay sesión activa');
+
+    const res = await fetch('/api/auth/cambiar-cuenta', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({}),
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({})) as { error?: string };
+      throw new Error(err.error ?? 'Error al cambiar de cuenta');
+    }
+
+    const data = await res.json() as {
+      accessToken: string;
+      refreshToken: string | null;
+      id: string;
+      name: string;
+      role: Role;
+      roles: Role[];
+      landing: string;
+      cuentaVinculada: CuentaVinculada | null;
+    };
+
+    const newUser: User = {
+      id: data.id,
+      name: data.name,
+      role: data.role,
+      roles: data.roles,
+      cuentaVinculada: data.cuentaVinculada,
+    };
+
+    // FASE 3 — el token del destino va siempre a sessionStorage (remember=false)
+    // para que el JWT de la cuenta espejo NO quede en localStorage.
+    setAuthToken(data.accessToken, { remember: false });
+    setRefreshToken(data.refreshToken, { remember: false });
+    persistUser(ensureRoles(newUser), false);
+
+    return { landing: data.landing };
+  };
+
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
 
@@ -100,6 +146,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const value = useMemo(() => ({ user, login, loginAs, logout }), [user]);
+  const value = useMemo(() => ({ user, login, loginAs, logout, switchCuenta }), [user]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

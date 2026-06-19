@@ -6,6 +6,7 @@ import { recordAuditLog } from "../lib/audit-log";
 import { assertClassroomWritable } from "../lib/classroom";
 import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
+import { excluirEspejosDeIds } from "../lib/espejo-filtro";
 import { ProgressSchema } from "../schema/progreso";
 
 export const progreso = Router();
@@ -300,11 +301,13 @@ progreso.get("/api/progreso/aula-matriz", requireUser, async (req, res) => {
     }
 
     // Alumnos del aula (rolEnClase = STUDENT).
+    // FASE 4 — el espejo-alumno no aparece en la matriz de progreso.
     const miembros = await prisma.claseMiembro.findMany({
       where: { claseId: aulaId, rolEnClase: "STUDENT" },
       select: { usuarioId: true }
     });
-    const alumnoIds = miembros.map((m) => m.usuarioId).filter((id): id is string => Boolean(id));
+    const alumnoIdsConEspejo = miembros.map((m) => m.usuarioId).filter((id): id is string => Boolean(id));
+    const alumnoIds = await excluirEspejosDeIds(alumnoIdsConEspejo);
 
     // Módulos asignados al aula.
     const claseModulos = await prisma.claseModulo.findMany({

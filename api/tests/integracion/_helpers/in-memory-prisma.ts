@@ -14,6 +14,8 @@
  * The store is per-instance, so each test gets a fresh DB via `new InMemoryPrisma()`.
  */
 
+import { randomUUID } from "node:crypto";
+
 type Row = Record<string, unknown>;
 
 type WhereClause = Record<string, unknown> | undefined;
@@ -372,6 +374,15 @@ export type UsuarioRow = {
   roles: string[];
   escuelaId: string | null;
   isDeleted: boolean;
+  // FASE 1 — marcador de cuenta espejo. `null` para cuentas reales,
+  // "ESPEJO_ALUMNO" para los espejos alumno del staff. Nullable
+  // aditiva: la columna se agregó en
+  // 20260619000000_cuenta_espejo_vinculada sin tocar filas previas.
+  // Opcional en el stub: los tests preexistentes (que no la settean)
+  // siguen compilando; el servicio la setea explícitamente al crear
+  // un espejo. La producción la persiste con NOT NULL DEFAULT vacía
+  // (columna nullable en el schema, sin default).
+  tipoCuenta?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -605,6 +616,93 @@ export type ConfigModuloRow = {
   updatedAt: string;
 };
 
+export type AuditLogRow = {
+  id: string;
+  actorId: string;
+  action: string;
+  targetType: string;
+  targetId: string | null;
+  timestamp: string;
+  metadata: string | null;
+};
+
+// FASE 1 — fila de `membresias` (la tabla ya existía en el schema
+// desde la migración inicial, pero el stub in-memory no la modelaba
+// porque ningún test anterior la ejercitaba). Necesaria para los
+// tests de Fase 1 porque `provisionarEspejoAlumno` crea una
+// `Membresia` STUDENT para el espejo.
+export type MembresiaRow = {
+  usuarioId: string;
+  escuelaId: string;
+  rol: string;
+  estado: string;
+  fechaAlta: string;
+  fechaBaja?: string | null;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+};
+
+// FASE 1 — fila de `cuentas_vinculadas` (tabla puente simétrica
+// introducida por la migración 20260619000000_cuenta_espejo_vinculada).
+// Las dos FKs son equivalentes; la aplicación inserta siempre con
+// `min(a,b), max(a,b)` para que la unicidad del par no dependa del
+// orden.
+export type CuentaVinculadaRow = {
+  id: string;
+  usuarioAId: string;
+  usuarioBId: string;
+  createdAt: string;
+};
+
+// FASE 5 — fila de `vinculos_padre_hijo` (`ProgresoModuloVinculo`).
+// Une padre↔hijo (personas DISTINTAS, solo monitoreo). NO confundir
+// con `cuentaVinculada` (misma persona, switchable).
+export type ProgresoModuloVinculoRow = {
+  id: string;
+  parentId: string;
+  childId: string;
+  estado: string;
+  nombre?: string | null;
+  usuario?: string | null;
+  grado?: string | null;
+  escuela?: string | null;
+  notas?: string | null;
+  permisos?: string | null;
+  solicitadoAt?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+// FASE 6 — fila de `suggestions` (panel de gobernanza). El endpoint
+// `POST /api/solicitar-rol` crea una `Suggestion` con
+// `suggestionType = "CAMBIO_ROL"`. El stub la necesitaba para que
+// el test de no-regresión de `solicitar-rol` no devolviera 500.
+export type SuggestionRow = {
+  id: string;
+  suggestionType: string;
+  targetType: string;
+  targetId: string;
+  title: string;
+  body: string;
+  createdBy: string;
+  createdAt: string;
+  status: string;
+};
+
+// FASE 7 — fila de `modo_aula` (restricciones activas por aula).
+// El middleware `checkModoAula("tienda" | "economia")` lo consulta
+// para decidir si bloquea a un USER puro. Solo importa para los
+// tests de endurecimiento: la columna real es nullable y se setea
+// desde la app de staff, no por autoservicio.
+export type ModoAulaRow = {
+  id: string;
+  aulaId: string;
+  activo: boolean;
+  restricciones: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export class InMemoryPrisma {
   plantillaEjercicio = new Table<PlantillaRow>("plantillaEjercicio");
   plantillaEjercicioVersion = new Table<PlantillaVersionRow>("plantillaEjercicioVersion");
@@ -635,9 +733,35 @@ export class InMemoryPrisma {
   quizAttempt = new Table<QuizAttemptRow>("quizAttempt");
   quizUmbral = new Table<QuizUmbralRow>("quizUmbral");
   progresoModulo = new Table<ProgresoModuloRow>("progresoModulo");
+  // FASE 1 — tablas necesarias para provisionarEspejoAlumno:
+  //   - `membresia` ya existía en el schema pero el stub no la
+  //     modelaba. La agregamos para que el servicio pueda crear y
+  //     consultar membresias STUDENT del espejo.
+  //   - `cuentaVinculada` es la tabla puente simétrica nueva.
+  membresia = new Table<MembresiaRow>("membresia");
+  cuentaVinculada = new Table<CuentaVinculadaRow>("cuentaVinculada");
+  // FASE 5 — vínculo padre↔hijo. El handler crea filas SIN `id`
+  // (la columna es `@default(uuid())` en el schema), así que el
+  // constructor parchea `create` para autogenerarlo.
+  progresoModuloVinculo = new Table<ProgresoModuloVinculoRow>("progresoModuloVinculo");
+  auditLog = new Table<AuditLogRow>("auditLog");
+  // FASE 6 — `suggestions` (gobernanza + `solicitar-rol`).
+  suggestion = new Table<SuggestionRow>("suggestion");
+  // FASE 7 — `modoAula` (restricciones tienda/economia por aula).
+  // Usado por `checkModoAula` (api/src/lib/modo-aula-middleware.ts).
+  modoAula = new Table<ModoAulaRow>("modoAula");
 
   // override findMany on vblangDataset to support _count include.
   constructor() {
+    // FASE 5 — autogenerar `id` en los inserts de vínculo padre↔hijo
+    // (el handler no lo pasa; el schema lo deriva con @default(uuid())).
+    const vinculoCreate = this.progresoModuloVinculo.create.bind(this.progresoModuloVinculo);
+    this.progresoModuloVinculo.create = async (args) => {
+      const data = args.data as ProgresoModuloVinculoRow;
+      if (!data.id) data.id = randomUUID();
+      return vinculoCreate({ data });
+    };
+
     const filas = this.vblangDatasetFila;
     const dsFindMany = this.vblangDataset.findMany.bind(this.vblangDataset);
     this.vblangDataset.findMany = async (args) => {

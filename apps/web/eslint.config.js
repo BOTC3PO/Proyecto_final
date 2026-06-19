@@ -29,42 +29,52 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
-export default [
+export default tseslint.config(
   {
-    ignores: ["node_modules"],
+    ignores: ["node_modules", "dist", "archive"],
   },
+  js.configs.recommended,
+  // Nota: `tseslint.configs.recommended` es un ARRAY de configs, hay que
+  // expandirlo (no `...recommended.rules`, que sería undefined). Su config base
+  // desactiva reglas core como `no-undef` para archivos TS (TS ya las cubre).
+  ...tseslint.configs.recommended,
   {
-    files: ["**/*.{js,jsx,ts,tsx}"],
+    files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: "module",
       globals: {
         ...globals.browser,
-        ...globals.es2021
+        ...globals.es2021,
+        ...globals.node,
       },
-      parser: tseslint.parser,
       parserOptions: {
-        project: path.join(__dirname, "tsconfig.json"),
-        tsconfigRootDir: __dirname,
-        ecmaFeatures: { jsx: true }
-      }
+        ecmaFeatures: { jsx: true },
+      },
     },
     plugins: {
       "react-hooks": reactHooks,
-      "react-refresh": reactRefresh
+      "react-refresh": reactRefresh,
     },
     rules: {
-      ...js.configs.recommended.rules,
-      ...tseslint.configs.recommended.rules,
-
       // React Hooks (obligatorio para apps React modernas)
       ...reactHooks.configs.recommended.rules,
 
       // Vite + React Fast Refresh
       "react-refresh/only-export-components": [
         "warn",
-        { allowConstantExport: true }
-      ]
-    }
+        { allowConstantExport: true },
+      ],
+
+      // Respetar el convenio de prefijo `_` para vars/args intencionalmente sin usar
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+    },
   }
-];
+);

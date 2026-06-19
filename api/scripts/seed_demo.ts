@@ -22,6 +22,7 @@ import { prisma } from "../src/lib/prisma";
 import { hashPassword } from "../src/lib/passwords";
 import { createHash } from "crypto";
 import { SYSTEM_OWNER_ID } from "../src/lib/vblang-types";
+import { provisionarEspejosParaStaffExistente } from "../src/lib/provisionar-espejo";
 import {
   TABLA_PERIODICA_COLUMNAS,
   TABLA_PERIODICA_FILAS,
@@ -151,6 +152,18 @@ async function main() {
     ],
   });
   console.log("  ✓ Escuela + membresías");
+
+  // FASE 1 — backfill idempotente de espejos alumno para el staff.
+  // Se ejecuta DESPUÉS de crear las membresías para que el provision
+  // pueda resolver la escuela del principal a partir de la membresia
+  // activa (caso típico: `seed_demo` no setea `usuarios.escuelaId`
+  // porque la membresia es la fuente de verdad canónica de la
+  // escuela). El backfill es no-op si el espejo ya existía.
+  const espejosBackfill = await provisionarEspejosParaStaffExistente();
+  console.log(
+    `  ✓ espejos-alumno: revisados=${espejosBackfill.revisados} ` +
+      `creados=${espejosBackfill.creados} omitidos=${espejosBackfill.omitidos}`
+  );
 
   // ── 3. Aulas ─────────────────────────────────────────────────────────────────
   console.log("🏛️  Creando aulas...");

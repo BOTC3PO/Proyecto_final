@@ -18,6 +18,10 @@ export type TokenClaims = {
   // migrado a `roles`.
   role?: string;
   roles?: string[];
+  // FASE 2 — trazabilidad del switch de cuenta. Contiene el `id` del
+  // usuario ORIGEN (el que inició el switch). Nunca se usa para
+  // conceder permisos; es solo auditoría.
+  switchedFrom?: string;
   guestOnboardingStatus?: string | null;
   schoolId?: string | null;
   fullName?: string | null;
@@ -38,6 +42,8 @@ export type TokenUser = {
   // viejo), `createAccessToken` lo promueve a `roles = [role]` para
   // mantener compat.
   roles?: string[];
+  // FASE 2 — ver TokenClaims.switchedFrom.
+  switchedFrom?: string;
   guestOnboardingStatus?: string | null;
   schoolId?: string | null;
   fullName?: string | null;
@@ -147,6 +153,7 @@ export const createAccessToken = (user: TokenUser) => {
     username: user.username,
     role: primaryRole ?? undefined,
     roles: roles.length > 0 ? roles : undefined,
+    ...(user.switchedFrom ? { switchedFrom: user.switchedFrom } : {}),
     guestOnboardingStatus: user.guestOnboardingStatus ?? null,
     schoolId: user.schoolId ?? null,
     fullName: user.fullName ?? null,

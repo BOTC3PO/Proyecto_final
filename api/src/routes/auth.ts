@@ -11,8 +11,12 @@ import { getCanonicalMembershipRole } from "../lib/membership-roles";
 import { assertMembershipInvariants, assertValidMembershipTransition } from "../lib/memberships";
 import { hashPassword, isPasswordHashUsable, verifyPassword } from "../lib/passwords";
 import { markUsersWithoutUsablePasswordForReset } from "../lib/password-health";
+import { recordAuditLog } from "../lib/audit-log";
 import { createRateLimiter } from "../lib/rate-limit";
 import { normalizeSchoolId } from "../lib/school-ids";
+import { tryProvisionarEspejoParaNuevoStaff, provisionarEspejoAlumno, ESPEJO_TIPO_CUENTA } from "../lib/provisionar-espejo";
+import { resolveCuentaVinculada } from "../lib/cuenta-vinculada";
+import { resolveRoles, isStaffInRoles, resolvePrimaryRole } from "../lib/roles";
 import { requireUser } from "../lib/user-auth";
 import {
   BootstrapAdminRequestSchema,
@@ -56,6 +60,13 @@ const loginLimiter = createRateLimiter({
   message: { error: "Demasiados intentos de inicio de sesión. Intenta de nuevo en 15 minutos." }
 });
 
+const switchLimiter = createRateLimiter({
+  windowMs: 60 * 1000,
+  limit: isProduction ? 10 : 100,
+  enabled: !ENV.AUTH_RATE_LIMIT_DISABLED,
+  message: { error: "Demasiados cambios de cuenta. Intenta de nuevo en un minuto." }
+});
+
 auth.post("/api/auth/bootstrap-admin", async (req, res) => {
   try {
     if (!req.body || Object.keys(req.body).length === 0) {
@@ -91,6 +102,10 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
         updatedAt: now
       }
     });
+    // FASE 1 — provisionar espejo alumno para el staff recién creado.
+    // Best-effort: un fallo no rompe el alta. ADMIN sin escuela puede
+    // quedar con espejo sin membresia (consistente con el modelo).
+    await tryProvisionarEspejoParaNuevoStaff(result.id);
     res.status(201).json({ id: result.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -114,6 +129,8 @@ auth.post("/api/admins", requireAdmin, async (req, res) => {
         updatedAt: now
       }
     });
+    // FASE 1 — ver bloque equivalente en /api/auth/bootstrap-admin.
+    await tryProvisionarEspejoParaNuevoStaff(result.id);
     res.status(201).json({ id: result.id });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
@@ -210,6 +227,14 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         ...consentsData
       }
     });
+    // FASE 1 — enganche de provisión de espejo. Solo si el usuario
+    // recién creado es staff (ADMIN/DIRECTIVO/TEACHER). Para USER /
+    // GUEST / PARENT no se espeja: el padre es opt-in (Fase 5); el
+    // alumno y el guest ya son la identidad canónica. Best-effort:
+    // un fallo no rompe el alta.
+    if (isStaffInRoles(resolveRoles(result))) {
+      await tryProvisionarEspejoParaNuevoStaff(result.id);
+    }
     if (escuelaId && membershipRole) {
       assertValidMembershipTransition(null, "activa");
       assertMembershipInvariants({
@@ -502,6 +527,7 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
       fullName: user.fullName ?? null
     });
     const refreshToken = createRefreshToken({ id: user.id.toString() });
+    const cuentaVinculada = await resolveCuentaVinculada(user.id.toString());
     res.status(200).json({
       id: user.id,
       username: user.username,
@@ -518,6 +544,7 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
           : undefined,
       guestOnboardingStatus: user.guestOnboardingStatus ?? null,
       schoolId: normalizeSchoolId(user.escuelaId),
+      cuentaVinculada,
       accessToken: accessToken.token,
       expiresAt: accessToken.expiresAt,
       expiresIn: accessToken.expiresIn,
@@ -538,34 +565,182 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
   }
 });
 
-const sendAuthenticatedUser = (res: Response) => {
+const ROLE_LANDING: Record<string, string> = {
+  ADMIN: "/admin",
+  DIRECTIVO: "/directivo",
+  TEACHER: "/profesor",
+  PARENT: "/padre",
+  USER: "/alumno",
+  GUEST: "/alumno"
+};
+
+const landingForRoles = (roles: string[]): string => {
+  const primary = resolvePrimaryRole({ roles });
+  return ROLE_LANDING[primary ?? "USER"] ?? "/alumno";
+};
+
+const sendAuthenticatedUser = async (res: Response) => {
   const user = res.locals.user as {
     id?: string;
     _id?: { toString?: () => string };
     role?: string;
+    roles?: string[];
     guestOnboardingStatus?: string | null;
     schoolId?: string | null;
     username?: string;
     email?: string;
     fullName?: string;
   };
+  const userId = user?.id ?? user?._id?.toString?.() ?? null;
+  const cuentaVinculada = userId ? await resolveCuentaVinculada(userId) : null;
   res.json({
-    id: user?.id ?? user?._id?.toString?.() ?? null,
+    id: userId,
     role: user?.role ?? null,
+    roles: user?.roles ?? (user?.role ? [user.role] : []),
     guestOnboardingStatus: user?.guestOnboardingStatus ?? null,
     schoolId: user?.schoolId ?? null,
     username: user?.username ?? null,
     email: user?.email ?? null,
-    fullName: user?.fullName ?? null
+    fullName: user?.fullName ?? null,
+    cuentaVinculada
   });
 };
 
-auth.get("/api/auth/me", requireUser, (_req, res) => {
-  sendAuthenticatedUser(res);
+auth.get("/api/auth/me", requireUser, async (_req, res) => {
+  await sendAuthenticatedUser(res);
 });
 
-auth.get("/api/me", requireUser, (_req, res) => {
-  sendAuthenticatedUser(res);
+auth.get("/api/me", requireUser, async (_req, res) => {
+  await sendAuthenticatedUser(res);
+});
+
+// ─── FASE 2 — Switch de cuenta ──────────────────────────────────────────
+auth.post("/api/auth/cambiar-cuenta", switchLimiter, requireUser, async (req, res) => {
+  try {
+    const reqUser = (req as { user?: Record<string, unknown> }).user;
+    const origenId = (reqUser?.id ?? reqUser?._id?.toString?.()) as string | undefined;
+    if (!origenId) {
+      res.status(401).json({ error: "Missing authentication" });
+      return;
+    }
+
+    const bodyDestinoId = typeof req.body?.destinoUsuarioId === "string"
+      ? req.body.destinoUsuarioId
+      : undefined;
+
+    const vinculo = await prisma.cuentaVinculada.findFirst({
+      where: { OR: [{ usuarioAId: origenId }, { usuarioBId: origenId }] }
+    });
+    if (!vinculo) {
+      res.status(403).json({ error: "No hay cuenta vinculada" });
+      return;
+    }
+
+    const destinoIdFromVinculo =
+      vinculo.usuarioAId === origenId ? vinculo.usuarioBId : vinculo.usuarioAId;
+
+    if (bodyDestinoId && bodyDestinoId !== destinoIdFromVinculo) {
+      res.status(403).json({ error: "La cuenta destino no está vinculada al usuario actual" });
+      return;
+    }
+
+    const destinoId = bodyDestinoId ?? destinoIdFromVinculo;
+
+    let destino = await prisma.usuario.findFirst({
+      where: { id: destinoId, isDeleted: { not: true } }
+    });
+
+    if (!destino) {
+      res.status(403).json({ error: "Cuenta destino no encontrada" });
+      return;
+    }
+
+    // Si vamos de principal→espejo y el espejo aún no existe (caso
+    // límite defensivo), provisionamos.
+    const origenDoc = await prisma.usuario.findFirst({
+      where: { id: origenId, isDeleted: { not: true } }
+    });
+    if (
+      origenDoc &&
+      isStaffInRoles(resolveRoles(origenDoc)) &&
+      destino.tipoCuenta !== ESPEJO_TIPO_CUENTA
+    ) {
+      // Destino no es espejo — quizás el caller apunta al principal
+      // desde el espejo. Esto es válido (espejo→principal).
+    }
+    if (
+      origenDoc &&
+      isStaffInRoles(resolveRoles(origenDoc)) &&
+      destino.tipoCuenta === ESPEJO_TIPO_CUENTA
+    ) {
+      // principal→espejo: OK
+    }
+    if (
+      origenDoc &&
+      origenDoc.tipoCuenta === ESPEJO_TIPO_CUENTA &&
+      isStaffInRoles(resolveRoles(destino))
+    ) {
+      // espejo→principal: OK
+    }
+
+    const destinoRoles = Array.isArray((destino as { roles?: string[] }).roles)
+      ? (destino as { roles: string[] }).roles
+      : destino.role ? [destino.role] : [];
+
+    const accessToken = createAccessToken({
+      id: destino.id.toString(),
+      email: destino.email,
+      username: destino.username,
+      role: destino.role,
+      roles: destinoRoles,
+      switchedFrom: origenId,
+      guestOnboardingStatus: (destino as { guestOnboardingStatus?: string | null }).guestOnboardingStatus ?? null,
+      schoolId: normalizeSchoolId(destino.escuelaId),
+      fullName: destino.fullName ?? null
+    });
+
+    const refreshToken = createRefreshToken({ id: destino.id.toString() });
+
+    const landing = landingForRoles(destinoRoles);
+
+    await recordAuditLog({
+      actorId: origenId,
+      action: "CUENTA_SWITCH",
+      targetType: "Usuario",
+      targetId: destinoId,
+      metadata: {
+        origenId,
+        destinoId,
+        sentido: destino.tipoCuenta === ESPEJO_TIPO_CUENTA ? "principal→espejo" : "espejo→principal"
+      }
+    });
+
+    const cuentaVinculada = await resolveCuentaVinculada(destino.id);
+
+    res.status(200).json({
+      id: destino.id,
+      username: destino.username,
+      email: destino.email,
+      fullName: destino.fullName,
+      role: destino.role,
+      roles: destinoRoles,
+      schoolId: normalizeSchoolId(destino.escuelaId),
+      cuentaVinculada,
+      landing,
+      accessToken: accessToken.token,
+      expiresAt: accessToken.expiresAt,
+      expiresIn: accessToken.expiresIn,
+      ...(refreshToken
+        ? {
+            refreshToken: refreshToken.token,
+            refreshExpiresAt: refreshToken.expiresAt,
+            refreshExpiresIn: refreshToken.expiresIn
+          }
+        : {})
+    });
+  } catch (e: any) {
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 // GET /api/perfil/:username — público, sin auth

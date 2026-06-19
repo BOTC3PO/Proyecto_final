@@ -8,6 +8,8 @@ import {
   isClassroomTeacher,
   computeViewerRoleInClass,
 } from "../lib/classroom-scope";
+import { whereExcluirEspejos } from "../lib/espejo-filtro";
+import { provisionarEspejoAlumno } from "../lib/provisionar-espejo";
 import { normalizeSchoolId } from "../lib/school-ids";
 import { requireUser } from "../lib/user-auth";
 import { requireAdmin as requireAdminAuth } from "../lib/admin-auth";
@@ -112,8 +114,10 @@ const isValidStatusTransition = (currentStatus: string, nextStatus: string) => {
 const getClassroomDeletionBlockers = async (classroom: { id?: string }) => {
   const blockers: string[] = [];
   if (classroom.id) {
+    // FASE 4 — los espejos-alumno no cuentan como "alumnos activos"
+    // que bloqueen el borrado del aula.
     const studentCount = await prisma.claseMiembro.count({
-      where: { claseId: classroom.id, rolEnClase: "STUDENT" }
+      where: { claseId: classroom.id, rolEnClase: "STUDENT", ...(await whereExcluirEspejos()) }
     });
     if (studentCount > 0) {
       blockers.push("classroom has active students");
@@ -960,6 +964,98 @@ aulas.post("/api/aulas/unirse", requireUser, async (req, res) => {
   });
 
   return res.status(201).json({ ok: true, aulaId: aula.id, nombre: aula.name });
+});
+
+// POST /api/aulas/:id/usar-como-alumno — FASE 4.
+// El staff (docente/dueño del aula) inscribe SU cuenta espejo de alumno
+// en esta aula como `ClaseMiembro` STUDENT, para vivir el contenido del
+// aula desde el lado del alumno. Idempotente.
+//
+// Reglas (sección "NO HACER" de la FASE 4):
+//   - Solo el staff dueño/docente del aula puede inscribir su espejo
+//     (no se inscribe el espejo en aulas ajenas).
+//   - Se inscribe SIEMPRE el espejo del caller, nunca su cuenta real.
+//   - Si el caller no tiene espejo todavía, se provisiona on-demand
+//     (degradación elegante).
+aulas.post("/api/aulas/:id/usar-como-alumno", requireUser, async (req, res) => {
+  const user = (req as {
+    user?: { id?: string; _id?: { toString?: () => string } | string; role?: string | null; schoolId?: string | null };
+  }).user;
+  const requesterId =
+    (typeof user?.id === "string" && user.id) ||
+    (typeof user?._id === "string" && (user._id as string)) ||
+    (user?._id && typeof (user._id as { toString?: () => string }).toString === "function"
+      ? (user._id as { toString: () => string }).toString()
+      : null);
+  if (!requesterId) return res.status(401).json({ error: "no autenticado" });
+
+  const claseId = req.params.id as string;
+
+  // 1. El aula existe y no está borrada.
+  const clase = await prisma.clase.findFirst({
+    where: { id: claseId, isDeleted: { not: true } },
+    include: { miembros: true },
+  });
+  if (!clase) return res.status(404).json({ error: "aula no encontrada" });
+
+  // 2. El caller tiene que ser docente/dueño del aula. Unión de los dos
+  //    criterios canónicos:
+  //      - `isClassroomTeacher`: ADMIN global, dueño por
+  //        createdBy/teacherId/teacherOfRecord, o miembro TEACHER.
+  //      - `canManageClassroom`: además, DIRECTIVO de la misma escuela.
+  //    Así un TEACHER que creó el aula, un TEACHER-miembro, un ADMIN o
+  //    un DIRECTIVO de la escuela pueden inscribir su espejo; nadie más.
+  const miembros = (clase.miembros ?? []).map((m) => ({
+    userId: m.usuarioId,
+    roleInClass: m.rolEnClase,
+  }));
+  const classroomDoc = {
+    createdBy: clase.createdBy ?? null,
+    teacherId: clase.teacherId ?? null,
+    teacherOfRecord: clase.teacherOfRecord ?? null,
+    members: miembros,
+  };
+  const esDocenteOAula =
+    isClassroomTeacher(classroomDoc, requesterId, user?.role ?? null) ||
+    canManageClassroom({
+      requesterId,
+      requesterRole: user?.role ?? null,
+      requesterSchoolId: user?.schoolId ?? null,
+      classroomSchoolId: clase.escuelaId ?? null,
+      classroomMembers: miembros,
+    });
+  if (!esDocenteOAula) {
+    return res.status(403).json({ error: "no sos docente de esta aula" });
+  }
+
+  // 3. Resolver (o provisionar) el espejo del caller. Idempotente:
+  //    devuelve el espejo existente si ya lo tiene.
+  let espejoId: string;
+  try {
+    const prov = await provisionarEspejoAlumno(requesterId);
+    espejoId = prov.espejo.id;
+  } catch (err) {
+    // El caller pasó `canManageClassroom` pero no se le pudo crear el
+    // espejo (caso raro: ej. el propio caller ya es un espejo). No es
+    // un 500: es un estado no inscribible.
+    return res.status(409).json({
+      error: "no se pudo resolver la cuenta de alumno",
+      detail: err instanceof Error ? err.message : String(err),
+    });
+  }
+
+  // 4. Inscribir el espejo como STUDENT (misma convención que
+  //    `/api/aulas/unirse`). Idempotente.
+  const existing = await prisma.claseMiembro.findFirst({
+    where: { claseId, usuarioId: espejoId, rolEnClase: "STUDENT" },
+  });
+  if (existing) {
+    return res.status(200).json({ ok: true, aulaId: claseId, espejoId, alreadyEnrolled: true });
+  }
+  await prisma.claseMiembro.create({
+    data: { claseId, usuarioId: espejoId, rolEnClase: "STUDENT" },
+  });
+  return res.status(201).json({ ok: true, aulaId: claseId, espejoId });
 });
 
 // DELETE /api/aulas/:id/modulos/:moduloId — desasignar módulo (sin tocar el módulo ni el progreso)

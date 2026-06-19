@@ -7,6 +7,7 @@ import { toObjectId } from "../lib/ids";
 import { buildSimplePdf } from "../lib/pdf";
 import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
+import { excluirEspejosDeIds, getEspejoUserIds } from "../lib/espejo-filtro";
 
 export const reportes = Router();
 
@@ -344,7 +345,10 @@ const buildReporteData = async (
   const scopedMiembros = roleFilter
     ? claseMiembros.filter((m) => roleFilter.has(String(m.rolEnClase).toUpperCase()))
     : claseMiembros;
-  const memberUserIds = uniqueIds(scopedMiembros.map((m) => m.usuarioId));
+  // FASE 4 — choke point: excluimos los espejos-alumno acá, así
+  // quedan fuera de TODAS las agregaciones aguas abajo (listado de
+  // usuarios, promedios, asistencia, boletines).
+  const memberUserIds = await excluirEspejosDeIds(uniqueIds(scopedMiembros.map((m) => m.usuarioId)));
 
   const userWhere: Record<string, unknown> = {
     ...buildSchoolFilter(scopedSchoolId),
@@ -354,7 +358,15 @@ const buildReporteData = async (
     (userWhere as any).role = { in: filtros.roles };
   }
   if (memberUserIds.length) {
+    // `memberUserIds` ya viene sin espejos (choke point de arriba).
     (userWhere as any).id = { in: memberUserIds };
+  } else {
+    // FASE 4 — sin scope de aula, el listado de usuarios podría incluir
+    // espejos (role USER, misma escuela). Los excluimos por `id notIn`.
+    const espejoIds = await getEspejoUserIds();
+    if (espejoIds.size) {
+      (userWhere as any).id = { notIn: [...espejoIds] };
+    }
   }
 
   const totalUsuarios = await prisma.usuario.count({ where: userWhere as any });

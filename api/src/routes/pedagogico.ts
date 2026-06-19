@@ -2,6 +2,7 @@ import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
 import { hasRole } from "../lib/roles";
+import { excluirEspejosDeIds } from "../lib/espejo-filtro";
 
 export const pedagogico = Router();
 
@@ -74,7 +75,9 @@ pedagogico.get("/api/pedagogico/riesgo/:aulaId", requireUser, async (req, res) =
       where: { claseId: aulaId, rolEnClase: "USER" },
       select: { usuarioId: true },
     });
-    const alumnoIds = miembros.map((m) => m.usuarioId).filter(Boolean) as string[];
+    // FASE 4 — el espejo-alumno no aparece en el panel de riesgo.
+    const alumnoIdsConEspejo = miembros.map((m) => m.usuarioId).filter(Boolean) as string[];
+    const alumnoIds = await excluirEspejosDeIds(alumnoIdsConEspejo);
 
     if (!alumnoIds.length) return res.json({ items: [] });
 

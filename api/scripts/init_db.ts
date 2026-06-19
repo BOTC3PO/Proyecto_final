@@ -7,6 +7,7 @@
 import "dotenv/config";
 import { prisma } from "../src/lib/prisma";
 import { hashPassword } from "../src/lib/passwords";
+import { provisionarEspejosParaStaffExistente } from "../src/lib/provisionar-espejo";
 
 const now = new Date().toISOString();
 
@@ -53,6 +54,16 @@ async function main() {
         passwordHash: seedHash, isDeleted: false, createdAt: now, updatedAt: now },
     ]
   });
+
+  // FASE 1 — backfill idempotente de espejos para el staff ya
+  // existente. Corre después del `createMany` para que la tabla
+  // puente y los espejos queden consistentes aunque esta sea una
+  // DB pre-Fase 1.
+  const backfill = await provisionarEspejosParaStaffExistente();
+  console.log(
+    `[init_db] Espejos backfill: revisados=${backfill.revisados} ` +
+      `creados=${backfill.creados} omitidos=${backfill.omitidos}`
+  );
 
   const count = await prisma.usuario.count();
   console.log(`[init_db] DB lista — ${count} usuarios en Postgres.`);

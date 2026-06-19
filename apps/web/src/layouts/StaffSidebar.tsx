@@ -1,4 +1,4 @@
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { usePrimaryRole } from '../auth/use-roles';
 import { useTheme } from '../theme/ThemeContext';
@@ -31,9 +31,21 @@ const THEME_SWATCHES: Record<string, string> = {
 };
 
 function Sidebar() {
-  const { user, logout } = useAuth();
+  const { user, logout, switchCuenta } = useAuth();
   const { theme, setTheme, availableThemes } = useTheme();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const tieneEspejo = user?.cuentaVinculada?.tipoDestino === 'ALUMNO';
+
+  const handleEntrarComoAlumno = async () => {
+    try {
+      const { landing } = await switchCuenta();
+      navigate(landing);
+    } catch (e) {
+      console.error('Error al entrar como alumno:', e);
+    }
+  };
   // MULTIROL-02: el sidebar secciona por "rol principal" (mayor
   // jerarquía). Un ADMIN+TEACHER sigue viendo el sidebar de ADMIN.
   const primary = usePrimaryRole();
@@ -172,6 +184,19 @@ function Sidebar() {
                     Cerrar sesión
                   </button>
                 );
+              // FASE 3 — si hay cuenta espejo vinculada, "Ver como alumno"
+              // dispara el switch en lugar de navegar con la misma sesión.
+              if (tieneEspejo && item.label === 'Ver como alumno') {
+                return (
+                  <button
+                    key="entrar-como-alumno"
+                    onClick={() => { setUserMenuOpen(false); void handleEntrarComoAlumno(); }}
+                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                  >
+                    Entrar como alumno
+                  </button>
+                );
+              }
               return (
                 <Link
                   key={item.to}

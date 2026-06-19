@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState, type ChangeEvent } from "react";
 import { fetchProgresoHijos, type ChildProgress } from "../services/progreso";
 import {
-  fetchActividadesHijo, fetchBoletinHijo,
-  type ActividadHijo, type MateriaBoletin,
+  fetchActividadesHijo, fetchBoletinHijo, fetchAulasHijo,
+  type ActividadHijo, type MateriaBoletin, type AulaHijo,
 } from "../services/padres";
 
 export default function HijosProgreso() {
@@ -14,6 +14,7 @@ export default function HijosProgreso() {
   const [error, setError] = useState<string | null>(null);
   const [actividades, setActividades] = useState<ActividadHijo[]>([]);
   const [boletin, setBoletin] = useState<MateriaBoletin[]>([]);
+  const [aulas, setAulas] = useState<AulaHijo[]>([]);
   const [actividadesLoading, setActividadesLoading] = useState(false);
   const [boletinLoading, setBoletinLoading] = useState(false);
   const [tab, setTab] = useState<"modulos" | "actividades" | "boletin">("modulos");
@@ -51,6 +52,11 @@ export default function HijosProgreso() {
       .then((data) => { if (!active) return; setBoletin(data.materias ?? []); })
       .catch(() => { if (!active) return; setBoletin([]); })
       .finally(() => { if (!active) return; setBoletinLoading(false); });
+    // FASE 5 — aulas del hijo (solo lectura). Aparecen una vez creado
+    // el vínculo padre–hijo.
+    fetchAulasHijo(seleccionado)
+      .then((data) => { if (!active) return; setAulas(data); })
+      .catch(() => { if (!active) return; setAulas([]); });
     return () => { active = false; };
   }, [seleccionado]);
 
@@ -181,6 +187,24 @@ export default function HijosProgreso() {
                 <p className="mt-1 text-xs text-[var(--c-muted)] text-right">{current.progresoGeneral}% general</p>
               </div>
             </div>
+
+            {/* FASE 5 — Aulas del hijo (solo lectura). Una vez creado el
+                vínculo, la(s) clase(s) del hijo aparecen acá. */}
+            {aulas.length > 0 && (
+              <div className="mt-4">
+                <p className="text-xs font-medium text-[var(--c-muted)] mb-1.5">Aulas</p>
+                <div className="flex flex-wrap gap-2">
+                  {aulas.map((a) => (
+                    <span
+                      key={a.id}
+                      className="text-xs px-2.5 py-1 rounded-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)]"
+                    >
+                      {a.nombre}{a.grado ? ` · ${a.grado}` : ""}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Tabs */}
             <div className="mt-5 flex gap-1 border-b border-[var(--c-border)]">

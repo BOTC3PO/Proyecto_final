@@ -81,6 +81,15 @@ export const isStaffInRoles = (roles: readonly string[]): boolean =>
   roles.some((r) => STAFF_ROLES.has(r));
 
 /**
+ * ¿El user tiene rol PARENT en alguno de sus roles? Usado por la
+ * provisión opt-in de la cuenta espejo del padre (Fase 5): el padre
+ * NO es staff, así que `isStaffInRoles` da `false`, pero igual puede
+ * pedir su propia cuenta de alumno on-demand.
+ */
+export const isParentInRoles = (roles: readonly string[]): boolean =>
+  roles.includes("PARENT");
+
+/**
  * Tipo util: cualquier "user-like" con `role` y/o `roles`. Útil para
  * anotar `req.user` en rutas que ya aceptan el shape legacy.
  */

@@ -3,6 +3,7 @@ import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
+import { excluirEspejosDeIds } from "../lib/espejo-filtro";
 
 export const reportesV2 = Router();
 
@@ -31,11 +32,13 @@ reportesV2.get(
       });
       if (!aula) return res.status(404).json({ error: "aula no encontrada" });
 
-      // Fetch classroom members with student role
+      // Fetch classroom members with student role.
+      // FASE 4 — el espejo-alumno no aparece en el boletín del aula.
       const miembros = await prisma.claseMiembro.findMany({
         where: { claseId: aulaId, rolEnClase: "USER" }
       });
-      const alumnoIds = miembros.map((m) => m.usuarioId).filter(Boolean);
+      const alumnoIdsConEspejo = miembros.map((m) => m.usuarioId).filter(Boolean) as string[];
+      const alumnoIds = await excluirEspejosDeIds(alumnoIdsConEspejo);
 
       if (!alumnoIds.length) {
         return res.json({ aulaId, aulaNombre: aula.name, alumnos: [] });

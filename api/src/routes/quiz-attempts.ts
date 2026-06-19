@@ -43,6 +43,7 @@ import {
   questionHashPrefix
 } from "../lib/vblang-materialize";
 import { parseComposition, selectPoolIndices } from "../lib/quiz-composition";
+import { excluirEspejosDeIds } from "../lib/espejo-filtro";
 
 type ModuleQuiz = {
   id?: string;
@@ -936,10 +937,15 @@ quizAttempts.get(
           return res.status(403).json({ error: "forbidden" });
         }
         // Alumnos miembros del aula (rolEnClase ∈ {STUDENT, USER legacy}).
-        const alumnosAula = clase.miembros
+        // FASE 4 — el espejo-alumno no entra en el listado de
+        // calificaciones del aula (analítica de alumnos). Si el staff
+        // pide explícitamente un `userId`, se respeta (no se filtra ese
+        // caso puntual; es una consulta dirigida, no un roster).
+        const alumnosAulaConEspejo = clase.miembros
           .filter((m) => m.rolEnClase === "STUDENT" || m.rolEnClase === "USER")
           .map((m) => m.usuarioId);
-        if (alumnosAula.length === 0) {
+        const alumnosAula = await excluirEspejosDeIds(alumnosAulaConEspejo);
+        if (alumnosAula.length === 0 && !query.userId) {
           return res.json({ items: [], total: 0 });
         }
         targetUserIds = query.userId ? [query.userId] : alumnosAula;

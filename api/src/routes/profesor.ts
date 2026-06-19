@@ -2,6 +2,7 @@ import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
+import { excluirEspejos, whereExcluirEspejos } from "../lib/espejo-filtro";
 
 type AuthUser = {
   id?: string;
@@ -251,11 +252,14 @@ profesor.get("/api/profesor/menu", async (req, res) => {
     }
   }
 
-  // Count active students via clase_miembros
-  const allStudentMemberships = await prisma.claseMiembro.findMany({
+  // Count active students via clase_miembros.
+  // FASE 4 — excluimos los espejos-alumno para no inflar el KPI de
+  // "estudiantes activos" del panel docente.
+  const allStudentMembershipsRaw = await prisma.claseMiembro.findMany({
     where: { claseId: { in: aulaIds }, rolEnClase: "STUDENT" },
     select: { usuarioId: true },
   });
+  const allStudentMemberships = await excluirEspejos(allStudentMembershipsRaw);
   const activeStudents = new Set(allStudentMemberships.map((m) => m.usuarioId));
 
   const sortedAulas = sortByUpdatedAt(aulas);
@@ -317,10 +321,11 @@ profesor.get("/api/profesor/menu", async (req, res) => {
     weeklyPlan: await (async () => {
       const top3 = sortedAulas.slice(0, 3);
       const top3Ids = top3.map((a) => a.id ?? "").filter(Boolean);
+      // FASE 4 — excluimos espejos del conteo por aula del plan semanal.
       const memberCounts = top3Ids.length
         ? await prisma.claseMiembro.groupBy({
             by: ["claseId"],
-            where: { claseId: { in: top3Ids }, rolEnClase: "STUDENT" },
+            where: { claseId: { in: top3Ids }, rolEnClase: "STUDENT", ...(await whereExcluirEspejos()) },
             _count: { usuarioId: true },
           })
         : [];

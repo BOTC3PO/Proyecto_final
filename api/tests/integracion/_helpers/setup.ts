@@ -11,6 +11,7 @@ process.env.JWT_SECRET = process.env.JWT_SECRET ?? "test-secret-vblang";
 process.env.DATABASE_URL =
   process.env.DATABASE_URL ?? "postgresql://test:test@localhost:5432/test";
 
+import crypto from "node:crypto";
 import path from "node:path";
 import Module from "node:module";
 import { InMemoryPrisma } from "./in-memory-prisma";
@@ -89,6 +90,17 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.encuestaRespuesta.rows = [];
   prisma.bloqueJson.rows = [];
   prisma.configModulo.rows = [];
+  // FASE 1 — limpiar también las tablas de membresia y la puente de
+  // cuentas vinculadas. Cada test empieza con un store limpio.
+  prisma.membresia.rows = [];
+  prisma.cuentaVinculada.rows = [];
+  // FASE 5 — vínculos padre↔hijo.
+  prisma.progresoModuloVinculo.rows = [];
+  prisma.auditLog.rows = [];
+  // FASE 6 — `suggestions` (solicitar-rol crea filas acá).
+  prisma.suggestion.rows = [];
+  // FASE 7 — `modoAula` (restricciones por aula).
+  prisma.modoAula.rows = [];
   // SEC-LIBRO — tabla de libros con dueño/ámbito.
   prisma.libro.rows = [];
   return prisma;
@@ -108,6 +120,9 @@ export function seedUser(opts: {
   roles?: string[];
   schoolId?: string | null;
   fullName?: string;
+  // FASE 1 — opcional, default null. Solo se setea en espejos
+  // alumno del staff.
+  tipoCuenta?: string | null;
 }): void {
   // MULTIROL-01: si no se pasa `roles`, se promueve `role` a
   // array de un elemento (compat con los seeds preexistentes).
@@ -121,6 +136,10 @@ export function seedUser(opts: {
     roles,
     escuelaId: opts.schoolId ?? null,
     isDeleted: false,
+    // FASE 1 — el helper por defecto crea cuentas reales (sin
+    // marcador). Los tests que necesiten espejos setean
+    // explícitamente `tipoCuenta: "ESPEJO_ALUMNO"`.
+    tipoCuenta: opts.tipoCuenta ?? null,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   });
@@ -131,17 +150,27 @@ export function tokenFor(opts: {
   role: Role;
   roles?: string[];
   schoolId?: string | null;
+  switchedFrom?: string;
 }): string {
-  // MULTIROL-01: si el test pasa `roles`, se propagan al JWT para
-  // ejercitar el camino multi-rol end-to-end. Si no, se usa el
-  // `role` singular (compat).
   const roles = opts.roles ?? [opts.role];
   return createAccessToken({
     id: opts.id,
     role: opts.role,
     roles,
     schoolId: opts.schoolId ?? null,
+    ...(opts.switchedFrom ? { switchedFrom: opts.switchedFrom } : {}),
   }).token;
+}
+
+export function seedVinculacion(idA: string, idB: string): void {
+  const a = idA < idB ? idA : idB;
+  const b = idA < idB ? idB : idA;
+  prisma.cuentaVinculada.rows.push({
+    id: crypto.randomUUID(),
+    usuarioAId: a,
+    usuarioBId: b,
+    createdAt: new Date().toISOString(),
+  });
 }
 
 export async function startServer(

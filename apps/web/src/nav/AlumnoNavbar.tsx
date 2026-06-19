@@ -1,11 +1,12 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
 import { useHasRole } from '../auth/use-roles';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from './navConfig';
 import { useState, useRef, useEffect } from 'react';
 
 export default function AlumnoNavbar() {
-  const { user, logout } = useAuth();
+  const { user, logout, switchCuenta } = useAuth();
+  const navigate = useNavigate();
   const items = NAV_BY_ROLE['USER'];
   // MULTIROL-02: el dropdown se elige por el rol principal del user
   // (USER por default; un TEACHER+USER en vista de alumno sigue viendo
@@ -45,9 +46,20 @@ export default function AlumnoNavbar() {
     ? user.name.split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase()
     : '?';
 
-  // MULTIROL-02: el "Volver a mi panel" se muestra si el user tiene
-  // CUALQUIERA de los roles staff en su array. Un TEACHER+USER que
-  // está viendo la vista de alumno sí ve el botón.
+  // FASE 3 — si la sesión es una cuenta espejo (USER puro con vínculo),
+  // el botón "Volver" dispara el switch en lugar de navegar por rol.
+  const esEspejo = user?.cuentaVinculada?.tipoDestino === 'PRINCIPAL';
+
+  const handleVolver = async () => {
+    try {
+      const { landing } = await switchCuenta();
+      navigate(landing);
+    } catch (e) {
+      console.error('Error al volver a la cuenta principal:', e);
+    }
+  };
+
+  // MULTIROL-02: un TEACHER+USER sin espejo dedicado también ve "Volver".
   const hasTeacher = useHasRole('TEACHER');
   const hasAdmin = useHasRole('ADMIN');
   const hasDirectivo = useHasRole('DIRECTIVO');
@@ -58,6 +70,21 @@ export default function AlumnoNavbar() {
 
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-[var(--c-border)] bg-[var(--c-surface)]">
+      {esEspejo && (
+        <div
+          data-testid="espejo-indicator"
+          className="flex items-center justify-center gap-2 px-4 py-1 text-xs bg-[color-mix(in_srgb,var(--c-primary)_10%,var(--c-surface))] border-b border-[color-mix(in_srgb,var(--c-primary)_20%,transparent)] text-[var(--c-primary)]"
+        >
+          <span>Cuenta de alumno</span>
+          <span aria-hidden>·</span>
+          <button
+            onClick={handleVolver}
+            className="underline hover:no-underline font-medium"
+          >
+            Volver al panel principal
+          </button>
+        </div>
+      )}
       <div className="flex items-center justify-between max-w-6xl px-4 py-3 mx-auto">
         <Link to="/alumno" className="font-bold text-[var(--c-text)]">Virtual Book</Link>
 
@@ -82,14 +109,21 @@ export default function AlumnoNavbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          {roleHome && (
+          {esEspejo ? (
+            <button
+              onClick={handleVolver}
+              className="text-xs border border-[var(--c-border)] rounded-lg px-3 py-1.5 text-[var(--c-muted)] hover:bg-[var(--c-bg)] transition-colors"
+            >
+              ← Volver a mi panel
+            </button>
+          ) : roleHome ? (
             <Link
               to={roleHome}
               className="text-xs border border-[var(--c-border)] rounded-lg px-3 py-1.5 text-[var(--c-muted)] hover:bg-[var(--c-bg)] transition-colors"
             >
               ← Volver a mi panel
             </Link>
-          )}
+          ) : null}
 
           <div className="relative" ref={ref}>
             <button
