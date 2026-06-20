@@ -18,8 +18,17 @@ export function ProtectedRoute({
   // MULTIROL-02: multi-rol friendly. Un user pasa si AL MENOS UNO de
   // sus `roles[]` está en `allow`. Mantiene compat: si `roles` está
   // vacío, `hasAnyRole` cae a `[role]` (ver `resolveRoles`).
-  if (!user || !hasAnyRole(user, allow)) {
+  // Sin sesión → login.
+  if (!user) {
     return <Navigate to={redirectTo} replace />;
+  }
+  // Con sesión pero sin el rol requerido → home pública. `Home.tsx` ya
+  // reencamina al dashboard según rol principal. NUNCA a /login: si no,
+  // el switch de cuenta (que cambia el rol del user mientras la ruta
+  // vieja sigue montada un instante) provoca un flash a /login y la
+  // cuenta espejo queda inaccesible.
+  if (!hasAnyRole(user, allow)) {
+    return <Navigate to="/" replace />;
   }
 
   return <>{children}</>;

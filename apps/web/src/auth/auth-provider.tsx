@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import type { Role } from './roles';
 import { AuthContext, type User, type CuentaVinculada } from './AuthContex';
-import { setAuthToken, setRefreshToken, getAuthToken } from '../lib/api';
+import { setAuthToken, setRefreshToken, getAuthToken, API_BASE_URL } from '../lib/api';
 
 const STORAGE_KEY = 'auth.user';
 
@@ -91,7 +91,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const token = getAuthToken();
     if (!token) throw new Error('No hay sesión activa');
 
-    const res = await fetch('/api/auth/cambiar-cuenta', {
+    const res = await fetch(`${API_BASE_URL.replace(/\/$/, '')}/api/auth/cambiar-cuenta`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -109,7 +109,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       accessToken: string;
       refreshToken: string | null;
       id: string;
-      name: string;
+      // El back manda `username` y `fullName`, NO `name`.
+      username: string;
+      fullName: string | null;
       role: Role;
       roles: Role[];
       landing: string;
@@ -118,7 +120,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const newUser: User = {
       id: data.id,
-      name: data.name,
+      // Mismo criterio que Login.tsx: fullName y si no, username.
+      name: data.fullName?.trim() || data.username,
       role: data.role,
       roles: data.roles,
       cuentaVinculada: data.cuentaVinculada,

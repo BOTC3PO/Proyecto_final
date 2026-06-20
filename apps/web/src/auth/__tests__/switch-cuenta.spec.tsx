@@ -20,6 +20,7 @@ vi.mock("../../lib/api", () => ({
   setAuthToken: mockSetAuthToken,
   setRefreshToken: mockSetRefreshToken,
   getAuthToken: mockGetAuthToken,
+  API_BASE_URL: "http://localhost:5050",
 }));
 
 import { AuthProvider } from "../auth-provider";
@@ -35,7 +36,9 @@ const espejoResponse = {
   accessToken: "espejo-token",
   refreshToken: "espejo-refresh",
   id: "espejo-1",
-  name: "Espejo Test",
+  // El back real manda username + fullName, no `name`.
+  username: "espejo-test",
+  fullName: "Espejo Test",
   role: "USER",
   roles: ["USER"],
   landing: "/alumno",
@@ -70,6 +73,7 @@ describe("FASE 3 — AuthProvider: switchCuenta()", () => {
     expect(result.current.user?.id).toBe("espejo-1");
     expect(result.current.user?.role).toBe("USER");
     expect(result.current.user?.cuentaVinculada?.tipoDestino).toBe("PRINCIPAL");
+    expect(result.current.user?.name).toBe("Espejo Test");
   });
 
   it("el token del destino va a sessionStorage (remember=false), NO localStorage", async () => {
