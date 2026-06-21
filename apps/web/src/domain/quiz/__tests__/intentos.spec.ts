@@ -46,6 +46,45 @@ describe("parseEvaluacionConfig — F4-04 defaults por tipo", () => {
     expect(r).toEqual(DEFAULT_EVALUACION_CONFIG.practica);
   });
 
+  it("WO-3: política de sorteo — default fijo_por_alumno, override y back-compat", () => {
+    // Default por tipo.
+    expect(parseEvaluacionConfig(null, "formal").politicaSorteo).toBe(
+      "fijo_por_alumno",
+    );
+    // Settings viejos (sin el campo) → default (back-compat).
+    expect(
+      parseEvaluacionConfig(JSON.stringify({ type: "formal" }), "formal")
+        .politicaSorteo,
+    ).toBe("fijo_por_alumno");
+    // Override del docente se respeta.
+    expect(
+      parseEvaluacionConfig(
+        JSON.stringify({ politicaSorteo: "por_intento" }),
+        "formal",
+      ).politicaSorteo,
+    ).toBe("por_intento");
+    // Valor inválido cae al default (no rompe).
+    expect(
+      parseEvaluacionConfig(
+        JSON.stringify({ politicaSorteo: "garbage" }),
+        "formal",
+      ).politicaSorteo,
+    ).toBe("fijo_por_alumno");
+  });
+
+  it("WO-3: serializeEvaluacionConfig incluye politicaSorteo (round-trip)", () => {
+    const cfg = parseEvaluacionConfig(
+      JSON.stringify({ politicaSorteo: "por_intento" }),
+      "formal",
+    );
+    const serialized = serializeEvaluacionConfig(cfg);
+    expect(serialized.politicaSorteo).toBe("por_intento");
+    // round-trip: re-parsear el serializado preserva el valor.
+    expect(
+      parseEvaluacionConfig(JSON.stringify(serialized), "formal").politicaSorteo,
+    ).toBe("por_intento");
+  });
+
   it("override gana sobre defaults", () => {
     const settings = JSON.stringify({
       timerSegundos: 1800,

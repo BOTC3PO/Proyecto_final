@@ -56,6 +56,8 @@ export type ModuleQuiz = {
   /** `null` = ilimitado. Entero ≥ 1 = tope. `0` se coerce a null (alias). */
   maxIntentos?: number | null;
   politicaNota?: "mejor" | "ultima" | "primera" | "promedio";
+  /** WO-3 — política de sorteo de variantes (`fijo_por_alumno` | `por_intento`). */
+  politicaSorteo?: "fijo_por_alumno" | "por_intento";
   /** `null` = sin timer. Entero ≥ 1 = segundos. */
   timerSegundos?: number | null;
   fullscreenOnStart?: boolean;

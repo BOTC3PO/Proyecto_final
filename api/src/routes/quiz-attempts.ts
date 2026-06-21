@@ -303,10 +303,26 @@ const fetchQuizFromCollections = async (
   const moduloRecord = moduleId
     ? await prisma.modulo.findFirst({ where: { id: moduleId } })
     : null;
-  // WO14 — `scoringConfig` no es columna del modelo Modulo; se lee defensivamente
-  // por si una versión futura lo persiste. Si falta, el wiring reconcilia con el umbral.
-  const moduloScoringConfig = (moduloRecord as { scoringConfig?: ScoringConfig } | null)
-    ?.scoringConfig;
+  // WO14 + WO-3 — `scoringConfig` ahora SÍ es columna del modelo Modulo (escala
+  // de notas configurada por el docente). Se persiste como JSON string; el
+  // in-memory prisma de tests puede devolver el objeto directo. Se parsea
+  // defensivamente (string u objeto). Si falta o es inválido, el wiring
+  // reconcilia con el umbral (fallback histórico — retrocompat intacta).
+  const rawScoringConfig = (
+    moduloRecord as { scoringConfig?: ScoringConfig | string | null } | null
+  )?.scoringConfig;
+  let moduloScoringConfig: ScoringConfig | undefined;
+  if (typeof rawScoringConfig === "string") {
+    try {
+      const parsed = JSON.parse(rawScoringConfig);
+      moduloScoringConfig =
+        parsed && typeof parsed === "object" ? (parsed as ScoringConfig) : undefined;
+    } catch {
+      moduloScoringConfig = undefined;
+    }
+  } else if (rawScoringConfig && typeof rawScoringConfig === "object") {
+    moduloScoringConfig = rawScoringConfig;
+  }
   const module: ModuleWithQuizzes | null = moduloRecord
     ? { id: moduloRecord.id, title: moduloRecord.titulo, scoringConfig: moduloScoringConfig }
     : null;

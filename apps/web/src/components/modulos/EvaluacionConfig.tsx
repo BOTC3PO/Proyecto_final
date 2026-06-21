@@ -25,11 +25,13 @@
 import { useId } from "react";
 import {
   DEFAULT_EVALUACION_CONFIG,
+  POLITICAS_SORTEO_VALIDAS,
   POLITICAS_VALIDAS,
   TIMER_SEGUNDOS_MAX,
   TIMER_SEGUNDOS_MIN,
   type EvaluacionConfig,
   type PoliticaNota,
+  type PoliticaSorteo,
   type QuizTipo
 } from "../../domain/quiz/intentos";
 
@@ -42,11 +44,18 @@ interface Props {
   onChangeTimerSegundos?: (next: number | null) => void;
   onChangeMaxIntentos?: (next: number | null) => void;
   onChangePoliticaNota?: (next: PoliticaNota) => void;
+  /** WO-3 — política de sorteo de variantes. */
+  onChangePoliticaSorteo?: (next: PoliticaSorteo) => void;
   onChangeFullscreenOnStart?: (next: boolean) => void;
   onChangeOcultarPuntos?: (next: boolean) => void;
   /** Variante visual. Default: "panel" (con fieldset). "compact" = menos padding. */
   variant?: "panel" | "compact";
 }
+
+const POLITICA_SORTEO_LABEL: Record<PoliticaSorteo, string> = {
+  fijo_por_alumno: "Fija por alumno (no cambia entre intentos)",
+  por_intento: "Re-sortear en cada intento"
+};
 
 function formatTimer(minutes: number): string {
   if (minutes < 60) return `${minutes} min`;
@@ -61,6 +70,7 @@ export default function EvaluacionConfig({
   onChangeTimerSegundos,
   onChangeMaxIntentos,
   onChangePoliticaNota,
+  onChangePoliticaSorteo,
   onChangeFullscreenOnStart,
   onChangeOcultarPuntos,
   variant = "panel"
@@ -80,6 +90,7 @@ export default function EvaluacionConfig({
   const timerUnitId = `${baseId}-timer-unit`;
   const maxIntentosId = `${baseId}-max-intentos`;
   const politicaId = `${baseId}-politica`;
+  const politicaSorteoId = `${baseId}-politica-sorteo`;
   const fullscreenId = `${baseId}-fullscreen`;
   const ocultarPuntosId = `${baseId}-ocultar-puntos`;
 
@@ -94,6 +105,7 @@ export default function EvaluacionConfig({
   const muestraTimer = isFormal || isCompetencia;
   const muestraIntentos = isFormal;
   const muestraPolitica = isFormal;
+  const muestraSorteo = isFormal || isCompetencia;
   const muestraFullscreen = isFormal;
 
   return (
@@ -227,6 +239,34 @@ export default function EvaluacionConfig({
             {config.politicaNota === "ultima" && "Se cuenta la nota del último intento enviado."}
             {config.politicaNota === "primera" && "Se cuenta la nota del primer intento enviado."}
             {config.politicaNota === "promedio" && "Se promedian las notas de los intentos finalizados."}
+          </p>
+        </div>
+      )}
+
+      {muestraSorteo && (
+        <div className="flex items-end gap-3" data-testid="config-sorteo">
+          <label htmlFor={politicaSorteoId} className="text-sm">
+            Sorteo de variantes
+          </label>
+          <select
+            id={politicaSorteoId}
+            data-testid="config-sorteo-select"
+            disabled={!onChangePoliticaSorteo}
+            value={config.politicaSorteo}
+            onChange={(e) => onChangePoliticaSorteo?.(e.target.value as PoliticaSorteo)}
+            className="rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-1 text-sm"
+          >
+            {POLITICAS_SORTEO_VALIDAS.map((p) => (
+              <option key={p} value={p}>
+                {POLITICA_SORTEO_LABEL[p]}
+              </option>
+            ))}
+          </select>
+          <p className="text-xs text-[var(--c-hint)]">
+            {config.politicaSorteo === "fijo_por_alumno" &&
+              "Cada alumno ve siempre la misma variante (estable entre intentos y dispositivos)."}
+            {config.politicaSorteo === "por_intento" &&
+              "Cada intento puede re-sortear la variante (sin repetir mientras quede material nuevo)."}
           </p>
         </div>
       )}

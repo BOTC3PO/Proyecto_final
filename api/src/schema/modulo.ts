@@ -88,6 +88,15 @@ export const ModuleQuizSchema = z.object({
   // y `api/src/lib/quiz-intentos.ts`.
   maxIntentos: z.union([z.number().int().nonnegative(), z.null()]).optional(),
   politicaNota: z.enum(["mejor", "ultima", "primera", "promedio"]).optional(),
+  // WO-3 — política de sorteo de variantes, persistida en `settings.politicaSorteo`.
+  politicaSorteo: z.enum(["fijo_por_alumno", "por_intento"]).optional(),
+  // WO-3 — cantidad de preguntas tomadas (K de N) del pool manual; persistida
+  // en `settings.displayCount`. Antes se editaba pero no se guardaba.
+  displayCount: z.number().int().positive().optional(),
+  // WO-2 / F4-03 — cuestionario por posiciones (schema v2). Se guarda crudo en
+  // `settings.posiciones`; el editor lo normaliza. `unknown` para no acoplar el
+  // schema del route al modelo de posiciones (vive en el front/dominio).
+  posiciones: z.unknown().optional(),
   // F4-03 — toggle "ocultar puntos al alumno", persistido en
   // `settings.ocultarPuntos`. El cliente gate del `Puntaje: X / Y`; el
   // backend gate del `(NN%)` en el `message` del submit.

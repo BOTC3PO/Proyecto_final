@@ -141,6 +141,8 @@ export function useModuloPersistence(): UsePersistenceReturn {
         visibility: module.visibility,
         visibilitySchoolId: module.schoolId ?? "",
         dependencies: module.dependencies ?? [],
+        // WO-3 — escala de notas del módulo (si el back la trae).
+        scoringSystemId: module.scoringConfig?.systemId,
       };
 
       setStatus("idle");
@@ -249,6 +251,11 @@ export function useModuloPersistence(): UsePersistenceReturn {
           schoolId:
             form.visibility === "escuela" ? form.visibilitySchoolId || undefined : undefined,
           dependencies: form.dependencies,
+          // WO-3 — escala de notas del módulo. Sólo se envía si el docente eligió
+          // una; ausente = el back deja `scoringConfig` nulo (fallback histórico).
+          scoringConfig: form.scoringSystemId
+            ? { systemId: form.scoringSystemId }
+            : undefined,
           theoryItems: theoryItems.map((item) => ({
             id: item.id,
             title: item.title,

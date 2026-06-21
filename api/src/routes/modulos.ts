@@ -23,6 +23,33 @@ function withDefaultStatus<T extends AnyDoc>(module: T): T & { status: {} } {
   };
 }
 
+/**
+ * WO-3 — ¿Este cuestionario es visible para el solicitante?
+ *
+ * El dueño/staff (`privileged`) ve TODOS los cuestionarios (los necesita para
+ * editar). Un alumno (no dueño ni staff) sólo ve:
+ *  - `publico`: siempre.
+ *  - `escuela`: sólo si su escuela coincide con la del módulo.
+ *  - cualquier otra/ausente: se trata como `publico` (retrocompat: los
+ *    cuestionarios viejos sin `visibility` seguían siendo visibles).
+ *
+ * Arregla el bug "el listado muestra todos los cuestionarios que el profe
+ * puede hacer, no sólo el que corresponde".
+ */
+export function quizVisiblePara(
+  visibility: string | undefined | null,
+  privileged: boolean,
+  requesterSchoolId: string | null,
+  moduleSchoolId: string | null,
+): boolean {
+  if (privileged) return true;
+  if (visibility === "escuela") {
+    return !!requesterSchoolId && requesterSchoolId === moduleSchoolId;
+  }
+  // `publico` y cualquier valor desconocido/ausente: visible.
+  return true;
+}
+
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
   if (Number.isNaN(parsed) || parsed <= 0) return 20;
@@ -191,8 +218,18 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
     // un canario estable y se elimina la `explanation`. El docente/owner
     // sigue viendo el JSON intacto para poder editarlo.
     const requesterRaw = req.user as
-      | { _id?: { toString?: () => string } | string; id?: string; role?: string | null }
+      | {
+          _id?: { toString?: () => string } | string;
+          id?: string;
+          role?: string | null;
+          schoolId?: string | null;
+          escuelaId?: string | null;
+        }
       | undefined;
+    const requesterSchoolId =
+      (typeof requesterRaw?.schoolId === "string" && requesterRaw.schoolId) ||
+      (typeof requesterRaw?.escuelaId === "string" && requesterRaw.escuelaId) ||
+      null;
     const requesterId =
       (typeof requesterRaw?.id === "string" && requesterRaw.id) ||
       (typeof requesterRaw?._id === "string" && (requesterRaw._id as string)) ||
@@ -247,6 +284,11 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
         : [],
       visibility: item.visibility,
       schoolId: item.schoolId ?? undefined,
+      // WO-3 — escala de notas (módulo). Se devuelve parseada; ausente = el
+      // front/grade-path aplican el default histórico.
+      scoringConfig: item.scoringConfig
+        ? safeJsonParse(item.scoringConfig, undefined as unknown)
+        : undefined,
       dependencies: item.dependencies
         ? safeJsonParse(item.dependencies, [] as unknown[])
         : [],
@@ -306,10 +348,28 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
           // sepa aplicar el default del tipo.
           maxIntentos: (settings as any).maxIntentos ?? undefined,
           politicaNota: (settings as any).politicaNota,
+          // WO-3 — política de sorteo de variantes + cantidad tomada (K de N).
+          politicaSorteo: (settings as any).politicaSorteo,
+          displayCount: (settings as any).displayCount ?? undefined,
+          // WO-2 / F4-03 — cuestionario por posiciones (crudo, tal cual se guardó).
+          posiciones: (settings as any).posiciones ?? undefined,
           timerSegundos: (settings as any).timerSegundos ?? null,
           fullscreenOnStart: (settings as any).fullscreenOnStart === true,
         };
-      }),
+      })
+      // WO-3 (bug de visibilidad) — un alumno (no dueño ni staff) NO debe ver
+      // todos los cuestionarios del módulo, sólo los que le corresponden:
+      //  - `publico`: visible para todos.
+      //  - `escuela`: visible sólo si su escuela coincide con la del módulo.
+      // El dueño/staff ve todo (necesita editarlos). Ver `quizVisiblePara`.
+      .filter((dto: { visibility?: string }) =>
+        quizVisiblePara(
+          dto.visibility,
+          canSeeAnswers,
+          requesterSchoolId,
+          item.schoolId ?? null,
+        ),
+      ),
     };
 
     res.json(withDefaultStatus(moduleDto));
@@ -536,6 +596,10 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
       schoolId: parsed.schoolId ?? null,
       ownerUserId: parsed.createdBy,
       dependencies: parsed.dependencies.length ? JSON.stringify(parsed.dependencies) : null,
+      // WO-3 — escala de notas a nivel módulo (systemId + minPassingScore). Se
+      // guarda como JSON; el grade path la lee con `resolveScoringConfig`. Si
+      // falta, el cálculo cae al fallback histórico (scale-0-100 + umbral).
+      scoringConfig: parsed.scoringConfig ? JSON.stringify(parsed.scoringConfig) : null,
       createdAt: parsed.createdAt,
       updatedAt: parsed.updatedAt,
     };
@@ -582,6 +646,11 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
               // leía pero no los escribía). Default del tipo si no vienen.
               maxIntentos: quiz.maxIntentos === undefined ? undefined : quiz.maxIntentos,
               politicaNota: quiz.politicaNota,
+              // WO-3 — política de sorteo de variantes + cantidad tomada (K de N).
+              politicaSorteo: quiz.politicaSorteo,
+              displayCount: quiz.displayCount,
+              // WO-2 / F4-03 — cuestionario por posiciones (crudo).
+              posiciones: quiz.posiciones,
               timerSegundos: quiz.timerSegundos === undefined ? null : quiz.timerSegundos,
               fullscreenOnStart: quiz.fullscreenOnStart === true
             }),
@@ -642,6 +711,12 @@ async function applyModuleUpdate(
     if (parsed.level !== undefined) updateData.level = parsed.level ?? null;
     if (parsed.visibility !== undefined) updateData.visibility = parsed.visibility;
     if (parsed.schoolId !== undefined) updateData.schoolId = parsed.schoolId ?? null;
+    // WO-3 — escala de notas (módulo). Misma semántica: si viene, se actualiza.
+    if (parsed.scoringConfig !== undefined) {
+      updateData.scoringConfig = parsed.scoringConfig
+        ? JSON.stringify(parsed.scoringConfig)
+        : null;
+    }
     if (parsed.createdBy !== undefined) updateData.ownerUserId = parsed.createdBy;
     if (parsed.dependencies !== undefined) {
       updateData.dependencies = parsed.dependencies && parsed.dependencies.length
@@ -686,6 +761,11 @@ async function applyModuleUpdate(
         // lo que el docente setea, incluido `0` (ilimitado explícito).
         maxIntentos: q.maxIntentos === undefined ? undefined : q.maxIntentos,
         politicaNota: q.politicaNota,
+        // WO-3 — política de sorteo de variantes + cantidad tomada (K de N).
+        politicaSorteo: q.politicaSorteo,
+        displayCount: q.displayCount,
+        // WO-2 / F4-03 — cuestionario por posiciones (crudo).
+        posiciones: q.posiciones,
         // F4-03 — toggle "ocultar puntos al alumno". Se persiste en
         // `settings.ocultarPuntos`. Default false.
         ocultarPuntos: q.ocultarPuntos === true,

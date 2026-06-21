@@ -138,6 +138,43 @@ describe("EvaluacionConfig — F4-04 callbacks", () => {
     expect(onChangePoliticaNota).toHaveBeenCalledWith("mejor");
   });
 
+  it("WO-3: cambiar la política de sorteo invoca onChangePoliticaSorteo", () => {
+    const onChangePoliticaSorteo = vi.fn();
+    const config = parseEvaluacionConfig(null, "formal");
+    render(
+      <EvaluacionConfig
+        tipo="formal"
+        config={config}
+        onChangePoliticaSorteo={onChangePoliticaSorteo}
+      />
+    );
+    const select = screen.getByTestId("config-sorteo-select") as HTMLSelectElement;
+    expect(select.value).toBe("fijo_por_alumno");
+    fireEvent.change(select, { target: { value: "por_intento" } });
+    expect(onChangePoliticaSorteo).toHaveBeenCalledWith("por_intento");
+  });
+
+  it("WO-3: el sorteo se muestra en formal y competencia, no en práctica", () => {
+    const { rerender } = render(
+      <EvaluacionConfig tipo="formal" config={parseEvaluacionConfig(null, "formal")} />,
+    );
+    expect(screen.getByTestId("config-sorteo")).toBeInTheDocument();
+    rerender(
+      <EvaluacionConfig
+        tipo="competencia"
+        config={parseEvaluacionConfig(null, "competencia")}
+      />,
+    );
+    expect(screen.getByTestId("config-sorteo")).toBeInTheDocument();
+    rerender(
+      <EvaluacionConfig
+        tipo="practica"
+        config={parseEvaluacionConfig(null, "practica")}
+      />,
+    );
+    expect(screen.queryByTestId("config-sorteo")).not.toBeInTheDocument();
+  });
+
   it("cambiar fullscreen invoca onChangeFullscreenOnStart", () => {
     const onChangeFullscreenOnStart = vi.fn();
     const config = parseEvaluacionConfig(null, "formal"); // fullscreen true

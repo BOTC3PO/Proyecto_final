@@ -24,6 +24,12 @@ export type PoliticaNota = "mejor" | "ultima" | "primera" | "promedio";
 
 export const POLITICAS_VALIDAS: PoliticaNota[] = ["mejor", "ultima", "primera", "promedio"];
 
+// WO-3 — Politica de SORTEO de variantes (mirror de sorteo.ts). Se declara aca
+// para incluirla en EvaluacionConfig (mismo criterio: este modulo es self-contained).
+export type PoliticaSorteo = "fijo_por_alumno" | "por_intento";
+
+export const POLITICAS_SORTEO_VALIDAS: PoliticaSorteo[] = ["fijo_por_alumno", "por_intento"];
+
 export type IntentoPolicy = {
   /** `null` = ilimitado. Entero ≥ 1 = tope. 0 = ilimitado (alias de null). */
   maxIntentos: number | null;
@@ -67,6 +73,8 @@ export type EvaluacionConfig = {
   /** null = ilimitado. Entero ≥ 1 = tope. 0 = ilimitado (alias). */
   maxIntentos: number | null;
   politicaNota: PoliticaNota;
+  /** WO-3 — politica de sorteo de variantes. Default `fijo_por_alumno`. */
+  politicaSorteo: PoliticaSorteo;
   ocultarPuntos: boolean;
 };
 
@@ -75,6 +83,7 @@ export type EvaluacionConfigInput = Partial<{
   fullscreenOnStart: boolean;
   maxIntentos: number | null;
   politicaNota: string | null;
+  politicaSorteo: string | null;
   ocultarPuntos: boolean;
 }>;
 
@@ -84,6 +93,7 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     fullscreenOnStart: false,
     maxIntentos: null,
     politicaNota: "mejor",
+    politicaSorteo: "fijo_por_alumno",
     ocultarPuntos: false
   },
   formal: {
@@ -91,6 +101,7 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     fullscreenOnStart: true,
     maxIntentos: 3,
     politicaNota: "ultima",
+    politicaSorteo: "fijo_por_alumno",
     ocultarPuntos: false
   },
   competencia: {
@@ -98,6 +109,7 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     fullscreenOnStart: false,
     maxIntentos: null,
     politicaNota: "mejor",
+    politicaSorteo: "fijo_por_alumno",
     ocultarPuntos: false
   }
 };
@@ -154,6 +166,13 @@ const DEFAULT_MAX_INTENTOS = 0; // 0 = ilimitado (preserva el comportamiento pre
 function coercePoliticaNota(raw: unknown, fallback: PoliticaNota): PoliticaNota {
   if (typeof raw === "string" && (POLITICAS_VALIDAS as string[]).includes(raw)) {
     return raw as PoliticaNota;
+  }
+  return fallback;
+}
+
+function coercePoliticaSorteo(raw: unknown, fallback: PoliticaSorteo): PoliticaSorteo {
+  if (typeof raw === "string" && (POLITICAS_SORTEO_VALIDAS as string[]).includes(raw)) {
+    return raw as PoliticaSorteo;
   }
   return fallback;
 }
@@ -378,6 +397,7 @@ export function parseEvaluacionConfig(
         ? defaults.maxIntentos
         : coerceMaxIntentos(maxIntentosRaw), // igual: null es válido (ilimitado).
     politicaNota: coercePoliticaNota(parsed.politicaNota, defaults.politicaNota),
+    politicaSorteo: coercePoliticaSorteo(parsed.politicaSorteo, defaults.politicaSorteo),
     ocultarPuntos: coerceOcultarPuntos(parsed.ocultarPuntos, defaults.ocultarPuntos)
   };
 }
@@ -393,6 +413,7 @@ export function serializeEvaluacionConfig(config: EvaluacionConfig): Record<stri
     fullscreenOnStart: config.fullscreenOnStart,
     maxIntentos: config.maxIntentos ?? null,
     politicaNota: config.politicaNota,
+    politicaSorteo: config.politicaSorteo,
     ocultarPuntos: config.ocultarPuntos
   };
 }
