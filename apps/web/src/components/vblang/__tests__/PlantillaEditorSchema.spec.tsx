@@ -317,4 +317,66 @@ describe("PlantillaEditorSchema", () => {
     expect(dsl()).not.toContain("Segunda variante");
     expect(dsl()).not.toContain("enunciados:");
   });
+
+  /* ---------------- WO-1: bloques antes solo editables en DSL ---------------- */
+
+  it("WO-1: editar la explicación la persiste en el DSL", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "Hola"\nrespuesta: 1\n'} />);
+    const ta = screen.getByLabelText("Explicación");
+    await user.type(ta, "Porque sí");
+    await user.tab();
+    expect(dsl()).toContain('explicacion: "Porque sí"');
+  });
+
+  it("WO-1: tolerancia_abs aparece en input y persiste", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "x"\nrespuesta: 1\n'} />);
+    const inp = screen.getByLabelText("Tolerancia absoluta");
+    await user.type(inp, "0.001");
+    await user.tab();
+    expect(dsl()).toContain("tolerancia_abs: 0.001");
+  });
+
+  it("WO-1: respuesta_nombre sólo aparece en marcar_mapa y persiste", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "x"\nrespuesta: 1\n'} />);
+    // En input no hay campo de nombre.
+    expect(screen.queryByLabelText(/Nombre correcto/)).toBeNull();
+    await user.selectOptions(screen.getByLabelText("Tipo"), "marcar_mapa");
+    const inp = screen.getByLabelText(/Nombre correcto/);
+    await user.type(inp, "Argentina");
+    await user.tab();
+    expect(dsl()).toContain('respuesta_nombre: "Argentina"');
+  });
+
+  it("WO-1: agregar una pista escalonada la persiste sin tocar la pista única", async () => {
+    const user = userEvent.setup();
+    render(
+      <Harness
+        initial={'enunciado: "x"\nrespuesta: 1\nmetadata:\n  pista: "única"\n'}
+      />,
+    );
+    await user.click(screen.getByRole("button", { name: /agregar pista/i }));
+    await user.type(screen.getByLabelText("Pista 1"), "Probá con esto");
+    await user.tab();
+    expect(dsl()).toContain("pistas:");
+    expect(dsl()).toContain("Probá con esto");
+    // la pista única de metadata sigue intacta (conviven)
+    expect(dsl()).toContain('pista: "única"');
+  });
+
+  it("WO-1: restricciones — fórmula válida persiste; las restricciones no aparecen con generador", async () => {
+    const user = userEvent.setup();
+    render(
+      <Harness
+        initial={'enunciado: "x"\nvariables:\n  a: random(1, 9)\nrespuesta: a\n'}
+      />,
+    );
+    await user.click(screen.getByRole("button", { name: /agregar restricción/i }));
+    await user.type(screen.getByLabelText("Restricción 1"), "a != 0");
+    await user.tab();
+    expect(dsl()).toContain("restricciones:");
+    expect(dsl()).toContain("a != 0");
+  });
 });

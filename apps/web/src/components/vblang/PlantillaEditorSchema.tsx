@@ -26,7 +26,25 @@ import {
   QUESTION_TYPE_SCHEMAS,
 } from "@vb/vblang";
 import type { Field, ListField, TextField } from "@vb/vblang";
-import { exprToText, getBlock, readEnunciados, writeEnunciados, enunciadoToVariantes, variantesToEnunciado } from "./plantillaAst";
+import {
+  exprToText,
+  getBlock,
+  readEnunciados,
+  writeEnunciados,
+  enunciadoToVariantes,
+  variantesToEnunciado,
+  textToExpr,
+  readRespuestaNombre,
+  writeRespuestaNombre,
+  readToleranciaAbs,
+  writeToleranciaAbs,
+  readExplicacion,
+  writeExplicacion,
+  readRestricciones,
+  writeRestricciones,
+  readPistas,
+  writePistas,
+} from "./plantillaAst";
 import GeneradorPicker from "./GeneradorPicker";
 import { listGeneradores } from "../../vblang/listGeneradores";
 import { AccessibleList } from "./AccessibleList";
@@ -766,6 +784,18 @@ export default function PlantillaEditorSchema({
               </FieldErrorWrapper>
             ),
           )}
+
+          {/* WO-1: tolerancia_abs va junto a la `tolerancia` relativa (sólo
+              cuando el tipo la usa, p. ej. input numérico). */}
+          {schema.fields.some((f) => f.block === "tolerancia") && (
+            <ToleranciaAbsField plantilla={plantilla} onChange={onChange} />
+          )}
+
+          {/* WO-1: respuesta_nombre acompaña la config de mapa (alternativa por
+              nombre al código ISO; habilita seleccionar provincias por nombre). */}
+          {tipo === "marcar_mapa" && (
+            <RespuestaNombreField plantilla={plantilla} onChange={onChange} />
+          )}
         </Section>
       )}
 
@@ -797,6 +827,30 @@ export default function PlantillaEditorSchema({
       <Section title="Puntaje y pista">
         <PuntajePistaField plantilla={plantilla} onChange={onChange} />
       </Section>
+
+      {/* WO-1: pistas escalonadas (bloque `pistas:` plural). Conviven con la
+          "Pista" única de arriba (metadata.pista): aquélla se muestra completa,
+          éstas se piden de a una. No hay migración entre ambas. */}
+      <Section title="Pistas escalonadas">
+        <PistasField plantilla={plantilla} onChange={onChange} />
+        <span className="text-[10px] text-[var(--c-muted,#64748b)]">
+          Secuencia que el alumno pide de a una. Distinta de la «Pista» única de
+          arriba; podés usar una, la otra o ambas.
+        </span>
+      </Section>
+
+      {/* WO-1: explicación mostrada tras responder (interpola variables). */}
+      <Section title="Explicación">
+        <ExplicacionField plantilla={plantilla} onChange={onChange} />
+      </Section>
+
+      {/* WO-1: restricciones (fórmulas que deben cumplirse, p. ej. a != 0).
+          El generador las provee/ignora, por eso sólo en base "tipo". */}
+      {!baseGenerador && (
+        <Section title="Restricciones">
+          <RestriccionesField plantilla={plantilla} onChange={onChange} />
+        </Section>
+      )}
 
       <Section title="Imagen (PNG) — opcional">
         <VisualPngField
@@ -950,6 +1004,182 @@ function PuntajePistaField({
         }}
       />
     </div>
+  );
+}
+
+/* ---------------- WO-1: bloques antes solo editables en DSL ---------------- */
+
+/** tolerancia_abs: número crudo (sin `%`), junto a la tolerancia relativa. */
+function ToleranciaAbsField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const id = useId();
+  return (
+    <BufferedText
+      id={id}
+      label="Tolerancia absoluta"
+      help="Margen absoluto (sin %). Útil cuando la respuesta esperada es 0 o muy chica. Opcional."
+      value={readToleranciaAbs(plantilla)}
+      commit={(text) => {
+        const next = writeToleranciaAbs(plantilla, text);
+        if (next === null) return false;
+        onChange(next);
+        return true;
+      }}
+    />
+  );
+}
+
+/** respuesta_nombre: validar por nombre (alternativa al ISO) en el mapa. */
+function RespuestaNombreField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const id = useId();
+  return (
+    <BufferedText
+      id={id}
+      label="Nombre correcto (alternativa al ISO)"
+      help="Valida por nombre de país/región (ej.: Argentina), p. ej. para seleccionar provincias por nombre. Opcional."
+      value={readRespuestaNombre(plantilla)}
+      commit={(text) => {
+        onChange(writeRespuestaNombre(plantilla, text));
+        return true;
+      }}
+    />
+  );
+}
+
+/** explicacion: texto interpolable que se muestra tras responder. */
+function ExplicacionField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const id = useId();
+  return (
+    <BufferedText
+      id={id}
+      label="Explicación"
+      help="Se muestra al alumno tras responder. Podés interpolar variables con {var}."
+      multiline
+      value={readExplicacion(plantilla)}
+      commit={(text) => {
+        onChange(writeExplicacion(plantilla, text));
+        return true;
+      }}
+    />
+  );
+}
+
+/** pistas escalonadas (bloque plural): lista ordenada, reordenable. */
+function PistasField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const items = readPistas(plantilla);
+  return (
+    <AccessibleList<string>
+      items={items}
+      onChange={(next) => onChange(writePistas(plantilla, next))}
+      createItem={() => ""}
+      label="Pistas (en orden)"
+      addLabel="Agregar pista"
+      itemNoun="pista"
+      renderItem={(item, index, onItem) => (
+        <input
+          aria-label={`Pista ${index + 1}`}
+          value={item}
+          onChange={(e) => onItem(e.target.value)}
+          placeholder="Pista que el alumno pide de a una"
+          className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+        />
+      )}
+    />
+  );
+}
+
+/**
+ * restricciones: dash-list de fórmulas (ej. `a != 0`). Mantiene un buffer local
+ * de strings para no perder lo que se tipea mientras una fórmula no parsea (el
+ * AST sólo guarda las válidas, vía `writeRestricciones`). Se re-sincroniza con
+ * el AST cuando cambia por fuera (modo Código, undo): se compara la proyección
+ * canónica de las filas válidas locales contra el bloque del AST.
+ */
+function RestriccionesField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const astItems = readRestricciones(plantilla);
+  const [rows, setRows] = useState<string[]>(astItems);
+
+  // Proyección canónica (re-emitida) de las filas locales válidas, para
+  // distinguir nuestras propias escrituras de un cambio externo del AST.
+  const localCanonical = rows
+    .map((r) => (r.trim() === "" ? null : textToExpr(r)))
+    .filter((e): e is Expr => e !== null)
+    .map(exprToText);
+
+  const astKey = astItems.join("\n");
+  useEffect(() => {
+    if (localCanonical.join("\n") !== astKey) {
+      setRows(astItems);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [astKey]);
+
+  const update = (next: string[]) => {
+    setRows(next);
+    onChange(writeRestricciones(plantilla, next));
+  };
+
+  return (
+    <AccessibleList<string>
+      items={rows}
+      onChange={update}
+      createItem={() => ""}
+      label="Restricciones (fórmulas)"
+      addLabel="Agregar restricción"
+      itemNoun="restricción"
+      renderItem={(item, index, onItem) => {
+        const invalid = item.trim() !== "" && textToExpr(item) === null;
+        return (
+          <div className="flex flex-col gap-0.5">
+            <input
+              aria-label={`Restricción ${index + 1}`}
+              aria-invalid={invalid || undefined}
+              value={item}
+              onChange={(e) => onItem(e.target.value)}
+              placeholder="ej.: a != 0"
+              className={
+                "w-full rounded border px-2 py-1 font-mono text-sm " +
+                (invalid ? "border-red-500" : "border-[var(--c-border,#cbd5e1)]")
+              }
+            />
+            {invalid && (
+              <span role="alert" className="text-[10px] text-red-600">
+                Fórmula inválida: no se guarda hasta corregirla.
+              </span>
+            )}
+          </div>
+        );
+      }}
+    />
   );
 }
 

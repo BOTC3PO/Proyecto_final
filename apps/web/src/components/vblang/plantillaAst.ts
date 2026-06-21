@@ -180,6 +180,124 @@ export function extractDeclaredVariables(p: Plantilla): string[] {
   return b.declaraciones.map((d) => d.nombre);
 }
 
+/* ---------------- WO-1: bloques antes solo editables en DSL crudo ---------------- */
+
+/*
+ * Hallazgos de la investigación (forma de cada bloque, ver ast.ts):
+ *  - respuesta_nombre  → { expr: Expr }      (análogo a respuesta_iso; string).
+ *  - tolerancia_abs    → { valor: number }   (número crudo, sin `%`).
+ *  - explicacion       → { partes: [...] }   (string interpolable, como enunciado).
+ *  - restricciones     → { condiciones: Expr[] }  (dash-list de fórmulas).
+ *  - pistas            → { items: PasoItem[] }     (lista ordenada interpolable).
+ *
+ * Dónde se renderiza cada uno (PlantillaEditorSchema):
+ *  - respuesta_nombre / tolerancia_abs → dentro de la Section "Tipo de pregunta"
+ *    (junto al mapa y a `tolerancia`, respectivamente).
+ *  - explicacion / pistas / restricciones → Sections propias tras "Puntaje y pista".
+ *
+ * Decisión sobre `metadata.pista` (única) vs bloque `pistas:` (plural):
+ *  CONVIVEN. Son semánticamente distintos: `metadata.pista` es la pista única
+ *  legada (se muestra completa) y `pistas:` es la secuencia escalonada (F2-02)
+ *  que el alumno pide de a una. Migrar `metadata.pista`→`pistas:` cambiaría el
+ *  DSL de plantillas viejas (rompe el round-trip idempotente y la semántica),
+ *  así que NO se migra: cada uno tiene su editor y se preservan ambos.
+ */
+
+/** respuesta_nombre: respuesta por nombre (análogo a respuesta_iso). */
+export function readRespuestaNombre(p: Plantilla): string {
+  const b = getBlock(p, "respuesta_nombre");
+  return b ? exprToStringValue(b.expr) : "";
+}
+
+/** Escribe (o quita, con "") `respuesta_nombre:` como string literal. */
+export function writeRespuestaNombre(p: Plantilla, text: string): Plantilla {
+  return text.trim() === ""
+    ? withoutBlock(p, "respuesta_nombre")
+    : withBlock(p, {
+        kind: "respuesta_nombre",
+        expr: strLit(text),
+        loc: DUMMY_LOC,
+      });
+}
+
+/** tolerancia_abs: número crudo (sin `%`). "" si no hay bloque. */
+export function readToleranciaAbs(p: Plantilla): string {
+  const b = getBlock(p, "tolerancia_abs");
+  return b ? String(b.valor) : "";
+}
+
+/**
+ * Escribe `tolerancia_abs:`. "" quita el bloque; un número no finito (ej. "-"
+ * a medio escribir) devuelve `null` para que el caller mantenga el buffer.
+ */
+export function writeToleranciaAbs(p: Plantilla, text: string): Plantilla | null {
+  if (text.trim() === "") return withoutBlock(p, "tolerancia_abs");
+  const n = Number(text);
+  if (!Number.isFinite(n)) return null;
+  return withBlock(p, { kind: "tolerancia_abs", valor: n, loc: DUMMY_LOC });
+}
+
+/** explicacion: string único interpolable (mismo modelo que enunciado). */
+export function readExplicacion(p: Plantilla): string {
+  const b = getBlock(p, "explicacion");
+  return b ? partesToText(b.partes) : "";
+}
+
+/** Escribe (o quita, con "") `explicacion:` parseando interpolaciones `{var}`. */
+export function writeExplicacion(p: Plantilla, text: string): Plantilla {
+  return text.trim() === ""
+    ? withoutBlock(p, "explicacion")
+    : withBlock(p, {
+        kind: "explicacion",
+        partes: textToPartes(text),
+        loc: DUMMY_LOC,
+      });
+}
+
+/** restricciones: dash-list de fórmulas, leídas como texto editable. */
+export function readRestricciones(p: Plantilla): string[] {
+  const b = getBlock(p, "restricciones");
+  return b ? b.condiciones.map(exprToText) : [];
+}
+
+/**
+ * Escribe `restricciones:` desde una lista de fórmulas en texto. Cada texto se
+ * parsea con el parser real; los vacíos o que no parsean se descartan del AST
+ * (el caller mantiene su buffer visible y marca el error inline). Lista sin
+ * fórmulas válidas => quita el bloque (round-trip sin basura).
+ */
+export function writeRestricciones(p: Plantilla, texts: string[]): Plantilla {
+  const condiciones: Expr[] = [];
+  for (const t of texts) {
+    if (t.trim() === "") continue;
+    const expr = textToExpr(t);
+    if (expr) condiciones.push(expr);
+  }
+  if (condiciones.length === 0) return withoutBlock(p, "restricciones");
+  return withBlock(p, { kind: "restricciones", condiciones, loc: DUMMY_LOC });
+}
+
+/** pistas (plural): secuencia ordenada de pistas escalonadas, como texto. */
+export function readPistas(p: Plantilla): string[] {
+  const b = getBlock(p, "pistas");
+  return b ? b.items.map((it) => partesToText(it.partes)) : [];
+}
+
+/**
+ * Escribe `pistas:` desde una lista de strings. Mismo criterio que
+ * `writeEnunciados`: cada string se conserva (incluso vacío) para que agregar
+ * filas no las haga desaparecer; lista vacía => quita el bloque. NO toca
+ * `metadata.pista` (la pista única conviven con esta secuencia).
+ */
+export function writePistas(p: Plantilla, texts: string[]): Plantilla {
+  if (texts.length === 0) return withoutBlock(p, "pistas");
+  const items = texts.map((text) => ({
+    partes: textToPartes(text),
+    loc: DUMMY_LOC,
+  }));
+  return withBlock(p, { kind: "pistas", items, loc: DUMMY_LOC });
+}
+
 /**
  * Convierte texto con `{expr}` / `{{` / `}}` a partes. Si una interpolación no
  * parsea como expresión, se conserva como texto literal (no se rompe).
