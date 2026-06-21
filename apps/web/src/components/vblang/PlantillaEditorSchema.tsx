@@ -44,6 +44,9 @@ import {
   writeRestricciones,
   readPistas,
   writePistas,
+  readVisualRaw,
+  writeVisualRaw,
+  readVisualKind,
 } from "./plantillaAst";
 import GeneradorPicker from "./GeneradorPicker";
 import { listGeneradores } from "../../vblang/listGeneradores";
@@ -62,7 +65,6 @@ import {
   combinacionesPosibles,
   contarVariables,
   enunciadoUndefinedVars,
-  hasNonImageVisual,
   isGeneradorBase,
   readBoolField,
   readDificultad,
@@ -470,6 +472,412 @@ function EtiquetaRowEditor({
   );
 }
 
+/* ---------------- WO-4: visual nativo (dispatcher + editores) ---------------- */
+
+/** Kinds de visual autoreables desde el form (los demás se editan en código). */
+const VISUAL_KIND_OPTS: { value: string; label: string }[] = [
+  { value: "", label: "Ninguno" },
+  { value: "static-image", label: "Imagen (PNG)" },
+  { value: "line-chart", label: "Gráfico de líneas" },
+  { value: "timeline", label: "Línea de tiempo" },
+  { value: "latex", label: "Fórmula (LaTeX)" },
+];
+
+/** Visuales soportados por el render pero no autoreados acá (se editan en código). */
+const VISUAL_CODE_ONLY = new Set(["vector-diagram", "circuit"]);
+
+/** Semilla mínima válida al elegir un kind nuevo (forma de `VisualSpec`). */
+function seedVisual(kind: string): Record<string, unknown> {
+  switch (kind) {
+    case "line-chart":
+      return {
+        kind: "line-chart",
+        title: "",
+        series: [
+          {
+            id: "s1",
+            label: "Serie 1",
+            points: [
+              { x: 0, y: 0 },
+              { x: 1, y: 1 },
+            ],
+          },
+        ],
+      };
+    case "timeline":
+      return {
+        kind: "timeline",
+        title: "",
+        events: [{ id: "e1", title: "Evento 1", date: "2000" }],
+      };
+    case "latex":
+      return { kind: "latex", content: "x^2 + y^2 = z^2", displayMode: true };
+    default:
+      return { kind };
+  }
+}
+
+/**
+ * WO-4 — Dispatcher del bloque `visual:`. Un selector de kind enruta a cada
+ * editor: `static-image` (PNG, sin cambios), `line-chart`, `timeline` y `latex`
+ * (nuevos). Los kinds que el render soporta pero el form no autorea
+ * (`vector-diagram`, `circuit`) se preservan y se editan desde el modo Código.
+ */
+function VisualField({
+  plantilla,
+  onChange,
+  uploadImage,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+  uploadImage: (file: Blob) => Promise<string>;
+}) {
+  const kind = readVisualKind(plantilla);
+  const selectId = useId();
+
+  const cambiarKind = (next: string) => {
+    if (next === kind) return;
+    if (next === "") {
+      onChange(removeVisual(plantilla));
+      return;
+    }
+    if (next === "static-image") {
+      onChange(writeStaticImage(plantilla, { src: "", alt: "" }));
+      return;
+    }
+    onChange(writeVisualRaw(plantilla, seedVisual(next)));
+  };
+
+  // El selector ofrece los kinds autoreables; si el visual actual es uno
+  // code-only, lo agregamos como opción seleccionada para no perder el contexto.
+  const opts =
+    kind && VISUAL_CODE_ONLY.has(kind)
+      ? [...VISUAL_KIND_OPTS, { value: kind, label: `${kind} (modo Código)` }]
+      : VISUAL_KIND_OPTS;
+
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-0.5">
+        <label htmlFor={selectId} className="text-xs font-medium text-[var(--c-text,#0f172a)]">
+          Tipo de visual
+        </label>
+        <select
+          id={selectId}
+          value={kind ?? ""}
+          onChange={(e) => cambiarKind(e.target.value)}
+          className="rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+        >
+          {opts.map((o) => (
+            <option key={o.value} value={o.value}>
+              {o.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {kind === "static-image" && (
+        <VisualPngField
+          plantilla={plantilla}
+          onChange={onChange}
+          uploadImage={uploadImage}
+        />
+      )}
+      {kind === "line-chart" && (
+        <LineChartField plantilla={plantilla} onChange={onChange} />
+      )}
+      {kind === "timeline" && (
+        <TimelineField plantilla={plantilla} onChange={onChange} />
+      )}
+      {kind === "latex" && (
+        <LatexField plantilla={plantilla} onChange={onChange} />
+      )}
+      {kind && VISUAL_CODE_ONLY.has(kind) && (
+        <ReadOnlyPlaceholder>
+          El visual <code>{kind}</code> se renderiza pero se edita desde el modo
+          Código. Se preserva tal cual.
+        </ReadOnlyPlaceholder>
+      )}
+    </div>
+  );
+}
+
+/* ---------------- WO-4: editor LaTeX ---------------- */
+
+function LatexField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const raw = readVisualRaw(plantilla) ?? {};
+  const content = typeof raw.content === "string" ? raw.content : "";
+  const displayMode = raw.displayMode !== false; // default true
+  const id = useId();
+  const patch = (next: Record<string, unknown>) =>
+    onChange(writeVisualRaw(plantilla, { kind: "latex", content, displayMode, ...next }));
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      <BufferedText
+        id={id}
+        label="Fórmula (LaTeX)"
+        help="Sintaxis KaTeX, ej.: \\frac{a}{b} = c^2"
+        multiline
+        value={content}
+        commit={(text) => {
+          patch({ content: text });
+          return true;
+        }}
+      />
+      <label className="flex items-center gap-1.5 text-xs">
+        <input
+          type="checkbox"
+          checked={displayMode}
+          onChange={(e) => patch({ displayMode: e.target.checked })}
+        />
+        Modo display (centrado, tamaño grande)
+      </label>
+    </div>
+  );
+}
+
+/* ---------------- WO-4: editor line-chart ---------------- */
+
+interface SerieRow {
+  id: string;
+  label: string;
+  /** Texto editable: una línea "x, y" por punto. */
+  puntos: string;
+}
+
+/** "0, 1\n2, 3" → [{x:0,y:1},{x:2,y:3}]. Descarta líneas que no parsean. */
+function parsePuntos(texto: string): { x: number; y: number }[] {
+  const out: { x: number; y: number }[] = [];
+  for (const linea of texto.split("\n")) {
+    const m = linea.trim();
+    if (m === "") continue;
+    const [xs, ys] = m.split(/[,;\s]+/);
+    const x = Number(xs);
+    const y = Number(ys);
+    if (Number.isFinite(x) && Number.isFinite(y)) out.push({ x, y });
+  }
+  return out;
+}
+
+function puntosToTexto(points: { x: number; y: number }[]): string {
+  return points.map((p) => `${p.x}, ${p.y}`).join("\n");
+}
+
+function LineChartField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const raw = readVisualRaw(plantilla) ?? {};
+  const title = typeof raw.title === "string" ? raw.title : "";
+  const xLabel = typeof raw.xLabel === "string" ? raw.xLabel : "";
+  const yLabel = typeof raw.yLabel === "string" ? raw.yLabel : "";
+  const seriesRaw = Array.isArray(raw.series) ? (raw.series as Record<string, unknown>[]) : [];
+  const titleId = useId();
+  const xId = useId();
+  const yId = useId();
+
+  const rows: SerieRow[] = seriesRaw.map((s, i) => ({
+    id: typeof s.id === "string" ? s.id : `s${i + 1}`,
+    label: typeof s.label === "string" ? s.label : `Serie ${i + 1}`,
+    puntos: puntosToTexto(
+      Array.isArray(s.points)
+        ? (s.points as Record<string, unknown>[])
+            .map((p) => ({ x: Number(p.x), y: Number(p.y) }))
+            .filter((p) => Number.isFinite(p.x) && Number.isFinite(p.y))
+        : [],
+    ),
+  }));
+
+  const write = (nextTitle: string, nextX: string, nextY: string, nextRows: SerieRow[]) => {
+    const series = nextRows.map((r) => ({
+      id: r.id,
+      label: r.label,
+      points: parsePuntos(r.puntos),
+    }));
+    const obj: Record<string, unknown> = { kind: "line-chart" };
+    if (nextTitle.trim() !== "") obj.title = nextTitle;
+    if (nextX.trim() !== "") obj.xLabel = nextX;
+    if (nextY.trim() !== "") obj.yLabel = nextY;
+    obj.series = series;
+    onChange(writeVisualRaw(plantilla, obj));
+  };
+
+  return (
+    <div className="flex flex-col gap-2">
+      <BufferedText
+        id={titleId}
+        label="Título del gráfico"
+        value={title}
+        commit={(t) => {
+          write(t, xLabel, yLabel, rows);
+          return true;
+        }}
+      />
+      <div className="grid grid-cols-2 gap-2">
+        <BufferedText
+          id={xId}
+          label="Eje X"
+          value={xLabel}
+          commit={(t) => {
+            write(title, t, yLabel, rows);
+            return true;
+          }}
+        />
+        <BufferedText
+          id={yId}
+          label="Eje Y"
+          value={yLabel}
+          commit={(t) => {
+            write(title, xLabel, t, rows);
+            return true;
+          }}
+        />
+      </div>
+      <AccessibleList<SerieRow>
+        items={rows}
+        onChange={(next) => write(title, xLabel, yLabel, next)}
+        createItem={() => ({
+          id: `s${rows.length + 1}`,
+          label: `Serie ${rows.length + 1}`,
+          puntos: "0, 0\n1, 1",
+        })}
+        label="Series"
+        addLabel="Agregar serie"
+        itemNoun="serie"
+        minItems={1}
+        renderItem={(item, index, onItem) => (
+          <div className="flex flex-col gap-1">
+            <input
+              aria-label={`Nombre de la serie ${index + 1}`}
+              value={item.label}
+              onChange={(e) => onItem({ ...item, label: e.target.value })}
+              placeholder="Nombre de la serie"
+              className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+            />
+            <textarea
+              aria-label={`Puntos de la serie ${index + 1}`}
+              value={item.puntos}
+              onChange={(e) => onItem({ ...item, puntos: e.target.value })}
+              rows={3}
+              placeholder={"Un punto por línea: x, y\nej.: 0, 1"}
+              className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 font-mono text-xs"
+            />
+          </div>
+        )}
+      />
+    </div>
+  );
+}
+
+/* ---------------- WO-4: editor timeline ---------------- */
+
+interface EventoRow {
+  id: string;
+  title: string;
+  date: string;
+  description: string;
+}
+
+function TimelineField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const raw = readVisualRaw(plantilla) ?? {};
+  const title = typeof raw.title === "string" ? raw.title : "";
+  const eventsRaw = Array.isArray(raw.events) ? (raw.events as Record<string, unknown>[]) : [];
+  const titleId = useId();
+
+  const rows: EventoRow[] = eventsRaw.map((e, i) => ({
+    id: typeof e.id === "string" ? e.id : `e${i + 1}`,
+    title: typeof e.title === "string" ? e.title : "",
+    date: typeof e.date === "string" ? e.date : "",
+    description: typeof e.description === "string" ? e.description : "",
+  }));
+
+  const write = (nextTitle: string, nextRows: EventoRow[]) => {
+    const events = nextRows.map((r) => {
+      const ev: Record<string, unknown> = { id: r.id, title: r.title, date: r.date };
+      if (r.description.trim() !== "") ev.description = r.description;
+      return ev;
+    });
+    const obj: Record<string, unknown> = { kind: "timeline" };
+    if (nextTitle.trim() !== "") obj.title = nextTitle;
+    obj.events = events;
+    onChange(writeVisualRaw(plantilla, obj));
+  };
+
+  return (
+    <div className="flex flex-col gap-2">
+      <BufferedText
+        id={titleId}
+        label="Título de la línea de tiempo"
+        value={title}
+        commit={(t) => {
+          write(t, rows);
+          return true;
+        }}
+      />
+      <p className="text-[10px] text-[var(--c-muted,#64748b)]">
+        Cargá los eventos a mano. (También podés alimentarla desde el dataset{" "}
+        <code>eventos_historicos</code> editando en modo Código.)
+      </p>
+      <AccessibleList<EventoRow>
+        items={rows}
+        onChange={(next) => write(title, next)}
+        createItem={() => ({
+          id: `e${rows.length + 1}`,
+          title: "Nuevo evento",
+          date: "",
+          description: "",
+        })}
+        label="Eventos"
+        addLabel="Agregar evento"
+        itemNoun="evento"
+        minItems={1}
+        renderItem={(item, index, onItem) => (
+          <div className="flex flex-col gap-1">
+            <div className="flex gap-1">
+              <input
+                aria-label={`Título del evento ${index + 1}`}
+                value={item.title}
+                onChange={(e) => onItem({ ...item, title: e.target.value })}
+                placeholder="Título"
+                className="min-w-0 flex-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+              />
+              <input
+                aria-label={`Fecha del evento ${index + 1}`}
+                value={item.date}
+                onChange={(e) => onItem({ ...item, date: e.target.value })}
+                placeholder="Fecha (ej.: 1816)"
+                className="w-32 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+              />
+            </div>
+            <input
+              aria-label={`Descripción del evento ${index + 1}`}
+              value={item.description}
+              onChange={(e) => onItem({ ...item, description: e.target.value })}
+              placeholder="Descripción (opcional)"
+              className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs"
+            />
+          </div>
+        )}
+      />
+    </div>
+  );
+}
+
 /* ---------------- add-on PNG ---------------- */
 
 function VisualPngField({
@@ -482,20 +890,18 @@ function VisualPngField({
   uploadImage: (file: Blob) => Promise<string>;
 }) {
   const current = readStaticImage(plantilla);
+  // Una imagen "cargada" es un bloque con `src` no vacío. Un static-image recién
+  // sembrado (al elegir el kind) tiene `src` vacío → todavía no insertada.
+  const imagenCargada = !!current && current.src.trim() !== "";
   const [src, setSrc] = useState<string>(current?.src ?? "");
   const [alt, setAlt] = useState<string>(current?.alt ?? "");
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const altId = useId();
 
-  if (hasNonImageVisual(plantilla)) {
-    return (
-      <ReadOnlyPlaceholder>
-        Hay un bloque <code>visual:</code> que no es una imagen (gráfico u otro).
-        Se preserva tal cual; editalo desde el modo Código.
-      </ReadOnlyPlaceholder>
-    );
-  }
+  // WO-4 — el rebote por "visual no-imagen" se eliminó: el dispatcher de
+  // `VisualField` ya enruta cada kind a su editor (este componente sólo se
+  // monta para `static-image`).
 
   const onFile = async (file: File | undefined) => {
     if (!file) return;
@@ -558,9 +964,11 @@ function VisualPngField({
           onClick={() => onChange(writeStaticImage(plantilla, { src, alt }))}
           className="rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-xs disabled:opacity-40"
         >
-          {current ? "Actualizar imagen" : "Insertar imagen"}
+          {/* WO-4 — un bloque static-image con `src` vacío (recién seleccionado
+              el kind) cuenta como "no insertada todavía". */}
+          {imagenCargada ? "Actualizar imagen" : "Insertar imagen"}
         </button>
-        {current && (
+        {imagenCargada && (
           <button
             type="button"
             onClick={() => onChange(removeVisual(plantilla))}
@@ -852,8 +1260,8 @@ export default function PlantillaEditorSchema({
         </Section>
       )}
 
-      <Section title="Imagen (PNG) — opcional">
-        <VisualPngField
+      <Section title="Visual (opcional)">
+        <VisualField
           plantilla={plantilla}
           onChange={onChange}
           uploadImage={uploadImage}

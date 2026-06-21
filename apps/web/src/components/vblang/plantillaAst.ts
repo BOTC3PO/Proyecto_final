@@ -12,6 +12,7 @@
 import { emitExpr } from "@vb/vblang";
 import type {
   Bloque,
+  CampoKV,
   Expr,
   Plantilla,
   TextoOInterpolacion,
@@ -76,6 +77,99 @@ export const arrayLit = (items: Expr[]): Expr => ({
   items,
   loc: DUMMY_LOC,
 });
+export const nullLit = (): Expr => ({ kind: "null", loc: DUMMY_LOC });
+export const objLit = (
+  entries: { key: string; value: Expr }[],
+): Expr => ({
+  kind: "object",
+  entries: entries.map((e) => ({ key: e.key, value: e.value, loc: DUMMY_LOC })),
+  loc: DUMMY_LOC,
+});
+
+/* ---------------- bridge literal JS ↔ Expr (WO-4: data pura) ---------------- */
+
+/**
+ * Construye una `Expr` literal a partir de un valor JS puro (número, string,
+ * booleano, null, array, objeto). Pensado para data estructurada (ej. el bloque
+ * `visual:`), no para fórmulas. Las claves `undefined` de un objeto se omiten.
+ */
+export function literalToExpr(value: unknown): Expr {
+  if (typeof value === "number") return numLit(value);
+  if (typeof value === "string") return strLit(value);
+  if (typeof value === "boolean") return boolLit(value);
+  if (value === null || value === undefined) return nullLit();
+  if (Array.isArray(value)) return arrayLit(value.map(literalToExpr));
+  if (typeof value === "object") {
+    return objLit(
+      Object.entries(value as Record<string, unknown>)
+        .filter(([, v]) => v !== undefined)
+        .map(([key, v]) => ({ key, value: literalToExpr(v) })),
+    );
+  }
+  return nullLit();
+}
+
+/**
+ * Inverso de `literalToExpr`: extrae el valor JS de una `Expr` literal. Devuelve
+ * `undefined` para expresiones que no son data pura (var, binop, fun_call…),
+ * para preservarlas sin romper (no se editan desde estos campos).
+ */
+export function exprToLiteral(expr: Expr): unknown {
+  switch (expr.kind) {
+    case "num":
+      return expr.value;
+    case "str":
+      return expr.value;
+    case "bool":
+      return expr.value;
+    case "null":
+      return null;
+    case "array":
+      return expr.items.map(exprToLiteral);
+    case "object": {
+      const out: Record<string, unknown> = {};
+      for (const e of expr.entries) out[e.key] = exprToLiteral(e.value);
+      return out;
+    }
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * WO-4 — Lee el bloque `visual:` como un objeto JS plano (cada campo kv por
+ * `exprToLiteral`). `null` si no hay bloque. Útil para los editores de visual
+ * ricos (line-chart, timeline, latex), que trabajan con la forma de `VisualSpec`.
+ */
+export function readVisualRaw(p: Plantilla): Record<string, unknown> | null {
+  const b = getBlock(p, "visual");
+  if (!b) return null;
+  const out: Record<string, unknown> = {};
+  for (const c of b.campos) out[c.key] = exprToLiteral(c.value);
+  return out;
+}
+
+/**
+ * Escribe el bloque `visual:` desde un objeto JS plano (cada clave → campo kv
+ * vía `literalToExpr`). `null`/objeto vacío quita el bloque (round-trip sin
+ * basura). El orden de las claves se preserva (orden de inserción del objeto).
+ */
+export function writeVisualRaw(
+  p: Plantilla,
+  obj: Record<string, unknown> | null,
+): Plantilla {
+  if (!obj || Object.keys(obj).length === 0) return withoutBlock(p, "visual");
+  const campos: CampoKV[] = Object.entries(obj)
+    .filter(([, v]) => v !== undefined)
+    .map(([key, v]) => ({ key, value: literalToExpr(v), loc: DUMMY_LOC }));
+  return withBlock(p, { kind: "visual", campos, loc: DUMMY_LOC });
+}
+
+/** `kind` declarado en el bloque `visual:`, o `null` si no hay visual. */
+export function readVisualKind(p: Plantilla): string | null {
+  const k = readVisualRaw(p)?.kind;
+  return typeof k === "string" ? k : null;
+}
 
 /** Texto a mostrar para una expresión que representa un string. */
 export function exprToStringValue(expr: Expr | undefined): string {

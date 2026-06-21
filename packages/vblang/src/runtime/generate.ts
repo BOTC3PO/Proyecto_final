@@ -24,6 +24,7 @@ import {
   generateOrdenar,
 } from "./generate-special.js";
 import type { PasoItem, TextoOInterpolacion } from "../parser/ast.js";
+import { camposToVisualSpec } from "./visual.js";
 import type {
   CompiledPlantilla,
   GenerationOptions,
@@ -387,6 +388,11 @@ export function generate(
     // F2-03: explicación materializada (undefined si no hay `explicacion:`).
     const explicacionTexto = materializarExplicacion(compiled, scope, ctx);
 
+    // WO-4: visual hand-authored del bloque `visual:`. `undefined` si la
+    // plantilla no lo declara (no-regresión: no se evalúa nada). Espeja el
+    // path generador, que propaga `ejercicio.visual`.
+    const visual = camposToVisualSpec(compiled.visual, scope, ctx);
+
     // Dispatch a generadores especiales (Sprint 9A). Respetan el mismo loop de
     // retry por restricciones que los tipos básicos.
     if (compiled.tipoInferido === "ordenar") {
@@ -455,6 +461,7 @@ export function generate(
         seed: options.seed,
         intentos: intento,
         correccion: compiled.correccion ?? "ninguna",
+        visual,
       };
     }
 
@@ -477,6 +484,7 @@ export function generate(
       variables: scope.toRecord(),
       seed: options.seed,
       intentos: intento,
+      visual,
     };
   }
 
