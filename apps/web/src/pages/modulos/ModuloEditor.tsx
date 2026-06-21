@@ -12,7 +12,7 @@ import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
-import QuizComposicionEditor from "../../components/modulos/QuizComposicionEditor";
+import QuizPosicionesEditor from "../../components/modulos/QuizPosicionesEditor";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
 import EvaluacionConfig from "../../components/modulos/EvaluacionConfig";
 import { parseEvaluacionConfig } from "../../domain/quiz/intentos";
@@ -1798,18 +1798,15 @@ export default function ModuloEditor() {
                           </>
                         )}
 
-                        {/* Composición del quiz: pool, selección, variantes y peso.
-                            Nivel quiz (no DSL). Se persiste en settings. */}
-                        <QuizComposicionEditor
-                          value={quiz.composition}
-                          total={
-                            quiz.mode === "generated"
-                              ? quiz.count ?? 0
-                              : quiz.questions?.length ?? 0
-                          }
-                          onChange={(composition) =>
-                            updateQuiz(quiz.id, { composition })
-                          }
+                        {/* WO-2 / F4-03 — Cuestionario por posiciones: pool de
+                            variantes por posición (alternativas), tema y puntaje.
+                            Reemplaza al editor de composición viejo. Migra lazy
+                            los quizzes guardados con `composition`. */}
+                        <QuizPosicionesEditor
+                          quiz={quiz}
+                          onChange={(patch) => updateQuiz(quiz.id, patch)}
+                          materiaHint={form.subject || undefined}
+                          returnTo={moduloReturnTo}
                         />
                         </div>
                       </div>

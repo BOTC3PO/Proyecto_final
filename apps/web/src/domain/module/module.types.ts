@@ -62,8 +62,22 @@ export type ModuleQuiz = {
   /**
    * Composición a nivel quiz (pool, selección, variantes, peso por defecto).
    * Se persiste en `QuizVersion.settings.composition`. NO es parte del DSL.
+   *
+   * MODELO VIEJO (1.0). Se conserva por compatibilidad: el reproductor del
+   * alumno todavía lo consume. El editor 2.0 (WO-2/F4-03) edita `posiciones`
+   * y deriva el cuestionario por posiciones desde acá vía `migrarCuestionario`.
    */
   composition?: import("../quiz/composition").QuizComposition;
+  /**
+   * WO-2 / F4-03 — Cuestionario por posiciones (schema v2). Es la fuente de
+   * verdad del editor 2.0: posiciones numeradas, pool de variantes por
+   * posición (alternativas), tema y puntaje por posición. Si está ausente, el
+   * editor lo deriva de `composition`+`questions` (migración lazy) y lo
+   * materializa acá en la primera edición. Se persiste junto al resto del quiz
+   * (en `settings`), sin tabla nueva. El reproductor (fuera de alcance de
+   * WO-2) sigue leyendo `questions`/`composition`.
+   */
+  posiciones?: import("../quiz/posiciones").CuestionarioPosiciones;
 };
 
 export type ModuleDependencyType = "required" | "unlocks";
