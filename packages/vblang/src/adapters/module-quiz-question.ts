@@ -79,11 +79,17 @@ export interface ModuleQuizQuestion {
   items?: string[];
   /** marcar_mapa: identificador del mapa a cargar. */
   mapaId?: string;
+  /** marcar_mapa: modo de respuesta — "iso" compara por código, "nombre" por name_es. */
+  modoRespuestaMapa?: "iso" | "nombre";
   /** marcar_mapa: ISO correcto (también copiado a `answerKey` por conveniencia). */
   respuestaIsoCorrecta?: string;
+  /** marcar_mapa modo nombre: nombre correcto (name_es del feature). */
+  respuestaNombreCorrecta?: string;
   /** WO-5: marcar_mapa + provincias: código ISO del país (2 letras) para cargar
    *  el TopoJSON de provincias. No revela la respuesta (sólo el país). */
   paisIso?: string;
+  /** marcar_mapa: bounding box fijo [oeste, sur, este, norte] para lock de vista. */
+  encuadre?: [number, number, number, number];
   /** analisis_sintactico / identificar_palabras: texto completo a presentar. */
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */

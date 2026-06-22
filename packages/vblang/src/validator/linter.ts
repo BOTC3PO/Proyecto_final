@@ -729,11 +729,11 @@ function lintTiposEspeciales(
         col: ploc.col,
       });
     }
-    if (!has("respuesta_iso")) {
+    if (!has("respuesta_iso") && !has("respuesta_nombre")) {
       issues.push({
         severity: "error",
-        code: "marcar-mapa-requires-respuesta-iso",
-        message: "tipo `marcar_mapa` requiere `respuesta_iso:` con el código ISO correcto",
+        code: "marcar-mapa-requires-respuesta",
+        message: "tipo `marcar_mapa` requiere `respuesta_iso:` o `respuesta_nombre:` con la clave de respuesta",
         line: ploc.line,
         col: ploc.col,
       });

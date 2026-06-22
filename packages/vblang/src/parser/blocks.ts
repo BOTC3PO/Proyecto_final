@@ -606,11 +606,65 @@ export function parseMapaBloque(c: TokenCursor): MapaBloque {
       `Escribí el nombre entre comillas dobles, ej. \`mapa: "${[...VALID_MAPAS][0]}"\`.`,
     );
   }
-  return {
+
+  let encuadre: MapaBloque["encuadre"];
+  const maybeEnc = c.peek();
+  if (maybeEnc.kind === TokenKind.IDENT && maybeEnc.value === "encuadre") {
+    c.consume();
+    if (c.peek().kind !== TokenKind.LBRACKET) {
+      throw new ParseError(
+        "encuadre requiere una lista de 4 números: [oeste, sur, este, norte]",
+        c.peek().line,
+        c.peek().col,
+      );
+    }
+    c.consume();
+    const nums: number[] = [];
+    for (let i = 0; i < 4; i++) {
+      let sign = 1;
+      if (c.peek().kind === TokenKind.MINUS) {
+        sign = -1;
+        c.consume();
+      }
+      const nt = c.peek();
+      if (nt.kind !== TokenKind.NUMBER) {
+        throw new ParseError(
+          `encuadre: se esperaba número en posición ${i + 1}`,
+          nt.line,
+          nt.col,
+        );
+      }
+      c.consume();
+      nums.push(sign * Number(nt.value));
+      if (i < 3) {
+        if (c.peek().kind !== TokenKind.COMMA) {
+          throw new ParseError(
+            `encuadre: se esperaba coma después de posición ${i + 1}`,
+            c.peek().line,
+            c.peek().col,
+          );
+        }
+        c.consume();
+      }
+    }
+    if (c.peek().kind !== TokenKind.RBRACKET) {
+      throw new ParseError(
+        "encuadre: falta cierre ']'",
+        c.peek().line,
+        c.peek().col,
+      );
+    }
+    c.consume();
+    encuadre = nums as [number, number, number, number];
+  }
+
+  const result: MapaBloque = {
     kind: "mapa",
     nombre: tok.value as MapaBloque["nombre"],
-    loc: spanLoc(tokLoc(kwTok), tokLoc(tok)),
+    loc: spanLoc(tokLoc(kwTok), tokLoc(c.peek())),
   };
+  if (encuadre) result.encuadre = encuadre;
+  return result;
 }
 
 /* ---------- Enunciado y pasos ---------- */

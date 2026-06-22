@@ -84,6 +84,7 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
         break;
       case "mapa":
         compiled.mapa = b.nombre;
+        if (b.encuadre) compiled.encuadre = b.encuadre;
         break;
       case "respuesta_iso":
         compiled.respuestaIso = b.expr;
