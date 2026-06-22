@@ -512,6 +512,26 @@ VBLang expone funciones de math.js con nombres en inglés (estándar matemático
 | `max(a, b, ...)` | Máximo. |
 | `signo(x)` | -1, 0 o 1 según el signo. |
 
+### 6.2.1 Teoría de números (WO-8)
+
+| Función | Descripción |
+|---|---|
+| `mcd(a, b)` | Máximo común divisor (siempre no-negativo; el signo se ignora). `mcd(0, n)` = `n`; `mcd(0, 0)` = `0`. |
+| `mcm(a, b)` | Mínimo común múltiplo (siempre no-negativo; `mcm(0, n)` = `0`). |
+| `es_primo(n)` | `verdadero` si `n` es primo (`n ≥ 2` y solo divisible por 1 y por sí mismo). `es_primo(1)` = `falso`. |
+| `divisores(n)` | Lista de divisores positivos de `n` (ordenada). `divisores(12)` → `[1, 2, 3, 4, 6, 12]`. `divisores(0)` lanza error. |
+| `factorizar(n)` | Lista de factores primos con multiplicidad. `factorizar(12)` → `[2, 2, 3]`. Requiere `n ≥ 2`. |
+
+### 6.2.2 Salida de fracción simplificada (WO-8)
+
+`fraccion(p, q)` devuelve un **string** con la fracción irreducible:
+
+- `fraccion(3, 6)` → `"1/2"`.
+- `fraccion(4, 1)` → `"4"` (sin `/1` cuando la simplificación colapsa al entero).
+- El signo se normaliza en el numerador: `fraccion(3, -4)` → `"-3/4"`, `fraccion(-3, -4)` → `"3/4"`.
+- `fraccion(1, 0)` lanza error (denominador no puede ser 0).
+- Pensado para usarse directamente como `respuesta:` de un `input` (la validación es por igualdad de string) y para interpolarse en `enunciado` / `pasos`.
+
 ### 6.3 Trigonometría
 
 Las funciones trigonométricas trabajan con **radianes** por defecto. Para grados, usar las versiones con sufijo `_deg`.
@@ -543,6 +563,8 @@ Las funciones trigonométricas trabajan con **radianes** por defecto. Para grado
 | `ultimo(array)` | Último elemento. |
 | `sumar(array)` | Suma de elementos numéricos. |
 | `promedio(array)` | Promedio aritmético. |
+| `mediana(array)` | Mediana (elemento central en lista impar; promedio de los dos centrales en lista par). Lanza error sobre array vacío. |
+| `moda(array)` | Valor más frecuente. Devuelve `null` si todos los elementos aparecen 1 vez o si hay empate entre varias modas. |
 | `ordenar(array)` | Devuelve el array ordenado. |
 | `ordenar_por(array, campo)` | Ordena array de objetos por campo. |
 | `filtrar(array, condicion)` | Array filtrado. Ver datasets para sintaxis. |

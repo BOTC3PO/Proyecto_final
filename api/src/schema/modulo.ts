@@ -105,7 +105,16 @@ export const ModuleQuizSchema = z.object({
   // se gate para `type === "formal"` en la UI; el runner siempre lo lee.
   timerSegundos: z.union([z.number().int().positive(), z.null()]).optional(),
   // F4-04 — fullscreen al iniciar el intento (user-gesture button).
-  fullscreenOnStart: z.boolean().optional()
+  fullscreenOnStart: z.boolean().optional(),
+  // WO-9 — modo de presentación del cuestionario al alumno. Default `lista`
+  // (preserva el comportamiento previo). El runner (front) lo lee y
+  // renderiza en consecuencia; el backend no lo valida runtime.
+  modoPresentacion: z
+    .enum(["lista", "una_por_pantalla", "paginado"])
+    .optional(),
+  // WO-9 — tamaño de página cuando `modoPresentacion === "paginado"`.
+  // Entero ≥ 1. Sin tope superior (rango razonable del front).
+  preguntasPorPagina: z.number().int().positive().optional()
 }).superRefine((value, ctx) => {
   if (value.mode === "generated") {
     if (value.questions !== undefined) {

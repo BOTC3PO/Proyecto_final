@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type Dispatch, type SetStateAction } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { apiGet, apiPost, apiPatch, ApiError } from "../../lib/api";
 import {
   recordAnswer,
@@ -12,7 +13,14 @@ import { useFlushOnHidden } from "../../hooks/useFlushOnHidden";
 import { useFullscreen } from "../../hooks/useFullscreen";
 import { useFlushCounter } from "../../hooks/useFlushCounter";
 import Cronometro from "../../components/quizzes/Cronometro";
-import type { ModuleQuizQuestion } from "../../domain/module/module.types";
+import type {
+  ModoPresentacion,
+  ModuleQuizQuestion,
+} from "../../domain/module/module.types";
+import {
+  MODO_PRESENTACION_DEFAULT,
+  PREGUNTAS_POR_PAGINA_DEFAULT as PREG_PAG_DEFAULT,
+} from "../../domain/module/module.types";
 import VisualizerRenderer from "../../stubs/VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
@@ -94,6 +102,16 @@ type QuizAttemptResponse = {
    * quiz. Default `false`.
    */
   fullscreenOnStart?: boolean;
+  /**
+   * WO-9 — Modo de presentación del cuestionario. Default `lista` (preserva
+   * el comportamiento previo). Sólo el reproductor del alumno lo lee.
+   */
+  modoPresentacion?: ModoPresentacion;
+  /**
+   * WO-9 — Tamaño de página cuando `modoPresentacion === "paginado"`.
+   * Default 5.
+   */
+  preguntasPorPagina?: number;
 };
 
 type SubmitResponse = {
@@ -448,6 +466,23 @@ export default function QuizAttempt() {
   const eligeAlumno = composition?.seleccion === "elige_alumno";
   const [chosenQuestionId, setChosenQuestionId] = useState<string | null>(null);
 
+  // WO-9 — estado de navegación según el modo de presentación.
+  //  - `una_por_pantalla`: índice de la pregunta visible (0..N-1).
+  //  - `paginado`:        índice de la página visible (0..M-1).
+  // El modo `lista` no usa ninguno (renderiza todas a la vez).
+  // Importante: navegar NO re-randomiza ni pierde respuestas: las preguntas
+  // vienen de `questions` (memoizado sobre el attempt + composition), y las
+  // respuestas viven en el state `answers` keyed por `questionId`. Cambiar
+  // de pregunta/página sólo cambia qué subconjunto de `questions` se renderiza.
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [pageIndex, setPageIndex] = useState(0);
+  const modoPresentacion: ModoPresentacion =
+    attempt?.modoPresentacion ?? MODO_PRESENTACION_DEFAULT;
+  const preguntasPorPagina =
+    typeof attempt?.preguntasPorPagina === "number" && attempt.preguntasPorPagina >= 1
+      ? Math.floor(attempt.preguntasPorPagina)
+      : PREG_PAG_DEFAULT;
+
   // Preguntas efectivamente respondibles. En elige_alumno, solo la elegida.
   const questions = useMemo(() => {
     if (!eligeAlumno) return presentedQuestions;
@@ -456,6 +491,65 @@ export default function QuizAttempt() {
   }, [eligeAlumno, chosenQuestionId, presentedQuestions]);
 
   const title = attempt?.quizTitle ?? attempt?.quiz?.title ?? "Quiz";
+
+  // WO-9 — clamp de los índices de navegación. Si el set de preguntas cambia
+  // (p. ej. eligió una en `elige_alumno` y el array pasó a tener 1 sola), el
+  // índice de slide o página puede quedar fuera de rango. Sin este clamp,
+  // `questions[slideIndex]` devolvería `undefined` y la UI mostraría un
+  // hueco. El clamp no re-randomiza ni pierde respuestas: solo corrige el
+  // cursor local.
+  useEffect(() => {
+    if (questions.length === 0) return;
+    if (slideIndex >= questions.length) setSlideIndex(questions.length - 1);
+    if (pageIndex * preguntasPorPagina >= questions.length && pageIndex > 0) {
+      setPageIndex(Math.floor((questions.length - 1) / preguntasPorPagina));
+    }
+  }, [questions.length, slideIndex, pageIndex, preguntasPorPagina]);
+
+  // WO-9 — subconjunto de preguntas que se renderiza según el modo.
+  // `lista`: todas. `una_por_pantalla`: una. `paginado`: N por página.
+  const visibleQuestions = useMemo(() => {
+    if (modoPresentacion === "una_por_pantalla") {
+      return questions.slice(slideIndex, slideIndex + 1);
+    }
+    if (modoPresentacion === "paginado") {
+      const start = pageIndex * preguntasPorPagina;
+      return questions.slice(start, start + preguntasPorPagina);
+    }
+    return questions;
+  }, [questions, modoPresentacion, slideIndex, pageIndex, preguntasPorPagina]);
+
+  // WO-9 — metadata de paginación (para el footer de navegación).
+  const totalPaginas = Math.max(
+    1,
+    Math.ceil(questions.length / preguntasPorPagina),
+  );
+  const preguntaGlobal = (index: number) => {
+    if (modoPresentacion === "una_por_pantalla") return slideIndex + 1;
+    if (modoPresentacion === "paginado") return pageIndex * preguntasPorPagina + index + 1;
+    return index + 1;
+  };
+  const goPrev = () => {
+    if (modoPresentacion === "una_por_pantalla") {
+      setSlideIndex((i) => Math.max(0, i - 1));
+    } else if (modoPresentacion === "paginado") {
+      setPageIndex((i) => Math.max(0, i - 1));
+    }
+  };
+  const goNext = () => {
+    if (modoPresentacion === "una_por_pantalla") {
+      setSlideIndex((i) => Math.min(questions.length - 1, i + 1));
+    } else if (modoPresentacion === "paginado") {
+      setPageIndex((i) => Math.min(totalPaginas - 1, i + 1));
+    }
+  };
+  const goTo = (i: number) => {
+    if (modoPresentacion === "una_por_pantalla") {
+      setSlideIndex(Math.max(0, Math.min(questions.length - 1, i)));
+    } else if (modoPresentacion === "paginado") {
+      setPageIndex(Math.max(0, Math.min(totalPaginas - 1, i)));
+    }
+  };
 
   const handleAnswerChange = (questionId: string, value: AttemptAnswerValue) => {
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
@@ -664,6 +758,213 @@ export default function QuizAttempt() {
     );
   }
 
+  // WO-9 — render de una pregunta individual. Extraído del `<ol>` para poder
+  // reusarlo en los 3 modos de presentación (lista, una_por_pantalla,
+  // paginado) sin duplicar ~150 líneas de JSX. `indexGlobal` es el número
+  // que se muestra como "Pregunta N" (1-based, GLOBAL al cuestionario, no
+  // local a la página/slide).
+  function renderPregunta(
+    question: ModuleQuizQuestion,
+    indexGlobal: number,
+    inputsDisabledLocal: boolean,
+    submitStatusLocal: "idle" | "submitting" | "submitted" | "error",
+    openPasosLocal: Record<string, boolean>,
+    setOpenPasosLocal: Dispatch<SetStateAction<Record<string, boolean>>>,
+    handleAnswerChangeLocal: (questionId: string, value: AttemptAnswerValue) => void,
+    handleToggleCheckboxLocal: (questionId: string, option: string, checked: boolean) => void,
+    answersLocal: Record<string, AttemptAnswerValue>,
+  ) {
+    const selected = answersLocal[question.id] ?? "";
+    const hasOptions = Array.isArray(question.options) && question.options.length > 0;
+    const questionType = question.questionType ?? (hasOptions ? "mc" : "input");
+    const isMulti = Array.isArray(question.answerKey) && hasOptions;
+    return (
+      <>
+        {parseVisualContext(question.visualContext) ? (
+          <div className="rounded-lg border border-blue-200 bg-blue-50 overflow-hidden">
+            <div className="px-3 py-2 border-b border-blue-200">
+              <span className="text-xs font-semibold text-blue-700">Herramienta interactiva</span>
+            </div>
+            <div className="p-3 bg-white">
+              <VisualizerRenderer spec={parseVisualContext(question.visualContext)!} />
+            </div>
+          </div>
+        ) : null}
+        <div className="space-y-1">
+          <p className="text-sm text-gray-500">Pregunta {indexGlobal}</p>
+          <p className="text-base text-gray-800">{question.prompt}</p>
+        </div>
+        {questionType === "ordenar" ? (
+          <OrdenarRenderer
+            items={question.items ?? []}
+            value={Array.isArray(selected) ? (selected as string[]) : undefined}
+            onChange={(orden) => handleAnswerChangeLocal(question.id, orden)}
+            disabled={inputsDisabledLocal}
+            correctOrder={
+              submitStatusLocal === "submitted" && Array.isArray(question.answerKey)
+                ? (question.answerKey as string[])
+                : undefined
+            }
+          />
+        ) : questionType === "marcar_mapa" ? (
+          <MarcarMapaRenderer
+            mapaId={question.mapaId ?? ""}
+            selectedKey={typeof selected === "string" ? selected : undefined}
+            correctKey={
+              submitStatusLocal === "submitted"
+                ? (question.modoRespuestaMapa === "nombre"
+                  ? question.respuestaNombreCorrecta
+                  : question.respuestaIsoCorrecta)
+                : undefined
+            }
+            onSelect={(key) => handleAnswerChangeLocal(question.id, key)}
+            disabled={inputsDisabledLocal}
+            paisIso={question.paisIso}
+            modoRespuesta={question.modoRespuestaMapa ?? "iso"}
+            encuadre={question.encuadre}
+          />
+        ) : questionType === "analisis_sintactico" ? (
+          <AnalisisSintacticoRenderer
+            textoAnalizar={question.textoAnalizar ?? ""}
+            etiquetasPedidas={question.etiquetasPedidas ?? []}
+            asignaciones={
+              selected && typeof selected === "object" && !Array.isArray(selected)
+                ? (selected as Record<string, string>)
+                : undefined
+            }
+            onChange={(asign) => handleAnswerChangeLocal(question.id, asign)}
+            disabled={inputsDisabledLocal}
+            correctas={
+              submitStatusLocal === "submitted"
+                ? buildCorrectasFromEtiquetas(question.etiquetasPedidas)
+                : undefined
+            }
+          />
+        ) : questionType === "identificar_palabras" ? (
+          <IdentificarPalabrasRenderer
+            textoAnalizar={question.textoAnalizar ?? ""}
+            marcadas={Array.isArray(selected) ? (selected as string[]) : undefined}
+            onChange={(marcadas) => handleAnswerChangeLocal(question.id, marcadas)}
+            disabled={inputsDisabledLocal}
+            correctas={
+              submitStatusLocal === "submitted" && Array.isArray(question.answerKey)
+                ? (question.answerKey as string[])
+                : undefined
+            }
+          />
+        ) : questionType === "abierta" ? (
+          <div className="space-y-1.5">
+            <textarea
+              className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
+              rows={4}
+              value={typeof selected === "string" ? selected : ""}
+              onChange={(event) => handleAnswerChangeLocal(question.id, event.target.value)}
+              placeholder="Escribí tu respuesta"
+              disabled={inputsDisabledLocal}
+            />
+            {question.correccion === "manual" ? (
+              <p className="text-xs font-medium text-amber-600">
+                {submitStatusLocal === "submitted"
+                  ? "⏳ Pendiente de corrección por el profesor."
+                  : "Esta pregunta la corrige tu profesor (puntaje parcial)."}
+              </p>
+            ) : (
+              <p className="text-xs text-slate-500">
+                Pregunta informativa: no afecta tu nota.
+              </p>
+            )}
+          </div>
+        ) : questionType === "input" ? (
+          <textarea
+            className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
+            rows={3}
+            value={typeof selected === "string" ? selected : ""}
+            onChange={(event) => handleAnswerChangeLocal(question.id, event.target.value)}
+            placeholder="Escribí tu respuesta"
+            disabled={inputsDisabledLocal}
+          />
+        ) : questionType === "vf" ? (
+          <div className="flex flex-col gap-2">
+            {["Verdadero", "Falso"].map((option) => (
+              <label
+                key={option}
+                className="flex items-center gap-2 min-h-[44px] px-2 rounded text-sm text-gray-700 cursor-pointer hover:bg-slate-50"
+              >
+                <input
+                  type="radio"
+                  name={question.id}
+                  value={option}
+                  checked={selected === option}
+                  onChange={() => handleAnswerChangeLocal(question.id, option)}
+                  disabled={inputsDisabledLocal}
+                />
+                {option}
+              </label>
+            ))}
+          </div>
+        ) : hasOptions ? (
+          <div className="flex flex-col gap-2">
+            {question.options?.map((option) => (
+              <label
+                key={option}
+                className="flex items-center gap-2 min-h-[44px] px-2 py-1 rounded text-sm text-gray-700 cursor-pointer hover:bg-slate-50"
+              >
+                <input
+                  type={isMulti ? "checkbox" : "radio"}
+                  name={question.id}
+                  value={option}
+                  checked={
+                    isMulti
+                      ? Array.isArray(selected) && selected.includes(option)
+                      : selected === option
+                  }
+                  onChange={(event) => {
+                    if (isMulti) {
+                      handleToggleCheckboxLocal(question.id, option, event.target.checked);
+                    } else {
+                      handleAnswerChangeLocal(question.id, option);
+                    }
+                  }}
+                  disabled={inputsDisabledLocal}
+                />
+                {option}
+              </label>
+            ))}
+          </div>
+        ) : (
+          <input
+            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
+            type="text"
+            value={typeof selected === "string" ? selected : ""}
+            onChange={(event) => handleAnswerChangeLocal(question.id, event.target.value)}
+            placeholder="Escribí tu respuesta"
+            disabled={inputsDisabledLocal}
+          />
+        )}
+        {submitStatusLocal === "submitted" && question.pasos && question.pasos.length > 0 && (
+          <div className="mt-2">
+            <button
+              type="button"
+              onClick={() =>
+                setOpenPasosLocal((prev) => ({ ...prev, [question.id]: !prev[question.id] }))
+              }
+              className="text-xs font-medium text-blue-600 hover:underline"
+            >
+              {openPasosLocal[question.id] ? "Ocultar resolución" : "Ver resolución"}
+            </button>
+            {openPasosLocal[question.id] && (
+              <ol className="mt-2 list-decimal space-y-1 pl-5 text-xs text-gray-600 bg-blue-50 rounded-lg p-3 border border-blue-100">
+                {question.pasos.map((paso, pi) => (
+                  <li key={pi}>{paso}</li>
+                ))}
+              </ol>
+            )}
+          </div>
+        )}
+      </>
+    );
+  }
+
   if (status === "error") {
     return (
       <main className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -829,199 +1130,127 @@ export default function QuizAttempt() {
                 : "Este intento no tiene preguntas asignadas todavía."}
             </p>
           ) : (
-            <ol className="space-y-6">
-              {questions.map((question, index) => {
-                const selected = answers[question.id] ?? "";
-                const hasOptions = Array.isArray(question.options) && question.options.length > 0;
-                const questionType = question.questionType ?? (hasOptions ? "mc" : "input");
-                const isMulti = Array.isArray(question.answerKey) && hasOptions;
-                return (
-                  <li key={question.id} className="space-y-3">
-                    {parseVisualContext(question.visualContext) ? (
-                      <div className="rounded-lg border border-blue-200 bg-blue-50 overflow-hidden">
-                        <div className="px-3 py-2 border-b border-blue-200">
-                          <span className="text-xs font-semibold text-blue-700">Herramienta interactiva</span>
-                        </div>
-                        <div className="p-3 bg-white">
-                          <VisualizerRenderer spec={parseVisualContext(question.visualContext)!} />
-                        </div>
-                      </div>
-                    ) : null}
-                    <div className="space-y-1">
-                      <p className="text-sm text-gray-500">Pregunta {index + 1}</p>
-                      <p className="text-base text-gray-800">{question.prompt}</p>
-                    </div>
-                    {questionType === "ordenar" ? (
-                      <OrdenarRenderer
-                        items={question.items ?? []}
-                        value={Array.isArray(selected) ? (selected as string[]) : undefined}
-                        onChange={(orden) => handleAnswerChange(question.id, orden)}
-                        disabled={inputsDisabled}
-                        correctOrder={
-                          submitStatus === "submitted" && Array.isArray(question.answerKey)
-                            ? (question.answerKey as string[])
-                            : undefined
-                        }
-                      />
-                    ) : questionType === "marcar_mapa" ? (
-                      <MarcarMapaRenderer
-                        mapaId={question.mapaId ?? ""}
-                        selectedKey={typeof selected === "string" ? selected : undefined}
-                        correctKey={
-                          submitStatus === "submitted"
-                            ? (question.modoRespuestaMapa === "nombre"
-                                ? question.respuestaNombreCorrecta
-                                : question.respuestaIsoCorrecta)
-                            : undefined
-                        }
-                        onSelect={(key) => handleAnswerChange(question.id, key)}
-                        disabled={inputsDisabled}
-                        paisIso={question.paisIso}
-                        modoRespuesta={question.modoRespuestaMapa ?? "iso"}
-                        encuadre={question.encuadre}
-                      />
-                    ) : questionType === "analisis_sintactico" ? (
-                      <AnalisisSintacticoRenderer
-                        textoAnalizar={question.textoAnalizar ?? ""}
-                        etiquetasPedidas={question.etiquetasPedidas ?? []}
-                        asignaciones={
-                          selected && typeof selected === "object" && !Array.isArray(selected)
-                            ? (selected as Record<string, string>)
-                            : undefined
-                        }
-                        onChange={(asign) => handleAnswerChange(question.id, asign)}
-                        disabled={inputsDisabled}
-                        correctas={
-                          submitStatus === "submitted"
-                            ? buildCorrectasFromEtiquetas(question.etiquetasPedidas)
-                            : undefined
-                        }
-                      />
-                    ) : questionType === "identificar_palabras" ? (
-                      <IdentificarPalabrasRenderer
-                        textoAnalizar={question.textoAnalizar ?? ""}
-                        marcadas={Array.isArray(selected) ? (selected as string[]) : undefined}
-                        onChange={(marcadas) => handleAnswerChange(question.id, marcadas)}
-                        disabled={inputsDisabled}
-                        correctas={
-                          submitStatus === "submitted" && Array.isArray(question.answerKey)
-                            ? (question.answerKey as string[])
-                            : undefined
-                        }
-                      />
-                    ) : questionType === "abierta" ? (
-                      <div className="space-y-1.5">
-                        <textarea
-                          className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
-                          rows={4}
-                          value={typeof selected === "string" ? selected : ""}
-                          onChange={(event) => handleAnswerChange(question.id, event.target.value)}
-                          placeholder="Escribí tu respuesta"
-                          disabled={inputsDisabled}
-                        />
-                        {question.correccion === "manual" ? (
-                          <p className="text-xs font-medium text-amber-600">
-                            {submitStatus === "submitted"
-                              ? "⏳ Pendiente de corrección por el profesor."
-                              : "Esta pregunta la corrige tu profesor (puntaje parcial)."}
-                          </p>
-                        ) : (
-                          <p className="text-xs text-slate-500">
-                            Pregunta informativa: no afecta tu nota.
-                          </p>
-                        )}
-                      </div>
-                    ) : questionType === "input" ? (
-                      <textarea
-                        className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
-                        rows={3}
-                        value={typeof selected === "string" ? selected : ""}
-                        onChange={(event) => handleAnswerChange(question.id, event.target.value)}
-                        placeholder="Escribí tu respuesta"
-                        disabled={inputsDisabled}
-                      />
-                    ) : questionType === "vf" ? (
-                      <div className="flex flex-col gap-2">
-                        {["Verdadero", "Falso"].map((option) => (
-                          <label
-                            key={option}
-                            className="flex items-center gap-2 min-h-[44px] px-2 rounded text-sm text-gray-700 cursor-pointer hover:bg-slate-50"
-                          >
-                            <input
-                              type="radio"
-                              name={question.id}
-                              value={option}
-                              checked={selected === option}
-                              onChange={() => handleAnswerChange(question.id, option)}
-                              disabled={inputsDisabled}
-                            />
-                            {option}
-                          </label>
-                        ))}
-                      </div>
-                    ) : hasOptions ? (
-                      <div className="flex flex-col gap-2">
-                        {question.options?.map((option) => (
-                          <label
-                            key={option}
-                            className="flex items-center gap-2 min-h-[44px] px-2 py-1 rounded text-sm text-gray-700 cursor-pointer hover:bg-slate-50"
-                          >
-                            <input
-                              type={isMulti ? "checkbox" : "radio"}
-                              name={question.id}
-                              value={option}
-                              checked={
-                                isMulti
-                                  ? Array.isArray(selected) && selected.includes(option)
-                                  : selected === option
-                              }
-                              onChange={(event) => {
-                                if (isMulti) {
-                                  handleToggleCheckbox(question.id, option, event.target.checked);
-                                } else {
-                                  handleAnswerChange(question.id, option);
-                                }
-                              }}
-                              disabled={inputsDisabled}
-                            />
-                            {option}
-                          </label>
-                        ))}
-                      </div>
-                    ) : (
-                      <input
-                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
-                        type="text"
-                        value={typeof selected === "string" ? selected : ""}
-                        onChange={(event) => handleAnswerChange(question.id, event.target.value)}
-                        placeholder="Escribí tu respuesta"
-                        disabled={inputsDisabled}
-                      />
-                    )}
-                    {submitStatus === "submitted" && question.pasos && question.pasos.length > 0 && (
-                      <div className="mt-2">
+            <div
+              className="space-y-4"
+              data-testid="quiz-presentation"
+              data-modo-presentacion={modoPresentacion}
+            >
+              {modoPresentacion !== "una_por_pantalla" ? (
+                <ol
+                  className={`space-y-6 ${
+                    modoPresentacion === "paginado" ? "" : ""
+                  }`}
+                  data-testid="quiz-questions-list"
+                >
+                  {visibleQuestions.map((question, index) => (
+                    <li key={question.id} className="space-y-3">
+                      {renderPregunta(question, preguntaGlobal(index), inputsDisabled, submitStatus, openPasos, setOpenPasos, handleAnswerChange, handleToggleCheckbox, answers)}
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                // una_por_pantalla: una sola pregunta a la vez, centrada.
+                <div
+                  className="rounded-xl border border-gray-200 bg-white p-6 space-y-3"
+                  data-testid="quiz-slide"
+                  data-slide-index={slideIndex}
+                >
+                  {visibleQuestions[0] ? (
+                    renderPregunta(
+                      visibleQuestions[0],
+                      preguntaGlobal(0),
+                      inputsDisabled,
+                      submitStatus,
+                      openPasos,
+                      setOpenPasos,
+                      handleAnswerChange,
+                      handleToggleCheckbox,
+                      answers,
+                    )
+                  ) : null}
+                </div>
+              )}
+
+              {/* WO-9 — navegación entre slides / páginas. NO se muestra en
+                  modo `lista` (todo está visible a la vez). El handler
+                  `goTo` clampa contra los bounds. */}
+              {modoPresentacion !== "lista" && (
+                <nav
+                  className="flex items-center justify-between gap-2 border-t border-gray-100 pt-4"
+                  aria-label="Navegación entre preguntas"
+                  data-testid="quiz-nav"
+                >
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-40"
+                    onClick={goPrev}
+                    disabled={
+                      modoPresentacion === "una_por_pantalla"
+                        ? slideIndex === 0
+                        : pageIndex === 0
+                    }
+                    data-testid="quiz-nav-prev"
+                  >
+                    <ChevronLeft size={16} /> Anterior
+                  </button>
+                  {modoPresentacion === "una_por_pantalla" ? (
+                    <div
+                      className="flex items-center gap-2"
+                      data-testid="quiz-nav-dots"
+                    >
+                      {questions.map((_, i) => (
                         <button
+                          key={i}
                           type="button"
-                          onClick={() =>
-                            setOpenPasos((prev) => ({ ...prev, [question.id]: !prev[question.id] }))
-                          }
-                          className="text-xs font-medium text-blue-600 hover:underline"
+                          aria-label={`Ir a la pregunta ${i + 1}`}
+                          aria-current={i === slideIndex ? "step" : undefined}
+                          onClick={() => goTo(i)}
+                          className={`h-2 rounded-full transition-all ${
+                            i === slideIndex
+                              ? "w-6 bg-blue-600"
+                              : "w-2 bg-gray-300 hover:bg-gray-400"
+                          }`}
+                          data-testid={`quiz-nav-dot-${i}`}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-1.5" data-testid="quiz-nav-pages">
+                      {Array.from({ length: totalPaginas }, (_, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          aria-label={`Ir a la página ${i + 1}`}
+                          aria-current={i === pageIndex ? "page" : undefined}
+                          onClick={() => goTo(i)}
+                          className={`min-w-[28px] rounded-md px-2 py-1 text-xs tabular-nums ${
+                            i === pageIndex
+                              ? "bg-blue-600 text-white"
+                              : "border border-gray-300 text-gray-700 hover:bg-gray-50"
+                          }`}
+                          data-testid={`quiz-nav-page-${i}`}
                         >
-                          {openPasos[question.id] ? "Ocultar resolución" : "Ver resolución"}
+                          {i + 1}
                         </button>
-                        {openPasos[question.id] && (
-                          <ol className="mt-2 list-decimal space-y-1 pl-5 text-xs text-gray-600 bg-blue-50 rounded-lg p-3 border border-blue-100">
-                            {question.pasos.map((paso, pi) => (
-                              <li key={pi}>{paso}</li>
-                            ))}
-                          </ol>
-                        )}
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ol>
+                      ))}
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-40"
+                    onClick={goNext}
+                    disabled={
+                      modoPresentacion === "una_por_pantalla"
+                        ? slideIndex === questions.length - 1
+                        : pageIndex === totalPaginas - 1
+                    }
+                    data-testid="quiz-nav-next"
+                  >
+                    Siguiente <ChevronRight size={16} />
+                  </button>
+                </nav>
+              )}
+            </div>
           )}
 
           <div className="flex flex-col gap-3 border-t border-gray-100 pt-4">

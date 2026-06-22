@@ -2211,7 +2211,12 @@ function EvaluacionConfigEditor({
     politicaSorteo: quiz.politicaSorteo,
     timerSegundos: quiz.timerSegundos,
     fullscreenOnStart: quiz.fullscreenOnStart,
-    ocultarPuntos: quiz.ocultarPuntos
+    ocultarPuntos: quiz.ocultarPuntos,
+    // WO-9 — modo de presentación + tamaño de página. Se sintetizan
+    // también en el "settings" virtual para que `parseEvaluacionConfig`
+    // resuelva los defaults por tipo de forma centralizada.
+    modoPresentacion: quiz.modoPresentacion,
+    preguntasPorPagina: quiz.preguntasPorPagina
   });
   const config = parseEvaluacionConfig(virtualSettings, quiz.type);
 
@@ -2227,6 +2232,9 @@ function EvaluacionConfigEditor({
         updateQuiz(quiz.id, { fullscreenOnStart: next })
       }
       onChangeOcultarPuntos={(next) => updateQuiz(quiz.id, { ocultarPuntos: next })}
+      // WO-9 — wireado del modo de presentación + tamaño de página.
+      onChangeModoPresentacion={(next) => updateQuiz(quiz.id, { modoPresentacion: next })}
+      onChangePreguntasPorPagina={(next) => updateQuiz(quiz.id, { preguntasPorPagina: next })}
     />
   );
 }

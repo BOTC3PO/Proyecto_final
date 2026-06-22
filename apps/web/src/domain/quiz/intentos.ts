@@ -23,6 +23,24 @@ export type PoliticaSorteo = "fijo_por_alumno" | "por_intento";
 
 export const POLITICAS_SORTEO_VALIDAS: PoliticaSorteo[] = ["fijo_por_alumno", "por_intento"];
 
+// WO-9 — Modo de presentación del cuestionario al alumno. Mirror de
+// `api/src/lib/quiz-intentos.ts`. Default `lista` (preserva el
+// comportamiento previo a WO-9).
+export type ModoPresentacion = "lista" | "una_por_pantalla" | "paginado";
+
+export const MODOS_PRESENTACION_VALIDOS: ModoPresentacion[] = [
+  "lista",
+  "una_por_pantalla",
+  "paginado",
+];
+
+/** WO-9 — tamaño de página por defecto cuando `modoPresentacion === "paginado"`. */
+export const PREGUNTAS_POR_PAGINA_DEFAULT = 5;
+
+/** WO-9 — modo de presentación por defecto. Usado cuando el campo no está
+ *  persistido (preserva el comportamiento previo a WO-9). */
+export const MODO_PRESENTACION_DEFAULT: ModoPresentacion = "lista";
+
 export type IntentoPolicy = {
   /** `null` = ilimitado. Entero ≥ 1 = tope. 0 = ilimitado (alias de null). */
   maxIntentos: number | null;
@@ -69,6 +87,10 @@ export type EvaluacionConfig = {
   /** WO-3 — política de sorteo de variantes. Default `fijo_por_alumno`. */
   politicaSorteo: PoliticaSorteo;
   ocultarPuntos: boolean;
+  /** WO-9 — modo de presentación del cuestionario al alumno. Default `lista`. */
+  modoPresentacion: ModoPresentacion;
+  /** WO-9 — tamaño de página cuando `modoPresentacion === "paginado"`. */
+  preguntasPorPagina: number;
 };
 
 export type EvaluacionConfigInput = Partial<{
@@ -78,6 +100,8 @@ export type EvaluacionConfigInput = Partial<{
   politicaNota: string | null;
   politicaSorteo: string | null;
   ocultarPuntos: boolean;
+  modoPresentacion: string | null;
+  preguntasPorPagina: number | null;
 }>;
 
 export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
@@ -87,7 +111,11 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     maxIntentos: null,
     politicaNota: "mejor",
     politicaSorteo: "fijo_por_alumno",
-    ocultarPuntos: false
+    ocultarPuntos: false,
+    // WO-9 — defaults de modo de presentación. Preservan el
+    // comportamiento previo a WO-9 (lista, todo en una pantalla).
+    modoPresentacion: "lista",
+    preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT
   },
   formal: {
     timerSegundos: null, // default conservador — el docente activa explícitamente
@@ -95,7 +123,9 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     maxIntentos: 3,
     politicaNota: "ultima",
     politicaSorteo: "fijo_por_alumno",
-    ocultarPuntos: false
+    ocultarPuntos: false,
+    modoPresentacion: "lista",
+    preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT
   },
   competencia: {
     timerSegundos: 600, // 10 min — preserva el hardcode de QuizAttempt.tsx pre-F4-04
@@ -103,7 +133,9 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     maxIntentos: null,
     politicaNota: "mejor",
     politicaSorteo: "fijo_por_alumno",
-    ocultarPuntos: false
+    ocultarPuntos: false,
+    modoPresentacion: "lista",
+    preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT
   }
 };
 
@@ -141,6 +173,30 @@ function coerceOcultarPuntos(raw: unknown, fallback: boolean): boolean {
   if (typeof raw === "boolean") return raw;
   if (raw === "true" || raw === 1 || raw === "1") return true;
   if (raw === "false" || raw === 0 || raw === "0") return false;
+  return fallback;
+}
+
+function coerceModoPresentacion(raw: unknown, fallback: ModoPresentacion): ModoPresentacion {
+  if (
+    typeof raw === "string" &&
+    (MODOS_PRESENTACION_VALIDOS as string[]).includes(raw)
+  ) {
+    return raw as ModoPresentacion;
+  }
+  return fallback;
+}
+
+function coercePreguntasPorPagina(raw: unknown, fallback: number): number {
+  if (typeof raw === "number" && Number.isFinite(raw) && raw >= 1) {
+    return Math.floor(raw);
+  }
+  if (typeof raw === "string") {
+    const trimmed = raw.trim();
+    if (trimmed) {
+      const n = Number(trimmed);
+      if (Number.isFinite(n) && n >= 1) return Math.floor(n);
+    }
+  }
   return fallback;
 }
 
@@ -394,7 +450,15 @@ export function parseEvaluacionConfig(
         : coerceMaxIntentos(maxIntentosRaw), // igual: null es válido (ilimitado).
     politicaNota: coercePoliticaNota(parsed.politicaNota, defaults.politicaNota),
     politicaSorteo: coercePoliticaSorteo(parsed.politicaSorteo, defaults.politicaSorteo),
-    ocultarPuntos: coerceOcultarPuntos(parsed.ocultarPuntos, defaults.ocultarPuntos)
+    ocultarPuntos: coerceOcultarPuntos(parsed.ocultarPuntos, defaults.ocultarPuntos),
+    // WO-9 — modo de presentación + tamaño de página. Ausente o
+    // inválido cae al default (`lista` / 5), preservando el
+    // comportamiento previo a WO-9.
+    modoPresentacion: coerceModoPresentacion(parsed.modoPresentacion, defaults.modoPresentacion),
+    preguntasPorPagina: coercePreguntasPorPagina(
+      parsed.preguntasPorPagina,
+      defaults.preguntasPorPagina
+    )
   };
 }
 
@@ -410,7 +474,10 @@ export function serializeEvaluacionConfig(config: EvaluacionConfig): Record<stri
     maxIntentos: config.maxIntentos ?? null,
     politicaNota: config.politicaNota,
     politicaSorteo: config.politicaSorteo,
-    ocultarPuntos: config.ocultarPuntos
+    ocultarPuntos: config.ocultarPuntos,
+    // WO-9 — modo de presentación + tamaño de página.
+    modoPresentacion: config.modoPresentacion,
+    preguntasPorPagina: config.preguntasPorPagina
   };
 }
 

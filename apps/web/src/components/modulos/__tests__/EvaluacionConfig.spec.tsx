@@ -230,3 +230,86 @@ describe("EvaluacionConfig — F4-04 sin callbacks (read-only)", () => {
     expect(screen.getByTestId("config-ocultar-puntos-checkbox")).toBeDisabled();
   });
 });
+
+describe("EvaluacionConfig — WO-9 modo de presentación", () => {
+  it("muestra el selector de modoPresentacion en cualquier tipo", () => {
+    // Se renderiza para TODOS los tipos (la decisión es del docente).
+    for (const tipo of ["practica", "formal", "competencia"] as const) {
+      const config = parseEvaluacionConfig(null, tipo);
+      const { unmount } = render(<EvaluacionConfig tipo={tipo} config={config} />);
+      expect(screen.getByTestId("config-modo-presentacion")).toBeInTheDocument();
+      unmount();
+    }
+  });
+
+  it("default del modoPresentacion es 'lista' (preserva comportamiento previo a WO-9)", () => {
+    for (const tipo of ["practica", "formal", "competencia"] as const) {
+      const config = parseEvaluacionConfig(null, tipo);
+      const { unmount } = render(<EvaluacionConfig tipo={tipo} config={config} />);
+      const select = screen.getByTestId("config-modo-presentacion-select") as HTMLSelectElement;
+      expect(select.value).toBe("lista");
+      unmount();
+    }
+  });
+
+  it("el input de preguntasPorPagina SÓLO aparece cuando modoPresentacion === 'paginado'", () => {
+    // Default: 'lista' → no se muestra el input.
+    const cfgLista = parseEvaluacionConfig(null, "practica");
+    const { unmount: u1 } = render(<EvaluacionConfig tipo="practica" config={cfgLista} />);
+    expect(screen.queryByTestId("config-preguntas-por-pagina")).not.toBeInTheDocument();
+    u1();
+
+    // 'paginado' → se muestra.
+    const cfgPag = parseEvaluacionConfig(
+      JSON.stringify({ modoPresentacion: "paginado" }),
+      "practica",
+    );
+    render(<EvaluacionConfig tipo="practica" config={cfgPag} />);
+    expect(screen.getByTestId("config-preguntas-por-pagina")).toBeInTheDocument();
+    expect(screen.getByTestId("config-preguntas-por-pagina-input")).toBeInTheDocument();
+  });
+
+  it("onChangeModoPresentacion se dispara al cambiar el select", () => {
+    const onChange = vi.fn();
+    const config = parseEvaluacionConfig(null, "practica");
+    render(
+      <EvaluacionConfig
+        tipo="practica"
+        config={config}
+        onChangeModoPresentacion={onChange}
+      />,
+    );
+    const select = screen.getByTestId("config-modo-presentacion-select") as HTMLSelectElement;
+    fireEvent.change(select, { target: { value: "una_por_pantalla" } });
+    expect(onChange).toHaveBeenCalledWith("una_por_pantalla");
+  });
+
+  it("onChangePreguntasPorPagina se dispara con enteros ≥ 1", () => {
+    const onChange = vi.fn();
+    const config = parseEvaluacionConfig(
+      JSON.stringify({ modoPresentacion: "paginado" }),
+      "practica",
+    );
+    render(
+      <EvaluacionConfig
+        tipo="practica"
+        config={config}
+        onChangePreguntasPorPagina={onChange}
+      />,
+    );
+    const input = screen.getByTestId("config-preguntas-por-pagina-input") as HTMLInputElement;
+    fireEvent.change(input, { target: { value: "7" } });
+    expect(onChange).toHaveBeenCalledWith(7);
+  });
+
+  it("el input de tamaño de página es read-only sin callback", () => {
+    const config = parseEvaluacionConfig(
+      JSON.stringify({ modoPresentacion: "paginado" }),
+      "practica",
+    );
+    render(<EvaluacionConfig tipo="practica" config={config} />);
+    const input = screen.getByTestId("config-preguntas-por-pagina-input") as HTMLInputElement;
+    expect(input.disabled).toBe(true);
+  });
+});
+

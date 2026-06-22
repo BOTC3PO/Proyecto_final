@@ -25,11 +25,14 @@
 import { useId } from "react";
 import {
   DEFAULT_EVALUACION_CONFIG,
+  MODOS_PRESENTACION_VALIDOS,
   POLITICAS_SORTEO_VALIDAS,
   POLITICAS_VALIDAS,
+  PREGUNTAS_POR_PAGINA_DEFAULT,
   TIMER_SEGUNDOS_MAX,
   TIMER_SEGUNDOS_MIN,
   type EvaluacionConfig,
+  type ModoPresentacion,
   type PoliticaNota,
   type PoliticaSorteo,
   type QuizTipo
@@ -48,6 +51,10 @@ interface Props {
   onChangePoliticaSorteo?: (next: PoliticaSorteo) => void;
   onChangeFullscreenOnStart?: (next: boolean) => void;
   onChangeOcultarPuntos?: (next: boolean) => void;
+  /** WO-9 — modo de presentación del cuestionario al alumno. */
+  onChangeModoPresentacion?: (next: ModoPresentacion) => void;
+  /** WO-9 — tamaño de página cuando `modoPresentacion === "paginado"`. */
+  onChangePreguntasPorPagina?: (next: number) => void;
   /** Variante visual. Default: "panel" (con fieldset). "compact" = menos padding. */
   variant?: "panel" | "compact";
 }
@@ -55,6 +62,18 @@ interface Props {
 const POLITICA_SORTEO_LABEL: Record<PoliticaSorteo, string> = {
   fijo_por_alumno: "Fija por alumno (no cambia entre intentos)",
   por_intento: "Re-sortear en cada intento"
+};
+
+const MODO_PRESENTACION_LABEL: Record<ModoPresentacion, string> = {
+  lista: "Lista (todo en una pantalla)",
+  una_por_pantalla: "Una pregunta por pantalla (slide)",
+  paginado: "Paginado (N preguntas por página)"
+};
+
+const MODO_PRESENTACION_HINT: Record<ModoPresentacion, string> = {
+  lista: "Igual al comportamiento histórico. Recomendado para pocas preguntas.",
+  una_por_pantalla: "Navegación tipo diapositiva. Cómodo en teléfono.",
+  paginado: "Dividido en páginas. Útil para cuestionarios largos."
 };
 
 function formatTimer(minutes: number): string {
@@ -73,6 +92,8 @@ export default function EvaluacionConfig({
   onChangePoliticaSorteo,
   onChangeFullscreenOnStart,
   onChangeOcultarPuntos,
+  onChangeModoPresentacion,
+  onChangePreguntasPorPagina,
   variant = "panel"
 }: Props) {
   const fieldsetClass =
@@ -93,6 +114,9 @@ export default function EvaluacionConfig({
   const politicaSorteoId = `${baseId}-politica-sorteo`;
   const fullscreenId = `${baseId}-fullscreen`;
   const ocultarPuntosId = `${baseId}-ocultar-puntos`;
+  // WO-9 — ids de los inputs de modo de presentación.
+  const modoPresentacionId = `${baseId}-modo-presentacion`;
+  const preguntasPorPaginaId = `${baseId}-preguntas-por-pagina`;
 
   // Minutos para el input (el timer se guarda en segundos).
   const timerMinutos = config.timerSegundos === null ? null : Math.round(config.timerSegundos / 60);
@@ -299,6 +323,65 @@ export default function EvaluacionConfig({
         <label htmlFor={ocultarPuntosId} className="text-sm">
           Ocultar el puntaje crudo al alumno (sólo se muestra la nota)
         </label>
+      </div>
+
+      {/* WO-9 — modo de presentación del cuestionario al alumno. Se renderiza
+          para todos los tipos (practica / formal / competencia): la decisión
+          es del docente, no del tipo. El default es `lista` (preserva el
+          comportamiento previo a WO-9). */}
+      <div className="space-y-1.5" data-testid="config-modo-presentacion">
+        <label htmlFor={modoPresentacionId} className="text-sm">
+          Modo de presentación
+        </label>
+        <select
+          id={modoPresentacionId}
+          data-testid="config-modo-presentacion-select"
+          disabled={!onChangeModoPresentacion}
+          value={config.modoPresentacion}
+          onChange={(e) => onChangeModoPresentacion?.(e.target.value as ModoPresentacion)}
+          className="rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-1 text-sm"
+        >
+          {MODOS_PRESENTACION_VALIDOS.map((m) => (
+            <option key={m} value={m}>
+              {MODO_PRESENTACION_LABEL[m]}
+            </option>
+          ))}
+        </select>
+        <p className="text-xs text-[var(--c-hint)]">
+          {MODO_PRESENTACION_HINT[config.modoPresentacion]}
+        </p>
+        {config.modoPresentacion === "paginado" && (
+          <div
+            className="flex flex-wrap items-end gap-2 pl-1 pt-1"
+            data-testid="config-preguntas-por-pagina"
+          >
+            <label htmlFor={preguntasPorPaginaId} className="text-xs">
+              Preguntas por página
+            </label>
+            <input
+              id={preguntasPorPaginaId}
+              type="number"
+              min={1}
+              max={50}
+              step={1}
+              disabled={!onChangePreguntasPorPagina}
+              value={config.preguntasPorPagina}
+              onChange={(e) => {
+                const raw = e.target.value;
+                if (raw === "") return;
+                const n = Number(raw);
+                if (Number.isFinite(n) && n >= 1) {
+                  onChangePreguntasPorPagina?.(Math.floor(n));
+                }
+              }}
+              className="w-20 rounded border border-[var(--c-border)] bg-[var(--c-surface-1)] px-1.5 py-0.5 text-right text-sm tabular-nums"
+              data-testid="config-preguntas-por-pagina-input"
+            />
+            <span className="text-xs text-[var(--c-hint)]">
+              (default: {PREGUNTAS_POR_PAGINA_DEFAULT})
+            </span>
+          </div>
+        )}
       </div>
     </fieldset>
   );

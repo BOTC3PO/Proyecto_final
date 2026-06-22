@@ -20,6 +20,17 @@ export type ModuleQuizStatus = "draft" | "published" | "archived";
 export type ModuleQuizMode = "manual" | "generated";
 export type ModuleQuizSeedPolicy = "perAttempt" | "fixed";
 
+// WO-9 — Modo de presentación del cuestionario al alumno. Re-exportado
+// desde el módulo de intentos (single source of truth) para evitar
+// definiciones duplicadas que TS trataría como tipos distintos.
+export {
+  type ModoPresentacion,
+  MODOS_PRESENTACION_VALIDOS as MODOS_PRESENTACION,
+  MODO_PRESENTACION_DEFAULT,
+  PREGUNTAS_POR_PAGINA_DEFAULT,
+} from "../quiz/intentos";
+import type { ModoPresentacion } from "../quiz/intentos";
+
 export type ModuleQuiz = {
   id: string;
   title: string;
@@ -61,6 +72,19 @@ export type ModuleQuiz = {
   /** `null` = sin timer. Entero ≥ 1 = segundos. */
   timerSegundos?: number | null;
   fullscreenOnStart?: boolean;
+  /**
+   * WO-9 — Modo de presentación del cuestionario al alumno.
+   * Default `lista` (preserva comportamiento previo a WO-9). Sólo
+   * se respeta en la vista del alumno (QuizAttempt). Persistido en
+   * `QuizVersion.settings.modoPresentacion`.
+   */
+  modoPresentacion?: ModoPresentacion;
+  /**
+   * WO-9 — Tamaño de página cuando `modoPresentacion === "paginado"`.
+   * Default 5 si está ausente. Persistido en
+   * `QuizVersion.settings.preguntasPorPagina`.
+   */
+  preguntasPorPagina?: number;
   /**
    * Composición a nivel quiz (pool, selección, variantes, peso por defecto).
    * Se persiste en `QuizVersion.settings.composition`. NO es parte del DSL.

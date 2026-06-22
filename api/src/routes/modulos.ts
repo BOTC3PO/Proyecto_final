@@ -355,6 +355,11 @@ modulos.get("/api/modulos/:id", requireUser, async (req, res) => {
           posiciones: (settings as any).posiciones ?? undefined,
           timerSegundos: (settings as any).timerSegundos ?? null,
           fullscreenOnStart: (settings as any).fullscreenOnStart === true,
+          // WO-9 — modo de presentación + tamaño de página. `undefined` si
+          // están ausentes para que el front aplique el default del tipo
+          // vía `parseEvaluacionConfig`.
+          modoPresentacion: (settings as any).modoPresentacion ?? undefined,
+          preguntasPorPagina: (settings as any).preguntasPorPagina ?? undefined,
         };
       })
       // WO-3 (bug de visibilidad) — un alumno (no dueño ni staff) NO debe ver
@@ -652,7 +657,10 @@ modulos.post("/api/modulos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async
               // WO-2 / F4-03 — cuestionario por posiciones (crudo).
               posiciones: quiz.posiciones,
               timerSegundos: quiz.timerSegundos === undefined ? null : quiz.timerSegundos,
-              fullscreenOnStart: quiz.fullscreenOnStart === true
+              fullscreenOnStart: quiz.fullscreenOnStart === true,
+              // WO-9 — modo de presentación + tamaño de página.
+              modoPresentacion: quiz.modoPresentacion,
+              preguntasPorPagina: quiz.preguntasPorPagina
             }),
             createdAt: parsed.createdAt,
             createdBy: parsed.createdBy,
@@ -773,6 +781,9 @@ async function applyModuleUpdate(
         timerSegundos: q.timerSegundos === undefined ? null : q.timerSegundos,
         // F4-04 — activar pantalla completa al iniciar el intento.
         fullscreenOnStart: q.fullscreenOnStart === true,
+        // WO-9 — modo de presentación + tamaño de página.
+        modoPresentacion: q.modoPresentacion,
+        preguntasPorPagina: q.preguntasPorPagina,
       };
       const seedPolicyInt = q.seedPolicy ? parseInt(String(q.seedPolicy), 10) : 0;
 
