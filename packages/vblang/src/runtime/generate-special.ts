@@ -128,25 +128,28 @@ export function generateMarcarMapa(
       "tipo `marcar_mapa` requiere `mapa:` con el identificador del mapa",
     );
   }
-  if (!compiled.respuestaIso) {
+  if (!compiled.respuestaIso && !compiled.respuestaNombre) {
     throw new EvalError(
-      "tipo `marcar_mapa` requiere `respuesta_iso:` con el código ISO correcto",
+      "tipo `marcar_mapa` requiere `respuesta_iso:` o `respuesta_nombre:` con la clave de respuesta",
     );
   }
 
-  const isoRaw = evaluateExpr(compiled.respuestaIso, scope, ctx);
-  if (typeof isoRaw !== "string") {
-    throw new EvalError(
-      `respuesta_iso debe evaluar a string, recibió ${typeof isoRaw}`,
-      compiled.respuestaIso.loc,
-    );
-  }
-  const respuestaIso = isoRaw.trim();
-  if (respuestaIso.length === 0) {
-    throw new EvalError(
-      "respuesta_iso evaluó a string vacío",
-      compiled.respuestaIso.loc,
-    );
+  let respuestaIso: string | undefined;
+  if (compiled.respuestaIso) {
+    const isoRaw = evaluateExpr(compiled.respuestaIso, scope, ctx);
+    if (typeof isoRaw !== "string") {
+      throw new EvalError(
+        `respuesta_iso debe evaluar a string, recibió ${typeof isoRaw}`,
+        compiled.respuestaIso.loc,
+      );
+    }
+    respuestaIso = isoRaw.trim();
+    if (respuestaIso.length === 0) {
+      throw new EvalError(
+        "respuesta_iso evaluó a string vacío",
+        compiled.respuestaIso.loc,
+      );
+    }
   }
 
   let respuestaNombre: string | undefined;
@@ -166,6 +169,15 @@ export function generateMarcarMapa(
     }
   }
 
+  const modoRespuesta: "iso" | "nombre" = respuestaIso ? "iso" : "nombre";
+
+  if (modoRespuesta === "nombre" && !respuestaNombre) {
+    throw new EvalError(
+      "respuesta_nombre evaluó a null/vacío pero es la única clave de respuesta",
+      compiled.respuestaNombre?.loc,
+    );
+  }
+
   const result: GenerationResult = {
     tipo: "marcar_mapa",
     enunciado,
@@ -176,9 +188,11 @@ export function generateMarcarMapa(
     seed,
     intentos: intento,
     mapaId: compiled.mapa,
-    respuestaIso,
+    modoRespuesta,
   };
+  if (respuestaIso !== undefined) result.respuestaIso = respuestaIso;
   if (respuestaNombre !== undefined) result.respuestaNombre = respuestaNombre;
+  if (compiled.encuadre) result.encuadre = compiled.encuadre;
   return result;
 }
 

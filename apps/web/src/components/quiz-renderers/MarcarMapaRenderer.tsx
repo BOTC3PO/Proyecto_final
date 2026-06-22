@@ -12,14 +12,14 @@
  * Estados visuales por feature:
  *   - default      → gris claro, hover azul claro.
  *   - selected     → borde azul grueso + fill azul claro.
- *   - post-submit + correctIso === key          → verde.
+ *   - post-submit + correctKey === key           → verde.
  *   - post-submit + key === selected !== correct → rojo.
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
 import { topologyToFeatures } from "../../lib/maps/topojson-lite";
 import type { CountryFeature, TopologyLike } from "../../lib/maps/topojson-lite";
-import { createMercatorPathGenerator } from "../../lib/maps/svg-geo-lite";
+import { createMercatorPathGenerator, createProjector } from "../../lib/maps/svg-geo-lite";
 import { useViewBoxZoom } from "../../lib/maps/useViewBoxZoom";
 
 const PAN_THRESHOLD_PX = 4;
@@ -30,11 +30,15 @@ const MAP_HEIGHT = 520;
 interface MarcarMapaRendererProps {
   mapaId: string;
   onSelect?: (key: string) => void;
-  selectedIso?: string;
-  correctIso?: string;
+  selectedKey?: string;
+  correctKey?: string;
   disabled?: boolean;
   /** WO-5: código ISO del país (2 letras) para cargar provincias. */
   paisIso?: string;
+  /** Modo de respuesta: "iso" compara por código ISO (default), "nombre" por name_es. */
+  modoRespuesta?: "iso" | "nombre";
+  /** Bounding box fijo [oeste, sur, este, norte] para lock de vista. */
+  encuadre?: [number, number, number, number];
 }
 
 type MapMode = "countries" | "provinces";
@@ -56,7 +60,9 @@ function resolveMapConfig(mapaId: string, paisIso?: string): { mode: MapMode; ur
   }
 }
 
-function featureKey(feature: CountryFeature, mode: MapMode): string | null {
+type AnswerMode = "iso" | "nombre";
+
+function featureIsoKey(feature: CountryFeature, mode: MapMode): string | null {
   const p = feature.properties as Record<string, unknown> | undefined;
   if (mode === "provinces") {
     const iso = p?.iso_3166_2;
@@ -64,6 +70,24 @@ function featureKey(feature: CountryFeature, mode: MapMode): string | null {
   }
   const iso = p?.ISO_A3 ?? p?.ADM0_A3 ?? p?.SOV_A3;
   return typeof iso === "string" && iso.length === 3 && iso !== "-99" ? iso : null;
+}
+
+function featureAnswerKey(feature: CountryFeature, mode: MapMode, answerMode: AnswerMode): string | null {
+  if (answerMode === "nombre") {
+    const p = feature.properties as Record<string, unknown> | undefined;
+    const n = mode === "provinces"
+      ? (p?.name_es ?? p?.name)
+      : (p?.NAME_ES ?? p?.NAME ?? p?.ADMIN);
+    return typeof n === "string" && n.length > 0 ? n : null;
+  }
+  return featureIsoKey(feature, mode);
+}
+
+function keysMatch(a: string, b: string, answerMode: AnswerMode): boolean {
+  if (answerMode === "nombre") {
+    return normalizeMapName(a) === normalizeMapName(b);
+  }
+  return a === b;
 }
 
 function featureName(feature: CountryFeature, mode: MapMode): string {
@@ -76,13 +100,23 @@ function featureName(feature: CountryFeature, mode: MapMode): string {
   return typeof n === "string" ? n : "(sin nombre)";
 }
 
+function normalizeMapName(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .trim()
+    .toLowerCase();
+}
+
 export default function MarcarMapaRenderer({
   mapaId,
   onSelect,
-  selectedIso,
-  correctIso,
+  selectedKey,
+  correctKey,
   disabled = false,
   paisIso,
+  modoRespuesta = "iso",
+  encuadre,
 }: MarcarMapaRendererProps) {
   const [features, setFeatures] = useState<CountryFeature[]>([]);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
@@ -92,10 +126,11 @@ export default function MarcarMapaRenderer({
   const wasPan = useRef(false);
 
   const { mode, url } = useMemo(() => resolveMapConfig(mapaId, paisIso), [mapaId, paisIso]);
-  const isLocked = mode === "provinces";
+  const isLocked = mode === "provinces" || !!encuadre;
 
   const {
     viewBox,
+    setViewBox,
     handlePointerDown: hookPanDown,
     handlePointerMove: hookPanMove,
     handlePointerUp: hookPanUp,
@@ -166,6 +201,20 @@ export default function MarcarMapaRenderer({
     [features],
   );
 
+  useEffect(() => {
+    if (!encuadre || features.length === 0) return;
+    const proj = createProjector(features, MAP_WIDTH, MAP_HEIGHT);
+    const [west, south, east, north] = encuadre;
+    const [x1, y1] = proj(west, north);
+    const [x2, y2] = proj(east, south);
+    const pad = 10;
+    const x = Math.max(0, Math.min(x1, x2) - pad);
+    const y = Math.max(0, Math.min(y1, y2) - pad);
+    const w = Math.min(MAP_WIDTH, Math.abs(x2 - x1) + pad * 2);
+    const h = Math.min(MAP_HEIGHT, Math.abs(y2 - y1) + pad * 2);
+    setViewBox({ x, y, w, h });
+  }, [encuadre, features, setViewBox]);
+
   if (!url) {
     return (
       <div
@@ -225,12 +274,13 @@ export default function MarcarMapaRenderer({
         <rect width={MAP_WIDTH} height={MAP_HEIGHT} fill="#e8eef7" />
         {pathGenerator &&
           features.map((feature, idx) => {
-            const key = featureKey(feature, mode);
+            const key = featureAnswerKey(feature, mode, modoRespuesta);
+            const stableKey = featureIsoKey(feature, mode) ?? key;
             const name = featureName(feature, mode);
-            const isHovered = hovered === key;
-            const isSelected = !!selectedIso && key === selectedIso;
-            const isCorrect = !!correctIso && key === correctIso;
-            const isWrong = isSelected && !!correctIso && key !== correctIso;
+            const isHovered = hovered === stableKey;
+            const isSelected = !!selectedKey && !!key && keysMatch(key, selectedKey, modoRespuesta);
+            const isCorrect = !!correctKey && !!key && keysMatch(key, correctKey, modoRespuesta);
+            const isWrong = isSelected && !!correctKey && !!key && !keysMatch(key, correctKey, modoRespuesta);
 
             let fill = "#d1d5db";
             let stroke = "#475569";
@@ -255,15 +305,15 @@ export default function MarcarMapaRenderer({
 
             return (
               <path
-                key={key ?? idx}
+                key={stableKey ?? idx}
                 d={pathGenerator(feature)}
                 fill={fill}
                 stroke={stroke}
                 strokeWidth={strokeWidth}
                 vectorEffect="non-scaling-stroke"
-                data-iso={key ?? ""}
-                data-testid={key ? `marcar-mapa-feature-${key}` : undefined}
-                onMouseEnter={() => setHovered(key)}
+                data-iso={stableKey ?? ""}
+                data-testid={stableKey ? `marcar-mapa-feature-${stableKey}` : undefined}
+                onMouseEnter={() => setHovered(stableKey)}
                 onMouseLeave={() => setHovered(null)}
                 onClick={() => {
                   if (disabled || !key) return;
@@ -276,7 +326,7 @@ export default function MarcarMapaRenderer({
               >
                 <title>
                   {name}
-                  {key ? ` (${key})` : ""}
+                  {stableKey ? ` (${stableKey})` : ""}
                 </title>
               </path>
             );
@@ -294,8 +344,8 @@ export default function MarcarMapaRenderer({
             fontWeight="600"
             pointerEvents="none"
           >
-            {features.find((f) => featureKey(f, mode) === hovered)
-              ? featureName(features.find((f) => featureKey(f, mode) === hovered)!, mode)
+            {features.find((f) => (featureIsoKey(f, mode) ?? featureAnswerKey(f, mode, modoRespuesta)) === hovered)
+              ? featureName(features.find((f) => (featureIsoKey(f, mode) ?? featureAnswerKey(f, mode, modoRespuesta)) === hovered)!, mode)
               : hovered}
           </text>
         )}

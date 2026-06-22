@@ -866,15 +866,19 @@ export default function QuizAttempt() {
                     ) : questionType === "marcar_mapa" ? (
                       <MarcarMapaRenderer
                         mapaId={question.mapaId ?? ""}
-                        selectedIso={typeof selected === "string" ? selected : undefined}
-                        correctIso={
+                        selectedKey={typeof selected === "string" ? selected : undefined}
+                        correctKey={
                           submitStatus === "submitted"
-                            ? question.respuestaIsoCorrecta
+                            ? (question.modoRespuestaMapa === "nombre"
+                                ? question.respuestaNombreCorrecta
+                                : question.respuestaIsoCorrecta)
                             : undefined
                         }
-                        onSelect={(iso) => handleAnswerChange(question.id, iso)}
+                        onSelect={(key) => handleAnswerChange(question.id, key)}
                         disabled={inputsDisabled}
                         paisIso={question.paisIso}
+                        modoRespuesta={question.modoRespuestaMapa ?? "iso"}
+                        encuadre={question.encuadre}
                       />
                     ) : questionType === "analisis_sintactico" ? (
                       <AnalisisSintacticoRenderer

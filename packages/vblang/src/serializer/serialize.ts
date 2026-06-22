@@ -383,8 +383,10 @@ function emitBloque(b: Bloque): string {
       return `generador: ${b.id}`;
     case "dataset":
       return `dataset: ${b.nombre}`;
-    case "mapa":
-      return `mapa: ${b.nombre}`;
+    case "mapa": {
+      const enc = b.encuadre ? ` encuadre [${b.encuadre.join(", ")}]` : "";
+      return `mapa: ${b.nombre}${enc}`;
+    }
     case "etiquetas_pedidas": {
       if (b.etiquetas.length === 0) return "etiquetas_pedidas:";
       const body = b.etiquetas

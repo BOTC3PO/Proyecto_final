@@ -63,6 +63,7 @@ export interface CompiledPlantilla {
   textoAnalizar?: Expr;
   etiquetasPedidas?: EtiquetaPedida[];
   mapa?: string;
+  encuadre?: [number, number, number, number];
   dataset?: string;
   visual?: CampoKV[];
   /** WO07 — modo de corrección de una pregunta `abierta`. */
@@ -139,6 +140,10 @@ export interface GenerationResult {
   ordenCorrecto?: string[];
   /** marcar_mapa: identificador del mapa a cargar. */
   mapaId?: string;
+  /** marcar_mapa: bounding box fijo [oeste, sur, este, norte]. */
+  encuadre?: [number, number, number, number];
+  /** marcar_mapa: modo de respuesta — "iso" compara por código ISO, "nombre" por name_es. */
+  modoRespuesta?: "iso" | "nombre";
   /** marcar_mapa: código ISO correcto (ISO 3166-1 alpha-3). */
   respuestaIso?: string;
   /** marcar_mapa: nombre humano-legible del país correcto, opcional. */

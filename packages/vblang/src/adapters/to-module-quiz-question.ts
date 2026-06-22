@@ -137,18 +137,44 @@ export function toModuleQuizQuestion(
     result.items = gen.items;
     result.answerKey = gen.ordenCorrecto;
   } else if (gen.tipo === "marcar_mapa") {
-    if (!gen.mapaId || !gen.respuestaIso) {
+    const modo = gen.modoRespuesta ?? "iso";
+    if (!gen.mapaId) {
       throw new AdapterError(
-        "marcar_mapa requiere `mapaId` y `respuestaIso` en GenerationResult",
+        "marcar_mapa requiere `mapaId` en GenerationResult",
+        "respuesta-inconsistente",
+      );
+    }
+    if (modo === "iso" && !gen.respuestaIso) {
+      throw new AdapterError(
+        "marcar_mapa modo iso requiere `respuestaIso` en GenerationResult",
+        "respuesta-inconsistente",
+      );
+    }
+    if (modo === "nombre" && !gen.respuestaNombre) {
+      throw new AdapterError(
+        "marcar_mapa modo nombre requiere `respuestaNombre` en GenerationResult",
         "respuesta-inconsistente",
       );
     }
     result.mapaId = gen.mapaId;
-    result.respuestaIsoCorrecta = gen.respuestaIso;
-    result.answerKey = gen.respuestaIso;
-    if (gen.mapaId === "world_states_provinces" && gen.respuestaIso.includes("-")) {
-      result.paisIso = gen.respuestaIso.substring(0, 2);
+    result.modoRespuestaMapa = modo;
+    if (modo === "iso") {
+      result.respuestaIsoCorrecta = gen.respuestaIso;
+      result.answerKey = gen.respuestaIso;
+      if (gen.mapaId === "world_states_provinces" && gen.respuestaIso!.includes("-")) {
+        result.paisIso = gen.respuestaIso!.substring(0, 2);
+      }
+    } else {
+      result.respuestaNombreCorrecta = gen.respuestaNombre;
+      result.answerKey = gen.respuestaNombre;
+      if (gen.respuestaIso) {
+        result.respuestaIsoCorrecta = gen.respuestaIso;
+        if (gen.mapaId === "world_states_provinces" && gen.respuestaIso.includes("-")) {
+          result.paisIso = gen.respuestaIso.substring(0, 2);
+        }
+      }
     }
+    if (gen.encuadre) result.encuadre = gen.encuadre;
   } else if (gen.tipo === "analisis_sintactico") {
     if (!gen.textoAnalizar || !gen.etiquetasPedidas) {
       throw new AdapterError(

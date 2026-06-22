@@ -301,10 +301,12 @@ function ManualQuestionPreview({
       ) : qt === "marcar_mapa" ? (
         <MarcarMapaRenderer
           mapaId={question.mapaId ?? ""}
-          selectedIso={typeof answer === "string" ? answer : undefined}
-          onSelect={(iso) => setAnswer(iso)}
+          selectedKey={typeof answer === "string" ? answer : undefined}
+          onSelect={(key) => setAnswer(key)}
           disabled={verified !== null}
           paisIso={question.paisIso}
+          modoRespuesta={question.modoRespuestaMapa ?? "iso"}
+          encuadre={question.encuadre}
         />
       ) : qt === "analisis_sintactico" ? (
         <AnalisisSintacticoRenderer

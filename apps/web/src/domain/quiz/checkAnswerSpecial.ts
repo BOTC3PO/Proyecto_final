@@ -35,14 +35,26 @@ export function checkOrdenar(
   return correcta.every((v, i) => v === userArr[i]);
 }
 
+function normalizeMapName(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .trim()
+    .toLowerCase();
+}
+
 export function checkMarcarMapa(
   question: ModuleQuizQuestion,
   userAnswer: unknown,
 ): boolean {
-  return (
-    typeof userAnswer === "string" &&
-    question.respuestaIsoCorrecta === userAnswer
-  );
+  if (typeof userAnswer !== "string") return false;
+  const modo = question.modoRespuestaMapa ?? "iso";
+  if (modo === "nombre") {
+    const correcta = question.respuestaNombreCorrecta;
+    if (!correcta) return false;
+    return normalizeMapName(userAnswer) === normalizeMapName(correcta);
+  }
+  return question.respuestaIsoCorrecta === userAnswer;
 }
 
 export function checkAnalisisSintactico(

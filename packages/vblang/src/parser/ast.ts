@@ -305,9 +305,12 @@ export interface DatasetBloque {
   nombre: string;
   loc: Loc;
 }
+export type MapaEncuadre = [number, number, number, number];
+
 export interface MapaBloque {
   kind: "mapa";
   nombre: "world_countries" | "world_states_provinces" | "world_cities";
+  encuadre?: MapaEncuadre;
   loc: Loc;
 }
 export interface RespuestaIsoBloque {
