@@ -94,6 +94,12 @@ export default function QuizPosicionesEditor({
         </p>
       )}
 
+      <p className="text-[11px] text-[var(--c-hint)]">
+        Cada posición genera exactamente una pregunta por intento (el sorteo
+        elige una variante). La cantidad total de preguntas que ve el alumno es
+        igual al número de posiciones.
+      </p>
+
       {/* Gestión de temas (secciones). */}
       <div className="flex flex-wrap items-center gap-2 text-xs">
         <span className="font-medium text-[var(--c-text-2,inherit)]">Temas:</span>
