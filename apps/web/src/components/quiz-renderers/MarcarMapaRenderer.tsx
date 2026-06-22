@@ -1,18 +1,19 @@
 /**
- * MarcarMapaRenderer — renderer del tipo `marcar_mapa` (Sprint 9B).
+ * MarcarMapaRenderer — renderer del tipo `marcar_mapa` (Sprint 9B + WO-5).
  *
- * Reusa el sistema de mapas de MapaStandalone.tsx (TopoJSON cargado vía
- * `/api/maps/...`). Cada feature trae `ISO_A3` en sus properties, que es lo
- * que el adapter del paquete @vb/vblang setea en `respuestaIsoCorrecta`.
+ * Dos modos:
+ *   1. **Países** (`mapaId` = "politico_mundo" / "world" / ...):
+ *      TopoJSON global, keyea por `ISO_A3`, onSelect dispara con ISO A3.
+ *   2. **Provincias** (`mapaId` = "world_states_provinces"):
+ *      TopoJSON por país vía `/api/maps/provincias/:paisIso`,
+ *      keyea por `iso_3166_2`, onSelect dispara con ISO 3166-2.
+ *      Vista bloqueada: pan/zoom OFF, encuadre auto-fitted al país.
  *
- * Estados visuales por país:
+ * Estados visuales por feature:
  *   - default      → gris claro, hover azul claro.
  *   - selected     → borde azul grueso + fill azul claro.
- *   - post-submit + correctIso === iso          → verde.
- *   - post-submit + iso === selected !== correct → rojo.
- *
- * Si `mapaId` no se reconoce el componente muestra un placeholder con
- * mensaje claro (no rompe el quiz).
+ *   - post-submit + correctIso === key          → verde.
+ *   - post-submit + key === selected !== correct → rojo.
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
@@ -21,51 +22,56 @@ import type { CountryFeature, TopologyLike } from "../../lib/maps/topojson-lite"
 import { createMercatorPathGenerator } from "../../lib/maps/svg-geo-lite";
 import { useViewBoxZoom } from "../../lib/maps/useViewBoxZoom";
 
-/** Umbral en píxeles: si el mouse se movió más de esto entre pointerdown y
- *  click, se considera pan y NO se dispara `onSelect`. */
 const PAN_THRESHOLD_PX = 4;
 
 const MAP_WIDTH = 960;
 const MAP_HEIGHT = 520;
 
 interface MarcarMapaRendererProps {
-  /** Identificador lógico del mapa (ej. "politico_mundo"). */
   mapaId: string;
-  /** Disparado cuando el alumno hace click en un país (ISO A3). */
-  onSelect?: (iso: string) => void;
-  /** ISO seleccionado actualmente por el alumno. */
+  onSelect?: (key: string) => void;
   selectedIso?: string;
-  /** ISO correcto (sólo definido post-submit) para pintar verde/rojo. */
   correctIso?: string;
-  /** Bloquea clicks (post-submit). */
   disabled?: boolean;
+  /** WO-5: código ISO del país (2 letras) para cargar provincias. */
+  paisIso?: string;
 }
 
-/**
- * Mapea el `mapaId` lógico al URL del TopoJSON expuesto por la API.
- * Si el id no se reconoce devuelve null y mostramos placeholder.
- */
-function mapaIdToUrl(mapaId: string): string | null {
+type MapMode = "countries" | "provinces";
+
+function resolveMapConfig(mapaId: string, paisIso?: string): { mode: MapMode; url: string | null } {
+  if (mapaId === "world_states_provinces" && paisIso) {
+    return { mode: "provinces", url: `/api/maps/provincias/${paisIso}` };
+  }
   switch (mapaId) {
     case "politico_mundo":
     case "political":
     case "world":
-      return "/api/maps/political/earth/countries_110m.topo.json";
+    case "world_countries":
+      return { mode: "countries", url: "/api/maps/political/earth/countries_110m.topo.json" };
     case "politico_mundo_detallado":
-      return "/api/maps/political/earth/countries_50m.topo.json";
+      return { mode: "countries", url: "/api/maps/political/earth/countries_50m.topo.json" };
     default:
-      return null;
+      return { mode: "countries", url: null };
   }
 }
 
-function isoOf(feature: CountryFeature): string | null {
+function featureKey(feature: CountryFeature, mode: MapMode): string | null {
   const p = feature.properties as Record<string, unknown> | undefined;
+  if (mode === "provinces") {
+    const iso = p?.iso_3166_2;
+    return typeof iso === "string" && iso.length >= 3 ? iso : null;
+  }
   const iso = p?.ISO_A3 ?? p?.ADM0_A3 ?? p?.SOV_A3;
   return typeof iso === "string" && iso.length === 3 && iso !== "-99" ? iso : null;
 }
 
-function nameOf(feature: CountryFeature): string {
+function featureName(feature: CountryFeature, mode: MapMode): string {
   const p = feature.properties as Record<string, unknown> | undefined;
+  if (mode === "provinces") {
+    const n = p?.name_es ?? p?.name ?? "(sin nombre)";
+    return typeof n === "string" ? n : "(sin nombre)";
+  }
   const n = p?.NAME ?? p?.ADMIN ?? "(sin nombre)";
   return typeof n === "string" ? n : "(sin nombre)";
 }
@@ -76,19 +82,18 @@ export default function MarcarMapaRenderer({
   selectedIso,
   correctIso,
   disabled = false,
+  paisIso,
 }: MarcarMapaRendererProps) {
   const [features, setFeatures] = useState<CountryFeature[]>([]);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [hovered, setHovered] = useState<string | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
-  // Punto de partida del pointerdown; si el pointerup se aleja más de
-  // PAN_THRESHOLD_PX, marcamos `wasPan = true` para que el `onClick` del
-  // path no se considere selección de país.
   const downAt = useRef<{ x: number; y: number } | null>(null);
   const wasPan = useRef(false);
 
-  // M7: zoom + pan vía hook compartido. El pan es siempre activo (no hay
-  // herramienta "select" en el renderer del alumno).
+  const { mode, url } = useMemo(() => resolveMapConfig(mapaId, paisIso), [mapaId, paisIso]);
+  const isLocked = mode === "provinces";
+
   const {
     viewBox,
     handlePointerDown: hookPanDown,
@@ -102,11 +107,9 @@ export default function MarcarMapaRenderer({
     height: MAP_HEIGHT,
     minVb: 40,
     svgRef,
-    active: true,
+    active: !isLocked,
   });
 
-  // Wrappers que también registran `downAt` y `wasPan` para distinguir
-  // click de pan.
   const handlePanDown = useCallback(
     (e: PointerEvent<SVGSVGElement>) => {
       downAt.current = { x: e.clientX, y: e.clientY };
@@ -131,8 +134,6 @@ export default function MarcarMapaRenderer({
     [hookPanUp],
   );
   const handlePanMove = hookPanMove;
-
-  const url = useMemo(() => mapaIdToUrl(mapaId), [mapaId]);
 
   useEffect(() => {
     if (!url) {
@@ -171,8 +172,11 @@ export default function MarcarMapaRenderer({
         className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-800"
         data-testid="marcar-mapa-error"
       >
-        Mapa <code className="font-mono">{mapaId}</code> no reconocido. (Mapas
-        disponibles: <code className="font-mono">politico_mundo</code>.)
+        {mapaId === "world_states_provinces" && !paisIso ? (
+          <>Mapa de provincias requiere un código de país (ej. <code className="font-mono">respuesta_iso: &quot;AR-C&quot;</code>).</>
+        ) : (
+          <>Mapa <code className="font-mono">{mapaId}</code> no reconocido. (Mapas disponibles: <code className="font-mono">politico_mundo</code>, <code className="font-mono">world_states_provinces</code>.)</>
+        )}
       </div>
     );
   }
@@ -221,16 +225,16 @@ export default function MarcarMapaRenderer({
         <rect width={MAP_WIDTH} height={MAP_HEIGHT} fill="#e8eef7" />
         {pathGenerator &&
           features.map((feature, idx) => {
-            const iso = isoOf(feature);
-            const name = nameOf(feature);
-            const isHovered = hovered === iso;
-            const isSelected = !!selectedIso && iso === selectedIso;
-            const isCorrect = !!correctIso && iso === correctIso;
-            const isWrong = isSelected && !!correctIso && iso !== correctIso;
+            const key = featureKey(feature, mode);
+            const name = featureName(feature, mode);
+            const isHovered = hovered === key;
+            const isSelected = !!selectedIso && key === selectedIso;
+            const isCorrect = !!correctIso && key === correctIso;
+            const isWrong = isSelected && !!correctIso && key !== correctIso;
 
             let fill = "#d1d5db";
             let stroke = "#475569";
-            let strokeWidth = 0.4;
+            let strokeWidth = mode === "provinces" ? 0.6 : 0.4;
 
             if (isCorrect) {
               fill = "#86efac";
@@ -251,30 +255,28 @@ export default function MarcarMapaRenderer({
 
             return (
               <path
-                key={iso ?? idx}
+                key={key ?? idx}
                 d={pathGenerator(feature)}
                 fill={fill}
                 stroke={stroke}
                 strokeWidth={strokeWidth}
                 vectorEffect="non-scaling-stroke"
-                data-iso={iso ?? ""}
-                data-testid={iso ? `marcar-mapa-country-${iso}` : undefined}
-                onMouseEnter={() => setHovered(iso)}
+                data-iso={key ?? ""}
+                data-testid={key ? `marcar-mapa-feature-${key}` : undefined}
+                onMouseEnter={() => setHovered(key)}
                 onMouseLeave={() => setHovered(null)}
                 onClick={() => {
-                  if (disabled || !iso) return;
-                  // Si veníamos de un pan (umbral >4px), no contamos
-                  // el click como selección de país.
+                  if (disabled || !key) return;
                   if (wasPan.current) {
                     wasPan.current = false;
                     return;
                   }
-                  onSelect?.(iso);
+                  onSelect?.(key);
                 }}
               >
                 <title>
                   {name}
-                  {iso ? ` (${iso})` : ""}
+                  {key ? ` (${key})` : ""}
                 </title>
               </path>
             );
@@ -292,54 +294,58 @@ export default function MarcarMapaRenderer({
             fontWeight="600"
             pointerEvents="none"
           >
-            {features.find((f) => isoOf(f) === hovered) ? nameOf(features.find((f) => isoOf(f) === hovered)!) : hovered}
+            {features.find((f) => featureKey(f, mode) === hovered)
+              ? featureName(features.find((f) => featureKey(f, mode) === hovered)!, mode)
+              : hovered}
           </text>
         )}
       </svg>
 
-      {/* Botones de zoom (M7) — overlay esquina superior derecha. */}
-      <div
-        className="pointer-events-auto absolute right-2 top-2 flex flex-col gap-0.5 rounded-lg border border-slate-200 bg-white shadow-sm"
-        role="group"
-        aria-label="Zoom del mapa"
-        data-testid="marcar-mapa-zoom-controls"
-      >
-        <button
-          type="button"
-          onClick={zoomIn}
-          aria-label="Acercar"
-          title="Acercar (rueda hacia arriba)"
-          className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+      {/* Zoom controls — hidden in locked (province) mode. */}
+      {!isLocked && (
+        <div
+          className="pointer-events-auto absolute right-2 top-2 flex flex-col gap-0.5 rounded-lg border border-slate-200 bg-white shadow-sm"
+          role="group"
+          aria-label="Zoom del mapa"
+          data-testid="marcar-mapa-zoom-controls"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" d="M12 6v12M6 12h12" />
-          </svg>
-        </button>
-        <span className="mx-2 h-px bg-slate-200" aria-hidden="true" />
-        <button
-          type="button"
-          onClick={zoomOut}
-          aria-label="Alejar"
-          title="Alejar (rueda hacia abajo)"
-          className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" d="M6 12h12" />
-          </svg>
-        </button>
-        <span className="mx-2 h-px bg-slate-200" aria-hidden="true" />
-        <button
-          type="button"
-          onClick={resetZoom}
-          aria-label="Restablecer zoom"
-          title="Restablecer zoom (Inicio)"
-          className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-7 3.3M3 4v4h4" />
-          </svg>
-        </button>
-      </div>
+          <button
+            type="button"
+            onClick={zoomIn}
+            aria-label="Acercar"
+            title="Acercar (rueda hacia arriba)"
+            className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" d="M12 6v12M6 12h12" />
+            </svg>
+          </button>
+          <span className="mx-2 h-px bg-slate-200" aria-hidden="true" />
+          <button
+            type="button"
+            onClick={zoomOut}
+            aria-label="Alejar"
+            title="Alejar (rueda hacia abajo)"
+            className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" d="M6 12h12" />
+            </svg>
+          </button>
+          <span className="mx-2 h-px bg-slate-200" aria-hidden="true" />
+          <button
+            type="button"
+            onClick={resetZoom}
+            aria-label="Restablecer zoom"
+            title="Restablecer zoom (Inicio)"
+            className="grid h-8 w-8 place-items-center text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-7 3.3M3 4v4h4" />
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   );
 }

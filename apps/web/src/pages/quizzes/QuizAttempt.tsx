@@ -874,6 +874,7 @@ export default function QuizAttempt() {
                         }
                         onSelect={(iso) => handleAnswerChange(question.id, iso)}
                         disabled={inputsDisabled}
+                        paisIso={question.paisIso}
                       />
                     ) : questionType === "analisis_sintactico" ? (
                       <AnalisisSintacticoRenderer

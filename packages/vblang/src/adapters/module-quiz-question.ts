@@ -81,6 +81,9 @@ export interface ModuleQuizQuestion {
   mapaId?: string;
   /** marcar_mapa: ISO correcto (también copiado a `answerKey` por conveniencia). */
   respuestaIsoCorrecta?: string;
+  /** WO-5: marcar_mapa + provincias: código ISO del país (2 letras) para cargar
+   *  el TopoJSON de provincias. No revela la respuesta (sólo el país). */
+  paisIso?: string;
   /** analisis_sintactico / identificar_palabras: texto completo a presentar. */
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */

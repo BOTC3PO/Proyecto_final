@@ -304,6 +304,7 @@ function ManualQuestionPreview({
           selectedIso={typeof answer === "string" ? answer : undefined}
           onSelect={(iso) => setAnswer(iso)}
           disabled={verified !== null}
+          paisIso={question.paisIso}
         />
       ) : qt === "analisis_sintactico" ? (
         <AnalisisSintacticoRenderer

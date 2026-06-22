@@ -146,6 +146,9 @@ export function toModuleQuizQuestion(
     result.mapaId = gen.mapaId;
     result.respuestaIsoCorrecta = gen.respuestaIso;
     result.answerKey = gen.respuestaIso;
+    if (gen.mapaId === "world_states_provinces" && gen.respuestaIso.includes("-")) {
+      result.paisIso = gen.respuestaIso.substring(0, 2);
+    }
   } else if (gen.tipo === "analisis_sintactico") {
     if (!gen.textoAnalizar || !gen.etiquetasPedidas) {
       throw new AdapterError(
@@ -183,7 +186,7 @@ export function toModuleQuizQuestion(
     gen.explicacion ??
     buildExplanation(gen.pasos) ??
     (gen.tipo === "marcar_mapa" && gen.respuestaNombre
-      ? `País correcto: ${gen.respuestaNombre}`
+      ? `Respuesta correcta: ${gen.respuestaNombre}`
       : undefined);
   if (explanation !== undefined) result.explanation = explanation;
 
