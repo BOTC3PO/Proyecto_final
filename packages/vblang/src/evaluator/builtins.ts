@@ -9,6 +9,33 @@ function compareValues(a: unknown, b: unknown): number {
   return String(a).localeCompare(String(b));
 }
 
+function expectInt(name: string, value: unknown, position: string): number {
+  if (typeof value !== "number" || !Number.isInteger(value)) {
+    throw new EvalError(
+      `${name}: ${position} debe ser entero, recibió ${value}`,
+    );
+  }
+  return value;
+}
+
+function expectNumber(name: string, value: unknown, position: string): number {
+  if (typeof value !== "number") {
+    throw new EvalError(
+      `${name}: ${position} debe ser número, recibió ${typeof value}`,
+    );
+  }
+  return value;
+}
+
+function expectArray(name: string, value: unknown, position: string): unknown[] {
+  if (!Array.isArray(value)) {
+    throw new EvalError(
+      `${name}: ${position} debe ser array, recibió ${typeof value}`,
+    );
+  }
+  return value;
+}
+
 export function createBuiltins(
   prng: PRNG,
   math: IsolatedMath,
@@ -82,6 +109,119 @@ export function createBuiltins(
       return Math.round((x as number) * factor) / factor;
     },
     signo: (x) => Math.sign(x as number),
+    abs: (x) => {
+      const v = x as number;
+      if (typeof v !== "number") {
+        throw new EvalError(`abs: argumento debe ser número, recibió ${typeof v}`);
+      }
+      if (Number.isNaN(v)) {
+        throw new EvalError(`abs(NaN) no es real`);
+      }
+      return Math.abs(v);
+    },
+
+    // ---- Teoría de números (WO-8)
+    // mcd y mcm siempre devuelven un entero no-negativo. El signo se ignora
+    // a la entrada: mcd(-12, 8) === mcd(12, 8) === 4. mcm(0, n) === 0.
+    mcd: (a, b) => {
+      const aa = expectInt("mcd", a, "a");
+      const bb = expectInt("mcd", b, "b");
+      let x = Math.abs(aa);
+      let y = Math.abs(bb);
+      while (y !== 0) {
+        const t = y;
+        y = x % y;
+        x = t;
+      }
+      return x;
+    },
+    mcm: (a, b) => {
+      const aa = expectInt("mcm", a, "a");
+      const bb = expectInt("mcm", b, "b");
+      if (aa === 0 || bb === 0) return 0;
+      const g = (() => {
+        let x = Math.abs(aa);
+        let y = Math.abs(bb);
+        while (y !== 0) {
+          const t = y;
+          y = x % y;
+          x = t;
+        }
+        return x;
+      })();
+      return Math.abs((aa / g) * bb);
+    },
+    es_primo: (n) => {
+      const nn = expectInt("es_primo", n, "n");
+      if (nn < 2) return false;
+      if (nn === 2) return true;
+      if (nn % 2 === 0) return false;
+      const limite = Math.floor(Math.sqrt(nn));
+      for (let i = 3; i <= limite; i += 2) {
+        if (nn % i === 0) return false;
+      }
+      return true;
+    },
+    divisores: (n) => {
+      const nn = expectInt("divisores", n, "n");
+      if (nn === 0) {
+        throw new EvalError(`divisores(0) no está definido (infinitos divisores)`);
+      }
+      const absN = Math.abs(nn);
+      const resultado: number[] = [];
+      const limite = Math.floor(Math.sqrt(absN));
+      for (let i = 1; i <= limite; i++) {
+        if (absN % i === 0) {
+          resultado.push(i);
+          const cociente = absN / i;
+          if (cociente !== i) resultado.push(cociente);
+        }
+      }
+      return resultado.sort((a, b) => a - b);
+    },
+    factorizar: (n) => {
+      const nn = expectInt("factorizar", n, "n");
+      if (nn < 2) {
+        throw new EvalError(`factorizar(${nn}) no está definido (requiere n ≥ 2)`);
+      }
+      const factores: number[] = [];
+      let restante = nn;
+      for (let p = 2; p * p <= restante; p++) {
+        while (restante % p === 0) {
+          factores.push(p);
+          restante = restante / p;
+        }
+      }
+      if (restante > 1) factores.push(restante);
+      return factores;
+    },
+
+    // ---- Salida de fracción simplificada (WO-8)
+    // Devuelve un string "p/q" con el signo normalizado en el numerador y el
+    // denominador positivo. Pensado para `respuesta:` (string) y para
+    // interpolar en enunciados/pasos. Internamente usa `mcd`.
+    fraccion: (p, q) => {
+      const pp = expectInt("fraccion", p, "p");
+      const qq = expectInt("fraccion", q, "q");
+      if (qq === 0) {
+        throw new EvalError(`fraccion: denominador no puede ser 0`);
+      }
+      const numAbs = Math.abs(pp);
+      const denAbs = Math.abs(qq);
+      let x = numAbs;
+      let y = denAbs;
+      while (y !== 0) {
+        const t = y;
+        y = x % y;
+        x = t;
+      }
+      const g = x || 1;
+      let num = numAbs / g;
+      let den = denAbs / g;
+      // Signo: si p y q tienen signos opuestos, el resultado es negativo.
+      if ((pp < 0) !== (qq < 0)) num = -num;
+      return den === 1 ? `${num}` : `${num}/${den}`;
+    },
 
     // ---- Arrays
     largo: (arr) => (arr as unknown[]).length,
@@ -97,6 +237,51 @@ export function createBuiltins(
         throw new EvalError(`promedio: array vacío`);
       }
       return a.reduce((x, y) => x + y, 0) / a.length;
+    },
+    mediana: (arr) => {
+      const a = expectArray("mediana", arr, "argumento");
+      if (a.length === 0) {
+        throw new EvalError(`mediana: array vacío`);
+      }
+      const nums = a.map((v, i) => expectNumber("mediana", v, `posición ${i}`));
+      const sorted = [...nums].sort((x, y) => x - y);
+      const mid = Math.floor(sorted.length / 2);
+      if (sorted.length % 2 === 1) return sorted[mid];
+      // Lista par: mediana matemática = promedio de los dos centrales.
+      return (sorted[mid - 1] + sorted[mid]) / 2;
+    },
+    moda: (arr) => {
+      const a = expectArray("moda", arr, "argumento");
+      if (a.length === 0) {
+        throw new EvalError(`moda: array vacío`);
+      }
+      const counts = new Map<unknown, number>();
+      for (const v of a) {
+        counts.set(v, (counts.get(v) ?? 0) + 1);
+      }
+      let bestValue: unknown = undefined;
+      let bestCount = 0;
+      let empates = 0;
+      for (const [v, c] of counts) {
+        if (c > bestCount) {
+          bestValue = v;
+          bestCount = c;
+          empates = 1;
+        } else if (c === bestCount) {
+          empates++;
+        }
+      }
+      if (bestCount <= 1) {
+        // Todos los valores aparecen 1 vez: no hay moda. Devolvemos null en
+        // vez de un valor arbitrario para que el caller pueda detectarlo.
+        return null;
+      }
+      if (empates > 1) {
+        // Empate entre varias modas. Devolvemos null para no elegir
+        // arbitrariamente; el caller puede filtrar la entrada.
+        return null;
+      }
+      return bestValue;
     },
     ordenar: (arr) => [...(arr as unknown[])].sort(compareValues),
     ordenar_por: (arr, campo) => {
@@ -157,12 +342,22 @@ export const BUILTIN_NAMES: readonly string[] = [
   "raiz",
   "redondear",
   "signo",
+  "abs",
+  // Teoría de números (WO-8)
+  "mcd",
+  "mcm",
+  "es_primo",
+  "divisores",
+  "factorizar",
+  "fraccion",
   // Arrays
   "largo",
   "primero",
   "ultimo",
   "sumar",
   "promedio",
+  "mediana",
+  "moda",
   "ordenar",
   "ordenar_por",
   "unico",

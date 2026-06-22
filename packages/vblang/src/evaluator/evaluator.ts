@@ -323,7 +323,6 @@ function evalFunCall(
   const candidates = [
     ...Object.keys(ctx.builtins),
     "sqrt",
-    "abs",
     "log",
     "ln",
     "log10",

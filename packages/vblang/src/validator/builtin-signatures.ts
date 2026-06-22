@@ -61,6 +61,22 @@ export const BUILTIN_SIGNATURES: Record<string, BuiltinSignature> = {
     returns: T.number,
   },
   signo: { params: [T.number], returns: T.number },
+  // abs movido de MATHJS_SIGNATURES a BUILTIN_SIGNATURES en WO-8: ahora es un
+  // builtin de primera clase. El evaluador lo implementa explícitamente (con
+  // validación de NaN), no delega en math.js. La firma no cambia.
+  abs: { params: [T.number], returns: T.number },
+
+  // Teoría de números (WO-8)
+  mcd: { params: [T.number, T.number], returns: T.number },
+  mcm: { params: [T.number, T.number], returns: T.number },
+  es_primo: { params: [T.number], returns: T.boolean },
+  divisores: { params: [T.number], returns: T.array(T.number) },
+  factorizar: { params: [T.number], returns: T.array(T.number) },
+  // Fracción simplificada: string "p/q" con denominador > 0 y signo en p.
+  // Devuelve un string (no un objeto/par) para que sea directamente usable
+  // como `respuesta:` de un `input` y para poder interpolarlo en
+  // enunciados/pasos sin transformación adicional.
+  fraccion: { params: [T.number, T.number], returns: T.string },
 
   // Arrays
   largo: { params: [T.array(T.unknown)], returns: T.number },
@@ -78,6 +94,10 @@ export const BUILTIN_SIGNATURES: Record<string, BuiltinSignature> = {
   },
   sumar: { params: [T.array(T.number)], returns: T.number },
   promedio: { params: [T.array(T.number)], returns: T.number },
+  mediana: { params: [T.array(T.number)], returns: T.number },
+  // moda devuelve el valor más frecuente (unknown) o null si no hay moda
+  // (todos los elementos aparecen 1 vez, o hay empate entre varias modas).
+  moda: { params: [T.array(T.unknown)], returns: T.unknown },
   ordenar: {
     params: [T.array(T.unknown)],
     returns: T.array(T.unknown),
@@ -116,7 +136,7 @@ export const BUILTIN_SIGNATURES: Record<string, BuiltinSignature> = {
 };
 
 export const MATHJS_SIGNATURES: Record<string, BuiltinSignature> = {
-  abs: { params: [T.number], returns: T.number },
+  // WO-8: `abs` se movió a BUILTIN_SIGNATURES (es nuestro, no de math.js).
   log: { params: [T.number], returns: T.number },
   ln: { params: [T.number], returns: T.number },
   log10: { params: [T.number], returns: T.number },

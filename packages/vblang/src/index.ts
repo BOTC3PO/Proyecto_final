@@ -76,6 +76,11 @@ export { MATEMATICAS_ARITMETICA_OFICIALES } from "./templates/matematicas-aritme
 // `apps/web/src/generadoresV2/__tests__/porting-fisica-equivalencia.spec.ts`.
 export { FISICA_CINEMATICA_OFICIALES } from "./templates/fisica-cinematica-oficiales.js";
 
+// WO-8 — Plantilla de cobertura de los builtins nuevos (teoría de números,
+// estadística, valor absoluto, salida de fracción simplificada). Verificación
+// end-to-end de la expansión del DSL.
+export { MATEMATICAS_WO8_OFICIALES } from "./templates/matematicas-wo8-oficiales.js";
+
 export {
   ALL_QUESTION_TYPES,
   DASH_LIST_BLOCKS,
