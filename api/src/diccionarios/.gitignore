@@ -1,2 +1,4 @@
 Diccionario.sqlite
 diccionario.sqlite
+*.sqlite-wal
+*.sqlite-shm
