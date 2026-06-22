@@ -38,6 +38,8 @@ import {
   writeRespuestaNombre,
   readToleranciaAbs,
   writeToleranciaAbs,
+  readEncuadre,
+  writeEncuadre,
   readExplicacion,
   writeExplicacion,
   readRestricciones,
@@ -481,10 +483,17 @@ const VISUAL_KIND_OPTS: { value: string; label: string }[] = [
   { value: "line-chart", label: "Gráfico de líneas" },
   { value: "timeline", label: "Línea de tiempo" },
   { value: "latex", label: "Fórmula (LaTeX)" },
+  { value: "vector-diagram", label: "Diagrama de vectores" },
+  { value: "circuit", label: "Circuito eléctrico" },
 ];
 
-/** Visuales soportados por el render pero no autoreados acá (se editan en código). */
-const VISUAL_CODE_ONLY = new Set(["vector-diagram", "circuit"]);
+/**
+ * Visuales soportados por el render pero no autoreados acá.
+ * Vacío en WO-10: `vector-diagram` y `circuit` ya tienen editor (replican
+ * el patrón de line-chart). Si vuelve a aparecer uno nuevo, agregalo acá y
+ * añadile un editor dedicado.
+ */
+const VISUAL_CODE_ONLY = new Set<string>([]);
 
 /** Semilla mínima válida al elegir un kind nuevo (forma de `VisualSpec`). */
 function seedVisual(kind: string): Record<string, unknown> {
@@ -512,6 +521,20 @@ function seedVisual(kind: string): Record<string, unknown> {
       };
     case "latex":
       return { kind: "latex", content: "x^2 + y^2 = z^2", displayMode: true };
+    case "vector-diagram":
+      return {
+        kind: "vector-diagram",
+        vectors: [
+          { id: "v1", label: "Vector 1", dx: 1, dy: 0 },
+        ],
+      };
+    case "circuit":
+      return {
+        kind: "circuit",
+        elements: [
+          { id: "r1", type: "resistor", value: 100, unit: "Ω" },
+        ],
+      };
     default:
       return { kind };
   }
@@ -519,9 +542,10 @@ function seedVisual(kind: string): Record<string, unknown> {
 
 /**
  * WO-4 — Dispatcher del bloque `visual:`. Un selector de kind enruta a cada
- * editor: `static-image` (PNG, sin cambios), `line-chart`, `timeline` y `latex`
- * (nuevos). Los kinds que el render soporta pero el form no autorea
- * (`vector-diagram`, `circuit`) se preservan y se editan desde el modo Código.
+ * editor: `static-image` (PNG, sin cambios), `line-chart`, `timeline`, `latex`
+ * y, desde WO-10, `vector-diagram` y `circuit`. Los kinds que el render
+ * soporta pero el form no autorea (si los hubiera) se preservan y se editan
+ * desde el modo Código.
  */
 function VisualField({
   plantilla,
@@ -591,6 +615,12 @@ function VisualField({
       {kind === "latex" && (
         <LatexField plantilla={plantilla} onChange={onChange} />
       )}
+      {kind === "vector-diagram" && (
+        <VectorDiagramField plantilla={plantilla} onChange={onChange} />
+      )}
+      {kind === "circuit" && (
+        <CircuitField plantilla={plantilla} onChange={onChange} />
+      )}
       {kind && VISUAL_CODE_ONLY.has(kind) && (
         <ReadOnlyPlaceholder>
           El visual <code>{kind}</code> se renderiza pero se edita desde el modo
@@ -638,6 +668,205 @@ function LatexField({
         />
         Modo display (centrado, tamaño grande)
       </label>
+    </div>
+  );
+}
+
+/* ---------------- WO-10: editor vector-diagram ---------------- */
+
+interface VectorRow {
+  id: string;
+  label: string;
+  /** Texto editable: dos números separados por coma/espacio (dx, dy). */
+  componentes: string;
+  color: string;
+}
+
+/** "3, 4" → {dx:3, dy:4}. Devuelve `null` si no parsea. */
+function parseComponentes(texto: string): { dx: number; dy: number } | null {
+  const parts = texto.split(/[,;\s]+/).map((s) => s.trim()).filter((s) => s !== "");
+  if (parts.length !== 2) return null;
+  const dx = Number(parts[0]);
+  const dy = Number(parts[1]);
+  if (!Number.isFinite(dx) || !Number.isFinite(dy)) return null;
+  return { dx, dy };
+}
+
+function componentesToTexto(c: { dx: number; dy: number }): string {
+  return `${c.dx}, ${c.dy}`;
+}
+
+function VectorDiagramField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const raw = readVisualRaw(plantilla) ?? {};
+  const vectorsRaw = Array.isArray(raw.vectors) ? (raw.vectors as Record<string, unknown>[]) : [];
+  const rows: VectorRow[] = vectorsRaw.map((v, i) => ({
+    id: typeof v.id === "string" ? v.id : `v${i + 1}`,
+    label: typeof v.label === "string" ? v.label : `Vector ${i + 1}`,
+    componentes: parseComponentes(
+      `${Number(v.dx)}, ${Number(v.dy)}`,
+    )
+      ? componentesToTexto({ dx: Number(v.dx), dy: Number(v.dy) })
+      : `${Number(v.dx) || 0}, ${Number(v.dy) || 0}`,
+    color: typeof v.color === "string" ? v.color : "#2563eb",
+  }));
+
+  const write = (nextRows: VectorRow[]) => {
+    const vectors = nextRows.map((r) => {
+      const parsed = parseComponentes(r.componentes) ?? { dx: 0, dy: 0 };
+      const obj: Record<string, unknown> = {
+        id: r.id,
+        label: r.label,
+        dx: parsed.dx,
+        dy: parsed.dy,
+        color: r.color,
+      };
+      return obj;
+    });
+    onChange(writeVisualRaw(plantilla, { kind: "vector-diagram", vectors }));
+  };
+
+  return (
+    <div className="flex flex-col gap-2">
+      <p className="text-[10px] text-[var(--c-muted,#64748b)]">
+        Diagrama de vectores con componentes (dx, dy) en el plano. El render
+        los dibuja desde el origen (o desde un punto de aplicación si se
+        agrega en el DSL).
+      </p>
+      <AccessibleList<VectorRow>
+        items={rows}
+        onChange={write}
+        createItem={() => ({
+          id: `v${rows.length + 1}`,
+          label: `Vector ${rows.length + 1}`,
+          componentes: "1, 0",
+          color: "#2563eb",
+        })}
+        label="Vectores"
+        addLabel="Agregar vector"
+        itemNoun="vector"
+        minItems={1}
+        renderItem={(item, index, onItem) => (
+          <div className="flex flex-col gap-1">
+            <div className="flex gap-1">
+              <input
+                aria-label={`Etiqueta del vector ${index + 1}`}
+                value={item.label}
+                onChange={(e) => onItem({ ...item, label: e.target.value })}
+                placeholder="Etiqueta"
+                className="min-w-0 flex-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+              />
+              <input
+                type="color"
+                aria-label={`Color del vector ${index + 1}`}
+                value={item.color}
+                onChange={(e) => onItem({ ...item, color: e.target.value })}
+                className="h-8 w-12 rounded border border-[var(--c-border,#cbd5e1)] p-0"
+              />
+            </div>
+            <input
+              aria-label={`Componentes (dx, dy) del vector ${index + 1}`}
+              value={item.componentes}
+              onChange={(e) => onItem({ ...item, componentes: e.target.value })}
+              placeholder="dx, dy (ej.: 3, 4)"
+              className="rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 font-mono text-xs"
+            />
+          </div>
+        )}
+      />
+    </div>
+  );
+}
+
+/* ---------------- WO-10: editor circuit ---------------- */
+
+interface ElementoCircuitoRow {
+  id: string;
+  type: string;
+  value: string;
+  unit: string;
+}
+
+function CircuitField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const raw = readVisualRaw(plantilla) ?? {};
+  const elementsRaw = Array.isArray(raw.elements) ? (raw.elements as Record<string, unknown>[]) : [];
+  const rows: ElementoCircuitoRow[] = elementsRaw.map((e, i) => ({
+    id: typeof e.id === "string" ? e.id : `e${i + 1}`,
+    type: typeof e.type === "string" ? e.type : "resistor",
+    value: e.value != null ? String(e.value) : "",
+    unit: typeof e.unit === "string" ? e.unit : "",
+  }));
+
+  const write = (nextRows: ElementoCircuitoRow[]) => {
+    const elements = nextRows.map((r) => {
+      const obj: Record<string, unknown> = { id: r.id, type: r.type };
+      const v = Number(r.value);
+      if (r.value.trim() !== "" && Number.isFinite(v)) obj.value = v;
+      if (r.unit.trim() !== "") obj.unit = r.unit;
+      return obj;
+    });
+    onChange(writeVisualRaw(plantilla, { kind: "circuit", elements }));
+  };
+
+  return (
+    <div className="flex flex-col gap-2">
+      <p className="text-[10px] text-[var(--c-muted,#64748b)]">
+        Circuito eléctrico: cada elemento tiene un tipo (resistor, capacitor,
+        fuente, etc.), un valor numérico y una unidad. El render los muestra
+        en serie.
+      </p>
+      <AccessibleList<ElementoCircuitoRow>
+        items={rows}
+        onChange={write}
+        createItem={() => ({
+          id: `e${rows.length + 1}`,
+          type: "resistor",
+          value: "100",
+          unit: "Ω",
+        })}
+        label="Elementos"
+        addLabel="Agregar elemento"
+        itemNoun="elemento"
+        minItems={1}
+        renderItem={(item, index, onItem) => (
+          <div className="flex flex-col gap-1">
+            <div className="flex gap-1">
+              <input
+                aria-label={`Tipo del elemento ${index + 1}`}
+                value={item.type}
+                onChange={(e) => onItem({ ...item, type: e.target.value })}
+                placeholder="tipo (resistor, capacitor, …)"
+                className="min-w-0 flex-1 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+              />
+              <input
+                aria-label={`Valor del elemento ${index + 1}`}
+                value={item.value}
+                onChange={(e) => onItem({ ...item, value: e.target.value })}
+                placeholder="valor"
+                className="w-24 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm font-mono"
+              />
+              <input
+                aria-label={`Unidad del elemento ${index + 1}`}
+                value={item.unit}
+                onChange={(e) => onItem({ ...item, unit: e.target.value })}
+                placeholder="unidad"
+                className="w-20 rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
+              />
+            </div>
+          </div>
+        )}
+      />
     </div>
   );
 }
@@ -1200,9 +1429,13 @@ export default function PlantillaEditorSchema({
           )}
 
           {/* WO-1: respuesta_nombre acompaña la config de mapa (alternativa por
-              nombre al código ISO; habilita seleccionar provincias por nombre). */}
+              nombre al código ISO; habilita seleccionar provincias por nombre).
+              WO-10: encuadre acompaña la config de mapa (vista bloqueada). */}
           {tipo === "marcar_mapa" && (
-            <RespuestaNombreField plantilla={plantilla} onChange={onChange} />
+            <>
+              <EncuadreField plantilla={plantilla} onChange={onChange} />
+              <RespuestaNombreField plantilla={plantilla} onChange={onChange} />
+            </>
           )}
         </Section>
       )}
@@ -1459,6 +1692,34 @@ function RespuestaNombreField({
       value={readRespuestaNombre(plantilla)}
       commit={(text) => {
         onChange(writeRespuestaNombre(plantilla, text));
+        return true;
+      }}
+    />
+  );
+}
+
+/** WO-10: encuadre del mapa (vista bloqueada: pan/zoom OFF).
+ * Formato: 4 números separados por coma/espacio: oeste, sur, este, norte.
+ * Vacío = sin encuadre (vista interactiva). Si el texto no parsea como 4
+ * números válidos, el commit no se aplica y se muestra el error del BufferedText. */
+function EncuadreField({
+  plantilla,
+  onChange,
+}: {
+  plantilla: Plantilla;
+  onChange: (next: Plantilla) => void;
+}) {
+  const id = useId();
+  return (
+    <BufferedText
+      id={id}
+      label="Encuadre fijo (vista bloqueada)"
+      help="Opcional. 4 números: oeste, sur, este, norte (ej.: -75, -55, -53, -20). Si está, el mapa se ve sin pan/zoom y recortado. Si está vacío, el mapa es interactivo."
+      value={readEncuadre(plantilla)}
+      commit={(text) => {
+        const next = writeEncuadre(plantilla, text);
+        if (next === null) return false;
+        onChange(next);
         return true;
       }}
     />

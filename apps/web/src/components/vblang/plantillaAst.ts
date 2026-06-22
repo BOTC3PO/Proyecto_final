@@ -331,6 +331,59 @@ export function writeToleranciaAbs(p: Plantilla, text: string): Plantilla | null
   return withBlock(p, { kind: "tolerancia_abs", valor: n, loc: DUMMY_LOC });
 }
 
+/* ---------------- WO-10: encuadre (vista bloqueada del mapa) ---------------- */
+
+/**
+ * Lee el `encuadre` del bloque `mapa:` como string "oeste, sur, este, norte".
+ * Formato de input/salida: cuatro números separados por comas/espacios.
+ * Vacío si no hay encuadre (vista interactiva, comportamiento previo).
+ */
+export function readEncuadre(p: Plantilla): string {
+  const b = getBlock(p, "mapa");
+  return b?.encuadre ? b.encuadre.join(", ") : "";
+}
+
+/**
+ * Escribe (o quita, con "") el `encuadre` del bloque `mapa:`.
+ *  - `null` si el texto no parsea como 4 números válidos (el caller no debe
+ *    commitear; BufferedText conserva el valor y muestra error).
+ *  - Crea el bloque `mapa:` con `world_countries` si no existe, para que el
+ *    docente pueda fijar el encuadre antes de elegir el mapa (round-trip
+ *    idempotente). El render del alumno toma este encuadre y lockea la vista
+ *    (pan/zoom OFF, recortado al viewBox).
+ */
+export function writeEncuadre(
+  p: Plantilla,
+  text: string,
+): Plantilla | null {
+  if (text.trim() === "") {
+    const b = getBlock(p, "mapa");
+    if (!b) return p;
+    const { encuadre: _drop, ...rest } = b;
+    void _drop;
+    return withBlock(p, { ...rest, loc: DUMMY_LOC } as Bloque);
+  }
+  // Parseo tolerante: separadores coma, espacio, o `;`.
+  const parts = text.split(/[,;\s]+/).map((s) => s.trim()).filter((s) => s !== "");
+  if (parts.length !== 4) return null;
+  const nums = parts.map(Number);
+  if (nums.some((n) => !Number.isFinite(n))) return null;
+  // Validación geográfica: oeste < este, sur < norte.
+  const [west, south, east, north] = nums;
+  if (west >= east || south >= north) return null;
+  const encuadre = [west, south, east, north] as [number, number, number, number];
+  const b = getBlock(p, "mapa");
+  if (!b) {
+    return withBlock(p, {
+      kind: "mapa",
+      nombre: "world_countries",
+      encuadre,
+      loc: DUMMY_LOC,
+    });
+  }
+  return withBlock(p, { ...b, encuadre, loc: DUMMY_LOC });
+}
+
 /** explicacion: string único interpolable (mismo modelo que enunciado). */
 export function readExplicacion(p: Plantilla): string {
   const b = getBlock(p, "explicacion");

@@ -35,6 +35,8 @@ import {
   writeRestricciones,
   writeRespuestaNombre,
   writeToleranciaAbs,
+  readEncuadre,
+  writeEncuadre,
   readVisualRaw,
   writeVisualRaw,
   readVisualKind,
@@ -217,6 +219,65 @@ describe("WO-1 · bloques antes solo editables en DSL", () => {
     expect(writeToleranciaAbs(p, "-")).toBeNull();
     p = writeToleranciaAbs(p, "")!;
     expect(serialize(p)).not.toContain("tolerancia_abs");
+  });
+
+  describe("WO-10: encuadre (vista bloqueada del mapa)", () => {
+    it("writeEncuadre round-trippea y el DSL serializa con `encuadre [w, s, e, n]`", () => {
+      let p = applyTipo(basePlantilla(), "marcar_mapa");
+      // Antes: sin encuadre (vista interactiva).
+      expect(readEncuadre(p)).toBe("");
+      expect(serialize(p)).not.toContain("encuadre");
+
+      p = writeEncuadre(p, "-75, -55, -53, -20")!;
+      expect(readEncuadre(p)).toBe("-75, -55, -53, -20");
+      expect(serialize(p)).toContain("encuadre [-75, -55, -53, -20]");
+      expect(serialize(p)).toContain("mapa: world_countries");
+    });
+
+    it("writeEncuadre con '' quita el encuadre y preserva el nombre del mapa", () => {
+      let p = applyTipo(basePlantilla(), "marcar_mapa");
+      p = writeEncuadre(p, "-75, -55, -53, -20")!;
+      p = writeEncuadre(p, "")!;
+      expect(readEncuadre(p)).toBe("");
+      expect(serialize(p)).not.toContain("encuadre");
+      // El nombre del mapa se preserva.
+      expect(serialize(p)).toContain("mapa: world_countries");
+    });
+
+    it("writeEncuadre acepta separadores coma/espacio/;", () => {
+      let p = applyTipo(basePlantilla(), "marcar_mapa");
+      p = writeEncuadre(p, "-75, -55 -53;-20")!;
+      expect(readEncuadre(p)).toBe("-75, -55, -53, -20");
+    });
+
+    it("writeEncuadre rechaza si no son 4 números", () => {
+      const p = applyTipo(basePlantilla(), "marcar_mapa");
+      expect(writeEncuadre(p, "1, 2, 3")).toBeNull();
+      expect(writeEncuadre(p, "1, 2, 3, 4, 5")).toBeNull();
+      expect(writeEncuadre(p, "a, b, c, d")).toBeNull();
+      // Y el AST queda intacto (no se commitea un valor inválido).
+      expect(readEncuadre(p)).toBe("");
+    });
+
+    it("writeEncuadre rechaza si oeste >= este o sur >= norte", () => {
+      const p = applyTipo(basePlantilla(), "marcar_mapa");
+      expect(writeEncuadre(p, "10, 0, 5, 20")).toBeNull(); // oeste > este
+      expect(writeEncuadre(p, "0, 20, 10, 10")).toBeNull(); // sur >= norte
+    });
+
+    it("writeEncuadre crea el bloque mapa: si no existía", () => {
+      const p = basePlantilla();
+      const p2 = writeEncuadre(p, "0, 0, 10, 10")!;
+      expect(serialize(p2)).toContain("mapa: world_countries");
+      expect(serialize(p2)).toContain("encuadre [0, 0, 10, 10]");
+    });
+
+    it("readEncuadre round-trippea con el parser (block `mapa: ... encuadre [...]`)", () => {
+      const p = parse(
+        'enunciado: "x"\ntipo: marcar_mapa\nmapa: world_countries encuadre [-75, -55, -53, -20]\nrespuesta_iso: "AR"\n',
+      );
+      expect(readEncuadre(p)).toBe("-75, -55, -53, -20");
+    });
   });
 
   it("explicacion round-trippea con interpolación de variables", () => {

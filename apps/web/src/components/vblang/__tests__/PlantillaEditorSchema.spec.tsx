@@ -151,18 +151,49 @@ describe("PlantillaEditorSchema", () => {
     expect(dsl()).toContain("E = mc^2");
   });
 
-  it("WO-4: un visual code-only (circuit) se preserva y se ofrece editar en código", () => {
+  it("WO-10: el visual `circuit` ya tiene editor (no rebota a 'modo Código')", () => {
     render(
       <Harness
         initial={
-          'enunciado: "x"\nrespuesta: 1\nvisual:\n  kind: "circuit"\n  elements: [ { id: "r1", type: "resistor" } ]\n'
+          'enunciado: "x"\nrespuesta: 1\nvisual:\n  kind: "circuit"\n  elements: [ { id: "r1", type: "resistor", value: 100, unit: "Ω" } ]\n'
         }
       />,
     );
-    // El selector refleja el kind code-only y muestra el placeholder.
-    expect(screen.getByTestId("vblang-schema-readonly")).toHaveTextContent(/circuit/);
-    // y el visual sigue en el DSL.
+    // El selector refleja el kind circuit.
+    const select = screen.getByLabelText("Tipo de visual") as HTMLSelectElement;
+    expect(select.value).toBe("circuit");
+    // NO se muestra el ReadOnlyPlaceholder: el editor real está renderizado.
+    expect(screen.queryByTestId("vblang-schema-readonly")).not.toBeInTheDocument();
+    // El campo "Tipo" del primer elemento está visible y editable.
+    expect(
+      screen.getByLabelText("Tipo del elemento 1"),
+    ).toBeInTheDocument();
+    // El visual round-trippea con el kind y los elementos.
     expect(dsl()).toContain('kind: "circuit"');
+    expect(dsl()).toContain('id: "r1"');
+  });
+
+  it("WO-10: el visual `vector-diagram` autorea con lista de vectores", () => {
+    render(
+      <Harness
+        initial={
+          'enunciado: "x"\nrespuesta: 1\nvisual:\n  kind: "vector-diagram"\n  vectors: [ { id: "v1", label: "F1", dx: 3, dy: 4 } ]\n'
+        }
+      />,
+    );
+    const select = screen.getByLabelText("Tipo de visual") as HTMLSelectElement;
+    expect(select.value).toBe("vector-diagram");
+    expect(screen.queryByTestId("vblang-schema-readonly")).not.toBeInTheDocument();
+    // Etiqueta y componentes del vector #1.
+    expect(
+      screen.getByLabelText("Etiqueta del vector 1"),
+    ).toHaveValue("F1");
+    expect(
+      screen.getByLabelText("Componentes (dx, dy) del vector 1"),
+    ).toHaveValue("3, 4");
+    expect(dsl()).toContain('kind: "vector-diagram"');
+    expect(dsl()).toContain("dx: 3");
+    expect(dsl()).toContain("dy: 4");
   });
 
   it("base generador: inserta generador y conserva el enunciado", async () => {

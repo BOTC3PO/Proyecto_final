@@ -64,4 +64,38 @@ describe("MarcarMapaRenderer", () => {
     // Bonus: overscroll-behavior: contain ayuda a no propagar scroll al body.
     expect(styleAttr.toLowerCase()).toContain("overscroll-behavior");
   });
+
+  it("WO-10: con encuadre, oculta los controles de zoom (vista bloqueada)", async () => {
+    globalThis.fetch = vi.fn(async () => ({
+      ok: true,
+      json: async () => ({ type: "Topology", objects: {}, arcs: [] }),
+    })) as typeof fetch;
+    render(
+      <MarcarMapaRenderer
+        mapaId="politico_mundo"
+        encuadre={[-75, -55, -53, -20]}
+      />,
+    );
+    // Espera el svg.
+    await waitFor(() => screen.getByTestId("marcar-mapa-svg"), {
+      timeout: 1500,
+    });
+    // Con encuadre la vista debe estar bloqueada: NO se renderizan los
+    // controles de zoom (pan/zoom OFF). Este es el criterio clave de
+    // "vista tipo escuela".
+    expect(screen.queryByTestId("marcar-mapa-zoom-controls")).not.toBeInTheDocument();
+  });
+
+  it("WO-10: sin encuadre, mantiene los controles de zoom (modo interactivo)", async () => {
+    globalThis.fetch = vi.fn(async () => ({
+      ok: true,
+      json: async () => ({ type: "Topology", objects: {}, arcs: [] }),
+    })) as typeof fetch;
+    render(<MarcarMapaRenderer mapaId="politico_mundo" />);
+    await waitFor(() => screen.getByTestId("marcar-mapa-svg"), {
+      timeout: 1500,
+    });
+    // Sin encuadre el mapa es interactivo: sí se renderizan los controles.
+    expect(screen.getByTestId("marcar-mapa-zoom-controls")).toBeInTheDocument();
+  });
 });
