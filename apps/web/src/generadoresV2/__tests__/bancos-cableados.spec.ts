@@ -22,7 +22,9 @@
 import { describe, expect, it } from "vitest";
 import { getStaticCatalog } from "../catalog";
 import {
+  getBancoQuestions,
   getDescriptoresBasic,
+  listBancoCatalog,
   listBancoTemplates,
 } from "../basic/banco";
 import { DeterministicPrng } from "../core/prng";
@@ -244,6 +246,43 @@ describe("F6-07 — Inventario numérico", () => {
           `banco ${t.metadata.id} esperaba ${esperado} preguntas, tiene ${t.pool.length}`,
         ).toBe(esperado);
       }
+    }
+  });
+});
+
+describe("WO-6 — listBancoCatalog + getBancoQuestions para el VarianteEditor", () => {
+  it("listBancoCatalog devuelve 55 entradas con bancoId, titulo, materia, questionCount", () => {
+    const catalog = listBancoCatalog();
+    expect(catalog).toHaveLength(TOTAL_BANCOS);
+    for (const entry of catalog) {
+      expect(entry.bancoId).toBeTruthy();
+      expect(entry.titulo).toBeTruthy();
+      expect(entry.materia).toBeTruthy();
+      expect(entry.questionCount).toBeGreaterThan(0);
+    }
+  });
+
+  it("getBancoQuestions devuelve ModuleQuizQuestion[] para un banco existente", () => {
+    const questions = getBancoQuestions("quimica_seguridad_pictogramas_ghs");
+    expect(questions.length).toBeGreaterThan(0);
+    for (const q of questions) {
+      expect(q.id).toBeTruthy();
+      expect(q.prompt).toBeTruthy();
+      expect(q.questionType).toBe("mc");
+      expect(Array.isArray(q.options)).toBe(true);
+      expect(q.answerKey).toBeTruthy();
+    }
+  });
+
+  it("getBancoQuestions devuelve [] para banco inexistente", () => {
+    expect(getBancoQuestions("no_existe")).toEqual([]);
+  });
+
+  it("getBancoQuestions devuelve la cantidad esperada de preguntas", () => {
+    for (const [id, expected] of Object.entries(TAMANIOS_ESPERADOS)) {
+      const qs = getBancoQuestions(id);
+      expect(qs.length, `banco ${id}`).toBeLessThanOrEqual(expected);
+      expect(qs.length, `banco ${id}`).toBeGreaterThan(0);
     }
   });
 });

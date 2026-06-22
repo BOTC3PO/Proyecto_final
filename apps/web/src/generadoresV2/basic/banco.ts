@@ -357,3 +357,40 @@ function bancoDescriptor(template: QuizTemplate): GeneratorDescriptor {
 export function getDescriptoresBasic(_prng: PRNG): GeneratorDescriptor[] {
   return listBancoTemplates().map(bancoDescriptor);
 }
+
+// ── WO-6: exponer preguntas de bancos F6 para el VarianteEditor ──────────
+
+export interface BancoCatalogEntry {
+  bancoId: string;
+  titulo: string;
+  materia: string;
+  questionCount: number;
+}
+
+export function listBancoCatalog(): BancoCatalogEntry[] {
+  return listBancoTemplates().map((t) => ({
+    bancoId: t.metadata.id,
+    titulo: t.metadata.titulo,
+    materia: t.metadata.materia,
+    questionCount: t.pool.length,
+  }));
+}
+
+export function getBancoQuestions(bancoId: string): ModuleQuizQuestion[] {
+  const template = TEMPLATE_REGISTRY.get(bancoId);
+  if (!template) return [];
+  const results: ModuleQuizQuestion[] = [];
+  for (const q of template.pool) {
+    const gen: GeneratedQuestion = {
+      id: q.id,
+      type: q.type,
+      prompt: q.prompt,
+      ...(q.type === "mc"
+        ? { options: (q as MCQuestion).options.map((o) => ({ text: o.text, correct: o.correct })) }
+        : {}),
+    };
+    const mq = mapBancoQuestion(q, gen, {});
+    if (mq) results.push(mq);
+  }
+  return results;
+}

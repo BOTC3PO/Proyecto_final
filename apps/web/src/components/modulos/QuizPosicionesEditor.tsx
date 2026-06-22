@@ -15,8 +15,8 @@
  * por tema se muestra con `RepartoPuntos` (consume `puntaje.ts`).
  */
 
-import { useMemo, useState } from "react";
-import type { ModuleQuiz } from "../../domain/module/module.types";
+import { useCallback, useMemo, useState } from "react";
+import type { ModuleQuiz, ModuleQuizQuestion } from "../../domain/module/module.types";
 import {
   migrarCuestionario,
   type CuestionarioPosiciones,
@@ -72,6 +72,15 @@ export default function QuizPosicionesEditor({
   );
 
   const commit = (next: CuestionarioPosiciones) => onChange({ posiciones: next });
+
+  const handleImportQuestion = useCallback(
+    (q: ModuleQuizQuestion) => {
+      const existing = quiz.questions ?? [];
+      if (existing.some((e) => e.id === q.id)) return;
+      onChange({ questions: [...existing, q] });
+    },
+    [quiz.questions, onChange],
+  );
 
   const [nuevoTema, setNuevoTema] = useState("");
   const agregarNuevoTema = () => {
@@ -167,6 +176,7 @@ export default function QuizPosicionesEditor({
             materiaHint={materiaHint}
             returnTo={returnTo}
             {...(plantillaIO ? { plantillaIO } : {})}
+            onImportQuestion={handleImportQuestion}
             onChangeOrigen={(origen) =>
               commit(
                 cambiarOrigenVariante(
