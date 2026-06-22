@@ -3,7 +3,14 @@
  * criterio de aceptación #2) + lectura/escritura de campos.
  */
 import { describe, expect, it } from "vitest";
-import { lint, parse, serialize, QUESTION_TYPE_SCHEMAS } from "@vb/vblang";
+import {
+  compile,
+  generate,
+  lint,
+  parse,
+  serialize,
+  QUESTION_TYPE_SCHEMAS,
+} from "@vb/vblang";
 import type { ListField, TextField, TipoPregunta } from "@vb/vblang";
 import {
   applyGenerador,
@@ -17,6 +24,21 @@ import {
   writeListStrings,
   writeTextField,
 } from "../plantillaFields";
+import {
+  readExplicacion,
+  readPistas,
+  readRestricciones,
+  readRespuestaNombre,
+  readToleranciaAbs,
+  writeExplicacion,
+  writePistas,
+  writeRestricciones,
+  writeRespuestaNombre,
+  writeToleranciaAbs,
+  readVisualRaw,
+  writeVisualRaw,
+  readVisualKind,
+} from "../plantillaAst";
 
 const ALL_TIPOS: TipoPregunta[] = [
   "input",
@@ -132,5 +154,186 @@ describe("editor schema-driven · campos", () => {
     expect(unhandledBlocks(p)).toContain("dataset");
     // el dataset sigue en el DSL serializado
     expect(serialize(p)).toContain("dataset: capitales");
+  });
+});
+
+/* ---------------- WO-1: cierre del gap formulario↔DSL ---------------- */
+
+describe("WO-1 · bloques antes solo editables en DSL", () => {
+  it("unhandledBlocks ya NO reporta los bloques recién expuestos", () => {
+    const p = parse(
+      [
+        'enunciado: "{a}"',
+        "variables:",
+        "  a: random(1, 9)",
+        "respuesta: a",
+        "tolerancia_abs: 0.001",
+        "respuesta_nombre: \"Argentina\"",
+        'explicacion: "Porque {a}"',
+        "restricciones:",
+        "  - a != 0",
+        "pistas:",
+        '  - "Pista 1"',
+        '  - "Pista 2"',
+        "metadata:",
+        '  pista: "pista única"',
+        "",
+      ].join("\n"),
+    );
+    const reportados = unhandledBlocks(p);
+    for (const k of [
+      "respuesta_nombre",
+      "tolerancia_abs",
+      "explicacion",
+      "restricciones",
+      "pistas",
+      "enunciados",
+    ]) {
+      expect(reportados).not.toContain(k);
+    }
+  });
+
+  it("enunciados (plural) no se reporta como no manejado", () => {
+    const p = parse('enunciados:\n  - "v1"\n  - "v2"\nrespuesta: 1\n');
+    expect(unhandledBlocks(p)).not.toContain("enunciados");
+  });
+
+  it("respuesta_nombre round-trippea y se quita con ''", () => {
+    let p = applyTipo(basePlantilla(), "marcar_mapa");
+    p = writeRespuestaNombre(p, "Argentina");
+    expect(readRespuestaNombre(p)).toBe("Argentina");
+    expect(serialize(p)).toContain('respuesta_nombre: "Argentina"');
+    p = writeRespuestaNombre(p, "");
+    expect(readRespuestaNombre(p)).toBe("");
+    expect(serialize(p)).not.toContain("respuesta_nombre");
+  });
+
+  it("tolerancia_abs round-trippea, valida número y se quita con ''", () => {
+    let p = applyTipo(basePlantilla(), "input");
+    p = writeToleranciaAbs(p, "0.001")!;
+    expect(readToleranciaAbs(p)).toBe("0.001");
+    expect(serialize(p)).toContain("tolerancia_abs: 0.001");
+    // número inválido (a medio escribir) → null, no muta el AST
+    expect(writeToleranciaAbs(p, "-")).toBeNull();
+    p = writeToleranciaAbs(p, "")!;
+    expect(serialize(p)).not.toContain("tolerancia_abs");
+  });
+
+  it("explicacion round-trippea con interpolación de variables", () => {
+    let p = parse('enunciado: "{a}"\nvariables:\n  a: random(1, 9)\nrespuesta: a\n');
+    p = writeExplicacion(p, "El resultado es {a}");
+    expect(readExplicacion(p)).toBe("El resultado es {a}");
+    expect(serialize(p)).toContain("explicacion:");
+    expect(lint(parse(serialize(p))).errors).toEqual([]);
+  });
+
+  it("restricciones round-trippean fórmulas y descartan las inválidas", () => {
+    let p = parse('enunciado: "x"\nvariables:\n  a: random(1, 9)\nrespuesta: a\n');
+    p = writeRestricciones(p, ["a != 0", "a + ", "a > 1"]);
+    // la fórmula inválida ("a + ") se descarta del AST
+    expect(readRestricciones(p)).toEqual(["a != 0", "a > 1"]);
+    p = writeRestricciones(p, []);
+    expect(serialize(p)).not.toContain("restricciones");
+  });
+
+  it("pistas (plural) round-trippean y conviven con metadata.pista", () => {
+    let p = parse('enunciado: "x"\nrespuesta: 1\nmetadata:\n  pista: "única"\n');
+    p = writePistas(p, ["Primero esto", "Después aquello"]);
+    expect(readPistas(p)).toEqual(["Primero esto", "Después aquello"]);
+    const dsl = serialize(p);
+    expect(dsl).toContain("pistas:");
+    // la pista única de metadata SIGUE intacta (no se migra)
+    expect(dsl).toContain('pista: "única"');
+  });
+
+  it("round-trip idempotente con todos los bloques nuevos", () => {
+    const src = [
+      'enunciado: "Calculá {a}"',
+      "variables:",
+      "  a: random(1, 9)",
+      "respuesta: a",
+      "tolerancia_abs: 0.001",
+      'explicacion: "Porque {a}"',
+      "restricciones:",
+      "  - a != 0",
+      "pistas:",
+      '  - "Pista 1"',
+      '  - "Pista 2"',
+      "",
+    ].join("\n");
+    const dsl1 = serialize(parse(src));
+    const dsl2 = serialize(parse(dsl1));
+    expect(dsl2).toBe(dsl1);
+    expect(lint(parse(dsl1)).errors).toEqual([]);
+  });
+});
+
+/* ---------------- WO-4: visual nativo (no-generador) ---------------- */
+
+describe("WO-4 · bloque visual: read/write + runtime", () => {
+  function base() {
+    return parse('enunciado: "x"\nrespuesta: 1\n');
+  }
+
+  it("writeVisualRaw/readVisualRaw round-trippean un line-chart", () => {
+    const visual = {
+      kind: "line-chart",
+      title: "v(t)",
+      series: [
+        {
+          id: "s1",
+          label: "Serie 1",
+          points: [
+            { x: 0, y: 0 },
+            { x: 1, y: 2 },
+          ],
+        },
+      ],
+    };
+    const p = writeVisualRaw(base(), visual);
+    expect(readVisualKind(p)).toBe("line-chart");
+    expect(readVisualRaw(p)).toEqual(visual);
+  });
+
+  it("round-trip DSL↔form del visual es idempotente (claves reservadas citadas)", () => {
+    // El punto usa la clave `y`, palabra reservada: el serializador debe
+    // citarla para que el DSL re-parsee (idempotencia).
+    const p = writeVisualRaw(base(), {
+      kind: "line-chart",
+      series: [{ id: "s1", label: "S1", points: [{ x: 0, y: 1 }] }],
+    });
+    const dsl1 = serialize(p);
+    const dsl2 = serialize(parse(dsl1));
+    expect(dsl2).toBe(dsl1);
+    // y la forma sobrevive el round-trip por el AST.
+    expect(readVisualRaw(parse(dsl1))).toEqual(readVisualRaw(p));
+  });
+
+  it("una pregunta nativa con visual line-chart emite el VisualSpec al generar", () => {
+    const p = writeVisualRaw(base(), {
+      kind: "line-chart",
+      series: [{ id: "s1", label: "S1", points: [{ x: 0, y: 0 }, { x: 1, y: 1 }] }],
+    });
+    const res = generate(compile(parse(serialize(p))), { seed: "t" });
+    expect(res.visual?.kind).toBe("line-chart");
+  });
+
+  it("latex se autorea y round-trippea", () => {
+    const p = writeVisualRaw(base(), {
+      kind: "latex",
+      content: "a^2 + b^2 = c^2",
+      displayMode: true,
+    });
+    expect(readVisualKind(p)).toBe("latex");
+    const res = generate(compile(parse(serialize(p))), { seed: "t" });
+    expect(res.visual?.kind).toBe("latex");
+  });
+
+  it("writeVisualRaw(null) quita el bloque visual", () => {
+    const p = writeVisualRaw(base(), { kind: "latex", content: "x" });
+    expect(readVisualKind(p)).toBe("latex");
+    const sin = writeVisualRaw(p, null);
+    expect(readVisualKind(sin)).toBeNull();
+    expect(serialize(sin)).not.toContain("visual");
   });
 });

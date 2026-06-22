@@ -386,6 +386,11 @@ model Modulo {
   // `20260618000000_modulo_category_duration` para la migración.
   category             String?  @map("category")
   durationMinutes      Int?     @map("duration_minutes")
+  // WO-3 — escala de notas a nivel módulo (JSON: { systemId, minPassingScore? }).
+  // Nullable aditiva: módulos viejos quedan con `scoring_config = null` y el
+  // cálculo de nota cae al fallback histórico (scale-0-100 + umbral). Ver
+  // migración `20260620000000_modulo_scoring_config`.
+  scoringConfig        String?  @map("scoring_config")
   visibility           String   @default("private")
   schoolId             String?  @map("school_id")
   ownerUserId          String?  @map("owner_user_id")

@@ -26,6 +26,8 @@ export type ModuleFormState = {
   visibility: Module["visibility"];
   visibilitySchoolId: string;
   dependencies: ModuleDependency[];
+  /** WO-3 — escala de notas del módulo (id de sistema del catálogo de scoring). */
+  scoringSystemId?: string;
 };
 
 export type BookResult = { id: string; title: string };

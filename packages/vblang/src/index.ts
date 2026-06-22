@@ -23,6 +23,7 @@ export type {
 } from "./scoring/index.js";
 export { compile } from "./runtime/compile.js";
 export { generate } from "./runtime/generate.js";
+export { camposToVisualSpec } from "./runtime/visual.js";
 export {
   generateConResorteo,
   ResorteoAgotadoError,

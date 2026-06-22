@@ -89,6 +89,9 @@ describe("PlantillaEditorSchema", () => {
       />,
     );
 
+    // WO-4 — el PNG ahora vive tras el selector de tipo de visual.
+    await user.selectOptions(screen.getByLabelText("Tipo de visual"), "static-image");
+
     const file = new File([new Uint8Array([0x89, 0x50, 0x4e, 0x47])], "foto.png", {
       type: "image/png",
     });
@@ -118,6 +121,48 @@ describe("PlantillaEditorSchema", () => {
     expect(ph).toHaveTextContent(/dataset/);
     // y el dataset sigue en el DSL
     expect(dsl()).toContain("dataset: capitales");
+  });
+
+  it("WO-4: autorea un line-chart sin rebotar a 'modo Código'", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "x"\nrespuesta: 1\n'} />);
+    await user.selectOptions(screen.getByLabelText("Tipo de visual"), "line-chart");
+    // El editor de líneas aparece (no el placeholder read-only).
+    expect(screen.queryByTestId("vblang-schema-readonly")).not.toBeInTheDocument();
+    expect(screen.getByLabelText("Título del gráfico")).toBeInTheDocument();
+    // El seed deja un line-chart en el DSL.
+    expect(dsl()).toContain("line-chart");
+    // Editar los puntos de la serie persiste.
+    const puntos = screen.getByLabelText("Puntos de la serie 1");
+    fireEvent.change(puntos, { target: { value: "0, 0\n1, 5\n2, 10" } });
+    fireEvent.blur(puntos);
+    expect(dsl()).toContain("line-chart");
+    expect(dsl()).toMatch(/"y":\s*10/);
+  });
+
+  it("WO-4: autorea una fórmula LaTeX y persiste", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "x"\nrespuesta: 1\n'} />);
+    await user.selectOptions(screen.getByLabelText("Tipo de visual"), "latex");
+    const content = screen.getByLabelText("Fórmula (LaTeX)");
+    fireEvent.change(content, { target: { value: "E = mc^2" } });
+    fireEvent.blur(content);
+    expect(dsl()).toContain('kind: "latex"');
+    expect(dsl()).toContain("E = mc^2");
+  });
+
+  it("WO-4: un visual code-only (circuit) se preserva y se ofrece editar en código", () => {
+    render(
+      <Harness
+        initial={
+          'enunciado: "x"\nrespuesta: 1\nvisual:\n  kind: "circuit"\n  elements: [ { id: "r1", type: "resistor" } ]\n'
+        }
+      />,
+    );
+    // El selector refleja el kind code-only y muestra el placeholder.
+    expect(screen.getByTestId("vblang-schema-readonly")).toHaveTextContent(/circuit/);
+    // y el visual sigue en el DSL.
+    expect(dsl()).toContain('kind: "circuit"');
   });
 
   it("base generador: inserta generador y conserva el enunciado", async () => {
@@ -316,5 +361,67 @@ describe("PlantillaEditorSchema", () => {
     expect(dsl()).toContain("enunciado: \"Primera variante\"");
     expect(dsl()).not.toContain("Segunda variante");
     expect(dsl()).not.toContain("enunciados:");
+  });
+
+  /* ---------------- WO-1: bloques antes solo editables en DSL ---------------- */
+
+  it("WO-1: editar la explicación la persiste en el DSL", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "Hola"\nrespuesta: 1\n'} />);
+    const ta = screen.getByLabelText("Explicación");
+    await user.type(ta, "Porque sí");
+    await user.tab();
+    expect(dsl()).toContain('explicacion: "Porque sí"');
+  });
+
+  it("WO-1: tolerancia_abs aparece en input y persiste", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "x"\nrespuesta: 1\n'} />);
+    const inp = screen.getByLabelText("Tolerancia absoluta");
+    await user.type(inp, "0.001");
+    await user.tab();
+    expect(dsl()).toContain("tolerancia_abs: 0.001");
+  });
+
+  it("WO-1: respuesta_nombre sólo aparece en marcar_mapa y persiste", async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={'enunciado: "x"\nrespuesta: 1\n'} />);
+    // En input no hay campo de nombre.
+    expect(screen.queryByLabelText(/Nombre correcto/)).toBeNull();
+    await user.selectOptions(screen.getByLabelText("Tipo"), "marcar_mapa");
+    const inp = screen.getByLabelText(/Nombre correcto/);
+    await user.type(inp, "Argentina");
+    await user.tab();
+    expect(dsl()).toContain('respuesta_nombre: "Argentina"');
+  });
+
+  it("WO-1: agregar una pista escalonada la persiste sin tocar la pista única", async () => {
+    const user = userEvent.setup();
+    render(
+      <Harness
+        initial={'enunciado: "x"\nrespuesta: 1\nmetadata:\n  pista: "única"\n'}
+      />,
+    );
+    await user.click(screen.getByRole("button", { name: /agregar pista/i }));
+    await user.type(screen.getByLabelText("Pista 1"), "Probá con esto");
+    await user.tab();
+    expect(dsl()).toContain("pistas:");
+    expect(dsl()).toContain("Probá con esto");
+    // la pista única de metadata sigue intacta (conviven)
+    expect(dsl()).toContain('pista: "única"');
+  });
+
+  it("WO-1: restricciones — fórmula válida persiste; las restricciones no aparecen con generador", async () => {
+    const user = userEvent.setup();
+    render(
+      <Harness
+        initial={'enunciado: "x"\nvariables:\n  a: random(1, 9)\nrespuesta: a\n'}
+      />,
+    );
+    await user.click(screen.getByRole("button", { name: /agregar restricción/i }));
+    await user.type(screen.getByLabelText("Restricción 1"), "a != 0");
+    await user.tab();
+    expect(dsl()).toContain("restricciones:");
+    expect(dsl()).toContain("a != 0");
   });
 });

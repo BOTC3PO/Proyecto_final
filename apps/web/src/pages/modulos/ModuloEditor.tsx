@@ -12,10 +12,11 @@ import TheorySlideEditor from "../../components/modulos/TheorySlideEditor";
 import QuizEditorManual from "../../components/modulos/QuizEditorManual";
 import QuizEditorGenerated from "../../components/modulos/QuizEditorGenerated";
 import QuizGeneratedPreview from "../../components/modulos/QuizGeneratedPreview";
-import QuizComposicionEditor from "../../components/modulos/QuizComposicionEditor";
+import QuizPosicionesEditor from "../../components/modulos/QuizPosicionesEditor";
 import QuizImportJson from "../../components/modulos/QuizImportJson";
 import EvaluacionConfig from "../../components/modulos/EvaluacionConfig";
 import { parseEvaluacionConfig } from "../../domain/quiz/intentos";
+import { SCORING_SYSTEMS, DEFAULT_SCORING_SYSTEM_ID } from "@vb/vblang";
 import VistaAlumnoOverlay from "../../components/modulos/VistaAlumnoOverlay";
 import EditorSectionNav, {
   type EditorSectionDef,
@@ -1496,6 +1497,29 @@ export default function ModuloEditor() {
                   }
                 />
 
+                {/* WO-3 — Escala de notas del módulo. Aplica a la calificación
+                    de todos los cuestionarios formales del módulo. Si no se
+                    elige, se usa la escala 0–100 por defecto (comportamiento
+                    histórico, reconciliado con el umbral). */}
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-muted)] sm:max-w-sm">
+                  <span className="flex items-center gap-1.5">📏 Escala de notas</span>
+                  <select
+                    aria-label="Escala de notas del módulo"
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:border-[var(--c-primary)] focus:outline-none"
+                    value={form.scoringSystemId ?? DEFAULT_SCORING_SYSTEM_ID}
+                    onChange={(e) => updateForm("scoringSystemId", e.target.value)}
+                  >
+                    {SCORING_SYSTEMS.map((s) => (
+                      <option key={s.id} value={s.id}>
+                        {s.label}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="font-normal text-[var(--c-muted)]">
+                    Con qué escala se muestra la nota final al alumno.
+                  </span>
+                </label>
+
                 <div className="flex flex-wrap items-start gap-3">
                   {/* Sprint 10A: abrir selector de plantilla en lugar de
                       redirigir directamente a crear una nueva. */}
@@ -1798,18 +1822,15 @@ export default function ModuloEditor() {
                           </>
                         )}
 
-                        {/* Composición del quiz: pool, selección, variantes y peso.
-                            Nivel quiz (no DSL). Se persiste en settings. */}
-                        <QuizComposicionEditor
-                          value={quiz.composition}
-                          total={
-                            quiz.mode === "generated"
-                              ? quiz.count ?? 0
-                              : quiz.questions?.length ?? 0
-                          }
-                          onChange={(composition) =>
-                            updateQuiz(quiz.id, { composition })
-                          }
+                        {/* WO-2 / F4-03 — Cuestionario por posiciones: pool de
+                            variantes por posición (alternativas), tema y puntaje.
+                            Reemplaza al editor de composición viejo. Migra lazy
+                            los quizzes guardados con `composition`. */}
+                        <QuizPosicionesEditor
+                          quiz={quiz}
+                          onChange={(patch) => updateQuiz(quiz.id, patch)}
+                          materiaHint={form.subject || undefined}
+                          returnTo={moduloReturnTo}
                         />
                         </div>
                       </div>
@@ -2187,6 +2208,7 @@ function EvaluacionConfigEditor({
     type: quiz.type,
     maxIntentos: quiz.maxIntentos,
     politicaNota: quiz.politicaNota,
+    politicaSorteo: quiz.politicaSorteo,
     timerSegundos: quiz.timerSegundos,
     fullscreenOnStart: quiz.fullscreenOnStart,
     ocultarPuntos: quiz.ocultarPuntos
@@ -2200,6 +2222,7 @@ function EvaluacionConfigEditor({
       onChangeTimerSegundos={(next) => updateQuiz(quiz.id, { timerSegundos: next })}
       onChangeMaxIntentos={(next) => updateQuiz(quiz.id, { maxIntentos: next })}
       onChangePoliticaNota={(next) => updateQuiz(quiz.id, { politicaNota: next })}
+      onChangePoliticaSorteo={(next) => updateQuiz(quiz.id, { politicaSorteo: next })}
       onChangeFullscreenOnStart={(next) =>
         updateQuiz(quiz.id, { fullscreenOnStart: next })
       }

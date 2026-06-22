@@ -120,6 +120,9 @@ interface Props {
   /** F4-03 — cambiar el tipo de slot de una posición. Si está presente,
    *  se renderiza un selector con los 3 tipos (fijo / pool / relleno). */
   onChangeTipo?: (numero: number, tipo: PosicionTipo) => void;
+  /** WO-2 — cambiar el tema principal de una posición. Si está presente, el
+   *  chip de tema se reemplaza por un selector con los temas del cuestionario. */
+  onChangeTema?: (numero: number, temaId: string) => void;
 }
 
 /** Etiqueta humana del tipo para los botones del menú. */
@@ -140,6 +143,7 @@ export default function PosicionesCanvas({
   onRemoveVariante,
   onChangePuntaje,
   onChangeTipo,
+  onChangeTema,
 }: Props) {
   const { temas, posiciones } = cuestionario;
   const temaIndex = new Map(temas.map((t, i) => [t.id, i]));
@@ -257,12 +261,29 @@ export default function PosicionesCanvas({
                     ) : (
                       <Pill tone={tipo.tone}>{tipo.label}</Pill>
                     )}
-                    <span
-                      className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium"
-                      style={{ backgroundColor: `${color}22`, color }}
-                    >
-                      {temaById.get(pos.temaPrincipal)?.nombre ?? pos.temaPrincipal}
-                    </span>
+                    {onChangeTema ? (
+                      <select
+                        aria-label={`Tema de la posición ${pos.numero}`}
+                        className="rounded border border-[var(--c-border)] px-1.5 py-0.5 text-xs font-medium"
+                        style={{ backgroundColor: `${color}22`, color }}
+                        value={pos.temaPrincipal}
+                        onChange={(e) => onChangeTema(pos.numero, e.target.value)}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {temas.map((t) => (
+                          <option key={t.id} value={t.id}>
+                            {t.nombre}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
+                      <span
+                        className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium"
+                        style={{ backgroundColor: `${color}22`, color }}
+                      >
+                        {temaById.get(pos.temaPrincipal)?.nombre ?? pos.temaPrincipal}
+                      </span>
+                    )}
                     {pos.temaSecundario && (
                       <span className="text-xs text-[var(--c-hint)]">
                         + {temaById.get(pos.temaSecundario)?.nombre ?? pos.temaSecundario}

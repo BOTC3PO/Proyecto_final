@@ -741,10 +741,15 @@ export function combinacionesPosibles(p: Plantilla): {
 /** Bloques no cubiertos por la UI schema-driven (se preservan read-only). */
 const HANDLED_BLOCKS = new Set<Bloque["kind"]>([
   "enunciado",
+  // `enunciados:` (plural) SÍ se edita (EnunciadoField → lista de variantes);
+  // faltaba acá y `unhandledBlocks` lo reportaba como no manejado por error.
+  "enunciados",
   "tipo",
   "respuesta",
   "respuestas_validas",
   "respuesta_iso",
+  // WO-1: respuesta por nombre (alternativa a respuesta_iso en el mapa).
+  "respuesta_nombre",
   "respuesta_orden",
   "etiquetas_pedidas",
   "opciones_explicitas",
@@ -752,9 +757,16 @@ const HANDLED_BLOCKS = new Set<Bloque["kind"]>([
   "texto_analizar",
   "unidad",
   "tolerancia",
+  // WO-1: tolerancia absoluta (número crudo, junto a la relativa).
+  "tolerancia_abs",
   "correccion",
   "generador",
   "variables",
+  // WO-1: restricciones (dash-list de fórmulas) y pistas escalonadas (plural).
+  "restricciones",
+  "pistas",
+  // WO-1: explicación que se muestra tras responder.
+  "explicacion",
   "visual",
   "pasos",
   "metadata",

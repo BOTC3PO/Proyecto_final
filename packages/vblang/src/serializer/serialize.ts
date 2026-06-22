@@ -51,6 +51,25 @@ const BINOP_RIGHT_ASSOC: Partial<Record<BinOpKind, boolean>> = { "^": true };
 /** Identificador válido para clave de objeto sin comillas. */
 const IDENT_RE = /^[a-záéíóúñA-ZÁÉÍÓÚÑ_][a-záéíóúñA-ZÁÉÍÓÚÑ_0-9]*$/;
 
+/**
+ * WO-4 — palabras reservadas que el lexer SIEMPRE tokeniza como keyword
+ * (`y`, `o`, `no`, `verdadero`, `falso`, `nulo`, `for`, `in`). Como clave de
+ * objeto NO pueden ir sin comillas (el parser sólo acepta IDENT o STRING como
+ * clave), así que el serializador las cita aunque matcheen `IDENT_RE`. Sin
+ * esto, un objeto con clave `y` (p. ej. los puntos `{x, y}` de un line-chart)
+ * se emitiría como `y: 2` y no re-parsearía (round-trip roto).
+ */
+const ALWAYS_KEYWORD_KEYS = new Set([
+  "y",
+  "o",
+  "no",
+  "verdadero",
+  "falso",
+  "nulo",
+  "for",
+  "in",
+]);
+
 function escapeDslString(value: string): string {
   let out = "";
   for (const ch of value) {
@@ -123,7 +142,10 @@ export function emitExpr(expr: Expr): string {
 }
 
 function emitObjectEntry(e: ObjectEntry): string {
-  const key = IDENT_RE.test(e.key) ? e.key : quoteDslString(e.key);
+  const key =
+    IDENT_RE.test(e.key) && !ALWAYS_KEYWORD_KEYS.has(e.key)
+      ? e.key
+      : quoteDslString(e.key);
   return `${key}: ${emitExpr(e.value)}`;
 }
 
