@@ -71,6 +71,11 @@ export { MATEMATICAS_OFICIALES } from "./templates/matematicas-oficiales.js";
 // generador paramétrico → plantilla DSL con contrato de equivalencia.
 export { MATEMATICAS_ARITMETICA_OFICIALES } from "./templates/matematicas-aritmetica-oficiales.js";
 
+// WO-7b — Plantillas oficiales VBLang (Física/Cinemática), porting de MRU,
+// MRUV, caída libre, relación d/v/t y conversión de unidades. Verificación en
+// `apps/web/src/generadoresV2/__tests__/porting-fisica-equivalencia.spec.ts`.
+export { FISICA_CINEMATICA_OFICIALES } from "./templates/fisica-cinematica-oficiales.js";
+
 export {
   ALL_QUESTION_TYPES,
   DASH_LIST_BLOCKS,

@@ -1,5 +1,5 @@
 /**
- * WO-7 — Validez DSL de las plantillas oficiales de Matemáticas/Aritmética.
+ * WO-7 / WO-7b — Validez DSL de las plantillas oficiales de Matemáticas/Aritmética.
  *
  * Espeja el patrón de `matematicas-oficiales.test.ts` (F6-05): cada plantilla
  * portada pasa el pipeline completo `parse -> lint -> compile -> validate` con
@@ -14,18 +14,43 @@ import { compile } from "../../src/runtime/compile.js";
 import { validate } from "../../src/validator/validator.js";
 import { MATEMATICAS_ARITMETICA_OFICIALES } from "../../src/templates/matematicas-aritmetica-oficiales.js";
 
-describe("WO-7: MATEMATICAS_ARITMETICA_OFICIALES", () => {
-  it("expone 7 plantillas con subtipoOriginal del generador de Aritmética", () => {
-    expect(MATEMATICAS_ARITMETICA_OFICIALES).toHaveLength(7);
-    expect(MATEMATICAS_ARITMETICA_OFICIALES.map((p) => p.subtipoOriginal).sort()).toEqual([
+describe("WO-7 / WO-7b: MATEMATICAS_ARITMETICA_OFICIALES", () => {
+  it("expone 22 plantillas con subtipoOriginal del generador de Aritmética", () => {
+    expect(MATEMATICAS_ARITMETICA_OFICIALES).toHaveLength(22);
+    const subtipos = MATEMATICAS_ARITMETICA_OFICIALES
+      .map((p) => p.subtipoOriginal)
+      .sort();
+    // Verifica que cada subtipo del generador (los 21 listados en
+    // `Aritmetica.ts`) tiene al menos una plantilla. Algunos subtipos
+    // (estadistica_basica, decimales) tienen más de una plantilla por las
+    // distintas ramas (basico/intermedio).
+    const set = new Set(subtipos);
+    for (const s of [
       "angulos",
       "coordenadas_plano",
+      "decimales",
+      "divisibilidad",
+      "enteros_negativos",
+      "estadistica_basica_media",
+      "estadistica_basica_mediana",
+      "estadistica_basica_moda",
+      "fracciones",
+      "multiplos_divisores",
+      "numeros_primos",
+      "operaciones_basicas",
+      "operaciones_combinadas",
+      "perimetro_area",
+      "porcentaje",
       "potencias",
+      "proporcionalidad",
+      "raices",
       "regla_tres",
       "series_simples",
       "sucesiones",
       "unidades_medida",
-    ]);
+    ]) {
+      expect(set.has(s), `falta subtipo: ${s}`).toBe(true);
+    }
   });
 
   it("ids únicos y materia 'matematicas'", () => {
