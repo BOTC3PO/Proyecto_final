@@ -217,7 +217,7 @@ respuesta_orden: ["1", "2", "3"]
 const marcarMapaSchema: QuestionTypeSchema = {
   tipo: "marcar_mapa",
   label: "Marcar en el mapa",
-  descripcion: "El alumno selecciona un país/región en un mapa.",
+  descripcion: "El alumno selecciona un país o provincia en un mapa.",
   declaraTipo: true,
   fields: [
     enunciadoField(),
@@ -230,7 +230,7 @@ const marcarMapaSchema: QuestionTypeSchema = {
       block: "mapa",
       options: [
         { value: "world_countries", label: "Países del mundo" },
-        { value: "world_states_provinces", label: "Estados / provincias" },
+        { value: "world_states_provinces", label: "Provincias / estados (por país)" },
         { value: "world_cities", label: "Ciudades" },
       ],
     },
@@ -238,7 +238,7 @@ const marcarMapaSchema: QuestionTypeSchema = {
       kind: "text",
       key: "respuesta_iso",
       label: "Código ISO correcto",
-      help: "Código ISO de la región correcta (ej.: AR).",
+      help: "Para países: ISO A3 (ej. ARG). Para provincias: ISO 3166-2 (ej. AR-C para CABA).",
       required: true,
       block: "respuesta_iso",
     },
@@ -246,7 +246,7 @@ const marcarMapaSchema: QuestionTypeSchema = {
   sampleDsl: `enunciado: "Marcá Argentina en el mapa."
 tipo: marcar_mapa
 mapa: world_countries
-respuesta_iso: "AR"
+respuesta_iso: "ARG"
 `,
 };
 

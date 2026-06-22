@@ -15,8 +15,8 @@
  * por tema se muestra con `RepartoPuntos` (consume `puntaje.ts`).
  */
 
-import { useMemo, useState } from "react";
-import type { ModuleQuiz } from "../../domain/module/module.types";
+import { useCallback, useMemo, useState } from "react";
+import type { ModuleQuiz, ModuleQuizQuestion } from "../../domain/module/module.types";
 import {
   migrarCuestionario,
   type CuestionarioPosiciones,
@@ -73,6 +73,15 @@ export default function QuizPosicionesEditor({
 
   const commit = (next: CuestionarioPosiciones) => onChange({ posiciones: next });
 
+  const handleImportQuestion = useCallback(
+    (q: ModuleQuizQuestion) => {
+      const existing = quiz.questions ?? [];
+      if (existing.some((e) => e.id === q.id)) return;
+      onChange({ questions: [...existing, q] });
+    },
+    [quiz.questions, onChange],
+  );
+
   const [nuevoTema, setNuevoTema] = useState("");
   const agregarNuevoTema = () => {
     const nombre = nuevoTema.trim();
@@ -93,6 +102,12 @@ export default function QuizPosicionesEditor({
           posiciones al editarlo.
         </p>
       )}
+
+      <p className="text-[11px] text-[var(--c-hint)]">
+        Cada posición genera exactamente una pregunta por intento (el sorteo
+        elige una variante). La cantidad total de preguntas que ve el alumno es
+        igual al número de posiciones.
+      </p>
 
       {/* Gestión de temas (secciones). */}
       <div className="flex flex-wrap items-center gap-2 text-xs">
@@ -161,6 +176,7 @@ export default function QuizPosicionesEditor({
             materiaHint={materiaHint}
             returnTo={returnTo}
             {...(plantillaIO ? { plantillaIO } : {})}
+            onImportQuestion={handleImportQuestion}
             onChangeOrigen={(origen) =>
               commit(
                 cambiarOrigenVariante(

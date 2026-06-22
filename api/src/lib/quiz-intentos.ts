@@ -118,6 +118,9 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
 export const TIMER_SEGUNDOS_MIN = 30;
 export const TIMER_SEGUNDOS_MAX = 60 * 60 * 3; // 3 horas — tope arbitrario, suficiente para exámenes largos.
 
+/** WO-3b — margen de gracia para latencia de red al enforcar el timer server-side. */
+export const TIMER_GRACE_SECONDS = 30;
+
 function coerceTimerSegundos(raw: unknown): number | null {
   if (raw === null || raw === undefined) return null;
   if (typeof raw === "number") {
@@ -454,4 +457,44 @@ export function clampTimerSegundos(raw: number | null): number | null {
   if (n < TIMER_SEGUNDOS_MIN) return null; // < 30s no es útil
   if (n > TIMER_SEGUNDOS_MAX) return TIMER_SEGUNDOS_MAX;
   return n;
+}
+
+/**
+ * WO-3b — Calcula el deadline ISO de un intento a partir de su startedAt y el
+ * timerSegundos configurado. Devuelve `null` si no hay timer.
+ */
+export function calcularDeadline(
+  startedAt: string | Date,
+  timerSegundos: number | null
+): string | null {
+  if (timerSegundos === null) return null;
+  const start = typeof startedAt === "string" ? new Date(startedAt) : startedAt;
+  if (isNaN(start.getTime())) return null;
+  return new Date(start.getTime() + timerSegundos * 1000).toISOString();
+}
+
+/**
+ * WO-3b — Valida si el intento excedió el tiempo límite.
+ *
+ * Devuelve `{ exceeded: false }` si no hay timer o el tiempo es válido.
+ * Devuelve `{ exceeded: true, elapsedSec, limitSec }` si se excedió el
+ * timer + margen de gracia (TIMER_GRACE_SECONDS).
+ *
+ * El submit NO se rechaza (para no perder trabajo del alumno), pero el flag
+ * `tiempoExcedido` se persiste en el `grading` JSON para que el docente lo vea.
+ */
+export function validarTiempoLimite(
+  startedAt: string | Date,
+  timerSegundos: number | null,
+  now?: Date
+): { exceeded: false } | { exceeded: true; elapsedSec: number; limitSec: number } {
+  if (timerSegundos === null) return { exceeded: false };
+  const start = typeof startedAt === "string" ? new Date(startedAt) : startedAt;
+  if (isNaN(start.getTime())) return { exceeded: false };
+  const ref = now ?? new Date();
+  const elapsedSec = Math.floor((ref.getTime() - start.getTime()) / 1000);
+  if (elapsedSec <= timerSegundos + TIMER_GRACE_SECONDS) {
+    return { exceeded: false };
+  }
+  return { exceeded: true, elapsedSec, limitSec: timerSegundos };
 }

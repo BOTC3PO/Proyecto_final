@@ -17,8 +17,11 @@ import {
   serializeEvaluacionConfig,
   mergeEvaluacionConfigIntoSettings,
   clampTimerSegundos,
+  calcularDeadline,
+  validarTiempoLimite,
   TIMER_SEGUNDOS_MIN,
   TIMER_SEGUNDOS_MAX,
+  TIMER_GRACE_SECONDS,
   DEFAULT_EVALUACION_CONFIG
 } from "../intentos";
 
@@ -244,5 +247,69 @@ describe("constants sanity", () => {
 
   it("TIMER_SEGUNDOS_MAX = 3 horas (tope arbitrario)", () => {
     expect(TIMER_SEGUNDOS_MAX).toBe(3 * 60 * 60);
+  });
+
+  it("TIMER_GRACE_SECONDS = 30 (margen de red)", () => {
+    expect(TIMER_GRACE_SECONDS).toBe(30);
+  });
+});
+
+describe("calcularDeadline — WO-3b", () => {
+  it("devuelve null si timerSegundos es null", () => {
+    expect(calcularDeadline("2025-01-01T00:00:00Z", null)).toBeNull();
+  });
+
+  it("devuelve null si startedAt es inválido", () => {
+    expect(calcularDeadline("not-a-date", 600)).toBeNull();
+  });
+
+  it("calcula deadline = startedAt + timerSegundos", () => {
+    const deadline = calcularDeadline("2025-06-01T10:00:00.000Z", 600);
+    expect(deadline).toBe("2025-06-01T10:10:00.000Z");
+  });
+
+  it("acepta Date como startedAt", () => {
+    const start = new Date("2025-06-01T10:00:00.000Z");
+    const deadline = calcularDeadline(start, 3600);
+    expect(deadline).toBe("2025-06-01T11:00:00.000Z");
+  });
+});
+
+describe("validarTiempoLimite — WO-3b", () => {
+  const start = new Date("2025-06-01T10:00:00.000Z");
+
+  it("sin timer → nunca excede", () => {
+    expect(validarTiempoLimite(start, null)).toEqual({ exceeded: false });
+  });
+
+  it("dentro del timer → no excede", () => {
+    const now = new Date("2025-06-01T10:05:00.000Z"); // 5 min en 10 min timer
+    expect(validarTiempoLimite(start, 600, now)).toEqual({ exceeded: false });
+  });
+
+  it("dentro del margen de gracia → no excede", () => {
+    const now = new Date(start.getTime() + (600 + TIMER_GRACE_SECONDS) * 1000);
+    expect(validarTiempoLimite(start, 600, now)).toEqual({ exceeded: false });
+  });
+
+  it("después del margen de gracia → excede", () => {
+    const now = new Date(start.getTime() + (600 + TIMER_GRACE_SECONDS + 1) * 1000);
+    const result = validarTiempoLimite(start, 600, now);
+    expect(result.exceeded).toBe(true);
+    if (result.exceeded) {
+      expect(result.limitSec).toBe(600);
+      expect(result.elapsedSec).toBeGreaterThan(600 + TIMER_GRACE_SECONDS);
+    }
+  });
+
+  it("startedAt como string ISO → funciona igual", () => {
+    const now = new Date("2025-06-01T10:05:00.000Z");
+    expect(validarTiempoLimite("2025-06-01T10:00:00.000Z", 600, now)).toEqual({
+      exceeded: false,
+    });
+  });
+
+  it("startedAt inválido → no excede (fail-open)", () => {
+    expect(validarTiempoLimite("garbage", 600)).toEqual({ exceeded: false });
   });
 });

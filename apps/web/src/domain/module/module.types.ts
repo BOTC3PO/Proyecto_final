@@ -157,6 +157,8 @@ export type ModuleQuizQuestion = {
   mapaId?: string;
   /** marcar_mapa: ISO correcto (también copiado a `answerKey` por conveniencia). */
   respuestaIsoCorrecta?: string;
+  /** WO-5: marcar_mapa + provincias: código ISO del país (2 letras). */
+  paisIso?: string;
   /** analisis_sintactico / identificar_palabras: texto a presentar al alumno. */
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */

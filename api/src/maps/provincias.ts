@@ -26,7 +26,7 @@ import { join, resolve } from "node:path";
 // Carpeta donde build-provincias.mjs dejó los <PAIS>.topo.json + index.json.
 const PROVINCIAS_DIR = resolve(
   process.env.PROVINCIAS_DIR ??
-    join(process.cwd(), "src/maps/maps/political/admin1"),
+    join(process.cwd(), "src/maps/provincias"),
 );
 
 // Cache: los mapas son estáticos -> cachear fuerte. Ajustar a gusto.

@@ -67,6 +67,10 @@ export { QUIMICA_OFICIALES } from "./templates/quimica-oficiales.js";
 export { INFORMATICA_OFICIALES } from "./templates/informatica-oficiales.js";
 export { MATEMATICAS_OFICIALES } from "./templates/matematicas-oficiales.js";
 
+// WO-7 — Plantillas oficiales VBLang (Matemáticas/Aritmética), porting
+// generador paramétrico → plantilla DSL con contrato de equivalencia.
+export { MATEMATICAS_ARITMETICA_OFICIALES } from "./templates/matematicas-aritmetica-oficiales.js";
+
 export {
   ALL_QUESTION_TYPES,
   DASH_LIST_BLOCKS,

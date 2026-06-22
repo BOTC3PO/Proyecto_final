@@ -19,10 +19,13 @@ import {
 } from "../lib/sanitize-questions";
 import {
   aplicarPolitica,
+  calcularDeadline,
   calcularNotas,
   contarIntentosPrevios,
+  parseEvaluacionConfig,
   parseIntentoPolicy,
   validarLimiteIntentos,
+  validarTiempoLimite,
   type IntentoPolicy,
   type PoliticaNota
 } from "../lib/quiz-intentos";
@@ -192,6 +195,10 @@ type AttemptGrading = {
   materializationMismatch?: boolean;
   // Ids (del cliente) de las preguntas con answerKey manipulada.
   mismatchQuestions?: string[];
+  // WO-3b — true si el intento se envió después del deadline (timer + gracia).
+  tiempoExcedido?: boolean;
+  tiempoElapsedSec?: number;
+  tiempoLimiteSec?: number;
 };
 
 type GradableQuestion = NonNullable<ModuleQuiz["questions"]>[number];
@@ -835,6 +842,8 @@ quizAttempts.post(
       }
     })();
     const intentoPolicy: IntentoPolicy = parseIntentoPolicy(version.settings, quizTipoLectura);
+    // WO-3b — leer timerSegundos para devolver deadline al front.
+    const evalConfig = parseEvaluacionConfig(version.settings, quizTipoLectura);
     const intentosPrevios = await prisma.quizAttempt.findMany({
       where: { quizId: payload.quizId, userId }
     });
@@ -868,6 +877,9 @@ quizAttempts.post(
         seedPolicy: quiz.seedPolicy !== undefined ? Number(quiz.seedPolicy) : undefined,
       }
     });
+    // WO-3b — deadline del intento (null si no hay timer).
+    const deadline = calcularDeadline(now, evalConfig.timerSegundos);
+
     res
       .status(201)
       .json({
@@ -881,7 +893,10 @@ quizAttempts.post(
           intentoPolicy.maxIntentos === null
             ? null
             : Math.max(0, intentoPolicy.maxIntentos - contarIntentosPrevios(intentosPrevios, userId, payload.quizId) - 1),
-        politicaNota: intentoPolicy.politicaNota
+        politicaNota: intentoPolicy.politicaNota,
+        // WO-3b — timer info para que el front monte el countdown.
+        timerSegundos: evalConfig.timerSegundos,
+        deadline
       });
   } catch (error: any) {
     res.status(400).json({ error: error?.message ?? "invalid payload" });
@@ -1254,7 +1269,7 @@ quizAttempts.get(
   if (!userId) return res.status(401).json({ error: "user not found" });
   const attempt = await prisma.quizAttempt.findFirst({ where: { id: idParam, userId } }) as QuizAttemptRecord | null;
   if (!attempt) return res.status(404).json({ error: "attempt not found" });
-  const { quiz: collectionQuiz, metadata, module, versionMissing } = await fetchQuizFromCollections(
+  const { quiz: collectionQuiz, metadata, module, version: getVersion, versionMissing } = await fetchQuizFromCollections(
     attempt.quizId,
     attempt.moduleId ?? undefined,
     attempt.quizVersionId ?? undefined
@@ -1265,6 +1280,23 @@ quizAttempts.get(
     });
   }
   const quiz = collectionQuiz ?? findQuiz(module, attempt.quizId);
+
+  // WO-3b — timer info para que el front pueda retomar el countdown.
+  const getQuizTipo = (() => {
+    if (!getVersion?.settings) return "practica";
+    try {
+      const p = JSON.parse(getVersion.settings) as { type?: string };
+      return p.type ?? "practica";
+    } catch {
+      return "practica";
+    }
+  })();
+  const getEvalConfig = parseEvaluacionConfig(getVersion?.settings, getQuizTipo);
+  const getDeadline = calcularDeadline(
+    attempt.startedAt as unknown as string,
+    getEvalConfig.timerSegundos
+  );
+
   // V2-04 — el alumno es el único que llega hasta acá con el handler actual
   // (el filtro es `id + userId`). Sanitizamos por defecto; si en el futuro
   // el handler se abre al staff, debería saltarse la sanitización.
@@ -1281,6 +1313,8 @@ quizAttempts.get(
     quizId: attempt.quizId,
     quizTitle: quiz?.title ?? metadata?.title ?? module?.title ?? "Quiz",
     status: attempt.status,
+    timerSegundos: getEvalConfig.timerSegundos,
+    deadline: getDeadline,
     questions: questionsForResponse,
     answers: attempt.answers
       ? safeJsonParse(attempt.answers as unknown as string, {} as Record<string, unknown>)
@@ -1529,6 +1563,23 @@ quizAttempts.post(
       }
       const quiz = collectionQuiz ?? findQuiz(module, attempt.quizId);
       if (!quiz) return res.status(404).json({ error: "quiz not found" });
+
+      // WO-3b — enforcar tiempo límite server-side.
+      const submitQuizTipo = (() => {
+        if (!version?.settings) return "practica";
+        try {
+          const p = JSON.parse(version.settings) as { type?: string };
+          return p.type ?? "practica";
+        } catch {
+          return "practica";
+        }
+      })();
+      const submitEvalConfig = parseEvaluacionConfig(version?.settings, submitQuizTipo);
+      const tiempoCheck = validarTiempoLimite(
+        attempt.startedAt as unknown as string,
+        submitEvalConfig.timerSegundos
+      );
+
       const normalizedQuizVersion = QuizVersionSchema.parse(
         version?.version ?? quiz?.generatorVersion ?? 1
       );
@@ -1649,6 +1700,12 @@ quizAttempts.post(
         // indicador de manipulación (mismo canal que el canario). No bloquea.
         grading.materializationMismatch = true;
         grading.mismatchQuestions = mismatchQuestions;
+      }
+      // WO-3b — registrar si el intento se envió fuera de tiempo.
+      if (tiempoCheck.exceeded) {
+        grading.tiempoExcedido = true;
+        grading.tiempoElapsedSec = tiempoCheck.elapsedSec;
+        grading.tiempoLimiteSec = tiempoCheck.limitSec;
       }
       for (const { question, weight } of manual) {
         grading.items[question.id] = {
