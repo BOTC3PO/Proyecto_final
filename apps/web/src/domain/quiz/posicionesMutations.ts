@@ -18,10 +18,12 @@
  */
 
 import {
+  coerceDificultad,
   letraPorIndice,
   parseCuestionario,
   TEMA_GENERAL,
   type CuestionarioPosiciones,
+  type Dificultad,
   type Posicion,
   type PosicionTipo,
   type Variante,
@@ -183,6 +185,36 @@ export function cambiarOrigenVariante(
   return mapPosicion(c, numero, (p) => ({
     ...p,
     variantes: p.variantes.map((v) => (v.letra === letra ? { ...v, origen } : v)),
+  }));
+}
+
+/**
+ * WO-14 — Asigna o cambia la `dificultad` de una variante concreta.
+ * `null`/`undefined` quita la etiqueta (vuelve al fallback "indefinido"
+ * = factor 1.0 en scoring, ver `puntaje.ts`). Si el valor pasado no es
+ * una `Dificultad` válida, se descarta silenciosamente (defensa contra
+ * input sucio; el cuestionario sigue siendo válido, sólo sin etiqueta).
+ *
+ * Idempotente y puro: no muta, devuelve un cuestionario normalizado.
+ */
+export function cambiarDificultadVariante(
+  c: CuestionarioPosiciones,
+  numero: number,
+  letra: string,
+  dificultad: Dificultad | null | undefined,
+): CuestionarioPosiciones {
+  return mapPosicion(c, numero, (p) => ({
+    ...p,
+    variantes: p.variantes.map((v) => {
+      if (v.letra !== letra) return v;
+      const validada = coerceDificultad(dificultad);
+      if (validada === undefined) {
+        // Quitar la etiqueta (volver a la propiedad ausente).
+        const { dificultad: _drop, ...rest } = v;
+        return rest as Variante;
+      }
+      return { ...v, dificultad: validada };
+    }),
   }));
 }
 

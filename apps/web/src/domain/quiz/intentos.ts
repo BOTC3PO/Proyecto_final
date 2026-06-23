@@ -41,6 +41,45 @@ export const PREGUNTAS_POR_PAGINA_DEFAULT = 5;
  *  persistido (preserva el comportamiento previo a WO-9). */
 export const MODO_PRESENTACION_DEFAULT: ModoPresentacion = "lista";
 
+// WO-14 — Política de ruteo de DIFICULTAD. Define CÓMO se elige la
+// variante cuando el cuestionario tiene `Variante.dificultad` etiquetada.
+// Es RUTEO sobre material congelado (no generación en vivo).
+//  - `fija`: se usa `dificultadInicial` para todas las posiciones. La
+//    selección sortea una variante con esa dificultad (o vecindad ±1 si
+//    no hay exacta), con sin-repetición.
+//  - `manual`: la fundación la trata como `fija` (la per-posición por
+//    el profe queda fuera de alcance; preserva la API).
+//  - `adaptativa_simple`: la dificultad se mueve ±1 nivel según las
+//    últimas `dificultadVentana` respuestas (regla pura
+//    `proximaDificultad` de `sorteo.ts`); la fundación provee la
+//    función pura, su wireado per-slide es WO-XX (roadmap).
+export type PoliticaDificultad = "fija" | "manual" | "adaptativa_simple";
+
+export const POLITICAS_DIFICULTAD_VALIDAS: PoliticaDificultad[] = [
+  "fija",
+  "manual",
+  "adaptativa_simple",
+];
+
+/** WO-14 — Política por defecto: `fija` (preserva el comportamiento
+ *  pre-WO-14, donde la dificultad se ignoraba). Cuestionarios nuevos
+ *  pueden cambiarla desde el editor. */
+export const POLITICA_DIFICULTAD_DEFAULT: PoliticaDificultad = "fija";
+
+/** WO-14 — Dificultad inicial por defecto. `intermedio` evita tanto la
+ *  frustración de arrancar en `avanzado` como el aburrimiento de
+ *  arrancar en `basico`. */
+export const DIFICULTAD_INICIAL_DEFAULT: "basico" | "intermedio" | "avanzado" =
+  "intermedio";
+
+/** WO-14 — Ventana por defecto para la política `adaptativa_simple`:
+ *  cuántas respuestas mirar antes de subir/bajar 1 nivel. */
+export const DIFICULTAD_VENTANA_DEFAULT = 2;
+
+/** WO-14 — Saturación del clamp de ventana (mínimo/máximo permitido). */
+export const DIFICULTAD_VENTANA_MIN = 1;
+export const DIFICULTAD_VENTANA_MAX = 10;
+
 export type IntentoPolicy = {
   /** `null` = ilimitado. Entero ≥ 1 = tope. 0 = ilimitado (alias de null). */
   maxIntentos: number | null;
@@ -91,6 +130,14 @@ export type EvaluacionConfig = {
   modoPresentacion: ModoPresentacion;
   /** WO-9 — tamaño de página cuando `modoPresentacion === "paginado"`. */
   preguntasPorPagina: number;
+  /** WO-14 — política de ruteo por dificultad. Default `fija`. */
+  politicaDificultad: PoliticaDificultad;
+  /** WO-14 — dificultad inicial cuando `politicaDificultad !== "adaptativa_simple"`
+   *  o cuando no hay historial previo. Default `intermedio`. */
+  dificultadInicial: "basico" | "intermedio" | "avanzado";
+  /** WO-14 — ventana (N últimas respuestas) que mira la política
+   *  `adaptativa_simple` para subir/bajar 1 nivel. Default 2. */
+  dificultadVentana: number;
 };
 
 export type EvaluacionConfigInput = Partial<{
@@ -102,6 +149,9 @@ export type EvaluacionConfigInput = Partial<{
   ocultarPuntos: boolean;
   modoPresentacion: string | null;
   preguntasPorPagina: number | null;
+  politicaDificultad: string | null;
+  dificultadInicial: string | null;
+  dificultadVentana: number | null;
 }>;
 
 export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
@@ -115,7 +165,13 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     // WO-9 — defaults de modo de presentación. Preservan el
     // comportamiento previo a WO-9 (lista, todo en una pantalla).
     modoPresentacion: "lista",
-    preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT
+    preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT,
+    // WO-14 — defaults de ruteo por dificultad. Preservan el
+    // comportamiento previo a WO-14: la dificultad se ignora
+    // (`fija` + `intermedio` = el docente no tocó nada).
+    politicaDificultad: POLITICA_DIFICULTAD_DEFAULT,
+    dificultadInicial: DIFICULTAD_INICIAL_DEFAULT,
+    dificultadVentana: DIFICULTAD_VENTANA_DEFAULT
   },
   formal: {
     timerSegundos: null, // default conservador — el docente activa explícitamente
@@ -125,7 +181,10 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     politicaSorteo: "fijo_por_alumno",
     ocultarPuntos: false,
     modoPresentacion: "lista",
-    preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT
+    preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT,
+    politicaDificultad: POLITICA_DIFICULTAD_DEFAULT,
+    dificultadInicial: DIFICULTAD_INICIAL_DEFAULT,
+    dificultadVentana: DIFICULTAD_VENTANA_DEFAULT
   },
   competencia: {
     timerSegundos: 600, // 10 min — preserva el hardcode de QuizAttempt.tsx pre-F4-04
@@ -135,7 +194,10 @@ export const DEFAULT_EVALUACION_CONFIG: Record<QuizTipo, EvaluacionConfig> = {
     politicaSorteo: "fijo_por_alumno",
     ocultarPuntos: false,
     modoPresentacion: "lista",
-    preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT
+    preguntasPorPagina: PREGUNTAS_POR_PAGINA_DEFAULT,
+    politicaDificultad: POLITICA_DIFICULTAD_DEFAULT,
+    dificultadInicial: DIFICULTAD_INICIAL_DEFAULT,
+    dificultadVentana: DIFICULTAD_VENTANA_DEFAULT
   }
 };
 
@@ -198,6 +260,51 @@ function coercePreguntasPorPagina(raw: unknown, fallback: number): number {
     }
   }
   return fallback;
+}
+
+/** WO-14 — Coacciona un valor arbitrario a `PoliticaDificultad`. Si es
+ *  inválido, devuelve el fallback (default: `POLITICA_DIFICULTAD_DEFAULT`). */
+function coercePoliticaDificultad(
+  raw: unknown,
+  fallback: PoliticaDificultad,
+): PoliticaDificultad {
+  if (typeof raw === "string" && (POLITICAS_DIFICULTAD_VALIDAS as string[]).includes(raw)) {
+    return raw as PoliticaDificultad;
+  }
+  return fallback;
+}
+
+/** WO-14 — Coacciona un valor arbitrario a `Dificultad`
+ *  (`basico` | `intermedio` | `avanzado`). Si es inválido, devuelve el
+ *  fallback (default: `DIFICULTAD_INICIAL_DEFAULT`). Reutiliza el helper
+ *  `coerceDificultad` de `posiciones.ts` (mismo dominio). */
+function coerceDificultad(
+  raw: unknown,
+  fallback: "basico" | "intermedio" | "avanzado",
+): "basico" | "intermedio" | "avanzado" {
+  if (typeof raw === "string" && ["basico", "intermedio", "avanzado"].includes(raw)) {
+    return raw as "basico" | "intermedio" | "avanzado";
+  }
+  return fallback;
+}
+
+/** WO-14 — Coacciona la ventana de `adaptativa_simple`. Clamp al rango
+ *  `[DIFICULTAD_VENTANA_MIN, DIFICULTAD_VENTANA_MAX]`. Si el valor es
+ *  inválido (NaN, no-finito, fuera de rango), devuelve el fallback. */
+function coerceDificultadVentana(raw: unknown, fallback: number): number {
+  let n: number | undefined;
+  if (typeof raw === "number" && Number.isFinite(raw)) n = raw;
+  else if (typeof raw === "string") {
+    const trimmed = raw.trim();
+    if (trimmed) {
+      const parsed = Number(trimmed);
+      if (Number.isFinite(parsed)) n = parsed;
+    }
+  }
+  if (n === undefined) return fallback;
+  if (n < DIFICULTAD_VENTANA_MIN) return DIFICULTAD_VENTANA_MIN;
+  if (n > DIFICULTAD_VENTANA_MAX) return DIFICULTAD_VENTANA_MAX;
+  return Math.floor(n);
 }
 
 export type AttemptForPolicy = {
@@ -451,13 +558,29 @@ export function parseEvaluacionConfig(
     politicaNota: coercePoliticaNota(parsed.politicaNota, defaults.politicaNota),
     politicaSorteo: coercePoliticaSorteo(parsed.politicaSorteo, defaults.politicaSorteo),
     ocultarPuntos: coerceOcultarPuntos(parsed.ocultarPuntos, defaults.ocultarPuntos),
-    // WO-9 — modo de presentación + tamaño de página. Ausente o
-    // inválido cae al default (`lista` / 5), preservando el
-    // comportamiento previo a WO-9.
+    // WO-9 — modo de presentación. Ausente o inválido cae al default
+    // (`lista`), preservando el comportamiento previo a WO-9.
     modoPresentacion: coerceModoPresentacion(parsed.modoPresentacion, defaults.modoPresentacion),
     preguntasPorPagina: coercePreguntasPorPagina(
       parsed.preguntasPorPagina,
       defaults.preguntasPorPagina
+    ),
+    // WO-14 — ruteo por dificultad. Ausente o inválido cae al default
+    // (`fija` + `intermedio` + ventana 2), preservando el comportamiento
+    // previo a WO-14 (la dificultad se ignoraba). Los campos siempre se
+    // persisten (mismo criterio que los demás): así el editor puede saber
+    // qué eligió el docente sin recalcular defaults.
+    politicaDificultad: coercePoliticaDificultad(
+      parsed.politicaDificultad,
+      defaults.politicaDificultad
+    ),
+    dificultadInicial: coerceDificultad(
+      parsed.dificultadInicial,
+      defaults.dificultadInicial
+    ),
+    dificultadVentana: coerceDificultadVentana(
+      parsed.dificultadVentana,
+      defaults.dificultadVentana
     )
   };
 }
@@ -477,7 +600,13 @@ export function serializeEvaluacionConfig(config: EvaluacionConfig): Record<stri
     ocultarPuntos: config.ocultarPuntos,
     // WO-9 — modo de presentación + tamaño de página.
     modoPresentacion: config.modoPresentacion,
-    preguntasPorPagina: config.preguntasPorPagina
+    preguntasPorPagina: config.preguntasPorPagina,
+    // WO-14 — ruteo por dificultad. Se persisten siempre (no son
+    // opcionales): así el editor puede saber qué eligió el docente
+    // sin recalcular defaults.
+    politicaDificultad: config.politicaDificultad,
+    dificultadInicial: config.dificultadInicial,
+    dificultadVentana: config.dificultadVentana
   };
 }
 

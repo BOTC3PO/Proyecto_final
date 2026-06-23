@@ -1,5 +1,5 @@
 /**
- * F3-01 — Modelo "cuestionario por posiciones" (plan rondas 5-7).
+ * F3-01 + WO-14 — Modelo "cuestionario por posiciones" (plan rondas 5-7).
  *
  * Un cuestionario es N posiciones numeradas. Cada posición es una pregunta fija
  * o un pool de variantes (a/b/c…); cada posición lleva un tema (principal +
@@ -17,16 +17,80 @@
  * `apps/web/src/domain/quiz/posiciones.ts` (misma convención que
  * quiz-composition.ts ↔ domain/quiz/composition.ts). Cualquier cambio acá DEBE
  * reflejarse allá o los tipos compartidos se desincronizan.
+ *
+ * ── WO-14 — Fundación de la adaptativa ─────────────────────────────
+ * El nivel de `dificultad` se modela como atributo OPCIONAL de la
+ * `Variante` ya congelada. La fundación es RUTEO sobre variantes
+ * materializadas (no generación en vivo). Ver:
+ *   - `quiz-sorteo.ts` para la selección por dificultad.
+ *   - `quiz-puntaje.ts` para el peso por variante según dificultad.
+ *   - `quiz-intentos.ts` (EvaluacionConfig) para la política del docente.
+ *   - `docs/wo-14-adaptativa-fundacion.md` para el diagnóstico y el
+ *     alcance fundación vs roadmap.
  */
 
-/** Versión del schema embebido en `settings.posiciones`. */
-export const POSICIONES_SCHEMA_VERSION = 2 as const;
+/** Versión del schema embebido en `settings.posiciones`.
+ *  - v2: modelo original (F3-01) — `Posicion` con `variantes: Variante[]`.
+ *  - v3 (WO-14): añade `dificultad?` opcional a `Variante`. Back-compat: parse
+ *    acepta v2 (variantes sin `dificultad`) y los absent se tratan como
+ *    `indefinido` → factor 1.0 en scoring (ver `quiz-puntaje.ts`). El campo es
+ *    opcional, así que los cuestionarios existentes siguen parseando idéntico.
+ */
+export const POSICIONES_SCHEMA_VERSION = 3 as const;
 
 /** Tema para agrupar/colorear posiciones. `color` es opcional (UI, F4). */
 export interface Tema {
   id: string;
   nombre: string;
   color?: string;
+}
+
+/**
+ * WO-14 — Dificultad declarada por el docente sobre UNA variante ya
+ * materializada (no es una propiedad del generador, es de la variante
+ * concreta). Ruteo, no generación: el docente etiqueta a/b/c con basico /
+ * intermedio / avanzado al armar el cuestionario, y el sorteadero elige
+ * cuál mostrar. Los valores matchean `Dificultad` de
+ * `generadoresV2/core/types.ts` pero se redeclaran acá (módulo SIN
+ * imports, mirror byte-a-byte con apps/web).
+ */
+export type Dificultad = "basico" | "intermedio" | "avanzado";
+
+export const DIFICULTADES_VALIDAS: Dificultad[] = [
+  "basico",
+  "intermedio",
+  "avanzado",
+];
+
+/** Itera los tres niveles en orden. Útil para vecindad (subir/bajar 1 nivel). */
+export const DIFICULTAD_ORDEN: readonly Dificultad[] = [
+  "basico",
+  "intermedio",
+  "avanzado",
+];
+
+/** Devuelve el índice 0..2 de una dificultad. Indefinido → 1 (intermedio). */
+export function dificultadIndice(d: Dificultad | undefined): number {
+  if (d === "basico") return 0;
+  if (d === "avanzado") return 2;
+  return 1;
+}
+
+/** Devuelve la dificultad N niveles más arriba o abajo (clamp al rango). */
+export function dificultadVecina(
+  d: Dificultad,
+  delta: number,
+): Dificultad {
+  const idx = Math.max(0, Math.min(2, dificultadIndice(d) + delta));
+  return DIFICULTAD_ORDEN[idx];
+}
+
+/** Coacciona un valor arbitrario a `Dificultad` o `undefined` si es inválido. */
+export function coerceDificultad(raw: unknown): Dificultad | undefined {
+  if (typeof raw === "string" && (DIFICULTADES_VALIDAS as string[]).includes(raw)) {
+    return raw as Dificultad;
+  }
+  return undefined;
 }
 
 /**
@@ -52,10 +116,22 @@ export type VarianteOrigen =
       params?: Record<string, unknown>;
     };
 
-/** Una variante de una posición: su letra (a/b/c…) y de dónde sale la pregunta. */
+/** Una variante de una posición: su letra (a/b/c…), de dónde sale la
+ *  pregunta y, opcionalmente, la dificultad que el docente le asignó.
+ *
+ *  WO-14 — `dificultad` es OPCIONAL para no romper cuestionarios v2
+ *  existentes: si está ausente, la variante se trata como `indefinido`
+ *  en el ruteo (factor 1.0 en el puntaje, ver `quiz-puntaje.ts`). El
+ *  contrato es: la variante ya está CONGELADA al armar el cuestionario;
+ *  la dificultad es un atributo de esa variante congelada, no algo que
+ *  se genera en vivo al elegir. */
 export interface Variante {
   letra: string;
   origen: VarianteOrigen;
+  /** Dificultad declarada por el docente (basico | intermedio | avanzado).
+   *  Ausente = heredada de la posición o, si la posición tampoco la trae,
+   *  indefinida (factor 1.0 en scoring). */
+  dificultad?: Dificultad;
 }
 
 /**
@@ -146,7 +222,14 @@ function parseVarianteOrigen(raw: unknown, fallbackQuestionId?: string): Variant
 function parseVariante(raw: unknown, indice: number): Variante {
   const r = isObject(raw) ? raw : {};
   const letra = nonEmptyString(r.letra) ?? letraPorIndice(indice);
-  return { letra, origen: parseVarianteOrigen(r.origen) };
+  const out: Variante = { letra, origen: parseVarianteOrigen(r.origen) };
+  // WO-14 — `dificultad` opcional. Si está ausente o inválida, la variante
+  // queda con `dificultad` indefinido (factor 1.0 en scoring, ver
+  // `quiz-puntaje.ts`). El coerce centralizado vive en `coerceDificultad`
+  // para que apps/web lo reuse idéntico.
+  const d = coerceDificultad(r.dificultad);
+  if (d !== undefined) out.dificultad = d;
+  return out;
 }
 
 /** a, b, c … z, aa, ab … (suficiente para cualquier pool razonable). */
@@ -316,6 +399,14 @@ export interface ResultadoValidacion {
  * comparten tema/puntaje (la regla del plan: el puntaje y el tema son de la
  * posición). `parseCuestionario` en cambio NORMALIZA (hoist) los casos
  * uniformes; usar esta función para decidir si aceptar o rechazar la entrada.
+ *
+ * WO-14 — Las variantes de una misma posición PUEDEN diferir en
+ * `dificultad` (es justamente la fundación de la adaptativa: a/b/c
+ * etiquetadas por nivel). Esta función NO las rechaza por eso. Si la
+ * `dificultad` está presente pero tiene un valor fuera de
+ * `DIFICULTADES_VALIDAS`, `parseCuestionario` la descarta silenciosamente
+ * (defensa contra JSON viejo o mano); la validación aquí, en cambio,
+ * acepta el cuestionario porque ese descarte no rompe el modelo.
  */
 export function validarCuestionario(raw: unknown): ResultadoValidacion {
   const errores: string[] = [];

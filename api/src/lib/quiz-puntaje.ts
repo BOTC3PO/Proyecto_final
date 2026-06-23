@@ -1,30 +1,76 @@
 /**
- * F3-03 (a) — Puntaje por proporción cruda.
+ * F3-03 (a) + WO-14 — Puntaje por proporción cruda + peso por dificultad.
  *
  * El puntaje de un intento se calcula POR POSICIÓN: cada posición vale
  * `posicion.puntaje`, compartido por todas sus variantes (regla del plan,
  * F3-01). Por eso dos alumnos con variantes distintas rinden por el MISMO total
- * (equidad). El resultado es una proporción cruda `ratio = score / maxScore`
+ * (equidad) en el caso base.
+ *
+ * WO-14 — DIFICULTAD COMO FACTOR (no como rebalanceo del total): la
+ * `dificultad` de la variante PRESENTADA al alumno (no la de la
+ * posición) multiplica el peso de ESA instancia. Si la variante
+ * elegida fue `avanzado` (factor 1.2), el `puntaje` de la posición
+ * rinde 1.2× en ESE intento; si fue `basico` (0.8), rinde 0.8×. El
+ * resultado es que:
+ *   - La `ratio = score / maxScore` se preserva dentro de un mismo
+ *     intento (no se distorsiona con la dificultad).
+ *   - El `maxScore` del alumno refleja la dificultad del material
+ *     que le tocó (un intento con variantes `avanzado` tiene un
+ *     `maxScore` mayor que uno con `basico` — el alumno ve que la
+ *     prueba difícil "valía más").
+ *   - La NOTA (ratio → escala del profesor via `gradeFromConfig`)
+ *     sigue dependiendo de la ratio, no del absoluto. La fundación
+ *     no toca `gradeFromConfig` (es del paquete `@vb/vblang`); si
+ *     el docente quiere que la nota FINAL también refleje la
+ *     dificultad, eso se hace ajustando la curva de la escala, no
+ *     este scorer.
+ *
+ * El resultado es una proporción cruda `ratio = score / maxScore`
  * que NO es una nota: la nota la produce `gradeFromConfig(ratio, scoringConfig)`
  * de `@vb/vblang` (escala del profesor, WO14) — acá NO se inventa ningún sistema
  * de notas, sólo se alimenta el ratio.
  *
  * Lógica pura y SIN imports, port byte a byte de
- * `api/src/lib/quiz-puntaje.ts`. Cualquier cambio acá DEBE reflejarse allá o los
- * tipos compartidos se desincronizan.
+ * `apps/web/src/domain/quiz/puntaje.ts`. Cualquier cambio acá DEBE
+ * reflejarse allá o los tipos compartidos se desincronizan.
  */
+
+/** Factor de dificultad (peso) por nivel. Declarado localmente para mantener
+ *  el módulo SIN imports (mirror byte-a-byte con apps/web). Matchea los valores
+ *  de `dificultadFactor` en `generadoresV2/core/types.ts`. */
+const FACTOR_DIFICULTAD: Record<"basico" | "intermedio" | "avanzado", number> = {
+  basico: 0.8,
+  intermedio: 1.0,
+  avanzado: 1.2,
+};
+
+/** Devuelve el factor de peso de una dificultad. Indefinida o ausente = 1.0
+ *  (intermedio), preservando el comportamiento pre-WO-14 cuando las
+ *  variantes no tenían etiqueta. */
+export function factorDificultad(
+  d: "basico" | "intermedio" | "avanzado" | undefined,
+): number {
+  if (d === "basico") return FACTOR_DIFICULTAD.basico;
+  if (d === "avanzado") return FACTOR_DIFICULTAD.avanzado;
+  return FACTOR_DIFICULTAD.intermedio; // intermedio o undefined
+}
 
 /** Lo mínimo que se necesita de una posición para puntuar: número y puntaje. */
 export interface PosicionPuntuable {
   numero: number;
   /** Puntaje de la posición (≥ 0). 0 = no puntúa (no entra en el maxScore). */
   puntaje: number;
+  /** WO-14 — Factor multiplicativo de la variante PRESENTADA. Ausente = 1.0
+   *  (intermedio), preservando el comportamiento pre-WO-14 para cuestionarios
+   *  v2 sin etiqueta de dificultad. NO es un atributo de la posición sino
+   *  del intento concreto (cada alumno tiene su factor). */
+  factorDificultad?: number;
 }
 
 export interface ResultadoPuntaje {
-  /** Suma de puntajes de las posiciones acertadas. */
+  /** Suma de puntajes de las posiciones acertadas (con factor WO-14). */
   score: number;
-  /** Suma de puntajes de TODAS las posiciones puntuables. */
+  /** Suma de puntajes de TODAS las posiciones puntuables (con factor WO-14). */
   maxScore: number;
   /** Proporción cruda score/maxScore ∈ [0,1], o null si maxScore = 0 (N/A). */
   ratio: number | null;
@@ -34,12 +80,17 @@ export interface ResultadoPuntaje {
  * Calcula el puntaje de un intento a partir de las posiciones (con su puntaje a
  * nivel posición) y el conjunto de posiciones acertadas (por `numero`).
  *
- * - `maxScore`: suma de `puntaje` de todas las posiciones (las de puntaje 0 no
- *   suman, quedando efectivamente excluidas).
- * - `score`: suma de `puntaje` de las posiciones cuyo `numero` está en
- *   `acertadas`.
+ * - `maxScore`: suma de `puntaje * factorDificultad` de todas las posiciones
+ *   (las de puntaje 0 no suman, quedando efectivamente excluidas).
+ * - `score`: suma de `puntaje * factorDificultad` de las posiciones cuyo
+ *   `numero` está en `acertadas`.
  * - `ratio`: `score/maxScore`, o `null` cuando `maxScore = 0` (mismo contrato
  *   `rawRatio = null` que espera `gradeFromConfig`).
+ *
+ * WO-14 — `factorDificultad` se aplica por POSICIÓN, leyendo el campo
+ * opcional de cada `PosicionPuntuable`. Si está ausente, vale 1.0
+ * (intermedio). Esto preserva back-compat: los call sites que pasan
+ * `{numero, puntaje}` sin factor se comportan idéntico a pre-WO-14.
  */
 export function puntajePorPosiciones(
   posiciones: readonly PosicionPuntuable[],
@@ -48,7 +99,9 @@ export function puntajePorPosiciones(
   let score = 0;
   let maxScore = 0;
   for (const pos of posiciones) {
-    const w = pos.puntaje > 0 ? pos.puntaje : 0;
+    const wBase = pos.puntaje > 0 ? pos.puntaje : 0;
+    const factor = pos.factorDificultad !== undefined ? pos.factorDificultad : 1;
+    const w = wBase * factor;
     maxScore += w;
     if (w > 0 && acertadas.has(pos.numero)) score += w;
   }
@@ -109,9 +162,15 @@ export function puntajePorTema(
     return out[id];
   };
   for (const pos of cuestionario.posiciones) {
-    const w = pos.puntaje > 0 ? pos.puntaje : 0;
-    if (w === 0) continue; // las posiciones con puntaje 0 no entran ni al total
-                           // ni a la distribución por tema.
+    const wBase = pos.puntaje > 0 ? pos.puntaje : 0;
+    if (wBase === 0) continue; // las posiciones con puntaje 0 no entran ni al total
+                                // ni a la distribución por tema.
+    // WO-14 — el factor de dificultad se aplica a la posición ANTES del
+    // split 50/50 entre tema principal y secundario. Así la masa sigue
+    // conservada (la suma por tema = `puntaje * factor` para esa posición)
+    // y el reparto refleja la dificultad real del material presentado.
+    const factor = pos.factorDificultad !== undefined ? pos.factorDificultad : 1;
+    const w = wBase * factor;
     const acertada = acertadas.has(pos.numero);
     if (pos.temaSecundario && pos.temaSecundario !== pos.temaPrincipal) {
       // Split 50/50 entre principal y secundario: cada uno carga w/2 de maxScore,
